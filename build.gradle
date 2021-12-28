@@ -1,0 +1,55 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.buildConfig = [
+            'compileSdk': 31,
+            'minSdk'    : 21,
+            'targetSdk' : 31,
+
+            'version'   : [
+                    'major': 0,
+                    'minor': 0,
+                    'patch': 1,
+                    'build': 0,
+            ],
+    ]
+
+    ext.buildConfig.version['name'] = "${buildConfig.version.major}.${buildConfig.version.minor}.${buildConfig.version.patch}"
+    ext.buildConfig.version['fullName'] = "${buildConfig.version.name}.${buildConfig.version.build}"
+    ext.buildConfig.version['code'] = buildConfig.version.major * 1000000 + buildConfig.version.minor * 10000 + buildConfig.version.patch * 100 + buildConfig.version.build
+
+    ext.versions = [
+            'kotlin'     : [
+                    'core'      : '1.6.10',
+                    'coroutines': '1.5.1'
+            ],
+            'dagger'     : [
+                    'core': '2.40.5'
+            ],
+            'androidx'   : [
+                    'navigation': '2.3.5'
+            ],
+    ]
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin.core}"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:${versions.dagger.core}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.androidx.navigation}"
+        classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
