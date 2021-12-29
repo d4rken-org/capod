@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="eu.darken.cap">
+    package="eu.darken.capod">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name="eu.darken.cap.App"
+        android:name="eu.darken.capod.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="eu.darken.cap.main.ui.MainActivity"
+            android:name="eu.darken.capod.main.ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -31,7 +31,7 @@
         </activity>
 
         <receiver
-            android:name="eu.darken.cap.monitor.core.receiver.BluetoothEventReceiver"
+            android:name="eu.darken.capod.monitor.core.receiver.BluetoothEventReceiver"
             android:enabled="true"
             android:exported="true"
             android:label="Service trigger">
@@ -55,10 +55,10 @@
 
         <!-- Debug stuff-->
         <activity
-            android:name=".common.debug.recording.ui.RecorderActivity"
+            android:name="eu.darken.capod.common.debug.recording.ui.RecorderActivity"
             android:theme="@style/AppThemeFloating" />
 
-        <service android:name=".common.debug.recording.core.RecorderService" />
+        <service android:name="eu.darken.capod.common.debug.recording.core.RecorderService" />
 
         <!-- Worker stuff-->
         <service

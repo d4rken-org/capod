@@ -1,6 +1,6 @@
 package testhelper.coroutine
 
-import eu.darken.cap.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.log
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineScope

@@ -1,6 +1,6 @@
 package testhelpers.preferences
 
-import eu.darken.cap.common.preferences.FlowPreference
+import eu.darken.capod.common.preferences.FlowPreference
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -1,8 +1,8 @@
 package testhelpers
 
-import eu.darken.cap.common.debug.logging.Logging
-import eu.darken.cap.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.cap.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.Logging
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.log
 import io.mockk.unmockkAll
 import org.junit.AfterClass
 import testhelpers.logging.JUnitLogger

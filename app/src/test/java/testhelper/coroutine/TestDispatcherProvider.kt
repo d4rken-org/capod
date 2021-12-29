@@ -1,6 +1,6 @@
 package testhelper.coroutine
 
-import eu.darken.cap.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.coroutine.DispatcherProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlin.coroutines.CoroutineContext

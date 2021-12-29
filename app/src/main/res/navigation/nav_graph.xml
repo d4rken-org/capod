@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/overviewFragment"
-        android:name="eu.darken.cap.main.ui.MainFragment"
+        android:name="eu.darken.capod.main.ui.MainFragment"
         tools:layout="@layout/main_fragment">
 
     </fragment>

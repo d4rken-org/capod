@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host"
-        android:name="eu.darken.cap.main.ui.MainFragment"
+        android:name="eu.darken.capod.main.ui.MainFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
