@@ -13,4 +13,6 @@ object BuildConfigWrap {
     val VERSION_CODE: Long = BuildConfig.VERSION_CODE.toLong()
     val VERSION_NAME: String = BuildConfig.VERSION_NAME
     val GIT_SHA: String = BuildConfig.GITSHA
+
+    val VERSION_DESCRIPTION: String = "v$VERSION_NAME ($VERSION_CODE) [$GIT_SHA]"
 }

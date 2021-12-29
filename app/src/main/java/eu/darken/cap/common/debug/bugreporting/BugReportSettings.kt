@@ -1,4 +1,4 @@
-package eu.darken.cap.bugreporting
+package eu.darken.cap.common.debug.bugreporting
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext

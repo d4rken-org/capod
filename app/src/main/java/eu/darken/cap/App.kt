@@ -5,8 +5,8 @@ import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.HiltAndroidApp
-import eu.darken.cap.bugreporting.BugReporter
 import eu.darken.cap.common.coroutine.AppScope
+import eu.darken.cap.common.debug.bugreporting.BugReporter
 import eu.darken.cap.common.debug.logging.*
 import eu.darken.cap.monitor.core.worker.MonitorControl
 import kotlinx.coroutines.CoroutineScope

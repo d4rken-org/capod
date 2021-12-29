@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.cap.common.coroutine.DispatcherProvider
+import eu.darken.cap.common.debug.recording.core.RecorderModule
 import eu.darken.cap.common.hasApiLevel
 import eu.darken.cap.common.livedata.SingleLiveEvent
 import eu.darken.cap.common.permissions.Permission
@@ -22,6 +23,7 @@ class MainFragmentVM @Inject constructor(
     handle: SavedStateHandle,
     @ApplicationContext private val context: Context,
     dispatcherProvider: DispatcherProvider,
+    private val recorderModule: RecorderModule,
 ) : Smart2VM(dispatcherProvider = dispatcherProvider) {
 
 
@@ -63,6 +65,14 @@ class MainFragmentVM @Inject constructor(
 
     fun onPermissionResult(granted: Boolean) {
         if (granted) permissionCheckTrigger.value = UUID.randomUUID()
+    }
+
+    fun toggleDebugLog() = launch {
+        recorderModule.startRecorder()
+    }
+
+    fun goToSettings() = launch {
+
     }
 
 }

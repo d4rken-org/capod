@@ -7,4 +7,12 @@
     <string name="notification_channel_device_status_label">Device status</string>
     <string name="permission_bluetooth_scan_label">BLUETOOTH SCAN</string>
     <string name="permission_bluetooth_scan_description">Required to be able to discover and pair nearby Bluetooth devices.</string>
+    <string name="general_share_action">Share</string>
+    <string name="general_done_action">Done</string>
+    <string name="debug_debuglog_size_label">Size</string>
+    <string name="debug_debuglog_size_compressed_label">Compressed size</string>
+    <string name="debug_notification_channel_label">Debug notifications</string>
+    <string name="debug_debuglog_file_label">Recorded log file</string>
+    <string name="debug_debuglog_record_action">Record debug log</string>
+    <string name="general_settings_label">Settings</string>
 </resources>

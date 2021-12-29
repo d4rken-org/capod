@@ -19,6 +19,15 @@ Supported models:
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.cap)
 * [GitHub](https://github.com/d4rken/android-airpods-companion/releases/latest)
 
+## Use CAP as a library
+
+AirPods use Apple's Continuity Protocol to communicate, specifically the Proximity Pairing Message type. If you want to
+build your own app based on this, you can include it like this:
+
+```groovy
+// TODO
+```
+
 ## Get help
 
 * [Github Issues](https://github.com/d4rken/android-airpods-companion/issues)

@@ -40,8 +40,22 @@ class MainFragment : Smart2Fragment(R.layout.main_fragment) {
 
         ui.apply {
             list.setupDefaults(adapter)
-            toolbar.subtitle =
-                "v${BuildConfigWrap.VERSION_NAME} (${BuildConfigWrap.VERSION_CODE}) [${BuildConfigWrap.GIT_SHA}]"
+        }
+        ui.toolbar.apply {
+            subtitle = BuildConfigWrap.VERSION_DESCRIPTION
+            setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.menu_item_debuglog -> {
+                        vm.toggleDebugLog()
+                        true
+                    }
+                    R.id.menu_item_settings -> {
+                        vm.goToSettings()
+                        true
+                    }
+                    else -> false
+                }
+            }
         }
 
         vm.listItems.observe2(ui) {

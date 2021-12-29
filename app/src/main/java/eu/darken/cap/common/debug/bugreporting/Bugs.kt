@@ -1,4 +1,4 @@
-package eu.darken.cap.bugreporting
+package eu.darken.cap.common.debug.bugreporting
 
 import com.bugsnag.android.Bugsnag
 import eu.darken.cap.common.debug.logging.Logging.Priority.VERBOSE

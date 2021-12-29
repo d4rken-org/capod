@@ -8,7 +8,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
-import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.work.ForegroundInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -17,6 +16,7 @@ import eu.darken.cap.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.cap.common.debug.logging.log
 import eu.darken.cap.common.debug.logging.logTag
 import eu.darken.cap.common.hasApiLevel
+import eu.darken.cap.common.notifications.PendingIntentCompat
 import eu.darken.cap.main.ui.MainActivity
 import eu.darken.cap.pods.core.PodDevice
 import javax.inject.Inject
@@ -30,21 +30,19 @@ class MonitorNotifications @Inject constructor(
     private val builder: NotificationCompat.Builder
 
     init {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                NOTIFICATION_CHANNEL_ID,
-                context.getString(R.string.notification_channel_device_status_label),
-                NotificationManager.IMPORTANCE_LOW
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
+        NotificationChannel(
+            NOTIFICATION_CHANNEL_ID,
+            context.getString(R.string.notification_channel_device_status_label),
+            NotificationManager.IMPORTANCE_LOW
+        ).run { notificationManager.createNotificationChannel(this) }
 
         val openIntent = Intent(context, MainActivity::class.java)
-        val openPi = if (hasApiLevel(31)) {
-            PendingIntent.getActivity(context, 0, openIntent, PendingIntent.FLAG_IMMUTABLE)
-        } else {
-            PendingIntent.getActivity(context, 0, openIntent, 0)
-        }
+        val openPi = PendingIntent.getActivity(
+            context,
+            0,
+            openIntent,
+            PendingIntentCompat.FLAG_IMMUTABLE
+        )
 
         builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
             .setChannelId(NOTIFICATION_CHANNEL_ID)

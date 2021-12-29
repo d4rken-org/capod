@@ -11,9 +11,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name="eu.darken.cap.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:name="eu.darken.cap.App"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -21,8 +21,8 @@
 
         <activity
             android:name="eu.darken.cap.main.ui.MainActivity"
-            android:label="@string/app_name"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,6 +43,24 @@
             </intent-filter>
         </receiver>
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
+
+        <!-- Debug stuff-->
+        <activity
+            android:name=".common.debug.recording.ui.RecorderActivity"
+            android:theme="@style/AppThemeFloating" />
+
+        <service android:name=".common.debug.recording.core.RecorderService" />
+
+        <!-- Worker stuff-->
         <service
             android:name="androidx.work.impl.foreground.SystemForegroundService"
             android:foregroundServiceType="connectedDevice"
@@ -51,7 +69,7 @@
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
-            tools:node="remove"></provider>
+            tools:node="remove" />
     </application>
 
 </manifest>

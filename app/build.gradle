@@ -105,6 +105,7 @@ android {
                     "-Xuse-experimental=kotlinx.coroutines.FlowPreview",
                     "-Xuse-experimental=kotlin.time.ExperimentalTime",
                     "-Xuse-experimental=kotlin.ExperimentalUnsignedTypes",
+                    "-Xuse-experimental=kotlin.contracts.ExperimentalContracts",
                     "-Xopt-in=kotlin.RequiresOptIn"
             ]
         }

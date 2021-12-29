@@ -3,6 +3,7 @@ package eu.darken.cap.common.smart
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
 import eu.darken.cap.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.cap.common.debug.logging.log
 import eu.darken.cap.common.debug.logging.logTag
@@ -34,6 +35,10 @@ abstract class SmartActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         log(tag, VERBOSE) { "onActivityResult(requestCode=$requestCode, resultCode=$resultCode, data=$data)" }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    fun <T> LiveData<T>.observe2(callback: (T) -> Unit) {
+        observe(this@SmartActivity) { callback.invoke(it) }
     }
 
 }

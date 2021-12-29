@@ -2,7 +2,7 @@ package eu.darken.cap.pods.core.airpods
 
 import android.bluetooth.le.ScanResult
 import dagger.Reusable
-import eu.darken.cap.bugreporting.Bugs
+import eu.darken.cap.common.debug.bugreporting.Bugs
 import eu.darken.cap.common.debug.logging.Logging.Priority.INFO
 import eu.darken.cap.common.debug.logging.Logging.Priority.WARN
 import eu.darken.cap.common.debug.logging.asLog
