@@ -9,11 +9,11 @@ import androidx.core.view.isInvisible
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.error.asErrorDialogBuilder
-import eu.darken.capod.common.smart.SmartActivity
+import eu.darken.capod.common.uix.Activity2
 import eu.darken.capod.databinding.DebugRecordingActivityBinding
 
 @AndroidEntryPoint
-class RecorderActivity : SmartActivity() {
+class RecorderActivity : Activity2() {
 
     private lateinit var ui: DebugRecordingActivityBinding
     private val vm: RecorderActivityVM by viewModels()

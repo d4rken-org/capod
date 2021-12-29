@@ -1,4 +1,4 @@
-package eu.darken.capod.common.smart
+package eu.darken.capod.common.uix
 
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -9,16 +9,15 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.error.ErrorEventSource
 import eu.darken.capod.common.flow.DynamicStateFlow
-import eu.darken.capod.common.viewmodel.VM
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlin.coroutines.CoroutineContext
 
 
-abstract class SmartVM(
+abstract class ViewModel2(
     private val dispatcherProvider: DispatcherProvider = DefaultDispatcherProvider(),
-) : VM() {
+) : ViewModel1() {
 
     val vmScope = viewModelScope + dispatcherProvider.Default
 

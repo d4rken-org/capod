@@ -16,7 +16,7 @@ import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.onError
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.livedata.SingleLiveEvent
-import eu.darken.capod.common.smart.Smart2VM
+import eu.darken.capod.common.uix.ViewModel3
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -30,7 +30,7 @@ class RecorderActivityVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
-) : Smart2VM(dispatcherProvider) {
+) : ViewModel3(dispatcherProvider) {
 
     private val recordedPath = handle.get<String>(RecorderActivity.RECORD_PATH)!!
     private val pathCache = MutableStateFlow(recordedPath)

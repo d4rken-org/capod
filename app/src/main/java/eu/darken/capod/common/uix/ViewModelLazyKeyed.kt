@@ -1,4 +1,4 @@
-package eu.darken.capod.common.viewmodel
+package eu.darken.capod.common.uix
 
 /*
  * Copyright 2018 The Android Open Source Project

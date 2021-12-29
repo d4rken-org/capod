@@ -1,4 +1,4 @@
-package eu.darken.capod.common.smart
+package eu.darken.capod.common.uix
 
 import android.os.Bundle
 import android.view.View
@@ -11,12 +11,12 @@ import eu.darken.capod.common.navigation.doNavigate
 import eu.darken.capod.common.navigation.popBackStack
 
 
-abstract class Smart2Fragment(@LayoutRes layoutRes: Int?) : SmartFragment(layoutRes) {
+abstract class Fragment3(@LayoutRes layoutRes: Int?) : Fragment2(layoutRes) {
 
     constructor() : this(null)
 
     abstract val ui: ViewBinding?
-    abstract val vm: Smart2VM
+    abstract val vm: ViewModel3
 
     var onErrorEvent: ((Throwable) -> Boolean)? = null
 

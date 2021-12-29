@@ -11,7 +11,7 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGranted
-import eu.darken.capod.common.smart.Smart2VM
+import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.ui.cards.PermissionCardVH
 import eu.darken.capod.main.ui.cards.ToggleCardVH
 import kotlinx.coroutines.flow.*
@@ -24,7 +24,7 @@ class MainFragmentVM @Inject constructor(
     @ApplicationContext private val context: Context,
     dispatcherProvider: DispatcherProvider,
     private val recorderModule: RecorderModule,
-) : Smart2VM(dispatcherProvider = dispatcherProvider) {
+) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
 
     private val enabledState: Flow<Boolean> = flow {

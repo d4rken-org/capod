@@ -1,4 +1,4 @@
-package eu.darken.capod.common.smart
+package eu.darken.capod.common.uix
 
 import androidx.navigation.NavDirections
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -13,9 +13,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 
 
-abstract class Smart2VM(
+abstract class ViewModel3(
     dispatcherProvider: DispatcherProvider,
-) : SmartVM(dispatcherProvider), NavEventSource, ErrorEventSource {
+) : ViewModel2(dispatcherProvider), NavEventSource, ErrorEventSource {
 
     override val navEvents = SingleLiveEvent<NavDirections?>()
     override val errorEvents = SingleLiveEvent<Throwable>()

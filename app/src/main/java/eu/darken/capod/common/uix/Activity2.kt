@@ -1,4 +1,4 @@
-package eu.darken.capod.common.smart
+package eu.darken.capod.common.uix
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 
-abstract class SmartActivity : AppCompatActivity() {
+abstract class Activity2 : AppCompatActivity() {
     internal val tag: String =
         logTag("Activity", this.javaClass.simpleName + "(" + Integer.toHexString(hashCode()) + ")")
 
@@ -38,7 +38,7 @@ abstract class SmartActivity : AppCompatActivity() {
     }
 
     fun <T> LiveData<T>.observe2(callback: (T) -> Unit) {
-        observe(this@SmartActivity) { callback.invoke(it) }
+        observe(this@Activity2) { callback.invoke(it) }
     }
 
 }

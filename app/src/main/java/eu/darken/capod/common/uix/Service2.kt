@@ -1,4 +1,4 @@
-package eu.darken.capod.common.smart
+package eu.darken.capod.common.uix
 
 import android.app.Service
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.content.res.Configuration
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 
-abstract class SmartService : Service() {
+abstract class Service2 : Service() {
     private val tag: String =
         logTag("Service", this.javaClass.simpleName + "(" + Integer.toHexString(this.hashCode()) + ")")
 

@@ -11,13 +11,13 @@ import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lists.differ.update
 import eu.darken.capod.common.lists.setupDefaults
-import eu.darken.capod.common.smart.Smart2Fragment
+import eu.darken.capod.common.uix.Fragment3
 import eu.darken.capod.common.viewbinding.viewBinding
 import eu.darken.capod.databinding.MainFragmentBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainFragment : Smart2Fragment(R.layout.main_fragment) {
+class MainFragment : Fragment3(R.layout.main_fragment) {
 
     override val vm: MainFragmentVM by viewModels()
     override val ui: MainFragmentBinding by viewBinding()

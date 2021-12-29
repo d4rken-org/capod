@@ -14,7 +14,7 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
-import eu.darken.capod.common.smart.SmartService
+import eu.darken.capod.common.uix.Service2
 import eu.darken.capod.main.ui.MainActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -26,7 +26,7 @@ import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class RecorderService : SmartService() {
+class RecorderService : Service2() {
     private lateinit var builder: NotificationCompat.Builder
 
     @Inject lateinit var recorderModule: RecorderModule
