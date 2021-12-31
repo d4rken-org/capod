@@ -1,13 +1,14 @@
-package eu.darken.capod.common.debug.bugreporting
+package eu.darken.capod.common.debug.autoreport
 
 import android.content.Context
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.Configuration
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.InstallId
-import eu.darken.capod.common.debug.bugsnag.BugsnagErrorHandler
-import eu.darken.capod.common.debug.bugsnag.BugsnagLogger
-import eu.darken.capod.common.debug.bugsnag.NOPBugsnagErrorHandler
+import eu.darken.capod.common.debug.Bugs
+import eu.darken.capod.common.debug.autoreport.bugsnag.BugsnagErrorHandler
+import eu.darken.capod.common.debug.autoreport.bugsnag.BugsnagLogger
+import eu.darken.capod.common.debug.autoreport.bugsnag.NOPBugsnagErrorHandler
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -16,9 +17,9 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class BugReporter @Inject constructor(
+class AutoReporting @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val bugReportSettings: BugReportSettings,
+    private val debugSettings: DebugSettings,
     private val installId: InstallId,
     private val bugsnagLogger: Provider<BugsnagLogger>,
     private val bugsnagErrorHandler: Provider<BugsnagErrorHandler>,
@@ -26,12 +27,12 @@ class BugReporter @Inject constructor(
 ) {
 
     fun setup() {
-        val isEnabled = bugReportSettings.isEnabled.value
+        val isEnabled = debugSettings.isAutoReportEnabled.value
         log(TAG) { "setup(): isEnabled=$isEnabled" }
 
         try {
             val bugsnagConfig = Configuration.load(context).apply {
-                if (bugReportSettings.isEnabled.value) {
+                if (debugSettings.isAutoReportEnabled.value) {
                     Logging.install(bugsnagLogger.get())
                     setUser(installId.id, null, null)
                     autoTrackSessions = true
@@ -52,6 +53,6 @@ class BugReporter @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("BugReporter")
+        private val TAG = logTag("Debug", "AutoReport")
     }
 }

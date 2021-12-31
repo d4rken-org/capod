@@ -1,13 +1,13 @@
-package eu.darken.capod.main.ui.cards
+package eu.darken.capod.main.ui.overview.cards
 
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.databinding.MainPermissionItemBinding
-import eu.darken.capod.main.ui.MainAdapter
+import eu.darken.capod.main.ui.overview.OverviewAdapter
 
 class PermissionCardVH(parent: ViewGroup) :
-    MainAdapter.BaseVH<PermissionCardVH.Item, MainPermissionItemBinding>(
+    OverviewAdapter.BaseVH<PermissionCardVH.Item, MainPermissionItemBinding>(
         R.layout.main_permission_item,
         parent
     ) {
@@ -28,7 +28,7 @@ class PermissionCardVH(parent: ViewGroup) :
     data class Item(
         val permission: Permission,
         val onRequest: (Permission) -> Unit
-    ) : MainAdapter.Item {
+    ) : OverviewAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }
 }

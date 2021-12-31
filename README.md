@@ -19,15 +19,6 @@ Supported models:
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
 * [GitHub](https://github.com/d4rken/android-airpods-companion/releases/latest)
 
-## Use CAPod as a library
-
-AirPods use Apple's Continuity Protocol to communicate, specifically the Proximity Pairing Message type. If you want to
-build your own app based on this, you can include it like this:
-
-```groovy
-// TODO
-```
-
 ## Get help
 
 * [Github Issues](https://github.com/d4rken/android-airpods-companion/issues)
@@ -42,5 +33,5 @@ CAPod's code is available under a GPL v3 license, this excludes:
 * CAPod icons, logos, mascots and marketing materials.
 * CAPod animations and videos.
 * CAPod documentation.
-* Google Play store screenshots.
-* Google Play store texts & descriptions.
+* Google Play screenshots.
+* Google Play texts & descriptions.

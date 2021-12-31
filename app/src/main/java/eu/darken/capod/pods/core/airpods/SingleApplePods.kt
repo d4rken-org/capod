@@ -4,8 +4,10 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
+import eu.darken.capod.pods.core.DualPods
+import eu.darken.capod.pods.core.DualPods.Pod
 
-interface AirPodsDevice : ApplePods {
+interface SingleApplePods : ApplePods, DualPods {
 
     val tag: String
 
@@ -34,18 +36,13 @@ interface AirPodsDevice : ApplePods {
     val rawSuffix: UByte
         get() = proximityMessage.data[8]
 
-    val microPhonePod: Pod
+    override val microPhonePod: Pod
         get() = when (rawStatus.isBitSet(5)) {
             true -> Pod.LEFT
             false -> Pod.RIGHT
         }
 
-    enum class Pod {
-        LEFT,
-        RIGHT
-    }
-
-    val batteryLeftPodPercent: Float?
+    override val batteryLeftPodPercent: Float?
         get() {
             val value = when (microPhonePod) {
                 Pod.LEFT -> rawPodsBattery.lowerNibble.toInt()
@@ -53,7 +50,7 @@ interface AirPodsDevice : ApplePods {
             }
             return when (value) {
                 15 -> null
-                else -> if (value >= 10) {
+                else -> if (value > 10) {
                     log(tag) { "Left pod: Above 100% battery: $value" }
                     1.0f
                 } else {
@@ -62,7 +59,7 @@ interface AirPodsDevice : ApplePods {
             }
         }
 
-    val batteryRightPodPercent: Float?
+    override val batteryRightPodPercent: Float?
         get() {
             val value = when (microPhonePod) {
                 Pod.LEFT -> rawPodsBattery.upperNibble.toInt()
@@ -79,7 +76,7 @@ interface AirPodsDevice : ApplePods {
             }
         }
 
-    val batteryCasePercent: Float?
+    override val batteryCasePercent: Float?
         get() = when (val value = rawCaseBattery.lowerNibble.toInt()) {
             15 -> null
             else -> if (value > 10) {
@@ -90,13 +87,13 @@ interface AirPodsDevice : ApplePods {
             }
         }
 
-    val isLeftPodInEar: Boolean
+    override val isLeftPodInEar: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawStatus.isBitSet(1)
             Pod.RIGHT -> rawStatus.isBitSet(3)
         }
 
-    val isRightPodInEar: Boolean
+    override val isRightPodInEar: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawStatus.isBitSet(3)
             Pod.RIGHT -> rawStatus.isBitSet(1)
@@ -125,16 +122,16 @@ interface AirPodsDevice : ApplePods {
     // 1110011 0x73 115 Left in Case, Right in Ear
 
 
-    val isCaseCharging: Boolean
+    override val isCaseCharging: Boolean
         get() = rawCaseBattery.upperNibble.isBitSet(2)
 
-    val isLeftPodCharging: Boolean
+    override val isLeftPodCharging: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawCaseBattery.upperNibble.isBitSet(0)
             Pod.RIGHT -> rawCaseBattery.upperNibble.isBitSet(1)
         }
 
-    val isRightPodCharging: Boolean
+    override val isRightPodCharging: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawCaseBattery.upperNibble.isBitSet(1)
             Pod.RIGHT -> rawCaseBattery.upperNibble.isBitSet(0)

@@ -1,7 +1,8 @@
 package eu.darken.capod.pods.core.airpods.models
 
-import eu.darken.capod.pods.core.airpods.AirPodsDevice
+import eu.darken.capod.pods.core.DualPods
 import eu.darken.capod.pods.core.airpods.BaseAirPodsTest
+import eu.darken.capod.pods.core.airpods.DualApplePods
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Test
@@ -21,7 +22,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             rawDeviceColor shouldBe 0x00.toUByte()
             rawSuffix shouldBe 0x00.toUByte()
 
-            microPhonePod shouldBe AirPodsDevice.Pod.RIGHT
+            microPhonePod shouldBe DualPods.Pod.RIGHT
 
             batteryLeftPodPercent shouldBe 1.0f
             batteryRightPodPercent shouldBe 1.0f
@@ -31,14 +32,14 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe true
             batteryCasePercent shouldBe 0.5f
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
     }
 
     @Test
     fun `test AirPods from my downstairs neighbour`() = runBlockingTest {
         create<AirPodsPro>("07 19 01 0E 20 00 F3 8F 02 00 04 79 C6 3F F9 C3 15 D9 11 A1 3C B1 58 66 B9 8B 67") {
-            microPhonePod shouldBe AirPodsDevice.Pod.RIGHT
+            microPhonePod shouldBe DualPods.Pod.RIGHT
 
             batteryLeftPodPercent shouldBe null
             batteryRightPodPercent shouldBe 0.3f
@@ -48,7 +49,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
     }
 
@@ -64,7 +65,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e202b668f01000500000000000000000000000000000000") {
@@ -76,7 +77,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e202b668f01000400000000000000000000000000000000") {
@@ -88,7 +89,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e200b668f01000500000000000000000000000000000000") {
@@ -100,7 +101,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e2003668f01000500000000000000000000000000000000") {
@@ -112,7 +113,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e2001668f01000500000000000000000000000000000000") {
@@ -124,7 +125,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e2009668f01000500000000000000000000000000000000") {
@@ -136,7 +137,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e2053669653000500000000000000000000000000000000") {
@@ -148,7 +149,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe 0.6f
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e203366a602000500000000000000000000000000000000") {
@@ -160,7 +161,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe 0.6f
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
 
         create<AirPodsPro>("0719010e202b768f02000500000000000000000000000000000000") {
@@ -172,7 +173,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe null
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
     }
 
@@ -188,7 +189,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe false
             batteryCasePercent shouldBe 0.6f
 
-            deviceColor shouldBe AirPodsDevice.DeviceColor.WHITE
+            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
     }
 }

@@ -8,17 +8,21 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dagger.hilt.EntryPoints
-import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.Bugs
+import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.permissions.Permission
+import eu.darken.capod.common.permissions.isGrantedOrNotRequired
 import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.MonitorSettings
 import eu.darken.capod.monitor.ui.MonitorNotifications
-import eu.darken.capod.pods.core.airpods.ContinuityProtocol
+import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 
@@ -30,6 +34,7 @@ class MonitorWorker @AssistedInject constructor(
     monitorComponentBuilder: MonitorComponent.Builder,
     private val monitorNotifications: MonitorNotifications,
     private val notificationManager: NotificationManager,
+    private val monitorSettings: MonitorSettings,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -53,66 +58,80 @@ class MonitorWorker @AssistedInject constructor(
         log(TAG, VERBOSE) { "init(): workerId=$id" }
     }
 
-    override suspend fun doWork(): Result = try {
-        val start = System.currentTimeMillis()
-        log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
+    override suspend fun doWork(): Result {
+        try {
+            val start = System.currentTimeMillis()
+            log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
 
-        bluetoothManager2
-            .isBluetoothEnabled
-            .flatMapLatest { bluetoothManager2.connectedDevices() }
-            .map { devices ->
-                devices.any { device ->
-                    ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature ->
-                        device.hasFeature(feature)
+            val missingPermissions = Permission.values().filter { !it.isGrantedOrNotRequired(context) }
+            if (missingPermissions.isNotEmpty()) {
+                log(TAG, WARN) { "Aborting, missing permissions: $missingPermissions" }
+                return Result.success()
+            }
+
+            bluetoothManager2
+                .isBluetoothEnabled
+                .flatMapLatest { bluetoothManager2.connectedDevices() }
+                .map { devices ->
+                    devices.any { device ->
+                        ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature ->
+                            device.hasFeature(feature)
+                        }
                     }
                 }
-            }
-            .setupCommonEventHandlers(TAG) { "ConnectedDevices" }
-            .flatMapLatest { arePodsConnected ->
-                flow<Unit> {
-                    if (arePodsConnected) {
-                        log(TAG) { "Pods are connected, aborting any timeout." }
-                    } else {
-                        log(TAG) { "No Pods are connected, canceling worker soon." }
-                        delay(60 * 1000)
-                        log(TAG) { "Canceling worker now, still no Pods connected." }
-                        // FIXME
-//                        workerScope.coroutineContext.cancelChildren()
+                .setupCommonEventHandlers(TAG) { "ConnectedDevices" }
+                .flatMapLatest { arePodsConnected ->
+                    log(TAG) { "Monitor mode: ${monitorSettings.mode}" }
+                    when (monitorSettings.mode) {
+                        MonitorSettings.Mode.MANUAL -> emptyFlow()
+                        MonitorSettings.Mode.ALWAYS -> emptyFlow()
+                        MonitorSettings.Mode.AUTOMATIC -> flow<Unit> {
+                            if (arePodsConnected) {
+                                log(TAG) { "Pods are connected, aborting any timeout." }
+                            } else {
+                                log(TAG) { "No Pods are connected, canceling worker soon." }
+                                delay(60 * 1000)
+                                log(TAG) { "Canceling worker now, still no Pods connected." }
+
+                                workerScope.coroutineContext.cancelChildren()
+                            }
+                        }
                     }
                 }
-            }
-            .launchIn(workerScope)
+                .launchIn(workerScope)
 
 
-        val monitorJob = podMonitor.pods
-            .setupCommonEventHandlers(TAG) { "PodMonitor" }
-            .onStart {
-                setForeground(monitorNotifications.getForegroundInfo(null))
-            }
-            .onEach {
-                notificationManager.notify(
-                    MonitorNotifications.NOTIFICATION_ID,
-                    monitorNotifications.getNotification(it.firstOrNull())
-                )
-            }
-            .launchIn(workerScope)
+            val monitorJob = podMonitor.pods
+                .setupCommonEventHandlers(TAG) { "PodMonitor" }
+                .onStart {
+                    setForeground(monitorNotifications.getForegroundInfo(null))
+                }
+                .onEach {
+                    notificationManager.notify(
+                        MonitorNotifications.NOTIFICATION_ID,
+                        monitorNotifications.getNotification(it.firstOrNull())
+                    )
+                }
+                .launchIn(workerScope)
 
-        log(TAG, VERBOSE) { "monitor job is active" }
-        monitorJob.join()
-        log(TAG, VERBOSE) { "monitor job quit" }
+            log(TAG, VERBOSE) { "Monitor job is active" }
+            monitorJob.join()
+            log(TAG, VERBOSE) { "Monitor job quit" }
 
-        val duration = System.currentTimeMillis() - start
+            val duration = System.currentTimeMillis() - start
 
-        log(TAG, VERBOSE) { "Execution finished after ${duration}ms, $inputData" }
+            log(TAG, VERBOSE) { "Execution finished after ${duration}ms, $inputData" }
 
-        Result.success(inputData)
-    } catch (e: Throwable) {
-        log(TAG, ERROR) { "Execution failed:\n${e.asLog()}" }
-        finishedWithError = true
-        // TODO update result?
-        Result.failure(inputData)
-    } finally {
-        this.workerScope.cancel("Worker finished (withError?=$finishedWithError).")
+            return Result.success(inputData)
+        } catch (e: Throwable) {
+            log(TAG, ERROR) { "Execution failed:\n${e.asLog()}" }
+            Bugs.report(e)
+            finishedWithError = true
+            // TODO update result?
+            return Result.failure(inputData)
+        } finally {
+            this.workerScope.cancel("Worker finished (withError?=$finishedWithError).")
+        }
     }
 
     companion object {

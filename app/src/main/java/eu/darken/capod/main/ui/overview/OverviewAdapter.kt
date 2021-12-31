@@ -1,4 +1,4 @@
-package eu.darken.capod.main.ui
+package eu.darken.capod.main.ui.overview
 
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -11,20 +11,22 @@ import eu.darken.capod.common.lists.differ.setupDiffer
 import eu.darken.capod.common.lists.modular.ModularAdapter
 import eu.darken.capod.common.lists.modular.mods.DataBinderMod
 import eu.darken.capod.common.lists.modular.mods.TypedVHCreatorMod
-import eu.darken.capod.main.ui.cards.PermissionCardVH
-import eu.darken.capod.main.ui.cards.ToggleCardVH
+import eu.darken.capod.main.ui.overview.cards.DualApplePodsCardVH
+import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
+import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCardVH
 import javax.inject.Inject
 
-class MainAdapter @Inject constructor() :
-    ModularAdapter<MainAdapter.BaseVH<MainAdapter.Item, ViewBinding>>(),
-    HasAsyncDiffer<MainAdapter.Item> {
+class OverviewAdapter @Inject constructor() :
+    ModularAdapter<OverviewAdapter.BaseVH<OverviewAdapter.Item, ViewBinding>>(),
+    HasAsyncDiffer<OverviewAdapter.Item> {
 
     override val asyncDiffer: AsyncDiffer<*, Item> = setupDiffer()
 
     init {
         modules.add(DataBinderMod(data))
-        modules.add(TypedVHCreatorMod({ data[it] is ToggleCardVH.Item }) { ToggleCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is PermissionCardVH.Item }) { PermissionCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is DualApplePodsCardVH.Item }) { DualApplePodsCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
     }
 
     override fun getItemCount(): Int = data.size

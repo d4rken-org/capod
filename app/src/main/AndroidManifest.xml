@@ -3,15 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="eu.darken.capod">
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+
+    <!--    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />-->
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
 
     <application
-        android:name="eu.darken.capod.App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +38,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="eu.darken.capod.main.ui.MainActivity"
+            android:name=".main.ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
@@ -31,7 +49,7 @@
         </activity>
 
         <receiver
-            android:name="eu.darken.capod.monitor.core.receiver.BluetoothEventReceiver"
+            android:name=".monitor.core.receiver.BluetoothEventReceiver"
             android:enabled="true"
             android:exported="true"
             android:label="Service trigger">
@@ -55,10 +73,10 @@
 
         <!-- Debug stuff-->
         <activity
-            android:name="eu.darken.capod.common.debug.recording.ui.RecorderActivity"
+            android:name=".common.debug.recording.ui.RecorderActivity"
             android:theme="@style/AppThemeFloating" />
 
-        <service android:name="eu.darken.capod.common.debug.recording.core.RecorderService" />
+        <service android:name=".common.debug.recording.core.RecorderService" />
 
         <!-- Worker stuff-->
         <service
@@ -70,6 +88,10 @@
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             tools:node="remove" />
+
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="${bugsnagApiKey}" />
     </application>
 
 </manifest>

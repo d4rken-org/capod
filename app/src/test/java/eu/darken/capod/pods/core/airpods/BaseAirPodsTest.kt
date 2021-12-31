@@ -4,6 +4,8 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.ScanRecord
 import android.bluetooth.le.ScanResult
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.airpods.protocol.ProximityPairing
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK

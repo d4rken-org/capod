@@ -2,7 +2,7 @@ package eu.darken.capod.pods.core.airpods
 
 import android.bluetooth.le.ScanResult
 import dagger.Reusable
-import eu.darken.capod.common.debug.bugreporting.Bugs
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
@@ -13,6 +13,8 @@ import eu.darken.capod.pods.core.airpods.models.AirPodsGen1
 import eu.darken.capod.pods.core.airpods.models.AirPodsGen2
 import eu.darken.capod.pods.core.airpods.models.AirPodsPro
 import eu.darken.capod.pods.core.airpods.models.UnknownAppleDevice
+import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.airpods.protocol.ProximityPairing
 import javax.inject.Inject
 
 @Reusable

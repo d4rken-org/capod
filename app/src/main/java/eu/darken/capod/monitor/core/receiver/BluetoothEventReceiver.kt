@@ -13,7 +13,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.airpods.ContinuityProtocol
+import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject

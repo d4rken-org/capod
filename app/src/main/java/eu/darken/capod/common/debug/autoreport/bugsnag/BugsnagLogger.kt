@@ -1,4 +1,4 @@
-package eu.darken.capod.common.debug.bugsnag
+package eu.darken.capod.common.debug.autoreport.bugsnag
 
 import com.bugsnag.android.Event
 import eu.darken.capod.common.debug.logging.Logging

@@ -1,4 +1,4 @@
-package eu.darken.capod.main.ui
+package eu.darken.capod.main.ui.overview
 
 import android.os.Bundle
 import android.view.View
@@ -17,13 +17,13 @@ import eu.darken.capod.databinding.MainFragmentBinding
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainFragment : Fragment3(R.layout.main_fragment) {
+class OverviewFragment : Fragment3(R.layout.main_fragment) {
 
-    override val vm: MainFragmentVM by viewModels()
+    override val vm: OverviewFragmentVM by viewModels()
     override val ui: MainFragmentBinding by viewBinding()
 
     @Inject
-    lateinit var adapter: MainAdapter
+    lateinit var adapter: OverviewAdapter
 
     lateinit var permissionLauncher: ActivityResultLauncher<String>
 
@@ -37,10 +37,10 @@ class MainFragment : Fragment3(R.layout.main_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         ui.apply {
             list.setupDefaults(adapter)
         }
+
         ui.toolbar.apply {
             subtitle = BuildConfigWrap.VERSION_DESCRIPTION
             setOnMenuItemClickListener {

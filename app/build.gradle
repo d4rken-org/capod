@@ -12,9 +12,13 @@ def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim
 def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("GMT+1"))
 
 android {
-    def packageName = "eu.darken.cap"
+    def packageName = "eu.darken.capod"
 
     compileSdkVersion buildConfig.compileSdk
+
+    Properties bugsnagProps = new Properties()
+    def bugsnagPropsFile = new File(System.properties['user.home'], ".appconfig/${packageName}/bugsnag.properties")
+    if (bugsnagPropsFile.canRead()) bugsnagProps.load(new FileInputStream(bugsnagPropsFile))
 
     defaultConfig {
         applicationId "${packageName}"
@@ -29,6 +33,8 @@ android {
 
         buildConfigField "String", "GITSHA", "\"${gitSha}\""
         buildConfigField "String", "BUILDTIME", "\"${buildTime}\""
+
+        manifestPlaceholders = [bugsnagApiKey: "fake"]
     }
 
     signingConfigs {
@@ -51,12 +57,12 @@ android {
     buildTypes {
         def proguardRulesRelease = fileTree(dir: "../proguard", include: ["*.pro"]).asList().toArray()
         debug {
-            ext.enableBugsnag = false
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
             proguardFiles proguardRulesRelease
             proguardFiles 'proguard-rules-debug.pro'
+            manifestPlaceholders = [bugsnagApiKey: bugsnagProps.getProperty("bugsnag.apikey", "")]
         }
         release {
             signingConfig signingConfigs.release
@@ -64,11 +70,11 @@ android {
                 abortOnError true
                 fatal 'StopShip'
             }
-            ext.enableBugsnag = true
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
             proguardFiles proguardRulesRelease
+            manifestPlaceholders = [bugsnagApiKey: bugsnagProps.getProperty("bugsnag.apikey", "")]
         }
         applicationVariants.all { variant ->
             if (variant.buildType.name == "debug") {

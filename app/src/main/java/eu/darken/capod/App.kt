@@ -6,7 +6,7 @@ import androidx.work.Configuration
 import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.bugreporting.BugReporter
+import eu.darken.capod.common.debug.autoreport.AutoReporting
 import eu.darken.capod.common.debug.logging.*
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import kotlinx.coroutines.CoroutineScope
@@ -17,7 +17,7 @@ import javax.inject.Inject
 open class App : Application(), Configuration.Provider {
 
     @Inject lateinit var workerFactory: HiltWorkerFactory
-    @Inject lateinit var bugReporter: BugReporter
+    @Inject lateinit var autoReporting: AutoReporting
     @Inject lateinit var monitorControl: MonitorControl
     @Inject @AppScope lateinit var appScope: CoroutineScope
 
@@ -29,7 +29,7 @@ open class App : Application(), Configuration.Provider {
             .log { message -> log(TAG) { "ReLinker: $message" } }
             .loadLibrary(this, "bugsnag-plugin-android-anr")
 
-        bugReporter.setup()
+        autoReporting.setup()
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
 

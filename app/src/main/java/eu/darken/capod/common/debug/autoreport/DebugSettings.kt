@@ -1,4 +1,4 @@
-package eu.darken.capod.common.debug.bugreporting
+package eu.darken.capod.common.debug.autoreport
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class BugReportSettings @Inject constructor(
+class DebugSettings @Inject constructor(
     @ApplicationContext private val context: Context,
 ) {
 
@@ -15,6 +15,6 @@ class BugReportSettings @Inject constructor(
         context.getSharedPreferences("bugreport_settings", Context.MODE_PRIVATE)
     }
 
-    val isEnabled = prefs.createFlowPreference("bugreport.automatic.enabled", true)
+    val isAutoReportEnabled = prefs.createFlowPreference("bugreport.automatic.enabled", true)
 
 }

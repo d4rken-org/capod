@@ -22,7 +22,7 @@ class MonitorControl @Inject constructor(
 
     suspend fun startMonitor(
         bluetoothDevice: BluetoothDevice? = null,
-        forceStart: Boolean
+        forceStart: Boolean = false,
     ): Unit = withContext(dispatcherProvider.IO) {
         val workerData = Data.Builder().apply {
 
