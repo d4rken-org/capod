@@ -20,6 +20,10 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.airpods.DualApplePods
+import eu.darken.capod.pods.core.getBatteryCase
+import eu.darken.capod.pods.core.getBatteryLeftPod
+import eu.darken.capod.pods.core.getBatteryRightPod
 import javax.inject.Inject
 
 
@@ -48,20 +52,32 @@ class MonitorNotifications @Inject constructor(
         builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
             .setChannelId(NOTIFICATION_CHANNEL_ID)
             .setContentIntent(openPi)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
             .setSmallIcon(R.drawable.ic_notification_device_status_icon)
+            .setOngoing(true)
             .setContentTitle(context.getString(R.string.app_name))
-            .setStyle(
-                NotificationCompat.BigTextStyle().bigText(context.getString(R.string.device_status_loading_message))
-            )
     }
 
-    fun getBuilder(podDevice: PodDevice?): NotificationCompat.Builder {
-        if (podDevice == null) return builder
-
-//        builder.setContentTitle(gear.primary.get(context))
-//        builder.setStyle(NotificationCompat.BigTextStyle().bigText(it.secondary.get(context)))
-        log(TAG, VERBOSE) { "updatingNotification(): $podDevice" }
+    fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
+        if (device == null) {
+            builder.setContentTitle(context.getString(R.string.device_status_loading_message))
+            return builder
+        }
+        val infoText = when (device) {
+            is DualApplePods -> {
+                val sb = StringBuilder()
+                sb.append("L: ${device.getBatteryLeftPod(context)}")
+                sb.append(" | ")
+                sb.append("C: ${device.getBatteryCase(context)}")
+                sb.append(" | ")
+                sb.append("R: ${device.getBatteryRightPod(context)}")
+            }
+            else -> {
+                "Unknown device"
+            }
+        }
+        builder.setContentTitle(infoText)
+        log(TAG, VERBOSE) { "updatingNotification(): $device" }
         return builder
     }
 

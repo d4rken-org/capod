@@ -19,9 +19,9 @@ class PodMonitor @Inject constructor(
     val pods: Flow<List<PodDevice>> = bleScanner.scan()
         .onStart { emptyList<PodDevice>() }
         .map { scanResults ->
-            scanResults.mapNotNull { scanResult ->
-                podFactory.createPod(scanResult)
-            }
+            scanResults
+                .sortedByDescending { it.rssi }
+                .mapNotNull { podFactory.createPod(it) }
         }
 
     companion object {

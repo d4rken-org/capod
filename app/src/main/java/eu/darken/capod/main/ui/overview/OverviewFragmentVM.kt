@@ -80,7 +80,6 @@ class OverviewFragmentVM @Inject constructor(
             .forEach { items.add(it) }
 
         pods
-            .sortedBy { it.rssi }
             .map {
                 when (it) {
                     is DualApplePods -> DualApplePodsCardVH.Item(it)
