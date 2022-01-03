@@ -10,6 +10,15 @@
         android:name="eu.darken.capod.main.ui.overview.OverviewFragment"
         tools:layout="@layout/main_fragment">
 
+        <action
+            android:id="@+id/action_overviewFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="eu.darken.capod.main.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment" />
 
 </navigation>

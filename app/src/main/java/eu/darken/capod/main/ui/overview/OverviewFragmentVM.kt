@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.livedata.SingleLiveEvent
+import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGrantedOrNotRequired
 import eu.darken.capod.common.uix.ViewModel3
@@ -32,7 +33,6 @@ class OverviewFragmentVM @Inject constructor(
     private val monitorControl: MonitorControl,
     private val podMonitor: PodMonitor,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-
 
     private val enabledState: Flow<Boolean> = flow {
         emit(false)
@@ -100,7 +100,7 @@ class OverviewFragmentVM @Inject constructor(
     }
 
     fun goToSettings() = launch {
-
+        OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navVia(this@OverviewFragmentVM)
     }
 
 }

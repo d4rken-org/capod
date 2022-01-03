@@ -1,33 +1,39 @@
 <resources>
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
-    <string name="general_error_label">Error</string>
-    <string name="permission_bluetooth_connect_label">BLUETOOTH CONNECT</string>
-    <string name="permission_bluetooth_connect_description">Required to be able to connect to paired Bluetooth devices.</string>
+
     <string name="device_status_loading_message">Loading device status</string>
     <string name="notification_channel_device_status_label">Device status</string>
-    <string name="permission_bluetooth_scan_label">BLUETOOTH SCAN</string>
-    <string name="permission_bluetooth_scan_description">Required to be able to discover and pair nearby Bluetooth devices.</string>
+
+    <string name="general_error_label">Error</string>
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
+    <string name="general_copy_action">Copy</string>
+    <string name="general_value_unknown_label">Unknown</string>
+    <string name="general_thank_you_label">Thank you</string>
+    <string name="general_value_not_available_label">N/A</string>
+
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
-    <string name="general_settings_label">Settings</string>
+
+    <string name="permission_bluetooth_connect_label">BLUETOOTH CONNECT</string>
+    <string name="permission_bluetooth_connect_description">Required to be able to connect to paired Bluetooth devices.</string>
+    <string name="permission_bluetooth_scan_label">BLUETOOTH SCAN</string>
+    <string name="permission_bluetooth_scan_description">Required to be able to discover and pair nearby Bluetooth devices.</string>
     <string name="permission_bluetooth_label">BLUETOOTH</string>
     <string name="permission_bluetooth_description">Allows applications to connect to paired bluetooth devices.</string>
     <string name="permission_access_fine_location_description">Allows an app to access precise location.</string>
     <string name="permission_access_fine_location_label">ACCESS_FINE_LOCATION</string>
+
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
     <string name="pods_case_status_label">Case</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
-    <string name="general_value_not_available_label">N/A</string>
     <string name="pods_unknown_raw_data_label">Raw data</string>
-    <string name="general_value_unknown_label">Unknown</string>
     <string name="pods_reception_x_label">Reception %s</string>
     <string name="pods_device_color_white_label">White</string>
     <string name="pods_device_color_yellow_label">Yellow</string>
@@ -49,4 +55,30 @@
     <string name="pods_connection_state_ringing_label">Ringing</string>
     <string name="pods_connection_state_hanging_up_label">Hanging up</string>
     <string name="pods_status_x_label">Status %s</string>
+
+
+    <string name="settings_label">Settings</string>
+    <string name="settings_privacy_policy_label">Privacy policy</string>
+    <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
+    <string name="settings_licenses_label">Licenses</string>
+    <string name="settings_category_other_label">Other</string>
+    <string name="settings_general_label">Settings</string>
+    <string name="settings_general_description">General tweaks that affect the whole app.</string>
+    <string name="settings_acknowledgements_label">Acknowledgements</string>
+
+    <string name="changelog_label">Changelog</string>
+    <string name="documentation_label">Documentation</string>
+    <string name="settings_support_email_developer_label">Email developer</string>
+
+    <string name="settings_support_installid_label">Install ID</string>
+    <string name="settings_support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
+    <string name="settings_support_label">Support</string>
+    <string name="settings_support_description">If you need some help.</string>
+    <string name="issue_tracker_label">Issue tracker</string>
+    <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests (english only).</string>
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">A place to hang out in and ask questions.</string>
+    <string name="settings_support_email_developer_description">Note that I can only respond in german or english.</string>
+    <string name="settings_debug_autoreports_label">Automatic bug reports</string>
+    <string name="settings_debug_autoreports_description">Automatically reports issues, e.g. details on an app crash so I can figure out how to fix it.</string>
 </resources>

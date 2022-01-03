@@ -12,7 +12,7 @@ class DebugSettings @Inject constructor(
 ) {
 
     private val prefs by lazy {
-        context.getSharedPreferences("bugreport_settings", Context.MODE_PRIVATE)
+        context.getSharedPreferences("settings_debug", Context.MODE_PRIVATE)
     }
 
     val isAutoReportEnabled = prefs.createFlowPreference("bugreport.automatic.enabled", true)
