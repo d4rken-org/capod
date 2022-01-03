@@ -20,7 +20,7 @@ import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.MonitorSettings
 import eu.darken.capod.monitor.ui.MonitorNotifications
-import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay

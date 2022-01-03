@@ -1,8 +1,8 @@
-package eu.darken.capod.pods.core.airpods.models
+package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.pods.core.DualPods
-import eu.darken.capod.pods.core.airpods.BaseAirPodsTest
-import eu.darken.capod.pods.core.airpods.DualApplePods
+import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.DualApplePods
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Test

@@ -81,4 +81,5 @@
     <string name="settings_support_email_developer_description">Note that I can only respond in german or english.</string>
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>
     <string name="settings_debug_autoreports_description">Automatically reports issues, e.g. details on an app crash so I can figure out how to fix it.</string>
+    <string name="device_unknown_label">Unknown device</string>
 </resources>

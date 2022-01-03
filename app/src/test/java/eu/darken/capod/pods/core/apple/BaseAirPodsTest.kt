@@ -1,14 +1,16 @@
-package eu.darken.capod.pods.core.airpods
+package eu.darken.capod.pods.core.apple
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.ScanRecord
 import android.bluetooth.le.ScanResult
+import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
-import eu.darken.capod.pods.core.airpods.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockkObject
 import org.junit.jupiter.api.BeforeEach
 import testhelper.BaseTest
 
@@ -18,7 +20,7 @@ abstract class BaseAirPodsTest : BaseTest() {
     @MockK lateinit var scanRecord: ScanRecord
     @MockK lateinit var device: BluetoothDevice
 
-    val factory = AirPodsFactory(
+    val factory = AppleFactory(
         proximityPairingDecoder = ProximityPairing.Decoder(),
         continuityProtocolDecoder = ContinuityProtocol.Decoder(),
     )
@@ -31,6 +33,9 @@ abstract class BaseAirPodsTest : BaseTest() {
         every { scanResult.timestampNanos } returns 136136027721826
         every { scanResult.device } returns device
         every { device.address } returns "77:49:4C:D8:25:0C"
+
+        mockkObject(SystemClockWrap)
+        every { SystemClockWrap.elapsedRealtimeNanos } returns 1000L
     }
 
     suspend inline fun <reified T : PodDevice?> create(hex: String, block: T.() -> Unit) {

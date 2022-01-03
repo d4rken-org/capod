@@ -1,4 +1,4 @@
-package eu.darken.capod.pods.core.airpods
+package eu.darken.capod.pods.core.apple
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -11,33 +11,6 @@ import eu.darken.capod.pods.core.DualPods
 import eu.darken.capod.pods.core.DualPods.Pod
 
 interface DualApplePods : ApplePods, DualPods {
-
-    val tag: String
-
-    // We start counting at the airpods prefix byte
-    val rawPrefix: UByte
-        get() = proximityMessage.data[0]
-
-    val rawDeviceModel: UShort
-        get() = (((proximityMessage.data[1].toInt() and 255) shl 8) or (proximityMessage.data[2].toInt() and 255)).toUShort()
-
-    val rawStatus: UByte
-        get() = proximityMessage.data[3]
-
-    val rawPodsBattery: UByte
-        get() = proximityMessage.data[4]
-
-    val rawCaseBattery: UByte
-        get() = proximityMessage.data[5]
-
-    val rawCaseLidState: UByte
-        get() = proximityMessage.data[6]
-
-    val rawDeviceColor: UByte
-        get() = proximityMessage.data[7]
-
-    val rawSuffix: UByte
-        get() = proximityMessage.data[8]
 
     override val microPhonePod: Pod
         get() = when (rawStatus.isBitSet(5)) {

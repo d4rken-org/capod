@@ -1,27 +1,25 @@
-package eu.darken.capod.pods.core.airpods.models
+package eu.darken.capod.pods.core.apple.beats
 
 import android.bluetooth.le.ScanResult
 import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.airpods.DualApplePods
-import eu.darken.capod.pods.core.airpods.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.BasicSingleApplePods
+import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import java.util.*
 
-data class AirPodsGen1 constructor(
+data class BeatsSolo3 constructor(
     override val identifier: UUID = UUID.randomUUID(),
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: ScanResult,
     override val proximityMessage: ProximityPairing.Message
-) : DualApplePods {
+) : BasicSingleApplePods {
 
-    override fun getLabel(context: Context): String {
-        return "AirPods (Gen 1)"
-    }
+    override fun getLabel(context: Context): String = "Beats Solo 3"
 
     override val iconRes: Int
-        get() = R.drawable.ic_device_airpods_gen1
+        get() = R.drawable.ic_device_generic_earbuds
 
-    override val tag: String = logTag("Pod", "AirPodsGen1")
+    override val tag: String = logTag("Pod", "Apple", "Beats", "Solo3")
 }

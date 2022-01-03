@@ -1,19 +1,17 @@
-package eu.darken.capod.pods.core.airpods
+package eu.darken.capod.pods.core.apple
 
 import android.bluetooth.le.ScanResult
-import android.os.SystemClock
+import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.airpods.models.AirPodsGen1
-import eu.darken.capod.pods.core.airpods.models.AirPodsGen2
-import eu.darken.capod.pods.core.airpods.models.AirPodsPro
-import eu.darken.capod.pods.core.airpods.models.UnknownAppleDevice
-import eu.darken.capod.pods.core.airpods.protocol.ContinuityProtocol
-import eu.darken.capod.pods.core.airpods.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.airpods.*
+import eu.darken.capod.pods.core.apple.beats.*
+import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.time.Duration
@@ -22,7 +20,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class AirPodsFactory @Inject constructor(
+class AppleFactory @Inject constructor(
     private val continuityProtocolDecoder: ContinuityProtocol.Decoder,
     private val proximityPairingDecoder: ProximityPairing.Decoder
 ) {
@@ -41,7 +39,7 @@ class AirPodsFactory @Inject constructor(
             get() = Duration.ofNanos(scanResult.timestampNanos)
 
         fun isOlderThan(age: Duration): Boolean {
-            val now = Duration.ofNanos(SystemClock.elapsedRealtimeNanos())
+            val now = Duration.ofNanos(SystemClockWrap.elapsedRealtimeNanos)
             return now - timestampNanos > age
         }
     }
@@ -139,42 +137,57 @@ class AirPodsFactory @Inject constructor(
         val dmDirty = pm.data[1]
 
         return when {
-            dm == 0x0220.toUShort() || dmDirty == 2.toUByte() -> AirPodsGen1(
+            dm == 0x0220.toUShort() -> AirPodsGen1(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dm == 0x0F20.toUShort() || dmDirty == 15.toUByte() -> AirPodsGen2(
+            dm == 0x0F20.toUShort() -> AirPodsGen2(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dm == 0x0e20.toUShort() || dmDirty == 14.toUByte() -> AirPodsPro(
+            dm == 0x0e20.toUShort() -> AirPodsPro(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-//            dmDirty == 10.toUByte() -> {
-//                TODO("Airpods Max")
-//            }
-//            dmDirty == 11.toUByte() -> {
-//                TODO("PowerBeatsPro")
-//            }
-//            dm == 0x0520.toUShort() || dmDirty == 5.toUByte() -> {
-//                TODO("BeatsX")
-//            }
-//            dmDirty == 0.toUByte() -> {
-//                TODO("BeatsFlex")
-//            }
-//            dm == 0x0620.toUShort() || dmDirty == 6.toUByte() -> {
-//                TODO("Beats Solo 3")
-//            }
-//            dmDirty == 9.toUByte() -> {
-//                TODO("Beats Studio 3")
-//            }
-//            dm == 0x0320.toUShort() || dmDirty == 3.toUByte() -> {
-//                TODO("Power Beats 3")
-//            }
+            dmDirty == 10.toUByte() -> AirPodsMax(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+            dm == 0x0320.toUShort() -> PowerBeats3(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+            dm == 0x0620.toUShort() -> BeatsSolo3(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+            dmDirty == 9.toUByte() -> BeatsStudio3(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+            dmDirty == 11.toUByte() -> PowerBeatsPro(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+            dm == 0x0520.toUShort() || dmDirty == 5.toUByte() -> BeatsX(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+            dm == 0x1020.toUShort() -> BeatsFlex(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm
+            )
+
             else -> {
                 log(TAG, WARN) { "Unknown proximity message type" }
                 Bugs.report(IllegalArgumentException("Unknown ProximityMessage: $pm"))

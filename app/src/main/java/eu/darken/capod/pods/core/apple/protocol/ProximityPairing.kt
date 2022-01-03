@@ -1,9 +1,9 @@
-package eu.darken.capod.pods.core.airpods.protocol
+package eu.darken.capod.pods.core.apple.protocol
 
 import android.bluetooth.le.ScanFilter
 import dagger.Reusable
 import eu.darken.capod.common.debug.logging.log
-import eu.darken.capod.pods.core.airpods.ApplePods
+import eu.darken.capod.pods.core.apple.ApplePods
 import javax.inject.Inject
 
 

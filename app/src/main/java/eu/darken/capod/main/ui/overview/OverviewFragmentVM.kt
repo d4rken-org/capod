@@ -18,7 +18,7 @@ import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.airpods.DualApplePods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import java.util.*

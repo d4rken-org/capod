@@ -28,5 +28,5 @@ interface PodDevice {
 
     @get:DrawableRes
     val iconRes: Int
-        get() = R.drawable.ic_baseline_earbuds_24
+        get() = R.drawable.ic_device_generic_earbuds
 }

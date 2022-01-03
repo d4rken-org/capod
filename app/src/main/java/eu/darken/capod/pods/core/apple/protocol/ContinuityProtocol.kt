@@ -1,4 +1,4 @@
-package eu.darken.capod.pods.core.airpods.protocol
+package eu.darken.capod.pods.core.apple.protocol
 
 import android.bluetooth.le.ScanResult
 import android.os.ParcelUuid

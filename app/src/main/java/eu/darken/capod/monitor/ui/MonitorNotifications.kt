@@ -20,7 +20,7 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.airpods.DualApplePods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.getBatteryCase
 import eu.darken.capod.pods.core.getBatteryLeftPod
 import eu.darken.capod.pods.core.getBatteryRightPod
@@ -53,7 +53,7 @@ class MonitorNotifications @Inject constructor(
             .setChannelId(NOTIFICATION_CHANNEL_ID)
             .setContentIntent(openPi)
             .setPriority(NotificationCompat.PRIORITY_LOW)
-            .setSmallIcon(R.drawable.ic_baseline_earbuds_24)
+            .setSmallIcon(R.drawable.ic_device_generic_earbuds)
             .setOngoing(true)
             .setContentTitle(context.getString(R.string.app_name))
     }
@@ -61,7 +61,7 @@ class MonitorNotifications @Inject constructor(
     fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
             builder.setContentTitle(context.getString(R.string.device_status_loading_message))
-            builder.setSmallIcon(R.drawable.ic_baseline_earbuds_24)
+            builder.setSmallIcon(R.drawable.ic_device_generic_earbuds)
             return builder
         }
 

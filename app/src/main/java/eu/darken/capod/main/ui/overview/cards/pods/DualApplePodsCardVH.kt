@@ -6,9 +6,9 @@ import eu.darken.capod.R
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.databinding.OverviewPodsAppleDualItemBinding
 import eu.darken.capod.pods.core.DualPods
-import eu.darken.capod.pods.core.airpods.DualApplePods
-import eu.darken.capod.pods.core.airpods.DualApplePods.DeviceColor
-import eu.darken.capod.pods.core.airpods.DualApplePods.LidState
+import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualApplePods.DeviceColor
+import eu.darken.capod.pods.core.apple.DualApplePods.LidState
 import eu.darken.capod.pods.core.getBatteryCase
 import eu.darken.capod.pods.core.getBatteryLeftPod
 import eu.darken.capod.pods.core.getBatteryRightPod

@@ -22,7 +22,7 @@
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/name"
-            app:srcCompat="@drawable/ic_baseline_earbuds_24" />
+            app:srcCompat="@drawable/ic_device_generic_earbuds" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
