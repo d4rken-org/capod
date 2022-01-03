@@ -14,21 +14,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/device_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/name"
+            app:srcCompat="@drawable/ic_baseline_earbuds_24" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:gravity="center_vertical"
-            app:drawableLeftCompat="@drawable/ic_baseline_earbuds_24"
             app:layout_constraintBottom_toTopOf="@id/barrier_top"
             app:layout_constraintEnd_toStartOf="@id/reception"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/device_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:text="Apple AirPods Pro" />
@@ -48,6 +57,18 @@
             app:layout_constraintStart_toEndOf="@id/name"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Yours (RSSI -61)" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/last_seen"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/barrier_top"
+            app:layout_constraintEnd_toEndOf="@id/name"
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="3s ago" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_top"

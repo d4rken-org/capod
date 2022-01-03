@@ -1,0 +1,29 @@
+package eu.darken.capod.main.ui.overview.cards.pods
+
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.viewbinding.ViewBinding
+import eu.darken.capod.common.lists.BindableVH
+import eu.darken.capod.common.lists.differ.DifferItem
+import eu.darken.capod.common.lists.modular.ModularAdapter
+import eu.darken.capod.main.ui.overview.OverviewAdapter
+import eu.darken.capod.pods.core.PodDevice
+
+abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
+    @LayoutRes layoutId: Int,
+    parent: ViewGroup
+) : ModularAdapter.VH(layoutId, parent), BindableVH<D, B> {
+
+    interface Item : OverviewAdapter.Item {
+
+        val device: PodDevice
+
+        override val stableId: Long get() = device.identifier.hashCode().toLong()
+
+        override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)?
+            get() = { old, new ->
+                if (new::class.isInstance(old)) new else null
+            }
+
+    }
+}

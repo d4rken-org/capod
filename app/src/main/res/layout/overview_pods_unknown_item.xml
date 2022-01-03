@@ -30,6 +30,18 @@
             tools:text="Unknown Device" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/last_seen"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@id/rawdata_label"
+            app:layout_constraintEnd_toEndOf="@id/name"
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="3s ago" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/reception"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="wrap_content"
@@ -56,7 +68,7 @@
             android:text="@string/pods_unknown_raw_data_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name" />
+            app:layout_constraintTop_toBottomOf="@id/last_seen" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/rawdata"
@@ -65,7 +77,6 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"

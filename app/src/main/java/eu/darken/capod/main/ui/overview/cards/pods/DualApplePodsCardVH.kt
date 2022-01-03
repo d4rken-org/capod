@@ -1,9 +1,10 @@
-package eu.darken.capod.main.ui.overview.cards
+package eu.darken.capod.main.ui.overview.cards.pods
 
+import android.icu.text.RelativeDateTimeFormatter
 import android.view.ViewGroup
 import eu.darken.capod.R
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.databinding.OverviewPodsAppleDualItemBinding
-import eu.darken.capod.main.ui.overview.OverviewAdapter
 import eu.darken.capod.pods.core.DualPods
 import eu.darken.capod.pods.core.airpods.DualApplePods
 import eu.darken.capod.pods.core.airpods.DualApplePods.DeviceColor
@@ -11,9 +12,11 @@ import eu.darken.capod.pods.core.airpods.DualApplePods.LidState
 import eu.darken.capod.pods.core.getBatteryCase
 import eu.darken.capod.pods.core.getBatteryLeftPod
 import eu.darken.capod.pods.core.getBatteryRightPod
+import java.time.Duration
+import java.time.Instant
 
 class DualApplePodsCardVH(parent: ViewGroup) :
-    OverviewAdapter.BaseVH<DualApplePodsCardVH.Item, OverviewPodsAppleDualItemBinding>(
+    PodDeviceVH<DualApplePodsCardVH.Item, OverviewPodsAppleDualItemBinding>(
         R.layout.overview_pods_apple_dual_item,
         parent
     ) {
@@ -22,11 +25,14 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         OverviewPodsAppleDualItemBinding.bind(itemView)
     }
 
+    private val lastSeenFormatter = RelativeDateTimeFormatter.getInstance()
+
     override val onBindData: OverviewPodsAppleDualItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = { item, _ ->
         val device = item.device
+
 
         name.apply {
             val sb = StringBuilder(device.getLabel(context))
@@ -35,8 +41,16 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             }
             text = sb
         }
+        deviceIcon.setImageResource(device.iconRes)
 
-        reception.text = "${device.rssi} (RSSI)"
+        val duration = Duration.between(device.lastSeenAt, Instant.now())
+        lastSeen.text = lastSeenFormatter.format(
+            duration.seconds.toDouble(),
+            RelativeDateTimeFormatter.Direction.LAST,
+            RelativeDateTimeFormatter.RelativeUnit.SECONDS
+        )
+
+        reception.text = device.getSignalQuality(context)
 
         podLeft.apply {
             val sb = StringBuilder(context.getString(R.string.pods_dual_left_label))
@@ -80,11 +94,13 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         }
 
         status.text = getString(R.string.pods_status_x_label, device.getConnectionStateLabel(context))
+        if (BuildConfigWrap.DEBUG) {
+            status.append("\n")
+            status.append(device.identifier.toString())
+        }
     }
 
     data class Item(
-        val device: DualApplePods
-    ) : OverviewAdapter.Item {
-        override val stableId: Long = this.javaClass.hashCode().toLong()
-    }
+        override val device: DualApplePods
+    ) : PodDeviceVH.Item
 }

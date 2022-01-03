@@ -11,9 +11,9 @@ import eu.darken.capod.common.lists.differ.setupDiffer
 import eu.darken.capod.common.lists.modular.ModularAdapter
 import eu.darken.capod.common.lists.modular.mods.DataBinderMod
 import eu.darken.capod.common.lists.modular.mods.TypedVHCreatorMod
-import eu.darken.capod.main.ui.overview.cards.DualApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
-import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import javax.inject.Inject
 
 class OverviewAdapter @Inject constructor() :

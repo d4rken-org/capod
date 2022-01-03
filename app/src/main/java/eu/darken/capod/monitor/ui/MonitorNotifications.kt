@@ -53,7 +53,7 @@ class MonitorNotifications @Inject constructor(
             .setChannelId(NOTIFICATION_CHANNEL_ID)
             .setContentIntent(openPi)
             .setPriority(NotificationCompat.PRIORITY_LOW)
-            .setSmallIcon(R.drawable.ic_notification_device_status_icon)
+            .setSmallIcon(R.drawable.ic_baseline_earbuds_24)
             .setOngoing(true)
             .setContentTitle(context.getString(R.string.app_name))
     }
@@ -61,8 +61,12 @@ class MonitorNotifications @Inject constructor(
     fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
             builder.setContentTitle(context.getString(R.string.device_status_loading_message))
+            builder.setSmallIcon(R.drawable.ic_baseline_earbuds_24)
             return builder
         }
+
+        builder.setSmallIcon(device.iconRes)
+
         val infoText = when (device) {
             is DualApplePods -> {
                 val sb = StringBuilder()

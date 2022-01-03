@@ -38,7 +38,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.apply {
-            list.setupDefaults(adapter)
+            list.setupDefaults(adapter, dividers = false)
         }
 
         ui.toolbar.apply {

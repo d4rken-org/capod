@@ -12,9 +12,9 @@ import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGrantedOrNotRequired
 import eu.darken.capod.common.uix.ViewModel3
-import eu.darken.capod.main.ui.overview.cards.DualApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
-import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.PodDevice
