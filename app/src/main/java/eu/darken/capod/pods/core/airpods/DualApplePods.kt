@@ -102,29 +102,6 @@ interface DualApplePods : ApplePods, DualPods {
             Pod.RIGHT -> rawStatus.isBitSet(1)
         }
 
-    val status: Status
-        get() = Status.values().firstOrNull { it.raw == rawStatus } ?: Status.UNKNOWN
-
-    enum class Status(val raw: UByte?) {
-        BOTH_AIRPODS_IN_CASE(0x55),
-        LEFT_IN_EAR(0x33),
-        AIRPLANE(0x02),
-        UNKNOWN(null);
-
-        constructor(raw: Int) : this(raw.toUByte())
-    }
-
-    // 1010101 0x55 85 Both In Case
-    // 0101011 0x2b 43 Both In Ear
-    // 0101001 0x29 41 Right in Ear
-    // 0100011 0x23 35 Left In Ear
-    // 0100001 0x21 33 Neither in Ear or In Case
-    // 1110001 0x71 113 Left in Case, Right on Desk
-    // 0010001 0x11 17 Left in Case, Right on Desk
-    // 0010011 0x13 19 Left in Case, Right in Ear
-    // 1110011 0x73 115 Left in Case, Right in Ear
-
-
     override val isCaseCharging: Boolean
         get() = rawCaseBattery.upperNibble.isBitSet(2)
 
