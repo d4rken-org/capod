@@ -19,6 +19,5 @@ Bugsnags privacy policy can be found here:
 https://docs.bugsnag.com/legal/privacy-policy/
 
 Crash reports may contain device and app related information.
-Personally identifying information is not required to fix bugs and thus not sought by me or the app.
 
 You can disable automatic crash reports in the app's settings.
