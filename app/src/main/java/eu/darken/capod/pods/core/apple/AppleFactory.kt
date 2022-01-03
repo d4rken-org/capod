@@ -177,7 +177,7 @@ class AppleFactory @Inject constructor(
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dm == 0x0520.toUShort() || dmDirty == 5.toUByte() -> BeatsX(
+            dm == 0x0520.toUShort() -> BeatsX(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
