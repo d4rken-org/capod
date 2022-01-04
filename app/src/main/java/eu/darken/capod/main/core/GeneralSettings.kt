@@ -16,8 +16,8 @@ import javax.inject.Singleton
 @Singleton
 class GeneralSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val debugSettings: DebugSettings,
-    private val moshi: Moshi,
+    debugSettings: DebugSettings,
+    moshi: Moshi,
 ) : Settings() {
 
     override val preferences: SharedPreferences = context.getSharedPreferences("settings_general", Context.MODE_PRIVATE)
@@ -34,9 +34,21 @@ class GeneralSettings @Inject constructor(
         moshi
     )
 
+    val autoPause = preferences.createFlowPreference(
+        "core.eardetection.autopause.enabled",
+        false
+    )
+
+    val showAll = preferences.createFlowPreference(
+        "core.showall.enabled",
+        false
+    )
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         scannerMode,
+        autoPause,
+        showAll,
         debugSettings.isDebugModeEnabled,
         debugSettings.isAutoReportEnabled
     )

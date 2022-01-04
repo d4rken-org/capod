@@ -13,6 +13,18 @@
         android:summary="@string/settings_scanner_mode_description"
         android:title="@string/settings_scanner_mode_label" />
 
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_pause_circle_24"
+        android:key="core.eardetection.autopause.enabled"
+        android:summary="@string/settings_autopause_description"
+        android:title="@string/settings_autopause_label" />
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_devices_other_24"
+        android:key="core.showall.enabled"
+        android:summary="@string/settings_showall_description"
+        android:title="@string/settings_showall_label" />
+
     <PreferenceCategory android:title="@string/settings_category_other_label">
 
         <CheckBoxPreference

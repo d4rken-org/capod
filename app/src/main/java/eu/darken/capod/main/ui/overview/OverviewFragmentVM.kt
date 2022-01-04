@@ -13,6 +13,7 @@ import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGrantedOrNotRequired
 import eu.darken.capod.common.uix.ViewModel3
+import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
@@ -39,12 +40,9 @@ class OverviewFragmentVM @Inject constructor(
     private val recorderModule: RecorderModule,
     private val monitorControl: MonitorControl,
     private val podMonitor: PodMonitor,
+    private val generalSettings: GeneralSettings,
     private val debugSettings: DebugSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-
-    private val enabledState: Flow<Boolean> = flow {
-        emit(false)
-    }
 
     private val updateTicker = channelFlow<Unit> {
         while (isActive) {
@@ -66,9 +64,19 @@ class OverviewFragmentVM @Inject constructor(
     val requestPermissionevent = SingleLiveEvent<Permission>()
 
     private val pods: Flow<List<PodDevice>> = requiredPermissions
-        .flatMapLatest {
-            if (it.isEmpty()) {
-                podMonitor.pods
+        .flatMapLatest { permissions ->
+            if (permissions.isEmpty()) {
+                combine(podMonitor.pods, generalSettings.showAll.flow) { pods, showAll ->
+                    if (showAll) {
+                        pods
+                            .sortedByDescending { it.rssi }
+                    } else {
+                        pods
+                            .maxByOrNull { it.rssi }
+                            ?.let { listOf(it) }
+                            ?: emptyList()
+                    }
+                }
             } else {
                 channelFlow {
                     send(emptyList())
@@ -79,11 +87,10 @@ class OverviewFragmentVM @Inject constructor(
 
     val listItems: LiveData<List<OverviewAdapter.Item>> = combine(
         updateTicker,
-        enabledState,
         requiredPermissions,
         pods,
-        debugSettings.isDebugModeEnabled.flow
-    ) { tick, state, permissions, pods, isDebugMode ->
+        debugSettings.isDebugModeEnabled.flow,
+    ) { _, permissions, pods, isDebugMode ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         permissions

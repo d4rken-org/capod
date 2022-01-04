@@ -95,4 +95,8 @@
     <string name="settings_scanner_mode_lowpower_label">Low power</string>
     <string name="settings_scanner_mode_balanced_label">Balanced</string>
     <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
+    <string name="settings_autopause_label">Auto pause</string>
+    <string name="settings_autopause_description">Pause music when removing the device from your ear (if your device supports it).</string>
+    <string name="settings_showall_label">Show all devices</string>
+    <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
 </resources>
