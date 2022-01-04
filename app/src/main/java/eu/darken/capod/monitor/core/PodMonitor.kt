@@ -1,12 +1,16 @@
 package eu.darken.capod.monitor.core
 
+import android.bluetooth.le.ScanSettings
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
@@ -16,9 +20,19 @@ import javax.inject.Singleton
 class PodMonitor @Inject constructor(
     private val bleScanner: BleScanner,
     private val podFactory: PodFactory,
+    private val generalSettings: GeneralSettings,
 ) {
 
-    val pods: Flow<List<PodDevice>> = bleScanner.scan()
+    val pods: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
+        .flatMapLatest {
+            bleScanner.scan(
+                mode = when (it) {
+                    ScannerMode.LOW_POWER -> ScanSettings.SCAN_MODE_LOW_POWER
+                    ScannerMode.BALANCED -> ScanSettings.SCAN_MODE_BALANCED
+                    ScannerMode.LOW_LATENCY -> ScanSettings.SCAN_MODE_LOW_LATENCY
+                }
+            )
+        }
         .map { result ->
             // For each address we only want the newest result, upstream may batch data
             result.groupBy { it.device.address }
@@ -31,9 +45,9 @@ class PodMonitor @Inject constructor(
         }
         .onStart { emptyList<PodDevice>() }
         .map { scanResults ->
-           val pods = scanResults
-               .sortedByDescending { it.rssi }
-               .mapNotNull { podFactory.createPod(it) }
+            val pods = scanResults
+                .sortedByDescending { it.rssi }
+                .mapNotNull { podFactory.createPod(it) }
 
 //            if (BuildConfigWrap.DEBUG && scanResults.isNotEmpty()) {
 //               val fake1 = AirPodsMax(

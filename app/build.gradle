@@ -154,6 +154,9 @@ dependencies {
     implementation ('com.bugsnag:bugsnag-android:5.9.2')
     implementation 'com.getkeepsafe.relinker:relinker:1.4.3'
 
+    implementation("com.squareup.moshi:moshi:1.13.0")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
+
     // DI
     implementation "com.google.dagger:dagger:${versions.dagger.core}"
     implementation "com.google.dagger:dagger-android:${versions.dagger.core}"

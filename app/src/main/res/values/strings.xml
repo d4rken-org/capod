@@ -85,4 +85,14 @@
     <string name="pods_single_headphones_label">Headphones</string>
     <string name="settings_debug_mode_label">Debug mode</string>
     <string name="settings_debug_mode_description">Show additional information to troubleshoot issues.</string>
+    <string name="settings_monitor_mode_label">Monitor mode</string>
+    <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>
+    <string name="settings_scanner_mode_label">Scanner mode</string>
+    <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy scanner prioritize performance or conserve energy?</string>
+    <string name="settings_monitor_mode_manual_label">When app is open</string>
+    <string name="settings_monitor_mode_automatic_label">When device is connected</string>
+    <string name="settings_monitor_mode_always_label">Always</string>
+    <string name="settings_scanner_mode_lowpower_label">Low power</string>
+    <string name="settings_scanner_mode_balanced_label">Balanced</string>
+    <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
 </resources>

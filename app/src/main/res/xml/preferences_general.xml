@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ListPreference
+        android:icon="@drawable/ic_baseline_disabled_visible_24"
+        android:key="core.monitor.mode"
+        android:summary="@string/settings_monitor_mode_description"
+        android:title="@string/settings_monitor_mode_label" />
+
+    <ListPreference
+        android:icon="@drawable/ic_baseline_settings_bluetooth_24"
+        android:key="core.scanner.mode"
+        android:summary="@string/settings_scanner_mode_description"
+        android:title="@string/settings_scanner_mode_label" />
+
     <PreferenceCategory android:title="@string/settings_category_other_label">
 
         <CheckBoxPreference

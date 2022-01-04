@@ -23,4 +23,13 @@ class BeatsFlexText : BaseAirPodsTest() {
             batteryHeadsetPercent shouldBe 0.4f
         }
     }
+
+    @Test
+    fun `random neighbour`() = runBlockingTest {
+        create<BeatsFlex>("07 19 01 10 20 0A F6 8F 02 4F 00 95 68 94 9E 99 D6 90 F4 5E 68 3C 58 21 68 9F 0D") {
+
+            batteryHeadsetPercent shouldBe 0.6f
+        }
+    }
+
 }

@@ -16,9 +16,10 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGrantedOrNotRequired
+import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
-import eu.darken.capod.monitor.core.MonitorSettings
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import kotlinx.coroutines.cancel
@@ -34,7 +35,7 @@ class MonitorWorker @AssistedInject constructor(
     monitorComponentBuilder: MonitorComponent.Builder,
     private val monitorNotifications: MonitorNotifications,
     private val notificationManager: NotificationManager,
-    private val monitorSettings: MonitorSettings,
+    private val generalSettings: GeneralSettings,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -81,11 +82,15 @@ class MonitorWorker @AssistedInject constructor(
                 }
                 .setupCommonEventHandlers(TAG) { "ConnectedDevices" }
                 .flatMapLatest { arePodsConnected ->
-                    log(TAG) { "Monitor mode: ${monitorSettings.mode}" }
-                    when (monitorSettings.mode) {
-                        MonitorSettings.Mode.MANUAL -> emptyFlow()
-                        MonitorSettings.Mode.ALWAYS -> emptyFlow()
-                        MonitorSettings.Mode.AUTOMATIC -> flow<Unit> {
+                    val mode = generalSettings.monitorMode.value
+                    log(TAG) { "Monitor mode: $mode" }
+                    when (mode) {
+                        MonitorMode.MANUAL -> flow<Unit> {
+                            // Cancel worker, ui scans manually
+                            workerScope.coroutineContext.cancelChildren()
+                        }
+                        MonitorMode.ALWAYS -> emptyFlow()
+                        MonitorMode.AUTOMATIC -> flow<Unit> {
                             if (arePodsConnected) {
                                 log(TAG) { "Pods are connected, aborting any timeout." }
                             } else {

@@ -10,20 +10,21 @@ import kotlinx.coroutines.flow.MutableStateFlow
 class FlowPreference<T> constructor(
     private val preferences: SharedPreferences,
     val key: String,
-    private val reader: SharedPreferences.(key: String) -> T,
-    private val writer: SharedPreferences.Editor.(key: String, value: T) -> Unit
+    val rawReader: (Any?) -> T,
+    val rawWriter: (T) -> Any?
 ) {
 
-    private val flowInternal = MutableStateFlow(internalValue)
+    private val flowInternal = MutableStateFlow(value)
     val flow: Flow<T> = flowInternal
 
     private val preferenceChangeListener =
         SharedPreferences.OnSharedPreferenceChangeListener { changedPrefs, changedKey ->
             if (changedKey != key) return@OnSharedPreferenceChangeListener
 
-            val newValue = reader(changedPrefs, changedKey)
-            val currentvalue = flowInternal.value
-            if (currentvalue != newValue && flowInternal.compareAndSet(currentvalue, newValue)) {
+            val newValue = rawReader(changedPrefs.all[key])
+
+            val currentValue = flowInternal.value
+            if (currentValue != newValue && flowInternal.compareAndSet(currentValue, newValue)) {
                 log(VERBOSE) { "$changedPrefs:$changedKey changed to $newValue" }
             }
         }
@@ -32,29 +33,16 @@ class FlowPreference<T> constructor(
         preferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener)
     }
 
-    private var internalValue: T
-        get() = reader(preferences, key)
-        set(newValue) {
-            preferences.edit {
-                writer(key, newValue)
-            }
-            flowInternal.value = internalValue
+    var value: T
+        get() = rawReader(valueRaw)
+        set(newVal) {
+            valueRaw = rawWriter(newVal)
         }
-    val value: T
-        get() = internalValue
 
-    fun update(update: (T) -> T) {
-        internalValue = update(internalValue)
-    }
-
-    companion object {
-        inline fun <reified T> basicReader(defaultValue: T): SharedPreferences.(key: String) -> T =
-            { key ->
-                (this.all[key] ?: defaultValue) as T
-            }
-
-        inline fun <reified T> basicWriter(): SharedPreferences.Editor.(key: String, value: T) -> Unit =
-            { key, value ->
+    var valueRaw: Any?
+        get() = preferences.all[key] ?: rawWriter(rawReader(null))
+        set(value) {
+            preferences.edit {
                 when (value) {
                     is Boolean -> putBoolean(key, value)
                     is String -> putString(key, value)
@@ -64,27 +52,12 @@ class FlowPreference<T> constructor(
                     null -> remove(key)
                     else -> throw NotImplementedError()
                 }
+
             }
+            flowInternal.value = rawReader(value)
+        }
+
+    fun update(update: (T) -> T) {
+        value = update(value)
     }
 }
-
-inline fun <reified T : Any?> SharedPreferences.createFlowPreference(
-    key: String,
-    defaultValue: T = null as T
-) = FlowPreference(
-    preferences = this,
-    key = key,
-    reader = FlowPreference.basicReader(defaultValue),
-    writer = FlowPreference.basicWriter()
-)
-
-inline fun <reified T : Any?> SharedPreferences.createFlowPreference(
-    key: String,
-    noinline reader: SharedPreferences.(key: String) -> T,
-    noinline writer: SharedPreferences.Editor.(key: String, value: T) -> Unit
-) = FlowPreference(
-    preferences = this,
-    key = key,
-    reader = reader,
-    writer = writer
-)
