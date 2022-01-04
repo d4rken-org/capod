@@ -27,7 +27,8 @@ class AppleFactory @Inject constructor(
 
     data class KnownDevice(
         val identifier: UUID,
-        val scanResult: ScanResult
+        val scanResult: ScanResult,
+        val message: ProximityPairing.Message,
     ) {
         val address: String
             get() = scanResult.device.address
@@ -72,15 +73,34 @@ class AppleFactory @Inject constructor(
         return proximityMessage
     }
 
-    private suspend fun recognizeDevice(scanResult: ScanResult): UUID {
+    private suspend fun recognizeDevice(scanResult: ScanResult, message: ProximityPairing.Message): UUID {
         val address = scanResult.device.address
 
         var identifier: UUID? = null
 
         knownDevs.values.firstOrNull { it.address == address }?.let {
             log(TAG, VERBOSE) { "recognizeDevice: Recovered previous ID via address: $it" }
-            knownDevs[it.identifier] = it.copy(scanResult = scanResult)
+            knownDevs[it.identifier] = it.copy(
+                scanResult = scanResult,
+                message = message,
+            )
             identifier = it.identifier
+        }
+
+        if (identifier == null) {
+            val currentMarkers = message.getRecogMarkers()
+            knownDevs.values
+                .firstOrNull { it.message.getRecogMarkers() == currentMarkers }
+                ?.let {
+                    log(TAG, DEBUG) { "recognizeDevice: Close match based similarity markers." }
+                    log(TAG, DEBUG) { "recognizeDevice: Old marker: ${it.message.getRecogMarkers()}" }
+                    log(TAG, DEBUG) { "recognizeDevice: New marker: $currentMarkers" }
+                    knownDevs[it.identifier] = it.copy(
+                        scanResult = scanResult,
+                        message = message,
+                    )
+                    identifier = it.identifier
+                }
         }
 
         if (identifier == null) {
@@ -89,8 +109,11 @@ class AppleFactory @Inject constructor(
                     it.rssi > -60 && !it.isOlderThan(Duration.ofSeconds(10))
                 }
                 ?.let {
-                    log(TAG, VERBOSE) { "recognizeDevice: Close match based on RSSI and timestamp." }
-                    knownDevs[it.identifier] = it.copy(scanResult = scanResult)
+                    log(TAG, DEBUG) { "recognizeDevice: Close match based on RSSI and timestamp." }
+                    knownDevs[it.identifier] = it.copy(
+                        scanResult = scanResult,
+                        message = message,
+                    )
                     identifier = it.identifier
                 }
         }
@@ -103,7 +126,8 @@ class AppleFactory @Inject constructor(
 
         knownDevs[identifier!!] = KnownDevice(
             identifier = identifier!!,
-            scanResult = scanResult
+            scanResult = scanResult,
+            message = message
         )
 
         knownDevs.values.toList().forEach { knownDevice ->
@@ -119,7 +143,7 @@ class AppleFactory @Inject constructor(
     suspend fun create(scanResult: ScanResult): PodDevice? = mutex.withLock {
         val pm = getMessage(scanResult) ?: return@withLock null
 
-        val identifier = recognizeDevice(scanResult)
+        val identifier = recognizeDevice(scanResult, pm)
 
         log(TAG, INFO) {
             val data = scanResult.scanRecord!!.getManufacturerSpecificData(
@@ -131,6 +155,14 @@ class AppleFactory @Inject constructor(
             "Decoding (MAC=${scanResult.device.address}, nanos=${scanResult.timestampNanos}, rssi=${scanResult.rssi}): $dataHex"
         }
 
+        return createPodDevice(scanResult, pm, identifier)
+    }
+
+    private fun createPodDevice(
+        scanResult: ScanResult,
+        pm: ProximityPairing.Message,
+        identifier: UUID
+    ): ApplePods {
         val dm = (
                 ((pm.data[1].toInt() and 255) shl 8) or (pm.data[2].toInt() and 255)
                 ).toUShort()
