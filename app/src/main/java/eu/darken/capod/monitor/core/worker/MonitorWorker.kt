@@ -8,12 +8,14 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dagger.hilt.EntryPoints
+import eu.darken.capod.common.MediaControl
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGrantedOrNotRequired
 import eu.darken.capod.main.core.GeneralSettings
@@ -21,6 +23,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.ui.MonitorNotifications
+import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
@@ -36,6 +39,7 @@ class MonitorWorker @AssistedInject constructor(
     private val monitorNotifications: MonitorNotifications,
     private val notificationManager: NotificationManager,
     private val generalSettings: GeneralSettings,
+    private val mediaControl: MediaControl,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -105,17 +109,30 @@ class MonitorWorker @AssistedInject constructor(
                 }
                 .launchIn(workerScope)
 
-
-            val monitorJob = podMonitor.pods
+            val monitorJob = podMonitor.mainDevice
                 .setupCommonEventHandlers(TAG) { "PodMonitor" }
                 .onStart {
                     setForeground(monitorNotifications.getForegroundInfo(null))
                 }
-                .onEach {
+                .onEach { currentDevice ->
                     notificationManager.notify(
                         MonitorNotifications.NOTIFICATION_ID,
-                        monitorNotifications.getNotification(it.firstOrNull())
+                        monitorNotifications.getNotification(currentDevice)
                     )
+                }
+                .withPrevious()
+                .onEach { (previous, current) ->
+                    if (previous is HasEarDetection && current is HasEarDetection) {
+                        log(TAG) { "previous=${previous.isBeingWorn}, current=${current.isBeingWorn}" }
+                        log(TAG) { "previous-id=${previous.identifier}, current-id=${current.identifier}" }
+                        if (previous.identifier == current.identifier && previous.isBeingWorn != current.isBeingWorn) {
+                            if (generalSettings.autoPlay.value && !mediaControl.isPlaying) {
+                                mediaControl.sendPlay()
+                            } else if (generalSettings.autoPause.value && mediaControl.isPlaying) {
+                                mediaControl.sendPause()
+                            }
+                        }
+                    }
                 }
                 .launchIn(workerScope)
 

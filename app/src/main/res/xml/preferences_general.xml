@@ -14,6 +14,12 @@
         android:title="@string/settings_scanner_mode_label" />
 
     <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_play_circle_24"
+        android:key="core.eardetection.autoplay.enabled"
+        android:summary="@string/settings_autoplay_description"
+        android:title="@string/settings_autopplay_label" />
+
+    <CheckBoxPreference
         android:icon="@drawable/ic_baseline_pause_circle_24"
         android:key="core.eardetection.autopause.enabled"
         android:summary="@string/settings_autopause_description"

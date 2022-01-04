@@ -25,7 +25,7 @@ class AirPodsMaxTest : BaseAirPodsTest() {
             isCaseCharging shouldBe false
             isHeadsetBeingCharged shouldBe false
 
-            isHeadsetBeingWorn shouldBe true
+            isHeadphonesBeingWorn shouldBe true
             batteryCasePercent shouldBe 0.0f
         }
     }
@@ -48,7 +48,7 @@ class AirPodsMaxTest : BaseAirPodsTest() {
             isCaseCharging shouldBe false
             isHeadsetBeingCharged shouldBe false
 
-            isHeadsetBeingWorn shouldBe true
+            isHeadphonesBeingWorn shouldBe true
             batteryCasePercent shouldBe 0.0f
         }
     }

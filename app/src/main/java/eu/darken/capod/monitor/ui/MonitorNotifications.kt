@@ -60,7 +60,7 @@ class MonitorNotifications @Inject constructor(
 
     fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
-            builder.setContentTitle(context.getString(R.string.device_status_loading_message))
+            builder.setContentTitle(context.getString(R.string.device_none_label))
             builder.setSmallIcon(R.drawable.ic_device_generic_earbuds)
             return builder
         }

@@ -23,7 +23,7 @@ class PodMonitor @Inject constructor(
     private val generalSettings: GeneralSettings,
 ) {
 
-    val pods: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
+    val devices: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
         .flatMapLatest {
             bleScanner.scan(
                 mode = when (it) {
@@ -78,6 +78,13 @@ class PodMonitor @Inject constructor(
 //            }
 
             pods
+        }
+
+    val mainDevice: Flow<PodDevice?>
+        get() = devices.map { devices ->
+            devices.maxByOrNull { it.rssi }?.let {
+                if (it.rssi > -85) it else null
+            }
         }
 
     companion object {

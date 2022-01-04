@@ -4,6 +4,7 @@ import android.app.Application
 import android.app.NotificationManager
 import android.bluetooth.BluetoothManager
 import android.content.Context
+import android.media.AudioManager
 import androidx.work.WorkManager
 import dagger.Module
 import dagger.Provides
@@ -33,4 +34,9 @@ class AndroidModule {
     @Singleton
     fun workerManager(context: Context): WorkManager =
         WorkManager.getInstance(context)
+
+    @Provides
+    @Singleton
+    fun audioManager(context: Context): AudioManager =
+        context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
 }

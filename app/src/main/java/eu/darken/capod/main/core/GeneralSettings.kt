@@ -39,6 +39,11 @@ class GeneralSettings @Inject constructor(
         false
     )
 
+    val autoPlay = preferences.createFlowPreference(
+        "core.eardetection.autoplay.enabled",
+        false
+    )
+
     val showAll = preferences.createFlowPreference(
         "core.showall.enabled",
         false
@@ -48,6 +53,7 @@ class GeneralSettings @Inject constructor(
         monitorMode,
         scannerMode,
         autoPause,
+        autoPlay,
         showAll,
         debugSettings.isDebugModeEnabled,
         debugSettings.isAutoReportEnabled

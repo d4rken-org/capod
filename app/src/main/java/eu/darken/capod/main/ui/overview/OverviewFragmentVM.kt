@@ -14,6 +14,7 @@ import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isGrantedOrNotRequired
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
@@ -50,6 +51,11 @@ class OverviewFragmentVM @Inject constructor(
             delay(1000)
         }
     }
+
+    val showManualRefresh = generalSettings.monitorMode.flow
+        .map { it == MonitorMode.MANUAL }
+        .asLiveData2()
+
     private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
     private val requiredPermissions: Flow<List<Permission>> = permissionCheckTrigger
         .map {
@@ -66,17 +72,16 @@ class OverviewFragmentVM @Inject constructor(
     private val pods: Flow<List<PodDevice>> = requiredPermissions
         .flatMapLatest { permissions ->
             if (permissions.isEmpty()) {
-                combine(podMonitor.pods, generalSettings.showAll.flow) { pods, showAll ->
-                    if (showAll) {
-                        pods
-                            .sortedByDescending { it.rssi }
-                    } else {
-                        pods
-                            .maxByOrNull { it.rssi }
-                            ?.let { listOf(it) }
-                            ?: emptyList()
+                generalSettings.showAll.flow
+                    .flatMapLatest { showAll ->
+                        if (showAll) {
+                            podMonitor.devices
+                        } else {
+                            podMonitor.mainDevice.map { mainDevice ->
+                                mainDevice?.let { listOf(it) } ?: emptyList()
+                            }
+                        }
                     }
-                }
             } else {
                 channelFlow {
                     send(emptyList())

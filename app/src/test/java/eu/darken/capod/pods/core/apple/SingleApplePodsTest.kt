@@ -29,7 +29,7 @@ class SingleApplePodsTest : BaseAirPodsTest() {
             isCaseCharging shouldBe false
             isHeadsetBeingCharged shouldBe false
 
-            isHeadsetBeingWorn shouldBe true
+            isHeadphonesBeingWorn shouldBe true
             batteryCasePercent shouldBe 0.0f
         }
     }

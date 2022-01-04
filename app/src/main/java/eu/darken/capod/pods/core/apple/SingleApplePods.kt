@@ -4,8 +4,9 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
+import eu.darken.capod.pods.core.HasEarDetection
 
-interface SingleApplePods : BasicSingleApplePods {
+interface SingleApplePods : BasicSingleApplePods, HasEarDetection {
 
     val batteryCasePercent: Float?
         get() = when (val value = rawCaseBattery.lowerNibble.toInt()) {
@@ -18,7 +19,7 @@ interface SingleApplePods : BasicSingleApplePods {
             }
         }
 
-    val isHeadsetBeingWorn: Boolean
+    val isHeadphonesBeingWorn: Boolean
         get() = rawStatus.isBitSet(1)
 
     val isCaseCharging: Boolean
@@ -26,4 +27,7 @@ interface SingleApplePods : BasicSingleApplePods {
 
     val isHeadsetBeingCharged: Boolean
         get() = rawCaseBattery.upperNibble.isBitSet(0)
+
+    override val isBeingWorn: Boolean
+        get() = isHeadphonesBeingWorn
 }

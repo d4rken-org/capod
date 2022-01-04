@@ -41,7 +41,7 @@ class SingleApplePodsCardVH(parent: ViewGroup) :
             sb.append("\n").append(device.getBatteryLevelHeadset(context))
             when {
                 device.isHeadsetBeingCharged -> sb.append("\n").append("Charging")
-                device.isHeadsetBeingWorn -> sb.append("\n").append("In ear")
+                device.isHeadphonesBeingWorn -> sb.append("\n").append("In ear")
                 else -> {}
             }
             text = sb

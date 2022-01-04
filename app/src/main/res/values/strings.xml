@@ -2,7 +2,6 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
 
-    <string name="device_status_loading_message">Loading device status</string>
     <string name="notification_channel_device_status_label">Device status</string>
 
     <string name="general_error_label">Error</string>
@@ -82,6 +81,7 @@
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>
     <string name="settings_debug_autoreports_description">Automatically reports issues, e.g. details on an app crash so I can figure out how to fix it.</string>
     <string name="device_unknown_label">Unknown device</string>
+    <string name="device_none_label">No device</string>
     <string name="pods_single_headphones_label">Headphones</string>
     <string name="settings_debug_mode_label">Debug mode</string>
     <string name="settings_debug_mode_description">Show additional information to troubleshoot issues.</string>
@@ -96,7 +96,9 @@
     <string name="settings_scanner_mode_balanced_label">Balanced</string>
     <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
     <string name="settings_autopause_label">Auto pause</string>
-    <string name="settings_autopause_description">Pause music when removing the device from your ear (if your device supports it).</string>
+    <string name="settings_autopause_description">Pause music when removing the device from your ear (if supported).</string>
     <string name="settings_showall_label">Show all devices</string>
     <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
+    <string name="settings_autopplay_label">Auto play</string>
+    <string name="settings_autoplay_description">Start music playback music when wearing the device (if supported).</string>
 </resources>

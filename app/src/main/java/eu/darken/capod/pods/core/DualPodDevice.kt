@@ -12,14 +12,4 @@ interface DualPodDevice : PodDevice {
     val batteryRightPodPercent: Float?
 
     val batteryCasePercent: Float?
-
-    val isLeftPodInEar: Boolean
-
-    val isRightPodInEar: Boolean
-
-    val isCaseCharging: Boolean
-
-    val isLeftPodCharging: Boolean
-
-    val isRightPodCharging: Boolean
 }
