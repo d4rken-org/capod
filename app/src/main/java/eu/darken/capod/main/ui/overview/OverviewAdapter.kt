@@ -12,7 +12,9 @@ import eu.darken.capod.common.lists.modular.ModularAdapter
 import eu.darken.capod.common.lists.modular.mods.DataBinderMod
 import eu.darken.capod.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.SingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import javax.inject.Inject
 
@@ -26,6 +28,8 @@ class OverviewAdapter @Inject constructor() :
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is PermissionCardVH.Item }) { PermissionCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is DualApplePodsCardVH.Item }) { DualApplePodsCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SingleApplePodsCardVH.Item }) { SingleApplePodsCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is BasicSingleApplePodsCardVH.Item }) { BasicSingleApplePodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
     }
 

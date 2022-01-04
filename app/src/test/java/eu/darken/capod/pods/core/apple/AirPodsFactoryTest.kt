@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple
 
-import eu.darken.capod.pods.core.DualPods
+import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.airpods.AirPodsGen1
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
@@ -16,12 +16,12 @@ class AirPodsFactoryTest : BaseAirPodsTest() {
         create<DualApplePods>("07 19 01 0E 20 >2B< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00101011
             // --^-----
-            microPhonePod shouldBe DualPods.Pod.LEFT
+            microPhonePod shouldBe DualPodDevice.Pod.LEFT
         }
         create<DualApplePods>("07 19 01 0E 20 >0B< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00001011
             // --^-----
-            microPhonePod shouldBe DualPods.Pod.RIGHT
+            microPhonePod shouldBe DualPodDevice.Pod.RIGHT
         }
     }
 

@@ -7,12 +7,12 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.DualPods
-import eu.darken.capod.pods.core.DualPods.Pod
+import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.pods.core.DualPodDevice.Pod
 
-interface DualApplePods : ApplePods, DualPods {
+interface DualApplePods : ApplePods, DualPodDevice {
 
-    override val microPhonePod: Pod
+    val microPhonePod: Pod
         get() = when (rawStatus.isBitSet(5)) {
             true -> Pod.LEFT
             false -> Pod.RIGHT

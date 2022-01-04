@@ -1,8 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface DualPods : PodDevice {
-
-    val microPhonePod: Pod
+interface DualPodDevice : PodDevice {
 
     enum class Pod {
         LEFT,

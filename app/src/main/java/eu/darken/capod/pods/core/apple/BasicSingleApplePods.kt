@@ -2,10 +2,11 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
+import eu.darken.capod.pods.core.SinglePodDevice
 
-interface BasicSingleApplePods : ApplePods {
+interface BasicSingleApplePods : ApplePods, SinglePodDevice {
 
-    val batteryHeadsetPercent: Float?
+    override val batteryHeadsetPercent: Float?
         get() = when (val value = rawPodsBattery.lowerNibble.toInt()) {
             15 -> null
             else -> if (value > 10) {

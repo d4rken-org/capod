@@ -21,9 +21,9 @@ import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.getBatteryCase
-import eu.darken.capod.pods.core.getBatteryLeftPod
-import eu.darken.capod.pods.core.getBatteryRightPod
+import eu.darken.capod.pods.core.getBatteryLevelCase
+import eu.darken.capod.pods.core.getBatteryLevelLeftPod
+import eu.darken.capod.pods.core.getBatteryLevelRightPod
 import javax.inject.Inject
 
 
@@ -70,11 +70,11 @@ class MonitorNotifications @Inject constructor(
         val infoText = when (device) {
             is DualApplePods -> {
                 val sb = StringBuilder()
-                sb.append("L: ${device.getBatteryLeftPod(context)}")
+                sb.append("L: ${device.getBatteryLevelLeftPod(context)}")
                 sb.append(" | ")
-                sb.append("C: ${device.getBatteryCase(context)}")
+                sb.append("C: ${device.getBatteryLevelCase(context)}")
                 sb.append(" | ")
-                sb.append("R: ${device.getBatteryRightPod(context)}")
+                sb.append("R: ${device.getBatteryLevelRightPod(context)}")
             }
             else -> {
                 "Unknown device"

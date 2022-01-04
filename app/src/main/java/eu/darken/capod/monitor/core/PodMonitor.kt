@@ -31,9 +31,39 @@ class PodMonitor @Inject constructor(
         }
         .onStart { emptyList<PodDevice>() }
         .map { scanResults ->
-            scanResults
-                .sortedByDescending { it.rssi }
-                .mapNotNull { podFactory.createPod(it) }
+           val pods = scanResults
+               .sortedByDescending { it.rssi }
+               .mapNotNull { podFactory.createPod(it) }
+
+//            if (BuildConfigWrap.DEBUG && scanResults.isNotEmpty()) {
+//               val fake1 = AirPodsMax(
+//                    identifier = UUID.fromString("63436171-5433-4506-8bf5-faf6c35ffa8a"),
+//                    scanResult = scanResults.first(),
+//                    proximityMessage = ProximityPairing.Decoder().decode(
+//                        message = ContinuityProtocol.Message(
+//                            type = 0x07.toUByte(),
+//                            length = 25,
+//                            data = arrayOf<Byte>(1, 10, 32, 98, 4, -128, 1, 15, 64, 13, 112, 80, 22, -14, 64, -125, 22, -65, 16, 22, 52, -101, 116, -124, -24).toByteArray().toUByteArray()
+//                        )
+//                    )!!
+//                )
+//                val fake2 = BeatsFlex(
+//                    identifier = UUID.fromString("e563098d-ea24-4136-a169-5a59344317c3"),
+//                    scanResult = scanResults.first(),
+//                    proximityMessage = ProximityPairing.Decoder().decode(
+//                        message = ContinuityProtocol.Message(
+//                            type = 0x07.toUByte(),
+//                            length = 25,
+//                            data = arrayOf<Byte>(1, 16, 32, 10, -12, -113, 0, 1, 0, -60, 113, -97, -100, -17, -94, -29, -70, 102, -2, 29, 69, -97, -55, 47, -96).toByteArray().toUByteArray()
+//                        )
+//                    )!!
+//                )
+//                pods.plus(fake1).plus(fake2)
+//            } else {
+//                pods
+//            }
+
+            pods
         }
 
     companion object {

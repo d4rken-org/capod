@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.airpods
 
-import eu.darken.capod.pods.core.DualPods
+import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.DualApplePods
 import io.kotest.matchers.shouldBe
@@ -22,7 +22,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             rawDeviceColor shouldBe 0x00.toUByte()
             rawSuffix shouldBe 0x00.toUByte()
 
-            microPhonePod shouldBe DualPods.Pod.RIGHT
+            microPhonePod shouldBe DualPodDevice.Pod.RIGHT
 
             batteryLeftPodPercent shouldBe 1.0f
             batteryRightPodPercent shouldBe 1.0f
@@ -39,7 +39,7 @@ class AirPodsProTest : BaseAirPodsTest() {
     @Test
     fun `test AirPods from my downstairs neighbour`() = runBlockingTest {
         create<AirPodsPro>("07 19 01 0E 20 00 F3 8F 02 00 04 79 C6 3F F9 C3 15 D9 11 A1 3C B1 58 66 B9 8B 67") {
-            microPhonePod shouldBe DualPods.Pod.RIGHT
+            microPhonePod shouldBe DualPodDevice.Pod.RIGHT
 
             batteryLeftPodPercent shouldBe null
             batteryRightPodPercent shouldBe 0.3f

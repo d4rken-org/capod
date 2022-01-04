@@ -18,6 +18,8 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
 
         val device: PodDevice
 
+        val showDebug: Boolean
+
         override val stableId: Long get() = device.identifier.hashCode().toLong()
 
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)?

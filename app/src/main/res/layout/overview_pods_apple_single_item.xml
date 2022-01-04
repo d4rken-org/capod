@@ -6,6 +6,7 @@
     style="@style/MyCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginVertical="8dp"
     tools:context=".main.ui.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,18 +14,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/device_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/name"
+            app:srcCompat="@drawable/ic_device_generic_headphones" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="center_vertical"
             app:layout_constraintBottom_toTopOf="@+id/last_seen"
             app:layout_constraintEnd_toStartOf="@id/reception"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/device_icon"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Apple AirPods Max" />
 
@@ -34,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@id/rawdata_label"
+            app:layout_constraintBottom_toTopOf="@id/barrier_top"
             app:layout_constraintEnd_toEndOf="@id/name"
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/name"
@@ -70,35 +82,51 @@
             app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24"
             tools:text="Yours (RSSI -61)" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/rawdata_label"
-            style="@style/TextAppearance.MaterialComponents.Caption"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_top"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/pods_unknown_raw_data_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/last_seen" />
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="headphones"
+            tools:layout_editor_absoluteY="60dp" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/rawdata"
+            android:id="@+id/headphones"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
+            android:gravity="center_horizontal"
+            app:drawableTopCompat="@drawable/ic_device_generic_headphones"
+            app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_goneMarginBottom="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_top"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="Headphones\n50%\nCharging" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="headphones" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/status"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rawdata_label"
-            tools:text="07 19 01 0E 20 75 AA B2 31 00 00 2A 46 AF 17 F7 59 C2 71 B8 CA 37 5D 72 5C 15 68" />
+            app:layout_constraintTop_toBottomOf="@id/barrier_bottom"
+            tools:text="Music Active, Case Closed" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class FlowPreference<T> constructor(
     private val preferences: SharedPreferences,
-    private val key: String,
+    val key: String,
     private val reader: SharedPreferences.(key: String) -> T,
     private val writer: SharedPreferences.Editor.(key: String, value: T) -> Unit
 ) {

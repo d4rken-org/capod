@@ -12,12 +12,17 @@ interface PodDevice {
 
     val identifier: UUID
 
-    val scanResult: ScanResult
-
     val lastSeenAt: Instant
+
+    val scanResult: ScanResult
 
     val rssi: Int
         get() = scanResult.rssi
+
+    val rawData: ByteArray
+
+    val rawDataHex: String
+        get() = rawData.joinToString(separator = " ") { String.format("%02X", it) }
 
     fun getSignalQuality(context: Context): String {
         val percentage = (100 - abs(rssi))

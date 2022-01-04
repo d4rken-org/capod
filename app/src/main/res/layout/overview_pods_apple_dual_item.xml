@@ -33,30 +33,12 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             android:gravity="center_vertical"
-            app:layout_constraintBottom_toTopOf="@id/barrier_top"
+            app:layout_constraintBottom_toTopOf="@+id/last_seen"
             app:layout_constraintEnd_toStartOf="@id/reception"
             app:layout_constraintStart_toEndOf="@id/device_icon"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             tools:text="Apple AirPods Pro" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/reception"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            app:drawableRightCompat="@drawable/ic_baseline_signal_cellular_alt_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/name"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Yours (RSSI -61)" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/last_seen"
@@ -69,6 +51,36 @@
             app:layout_constraintStart_toStartOf="@id/name"
             app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="3s ago" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/reception"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintEnd_toStartOf="@id/reception_icon"
+            app:layout_constraintStart_toEndOf="@id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            tools:text="Yours (RSSI -61)" />
+
+        <ImageView
+            android:id="@+id/reception_icon"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/reception"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/reception"
+            app:layout_constraintTop_toTopOf="@+id/reception"
+            app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24"
+            tools:text="Yours (RSSI -61)" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_top"
@@ -137,12 +149,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
             android:gravity="center_vertical"
-            app:drawableLeftCompat="@drawable/ic_baseline_apps_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
