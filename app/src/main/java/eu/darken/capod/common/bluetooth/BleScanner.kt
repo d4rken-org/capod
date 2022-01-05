@@ -1,6 +1,5 @@
 package eu.darken.capod.common.bluetooth
 
-import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
@@ -20,16 +19,15 @@ import javax.inject.Singleton
 @Singleton
 class BleScanner @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val bluetoothManager: BluetoothManager,
+    private val bluetoothManager: BluetoothManager2,
 ) {
-    // TODO check Bluetooth available
-    // TODO check Bluetooth enabled
+
     fun scan(
         filter: Set<ScanFilter> = ProximityPairing.getBleScanFilter(),
-        mode: Int = ScanSettings.SCAN_MODE_LOW_POWER,
-        delay: Long = 100,
+        mode: Int = ScanSettings.SCAN_MODE_BALANCED,
     ): Flow<List<ScanResult>> = callbackFlow {
-        val scanner = bluetoothManager.adapter.bluetoothLeScanner
+        val adapter = bluetoothManager.adapter
+        val scanner = adapter.bluetoothLeScanner
 
         val callback = object : ScanCallback() {
             override fun onScanResult(callbackType: Int, result: ScanResult) {
@@ -49,11 +47,21 @@ class BleScanner @Inject constructor(
 
         val settings = ScanSettings.Builder().apply {
             setScanMode(mode)
-            setReportDelay(delay)
+            if (adapter.isOffloadedScanBatchingSupported) {
+                setReportDelay(100)
+            } else {
+                log(TAG, WARN) { "isOffloadedScanBatchingSupported=false" }
+            }
         }.build()
 
-        scanner.startScan(filter.toList(), settings, callback)
-        log(TAG, VERBOSE) { "BleScanner started (filter=$filter, settings=$settings)" }
+        if (adapter.isOffloadedFilteringSupported) {
+            scanner.startScan(filter.toList(), settings, callback)
+            log(TAG, VERBOSE) { "BleScanner started (filter=$filter, settings=$settings)" }
+        } else {
+            log(TAG, WARN) { "isOffloadedFilteringSupported=false" }
+            scanner.startScan(callback)
+            log(TAG, VERBOSE) { "BleScanner started" }
+        }
 
         awaitClose {
             log(TAG, INFO) { "BleScanner stopped" }

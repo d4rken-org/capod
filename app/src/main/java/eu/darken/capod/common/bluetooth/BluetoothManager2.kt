@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.BluetoothProfile
+import android.bluetooth.le.BluetoothLeScanner
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -33,6 +34,13 @@ class BluetoothManager2 @Inject constructor(
     @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
 ) {
+
+    val adapter: BluetoothAdapter
+        get() = manager.adapter
+
+    val scanner: BluetoothLeScanner
+        get() = adapter.bluetoothLeScanner
+            ?: throw IllegalStateException("Bluetooth is disabled or permissiong missing")
 
     val isBluetoothEnabled: Flow<Boolean> = callbackFlow {
         send(manager.adapter?.isEnabled ?: false)
