@@ -1,5 +1,8 @@
 # Companion App for AirPods (CAPod)
 
+![Build](https://github.com/d4rken/capod/actions/workflows/android.yml/badge.svg)
+[![Github All Releases](https://img.shields.io/github/downloads/d4rken/capod/total.svg)](https://github.com/d4rken/capod/releases/latest)
+
 A companion app that adds support for AirPod specific features to Android.
 
 Supported models:
@@ -17,11 +20,11 @@ Supported models:
 ## Download
 
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* [GitHub](https://github.com/d4rken/android-airpods-companion/releases/latest)
+* [GitHub](https://github.com/d4rken/capod/releases/latest)
 
 ## Get help
 
-* [Github Issues](https://github.com/d4rken/android-airpods-companion/issues)
+* [Github Issues](https://github.com/d4rken/capod/issues)
 * [Discord](https://discord.gg/vHubYPp)
 
 ## Screenshots
