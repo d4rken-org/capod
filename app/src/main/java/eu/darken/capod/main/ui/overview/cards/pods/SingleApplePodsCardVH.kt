@@ -27,7 +27,7 @@ class SingleApplePodsCardVH(parent: ViewGroup) :
         name.text = device.getLabel(context)
         deviceIcon.setImageResource(device.iconRes)
 
-        val duration = Duration.between(device.lastSeenAt, Instant.now())
+        val duration = Duration.between(device.lastSeenAt, item.now)
         lastSeen.text = lastSeenFormatter.format(
             duration.seconds.toDouble(),
             RelativeDateTimeFormatter.Direction.LAST,
@@ -59,6 +59,7 @@ class SingleApplePodsCardVH(parent: ViewGroup) :
     }
 
     data class Item(
+        override val now: Instant,
         override val device: SingleApplePods,
         override val showDebug: Boolean,
     ) : PodDeviceVH.Item

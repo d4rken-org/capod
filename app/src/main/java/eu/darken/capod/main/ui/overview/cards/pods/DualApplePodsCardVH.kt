@@ -27,7 +27,6 @@ class DualApplePodsCardVH(parent: ViewGroup) :
 
     override val onBindData = binding(payload = true) { item: Item ->
         val device = item.device
-
         name.apply {
             val sb = StringBuilder(device.getLabel(context))
             if (device.deviceColor != DeviceColor.UNKNOWN) {
@@ -37,7 +36,7 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         }
         deviceIcon.setImageResource(device.iconRes)
 
-        val duration = Duration.between(device.lastSeenAt, Instant.now())
+        val duration = Duration.between(device.lastSeenAt, item.now)
         lastSeen.text = lastSeenFormatter.format(
             duration.seconds.toDouble(),
             RelativeDateTimeFormatter.Direction.LAST,
@@ -98,6 +97,7 @@ class DualApplePodsCardVH(parent: ViewGroup) :
     }
 
     data class Item(
+        override val now: Instant,
         override val device: DualApplePods,
         override val showDebug: Boolean,
     ) : PodDeviceVH.Item

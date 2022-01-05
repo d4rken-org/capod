@@ -25,7 +25,7 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         val device = item.device
         name.text = device.getLabel(context)
 
-        val duration = Duration.between(device.lastSeenAt, Instant.now())
+        val duration = Duration.between(device.lastSeenAt, item.now)
         lastSeen.text = lastSeenFormatter.format(
             duration.seconds.toDouble(),
             RelativeDateTimeFormatter.Direction.LAST,
@@ -36,6 +36,7 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
     }
 
     data class Item(
+        override val now: Instant,
         override val device: PodDevice,
         override val showDebug: Boolean = false
     ) : PodDeviceVH.Item

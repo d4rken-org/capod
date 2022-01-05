@@ -8,6 +8,7 @@ import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.common.lists.modular.ModularAdapter
 import eu.darken.capod.main.ui.overview.OverviewAdapter
 import eu.darken.capod.pods.core.PodDevice
+import java.time.Instant
 
 abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
     @LayoutRes layoutId: Int,
@@ -15,6 +16,8 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
 ) : ModularAdapter.VH(layoutId, parent), BindableVH<D, B> {
 
     interface Item : OverviewAdapter.Item {
+
+        val now: Instant
 
         val device: PodDevice
 

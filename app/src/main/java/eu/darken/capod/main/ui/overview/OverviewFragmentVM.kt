@@ -31,6 +31,7 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
+import java.time.Instant
 import java.util.*
 import javax.inject.Inject
 
@@ -95,7 +96,7 @@ class OverviewFragmentVM @Inject constructor(
         requiredPermissions,
         pods,
         debugSettings.isDebugModeEnabled.flow,
-    ) { _, permissions, pods, isDebugMode ->
+    ) { tick, permissions, pods, isDebugMode ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         permissions
@@ -107,13 +108,29 @@ class OverviewFragmentVM @Inject constructor(
             }
             .forEach { items.add(it) }
 
+        val now = Instant.now()
         pods
             .map {
                 when (it) {
-                    is DualApplePods -> DualApplePodsCardVH.Item(it, showDebug = isDebugMode)
-                    is SingleApplePods -> SingleApplePodsCardVH.Item(it, showDebug = isDebugMode)
-                    is BasicSingleApplePods -> BasicSingleApplePodsCardVH.Item(it, showDebug = isDebugMode)
-                    else -> UnknownPodDeviceCardVH.Item(it)
+                    is DualApplePods -> DualApplePodsCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode
+                    )
+                    is SingleApplePods -> SingleApplePodsCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode
+                    )
+                    is BasicSingleApplePods -> BasicSingleApplePodsCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode
+                    )
+                    else -> UnknownPodDeviceCardVH.Item(
+                        now = now,
+                        device = it
+                    )
                 }
             }
             .run { items.addAll(this) }
