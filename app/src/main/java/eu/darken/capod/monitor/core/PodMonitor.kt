@@ -12,6 +12,8 @@ import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -26,6 +28,7 @@ class PodMonitor @Inject constructor(
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
+    private val cacheLock = Mutex()
 
     val devices: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
         .flatMapLatest {
@@ -63,18 +66,22 @@ class PodMonitor @Inject constructor(
 
             val pods = mutableMapOf<PodDevice.Id, PodDevice>()
 
-            pods.putAll(deviceCache)
-            pods.putAll(newPods.map { it.identifier to it })
+            cacheLock.withLock {
+                val now = Instant.now()
+                deviceCache.toList().forEach { (key, value) ->
+                    if (Duration.between(value.lastSeenAt, now) > Duration.ofSeconds(20)) {
+                        log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
+                        deviceCache.remove(key)
+                    }
+                }
 
-            val now = Instant.now()
-            pods.toList().forEach { (key, value) ->
-                if (Duration.between(value.lastSeenAt, now) > Duration.ofSeconds(10)) {
-                    log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
-                    pods.remove(key)
+                pods.putAll(deviceCache)
+
+                newPods.forEach {
+                    deviceCache[it.identifier] = it
+                    pods[it.identifier] = it
                 }
             }
-            deviceCache.clear()
-            deviceCache.putAll(pods)
 
             pods.values.toList()
         }
