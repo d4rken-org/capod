@@ -101,4 +101,6 @@
     <string name="settings_autoplay_description">Start music playback music when wearing the device (if supported).</string>
     <string name="pods_dual_case_status_short">L %1$s | C %2$s | R %3$s</string>
     <string name="pods_single_basic_status_short">Headphones: %1$s</string>
+    <string name="permission_background_location_label">ACCESS_BACKGROUND_LOCATION</string>
+    <string name="permission_background_location_description">Allows an app to access location in the background.</string>
 </resources>

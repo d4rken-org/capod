@@ -35,15 +35,22 @@ enum class Permission(
         permissionId = "android.permission.BLUETOOTH_SCAN",
     ),
     ACCESS_FINE_LOCATION(
-        minApiLevel = Build.VERSION_CODES.S,
+        minApiLevel = Build.VERSION_CODES.BASE,
         maxApiLevel = Build.VERSION_CODES.R,
         labelRes = R.string.permission_access_fine_location_label,
         descriptionRes = R.string.permission_access_fine_location_description,
         permissionId = "android.permission.ACCESS_FINE_LOCATION",
+    ),
+    ACCESS_BACKGROUND_LOCATION(
+        minApiLevel = Build.VERSION_CODES.Q,
+        maxApiLevel = Build.VERSION_CODES.R,
+        labelRes = R.string.permission_background_location_label,
+        descriptionRes = R.string.permission_background_location_description,
+        permissionId = "android.permission.ACCESS_BACKGROUND_LOCATION",
     )
 }
 
-fun Permission.isGrantedOrNotRequired(context: Context): Boolean = when {
-    !withinApiLevel(minApiLevel, maxApiLevel) -> true
-    else -> ContextCompat.checkSelfPermission(context, permissionId) == PackageManager.PERMISSION_GRANTED
+fun Permission.isRequired(context: Context): Boolean = when {
+    !withinApiLevel(minApiLevel, maxApiLevel) -> false
+    else -> ContextCompat.checkSelfPermission(context, permissionId) != PackageManager.PERMISSION_GRANTED
 }

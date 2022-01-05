@@ -7,13 +7,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
-import eu.darken.capod.common.permissions.isGrantedOrNotRequired
+import eu.darken.capod.common.permissions.isRequired
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
@@ -54,10 +56,12 @@ class OverviewFragmentVM @Inject constructor(
     private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
     private val requiredPermissions: Flow<List<Permission>> = permissionCheckTrigger
         .map {
-            Permission.values().filter { !it.isGrantedOrNotRequired(context) }
+            Permission.values().filter { it.isRequired(context) }
         }
         .onEach {
-            if (it.isEmpty()) {
+            log(TAG) { "Missing permissions: $it" }
+            if (it.isEmpty() && generalSettings.monitorMode.value != MonitorMode.MANUAL) {
+                log(TAG) { "All permissions granted, starting monitor." }
                 monitorControl.startMonitor()
             }
         }
@@ -84,6 +88,7 @@ class OverviewFragmentVM @Inject constructor(
                 }
             }
         }
+        .catch { errorEvents.postValue(it) }
 
     val listItems: LiveData<List<OverviewAdapter.Item>> = combine(
         updateTicker,
@@ -114,7 +119,9 @@ class OverviewFragmentVM @Inject constructor(
             .run { items.addAll(this) }
 
         items
-    }.asLiveData2()
+    }
+        .catch { errorEvents.postValue(it) }
+        .asLiveData2()
 
     fun onPermissionResult(granted: Boolean) {
         if (granted) permissionCheckTrigger.value = UUID.randomUUID()
