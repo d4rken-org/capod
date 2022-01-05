@@ -29,6 +29,16 @@ Supported models:
 
 ## Screenshots
 
+## Thanks to
+
+* The [OpenPods](https://github.com/adolfintel/OpenPods) project,
+  specifically [@adolfintel](https://github.com/adolfintel) and [@Electric1447](https://github.com/Electric1447) for
+  their work on reverse engineering the BLE communication.
+* Martin, Jeremy & Alpuche, Douglas & Bodeman, Kristina & Brown, Lamont & Fenske, Ellis & Foppe, Lucas & Mayberry,
+  Travis & Rye, Erik & Sipes, Brandon & Teplov, Sam. (2019). Handoff All Your Privacy – A Review of Apple’s Bluetooth
+  Low Energy Continuity Protocol. Proceedings on Privacy Enhancing Technologies. 2019. 34-53. 10.2478/popets-2019-0057.
+* Celosia, Guillaume. (2020). Privacy Challenges in Wireless Communications of the Internet of Things.
+
 ## License
 
 CAPod's code is available under a GPL v3 license, this excludes:

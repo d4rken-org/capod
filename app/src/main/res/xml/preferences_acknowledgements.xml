@@ -13,6 +13,24 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://twitter.com/maxpatchs" />
         </Preference>
+        <Preference
+            android:key="thanks.openpods"
+            android:summary="Pioneering AirPod support on Android"
+            android:title="OpenPods project"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/adolfintel/OpenPods" />
+        </Preference>
+        <Preference
+            android:key="thanks.furiousmac"
+            android:summary="Research on the continuity protocol"
+            android:title="FuriousMAC"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/furiousMAC/continuity" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
