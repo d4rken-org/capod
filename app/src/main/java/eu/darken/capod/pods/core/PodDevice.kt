@@ -31,6 +31,8 @@ interface PodDevice {
 
     fun getLabel(context: Context): String
 
+    fun getShortStatus(context: Context): String
+
     @get:DrawableRes
     val iconRes: Int
         get() = R.drawable.ic_device_generic_earbuds

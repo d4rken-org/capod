@@ -17,4 +17,8 @@ data class UnknownAppleDevice constructor(
     override fun getLabel(context: Context): String {
         return context.getString(R.string.device_unknown_label)
     }
+
+    override fun getShortStatus(context: Context): String {
+        return context.getString(R.string.device_unknown_label)
+    }
 }

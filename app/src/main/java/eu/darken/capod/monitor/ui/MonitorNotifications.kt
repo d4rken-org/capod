@@ -20,10 +20,6 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.getBatteryLevelCase
-import eu.darken.capod.pods.core.getBatteryLevelLeftPod
-import eu.darken.capod.pods.core.getBatteryLevelRightPod
 import javax.inject.Inject
 
 
@@ -66,21 +62,7 @@ class MonitorNotifications @Inject constructor(
         }
 
         builder.setSmallIcon(device.iconRes)
-
-        val infoText = when (device) {
-            is DualApplePods -> {
-                val sb = StringBuilder()
-                sb.append("L: ${device.getBatteryLevelLeftPod(context)}")
-                sb.append(" | ")
-                sb.append("C: ${device.getBatteryLevelCase(context)}")
-                sb.append(" | ")
-                sb.append("R: ${device.getBatteryLevelRightPod(context)}")
-            }
-            else -> {
-                "Unknown device"
-            }
-        }
-        builder.setContentTitle(infoText)
+        builder.setContentTitle(device.getShortStatus(context))
         log(TAG, VERBOSE) { "updatingNotification(): $device" }
         return builder
     }
