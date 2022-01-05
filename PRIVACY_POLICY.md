@@ -11,6 +11,7 @@ My underlying privacy principle is the [Golden Rule](https://en.wikipedia.org/wi
 Send a [quick mail](mailto:support@darken.eu) if you have further questions.
 
 ## Automatic crash reports
+
 The app uses "Bugsnag" for automatic crash reports:
 
 https://www.bugsnag.com/
