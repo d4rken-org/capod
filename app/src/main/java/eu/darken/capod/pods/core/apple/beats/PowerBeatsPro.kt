@@ -13,7 +13,8 @@ data class PowerBeatsPro constructor(
     override val identifier: UUID = UUID.randomUUID(),
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: ScanResult,
-    override val proximityMessage: ProximityPairing.Message
+    override val proximityMessage: ProximityPairing.Message,
+    private val cachedBatteryPercentage: Float?,
 ) : DualApplePods {
 
     override fun getLabel(context: Context): String = "Power Beats Pro"
@@ -22,4 +23,7 @@ data class PowerBeatsPro constructor(
         get() = R.drawable.ic_device_generic_earbuds
 
     override val tag: String = logTag("Pod", "Apple", "Beats", "PowerPro")
+
+    override val batteryCasePercent: Float?
+        get() = super.batteryCasePercent ?: cachedBatteryPercentage
 }

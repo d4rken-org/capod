@@ -7,11 +7,12 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.DualPodDevice.Pod
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasDualPods
+import eu.darken.capod.pods.core.HasDualPods.Pod
 import eu.darken.capod.pods.core.HasEarDetection
 
-interface DualApplePods : ApplePods, DualPodDevice, HasEarDetection {
+interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
 
     val microPhonePod: Pod
         get() = when (rawStatus.isBitSet(5)) {
@@ -53,17 +54,6 @@ interface DualApplePods : ApplePods, DualPodDevice, HasEarDetection {
             }
         }
 
-    override val batteryCasePercent: Float?
-        get() = when (val value = rawCaseBattery.lowerNibble.toInt()) {
-            15 -> null
-            else -> if (value > 10) {
-                log(tag) { "Case: Above 100% battery: $value" }
-                1.0f
-            } else {
-                value / 10f
-            }
-        }
-
     val isLeftPodInEar: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawStatus.isBitSet(1)
@@ -79,9 +69,6 @@ interface DualApplePods : ApplePods, DualPodDevice, HasEarDetection {
     override val isBeingWorn: Boolean
         get() = isLeftPodInEar && isRightPodInEar
 
-    val isCaseCharging: Boolean
-        get() = rawCaseBattery.upperNibble.isBitSet(2)
-
     val isLeftPodCharging: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawCaseBattery.upperNibble.isBitSet(0)
@@ -93,6 +80,20 @@ interface DualApplePods : ApplePods, DualPodDevice, HasEarDetection {
             Pod.LEFT -> rawCaseBattery.upperNibble.isBitSet(1)
             Pod.RIGHT -> rawCaseBattery.upperNibble.isBitSet(0)
         }
+
+    override val batteryCasePercent: Float?
+        get() = when (val value = rawCaseBattery.lowerNibble.toInt()) {
+            15 -> null
+            else -> if (value > 10) {
+                log(tag) { "Case: Above 100% battery: $value" }
+                1.0f
+            } else {
+                value / 10f
+            }
+        }
+
+    override val isCaseCharging: Boolean
+        get() = rawCaseBattery.upperNibble.isBitSet(2)
 
     val caseLidState: LidState
         get() = LidState.values().firstOrNull { it.raw == rawCaseLidState } ?: LidState.UNKNOWN

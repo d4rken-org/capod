@@ -2,9 +2,9 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
-import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.HasSinglePod
 
-interface BasicSingleApplePods : ApplePods, SinglePodDevice {
+interface BasicSingleApplePods : ApplePods, HasSinglePod {
 
     override val batteryHeadsetPercent: Float?
         get() = when (val value = rawPodsBattery.lowerNibble.toInt()) {

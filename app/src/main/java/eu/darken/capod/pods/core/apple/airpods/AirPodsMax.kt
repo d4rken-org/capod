@@ -13,7 +13,7 @@ data class AirPodsMax constructor(
     override val identifier: UUID = UUID.randomUUID(),
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: ScanResult,
-    override val proximityMessage: ProximityPairing.Message
+    override val proximityMessage: ProximityPairing.Message,
 ) : SingleApplePods {
 
     override fun getLabel(context: Context): String = "AirPods Max"

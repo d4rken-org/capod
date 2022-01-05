@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface DualPodDevice : PodDevice {
+interface HasDualPods {
 
     enum class Pod {
         LEFT,
@@ -10,6 +10,4 @@ interface DualPodDevice : PodDevice {
     val batteryLeftPodPercent: Float?
 
     val batteryRightPodPercent: Float?
-
-    val batteryCasePercent: Float?
 }

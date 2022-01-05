@@ -7,6 +7,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.airpods.*
 import eu.darken.capod.pods.core.apple.beats.*
@@ -45,8 +46,14 @@ class AppleFactory @Inject constructor(
         }
     }
 
+    private val lock = Mutex()
     private val knownDevs = mutableMapOf<UUID, KnownDevice>()
-    private val mutex = Mutex()
+
+    data class ValueCache(
+        val caseBatteryPercentage: Float?
+    )
+
+    private val cachedValues = mutableMapOf<UUID, ValueCache>()
 
     private suspend fun getMessage(scanResult: ScanResult): ProximityPairing.Message? {
         val messages = try {
@@ -140,7 +147,7 @@ class AppleFactory @Inject constructor(
         return identifier!!
     }
 
-    suspend fun create(scanResult: ScanResult): PodDevice? = mutex.withLock {
+    suspend fun create(scanResult: ScanResult): PodDevice? = lock.withLock {
         val pm = getMessage(scanResult) ?: return@withLock null
 
         val identifier = recognizeDevice(scanResult, pm)
@@ -155,39 +162,49 @@ class AppleFactory @Inject constructor(
             "Decoding (MAC=${scanResult.device.address}, nanos=${scanResult.timestampNanos}, rssi=${scanResult.rssi}): $dataHex"
         }
 
-        return createPodDevice(scanResult, pm, identifier)
+        return createSpecificDevice(scanResult, pm, identifier)
     }
 
-    private fun createPodDevice(
+    private fun createSpecificDevice(
         scanResult: ScanResult,
         pm: ProximityPairing.Message,
         identifier: UUID
     ): ApplePods {
-        val dm = (
-                ((pm.data[1].toInt() and 255) shl 8) or (pm.data[2].toInt() and 255)
-                ).toUShort()
+
+        val cachedCaseBattery = cachedValues[identifier]?.caseBatteryPercentage
+
+        val dm = (((pm.data[1].toInt() and 255) shl 8) or (pm.data[2].toInt() and 255)).toUShort()
         val dmDirty = pm.data[1]
 
-        return when {
+        val specificDevice = when {
             dm == 0x0220.toUShort() -> AirPodsGen1(
                 identifier = identifier,
                 scanResult = scanResult,
-                proximityMessage = pm
+                proximityMessage = pm,
+                cachedBatteryPercentage = cachedCaseBattery,
             )
             dm == 0x0F20.toUShort() -> AirPodsGen2(
                 identifier = identifier,
                 scanResult = scanResult,
-                proximityMessage = pm
+                proximityMessage = pm,
+                cachedBatteryPercentage = cachedCaseBattery,
             )
             dm == 0x0e20.toUShort() -> AirPodsPro(
                 identifier = identifier,
                 scanResult = scanResult,
-                proximityMessage = pm
+                proximityMessage = pm,
+                cachedBatteryPercentage = cachedCaseBattery,
+            )
+            dmDirty == 11.toUByte() -> PowerBeatsPro(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm,
+                cachedBatteryPercentage = cachedCaseBattery,
             )
             dmDirty == 10.toUByte() -> AirPodsMax(
                 identifier = identifier,
                 scanResult = scanResult,
-                proximityMessage = pm
+                proximityMessage = pm,
             )
             dm == 0x1320.toUShort() -> PowerBeats3(
                 identifier = identifier,
@@ -200,11 +217,6 @@ class AppleFactory @Inject constructor(
                 proximityMessage = pm
             )
             dmDirty == 9.toUByte() -> BeatsStudio3(
-                identifier = identifier,
-                scanResult = scanResult,
-                proximityMessage = pm
-            )
-            dmDirty == 11.toUByte() -> PowerBeatsPro(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
@@ -230,6 +242,12 @@ class AppleFactory @Inject constructor(
                 )
             }
         }
+
+        cachedValues[identifier] = ValueCache(
+            caseBatteryPercentage = (specificDevice as? HasCase)?.batteryCasePercent
+        )
+
+        return specificDevice
     }
 
     companion object {

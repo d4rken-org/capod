@@ -13,7 +13,8 @@ data class AirPodsGen2 constructor(
     override val identifier: UUID = UUID.randomUUID(),
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: ScanResult,
-    override val proximityMessage: ProximityPairing.Message
+    override val proximityMessage: ProximityPairing.Message,
+    private val cachedBatteryPercentage: Float?,
 ) : DualApplePods {
 
     override fun getLabel(context: Context): String = "AirPods (Gen 2)"
@@ -22,4 +23,7 @@ data class AirPodsGen2 constructor(
         get() = R.drawable.ic_device_airpods_gen2
 
     override val tag: String = logTag("Pod", "Apple", "AirPods", "Gen2")
+
+    override val batteryCasePercent: Float?
+        get() = super.batteryCasePercent ?: cachedBatteryPercentage
 }

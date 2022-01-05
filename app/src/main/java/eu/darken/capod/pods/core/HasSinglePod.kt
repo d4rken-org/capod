@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface SinglePodDevice : PodDevice {
+interface HasSinglePod {
 
     val batteryHeadsetPercent: Float?
 }
