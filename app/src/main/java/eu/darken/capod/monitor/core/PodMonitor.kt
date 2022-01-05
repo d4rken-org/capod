@@ -12,6 +12,8 @@ import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import kotlinx.coroutines.flow.*
+import java.time.Duration
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,6 +24,8 @@ class PodMonitor @Inject constructor(
     private val generalSettings: GeneralSettings,
     private val bluetoothManager: BluetoothManager2
 ) {
+
+    private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
 
     val devices: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
         .flatMapLatest {
@@ -53,39 +57,26 @@ class PodMonitor @Inject constructor(
         }
         .onStart { emptyList<PodDevice>() }
         .map { scanResults ->
-            val pods = scanResults
+            val newPods = scanResults
                 .sortedByDescending { it.rssi }
                 .mapNotNull { podFactory.createPod(it) }
 
-//            if (BuildConfigWrap.DEBUG && scanResults.isNotEmpty()) {
-//               val fake1 = AirPodsMax(
-//                    identifier = UUID.fromString("63436171-5433-4506-8bf5-faf6c35ffa8a"),
-//                    scanResult = scanResults.first(),
-//                    proximityMessage = ProximityPairing.Decoder().decode(
-//                        message = ContinuityProtocol.Message(
-//                            type = 0x07.toUByte(),
-//                            length = 25,
-//                            data = arrayOf<Byte>(1, 10, 32, 98, 4, -128, 1, 15, 64, 13, 112, 80, 22, -14, 64, -125, 22, -65, 16, 22, 52, -101, 116, -124, -24).toByteArray().toUByteArray()
-//                        )
-//                    )!!
-//                )
-//                val fake2 = BeatsFlex(
-//                    identifier = UUID.fromString("e563098d-ea24-4136-a169-5a59344317c3"),
-//                    scanResult = scanResults.first(),
-//                    proximityMessage = ProximityPairing.Decoder().decode(
-//                        message = ContinuityProtocol.Message(
-//                            type = 0x07.toUByte(),
-//                            length = 25,
-//                            data = arrayOf<Byte>(1, 16, 32, 10, -12, -113, 0, 1, 0, -60, 113, -97, -100, -17, -94, -29, -70, 102, -2, 29, 69, -97, -55, 47, -96).toByteArray().toUByteArray()
-//                        )
-//                    )!!
-//                )
-//                pods.plus(fake1).plus(fake2)
-//            } else {
-//                pods
-//            }
+            val pods = mutableMapOf<PodDevice.Id, PodDevice>()
 
-            pods
+            pods.putAll(deviceCache)
+            pods.putAll(newPods.map { it.identifier to it })
+
+            val now = Instant.now()
+            pods.toList().forEach { (key, value) ->
+                if (Duration.between(value.lastSeenAt, now) > Duration.ofSeconds(10)) {
+                    log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
+                    pods.remove(key)
+                }
+            }
+            deviceCache.clear()
+            deviceCache.putAll(pods)
+
+            pods.values.toList()
         }
 
     val mainDevice: Flow<PodDevice?>

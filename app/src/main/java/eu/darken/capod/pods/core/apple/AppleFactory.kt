@@ -27,7 +27,7 @@ class AppleFactory @Inject constructor(
 ) {
 
     data class KnownDevice(
-        val identifier: UUID,
+        val identifier: PodDevice.Id,
         val scanResult: ScanResult,
         val message: ProximityPairing.Message,
     ) {
@@ -47,13 +47,13 @@ class AppleFactory @Inject constructor(
     }
 
     private val lock = Mutex()
-    private val knownDevs = mutableMapOf<UUID, KnownDevice>()
+    private val knownDevs = mutableMapOf<PodDevice.Id, KnownDevice>()
 
     data class ValueCache(
         val caseBatteryPercentage: Float?
     )
 
-    private val cachedValues = mutableMapOf<UUID, ValueCache>()
+    private val cachedValues = mutableMapOf<PodDevice.Id, ValueCache>()
 
     private suspend fun getMessage(scanResult: ScanResult): ProximityPairing.Message? {
         val messages = try {
@@ -80,10 +80,10 @@ class AppleFactory @Inject constructor(
         return proximityMessage
     }
 
-    private suspend fun recognizeDevice(scanResult: ScanResult, message: ProximityPairing.Message): UUID {
+    private suspend fun recognizeDevice(scanResult: ScanResult, message: ProximityPairing.Message): PodDevice.Id {
         val address = scanResult.device.address
 
-        var identifier: UUID? = null
+        var identifier: PodDevice.Id? = null
 
         knownDevs.values.firstOrNull { it.address == address }?.let {
             log(TAG, VERBOSE) { "recognizeDevice: Recovered previous ID via address: $it" }
@@ -128,7 +128,7 @@ class AppleFactory @Inject constructor(
 
         if (identifier == null) {
             log(TAG, VERBOSE) { "recognizeDevice: Mapping as new device" }
-            identifier = UUID.randomUUID()
+            identifier = PodDevice.Id()
         }
 
         knownDevs[identifier!!] = KnownDevice(
@@ -168,7 +168,7 @@ class AppleFactory @Inject constructor(
     private fun createSpecificDevice(
         scanResult: ScanResult,
         pm: ProximityPairing.Message,
-        identifier: UUID
+        identifier: PodDevice.Id
     ): ApplePods {
 
         val cachedCaseBattery = cachedValues[identifier]?.caseBatteryPercentage

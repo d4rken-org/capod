@@ -10,7 +10,7 @@ import kotlin.math.abs
 
 interface PodDevice {
 
-    val identifier: UUID
+    val identifier: Id
 
     val lastSeenAt: Instant
 
@@ -36,4 +36,7 @@ interface PodDevice {
     @get:DrawableRes
     val iconRes: Int
         get() = R.drawable.ic_device_generic_earbuds
+
+    @JvmInline
+    value class Id(private val id: UUID = UUID.randomUUID())
 }
