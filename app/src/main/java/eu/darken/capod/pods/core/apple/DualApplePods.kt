@@ -29,7 +29,7 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
             return when (value) {
                 15 -> null
                 else -> if (value > 10) {
-                    log(tag) { "Left pod: Above 100% battery: $value" }
+                    log { "Left pod: Above 100% battery: $value" }
                     1.0f
                 } else {
                     (value / 10f)
@@ -46,7 +46,7 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
             return when (value) {
                 15 -> null
                 else -> if (value > 10) {
-                    log(tag) { "Right pod: Above 100% battery: $value" }
+                    log { "Right pod: Above 100% battery: $value" }
                     1.0f
                 } else {
                     value / 10f
@@ -85,7 +85,7 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
         get() = when (val value = rawCaseBattery.lowerNibble.toInt()) {
             15 -> null
             else -> if (value > 10) {
-                log(tag) { "Case: Above 100% battery: $value" }
+                log { "Case: Above 100% battery: $value" }
                 1.0f
             } else {
                 value / 10f

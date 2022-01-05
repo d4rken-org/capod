@@ -1,13 +1,10 @@
 package eu.darken.capod.pods.core.apple
 
-import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 
 interface ApplePods : PodDevice {
-
-    val tag: String
 
     val proximityMessage: ProximityPairing.Message
 
@@ -38,9 +35,4 @@ interface ApplePods : PodDevice {
 
     val rawSuffix: UByte
         get() = proximityMessage.data[8]
-
-    companion object {
-
-        val TAG = logTag("Pod", "AppleDevice")
-    }
 }

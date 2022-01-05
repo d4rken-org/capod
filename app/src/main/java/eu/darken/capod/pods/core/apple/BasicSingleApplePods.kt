@@ -10,7 +10,7 @@ interface BasicSingleApplePods : ApplePods, HasSinglePod {
         get() = when (val value = rawPodsBattery.lowerNibble.toInt()) {
             15 -> null
             else -> if (value > 10) {
-                log(tag) { "Left pod: Above 100% battery: $value" }
+                log { "Left pod: Above 100% battery: $value" }
                 1.0f
             } else {
                 (value / 10f)

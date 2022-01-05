@@ -5,7 +5,6 @@ import dagger.Reusable
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.apple.ApplePods
 import javax.inject.Inject
 
 
@@ -38,11 +37,11 @@ object ProximityPairing {
     class Decoder @Inject constructor() {
         fun decode(message: ContinuityProtocol.Message): Message? {
             if (message.type != CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING) {
-                log(ApplePods.TAG) { "Not a proximity pairing message: $this" }
+                log { "Not a proximity pairing message: $this" }
                 return null
             }
             if (message.length != PROXIMITY_PAIRING_MESSAGE_LENGTH) {
-                log(ApplePods.TAG) { "Proximity pairing message has invalid length." }
+                log { "Proximity pairing message has invalid length." }
                 return null
             }
 
