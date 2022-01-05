@@ -74,28 +74,31 @@ class MonitorWorker @AssistedInject constructor(
                 return Result.success()
             }
 
-            bluetoothManager2
-                .isBluetoothEnabled
-                .flatMapLatest { bluetoothManager2.connectedDevices() }
-                .map { devices ->
-                    devices.any { device ->
-                        ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature ->
-                            device.hasFeature(feature)
+            generalSettings.monitorMode.flow
+                .flatMapLatest { monitorMode ->
+                    bluetoothManager2
+                        .isBluetoothEnabled
+                        .flatMapLatest { bluetoothManager2.connectedDevices() }
+                        .map { devices ->
+                            devices.filter { device ->
+                                ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature ->
+                                    device.hasFeature(feature)
+                                }
+                            }
                         }
-                    }
+                        .map { knownDevices -> monitorMode to knownDevices }
                 }
-                .setupCommonEventHandlers(TAG) { "ConnectedDevices" }
-                .flatMapLatest { arePodsConnected ->
-                    val mode = generalSettings.monitorMode.value
-                    log(TAG) { "Monitor mode: $mode" }
-                    when (mode) {
+                .setupCommonEventHandlers(TAG) { "MonitorMode" }
+                .flatMapLatest { (monitorMode, devices) ->
+                    log(TAG) { "Monitor mode: $monitorMode" }
+                    when (monitorMode) {
                         MonitorMode.MANUAL -> flow<Unit> {
                             // Cancel worker, ui scans manually
                             workerScope.coroutineContext.cancelChildren()
                         }
                         MonitorMode.ALWAYS -> emptyFlow()
                         MonitorMode.AUTOMATIC -> flow<Unit> {
-                            if (arePodsConnected) {
+                            if (devices.isNotEmpty()) {
                                 log(TAG) { "Pods are connected, aborting any timeout." }
                             } else {
                                 log(TAG) { "No Pods are connected, canceling worker soon." }
