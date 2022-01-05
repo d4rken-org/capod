@@ -2,8 +2,10 @@ package eu.darken.capod.main.core
 
 import androidx.annotation.StringRes
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import eu.darken.capod.R
 
+@JsonClass(generateAdapter = false)
 enum class ScannerMode(
     val identifier: String,
     @StringRes val labelRes: Int
