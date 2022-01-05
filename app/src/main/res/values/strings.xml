@@ -47,14 +47,12 @@
     <string name="pods_device_color_blue_label">Blue</string>
     <string name="pods_device_color_red_label">Red</string>
     <string name="pods_device_color_black_label">Black</string>
-    <string name="pods_connection_state_disconnected_label">Disconnected</string>
-    <string name="pods_connection_state_idle_label">Idle</string>
-    <string name="pods_connection_state_music_label">Music</string>
-    <string name="pods_connection_state_call_label">Call</string>
+    <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
+    <string name="pods_connection_state_idle_label">Connected, but idle</string>
+    <string name="pods_connection_state_music_label">In music mode</string>
+    <string name="pods_connection_state_call_label">In call mode</string>
     <string name="pods_connection_state_ringing_label">Ringing</string>
     <string name="pods_connection_state_hanging_up_label">Hanging up</string>
-    <string name="pods_status_x_label">Status: %s</string>
-
 
     <string name="settings_label">Settings</string>
     <string name="settings_privacy_policy_label">Privacy policy</string>

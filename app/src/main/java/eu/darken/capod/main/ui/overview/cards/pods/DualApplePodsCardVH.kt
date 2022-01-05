@@ -88,7 +88,7 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         }
 
         status.apply {
-            val sb = StringBuilder(getString(R.string.pods_status_x_label, device.getConnectionStateLabel(context)))
+            val sb = StringBuilder(device.getConnectionStateLabel(context))
             if (item.showDebug) {
                 sb.append("\n\n").append("---Debug---")
                 sb.append("\n").append(device.rawDataHex)
