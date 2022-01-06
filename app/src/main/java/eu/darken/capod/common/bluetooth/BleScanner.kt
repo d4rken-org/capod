@@ -27,7 +27,7 @@ class BleScanner @Inject constructor(
         mode: Int = ScanSettings.SCAN_MODE_BALANCED,
     ): Flow<List<ScanResult>> = callbackFlow {
         val adapter = bluetoothManager.adapter
-        val scanner = adapter.bluetoothLeScanner
+        val scanner = bluetoothManager.scanner
 
         val callback = object : ScanCallback() {
             override fun onScanResult(callbackType: Int, result: ScanResult) {
