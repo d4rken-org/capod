@@ -1,7 +1,7 @@
 package eu.darken.capod.pods.core.apple
 
-import android.bluetooth.le.ScanResult
 import eu.darken.capod.common.SystemClockWrap
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
@@ -28,17 +28,17 @@ class AppleFactory @Inject constructor(
 
     data class KnownDevice(
         val identifier: PodDevice.Id,
-        val scanResult: ScanResult,
+        val scanResult: BleScanResult,
         val message: ProximityPairing.Message,
     ) {
         val address: String
-            get() = scanResult.device.address
+            get() = scanResult.address
 
         val rssi: Int
             get() = scanResult.rssi
 
         val timestampNanos: Duration
-            get() = Duration.ofNanos(scanResult.timestampNanos)
+            get() = Duration.ofNanos(scanResult.generatedAtNanos)
 
         fun isOlderThan(age: Duration): Boolean {
             val now = Duration.ofNanos(SystemClockWrap.elapsedRealtimeNanos)
@@ -55,7 +55,7 @@ class AppleFactory @Inject constructor(
 
     private val cachedValues = mutableMapOf<PodDevice.Id, ValueCache>()
 
-    private suspend fun getMessage(scanResult: ScanResult): ProximityPairing.Message? {
+    private suspend fun getMessage(scanResult: BleScanResult): ProximityPairing.Message? {
         val messages = try {
             continuityProtocolDecoder.decode(scanResult)
         } catch (e: Exception) {
@@ -80,8 +80,8 @@ class AppleFactory @Inject constructor(
         return proximityMessage
     }
 
-    private suspend fun recognizeDevice(scanResult: ScanResult, message: ProximityPairing.Message): PodDevice.Id {
-        val address = scanResult.device.address
+    private suspend fun recognizeDevice(scanResult: BleScanResult, message: ProximityPairing.Message): PodDevice.Id {
+        val address = scanResult.address
 
         var identifier: PodDevice.Id? = null
 
@@ -147,26 +147,18 @@ class AppleFactory @Inject constructor(
         return identifier!!
     }
 
-    suspend fun create(scanResult: ScanResult): PodDevice? = lock.withLock {
+    suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
         val pm = getMessage(scanResult) ?: return@withLock null
 
         val identifier = recognizeDevice(scanResult, pm)
 
-        log(TAG, INFO) {
-            val data = scanResult.scanRecord!!.getManufacturerSpecificData(
-                ContinuityProtocol.APPLE_COMPANY_IDENTIFIER
-            )!!
-            val dataHex = data.joinToString(separator = " ") {
-                String.format("%02X", it)
-            }
-            "Decoding (MAC=${scanResult.device.address}, nanos=${scanResult.timestampNanos}, rssi=${scanResult.rssi}): $dataHex"
-        }
+        log(TAG, INFO) { "Decoding $scanResult" }
 
         return createSpecificDevice(scanResult, pm, identifier)
     }
 
     private fun createSpecificDevice(
-        scanResult: ScanResult,
+        scanResult: BleScanResult,
         pm: ProximityPairing.Message,
         identifier: PodDevice.Id
     ): ApplePods {

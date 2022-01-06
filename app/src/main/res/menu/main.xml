@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_item_settings"
-        android:title="@string/settings_general_label" />
-    <item
-        android:id="@+id/menu_item_debuglog"
-        android:title="@string/debug_debuglog_record_action" />
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings_general_label"
+        app:showAsAction="always" />
 </menu>

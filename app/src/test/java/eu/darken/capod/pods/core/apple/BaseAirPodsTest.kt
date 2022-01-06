@@ -1,24 +1,24 @@
 package eu.darken.capod.pods.core.apple
 
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.le.ScanRecord
-import android.bluetooth.le.ScanResult
 import eu.darken.capod.common.SystemClockWrap
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import io.mockk.MockKAnnotations
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
 import io.mockk.mockkObject
 import org.junit.jupiter.api.BeforeEach
 import testhelper.BaseTest
 
 abstract class BaseAirPodsTest : BaseTest() {
 
-    @MockK lateinit var scanResult: ScanResult
-    @MockK lateinit var scanRecord: ScanRecord
-    @MockK lateinit var device: BluetoothDevice
+    private val baseBleScanResult = BleScanResult(
+        address = "77:49:4C:D8:25:0C",
+        rssi = -66,
+        generatedAtNanos = 136136027721826,
+        manufacturerSpecificData = emptyMap()
+    )
 
     val factory = AppleFactory(
         proximityPairingDecoder = ProximityPairing.Decoder(),
@@ -28,11 +28,6 @@ abstract class BaseAirPodsTest : BaseTest() {
     @BeforeEach
     fun setup() {
         MockKAnnotations.init(this)
-        every { scanResult.scanRecord } returns scanRecord
-        every { scanResult.rssi } returns -66
-        every { scanResult.timestampNanos } returns 136136027721826
-        every { scanResult.device } returns device
-        every { device.address } returns "77:49:4C:D8:25:0C"
 
         mockkObject(SystemClockWrap)
         every { SystemClockWrap.elapsedRealtimeNanos } returns 1000L
@@ -45,11 +40,11 @@ abstract class BaseAirPodsTest : BaseTest() {
             .replace("<", "")
         require(trimmed.length % 2 == 0) { "Not a HEX string" }
         val bytes = trimmed.chunked(2).map { it.toInt(16).toByte() }.toByteArray()
-        mockData(bytes)
-        block.invoke(factory.create(scanResult) as T)
+        val result = mockData(bytes)
+        block.invoke(factory.create(result) as T)
     }
 
-    fun mockData(hex: String) {
+    fun mockData(hex: String): BleScanResult {
         val trimmed = hex
             .replace(" ", "")
             .replace(">", "")
@@ -59,7 +54,9 @@ abstract class BaseAirPodsTest : BaseTest() {
         return mockData(bytes)
     }
 
-    fun mockData(data: ByteArray) {
-        every { scanRecord.getManufacturerSpecificData(ContinuityProtocol.APPLE_COMPANY_IDENTIFIER) } returns data
-    }
+    fun mockData(data: ByteArray): BleScanResult = baseBleScanResult.copy(
+        manufacturerSpecificData = mutableMapOf<Int, ByteArray>().apply {
+            this[ContinuityProtocol.APPLE_COMPANY_IDENTIFIER] = data
+        }
+    )
 }

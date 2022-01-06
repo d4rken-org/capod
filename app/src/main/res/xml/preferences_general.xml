@@ -39,11 +39,12 @@
             android:summary="@string/settings_debug_autoreports_description"
             android:title="@string/settings_debug_autoreports_label" />
 
-        <CheckBoxPreference
+        <Preference
             android:icon="@drawable/ic_baseline_bug_report_24"
-            android:key="debug.mode.enabled"
-            android:summary="@string/settings_debug_mode_description"
-            android:title="@string/settings_debug_mode_label" />
+            android:key="debug.settings"
+            android:fragment="eu.darken.capod.main.ui.settings.general.debug.DebugSettingsFragment"
+            android:summary="@string/settings_debug_description"
+            android:title="@string/settings_debug_label" />
 
     </PreferenceCategory>
 

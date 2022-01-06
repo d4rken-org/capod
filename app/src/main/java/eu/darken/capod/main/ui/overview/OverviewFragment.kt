@@ -45,10 +45,6 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
             subtitle = BuildConfigWrap.VERSION_DESCRIPTION
             setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.menu_item_debuglog -> {
-                        vm.toggleDebugLog()
-                        true
-                    }
                     R.id.menu_item_settings -> {
                         vm.goToSettings()
                         true

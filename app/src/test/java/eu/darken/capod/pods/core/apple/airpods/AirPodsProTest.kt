@@ -171,7 +171,7 @@ class AirPodsProTest : BaseAirPodsTest() {
             isCaseCharging shouldBe false
             isRightPodCharging shouldBe false
             isLeftPodCharging shouldBe false
-            batteryCasePercent shouldBe null
+            batteryCasePercent shouldBe 0.6f
 
             deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }

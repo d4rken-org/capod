@@ -26,11 +26,9 @@ class SingleApplePodsTest : BaseAirPodsTest() {
         create<AirPodsMax>("07 19 01 0A 20 02 05 80 04 0F 44 A7 60 9B F8 3C FD B1 D8 1C 61 EA 82 60 A3 2C 4E") {
             batteryHeadsetPercent shouldBe 0.5f
 
-            isCaseCharging shouldBe false
             isHeadsetBeingCharged shouldBe false
 
             isHeadphonesBeingWorn shouldBe true
-            batteryCasePercent shouldBe 0.0f
         }
     }
 }

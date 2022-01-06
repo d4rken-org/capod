@@ -7,7 +7,6 @@ import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.androidstarter.common.preferences.Settings
 import eu.darken.capod.common.debug.autoreport.DebugSettings
-import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.createFlowPreference
 import javax.inject.Inject
@@ -55,11 +54,6 @@ class GeneralSettings @Inject constructor(
         autoPause,
         autoPlay,
         showAll,
-        debugSettings.isDebugModeEnabled,
-        debugSettings.isAutoReportEnabled
+        debugSettings.isAutoReportEnabled,
     )
-
-    companion object {
-        internal val TAG = logTag("Core", "Settings")
-    }
 }

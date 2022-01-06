@@ -9,7 +9,7 @@ interface ApplePods : PodDevice {
     val proximityMessage: ProximityPairing.Message
 
     override val rawData: ByteArray
-        get() = scanResult.scanRecord!!.getManufacturerSpecificData(ContinuityProtocol.APPLE_COMPANY_IDENTIFIER)!!
+        get() = scanResult.getManufacturerSpecificData(ContinuityProtocol.APPLE_COMPANY_IDENTIFIER)!!
 
     // We start counting at the airpods prefix byte
     val rawPrefix: UByte

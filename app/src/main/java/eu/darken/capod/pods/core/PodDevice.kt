@@ -1,9 +1,9 @@
 package eu.darken.capod.pods.core
 
-import android.bluetooth.le.ScanResult
 import android.content.Context
 import androidx.annotation.DrawableRes
 import eu.darken.capod.R
+import eu.darken.capod.common.bluetooth.BleScanResult
 import java.time.Instant
 import java.util.*
 import kotlin.math.abs
@@ -14,7 +14,7 @@ interface PodDevice {
 
     val lastSeenAt: Instant
 
-    val scanResult: ScanResult
+    val scanResult: BleScanResult
 
     val rssi: Int
         get() = scanResult.rssi

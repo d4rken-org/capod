@@ -1,7 +1,7 @@
 package eu.darken.capod.pods.core
 
-import android.bluetooth.le.ScanResult
 import dagger.Reusable
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -14,7 +14,7 @@ class PodFactory @Inject constructor(
     private val appleFactory: AppleFactory
 ) {
 
-    suspend fun createPod(scanResult: ScanResult): PodDevice? {
+    suspend fun createPod(scanResult: BleScanResult): PodDevice? {
         log(TAG, VERBOSE) { "Trying to create Pod for $scanResult" }
 
         val pod = appleFactory.create(scanResult)

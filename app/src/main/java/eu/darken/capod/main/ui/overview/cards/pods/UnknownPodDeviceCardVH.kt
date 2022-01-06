@@ -32,6 +32,8 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
             RelativeDateTimeFormatter.RelativeUnit.SECONDS
         )
 
+        reception.text = device.getSignalQuality(context)
+
         rawdata.text = device.rawDataHex
     }
 

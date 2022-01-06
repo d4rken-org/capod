@@ -1,8 +1,8 @@
 package eu.darken.capod.pods.core.apple.protocol
 
-import android.bluetooth.le.ScanResult
 import android.os.ParcelUuid
 import dagger.Reusable
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -29,8 +29,8 @@ object ContinuityProtocol {
 
     @Reusable
     class Decoder @Inject constructor() {
-        fun decode(scanResult: ScanResult): List<Message> = scanResult.scanRecord
-            ?.getManufacturerSpecificData(APPLE_COMPANY_IDENTIFIER)
+        fun decode(scanResult: BleScanResult): List<Message> = scanResult
+            .getManufacturerSpecificData(APPLE_COMPANY_IDENTIFIER)
             ?.let { data ->
                 val messages = mutableListOf<Message>()
 

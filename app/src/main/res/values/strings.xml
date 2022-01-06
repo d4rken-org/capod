@@ -103,4 +103,8 @@
     <string name="pods_single_basic_status_short">Headphones: %1$s</string>
     <string name="permission_background_location_label">ACCESS_BACKGROUND_LOCATION</string>
     <string name="permission_background_location_description">Allows an app to access location in the background.</string>
+    <string name="settings_fake_data_label">Fake data</string>
+    <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
+    <string name="settings_debug_label">Debug settings</string>
+    <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
 </resources>

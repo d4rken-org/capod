@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:icon="@drawable/ic_baseline_text_snippet_24"
+        android:key="debug.log.record"
+        android:title="@string/debug_debuglog_record_action" />
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_bug_report_24"
+        android:key="debug.mode.enabled"
+        android:summary="@string/settings_debug_mode_description"
+        android:title="@string/settings_debug_mode_label" />
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_data_array_24"
+        android:key="debug.fakedata.enabled"
+        android:summary="@string/settings_fake_data_description"
+        android:title="@string/settings_fake_data_label" />
+
+</PreferenceScreen>
