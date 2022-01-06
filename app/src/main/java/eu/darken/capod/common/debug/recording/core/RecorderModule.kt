@@ -2,12 +2,14 @@ package eu.darken.capod.common.debug.recording.core
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Environment
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.ui.RecorderActivity
@@ -45,7 +47,7 @@ class RecorderModule @Inject constructor(
     init {
         internalState.flow
             .onEach {
-                log(TAG) { "New Recorder state: $internalState" }
+                log(TAG) { "New Recorder state: $it" }
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
@@ -54,6 +56,9 @@ class RecorderModule @Inject constructor(
                         triggerFile.createNewFile()
 
                         context.startServiceCompat(Intent(context, RecorderService::class.java))
+
+                        log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
+                        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
 
                         copy(
                             recorder = newRecorder
