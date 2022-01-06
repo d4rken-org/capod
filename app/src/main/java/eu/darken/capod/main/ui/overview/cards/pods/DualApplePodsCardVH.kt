@@ -1,6 +1,5 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
-import android.icu.text.RelativeDateTimeFormatter
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
@@ -12,7 +11,7 @@ import eu.darken.capod.pods.core.apple.DualApplePods.LidState
 import eu.darken.capod.pods.core.getBatteryLevelCase
 import eu.darken.capod.pods.core.getBatteryLevelLeftPod
 import eu.darken.capod.pods.core.getBatteryLevelRightPod
-import java.time.Duration
+import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Instant
 
 class DualApplePodsCardVH(parent: ViewGroup) :
@@ -22,8 +21,6 @@ class DualApplePodsCardVH(parent: ViewGroup) :
     ) {
 
     override val viewBinding = lazy { OverviewPodsAppleDualItemBinding.bind(itemView) }
-
-    private val lastSeenFormatter = RelativeDateTimeFormatter.getInstance()
 
     override val onBindData = binding(payload = true) { item: Item ->
         val device = item.device
@@ -36,12 +33,7 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         }
         deviceIcon.setImageResource(device.iconRes)
 
-        val duration = Duration.between(device.lastSeenAt, item.now)
-        lastSeen.text = lastSeenFormatter.format(
-            duration.seconds.toDouble(),
-            RelativeDateTimeFormatter.Direction.LAST,
-            RelativeDateTimeFormatter.RelativeUnit.SECONDS
-        )
+        lastSeen.text = device.lastSeenFormatted(item.now)
 
         reception.text = device.getSignalQuality(context)
 
