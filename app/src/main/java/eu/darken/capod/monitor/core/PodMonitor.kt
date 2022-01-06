@@ -50,10 +50,10 @@ class PodMonitor @Inject constructor(
         }
         .map { result ->
             // For each address we only want the newest result, upstream may batch data
-            result.groupBy { it.device.address }
+            result.groupBy { it.address }
                 .values
                 .map { sameAdrDevs ->
-                    val newest = sameAdrDevs.maxByOrNull { it.timestampNanos }!!
+                    val newest = sameAdrDevs.maxByOrNull { it.generatedAtNanos }!!
                     log(TAG, VERBOSE) { "Discarding stale results: ${sameAdrDevs.minus(newest)}" }
                     newest
                 }
@@ -61,7 +61,6 @@ class PodMonitor @Inject constructor(
         .onStart { emptyList<PodDevice>() }
         .map { scanResults ->
             val newPods = scanResults
-                .sortedByDescending { it.rssi }
                 .mapNotNull { podFactory.createPod(it) }
 
             val pods = mutableMapOf<PodDevice.Id, PodDevice>()
@@ -83,7 +82,7 @@ class PodMonitor @Inject constructor(
                 }
             }
 
-            pods.values.toList()
+            pods.values.sortedByDescending { it.rssi }
         }
 
     val mainDevice: Flow<PodDevice?>
