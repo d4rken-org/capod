@@ -80,14 +80,14 @@ class BleScanner @Inject constructor(
                     address = "78:73:AF:B4:85:5E",
                     rssi = -48,
                     generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 100,
-                    manufacturerSpecificData = mapOf(76 to "07 19 01 0E 20 75 AA B6 31 00 00 9C 5A A4 5D C0 2C A0 B4 6F B9 ED 8E CE 03 97 CA".hexToByteArray())
+                    manufacturerSpecificData = mapOf(76 to "07 19 01 0E 20 75 AA B6 31 00 05 9C 5A A4 5D C0 2C A0 B4 6F B9 ED 8E CE 03 97 CA".hexToByteArray())
                 ).run { fakeDevices.add(this) }
                 // AirPods Gen1
                 BleScanResult(
                     address = "4E:9E:D1:49:D2:6D",
                     rssi = -55,
                     generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 200,
-                    manufacturerSpecificData = mapOf(76 to "07 19 01 02 20 55 AF 56 31 00 00 6F E4 DF 10 AF 10 60 81 03 3B 76 D9 C7 11 22 88".hexToByteArray())
+                    manufacturerSpecificData = mapOf(76 to "07 19 01 02 20 55 AF 56 31 00 06 6F E4 DF 10 AF 10 60 81 03 3B 76 D9 C7 11 22 88".hexToByteArray())
                 ).run { fakeDevices.add(this) }
                 // AirPods Max
                 BleScanResult(
