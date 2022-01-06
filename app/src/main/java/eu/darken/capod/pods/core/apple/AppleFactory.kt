@@ -111,22 +111,6 @@ class AppleFactory @Inject constructor(
         }
 
         if (identifier == null) {
-            knownDevs.values
-                .firstOrNull {
-                    it.rssi > -60 && !it.isOlderThan(Duration.ofSeconds(10))
-                }
-                ?.let {
-                    log(TAG, DEBUG) { "recognizeDevice: Close match based on RSSI and timestamp." }
-                    knownDevs[it.identifier] = it.copy(
-                        scanResult = scanResult,
-                        message = message,
-                    )
-                    identifier = it.identifier
-                }
-        }
-
-
-        if (identifier == null) {
             log(TAG, VERBOSE) { "recognizeDevice: Mapping as new device" }
             identifier = PodDevice.Id()
         }
