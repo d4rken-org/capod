@@ -3,14 +3,17 @@ package eu.darken.capod.monitor.core
 import android.bluetooth.le.ScanSettings
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -24,7 +27,8 @@ class PodMonitor @Inject constructor(
     private val bleScanner: BleScanner,
     private val podFactory: PodFactory,
     private val generalSettings: GeneralSettings,
-    private val bluetoothManager: BluetoothManager2
+    private val bluetoothManager: BluetoothManager2,
+    @AppScope private val appScope: CoroutineScope
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
@@ -84,6 +88,7 @@ class PodMonitor @Inject constructor(
 
             pods.values.sortedByDescending { it.rssi }
         }
+        .replayingShare(appScope)
 
     val mainDevice: Flow<PodDevice?>
         get() = devices.map { devices ->

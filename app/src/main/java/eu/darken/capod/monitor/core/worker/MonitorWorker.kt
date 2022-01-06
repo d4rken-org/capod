@@ -144,6 +144,7 @@ class MonitorWorker @AssistedInject constructor(
             .onStart {
                 setForeground(monitorNotifications.getForegroundInfo(null))
             }
+            .distinctUntilChanged()
             .onEach { currentDevice ->
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,
