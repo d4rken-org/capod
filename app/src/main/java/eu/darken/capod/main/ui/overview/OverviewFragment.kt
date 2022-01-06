@@ -7,7 +7,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
-import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lists.differ.update
 import eu.darken.capod.common.lists.setupDefaults
@@ -42,7 +41,6 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         }
 
         ui.toolbar.apply {
-            subtitle = BuildConfigWrap.VERSION_DESCRIPTION
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menu_item_settings -> {

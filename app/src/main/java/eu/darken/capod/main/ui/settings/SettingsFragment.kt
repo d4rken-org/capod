@@ -9,6 +9,7 @@ import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.uix.Fragment2
 import eu.darken.capod.common.viewbinding.viewBinding
 import eu.darken.capod.databinding.SettingsFragmentBinding
@@ -66,7 +67,10 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
             screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
         }
 
-        ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
+        ui.toolbar.apply {
+            subtitle = BuildConfigWrap.VERSION_DESCRIPTION
+            setNavigationOnClickListener { requireActivity().onBackPressed() }
+        }
 
         super.onViewCreated(view, savedInstanceState)
     }
