@@ -16,10 +16,9 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
-import eu.darken.capod.common.permissions.Permission
-import eu.darken.capod.common.permissions.isRequired
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
+import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.ui.MonitorNotifications
@@ -41,6 +40,7 @@ class MonitorWorker @AssistedInject constructor(
     private val notificationManager: NotificationManager,
     private val generalSettings: GeneralSettings,
     private val mediaControl: MediaControl,
+    private val permissionTool: PermissionTool,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -91,14 +91,21 @@ class MonitorWorker @AssistedInject constructor(
     }
 
     private suspend fun doDoWork() {
-        val missingPermissions = Permission.values().filter { it.isRequired(context) }
-        if (missingPermissions.isNotEmpty()) {
-            log(TAG, WARN) { "Aborting, missing permissions: $missingPermissions" }
+        val permissionsMissingOnStart = permissionTool.missingPermissions()
+        if (permissionsMissingOnStart.isNotEmpty()) {
+            log(TAG, WARN) { "Aborting, missing permissions: $permissionsMissingOnStart" }
             return
         }
 
         generalSettings.monitorMode.flow
             .flatMapLatest { monitorMode ->
+                val missingPermsFlow = permissionTool.missingPermissions()
+                if (missingPermsFlow.isNotEmpty()) {
+                    log(TAG, WARN) { "Aborting, permissions are missing for $monitorMode: $missingPermsFlow" }
+                    workerScope.coroutineContext.cancelChildren()
+                    return@flatMapLatest emptyFlow()
+                }
+
                 bluetoothManager2
                     .isBluetoothEnabled
                     .flatMapLatest { bluetoothManager2.connectedDevices() }

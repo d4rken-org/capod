@@ -24,8 +24,10 @@
     <string name="permission_bluetooth_scan_description">Required to be able to discover and pair nearby Bluetooth devices.</string>
     <string name="permission_bluetooth_label">BLUETOOTH</string>
     <string name="permission_bluetooth_description">Allows applications to connect to paired bluetooth devices.</string>
-    <string name="permission_access_fine_location_description">Allows an app to access precise location.</string>
     <string name="permission_access_fine_location_label">ACCESS_FINE_LOCATION</string>
+    <string name="permission_access_fine_location_description">Allows an app to access precise location.</string>
+    <string name="permission_background_location_label">ACCESS_BACKGROUND_LOCATION</string>
+    <string name="permission_background_location_description">Allows an app to access location in the background.</string>
 
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
@@ -101,10 +103,10 @@
     <string name="settings_autoplay_description">Start music playback music when wearing the device (if supported).</string>
     <string name="pods_dual_case_status_short">L %1$s | C %2$s | R %3$s</string>
     <string name="pods_single_basic_status_short">Headphones: %1$s</string>
-    <string name="permission_background_location_label">ACCESS_BACKGROUND_LOCATION</string>
-    <string name="permission_background_location_description">Allows an app to access location in the background.</string>
     <string name="settings_fake_data_label">Fake data</string>
     <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
     <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
+    <string name="permission_ignore_battery_optimizations_label">IGNORE_BATTERY_OPTIMIZATIONS</string>
+    <string name="permission_ignore_battery_optimizations_description">IGNORE_BATTERY_OPTIMIZATIONS</string>
 </resources>

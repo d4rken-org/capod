@@ -3,9 +3,11 @@ package eu.darken.capod.common.permissions
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.PowerManager
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import eu.darken.capod.R
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.withinApiLevel
 
 enum class Permission(
@@ -14,6 +16,9 @@ enum class Permission(
     @StringRes val labelRes: Int,
     @StringRes val descriptionRes: Int,
     val permissionId: String,
+    val isGranted: (Context) -> Boolean = {
+        ContextCompat.checkSelfPermission(it, permissionId) == PackageManager.PERMISSION_GRANTED
+    },
 ) {
     BLUETOOTH(
         minApiLevel = Build.VERSION_CODES.BASE,
@@ -47,10 +52,20 @@ enum class Permission(
         labelRes = R.string.permission_background_location_label,
         descriptionRes = R.string.permission_background_location_description,
         permissionId = "android.permission.ACCESS_BACKGROUND_LOCATION",
+    ),
+    IGNORE_BATTERY_OPTIMIZATION(
+        minApiLevel = Build.VERSION_CODES.BASE,
+        labelRes = R.string.permission_ignore_battery_optimizations_label,
+        descriptionRes = R.string.permission_ignore_battery_optimizations_description,
+        permissionId = "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+        isGranted = {
+            val pwm = it.getSystemService(Context.POWER_SERVICE) as PowerManager
+            pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
+        },
     )
 }
 
 fun Permission.isRequired(context: Context): Boolean = when {
     !withinApiLevel(minApiLevel, maxApiLevel) -> false
-    else -> ContextCompat.checkSelfPermission(context, permissionId) != PackageManager.PERMISSION_GRANTED
+    else -> !isGranted(context)
 }

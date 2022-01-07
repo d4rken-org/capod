@@ -1,21 +1,18 @@
 package eu.darken.capod.main.ui.overview
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.log
-import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
-import eu.darken.capod.common.permissions.isRequired
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
+import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
@@ -38,13 +35,12 @@ import javax.inject.Inject
 @HiltViewModel
 class OverviewFragmentVM @Inject constructor(
     handle: SavedStateHandle,
-    @ApplicationContext private val context: Context,
     dispatcherProvider: DispatcherProvider,
-    private val recorderModule: RecorderModule,
     private val monitorControl: MonitorControl,
     private val podMonitor: PodMonitor,
+    private val permissionTool: PermissionTool,
     private val generalSettings: GeneralSettings,
-    private val debugSettings: DebugSettings,
+    debugSettings: DebugSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val updateTicker = channelFlow<Unit> {
@@ -55,10 +51,8 @@ class OverviewFragmentVM @Inject constructor(
     }
 
     private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
-    private val requiredPermissions: Flow<List<Permission>> = permissionCheckTrigger
-        .map {
-            Permission.values().filter { it.isRequired(context) }
-        }
+    private val requiredPermissions: Flow<Collection<Permission>> = permissionCheckTrigger
+        .map { permissionTool.missingPermissions() }
         .onEach {
             log(TAG) { "Missing permissions: $it" }
             if (it.isEmpty() && generalSettings.monitorMode.value != MonitorMode.MANUAL) {
@@ -67,7 +61,7 @@ class OverviewFragmentVM @Inject constructor(
             }
         }
 
-    val requestPermissionevent = SingleLiveEvent<Permission>()
+    val requestPermissionEvent = SingleLiveEvent<Permission>()
 
     private val pods: Flow<List<PodDevice>> = requiredPermissions
         .flatMapLatest { permissions ->
@@ -99,15 +93,6 @@ class OverviewFragmentVM @Inject constructor(
     ) { tick, permissions, pods, isDebugMode ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
-        permissions
-            .map {
-                PermissionCardVH.Item(
-                    permission = it,
-                    onRequest = { requestPermissionevent.postValue(it) }
-                )
-            }
-            .forEach { items.add(it) }
-
         val now = Instant.now()
         pods
             .map {
@@ -135,6 +120,15 @@ class OverviewFragmentVM @Inject constructor(
             }
             .run { items.addAll(this) }
 
+        permissions
+            .map {
+                PermissionCardVH.Item(
+                    permission = it,
+                    onRequest = { requestPermissionEvent.postValue(it) }
+                )
+            }
+            .run { items.addAll(this) }
+
         items
     }
         .catch { errorEvents.postValue(it) }
@@ -142,10 +136,6 @@ class OverviewFragmentVM @Inject constructor(
 
     fun onPermissionResult(granted: Boolean) {
         if (granted) permissionCheckTrigger.value = UUID.randomUUID()
-    }
-
-    fun toggleDebugLog() = launch {
-        recorderModule.startRecorder()
     }
 
     fun goToSettings() = launch {
