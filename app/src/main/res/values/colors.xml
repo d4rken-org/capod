@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="md_theme_light_primary">#0054D9</color>
+    <color name="md_theme_light_primary">#3F7AFF</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#DAE2FF</color>
     <color name="md_theme_light_onPrimaryContainer">#00174B</color>
@@ -26,7 +26,8 @@
     <color name="md_theme_light_inverseOnSurface">#F2F0F5</color>
     <color name="md_theme_light_inverseSurface">#303033</color>
     <color name="md_theme_light_primaryInverse">#B1C5FF</color>
-    <color name="md_theme_dark_primary">#B1C5FF</color>
+
+    <color name="md_theme_dark_primary">#3F7AFF</color>
     <color name="md_theme_dark_onPrimary">#002A78</color>
     <color name="md_theme_dark_primaryContainer">#003EA7</color>
     <color name="md_theme_dark_onPrimaryContainer">#DAE2FF</color>
@@ -52,8 +53,10 @@
     <color name="md_theme_dark_inverseOnSurface">#1B1B1F</color>
     <color name="md_theme_dark_inverseSurface">#E3E1E6</color>
     <color name="md_theme_dark_primaryInverse">#0054D9</color>
+
     <color name="seed">#3F7AFF</color>
     <color name="error">#BA1B1B</color>
+
     <color name="brand_primary">#3f7aff</color>
     <color name="brand_secondary">#ffd83c</color>
     <color name="brand_tertiary">#41eb8e</color>
