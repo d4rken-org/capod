@@ -18,16 +18,18 @@
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
 
-    <string name="permission_bluetooth_connect_label">BLUETOOTH CONNECT</string>
-    <string name="permission_bluetooth_connect_description">Required to be able to connect to paired Bluetooth devices.</string>
-    <string name="permission_bluetooth_scan_label">BLUETOOTH SCAN</string>
-    <string name="permission_bluetooth_scan_description">Required to be able to discover and pair nearby Bluetooth devices.</string>
-    <string name="permission_bluetooth_label">BLUETOOTH</string>
+    <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
+    <string name="permission_bluetooth_connect_description">This permission is required to connect and interact with paired Bluetooth devices.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth scanning</string>
+    <string name="permission_bluetooth_scan_description">The Bluetooth scanning permissions allows apps to discover and receive Bluetooth data from nearby devices.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Allows applications to connect to paired bluetooth devices.</string>
-    <string name="permission_access_fine_location_label">ACCESS_FINE_LOCATION</string>
-    <string name="permission_access_fine_location_description">Allows an app to access precise location.</string>
-    <string name="permission_background_location_label">ACCESS_BACKGROUND_LOCATION</string>
-    <string name="permission_background_location_description">Allows an app to access location in the background.</string>
+    <string name="permission_access_fine_location_label">Access fine location</string>
+    <string name="permission_access_fine_location_description">The "fine location" permission is required to receive Bluetooth Low Energy data. This app will never access your location! But data from known devices (e.g. AirTags), could be used to determine your location, this is why access to Bluetooth data is guarded by a location permission.</string>
+    <string name="permission_background_location_label">Background location access</string>
+    <string name="permission_background_location_description">Background location access is required to receive Bluetooth data while the app is in the background. This app will never access your location! The permission is called "location" because Bluetooth technology can also be used to determine your location.</string>
+    <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
+    <string name="permission_ignore_battery_optimizations_description">Battery optimizations can prevent CAPod from receiving Bluetooth data while the app is in the background.</string>
 
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
@@ -107,6 +109,4 @@
     <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
     <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
-    <string name="permission_ignore_battery_optimizations_label">IGNORE_BATTERY_OPTIMIZATIONS</string>
-    <string name="permission_ignore_battery_optimizations_description">IGNORE_BATTERY_OPTIMIZATIONS</string>
 </resources>
