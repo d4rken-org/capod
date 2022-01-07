@@ -22,7 +22,7 @@
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/name"
-            app:srcCompat="@drawable/ic_device_generic_earbuds" />
+            app:srcCompat="@drawable/ic_airpod_both_24" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
@@ -97,7 +97,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="center_horizontal"
-            app:drawableTopCompat="@drawable/ic_baseline_pod_left_24"
+            app:drawableTopCompat="@drawable/ic_airpod_left_24"
             app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
             app:layout_constraintEnd_toStartOf="@id/pod_case"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:gravity="center_horizontal"
-            app:drawableTopCompat="@drawable/ic_baseline_pod_case_24"
+            app:drawableTopCompat="@drawable/ic_airpod_case_24"
             app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
             app:layout_constraintEnd_toStartOf="@id/pod_right"
             app:layout_constraintStart_toEndOf="@id/pod_left"
@@ -128,7 +128,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
             android:gravity="center_horizontal"
-            app:drawableTopCompat="@drawable/ic_baseline_pod_right_24"
+            app:drawableTopCompat="@drawable/ic_airpod_right_24"
             app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/pod_case"
