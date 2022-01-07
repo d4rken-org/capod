@@ -196,6 +196,8 @@ dependencies {
 
     implementation 'androidx.preference:preference-ktx:1.1.1'
 
+    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
+
     def work_version = "2.7.1"
     implementation "androidx.work:work-runtime:${work_version}"
     testImplementation "androidx.work:work-testing:${work_version}"

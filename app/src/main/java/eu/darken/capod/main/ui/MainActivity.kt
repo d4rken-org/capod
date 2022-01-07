@@ -2,6 +2,7 @@ package eu.darken.capod.main.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.navigation.findNavController
@@ -17,6 +18,8 @@ class MainActivity : Activity2() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen()
 
         ui = MainActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)

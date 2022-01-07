@@ -39,4 +39,10 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <style name="AppThemeSplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#3f7aff</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
 </resources>
