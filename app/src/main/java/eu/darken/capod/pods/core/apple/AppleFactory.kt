@@ -182,7 +182,7 @@ class AppleFactory @Inject constructor(
                 scanResult = scanResult,
                 proximityMessage = pm,
             )
-            dm == 0x1320.toUShort() -> PowerBeats3(
+            dm == 0x0320.toUShort() -> PowerBeats3(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
