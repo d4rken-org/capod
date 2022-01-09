@@ -165,6 +165,12 @@ class AppleFactory @Inject constructor(
                 proximityMessage = pm,
                 cachedBatteryPercentage = cachedCaseBattery,
             )
+            dm == 0x1320.toUShort() -> AirPodsGen3(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = pm,
+                cachedBatteryPercentage = cachedCaseBattery,
+            )
             dm == 0x0e20.toUShort() -> AirPodsPro(
                 identifier = identifier,
                 scanResult = scanResult,
