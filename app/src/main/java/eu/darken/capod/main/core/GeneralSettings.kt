@@ -29,7 +29,7 @@ class GeneralSettings @Inject constructor(
 
     val scannerMode = preferences.createFlowPreference(
         "core.scanner.mode",
-        ScannerMode.BALANCED,
+        ScannerMode.LOW_LATENCY,
         moshi
     )
 

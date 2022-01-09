@@ -28,7 +28,7 @@ class BleScanner @Inject constructor(
 
     fun scan(
         filter: Set<ScanFilter> = ProximityPairing.getBleScanFilter(),
-        mode: Int = ScanSettings.SCAN_MODE_BALANCED,
+        mode: Int = ScanSettings.SCAN_MODE_LOW_LATENCY,
     ): Flow<List<BleScanResult>> = callbackFlow {
         val adapter = bluetoothManager.adapter
         val scanner = bluetoothManager.scanner
