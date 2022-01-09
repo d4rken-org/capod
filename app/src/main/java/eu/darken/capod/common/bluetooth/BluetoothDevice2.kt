@@ -7,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class BluetoothDevice2(
-    private val bluetoothDevice: BluetoothDevice
+    private val device: BluetoothDevice
 ) : Parcelable {
 
-    fun hasFeature(uuid: ParcelUuid): Boolean = bluetoothDevice.hasFeature(uuid)
+    fun hasFeature(uuid: ParcelUuid): Boolean = device.hasFeature(uuid)
 }
