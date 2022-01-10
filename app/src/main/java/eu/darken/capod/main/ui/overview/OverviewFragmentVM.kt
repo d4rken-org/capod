@@ -13,11 +13,9 @@ import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.main.ui.overview.cards.NoPairedDeviceCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
-import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
-import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
-import eu.darken.capod.main.ui.overview.cards.pods.SingleApplePodsCardVH
-import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.*
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.PodDevice
@@ -90,7 +88,8 @@ class OverviewFragmentVM @Inject constructor(
         requiredPermissions,
         pods,
         debugSettings.isDebugModeEnabled.flow,
-    ) { tick, permissions, pods, isDebugMode ->
+        generalSettings.showAll.flow,
+    ) { tick, permissions, pods, isDebugMode, showAll ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         val now = Instant.now()
@@ -128,6 +127,12 @@ class OverviewFragmentVM @Inject constructor(
                 )
             }
             .run { items.addAll(this) }
+
+        if (!showAll && items.none { it is PodDeviceVH.Item }) {
+            NoPairedDeviceCardVH.Item {
+                generalSettings.showAll.value = true
+            }.run { items.add(this) }
+        }
 
         items
     }

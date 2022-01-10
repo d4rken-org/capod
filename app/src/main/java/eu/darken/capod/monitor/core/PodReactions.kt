@@ -17,12 +17,12 @@ import javax.inject.Inject
 @Reusable
 class PodReactions @Inject constructor(
     private val podMonitor: PodMonitor,
-    private val knownDevices: KnownDevices,
+    private val pairedDevices: PairedDevices,
     private val generalSettings: GeneralSettings,
     private val mediaControl: MediaControl,
 ) {
 
-    fun podReactions() = knownDevices.currentKnownDevices()
+    fun podReactions() = pairedDevices.connectedDevices()
         .flatMapLatest {
             if (it.isEmpty()) {
                 log(TAG) { "No known devices connected." }

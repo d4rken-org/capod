@@ -15,10 +15,10 @@ data class UnknownAppleDevice(
 ) : ApplePods {
 
     override fun getLabel(context: Context): String {
-        return context.getString(R.string.device_unknown_label)
+        return context.getString(R.string.pods_unknown_label)
     }
 
     override fun getShortStatus(context: Context): String {
-        return context.getString(R.string.device_unknown_label)
+        return context.getString(R.string.pods_unknown_label)
     }
 }

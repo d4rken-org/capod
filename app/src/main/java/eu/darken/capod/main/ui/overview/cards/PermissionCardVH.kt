@@ -5,20 +5,20 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.common.permissions.Permission
-import eu.darken.capod.databinding.MainPermissionItemBinding
+import eu.darken.capod.databinding.OverviewPermissionItemBinding
 import eu.darken.capod.main.ui.overview.OverviewAdapter
 
 class PermissionCardVH(parent: ViewGroup) :
-    OverviewAdapter.BaseVH<PermissionCardVH.Item, MainPermissionItemBinding>(
-        R.layout.main_permission_item,
+    OverviewAdapter.BaseVH<PermissionCardVH.Item, OverviewPermissionItemBinding>(
+        R.layout.overview_permission_item,
         parent
     ) {
 
     override val viewBinding = lazy {
-        MainPermissionItemBinding.bind(itemView)
+        OverviewPermissionItemBinding.bind(itemView)
     }
 
-    override val onBindData: MainPermissionItemBinding.(
+    override val onBindData: OverviewPermissionItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding(payload = true) { item ->

@@ -34,7 +34,7 @@ class MonitorWorker @AssistedInject constructor(
     private val notificationManager: NotificationManager,
     private val generalSettings: GeneralSettings,
     private val permissionTool: PermissionTool,
-    private val knownDevices: KnownDevices,
+    private val pairedDevices: PairedDevices,
     private val podMonitor: PodMonitor,
     private val podReactions: PodReactions,
 ) : CoroutineWorker(context, params) {
@@ -105,7 +105,7 @@ class MonitorWorker @AssistedInject constructor(
                     return@flatMapLatest emptyFlow()
                 }
 
-                knownDevices.currentKnownDevices().map { knownDevices ->
+                pairedDevices.connectedDevices().map { knownDevices ->
                     monitorMode to knownDevices
                 }
             }

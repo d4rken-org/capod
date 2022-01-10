@@ -13,12 +13,12 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class KnownDevices @Inject constructor(
+class PairedDevices @Inject constructor(
     @AppScope private val scope: CoroutineScope,
     private val bluetoothManager2: BluetoothManager2,
 ) {
 
-    fun currentKnownDevices(): Flow<List<BluetoothDevice2>> = bluetoothManager2
+    fun connectedDevices(): Flow<List<BluetoothDevice2>> = bluetoothManager2
         .isBluetoothEnabled
         .flatMapLatest { bluetoothManager2.connectedDevices() }
         .map { devices ->

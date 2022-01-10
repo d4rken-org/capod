@@ -11,6 +11,7 @@
     <string name="general_value_unknown_label">Unknown</string>
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_value_not_available_label">N/A</string>
+    <string name="general_grant_permission_action">Grant permission</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
@@ -31,12 +32,14 @@
     <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
     <string name="permission_ignore_battery_optimizations_description">Battery optimizations can prevent CAPod from receiving Bluetooth data while the app is in the background.</string>
 
+    <string name="pods_single_basic_status_short">Headphones: %1$s</string>
+    <string name="pods_single_headphones_label">Headphones</string>
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
+    <string name="pods_dual_case_status_short">L %1$s | C %2$s | R %3$s</string>
     <string name="pods_case_status_label">Case</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
-    <string name="pods_unknown_raw_data_label">Raw data</string>
     <string name="pods_reception_x_label">Reception %s</string>
     <string name="pods_device_color_white_label">White</string>
     <string name="pods_device_color_yellow_label">Yellow</string>
@@ -57,6 +60,12 @@
     <string name="pods_connection_state_call_label">In call mode</string>
     <string name="pods_connection_state_ringing_label">Ringing</string>
     <string name="pods_connection_state_hanging_up_label">Hanging up</string>
+    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_label">Unknown device</string>
+    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using Apple\'s message format. Let\'s add support for it, contact me :).</string>
+    <string name="pods_none_label_short">No device</string>
+    <string name="pods_none_label">No paired device connected.</string>
+    <string name="pods_none_description">Connect a paired device or enable the \'Show all\' option.</string>
 
     <string name="settings_label">Settings</string>
     <string name="settings_privacy_policy_label">Privacy policy</string>
@@ -82,9 +91,6 @@
     <string name="settings_support_email_developer_description">Note that I can only respond in german or english.</string>
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>
     <string name="settings_debug_autoreports_description">Automatically reports issues, e.g. details on an app crash so I can figure out how to fix it.</string>
-    <string name="device_unknown_label">Unknown device</string>
-    <string name="device_none_label">No device</string>
-    <string name="pods_single_headphones_label">Headphones</string>
     <string name="settings_debug_mode_label">Debug mode</string>
     <string name="settings_debug_mode_description">Show additional information to troubleshoot issues.</string>
     <string name="settings_monitor_mode_label">Monitor mode</string>
@@ -103,8 +109,6 @@
     <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
     <string name="settings_autopplay_label">Auto play</string>
     <string name="settings_autoplay_description">Start music playback music when wearing the device (if supported).</string>
-    <string name="pods_dual_case_status_short">L %1$s | C %2$s | R %3$s</string>
-    <string name="pods_single_basic_status_short">Headphones: %1$s</string>
     <string name="settings_fake_data_label">Fake data</string>
     <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
