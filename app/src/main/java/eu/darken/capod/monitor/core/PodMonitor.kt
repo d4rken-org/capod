@@ -62,7 +62,6 @@ class PodMonitor @Inject constructor(
                     newest
                 }
         }
-        .onStart { emptyList<PodDevice>() }
         .map { scanResults ->
             val newPods = scanResults
                 .mapNotNull { podFactory.createPod(it) }
@@ -88,6 +87,7 @@ class PodMonitor @Inject constructor(
 
             pods.values.sortedByDescending { it.rssi }
         }
+        .onStart { emit(emptyList()) }
         .replayingShare(appScope)
 
     val mainDevice: Flow<PodDevice?>
