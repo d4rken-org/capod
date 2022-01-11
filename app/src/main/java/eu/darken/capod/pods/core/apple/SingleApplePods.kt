@@ -10,10 +10,14 @@ import eu.darken.capod.pods.core.getBatteryLevelHeadset
 
 interface SingleApplePods : BasicSingleApplePods, HasEarDetection, HasSinglePod {
 
-    override fun getShortStatus(context: Context): String = context.getString(
+    override fun getStatusShort(context: Context): String = context.getString(
         R.string.pods_single_basic_status_short,
         getBatteryLevelHeadset(context),
     )
+
+    override fun getStatusLong(context: Context): List<String> {
+        TODO("Not yet implemented")
+    }
 
     val isHeadphonesBeingWorn: Boolean
         get() = rawStatus.isBitSet(1)

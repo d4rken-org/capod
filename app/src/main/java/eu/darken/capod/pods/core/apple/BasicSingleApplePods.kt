@@ -9,10 +9,14 @@ import eu.darken.capod.pods.core.getBatteryLevelHeadset
 
 interface BasicSingleApplePods : ApplePods, HasSinglePod {
 
-    override fun getShortStatus(context: Context): String = context.getString(
+    override fun getStatusShort(context: Context): String = context.getString(
         R.string.pods_single_basic_status_short,
         getBatteryLevelHeadset(context),
     )
+
+    override fun getStatusLong(context: Context): List<String> {
+        return listOf("${context.getString(R.string.pods_single_headphones_label)}: ${getBatteryLevelHeadset(context)}")
+    }
 
     override val batteryHeadsetPercent: Float?
         get() = when (val value = rawPodsBattery.lowerNibble.toInt()) {

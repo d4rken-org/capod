@@ -37,7 +37,7 @@
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
     <string name="pods_dual_case_status_short">L %1$s | C %2$s | R %3$s</string>
-    <string name="pods_case_status_label">Case</string>
+    <string name="pods_case_label">Case</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
     <string name="pods_reception_x_label">Reception %s</string>
@@ -113,4 +113,7 @@
     <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
     <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
+    <string name="pods_charging_label">Charging</string>
+    <string name="pods_inear_label">In ear</string>
+    <string name="pods_microphone_label">Microphone</string>
 </resources>

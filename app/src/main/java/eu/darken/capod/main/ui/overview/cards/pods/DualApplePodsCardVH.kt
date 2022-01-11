@@ -41,33 +41,33 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             val sb = StringBuilder(context.getString(R.string.pods_dual_left_label))
             sb.append("\n").append(device.getBatteryLevelLeftPod(context))
             when {
-                device.isLeftPodCharging -> sb.append("\n").append("Charging")
-                device.isLeftPodInEar -> sb.append("\n").append("In ear")
+                device.isLeftPodCharging -> sb.append("\n").append(getString(R.string.pods_charging_label))
+                device.isLeftPodInEar -> sb.append("\n").append(getString(R.string.pods_inear_label))
                 else -> {}
             }
             text = sb
         }
 
         podRight.apply {
-            val sb = StringBuilder("Right pod")
+            val sb = StringBuilder(getString(R.string.pods_dual_right_label))
             sb.append("\n").append(device.getBatteryLevelRightPod(context))
             when {
-                device.isRightPodCharging -> sb.append("\n").append("Charging")
-                device.isRightPodInEar -> sb.append("\n").append("In ear")
+                device.isRightPodCharging -> sb.append("\n").append(getString(R.string.pods_charging_label))
+                device.isRightPodInEar -> sb.append("\n").append(getString(R.string.pods_inear_label))
                 else -> {}
             }
             text = sb
         }
 
         when (device.microPhonePod) {
-            Pod.LEFT -> podLeft.append("\n(Microphone)")
-            Pod.RIGHT -> podRight.append("\n(Microphone)")
+            Pod.LEFT -> podLeft.append("\n(${context.getString(R.string.pods_microphone_label)})")
+            Pod.RIGHT -> podRight.append("\n(${context.getString(R.string.pods_microphone_label)})")
         }
 
         podCase.apply {
-            val sb = StringBuilder("Case")
+            val sb = StringBuilder(getString(R.string.pods_case_label))
             sb.append("\n").append(device.getBatteryLevelCase(context))
-            if (device.isCaseCharging) sb.append("\n").append("Charging")
+            if (device.isCaseCharging) sb.append("\n").append(getString(R.string.pods_charging_label))
             when (device.caseLidState) {
                 LidState.OPEN -> sb.append("\n").append(context.getString(R.string.pods_case_status_open_label))
                 LidState.CLOSED -> sb.append("\n").append(context.getString(R.string.pods_case_status_closed_label))

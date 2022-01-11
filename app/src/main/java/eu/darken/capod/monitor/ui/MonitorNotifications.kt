@@ -57,12 +57,19 @@ class MonitorNotifications @Inject constructor(
     fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
             builder.setContentTitle(context.getString(R.string.pods_none_label_short))
+            builder.setSubText(context.getString(R.string.app_name))
             builder.setSmallIcon(R.drawable.ic_device_generic_earbuds)
             return builder
         }
 
         builder.setSmallIcon(device.iconRes)
-        builder.setContentTitle(device.getShortStatus(context))
+        builder.setSubText(null)
+        builder.setContentTitle(device.getStatusShort(context))
+        builder.setStyle(
+            NotificationCompat.BigTextStyle()
+                .setBigContentTitle(device.getLabel(context))
+                .bigText(device.getStatusLong(context).joinToString("\n"))
+        )
         log(TAG, VERBOSE) { "updatingNotification(): $device" }
         return builder
     }

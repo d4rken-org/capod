@@ -18,7 +18,11 @@ data class UnknownAppleDevice(
         return context.getString(R.string.pods_unknown_label)
     }
 
-    override fun getShortStatus(context: Context): String {
+    override fun getStatusShort(context: Context): String {
         return context.getString(R.string.pods_unknown_label)
+    }
+
+    override fun getStatusLong(context: Context): List<String> {
+        return listOf(rawDataHex)
     }
 }
