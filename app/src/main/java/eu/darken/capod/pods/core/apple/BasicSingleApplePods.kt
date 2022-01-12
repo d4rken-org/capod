@@ -1,22 +1,10 @@
 package eu.darken.capod.pods.core.apple
 
-import android.content.Context
-import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.pods.core.HasSinglePod
-import eu.darken.capod.pods.core.getBatteryLevelHeadset
 
 interface BasicSingleApplePods : ApplePods, HasSinglePod {
-
-    override fun getStatusShort(context: Context): String = context.getString(
-        R.string.pods_single_basic_status_short,
-        getBatteryLevelHeadset(context),
-    )
-
-    override fun getStatusLong(context: Context): List<String> {
-        return listOf("${context.getString(R.string.pods_single_headphones_label)}: ${getBatteryLevelHeadset(context)}")
-    }
 
     override val batteryHeadsetPercent: Float?
         get() = when (val value = rawPodsBattery.lowerNibble.toInt()) {

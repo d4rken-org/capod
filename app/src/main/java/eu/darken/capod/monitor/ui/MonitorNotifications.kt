@@ -26,6 +26,7 @@ import javax.inject.Inject
 class MonitorNotifications @Inject constructor(
     @ApplicationContext private val context: Context,
     notificationManager: NotificationManager,
+    private val notificationViewFactory: NotificationViewFactory
 ) {
 
     private val builder: NotificationCompat.Builder
@@ -45,33 +46,32 @@ class MonitorNotifications @Inject constructor(
             PendingIntentCompat.FLAG_IMMUTABLE
         )
 
-        builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-            .setChannelId(NOTIFICATION_CHANNEL_ID)
-            .setContentIntent(openPi)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
-            .setSmallIcon(R.drawable.ic_device_generic_earbuds)
-            .setOngoing(true)
-            .setContentTitle(context.getString(R.string.app_name))
+        builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).apply {
+            setChannelId(NOTIFICATION_CHANNEL_ID)
+            setContentIntent(openPi)
+            priority = NotificationCompat.PRIORITY_LOW
+            setSmallIcon(R.drawable.ic_device_generic_earbuds)
+            setOngoing(true)
+            setContentTitle(context.getString(R.string.app_name))
+        }
     }
 
     fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
-            builder.setContentTitle(context.getString(R.string.pods_none_label_short))
-            builder.setSubText(context.getString(R.string.app_name))
-            builder.setSmallIcon(R.drawable.ic_device_generic_earbuds)
-            return builder
+            return builder.apply {
+                setContentTitle(context.getString(R.string.pods_none_label_short))
+                setSubText(context.getString(R.string.app_name))
+                setSmallIcon(R.drawable.ic_device_generic_earbuds)
+            }
         }
 
-        builder.setSmallIcon(device.iconRes)
-        builder.setSubText(null)
-        builder.setContentTitle(device.getStatusShort(context))
-        builder.setStyle(
-            NotificationCompat.BigTextStyle()
-                .setBigContentTitle(device.getLabel(context))
-                .bigText(device.getStatusLong(context).joinToString("\n"))
-        )
-        log(TAG, VERBOSE) { "updatingNotification(): $device" }
-        return builder
+        return builder.apply {
+            setSmallIcon(device.iconRes)
+            setSubText(null)
+            setStyle(NotificationCompat.DecoratedCustomViewStyle())
+            setCustomContentView(notificationViewFactory.createContentView(device))
+            log(TAG, VERBOSE) { "updatingNotification(): $device" }
+        }
     }
 
     fun getNotification(podDevice: PodDevice?): Notification = getBuilder(podDevice).build()

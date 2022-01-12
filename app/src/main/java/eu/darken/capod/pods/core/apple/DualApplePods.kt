@@ -7,47 +7,12 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasDualPods
 import eu.darken.capod.pods.core.HasDualPods.Pod
+import eu.darken.capod.pods.core.HasEarDetection
 
 interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
-
-    override fun getStatusShort(context: Context): String = context.getString(
-        R.string.pods_dual_case_status_short,
-        getBatteryLevelLeftPod(context).let {
-            if (isLeftPodCharging) "$it*" else it
-        },
-        getBatteryLevelCase(context).let {
-            if (isCaseCharging) "$it*" else it
-        },
-        getBatteryLevelRightPod(context).let {
-            if (isRightPodCharging) "$it*" else it
-        },
-    )
-
-    override fun getStatusLong(context: Context): List<String> {
-        val list = mutableListOf<String>()
-
-        StringBuilder("${context.getString(R.string.pods_dual_left_label)}: ${getBatteryLevelLeftPod(context)}").apply {
-            if (isLeftPodCharging) append(", ${context.getString(R.string.pods_charging_label)}")
-            if (isLeftPodInEar) append(", ${context.getString(R.string.pods_inear_label)}")
-            list.add(this.toString())
-        }
-
-        StringBuilder("${context.getString(R.string.pods_dual_right_label)}: ${getBatteryLevelRightPod(context)}").apply {
-            if (isRightPodCharging) append(", ${context.getString(R.string.pods_charging_label)}")
-            if (isRightPodInEar) append(", ${context.getString(R.string.pods_inear_label)}")
-            if (microPhonePod == Pod.RIGHT) append(", ${context.getString(R.string.pods_microphone_label)}")
-            list.add(this.toString())
-        }
-
-        StringBuilder("${context.getString(R.string.pods_case_label)}: ${getBatteryLevelCase(context)}").apply {
-            if (isCaseCharging) append(", ${context.getString(R.string.pods_charging_label)}")
-            list.add(this.toString())
-        }
-
-        return list
-    }
 
     val microPhonePod: Pod
         get() = when (rawStatus.isBitSet(5)) {

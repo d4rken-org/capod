@@ -92,7 +92,7 @@ class BleScanner @Inject constructor(
                 // AirPods Max
                 BleScanResult(
                     address = "7E:E5:C7:65:D2:B5",
-                    rssi = -57,
+                    rssi = -30,
                     generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 300,
                     manufacturerSpecificData = mapOf(76 to "07 19 01 0A 20 02 05 80 04 0F 44 A7 60 9B F8 3C FD B1 D8 1C 61 EA 82 60 A3 2C 4E".hexToByteArray())
                 ).run { fakeDevices.add(this) }
