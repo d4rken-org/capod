@@ -59,6 +59,8 @@ class MonitorNotifications @Inject constructor(
     fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
             return builder.apply {
+                setCustomContentView(null)
+                setStyle(NotificationCompat.BigTextStyle())
                 setContentTitle(context.getString(R.string.pods_none_label_short))
                 setSubText(context.getString(R.string.app_name))
                 setSmallIcon(R.drawable.ic_device_generic_earbuds)
@@ -66,10 +68,10 @@ class MonitorNotifications @Inject constructor(
         }
 
         return builder.apply {
-            setSmallIcon(device.iconRes)
-            setSubText(null)
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
             setCustomContentView(notificationViewFactory.createContentView(device))
+            setSmallIcon(device.iconRes)
+            setSubText(null)
             log(TAG, VERBOSE) { "updatingNotification(): $device" }
         }
     }
