@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
+import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import eu.darken.capod.R
@@ -22,7 +23,12 @@ class BasicSingleApplePodsCardVH(parent: ViewGroup) :
     override val onBindData = binding(payload = true) { item: Item ->
         val device = item.device
 
-        name.text = device.getLabel(context)
+        name.apply {
+            text = device.getLabel(context)
+            if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
+            else setTypeface(typeface, Typeface.NORMAL)
+        }
+
         deviceIcon.setImageResource(device.iconRes)
 
         lastSeen.text = device.lastSeenFormatted(item.now)
@@ -50,5 +56,6 @@ class BasicSingleApplePodsCardVH(parent: ViewGroup) :
         override val now: Instant,
         override val device: BasicSingleApplePods,
         override val showDebug: Boolean,
+        override val isMainPod: Boolean,
     ) : PodDeviceVH.Item
 }

@@ -92,6 +92,7 @@ class OverviewFragmentVM @Inject constructor(
     ) { tick, permissions, pods, isDebugMode, showAll ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
+        val mainPod = podMonitor.mainDevice.first()
         val now = Instant.now()
         pods
             .map {
@@ -99,21 +100,26 @@ class OverviewFragmentVM @Inject constructor(
                     is DualApplePods -> DualApplePodsCardVH.Item(
                         now = now,
                         device = it,
-                        showDebug = isDebugMode
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
                     )
                     is SingleApplePods -> SingleApplePodsCardVH.Item(
                         now = now,
                         device = it,
-                        showDebug = isDebugMode
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
                     )
                     is BasicSingleApplePods -> BasicSingleApplePodsCardVH.Item(
                         now = now,
                         device = it,
-                        showDebug = isDebugMode
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
                     )
                     else -> UnknownPodDeviceCardVH.Item(
                         now = now,
-                        device = it
+                        device = it,
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
                     )
                 }
             }

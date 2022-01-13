@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
+import android.graphics.Typeface
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
@@ -27,6 +28,8 @@ class DualApplePodsCardVH(parent: ViewGroup) :
                 sb.append(" (${device.getDeviceColorLabel(context)})")
             }
             text = sb
+            if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
+            else setTypeface(typeface, Typeface.NORMAL)
         }
         deviceIcon.setImageResource(device.iconRes)
 
@@ -89,5 +92,6 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         override val now: Instant,
         override val device: DualApplePods,
         override val showDebug: Boolean,
+        override val isMainPod: Boolean,
     ) : PodDeviceVH.Item
 }

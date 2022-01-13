@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
+import android.graphics.Typeface
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
@@ -21,7 +22,11 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
 
     override val onBindData = binding(payload = true) { item ->
         val device = item.device
-        name.text = device.getLabel(context)
+        name.apply {
+            text = device.getLabel(context)
+            if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
+            else setTypeface(typeface, Typeface.NORMAL)
+        }
 
         lastSeen.text = device.lastSeenFormatted(item.now)
 
@@ -33,6 +38,7 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
     data class Item(
         override val now: Instant,
         override val device: PodDevice,
-        override val showDebug: Boolean = false
+        override val showDebug: Boolean = false,
+        override val isMainPod: Boolean = false,
     ) : PodDeviceVH.Item
 }
