@@ -39,9 +39,7 @@ class PercentSliderPreference(context: Context?, attrs: AttributeSet?) : DialogP
                 internalValue = value
                 internalValueSet = true
                 persistFloat(value)
-                if (changed) {
-                    notifyChanged()
-                }
+                if (changed) notifyChanged()
             }
         }
 
@@ -55,14 +53,10 @@ class PercentSliderPreference(context: Context?, attrs: AttributeSet?) : DialogP
 
     override fun onSaveInstanceState(): Parcelable {
         val superState = super.onSaveInstanceState()
-        if (isPersistent) {
-            // No need to save instance state since it's persistent
-            return superState
-        }
-        return SavedState(
-            value = value,
-            superState = superState,
-        )
+        // No need to save instance state since it's persistent
+        if (isPersistent) return superState
+
+        return SavedState(value = value, superState = superState)
     }
 
     override fun onRestoreInstanceState(state: Parcelable?) {
