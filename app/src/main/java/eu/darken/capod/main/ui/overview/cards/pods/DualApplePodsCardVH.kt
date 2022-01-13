@@ -4,14 +4,11 @@ import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsAppleDualItemBinding
+import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.HasDualPods.Pod
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.DeviceColor
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
-import eu.darken.capod.pods.core.getBatteryLevelCase
-import eu.darken.capod.pods.core.getBatteryLevelLeftPod
-import eu.darken.capod.pods.core.getBatteryLevelRightPod
-import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Instant
 
 class DualApplePodsCardVH(parent: ViewGroup) :

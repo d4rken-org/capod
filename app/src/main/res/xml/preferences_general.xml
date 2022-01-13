@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
         android:icon="@drawable/ic_baseline_disabled_visible_24"
@@ -31,6 +32,14 @@
         android:summary="@string/settings_showall_description"
         android:title="@string/settings_showall_label" />
 
+    <eu.darken.capod.common.preferences.PercentSliderPreference
+        android:icon="@drawable/ic_baseline_signal_cellular_alt_24"
+        android:key="core.signal.minimum"
+        android:summary="@string/settings_signal_minimum_description"
+        android:title="@string/settings_signal_minimum_label"
+        app:pspMax="0.9"
+        app:pspMin="0.1" />
+
     <PreferenceCategory android:title="@string/settings_category_other_label">
 
         <CheckBoxPreference
@@ -40,9 +49,9 @@
             android:title="@string/settings_debug_autoreports_label" />
 
         <Preference
+            android:fragment="eu.darken.capod.main.ui.settings.general.debug.DebugSettingsFragment"
             android:icon="@drawable/ic_baseline_bug_report_24"
             android:key="debug.settings"
-            android:fragment="eu.darken.capod.main.ui.settings.general.debug.DebugSettingsFragment"
             android:summary="@string/settings_debug_description"
             android:title="@string/settings_debug_label" />
 

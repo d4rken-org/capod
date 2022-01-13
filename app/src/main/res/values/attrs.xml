@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PercentSliderPreference">
+        <attr name="pspMin" format="float" />
+        <attr name="pspMax" format="float" />
+        <attr name="sliderText" format="reference" />
+    </declare-styleable>
+</resources>

@@ -23,6 +23,11 @@ fun HasSinglePod.getBatteryLevelHeadset(context: Context): String =
     batteryHeadsetPercent?.let { "${(it * 100).roundToInt()}%" }
         ?: context.getString(R.string.general_value_not_available_label)
 
+fun PodDevice.getSignalQuality(context: Context): String {
+    val percentage = 100 * signalQuality
+    return "~${percentage.roundToInt()}%"
+}
+
 private val lastSeenFormatter = RelativeDateTimeFormatter.getInstance()
 
 fun PodDevice.lastSeenFormatted(now: Instant): String {

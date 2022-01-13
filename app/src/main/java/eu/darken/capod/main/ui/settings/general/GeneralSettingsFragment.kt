@@ -3,8 +3,10 @@ package eu.darken.capod.main.ui.settings.general
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.ListPreference
+import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.preferences.PercentSliderPreference
 import eu.darken.capod.common.uix.PreferenceFragment2
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
@@ -37,5 +39,11 @@ class GeneralSettingsFragment : PreferenceFragment2() {
             entryValues = ScannerMode.values().map { settings.scannerMode.rawWriter(it) as String }.toTypedArray()
         }
         super.onPreferencesCreated()
+    }
+
+    override fun onDisplayPreferenceDialog(preference: Preference) {
+        if (PercentSliderPreference.onDisplayPreferenceDialog(this, preference)) return
+
+        super.onDisplayPreferenceDialog(preference)
     }
 }

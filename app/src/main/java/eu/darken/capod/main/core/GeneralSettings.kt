@@ -48,12 +48,18 @@ class GeneralSettings @Inject constructor(
         false
     )
 
+    val minimumSignalQuality = preferences.createFlowPreference(
+        "core.signal.minimum",
+        0.25f
+    )
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         scannerMode,
         autoPause,
         autoPlay,
         showAll,
+        minimumSignalQuality,
         debugSettings.isAutoReportEnabled,
     )
 }

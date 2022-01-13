@@ -19,15 +19,17 @@ interface PodDevice {
     val rssi: Int
         get() = scanResult.rssi
 
+    /**
+     * This is not correct but it works ¯\_(ツ)_/¯
+     * The range of the RSSI is device specific (ROMs).
+     */
+    val signalQuality: Float
+        get() = (100 - abs(rssi)) / 100f
+
     val rawData: ByteArray
 
     val rawDataHex: String
         get() = rawData.joinToString(separator = " ") { String.format("%02X", it) }
-
-    fun getSignalQuality(context: Context): String {
-        val percentage = (100 - abs(rssi))
-        return "~$percentage%"
-    }
 
     fun getLabel(context: Context): String
 

@@ -7,6 +7,7 @@ import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsAppleSingleBasicItemBinding
 import eu.darken.capod.pods.core.apple.BasicSingleApplePods
 import eu.darken.capod.pods.core.getBatteryLevelHeadset
+import eu.darken.capod.pods.core.getSignalQuality
 import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Instant
 

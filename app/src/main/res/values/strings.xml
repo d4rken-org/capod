@@ -115,4 +115,6 @@
     <string name="pods_charging_label">Charging</string>
     <string name="pods_inear_label">In ear</string>
     <string name="pods_microphone_label">Microphone</string>
+    <string name="settings_signal_minimum_label">Minimum signal quality</string>
+    <string name="settings_signal_minimum_description">The minimum signal quality that a device needs to have to be considered yours.</string>
 </resources>
