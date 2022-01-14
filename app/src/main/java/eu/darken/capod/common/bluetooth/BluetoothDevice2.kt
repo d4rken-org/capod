@@ -7,8 +7,11 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class BluetoothDevice2(
-    private val device: BluetoothDevice
+    val device: BluetoothDevice
 ) : Parcelable {
+
+    val name: String?
+        get() = device.name
 
     fun hasFeature(uuid: ParcelUuid): Boolean = device.hasFeature(uuid)
 }

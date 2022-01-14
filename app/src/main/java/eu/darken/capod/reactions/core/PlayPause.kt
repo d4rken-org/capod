@@ -1,12 +1,14 @@
-package eu.darken.capod.monitor.core
+package eu.darken.capod.reactions.core
 
 import dagger.Reusable
 import eu.darken.capod.common.MediaControl
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.HasEarDetection
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.emptyFlow
@@ -15,14 +17,14 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @Reusable
-class PodReactions @Inject constructor(
+class PlayPause @Inject constructor(
     private val podMonitor: PodMonitor,
-    private val pairedDevices: PairedDevices,
+    private val bluetoothManager: BluetoothManager2,
     private val generalSettings: GeneralSettings,
     private val mediaControl: MediaControl,
 ) {
 
-    fun podReactions() = pairedDevices.connectedDevices()
+    fun monitor() = bluetoothManager.connectedDevices()
         .flatMapLatest {
             if (it.isEmpty()) {
                 log(TAG) { "No known devices connected." }
@@ -50,6 +52,6 @@ class PodReactions @Inject constructor(
         }
 
     companion object {
-        private val TAG = logTag("Monitor", "Reactions")
+        private val TAG = logTag("Reactions", "PlayPause")
     }
 }

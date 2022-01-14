@@ -8,6 +8,7 @@ import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dagger.hilt.EntryPoints
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
@@ -19,6 +20,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.*
 import eu.darken.capod.monitor.ui.MonitorNotifications
+import eu.darken.capod.reactions.core.ReactionsHub
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
@@ -34,9 +36,9 @@ class MonitorWorker @AssistedInject constructor(
     private val notificationManager: NotificationManager,
     private val generalSettings: GeneralSettings,
     private val permissionTool: PermissionTool,
-    private val pairedDevices: PairedDevices,
     private val podMonitor: PodMonitor,
-    private val podReactions: PodReactions,
+    private val reactionsHub: ReactionsHub,
+    private val bluetoothManager: BluetoothManager2,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -105,7 +107,7 @@ class MonitorWorker @AssistedInject constructor(
                     return@flatMapLatest emptyFlow()
                 }
 
-                pairedDevices.connectedDevices().map { knownDevices ->
+                bluetoothManager.connectedDevices().map { knownDevices ->
                     monitorMode to knownDevices
                 }
             }
@@ -136,7 +138,7 @@ class MonitorWorker @AssistedInject constructor(
             }
             .launchIn(workerScope)
 
-        podReactions.podReactions()
+        reactionsHub.monitor()
             .catch {
                 log(TAG, WARN) { "Pod reactions failed:\n${it.asLog()}" }
             }

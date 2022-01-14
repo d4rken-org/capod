@@ -1,9 +1,6 @@
 package eu.darken.capod.common.bluetooth
 
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
-import android.bluetooth.BluetoothManager
-import android.bluetooth.BluetoothProfile
+import android.bluetooth.*
 import android.bluetooth.le.BluetoothLeScanner
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -13,16 +10,22 @@ import android.os.Handler
 import android.os.HandlerThread
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import java.io.IOException
+import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -93,7 +96,7 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    fun connectedDevices(profile: Int = BluetoothProfile.HEADSET): Flow<Set<BluetoothDevice2>> = callbackFlow {
+    private fun connectedDevicesForProfile(profile: Int): Flow<Set<BluetoothDevice2>> = callbackFlow {
         log(TAG) { "connectedDevices(profile=$profile) starting" }
         trySend(getBluetoothProfile(profile).connectedDevices)
 
@@ -145,6 +148,31 @@ class BluetoothManager2 @Inject constructor(
             log(TAG, VERBOSE) { "connectedDevices(profile=$profile) closed." }
             context.unregisterReceiver(receiver)
         }
+    }
+
+    fun connectedDevices(): Flow<List<BluetoothDevice2>> = isBluetoothEnabled
+        .flatMapLatest { connectedDevicesForProfile(BluetoothProfile.HEADSET) }
+        .map { devices ->
+            devices.filter { device ->
+                ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature ->
+                    device.hasFeature(feature)
+                }
+            }
+        }
+
+    fun bondedDevices(): List<BluetoothDevice2> = adapter.bondedDevices
+        .map { BluetoothDevice2(it) }
+
+    suspend fun nudgeConnection(device: BluetoothDevice2): Boolean = try {
+        val connectMethod = BluetoothHeadset::class.java.getDeclaredMethod(
+            "connect", BluetoothDevice::class.java
+        ).apply { isAccessible = true }
+        connectMethod.invoke(getBluetoothProfile().profile, device.device)
+        true
+    } catch (e: Exception) {
+        log(TAG, WARN) { "BluetoothHeadset.connect(device) is unavailable:\n${e.asLog()}" }
+        Bugs.report(e)
+        false
     }
 
     companion object {
