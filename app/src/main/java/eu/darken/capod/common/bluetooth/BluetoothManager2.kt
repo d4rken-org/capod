@@ -162,10 +162,13 @@ class BluetoothManager2 @Inject constructor(
 
     suspend fun nudgeConnection(device: BluetoothDevice): Boolean = try {
         log(TAG) { "Nudging Android connection to $device" }
+
         val connectMethod = BluetoothHeadset::class.java.getDeclaredMethod(
             "connect", BluetoothDevice::class.java
         ).apply { isAccessible = true }
+
         connectMethod.invoke(getBluetoothProfile().profile, device)
+
         log(TAG) { "Nudged connection to $device" }
         true
     } catch (e: Exception) {

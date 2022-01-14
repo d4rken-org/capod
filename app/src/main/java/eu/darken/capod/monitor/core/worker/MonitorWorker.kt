@@ -60,7 +60,7 @@ class MonitorWorker @AssistedInject constructor(
         val start = System.currentTimeMillis()
         log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
 
-            doDoWork()
+        doDoWork()
 
         val duration = System.currentTimeMillis() - start
 
@@ -121,8 +121,9 @@ class MonitorWorker @AssistedInject constructor(
                     }
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
-                        if (devices.isNotEmpty()) {
-                            log(TAG) { "Pods are connected, aborting any timeout." }
+                        val mainAddress = generalSettings.mainDeviceAddress.value
+                        if (devices.any { it.address == mainAddress }) {
+                            log(TAG) { "MainDevice is connected ($mainAddress), aborting any timeout." }
                         } else {
                             log(TAG) { "No Pods are connected, canceling worker soon." }
                             delay(30 * 1000)

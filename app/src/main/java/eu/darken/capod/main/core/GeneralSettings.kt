@@ -53,6 +53,7 @@ class GeneralSettings @Inject constructor(
         scannerMode,
         showAll,
         minimumSignalQuality,
+        mainDeviceAddress,
         debugSettings.isAutoReportEnabled,
     )
 }

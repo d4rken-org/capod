@@ -12,14 +12,14 @@ enum class AutoConnectCondition(
 ) {
     @Json(name = "autoconnect.condition.seen") WHEN_SEEN(
         "monitor.mode.manual",
-        R.string.settings_monitor_mode_manual_label
+        R.string.settings_reaction_autoconnect_whenseen_label
     ),
     @Json(name = "autoconnect.condition.case") CASE_OPEN(
         "autoconnect.condition.case",
-        R.string.settings_monitor_mode_automatic_label
+        R.string.settings_reaction_autoconnect_caseopen_label
     ),
     @Json(name = "autoconnect.condition.inear") IN_EAR(
         "autoconnect.condition.inear",
-        R.string.settings_monitor_mode_always_label
+        R.string.settings_reaction_autoconnect_inear_label
     ),
 }

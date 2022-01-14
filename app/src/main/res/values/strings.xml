@@ -61,7 +61,7 @@
     <string name="pods_connection_state_hanging_up_label">Hanging up</string>
     <string name="pods_unknown_raw_data_label">Raw data</string>
     <string name="pods_unknown_label">Unknown device</string>
-    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using Apple\'s message format. Let\'s add support for it, contact me :).</string>
+    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :).</string>
     <string name="pods_none_label_short">No device</string>
     <string name="pods_none_label">No paired device connected.</string>
     <string name="pods_none_description">Connect a paired device or enable the \'Show all\' option.</string>
@@ -103,11 +103,11 @@
     <string name="settings_scanner_mode_balanced_label">Balanced</string>
     <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
     <string name="settings_autopause_label">Auto pause</string>
-    <string name="settings_autopause_description">Pause music when removing the device from your ear (if supported).</string>
+    <string name="settings_autopause_description">Pause music when removing the device from your ear.</string>
     <string name="settings_showall_label">Show all devices</string>
     <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
     <string name="settings_autopplay_label">Auto play</string>
-    <string name="settings_autoplay_description">Start music playback music when wearing the device (if supported).</string>
+    <string name="settings_autoplay_description">Start music playback music when wearing the device.</string>
     <string name="settings_fake_data_label">Fake data</string>
     <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
@@ -118,10 +118,16 @@
     <string name="settings_signal_minimum_label">Minimum signal quality</string>
     <string name="settings_signal_minimum_description">The minimum signal quality that a device needs to have to be considered yours.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
-    <string name="settings_autoconnect_description">Seeing the device and being connected is not the same. If Android does not automatically connect, we can ask it too.</string>
+    <string name="settings_autoconnect_description">If Android does not automatically connect, we can ask it too. This will set the monitor mode setting to \'Always\'.</string>
     <string name="settings_autoconnect_condition_label">Auto connect condition</string>
-    <string name="settings_autoconnect_condition_description">When should we auto connect to your device?</string>
+    <string name="settings_autoconnect_condition_description">When should we try to connect to your device?</string>
     <string name="settings_reaction_label">Reactions</string>
     <string name="settings_reaction_description">React to events and behaviors.</string>
     <string name="settings_category_yourdevice_label">Your device</string>
+    <string name="settings_maindevice_address_label">Main device</string>
+    <string name="settings_maindevice_address_description">The paired pod device to which this app should react.</string>
+    <string name="settings_maindevice_address_none">None</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Case is open</string>
+    <string name="settings_reaction_autoconnect_inear_label">In ear</string>
 </resources>

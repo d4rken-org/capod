@@ -3,6 +3,7 @@ package eu.darken.capod.reaction.core.playpause
 import dagger.Reusable
 import eu.darken.capod.common.MediaControl
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
@@ -34,24 +35,33 @@ class PlayPause @Inject constructor(
                 podMonitor.mainDevice
             }
         }
-        .setupCommonEventHandlers(TAG) { "monitor" }
         .distinctUntilChanged()
         .withPrevious()
         .onEach { (previous, current) ->
             if (previous is HasEarDetection && current is HasEarDetection) {
-                log(TAG) { "previous=${previous.isBeingWorn}, current=${current.isBeingWorn}" }
-                log(TAG) { "previous-id=${previous.identifier}, current-id=${current.identifier}" }
+                log(TAG, VERBOSE) { "previous=${previous.isBeingWorn}, current=${current.isBeingWorn}" }
+                log(TAG, VERBOSE) { "previous-id=${previous.identifier}, current-id=${current.identifier}" }
                 if (previous.identifier == current.identifier && previous.isBeingWorn != current.isBeingWorn) {
-                    if (current.isBeingWorn && reactionSettings.autoPlay.value && !mediaControl.isPlaying) {
-                        mediaControl.sendPlay()
-                    } else if (!current.isBeingWorn && reactionSettings.autoPause.value && mediaControl.isPlaying) {
-                        mediaControl.sendPause()
+                    log(TAG) { "Ear status changed for monitored device." }
+                    if (current.isBeingWorn && !mediaControl.isPlaying) {
+                        if (reactionSettings.autoPlay.value) {
+                            mediaControl.sendPlay()
+                        } else {
+                            log(TAG) { "autoPlay is disabled" }
+                        }
+                    } else if (!current.isBeingWorn && mediaControl.isPlaying) {
+                        if (reactionSettings.autoPause.value) {
+                            mediaControl.sendPause()
+                        } else {
+                            log(TAG) { "autoPause is disabled" }
+                        }
                     }
                 }
             }
         }
+        .setupCommonEventHandlers(TAG) { "monitor" }
 
     companion object {
-        private val TAG = logTag("Reactions", "PlayPause")
+        private val TAG = logTag("Reaction", "PlayPause")
     }
 }

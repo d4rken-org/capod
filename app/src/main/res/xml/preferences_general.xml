@@ -29,11 +29,12 @@
             android:title="@string/settings_signal_minimum_label"
             app:pspMax="0.9"
             app:pspMin="0.1" />
-        <ListPreference
-            android:icon="@drawable/ic_baseline_settings_bluetooth_24"
-            android:key="core.scanner.mode"
-            android:summary="@string/settings_scanner_mode_description"
-            android:title="@string/settings_scanner_mode_label" />
+
+        <Preference
+            android:icon="@drawable/ic_baseline_bluetooth_searching_24"
+            android:key="core.maindevice.address"
+            android:summary="@string/settings_maindevice_address_description"
+            android:title="@string/settings_maindevice_address_label" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">

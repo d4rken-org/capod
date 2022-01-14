@@ -1,5 +1,7 @@
 package eu.darken.capod.main.ui.settings.general
 
+import android.os.Bundle
+import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.ListPreference
@@ -28,6 +30,7 @@ class GeneralSettingsFragment : PreferenceFragment2() {
 
     private val monitorModePref by lazy { findPreference<ListPreference>(generalSettings.monitorMode.key)!! }
     private val scanModePref by lazy { findPreference<ListPreference>(generalSettings.scannerMode.key)!! }
+    private val mainDeviceAddressPref by lazy { findPreference<Preference>(generalSettings.mainDeviceAddress.key)!! }
 
     override fun onPreferencesCreated() {
         monitorModePref.apply {
@@ -39,6 +42,23 @@ class GeneralSettingsFragment : PreferenceFragment2() {
             entryValues = ScannerMode.values().map { settings.scannerMode.rawWriter(it) as String }.toTypedArray()
         }
         super.onPreferencesCreated()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        vm.bondedDevices.observe2 { devices ->
+            mainDeviceAddressPref.setOnPreferenceClickListener {
+                val dialog = DeviceSelectionDialogFactory(requireContext()).create(
+                    devices,
+                    devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
+                ) { selected ->
+                    generalSettings.mainDeviceAddress.value = selected?.address
+                }
+                dialog.show()
+                true
+            }
+        }
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) {
