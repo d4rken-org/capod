@@ -23,6 +23,7 @@ class AutoConnect @Inject constructor(
 
     fun monitor(): Flow<Unit> = podMonitor.mainDevice
         .filterNotNull()
+        .distinctUntilChanged()
         .map { podDevice ->
             log(TAG) { "mainPodDevice is $podDevice" }
 
