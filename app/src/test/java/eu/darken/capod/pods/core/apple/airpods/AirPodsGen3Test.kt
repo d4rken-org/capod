@@ -42,20 +42,20 @@ class AirPodsGen3Test : BaseAirPodsTest() {
     @Test
     fun `random guy at bus stop`() = runBlockingTest {
         create<AirPodsGen3>("07 19 01 13 20 2B 88 8F 01 00 08 E2 0E 84 37 C5 98 16 D4 B7 37 ED 23 8B 08 EA A1") {
-            batteryLeftPodPercent shouldBe null
-            batteryRightPodPercent shouldBe 0.9f
+            batteryLeftPodPercent shouldBe 0.8f
+            batteryRightPodPercent shouldBe 0.8f
 
             isCaseCharging shouldBe false
             isLeftPodCharging shouldBe false
             isRightPodCharging shouldBe false
 
-            isLeftPodInEar shouldBe false
+            isLeftPodInEar shouldBe true
             isRightPodInEar shouldBe true
             batteryCasePercent shouldBe null
 
             caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
 
-            connectionState shouldBe DualApplePods.ConnectionState.MUSIC
+            connectionState shouldBe DualApplePods.ConnectionState.UNKNOWN
 
             deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
