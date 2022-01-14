@@ -1,5 +1,6 @@
 package eu.darken.capod.common.bluetooth
 
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothProfile
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -15,8 +16,8 @@ data class BluetoothProfile2(
             return profileProxy
         }
 
-    val connectedDevices: Set<BluetoothDevice2>
-        get() = profile.connectedDevices.map { BluetoothDevice2(it) }.toSet()
+    val connectedDevices: Set<BluetoothDevice>
+        get() = profile.connectedDevices.toSet()
 
     val isConnected: Boolean
         get() = isConnectedAtomic.get()

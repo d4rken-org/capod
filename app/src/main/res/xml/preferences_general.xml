@@ -15,30 +15,26 @@
         android:title="@string/settings_scanner_mode_label" />
 
     <CheckBoxPreference
-        android:icon="@drawable/ic_baseline_play_circle_24"
-        android:key="core.eardetection.autoplay.enabled"
-        android:summary="@string/settings_autoplay_description"
-        android:title="@string/settings_autopplay_label" />
-
-    <CheckBoxPreference
-        android:icon="@drawable/ic_baseline_pause_circle_24"
-        android:key="core.eardetection.autopause.enabled"
-        android:summary="@string/settings_autopause_description"
-        android:title="@string/settings_autopause_label" />
-
-    <CheckBoxPreference
         android:icon="@drawable/ic_baseline_devices_other_24"
         android:key="core.showall.enabled"
         android:summary="@string/settings_showall_description"
         android:title="@string/settings_showall_label" />
 
-    <eu.darken.capod.common.preferences.PercentSliderPreference
-        android:icon="@drawable/ic_baseline_signal_cellular_alt_24"
-        android:key="core.signal.minimum"
-        android:summary="@string/settings_signal_minimum_description"
-        android:title="@string/settings_signal_minimum_label"
-        app:pspMax="0.9"
-        app:pspMin="0.1" />
+    <PreferenceCategory android:title="@string/settings_category_yourdevice_label">
+
+        <eu.darken.capod.common.preferences.PercentSliderPreference
+            android:icon="@drawable/ic_baseline_signal_cellular_alt_24"
+            android:key="core.signal.minimum"
+            android:summary="@string/settings_signal_minimum_description"
+            android:title="@string/settings_signal_minimum_label"
+            app:pspMax="0.9"
+            app:pspMin="0.1" />
+        <ListPreference
+            android:icon="@drawable/ic_baseline_settings_bluetooth_24"
+            android:key="core.scanner.mode"
+            android:summary="@string/settings_scanner_mode_description"
+            android:title="@string/settings_scanner_mode_label" />
+    </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">
 

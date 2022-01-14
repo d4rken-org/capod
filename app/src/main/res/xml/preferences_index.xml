@@ -8,6 +8,12 @@
         app:title="@string/settings_general_label" />
 
     <Preference
+        android:icon="@drawable/ic_baseline_widgets_24"
+        app:fragment="eu.darken.capod.reaction.ui.settings.ReactionSettingsFragment"
+        app:summary="@string/settings_reaction_description"
+        app:title="@string/settings_reaction_label" />
+
+    <Preference
         android:icon="@drawable/ic_baseline_support_agent_24"
         app:fragment="eu.darken.capod.main.ui.settings.support.SupportFragment"
         app:summary="@string/settings_support_description"

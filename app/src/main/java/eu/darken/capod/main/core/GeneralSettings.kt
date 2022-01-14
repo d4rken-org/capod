@@ -33,16 +33,6 @@ class GeneralSettings @Inject constructor(
         moshi
     )
 
-    val autoPause = preferences.createFlowPreference(
-        "core.eardetection.autopause.enabled",
-        false
-    )
-
-    val autoPlay = preferences.createFlowPreference(
-        "core.eardetection.autoplay.enabled",
-        false
-    )
-
     val showAll = preferences.createFlowPreference(
         "core.showall.enabled",
         false
@@ -53,11 +43,14 @@ class GeneralSettings @Inject constructor(
         0.25f
     )
 
+    val mainDeviceAddress = preferences.createFlowPreference<String?>(
+        "core.maindevice.address",
+        null
+    )
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         scannerMode,
-        autoPause,
-        autoPlay,
         showAll,
         minimumSignalQuality,
         debugSettings.isAutoReportEnabled,

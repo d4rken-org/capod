@@ -117,4 +117,11 @@
     <string name="pods_microphone_label">Microphone</string>
     <string name="settings_signal_minimum_label">Minimum signal quality</string>
     <string name="settings_signal_minimum_description">The minimum signal quality that a device needs to have to be considered yours.</string>
+    <string name="settings_autoconnect_label">Auto connect</string>
+    <string name="settings_autoconnect_description">Seeing the device and being connected is not the same. If Android does not automatically connect, we can ask it too.</string>
+    <string name="settings_autoconnect_condition_label">Auto connect condition</string>
+    <string name="settings_autoconnect_condition_description">When should we auto connect to your device?</string>
+    <string name="settings_reaction_label">Reactions</string>
+    <string name="settings_reaction_description">React to events and behaviors.</string>
+    <string name="settings_category_yourdevice_label">Your device</string>
 </resources>

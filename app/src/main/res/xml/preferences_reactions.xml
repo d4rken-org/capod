@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_play_circle_24"
+        android:key="reaction.autoplay.enabled"
+        android:summary="@string/settings_autoplay_description"
+        android:title="@string/settings_autopplay_label" />
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_pause_circle_24"
+        android:key="reaction.autopause.enabled"
+        android:summary="@string/settings_autopause_description"
+        android:title="@string/settings_autopause_label" />
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_bluetooth_connected_24"
+        android:key="reaction.autoconnect.enabled"
+        android:summary="@string/settings_autoconnect_description"
+        android:title="@string/settings_autoconnect_label" />
+
+    <ListPreference
+        android:icon="@drawable/ic_baseline_workspaces_24"
+        android:key="reaction.autoconnect.condition"
+        android:summary="@string/settings_autoconnect_condition_description"
+        android:title="@string/settings_autoconnect_condition_label" />
+
+</PreferenceScreen>

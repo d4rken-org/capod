@@ -10,7 +10,9 @@ import androidx.annotation.MenuRes
 import androidx.annotation.XmlRes
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceFragmentCompat
+import androidx.viewbinding.ViewBinding
 import eu.darken.androidstarter.common.preferences.Settings
 import eu.darken.capod.main.ui.settings.SettingsFragment
 
@@ -66,5 +68,18 @@ abstract class PreferenceFragment2
                 true
             }
         }
+    }
+
+    inline fun <T> LiveData<T>.observe2(
+        crossinline callback: (T) -> Unit
+    ) {
+        observe(viewLifecycleOwner) { callback.invoke(it) }
+    }
+
+    inline fun <T, reified VB : ViewBinding?> LiveData<T>.observe2(
+        ui: VB,
+        crossinline callback: VB.(T) -> Unit
+    ) {
+        observe(viewLifecycleOwner) { callback.invoke(ui, it) }
     }
 }

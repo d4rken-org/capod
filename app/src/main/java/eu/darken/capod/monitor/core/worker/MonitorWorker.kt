@@ -20,7 +20,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.*
 import eu.darken.capod.monitor.ui.MonitorNotifications
-import eu.darken.capod.reactions.core.ReactionsHub
+import eu.darken.capod.reaction.core.ReactionHub
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
@@ -37,7 +37,7 @@ class MonitorWorker @AssistedInject constructor(
     private val generalSettings: GeneralSettings,
     private val permissionTool: PermissionTool,
     private val podMonitor: PodMonitor,
-    private val reactionsHub: ReactionsHub,
+    private val reactionHub: ReactionHub,
     private val bluetoothManager: BluetoothManager2,
 ) : CoroutineWorker(context, params) {
 
@@ -138,7 +138,7 @@ class MonitorWorker @AssistedInject constructor(
             }
             .launchIn(workerScope)
 
-        reactionsHub.monitor()
+        reactionHub.monitor()
             .catch {
                 log(TAG, WARN) { "Pod reactions failed:\n${it.asLog()}" }
             }

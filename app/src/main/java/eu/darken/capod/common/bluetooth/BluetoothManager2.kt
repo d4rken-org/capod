@@ -96,7 +96,7 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    private fun connectedDevicesForProfile(profile: Int): Flow<Set<BluetoothDevice2>> = callbackFlow {
+    private fun connectedDevicesForProfile(profile: Int): Flow<Set<BluetoothDevice>> = callbackFlow {
         log(TAG) { "connectedDevices(profile=$profile) starting" }
         trySend(getBluetoothProfile(profile).connectedDevices)
 
@@ -118,9 +118,7 @@ class BluetoothManager2 @Inject constructor(
                     log(TAG, ERROR) { "Bluetooth event without action, how did we get this?" }
                     return
                 }
-                val device = intent.getParcelableExtra<BluetoothDevice?>(BluetoothDevice.EXTRA_DEVICE)?.let {
-                    BluetoothDevice2(it)
-                }
+                val device = intent.getParcelableExtra<BluetoothDevice?>(BluetoothDevice.EXTRA_DEVICE)
                 if (device == null) {
                     log(TAG, ERROR) { "Connection event is missing EXTRA_DEVICE: ${intent.extras}" }
                     return
@@ -150,7 +148,7 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    fun connectedDevices(): Flow<List<BluetoothDevice2>> = isBluetoothEnabled
+    fun connectedDevices(): Flow<List<BluetoothDevice>> = isBluetoothEnabled
         .flatMapLatest { connectedDevicesForProfile(BluetoothProfile.HEADSET) }
         .map { devices ->
             devices.filter { device ->
@@ -160,14 +158,15 @@ class BluetoothManager2 @Inject constructor(
             }
         }
 
-    fun bondedDevices(): List<BluetoothDevice2> = adapter.bondedDevices
-        .map { BluetoothDevice2(it) }
+    fun bondedDevices(): Set<BluetoothDevice> = adapter.bondedDevices
 
-    suspend fun nudgeConnection(device: BluetoothDevice2): Boolean = try {
+    suspend fun nudgeConnection(device: BluetoothDevice): Boolean = try {
+        log(TAG) { "Nudging Android connection to $device" }
         val connectMethod = BluetoothHeadset::class.java.getDeclaredMethod(
             "connect", BluetoothDevice::class.java
         ).apply { isAccessible = true }
-        connectMethod.invoke(getBluetoothProfile().profile, device.device)
+        connectMethod.invoke(getBluetoothProfile().profile, device)
+        log(TAG) { "Nudged connection to $device" }
         true
     } catch (e: Exception) {
         log(TAG, WARN) { "BluetoothHeadset.connect(device) is unavailable:\n${e.asLog()}" }
