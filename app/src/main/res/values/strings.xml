@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
 
     <string name="notification_channel_device_status_label">Device status</string>
 
@@ -12,6 +13,8 @@
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Grant permission</string>
+    <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_check_action">Check</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
@@ -65,6 +68,9 @@
     <string name="pods_none_label_short">No device</string>
     <string name="pods_none_label">No paired device connected.</string>
     <string name="pods_none_description">Connect a paired device or enable the \'Show all\' option.</string>
+    <string name="pods_charging_label">Charging</string>
+    <string name="pods_inear_label">In ear</string>
+    <string name="pods_microphone_label">Microphone</string>
 
     <string name="settings_label">Settings</string>
     <string name="settings_privacy_policy_label">Privacy policy</string>
@@ -112,9 +118,6 @@
     <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
     <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
-    <string name="pods_charging_label">Charging</string>
-    <string name="pods_inear_label">In ear</string>
-    <string name="pods_microphone_label">Microphone</string>
     <string name="settings_signal_minimum_label">Minimum signal quality</string>
     <string name="settings_signal_minimum_description">The minimum signal quality that a device needs to have to be considered yours.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
@@ -130,4 +133,7 @@
     <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Case is open</string>
     <string name="settings_reaction_autoconnect_inear_label">In ear</string>
+
+    <string name="upgrade_capod_label">Upgrade CAPod</string>
+    <string name="upgrade_capod_description">Get additional features and support the developer.</string>
 </resources>

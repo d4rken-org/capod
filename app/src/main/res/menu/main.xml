@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/menu_item_donate"
+        android:icon="@drawable/ic_baseline_heart_24"
+        android:title="@string/settings_general_label"
+        android:visible="false"
+        tool:visible="true"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_item_upgrade"
+        android:icon="@drawable/ic_baseline_stars_24"
+        android:title="@string/settings_general_label"
+        android:visible="false"
+        tool:visible="true"
+        app:showAsAction="always" />
     <item
         android:id="@+id/menu_item_settings"
         android:icon="@drawable/ic_baseline_settings_24"

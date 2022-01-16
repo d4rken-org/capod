@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="upgrades_iap_gplay_unavailable_error">Google Play services are unavailable.</string>
+</resources>

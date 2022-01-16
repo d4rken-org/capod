@@ -13,6 +13,8 @@ class SerializationModule {
 
     @Provides
     @Singleton
-    fun moshi(): Moshi = Moshi.Builder().build()
+    fun moshi(): Moshi = Moshi.Builder()
+        .add(JavaInstantAdapter())
+        .build()
 
 }

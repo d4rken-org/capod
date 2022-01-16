@@ -215,8 +215,11 @@ class AppleFactory @Inject constructor(
             )
 
             else -> {
-                log(TAG, WARN) { "Unknown proximity message type" }
-                Bugs.report(IllegalArgumentException("Unknown ProximityMessage: $pm"))
+                Bugs.report(
+                    tag = TAG,
+                    message = "Unknown proximity message type",
+                    exception = IllegalArgumentException("Unknown ProximityMessage: $pm")
+                )
                 UnknownAppleDevice(
                     identifier = identifier,
                     scanResult = scanResult,

@@ -68,8 +68,7 @@ class MonitorWorker @AssistedInject constructor(
 
         Result.success(inputData)
     } catch (e: Throwable) {
-        log(TAG, ERROR) { "Execution failed:\n${e.asLog()}" }
-        Bugs.report(e)
+        Bugs.report(tag = TAG, "Execution failed", exception = e)
         finishedWithError = true
         Result.failure(inputData)
     } finally {

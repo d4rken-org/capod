@@ -76,15 +76,31 @@ android {
             proguardFiles proguardRulesRelease
             manifestPlaceholders = [bugsnagApiKey: bugsnagProps.getProperty("bugsnag.apikey", "")]
         }
-        applicationVariants.all { variant ->
-            if (variant.buildType.name == "debug") {
-                variant.mergedFlavor.resourceConfigurations.clear()
-                variant.mergedFlavor.resourceConfigurations.add("en")
-                variant.mergedFlavor.resourceConfigurations.add("de")
-            } else if (variant.buildType.name != "debug") {
-                variant.outputs.each { output ->
-                    output.outputFileName = "${packageName}-v" + defaultConfig.versionName + "(" + defaultConfig.versionCode + ")-" + variant.buildType.name.toUpperCase() + "-" + gitSha + ".apk"
-                }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        gplay {
+
+        }
+        foss {
+
+        }
+    }
+
+    applicationVariants.all { variant ->
+        def flavor = variant.productFlavors[0].name.toUpperCase()
+        def buildType = variant.buildType.name.toUpperCase()
+        def versionCode = defaultConfig.versionCode
+        def versionName = defaultConfig.versionName
+
+        if (variant.buildType.name == "debug") {
+            variant.mergedFlavor.resourceConfigurations.clear()
+            variant.mergedFlavor.resourceConfigurations.add("en")
+            variant.mergedFlavor.resourceConfigurations.add("de")
+        } else if (variant.buildType.name != "debug") {
+            variant.outputs.each { output ->
+                output.outputFileName = "${packageName}-v${versionName}(${versionCode})-${gitSha}-${flavor}-${buildType}.apk"
             }
         }
     }
@@ -151,7 +167,7 @@ dependencies {
     }
 
     // Debugging
-    implementation ('com.bugsnag:bugsnag-android:5.9.2')
+    implementation('com.bugsnag:bugsnag-android:5.9.2')
     implementation 'com.getkeepsafe.relinker:relinker:1.4.3'
 
     implementation("com.squareup.moshi:moshi:1.13.0")
@@ -198,11 +214,15 @@ dependencies {
 
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
 
+
     def work_version = "2.7.1"
     implementation "androidx.work:work-runtime:${work_version}"
     testImplementation "androidx.work:work-testing:${work_version}"
     implementation "androidx.work:work-runtime-ktx:${work_version}"
     implementation 'androidx.hilt:hilt-work:1.0.0'
+
+    // IAP
+    gplayImplementation 'com.android.billingclient:billing:4.0.0'
 
     // UI
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'

@@ -12,7 +12,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
-import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
@@ -172,8 +171,7 @@ class BluetoothManager2 @Inject constructor(
         log(TAG) { "Nudged connection to $device" }
         true
     } catch (e: Exception) {
-        log(TAG, WARN) { "BluetoothHeadset.connect(device) is unavailable:\n${e.asLog()}" }
-        Bugs.report(e)
+        Bugs.report(tag = TAG, "BluetoothHeadset.connect(device) is unavailable", exception = e)
         false
     }
 

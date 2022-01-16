@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview
 
+import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,6 +11,7 @@ import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
+import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
@@ -39,7 +41,11 @@ class OverviewFragmentVM @Inject constructor(
     private val permissionTool: PermissionTool,
     private val generalSettings: GeneralSettings,
     debugSettings: DebugSettings,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    val upgradeState = upgradeRepo.upgradeInfo.asLiveData2()
+    val launchUpgradeFlow = SingleLiveEvent<(Activity) -> Unit>()
 
     private val updateTicker = channelFlow<Unit> {
         while (isActive) {
@@ -151,6 +157,13 @@ class OverviewFragmentVM @Inject constructor(
 
     fun goToSettings() = launch {
         OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navVia(this@OverviewFragmentVM)
+    }
+
+    fun onUpgrade() = launch {
+        val call: (Activity) -> Unit = {
+            upgradeRepo.launchBillingFlow(it)
+        }
+        launchUpgradeFlow.postValue(call)
     }
 
 }
