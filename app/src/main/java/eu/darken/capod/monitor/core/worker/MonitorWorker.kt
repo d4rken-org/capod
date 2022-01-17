@@ -125,7 +125,7 @@ class MonitorWorker @AssistedInject constructor(
                             log(TAG) { "MainDevice is connected ($mainAddress), aborting any timeout." }
                         } else {
                             log(TAG) { "No Pods are connected, canceling worker soon." }
-                            delay(30 * 1000)
+                            delay(15 * 1000)
                             log(TAG) { "Canceling worker now, still no Pods connected." }
 
                             workerScope.coroutineContext.cancelChildren()
