@@ -11,7 +11,7 @@ class GplayServiceUnavailableException(cause: Throwable) : Exception("Google Pla
         return LocalizedError(
             throwable = this,
             label = "Google Play Services Unavailable",
-            description = context.getString(R.string.upgrades_iap_gplay_unavailable_error)
+            description = context.getString(R.string.upgrades_gplay_unavailable_error)
         )
     }
 

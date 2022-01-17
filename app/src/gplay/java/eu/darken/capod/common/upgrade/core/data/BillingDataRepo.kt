@@ -18,7 +18,6 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -30,14 +29,10 @@ class BillingDataRepo @Inject constructor(
 
     private val connectionProvider = billingClientConnectionProvider.connection
         .replayingShare(scope)
-    private val purchaseData = connectionProvider.flatMapLatest { it.purchases }
 
-    val billingData: Flow<BillingData> = purchaseData
-        .map {
-            BillingData(
-                purchases = it
-            )
-        }
+    val billingData: Flow<BillingData> = connectionProvider
+        .flatMapLatest { it.purchases }
+        .map { BillingData(purchases = it) }
         .setupCommonEventHandlers(TAG) { "iapData" }
         .replayingShare(scope)
 
