@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.ParcelUuid
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
@@ -147,11 +148,13 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    fun connectedDevices(): Flow<List<BluetoothDevice>> = isBluetoothEnabled
+    fun connectedDevices(
+        featureFilter: Set<ParcelUuid> = ContinuityProtocol.BLE_FEATURE_UUIDS
+    ): Flow<List<BluetoothDevice>> = isBluetoothEnabled
         .flatMapLatest { connectedDevicesForProfile(BluetoothProfile.HEADSET) }
         .map { devices ->
             devices.filter { device ->
-                ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature ->
+                featureFilter.any { feature ->
                     device.hasFeature(feature)
                 }
             }
