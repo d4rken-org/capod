@@ -11,11 +11,14 @@ import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.uix.PreferenceFragment2
+import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.settings.general.DeviceSelectionDialogFactory
 import eu.darken.capod.reaction.core.ReactionSettings
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @Keep
@@ -26,6 +29,7 @@ class ReactionSettingsFragment : PreferenceFragment2() {
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var reactionSettings: ReactionSettings
+    @Inject lateinit var upgradeRepo: UpgradeRepo
 
     override val settings: ReactionSettings
         get() = reactionSettings
@@ -44,20 +48,39 @@ class ReactionSettingsFragment : PreferenceFragment2() {
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        if (preference.key == reactionSettings.autoConnect.key && generalSettings.mainDeviceAddress.value == null) {
-            preference as CheckBoxPreference
+        val isPro = runBlocking { upgradeRepo.isPro() }
 
-            val devices = vm.bondedDevices
-            DeviceSelectionDialogFactory(requireContext()).create(
-                devices = devices,
-                current = devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
-            ) { selected ->
-                generalSettings.mainDeviceAddress.value = selected?.address
-                if (selected != null) preference.isChecked = true
-            }.show()
+        if (preference.key == reactionSettings.autoPlay.key && !isPro) {
+            preference as CheckBoxPreference
+            upgradeRepo.launchBillingFlow(requireActivity())
             preference.isChecked = false
             return true
+        } else if (preference.key == reactionSettings.autoPause.key && !isPro) {
+            preference as CheckBoxPreference
+            upgradeRepo.launchBillingFlow(requireActivity())
+            preference.isChecked = false
+            return true
+        } else if (preference.key == reactionSettings.autoConnect.key) {
+            preference as CheckBoxPreference
+
+            if (!isPro) {
+                upgradeRepo.launchBillingFlow(requireActivity())
+                preference.isChecked = false
+                return true
+            } else if (generalSettings.mainDeviceAddress.value == null) {
+                val devices = vm.bondedDevices
+                DeviceSelectionDialogFactory(requireContext()).create(
+                    devices = devices,
+                    current = devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
+                ) { selected ->
+                    generalSettings.mainDeviceAddress.value = selected?.address
+                    if (selected != null) preference.isChecked = true
+                }.show()
+                preference.isChecked = false
+                return true
+            }
         }
+
         return super.onPreferenceTreeClick(preference)
     }
 
