@@ -18,12 +18,12 @@ data class BillingClientConnection(
     private val purchasesGlobal: Flow<Collection<Purchase>>,
 ) {
     private val purchasesLocal = MutableStateFlow<Collection<Purchase>>(emptySet())
-    val purchases: Flow<Collection<Purchase>> = combine(
-        purchasesGlobal,
-        purchasesLocal
-    ) { global, local ->
-        // TODO how to prevent duplicates?
-        global.plus(local)
+    val purchases: Flow<Collection<Purchase>> = combine(purchasesGlobal, purchasesLocal) { global, local ->
+        val combined = mutableMapOf<String, Purchase>()
+        global.plus(local).toSet().sortedByDescending { it.purchaseTime }.forEach { purchase ->
+            combined[purchase.orderId] = purchase
+        }
+        combined.values
     }
         .setupCommonEventHandlers(TAG) { "purchases" }
 
