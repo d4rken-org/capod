@@ -73,15 +73,6 @@
                 android:data="https://iconduck.com/sets/zwicon-icon-set" />
         </Preference>
         <Preference
-            android:key="license.lottie"
-            android:summary="Airbnb's Lottie for Android. (APACHE 2.0)"
-            android:title="Lottie"
-            app:iconSpaceReserved="false">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/airbnb/lottie-android" />
-        </Preference>
-        <Preference
             android:key="license.kotlin"
             android:summary="The Kotlin Programming Language. (APACHE 2.0)"
             android:title="Kotlin"
@@ -98,6 +89,15 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/google/dagger" />
+        </Preference>
+        <Preference
+            android:key="license.moshi"
+            android:summary="A modern JSON library for Kotlin and Java. (APACHE 2.0)"
+            android:title="Moshi"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/square/moshi" />
         </Preference>
         <Preference
             android:key="android.android"
