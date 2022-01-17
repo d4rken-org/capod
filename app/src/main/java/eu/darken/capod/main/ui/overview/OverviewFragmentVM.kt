@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.log
@@ -42,6 +43,7 @@ class OverviewFragmentVM @Inject constructor(
     private val generalSettings: GeneralSettings,
     debugSettings: DebugSettings,
     private val upgradeRepo: UpgradeRepo,
+    private val bluetoothManager: BluetoothManager2,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val upgradeState = upgradeRepo.upgradeInfo.asLiveData2()
@@ -58,9 +60,18 @@ class OverviewFragmentVM @Inject constructor(
     private val requiredPermissions: Flow<Collection<Permission>> = permissionCheckTrigger
         .map { permissionTool.missingPermissions() }
         .onEach {
-            log(TAG) { "Missing permissions: $it" }
-            if (it.isEmpty() && generalSettings.monitorMode.value != MonitorMode.MANUAL) {
-                log(TAG) { "All permissions granted, starting monitor." }
+            if (it.isNotEmpty()) {
+                log(TAG) { "Missing permissions: $it" }
+                return@onEach
+            }
+
+            val shouldStartMonitor = when (generalSettings.monitorMode.value) {
+                MonitorMode.MANUAL -> false
+                MonitorMode.AUTOMATIC -> bluetoothManager.connectedDevices().first().isNotEmpty()
+                MonitorMode.ALWAYS -> true
+            }
+            if (shouldStartMonitor) {
+                log(TAG) { "Starting monitor" }
                 monitorControl.startMonitor()
             }
         }
