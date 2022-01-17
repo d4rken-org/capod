@@ -71,6 +71,7 @@
     <string name="pods_charging_label">Charging</string>
     <string name="pods_inear_label">In ear</string>
     <string name="pods_microphone_label">Microphone</string>
+    <string name="pods_yours">Yours</string>
 
     <string name="settings_label">Settings</string>
     <string name="settings_privacy_policy_label">Privacy policy</string>

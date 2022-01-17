@@ -31,6 +31,9 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         lastSeen.text = device.lastSeenFormatted(item.now)
 
         reception.text = device.getSignalQuality(context)
+        if (item.isMainPod) {
+            reception.append("\n(${getString(R.string.pods_yours)})")
+        }
 
         rawdata.text = device.rawDataHex
     }

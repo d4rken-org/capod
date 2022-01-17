@@ -36,6 +36,9 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         lastSeen.text = device.lastSeenFormatted(item.now)
 
         reception.text = device.getSignalQuality(context)
+        if (item.isMainPod) {
+            reception.append("\n(${getString(R.string.pods_yours)})")
+        }
 
         podLeft.apply {
             val sb = StringBuilder(context.getString(R.string.pods_dual_left_label))
