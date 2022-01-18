@@ -11,11 +11,15 @@ import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -28,7 +32,7 @@ class BleScanner @Inject constructor(
 
     fun scan(
         filter: Set<ScanFilter> = ProximityPairing.getBleScanFilter(),
-        mode: Int = ScanSettings.SCAN_MODE_LOW_LATENCY,
+        scannerMode: ScannerMode = ScannerMode.LOW_POWER,
     ): Flow<List<BleScanResult>> = callbackFlow {
         val adapter = bluetoothManager.adapter
         val scanner = bluetoothManager.scanner
@@ -59,13 +63,35 @@ class BleScanner @Inject constructor(
         }
 
         val settings = ScanSettings.Builder().apply {
-            setScanMode(mode)
+            setScanMode(
+                when (scannerMode) {
+                    ScannerMode.LOW_POWER -> ScanSettings.SCAN_MODE_LOW_POWER
+                    ScannerMode.BALANCED -> ScanSettings.SCAN_MODE_BALANCED
+                    ScannerMode.LOW_LATENCY -> ScanSettings.SCAN_MODE_LOW_LATENCY
+                }
+            )
             if (adapter.isOffloadedScanBatchingSupported) {
-                setReportDelay(1000)
+                when (scannerMode) {
+                    ScannerMode.LOW_POWER -> setReportDelay(5000)
+                    ScannerMode.BALANCED -> setReportDelay(2500)
+                    ScannerMode.LOW_LATENCY -> setReportDelay(500)
+                }
             } else {
                 log(TAG, WARN) { "isOffloadedScanBatchingSupported=false" }
             }
         }.build()
+
+        val flushJob = launch {
+            while (isActive) {
+                // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
+                adapter.bluetoothLeScanner.flushPendingScanResults(callback)
+                when (scannerMode) {
+                    ScannerMode.LOW_POWER -> break
+                    ScannerMode.BALANCED -> delay(2500)
+                    ScannerMode.LOW_LATENCY -> delay(500)
+                }
+            }
+        }
 
         if (adapter.isOffloadedFilteringSupported) {
             scanner.startScan(filter.toList(), settings, callback)
@@ -77,8 +103,9 @@ class BleScanner @Inject constructor(
         }
 
         awaitClose {
-            log(TAG, INFO) { "BleScanner stopped" }
+            flushJob.cancel()
             scanner.stopScan(callback)
+            log(TAG, INFO) { "BleScanner stopped" }
         }
     }
         .map { origs ->

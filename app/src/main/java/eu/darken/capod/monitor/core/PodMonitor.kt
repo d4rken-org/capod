@@ -1,6 +1,5 @@
 package eu.darken.capod.monitor.core
 
-import android.bluetooth.le.ScanSettings
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.AppScope
@@ -10,7 +9,6 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import kotlinx.coroutines.CoroutineScope
@@ -35,17 +33,10 @@ class PodMonitor @Inject constructor(
     private val cacheLock = Mutex()
 
     val devices: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
-        .flatMapLatest {
-            val mode = when (it) {
-                ScannerMode.LOW_POWER -> ScanSettings.SCAN_MODE_LOW_POWER
-                ScannerMode.BALANCED -> ScanSettings.SCAN_MODE_BALANCED
-                ScannerMode.LOW_LATENCY -> ScanSettings.SCAN_MODE_LOW_LATENCY
-            }
+        .flatMapLatest { scannerMode ->
             bluetoothManager.isBluetoothEnabled.flatMapLatest { isBluetoothEnabled ->
                 if (isBluetoothEnabled) {
-                    bleScanner.scan(
-                        mode = mode
-                    )
+                    bleScanner.scan(scannerMode = scannerMode)
                 } else {
                     log(TAG, WARN) { "Bluetooth is current disabled" }
                     emptyFlow()

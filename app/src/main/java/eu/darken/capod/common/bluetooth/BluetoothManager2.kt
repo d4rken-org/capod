@@ -71,7 +71,7 @@ class BluetoothManager2 @Inject constructor(
     suspend fun getBluetoothProfile(
         profile: Int = BluetoothProfile.HEADSET
     ): BluetoothProfile2 = withContext(dispatcherProvider.IO) {
-        log(TAG) { "getBluetoothProfile(profile=$profile)" }
+        log(TAG, VERBOSE) { "getBluetoothProfile(profile=$profile)" }
 
         suspendCancellableCoroutine {
             val connectionState = AtomicBoolean(false)
@@ -97,7 +97,7 @@ class BluetoothManager2 @Inject constructor(
     }
 
     private fun connectedDevicesForProfile(profile: Int): Flow<Set<BluetoothDevice>> = callbackFlow {
-        log(TAG) { "connectedDevices(profile=$profile) starting" }
+        log(TAG, VERBOSE) { "connectedDevices(profile=$profile) starting" }
         trySend(getBluetoothProfile(profile).connectedDevices)
 
         val filter = IntentFilter().apply {
