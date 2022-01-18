@@ -156,7 +156,7 @@ class OverviewFragmentVM @Inject constructor(
             NoPairedDeviceCardVH.Item {
                 generalSettings.showAll.value = true
             }.run { items.add(this) }
-        } else if (showAll && mainPod == null) {
+        } else if (showAll && mainPod == null && permissions.isEmpty()) {
             items.add(0, MissingMainDeviceVH.Item)
         }
 
