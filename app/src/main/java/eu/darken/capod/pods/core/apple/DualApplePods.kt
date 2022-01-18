@@ -1,6 +1,7 @@
 package eu.darken.capod.pods.core.apple
 
 import android.content.Context
+import android.util.Range
 import androidx.annotation.StringRes
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.log
@@ -96,15 +97,25 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
         get() = rawCaseBattery.upperNibble.isBitSet(2)
 
     val caseLidState: LidState
-        get() = LidState.values().firstOrNull { it.raw == rawCaseLidState } ?: LidState.UNKNOWN
+        get() {
+            return LidState.values().firstOrNull { it.rawRange.contains(rawCaseLidState) } ?: LidState.UNKNOWN
+        }
 
-    enum class LidState(val raw: UByte?) {
-        OPEN(0x31),
-        CLOSED(0x38),
-        NOT_IN_CASE(0x01),
-        UNKNOWN(null);
+    /**
+     * TODO this is glitchy
+     * The counters generally increase if quickly and repeatedly:
+     * - open/close
+     * - add/remove the last airpod to the case
+     * They reset after some time to their start values.
+     * The upper limits are not the maximums but are only reached if playing with the case.
+     */
+    enum class LidState(val rawRange: Range<UByte>) {
+        OPEN(0x30, 0x37),
+        CLOSED(0x38, 0x3F),
+        NOT_IN_CASE(0x00, 0x03),
+        UNKNOWN(0xFF, 0xFF);
 
-        constructor(raw: Int) : this(raw.toUByte())
+        constructor(vararg raw: Int) : this(Range(raw[0].toUByte(), (raw[1].toUByte())))
     }
 
     val deviceColor: DeviceColor

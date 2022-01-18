@@ -26,9 +26,12 @@ class PopUpReaction @Inject constructor(
         .flatMapLatest { if (it) podMonitor.mainDevice else emptyFlow() }
         .withPrevious()
         .map { (previous, current) ->
-
             if (previous is DualApplePods? && current is DualApplePods) {
-                log(TAG) { "previous=${previous?.rawCaseLidState}, current=${current.rawCaseLidState}" }
+                log(TAG) {
+                    val prev = previous?.rawCaseLidState?.let { String.format("%02X", it.toByte()) }
+                    val cur = current.rawCaseLidState.let { String.format("%02X", it.toByte()) }
+                    "previous=$prev (${previous?.caseLidState}), current=$cur (${current.caseLidState})"
+                }
                 log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
 
                 val isSameDeviceWithCaseNowOpen =
@@ -41,6 +44,8 @@ class PopUpReaction @Inject constructor(
 
                     if (current.caseLidState == DualApplePods.LidState.OPEN) {
                         log(TAG, INFO) { "Show popup" }
+                    } else if (current.caseLidState == DualApplePods.LidState.CLOSED) {
+                        log(TAG, INFO) { "Hide popup" }
                     }
                 }
             }

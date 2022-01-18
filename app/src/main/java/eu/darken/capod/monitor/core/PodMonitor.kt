@@ -75,7 +75,8 @@ class PodMonitor @Inject constructor(
                     pods[it.identifier] = it
                 }
             }
-
+            val now = Instant.now()
+//            pods.values.sortedWith(compareBy<PodDevice> { Duration.between(it.lastSeenAt,now) }.thenByDescending { it.rssi })
             pods.values.sortedByDescending { it.rssi }
         }
         .onStart { emit(emptyList()) }
