@@ -143,4 +143,6 @@
 
     <string name="upgrade_capod_label">Upgrade CAPod</string>
     <string name="upgrade_capod_description">Get additional features and support the developer.</string>
+    <string name="settings_popup_caseopen_label">Show popup</string>
+    <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
 </resources>

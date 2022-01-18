@@ -42,10 +42,16 @@ class ReactionSettings @Inject constructor(
         moshi
     )
 
+    val showPopUpOnCaseOpen = preferences.createFlowPreference(
+        "reaction.popup.caseopen",
+        false
+    )
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         autoPause,
         autoPlay,
         autoConnect,
         autoConnectCondition,
+        showPopUpOnCaseOpen,
     )
 }
