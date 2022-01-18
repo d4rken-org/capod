@@ -30,7 +30,7 @@ class GeneralSettings @Inject constructor(
 
     val scannerMode = preferences.createFlowPreference(
         "core.scanner.mode",
-        ScannerMode.LOW_POWER,
+        ScannerMode.BALANCED,
         moshi
     )
 
