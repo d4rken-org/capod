@@ -34,13 +34,22 @@ class BleScanner @Inject constructor(
         val scanner = bluetoothManager.scanner
 
         val callback = object : ScanCallback() {
+            var lastScanAt = System.currentTimeMillis()
             override fun onScanResult(callbackType: Int, result: ScanResult) {
-                log(TAG, VERBOSE) { "onScanResult(callbackType=$callbackType, result=$result)" }
+                log(TAG, VERBOSE) {
+                    val delay = System.currentTimeMillis() - lastScanAt
+                    lastScanAt = System.currentTimeMillis()
+                    "onScanResult(delay=${delay}ms, callbackType=$callbackType, result=$result)"
+                }
                 trySend(listOf(BleScanResult.fromScanResult(result)))
             }
 
             override fun onBatchScanResults(results: MutableList<ScanResult>) {
-                log(TAG, VERBOSE) { "onBatchScanResults(results=$results)" }
+                log(TAG, VERBOSE) {
+                    val delay = System.currentTimeMillis() - lastScanAt
+                    lastScanAt = System.currentTimeMillis()
+                    "onBatchScanResults(delay=${delay}ms, results=$results)"
+                }
                 trySend(results.map { BleScanResult.fromScanResult(it) })
             }
 
@@ -52,7 +61,7 @@ class BleScanner @Inject constructor(
         val settings = ScanSettings.Builder().apply {
             setScanMode(mode)
             if (adapter.isOffloadedScanBatchingSupported) {
-                setReportDelay(100)
+                setReportDelay(1000)
             } else {
                 log(TAG, WARN) { "isOffloadedScanBatchingSupported=false" }
             }
