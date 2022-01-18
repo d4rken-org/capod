@@ -14,6 +14,7 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.ScannerMode
+import eu.darken.capod.pods.core.PodDevice
 import javax.inject.Inject
 
 @Keep
@@ -33,6 +34,7 @@ class GeneralSettingsFragment : PreferenceFragment2() {
     private val monitorModePref by lazy { findPreference<ListPreference>(generalSettings.monitorMode.key)!! }
     private val scanModePref by lazy { findPreference<ListPreference>(generalSettings.scannerMode.key)!! }
     private val mainDeviceAddressPref by lazy { findPreference<Preference>(generalSettings.mainDeviceAddress.key)!! }
+    private val mainDeviceModelPref by lazy { findPreference<Preference>(generalSettings.mainDeviceModel.key)!! }
 
     override fun onPreferencesCreated() {
         monitorModePref.apply {
@@ -58,6 +60,16 @@ class GeneralSettingsFragment : PreferenceFragment2() {
                 dialog.show()
                 true
             }
+        }
+        mainDeviceModelPref.setOnPreferenceClickListener {
+            val dialog = ModelSelectionDialogFactory(requireContext()).create(
+                PodDevice.Model.values().toList(),
+                generalSettings.mainDeviceModel.value
+            ) { selected ->
+                generalSettings.mainDeviceModel.value = selected
+            }
+            dialog.show()
+            true
         }
 
         super.onViewCreated(view, savedInstanceState)

@@ -83,9 +83,14 @@ class PodMonitor @Inject constructor(
 
     val mainDevice: Flow<PodDevice?>
         get() = devices.map { devices ->
-            devices.maxByOrNull { it.rssi }?.let {
+            devices.maxByOrNull { it.rssi }?.let filter@{ device ->
                 val minimumSignalQuality = generalSettings.minimumSignalQuality.value
-                if (it.signalQuality > minimumSignalQuality) it else null
+
+                generalSettings.mainDeviceModel.value.let {
+                    if (device.model != it && it != PodDevice.Model.UNKNOWN) return@filter null
+                }
+
+                if (device.signalQuality > minimumSignalQuality) device else null
             }
         }
 

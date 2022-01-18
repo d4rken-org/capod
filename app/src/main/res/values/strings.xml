@@ -131,9 +131,12 @@
     <string name="settings_reaction_label">Reactions</string>
     <string name="settings_reaction_description">React to events and behaviors.</string>
     <string name="settings_category_yourdevice_label">Your device</string>
-    <string name="settings_maindevice_address_label">Main device</string>
-    <string name="settings_maindevice_address_description">The paired pod device to which this app should react.</string>
+    <string name="settings_maindevice_address_label">Your device address</string>
+    <string name="settings_maindevice_address_description">The address of your paired device. The app uses this to determine when it is connected to your phone.</string>
     <string name="settings_maindevice_address_none">None</string>
+    <string name="settings_maindevice_model_label">Your device model</string>
+    <string name="settings_maindevice_model_description">The model of your main device. This helps the app recognize your device when it is not connected to your phone.</string>
+
     <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Case is open</string>
     <string name="settings_reaction_autoconnect_inear_label">In ear</string>

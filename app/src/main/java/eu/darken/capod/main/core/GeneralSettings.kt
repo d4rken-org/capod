@@ -9,6 +9,7 @@ import eu.darken.androidstarter.common.preferences.Settings
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.createFlowPreference
+import eu.darken.capod.pods.core.PodDevice
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -46,6 +47,12 @@ class GeneralSettings @Inject constructor(
     val mainDeviceAddress = preferences.createFlowPreference<String?>(
         "core.maindevice.address",
         null
+    )
+
+    val mainDeviceModel = preferences.createFlowPreference<PodDevice.Model>(
+        "core.maindevice.model",
+        PodDevice.Model.UNKNOWN,
+        moshi
     )
 
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
