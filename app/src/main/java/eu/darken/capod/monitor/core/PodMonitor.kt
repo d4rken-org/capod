@@ -3,8 +3,8 @@ package eu.darken.capod.monitor.core
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.Logging.Priority.*
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
@@ -75,11 +75,34 @@ class PodMonitor @Inject constructor(
                     pods[it.identifier] = it
                 }
             }
+
+
+            val aboveThreshold = mutableListOf<PodDevice>()
+            val belowThreshold = mutableListOf<PodDevice>()
+            val minimumSignalQuality = generalSettings.minimumSignalQuality.value
+            pods.values.forEach { device ->
+                if (device.signalQuality > minimumSignalQuality) aboveThreshold.add(device)
+                else belowThreshold.add(device)
+            }
             val now = Instant.now()
-//            pods.values.sortedWith(compareBy<PodDevice> { Duration.between(it.lastSeenAt,now) }.thenByDescending { it.rssi })
-            pods.values.sortedByDescending { it.rssi }
+            aboveThreshold.sortedWith(compareBy<PodDevice> {
+                Duration.between(
+                    it.lastSeenAt,
+                    now
+                )
+            }.thenByDescending { it.rssi })
+                .plus(belowThreshold.sortedWith(compareBy<PodDevice> {
+                    Duration.between(
+                        it.lastSeenAt,
+                        now
+                    )
+                }.thenByDescending { it.rssi }))
+//            pods.values.sortedByDescending { it.rssi }
         }
         .onStart { emit(emptyList()) }
+        .catch {
+            log(TAG, ERROR) { "PodMonitor failed:\n${it.asLog()}" }
+        }
         .replayingShare(appScope)
 
     val mainDevice: Flow<PodDevice?>
