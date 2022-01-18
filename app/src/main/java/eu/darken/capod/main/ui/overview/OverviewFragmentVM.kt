@@ -152,7 +152,7 @@ class OverviewFragmentVM @Inject constructor(
             }
             .run { items.addAll(this) }
 
-        if (!showAll && items.none { it is PodDeviceVH.Item }) {
+        if (!showAll && items.none { it is PodDeviceVH.Item } && permissions.isEmpty()) {
             NoPairedDeviceCardVH.Item {
                 generalSettings.showAll.value = true
             }.run { items.add(this) }
