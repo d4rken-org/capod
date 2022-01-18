@@ -11,10 +11,7 @@ import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.reaction.core.ReactionSettings
-import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @Reusable
@@ -25,7 +22,11 @@ class PlayPause @Inject constructor(
     private val mediaControl: MediaControl,
 ) {
 
-    fun monitor() = bluetoothManager.connectedDevices()
+    fun monitor() = combine(
+        reactionSettings.autoPlay.flow,
+        reactionSettings.autoPause.flow,
+    ) { play, pause -> play || pause }
+        .flatMapLatest { if (it) bluetoothManager.connectedDevices() else emptyFlow() }
         .flatMapLatest {
             if (it.isEmpty()) {
                 log(TAG) { "No known devices connected." }

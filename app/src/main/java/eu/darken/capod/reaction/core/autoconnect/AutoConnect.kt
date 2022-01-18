@@ -21,7 +21,8 @@ class AutoConnect @Inject constructor(
     private val reactionSettings: ReactionSettings
 ) {
 
-    fun monitor(): Flow<Unit> = podMonitor.mainDevice
+    fun monitor(): Flow<Unit> = reactionSettings.autoConnect.flow
+        .flatMapLatest { if (it) podMonitor.mainDevice else emptyFlow() }
         .filterNotNull()
         .distinctUntilChanged()
         .map { podDevice ->
