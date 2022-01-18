@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
-import androidx.preference.CheckBoxPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
@@ -12,11 +11,9 @@ import eu.darken.capod.R
 import eu.darken.capod.common.preferences.PercentSliderPreference
 import eu.darken.capod.common.uix.PreferenceFragment2
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.ScannerMode
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @Keep
@@ -64,18 +61,6 @@ class GeneralSettingsFragment : PreferenceFragment2() {
         }
 
         super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        val isPro = runBlocking { upgradeRepo.isPro() }
-        if (!isPro && preference.key == generalSettings.showAll.key) {
-            upgradeRepo.launchBillingFlow(requireActivity())
-            preference as CheckBoxPreference
-            preference.isChecked = false
-            return true
-        }
-
-        return super.onPreferenceTreeClick(preference)
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) {
