@@ -23,4 +23,8 @@ data class PowerBeatsPro(
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
+
+    companion object {
+        val DEVICE_CODE_DIRTY = 11.toUByte()
+    }
 }

@@ -23,4 +23,8 @@ data class AirPodsGen2 constructor(
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
+
+    companion object {
+        val DEVICE_CODE = 0x0F20.toUShort()
+    }
 }

@@ -23,7 +23,7 @@ import javax.inject.Singleton
 @Singleton
 class AppleFactory @Inject constructor(
     private val continuityProtocolDecoder: ContinuityProtocol.Decoder,
-    private val proximityPairingDecoder: ProximityPairing.Decoder
+    private val proximityPairingDecoder: ProximityPairing.Decoder,
 ) {
 
     data class KnownDevice(
@@ -153,62 +153,62 @@ class AppleFactory @Inject constructor(
         val dmDirty = pm.data[1]
 
         val specificDevice = when {
-            dm == 0x0220.toUShort() -> AirPodsGen1(
+            dm == AirPodsGen1.DEVICE_CODE -> AirPodsGen1(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm,
                 cachedBatteryPercentage = cachedCaseBattery,
             )
-            dm == 0x0F20.toUShort() -> AirPodsGen2(
+            dm == AirPodsGen2.DEVICE_CODE -> AirPodsGen2(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm,
                 cachedBatteryPercentage = cachedCaseBattery,
             )
-            dm == 0x1320.toUShort() -> AirPodsGen3(
+            dm == AirPodsGen3.DEVICE_CODE -> AirPodsGen3(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm,
                 cachedBatteryPercentage = cachedCaseBattery,
             )
-            dm == 0x0e20.toUShort() -> AirPodsPro(
+            dm == AirPodsPro.DEVICE_CODE -> AirPodsPro(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm,
                 cachedBatteryPercentage = cachedCaseBattery,
             )
-            dmDirty == 11.toUByte() -> PowerBeatsPro(
+            dmDirty == PowerBeatsPro.DEVICE_CODE_DIRTY -> PowerBeatsPro(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm,
                 cachedBatteryPercentage = cachedCaseBattery,
             )
-            dmDirty == 10.toUByte() -> AirPodsMax(
+            dmDirty == AirPodsMax.DEVICE_CODE_DIRTY -> AirPodsMax(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm,
             )
-            dm == 0x0320.toUShort() -> PowerBeats3(
+            dm == PowerBeats3.DEVICE_CODE -> PowerBeats3(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dm == 0x0620.toUShort() -> BeatsSolo3(
+            dm == BeatsSolo3.DEVICE_CODE -> BeatsSolo3(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dmDirty == 9.toUByte() -> BeatsStudio3(
+            dmDirty == BeatsStudio3.DEVICE_CODE_DIRTY -> BeatsStudio3(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dm == 0x0520.toUShort() -> BeatsX(
+            dm == BeatsX.DEVICE_CODE -> BeatsX(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm
             )
-            dm == 0x1020.toUShort() -> BeatsFlex(
+            dm == BeatsFlex.DEVICE_CODE -> BeatsFlex(
                 identifier = identifier,
                 scanResult = scanResult,
                 proximityMessage = pm

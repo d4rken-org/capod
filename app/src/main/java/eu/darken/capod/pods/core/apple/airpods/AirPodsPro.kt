@@ -25,4 +25,8 @@ data class AirPodsPro(
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
+
+    companion object {
+        val DEVICE_CODE = 0x0e20.toUShort()
+    }
 }

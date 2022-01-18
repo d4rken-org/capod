@@ -20,4 +20,7 @@ data class AirPodsMax(
     override val iconRes: Int
         get() = R.drawable.ic_device_generic_headphones
 
+    companion object {
+        val DEVICE_CODE_DIRTY = 10.toUByte()
+    }
 }

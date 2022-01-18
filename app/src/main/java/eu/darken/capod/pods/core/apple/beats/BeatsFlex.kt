@@ -20,4 +20,7 @@ data class BeatsFlex(
     override val iconRes: Int
         get() = R.drawable.ic_device_generic_earbuds
 
+    companion object {
+        val DEVICE_CODE = 0x1020.toUShort()
+    }
 }

@@ -20,4 +20,7 @@ data class BeatsStudio3(
     override val iconRes: Int
         get() = R.drawable.ic_device_generic_earbuds
 
+    companion object {
+        val DEVICE_CODE_DIRTY = 9.toUByte()
+    }
 }
