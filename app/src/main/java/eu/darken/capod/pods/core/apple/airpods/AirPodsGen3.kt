@@ -1,12 +1,13 @@
 package eu.darken.capod.pods.core.apple.airpods
 
-import android.content.Context
-import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
+import javax.inject.Inject
 
 data class AirPodsGen3 constructor(
     override val identifier: PodDevice.Id = PodDevice.Id(),
@@ -15,16 +16,37 @@ data class AirPodsGen3 constructor(
     override val proximityMessage: ProximityPairing.Message,
     private val cachedBatteryPercentage: Float?,
 ) : DualApplePods {
-
-    override fun getLabel(context: Context): String = "AirPods (Gen 3)"
-
-    override val iconRes: Int
-        get() = R.drawable.ic_device_airpods_gen2
+    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_GEN3
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
 
+    class Factory @Inject constructor() : ApplePods.Factory(TAG) {
+
+        override fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean =
+            proximityMessage.getModelInfo().full == DEVICE_CODE
+
+        override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
+            val identifier = recognizeDevice(scanResult, proximityMessage)
+
+            val device = AirPodsGen3(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = proximityMessage,
+                cachedBatteryPercentage = cachedValues[identifier]?.caseBatteryPercentage
+            )
+
+            cachedValues[identifier] = ValueCache(
+                caseBatteryPercentage = device.batteryCasePercent
+            )
+
+            return device
+        }
+
+    }
+
     companion object {
-        val DEVICE_CODE = 0x1320.toUShort()
+        private val DEVICE_CODE = 0x1320.toUShort()
+        private val TAG = logTag("PodDevice", "Apple", "AirPods", "Gen3")
     }
 }

@@ -1,17 +1,29 @@
 package eu.darken.capod.pods.core.apple
 
+import dagger.Component
 import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
-import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.mockkObject
 import org.junit.jupiter.api.BeforeEach
 import testhelper.BaseTest
+import javax.inject.Singleton
 
 abstract class BaseAirPodsTest : BaseTest() {
+    @Singleton
+    @Component(modules = [AppleFactoryModule::class])
+    interface AppleFactoryTestComponent {
+
+        val appleFactory: AppleFactory
+
+        @Component.Factory
+        interface Factory {
+            fun create(): AppleFactoryTestComponent
+        }
+    }
 
     private val baseBleScanResult = BleScanResult(
         address = "77:49:4C:D8:25:0C",
@@ -20,10 +32,7 @@ abstract class BaseAirPodsTest : BaseTest() {
         manufacturerSpecificData = emptyMap()
     )
 
-    val factory = AppleFactory(
-        proximityPairingDecoder = ProximityPairing.Decoder(),
-        continuityProtocolDecoder = ContinuityProtocol.Decoder(),
-    )
+    val factory: AppleFactory = DaggerBaseAirPodsTest_AppleFactoryTestComponent.factory().create().appleFactory
 
     @BeforeEach
     fun setup() {

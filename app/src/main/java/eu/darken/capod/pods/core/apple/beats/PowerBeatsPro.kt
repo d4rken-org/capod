@@ -1,12 +1,13 @@
 package eu.darken.capod.pods.core.apple.beats
 
-import android.content.Context
-import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
+import javax.inject.Inject
 
 data class PowerBeatsPro(
     override val identifier: PodDevice.Id = PodDevice.Id(),
@@ -16,15 +17,37 @@ data class PowerBeatsPro(
     private val cachedBatteryPercentage: Float?,
 ) : DualApplePods {
 
-    override fun getLabel(context: Context): String = "Power Beats Pro"
-
-    override val iconRes: Int
-        get() = R.drawable.ic_device_generic_earbuds
+    override val model: PodDevice.Model = PodDevice.Model.POWERBEATS_PRO
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
 
+    class Factory @Inject constructor() : ApplePods.Factory(TAG) {
+
+        override fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean =
+            proximityMessage.getModelInfo().dirty == DEVICE_CODE_DIRTY
+
+        override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
+            val identifier = recognizeDevice(scanResult, proximityMessage)
+
+            val device = PowerBeatsPro(
+                identifier = identifier,
+                scanResult = scanResult,
+                proximityMessage = proximityMessage,
+                cachedBatteryPercentage = cachedValues[identifier]?.caseBatteryPercentage
+            )
+
+            cachedValues[identifier] = ValueCache(
+                caseBatteryPercentage = device.batteryCasePercent
+            )
+
+            return device
+        }
+
+    }
+
     companion object {
-        val DEVICE_CODE_DIRTY = 11.toUByte()
+        private val DEVICE_CODE_DIRTY = 11.toUByte()
+        private val TAG = logTag("PodDevice", "Beats", "PowerBeats", "Pro")
     }
 }
