@@ -79,6 +79,11 @@ class ReactionSettingsFragment : PreferenceFragment2() {
                 preference.isChecked = false
                 return true
             }
+        } else if (preference.key == reactionSettings.showPopUpOnCaseOpen.key && !isPro) {
+            preference as CheckBoxPreference
+            upgradeRepo.launchBillingFlow(requireActivity())
+            preference.isChecked = false
+            return true
         }
 
         return super.onPreferenceTreeClick(preference)
