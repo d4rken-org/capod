@@ -26,7 +26,7 @@ import javax.inject.Inject
 class MonitorNotifications @Inject constructor(
     @ApplicationContext private val context: Context,
     notificationManager: NotificationManager,
-    private val notificationViewFactory: NotificationViewFactory
+    private val notificationViewFactory: MonitorNotificationViewFactory
 ) {
 
     private val builder: NotificationCompat.Builder

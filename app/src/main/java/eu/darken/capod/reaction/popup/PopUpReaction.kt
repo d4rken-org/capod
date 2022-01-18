@@ -7,7 +7,9 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.reaction.popup.ui.PopUpNotification
 import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -19,12 +21,14 @@ import javax.inject.Singleton
 @Singleton
 class PopUpReaction @Inject constructor(
     private val podMonitor: PodMonitor,
-    private val reactionSettings: ReactionSettings
+    private val reactionSettings: ReactionSettings,
+    private val popUpNotification: PopUpNotification,
 ) {
 
     fun monitor(): Flow<Unit> = reactionSettings.showPopUpOnCaseOpen.flow
         .flatMapLatest { if (it) podMonitor.mainDevice else emptyFlow() }
         .withPrevious()
+        .setupCommonEventHandlers(TAG) { "monitor" }
         .map { (previous, current) ->
             if (previous is DualApplePods? && current is DualApplePods) {
                 log(TAG) {
@@ -42,15 +46,16 @@ class PopUpReaction @Inject constructor(
                 if (isSameDeviceWithCaseNowOpen || isNewDeviceWithJustOpenedCase) {
                     log(TAG) { "Case lid status changed for monitored device." }
 
-                    if (current.caseLidState == DualApplePods.LidState.OPEN) {
+                    if (current.caseLidState == DualApplePods.LidState.OPEN && current.model != PodDevice.Model.UNKNOWN) {
                         log(TAG, INFO) { "Show popup" }
-                    } else if (current.caseLidState == DualApplePods.LidState.CLOSED) {
+                        popUpNotification.showNotification(current)
+                    } else if (current.caseLidState != DualApplePods.LidState.OPEN) {
                         log(TAG, INFO) { "Hide popup" }
+                        popUpNotification.hideNotification()
                     }
                 }
             }
         }
-        .setupCommonEventHandlers(TAG) { "monitor" }
 
     companion object {
         private val TAG = logTag("Reaction", "PopUp")
