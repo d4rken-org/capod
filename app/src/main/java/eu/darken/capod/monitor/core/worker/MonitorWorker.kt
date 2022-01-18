@@ -20,7 +20,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.*
 import eu.darken.capod.monitor.ui.MonitorNotifications
-import eu.darken.capod.reaction.core.ReactionHub
+import eu.darken.capod.reaction.ReactionHub
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay

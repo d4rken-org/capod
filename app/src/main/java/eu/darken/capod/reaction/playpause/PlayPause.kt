@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core.playpause
+package eu.darken.capod.reaction.playpause
 
 import dagger.Reusable
 import eu.darken.capod.common.MediaControl
@@ -10,7 +10,7 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.reaction.core.ReactionSettings
+import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 

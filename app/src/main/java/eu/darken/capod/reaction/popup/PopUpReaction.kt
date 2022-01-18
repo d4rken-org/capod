@@ -1,16 +1,14 @@
-package eu.darken.capod.reaction.core.popup
+package eu.darken.capod.reaction.popup
 
-import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.reaction.core.ReactionSettings
+import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapLatest
@@ -20,9 +18,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PopUpReaction @Inject constructor(
-    private val bluetoothManager: BluetoothManager2,
     private val podMonitor: PodMonitor,
-    private val generalSettings: GeneralSettings,
     private val reactionSettings: ReactionSettings
 ) {
 

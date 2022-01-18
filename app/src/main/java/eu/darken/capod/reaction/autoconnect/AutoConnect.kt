@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core.autoconnect
+package eu.darken.capod.reaction.autoconnect
 
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.log
@@ -8,7 +8,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.reaction.core.ReactionSettings
+import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Singleton

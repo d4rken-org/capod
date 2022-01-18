@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.ui.settings
+package eu.darken.capod.reaction.settings.ui
 
 import android.os.Bundle
 import android.view.View
@@ -16,8 +16,8 @@ import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.settings.general.DeviceSelectionDialogFactory
-import eu.darken.capod.reaction.core.ReactionSettings
-import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
