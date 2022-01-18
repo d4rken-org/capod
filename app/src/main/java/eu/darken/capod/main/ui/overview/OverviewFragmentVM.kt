@@ -16,6 +16,7 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
 import eu.darken.capod.main.ui.overview.cards.NoPairedDeviceCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.*
@@ -155,6 +156,8 @@ class OverviewFragmentVM @Inject constructor(
             NoPairedDeviceCardVH.Item {
                 generalSettings.showAll.value = true
             }.run { items.add(this) }
+        } else if (showAll && mainPod == null) {
+            items.add(0, MissingMainDeviceVH.Item)
         }
 
         items

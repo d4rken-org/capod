@@ -57,7 +57,7 @@
     <string name="pods_device_color_red_label">Red</string>
     <string name="pods_device_color_black_label">Black</string>
     <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
-    <string name="pods_connection_state_idle_label">Connected, but idle</string>
+    <string name="pods_connection_state_idle_label">Connected to a device, but idle</string>
     <string name="pods_connection_state_music_label">In music mode</string>
     <string name="pods_connection_state_call_label">In call mode</string>
     <string name="pods_connection_state_ringing_label">Ringing</string>
@@ -66,12 +66,15 @@
     <string name="pods_unknown_label">Unknown device</string>
     <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :).</string>
     <string name="pods_none_label_short">No device</string>
-    <string name="pods_none_label">No paired device connected.</string>
-    <string name="pods_none_description">Connect a paired device or enable the \'Show all\' option.</string>
     <string name="pods_charging_label">Charging</string>
     <string name="pods_inear_label">In ear</string>
     <string name="pods_microphone_label">Microphone</string>
     <string name="pods_yours">Yours</string>
+
+    <string name="overview_nopaireddevices_label">No paired device connected.</string>
+    <string name="overview_nopaireddevices_description">Connect a paired device or enable the \'Show all\' option.</string>
+    <string name="overview_nomaindevice_label">Missing main device</string>
+    <string name="overview_nomaindevice_description">All detected devices are unlikely to be yours. Power on and connect your device or adjust the settings.</string>
 
     <string name="settings_label">Settings</string>
     <string name="settings_privacy_policy_label">Privacy policy</string>
