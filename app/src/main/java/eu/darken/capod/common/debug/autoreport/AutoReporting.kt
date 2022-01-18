@@ -4,6 +4,7 @@ import android.content.Context
 import com.bugsnag.android.Bugsnag
 import com.bugsnag.android.Configuration
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.InstallId
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.autoreport.bugsnag.BugsnagErrorHandler
@@ -37,6 +38,7 @@ class AutoReporting @Inject constructor(
                     setUser(installId.id, null, null)
                     autoTrackSessions = true
                     addOnError(bugsnagErrorHandler.get())
+                    addMetadata("App", "buildFlavor", BuildConfigWrap.FLAVOR)
                     log(TAG) { "Bugsnag setup done!" }
                 } else {
                     autoTrackSessions = false
