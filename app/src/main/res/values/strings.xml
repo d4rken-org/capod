@@ -71,9 +71,7 @@
     <string name="pods_microphone_label">Microphone</string>
     <string name="pods_yours">Yours</string>
 
-    <string name="overview_nopaireddevices_label">No paired device connected.</string>
-    <string name="overview_nopaireddevices_description">Connect a paired device or enable the \'Show all\' option.</string>
-    <string name="overview_nomaindevice_label">Missing main device</string>
+    <string name="overview_nomaindevice_label">No primary device</string>
     <string name="overview_nomaindevice_description">All detected devices are unlikely to be yours. Power on and connect your device or adjust the settings.</string>
 
     <string name="settings_label">Settings</string>

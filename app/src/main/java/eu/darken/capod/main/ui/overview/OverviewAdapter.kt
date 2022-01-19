@@ -13,7 +13,6 @@ import eu.darken.capod.common.lists.modular.mods.DataBinderMod
 import eu.darken.capod.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
 import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
-import eu.darken.capod.main.ui.overview.cards.NoPairedDeviceCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.BasicSingleApplePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualApplePodsCardVH
@@ -34,7 +33,6 @@ class OverviewAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is SingleApplePodsCardVH.Item }) { SingleApplePodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is BasicSingleApplePodsCardVH.Item }) { BasicSingleApplePodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is NoPairedDeviceCardVH.Item }) { NoPairedDeviceCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is MissingMainDeviceVH.Item }) { MissingMainDeviceVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is BluetoothDisabledVH.Item }) { BluetoothDisabledVH(it) })
     }

@@ -19,7 +19,6 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
 import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
-import eu.darken.capod.main.ui.overview.cards.NoPairedDeviceCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.*
 import eu.darken.capod.monitor.core.PodMonitor
@@ -153,11 +152,7 @@ class OverviewFragmentVM @Inject constructor(
         if (permissions.isEmpty()) {
             if (!isBluetoothEnabled) {
                 items.add(0, BluetoothDisabledVH.Item)
-            } else if (!showAll && items.none { it is PodDeviceVH.Item }) {
-                NoPairedDeviceCardVH.Item {
-                    generalSettings.showAll.value = true
-                }.run { items.add(this) }
-            } else if (showAll && mainPod == null) {
+            } else if (mainPod == null) {
                 items.add(0, MissingMainDeviceVH.Item)
             }
         }
