@@ -14,10 +14,7 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.retryWhen
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.coroutines.resume
@@ -112,8 +109,11 @@ class BillingClientConnectionProvider @Inject constructor(
             delay(3000 * attempt)
             true
         }
+        .catch {
+            log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" }
+        }
 
     companion object {
-        val TAG: String = logTag("Upgrade", "Gplay", "Billing", "ClientProvider")
+        val TAG: String = logTag("Upgrade", "Gplay", "Billing", "Client", "ConnectionProvider")
     }
 }
