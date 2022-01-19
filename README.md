@@ -21,16 +21,16 @@ Currently supported models:
 * Beats X
 * Beats Flex
 
+## Download
+
+* [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
+* [GitHub](https://github.com/d4rken/capod/releases/latest)
+
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
 * Help translate CAPod
 * [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
-
-## Download
-
-* [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* [GitHub](https://github.com/d4rken/capod/releases/latest)
 
 ## Get help
 
