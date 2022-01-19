@@ -1,11 +1,12 @@
-# Companion App for AirPods (CAPod)
+<img src="https://github.com/d4rken/capod/raw/main/.assets/banner.png" width="400">
+
+# Companion App for AirPods (CAPod) 
 
 ![Build](https://github.com/d4rken/capod/actions/workflows/android.yml/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/d4rken/capod/total.svg)](https://github.com/d4rken/capod/releases/latest)
 
 A companion app that adds support for AirPod specific features to Android.
 
-<img src="https://github.com/d4rken/capod/raw/master/.assets/banner.png" width="400">
 
 Currently supported models:
 
@@ -20,16 +21,16 @@ Currently supported models:
 * Beats X
 * Beats Flex
 
-## Support the project
-
-* Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* Help translate CAPod [on Crowdin](https://crowdin.com/project/airpod-companion)
-* [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
-
 ## Download
 
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
 * [GitHub](https://github.com/d4rken/capod/releases/latest)
+
+## Support the project
+
+* Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
+* Help translate CAPod
+* [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
 
 ## Get help
 
@@ -38,10 +39,7 @@ Currently supported models:
 
 ## Screenshots
 
-<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/1.png" width="200">
-<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/2.png" width="200">
-<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/3.png" width="200">
-<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/4.png" width="200">
+<img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/4.png" width="200">
 
 ## Thanks to
 
