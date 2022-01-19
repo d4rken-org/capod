@@ -24,7 +24,7 @@ Currently supported models:
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* Help translate CAPod [on Crowdin](https://crowdin.com/project/airpod-companion)
+* Help translate CAPod
 * [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
 
 ## Download
