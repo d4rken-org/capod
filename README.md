@@ -5,7 +5,9 @@
 
 A companion app that adds support for AirPod specific features to Android.
 
-Supported models:
+<img src="https://github.com/d4rken/capod/raw/master/.assets/banner.png" width="400">
+
+Currently supported models:
 
 * AirPods Gen1
 * AirPods Gen2
@@ -21,8 +23,8 @@ Supported models:
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
 * Help translate CAPod [on Crowdin](https://crowdin.com/project/airpod-companion)
+* [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
 
 ## Download
 
@@ -35,6 +37,11 @@ Supported models:
 * [Discord](https://discord.gg/vHubYPp)
 
 ## Screenshots
+
+<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/1.png" width="200">
+<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/2.png" width="200">
+<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/3.png" width="200">
+<img src="https://github.com/d4rken/capod/raw/master/.assets/screenshots/4.png" width="200">
 
 ## Thanks to
 
@@ -49,8 +56,9 @@ Supported models:
 
 CAPod's code is available under a GPL v3 license, this excludes:
 
-* CAPod icons, logos, mascots and marketing materials.
+* CAPod icons, logos, mascots and marketing materials/assets.
 * CAPod animations and videos.
 * CAPod documentation.
 * Google Play screenshots.
 * Google Play texts & descriptions.
+* Translations.
