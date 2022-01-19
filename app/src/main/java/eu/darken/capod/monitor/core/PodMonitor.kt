@@ -32,17 +32,16 @@ class PodMonitor @Inject constructor(
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
     private val cacheLock = Mutex()
 
-    val devices: Flow<List<PodDevice>> = generalSettings.scannerMode.flow
-        .flatMapLatest { scannerMode ->
-            bluetoothManager.isBluetoothEnabled.flatMapLatest { isBluetoothEnabled ->
-                if (isBluetoothEnabled) {
-                    bleScanner.scan(scannerMode = scannerMode)
-                } else {
-                    log(TAG, WARN) { "Bluetooth is current disabled" }
-                    emptyFlow()
-                }
+    val devices: Flow<List<PodDevice>> = bluetoothManager.isBluetoothEnabled
+        .flatMapLatest { isBluetoothEnabled ->
+            if (isBluetoothEnabled) {
+                generalSettings.scannerMode.flow
+            } else {
+                log(TAG, WARN) { "Bluetooth is currently disabled" }
+                emptyFlow()
             }
         }
+        .flatMapLatest { bleScanner.scan(scannerMode = it) }
         .map { result ->
             // For each address we only want the newest result, upstream may batch data
             result.groupBy { it.address }

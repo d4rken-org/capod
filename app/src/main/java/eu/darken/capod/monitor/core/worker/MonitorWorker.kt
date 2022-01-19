@@ -76,7 +76,7 @@ class MonitorWorker @AssistedInject constructor(
     }
 
     private suspend fun doDoWork() {
-        val permissionsMissingOnStart = permissionTool.missingPermissions()
+        val permissionsMissingOnStart = permissionTool.missingPermissions.first()
         if (permissionsMissingOnStart.isNotEmpty()) {
             log(TAG, WARN) { "Aborting, missing permissions: $permissionsMissingOnStart" }
             return
@@ -99,7 +99,7 @@ class MonitorWorker @AssistedInject constructor(
 
         generalSettings.monitorMode.flow
             .flatMapLatest { monitorMode ->
-                val missingPermsFlow = permissionTool.missingPermissions()
+                val missingPermsFlow = permissionTool.missingPermissions.first()
                 if (missingPermsFlow.isNotEmpty()) {
                     log(TAG, WARN) { "Aborting, permissions are missing for $monitorMode: $missingPermsFlow" }
                     workerScope.coroutineContext.cancelChildren()

@@ -70,8 +70,10 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
             }
         }
 
-        vm.listItems.observe2(ui) {
-            adapter.update(it)
+        vm.listItems.observe2(ui) { adapter.update(it) }
+
+        vm.workerAutolaunch.observe2 {
+            // While UI is active, subscribe to the autolaunch routine
         }
 
         vm.requestPermissionEvent.observe2(ui) {

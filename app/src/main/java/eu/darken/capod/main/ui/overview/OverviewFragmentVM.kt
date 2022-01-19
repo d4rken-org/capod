@@ -8,6 +8,7 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
@@ -16,6 +17,7 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
 import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
 import eu.darken.capod.main.ui.overview.cards.NoPairedDeviceCardVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
@@ -26,7 +28,6 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BasicSingleApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.SingleApplePods
-import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
@@ -57,9 +58,7 @@ class OverviewFragmentVM @Inject constructor(
         }
     }
 
-    private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
-    private val requiredPermissions: Flow<Collection<Permission>> = permissionCheckTrigger
-        .map { permissionTool.missingPermissions() }
+    val workerAutolaunch: LiveData<Unit> = permissionTool.missingPermissions
         .onEach {
             if (it.isNotEmpty()) {
                 log(TAG) { "Missing permissions: $it" }
@@ -76,26 +75,24 @@ class OverviewFragmentVM @Inject constructor(
                 monitorControl.startMonitor()
             }
         }
+        .map { Unit }
+        .asLiveData2()
 
     val requestPermissionEvent = SingleLiveEvent<Permission>()
 
-    private val pods: Flow<List<PodDevice>> = requiredPermissions
+    private val pods: Flow<List<PodDevice>> = permissionTool.missingPermissions
         .flatMapLatest { permissions ->
-            if (permissions.isEmpty()) {
-                generalSettings.showAll.flow
-                    .flatMapLatest { showAll ->
-                        if (showAll) {
-                            podMonitor.devices
-                        } else {
-                            podMonitor.mainDevice.map { mainDevice ->
-                                mainDevice?.let { listOf(it) } ?: emptyList()
-                            }
-                        }
+            if (permissions.isNotEmpty()) {
+                return@flatMapLatest flowOf(emptyList())
+            }
+
+            generalSettings.showAll.flow.flatMapLatest { showAll ->
+                if (showAll) {
+                    podMonitor.devices
+                } else {
+                    podMonitor.mainDevice.map { mainDevice ->
+                        mainDevice?.let { listOf(it) } ?: emptyList()
                     }
-            } else {
-                channelFlow {
-                    send(emptyList())
-                    awaitClose()
                 }
             }
         }
@@ -103,11 +100,12 @@ class OverviewFragmentVM @Inject constructor(
 
     val listItems: LiveData<List<OverviewAdapter.Item>> = combine(
         updateTicker,
-        requiredPermissions,
+        permissionTool.missingPermissions,
         pods,
         debugSettings.isDebugModeEnabled.flow,
         generalSettings.showAll.flow,
-    ) { tick, permissions, pods, isDebugMode, showAll ->
+        bluetoothManager.isBluetoothEnabled,
+    ) { _, permissions, pods, isDebugMode, showAll, isBluetoothEnabled ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         val mainPod = podMonitor.mainDevice.first()
@@ -144,20 +142,24 @@ class OverviewFragmentVM @Inject constructor(
             .run { items.addAll(this) }
 
         permissions
-            .map {
+            .map { perm ->
                 PermissionCardVH.Item(
-                    permission = it,
+                    permission = perm,
                     onRequest = { requestPermissionEvent.postValue(it) }
                 )
             }
             .run { items.addAll(this) }
 
-        if (!showAll && items.none { it is PodDeviceVH.Item } && permissions.isEmpty()) {
-            NoPairedDeviceCardVH.Item {
-                generalSettings.showAll.value = true
-            }.run { items.add(this) }
-        } else if (showAll && mainPod == null && permissions.isEmpty()) {
-            items.add(0, MissingMainDeviceVH.Item)
+        if (permissions.isEmpty()) {
+            if (!isBluetoothEnabled) {
+                items.add(0, BluetoothDisabledVH.Item)
+            } else if (!showAll && items.none { it is PodDeviceVH.Item }) {
+                NoPairedDeviceCardVH.Item {
+                    generalSettings.showAll.value = true
+                }.run { items.add(this) }
+            } else if (showAll && mainPod == null) {
+                items.add(0, MissingMainDeviceVH.Item)
+            }
         }
 
         items
@@ -166,7 +168,7 @@ class OverviewFragmentVM @Inject constructor(
         .asLiveData2()
 
     fun onPermissionResult(granted: Boolean) {
-        if (granted) permissionCheckTrigger.value = UUID.randomUUID()
+        if (granted) permissionTool.recheck()
     }
 
     fun goToSettings() = launch {

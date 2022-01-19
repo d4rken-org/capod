@@ -146,4 +146,6 @@
     <string name="settings_popup_caseopen_label">Show popup</string>
     <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
     <string name="notification_channel_reaction_popup_label">Popup device reactions</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;).</string>
 </resources>
