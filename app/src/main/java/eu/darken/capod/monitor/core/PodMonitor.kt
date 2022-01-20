@@ -48,7 +48,9 @@ class PodMonitor @Inject constructor(
                 .values
                 .map { sameAdrDevs ->
                     val newest = sameAdrDevs.maxByOrNull { it.generatedAtNanos }!!
-                    log(TAG, VERBOSE) { "Discarding stale results: ${sameAdrDevs.minus(newest)}" }
+                    sameAdrDevs.minus(newest).let {
+                        if (it.isNotEmpty()) log(TAG, VERBOSE) { "Discarding stale results: $it" }
+                    }
                     newest
                 }
         }
