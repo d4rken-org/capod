@@ -146,4 +146,6 @@
     <string name="notification_channel_reaction_popup_label">Popup device reactions</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;).</string>
+    <string name="help_translate_label">Translation</string>
+    <string name="help_translate_description">Help translate this into your favorite language.</string>
 </resources>

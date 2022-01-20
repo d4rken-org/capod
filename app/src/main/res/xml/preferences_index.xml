@@ -22,13 +22,32 @@
     <PreferenceCategory android:title="@string/settings_category_other_label">
 
         <Preference
+            android:icon="@drawable/ic_baseline_book_24"
+            app:summary="@string/settings_privacy_policy_desc"
+            app:title="@string/settings_privacy_policy_label">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/d4rken/capod-public/blob/main/PRIVACY_POLICY.md" />
+        </Preference>
+
+        <Preference
             android:icon="@drawable/ic_changelog_onsurface"
             android:key="core.changelog"
             android:title="@string/changelog_label"
             app:summary="v?.?.?">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/d4rken/capod/releases/latest" />
+                android:data="https://github.com/d4rken/capod-public/releases/latest" />
+        </Preference>
+
+        <Preference
+            android:icon="@drawable/ic_baseline_translate_24"
+            android:key="core.translation"
+            android:title="@string/help_translate_label"
+            app:summary="@string/help_translate_description">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://crowdin.com/project/capod" />
         </Preference>
 
         <Preference
@@ -36,15 +55,6 @@
             app:fragment="eu.darken.capod.main.ui.settings.acks.AcknowledgementsFragment"
             app:summary="@string/general_thank_you_label"
             app:title="@string/settings_acknowledgements_label" />
-
-        <Preference
-            android:icon="@drawable/ic_baseline_book_24"
-            app:summary="@string/settings_privacy_policy_desc"
-            app:title="@string/settings_privacy_policy_label">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/d4rken/capod/blob/main/PRIVACY_POLICY.md" />
-        </Preference>
 
     </PreferenceCategory>
 </PreferenceScreen>
