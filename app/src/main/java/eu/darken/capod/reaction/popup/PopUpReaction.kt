@@ -31,7 +31,7 @@ class PopUpReaction @Inject constructor(
         .setupCommonEventHandlers(TAG) { "monitor" }
         .map { (previous, current) ->
             if (previous is DualApplePods? && current is DualApplePods) {
-                log(TAG) {
+                log(TAG, VERBOSE) {
                     val prev = previous?.rawCaseLidState?.let { String.format("%02X", it.toByte()) }
                     val cur = current.rawCaseLidState.let { String.format("%02X", it.toByte()) }
                     "previous=$prev (${previous?.caseLidState}), current=$cur (${current.caseLidState})"
