@@ -1,0 +1,2 @@
+json_key_file "~/.fastlaneconfig/androiddev-console-darken_development-4f6965ff0eda.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+package_name "eu.darken.capod" # e.g. com.krausefx.app
