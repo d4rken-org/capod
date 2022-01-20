@@ -188,7 +188,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
         // Lid just closed
         create<DualApplePods>("07 19 01 0E 20 55 AA B4 >39< 00 00 08 A6 DB 99 E0 5E 14 85 E5 C2 0B 68 D7 FF C3 A1") {
             // 39 0011 1001
-            caseLidState shouldBe DualApplePods.LidState.UNKNOWN
+            caseLidState shouldBe DualApplePods.LidState.CLOSED
         }
         // Lid closed
         create<DualApplePods>("07 19 01 0E 20 55 AA B4 38 00 00 F3 F7 08 3B 98 09 C0 DD E4 BD BD 84 55 56 8B 81") {

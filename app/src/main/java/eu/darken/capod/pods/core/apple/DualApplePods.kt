@@ -1,7 +1,6 @@
 package eu.darken.capod.pods.core.apple
 
 import android.content.Context
-import android.util.Range
 import androidx.annotation.StringRes
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.log
@@ -98,7 +97,7 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
 
     val caseLidState: LidState
         get() {
-            return LidState.values().firstOrNull { it.rawRange.contains(rawCaseLidState) } ?: LidState.UNKNOWN
+            return LidState.values().firstOrNull { it.rawRange.contains(rawCaseLidState.toInt()) } ?: LidState.UNKNOWN
         }
 
     /**
@@ -109,13 +108,11 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
      * They reset after some time to their start values.
      * The upper limits are not the maximums but are only reached if playing with the case.
      */
-    enum class LidState(val rawRange: Range<UByte>) {
-        OPEN(0x30, 0x37),
-        CLOSED(0x38, 0x3F),
-        NOT_IN_CASE(0x00, 0x03),
-        UNKNOWN(0xFF, 0xFF);
-
-        constructor(vararg raw: Int) : this(Range(raw[0].toUByte(), (raw[1].toUByte())))
+    enum class LidState(val rawRange: IntRange) {
+        OPEN(0x30..0x37),
+        CLOSED(0x38..0x3F),
+        NOT_IN_CASE(0x00..0x03),
+        UNKNOWN(0xFF..0xFF);
     }
 
     val deviceColor: DeviceColor
