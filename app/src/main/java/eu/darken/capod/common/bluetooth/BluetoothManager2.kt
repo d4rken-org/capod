@@ -16,10 +16,10 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.io.IOException
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -77,7 +77,7 @@ class BluetoothManager2 @Inject constructor(
 
             override fun onServiceDisconnected(profile: Int) {
                 log(TAG, WARN) { "onServiceDisconnected(profile=$profile" }
-                throw CancellationException("BluetoothProfile service disconnected (profile=$profile)")
+                close(IOException("BluetoothProfile service disconnected (profile=$profile)"))
             }
 
         }, profile)
@@ -89,6 +89,7 @@ class BluetoothManager2 @Inject constructor(
             }
         }
     }
+
 
     private fun monitorDevicesForProfile(
         profile: Int = BluetoothProfile.HEADSET
