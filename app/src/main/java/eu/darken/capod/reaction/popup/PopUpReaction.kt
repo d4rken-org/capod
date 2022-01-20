@@ -11,10 +11,7 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.popup.ui.PopUpNotification
 import eu.darken.capod.reaction.settings.ReactionSettings
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -26,7 +23,13 @@ class PopUpReaction @Inject constructor(
 ) {
 
     fun monitor(): Flow<Unit> = reactionSettings.showPopUpOnCaseOpen.flow
-        .flatMapLatest { if (it) podMonitor.mainDevice else emptyFlow() }
+        .flatMapLatest { isEnabled ->
+            if (isEnabled) {
+                podMonitor.mainDevice.distinctUntilChangedBy { it?.rawDataHex }
+            } else {
+                emptyFlow()
+            }
+        }
         .withPrevious()
         .setupCommonEventHandlers(TAG) { "monitor" }
         .map { (previous, current) ->

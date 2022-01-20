@@ -1,6 +1,8 @@
 package eu.darken.capod.reaction.autoconnect
 
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
@@ -22,29 +24,36 @@ class AutoConnect @Inject constructor(
 ) {
 
     fun monitor(): Flow<Unit> = reactionSettings.autoConnect.flow
-        .flatMapLatest { if (it) podMonitor.mainDevice else emptyFlow() }
-        .filterNotNull()
-        .distinctUntilChanged()
-        .map { podDevice ->
-            log(TAG) { "mainPodDevice is $podDevice" }
+        .flatMapLatest { isAutoConnectEnabled ->
+            if (isAutoConnectEnabled) {
+                combine(
+                    bluetoothManager.connectedDevices().distinctUntilChanged(),
+                    podMonitor.mainDevice.filterNotNull().distinctUntilChangedBy { it.rawDataHex },
+                ) { connectedDevices, mainDevice ->
+                    connectedDevices to mainDevice
+                }
+            } else {
+                emptyFlow()
+            }
+        }
+        .map { (connectedDevices, mainDevice) ->
+            log(TAG, VERBOSE) { "mainPodDevice is $mainDevice" }
 
             val mainDeviceAddr = generalSettings.mainDeviceAddress.value
             if (mainDeviceAddr.isNullOrEmpty()) {
-                log(TAG) { "mainDeviceAddress is null" }
+                log(TAG, WARN) { "mainDeviceAddress is null" }
                 return@map
-            } else {
-                log(TAG) { "mainDeviceAddress is $mainDeviceAddr" }
             }
 
             val bondedDevice = bluetoothManager.bondedDevices().firstOrNull { it.address == mainDeviceAddr }
             if (bondedDevice == null) {
-                log(TAG) { "No bonded device matches $mainDeviceAddr" }
+                log(TAG, WARN) { "No bonded device matches $mainDeviceAddr" }
                 return@map
             } else {
-                log(TAG) { "Found target device: $bondedDevice" }
+                log(TAG, VERBOSE) { "Found target device: $bondedDevice" }
             }
 
-            val isAlreadyConnected = bluetoothManager.connectedDevices().first().any {
+            val isAlreadyConnected = connectedDevices.any {
                 it.address == bondedDevice.address
             }
 
@@ -57,12 +66,12 @@ class AutoConnect @Inject constructor(
             log(TAG) { "Checking condition $condition" }
             val conditionFulfilled = when (condition) {
                 AutoConnectCondition.WHEN_SEEN -> true
-                AutoConnectCondition.CASE_OPEN -> when (podDevice) {
-                    is DualApplePods -> podDevice.caseLidState == DualApplePods.LidState.OPEN
+                AutoConnectCondition.CASE_OPEN -> when (mainDevice) {
+                    is DualApplePods -> mainDevice.caseLidState == DualApplePods.LidState.OPEN
                     else -> true
                 }
-                AutoConnectCondition.IN_EAR -> when (podDevice) {
-                    is HasEarDetection -> podDevice.isBeingWorn
+                AutoConnectCondition.IN_EAR -> when (mainDevice) {
+                    is HasEarDetection -> mainDevice.isBeingWorn
                     else -> true
                 }
             }
