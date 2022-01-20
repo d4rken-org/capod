@@ -29,9 +29,9 @@
     <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">This app requires the \"Bluetooth\" to connect to paired bluetooth devices.</string>
     <string name="permission_access_fine_location_label">Access fine location</string>
-    <string name="permission_access_fine_location_description">This app requires the \"fine location\" permission to receive Bluetooth Low Energy data. This app will not determine your location, but data Bluetooth data could technically be used to determine your location, this is why access is guarded by a location permission.</string>
+    <string name="permission_access_fine_location_description">CAPod uses the \"fine location\" permission to receive Bluetooth Low Energy data. Your headphones use Bluetooth Low Energy technology to broadcast their status. This app will NOT use Bluetooth data to determine your location.</string>
     <string name="permission_background_location_label">Background location access</string>
-    <string name="permission_background_location_description">This app requires \"background location access\" to enable the \"Show popup\" and \"AutoConnect\" feature. It enables the app to react to Bluetooth data while it is in the background. This app will not determine your location. The permission is called \"location\" because Bluetooth technology can be used to determine your location.</string>
+    <string name="permission_background_location_description">CAPod uses \"background location access\" to enable features like \"Show popup\" and \"AutoConnect\" while the app is closed. Background location access allows the app to receive Bluetooth Low Energy data while it is in the background. This app will NOT use Bluetooth data to determine your location.</string>
     <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
     <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app on some Android devices from receiving Bluetooth data while the app is in the background.</string>
 
