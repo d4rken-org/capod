@@ -25,11 +25,15 @@ class PermissionCardVH(parent: ViewGroup) :
         permissionLabel.setText(item.permission.labelRes)
         permissionDescription.setText(item.permission.descriptionRes)
         grantAction.setOnClickListener { item.onRequest(item.permission) }
+        ppAction.setOnClickListener {
+            item.onPPAction()
+        }
     }
 
     data class Item(
         val permission: Permission,
-        val onRequest: (Permission) -> Unit
+        val onRequest: (Permission) -> Unit,
+        val onPPAction: () -> Unit
     ) : OverviewAdapter.Item {
         override val stableId: Long = permission.hashCode().toLong()
 

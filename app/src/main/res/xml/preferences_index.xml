@@ -27,7 +27,7 @@
             app:title="@string/settings_privacy_policy_label">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/d4rken/capod-public/blob/main/PRIVACY_POLICY.md" />
+                android:data="https://raw.githubusercontent.com/d4rken/capod-public/main/PRIVACY_POLICY.md" />
         </Preference>
 
         <Preference

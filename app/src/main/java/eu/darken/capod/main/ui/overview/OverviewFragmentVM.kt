@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
@@ -45,6 +46,7 @@ class OverviewFragmentVM @Inject constructor(
     debugSettings: DebugSettings,
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
+    private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val upgradeState = upgradeRepo.upgradeInfo.asLiveData2()
@@ -113,7 +115,10 @@ class OverviewFragmentVM @Inject constructor(
             .map { perm ->
                 PermissionCardVH.Item(
                     permission = perm,
-                    onRequest = { requestPermissionEvent.postValue(it) }
+                    onRequest = { requestPermissionEvent.postValue(it) },
+                    onPPAction = {
+                        webpageTool.open("https://raw.githubusercontent.com/d4rken/capod-public/main/PRIVACY_POLICY.md")
+                    }
                 )
             }
             .run { items.addAll(this) }
