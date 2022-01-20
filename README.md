@@ -1,12 +1,21 @@
 <img src="https://github.com/d4rken/capod/raw/main/.assets/banner.png" width="400">
 
-# Companion App for AirPods (CAPod) 
+# Companion App for AirPods (CAPod)
 
 ![Build](https://github.com/d4rken/capod/actions/workflows/android.yml/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/d4rken/capod/total.svg)](https://github.com/d4rken/capod/releases/latest)
 
-A companion app that adds support for AirPod specific features to Android.
+A companion app that adds support for AirPod specific features to Android:
 
+* Battery level for pods & cases.
+* Charging status for pods & case.
+* Additional infos about connection, microphone & case.
+* Can receive and show all nearby devices.
+* Ear detection with automatic play/pause.
+* Automatically connect phone & airpods.
+* Show popup when case is opened.
+
+CAPod is ad-free. Some additional features require an in-app purchase.
 
 Currently supported models:
 
@@ -29,7 +38,7 @@ Currently supported models:
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* Help translate CAPod
+* Help translate CAPod [on Crowdin](https://crowdin.com/project/capod)
 * [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
 
 ## Get help
