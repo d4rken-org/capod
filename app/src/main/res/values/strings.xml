@@ -33,7 +33,7 @@
     <string name="permission_background_location_label">Background location access</string>
     <string name="permission_background_location_description">CAPod uses \"background location access\" to enable features like \"Show popup\" and \"AutoConnect\" while the app is closed. Background location access allows the app to receive Bluetooth Low Energy data while it is in the background. This app will NOT use Bluetooth data to determine your location.</string>
     <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
-    <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app on some Android devices from receiving Bluetooth data while the app is in the background.</string>
+    <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app from reliably receiving Bluetooth data while the app is in the background.</string>
 
     <string name="pods_single_basic_status_short">Headphones: %1$s</string>
     <string name="pods_single_headphones_label">Headphones</string>

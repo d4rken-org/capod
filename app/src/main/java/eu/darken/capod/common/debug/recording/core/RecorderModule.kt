@@ -58,7 +58,7 @@ class RecorderModule @Inject constructor(
                         context.startServiceCompat(Intent(context, RecorderService::class.java))
 
                         log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
-                        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
+                        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION_LONG}" }
 
                         copy(
                             recorder = newRecorder

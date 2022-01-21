@@ -49,16 +49,15 @@
             app:layout_constraintTop_toBottomOf="@id/permission_label"
             tools:text="Lorem Ipsum" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/pp_action"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/privacy_policy"
+            style="@style/TextAppearance.MaterialComponents.Tooltip"
             android:layout_width="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:text="@string/settings_privacy_policy_label"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/permission_description" />
 
@@ -73,7 +72,7 @@
             android:text="@string/general_grant_permission_action"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/permission_description" />
+            app:layout_constraintTop_toBottomOf="@id/privacy_policy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

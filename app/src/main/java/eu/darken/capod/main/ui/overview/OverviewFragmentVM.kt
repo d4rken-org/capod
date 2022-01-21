@@ -116,9 +116,6 @@ class OverviewFragmentVM @Inject constructor(
                 PermissionCardVH.Item(
                     permission = perm,
                     onRequest = { requestPermissionEvent.postValue(it) },
-                    onPPAction = {
-                        webpageTool.open("https://raw.githubusercontent.com/d4rken/capod-public/main/PRIVACY_POLICY.md")
-                    }
                 )
             }
             .run { items.addAll(this) }

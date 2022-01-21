@@ -29,7 +29,7 @@ class SupportFragmentVM @Inject constructor(
 
         bodyInfo.append("--- Infos for the developer ---\n")
 
-        bodyInfo.append("App version: ").append(BuildConfigWrap.VERSION_DESCRIPTION).append("\n")
+        bodyInfo.append("App version: ").append(BuildConfigWrap.VERSION_DESCRIPTION_LONG).append("\n")
 
         bodyInfo.append("Device: ").append(Build.FINGERPRINT).append("\n")
         bodyInfo.append("Install ID: ").append(installId.id).append("\n")
