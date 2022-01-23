@@ -70,6 +70,7 @@
     <string name="pods_inear_label">In ear</string>
     <string name="pods_microphone_label">Microphone</string>
     <string name="pods_yours">Yours</string>
+    <string name="headset_being_worn_label">Being worn</string>
 
     <string name="overview_nomaindevice_label">No primary device</string>
     <string name="overview_nomaindevice_description">All detected devices are unlikely to be yours. Power on and connect your device or adjust the settings.</string>

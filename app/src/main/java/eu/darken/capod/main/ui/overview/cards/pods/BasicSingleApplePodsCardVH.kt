@@ -38,11 +38,8 @@ class BasicSingleApplePodsCardVH(parent: ViewGroup) :
             reception.append("\n(${getString(R.string.pods_yours)})")
         }
 
-        headphones.apply {
-            val sb = StringBuilder(context.getString(R.string.pods_single_headphones_label))
-            sb.append("\n").append(device.getBatteryLevelHeadset(context))
-            text = sb
-        }
+        batteryLabel.text = device.getBatteryLevelHeadset(context)
+        batteryIcon.setImageResource(getBatteryDrawable(device.batteryHeadsetPercent))
 
         status.apply {
             val sb = StringBuilder()

@@ -3,6 +3,7 @@ package eu.darken.capod.main.ui.overview.cards.pods
 import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsAppleSingleItemBinding
@@ -38,16 +39,14 @@ class SingleApplePodsCardVH(parent: ViewGroup) :
             reception.append("\n(${getString(R.string.pods_yours)})")
         }
 
-        headphones.apply {
-            val sb = StringBuilder(context.getString(R.string.pods_single_headphones_label))
-            sb.append("\n").append(device.getBatteryLevelHeadset(context))
-            when {
-                device.isHeadsetBeingCharged -> sb.append("\n").append("Charging")
-                device.isHeadphonesBeingWorn -> sb.append("\n").append("In ear")
-                else -> {}
-            }
-            text = sb
-        }
+        batteryLabel.text = device.getBatteryLevelHeadset(context)
+        batteryIcon.setImageResource(getBatteryDrawable(device.batteryHeadsetPercent))
+
+        chargingIcon.isInvisible = device.isHeadsetBeingCharged
+        chargingLabel.isInvisible = device.isHeadsetBeingCharged
+
+        wearIcon.isInvisible = device.isHeadphonesBeingWorn
+        wearLabel.isInvisible = device.isHeadphonesBeingWorn
 
         status.apply {
             val sb = StringBuilder()
