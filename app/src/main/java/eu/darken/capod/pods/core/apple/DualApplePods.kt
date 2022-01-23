@@ -118,27 +118,24 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
     val deviceColor: DeviceColor
         get() = DeviceColor.values().firstOrNull { it.raw == rawDeviceColor } ?: DeviceColor.UNKNOWN
 
+    enum class DeviceColor(val raw: UByte?) {
 
-    fun getDeviceColorLabel(context: Context): String = context.getString(deviceColor.labelRes)
+        WHITE(0x00),
+        BLACK(0x01),
+        RED(0x02),
+        BLUE(0x03),
+        PINK(0x04),
+        GRAY(0x05),
+        SILVER(0x06),
+        GOLD(0x07),
+        ROSE_GOLD(0x08),
+        SPACE_GRAY(0x09),
+        DARK_BLUE(0x0a),
+        LIGHT_BLUE(0x0b),
+        YELLOW(0x0c),
+        UNKNOWN(null);
 
-    enum class DeviceColor(val raw: UByte?, @StringRes val labelRes: Int) {
-
-        WHITE(0x00, R.string.pods_device_color_white_label),
-        BLACK(0x01, R.string.pods_device_color_black_label),
-        RED(0x02, R.string.pods_device_color_red_label),
-        BLUE(0x03, R.string.pods_device_color_blue_label),
-        PINK(0x04, R.string.pods_device_color_pink_label),
-        GRAY(0x05, R.string.pods_device_color_gray_label),
-        SILVER(0x06, R.string.pods_device_color_silver_label),
-        GOLD(0x07, R.string.pods_device_color_gold_label),
-        ROSE_GOLD(0x08, R.string.pods_device_color_rose_gold_label),
-        SPACE_GRAY(0x09, R.string.pods_device_color_space_gray_label),
-        DARK_BLUE(0x0a, R.string.pods_device_color_dark_blue_label),
-        LIGHT_BLUE(0x0b, R.string.pods_device_color_light_blue_label),
-        YELLOW(0x0c, R.string.pods_device_color_yellow_label),
-        UNKNOWN(null, R.string.general_value_unknown_label);
-
-        constructor(raw: Int, @StringRes labelRes: Int) : this(raw.toUByte(), labelRes)
+        constructor(raw: Int) : this(raw.toUByte())
     }
 
     val connectionState: ConnectionState

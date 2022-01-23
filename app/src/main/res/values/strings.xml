@@ -35,27 +35,11 @@
     <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
     <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app from reliably receiving Bluetooth data while the app is in the background.</string>
 
-    <string name="pods_single_basic_status_short">Headphones: %1$s</string>
-    <string name="pods_single_headphones_label">Headphones</string>
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
     <string name="pods_case_label">Case</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
-    <string name="pods_reception_x_label">Reception %s</string>
-    <string name="pods_device_color_white_label">White</string>
-    <string name="pods_device_color_yellow_label">Yellow</string>
-    <string name="pods_device_color_light_blue_label">Light blue</string>
-    <string name="pods_device_color_dark_blue_label">Dark blue</string>
-    <string name="pods_device_color_space_gray_label">Space gray</string>
-    <string name="pods_device_color_rose_gold_label">Rose gold</string>
-    <string name="pods_device_color_gold_label">Gold</string>
-    <string name="pods_device_color_silver_label">Silver</string>
-    <string name="pods_device_color_gray_label">Gray</string>
-    <string name="pods_device_color_pink_label">Pink</string>
-    <string name="pods_device_color_blue_label">Blue</string>
-    <string name="pods_device_color_red_label">Red</string>
-    <string name="pods_device_color_black_label">Black</string>
     <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
     <string name="pods_connection_state_idle_label">Connected to a device, but idle</string>
     <string name="pods_connection_state_music_label">In music mode</string>
@@ -85,7 +69,6 @@
     <string name="settings_acknowledgements_label">Acknowledgements</string>
 
     <string name="changelog_label">Changelog</string>
-    <string name="documentation_label">Documentation</string>
     <string name="settings_support_email_developer_label">Email developer</string>
 
     <string name="settings_support_installid_label">Install ID</string>

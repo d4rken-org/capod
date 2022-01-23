@@ -25,8 +25,8 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         val device = item.device
         name.apply {
             val sb = StringBuilder(device.getLabel(context))
-            if (device.deviceColor != DeviceColor.UNKNOWN) {
-                sb.append(" (${device.getDeviceColorLabel(context)})")
+            if (!listOf(DeviceColor.WHITE, DeviceColor.UNKNOWN).contains(device.deviceColor)) {
+                sb.append(" (${device.deviceColor.name})")
             }
             text = sb
             if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
