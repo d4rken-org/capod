@@ -2,6 +2,7 @@ package eu.darken.capod.main.ui.overview.cards.pods
 
 import android.graphics.Typeface
 import android.view.ViewGroup
+import androidx.core.view.isInvisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsAppleDualItemBinding
@@ -40,45 +41,49 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             reception.append("\n(${getString(R.string.pods_yours)})")
         }
 
-        podLeft.apply {
-            val sb = StringBuilder(context.getString(R.string.pods_dual_left_label))
-            sb.append("\n").append(device.getBatteryLevelLeftPod(context))
-            when {
-                device.isLeftPodCharging -> sb.append("\n").append(getString(R.string.pods_charging_label))
-                device.isLeftPodInEar -> sb.append("\n").append(getString(R.string.pods_inear_label))
-                else -> {}
-            }
-            text = sb
+        // Left Pod
+        device.apply {
+            podLeftBatteryIcon.setImageResource(getBatteryDrawable(batteryLeftPodPercent))
+            podLeftBatteryLabel.text = getBatteryLevelLeftPod(context)
+
+            podLeftChargingIcon.isInvisible = !isLeftPodCharging
+            podLeftChargingLabel.isInvisible = !isLeftPodCharging
+
+            podLeftMicrophoneIcon.isInvisible = microPhonePod != Pod.LEFT
+            podLeftMicrophoneLabel.isInvisible = microPhonePod != Pod.LEFT
+
+            podLeftWearIcon.isInvisible = !isLeftPodInEar
+            podLeftWearLabel.isInvisible = !isLeftPodInEar
         }
 
-        podRight.apply {
-            val sb = StringBuilder(getString(R.string.pods_dual_right_label))
-            sb.append("\n").append(device.getBatteryLevelRightPod(context))
-            when {
-                device.isRightPodCharging -> sb.append("\n").append(getString(R.string.pods_charging_label))
-                device.isRightPodInEar -> sb.append("\n").append(getString(R.string.pods_inear_label))
-                else -> {}
-            }
-            text = sb
+        // Right Pod
+        device.apply {
+            podRightBatteryIcon.setImageResource(getBatteryDrawable(batteryRightPodPercent))
+            podRightBatteryLabel.text = getBatteryLevelRightPod(context)
+
+            podRightChargingIcon.isInvisible = !isRightPodCharging
+            podRightChargingLabel.isInvisible = !isRightPodCharging
+
+            podRightMicrophoneIcon.isInvisible = microPhonePod != Pod.RIGHT
+            podRightMicrophoneLabel.isInvisible = microPhonePod != Pod.RIGHT
+
+            podRightWearIcon.isInvisible = !isRightPodInEar
+            podRightWearLabel.isInvisible = !isRightPodInEar
         }
 
-        when (device.microPhonePod) {
-            Pod.LEFT -> podLeft.append("\n(${context.getString(R.string.pods_microphone_label)})")
-            Pod.RIGHT -> podRight.append("\n(${context.getString(R.string.pods_microphone_label)})")
-        }
+        // Case
+        device.apply {
+            podCaseBatteryIcon.setImageResource(getBatteryDrawable(batteryCasePercent))
+            podCaseBatteryLabel.text = getBatteryLevelCase(context)
 
-        podCase.apply {
-            val sb = StringBuilder(getString(R.string.pods_case_label))
-            sb.append("\n").append(device.getBatteryLevelCase(context))
-            if (device.isCaseCharging) sb.append("\n").append(getString(R.string.pods_charging_label))
-            when (device.caseLidState) {
-                LidState.OPEN -> sb.append("\n").append(context.getString(R.string.pods_case_status_open_label))
-                LidState.CLOSED -> sb.append("\n").append(context.getString(R.string.pods_case_status_closed_label))
-                LidState.NOT_IN_CASE,
-                LidState.UNKNOWN -> {
-                }
+            podCaseChargingIcon.isInvisible = !isCaseCharging
+            podCaseChargingLabel.isInvisible = !isCaseCharging
+
+            podCaseLidLabel.text = when (device.caseLidState) {
+                LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
+                LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
+                else -> context.getString(R.string.general_value_unknown_label)
             }
-            text = sb
         }
 
         status.apply {
