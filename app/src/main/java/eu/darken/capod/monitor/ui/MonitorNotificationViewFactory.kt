@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.ui
 
 import android.content.Context
+import android.view.View
 import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
@@ -26,38 +27,45 @@ class MonitorNotificationViewFactory @Inject constructor(
         context.packageName,
         R.layout.monitor_notification_dual_pods_small
     ).apply {
-        device.getBatteryLevelLeftPod(context)
-            .let { if (device.isLeftPodCharging) "$it⚡" else it }
-            .run { setTextViewText(R.id.pod_left, this) }
+        device.apply {
+            // Left
+            setTextViewText(R.id.pod_left_label, getBatteryLevelLeftPod(context))
+            setViewVisibility(R.id.pod_left_charging, if (isLeftPodCharging) View.VISIBLE else View.GONE)
+            setViewVisibility(R.id.pod_left_ear, if (isLeftPodInEar) View.VISIBLE else View.GONE)
 
-        device.getBatteryLevelCase(context)
-            .let { if (device.isCaseCharging) "$it⚡" else it }
-            .run { setTextViewText(R.id.pod_case, this) }
+            // Case
+            setTextViewText(R.id.pod_case_label, getBatteryLevelCase(context))
+            setViewVisibility(R.id.pod_case_charging, if (isCaseCharging) View.VISIBLE else View.GONE)
 
-        device.getBatteryLevelRightPod(context)
-            .let { if (device.isRightPodCharging) "$it⚡" else it }
-            .run { setTextViewText(R.id.pod_right, this) }
+            // Right
+            setTextViewText(R.id.pod_right_label, getBatteryLevelRightPod(context))
+            setViewVisibility(R.id.pod_right_charging, if (isRightPodCharging) View.VISIBLE else View.GONE)
+            setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
+        }
     }
 
     private fun createSingleApplePods(device: SingleApplePods): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_small
     ).apply {
-        setTextViewText(R.id.headphones_label, device.getLabel(context))
-
-        device.getBatteryLevelHeadset(context)
-            .let { if (!device.isHeadsetBeingCharged) "$it⚡" else it }
-            .run { setTextViewText(R.id.headphones, this) }
+        device.apply {
+            setTextViewText(R.id.headphones_label, getLabel(context))
+            setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(batteryHeadsetPercent))
+            setTextViewText(R.id.headphones_battery_label, getBatteryLevelHeadset(context))
+            setViewVisibility(R.id.headphones_charging, if (isHeadsetBeingCharged) View.VISIBLE else View.GONE)
+            setViewVisibility(R.id.headphones_worn, if (isHeadphonesBeingWorn) View.VISIBLE else View.GONE)
+        }
     }
 
     private fun createSingleBasicApplePods(device: BasicSingleApplePods): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_basic_small
     ).apply {
-        setTextViewText(R.id.headphones_label, device.getLabel(context))
-
-        device.getBatteryLevelHeadset(context)
-            .run { setTextViewText(R.id.headphones, this) }
+        device.apply {
+            setTextViewText(R.id.headphones_label, getLabel(context))
+            setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(batteryHeadsetPercent))
+            setTextViewText(R.id.headphones_battery_label, getBatteryLevelHeadset(context))
+        }
     }
 
     private fun createUnknownDevice(device: PodDevice): RemoteViews = RemoteViews(
