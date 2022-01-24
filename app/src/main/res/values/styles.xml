@@ -7,8 +7,12 @@
         <item name="android:layout_marginEnd">8dp</item>
     </style>
 
-    <style name="MiniTextIcon">
+    <style name="PodInfoItemIcon">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
+    </style>
+
+    <style name="PodInfoItemText" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:singleLine">true</item>
     </style>
 </resources>

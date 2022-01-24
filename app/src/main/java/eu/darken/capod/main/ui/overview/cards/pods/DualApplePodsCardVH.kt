@@ -79,11 +79,15 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             podCaseChargingIcon.isInvisible = !isCaseCharging
             podCaseChargingLabel.isInvisible = !isCaseCharging
 
-            podCaseLidLabel.text = when (device.caseLidState) {
+            podCaseLidLabel.text = when (caseLidState) {
                 LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
                 LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
                 else -> context.getString(R.string.general_value_unknown_label)
             }
+
+            val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)
+            podCaseLidIcon.isInvisible = hideInfo
+            podCaseLidLabel.isInvisible = hideInfo
         }
 
         status.apply {

@@ -18,7 +18,7 @@
 
         <ImageView
             android:id="@+id/pod_left_icon"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_airpod_left_24" />
 
         <TextView
@@ -31,12 +31,12 @@
 
         <ImageView
             android:id="@+id/pod_left_charging"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_baseline_power_24" />
 
         <ImageView
             android:id="@+id/pod_left_ear"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_baseline_hearing_24" />
     </LinearLayout>
 
@@ -52,7 +52,7 @@
 
         <ImageView
             android:id="@+id/pod_case_icon"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_airpod_case_24" />
 
         <TextView
@@ -65,7 +65,7 @@
 
         <ImageView
             android:id="@+id/pod_case_charging"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_baseline_power_24" />
     </LinearLayout>
 
@@ -81,7 +81,7 @@
 
         <ImageView
             android:id="@+id/pod_right_icon"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_airpod_right_24" />
 
         <TextView
@@ -94,12 +94,12 @@
 
         <ImageView
             android:id="@+id/pod_right_charging"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_baseline_power_24" />
 
         <ImageView
             android:id="@+id/pod_right_ear"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_baseline_hearing_24" />
     </LinearLayout>
 

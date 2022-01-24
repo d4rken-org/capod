@@ -21,7 +21,7 @@
 
         <ImageView
             android:id="@+id/headphones_battery_icon"
-            style="@style/MiniTextIcon"
+            style="@style/PodInfoItemIcon"
             android:src="@drawable/ic_baseline_battery_unknown_24" />
 
         <TextView

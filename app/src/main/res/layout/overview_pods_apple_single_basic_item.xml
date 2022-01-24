@@ -105,7 +105,7 @@
 
             <ImageView
                 android:id="@+id/battery_icon"
-                style="@style/MiniTextIcon"
+                style="@style/PodInfoItemIcon"
                 android:src="@drawable/ic_baseline_battery_unknown_24"
                 app:layout_constraintBottom_toBottomOf="@id/battery_label"
                 app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +113,7 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/battery_label"
-                style="@style/TextAppearance.MaterialComponents.Body2"
+                style="@style/PodInfoItemText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
