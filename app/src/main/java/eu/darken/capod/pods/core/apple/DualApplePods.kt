@@ -8,11 +8,11 @@ import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasDualEarDetection
 import eu.darken.capod.pods.core.HasDualPods
 import eu.darken.capod.pods.core.HasDualPods.Pod
-import eu.darken.capod.pods.core.HasEarDetection
 
-interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
+interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
 
     val microPhonePod: Pod
         get() = when (rawStatus.isBitSet(5)) {
@@ -53,21 +53,17 @@ interface DualApplePods : ApplePods, HasDualPods, HasEarDetection, HasCase {
                 }
             }
         }
-
-    val isLeftPodInEar: Boolean
+    override val isLeftPodInEar: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawStatus.isBitSet(1)
             Pod.RIGHT -> rawStatus.isBitSet(3)
         }
 
-    val isRightPodInEar: Boolean
+    override val isRightPodInEar: Boolean
         get() = when (microPhonePod) {
             Pod.LEFT -> rawStatus.isBitSet(3)
             Pod.RIGHT -> rawStatus.isBitSet(1)
         }
-
-    override val isBeingWorn: Boolean
-        get() = isLeftPodInEar && isRightPodInEar
 
     val isLeftPodCharging: Boolean
         get() = when (microPhonePod) {

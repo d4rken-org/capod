@@ -132,4 +132,6 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;).</string>
     <string name="help_translate_label">Translation</string>
     <string name="help_translate_description">Help translate this into your favorite language.</string>
+    <string name="settings_onepod_mode_label">One pod mode</string>
+    <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
 </resources>

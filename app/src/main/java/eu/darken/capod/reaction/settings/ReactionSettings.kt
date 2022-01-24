@@ -47,11 +47,17 @@ class ReactionSettings @Inject constructor(
         false
     )
 
+    val onePodMode = preferences.createFlowPreference(
+        "reaction.onepod.enabled",
+        false
+    )
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         autoPause,
         autoPlay,
         autoConnect,
         autoConnectCondition,
         showPopUpOnCaseOpen,
+        onePodMode,
     )
 }

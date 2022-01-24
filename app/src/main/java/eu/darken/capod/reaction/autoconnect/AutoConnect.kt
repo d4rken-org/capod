@@ -8,6 +8,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.pods.core.HasDualEarDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.settings.ReactionSettings
@@ -71,7 +72,13 @@ class AutoConnect @Inject constructor(
                     else -> true
                 }
                 AutoConnectCondition.IN_EAR -> when (mainDevice) {
-                    is HasEarDetection -> mainDevice.isBeingWorn
+                    is HasEarDetection -> {
+                        if (mainDevice is HasDualEarDetection && reactionSettings.onePodMode.value) {
+                            mainDevice.isEitherPodInEar
+                        } else {
+                            mainDevice.isBeingWorn
+                        }
+                    }
                     else -> true
                 }
             }

@@ -2,6 +2,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_looks_one_24"
+        android:key="reaction.onepod.enabled"
+        android:summary="@string/settings_onepod_mode_description"
+        android:title="@string/settings_onepod_mode_label" />
+
+
+    <CheckBoxPreference
         android:icon="@drawable/ic_baseline_play_circle_24"
         android:key="reaction.autoplay.enabled"
         android:summary="@string/settings_autoplay_description"
