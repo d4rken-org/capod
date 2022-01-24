@@ -60,11 +60,13 @@ class AppleFactory @Inject constructor(
         var factory = podFactories.firstOrNull { it.isResponsible(pm) }
 
         if (factory == null) {
-            Bugs.report(
-                tag = TAG,
-                message = "Unknown proximity message type",
-                exception = IllegalArgumentException("Unknown ProximityMessage: $pm")
-            )
+            if (scanResult.address != "6E:9E:D1:49:D2:6D") {
+                Bugs.report(
+                    tag = TAG,
+                    message = "Unknown proximity message type",
+                    exception = IllegalArgumentException("Unknown ProximityMessage: $pm")
+                )
+            }
             factory = unknownAppleFactory
         }
 

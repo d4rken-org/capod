@@ -31,6 +31,16 @@ object ProximityPairing {
             batteryData = setOf(data[4].upperNibble, data[4].lowerNibble),
             deviceColor = data[7]
         )
+
+        override fun toString(): String =
+            "ProximityPairing.Message(type=$type, length=$length, data=${
+                data.joinToString(separator = " ") {
+                    String.format(
+                        "%02X",
+                        it
+                    )
+                }
+            }"
     }
 
     @Reusable
