@@ -32,6 +32,7 @@ class PermissionTool @Inject constructor(
     ) { _, monitorMode ->
         Permission.values()
             .filter { it != Permission.IGNORE_BATTERY_OPTIMIZATION || monitorMode == MonitorMode.ALWAYS }
+            .filter { it != Permission.ACCESS_BACKGROUND_LOCATION || monitorMode == MonitorMode.ALWAYS }
             .filter { it.isRequired(context) }
             .toSet()
     }
