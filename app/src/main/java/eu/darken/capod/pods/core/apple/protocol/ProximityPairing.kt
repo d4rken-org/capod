@@ -32,15 +32,10 @@ object ProximityPairing {
             deviceColor = data[7]
         )
 
-        override fun toString(): String =
-            "ProximityPairing.Message(type=$type, length=$length, data=${
-                data.joinToString(separator = " ") {
-                    String.format(
-                        "%02X",
-                        it
-                    )
-                }
-            }"
+        override fun toString(): String {
+            val dataHex = data.joinToString(separator = " ") { String.format("%02X", it.toByte()) }
+            return "ProximityPairing.Message(type=$type, length=$length, data=$dataHex)"
+        }
     }
 
     @Reusable

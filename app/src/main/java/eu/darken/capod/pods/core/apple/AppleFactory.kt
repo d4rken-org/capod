@@ -57,26 +57,27 @@ class AppleFactory @Inject constructor(
 
         log(TAG, INFO) { "Decoding $scanResult" }
 
-        var factory = podFactories.firstOrNull { it.isResponsible(pm) }
+        val factory = podFactories.firstOrNull { it.isResponsible(pm) }
 
-        if (factory == null) {
-            if (scanResult.address != "6E:9E:D1:49:D2:6D") {
-                Bugs.report(
-                    tag = TAG,
-                    message = "Unknown proximity message type",
-                    exception = IllegalArgumentException("Unknown ProximityMessage: $pm")
-                )
-            }
-            factory = unknownAppleFactory
-        }
-
-        return factory.create(
+        val device = (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
             proximityMessage = pm,
         )
+
+        if (factory == null && !SILENCED_PMS.contains(device.rawDeviceModel) && scanResult.address != "6E:9E:D1:49:D2:6D") {
+            SILENCED_PMS.add(device.rawDeviceModel)
+            Bugs.report(
+                tag = TAG,
+                message = "Unknown proximity message type",
+                exception = IllegalArgumentException("Unknown ProximityMessage: $pm")
+            )
+        }
+
+        return@withLock device
     }
 
     companion object {
+        private val SILENCED_PMS = mutableSetOf<UShort>()
         private val TAG = logTag("Pod", "Apple", "Factory")
     }
 }
