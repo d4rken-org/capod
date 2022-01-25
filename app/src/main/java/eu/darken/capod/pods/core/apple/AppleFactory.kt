@@ -6,9 +6,6 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.lowerNibble
-import eu.darken.capod.common.toBinaryString
-import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.airpods.*
 import eu.darken.capod.pods.core.apple.beats.*
@@ -66,14 +63,6 @@ class AppleFactory @Inject constructor(
             scanResult = scanResult,
             proximityMessage = pm,
         )
-        if (device is DualApplePods) {
-            device.apply {
-                log(
-                    TAG,
-                    WARN
-                ) { "${rssi} ${scanResult.address} ${rawStatus.upperNibble.toBinaryString()} ${rawStatus.lowerNibble.toBinaryString()} primary=$primaryPod isCasePod=$isThisPodInThecase" }
-            }
-        }
 
         if (factory == null && !SILENCED_PMS.contains(device.rawDeviceModel) && scanResult.address != "6E:9E:D1:49:D2:6D") {
             SILENCED_PMS.add(device.rawDeviceModel)
