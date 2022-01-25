@@ -19,7 +19,8 @@ object ProximityPairing {
             val vendor: UByte,
             val length: UByte,
             val device: UShort,
-            val batteryData: Set<UByte>,
+            val podBatteryData: Set<UShort>,
+            val caseBatteryData: UShort,
             val deviceColor: UByte,
         )
 
@@ -28,7 +29,8 @@ object ProximityPairing {
             length = PROXIMITY_PAIRING_MESSAGE_LENGTH.toUByte(),
             device = (((data[1].toInt() and 255) shl 8) or (data[2].toInt() and 255)).toUShort(),
             // Make comparison order independent
-            batteryData = setOf(data[4].upperNibble, data[4].lowerNibble),
+            podBatteryData = setOf(data[4].upperNibble, data[4].lowerNibble),
+            caseBatteryData = data[5].lowerNibble,
             deviceColor = data[7]
         )
 

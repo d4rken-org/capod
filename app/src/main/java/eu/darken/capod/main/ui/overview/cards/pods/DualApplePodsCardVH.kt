@@ -7,7 +7,6 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsAppleDualItemBinding
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.HasDualPods.Pod
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.DeviceColor
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
@@ -31,6 +30,9 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             text = sb
             if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
             else setTypeface(typeface, Typeface.NORMAL)
+            if (item.showDebug) {
+                append(" [${device.primaryPod.name}]")
+            }
         }
         deviceIcon.setImageResource(device.iconRes)
 
@@ -49,8 +51,8 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             podLeftChargingIcon.isInvisible = !isLeftPodCharging
             podLeftChargingLabel.isInvisible = !isLeftPodCharging
 
-            podLeftMicrophoneIcon.isInvisible = microPhonePod != Pod.LEFT
-            podLeftMicrophoneLabel.isInvisible = microPhonePod != Pod.LEFT
+            podLeftMicrophoneIcon.isInvisible = !isLeftPodMicrophone
+            podLeftMicrophoneLabel.isInvisible = !isLeftPodMicrophone
 
             podLeftWearIcon.isInvisible = !isLeftPodInEar
             podLeftWearLabel.isInvisible = !isLeftPodInEar
@@ -64,8 +66,8 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             podRightChargingIcon.isInvisible = !isRightPodCharging
             podRightChargingLabel.isInvisible = !isRightPodCharging
 
-            podRightMicrophoneIcon.isInvisible = microPhonePod != Pod.RIGHT
-            podRightMicrophoneLabel.isInvisible = microPhonePod != Pod.RIGHT
+            podRightMicrophoneIcon.isInvisible = !isRightPodMicrophone
+            podRightMicrophoneLabel.isInvisible = !isRightPodMicrophone
 
             podRightWearIcon.isInvisible = !isRightPodInEar
             podRightWearLabel.isInvisible = !isRightPodInEar

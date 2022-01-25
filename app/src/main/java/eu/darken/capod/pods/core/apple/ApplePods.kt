@@ -5,6 +5,9 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.lowerNibble
+import eu.darken.capod.common.toHex
+import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
@@ -27,11 +30,20 @@ interface ApplePods : PodDevice {
     val rawStatus: UByte
         get() = proximityMessage.data[3]
 
+    val rawStatusHex: String
+        get() = rawStatus.toHex()
+
     val rawPodsBattery: UByte
         get() = proximityMessage.data[4]
 
-    val rawCaseBattery: UByte
-        get() = proximityMessage.data[5]
+    val rawPodsBatteryHex: String
+        get() = rawPodsBattery.toHex()
+
+    val rawFlags: UShort
+        get() = proximityMessage.data[5].upperNibble
+
+    val rawCaseBattery: UShort
+        get() = proximityMessage.data[5].lowerNibble
 
     val rawCaseLidState: UByte
         get() = proximityMessage.data[6]

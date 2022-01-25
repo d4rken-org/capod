@@ -1,6 +1,5 @@
 package eu.darken.capod.pods.core.apple
 
-import eu.darken.capod.pods.core.HasDualPods
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Test
@@ -15,7 +14,8 @@ class DualApplePodsTest : BaseAirPodsTest() {
             rawDeviceModel shouldBe 0x0e20.toUShort()
             rawStatus shouldBe 0x54.toUByte()
             rawPodsBattery shouldBe 0xAA.toUByte()
-            rawCaseBattery shouldBe 0xB5.toUByte()
+            rawFlags shouldBe 0xB.toUShort()
+            rawCaseBattery shouldBe 0x5.toUShort()
             rawCaseLidState shouldBe 0x31.toUByte()
             rawDeviceColor shouldBe 0x00.toUByte()
             rawSuffix shouldBe 0x00.toUByte()
@@ -27,12 +27,14 @@ class DualApplePodsTest : BaseAirPodsTest() {
         create<DualApplePods>("07 19 01 0E 20 >2B< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00101011
             // --^-----
-            microPhonePod shouldBe HasDualPods.Pod.LEFT
+            isLeftPodMicrophone shouldBe true
+            isRightPodMicrophone shouldBe false
         }
         create<DualApplePods>("07 19 01 0E 20 >0B< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00001011
             // --^-----
-            microPhonePod shouldBe HasDualPods.Pod.RIGHT
+            isLeftPodMicrophone shouldBe false
+            isRightPodMicrophone shouldBe true
         }
     }
 

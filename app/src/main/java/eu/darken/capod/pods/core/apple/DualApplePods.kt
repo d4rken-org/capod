@@ -14,17 +14,24 @@ import eu.darken.capod.pods.core.HasDualPods.Pod
 
 interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
 
-    val microPhonePod: Pod
+    val primaryPod: Pod
         get() = when (rawStatus.isBitSet(5)) {
             true -> Pod.LEFT
             false -> Pod.RIGHT
         }
 
+    /**
+     * Normally values for the left pod are in the lower nibbles, if the left pod is primary (microphone)
+     * If the right pod is the primary, the values are flipped.
+     */
+    val areValuesFlipped: Boolean
+        get() = !rawStatus.isBitSet(5)
+
     override val batteryLeftPodPercent: Float?
         get() {
-            val value = when (microPhonePod) {
-                Pod.LEFT -> rawPodsBattery.lowerNibble.toInt()
-                Pod.RIGHT -> rawPodsBattery.upperNibble.toInt()
+            val value = when (areValuesFlipped) {
+                true -> rawPodsBattery.upperNibble.toInt()
+                false -> rawPodsBattery.lowerNibble.toInt()
             }
             return when (value) {
                 15 -> null
@@ -39,9 +46,9 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
 
     override val batteryRightPodPercent: Float?
         get() {
-            val value = when (microPhonePod) {
-                Pod.LEFT -> rawPodsBattery.upperNibble.toInt()
-                Pod.RIGHT -> rawPodsBattery.lowerNibble.toInt()
+            val value = when (areValuesFlipped) {
+                true -> rawPodsBattery.lowerNibble.toInt()
+                false -> rawPodsBattery.upperNibble.toInt()
             }
             return when (value) {
                 15 -> null
@@ -53,32 +60,56 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
                 }
             }
         }
+
+    val isThisPodInThecase: Boolean
+        get() = rawStatus.isBitSet(6)
+
+    val isOnePodInCase: Boolean
+        get() = rawStatus.isBitSet(4)
+
+    val areBothPodsInCase: Boolean
+        get() = rawStatus.isBitSet(2)
+
     override val isLeftPodInEar: Boolean
-        get() = when (microPhonePod) {
-            Pod.LEFT -> rawStatus.isBitSet(1)
-            Pod.RIGHT -> rawStatus.isBitSet(3)
+        get() = when (areValuesFlipped xor isThisPodInThecase) {
+            true -> rawStatus.isBitSet(3)
+            false -> rawStatus.isBitSet(1)
         }
 
     override val isRightPodInEar: Boolean
-        get() = when (microPhonePod) {
-            Pod.LEFT -> rawStatus.isBitSet(3)
-            Pod.RIGHT -> rawStatus.isBitSet(1)
+        get() = when (areValuesFlipped xor isThisPodInThecase) {
+            true -> rawStatus.isBitSet(1)
+            false -> rawStatus.isBitSet(3)
         }
 
+    /**
+     * The data flip bit is set if the left pod is primary.
+     * For the pod that is in the case, this is flipped again though.
+     */
+    val isLeftPodMicrophone: Boolean
+        get() = rawStatus.isBitSet(5) xor isThisPodInThecase
+
+    /**
+     * The data flip bit is UNset if the right pod is primary.
+     * For the pod that is in the case, this is flipped again though.
+     */
+    val isRightPodMicrophone: Boolean
+        get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
+
     val isLeftPodCharging: Boolean
-        get() = when (microPhonePod) {
-            Pod.LEFT -> rawCaseBattery.upperNibble.isBitSet(0)
-            Pod.RIGHT -> rawCaseBattery.upperNibble.isBitSet(1)
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(0)
+            true -> rawFlags.isBitSet(1)
         }
 
     val isRightPodCharging: Boolean
-        get() = when (microPhonePod) {
-            Pod.LEFT -> rawCaseBattery.upperNibble.isBitSet(1)
-            Pod.RIGHT -> rawCaseBattery.upperNibble.isBitSet(0)
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(1)
+            true -> rawFlags.isBitSet(0)
         }
 
     override val batteryCasePercent: Float?
-        get() = when (val value = rawCaseBattery.lowerNibble.toInt()) {
+        get() = when (val value = rawCaseBattery.toInt()) {
             15 -> null
             else -> if (value > 10) {
                 log { "Case: Above 100% battery: $value" }
@@ -89,7 +120,7 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
         }
 
     override val isCaseCharging: Boolean
-        get() = rawCaseBattery.upperNibble.isBitSet(2)
+        get() = rawFlags.isBitSet(2)
 
     val caseLidState: LidState
         get() {

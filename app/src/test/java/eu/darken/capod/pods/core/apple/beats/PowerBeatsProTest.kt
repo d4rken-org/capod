@@ -1,6 +1,5 @@
 package eu.darken.capod.pods.core.apple.beats
 
-import eu.darken.capod.pods.core.HasDualPods
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.DualApplePods
 import io.kotest.matchers.shouldBe
@@ -17,12 +16,14 @@ class PowerBeatsProTest : BaseAirPodsTest() {
             rawDeviceModel shouldBe 0x0B20.toUShort()
             rawStatus shouldBe 0x54.toUByte()
             rawPodsBattery shouldBe 0xAA.toUByte()
-            rawCaseBattery shouldBe 0xB5.toUByte()
+            rawFlags shouldBe 0xB.toUShort()
+            rawCaseBattery shouldBe 0x5.toUShort()
             rawCaseLidState shouldBe 0x31.toUByte()
             rawDeviceColor shouldBe 0x00.toUByte()
             rawSuffix shouldBe 0x00.toUByte()
 
-            microPhonePod shouldBe HasDualPods.Pod.RIGHT
+            isLeftPodMicrophone shouldBe true
+            isRightPodMicrophone shouldBe false
 
             batteryLeftPodPercent shouldBe 1.0f
             batteryRightPodPercent shouldBe 1.0f

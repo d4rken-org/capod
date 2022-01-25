@@ -1,7 +1,6 @@
 package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.isBitSet
-import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasSinglePod
 
@@ -11,7 +10,7 @@ interface SingleApplePods : BasicSingleApplePods, HasEarDetection, HasSinglePod 
         get() = rawStatus.isBitSet(1)
 
     val isHeadsetBeingCharged: Boolean
-        get() = rawCaseBattery.upperNibble.isBitSet(0)
+        get() = rawFlags.isBitSet(0)
 
     override val isBeingWorn: Boolean
         get() = isHeadphonesBeingWorn
