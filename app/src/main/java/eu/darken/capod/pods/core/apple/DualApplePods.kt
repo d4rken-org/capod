@@ -93,7 +93,8 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
 
     val caseLidState: LidState
         get() {
-            return LidState.values().firstOrNull { it.rawRange.contains(rawCaseLidState.toInt()) } ?: LidState.UNKNOWN
+            val rawstate = rawCaseLidState
+            return LidState.values().firstOrNull { it.rawRange.contains(rawstate.toInt()) } ?: LidState.UNKNOWN
         }
 
     /**

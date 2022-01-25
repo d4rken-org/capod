@@ -62,6 +62,15 @@ enum class Permission(
             val pwm = it.getSystemService(Context.POWER_SERVICE) as PowerManager
             pwm.isIgnoringBatteryOptimizations(BuildConfigWrap.APPLICATION_ID)
         },
+    ),
+    SYSTEM_ALERT_WINDOW(
+        minApiLevel = Build.VERSION_CODES.BASE,
+        labelRes = R.string.permission_system_alert_window_label,
+        descriptionRes = R.string.permission_system_alert_window_description,
+        permissionId = "android.permission.SYSTEM_ALERT_WINDOW",
+        isGranted = {
+            android.provider.Settings.canDrawOverlays(it)
+        },
     )
 }
 

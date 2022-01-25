@@ -1,72 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/pod_label"
-        style="@style/TextAppearance.Compat.Notification.Title"
+    <ImageView
+        android:id="@+id/pod_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_device_generic_earbuds"
+        app:layout_constraintBottom_toBottomOf="@id/pod_label"
+        app:layout_constraintEnd_toStartOf="@id/pod_label"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pod_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/pod_label"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        app:layout_constraintEnd_toStartOf="@id/signal"
+        app:layout_constraintStart_toEndOf="@id/pod_icon"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="AirPods Pro" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/signal"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:orientation="horizontal">
+        android:drawableEnd="@drawable/ic_baseline_signal_cellular_alt_24"
+        android:gravity="center"
+        android:minWidth="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pod_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pod_label"
+        tools:text="-90%" />
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/pod_left_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/pod_case_container"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pod_label">
 
-        <TextView
-            android:id="@+id/pod_left"
-            style="@style/TextAppearance.Compat.Notification.Title"
+        <ImageView
+            android:id="@+id/pod_left_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_airpod_left_24"
+            android:src="@drawable/ic_airpod_left_24"
+            app:layout_constraintBottom_toBottomOf="@id/pod_left_battery_label"
+            app:layout_constraintEnd_toStartOf="@id/pod_left_battery_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pod_left_battery_label" />
+
+        <ImageView
+            android:id="@id/pod_left_battery_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_battery_unknown_24"
+            app:layout_constraintBottom_toBottomOf="@id/pod_left_battery_label"
+            app:layout_constraintEnd_toStartOf="@id/pod_left_battery_label"
+            app:layout_constraintStart_toEndOf="@id/pod_left_icon"
+            app:layout_constraintTop_toTopOf="@id/pod_left_battery_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pod_left_battery_label"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pod_left_battery_icon"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="100%" />
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/pod_case"
-            style="@style/TextAppearance.Compat.Notification.Title"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pod_case_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@id/pod_right_container"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/pod_left_container"
+        app:layout_constraintTop_toBottomOf="@id/pod_label">
+
+        <ImageView
+            android:id="@+id/pod_case_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginHorizontal="8dp"
-            android:drawableStart="@drawable/ic_airpod_case_24"
+            android:src="@drawable/ic_airpod_case_24"
+            app:layout_constraintBottom_toBottomOf="@id/pod_case_battery_label"
+            app:layout_constraintEnd_toStartOf="@id/pod_case_battery_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pod_case_battery_label" />
+
+        <ImageView
+            android:id="@id/pod_case_battery_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_battery_unknown_24"
+            app:layout_constraintBottom_toBottomOf="@id/pod_case_battery_label"
+            app:layout_constraintEnd_toStartOf="@id/pod_case_battery_label"
+            app:layout_constraintStart_toEndOf="@id/pod_case_icon"
+            app:layout_constraintTop_toTopOf="@id/pod_case_battery_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pod_case_battery_label"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pod_case_battery_icon"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="100%" />
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/pod_right"
-            style="@style/TextAppearance.Compat.Notification.Title"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@id/pod_right_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/pod_case_container"
+        app:layout_constraintTop_toBottomOf="@id/pod_label">
+
+        <ImageView
+            android:id="@+id/pod_right_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_airpod_right_24"
+            android:src="@drawable/ic_airpod_right_24"
+            app:layout_constraintBottom_toBottomOf="@id/pod_right_battery_label"
+            app:layout_constraintEnd_toStartOf="@id/pod_right_battery_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pod_right_battery_label" />
+
+        <ImageView
+            android:id="@id/pod_right_battery_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_battery_unknown_24"
+            app:layout_constraintBottom_toBottomOf="@id/pod_right_battery_label"
+            app:layout_constraintEnd_toStartOf="@id/pod_right_battery_label"
+            app:layout_constraintStart_toEndOf="@id/pod_right_icon"
+            app:layout_constraintTop_toTopOf="@id/pod_right_battery_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/pod_right_battery_label"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/pod_right_battery_icon"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="100%" />
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

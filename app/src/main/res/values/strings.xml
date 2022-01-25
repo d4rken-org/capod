@@ -15,6 +15,7 @@
     <string name="general_grant_permission_action">Grant permission</string>
     <string name="general_upgrade_action">Upgrade</string>
     <string name="general_check_action">Check</string>
+    <string name="general_close_action">Close</string>
 
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
@@ -134,4 +135,6 @@
     <string name="help_translate_description">Help translate this into your favorite language.</string>
     <string name="settings_onepod_mode_label">One pod mode</string>
     <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
+    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
 </resources>

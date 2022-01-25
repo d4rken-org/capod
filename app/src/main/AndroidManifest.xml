@@ -28,6 +28,8 @@
         android:usesPermissionFlags="neverForLocation" />
 
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />

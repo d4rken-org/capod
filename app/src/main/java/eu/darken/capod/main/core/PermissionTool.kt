@@ -6,6 +6,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isRequired
+import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -18,6 +19,7 @@ import javax.inject.Singleton
 class PermissionTool @Inject constructor(
     @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
+    private val reactionSettings: ReactionSettings,
 ) {
     private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
 
@@ -29,10 +31,12 @@ class PermissionTool @Inject constructor(
     val missingPermissions: Flow<Set<Permission>> = combine(
         permissionCheckTrigger,
         generalSettings.monitorMode.flow,
-    ) { _, monitorMode ->
+        reactionSettings.showPopUpOnCaseOpen.flow
+    ) { _, monitorMode, showPopUp ->
         Permission.values()
             .filter { it != Permission.IGNORE_BATTERY_OPTIMIZATION || monitorMode == MonitorMode.ALWAYS }
             .filter { it != Permission.ACCESS_BACKGROUND_LOCATION || monitorMode == MonitorMode.ALWAYS }
+            .filter { it != Permission.SYSTEM_ALERT_WINDOW || showPopUp }
             .filter { it.isRequired(context) }
             .toSet()
     }

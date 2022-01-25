@@ -33,11 +33,11 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
     lateinit var adapter: OverviewAdapter
 
     lateinit var permissionLauncher: ActivityResultLauncher<String>
-    var awaitingIgnoreBatteryOptimization = false
+    var awaitingPermission = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        awaitingIgnoreBatteryOptimization = savedInstanceState?.getBoolean("awaitingIgnoreBatteryOptimization") ?: false
+        awaitingPermission = savedInstanceState?.getBoolean("awaitingPermission") ?: false
 
         permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             log { "Request for $id was granted=$granted" }
@@ -77,16 +77,28 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         }
 
         vm.requestPermissionEvent.observe2(ui) {
-            if (it == Permission.IGNORE_BATTERY_OPTIMIZATION) {
-                awaitingIgnoreBatteryOptimization = true
-                startActivity(
-                    Intent(
-                        Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-                        Uri.parse("package:${requireContext().packageName}")
+            when (it) {
+                Permission.IGNORE_BATTERY_OPTIMIZATION -> {
+                    awaitingPermission = true
+                    startActivity(
+                        Intent(
+                            Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                            Uri.parse("package:${requireContext().packageName}")
+                        )
                     )
-                )
-            } else {
-                permissionLauncher.launch(it.permissionId)
+                }
+                Permission.SYSTEM_ALERT_WINDOW -> {
+                    awaitingPermission = true
+                    startActivity(
+                        Intent(
+                            Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                            Uri.parse("package:${requireContext().packageName}")
+                        )
+                    )
+                }
+                else -> {
+                    permissionLauncher.launch(it.permissionId)
+                }
             }
         }
 
@@ -135,15 +147,15 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putBoolean("awaitingIgnoreBatteryOptimization", awaitingIgnoreBatteryOptimization)
+        outState.putBoolean("awaitingPermission", awaitingPermission)
         super.onSaveInstanceState(outState)
     }
 
     override fun onResume() {
         super.onResume()
-        if (awaitingIgnoreBatteryOptimization) {
-            awaitingIgnoreBatteryOptimization = false
-            log { "awaitingIgnoreBatteryOptimization=true" }
+        if (awaitingPermission) {
+            awaitingPermission = false
+            log { "awaitingPermission=true" }
             vm.onPermissionResult(true)
         }
     }
