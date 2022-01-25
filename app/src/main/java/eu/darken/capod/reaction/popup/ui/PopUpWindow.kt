@@ -42,16 +42,17 @@ class PopUpWindow @Inject constructor(
         findViewById<View>(R.id.close_action).setOnClickListener { close() }
     }
     private val deviceContainer = popUpView.findViewById<FrameLayout>(R.id.popup_content)
-
     fun show(device: PodDevice) = try {
         log(TAG) { "open()" }
-        if (popUpView.windowToken == null && popUpView.parent == null) {
-            val podView = podViewFactory.createContentView(deviceContainer, device)
-            deviceContainer.addView(podView)
-            windowManager.addView(popUpView, layoutParams)
-        } else {
+        if (popUpView.windowToken != null || popUpView.parent != null) {
             log(TAG) { "View already added." }
+            close()
         }
+
+        val podView = podViewFactory.createContentView(deviceContainer, device)
+        deviceContainer.removeAllViews()
+        deviceContainer.addView(podView)
+        windowManager.addView(popUpView, layoutParams)
     } catch (e: Exception) {
         log(TAG, ERROR) { "open() failed: ${e.asLog()}" }
     }
@@ -59,9 +60,8 @@ class PopUpWindow @Inject constructor(
     fun close() = try {
         log(TAG) { "close()" }
         if (popUpView.parent != null) {
-//            (popUpView.parent as ViewGroup).removeAllViews()
-//            popUpView.invalidate()
             windowManager.removeView(popUpView)
+            deviceContainer.removeAllViews()
         } else {
             log(TAG) { "View was not added" }
         }
