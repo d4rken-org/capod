@@ -159,6 +159,7 @@ class OverviewFragmentVM @Inject constructor(
                         )
                     }
                 }
+                .sortedByDescending { it.isMainPod }
                 .run { items.addAll(this) }
         }
 
