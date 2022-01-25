@@ -129,38 +129,35 @@ class OverviewFragmentVM @Inject constructor(
         }
 
         if (permissions.isEmpty() && isBluetoothEnabled) {
-            pods
-                .map {
-                    val now = Instant.now()
-                    when (it) {
-                        is DualApplePods -> DualApplePodsCardVH.Item(
-                            now = now,
-                            device = it,
-                            showDebug = isDebugMode,
-                            isMainPod = it == mainPod,
-                        )
-                        is SingleApplePods -> SingleApplePodsCardVH.Item(
-                            now = now,
-                            device = it,
-                            showDebug = isDebugMode,
-                            isMainPod = it == mainPod,
-                        )
-                        is BasicSingleApplePods -> BasicSingleApplePodsCardVH.Item(
-                            now = now,
-                            device = it,
-                            showDebug = isDebugMode,
-                            isMainPod = it == mainPod,
-                        )
-                        else -> UnknownPodDeviceCardVH.Item(
-                            now = now,
-                            device = it,
-                            showDebug = isDebugMode,
-                            isMainPod = it == mainPod,
-                        )
-                    }
+            pods.map {
+                val now = Instant.now()
+                when (it) {
+                    is DualApplePods -> DualApplePodsCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
+                    )
+                    is SingleApplePods -> SingleApplePodsCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
+                    )
+                    is BasicSingleApplePods -> BasicSingleApplePodsCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
+                    )
+                    else -> UnknownPodDeviceCardVH.Item(
+                        now = now,
+                        device = it,
+                        showDebug = isDebugMode,
+                        isMainPod = it == mainPod,
+                    )
                 }
-                .sortedByDescending { it.isMainPod }
-                .run { items.addAll(this) }
+            }.run { items.addAll(this) }
         }
 
         items

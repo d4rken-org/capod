@@ -77,28 +77,22 @@ class PodMonitor @Inject constructor(
                 }
             }
 
-
-            val aboveThreshold = mutableListOf<PodDevice>()
-            val belowThreshold = mutableListOf<PodDevice>()
-            val minimumSignalQuality = generalSettings.minimumSignalQuality.value
-            pods.values.forEach { device ->
-                if (device.signalQuality > minimumSignalQuality) aboveThreshold.add(device)
-                else belowThreshold.add(device)
-            }
             val now = Instant.now()
-            aboveThreshold.sortedWith(compareBy<PodDevice> {
-                Duration.between(
-                    it.lastSeenAt,
-                    now
+            val minimumSignalQuality = generalSettings.minimumSignalQuality.value
+
+            val aboveTresholdSorted = pods.values
+                .filter { it.signalQuality > minimumSignalQuality }
+                .sortedWith(
+                    compareBy<PodDevice> { Duration.between(it.lastSeenAt, now) }.thenByDescending { it.rssi }
                 )
-            }.thenByDescending { it.rssi })
-                .plus(belowThreshold.sortedWith(compareBy<PodDevice> {
-                    Duration.between(
-                        it.lastSeenAt,
-                        now
-                    )
-                }.thenByDescending { it.rssi }))
-//            pods.values.sortedByDescending { it.rssi }
+            val belowThresholdSorted = pods.values
+                .filter { it.signalQuality <= minimumSignalQuality }
+                .sortedWith(
+                    compareBy<PodDevice> { Duration.between(it.lastSeenAt, now) }.thenByDescending { it.rssi }
+                )
+
+            val main = pods.values.determineMainDevice()
+            (aboveTresholdSorted + belowThresholdSorted).sortedByDescending { it == main }
         }
         .onStart { emit(emptyList()) }
         .catch {
@@ -107,16 +101,17 @@ class PodMonitor @Inject constructor(
         .replayingShare(appScope)
 
     val mainDevice: Flow<PodDevice?>
-        get() = devices.map { devices ->
-            devices.maxByOrNull { it.rssi }?.let filter@{ device ->
-                val minimumSignalQuality = generalSettings.minimumSignalQuality.value
+        get() = devices.map { it.determineMainDevice() }
 
-                generalSettings.mainDeviceModel.value.let {
-                    if (device.model != it && it != PodDevice.Model.UNKNOWN) return@filter null
-                }
+    private fun Collection<PodDevice>.determineMainDevice(): PodDevice? =
+        maxByOrNull { it.rssi }?.let filter@{ device ->
+            val minimumSignalQuality = generalSettings.minimumSignalQuality.value
 
-                if (device.signalQuality > minimumSignalQuality) device else null
+            generalSettings.mainDeviceModel.value.let {
+                if (device.model != it && it != PodDevice.Model.UNKNOWN) return@filter null
             }
+
+            if (device.signalQuality > minimumSignalQuality) device else null
         }
 
     companion object {
