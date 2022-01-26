@@ -38,9 +38,8 @@ class DualApplePodsCardVH(parent: ViewGroup) :
 
         lastSeen.text = device.lastSeenFormatted(item.now)
 
-        reception.text = device.getSignalQuality(context)
-        if (item.isMainPod) {
-            reception.append("\n(${getString(R.string.pods_yours)})")
+        reception.text = device.getSignalQuality(context).let {
+            if (item.isMainPod) "$it\n(${getString(R.string.pods_yours)})" else it
         }
 
         // Left Pod
