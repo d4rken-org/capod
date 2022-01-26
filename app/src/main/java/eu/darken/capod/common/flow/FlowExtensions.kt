@@ -34,7 +34,7 @@ fun <T : Any> Flow<T>.shareLatest(
     )
     .filterNotNull()
 
-fun <T : Any> Flow<T>.replayingShare(scope: CoroutineScope) = this.shareIn(
+fun <T : Any?> Flow<T>.replayingShare(scope: CoroutineScope) = this.shareIn(
     scope = scope,
     replay = 1,
     started = SharingStarted.WhileSubscribed(replayExpiration = Duration.ZERO)

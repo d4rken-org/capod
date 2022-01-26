@@ -35,18 +35,18 @@ class PodMonitor @Inject constructor(
     val devices: Flow<List<PodDevice>> = bluetoothManager.isBluetoothEnabled
         .flatMapLatest { isBluetoothEnabled ->
             if (isBluetoothEnabled) {
-                generalSettings.scannerMode.flow
+                log(TAG) { "Bluetooth is enabled" }
+                generalSettings.scannerMode.flow.flatMapLatest { bleScanner.scan(scannerMode = it) }
             } else {
                 log(TAG, WARN) { "Bluetooth is currently disabled" }
-                emptyFlow()
+                flowOf(null)
             }
         }
-        .flatMapLatest { bleScanner.scan(scannerMode = it) }
         .map { result ->
             // For each address we only want the newest result, upstream may batch data
-            result.groupBy { it.address }
-                .values
-                .map { sameAdrDevs ->
+            result?.groupBy { it.address }
+                ?.values
+                ?.map { sameAdrDevs ->
                     val newest = sameAdrDevs.maxByOrNull { it.generatedAtNanos }!!
                     sameAdrDevs.minus(newest).let {
                         if (it.isNotEmpty()) log(TAG, VERBOSE) { "Discarding stale results: $it" }
@@ -55,12 +55,16 @@ class PodMonitor @Inject constructor(
                 }
         }
         .map { scanResults ->
-            val newPods = scanResults
-                .mapNotNull { podFactory.createPod(it) }
-
             val pods = mutableMapOf<PodDevice.Id, PodDevice>()
 
             cacheLock.withLock {
+                if (scanResults == null) {
+                    log(TAG) { "Null result, Bluetooth is disabled." }
+                    deviceCache.clear()
+                    return@map emptyList()
+                }
+
+                val newPods = scanResults.mapNotNull { podFactory.createPod(it) }
                 val now = Instant.now()
                 deviceCache.toList().forEach { (key, value) ->
                     if (Duration.between(value.lastSeenAt, now) > Duration.ofSeconds(20)) {
@@ -103,7 +107,9 @@ class PodMonitor @Inject constructor(
         .replayingShare(appScope)
 
     val mainDevice: Flow<PodDevice?>
-        get() = devices.map { it.determineMainDevice() }
+        get() = devices
+            .map { it.determineMainDevice() }
+            .replayingShare(appScope)
 
     private fun Collection<PodDevice>.determineMainDevice(): PodDevice? =
         maxByOrNull { it.rssi }?.let filter@{ device ->

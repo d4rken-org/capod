@@ -106,10 +106,9 @@ class OverviewFragmentVM @Inject constructor(
         debugSettings.isDebugModeEnabled.flow,
         generalSettings.showAll.flow,
         bluetoothManager.isBluetoothEnabled,
-    ) { _, permissions, pods, isDebugMode, showAll, isBluetoothEnabled ->
+        podMonitor.mainDevice,
+    ) { _, permissions, pods, isDebugMode, showAll, isBluetoothEnabled, mainPod ->
         val items = mutableListOf<OverviewAdapter.Item>()
-
-        val mainPod = podMonitor.mainDevice.first()
 
         permissions
             .map { perm ->
