@@ -119,7 +119,7 @@ interface ApplePods : PodDevice {
                     rssiHistory = recognizedDevice.rssiHistory
                         .toMutableList()
                         .let {
-                            if (it.size > 2) it.removeAt(0)
+                            if (it.size > 3) it.removeAt(0)
                             it.plus(scanResult.rssi)
                         }
                 )

@@ -4,6 +4,7 @@ import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
@@ -83,24 +84,31 @@ class PodMonitor @Inject constructor(
 
             val now = Instant.now()
             val minimumSignalQuality = generalSettings.minimumSignalQuality.value
+            val mainDeviceModel = generalSettings.mainDeviceModel.value
 
             val aboveTresholdSorted = pods.values
                 .filter { it.signalQuality > minimumSignalQuality }
                 .sortedWith(
-                    compareBy<PodDevice> { Duration.between(it.lastSeenAt, now) }.thenByDescending { it.rssi }
+                    compareByDescending<PodDevice> { it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN }
+                        .thenBy {
+                            val age = Duration.between(it.lastSeenAt, now).seconds
+                            if (age < 3) 0L else age
+                        }
+                        .thenByDescending { it.signalQuality }
                 )
             val belowThresholdSorted = pods.values
                 .filter { it.signalQuality <= minimumSignalQuality }
                 .sortedWith(
-                    compareBy<PodDevice> { Duration.between(it.lastSeenAt, now) }.thenByDescending { it.rssi }
+                    compareBy<PodDevice> { Duration.between(it.lastSeenAt, now) }.thenByDescending { it.signalQuality }
                 )
 
-            val main = pods.values.determineMainDevice()
-            (aboveTresholdSorted + belowThresholdSorted).sortedByDescending { it == main }
+            val presorted = (aboveTresholdSorted + belowThresholdSorted)
+            val main = presorted.determineMainDevice()
+            presorted.sortedByDescending { it == main }
         }
         .onStart { emit(emptyList()) }
         .retryWhen { cause, attempt ->
-            log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: $cause" }
+            log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
             delay(3000)
             true
         }
@@ -111,15 +119,15 @@ class PodMonitor @Inject constructor(
             .map { it.determineMainDevice() }
             .replayingShare(appScope)
 
-    private fun Collection<PodDevice>.determineMainDevice(): PodDevice? =
-        firstOrNull()?.let filter@{ device ->
-            val minimumSignalQuality = generalSettings.minimumSignalQuality.value
-
-            generalSettings.mainDeviceModel.value.let {
-                if (device.model != it && it != PodDevice.Model.UNKNOWN) return@filter null
+    private fun List<PodDevice>.determineMainDevice(): PodDevice? =
+        this.firstOrNull()?.let {
+            val mainDeviceModel = generalSettings.mainDeviceModel.value
+            when {
+                it.model == PodDevice.Model.UNKNOWN -> null
+                mainDeviceModel != PodDevice.Model.UNKNOWN && it.model != mainDeviceModel -> null
+                it.signalQuality <= generalSettings.minimumSignalQuality.value -> null
+                else -> it
             }
-
-            if (device.signalQuality > minimumSignalQuality) device else null
         }
 
     companion object {
