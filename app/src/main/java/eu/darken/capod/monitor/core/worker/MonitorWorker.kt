@@ -21,6 +21,7 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.*
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.reaction.ReactionHub
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
@@ -68,9 +69,13 @@ class MonitorWorker @AssistedInject constructor(
 
         Result.success(inputData)
     } catch (e: Throwable) {
-        Bugs.report(tag = TAG, "Execution failed", exception = e)
-        finishedWithError = true
-        Result.failure(inputData)
+        if (e !is CancellationException) {
+            Bugs.report(tag = TAG, "Execution failed", exception = e)
+            finishedWithError = true
+            Result.failure(inputData)
+        } else {
+            Result.success()
+        }
     } finally {
         this.workerScope.cancel("Worker finished (withError?=$finishedWithError).")
     }
