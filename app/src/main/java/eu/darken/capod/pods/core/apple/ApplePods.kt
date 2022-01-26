@@ -2,7 +2,6 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
-import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
@@ -98,10 +97,11 @@ interface ApplePods : PodDevice {
                 recognizedDevice = knownDevs.values
                     .firstOrNull { it.message.getRecogMarkers() == currentMarkers }
                     ?.also {
-                        log(tag, DEBUG) { "recognizeDevice: Close match based similarity markers." }
-                        log(tag, DEBUG) { "recognizeDevice: Old marker: ${it.message.getRecogMarkers()}" }
-                        log(tag, DEBUG) { "recognizeDevice: New marker: $currentMarkers" }
+                        log(tag) { "recognizeDevice: Close match based similarity markers: $currentMarkers" }
                     }
+                if (recognizedDevice == null) {
+                    log(tag) { "recognizeDevice: Markers didn't match any previous data: $currentMarkers" }
+                }
             }
 
             recognizedDevice = if (recognizedDevice == null) {
