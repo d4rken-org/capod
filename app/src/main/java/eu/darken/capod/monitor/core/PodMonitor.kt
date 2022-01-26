@@ -4,7 +4,6 @@ import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
-import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
@@ -12,6 +11,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -95,8 +95,10 @@ class PodMonitor @Inject constructor(
             (aboveTresholdSorted + belowThresholdSorted).sortedByDescending { it == main }
         }
         .onStart { emit(emptyList()) }
-        .catch {
-            log(TAG, ERROR) { "PodMonitor failed:\n${it.asLog()}" }
+        .retryWhen { cause, attempt ->
+            log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: $cause" }
+            delay(3000)
+            true
         }
         .replayingShare(appScope)
 
