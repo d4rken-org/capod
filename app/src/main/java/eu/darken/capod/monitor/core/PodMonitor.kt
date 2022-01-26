@@ -112,7 +112,7 @@ class PodMonitor @Inject constructor(
             .replayingShare(appScope)
 
     private fun Collection<PodDevice>.determineMainDevice(): PodDevice? =
-        maxByOrNull { it.rssi }?.let filter@{ device ->
+        firstOrNull()?.let filter@{ device ->
             val minimumSignalQuality = generalSettings.minimumSignalQuality.value
 
             generalSettings.mainDeviceModel.value.let {
