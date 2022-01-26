@@ -13,7 +13,8 @@ data class BeatsX(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
-    override val proximityMessage: ProximityPairing.Message
+    override val proximityMessage: ProximityPairing.Message,
+    override val rssiHistory: List<Int>,
 ) : BasicSingleApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.BEATS_X
@@ -24,12 +25,13 @@ data class BeatsX(
             proximityMessage.getModelInfo().full == DEVICE_CODE
 
         override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
-            val identifier = recognizeDevice(scanResult, proximityMessage)
+            val recognized = recognizeDevice(scanResult, proximityMessage)
 
             return BeatsX(
-                identifier = identifier,
+                identifier = recognized.identifier,
                 scanResult = scanResult,
                 proximityMessage = proximityMessage,
+                rssiHistory = recognized.rssiHistory,
             )
         }
 

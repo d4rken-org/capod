@@ -67,6 +67,7 @@ interface ApplePods : PodDevice {
             val identifier: PodDevice.Id,
             val scanResult: BleScanResult,
             val message: ProximityPairing.Message,
+            val rssiHistory: List<Int> = emptyList()
         ) {
             val address: String
                 get() = scanResult.address
@@ -85,46 +86,46 @@ interface ApplePods : PodDevice {
 
         private val knownDevs = mutableMapOf<PodDevice.Id, KnownDevice>()
 
-        internal fun recognizeDevice(scanResult: BleScanResult, message: ProximityPairing.Message): PodDevice.Id {
+        internal fun recognizeDevice(scanResult: BleScanResult, message: ProximityPairing.Message): KnownDevice {
             val address = scanResult.address
 
-            var identifier: PodDevice.Id? = null
+            var recognizedDevice: KnownDevice? = knownDevs.values
+                .firstOrNull { it.address == address }
+                ?.also { log(tag, VERBOSE) { "recognizeDevice: Recovered previous ID via address: $it" } }
 
-            knownDevs.values.firstOrNull { it.address == address }?.let {
-                log(tag, VERBOSE) { "recognizeDevice: Recovered previous ID via address: $it" }
-                knownDevs[it.identifier] = it.copy(
-                    scanResult = scanResult,
-                    message = message,
-                )
-                identifier = it.identifier
-            }
-
-            if (identifier == null) {
+            if (recognizedDevice == null) {
                 val currentMarkers = message.getRecogMarkers()
-                knownDevs.values
+                recognizedDevice = knownDevs.values
                     .firstOrNull { it.message.getRecogMarkers() == currentMarkers }
-                    ?.let {
+                    ?.also {
                         log(tag, DEBUG) { "recognizeDevice: Close match based similarity markers." }
                         log(tag, DEBUG) { "recognizeDevice: Old marker: ${it.message.getRecogMarkers()}" }
                         log(tag, DEBUG) { "recognizeDevice: New marker: $currentMarkers" }
-                        knownDevs[it.identifier] = it.copy(
-                            scanResult = scanResult,
-                            message = message,
-                        )
-                        identifier = it.identifier
                     }
             }
 
-            if (identifier == null) {
+            recognizedDevice = if (recognizedDevice == null) {
                 log(tag, VERBOSE) { "recognizeDevice: Mapping as new device" }
-                identifier = PodDevice.Id()
+                KnownDevice(
+                    identifier = PodDevice.Id(),
+                    scanResult = scanResult,
+                    message = message,
+                    rssiHistory = listOf(scanResult.rssi)
+                )
+            } else {
+                recognizedDevice.copy(
+                    scanResult = scanResult,
+                    message = message,
+                    rssiHistory = recognizedDevice.rssiHistory
+                        .toMutableList()
+                        .let {
+                            if (it.size > 2) it.removeAt(0)
+                            it.plus(scanResult.rssi)
+                        }
+                )
             }
 
-            knownDevs[identifier!!] = KnownDevice(
-                identifier = identifier!!,
-                scanResult = scanResult,
-                message = message
-            )
+            knownDevs[recognizedDevice.identifier] = recognizedDevice
 
             knownDevs.values.toList().forEach { knownDevice ->
                 if (knownDevice.isOlderThan(Duration.ofSeconds(20))) {
@@ -133,7 +134,7 @@ interface ApplePods : PodDevice {
                 }
             }
 
-            return identifier!!
+            return recognizedDevice
         }
 
         data class ModelInfo(

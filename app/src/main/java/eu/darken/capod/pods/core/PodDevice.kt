@@ -20,8 +20,10 @@ interface PodDevice {
 
     val scanResult: BleScanResult
 
+    val rssiHistory: List<Int>
+
     val rssi: Int
-        get() = scanResult.rssi
+        get() = rssiHistory.sum() / rssiHistory.size
 
     /**
      * This is not correct but it works ¯\_(ツ)_/¯

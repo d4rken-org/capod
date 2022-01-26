@@ -14,6 +14,7 @@ data class AirPodsMax(
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
+    override val rssiHistory: List<Int>,
 ) : SingleApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX
@@ -24,12 +25,13 @@ data class AirPodsMax(
             proximityMessage.getModelInfo().dirty == DEVICE_CODE_DIRTY
 
         override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
-            val identifier = recognizeDevice(scanResult, proximityMessage)
+            val recognized = recognizeDevice(scanResult, proximityMessage)
 
             return AirPodsMax(
-                identifier = identifier,
+                identifier = recognized.identifier,
                 scanResult = scanResult,
                 proximityMessage = proximityMessage,
+                rssiHistory = recognized.rssiHistory,
             )
         }
 

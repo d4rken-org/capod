@@ -15,6 +15,7 @@ data class PowerBeatsPro(
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
     private val cachedBatteryPercentage: Float?,
+    override val rssiHistory: List<Int>,
 ) : DualApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.POWERBEATS_PRO
@@ -28,16 +29,17 @@ data class PowerBeatsPro(
             proximityMessage.getModelInfo().dirty == DEVICE_CODE_DIRTY
 
         override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
-            val identifier = recognizeDevice(scanResult, proximityMessage)
+            val recognized = recognizeDevice(scanResult, proximityMessage)
 
             val device = PowerBeatsPro(
-                identifier = identifier,
+                identifier = recognized.identifier,
                 scanResult = scanResult,
                 proximityMessage = proximityMessage,
-                cachedBatteryPercentage = cachedValues[identifier]?.caseBatteryPercentage
+                cachedBatteryPercentage = cachedValues[recognized.identifier]?.caseBatteryPercentage,
+                rssiHistory = recognized.rssiHistory,
             )
 
-            cachedValues[identifier] = ValueCache(
+            cachedValues[recognized.identifier] = ValueCache(
                 caseBatteryPercentage = device.batteryCasePercent
             )
 

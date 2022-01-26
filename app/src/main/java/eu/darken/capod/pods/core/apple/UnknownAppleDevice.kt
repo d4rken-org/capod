@@ -13,7 +13,8 @@ data class UnknownAppleDevice(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
-    override val proximityMessage: ProximityPairing.Message
+    override val proximityMessage: ProximityPairing.Message,
+    override val rssiHistory: List<Int>
 ) : ApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.UNKNOWN
@@ -27,12 +28,13 @@ data class UnknownAppleDevice(
             scanResult: BleScanResult,
             proximityMessage: ProximityPairing.Message,
         ): ApplePods {
-            val identifier = recognizeDevice(scanResult, proximityMessage)
+            val recognized = recognizeDevice(scanResult, proximityMessage)
 
             return UnknownAppleDevice(
-                identifier = identifier,
+                identifier = recognized.identifier,
                 scanResult = scanResult,
                 proximityMessage = proximityMessage,
+                rssiHistory = recognized.rssiHistory,
             )
         }
     }
