@@ -1,8 +1,7 @@
 package eu.darken.capod.reaction.popup
 
 import eu.darken.capod.common.coroutine.DispatcherProvider
-import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
@@ -14,6 +13,8 @@ import eu.darken.capod.reaction.popup.ui.PopUpWindow
 import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.withContext
+import java.time.Duration
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,6 +25,8 @@ class PopUpReaction @Inject constructor(
     private val popupWindow: PopUpWindow,
     private val dispatcherProvider: DispatcherProvider,
 ) {
+
+    private val coolDowns = mutableMapOf<PodDevice.Id, Instant>()
 
     fun monitor(): Flow<Unit> = reactionSettings.showPopUpOnCaseOpen.flow
         .flatMapLatest { isEnabled ->
@@ -52,20 +55,47 @@ class PopUpReaction @Inject constructor(
                 if (isSameDeviceWithCaseNowOpen || isNewDeviceWithJustOpenedCase) {
                     log(TAG) { "Case lid status changed for monitored device." }
 
-                    if (current.caseLidState == DualApplePods.LidState.OPEN && current.model != PodDevice.Model.UNKNOWN) {
-                        log(TAG, INFO) { "Show popup" }
-                        withContext(dispatcherProvider.Main) {
-                            popupWindow.show(current)
-                        }
-                    } else if (current.caseLidState != DualApplePods.LidState.OPEN) {
-                        log(TAG, INFO) { "Hide popup" }
-                        withContext(dispatcherProvider.Main) {
-                            popupWindow.close()
-                        }
-                    }
+                    tryPopWindow(current)
                 }
             }
         }
+
+    private suspend fun tryPopWindow(current: DualApplePods) {
+        if (current.caseLidState == DualApplePods.LidState.OPEN) {
+            log(TAG, INFO) { "Show popup" }
+
+            val now = Instant.now()
+            val lastShown = coolDowns[current.identifier] ?: Instant.MIN
+            val sinceLastPop = Duration.between(lastShown, now)
+            log(TAG) { "Time since last popup: $sinceLastPop" }
+            if (sinceLastPop < Duration.ofSeconds(10)) {
+                log(TAG, INFO) { "Popup is still on cooldown: $sinceLastPop" }
+                return
+            } else {
+                coolDowns[current.identifier] = Instant.now()
+            }
+
+            withContext(dispatcherProvider.Main) {
+                popupWindow.show(current)
+            }
+        } else if (current.caseLidState != DualApplePods.LidState.OPEN) {
+            when (current.caseLidState) {
+                DualApplePods.LidState.CLOSED -> {
+                    log(TAG, INFO) { "Lid was actively closed, resetting cooldown." }
+                    coolDowns.remove(current.identifier)
+                }
+                else -> {
+                    log(TAG, WARN) { "Lid was was not actively closed, refreshing cooldown." }
+                    coolDowns[current.identifier] = Instant.now()
+                }
+            }
+
+            log(TAG, INFO) { "Hide popup" }
+            withContext(dispatcherProvider.Main) {
+                popupWindow.close()
+            }
+        }
+    }
 
     companion object {
         private val TAG = logTag("Reaction", "PopUp")
