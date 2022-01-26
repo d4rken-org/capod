@@ -109,9 +109,6 @@ class BillingClientConnectionProvider @Inject constructor(
             delay(3000 * attempt)
             true
         }
-        .catch {
-            log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" }
-        }
 
     companion object {
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "Client", "ConnectionProvider")

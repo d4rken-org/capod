@@ -28,6 +28,7 @@ class BillingDataRepo @Inject constructor(
 ) {
 
     private val connectionProvider = billingClientConnectionProvider.connection
+        .catch { log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" } }
         .replayingShare(scope)
 
     val billingData: Flow<BillingData> = connectionProvider
