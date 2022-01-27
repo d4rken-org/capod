@@ -14,27 +14,35 @@ data class UnknownAppleDevice(
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
-    override val rssiHistory: List<Int>
+    override val confidence: Float = 0f,
+    private val rssiAverage: Int? = null,
 ) : ApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.UNKNOWN
 
     override fun getLabel(context: Context): String = context.getString(R.string.pods_unknown_label)
 
-    class Factory @Inject constructor() : ApplePods.Factory(TAG) {
+    override val rssi: Int
+        get() = rssiAverage ?: super.rssi
+
+    class Factory @Inject constructor() : ApplePodsFactory<ApplePods>(TAG) {
         override fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean = true
 
         override fun create(
             scanResult: BleScanResult,
             proximityMessage: ProximityPairing.Message,
         ): ApplePods {
-            val recognized = recognizeDevice(scanResult, proximityMessage)
+            val basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = proximityMessage)
+            val result = searchHistory(basic)
 
-            return UnknownAppleDevice(
-                identifier = recognized.identifier,
-                scanResult = scanResult,
-                proximityMessage = proximityMessage,
-                rssiHistory = recognized.rssiHistory,
+            updateHistory(basic)
+
+            if (result == null) return basic
+
+            return basic.copy(
+                identifier = result.id,
+                confidence = result.confidence,
+                rssiAverage = result.averageRssi(basic.rssi),
             )
         }
     }

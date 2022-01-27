@@ -79,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/reception"
             app:layout_constraintTop_toTopOf="@+id/reception"
-            app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24"
+            app:srcCompat="@drawable/ic_baseline_settings_input_antenna_24"
             tools:text="Yours (RSSI -61)" />
 
         <androidx.constraintlayout.widget.Barrier

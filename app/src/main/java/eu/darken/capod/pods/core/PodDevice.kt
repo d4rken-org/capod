@@ -9,6 +9,7 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import java.time.Instant
 import java.util.*
 import kotlin.math.abs
+import kotlin.math.max
 
 interface PodDevice {
 
@@ -16,21 +17,24 @@ interface PodDevice {
 
     val model: Model
 
+    val address: String
+        get() = scanResult.address
+
     val lastSeenAt: Instant
 
     val scanResult: BleScanResult
 
-    val rssiHistory: List<Int>
-
     val rssi: Int
-        get() = rssiHistory.sum() / rssiHistory.size
+        get() = scanResult.rssi
+
+    val confidence: Float
 
     /**
      * This is not correct but it works ¯\_(ツ)_/¯
      * The range of the RSSI is device specific (ROMs).
      */
     val signalQuality: Float
-        get() = (100 - abs(rssi)) / 100f
+        get() = ((100 - abs(rssi)) / 100f) * (max(BASE_CONFIDENCE, confidence))
 
     val rawData: ByteArray
 
@@ -92,5 +96,9 @@ interface PodDevice {
         @Json(name = "unknown") UNKNOWN(
             "Unknown"
         );
+    }
+
+    companion object {
+        const val BASE_CONFIDENCE = 0.5f
     }
 }

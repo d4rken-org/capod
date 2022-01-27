@@ -21,7 +21,7 @@ import javax.inject.Singleton
 class AppleFactory @Inject constructor(
     private val continuityProtocolDecoder: ContinuityProtocol.Decoder,
     private val proximityPairingDecoder: ProximityPairing.Decoder,
-    private val podFactories: @JvmSuppressWildcards Set<ApplePods.Factory>,
+    private val podFactories: @JvmSuppressWildcards Set<ApplePodsFactory<out ApplePods>>,
     private val unknownAppleFactory: UnknownAppleDevice.Factory,
 ) {
 

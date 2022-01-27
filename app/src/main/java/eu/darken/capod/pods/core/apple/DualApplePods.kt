@@ -182,4 +182,5 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
 
         constructor(raw: Int, @StringRes labelRes: Int) : this(raw.toUByte(), labelRes)
     }
+
 }

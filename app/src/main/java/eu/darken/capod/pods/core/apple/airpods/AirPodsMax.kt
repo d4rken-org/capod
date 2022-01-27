@@ -5,6 +5,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.SingleApplePods
+import eu.darken.capod.pods.core.apple.SingleApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
@@ -14,24 +15,32 @@ data class AirPodsMax(
     override val lastSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
-    override val rssiHistory: List<Int>,
+    override val confidence: Float = PodDevice.BASE_CONFIDENCE,
+    private val rssiAverage: Int? = null,
 ) : SingleApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX
 
-    class Factory @Inject constructor() : ApplePods.Factory(TAG) {
+    override val rssi: Int
+        get() = rssiAverage ?: super.rssi
+
+    class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
 
         override fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean =
             proximityMessage.getModelInfo().dirty == DEVICE_CODE_DIRTY
 
         override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
-            val recognized = recognizeDevice(scanResult, proximityMessage)
+            val basic = AirPodsMax(scanResult = scanResult, proximityMessage = proximityMessage)
+            val result = searchHistory(basic)
 
-            return AirPodsMax(
-                identifier = recognized.identifier,
-                scanResult = scanResult,
-                proximityMessage = proximityMessage,
-                rssiHistory = recognized.rssiHistory,
+            updateHistory(basic)
+
+            if (result == null) return basic
+
+            return basic.copy(
+                identifier = result.id,
+                confidence = result.confidence,
+                rssiAverage = result.averageRssi(basic.rssi),
             )
         }
 

@@ -72,8 +72,8 @@ class BleScanner @Inject constructor(
             )
             if (adapter.isOffloadedScanBatchingSupported) {
                 when (scannerMode) {
-                    ScannerMode.LOW_POWER -> setReportDelay(5000)
-                    ScannerMode.BALANCED -> setReportDelay(2500)
+                    ScannerMode.LOW_POWER -> setReportDelay(2000)
+                    ScannerMode.BALANCED -> setReportDelay(1000)
                     ScannerMode.LOW_LATENCY -> setReportDelay(500)
                 }
             } else {
@@ -87,7 +87,7 @@ class BleScanner @Inject constructor(
                 adapter.bluetoothLeScanner.flushPendingScanResults(callback)
                 when (scannerMode) {
                     ScannerMode.LOW_POWER -> break
-                    ScannerMode.BALANCED -> delay(2500)
+                    ScannerMode.BALANCED -> delay(1000)
                     ScannerMode.LOW_LATENCY -> delay(500)
                 }
             }
