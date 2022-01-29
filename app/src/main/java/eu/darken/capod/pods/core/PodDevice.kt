@@ -22,6 +22,8 @@ interface PodDevice {
 
     val lastSeenAt: Instant
 
+    val firstSeenAt: Instant
+
     val scanResult: BleScanResult
 
     val rssi: Int

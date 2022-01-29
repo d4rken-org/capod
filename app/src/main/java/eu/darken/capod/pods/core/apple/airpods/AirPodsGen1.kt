@@ -13,6 +13,7 @@ import javax.inject.Inject
 data class AirPodsGen1 constructor(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val lastSeenAt: Instant = Instant.now(),
+    override val firstSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
@@ -47,6 +48,7 @@ data class AirPodsGen1 constructor(
 
             return basic.copy(
                 identifier = result.id,
+                firstSeenAt = result.firstSeenAt,
                 confidence = result.confidence,
                 cachedBatteryPercentage = result.getLatestCaseBattery(),
                 rssiAverage = result.averageRssi(basic.rssi),

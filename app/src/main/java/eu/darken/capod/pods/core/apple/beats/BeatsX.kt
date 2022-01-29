@@ -13,6 +13,7 @@ import javax.inject.Inject
 data class BeatsX(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val lastSeenAt: Instant = Instant.now(),
+    override val firstSeenAt: Instant = Instant.now(),
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
@@ -39,6 +40,7 @@ data class BeatsX(
 
             return basic.copy(
                 identifier = result.id,
+                firstSeenAt = result.firstSeenAt,
                 confidence = result.confidence,
                 rssiAverage = result.averageRssi(basic.rssi),
             )

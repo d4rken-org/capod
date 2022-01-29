@@ -137,4 +137,6 @@
     <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
     <string name="permission_system_alert_window_label">System Alert Window</string>
     <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
+    <string name="last_seen_x">Last seen: %s</string>
+    <string name="first_seen_x">First seen: %s</string>
 </resources>

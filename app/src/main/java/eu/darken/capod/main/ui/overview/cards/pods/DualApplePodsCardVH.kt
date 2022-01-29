@@ -2,6 +2,7 @@ package eu.darken.capod.main.ui.overview.cards.pods
 
 import android.graphics.Typeface
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
@@ -10,6 +11,7 @@ import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.DeviceColor
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
+import java.time.Duration
 import java.time.Instant
 
 class DualApplePodsCardVH(parent: ViewGroup) :
@@ -36,7 +38,9 @@ class DualApplePodsCardVH(parent: ViewGroup) :
         }
         deviceIcon.setImageResource(device.iconRes)
 
-        lastSeen.text = device.lastSeenFormatted(item.now)
+        lastSeen.text = context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
+        firstSeen.text = context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
+        firstSeen.isGone = Duration.between(device.firstSeenAt, device.lastSeenAt).toMinutes() < 1
 
         reception.text = device.getSignalQuality(context).let {
             if (item.isMainPod) "$it\n(${getString(R.string.pods_yours)})" else it

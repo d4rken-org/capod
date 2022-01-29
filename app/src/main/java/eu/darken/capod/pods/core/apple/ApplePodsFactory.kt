@@ -9,6 +9,7 @@ import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Duration
+import java.time.Instant
 
 abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
@@ -33,6 +34,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
     data class KnownDevice(
         val id: PodDevice.Id,
+        val firstSeenAt: Instant,
         val history: List<ApplePods>
     ) {
         val lastMessage: ProximityPairing.Message
@@ -111,6 +113,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
                 log(tag) { "searchHistory1: Creating new history for $device" }
                 KnownDevice(
                     id = device.identifier,
+                    firstSeenAt = device.firstSeenAt,
                     history = listOf(device)
                 )
             }

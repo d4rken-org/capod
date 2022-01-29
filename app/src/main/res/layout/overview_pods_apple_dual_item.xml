@@ -45,12 +45,24 @@
             style="@style/TextAppearance.MaterialComponents.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/first_seen"
+            app:layout_constraintEnd_toEndOf="@id/name"
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_goneMarginBottom="8dp"
+            tools:text="Last seen: 3s ago" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/first_seen"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@id/barrier_top"
             app:layout_constraintEnd_toEndOf="@id/name"
             app:layout_constraintStart_toStartOf="@id/name"
-            app:layout_constraintTop_toBottomOf="@id/name"
-            tools:text="3s ago" />
+            app:layout_constraintTop_toBottomOf="@id/last_seen"
+            tools:text="First seen: 3s ago" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/reception"

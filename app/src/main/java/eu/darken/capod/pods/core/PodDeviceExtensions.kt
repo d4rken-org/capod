@@ -52,3 +52,12 @@ fun PodDevice.lastSeenFormatted(now: Instant): String {
         RelativeDateTimeFormatter.RelativeUnit.SECONDS
     )
 }
+
+fun PodDevice.firstSeenFormatted(now: Instant): String {
+    val duration = Duration.between(firstSeenAt, now)
+    return lastSeenFormatter.format(
+        duration.toMinutes().toDouble(),
+        RelativeDateTimeFormatter.Direction.LAST,
+        RelativeDateTimeFormatter.RelativeUnit.MINUTES
+    )
+}
