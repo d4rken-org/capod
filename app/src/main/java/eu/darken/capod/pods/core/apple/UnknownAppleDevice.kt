@@ -11,8 +11,9 @@ import javax.inject.Inject
 
 data class UnknownAppleDevice(
     override val identifier: PodDevice.Id = PodDevice.Id(),
-    override val lastSeenAt: Instant = Instant.now(),
-    override val firstSeenAt: Instant = Instant.now(),
+    override val seenLastAt: Instant = Instant.now(),
+    override val seenFirstAt: Instant = Instant.now(),
+    override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = 0f,
@@ -33,15 +34,18 @@ data class UnknownAppleDevice(
             scanResult: BleScanResult,
             proximityMessage: ProximityPairing.Message,
         ): ApplePods {
-            val basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = proximityMessage)
+            var basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = proximityMessage)
             val result = searchHistory(basic)
 
+            if (result != null) basic = basic.copy(identifier = result.id)
             updateHistory(basic)
 
             if (result == null) return basic
 
             return basic.copy(
                 identifier = result.id,
+                seenFirstAt = result.seenFirstAt,
+                seenCounter = result.seenCounter,
                 confidence = result.confidence,
                 rssiAverage = result.averageRssi(basic.rssi),
             )

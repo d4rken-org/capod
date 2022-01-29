@@ -20,9 +20,11 @@ interface PodDevice {
     val address: String
         get() = scanResult.address
 
-    val lastSeenAt: Instant
+    val seenLastAt: Instant
 
-    val firstSeenAt: Instant
+    val seenFirstAt: Instant
+
+    val seenCounter: Int
 
     val scanResult: BleScanResult
 

@@ -6,7 +6,6 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsUnknownItemBinding
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.getSignalQuality
 import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Instant
 
@@ -30,10 +29,7 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
 
         lastSeen.text = device.lastSeenFormatted(item.now)
 
-        reception.text = device.getSignalQuality(context)
-        if (item.isMainPod) {
-            reception.append("\n(${getString(R.string.pods_yours)})")
-        }
+        reception.text = item.getReceptionText()
 
         rawdata.text = device.rawDataHex
     }

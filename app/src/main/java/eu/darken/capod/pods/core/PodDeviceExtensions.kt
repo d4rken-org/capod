@@ -45,7 +45,7 @@ fun getBatteryDrawable(percent: Float?): Int = when {
 private val lastSeenFormatter = RelativeDateTimeFormatter.getInstance()
 
 fun PodDevice.lastSeenFormatted(now: Instant): String {
-    val duration = Duration.between(lastSeenAt, now)
+    val duration = Duration.between(seenLastAt, now)
     return lastSeenFormatter.format(
         duration.seconds.toDouble(),
         RelativeDateTimeFormatter.Direction.LAST,
@@ -54,7 +54,7 @@ fun PodDevice.lastSeenFormatted(now: Instant): String {
 }
 
 fun PodDevice.firstSeenFormatted(now: Instant): String {
-    val duration = Duration.between(firstSeenAt, now)
+    val duration = Duration.between(seenFirstAt, now)
     return lastSeenFormatter.format(
         duration.toMinutes().toDouble(),
         RelativeDateTimeFormatter.Direction.LAST,

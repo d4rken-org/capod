@@ -4,7 +4,6 @@ import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
@@ -46,7 +45,6 @@ class OverviewFragmentVM @Inject constructor(
     debugSettings: DebugSettings,
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
-    private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val upgradeState = upgradeRepo.upgradeInfo.asLiveData2()
@@ -55,7 +53,7 @@ class OverviewFragmentVM @Inject constructor(
     private val updateTicker = channelFlow<Unit> {
         while (isActive) {
             trySend(Unit)
-            delay(1000)
+            delay(3000)
         }
     }
 

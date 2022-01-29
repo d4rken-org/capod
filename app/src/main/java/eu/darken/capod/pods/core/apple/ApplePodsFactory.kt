@@ -1,6 +1,5 @@
 package eu.darken.capod.pods.core.apple
 
-import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -34,7 +33,8 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
     data class KnownDevice(
         val id: PodDevice.Id,
-        val firstSeenAt: Instant,
+        val seenFirstAt: Instant,
+        val seenCounter: Int,
         val history: List<ApplePods>
     ) {
         val lastMessage: ProximityPairing.Message
@@ -47,14 +47,18 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
             get() = 0.75f + (history.size / (MAX_HISTORY * 4f))
 
         fun averageRssi(latest: Int): Int =
-            history.map { it.rssi }.plus(latest).takeLast(10).average().toInt()
-
-        val timestampNanos: Duration
-            get() = Duration.ofNanos(history.last().scanResult.generatedAtNanos)
+            history.map { it.rssi }.plus(latest).takeLast(10).median()
 
         fun isOlderThan(age: Duration): Boolean {
-            val now = Duration.ofNanos(SystemClockWrap.elapsedRealtimeNanos)
-            return now - timestampNanos > age
+            val now = Instant.now()
+            return Duration.between(history.last().seenLastAt, now) > age
+        }
+
+        private fun List<Int>.median(): Int = this.sorted().let {
+            if (it.size % 2 == 0)
+                (it[it.size / 2] + it[(it.size - 1) / 2]) / 2
+            else
+                it[it.size / 2]
         }
 
         override fun toString(): String = "KnownDevice(history=${history.size}, last=${history.last()})"
@@ -107,13 +111,17 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
         knownDevices[device.identifier] = when {
             existing != null -> {
-                existing.copy(history = existing.history.plus(device))
+                existing.copy(
+                    seenCounter = existing.seenCounter + 1,
+                    history = existing.history.plus(device)
+                )
             }
             else -> {
                 log(tag) { "searchHistory1: Creating new history for $device" }
                 KnownDevice(
                     id = device.identifier,
-                    firstSeenAt = device.firstSeenAt,
+                    seenFirstAt = device.seenFirstAt,
+                    seenCounter = 1,
                     history = listOf(device)
                 )
             }

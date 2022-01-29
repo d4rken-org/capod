@@ -9,7 +9,6 @@ import eu.darken.capod.databinding.OverviewPodsAppleSingleBasicItemBinding
 import eu.darken.capod.pods.core.apple.BasicSingleApplePods
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.getBatteryLevelHeadset
-import eu.darken.capod.pods.core.getSignalQuality
 import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Instant
 
@@ -34,10 +33,7 @@ class BasicSingleApplePodsCardVH(parent: ViewGroup) :
 
         lastSeen.text = device.lastSeenFormatted(item.now)
 
-        reception.text = device.getSignalQuality(context)
-        if (item.isMainPod) {
-            reception.append("\n(${getString(R.string.pods_yours)})")
-        }
+        reception.text = item.getReceptionText()
 
         batteryLabel.text = device.getBatteryLevelHeadset(context)
         batteryIcon.setImageResource(getBatteryDrawable(device.batteryHeadsetPercent))

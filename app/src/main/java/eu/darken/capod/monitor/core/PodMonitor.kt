@@ -75,7 +75,7 @@ class PodMonitor @Inject constructor(
 
                 val now = Instant.now()
                 deviceCache.toList().forEach { (key, value) ->
-                    if (Duration.between(value.lastSeenAt, now) > Duration.ofSeconds(20)) {
+                    if (Duration.between(value.seenLastAt, now) > Duration.ofSeconds(20)) {
                         log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
                         deviceCache.remove(key)
                     }
@@ -89,28 +89,9 @@ class PodMonitor @Inject constructor(
                 }
             }
 
-            val now = Instant.now()
-            val minimumSignalQuality = generalSettings.minimumSignalQuality.value
-            val mainDeviceModel = generalSettings.mainDeviceModel.value
-
-            val aboveTresholdSorted = pods.values
-                .filter { it.signalQuality > minimumSignalQuality }
-                .sortedWith(
-                    compareByDescending<PodDevice> { it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN }
-                        .thenBy {
-                            val age = Duration.between(it.lastSeenAt, now).seconds
-                            if (age < 3) 0L else age
-                        }
-                        .thenByDescending { it.signalQuality }
-                )
-            val belowThresholdSorted = pods.values
-                .filter { it.signalQuality <= minimumSignalQuality }
-                .sortedWith(
-                    compareBy<PodDevice> { Duration.between(it.lastSeenAt, now) }.thenByDescending { it.signalQuality }
-                )
-
-            val presorted = (aboveTresholdSorted + belowThresholdSorted)
+            val presorted = pods.values.sortPodsToInterest()
             val main = presorted.determineMainDevice()
+
             presorted.sortedByDescending { it == main }
         }
         .onStart { emit(emptyList()) }
@@ -126,15 +107,39 @@ class PodMonitor @Inject constructor(
             .map { it.determineMainDevice() }
             .replayingShare(appScope)
 
-    private fun List<PodDevice>.determineMainDevice(): PodDevice? = this.firstOrNull()?.let {
-        val mainDeviceModel = generalSettings.mainDeviceModel.value
-        when {
-            it.model == PodDevice.Model.UNKNOWN -> null
-            mainDeviceModel != PodDevice.Model.UNKNOWN && it.model != mainDeviceModel -> null
-            it.signalQuality <= generalSettings.minimumSignalQuality.value -> null
-            else -> it
-        }
+    private fun Collection<PodDevice>.sortPodsToInterest(): List<PodDevice> = this.let { devices ->
+        val now = Instant.now()
+
+        return@let devices.sortedWith(
+            compareByDescending<PodDevice> { true }
+                .thenBy {
+                    val age = Duration.between(it.seenLastAt, now).seconds
+                    if (age < 5) 0L else (age / 3L).toLong()
+                }
+                .thenByDescending { it.signalQuality }
+                .thenByDescending { (it.seenCounter / 10) }
+
+        )
     }
+
+    private fun List<PodDevice>.determineMainDevice(): PodDevice? = this
+        .sortPodsToInterest()
+        .let { devices ->
+            val mainDeviceModel = generalSettings.mainDeviceModel.value
+
+            val presorted = devices.sortedByDescending {
+                it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN
+            }
+
+            return@let presorted.firstOrNull()?.let { candidate ->
+                when {
+                    candidate.model == PodDevice.Model.UNKNOWN -> null
+                    mainDeviceModel != PodDevice.Model.UNKNOWN && candidate.model != mainDeviceModel -> null
+                    candidate.signalQuality <= generalSettings.minimumSignalQuality.value -> null
+                    else -> candidate
+                }
+            }
+        }
 
     companion object {
         private val TAG = logTag("Monitor", "PodMonitor")

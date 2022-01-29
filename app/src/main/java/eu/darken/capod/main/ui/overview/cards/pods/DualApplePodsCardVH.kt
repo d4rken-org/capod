@@ -40,11 +40,9 @@ class DualApplePodsCardVH(parent: ViewGroup) :
 
         lastSeen.text = context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
         firstSeen.text = context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
-        firstSeen.isGone = Duration.between(device.firstSeenAt, device.lastSeenAt).toMinutes() < 1
+        firstSeen.isGone = Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() < 1
 
-        reception.text = device.getSignalQuality(context).let {
-            if (item.isMainPod) "$it\n(${getString(R.string.pods_yours)})" else it
-        }
+        reception.text = item.getReceptionText()
 
         // Left Pod
         device.apply {
