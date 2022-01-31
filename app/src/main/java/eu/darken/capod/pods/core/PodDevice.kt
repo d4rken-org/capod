@@ -40,10 +40,13 @@ interface PodDevice {
     val signalQuality: Float
         get() = ((100 - abs(rssi)) / 100f) * (max(BASE_CONFIDENCE, confidence))
 
-    val rawData: ByteArray
+    val rawData: Map<Int, ByteArray>
+        get() = scanResult.manufacturerSpecificData
 
-    val rawDataHex: String
-        get() = rawData.joinToString(separator = " ") { String.format("%02X", it) }
+    val rawDataHex: List<String>
+        get() = rawData.entries.map { entry ->
+            "${entry.key}: ${entry.value.joinToString(separator = " ") { String.format("%02X", it) }}"
+        }
 
     fun getLabel(context: Context): String = model.label
 

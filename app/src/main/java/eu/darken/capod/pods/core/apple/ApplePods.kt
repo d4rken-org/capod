@@ -4,15 +4,11 @@ import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.toHex
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 
 interface ApplePods : PodDevice {
 
     val proximityMessage: ProximityPairing.Message
-
-    override val rawData: ByteArray
-        get() = scanResult.getManufacturerSpecificData(ContinuityProtocol.APPLE_COMPANY_IDENTIFIER)!!
 
     // We start counting at the airpods prefix byte
     val rawPrefix: UByte

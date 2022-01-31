@@ -2,32 +2,34 @@ package eu.darken.capod.pods.core
 
 import dagger.Reusable
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.AppleFactory
+import eu.darken.capod.pods.core.unknown.UnknownDeviceFactory
 import javax.inject.Inject
 
 @Reusable
 class PodFactory @Inject constructor(
-    private val appleFactory: AppleFactory
+    private val appleFactory: AppleFactory,
+    private val unknownFactory: UnknownDeviceFactory,
 ) {
 
     suspend fun createPod(scanResult: BleScanResult): PodDevice? {
         log(TAG, VERBOSE) { "Trying to create Pod for $scanResult" }
 
-        val pod = appleFactory.create(scanResult)
-        if (pod != null) {
-            log(TAG) { "Pod created: $pod" }
-            return pod
-        } else {
-            log(TAG, WARN) { "Not an AirPod : $scanResult" }
+        log(TAG, INFO) { "Decoding $scanResult" }
+
+        var device = appleFactory.create(scanResult)
+
+        if (device == null) {
+            log(TAG, VERBOSE) { "Using fallback factory" }
+            device = unknownFactory.create(scanResult)
         }
 
-
-        log(TAG, WARN) { "Failed to find matching PodFactory for $scanResult" }
-        return null
+        log(TAG, INFO) { "Pod created: $device" }
+        return device
     }
 
     companion object {

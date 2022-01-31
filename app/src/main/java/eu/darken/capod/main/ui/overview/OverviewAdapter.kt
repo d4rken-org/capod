@@ -32,9 +32,9 @@ class OverviewAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is DualApplePodsCardVH.Item }) { DualApplePodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SingleApplePodsCardVH.Item }) { SingleApplePodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is BasicSingleApplePodsCardVH.Item }) { BasicSingleApplePodsCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is MissingMainDeviceVH.Item }) { MissingMainDeviceVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is BluetoothDisabledVH.Item }) { BluetoothDisabledVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
     }
 
     override fun getItemCount(): Int = data.size
