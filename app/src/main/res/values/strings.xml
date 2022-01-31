@@ -139,4 +139,6 @@
     <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
     <string name="last_seen_x">Last seen: %s</string>
     <string name="first_seen_x">First seen: %s</string>
+    <string name="settings_blescanner_unfiltered_label">Unfiltered BLE data</string>
+    <string name="settings_blescanner_unfiltered_description">Remove any filters from the BLE scanner to show all broadcasted BLE data. Useful to add support for new headphone types.</string>
 </resources>

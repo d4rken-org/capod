@@ -23,9 +23,12 @@ class DebugSettings @Inject constructor(
 
     val showFakeData = preferences.createFlowPreference("debug.fakedata.enabled", false)
 
+    val showUnfiltered = preferences.createFlowPreference("debug.blescanner.unfiltered.enabled", false)
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         isDebugModeEnabled,
         showFakeData,
+        showUnfiltered,
     )
 
 }

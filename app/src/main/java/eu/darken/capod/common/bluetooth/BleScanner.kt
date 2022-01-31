@@ -1,5 +1,6 @@
 package eu.darken.capod.common.bluetooth
 
+import android.annotation.SuppressLint
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
@@ -10,7 +11,6 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.main.core.ScannerMode
-import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -28,9 +28,9 @@ class BleScanner @Inject constructor(
     private val fakeBleData: FakeBleData,
 ) {
 
-    fun scan(
-        filter: Set<ScanFilter> = ProximityPairing.getBleScanFilter(),
-        scannerMode: ScannerMode = ScannerMode.LOW_POWER,
+    @SuppressLint("MissingPermission") fun scan(
+        filters: Set<ScanFilter>,
+        scannerMode: ScannerMode,
     ): Flow<List<BleScanResult>> = callbackFlow {
         val adapter = bluetoothManager.adapter
         val scanner = bluetoothManager.scanner
@@ -92,8 +92,8 @@ class BleScanner @Inject constructor(
         }
 
         if (adapter.isOffloadedFilteringSupported) {
-            scanner.startScan(filter.toList(), settings, callback)
-            log(TAG, VERBOSE) { "BleScanner started (filter=$filter, settings=$settings)" }
+            scanner.startScan(filters.toList(), settings, callback)
+            log(TAG, VERBOSE) { "BleScanner started (filters=$filters, settings=$settings)" }
         } else {
             log(TAG, WARN) { "isOffloadedFilteringSupported=false" }
             scanner.startScan(callback)

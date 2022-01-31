@@ -1,10 +1,13 @@
 package eu.darken.capod.monitor.core
 
+import android.bluetooth.le.ScanFilter
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.logging.Logging.Priority.*
+import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -13,6 +16,8 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
+import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
@@ -29,6 +34,7 @@ class PodMonitor @Inject constructor(
     private val podFactory: PodFactory,
     private val generalSettings: GeneralSettings,
     private val bluetoothManager: BluetoothManager2,
+    private val debugSettings: DebugSettings,
     @AppScope private val appScope: CoroutineScope
 ) {
 
@@ -54,9 +60,20 @@ class PodMonitor @Inject constructor(
         .flatMapLatest { isBluetoothEnabled ->
             if (isBluetoothEnabled) {
                 log(TAG) { "Bluetooth is enabled" }
-                generalSettings.scannerMode.flow
-                    .flatMapLatest { mode ->
-                        bleScanner.scan(scannerMode = mode).map { it.preFilterAndMap(mode) }
+                combine(
+                    generalSettings.scannerMode.flow,
+                    debugSettings.showUnfiltered.flow
+                ) { mode, unfiltered -> mode to unfiltered }
+                    .flatMapLatest { (mode, unfiltered) ->
+                        val filters = if (unfiltered) {
+                            setOf(getUnfilteredFilter())
+                        } else {
+                            ProximityPairing.getBleScanFilter()
+                        }
+                        bleScanner.scan(
+                            filters = filters,
+                            scannerMode = mode
+                        ).map { it.preFilterAndMap(mode) }
                     }
             } else {
                 log(TAG, WARN) { "Bluetooth is currently disabled" }
@@ -140,6 +157,27 @@ class PodMonitor @Inject constructor(
                 }
             }
         }
+
+
+    private fun getUnfilteredFilter(): ScanFilter {
+        val manufacturerData = ByteArray(2).apply {
+            this[0] = 0
+            this[1] = 0
+        }
+
+        val manufacturerDataMask = ByteArray(2).apply {
+            this[0] = 0
+            this[1] = 0
+        }
+        val builder = ScanFilter.Builder().apply {
+            setManufacturerData(
+                ContinuityProtocol.APPLE_COMPANY_IDENTIFIER,
+                manufacturerData,
+                manufacturerDataMask
+            )
+        }
+        return builder.build()
+    }
 
     companion object {
         private val TAG = logTag("Monitor", "PodMonitor")

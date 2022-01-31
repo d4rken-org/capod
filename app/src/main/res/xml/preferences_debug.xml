@@ -18,4 +18,10 @@
         android:summary="@string/settings_fake_data_description"
         android:title="@string/settings_fake_data_label" />
 
+    <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_devices_other_24"
+        android:key="debug.blescanner.unfiltered.enabled"
+        android:summary="@string/settings_blescanner_unfiltered_description"
+        android:title="@string/settings_blescanner_unfiltered_label" />
+
 </PreferenceScreen>
