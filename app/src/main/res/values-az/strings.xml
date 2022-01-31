@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="notification_channel_device_status_label">Cihaz vəziyyəti</string>
+    <string name="general_error_label">Xəta</string>
+    <string name="general_share_action">Paylaş</string>
+    <string name="general_done_action">Bitdi</string>
+    <string name="general_copy_action">Kopyala</string>
+    <string name="general_value_unknown_label">Bilinmir</string>
+    <string name="general_thank_you_label">Təşəkkürlər</string>
+    <string name="general_value_not_available_label">Mövcud deyil</string>
+    <string name="general_grant_permission_action">İcazə ver</string>
+    <string name="general_upgrade_action">Yüksəlt</string>
+    <string name="general_check_action">Yoxla</string>
+    <string name="general_close_action">Bağla</string>
+    <string name="debug_debuglog_size_label">Həcm</string>
+    <string name="debug_debuglog_size_compressed_label">Sıxışdırılmış həcm</string>
+    <string name="debug_notification_channel_label">Sazlama bildirişləri</string>
+    <string name="debug_debuglog_file_label">Yazılmış jurnal faylı</string>
+    <string name="debug_debuglog_record_action">Sazlama jurnalına yaz</string>
+    <string name="permission_bluetooth_connect_label">Bluetooth bağlantısı</string>
+    <string name="permission_bluetooth_connect_description">Bu tətbiq, cütləşdirilmiş cihazlarla qarşılıqlı əlaqədə olmaq və bağlantıları başlatmaq üçün \"Bluetooth bağlantısı\" icazəsini tələb edir.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth skan etmə</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth skan etmə\" icazəsi, tətbiqə AirPods kimi yaxınlıqda olan cihazlardan Bluetooth verilənlərini almağa və kəşf etməyə icazə verir.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_access_fine_location_label">Həssas yerləşməyə müraciət</string>
+</resources>

@@ -1,2 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">CAPod</string>
+    <string name="notification_channel_device_status_label">Статус пристрою</string>
+    <string name="general_error_label">Помилка</string>
+    <string name="general_share_action">Поділитися</string>
+    <string name="general_done_action">Зроблено</string>
+    <string name="general_copy_action">Копіювати</string>
+    <string name="general_value_unknown_label">Невідомо</string>
+    <string name="general_thank_you_label">Дякуємо</string>
+    <string name="general_value_not_available_label">Н/д</string>
+    <string name="general_grant_permission_action">Надати дозвіл</string>
+    <string name="general_upgrade_action">Оновити</string>
+    <string name="general_check_action">Перевірити</string>
+    <string name="general_close_action">Зачинити</string>
+    <string name="debug_debuglog_size_label">Розмір</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="pods_case_status_open_label">Відкрито</string>
+    <string name="pods_case_status_closed_label">Закрито</string>
+    <string name="pods_connection_state_disconnected_label">Не під\'єднано до пристрою</string>
+    <string name="pods_connection_state_music_label">У режимі музики</string>
+    <string name="pods_connection_state_call_label">У режимі виклику</string>
+    <string name="pods_unknown_label">Невідомий пристрій</string>
+    <string name="pods_none_label_short">Немає пристрою</string>
+    <string name="pods_charging_label">Заряджання</string>
+    <string name="pods_inear_label">У вусі</string>
+    <string name="pods_microphone_label">Мікрофон</string>
+    <string name="pods_yours">Ваш</string>
+    <string name="settings_label">Налаштування</string>
+    <string name="settings_privacy_policy_label">Політика конфіденційності</string>
+    <string name="settings_general_label">Налаштування</string>
+    <string name="settings_support_label">Підтримка</string>
+    <string name="settings_support_description">Якщо необхідна допомога.</string>
+    <string name="settings_monitor_mode_always_label">Завжди</string>
+    <string name="settings_reaction_autoconnect_inear_label">У вусі</string>
+    <string name="upgrade_capod_label">Оновити CAPod</string>
+    <string name="upgrade_capod_description">Отримайте додаткові функції та підтримайте розробника.</string>
+    <string name="help_translate_label">Переклад</string>
+    <string name="help_translate_description">Допоможіть перекласти це своєю улюбленою мовою.</string>
+</resources>

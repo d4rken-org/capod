@@ -1,17 +1,17 @@
-CAPod is a companion app for AirPods.
+O CAPod é um aplicativo complementar para AirPods.
 
-Features:
-* Battery level for pods & cases.
-* Charging status for pods & case.
-* Additional infos about connection, microphone & case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
-* Show popup when case is opened.
+Recursos:
+* Nível de bateria para os airpods e estojo.
+* Status de carregamento para os airpods e estojo.
+* Informações adicionais sobre conexão, microfone e estojo.
+* Pode receber e mostrar todos os dispositivos próximos.
+* Detecção de ouvido com reprodução/pausa automática.
+* Conecte automaticamente o smartphone e os airpods.
+* Mostrar pop-up quando o estojo é aberto.
 
-CAPod is ad-free. Some additional features require an in-app purchase.
+O CAPod é livre de anúncios. Alguns recursos adicionais exigem uma compra no aplicativo.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a quick mail.
+Os dispositivos AirPods e Beats mais populares são suportados.
+Se o seu dispositivo for semelhante aos AirPods, mas ainda não for compatível, envie-me um e-mail rápido.
 
-Got a cool idea for a new feature? Reach out!
+Tem uma ideia legal para um novo recurso? Diga-me!

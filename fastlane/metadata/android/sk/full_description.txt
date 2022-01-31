@@ -1,13 +1,13 @@
-CAPod is a companion app for AirPods.
+CAPod je pomocná aplikácia pre AirPods.
 
-Features:
-* Battery level for pods & cases.
-* Charging status for pods & case.
-* Additional infos about connection, microphone & case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
-* Show popup when case is opened.
+Funkcie:
+* Úroveň batérie pre slúchatká a puzdrá.
+* Stav nabíjania slúchatiek a puzdra.
+* Ďalšie informácie o pripojení, mikrofóne a puzdre.
+* Môže prijímať a zobrazovať všetky zariadenia v okolí.
+* Detekcia ucha s automatickým prehrávaním/pozastavením.
+* Automatické pripojenie telefónu a airpods.
+* Zobrazenie vyskakovacieho okna pri otvorení puzdra.
 
 CAPod is ad-free. Some additional features require an in-app purchase.
 

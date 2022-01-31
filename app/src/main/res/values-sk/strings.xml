@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="notification_channel_device_status_label">Stav zariadenia</string>
+    <string name="general_error_label">Chyba</string>
+    <string name="general_share_action">Zdieľať</string>
+    <string name="general_done_action">Hotovo</string>
+    <string name="general_copy_action">Kopírovať</string>
+    <string name="general_value_unknown_label">Neznáme</string>
+    <string name="general_thank_you_label">Ďakujem</string>
+    <string name="general_value_not_available_label">N/D</string>
+    <string name="general_grant_permission_action">Udeliť povolenie</string>
+    <string name="general_upgrade_action">Inovovať</string>
+    <string name="general_check_action">Overiť</string>
+    <string name="general_close_action">Zavrieť</string>
+    <string name="debug_debuglog_size_label">Veľkosť</string>
+    <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
+    <string name="debug_notification_channel_label">Oznámenia o ladení</string>
+</resources>
