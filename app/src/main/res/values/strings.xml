@@ -28,7 +28,7 @@
     <string name="permission_bluetooth_scan_label">Bluetooth scanning</string>
     <string name="permission_bluetooth_scan_description">The \"Bluetooth scanning\" permission allows this app to discover and receive Bluetooth data from nearby devices such as your AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">This app requires the \"Bluetooth\" to connect to paired bluetooth devices.</string>
+    <string name="permission_bluetooth_description">This app requires the \"Bluetooth\" permission to connect to paired bluetooth devices.</string>
     <string name="permission_access_fine_location_label">Access fine location</string>
     <string name="permission_access_fine_location_description">CAPod uses the \"fine location\" permission to receive Bluetooth Low Energy data. Your headphones use Bluetooth Low Energy technology to broadcast their status. This app will NOT use Bluetooth data to determine your location.</string>
     <string name="permission_background_location_label">Background location access</string>
@@ -49,7 +49,7 @@
     <string name="pods_connection_state_hanging_up_label">Hanging up</string>
     <string name="pods_unknown_raw_data_label">Raw data</string>
     <string name="pods_unknown_label">Unknown device</string>
-    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :).</string>
+    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :)</string>
     <string name="pods_none_label_short">No device</string>
     <string name="pods_charging_label">Charging</string>
     <string name="pods_inear_label">In ear</string>
@@ -130,7 +130,7 @@
     <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
     <string name="notification_channel_reaction_popup_label">Popup device reactions</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;).</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
     <string name="help_translate_label">Translation</string>
     <string name="help_translate_description">Help translate this into your favorite language.</string>
     <string name="settings_onepod_mode_label">One pod mode</string>
