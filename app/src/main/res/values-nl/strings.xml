@@ -25,7 +25,6 @@
     <string name="permission_bluetooth_scan_label">Bluetooth scannen</string>
     <string name="permission_bluetooth_scan_description">Met de machtiging \'Bluetooth-scannen\' kan deze app Bluetooth-gegevens van apparaten in de buurt, zoals uw AirPods, ontdekken en ontvangen.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Deze app heeft \"Bluetooth\" nodig om verbinding te maken met gekoppelde Bluetooth-apparaten.</string>
     <string name="permission_access_fine_location_label">Toegang prima locatie</string>
     <string name="permission_access_fine_location_description">CAPod gebruikt de \"prima locatie\"-toestemming om Bluetooth Low Energy-gegevens te ontvangen. Uw hoofdtelefoon gebruikt Bluetooth Low Energy-technologie om hun status uit te zenden. Deze app gebruikt GEEN Bluetooth-gegevens om uw locatie te bepalen.</string>
     <string name="permission_background_location_label">Toegang tot locatie op de achtergrond</string>
@@ -45,7 +44,6 @@
     <string name="pods_connection_state_hanging_up_label">Ophangen</string>
     <string name="pods_unknown_raw_data_label">Ruwe data</string>
     <string name="pods_unknown_label">Onbekend apparaat</string>
-    <string name="pods_unknown_contact_dev">Dit is een onbekend apparaat, maar het gebruikt een vergelijkbaar berichtformaat. Laten we er ondersteuning voor toevoegen, neem contact met mij op :).</string>
     <string name="pods_none_label_short">Geen apparaat</string>
     <string name="pods_charging_label">Opladen</string>
     <string name="pods_inear_label">In oor</string>
@@ -120,7 +118,6 @@
     <string name="settings_popup_caseopen_description">Een pop-up weergeven wanneer de behuizing van het apparaat wordt geopend (experimenteel).</string>
     <string name="notification_channel_reaction_popup_label">Pop-up apparaatreacties</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is uitgeschakeld</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth is uitgeschakeld, schakel het in ;).</string>
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help dit te vertalen naar uw favoriete taal.</string>
     <string name="settings_onepod_mode_label">Eén pod-modus</string>

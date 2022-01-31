@@ -14,6 +14,5 @@
     <string name="debug_debuglog_size_label">Sukat</string>
     <string name="permission_bluetooth_connect_description">Ang app na ito ay kailangan ng \"Bluetooth connect\" permission para makipag interact sa mga na-paired na devices at maka gawa ng connection.</string>
     <string name="permission_bluetooth_scan_description">Ang \"Bluetooth scanning\" permission ay pag na ibigay, itong app na ito ay puwedeng mag diskubre o maka receive ng data galing sa isang malapit na Bluetooth devices tulad ng iyong AirPods.</string>
-    <string name="permission_bluetooth_description">Ang app na ito ay kailangan ng \"Bluetooth\" upang maka connect sa naka-paired na bluetooth device.</string>
     <string name="permission_access_fine_location_description">Ang CAPod app ay gumagamit ng \"Fine location\" permission para maka receiveng Bluetooth Low Energy Data. Iyong headphones ay gumagamit ng Bluetooth Low Energy technology pa ma-broadcaast ang kanilang Status. Itong app na ito ay HINDI gagamitin ang Bluetooth data para malaman ang iyong lokasyon.</string>
 </resources>

@@ -25,7 +25,6 @@
     <string name="permission_bluetooth_scan_label">Сканирование Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Разрешение \"Сканирование Bluetooth\" позволяет этому приложению обнаруживать и получать данные по Bluetooth с близлежащих устройств, таких как Ваши AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Этому приложению требуется \"Bluetooth\" для подключения к сопряженным устройствам.</string>
     <string name="permission_access_fine_location_label">Доступ к точному местоположению</string>
     <string name="permission_access_fine_location_description">CAPod необходимо разрешение \"Точное местоположение\" для получения данных Bluetooth Low Energy. Ваши наушники задействуют технологию Bluetooth Low Energy (Bluetooth с низким энергопотреблением) для передачи своего состояния. Это приложение НЕ будет использовать данные Bluetooth для определения Вашего местоположения.</string>
     <string name="permission_background_location_label">Доступ к местоположению в фоне</string>
@@ -45,7 +44,6 @@
     <string name="pods_connection_state_hanging_up_label">Отбой</string>
     <string name="pods_unknown_raw_data_label">Необработанные данные</string>
     <string name="pods_unknown_label">Неизвестное устройство</string>
-    <string name="pods_unknown_contact_dev">Это неизвестное устройство, но оно использует похожий формат сообщений. Давайте добавим его поддержку, свяжитесь со мной :)</string>
     <string name="pods_none_label_short">Нет устройства</string>
     <string name="pods_charging_label">Зарядка</string>
     <string name="pods_inear_label">В ухе</string>
@@ -120,7 +118,6 @@
     <string name="settings_popup_caseopen_description">Показывать всплывающее окно, когда футляр открыт (эксперимент).</string>
     <string name="notification_channel_reaction_popup_label">Всплывающие реакции устройства</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth отключен</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth отключен, включите его ;)</string>
     <string name="help_translate_label">Перевод</string>
     <string name="help_translate_description">Помогите перевести приложение на Ваш язык.</string>
     <string name="settings_onepod_mode_label">Режим одного наушника</string>

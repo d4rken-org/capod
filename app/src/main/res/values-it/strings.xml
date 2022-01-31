@@ -25,7 +25,6 @@
     <string name="permission_bluetooth_scan_label">Scansione bluetooth</string>
     <string name="permission_bluetooth_scan_description">Il permesso di \"Scansione bluetooth\" permette a questa app di trovare e ricevere dati Bluetooth da dispositivi vicini come le tue Airpods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Questa app richiede il bluetooth per connettersi ai dispoitivi Bluetooth.</string>
     <string name="permission_access_fine_location_label">Access fine location</string>
     <string name="permission_access_fine_location_description">CAPod usa i permessi di Geolocalizzazione per ricevere dati Bluetooth a basso consumo. Le tue cuffie suano la tecnologia Bluetooth a basso consumo per inviare al dispositivo al quale sono connesse il loro stato. Questa app non utilizza i dati Bluetooth per geolocalizzarti.</string>
     <string name="permission_background_location_label">Accesso in background alla tua posizione</string>
@@ -45,7 +44,6 @@
     <string name="pods_connection_state_hanging_up_label">Riconnessione</string>
     <string name="pods_unknown_raw_data_label">Dati non elaborati</string>
     <string name="pods_unknown_label">Dispositivo sconosciuto</string>
-    <string name="pods_unknown_contact_dev">Questo é un dispositivo sconosciutom ma sta utilizzando un formato di comunicazione noto. Aggiungiamo il supporto per questo device, Contattami! :).</string>
     <string name="pods_none_label_short">Nessun dispositivo</string>
     <string name="pods_charging_label">In ricarica</string>
     <string name="pods_inear_label">Nell\'orecchio</string>
@@ -120,7 +118,6 @@
     <string name="settings_popup_caseopen_description">Mostra un popup quando la custodia del dispositivo è aperta (sperimentale).</string>
     <string name="notification_channel_reaction_popup_label">Popup reazioni dispositivo</string>
     <string name="overview_bluetooth_disabled_label">Il Bluetooth é disabilitato</string>
-    <string name="overview_bluetooth_disabled_description">Il bluetooth é disabilitato, abilitalo ;).</string>
     <string name="help_translate_label">Traduzione</string>
     <string name="help_translate_description">Aiuta a tradurre l\'applicazione nella tua lingua preferita.</string>
     <string name="settings_onepod_mode_label">Modalità singolo pod</string>

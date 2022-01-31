@@ -23,7 +23,6 @@
     <string name="permission_bluetooth_scan_label">Bluetooth Suche</string>
     <string name="permission_bluetooth_scan_description">Die \"Bluetooth verbinden\" Berechtigung erlaubt dieser App Bluetooth Daten von Geräten wie AirPods zu finden und zu erhalten.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Diese App benötigt die \"Bluetooth\" Berechtigung um sich mit gekoppelten Geräten zu verbinden.</string>
     <string name="permission_access_fine_location_label">Auf genauen Standort zugreifen</string>
     <string name="permission_access_fine_location_description">CAPod benutzt die \"genauen Gerätestandort verwenden\" Berechtigung um Bluetooth Low Energy Daten zu erhalten. Ihre Kopfhörer nutzen Bluetooth Low Energy um ihren Batterie Status zu übertragen. Diese App greift nicht auf ihren Standort zu.</string>
     <string name="permission_background_location_label">Standort Zugriff im Hintergrund</string>
@@ -43,7 +42,6 @@
     <string name="pods_connection_state_hanging_up_label">Legt auf</string>
     <string name="pods_unknown_raw_data_label">Rohe Daten</string>
     <string name="pods_unknown_label">Unbekanntes Gerät</string>
-    <string name="pods_unknown_contact_dev">Unbekanntes Gerät, aber es verwendet ein ähnliches Übertragungsformat. Kontaktieren sie mich um es in der Zukunft zu unterstützen :).</string>
     <string name="pods_none_label_short">Kein Gerät</string>
     <string name="pods_charging_label">Laden</string>
     <string name="pods_inear_label">Im Ohr</string>

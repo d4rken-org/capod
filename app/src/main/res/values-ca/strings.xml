@@ -25,7 +25,6 @@
     <string name="permission_bluetooth_scan_label">Escaneig Bluetooth</string>
     <string name="permission_bluetooth_scan_description">El permís «Escaneig Bluetooth» permet que aquesta aplicació descobreixi i rebi dades Bluetooth de dispositius propers, com ara els vostres AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Aquesta aplicació requereix el permís «Bluetooth» per connectar-se als dispositius Bluetooth emparellats.</string>
     <string name="permission_access_fine_location_label">Accés a la ubicació precisa</string>
     <string name="permission_access_fine_location_description">El CAPod utilitza el permís «ubicació precisa» per rebre dades Bluetooth Low Energy. Els vostres auriculars utilitzen la tecnologia Bluetooth Low Energy per transmetre el seu estat. Aquesta aplicació NO utilitzarà dades Bluetooth per determinar la vostra ubicació.</string>
     <string name="permission_background_location_label">Accés a la ubicació de fons</string>
@@ -45,7 +44,6 @@
     <string name="pods_connection_state_hanging_up_label">Penjant</string>
     <string name="pods_unknown_raw_data_label">Dades en brut</string>
     <string name="pods_unknown_label">Dispositiu desconegut</string>
-    <string name="pods_unknown_contact_dev">Aquest és un dispositiu desconegut, però utilitza un format de missatge similar. Anem a fer-lo compatible, contacteu amb mi :)</string>
     <string name="pods_none_label_short">Cap dispositiu</string>
     <string name="pods_charging_label">Carregant</string>
     <string name="pods_inear_label">A l\'orella</string>
@@ -120,7 +118,6 @@
     <string name="settings_popup_caseopen_description">Mostra una finestra emergent quan s\'obre la funda del dispositiu (experimental).</string>
     <string name="notification_channel_reaction_popup_label">Reaccions emergents del dispositiu</string>
     <string name="overview_bluetooth_disabled_label">El Bluetooth està desactivat</string>
-    <string name="overview_bluetooth_disabled_description">El Bluetooth està desactivat, activeu-lo ;)</string>
     <string name="help_translate_label">Traducció</string>
     <string name="help_translate_description">Ajudeu a traduir aquesta aplicació al vostre idioma preferit.</string>
     <string name="settings_onepod_mode_label">Mode d\'un AirPod</string>

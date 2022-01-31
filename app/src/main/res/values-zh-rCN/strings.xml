@@ -25,7 +25,6 @@
     <string name="permission_bluetooth_scan_label">蓝牙扫描</string>
     <string name="permission_bluetooth_scan_description">“蓝牙扫描”权限将允许本应用发现和接收附近蓝牙设备的数据，这包括您的 AirPods。</string>
     <string name="permission_bluetooth_label">蓝牙</string>
-    <string name="permission_bluetooth_description">本应用需要“蓝牙”以连接已配对的蓝牙设备。</string>
     <string name="permission_access_fine_location_label">访问精准位置</string>
     <string name="permission_background_location_label">在后台访问位置</string>
     <string name="permission_ignore_battery_optimizations_label">禁用电池优化</string>
@@ -42,7 +41,6 @@
     <string name="pods_connection_state_hanging_up_label">结束通话</string>
     <string name="pods_unknown_raw_data_label">原始数据</string>
     <string name="pods_unknown_label">未知设备</string>
-    <string name="pods_unknown_contact_dev">这是一个未知设备，但它使用了类似的消息格式。与我联系以协助添加对它的支持 :).</string>
     <string name="pods_none_label_short">没有设备</string>
     <string name="pods_charging_label">正在充电</string>
     <string name="pods_microphone_label">麦克风</string>
@@ -108,7 +106,6 @@
     <string name="settings_popup_caseopen_description">设备充电仓打开时显示弹窗（实验性）</string>
     <string name="notification_channel_reaction_popup_label">设备弹窗动作</string>
     <string name="overview_bluetooth_disabled_label">蓝牙已禁用</string>
-    <string name="overview_bluetooth_disabled_description">蓝牙已禁用，请启用它</string>
     <string name="help_translate_label">翻译</string>
     <string name="help_translate_description">您可以来翻译本应用。</string>
     <string name="settings_onepod_mode_label">单耳模式</string>

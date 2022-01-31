@@ -25,7 +25,6 @@
     <string name="permission_bluetooth_scan_label">البحث عن بلوتوث</string>
     <string name="permission_bluetooth_scan_description">يسمح إذن \"فحص البلوتوث\" لهذا التطبيق باكتشاف بيانات البلوتوث واستلامها من الأجهزة القريبة مثل AirPods.</string>
     <string name="permission_bluetooth_label">بلوتوث</string>
-    <string name="permission_bluetooth_description">يتطلب هذا التطبيق \"البلوتوث\" للاتصال بأجهزة بلوتوث المقترنة.</string>
     <string name="permission_access_fine_location_label">الوصول إلى موقع جيد</string>
     <string name="permission_access_fine_location_description">يستخدم CAPod إذن \"الموقع الدقيق\" لتلقي بيانات البلوتوث منخفضة الطاقة. تستخدم سماعات الرأس بلوتوث منخفض الطاقة لبث حالتها. لن يستخدم هذا التطبيق بيانات البلوتوث لتحديد موقعك.</string>
     <string name="permission_background_location_label">الوصول إلى الموقع في الخلفية</string>

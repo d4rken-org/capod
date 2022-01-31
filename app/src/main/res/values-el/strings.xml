@@ -22,7 +22,6 @@
     <string name="permission_bluetooth_scan_label">Σάρωση Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Η άδεια \"Σάρωση Bluetooth\" επιτρέπει σε αυτή την εφαρμογή να ανακαλύπτει και να λάβει δεδομένα Bluetooth από κοντινές συσκευές όπως τα AirPods σας.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Αυτή η εφαρμογή απαιτεί το \"Bluetooth\" για να συνδεθεί στις συζευγμένες συσκευές.</string>
     <string name="permission_access_fine_location_label">Πρόσβαση ακριβείς τοποθεσίας</string>
     <string name="permission_access_fine_location_description">Το CAPod χρησιμοποιεί την άδεια \"Ακριβείς τοποθεσία\" για να λάβει δεδομένα Bluetooth Low Energy. Τα ακουστικά σας χρησιμοποιούν την τεχνολογία Bluetooth Low Energy για να αναμεταδώσουν την κατάστασή τους. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιήσει δεδομένα Bluetooth για να εξακριβώσει την τοποθεσία σας.</string>
     <string name="permission_background_location_label">Πρόσβαση τοποθεσίας παρασκηνίου</string>
@@ -38,7 +37,6 @@
     <string name="pods_connection_state_music_label">Σε λειτουργία μουσικής</string>
     <string name="pods_connection_state_call_label">Σε λειτουργία κλήσης</string>
     <string name="pods_unknown_label">Άγνωστη συσκευή</string>
-    <string name="pods_unknown_contact_dev">Αυτή είναι μια άγνωστη συσκευή, αλλά χρησιμοποιεί παρόμοια μορφή μηνυμάτων. Ας προσθέσουμε υποστήριξη για αυτή, επικοινωνήστε μαζί μου :).</string>
     <string name="pods_none_label_short">Καμία συσκευή</string>
     <string name="pods_charging_label">Φόρτιση</string>
     <string name="pods_inear_label">Στο αυτί</string>
@@ -97,7 +95,6 @@
     <string name="settings_popup_caseopen_label">Εμφάνιση αναδυόμενου</string>
     <string name="settings_popup_caseopen_description">Εμφάνιση αναδυόμενου όταν η θήκη της συσκευής είναι ανοιχτή (πειραματικό).</string>
     <string name="overview_bluetooth_disabled_label">Το Bluetooth είναι απενεργοποιημένο</string>
-    <string name="overview_bluetooth_disabled_description">Το Bluetooth είναι απενεργοποιημένο, ενεργοποιήστε το ;).</string>
     <string name="help_translate_label">Μετάφραση</string>
     <string name="settings_onepod_mode_label">Λειτουργία ενός pod</string>
 </resources>
