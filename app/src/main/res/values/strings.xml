@@ -141,4 +141,5 @@
     <string name="first_seen_x">First seen: %s</string>
     <string name="settings_blescanner_unfiltered_label">Unfiltered BLE data</string>
     <string name="settings_blescanner_unfiltered_description">Remove any filters from the BLE scanner to show all broadcasted BLE data. Useful to add support for new headphone types.</string>
+    <string name="permission_required_title">The following permission is required:</string>
 </resources>
