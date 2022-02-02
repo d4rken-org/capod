@@ -1,6 +1,6 @@
 CAPod is a companion app for AirPods.
 
-Features:
+විශේෂාංග:
 * Battery level for pods & cases.
 * Charging status for pods & case.
 * Additional infos about connection, microphone & case.

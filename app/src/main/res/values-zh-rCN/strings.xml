@@ -12,7 +12,7 @@
     <string name="general_thank_you_label">谢谢你</string>
     <string name="general_value_not_available_label">不可用</string>
     <string name="general_grant_permission_action">授予权限</string>
-    <string name="general_upgrade_action">升级</string>
+    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">升级</string>
     <string name="general_check_action">检查</string>
     <string name="general_close_action">关闭</string>
     <string name="debug_debuglog_size_label">大小</string>
@@ -25,6 +25,7 @@
     <string name="permission_bluetooth_scan_label">蓝牙扫描</string>
     <string name="permission_bluetooth_scan_description">“蓝牙扫描”权限将允许本应用发现和接收附近蓝牙设备的数据，这包括您的 AirPods。</string>
     <string name="permission_bluetooth_label">蓝牙</string>
+    <string name="permission_bluetooth_description">本应用需要“蓝牙”权限才能连接已配对的蓝牙设备</string>
     <string name="permission_access_fine_location_label">访问精准位置</string>
     <string name="permission_background_location_label">在后台访问位置</string>
     <string name="permission_ignore_battery_optimizations_label">禁用电池优化</string>
@@ -44,6 +45,7 @@
     <string name="pods_none_label_short">没有设备</string>
     <string name="pods_charging_label">正在充电</string>
     <string name="pods_microphone_label">麦克风</string>
+    <string name="headset_being_worn_label">正戴着</string>
     <string name="overview_nomaindevice_label">没有主设备</string>
     <string name="overview_nomaindevice_description">检测到的所有设备都不像您的。请将您的设备开启以连接，或者调整设置。</string>
     <string name="settings_label">设置</string>
@@ -63,8 +65,10 @@
     <string name="issue_tracker_label">问题追踪器</string>
     <string name="issue_tracker_description">用于缺陷报告和功能请求的问题追踪系统（仅限英语）。</string>
     <string name="discord_label">Discord</string>
+    <string name="discord_description">一个闲聊和提问的去处</string>
     <string name="settings_support_email_developer_description">请注意，我只会英语和德语。</string>
     <string name="settings_debug_autoreports_label">自动反馈错误</string>
+    <string name="settings_debug_autoreports_description">自动报告问题，例如应用崩溃的详细信息，方便我进行修复</string>
     <string name="settings_debug_mode_label">调试模式</string>
     <string name="settings_debug_mode_description">显示额外信息以帮助调试故障。</string>
     <string name="settings_monitor_mode_label">监控模式</string>
@@ -86,14 +90,18 @@
     <string name="settings_fake_data_label">假数据</string>
     <string name="settings_fake_data_description">显示伪造的数据，模拟不存在的设备。</string>
     <string name="settings_debug_label">调试设置</string>
+    <string name="settings_debug_description">帮助解决应用程序问题的其他设置</string>
     <string name="settings_signal_minimum_label">最低信号质量</string>
     <string name="settings_signal_minimum_description">判断可能是您的设备的最低信号质量。</string>
     <string name="settings_autoconnect_label">自动连接</string>
+    <string name="settings_autoconnect_description">如果安卓未自动连接，应用会自动询问。这会将监控模式设为“始终”</string>
     <string name="settings_autoconnect_condition_label">自动连接条件</string>
+    <string name="settings_autoconnect_condition_description">何时连接到您的设备？</string>
     <string name="settings_reaction_label">动作</string>
     <string name="settings_reaction_description">响应事件和行为的动作。</string>
     <string name="settings_category_yourdevice_label">您的设备</string>
     <string name="settings_maindevice_address_label">您的设备地址</string>
+    <string name="settings_maindevice_address_description">已配对设备的地址，本应用通过它来确定其连接到您手机的时间</string>
     <string name="settings_maindevice_address_none">无</string>
     <string name="settings_maindevice_model_label">您的设备型号</string>
     <string name="settings_maindevice_model_description">您的主设备的型号。这有助于应用程序在设备未连接到您的手机时识别该设备。</string>
@@ -106,9 +114,11 @@
     <string name="settings_popup_caseopen_description">设备充电仓打开时显示弹窗（实验性）</string>
     <string name="notification_channel_reaction_popup_label">设备弹窗动作</string>
     <string name="overview_bluetooth_disabled_label">蓝牙已禁用</string>
+    <string name="overview_bluetooth_disabled_description">蓝牙已关闭，请启用之 ;)</string>
     <string name="help_translate_label">翻译</string>
     <string name="help_translate_description">您可以来翻译本应用。</string>
     <string name="settings_onepod_mode_label">单耳模式</string>
+    <string name="settings_onepod_mode_description">不需要同时佩戴两支耳机，单支即可引发反应</string>
     <string name="permission_system_alert_window_label">系统警告窗口</string>
     <string name="last_seen_x">上次出现：%s</string>
     <string name="first_seen_x">首次出现：%s</string>

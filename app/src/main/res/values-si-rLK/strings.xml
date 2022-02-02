@@ -1,2 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="notification_channel_device_status_label">උපාංගයේ තත්‍වය</string>
+    <string name="general_error_label">දෝෂයකි</string>
+    <string name="general_share_action">බෙදාගන්න</string>
+    <string name="general_done_action">අහවරයි</string>
+    <string name="general_copy_action">පිටපත්</string>
+    <string name="general_value_unknown_label">නොදනී</string>
+    <string name="general_thank_you_label">ඔබට ස්තූතියි</string>
+    <string name="general_value_not_available_label">අ/නොවේ</string>
+    <string name="general_check_action">පරීක්‍ෂාව</string>
+    <string name="general_close_action">වසන්න</string>
+    <string name="debug_debuglog_size_label">ප්‍රමාණය</string>
+    <string name="permission_bluetooth_connect_label">බ්ලූටූත් සම්බන්ධය</string>
+    <string name="permission_bluetooth_label">බ්ලූටූත්</string>
+    <string name="permission_background_location_label">පසුබිමෙන් ස්ථානයට ප්‍රවේශය</string>
+    <string name="pods_case_status_open_label">විවෘත</string>
+    <string name="pods_connection_state_disconnected_label">උපාංගයකට සම්බන්ධව නැත</string>
+    <string name="pods_unknown_label">නොදන්නා උපාංගයකි</string>
+    <string name="pods_none_label_short">උපාංග</string>
+    <string name="pods_charging_label">ආරෝපණය වෙමින්</string>
+    <string name="pods_inear_label">කනෙහි</string>
+    <string name="pods_microphone_label">ශබ්දවාහිනිය</string>
+    <string name="pods_yours">ඔබගේ</string>
+    <string name="overview_nomaindevice_label">ප්‍රාථමික උපාංගයක් නැත</string>
+    <string name="settings_label">සැකසුම්</string>
+    <string name="settings_privacy_policy_label">රහස්‍යතා ප්‍රතිපත්තිය</string>
+    <string name="settings_licenses_label">බලපත්‍ර</string>
+    <string name="settings_general_label">සැකසුම්</string>
+    <string name="settings_support_installid_label">ස්ථාපන හැඳු.</string>
+    <string name="settings_support_label">සහාය</string>
+    <string name="settings_support_description">ඔබට යම් උදව්වක් ඇවැසි නම්.</string>
+    <string name="discord_label">ඩිස්කොර්ඩ්</string>
+    <string name="settings_monitor_mode_manual_label">යෙදුම විවෘතව ඇති විට</string>
+    <string name="settings_monitor_mode_automatic_label">උපාංගය සම්බන්ධව ඇති විට</string>
+    <string name="settings_monitor_mode_always_label">සැමවිටම</string>
+    <string name="settings_scanner_mode_lowpower_label">අඩු බලය</string>
+    <string name="settings_showall_label">සියළු උපාංග පෙන්වන්න</string>
+    <string name="settings_autopplay_label">ස්වයං වාදනය</string>
+    <string name="settings_fake_data_label">ව්‍යාජ දත්ත</string>
+    <string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
+    <string name="settings_autoconnect_label">ස්වයං සම්බන්ධය</string>
+    <string name="settings_category_yourdevice_label">ඔබගේ උපාංගය</string>
+    <string name="settings_maindevice_address_label">ඔබගේ උපාංගයේ ලිපිනය</string>
+    <string name="settings_maindevice_address_none">කිසිවක් නැත</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">දුටු විට</string>
+    <string name="settings_reaction_autoconnect_inear_label">කනෙහි</string>
+    <string name="overview_bluetooth_disabled_label">බ්ලූටූත් අබල කර ඇත</string>
+    <string name="overview_bluetooth_disabled_description">බ්ලූටූත් අබලයි, එය සබල කරන්න ;)</string>
+    <string name="help_translate_label">පරිවර්තනය</string>
+    <string name="permission_system_alert_window_label">පද්ධතියේ ඇඟවීම් කවුළුව</string>
+    <string name="last_seen_x">අවසන දුටුවේ: %s</string>
+    <string name="first_seen_x">පළමුව දුටුවේ: %s</string>
+</resources>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Google Play 服务不可用</string>
+    <string name="upgrades_no_purchases_found_check_account">未找到购买记录，您使用的帐户正确吗？</string>
+</resources>

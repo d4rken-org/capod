@@ -1,17 +1,17 @@
-CAPod is a companion app for AirPods.
+CAPod 是一個能提供 AirPods 相關功能的應用程式。
 
-Features:
-* Battery level for pods & cases.
-* Charging status for pods & case.
-* Additional infos about connection, microphone & case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
-* Show popup when case is opened.
+功能：
+* 顯示耳機和充電盒電力。
+* 顯示耳機和充電盒充電狀態。
+* 顯示有關連線、麥克風、充電盒的附加資訊。
+* 可以接收並顯示附近的所有裝置。
+* 耳朵檢測，自動播放/暫停。
+* 自動連線手機和 AirPods。
+* 開啟充電盒時顯示彈出式視窗。
 
-CAPod is ad-free. Some additional features require an in-app purchase.
+CAPod 是無廣告的應用程式。 一些附加功能需要應用內購買。
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a quick mail.
+支援大部分流行的 AirPods 和 Beats 裝置。
+如果你的裝置和 AirPods 相似但不支援，請寄給我一封郵件。
 
-Got a cool idea for a new feature? Reach out!
+有新功能的好點子？ 與我溝通一下吧！

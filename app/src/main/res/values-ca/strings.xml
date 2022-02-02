@@ -12,7 +12,7 @@
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_grant_permission_action">Concedeix el permís</string>
-    <string name="general_upgrade_action">Actualitza</string>
+    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Actualitza</string>
     <string name="general_check_action">Comprova</string>
     <string name="general_close_action">Tanca</string>
     <string name="debug_debuglog_size_label">Mida</string>
@@ -25,6 +25,7 @@
     <string name="permission_bluetooth_scan_label">Escaneig Bluetooth</string>
     <string name="permission_bluetooth_scan_description">El permís «Escaneig Bluetooth» permet que aquesta aplicació descobreixi i rebi dades Bluetooth de dispositius propers, com ara els vostres AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Aquesta aplicació requereix el permís «Bluetooth» per connectar-se als dispositius Bluetooth emparellats.</string>
     <string name="permission_access_fine_location_label">Accés a la ubicació precisa</string>
     <string name="permission_access_fine_location_description">El CAPod utilitza el permís «ubicació precisa» per rebre dades Bluetooth Low Energy. Els vostres auriculars utilitzen la tecnologia Bluetooth Low Energy per transmetre el seu estat. Aquesta aplicació NO utilitzarà dades Bluetooth per determinar la vostra ubicació.</string>
     <string name="permission_background_location_label">Accés a la ubicació de fons</string>
@@ -44,6 +45,7 @@
     <string name="pods_connection_state_hanging_up_label">Penjant</string>
     <string name="pods_unknown_raw_data_label">Dades en brut</string>
     <string name="pods_unknown_label">Dispositiu desconegut</string>
+    <string name="pods_unknown_contact_dev">Aquest és un dispositiu desconegut, però utilitza un format de missatge similar. Anem a fer-lo compatible, contacteu amb mi :)</string>
     <string name="pods_none_label_short">Cap dispositiu</string>
     <string name="pods_charging_label">Carregant</string>
     <string name="pods_inear_label">A l\'orella</string>
@@ -118,6 +120,7 @@
     <string name="settings_popup_caseopen_description">Mostra una finestra emergent quan s\'obre la funda del dispositiu (experimental).</string>
     <string name="notification_channel_reaction_popup_label">Reaccions emergents del dispositiu</string>
     <string name="overview_bluetooth_disabled_label">El Bluetooth està desactivat</string>
+    <string name="overview_bluetooth_disabled_description">El Bluetooth està desactivat, activeu-lo ;)</string>
     <string name="help_translate_label">Traducció</string>
     <string name="help_translate_description">Ajudeu a traduir aquesta aplicació al vostre idioma preferit.</string>
     <string name="settings_onepod_mode_label">Mode d\'un AirPod</string>
@@ -126,4 +129,6 @@
     <string name="permission_system_alert_window_description">Permet que el CAPod dibuixi sobre altres aplicacions per fer possible la característica «Mostra emergent».</string>
     <string name="last_seen_x">Últim cop vist: %s</string>
     <string name="first_seen_x">Primera vegada vist: %s</string>
+    <string name="settings_blescanner_unfiltered_label">Dades BLE sense filtrar</string>
+    <string name="settings_blescanner_unfiltered_description">Elimina els filtres de l\'escàner BLE per mostrar totes les dades BLE emeses. Útil per afegir suport a nous tipus d\'auriculars.</string>
 </resources>

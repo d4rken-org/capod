@@ -12,7 +12,7 @@
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Conceder permissão</string>
-    <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Upgrade</string>
     <string name="general_check_action">Checar</string>
     <string name="general_close_action">Fechar</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
@@ -25,6 +25,7 @@
     <string name="permission_bluetooth_scan_label">Escaneando bluetooth</string>
     <string name="permission_bluetooth_scan_description">A permissão \"Escaneamento de Bluetooth\" permite que este aplicativo descubra e receba dados de Bluetooth de dispositivos próximos, como seus AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Este aplicativo requer a permissão \"Bluetooth\" para se conectar a dispositivos bluetooth emparelhados.</string>
     <string name="permission_access_fine_location_label">Acesse a boa localização</string>
     <string name="permission_access_fine_location_description">O CAPod usa a permissão \"Boa localização\" para receber dados de Bluetooth Low Energy. Seus fones de ouvido usam a tecnologia Bluetooth Low Energy para transmitir seu status. Este aplicativo NÃO usará dados Bluetooth para determinar sua localização.</string>
     <string name="permission_background_location_label">Acesso à localização em segundo plano</string>
@@ -44,6 +45,7 @@
     <string name="pods_connection_state_hanging_up_label">Desligando</string>
     <string name="pods_unknown_raw_data_label">Dados não tratados</string>
     <string name="pods_unknown_label">Dispositivo desconhecido</string>
+    <string name="pods_unknown_contact_dev">Este é um dispositivo desconhecido, mas está usando um formato de mensagem semelhante. Vamos adicionar suporte para isso, entre em contato comigo :)</string>
     <string name="pods_none_label_short">Nenhum dispositivo</string>
     <string name="pods_charging_label">Carregando</string>
     <string name="pods_inear_label">No ouvido</string>
@@ -118,6 +120,7 @@
     <string name="settings_popup_caseopen_description">Mostrar um pop-up quando o estojo do dispositivo for aberta (experimental).</string>
     <string name="notification_channel_reaction_popup_label">Reações pop-up do dispositivo</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth está desativado</string>
+    <string name="overview_bluetooth_disabled_description">O Bluetooth está desabilitado, habilite-o ;)</string>
     <string name="help_translate_label">Tradução</string>
     <string name="help_translate_description">Ajude a traduzir isso para o seu idioma favorito.</string>
     <string name="settings_onepod_mode_label">Modo de um airpod</string>
@@ -126,4 +129,6 @@
     <string name="permission_system_alert_window_description">Permita que o CAPod se sobreponha a outros aplicativos para possibilitar o recurso \"Mostrar PopUp\".</string>
     <string name="last_seen_x">Visto pela última vez: %s</string>
     <string name="first_seen_x">Visto pela primeira vez: %s</string>
+    <string name="settings_blescanner_unfiltered_label">Dados BLE não filtrados</string>
+    <string name="settings_blescanner_unfiltered_description">Remova quaisquer filtros do scanner BLE para mostrar todos os dados BLE transmitidos. Útil para adicionar suporte para novos tipos de fones de ouvido.</string>
 </resources>

@@ -12,7 +12,7 @@
     <string name="general_thank_you_label">Děkuji Vám</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Udělit oprávnění</string>
-    <string name="general_upgrade_action">Upgradovat</string>
+    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Upgradovat</string>
     <string name="general_check_action">Ověřit</string>
     <string name="general_close_action">Zavřít</string>
     <string name="debug_debuglog_size_label">Velikost</string>
@@ -25,6 +25,7 @@
     <string name="permission_bluetooth_scan_label">Skenování Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Oprávnění „Skenování Bluetooth“ umožňuje této aplikaci zjišťovat a přijímat data z okolních Bluetooth zařízení, jako jsou například sluchátka AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Tato aplikace vyžaduje oprávněni k „Bluetooth“ pro připojení ke spárovaným zařízením Bluetooth.</string>
     <string name="permission_access_fine_location_label">Přístup k přesné poloze</string>
     <string name="permission_access_fine_location_description">CAPod používá pro příjem dat Bluetooth Low Energy oprávnění k „přesné poloze“. Sluchátka používají k vysílání svého stavu technologii Bluetooth Low Energy. Tato aplikace NEPOUŽÍVÁ data Bluetooth k určování vaší polohy.</string>
     <string name="permission_background_location_label">Přístup k poloze na pozadí</string>
@@ -44,6 +45,7 @@
     <string name="pods_connection_state_hanging_up_label">Zavěšování</string>
     <string name="pods_unknown_raw_data_label">Nezpracovaná data</string>
     <string name="pods_unknown_label">Neznámé zařízení</string>
+    <string name="pods_unknown_contact_dev">Jedná se o neznámé zařízení, ale používá podobný formát zprávy. Přidejme pro něj podporu. Kontaktujte mě :)</string>
     <string name="pods_none_label_short">Žádné zařízení</string>
     <string name="pods_charging_label">Nabíjení</string>
     <string name="pods_inear_label">V uchu</string>
@@ -118,6 +120,7 @@
     <string name="settings_popup_caseopen_description">Zobrazit vyskakovací okno, pokud je pouzdro zařízení otevřeno (experimentální).</string>
     <string name="notification_channel_reaction_popup_label">Vyskakovací okno reakcí zařízení</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth je vypnuto</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth je vypnuto, zapněte jej ;)</string>
     <string name="help_translate_label">Překlad</string>
     <string name="help_translate_description">Pomozte přeložit tuto aplikaci do svého oblíbeného jazyka.</string>
     <string name="settings_onepod_mode_label">Režim jednoho sluchátka</string>
@@ -126,4 +129,6 @@
     <string name="permission_system_alert_window_description">Aby bylo možné použít unkci „Zobrazit vyskakovací okno“, je nutné umožnot aplikaci CAPod vykreslení přes jiné aplikace.</string>
     <string name="last_seen_x">Naposledy spatřeno: %s</string>
     <string name="first_seen_x">Poprvé spatřeno: %s</string>
+    <string name="settings_blescanner_unfiltered_label">Nefiltrovaná data BLE</string>
+    <string name="settings_blescanner_unfiltered_description">Aby se zobrazovala všechna vysílaná data BLE, odstraňte ze skenování BLE všechny filtry. Užitečné pro přidání podpory nových typů sluchátek.</string>
 </resources>
