@@ -12,7 +12,7 @@ A companion app that adds support for AirPod specific features to Android:
 * Additional infos about connection, microphone & case.
 * Can receive and show all nearby devices.
 * Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
+* Automatically connect phone & AirPods.
 * Show popup when case is opened.
 
 CAPod is ad-free. Some additional features require an in-app purchase.
