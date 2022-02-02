@@ -27,6 +27,7 @@
     <string name="permission_access_fine_location_label">Πρόσβαση ακριβείς τοποθεσίας</string>
     <string name="permission_access_fine_location_description">Το CAPod χρησιμοποιεί την άδεια \"Ακριβής τοποθεσία\" για να λαμβάνει δεδομένα χαμηλής ενέργειας Bluetooth. Τα ακουστικά σας χρησιμοποιούν τεχνολογία χαμηλής ενέργειας Bluetooth για να μεταδίδουν την κατάστασή τους. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιεί δεδομένα Bluetooth για να προσδιορίσει την τοποθεσία σας.</string>
     <string name="permission_background_location_label">Πρόσβαση τοποθεσίας παρασκηνίου</string>
+    <string name="permission_background_location_description">Το CAPod χρησιμοποιεί \"Πρόσβαση τοποθεσίας στο παρασκήνιο\" για να ενεργοποιεί λειτουργίες όπως \"Εμφάνιση αναδυόμενου\" και \"Αυτόματη σύνδεση\" ενώ η εφαρμογή είναι κλειστή. Η πρόσβαση τοποθεσίας στο παρασκήνιο επιτρέπει στην εφαρμογή να λαμβάνει δεδομένα χαμηλής ενέργειας Bluetooth ενώ βρίσκεται στο παρασκήνιο. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιεί δεδομένα Bluetooth για τον προσδιορισμό της τοποθεσία σας.</string>
     <string name="permission_ignore_battery_optimizations_label">Απενεργοποίηση βελτιστοποιήσεων μπαταρίας</string>
     <string name="permission_ignore_battery_optimizations_description">Οι βελτιστοποιήσεις μπαταρίας εμποδίζουν αυτή την εφαρμογή να λαμβάνει αξιόπιστα δεδομένα Bluetooth ενώ η εφαρμογή βρίσκεται στο παρασκήνιο.</string>
     <string name="pods_dual_left_label">Αριστερό pod</string>
@@ -47,6 +48,7 @@
     <string name="pods_charging_label">Φόρτιση</string>
     <string name="pods_inear_label">Στο αυτί</string>
     <string name="pods_microphone_label">Μικρόφωνο</string>
+    <string name="pods_yours">Δικό σας</string>
     <string name="headset_being_worn_label">Φοριέται</string>
     <string name="overview_nomaindevice_label">Καμία κύρια συσκευή</string>
     <string name="overview_nomaindevice_description">Όλες οι συσκευές που εντοπίστηκαν είναι απίθανο να είναι δικές σας. Ενεργοποιήστε και συνδέστε τη συσκευή σας ή προσαρμόστε τις ρυθμίσεις.</string>

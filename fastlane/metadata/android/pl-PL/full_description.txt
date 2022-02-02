@@ -9,7 +9,7 @@ Funkcje:
 * Automatyczne łączenie telefonu oraz AirPods.
 * Wyświetlanie okienka, gdy obudowa jest otwarta.
 
-CAPod jest bez reklam. Niektóre dodatkowe funkcje wymagają zakupów wewnątrz aplikacji.
+CAPod jest bez reklam. Niektóre funkcje wymagają zakupów wewnątrz aplikacji.
 
 Większość popularnych urządzeń AirPods oraz Beats jest obsługiwana.
 Jeśli twoje urządzenia jest podobne do AirPods, ale nie jest obsługiwane - wyślij do mnie maila.

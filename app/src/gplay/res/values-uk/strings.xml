@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Сервіси Google Play недоступні.</string>
+    <string name="upgrades_no_purchases_found_check_account">Покупок не знайдено. Ви справді використовуєте правильний обліковий запис?</string>
+</resources>

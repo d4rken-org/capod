@@ -12,6 +12,7 @@
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Conceder permiso</string>
+    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Mejorar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Cerrar</string>
     <string name="debug_debuglog_size_label">Tamaño</string>

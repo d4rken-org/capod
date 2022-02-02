@@ -27,6 +27,7 @@
     <string name="permission_bluetooth_label">蓝牙</string>
     <string name="permission_bluetooth_description">本应用需要“蓝牙”权限才能连接已配对的蓝牙设备</string>
     <string name="permission_access_fine_location_label">访问精准位置</string>
+    <string name="permission_access_fine_location_description">CAPod 使用“精准定位”权限来接收低功耗蓝牙数据。您的耳机使用低功耗蓝牙技术来传播其状态，本应用「不会」通过蓝牙数据来给您定位。</string>
     <string name="permission_background_location_label">在后台访问位置</string>
     <string name="permission_ignore_battery_optimizations_label">禁用电池优化</string>
     <string name="pods_dual_left_label">左耳</string>
@@ -44,6 +45,7 @@
     <string name="pods_unknown_label">未知设备</string>
     <string name="pods_none_label_short">没有设备</string>
     <string name="pods_charging_label">正在充电</string>
+    <string name="pods_inear_label">在耳中</string>
     <string name="pods_microphone_label">麦克风</string>
     <string name="headset_being_worn_label">正戴着</string>
     <string name="overview_nomaindevice_label">没有主设备</string>

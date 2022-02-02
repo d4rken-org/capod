@@ -10,11 +10,14 @@
     <string name="general_thank_you_label">Дякуємо</string>
     <string name="general_value_not_available_label">Н/д</string>
     <string name="general_grant_permission_action">Надати дозвіл</string>
-    <string name="general_upgrade_action">Оновити</string>
+    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Оновити</string>
     <string name="general_check_action">Перевірити</string>
     <string name="general_close_action">Зачинити</string>
     <string name="debug_debuglog_size_label">Розмір</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="pods_dual_left_label">Лівий навушник</string>
+    <string name="pods_dual_right_label">Правий навушник</string>
+    <string name="pods_case_label">Футляр</string>
     <string name="pods_case_status_open_label">Відкрито</string>
     <string name="pods_case_status_closed_label">Закрито</string>
     <string name="pods_connection_state_disconnected_label">Не під\'єднано до пристрою</string>
@@ -26,8 +29,11 @@
     <string name="pods_inear_label">У вусі</string>
     <string name="pods_microphone_label">Мікрофон</string>
     <string name="pods_yours">Ваш</string>
+    <string name="overview_nomaindevice_label">Відсутній первинний пристрій</string>
     <string name="settings_label">Налаштування</string>
     <string name="settings_privacy_policy_label">Політика конфіденційності</string>
+    <string name="settings_licenses_label">Ліцензії</string>
+    <string name="settings_category_other_label">Інше</string>
     <string name="settings_general_label">Налаштування</string>
     <string name="settings_support_label">Підтримка</string>
     <string name="settings_support_description">Якщо необхідна допомога.</string>

@@ -98,7 +98,7 @@
     <string name="settings_debug_label">Ustawienia debugowania</string>
     <string name="settings_debug_description">Dodatkowe ustawienia, które pomogą rozwiązać problemy z aplikacją.</string>
     <string name="settings_signal_minimum_label">Minimalna jakość sygnału</string>
-    <string name="settings_signal_minimum_description">Minimalna jakość sygnału, wymagana od urządzenia, aby zostać uznanym za Twoje.</string>
+    <string name="settings_signal_minimum_description">Minimalna jakość sygnału, wymagana od urządzenia, aby zostało uznanym za Twoje.</string>
     <string name="settings_autoconnect_label">Automatyczne połączenie</string>
     <string name="settings_autoconnect_description">Jeśli Android nie połączy się automatycznie z urządzeniem, możemy go o to poprosić. Ustawi to tryb monitorowania na \"Zawsze\".</string>
     <string name="settings_autoconnect_condition_label">Warunek automatycznego połączenia</string>
