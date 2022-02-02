@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.androidstarter.common.preferences.Settings
 import eu.darken.capod.R
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.WebpageTool
+import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.uix.PreferenceFragment2
 import eu.darken.capod.main.core.GeneralSettings
 import javax.inject.Inject

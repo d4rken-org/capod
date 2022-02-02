@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.androidstarter.common.preferences.Settings
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
+import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.preferences.createFlowPreference
 import javax.inject.Inject
 import javax.inject.Singleton

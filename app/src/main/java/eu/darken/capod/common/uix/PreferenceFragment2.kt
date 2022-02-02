@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.preference.PreferenceFragmentCompat
 import androidx.viewbinding.ViewBinding
-import eu.darken.androidstarter.common.preferences.Settings
+import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.main.ui.settings.SettingsFragment
 
 abstract class PreferenceFragment2

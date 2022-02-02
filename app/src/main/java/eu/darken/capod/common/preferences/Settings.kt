@@ -1,4 +1,4 @@
-package eu.darken.androidstarter.common.preferences
+package eu.darken.capod.common.preferences
 
 import android.content.SharedPreferences
 import androidx.preference.PreferenceDataStore
