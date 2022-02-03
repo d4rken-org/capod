@@ -127,8 +127,8 @@
     <string name="settings_onepod_mode_description">Das Tragen beider Pods ist nicht erforderlich, das Tragen eines einzigen Pods reicht aus, um Reaktionen auszulösen.</string>
     <string name="permission_system_alert_window_label">Systemwarnungsfenster</string>
     <string name="permission_system_alert_window_description">Erlauben Sie CAPod, über andere Apps zu zeichnen, um die Funktion \"PopUp anzeigen\" zu ermöglichen.</string>
-    <string name="last_seen_x">Zuletzt gesehen</string>
-    <string name="first_seen_x">Zum ersten Mal gesehen</string>
+    <string name="last_seen_x">Zuletzt gesehen: %s</string>
+    <string name="first_seen_x">Zum ersten Mal gesehen: %s</string>
     <string name="settings_blescanner_unfiltered_label">Ungefilterte BLE-Daten</string>
     <string name="settings_blescanner_unfiltered_description">Entfernen Sie alle Filter aus dem BLE-Scanner, um alle übertragenen BLE-Daten anzuzeigen. Nützlich, um Unterstützung für neue Kopfhörertypen hinzuzufügen.</string>
 </resources>
