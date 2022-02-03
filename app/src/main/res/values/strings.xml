@@ -9,7 +9,6 @@
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
     <string name="general_copy_action">Copy</string>
-    <string name="general_value_unknown_label">Unknown</string>
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Grant permission</string>
@@ -47,6 +46,7 @@
     <string name="pods_connection_state_call_label">In call mode</string>
     <string name="pods_connection_state_ringing_label">Ringing</string>
     <string name="pods_connection_state_hanging_up_label">Hanging up</string>
+    <string name="pods_connection_state_unknown_label">Unknown connection state</string>
     <string name="pods_unknown_raw_data_label">Raw data</string>
     <string name="pods_unknown_label">Unknown device</string>
     <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :)</string>
@@ -56,6 +56,7 @@
     <string name="pods_microphone_label">Microphone</string>
     <string name="pods_yours">Yours</string>
     <string name="headset_being_worn_label">Being worn</string>
+    <string name="pods_case_unknown_state">Unknown state</string>
 
     <string name="overview_nomaindevice_label">No primary device</string>
     <string name="overview_nomaindevice_description">All detected devices are unlikely to be yours. Power on and connect your device or adjust the settings.</string>

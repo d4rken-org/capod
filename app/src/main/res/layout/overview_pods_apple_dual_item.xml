@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:text="@string/general_value_unknown_label"
+                android:text="@string/general_value_not_available_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/pod_left_battery_icon"
                 app:layout_constraintTop_toBottomOf="@id/pod_left_label" />
@@ -260,7 +260,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:text="@string/general_value_unknown_label"
+                android:text="@string/general_value_not_available_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/pod_case_battery_icon"
                 app:layout_constraintTop_toBottomOf="@id/pod_case_label" />
@@ -353,7 +353,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="2dp"
-                android:text="@string/general_value_unknown_label"
+                android:text="@string/general_value_not_available_label"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/pod_right_battery_icon"
                 app:layout_constraintTop_toBottomOf="@id/pod_right_label" />

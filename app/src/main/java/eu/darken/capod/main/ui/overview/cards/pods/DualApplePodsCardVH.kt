@@ -85,7 +85,7 @@ class DualApplePodsCardVH(parent: ViewGroup) :
             podCaseLidLabel.text = when (caseLidState) {
                 LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
                 LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
-                else -> context.getString(R.string.general_value_unknown_label)
+                else -> context.getString(R.string.pods_case_unknown_state)
             }
 
             val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)

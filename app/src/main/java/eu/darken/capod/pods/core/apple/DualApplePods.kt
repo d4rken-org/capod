@@ -178,7 +178,7 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
         CALL(0x06, R.string.pods_connection_state_call_label),
         RINGING(0x07, R.string.pods_connection_state_ringing_label),
         HANGING_UP(0x09, R.string.pods_connection_state_hanging_up_label),
-        UNKNOWN(null, R.string.general_value_unknown_label);
+        UNKNOWN(null, R.string.pods_connection_state_unknown_label);
 
         constructor(raw: Int, @StringRes labelRes: Int) : this(raw.toUByte(), labelRes)
     }
