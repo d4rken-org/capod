@@ -8,11 +8,10 @@
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_copy_action">複製</string>
-    <string name="general_value_unknown_label">未知</string>
     <string name="general_thank_you_label">謝謝你</string>
     <string name="general_value_not_available_label">不可用</string>
     <string name="general_grant_permission_action">授予權限</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">升級</string>
+    <string name="general_upgrade_action">升級</string>
     <string name="general_check_action">檢查</string>
     <string name="general_close_action">關閉</string>
     <string name="debug_debuglog_size_label">大小</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">呼叫模式</string>
     <string name="pods_connection_state_ringing_label">振鈴</string>
     <string name="pods_connection_state_hanging_up_label">掛機</string>
+    <string name="pods_connection_state_unknown_label">未知連線狀態</string>
     <string name="pods_unknown_raw_data_label">原始資料</string>
     <string name="pods_unknown_label">未知裝置</string>
     <string name="pods_unknown_contact_dev">這是一個未知裝置，但可以使用相似的訊息格式。聯絡我以為此裝置新增相關支援 :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">麥克風</string>
     <string name="pods_yours">你的</string>
     <string name="headset_being_worn_label">正被佩戴</string>
+    <string name="pods_case_unknown_state">未知狀態</string>
     <string name="overview_nomaindevice_label">無主要裝置</string>
     <string name="overview_nomaindevice_description">所有檢測到的裝置似乎並不是你的。開啟並連線你的裝置，也可以調整設定。</string>
     <string name="settings_label">設定</string>
@@ -131,4 +132,5 @@
     <string name="first_seen_x">首次連線：%s</string>
     <string name="settings_blescanner_unfiltered_label">未過濾的低功耗藍牙資料</string>
     <string name="settings_blescanner_unfiltered_description">移除低功耗藍牙掃描器的任何過濾器，以顯示所有廣播的低功耗藍牙資料。對增加新耳機類型的支援很有用。</string>
+    <string name="permission_required_title">可能要求下列權限：</string>
 </resources>

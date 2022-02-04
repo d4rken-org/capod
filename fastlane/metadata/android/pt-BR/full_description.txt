@@ -1,17 +1,17 @@
 O CAPod é um aplicativo complementar para AirPods.
 
 Recursos:
-* Nível de bateria para os airpods e estojo.
-* Status de carregamento para os airpods e estojo.
+* Nível de bateria para airpods e estojos.
+* Status de carregamento para airpods e estojo.
 * Informações adicionais sobre conexão, microfone e estojo.
 * Pode receber e mostrar todos os dispositivos próximos.
 * Detecção de ouvido com reprodução/pausa automática.
-* Conecte automaticamente o smartphone e os airpods.
+* Conecte automaticamente o smartphone e os AirPods.
 * Mostrar pop-up quando o estojo é aberto.
 
-O CAPod é livre de anúncios. Alguns recursos adicionais exigem uma compra no aplicativo.
+O CAPod é livre de anúncios. Alguns recursos exigem uma compra no aplicativo.
 
 Os dispositivos AirPods e Beats mais populares são suportados.
-Se o seu dispositivo for semelhante aos AirPods, mas ainda não for compatível, envie-me um e-mail rápido.
+Se o seu dispositivo for semelhante ao AirPods, mas ainda não for compatível, envie-me um curto e-mail.
 
 Tem uma ideia legal para um novo recurso? Diga-me!

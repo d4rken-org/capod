@@ -6,7 +6,7 @@ Caractéristiques :
 * Renseignements supplémentaires sur la connexion, le microphone et l’étui.
 * Peut se connecter à tous les appareils à proximité et les présenter.
 * Détection de la mise en oreille avec lecture et pause automatiques.
-* Connexion automatique du téléphone et des AirPods.
+* Connecter automatiquement le téléphone et les AirPods.
 * Affiche une notification quand l'étui est ouvert.
 
 CAPod est exempt de publicités. L’achat intégré donne accès à des fonctions supplémentaires.

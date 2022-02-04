@@ -8,7 +8,6 @@
     <string name="general_share_action">Condividi</string>
     <string name="general_done_action">Fatto</string>
     <string name="general_copy_action">Copia</string>
-    <string name="general_value_unknown_label">Sconosciuto</string>
     <string name="general_thank_you_label">Grazie</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Concedi permessi</string>
@@ -42,6 +41,7 @@
     <string name="pods_connection_state_call_label">In modalità chiamata</string>
     <string name="pods_connection_state_ringing_label">Squilla</string>
     <string name="pods_connection_state_hanging_up_label">Riconnessione</string>
+    <string name="pods_connection_state_unknown_label">Stato di connessione sconosciuto</string>
     <string name="pods_unknown_raw_data_label">Dati non elaborati</string>
     <string name="pods_unknown_label">Dispositivo sconosciuto</string>
     <string name="pods_none_label_short">Nessun dispositivo</string>

@@ -1,17 +1,17 @@
-CAPod is a companion app for AirPods.
+CAPod là một ứng dụng đồng hành dành cho AirPods.
 
-Features:
-* Battery level for pods & cases.
-* Charging status for pods & case.
-* Additional infos about connection, microphone & case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
-* Show popup when case is opened.
+Tính năng:
+* Mức pin cho tai nghe và hộp đựng.
+* Trạng thái sạc cho tai nghe và hộp đựng.
+* Thông tin bổ sung về kết nối, micrô và hộp đựng.
+* Có thể nhận và hiển thị tất cả các thiết bị lân cận.
+* Phát hiện tai để tự động phát / tạm dừng.
+* Tự động kết nối điện thoại và AirPods.
+* Hiển thị cửa sổ bật lên khi hộp được mở.
 
-CAPod is ad-free. Some additional features require an in-app purchase.
+CAPod không có quảng cáo. Một số tính năng yêu cầu mua hàng trong ứng dụng.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a quick mail.
+Hầu hết các thiết bị AirPods và Beats phổ biến đều được hỗ trợ.
+Nếu thiết bị của bạn tương tự như AirPods nhưng chưa được hỗ trợ, hãy gửi cho tôi một email ngắn.
 
-Got a cool idea for a new feature? Reach out!
+Bạn có một ý tưởng hay cho một tính năng mới? Đưa tay ra!

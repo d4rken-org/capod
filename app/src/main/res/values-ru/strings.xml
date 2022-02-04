@@ -8,11 +8,10 @@
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
     <string name="general_copy_action">Копировать</string>
-    <string name="general_value_unknown_label">Неизвестно</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_value_not_available_label">Недоступно</string>
     <string name="general_grant_permission_action">Предоставить разрешение</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Улучшить</string>
+    <string name="general_upgrade_action">Улучшить</string>
     <string name="general_check_action">Проверить</string>
     <string name="general_close_action">Закрыть</string>
     <string name="debug_debuglog_size_label">Размер</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">В режиме вызова</string>
     <string name="pods_connection_state_ringing_label">Звонок</string>
     <string name="pods_connection_state_hanging_up_label">Отбой</string>
+    <string name="pods_connection_state_unknown_label">Неизвестное состояние подключения</string>
     <string name="pods_unknown_raw_data_label">Необработанные данные</string>
     <string name="pods_unknown_label">Неизвестное устройство</string>
     <string name="pods_unknown_contact_dev">Это неизвестное устройство, но оно использует аналогичный формат сообщения. Давайте добавим поддержку, свяжитесь со мной :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">Микрофон</string>
     <string name="pods_yours">Ваши</string>
     <string name="headset_being_worn_label">Надеты</string>
+    <string name="pods_case_unknown_state">Неизвестное состояние</string>
     <string name="overview_nomaindevice_label">Нет основного устройства</string>
     <string name="overview_nomaindevice_description">Не похоже, что среди обнаруженных устройств есть Ваши. Включите питание и подключите Ваше устройство, или измените настройки.</string>
     <string name="settings_label">Настройки</string>
@@ -131,4 +132,5 @@
     <string name="first_seen_x">Первые: %s</string>
     <string name="settings_blescanner_unfiltered_label">Нефильтрованные данные BLE</string>
     <string name="settings_blescanner_unfiltered_description">Удалите все фильтры из сканера BLE, чтобы показать все переданные данные BLE. Может помочь при добавлении поддержки новых типов наушников.</string>
+    <string name="permission_required_title">Требуется следующее разрешение:</string>
 </resources>

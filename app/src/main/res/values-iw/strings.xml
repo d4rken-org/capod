@@ -8,11 +8,10 @@
     <string name="general_share_action">שתף</string>
     <string name="general_done_action">בוצע</string>
     <string name="general_copy_action">העתק</string>
-    <string name="general_value_unknown_label">לא ידוע</string>
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_value_not_available_label">לא ישים</string>
     <string name="general_grant_permission_action">מתן רשות</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">שידרוג</string>
+    <string name="general_upgrade_action">שידרוג</string>
     <string name="general_check_action">בדיקה</string>
     <string name="general_close_action">סגור</string>
     <string name="debug_debuglog_size_label">מידה</string>
@@ -25,6 +24,10 @@
     <string name="permission_bluetooth_scan_label">סריקת Bluetooth</string>
     <string name="permission_bluetooth_scan_description">הרשאת \"סריקת Bluetooth\" מאפשרת לאפליקציה הזו לגלות ולקבל נתוני Bluetooth ממכשירים קרובים כמו ה-AirPods שלך.</string>
     <string name="permission_bluetooth_label">בלוטות</string>
-    <string name="permission_bluetooth_description">אפליקציה זו דורשת הרשאת \"Bluetooth\" כדי להתחבר למכשירי Bluetooth מותאמים.</string>
+    <string name="permission_bluetooth_description">אפליקציה זו דורשת הרשאת \"בלוטות\'\" כדי להתחבר למכשירי בלוטות\' מותאמים.</string>
     <string name="permission_access_fine_location_label">גישה למיקום מדוייק</string>
+    <string name="pods_unknown_contact_dev">מכשיר זה אינו יגיע, אבל עושה שימוש בפורמט הודעה דומה. בואו נוסיף תמיכה עבורו, צרו עימי קשר :)</string>
+    <string name="overview_bluetooth_disabled_description">בלוטות\' מכובה, יש להדליקו ;)</string>
+    <string name="settings_blescanner_unfiltered_label">נתוני BLE לא מפולטרים</string>
+    <string name="permission_required_title">ההרשאה הבאה נדרשת:</string>
 </resources>

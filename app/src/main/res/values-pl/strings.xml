@@ -8,11 +8,10 @@
     <string name="general_share_action">Udostępnij</string>
     <string name="general_done_action">Gotowe</string>
     <string name="general_copy_action">Kopiuj</string>
-    <string name="general_value_unknown_label">Nieznane</string>
     <string name="general_thank_you_label">Dziękuję</string>
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_grant_permission_action">Udziel uprawnień</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Ulepsz</string>
+    <string name="general_upgrade_action">Ulepsz</string>
     <string name="general_check_action">Sprawdź</string>
     <string name="general_close_action">Zamknij</string>
     <string name="debug_debuglog_size_label">Rozmiar</string>
@@ -30,7 +29,7 @@
     <string name="permission_access_fine_location_description">CAPod korzysta z uprawnienia do \"dokładnej lokalizacji\", aby odbierać dane Bluetooth Low Energy. Twoje słuchawki korzystają z technologii Bluetooth Low Energy, aby przekazywać informacje o swoim stanie. Aplikacja NIE BĘDZIE korzystać z danych Bluetooth do ustalenia twojego położenia.</string>
     <string name="permission_background_location_label">Dostęp do lokalizacji w tle</string>
     <string name="permission_background_location_description">CAPdo wykorzystuje \"Dostęp do lokalizacji w tle\", aby skorzystać z funkcjonalności takich jak \"Wyświetl okienko\" lub \"Automatycznie połącz\", gdy aplikacja jest zamknięta. Dostęp do lokalizacji w tle pozwala aplikacji na odbieranie danych Bluetooth Low Energy, gdy aplikacja działa w tle. Aplikacja NIE BĘDZIE korzystać z danych Bluetooth do ustalenia twojego położenia.</string>
-    <string name="permission_ignore_battery_optimizations_label">Wyłącz optymalizację baterii</string>
+    <string name="permission_ignore_battery_optimizations_label">Wyłącz optymalizacje baterii</string>
     <string name="permission_ignore_battery_optimizations_description">Optymalizacja baterii zapobiega przed niezawodnym odbieraniem danych Bluetooth, gdy aplikacja działa w tle.</string>
     <string name="pods_dual_left_label">Lewy pod</string>
     <string name="pods_dual_right_label">Prawy pod</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">W trybie rozmowy</string>
     <string name="pods_connection_state_ringing_label">Dzwoni</string>
     <string name="pods_connection_state_hanging_up_label">Rozłączanie</string>
+    <string name="pods_connection_state_unknown_label">Nieznany stan połączenia</string>
     <string name="pods_unknown_raw_data_label">Surowe dane</string>
     <string name="pods_unknown_label">Nieznane urządzenie</string>
     <string name="pods_unknown_contact_dev">Urządzenie nie zostało rozpoznane, ale korzysta z podobnego formatu danych. Możemy dodać jego obsługę - skontaktuj się ze mną :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="pods_yours">Twoje</string>
     <string name="headset_being_worn_label">Jest noszony</string>
+    <string name="pods_case_unknown_state">Nieznany stan</string>
     <string name="overview_nomaindevice_label">Brak podstawowego urządzenia</string>
     <string name="overview_nomaindevice_description">Żadne z wykrytych urządzeń nie wygląda na twoje. Włącz i połącz swoje urządzenie lub dostosuj ustawienia.</string>
     <string name="settings_label">Ustawienia</string>
@@ -61,7 +62,7 @@
     <string name="settings_category_other_label">Inne</string>
     <string name="settings_general_label">Ustawienia</string>
     <string name="settings_general_description">Ogólne opcje, które mają wpływ na całą aplikację.</string>
-    <string name="settings_acknowledgements_label">Potwierdzenia</string>
+    <string name="settings_acknowledgements_label">Podziękowania</string>
     <string name="changelog_label">Lista zmian</string>
     <string name="settings_support_email_developer_label">E-mail autora</string>
     <string name="settings_support_installid_label">ID instalacji</string>
@@ -126,9 +127,10 @@
     <string name="settings_onepod_mode_label">Tryb jednego pod\'a</string>
     <string name="settings_onepod_mode_description">Noszenie obu pod\'ów nie jest wymagane. Wystarczy jeden, aby aktywować reakcje.</string>
     <string name="permission_system_alert_window_label">Okna alertów systemowych</string>
-    <string name="permission_system_alert_window_description">Zezwól CAPod na wyświetlanie się nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie okienka\".</string>
+    <string name="permission_system_alert_window_description">Zezwól na wyświetlanie CAPod nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie okienka\".</string>
     <string name="last_seen_x">Ostatnio widziane: %s</string>
     <string name="first_seen_x">Widziane pierwszy raz: %s</string>
     <string name="settings_blescanner_unfiltered_label">Niefiltrowane dane BLE</string>
     <string name="settings_blescanner_unfiltered_description">Usuwa wszystkie filtry ze skaner BLE, aby wyświetlić wszystkie nadawane dane BLE. Użyteczne w przypadku dodawania obsługi nowego typu słuchawek.</string>
+    <string name="permission_required_title">Następujące uprawnienie jest wymagane:</string>
 </resources>

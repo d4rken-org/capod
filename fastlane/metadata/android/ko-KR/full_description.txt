@@ -1,17 +1,17 @@
-CAPod is a companion app for AirPods.
+CAPod는 AirPods를 더 편하게 사용하게 해주는 앱입니다.
 
-Features:
-* Battery level for pods & cases.
-* Charging status for pods & case.
-* Additional infos about connection, microphone & case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
-* Show popup when case is opened.
+기능:
+* 유닛과 케이스의 배터리 확인
+* 유닛과 케이스의 충전 상태 확인
+* 마이크, 연결 상태, 케이스를 위한 추가 정보들 확인
+* 주변의 모든 기기 확인 및 추가 가능
+* 착용 여부 확인 및 자동 재생/일시정지
+* AirPods에 자동으로 연결
+* 케이스가 열릴 때 팝업 보이기
 
-CAPod is ad-free. Some additional features require an in-app purchase.
+CAPod에는 광고가 없습니다. 몇몇 추가 기능은 인앱 결제를 필요로 합니다.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a quick mail.
+일반적 AirPods 및 Beats 기기는 거의 모두 지원됩니다.
+만약 AirPods와 비슷하나 지원되지 않는 기기가 있다면 제게 메일을 보내 주세요.
 
-Got a cool idea for a new feature? Reach out!
+새 기능에 대한 아이디어가 있나요? 알려주세요!

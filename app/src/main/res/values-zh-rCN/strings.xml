@@ -8,11 +8,10 @@
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_copy_action">复制</string>
-    <string name="general_value_unknown_label">未知</string>
     <string name="general_thank_you_label">谢谢你</string>
     <string name="general_value_not_available_label">不可用</string>
     <string name="general_grant_permission_action">授予权限</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">升级</string>
+    <string name="general_upgrade_action">升级</string>
     <string name="general_check_action">检查</string>
     <string name="general_close_action">关闭</string>
     <string name="debug_debuglog_size_label">大小</string>
@@ -29,7 +28,9 @@
     <string name="permission_access_fine_location_label">访问精准位置</string>
     <string name="permission_access_fine_location_description">CAPod 使用“精准定位”权限来接收低功耗蓝牙数据。您的耳机使用低功耗蓝牙技术来传播其状态，本应用「不会」通过蓝牙数据来给您定位。</string>
     <string name="permission_background_location_label">在后台访问位置</string>
+    <string name="permission_background_location_description">CAPod 使用“在后台访问位置”权限以在本应用被关闭时继续提供如“显示弹窗”、“自动连接”等功能。此权限允许本应用在后台运行时继续接收蓝牙低功耗数据。本应用并不使用蓝牙数据来窥探您的位置。</string>
     <string name="permission_ignore_battery_optimizations_label">禁用电池优化</string>
+    <string name="permission_ignore_battery_optimizations_description">电池优化可能导致本应用在后台运行时不能稳定地接收蓝牙数据。</string>
     <string name="pods_dual_left_label">左耳</string>
     <string name="pods_dual_right_label">右耳</string>
     <string name="pods_case_label">充电仓</string>
@@ -41,13 +42,17 @@
     <string name="pods_connection_state_call_label">处于通话模式</string>
     <string name="pods_connection_state_ringing_label">正在振铃</string>
     <string name="pods_connection_state_hanging_up_label">结束通话</string>
+    <string name="pods_connection_state_unknown_label">未知连接状态</string>
     <string name="pods_unknown_raw_data_label">原始数据</string>
     <string name="pods_unknown_label">未知设备</string>
+    <string name="pods_unknown_contact_dev">这是一个未知设备，但它使用了类似的消息格式。与我联系以协助添加对它的支持 :)</string>
     <string name="pods_none_label_short">没有设备</string>
     <string name="pods_charging_label">正在充电</string>
     <string name="pods_inear_label">在耳中</string>
     <string name="pods_microphone_label">麦克风</string>
+    <string name="pods_yours">您的</string>
     <string name="headset_being_worn_label">正戴着</string>
+    <string name="pods_case_unknown_state">未知状态</string>
     <string name="overview_nomaindevice_label">没有主设备</string>
     <string name="overview_nomaindevice_description">检测到的所有设备都不像您的。请将您的设备开启以连接，或者调整设置。</string>
     <string name="settings_label">设置</string>
@@ -122,6 +127,10 @@
     <string name="settings_onepod_mode_label">单耳模式</string>
     <string name="settings_onepod_mode_description">不需要同时佩戴两支耳机，单支即可引发反应</string>
     <string name="permission_system_alert_window_label">系统警告窗口</string>
+    <string name="permission_system_alert_window_description">允许 CAPod 在其他应用的界面上方显示，以允许如“显示弹窗”功能。</string>
     <string name="last_seen_x">上次出现：%s</string>
     <string name="first_seen_x">首次出现：%s</string>
+    <string name="settings_blescanner_unfiltered_label">未经过滤的 BLE 数据</string>
+    <string name="settings_blescanner_unfiltered_description">完全解除蓝牙低功耗（BLE）扫描器上的过滤器，以显示被广播的全部 BLE 数据。可用于了解和新增更多耳机型号的支持。</string>
+    <string name="permission_required_title">需要下列权限：</string>
 </resources>

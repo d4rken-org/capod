@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Các dịch vụ của Google Play không khả dụng.</string>
+    <string name="upgrades_no_purchases_found_check_account">Không tìm thấy giao dịch mua nào. Bạn có đang sử dụng đúng tài khoản không?</string>
+</resources>

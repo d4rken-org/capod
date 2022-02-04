@@ -8,11 +8,10 @@
     <string name="general_share_action">Zdieľať</string>
     <string name="general_done_action">Hotovo</string>
     <string name="general_copy_action">Kopírovať</string>
-    <string name="general_value_unknown_label">Neznáme</string>
     <string name="general_thank_you_label">Ďakujem</string>
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_grant_permission_action">Udeliť povolenie</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Inovovať</string>
+    <string name="general_upgrade_action">Inovovať</string>
     <string name="general_check_action">Overiť</string>
     <string name="general_close_action">Zavrieť</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">V režime hovoru</string>
     <string name="pods_connection_state_ringing_label">Vyzváňanie</string>
     <string name="pods_connection_state_hanging_up_label">Zavesenie</string>
+    <string name="pods_connection_state_unknown_label">Neznámy stav pripojenia</string>
     <string name="pods_unknown_raw_data_label">Nespracované údaje</string>
     <string name="pods_unknown_label">Neznáme zariadenie</string>
     <string name="pods_unknown_contact_dev">Toto je neznáme zariadenie, ale používa podobný formát správy. Pridajme preň podporu, kontaktujte ma :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">Mikrofón</string>
     <string name="pods_yours">Vaše</string>
     <string name="headset_being_worn_label">Používa sa</string>
+    <string name="pods_case_unknown_state">Neznámy stav</string>
     <string name="overview_nomaindevice_label">Žiadne hlavné zariadenie</string>
     <string name="overview_nomaindevice_description">Všetky zistené zariadenia pravdepodobne nebudú vaše. Zapnite a pripojte svoje zariadenie alebo upravte nastavenia.</string>
     <string name="settings_label">Nastavenia</string>
@@ -131,4 +132,5 @@
     <string name="first_seen_x">Prvýkrát videné: %s</string>
     <string name="settings_blescanner_unfiltered_label">Nefiltrované údaje BLE</string>
     <string name="settings_blescanner_unfiltered_description">Odstráňte všetky filtre zo skenera BLE, aby sa zobrazili všetky vysielané údaje BLE. Užitočné na pridanie podpory pre nové typy slúchadiel.</string>
+    <string name="permission_required_title">Vyžaduje sa nasledujúce povolenie:</string>
 </resources>

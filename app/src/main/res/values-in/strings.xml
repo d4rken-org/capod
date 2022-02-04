@@ -8,11 +8,10 @@
     <string name="general_share_action">Bagikan</string>
     <string name="general_done_action">Selesai</string>
     <string name="general_copy_action">Salin</string>
-    <string name="general_value_unknown_label">Tidak diketahui</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_value_not_available_label">T/A</string>
     <string name="general_grant_permission_action">Berikan izin</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Tingkatkan</string>
+    <string name="general_upgrade_action">Tingkatkan</string>
     <string name="general_check_action">Memeriksa</string>
     <string name="general_close_action">Tutup</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">Dalam mode panggilan</string>
     <string name="pods_connection_state_ringing_label">Berdering</string>
     <string name="pods_connection_state_hanging_up_label">Mengangkat</string>
+    <string name="pods_connection_state_unknown_label">Status koneksi tidak diketahui</string>
     <string name="pods_unknown_raw_data_label">Data mentah</string>
     <string name="pods_unknown_label">Perangkat tidak dikenal</string>
     <string name="pods_unknown_contact_dev">Ini adalah perangkat yang tidak dikenal, tapi menggunakan format pesan yang serupa. Mari tambahkan dukungan untuk itu, hubungi saya :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="pods_yours">Milikmu</string>
     <string name="headset_being_worn_label">Sedang dipakai</string>
+    <string name="pods_case_unknown_state">Status tidak diketahui</string>
     <string name="overview_nomaindevice_label">Tidak ada perangkat utama</string>
     <string name="overview_nomaindevice_description">Semua perangkat yang terdeteksi tidak mungkin menjadi milik anda. Nyalakan &amp; sambungkan perangkat anda atau sesuaikan pengaturan.</string>
     <string name="settings_label">Pengaturan</string>
@@ -131,4 +132,5 @@
     <string name="first_seen_x">Pertama kali terlihat: %s</string>
     <string name="settings_blescanner_unfiltered_label">Data BLE yang tidak difilter</string>
     <string name="settings_blescanner_unfiltered_description">Hapus semua filter dari pemindai BLE untuk menampilkan semua data BLE yang disiarkan. Berguna untuk menambahkan dukungan pada jenis headphone baru.</string>
+    <string name="permission_required_title">Izin berikut diperlukan:</string>
 </resources>

@@ -1,17 +1,17 @@
-CAPod is a companion app for AirPods.
+CAPod, AirPods-lar üçün köməkçi bir tətbiqdir.
 
-Features:
-* Battery level for pods & cases.
-* Charging status for pods & case.
-* Additional infos about connection, microphone & case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone & airpods.
-* Show popup when case is opened.
+Özəlliklər:
+* Qulaqlıq və qutusu üçün batereya səviyyəsi.
+* Qulaqlıq və qutusu üçün enerji yığma vəziyyəti.
+* Bağlantı, mikrofon və qutu haqqında əlavə məlumatlar.
+* Yaxınlıqdakı bütün cihazları qəbul edə və göstərə bilir.
+* Qulağa taxarkən/çıxararkən musiqini oynatma/dayandırma.
+* Telefon və AirPods ilə avtomatik bağlantı qurma.
+* Qulaqlıq qutusu açılarkən açılan pəncərə bildirişi göstərmə.
 
-CAPod is ad-free. Some additional features require an in-app purchase.
+CAPod, reklamsızdır. Bəzi özəlliklər tətbiq daxili satın alma tələb edir.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a quick mail.
+Ən məşhur AirPods və Beats cihazları dəstəklənir.
+Cihazınız AirPods-a bənzəyir, ancaq dəstəklənmirsə, mənə e-poçt ilə bildirin.
 
-Got a cool idea for a new feature? Reach out!
+Yeni bir özəllik üçün maraqlı bir ideyanız var? Əlaqə saxlayın!

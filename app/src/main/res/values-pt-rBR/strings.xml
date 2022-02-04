@@ -8,11 +8,10 @@
     <string name="general_share_action">Compartilhar</string>
     <string name="general_done_action">Pronto</string>
     <string name="general_copy_action">Copiar</string>
-    <string name="general_value_unknown_label">Desconhecido</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Conceder permissão</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Upgrade</string>
+    <string name="general_upgrade_action">Upgrade</string>
     <string name="general_check_action">Checar</string>
     <string name="general_close_action">Fechar</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">No modo de chamada</string>
     <string name="pods_connection_state_ringing_label">Tocando</string>
     <string name="pods_connection_state_hanging_up_label">Desligando</string>
+    <string name="pods_connection_state_unknown_label">Estado de conexão desconhecido</string>
     <string name="pods_unknown_raw_data_label">Dados não tratados</string>
     <string name="pods_unknown_label">Dispositivo desconhecido</string>
     <string name="pods_unknown_contact_dev">Este é um dispositivo desconhecido, mas está usando um formato de mensagem semelhante. Vamos adicionar suporte para isso, entre em contato comigo :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">Microfone</string>
     <string name="pods_yours">Seus</string>
     <string name="headset_being_worn_label">Sendo usado</string>
+    <string name="pods_case_unknown_state">Estado desconhecido</string>
     <string name="overview_nomaindevice_label">Nenhum dispositivo principal</string>
     <string name="overview_nomaindevice_description">É improvável que todos os dispositivos detectados sejam seus. Ligue e conecte seu dispositivo ou ajuste as configurações.</string>
     <string name="settings_label">Configurações</string>
@@ -131,4 +132,5 @@
     <string name="first_seen_x">Visto pela primeira vez: %s</string>
     <string name="settings_blescanner_unfiltered_label">Dados BLE não filtrados</string>
     <string name="settings_blescanner_unfiltered_description">Remova quaisquer filtros do scanner BLE para mostrar todos os dados BLE transmitidos. Útil para adicionar suporte para novos tipos de fones de ouvido.</string>
+    <string name="permission_required_title">A seguinte permissão é necessária:</string>
 </resources>

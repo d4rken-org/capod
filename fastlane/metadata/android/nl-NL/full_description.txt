@@ -6,7 +6,7 @@ Functies:
 * Extra info over aansluiting, microfoon & case.
 * Kan alle apparaten in de buurt ontvangen en weergeven.
 * Oordetectie met automatisch afspelen/pauzeren.
-* Sluit automatisch telefoon en airpods aan.
+* Automatisch verbinding maken met telefoon en AirPods.
 * Toont pop-up wanneer case wordt geopend.
 
 CAPod is advertentievrij. Sommige extra functies vereisen een in-app aankoop.

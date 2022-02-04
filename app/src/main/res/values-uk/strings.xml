@@ -6,15 +6,15 @@
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Зроблено</string>
     <string name="general_copy_action">Копіювати</string>
-    <string name="general_value_unknown_label">Невідомо</string>
     <string name="general_thank_you_label">Дякуємо</string>
     <string name="general_value_not_available_label">Н/д</string>
     <string name="general_grant_permission_action">Надати дозвіл</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Оновити</string>
+    <string name="general_upgrade_action">Оновити</string>
     <string name="general_check_action">Перевірити</string>
     <string name="general_close_action">Зачинити</string>
     <string name="debug_debuglog_size_label">Розмір</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_access_fine_location_label">Доступ до точного місцезнаходження</string>
     <string name="pods_dual_left_label">Лівий навушник</string>
     <string name="pods_dual_right_label">Правий навушник</string>
     <string name="pods_case_label">Футляр</string>
@@ -35,12 +35,28 @@
     <string name="settings_licenses_label">Ліцензії</string>
     <string name="settings_category_other_label">Інше</string>
     <string name="settings_general_label">Налаштування</string>
+    <string name="changelog_label">Список змін</string>
     <string name="settings_support_label">Підтримка</string>
     <string name="settings_support_description">Якщо необхідна допомога.</string>
+    <string name="settings_monitor_mode_automatic_label">При під\'єднаному пристрої</string>
     <string name="settings_monitor_mode_always_label">Завжди</string>
+    <string name="settings_scanner_mode_lowpower_label">Низький заряд</string>
+    <string name="settings_autopause_label">Автопауза</string>
+    <string name="settings_autopplay_label">Автовідтворення</string>
+    <string name="settings_signal_minimum_label">Мінімальна якість сигналу</string>
+    <string name="settings_autoconnect_label">Автопід\'єднання</string>
+    <string name="settings_reaction_label">Реакції</string>
+    <string name="settings_reaction_description">Реагування на події та дії.</string>
+    <string name="settings_category_yourdevice_label">Ваш пристрій</string>
+    <string name="settings_maindevice_address_label">Адреса Вашого пристрою</string>
+    <string name="settings_maindevice_address_none">Немає</string>
+    <string name="settings_maindevice_model_label">Модель Вашого пристрою</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Футляр відчинено</string>
     <string name="settings_reaction_autoconnect_inear_label">У вусі</string>
     <string name="upgrade_capod_label">Оновити CAPod</string>
     <string name="upgrade_capod_description">Отримайте додаткові функції та підтримайте розробника.</string>
     <string name="help_translate_label">Переклад</string>
     <string name="help_translate_description">Допоможіть перекласти це своєю улюбленою мовою.</string>
+    <string name="settings_onepod_mode_label">Режим одного навушника</string>
+    <string name="permission_required_title">Необхідні наступні дозволи:</string>
 </resources>

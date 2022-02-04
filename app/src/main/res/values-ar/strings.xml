@@ -8,7 +8,6 @@
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
     <string name="general_copy_action">نسخ</string>
-    <string name="general_value_unknown_label">مجهول</string>
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_value_not_available_label">غير متوفر</string>
     <string name="general_grant_permission_action">منح الإذن</string>

@@ -8,11 +8,10 @@
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_copy_action">Copiar</string>
-    <string name="general_value_unknown_label">Desconocido</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_grant_permission_action">Conceder permiso</string>
-    <string name="general_upgrade_action" comment="general_upgrade_action,&#10;&#10;Used as label for dialog buttons, i.e. the dialog is about upgrading the app to &quot;Pro&quot; and the positive confirmation button is labeled &quot;Upgrade&quot;">Actualizar</string>
+    <string name="general_upgrade_action">Actualizar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Cerrar</string>
     <string name="debug_debuglog_size_label">Tamaño</string>
@@ -20,8 +19,8 @@
     <string name="debug_notification_channel_label">Notificaciones depuradas</string>
     <string name="debug_debuglog_file_label">Registro guardado</string>
     <string name="debug_debuglog_record_action">Grabar registro de depuracion</string>
-    <string name="permission_bluetooth_connect_label">Conexion Bluetooth</string>
-    <string name="permission_bluetooth_connect_description">Esta aplicacion requiere el permiso \"conexion Bluetooth\" para interactuar con los dispositivos pareados, e iniciar las conexiones.</string>
+    <string name="permission_bluetooth_connect_label">Conexión Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Esta aplicación requiere el permiso \"conexión Bluetooth\" para interactuar con los dispositivos pareados, e iniciar las conexiones.</string>
     <string name="permission_bluetooth_scan_label">Buscando Bluetooth</string>
     <string name="permission_bluetooth_scan_description">El permiso \"Escaneo Bluetooth\" permite que esta aplicación descubra y reciba datos de Bluetooth de dispositivos cercanos, como sus AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
@@ -43,6 +42,7 @@
     <string name="pods_connection_state_call_label">En modo llamada</string>
     <string name="pods_connection_state_ringing_label">Sonando</string>
     <string name="pods_connection_state_hanging_up_label">Colgar</string>
+    <string name="pods_connection_state_unknown_label">Estado de la conexion desconocido</string>
     <string name="pods_unknown_raw_data_label">Datos sin procesar</string>
     <string name="pods_unknown_label">Dispositivo desconocido</string>
     <string name="pods_unknown_contact_dev">Este es un dispositivo desconocido, pero está usando un formato de mensaje similar. Agreguemos soporte para ello, contácteme :)</string>
@@ -52,6 +52,7 @@
     <string name="pods_microphone_label">Micrófono</string>
     <string name="pods_yours">Tuyos</string>
     <string name="headset_being_worn_label">En uso</string>
+    <string name="pods_case_unknown_state">Estado desconocido</string>
     <string name="overview_nomaindevice_label">Ningún dispositivo principal</string>
     <string name="overview_nomaindevice_description">Es poco probable que todos los dispositivos detectados sean suyos. Encienda y conecte su dispositivo o ajuste la configuración.</string>
     <string name="settings_label">Ajustes</string>
@@ -131,4 +132,5 @@
     <string name="first_seen_x">Visto por primera vez: %s</string>
     <string name="settings_blescanner_unfiltered_label">Datos BLE sin filtrar</string>
     <string name="settings_blescanner_unfiltered_description">Elimina los filtros del escáner BLE para mostrar todos los datos BLE transmitidos. Útil para agregar soporte para nuevos tipos de auriculares.</string>
+    <string name="permission_required_title">Se requiere el siguiente permiso:</string>
 </resources>

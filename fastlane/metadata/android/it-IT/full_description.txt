@@ -1,17 +1,17 @@
 CAPod é una companion app per le AirPods.
 
 Caratteristiche:
-* Percentuale della batteria sia per le pods che per il case.
-* Stato della carica sia per le pods che per il case.
-* Maggiori info sulla connessione, il microfono ed il case.
+* Battery level for pods and cases.
+* Charging status for pods and case.
+* Additional infos about connection, microphone and case.
 * Puo ricevere e mostrare tutti i dispositivi vicini.
 * Riconoscimento dell'orecchio con pausa e play automatici.
-* Connette automaticamente telefono ed airpods.
+* Connetti automaticamente il telefono alle AirPods.
 * Mostra un popup quando il case é aperto.
 
-CAPod é privo di pubblicità. Alcune funzioni necessitano di acquisti in app.
+CAPod é privo di pubblicità. Some features require an in-app purchase.
 
 Sono supportate le Airpods e Beats più popolari.
-Se il tuo device é simile ad un Airpods ma non é già supportato, mandami una mail.
+If your device is similar to AirPods but not yet supported, send me a short mail.
 
 Hai un'idea interessante per una nuova funzione da aggiungere all'app? Fammelo sapere!

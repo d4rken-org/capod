@@ -9,7 +9,7 @@ Característiques:
 * Connecta automàticament el telèfon i els AirPods.
 * Mostra una finestra emergent quan s'obre la funda.
 
-CAPod no inclou anuncis. Algunes funcions addicionals requereixen una compra des de l'aplicació.
+CAPod no inclou anuncis. Algunes funcions requereixen una compra des de l'aplicació.
 
 Els dispositius AirPods i Beats més populars són compatibles.
 Si el vostre dispositiu és semblant als AirPods però encara no és compatible, envieu-me un correu.

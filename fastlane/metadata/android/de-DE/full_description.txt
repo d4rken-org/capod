@@ -3,15 +3,15 @@ CAPod ist ein Helfer für AirPods auf Android.
 Funktionen:
 * Akkustand für Ohrhörer & Gehäuse.
 * Ladezustand von Ohrhörer und Ladecase.
-* Zusätzliche Informationen über Verbindung, Mikrofone und Etui.
+*Zusätzliche Infos zu Anschluss, Mikrofon und Gehäuse.
 * Zeigt Details zu allen Geräten in der Nähe an.
 * Ohr-Erkennung mit automatischem Play/Pause.
-* Automatische Verbindung von Handy & AirPods.
+* Telefon und AirPods automatisch verbinden.
 * Zeigt Pop-Ups an, wenn das Case geöffnet wird.
 
-CAPod ist werbefrei. Manche zusätzlichen Funktionen benötigen einen In-App-Kauf.
+CAPod ist werbefrei. Einige Funktionen erfordern einen In-App-Kauf.
 
 Die beliebtesten AirPods und Beats Kopfhörer werden unterstützt.
-Schreib mir ne kurze Mail, wenn dein Gerät ähnlich zu AirPods ist, aber noch nicht unterstützt wird.
+Wenn Ihr Gerät AirPods ähnelt, aber noch nicht unterstützt wird, senden Sie mir eine kurze Mail.
 
-Hast du eine coole Idee? Mail mir!
+Hast du eine coole Idee für ein neues Feature? Mail mir!

@@ -1,17 +1,17 @@
 CAPod es una app de emparejamiento para AirPods.
 
 Funciones:
-* Nivel de Bateria para Auriculares y Estuches.
+* Nivel de bateria para auriculares y estuches.
 * Indicador de carga de auriculares y estuche.
 * informacion adicional de conexion, microfono y estuche.
 * Recepcion y muestra de dispositivos cercanos.
 * "detector de orejas" con inicio/pausa automaticos.
-* Conecxion automatizada telefono-Airpods.
+* Conecta automáticamente el teléfono y los AirPods.
 * Aviso emergente de estuche abierto.
 
-CAPod es sin publicidad. Algunas funciones adicionales requieren compras en la aplicacion.
+CAPod es sin publicidad. Algunas características requieren una compra en la aplicación.
 
 Valido para la mayoria de Airpods y Beats.
-Si tienes un dispositivo tipo Airpods y aun no te funciona, enviame un mail.
+Si tienes un dispositivo tipo AirPods y aun no te funciona, enviame un mail.
 
 Alguna funcion nueva que podamos añadir? Llego!

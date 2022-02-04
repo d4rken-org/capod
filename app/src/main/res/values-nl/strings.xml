@@ -8,7 +8,6 @@
     <string name="general_share_action">Delen</string>
     <string name="general_done_action">Klaar</string>
     <string name="general_copy_action">Kopiëren</string>
-    <string name="general_value_unknown_label">Onbekend</string>
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_grant_permission_action">Toestemming geven</string>
@@ -25,6 +24,7 @@
     <string name="permission_bluetooth_scan_label">Bluetooth scannen</string>
     <string name="permission_bluetooth_scan_description">Met de machtiging \'Bluetooth-scannen\' kan deze app Bluetooth-gegevens van apparaten in de buurt, zoals uw AirPods, ontdekken en ontvangen.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Deze app heeft de toestemming van \"Bluetooth\" nodig om verbinding te maken met gekoppelde Bluetooth-apparaten.</string>
     <string name="permission_access_fine_location_label">Toegang prima locatie</string>
     <string name="permission_access_fine_location_description">CAPod gebruikt de \"prima locatie\"-toestemming om Bluetooth Low Energy-gegevens te ontvangen. Uw hoofdtelefoon gebruikt Bluetooth Low Energy-technologie om hun status uit te zenden. Deze app gebruikt GEEN Bluetooth-gegevens om uw locatie te bepalen.</string>
     <string name="permission_background_location_label">Toegang tot locatie op de achtergrond</string>
@@ -42,14 +42,17 @@
     <string name="pods_connection_state_call_label">In oproepmodus</string>
     <string name="pods_connection_state_ringing_label">Bellen</string>
     <string name="pods_connection_state_hanging_up_label">Ophangen</string>
+    <string name="pods_connection_state_unknown_label">Onbekende verbindingsstatus</string>
     <string name="pods_unknown_raw_data_label">Ruwe data</string>
     <string name="pods_unknown_label">Onbekend apparaat</string>
+    <string name="pods_unknown_contact_dev">Dit is een onbekend apparaat, maar het gebruikt een vergelijkbaar berichtformaat. Laten we er ondersteuning voor toevoegen, neem contact met mij op :)</string>
     <string name="pods_none_label_short">Geen apparaat</string>
     <string name="pods_charging_label">Opladen</string>
     <string name="pods_inear_label">In oor</string>
     <string name="pods_microphone_label">Microfoon</string>
     <string name="pods_yours">Die van u</string>
     <string name="headset_being_worn_label">Wordt gedragen</string>
+    <string name="pods_case_unknown_state">Onbekende staat</string>
     <string name="overview_nomaindevice_label">Geen primair apparaat</string>
     <string name="overview_nomaindevice_description">Het is onwaarschijnlijk dat alle gedetecteerde apparaten van u zijn. Schakel uw apparaat in en sluit het aan of pas de instellingen aan.</string>
     <string name="settings_label">Instellingen</string>
@@ -118,6 +121,7 @@
     <string name="settings_popup_caseopen_description">Een pop-up weergeven wanneer de behuizing van het apparaat wordt geopend (experimenteel).</string>
     <string name="notification_channel_reaction_popup_label">Pop-up apparaatreacties</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is uitgeschakeld</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is uitgeschakeld, activeer het ;)</string>
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help dit te vertalen naar uw favoriete taal.</string>
     <string name="settings_onepod_mode_label">Eén pod-modus</string>
@@ -126,4 +130,7 @@
     <string name="permission_system_alert_window_description">Laat CAPod over andere apps heen tekenen om de functie \"Show PopUp\" mogelijk te maken.</string>
     <string name="last_seen_x">Laatst gezien: %s</string>
     <string name="first_seen_x">Eerst gezien: %s</string>
+    <string name="settings_blescanner_unfiltered_label">Ongefilterde BLE-gegevens</string>
+    <string name="settings_blescanner_unfiltered_description">Verwijder eventuele filters van de BLE-scanner om alle uitgezonden BLE-gegevens weer te geven. Handig om ondersteuning toe te voegen voor nieuwe typen hoofdtelefoons.</string>
+    <string name="permission_required_title">De volgende toestemming is vereist:</string>
 </resources>
