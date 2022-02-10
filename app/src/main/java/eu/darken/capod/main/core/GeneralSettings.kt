@@ -34,6 +34,11 @@ class GeneralSettings @Inject constructor(
         moshi
     )
 
+    val compatibilityMode = preferences.createFlowPreference(
+        "core.compatibility.enabled",
+        false
+    )
+
     val showAll = preferences.createFlowPreference(
         "core.showall.enabled",
         false
@@ -58,6 +63,7 @@ class GeneralSettings @Inject constructor(
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         scannerMode,
+        compatibilityMode,
         showAll,
         minimumSignalQuality,
         mainDeviceAddress,

@@ -10,6 +10,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.BuildConfig
 import eu.darken.capod.R
 import eu.darken.capod.common.colorString
 import eu.darken.capod.common.debug.logging.log
@@ -71,6 +72,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         }
 
         vm.listItems.observe2(ui) {
+            if (BuildConfig.DEBUG) toolbar.subtitle = "${it.size} items"
             adapter.update(it)
         }
 

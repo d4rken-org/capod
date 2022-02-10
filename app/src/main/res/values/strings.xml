@@ -142,4 +142,6 @@
     <string name="settings_blescanner_unfiltered_label">Unfiltered BLE data</string>
     <string name="settings_blescanner_unfiltered_description">Remove any filters from the BLE scanner to show all broadcasted BLE data. Useful to add support for new headphone types.</string>
     <string name="permission_required_title">The following permission is required:</string>
+    <string name="settings_compatibility_mode_label">Compatibility mode</string>
+    <string name="settings_compatibility_mode_description">Disable optimizations to improve compatibility. Try this if you are not seeing any data.</string>
 </resources>

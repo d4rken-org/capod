@@ -61,19 +61,22 @@ class PodMonitor @Inject constructor(
                 log(TAG) { "Bluetooth is enabled" }
                 combine(
                     generalSettings.scannerMode.flow,
+                    generalSettings.compatibilityMode.flow,
                     debugSettings.showUnfiltered.flow
-                ) { mode, unfiltered -> mode to unfiltered }
-                    .flatMapLatest { (mode, unfiltered) ->
-                        val filters = if (unfiltered) {
-                            setOf(getUnfilteredFilter())
-                        } else {
-                            ProximityPairing.getBleScanFilter()
-                        }
-                        bleScanner.scan(
-                            filters = filters,
-                            scannerMode = mode
-                        ).map { it.preFilterAndMap(mode) }
+                ) { scannerMode, compatMode, unfiltered ->
+                    Triple(scannerMode, compatMode, unfiltered)
+                }.flatMapLatest { (mode, compat, unfiltered) ->
+                    val filters = if (unfiltered) {
+                        setOf(getUnfilteredFilter())
+                    } else {
+                        ProximityPairing.getBleScanFilter()
                     }
+                    bleScanner.scan(
+                        filters = filters,
+                        scannerMode = mode,
+                        compatMode = compat,
+                    ).map { it.preFilterAndMap(mode) }
+                }
             } else {
                 log(TAG, WARN) { "Bluetooth is currently disabled" }
                 flowOf(null)

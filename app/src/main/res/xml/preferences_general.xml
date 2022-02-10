@@ -15,6 +15,12 @@
         android:title="@string/settings_scanner_mode_label" />
 
     <CheckBoxPreference
+        android:icon="@drawable/ic_baseline_ghost_24"
+        android:key="core.compatibility.enabled"
+        android:summary="@string/settings_compatibility_mode_description"
+        android:title="@string/settings_compatibility_mode_label" />
+
+    <CheckBoxPreference
         android:icon="@drawable/ic_baseline_devices_other_24"
         android:key="core.showall.enabled"
         android:summary="@string/settings_showall_description"
