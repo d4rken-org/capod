@@ -89,7 +89,7 @@
     <string name="settings_monitor_mode_label">Monitor mode</string>
     <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>
     <string name="settings_scanner_mode_label">Scanner mode</string>
-    <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy scanner prioritize performance or conserve energy?</string>
+    <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy data scanner prioritize performance or conserve energy?</string>
     <string name="settings_monitor_mode_manual_label">When app is open</string>
     <string name="settings_monitor_mode_automatic_label">When device is connected</string>
     <string name="settings_monitor_mode_always_label">Always</string>
@@ -97,13 +97,13 @@
     <string name="settings_scanner_mode_balanced_label">Balanced</string>
     <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
     <string name="settings_autopause_label">Auto pause</string>
-    <string name="settings_autopause_description">Pause music when removing the device from your ear.</string>
+    <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
     <string name="settings_showall_label">Show all devices</string>
     <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
     <string name="settings_autopplay_label">Auto play</string>
-    <string name="settings_autoplay_description">Start music playback music when wearing the device.</string>
+    <string name="settings_autoplay_description">Start audio playback when device is worn.</string>
     <string name="settings_fake_data_label">Fake data</string>
-    <string name="settings_fake_data_description">Show fake data, i.e. simulate device that don\'t exist.</string>
+    <string name="settings_fake_data_description">Show fake data, i.e., simulate devices that don\’t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
     <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
     <string name="settings_signal_minimum_label">Minimum signal quality</string>
@@ -132,7 +132,7 @@
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
     <string name="help_translate_label">Translation</string>
-    <string name="help_translate_description">Help translate this into your favorite language.</string>
+    <string name="help_translate_description">Help translate this app into your favorite language.</string>
     <string name="settings_onepod_mode_label">One pod mode</string>
     <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
     <string name="permission_system_alert_window_label">System Alert Window</string>
