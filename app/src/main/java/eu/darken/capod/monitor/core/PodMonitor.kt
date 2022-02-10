@@ -16,7 +16,6 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
-import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -160,23 +159,7 @@ class PodMonitor @Inject constructor(
 
 
     private fun getUnfilteredFilter(): ScanFilter {
-        val manufacturerData = ByteArray(2).apply {
-            this[0] = 0
-            this[1] = 0
-        }
-
-        val manufacturerDataMask = ByteArray(2).apply {
-            this[0] = 0
-            this[1] = 0
-        }
-        val builder = ScanFilter.Builder().apply {
-            setManufacturerData(
-                ContinuityProtocol.APPLE_COMPANY_IDENTIFIER,
-                manufacturerData,
-                manufacturerDataMask
-            )
-        }
-        return builder.build()
+        return ScanFilter.Builder().build()
     }
 
     companion object {
