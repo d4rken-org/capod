@@ -33,6 +33,7 @@ class BleScanner @Inject constructor(
         scannerMode: ScannerMode,
         compatMode: Boolean,
     ): Flow<List<BleScanResult>> = callbackFlow {
+        log(TAG, VERBOSE) { "scan(filters=$filters, scannerMode=$scannerMode, compatMode=$compatMode)" }
         if (compatMode) log(TAG, WARN) { "Using compatibilityMode!" }
 
         val adapter = bluetoothManager.adapter

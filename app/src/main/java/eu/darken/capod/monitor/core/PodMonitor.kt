@@ -66,6 +66,7 @@ class PodMonitor @Inject constructor(
                 ) { scannerMode, compatMode, unfiltered ->
                     Triple(scannerMode, compatMode, unfiltered)
                 }.flatMapLatest { (mode, compat, unfiltered) ->
+                    log(TAG, VERBOSE) { "Starting BLEScanner mode=$mode, compat=$compat, unfiltered=$unfiltered" }
                     val filters = if (unfiltered) {
                         setOf(getUnfilteredFilter())
                     } else {
