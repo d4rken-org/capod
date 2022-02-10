@@ -117,8 +117,8 @@
     <string name="settings_reaction_autoconnect_inear_label">W uszach</string>
     <string name="upgrade_capod_label">Ulepsz CAPod</string>
     <string name="upgrade_capod_description">Uzyskaj dodatkowe funkcjonalności i wesprzyj autora.</string>
-    <string name="settings_popup_caseopen_label">Wyświetlanie okienka</string>
-    <string name="settings_popup_caseopen_description">Wyświetla okienko, gdy obudowa urządzenia jest otwarta (eksperymentalnie).</string>
+    <string name="settings_popup_caseopen_label">Wyświetlanie informacji</string>
+    <string name="settings_popup_caseopen_description">Wyświetla informację, gdy obudowa urządzenia jest otwarta (eksperymentalnie).</string>
     <string name="notification_channel_reaction_popup_label">Informacje o reakcjach urządzenia</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth jest wyłączony</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth jest wyłączony, włącz go ;)</string>
@@ -127,7 +127,7 @@
     <string name="settings_onepod_mode_label">Tryb jednego pod\'a</string>
     <string name="settings_onepod_mode_description">Noszenie obu pod\'ów nie jest wymagane. Wystarczy jeden, aby aktywować reakcje.</string>
     <string name="permission_system_alert_window_label">Okna alertów systemowych</string>
-    <string name="permission_system_alert_window_description">Zezwól na wyświetlanie CAPod nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie okienka\".</string>
+    <string name="permission_system_alert_window_description">Zezwól na wyświetlanie CAPod nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie informacji\".</string>
     <string name="last_seen_x">Ostatnio widziane: %s</string>
     <string name="first_seen_x">Widziane pierwszy raz: %s</string>
     <string name="settings_blescanner_unfiltered_label">Niefiltrowane dane BLE</string>

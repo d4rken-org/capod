@@ -9,7 +9,7 @@
     <string name="general_done_action">Xong</string>
     <string name="general_copy_action">Sao chép</string>
     <string name="general_thank_you_label">Cảm ơn</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">Không rõ</string>
     <string name="general_grant_permission_action">Cấp quyền</string>
     <string name="general_upgrade_action">Nâng cấp</string>
     <string name="general_check_action">Kiểm tra</string>
