@@ -1,1 +1,1 @@
-CAPod - Complemento para AirPods
+CAPod - Companion for AirPods
