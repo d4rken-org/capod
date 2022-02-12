@@ -1,7 +1,6 @@
 package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.bluetooth.BleScanResult
-import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
@@ -54,25 +53,13 @@ class AppleFactory @Inject constructor(
 
         val factory = podFactories.firstOrNull { it.isResponsible(pm) }
 
-        val device = (factory ?: unknownAppleFactory).create(
+        return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
             message = pm,
         )
-
-        if (factory == null && !SILENCED_PMS.contains(device.rawDeviceModel) && scanResult.address != "6E:9E:D1:49:D2:6D") {
-            SILENCED_PMS.add(device.rawDeviceModel)
-            Bugs.report(
-                tag = TAG,
-                message = "Unknown proximity message type",
-                exception = IllegalArgumentException("Unknown ProximityMessage: $pm")
-            )
-        }
-
-        return@withLock device
     }
 
     companion object {
-        private val SILENCED_PMS = mutableSetOf<UShort>()
         private val TAG = logTag("Pod", "Apple", "Factory")
     }
 }
