@@ -27,11 +27,12 @@ data class BeatsSolo3(
 
     class Factory @Inject constructor() : BasicSingleApplePodsFactory(TAG) {
 
-        override fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean =
-            proximityMessage.getModelInfo().full == DEVICE_CODE
+        override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
+            getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
+        }
 
-        override fun create(scanResult: BleScanResult, proximityMessage: ProximityPairing.Message): ApplePods {
-            var basic = BeatsSolo3(scanResult = scanResult, proximityMessage = proximityMessage)
+        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
+            var basic = BeatsSolo3(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

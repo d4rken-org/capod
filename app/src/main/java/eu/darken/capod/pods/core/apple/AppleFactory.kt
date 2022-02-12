@@ -56,7 +56,7 @@ class AppleFactory @Inject constructor(
 
         val device = (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
-            proximityMessage = pm,
+            message = pm,
         )
 
         if (factory == null && !SILENCED_PMS.contains(device.rawDeviceModel) && scanResult.address != "6E:9E:D1:49:D2:6D") {

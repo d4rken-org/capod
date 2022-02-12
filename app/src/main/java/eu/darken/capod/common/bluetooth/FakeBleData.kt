@@ -75,6 +75,19 @@ class FakeBleData @Inject constructor(
                 fakeDevices.add(this)
             }
         }
+
+        // Tws i99999
+        BleScanResult(
+            address = "5E:9E:D1:29:D2:6D",
+            rssi = Random.nextInt(15, 75) * -1,
+            generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 400,
+            manufacturerSpecificData = mapOf(76 to "07 13 01 02 20 71 AA 37 32 00 10 00 64 64 FF 00 00 00 00 00 00".hexToByteArray())
+        ).run {
+            if (Random.nextBoolean()) {
+                fakeDevices.add(this)
+            }
+        }
+
         // Unknown Device
         BleScanResult(
             address = "6E:9E:D1:49:D2:6D",

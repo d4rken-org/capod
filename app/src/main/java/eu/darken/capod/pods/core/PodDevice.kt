@@ -100,6 +100,9 @@ interface PodDevice {
         @Json(name = "beats.powerbeats.pro") POWERBEATS_PRO(
             "Power Beats Pro"
         ),
+        @Json(name = "fakes.tws.i99999") TWS_I99999(
+            "TWS i99999"
+        ),
         @Json(name = "unknown") UNKNOWN(
             "Unknown"
         );

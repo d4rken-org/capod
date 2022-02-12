@@ -28,13 +28,13 @@ data class UnknownAppleDevice(
         get() = rssiAverage ?: super.rssi
 
     class Factory @Inject constructor() : ApplePodsFactory<ApplePods>(TAG) {
-        override fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean = true
+        override fun isResponsible(message: ProximityPairing.Message): Boolean = true
 
         override fun create(
             scanResult: BleScanResult,
-            proximityMessage: ProximityPairing.Message,
+            message: ProximityPairing.Message,
         ): ApplePods {
-            var basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = proximityMessage)
+            var basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

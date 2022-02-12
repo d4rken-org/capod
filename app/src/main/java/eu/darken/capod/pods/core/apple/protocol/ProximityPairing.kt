@@ -27,10 +27,6 @@ object ProximityPairing {
                 log { "Not a proximity pairing message: $this" }
                 return null
             }
-            if (message.length != PROXIMITY_PAIRING_MESSAGE_LENGTH) {
-                log { "Proximity pairing message has invalid length." }
-                return null
-            }
 
             return Message(
                 type = message.type,
@@ -43,7 +39,7 @@ object ProximityPairing {
     fun getBleScanFilter(): Set<ScanFilter> {
         val manufacturerData = ByteArray(CONTINUITY_PROTOCOL_MESSAGE_LENGTH).apply {
             this[0] = CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING.toByte()
-            this[1] = PROXIMITY_PAIRING_MESSAGE_LENGTH.toByte()
+            this[1] = PAIRING_MESSAGE_LENGTH.toByte()
         }
 
         val manufacturerDataMask = ByteArray(CONTINUITY_PROTOCOL_MESSAGE_LENGTH).apply {
@@ -62,5 +58,7 @@ object ProximityPairing {
 
     private const val CONTINUITY_PROTOCOL_MESSAGE_LENGTH = 27
     internal val CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING = 0x07.toUByte()
-    internal const val PROXIMITY_PAIRING_MESSAGE_LENGTH = 25
+
+    // This is the default message length among official Apple devices, clones may have different length
+    internal const val PAIRING_MESSAGE_LENGTH = 25
 }

@@ -23,7 +23,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
     fun ProximityPairing.Message.getApplePodsMarkings(): Markings = Markings(
         vendor = ProximityPairing.CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING,
-        length = ProximityPairing.PROXIMITY_PAIRING_MESSAGE_LENGTH.toUByte(),
+        length = ProximityPairing.PAIRING_MESSAGE_LENGTH.toUByte(),
         device = (((data[1].toInt() and 255) shl 8) or (data[2].toInt() and 255)).toUShort(),
         // Make comparison order independent
         podBatteryData = setOf(data[4].upperNibble, data[4].lowerNibble),
@@ -138,10 +138,10 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         dirty = data[1]
     )
 
-    abstract fun isResponsible(proximityMessage: ProximityPairing.Message): Boolean
+    abstract fun isResponsible(message: ProximityPairing.Message): Boolean
 
     abstract fun create(
         scanResult: BleScanResult,
-        proximityMessage: ProximityPairing.Message,
+        message: ProximityPairing.Message,
     ): ApplePods
 }
