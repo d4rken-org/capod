@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Modo monitor</string>
     <string name="settings_monitor_mode_description">Bajo qué circunstancias esta aplicación monitorea los datos Bluetooth.</string>
     <string name="settings_scanner_mode_label">Modo escáner</string>
-    <string name="settings_scanner_mode_description">¿El escáner Bluetooth Low Energy debe priorizar el rendimiento o ahorrar energía?</string>
+    <string name="settings_scanner_mode_description">¿El escáner de datos Bluetooth Low Energy debe priorizar el rendimiento o ahorrar energía?</string>
     <string name="settings_monitor_mode_manual_label">Cuando la aplicación está abierta</string>
     <string name="settings_monitor_mode_automatic_label">Cuando el dispositivo está conectado</string>
     <string name="settings_monitor_mode_always_label">Siempre</string>
@@ -89,11 +89,11 @@
     <string name="settings_scanner_mode_balanced_label">Balanceado</string>
     <string name="settings_scanner_mode_lowlatency_label">Baja latencia</string>
     <string name="settings_autopause_label">Pausar automáticamente</string>
-    <string name="settings_autopause_description">Pausa la música cuando se quites el dispositivo de la oreja.</string>
+    <string name="settings_autopause_description">Pausa el audio cuando te quites el dispositivo de la oreja.</string>
     <string name="settings_showall_label">Mostrar todos los dispositivos</string>
     <string name="settings_showall_description">Muestra los dispositivos de otras personas que están cerca de ti.</string>
     <string name="settings_autopplay_label">Reproducción automática</string>
-    <string name="settings_autoplay_description">Iniciar la reproducción de música cuando use el dispositivo.</string>
+    <string name="settings_autoplay_description">Inicia la reproducción de audio cuando se use el dispositivo.</string>
     <string name="settings_fake_data_label">Información falsa</string>
     <string name="settings_fake_data_description">Mostrar datos falsos. Por ejemplo: simular un dispositivo que no existe.</string>
     <string name="settings_debug_label">Configuración de depuración</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">Obtenga funciones adicionales y apoye al desarrollador.</string>
     <string name="settings_popup_caseopen_label">Mostrar ventanas emergentes</string>
     <string name="settings_popup_caseopen_description">Muestra una ventana emergente cuando se abre el estuche del dispositivo (experimental).</string>
-    <string name="notification_channel_reaction_popup_label">Reacciones emergentes de dispositivos</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth deshabilitado</string>
     <string name="overview_bluetooth_disabled_description">El Bluetooth está deshabilitado, habilítelo ;)</string>
     <string name="help_translate_label">Traducción</string>
-    <string name="help_translate_description">Ayude a traducir esta aplicación a su idioma favorito.</string>
+    <string name="help_translate_description">Ayuda a traducir esta aplicación a tu idioma favorito.</string>
     <string name="settings_onepod_mode_label">Modo un audífono</string>
     <string name="settings_onepod_mode_description">No es necesario usar ambos AirPods, usar un solo AirPod es suficiente para desencadenar reacciones.</string>
     <string name="permission_system_alert_window_label">Ventana de alerta del sistema</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Datos BLE sin filtrar</string>
     <string name="settings_blescanner_unfiltered_description">Elimina los filtros del escáner BLE para mostrar todos los datos BLE transmitidos. Útil para agregar soporte para nuevos tipos de auriculares.</string>
     <string name="permission_required_title">Se requiere el siguiente permiso:</string>
+    <string name="settings_compatibility_mode_label">Modo de compatibilidad</string>
+    <string name="settings_compatibility_mode_description">Deshabilita las optimizaciones para mejorar la compatibilidad. Prueba esto si no ves ningún dato.</string>
 </resources>

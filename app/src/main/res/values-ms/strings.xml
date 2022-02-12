@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Mod monitor</string>
     <string name="settings_monitor_mode_description">Dalam keadaan yang mana apl ini memantau data Bluetooth.</string>
     <string name="settings_scanner_mode_label">Mod pengimbas</string>
-    <string name="settings_scanner_mode_description">Patutkah pengimbas Tenaga Rendah Bluetooth mengutamakan prestasi atau penjimatan tenaga?</string>
+    <string name="settings_scanner_mode_description">Apakah sepatutnya pengimbas data Tenaga Rendah Bluetooth mengutamakan prestasi atau penjimatan tenaga?</string>
     <string name="settings_monitor_mode_manual_label">Apabila apl dibuka</string>
     <string name="settings_monitor_mode_automatic_label">Apabila peranti disambungkan</string>
     <string name="settings_monitor_mode_always_label">Sentiasa</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Seimbang</string>
     <string name="settings_scanner_mode_lowlatency_label">Latensi rendah</string>
     <string name="settings_autopause_label">Auto jeda</string>
-    <string name="settings_autopause_description">Jeda muzik apabila peranti dikeluarkan dari telinga anda.</string>
+    <string name="settings_autopause_description">Jeda audio apabila peranti dikeluarkan dari telinga anda.</string>
     <string name="settings_showall_label">Tunjukkan semua peranti</string>
     <string name="settings_showall_description">Tunjukkan peranti orang lain yang berdekatan dengan anda.</string>
     <string name="settings_autopplay_label">Auto main</string>
-    <string name="settings_autoplay_description">Mulakan muzik main balik muzik apabila memakai peranti.</string>
+    <string name="settings_autoplay_description">Mulakan main balik audio apabila peranti dipakai.</string>
     <string name="settings_fake_data_label">Data palsu</string>
-    <string name="settings_fake_data_description">Tunjukkan data palsu, i.e. simulasi peranti yang tidak wujud.</string>
+    <string name="settings_fake_data_description">Tunjukkan data palsu, yakni, simulasi peranti yang tidak wujud.</string>
     <string name="settings_debug_label">Tetapan nyahpepijat</string>
     <string name="settings_debug_description">Tetapan tambahan untuk membantu menyelesaikan isu dengan apl.</string>
     <string name="settings_signal_minimum_label">Kualiti isyarat minimum</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">Dapatkan ciri tambahan dan sokongi pemaju.</string>
     <string name="settings_popup_caseopen_label">Tunjukkan popup</string>
     <string name="settings_popup_caseopen_description">Tunjukkan popup apabila sarung peranti dibuka (percubaan).</string>
-    <string name="notification_channel_reaction_popup_label">Reaksi peranti popup</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth dinyahdayakan</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth dinyahdayakan, dayakan ia ;)</string>
     <string name="help_translate_label">Terjemahan</string>
-    <string name="help_translate_description">Bantu menterjemahkan ini ke dalam bahasa kegemaran anda.</string>
+    <string name="help_translate_description">Bantu terjemahkan apl ini ke dalam bahasa kegemaran anda.</string>
     <string name="settings_onepod_mode_label">Satu mod pod</string>
     <string name="settings_onepod_mode_description">Tidak perlu memakai kedua-dua pod, memakai satu pod sudah memadai untuk mencetuskan tindak balas.</string>
     <string name="permission_system_alert_window_label">Tetingkap Makluman Sistem</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Data BLE tanpa tapisan</string>
     <string name="settings_blescanner_unfiltered_description">Alih keluar sebarang tapisan daripada pengimbas BLE untuk menunjukkan semua data BLE yang disiarkan. Berguna bagi menambah sokongan untuk jenis fon kepala baharu.</string>
     <string name="permission_required_title">Kebenaran berikut diperlukan:</string>
+    <string name="settings_compatibility_mode_label">Mod keserasian</string>
+    <string name="settings_compatibility_mode_description">Nyahdayakan pengoptimuman untuk tingkatkan keserasian. Cuba ini jika anda tidak melihat sebarang data.</string>
 </resources>

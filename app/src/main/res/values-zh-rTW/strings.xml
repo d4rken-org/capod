@@ -93,7 +93,7 @@
     <string name="settings_showall_label">顯示所有裝置</string>
     <string name="settings_showall_description">顯示附近其他人的裝置</string>
     <string name="settings_autopplay_label">自動播放</string>
-    <string name="settings_autoplay_description">佩戴時自動播放</string>
+    <string name="settings_autoplay_description">佩戴到耳上時自動播放。</string>
     <string name="settings_fake_data_label">假資料</string>
     <string name="settings_fake_data_description">顯示假資料，模擬不存在的裝置。</string>
     <string name="settings_debug_label">偵錯設定</string>
@@ -119,7 +119,6 @@
     <string name="upgrade_capod_description">取得附加功能並支持開發人員。</string>
     <string name="settings_popup_caseopen_label">顯示彈出式視窗</string>
     <string name="settings_popup_caseopen_description">充電盒開啟時顯示彈出式視窗 (實驗性)</string>
-    <string name="notification_channel_reaction_popup_label">彈出式視窗裝置反應</string>
     <string name="overview_bluetooth_disabled_label">藍牙已停用</string>
     <string name="overview_bluetooth_disabled_description">藍牙已停用，啟用它 ;)</string>
     <string name="help_translate_label">翻譯</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">未過濾的低功耗藍牙資料</string>
     <string name="settings_blescanner_unfiltered_description">移除低功耗藍牙掃描器的任何過濾器，以顯示所有廣播的低功耗藍牙資料。對增加新耳機類型的支援很有用。</string>
     <string name="permission_required_title">可能要求下列權限：</string>
+    <string name="settings_compatibility_mode_label">相容模式</string>
+    <string name="settings_compatibility_mode_description">停用最佳化以提高相容性。請在未看到任何資料時開啟。</string>
 </resources>

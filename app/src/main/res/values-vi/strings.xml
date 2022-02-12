@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Chế độ giám sát</string>
     <string name="settings_monitor_mode_description">Trong trường hợp nào ứng dụng này giám sát dữ liệu Bluetooth.</string>
     <string name="settings_scanner_mode_label">Chế độ quét</string>
-    <string name="settings_scanner_mode_description">Máy quét Bluetooth Low Energy nên ưu tiên hiệu suất hay tiết kiệm năng lượng?</string>
+    <string name="settings_scanner_mode_description">Máy quét dữ liệu Bluetooth Low Energy nên ưu tiên hiệu suất hay tiết kiệm năng lượng?</string>
     <string name="settings_monitor_mode_manual_label">Khi ứng dụng được mở</string>
     <string name="settings_monitor_mode_automatic_label">Khi thiết bị được kết nối</string>
     <string name="settings_monitor_mode_always_label">Luôn luôn</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Cân bằng</string>
     <string name="settings_scanner_mode_lowlatency_label">Độ trễ thấp</string>
     <string name="settings_autopause_label">Tự động tạm dừng</string>
-    <string name="settings_autopause_description">Tạm dừng nhạc khi tháo thiết bị ra khỏi tai.</string>
+    <string name="settings_autopause_description">Tạm dừng âm thanh khi tháo thiết bị khỏi tai bạn.</string>
     <string name="settings_showall_label">Hiển thị tất cả các thiết bị</string>
     <string name="settings_showall_description">Hiển thị thiết bị của người khác ở gần bạn.</string>
     <string name="settings_autopplay_label">Tự động phát</string>
-    <string name="settings_autoplay_description">Bắt đầu phát nhạc khi đeo thiết bị.</string>
+    <string name="settings_autoplay_description">Bắt đầu phát lại âm thanh khi thiết bị được đeo.</string>
     <string name="settings_fake_data_label">Dữ liệu giả</string>
-    <string name="settings_fake_data_description">Hiển thị dữ liệu giả mạo, tức là mô phỏng thiết bị không tồn tại.</string>
+    <string name="settings_fake_data_description">Hiển thị dữ liệu giả, tức là mô phỏng các thiết bị không tồn tại.</string>
     <string name="settings_debug_label">Cài đặt gỡ lỗi</string>
     <string name="settings_debug_description">Cài đặt bổ sung để giúp khắc phục sự cố với ứng dụng.</string>
     <string name="settings_signal_minimum_label">Chất lượng tín hiệu tối thiểu</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">Nhận các tính năng bổ sung và hỗ trợ nhà phát triển.</string>
     <string name="settings_popup_caseopen_label">Hiển thị popup</string>
     <string name="settings_popup_caseopen_description">Hiển thị cửa sổ bật lên khi hộp thiết bị được mở (thử nghiệm).</string>
-    <string name="notification_channel_reaction_popup_label">Popup phản ứng thiết bị</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth bị tắt</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth bị tắt, hãy bật nó lên ;)</string>
     <string name="help_translate_label">Dịch</string>
-    <string name="help_translate_description">Giúp dịch điều này sang ngôn ngữ yêu thích của bạn.</string>
+    <string name="help_translate_description">Giúp dịch ứng dụng này sang ngôn ngữ yêu thích của bạn.</string>
     <string name="settings_onepod_mode_label">Chế độ 1 tai nghe</string>
     <string name="settings_onepod_mode_description">Không cần đeo cả hai, chỉ đeo một tai nghe là đủ để kích hoạt phản ứng.</string>
     <string name="permission_system_alert_window_label">Cửa sổ cảnh báo hệ thống</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Dữ liệu BLE chưa được lọc</string>
     <string name="settings_blescanner_unfiltered_description">Xóa mọi bộ lọc khỏi máy quét BLE để hiển thị tất cả dữ liệu BLE đã phát. Hữu ích để thêm hỗ trợ cho các loại tai nghe mới.</string>
     <string name="permission_required_title">Quyền sau đây là bắt buộc:</string>
+    <string name="settings_compatibility_mode_label">Chế độ tương thích</string>
+    <string name="settings_compatibility_mode_description">Tắt tối ưu hóa để cải thiện khả năng tương thích. Hãy thử điều này nếu bạn không thấy bất kỳ dữ liệu nào.</string>
 </resources>

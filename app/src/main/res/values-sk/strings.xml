@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Vyvážený</string>
     <string name="settings_scanner_mode_lowlatency_label">Nízka latencia</string>
     <string name="settings_autopause_label">Automatické pozastavenie</string>
-    <string name="settings_autopause_description">Pozastavte hudbu, keď si vyberiete zariadenie z ucha.</string>
+    <string name="settings_autopause_description">Pozastavte zvuk, keď si vyberiete zariadenie z ucha.</string>
     <string name="settings_showall_label">Zobraziť všetky zariadenia</string>
     <string name="settings_showall_description">Ukázať zariadenia iných ľudí, ktoré sú vo vašej blízkosti.</string>
     <string name="settings_autopplay_label">Automatické prehrávanie</string>
-    <string name="settings_autoplay_description">Spustiť prehrávanie hudby počas nosenia zariadenia.</string>
+    <string name="settings_autoplay_description">Spustite prehrávanie zvuku, keď je zariadenie nosené.</string>
     <string name="settings_fake_data_label">Falošné údaje</string>
-    <string name="settings_fake_data_description">Zobrazovať falošné údaje, t. j. simulovať neexistujúce zariadenie.</string>
+    <string name="settings_fake_data_description">Zobrazovať falošné údaje, t. j. simulovať neexistujúce zariadenia.</string>
     <string name="settings_debug_label">Nastavenia ladenia</string>
     <string name="settings_debug_description">Ďalšie nastavenia na pomoc pri riešení problémov s aplikáciou.</string>
     <string name="settings_signal_minimum_label">Minimálna kvalita signálu</string>
@@ -119,7 +119,6 @@
     <string name="upgrade_capod_description">Získajte ďalšie funkcie a podporte vývojára.</string>
     <string name="settings_popup_caseopen_label">Zobraziť kontextové okno</string>
     <string name="settings_popup_caseopen_description">Po otvorení puzdra zariadenia zobraziť kontextové okno (experimentálne).</string>
-    <string name="notification_channel_reaction_popup_label">Kontextové okno reakcií zariadenia</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth je vypnuté</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth je vypnuté, zapnite ho ;)</string>
     <string name="help_translate_label">Preklad</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Nefiltrované údaje BLE</string>
     <string name="settings_blescanner_unfiltered_description">Odstráňte všetky filtre zo skenera BLE, aby sa zobrazili všetky vysielané údaje BLE. Užitočné na pridanie podpory pre nové typy slúchadiel.</string>
     <string name="permission_required_title">Vyžaduje sa nasledujúce povolenie:</string>
+    <string name="settings_compatibility_mode_label">Režim kompatibility</string>
+    <string name="settings_compatibility_mode_description">Zakázať optimalizáciu na zlepšenie kompatibility. Skúste to, ak nevidíte žiadne údaje.</string>
 </resources>

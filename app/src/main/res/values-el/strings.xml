@@ -37,7 +37,7 @@
     <string name="pods_case_status_open_label">Ανοιχτή</string>
     <string name="pods_case_status_closed_label">Κλειστή</string>
     <string name="pods_connection_state_disconnected_label">Δεν είναι συνδεδεμένο σε συσκευή</string>
-    <string name="pods_connection_state_idle_label">Συνδεδεμένο σε κάποια συσκευή, αλλά αδρανές</string>
+    <string name="pods_connection_state_idle_label">Συνδεδεμένο σε συσκευή, αλλά αδρανές</string>
     <string name="pods_connection_state_music_label">Σε λειτουργία μουσικής</string>
     <string name="pods_connection_state_call_label">Σε λειτουργία κλήσης</string>
     <string name="pods_connection_state_ringing_label">Κουδούνισμα</string>
@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Λειτουργία παρακολούθησης</string>
     <string name="settings_monitor_mode_description">Κάτω από ποιες συνθήκες αυτή η εφαρμογή παρακολουθεί τα δεδομένα Bluetooth.</string>
     <string name="settings_scanner_mode_label">Λειτουργία σάρωσης</string>
-    <string name="settings_scanner_mode_description">Ο σαρωτής Bluetooth Low Energy να δώσει προτεραιότητα στην απόδοση ή στη διατήρηση ενέργειας;</string>
+    <string name="settings_scanner_mode_description">Θα πρέπει η σάρωση δεδομένων χαμηλής ενέργειας Bluetooth να δίνει προτεραιότητα στην απόδοση ή να εξοικονομεί ενέργεια;</string>
     <string name="settings_monitor_mode_manual_label">Όταν η εφαρμογή είναι ανοιχτή</string>
     <string name="settings_monitor_mode_automatic_label">Όταν η συσκευή είναι συνδεδεμένη</string>
     <string name="settings_monitor_mode_always_label">Πάντα</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Εξισορρόπηση</string>
     <string name="settings_scanner_mode_lowlatency_label">Χαμηλή καθυστέρηση</string>
     <string name="settings_autopause_label">Αυτόματη παύση</string>
-    <string name="settings_autopause_description">Παύση μουσικής όταν αφαιρείται τη συσκευή από το αυτί σας.</string>
+    <string name="settings_autopause_description">Παύση ήχου όταν αφαιρείται τη συσκευή από το αυτί σας.</string>
     <string name="settings_showall_label">Εμφάνιση όλων των συσκευών</string>
     <string name="settings_showall_description">Εμφάνιση συσκευών άλλων ανθρώπων που είναι κοντά σας.</string>
     <string name="settings_autopplay_label">Αυτόματη αναπαραγωγή</string>
-    <string name="settings_autoplay_description">Αναπαραγωγή μουσικής όταν φοριέται η συσκευή.</string>
+    <string name="settings_autoplay_description">Έναρξη αναπαραγωγής ήχου όταν φορεθεί η συσκευή.</string>
     <string name="settings_fake_data_label">Ψευδή δεδομένα</string>
-    <string name="settings_fake_data_description">Εμφάνιση ψευδών δεδομένων, π.χ. προσομοίωση συσκευής που δεν υπάρχει.</string>
+    <string name="settings_fake_data_description">Εμφάνιση ψευδών δεδομένων, π.χ., προσομοίωση συσκευών που δεν υπάρχουν.</string>
     <string name="settings_debug_label">Ρυθμίσεις αντιμετώπισης σφαλμάτων</string>
     <string name="settings_debug_description">Πρόσθετες ρυθμίσεις που βοηθούν στην αντιμετώπιση προβλημάτων με την εφαρμογή.</string>
     <string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">Λάβετε επιπλέον λειτουργίες και υποστηρίξτε τον προγραμματιστή.</string>
     <string name="settings_popup_caseopen_label">Εμφάνιση αναδυόμενου</string>
     <string name="settings_popup_caseopen_description">Εμφάνιση αναδυόμενου όταν η θήκη της συσκευής είναι ανοιχτή (πειραματικό).</string>
-    <string name="notification_channel_reaction_popup_label">Αναδυόμενες αντιδράσεις συσκευών</string>
     <string name="overview_bluetooth_disabled_label">Το Bluetooth είναι απενεργοποιημένο</string>
     <string name="overview_bluetooth_disabled_description">Το Bluetooth είναι απενεργοποιημένο, ενεργοποιήστε το ;)</string>
     <string name="help_translate_label">Μετάφραση</string>
-    <string name="help_translate_description">Βοηθήστε να μεταφραστεί στην αγαπημένη σας γλώσσα.</string>
+    <string name="help_translate_description">Βοηθήστε να μεταφραστεί αυτή η εφαρμογή στην αγαπημένη σας γλώσσα.</string>
     <string name="settings_onepod_mode_label">Λειτουργία ενός pod</string>
     <string name="settings_onepod_mode_description">Δεν απαιτείται να φοράτε και τα δύο pods, αρκεί να φοράτε ένα μόνο pod για να ενεργοποιούνται αντιδράσεις.</string>
     <string name="permission_system_alert_window_label">Παράθυρο ειδοποίησης συστήματος</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Μη φιλτραρισμένα δεδομένα BLE</string>
     <string name="settings_blescanner_unfiltered_description">Αφαιρέστε τυχόν φίλτρα από τη σάρωση BLE για να εμφανίσετε όλα τα δεδομένα BLE που μεταδίδονται. Χρήσιμο για την προσθήκη υποστήριξης για νέους τύπους ακουστικών.</string>
     <string name="permission_required_title">Η ακόλουθη άδεια είναι απαραίτητη:</string>
+    <string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
+    <string name="settings_compatibility_mode_description">Απενεργοποίηση βελτιστοποιήσεων για βελτίωση συμβατότητας. Δοκιμάστε αυτό εάν δε βλέπετε δεδομένα.</string>
 </resources>

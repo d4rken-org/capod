@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Mode monitor</string>
     <string name="settings_monitor_mode_description">En quines circumstàncies aquesta aplicació supervisa les dades Bluetooth.</string>
     <string name="settings_scanner_mode_label">Mode escàner</string>
-    <string name="settings_scanner_mode_description">L\'escàner Bluetooth Low Energy hauria de prioritzar el rendiment o estalviar energia?</string>
+    <string name="settings_scanner_mode_description">L\'escàner de dades Bluetooth Low Energy hauria de prioritzar el rendiment o estalviar energia?</string>
     <string name="settings_monitor_mode_manual_label">Quan l\'aplicació està oberta</string>
     <string name="settings_monitor_mode_automatic_label">Quan el dispositiu està connectat</string>
     <string name="settings_monitor_mode_always_label">Sempre</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Equilibrat</string>
     <string name="settings_scanner_mode_lowlatency_label">Baixa latència</string>
     <string name="settings_autopause_label">Pausa automàtica</string>
-    <string name="settings_autopause_description">Pausa la música quan ús tragueu el dispositiu de l\'orella.</string>
+    <string name="settings_autopause_description">Pausa l\'àudio quan ús tragueu el dispositiu de l\'orella.</string>
     <string name="settings_showall_label">Mostra tots els dispositius</string>
     <string name="settings_showall_description">Mostra els dispositius d\'altres persones que estan a prop vostre.</string>
     <string name="settings_autopplay_label">Reproducció automàtica</string>
-    <string name="settings_autoplay_description">Inicia la reproducció de música quan ús poseu el dispositiu.</string>
+    <string name="settings_autoplay_description">Inicia la reproducció d\'àudio en utilitzar el dispositiu.</string>
     <string name="settings_fake_data_label">Dades falses</string>
-    <string name="settings_fake_data_description">Mostra dades falses. Per exemple: simula un dispositiu que no existeix.</string>
+    <string name="settings_fake_data_description">Mostra dades falses. Per exemple: simula dispositius que no existeixen.</string>
     <string name="settings_debug_label">Configuració de depuració</string>
     <string name="settings_debug_description">Configuració addicional per ajudar a resoldre problemes amb l\'aplicació.</string>
     <string name="settings_signal_minimum_label">Qualitat de senyal mínima</string>
@@ -119,7 +119,6 @@
     <string name="upgrade_capod_description">Obteniu característiques addicionals i doneu suport al desenvolupador.</string>
     <string name="settings_popup_caseopen_label">Mostra la finestra emergent</string>
     <string name="settings_popup_caseopen_description">Mostra una finestra emergent quan s\'obre la funda del dispositiu (experimental).</string>
-    <string name="notification_channel_reaction_popup_label">Reaccions emergents del dispositiu</string>
     <string name="overview_bluetooth_disabled_label">El Bluetooth està desactivat</string>
     <string name="overview_bluetooth_disabled_description">El Bluetooth està desactivat, activeu-lo ;)</string>
     <string name="help_translate_label">Traducció</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Dades BLE sense filtrar</string>
     <string name="settings_blescanner_unfiltered_description">Elimina els filtres de l\'escàner BLE per mostrar totes les dades BLE emeses. Útil per afegir suport a nous tipus d\'auriculars.</string>
     <string name="permission_required_title">Cal el permís següent:</string>
+    <string name="settings_compatibility_mode_label">Mode de compatibilitat</string>
+    <string name="settings_compatibility_mode_description">Desactiva les optimitzacions per millorar la compatibilitat. Proveu això si no veieu cap dada.</string>
 </resources>

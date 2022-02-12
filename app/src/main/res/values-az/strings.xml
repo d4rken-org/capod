@@ -81,7 +81,6 @@
     <string name="settings_monitor_mode_label">Müşahidə rejimi</string>
     <string name="settings_monitor_mode_description">Bu tətbiq hansı şərtlər altında Bluetooth verilənlərini müşahidə edir.</string>
     <string name="settings_scanner_mode_label">Skaner rejimi</string>
-    <string name="settings_scanner_mode_description">Bluetooth Zəif Enerji skaneri performansa üstünlük verməlidir, yoxsa enerjiyə qənaət etməlidir?</string>
     <string name="settings_monitor_mode_manual_label">Tətbiq açılanda</string>
     <string name="settings_monitor_mode_automatic_label">Cihazla bağlantı qurulanda</string>
     <string name="settings_monitor_mode_always_label">Həmişə</string>
@@ -89,13 +88,10 @@
     <string name="settings_scanner_mode_balanced_label">Tarazlı</string>
     <string name="settings_scanner_mode_lowlatency_label">Aşağı gecikmə</string>
     <string name="settings_autopause_label">Avto-fasilə</string>
-    <string name="settings_autopause_description">Cihazı qulağınızdan çıxaranda musiqiyə fasilə verilsin.</string>
     <string name="settings_showall_label">Bütün cihazları göstər</string>
     <string name="settings_showall_description">Sizə yaxın olan digər insanların cihazlarını göstər.</string>
     <string name="settings_autopplay_label">Avto-oynatma</string>
-    <string name="settings_autoplay_description">Cihazı qulağa taxanda musiqini oynat.</string>
     <string name="settings_fake_data_label">Saxta verilənlər</string>
-    <string name="settings_fake_data_description">Saxta verilənləri göstər, yəni, mövcud olmayan cihazı simulyasiya edin.</string>
     <string name="settings_debug_label">Sazlama tənzimləmələri</string>
     <string name="settings_debug_description">Tətbiqlə əlaqəli problemləri aradan qaldırmağa kömək edəcək əlavə tənzimləmələr.</string>
     <string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
@@ -119,11 +115,9 @@
     <string name="upgrade_capod_description">Əlavə özəllikləri əldə edin və tərtibatçını dəstəkləyin.</string>
     <string name="settings_popup_caseopen_label">Açılan pəncərəni göstər</string>
     <string name="settings_popup_caseopen_description">Cihazın qutusu açılanda bir açılan pəncərə göstər (təcrübi).</string>
-    <string name="notification_channel_reaction_popup_label">Açılan cihaz reaksiyaları</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth sıradan çıxarıldı</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth sıradan çıxarıldı, fəallaşdırın ;)</string>
     <string name="help_translate_label">Tərcümə</string>
-    <string name="help_translate_description">Bunu sevimli dilinizə tərcümə etməyə kömək edin.</string>
     <string name="settings_onepod_mode_label">Tək tərəf rejimi</string>
     <string name="settings_onepod_mode_description">Hər iki tərəfi də taxmağa ehtiyac yoxdur, reaksiyaları tətikləmək üçün tək tərəfi taxmaq yetərlidir.</string>
     <string name="permission_system_alert_window_label">Sistem xəbərdarlıq pəncərəsi</string>

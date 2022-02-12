@@ -81,7 +81,6 @@
     <string name="settings_monitor_mode_label">Monitor mód</string>
     <string name="settings_monitor_mode_description">Milyen körülmények között figyeli ez az alkalmazás a Bluetooth-adatokat.</string>
     <string name="settings_scanner_mode_label">Szkenner mód</string>
-    <string name="settings_scanner_mode_description">A \"Bluetooth alacsony töltöttség\" a szkennernek a teljesítményt kell előnyben részesítenie, vagy energiát takaríthat meg?</string>
     <string name="settings_monitor_mode_manual_label">Amikor az alkalmazás nyitva van</string>
     <string name="settings_monitor_mode_automatic_label">Amikor az eszköz csatlakoztatva van</string>
     <string name="settings_monitor_mode_always_label">Mindig</string>
@@ -89,13 +88,10 @@
     <string name="settings_scanner_mode_balanced_label">Kiegyensúlyozott</string>
     <string name="settings_scanner_mode_lowlatency_label">Alacsony késleltetés</string>
     <string name="settings_autopause_label">Automatikus megszakítás</string>
-    <string name="settings_autopause_description">A zene szüneteltetése, amikor eltávolítja a készüléket a füléről.</string>
     <string name="settings_showall_label">Az összes eszköz megjelenítése</string>
     <string name="settings_showall_description">Mutassa meg másoknak az Ön közelében lévő eszközeit.</string>
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
-    <string name="settings_autoplay_description">Indítsa el a zenelejátszást a készülék használatakor.</string>
     <string name="settings_fake_data_label">Hamis adat</string>
-    <string name="settings_fake_data_description">Hamis adatok megjelenítése, azaz olyan eszköz szimulálása, amely nem létezik.</string>
     <string name="settings_debug_label">Hibakeresési beállítások</string>
     <string name="settings_debug_description">További beállítások az alkalmazással kapcsolatos problémák megoldásához.</string>
     <string name="settings_signal_minimum_label">Minimális jelerősség</string>
@@ -119,11 +115,9 @@
     <string name="upgrade_capod_description">Szerezzen be további funkciókat és támogassa a fejlesztőt.</string>
     <string name="settings_popup_caseopen_label">Előugró ablak megjelenítése</string>
     <string name="settings_popup_caseopen_description">Egy előugró ablak megjelenítése az eszköz házának kinyitásakor (kísérleti).</string>
-    <string name="notification_channel_reaction_popup_label">Előugró eszköz reakciói</string>
     <string name="overview_bluetooth_disabled_label">A Bluetooth kikapcsolva</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth kikapcsolva, engedélyezd ;)</string>
     <string name="help_translate_label">Fordítás</string>
-    <string name="help_translate_description">Segíts lefordítani a nyelvedre.</string>
     <string name="settings_onepod_mode_label">Egy fülhallgató mód</string>
     <string name="settings_onepod_mode_description">Nem szükséges mindkét fülhallgató viselése, elég egy, a működéshez.</string>
     <string name="permission_system_alert_window_label">Rendszer figyelmeztető ablak</string>

@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Режим мониторинга</string>
     <string name="settings_monitor_mode_description">При каких условиях приложение отслеживает данные Bluetooth.</string>
     <string name="settings_scanner_mode_label">Режим сканера</string>
-    <string name="settings_scanner_mode_description">Какой режим должен использовать сканер Bluetooth Low Energy - производительность или экономию энергии?</string>
+    <string name="settings_scanner_mode_description">Какой режим должен по умолчанию использовать сканер данных Bluetooth Low Energy - производительность или экономию энергии?</string>
     <string name="settings_monitor_mode_manual_label">Когда приложение открыто</string>
     <string name="settings_monitor_mode_automatic_label">Когда устройство подключено</string>
     <string name="settings_monitor_mode_always_label">Всегда</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Сбалансированный</string>
     <string name="settings_scanner_mode_lowlatency_label">Малая задержка</string>
     <string name="settings_autopause_label">Автопауза</string>
-    <string name="settings_autopause_description">Приостановка музыки при удалении устройства из уха.</string>
+    <string name="settings_autopause_description">Приостановка аудио при удалении устройства из уха.</string>
     <string name="settings_showall_label">Показать все устройства</string>
     <string name="settings_showall_description">Показать находящиеся рядом с Вами устройства других людей.</string>
     <string name="settings_autopplay_label">Автовоспроизведение</string>
-    <string name="settings_autoplay_description">Запуск музыки при вставке наушников.</string>
+    <string name="settings_autoplay_description">Включение воспроизведения аудио при начале использования устройства.</string>
     <string name="settings_fake_data_label">Пустые данные</string>
-    <string name="settings_fake_data_description">Показывать пустые данные, например, симулировать отсутствие устройства.</string>
+    <string name="settings_fake_data_description">Показывать пустые данные, например, симулировать устройства, которые не существуют.</string>
     <string name="settings_debug_label">Настройки отладки</string>
     <string name="settings_debug_description">Дополнительные настройки для решения проблем с помощью приложения.</string>
     <string name="settings_signal_minimum_label">Минимальное качество сигнала</string>
@@ -119,7 +119,6 @@
     <string name="upgrade_capod_description">Получите дополнительные функции и поддержите разработчика.</string>
     <string name="settings_popup_caseopen_label">Всплывающие окна</string>
     <string name="settings_popup_caseopen_description">Показывать всплывающее окно, когда футляр открыт (эксперимент).</string>
-    <string name="notification_channel_reaction_popup_label">Всплывающие реакции устройства</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth отключен</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth отключен, включите его ;)</string>
     <string name="help_translate_label">Перевод</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Нефильтрованные данные BLE</string>
     <string name="settings_blescanner_unfiltered_description">Удалите все фильтры из сканера BLE, чтобы показать все переданные данные BLE. Может помочь при добавлении поддержки новых типов наушников.</string>
     <string name="permission_required_title">Требуется следующее разрешение:</string>
+    <string name="settings_compatibility_mode_label">Режим совместимости</string>
+    <string name="settings_compatibility_mode_description">Отключите оптимизацию для улучшения совместимости. Попробуйте это, если не видите данных.</string>
 </resources>

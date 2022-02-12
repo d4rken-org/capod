@@ -81,7 +81,6 @@
     <string name="settings_monitor_mode_label">Mode surveillance</string>
     <string name="settings_monitor_mode_description">Les circonstances de surveillance des données Bluetooth par l’appli.</string>
     <string name="settings_scanner_mode_label">Mode analyse</string>
-    <string name="settings_scanner_mode_description">Le mode analyse des données « basse énergie » de Bluetooth devrait-il prioriser les performances ou préserver l’énergie ?</string>
     <string name="settings_monitor_mode_manual_label">Si l’appli est en fonction</string>
     <string name="settings_monitor_mode_automatic_label">Si l’appareil est connecté</string>
     <string name="settings_monitor_mode_always_label">Toujours</string>
@@ -89,13 +88,10 @@
     <string name="settings_scanner_mode_balanced_label">Équilibré</string>
     <string name="settings_scanner_mode_lowlatency_label">Faible latence</string>
     <string name="settings_autopause_label">Pause automatique</string>
-    <string name="settings_autopause_description">Mettre le son en pause si vous ôtez l’appareil de votre oreille.</string>
     <string name="settings_showall_label">Afficher tous les appareils</string>
     <string name="settings_showall_description">Afficher les appareils d’autres personnes à proximité.</string>
     <string name="settings_autopplay_label">Lecture automatique</string>
-    <string name="settings_autoplay_description">Lire le contenu audio si l’appareil est porté.</string>
     <string name="settings_fake_data_label">Fausses données</string>
-    <string name="settings_fake_data_description">Afficher les fausses données, c.-à-d. simuler un appareil qui n’existe pas.</string>
     <string name="settings_debug_label">Paramètres de débogage</string>
     <string name="settings_debug_description">Autres paramètres pour aider à diagnostiquer les problèmes de l’appli.</string>
     <string name="settings_signal_minimum_label">Qualité minimale du signal</string>
@@ -119,11 +115,9 @@
     <string name="upgrade_capod_description">Obtenez des fonctions supplémentaires et soutenez le développeur.</string>
     <string name="settings_popup_caseopen_label">Afficher une notification</string>
     <string name="settings_popup_caseopen_description">Afficher une notification à l’ouverture de l’étui de l\'appareil (expérimental).</string>
-    <string name="notification_channel_reaction_popup_label">Afficher les réactions de l’appareil</string>
     <string name="overview_bluetooth_disabled_label">Le Bluetooth est désactivé</string>
     <string name="overview_bluetooth_disabled_description">Le Bluetooth est désactivé, activez-le ;)</string>
     <string name="help_translate_label">Traduction</string>
-    <string name="help_translate_description">Aidez à traduire l’appli dans votre langue préférée.</string>
     <string name="settings_onepod_mode_label">Mode à un seul AirPod</string>
     <string name="settings_onepod_mode_description">Il n’est pas nécessaire de porter deux AirPods, en porter un seul suffit à déclencher les réactions.</string>
     <string name="permission_system_alert_window_label">Fenêtre d’alerte système</string>

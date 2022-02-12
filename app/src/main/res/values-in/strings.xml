@@ -81,7 +81,6 @@
     <string name="settings_monitor_mode_label">Mode monitor</string>
     <string name="settings_monitor_mode_description">Dalam keadaan apa aplikasi ini memonitor data Bluetooth.</string>
     <string name="settings_scanner_mode_label">Modus memindai</string>
-    <string name="settings_scanner_mode_description">Haruskah pemindai Bluetooth Hemat Energi memprioritaskan kinerja atau menghemat energi?</string>
     <string name="settings_monitor_mode_manual_label">Saat aplikasi terbuka</string>
     <string name="settings_monitor_mode_automatic_label">Saat perangkat terhubung</string>
     <string name="settings_monitor_mode_always_label">Selalu</string>
@@ -89,13 +88,10 @@
     <string name="settings_scanner_mode_balanced_label">Seimbang</string>
     <string name="settings_scanner_mode_lowlatency_label">Latemsi rendah</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
-    <string name="settings_autopause_description">Jeda musik saat melepaskan perangkat dari telinga anda.</string>
     <string name="settings_showall_label">Tampilkan semua perangkat</string>
     <string name="settings_showall_description">Tampilkan perangkat orang lain yang ada di dekat anda.</string>
     <string name="settings_autopplay_label">Putar otomatis</string>
-    <string name="settings_autoplay_description">Mulai pemutaran musik musik saat memakai perangkat.</string>
     <string name="settings_fake_data_label">Data palsu</string>
-    <string name="settings_fake_data_description">Tampilkan data palsu, mis: mensimulasikan perangkat yang tidak ada.</string>
     <string name="settings_debug_label">Pengaturan debug</string>
     <string name="settings_debug_description">Pengaturan tambahan untuk membantu memecahkan masalah dengan aplikasi.</string>
     <string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
@@ -119,11 +115,9 @@
     <string name="upgrade_capod_description">Dapatkan fitur tambahan &amp; bantu dukung pengembang.</string>
     <string name="settings_popup_caseopen_label">Tampilkan popup</string>
     <string name="settings_popup_caseopen_description">Tampilkan popup saat kasing perangkat dibuka (eksperimental).</string>
-    <string name="notification_channel_reaction_popup_label">Reaksi perangkat popup</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth dinonaktifkan</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth dinonaktifkan, aktifkan terlebih dahulu ;)</string>
     <string name="help_translate_label">Terjemahan</string>
-    <string name="help_translate_description">Bantu terjemahkan ini ke bahasa favorit anda.</string>
     <string name="settings_onepod_mode_label">Mode satu pod</string>
     <string name="settings_onepod_mode_description">Menggunakan kedua pod tidak diperlukan, memakai satu pod sudah cukup untuk memicu reaksi.</string>
     <string name="permission_system_alert_window_label">Jendela Peringatan Sistem</string>

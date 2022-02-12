@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">监控模式</string>
     <string name="settings_monitor_mode_description">此模式下本应用将监视蓝牙数据。</string>
     <string name="settings_scanner_mode_label">扫描模式</string>
-    <string name="settings_scanner_mode_description">低功耗蓝牙扫描器应着重性能还是省电？</string>
+    <string name="settings_scanner_mode_description">低功耗蓝牙数据扫描器应着重性能还是省电？</string>
     <string name="settings_monitor_mode_manual_label">应用打开时</string>
     <string name="settings_monitor_mode_automatic_label">设备连接时</string>
     <string name="settings_monitor_mode_always_label">始终</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">平衡</string>
     <string name="settings_scanner_mode_lowlatency_label">低延迟</string>
     <string name="settings_autopause_label">自动暂停</string>
-    <string name="settings_autopause_description">从耳中取出时自动暂停音乐播放。</string>
+    <string name="settings_autopause_description">从耳中取出时自动暂停音频播放</string>
     <string name="settings_showall_label">显示所有设备</string>
     <string name="settings_showall_description">显示您附近的其他人的设备</string>
     <string name="settings_autopplay_label">自动播放</string>
-    <string name="settings_autoplay_description">佩戴设备时自动开始播放音乐。</string>
+    <string name="settings_autoplay_description">戴在耳上时自动开始音频播放</string>
     <string name="settings_fake_data_label">假数据</string>
-    <string name="settings_fake_data_description">显示伪造的数据，模拟不存在的设备。</string>
+    <string name="settings_fake_data_description">显示伪造的数据，即模拟不存在的设备</string>
     <string name="settings_debug_label">调试设置</string>
     <string name="settings_debug_description">帮助解决应用程序问题的其他设置</string>
     <string name="settings_signal_minimum_label">最低信号质量</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">享用额外的功能并支持开发者。</string>
     <string name="settings_popup_caseopen_label">显示弹窗</string>
     <string name="settings_popup_caseopen_description">设备充电仓打开时显示弹窗（实验性）</string>
-    <string name="notification_channel_reaction_popup_label">设备弹窗动作</string>
     <string name="overview_bluetooth_disabled_label">蓝牙已禁用</string>
     <string name="overview_bluetooth_disabled_description">蓝牙已关闭，请启用之 ;)</string>
     <string name="help_translate_label">翻译</string>
-    <string name="help_translate_description">您可以来翻译本应用。</string>
+    <string name="help_translate_description">帮助翻译本应用</string>
     <string name="settings_onepod_mode_label">单耳模式</string>
     <string name="settings_onepod_mode_description">不需要同时佩戴两支耳机，单支即可引发反应</string>
     <string name="permission_system_alert_window_label">系统警告窗口</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">未经过滤的 BLE 数据</string>
     <string name="settings_blescanner_unfiltered_description">完全解除蓝牙低功耗（BLE）扫描器上的过滤器，以显示被广播的全部 BLE 数据。可用于了解和新增更多耳机型号的支持。</string>
     <string name="permission_required_title">需要下列权限：</string>
+    <string name="settings_compatibility_mode_label">兼容模式</string>
+    <string name="settings_compatibility_mode_description">禁用优化以提高兼容性，请在未看到任何数据时尝试此操作</string>
 </resources>

@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Überwachungsmodus</string>
     <string name="settings_monitor_mode_description">Unter welchen Umständen überwacht diese App Bluetooth-Daten.</string>
     <string name="settings_scanner_mode_label">Scannermodus</string>
-    <string name="settings_scanner_mode_description">Soll der Bluetooth Low Energie-Scanner Leistung priorisieren oder Energie sparen?</string>
+    <string name="settings_scanner_mode_description">Soll der Bluetooth Low Energy Datenscanner Leistung priorisieren oder Energie sparen?</string>
     <string name="settings_monitor_mode_manual_label">Wenn die App geöffnet ist</string>
     <string name="settings_monitor_mode_automatic_label">Wenn das Gerät verbunden ist</string>
     <string name="settings_monitor_mode_always_label">Stets</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Ausgewogen</string>
     <string name="settings_scanner_mode_lowlatency_label">Geringe Latenz</string>
     <string name="settings_autopause_label">Automatische Pause</string>
-    <string name="settings_autopause_description">Halten Sie die Musik an, wenn Sie das Gerät von Ihrem Ohr entfernen.</string>
+    <string name="settings_autopause_description">Halten Sie den Ton an, wenn Sie das Gerät von Ihrem Ohr entfernen.</string>
     <string name="settings_showall_label">Alle Geräte anzeigen</string>
     <string name="settings_showall_description">Zeigen Sie die Geräte anderer Personen in Ihrer Nähe an.</string>
     <string name="settings_autopplay_label">Automatisches Abspielen</string>
-    <string name="settings_autoplay_description">Starten Sie die Musikwiedergabe, wenn Sie das Gerät tragen.</string>
+    <string name="settings_autoplay_description">Starten Sie die Audiowiedergabe, wenn das Gerät getragen wird.</string>
     <string name="settings_fake_data_label">Gefälschte Daten</string>
-    <string name="settings_fake_data_description">Gefälschte Daten anzeigen, Geräte simulieren, die nicht existieren.</string>
+    <string name="settings_fake_data_description">Falsche Daten anzeigen, also nicht existierende Geräte simulieren.</string>
     <string name="settings_debug_label">Debug-Einstellungen</string>
     <string name="settings_debug_description">Zusätzliche Einstellungen zur Behebung von Problemen mit der App.</string>
     <string name="settings_signal_minimum_label">Minimale Signalqualität</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">Erhalten Sie zusätzliche Funktionen und unterstützen Sie den Entwickler.</string>
     <string name="settings_popup_caseopen_label">Popup zeigen</string>
     <string name="settings_popup_caseopen_description">Ein Popup anzeigen, wenn das Gerätegehäuse geöffnet wird (experimentell).</string>
-    <string name="notification_channel_reaction_popup_label">Popup-Gerätereaktionen</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ist deaktiviert</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth ist deaktiviert, aktiviere es ;)</string>
     <string name="help_translate_label">Übersetzung</string>
-    <string name="help_translate_description">Helfen Sie mit, dies in Ihre Lieblingssprache zu übersetzen.</string>
+    <string name="help_translate_description">Helfen Sie mit, diese App in Ihre Lieblingssprache zu übersetzen.</string>
     <string name="settings_onepod_mode_label">Ein-Pod-Modus</string>
     <string name="settings_onepod_mode_description">Das Tragen beider Pods ist nicht erforderlich, das Tragen eines einzigen Pods reicht aus, um Reaktionen auszulösen.</string>
     <string name="permission_system_alert_window_label">Systemwarnungsfenster</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Ungefilterte BLE-Daten</string>
     <string name="settings_blescanner_unfiltered_description">Entfernen Sie alle Filter aus dem BLE-Scanner, um alle übertragenen BLE-Daten anzuzeigen. Nützlich, um Unterstützung für neue Kopfhörertypen hinzuzufügen.</string>
     <string name="permission_required_title">Die folgende Genehmigung ist erforderlich:</string>
+    <string name="settings_compatibility_mode_label">Kompatibilitätsmodus</string>
+    <string name="settings_compatibility_mode_description">Deaktivieren Sie Optimierungen, um die Kompatibilität zu verbessern. Versuchen Sie dies, wenn Sie keine Daten sehen.</string>
 </resources>

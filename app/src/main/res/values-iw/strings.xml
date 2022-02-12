@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">מאוזן</string>
     <string name="settings_scanner_mode_lowlatency_label">זמן אחזור נמוך</string>
     <string name="settings_autopause_label">השהייה אוטומטית</string>
-    <string name="settings_autopause_description">השהה מוזיקה בעת הסרת המכשיר מהאוזן.</string>
+    <string name="settings_autopause_description">עצירת אודיו בהסרת המכשיר מהאוזן.</string>
     <string name="settings_showall_label">הצג את כל המכשירים</string>
     <string name="settings_showall_description">הצג מכשירים של אנשים אחרים שנמצאים בקרבתך.</string>
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
-    <string name="settings_autoplay_description">התחל מוזיקה בהשמעת מוזיקה כאשר אתה לובש את המכשיר.</string>
+    <string name="settings_autoplay_description">התחלת ניגון אודיו בלבישת המכשיר.</string>
     <string name="settings_fake_data_label">נתונים מזויפים</string>
-    <string name="settings_fake_data_description">הצג נתונים מזויפים, כלומר הדמיית מכשיר שלא קיים.</string>
+    <string name="settings_fake_data_description">הצגת נתונים מזויפים, לרבות, הדמיית מכשירים שאינם קיימים.</string>
     <string name="settings_debug_label">הגדרות ניפוי באגים</string>
     <string name="settings_debug_description">הגדרות נוספות שיסייעו בפתרון בעיות באפליקציה.</string>
     <string name="settings_signal_minimum_label">איכות אות מינימלית</string>
@@ -119,11 +119,10 @@
     <string name="upgrade_capod_description">קבל תכונות נוספות ותמיכה במפתח.</string>
     <string name="settings_popup_caseopen_label">הצג הודעה</string>
     <string name="settings_popup_caseopen_description">הצג חלון הודעה כאשר מארז המכשיר נפתח (ניסיוני).</string>
-    <string name="notification_channel_reaction_popup_label">תגובות חלון הודעוה של המכשיר</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth כבוי</string>
     <string name="overview_bluetooth_disabled_description">בלוטות\' מכובה, יש להדליקו ;)</string>
     <string name="help_translate_label">תרגום</string>
-    <string name="help_translate_description">עזור לתרגם את זה לשפה האהובה עליך.</string>
+    <string name="help_translate_description">עזרו בתרגום אפליקציה זו לשפה המועדפת עליכם.</string>
     <string name="settings_onepod_mode_label">מצב אוזניה בודדת</string>
     <string name="settings_onepod_mode_description">אין צורך לענוד את שני האוזניות, לבישת אוזניה בודדת מספיקה כדי לעורר תגובות.</string>
     <string name="permission_system_alert_window_label">חלון התראות מערכת</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">נתוני BLE לא מפולטרים</string>
     <string name="settings_blescanner_unfiltered_description">הסר מסננים מסורק BLE כדי להציג את כל נתוני BLE ששודרו. שימושי להוספת תמיכה בסוגי אוזניות חדשים.</string>
     <string name="permission_required_title">ההרשאה הבאה נדרשת:</string>
+    <string name="settings_compatibility_mode_label">מצב תאימות</string>
+    <string name="settings_compatibility_mode_description">נטרול אופטימיזציה לשיפור התאימות. נסו את זה אם לא מוצגים נתונים כלל.</string>
 </resources>

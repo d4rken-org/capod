@@ -24,6 +24,7 @@
     <string name="permission_bluetooth_scan_label">Scansione bluetooth</string>
     <string name="permission_bluetooth_scan_description">Il permesso di \"Scansione bluetooth\" permette a questa app di trovare e ricevere dati Bluetooth da dispositivi vicini come le tue Airpods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Questa app richiede il permesso \"Bluetooth\" per connettersi ai dispoitivi Bluetooth.</string>
     <string name="permission_access_fine_location_label">Access fine location</string>
     <string name="permission_access_fine_location_description">CAPod usa i permessi di Geolocalizzazione per ricevere dati Bluetooth a basso consumo. Le tue cuffie suano la tecnologia Bluetooth a basso consumo per inviare al dispositivo al quale sono connesse il loro stato. Questa app non utilizza i dati Bluetooth per geolocalizzarti.</string>
     <string name="permission_background_location_label">Accesso in background alla tua posizione</string>
@@ -44,12 +45,14 @@
     <string name="pods_connection_state_unknown_label">Stato di connessione sconosciuto</string>
     <string name="pods_unknown_raw_data_label">Dati non elaborati</string>
     <string name="pods_unknown_label">Dispositivo sconosciuto</string>
+    <string name="pods_unknown_contact_dev">Questo é un dispositivo sconosciutom ma sta utilizzando un formato di comunicazione noto. Aggiungiamo il supporto per questo device, Contattami! :)</string>
     <string name="pods_none_label_short">Nessun dispositivo</string>
     <string name="pods_charging_label">In ricarica</string>
     <string name="pods_inear_label">Nell\'orecchio</string>
     <string name="pods_microphone_label">Microfono</string>
     <string name="pods_yours">Tuoi</string>
     <string name="headset_being_worn_label">Indossato</string>
+    <string name="pods_case_unknown_state">Stato sconosciuto</string>
     <string name="overview_nomaindevice_label">Nessun device primario</string>
     <string name="overview_nomaindevice_description">Tutti i dispositivi rilevati molto probabilmente non sono tuoi. Accendi e connetti i tuoi dispositivi oppure sistema le impostazioni.</string>
     <string name="settings_label">Impostazioni</string>
@@ -86,13 +89,11 @@
     <string name="settings_scanner_mode_balanced_label">Bilanciato</string>
     <string name="settings_scanner_mode_lowlatency_label">Bassa latenza</string>
     <string name="settings_autopause_label">Pausa automatica</string>
-    <string name="settings_autopause_description">Metti in pausa la musica quando viene rimossa la cuffia da un orecchio.</string>
+    <string name="settings_autopause_description">Metti in pausa l\'audio quando viene rimossa la cuffia da un orecchio.</string>
     <string name="settings_showall_label">Mostra tutti i dispositivi</string>
     <string name="settings_showall_description">Mostra i dispositivi delle altre persone vicine a te.</string>
     <string name="settings_autopplay_label">Riproduzione automatica</string>
-    <string name="settings_autoplay_description">Avvia la riproduzione della musica quando indossi il dispositivo.</string>
     <string name="settings_fake_data_label">Dati immaginari</string>
-    <string name="settings_fake_data_description">Mostra dati immaginari così da poter simulare dispositivi che in realtà non esistono.</string>
     <string name="settings_debug_label">Impostazioni di debug</string>
     <string name="settings_debug_description">Impostazioni aggiuntive che possono aiutare a risolvere i problemi con l\'applicazione.</string>
     <string name="settings_signal_minimum_label">Qualità del segnale minima</string>
@@ -116,8 +117,8 @@
     <string name="upgrade_capod_description">Ottieni funzionalità aggiuntive e supporta lo sviluppatore.</string>
     <string name="settings_popup_caseopen_label">Mostra popup</string>
     <string name="settings_popup_caseopen_description">Mostra un popup quando la custodia del dispositivo è aperta (sperimentale).</string>
-    <string name="notification_channel_reaction_popup_label">Popup reazioni dispositivo</string>
     <string name="overview_bluetooth_disabled_label">Il Bluetooth é disabilitato</string>
+    <string name="overview_bluetooth_disabled_description">Il bluetooth é disabilitato, abilitalo ;)</string>
     <string name="help_translate_label">Traduzione</string>
     <string name="help_translate_description">Aiuta a tradurre l\'applicazione nella tua lingua preferita.</string>
     <string name="settings_onepod_mode_label">Modalità singolo pod</string>
@@ -126,4 +127,7 @@
     <string name="permission_system_alert_window_description">Permetti a CAPod di far apprarire overlay sopra le altre applicazioni per far funzionare \"Mostra PopUp\".</string>
     <string name="last_seen_x">Ultimo accesso: %s</string>
     <string name="first_seen_x">Primo accesso: %s</string>
+    <string name="settings_blescanner_unfiltered_label">Dati BLE non filtrati</string>
+    <string name="permission_required_title">È richiesta la seguente autorizzazione:</string>
+    <string name="settings_compatibility_mode_label">Modalità di compatibilità</string>
 </resources>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">I servizi di Google Play non sono disponibili.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nessun acquisto trovato. Stai usando l\'account giusto?</string>
+</resources>

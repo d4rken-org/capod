@@ -76,7 +76,6 @@
     <string name="overview_bluetooth_disabled_label">Bluetooth вимкнено</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth вимкнено, увімкніть його ;)</string>
     <string name="help_translate_label">Переклад</string>
-    <string name="help_translate_description">Допоможіть перекласти це своєю улюбленою мовою.</string>
     <string name="settings_onepod_mode_label">Режим одного навушника</string>
     <string name="settings_onepod_mode_description">Одягання обох навушників не є необхідним, одягання одного навушника цілком достатньо для запуску реагування.</string>
     <string name="permission_system_alert_window_label">Вікно системного повідомлення</string>

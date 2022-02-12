@@ -81,7 +81,7 @@
     <string name="settings_monitor_mode_label">Tryb monitorowania</string>
     <string name="settings_monitor_mode_description">W pewnych okolicznościach aplikacja może monitorować dane Bluetooth.</string>
     <string name="settings_scanner_mode_label">Tryb skanera</string>
-    <string name="settings_scanner_mode_description">Czy skaner Bluetooth Low Energy ma priorytetowo działać w ramach wydajności czy oszczędzania energii?</string>
+    <string name="settings_scanner_mode_description">Czy skaner danych Bluetooth Low Energy ma priorytetowo działać w ramach wydajności czy oszczędzania energii?</string>
     <string name="settings_monitor_mode_manual_label">Gdy aplikacja jest uruchomiona</string>
     <string name="settings_monitor_mode_automatic_label">Gdy urządzenie jest podłączone</string>
     <string name="settings_monitor_mode_always_label">Zawsze</string>
@@ -89,13 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Zabalansowana</string>
     <string name="settings_scanner_mode_lowlatency_label">Małe opóźnienia</string>
     <string name="settings_autopause_label">Automatyczna pauza</string>
-    <string name="settings_autopause_description">Pauzuj muzykę, gdy urządzenia jest wyciągane z ucha.</string>
+    <string name="settings_autopause_description">Pauzuj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
     <string name="settings_showall_label">Wyświetl wszystkie urządzenia</string>
     <string name="settings_showall_description">Wyświetla urządzenia innych osób, które są w pobliżu.</string>
     <string name="settings_autopplay_label">Automatyczne odtwarzanie</string>
-    <string name="settings_autoplay_description">Uruchamia odtwarzanie muzyki, gdy urządzenie jest noszone.</string>
+    <string name="settings_autoplay_description">Rozpocznij odtwarzanie, gdy urządzenie jest noszone.</string>
     <string name="settings_fake_data_label">Fałszywe dane</string>
-    <string name="settings_fake_data_description">Wyświetla fałszywe dane, na przykłady w celu symulowania urządzenia, które nie istnieje.</string>
+    <string name="settings_fake_data_description">Wyświetla fałszywe dane, na przykłady symuluje urządzenie, które nie istnieje.</string>
     <string name="settings_debug_label">Ustawienia debugowania</string>
     <string name="settings_debug_description">Dodatkowe ustawienia, które pomogą rozwiązać problemy z aplikacją.</string>
     <string name="settings_signal_minimum_label">Minimalna jakość sygnału</string>
@@ -119,7 +119,6 @@
     <string name="upgrade_capod_description">Uzyskaj dodatkowe funkcjonalności i wesprzyj autora.</string>
     <string name="settings_popup_caseopen_label">Wyświetlanie informacji</string>
     <string name="settings_popup_caseopen_description">Wyświetla informację, gdy obudowa urządzenia jest otwarta (eksperymentalnie).</string>
-    <string name="notification_channel_reaction_popup_label">Informacje o reakcjach urządzenia</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth jest wyłączony</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth jest wyłączony, włącz go ;)</string>
     <string name="help_translate_label">Tłumaczenie</string>
@@ -133,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Niefiltrowane dane BLE</string>
     <string name="settings_blescanner_unfiltered_description">Usuwa wszystkie filtry ze skaner BLE, aby wyświetlić wszystkie nadawane dane BLE. Użyteczne w przypadku dodawania obsługi nowego typu słuchawek.</string>
     <string name="permission_required_title">Następujące uprawnienie jest wymagane:</string>
+    <string name="settings_compatibility_mode_label">Tryb kompatybilność</string>
+    <string name="settings_compatibility_mode_description">Wyłącza optymalizacje, aby poprawić kompatybilność. Wypróbuj, jeśli nie widzisz żadnych danych.</string>
 </resources>
