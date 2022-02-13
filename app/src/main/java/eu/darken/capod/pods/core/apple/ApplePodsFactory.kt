@@ -5,7 +5,9 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
+import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Duration
 import java.time.Instant
@@ -21,7 +23,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val deviceColor: UByte,
     )
 
-    fun ProximityPairing.Message.getApplePodsMarkings(): Markings = Markings(
+    private fun ProximityPairing.Message.getApplePodsMarkings(): Markings = Markings(
         vendor = ProximityPairing.CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING,
         length = ProximityPairing.PAIRING_MESSAGE_LENGTH.toUByte(),
         device = (((data[1].toInt() and 255) shl 8) or (data[2].toInt() and 255)).toUShort(),
@@ -69,6 +71,22 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
     }
 
     internal val knownDevices = mutableMapOf<PodDevice.Id, KnownDevice>()
+
+
+    fun KnownDevice.getLatestCaseBattery(): Float? = history
+        .filterIsInstance<HasCase>()
+        .mapNotNull { it.batteryCasePercent }
+        .lastOrNull()
+
+    fun KnownDevice.getLatestCaseLidState(basic: DualAirPods): DualAirPods.LidState? {
+        val definitive = setOf(DualAirPods.LidState.OPEN, DualAirPods.LidState.CLOSED)
+        if (definitive.contains(basic.caseLidState)) return null
+
+        return history
+            .filterIsInstance<AirPodsPro>()
+            .lastOrNull { it.caseLidState != DualAirPods.LidState.NOT_IN_CASE }
+            ?.caseLidState
+    }
 
     internal open fun searchHistory(current: PodType): KnownDevice? {
         val scanResult = current.scanResult

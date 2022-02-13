@@ -3,18 +3,17 @@ package eu.darken.capod.pods.core.apple
 import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
 
-abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<DualApplePods>(tag) {
+abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<DualAirPods>(tag) {
 
-    fun DualApplePods.getCaseMatchMarkings() = SplitPodsMarkings(
+    fun DualAirPods.getCaseMatchMarkings() = SplitPodsMarkings(
         leftPodBattery = batteryLeftPodPercent,
         rightPodBattery = batteryRightPodPercent,
         microPhoneLeft = isLeftPodMicrophone,
         microPhoneRight = isRightPodMicrophone,
         chargingLeft = isLeftPodCharging,
         chargingRight = isRightPodCharging,
-        color = deviceColor,
+        color = rawDeviceColor,
         model = model
     )
 
@@ -28,36 +27,21 @@ abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<
         val microPhoneRight: Boolean,
         val chargingLeft: Boolean,
         val chargingRight: Boolean,
-        val color: DualApplePods.DeviceColor,
+        val color: UByte,
         val model: PodDevice.Model,
     )
 
-    private fun Collection<KnownDevice>.findSplitPodsMatch(device: DualApplePods): Collection<KnownDevice> {
+    private fun Collection<KnownDevice>.findSplitPodsMatch(device: DualAirPods): Collection<KnownDevice> {
         val target = device.getCaseMatchMarkings()
 
         return filter { known ->
             known.history
-                .filterIsInstance<DualApplePods>()
+                .filterIsInstance<DualAirPods>()
                 .any { it.getCaseMatchMarkings() == target }
         }
     }
 
-    fun KnownDevice.getLatestCaseBattery(): Float? = history
-        .filterIsInstance<DualApplePods>()
-        .mapNotNull { it.batteryCasePercent }
-        .lastOrNull()
-
-    fun KnownDevice.getLatestCaseLidState(basic: DualApplePods): DualApplePods.LidState? {
-        val definitive = setOf(DualApplePods.LidState.OPEN, DualApplePods.LidState.CLOSED)
-        if (definitive.contains(basic.caseLidState)) return null
-
-        return history
-            .filterIsInstance<AirPodsPro>()
-            .lastOrNull { it.caseLidState != DualApplePods.LidState.NOT_IN_CASE }
-            ?.caseLidState
-    }
-
-    override fun searchHistory(current: DualApplePods): KnownDevice? {
+    override fun searchHistory(current: DualAirPods): KnownDevice? {
         val basicResult = super.searchHistory(current)
 
         val caseIgnored = knownDevices.values.findSplitPodsMatch(current)

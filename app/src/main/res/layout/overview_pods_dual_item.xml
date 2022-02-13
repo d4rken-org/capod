@@ -118,6 +118,7 @@
                 android:id="@+id/pod_left_icon"
                 style="@style/PodInfoItemIcon"
                 android:src="@drawable/ic_airpod_left_24"
+                android:contentDescription="@string/pods_dual_left_label"
                 app:layout_constraintBottom_toBottomOf="@id/pod_left_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/pod_left_label" />
@@ -322,6 +323,7 @@
             <ImageView
                 android:id="@+id/pod_right_icon"
                 style="@style/PodInfoItemIcon"
+                android:contentDescription="@string/pods_dual_right_label"
                 android:src="@drawable/ic_airpod_right_24"
                 app:layout_constraintBottom_toBottomOf="@id/pod_right_label"
                 app:layout_constraintStart_toStartOf="parent"
@@ -419,7 +421,6 @@
                 app:layout_constraintStart_toEndOf="@id/pod_right_wear_icon"
                 app:layout_constraintTop_toBottomOf="@id/pod_right_microphone_label" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier_bottom"

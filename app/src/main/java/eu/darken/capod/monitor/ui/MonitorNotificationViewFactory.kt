@@ -6,8 +6,7 @@ import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.BasicSingleApplePods
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.SingleApplePods
 import javax.inject.Inject
 
@@ -17,13 +16,12 @@ class MonitorNotificationViewFactory @Inject constructor(
 ) {
 
     fun createContentView(device: PodDevice): RemoteViews = when (device) {
-        is DualApplePods -> createDualApplePods(device)
+        is DualAirPods -> createDualApplePods(device)
         is SingleApplePods -> createSingleApplePods(device)
-        is BasicSingleApplePods -> createSingleBasicApplePods(device)
         else -> createUnknownDevice(device)
     }
 
-    private fun createDualApplePods(device: DualApplePods): RemoteViews = RemoteViews(
+    private fun createDualApplePods(device: DualAirPods): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_small
     ).apply {
@@ -52,19 +50,12 @@ class MonitorNotificationViewFactory @Inject constructor(
             setTextViewText(R.id.headphones_label, getLabel(context))
             setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(batteryHeadsetPercent))
             setTextViewText(R.id.headphones_battery_label, getBatteryLevelHeadset(context))
-            setViewVisibility(R.id.headphones_charging, if (isHeadsetBeingCharged) View.VISIBLE else View.GONE)
-            setViewVisibility(R.id.headphones_worn, if (isHeadphonesBeingWorn) View.VISIBLE else View.GONE)
-        }
-    }
-
-    private fun createSingleBasicApplePods(device: BasicSingleApplePods): RemoteViews = RemoteViews(
-        context.packageName,
-        R.layout.monitor_notification_single_pods_basic_small
-    ).apply {
-        device.apply {
-            setTextViewText(R.id.headphones_label, getLabel(context))
-            setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(batteryHeadsetPercent))
-            setTextViewText(R.id.headphones_battery_label, getBatteryLevelHeadset(context))
+            if (this is HasEarDetection) {
+                setViewVisibility(R.id.headphones_worn, if (isBeingWorn) View.VISIBLE else View.GONE)
+            }
+            if (this is HasChargeDetectionDual) {
+                setViewVisibility(R.id.headphones_charging, if (isHeadsetBeingCharged) View.VISIBLE else View.GONE)
+            }
         }
     }
 

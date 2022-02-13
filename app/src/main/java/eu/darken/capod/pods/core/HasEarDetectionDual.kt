@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface HasDualEarDetection : HasEarDetection {
+interface HasEarDetectionDual : HasEarDetection {
 
     val isLeftPodInEar: Boolean
 

@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface HasEarDetection : PodDevice {
+interface HasEarDetection {
 
     val isBeingWorn: Boolean
 

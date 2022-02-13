@@ -1,7 +1,7 @@
 package eu.darken.capod.pods.core.apple.beats
 
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Test
@@ -33,7 +33,7 @@ class PowerBeatsProTest : BaseAirPodsTest() {
             isLeftPodCharging shouldBe true
             batteryCasePercent shouldBe 0.5f
 
-            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
         }
     }
 }

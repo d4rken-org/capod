@@ -4,7 +4,7 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.DualApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
@@ -20,14 +20,14 @@ data class AirPodsGen3 constructor(
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
-    private val cachedCaseState: DualApplePods.LidState? = null
-) : DualApplePods {
+    private val cachedCaseState: DualAirPods.LidState? = null
+) : DualAirPods {
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_GEN3
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
 
-    override val caseLidState: DualApplePods.LidState
+    override val caseLidState: DualAirPods.LidState
         get() = cachedCaseState ?: super.caseLidState
 
     override val rssi: Int

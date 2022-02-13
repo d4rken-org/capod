@@ -8,7 +8,7 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.reaction.popup.ui.PopUpWindow
 import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.*
@@ -39,7 +39,7 @@ class PopUpReaction @Inject constructor(
         .withPrevious()
         .setupCommonEventHandlers(TAG) { "monitor" }
         .map { (previous, current) ->
-            if (previous is DualApplePods? && current is DualApplePods) {
+            if (previous is DualAirPods? && current is DualAirPods) {
                 log(TAG, VERBOSE) {
                     val prev = previous?.rawCaseLidState?.let { String.format("%02X", it.toByte()) }
                     val cur = current.rawCaseLidState.let { String.format("%02X", it.toByte()) }
@@ -60,8 +60,8 @@ class PopUpReaction @Inject constructor(
             }
         }
 
-    private suspend fun tryPopWindow(current: DualApplePods) {
-        if (current.caseLidState == DualApplePods.LidState.OPEN) {
+    private suspend fun tryPopWindow(current: DualAirPods) {
+        if (current.caseLidState == DualAirPods.LidState.OPEN) {
             log(TAG, INFO) { "Show popup" }
 
             val now = Instant.now()
@@ -78,9 +78,9 @@ class PopUpReaction @Inject constructor(
             withContext(dispatcherProvider.Main) {
                 popupWindow.show(current)
             }
-        } else if (current.caseLidState != DualApplePods.LidState.OPEN) {
+        } else if (current.caseLidState != DualAirPods.LidState.OPEN) {
             when (current.caseLidState) {
-                DualApplePods.LidState.CLOSED -> {
+                DualAirPods.LidState.CLOSED -> {
                     log(TAG, INFO) { "Lid was actively closed, resetting cooldown." }
                     coolDowns.remove(current.identifier)
                 }

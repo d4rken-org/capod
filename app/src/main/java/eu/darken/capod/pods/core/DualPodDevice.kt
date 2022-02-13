@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface HasDualPods {
+interface DualPodDevice : PodDevice {
 
     enum class Pod {
         LEFT,

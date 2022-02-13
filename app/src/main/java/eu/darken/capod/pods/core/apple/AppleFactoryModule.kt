@@ -7,7 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.capod.pods.core.apple.airpods.*
 import eu.darken.capod.pods.core.apple.beats.*
-import eu.darken.capod.pods.core.apple.fakes.Twsi99999
+import eu.darken.capod.pods.core.apple.misc.Twsi99999
 
 @InstallIn(SingletonComponent::class)
 @Module

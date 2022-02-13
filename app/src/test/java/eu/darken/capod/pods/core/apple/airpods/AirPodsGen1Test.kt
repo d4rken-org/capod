@@ -1,7 +1,8 @@
 package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualAirPods
+import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Test
@@ -33,11 +34,11 @@ class AirPodsGen1Test : BaseAirPodsTest() {
             isRightPodInEar shouldBe false
             batteryCasePercent shouldBe 0.6f
 
-            caseLidState shouldBe DualApplePods.LidState.OPEN
+            caseLidState shouldBe DualAirPods.LidState.OPEN
 
-            connectionState shouldBe DualApplePods.ConnectionState.DISCONNECTED
+            state shouldBe DualAirPods.ConnectionState.DISCONNECTED
 
-            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
         }
     }
 }

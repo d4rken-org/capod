@@ -7,12 +7,11 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.HasDualEarDetection
-import eu.darken.capod.pods.core.HasDualPods
-import eu.darken.capod.pods.core.HasDualPods.Pod
+import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.DualPodDevice.Pod
 
-interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
+interface DualAirPods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
+    HasStateDetection, HasDualMicrophone, HasAppleColor {
 
     val primaryPod: Pod
         get() = when (rawStatus.isBitSet(5)) {
@@ -86,23 +85,23 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
      * The data flip bit is set if the left pod is primary.
      * For the pod that is in the case, this is flipped again though.
      */
-    val isLeftPodMicrophone: Boolean
+    override val isLeftPodMicrophone: Boolean
         get() = rawStatus.isBitSet(5) xor isThisPodInThecase
 
     /**
      * The data flip bit is UNset if the right pod is primary.
      * For the pod that is in the case, this is flipped again though.
      */
-    val isRightPodMicrophone: Boolean
+    override val isRightPodMicrophone: Boolean
         get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
 
-    val isLeftPodCharging: Boolean
+    override val isLeftPodCharging: Boolean
         get() = when (areValuesFlipped) {
             false -> rawFlags.isBitSet(0)
             true -> rawFlags.isBitSet(1)
         }
 
-    val isRightPodCharging: Boolean
+    override val isRightPodCharging: Boolean
         get() = when (areValuesFlipped) {
             false -> rawFlags.isBitSet(1)
             true -> rawFlags.isBitSet(0)
@@ -143,35 +142,10 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
         UNKNOWN(0xFF..0xFF);
     }
 
-    val deviceColor: DeviceColor
-        get() = DeviceColor.values().firstOrNull { it.raw == rawDeviceColor } ?: DeviceColor.UNKNOWN
-
-    enum class DeviceColor(val raw: UByte?) {
-
-        WHITE(0x00),
-        BLACK(0x01),
-        RED(0x02),
-        BLUE(0x03),
-        PINK(0x04),
-        GRAY(0x05),
-        SILVER(0x06),
-        GOLD(0x07),
-        ROSE_GOLD(0x08),
-        SPACE_GRAY(0x09),
-        DARK_BLUE(0x0a),
-        LIGHT_BLUE(0x0b),
-        YELLOW(0x0c),
-        UNKNOWN(null);
-
-        constructor(raw: Int) : this(raw.toUByte())
-    }
-
-    val connectionState: ConnectionState
+    override val state: ConnectionState
         get() = ConnectionState.values().firstOrNull { rawSuffix == it.raw } ?: ConnectionState.UNKNOWN
 
-    fun getConnectionStateLabel(context: Context): String = context.getString(connectionState.labelRes)
-
-    enum class ConnectionState(val raw: UByte?, @StringRes val labelRes: Int) {
+    enum class ConnectionState(val raw: UByte?, @StringRes val labelRes: Int) : HasStateDetection.State {
         DISCONNECTED(0x00, R.string.pods_connection_state_disconnected_label),
         IDLE(0x04, R.string.pods_connection_state_idle_label),
         MUSIC(0x05, R.string.pods_connection_state_music_label),
@@ -179,6 +153,8 @@ interface DualApplePods : ApplePods, HasDualPods, HasDualEarDetection, HasCase {
         RINGING(0x07, R.string.pods_connection_state_ringing_label),
         HANGING_UP(0x09, R.string.pods_connection_state_hanging_up_label),
         UNKNOWN(null, R.string.pods_connection_state_unknown_label);
+
+        override fun getLabel(context: Context): String = context.getString(labelRes)
 
         constructor(raw: Int, @StringRes labelRes: Int) : this(raw.toUByte(), labelRes)
     }

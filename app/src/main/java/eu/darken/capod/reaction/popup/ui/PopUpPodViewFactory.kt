@@ -10,11 +10,9 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.databinding.PopupNotificationDualPodsBinding
-import eu.darken.capod.databinding.PopupNotificationSinglePodsBasicBinding
 import eu.darken.capod.databinding.PopupNotificationSinglePodsBinding
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.BasicSingleApplePods
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.SingleApplePods
 import javax.inject.Inject
 
@@ -28,16 +26,13 @@ class PopUpPodViewFactory @Inject constructor(
     private val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     fun createContentView(parent: ViewGroup, device: PodDevice): View = when (device) {
-        is DualApplePods -> createDualApplePods(parent, device)
-        is SingleApplePods -> createSingleApplePods(parent, device) // Unused, has no case to trigger reaction?
-        is BasicSingleApplePods -> createSingleBasicApplePods(
-            parent,
-            device
-        ) // Unused, has no case to trigger reaction?
+        is DualAirPods -> createDualApplePods(parent, device)
+        // Unused, has no case to trigger reaction?
+        is SingleApplePods -> createSingleApplePods(parent, device)
         else -> throw IllegalArgumentException("Unexpected device: $device")
     }
 
-    private fun createDualApplePods(parent: ViewGroup, device: DualApplePods): View =
+    private fun createDualApplePods(parent: ViewGroup, device: DualAirPods): View =
         PopupNotificationDualPodsBinding.inflate(layoutInflater, parent, false).apply {
             device.apply {
                 podIcon.setImageResource(iconRes)
@@ -61,19 +56,6 @@ class PopUpPodViewFactory @Inject constructor(
 
     private fun createSingleApplePods(parent: ViewGroup, device: SingleApplePods): View =
         PopupNotificationSinglePodsBinding.inflate(layoutInflater, parent, false).apply {
-            device.apply {
-                headphonesIcon.setImageResource(iconRes)
-                headphonesLabel.text = getLabel(context)
-                signal.text = getSignalQuality(context)
-                signal.isInvisible = debugSettings.isDebugModeEnabled.value
-
-                headphonesBatteryIcon.setImageResource(getBatteryDrawable(batteryHeadsetPercent))
-                headphonesBatteryLabel.text = getBatteryLevelHeadset(context)
-            }
-        }.root
-
-    private fun createSingleBasicApplePods(parent: ViewGroup, device: BasicSingleApplePods): View =
-        PopupNotificationSinglePodsBasicBinding.inflate(layoutInflater, parent, false).apply {
             device.apply {
                 headphonesIcon.setImageResource(iconRes)
                 headphonesLabel.text = getLabel(context)

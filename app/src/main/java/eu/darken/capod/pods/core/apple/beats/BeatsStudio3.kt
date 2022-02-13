@@ -4,8 +4,8 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.BasicSingleApplePods
-import eu.darken.capod.pods.core.apple.BasicSingleApplePodsFactory
+import eu.darken.capod.pods.core.apple.SingleApplePods
+import eu.darken.capod.pods.core.apple.SingleApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
@@ -19,11 +19,11 @@ data class BeatsStudio3(
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
-) : BasicSingleApplePods {
+) : SingleApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.BEATS_STUDIO_3
 
-    class Factory @Inject constructor() : BasicSingleApplePodsFactory(TAG) {
+    class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
             getModelInfo().dirty == DEVICE_CODE_DIRTY && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
@@ -46,7 +46,6 @@ data class BeatsStudio3(
                 rssiAverage = result.averageRssi(basic.rssi),
             )
         }
-
     }
 
     companion object {

@@ -9,8 +9,8 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
-import eu.darken.capod.pods.core.HasDualEarDetection
 import eu.darken.capod.pods.core.HasEarDetection
+import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -48,7 +48,7 @@ class PlayPause @Inject constructor(
                     return@onEach
                 }
 
-                if (previous is HasDualEarDetection && current is HasDualEarDetection && reactionSettings.onePodMode.value) {
+                if (previous is HasEarDetectionDual && current is HasEarDetectionDual && reactionSettings.onePodMode.value) {
                     log(TAG) { "Ear status changed for dual pod device in single pod mode." }
                     val previousWorn = previous.isEitherPodInEar
                     val currentWorn = current.isEitherPodInEar

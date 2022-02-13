@@ -8,9 +8,9 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
-import eu.darken.capod.pods.core.HasDualEarDetection
 import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.HasEarDetectionDual
+import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.reaction.settings.ReactionSettings
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -68,12 +68,12 @@ class AutoConnect @Inject constructor(
             val conditionFulfilled = when (condition) {
                 AutoConnectCondition.WHEN_SEEN -> true
                 AutoConnectCondition.CASE_OPEN -> when (mainDevice) {
-                    is DualApplePods -> mainDevice.caseLidState == DualApplePods.LidState.OPEN
+                    is DualAirPods -> mainDevice.caseLidState == DualAirPods.LidState.OPEN
                     else -> true
                 }
                 AutoConnectCondition.IN_EAR -> when (mainDevice) {
                     is HasEarDetection -> {
-                        if (mainDevice is HasDualEarDetection && reactionSettings.onePodMode.value) {
+                        if (mainDevice is HasEarDetectionDual && reactionSettings.onePodMode.value) {
                             mainDevice.isEitherPodInEar
                         } else {
                             mainDevice.isBeingWorn

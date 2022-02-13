@@ -1,7 +1,6 @@
-package eu.darken.capod.pods.core.apple.fakes
+package eu.darken.capod.pods.core.apple.misc
 
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
-import eu.darken.capod.pods.core.apple.DualApplePods
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.jupiter.api.Test
@@ -25,18 +24,8 @@ class Twsi99999Test : BaseAirPodsTest() {
             batteryRightPodPercent shouldBe 1.0f
 
             isCaseCharging shouldBe false
-            isLeftPodCharging shouldBe true
-            isRightPodCharging shouldBe true
 
-            isLeftPodInEar shouldBe false
-            isRightPodInEar shouldBe false
             batteryCasePercent shouldBe 0.7f
-
-            caseLidState shouldBe DualApplePods.LidState.OPEN
-
-            connectionState shouldBe DualApplePods.ConnectionState.UNKNOWN
-
-            deviceColor shouldBe DualApplePods.DeviceColor.WHITE
         }
     }
 }

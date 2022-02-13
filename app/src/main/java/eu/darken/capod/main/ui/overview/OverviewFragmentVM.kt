@@ -20,23 +20,23 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
 import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
-import eu.darken.capod.main.ui.overview.cards.pods.*
+import eu.darken.capod.main.ui.overview.cards.pods.DualPodsCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.SinglePodsCardVH
+import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.worker.MonitorControl
+import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.BasicSingleApplePods
-import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.apple.SingleApplePods
+import eu.darken.capod.pods.core.SinglePodDevice
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
 import java.time.Instant
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
 class OverviewFragmentVM @Inject constructor(
-    handle: SavedStateHandle,
+    @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val monitorControl: MonitorControl,
     private val podMonitor: PodMonitor,
@@ -74,7 +74,7 @@ class OverviewFragmentVM @Inject constructor(
                 monitorControl.startMonitor()
             }
         }
-        .map { Unit }
+        .map { }
         .asLiveData2()
 
     val requestPermissionEvent = SingleLiveEvent<Permission>()
@@ -129,19 +129,13 @@ class OverviewFragmentVM @Inject constructor(
             pods.map {
                 val now = Instant.now()
                 when (it) {
-                    is DualApplePods -> DualApplePodsCardVH.Item(
+                    is DualPodDevice -> DualPodsCardVH.Item(
                         now = now,
                         device = it,
                         showDebug = isDebugMode,
                         isMainPod = it == mainPod,
                     )
-                    is SingleApplePods -> SingleApplePodsCardVH.Item(
-                        now = now,
-                        device = it,
-                        showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
-                    )
-                    is BasicSingleApplePods -> BasicSingleApplePodsCardVH.Item(
+                    is SinglePodDevice -> SinglePodsCardVH.Item(
                         now = now,
                         device = it,
                         showDebug = isDebugMode,
