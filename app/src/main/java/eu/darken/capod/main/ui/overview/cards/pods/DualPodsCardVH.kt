@@ -153,6 +153,7 @@ class DualPodsCardVH(parent: ViewGroup) :
                 sb.append("\n").append(rawDataHex)
             }
             status.text = sb
+            status.isGone = sb.isEmpty()
         }
     }
 

@@ -41,26 +41,24 @@ class SinglePodsCardVH(parent: ViewGroup) :
 
         // Charge state
         device.apply {
-            if (this !is HasChargeDetection) {
-                chargingIcon.isInvisible = true
-                chargingLabel.isInvisible = true
-                return@apply
+            if (this is HasChargeDetection) {
+                chargingIcon.isInvisible = isHeadsetBeingCharged
+                chargingLabel.isInvisible = isHeadsetBeingCharged
+            } else {
+                chargingIcon.isGone = true
+                chargingLabel.isGone = true
             }
-
-            chargingIcon.isInvisible = isHeadsetBeingCharged
-            chargingLabel.isInvisible = isHeadsetBeingCharged
         }
 
         // Has ear detection
         device.apply {
-            if (this !is HasEarDetection) {
-                wearIcon.isInvisible = true
-                wearLabel.isInvisible = true
-                return@apply
+            if (this is HasEarDetection) {
+                wearIcon.isInvisible = isBeingWorn
+                wearLabel.isInvisible = isBeingWorn
+            } else {
+                wearIcon.isGone = true
+                wearLabel.isGone = true
             }
-
-            wearIcon.isInvisible = isBeingWorn
-            wearLabel.isInvisible = isBeingWorn
         }
 
         status.apply {
