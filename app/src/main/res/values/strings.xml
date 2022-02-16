@@ -144,4 +144,6 @@
     <string name="permission_required_title">The following permission is required:</string>
     <string name="settings_compatibility_mode_label">Compatibility mode</string>
     <string name="settings_compatibility_mode_description">Disable optimizations to improve compatibility. Try this if you are not seeing any data.</string>
+    <string name="translators_thanks_title">Translators</string>
+    <string name="translators_thanks_description">darken</string>
 </resources>

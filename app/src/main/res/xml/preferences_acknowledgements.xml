@@ -5,6 +5,15 @@
         android:title="@string/general_thank_you_label"
         app:iconSpaceReserved="false">
         <Preference
+            android:key="thanks.translators"
+            android:summary="@string/translators_thanks_description"
+            android:title="@string/translators_thanks_title"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://crowdin.com/project/capod/activity-stream" />
+        </Preference>
+        <Preference
             android:key="thanks.maxpatchs"
             android:summary="Thanks for the lovely icons."
             android:title="Max Patchs"
