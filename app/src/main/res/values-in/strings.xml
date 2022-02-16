@@ -81,6 +81,7 @@
     <string name="settings_monitor_mode_label">Mode monitor</string>
     <string name="settings_monitor_mode_description">Dalam keadaan apa aplikasi ini memonitor data Bluetooth.</string>
     <string name="settings_scanner_mode_label">Modus memindai</string>
+    <string name="settings_scanner_mode_description">Haruskah pemindai data Bluetooth Hemat Energi memprioritaskan kinerja atau menghemat energi?</string>
     <string name="settings_monitor_mode_manual_label">Saat aplikasi terbuka</string>
     <string name="settings_monitor_mode_automatic_label">Saat perangkat terhubung</string>
     <string name="settings_monitor_mode_always_label">Selalu</string>
@@ -88,10 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Seimbang</string>
     <string name="settings_scanner_mode_lowlatency_label">Latemsi rendah</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
+    <string name="settings_autopause_description">Jeda audio saat melepaskan perangkat dari telinga anda.</string>
     <string name="settings_showall_label">Tampilkan semua perangkat</string>
     <string name="settings_showall_description">Tampilkan perangkat orang lain yang ada di dekat anda.</string>
     <string name="settings_autopplay_label">Putar otomatis</string>
+    <string name="settings_autoplay_description">Mulai pemutaran audio saat perangkat dipakai.</string>
     <string name="settings_fake_data_label">Data palsu</string>
+    <string name="settings_fake_data_description">Tampilkan data palsu, yaitu, mensimulasikan perangkat yang tidak ada.</string>
     <string name="settings_debug_label">Pengaturan debug</string>
     <string name="settings_debug_description">Pengaturan tambahan untuk membantu memecahkan masalah dengan aplikasi.</string>
     <string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
@@ -118,6 +122,7 @@
     <string name="overview_bluetooth_disabled_label">Bluetooth dinonaktifkan</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth dinonaktifkan, aktifkan terlebih dahulu ;)</string>
     <string name="help_translate_label">Terjemahan</string>
+    <string name="help_translate_description">Bantu terjemahkan applikasi ini ke bahasa favorit anda.</string>
     <string name="settings_onepod_mode_label">Mode satu pod</string>
     <string name="settings_onepod_mode_description">Menggunakan kedua pod tidak diperlukan, memakai satu pod sudah cukup untuk memicu reaksi.</string>
     <string name="permission_system_alert_window_label">Jendela Peringatan Sistem</string>
@@ -127,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Data BLE yang tidak difilter</string>
     <string name="settings_blescanner_unfiltered_description">Hapus semua filter dari pemindai BLE untuk menampilkan semua data BLE yang disiarkan. Berguna untuk menambahkan dukungan pada jenis headphone baru.</string>
     <string name="permission_required_title">Izin berikut diperlukan:</string>
+    <string name="settings_compatibility_mode_label">Mode kompatibilitas</string>
+    <string name="settings_compatibility_mode_description">Nonaktifkan pengoptimalan untuk meningkatkan kompatibilitas. Coba ini jika anda tidak melihat data apa pun.</string>
 </resources>

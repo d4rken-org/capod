@@ -6,7 +6,7 @@ CAPod 是为 AirPods 提供配套功能的一个应用。
 * 有关连接、麦克风和充电仓的附加信息。
 * 能够接收和显示位于附近的全部设备。
 * 佩戴/取下时自动开始/暂停音乐播放。
-* Automatically connect phone and AirPods.
+* 自动连接手机与 AirPods。
 * 充电仓打开时显示弹窗。
 
 CAPod 是一款免费共享软件。 某些功能需在应用内购买。

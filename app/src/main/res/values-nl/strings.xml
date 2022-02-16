@@ -81,6 +81,7 @@
     <string name="settings_monitor_mode_label">Monitor modus</string>
     <string name="settings_monitor_mode_description">Onder welke omstandigheden houdt deze app Bluetooth-gegevens bij.</string>
     <string name="settings_scanner_mode_label">Scannermodus</string>
+    <string name="settings_scanner_mode_description">Moet de Bluetooth Low Energy-gegevensscanner prioriteit geven aan prestaties of energie besparen?</string>
     <string name="settings_monitor_mode_manual_label">Wanneer app is geopend</string>
     <string name="settings_monitor_mode_automatic_label">Wanneer het apparaat is aangesloten</string>
     <string name="settings_monitor_mode_always_label">Altijd</string>
@@ -88,10 +89,13 @@
     <string name="settings_scanner_mode_balanced_label">Gebalanceerd</string>
     <string name="settings_scanner_mode_lowlatency_label">Lage latentie</string>
     <string name="settings_autopause_label">Auto pauze</string>
+    <string name="settings_autopause_description">Pauzeer de muziek wanneer u het apparaat van uw oor haalt.</string>
     <string name="settings_showall_label">Alle apparaten weergeven</string>
     <string name="settings_showall_description">Toon apparaten van andere mensen die bij u in de buurt zijn.</string>
     <string name="settings_autopplay_label">Automatisch afspelen</string>
+    <string name="settings_autoplay_description">Start audioweergave wanneer het apparaat wordt gedragen.</string>
     <string name="settings_fake_data_label">Nep gegevens</string>
+    <string name="settings_fake_data_description">Toon nepgegevens, d.w.z. simuleer apparaten die niet bestaan.</string>
     <string name="settings_debug_label">Foutopsporingsinstellingen</string>
     <string name="settings_debug_description">Aanvullende instellingen voor het oplossen van problemen met de app.</string>
     <string name="settings_signal_minimum_label">Minimale signaalkwaliteit</string>
@@ -118,6 +122,7 @@
     <string name="overview_bluetooth_disabled_label">Bluetooth is uitgeschakeld</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is uitgeschakeld, activeer het ;)</string>
     <string name="help_translate_label">Vertaling</string>
+    <string name="help_translate_description">Help deze app te vertalen in uw favoriete taal.</string>
     <string name="settings_onepod_mode_label">Eén pod-modus</string>
     <string name="settings_onepod_mode_description">Het dragen van beide pods is niet vereist, het dragen van een enkele pod is voldoende om reacties uit te lokken.</string>
     <string name="permission_system_alert_window_label">Systeemwaarschuwingsvenster</string>
@@ -127,4 +132,6 @@
     <string name="settings_blescanner_unfiltered_label">Ongefilterde BLE-gegevens</string>
     <string name="settings_blescanner_unfiltered_description">Verwijder eventuele filters van de BLE-scanner om alle uitgezonden BLE-gegevens weer te geven. Handig om ondersteuning toe te voegen voor nieuwe typen hoofdtelefoons.</string>
     <string name="permission_required_title">De volgende toestemming is vereist:</string>
+    <string name="settings_compatibility_mode_label">Compatibiliteitsmodus</string>
+    <string name="settings_compatibility_mode_description">Schakel optimalisaties uit om de compatibiliteit te verbeteren. Probeer dit als u geen gegevens ziet.</string>
 </resources>
