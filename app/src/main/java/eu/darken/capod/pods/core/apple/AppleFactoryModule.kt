@@ -8,6 +8,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.capod.pods.core.apple.airpods.*
 import eu.darken.capod.pods.core.apple.beats.*
 import eu.darken.capod.pods.core.apple.misc.Twsi99999
+import eu.darken.capod.pods.core.apple.misc.VarunrAirPodsPro
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -28,4 +29,6 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun powerBeatsPro(factory: PowerBeatsPro.Factory): ApplePodsFactory<out ApplePods>
 
     @Binds @IntoSet abstract fun fakesTwsi999999(factory: Twsi99999.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet
+    abstract fun fakesVarunrAirPodsPro(factory: VarunrAirPodsPro.Factory): ApplePodsFactory<out ApplePods>
 }
