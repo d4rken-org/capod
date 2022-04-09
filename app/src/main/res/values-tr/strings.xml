@@ -64,7 +64,7 @@
     <string name="settings_general_description">Tüm uygulamayı etkileyen genel düzenlemeler.</string>
     <string name="settings_acknowledgements_label">Teşekkür</string>
     <string name="changelog_label">Değişiklik Günlüğü</string>
-    <string name="settings_support_email_developer_label">E-posta geliştiricisi</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">E-posta geliştiricisi</string>
     <string name="settings_support_installid_label">Yükleme Kimliği</string>
     <string name="settings_support_installid_desc">Otomatik hata raporları anonimdir. Geliştiricinin hata raporlarınızı bulması gerekiyorsa yükleme kimliğinizi paylaşın.</string>
     <string name="settings_support_label">Destek</string>

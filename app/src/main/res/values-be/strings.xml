@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="notification_channel_device_status_label">Статус прылады</string>
+    <string name="general_error_label">Памылка</string>
+    <string name="general_share_action">Падзяліцца</string>
+    <string name="general_done_action">Гатова</string>
+    <string name="general_copy_action">Скапіраваць</string>
+    <string name="general_thank_you_label">Дзякуй</string>
+    <string name="general_value_not_available_label">Н/д</string>
+    <string name="general_grant_permission_action">Даць дазвол</string>
+    <string name="general_upgrade_action">Палепшыць</string>
+    <string name="general_check_action">Праверыць</string>
+    <string name="general_close_action">Закрыць</string>
+    <string name="debug_debuglog_size_label">Памер</string>
+    <string name="debug_debuglog_size_compressed_label">Сціснуты памер</string>
+    <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
+    <string name="debug_debuglog_file_label">Файл журнала</string>
+    <string name="debug_debuglog_record_action">Запісаць лог аладкі ў журнал</string>
+    <string name="permission_bluetooth_connect_label">Злучэнне па Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Гэтай праграме патрабуецца дазвол на выкарыстанне Bluetooth для ўзаемадзеяння са спалучанымі прыладамі і стварэння новых злучэнняў.</string>
+    <string name="permission_bluetooth_scan_label">Сканіраванне Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Дазвол на сканіраванне Bluetooth дасць магчымасць гэтай праграме выяўляць і атрымліваць даныя па Bluetooth з навакольных прылад, такіх як вашы AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Гэтай праграме патрабуецца дазвол на выкарыстанне Bluetooth для злучэння са спалучанымі прыладамі.</string>
+    <string name="permission_access_fine_location_label">Доступ да дакладнага месцазнаходжання</string>
+</resources>

@@ -64,7 +64,7 @@
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi incə tənzimləmələr.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="changelog_label">Dəyişiklik jurnalı</string>
-    <string name="settings_support_email_developer_label">Tərtibatçıya e-poçt göndər</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">Tərtibatçıya e-poçt göndər</string>
     <string name="settings_support_installid_label">Quraşdırma kimliyi</string>
     <string name="settings_support_installid_desc">Avtomatik xəta hesabatları anonimdir. Tərtibatçının xəta hesabatlarınızı tapmasına ehtiyacı varsa quraşdırma kimliyinizi paylaşın.</string>
     <string name="settings_support_label">Dəstək</string>

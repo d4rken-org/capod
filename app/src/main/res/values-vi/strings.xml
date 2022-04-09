@@ -6,7 +6,7 @@
     <string name="notification_channel_device_status_label">Trạng thái thiết bị</string>
     <string name="general_error_label">Lỗi</string>
     <string name="general_share_action">Chia sẻ</string>
-    <string name="general_done_action">Xong</string>
+    <string name="general_done_action">Hoàn tất</string>
     <string name="general_copy_action">Sao chép</string>
     <string name="general_thank_you_label">Cảm ơn</string>
     <string name="general_value_not_available_label">Không rõ</string>
@@ -21,21 +21,21 @@
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="permission_bluetooth_connect_label">Kết nối Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Ứng dụng này yêu cầu quyền \"Kết nối Bluetooth\" để tương tác với các thiết bị được ghép nối và bắt đầu kết nối.</string>
-    <string name="permission_bluetooth_scan_label">Quét qua Bluetooth</string>
+    <string name="permission_bluetooth_scan_label">Quét Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Quyền \"quét Bluetooth\" cho phép ứng dụng này khám phá và nhận dữ liệu Bluetooth từ các thiết bị lân cận, chẳng hạn như AirPods của bạn.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Ứng dụng này yêu cầu quyền \"Bluetooth\" để kết nối với các thiết bị bluetooth được ghép nối.</string>
-    <string name="permission_access_fine_location_label">Truy cập vị trí tốt</string>
-    <string name="permission_access_fine_location_description">CAPod sử dụng quyền \"vị trí tốt\" để nhận dữ liệu Bluetooth Low Energy. Tai nghe của bạn sử dụng công nghệ Bluetooth Low Energy để phát trạng thái của chúng. Ứng dụng này sẽ KHÔNG sử dụng dữ liệu Bluetooth để xác định vị trí của bạn.</string>
-    <string name="permission_background_location_label">Quyền truy cập vị trí nền</string>
-    <string name="permission_background_location_description">CAPod sử dụng \"quyền truy cập vị trí nền\" để bật các tính năng như \"Hiển thị cửa sổ bật lên\" và \"Tự động kết nối\" trong khi ứng dụng đóng. Quyền truy cập vị trí trong nền cho phép ứng dụng nhận dữ liệu Bluetooth Low Energy khi đang ở chế độ nền. Ứng dụng này sẽ KHÔNG sử dụng dữ liệu Bluetooth để xác định vị trí của bạn.</string>
+    <string name="permission_bluetooth_description">Ứng dụng này yêu cầu quyền \"Bluetooth\" để kết nối với các thiết bị Bluetooth được ghép nối.</string>
+    <string name="permission_access_fine_location_label">Truy cập vị trí chính xác</string>
+    <string name="permission_access_fine_location_description">CAPod sử dụng quyền \"vị trí chính xác\" để nhận dữ liệu Bluetooth Năng Lượng Thấp. Tai nghe của bạn sử dụng công nghệ Bluetooth Năng Lượng Thấp để phát trạng thái của chúng. Ứng dụng này sẽ KHÔNG sử dụng dữ liệu Bluetooth để xác định vị trí của bạn.</string>
+    <string name="permission_background_location_label">Quyền truy cập vị trí trong nền</string>
+    <string name="permission_background_location_description">CAPod sử dụng \"quyền truy cập vị trí trong nền\" để bật các tính năng như \"Hiển thị cửa sổ bật lên\" và \"Tự động kết nối\" trong khi ứng dụng đóng. Quyền truy cập vị trí trong nền cho phép ứng dụng nhận dữ liệu Bluetooth Năng Lượng Thấp khi đang ở chế độ nền. Ứng dụng này sẽ KHÔNG sử dụng dữ liệu Bluetooth để xác định vị trí của bạn.</string>
     <string name="permission_ignore_battery_optimizations_label">Tắt tối ưu hóa pin</string>
-    <string name="permission_ignore_battery_optimizations_description">Tối ưu hóa pin ngăn ứng dụng này nhận dữ liệu Bluetooth một cách đáng tin cậy khi ứng dụng ở chế độ nền.</string>
+    <string name="permission_ignore_battery_optimizations_description">Tối ưu hóa pin ngăn ứng dụng này nhận dữ liệu Bluetooth một cách chính xác khi ứng dụng ở chế độ nền.</string>
     <string name="pods_dual_left_label">Tai bên trái</string>
     <string name="pods_dual_right_label">Tai bên phải</string>
     <string name="pods_case_label">Hộp đựng</string>
     <string name="pods_case_status_open_label">Mở</string>
-    <string name="pods_case_status_closed_label">Đã đóng</string>
+    <string name="pods_case_status_closed_label">Đóng</string>
     <string name="pods_connection_state_disconnected_label">Không được kết nối với thiết bị</string>
     <string name="pods_connection_state_idle_label">Đã kết nối với một thiết bị nhưng không hoạt động</string>
     <string name="pods_connection_state_music_label">Ở chế độ âm nhạc</string>
@@ -44,7 +44,7 @@
     <string name="pods_connection_state_hanging_up_label">Cúp máy</string>
     <string name="pods_connection_state_unknown_label">Trạng thái kết nối không xác định</string>
     <string name="pods_unknown_raw_data_label">Dữ liệu thô</string>
-    <string name="pods_unknown_label">Thiết bị chưa biết</string>
+    <string name="pods_unknown_label">Thiết bị không xác định</string>
     <string name="pods_unknown_contact_dev">Đây là một thiết bị không xác định, nhưng nó đang sử dụng định dạng tin nhắn tương tự. Cần thêm hỗ trợ cho nó, liên hệ với tôi :)</string>
     <string name="pods_none_label_short">Không có thiết bị</string>
     <string name="pods_charging_label">Đang sạc</string>
@@ -62,9 +62,9 @@
     <string name="settings_category_other_label">Khác</string>
     <string name="settings_general_label">Cài đặt</string>
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
-    <string name="settings_acknowledgements_label">Nhìn nhận</string>
+    <string name="settings_acknowledgements_label">Đóng góp và cảm ơn</string>
     <string name="changelog_label">Các thay đổi</string>
-    <string name="settings_support_email_developer_label">Gửi email cho nhà phát triển</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">Gửi email cho nhà phát triển</string>
     <string name="settings_support_installid_label">ID Cài đặt</string>
     <string name="settings_support_installid_desc">Các báo cáo lỗi tự động được ẩn danh. Chia sẻ ID cài đặt của bạn nếu nhà phát triển cần tìm các báo cáo lỗi của bạn.</string>
     <string name="settings_support_label">Hỗ trợ</string>
@@ -134,4 +134,6 @@
     <string name="permission_required_title">Quyền sau đây là bắt buộc:</string>
     <string name="settings_compatibility_mode_label">Chế độ tương thích</string>
     <string name="settings_compatibility_mode_description">Tắt tối ưu hóa để cải thiện khả năng tương thích. Hãy thử điều này nếu bạn không thấy bất kỳ dữ liệu nào.</string>
+    <string name="translators_thanks_title">Dịch thuật</string>
+    <string name="translators_thanks_description" comment="translators_thanks_description&#10;&#10;You can voluntarily add your name here to have it displayed in the app. It will be shown in the Settings&gt;Acknowledgements&gt;Thank you section.&#10;&#10;Separate names by semicolons and an optional email may be included in brackets, example:&#10;&#10;darken(darken@darken.eu);John Doe(john@example.com)&#10;&#10;&quot;darken&quot; is just a placeholder and does not have to be kept if/when you add yours.&#10;&#10;Be nice to each other!">dovanchuc7521</string>
 </resources>

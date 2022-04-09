@@ -64,7 +64,7 @@
     <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="changelog_label">Änderungsprotokoll</string>
-    <string name="settings_support_email_developer_label">E-Mail-Entwickler</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">E-Mail-Entwickler</string>
     <string name="settings_support_installid_label">ID installieren</string>
     <string name="settings_support_installid_desc">Automatische Fehlermeldungen sind anonym.  Teilen Sie Ihre Installations- ID mit, wenn der Entwickler Ihre Fehlerberichte finden muss.</string>
     <string name="settings_support_label">Unterstützung</string>
@@ -134,4 +134,6 @@
     <string name="permission_required_title">Die folgende Genehmigung ist erforderlich:</string>
     <string name="settings_compatibility_mode_label">Kompatibilitätsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktivieren Sie Optimierungen, um die Kompatibilität zu verbessern. Versuchen Sie dies, wenn Sie keine Daten sehen.</string>
+    <string name="translators_thanks_title">Übersetzer</string>
+    <string name="translators_thanks_description" comment="translators_thanks_description&#10;&#10;You can voluntarily add your name here to have it displayed in the app. It will be shown in the Settings&gt;Acknowledgements&gt;Thank you section.&#10;&#10;Separate names by semicolons and an optional email may be included in brackets, example:&#10;&#10;darken(darken@darken.eu);John Doe(john@example.com)&#10;&#10;&quot;darken&quot; is just a placeholder and does not have to be kept if/when you add yours.&#10;&#10;Be nice to each other!">darken</string>
 </resources>

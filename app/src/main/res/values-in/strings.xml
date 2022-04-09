@@ -64,7 +64,7 @@
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
     <string name="settings_acknowledgements_label">Ucapan terima kasih</string>
     <string name="changelog_label">Catatan perubahan</string>
-    <string name="settings_support_email_developer_label">Email pengembang</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">Email pengembang</string>
     <string name="settings_support_installid_label">ID pemasangan</string>
     <string name="settings_support_installid_desc">Laporan kesalahan otomatis bersifat anonim. Bagikan ID pemasangan anda jika pengembang perlu menemukan laporan kesalahan anda.</string>
     <string name="settings_support_label">Dukungan</string>

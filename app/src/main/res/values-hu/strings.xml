@@ -64,7 +64,7 @@
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítások</string>
     <string name="changelog_label">Napló</string>
-    <string name="settings_support_email_developer_label">Fejlesztő Email címe</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">Fejlesztő Email címe</string>
     <string name="settings_support_installid_label">Azonosító</string>
     <string name="settings_support_installid_desc">Az automatikus hibajelentések névtelenek. Ossza meg azonosítóját, hogy a fejlesztő megtalálja a hibajelentéseket.</string>
     <string name="settings_support_label">Támogatás</string>
@@ -127,4 +127,5 @@
     <string name="settings_blescanner_unfiltered_label">Szűretlen BLE adatok</string>
     <string name="settings_blescanner_unfiltered_description">Távolítson el minden szűrőt a BLE szkennerből, hogy megjelenjen az összes adat. Hasznos új fejhallgató típusok támogatásához.</string>
     <string name="permission_required_title">A következő engedély szükséges:</string>
+    <string name="translators_thanks_title">Fordító</string>
 </resources>

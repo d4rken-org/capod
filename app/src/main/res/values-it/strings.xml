@@ -64,7 +64,7 @@
     <string name="settings_general_description">Modifiche generali che riguardano l\'intera applicazione.</string>
     <string name="settings_acknowledgements_label">Riconoscimenti</string>
     <string name="changelog_label">Changelog</string>
-    <string name="settings_support_email_developer_label">Email sviluppatore</string>
+    <string name="settings_support_email_developer_label" comment="settings_support_email_developer_label&#10;&#10;Pressing this setting will open your default email app with a template for a mail to me and some device info (e.g. versions).">Email sviluppatore</string>
     <string name="settings_support_installid_label">ID installazione</string>
     <string name="settings_support_installid_desc">Le segnalazioni automatiche degli errori sono anonime. Condividi il tuo ID di installazione con lo sviluppatore se necessità di trovare la tua segnalazione all\'interno del registro segnalazioni.</string>
     <string name="settings_support_label">Supporto</string>
@@ -93,7 +93,9 @@
     <string name="settings_showall_label">Mostra tutti i dispositivi</string>
     <string name="settings_showall_description">Mostra i dispositivi delle altre persone vicine a te.</string>
     <string name="settings_autopplay_label">Riproduzione automatica</string>
+    <string name="settings_autoplay_description">Avvia riproduzione audio quando il dispositivo è indossato.</string>
     <string name="settings_fake_data_label">Dati immaginari</string>
+    <string name="settings_fake_data_description">Mostra dati fittizi, ovvero simula dispositivi che in realtà non esistono.</string>
     <string name="settings_debug_label">Impostazioni di debug</string>
     <string name="settings_debug_description">Impostazioni aggiuntive che possono aiutare a risolvere i problemi con l\'applicazione.</string>
     <string name="settings_signal_minimum_label">Qualità del segnale minima</string>
@@ -128,6 +130,9 @@
     <string name="last_seen_x">Ultimo accesso: %s</string>
     <string name="first_seen_x">Primo accesso: %s</string>
     <string name="settings_blescanner_unfiltered_label">Dati BLE non filtrati</string>
+    <string name="settings_blescanner_unfiltered_description">Rimuovi eventuali filtri dallo scanner BLE per mostrate tutti i dati BLE trasmetti. Utile per aggiungere supporto per nuovi tipi di cuffie.</string>
     <string name="permission_required_title">È richiesta la seguente autorizzazione:</string>
     <string name="settings_compatibility_mode_label">Modalità di compatibilità</string>
+    <string name="settings_compatibility_mode_description">Disattiva le ottimizzazioni per migliorare la compatibilità. Prova questa opzione se non vedi alcun dato.</string>
+    <string name="translators_thanks_title">Traduttori</string>
 </resources>

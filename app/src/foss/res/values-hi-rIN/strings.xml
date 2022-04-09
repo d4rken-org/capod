@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="foss_upgrade_donate_label">दान करना</string>
+    <string name="foss_upgrade_alreadydonated_label">मैंने पहले ही दान कर दिया है</string>
+    <string name="foss_upgrade_no_money_label">मैं अपना सारा पैसा AirPods पर खर्च करता हूं</string>
+</resources>
