@@ -56,7 +56,11 @@ class BleScanner @Inject constructor(
                     lastScanAt = System.currentTimeMillis()
                     "onScanResult(delay=${delay}ms, callbackType=$callbackType, result=$result)"
                 }
-                val toSend = if (supportsOffloadFiltering || filters.isEmpty() || filters.any { it.matches(result) }) {
+                val toSend = if (
+                    supportsOffloadFiltering
+                    || filters.isEmpty()
+                    || filters.any { it.matchesSafe(result) }
+                ) {
                     listOf(BleScanResult.fromScanResult(result))
                 } else {
                     log(TAG, VERBOSE) { "Manual filtering: No match for $result" }
