@@ -12,13 +12,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.uix.PreferenceFragment2
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.settings.general.DeviceSelectionDialogFactory
 import eu.darken.capod.reaction.autoconnect.AutoConnectCondition
 import eu.darken.capod.reaction.settings.ReactionSettings
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @Keep
@@ -36,6 +34,7 @@ class ReactionSettingsFragment : PreferenceFragment2() {
 
     override val preferenceFile: Int = R.xml.preferences_reactions
 
+    private var isPro: Boolean = false
     private val autoConnectConditionPref by lazy { findPreference<ListPreference>(settings.autoConnectCondition.key)!! }
 
     override fun onPreferencesCreated() {
@@ -44,12 +43,11 @@ class ReactionSettingsFragment : PreferenceFragment2() {
             entryValues = AutoConnectCondition.values().map { settings.autoConnectCondition.rawWriter(it) as String }
                 .toTypedArray()
         }
+
         super.onPreferencesCreated()
     }
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
-        val isPro = runBlocking { upgradeRepo.isPro() }
-
         if (preference.key == reactionSettings.autoPlay.key && !isPro) {
             preference as CheckBoxPreference
             upgradeRepo.launchBillingFlow(requireActivity())
@@ -94,6 +92,8 @@ class ReactionSettingsFragment : PreferenceFragment2() {
             generalSettings.monitorMode.value = MonitorMode.ALWAYS
             autoConnectConditionPref.isEnabled = it
         }
+
+        vm.isPro.observe2 { isPro = true }
 
         super.onViewCreated(view, savedInstanceState)
     }
