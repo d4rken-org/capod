@@ -17,8 +17,8 @@
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">壓縮後大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
-    <string name="debug_debuglog_file_label">已記錄的日誌檔</string>
-    <string name="debug_debuglog_record_action">記錄偵錯日誌</string>
+    <string name="debug_debuglog_file_label">已記錄的記錄檔</string>
+    <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
     <string name="permission_bluetooth_connect_label">藍牙連線</string>
     <string name="permission_bluetooth_connect_description">本應用程式需要「藍牙連線」權限以與已配對的裝置交互或配對新裝置。</string>
     <string name="permission_bluetooth_scan_label">藍牙掃描</string>

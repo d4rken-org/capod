@@ -118,7 +118,7 @@
     <string name="upgrade_capod_label">Atualizar CAPod</string>
     <string name="upgrade_capod_description">Obtenha recursos adicionais e dê suporte ao desenvolvedor.</string>
     <string name="settings_popup_caseopen_label">Mostrar pop-up</string>
-    <string name="settings_popup_caseopen_description">Mostrar um pop-up quando o estojo do dispositivo for aberta (experimental).</string>
+    <string name="settings_popup_caseopen_description">Mostrar um pop-up quando o estojo do dispositivo for aberto (experimental).</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth está desativado</string>
     <string name="overview_bluetooth_disabled_description">O Bluetooth está desabilitado, habilite-o ;)</string>
     <string name="help_translate_label">Tradução</string>
@@ -135,5 +135,5 @@
     <string name="settings_compatibility_mode_label">Modo de compatibilidade</string>
     <string name="settings_compatibility_mode_description">Desative as otimizações para melhorar a compatibilidade. Tente isso se você não estiver vendo nenhum dado.</string>
     <string name="translators_thanks_title">Tradutores</string>
-    <string name="translators_thanks_description" comment="translators_thanks_description&#10;&#10;You can voluntarily add your name here to have it displayed in the app. It will be shown in the Settings&gt;Acknowledgements&gt;Thank you section.&#10;&#10;Separate names by semicolons and an optional email may be included in brackets, example:&#10;&#10;darken(darken@darken.eu);John Doe(john@example.com)&#10;&#10;&quot;darken&quot; is just a placeholder and does not have to be kept if/when you add yours.&#10;&#10;Be nice to each other!">Igor Silva(ferrare42@gmail.com)</string>
+    <string name="translators_thanks_description" comment="translators_thanks_description&#10;&#10;You can voluntarily add your name here to have it displayed in the app. It will be shown in the Settings&gt;Acknowledgements&gt;Thank you section.&#10;&#10;Separate names by semicolons and an optional email may be included in brackets, example:&#10;&#10;darken(darken@darken.eu);John Doe(john@example.com)&#10;&#10;&quot;darken&quot; is just a placeholder and does not have to be kept if/when you add yours.&#10;&#10;Be nice to each other!">Igor Silva (ferrare42@gmail.com)</string>
 </resources>
