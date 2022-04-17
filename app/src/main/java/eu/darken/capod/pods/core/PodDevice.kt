@@ -104,7 +104,7 @@ interface PodDevice {
             "TWS i99999"
         ),
         @Json(name = "fakes.varunr.airpodspro") VARUNR_AIRPODS_PRO(
-            "Varunr AirPods Pro"
+            "Fake AirPods Pro"
         ),
         @Json(name = "unknown") UNKNOWN(
             "Unknown"
