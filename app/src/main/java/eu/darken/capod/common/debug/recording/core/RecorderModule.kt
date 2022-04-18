@@ -90,7 +90,7 @@ class RecorderModule @Inject constructor(
 
     private fun createRecordingFilePath() = File(
         File(context.cacheDir, "debug/logs"),
-        "bb_logfile_${System.currentTimeMillis()}.log"
+        "capod_logfile_${System.currentTimeMillis()}.log"
     )
 
     suspend fun startRecorder(): File {
@@ -123,6 +123,6 @@ class RecorderModule @Inject constructor(
 
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
-        private const val FORCE_FILE = "bb_force_debug_run"
+        private const val FORCE_FILE = "capod_force_debug_run"
     }
 }
