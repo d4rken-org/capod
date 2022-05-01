@@ -8,7 +8,7 @@ buildscript {
             'version'   : [
                     'major': 1,
                     'minor': 3,
-                    'patch': 10,
+                    'patch': 11,
                     'build': 0,
             ],
     ]
