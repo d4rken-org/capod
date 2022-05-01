@@ -7,7 +7,17 @@
         <item name="android:layout_marginEnd">8dp</item>
     </style>
 
-    <style name="PodInfoItemIcon">
+    <style name="PodInfoItemIcon.Notification" parent="TextAppearance.Compat.Notification.Title">
+        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_width">20dp</item>
+    </style>
+
+    <style name="PodInfoItemText.Notification" parent="TextAppearance.Compat.Notification.Title">
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="PodInfoItemIcon" parent="TextAppearance.MaterialComponents.Body2">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
     </style>
