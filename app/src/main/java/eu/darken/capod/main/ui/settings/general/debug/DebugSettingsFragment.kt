@@ -34,6 +34,7 @@ class DebugSettingsFragment : PreferenceFragment2() {
             vm.toggleRecorder()
             true
         }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
