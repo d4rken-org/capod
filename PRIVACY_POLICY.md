@@ -15,7 +15,7 @@ The app uses "Bugsnag" for automatic crash reports:
 
 https://www.bugsnag.com/
 
-Bugsnags privacy policy can be found here:
+Bugsnag's privacy policy can be found here:
 
 https://docs.bugsnag.com/legal/privacy-policy/
 
