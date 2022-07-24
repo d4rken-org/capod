@@ -1,9 +1,9 @@
 <img src="https://github.com/d4rken-org/capod/raw/main/.assets/banner.png" width="400">
 
 # Companion App for AirPods (CAPod)
-
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/d4rken-org/capod?include_prereleases)](https://github.com/d4rken-org/capod/releases/latest)
+[![Code tests & eval](https://github.com/d4rken/capod/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/capod/actions/workflows/code-checks.yml)
 [![Crowdin](https://badges.crowdin.net/capod/localized.svg)](https://crowdin.com/project/capod)
-![Build](https://github.com/d4rken-org/capod/actions/workflows/code-checks.yml/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/d4rken-org/capod/total.svg)](https://github.com/d4rken-org/capod/releases/latest)
 
 A companion app that adds support for AirPod specific features to Android:
