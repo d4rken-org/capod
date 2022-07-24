@@ -67,6 +67,6 @@ class GeneralSettings @Inject constructor(
         showAll,
         minimumSignalQuality,
         mainDeviceAddress,
-        debugSettings.isAutoReportEnabled,
+        debugSettings.isAutoReportingEnabled,
     )
 }

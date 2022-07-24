@@ -28,12 +28,12 @@ class AutoReporting @Inject constructor(
 ) {
 
     fun setup() {
-        val isEnabled = debugSettings.isAutoReportEnabled.value
+        val isEnabled = debugSettings.isAutoReportingEnabled.value
         log(TAG) { "setup(): isEnabled=$isEnabled" }
 
         try {
             val bugsnagConfig = Configuration.load(context).apply {
-                if (debugSettings.isAutoReportEnabled.value) {
+                if (debugSettings.isAutoReportingEnabled.value) {
                     Logging.install(bugsnagLogger.get())
                     setUser(installId.id, null, null)
                     autoTrackSessions = true

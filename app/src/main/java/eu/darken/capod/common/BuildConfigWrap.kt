@@ -6,9 +6,33 @@ import eu.darken.capod.BuildConfig
 // Can't be const because that prevents them from being mocked in tests
 @Suppress("MayBeConstant")
 object BuildConfigWrap {
-    val FLAVOR: String = BuildConfig.FLAVOR
-    val BUILD_TYPE: String = BuildConfig.BUILD_TYPE
     val DEBUG: Boolean = BuildConfig.DEBUG
+
+    val BUILD_TYPE: BuildType = when (val typ = BuildConfig.BUILD_TYPE) {
+        "debug" -> BuildType.DEV
+        "beta" -> BuildType.BETA
+        "release" -> BuildType.RELEASE
+        else -> throw IllegalArgumentException("Unknown buildtype: $typ")
+    }
+
+    enum class BuildType {
+        DEV,
+        BETA,
+        RELEASE,
+        ;
+    }
+
+    val FLAVOR: Flavor = when (val flav = BuildConfig.FLAVOR) {
+        "gplay" -> Flavor.GPLAY
+        "foss" -> Flavor.FOSS
+        else -> throw IllegalStateException("Unknown flavor: $flav")
+    }
+
+    enum class Flavor {
+        GPLAY,
+        FOSS,
+        ;
+    }
 
     val APPLICATION_ID = BuildConfig.APPLICATION_ID
 

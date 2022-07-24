@@ -32,7 +32,7 @@ class BugsnagErrorHandler @Inject constructor(
             context.tryFormattedSignature()?.let { event.addMetadata(tab, "signatures", it) }
         }
 
-        return debugSettings.isAutoReportEnabled.value && !BuildConfigWrap.DEBUG
+        return debugSettings.isAutoReportingEnabled.value && !BuildConfigWrap.DEBUG
     }
 
     companion object {

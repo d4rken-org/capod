@@ -15,9 +15,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SupportFragmentVM @Inject constructor(
     private val handle: SavedStateHandle,
+    private val dispatcherProvider: DispatcherProvider,
     private val emailTool: EmailTool,
     private val installId: InstallId,
-    private val dispatcherProvider: DispatcherProvider,
 ) : ViewModel3(dispatcherProvider) {
 
     val emailEvent = SingleLiveEvent<Intent>()
