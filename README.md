@@ -1,9 +1,10 @@
-<img src="https://github.com/d4rken/capod/raw/main/.assets/banner.png" width="400">
+<img src="https://github.com/d4rken-org/capod/raw/main/.assets/banner.png" width="400">
 
 # Companion App for AirPods (CAPod)
 
-![Build](https://github.com/d4rken/capod/actions/workflows/android.yml/badge.svg)
-[![Github All Releases](https://img.shields.io/github/downloads/d4rken/capod/total.svg)](https://github.com/d4rken/capod/releases/latest)
+[![Crowdin](https://badges.crowdin.net/capod/localized.svg)](https://crowdin.com/project/capod)
+![Build](https://github.com/d4rken-org/capod/actions/workflows/code-checks.yml/badge.svg)
+[![Github All Releases](https://img.shields.io/github/downloads/d4rken-org/capod/total.svg)](https://github.com/d4rken-org/capod/releases/latest)
 
 A companion app that adds support for AirPod specific features to Android:
 
@@ -19,8 +20,9 @@ CAPod is ad-free. Some additional features require an in-app purchase.
 
 Currently supported models:
 
-* AirPods Gen1
-* AirPods Gen2
+* AirPods 1. Generation
+* AirPods 2. Generation
+* AirPods 3. Generation
 * AirPods Pro
 * AirPods Max
 * Power Beats Pro
@@ -33,22 +35,22 @@ Currently supported models:
 ## Download
 
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* [GitHub](https://github.com/d4rken/capod/releases/latest)
+* [GitHub](https://github.com/d4rken-org/capod/releases/latest)
 
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
 * Help translate CAPod [on Crowdin](https://crowdin.com/project/capod)
-* [Buy me a coffee](https://www.buymeacoffee.com/tydarken)
 
 ## Get help
 
-* [Github Issues](https://github.com/d4rken/capod/issues)
+* [Github Issues](https://github.com/d4rken-org/capod/issues)
 * [Discord](https://discord.gg/vHubYPp)
+* [Email](mailto:support@darken.eu)
 
 ## Screenshots
 
-<img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken/capod/raw/main/.assets/screenshots/4.png" width="200">
+<img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/4.png" width="200">
 
 ## Thanks to
 
