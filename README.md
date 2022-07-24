@@ -40,6 +40,7 @@ Currently supported models:
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
+* [Sponsor development](https://github.com/sponsors/d4rken) on GitHub
 * Help translate CAPod [on Crowdin](https://crowdin.com/project/capod)
 
 ## Get help
