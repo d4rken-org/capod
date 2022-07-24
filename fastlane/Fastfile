@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.204.3"
+fastlane_version "2.175.0"
 
 default_platform :android
 
@@ -21,17 +21,29 @@ platform :android do
   end
 
   lane :beta do
-  	ensure_git_branch(branch: 'dev')
-  	git_pull
-    gradle(task: 'clean assembleRelease')
-  	supply(track: 'beta')
+    gradle(task: 'clean assembleGplayBeta')
+    sh "bash ./remove_unsupported_languages.sh"
+  	supply(
+        track: 'beta',
+        skip_upload_changelogs: 'false',
+        skip_upload_images: 'true',
+        skip_upload_screenshots: 'true',
+        skip_upload_aab: 'true',
+        skip_upload_metadata: 'true',
+  	)
   end
 
   lane :production do
-  	ensure_git_branch(branch: 'master')
-  	git_pull
-    gradle(task: 'clean assembleRelease')
-  	supply(track: 'rollout', rollout: '0.1')
+    gradle(task: 'clean assembleGplayRelease')
+    sh "bash ./remove_unsupported_languages.sh"
+    supply(
+        track: 'beta',
+        skip_upload_changelogs: 'false',
+        skip_upload_images: 'true',
+        skip_upload_screenshots: 'true',
+        skip_upload_aab: 'true',
+        skip_upload_metadata: 'true',
+    )
   end
 
   lane :listing_only do

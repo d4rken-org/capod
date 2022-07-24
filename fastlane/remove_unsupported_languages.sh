@@ -11,5 +11,6 @@ rm -rv ./metadata/android/ku-TR
 rm -rv ./metadata/android/kmr-TR
 rm -rv ./metadata/android/ur-IN
 rm -rv ./metadata/android/zu
+rm -rv ./metadata/android/si-LK
 find ./metadata/android -empty -type d -delete
 exit 0

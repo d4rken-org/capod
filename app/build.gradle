@@ -16,10 +16,6 @@ android {
 
     compileSdkVersion buildConfig.compileSdk
 
-    Properties bugsnagProps = new Properties()
-    def bugsnagPropsFile = new File(System.properties['user.home'], ".appconfig/${packageName}/bugsnag.properties")
-    if (bugsnagPropsFile.canRead()) bugsnagProps.load(new FileInputStream(bugsnagPropsFile))
-
     defaultConfig {
         applicationId "${packageName}"
 
@@ -38,21 +34,54 @@ android {
     }
 
     signingConfigs {
-        release {}
+        releaseFoss {}
+        releaseGplay {}
     }
-    def signingPropFile = new File(System.properties['user.home'], ".appconfig/${packageName}/signing.properties")
-    if (signingPropFile.canRead()) {
-        Properties signingProps = new Properties()
-        signingProps.load(new FileInputStream(signingPropFile))
-        signingConfigs {
-            release {
-                storeFile new File(signingProps['release.storePath'])
-                keyAlias signingProps['release.keyAlias']
-                storePassword signingProps['release.storePassword']
-                keyPassword signingProps['release.keyPassword']
+
+    signingConfigs {
+        releaseFoss {
+            def signingFossPropFile = new File(System.properties['user.home'], ".appconfig/${packageName}/signing-foss.properties")
+            Properties signingPropsFoss = new Properties()
+            if (signingFossPropFile.canRead()) signingPropsFoss.load(new FileInputStream(signingFossPropFile))
+            String keyStorePathFoss = System.getenv("STORE_PATH") ?: signingPropsFoss["release.storePath"]
+            File keyStoreFoss = keyStorePathFoss ? new File(keyStorePathFoss) : null
+            if (keyStoreFoss?.canRead()) {
+                storeFile keyStoreFoss
+                storePassword System.getenv("STORE_PASSWORD") ?: signingPropsFoss['release.storePassword']
+                keyAlias System.getenv("KEY_ALIAS") ?: signingPropsFoss['release.keyAlias']
+                keyPassword System.getenv("KEY_PASSWORD") ?: signingPropsFoss['release.keyPassword']
+            }
+        }
+
+        releaseGplay {
+            def signingGplayPropFile = new File(System.properties['user.home'], ".appconfig/${packageName}/signing-gplay.properties")
+            Properties signingPropsGplay = new Properties()
+            if (signingGplayPropFile.canRead()) signingPropsGplay.load(new FileInputStream(signingGplayPropFile))
+            String keyStorePathGplay = System.getenv("STORE_PATH") ?: signingPropsGplay["release.storePath"]
+            File keyStoreGplay = keyStorePathGplay ? new File(keyStorePathGplay) : null
+            if (keyStoreGplay?.canRead()) {
+                storeFile keyStoreGplay
+                storePassword System.getenv("STORE_PASSWORD") ?: signingPropsGplay['release.storePassword']
+                keyAlias System.getenv("KEY_ALIAS") ?: signingPropsGplay['release.keyAlias']
+                keyPassword System.getenv("KEY_PASSWORD") ?: signingPropsGplay['release.keyPassword']
             }
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        foss {
+            signingConfig signingConfigs.releaseFoss
+        }
+        gplay {
+            signingConfig signingConfigs.releaseGplay
+        }
+    }
+
+    Properties bugsnagProps = new Properties()
+    def bugsnagPropsFile = new File(System.properties['user.home'], ".appconfig/${packageName}/bugsnag.properties")
+    if (bugsnagPropsFile.canRead()) bugsnagProps.load(new FileInputStream(bugsnagPropsFile))
+    String bugSnagApiKey = System.getenv("BUGSNAG_API_KEY") ?: bugsnagProps.getProperty("bugsnag.apikey", "")
 
     buildTypes {
         def proguardRulesRelease = fileTree(dir: "../proguard", include: ["*.pro"]).asList().toArray()
@@ -62,10 +91,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
             proguardFiles proguardRulesRelease
             proguardFiles 'proguard-rules-debug.pro'
-            manifestPlaceholders = [bugsnagApiKey: bugsnagProps.getProperty("bugsnag.apikey", "")]
+            manifestPlaceholders = [bugsnagApiKey: bugSnagApiKey]
         }
-        release {
-            signingConfig signingConfigs.release
+        beta {
             lintOptions {
                 abortOnError true
                 fatal 'StopShip'
@@ -74,17 +102,18 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
             proguardFiles proguardRulesRelease
-            manifestPlaceholders = [bugsnagApiKey: bugsnagProps.getProperty("bugsnag.apikey", "")]
+            manifestPlaceholders = [bugsnagApiKey: bugSnagApiKey]
         }
-    }
-
-    flavorDimensions "version"
-    productFlavors {
-        gplay {
-
-        }
-        foss {
-
+        release {
+            lintOptions {
+                abortOnError true
+                fatal 'StopShip'
+            }
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            proguardFiles proguardRulesRelease
+            manifestPlaceholders = [bugsnagApiKey: bugSnagApiKey]
         }
     }
 
