@@ -8,7 +8,7 @@
         android:title="@string/issue_tracker_label">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://github.com/d4rken/capod-public/issues" />
+            android:data="https://github.com/d4rken-org/capod/issues" />
     </Preference>
     <Preference
         android:icon="@drawable/ic_discord_onsurface"

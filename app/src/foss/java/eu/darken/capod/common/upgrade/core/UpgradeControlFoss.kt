@@ -40,7 +40,7 @@ class UpgradeControlFoss @Inject constructor(
                     upgradedAt = Instant.now(),
                     reason = FossUpgrade.Reason.DONATED
                 )
-                webpageTool.open("https://github.com/d4rken/capod")
+                webpageTool.open("https://github.com/d4rken-org/capod")
                 Toast.makeText(activity, R.string.general_thank_you_label, Toast.LENGTH_SHORT).show()
             }
             setNegativeButton(R.string.foss_upgrade_alreadydonated_label) { _, _ ->

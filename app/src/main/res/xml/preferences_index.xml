@@ -27,7 +27,7 @@
             app:summary="v?.?.?">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/d4rken/capod-public/releases/latest" />
+                android:data="https://github.com/d4rken-org/capod/releases/latest" />
         </Preference>
 
         <Preference
