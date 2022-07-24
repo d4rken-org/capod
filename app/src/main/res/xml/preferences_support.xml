@@ -30,5 +30,11 @@
             android:key="support.installid"
             android:summary="@string/settings_support_installid_desc"
             android:title="@string/settings_support_installid_label" />
+
+        <CheckBoxPreference
+            android:icon="@drawable/ic_spider_thread_onsurface"
+            android:key="debug.bugreport.automatic.enabled"
+            android:summary="@string/settings_debug_autoreports_description"
+            android:title="@string/settings_debug_autoreports_label" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.preferences.createFlowPreference
@@ -17,8 +18,11 @@ class DebugSettings @Inject constructor(
 
     override val preferences: SharedPreferences = context.getSharedPreferences("settings_debug", Context.MODE_PRIVATE)
 
-    val isAutoReportEnabled = preferences.createFlowPreference("debug.bugreport.automatic.enabled", true)
-
+    val isAutoReportingEnabled = preferences.createFlowPreference(
+        key = "debug.bugreport.automatic.enabled",
+        // Reporting is opt-out for gplay, and opt-in for github builds
+        defaultValue = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
+    )
     val isDebugModeEnabled = preferences.createFlowPreference("debug.mode.enabled", false)
 
     val showFakeData = preferences.createFlowPreference("debug.fakedata.enabled", false)
