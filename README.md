@@ -47,7 +47,6 @@ Currently supported models:
 
 * [Github Issues](https://github.com/d4rken-org/capod/issues)
 * [Discord](https://discord.gg/vHubYPp)
-* [Email](mailto:support@darken.eu)
 
 ## Screenshots
 
