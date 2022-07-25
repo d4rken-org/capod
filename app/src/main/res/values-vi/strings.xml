@@ -21,8 +21,8 @@
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="permission_bluetooth_connect_label">Kết nối Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Ứng dụng này yêu cầu quyền \"Kết nối Bluetooth\" để tương tác với các thiết bị được ghép nối và bắt đầu kết nối.</string>
-    <string name="permission_bluetooth_scan_label">Quét Bluetooth</string>
-    <string name="permission_bluetooth_scan_description">Quyền \"quét Bluetooth\" cho phép ứng dụng này khám phá và nhận dữ liệu Bluetooth từ các thiết bị lân cận, chẳng hạn như AirPods của bạn.</string>
+    <string name="permission_bluetooth_scan_label">Quét qua Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Quyền \"quét qua Bluetooth\" cho phép ứng dụng này khám phá và nhận dữ liệu Bluetooth từ các thiết bị lân cận, chẳng hạn như AirPods của bạn.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Ứng dụng này yêu cầu quyền \"Bluetooth\" để kết nối với các thiết bị Bluetooth được ghép nối.</string>
     <string name="permission_access_fine_location_label">Truy cập vị trí chính xác</string>

@@ -11,7 +11,7 @@
     <string name="general_thank_you_label">Danke</string>
     <string name="general_value_not_available_label">k.A.</string>
     <string name="general_grant_permission_action">Berechtigung erteilen</string>
-    <string name="general_upgrade_action">Aktualisierung</string>
+    <string name="general_upgrade_action">Upgrade</string>
     <string name="general_check_action">Überprüfen</string>
     <string name="general_close_action">Schließen</string>
     <string name="debug_debuglog_size_label">Größe</string>
@@ -115,7 +115,7 @@
     <string name="settings_reaction_autoconnect_whenseen_label">Wenn gesehen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Fall ist offen</string>
     <string name="settings_reaction_autoconnect_inear_label">Im Ohr</string>
-    <string name="upgrade_capod_label">Aktualisieren Sie CAPod</string>
+    <string name="upgrade_capod_label">Verbesser CAPod</string>
     <string name="upgrade_capod_description">Erhalten Sie zusätzliche Funktionen und unterstützen Sie den Entwickler.</string>
     <string name="settings_popup_caseopen_label">Popup zeigen</string>
     <string name="settings_popup_caseopen_description">Ein Popup anzeigen, wenn das Gerätegehäuse geöffnet wird (experimentell).</string>

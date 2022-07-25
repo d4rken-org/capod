@@ -95,6 +95,7 @@
     <string name="last_seen_x">Востаннє був: %s</string>
     <string name="first_seen_x">Уперше був: %s</string>
     <string name="permission_required_title">Необхідні наступні дозволи:</string>
+    <string name="settings_compatibility_mode_label">Режим сумісності</string>
     <string name="translators_thanks_title">Перекладачі</string>
     <string name="translators_thanks_description" comment="translators_thanks_description&#10;&#10;You can voluntarily add your name here to have it displayed in the app. It will be shown in the Settings&gt;Acknowledgements&gt;Thank you section.&#10;&#10;Separate names by semicolons and an optional email may be included in brackets, example:&#10;&#10;darken(darken@darken.eu);John Doe(john@example.com)&#10;&#10;&quot;darken&quot; is just a placeholder and does not have to be kept if/when you add yours.&#10;&#10;Be nice to each other!">Ievgen Gil</string>
 </resources>
