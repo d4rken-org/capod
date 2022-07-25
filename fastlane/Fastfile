@@ -21,7 +21,7 @@ platform :android do
   end
 
   lane :beta do
-    gradle(task: 'clean assembleGplayBeta')
+    gradle(task: 'clean bundleGplayBeta')
     sh "bash ./remove_unsupported_languages.sh"
   	supply(
         track: 'beta',
@@ -34,7 +34,7 @@ platform :android do
   end
 
   lane :production do
-    gradle(task: 'clean assembleGplayRelease')
+    gradle(task: 'clean bundleGplayRelease')
     sh "bash ./remove_unsupported_languages.sh"
     supply(
         track: 'beta',
