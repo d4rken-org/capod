@@ -1,4 +1,4 @@
-v1.3.13(1031303)
+v1.3.13(1031304)
 • Updated translations
 • Updated internal dependencies
 • Tweaked placement of UI elements
