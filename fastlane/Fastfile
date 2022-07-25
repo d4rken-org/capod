@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.175.0"
+fastlane_version "2.208.0"
 
 default_platform :android
 
@@ -25,8 +25,10 @@ platform :android do
     sh "bash ./remove_unsupported_languages.sh"
   	supply(
         track: 'beta',
-        skip_upload_apk: 'true',
+        package_name: 'eu.darken.capod',
+        aab: '../app/build/outputs/bundle/gplayBeta/app-gplay-beta.aab',
         skip_upload_changelogs: 'false',
+        skip_upload_apk: 'true',
         skip_upload_images: 'true',
         skip_upload_screenshots: 'true',
         skip_upload_aab: 'true',
@@ -39,8 +41,10 @@ platform :android do
     sh "bash ./remove_unsupported_languages.sh"
     supply(
         track: 'beta',
-        skip_upload_apk: 'true',
+        package_name: 'eu.darken.capod',
+        aab: '../app/build/outputs/bundle/gplayRelease/app-gplay-release.aab',
         skip_upload_changelogs: 'false',
+        skip_upload_apk: 'true',
         skip_upload_images: 'true',
         skip_upload_screenshots: 'true',
         skip_upload_aab: 'true',
