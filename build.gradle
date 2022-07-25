@@ -9,7 +9,7 @@ buildscript {
                     'major': 1,
                     'minor': 3,
                     'patch': 13,
-                    'build': 5,
+                    'build': 6,
             ],
     ]
 
