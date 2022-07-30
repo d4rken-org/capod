@@ -36,6 +36,7 @@ Currently supported models:
 
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
 * [GitHub](https://github.com/d4rken-org/capod/releases/latest)
+* [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/eu.darken.capod)
 
 ## Support the project
 
