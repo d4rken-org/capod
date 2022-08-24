@@ -83,8 +83,8 @@
     <string name="settings_scanner_mode_label">掃描模式</string>
     <string name="settings_scanner_mode_description">低功耗藍牙掃描器應該優先考慮效能還是節能？</string>
     <string name="settings_monitor_mode_manual_label">應用程式開啟時</string>
-    <string name="settings_monitor_mode_automatic_label">裝置連結時</string>
-    <string name="settings_monitor_mode_always_label">總是</string>
+    <string name="settings_monitor_mode_automatic_label">裝置連線時</string>
+    <string name="settings_monitor_mode_always_label">一律</string>
     <string name="settings_scanner_mode_lowpower_label">節電</string>
     <string name="settings_scanner_mode_balanced_label">平衡</string>
     <string name="settings_scanner_mode_lowlatency_label">低延遲</string>
@@ -101,7 +101,7 @@
     <string name="settings_signal_minimum_label">最低訊號質量</string>
     <string name="settings_signal_minimum_description">可以被認為是你的裝置的最低訊號質量。</string>
     <string name="settings_autoconnect_label">自動連線</string>
-    <string name="settings_autoconnect_description">如果 Android 不會自動連線，我們也可以要求它。這將把監視模式設定為「總是」。</string>
+    <string name="settings_autoconnect_description">如果 Android 不會自動連線，我們也可以要求它。這將把監視模式設定為「一律」。</string>
     <string name="settings_autoconnect_condition_label">自動連線條件</string>
     <string name="settings_autoconnect_condition_description">何時連線到你的裝置？</string>
     <string name="settings_reaction_label">反應</string>
@@ -123,7 +123,7 @@
     <string name="overview_bluetooth_disabled_description">藍牙已停用，啟用它 ;)</string>
     <string name="help_translate_label">翻譯</string>
     <string name="help_translate_description">協助翻譯為你的最愛語言。</string>
-    <string name="settings_onepod_mode_label">單隻耳模式</string>
+    <string name="settings_onepod_mode_label">單耳模式</string>
     <string name="settings_onepod_mode_description">不需要同時佩戴兩隻耳機，單隻耳機就可充分觸發反應。</string>
     <string name="permission_system_alert_window_label">系統警報視窗</string>
     <string name="permission_system_alert_window_description">允許 CAPod 在其他應用程式上繪圖，使「顯示彈出式視窗」功能成為可能。</string>

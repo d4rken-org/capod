@@ -71,7 +71,7 @@
     <string name="settings_support_description">Jika anda perlukan bantuan.</string>
     <string name="issue_tracker_label">Penjejak isu</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri (bahasa Inggeris sahaja).</string>
-    <string name="discord_label">Perselisihan</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat melepak dan bertanya soalan.</string>
     <string name="settings_support_email_developer_description">Ambil perhatian bahawa saya hanya boleh membalas dalam bahasa Jerman atau Inggeris.</string>
     <string name="settings_debug_autoreports_label">Laporan pepijat automatik</string>
