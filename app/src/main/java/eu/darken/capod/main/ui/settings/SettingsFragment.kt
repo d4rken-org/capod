@@ -68,7 +68,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
         }
 
         ui.toolbar.apply {
-            subtitle = BuildConfigWrap.VERSION_DESCRIPTION_SHORT
+            subtitle = BuildConfigWrap.VERSION_DESCRIPTION_TINY
             setNavigationOnClickListener { requireActivity().onBackPressed() }
         }
 
