@@ -17,11 +17,6 @@
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/d4rken-org/capod/issues" />
     </Preference>
-    <Preference
-        android:icon="@drawable/ic_email_onsurface"
-        android:key="support.email.darken"
-        android:summary="@string/settings_support_email_developer_description"
-        android:title="@string/settings_support_email_developer_label" />
 
     <PreferenceCategory app:title="@string/settings_category_other_label">
         <Preference

@@ -28,15 +28,10 @@ class SupportFragment : PreferenceFragment2() {
     @Inject lateinit var clipboardHelper: ClipboardHelper
 
     private val installIdPref by lazy { findPreference<Preference>("support.installid")!! }
-    private val supportMailPref by lazy { findPreference<Preference>("support.email.darken")!! }
 
     override fun onPreferencesCreated() {
         installIdPref.setOnPreferenceClickListener {
             vm.copyInstallID()
-            true
-        }
-        supportMailPref.setOnPreferenceClickListener {
-            vm.sendSupportMail()
             true
         }
 
@@ -51,8 +46,6 @@ class SupportFragment : PreferenceFragment2() {
                 }
                 .show()
         }
-
-        vm.emailEvent.observe2(this) { startActivity(it) }
 
         super.onViewCreated(view, savedInstanceState)
     }
