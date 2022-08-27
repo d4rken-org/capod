@@ -2,5 +2,5 @@
 <resources>
     <string name="foss_upgrade_donate_label">Doner</string>
     <string name="foss_upgrade_alreadydonated_label">Jeg har allerede donert</string>
-    <string name="foss_upgrade_no_money_label">Jeg bruker alle pengene mine på AirPods</string>
+    <string name="foss_upgrade_no_money_label" comment="Can't be too long otherwise the dialog ellipsizes it. foss_upgrade_no_money_label" maxLength="35">Jeg bruker alle pengene mine på AirPods</string>
 </resources>
