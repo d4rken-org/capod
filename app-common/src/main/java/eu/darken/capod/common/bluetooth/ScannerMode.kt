@@ -1,4 +1,4 @@
-package eu.darken.capod.main.core
+package eu.darken.capod.common.bluetooth
 
 import androidx.annotation.StringRes
 import com.squareup.moshi.Json

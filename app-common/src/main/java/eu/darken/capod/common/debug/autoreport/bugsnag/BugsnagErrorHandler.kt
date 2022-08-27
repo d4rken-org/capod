@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import com.bugsnag.android.Event
 import com.bugsnag.android.OnErrorCallback
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.capod.BuildConfig
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -26,13 +25,13 @@ class BugsnagErrorHandler @Inject constructor(
         bugsnagLogger.injectLog(event)
 
         TAB_APP.also { tab ->
-            event.addMetadata(tab, "gitSha", BuildConfig.GITSHA)
-            event.addMetadata(tab, "buildTime", BuildConfig.BUILDTIME)
+            event.addMetadata(tab, "gitSha", BuildConfigWrap.GIT_SHA)
+            event.addMetadata(tab, "buildTime", BuildConfigWrap.BUILDTIME)
 
             context.tryFormattedSignature()?.let { event.addMetadata(tab, "signatures", it) }
         }
 
-        return debugSettings.isAutoReportingEnabled.value && !BuildConfigWrap.DEBUG
+        return debugSettings.isAutoReportingEnabled.value && !eu.darken.capod.common.BuildConfigWrap.DEBUG
     }
 
     companion object {

@@ -34,11 +34,12 @@ object BuildConfigWrap {
         ;
     }
 
-    val APPLICATION_ID = BuildConfig.APPLICATION_ID
+    val APPLICATION_ID: String = TODO()//BuildConfig.APPLICATION_ID
 
     val VERSION_CODE: Long = BuildConfig.VERSION_CODE.toLong()
     val VERSION_NAME: String = BuildConfig.VERSION_NAME
     val GIT_SHA: String = BuildConfig.GITSHA
+    val BUILDTIME: String = BuildConfig.BUILDTIME
 
     val VERSION_DESCRIPTION_LONG: String = "v$VERSION_NAME ($VERSION_CODE) [$GIT_SHA] ${FLAVOR}_$BUILD_TYPE"
     val VERSION_DESCRIPTION_SHORT: String = "v$VERSION_NAME [$GIT_SHA] $FLAVOR"

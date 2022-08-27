@@ -5,17 +5,6 @@
 
     <string name="notification_channel_device_status_label">Device status</string>
 
-    <string name="general_error_label">Error</string>
-    <string name="general_share_action">Share</string>
-    <string name="general_done_action">Done</string>
-    <string name="general_copy_action">Copy</string>
-    <string name="general_thank_you_label">Thank you</string>
-    <string name="general_value_not_available_label">N/A</string>
-    <string name="general_grant_permission_action">Grant permission</string>
-    <string name="general_upgrade_action">Upgrade</string>
-    <string name="general_check_action">Check</string>
-    <string name="general_close_action">Close</string>
-
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
@@ -93,9 +82,7 @@
     <string name="settings_monitor_mode_manual_label">When app is open</string>
     <string name="settings_monitor_mode_automatic_label">When device is connected</string>
     <string name="settings_monitor_mode_always_label">Always</string>
-    <string name="settings_scanner_mode_lowpower_label">Low power</string>
-    <string name="settings_scanner_mode_balanced_label">Balanced</string>
-    <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
+
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
     <string name="settings_showall_label">Show all devices</string>
