@@ -25,7 +25,8 @@ class DynamicStateFlow<T>(
     loggingTag: String? = null,
     parentScope: CoroutineScope,
     coroutineContext: CoroutineContext = parentScope.coroutineContext,
-    private val startValueProvider: suspend CoroutineScope.() -> T
+    private val onRelease: CoroutineScope.(T) -> Unit = {},
+    private val startValueProvider: suspend CoroutineScope.() -> T,
 ) {
     private val lTag = loggingTag?.let { "$it:DSFlow" }
 
@@ -45,6 +46,12 @@ class DynamicStateFlow<T>(
                 send(State(value = startValue, updatedBy = initializer))
                 lTag?.let { log(it, VERBOSE) { "...startValue provided and emitted." } }
             }
+        }
+
+        invokeOnClose {
+            lTag?.let { log(it, VERBOSE) { "invokeOnClose executing..." } }
+            onRelease(currentValue)
+            lTag?.let { log(it, VERBOSE) { "internal channelFlow finished." } }
         }
 
         updateActions.collect { update ->
@@ -68,12 +75,11 @@ class DynamicStateFlow<T>(
                 }
             }
         }
-
-        lTag?.let { log(it, VERBOSE) { "internal channelFlow finished." } }
     }
 
     private val internalFlow = producer
         .onStart { lTag?.let { log(it, VERBOSE) { "Internal onStart" } } }
+//        .onEach { value -> lTag?.let { log(it, VERBOSE) { "New value: $value" } } }
         .onCompletion { err ->
             when {
                 err is CancellationException -> {

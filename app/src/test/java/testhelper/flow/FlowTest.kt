@@ -8,14 +8,11 @@ import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineExceptionHandler
-import kotlinx.coroutines.test.createTestCoroutineScope
 
 fun <T> Flow<T>.test(
     tag: String? = null,
-    startOnScope: CoroutineScope = createTestCoroutineScope(TestCoroutineDispatcher() + TestCoroutineExceptionHandler() + EmptyCoroutineContext)
-): TestCollector<T> = createTest(tag ?: "FlowTest").start(scope = startOnScope)
+    scope: CoroutineScope
+): TestCollector<T> = createTest(tag ?: "FlowTest").start(scope = scope)
 
 fun <T> Flow<T>.createTest(
     tag: String? = null
@@ -80,7 +77,7 @@ class TestCollector<T>(
     }
 
     suspend fun awaitFinal(cancel: Boolean = false) = apply {
-        if (cancel) cancel()
+        if (cancel) job.cancel()
         try {
             job.join()
         } catch (e: Exception) {
@@ -93,11 +90,9 @@ class TestCollector<T>(
         require(error == null) { "Error was not null: $error" }
     }
 
-    fun cancel() {
+    suspend fun cancelAndJoin() {
         if (job.isCompleted) throw IllegalStateException("Flow is already canceled.")
 
-        runBlocking {
-            job.cancelAndJoin()
-        }
+        job.cancelAndJoin()
     }
 }
