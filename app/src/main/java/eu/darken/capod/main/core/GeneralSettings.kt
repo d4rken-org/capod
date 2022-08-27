@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.preference.PreferenceDataStore
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings

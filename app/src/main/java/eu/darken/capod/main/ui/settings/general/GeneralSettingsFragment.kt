@@ -8,12 +8,12 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.preferences.PercentSliderPreference
 import eu.darken.capod.common.uix.PreferenceFragment2
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
-import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import javax.inject.Inject
 

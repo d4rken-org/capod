@@ -13,6 +13,6 @@ object BuildWrap {
     }
 }
 
-fun hasApiLevel(level: Int): Boolean = BuildWrap.VERSION.SDK_INT >= level
+fun hasApiLevel(level: Int): Boolean = BuildWrap.VersionWrap.SDK_INT >= level
 
-fun withinApiLevel(start: Int, end: Int): Boolean = BuildWrap.VERSION.SDK_INT in start..end
+fun withinApiLevel(start: Int, end: Int): Boolean = BuildWrap.VersionWrap.SDK_INT in start..end

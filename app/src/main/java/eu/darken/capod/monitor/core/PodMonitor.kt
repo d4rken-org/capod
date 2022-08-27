@@ -4,6 +4,7 @@ import android.bluetooth.le.ScanFilter
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -13,7 +14,6 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.main.core.ScannerMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
