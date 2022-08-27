@@ -27,7 +27,7 @@ class PopUpWindow @Inject constructor(
 
     private val context = ContextThemeWrapper(appContext, R.style.AppTheme)
     private val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-    private val windowManager: WindowManager = context.getSystemService(WINDOW_SERVICE)
+    private val windowManager = context.getSystemService(WINDOW_SERVICE) as WindowManager
     private val layoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.WRAP_CONTENT,
         WindowManager.LayoutParams.WRAP_CONTENT,  // Display it on top of other application windows
