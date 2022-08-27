@@ -33,9 +33,9 @@ android {
         jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-Xopt-in=kotlin.ExperimentalStdlibApi",
-            "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xuse-experimental=kotlin.time.ExperimentalTime",
-            "-Xuse-experimental=kotlin.ExperimentalUnsignedTypes",
+            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xopt-in=kotlin.time.ExperimentalTime",
+            "-Xopt-in=kotlin.ExperimentalUnsignedTypes",
         )
     }
 
