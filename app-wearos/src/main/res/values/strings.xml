@@ -1,0 +1,4 @@
+<resources>
+    <string name="wear_service_label">CAPod for WearOS</string>
+    <string name="wear_service_description">View details about your AirPood devices on your WearOS device.</string>
+</resources>

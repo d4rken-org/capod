@@ -1,14 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.buildConfig = [
-            'compileSdk': 31,
             'minSdk'    : 26,
-            'targetSdk' : 31,
+            'compileSdk': 33,
+            'targetSdk' : 33,
 
             'version'   : [
-                    'major': 1,
-                    'minor': 3,
-                    'patch': 14,
+                    'major': 2,
+                    'minor': 0,
+                    'patch': 0,
                     'build': 0,
             ],
     ]
@@ -22,7 +22,7 @@ buildscript {
                     'coroutines': '1.5.1'
             ],
             'dagger'     : [
-                    'core': '2.40.5'
+                    'core': '2.43.2'
             ],
             'androidx'   : [
                     'navigation': '2.3.5'
@@ -35,7 +35,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.4'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin.core}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
         classpath "com.google.dagger:hilt-android-gradle-plugin:${versions.dagger.core}"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.androidx.navigation}"
         classpath 'com.bugsnag:bugsnag-android-gradle-plugin:7.0.0'
