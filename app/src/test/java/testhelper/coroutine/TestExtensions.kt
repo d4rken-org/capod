@@ -1,49 +1,38 @@
 package testhelper.coroutine
 
-import eu.darken.capod.common.debug.logging.log
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.TestCoroutineScope
-import kotlinx.coroutines.test.UncompletedCoroutinesError
-import kotlinx.coroutines.test.runBlockingTest
+import eu.darken.capod.common.debug.logging.asLog
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.runTest
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.reflect.KClass
 
-/**
- * If you have a test that uses a coroutine that never stops, you may use this.
- */
-
-@ExperimentalCoroutinesApi // Since 1.2.1, tentatively till 1.3.0
-fun TestCoroutineScope.runBlockingTest2(
-    allowUncompleted: Boolean = false,
-    block: suspend TestCoroutineScope.() -> Unit
-): Unit = runBlockingTest2(
-    allowUncompleted = allowUncompleted,
-    context = coroutineContext,
-    testBody = block
-)
-
-fun runBlockingTest2(
-    allowUncompleted: Boolean = false,
+fun runTest2(
+    autoCancel: Boolean = false,
     context: CoroutineContext = EmptyCoroutineContext,
-    testBody: suspend TestCoroutineScope.() -> Unit
+    expectedError: KClass<out Throwable>? = null,
+    testBody: suspend TestScope.() -> Unit
 ) {
     try {
-        runBlocking {
-            try {
-                runBlockingTest(
-                    context = context,
-                    testBody = testBody
-                )
-            } catch (e: UncompletedCoroutinesError) {
-                if (!allowUncompleted) throw e
-                else log { "Ignoring active job." }
+        val scope = TestScope(context = context)
+        try {
+            scope.runTest {
+                testBody()
+                if (autoCancel) scope.cancel("autoCancel")
             }
+        } catch (e: Throwable) {
+            val isExpected = expectedError?.isInstance(e) ?: false
+            if (!isExpected) throw e
         }
-    } catch (e: Exception) {
-        if (!allowUncompleted || (e.message != "This job has not completed yet")) {
+    } catch (e: CancellationException) {
+        if (e.message == "autoCancel" && autoCancel) {
+            io.kotest.mpp.log { "Test was auto-cancelled ${e.asLog()}" }
+        } else {
             throw e
         }
     }
 }
+
 
