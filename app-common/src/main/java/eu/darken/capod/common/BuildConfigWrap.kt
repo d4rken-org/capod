@@ -34,7 +34,7 @@ object BuildConfigWrap {
         ;
     }
 
-    val APPLICATION_ID: String = TODO()//BuildConfig.APPLICATION_ID
+    val APPLICATION_ID: String = BuildConfig.APPLICATION_ID
 
     val VERSION_CODE: Long = BuildConfig.VERSION_CODE.toLong()
     val VERSION_NAME: String = BuildConfig.VERSION_NAME

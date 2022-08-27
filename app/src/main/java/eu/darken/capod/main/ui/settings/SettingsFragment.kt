@@ -83,7 +83,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
 
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         val screenInfo = Screen(
-            fragmentClass = pref.fragment,
+            fragmentClass = pref.fragment!!,
             screenTitle = pref.title?.toString()
         )
 
@@ -93,7 +93,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
         }
 
         val fragment = childFragmentManager.fragmentFactory
-            .instantiate(this::class.java.classLoader!!, pref.fragment)
+            .instantiate(this::class.java.classLoader!!, pref.fragment!!)
             .apply {
                 arguments = args
                 setTargetFragment(caller, 0)
