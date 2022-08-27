@@ -12,7 +12,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.preferences.PercentSliderPreferenceDialogFragment.Companion.newInstance
 import kotlinx.parcelize.Parcelize
 
-class PercentSliderPreference(context: Context?, attrs: AttributeSet?) : DialogPreference(context, attrs) {
+class PercentSliderPreference(context: Context, attrs: AttributeSet?) : DialogPreference(context, attrs) {
     @get:PluralsRes val sliderTextPluralsResource: Int
 
     val min: Float
@@ -51,7 +51,7 @@ class PercentSliderPreference(context: Context?, attrs: AttributeSet?) : DialogP
         value = if (restoreValue) getPersistedFloat(internalValue) else defaultValue as Float
     }
 
-    override fun onSaveInstanceState(): Parcelable {
+    override fun onSaveInstanceState(): Parcelable? {
         val superState = super.onSaveInstanceState()
         // No need to save instance state since it's persistent
         if (isPersistent) return superState
@@ -73,7 +73,7 @@ class PercentSliderPreference(context: Context?, attrs: AttributeSet?) : DialogP
     @Parcelize
     data class SavedState(
         val value: Float,
-        val superState: Parcelable,
+        val superState: Parcelable?,
     ) : Parcelable
 
     companion object {

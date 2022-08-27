@@ -27,7 +27,7 @@ abstract class PreferenceFragment2
     val toolbar: Toolbar
         get() = (parentFragment as SettingsFragment).toolbar
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         toolbar.menu.clear()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
