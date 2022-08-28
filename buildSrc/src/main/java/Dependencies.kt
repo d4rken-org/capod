@@ -50,6 +50,7 @@ fun DependencyHandlerScope.addDagger() {
     kapt("com.google.dagger:dagger-android-processor:${Versions.Dagger.core}")
 
     implementation("com.google.dagger:hilt-android:${Versions.Dagger.core}")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 
     testImplementation("com.google.dagger:hilt-android-testing:${Versions.Dagger.core}")
