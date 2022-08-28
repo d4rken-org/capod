@@ -1,9 +1,6 @@
-.idea
-.gradle
-build/
-/fastlane/report.xml
 *.iml
-local.properties
+.gradle
+/local.properties
 .DS_Store
 /build
 /captures
@@ -14,3 +11,4 @@ local.properties
 !/.idea/codeStyles/**/*
 *.jks
 .local/*
+/fastlane/report.xml
