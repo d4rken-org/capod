@@ -1,6 +1,5 @@
 package eu.darken.capod.reaction.core.playpause
 
-import dagger.Reusable
 import eu.darken.capod.common.MediaControl
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -14,8 +13,9 @@ import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@Reusable
+@Singleton
 class PlayPause @Inject constructor(
     private val podMonitor: PodMonitor,
     private val bluetoothManager: BluetoothManager2,
