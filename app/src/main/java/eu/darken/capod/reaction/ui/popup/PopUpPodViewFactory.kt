@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.popup.ui
+package eu.darken.capod.reaction.ui.popup
 
 import android.content.Context
 import android.view.LayoutInflater

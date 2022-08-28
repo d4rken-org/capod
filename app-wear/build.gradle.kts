@@ -9,12 +9,10 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 apply(plugin = "com.bugsnag.android.gradle")
 
 android {
-    val packageName = "eu.darken.androidstarter"
-
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
-        applicationId = packageName
+        applicationId = ProjectConfig.packageName
 
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
@@ -22,18 +20,18 @@ android {
         versionCode = ProjectConfig.Version.code
         versionName = ProjectConfig.Version.name
 
-        testInstrumentationRunner = "eu.darken.androidstarter.HiltTestRunner"
+        testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
 
         buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
         buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
 
         manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
-            File(System.getProperty("user.home"), ".appconfig/${packageName}/bugsnag.properties")
+            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
         ) ?: "fake"
     }
 
     signingConfigs {
-        val basePath = File(System.getProperty("user.home"), ".appconfig/${packageName}")
+        val basePath = File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}")
         create("releaseFoss") {
             setupCredentials(File(basePath, "signing-foss.properties"))
         }
@@ -92,7 +90,7 @@ android {
         val variantName: String = variantOutputImpl.name
 
         if (listOf("release", "beta").any { variantName.toLowerCase().contains(it) }) {
-            val outputFileName = packageName +
+            val outputFileName = ProjectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
                     "-${variantName.toUpperCase()}-${lastCommitHash()}.apk"
 

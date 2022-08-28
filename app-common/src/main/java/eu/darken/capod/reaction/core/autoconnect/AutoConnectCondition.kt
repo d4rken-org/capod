@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.autoconnect
+package eu.darken.capod.reaction.core.autoconnect
 
 import androidx.annotation.StringRes
 import com.squareup.moshi.Json

@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.settings
+package eu.darken.capod.reaction.core
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -8,7 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.preferences.createFlowPreference
-import eu.darken.capod.reaction.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,11 +1,11 @@
-package eu.darken.capod.reaction
+package eu.darken.capod.reaction.core
 
 import dagger.Reusable
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
-import eu.darken.capod.reaction.autoconnect.AutoConnect
-import eu.darken.capod.reaction.playpause.PlayPause
-import eu.darken.capod.reaction.popup.PopUpReaction
+import eu.darken.capod.reaction.core.autoconnect.AutoConnect
+import eu.darken.capod.reaction.core.playpause.PlayPause
+import eu.darken.capod.reaction.core.popup.PopUpReaction
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject

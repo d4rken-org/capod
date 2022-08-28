@@ -6,7 +6,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isRequired
-import eu.darken.capod.reaction.settings.ReactionSettings
+import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine

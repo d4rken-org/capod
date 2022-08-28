@@ -40,7 +40,7 @@ fun <T : Any?> Flow<T>.replayingShare(scope: CoroutineScope) = this.shareIn(
     started = SharingStarted.WhileSubscribed(replayExpiration = Duration.ZERO)
 )
 
-internal fun <T> Flow<T>.withPrevious(): Flow<Pair<T?, T>> = this
+fun <T> Flow<T>.withPrevious(): Flow<Pair<T?, T>> = this
     .scan(Pair<T?, T?>(null, null)) { previous, current -> Pair(previous.second, current) }
     .drop(1)
     .map {

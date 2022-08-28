@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.settings.ui
+package eu.darken.capod.reaction.ui
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
