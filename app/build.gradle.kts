@@ -21,7 +21,7 @@ android {
         versionCode = ProjectConfig.Version.code
         versionName = ProjectConfig.Version.name
 
-        testInstrumentationRunner = "eu.darken.androidstarter.HiltTestRunner"
+        testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
 
         manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
             File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
@@ -161,8 +161,6 @@ dependencies {
 
     addBaseWorkManager()
 
-    // UI
-    implementation("com.google.android.material:material:1.5.0-rc01")
     implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
 
     // Debugging

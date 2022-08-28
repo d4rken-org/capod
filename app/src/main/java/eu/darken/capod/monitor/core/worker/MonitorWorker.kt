@@ -9,6 +9,7 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import dagger.hilt.EntryPoints
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -23,11 +24,11 @@ import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.ui.MonitorNotifications
-import eu.darken.capod.reaction.ReactionHub
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.cancelChildren
-import kotlinx.coroutines.delay
+import eu.darken.capod.reaction.core.autoconnect.AutoConnect
+import eu.darken.capod.reaction.core.playpause.PlayPause
+import eu.darken.capod.reaction.core.popup.PopUpReaction
+import eu.darken.capod.reaction.ui.popup.PopUpWindow
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 
@@ -36,13 +37,17 @@ class MonitorWorker @AssistedInject constructor(
     @Assisted private val context: Context,
     @Assisted private val params: WorkerParameters,
     monitorComponentBuilder: MonitorComponent.Builder,
+    private val dispatcherProvider: DispatcherProvider,
     private val monitorNotifications: MonitorNotifications,
     private val notificationManager: NotificationManager,
     private val generalSettings: GeneralSettings,
     private val permissionTool: PermissionTool,
     private val podMonitor: PodMonitor,
-    private val reactionHub: ReactionHub,
     private val bluetoothManager: BluetoothManager2,
+    private val playPause: PlayPause,
+    private val autoConnect: AutoConnect,
+    private val popUpReaction: PopUpReaction,
+    private val popUpWindow: PopUpWindow,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -146,10 +151,27 @@ class MonitorWorker @AssistedInject constructor(
             }
             .launchIn(workerScope)
 
-        reactionHub.monitor()
-            .catch {
-                log(TAG, WARN) { "Pod reactions failed:\n${it.asLog()}" }
+        popUpReaction.monitor()
+            .onEach {
+                withContext(dispatcherProvider.Main) {
+                    when (it) {
+                        is PopUpReaction.Event.PopupShow -> popUpWindow.show(it.device)
+                        is PopUpReaction.Event.PopupHide -> popUpWindow.close()
+                    }
+                }
             }
+            .setupCommonEventHandlers(TAG) { "popUpReaction" }
+            .catch { log(TAG, WARN) { "popUpReaction failed:\n${it.asLog()}" } }
+            .launchIn(workerScope)
+
+        playPause.monitor()
+            .setupCommonEventHandlers(TAG) { "playPause" }
+            .catch { log(TAG, WARN) { "playPause failed:\n${it.asLog()}" } }
+            .launchIn(workerScope)
+
+        autoConnect.monitor()
+            .setupCommonEventHandlers(TAG) { "autoConnect" }
+            .catch { log(TAG, WARN) { "autoConnect failed:\n${it.asLog()}" } }
             .launchIn(workerScope)
 
         log(TAG, VERBOSE) { "Monitor job is active" }

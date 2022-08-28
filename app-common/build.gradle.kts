@@ -23,6 +23,10 @@ android {
         buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -82,9 +86,13 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
 
     addBaseAndroid()
+    addBaseAndroidUi()
     addBaseKotlin()
     addDagger()
     addMoshi()
+    addBaseWorkManager()
 
     implementation("com.bugsnag:bugsnag-android:5.9.2")
+
+    implementation("com.google.android.material:material:1.5.0-rc01")
 }

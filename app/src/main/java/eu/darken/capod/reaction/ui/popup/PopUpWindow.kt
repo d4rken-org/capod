@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.popup.ui
+package eu.darken.capod.reaction.ui.popup
 
 import android.content.Context
 import android.content.Context.WINDOW_SERVICE
@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
+import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
@@ -22,7 +23,8 @@ import javax.inject.Singleton
 @Singleton
 class PopUpWindow @Inject constructor(
     @ApplicationContext private val appContext: Context,
-    private val podViewFactory: PopUpPodViewFactory
+    private val podViewFactory: PopUpPodViewFactory,
+    private val dispatcherProvider: DispatcherProvider,
 ) {
 
     private val context = ContextThemeWrapper(appContext, R.style.AppTheme)
@@ -42,6 +44,7 @@ class PopUpWindow @Inject constructor(
         findViewById<View>(R.id.close_action).setOnClickListener { close() }
     }
     private val deviceContainer = popUpView.findViewById<FrameLayout>(R.id.popup_content)
+
     fun show(device: PodDevice) = try {
         log(TAG) { "open()" }
         if (popUpView.windowToken != null || popUpView.parent != null) {
@@ -56,6 +59,7 @@ class PopUpWindow @Inject constructor(
     } catch (e: Exception) {
         log(TAG, ERROR) { "open() failed: ${e.asLog()}" }
     }
+
 
     fun close() = try {
         log(TAG) { "close()" }
