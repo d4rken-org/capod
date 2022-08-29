@@ -23,7 +23,7 @@ class MainActivity : Activity2() {
         setContentView(ui.root)
 
         ui.swipeWrapper.addCallback(object : SwipeDismissFrameLayout.Callback() {
-            override fun onDismissed(layout: SwipeDismissFrameLayout?) {
+            override fun onDismissed(layout: SwipeDismissFrameLayout) {
                 if (!navController.popBackStack()) finish()
                 super.onDismissed(layout)
             }
