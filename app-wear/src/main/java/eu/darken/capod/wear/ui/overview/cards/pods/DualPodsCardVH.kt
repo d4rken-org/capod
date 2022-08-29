@@ -9,8 +9,6 @@ import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
 import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.DualAirPods
-import eu.darken.capod.pods.core.apple.DualAirPods.LidState
-import java.time.Duration
 import java.time.Instant
 
 class DualPodsCardVH(parent: ViewGroup) :
@@ -41,10 +39,7 @@ class DualPodsCardVH(parent: ViewGroup) :
         deviceIcon.setImageResource(device.iconRes)
 
         lastSeen.text = context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
-        firstSeen.text = context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
-        firstSeen.isGone = Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() < 1
-
-        reception.text = item.getReceptionText()
+//        reception.text = item.getReceptionText()
 
         // Pods battery state
         device.apply {
@@ -59,16 +54,12 @@ class DualPodsCardVH(parent: ViewGroup) :
         device.apply {
             if (this is HasChargeDetectionDual) {
                 podLeftChargingIcon.isInvisible = !isLeftPodCharging
-                podLeftChargingLabel.isInvisible = !isLeftPodCharging
 
                 podRightChargingIcon.isInvisible = !isRightPodCharging
-                podRightChargingLabel.isInvisible = !isRightPodCharging
             } else {
                 podLeftChargingIcon.isGone = true
-                podLeftChargingLabel.isGone = true
 
                 podRightChargingIcon.isGone = true
-                podRightChargingLabel.isGone = true
             }
         }
 
@@ -76,16 +67,12 @@ class DualPodsCardVH(parent: ViewGroup) :
         device.apply {
             if (this is HasDualMicrophone) {
                 podLeftMicrophoneIcon.isInvisible = !isLeftPodMicrophone
-                podLeftMicrophoneLabel.isInvisible = !isLeftPodMicrophone
 
                 podRightMicrophoneIcon.isInvisible = !isRightPodMicrophone
-                podRightMicrophoneLabel.isInvisible = !isRightPodMicrophone
             } else {
                 podLeftMicrophoneIcon.isGone = true
-                podLeftMicrophoneLabel.isGone = true
 
                 podRightMicrophoneIcon.isGone = true
-                podRightMicrophoneLabel.isGone = true
             }
         }
 
@@ -93,16 +80,12 @@ class DualPodsCardVH(parent: ViewGroup) :
         device.apply {
             if (this is HasEarDetectionDual) {
                 podLeftWearIcon.isInvisible = !isLeftPodInEar
-                podLeftWearLabel.isInvisible = !isLeftPodInEar
 
                 podRightWearIcon.isInvisible = !isRightPodInEar
-                podRightWearLabel.isInvisible = !isRightPodInEar
             } else {
                 podLeftWearIcon.isGone = true
-                podLeftWearLabel.isGone = true
 
                 podRightWearIcon.isGone = true
-                podRightWearLabel.isGone = true
             }
         }
 
@@ -114,33 +97,31 @@ class DualPodsCardVH(parent: ViewGroup) :
                 podCaseBatteryLabel.text = getBatteryLevelCase(context)
 
                 podCaseChargingIcon.isInvisible = !isCaseCharging
-                podCaseChargingLabel.isInvisible = !isCaseCharging
             } else {
                 podCaseBatteryIcon.isGone = true
                 podCaseBatteryLabel.isGone = true
 
                 podCaseChargingIcon.isGone = true
-                podCaseChargingLabel.isGone = true
             }
         }
 
-        // Case lid state
-        device.apply {
-            if (this is DualAirPods) {
-                podCaseLidLabel.text = when (caseLidState) {
-                    LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
-                    LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
-                    else -> context.getString(R.string.pods_case_unknown_state)
-                }
-
-                val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)
-                podCaseLidIcon.isInvisible = hideInfo
-                podCaseLidLabel.isInvisible = hideInfo
-            } else {
-                podCaseLidIcon.isGone = true
-                podCaseLidLabel.isGone = true
-            }
-        }
+//        // Case lid state
+//        device.apply {
+//            if (this is DualAirPods) {
+//                podCaseLidLabel.text = when (caseLidState) {
+//                    LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
+//                    LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
+//                    else -> context.getString(R.string.pods_case_unknown_state)
+//                }
+//
+//                val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)
+//                podCaseLidIcon.isInvisible = hideInfo
+//                podCaseLidLabel.isInvisible = hideInfo
+//            } else {
+//                podCaseLidIcon.isGone = true
+//                podCaseLidLabel.isGone = true
+//            }
+//        }
 
         // Connection state
         device.apply {

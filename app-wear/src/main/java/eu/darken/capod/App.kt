@@ -8,6 +8,7 @@ import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.AutoReporting
 import eu.darken.capod.common.debug.logging.*
+import eu.darken.capod.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Inject
 
@@ -16,6 +17,7 @@ open class App : Application(), Configuration.Provider {
 
     @Inject lateinit var workerFactory: HiltWorkerFactory
     @Inject lateinit var autoReporting: AutoReporting
+    @Inject lateinit var generalSettings: GeneralSettings
     @Inject @AppScope lateinit var appScope: CoroutineScope
 
     override fun onCreate() {

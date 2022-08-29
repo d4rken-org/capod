@@ -118,25 +118,6 @@ android {
             "-opt-in=kotlin.RequiresOptIn"
         )
     }
-
-    testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
-        }
-        tasks.withType<Test> {
-            useJUnitPlatform()
-        }
-    }
-
-    sourceSets {
-        getByName("test") {
-            java.srcDir("$projectDir/src/testShared/java")
-        }
-        getByName("androidTest") {
-            java.srcDir("$projectDir/src/testShared/java")
-            assets.srcDirs(files("$projectDir/schemas"))
-        }
-    }
 }
 
 dependencies {

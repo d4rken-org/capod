@@ -125,16 +125,6 @@ android {
             useJUnitPlatform()
         }
     }
-
-    sourceSets {
-        getByName("test") {
-            java.srcDir("$projectDir/src/testShared/java")
-        }
-        getByName("androidTest") {
-            java.srcDir("$projectDir/src/testShared/java")
-            assets.srcDirs(files("$projectDir/schemas"))
-        }
-    }
 }
 
 dependencies {
@@ -153,18 +143,15 @@ dependencies {
     addBaseAndroid()
     addBaseAndroidUi()
 
+    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
+
     addNavigation()
-
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
-
     addBaseWorkManager()
 
-    // Debugging
+    addTesting()
+
     implementation("com.bugsnag:bugsnag-android:5.9.2")
     implementation("com.getkeepsafe.relinker:relinker:1.4.3")
-
-    addTesting()
 
     "gplayImplementation"("com.android.billingclient:billing:4.0.0")
 }

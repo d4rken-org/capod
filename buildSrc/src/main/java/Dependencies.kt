@@ -107,8 +107,6 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-process:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVers")
-
-    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
 }
 
 fun DependencyHandlerScope.addTesting(junit: Boolean = true, instrumentation: Boolean = true) {
