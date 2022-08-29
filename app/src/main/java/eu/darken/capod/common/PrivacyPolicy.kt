@@ -1,5 +1,5 @@
 package eu.darken.capod.common
 
 object PrivacyPolicy {
-    const val URL = "https://raw.githubusercontent.com/d4rken-org/capod/main/PRIVACY_POLICY.md"
+    const val URL = "https://github.com/d4rken-org/capod/blob/main/PRIVACY_POLICY.md"
 }
