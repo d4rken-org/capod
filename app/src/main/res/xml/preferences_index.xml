@@ -9,7 +9,7 @@
 
     <Preference
         android:icon="@drawable/ic_baseline_widgets_24"
-        app:fragment="eu.darken.capod.reaction.settings.ui.ReactionSettingsFragment"
+        app:fragment="eu.darken.capod.reaction.ui.ReactionSettingsFragment"
         app:summary="@string/settings_reaction_description"
         app:title="@string/settings_reaction_label" />
 
