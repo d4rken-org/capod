@@ -18,4 +18,7 @@ enum class MonitorMode(
     @Json(name = "monitor.mode.always") ALWAYS(
         R.string.settings_monitor_mode_always_label
     ),
+    @Json(name = "monitor.mode.periodically") PERIODICALLY(
+        R.string.settings_monitor_mode_periodically_label
+    ),
 }

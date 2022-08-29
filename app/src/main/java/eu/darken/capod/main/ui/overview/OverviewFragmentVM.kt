@@ -65,7 +65,7 @@ class OverviewFragmentVM @Inject constructor(
             }
 
             val shouldStartMonitor = when (generalSettings.monitorMode.value) {
-                MonitorMode.MANUAL -> false
+                MonitorMode.PERIODICALLY, MonitorMode.MANUAL -> false
                 MonitorMode.AUTOMATIC -> bluetoothManager.connectedDevices().first().isNotEmpty()
                 MonitorMode.ALWAYS -> true
             }

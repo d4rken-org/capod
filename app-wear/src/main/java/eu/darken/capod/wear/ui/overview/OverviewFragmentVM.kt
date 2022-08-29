@@ -1,6 +1,5 @@
 package eu.darken.capod.wear.ui.overview
 
-import android.app.Activity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +20,6 @@ import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.wear.ui.overview.cards.*
 import eu.darken.capod.wear.ui.overview.cards.pods.DualPodsCardVH
 import eu.darken.capod.wear.ui.overview.cards.pods.SinglePodsCardVH
-import eu.darken.capod.wear.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
@@ -38,8 +36,6 @@ class OverviewFragmentVM @Inject constructor(
     debugSettings: DebugSettings,
     private val bluetoothManager: BluetoothManager2,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-
-    val launchUpgradeFlow = SingleLiveEvent<(Activity) -> Unit>()
 
     private val updateTicker = channelFlow<Unit> {
         while (isActive) {
@@ -97,7 +93,7 @@ class OverviewFragmentVM @Inject constructor(
         }
 
         if (permissions.isEmpty() && isBluetoothEnabled) {
-            pods.map {
+            pods.mapNotNull {
                 val now = Instant.now()
                 when (it) {
                     is DualPodDevice -> DualPodsCardVH.Item(
@@ -112,18 +108,13 @@ class OverviewFragmentVM @Inject constructor(
                         showDebug = isDebugMode,
                         isMainPod = it == mainPod,
                     )
-                    else -> UnknownPodDeviceCardVH.Item(
-                        now = now,
-                        device = it,
-                        showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
-                    )
+                    else -> null
                 }
             }.run { items.addAll(this) }
         }
 
         items.add(0, AppTitleVH.Item())
-        SettingsVH.Item(
+        SettingsButtonVH.Item(
             onClick = {
                 OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navVia(this@OverviewFragmentVM)
             }

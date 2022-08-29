@@ -7,8 +7,8 @@ import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.databinding.OverviewSettingsItemBinding
 import eu.darken.capod.wear.ui.overview.OverviewAdapter
 
-class SettingsVH(parent: ViewGroup) :
-    OverviewAdapter.BaseVH<SettingsVH.Item, OverviewSettingsItemBinding>(
+class SettingsButtonVH(parent: ViewGroup) :
+    OverviewAdapter.BaseVH<SettingsButtonVH.Item, OverviewSettingsItemBinding>(
         R.layout.overview_settings_item,
         parent
     ) {

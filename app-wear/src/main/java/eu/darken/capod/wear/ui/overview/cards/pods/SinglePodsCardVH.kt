@@ -31,8 +31,6 @@ class SinglePodsCardVH(parent: ViewGroup) :
 
         lastSeen.text = device.lastSeenFormatted(item.now)
 
-        reception.text = item.getReceptionText()
-
         // Battery level
         device.apply {
             batteryLabel.text = getBatteryLevelHeadset(context)
