@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
 }
@@ -36,10 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xopt-in=kotlin.ExperimentalStdlibApi",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlin.time.ExperimentalTime",
-            "-Xopt-in=kotlin.ExperimentalUnsignedTypes",
+            "-opt-in=kotlin.ExperimentalStdlibApi",
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=kotlin.time.ExperimentalTime",
+            "-opt-in=kotlin.ExperimentalUnsignedTypes",
         )
     }
 
@@ -91,8 +91,7 @@ dependencies {
     addDagger()
     addMoshi()
     addBaseWorkManager()
+    addNavigation()
 
     implementation("com.bugsnag:bugsnag-android:5.9.2")
-
-    implementation("com.google.android.material:material:1.5.0-rc01")
 }

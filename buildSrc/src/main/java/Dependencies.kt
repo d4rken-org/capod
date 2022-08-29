@@ -95,8 +95,10 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.fragment:fragment-ktx:1.4.1")
 
-    implementation("androidx.activity:activity-ktx:1.5.0")
+    implementation("androidx.activity:activity-ktx:1.6.0-rc01")
     implementation("androidx.fragment:fragment-ktx:1.5.0")
+
+    implementation("com.google.android.material:material:1.5.0-rc01")
 
     val lifecycleVers = "2.5.0"
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
@@ -105,6 +107,8 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-process:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVers")
+
+    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
 }
 
 fun DependencyHandlerScope.addTesting(junit: Boolean = true, instrumentation: Boolean = true) {
