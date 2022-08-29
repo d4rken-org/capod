@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/overviewFragment">
+
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="eu.darken.capod.wear.ui.overview.OverviewFragment"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_overviewFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="eu.darken.capod.main.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment" />
+
+</navigation>

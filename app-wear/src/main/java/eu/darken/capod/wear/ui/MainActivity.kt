@@ -1,17 +1,27 @@
 package eu.darken.capod.wear.ui
 
-import android.app.Activity
 import android.os.Bundle
-import eu.darken.capod.databinding.ActivityMainBinding
+import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.R
+import eu.darken.capod.common.navigation.findNavController
+import eu.darken.capod.common.uix.Activity2
+import eu.darken.capod.databinding.MainActivityBinding
 
-class MainActivity : Activity() {
+@AndroidEntryPoint
+class MainActivity : Activity2() {
 
-    private lateinit var binding: ActivityMainBinding
+    private val vm: MainActivityVM by viewModels()
+    private lateinit var ui: MainActivityBinding
+    private val navController by lazy { supportFragmentManager.findNavController(R.id.nav_host) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        ui = MainActivityBinding.inflate(layoutInflater)
+        setContentView(ui.root)
     }
 }
