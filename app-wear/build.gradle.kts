@@ -111,11 +111,11 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         freeCompilerArgs = freeCompilerArgs + listOf(
-            "-Xopt-in=kotlin.ExperimentalStdlibApi",
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-Xopt-in=kotlinx.coroutines.FlowPreview",
-            "-Xopt-in=kotlin.time.ExperimentalTime",
-            "-Xopt-in=kotlin.RequiresOptIn"
+            "-opt-in=kotlin.ExperimentalStdlibApi",
+            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-opt-in=kotlinx.coroutines.FlowPreview",
+            "-opt-in=kotlin.time.ExperimentalTime",
+            "-opt-in=kotlin.RequiresOptIn"
         )
     }
 
@@ -140,30 +140,28 @@ android {
 }
 
 dependencies {
-    implementation(project(":app-common"))
-
-    implementation("androidx.wear:wear:1.2.0")
-    implementation("androidx.wear.tiles:tiles-material:1.1.0")
-    implementation("com.google.android.horologist:horologist-tiles:0.1.5")
-    implementation("com.google.android.gms:play-services-wearable:17.1.0")
-
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
+
+    implementation(project(":app-common"))
 
     addBaseKotlin()
 
     addDagger()
 
-    // Debugging
-    implementation("com.bugsnag:bugsnag-android:5.9.2")
-    implementation("com.getkeepsafe.relinker:relinker:1.4.3")
-
-    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
-
     addBaseWorkManager()
 
     addBaseAndroid()
     addBaseAndroidUi()
-    implementation("com.google.android.material:material:1.5.0-rc01")
+
+    addNavigation()
 
     addTesting()
+
+    implementation("com.bugsnag:bugsnag-android:5.9.2")
+    implementation("com.getkeepsafe.relinker:relinker:1.4.3")
+
+    implementation("androidx.wear:wear:1.2.0")
+    implementation("androidx.wear.tiles:tiles-material:1.1.0")
+    implementation("com.google.android.horologist:horologist-tiles:0.1.5")
+    implementation("com.google.android.gms:play-services-wearable:17.1.0")
 }
