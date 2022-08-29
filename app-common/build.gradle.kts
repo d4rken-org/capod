@@ -93,5 +93,8 @@ dependencies {
     addBaseWorkManager()
     addNavigation()
 
+    addTesting()
+
     implementation("com.bugsnag:bugsnag-android:5.9.2")
+
 }
