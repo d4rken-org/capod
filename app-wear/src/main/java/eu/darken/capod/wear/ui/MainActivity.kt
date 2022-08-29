@@ -2,6 +2,7 @@ package eu.darken.capod.wear.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.wear.widget.SwipeDismissFrameLayout
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
@@ -17,6 +18,8 @@ class MainActivity : Activity2() {
     private val navController by lazy { supportFragmentManager.findNavController(R.id.nav_host) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
+
         super.onCreate(savedInstanceState)
 
         ui = MainActivityBinding.inflate(layoutInflater)

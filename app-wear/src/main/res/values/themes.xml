@@ -29,4 +29,10 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
     </style>
 
+    <style name="AppThemeSplash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#3f7aff</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+
 </resources>
