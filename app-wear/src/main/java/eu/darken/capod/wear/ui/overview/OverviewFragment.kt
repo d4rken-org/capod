@@ -8,11 +8,12 @@ import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lists.differ.update
-import eu.darken.capod.common.lists.setupDefaults
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.Fragment3
 import eu.darken.capod.common.viewbinding.viewBinding
@@ -27,7 +28,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
     override val ui: MainFragmentBinding by viewBinding()
 
     @Inject
-    lateinit var adapter: OverviewAdapter
+    lateinit var overviewAdapter: OverviewAdapter
 
     lateinit var permissionLauncher: ActivityResultLauncher<String>
     var awaitingPermission = false
@@ -43,11 +44,14 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        ui.apply {
-            list.setupDefaults(adapter)
+        ui.list.apply {
+            isEdgeItemsCenteringEnabled = true
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            this.adapter = overviewAdapter
         }
 
-        vm.listItems.observe2(ui) { adapter.update(it) }
+        vm.listItems.observe2(ui) { overviewAdapter.update(it) }
 
         vm.requestPermissionEvent.observe2(ui) {
             when (it) {
