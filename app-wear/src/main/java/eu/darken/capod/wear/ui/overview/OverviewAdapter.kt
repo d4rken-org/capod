@@ -14,7 +14,6 @@ import eu.darken.capod.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.capod.wear.ui.overview.cards.*
 import eu.darken.capod.wear.ui.overview.cards.pods.DualPodsCardVH
 import eu.darken.capod.wear.ui.overview.cards.pods.SinglePodsCardVH
-import eu.darken.capod.wear.ui.overview.cards.pods.UnknownPodDeviceCardVH
 import javax.inject.Inject
 
 class OverviewAdapter @Inject constructor() :
@@ -26,13 +25,12 @@ class OverviewAdapter @Inject constructor() :
     init {
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is AppTitleVH.Item }) { AppTitleVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is SettingsVH.Item }) { SettingsVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is SettingsButtonVH.Item }) { SettingsButtonVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is PermissionCardVH.Item }) { PermissionCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is DualPodsCardVH.Item }) { DualPodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SinglePodsCardVH.Item }) { SinglePodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is MissingMainDeviceVH.Item }) { MissingMainDeviceVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is BluetoothDisabledVH.Item }) { BluetoothDisabledVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
     }
 
     override fun getItemCount(): Int = data.size

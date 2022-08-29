@@ -127,7 +127,7 @@ class MonitorWorker @AssistedInject constructor(
             .flatMapLatest { (monitorMode, devices) ->
                 log(TAG) { "Monitor mode: $monitorMode" }
                 when (monitorMode) {
-                    MonitorMode.MANUAL -> flow<Unit> {
+                    MonitorMode.PERIODICALLY, MonitorMode.MANUAL -> flow<Unit> {
                         // Cancel worker, ui scans manually
                         workerScope.coroutineContext.cancelChildren()
                     }
