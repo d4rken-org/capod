@@ -16,7 +16,7 @@ class PodFactory @Inject constructor(
     private val unknownFactory: UnknownDeviceFactory,
 ) {
 
-    suspend fun createPod(scanResult: BleScanResult): PodDevice? {
+    suspend fun createPod(scanResult: BleScanResult): Result? {
         log(TAG, VERBOSE) { "Trying to create Pod for $scanResult" }
 
         log(TAG, INFO) { "Decoding $scanResult" }
@@ -29,8 +29,15 @@ class PodFactory @Inject constructor(
         }
 
         log(TAG, INFO) { "Pod created: $device" }
-        return device
+        return device?.let {
+            Result(scanResult = scanResult, device = it)
+        }
     }
+
+    data class Result(
+        val scanResult: BleScanResult,
+        val device: PodDevice
+    )
 
     companion object {
         private val TAG = logTag("Pod", "Factory")

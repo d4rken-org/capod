@@ -29,12 +29,13 @@ import javax.inject.Singleton
 
 @Singleton
 class PodMonitor @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
     private val bleScanner: BleScanner,
     private val podFactory: PodFactory,
     private val generalSettings: GeneralSettings,
     private val bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
-    @AppScope private val appScope: CoroutineScope
+    private val podDeviceCache: PodDeviceCache,
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
@@ -42,7 +43,7 @@ class PodMonitor @Inject constructor(
 
     private suspend fun List<BleScanResult>.preFilterAndMap(
         scannerMode: ScannerMode
-    ): List<PodDevice> = this
+    ): List<PodFactory.Result> = this
         .groupBy { it.address }
         .values
         .map { sameAdrDevs ->
@@ -103,7 +104,7 @@ class PodMonitor @Inject constructor(
 
                 pods.putAll(deviceCache)
 
-                newPods.forEach {
+                newPods.map { it.device }.forEach {
                     deviceCache[it.identifier] = it
                     pods[it.identifier] = it
                 }
@@ -111,6 +112,9 @@ class PodMonitor @Inject constructor(
 
             val presorted = pods.values.sortPodsToInterest()
             val main = presorted.determineMainDevice()
+            newPods?.firstOrNull { it.device.identifier == main?.identifier }?.let {
+                podDeviceCache.saveMainDevice(it.scanResult)
+            }
 
             presorted.sortedByDescending { it == main }
         }

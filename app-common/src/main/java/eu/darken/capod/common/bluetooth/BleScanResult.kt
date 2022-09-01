@@ -3,14 +3,17 @@ package eu.darken.capod.common.bluetooth
 import android.bluetooth.le.ScanResult
 import android.os.Parcelable
 import androidx.core.util.forEach
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
+@JsonClass(generateAdapter = true)
 data class BleScanResult(
-    val address: String,
-    val rssi: Int,
-    val generatedAtNanos: Long,
-    val manufacturerSpecificData: Map<Int, ByteArray>
+    @Json(name = "address") val address: String,
+    @Json(name = "rssi") val rssi: Int,
+    @Json(name = "generatedAtNanos") val generatedAtNanos: Long,
+    @Json(name = "manufacturerSpecificData") val manufacturerSpecificData: Map<Int, ByteArray>
 ) : Parcelable {
 
     fun getManufacturerSpecificData(id: Int): ByteArray? = manufacturerSpecificData[id]
