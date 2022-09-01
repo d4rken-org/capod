@@ -4,38 +4,31 @@ import androidx.wear.tiles.*
 import com.google.android.horologist.tiles.CoroutinesTileService
 import eu.darken.capod.R
 
-private const val RESOURCES_VERSION = "0"
-
 class CAPodTileService : CoroutinesTileService() {
 
     override suspend fun resourcesRequest(
         requestParams: RequestBuilders.ResourcesRequest
-    ): ResourceBuilders.Resources {
-        return ResourceBuilders.Resources.Builder()
-            .setVersion(RESOURCES_VERSION)
-            .build()
-    }
+    ): ResourceBuilders.Resources = ResourceBuilders.Resources.Builder().apply {
+        setVersion(RESOURCES_VERSION)
+    }.build()
 
     override suspend fun tileRequest(
         requestParams: RequestBuilders.TileRequest
-    ): TileBuilders.Tile {
+    ): TileBuilders.Tile = TileBuilders.Tile.Builder().apply {
         val singleTileTimeline = TimelineBuilders.Timeline.Builder()
             .addTimelineEntry(
-                TimelineBuilders.TimelineEntry.Builder()
-                    .setLayout(
-                        LayoutElementBuilders.Layout.Builder()
-                            .setRoot(tileLayout())
-                            .build()
+                TimelineBuilders.TimelineEntry.Builder().apply {
+                    setLayout(
+                        LayoutElementBuilders.Layout.Builder().apply {
+                            setRoot(tileLayout())
+                        }.build()
                     )
-                    .build()
+                }.build()
             )
             .build()
-
-        return TileBuilders.Tile.Builder()
-            .setResourcesVersion(RESOURCES_VERSION)
-            .setTimeline(singleTileTimeline)
-            .build()
-    }
+        setResourcesVersion(RESOURCES_VERSION)
+        setTimeline(singleTileTimeline)
+    }.build()
 
     private fun tileLayout(): LayoutElementBuilders.LayoutElement {
         val text = getString(R.string.app_name)
@@ -49,5 +42,9 @@ class CAPodTileService : CoroutinesTileService() {
                     .build()
             )
             .build()
+    }
+
+    companion object {
+        private const val RESOURCES_VERSION = "0"
     }
 }
