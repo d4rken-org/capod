@@ -9,5 +9,5 @@ class JavaInstantAdapter {
     fun toJson(obj: Instant): Long = obj.toEpochMilli()
 
     @FromJson
-    fun fromJson(epochMillis: Long): Instant = Instant.ofEpochSecond(epochMillis)
+    fun fromJson(epochMillis: Long): Instant = Instant.ofEpochMilli(epochMillis)
 }

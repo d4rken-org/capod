@@ -98,7 +98,7 @@ class OverviewFragmentVM @Inject constructor(
         }
 
         val podToShow = mainPod ?: podDeviceCache.loadMainDevice()?.let {
-            log(TAG, VERBOSE) { "Using podDeviceCache" }
+            log(TAG, VERBOSE) { "Using podDeviceCache: $it" }
             podFactory.createPod(it)?.device
         }
         log(TAG, VERBOSE) { "Showing $podToShow" }

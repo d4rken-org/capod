@@ -32,6 +32,7 @@ class UnknownDeviceFactory @Inject constructor() {
         return basic.copy(
             identifier = result.id,
             seenFirstAt = result.seenFirstAt,
+            seenLastAt = scanResult.receivedAt,
             seenCounter = result.seenCounter,
             confidence = result.confidence,
             rssiAverage = result.averageRssi(basic.rssi),
