@@ -46,11 +46,19 @@ private val lastSeenFormatter = RelativeDateTimeFormatter.getInstance()
 
 fun PodDevice.lastSeenFormatted(now: Instant): String {
     val duration = Duration.between(seenLastAt, now)
-    return lastSeenFormatter.format(
-        duration.seconds.toDouble(),
-        RelativeDateTimeFormatter.Direction.LAST,
-        RelativeDateTimeFormatter.RelativeUnit.SECONDS
-    )
+    return if (duration > Duration.ofMinutes(1)) {
+        lastSeenFormatter.format(
+            duration.toMinutes().toDouble(),
+            RelativeDateTimeFormatter.Direction.LAST,
+            RelativeDateTimeFormatter.RelativeUnit.MINUTES
+        )
+    } else {
+        lastSeenFormatter.format(
+            duration.seconds.toDouble(),
+            RelativeDateTimeFormatter.Direction.LAST,
+            RelativeDateTimeFormatter.RelativeUnit.SECONDS
+        )
+    }
 }
 
 fun PodDevice.firstSeenFormatted(now: Instant): String {
