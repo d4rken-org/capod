@@ -14,15 +14,16 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 
 
@@ -84,13 +85,13 @@ class MonitorWorker @AssistedInject constructor(
         }
 
         val monitorJob = podMonitor.mainDevice
-            .take(2)
-            .onEach { log(TAG) { "Observed: $it" } }
+            .filterNotNull()
+            .take(5)
+            .setupCommonEventHandlers(TAG) { "monitorJob" }
             .launchIn(workerScope)
-        log(TAG, VERBOSE) { "Monitor job is active" }
 
         try {
-            withTimeout(15 * 1000) {
+            withTimeout(60 * 1000) {
                 monitorJob.join()
             }
             log(TAG) { "Monitor job quit after a few takes." }
