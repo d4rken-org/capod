@@ -3,6 +3,7 @@ package eu.darken.capod.common.bluetooth
 import dagger.Reusable
 import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.debug.autoreport.DebugSettings
+import java.time.Instant
 import javax.inject.Inject
 import kotlin.random.Random
 
@@ -20,6 +21,7 @@ class FakeBleData @Inject constructor(
         val fakeDevices = mutableListOf<BleScanResult>()
         // AirPods Gen1
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "78:73:AF:B4:85:22",
             rssi = Random.nextInt(100) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 100,
@@ -32,6 +34,7 @@ class FakeBleData @Inject constructor(
 
         // AirPods Gen2
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "78:73:FF:B4:85:5E",
             rssi = Random.nextInt(100) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 100,
@@ -44,6 +47,7 @@ class FakeBleData @Inject constructor(
 
         // AirPods Gen3
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "4E:9E:D1:49:D2:6D",
             rssi = Random.nextInt(15, 75) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 200,
@@ -55,6 +59,7 @@ class FakeBleData @Inject constructor(
         }
         // AirPods Max
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "7E:E5:C7:65:D2:B5",
             rssi = Random.nextInt(15, 75) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 300,
@@ -66,6 +71,7 @@ class FakeBleData @Inject constructor(
         }
         // BeatsFlex
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "5E:9E:D1:49:D2:6D",
             rssi = Random.nextInt(15, 75) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 400,
@@ -78,6 +84,7 @@ class FakeBleData @Inject constructor(
 
         // Tws i99999
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "5E:9E:D1:29:D2:6D",
             rssi = Random.nextInt(15, 75) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 400,
@@ -90,6 +97,7 @@ class FakeBleData @Inject constructor(
 
         // Unknown Device
         BleScanResult(
+            receivedAt = Instant.now(),
             address = "6E:9E:D1:49:D2:6D",
             rssi = Random.nextInt(15, 75) * -1,
             generatedAtNanos = SystemClockWrap.elapsedRealtimeNanos + 500,

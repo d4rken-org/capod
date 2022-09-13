@@ -127,10 +127,10 @@ class MonitorWorker @AssistedInject constructor(
             .flatMapLatest { (monitorMode, devices) ->
                 log(TAG) { "Monitor mode: $monitorMode" }
                 when (monitorMode) {
-                    MonitorMode.PERIODICALLY, MonitorMode.MANUAL -> flow<Unit> {
-                        // Cancel worker, ui scans manually
-                        workerScope.coroutineContext.cancelChildren()
-                    }
+                     MonitorMode.MANUAL -> flow<Unit> {
+                         // Cancel worker, ui scans manually
+                         workerScope.coroutineContext.cancelChildren()
+                     }
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
                         val mainAddress = generalSettings.mainDeviceAddress.value
