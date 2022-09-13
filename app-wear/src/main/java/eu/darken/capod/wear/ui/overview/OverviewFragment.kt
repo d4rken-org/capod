@@ -8,7 +8,6 @@ import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
@@ -47,7 +46,6 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         ui.list.apply {
             isEdgeItemsCenteringEnabled = true
             layoutManager = LinearLayoutManager(context)
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             this.adapter = overviewAdapter
         }
 

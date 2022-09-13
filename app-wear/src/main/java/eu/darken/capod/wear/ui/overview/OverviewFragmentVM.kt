@@ -113,12 +113,13 @@ class OverviewFragmentVM @Inject constructor(
             }.run { items.addAll(this) }
         }
 
-        items.add(0, AppTitleVH.Item())
         SettingsButtonVH.Item(
             onClick = {
                 OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navVia(this@OverviewFragmentVM)
             }
         ).run { items.add(this) }
+
+        items.add(AppTitleVH.Item())
 
         items
     }
