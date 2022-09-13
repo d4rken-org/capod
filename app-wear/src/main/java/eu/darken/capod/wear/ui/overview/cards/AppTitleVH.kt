@@ -2,6 +2,7 @@ package eu.darken.capod.wear.ui.overview.cards
 
 import android.view.ViewGroup
 import eu.darken.capod.R
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.common.upgrade.UpgradeRepo
@@ -22,7 +23,7 @@ class AppTitleVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding(payload = true) { item ->
-
+        appVersion.text = BuildConfigWrap.VERSION_DESCRIPTION_TINY
     }
 
     data class Item(
