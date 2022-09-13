@@ -105,24 +105,6 @@ class DualPodsCardVH(parent: ViewGroup) :
             }
         }
 
-//        // Case lid state
-//        device.apply {
-//            if (this is DualAirPods) {
-//                podCaseLidLabel.text = when (caseLidState) {
-//                    LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
-//                    LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
-//                    else -> context.getString(R.string.pods_case_unknown_state)
-//                }
-//
-//                val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)
-//                podCaseLidIcon.isInvisible = hideInfo
-//                podCaseLidLabel.isInvisible = hideInfo
-//            } else {
-//                podCaseLidIcon.isGone = true
-//                podCaseLidLabel.isGone = true
-//            }
-//        }
-
         // Connection state
         device.apply {
             val sb = StringBuilder()

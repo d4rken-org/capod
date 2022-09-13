@@ -44,7 +44,6 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         ui.list.apply {
-            isEdgeItemsCenteringEnabled = true
             layoutManager = LinearLayoutManager(context)
             this.adapter = overviewAdapter
         }

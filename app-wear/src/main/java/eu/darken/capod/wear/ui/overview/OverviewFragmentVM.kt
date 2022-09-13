@@ -6,18 +6,23 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.livedata.SingleLiveEvent
-import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.monitor.core.PodDeviceCache
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.SinglePodDevice
-import eu.darken.capod.wear.ui.overview.cards.*
+import eu.darken.capod.wear.ui.overview.cards.BluetoothDisabledVH
+import eu.darken.capod.wear.ui.overview.cards.MissingMainDeviceVH
+import eu.darken.capod.wear.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.wear.ui.overview.cards.pods.DualPodsCardVH
 import eu.darken.capod.wear.ui.overview.cards.pods.SinglePodsCardVH
 import kotlinx.coroutines.delay
@@ -35,6 +40,8 @@ class OverviewFragmentVM @Inject constructor(
     private val generalSettings: GeneralSettings,
     debugSettings: DebugSettings,
     private val bluetoothManager: BluetoothManager2,
+    private val podDeviceCache: PodDeviceCache,
+    private val podFactory: PodFactory
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val updateTicker = channelFlow<Unit> {
@@ -67,59 +74,53 @@ class OverviewFragmentVM @Inject constructor(
     val listItems: LiveData<List<OverviewAdapter.Item>> = combine(
         updateTicker,
         permissionTool.missingPermissions,
-        pods,
         debugSettings.isDebugModeEnabled.flow,
-        generalSettings.showAll.flow,
         bluetoothManager.isBluetoothEnabled,
         podMonitor.mainDevice,
-    ) { _, permissions, pods, isDebugMode, showAll, isBluetoothEnabled, mainPod ->
+    ) { _, permissions, isDebugMode, isBluetoothEnabled, mainPod ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
-        permissions
-            .map { perm ->
-                PermissionCardVH.Item(
-                    permission = perm,
-                    onRequest = { requestPermissionEvent.postValue(it) },
-                )
-            }
-            .run { items.addAll(this) }
-
-        if (permissions.isEmpty()) {
-            if (!isBluetoothEnabled) {
-                items.add(0, BluetoothDisabledVH.Item)
-            } else if (mainPod == null) {
-                items.add(0, MissingMainDeviceVH.Item)
-            }
-        }
-
-        if (permissions.isEmpty() && isBluetoothEnabled) {
-            pods.mapNotNull {
-                val now = Instant.now()
-                when (it) {
-                    is DualPodDevice -> DualPodsCardVH.Item(
-                        now = now,
-                        device = it,
-                        showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
+        if (permissions.isNotEmpty()) {
+            permissions
+                .map { perm ->
+                    PermissionCardVH.Item(
+                        permission = perm,
+                        onRequest = { requestPermissionEvent.postValue(it) },
                     )
-                    is SinglePodDevice -> SinglePodsCardVH.Item(
-                        now = now,
-                        device = it,
-                        showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
-                    )
-                    else -> null
                 }
-            }.run { items.addAll(this) }
+                .run { items.addAll(this) }
+            return@combine items
         }
 
-        SettingsButtonVH.Item(
-            onClick = {
-                OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navVia(this@OverviewFragmentVM)
-            }
-        ).run { items.add(this) }
+        if (!isBluetoothEnabled) {
+            items.add(0, BluetoothDisabledVH.Item)
+            return@combine items
+        }
 
-        items.add(AppTitleVH.Item())
+        val podToShow = mainPod ?: podDeviceCache.loadMainDevice()?.let {
+            log(TAG, VERBOSE) { "Using podDeviceCache" }
+            podFactory.createPod(it)?.device
+        }
+        log(TAG, VERBOSE) { "Showing $podToShow" }
+
+        val now = Instant.now()
+
+        val pod = when (podToShow) {
+            is DualPodDevice -> DualPodsCardVH.Item(
+                now = now,
+                device = podToShow,
+                showDebug = isDebugMode,
+                isMainPod = true,
+            )
+            is SinglePodDevice -> SinglePodsCardVH.Item(
+                now = now,
+                device = podToShow,
+                showDebug = isDebugMode,
+                isMainPod = true,
+            )
+            else -> MissingMainDeviceVH.Item
+        }
+        items.add(pod)
 
         items
     }

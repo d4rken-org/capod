@@ -49,8 +49,9 @@ class PodDeviceCache @Inject constructor(
     }
 
     suspend fun loadMainDevice(): BleScanResult? = withContext(dispatcherProvider.IO) {
-        log(TAG) { "loadMainDevice()" }
+        log(TAG, VERBOSE) { "loadMainDevice()" }
         lock.withLock {
+            if (!mainDeviceCacheFile.exists()) return@withLock null
             try {
                 val raw = mainDeviceCacheFile.readText()
                 jsonAdapter.fromJson(raw)
