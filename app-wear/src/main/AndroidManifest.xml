@@ -54,23 +54,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".wear.core.CAPodTileService"
-            android:description="@string/wear_service_description"
-            android:exported="true"
-            android:icon="@drawable/common_full_open_on_phone"
-            android:label="@string/wear_service_label"
-            android:permission="com.google.android.wearable.permission.BIND_TILE_PROVIDER">
-
-            <intent-filter>
-                <action android:name="androidx.wear.tiles.action.BIND_TILE_PROVIDER" />
-            </intent-filter>
-
-            <!-- The tile preview shown when configuring tiles on your phone -->
-            <meta-data
-                android:name="androidx.wear.tiles.PREVIEW"
-                android:resource="@layout/wear_tile_preview" />
-        </service>
     </application>
 
 </manifest>

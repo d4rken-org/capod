@@ -1,10 +1,7 @@
 package eu.darken.capod.wear.ui.overview.cards
 
-import android.text.Html
-import android.text.method.LinkMovementMethod
 import android.view.ViewGroup
 import eu.darken.capod.R
-import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.common.permissions.Permission
@@ -28,12 +25,6 @@ class PermissionCardVH(parent: ViewGroup) :
         permissionLabel.setText(item.permission.labelRes)
         permissionDescription.setText(item.permission.descriptionRes)
         grantAction.setOnClickListener { item.onRequest(item.permission) }
-        privacyPolicy.apply {
-            movementMethod = LinkMovementMethod.getInstance()
-            val ppText = getString(R.string.settings_privacy_policy_label)
-            val ppLink = PrivacyPolicy.URL
-            text = Html.fromHtml("<html><a href=\"$ppLink\">$ppText</a></html>", 0)
-        }
     }
 
     data class Item(

@@ -1,4 +1,3 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="wear_service_label">CAPod for WearOS</string>
-    <string name="wear_service_description">Details about AirPods</string>
+
 </resources>
