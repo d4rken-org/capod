@@ -6,10 +6,12 @@ import androidx.core.util.forEach
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import kotlinx.parcelize.Parcelize
+import java.time.Instant
 
 @Parcelize
 @JsonClass(generateAdapter = true)
 data class BleScanResult(
+    @Json(name = "receivedAt") val receivedAt: Instant,
     @Json(name = "address") val address: String,
     @Json(name = "rssi") val rssi: Int,
     @Json(name = "generatedAtNanos") val generatedAtNanos: Long,
@@ -28,6 +30,7 @@ data class BleScanResult(
 
     companion object {
         fun fromScanResult(scanResult: ScanResult) = BleScanResult(
+            receivedAt = Instant.now(),
             address = scanResult.device.address,
             rssi = scanResult.rssi,
             generatedAtNanos = scanResult.timestampNanos,
