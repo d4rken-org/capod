@@ -4,7 +4,6 @@ import android.bluetooth.le.ScanFilter
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
-import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -14,6 +13,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
@@ -36,14 +36,103 @@ class PodMonitor @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
     private val podDeviceCache: PodDeviceCache,
+    private val permissionTool: PermissionTool,
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
     private val cacheLock = Mutex()
 
-    private suspend fun List<BleScanResult>.preFilterAndMap(
-        scannerMode: ScannerMode
-    ): List<PodFactory.Result> = this
+    val devices: Flow<List<PodDevice>> = combine(
+        permissionTool.missingPermissions,
+        bluetoothManager.isBluetoothEnabled
+    ) { missingPermissions, isBluetoothEnabled ->
+        log(TAG) { "devices: missingPermissions=$missingPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
+        // We just want to retrigger if permissions change.
+        isBluetoothEnabled
+    }
+        .flatMapLatest { isReady ->
+            if (!isReady) {
+                log(TAG, WARN) { "Bluetooth is not ready" }
+                flowOf(null)
+            } else {
+                createBleScanner()
+            }
+        }
+        .map { newPods ->
+            val pods = processWithCache(newPods)
+
+            val presorted = sortPodsToInterest(pods.values)
+            val main = determineMainDevice(presorted)
+            newPods?.firstOrNull { it.device.identifier == main?.identifier }?.let {
+                podDeviceCache.saveMainDevice(it.scanResult)
+            }
+
+            presorted.sortedByDescending { it == main }
+        }
+        .retryWhen { cause, attempt ->
+            log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
+            delay(3000)
+            true
+        }
+        .onStart { emit(emptyList()) }
+        .replayingShare(appScope)
+
+    val mainDevice: Flow<PodDevice?> = devices
+        .map { determineMainDevice(it) }
+        .replayingShare(appScope)
+
+    private fun createBleScanner() = combine(
+        generalSettings.scannerMode.flow,
+        generalSettings.compatibilityMode.flow,
+        debugSettings.showUnfiltered.flow
+    ) { scannerMode, compatMode, unfiltered ->
+        Triple(scannerMode, compatMode, unfiltered)
+    }
+        .flatMapLatest { (mode, compat, unfiltered) ->
+            val filters = when {
+                unfiltered -> {
+                    log(TAG, WARN) { "Using unfiltered scan mode" }
+                    setOf(getUnfilteredFilter())
+                }
+                else -> ProximityPairing.getBleScanFilter()
+            }
+
+            bleScanner.scan(
+                filters = filters,
+                scannerMode = mode,
+                compatMode = compat,
+            ).map { preFilterAndMap(it) }
+        }
+
+    private suspend fun processWithCache(
+        newPods: List<PodFactory.Result>?
+    ): Map<PodDevice.Id, PodDevice> = cacheLock.withLock {
+        if (newPods == null) {
+            log(TAG) { "Null result, Bluetooth is disabled." }
+            deviceCache.clear()
+            return emptyMap()
+        }
+
+        val now = Instant.now()
+        deviceCache.toList().forEach { (key, value) ->
+            if (Duration.between(value.seenLastAt, now) > Duration.ofSeconds(20)) {
+                log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
+                deviceCache.remove(key)
+            }
+        }
+
+        val pods = mutableMapOf<PodDevice.Id, PodDevice>()
+
+        pods.putAll(deviceCache)
+
+        newPods.map { it.device }.forEach {
+            deviceCache[it.identifier] = it
+            pods[it.identifier] = it
+        }
+        return pods
+    }
+
+    private suspend fun preFilterAndMap(rawResults: List<BleScanResult>): List<PodFactory.Result> = rawResults
         .groupBy { it.address }
         .values
         .map { sameAdrDevs ->
@@ -56,115 +145,36 @@ class PodMonitor @Inject constructor(
         }
         .mapNotNull { podFactory.createPod(it) }
 
-    val devices: Flow<List<PodDevice>> = bluetoothManager.isBluetoothEnabled
-        .flatMapLatest { isBluetoothEnabled ->
-            if (isBluetoothEnabled) {
-                log(TAG) { "Bluetooth is enabled" }
-                combine(
-                    generalSettings.scannerMode.flow,
-                    generalSettings.compatibilityMode.flow,
-                    debugSettings.showUnfiltered.flow
-                ) { scannerMode, compatMode, unfiltered ->
-                    Triple(scannerMode, compatMode, unfiltered)
-                }.flatMapLatest { (mode, compat, unfiltered) ->
-                    log(TAG, VERBOSE) { "Starting BLEScanner mode=$mode, compat=$compat, unfiltered=$unfiltered" }
-                    val filters = if (unfiltered) {
-                        setOf(getUnfilteredFilter())
-                    } else {
-                        ProximityPairing.getBleScanFilter()
-                    }
-                    bleScanner.scan(
-                        filters = filters,
-                        scannerMode = mode,
-                        compatMode = compat,
-                    ).map { it.preFilterAndMap(mode) }
-                }
-            } else {
-                log(TAG, WARN) { "Bluetooth is currently disabled" }
-                flowOf(null)
-            }
-        }
-        .map { newPods ->
-            val pods = mutableMapOf<PodDevice.Id, PodDevice>()
-
-            cacheLock.withLock {
-                if (newPods == null) {
-                    log(TAG) { "Null result, Bluetooth is disabled." }
-                    deviceCache.clear()
-                    return@map emptyList()
-                }
-
-                val now = Instant.now()
-                deviceCache.toList().forEach { (key, value) ->
-                    if (Duration.between(value.seenLastAt, now) > Duration.ofSeconds(20)) {
-                        log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
-                        deviceCache.remove(key)
-                    }
-                }
-
-                pods.putAll(deviceCache)
-
-                newPods.map { it.device }.forEach {
-                    deviceCache[it.identifier] = it
-                    pods[it.identifier] = it
-                }
-            }
-
-            val presorted = pods.values.sortPodsToInterest()
-            val main = presorted.determineMainDevice()
-            newPods?.firstOrNull { it.device.identifier == main?.identifier }?.let {
-                podDeviceCache.saveMainDevice(it.scanResult)
-            }
-
-            presorted.sortedByDescending { it == main }
-        }
-        .onStart { emit(emptyList()) }
-        .retryWhen { cause, attempt ->
-            log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
-            delay(3000)
-            true
-        }
-        .replayingShare(appScope)
-
-    val mainDevice: Flow<PodDevice?>
-        get() = devices
-            .map { it.determineMainDevice() }
-            .replayingShare(appScope)
-
-    private fun Collection<PodDevice>.sortPodsToInterest(): List<PodDevice> = this.let { devices ->
+    private fun sortPodsToInterest(pods: Collection<PodDevice>): List<PodDevice> {
         val now = Instant.now()
 
-        return@let devices.sortedWith(
+        return pods.sortedWith(
             compareByDescending<PodDevice> { true }
                 .thenBy {
                     val age = Duration.between(it.seenLastAt, now).seconds
-                    if (age < 5) 0L else (age / 3L).toLong()
+                    if (age < 5) 0L else (age / 3L)
                 }
                 .thenByDescending { it.signalQuality }
                 .thenByDescending { (it.seenCounter / 10) }
-
         )
     }
 
-    private fun List<PodDevice>.determineMainDevice(): PodDevice? = this
-        .sortPodsToInterest()
-        .let { devices ->
-            val mainDeviceModel = generalSettings.mainDeviceModel.value
+    private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
+        val mainDeviceModel = generalSettings.mainDeviceModel.value
 
-            val presorted = devices.sortedByDescending {
-                it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN
-            }
-
-            return@let presorted.firstOrNull()?.let { candidate ->
-                when {
-                    candidate.model == PodDevice.Model.UNKNOWN -> null
-                    mainDeviceModel != PodDevice.Model.UNKNOWN && candidate.model != mainDeviceModel -> null
-                    candidate.signalQuality <= generalSettings.minimumSignalQuality.value -> null
-                    else -> candidate
-                }
-            }
+        val presorted = sortPodsToInterest(pods).sortedByDescending {
+            it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN
         }
 
+        return presorted.firstOrNull()?.let { candidate ->
+            when {
+                candidate.model == PodDevice.Model.UNKNOWN -> null
+                mainDeviceModel != PodDevice.Model.UNKNOWN && candidate.model != mainDeviceModel -> null
+                candidate.signalQuality <= generalSettings.minimumSignalQuality.value -> null
+                else -> candidate
+            }
+        }
+    }
 
     private fun getUnfilteredFilter(): ScanFilter {
         return ScanFilter.Builder().build()
