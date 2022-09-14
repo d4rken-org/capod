@@ -3,10 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="eu.darken.androidstarter.main.ui.MainActivity">
     <item
+        android:id="@+id/menu_item_sponsor"
+        android:icon="@drawable/ic_heart"
+        android:orderInCategory="100"
+        android:title="Sponsor development"
+        android:tooltipText="Sponsor development"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/menu_item_twitter"
         android:icon="@drawable/ic_twitter"
         android:orderInCategory="100"
-        android:tooltipText="Twitter"
         android:title="Twitter"
+        android:tooltipText="Twitter"
         app:showAsAction="always" />
 </menu>

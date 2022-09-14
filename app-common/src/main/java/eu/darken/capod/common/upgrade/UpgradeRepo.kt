@@ -9,6 +9,8 @@ interface UpgradeRepo {
 
     fun launchBillingFlow(activity: Activity)
 
+    fun getSponsorUrl(): String? = null
+
     interface Info {
         val type: Type
 

@@ -68,4 +68,6 @@ class UpgradeControlFoss @Inject constructor(
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
     }
 
+    override fun getSponsorUrl(): String? = "https://github.com/sponsors/d4rken"
+
 }
