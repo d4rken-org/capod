@@ -38,7 +38,7 @@ class DualPodsCardVH(parent: ViewGroup) :
         }
         deviceIcon.setImageResource(device.iconRes)
 
-        lastSeen.text = context.getString(R.string.last_seen_x, "\n" + device.lastSeenFormatted(item.now))
+        lastSeen.text = device.lastSeenFormatted(item.now)
 
         // Pods battery state
         device.apply {
