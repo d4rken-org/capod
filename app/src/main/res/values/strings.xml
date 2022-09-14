@@ -1,0 +1,143 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_share_action">Share</string>
+    <string name="general_done_action">Done</string>
+    <string name="general_copy_action">Copy</string>
+    <string name="general_thank_you_label">Thank you</string>
+    <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_check_action">Check</string>
+    <string name="general_close_action">Close</string>
+
+    <string name="upgrade_capod_label">Upgrade CAPod</string>
+    <string name="upgrade_capod_description">Get additional features and support the developer.</string>
+
+    <string name="overview_nomaindevice_label">No primary device</string>
+    <string name="overview_nomaindevice_description">All detected devices are unlikely to be yours. Power on and connect your device or adjust the settings.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
+    <string name="permission_bluetooth_connect_description">This app requires the \"Bluetooth connect\" permission to interact with paired devices and initiate connections.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth scanning</string>
+    <string name="permission_bluetooth_scan_description">The \"Bluetooth scanning\" permission allows this app to discover and receive Bluetooth data from nearby devices such as your AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">This app requires the \"Bluetooth\" permission to connect to paired bluetooth devices.</string>
+    <string name="permission_access_fine_location_label">Access fine location</string>
+    <string name="permission_access_fine_location_description">CAPod uses the \"fine location\" permission to receive Bluetooth Low Energy data. Your headphones use Bluetooth Low Energy technology to broadcast their status. This app will NOT use Bluetooth data to determine your location.</string>
+    <string name="permission_background_location_label">Background location access</string>
+    <string name="permission_background_location_description">CAPod uses \"background location access\" to enable features like \"Show popup\" and \"AutoConnect\" while the app is closed. Background location access allows the app to receive Bluetooth Low Energy data while it is in the background. This app will NOT use Bluetooth data to determine your location.</string>
+    <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
+    <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app from reliably receiving Bluetooth data while the app is in the background.</string>
+    <string name="permission_required_title">The following permission is required:</string>
+    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
+
+    <string name="settings_monitor_mode_label">Monitor mode</string>
+    <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>
+    <string name="settings_scanner_mode_label">Scanner mode</string>
+    <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy data scanner prioritize performance or conserve energy?</string>
+    <string name="settings_autopause_label">Auto pause</string>
+    <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
+    <string name="settings_showall_label">Show all devices</string>
+    <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
+    <string name="settings_autopplay_label">Auto play</string>
+    <string name="settings_autoplay_description">Start audio playback when device is worn.</string>
+    <string name="settings_fake_data_label">Fake data</string>
+    <string name="settings_fake_data_description">Show fake data, i.e., simulate devices that don\’t exist.</string>
+    <string name="settings_debug_label">Debug settings</string>
+    <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
+    <string name="settings_signal_minimum_label">Minimum signal quality</string>
+    <string name="settings_signal_minimum_description">The minimum signal quality that a device needs to have to be considered yours.</string>
+    <string name="settings_autoconnect_label">Auto connect</string>
+    <string name="settings_autoconnect_description">If Android does not automatically connect, we can ask it too. This will set the monitor mode setting to \'Always\'.</string>
+    <string name="settings_autoconnect_condition_label">Auto connect condition</string>
+    <string name="settings_autoconnect_condition_description">When should we try to connect to your device?</string>
+    <string name="settings_reaction_label">Reactions</string>
+    <string name="settings_reaction_description">React to events and behaviors.</string>
+    <string name="settings_category_yourdevice_label">Your device</string>
+    <string name="settings_maindevice_address_label">Your device address</string>
+    <string name="settings_maindevice_address_description">The address of your paired device. The app uses this to determine when it is connected to your phone.</string>
+    <string name="settings_maindevice_address_none">None</string>
+    <string name="settings_maindevice_model_label">Your device model</string>
+    <string name="settings_maindevice_model_description">The model of your main device. This helps the app recognize your device when it is not connected to your phone.</string>
+    <string name="settings_popup_caseopen_label">Show popup</string>
+    <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
+    <string name="settings_onepod_mode_label">One pod mode</string>
+    <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
+
+    <string name="notification_channel_device_status_label">Device status</string>
+
+    <string name="debug_debuglog_size_label">Size</string>
+    <string name="debug_debuglog_size_compressed_label">Compressed size</string>
+    <string name="debug_notification_channel_label">Debug notifications</string>
+    <string name="debug_debuglog_file_label">Recorded log file</string>
+    <string name="debug_debuglog_record_action">Record debug log</string>
+
+
+    <string name="settings_support_installid_label">Install ID</string>
+    <string name="settings_support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
+    <string name="settings_support_label">Support</string>
+    <string name="settings_support_description">If you need some help.</string>
+
+    <string name="issue_tracker_label">Issue tracker</string>
+    <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests (english only).</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">A place to hang out in and ask questions.</string>
+
+    <string name="changelog_label">Changelog</string>
+    <string name="settings_label">Settings</string>
+    <string name="settings_privacy_policy_label">Privacy policy</string>
+    <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
+    <string name="settings_licenses_label">Licenses</string>
+    <string name="settings_category_other_label">Other</string>
+    <string name="settings_general_label">Settings</string>
+    <string name="settings_general_description">General tweaks that affect the whole app.</string>
+    <string name="settings_acknowledgements_label">Acknowledgements</string>
+
+    <string name="settings_debug_autoreports_label">Automatic bug reports</string>
+    <string name="settings_debug_autoreports_description">Automatically reports issues, e.g. details on an app crash so I can figure out how to fix it.</string>
+    <string name="settings_debug_mode_label">Debug mode</string>
+    <string name="settings_debug_mode_description">Show additional information to troubleshoot issues.</string>
+
+    <string name="settings_blescanner_unfiltered_label">Unfiltered BLE data</string>
+    <string name="settings_blescanner_unfiltered_description">Remove any filters from the BLE scanner to show all broadcasted BLE data. Useful to add support for new headphone types.</string>
+
+    <string name="settings_compatibility_mode_label">Compatibility mode</string>
+    <string name="settings_compatibility_mode_description">Disable optimizations to improve compatibility. Try this if you are not seeing any data.</string>
+
+    <string name="help_translate_label">Translation</string>
+    <string name="help_translate_description">Help translate this app into your favorite language.</string>
+
+    <string name="translators_thanks_title">Translators</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="pods_dual_left_label">Left pod</string>
+    <string name="pods_dual_right_label">Right pod</string>
+    <string name="pods_case_label">Case</string>
+    <string name="pods_case_status_open_label">Open</string>
+    <string name="pods_case_status_closed_label">Closed</string>
+    <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
+    <string name="pods_connection_state_idle_label">Connected to a device, but idle</string>
+    <string name="pods_connection_state_music_label">In music mode</string>
+    <string name="pods_connection_state_call_label">In call mode</string>
+    <string name="pods_connection_state_ringing_label">Ringing</string>
+    <string name="pods_connection_state_hanging_up_label">Hanging up</string>
+    <string name="pods_connection_state_unknown_label">Unknown connection state</string>
+    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_label">Unknown device</string>
+    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :)</string>
+    <string name="pods_none_label_short">No device</string>
+    <string name="pods_charging_label">Charging</string>
+    <string name="pods_inear_label">In ear</string>
+    <string name="pods_microphone_label">Microphone</string>
+    <string name="pods_yours">Yours</string>
+    <string name="headset_being_worn_label">Being worn</string>
+    <string name="pods_case_unknown_state">Unknown state</string>
+
+    <string name="last_seen_x">Last seen: %s</string>
+    <string name="first_seen_x">First seen: %s</string>
+</resources>

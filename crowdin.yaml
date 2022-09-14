@@ -5,7 +5,7 @@
 "files": [
   {
     "source": "/app-common/src/main/res/values/strings.xml",
-    "dest": "/strings.xml",
+    "dest": "/strings-common.xml",
     "translation": "/app-common/src/main/res/values-%android_code%/%original_file_name%",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
@@ -83,9 +83,9 @@
       }
     }
   }, {
-    "source": "/app-common/src/gplay/res/values/strings.xml",
-    "dest": "/strings-gplay.xml",
-    "translation": "/app-common/src/gplay/res/values-%android_code%/strings.xml",
+    "source": "/app/src/gplay/res/values/strings.xml",
+    "dest": "/strings-app-gplay.xml",
+    "translation": "/app/src/gplay/res/values-%android_code%/strings.xml",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
@@ -162,9 +162,9 @@
       }
     }
   }, {
-    "source": "/app-common/src/foss/res/values/strings.xml",
-    "dest": "/strings-foss.xml",
-    "translation": "/app-common/src/foss/res/values-%android_code%/strings.xml",
+    "source": "/app/src/foss/res/values/strings.xml",
+    "dest": "/strings-app-foss.xml",
+    "translation": "/app/src/foss/res/values-%android_code%/strings.xml",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
@@ -242,7 +242,7 @@
     }
   },   {
     "source": "/app/src/main/res/values/strings.xml",
-    "dest": "/strings-phone.xml",
+    "dest": "/strings-app.xml",
     "translation": "/app/src/main/res/values-%android_code%/%original_file_name%",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {

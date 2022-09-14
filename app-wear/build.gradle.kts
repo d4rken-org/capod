@@ -6,7 +6,7 @@ plugins {
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
-//apply(plugin = "com.bugsnag.android.gradle")
+apply(plugin = "com.bugsnag.android.gradle")
 
 android {
     compileSdk = ProjectConfig.compileSdk
@@ -143,6 +143,4 @@ dependencies {
 
     implementation("androidx.wear:wear:1.2.0")
     implementation("androidx.wear.tiles:tiles-material:1.1.0")
-    implementation("com.google.android.horologist:horologist-tiles:0.1.5")
-    implementation("com.google.android.gms:play-services-wearable:17.1.0")
 }

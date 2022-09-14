@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pods_dual_left_label">Vasak klapp</string>
+    <string name="pods_dual_right_label">Parem klapp</string>
+</resources>
