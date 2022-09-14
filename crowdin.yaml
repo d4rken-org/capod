@@ -6,7 +6,7 @@
   {
     "source": "/app-common/src/main/res/values/strings.xml",
     "dest": "/strings-common.xml",
-    "translation": "/app-common/src/main/res/values-%android_code%/%original_file_name%",
+    "translation": "/app-common/src/main/res/values-%android_code%/strings.xml",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
@@ -243,7 +243,7 @@
   },   {
     "source": "/app/src/main/res/values/strings.xml",
     "dest": "/strings-app.xml",
-    "translation": "/app/src/main/res/values-%android_code%/%original_file_name%",
+    "translation": "/app/src/main/res/values-%android_code%/strings.xml",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
@@ -322,7 +322,7 @@
   },   {
     "source": "/app-wear/src/main/res/values/strings.xml",
     "dest": "/strings-wear.xml",
-    "translation": "/app-wear/src/main/res/values-%android_code%/%original_file_name%",
+    "translation": "/app-wear/src/main/res/values-%android_code%/strings.xml",
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
