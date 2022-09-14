@@ -6,7 +6,7 @@ plugins {
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
-apply(plugin = "com.bugsnag.android.gradle")
+//apply(plugin = "com.bugsnag.android.gradle")
 
 android {
     compileSdk = ProjectConfig.compileSdk

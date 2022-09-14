@@ -1,7 +1,5 @@
 package eu.darken.capod.common
 
-import eu.darken.capod.BuildConfig
-
 
 // Can't be const because that prevents them from being mocked in tests
 @Suppress("MayBeConstant")

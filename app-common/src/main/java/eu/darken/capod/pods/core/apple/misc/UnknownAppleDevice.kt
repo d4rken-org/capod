@@ -1,7 +1,7 @@
 package eu.darken.capod.pods.core.apple.misc
 
 import android.content.Context
-import eu.darken.capod.R
+import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice

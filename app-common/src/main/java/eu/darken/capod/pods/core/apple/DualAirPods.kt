@@ -2,7 +2,7 @@ package eu.darken.capod.pods.core.apple
 
 import android.content.Context
 import androidx.annotation.StringRes
-import eu.darken.capod.R
+import eu.darken.capod.common.R
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble

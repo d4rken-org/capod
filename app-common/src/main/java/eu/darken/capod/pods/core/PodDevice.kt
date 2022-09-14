@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.annotation.DrawableRes
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import eu.darken.capod.R
+import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import java.time.Instant
 import java.util.*
