@@ -1,6 +1,7 @@
 CAPod jest aplikacją pomocniczą dla AirPods.
 
 Funkcje:
+
 * Poziom baterii pod'ów oraz obudowy.
 * Status ładowania pod'ów oraz obudowy.
 * Dodatkowe informacje nt. połączenia, mikrofonu oraz obudowy.

@@ -1,6 +1,7 @@
 CAPod ialah apl pendamping untuk AirPods.
 
 Ciri-ciri:
+
 * Paras bateri untuk pods dan sarung.
 * Status pengecasan untuk pod dan sarung.
 * Maklumat tambahan tentang sambungan, mikrofon dan sarung.

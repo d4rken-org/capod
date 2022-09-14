@@ -1,6 +1,7 @@
 O CAPod é um aplicativo complementar para AirPods.
 
 Recursos:
+
 * Nível de bateria para airpods e estojos.
 * Status de carregamento para airpods e estojo.
 * Informações adicionais sobre conexão, microfone e estojo.

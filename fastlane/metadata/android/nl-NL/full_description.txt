@@ -1,6 +1,7 @@
 CAPod is een begeleidende app voor AirPods.
 
 Functies:
+
 * Batterijniveau voor pods & cases.
 * Oplaadstatus voor pods & case.
 * Extra info over aansluiting, microfoon & case.

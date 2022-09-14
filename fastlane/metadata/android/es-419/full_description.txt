@@ -1,6 +1,7 @@
 CAPod es una aplicación complementaria para AirPods.
 
 Características:
+
 * Nivel de batería para auriculares y estuches.
 * Estado de carga para auriculares y estuche.
 * Información adicional sobre conexión, micrófono y estuche.
