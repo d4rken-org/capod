@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="general_done_action">সম্পন্ন</string>
+    <string name="general_thank_you_label">ধন্যবাদ</string>
+    <string name="general_grant_permission_action">অনুমতি প্রদান করুন</string>
+    <string name="general_upgrade_action">আপগ্রেড</string>
+    <string name="debug_debuglog_size_label">আকার</string>
+    <string name="settings_general_label">সেটিংস</string>
+</resources>

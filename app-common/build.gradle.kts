@@ -5,6 +5,7 @@ plugins {
     id("kotlin-parcelize")
 }
 apply(plugin = "dagger.hilt.android.plugin")
+apply(plugin = "com.bugsnag.android.gradle")
 
 android {
     compileSdk = ProjectConfig.compileSdk
