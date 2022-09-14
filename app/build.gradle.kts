@@ -18,7 +18,7 @@ android {
         minSdk = ProjectConfig.minSdk
         targetSdk = ProjectConfig.targetSdk
 
-        versionCode = ProjectConfig.Version.code
+        versionCode = ProjectConfig.Version.code + 0 // Base app
         versionName = ProjectConfig.Version.name
 
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
