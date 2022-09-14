@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="notification_channel_device_status_label">उपकरण की स्थिति</string>
-    <string name="general_error_label">त्रुटि</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">साझा करना</string>
     <string name="general_done_action">पूर्ण</string>
     <string name="general_copy_action">प्रतिलिपि</string>
     <string name="general_thank_you_label">शुक्रिया</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="notification_channel_device_status_label">उपकरण की स्थिति</string>
 </resources>

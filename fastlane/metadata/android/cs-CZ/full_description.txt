@@ -1,6 +1,7 @@
 CAPod je doprovodná aplikace pro AirPods.
 
 Funkce:
+
 * Úroveň nabití baterie pro sluchátka a pouzdra.
 * Stav nabíjení sluchátek a pouzdra.
 * Další informace o připojení, mikrofonu a pouzdru.

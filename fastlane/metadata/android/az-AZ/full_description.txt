@@ -1,6 +1,7 @@
 CAPod, AirPods-lar üçün köməkçi bir tətbiqdir.
 
 Özəlliklər:
+
 * Qulaqlıq və qutusu üçün batereya səviyyəsi.
 * Qulaqlıq və qutusu üçün enerji yığma vəziyyəti.
 * Bağlantı, mikrofon və qutu haqqında əlavə məlumatlar.

@@ -1,6 +1,7 @@
 CAPod adalah aplikasi pendamping untuk AirPods.
 
 Fitur:
+
 * Tingkat baterai untuk pod dan kasing.
 * Status pengisian daya untuk pod dan kasing.
 * Info tambahan tentang koneksi, mikrofon, dan kasing.

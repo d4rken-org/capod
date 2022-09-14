@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="notification_channel_device_status_label">Estado del dispositivo</string>
-    <string name="general_error_label">Error</string>
-    <string name="general_share_action">Compartir</string>
-    <string name="general_done_action">Hecho</string>
-    <string name="general_copy_action">Copiar</string>
-    <string name="general_thank_you_label">Gracias</string>
-    <string name="general_value_not_available_label">N/A</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_grant_permission_action">Conceder permiso</string>
-    <string name="general_upgrade_action">Mejorar</string>
-    <string name="general_check_action">Verificar</string>
-    <string name="general_close_action">Cerrar</string>
-    <string name="debug_debuglog_size_label">Tamaño</string>
-    <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
-    <string name="debug_notification_channel_label">Depurar notificaciones</string>
-    <string name="debug_debuglog_file_label">Archivo de registro guardado</string>
-    <string name="debug_debuglog_record_action">Grabar registro de depuracion</string>
     <string name="permission_bluetooth_connect_label">Conexión Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Esta aplicacion requiere el permiso \"Conexión Bluetooth\" para interactuar con los dispositivos vinculados e iniciar las conexiones.</string>
     <string name="permission_bluetooth_scan_label">Escaneo Bluetooth</string>
     <string name="permission_bluetooth_scan_description">El permiso \"Escaneo Bluetooth\" permite que esta aplicación descubra y reciba datos de Bluetooth de dispositivos cercanos como tus AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Esta aplicacion requiere el permiso \"Bluetooth\" para conectarse a los dispositivos vinculados.</string>
     <string name="permission_access_fine_location_label">Acceso a la ubicación precisa</string>
     <string name="permission_access_fine_location_description">CAPod utiliza el permiso de \"ubicación precisa\" para recibir Datos de Bluetooth de bajo consumo. Sus auriculares utilizan la tecnología Datos de Bluetooth de bajo consumo para transmitir su estado. Esta aplicación NO utilizará datos de Bluetooth para determinar su ubicación.</string>

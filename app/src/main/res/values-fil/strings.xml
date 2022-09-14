@@ -1,31 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos Na</string>
     <string name="general_copy_action">Kopyahin</string>
     <string name="general_thank_you_label">Salamat sayo</string>
-    <string name="general_value_not_available_label">N/A</string>
-    <string name="general_grant_permission_action">Bigyan ng permiso</string>
     <string name="general_close_action">Sarado</string>
     <string name="debug_debuglog_size_label">Sukat</string>
-    <string name="permission_bluetooth_connect_description">Ang app na ito ay kailangan ng \"Bluetooth connect\" permission para makipag interact sa mga na-paired na devices at maka gawa ng connection.</string>
-    <string name="permission_bluetooth_scan_description">Ang \"Bluetooth scanning\" permission ay pag na ibigay, itong app na ito ay puwedeng mag diskubre o maka receive ng data galing sa isang malapit na Bluetooth devices tulad ng iyong AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Ang app na ito ay kailangan ng \"Bluetooth\" permission upang maka connect sa naka-paired na bluetooth device.</string>
-    <string name="permission_access_fine_location_description">Ang CAPod app ay gumagamit ng \"Fine location\" permission para maka receiveng Bluetooth Low Energy Data. Iyong headphones ay gumagamit ng Bluetooth Low Energy technology pa ma-broadcaast ang kanilang Status. Itong app na ito ay HINDI gagamitin ang Bluetooth data para malaman ang iyong lokasyon.</string>
-    <string name="pods_dual_left_label">Kaliwang pod</string>
-    <string name="pods_dual_right_label">Kanan na pod</string>
-    <string name="pods_case_status_open_label">Buksan</string>
-    <string name="pods_case_status_closed_label">Sarado</string>
-    <string name="pods_connection_state_disconnected_label">Hindi Konektado sa device</string>
-    <string name="pods_unknown_contact_dev">Ito ay hindi kilalang Device, pero ginagamit ang kilalang message format. lagyan nating ng support para diyan, contact mo ko :)</string>
-    <string name="pods_yours">Sayo</string>
-    <string name="headset_being_worn_label">Ginagamit</string>
-    <string name="pods_case_unknown_state">Hindi alam ang stado</string>
-    <string name="overview_nomaindevice_description">Lahat ng mga device ay malabong saiyo. I-power on at i-connect ang device mo o i-adjust ang settings.</string>
     <string name="settings_licenses_label">Lisensiya</string>
     <string name="settings_category_other_label">Iba</string>
 </resources>

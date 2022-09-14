@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod المميز</string>
-    <string name="app_name_foss">CAPod حر ومفتوح المصدر</string>
-    <string name="notification_channel_device_status_label">حالة الجهاز</string>
-    <string name="general_error_label">خطأ</string>
-    <string name="general_share_action">مشاركة</string>
-    <string name="general_done_action">تم</string>
-    <string name="general_copy_action">نسخ</string>
-    <string name="general_thank_you_label">شكراً لك</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_value_not_available_label">غير متوفر</string>
+    <string name="general_error_label">خطأ</string>
     <string name="general_grant_permission_action">منح الإذن</string>
-    <string name="general_upgrade_action">ترقية</string>
-    <string name="general_check_action">فحص</string>
-    <string name="general_close_action">إغلاق</string>
-    <string name="debug_debuglog_size_label">الحجم</string>
-    <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
-    <string name="debug_notification_channel_label">اشعارات التصحيح</string>
-    <string name="debug_debuglog_file_label">ملف مسجل</string>
-    <string name="debug_debuglog_record_action">ملف التصحيح مسجل</string>
     <string name="permission_bluetooth_connect_label">اتصال بلوتوث</string>
     <string name="permission_bluetooth_connect_description">يتطلب هذا التطبيق إذن \"إتصال بلوتوث\" للتفاعل مع الأجهزة المقترنة وبدء الاتصالات.</string>
     <string name="permission_bluetooth_scan_label">البحث عن بلوتوث</string>

@@ -1,6 +1,7 @@
 CAPod ist ein Helfer für AirPods auf Android.
 
 Funktionen:
+
 * Akkustand für Ohrhörer & Gehäuse.
 * Ladezustand von Ohrhörer und Ladecase.
 *Zusätzliche Infos zu Anschluss, Mikrofon und Gehäuse.

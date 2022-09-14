@@ -1,6 +1,7 @@
 CAPod est une appli d’accompagnement pour les AirPods.
 
 Caractéristiques :
+
 * Niveau de chargement des piles des AirPods et des étuis.
 * État de chargement des AirPods et de l’étui.
 * Renseignements supplémentaires sur la connexion, le microphone et l’étui.

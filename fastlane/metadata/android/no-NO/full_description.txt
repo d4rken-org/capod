@@ -1,6 +1,7 @@
 CAPod er en følgesvenn for AirPods.
 
 Funksjoner:
+
 * Batterinivå for pods og deksel.
 * Ladestatus for pods og deksel.
 * Ytterlig informasjon om tilkobling, mikrofon og deksel.

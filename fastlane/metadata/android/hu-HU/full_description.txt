@@ -1,6 +1,7 @@
 A CAPod az AirPods kísérőalkalmazása.
 
 Jellemzők:
+
 * Akkumulátor töltöttségi szintje fejhallgatókhoz és tokokhoz.
 * A fejhallgatók és a tok töltöttségi állapota.
 * További információk a csatlakozásról, a mikrofonról és a tokról.
