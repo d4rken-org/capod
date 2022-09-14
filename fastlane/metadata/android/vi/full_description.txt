@@ -1,6 +1,7 @@
 CAPod là một ứng dụng đồng hành dành cho AirPods.
 
 Tính năng:
+
 * Mức pin cho tai nghe và hộp đựng.
 * Trạng thái sạc cho tai nghe và hộp đựng.
 * Thông tin bổ sung về kết nối, micrô và hộp đựng.
