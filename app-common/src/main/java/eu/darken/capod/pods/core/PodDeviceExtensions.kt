@@ -3,7 +3,7 @@ package eu.darken.capod.pods.core
 import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import androidx.annotation.DrawableRes
-import eu.darken.capod.R
+import eu.darken.capod.common.R
 import java.time.Duration
 import java.time.Instant
 import kotlin.math.roundToInt

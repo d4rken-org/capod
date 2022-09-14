@@ -118,5 +118,8 @@ fun getBugSnagApiKey(
         propertiesPath?.takeIf { it.canRead() }?.let { load(FileInputStream(it)) }
     }
 
-    return System.getenv("BUGSNAG_API_KEY") ?: bugsnagProps.getProperty("bugsnag.apikey")
+    val key = System.getenv("BUGSNAG_API_KEY") ?: bugsnagProps.getProperty("bugsnag.apikey")
+
+    println("Using key = $key")
+    return key
 }
