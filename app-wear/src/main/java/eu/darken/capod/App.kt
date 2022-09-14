@@ -6,7 +6,6 @@ import androidx.work.*
 import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.BuildConfigWrap
-import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.AutoReporting
 import eu.darken.capod.common.debug.logging.*
@@ -33,10 +32,6 @@ open class App : Application(), Configuration.Provider {
         ReLinker
             .log { message -> log(TAG) { "ReLinker: $message" } }
             .loadLibrary(this, "bugsnag-plugin-android-anr")
-
-        generalSettings.apply {
-            scannerMode.value = ScannerMode.BALANCED
-        }
 
         autoReporting.setup()
 
