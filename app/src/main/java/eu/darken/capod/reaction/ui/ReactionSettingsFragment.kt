@@ -93,7 +93,7 @@ class ReactionSettingsFragment : PreferenceFragment2() {
             autoConnectConditionPref.isEnabled = it
         }
 
-        vm.isPro.observe2 { isPro = true }
+        vm.isPro.observe2 { isPro = it }
 
         super.onViewCreated(view, savedInstanceState)
     }
