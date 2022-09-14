@@ -1,6 +1,7 @@
 CAPod, AirPods için yardımcı bir uygulamadır.
 
 Özellikler:
+
 * Bölmeler ve kılıflar için pil seviyesi.
 * Bölmeler ve kılıf için şarj durumu.
 * Bağlantı, mikrofon ve kılıf hakkında ek bilgiler.
