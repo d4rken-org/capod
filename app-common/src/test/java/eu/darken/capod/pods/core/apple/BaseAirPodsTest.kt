@@ -10,6 +10,7 @@ import io.mockk.every
 import io.mockk.mockkObject
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
+import java.time.Instant
 import javax.inject.Singleton
 
 abstract class BaseAirPodsTest : BaseTest() {
@@ -26,6 +27,7 @@ abstract class BaseAirPodsTest : BaseTest() {
     }
 
     private val baseBleScanResult = BleScanResult(
+        receivedAt = Instant.now(),
         address = "77:49:4C:D8:25:0C",
         rssi = -66,
         generatedAtNanos = 136136027721826,
