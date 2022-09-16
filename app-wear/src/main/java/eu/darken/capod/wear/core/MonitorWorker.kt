@@ -86,12 +86,12 @@ class MonitorWorker @AssistedInject constructor(
 
         val monitorJob = podMonitor.mainDevice
             .filterNotNull()
-            .take(5)
+            .take(3)
             .setupCommonEventHandlers(TAG) { "monitorJob" }
             .launchIn(workerScope)
 
         try {
-            withTimeout(60 * 1000) {
+            withTimeout(15 * 1000) {
                 monitorJob.join()
             }
             log(TAG) { "Monitor job quit after a few takes." }
