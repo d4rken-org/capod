@@ -16,8 +16,8 @@ object ProjectConfig {
     object Version {
         const val major = 2
         const val minor = 1
-        const val patch = 0
-        const val build = 1
+        const val patch = 1
+        const val build = 0
 
         const val name = "${major}.${minor}.${patch}-rc${build}"
         const val code = major * 10000000 + minor * 100000 + patch * 1000 + build * 10
