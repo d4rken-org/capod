@@ -3,6 +3,7 @@ package eu.darken.capod.main.ui.overview.cards
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import eu.darken.capod.R
 import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.lists.binding
@@ -33,6 +34,12 @@ class PermissionCardVH(parent: ViewGroup) :
             val ppText = getString(R.string.settings_privacy_policy_label)
             val ppLink = PrivacyPolicy.URL
             text = Html.fromHtml("<html><a href=\"$ppLink\">$ppText</a></html>", 0)
+            val ppp = setOf(
+                Permission.ACCESS_FINE_LOCATION,
+                Permission.ACCESS_BACKGROUND_LOCATION,
+                Permission.BLUETOOTH_SCAN
+            )
+            isGone = !ppp.contains(item.permission)
         }
     }
 

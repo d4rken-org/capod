@@ -71,7 +71,13 @@ enum class Permission(
         isGranted = {
             android.provider.Settings.canDrawOverlays(it)
         },
-    )
+    ),
+    POST_NOTIFICATIONS(
+        minApiLevel = Build.VERSION_CODES.S,
+        labelRes = R.string.permission_post_notifications_label,
+        descriptionRes = R.string.permission_post_notifications_description,
+        permissionId = "android.permission.POST_NOTIFICATIONS",
+    ),
 }
 
 fun Permission.isRequired(context: Context): Boolean = when {
