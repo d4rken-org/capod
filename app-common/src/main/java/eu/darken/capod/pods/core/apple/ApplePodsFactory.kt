@@ -83,7 +83,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         if (definitive.contains(basic.caseLidState)) return null
 
         return history
-            .filterIsInstance<AirPodsPro>()
+            .filterIsInstance<AirPodsPro>() // TODO why is this AirPodsPro specific here?
             .lastOrNull { it.caseLidState != DualAirPods.LidState.NOT_IN_CASE }
             ?.caseLidState
     }

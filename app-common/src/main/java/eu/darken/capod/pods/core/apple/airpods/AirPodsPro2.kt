@@ -11,7 +11,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
 
-data class AirPodsPro(
+data class AirPodsPro2(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
@@ -24,7 +24,7 @@ data class AirPodsPro(
     private val cachedCaseState: LidState? = null
 ) : DualAirPods {
 
-    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_PRO
+    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_PRO2
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
@@ -42,7 +42,7 @@ data class AirPodsPro(
         }
 
         override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
-            var basic = AirPodsPro(scanResult = scanResult, proximityMessage = message)
+            var basic = AirPodsPro2(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -65,7 +65,7 @@ data class AirPodsPro(
     }
 
     companion object {
-        private val DEVICE_CODE = 0x0e20.toUShort()
-        private val TAG = logTag("PodDevice", "Apple", "AirPods", "Pro")
+        private val DEVICE_CODE = 0x1120.toUShort()
+        private val TAG = logTag("PodDevice", "Apple", "AirPods", "Pro2")
     }
 }

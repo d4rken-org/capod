@@ -19,6 +19,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun airPodsGen3(factory: AirPodsGen3.Factory): ApplePodsFactory<out ApplePods>
 
     @Binds @IntoSet abstract fun airPodsPro(factory: AirPodsPro.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet abstract fun airPodsPro2(factory: AirPodsPro2.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsMax(factory: AirPodsMax.Factory): ApplePodsFactory<out ApplePods>
 
     @Binds @IntoSet abstract fun beatsFlex(factory: BeatsFlex.Factory): ApplePodsFactory<out ApplePods>
