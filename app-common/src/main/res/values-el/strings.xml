@@ -11,6 +11,7 @@
     <string name="permission_bluetooth_connect_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Σύνδεση Bluetooth\" για να αλληλεπιδρά με αντιστοιχισμένες συσκευές και να ξεκινά συνδέσεις.</string>
     <string name="permission_bluetooth_scan_label">Σάρωση Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Η άδεια \"Σάρωση Bluetooth\" επιτρέπει σε αυτήν την εφαρμογή να εντοπίζει και να λαμβάνει δεδομένα Bluetooth από κοντινές συσκευές, όπως τα AirPods σας.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Bluetooth\" για να συνδέεται σε αντιστοιχισμένες συσκευές Bluetooth.</string>
     <string name="permission_access_fine_location_label">Πρόσβαση ακριβούς τοποθεσίας</string>
     <string name="permission_access_fine_location_description">Το CAPod χρησιμοποιεί την άδεια \"Ακριβής τοποθεσία\" για να λαμβάνει δεδομένα χαμηλής ενέργειας Bluetooth. Τα ακουστικά σας χρησιμοποιούν τεχνολογία χαμηλής ενέργειας Bluetooth για να μεταδίδουν την κατάστασή τους. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιεί δεδομένα Bluetooth για να προσδιορίσει την τοποθεσία σας.</string>

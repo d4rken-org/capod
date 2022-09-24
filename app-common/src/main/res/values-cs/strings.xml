@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Chyba</string>
     <string name="general_grant_permission_action">Udělit oprávnění</string>
     <string name="overview_nomaindevice_label">Žádné hlavní zařízení</string>
@@ -10,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Tato aplikace vyžaduje oprávnění „připojení Bluetooth“ pro interakci se spárovanými zařízeními a zahájení připojení.</string>
     <string name="permission_bluetooth_scan_label">Skenování Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Oprávnění „Skenování Bluetooth“ umožňuje této aplikaci zjišťovat a přijímat data z okolních Bluetooth zařízení, jako jsou například sluchátka AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Tato aplikace vyžaduje oprávněni k „Bluetooth“ pro připojení ke spárovaným zařízením Bluetooth.</string>
     <string name="permission_access_fine_location_label">Přístup k přesné poloze</string>
     <string name="permission_access_fine_location_description">CAPod používá pro příjem dat Bluetooth Low Energy oprávnění k „přesné poloze“. Sluchátka používají k vysílání svého stavu technologii Bluetooth Low Energy. Tato aplikace NEPOUŽÍVÁ data Bluetooth k určování vaší polohy.</string>
@@ -19,7 +24,7 @@
     <string name="permission_ignore_battery_optimizations_description">Optimalizace baterie zabraňuje této aplikaci spolehlivě přijímat data Bluetooth, pokud běží na pozadí.</string>
     <string name="permission_required_title">Je vyžadováno následující oprávnění:</string>
     <string name="permission_system_alert_window_label">Okno systémových upozornění</string>
-    <string name="permission_system_alert_window_description">Aby bylo možné použít unkci „Zobrazit vyskakovací okno“, je nutné umožnot aplikaci CAPod vykreslení přes jiné aplikace.</string>
+    <string name="permission_system_alert_window_description">Aby bylo možné použít unkci „Zobrazit vyskakovací okno“, je nutné umožnit aplikaci CAPod vykreslení přes jiné aplikace.</string>
     <string name="settings_scanner_mode_lowpower_label">Nízký výkon</string>
     <string name="settings_scanner_mode_balanced_label">Vyvážený</string>
     <string name="settings_scanner_mode_lowlatency_label">Nízká latence</string>

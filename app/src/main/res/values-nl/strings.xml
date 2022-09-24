@@ -75,4 +75,5 @@
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help deze app te vertalen in uw favoriete taal.</string>
     <string name="translators_thanks_title">Vertalers</string>
+    <string name="translators_thanks_description">darken</string>
 </resources>

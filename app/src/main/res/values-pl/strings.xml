@@ -12,7 +12,7 @@
     <string name="settings_monitor_mode_label">Tryb monitorowania</string>
     <string name="settings_monitor_mode_description">W pewnych okolicznościach aplikacja może monitorować dane Bluetooth.</string>
     <string name="settings_scanner_mode_label">Tryb skanera</string>
-    <string name="settings_scanner_mode_description">Czy skaner danych Bluetooth Low Energy ma priorytetowo działać w ramach wydajności czy oszczędzania energii?</string>
+    <string name="settings_scanner_mode_description">Czy skaner danych Bluetooth Low Energy ma priorytetowo działać w ramach wydajności, czy oszczędzania energii?</string>
     <string name="settings_autopause_label">Automatyczna pauza</string>
     <string name="settings_autopause_description">Pauzuj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
     <string name="settings_showall_label">Wyświetl wszystkie urządzenia</string>
@@ -53,6 +53,7 @@
     <string name="settings_support_description">Jeśli potrzebujesz pomocy.</string>
     <string name="issue_tracker_label">Śledzenie problemów</string>
     <string name="issue_tracker_description">Publiczna lista problemów, dla raportów błędów oraz próśb o nowe funkcjonalności (tylko po angielsku).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Miejsce do rozmów i zadawania pytań.</string>
     <string name="changelog_label">Lista zmian</string>
     <string name="settings_label">Ustawienia</string>

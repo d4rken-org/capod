@@ -4,8 +4,8 @@
     <string name="general_grant_permission_action">Berikan kebenaran</string>
     <string name="overview_nomaindevice_label">Tiada peranti utama</string>
     <string name="overview_nomaindevice_description">Semua peranti yang dikesan tidak mungkin menjadi milik anda. Hidupkan dan sambung peranti anda atau laraskan tetapan.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth dinyahdayakan</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth dinyahdayakan, dayakan ia ;)</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth dilumpuhkan</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth dilumpuhkan, dayakan ia ;)</string>
     <string name="permission_bluetooth_connect_label">Sambung bluetooth</string>
     <string name="permission_bluetooth_connect_description">Apl ini memerlukan kebenaran \"Bluetooth connect\" untuk berinteraksi dengan pasangan peranti dan memulakan sambungan.</string>
     <string name="permission_bluetooth_scan_label">Pengimbasan bluetooth</string>

@@ -51,7 +51,9 @@
     <string name="settings_support_label">Supporto</string>
     <string name="settings_support_description">Se ti serve un aiuto.</string>
     <string name="issue_tracker_description">Un issue tracker pubblico per segnalare i problemi e le richieste per aggiungere nuove funzionalità (solo in inglese).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un posto dove poter fare domande.</string>
+    <string name="changelog_label">Changelog</string>
     <string name="settings_label">Impostazioni</string>
     <string name="settings_privacy_policy_label">Politica sulla privacy</string>
     <string name="settings_privacy_policy_desc">Gestione dei dati responsabile.</string>
@@ -71,4 +73,5 @@
     <string name="help_translate_label">Traduzione</string>
     <string name="help_translate_description">Aiuta a tradurre l\'applicazione nella tua lingua preferita.</string>
     <string name="translators_thanks_title">Traduttori</string>
+    <string name="translators_thanks_description">darken</string>
 </resources>

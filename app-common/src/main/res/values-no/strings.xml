@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Feil</string>
     <string name="general_grant_permission_action">Gi tillatelse</string>
     <string name="overview_nomaindevice_label">Ingen primær enhet</string>
@@ -10,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Denne appen må ha \"Bluetooth-tilkobling\"-tillatelsen for å kunne snakke med sammenkoblede enheter og starte tilkoblinger.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth-skanning</string>
     <string name="permission_bluetooth_scan_description">\"Bluetooth-skanning\"-tillatelsen lar denne appen oppdage og motta Bluetooth-data fra enheter i nærheten, som for eksempel AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Denne appen må ha \"Bluetooth\"-tillatelsen for å koble til sammenkoblede Bluetooth-enheter.</string>
     <string name="permission_access_fine_location_label">Forbedret posisjonsnøyaktighet</string>
     <string name="permission_access_fine_location_description">CAPod bruker tillatelsen \"Forbedret posisjonsnøyaktighet\" for å motta Bluetooth Low Energy-data. Hodetelefonene dine bruker Bluetooth Low Energy-teknologi for å kringkaste statusen. Denne appen bruker IKKE Bluetooth-data til å se posisjonen din.</string>

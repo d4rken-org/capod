@@ -5,4 +5,5 @@
     <string name="general_copy_action">प्रतिलिपि</string>
     <string name="general_thank_you_label">शुक्रिया</string>
     <string name="notification_channel_device_status_label">उपकरण की स्थिति</string>
+    <string name="settings_support_installid_desc">स्वचालित त्रुटि रिपोर्ट गुमनाम हैं।  यदि डेवलपर को आपकी त्रुटि रिपोर्ट ढूंढ़ने की आवश्यकता हो, तो अपना इंस्टॉल आईडी साझा करें.</string>
 </resources>

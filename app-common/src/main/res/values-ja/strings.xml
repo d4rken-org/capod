@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">該当なし</string>
     <string name="general_error_label">エラー</string>
     <string name="general_grant_permission_action">許可する</string>
@@ -10,16 +13,17 @@
     <string name="permission_bluetooth_connect_label">Bluetooth接続</string>
     <string name="permission_bluetooth_connect_description">このアプリでは、ペアリングされたデバイスとやり取りして接続を開始するには、「Bluetooth接続」の権限が必要です。</string>
     <string name="permission_bluetooth_scan_label">Bluetoothスキャン</string>
-    <string name="permission_bluetooth_scan_description">「Bluetooth スキャン」権限により、このアプリはAirPodsなどの近くのデバイスからBluetoothのデータを検出して受信することができます。</string>
+    <string name="permission_bluetooth_scan_description">「Bluetoothスキャン」権限により、このアプリはAirPodsなどの近くのデバイスからBluetoothのデータを検出して受信することができます。</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">このアプリは、ペアリングされたBluetoothデバイスに接続するために「Bluetooth」権限が必要です。</string>
     <string name="permission_access_fine_location_label">正確な位置情報</string>
     <string name="permission_access_fine_location_description">CAPodは、Bluetooth Low Energyデータを受信するために、「正確な位置情報」権限の許可を使用します。ヘッドホンはBluetooth Low Energyテクノロジーを使用してデバイスの状態を送信します。このアプリは、Bluetoothデータを使用して現在地を特定することはありません。</string>
     <string name="permission_background_location_label">バックグラウンドでの位置情報へのアクセス</string>
     <string name="permission_background_location_description">CAPodは「バックグラウンドでの位置情報へのアクセス」を使用して、アプリが閉じている間に「ポップアップ表示」や「自動接続」などの機能を有効にします。バックグラウンドでの位置情報アクセスにより、アプリはバックグラウンドでBluetooth Low Energyデータを受信できます。このアプリはBluetoothデータを使用して現在地を特定しません。</string>
-    <string name="permission_ignore_battery_optimizations_label">バッテリーの最適化を無効にする</string>
+    <string name="permission_ignore_battery_optimizations_label">バッテリーの最適化を無効</string>
     <string name="permission_ignore_battery_optimizations_description">バッテリーの最適化により、アプリがバックグラウンドにある間、このアプリはBluetoothデータを確実に受信できなくなります。</string>
     <string name="permission_required_title">次の権限の許可が必要です：</string>
-    <string name="permission_system_alert_window_label">他のアプリの上に重ねて表示できるようにする。</string>
+    <string name="permission_system_alert_window_label">他のアプリの上に重ねて表示</string>
     <string name="permission_system_alert_window_description">CAPodが他のアプリの上に描画できるようにして、「ポップアップ表示」機能を有効にします。</string>
     <string name="settings_scanner_mode_lowpower_label">省電力</string>
     <string name="settings_scanner_mode_balanced_label">バランス</string>

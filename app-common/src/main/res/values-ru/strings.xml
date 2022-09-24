@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">Недоступно</string>
     <string name="general_error_label">Ошибка</string>
     <string name="general_grant_permission_action">Предоставить разрешение</string>
@@ -11,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Этому приложению требуется разрешение \"Подключение по Bluetooth\" для взаимодействия с сопряженными устройствами и инициирования соединений.</string>
     <string name="permission_bluetooth_scan_label">Сканирование Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Разрешение \"Сканирование Bluetooth\" позволяет этому приложению обнаруживать и получать данные по Bluetooth с близлежащих устройств, таких как Ваши AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Этому приложению требуется разрешение\"Bluetooth\" для подключения к сопряженным устройствам.</string>
     <string name="permission_access_fine_location_label">Доступ к точному местоположению</string>
     <string name="permission_access_fine_location_description">CAPod необходимо разрешение \"Точное местоположение\" для получения данных Bluetooth Low Energy. Ваши наушники задействуют технологию Bluetooth Low Energy (Bluetooth с низким энергопотреблением) для передачи своего состояния. Это приложение НЕ будет использовать данные Bluetooth для определения Вашего местоположения.</string>

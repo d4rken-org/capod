@@ -8,9 +8,9 @@
     <string name="general_check_action">Semak</string>
     <string name="general_close_action">Tutup</string>
     <string name="upgrade_capod_label">Naik taraf CAPod</string>
-    <string name="upgrade_capod_description">Dapatkan ciri tambahan dan sokongi pemaju.</string>
+    <string name="upgrade_capod_description">Dapatkan ciri tambahan dan dokongi pemaju.</string>
     <string name="settings_monitor_mode_label">Mod monitor</string>
-    <string name="settings_monitor_mode_description">Dalam keadaan yang mana apl ini memantau data Bluetooth.</string>
+    <string name="settings_monitor_mode_description">Dalam keadaan di mana apl ini memantau data Bluetooth.</string>
     <string name="settings_scanner_mode_label">Mod pengimbas</string>
     <string name="settings_scanner_mode_description">Apakah sepatutnya pengimbas data Tenaga Rendah Bluetooth mengutamakan prestasi atau penjimatan tenaga?</string>
     <string name="settings_autopause_label">Auto jeda</string>
@@ -53,7 +53,9 @@
     <string name="settings_support_description">Jika anda perlukan bantuan.</string>
     <string name="issue_tracker_label">Penjejak isu</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri (bahasa Inggeris sahaja).</string>
+    <string name="discord_label">Perselisihan</string>
     <string name="discord_description">Tempat melepak dan bertanya soalan.</string>
+    <string name="changelog_label">Log perubahan</string>
     <string name="settings_label">Tetapan</string>
     <string name="settings_privacy_policy_label">Polisi privasi</string>
     <string name="settings_privacy_policy_desc">Mengendalikan data secara bertanggungjawab.</string>
