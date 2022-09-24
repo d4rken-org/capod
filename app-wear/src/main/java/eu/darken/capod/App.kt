@@ -43,8 +43,8 @@ open class App : Application(), Configuration.Provider {
     private fun setupWorker() {
         log(TAG) { "setupWorker()" }
         val workRequest = PeriodicWorkRequestBuilder<MonitorWorker>(
-            Duration.ofMinutes(25),
-            Duration.ofMinutes(5)
+            Duration.ofMinutes(30),
+            Duration.ofMinutes(30)
         ).apply {
             setInputData(Data.Builder().build())
         }.build()
