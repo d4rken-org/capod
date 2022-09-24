@@ -18,9 +18,11 @@ class ReactionSettingsFragmentVM @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
-    val bondedDevices = bluetoothManager.bondedDevices().toList()
-
     val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.asLiveData2()
+
+    val bondedDevices = bluetoothManager.bondedDevices()
+        .map { it.toList() }
+        .asLiveData2()
 
     companion object {
         private val TAG = logTag("Settings", "Reaction", "VM")

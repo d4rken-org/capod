@@ -6,7 +6,7 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel3
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,9 +16,9 @@ class GeneralSettingsFragmentVM @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
 ) : ViewModel3(dispatcherProvider) {
 
-    val bondedDevices = flow {
-        emit(bluetoothManager.bondedDevices().toList())
-    }.asLiveData2()
+    val bondedDevices = bluetoothManager.bondedDevices()
+        .map { it.toList() }
+        .asLiveData2()
 
     companion object {
         private val TAG = logTag("Settings", "General", "VM")

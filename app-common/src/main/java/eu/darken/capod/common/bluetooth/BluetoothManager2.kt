@@ -30,12 +30,11 @@ class BluetoothManager2 @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
-    val adapter: BluetoothAdapter
+    val adapter: BluetoothAdapter?
         get() = manager.adapter
 
-    val scanner: BluetoothLeScanner
-        get() = adapter.bluetoothLeScanner
-            ?: throw IllegalStateException("Bluetooth is disabled or permissiong missing")
+    val scanner: BluetoothLeScanner?
+        get() = adapter?.bluetoothLeScanner
 
     val isBluetoothEnabled: Flow<Boolean> = callbackFlow {
         send(manager.adapter?.isEnabled ?: false)
@@ -158,7 +157,9 @@ class BluetoothManager2 @Inject constructor(
             }
         }
 
-    fun bondedDevices(): Set<BluetoothDevice> = adapter.bondedDevices
+    fun bondedDevices(): Flow<Set<BluetoothDevice>> = flow {
+        emit(adapter?.bondedDevices ?: throw IllegalStateException("Bluetooth adapter unavailable"))
+    }
 
     suspend fun nudgeConnection(device: BluetoothDevice): Boolean = getBluetoothProfile().map { bluetoothProfile ->
         try {

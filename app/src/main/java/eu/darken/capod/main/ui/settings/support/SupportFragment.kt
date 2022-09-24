@@ -10,15 +10,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.ClipboardHelper
 import eu.darken.capod.common.observe2
-import eu.darken.capod.common.uix.PreferenceFragment2
+import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.main.core.GeneralSettings
 import javax.inject.Inject
 
 @Keep
 @AndroidEntryPoint
-class SupportFragment : PreferenceFragment2() {
+class SupportFragment : PreferenceFragment3() {
 
-    private val vm: SupportFragmentVM by viewModels()
+    override val vm: SupportFragmentVM by viewModels()
 
     override val preferenceFile: Int = R.xml.preferences_support
     @Inject lateinit var generalSettings: GeneralSettings

@@ -9,14 +9,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.observe2
-import eu.darken.capod.common.uix.PreferenceFragment2
+import eu.darken.capod.common.uix.PreferenceFragment3
 import javax.inject.Inject
 
 @Keep
 @AndroidEntryPoint
-class DebugSettingsFragment : PreferenceFragment2() {
+class DebugSettingsFragment : PreferenceFragment3() {
 
-    private val vm: DebugSettingsFragmentVM by viewModels()
+    override val vm: DebugSettingsFragmentVM by viewModels()
 
     @Inject lateinit var debugSettings: DebugSettings
 

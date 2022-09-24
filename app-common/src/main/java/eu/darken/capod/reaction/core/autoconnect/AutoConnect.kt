@@ -46,7 +46,8 @@ class AutoConnect @Inject constructor(
                 return@map
             }
 
-            val bondedDevice = bluetoothManager.bondedDevices().firstOrNull { it.address == mainDeviceAddr }
+            val bondedDevice = bluetoothManager.bondedDevices().first().firstOrNull { it.address == mainDeviceAddr }
+
             if (bondedDevice == null) {
                 log(TAG, WARN) { "No bonded device matches $mainDeviceAddr" }
                 return@map

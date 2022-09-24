@@ -35,7 +35,7 @@ class BleScanner @Inject constructor(
         log(TAG, VERBOSE) { "scan(filters=$filters, scannerMode=$scannerMode, compatMode=$compatMode)" }
         if (compatMode) log(TAG, WARN) { "Using compatibilityMode!" }
 
-        val adapter = bluetoothManager.adapter
+        val adapter = bluetoothManager.adapter ?: throw IllegalStateException("Bluetooth adapter unavailable")
 
         val supportsOffloadFiltering = adapter.isOffloadedFilteringSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedFilteringSupported=$it" }
@@ -45,7 +45,7 @@ class BleScanner @Inject constructor(
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedScanBatchingSupported=$it" }
         } && !compatMode
 
-        val scanner = bluetoothManager.scanner
+        val scanner = bluetoothManager.scanner ?: throw IllegalStateException("BLE scanner unavailable")
 
         val callback = object : ScanCallback() {
             var lastScanAt = System.currentTimeMillis()

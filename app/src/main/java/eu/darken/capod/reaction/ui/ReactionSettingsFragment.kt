@@ -1,5 +1,6 @@
 package eu.darken.capod.reaction.ui
 
+import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
@@ -10,7 +11,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
-import eu.darken.capod.common.uix.PreferenceFragment2
+import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
@@ -21,9 +22,9 @@ import javax.inject.Inject
 
 @Keep
 @AndroidEntryPoint
-class ReactionSettingsFragment : PreferenceFragment2() {
+class ReactionSettingsFragment : PreferenceFragment3() {
 
-    private val vm: ReactionSettingsFragmentVM by viewModels()
+    override val vm: ReactionSettingsFragmentVM by viewModels()
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var reactionSettings: ReactionSettings
@@ -35,6 +36,7 @@ class ReactionSettingsFragment : PreferenceFragment2() {
     override val preferenceFile: Int = R.xml.preferences_reactions
 
     private var isPro: Boolean = false
+    private var bondedDevices: List<BluetoothDevice> = emptyList()
     private val autoConnectConditionPref by lazy { findPreference<ListPreference>(settings.autoConnectCondition.key)!! }
 
     override fun onPreferencesCreated() {
@@ -66,10 +68,9 @@ class ReactionSettingsFragment : PreferenceFragment2() {
                 preference.isChecked = false
                 return true
             } else if (generalSettings.mainDeviceAddress.value == null) {
-                val devices = vm.bondedDevices
                 DeviceSelectionDialogFactory(requireContext()).create(
-                    devices = devices,
-                    current = devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
+                    devices = bondedDevices,
+                    current = bondedDevices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
                 ) { selected ->
                     generalSettings.mainDeviceAddress.value = selected?.address
                     if (selected != null) preference.isChecked = true
@@ -94,6 +95,8 @@ class ReactionSettingsFragment : PreferenceFragment2() {
         }
 
         vm.isPro.observe2 { isPro = it }
+
+        vm.bondedDevices.observe2 { bondedDevices = it }
 
         super.onViewCreated(view, savedInstanceState)
     }
