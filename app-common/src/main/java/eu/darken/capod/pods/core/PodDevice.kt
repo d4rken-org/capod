@@ -78,6 +78,10 @@ interface PodDevice {
             "AirPods Pro",
             R.drawable.ic_device_airpods_gen2
         ),
+        @Json(name = "airpods.pro2") AIRPODS_PRO2(
+            "AirPods Pro 2",
+            R.drawable.ic_device_airpods_gen2
+        ),
         @Json(name = "airpods.max") AIRPODS_MAX(
             "AirPods Max",
             R.drawable.ic_device_generic_headphones

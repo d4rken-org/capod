@@ -24,7 +24,8 @@ Currently supported models:
 * AirPods 1. Generation
 * AirPods 2. Generation
 * AirPods 3. Generation
-* AirPods Pro
+* AirPods Pro 1. Generation
+* AirPods Pro 2. Generation
 * AirPods Max
 * Power Beats Pro
 * Power Beats 3
