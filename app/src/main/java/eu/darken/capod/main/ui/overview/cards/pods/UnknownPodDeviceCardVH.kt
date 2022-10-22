@@ -24,8 +24,8 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         val device = item.device
         name.apply {
             text = device.getLabel(context)
-            if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
-            else setTypeface(typeface, Typeface.NORMAL)
+            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
+            else setTypeface(null, Typeface.NORMAL)
         }
 
         lastSeen.text = device.lastSeenFormatted(item.now)

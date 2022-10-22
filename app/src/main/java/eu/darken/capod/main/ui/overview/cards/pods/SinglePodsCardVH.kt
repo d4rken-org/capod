@@ -23,8 +23,8 @@ class SinglePodsCardVH(parent: ViewGroup) :
 
         name.apply {
             text = device.getLabel(context)
-            if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
-            else setTypeface(typeface, Typeface.NORMAL)
+            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
+            else setTypeface(null, Typeface.NORMAL)
         }
 
         deviceIcon.setImageResource(device.iconRes)

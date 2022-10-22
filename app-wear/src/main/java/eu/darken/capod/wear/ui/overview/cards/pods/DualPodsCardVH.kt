@@ -29,8 +29,8 @@ class DualPodsCardVH(parent: ViewGroup) :
             }
             text = sb
 
-            if (item.isMainPod) setTypeface(typeface, Typeface.BOLD)
-            else setTypeface(typeface, Typeface.NORMAL)
+            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
+            else setTypeface(null, Typeface.NORMAL)
 
             if (device is DualAirPods && item.showDebug) {
                 append(" [${device.primaryPod.name}]")
