@@ -88,10 +88,15 @@ class ReactionSettingsFragment : PreferenceFragment3() {
         return super.onPreferenceTreeClick(preference)
     }
 
+    // Some UI interactions shortly turn autoConnect on, then off again
+    private val previousMonitorMode by lazy { generalSettings.monitorMode.value }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        settings.autoConnect.flow.asLiveData().observe2 {
-            generalSettings.monitorMode.value = MonitorMode.ALWAYS
-            autoConnectConditionPref.isEnabled = it
+        settings.autoConnect.flow.asLiveData().observe2 { isEnabled ->
+            if (isEnabled) generalSettings.monitorMode.value = MonitorMode.ALWAYS
+            else generalSettings.monitorMode.value = previousMonitorMode
+
+            autoConnectConditionPref.isEnabled = isEnabled
         }
 
         vm.isPro.observe2 { isPro = it }
