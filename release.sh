@@ -1,24 +1,27 @@
 #!/bin/bash
-#
+# Based on
+# * https://gist.github.com/jv-k/703e79306554c26a65a7cfdb9ca119c6
+# * https://github.com/jv-k/ver-bump
+
 # █▄▄ █░█ █▀▄▀█ █▀█ ▄▄ █░█ █▀▀ █▀█ █▀ █ █▀█ █▄░█
 # █▄█ █▄█ █░▀░█ █▀▀ ░░ ▀▄▀ ██▄ █▀▄ ▄█ █ █▄█ █░▀█
-# Based on https://gist.github.com/jv-k/703e79306554c26a65a7cfdb9ca119c6
+#
 #
 # Description:
 #   - This script automates bumping the git software project's version using automation.
 
-#   - It does several things that are typically required for releasing a Git repository, like git tagging, 
+#   - It does several things that are typically required for releasing a Git repository, like git tagging,
 #     automatic updating of CHANGELOG.md, and incrementing the version number in various JSON files.
 
 #     - Increments / suggests the current software project's version number
 #     - Adds a Git tag, named after the chosen version number
 #     - Updates CHANGELOG.md
 #     - Updates VERSION file
-#     - Commits files to a new branch  
+#     - Commits files to a new branch
 #     - Pushes to remote (optionally)
 #     - Updates "version" : "x.x.x" tag in JSON files if [-v file1 -v file2...] argument is supplied.
 #
-# Usage: 
+# Usage:
 #   ./bump-version.sh [-v <version number>] [-m <release message>] [-j <file1>] [-j <file2>].. [-n] [-p] [-b] [-h]
 #
 # Options:
@@ -35,10 +38,10 @@
 
 #
 # Detailed notes:
-#   – The contents of the `VERSION` file which should be a semantic version number such as "1.2.3" 
+#   – The contents of the `VERSION` file which should be a semantic version number such as "1.2.3"
 #     or even "1.2.3-beta+001.ab"
-#   
-#   – It pulls a list of changes from git history & prepends to a file called CHANGELOG.md 
+#
+#   – It pulls a list of changes from git history & prepends to a file called CHANGELOG.md
 #     under the title of the new version # number, allows the user to review and update the changelist
 #
 #   – Creates a Git tag with the version number
@@ -85,7 +88,10 @@ RESET='\033[0m'
 FLAG_JSON="false"
 FLAG_PUSH="false"
 
-I_OK="✅"; I_STOP="🚫"; I_ERROR="❌"; I_END="👋🏻"
+I_OK="✅"
+I_STOP="🚫"
+I_ERROR="❌"
+I_END="👋🏻"
 
 S_NORM="${WHITE}"
 S_LIGHT="${LIGHTGRAY}"
@@ -94,49 +100,53 @@ S_QUESTION="${YELLOW}"
 S_WARN="${LIGHTRED}"
 S_ERROR="${RED}"
 
-V_SUGGEST="0.1.0" # This is suggested in case VERSION file or user supplied version via -v is missing
-GIT_MSG=""
+V_SUGGEST="0.1.2-rc5" # This is suggested in case VERSION file or user supplied version via -v is missing
+
+V_MAJOR=""         # 0
+V_MINOR=""         # 1
+V_PATCH=""         # 2
+V_BUILD_TYPE=""    # rc
+V_BUILD_COUNTER="" # 5
+V_NAME=""
+V_CODE=""
+
+SCRIPT_VER="1.0"
+
+GIT_MSG="Release: "
 REL_NOTE=""
-REL_PREFIX="release-"
+REL_PREFIX="release/"
 PUSH_DEST="origin"
 
 # Show credits & help
-usage() { 
-  echo -e "$GREEN"\
-          "\n █▄▄ █░█ █▀▄▀█ █▀█ ▄▄ █░█ █▀▀ █▀█ █▀ █ █▀█ █▄░█  "\
-          "\n █▄█ █▄█ █░▀░█ █▀▀ ░░ ▀▄▀ ██▄ █▀▄ ▄█ █ █▄█ █░▀█  "\
-          "\n\t\t\t\t\t$LIGHTGRAY v${SCRIPT_VER}"\
+usage() {
+  echo -e "$GREEN" \
+    "\n █▄▄ █░█ █▀▄▀█ █▀█ ▄▄ █░█ █▀▀ █▀█ █▀ █ █▀█ █▄░█  " \
+    "\n █▄█ █▄█ █░▀░█ █▀▀ ░░ ▀▄▀ ██▄ █▀▄ ▄█ █ █▄█ █░▀█  " \
+    "\n\t\t\t\t\t$LIGHTGRAY v${SCRIPT_VER}"
 
-  echo -e " ${S_NORM}${BOLD}Usage:${RESET}"\
-          "\n $0 [-v <version number>] [-m <release message>] [-j <file1>] [-j <file2>].. [-n] [-p] [-h]" 1>&2; 
-  
+  echo -e " ${S_NORM}${BOLD}Usage:${RESET}" \
+    "\n $0 [-v <version number>] [-m <release message>] [-n] [-p] [-h]" 1>&2
+
   echo -e "\n ${S_NORM}${BOLD}Options:${RESET}"
   echo -e " $S_WARN-v$S_NORM <version number>\tSpecify a manual version number"
   echo -e " $S_WARN-m$S_NORM <release message>\tCustom release message."
-  echo -e " $S_WARN-f$S_NORM <filename.json>\tUpdate version number inside JSON files."\
-          "\n\t\t\t* For multiple files, add a separate -f option for each one,"\
-          "\n\t\t\t* For example: ./bump-version.sh -f src/plugin/package.json -f composer.json"
   echo -e " $S_WARN-p$S_NORM \t\t\tPush commits to ORIGIN. "
-  echo -e " $S_WARN-n$S_NORM \t\t\tDon't perform a commit automatically. "\
-          "\n\t\t\t* You may want to do that manually after checking everything, for example."
+  echo -e " $S_WARN-n$S_NORM \t\t\tDon't perform a commit automatically. " \
+    "\n\t\t\t* You may want to do that manually after checking everything, for example."
   echo -e " $S_WARN-b$S_NORM \t\t\tDon't create automatic \`release-<version>\` branch"
   echo -e " $S_WARN-h$S_NORM \t\t\tShow this help message. "
-  echo -e "\n ${S_NORM}${BOLD}Author:$S_LIGHT https://github.com/jv-t/bump-version $RESET\n"
-
+  echo -e "\n ${S_NORM}${BOLD}Original author: $S_LIGHT https://github.com/jv-t/bump-version $RESET"
+  echo -e "\n ${S_NORM}${BOLD}Changes by: $S_LIGHT https://github.com/d4rken $RESET\n"
 }
 
 # If there are no commits in repo, quit, because you can't tag with zero commits.
 check-commits-exist() {
-  git rev-parse HEAD &> /dev/null
+  git rev-parse HEAD &>/dev/null
   if [ ! "$?" -eq 0 ]; then
     echo -e "\n${I_STOP} ${S_ERROR}Your current branch doesn't have any commits yet. Can't tag without at least one commit." >&2
-    echo    
+    echo
     exit 1
   fi
-}
-
-get-commit-msg() {
- echo Bumped $([ -n "${V_PREV}" ] && echo "${V_PREV} –>" || echo "to ") "$V_USR_INPUT"
 }
 
 exit_abnormal() {
@@ -148,53 +158,47 @@ exit_abnormal() {
 # Process script options
 process-arguments() {
   local OPTIONS OPTIND OPTARG
-    
+
   # Get positional parameters
-  JSON_FILES=( )
-  while getopts ":v:p:m:f:hbn" OPTIONS; do # Note: Adding the first : before the flags takes control of flags and prevents default error msgs.
+  JSON_FILES=()
+  while getopts ":v:p:m:hbn" OPTIONS; do # Note: Adding the first : before the flags takes control of flags and prevents default error msgs.
     case "$OPTIONS" in
-      h )
-        # Show help
-        exit_abnormal
+    h)
+      # Show help
+      exit_abnormal
       ;;
-      v )
-        # User has supplied a version number
-        V_USR_SUPPLIED=$OPTARG
+    v)
+      # User has supplied a version number
+      V_USR_SUPPLIED=$OPTARG
       ;;
-      m )
-        REL_NOTE=$OPTARG
-        # Custom release note
-        echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Release note:" ${S_NORM}"'"$REL_NOTE"'"
+    m)
+      REL_NOTE=$OPTARG
+      # Custom release note
+      echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Release note:" ${S_NORM}"'"$REL_NOTE"'"
       ;;
-      f )
-        FLAG_JSON=true
-        echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}JSON file via [-f]: <${S_NORM}${OPTARG}${S_LIGHT}>"
-        # Store JSON filenames(s)
-        JSON_FILES+=($OPTARG)
+    p)
+      FLAG_PUSH=true
+      PUSH_DEST=${OPTARG} # Replace default with user input
+      echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Pushing to <${S_NORM}${PUSH_DEST}${S_LIGHT}>, as the last action in this script."
       ;;
-      p )
-        FLAG_PUSH=true
-        PUSH_DEST=${OPTARG} # Replace default with user input
-        echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Pushing to <${S_NORM}${PUSH_DEST}${S_LIGHT}>, as the last action in this script."
+    n)
+      FLAG_NOCOMMIT=true
+      echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Disable commit after tagging."
       ;;
-      n )
-        FLAG_NOCOMMIT=true
-        echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Disable commit after tagging."
+    b)
+      FLAG_NOBRANCH=true
+      echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Disable committing to new branch."
       ;;
-      b )
-        FLAG_NOBRANCH=true
-        echo -e "\n${S_LIGHT}Option set: ${S_NOTICE}Disable committing to new branch."
+    \?)
+      echo -e "\n${I_ERROR}${S_ERROR} Invalid option: ${S_WARN}-$OPTARG" >&2
+      echo
+      exit_abnormal
       ;;
-      \? )
-        echo -e "\n${I_ERROR}${S_ERROR} Invalid option: ${S_WARN}-$OPTARG" >&2
-        echo
-        exit_abnormal
-      ;;        
-      : )
-        echo -e "\n${I_ERROR}${S_ERROR} Option ${S_WARN}-$OPTARG ${S_ERROR}requires an argument." >&2
-        echo
-        exit_abnormal
-      ;;      
+    :)
+      echo -e "\n${I_ERROR}${S_ERROR} Option ${S_WARN}-$OPTARG ${S_ERROR}requires an argument." >&2
+      echo
+      exit_abnormal
+      ;;
     esac
   done
 }
@@ -202,50 +206,80 @@ process-arguments() {
 # Suggests version from VERSION file, or grabs from user supplied -v <version>.
 # If none is set, suggest default from options.
 process-version() {
-  if [ -f VERSION ] && [ -s VERSION ]; then    
-    V_PREV=`cat VERSION`
+  V_RAW=""
 
+  V_FILE_REGEX='^([0-9]+\.[0-9]+\.[0-9]+-[a-zA-Z]+[0-9]+) ([0-9]+)$'
+  V_FILE_RAW="$(cat VERSION)"
+  if [ -f VERSION ] && [ -s VERSION ] && [[ $V_FILE_RAW =~ $V_FILE_REGEX ]]; then
+    V_PREV="${BASH_REMATCH[1]}"
+    V_SUGGEST=$V_PREV
     echo -e "\n${S_NOTICE}Current version from <${S_NORM}VERSION${S_NOTICE}> file: ${S_NORM}$V_PREV"
-
-    # Suggest incremented value from VERSION file
-    V_PREV_LIST=(`echo $V_PREV | tr '.' ' '`)
-    V_MAJOR=${V_PREV_LIST[0]}; V_MINOR=${V_PREV_LIST[1]}; V_PATCH=${V_PREV_LIST[2]};
-    
-    # Test if V_PATCH is a number, then increment it. Otherwise, do nothing
-    if [ "$V_PATCH" -eq "$V_PATCH" ] 2>/dev/null; then # discard stderr (2) output to black hole (suppress it)
-      V_PATCH=$((V_PATCH + 1)) # Increment
-    fi
-
-    V_SUGGEST="$V_MAJOR.$V_MINOR.$V_PATCH"
   else
     echo -ne "\n${S_WARN}The [${S_NORM}VERSION${S_WARN}] "
-    if [ ! -f VERSION ]; then 
-      echo "file was not found.";     
-    elif [ ! -s VERSION ]; then 
-      echo "file is empty."; 
+    if [ ! -f VERSION ]; then
+      echo "VERSION file was not found."
+    elif [ ! -s VERSION ]; then
+      echo "VERSION file is empty."
+    else
+      echo "could not be parsed."
     fi
   fi
 
-  # If a version number is supplied by the user with [-v <version number>], then use it 
+  # If a version number is supplied by the user with [-v <version number>], then use it
   if [ -n "$V_USR_SUPPLIED" ]; then
-    echo -e "\n${S_NOTICE}You selected version using [-v]:" "${S_WARN}${V_USR_SUPPLIED}"      
-    V_USR_INPUT="${V_USR_SUPPLIED}"
+    echo -e "\n${S_NOTICE}You selected version using [-v]:" "${S_WARN}${V_USR_SUPPLIED}"
+    V_RAW="${V_USR_SUPPLIED}"
   else
     echo -ne "\n${S_QUESTION}Enter a new version number [${S_NORM}$V_SUGGEST${S_QUESTION}]: "
     echo -ne "$S_WARN"
-    read V_USR_INPUT
+    read -r V_RAW
+  fi
 
-    if [ "$V_USR_INPUT" = "" ]; then
-      V_USR_INPUT="${V_SUGGEST}"
+  if [ -z "$V_RAW" ]; then
+    V_RAW=$V_PREV
+  fi
+
+  if [ -z "$V_RAW" ]; then
+    echo -e "\n${I_STOP} ${S_ERROR}Error: No version was supplied (no file, no CLI)\n"
+    exit_abnormal
+  fi
+
+  SEMVER_REGEX='^([0-9]+)\.([0-9]+)\.([0-9]+)-([a-zA-Z]+)([0-9]+)$'
+
+  echo -e "\n${S_NOTICE}Parsing ${V_RAW}"
+
+  if [[ $V_RAW =~ $SEMVER_REGEX ]]; then
+    echo -e "\n${I_OK} ${S_NOTICE} Successfully parsed ${V_RAW} to ${BASH_REMATCH[0]}"
+    V_MAJOR="${BASH_REMATCH[1]}"
+    echo "V_MAJOR=$V_MAJOR"
+    V_MINOR="${BASH_REMATCH[2]}"
+    echo "V_MINOR=$V_MINOR"
+    V_PATCH="${BASH_REMATCH[3]}"
+    echo "V_PATCH=$V_PATCH"
+    V_BUILD_TYPE="${BASH_REMATCH[4]}"
+    echo "V_BUILD_TYPE=$V_BUILD_TYPE"
+    V_BUILD_COUNTER="${BASH_REMATCH[5]}"
+    echo "V_BUILD_COUNTER=$V_BUILD_COUNTER"
+  else
+    echo -e "\n${I_STOP} ${S_ERROR}Error: Failed to parse $V_RAW\n"
+    exit_abnormal
+  fi
+
+  # If no version was provided, bump the previous version
+  if [ -z "$V_USR_SUPPLIED" ]; then
+    if [ "$V_BUILD_COUNTER" -eq "$V_BUILD_COUNTER" ] 2>/dev/null; then # discard stderr (2) output to black hole (suppress it)
+      V_BUILD_COUNTER=$((V_BUILD_COUNTER + 1))                         # Increment
     fi
   fi
-  
-  # echo -e "${S_NOTICE}Setting version to [${S_NORM}${V_USR_INPUT}${S_NOTICE}] ...."
+
+  V_NAME="$V_MAJOR.$V_MINOR.$V_PATCH-$V_BUILD_TYPE$V_BUILD_COUNTER"
+  V_CODE=$((V_MAJOR * 10000000 + V_MINOR * 100000 + V_PATCH * 1000 + V_BUILD_COUNTER * 10))
+  echo -e "${S_NOTICE}Setting version to [${S_NORM}${V_NAME} (${V_CODE})${S_NOTICE}] ...."
 }
 
 # Only tag if tag doesn't already exist
 check-tag-exists() {
-  TAG_CHECK_EXISTS=`git tag -l v"$V_USR_INPUT"`
+  TAG_CHECK_EXISTS=$(git tag -l v"$V_NAME")
   if [ -n "$TAG_CHECK_EXISTS" ]; then
     echo -e "\n${I_STOP} ${S_ERROR}Error: A release with that tag version number already exists!\n"
     exit 0
@@ -254,7 +288,7 @@ check-tag-exists() {
 
 # $1 : version
 # $2 : release note
-tag() {
+create-tag() {
   if [ -z "$2" ]; then
     # Default release note
     git tag -a "v$1" -m "Tag version $1."
@@ -265,165 +299,135 @@ tag() {
   echo -e "\n${I_OK} ${S_NOTICE}Added GIT tag"
 }
 
-# Change `version:` value in JSON files, like packager.json, composer.json, etc
-bump-json-files() {
-  if [ "$FLAG_JSON" != true ]; then return; fi
-  
-  JSON_PROCESSED=( ) # holds filenames after they've been changed
+# Update version.properties which is used by Gradle to generate the `versionName` and `versionCode`
+do-version-properties() {
+  PROPS_FILE_NAME="version.properties"
+  echo -e "\n${S_NOTICE}Parsing ${PROPS_FILE_NAME}:\n"
 
-  for FILE in "${JSON_FILES[@]}"; do
-    if [ -f $FILE ]; then
-      # Get the existing version number
-      V_OLD=$( sed -n 's/.*"version": "\(.*\)",/\1/p' $FILE )
+  V_MAJOR_REGEX='^([a-zA-Z\.]+major)=([0-9]+)$'
+  V_MINOR_REGEX='^([a-zA-Z\.]+minor)=([0-9]+)$'
+  V_PATCH_REGEX='^([a-zA-Z\.]+patch)=([0-9]+)$'
+  V_BUILD_REGEX='^([a-zA-Z\.]+build)=([0-9]+)$'
 
-      if [ "$V_OLD" = "$V_USR_INPUT" ]; then
-        echo -e "\n${S_WARN}File <${S_NORM}$FILE${S_WARN}> already contains version: ${S_NORM}$V_OLD"
-      else
-        # Write to output file
-        FILE_MSG=`sed -i .temp "s/\"version\": \"$V_OLD\"/\"version\": \"$V_USR_INPUT\"/g" $FILE 2>&1`
-        if [ "$?" -eq 0 ]; then
-          echo -e "\n${I_OK} ${S_NOTICE}Updated file: <${S_NOTICE}$FILE${S_LIGHT}> from ${S_NORM}$V_OLD -> $V_USR_INPUT"
-          rm -f ${FILE}.temp          
-          # Add file change to commit message:
-          GIT_MSG+="${GIT_MSG}Updated $FILE, "
-        else
-          echo -e "\n${I_STOP} ${S_ERROR}Error\n$PUSH_MSG\n"
-        fi
-      fi
+  PROPS_FILE_NEW=""
 
-      JSON_PROCESSED+=($FILE)
+  LAST_LINE=$(wc -l <$PROPS_FILE_NAME)
+  CURRENT_LINE=0
+
+  while read -r line; do
+    CURRENT_LINE=$((CURRENT_LINE + 1))
+
+    if [[ $line =~ $V_MAJOR_REGEX ]]; then
+      updated="${BASH_REMATCH[1]}=${V_MAJOR}"
+      echo "Found major, replacing: $line -> $updated"
+      PROPS_FILE_NEW+=$updated
+    elif [[ $line =~ $V_MINOR_REGEX ]]; then
+      updated="${BASH_REMATCH[1]}=${V_MINOR}"
+      echo "Found minor, replacing: $line -> $updated"
+      PROPS_FILE_NEW+=$updated
+    elif [[ $line =~ $V_PATCH_REGEX ]]; then
+      updated="${BASH_REMATCH[1]}=${V_PATCH}"
+      echo "Found patch, replacing: $line -> $updated"
+      PROPS_FILE_NEW+=$updated
+    elif [[ $line =~ $V_BUILD_REGEX ]]; then
+      updated="${BASH_REMATCH[1]}=${V_BUILD_COUNTER}"
+      echo "Found build, replacing: $line -> $updated"
+      PROPS_FILE_NEW+=$updated
     else
-      echo -e "\n${S_WARN}File <${S_NORM}$FILE${S_WARN}> not found."
+      PROPS_FILE_NEW+="$line"
     fi
-  done
-  # Stage files that were changed:
-  [ -n "${JSON_PROCESSED}" ] && git add "${JSON_PROCESSED[@]}"
+
+    if [[ $CURRENT_LINE -ne $LAST_LINE ]]; then
+      PROPS_FILE_NEW+="\n"
+    fi
+
+  done <"$PROPS_FILE_NAME"
+
+  echo -e "$PROPS_FILE_NEW" >"$PROPS_FILE_NAME"
+  git add "$PROPS_FILE_NAME"
+
+  echo -e "\n${I_OK} ${S_NOTICE}Updated [${S_NORM}${PROPS_FILE_NAME}${S_NOTICE}] file"
 }
 
-# Handle VERSION file
+# Update a version file that can be parsed by third-parties, e.g. F-Droid
 do-versionfile() {
   [ -f VERSION ] && ACTION_MSG="Updated" || ACTION_MSG="Created"
 
-  GIT_MSG+="${ACTION_MSG} VERSION, "
-  echo $V_USR_INPUT > VERSION # Create file
+  echo "${V_NAME} ${V_CODE}" >VERSION # Create file
   echo -e "\n${I_OK} ${S_NOTICE}${ACTION_MSG} [${S_NORM}VERSION${S_NOTICE}] file"
 
   # Stage file for commit
   git add VERSION
 }
 
-# Dump git log history to CHANGELOG.md
-do-changelog() {  
-
-  # Log latest commits to CHANGELOG.md:
-  # Get latest commits
-  LOG_MSG=`git log --pretty=format:"- %s" $([ -n "$V_PREV" ] && echo "v${V_PREV}...HEAD") 2>&1`
-  if [ ! "$?" -eq 0 ]; then
-    echo -e "\n${I_STOP} ${S_ERROR}Error getting commit history for logging to CHANGELOG.\n$LOG_MSG\n"
-    exit 1
-  fi
-  
-  [ -f CHANGELOG.md ] && ACTION_MSG="Updated" || ACTION_MSG="Created"
-  # Add info to commit message for later:
-  GIT_MSG+="${ACTION_MSG} CHANGELOG.md, "
- 
-  # Add heading
-  echo "## $V_USR_INPUT ($NOW)" > tmpfile
-
-  # Log the bumping commit:
-  # - The final commit is done after do-changelog(), so we need to create the log entry for it manually:
-  echo "- ${GIT_MSG}$(get-commit-msg)" >> tmpfile
-  # Add previous commits
-  [ -n "$LOG_MSG" ] && echo "$LOG_MSG" >> tmpfile
-  
-  echo -en "\n" >> tmpfile
-
-  if [ -f CHANGELOG.md ]; then
-    # Append existing log
-    cat CHANGELOG.md >> tmpfile
-  else
-    echo -e "\n${S_WARN}A [${S_NORM}CHANGELOG.md${S_WARN}] file was not found."  
-  fi
-
-  mv tmpfile CHANGELOG.md
-  
-  # User prompts
-  echo -e "\n${I_OK} ${S_NOTICE}${ACTION_MSG} [${S_NORM}CHANGELOG.md${S_NOTICE}] file"
-  # Pause & allow user to open and edit the file:
-  echo -en "\n${S_QUESTION}Make adjustments to [${S_NORM}CHANGELOG.md${S_QUESTION}] if required now. Press <enter> to continue."
-  read
-
-  # Stage log file, to commit later
-  git add CHANGELOG.md
-}
-
-#
+# Does the release branch already exist?
 check-branch-exist() {
   [ "$FLAG_NOBRANCH" = true ] && return
 
-  BRANCH_MSG=`git rev-parse --verify "${REL_PREFIX}${V_USR_INPUT}" 2>&1`
+  BRANCH_MSG=$(git rev-parse --verify "${REL_PREFIX}${V_NAME}" 2>&1)
   if [ "$?" -eq 0 ]; then
-    echo -e "\n${I_STOP} ${S_ERROR}Error: Branch <${S_NORM}${REL_PREFIX}${V_USR_INPUT}${S_ERROR}> already exists!\n"
+    echo -e "\n${I_STOP} ${S_ERROR}Error: Branch <${S_NORM}${REL_PREFIX}${V_NAME}${S_ERROR}> already exists!\n"
     exit 1
-  fi  
+  fi
 }
 
-# 
+# Create release branch if desired
 do-branch() {
   [ "$FLAG_NOBRANCH" = true ] && return
 
   echo -e "\n${S_NOTICE}Creating new release branch..."
 
-  BRANCH_MSG=`git branch "${REL_PREFIX}${V_USR_INPUT}" 2>&1`
+  BRANCH_MSG=$(git branch "${REL_PREFIX}${V_NAME}" 2>&1)
   if [ ! "$?" -eq 0 ]; then
     echo -e "\n${I_STOP} ${S_ERROR}Error\n$BRANCH_MSG\n"
     exit 1
   else
-    BRANCH_MSG=`git checkout "${REL_PREFIX}${V_USR_INPUT}" 2>&1`
+    BRANCH_MSG=$(git checkout "${REL_PREFIX}${V_NAME}" 2>&1)
     echo -e "\n${I_OK} ${S_NOTICE}${BRANCH_MSG}"
-  fi  
-  
-  # REL_PREFIX
+  fi
 }
 
 # Stage & commit all files modified by this script
 do-commit() {
   [ "$FLAG_NOCOMMIT" = true ] && return
 
-  GIT_MSG+="$(get-commit-msg)" 
   echo -e "\n${S_NOTICE}Committing..."
-  COMMIT_MSG=`git commit -m "${GIT_MSG}" 2>&1`
+  COMMIT_MSG=$(git commit -m "${GIT_MSG}" 2>&1)
   if [ ! "$?" -eq 0 ]; then
     echo -e "\n${I_STOP} ${S_ERROR}Error\n$COMMIT_MSG\n"
     exit 1
   else
     echo -e "\n${I_OK} ${S_NOTICE}$COMMIT_MSG"
-  fi  
+  fi
 }
 
 # Pushes files + tags to remote repo. Changes are staged by earlier functions
 do-push() {
   [ "$FLAG_NOCOMMIT" = true ] && return
-  
+
   if [ "$FLAG_PUSH" = true ]; then
     CONFIRM="Y"
   else
     echo -ne "\n${S_QUESTION}Push tags to <${S_NORM}${PUSH_DEST}${S_QUESTION}>? [${S_NORM}N/y${S_QUESTION}]: "
-    read CONFIRM  
+    read CONFIRM
   fi
 
   case "$CONFIRM" in
-    [yY][eE][sS]|[yY] )
-      echo -e "\n${S_NOTICE}Pushing files + tags to <${S_NORM}${PUSH_DEST}${S_NOTICE}>..."
-      PUSH_MSG=`git push "${PUSH_DEST}" v"$V_USR_INPUT" 2>&1` # Push new tag
-      if [ ! "$?" -eq 0 ]; then
-        echo -e "\n${I_STOP} ${S_WARN}Warning\n$PUSH_MSG"
-        # exit 1
-      else
-        echo -e "\n${I_OK} ${S_NOTICE}$PUSH_MSG"
-      fi  
+  [yY][eE][sS] | [yY])
+    echo -e "\n${S_NOTICE}Pushing files + tags to <${S_NORM}${PUSH_DEST}${S_NOTICE}>..."
+
+    PUSH_MSG=$(git push "${PUSH_DEST}" v"$V_NAME" 2>&1) # Push new tag
+    PUSH_MSG+="\n"
+    PUSH_MSG+=$(git push 2>&1) # Push new tag
+
+    if [ ! "$?" -eq 0 ]; then
+      echo -e "\n${I_STOP} ${S_WARN}Warning\n$PUSH_MSG"
+      # exit 1
+    else
+      echo -e "\n${I_OK} ${S_NOTICE}$PUSH_MSG"
+    fi
     ;;
-  esac  
+  esac
 }
 
 #### Initiate Script ###########################
@@ -434,20 +438,21 @@ check-commits-exist
 process-arguments "$@"
 process-version
 
+GIT_MSG+="${V_NAME}"
+
 check-branch-exist
 check-tag-exists
 
 echo -e "\n${S_LIGHT}––––––"
 
-# Update files
-bump-json-files
+# Update steps
+do-version-properties
 do-versionfile
-do-changelog
 do-branch
 do-commit
-tag "${V_USR_INPUT}" "${REL_NOTE}"
+create-tag "${V_NAME}" "${REL_NOTE}"
 do-push
 
 echo -e "\n${S_LIGHT}––––––"
-echo -e "\n${I_OK} ${S_NOTICE}"Bumped $([ -n "${V_PREV}" ] && echo "${V_PREV} –>" || echo "to ") "$V_USR_INPUT"
+echo -e "\n${I_OK} ${S_NOTICE}"Bumped $([ -n "${V_PREV}" ] && echo "${V_PREV} –>" || echo "to ") "$V_NAME"
 echo -e "\n${GREEN}Done ${I_END}\n"
