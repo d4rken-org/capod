@@ -53,6 +53,7 @@
     <string name="settings_support_description">Si vous avez besoin d’aide.</string>
     <string name="issue_tracker_label">Gestionnaire de problèmes</string>
     <string name="issue_tracker_description">Un gestionnaire public de problèmes pour les signalements de bogues et les demandes de fonction (anglais seulement).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un endroit à fréquenter où poser des questions.</string>
     <string name="changelog_label">Journal des changements</string>
     <string name="settings_label">Paramètres</string>

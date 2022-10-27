@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS (libre)</string>
     <string name="general_value_not_available_label">Non disponible</string>
     <string name="general_error_label">Erreur</string>
     <string name="general_grant_permission_action">Accorder l’autorisation</string>
@@ -11,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Cette appli exige l’autorisation « Connexion Bluetooth » pour interagir avec les appareils jumelés et démarrer les connexions.</string>
     <string name="permission_bluetooth_scan_label">Analyse Bluetooth</string>
     <string name="permission_bluetooth_scan_description">L’autorisation « Analyse Bluetooth » permet à l’appli de découvrir et de réceptionner les données Bluetooth des appareils à proximité tels que vos AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Cette appli exige l’autorisation « Bluetooth » pour se connecter aux appareils Bluetooth jumelés.</string>
     <string name="permission_access_fine_location_label">Accéder à la position précise</string>
     <string name="permission_access_fine_location_description">CAPod utilise l’autorisation « position précise » pour recevoir les données « faible énergie » de Bluetooth. Votre casque-micro utilise la technologie « basse énergie » de Bluetooth pour diffuser son état. Cette appli n’utilisera PAS les données Bluetooth pour déterminer votre position.</string>
@@ -48,6 +52,7 @@
     <string name="pods_none_label_short">Aucun appareil</string>
     <string name="pods_charging_label">En charge</string>
     <string name="pods_inear_label">Dans l’oreille</string>
+    <string name="pods_microphone_label">Microphone</string>
     <string name="pods_yours">Les vôtres</string>
     <string name="headset_being_worn_label">Porté</string>
     <string name="pods_case_unknown_state">État inconnu</string>
