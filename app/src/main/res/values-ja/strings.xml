@@ -58,7 +58,7 @@
     <string name="changelog_label">更新の内容</string>
     <string name="settings_label">設定</string>
     <string name="settings_privacy_policy_label">個人情報の取り扱いについて</string>
-    <string name="settings_privacy_policy_desc">責任を持ってデータを取り扱います。</string>
+    <string name="settings_privacy_policy_desc">責任を持ってデータを取り扱います</string>
     <string name="settings_licenses_label">ライセンス情報</string>
     <string name="settings_category_other_label">その他</string>
     <string name="settings_general_label">全般</string>
