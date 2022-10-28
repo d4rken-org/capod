@@ -51,7 +51,7 @@ android {
     }
 
     buildTypes {
-        val customProguardRules = fileTree(File("../proguard")) {
+        val customProguardRules = fileTree(File(projectDir, "proguard")) {
             include("*.pro")
         }
         debug {
