@@ -89,4 +89,6 @@
 
     <string name="translators_thanks_title">Translators</string>
     <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">A widget showing the last known device status.</string>
 </resources>

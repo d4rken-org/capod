@@ -77,7 +77,7 @@ class OverviewFragmentVM @Inject constructor(
         debugSettings.isDebugModeEnabled.flow,
         bluetoothManager.isBluetoothEnabled,
         podMonitor.mainDevice,
-    ) { _, permissions, isDebugMode, isBluetoothEnabled, mainPod ->
+    ) { _, permissions, isDebugMode, isBluetoothEnabled, _ ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         if (permissions.isNotEmpty()) {
@@ -97,10 +97,7 @@ class OverviewFragmentVM @Inject constructor(
             return@combine items
         }
 
-        val podToShow = mainPod ?: podDeviceCache.loadMainDevice()?.let {
-            log(TAG, VERBOSE) { "Using podDeviceCache: $it" }
-            podFactory.createPod(it)?.device
-        }
+        val podToShow = podMonitor.latestMainDevice()
         log(TAG, VERBOSE) { "Showing $podToShow" }
 
         val now = Instant.now()

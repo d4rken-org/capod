@@ -54,7 +54,7 @@ Currently supported models:
 ## Screenshots
 
 <img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/4.png" width="200">
-
+<img src="https://raw.githubusercontent.com/d4rken-org/capod/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200">
 ## Thanks to
 
 * The [OpenPods](https://github.com/adolfintel/OpenPods) project,

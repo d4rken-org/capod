@@ -176,6 +176,15 @@ class PodMonitor @Inject constructor(
         }
     }
 
+    suspend fun latestMainDevice(): PodDevice? {
+        val currentMain = mainDevice.firstOrNull()
+        log(TAG) { "Live mainDevice is $currentMain" }
+
+        return currentMain ?: podDeviceCache.loadMainDevice()
+            ?.let { podFactory.createPod(it)?.device }
+            .also { log(TAG) { "Cached mainDevice is $it" } }
+    }
+
     private fun getUnfilteredFilter(): ScanFilter {
         return ScanFilter.Builder().build()
     }
