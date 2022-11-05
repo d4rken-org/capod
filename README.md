@@ -16,6 +16,7 @@ A companion app that adds support for AirPod specific features to Android:
 * Automatically connect phone & AirPods.
 * Show popup when case is opened.
 * Support for Wear OS
+* Widgets
 
 CAPod is ad-free. Some additional features require an in-app purchase.
 
@@ -36,9 +37,13 @@ Currently supported models:
 
 ## Download
 
-* [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
-* [GitHub](https://github.com/d4rken-org/capod/releases/latest)
-* [IzzyOnDroid](https://apt.izzysoft.de/fdroid/index/apk/eu.darken.capod)
+| Source                | Status |
+|-----------------------|--------|
+| [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod) | [![](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplayshields.herokuapp.com%2Fplay%3Fi%3Deu.darken.capod%26l%3DAndroid%26m%3D%24version)](https://play.google.com/store/apps/details?id=eu.darken.capod) |
+| [Google Play Beta](https://play.google.com/apps/testing/eu.darken.capod) | ? |
+| [Github Releases](https://github.com/d4rken-org/capod/releases) | [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/d4rken-org/capod?include_prereleases&label=GitHub)](https://github.com/d4rken-org/capod/releases/latest) |
+| [F-Droid (IzzyOnDroid)](https://apt.izzysoft.de/packages/eu.darken.capod/) | [![](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/eu.darken.capod)](https://apt.izzysoft.de/packages/eu.darken.capod/) |
+
 
 ## Support the project
 
