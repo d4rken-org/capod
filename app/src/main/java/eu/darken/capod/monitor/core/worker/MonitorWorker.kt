@@ -17,6 +17,7 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
@@ -101,6 +102,7 @@ class MonitorWorker @AssistedInject constructor(
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
             .onStart { setForeground(monitorNotifications.getForegroundInfo(null)) }
             .distinctUntilChanged()
+            .throttleLatest(1000)
             .onEach { currentDevice ->
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,

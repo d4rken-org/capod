@@ -9,6 +9,7 @@ import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.flow.combine
+import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
@@ -76,7 +77,7 @@ class OverviewFragmentVM @Inject constructor(
         permissionTool.missingPermissions,
         debugSettings.isDebugModeEnabled.flow,
         bluetoothManager.isBluetoothEnabled,
-        podMonitor.mainDevice,
+        podMonitor.mainDevice.throttleLatest(1000),
     ) { _, permissions, isDebugMode, isBluetoothEnabled, _ ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
