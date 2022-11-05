@@ -8,6 +8,7 @@ import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.AutoReporting
 import eu.darken.capod.common.debug.logging.*
+import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.PodMonitor
@@ -49,6 +50,7 @@ open class App : Application(), Configuration.Provider {
 
         podMonitor.mainDevice
             .distinctUntilChanged()
+            .throttleLatest(1000)
             .onEach {
                 log(TAG) { "Main device changed, refreshing widgets." }
                 widgetManager.refreshWidgets()

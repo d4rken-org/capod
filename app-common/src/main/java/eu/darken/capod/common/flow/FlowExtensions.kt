@@ -7,6 +7,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.error.hasCause
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlin.time.Duration
 
@@ -71,4 +72,11 @@ fun <T> Flow<T>.setupCommonEventHandlers(tag: String, identifier: () -> String) 
             log(tag, ERROR) { "${identifier()} failed: ${it.asLog()}" }
             throw it
         }
+    }
+
+fun <T> Flow<T>.throttleLatest(delayMillis: Long): Flow<T> = this
+    .conflate()
+    .transform {
+        emit(it)
+        delay(delayMillis)
     }

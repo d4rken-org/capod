@@ -9,6 +9,7 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.flow.combine
+import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
@@ -96,6 +97,7 @@ class OverviewFragmentVM @Inject constructor(
             }
         }
         .catch { errorEvents.postValue(it) }
+        .throttleLatest(1000)
 
     val listItems: LiveData<List<OverviewAdapter.Item>> = combine(
         updateTicker,
