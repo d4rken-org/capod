@@ -7,6 +7,7 @@
     <string name="general_upgrade_action">Tingkatkan</string>
     <string name="general_check_action">Memeriksa</string>
     <string name="general_close_action">Tutup</string>
+    <string name="upgrade_capod_label">Perbaharui CAPod</string>
     <string name="upgrade_capod_description">Dapatkan fitur tambahan &amp; bantu dukung pengembang.</string>
     <string name="settings_monitor_mode_label">Mode monitor</string>
     <string name="settings_monitor_mode_description">Dalam keadaan apa aplikasi ini memonitor data Bluetooth.</string>
@@ -52,6 +53,7 @@
     <string name="settings_support_description">Jika anda membutuhkan bantuan.</string>
     <string name="issue_tracker_label">Pelacak masalah</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug &amp; permintaan fitur (hanya dalam bahasa Inggris).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat nongkrong &amp; bertanya-tanya.</string>
     <string name="changelog_label">Catatan perubahan</string>
     <string name="settings_label">Pengaturan</string>
@@ -73,4 +75,5 @@
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan applikasi ini ke bahasa favorit anda.</string>
     <string name="translators_thanks_title">Penerjemah</string>
+    <string name="translators_thanks_description">gelapkan</string>
 </resources>
