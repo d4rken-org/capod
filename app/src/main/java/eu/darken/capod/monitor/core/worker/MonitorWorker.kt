@@ -20,6 +20,7 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
@@ -48,6 +49,7 @@ class MonitorWorker @AssistedInject constructor(
     private val autoConnect: AutoConnect,
     private val popUpReaction: PopUpReaction,
     private val popUpWindow: PopUpWindow,
+    private val widgetManager: WidgetManager,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -127,10 +129,10 @@ class MonitorWorker @AssistedInject constructor(
             .flatMapLatest { (monitorMode, devices) ->
                 log(TAG) { "Monitor mode: $monitorMode" }
                 when (monitorMode) {
-                     MonitorMode.MANUAL -> flow<Unit> {
-                         // Cancel worker, ui scans manually
-                         workerScope.coroutineContext.cancelChildren()
-                     }
+                    MonitorMode.MANUAL -> flow<Unit> {
+                        // Cancel worker, ui scans manually
+                        workerScope.coroutineContext.cancelChildren()
+                    }
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
                         val mainAddress = generalSettings.mainDeviceAddress.value
