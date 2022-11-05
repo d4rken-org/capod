@@ -2,12 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    style="@style/Notification.Container"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal">
 
     <TextView
         android:id="@+id/headphones_label"
-        style="@style/PodInfoItemText.Notification"
+        style="@style/Notification.Text.Primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,12 +22,12 @@
 
         <ImageView
             android:id="@+id/headphones_battery_icon"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_battery_unknown_24" />
 
         <TextView
             android:id="@+id/headphones_battery_label"
-            style="@style/PodInfoItemText.Notification"
+            style="@style/Notification.Text.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -35,12 +36,12 @@
 
         <ImageView
             android:id="@+id/headphones_charging"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_power_24" />
 
         <ImageView
             android:id="@+id/headphones_worn"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_hearing_24" />
     </LinearLayout>
 

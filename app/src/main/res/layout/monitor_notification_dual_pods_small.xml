@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    style="@style/Notification.Container"
     android:layout_marginHorizontal="8dp"
     android:orientation="horizontal">
 
@@ -18,12 +19,12 @@
 
         <ImageView
             android:id="@+id/pod_left_icon"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_airpod_left_24" />
 
         <TextView
             android:id="@+id/pod_left_label"
-            style="@style/PodInfoItemText.Notification"
+            style="@style/Notification.Text.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -31,12 +32,12 @@
 
         <ImageView
             android:id="@+id/pod_left_charging"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_power_24" />
 
         <ImageView
             android:id="@+id/pod_left_ear"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_hearing_24" />
     </LinearLayout>
 
@@ -52,12 +53,12 @@
 
         <ImageView
             android:id="@+id/pod_case_icon"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_airpod_case_24" />
 
         <TextView
             android:id="@+id/pod_case_label"
-            style="@style/PodInfoItemText.Notification"
+            style="@style/Notification.Text.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -65,7 +66,7 @@
 
         <ImageView
             android:id="@+id/pod_case_charging"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_power_24" />
     </LinearLayout>
 
@@ -81,12 +82,12 @@
 
         <ImageView
             android:id="@+id/pod_right_icon"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_airpod_right_24" />
 
         <TextView
             android:id="@+id/pod_right_label"
-            style="@style/PodInfoItemText.Notification"
+            style="@style/Notification.Text.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -94,12 +95,12 @@
 
         <ImageView
             android:id="@+id/pod_right_charging"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_power_24" />
 
         <ImageView
             android:id="@+id/pod_right_ear"
-            style="@style/PodInfoItemIcon.Notification"
+            style="@style/Notification.Icon"
             android:src="@drawable/ic_baseline_hearing_24" />
     </LinearLayout>
 
