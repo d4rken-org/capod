@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/device"
-        style="@style/Notification.Text.Primary"
+        style="@style/PodInfoItemText.Notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
