@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">T/A</string>
+    <string name="general_error_label">Error</string>
     <string name="general_grant_permission_action">Berikan izin</string>
     <string name="overview_nomaindevice_label">Tidak ada perangkat utama</string>
     <string name="overview_nomaindevice_description">Semua perangkat yang terdeteksi tidak mungkin menjadi milik anda. Nyalakan &amp; sambungkan perangkat anda atau sesuaikan pengaturan.</string>
@@ -10,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Aplikasi ini memerlukan izin \"Koneksi Bluetooth\" untuk berinteraksi dengan perangkat yang akan dipasangkan &amp; memulai koneksi.</string>
     <string name="permission_bluetooth_scan_label">Pemindaian Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Izin \"Pemindaian Bluetooth\" memungkinkan aplikasi ini menemukan &amp; menerima data Bluetooth dari perangkat terdekat seperti AirPods anda.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Aplikasi ini memerlukan izin \"Bluetooth\" untuk terhubung ke perangkat bluetooth yang ingin dipasangkan.</string>
     <string name="permission_access_fine_location_label">Akses lokasi halus</string>
     <string name="permission_access_fine_location_description">CAPod menggunakan izin \"lokasi halus\" untuk menerima data Bluetooth Hemat Energi. Headphone anda menggunakan teknologi Bluetooth Hemat Energi untuk menyiarkan statusnya. Aplikasi ini TIDAK akan menggunakan data Bluetooth untuk menentukan lokasi anda.</string>
