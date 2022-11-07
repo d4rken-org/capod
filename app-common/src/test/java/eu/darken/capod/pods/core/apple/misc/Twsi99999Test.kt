@@ -2,13 +2,13 @@ package eu.darken.capod.pods.core.apple.misc
 
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import io.kotest.matchers.shouldBe
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
 class Twsi99999Test : BaseAirPodsTest() {
 
     @Test
-    fun `charging in box`() = runBlockingTest {
+    fun `charging in box`() = runTest {
         create<Twsi99999>("07 13 01 02 20 71 AA 37 32 00 10 00 64 64 FF 00 00 00 00 00 00") {
             rawPrefix shouldBe 0x01.toUByte()
             rawDeviceModel shouldBe 0x0220.toUShort()
