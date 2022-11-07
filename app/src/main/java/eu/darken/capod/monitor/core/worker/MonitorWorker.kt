@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core.worker
 
 import android.app.NotificationManager
+import android.bluetooth.BluetoothDevice
 import android.content.Context
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
@@ -114,21 +115,27 @@ class MonitorWorker @AssistedInject constructor(
             }
             .launchIn(workerScope)
 
-        generalSettings.monitorMode.flow
-            .flatMapLatest { monitorMode ->
-                val missingPermsFlow = permissionTool.missingPermissions.first()
+        permissionTool.missingPermissions
+            .flatMapLatest { missingPermsFlow ->
                 if (missingPermsFlow.isNotEmpty()) {
-                    log(TAG, WARN) { "Aborting, permissions are missing for $monitorMode: $missingPermsFlow" }
+                    log(TAG, WARN) { "Aborting, permissions are missing: $missingPermsFlow" }
                     workerScope.coroutineContext.cancelChildren()
                     return@flatMapLatest emptyFlow()
                 }
-
-                bluetoothManager.connectedDevices().map { knownDevices ->
-                    monitorMode to knownDevices
+                combine(
+                    generalSettings.monitorMode.flow,
+                    generalSettings.mainDeviceAddress.flow,
+                    bluetoothManager.connectedDevices(),
+                ) { monitorMode, mainAddress, connectedDevices ->
+                    listOf(monitorMode, mainAddress, connectedDevices)
                 }
             }
             .setupCommonEventHandlers(TAG) { "MonitorMode" }
-            .flatMapLatest { (monitorMode, devices) ->
+            .flatMapLatest { arguments ->
+                val monitorMode = arguments[0] as MonitorMode
+                val mainAddress = arguments[1] as String?
+                val devices = arguments[2] as Collection<BluetoothDevice>
+
                 log(TAG) { "Monitor mode: $monitorMode" }
                 when (monitorMode) {
                     MonitorMode.MANUAL -> flow<Unit> {
@@ -137,15 +144,20 @@ class MonitorWorker @AssistedInject constructor(
                     }
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
-                        val mainAddress = generalSettings.mainDeviceAddress.value
-                        if (devices.any { it.address == mainAddress }) {
-                            log(TAG) { "MainDevice is connected ($mainAddress), aborting any timeout." }
-                        } else {
-                            log(TAG) { "No Pods are connected, canceling worker soon." }
-                            delay(15 * 1000)
-                            log(TAG) { "Canceling worker now, still no Pods connected." }
+                        when {
+                            mainAddress == null && devices.isNotEmpty() -> {
+                                log(TAG, WARN) { "Main device address not set, staying alive while any is connected" }
+                            }
+                            devices.any { it.address == mainAddress } -> {
+                                log(TAG) { "MainDevice is connected ($mainAddress), aborting any timeout." }
+                            }
+                            else -> {
+                                log(TAG) { "No known Pods are connected, canceling worker soon." }
+                                delay(15 * 1000)
+                                log(TAG) { "Canceling worker now, still no Pods connected." }
 
-                            workerScope.coroutineContext.cancelChildren()
+                                workerScope.coroutineContext.cancelChildren()
+                            }
                         }
                     }
                 }
