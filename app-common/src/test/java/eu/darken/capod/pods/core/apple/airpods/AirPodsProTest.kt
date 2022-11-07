@@ -170,4 +170,19 @@ class AirPodsProTest : BaseAirPodsTest() {
             batteryCasePercent shouldBe 0.6f
         }
     }
+
+    @Test
+    fun `left pod has no data`() = runBlockingTest {
+        create<AirPodsPro>("07 19 01 0E 20 0B F9 8F 03 00 05 5B 59 67 4C F7 F3 EF 01 BA F4 92 1B 26 E4 90 40") {
+            rawPodsBattery shouldBe 0xF9.toUByte()
+
+            batteryLeftPodPercent shouldBe null
+            batteryRightPodPercent shouldBe 0.9f
+
+            isCaseCharging shouldBe false
+            isRightPodCharging shouldBe false
+            isLeftPodCharging shouldBe false
+            batteryCasePercent shouldBe null
+        }
+    }
 }

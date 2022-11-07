@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
@@ -66,7 +67,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         override fun toString(): String = "KnownDevice(history=${history.size}, last=${history.last()})"
 
         companion object {
-            const val MAX_HISTORY = 10
+            const val MAX_HISTORY = 20
         }
     }
 
@@ -88,6 +89,22 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
             ?.caseLidState
     }
 
+    open fun historyTrimmer(
+        pods: List<ApplePods>
+    ): List<ApplePods> {
+        var trimmed = pods.takeLast(KnownDevice.MAX_HISTORY)
+
+        // We want to keep the case information
+        // If both pods are removed, and produce more history, we otherwise lose the case battery info.
+        val caseInfoFat = pods.lastOrNull { it is HasCase && it.batteryCasePercent != null }
+        val caseInfoTrimmed = trimmed.lastOrNull { it is HasCase && it.batteryCasePercent != null }
+        if (caseInfoFat != null && caseInfoTrimmed == null) {
+            trimmed = listOf(caseInfoFat) + trimmed.takeLast(KnownDevice.MAX_HISTORY - 1)
+        }
+
+        return trimmed
+    }
+
     internal open fun searchHistory(current: PodType): KnownDevice? {
         val scanResult = current.scanResult
         val message = current.proximityMessage
@@ -103,7 +120,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
             .filter { it.history.size > KnownDevice.MAX_HISTORY }
             .toList()
             .forEach {
-                knownDevices[it.id] = it.copy(history = it.history.takeLast(KnownDevice.MAX_HISTORY))
+                knownDevices[it.id] = it.copy(history = historyTrimmer(it.history))
             }
 
         var recognizedDevice: KnownDevice? = knownDevices.values
@@ -118,7 +135,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         }
 
         if (recognizedDevice == null) {
-            log(tag) { "searchHistory1: Didn't recognize: $message" }
+            log(tag, WARN) { "searchHistory1: Didn't recognize: $message" }
         }
 
         return recognizedDevice
