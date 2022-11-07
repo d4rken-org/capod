@@ -12,6 +12,7 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
+import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
@@ -79,6 +80,7 @@ class PodMonitor @Inject constructor(
 
     val mainDevice: Flow<PodDevice?> = devices
         .map { determineMainDevice(it) }
+        .setupCommonEventHandlers(TAG) { "mainDevice" }
         .replayingShare(appScope)
 
     private fun createBleScanner() = combine(
