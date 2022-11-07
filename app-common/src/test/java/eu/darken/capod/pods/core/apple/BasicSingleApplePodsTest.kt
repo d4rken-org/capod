@@ -1,13 +1,13 @@
 package eu.darken.capod.pods.core.apple
 
 import io.kotest.matchers.shouldBe
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
 class BasicSingleApplePodsTest : BaseAirPodsTest() {
 
     @Test
-    fun `test mapping`() = runBlockingTest {
+    fun `test mapping`() = runTest {
         create<SingleApplePods>("07 19 01 05 20 00 F5 0F 01 01 00 6D CE C0 04 22 0A 85 31 2D 82 6B 42 80 01 20 1A") {
             rawPrefix shouldBe 0x01.toUByte()
             rawDeviceModel shouldBe 0x0520.toUShort()
@@ -22,7 +22,7 @@ class BasicSingleApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test battery headset percent`() = runBlockingTest {
+    fun `test battery headset percent`() = runTest {
         create<SingleApplePods>("07 19 01 05 20 00 F5 0F 01 01 00 6D CE C0 04 22 0A 85 31 2D 82 6B 42 80 01 20 1A") {
             batteryHeadsetPercent shouldBe 0.5f
         }

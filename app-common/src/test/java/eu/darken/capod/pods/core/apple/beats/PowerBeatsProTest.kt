@@ -3,14 +3,14 @@ package eu.darken.capod.pods.core.apple.beats
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
 class PowerBeatsProTest : BaseAirPodsTest() {
 
     // TODO This is handcrafted data, get actual data for tests
     @Test
-    fun `test PowerBeatsPro`() = runBlockingTest {
+    fun `test PowerBeatsPro`() = runTest {
         create<PowerBeatsPro>("07 19 01 0B 20 54 AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             rawPrefix shouldBe 0x01.toUByte()
             rawDeviceModel shouldBe 0x0B20.toUShort()

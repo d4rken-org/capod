@@ -4,13 +4,13 @@ import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
 class AirPodsGen2Test : BaseAirPodsTest() {
 
     @Test
-    fun `random Neighbor AirPodsGen2`() = runBlockingTest {
+    fun `random Neighbor AirPodsGen2`() = runTest {
         create<AirPodsGen2>("07 19 01 0F 20 02 F9 8F 01 00 05 F2 7E 14 E0 54 0A 53 69 5B 7D F2 15 1F D7 B1 12") {
             rawPrefix shouldBe 0x01.toUByte()
             rawDeviceModel shouldBe 0x0F20.toUShort()

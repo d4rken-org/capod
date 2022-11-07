@@ -5,7 +5,7 @@ import com.squareup.moshi.Moshi
 import eu.darken.capod.main.core.MonitorMode
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
@@ -25,7 +25,7 @@ class FlowPreferenceMoshiTest : BaseTest() {
     )
 
     @Test
-    fun `reading and writing using manual reader and writer`() = runBlockingTest {
+    fun `reading and writing using manual reader and writer`() = runTest {
         val testData1 = TestGson(string = "teststring")
         val testData2 = TestGson(string = "update")
         val moshi = Moshi.Builder().build()
@@ -67,7 +67,7 @@ class FlowPreferenceMoshiTest : BaseTest() {
     }
 
     @Test
-    fun `reading and writing using autocreated reader and writer`() = runBlockingTest {
+    fun `reading and writing using autocreated reader and writer`() = runTest {
         val testData1 = TestGson(string = "teststring")
         val testData2 = TestGson(string = "update")
         val moshi = Moshi.Builder().build()
@@ -109,7 +109,7 @@ class FlowPreferenceMoshiTest : BaseTest() {
     }
 
     @Test
-    fun `enum serialization`() = runBlockingTest {
+    fun `enum serialization`() = runTest {
         val moshi = Moshi.Builder().build()
         val monitorMode = mockPreferences.createFlowPreference(
             "core.monitor.mode",

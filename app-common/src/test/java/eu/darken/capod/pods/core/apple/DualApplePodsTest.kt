@@ -1,13 +1,13 @@
 package eu.darken.capod.pods.core.apple
 
 import io.kotest.matchers.shouldBe
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
 class DualApplePodsTest : BaseAirPodsTest() {
 
     @Test
-    fun `test bit mapping`() = runBlockingTest {
+    fun `test bit mapping`() = runTest {
         create<DualAirPods>("07 19 01 0E 20 54 AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
 
             rawPrefix shouldBe 0x01.toUByte()
@@ -23,7 +23,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - active microphone`() = runBlockingTest {
+    fun `test AirPodDevice - active microphone`() = runTest {
         create<DualAirPods>("07 19 01 0E 20 >2B< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00101011
             // --^-----
@@ -39,7 +39,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - left pod ear status`() = runBlockingTest {
+    fun `test AirPodDevice - left pod ear status`() = runTest {
         // Left Pod primary
         create<DualAirPods>("07 19 01 0E 20 >22< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00100010
@@ -66,7 +66,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - right pod ear status`() = runBlockingTest {
+    fun `test AirPodDevice - right pod ear status`() = runTest {
         // Left Pod primary
         create<DualAirPods>("07 19 01 0E 20 >29< AA B5 31 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4") {
             // 00101001
@@ -93,7 +93,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - battery status`() = runBlockingTest {
+    fun `test AirPodDevice - battery status`() = runTest {
         // Right Pod is primary
         create<DualAirPods>("07 19 01 0E 20 0B >98< 94 52 00 05 09 73 3C 3D F9 2C 3E B3 DD 76 02 DD 4E 16 FD FB") {
             // 88 10001000
@@ -109,7 +109,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - pod charging`() = runBlockingTest {
+    fun `test AirPodDevice - pod charging`() = runTest {
         /**
          * Right pod is charging
          */
@@ -157,7 +157,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - case charging`() = runBlockingTest {
+    fun `test AirPodDevice - case charging`() = runTest {
         create<DualAirPods>("07 19 01 0E 20 75 99 >B4< 31 00 05 77 C8 BA 0C 4E 1F BE AD 70 C5 40 71 D2 E9 17 A2") {
             // 0011 0011
             isCaseCharging shouldBe false
@@ -169,7 +169,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - case lid test`() = runBlockingTest {
+    fun `test AirPodDevice - case lid test`() = runTest {
         // Lid open
         create<DualAirPods>("07 19 01 0E 20 55 AA B4 >31< 00 00 A1 D0 BD 82 D3 52 86 CA FC 11 62 DC 42 C6 92 8E") {
             // 31 0011 0001
@@ -210,7 +210,7 @@ class DualApplePodsTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `test AirPodDevice - connection state`() = runBlockingTest {
+    fun `test AirPodDevice - connection state`() = runTest {
         // Disconnected
         create<DualAirPods>("07 19 01 0E 20 2B AA 8F 01 00 >00< 62 D4 BB F1 A7 F8 64 98 D2 C8 BD 7B 3A EF 2E 15") {
             // 31 0011 0001
