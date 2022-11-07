@@ -130,24 +130,25 @@ class OverviewFragmentVM @Inject constructor(
         if (permissions.isEmpty() && isBluetoothEnabled) {
             pods.map {
                 val now = Instant.now()
+                val isMainPod = it.identifier == mainPod?.identifier
                 when (it) {
                     is DualPodDevice -> DualPodsCardVH.Item(
                         now = now,
                         device = it,
                         showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
+                        isMainPod = isMainPod,
                     )
                     is SinglePodDevice -> SinglePodsCardVH.Item(
                         now = now,
                         device = it,
                         showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
+                        isMainPod = isMainPod,
                     )
                     else -> UnknownPodDeviceCardVH.Item(
                         now = now,
                         device = it,
                         showDebug = isDebugMode,
-                        isMainPod = it == mainPod,
+                        isMainPod = isMainPod,
                     )
                 }
             }.run { items.addAll(this) }
