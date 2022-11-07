@@ -61,6 +61,13 @@ class GeneralSettingsFragment : PreferenceFragment3() {
                 true
             }
         }
+
+        vm.events.observe2 {
+            when (it) {
+                GeneralSettingsEvents.SelectDeviceAddressEvent -> mainDeviceAddressPref.performClick()
+            }
+        }
+
         mainDeviceModelPref.setOnPreferenceClickListener {
             val dialog = ModelSelectionDialogFactory(requireContext()).create(
                 PodDevice.Model.values().toList(),
