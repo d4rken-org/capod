@@ -9,6 +9,7 @@
     <string name="general_close_action">Chiudi</string>
     <string name="upgrade_capod_label">Aggiorna CAPod</string>
     <string name="upgrade_capod_description">Ottieni funzionalità aggiuntive e supporta lo sviluppatore.</string>
+    <string name="settings_monitor_mode_label">Modalità monitor</string>
     <string name="settings_monitor_mode_description">Sotto quali circostanze questa applicazione monitora i dati Bluetooth.</string>
     <string name="settings_scanner_mode_label">Modalità di scansione</string>
     <string name="settings_scanner_mode_description">Il bluetooth a basso consumo energetico dovrebbe dare priorità alle performance o al risparmio della batteria?</string>
@@ -50,6 +51,7 @@
     <string name="settings_support_installid_desc">Le segnalazioni automatiche degli errori sono anonime. Condividi il tuo ID di installazione con lo sviluppatore se necessità di trovare la tua segnalazione all\'interno del registro segnalazioni.</string>
     <string name="settings_support_label">Supporto</string>
     <string name="settings_support_description">Se ti serve un aiuto.</string>
+    <string name="issue_tracker_label">Tracker problemi</string>
     <string name="issue_tracker_description">Un issue tracker pubblico per segnalare i problemi e le richieste per aggiungere nuove funzionalità (solo in inglese).</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un posto dove poter fare domande.</string>
