@@ -5,11 +5,11 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class VarunrAirPodsProTest : BaseAirPodsTest() {
+class FakeAirPodsProTest : BaseAirPodsTest() {
 
     @Test
     fun `guessed data`() = runTest {
-        create<VarunrAirPodsPro>("07 13 01 0E 20 71 AA 37 36 00 10 00 FF 64 FF 00 00 00 00 00 00") {
+        create<FakeAirPodsPro>("07 13 01 0E 20 71 AA 37 36 00 10 00 FF 64 FF 00 00 00 00 00 00") {
             rawPrefix shouldBe 0x01.toUByte()
             rawDeviceModel shouldBe 0x0E20.toUShort()
             rawStatus shouldBe 0x71.toUByte()

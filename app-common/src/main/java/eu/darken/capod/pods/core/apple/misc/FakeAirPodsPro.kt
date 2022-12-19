@@ -20,7 +20,7 @@ import javax.inject.Inject
  * AirPods Pro clone similar to Twsi999999.
  * Shorter data structure.
  */
-data class VarunrAirPodsPro constructor(
+data class FakeAirPodsPro constructor(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
@@ -32,7 +32,7 @@ data class VarunrAirPodsPro constructor(
     private val cachedBatteryPercentage: Float? = null,
 ) : ApplePods, DualPodDevice, HasDualMicrophone, HasCase {
 
-    override val model: PodDevice.Model = PodDevice.Model.VARUNR_AIRPODS_PRO
+    override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO
 
     override val rssi: Int
         get() = rssiAverage ?: super<ApplePods>.rssi
@@ -109,7 +109,7 @@ data class VarunrAirPodsPro constructor(
     override val isCaseCharging: Boolean
         get() = rawFlags.isBitSet(2)
 
-    class Factory @Inject constructor() : ApplePodsFactory<VarunrAirPodsPro>(TAG) {
+    class Factory @Inject constructor() : ApplePodsFactory<FakeAirPodsPro>(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
             // Official message length is 19HEX, i.e. binary 25, did they copy this wrong?
@@ -117,7 +117,7 @@ data class VarunrAirPodsPro constructor(
         }
 
         override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
-            var basic = VarunrAirPodsPro(scanResult = scanResult, proximityMessage = message)
+            var basic = FakeAirPodsPro(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -139,6 +139,6 @@ data class VarunrAirPodsPro constructor(
 
     companion object {
         private val DEVICE_CODE = 0x0E20.toUShort()
-        private val TAG = logTag("PodDevice", "Apple", "Varunr", "AirPodsPro")
+        private val TAG = logTag("PodDevice", "Apple", "Fake", "AirPods", "Pro")
     }
 }
