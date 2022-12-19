@@ -1,11 +1,14 @@
 package eu.darken.capod.pods.core.apple.misc
 
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.common.isBitSet
+import eu.darken.capod.common.lowerNibble
+import eu.darken.capod.common.upperNibble
+import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.DualAirPods
-import eu.darken.capod.pods.core.apple.DualApplePodsFactory
+import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
@@ -25,20 +28,98 @@ data class FakeAirPodsGen3 constructor(
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
-    private val cachedCaseState: DualAirPods.LidState? = null
-) : DualAirPods {
+) : ApplePods, DualPodDevice, HasDualMicrophone, HasCase, HasChargeDetectionDual {
+
     override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_GEN3
 
-    override val batteryCasePercent: Float?
-        get() = super.batteryCasePercent ?: cachedBatteryPercentage
-
-    override val caseLidState: DualAirPods.LidState
-        get() = cachedCaseState ?: super.caseLidState
-
     override val rssi: Int
-        get() = rssiAverage ?: super.rssi
+        get() = rssiAverage ?: super<ApplePods>.rssi
 
-    class Factory @Inject constructor() : DualApplePodsFactory(TAG) {
+    /**
+     * Normally values for the left pod are in the lower nibbles, if the left pod is primary (microphone)
+     * If the right pod is the primary, the values are flipped.
+     */
+    val areValuesFlipped: Boolean
+        get() = !rawStatus.isBitSet(5)
+
+    override val batteryLeftPodPercent: Float?
+        get() {
+            val value = when (areValuesFlipped) {
+                true -> rawPodsBattery.upperNibble.toInt()
+                false -> rawPodsBattery.lowerNibble.toInt()
+            }
+            return when (value) {
+                15 -> null
+                else -> if (value > 10) {
+                    log { "Left pod: Above 100% battery: $value" }
+                    1.0f
+                } else {
+                    (value / 10f)
+                }
+            }
+        }
+
+    override val batteryRightPodPercent: Float?
+        get() {
+            val value = when (areValuesFlipped) {
+                true -> rawPodsBattery.lowerNibble.toInt()
+                false -> rawPodsBattery.upperNibble.toInt()
+            }
+            return when (value) {
+                15 -> null
+                else -> if (value > 10) {
+                    log { "Right pod: Above 100% battery: $value" }
+                    1.0f
+                } else {
+                    value / 10f
+                }
+            }
+        }
+
+    override val isLeftPodCharging: Boolean
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(0)
+            true -> rawFlags.isBitSet(1)
+        }
+
+    override val isRightPodCharging: Boolean
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(1)
+            true -> rawFlags.isBitSet(0)
+        }
+
+    val isThisPodInThecase: Boolean
+        get() = rawStatus.isBitSet(6)
+
+    /**
+     * The data flip bit is set if the left pod is primary.
+     * For the pod that is in the case, this is flipped again though.
+     */
+    override val isLeftPodMicrophone: Boolean
+        get() = rawStatus.isBitSet(5) xor isThisPodInThecase
+
+    /**
+     * The data flip bit is UNset if the right pod is primary.
+     * For the pod that is in the case, this is flipped again though.
+     */
+    override val isRightPodMicrophone: Boolean
+        get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
+
+    override val batteryCasePercent: Float?
+        get() = when (val value = rawCaseBattery.toInt()) {
+            15 -> cachedBatteryPercentage
+            else -> if (value > 10) {
+                log { "Case: Above 100% battery: $value" }
+                1.0f
+            } else {
+                value / 10f
+            }
+        }
+
+    override val isCaseCharging: Boolean
+        get() = rawFlags.isBitSet(2)
+
+    class Factory @Inject constructor() : ApplePodsFactory<FakeAirPodsGen3>(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
             // Official message length is 19HEX, i.e. binary 25, did they copy this wrong?
@@ -62,7 +143,6 @@ data class FakeAirPodsGen3 constructor(
                 confidence = result.confidence,
                 cachedBatteryPercentage = result.getLatestCaseBattery(),
                 rssiAverage = result.averageRssi(basic.rssi),
-                cachedCaseState = result.getLatestCaseLidState(basic)
             )
         }
 

@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple.misc
 
+import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -26,6 +27,8 @@ class FakeAirPodsProTest : BaseAirPodsTest() {
             isCaseCharging shouldBe false
 
             batteryCasePercent shouldBe 0.7f
+
+            model shouldBe PodDevice.Model.FAKE_AIRPODS_PRO
         }
     }
 }

@@ -7,9 +7,9 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.capod.pods.core.apple.airpods.*
 import eu.darken.capod.pods.core.apple.beats.*
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen1
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen3
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsPro
-import eu.darken.capod.pods.core.apple.misc.Twsi99999
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -30,7 +30,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun powerBeats3(factory: PowerBeats3.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun powerBeatsPro(factory: PowerBeatsPro.Factory): ApplePodsFactory<out ApplePods>
 
-    @Binds @IntoSet abstract fun fakesTwsi999999(factory: Twsi99999.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet abstract fun fakeAirPodsGen1(factory: FakeAirPodsGen1.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun fakeAirPodsPro(factory: FakeAirPodsPro.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun fakeAirPodsGen3(factory: FakeAirPodsGen3.Factory): ApplePodsFactory<out ApplePods>
 }

@@ -19,6 +19,7 @@ import javax.inject.Inject
 /**
  * AirPods Pro clone similar to Twsi999999.
  * Shorter data structure.
+ * https://discord.com/channels/548521543039189022/927235844127993866/962068944196358234
  */
 data class FakeAirPodsPro constructor(
     override val identifier: PodDevice.Id = PodDevice.Id(),
