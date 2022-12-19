@@ -104,14 +104,14 @@ interface PodDevice {
         @Json(name = "beats.powerbeats.pro") POWERBEATS_PRO(
             "Power Beats Pro"
         ),
-        @Json(name = "fakes.tws.i99999") TWS_I99999(
-            "TWS i99999"
+        @Json(name = "fakes.tws.i99999") FAKE_AIRPODS_GEN1(
+            "AirPods (Gen 1)? \uD83C\uDFAD"
         ),
         @Json(name = "fakes.varunr.airpodspro") FAKE_AIRPODS_PRO(
-            "AirPods Pro?"
+            "AirPods Pro? \uD83C\uDFAD"
         ),
         @Json(name = "fakes.generic.airpods.gen3") FAKE_AIRPODS_GEN3(
-            "AirPods (Gen 3)?"
+            "AirPods (Gen 3)? \uD83C\uDFAD"
         ),
         @Json(name = "unknown") UNKNOWN(
             "Unknown"

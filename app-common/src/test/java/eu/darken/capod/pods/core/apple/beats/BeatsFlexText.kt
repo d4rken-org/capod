@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple.beats
 
+import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -22,6 +23,8 @@ class BeatsFlexText : BaseAirPodsTest() {
             rawSuffix shouldBe 0x00.toUByte()
 
             batteryHeadsetPercent shouldBe 0.4f
+
+            model shouldBe PodDevice.Model.BEATS_FLEX
         }
     }
 

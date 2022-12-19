@@ -19,8 +19,9 @@ import javax.inject.Inject
 /**
  * Basically an AirPods GEN1 clone
  * Similar data structure but a lot of placeholder values or hardcoded values
+ * Marketed as TWS i99999
  */
-data class Twsi99999 constructor(
+data class FakeAirPodsGen1 constructor(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
@@ -32,7 +33,7 @@ data class Twsi99999 constructor(
     private val cachedBatteryPercentage: Float? = null,
 ) : ApplePods, DualPodDevice, HasDualMicrophone, HasCase {
 
-    override val model: PodDevice.Model = PodDevice.Model.TWS_I99999
+    override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_GEN1
 
     override val rssi: Int
         get() = rssiAverage ?: super<ApplePods>.rssi
@@ -109,7 +110,7 @@ data class Twsi99999 constructor(
     override val isCaseCharging: Boolean
         get() = rawFlags.isBitSet(2)
 
-    class Factory @Inject constructor() : ApplePodsFactory<Twsi99999>(TAG) {
+    class Factory @Inject constructor() : ApplePodsFactory<FakeAirPodsGen1>(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
             // Official message length is 19HEX, i.e. binary 25, did they copy this wrong?
@@ -117,7 +118,7 @@ data class Twsi99999 constructor(
         }
 
         override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
-            var basic = Twsi99999(scanResult = scanResult, proximityMessage = message)
+            var basic = FakeAirPodsGen1(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -139,6 +140,6 @@ data class Twsi99999 constructor(
 
     companion object {
         private val DEVICE_CODE = 0x0220.toUShort()
-        private val TAG = logTag("PodDevice", "Apple", "TWS", "i99999")
+        private val TAG = logTag("PodDevice", "Apple", "Fake", "AirPods", "Gen1")
     }
 }

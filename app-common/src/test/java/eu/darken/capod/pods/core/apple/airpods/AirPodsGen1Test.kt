@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple.airpods
 
+import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.HasAppleColor
@@ -39,6 +40,8 @@ class AirPodsGen1Test : BaseAirPodsTest() {
             state shouldBe DualAirPods.ConnectionState.DISCONNECTED
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+
+            model shouldBe PodDevice.Model.AIRPODS_GEN1
         }
     }
 }
