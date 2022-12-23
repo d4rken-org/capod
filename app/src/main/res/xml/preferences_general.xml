@@ -43,7 +43,7 @@
             android:title="@string/settings_maindevice_address_label" />
 
         <Preference
-            android:icon="@drawable/ic_device_generic_headphones"
+            android:icon="@drawable/devic_headphones_generic"
             android:key="core.maindevice.model"
             android:summary="@string/settings_maindevice_model_description"
             android:title="@string/settings_maindevice_model_label" />

@@ -39,6 +39,8 @@ class DualPodsCardVH(parent: ViewGroup) :
             }
         }
         deviceIcon.setImageResource(device.iconRes)
+        podLeftIcon.setImageResource(device.leftPodIcon)
+        podRightIcon.setImageResource(device.rightPodIcon)
 
         lastSeen.text = context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
         firstSeen.text = context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
@@ -109,6 +111,7 @@ class DualPodsCardVH(parent: ViewGroup) :
         // Case charge state
         device.apply {
             if (this is HasCase) {
+                podCaseIcon.setImageResource(caseIcon)
                 podCaseBatteryIcon.isGone = false
                 podCaseBatteryIcon.setImageResource(getBatteryDrawable(batteryCasePercent))
                 podCaseBatteryLabel.text = getBatteryLevelCase(context)

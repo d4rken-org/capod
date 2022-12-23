@@ -20,10 +20,11 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
+            style="@style/PodInfoItemIcon"
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/name"
-            app:srcCompat="@drawable/ic_airpod_both_24" />
+            app:srcCompat="@drawable/devic_airpods_gen1_both" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
@@ -118,7 +119,7 @@
                 android:id="@+id/pod_left_icon"
                 style="@style/PodInfoItemIcon"
                 android:contentDescription="@string/pods_dual_left_label"
-                android:src="@drawable/ic_airpod_left_24"
+                android:src="@drawable/devic_airpods_gen1_left"
                 app:layout_constraintBottom_toBottomOf="@id/pod_left_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/pod_left_label" />
@@ -230,7 +231,7 @@
             <ImageView
                 android:id="@+id/pod_case_icon"
                 style="@style/PodInfoItemIcon"
-                android:src="@drawable/ic_airpod_case_24"
+                android:src="@drawable/devic_airpods_gen1_case"
                 app:layout_constraintBottom_toBottomOf="@id/pod_case_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/pod_case_label" />
@@ -324,7 +325,7 @@
                 android:id="@+id/pod_right_icon"
                 style="@style/PodInfoItemIcon"
                 android:contentDescription="@string/pods_dual_right_label"
-                android:src="@drawable/ic_airpod_right_24"
+                android:src="@drawable/devic_airpods_gen1_right"
                 app:layout_constraintBottom_toBottomOf="@id/pod_right_label"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/pod_right_label" />

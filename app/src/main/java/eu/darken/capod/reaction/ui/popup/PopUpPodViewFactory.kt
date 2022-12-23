@@ -41,14 +41,17 @@ class PopUpPodViewFactory @Inject constructor(
                 signal.isInvisible = debugSettings.isDebugModeEnabled.value
 
                 // Left
+                podLeftIcon.setImageResource(device.leftPodIcon)
                 podLeftBatteryIcon.setImageResource(getBatteryDrawable(batteryLeftPodPercent))
                 podLeftBatteryLabel.text = getBatteryLevelLeftPod(context)
 
                 // Case
+                podCaseIcon.setImageResource(device.caseIcon)
                 podCaseBatteryIcon.setImageResource(getBatteryDrawable(batteryCasePercent))
                 podCaseBatteryLabel.text = getBatteryLevelCase(context)
 
                 // Right
+                podRightIcon.setImageResource(device.rightPodIcon)
                 podRightBatteryIcon.setImageResource(getBatteryDrawable(batteryRightPodPercent))
                 podRightBatteryLabel.text = getBatteryLevelRightPod(context)
             }
