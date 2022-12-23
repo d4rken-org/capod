@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="2dp"
+        android:textStyle="bold"
         android:textSize="12sp"
         tools:text="AirPods Max" />
 
@@ -23,7 +24,7 @@
         <ImageView
             android:id="@+id/pod_left_icon"
             style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/ic_airpod_left_24"
+            android:src="@drawable/devic_airpods_gen1_left"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -57,7 +58,7 @@
         <ImageView
             android:id="@+id/pod_right_icon"
             style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/ic_airpod_right_24"
+            android:src="@drawable/devic_airpods_gen1_right"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -91,7 +92,7 @@
         <ImageView
             android:id="@+id/pod_case_icon"
             style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/ic_airpod_case_24"
+            android:src="@drawable/devic_airpods_gen1_case"
             tools:ignore="ContentDescription" />
 
         <TextView
