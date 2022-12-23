@@ -4,6 +4,10 @@
     <style name="PodInfoItemIcon" parent="TextAppearance.Material3.BodySmall">
         <item name="android:layout_height">16dp</item>
         <item name="android:layout_width">16dp</item>
+        <item name="android:tintMode">multiply</item>
+        <item name="android:tint">?android:attr/colorAccent</item>
+        <item name="tint">?android:attr/colorAccent</item>
+
     </style>
 
     <style name="PodInfoItemText" parent="TextAppearance.Material3.BodyMedium">

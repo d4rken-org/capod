@@ -172,6 +172,7 @@ class WidgetProvider : AppWidgetProvider() {
         setTextViewText(R.id.headphones_label, podDevice.getLabel(context))
 
         // Left
+        setImageViewResource(R.id.pod_left_icon, podDevice.leftPodIcon)
         setTextViewText(R.id.pod_left_label, podDevice.getBatteryLevelLeftPod(context))
         setViewVisibility(
             R.id.pod_left_charging,
@@ -183,6 +184,7 @@ class WidgetProvider : AppWidgetProvider() {
         )
 
         // Case
+        (podDevice as? HasCase)?.let { setImageViewResource(R.id.pod_case_icon, it.caseIcon) }
         setTextViewText(R.id.pod_case_label, (podDevice as? HasCase)?.getBatteryLevelCase(context))
         setViewVisibility(
             R.id.pod_case_charging,
@@ -190,6 +192,7 @@ class WidgetProvider : AppWidgetProvider() {
         )
 
         // Right
+        setImageViewResource(R.id.pod_right_icon, podDevice.rightPodIcon)
         setTextViewText(R.id.pod_right_label, podDevice.getBatteryLevelRightPod(context))
         setViewVisibility(
             R.id.pod_right_charging,
@@ -216,6 +219,7 @@ class WidgetProvider : AppWidgetProvider() {
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
         setTextViewText(R.id.headphones_label, podDevice.getLabel(context))
+        setImageViewResource(R.id.headphones_icon, podDevice.iconRes)
         setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(podDevice.batteryHeadsetPercent))
         setTextViewText(R.id.headphones_battery_label, podDevice.getBatteryLevelHeadset(context))
 

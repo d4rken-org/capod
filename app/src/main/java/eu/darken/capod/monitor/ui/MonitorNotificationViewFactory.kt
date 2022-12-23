@@ -27,15 +27,18 @@ class MonitorNotificationViewFactory @Inject constructor(
     ).apply {
         device.apply {
             // Left
+            setImageViewResource(R.id.pod_left_icon, device.leftPodIcon)
             setTextViewText(R.id.pod_left_label, getBatteryLevelLeftPod(context))
             setViewVisibility(R.id.pod_left_charging, if (isLeftPodCharging) View.VISIBLE else View.GONE)
             setViewVisibility(R.id.pod_left_ear, if (isLeftPodInEar) View.VISIBLE else View.GONE)
 
             // Case
+            setImageViewResource(R.id.pod_case_icon, device.caseIcon)
             setTextViewText(R.id.pod_case_label, getBatteryLevelCase(context))
             setViewVisibility(R.id.pod_case_charging, if (isCaseCharging) View.VISIBLE else View.GONE)
 
             // Right
+            setImageViewResource(R.id.pod_right_icon, device.rightPodIcon)
             setTextViewText(R.id.pod_right_label, getBatteryLevelRightPod(context))
             setViewVisibility(R.id.pod_right_charging, if (isRightPodCharging) View.VISIBLE else View.GONE)
             setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
@@ -48,6 +51,7 @@ class MonitorNotificationViewFactory @Inject constructor(
     ).apply {
         device.apply {
             setTextViewText(R.id.headphones_label, getLabel(context))
+            setImageViewResource(R.id.headphones_icon, device.iconRes)
             setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(batteryHeadsetPercent))
             setTextViewText(R.id.headphones_battery_label, getBatteryLevelHeadset(context))
             if (this is HasEarDetection) {

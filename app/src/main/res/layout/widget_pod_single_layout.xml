@@ -8,6 +8,7 @@
         android:id="@+id/headphones_label"
         style="@style/PodWidget.TextPrimary"
         android:layout_width="wrap_content"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         tools:text="AirPods Max" />

@@ -19,11 +19,12 @@
             android:id="@+id/device_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            style="@style/PodInfoItemIcon"
             android:layout_marginStart="16dp"
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/name"
-            app:srcCompat="@drawable/ic_device_generic_headphones" />
+            app:srcCompat="@drawable/devic_headphones_generic" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"

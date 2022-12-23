@@ -19,6 +19,7 @@
     <style name="PodInfoItemIcon.Notification" parent="TextAppearance.Compat.Notification.Title">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
+        <item name="android:tintMode">multiply</item>
         <item name="android:tint">?android:attr/colorAccent</item>
         <item name="tint">?android:attr/colorAccent</item>
     </style>
@@ -32,6 +33,9 @@
     <style name="PodInfoItemIcon" parent="TextAppearance.MaterialComponents.Body2">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
+        <item name="android:tintMode">multiply</item>
+        <item name="android:tint">?android:attr/colorControlNormal</item>
+        <item name="tint">?android:attr/colorControlNormal</item>
     </style>
 
     <style name="PodInfoItemText" parent="TextAppearance.MaterialComponents.Body2">

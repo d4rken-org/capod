@@ -60,31 +60,31 @@ interface PodDevice {
     @JsonClass(generateAdapter = false)
     enum class Model(
         val label: String,
-        @DrawableRes val iconRes: Int = R.drawable.ic_device_generic_earbuds,
+        @DrawableRes val iconRes: Int = R.drawable.devic_earbuds_generic_both,
     ) {
         @Json(name = "airpods.gen1") AIRPODS_GEN1(
             label = "AirPods (Gen 1)",
-            iconRes = R.drawable.ic_device_airpods_gen1,
+            iconRes = R.drawable.devic_airpods_gen1_both,
         ),
         @Json(name = "airpods.gen2") AIRPODS_GEN2(
             "AirPods (Gen 2)",
-            R.drawable.ic_device_airpods_gen2,
+            R.drawable.devic_airpods_gen2_both,
         ),
         @Json(name = "airpods.gen3") AIRPODS_GEN3(
             "AirPods (Gen 3)",
-            R.drawable.ic_device_airpods_gen2,
+            R.drawable.devic_airpods_gen2_both,
         ),
         @Json(name = "airpods.pro") AIRPODS_PRO(
             "AirPods Pro",
-            R.drawable.ic_device_airpods_gen2
+            R.drawable.devic_airpods_pro2_both
         ),
         @Json(name = "airpods.pro2") AIRPODS_PRO2(
             "AirPods Pro 2",
-            R.drawable.ic_device_airpods_gen2
+            R.drawable.devic_airpods_pro2_both
         ),
         @Json(name = "airpods.max") AIRPODS_MAX(
             "AirPods Max",
-            R.drawable.ic_device_generic_headphones
+            R.drawable.devic_headphones_generic
         ),
         @Json(name = "beats.flex") BEATS_FLEX(
             "Beats Flex"
@@ -105,13 +105,16 @@ interface PodDevice {
             "Power Beats Pro"
         ),
         @Json(name = "fakes.tws.i99999") FAKE_AIRPODS_GEN1(
-            "AirPods (Gen 1)? \uD83C\uDFAD"
+            "AirPods (Gen 1)? \uD83C\uDFAD",
+            R.drawable.devic_airpods_gen1_both,
         ),
         @Json(name = "fakes.varunr.airpodspro") FAKE_AIRPODS_PRO(
-            "AirPods Pro? \uD83C\uDFAD"
+            "AirPods Pro? \uD83C\uDFAD",
+            R.drawable.devic_airpods_pro2_both,
         ),
         @Json(name = "fakes.generic.airpods.gen3") FAKE_AIRPODS_GEN3(
-            "AirPods (Gen 3)? \uD83C\uDFAD"
+            "AirPods (Gen 3)? \uD83C\uDFAD",
+            R.drawable.devic_airpods_gen2_both,
         ),
         @Json(name = "unknown") UNKNOWN(
             "Unknown"
