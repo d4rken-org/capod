@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
     <string name="general_error_label">Erro</string>
     <string name="general_grant_permission_action">Conceder permissão</string>
     <string name="overview_nomaindevice_label">Nenhum dispositivo principal</string>
@@ -10,6 +12,7 @@
     <string name="permission_bluetooth_connect_description">Este aplicativo requer a permissão \"Conexão Bluetooth\" para interagir com dispositivos emparelhados e iniciar conexões.</string>
     <string name="permission_bluetooth_scan_label">Escaneando bluetooth</string>
     <string name="permission_bluetooth_scan_description">A permissão \"Escaneamento de Bluetooth\" permite que este aplicativo descubra e receba dados de Bluetooth de dispositivos próximos, como seus AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Este aplicativo requer a permissão \"Bluetooth\" para se conectar a dispositivos bluetooth emparelhados.</string>
     <string name="permission_access_fine_location_label">Acesse a boa localização</string>
     <string name="permission_access_fine_location_description">O CAPod usa a permissão \"Boa localização\" para receber dados de Bluetooth Low Energy. Seus fones de ouvido usam a tecnologia Bluetooth Low Energy para transmitir seu status. Este aplicativo NÃO usará dados Bluetooth para determinar sua localização.</string>
