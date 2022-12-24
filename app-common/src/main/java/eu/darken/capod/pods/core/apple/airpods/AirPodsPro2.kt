@@ -1,5 +1,7 @@
 package eu.darken.capod.pods.core.apple.airpods
 
+import androidx.annotation.DrawableRes
+import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
@@ -25,6 +27,22 @@ data class AirPodsPro2(
 ) : DualAirPods {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_PRO2
+
+    @get:DrawableRes
+    override val iconRes: Int
+        get() = R.drawable.devic_airpods_pro2_both
+
+    @get:DrawableRes
+    override val caseIcon: Int
+        get() = R.drawable.devic_airpods_pro2_case
+
+    @get:DrawableRes
+    override val leftPodIcon: Int
+        get() = R.drawable.devic_airpods_pro2_left
+
+    @get:DrawableRes
+    override val rightPodIcon: Int
+        get() = R.drawable.devic_airpods_pro2_right
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
