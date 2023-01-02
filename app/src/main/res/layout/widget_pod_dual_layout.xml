@@ -23,8 +23,9 @@
 
         <ImageView
             android:id="@+id/pod_left_icon"
-            style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/devic_airpods_gen1_left"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/devic_airpods_pro2_left"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -58,7 +59,7 @@
         <ImageView
             android:id="@+id/pod_right_icon"
             style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/devic_airpods_gen1_right"
+            android:src="@drawable/devic_airpods_pro2_right"
             tools:ignore="ContentDescription" />
 
         <TextView
