@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="2dp"
-        android:textStyle="bold"
         android:textSize="12sp"
+        android:textStyle="bold"
         tools:text="AirPods Max" />
 
     <LinearLayout
@@ -23,8 +23,7 @@
 
         <ImageView
             android:id="@+id/pod_left_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            style="@style/PodInfoItemIcon.Notification"
             android:src="@drawable/devic_airpods_pro2_left"
             tools:ignore="ContentDescription" />
 
