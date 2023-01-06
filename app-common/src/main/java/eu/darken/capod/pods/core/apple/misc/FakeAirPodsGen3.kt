@@ -28,7 +28,7 @@ data class FakeAirPodsGen3 constructor(
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
-) : ApplePods, DualPodDevice, HasDualMicrophone, HasCase, HasChargeDetectionDual {
+) : ApplePods, DualPodDevice, HasEarDetectionDual, HasChargeDetectionDual, HasCase {
 
     override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_GEN3
 
@@ -88,22 +88,20 @@ data class FakeAirPodsGen3 constructor(
             true -> rawFlags.isBitSet(0)
         }
 
-    val isThisPodInThecase: Boolean
+    private val isThisPodInThecase: Boolean
         get() = rawStatus.isBitSet(6)
 
-    /**
-     * The data flip bit is set if the left pod is primary.
-     * For the pod that is in the case, this is flipped again though.
-     */
-    override val isLeftPodMicrophone: Boolean
-        get() = rawStatus.isBitSet(5) xor isThisPodInThecase
+    override val isLeftPodInEar: Boolean
+        get() = when (areValuesFlipped xor isThisPodInThecase) {
+            true -> rawStatus.isBitSet(3)
+            false -> rawStatus.isBitSet(1)
+        }
 
-    /**
-     * The data flip bit is UNset if the right pod is primary.
-     * For the pod that is in the case, this is flipped again though.
-     */
-    override val isRightPodMicrophone: Boolean
-        get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
+    override val isRightPodInEar: Boolean
+        get() = when (areValuesFlipped xor isThisPodInThecase) {
+            true -> rawStatus.isBitSet(1)
+            false -> rawStatus.isBitSet(3)
+        }
 
     override val batteryCasePercent: Float?
         get() = when (val value = rawCaseBattery.toInt()) {
