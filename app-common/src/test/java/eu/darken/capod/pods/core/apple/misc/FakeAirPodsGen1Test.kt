@@ -24,6 +24,12 @@ class FakeAirPodsGen1Test : BaseAirPodsTest() {
             batteryLeftPodPercent shouldBe 1.0f
             batteryRightPodPercent shouldBe 1.0f
 
+            isLeftPodInEar shouldBe false
+            isRightPodInEar shouldBe false
+
+            isLeftPodCharging shouldBe true
+            isRightPodCharging shouldBe true
+
             isCaseCharging shouldBe false
 
             batteryCasePercent shouldBe 0.7f
