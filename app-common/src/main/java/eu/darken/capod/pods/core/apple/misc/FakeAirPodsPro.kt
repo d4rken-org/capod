@@ -1,15 +1,14 @@
 package eu.darken.capod.pods.core.apple.misc
 
+import androidx.annotation.DrawableRes
+import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.HasDualMicrophone
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
@@ -31,9 +30,25 @@ data class FakeAirPodsPro constructor(
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
-) : ApplePods, DualPodDevice, HasDualMicrophone, HasCase {
+) : ApplePods, DualPodDevice, HasChargeDetectionDual, HasEarDetectionDual, HasCase {
 
     override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO
+
+    @get:DrawableRes
+    override val iconRes: Int
+        get() = R.drawable.devic_airpods_pro2_both
+
+    @get:DrawableRes
+    override val caseIcon: Int
+        get() = R.drawable.devic_airpods_pro2_case
+
+    @get:DrawableRes
+    override val leftPodIcon: Int
+        get() = R.drawable.devic_airpods_pro2_left
+
+    @get:DrawableRes
+    override val rightPodIcon: Int
+        get() = R.drawable.devic_airpods_pro2_right
 
     override val rssi: Int
         get() = rssiAverage ?: super<ApplePods>.rssi
@@ -79,22 +94,32 @@ data class FakeAirPodsPro constructor(
             }
         }
 
-    val isThisPodInThecase: Boolean
+    override val isLeftPodCharging: Boolean
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(0)
+            true -> rawFlags.isBitSet(1)
+        }
+
+    override val isRightPodCharging: Boolean
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(1)
+            true -> rawFlags.isBitSet(0)
+        }
+
+    private val isThisPodInThecase: Boolean
         get() = rawStatus.isBitSet(6)
 
-    /**
-     * The data flip bit is set if the left pod is primary.
-     * For the pod that is in the case, this is flipped again though.
-     */
-    override val isLeftPodMicrophone: Boolean
-        get() = rawStatus.isBitSet(5) xor isThisPodInThecase
+    override val isLeftPodInEar: Boolean
+        get() = when (areValuesFlipped xor isThisPodInThecase) {
+            true -> rawStatus.isBitSet(3)
+            false -> rawStatus.isBitSet(1)
+        }
 
-    /**
-     * The data flip bit is UNset if the right pod is primary.
-     * For the pod that is in the case, this is flipped again though.
-     */
-    override val isRightPodMicrophone: Boolean
-        get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
+    override val isRightPodInEar: Boolean
+        get() = when (areValuesFlipped xor isThisPodInThecase) {
+            true -> rawStatus.isBitSet(1)
+            false -> rawStatus.isBitSet(3)
+        }
 
     override val batteryCasePercent: Float?
         get() = when (val value = rawCaseBattery.toInt()) {
