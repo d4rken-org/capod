@@ -108,13 +108,17 @@ interface PodDevice {
             "AirPods (Gen 1)? \uD83C\uDFAD",
             R.drawable.devic_airpods_gen1_both,
         ),
+        @Json(name = "fakes.generic.airpods.gen3") FAKE_AIRPODS_GEN3(
+            "AirPods (Gen 3)? \uD83C\uDFAD",
+            R.drawable.devic_airpods_gen2_both,
+        ),
         @Json(name = "fakes.varunr.airpodspro") FAKE_AIRPODS_PRO(
             "AirPods Pro? \uD83C\uDFAD",
             R.drawable.devic_airpods_pro2_both,
         ),
-        @Json(name = "fakes.generic.airpods.gen3") FAKE_AIRPODS_GEN3(
-            "AirPods (Gen 3)? \uD83C\uDFAD",
-            R.drawable.devic_airpods_gen2_both,
+        @Json(name = "fakes.generic.airpods.pro2") FAKE_AIRPODS_PRO2(
+            "AirPods Pro2? \uD83C\uDFAD",
+            R.drawable.devic_airpods_pro2_both,
         ),
         @Json(name = "unknown") UNKNOWN(
             "Unknown"
