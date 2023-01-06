@@ -11,16 +11,16 @@ import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
+import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
 
 /**
- * AirPods Pro clone similar to Twsi999999.
- * Shorter data structure.
- * https://discord.com/channels/548521543039189022/927235844127993866/962068944196358234
+ * AirPods Pro2 clone
+ * https://discord.com/channels/548521543039189022/927235844127993866/1060911213539774504
  */
-data class FakeAirPodsPro constructor(
+data class FakeAirPodsPro2 constructor(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
@@ -30,9 +30,10 @@ data class FakeAirPodsPro constructor(
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
-) : ApplePods, DualPodDevice, HasChargeDetectionDual, HasEarDetectionDual, HasCase {
+    private val cachedCaseState: DualAirPods.LidState? = null,
+) : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase {
 
-    override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO
+    override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO2
 
     @get:DrawableRes
     override val iconRes: Int
@@ -51,13 +52,9 @@ data class FakeAirPodsPro constructor(
         get() = R.drawable.devic_airpods_pro2_right
 
     override val rssi: Int
-        get() = rssiAverage ?: super<ApplePods>.rssi
+        get() = rssiAverage ?: scanResult.rssi
 
-    /**
-     * Normally values for the left pod are in the lower nibbles, if the left pod is primary (microphone)
-     * If the right pod is the primary, the values are flipped.
-     */
-    val areValuesFlipped: Boolean
+    private val areValuesFlipped: Boolean
         get() = !rawStatus.isBitSet(5)
 
     override val batteryLeftPodPercent: Float?
@@ -94,18 +91,6 @@ data class FakeAirPodsPro constructor(
             }
         }
 
-    override val isLeftPodCharging: Boolean
-        get() = when (areValuesFlipped) {
-            false -> rawFlags.isBitSet(0)
-            true -> rawFlags.isBitSet(1)
-        }
-
-    override val isRightPodCharging: Boolean
-        get() = when (areValuesFlipped) {
-            false -> rawFlags.isBitSet(1)
-            true -> rawFlags.isBitSet(0)
-        }
-
     private val isThisPodInThecase: Boolean
         get() = rawStatus.isBitSet(6)
 
@@ -119,6 +104,18 @@ data class FakeAirPodsPro constructor(
         get() = when (areValuesFlipped xor isThisPodInThecase) {
             true -> rawStatus.isBitSet(1)
             false -> rawStatus.isBitSet(3)
+        }
+
+    override val isLeftPodCharging: Boolean
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(0)
+            true -> rawFlags.isBitSet(1)
+        }
+
+    override val isRightPodCharging: Boolean
+        get() = when (areValuesFlipped) {
+            false -> rawFlags.isBitSet(1)
+            true -> rawFlags.isBitSet(0)
         }
 
     override val batteryCasePercent: Float?
@@ -135,7 +132,7 @@ data class FakeAirPodsPro constructor(
     override val isCaseCharging: Boolean
         get() = rawFlags.isBitSet(2)
 
-    class Factory @Inject constructor() : ApplePodsFactory<FakeAirPodsPro>(TAG) {
+    class Factory @Inject constructor() : ApplePodsFactory<FakeAirPodsPro2>(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
             // Official message length is 19HEX, i.e. binary 25, did they copy this wrong?
@@ -143,7 +140,7 @@ data class FakeAirPodsPro constructor(
         }
 
         override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
-            var basic = FakeAirPodsPro(scanResult = scanResult, proximityMessage = message)
+            var basic = FakeAirPodsPro2(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -161,10 +158,11 @@ data class FakeAirPodsPro constructor(
                 rssiAverage = result.averageRssi(basic.rssi),
             )
         }
+
     }
 
     companion object {
-        private val DEVICE_CODE = 0x0E20.toUShort()
-        private val TAG = logTag("PodDevice", "Apple", "Fake", "AirPods", "Pro")
+        private val DEVICE_CODE = 0x1420.toUShort()
+        private val TAG = logTag("PodDevice", "Apple", "Fake", "AirPods", "Pro2")
     }
 }

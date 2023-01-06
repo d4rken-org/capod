@@ -10,6 +10,7 @@ import eu.darken.capod.pods.core.apple.beats.*
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen1
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen3
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsPro
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsPro2
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -31,6 +32,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun powerBeatsPro(factory: PowerBeatsPro.Factory): ApplePodsFactory<out ApplePods>
 
     @Binds @IntoSet abstract fun fakeAirPodsGen1(factory: FakeAirPodsGen1.Factory): ApplePodsFactory<out ApplePods>
-    @Binds @IntoSet abstract fun fakeAirPodsPro(factory: FakeAirPodsPro.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun fakeAirPodsGen3(factory: FakeAirPodsGen3.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet abstract fun fakeAirPodsPro(factory: FakeAirPodsPro.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet abstract fun fakeAirPodsPro2(factory: FakeAirPodsPro2.Factory): ApplePodsFactory<out ApplePods>
 }
