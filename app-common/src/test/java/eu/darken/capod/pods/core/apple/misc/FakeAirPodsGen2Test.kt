@@ -6,13 +6,13 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class FakeAirPodsGen1Test : BaseAirPodsTest() {
+class FakeAirPodsGen2Test : BaseAirPodsTest() {
 
     @Test
     fun `charging in box`() = runTest {
-        create<FakeAirPodsGen2>("07 13 01 0F 20 71 AA 37 32 00 10 00 64 64 FF 00 00 00 00 00 00") {
+        create<FakeAirPodsGen1>("07 13 01 02 20 71 AA 37 32 00 10 00 64 64 FF 00 00 00 00 00 00") {
             rawPrefix shouldBe 0x01.toUByte()
-            rawDeviceModel shouldBe 0x0F20.toUShort()
+            rawDeviceModel shouldBe 0x0220.toUShort()
             rawStatus shouldBe 0x71.toUByte()
             rawPodsBattery shouldBe 0xAA.toUByte()
             rawFlags shouldBe 0x3.toUShort()
@@ -34,7 +34,7 @@ class FakeAirPodsGen1Test : BaseAirPodsTest() {
 
             batteryCasePercent shouldBe 0.7f
 
-            model shouldBe PodDevice.Model.FAKE_AIRPODS_GEN2
+            model shouldBe PodDevice.Model.FAKE_AIRPODS_GEN1
         }
     }
 }
