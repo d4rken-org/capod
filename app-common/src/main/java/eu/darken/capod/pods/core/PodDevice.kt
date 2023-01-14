@@ -104,6 +104,9 @@ interface PodDevice {
         @Json(name = "beats.powerbeats.pro") POWERBEATS_PRO(
             "Power Beats Pro"
         ),
+        @Json(name = "beats.fit.pro") BEATS_FIT_PRO(
+            "Beats Fit Pro"
+        ),
         @Json(name = "fakes.tws.i99999") FAKE_AIRPODS_GEN1(
             "AirPods (Gen 1)? \uD83C\uDFAD",
             R.drawable.devic_airpods_gen1_both,
