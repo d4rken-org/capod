@@ -34,6 +34,7 @@ Currently supported models:
 * Beats Studio 3
 * Beats X
 * Beats Flex
+* Beats Fit Pro
 * Fake AirPods 1. Generation 🎭
 * Fake AirPods 2. Generation 🎭
 * Fake AirPods 3. Generation 🎭
