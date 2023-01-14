@@ -3,6 +3,7 @@ package eu.darken.capod.reaction.core.playpause
 import eu.darken.capod.common.MediaControl
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
@@ -40,46 +41,51 @@ class PlayPause @Inject constructor(
         }
         .distinctUntilChanged()
         .withPrevious()
+        .filter { (previous, current) ->
+            if (previous == null || current == null) return@filter false
+            log(TAG, VERBOSE) { "previous-id=${previous.identifier}, current-id=${current.identifier}" }
+            val match = previous.identifier == current.identifier
+            if (!match) log(TAG, WARN) { "Main device switched, skipping reaction." }
+            match
+        }
         .onEach { (previous, current) ->
-            if (previous is HasEarDetection && current is HasEarDetection) {
-                log(TAG, VERBOSE) { "previous=${previous.isBeingWorn}, current=${current.isBeingWorn}" }
-                log(TAG, VERBOSE) { "previous-id=${previous.identifier}, current-id=${current.identifier}" }
-                if (previous.identifier != current.identifier) {
-                    return@onEach
-                }
+            log(TAG, VERBOSE) { "Checking\nprevious=$previous\ncurrent=$current" }
 
-                if (previous is HasEarDetectionDual && current is HasEarDetectionDual && reactionSettings.onePodMode.value) {
-                    log(TAG) { "Ear status changed for dual pod device in single pod mode." }
-                    val previousWorn = previous.isEitherPodInEar
-                    val currentWorn = current.isEitherPodInEar
-                    if (!previousWorn && currentWorn && !mediaControl.isPlaying) {
-                        if (reactionSettings.autoPlay.value) {
-                            mediaControl.sendPlay()
-                        } else {
-                            log(TAG) { "autoPlay is disabled" }
-                        }
-                    } else if (!currentWorn && previousWorn && mediaControl.isPlaying) {
-                        if (reactionSettings.autoPause.value) {
-                            mediaControl.sendPause()
-                        } else {
-                            log(TAG) { "autoPause is disabled" }
-                        }
-                    }
-                } else if (previous.isBeingWorn != current.isBeingWorn) {
-                    log(TAG) { "Ear status changed for monitored device." }
-                    if (current.isBeingWorn && !mediaControl.isPlaying) {
-                        if (reactionSettings.autoPlay.value) {
-                            mediaControl.sendPlay()
-                        } else {
-                            log(TAG) { "autoPlay is disabled" }
-                        }
-                    } else if (!current.isBeingWorn && mediaControl.isPlaying) {
-                        if (reactionSettings.autoPause.value) {
-                            mediaControl.sendPause()
-                        } else {
-                            log(TAG) { "autoPause is disabled" }
-                        }
-                    }
+            val previousWorn: Boolean?
+            val currentWorn: Boolean?
+
+            when {
+                reactionSettings.onePodMode.value && previous is HasEarDetectionDual && current is HasEarDetectionDual -> {
+                    previousWorn = previous.isEitherPodInEar
+                    currentWorn = current.isEitherPodInEar
+                    log(TAG, VERBOSE) { "previous: left=${previous.isLeftPodInEar}, right=${previous.isRightPodInEar}" }
+                    log(TAG, VERBOSE) { "current: left${current.isLeftPodInEar}, right=${current.isRightPodInEar}" }
+                }
+                previous is HasEarDetection && current is HasEarDetection -> {
+                    previousWorn = previous.isBeingWorn
+                    currentWorn = current.isBeingWorn
+                    log(TAG, VERBOSE) { "prev.isBeingWorn=${previousWorn}, cur.isBeingWorn=${currentWorn}" }
+                }
+                else -> {
+                    log(TAG, VERBOSE) { "Current devices don't support ear detection." }
+                    previousWorn = null
+                    currentWorn = null
+                }
+            }
+
+            if (previousWorn == false && currentWorn == true && !mediaControl.isPlaying) {
+                if (reactionSettings.autoPlay.value) {
+                    log(TAG) { "autoPlay is triggered, sendPlay()" }
+                    mediaControl.sendPlay()
+                } else {
+                    log(TAG, VERBOSE) { "autoPlay is disabled" }
+                }
+            } else if (previousWorn == true && currentWorn == false && mediaControl.isPlaying) {
+                if (reactionSettings.autoPause.value) {
+                    log(TAG) { "autoPause is triggered, sendPause()" }
+                    mediaControl.sendPause()
+                } else {
+                    log(TAG) { "autoPause is disabled" }
                 }
             }
         }
