@@ -21,7 +21,7 @@ data class AirPodsGen1 constructor(
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
     private val cachedCaseState: DualApplePods.LidState? = null
-) : DualApplePods, HasStateDetectionAirPods {
+) : DualApplePods {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_GEN1
 
@@ -32,7 +32,7 @@ data class AirPodsGen1 constructor(
         get() = cachedCaseState ?: super.caseLidState
 
     override val rssi: Int
-        get() = rssiAverage ?: super<DualApplePods>.rssi
+        get() = rssiAverage ?: super.rssi
 
     class Factory @Inject constructor() : DualApplePodsFactory(TAG) {
 

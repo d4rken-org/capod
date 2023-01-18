@@ -37,8 +37,6 @@ class AirPodsGen1Test : BaseAirPodsTest() {
 
             caseLidState shouldBe DualApplePods.LidState.OPEN
 
-            state shouldBe HasStateDetectionAirPods.ConnectionState.DISCONNECTED
-
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
             model shouldBe PodDevice.Model.AIRPODS_GEN1
