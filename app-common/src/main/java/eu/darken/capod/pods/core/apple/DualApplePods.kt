@@ -7,7 +7,7 @@ import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.DualPodDevice.Pod
 
-interface DualAirPods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
+interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
     HasDualMicrophone, HasAppleColor {
 
     val primaryPod: Pod

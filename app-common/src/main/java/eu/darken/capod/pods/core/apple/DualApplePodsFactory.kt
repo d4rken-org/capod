@@ -4,9 +4,9 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.pods.core.PodDevice
 
-abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<DualAirPods>(tag) {
+abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<DualApplePods>(tag) {
 
-    fun DualAirPods.getCaseMatchMarkings() = SplitPodsMarkings(
+    fun DualApplePods.getCaseMatchMarkings() = SplitPodsMarkings(
         leftPodBattery = batteryLeftPodPercent,
         rightPodBattery = batteryRightPodPercent,
         microPhoneLeft = isLeftPodMicrophone,
@@ -31,17 +31,17 @@ abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<
         val model: PodDevice.Model,
     )
 
-    private fun Collection<KnownDevice>.findSplitPodsMatch(device: DualAirPods): Collection<KnownDevice> {
+    private fun Collection<KnownDevice>.findSplitPodsMatch(device: DualApplePods): Collection<KnownDevice> {
         val target = device.getCaseMatchMarkings()
 
         return filter { known ->
             known.history
-                .filterIsInstance<DualAirPods>()
+                .filterIsInstance<DualApplePods>()
                 .any { it.getCaseMatchMarkings() == target }
         }
     }
 
-    override fun searchHistory(current: DualAirPods): KnownDevice? {
+    override fun searchHistory(current: DualApplePods): KnownDevice? {
         val basicResult = super.searchHistory(current)
 
         val caseIgnored = knownDevices.values.findSplitPodsMatch(current)

@@ -2,7 +2,7 @@ package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
-import eu.darken.capod.pods.core.apple.DualAirPods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -34,9 +34,9 @@ class AirPodsGen3Test : BaseAirPodsTest() {
             isRightPodInEar shouldBe false
             batteryCasePercent shouldBe 0.9f
 
-            caseLidState shouldBe DualAirPods.LidState.OPEN
+            caseLidState shouldBe DualApplePods.LidState.OPEN
 
-            state shouldBe DualAirPods.ConnectionState.IDLE
+            state shouldBe DualApplePods.ConnectionState.IDLE
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
@@ -58,9 +58,9 @@ class AirPodsGen3Test : BaseAirPodsTest() {
             isRightPodInEar shouldBe true
             batteryCasePercent shouldBe null
 
-            caseLidState shouldBe DualAirPods.LidState.NOT_IN_CASE
+            caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
 
-            state shouldBe DualAirPods.ConnectionState.UNKNOWN
+            state shouldBe DualApplePods.ConnectionState.UNKNOWN
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
         }

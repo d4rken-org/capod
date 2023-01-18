@@ -8,8 +8,8 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.DualAirPods
-import eu.darken.capod.pods.core.apple.DualAirPods.LidState
+import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.DualApplePods.LidState
 import java.time.Duration
 import java.time.Instant
 
@@ -34,7 +34,7 @@ class DualPodsCardVH(parent: ViewGroup) :
             if (item.isMainPod) setTypeface(null, Typeface.BOLD)
             else setTypeface(null, Typeface.NORMAL)
 
-            if (device is DualAirPods && item.showDebug) {
+            if (device is DualApplePods && item.showDebug) {
                 append(" [${device.primaryPod.name}]")
             }
         }
@@ -129,7 +129,7 @@ class DualPodsCardVH(parent: ViewGroup) :
 
         // Case lid state
         device.apply {
-            if (this is DualAirPods) {
+            if (this is DualApplePods) {
                 podCaseLidLabel.text = when (caseLidState) {
                     LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
                     LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)

@@ -1,11 +1,12 @@
-package eu.darken.capod.pods.core.apple
+package eu.darken.capod.pods.core.apple.airpods
 
 import android.content.Context
 import androidx.annotation.StringRes
 import eu.darken.capod.common.R
 import eu.darken.capod.pods.core.HasStateDetection
+import eu.darken.capod.pods.core.apple.ApplePods
 
-interface HasStateDetectionApple : HasStateDetection, ApplePods {
+interface HasStateDetectionAirPods : HasStateDetection, ApplePods {
 
     override val state: ConnectionState
         get() = ConnectionState.values().firstOrNull { rawSuffix == it.raw } ?: ConnectionState.UNKNOWN

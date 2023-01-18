@@ -79,13 +79,13 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         .mapNotNull { it.batteryCasePercent }
         .lastOrNull()
 
-    fun KnownDevice.getLatestCaseLidState(basic: DualAirPods): DualAirPods.LidState? {
-        val definitive = setOf(DualAirPods.LidState.OPEN, DualAirPods.LidState.CLOSED)
+    fun KnownDevice.getLatestCaseLidState(basic: DualApplePods): DualApplePods.LidState? {
+        val definitive = setOf(DualApplePods.LidState.OPEN, DualApplePods.LidState.CLOSED)
         if (definitive.contains(basic.caseLidState)) return null
 
         return history
             .filterIsInstance<AirPodsPro>() // TODO why is this AirPodsPro specific here?
-            .lastOrNull { it.caseLidState != DualAirPods.LidState.NOT_IN_CASE }
+            .lastOrNull { it.caseLidState != DualApplePods.LidState.NOT_IN_CASE }
             ?.caseLidState
     }
 
