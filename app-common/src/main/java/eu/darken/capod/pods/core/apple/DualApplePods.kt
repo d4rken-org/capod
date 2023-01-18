@@ -1,8 +1,5 @@
 package eu.darken.capod.pods.core.apple
 
-import android.content.Context
-import androidx.annotation.StringRes
-import eu.darken.capod.common.R
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
@@ -10,8 +7,8 @@ import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.DualPodDevice.Pod
 
-interface DualAirPods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
-    HasStateDetection, HasDualMicrophone, HasAppleColor {
+interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
+    HasDualMicrophone, HasAppleColor {
 
     val primaryPod: Pod
         get() = when (rawStatus.isBitSet(5)) {
@@ -140,23 +137,6 @@ interface DualAirPods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEar
         CLOSED(0x38..0x3F),
         NOT_IN_CASE(0x00..0x03),
         UNKNOWN(0xFF..0xFF);
-    }
-
-    override val state: ConnectionState
-        get() = ConnectionState.values().firstOrNull { rawSuffix == it.raw } ?: ConnectionState.UNKNOWN
-
-    enum class ConnectionState(val raw: UByte?, @StringRes val labelRes: Int) : HasStateDetection.State {
-        DISCONNECTED(0x00, R.string.pods_connection_state_disconnected_label),
-        IDLE(0x04, R.string.pods_connection_state_idle_label),
-        MUSIC(0x05, R.string.pods_connection_state_music_label),
-        CALL(0x06, R.string.pods_connection_state_call_label),
-        RINGING(0x07, R.string.pods_connection_state_ringing_label),
-        HANGING_UP(0x09, R.string.pods_connection_state_hanging_up_label),
-        UNKNOWN(null, R.string.pods_connection_state_unknown_label);
-
-        override fun getLabel(context: Context): String = context.getString(labelRes)
-
-        constructor(raw: Int, @StringRes labelRes: Int) : this(raw.toUByte(), labelRes)
     }
 
 }

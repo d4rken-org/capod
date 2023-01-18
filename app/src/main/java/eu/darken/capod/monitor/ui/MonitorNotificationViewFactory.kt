@@ -6,7 +6,7 @@ import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.DualAirPods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.SingleApplePods
 import javax.inject.Inject
 
@@ -16,12 +16,12 @@ class MonitorNotificationViewFactory @Inject constructor(
 ) {
 
     fun createContentView(device: PodDevice): RemoteViews = when (device) {
-        is DualAirPods -> createDualApplePods(device)
+        is DualApplePods -> createDualApplePods(device)
         is SingleApplePods -> createSingleApplePods(device)
         else -> createUnknownDevice(device)
     }
 
-    private fun createDualApplePods(device: DualAirPods): RemoteViews = RemoteViews(
+    private fun createDualApplePods(device: DualApplePods): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_small
     ).apply {

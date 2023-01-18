@@ -7,7 +7,7 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.DualAirPods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.*
 import java.time.Duration
@@ -34,7 +34,7 @@ class PopUpReaction @Inject constructor(
         .withPrevious()
         .setupCommonEventHandlers(TAG) { "monitor" }
         .mapNotNull { (previous, current) ->
-            if (previous !is DualAirPods? || current !is DualAirPods) {
+            if (previous !is DualApplePods? || current !is DualApplePods) {
                 return@mapNotNull null
             }
             log(TAG, VERBOSE) {
@@ -57,8 +57,8 @@ class PopUpReaction @Inject constructor(
             tryPopWindow(current)
         }
 
-    private suspend fun tryPopWindow(current: DualAirPods): Event? = when {
-        current.caseLidState == DualAirPods.LidState.OPEN -> {
+    private suspend fun tryPopWindow(current: DualApplePods): Event? = when {
+        current.caseLidState == DualApplePods.LidState.OPEN -> {
             log(TAG, INFO) { "Show popup" }
 
             val now = Instant.now()
@@ -74,9 +74,9 @@ class PopUpReaction @Inject constructor(
                 null
             }
         }
-        current.caseLidState != DualAirPods.LidState.OPEN -> {
+        current.caseLidState != DualApplePods.LidState.OPEN -> {
             when (current.caseLidState) {
-                DualAirPods.LidState.CLOSED -> {
+                DualApplePods.LidState.CLOSED -> {
                     log(TAG, INFO) { "Lid was actively closed, resetting cooldown." }
                     coolDowns.remove(current.identifier)
                 }

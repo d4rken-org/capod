@@ -11,7 +11,7 @@ import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
-import eu.darken.capod.pods.core.apple.DualAirPods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
@@ -30,7 +30,7 @@ data class FakeAirPodsPro2 constructor(
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
-    private val cachedCaseState: DualAirPods.LidState? = null,
+    private val cachedCaseState: DualApplePods.LidState? = null,
 ) : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase {
 
     override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO2

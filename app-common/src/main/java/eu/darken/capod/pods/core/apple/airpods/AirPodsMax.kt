@@ -21,12 +21,12 @@ data class AirPodsMax(
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
-) : SingleApplePods, HasEarDetection {
+) : SingleApplePods, HasEarDetection, HasStateDetectionAirPods {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX
 
     override val rssi: Int
-        get() = rssiAverage ?: super.rssi
+        get() = rssiAverage ?: super<SingleApplePods>.rssi
 
     val isHeadphonesBeingWorn: Boolean
         get() = rawStatus.isBitSet(1)

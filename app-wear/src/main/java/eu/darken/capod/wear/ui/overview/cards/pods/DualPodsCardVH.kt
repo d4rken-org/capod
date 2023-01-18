@@ -8,7 +8,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.DualAirPods
+import eu.darken.capod.pods.core.apple.DualApplePods
 import java.time.Instant
 
 class DualPodsCardVH(parent: ViewGroup) :
@@ -32,7 +32,7 @@ class DualPodsCardVH(parent: ViewGroup) :
             if (item.isMainPod) setTypeface(null, Typeface.BOLD)
             else setTypeface(null, Typeface.NORMAL)
 
-            if (device is DualAirPods && item.showDebug) {
+            if (device is DualApplePods && item.showDebug) {
                 append(" [${device.primaryPod.name}]")
             }
         }
