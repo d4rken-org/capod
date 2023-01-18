@@ -6,6 +6,7 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualAirPods
 import eu.darken.capod.pods.core.apple.DualApplePodsFactory
+import eu.darken.capod.pods.core.apple.HasStateDetectionApple
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
@@ -21,7 +22,7 @@ data class AirPodsGen1 constructor(
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
     private val cachedCaseState: DualAirPods.LidState? = null
-) : DualAirPods {
+) : DualAirPods, HasStateDetectionApple {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_GEN1
 
@@ -32,7 +33,7 @@ data class AirPodsGen1 constructor(
         get() = cachedCaseState ?: super.caseLidState
 
     override val rssi: Int
-        get() = rssiAverage ?: super.rssi
+        get() = rssiAverage ?: super<DualAirPods>.rssi
 
     class Factory @Inject constructor() : DualApplePodsFactory(TAG) {
 

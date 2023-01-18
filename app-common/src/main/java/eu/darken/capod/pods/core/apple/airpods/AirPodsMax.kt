@@ -6,6 +6,7 @@ import eu.darken.capod.common.isBitSet
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.apple.HasStateDetectionApple
 import eu.darken.capod.pods.core.apple.SingleApplePods
 import eu.darken.capod.pods.core.apple.SingleApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
@@ -21,12 +22,12 @@ data class AirPodsMax(
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
-) : SingleApplePods, HasEarDetection {
+) : SingleApplePods, HasEarDetection, HasStateDetectionApple {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX
 
     override val rssi: Int
-        get() = rssiAverage ?: super.rssi
+        get() = rssiAverage ?: super<SingleApplePods>.rssi
 
     val isHeadphonesBeingWorn: Boolean
         get() = rawStatus.isBitSet(1)
