@@ -36,7 +36,7 @@ class AirPodsGen2Test : BaseAirPodsTest() {
 
             caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
 
-            state shouldBe DualApplePods.ConnectionState.MUSIC
+            state shouldBe HasStateDetectionAirPods.ConnectionState.MUSIC
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 

@@ -36,7 +36,7 @@ class AirPodsGen3Test : BaseAirPodsTest() {
 
             caseLidState shouldBe DualApplePods.LidState.OPEN
 
-            state shouldBe DualApplePods.ConnectionState.IDLE
+            state shouldBe HasStateDetectionAirPods.ConnectionState.IDLE
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
@@ -60,7 +60,7 @@ class AirPodsGen3Test : BaseAirPodsTest() {
 
             caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
 
-            state shouldBe DualApplePods.ConnectionState.UNKNOWN
+            state shouldBe HasStateDetectionAirPods.ConnectionState.UNKNOWN
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
         }

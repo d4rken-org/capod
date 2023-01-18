@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple
 
+import eu.darken.capod.pods.core.apple.airpods.HasStateDetectionAirPods
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -212,34 +213,34 @@ class DualApplePodsTest : BaseAirPodsTest() {
     @Test
     fun `test AirPodDevice - connection state`() = runTest {
         // Disconnected
-        create<DualApplePods>("07 19 01 0E 20 2B AA 8F 01 00 >00< 62 D4 BB F1 A7 F8 64 98 D2 C8 BD 7B 3A EF 2E 15") {
+        create<HasStateDetectionAirPods>("07 19 01 0E 20 2B AA 8F 01 00 >00< 62 D4 BB F1 A7 F8 64 98 D2 C8 BD 7B 3A EF 2E 15") {
             // 31 0011 0001
-            state shouldBe DualApplePods.ConnectionState.DISCONNECTED
+            state shouldBe HasStateDetectionAirPods.ConnectionState.DISCONNECTED
         }
         // Connected idle
-        create<DualApplePods>("07 19 01 0E 20 2B AA 8F 01 00 >04< 1D 69 69 9C C2 51 F3 1F BF 6E 45 DA 90 4A A3 E3") {
+        create<HasStateDetectionAirPods>("07 19 01 0E 20 2B AA 8F 01 00 >04< 1D 69 69 9C C2 51 F3 1F BF 6E 45 DA 90 4A A3 E3") {
             // 39 0011 1001
-            state shouldBe DualApplePods.ConnectionState.IDLE
+            state shouldBe HasStateDetectionAirPods.ConnectionState.IDLE
         }
         // Connected and playing music
-        create<DualApplePods>("07 19 01 0E 20 2B A9 8F 01 00 >05< 14 F7 CB 49 9F D3 B3 22 77 D2 22 F1 74 8C AC A6") {
+        create<HasStateDetectionAirPods>("07 19 01 0E 20 2B A9 8F 01 00 >05< 14 F7 CB 49 9F D3 B3 22 77 D2 22 F1 74 8C AC A6") {
             // 38 0011 1000
-            state shouldBe DualApplePods.ConnectionState.MUSIC
+            state shouldBe HasStateDetectionAirPods.ConnectionState.MUSIC
         }
         // Connected and call active
-        create<DualApplePods>("07 19 01 0E 20 2B 99 8F 01 00 >06< 0F 4B 43 25 E0 4A 73 63 14 22 C2 3C 89 13 BD 97") {
+        create<HasStateDetectionAirPods>("07 19 01 0E 20 2B 99 8F 01 00 >06< 0F 4B 43 25 E0 4A 73 63 14 22 C2 3C 89 13 BD 97") {
             // 38 0011 1000
-            state shouldBe DualApplePods.ConnectionState.CALL
+            state shouldBe HasStateDetectionAirPods.ConnectionState.CALL
         }
         // Connected and call active
-        create<DualApplePods>("07 19 01 0E 20 2B 99 8F 01 00 >07< E7 DF 76 44 85 B5 30 F4 95 14 02 DC A1 A4 8A 09") {
+        create<HasStateDetectionAirPods>("07 19 01 0E 20 2B 99 8F 01 00 >07< E7 DF 76 44 85 B5 30 F4 95 14 02 DC A1 A4 8A 09") {
             // 38 0011 1000
-            state shouldBe DualApplePods.ConnectionState.RINGING
+            state shouldBe HasStateDetectionAirPods.ConnectionState.RINGING
         }
         // Switching?
-        create<DualApplePods>("07 19 01 0E 20 2B 99 8F 01 00 >09< 10 30 EE F3 41 B5 D8 9F A3 B0 B4 17 9F 85 97 5F") {
+        create<HasStateDetectionAirPods>("07 19 01 0E 20 2B 99 8F 01 00 >09< 10 30 EE F3 41 B5 D8 9F A3 B0 B4 17 9F 85 97 5F") {
             // 38 0011 1000
-            state shouldBe DualApplePods.ConnectionState.HANGING_UP
+            state shouldBe HasStateDetectionAirPods.ConnectionState.HANGING_UP
         }
     }
 
