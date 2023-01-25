@@ -59,6 +59,6 @@ class BleScanResultReceiver : BroadcastReceiver() {
 
     companion object {
         private val TAG = logTag("Bluetooth", "BleScanner", "Forwarder", "Receiver")
-        val ACTION = "eu.darken.capod.bluetooth.DELIVER_SCAN_RESULTS"
+        const val ACTION = "eu.darken.capod.bluetooth.DELIVER_SCAN_RESULTS"
     }
 }
