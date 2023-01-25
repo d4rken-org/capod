@@ -6,6 +6,7 @@
     <string name="overview_nomaindevice_label">Відсутній первинний пристрій</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth вимкнено</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth вимкнено, увімкніть його ;)</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_access_fine_location_label">Доступ до точного місцезнаходження</string>
     <string name="permission_background_location_label">Доступ до місцезнаходження у тлі</string>
     <string name="permission_ignore_battery_optimizations_label">Вимкнути оптимізацію батареї</string>
