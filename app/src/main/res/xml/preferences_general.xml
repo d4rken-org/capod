@@ -15,12 +15,6 @@
         android:title="@string/settings_scanner_mode_label" />
 
     <CheckBoxPreference
-        android:icon="@drawable/ic_baseline_ghost_24"
-        android:key="core.compatibility.enabled"
-        android:summary="@string/settings_compatibility_mode_description"
-        android:title="@string/settings_compatibility_mode_label" />
-
-    <CheckBoxPreference
         android:icon="@drawable/ic_baseline_devices_other_24"
         android:key="core.showall.enabled"
         android:summary="@string/settings_showall_description"
@@ -47,6 +41,26 @@
             android:key="core.maindevice.model"
             android:summary="@string/settings_maindevice_model_description"
             android:title="@string/settings_maindevice_model_label" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:singleLineTitle="false"
+        android:summary="@string/settings_category_compatibility_options_description"
+        android:title="@string/settings_category_compatibility_options_title"
+        app:icon="@drawable/ic_chip_24">
+
+        <CheckBoxPreference
+            android:icon="@drawable/ic_filter_cog_outline_24"
+            android:key="core.compat.offloaded.filtering.disabled"
+            android:summary="@string/settings_compat_offloaded_filtering_disabled_summary"
+            android:title="@string/settings_compat_offloaded_filtering_disabled_title" />
+
+        <CheckBoxPreference
+            android:icon="@drawable/ic_format_list_group_24"
+            android:key="core.compat.offloaded.batching.disabled"
+            android:summary="@string/settings_compat_offloaded_batching_disabled_summary"
+            android:title="@string/settings_compat_offloaded_batching_disabled_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">

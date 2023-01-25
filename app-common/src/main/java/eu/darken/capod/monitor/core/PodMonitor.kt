@@ -4,6 +4,7 @@ import android.bluetooth.le.ScanFilter
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -83,26 +84,40 @@ class PodMonitor @Inject constructor(
         .setupCommonEventHandlers(TAG) { "mainDevice" }
         .replayingShare(appScope)
 
+    private data class ScannerOptions(
+        val scannerMode: ScannerMode,
+        val showUnfiltered: Boolean,
+        val offloadedFilteringDisabled: Boolean,
+        val offloadedBatchingDisabled: Boolean
+    )
+
     private fun createBleScanner() = combine(
         generalSettings.scannerMode.flow,
-        generalSettings.compatibilityMode.flow,
-        debugSettings.showUnfiltered.flow
-    ) { scannerMode, compatMode, unfiltered ->
-        Triple(scannerMode, compatMode, unfiltered)
+        debugSettings.showUnfiltered.flow,
+        generalSettings.isOffloadedBatchingDisabled.flow,
+        generalSettings.isOffloadedFilteringDisabled.flow,
+    ) { scannermode, showUnfiltered, isOffloadedBatchingDisabled, isOffloadedFilteringDisabled ->
+        ScannerOptions(
+            scannerMode = scannermode,
+            showUnfiltered = showUnfiltered,
+            offloadedFilteringDisabled = isOffloadedFilteringDisabled,
+            offloadedBatchingDisabled = isOffloadedBatchingDisabled,
+        )
     }
-        .flatMapLatest { (mode, compat, unfiltered) ->
+        .flatMapLatest { options ->
             val filters = when {
-                unfiltered -> {
+                options.showUnfiltered -> {
                     log(TAG, WARN) { "Using unfiltered scan mode" }
-                    setOf(getUnfilteredFilter())
+                    setOf(ScanFilter.Builder().build())
                 }
                 else -> ProximityPairing.getBleScanFilter()
             }
 
             bleScanner.scan(
                 filters = filters,
-                scannerMode = mode,
-                compatMode = compat,
+                scannerMode = options.scannerMode,
+                offloadFiltering = !options.offloadedFilteringDisabled,
+                offloadBatching = !options.offloadedBatchingDisabled
             ).map { preFilterAndMap(it) }
         }
 
@@ -134,7 +149,7 @@ class PodMonitor @Inject constructor(
         return pods
     }
 
-    private suspend fun preFilterAndMap(rawResults: List<BleScanResult>): List<PodFactory.Result> = rawResults
+    private suspend fun preFilterAndMap(rawResults: Collection<BleScanResult>): List<PodFactory.Result> = rawResults
         .groupBy { it.address }
         .values
         .map { sameAdrDevs ->
@@ -185,10 +200,6 @@ class PodMonitor @Inject constructor(
         return currentMain ?: podDeviceCache.loadMainDevice()
             ?.let { podFactory.createPod(it)?.device }
             .also { log(TAG) { "Cached mainDevice is $it" } }
-    }
-
-    private fun getUnfilteredFilter(): ScanFilter {
-        return ScanFilter.Builder().build()
     }
 
     companion object {
