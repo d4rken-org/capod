@@ -23,8 +23,8 @@
     <string name="settings_fake_data_description">顯示假資料，模擬不存在的裝置。</string>
     <string name="settings_debug_label">偵錯設定</string>
     <string name="settings_debug_description">一個能協助這個應用程式故障檢修的附加設定。</string>
-    <string name="settings_signal_minimum_label">最低訊號質量</string>
-    <string name="settings_signal_minimum_description">可以被認為是你的裝置的最低訊號質量。</string>
+    <string name="settings_signal_minimum_label">最低訊號品質</string>
+    <string name="settings_signal_minimum_description">可以被認為是你的裝置的最低訊號品質。</string>
     <string name="settings_autoconnect_label">自動連線</string>
     <string name="settings_autoconnect_description">如果 Android 不會自動連線，我們也可以要求它。這將把監視模式設定為「一律」。</string>
     <string name="settings_autoconnect_condition_label">自動連線條件</string>
@@ -33,7 +33,7 @@
     <string name="settings_reaction_description">對事件和行為作出反應。</string>
     <string name="settings_category_yourdevice_label">你的裝置</string>
     <string name="settings_maindevice_address_label">你的裝置位址</string>
-    <string name="settings_maindevice_address_description">你的已配對裝置的位址。這個應用程式用該位址來確定何時連線到你的手機。</string>
+    <string name="settings_maindevice_address_description">你的已配對裝置的位址，這個應用程式用這個位址來確定何時連線到你的手機。</string>
     <string name="settings_maindevice_address_none">無</string>
     <string name="settings_maindevice_model_label">你的裝置型號</string>
     <string name="settings_maindevice_model_description">你的主要裝置型號。這能協助這個應用程式在未連線到你的手機時辨識你的裝置。</string>
