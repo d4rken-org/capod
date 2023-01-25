@@ -1,20 +1,21 @@
 package eu.darken.capod.common.bluetooth
 
 import android.annotation.SuppressLint
+import android.app.PendingIntent
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
+import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.notifications.PendingIntentCompat
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,13 +26,15 @@ class BleScanner @Inject constructor(
     @ApplicationContext private val context: Context,
     private val bluetoothManager: BluetoothManager2,
     private val fakeBleData: FakeBleData,
+    private val scanResultForwarder: BleScanResultForwarder,
 ) {
 
     @SuppressLint("MissingPermission") fun scan(
         filters: Set<ScanFilter>,
         scannerMode: ScannerMode = ScannerMode.BALANCED,
-        offloadFiltering: Boolean = true,
-        offloadBatching: Boolean = true,
+        disableOffloadFiltering: Boolean = true,
+        disableOffloadBatching: Boolean = true,
+        disableDirectScanCallback: Boolean = true,
     ): Flow<Collection<BleScanResult>> = callbackFlow {
         log(TAG) { "scan(filters=$filters, scannerMode=$scannerMode)" }
 
@@ -39,17 +42,19 @@ class BleScanner @Inject constructor(
 
         val useOffloadedFiltering = adapter.isOffloadedFilteringSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedFilteringSupported=$it" }
-        } && offloadFiltering
-        if (!offloadFiltering) log(TAG, WARN) { "Offloaded filtering is disabled!" }
+        } && !disableOffloadFiltering
+        if (disableOffloadFiltering) log(TAG, WARN) { "Offloaded filtering is disabled!" }
 
         val useOffloadedBatching = adapter.isOffloadedScanBatchingSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedScanBatchingSupported=$it" }
-        } && offloadBatching
-        if (!offloadBatching) log(TAG, WARN) { "Offloaded scan-batching is disabled!" }
+        } && !disableOffloadBatching
+        if (disableOffloadBatching) log(TAG, WARN) { "Offloaded scan-batching is disabled!" }
+
+        if (disableDirectScanCallback) log(TAG, WARN) { "Direct scan callback is disabled!" }
 
         val scanner = bluetoothManager.scanner ?: throw IllegalStateException("BLE scanner unavailable")
 
-        val resultFilter: (Collection<ScanResult>) -> Collection<BleScanResult> = { results ->
+        val filterResults: (Collection<ScanResult>) -> Collection<BleScanResult> = { results ->
             results
                 .filter { result ->
                     val passed = when {
@@ -72,7 +77,7 @@ class BleScanner @Inject constructor(
                     "onScanResult(delay=${delay}ms, callbackType=$callbackType, result=$result)"
                 }
 
-                trySend(resultFilter(setOf(result)))
+                trySend(filterResults(setOf(result)))
             }
 
             override fun onBatchScanResults(results: MutableList<ScanResult>) {
@@ -82,12 +87,43 @@ class BleScanner @Inject constructor(
                     "onBatchScanResults(delay=${delay}ms, results=$results)"
                 }
 
-                trySend(resultFilter(results))
+                trySend(filterResults(results))
             }
 
             override fun onScanFailed(errorCode: Int) {
                 log(TAG, WARN) { "onScanFailed(errorCode=$errorCode)" }
             }
+        }
+
+        val forwarderConsumer = if (disableDirectScanCallback) {
+            scanResultForwarder.results
+                .onEach { results -> trySend(filterResults(results)) }
+                .launchIn(this)
+        } else {
+            null
+        }
+
+        val flushJob = if (!disableDirectScanCallback) {
+            launch {
+                log(TAG) { "Flush job launched" }
+                while (isActive) {
+                    log(TAG, VERBOSE) { "Flushing scan results." }
+                    // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
+                    adapter.bluetoothLeScanner.flushPendingScanResults(callback)
+                    when (scannerMode) {
+                        ScannerMode.LOW_POWER -> break
+                        ScannerMode.BALANCED -> delay(2000)
+                        ScannerMode.LOW_LATENCY -> delay(500)
+                    }
+                }
+            }
+        } else {
+            null
+        }
+
+        val filterList = when {
+            useOffloadedFiltering -> filters.toList()
+            else -> emptyList()
         }
 
         val scanSettings = ScanSettings.Builder().apply {
@@ -122,38 +158,50 @@ class BleScanner @Inject constructor(
             setReportDelay(delay)
         }.build()
 
-
-        val flushJob = launch {
-            log(TAG) { "Flush job launched" }
-            while (isActive) {
-                log(TAG, VERBOSE) { "Flushing scan results." }
-                // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
-                adapter.bluetoothLeScanner.flushPendingScanResults(callback)
-                when (scannerMode) {
-                    ScannerMode.LOW_POWER -> break
-                    ScannerMode.BALANCED -> delay(2000)
-                    ScannerMode.LOW_LATENCY -> delay(500)
-                }
-            }
+        if (disableDirectScanCallback) {
+            val callbackIntent = createStartIntent()
+            log(TAG) { "Intent callback: startScan(filters=$filters, settings=$scanSettings, callbackIntent=$callbackIntent)" }
+            scanner.startScan(filterList, scanSettings, callbackIntent)
+        } else {
+            log(TAG) { "Direct callback: startScan(filters=$filters, settings=$scanSettings, callback=$callback)" }
+            scanner.startScan(filterList, scanSettings, callback)
         }
-
-        log(TAG) { "startScan(filters=$filters, settings=$scanSettings, callback=$callback)" }
-        val filterList = when {
-            useOffloadedFiltering -> filters.toList()
-            else -> emptyList()
-        }
-
-        scanner.startScan(filterList, scanSettings, callback)
 
         awaitClose {
-            flushJob.cancel()
-            scanner.stopScan(callback)
+            forwarderConsumer?.cancel()
+            flushJob?.cancel()
+            if (disableDirectScanCallback) {
+                scanner.stopScan(createStopIntent())
+            } else {
+                scanner.stopScan(callback)
+            }
             log(TAG) { "BleScanner stopped" }
         }
     }
         .map { fakeBleData.maybeAddfakeData(it) }
 
+    private val receiverIntent by lazy {
+        Intent(context, BleScanResultReceiver::class.java).apply {
+            action = BleScanResultReceiver.ACTION
+        }
+    }
+
+    private fun createStartIntent(): PendingIntent = PendingIntent.getBroadcast(
+        context,
+        CALLBACK_INTENT_REQUESTCODE,
+        receiverIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntentCompat.FLAG_MUTABLE
+    )
+
+    private fun createStopIntent(): PendingIntent = PendingIntent.getBroadcast(
+        context,
+        270,
+        receiverIntent,
+        PendingIntentCompat.FLAG_IMMUTABLE
+    )
+
     companion object {
+        private const val CALLBACK_INTENT_REQUESTCODE = 270
         private val TAG = logTag("Bluetooth", "BleScanner")
     }
 }

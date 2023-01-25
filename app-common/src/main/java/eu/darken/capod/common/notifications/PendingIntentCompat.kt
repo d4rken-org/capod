@@ -9,4 +9,9 @@ object PendingIntentCompat {
     } else {
         0
     }
+    val FLAG_MUTABLE: Int = if (hasApiLevel(31)) {
+        PendingIntent.FLAG_MUTABLE
+    } else {
+        0
+    }
 }

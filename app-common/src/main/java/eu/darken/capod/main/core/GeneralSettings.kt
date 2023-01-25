@@ -33,9 +33,12 @@ class GeneralSettings @Inject constructor(
     val mainDeviceAddress = preferences.createFlowPreference<String?>("core.maindevice.address", null)
     val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
 
-    val isOffloadedFilteringDisabled =
-        preferences.createFlowPreference("core.compat.offloaded.filtering.disabled", false)
+    val isOffloadedFilteringDisabled = preferences.createFlowPreference(
+        "core.compat.offloaded.filtering.disabled",
+        false
+    )
     val isOffloadedBatchingDisabled = preferences.createFlowPreference("core.compat.offloaded.batching.disabled", false)
+    val useIndirectScanResultCallback = preferences.createFlowPreference("core.compat.indirectcallback.enabled", false)
 
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
@@ -45,6 +48,7 @@ class GeneralSettings @Inject constructor(
         mainDeviceAddress,
         isOffloadedFilteringDisabled,
         isOffloadedBatchingDisabled,
+        useIndirectScanResultCallback,
         debugSettings.isAutoReportingEnabled,
     )
 }

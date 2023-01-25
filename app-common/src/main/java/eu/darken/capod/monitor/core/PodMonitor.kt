@@ -88,7 +88,8 @@ class PodMonitor @Inject constructor(
         val scannerMode: ScannerMode,
         val showUnfiltered: Boolean,
         val offloadedFilteringDisabled: Boolean,
-        val offloadedBatchingDisabled: Boolean
+        val offloadedBatchingDisabled: Boolean,
+        val disableDirectCallback: Boolean,
     )
 
     private fun createBleScanner() = combine(
@@ -96,12 +97,20 @@ class PodMonitor @Inject constructor(
         debugSettings.showUnfiltered.flow,
         generalSettings.isOffloadedBatchingDisabled.flow,
         generalSettings.isOffloadedFilteringDisabled.flow,
-    ) { scannermode, showUnfiltered, isOffloadedBatchingDisabled, isOffloadedFilteringDisabled ->
+        generalSettings.useIndirectScanResultCallback.flow,
+    ) {
+            scannermode,
+            showUnfiltered,
+            isOffloadedBatchingDisabled,
+            isOffloadedFilteringDisabled,
+            useIndirectScanResultCallback,
+        ->
         ScannerOptions(
             scannerMode = scannermode,
             showUnfiltered = showUnfiltered,
             offloadedFilteringDisabled = isOffloadedFilteringDisabled,
             offloadedBatchingDisabled = isOffloadedBatchingDisabled,
+            disableDirectCallback = useIndirectScanResultCallback,
         )
     }
         .flatMapLatest { options ->
@@ -116,8 +125,9 @@ class PodMonitor @Inject constructor(
             bleScanner.scan(
                 filters = filters,
                 scannerMode = options.scannerMode,
-                offloadFiltering = !options.offloadedFilteringDisabled,
-                offloadBatching = !options.offloadedBatchingDisabled
+                disableOffloadFiltering = options.offloadedFilteringDisabled,
+                disableOffloadBatching = options.offloadedBatchingDisabled,
+                disableDirectScanCallback = options.disableDirectCallback,
             ).map { preFilterAndMap(it) }
         }
 

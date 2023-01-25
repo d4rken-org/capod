@@ -100,4 +100,6 @@
     <string name="translators_thanks_description">darken</string>
 
     <string name="widget_description">A widget showing the last known device status.</string>
+    <string name="settings_compat_indirectcallback_title">Indirect data delivery</string>
+    <string name="settings_compat_indirectcallback_summary">Use an alternative method to receive BLE data from the system (broadcast instead of callback).</string>
 </resources>
