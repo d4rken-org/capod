@@ -23,4 +23,13 @@
         android:name="android.permission.BLUETOOTH_SCAN"
         android:usesPermissionFlags="neverForLocation" />
 
+    <application>
+        <receiver
+            android:name=".bluetooth.BleScanResultReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="eu.darken.capod.bluetooth.DELIVER_SCAN_RESULTS" />
+            </intent-filter>
+        </receiver>
+    </application>
 </manifest>

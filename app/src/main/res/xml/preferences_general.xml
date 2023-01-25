@@ -61,6 +61,12 @@
             android:summary="@string/settings_compat_offloaded_batching_disabled_summary"
             android:title="@string/settings_compat_offloaded_batching_disabled_title" />
 
+        <CheckBoxPreference
+            android:icon="@drawable/ic_strategy_24"
+            android:key="core.compat.indirectcallback.enabled"
+            android:summary="@string/settings_compat_indirectcallback_summary"
+            android:title="@string/settings_compat_indirectcallback_title" />
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">

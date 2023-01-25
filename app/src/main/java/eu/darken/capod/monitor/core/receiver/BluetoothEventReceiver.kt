@@ -27,7 +27,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         log { "onReceive($context, $intent)" }
         if (!EXPECTED_ACTIONS.contains(intent.action)) {
-            log(WARN) { "Unknown action: $intent.action" }
+            log(WARN) { "Unknown action: ${intent.action}" }
             return
         }
 
