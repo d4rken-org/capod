@@ -25,9 +25,9 @@ class BluetoothEventReceiver : BroadcastReceiver() {
     @Inject @AppScope lateinit var appScope: CoroutineScope
 
     override fun onReceive(context: Context, intent: Intent) {
-        log { "onReceive($context, $intent)" }
+        log(TAG) { "onReceive($context, $intent)" }
         if (!EXPECTED_ACTIONS.contains(intent.action)) {
-            log(WARN) { "Unknown action: ${intent.action}" }
+            log(TAG, WARN) { "Unknown action: ${intent.action}" }
             return
         }
 
@@ -41,7 +41,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
         val supportedFeatures = ContinuityProtocol.BLE_FEATURE_UUIDS.filter { bluetoothDevice.hasFeature(it) }
 
         if (supportedFeatures.isEmpty()) {
-            log { "Device has no features we support." }
+            log(TAG) { "Device has no features we support." }
             return
         } else {
             log { "Device has the following we features we support $supportedFeatures" }
@@ -49,7 +49,7 @@ class BluetoothEventReceiver : BroadcastReceiver() {
 
         val pending = goAsync()
         appScope.launch {
-            log { "Starting monitor" }
+            log(TAG) { "Starting monitor" }
             monitorControl.startMonitor(bluetoothDevice, forceStart = false)
             pending.finish()
         }
