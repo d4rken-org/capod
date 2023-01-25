@@ -22,7 +22,7 @@ class BleScanResultReceiver : BroadcastReceiver() {
     @Inject lateinit var scanResultForwarder: BleScanResultForwarder
 
     override fun onReceive(context: Context, intent: Intent) {
-        log(TAG) { "onReceive($context, $intent)" }
+        log(TAG, VERBOSE) { "onReceive($context, $intent)" }
         if (intent.action != ACTION) {
             log(TAG, WARN) { "Unknown action: ${intent.action}" }
             return
