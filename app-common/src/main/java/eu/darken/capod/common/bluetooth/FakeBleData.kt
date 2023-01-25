@@ -12,7 +12,7 @@ class FakeBleData @Inject constructor(
     private val debugSettings: DebugSettings,
 ) {
 
-    fun maybeAddfakeData(originals: List<BleScanResult>): List<BleScanResult> {
+    fun maybeAddfakeData(originals: Collection<BleScanResult>): Collection<BleScanResult> {
         if (!debugSettings.showFakeData.value) return originals
         return originals + getFakeData()
     }

@@ -23,51 +23,28 @@ class GeneralSettings @Inject constructor(
 
     override val preferences: SharedPreferences = context.getSharedPreferences("settings_general", Context.MODE_PRIVATE)
 
-    val monitorMode = preferences.createFlowPreference(
-        "core.monitor.mode",
-        MonitorMode.AUTOMATIC,
-        moshi
-    )
+    val monitorMode = preferences.createFlowPreference("core.monitor.mode", MonitorMode.AUTOMATIC, moshi)
+    val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
-    val scannerMode = preferences.createFlowPreference(
-        "core.scanner.mode",
-        ScannerMode.LOW_LATENCY,
-        moshi
-    )
+    val showAll = preferences.createFlowPreference("core.showall.enabled", false)
 
-    val compatibilityMode = preferences.createFlowPreference(
-        "core.compatibility.enabled",
-        false
-    )
+    val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.25f)
 
-    val showAll = preferences.createFlowPreference(
-        "core.showall.enabled",
-        false
-    )
+    val mainDeviceAddress = preferences.createFlowPreference<String?>("core.maindevice.address", null)
+    val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
 
-    val minimumSignalQuality = preferences.createFlowPreference(
-        "core.signal.minimum",
-        0.25f
-    )
-
-    val mainDeviceAddress = preferences.createFlowPreference<String?>(
-        "core.maindevice.address",
-        null
-    )
-
-    val mainDeviceModel = preferences.createFlowPreference<PodDevice.Model>(
-        "core.maindevice.model",
-        PodDevice.Model.UNKNOWN,
-        moshi
-    )
+    val isOffloadedFilteringDisabled =
+        preferences.createFlowPreference("core.compat.offloaded.filtering.disabled", false)
+    val isOffloadedBatchingDisabled = preferences.createFlowPreference("core.compat.offloaded.batching.disabled", false)
 
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         scannerMode,
-        compatibilityMode,
         showAll,
         minimumSignalQuality,
         mainDeviceAddress,
+        isOffloadedFilteringDisabled,
+        isOffloadedBatchingDisabled,
         debugSettings.isAutoReportingEnabled,
     )
 }

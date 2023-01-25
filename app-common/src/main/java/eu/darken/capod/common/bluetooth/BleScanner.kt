@@ -29,23 +29,39 @@ class BleScanner @Inject constructor(
 
     @SuppressLint("MissingPermission") fun scan(
         filters: Set<ScanFilter>,
-        scannerMode: ScannerMode,
-        compatMode: Boolean,
-    ): Flow<List<BleScanResult>> = callbackFlow {
-        log(TAG, VERBOSE) { "scan(filters=$filters, scannerMode=$scannerMode, compatMode=$compatMode)" }
-        if (compatMode) log(TAG, WARN) { "Using compatibilityMode!" }
+        scannerMode: ScannerMode = ScannerMode.BALANCED,
+        offloadFiltering: Boolean = true,
+        offloadBatching: Boolean = true,
+    ): Flow<Collection<BleScanResult>> = callbackFlow {
+        log(TAG) { "scan(filters=$filters, scannerMode=$scannerMode)" }
 
         val adapter = bluetoothManager.adapter ?: throw IllegalStateException("Bluetooth adapter unavailable")
 
-        val supportsOffloadFiltering = adapter.isOffloadedFilteringSupported.also {
+        val useOffloadedFiltering = adapter.isOffloadedFilteringSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedFilteringSupported=$it" }
-        } && !compatMode
+        } && offloadFiltering
+        if (!offloadFiltering) log(TAG, WARN) { "Offloaded filtering is disabled!" }
 
-        val supportsOffloadBatching = adapter.isOffloadedScanBatchingSupported.also {
+        val useOffloadedBatching = adapter.isOffloadedScanBatchingSupported.also {
             log(TAG, if (it) DEBUG else WARN) { "isOffloadedScanBatchingSupported=$it" }
-        } && !compatMode
+        } && offloadBatching
+        if (!offloadBatching) log(TAG, WARN) { "Offloaded scan-batching is disabled!" }
 
         val scanner = bluetoothManager.scanner ?: throw IllegalStateException("BLE scanner unavailable")
+
+        val resultFilter: (Collection<ScanResult>) -> Collection<BleScanResult> = { results ->
+            results
+                .filter { result ->
+                    val passed = when {
+                        useOffloadedFiltering -> true
+                        filters.isEmpty() -> true
+                        else -> filters.any { it.matches(result) }
+                    }
+                    if (!passed) log(TAG, VERBOSE) { "Manually filtered $result" }
+                    passed
+                }
+                .map { BleScanResult.fromScanResult(it) }
+        }
 
         val callback = object : ScanCallback() {
             var lastScanAt = System.currentTimeMillis()
@@ -55,17 +71,8 @@ class BleScanner @Inject constructor(
                     lastScanAt = System.currentTimeMillis()
                     "onScanResult(delay=${delay}ms, callbackType=$callbackType, result=$result)"
                 }
-                val toSend = if (
-                    supportsOffloadFiltering
-                    || filters.isEmpty()
-                    || filters.any { it.matchesSafe(result) }
-                ) {
-                    listOf(BleScanResult.fromScanResult(result))
-                } else {
-                    log(TAG, VERBOSE) { "Manual filtering: No match for $result" }
-                    emptyList()
-                }
-                trySend(toSend)
+
+                trySend(resultFilter(setOf(result)))
             }
 
             override fun onBatchScanResults(results: MutableList<ScanResult>) {
@@ -75,18 +82,7 @@ class BleScanner @Inject constructor(
                     "onBatchScanResults(delay=${delay}ms, results=$results)"
                 }
 
-                val toSend = results
-                    .filter { result ->
-                        val passed = when {
-                            supportsOffloadFiltering -> true
-                            filters.isEmpty() -> true
-                            else -> filters.any { it.matches(result) }
-                        }
-                        if (!passed) log(TAG, VERBOSE) { "Manually filtered $result" }
-                        passed
-                    }
-                    .map { BleScanResult.fromScanResult(it) }
-                trySend(toSend)
+                trySend(resultFilter(results))
             }
 
             override fun onScanFailed(errorCode: Int) {
@@ -94,48 +90,60 @@ class BleScanner @Inject constructor(
             }
         }
 
-
-        val settings = ScanSettings.Builder().apply {
-            setScanMode(
-                when (scannerMode) {
-                    ScannerMode.LOW_POWER -> ScanSettings.SCAN_MODE_LOW_POWER
-                    ScannerMode.BALANCED -> ScanSettings.SCAN_MODE_BALANCED
-                    ScannerMode.LOW_LATENCY -> ScanSettings.SCAN_MODE_LOW_LATENCY
+        val scanSettings = ScanSettings.Builder().apply {
+            setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
+            when (scannerMode) {
+                ScannerMode.LOW_POWER -> {
+                    setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
+                    setMatchMode(ScanSettings.MATCH_MODE_STICKY)
+                    setNumOfMatches(ScanSettings.MATCH_NUM_FEW_ADVERTISEMENT)
                 }
-            )
-            if (supportsOffloadBatching) {
-                setReportDelay(
-                    when (scannerMode) {
-                        ScannerMode.LOW_POWER -> 2000L
-                        ScannerMode.BALANCED -> 1000L
-                        ScannerMode.LOW_LATENCY -> 500L
-                    }
-                )
+                ScannerMode.BALANCED -> {
+                    setScanMode(ScanSettings.SCAN_MODE_BALANCED)
+                    setMatchMode(ScanSettings.MATCH_MODE_STICKY)
+                    setNumOfMatches(ScanSettings.MATCH_NUM_FEW_ADVERTISEMENT)
+                }
+                ScannerMode.LOW_LATENCY -> {
+                    setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
+                    setMatchMode(ScanSettings.MATCH_MODE_AGGRESSIVE)
+                    setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
+                }
             }
+
+            val delay = if (useOffloadedBatching) {
+                when (scannerMode) {
+                    ScannerMode.LOW_POWER -> 2000L
+                    ScannerMode.BALANCED -> 1000L
+                    ScannerMode.LOW_LATENCY -> 500L
+                }
+            } else {
+                0L // Anything > 0 enables batching
+            }
+            setReportDelay(delay)
         }.build()
 
-        log(TAG, VERBOSE) { "Settings created for offloaded filtering: $settings" }
 
         val flushJob = launch {
             log(TAG) { "Flush job launched" }
             while (isActive) {
-                // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
                 log(TAG, VERBOSE) { "Flushing scan results." }
+                // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
                 adapter.bluetoothLeScanner.flushPendingScanResults(callback)
                 when (scannerMode) {
                     ScannerMode.LOW_POWER -> break
-                    ScannerMode.BALANCED -> delay(1000)
+                    ScannerMode.BALANCED -> delay(2000)
                     ScannerMode.LOW_LATENCY -> delay(500)
                 }
             }
         }
 
-        scanner.startScan(
-            if (supportsOffloadFiltering) filters.toList() else listOf(ScanFilter.Builder().build()),
-            settings,
-            callback
-        )
-        log(TAG) { "BleScanner started (filters=$filters, settings=$settings)" }
+        log(TAG) { "startScan(filters=$filters, settings=$scanSettings, callback=$callback)" }
+        val filterList = when {
+            useOffloadedFiltering -> filters.toList()
+            else -> emptyList()
+        }
+
+        scanner.startScan(filterList, scanSettings, callback)
 
         awaitClose {
             flushJob.cancel()
