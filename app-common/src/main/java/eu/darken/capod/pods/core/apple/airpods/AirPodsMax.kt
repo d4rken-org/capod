@@ -6,6 +6,7 @@ import eu.darken.capod.common.isBitSet
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.apple.HasAppleColor
 import eu.darken.capod.pods.core.apple.SingleApplePods
 import eu.darken.capod.pods.core.apple.SingleApplePodsFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
@@ -21,7 +22,7 @@ data class AirPodsMax(
     override val proximityMessage: ProximityPairing.Message,
     override val confidence: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
-) : SingleApplePods, HasEarDetection, HasStateDetectionAirPods {
+) : SingleApplePods, HasEarDetection, HasAppleColor {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX
 

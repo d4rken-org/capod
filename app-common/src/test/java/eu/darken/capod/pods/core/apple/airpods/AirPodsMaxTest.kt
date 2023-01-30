@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -51,6 +52,29 @@ class AirPodsMaxTest : BaseAirPodsTest() {
             isHeadsetBeingCharged shouldBe false
 
             isHeadphonesBeingWorn shouldBe true
+        }
+    }
+
+    @Test
+    fun `some dude at the gym`() = runTest {
+        create<AirPodsMax>("07 19 01 0A 20 23 07 80 03 03 65 1F 28 32 D0 D9 71 43 00 9A 40 E7 6B EA 6C 2C FB") {
+            rawPrefix shouldBe 0x01.toUByte()
+            rawDeviceModel shouldBe 0x0A20.toUShort()
+            rawStatus shouldBe 0x23.toUByte()
+            rawPodsBattery shouldBe 0x07.toUByte()
+            rawFlags shouldBe 0x8.toUShort()
+            rawCaseBattery shouldBe 0x0.toUShort()
+            rawCaseLidState shouldBe 0x03.toUByte()
+            rawDeviceColor shouldBe 0x03.toUByte()
+            rawSuffix shouldBe 0x65.toUByte()
+
+            batteryHeadsetPercent shouldBe 0.7f
+
+            isHeadsetBeingCharged shouldBe false
+
+            isHeadphonesBeingWorn shouldBe true
+
+            podStyle shouldBe HasAppleColor.DeviceColor.BLUE
         }
     }
 }
