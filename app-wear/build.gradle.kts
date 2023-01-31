@@ -6,7 +6,6 @@ plugins {
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
-apply(plugin = "com.bugsnag.android.gradle")
 
 android {
     compileSdk = ProjectConfig.compileSdk
@@ -49,8 +48,11 @@ android {
         create("gplay") {
             dimension = "version"
             signingConfig = signingConfigs["releaseGplay"]
+            extra["useBugsnag"] = true
         }
     }
+
+    setupBugsnagPlugin()
 
     buildTypes {
         val customProguardRules = fileTree(File("../proguard")) {

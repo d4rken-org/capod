@@ -3,7 +3,6 @@ package eu.darken.capod
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.*
-import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
@@ -28,10 +27,6 @@ open class App : Application(), Configuration.Provider {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Logging.install(LogCatLogger())
-
-        ReLinker
-            .log { message -> log(TAG) { "ReLinker: $message" } }
-            .loadLibrary(this, "bugsnag-plugin-android-anr")
 
         autoReporting.setup(this)
 

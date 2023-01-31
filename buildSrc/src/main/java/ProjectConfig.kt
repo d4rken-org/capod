@@ -1,6 +1,9 @@
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.apply
+import org.gradle.kotlin.dsl.extra
 import java.io.File
 import java.io.FileInputStream
 import java.time.Instant
@@ -122,4 +125,30 @@ fun getBugSnagApiKey(
     }
 
     return System.getenv("BUGSNAG_API_KEY") ?: bugsnagProps.getProperty("bugsnag.apikey")
+}
+
+/**
+ * Use extra["useBugsnag"] = true per flavor to enable
+ */
+fun <T> T.setupBugsnagPlugin() where T : Project {
+    fun Project.`android`(configure: Action<com.android.build.gradle.internal.dsl.BaseAppModuleExtension>): Unit =
+        (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("android", configure)
+
+    val key = "useBugsnag"
+
+    android {
+        productFlavors {
+            forEach {
+                val paramString = gradle.startParameter.taskRequests.toString().toLowerCase(Locale.ROOT)
+                val useBugsnag = if (it.extra.has(key)) it.extra[key] as Boolean else false
+
+                if (paramString.contains(it.name) && useBugsnag) {
+                    println("Bugsnag plugin (com.bugsnag.android.gradle) applied to ${it.name} ($paramString)")
+                    apply(plugin = "com.bugsnag.android.gradle")
+                } else {
+                    println("Bugsnag plugin (com.bugsnag.android.gradle) NOT applied to ${it.name} ($paramString)")
+                }
+            }
+        }
+    }
 }
