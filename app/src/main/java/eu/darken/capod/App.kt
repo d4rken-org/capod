@@ -6,10 +6,10 @@ import androidx.work.Configuration
 import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.autoreport.AutoReporting
 import eu.darken.capod.common.debug.logging.*
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.debug.autoreport.GplayAutoReporting
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.worker.MonitorControl
@@ -25,7 +25,7 @@ import javax.inject.Inject
 open class App : Application(), Configuration.Provider {
 
     @Inject lateinit var workerFactory: HiltWorkerFactory
-    @Inject lateinit var autoReporting: AutoReporting
+    @Inject lateinit var autoReporting: GplayAutoReporting
     @Inject lateinit var monitorControl: MonitorControl
     @Inject lateinit var podMonitor: PodMonitor
     @Inject lateinit var widgetManager: WidgetManager

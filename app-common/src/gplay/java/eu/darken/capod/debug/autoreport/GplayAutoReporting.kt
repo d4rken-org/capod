@@ -1,4 +1,4 @@
-package eu.darken.capod.common.debug.autoreport
+package eu.darken.capod.debug.autoreport
 
 import android.content.Context
 import com.bugsnag.android.Bugsnag
@@ -7,9 +7,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.InstallId
 import eu.darken.capod.common.debug.Bugs
-import eu.darken.capod.common.debug.autoreport.bugsnag.BugsnagErrorHandler
-import eu.darken.capod.common.debug.autoreport.bugsnag.BugsnagLogger
-import eu.darken.capod.common.debug.autoreport.bugsnag.NOPBugsnagErrorHandler
+import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -18,7 +16,7 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
-class AutoReporting @Inject constructor(
+class GplayAutoReporting @Inject constructor(
     @ApplicationContext private val context: Context,
     private val debugSettings: DebugSettings,
     private val installId: InstallId,
