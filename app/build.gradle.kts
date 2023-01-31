@@ -6,7 +6,6 @@ plugins {
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
-apply(plugin = "com.bugsnag.android.gradle")
 
 android {
 
@@ -147,9 +146,6 @@ dependencies {
     addBaseWorkManager()
 
     addTesting()
-
-    implementation("com.bugsnag:bugsnag-android:5.9.2")
-    implementation("com.getkeepsafe.relinker:relinker:1.4.3")
 
     "gplayImplementation"("com.android.billingclient:billing:4.0.0")
 }

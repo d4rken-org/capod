@@ -1,13 +1,13 @@
 package eu.darken.capod.common.debug
 
-import com.bugsnag.android.Bugsnag
+import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 
 object Bugs {
-    var ready = false
+    var reporter: AutomaticBugReporter? = null
     fun report(
         tag: String,
         message: String,
@@ -16,11 +16,9 @@ object Bugs {
         log(TAG, VERBOSE) { "Reporting $exception" }
         log(tag, ERROR) { "$message\n${exception.asLog()}" }
 
-        if (!ready) {
+        reporter?.notify(exception) ?: run {
             log(TAG, WARN) { "Bug tracking not initialized yet." }
-            return
         }
-        Bugsnag.notify(exception)
     }
 
     private val TAG = logTag("Bugs")
