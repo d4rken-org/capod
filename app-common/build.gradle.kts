@@ -5,7 +5,6 @@ plugins {
     id("kotlin-parcelize")
 }
 apply(plugin = "dagger.hilt.android.plugin")
-apply(plugin = "com.bugsnag.android.gradle")
 
 android {
     compileSdk = ProjectConfig.compileSdk
@@ -22,10 +21,6 @@ android {
         buildConfigField("String", "APPLICATION_ID", "\"${ProjectConfig.packageName}\"")
         buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
         buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
-
-        manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
-            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
-        ) ?: "fake"
     }
 
     buildFeatures {

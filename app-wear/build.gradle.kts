@@ -6,6 +6,7 @@ plugins {
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
+apply(plugin = "com.bugsnag.android.gradle")
 
 android {
     compileSdk = ProjectConfig.compileSdk
@@ -23,6 +24,10 @@ android {
 
         buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
         buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
+
+        manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
+            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
+        ) ?: "fake"
     }
 
     signingConfigs {
@@ -135,4 +140,7 @@ dependencies {
 
     implementation("androidx.wear:wear:1.2.0")
     implementation("androidx.wear.tiles:tiles-material:1.1.0")
+
+    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
+    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.3")
 }
