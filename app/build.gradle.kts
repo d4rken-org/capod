@@ -21,10 +21,6 @@ android {
         versionName = ProjectConfig.Version.name
 
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
-
-        manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
-            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
-        ) ?: "fake"
     }
 
     signingConfigs {
