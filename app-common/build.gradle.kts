@@ -21,6 +21,10 @@ android {
         buildConfigField("String", "APPLICATION_ID", "\"${ProjectConfig.packageName}\"")
         buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
         buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
+
+        manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
+            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
+        ) ?: "bugsnag_apikey_placeholder"
     }
 
     buildFeatures {
@@ -95,6 +99,7 @@ dependencies {
 
     addTesting()
 
-    implementation("com.bugsnag:bugsnag-android:5.9.2")
+    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
+    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.3")
 
 }

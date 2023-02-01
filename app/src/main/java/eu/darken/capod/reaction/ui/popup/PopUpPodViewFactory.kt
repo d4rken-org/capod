@@ -8,7 +8,7 @@ import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.isInvisible
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
-import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.databinding.PopupNotificationDualPodsBinding
 import eu.darken.capod.databinding.PopupNotificationSinglePodsBinding
 import eu.darken.capod.pods.core.*

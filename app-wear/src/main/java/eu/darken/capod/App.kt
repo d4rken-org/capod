@@ -3,11 +3,10 @@ package eu.darken.capod
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.*
-import com.getkeepsafe.relinker.ReLinker
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.autoreport.AutoReporting
+import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.common.debug.logging.*
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.main.core.GeneralSettings
@@ -20,7 +19,7 @@ import javax.inject.Inject
 open class App : Application(), Configuration.Provider {
 
     @Inject lateinit var workerFactory: HiltWorkerFactory
-    @Inject lateinit var autoReporting: AutoReporting
+    @Inject lateinit var autoReporting: AutomaticBugReporter
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var workManager: WorkManager
     @Inject @AppScope lateinit var appScope: CoroutineScope
@@ -29,11 +28,7 @@ open class App : Application(), Configuration.Provider {
         super.onCreate()
         if (BuildConfig.DEBUG) Logging.install(LogCatLogger())
 
-        ReLinker
-            .log { message -> log(TAG) { "ReLinker: $message" } }
-            .loadLibrary(this, "bugsnag-plugin-android-anr")
-
-        autoReporting.setup()
+        autoReporting.setup(this)
 
         setupWorker()
 

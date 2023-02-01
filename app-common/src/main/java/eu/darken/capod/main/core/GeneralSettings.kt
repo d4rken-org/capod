@@ -6,7 +6,7 @@ import androidx.preference.PreferenceDataStore
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.bluetooth.ScannerMode
-import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.preferences.createFlowPreference

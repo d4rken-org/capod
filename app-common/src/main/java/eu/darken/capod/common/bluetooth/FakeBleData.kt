@@ -2,7 +2,7 @@ package eu.darken.capod.common.bluetooth
 
 import dagger.Reusable
 import eu.darken.capod.common.SystemClockWrap
-import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.DebugSettings
 import java.time.Instant
 import javax.inject.Inject
 import kotlin.random.Random

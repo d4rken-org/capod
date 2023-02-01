@@ -1,4 +1,4 @@
-package eu.darken.capod.common.debug.autoreport.bugsnag
+package eu.darken.capod.debug.autoreport
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,7 +7,7 @@ import com.bugsnag.android.Event
 import com.bugsnag.android.OnErrorCallback
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
-import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
