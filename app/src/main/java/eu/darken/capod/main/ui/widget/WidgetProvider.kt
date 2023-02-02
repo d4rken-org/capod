@@ -37,15 +37,13 @@ class WidgetProvider : AppWidgetProvider() {
     @Inject lateinit var upgradeRepo: UpgradeRepo
     @AppScope @Inject lateinit var appScope: CoroutineScope
 
-    private var asyncBarrier: PendingResult? = null
-
     private fun executeAsync(
         tag: String,
-        timeout: Duration = Duration.ofSeconds(10),
+        timeout: Duration = Duration.ofSeconds(8),
         block: suspend () -> Unit
     ) {
         val start = System.currentTimeMillis()
-        asyncBarrier = goAsync()
+        val asyncBarrier = goAsync()
         log(TAG, VERBOSE) { "executeAsync($tag) starting asyncBarrier=$asyncBarrier " }
 
         appScope.launch {
@@ -54,7 +52,7 @@ class WidgetProvider : AppWidgetProvider() {
             } catch (e: Exception) {
                 log(TAG, ERROR) { "executeAsync($tag) failed: ${e.asLog()}" }
             } finally {
-                asyncBarrier?.finish()
+                asyncBarrier.finish()
                 val stop = System.currentTimeMillis()
                 log(TAG, VERBOSE) { "executeAsync($tag) DONE (${stop - start}ms) " }
             }
