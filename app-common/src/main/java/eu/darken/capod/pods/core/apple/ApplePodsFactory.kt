@@ -67,7 +67,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
                 val reliability: Float = (recentPings / expectedPings)
                 // log("#####") { "interval=$pingInterval, expectedPerMinute=$expectedPings, count=$recentPings" }
 
-                return max(0.0f, reliability)
+                return max(0.0f, reliability).coerceAtMost(1f)
             }
 
         fun rssiSmoothed(latest: Int): Int {
