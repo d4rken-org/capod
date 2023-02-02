@@ -25,8 +25,8 @@ fun SinglePodDevice.getBatteryLevelHeadset(context: Context): String =
         ?: context.getString(R.string.general_value_not_available_label)
 
 fun PodDevice.getSignalQuality(context: Context): String {
-    val percentage = 100 * signalQuality
-    return "~${percentage.roundToInt()}%"
+    val multiplier = 100 * signalQuality
+    return "${multiplier.roundToInt()}"
 }
 
 @DrawableRes
