@@ -6,6 +6,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.log
+import java.time.Duration
 import java.time.Instant
 import java.util.*
 import kotlin.math.abs
@@ -40,9 +43,10 @@ interface PodDevice {
              * The range of the RSSI is device specific (ROMs).
              */
             val sqRssi = ((100 - abs(rssi)) / 100f)
-            //log("#####", Logging.Priority.VERBOSE) { "Signal Quality ($address): rssi=$sqRssi, reliability=$reliability" }
-            val sqConfidence = max(BASE_CONFIDENCE, reliability)
-            return (sqRssi + sqConfidence) / 2f
+            val sqReliability = max(BASE_CONFIDENCE, reliability)
+            val sqAge = (Duration.between(seenFirstAt, Instant.now()).toMinutes().coerceAtMost(60) / 60f) * 0.25f
+            log(VERBOSE) { "Signal Quality ($address): rssi=$sqRssi, reliability=$reliability, age=$sqAge" }
+            return (sqRssi + sqReliability + sqAge) / 2f
         }
 
     val rawData: Map<Int, ByteArray>
