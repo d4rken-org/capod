@@ -7,9 +7,7 @@
 
     <ImageView
         android:id="@+id/pod_icon"
-        style="@style/PodInfoItemIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/PodInfoItemIcon.Popup"
         android:src="@drawable/devic_earbuds_generic_both"
         app:layout_constraintBottom_toBottomOf="@id/pod_label"
         app:layout_constraintEnd_toStartOf="@id/pod_label"
@@ -55,9 +53,7 @@
 
         <ImageView
             android:id="@+id/pod_left_icon"
-            style="@style/PodInfoItemIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:layout_gravity="center"
             android:src="@drawable/devic_airpods_gen1_left"
             app:layout_constraintBottom_toBottomOf="@id/pod_left_battery_label"
@@ -67,9 +63,7 @@
 
         <ImageView
             android:id="@id/pod_left_battery_icon"
-            style="@style/PodInfoItemIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:src="@drawable/ic_baseline_battery_unknown_24"
             app:layout_constraintBottom_toBottomOf="@id/pod_left_battery_label"
             app:layout_constraintEnd_toStartOf="@id/pod_left_battery_label"
@@ -103,9 +97,7 @@
 
         <ImageView
             android:id="@+id/pod_case_icon"
-            style="@style/PodInfoItemIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:layout_gravity="center"
             android:src="@drawable/devic_airpods_gen1_case"
             app:layout_constraintBottom_toBottomOf="@id/pod_case_battery_label"
@@ -115,9 +107,7 @@
 
         <ImageView
             android:id="@id/pod_case_battery_icon"
-            style="@style/PodInfoItemIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:src="@drawable/ic_baseline_battery_unknown_24"
             app:layout_constraintBottom_toBottomOf="@id/pod_case_battery_label"
             app:layout_constraintEnd_toStartOf="@id/pod_case_battery_label"
@@ -150,9 +140,7 @@
 
         <ImageView
             android:id="@+id/pod_right_icon"
-            style="@style/PodInfoItemIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:layout_gravity="center"
             android:src="@drawable/devic_airpods_gen1_right"
             app:layout_constraintBottom_toBottomOf="@id/pod_right_battery_label"
@@ -162,9 +150,7 @@
 
         <ImageView
             android:id="@id/pod_right_battery_icon"
-            style="@style/PodInfoItemIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:src="@drawable/ic_baseline_battery_unknown_24"
             app:layout_constraintBottom_toBottomOf="@id/pod_right_battery_label"
             app:layout_constraintEnd_toStartOf="@id/pod_right_battery_label"

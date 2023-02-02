@@ -38,6 +38,11 @@
         <item name="tint">?android:attr/colorControlNormal</item>
     </style>
 
+    <style name="PodInfoItemIcon.Popup">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:layout_width">24dp</item>
+    </style>
+
     <style name="PodInfoItemText" parent="TextAppearance.MaterialComponents.Body2">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
