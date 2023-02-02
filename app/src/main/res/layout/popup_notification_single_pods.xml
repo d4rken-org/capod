@@ -7,9 +7,7 @@
 
     <ImageView
         android:id="@+id/headphones_icon"
-        android:layout_width="wrap_content"
-        style="@style/PodInfoItemIcon"
-        android:layout_height="wrap_content"
+        style="@style/PodInfoItemIcon.Popup"
         android:src="@drawable/devic_earbuds_generic_both"
         app:layout_constraintBottom_toBottomOf="@id/headphones_label"
         app:layout_constraintEnd_toStartOf="@id/headphones_label"
@@ -56,9 +54,7 @@
 
         <ImageView
             android:id="@id/headphones_battery_icon"
-            android:layout_width="wrap_content"
-            style="@style/PodInfoItemIcon"
-            android:layout_height="wrap_content"
+            style="@style/PodInfoItemIcon.Popup"
             android:src="@drawable/ic_baseline_battery_unknown_24"
             app:layout_constraintBottom_toBottomOf="@id/headphones_battery_label"
             app:layout_constraintEnd_toStartOf="@id/headphones_battery_label"
