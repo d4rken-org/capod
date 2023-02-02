@@ -17,7 +17,7 @@ data class AirPodsGen2 constructor(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
-    override val confidence: Float = PodDevice.BASE_CONFIDENCE,
+    override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
     private val cachedCaseState: DualApplePods.LidState? = null
@@ -54,9 +54,9 @@ data class AirPodsGen2 constructor(
                 seenFirstAt = result.seenFirstAt,
                 seenLastAt = scanResult.receivedAt,
                 seenCounter = result.seenCounter,
-                confidence = result.confidence,
+                reliability = result.reliability,
                 cachedBatteryPercentage = result.getLatestCaseBattery(),
-                rssiAverage = result.averageRssi(basic.rssi),
+                rssiAverage = result.rssiSmoothed(basic.rssi),
                 cachedCaseState = result.getLatestCaseLidState(basic)
             )
         }

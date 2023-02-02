@@ -13,7 +13,7 @@ data class UnknownDevice(
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
-    override val confidence: Float = 0f,
+    override val reliability: Float = 0f,
     private val rssiAverage: Int? = null,
 ) : PodDevice {
 

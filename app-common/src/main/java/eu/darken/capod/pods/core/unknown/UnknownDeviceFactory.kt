@@ -34,8 +34,8 @@ class UnknownDeviceFactory @Inject constructor() {
             seenFirstAt = result.seenFirstAt,
             seenLastAt = scanResult.receivedAt,
             seenCounter = result.seenCounter,
-            confidence = result.confidence,
-            rssiAverage = result.averageRssi(basic.rssi),
+            reliability = result.confidence,
+            rssiAverage = result.rssiSmoothed(basic.rssi),
         )
     }
 
@@ -52,7 +52,7 @@ class UnknownDeviceFactory @Inject constructor() {
         val confidence: Float
             get() = 0.75f + (history.size / (MAX_HISTORY * 4f))
 
-        fun averageRssi(latest: Int): Int =
+        fun rssiSmoothed(latest: Int): Int =
             history.map { it.rssi }.plus(latest).takeLast(10).median()
 
         fun isOlderThan(age: Duration): Boolean {
@@ -70,7 +70,7 @@ class UnknownDeviceFactory @Inject constructor() {
         override fun toString(): String = "KnownDevice(history=${history.size}, last=${history.last()})"
 
         companion object {
-            const val MAX_HISTORY = 10
+            const val MAX_HISTORY = 20
         }
     }
 

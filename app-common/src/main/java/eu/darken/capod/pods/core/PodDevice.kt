@@ -31,14 +31,19 @@ interface PodDevice {
     val rssi: Int
         get() = scanResult.rssi
 
-    val confidence: Float
+    val reliability: Float
 
-    /**
-     * This is not correct but it works ¯\_(ツ)_/¯
-     * The range of the RSSI is device specific (ROMs).
-     */
     val signalQuality: Float
-        get() = ((100 - abs(rssi)) / 100f) * (max(BASE_CONFIDENCE, confidence))
+        get() {
+            /**
+             * This is not correct but it works ¯\_(ツ)_/¯
+             * The range of the RSSI is device specific (ROMs).
+             */
+            val sqRssi = ((100 - abs(rssi)) / 100f)
+            //log("#####", Logging.Priority.VERBOSE) { "Signal Quality ($address): rssi=$sqRssi, reliability=$reliability" }
+            val sqConfidence = max(BASE_CONFIDENCE, reliability)
+            return (sqRssi + sqConfidence) / 2f
+        }
 
     val rawData: Map<Int, ByteArray>
         get() = scanResult.manufacturerSpecificData
@@ -133,6 +138,6 @@ interface PodDevice {
     }
 
     companion object {
-        const val BASE_CONFIDENCE = 0.5f
+        const val BASE_CONFIDENCE = 0.0f
     }
 }

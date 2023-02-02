@@ -18,7 +18,7 @@ data class UnknownAppleDevice(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
-    override val confidence: Float = 0f,
+    override val reliability: Float = 0f,
     private val rssiAverage: Int? = null,
 ) : ApplePods {
 
@@ -49,8 +49,8 @@ data class UnknownAppleDevice(
                 seenFirstAt = result.seenFirstAt,
                 seenLastAt = scanResult.receivedAt,
                 seenCounter = result.seenCounter,
-                confidence = result.confidence,
-                rssiAverage = result.averageRssi(basic.rssi),
+                reliability = result.reliability,
+                rssiAverage = result.rssiSmoothed(basic.rssi),
             )
         }
     }
