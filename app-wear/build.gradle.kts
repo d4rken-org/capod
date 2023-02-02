@@ -90,7 +90,7 @@ android {
         if (listOf("release", "beta").any { variantName.toLowerCase().contains(it) }) {
             val outputFileName = ProjectConfig.packageName + "-WEAROS" +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                    "-${variantName.toUpperCase()}-${lastCommitHash()}.apk"
+                    "-${variantName.toUpperCase()}.apk"
 
             variantOutputImpl.outputFileName = outputFileName
         }
