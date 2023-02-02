@@ -38,7 +38,8 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val id: PodDevice.Id,
         val seenFirstAt: Instant,
         val seenCounter: Int,
-        val history: List<ApplePods>
+        val history: List<ApplePods>,
+        val lastCaseBattery: Float?,
     ) {
         val lastMessage: ProximityPairing.Message
             get() = history.last().proximityMessage
@@ -74,7 +75,9 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
     internal val knownDevices = mutableMapOf<PodDevice.Id, KnownDevice>()
 
 
-    fun KnownDevice.getLatestCaseBattery(): Float? = history
+    fun KnownDevice.getLatestCaseBattery(): Float? = this.lastCaseBattery
+
+    private fun Collection<ApplePods>.determineLatestCaseBattery(): Float? = this
         .filterIsInstance<HasCase>()
         .mapNotNull { it.batteryCasePercent }
         .lastOrNull()
@@ -92,17 +95,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
     open fun historyTrimmer(
         pods: List<ApplePods>
     ): List<ApplePods> {
-        var trimmed = pods.takeLast(KnownDevice.MAX_HISTORY)
-
-        // We want to keep the case information
-        // If both pods are removed, and produce more history, we otherwise lose the case battery info.
-        val caseInfoFat = pods.lastOrNull { it is HasCase && it.batteryCasePercent != null }
-        val caseInfoTrimmed = trimmed.lastOrNull { it is HasCase && it.batteryCasePercent != null }
-        if (caseInfoFat != null && caseInfoTrimmed == null) {
-            trimmed = listOf(caseInfoFat) + trimmed.takeLast(KnownDevice.MAX_HISTORY - 1)
-        }
-
-        return trimmed
+        return pods.takeLast(KnownDevice.MAX_HISTORY)
     }
 
     internal open fun searchHistory(current: PodType): KnownDevice? {
@@ -146,18 +139,22 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
         knownDevices[device.identifier] = when {
             existing != null -> {
+                val history = existing.history.plus(device)
                 existing.copy(
                     seenCounter = existing.seenCounter + 1,
-                    history = existing.history.plus(device)
+                    history = history,
+                    lastCaseBattery = history.determineLatestCaseBattery() ?: existing.lastCaseBattery
                 )
             }
             else -> {
                 log(tag) { "searchHistory1: Creating new history for $device" }
+                val history = listOf(device)
                 KnownDevice(
                     id = device.identifier,
                     seenFirstAt = device.seenFirstAt,
                     seenCounter = 1,
-                    history = listOf(device)
+                    history = history,
+                    lastCaseBattery = history.determineLatestCaseBattery()
                 )
             }
         }
