@@ -8,7 +8,6 @@ import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Duration
 import java.time.Instant
@@ -80,13 +79,19 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         .lastOrNull()
 
     fun KnownDevice.getLatestCaseLidState(basic: DualApplePods): DualApplePods.LidState? {
-        val definitive = setOf(DualApplePods.LidState.OPEN, DualApplePods.LidState.CLOSED)
-        if (definitive.contains(basic.caseLidState)) return null
+        val definitive = setOf(
+            DualApplePods.LidState.OPEN,
+            DualApplePods.LidState.CLOSED,
+            DualApplePods.LidState.NOT_IN_CASE,
+        )
+        if (definitive.contains(basic.caseLidState)) return basic.caseLidState
 
         return history
-            .filterIsInstance<AirPodsPro>() // TODO why is this AirPodsPro specific here?
-            .lastOrNull { it.caseLidState != DualApplePods.LidState.NOT_IN_CASE }
+            .takeLast(2)
+            .filterIsInstance<DualApplePods>()
+            .lastOrNull { it.caseLidState != DualApplePods.LidState.UNKNOWN }
             ?.caseLidState
+            ?: DualApplePods.LidState.NOT_IN_CASE
     }
 
     open fun historyTrimmer(
