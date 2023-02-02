@@ -132,7 +132,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val message = current.proximityMessage
 
         knownDevices.values.toList().forEach { knownDevice ->
-            if (knownDevice.isOlderThan(Duration.ofSeconds(20))) {
+            if (knownDevice.isOlderThan(Duration.ofSeconds(30))) {
                 log(tag, VERBOSE) { "searchHistory1: Removing stale known device: $knownDevice" }
                 knownDevices.remove(knownDevice.id)
             }
