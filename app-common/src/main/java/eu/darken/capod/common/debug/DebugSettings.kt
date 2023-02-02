@@ -1,4 +1,4 @@
-package eu.darken.capod.common.debug.autoreport
+package eu.darken.capod.common.debug
 
 import android.content.Context
 import android.content.SharedPreferences

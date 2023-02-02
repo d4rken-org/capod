@@ -6,7 +6,6 @@ plugins {
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
-apply(plugin = "com.bugsnag.android.gradle")
 
 android {
 
@@ -22,10 +21,6 @@ android {
         versionName = ProjectConfig.Version.name
 
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
-
-        manifestPlaceholders["bugsnagApiKey"] = getBugSnagApiKey(
-            File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}/bugsnag.properties")
-        ) ?: "fake"
     }
 
     signingConfigs {
@@ -47,8 +42,11 @@ android {
         create("gplay") {
             dimension = "version"
             signingConfig = signingConfigs["releaseGplay"]
+            extra["useBugsnag"] = true
         }
     }
+
+    setupBugsnagPlugin()
 
     buildTypes {
         val customProguardRules = fileTree(File(projectDir, "proguard")) {
@@ -90,7 +88,7 @@ android {
         if (listOf("release", "beta").any { variantName.toLowerCase().contains(it) }) {
             val outputFileName = ProjectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                    "-${variantName.toUpperCase()}-${lastCommitHash()}.apk"
+                    "-${variantName.toUpperCase()}.apk"
 
             variantOutputImpl.outputFileName = outputFileName
         }
@@ -148,8 +146,8 @@ dependencies {
 
     addTesting()
 
-    implementation("com.bugsnag:bugsnag-android:5.9.2")
-    implementation("com.getkeepsafe.relinker:relinker:1.4.3")
-
     "gplayImplementation"("com.android.billingclient:billing:4.0.0")
+
+    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
+    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.3")
 }

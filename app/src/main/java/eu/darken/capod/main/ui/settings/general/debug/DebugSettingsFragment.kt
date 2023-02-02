@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
-import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.observe2
 import eu.darken.capod.common.uix.PreferenceFragment3
 import javax.inject.Inject

@@ -39,10 +39,6 @@
             android:name="androidx.startup.InitializationProvider"
             android:authorities="${applicationId}.androidx-startup"
             tools:node="remove" />
-
-        <meta-data
-            android:name="com.bugsnag.android.API_KEY"
-            android:value="${bugsnagApiKey}" />
     </application>
 
 </manifest>

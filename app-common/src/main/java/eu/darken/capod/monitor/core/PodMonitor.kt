@@ -6,7 +6,7 @@ import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.autoreport.DebugSettings
+import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
