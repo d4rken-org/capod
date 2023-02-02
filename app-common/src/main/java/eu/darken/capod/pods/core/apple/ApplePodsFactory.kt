@@ -1,6 +1,7 @@
 package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.collections.median
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -11,6 +12,7 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Duration
 import java.time.Instant
+import kotlin.math.max
 
 abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
@@ -46,28 +48,48 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val lastAddress: String
             get() = history.last().address
 
-        val confidence: Float
-            get() = 0.75f + (history.size / (MAX_HISTORY * 4f))
+        val reliability: Float
+            get() {
+                if (history.size < 2) return 0f
 
-        fun averageRssi(latest: Int): Int =
-            history.map { it.rssi }.plus(latest).takeLast(10).median()
+                val now = Instant.now()
+
+                val pingInterval = List(history.dropLast(1).size) { index ->
+                    Duration.between(history[index].seenLastAt, history[index + 1].seenLastAt).toMillis()
+                }.map { it.toInt() }.median()
+
+                val expectedPings: Float = LOOKBACK.toMillis() / pingInterval.toFloat()
+
+                val recentPings = history.filter {
+                    Duration.between(it.seenLastAt, now).toMillis() < LOOKBACK.toMillis() + pingInterval
+                }.size
+
+                val reliability: Float = (recentPings / expectedPings)
+                // log("#####") { "interval=$pingInterval, expectedPerMinute=$expectedPings, count=$recentPings" }
+
+                return max(0.0f, reliability).coerceAtMost(1f)
+            }
+
+        fun rssiSmoothed(latest: Int): Int {
+            val now = Instant.now()
+            return history
+                .filter { Duration.between(it.seenLastAt, now) < LOOKBACK }
+                .map { it.rssi }
+                .plus(latest)
+                .median()
+        }
 
         fun isOlderThan(age: Duration): Boolean {
             val now = Instant.now()
             return Duration.between(history.last().seenLastAt, now) > age
         }
 
-        private fun List<Int>.median(): Int = this.sorted().let {
-            if (it.size % 2 == 0)
-                (it[it.size / 2] + it[(it.size - 1) / 2]) / 2
-            else
-                it[it.size / 2]
-        }
-
         override fun toString(): String = "KnownDevice(history=${history.size}, last=${history.last()})"
 
         companion object {
-            const val MAX_HISTORY = 20
+            // 30 seconds at fastest interval
+            const val MAX_HISTORY = 60
+            val LOOKBACK = Duration.ofSeconds(30)
         }
     }
 
@@ -108,7 +130,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val message = current.proximityMessage
 
         knownDevices.values.toList().forEach { knownDevice ->
-            if (knownDevice.isOlderThan(Duration.ofSeconds(20))) {
+            if (knownDevice.isOlderThan(Duration.ofSeconds(30))) {
                 log(tag, VERBOSE) { "searchHistory1: Removing stale known device: $knownDevice" }
                 knownDevices.remove(knownDevice.id)
             }

@@ -17,7 +17,7 @@ data class BeatsX(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
-    override val confidence: Float = PodDevice.BASE_CONFIDENCE,
+    override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
 ) : SingleApplePods {
 
@@ -46,8 +46,8 @@ data class BeatsX(
                 seenFirstAt = result.seenFirstAt,
                 seenLastAt = scanResult.receivedAt,
                 seenCounter = result.seenCounter,
-                confidence = result.confidence,
-                rssiAverage = result.averageRssi(basic.rssi),
+                reliability = result.reliability,
+                rssiAverage = result.rssiSmoothed(basic.rssi),
             )
         }
 

@@ -6,6 +6,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.log
+import java.time.Duration
 import java.time.Instant
 import java.util.*
 import kotlin.math.abs
@@ -31,14 +34,20 @@ interface PodDevice {
     val rssi: Int
         get() = scanResult.rssi
 
-    val confidence: Float
+    val reliability: Float
 
-    /**
-     * This is not correct but it works ¯\_(ツ)_/¯
-     * The range of the RSSI is device specific (ROMs).
-     */
     val signalQuality: Float
-        get() = ((100 - abs(rssi)) / 100f) * (max(BASE_CONFIDENCE, confidence))
+        get() {
+            /**
+             * This is not correct but it works ¯\_(ツ)_/¯
+             * The range of the RSSI is device specific (ROMs).
+             */
+            val sqRssi = ((100 - abs(rssi)) / 100f)
+            val sqReliability = max(BASE_CONFIDENCE, reliability)
+            val sqAge = (Duration.between(seenFirstAt, Instant.now()).toMinutes().coerceAtMost(60) / 60f) * 0.25f
+            log(VERBOSE) { "Signal Quality ($address): rssi=$sqRssi, reliability=$reliability, age=$sqAge" }
+            return (sqRssi + sqReliability + sqAge) / 2f
+        }
 
     val rawData: Map<Int, ByteArray>
         get() = scanResult.manufacturerSpecificData
@@ -133,6 +142,6 @@ interface PodDevice {
     }
 
     companion object {
-        const val BASE_CONFIDENCE = 0.5f
+        const val BASE_CONFIDENCE = 0.0f
     }
 }
