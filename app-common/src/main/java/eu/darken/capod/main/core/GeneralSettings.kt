@@ -26,7 +26,7 @@ class GeneralSettings @Inject constructor(
     val monitorMode = preferences.createFlowPreference("core.monitor.mode", MonitorMode.AUTOMATIC, moshi)
     val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
-    val showAll = preferences.createFlowPreference("core.showall.enabled", false)
+    val showAll = preferences.createFlowPreference("core.showall.enabled", true)
 
     val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.25f)
 
