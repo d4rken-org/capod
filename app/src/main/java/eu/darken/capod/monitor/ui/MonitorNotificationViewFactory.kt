@@ -14,12 +14,12 @@ class MonitorNotificationViewFactory @Inject constructor(
 ) {
 
     fun createContentView(device: PodDevice): RemoteViews = when (device) {
-        is DualPodDevice -> createDualApplePods(device)
-        is SinglePodDevice -> createSingleApplePods(device)
+        is DualPodDevice -> createDualPods(device)
+        is SinglePodDevice -> createSinglePod(device)
         else -> createUnknownDevice(device)
     }
 
-    private fun createDualApplePods(device: DualPodDevice): RemoteViews = RemoteViews(
+    private fun createDualPods(device: DualPodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_small
     ).apply {
@@ -50,7 +50,7 @@ class MonitorNotificationViewFactory @Inject constructor(
         }
     }
 
-    private fun createSingleApplePods(device: SinglePodDevice): RemoteViews = RemoteViews(
+    private fun createSinglePod(device: SinglePodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_small
     ).apply {
