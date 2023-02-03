@@ -6,8 +6,6 @@ import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.apple.SingleApplePods
 import javax.inject.Inject
 
 
@@ -16,12 +14,12 @@ class MonitorNotificationViewFactory @Inject constructor(
 ) {
 
     fun createContentView(device: PodDevice): RemoteViews = when (device) {
-        is DualApplePods -> createDualApplePods(device)
-        is SingleApplePods -> createSingleApplePods(device)
+        is DualPodDevice -> createDualApplePods(device)
+        is SinglePodDevice -> createSingleApplePods(device)
         else -> createUnknownDevice(device)
     }
 
-    private fun createDualApplePods(device: DualApplePods): RemoteViews = RemoteViews(
+    private fun createDualApplePods(device: DualPodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_small
     ).apply {
@@ -29,23 +27,30 @@ class MonitorNotificationViewFactory @Inject constructor(
             // Left
             setImageViewResource(R.id.pod_left_icon, device.leftPodIcon)
             setTextViewText(R.id.pod_left_label, getBatteryLevelLeftPod(context))
+            val isLeftPodCharging = (device as? HasChargeDetectionDual)?.isLeftPodCharging ?: false
             setViewVisibility(R.id.pod_left_charging, if (isLeftPodCharging) View.VISIBLE else View.GONE)
+            val isLeftPodInEar = (device as? HasEarDetectionDual)?.isLeftPodInEar ?: false
             setViewVisibility(R.id.pod_left_ear, if (isLeftPodInEar) View.VISIBLE else View.GONE)
 
             // Case
-            setImageViewResource(R.id.pod_case_icon, device.caseIcon)
-            setTextViewText(R.id.pod_case_label, getBatteryLevelCase(context))
-            setViewVisibility(R.id.pod_case_charging, if (isCaseCharging) View.VISIBLE else View.GONE)
+            setViewVisibility(R.id.pod_case_charging, if (device is HasCase) View.VISIBLE else View.GONE)
+            (device as? HasCase)?.let { case ->
+                setImageViewResource(R.id.pod_case_icon, device.caseIcon)
+                setTextViewText(R.id.pod_case_label, case.getBatteryLevelCase(context))
+                setViewVisibility(R.id.pod_case_charging, if (case.isCaseCharging) View.VISIBLE else View.GONE)
+            }
 
             // Right
             setImageViewResource(R.id.pod_right_icon, device.rightPodIcon)
             setTextViewText(R.id.pod_right_label, getBatteryLevelRightPod(context))
+            val isRightPodCharging = (device as? HasChargeDetectionDual)?.isRightPodCharging ?: false
             setViewVisibility(R.id.pod_right_charging, if (isRightPodCharging) View.VISIBLE else View.GONE)
+            val isRightPodInEar = (device as? HasEarDetectionDual)?.isRightPodInEar ?: false
             setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
         }
     }
 
-    private fun createSingleApplePods(device: SingleApplePods): RemoteViews = RemoteViews(
+    private fun createSingleApplePods(device: SinglePodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_small
     ).apply {

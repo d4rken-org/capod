@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.databinding.PopupNotificationDualPodsBinding
 import eu.darken.capod.databinding.PopupNotificationSinglePodsBinding
 import eu.darken.capod.pods.core.*
-import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.apple.SingleApplePods
 import javax.inject.Inject
 
 
@@ -26,13 +25,13 @@ class PopUpPodViewFactory @Inject constructor(
     private val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     fun createContentView(parent: ViewGroup, device: PodDevice): View = when (device) {
-        is DualApplePods -> createDualApplePods(parent, device)
+        is DualPodDevice -> createDualPods(parent, device)
         // Unused, has no case to trigger reaction?
-        is SingleApplePods -> createSingleApplePods(parent, device)
+        is SinglePodDevice -> createSinglePod(parent, device)
         else -> throw IllegalArgumentException("Unexpected device: $device")
     }
 
-    private fun createDualApplePods(parent: ViewGroup, device: DualApplePods): View =
+    private fun createDualPods(parent: ViewGroup, device: DualPodDevice): View =
         PopupNotificationDualPodsBinding.inflate(layoutInflater, parent, false).apply {
             device.apply {
                 podIcon.setImageResource(iconRes)
@@ -46,9 +45,12 @@ class PopUpPodViewFactory @Inject constructor(
                 podLeftBatteryLabel.text = getBatteryLevelLeftPod(context)
 
                 // Case
-                podCaseIcon.setImageResource(device.caseIcon)
-                podCaseBatteryIcon.setImageResource(getBatteryDrawable(batteryCasePercent))
-                podCaseBatteryLabel.text = getBatteryLevelCase(context)
+                podCaseContainer.isVisible = device is HasCase
+                (device as? HasCase)?.let { case ->
+                    podCaseIcon.setImageResource(case.caseIcon)
+                    podCaseBatteryIcon.setImageResource(getBatteryDrawable(case.batteryCasePercent))
+                    podCaseBatteryLabel.text = case.getBatteryLevelCase(context)
+                }
 
                 // Right
                 podRightIcon.setImageResource(device.rightPodIcon)
@@ -57,7 +59,7 @@ class PopUpPodViewFactory @Inject constructor(
             }
         }.root
 
-    private fun createSingleApplePods(parent: ViewGroup, device: SingleApplePods): View =
+    private fun createSinglePod(parent: ViewGroup, device: SinglePodDevice): View =
         PopupNotificationSinglePodsBinding.inflate(layoutInflater, parent, false).apply {
             device.apply {
                 headphonesIcon.setImageResource(iconRes)
