@@ -360,6 +360,25 @@ do-versionfile() {
   git add VERSION
 }
 
+# Update a version file that can be parsed by third-parties, e.g. F-Droid
+do-fastlane-changelog() {
+  CHANGELOGS_DIR="fastlane/metadata/android/en-US/changelogs"
+  NEW_CHANGELOG="$CHANGELOGS_DIR/$V_CODE.txt"
+
+  [ -f "$NEW_CHANGELOG" ] && return
+
+  echo -e "\n${S_NOTICE}Creating new default fastlane changelog file for $V_CODE...\n"
+
+  cp "$CHANGELOGS_DIR/default.txt" "$NEW_CHANGELOG"
+
+  cat "$NEW_CHANGELOG"
+
+  echo -e "\n\n${I_OK} ${S_NOTICE}${ACTION_MSG} [${S_NORM}$NEW_CHANGELOG${S_NOTICE}] file"
+
+  # Stage file for commit
+  git add "$CHANGELOGS_DIR/$V_CODE.txt"
+}
+
 # Does the release branch already exist?
 check-branch-exist() {
   [ "$FLAG_NOBRANCH" = true ] && return
@@ -448,6 +467,7 @@ echo -e "\n${S_LIGHT}––––––"
 # Update steps
 do-version-properties
 do-versionfile
+do-fastlane-changelog
 do-branch
 do-commit
 create-tag "${V_NAME}" "${REL_NOTE}"
