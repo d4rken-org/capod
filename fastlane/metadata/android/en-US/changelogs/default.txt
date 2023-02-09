@@ -1,3 +1,2 @@
-Now with more widgets!
-But also bugfixes and performance improvements.
+Bugfixes and performance improvements.
 ¯\_(ツ)_/¯
