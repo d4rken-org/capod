@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">Yok</string>
     <string name="general_error_label">Hata</string>
     <string name="general_grant_permission_action">İzin ver</string>
@@ -11,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Bu uygulama, eşleştirilmiş cihazlarla etkileşim kurmak ve bağlantıları başlatmak için \"Bluetooth bağlantısı\" izni gerektirir.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth taraması</string>
     <string name="permission_bluetooth_scan_description">\"Bluetooth tarama\" izni, bu uygulamanın AirPods\'unuz gibi yakındaki cihazlardan Bluetooth verilerini keşfetmesine ve almasına izin verir.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Bu uygulama, eşleştirilmiş bluetooth cihazlarına bağlanmak için \"Bluetooth\" izni gerektirir.</string>
     <string name="permission_access_fine_location_label">Hassas konuma erişin</string>
     <string name="permission_access_fine_location_description">CAPod, Bluetooth Düşük Enerji verilerini almak için \"iyi konum\" iznini kullanır. Kulaklıklarınız durumlarını yayınlamak için Bluetooth Düşük Enerji teknolojisini kullanır. Bu uygulama konumunuzu belirlemek için Bluetooth verilerini KULLANMAYACAKTIR.</string>

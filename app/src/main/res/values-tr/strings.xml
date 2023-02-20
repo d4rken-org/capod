@@ -53,6 +53,7 @@
     <string name="settings_support_description">Yardıma ihtiyacın olursa.</string>
     <string name="issue_tracker_label">Sorun izleyicisi</string>
     <string name="issue_tracker_description">Hata raporları ve özellik istekleri için genel bir sorun izleyicisi (yalnızca İngilizce).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Takılıp soru sormak için bir yer.</string>
     <string name="changelog_label">Değişiklik Günlüğü</string>
     <string name="settings_label">Ayarlar</string>
@@ -73,4 +74,6 @@
     <string name="settings_compatibility_mode_description">Uyumluluğu artırmak için iyileştirmeleri devre dışı bırakın. Herhangi bir veri görmüyorsanız bunu deneyin.</string>
     <string name="help_translate_label">Tercüme</string>
     <string name="help_translate_description">Bu uygulamayı en sevdiğiniz dile çevirmeye yardımcı olun.</string>
+    <string name="translators_thanks_title">Çevirmenler</string>
+    <string name="translators_thanks_description">karanlık</string>
 </resources>
