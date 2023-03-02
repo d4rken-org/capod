@@ -13,13 +13,9 @@ import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
-import eu.darken.capod.monitor.core.PodDeviceCache
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.wear.ui.overview.cards.BluetoothDisabledVH
 import eu.darken.capod.wear.ui.overview.cards.MissingMainDeviceVH
@@ -38,11 +34,8 @@ class OverviewFragmentVM @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val podMonitor: PodMonitor,
     private val permissionTool: PermissionTool,
-    private val generalSettings: GeneralSettings,
     debugSettings: DebugSettings,
     private val bluetoothManager: BluetoothManager2,
-    private val podDeviceCache: PodDeviceCache,
-    private val podFactory: PodFactory
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val updateTicker = channelFlow<Unit> {
@@ -54,30 +47,14 @@ class OverviewFragmentVM @Inject constructor(
 
     val requestPermissionEvent = SingleLiveEvent<Permission>()
 
-    private val pods: Flow<List<PodDevice>> = permissionTool.missingPermissions
-        .flatMapLatest { permissions ->
-            if (permissions.isNotEmpty()) {
-                return@flatMapLatest flowOf(emptyList())
-            }
-
-            generalSettings.showAll.flow.flatMapLatest { showAll ->
-                if (showAll) {
-                    podMonitor.devices
-                } else {
-                    podMonitor.mainDevice.map { mainDevice ->
-                        mainDevice?.let { listOf(it) } ?: emptyList()
-                    }
-                }
-            }
-        }
-        .catch { errorEvents.postValue(it) }
+    private val mainDevice = podMonitor.mainDevice.throttleLatest(1000)
 
     val listItems: LiveData<List<OverviewAdapter.Item>> = combine(
         updateTicker,
         permissionTool.missingPermissions,
         debugSettings.isDebugModeEnabled.flow,
         bluetoothManager.isBluetoothEnabled,
-        podMonitor.mainDevice.throttleLatest(1000),
+        mainDevice,
     ) { _, permissions, isDebugMode, isBluetoothEnabled, _ ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
