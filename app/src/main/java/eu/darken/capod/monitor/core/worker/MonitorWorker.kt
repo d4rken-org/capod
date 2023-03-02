@@ -8,7 +8,6 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import dagger.hilt.EntryPoints
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
@@ -23,7 +22,6 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.main.ui.widget.WidgetManager
-import eu.darken.capod.monitor.core.MonitorComponent
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.ui.MonitorNotifications
@@ -39,7 +37,6 @@ import kotlinx.coroutines.flow.*
 class MonitorWorker @AssistedInject constructor(
     @Assisted private val context: Context,
     @Assisted private val params: WorkerParameters,
-    monitorComponentBuilder: MonitorComponent.Builder,
     private val dispatcherProvider: DispatcherProvider,
     private val monitorNotifications: MonitorNotifications,
     private val notificationManager: NotificationManager,
@@ -55,13 +52,6 @@ class MonitorWorker @AssistedInject constructor(
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
-    private val monitorComponent = monitorComponentBuilder
-        .coroutineScope(workerScope)
-        .build()
-
-    private val entryPoint by lazy {
-        EntryPoints.get(monitorComponent, MonitorWorkerEntryPoint::class.java)
-    }
 
     private var finishedWithError = false
 
