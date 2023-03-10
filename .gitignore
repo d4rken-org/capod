@@ -12,3 +12,4 @@
 *.jks
 .local/*
 /fastlane/report.xml
+/fastlane/Appfile

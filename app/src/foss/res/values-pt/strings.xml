@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="foss_upgrade_donate_label">Doar</string>
+    <string name="foss_upgrade_alreadydonated_label">Já doei</string>
+    <string name="foss_upgrade_no_money_label">Gastei todo o meu dinheiro em AirPods</string>
+</resources>
