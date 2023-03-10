@@ -29,7 +29,7 @@ class SingleApplePodsTest : BaseAirPodsTest() {
 
             isHeadsetBeingCharged shouldBe false
 
-            isHeadphonesBeingWorn shouldBe true
+            isBeingWorn shouldBe true
         }
     }
 }
