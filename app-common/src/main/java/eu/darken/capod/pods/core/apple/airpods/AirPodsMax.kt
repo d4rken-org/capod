@@ -3,6 +3,7 @@ package eu.darken.capod.pods.core.apple.airpods
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.isBitSet
+import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
@@ -22,21 +23,18 @@ data class AirPodsMax(
     override val proximityMessage: ProximityPairing.Message,
     override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
-) : SingleApplePods, HasEarDetection, HasAppleColor {
+) : SingleApplePods, HasEarDetection, HasChargeDetection, HasAppleColor {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX
 
     override val rssi: Int
         get() = rssiAverage ?: super<SingleApplePods>.rssi
 
-    val isHeadphonesBeingWorn: Boolean
-        get() = rawStatus.isBitSet(1)
-
-    val isHeadsetBeingCharged: Boolean
+    override val isHeadsetBeingCharged: Boolean
         get() = rawFlags.isBitSet(0)
 
     override val isBeingWorn: Boolean
-        get() = isHeadphonesBeingWorn
+        get() = !rawStatus.isBitSet(5)
 
     class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
 
