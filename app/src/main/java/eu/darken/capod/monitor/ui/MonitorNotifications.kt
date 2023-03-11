@@ -20,6 +20,8 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.PodDevice
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 
 
@@ -29,6 +31,7 @@ class MonitorNotifications @Inject constructor(
     private val notificationViewFactory: MonitorNotificationViewFactory
 ) {
 
+    private val builderLock = Mutex()
     private val builder: NotificationCompat.Builder
 
     init {
@@ -56,7 +59,7 @@ class MonitorNotifications @Inject constructor(
         }
     }
 
-    fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
+    private fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
         if (device == null) {
             return builder.apply {
                 setCustomContentView(null)
@@ -76,9 +79,13 @@ class MonitorNotifications @Inject constructor(
         }
     }
 
-    fun getNotification(podDevice: PodDevice?): Notification = getBuilder(podDevice).build()
+    suspend fun getNotification(podDevice: PodDevice?): Notification = builderLock.withLock {
+        getBuilder(podDevice).build()
+    }
 
-    fun getForegroundInfo(podDevice: PodDevice?): ForegroundInfo = getBuilder(podDevice).toForegroundInfo()
+    suspend fun getForegroundInfo(podDevice: PodDevice?): ForegroundInfo = builderLock.withLock {
+        getBuilder(podDevice).toForegroundInfo()
+    }
 
     @SuppressLint("InlinedApi")
     private fun NotificationCompat.Builder.toForegroundInfo(): ForegroundInfo = if (hasApiLevel(29)) {
