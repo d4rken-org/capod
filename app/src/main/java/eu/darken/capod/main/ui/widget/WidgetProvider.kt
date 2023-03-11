@@ -22,6 +22,7 @@ import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.monitor.core.PodDeviceCache
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.*
+import finish2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeout
@@ -39,7 +40,7 @@ class WidgetProvider : AppWidgetProvider() {
 
     private fun executeAsync(
         tag: String,
-        timeout: Duration = Duration.ofSeconds(8),
+        timeout: Duration = Duration.ofSeconds(7),
         block: suspend () -> Unit
     ) {
         val start = System.currentTimeMillis()
@@ -52,7 +53,7 @@ class WidgetProvider : AppWidgetProvider() {
             } catch (e: Exception) {
                 log(TAG, ERROR) { "executeAsync($tag) failed: ${e.asLog()}" }
             } finally {
-                asyncBarrier.finish()
+                asyncBarrier.finish2()
                 val stop = System.currentTimeMillis()
                 log(TAG, VERBOSE) { "executeAsync($tag) DONE (${stop - start}ms) " }
             }
