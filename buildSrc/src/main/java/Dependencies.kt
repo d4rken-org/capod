@@ -84,14 +84,14 @@ fun DependencyHandlerScope.addBaseWorkManager() {
 }
 
 fun DependencyHandlerScope.addBaseAndroid() {
-    implementation("androidx.core:core-ktx:1.8.0")
+    implementation("androidx.core:core-ktx:1.10.0-rc01")
     implementation("androidx.annotation:annotation:1.4.0")
     implementation("androidx.collection:collection-ktx:1.2.0")
     implementation("androidx.preference:preference-ktx:1.2.0")
 }
 
 fun DependencyHandlerScope.addBaseAndroidUi() {
-    implementation("androidx.appcompat:appcompat:1.6.0-alpha04")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.fragment:fragment-ktx:1.4.1")
 
