@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothDevice
 import android.content.Context
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
+import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
@@ -59,9 +60,15 @@ class MonitorWorker @AssistedInject constructor(
         log(TAG, VERBOSE) { "init(): workerId=$id" }
     }
 
+    override suspend fun getForegroundInfo(): ForegroundInfo {
+        return monitorNotifications.getForegroundInfo(null)
+    }
+
     override suspend fun doWork(): Result = try {
         val start = System.currentTimeMillis()
         log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
+
+        setForeground(monitorNotifications.getForegroundInfo(null))
 
         doDoWork()
 
@@ -91,7 +98,6 @@ class MonitorWorker @AssistedInject constructor(
 
         val monitorJob = podMonitor.mainDevice
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
-            .onStart { setForeground(monitorNotifications.getForegroundInfo(null)) }
             .distinctUntilChanged()
             .throttleLatest(1000)
             .onEach { currentDevice ->
