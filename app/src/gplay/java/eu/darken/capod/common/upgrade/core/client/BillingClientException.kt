@@ -2,9 +2,7 @@ package eu.darken.capod.common.upgrade.core.client
 
 import com.android.billingclient.api.BillingResult
 
-class BillingClientException(val result: BillingResult) : Exception() {
-    override val message: String?
-        get() = result.debugMessage
+class BillingClientException(val result: BillingResult) : BillingException(result.debugMessage) {
 
     override fun toString(): String =
         "BillingClientException(code=${result.responseCode}, message=${result.debugMessage})"

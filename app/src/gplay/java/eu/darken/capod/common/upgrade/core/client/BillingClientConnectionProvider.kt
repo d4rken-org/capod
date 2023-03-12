@@ -14,15 +14,15 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.retryWhen
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 @Singleton
 class BillingClientConnectionProvider @Inject constructor(
@@ -48,36 +48,36 @@ class BillingClientConnectionProvider @Inject constructor(
             }
         }.build()
 
-        val connectionResult = suspendCoroutine<BillingResult> { continuation ->
-            log(TAG, VERBOSE) { "startConnection(...)" }
-            client.startConnection(object : BillingClientStateListener {
-                override fun onBillingSetupFinished(result: BillingResult) {
-                    log(TAG, VERBOSE) {
-                        "onBillingSetupFinished(code=${result.responseCode}, message=${result.debugMessage})"
+
+        log(TAG, VERBOSE) { "startConnection(...)" }
+        client.startConnection(object : BillingClientStateListener {
+            override fun onBillingSetupFinished(result: BillingResult) {
+                log(TAG, VERBOSE) {
+                    "onBillingSetupFinished(code=${result.responseCode}, message=${result.debugMessage})"
+                }
+
+                val billingClientConnection = when (result.responseCode) {
+                    BillingResponseCode.OK -> BillingClientConnection(client, purchasePublisher)
+                    else -> throw BillingClientException(result)
+                }
+
+                trySendBlocking(billingClientConnection)
+
+                launch {
+                    try {
+                        purchasePublisher.value = billingClientConnection.queryPurchases()
+                        log(TAG) { "Initial IAP query successful." }
+                    } catch (e: Exception) {
+                        log(TAG, ERROR) { "Initial IAP query failed:\n${e.asLog()}" }
                     }
-                    continuation.resume(result)
                 }
+            }
 
-                override fun onBillingServiceDisconnected() {
-                    log(TAG, VERBOSE) { "onBillingServiceDisconnected() " }
-                    close(CancellationException("Billing service disconnected"))
-                }
-            })
-        }
-
-        val billingClientConnection = when (connectionResult.responseCode) {
-            BillingResponseCode.OK -> BillingClientConnection(client, purchasePublisher)
-            else -> throw BillingClientException(connectionResult)
-        }
-
-        try {
-            purchasePublisher.value = billingClientConnection.queryPurchases()
-            log(TAG) { "Initial IAP query successful." }
-        } catch (e: Exception) {
-            log(TAG, ERROR) { "Initial IAP query failed:\n${e.asLog()}" }
-        }
-
-        send(billingClientConnection)
+            override fun onBillingServiceDisconnected() {
+                log(TAG, VERBOSE) { "onBillingServiceDisconnected() " }
+                error(BillingException("Billing service disconnected"))
+            }
+        })
 
         log(TAG) { "Awaiting close." }
         awaitClose {
