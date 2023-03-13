@@ -56,26 +56,30 @@ class BillingClientConnectionProvider @Inject constructor(
                     "onBillingSetupFinished(code=${result.responseCode}, message=${result.debugMessage})"
                 }
 
-                val billingClientConnection = when (result.responseCode) {
-                    BillingResponseCode.OK -> BillingClientConnection(client, purchasePublisher)
-                    else -> throw BillingClientException(result)
-                }
+                when (result.responseCode) {
+                    BillingResponseCode.OK -> {
+                        val connection = BillingClientConnection(client, purchasePublisher)
 
-                trySendBlocking(billingClientConnection)
+                        trySendBlocking(connection)
 
-                launch {
-                    try {
-                        purchasePublisher.value = billingClientConnection.queryPurchases()
-                        log(TAG) { "Initial IAP query successful." }
-                    } catch (e: Exception) {
-                        log(TAG, ERROR) { "Initial IAP query failed:\n${e.asLog()}" }
+                        launch {
+                            try {
+                                purchasePublisher.value = connection.queryPurchases()
+                                log(TAG) { "Initial IAP query successful." }
+                            } catch (e: Exception) {
+                                log(TAG, ERROR) { "Initial IAP query failed:\n${e.asLog()}" }
+                            }
+                        }
+                    }
+                    else -> {
+                        close(BillingClientException(result))
                     }
                 }
             }
 
             override fun onBillingServiceDisconnected() {
                 log(TAG, VERBOSE) { "onBillingServiceDisconnected() " }
-                error(BillingException("Billing service disconnected"))
+                close(BillingException("Billing service disconnected"))
             }
         })
 
@@ -89,23 +93,25 @@ class BillingClientConnectionProvider @Inject constructor(
     val connection: Flow<BillingClientConnection> = connectionProvider
         .setupCommonEventHandlers(TAG) { "connection" }
         .retryWhen { cause, attempt ->
+            log(TAG) { "Billing client connection error: ${cause.asLog()}" }
+
             if (cause is CancellationException) {
                 log(TAG) { "BillingClient connection cancelled." }
                 return@retryWhen false
             }
-            if (attempt > 5) {
-                log(TAG, WARN) { "Reached attempt limit: $attempt due to $cause" }
+
+            if (cause !is BillingException) {
+                log(TAG, WARN) { "Unknown exception type: $cause" }
                 return@retryWhen false
-            }
-            if (cause !is BillingClientException) {
-                log(TAG, WARN) { "Unknown BillingClient exception type: $cause" }
-                return@retryWhen false
-            } else {
-                log(TAG) { "BillingClient exception: $cause; ${cause.result}" }
             }
 
-            if (cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
+            if (cause is BillingClientException && cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
                 log(TAG) { "Got BILLING_UNAVAILABLE while trying to connect client." }
+                return@retryWhen false
+            }
+
+            if (attempt > 5) {
+                log(TAG, WARN) { "Reached attempt limit: $attempt due to $cause" }
                 return@retryWhen false
             }
 
