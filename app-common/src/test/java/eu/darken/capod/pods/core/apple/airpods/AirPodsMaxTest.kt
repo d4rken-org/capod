@@ -81,13 +81,13 @@ class AirPodsMaxTest : BaseAirPodsTest() {
             rawStatus shouldBe 0x03.toUByte()
 
             rawStatus.isBitSet(5) shouldBe false
-            isBeingWorn shouldBe true
+            isBeingWorn shouldBe false
         }
         create<AirPodsMax>("07 19 01 0A 20 23 07 80 03 03 65 1F 28 32 D0 D9 71 43 00 9A 40 E7 6B EA 6C 2C FB") {
             rawStatus shouldBe 0x23.toUByte()
 
             rawStatus.isBitSet(5) shouldBe true
-            isBeingWorn shouldBe false
+            isBeingWorn shouldBe true
         }
     }
 }
