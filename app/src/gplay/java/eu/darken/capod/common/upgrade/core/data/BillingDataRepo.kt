@@ -12,6 +12,7 @@ import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.upgrade.core.client.BillingClientConnectionProvider
 import eu.darken.capod.common.upgrade.core.client.BillingClientException
+import eu.darken.capod.common.upgrade.core.client.BillingException
 import eu.darken.capod.common.upgrade.core.client.GplayServiceUnavailableException
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -54,31 +55,31 @@ class BillingDataRepo @Inject constructor(
                     .forEach {
                         log(TAG, INFO) { "Acknowledging purchase: $it" }
 
-                        try {
-                            client.acknowledgePurchase(it)
-                        } catch (e: Exception) {
-                            log(TAG, ERROR) { "Failed to ancknowledge purchase: $it\n${e.asLog()}" }
+                        val ackResult = client.acknowledgePurchase(it)
+                        if (ackResult.responseCode != BillingResponseCode.OK) {
+                            throw BillingClientException(ackResult)
                         }
                     }
             }
             .setupCommonEventHandlers(TAG) { "connection-acks" }
             .retryWhen { cause, attempt ->
+                log(TAG, ERROR) { "Failed to ancknowledge purchase: ${cause.asLog()}" }
+
                 if (cause is CancellationException) {
                     log(TAG) { "Ack was cancelled (appScope?) cancelled." }
                     return@retryWhen false
                 }
+
                 if (attempt > 5) {
                     log(TAG, WARN) { "Reached attempt limit: $attempt due to $cause" }
                     return@retryWhen false
                 }
-                if (cause !is BillingClientException) {
-                    log(TAG, WARN) { "Unknown BillingClient exception type: $cause" }
+                if (cause !is BillingException) {
+                    log(TAG, WARN) { "Unknown exception type: $cause" }
                     return@retryWhen false
-                } else {
-                    log(TAG) { "BillingClient exception: $cause; ${cause.result}" }
                 }
 
-                if (cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
+                if (cause is BillingClientException && cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
                     log(TAG) { "Got BILLING_UNAVAILABLE while trying to ACK purchase." }
                     return@retryWhen false
                 }
