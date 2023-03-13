@@ -34,7 +34,7 @@ data class AirPodsMax(
         get() = rawFlags.isBitSet(0)
 
     override val isBeingWorn: Boolean
-        get() = !rawStatus.isBitSet(5)
+        get() = rawStatus.isBitSet(5)
 
     class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
 
