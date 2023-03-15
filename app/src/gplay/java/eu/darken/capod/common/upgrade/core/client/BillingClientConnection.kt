@@ -2,6 +2,7 @@ package eu.darken.capod.common.upgrade.core.client
 
 import android.app.Activity
 import com.android.billingclient.api.*
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -38,7 +39,7 @@ data class BillingClientConnection(
 
         if (!result.isSuccess) {
             log(TAG, WARN) { "queryPurchases() failed" }
-            throw  BillingClientException(result)
+            throw  BillingResultException(result)
         } else {
             requireNotNull(purchases)
         }
@@ -47,23 +48,18 @@ data class BillingClientConnection(
         return purchases
     }
 
-    suspend fun acknowledgePurchase(purchase: Purchase): BillingResult {
+    suspend fun acknowledgePurchase(purchase: Purchase) {
         val ack = AcknowledgePurchaseParams.newBuilder().apply {
             setPurchaseToken(purchase.purchaseToken)
         }.build()
 
-        val ackResult = suspendCoroutine<BillingResult> { continuation ->
+        val result = suspendCoroutine<BillingResult> { continuation ->
             client.acknowledgePurchase(ack) { continuation.resume(it) }
         }
-        log(TAG) {
-            "acknowledgePurchase(purchase=$purchase): code=${ackResult.responseCode}, message=${ackResult.debugMessage})"
-        }
 
-        if (!ackResult.isSuccess) {
-            throw BillingClientException(ackResult)
-        }
+        log(TAG, INFO) { "acknowledgePurchase($purchase): code=${result.responseCode} (${result.debugMessage})" }
 
-        return ackResult
+        if (!result.isSuccess) throw BillingResultException(result)
     }
 
     suspend fun querySku(sku: Sku): Sku.Details {
@@ -82,7 +78,7 @@ data class BillingClientConnection(
             "querySku(sku=$sku): code=${result.responseCode}, debug=${result.debugMessage}), skuDetails=$details"
         }
 
-        if (!result.isSuccess) throw BillingClientException(result)
+        if (!result.isSuccess) throw BillingResultException(result)
 
         if (details.isNullOrEmpty()) throw IllegalStateException("Unknown SKU, no details available.")
 
