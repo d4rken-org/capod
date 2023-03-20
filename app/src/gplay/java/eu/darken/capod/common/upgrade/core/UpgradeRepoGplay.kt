@@ -49,7 +49,7 @@ class UpgradeRepoGplay @Inject constructor(
                     lastProStateAt = now
                     Info(billingData = data)
                 }
-                (now - lastProStateAt) < 6 * 60 * 1000L -> { // 6 hours
+                (now - lastProStateAt) < 6 * 60 * 60 * 1000L -> { // 6 hours
                     log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
                     Info(gracePeriod = true, billingData = null)
                 }
@@ -62,7 +62,7 @@ class UpgradeRepoGplay @Inject constructor(
             // Ignore Google Play errors if the last pro state was recent
             val now = System.currentTimeMillis()
             log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, error=$it" }
-            if ((now - lastProStateAt) < 6 * 60 * 60 * 1000L) { // 6 hours
+            if ((now - lastProStateAt) < 24 * 60 * 60 * 1000L) { // 24 hours
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
@@ -123,7 +123,7 @@ class UpgradeRepoGplay @Inject constructor(
             get() = UpgradeRepo.Type.GPLAY
 
         override val isPro: Boolean
-            get() = billingData?.getProSku() != null
+            get() = billingData?.getProSku() != null || gracePeriod
 
         override val upgradedAt: Instant?
             get() = billingData

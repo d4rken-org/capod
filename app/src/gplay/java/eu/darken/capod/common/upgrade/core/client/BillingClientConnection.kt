@@ -2,6 +2,7 @@ package eu.darken.capod.common.upgrade.core.client
 
 import android.app.Activity
 import com.android.billingclient.api.*
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -38,7 +39,7 @@ data class BillingClientConnection(
 
         if (!result.isSuccess) {
             log(TAG, WARN) { "queryPurchases() failed" }
-            throw  BillingClientException(result)
+            throw  BillingResultException(result)
         } else {
             requireNotNull(purchases)
         }
@@ -47,34 +48,31 @@ data class BillingClientConnection(
         return purchases
     }
 
-    suspend fun acknowledgePurchase(purchase: Purchase): BillingResult {
+    suspend fun acknowledgePurchase(purchase: Purchase) {
         val ack = AcknowledgePurchaseParams.newBuilder().apply {
             setPurchaseToken(purchase.purchaseToken)
         }.build()
 
-        val ackResult = suspendCoroutine<BillingResult> { continuation ->
+        val result = suspendCoroutine<BillingResult> { continuation ->
             client.acknowledgePurchase(ack) { continuation.resume(it) }
         }
-        log(TAG) {
-            "acknowledgePurchase(purchase=$purchase): code=${ackResult.responseCode}, message=${ackResult.debugMessage})"
-        }
 
-        if (!ackResult.isSuccess) {
-            throw BillingClientException(ackResult)
-        }
+        log(TAG, INFO) { "acknowledgePurchase($purchase): code=${result.responseCode} (${result.debugMessage})" }
 
-        return ackResult
+        if (!result.isSuccess) throw BillingResultException(result)
     }
 
     suspend fun querySku(sku: Sku): Sku.Details {
-        val skuParams = SkuDetailsParams.newBuilder().apply {
-            setType(BillingClient.SkuType.INAPP)
-            setSkusList(listOf(sku.id))
+        val productDetails = QueryProductDetailsParams.Product.newBuilder().apply {
+            setProductType(BillingClient.ProductType.INAPP)
+            setProductId(sku.id)
         }.build()
 
-        val (result, details) = suspendCoroutine<Pair<BillingResult, Collection<SkuDetails>?>> { continuation ->
-            client.querySkuDetailsAsync(skuParams) { skuResult, skuDetails ->
-                continuation.resume(skuResult to skuDetails)
+        val params = QueryProductDetailsParams.newBuilder().setProductList(listOf(productDetails)).build()
+
+        val (result, details) = suspendCoroutine<Pair<BillingResult, Collection<ProductDetails>?>> { continuation ->
+            client.queryProductDetailsAsync(params) { result, skuDetails ->
+                continuation.resume(result to skuDetails)
             }
         }
 
@@ -82,7 +80,7 @@ data class BillingClientConnection(
             "querySku(sku=$sku): code=${result.responseCode}, debug=${result.debugMessage}), skuDetails=$details"
         }
 
-        if (!result.isSuccess) throw BillingClientException(result)
+        if (!result.isSuccess) throw BillingResultException(result)
 
         if (details.isNullOrEmpty()) throw IllegalStateException("Unknown SKU, no details available.")
 
@@ -97,10 +95,16 @@ data class BillingClientConnection(
 
     suspend fun launchBillingFlow(activity: Activity, skuDetails: Sku.Details): BillingResult {
         log(TAG) { "launchBillingFlow(activity=$activity, skuDetails=$skuDetails)" }
-        return client.launchBillingFlow(
-            activity,
-            BillingFlowParams.newBuilder().setSkuDetails(skuDetails.details.single()).build()
-        )
+
+        val productParams = BillingFlowParams.ProductDetailsParams.newBuilder().apply {
+            setProductDetails(skuDetails.details.first())
+        }.build()
+
+        val billingFlowParams = BillingFlowParams.newBuilder().apply {
+            setProductDetailsParamsList(listOf(productParams))
+        }.build()
+
+        return client.launchBillingFlow(activity, billingFlowParams)
     }
 
     companion object {
