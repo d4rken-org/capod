@@ -63,14 +63,16 @@ data class BillingClientConnection(
     }
 
     suspend fun querySku(sku: Sku): Sku.Details {
-        val skuParams = SkuDetailsParams.newBuilder().apply {
-            setType(BillingClient.SkuType.INAPP)
-            setSkusList(listOf(sku.id))
+        val productDetails = QueryProductDetailsParams.Product.newBuilder().apply {
+            setProductType(BillingClient.ProductType.INAPP)
+            setProductId(sku.id)
         }.build()
 
-        val (result, details) = suspendCoroutine<Pair<BillingResult, Collection<SkuDetails>?>> { continuation ->
-            client.querySkuDetailsAsync(skuParams) { skuResult, skuDetails ->
-                continuation.resume(skuResult to skuDetails)
+        val params = QueryProductDetailsParams.newBuilder().setProductList(listOf(productDetails)).build()
+
+        val (result, details) = suspendCoroutine<Pair<BillingResult, Collection<ProductDetails>?>> { continuation ->
+            client.queryProductDetailsAsync(params) { result, skuDetails ->
+                continuation.resume(result to skuDetails)
             }
         }
 
@@ -93,10 +95,16 @@ data class BillingClientConnection(
 
     suspend fun launchBillingFlow(activity: Activity, skuDetails: Sku.Details): BillingResult {
         log(TAG) { "launchBillingFlow(activity=$activity, skuDetails=$skuDetails)" }
-        return client.launchBillingFlow(
-            activity,
-            BillingFlowParams.newBuilder().setSkuDetails(skuDetails.details.single()).build()
-        )
+
+        val productParams = BillingFlowParams.ProductDetailsParams.newBuilder().apply {
+            setProductDetails(skuDetails.details.first())
+        }.build()
+
+        val billingFlowParams = BillingFlowParams.newBuilder().apply {
+            setProductDetailsParamsList(listOf(productParams))
+        }.build()
+
+        return client.launchBillingFlow(activity, billingFlowParams)
     }
 
     companion object {
