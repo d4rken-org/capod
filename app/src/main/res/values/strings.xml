@@ -102,4 +102,19 @@
     <string name="widget_description">A widget showing the last known device status.</string>
     <string name="settings_compat_indirectcallback_title">Indirect data delivery</string>
     <string name="settings_compat_indirectcallback_summary">Use an alternative method to receive BLE data from the system (broadcast instead of callback).</string>
+
+    <string name="troubleshooter_title">Troubleshooter</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods broadcast their status information using a BLE technology called \"advertisements\". Some devices don\'t implement this technology correctly. This process will try different compatibility settings to fix the issue on your device. Setup your headphones to play music and place them close to your phone while this process is running.</string>
+    <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcasts</string>
+    <string name="troubleshooter_ble_intro_start_action">Start investigating</string>
+    <string name="troubleshooter_ble_process_title">Troubleshoot in progress</string>
+    <string name="troubleshooter_ble_process_subtile">Each step takes 5–10 seconds</string>
+    <string name="troubleshooter_ble_result_success_title">Success</string>
+    <string name="troubleshooter_ble_result_success_body">BLE advertisement broadcasts are being received by CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Unsuccessful</string>
+    <string name="troubleshooter_ble_result_failure_body">No combination of compatibility options helped.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Your phone didn\'t receive any BLE data at all. You can retry this test in a crowded area to see if data sources (other than your headphones) can be received. No data being received points towards an issue with your phones operating system.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Your phone received BLE data, but the data does not come from any supported device. Are your headphones powered on? Does CAPod support your headphone?</string>
+    <string name="troubleshooter_ble_result_failure_action">Discuss on Discord</string>
+    <string name="troubleshoot_action">Troubleshoot</string>
 </resources>

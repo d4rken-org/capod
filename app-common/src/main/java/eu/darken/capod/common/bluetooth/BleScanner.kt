@@ -32,9 +32,9 @@ class BleScanner @Inject constructor(
     @SuppressLint("MissingPermission") fun scan(
         filters: Set<ScanFilter>,
         scannerMode: ScannerMode = ScannerMode.BALANCED,
-        disableOffloadFiltering: Boolean = true,
-        disableOffloadBatching: Boolean = true,
-        disableDirectScanCallback: Boolean = true,
+        disableOffloadFiltering: Boolean = false,
+        disableOffloadBatching: Boolean = false,
+        disableDirectScanCallback: Boolean = false,
     ): Flow<Collection<BleScanResult>> = callbackFlow {
         log(TAG) { "scan(filters=$filters, scannerMode=$scannerMode)" }
 

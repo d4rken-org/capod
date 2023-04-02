@@ -21,10 +21,12 @@ class MissingMainDeviceVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding(payload = true) { item ->
-
+        troubleshootAction.setOnClickListener { item.onTroubleShoot() }
     }
 
-    object Item : OverviewAdapter.Item {
+    data class Item(
+        val onTroubleShoot: () -> Unit,
+    ) : OverviewAdapter.Item {
         override val stableId: Long = Item::class.hashCode().toLong()
 
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)

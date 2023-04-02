@@ -14,6 +14,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
@@ -113,6 +114,7 @@ class PodMonitor @Inject constructor(
             disableDirectCallback = useIndirectScanResultCallback,
         )
     }
+        .throttleLatest(1000)
         .flatMapLatest { options ->
             val filters = when {
                 options.showUnfiltered -> {
