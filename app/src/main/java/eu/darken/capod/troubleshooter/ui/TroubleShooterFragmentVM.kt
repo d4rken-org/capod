@@ -174,8 +174,14 @@ class TroubleShooterFragmentVM @Inject constructor(
         run {
             progress("Checking all closeby headphones.")
 
-            var otherDevices = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.devices.take(10).toList().flatten()
+            val otherDevices = withTimeoutOrNull(STEP_TIME) {
+                val start = System.currentTimeMillis()
+                podMonitor.devices
+                    .take(10)
+                    .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
+                    .toList()
+                    .flatten()
+                    .distinctBy { it.address }
             } ?: emptyList()
 
             if (otherDevices.isEmpty()) {
@@ -188,18 +194,6 @@ class TroubleShooterFragmentVM @Inject constructor(
             generalSettings.mainDeviceModel.value = PodDevice.Model.UNKNOWN
             generalSettings.mainDeviceAddress.value = null
             generalSettings.minimumSignalQuality.value = 0.25f
-
-            otherDevices = withTimeoutOrNull(STEP_TIME) {
-                withTimeoutOrNull(STEP_TIME) {
-                    val start = System.currentTimeMillis()
-                    podMonitor.devices
-                        .take(10)
-                        .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
-                        .toList()
-                        .flatten()
-                        .distinctBy { it.address }
-                } ?: emptyList()
-            } ?: emptyList()
 
             progress("Setting headphone with strongest signal as yours.")
 
