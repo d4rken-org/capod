@@ -1,2 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="settings_category_compatibility_options_title">Ühilduvuse valikud</string>
+    <string name="settings_category_compatibility_options_description">Las jääda, kui kõik toimib ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Keela riistvara filtreerimine</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Süsteemis andmete filtreerimise asemel saate seda teha rakenduses.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Keelake süsteemil rühmitada kogutud andmeid madalama energiatarbimisega Bluetoothi kohta enne meile saatmist.</string>
+    <string name="widget_description">Viimast teadaolevat seadme seisu näitab vidin.</string>
+    <string name="settings_compat_indirectcallback_title">Kaudsete andmete edastamine</string>
+    <string name="settings_compat_indirectcallback_summary">Süsteemis vähem energiat tarbiva Bluetoothi andmete saamine muul viisil (edasta tagasi kutsumise asemel).</string>
+    <string name="troubleshooter_title">Abistaja</string>
+    <string name="troubleshooter_ble_intro_title">Madalama energiatarbimisega Bluetoothi edastused</string>
+    <string name="troubleshooter_ble_intro_body1">AirPodsid (ja sarnased kõrvakapid) edastavad oleku teavet madalama energiakuluga Bluetoothiga, mida nimetatakse \"reklaamideks\". Mõned telefonid ei kasuta seda tehnoloogiat õigesti. CAPod võib siin aidata, üritades andmeid saada erinevate ühilduvusvalikute kaudu. Esitage muusikat kõrvaklappides ja asetage need telefoni lähedale, seejärel edastage andmeid.</string>
+    <string name="troubleshooter_ble_intro_start_action">Lahendage probleeme</string>
+    <string name="troubleshooter_ble_process_title">Lahendamine</string>
+    <string name="troubleshooter_ble_process_subtile">Iga etapp kulutab 5-10 sekundit</string>
+    <string name="troubleshooter_ble_result_success_title">Õnnestus</string>
+    <string name="troubleshooter_ble_result_success_body">CAPod võtab vastu madalama energiakuluga Bluetoothi kaudu reklaame.</string>
+    <string name="troubleshooter_ble_result_failure_title">Nurjus</string>
+    <string name="troubleshooter_ble_result_failure_body">Parandamine nurjus. Ükski ühilduvuskombinatsioonidest ei toiminud.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Telefon ei võtnud vastu mingeid andmeid madalama energiakuluga Buetoothi kaudu. Üritage korrate rahvarohkes kohas, et näha, kas andmete allikaid (mis pole teie kõrvaklapid) saab kätte. Andmete saamise nurjumine viitab telefoni operatsioonisüsteemi veale.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Telefoni saabusid andmed madalama energiakuluga Bluetoothi kaudu aga andmed ei pärine ühestki ühilduvast seadmest. Kas CAPod ühildub teie kõrvaklapiga?</string>
+    <string name="troubleshooter_ble_result_failure_action">Proovi uuesti</string>
+    <string name="troubleshoot_action">Lahendamine</string>
+</resources>

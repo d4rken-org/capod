@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Reaksjoner</string>
     <string name="settings_reaction_description">Reager på hendelser og oppførsel.</string>
     <string name="settings_category_yourdevice_label">Enheten din</string>
+    <string name="settings_category_compatibility_options_title">Kompatibilitets-alternativer</string>
+    <string name="settings_category_compatibility_options_description">Ikke rør hvis alt virker ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Deaktiver maskinvarefiltrering</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Ikke deleger datafiltrering til systemet, i stedet hent alle data og filtrere i appen.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Deaktiver maskinvare \"batching\"</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Ikke la systemet gruppere innsamlet BLE-data før du videresender det til oss.</string>
     <string name="settings_maindevice_address_label">Enhetens adresse</string>
     <string name="settings_maindevice_address_description">Adressen til den sammenkoblede enheten. Appen bruker denne til å finne ut når den er koblet til telefonen din.</string>
     <string name="settings_maindevice_address_none">Ingen</string>
@@ -76,4 +82,21 @@
     <string name="help_translate_description">Hjelp til med å oversette denne appen til ditt favorittspråk.</string>
     <string name="translators_thanks_title">Oversettere</string>
     <string name="translators_thanks_description">Kristoffer Vassbø(kristoffervassbo@gmail.com)</string>
+    <string name="widget_description">En widget som viser sist kjent enhetsstatus.</string>
+    <string name="settings_compat_indirectcallback_title">Indirekte datalevering</string>
+    <string name="settings_compat_indirectcallback_summary">Bruk en alternativ metode for å motta BLE-data fra systemet (kringkast i stedet for callback).</string>
+    <string name="troubleshooter_title">Feilsøker</string>
+    <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy kringkastinger</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hodetelefoner) kringkaster statusinformasjon ved bruk av en BLE-teknologi kalt \"advertisements\". Noen telefoner implementerer ikke denne teknologien riktig. CAPod kan prøve å fikse dette ved å prøve forskjellige kompatibilitets-alternativer til data er mottatt. Start musikkavspilling på hodetelefonene dine og legg dem nær telefonen din, og start deretter prosessen.</string>
+    <string name="troubleshooter_ble_intro_start_action">Start feilsøking</string>
+    <string name="troubleshooter_ble_process_title">Feilsøking pågår</string>
+    <string name="troubleshooter_ble_process_subtile">Hvert steg tar 5–10 sekunder</string>
+    <string name="troubleshooter_ble_result_success_title">Vellykket</string>
+    <string name="troubleshooter_ble_result_success_body">BLE advertisement kringkastinger blir mottatt av CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Mislykket</string>
+    <string name="troubleshooter_ble_result_failure_body">Feilsøking mislyktes. Ingen kombinasjoner av kompatibilitets-alternativer fungerte.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Telefonen din mottok ingen BLE-data i det hele tatt. Du kan prøve denne testen på nytt i et folksomt område for å se om datakilder (annet enn hodetelefonene dine) kan mottas. Ingen data mottatt peker mot et problem med telefonens operativsystem.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonen din mottok BLE-data, men dataene kommer ikke fra en støttet enhet. Er hodetelefonene dine slått på? Støtter CAPod din type hodetelefoner?</string>
+    <string name="troubleshooter_ble_result_failure_action">Prøv igjen</string>
+    <string name="troubleshoot_action">Feilsøk</string>
 </resources>

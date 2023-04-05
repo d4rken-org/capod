@@ -10,6 +10,9 @@ Funktionen:
 * Telefon und AirPods automatisch verbinden.
 * Zeigt Pop-Ups an, wenn das Case geöffnet wird.
 
+CAPod hat eine Wear-OS-Version, die den Status des Pod-Geräts anzeigt, das Ihnen am nächsten ist.
+CAPod für Wear-OS ist eine eigenständige App und erfordert kein Telefon.
+
 CAPod ist werbefrei. Einige Funktionen erfordern einen In-App-Kauf.
 
 Die beliebtesten AirPods und Beats Kopfhörer werden unterstützt.

@@ -32,6 +32,11 @@
     <string name="settings_reaction_label">Reakcje</string>
     <string name="settings_reaction_description">Reakcje na wydarzenia lub zachowania.</string>
     <string name="settings_category_yourdevice_label">Twoje urządzenie</string>
+    <string name="settings_category_compatibility_options_title">Opcje kompatybilności</string>
+    <string name="settings_category_compatibility_options_description">Nie dotykaj, jeżeli wszystko działa ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Wyłącz sprzętowe filtrowanie</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Nie używaj systemu do filtrowania danych, zamiast tego pobieraj wszystkie dane i filtruj w aplikacji.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Nie pozwól, aby grupa systemowa zebrała dane BLE przed przekazaniem ich do nas.</string>
     <string name="settings_maindevice_address_label">Adres twojego urządzenia</string>
     <string name="settings_maindevice_address_description">Adres twojego sparowanego urządzenia. Aplikacja korzysta z niego, aby ustalić czy jest połączone z twoim telefonem.</string>
     <string name="settings_maindevice_address_none">Brak</string>
@@ -76,4 +81,18 @@
     <string name="help_translate_description">Pomóż przetłumaczyć aplikację na twój ulubiony język.</string>
     <string name="translators_thanks_title">Tłumacze</string>
     <string name="translators_thanks_description">darken; K4r0lSz;</string>
+    <string name="widget_description">Widżet pokazujący ostatni znany stan urządzenia.</string>
+    <string name="settings_compat_indirectcallback_title">Pośrednie dostarczanie danych</string>
+    <string name="settings_compat_indirectcallback_summary">Użyj alternatywnej metody odbierania danych BLE z systemu (transmisja zamiast oddzwaniania).</string>
+    <string name="troubleshooter_title">Rozwiązywanie problemów</string>
+    <string name="troubleshooter_ble_intro_title">Transmisja Bluetooth Low Energy</string>
+    <string name="troubleshooter_ble_intro_start_action">Rozpocznij rozwiązywanie problemów</string>
+    <string name="troubleshooter_ble_process_title">Rozwiązywanie problemów w toku</string>
+    <string name="troubleshooter_ble_process_subtile">Każdy etap zajmuje 5–10 sekund</string>
+    <string name="troubleshooter_ble_result_success_title">Sukces</string>
+    <string name="troubleshooter_ble_result_success_body">Audycje reklamowe BLE są odbierane przez CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Niepowodzenie</string>
+    <string name="troubleshooter_ble_result_failure_body">Rozwiązywanie problemów nie powiodło się. Nie pomogła żadna kombinacja opcji kompatybilności.</string>
+    <string name="troubleshooter_ble_result_failure_action">Spróbuj ponownie</string>
+    <string name="troubleshoot_action">Rozwiązywanie problemów</string>
 </resources>

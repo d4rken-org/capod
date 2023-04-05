@@ -1,1 +1,1 @@
-Az AirPods kísérőalkalmazása
+CAPod - Companion for AirPods

@@ -1,4 +1,4 @@
-CAPod er en følgesvenn for AirPods.
+CAPod er en følgesvenn-app for AirPods.
 
 Funksjoner:
 
@@ -9,6 +9,9 @@ Funksjoner:
 * Øre-deteksjon med automatisk avspilling/pause.
 * Koble telefonen til AirPods automatisk.
 * Vis popup når dekselet åpnes.
+
+CAPod har en Wear-OS-versjon som viser statusen til pod-enheten nærmest deg.
+CAPod for Wear-OS er en frittstående app og krever ikke en telefon.
 
 CAPod er reklamefri. Noen funksjoner krever et kjøp i appen.
 

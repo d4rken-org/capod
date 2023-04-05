@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Reaktionen</string>
     <string name="settings_reaction_description">Reagieren Sie auf Ereignisse und Verhaltensweisen.</string>
     <string name="settings_category_yourdevice_label">Ihr Gerät</string>
+    <string name="settings_category_compatibility_options_title">Kompatibilitätsoptionen</string>
+    <string name="settings_category_compatibility_options_description">Nicht anfassen, wenn alles funktioniert ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Deaktivieren Sie die Hardwarefilterung</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Delegieren Sie die Datenfilterung nicht an das System, sondern erhalten Sie alle Daten und Filter innerhalb der App.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Hardware-Batching deaktivieren</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Lassen Sie nicht zu, dass die Systemgruppe BLE-Daten sammelt, bevor Sie sie an uns weiterleiten.</string>
     <string name="settings_maindevice_address_label">Ihre Geräteadresse</string>
     <string name="settings_maindevice_address_description">Die Adresse Ihres gekoppelten Geräts. Die App verwendet dies, um festzustellen, wann sie mit Ihrem Telefon verbunden ist.</string>
     <string name="settings_maindevice_address_none">Keine</string>
@@ -76,4 +82,21 @@
     <string name="help_translate_description">Hilf mit diese App in deine Lieblingssprache zu übersetzen.</string>
     <string name="translators_thanks_title">Übersetzer</string>
     <string name="translators_thanks_description">Gamechanger181</string>
+    <string name="widget_description">Ein Widget, das den letzten bekannten Gerätestatus anzeigt.</string>
+    <string name="settings_compat_indirectcallback_title">Indirekte Datenlieferung</string>
+    <string name="settings_compat_indirectcallback_summary">Verwenden Sie eine alternative Methode, um BLE-Daten vom System zu erhalten (Broadcast statt Callback).</string>
+    <string name="troubleshooter_title">Fehlerbehebung</string>
+    <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-Sendungen</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (und ähnliche Kopfhörer) übertragen Statusinformationen mithilfe einer BLE-Technologie namens „Werbung“. Einige Telefone implementieren diese Technologie nicht richtig. CAPod kann versuchen, dies zu beheben, indem verschiedene Kompatibilitätsoptionen ausprobiert werden, bis Daten empfangen werden. Starten Sie die Musikwiedergabe auf Ihren Kopfhörern und legen Sie sie in die Nähe Ihres Telefons, und starten Sie dann den Vorgang.</string>
+    <string name="troubleshooter_ble_intro_start_action">Beginnen Sie mit der Fehlerbehebung</string>
+    <string name="troubleshooter_ble_process_title">Fehlerbehebung läuft</string>
+    <string name="troubleshooter_ble_process_subtile">Jeder Schritt dauert 5–10 Sekunden</string>
+    <string name="troubleshooter_ble_result_success_title">Erfolg</string>
+    <string name="troubleshooter_ble_result_success_body">BLE-Werbesendungen werden von CAPod empfangen.</string>
+    <string name="troubleshooter_ble_result_failure_title">Erfolglos</string>
+    <string name="troubleshooter_ble_result_failure_body">Fehlerbehebung fehlgeschlagen. Keine Kombination von Kompatibilitätsoptionen hat geholfen.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Ihr Telefon hat überhaupt keine BLE-Daten empfangen. Sie können diesen Test in einem überfüllten Bereich wiederholen, um zu sehen, ob Datenquellen (außer Ihren Kopfhörern) empfangen werden können. Es werden keine Daten empfangen, was auf ein Problem mit dem Betriebssystem Ihres Telefons hindeutet.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Ihr Telefon hat BLE-Daten empfangen, aber die Daten stammen von keinem unterstützten Gerät. Sind Ihre Kopfhörer eingeschaltet? Unterstützt CAPod Ihren Kopfhörer?</string>
+    <string name="troubleshooter_ble_result_failure_action">Versuchen Sie es erneut</string>
+    <string name="troubleshoot_action">Fehlerbehebung</string>
 </resources>

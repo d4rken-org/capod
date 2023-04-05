@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Onbekende staat</string>
     <string name="last_seen_x">Laatst gezien: %s</string>
     <string name="first_seen_x">Eerst gezien: %s</string>
+    <string name="permission_post_notifications_label">Post notificaties</string>
+    <string name="permission_post_notifications_description">"Sta CAPod toe notificaties over je AirPods te tonen, b.v. de huidige verbindingsstatus."</string>
 </resources>
