@@ -4,6 +4,7 @@
     <string name="general_done_action">Pronto</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Obrigado</string>
+    <string name="general_upgrade_action">Atualização</string>
     <string name="general_check_action">Checar</string>
     <string name="general_close_action">Fechar</string>
     <string name="upgrade_capod_label">Atualizar CAPod</string>
@@ -31,6 +32,12 @@
     <string name="settings_reaction_label">Reações</string>
     <string name="settings_reaction_description">Reaja a eventos e comportamentos.</string>
     <string name="settings_category_yourdevice_label">Seu dispositivo</string>
+    <string name="settings_category_compatibility_options_title">Opções de compatibilidade</string>
+    <string name="settings_category_compatibility_options_description">Não toque se tudo funcionar ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Desativar filtragem de hardware</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Não delegue a filtragem de dados ao sistema, em vez disso, obtenha todos os dados e filtre dentro do aplicativo.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Desabilitar lotes de hardware</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Não deixe que o grupo do sistema colete dados BLE antes de encaminhá-los para nós.</string>
     <string name="settings_maindevice_address_label">Endereço do seu dispositivo</string>
     <string name="settings_maindevice_address_description">O endereço do seu dispositivo emparelhado. O aplicativo usa isso para determinar quando está conectado ao seu telefone.</string>
     <string name="settings_maindevice_address_none">Nenhum</string>
@@ -52,11 +59,13 @@
     <string name="settings_support_description">Se você precisar de alguma ajuda.</string>
     <string name="issue_tracker_label">Rastreador de problemas</string>
     <string name="issue_tracker_description">Um rastreador de problemas público para relatórios de bugs e solicitações de recursos (somente em inglês).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para conversar e tirar dúvidas.</string>
     <string name="changelog_label">Registro de alterações</string>
     <string name="settings_label">Configurações</string>
     <string name="settings_privacy_policy_label">Política de Privacidade</string>
     <string name="settings_privacy_policy_desc">Manipulação de dados com responsabilidade.</string>
+    <string name="settings_licenses_label">Licenças</string>
     <string name="settings_category_other_label">Outros</string>
     <string name="settings_general_label">Configurações</string>
     <string name="settings_general_description">Ajustes gerais que afetam todo o aplicativo.</string>
@@ -73,4 +82,21 @@
     <string name="help_translate_description">Ajude a traduzir este aplicativo para seu idioma favorito.</string>
     <string name="translators_thanks_title">Tradutores</string>
     <string name="translators_thanks_description">Igor Silva (ferrare42@gmail.com)</string>
+    <string name="widget_description">Um widget que mostra o último status conhecido do dispositivo.</string>
+    <string name="settings_compat_indirectcallback_title">Entrega indireta de dados</string>
+    <string name="settings_compat_indirectcallback_summary">Use um método alternativo para receber dados BLE do sistema (transmissão em vez de retorno de chamada).</string>
+    <string name="troubleshooter_title">Solucionador de problemas</string>
+    <string name="troubleshooter_ble_intro_title">Transmissões Bluetooth de baixa energia</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (e fones de ouvido semelhantes) transmitem informações de status usando uma tecnologia BLE chamada \"anúncios\". Alguns telefones não implementam essa tecnologia corretamente. O CAPod pode tentar corrigir isso tentando diferentes opções de compatibilidade até que os dados sejam recebidos. Inicie a reprodução de música em seus fones de ouvido e coloque-os perto do telefone e inicie o processo.</string>
+    <string name="troubleshooter_ble_intro_start_action">Iniciar solução de problemas</string>
+    <string name="troubleshooter_ble_process_title">Solução de problemas em andamento</string>
+    <string name="troubleshooter_ble_process_subtile">Cada passo leva de 5 a 10 segundos</string>
+    <string name="troubleshooter_ble_result_success_title">Sucesso</string>
+    <string name="troubleshooter_ble_result_success_body">As transmissões de anúncios BLE estão sendo recebidas pelo CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Sem sucesso</string>
+    <string name="troubleshooter_ble_result_failure_body">A solução de problemas falhou. Nenhuma combinação de opções de compatibilidade ajudou.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Seu telefone não recebeu nenhum dado BLE. Você pode repetir este teste em uma área lotada para ver se as fontes de dados (além dos fones de ouvido) podem ser recebidas. Nenhum dado recebido aponta para um problema com o sistema operacional do seu telefone.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Seu telefone recebeu dados BLE, mas os dados não vêm de nenhum dispositivo compatível. Seus fones de ouvido estão ligados? O CAPod suporta seu fone de ouvido?</string>
+    <string name="troubleshooter_ble_result_failure_action">Tentar novamente</string>
+    <string name="troubleshoot_action">Solucionar problemas</string>
 </resources>

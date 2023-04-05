@@ -3,11 +3,11 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">不可用</string>
+    <string name="general_value_not_available_label">不適用</string>
     <string name="general_error_label">錯誤</string>
     <string name="general_grant_permission_action">授予權限</string>
     <string name="overview_nomaindevice_label">無主要裝置</string>
-    <string name="overview_nomaindevice_description">所有偵測到的裝置似乎並不是您的。開啟並連線您的裝置，也可以調整設定。</string>
+    <string name="overview_nomaindevice_description">所有偵測到的裝置似乎並不是您的。開啟並連線至您的裝置，也可以調整設定。</string>
     <string name="overview_bluetooth_disabled_label">藍牙已停用</string>
     <string name="overview_bluetooth_disabled_description">藍牙已停用，啟用它 ;)</string>
     <string name="permission_bluetooth_connect_label">藍牙連線</string>
@@ -25,7 +25,7 @@
     <string name="permission_required_title">可能要求下列權限：</string>
     <string name="permission_system_alert_window_label">系統警報視窗</string>
     <string name="permission_system_alert_window_description">允許 CAPod 在其他應用程式上繪圖，使「顯示彈出式視窗」功能成為可能。</string>
-    <string name="settings_scanner_mode_lowpower_label">節電</string>
+    <string name="settings_scanner_mode_lowpower_label">低電源</string>
     <string name="settings_scanner_mode_balanced_label">平衡</string>
     <string name="settings_scanner_mode_lowlatency_label">低延遲</string>
     <string name="settings_monitor_mode_manual_label">應用程式開啟時</string>
@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">未知狀態</string>
     <string name="last_seen_x">最後連線：%s</string>
     <string name="first_seen_x">首次連線：%s</string>
+    <string name="permission_post_notifications_label">張貼通知</string>
+    <string name="permission_post_notifications_description">"允許 CAPod 為您顯示關於您 AirPods 的通知，例如在連線時顯示它們的目前狀態。"</string>
 </resources>

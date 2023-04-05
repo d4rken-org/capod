@@ -32,6 +32,9 @@
     <string name="settings_reaction_label">Реакции</string>
     <string name="settings_reaction_description">Реакции на события и действия.</string>
     <string name="settings_category_yourdevice_label">Ваше устройство</string>
+    <string name="settings_category_compatibility_options_title">Настройки совместимости</string>
+    <string name="settings_category_compatibility_options_description">Не трогать, если всё работает :)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Отключить аппаратную фильтрацию</string>
     <string name="settings_maindevice_address_label">Адрес Вашего устройства</string>
     <string name="settings_maindevice_address_description">Адрес Вашего сопряжённого устройства. Приложение использует его для определения подключения к Вашему телефону.</string>
     <string name="settings_maindevice_address_none">Нет</string>

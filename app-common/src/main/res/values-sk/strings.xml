@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Neznámy stav</string>
     <string name="last_seen_x">Naposledy videné: %s</string>
     <string name="first_seen_x">Prvýkrát videné: %s</string>
+    <string name="permission_post_notifications_label">Zobraziť oznámenia</string>
+    <string name="permission_post_notifications_description">"Povoľte CAPod, aby vám zobrazoval upozornenia týkajúce sa vašich slúchadiel AirPods, napr. ich aktuálny stav počas pripojenia."</string>
 </resources>

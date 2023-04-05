@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Reaksi</string>
     <string name="settings_reaction_description">Bereaksi terhadap peristiwa dan tingkah laku.</string>
     <string name="settings_category_yourdevice_label">Peranti anda</string>
+    <string name="settings_category_compatibility_options_title">Pilihan keserasian</string>
+    <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Nyahdayakan penapisan perkakasan</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Jangan wakilkan penapisan data kepada sistem, sebaliknya dapatkan semua data dan penapis dalam apl.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Nyahdayakan pengumpulan perkakasan</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Jangan biarkan kumpulan sistem mengumpul data BLE sebelum dimajukannya kepada kami.</string>
     <string name="settings_maindevice_address_label">Alamat peranti anda</string>
     <string name="settings_maindevice_address_description">Alamat pasangan peranti anda. Apl menggunakan ini bagi menentukan bila ia disambungkan ke telefon anda.</string>
     <string name="settings_maindevice_address_none">Tiada</string>
@@ -76,4 +82,21 @@
     <string name="help_translate_description">Bantu terjemahkan apl ini ke dalam bahasa kegemaran anda.</string>
     <string name="translators_thanks_title">Penterjemah</string>
     <string name="translators_thanks_description">bob hasnul(bobhasnul@gmail. com)</string>
+    <string name="widget_description">Widget yang menunjukkan status peranti terakhir yang diketahui.</string>
+    <string name="settings_compat_indirectcallback_title">Penghantaran data tidak langsung</string>
+    <string name="settings_compat_indirectcallback_summary">Gunakan kaedah alternatif untuk menerima data BLE daripada sistem (siaran dan bukannya panggilan balik).</string>
+    <string name="troubleshooter_title">Penyelesai masalah</string>
+    <string name="troubleshooter_ble_intro_title">Siaran Bluetooth Tenaga Rendah</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (dan fon kepala yang serupa) menyiarkan maklumat status menggunakan teknologi BLE yang dipanggil \"iklan\". Sesetengah telefon tidak melaksanakan teknologi ini dengan betul. CAPod boleh cuba membetulkannya dengan mencuba pilihan keserasian yang berbeza sehingga data diterima. Mulakan main balik muzik pada fon kepala anda dan letakkannya dekat dengan telefon anda, kemudian mulakan proses.</string>
+    <string name="troubleshooter_ble_intro_start_action">Mulakan penyelesaian masalah</string>
+    <string name="troubleshooter_ble_process_title">Menyelesaikan masalah sedang berjalan</string>
+    <string name="troubleshooter_ble_process_subtile">Setiap langkah mengambil masa 5–10 saat</string>
+    <string name="troubleshooter_ble_result_success_title">Kejayaan</string>
+    <string name="troubleshooter_ble_result_success_body">Siaran iklan BLE sedang diterima oleh CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Tidak berjaya</string>
+    <string name="troubleshooter_ble_result_failure_body">Penyelesaian masalah gagal. Tiada gabungan pilihan keserasian dapat membantu.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Telefon anda tidak menerima sebarang data BLE sama sekali. Anda boleh mencuba semula ujian ini di kawasan yang sesak untuk melihat sama ada sumber data (selain fon kepala anda) boleh diterima. Tiada data yang diterima menunjukkan masalah dengan sistem pengendalian telefon anda.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Telefon anda menerima data BLE, tetapi data itu tidak datang daripada mana-mana peranti yang disokong. Adakah fon kepala anda dihidupkan? Adakah CAPod menyokong fon kepala anda?</string>
+    <string name="troubleshooter_ble_result_failure_action">Cuba semula</string>
+    <string name="troubleshoot_action">Selesaikan masalah</string>
 </resources>

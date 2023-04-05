@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Рэакцыі</string>
     <string name="settings_reaction_description">Рэакцыі на падзеі і дзеянні.</string>
     <string name="settings_category_yourdevice_label">Ваша прылада</string>
+    <string name="settings_category_compatibility_options_title">Параметры сумяшчальнасці</string>
+    <string name="settings_category_compatibility_options_description">Не чапайце, калі ўсё працуе ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Адключыць апаратную фільтрацыю</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Не дэлегуйце фільтраванне даных сістэме, замест гэтага накіруйце ўсе даныя ў праграму і дэлегуйце ёй іх фільтраванне.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Адключыць апаратнае пакетаванне</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Не дазваляйце сістэме групаваць сабраныя даныя BLE перад тым, як адправіць іх нам.</string>
     <string name="settings_maindevice_address_label">Адрас вашай прылады</string>
     <string name="settings_maindevice_address_description">Адрас вашай звязанай прылады. Праграма выкарыстоўвае яго для вызначэння падключэння да вашага тэлефона.</string>
     <string name="settings_maindevice_address_none">Няма</string>
@@ -76,4 +82,18 @@
     <string name="help_translate_description">Дапамажыце перакласці гэту праграму на вашу мову.</string>
     <string name="translators_thanks_title">Перакладчыкі</string>
     <string name="translators_thanks_description">Goshaproject(goooosha@gmail.com)</string>
+    <string name="widget_description">Віджэт паказвае апошні вядомы стан прылады.</string>
+    <string name="settings_compat_indirectcallback_title">Ускосная дастаўка даных</string>
+    <string name="settings_compat_indirectcallback_summary">Выкарыстоўваць альтэрнатыўны метад для атрымання даных BLE з сістэмы (трансляцыя замест запытвання даных).</string>
+    <string name="troubleshooter_title">Сродак выпраўлення непаладак</string>
+    <string name="troubleshooter_ble_intro_title">Трансляцыя Bluetooth Low Energy</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (і падобныя навушнікі) транслююць інфармацыю аб сваім стане з дапамогай тэхналогіі BLE, якая інтэрпрэтуецца прыладамі як рэклама. У некаторых тэлефонах гэтая тэхналогія рэалізавана няправільна. CAPod можа паспрабаваць выправіць гэту памылку, выкарыстоўваючы розныя параметры сумяшчальнасці, пакуль даныя не будуць атрыманыя. Запусціце прайграванне музыкі ў навушніках і размясціце іх побач з тэлефонам, а затым пачніце працэс.</string>
+    <string name="troubleshooter_ble_intro_start_action">Пачаць выпраўленне непаладак</string>
+    <string name="troubleshooter_ble_process_title">Ідзе выпраўленне непаладак</string>
+    <string name="troubleshooter_ble_process_subtile">Кожны крок займае 5–10 секунд</string>
+    <string name="troubleshooter_ble_result_success_title">Паспяхова</string>
+    <string name="troubleshooter_ble_result_success_body">Трансляцыі даных BLE прымаюцца CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Безвынікова</string>
+    <string name="troubleshooter_ble_result_failure_body">Не ўдалося выправіць непаладку. Не дапамагла ніводная камбінацыя параметраў сумяшчальнасці.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Ваш тэлефон наогул не атрымаў ніякіх даных BLE. Вы можаце паўтарыць гэты тэст у шматлюдным месцы, каб даведацца, ці могуць быць атрыманыя даныя з іншых крыніц (акрамя вашых навушнікаў). Няма атрыманых даных, якія паказваюць на праблему з аперацыйнай сістэмай вашага тэлефона.</string>
 </resources>

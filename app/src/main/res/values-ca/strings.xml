@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Reaccions</string>
     <string name="settings_reaction_description">Reacció davant esdeveniments i comportaments.</string>
     <string name="settings_category_yourdevice_label">El vostre dispositiu</string>
+    <string name="settings_category_compatibility_options_title">Opcions de compatibilitat</string>
+    <string name="settings_category_compatibility_options_description">No ho toqueu si tot funciona ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Desactiva el filtratge de maquinari</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">No delegueu el filtratge de dades al sistema, obtingueu totes les dades i filtreu-les dins de l\'aplicació.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Desactiva el processament per lots de maquinari</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">No deixeu que el grup del sistema reculli dades BLE abans de reenviar-nos-les.</string>
     <string name="settings_maindevice_address_label">L\'adreça del vostre dispositiu</string>
     <string name="settings_maindevice_address_description">L\'adreça del dispositiu emparellat. L\'aplicació la fa servir per determinar quan està connectat al telèfon.</string>
     <string name="settings_maindevice_address_none">Cap</string>
@@ -76,4 +82,21 @@
     <string name="help_translate_description">Ajudeu a traduir aquesta aplicació al vostre idioma preferit.</string>
     <string name="translators_thanks_title">Traductors</string>
     <string name="translators_thanks_description">Jaime Muñoz(jmmartin_5@outlook.com)</string>
+    <string name="widget_description">Un giny que mostra l\'estat de l\'últim dispositiu conegut.</string>
+    <string name="settings_compat_indirectcallback_title">Lliurament indirecte de dades</string>
+    <string name="settings_compat_indirectcallback_summary">Utilitza un mètode alternatiu per rebre dades BLE del sistema (emissió en lloc de devolució de trucada).</string>
+    <string name="troubleshooter_title">Solucionador de problemes</string>
+    <string name="troubleshooter_ble_intro_title">Emissions Bluetooth de baixa energia</string>
+    <string name="troubleshooter_ble_intro_body1">Els AirPods (i auriculars similars) transmeten informació d\'estat mitjançant una tecnologia BLE anomenada «anuncis». Alguns telèfons no implementen aquesta tecnologia correctament. El CAPod pot intentar solucionar-ho provant diferents opcions de compatibilitat fins que es rebin les dades. Inicieu la reproducció de música als vostres auriculars i col·loqueu-los a prop del telèfon i, a continuació, inicieu el procés.</string>
+    <string name="troubleshooter_ble_intro_start_action">Inicia el solucionador de problemes</string>
+    <string name="troubleshooter_ble_process_title">Resolució de problemes en curs</string>
+    <string name="troubleshooter_ble_process_subtile">Cada pas dura entre 5 i 10 segons</string>
+    <string name="troubleshooter_ble_result_success_title">Correcte</string>
+    <string name="troubleshooter_ble_result_success_body">El CAPod està rebent emissions d\'anuncis BLE.</string>
+    <string name="troubleshooter_ble_result_failure_title">Incorrecte</string>
+    <string name="troubleshooter_ble_result_failure_body">La resolució de problemes ha fallat. No ha funcionat cap combinació d\'opcions de compatibilitat.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">El vostre telèfon no ha rebut cap dada BLE. Podeu tornar a provar aquesta prova en una zona plena de gent per veure si es poden rebre fonts de dades (que no siguin els vostres auriculars). No es reben dades que indiquen un problema amb el sistema operatiu del vostre telèfon.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">El vostre telèfon ha rebut dades BLE, però les dades no provenen de cap dispositiu compatible. Teniu els auriculars encesos? El CAPod és compatible amb els vostres auriculars?</string>
+    <string name="troubleshooter_ble_result_failure_action">Torna-ho a provar</string>
+    <string name="troubleshoot_action">Resolució de problemes</string>
 </resources>

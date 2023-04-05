@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Neznámý stav</string>
     <string name="last_seen_x">Naposledy spatřeno: %s</string>
     <string name="first_seen_x">Poprvé spatřeno: %s</string>
+    <string name="permission_post_notifications_label">Posílat zprávy</string>
+    <string name="permission_post_notifications_description">"Povolte aplikaci CAPod zobrazovat oznámení o sluchátkách AirPods, např. o jejich aktuálním stavu během připojení."</string>
 </resources>

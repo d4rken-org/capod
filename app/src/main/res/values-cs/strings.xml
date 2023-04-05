@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Reakce</string>
     <string name="settings_reaction_description">Reakce na události a chování.</string>
     <string name="settings_category_yourdevice_label">Vaše zařízení</string>
+    <string name="settings_category_compatibility_options_title">Možnosti kompatibility</string>
+    <string name="settings_category_compatibility_options_description">Nedotýkejte se, pokud vše funguje ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Vypnout hardwarové filtrování</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Nesvěřujte filtrování dat systému, ale přijímejte a filtrujte všechna data v aplikaci.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Vypnout hardwarové dávkování</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Nedovolte, aby systém seskupil shromážděná data BLE předtím, než nám je předá.</string>
     <string name="settings_maindevice_address_label">Adresa vašeho zařízení</string>
     <string name="settings_maindevice_address_description">Adresa spárovaného zařízení. Podle toho aplikace určí, kdy je připojena k telefonu.</string>
     <string name="settings_maindevice_address_none">Žádná</string>
@@ -76,4 +82,21 @@
     <string name="help_translate_description">Pomozte přeložit tuto aplikaci do svého oblíbeného jazyka.</string>
     <string name="translators_thanks_title">Překladatelé</string>
     <string name="translators_thanks_description">novas78@xda; woytazzer</string>
+    <string name="widget_description">Widget zobrazující poslední známý stav zařízení.</string>
+    <string name="settings_compat_indirectcallback_title">Nepřímé poskytování dat</string>
+    <string name="settings_compat_indirectcallback_summary">Použijte alternativní metodu pro příjem dat BLE ze systému (vysílání namísto přijímání).</string>
+    <string name="troubleshooter_title">Řešení problémů</string>
+    <string name="troubleshooter_ble_intro_title">Vysílání Bluetooth Low Energy</string>
+    <string name="troubleshooter_ble_intro_body1">Sluchátka AirPods (a podobná sluchátka) vysílají informace o stavu pomocí technologie BLE zvané \"reklama\". Některé telefony tuto technologii neimplementují správně. CAPod se může pokusit o nápravu zkoušením různých možností kompatibility, dokud nebudou data přijata. Spusťte přehrávání hudby ve sluchátkách, přiložte je k telefonu a spusťte proces.</string>
+    <string name="troubleshooter_ble_intro_start_action">Spustit řešení problémů</string>
+    <string name="troubleshooter_ble_process_title">Probíhá řešení problémů</string>
+    <string name="troubleshooter_ble_process_subtile">Každý krok trvá 5-10 sekund</string>
+    <string name="troubleshooter_ble_result_success_title">Úspěch</string>
+    <string name="troubleshooter_ble_result_success_body">CAPod přijímá reklamní vysílání BLE.</string>
+    <string name="troubleshooter_ble_result_failure_title">Neúspěšné</string>
+    <string name="troubleshooter_ble_result_failure_body">Řešení problémů se nezdařilo. Žádná kombinace možností kompatibility nepomohla.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Telefon nepřijal vůbec žádná data BLE. Tento test můžete zopakovat v přelidněném prostoru, abyste zjistili, zda lze přijímat i jiné zdroje dat (než vaše sluchátka). Nepřijímání dat ukazuje na problém s operačním systémem telefonu.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Telefon přijal data BLE, ale data nepocházejí z žádného podporovaného zařízení. Jsou sluchátka zapnutá? Podporuje CAPod vaše sluchátka?</string>
+    <string name="troubleshooter_ble_result_failure_action">Zkusit znovu</string>
+    <string name="troubleshoot_action">Vyřešit problém</string>
 </resources>

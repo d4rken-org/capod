@@ -32,6 +32,11 @@
     <string name="settings_reaction_label">Reacties</string>
     <string name="settings_reaction_description">Reageren op gebeurtenissen en gedragingen.</string>
     <string name="settings_category_yourdevice_label">Uw apparaat</string>
+    <string name="settings_category_compatibility_options_title">Compatibiliteitsopties</string>
+    <string name="settings_category_compatibility_options_description">Niet aankomen als alles werkt ;-)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Hardware filtering uitzetten</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Data filtering niet aan het systeem toevertrouwen, in plaats daarvan alle data in de app ontvangen en filteren.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Hardware batching uitzetten</string>
     <string name="settings_maindevice_address_label">Uw apparaatadres</string>
     <string name="settings_maindevice_address_description">Het adres van uw gekoppelde apparaat. De app gebruikt dit om te bepalen wanneer deze is verbonden met uw telefoon.</string>
     <string name="settings_maindevice_address_none">Geen</string>
@@ -76,4 +81,8 @@
     <string name="help_translate_description">Help deze app te vertalen in uw favoriete taal.</string>
     <string name="translators_thanks_title">Vertalers</string>
     <string name="translators_thanks_description">darken</string>
+    <string name="widget_description">Een widget dat de laatst gekende apparaatstatus toont.</string>
+    <string name="settings_compat_indirectcallback_title">Onrechtstreekse data aflevering</string>
+    <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE data van het systeem (broadcast inplaats van callback).</string>
+    <string name="troubleshooter_title">Probleemoplossing</string>
 </resources>

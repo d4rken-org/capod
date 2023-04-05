@@ -7,7 +7,7 @@
     <string name="general_error_label">Fehler</string>
     <string name="general_grant_permission_action">Berechtigung erteilen</string>
     <string name="overview_nomaindevice_label">Kein primäres Gerät</string>
-    <string name="overview_nomaindevice_description">Alle gefundenen Geräte sind unwahrscheinlich ihnen zu gehören. Verbinden sie ihr Gerät oder passen sie die Einstellungen an.</string>
+    <string name="overview_nomaindevice_description">Alle gefundenen Geräte gehören wahrscheinlich nicht dir. Schalte deine Kopfhörer ein oder passe die Einstellungen von CAPod an.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ist deaktiviert</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth ist deaktiviert, aktiviere es ;)</string>
     <string name="permission_bluetooth_connect_label">Bluetooth verbinden</string>
@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Unbekannter Zustand</string>
     <string name="last_seen_x">Zuletzt gesehen: %s</string>
     <string name="first_seen_x">Zum ersten Mal gesehen: %s</string>
+    <string name="permission_post_notifications_label">Benachrichtigungen posten</string>
+    <string name="permission_post_notifications_description">"Erlauben Sie CAPod, Ihnen Benachrichtigungen über Ihre AirPods anzuzeigen, z.b. ihren aktuellen Status, während sie verbunden sind."</string>
 </resources>
