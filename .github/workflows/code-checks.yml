@@ -36,7 +36,7 @@ jobs:
       fail-fast: false
       matrix:
         variant: [ Release ]
-        flavor: [ test,testFoss,testGplay ]
+        flavor: [ testFoss,testGplay ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
