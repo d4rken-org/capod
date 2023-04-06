@@ -65,6 +65,6 @@
 
     <string name="last_seen_x">Last seen: %s</string>
     <string name="first_seen_x">First seen: %s</string>
-    <string name="permission_post_notifications_label">Post notifications</string>
-    <string name="permission_post_notifications_description">"Allow CAPod to show you notifications about your AirPods, e.g. their current status while connected."</string>
+    <string name="permission_post_notifications_label">Show notifications</string>
+    <string name="permission_post_notifications_description">"Allow CAPod to show notifications about your AirPods, e.g. their current status while connected."</string>
 </resources>
