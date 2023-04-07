@@ -113,7 +113,7 @@
     <string name="troubleshooter_ble_result_success_body">BLE advertisement broadcasts are being received by CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Unsuccessful</string>
     <string name="troubleshooter_ble_result_failure_body">Troubleshooting failed. No combination of compatibility options helped.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">Your phone didn\'t receive any BLE data at all. You can retry this test in a crowded area to see if data sources (other than your headphones) can be received. No data being received points towards an issue with your phones operating system.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Your phone didn\'t receive any BLE data at all. You can retry this test in a crowded area to see if data sources (other than your headphones) can be received. No data being received points towards an issue with your phone\'s operating system.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Your phone received BLE data, but the data does not come from any supported device. Are your headphones powered on? Does CAPod support your headphone?</string>
     <string name="troubleshooter_ble_result_failure_action">Try again</string>
     <string name="troubleshoot_action">Troubleshoot</string>
