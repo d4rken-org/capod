@@ -10,7 +10,10 @@ Funcionalidades:
 * Automaticamente conectar telemóvel e AirPods.
 * Mostrar pop-up quando a caixa é aberta.
 
-CAPods é livre de anúncios. Algumas funcionalidades exigem uma compra na aplicação.
+O CAPod contém uma versão Wear-OS que mostra o estado do dispositivo mais próximo de si.
+O CAPod para Wear-OS é uma aplicação independente e não requer um telefone.
+
+CAPod é livre de anúncios. Algumas funcionalidades exigem uma compra na aplicação.
 
 Os dispositivos AirPods e Beats mais populares são suportados.
 Se o seu dispositivo é semelhante aos AirPods, mas ainda não é suportado, envie-me um pequeno email.

@@ -10,9 +10,12 @@ Fitur:
 * Secara otomatis menghubungkan telepon dan AirPods.
 * Menampilkan PopUp saat kasing dibuka.
 
+CAPod memiliki versi Wear-OS yang menunjukkan status perangkat pod yang paling dekat dengan Anda.
+CAPod untuk Wear-OS adalah aplikasi yang berdiri sendiri dan tidak memerlukan telepon.
+
 CAPod bebas iklan. Beberapa fitur memerlukan pembelian dalam aplikasi.
 
 Mendukung perangkat AirPods & Beats.
 Jika perangkat anda mirip dengan AirPods tetapi belum didukung, silahkan kirimi saya email singkat.
 
-Punya ide keren untuk fitur baru? Jangan ragu hubungi kami!
+Punya ide keren untuk fitur baru? Mencapai!
