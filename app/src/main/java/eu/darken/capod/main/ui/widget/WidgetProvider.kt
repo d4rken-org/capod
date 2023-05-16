@@ -21,7 +21,19 @@ import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.monitor.core.PodDeviceCache
 import eu.darken.capod.monitor.core.PodMonitor
-import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasChargeDetectionDual
+import eu.darken.capod.pods.core.HasEarDetection
+import eu.darken.capod.pods.core.HasEarDetectionDual
+import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodFactory
+import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.getBatteryLevelCase
+import eu.darken.capod.pods.core.getBatteryLevelHeadset
+import eu.darken.capod.pods.core.getBatteryLevelLeftPod
+import eu.darken.capod.pods.core.getBatteryLevelRightPod
 import finish2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -135,7 +147,7 @@ class WidgetProvider : AppWidgetProvider() {
 
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
-        setTextViewText(R.id.primary, context.getString(R.string.pods_unknown_label))
+        setTextViewText(R.id.primary, context.getString(eu.darken.capod.common.R.string.pods_unknown_label))
     }
 
     private fun createNoDeviceLayout(
@@ -151,7 +163,7 @@ class WidgetProvider : AppWidgetProvider() {
 
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
-        setTextViewText(R.id.primary, context.getString(R.string.overview_nomaindevice_label))
+        setTextViewText(R.id.primary, context.getString(eu.darken.capod.common.R.string.overview_nomaindevice_label))
     }
 
     private fun createDualPodLayout(

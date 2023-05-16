@@ -32,8 +32,8 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         reception.text = item.getReceptionText()
 
         details.text = when (item.device) {
-            is ApplePods -> getString(R.string.pods_unknown_contact_dev)
-            else -> getString(R.string.pods_unknown_label)
+            is ApplePods -> getString(eu.darken.capod.common.R.string.pods_unknown_contact_dev)
+            else -> getString(eu.darken.capod.common.R.string.pods_unknown_label)
         }
 
         rawdata.text = device.rawDataHex.joinToString("\n")
