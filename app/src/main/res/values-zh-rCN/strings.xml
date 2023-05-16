@@ -32,6 +32,8 @@
     <string name="settings_reaction_label">动作</string>
     <string name="settings_reaction_description">响应事件和行为的动作。</string>
     <string name="settings_category_yourdevice_label">您的设备</string>
+    <string name="settings_category_compatibility_options_title">兼容性选项</string>
+    <string name="settings_category_compatibility_options_description">如果一切正常，请不要修改 ;)</string>
     <string name="settings_maindevice_address_label">您的设备地址</string>
     <string name="settings_maindevice_address_description">已配对设备的地址，本应用通过它来确定其连接到您手机的时间</string>
     <string name="settings_maindevice_address_none">无</string>

@@ -36,7 +36,8 @@
     <string name="settings_category_compatibility_options_description">Nie dotykaj, jeżeli wszystko działa ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Wyłącz sprzętowe filtrowanie</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Nie używaj systemu do filtrowania danych, zamiast tego pobieraj wszystkie dane i filtruj w aplikacji.</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">Nie pozwól, aby grupa systemowa zebrała dane BLE przed przekazaniem ich do nas.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Wyłącz sprzętowe zbieranie danych</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Nie pozwól, aby system zgrupował zebrane dane BLE przed przekazaniem ich do CAPod.</string>
     <string name="settings_maindevice_address_label">Adres twojego urządzenia</string>
     <string name="settings_maindevice_address_description">Adres twojego sparowanego urządzenia. Aplikacja korzysta z niego, aby ustalić czy jest połączone z twoim telefonem.</string>
     <string name="settings_maindevice_address_none">Brak</string>
@@ -83,9 +84,10 @@
     <string name="translators_thanks_description">darken; K4r0lSz;</string>
     <string name="widget_description">Widżet pokazujący ostatni znany stan urządzenia.</string>
     <string name="settings_compat_indirectcallback_title">Pośrednie dostarczanie danych</string>
-    <string name="settings_compat_indirectcallback_summary">Użyj alternatywnej metody odbierania danych BLE z systemu (transmisja zamiast oddzwaniania).</string>
+    <string name="settings_compat_indirectcallback_summary">Użyj alternatywnej metody odbierania danych BLE z systemu (transmisja zamiast połączenia zwrotnego).</string>
     <string name="troubleshooter_title">Rozwiązywanie problemów</string>
     <string name="troubleshooter_ble_intro_title">Transmisja Bluetooth Low Energy</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (i podobne słuchawki) transmitują informacje o stanie za pomocą technologii BLE zwanej „reklamami”. Niektóre telefony nie obsługują tej technologii poprawnie. CAPod może spróbować to naprawić, wypróbowując różne opcje zgodności, dopóki dane nie zostaną odebrane. Rozpocznij odtwarzanie muzyki na słuchawkach i umieść je blisko telefonu, a następnie rozpocznij proces.</string>
     <string name="troubleshooter_ble_intro_start_action">Rozpocznij rozwiązywanie problemów</string>
     <string name="troubleshooter_ble_process_title">Rozwiązywanie problemów w toku</string>
     <string name="troubleshooter_ble_process_subtile">Każdy etap zajmuje 5–10 sekund</string>
@@ -93,6 +95,8 @@
     <string name="troubleshooter_ble_result_success_body">Audycje reklamowe BLE są odbierane przez CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Niepowodzenie</string>
     <string name="troubleshooter_ble_result_failure_body">Rozwiązywanie problemów nie powiodło się. Nie pomogła żadna kombinacja opcji kompatybilności.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Twój telefon nie odebrał żadnych danych BLE. Możesz ponowić test w zatłoczonym obszarze, aby sprawdzić, czy źródła danych (inne niż twoje słuchawki) mogą być odbierane. Brak odbioru danych wskazuje na problem z systemem operacyjnym telefonu.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Twój telefon odebrał dane BLE, jednak nie pochodzą one od obsługiwanego urządzenia. Czy twoje słuchawki są włączone? Czy CAPod obsługuje twoje słuchawki?</string>
     <string name="troubleshooter_ble_result_failure_action">Spróbuj ponownie</string>
     <string name="troubleshoot_action">Rozwiązywanie problemów</string>
 </resources>

@@ -37,6 +37,7 @@
     <string name="settings_compat_offloaded_filtering_disabled_title">Hardware filtering uitzetten</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Data filtering niet aan het systeem toevertrouwen, in plaats daarvan alle data in de app ontvangen en filteren.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Hardware batching uitzetten</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Laat de systeemgroep geen BLE-gegevens verzamelen voordat deze naar ons wordt doorgestuurd.</string>
     <string name="settings_maindevice_address_label">Uw apparaatadres</string>
     <string name="settings_maindevice_address_description">Het adres van uw gekoppelde apparaat. De app gebruikt dit om te bepalen wanneer deze is verbonden met uw telefoon.</string>
     <string name="settings_maindevice_address_none">Geen</string>
@@ -85,4 +86,17 @@
     <string name="settings_compat_indirectcallback_title">Onrechtstreekse data aflevering</string>
     <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE data van het systeem (broadcast inplaats van callback).</string>
     <string name="troubleshooter_title">Probleemoplossing</string>
+    <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-uitzendingen</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (en vergelijkbare hoofdtelefoons) zenden statusinformatie uit met behulp van een BLE-technologie die \"advertenties\" wordt genoemd. Sommige telefoons implementeren deze technologie niet correct. CAPod kan dit proberen op te lossen door verschillende compatibiliteitsopties uit te proberen totdat er gegevens zijn ontvangen. Start het afspelen van muziek op uw hoofdtelefoon en plaats deze dicht bij uw telefoon en start het proces.</string>
+    <string name="troubleshooter_ble_intro_start_action">Begin met probleemoplossing</string>
+    <string name="troubleshooter_ble_process_title">Probleemoplossing wordt uitgevoerd</string>
+    <string name="troubleshooter_ble_process_subtile">Elke stap duurt 5-10 seconden</string>
+    <string name="troubleshooter_ble_result_success_title">Gelukt</string>
+    <string name="troubleshooter_ble_result_success_body">BLE-advertentie-uitzendingen worden door CAPod ontvangen.</string>
+    <string name="troubleshooter_ble_result_failure_title">Mislukt</string>
+    <string name="troubleshooter_ble_result_failure_body">Problemen oplossen mislukt. Geen enkele combinatie van compatibiliteitsopties heeft geholpen.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Je telefoon heeft helemaal geen BLE-gegevens ontvangen. Je kunt deze test opnieuw proberen in een druk gebied om te zien of gegevensbronnen (anders dan je hoofdtelefoon) kunnen worden ontvangen. Er worden geen gegevens ontvangen die wijzen op een probleem met het besturingssysteem van je telefoon.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Je telefoon heeft BLE-gegevens ontvangen, maar de gegevens zijn niet afkomstig van een ondersteund apparaat. Staat je koptelefoon aan? Ondersteunt CAPod je koptelefoon?</string>
+    <string name="troubleshooter_ble_result_failure_action">Probeer opnieuw</string>
+    <string name="troubleshoot_action">Problemen oplossen</string>
 </resources>

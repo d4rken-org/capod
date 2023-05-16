@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod פרו</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">לא זמין</string>
     <string name="general_error_label">שגיאה</string>
     <string name="general_grant_permission_action">מתן רשות</string>
@@ -55,4 +58,6 @@
     <string name="pods_case_unknown_state">מצב לא ידוע</string>
     <string name="last_seen_x">נראה לאחרונה: %s</string>
     <string name="first_seen_x">נראה לראשונה: %s</string>
+    <string name="permission_post_notifications_label">הודעות פרסום</string>
+    <string name="permission_post_notifications_description">"לאשר ל-CAPod להראות לך התראות על ה-AirPods שלך, למשל. המצב הנוכחי שלהם בזמן שהם מחוברים."</string>
 </resources>

@@ -32,7 +32,7 @@
     <string name="settings_monitor_mode_automatic_label">Wanneer het apparaat is aangesloten</string>
     <string name="settings_monitor_mode_always_label">Altijd</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wanneer gezien</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Case is geopend</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Zaak is geopend</string>
     <string name="settings_reaction_autoconnect_inear_label">In oor</string>
     <string name="pods_dual_left_label">Linker pod</string>
     <string name="pods_dual_right_label">Rechter pod</string>

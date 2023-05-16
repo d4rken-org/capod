@@ -32,6 +32,10 @@
     <string name="settings_reaction_label">アクション</string>
     <string name="settings_reaction_description">イベントや行動に対して機能が動作します</string>
     <string name="settings_category_yourdevice_label">あなたのデバイス</string>
+    <string name="settings_category_compatibility_options_title">互換性のオプション</string>
+    <string name="settings_category_compatibility_options_description">正常に動く場合は触らないでください。 ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">ハードウェアフィルタリングを無効にする</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">データフィルタリングをシステムに任せません。アプリ内ですべてのデータとフィルターを取得します。</string>
     <string name="settings_maindevice_address_label">あなたのデバイスのアドレス</string>
     <string name="settings_maindevice_address_description">ペアリングされたデバイスのアドレス。 アプリはこれを使って、携帯電話にいつ接続されたかを判断します。</string>
     <string name="settings_maindevice_address_none">無し</string>

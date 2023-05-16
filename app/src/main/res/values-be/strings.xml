@@ -96,4 +96,7 @@
     <string name="troubleshooter_ble_result_failure_title">Безвынікова</string>
     <string name="troubleshooter_ble_result_failure_body">Не ўдалося выправіць непаладку. Не дапамагла ніводная камбінацыя параметраў сумяшчальнасці.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ваш тэлефон наогул не атрымаў ніякіх даных BLE. Вы можаце паўтарыць гэты тэст у шматлюдным месцы, каб даведацца, ці могуць быць атрыманыя даныя з іншых крыніц (акрамя вашых навушнікаў). Няма атрыманых даных, якія паказваюць на праблему з аперацыйнай сістэмай вашага тэлефона.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш тэлефон атрымаў даныя BLE, але яны паступаюць з прылады, якая не падтрымліваецца. Вашы навушнікі ўключаны? Ці падтрымлівае CAPod вашы навушнікі?</string>
+    <string name="troubleshooter_ble_result_failure_action">Паспрабаваць яшчэ раз</string>
+    <string name="troubleshoot_action">Выпраўленне непаладак</string>
 </resources>

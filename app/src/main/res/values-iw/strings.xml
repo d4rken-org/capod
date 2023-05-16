@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">תגובות</string>
     <string name="settings_reaction_description">להגיב לאירועים והתנהגויות.</string>
     <string name="settings_category_yourdevice_label">המכשיר שלך</string>
+    <string name="settings_category_compatibility_options_title">מצב תאימות</string>
+    <string name="settings_category_compatibility_options_description">אל תיגע אם הכל עובד ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">ביטול סינון בחומרה</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">אל תאציל סינון נתונים למערכת, במקום זאת קבל את כל הנתונים וסנן בתוך האפליקציה.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">ביטול אצוות חומרה</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">אל תאפשר לקבוצת המערכת אסיפת נתוני BLE לפני שתעביר אותם אלינו.</string>
     <string name="settings_maindevice_address_label">כתובת המכשיר שלך</string>
     <string name="settings_maindevice_address_description">הכתובת של המכשיר המחובר שלך. האפליקציה משתמשת בזה כדי לקבוע מתי היא מחוברת לטלפון שלך.</string>
     <string name="settings_maindevice_address_none">אף אחד</string>
@@ -53,6 +59,7 @@
     <string name="settings_support_description">אם אתה צריך קצת עזרה.</string>
     <string name="issue_tracker_label">מאתר בעיות</string>
     <string name="issue_tracker_description">מעקב אחר בעיות ציבוריות לדיווחי באגים ובקשות לתכונות (באנגלית בלבד).</string>
+    <string name="discord_label">דיסקורד</string>
     <string name="discord_description">מקום לבלות בו ולשאול שאלות.</string>
     <string name="changelog_label">יומן שינויים</string>
     <string name="settings_label">הגדרות</string>
@@ -75,4 +82,21 @@
     <string name="help_translate_description">עזרו בתרגום אפליקציה זו לשפה המועדפת עליכם.</string>
     <string name="translators_thanks_title">מתרגמים</string>
     <string name="translators_thanks_description">AL_Cool_T</string>
+    <string name="widget_description">ווידג\'ט המציג את מצב האחרון הידוע של המכשיר.</string>
+    <string name="settings_compat_indirectcallback_title">העברה עקיפה של הנתונים</string>
+    <string name="settings_compat_indirectcallback_summary">השתמש בשיטה חלופית כדי לקבל נתוני BLE מהמערכת (שידור במקום התקשרות חוזרת).</string>
+    <string name="troubleshooter_title">פותר בעיות</string>
+    <string name="troubleshooter_ble_intro_title">שידורי Bluetooth באנרגיה נמוכה</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (ואוזניות דומות) משדרות מידע באמצעות טכנולוגיית BLE הנקראת \"פרסומות\". טלפונים מסוימים אינם מיישמים את הטכנולוגיה הזו כהלכה. CAPod יכול לנסות לתקן זאת על ידי אפשרויות תאימות שונות עד לקבלת נתונים. התחל את השמעת מוזיקה באוזניות שלך והנח אותן קרוב לטלפון שלך, ולאחר מכן התחל את התהליך.</string>
+    <string name="troubleshooter_ble_intro_start_action">התחל בפתרון בעיות</string>
+    <string name="troubleshooter_ble_process_title">מתבצע פתרון בעיות</string>
+    <string name="troubleshooter_ble_process_subtile">כל שלב לוקח 5-10 שניות</string>
+    <string name="troubleshooter_ble_result_success_title">הצלחה</string>
+    <string name="troubleshooter_ble_result_success_body">שידורי פרסומת BLE מתקבלים על ידי CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">לא מוצלח</string>
+    <string name="troubleshooter_ble_result_failure_body">פתרון הבעיות נכשל. שום שילוב של אפשרויות תאימות לא עזר.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">הטלפון שלך לא קיבל נתונים BLE כלל. באפשרותך לנסות שוב את הבדיקה הזו באזור אפוץ כדי לראות אם ניתן לקבל מקורות נתונים נוספים (מלבד האוזניות שלך). אין מידע שמתקבל מצביע על בעיה במערכת ההפעלה של הטלפון שלך.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">טלפון שלך קיבל נתוני BLE, אך הנתונים אינם מגיעים ממכשיר אשר נתמך. האם האוזניות שלך מופעלות? האם CAPod תומך באוזניות שלך?</string>
+    <string name="troubleshooter_ble_result_failure_action">נסה שנית</string>
+    <string name="troubleshoot_action">פתרון בעיות</string>
 </resources>
