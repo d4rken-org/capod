@@ -4,17 +4,6 @@
     style="@style/PodWidget.Container"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/headphones_label"
-        style="@style/PodWidget.TextPrimary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="2dp"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        tools:text="AirPods Max" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,5 +98,15 @@
             style="@style/PodInfoItemIcon.Notification"
             android:src="@drawable/ic_baseline_power_24" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/headphones_label"
+        style="@style/PodWidget.TextPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        tools:text="AirPods Max" />
 
 </LinearLayout>
