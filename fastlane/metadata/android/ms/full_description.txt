@@ -10,6 +10,9 @@ Ciri-ciri:
 * Sambungkan telefon dan AirPod secara automatik.
 * Pamerkan timbul apabila sarung dibuka.
 
+CAPod mempunyai versi Wear-OS yang menunjukkan status peranti pod yang paling hampir dengan anda.
+CAPod untuk Wear-OS ialah apl yang berdiri sendiri dan tidak memerlukan telefon.
+
 CAPod adalah bebas iklan. Sesetengah ciri memerlukan pembelian dalam aplikasi.
 
 Kebanyakan peranti AirPods dan Beats yang popular disokong.

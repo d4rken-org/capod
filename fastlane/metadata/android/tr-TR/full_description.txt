@@ -1,18 +1,21 @@
-CAPod, AirPods için yardımcı bir uygulamadır.
+CAPod, AirPods cihazlar için yardımcı bir uygulamadır.
 
 Özellikler:
 
-* Bölmeler ve kılıflar için pil seviyesi.
-* Bölmeler ve kılıf için şarj durumu.
-* Bağlantı, mikrofon ve kılıf hakkında ek bilgiler.
-* Yakındaki tüm cihazları alabilir ve gösterebilir.
-* Otomatik oynatma/duraklatma ile kulak algılama.
-* Telefonu ve AirPods'u otomatik olarak bağlayın.
-* Kasa açıldığında açılır pencereyi göster.
+* Kulaklıklar ve şarj kutusu için pil seviyesi.
+* Kulaklıklar ve şarj kutusu için şarj durumu.
+* Bağlantı, mikrofon ve şarj kutusu hakkında ek bilgiler.
+* Yakındaki tüm cihazları algılayabilir ve gösterebilir.
+* Otomatik oynat/duraklat özellikli kulaklık algılama.
+* Telefonu ve AirPods cihazları otomatik olarak bağlar.
+* Şarj kutusu açıldığında açılır pencereyi göster.
 
-CAPod reklamsızdır. Bazı özellikler uygulama içi satın alma gerektirir.
+CAPod, size en yakın pod cihazının durumunu gösteren bir Wear-OS sürümüne sahiptir.
+CAPod for Wear-OS bağımsız bir uygulamadır ve telefon gerektirmez.
 
-En popüler AirPods ve Beats cihazları desteklenir.
-Cihazınız AirPods'a benziyor ancak henüz desteklenmiyorsa, bana kısa bir posta gönderin.
+CAPod reklamsızdır. Bazı özellikler için uygulama içi satın alma gereklidir.
 
-Yeni bir özellik için harika bir fikriniz var mı? Ulaşın!
+En popüler AirPods ve Beats cihazları desteklenmektedir.
+Cihazınız AirPods'a benziyor ancak henüz desteklenmiyorsa bana kısa bir e-posta gönderebilirsiniz.
+
+Yeni bir özellik vs. için harika bir fikriniz mi var? Bana ulaşın!
