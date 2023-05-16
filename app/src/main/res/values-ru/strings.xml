@@ -35,6 +35,9 @@
     <string name="settings_category_compatibility_options_title">Настройки совместимости</string>
     <string name="settings_category_compatibility_options_description">Не трогать, если всё работает :)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Отключить аппаратную фильтрацию</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Не делегировать фильтрация данных в систему, вместо этого получайте все данные и фильтр в приложение.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Отключить аппаратное пакетирование</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Не позволять системной группе собирать данные BLE до их пересылки нам.</string>
     <string name="settings_maindevice_address_label">Адрес Вашего устройства</string>
     <string name="settings_maindevice_address_description">Адрес Вашего сопряжённого устройства. Приложение использует его для определения подключения к Вашему телефону.</string>
     <string name="settings_maindevice_address_none">Нет</string>
@@ -80,4 +83,21 @@
     <string name="translators_thanks_title">Переводчики</string>
     <string name="translators_thanks_description">gaich
 AL_Cool_T</string>
+    <string name="widget_description">Виджет показывающий последний известный статус устройства.</string>
+    <string name="settings_compat_indirectcallback_title">Косвенная доставка данных</string>
+    <string name="settings_compat_indirectcallback_summary">Использовать альтернативный метод для получения данных BLE системы (широковещательная рассылка вместо обратного вызова).</string>
+    <string name="troubleshooter_title">Помощник</string>
+    <string name="troubleshooter_ble_intro_title">Трансляции Bluetooth с низким энергопотреблением</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (и аналогичные наушники) передают информацию о состоянии с использованием технологию BLE, называемой «рекламой». Некоторые телефоны неправильно реализуют эту технологию. CAPod может попытаться исправить это, пробуя разные варианты совместимости, пока данные не будут получены. Запустите воспроизведение музыки в наушниках и поднесите их к телефону, затем запустите процесс.</string>
+    <string name="troubleshooter_ble_intro_start_action">Начать устранение неполадок</string>
+    <string name="troubleshooter_ble_process_title">Выполняется устранение неполадок</string>
+    <string name="troubleshooter_ble_process_subtile">Каждый шаг занимает 5–10 секунд</string>
+    <string name="troubleshooter_ble_result_success_title">Успех</string>
+    <string name="troubleshooter_ble_result_success_body">BLE рекламные трансляции принимаются на CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Неудачный</string>
+    <string name="troubleshooter_ble_result_failure_body">Не удалось устранить неполадки. Ни одна комбинация параметров совместимости не помогала.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Ваш телефон вообще не получал никаких BLE данных. Вы можете повторить этот тест в людном месте, чтобы проверить, могут ли быть получены данные (c других источников кроме наушников). Отсутствие полученных данных указывает на проблему с операционной системой вашего телефона.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш телефон получил BLE данные, но данные не поступают ни с одного поддерживаемого устройства. Ваши наушники включены? Поддерживает ли CAPod ваши наушники?</string>
+    <string name="troubleshooter_ble_result_failure_action">Попробуйте еще раз</string>
+    <string name="troubleshoot_action">Устранение неполадок</string>
 </resources>

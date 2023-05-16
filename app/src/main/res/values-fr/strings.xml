@@ -32,6 +32,12 @@
     <string name="settings_reaction_label">Réactions</string>
     <string name="settings_reaction_description">Réagir à des événements et à des comportements.</string>
     <string name="settings_category_yourdevice_label">Votre appareil</string>
+    <string name="settings_category_compatibility_options_title">Options de compatibilité</string>
+    <string name="settings_category_compatibility_options_description">Ne rien changer rien si tout fonctionne ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Désactiver le filtrage matériel</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Ne pas déléguer pas le filtrage des données au système, gardez plutôt toutes les données et filtres dans l\'appli.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Désactiver le groupage du matériel</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Avant de nous les transmettre, ne pas laisser le système regrouper les données BÉB recueillies.</string>
     <string name="settings_maindevice_address_label">L’adresse de votre appareil</string>
     <string name="settings_maindevice_address_description">L’adresse de votre appareil jumelé. L’appli l’utilise pour déterminer s’il est connecté à votre téléphone.</string>
     <string name="settings_maindevice_address_none">Aucune</string>
@@ -76,4 +82,21 @@
     <string name="help_translate_description">Aider à traduire cette appli dans votre langue préférée.</string>
     <string name="translators_thanks_title">Traducteurs</string>
     <string name="translators_thanks_description">AO</string>
+    <string name="widget_description">Un widget qui affiche le dernier état connu de l’appareil.</string>
+    <string name="settings_compat_indirectcallback_title">Transmission indirecte des données</string>
+    <string name="settings_compat_indirectcallback_summary">Utiliser une méthode de remplacement pour recevoir les données BÉB du système (diffusion au lieu de rappel).</string>
+    <string name="troubleshooter_title">Dépannage</string>
+    <string name="troubleshooter_ble_intro_title">Diffusions à bas niveau d\'énergie de Bluetooth</string>
+    <string name="troubleshooter_ble_intro_body1">Les AirPods (et autres casques d’écoute semblables) diffusent des renseignements d’état grâce à une technologie BÉB appelée « annonces ». Certains téléphones n’appliquent pas cette technologie correctement. CAPod peut tenter de corriger cela en essayant différentes options de compatibilité jusqu’à ce que les données soient reçues. Faites jouer un fichier son sur votre casque d’écoute, placez-le près de votre téléphone, puis lancer le processus.</string>
+    <string name="troubleshooter_ble_intro_start_action">Lancer le dépannage</string>
+    <string name="troubleshooter_ble_process_title">Dépannage en cours</string>
+    <string name="troubleshooter_ble_process_subtile">Chaque étape prend de 5 à 10 secondes</string>
+    <string name="troubleshooter_ble_result_success_title">Dépannage effectué</string>
+    <string name="troubleshooter_ble_result_success_body">Les diffusions d’annonces BÉB sont reçues par CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Échec du dépannage</string>
+    <string name="troubleshooter_ble_result_failure_body">Le dépannage a échoué. Aucune des options de compatibilité n’a réglé la situation.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Votre téléphone n’a reçu aucune donnée BÉB. Vous pouvez relancer le test dans un endroit bondé pour voir si des sources de données (autres que votre casque d’écoute) sont reçues. Si aucune donnée n’est reçue, le problème pourrait provenir du système d’exploitation de votre téléphone.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Votre téléphone a reçu des données, mais les données ne proviennent pas d’un appareil pris en charge. Votre casque d’écoute est-il en fonction ? CAPod prend-il votre casque d’écoute en charge ?</string>
+    <string name="troubleshooter_ble_result_failure_action">Réessayer</string>
+    <string name="troubleshoot_action">Dépanner</string>
 </resources>

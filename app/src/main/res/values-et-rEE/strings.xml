@@ -4,6 +4,7 @@
     <string name="settings_category_compatibility_options_description">Las jääda, kui kõik toimib ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Keela riistvara filtreerimine</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Süsteemis andmete filtreerimise asemel saate seda teha rakenduses.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Keelake süsteemil rühmitada kogutud andmeid madalama energiatarbimisega Bluetoothi kohta enne meile saatmist.</string>
     <string name="widget_description">Viimast teadaolevat seadme seisu näitab vidin.</string>
     <string name="settings_compat_indirectcallback_title">Kaudsete andmete edastamine</string>
