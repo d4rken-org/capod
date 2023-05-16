@@ -9,7 +9,7 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 android {
     compileSdk = ProjectConfig.compileSdk
-    namespace = "${ProjectConfig.packageName}.wear"
+    namespace = "${ProjectConfig.packageName}"
 
     defaultConfig {
         applicationId = ProjectConfig.packageName
