@@ -3,13 +3,12 @@ package eu.darken.capod.wear.ui.overview.cards.pods
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
-import eu.darken.capod.R
 import eu.darken.capod.common.lists.BindableVH
 import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.common.lists.modular.ModularAdapter
-import eu.darken.capod.wear.ui.overview.OverviewAdapter
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.getSignalQuality
+import eu.darken.capod.wear.ui.overview.OverviewAdapter
 import java.time.Instant
 
 abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
@@ -19,7 +18,7 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
 
     fun Item.getReceptionText(): String = device.getSignalQuality(context)
         .let { if (showDebug) "$it ${device.seenCounter}" else it }
-        .let { if (isMainPod) "$it\n(${getString(R.string.pods_yours)})" else it }
+        .let { if (isMainPod) "$it\n(${getString(eu.darken.capod.common.R.string.pods_yours)})" else it }
 
     interface Item : OverviewAdapter.Item {
 
