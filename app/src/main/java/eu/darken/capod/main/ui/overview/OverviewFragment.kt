@@ -115,18 +115,18 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
             val baseTitle = when (info.type) {
                 UpgradeRepo.Type.GPLAY -> {
                     if (info.isPro) {
-                        getString(R.string.app_name_pro)
+                        getString(eu.darken.capod.common.R.string.app_name_pro)
                     } else {
                         gplay.isVisible = true
-                        getString(R.string.app_name)
+                        getString(eu.darken.capod.common.R.string.app_name)
                     }
                 }
                 UpgradeRepo.Type.FOSS -> {
                     if (info.isPro) {
-                        getString(R.string.app_name_foss)
+                        getString(eu.darken.capod.common.R.string.app_name_foss)
                     } else {
                         donate.isVisible = true
-                        getString(R.string.app_name)
+                        getString(eu.darken.capod.common.R.string.app_name)
                     }
                 }
             }.split(" ".toRegex())
@@ -141,7 +141,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                 }
                 builder.append(colorString(requireContext(), color, baseTitle[1]))
             } else {
-                getString(R.string.app_name)
+                getString(eu.darken.capod.common.R.string.app_name)
             }
         }
         vm.launchUpgradeFlow.observe2 {

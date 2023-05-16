@@ -73,7 +73,7 @@ class RecorderService : Service2() {
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setSmallIcon(R.drawable.ic_baseline_bug_report_24)
             .setContentText("Idle")
-            .setContentTitle(getString(R.string.app_name))
+            .setContentTitle(getString(eu.darken.capod.common.R.string.app_name))
             .addAction(NotificationCompat.Action.Builder(0, getString(R.string.general_done_action), stopPi).build())
 
         startForeground(NOTIFICATION_ID, builder.build())

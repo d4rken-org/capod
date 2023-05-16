@@ -7,9 +7,21 @@ import androidx.core.view.isInvisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
-import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasChargeDetectionDual
+import eu.darken.capod.pods.core.HasDualMicrophone
+import eu.darken.capod.pods.core.HasEarDetectionDual
+import eu.darken.capod.pods.core.HasPodStyle
+import eu.darken.capod.pods.core.HasStateDetection
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
+import eu.darken.capod.pods.core.firstSeenFormatted
+import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.getBatteryLevelCase
+import eu.darken.capod.pods.core.getBatteryLevelLeftPod
+import eu.darken.capod.pods.core.getBatteryLevelRightPod
+import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Duration
 import java.time.Instant
 
@@ -42,8 +54,10 @@ class DualPodsCardVH(parent: ViewGroup) :
         podLeftIcon.setImageResource(device.leftPodIcon)
         podRightIcon.setImageResource(device.rightPodIcon)
 
-        lastSeen.text = context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
-        firstSeen.text = context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
+        lastSeen.text =
+            context.getString(eu.darken.capod.common.R.string.last_seen_x, device.lastSeenFormatted(item.now))
+        firstSeen.text =
+            context.getString(eu.darken.capod.common.R.string.first_seen_x, device.firstSeenFormatted(item.now))
         firstSeen.isGone = Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() < 1
 
         reception.text = item.getReceptionText()
@@ -131,9 +145,9 @@ class DualPodsCardVH(parent: ViewGroup) :
         device.apply {
             if (this is DualApplePods) {
                 podCaseLidLabel.text = when (caseLidState) {
-                    LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
-                    LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
-                    else -> context.getString(R.string.pods_case_unknown_state)
+                    LidState.OPEN -> context.getString(eu.darken.capod.common.R.string.pods_case_status_open_label)
+                    LidState.CLOSED -> context.getString(eu.darken.capod.common.R.string.pods_case_status_closed_label)
+                    else -> context.getString(eu.darken.capod.common.R.string.pods_case_unknown_state)
                 }
 
                 val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)
