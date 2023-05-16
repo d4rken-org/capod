@@ -38,7 +38,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
-          java-version: 11
+          java-version: 17
 
       - name: Assemble beta APK
         if: contains(steps.tagger.outputs.tag, '-beta')
@@ -130,7 +130,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
-          java-version: 11
+          java-version: 17
 
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1
