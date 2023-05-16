@@ -1,5 +1,5 @@
-"api_key_env": "CROWDIN_API_KEY"
-"project_identifier": "capod"
+"api_token_env": "CROWDIN_PERSONAL_TOKEN"
+"project_id": "495673"
 "preserve_hierarchy": true
 
 "files": [
