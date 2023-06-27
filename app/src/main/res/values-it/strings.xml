@@ -32,6 +32,9 @@
     <string name="settings_reaction_label">Reazioni</string>
     <string name="settings_reaction_description">Reazione ad eventi o comportamenti.</string>
     <string name="settings_category_yourdevice_label">Il tuo dispositivo</string>
+    <string name="settings_category_compatibility_options_title">Opzioni di compatibilità</string>
+    <string name="settings_category_compatibility_options_description">Non toccare se funziona tutto ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Disabilita il filtro hardware</string>
     <string name="settings_maindevice_address_label">L\'indirizzo del tuo dispositivo</string>
     <string name="settings_maindevice_address_description">L\'indirizzo del dispositivo connesso. L\'applicazione usa questo per determinare quando il tuo dispositivo è connesso al telefono.</string>
     <string name="settings_maindevice_address_none">Niente</string>
@@ -76,4 +79,10 @@
     <string name="help_translate_description">Aiuta a tradurre l\'applicazione nella tua lingua preferita.</string>
     <string name="translators_thanks_title">Traduttori</string>
     <string name="translators_thanks_description">darken</string>
+    <string name="troubleshooter_title">Risoluzione dei problemi</string>
+    <string name="troubleshooter_ble_intro_start_action">Avvia la risoluzione dei problemi</string>
+    <string name="troubleshooter_ble_process_title">Risoluzione dei problemi in corso</string>
+    <string name="troubleshooter_ble_process_subtile">Ogni passaggio richiede 5-10 secondi</string>
+    <string name="troubleshooter_ble_result_failure_action">Riprova</string>
+    <string name="troubleshoot_action">Risoluzione dei problemi</string>
 </resources>
