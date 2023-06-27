@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="general_value_not_available_label">Н/д</string>
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">Н/Д</string>
     <string name="general_error_label">Помилка</string>
     <string name="general_grant_permission_action">Надати дозвіл</string>
     <string name="overview_nomaindevice_label">Відсутній первинний пристрій</string>
+    <string name="overview_nomaindevice_description">Всі знайдені пристрої навряд чи ваші. Увімкніть та підʼєднайте ваш пристрій або налаштуйте параметри.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth вимкнено</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth вимкнено, увімкніть його ;)</string>
+    <string name="permission_bluetooth_connect_label">Bluetooth зʼєднання</string>
+    <string name="permission_bluetooth_connect_description">Цей додаток потребує дозвіл \"Bluetooth зʼєднання\" щоб взаємодіяти зі сполученими пристроями та ініціювати нові зʼєднання.</string>
+    <string name="permission_bluetooth_scan_label">Сканування Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Дозвіл \"Сканування Bluetooth\" дозволяє цьому додатку виявляти та отримувати Bluetooth дані з пристроїв поблизу, таких як ваші AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Цей додаток потребує дозвіл \"Bluetooth\" для зʼєднання зі сполученими Bluetooth пристроями.</string>
     <string name="permission_access_fine_location_label">Доступ до точного місцезнаходження</string>
+    <string name="permission_access_fine_location_description">CAPod використовує дозвіл \"Точне місцезнаходження\" щоб отримувати дані Bluetooth Low Energy. Ваші навушники використовують технологію Bluetooth Low Energy technology щоб транслювати свій статус. Цей додаток НЕ використовує Bluetooth дані щоб визначати ваше місцеперебування.</string>
     <string name="permission_background_location_label">Доступ до місцезнаходження у тлі</string>
+    <string name="permission_background_location_description">CAPod використовує фоновий доступ до геоданих для роботи таких функцій як \"Показувати спливаюче вікно\" та \"Автопідʼєднання\" коли додаток закритий. Фоновий доступ до геоданих дозволяє додатку отримувати дані Bluetooth Low Energy коли він працює у фоновому режимі. Цей додаток НЕ використовує Bluetooth дані щоб визначати ваше місцеперебування.</string>
     <string name="permission_ignore_battery_optimizations_label">Вимкнути оптимізацію батареї</string>
     <string name="permission_ignore_battery_optimizations_description">Оптимізація батареї перешкоджає цьому пристрою надійно отримувати дані Bluetooth під час перебування програми у тлі.</string>
     <string name="permission_required_title">Необхідні наступні дозволи:</string>
     <string name="permission_system_alert_window_label">Вікно системного повідомлення</string>
-    <string name="settings_scanner_mode_lowpower_label">Низький заряд</string>
+    <string name="permission_system_alert_window_description">Надайте дозвіл CAPod на показ поверх інших додатків для роботи функції \"Показувати спливаюче вікно\".</string>
+    <string name="settings_scanner_mode_lowpower_label">Економія енергії</string>
     <string name="settings_scanner_mode_balanced_label">Збалансовано</string>
+    <string name="settings_scanner_mode_lowlatency_label">Низька затримка</string>
     <string name="settings_monitor_mode_manual_label">Коли програму відкрито</string>
     <string name="settings_monitor_mode_automatic_label">При під\'єднаному пристрої</string>
     <string name="settings_monitor_mode_always_label">Завжди</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">При виявленні</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Футляр відчинено</string>
     <string name="settings_reaction_autoconnect_inear_label">У вусі</string>
     <string name="pods_dual_left_label">Лівий навушник</string>
@@ -26,9 +40,13 @@
     <string name="pods_case_status_open_label">Відкрито</string>
     <string name="pods_case_status_closed_label">Закрито</string>
     <string name="pods_connection_state_disconnected_label">Не під\'єднано до пристрою</string>
+    <string name="pods_connection_state_idle_label">Підʼєднано до пристрою, в режимі очікування</string>
     <string name="pods_connection_state_music_label">У режимі музики</string>
     <string name="pods_connection_state_call_label">У режимі виклику</string>
+    <string name="pods_connection_state_ringing_label">Дзвінок</string>
+    <string name="pods_connection_state_hanging_up_label">Кінець дзвінка</string>
     <string name="pods_connection_state_unknown_label">Невідомий стан з\'єднання</string>
+    <string name="pods_unknown_raw_data_label">Сирі дані</string>
     <string name="pods_unknown_label">Невідомий пристрій</string>
     <string name="pods_unknown_contact_dev">Це невідомий пристрій, проте він використовує подібний формат повідомлень. Додаймо його підтримку, надішліть мені лист :)</string>
     <string name="pods_none_label_short">Немає пристрою</string>
@@ -36,7 +54,10 @@
     <string name="pods_inear_label">У вусі</string>
     <string name="pods_microphone_label">Мікрофон</string>
     <string name="pods_yours">Ваш</string>
+    <string name="headset_being_worn_label">Одягнені</string>
     <string name="pods_case_unknown_state">Невідомий стан</string>
     <string name="last_seen_x">Востаннє був: %s</string>
     <string name="first_seen_x">Уперше був: %s</string>
+    <string name="permission_post_notifications_label">Показ сповіщень</string>
+    <string name="permission_post_notifications_description">"Дозволити CAPod показувати вам сповіщення щодо ваших AirPods, наприклад, їх поточний стан при підключенні."</string>
 </resources>

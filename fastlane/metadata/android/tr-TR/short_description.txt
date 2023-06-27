@@ -1,1 +1,1 @@
-CAPod, Android'de AirPods cihazlar için yardımcı bir uygulamadır.
+CAPod, Android'de AirPods aygıtlar için yardımcı bir uygulamadır.
