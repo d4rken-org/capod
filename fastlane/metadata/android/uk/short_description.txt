@@ -1,1 +1,1 @@
-CAPod - програма-супутник для AirPods на андроїд.
+CAPod - програма-компаньйон для AirPods на Android.
