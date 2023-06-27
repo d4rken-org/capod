@@ -141,6 +141,8 @@ dependencies {
     addBaseAndroid()
     addBaseAndroidUi()
 
+    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
+
     addNavigation()
     addBaseWorkManager()
 
