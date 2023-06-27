@@ -13,6 +13,7 @@
     <string name="settings_monitor_mode_description">Milyen körülmények között figyeli ez az alkalmazás a Bluetooth-adatokat.</string>
     <string name="settings_scanner_mode_label">Szkenner mód</string>
     <string name="settings_autopause_label">Automatikus megszakítás</string>
+    <string name="settings_autopause_description">Zene leállítása amikor kiveszed a füledből a fülest.</string>
     <string name="settings_showall_label">Az összes eszköz megjelenítése</string>
     <string name="settings_showall_description">Mutassa meg másoknak az Ön közelében lévő eszközeit.</string>
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
@@ -28,6 +29,9 @@
     <string name="settings_reaction_label">Reakciók</string>
     <string name="settings_reaction_description">Reagáljon az eseményekre és viselkedésekre.</string>
     <string name="settings_category_yourdevice_label">A Te eszközöd</string>
+    <string name="settings_category_compatibility_options_title">Kompatibilitási opciók</string>
+    <string name="settings_category_compatibility_options_description">Ehhez a cucchoz ne nyúlj ha minden jól műkődik ;)</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Ne hagyja, hogy a rendszer csoportosítsa az összegyűjtött BLE-adatokat, mielőtt továbbítja azokat nekünk.</string>
     <string name="settings_maindevice_address_label">A készüléked címe</string>
     <string name="settings_maindevice_address_description">A párosított eszköz címe. Az alkalmazás ezt használja annak meghatározására, hogy mikor csatlakozik a telefonhoz.</string>
     <string name="settings_maindevice_address_none">Semmi</string>
@@ -66,6 +70,18 @@
     <string name="settings_debug_mode_description">További információk megjelenítése a problémák hibaelhárításához.</string>
     <string name="settings_blescanner_unfiltered_label">Szűretlen BLE adatok</string>
     <string name="settings_blescanner_unfiltered_description">Távolítson el minden szűrőt a BLE szkennerből, hogy megjelenjen az összes adat. Hasznos új fejhallgató típusok támogatásához.</string>
+    <string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
     <string name="help_translate_label">Fordítás</string>
+    <string name="help_translate_description">Segíts nekünk hogy az app le legyen fordítva a te nyelvedre is.</string>
     <string name="translators_thanks_title">Fordító</string>
+    <string name="widget_description">A widget az utolsó ismert eszköz adatokat mutatja.</string>
+    <string name="settings_compat_indirectcallback_title">Közvetett adatszolgáltatás</string>
+    <string name="troubleshooter_title">Hibaelhárító</string>
+    <string name="troubleshooter_ble_intro_start_action">Hibaelhárítás indítása</string>
+    <string name="troubleshooter_ble_process_title">Hibaelhárítás folyamatban</string>
+    <string name="troubleshooter_ble_process_subtile">Minden lépés 5-10 másodpercet vesz igénybe</string>
+    <string name="troubleshooter_ble_result_success_title">Sikeres</string>
+    <string name="troubleshooter_ble_result_failure_title">Sikertelen</string>
+    <string name="troubleshooter_ble_result_failure_action">Próbáld újra</string>
+    <string name="troubleshoot_action">Hibaelhárító</string>
 </resources>
