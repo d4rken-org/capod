@@ -7,10 +7,21 @@
     android:layout_margin="8dp"
     tools:context=".wear.ui.MainActivity">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_time"
+        style="@style/UserTimeStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12:23" />
+
     <ImageView
         android:id="@+id/device_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

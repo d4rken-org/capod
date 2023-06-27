@@ -15,4 +15,10 @@
         <item name="android:gravity">center</item>
         <item name="android:ellipsize">end</item>
     </style>
+
+    <style name="UserTimeStyle" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
 </resources>
