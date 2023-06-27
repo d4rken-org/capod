@@ -32,7 +32,7 @@ object Versions {
         }
 
         object WorkManager {
-            const val core = "2.7.1"
+            const val core = "2.8.1"
         }
     }
 
