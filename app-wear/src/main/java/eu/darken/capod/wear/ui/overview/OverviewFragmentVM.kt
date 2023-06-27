@@ -17,6 +17,7 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.wear.core.UserTime
 import eu.darken.capod.wear.ui.overview.cards.BluetoothDisabledVH
 import eu.darken.capod.wear.ui.overview.cards.MissingMainDeviceVH
 import eu.darken.capod.wear.ui.overview.cards.PermissionCardVH
@@ -86,14 +87,20 @@ class OverviewFragmentVM @Inject constructor(
                 device = podToShow,
                 showDebug = isDebugMode,
                 isMainPod = true,
+                userTime = UserTime(),
             )
+
             is SinglePodDevice -> SinglePodsCardVH.Item(
                 now = now,
                 device = podToShow,
                 showDebug = isDebugMode,
                 isMainPod = true,
+                userTime = UserTime(),
             )
-            else -> MissingMainDeviceVH.Item
+
+            else -> MissingMainDeviceVH.Item(
+                userTime = UserTime(),
+            )
         }
         items.add(pod)
 

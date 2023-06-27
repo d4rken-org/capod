@@ -8,6 +8,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsSingleItemBinding
 import eu.darken.capod.pods.core.*
+import eu.darken.capod.wear.core.UserTime
 import java.time.Instant
 
 class SinglePodsCardVH(parent: ViewGroup) :
@@ -19,6 +20,8 @@ class SinglePodsCardVH(parent: ViewGroup) :
     override val viewBinding = lazy { OverviewPodsSingleItemBinding.bind(itemView) }
 
     override val onBindData = binding(payload = true) { item: Item ->
+        userTime.text = item.userTime.toFormatted(context)
+
         val device = item.device
 
         name.apply {
@@ -75,5 +78,6 @@ class SinglePodsCardVH(parent: ViewGroup) :
         override val device: SinglePodDevice,
         override val showDebug: Boolean,
         override val isMainPod: Boolean,
+        val userTime: UserTime,
     ) : PodDeviceVH.Item
 }

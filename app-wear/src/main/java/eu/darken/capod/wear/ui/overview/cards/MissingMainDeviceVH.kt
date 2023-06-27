@@ -5,6 +5,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.common.lists.differ.DifferItem
 import eu.darken.capod.databinding.OverviewNomaindeviceItemBinding
+import eu.darken.capod.wear.core.UserTime
 import eu.darken.capod.wear.ui.overview.OverviewAdapter
 
 class MissingMainDeviceVH(parent: ViewGroup) :
@@ -21,11 +22,14 @@ class MissingMainDeviceVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding(payload = true) { item ->
+        userTime.text = item.userTime.toFormatted(context)
 
     }
 
-    object Item : OverviewAdapter.Item {
-        override val stableId: Long = Item::class.hashCode().toLong()
+    data class Item(
+        val userTime: UserTime,
+    ) : OverviewAdapter.Item {
+        override val stableId: Long = this.hashCode().toLong()
 
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new -> if (new::class.isInstance(old)) new else null }

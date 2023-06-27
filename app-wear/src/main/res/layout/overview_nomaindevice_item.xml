@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/permission_label"
+        android:id="@+id/user_time"
+        style="@style/UserTimeStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12:23" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
         style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="match_parent"
-        android:layout_marginTop="32dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/overview_nomaindevice_label"
-        app:layout_constraintBottom_toTopOf="@id/permission_description"
+        app:layout_constraintBottom_toTopOf="@id/body"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/permission_description"
+        android:id="@+id/body"
         style="@style/TextAppearance.MaterialComponents.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/overview_nomaindevice_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/permission_label" />
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

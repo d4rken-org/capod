@@ -9,6 +9,7 @@ import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
 import eu.darken.capod.pods.core.*
 import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.wear.core.UserTime
 import java.time.Instant
 
 class DualPodsCardVH(parent: ViewGroup) :
@@ -20,7 +21,10 @@ class DualPodsCardVH(parent: ViewGroup) :
     override val viewBinding = lazy { OverviewPodsDualItemBinding.bind(itemView) }
 
     override val onBindData = binding(payload = true) { item: Item ->
+        userTime.text = item.userTime.toFormatted(context)
+
         val device = item.device
+
         name.apply {
             val sb = StringBuilder(device.getLabel(context))
             if (device is HasPodStyle && item.showDebug) {
@@ -127,5 +131,6 @@ class DualPodsCardVH(parent: ViewGroup) :
         override val device: DualPodDevice,
         override val showDebug: Boolean,
         override val isMainPod: Boolean,
+        val userTime: UserTime,
     ) : PodDeviceVH.Item
 }

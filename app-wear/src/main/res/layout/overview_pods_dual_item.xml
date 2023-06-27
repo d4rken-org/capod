@@ -7,14 +7,23 @@
     android:layout_margin="8dp"
     tools:context=".wear.ui.MainActivity">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/user_time"
+        style="@style/UserTimeStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12:23" />
+
     <ImageView
         android:id="@+id/device_icon"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="2dp"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/devic_airpods_gen1_both" />
 
@@ -36,15 +45,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
-        android:gravity="center"
-        app:lineHeight="14sp"
         android:layout_marginBottom="4dp"
+        android:gravity="center"
         android:lines="2"
         android:maxLines="2"
         app:layout_constraintBottom_toTopOf="@id/barrier_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name"
+        app:lineHeight="14sp"
         tools:text="Music Active, Case Closed" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -267,7 +276,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/last_seen"
-        style="@style/TextAppearance.Material3.BodySmall"
+        style="@style/TextAppearance.Material3.LabelSmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
