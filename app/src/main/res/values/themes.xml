@@ -27,6 +27,10 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
+
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
     </style>
 
     <style name="AppThemeFloating" parent="AppTheme">
@@ -37,12 +41,20 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
+
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
     </style>
 
     <style name="AppThemeSplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#3f7aff</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
         <item name="postSplashScreenTheme">@style/AppTheme</item>
+
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
     </style>
 
 </resources>

@@ -27,6 +27,10 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_dark_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_dark_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_dark_primaryInverse</item>
+
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
     </style>
 
 </resources>
