@@ -158,7 +158,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                 v.paddingLeft,
                 systemWindowInsets.top,
                 v.paddingRight,
-                systemWindowInsets.bottom
+                0
             )
             insets
         }

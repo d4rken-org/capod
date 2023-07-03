@@ -21,7 +21,7 @@ abstract class Activity2 : AppCompatActivity() {
         log(tag, VERBOSE) { "onCreate(savedInstanceState=$savedInstanceState)" }
         super.onCreate(savedInstanceState)
 
-        WindowCompat.setDecorFitsSystemWindows( window, false );
+        WindowCompat.setDecorFitsSystemWindows( window, false )
     }
 
     override fun onResume() {
