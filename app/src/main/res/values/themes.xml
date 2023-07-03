@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
@@ -28,9 +28,10 @@
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
 
-        <item name="android:navigationBarColor">
-            #B3000000
-        </item>
+
+        <item tools:targetApi="29" name="android:enforceNavigationBarContrast">true</item>
+        <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
+
     </style>
 
     <style name="AppThemeFloating" parent="AppTheme">
@@ -42,9 +43,8 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
 
-        <item name="android:navigationBarColor">
-            #B3000000
-        </item>
+        <item tools:targetApi="29" name="android:enforceNavigationBarContrast">true</item>
+        <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
 
     </style>
 
@@ -53,9 +53,7 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
         <item name="postSplashScreenTheme">@style/AppTheme</item>
 
-        <item name="android:navigationBarColor">
-            #B3000000
-        </item>
+        <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
 
     </style>
 
