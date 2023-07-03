@@ -75,17 +75,6 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
         }
 
         super.onViewCreated(view, savedInstanceState)
-
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(
-                v.paddingLeft,
-                systemWindowInsets.top,
-                v.paddingRight,
-                v.paddingBottom
-            )
-            insets
-        }
     }
 
 

@@ -151,17 +151,6 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         }
 
         super.onViewCreated(view, savedInstanceState)
-
-        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
-            val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(
-                v.paddingLeft,
-                systemWindowInsets.top,
-                v.paddingRight,
-                0
-            )
-            insets
-        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
