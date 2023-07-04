@@ -5,10 +5,10 @@ CAPod, AirPods aygıtlar için yardımcı bir uygulamadır.
 * Kulaklıklar ve şarj kutusu için pil seviyesi.
 * Kulaklıklar ve şarj kutusu için şarj durumu.
 * Bağlantı, mikrofon ve şarj kutusu hakkında ek bilgiler.
-* Yakındaki tüm aygıtları algılayabilir ve gösterebilir.
+* Yakınınızdaki tüm aygıtları algılayabilir ve gösterebilir.
 * Otomatik oynat/duraklat özellikli kulaklık algılama.
 * Telefonu ve AirPods aygıtları otomatik olarak bağlar.
-* Şarj kutusu açıldığında açılır pencereyi göster.
+* Şarj kutusu açıldığında açılır pencereyi gösterir.
 
 CAPod, size en yakın pod aygıtının durumunu gösteren bir Wear-OS sürümüne sahiptir.
 CAPod for Wear-OS bağımsız bir uygulamadır ve telefon gerektirmez.
