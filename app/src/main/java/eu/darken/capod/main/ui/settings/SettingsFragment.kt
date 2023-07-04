@@ -2,7 +2,10 @@ package eu.darken.capod.main.ui.settings
 
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
@@ -14,6 +17,7 @@ import eu.darken.capod.common.uix.Fragment2
 import eu.darken.capod.common.viewbinding.viewBinding
 import eu.darken.capod.databinding.SettingsFragmentBinding
 import kotlinx.parcelize.Parcelize
+
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment2(R.layout.settings_fragment),

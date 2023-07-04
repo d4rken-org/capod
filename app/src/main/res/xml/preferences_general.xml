@@ -77,6 +77,10 @@
             android:summary="@string/settings_debug_description"
             android:title="@string/settings_debug_label" />
 
+        <Preference
+            android:summary=""
+            android:title="" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
@@ -27,6 +27,11 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
+
+
+        <item tools:targetApi="29" name="android:enforceNavigationBarContrast">true</item>
+        <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
+
     </style>
 
     <style name="AppThemeFloating" parent="AppTheme">
@@ -37,12 +42,19 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
+
+        <item tools:targetApi="29" name="android:enforceNavigationBarContrast">true</item>
+        <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
+
     </style>
 
     <style name="AppThemeSplash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">#3f7aff</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
         <item name="postSplashScreenTheme">@style/AppTheme</item>
+
+        <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
+
     </style>
 
 </resources>

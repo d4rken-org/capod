@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -40,6 +42,17 @@ abstract class Fragment2(@LayoutRes val layoutRes: Int?) : Fragment(layoutRes ?:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         log(tag, VERBOSE) { "onViewCreated(view=$view, savedInstanceState=$savedInstanceState)" }
         super.onViewCreated(view, savedInstanceState)
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val systemWindowInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(
+                v.paddingLeft,
+                systemWindowInsets.top,
+                v.paddingRight,
+                0
+            )
+            insets
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

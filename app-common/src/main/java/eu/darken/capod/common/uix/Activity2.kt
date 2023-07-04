@@ -3,6 +3,7 @@ package eu.darken.capod.common.uix
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.LiveData
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -15,6 +16,8 @@ abstract class Activity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         log(tag, VERBOSE) { "onCreate(savedInstanceState=$savedInstanceState)" }
         super.onCreate(savedInstanceState)
+
+        WindowCompat.setDecorFitsSystemWindows( window, false )
     }
 
     override fun onResume() {

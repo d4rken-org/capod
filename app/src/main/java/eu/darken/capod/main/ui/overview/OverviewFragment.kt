@@ -8,6 +8,8 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.BuildConfig
@@ -147,6 +149,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         vm.launchUpgradeFlow.observe2 {
             it(requireActivity())
         }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
