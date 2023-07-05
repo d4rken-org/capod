@@ -33,9 +33,17 @@
         android:title="@string/settings_autoconnect_condition_label" />
 
     <CheckBoxPreference
-        android:icon="@drawable/ic_baseline_chat_24"
+        android:icon="@drawable/ic_message_outline_24"
         android:key="reaction.popup.caseopen"
         android:summary="@string/settings_popup_caseopen_description"
         android:title="@string/settings_popup_caseopen_label" />
+
+    <CheckBoxPreference
+        android:icon="@drawable/ic_message_24"
+        android:key="reaction.popup.connected"
+        android:summary="@string/settings_popup_connected_description"
+        android:title="@string/settings_popup_connected_label" />
+
+    <Preference android:enabled="false" />
 
 </PreferenceScreen>

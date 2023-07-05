@@ -47,6 +47,11 @@ class ReactionSettings @Inject constructor(
         false
     )
 
+    val showPopUpOnConnection = preferences.createFlowPreference(
+        "reaction.popup.connected",
+        false
+    )
+
     val onePodMode = preferences.createFlowPreference(
         "reaction.onepod.enabled",
         false
@@ -58,6 +63,7 @@ class ReactionSettings @Inject constructor(
         autoConnect,
         autoConnectCondition,
         showPopUpOnCaseOpen,
+        showPopUpOnConnection,
         onePodMode,
     )
 }

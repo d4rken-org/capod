@@ -1,19 +1,19 @@
 package eu.darken.capod.main.ui.settings.general
 
-import android.bluetooth.BluetoothDevice
 import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
 
 
 class DeviceSelectionDialogFactory constructor(private val context: Context) {
 
     fun create(
-        devices: List<BluetoothDevice>,
-        current: BluetoothDevice?,
-        callback: (BluetoothDevice?) -> Unit
+        devices: List<BluetoothDevice2>,
+        current: BluetoothDevice2?,
+        callback: (BluetoothDevice2?) -> Unit
     ): AlertDialog {
         return MaterialAlertDialogBuilder(context).apply {
             setTitle(R.string.settings_maindevice_address_label)

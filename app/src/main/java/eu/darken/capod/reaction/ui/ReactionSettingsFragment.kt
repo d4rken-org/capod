@@ -1,6 +1,5 @@
 package eu.darken.capod.reaction.ui
 
-import android.bluetooth.BluetoothDevice
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
@@ -11,6 +10,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -36,7 +36,7 @@ class ReactionSettingsFragment : PreferenceFragment3() {
     override val preferenceFile: Int = R.xml.preferences_reactions
 
     private var isPro: Boolean = false
-    private var bondedDevices: List<BluetoothDevice> = emptyList()
+    private var bondedDevices: List<BluetoothDevice2> = emptyList()
     private val autoConnectConditionPref by lazy { findPreference<ListPreference>(settings.autoConnectCondition.key)!! }
 
     override fun onPreferencesCreated() {
@@ -79,6 +79,11 @@ class ReactionSettingsFragment : PreferenceFragment3() {
                 return true
             }
         } else if (preference.key == reactionSettings.showPopUpOnCaseOpen.key && !isPro) {
+            preference as CheckBoxPreference
+            upgradeRepo.launchBillingFlow(requireActivity())
+            preference.isChecked = false
+            return true
+        } else if (preference.key == reactionSettings.showPopUpOnConnection.key && !isPro) {
             preference as CheckBoxPreference
             upgradeRepo.launchBillingFlow(requireActivity())
             preference.isChecked = false
