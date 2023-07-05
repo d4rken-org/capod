@@ -40,10 +40,9 @@
     <string name="settings_maindevice_address_none">Niente</string>
     <string name="settings_maindevice_model_label">Il modello del tuo dispositivo</string>
     <string name="settings_maindevice_model_description">Il modello del tuo dispositivo principale. Questo aiuta la applicazione a riconoscere il tuo dispositivo quando non è connesso al tuo telefono.</string>
-    <string name="settings_popup_caseopen_label">Mostra popup</string>
-    <string name="settings_popup_caseopen_description">Mostra un popup quando la custodia del dispositivo è aperta (sperimentale).</string>
     <string name="settings_onepod_mode_label">Modalità singolo pod</string>
     <string name="settings_onepod_mode_description">Indossare entrambi i pod non è necessario, indossare un singolo pod è sufficiente per far funzionare le reazioni.</string>
+    <string name="settings_popup_caseopen_description">Mostra un popup quando la custodia del dispositivo è aperta (sperimentale).</string>
     <string name="notification_channel_device_status_label">Stato dispositivo</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
     <string name="debug_debuglog_size_compressed_label">Dimensione compressa</string>

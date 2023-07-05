@@ -37,10 +37,9 @@
     <string name="settings_maindevice_address_none">없음</string>
     <string name="settings_maindevice_model_label">내 기기 모델</string>
     <string name="settings_maindevice_model_description">사용하고 있는 기기의 모델입니다. 전화기에 기기가 연결되지 않았을 때 기기를 찾는 데 도움을 줍니다.</string>
-    <string name="settings_popup_caseopen_label">팝업 보이기</string>
-    <string name="settings_popup_caseopen_description">기기 케이스가 열렸을 때 팝업을 보여줍니다. (실험적)</string>
     <string name="settings_onepod_mode_label">한쪽 기기 모드</string>
     <string name="settings_onepod_mode_description">양쪽 기기를 모두 착용할 필요 없이, 앱에서 한 쪽만 있어도 반응하도록 합니다.</string>
+    <string name="settings_popup_caseopen_description">기기 케이스가 열렸을 때 팝업을 보여줍니다. (실험적)</string>
     <string name="notification_channel_device_status_label">디바이스 상태</string>
     <string name="debug_debuglog_size_label">크기</string>
     <string name="debug_debuglog_size_compressed_label">압축된 크기</string>

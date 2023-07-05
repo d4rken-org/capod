@@ -43,10 +43,9 @@
     <string name="settings_maindevice_address_none">Нет</string>
     <string name="settings_maindevice_model_label">Модель Вашего устройства</string>
     <string name="settings_maindevice_model_description">Модель Вашего основного устройства. Это помогает приложению опознать Ваше устройство, когда оно не подключено к Вашему телефону.</string>
-    <string name="settings_popup_caseopen_label">Всплывающие окна</string>
-    <string name="settings_popup_caseopen_description">Показывать всплывающее окно, когда футляр открыт (эксперимент).</string>
     <string name="settings_onepod_mode_label">Режим одного наушника</string>
     <string name="settings_onepod_mode_description">Нет необходимости носить оба наушника, один наушник уже запускает реакции.</string>
+    <string name="settings_popup_caseopen_description">Показывать всплывающее окно, когда футляр открыт (эксперимент).</string>
     <string name="notification_channel_device_status_label">Статус устройства</string>
     <string name="debug_debuglog_size_label">Размер</string>
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
@@ -96,7 +95,6 @@ AL_Cool_T</string>
     <string name="troubleshooter_ble_result_success_body">BLE рекламные трансляции принимаются на CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Неудачный</string>
     <string name="troubleshooter_ble_result_failure_body">Не удалось устранить неполадки. Ни одна комбинация параметров совместимости не помогала.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">Ваш телефон вообще не получал никаких BLE данных. Вы можете повторить этот тест в людном месте, чтобы проверить, могут ли быть получены данные (c других источников кроме наушников). Отсутствие полученных данных указывает на проблему с операционной системой вашего телефона.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш телефон получил BLE данные, но данные не поступают ни с одного поддерживаемого устройства. Ваши наушники включены? Поддерживает ли CAPod ваши наушники?</string>
     <string name="troubleshooter_ble_result_failure_action">Попробуйте еще раз</string>
     <string name="troubleshoot_action">Устранение неполадок</string>

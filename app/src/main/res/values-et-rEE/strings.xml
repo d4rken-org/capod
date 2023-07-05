@@ -19,7 +19,6 @@
     <string name="troubleshooter_ble_result_success_body">CAPod võtab vastu madalama energiakuluga Bluetoothi kaudu reklaame.</string>
     <string name="troubleshooter_ble_result_failure_title">Nurjus</string>
     <string name="troubleshooter_ble_result_failure_body">Parandamine nurjus. Ükski ühilduvuskombinatsioonidest ei toiminud.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">Telefon ei võtnud vastu mingeid andmeid madalama energiakuluga Buetoothi kaudu. Üritage korrate rahvarohkes kohas, et näha, kas andmete allikaid (mis pole teie kõrvaklapid) saab kätte. Andmete saamise nurjumine viitab telefoni operatsioonisüsteemi veale.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefoni saabusid andmed madalama energiakuluga Bluetoothi kaudu aga andmed ei pärine ühestki ühilduvast seadmest. Kas CAPod ühildub teie kõrvaklapiga?</string>
     <string name="troubleshooter_ble_result_failure_action">Proovi uuesti</string>
     <string name="troubleshoot_action">Lahendamine</string>
