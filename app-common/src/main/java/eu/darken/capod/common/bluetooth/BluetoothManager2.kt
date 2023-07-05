@@ -1,6 +1,10 @@
 package eu.darken.capod.common.bluetooth
 
-import android.bluetooth.*
+import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
+import android.bluetooth.BluetoothHeadset
+import android.bluetooth.BluetoothManager
+import android.bluetooth.BluetoothProfile
 import android.bluetooth.le.BluetoothLeScanner
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -12,14 +16,24 @@ import android.os.ParcelUuid
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
-import eu.darken.capod.common.debug.logging.Logging.Priority.*
+import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import java.io.IOException
+import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -74,7 +88,7 @@ class BluetoothManager2 @Inject constructor(
             }
 
             override fun onServiceDisconnected(profile: Int) {
-                log(TAG, WARN) { "onServiceDisconnected(profile=$profile" }
+                log(TAG, WARN) { "onServiceDisconnected(profile=$profile)" }
                 close(IOException("BluetoothProfile service disconnected (profile=$profile)"))
             }
 
@@ -128,6 +142,7 @@ class BluetoothManager2 @Inject constructor(
                                 log(TAG) { "Adding $device to current devices $currentDevices" }
                                 trySend(currentDevices.plus(device))
                             }
+
                             BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
                                 log(TAG) { "Removing $device from current devices $currentDevices" }
                                 trySend(currentDevices.minus(device))
@@ -145,23 +160,54 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
+    private val seenDevicesLock = Mutex()
+    private val seenDevicesCache = mutableMapOf<String, Instant>()
+
     fun connectedDevices(
         featureFilter: Set<ParcelUuid> = ContinuityProtocol.BLE_FEATURE_UUIDS
-    ): Flow<List<BluetoothDevice>> = isBluetoothEnabled
+    ): Flow<List<BluetoothDevice2>> = isBluetoothEnabled
         .flatMapLatest { monitorDevicesForProfile(BluetoothProfile.HEADSET) }
         .map { devices ->
-            devices.filter { device ->
-                featureFilter.any { feature ->
-                    device.hasFeature(feature)
-                }
+            val currentAddresses = devices.map { it.address }
+
+            seenDevicesLock.withLock {
+                val cleanedCache = seenDevicesCache.filterKeys { currentAddresses.contains(it) }
+                seenDevicesCache.clear()
+                seenDevicesCache.putAll(cleanedCache)
             }
+
+            devices
+                .filter { device -> featureFilter.any { feature -> device.hasFeature(feature) } }
+                .map { device ->
+                    BluetoothDevice2(
+                        internal = device,
+                        seenFirstAt = seenDevicesLock.withLock {
+                            seenDevicesCache[device.address] ?: Instant.now().also {
+                                seenDevicesCache[device.address] = it
+                            }
+                        }
+                    )
+                }
         }
 
-    fun bondedDevices(): Flow<Set<BluetoothDevice>> = flow {
-        emit(adapter?.bondedDevices ?: throw IllegalStateException("Bluetooth adapter unavailable"))
+    fun bondedDevices(): Flow<Set<BluetoothDevice2>> = flow {
+        val rawDevices = adapter?.bondedDevices ?: throw IllegalStateException("Bluetooth adapter unavailable")
+        val wrappedDevices = rawDevices.map { device ->
+
+            BluetoothDevice2(
+                internal = device,
+                seenFirstAt = seenDevicesLock.withLock {
+                    seenDevicesCache[device.address] ?: Instant.now().also {
+                        seenDevicesCache[device.address] = it
+                    }
+                }
+            )
+
+        }.toSet()
+        emit(wrappedDevices)
     }
 
-    suspend fun nudgeConnection(device: BluetoothDevice): Boolean = getBluetoothProfile().map { bluetoothProfile ->
+    suspend fun nudgeConnection(device: BluetoothDevice2): Boolean = getBluetoothProfile().map { bluetoothProfile ->
         try {
             log(TAG) { "Nudging Android connection to $device" }
 
@@ -169,7 +215,7 @@ class BluetoothManager2 @Inject constructor(
                 "connect", BluetoothDevice::class.java
             ).apply { isAccessible = true }
 
-            connectMethod.invoke(bluetoothProfile.proxy, device)
+            connectMethod.invoke(bluetoothProfile.proxy, device.internal)
 
             log(TAG) { "Nudged connection to $device" }
             true

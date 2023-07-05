@@ -30,7 +30,6 @@ class GeneralSettingsFragmentVM @Inject constructor(
     val events = SingleLiveEvent<GeneralSettingsEvents>()
 
     init {
-
         generalSettings.monitorMode.flow
             .withPrevious()
             .filter { (old, new) ->

@@ -46,10 +46,12 @@
     <string name="settings_maindevice_address_none">None</string>
     <string name="settings_maindevice_model_label">Your device model</string>
     <string name="settings_maindevice_model_description">The model of your main device. This helps the app recognize your device when it is not connected to your phone.</string>
-    <string name="settings_popup_caseopen_label">Show popup</string>
-    <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
     <string name="settings_onepod_mode_label">One pod mode</string>
     <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
+    <string name="settings_popup_caseopen_label">Show case popup</string>
+    <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
+    <string name="settings_popup_connected_label">Show connection popup</string>
+    <string name="settings_popup_connected_description">Show a popup when the device connects for the first time.</string>
 
 
     <string name="notification_channel_device_status_label">Device status</string>
