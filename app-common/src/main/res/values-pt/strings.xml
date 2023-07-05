@@ -58,6 +58,4 @@
     <string name="pods_case_unknown_state">Estado desconhecido</string>
     <string name="last_seen_x">Última vez visto: %s</string>
     <string name="first_seen_x">Primeira vez visto: %s</string>
-    <string name="permission_post_notifications_label">Enviar notificações</string>
-    <string name="permission_post_notifications_description">"Permitir que o CAPod envie notificações sobre os seus AirPods, por exemplo, o seu estado atual enquanto conectado."</string>
 </resources>

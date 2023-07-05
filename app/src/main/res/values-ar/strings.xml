@@ -37,10 +37,9 @@
     <string name="settings_maindevice_address_none">غير موجود</string>
     <string name="settings_maindevice_model_label">طِراز جهازك</string>
     <string name="settings_maindevice_model_description">طِراز جهازك الرئيسي. يساعد هذا التطبيق في التعرف على جهازك عندما لا يكون متصلاً بهاتفك.</string>
-    <string name="settings_popup_caseopen_label">عرض إشعار منبثق</string>
-    <string name="settings_popup_caseopen_description">عرض إشعار منبثق عند فتح علبة الجهاز (تجريبي).</string>
     <string name="settings_onepod_mode_label">وضعية السماعة الواحدة</string>
     <string name="settings_onepod_mode_description">ليس بالضرورة ارتداء كِلتا السمَّاعتين، ارتداء سمَّاعة واحدة يكفي لتحريك ردود الفعل.</string>
+    <string name="settings_popup_caseopen_description">عرض إشعار منبثق عند فتح علبة الجهاز (تجريبي).</string>
     <string name="notification_channel_device_status_label">حالة الجهاز</string>
     <string name="debug_debuglog_size_label">الحجم</string>
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>

@@ -43,10 +43,9 @@
     <string name="settings_maindevice_address_none">Tidak ada</string>
     <string name="settings_maindevice_model_label">Model perangkat anda</string>
     <string name="settings_maindevice_model_description">Model perangkat utama anda. Ini membantu aplikasi mengenali perangkat anda saat tidak terhubung ke ponsel anda.</string>
-    <string name="settings_popup_caseopen_label">Tampilkan jendela mengambang</string>
-    <string name="settings_popup_caseopen_description">Tampilkan popup saat kasing perangkat dibuka (eksperimental).</string>
     <string name="settings_onepod_mode_label">Mode satu pod</string>
     <string name="settings_onepod_mode_description">Menggunakan kedua pod tidak diperlukan, memakai satu pod sudah cukup untuk memicu reaksi.</string>
+    <string name="settings_popup_caseopen_description">Tampilkan popup saat kasing perangkat dibuka (eksperimental).</string>
     <string name="notification_channel_device_status_label">Status perangkat</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompresi</string>
@@ -95,7 +94,6 @@
     <string name="troubleshooter_ble_result_success_body">Siaran iklan BLE diterima oleh CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Gagal</string>
     <string name="troubleshooter_ble_result_failure_body">Pemecahan masalah gagal. Tidak ada kombinasi opsi kompatibilitas yang membantu.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">Ponsel Anda tidak menerima data BLE sama sekali. Anda dapat mencoba lagi pengujian ini di area ramai untuk melihat apakah sumber data (selain headphone Anda) dapat diterima. Tidak ada data yang diterima menunjukkan masalah dengan sistem operasi ponsel Anda.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telepon anda menerima data BLE, tetapi data tersebut tidak berasal dari perangkat yang didukung. Apakah headphone Anda dihidupkan? Apakah CAPod mendukung headphone Anda?</string>
     <string name="troubleshooter_ble_result_failure_action">Coba lagi</string>
     <string name="troubleshoot_action">Memecahkan masalah</string>

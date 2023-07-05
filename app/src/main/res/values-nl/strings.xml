@@ -43,10 +43,9 @@
     <string name="settings_maindevice_address_none">Geen</string>
     <string name="settings_maindevice_model_label">Uw apparaatmodel</string>
     <string name="settings_maindevice_model_description">Het model van uw hoofdapparaat. Dit helpt de app uw apparaat te herkennen wanneer het niet is verbonden met uw telefoon.</string>
-    <string name="settings_popup_caseopen_label">Pop-up weergeven</string>
-    <string name="settings_popup_caseopen_description">Een pop-up weergeven wanneer de behuizing van het apparaat wordt geopend (experimenteel).</string>
     <string name="settings_onepod_mode_label">Eén pod-modus</string>
     <string name="settings_onepod_mode_description">Het dragen van beide pods is niet vereist, het dragen van een enkele pod is voldoende om reacties uit te lokken.</string>
+    <string name="settings_popup_caseopen_description">Een pop-up weergeven wanneer de behuizing van het apparaat wordt geopend (experimenteel).</string>
     <string name="notification_channel_device_status_label">Apparaatstatus</string>
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
@@ -95,7 +94,6 @@
     <string name="troubleshooter_ble_result_success_body">BLE-advertentie-uitzendingen worden door CAPod ontvangen.</string>
     <string name="troubleshooter_ble_result_failure_title">Mislukt</string>
     <string name="troubleshooter_ble_result_failure_body">Problemen oplossen mislukt. Geen enkele combinatie van compatibiliteitsopties heeft geholpen.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">Je telefoon heeft helemaal geen BLE-gegevens ontvangen. Je kunt deze test opnieuw proberen in een druk gebied om te zien of gegevensbronnen (anders dan je hoofdtelefoon) kunnen worden ontvangen. Er worden geen gegevens ontvangen die wijzen op een probleem met het besturingssysteem van je telefoon.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Je telefoon heeft BLE-gegevens ontvangen, maar de gegevens zijn niet afkomstig van een ondersteund apparaat. Staat je koptelefoon aan? Ondersteunt CAPod je koptelefoon?</string>
     <string name="troubleshooter_ble_result_failure_action">Probeer opnieuw</string>
     <string name="troubleshoot_action">Problemen oplossen</string>

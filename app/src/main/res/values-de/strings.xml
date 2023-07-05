@@ -43,10 +43,12 @@
     <string name="settings_maindevice_address_none">Keine</string>
     <string name="settings_maindevice_model_label">Ihr Gerätemodell</string>
     <string name="settings_maindevice_model_description">Das Modell Ihres Hauptgeräts. Dies hilft der App, Ihr Gerät zu erkennen, wenn es nicht mit Ihrem Telefon verbunden ist.</string>
-    <string name="settings_popup_caseopen_label">Popup zeigen</string>
-    <string name="settings_popup_caseopen_description">Ein Popup anzeigen, wenn das Gerätegehäuse geöffnet wird (experimentell).</string>
     <string name="settings_onepod_mode_label">Ein-Pod-Modus</string>
     <string name="settings_onepod_mode_description">Das Tragen beider Pods ist nicht erforderlich. Das Tragen eines einzigen Pods reicht aus, um Reaktionen auszulösen.</string>
+    <string name="settings_popup_caseopen_label">Hüllen popup anzeigen</string>
+    <string name="settings_popup_caseopen_description">Ein Popup anzeigen, wenn das Gerätegehäuse geöffnet wird (experimentell).</string>
+    <string name="settings_popup_connected_label">Verbindungs-Popup anzeigen</string>
+    <string name="settings_popup_connected_description">Zeigt ein Popup an, wenn das Gerät zum ersten Mal eine Verbindung herstellt.</string>
     <string name="notification_channel_device_status_label">Geräte Status</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
@@ -95,7 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">BLE-Werbesendungen werden von CAPod empfangen.</string>
     <string name="troubleshooter_ble_result_failure_title">Erfolglos</string>
     <string name="troubleshooter_ble_result_failure_body">Fehlerbehebung fehlgeschlagen. Keine Kombination von Kompatibilitätsoptionen hat geholfen.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">Ihr Telefon hat überhaupt keine BLE-Daten empfangen. Sie können diesen Test in einem überfüllten Bereich wiederholen, um zu sehen, ob Datenquellen (außer Ihren Kopfhörern) empfangen werden können. Es werden keine Daten empfangen, was auf ein Problem mit dem Betriebssystem Ihres Telefons hindeutet.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Dein Telefon hat überhaupt keine BLE-Daten empfangen. Du könntest diesen Test in einem überfüllten Bereich wiederholen, um zu sehen, ob Datenquellen (außer Ihren Kopfhörern) empfangen werden können. Es werden keine Daten empfangen, was auf ein Problem mit dem Betriebssystem Ihres Telefons hindeutet.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ihr Telefon hat BLE-Daten empfangen, aber die Daten stammen von keinem unterstützten Gerät. Sind Ihre Kopfhörer eingeschaltet? Unterstützt CAPod Ihren Kopfhörer?</string>
     <string name="troubleshooter_ble_result_failure_action">Versuchen Sie es erneut</string>
     <string name="troubleshoot_action">Fehlerbehebung</string>

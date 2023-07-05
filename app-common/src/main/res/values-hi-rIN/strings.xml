@@ -58,6 +58,4 @@
     <string name="pods_case_unknown_state">अज्ञात अवस्था</string>
     <string name="last_seen_x">अंतिम बार देखे गए: %s</string>
     <string name="first_seen_x">पहली बार देखा गया: %s</string>
-    <string name="permission_post_notifications_label">सूचनाएं जारी करें</string>
-    <string name="permission_post_notifications_description">"CAPod को अपने AirPods के बारे में सूचनाएं दिखाने की अनुमति दें, जैसे कि जुड़े रहने के दौरान उनकी वर्तमान स्थिति।"</string>
 </resources>

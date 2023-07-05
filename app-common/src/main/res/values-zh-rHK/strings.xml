@@ -58,6 +58,6 @@
     <string name="pods_case_unknown_state">未知狀態</string>
     <string name="last_seen_x">最後連線：%s</string>
     <string name="first_seen_x">首次連線：%s</string>
-    <string name="permission_post_notifications_label">張貼通知</string>
-    <string name="permission_post_notifications_description">"允許 CAPod 為您顯示關於您 AirPods 的通知，例如在連線時顯示它們的目前狀態。"</string>
+    <string name="permission_post_notifications_label">顯示通知</string>
+    <string name="permission_post_notifications_description">"允許 CAPod 顯示關於您 AirPods 的通知，例如在連線時顯示它們的目前狀態。"</string>
 </resources>

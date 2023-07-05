@@ -37,10 +37,9 @@
     <string name="settings_maindevice_address_none">Καμία</string>
     <string name="settings_maindevice_model_label">Μοντέλο της συσκευής σας</string>
     <string name="settings_maindevice_model_description">Το μοντέλο της κύριας συσκευής σας. Αυτό βοηθά την εφαρμογή να αναγνωρίσει τη συσκευή σας όταν δεν είναι συνδεδεμένη στο τηλέφωνό σας.</string>
-    <string name="settings_popup_caseopen_label">Εμφάνιση αναδυόμενου</string>
-    <string name="settings_popup_caseopen_description">Εμφάνιση αναδυόμενου όταν η θήκη της συσκευής είναι ανοιχτή (πειραματικό).</string>
     <string name="settings_onepod_mode_label">Λειτουργία ενός pod</string>
     <string name="settings_onepod_mode_description">Δεν απαιτείται να φοράτε και τα δύο pods, αρκεί να φοράτε ένα μόνο pod για να ενεργοποιούνται αντιδράσεις.</string>
+    <string name="settings_popup_caseopen_description">Εμφάνιση αναδυόμενου όταν η θήκη της συσκευής είναι ανοιχτή (πειραματικό).</string>
     <string name="notification_channel_device_status_label">Κατάσταση συσκευής</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
     <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
