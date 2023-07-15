@@ -138,14 +138,14 @@ jobs:
           ruby-version: 2.7.6
           bundler-cache: true
 
-      - name: Assemble WearOS beta and upload to Google Play
-        if: contains(steps.tagger.outputs.tag, '-beta')
-        run: bundle exec fastlane beta_wearos
-        env:
-          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
+      #      - name: Assemble WearOS beta and upload to Google Play
+      #        if: contains(steps.tagger.outputs.tag, '-beta')
+      #        run: bundle exec fastlane beta_wearos
+      #        env:
+      #          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      #          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      #          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      #          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
 
       - name: Assemble beta and upload to Google Play
         if: contains(steps.tagger.outputs.tag, '-beta')
@@ -156,14 +156,14 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
 
-      - name: Assemble WearOS production and upload to Google Play
-        if: "!contains(steps.tagger.outputs.tag, '-beta')"
-        run: bundle exec fastlane production_wearos
-        env:
-          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
+      #      - name: Assemble WearOS production and upload to Google Play
+      #        if: "!contains(steps.tagger.outputs.tag, '-beta')"
+      #        run: bundle exec fastlane production_wearos
+      #        env:
+      #          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      #          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+      #          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      #          BUGSNAG_API_KEY: ${{ secrets.BUGSNAG_API_KEY }}
 
       - name: Assemble production and upload to Google Play
         if: "!contains(steps.tagger.outputs.tag, '-beta')"
