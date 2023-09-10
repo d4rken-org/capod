@@ -27,16 +27,30 @@ If you know the physical location of a Bluetooth device (e.g. AirTags) you could
 
 CAPod uses the "location access in the background" permission (`ACCESS_BACKGROUND_LOCATION`) on Android 11 and older to receive Bluetooth Low Energy data while the app is in the background. This permission enables the "Show popup" and "Autoconnect" features and allows CAPod to react to nearby devices whil the app is closed.
 
-## Automatic crash reports
+## Automatic error reports
 
-Anonymous device information may be collected in the event of an app crash or error.
+If an error occurs, an automated report may be sent to help me fix the issue.
 
-To do this the app uses the service "Bugsnag":
+This is optional and you can opt out of this in the settings.
+
+Error reports are collected using "Bugsnag":
 https://www.bugsnag.com/
 
 Bugsnag's privacy policy can be found here:
 https://docs.bugsnag.com/legal/privacy-policy/
 
-Crash reports may contain device and app related information, e.g. your phone model, Android version and app version.
+Error reports contain device and app information related to the error that occured.
+Additional information about the error context may also be included, e.g. what this app did shortly before the error.
 
-You can disable automatic reports in the app's settings.
+Additional details about the type of data that is collected by the error tracking SDK can be found here:
+https://docs.bugsnag.com/platforms/android/playstore-privacy/
+
+Error reports are pseudonymous. Unless you tell me your install-ID, I don't know that an error report came from you.
+
+Error reports are automatically deleted after 90 days.
+
+## Debug logs
+
+The app has a debug log feature that can be used to assist troubleshooting efforts. This feature creates a log file that contains verbose output of what the app is doing.
+
+It is manually triggered by the user through an option in the app settings. The recorded log file can be shared through compatible apps (e.g. your email app) using the system's share dialog. As this log file may contain sensitive information (e.g. details about files or installed applications) it should only be shared with trusted parties.
