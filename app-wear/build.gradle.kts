@@ -45,11 +45,8 @@ android {
         create("gplay") {
             dimension = "version"
             signingConfig = signingConfigs["releaseGplay"]
-            extra["useBugsnag"] = true
         }
     }
-
-    setupBugsnagPlugin()
 
     buildTypes {
         val customProguardRules = fileTree(File("../proguard")) {
@@ -141,7 +138,4 @@ dependencies {
 
     implementation("androidx.wear:wear:1.2.0")
     implementation("androidx.wear.tiles:tiles-material:1.1.0")
-
-    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
-    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.3")
 }

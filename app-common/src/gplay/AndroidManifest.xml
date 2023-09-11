@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest>
 
     <application>
-        <meta-data
-            android:name="com.bugsnag.android.API_KEY"
-            android:value="${bugsnagApiKey}" />
+
     </application>
 
 </manifest>
