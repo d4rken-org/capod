@@ -8,6 +8,7 @@ import eu.darken.capod.common.error.ErrorEventSource
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.navigation.NavEventSource
+import eu.darken.capod.common.navigation.navVia
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
@@ -31,4 +32,7 @@ abstract class ViewModel3(
         .setupCommonEventHandlers(TAG) { "launchInViewModel()" }
         .launchIn(vmScope)
 
+    fun NavDirections.navigate() {
+        navVia(navEvents)
+    }
 }

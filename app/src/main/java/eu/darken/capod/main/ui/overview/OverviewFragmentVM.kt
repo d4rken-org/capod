@@ -11,7 +11,6 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.livedata.SingleLiveEvent
-import eu.darken.capod.common.navigation.navVia
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.common.upgrade.UpgradeRepo
@@ -47,6 +46,12 @@ class OverviewFragmentVM @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+
+    init {
+        if (!generalSettings.isOnboardingDone.value) {
+            OverviewFragmentDirections.actionOverviewFragmentToOnboardingFragment().navigate()
+        }
+    }
 
     val upgradeState = upgradeRepo.upgradeInfo.asLiveData2()
     val launchUpgradeFlow = SingleLiveEvent<(Activity) -> Unit>()
@@ -124,7 +129,7 @@ class OverviewFragmentVM @Inject constructor(
                 items.add(0, BluetoothDisabledVH.Item)
             } else if (mainPod == null) {
                 items.add(0, MissingMainDeviceVH.Item {
-                    OverviewFragmentDirections.actionOverviewFragmentToTroubleShooterFragment().navVia(this)
+                    OverviewFragmentDirections.actionOverviewFragmentToTroubleShooterFragment().navigate()
                 })
             }
         }
@@ -140,12 +145,14 @@ class OverviewFragmentVM @Inject constructor(
                         showDebug = isDebugMode,
                         isMainPod = isMainPod,
                     )
+
                     is SinglePodDevice -> SinglePodsCardVH.Item(
                         now = now,
                         device = it,
                         showDebug = isDebugMode,
                         isMainPod = isMainPod,
                     )
+
                     else -> UnknownPodDeviceCardVH.Item(
                         now = now,
                         device = it,
@@ -166,7 +173,7 @@ class OverviewFragmentVM @Inject constructor(
     }
 
     fun goToSettings() = launch {
-        OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navVia(this@OverviewFragmentVM)
+        OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navigate()
     }
 
     fun onUpgrade() = launch {
