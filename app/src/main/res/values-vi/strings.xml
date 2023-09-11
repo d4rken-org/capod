@@ -39,7 +39,10 @@
     <string name="settings_maindevice_model_description">Kiểu thiết bị chính của bạn. Điều này giúp ứng dụng nhận ra thiết bị của bạn khi thiết bị không được kết nối với điện thoại của bạn.</string>
     <string name="settings_onepod_mode_label">Chế độ 1 tai nghe</string>
     <string name="settings_onepod_mode_description">Không cần đeo cả hai, chỉ đeo một tai nghe là đủ để kích hoạt phản ứng.</string>
+    <string name="settings_popup_caseopen_label">Hiển thị case popup</string>
     <string name="settings_popup_caseopen_description">Hiển thị cửa sổ bật lên khi hộp thiết bị được mở (thử nghiệm).</string>
+    <string name="settings_popup_connected_label">Hiển thị popup kết nối</string>
+    <string name="settings_popup_connected_description">Hiển thị cửa sổ bật lên khi thiết bị kết nối lần đầu tiên.</string>
     <string name="notification_channel_device_status_label">Trạng thái thiết bị</string>
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
@@ -75,4 +78,5 @@
     <string name="help_translate_description">Giúp dịch ứng dụng này sang ngôn ngữ yêu thích của bạn.</string>
     <string name="translators_thanks_title">Dịch thuật</string>
     <string name="translators_thanks_description">dovanchuc7521</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Điện thoại của bạn hoàn toàn không nhận được bất kỳ dữ liệu BLE nào. Bạn có thể thử lại bài kiểm tra này ở khu vực đông người để xem có thể nhận được các nguồn dữ liệu (không phải tai nghe của bạn) hay không. Không nhận được dữ liệu nào cho thấy có vấn đề với hệ điều hành điện thoại của bạn.</string>
 </resources>

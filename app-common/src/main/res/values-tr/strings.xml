@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Bilinmeyen durum</string>
     <string name="last_seen_x">Son görülme: %s</string>
     <string name="first_seen_x">İlk görülme: %s</string>
+    <string name="permission_post_notifications_label">Bildirimleri göster</string>
+    <string name="permission_post_notifications_description">"CAPod'un AirPods'larınız hakkında bildirimler göstermesine izin vermelisiniz, ör. cihaza bağlıyken mevcut durumları."</string>
 </resources>

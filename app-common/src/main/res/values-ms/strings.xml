@@ -55,4 +55,6 @@
     <string name="pods_case_unknown_state">Keadaan tidak diketahui</string>
     <string name="last_seen_x">Terakhir dilihat: %s</string>
     <string name="first_seen_x">Pertama dilihat: %s</string>
+    <string name="permission_post_notifications_label">Tunjukkan pemberitahuanm</string>
+    <string name="permission_post_notifications_description">"Benarkan CAPod memaparkan pemberitahuan tentang AirPods anda, misalnya, status semasa mereka ketika disambungkan."</string>
 </resources>

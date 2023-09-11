@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">El model del vostre dispositiu principal. Això ajuda l\'aplicació a reconèixer el vostre dispositiu quan no està connectat al vostre telèfon.</string>
     <string name="settings_onepod_mode_label">Mode d\'un AirPod</string>
     <string name="settings_onepod_mode_description">No cal portar els dos AirdPods, per provocar reaccions només cal portar-ne un.</string>
+    <string name="settings_popup_caseopen_label">Mostra la finestra emergent de la funda</string>
     <string name="settings_popup_caseopen_description">Mostra una finestra emergent quan s\'obre la funda del dispositiu (experimental).</string>
+    <string name="settings_popup_connected_label">Mostra la finestra emergent de connexió</string>
+    <string name="settings_popup_connected_description">Mostra una finestra emergent quan el dispositiu es connecti per primera vegada.</string>
     <string name="notification_channel_device_status_label">Estat del dispositiu</string>
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">El CAPod està rebent emissions d\'anuncis BLE.</string>
     <string name="troubleshooter_ble_result_failure_title">Incorrecte</string>
     <string name="troubleshooter_ble_result_failure_body">La resolució de problemes ha fallat. No ha funcionat cap combinació d\'opcions de compatibilitat.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">El vostres telèfon no ha rebut cap dada BLE. Podeu tornar a provar aquesta prova en una zona plena de gent per veure si es poden rebre fonts de dades (que no siguin els vostres auriculars). No rebre dades indica un problema amb el sistema operatiu del telèfon.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">El vostre telèfon ha rebut dades BLE, però les dades no provenen de cap dispositiu compatible. Teniu els auriculars encesos? El CAPod és compatible amb els vostres auriculars?</string>
     <string name="troubleshooter_ble_result_failure_action">Torna-ho a provar</string>
     <string name="troubleshoot_action">Resolució de problemes</string>

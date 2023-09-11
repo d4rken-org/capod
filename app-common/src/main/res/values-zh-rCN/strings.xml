@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">不可用</string>
     <string name="general_error_label">错误</string>
     <string name="general_grant_permission_action">授予权限</string>
@@ -55,4 +58,6 @@
     <string name="pods_case_unknown_state">未知状态</string>
     <string name="last_seen_x">上次出现：%s</string>
     <string name="first_seen_x">首次出现：%s</string>
+    <string name="permission_post_notifications_label">显示通知</string>
+    <string name="permission_post_notifications_description">"允许 CAPod 显示有关您 AirPods 的通知，例如其连接时的当前状态"</string>
 </resources>

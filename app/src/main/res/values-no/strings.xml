@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">Modellen til hovedenheten din. Dette hjelper appen med å gjenkjenne enheten din når den ikke er koblet til telefonen.</string>
     <string name="settings_onepod_mode_label">En pod modus</string>
     <string name="settings_onepod_mode_description">Du trenger kun ha på deg en pod for å utløse reaksjoner, i stedet for begge.</string>
+    <string name="settings_popup_caseopen_label">Vis etui popup</string>
     <string name="settings_popup_caseopen_description">Vis en popup når enhetens deksel åpnes (eksperimentelt).</string>
+    <string name="settings_popup_connected_label">Vis tilkobling popup</string>
+    <string name="settings_popup_connected_description">Vis en popup første gang enheten kobles til.</string>
     <string name="notification_channel_device_status_label">Enhetsstatus</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">BLE advertisement kringkastinger blir mottatt av CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Mislykket</string>
     <string name="troubleshooter_ble_result_failure_body">Feilsøking mislyktes. Ingen kombinasjoner av kompatibilitets-alternativer fungerte.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Telefonen din mottok ingen BLE-data i det hele tatt. Du kan prøve denne testen på nytt i et folksomt område for å se om datakilder (annet enn hodetelefonene dine) kan mottas. Ingen data mottatt peker mot et problem med telefonens operativsystem.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonen din mottok BLE-data, men dataene kommer ikke fra en støttet enhet. Er hodetelefonene dine slått på? Støtter CAPod din type hodetelefoner?</string>
     <string name="troubleshooter_ble_result_failure_action">Prøv igjen</string>
     <string name="troubleshoot_action">Feilsøk</string>

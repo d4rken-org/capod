@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Неизвестное состояние</string>
     <string name="last_seen_x">Последние: %s</string>
     <string name="first_seen_x">Первые: %s</string>
+    <string name="permission_post_notifications_label">Показывать уведомления</string>
+    <string name="permission_post_notifications_description">"Разрешить CAPod показывать уведомления о Ваших AirPods, например текущий статус при подключении."</string>
 </resources>

@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">Le modèle de votre appareil principal. Facilite la reconnaissance de votre appareil par l’appli s’il n’est pas connecté à votre téléphone.</string>
     <string name="settings_onepod_mode_label">Mode à un seul AirPod</string>
     <string name="settings_onepod_mode_description">Il n’est pas nécessaire de porter deux AirPods, en porter un seul suffit à déclencher les réactions.</string>
-    <string name="settings_popup_caseopen_description">Afficher une notification à l’ouverture de l’étui de l\'appareil (expérimental).</string>
+    <string name="settings_popup_caseopen_label">Afficher une fenêtre pour l’étui</string>
+    <string name="settings_popup_caseopen_description">Afficher une fenêtre surgissante à l’ouverture de l’étui de l\'appareil (expérimental).</string>
+    <string name="settings_popup_connected_label">Afficher une fenêtre de connection</string>
+    <string name="settings_popup_connected_description">Afficher une fenêtre surgissante quand l’appareil se connecte pour la première fois.</string>
     <string name="notification_channel_device_status_label">État de l’appareil</string>
     <string name="debug_debuglog_size_label">Taille</string>
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">Les diffusions d’annonces BÉB sont reçues par CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Échec du dépannage</string>
     <string name="troubleshooter_ble_result_failure_body">Le dépannage a échoué. Aucune des options de compatibilité n’a réglé la situation.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Votre téléphone n’a reçu aucune donnée BÉB. Vous pouvez relancer le test dans un endroit bondé pour voir si des sources de données (autres que votre casque d’écoute) sont reçues. Si aucune donnée n’est reçue, le problème pourrait provenir du système d’exploitation de votre téléphone.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Votre téléphone a reçu des données, mais les données ne proviennent pas d’un appareil pris en charge. Votre casque d’écoute est-il en fonction ? CAPod prend-il votre casque d’écoute en charge ?</string>
     <string name="troubleshooter_ble_result_failure_action">Réessayer</string>
     <string name="troubleshoot_action">Dépanner</string>

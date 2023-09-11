@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">Model vášho hlavného zariadenia. Pomáha to aplikácii rozpoznať vaše zariadenie, keď nie je pripojené k telefónu.</string>
     <string name="settings_onepod_mode_label">Režim jedného slúchadla</string>
     <string name="settings_onepod_mode_description">Nosenie oboch slúchadiel nie je potrebné, na spustenie reakcií postačuje nosenie jedného slúchadla.</string>
+    <string name="settings_popup_caseopen_label">Zobraziť vyskakovacie okno puzdra</string>
     <string name="settings_popup_caseopen_description">Po otvorení puzdra zariadenia zobraziť kontextové okno (experimentálne).</string>
+    <string name="settings_popup_connected_label">Zobraziť vyskakovacie okno pri pripojení</string>
+    <string name="settings_popup_connected_description">Pri prvom pripojení zariadenia zobraziť vyskakovacie okno.</string>
     <string name="notification_channel_device_status_label">Stav zariadenia</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">CAPod prijíma reklamné vysielanie BLE.</string>
     <string name="troubleshooter_ble_result_failure_title">Neúspešné</string>
     <string name="troubleshooter_ble_result_failure_body">Riešenie problémov zlyhalo. Nepomohla žiadna kombinácia možností kompatibility.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Váš telefón neprijal vôbec žiadne údaje BLE. Tento test môžete zopakovať v preplnenej oblasti a zistiť, či je možné prijímať zdroje údajov (iné ako vaše slúchadlá). Žiadne prijímané údaje neukazujú na problém s operačným systémom vášho telefónu.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Váš telefón prijal údaje BLE, ale údaje nepochádzajú zo žiadneho podporovaného zariadenia. Máte zapnuté slúchadlá? Podporuje CAPod vaše slúchadlá?</string>
     <string name="troubleshooter_ble_result_failure_action">Skúste znova</string>
     <string name="troubleshoot_action">Riešiť problém</string>
