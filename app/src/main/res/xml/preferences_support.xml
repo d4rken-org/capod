@@ -23,7 +23,8 @@
             android:icon="@drawable/ic_id_onsurface"
             android:key="support.installid"
             android:summary="@string/settings_support_installid_desc"
-            android:title="@string/settings_support_installid_label" />
+            android:title="@string/settings_support_installid_label"
+            app:isPreferenceVisible="false" />
 
         <CheckBoxPreference
             android:icon="@drawable/ic_spider_thread_onsurface"
