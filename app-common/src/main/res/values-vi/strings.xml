@@ -53,4 +53,6 @@
     <string name="pods_case_unknown_state">Trạng thái không xác định</string>
     <string name="last_seen_x">Nhìn thấy lần cuối: %s</string>
     <string name="first_seen_x">Nhìn thấy lần đầu: %s</string>
+    <string name="permission_post_notifications_label">Hiển thị thông báo</string>
+    <string name="permission_post_notifications_description">"Cho phép CAPod hiển thị thông báo về AirPods của bạn, ví dụ: tình trạng hiện tại của họ trong khi kết nối."</string>
 </resources>

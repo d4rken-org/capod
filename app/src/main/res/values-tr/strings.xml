@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">Ana aygıtın modeli. Bu, uygulamanın telefonunuza bağlı olmadığında aygıtınızı tanımasına yardımcı olur.</string>
     <string name="settings_onepod_mode_label">Tek kulaklık modu</string>
     <string name="settings_onepod_mode_description">Her iki kulaklığı da takmak gerekli değildir, tek bir kulaklık takmak eylemleri tetiklemek için yeterlidir.</string>
+    <string name="settings_popup_caseopen_label">Şarj kutusu için açılır pencere göster</string>
     <string name="settings_popup_caseopen_description">Şarj kutusu açıldığında açılır bir pencere gösterir (deneysel).</string>
+    <string name="settings_popup_connected_label">Bağlantı için açılır pencere göster</string>
+    <string name="settings_popup_connected_description">Cihaz ilk kez bağlantı kurduğunda, açılır bir pencere gösterir.</string>
     <string name="notification_channel_device_status_label">Aygıt durumu</string>
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
@@ -55,7 +58,7 @@
     <string name="settings_support_installid_label">Kurulum Kimliği</string>
     <string name="settings_support_installid_desc">Otomatik hata raporları anonimdir. Geliştiricinin hata raporlarınızı bulması gerekiyorsa kurulum kimliğinizi paylaşabilirsiniz.</string>
     <string name="settings_support_label">Destek</string>
-    <string name="settings_support_description">Yardıma ihtiyacın olursa.</string>
+    <string name="settings_support_description">Yardıma ihtiyacınız olursa.</string>
     <string name="issue_tracker_label">Sorun izleyici</string>
     <string name="issue_tracker_description">Hata raporları ve yeni özellik talepleri için genel bir sorun izleyici (yalnızca İngilizce).</string>
     <string name="discord_label">Discord</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">BLE reklam yayınları CAPod tarafından alınmaktadır.</string>
     <string name="troubleshooter_ble_result_failure_title">Başarısız</string>
     <string name="troubleshooter_ble_result_failure_body">Sorun giderme başarısız oldu. Uyumluluk seçeneklerinin hiçbir kombinasyonu yardımcı olmadı.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Telefonunuz hiç BLE verisi almadı. Veri kaynaklarının (kulaklığınız dışında) alınıp alınamayacağını görmek için bu testi kalabalık bir alanda tekrar deneyebilirsiniz. Alınan hiçbir veri, telefonunuzun işletim sistemiyle ilgili bir soruna işaret etmez.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonunuz BLE verilerini aldı, ancak veriler desteklenen herhangi bir aygıttan gelmiyor. Kulaklığınız açık mı? CAPod kulaklığınızı destekliyor mu?</string>
     <string name="troubleshooter_ble_result_failure_action">Tekrar deneyin</string>
     <string name="troubleshoot_action">Sorun giderme</string>

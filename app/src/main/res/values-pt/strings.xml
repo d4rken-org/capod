@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">O modelo do seu dispositivo principal. Isto ajuda a aplicação a reconhecer o seu dispositivo quando não está conectado ao seu telemóvel.</string>
     <string name="settings_onepod_mode_label">Modo de um pod</string>
     <string name="settings_onepod_mode_description">Usar os dois pods não é necessário, usar um único pod é suficiente para desencadear reações.</string>
+    <string name="settings_popup_caseopen_label">Mostrar pop-up da caixa</string>
     <string name="settings_popup_caseopen_description">Mostrar pop-up quando a caixa do dispositivo está aberta (experimental).</string>
+    <string name="settings_popup_connected_label">Mostrar pop-up da conexão</string>
+    <string name="settings_popup_connected_description">Mostrar pop-up quando o dispositivo conecta pela primeira vez.</string>
     <string name="notification_channel_device_status_label">Estado do dispositivo</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho comprimido</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">As transmissões de anúncios BLE são recebidas pelo CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Sem sucesso</string>
     <string name="troubleshooter_ble_result_failure_body">A resolução de problemas falhou. Nenhuma combinação de opções de compatibilidade funcionou.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">O seu telemóvel não recebeu nenhum dado BLE. Tente novamente numa zona movimentada para ver se fontes de dados (fora dos seus auscultadores) podem ser recebidas. Nenhum dado recebido significa um problema no sistema operativo do seu telemóvel.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">O seu telefone recebeu dados BLE, mas os dados não vêm de nenhum dispositivo compatível. Os seus auscultadores estão ligados? O CAPod é compatível com os seus auscultadores?</string>
     <string name="troubleshooter_ble_result_failure_action">Tentar de novo</string>
     <string name="troubleshoot_action">Resolver problemas</string>

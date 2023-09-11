@@ -58,4 +58,6 @@
     <string name="pods_case_unknown_state">Ukjent status</string>
     <string name="last_seen_x">Sist sett: %s</string>
     <string name="first_seen_x">Først sett: %s</string>
+    <string name="permission_post_notifications_label">Vis varsler</string>
+    <string name="permission_post_notifications_description">"La CAPod vise varsler om dine AirPods, f.eks. nåværende status under tilkobling."</string>
 </resources>

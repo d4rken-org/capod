@@ -34,6 +34,10 @@
     <string name="settings_category_yourdevice_label">您的设备</string>
     <string name="settings_category_compatibility_options_title">兼容性选项</string>
     <string name="settings_category_compatibility_options_description">如果一切正常，请不要修改 ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">禁用硬件过滤</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">不将数据过滤委托给系统，而是在应用内获取所有数据并进行过滤</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">禁用硬件批处理</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">在转发给我们之前，不要让系统组收集BLE数据。</string>
     <string name="settings_maindevice_address_label">您的设备地址</string>
     <string name="settings_maindevice_address_description">已配对设备的地址，本应用通过它来确定其连接到您手机的时间</string>
     <string name="settings_maindevice_address_none">无</string>
@@ -41,7 +45,10 @@
     <string name="settings_maindevice_model_description">您的主设备的型号。这有助于应用程序在设备未连接到您的手机时识别该设备。</string>
     <string name="settings_onepod_mode_label">单耳模式</string>
     <string name="settings_onepod_mode_description">不需要同时佩戴两支耳机，单支即可引发反应</string>
+    <string name="settings_popup_caseopen_label">显示开盖弹窗</string>
     <string name="settings_popup_caseopen_description">设备充电仓打开时显示弹窗（实验性）</string>
+    <string name="settings_popup_connected_label">显示连接弹窗</string>
+    <string name="settings_popup_connected_description">当设备初次连接时显示弹窗</string>
     <string name="notification_channel_device_status_label">设备状态</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">压缩后大小</string>
@@ -54,6 +61,7 @@
     <string name="settings_support_description">如果你需要一些帮助。</string>
     <string name="issue_tracker_label">问题追踪器</string>
     <string name="issue_tracker_description">用于缺陷报告和功能请求的问题追踪系统（仅限英语）。</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">一个闲聊和提问的去处</string>
     <string name="changelog_label">更新日志</string>
     <string name="settings_label">设置</string>
@@ -76,4 +84,17 @@
     <string name="help_translate_description">帮助翻译本应用</string>
     <string name="translators_thanks_title">翻译人员</string>
     <string name="translators_thanks_description">木仔</string>
+    <string name="widget_description">显示上次连接设备状态的小部件</string>
+    <string name="settings_compat_indirectcallback_title">间接数据传送</string>
+    <string name="settings_compat_indirectcallback_summary">使用替代方法从系统接收 BLE 数据（广播而不是回调）。</string>
+    <string name="troubleshooter_title">故障排除</string>
+    <string name="troubleshooter_ble_intro_title">低延迟蓝牙广播</string>
+    <string name="troubleshooter_ble_intro_body1">Andpods (以及和其相似的耳机) 使用一种叫做 ”advertisement“ 的BLE技术来广播设备信息和状态。 一些手机不一定能很好地实现这种技术。CAPod能尝试使用不同兼容性选项来修复连接直到数据被接收。把耳机靠近手机并播放音乐，然后开始：</string>
+    <string name="troubleshooter_ble_intro_start_action">开始故障排除</string>
+    <string name="troubleshooter_ble_process_title">故障排除进行中</string>
+    <string name="troubleshooter_ble_process_subtile">每个步骤需花费 5-10 秒钟</string>
+    <string name="troubleshooter_ble_result_success_title">成功</string>
+    <string name="troubleshooter_ble_result_failure_title">失败</string>
+    <string name="troubleshooter_ble_result_failure_action">重试</string>
+    <string name="troubleshoot_action">故障排除</string>
 </resources>

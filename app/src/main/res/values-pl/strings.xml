@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">Model twojego głównego urządzenia. Pomaga aplikacji rozpoznać twoje urządzenie, gdy nie jest połączone z telefonem.</string>
     <string name="settings_onepod_mode_label">Tryb jednego pod\'a</string>
     <string name="settings_onepod_mode_description">Noszenie obu pod\'ów nie jest wymagane. Wystarczy jeden, aby aktywować reakcje.</string>
+    <string name="settings_popup_caseopen_label">Wyświetl okienko przybornika</string>
     <string name="settings_popup_caseopen_description">Wyświetla informację, gdy obudowa urządzenia jest otwarta (eksperymentalnie).</string>
+    <string name="settings_popup_connected_label">Wyświetl okienko połączenia</string>
+    <string name="settings_popup_connected_description">Wyświetla okienko, gdy urządzenie łączy się po raz pierwszy.</string>
     <string name="notification_channel_device_status_label">Status urządzenia</string>
     <string name="debug_debuglog_size_label">Rozmiar</string>
     <string name="debug_debuglog_size_compressed_label">Rozmiar skompresowanego</string>
@@ -94,6 +97,7 @@
     <string name="troubleshooter_ble_result_success_body">Audycje reklamowe BLE są odbierane przez CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Niepowodzenie</string>
     <string name="troubleshooter_ble_result_failure_body">Rozwiązywanie problemów nie powiodło się. Nie pomogła żadna kombinacja opcji kompatybilności.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Twój telefon nie odebrał żadnych danych BLE. Możesz ponowić test w zatłoczonym obszarze, aby sprawdzić, czy źródła danych (inne niż twoje słuchawki) mogą być odbierane. Brak odbioru danych wskazuje na problem z systemem operacyjnym telefonu.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Twój telefon odebrał dane BLE, jednak nie pochodzą one od obsługiwanego urządzenia. Czy twoje słuchawki są włączone? Czy CAPod obsługuje twoje słuchawki?</string>
     <string name="troubleshooter_ble_result_failure_action">Spróbuj ponownie</string>
     <string name="troubleshoot_action">Rozwiązywanie problemów</string>
