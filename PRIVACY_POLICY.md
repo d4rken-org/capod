@@ -20,14 +20,20 @@ On Android 12+ the newer and more fine grained `BLUETOOTH_SCAN` permission is us
 
 Bluetooth Low Energy is a technology that devices like AirPods use to communicate their status to nearby devices.
 CAPod requests location permissions because these permissions are required to work with Bluetooth Low Energy data.
-This is a privacy measure on Android's side because you could determine someones location by scanning for Bluetooth devices:
-If you know the physical location of a Bluetooth device (e.g. AirTags) you could use Bluetooth data to calculate your position.
+This is a privacy measure on Android's side because you could determine someones location by scanning for Bluetooth
+devices:
+If you know the physical location of a Bluetooth device (e.g. AirTags) you could use Bluetooth data to calculate your
+position.
 
 ### Location access in the background
 
-CAPod uses the "location access in the background" permission (`ACCESS_BACKGROUND_LOCATION`) on Android 11 and older to receive Bluetooth Low Energy data while the app is in the background. This permission enables the "Show popup" and "Autoconnect" features and allows CAPod to react to nearby devices whil the app is closed.
+CAPod uses the "location access in the background" permission (`ACCESS_BACKGROUND_LOCATION`) on Android 11 and older to
+receive Bluetooth Low Energy data while the app is in the background. This permission enables the "Show popup" and "
+Autoconnect" features and allows CAPod to react to nearby devices whil the app is closed.
 
 ## Automatic error reports
+
+*This was removed in v2.11.0+*
 
 If an error occurs, an automated report may be sent to help me fix the issue.
 

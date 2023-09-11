@@ -46,15 +46,6 @@
         android:title="@string/settings_licenses_label"
         app:iconSpaceReserved="false">
         <Preference
-            android:key="license.bugsnag"
-            android:summary="Client side library for crash monitoring via bugsnag.com. (MIT)"
-            android:title="Bugsnag"
-            app:iconSpaceReserved="false">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/bugsnag/bugsnag-android" />
-        </Preference>
-        <Preference
             android:key="license.glide"
             android:summary="An image loading and caching library for Android focused on smooth scrolling. (Multiple licenses)"
             android:title="Glide"

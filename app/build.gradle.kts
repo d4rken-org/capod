@@ -42,11 +42,8 @@ android {
         create("gplay") {
             dimension = "version"
             signingConfig = signingConfigs["releaseGplay"]
-            extra["useBugsnag"] = true
         }
     }
-
-    setupBugsnagPlugin()
 
     buildTypes {
         val customProguardRules = fileTree(File(projectDir, "proguard")) {
@@ -150,7 +147,4 @@ dependencies {
 
     "gplayImplementation"("com.android.billingclient:billing:5.1.0")
     "gplayImplementation"("com.android.billingclient:billing-ktx:5.1.0")
-
-    "gplayImplementation"("com.bugsnag:bugsnag-android:5.9.2")
-    "gplayImplementation"("com.getkeepsafe.relinker:relinker:1.4.3")
 }
