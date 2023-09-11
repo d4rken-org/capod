@@ -10,9 +10,6 @@ Võimalused:
 * telefon ja AirPodsid ühenduvad ise;
 * hüpikakna näitamine, kui kaas avatud.
 
-CAPodist on klapi lähimat olekut näitav Wear-OS versioon.
-CAPod Wear-OS-ile on eraldi rakendus, mis ei vaja telefoni.
-
 CAPodis pole reklaame. Osa võimalusi saab osta rakendusest.
 
 Tuntuimad AirPodsid ja Beatsi seadmed on toetatud.

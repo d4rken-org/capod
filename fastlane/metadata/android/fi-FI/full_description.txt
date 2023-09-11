@@ -10,9 +10,6 @@ Features:
 * Automatically connect phone and AirPods.
 * Show popup when case is opened.
 
-CAPod has a Wear-OS version that shows the status of the pod device that is closest to you.
-CAPod for Wear-OS is a stand-alone app and does not require a phone.
-
 CAPod is ad-free. Some features require an in-app purchase.
 
 Most popular AirPods and Beats devices are supported.

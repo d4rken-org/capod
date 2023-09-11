@@ -8,10 +8,7 @@ Caractéristiques :
 * Peut se connecter à tous les appareils à proximité et les présenter.
 * Détection de la mise en oreille avec lecture et pause automatiques.
 * Connecter automatiquement le téléphone et les AirPods.
-* Affiche une notification quand l'étui est ouvert.
-
-CAPod propose une version pour Wear OS qui affiche l’état des AirPods les plus proches de vous.
-CAPod pour Wear OS est une appli autonome qui n’a pas besoin de téléphone.
+* Afficher une fenêtre surgissante à l’ouverture de l’étui.
 
 CAPod est exempt de publicités. L’achat intégré donne accès à des fonctions supplémentaires.
 

@@ -1,1 +1,1 @@
-Companion app per le Airpods
+CAPod - App per AirPods
