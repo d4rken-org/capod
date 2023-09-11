@@ -40,6 +40,8 @@ class GeneralSettings @Inject constructor(
     val isOffloadedBatchingDisabled = preferences.createFlowPreference("core.compat.offloaded.batching.disabled", false)
     val useIndirectScanResultCallback = preferences.createFlowPreference("core.compat.indirectcallback.enabled", false)
 
+    val isOnboardingDone = preferences.createFlowPreference("core.onboarding.done", false)
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         scannerMode,

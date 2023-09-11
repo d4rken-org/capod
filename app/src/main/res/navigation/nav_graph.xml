@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_overviewFragment_to_troubleShooterFragment"
             app:destination="@id/troubleShooterFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
     </fragment>
 
     <fragment
@@ -27,5 +30,13 @@
         android:id="@+id/troubleShooterFragment"
         android:name="eu.darken.capod.troubleshooter.ui.TroubleShooterFragment"
         tools:layout="@layout/troubleshooter_fragment" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="eu.darken.capod.main.ui.onboarding.OnboardingFragment"
+        tools:layout="@layout/onboarding_fragment">
+        <action
+            android:id="@+id/action_onboardingFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
 
 </navigation>

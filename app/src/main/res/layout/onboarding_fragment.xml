@@ -1,186 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="32dp">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/troubleshooter_title" />
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/mascot"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="48dp"
+            android:src="@drawable/splash_graphic2"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.Material3.HeadlineLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mascot" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body1"
+            style="@style/TextAppearance.MaterialComponents.Body1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="32dp"
+            android:text="@string/onboarding_body1"
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/ble_card"
-                style="@style/Widget.Material3.CardView.Filled"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body2"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/onboarding_body2"
+            app:layout_constraintTop_toBottomOf="@id/body1" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body3"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/onboarding_body3"
+            app:layout_constraintTop_toBottomOf="@id/body2" />
 
-                    <LinearLayout
-                        android:id="@+id/ble_intro_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        tools:visibility="visible">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/body4"
+            style="@style/TextAppearance.MaterialComponents.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/onboarding_body4"
+            app:layout_constraintTop_toBottomOf="@id/body3" />
 
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/TextAppearance.Material3.TitleMedium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/troubleshooter_ble_intro_title" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/go_privacy_policy"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="32dp"
+            android:text="@string/settings_privacy_policy_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/body4" />
 
-                        <com.google.android.material.textview.MaterialTextView
-                            style="@style/TextAppearance.Material3.BodyMedium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/troubleshooter_ble_intro_body1" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continue_action"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/general_continue_action"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/go_privacy_policy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/ble_intro_start_action"
-                            style="@style/Widget.Material3.Button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="@string/troubleshooter_ble_intro_start_action" />
-
-                    </LinearLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/ble_process_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/toolbar"
-                        tools:visibility="visible">
-
-                        <com.google.android.material.progressindicator.CircularProgressIndicator
-                            android:id="@+id/ble_process_progress"
-                            style="@style/Widget.Material3.CircularProgressIndicator.Small"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:indeterminate="true"
-                            app:layout_constraintBottom_toBottomOf="@id/ble_process_secondary"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@id/ble_process_primary" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/ble_process_primary"
-                            style="@style/TextAppearance.Material3.TitleMedium"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:text="@string/troubleshooter_ble_process_title"
-                            app:layout_constraintBottom_toTopOf="@id/ble_process_secondary"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@id/ble_process_progress"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/ble_process_secondary"
-                            style="@style/TextAppearance.Material3.BodyMedium"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/troubleshooter_ble_process_subtile"
-                            app:layout_constraintBottom_toTopOf="@id/ble_process_history"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="@id/ble_process_primary"
-                            app:layout_constraintTop_toBottomOf="@id/ble_process_primary" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/ble_process_history"
-                            style="@style/TextAppearance.Material3.BodySmall"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/ble_process_secondary"
-                            tools:text="Step 1\nStep 2\n\Step 3" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/ble_result_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
-                        android:orientation="vertical"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/toolbar"
-                        tools:visibility="visible">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/ble_result_title"
-                            style="@style/TextAppearance.Material3.TitleMedium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/troubleshooter_ble_result_success_title" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/ble_result_body"
-                            style="@style/TextAppearance.Material3.BodyMedium"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/troubleshooter_ble_result_success_body" />
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/ble_result_action"
-                            style="@style/Widget.Material3.Button"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="@string/troubleshooter_ble_result_failure_action" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/ble_result_history"
-                            style="@style/TextAppearance.Material3.BodySmall"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            tools:text="Step 1\nStep 2\n\Step 3" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
-    </ScrollView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -16,6 +16,10 @@ class OnboardingFragmentVM @Inject constructor(
     private val generalSettings: GeneralSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
+    fun finishOnboarding() = launch {
+        generalSettings.isOnboardingDone.value = true
+        OnboardingFragmentDirections.actionOnboardingFragmentToOverviewFragment().navigate()
+    }
 
     companion object {
         val TAG = logTag("Onboarding", "Fragment", "VM")
