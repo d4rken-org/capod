@@ -10,9 +10,6 @@ Funciones:
 * Conecta automáticamente el teléfono y los AirPods.
 * Aviso emergente de estuche abierto.
 
-CAPod tiene una versión Wear-OS que muestra el estado de los auriculares más cercanos.
-CAPod para Wear-OS es una aplicación independiente y no requiere un teléfono.
-
 CAPod es sin publicidad. Algunas características requieren una compra en la aplicación.
 
 Valido para la mayoria de Airpods y Beats.

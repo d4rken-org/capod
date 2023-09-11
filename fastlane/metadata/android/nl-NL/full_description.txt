@@ -10,9 +10,6 @@ Functies:
 * Automatisch verbinding maken met telefoon en AirPods.
 * Toont pop-up wanneer case wordt geopend.
 
-CAPod heeft een Wear-OS versie die je de status van de dichtsbijzijnde pod toont.
-CAPod voor Wear-OS is een standalone applicatie die ook zonder telefoon werkt.
-
 CAPod is advertentievrij. Sommige extra functies vereisen een in-app aankoop.
 
 De meeste populaire AirPods- en Beats-apparaten worden ondersteund.

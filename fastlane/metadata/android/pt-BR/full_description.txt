@@ -10,9 +10,6 @@ Recursos:
 * Conecte automaticamente o smartphone e os AirPods.
 * Mostrar pop-up quando o estojo é aberto.
 
-O CAPod possui uma versão Wear-OS que mostra o status do dispositivo Airpod mais próximo de você.
-O CAPod para Wear-OS é um aplicativo independente e não requer um telefone.
-
 O CAPod é livre de anúncios. Alguns recursos exigem uma compra no aplicativo.
 
 Os dispositivos AirPods e Beats mais populares são suportados.

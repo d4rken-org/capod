@@ -10,9 +10,9 @@ Funciones:
 * Conecta automáticamente el teléfono y los AirPods.
 * Muestra un aviso emergente de estuche abierto.
 
-CAPod es libre de publicidad. Algunas funciones requieren compras en la aplicación.
+CAPod no tiene publicidad. Algunas funciones requieren una compra dentro de la aplicación.
 
-Válido para la mayoría de AirPods populares y Beats.
-Si su dispositivo es similar a AirPods pero aún no es compatible, envíeme un correo.
+Son compatibles los AirPods y los dispositivos Beats más populares.
+Si tu dispositivo es similar a los AirPods pero aún no es compatible, envíame un breve correo electrónico.
 
 ¿Tienes una buena idea para una nueva característica? ¡Háznoslo saber!

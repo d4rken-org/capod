@@ -10,9 +10,6 @@ Característiques:
 * Connecta automàticament el telèfon i els AirPods.
 * Mostra una finestra emergent quan s'obre la funda.
 
-El CAPod té una versió Wear-OS que mostra l'estat del dispositiu AirPod que està més a prop vostre.
-El CAPod per al Wear-OS és una aplicació autònoma i no requereix un telèfon.
-
 CAPod no inclou anuncis. Algunes funcions requereixen una compra des de l'aplicació.
 
 Els dispositius AirPods i Beats més populars són compatibles.

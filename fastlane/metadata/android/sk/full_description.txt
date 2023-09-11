@@ -10,9 +10,6 @@ Funkcie:
 * Automatické pripojenie telefónu a AirPods.
 * Zobrazenie vyskakovacieho okna pri otvorení puzdra.
 
-CAPod má verziu Wear-OS, ktorá zobrazuje stav pod-zariadenia, ktoré je najbližšie k vám.
-CAPod pre Wear-OS je samostatná aplikácia, ktorá nevyžaduje telefón.
-
 CAPod je bez reklám. Niektoré funkcie vyžadujú nákup v aplikácii.
 
 Podporovaná je väčšina obľúbených zariadení AirPods a Beats.

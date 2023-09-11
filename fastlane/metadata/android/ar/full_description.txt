@@ -1,4 +1,4 @@
-CAPod - رفيق سماعات AirPod.
+CAPod is a companion app for AirPods.
 
 الميزات:
 

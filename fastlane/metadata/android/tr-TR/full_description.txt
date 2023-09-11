@@ -10,9 +10,6 @@ CAPod, AirPods aygıtlar için yardımcı bir uygulamadır.
 * Telefonu ve AirPods aygıtları otomatik olarak bağlar.
 * Şarj kutusu açıldığında açılır pencereyi gösterir.
 
-CAPod, size en yakın pod aygıtının durumunu gösteren bir Wear-OS sürümüne sahiptir.
-CAPod for Wear-OS bağımsız bir uygulamadır ve telefon gerektirmez.
-
 CAPod reklamsızdır. Bazı özellikler için uygulama içi satın alma gereklidir.
 
 En popüler AirPods ve Beats aygıtları desteklenmektedir.
