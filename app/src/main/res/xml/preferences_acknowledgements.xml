@@ -4,7 +4,7 @@
     <PreferenceCategory
         android:title="@string/general_thank_you_label"
         app:iconSpaceReserved="false">
-        <Preference
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="thanks.translators"
             android:summary="@string/translators_thanks_description"
             android:title="@string/translators_thanks_title"
@@ -12,8 +12,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://crowdin.com/project/capod/activity-stream" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="thanks.maxpatchs"
             android:summary="Thanks for the lovely icons."
             android:title="Max Patchs"
@@ -21,8 +21,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://twitter.com/maxpatchs" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="thanks.openpods"
             android:summary="Pioneering AirPod support on Android"
             android:title="OpenPods project"
@@ -30,8 +30,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/adolfintel/OpenPods" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="thanks.furiousmac"
             android:summary="Research on the continuity protocol"
             android:title="FuriousMAC"
@@ -39,13 +39,13 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/furiousMAC/continuity" />
-        </Preference>
+        </eu.darken.capod.common.preferences.IntentPreference>
     </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/settings_licenses_label"
         app:iconSpaceReserved="false">
-        <Preference
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="license.glide"
             android:summary="An image loading and caching library for Android focused on smooth scrolling. (Multiple licenses)"
             android:title="Glide"
@@ -53,8 +53,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/bumptech/glide" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="license.materialdesignicons"
             android:summary="materialdesignicons.com (SIL Open Font License 1.1 / Attribution 4.0 International)"
             android:title="Material Design Icons"
@@ -62,8 +62,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Templarian/MaterialDesign" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="license.zwiconiconset"
             android:summary="Creative Commons Attribution 4.0 International"
             android:title="Zwicon Icon Set"
@@ -71,8 +71,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://iconduck.com/sets/zwicon-icon-set" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="license.kotlin"
             android:summary="The Kotlin Programming Language. (APACHE 2.0)"
             android:title="Kotlin"
@@ -80,8 +80,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/JetBrains/kotlin" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="license.dagger"
             android:summary="A fast dependency injector for Android and Java. (APACHE 2.0)"
             android:title="Dagger"
@@ -89,8 +89,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/google/dagger" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="license.moshi"
             android:summary="A modern JSON library for Kotlin and Java. (APACHE 2.0)"
             android:title="Moshi"
@@ -98,8 +98,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/square/moshi" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="android.android"
             android:summary="Android Open Source Project (APACHE 2.0)"
             android:title="Android"
@@ -107,8 +107,8 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://source.android.com/source/licenses.html" />
-        </Preference>
-        <Preference
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="android.logo"
             android:summary="The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License."
             android:title="Android"
@@ -116,6 +116,6 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://developer.android.com/distribute/tools/promote/brand.html" />
-        </Preference>
+        </eu.darken.capod.common.preferences.IntentPreference>
     </PreferenceCategory>
 </PreferenceScreen>
