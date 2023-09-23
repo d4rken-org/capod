@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonunuz BLE verilerini aldı, ancak veriler desteklenen herhangi bir aygıttan gelmiyor. Kulaklığınız açık mı? CAPod kulaklığınızı destekliyor mu?</string>
     <string name="troubleshooter_ble_result_failure_action">Tekrar deneyin</string>
     <string name="troubleshoot_action">Sorun giderme</string>
+    <string name="onboarding_body1">Bu uygulama Android\'e AirPod\'a özgü özellikler için destek ekler.</string>
+    <string name="onboarding_body2">Tüm Android cihazlar ekstra AirPod özelliklerini tam olarak desteklemez. İşletim sisteminiz doğru çalışan bir Bluetooth-Düşük Enerji uygulaması gerektirir.</string>
+    <string name="onboarding_body3">CAPod\'da reklam yoktur ve verilerinizi toplamaz.</string>
+    <string name="onboarding_body4">Ekstra özellikler kazanmak ve geliştirmeyi desteklemek için CAPod Pro\'ya yükseltebilirsiniz.</string>
+    <string name="general_continue_action">Devam et</string>
 </resources>

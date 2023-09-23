@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefon anda menerima data BLE, tetapi data itu tidak datang daripada mana-mana peranti yang disokong. Adakah fon kepala anda dihidupkan? Adakah CAPod menyokong fon kepala anda?</string>
     <string name="troubleshooter_ble_result_failure_action">Cuba semula</string>
     <string name="troubleshoot_action">Selesaikan masalah</string>
+    <string name="onboarding_body1">Aplikasi ini menambah sokongan untuk ciri khusus AirPod pada Android.</string>
+    <string name="onboarding_body2">Tidak semua peranti Android menyokong sepenuhnya ciri AirPod tambahan. Sistem pengendalian anda memerlukan pelaksanaan Bluetooth-Tenaga-Rendah yang berfungsi dengan betul.</string>
+    <string name="onboarding_body3">CAPod tiada iklan serta tidak mengumpul data anda.</string>
+    <string name="onboarding_body4">Anda boleh menaik taraf kepada CAPod Pro untuk mendapatkan ciri tambahan serta pembangunan sokongan.</string>
+    <string name="general_continue_action">Teruskan</string>
 </resources>

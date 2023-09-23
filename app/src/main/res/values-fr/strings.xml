@@ -4,7 +4,7 @@
     <string name="general_done_action">Terminé</string>
     <string name="general_copy_action">Copier</string>
     <string name="general_thank_you_label">Merci</string>
-    <string name="general_upgrade_action">Surclasser vers Pro</string>
+    <string name="general_upgrade_action">Passer Pro</string>
     <string name="general_check_action">Vérifier</string>
     <string name="general_close_action">Fermer</string>
     <string name="upgrade_capod_label">Surclasser CAPod</string>
@@ -83,7 +83,7 @@
     <string name="help_translate_label">Traduction</string>
     <string name="help_translate_description">Aider à traduire cette appli dans votre langue préférée.</string>
     <string name="translators_thanks_title">Traducteurs</string>
-    <string name="translators_thanks_description">AO</string>
+    <string name="translators_thanks_description">yahoe-001</string>
     <string name="widget_description">Un widget qui affiche le dernier état connu de l’appareil.</string>
     <string name="settings_compat_indirectcallback_title">Transmission indirecte des données</string>
     <string name="settings_compat_indirectcallback_summary">Utiliser une méthode de remplacement pour recevoir les données BÉB du système (diffusion au lieu de rappel).</string>
@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Votre téléphone a reçu des données, mais les données ne proviennent pas d’un appareil pris en charge. Votre casque d’écoute est-il en fonction ? CAPod prend-il votre casque d’écoute en charge ?</string>
     <string name="troubleshooter_ble_result_failure_action">Réessayer</string>
     <string name="troubleshoot_action">Dépanner</string>
+    <string name="onboarding_body1">Cette appli ajoute des fonctions propres aux AirPods à Android.</string>
+    <string name="onboarding_body2">Tous les appareils Android ne prennent pas en charge les fonctions supplémentaires des AirPods. Votre système d’exploitation a besoin d’une mise en œuvre fonctionnelle du système à basse énergie Bluetooth.</string>
+    <string name="onboarding_body3">CAPod ne présente aucune publicité et ne recueille pas vos données.</string>
+    <string name="onboarding_body4">Vous pouvez passer à CAPod Pro pour obtenir des fonctions supplémentaires et soutenir le développement.</string>
+    <string name="general_continue_action">Poursuivre</string>
 </resources>

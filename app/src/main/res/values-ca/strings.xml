@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">El vostre telèfon ha rebut dades BLE, però les dades no provenen de cap dispositiu compatible. Teniu els auriculars encesos? El CAPod és compatible amb els vostres auriculars?</string>
     <string name="troubleshooter_ble_result_failure_action">Torna-ho a provar</string>
     <string name="troubleshoot_action">Resolució de problemes</string>
+    <string name="onboarding_body1">Aquesta aplicació afegeix suport per a funcions específiques d\'AirPod a l\'Android.</string>
+    <string name="onboarding_body2">No tots els dispositius Android són compatibles completament amb les funcions addicionals d\'AirPod. El vostre sistema operatiu requereix una implementació de Bluetooth de baixa energia que funcioni correctament.</string>
+    <string name="onboarding_body3">El CAPod no conté anuncis i no recull les vostres dades.</string>
+    <string name="onboarding_body4">Podeu actualitzar a CAPod Pro per obtenir funcions addicionals i donar suport al desenvolupament.</string>
+    <string name="general_continue_action">Continua</string>
 </resources>

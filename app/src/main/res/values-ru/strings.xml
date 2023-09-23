@@ -35,7 +35,7 @@
     <string name="settings_category_compatibility_options_title">Настройки совместимости</string>
     <string name="settings_category_compatibility_options_description">Не трогать, если всё работает :)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Отключить аппаратную фильтрацию</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">Не делегировать фильтрация данных в систему, вместо этого получайте все данные и фильтр в приложение.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Не делегируйте фильтрацию данных системе, вместо этого получайте все данные и фильтр в приложении.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Отключить аппаратное пакетирование</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Не позволять системной группе собирать данные BLE до их пересылки нам.</string>
     <string name="settings_maindevice_address_label">Адрес Вашего устройства</string>
@@ -102,4 +102,9 @@ AL_Cool_T</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш телефон получил BLE данные, но данные не поступают ни с одного поддерживаемого устройства. Ваши наушники включены? Поддерживает ли CAPod ваши наушники?</string>
     <string name="troubleshooter_ble_result_failure_action">Попробуйте еще раз</string>
     <string name="troubleshoot_action">Устранение неполадок</string>
+    <string name="onboarding_body1">Приложение обеспечивает поддержку специфичных функций AirPod на Android.</string>
+    <string name="onboarding_body2">Не все устройства Android полностью поддерживают дополнительные функции AirPod. Вашей операционной системе требуется корректно работающая версия Bluetooth-Low-Energy.</string>
+    <string name="onboarding_body3">CAPod не содержит рекламы и не собирает Ваши данные.</string>
+    <string name="onboarding_body4">Вы можете обновиться до CAPod Pro для дополнительных функций и поддержки разработки.</string>
+    <string name="general_continue_action">Продолжить</string>
 </resources>

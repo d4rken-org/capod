@@ -94,7 +94,16 @@
     <string name="troubleshooter_ble_process_title">故障排除进行中</string>
     <string name="troubleshooter_ble_process_subtile">每个步骤需花费 5-10 秒钟</string>
     <string name="troubleshooter_ble_result_success_title">成功</string>
+    <string name="troubleshooter_ble_result_success_body">CAPod 正在接收 BLE 广告广播</string>
     <string name="troubleshooter_ble_result_failure_title">失败</string>
+    <string name="troubleshooter_ble_result_failure_body">故障排除失败，兼容性选项的组合没有帮助</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">您的手机未收到任何 BLE 数据。您可以在人多的地方重试此测试，看看能否接收到数据源（耳机除外）。若未收到任何数据则表明您的手机系统存在问题</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">您的手机收到了 BLE 数据，但该数据并非来自任何受支持的设备。您的耳机电源打开了吗？CAPod 支持您的耳机吗？</string>
     <string name="troubleshooter_ble_result_failure_action">重试</string>
     <string name="troubleshoot_action">故障排除</string>
+    <string name="onboarding_body1">本应用为 Android 增加 AirPod 相关的专用功能。</string>
+    <string name="onboarding_body2">并非所有 Android 设备都充分支持额外的 AirPod 功能。您的操作系统必须正确处理低功耗蓝牙的相关内容。</string>
+    <string name="onboarding_body3">CAPod 不含广告且不会收集您的数据。</string>
+    <string name="onboarding_body4">您可以升级 CAPod Pro 以获得额外功能和支持开发者。</string>
+    <string name="general_continue_action">继续</string>
 </resources>
