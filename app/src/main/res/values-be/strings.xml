@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">Мадэль вашай прылады. Гэта дапамагае праграме апазнаць вашу прыладу, калі яна не падключана да вашага тэлефона.</string>
     <string name="settings_onepod_mode_label">Рэжым аднаго навушніка</string>
     <string name="settings_onepod_mode_description">Нашэнне абодвух навушнікаў не абавязкова, нашэнне аднаго навушніка цалкам дастаткова для запуску рэакцый.</string>
+    <string name="settings_popup_caseopen_label">Паказваць апавяшчэнне пры адкрыцці футляра</string>
     <string name="settings_popup_caseopen_description">Паказваць апавяшчэнне, калі футляр прылады адчынены (эксперыментальная функцыя).</string>
+    <string name="settings_popup_connected_label">Паказваць апавяшчэнне пры падключэнні</string>
+    <string name="settings_popup_connected_description">Паказваць апавяшчэнне пры першапачатковым падключэнні прылады.</string>
     <string name="notification_channel_device_status_label">Статус прылады</string>
     <string name="debug_debuglog_size_label">Памер</string>
     <string name="debug_debuglog_size_compressed_label">Сціснуты памер</string>
@@ -94,7 +97,13 @@
     <string name="troubleshooter_ble_result_success_body">Трансляцыі даных BLE прымаюцца CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Безвынікова</string>
     <string name="troubleshooter_ble_result_failure_body">Не ўдалося выправіць непаладку. Не дапамагла ніводная камбінацыя параметраў сумяшчальнасці.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Ваш тэлефон наогул не атрымаў ніякіх даных BLE. Вы можаце паўтарыць гэты тэст у шматлюдным месцы, каб даведацца, ці могуць быць атрыманыя даныя з іншых крыніц (акрамя вашых навушнікаў). Няма атрыманых даных, якія паказваюць на праблему з аперацыйнай сістэмай вашага тэлефона.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш тэлефон атрымаў даныя BLE, але яны паступаюць з прылады, якая не падтрымліваецца. Вашы навушнікі ўключаны? Ці падтрымлівае CAPod вашы навушнікі?</string>
     <string name="troubleshooter_ble_result_failure_action">Паспрабаваць яшчэ раз</string>
     <string name="troubleshoot_action">Выпраўленне непаладак</string>
+    <string name="onboarding_body1">Гэта праграма дадае ў Android падтрымку спецыяльных функцый AirPod.</string>
+    <string name="onboarding_body2">Не ўсе прылады Android цалкам падтрымліваюць дадатковыя функцыі AirPod. Ваша аперацыйная сістэма патрабуе карэктнай рэалізацыі функцыі Bluetooth Low Energy.</string>
+    <string name="onboarding_body3">CAPod не змяшчае рэкламу і не збірае вашы даныя.</string>
+    <string name="onboarding_body4">Вы можаце перайсці на CAPod Pro, каб атрымаць дадатковыя функцыі і такім чынам падтрымаць распрацоўку.</string>
+    <string name="general_continue_action">Працягнуць</string>
 </resources>
