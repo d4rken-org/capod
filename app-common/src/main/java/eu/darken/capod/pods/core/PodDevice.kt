@@ -10,7 +10,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import java.time.Duration
 import java.time.Instant
-import java.util.*
+import java.util.UUID
 import kotlin.math.abs
 import kotlin.math.max
 
@@ -89,6 +89,10 @@ interface PodDevice {
         ),
         @Json(name = "airpods.pro2") AIRPODS_PRO2(
             "AirPods Pro 2",
+            R.drawable.devic_airpods_pro2_both
+        ),
+        @Json(name = "airpods.pro2.usbc") AIRPODS_PRO2_USBC(
+            "AirPods Pro 2 USB-C",
             R.drawable.devic_airpods_pro2_both
         ),
         @Json(name = "airpods.max") AIRPODS_MAX(
