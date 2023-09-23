@@ -101,4 +101,5 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">您的手機收到了低功耗藍牙資料，但此資料並非來自任何支援的裝置。您的耳機是否已開機？CAPod 是否支援您的耳機？</string>
     <string name="troubleshooter_ble_result_failure_action">再試一次</string>
     <string name="troubleshoot_action">疑難排解</string>
+    <string name="general_continue_action">繼續</string>
 </resources>

@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Váš telefón prijal údaje BLE, ale údaje nepochádzajú zo žiadneho podporovaného zariadenia. Máte zapnuté slúchadlá? Podporuje CAPod vaše slúchadlá?</string>
     <string name="troubleshooter_ble_result_failure_action">Skúste znova</string>
     <string name="troubleshoot_action">Riešiť problém</string>
+    <string name="onboarding_body1">Táto aplikácia pridáva podporu pre špecifické funkcie AirPod do systému Android.</string>
+    <string name="onboarding_body2">Nie všetky zariadenia so systémom Android plne podporujú ďalšie funkcie AirPod. Váš operačný systém vyžaduje správne fungujúcu implementáciu Bluetooth-Low-Energy.</string>
+    <string name="onboarding_body3">CAPod nemá žiadne reklamy a nezhromažďuje vaše údaje.</string>
+    <string name="onboarding_body4">Môžete upgradovať na CAPod Pro, aby ste získali ďalšie funkcie a podporili vývoj.</string>
+    <string name="general_continue_action">Pokračovať</string>
 </resources>

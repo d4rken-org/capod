@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Το τηλέφωνό σας έλαβε δεδομένα BLE, αλλά τα δεδομένα δεν προέρχονται από καμία υποστηριζόμενη συσκευή. Είναι ενεργοποιημένα τα ακουστικά σας; Το CAPod υποστηρίζει τα ακουστικά σας;</string>
     <string name="troubleshooter_ble_result_failure_action">Δοκιμάστε ξανά</string>
     <string name="troubleshoot_action">Αντιμετώπιση</string>
+    <string name="onboarding_body1">Αυτή η εφαρμογή προσθέτει υποστήριξη για συγκεκριμένες λειτουργίες του AirPod στο Android.</string>
+    <string name="onboarding_body2">Δεν υποστηρίζουν πλήρως όλες οι συσκευές Android τις επιπλέον δυνατότητες του AirPod. Το λειτουργικό σας σύστημα απαιτεί μια σωστή εφαρμογή Bluetooth-χαμηλής ενέργειας.</string>
+    <string name="onboarding_body3">Το CAPod δεν έχει διαφημίσεις και δε συλλέγει τα δεδομένα σας.</string>
+    <string name="onboarding_body4">Μπορείτε να αναβαθμίσετε στο CAPod Pro για να αποκτήσετε επιπλέον λειτουργίες και να υποστηρίξετε την ανάπτυξη.</string>
+    <string name="general_continue_action">Συνέχεια</string>
 </resources>

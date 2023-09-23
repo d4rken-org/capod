@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">O seu telefone recebeu dados BLE, mas os dados não vêm de nenhum dispositivo compatível. Os seus auscultadores estão ligados? O CAPod é compatível com os seus auscultadores?</string>
     <string name="troubleshooter_ble_result_failure_action">Tentar de novo</string>
     <string name="troubleshoot_action">Resolver problemas</string>
+    <string name="onboarding_body1">Esta aplicação adiciona suporte para funcionalidades específicas dos AirPods no Android.</string>
+    <string name="onboarding_body2">Nem todos os dispositivos Android suportam todas as funcionalidades extra dos AirPods. O seu sistema operativo requer uma implementação de Bluetooth-Low-Energy a funcionar corretamente.</string>
+    <string name="onboarding_body3">CAPod não tem anúncios nem coleciona os seus dados.</string>
+    <string name="onboarding_body4">Pode obter o CAPod Pro para ganhar funcionalidades extra e apoiar o desenvolvimento.</string>
+    <string name="general_continue_action">Continuar</string>
 </resources>

@@ -26,4 +26,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefoni saabusid andmed madalama energiakuluga Bluetoothi kaudu aga andmed ei pärine ühestki ühilduvast seadmest. Kas CAPod ühildub teie kõrvaklapiga?</string>
     <string name="troubleshooter_ble_result_failure_action">Proovi uuesti</string>
     <string name="troubleshoot_action">Lahendamine</string>
+    <string name="onboarding_body1">See rakendus lisab Androidile AirPodi võimalused.</string>
+    <string name="onboarding_body2">Vaid mõned Androidi seadmed toetavad kõiki AirPodi võimalusi. Operatsioonisüsteem vajab õigesti toimivat madalama energiatarbimisega Bluetoothi tuge.</string>
+    <string name="onboarding_body3">CAPodis pole reklaame ja see ei kogu andmeid.</string>
+    <string name="onboarding_body4">Lisavõimaluste saamiseks ja arendamise toetamiseks soetage CAPod Pro.</string>
+    <string name="general_continue_action">Jätka</string>
 </resources>
