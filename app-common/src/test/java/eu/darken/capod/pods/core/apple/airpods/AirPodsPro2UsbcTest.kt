@@ -45,4 +45,28 @@ class AirPodsPro2UsbcTest : BaseAirPodsTest() {
             model shouldBe PodDevice.Model.AIRPODS_PRO2_USBC
         }
     }
+
+    @Test
+    fun `AirPods Pro 2 with USB-C  - via #164 - in case`() = runTest {
+        create<AirPodsPro2Usbc>("07 19 01 24 20 53 AA 98 32 00 05 49 0A B8 BF 8E 29 D8 70 12 0D A7 0C CE 77 56 00") {
+
+            isLeftPodMicrophone shouldBe true
+            isRightPodMicrophone shouldBe false
+
+            isLeftPodInEar shouldBe true
+            isRightPodInEar shouldBe false
+
+            batteryLeftPodPercent shouldBe 1f
+            batteryRightPodPercent shouldBe 1f
+
+            isCaseCharging shouldBe false
+            isRightPodCharging shouldBe true
+            isLeftPodCharging shouldBe false
+            batteryCasePercent shouldBe 0.8f
+
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+
+            model shouldBe PodDevice.Model.AIRPODS_PRO2_USBC
+        }
+    }
 }
