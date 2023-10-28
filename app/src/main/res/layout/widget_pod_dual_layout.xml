@@ -106,6 +106,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="12sp"
+        android:gravity="center"
         android:textStyle="bold"
         tools:text="AirPods Max" />
 
