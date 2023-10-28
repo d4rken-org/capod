@@ -1,7 +1,13 @@
 package eu.darken.capod.common.upgrade.core.client
 
 import android.app.Activity
-import com.android.billingclient.api.*
+import com.android.billingclient.api.AcknowledgePurchaseParams
+import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingFlowParams
+import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.Purchase
+import com.android.billingclient.api.QueryProductDetailsParams
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -20,11 +26,15 @@ data class BillingClientConnection(
 ) {
     private val purchasesLocal = MutableStateFlow<Collection<Purchase>>(emptySet())
     val purchases: Flow<Collection<Purchase>> = combine(purchasesGlobal, purchasesLocal) { global, local ->
-        val combined = mutableMapOf<String, Purchase>()
-        global.plus(local).toSet().sortedByDescending { it.purchaseTime }.forEach { purchase ->
-            combined[purchase.orderId] = purchase
-        }
-        combined.values
+        val combined = mutableSetOf<Purchase>()
+
+        combined.addAll(local)
+
+        global
+            .let { purchases -> purchases.filter { it.purchaseState == Purchase.PurchaseState.PURCHASED } }
+            .let { combined.addAll(it) }
+
+        combined.sortedByDescending { it.purchaseTime }
     }
         .setupCommonEventHandlers(TAG) { "purchases" }
 
