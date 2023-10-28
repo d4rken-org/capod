@@ -1,4 +1,4 @@
-CAPod - програма-компаньйон для AirPods на Android.
+CAPod is a companion app for AirPods.
 
 Функції:
 

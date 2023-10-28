@@ -1,4 +1,4 @@
-O CAPod é um aplicativo complementar para AirPods.
+CAPod é uma aplicação complementar aos AirPods.
 
 Recursos:
 
