@@ -84,8 +84,8 @@ fun DependencyHandlerScope.addBaseWorkManager() {
 }
 
 fun DependencyHandlerScope.addBaseAndroid() {
-    implementation("androidx.core:core-ktx:1.10.0-rc01")
-    implementation("androidx.annotation:annotation:1.4.0")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.annotation:annotation:1.7.0")
     implementation("androidx.collection:collection-ktx:1.2.0")
     implementation("androidx.preference:preference-ktx:1.2.0")
 }
@@ -95,12 +95,12 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
     implementation("androidx.fragment:fragment-ktx:1.4.1")
 
-    implementation("androidx.activity:activity-ktx:1.6.0-rc01")
-    implementation("androidx.fragment:fragment-ktx:1.5.0")
+    implementation("androidx.activity:activity-ktx:1.8.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
 
     implementation("com.google.android.material:material:1.5.0-rc01")
 
-    val lifecycleVers = "2.5.0"
+    val lifecycleVers = "2.6.2"
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVers")

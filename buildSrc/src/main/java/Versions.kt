@@ -1,11 +1,7 @@
 object Versions {
-    object Gradle {
-        const val buildTools = "7.1.2"
-    }
-
     object Kotlin {
-        const val core = "1.8.0"
-        const val coroutines = "1.6.2"
+        const val core = "1.9.10"
+        const val coroutines = "1.7.3"
     }
 
     object Dokka {
@@ -13,7 +9,7 @@ object Versions {
     }
 
     object Dagger {
-        const val core = "2.45"
+        const val core = "2.48.1"
     }
 
     object Moshi {
@@ -24,7 +20,7 @@ object Versions {
         const val core = ""
 
         object Navigation {
-            const val core = "2.5.0"
+            const val core = "2.7.3"
         }
 
         object Testing {
