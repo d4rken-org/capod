@@ -101,4 +101,9 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ihr Telefon hat BLE-Daten empfangen, aber die Daten stammen von keinem unterstützten Gerät. Sind Ihre Kopfhörer eingeschaltet? Unterstützt CAPod Ihren Kopfhörer?</string>
     <string name="troubleshooter_ble_result_failure_action">Versuchen Sie es erneut</string>
     <string name="troubleshoot_action">Fehlerbehebung</string>
+    <string name="onboarding_body1">Diese App fügt Support für AirPod-Spezifische funkionen zu Android hinzu.</string>
+    <string name="onboarding_body2">Nicht alle Android-Geräte unterstützen die zusätzlichen AirPod-Funktionen vollständig. Ihr Betriebssystem erfordert eine korrekt funktionierende Bluetooth-Low-Energy-Implementierung.</string>
+    <string name="onboarding_body3">CAPod hat keine Werbung und sammelt Ihre Daten nicht.</string>
+    <string name="onboarding_body4">Sie können auf CAPod Pro upgraden, um zusätzliche Funktionen zu erhalten und die Entwicklung zu unterstützen.</string>
+    <string name="general_continue_action">Fortfahren</string>
 </resources>

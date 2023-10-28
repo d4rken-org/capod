@@ -45,7 +45,10 @@
     <string name="settings_maindevice_model_description">O modelo do seu dispositivo principal. Isso ajuda o aplicativo a reconhecer seu dispositivo quando ele não está conectado ao seu telefone.</string>
     <string name="settings_onepod_mode_label">Modo de um airpod</string>
     <string name="settings_onepod_mode_description">Não é necessário usar os dois airpods, usar um único airpod é suficiente para destravar reações.</string>
+    <string name="settings_popup_caseopen_label">Mostrar pop-up da case</string>
     <string name="settings_popup_caseopen_description">Mostrar um pop-up quando o estojo do dispositivo for aberto (experimental).</string>
+    <string name="settings_popup_connected_label">Mostrar pop-up de conexão</string>
+    <string name="settings_popup_connected_description">Mostrar um pop-up quando o dispositivo se conectar pela primeira vez.</string>
     <string name="notification_channel_device_status_label">Status do dispositivo</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
     <string name="debug_debuglog_size_compressed_label">Tamanho compactado</string>
@@ -94,7 +97,13 @@
     <string name="troubleshooter_ble_result_success_body">As transmissões de anúncios BLE estão sendo recebidas pelo CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Sem sucesso</string>
     <string name="troubleshooter_ble_result_failure_body">A solução de problemas falhou. Nenhuma combinação de opções de compatibilidade ajudou.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Seu telefone não recebeu nenhum dado BLE. Você pode tentar novamente este teste em uma área lotada para ver se fontes de dados (além dos fones de ouvido) podem ser recebidas. Nenhum dado recebido indica um problema no sistema operacional do seu telefone.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Seu telefone recebeu dados BLE, mas os dados não vêm de nenhum dispositivo compatível. Seus fones de ouvido estão ligados? O CAPod suporta seu fone de ouvido?</string>
     <string name="troubleshooter_ble_result_failure_action">Tentar novamente</string>
     <string name="troubleshoot_action">Solucionar problemas</string>
+    <string name="onboarding_body1">Este aplicativo adiciona suporte para recursos específicos do AirPod ao Android.</string>
+    <string name="onboarding_body2">Nem todos os dispositivos Android oferecem suporte total aos recursos extras do AirPod. Seu sistema operacional requer uma implementação de Bluetooth-Low-Energy funcionando corretamente.</string>
+    <string name="onboarding_body3">CAPod não possui anúncios e não coleta seus dados.</string>
+    <string name="onboarding_body4">Você pode atualizar para o CAPod Pro para obter recursos extras e apoiar o desenvolvimento.</string>
+    <string name="general_continue_action">Continuar</string>
 </resources>
