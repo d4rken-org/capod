@@ -70,10 +70,10 @@
     <string name="settings_licenses_label">Lizenzen</string>
     <string name="settings_category_other_label">Andere</string>
     <string name="settings_general_label">Einstellungen</string>
-    <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
+    <string name="settings_general_description">Allgemeine Optimierungen, welche die gesamte App betreffen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
-    <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
+    <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, welche dem Entwickler bei der Behebung unterstützen.</string>
     <string name="settings_debug_mode_label">Debug-Modus</string>
     <string name="settings_debug_mode_description">Zeige zusätzliche Informationen an, um Probleme zu beheben.</string>
     <string name="settings_blescanner_unfiltered_label">Ungefilterte BLE-Daten</string>
@@ -101,7 +101,7 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ihr Telefon hat BLE-Daten empfangen, aber die Daten stammen von keinem unterstützten Gerät. Sind Ihre Kopfhörer eingeschaltet? Unterstützt CAPod Ihren Kopfhörer?</string>
     <string name="troubleshooter_ble_result_failure_action">Versuchen Sie es erneut</string>
     <string name="troubleshoot_action">Fehlerbehebung</string>
-    <string name="onboarding_body1">Diese App fügt Support für AirPod-Spezifische funkionen zu Android hinzu.</string>
+    <string name="onboarding_body1">Diese App fügt Support für AirPod-spezifische Funktionen zu Android hinzu.</string>
     <string name="onboarding_body2">Nicht alle Android-Geräte unterstützen die zusätzlichen AirPod-Funktionen vollständig. Ihr Betriebssystem erfordert eine korrekt funktionierende Bluetooth-Low-Energy-Implementierung.</string>
     <string name="onboarding_body3">CAPod hat keine Werbung und sammelt Ihre Daten nicht.</string>
     <string name="onboarding_body4">Sie können auf CAPod Pro upgraden, um zusätzliche Funktionen zu erhalten und die Entwicklung zu unterstützen.</string>
