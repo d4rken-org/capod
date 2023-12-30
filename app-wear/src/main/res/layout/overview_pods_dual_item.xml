@@ -69,11 +69,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
-        app:layout_constraintBottom_toTopOf="@id/barrier_bottom"
         app:layout_constraintEnd_toStartOf="@id/pod_case_container"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier_top"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintTop_toTopOf="@+id/pod_right_container">
 
         <ImageView
             android:id="@+id/pod_left_icon"
@@ -199,8 +197,7 @@
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/pod_case_container"
-        app:layout_constraintTop_toBottomOf="@id/barrier_top"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintTop_toBottomOf="@id/barrier_top">
 
         <ImageView
             android:id="@+id/pod_right_icon"
