@@ -122,7 +122,7 @@
 
 
     <string name="onboarding_body1">This app adds support for AirPod specific features to Android.</string>
-    <string name="onboarding_body2">Not all Android devices fully support the extra AirPod features. Your operating system requires a correctly working Bluetooth-Low-Energy implemtation.</string>
+    <string name="onboarding_body2">Not all Android devices fully support the extra AirPod features. Your operating system requires a correctly working Bluetooth-Low-Energy implementation.</string>
     <string name="onboarding_body3">CAPod has no ads and does not collect your data.</string>
     <string name="onboarding_body4">You can upgrade to CAPod Pro to gain extra features and support development.</string>
 
