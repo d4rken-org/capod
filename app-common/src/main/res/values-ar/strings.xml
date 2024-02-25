@@ -59,4 +59,5 @@
     <string name="last_seen_x">آخر ظهور: %s</string>
     <string name="first_seen_x">أول ظهور:%s</string>
     <string name="permission_post_notifications_label"></string>
+    <string name="permission_post_notifications_description">"اسمح لـلتطبيق بإظهار الإشعارات المتعلقة بسماعات الأذن الخاصة بك، على سبيل المثال. حالتهم الحالية خلال الاتصال."</string>
 </resources>
