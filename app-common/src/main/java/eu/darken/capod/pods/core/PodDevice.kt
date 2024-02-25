@@ -114,6 +114,9 @@ interface PodDevice {
         @Json(name = "beats.powerbeats.3") POWERBEATS_3(
             "Power Beats 3"
         ),
+        @Json(name = "beats.powerbeats.4") POWERBEATS_4(
+            "Power Beats 4"
+        ),
         @Json(name = "beats.powerbeats.pro") POWERBEATS_PRO(
             "Power Beats Pro"
         ),
