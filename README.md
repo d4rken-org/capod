@@ -31,6 +31,7 @@ Currently supported models:
 * AirPods Max
 * Power Beats Pro
 * Power Beats 3
+* Power Beats 4
 * Beats Solo 3
 * Beats Studio 3
 * Beats X
