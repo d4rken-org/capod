@@ -4,7 +4,8 @@
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/d4rken-org/capod?include_prereleases)](https://github.com/d4rken-org/capod/releases/latest)
 [![Code tests & eval](https://github.com/d4rken-org/capod/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/capod/actions/workflows/code-checks.yml)
 [![Crowdin](https://badges.crowdin.net/capod/localized.svg)](https://crowdin.com/project/capod)
-[![Github All Releases](https://img.shields.io/github/downloads/d4rken-org/capod/total.svg)](https://github.com/d4rken-org/capod/releases/latest)
+[![Github Downloads](https://img.shields.io/github/downloads/d4rken-org/capod/total.svg?label=GitHub%20Downloads&logo=github)](https://github.com/d4rken-org/capod/edit/main/README.md#download)
+[![Google Play Downloads](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Deu.darken.capod%26l%3DGoogle%2520Play%26m%3D%24totalinstalls)](https://github.com/d4rken-org/capod/edit/main/README.md#download)
 
 A companion app that adds support for AirPod specific features to Android:
 
