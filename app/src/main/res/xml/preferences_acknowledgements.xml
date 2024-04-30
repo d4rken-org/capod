@@ -32,6 +32,15 @@
                 android:data="https://github.com/adolfintel/OpenPods" />
         </eu.darken.capod.common.preferences.IntentPreference>
         <eu.darken.capod.common.preferences.IntentPreference
+            android:key="thanks.magicpods"
+            android:summary="Pioneering AirPod support on Windows"
+            android:title="MagicPods project"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/steam3d/MagicPods-Windows" />
+        </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
             android:key="thanks.furiousmac"
             android:summary="Research on the continuity protocol"
             android:title="FuriousMAC"

@@ -78,6 +78,8 @@ Currently supported models:
   Travis & Rye, Erik & Sipes, Brandon & Teplov, Sam. (2019). Handoff All Your Privacy – A Review of Apple’s Bluetooth
   Low Energy Continuity Protocol. Proceedings on Privacy Enhancing Technologies. 2019. 34-53. 10.2478/popets-2019-0057.
 * Celosia, Guillaume. (2020). Privacy Challenges in Wireless Communications of the Internet of Things.
+* The [MagicPods](https://github.com/steam3d/MagicPods-Windows) project. If you are looking for "CAPod for Windows",
+  check it out.
 
 ## License
 
