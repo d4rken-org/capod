@@ -4,7 +4,8 @@
     package="eu.darken.capod">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
+    <uses-permission android:name="android.permission.PUSH_NOTIFICATIONS" />
+    
     <uses-feature android:name="android.hardware.type.watch" />
 
     <application
