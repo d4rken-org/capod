@@ -97,6 +97,19 @@ class WidgetProvider : AppWidgetProvider() {
         }
     }
 
+    /**
+     * Returns number of cells needed for given size of the widget.
+     *
+     * The value is determined in accordance with official guidelines
+     * for designing widgets, see:
+     * https://developer.android.com/guide/practices/ui_guidelines/widget_design
+     *
+     * Thanks to Jakub S. on Stackoverflow for this solution:
+     * https://stackoverflow.com/a/37522648/10866268
+     *
+     * @param size Widget size in dp.
+     * @return Size in number of cells.
+     */
     private fun getCellsForSize(size: Int): Int {
         var n = 2
         while (70 * n - 30 < size) {
@@ -121,8 +134,14 @@ class WidgetProvider : AppWidgetProvider() {
                 val minWidth = widgetManager.getAppWidgetOptions(widgetId)
                     .getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
                 val columns = getCellsForSize(minWidth)
+
+                /* Enable wide widgets only when we are provided with 3 or
+                 * more columns of space.
+                 * Although the minimum size is only 2x1, the safeguards are
+                 * added if these restrictions will ever be loosened in the future.
+                 */
                 val layout = when (columns) {
-                    2, 3 -> R.layout.widget_pod_dual_compact_layout
+                    in 1 .. 3 -> R.layout.widget_pod_dual_compact_layout
                     else -> R.layout.widget_pod_dual_wide_layout
                 }
 
