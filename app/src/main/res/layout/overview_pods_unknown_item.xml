@@ -15,7 +15,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"
-            style="@style/TextAppearance.MaterialComponents.Body2"
+            style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -30,7 +30,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/last_seen"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -41,7 +41,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/reception"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -55,7 +55,7 @@
 
         <ImageView
             android:id="@+id/reception_icon"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginHorizontal="16dp"
@@ -71,7 +71,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/details"
-            style="@style/TextAppearance.MaterialComponents.Body2"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -86,7 +86,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/rawdata_label"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -101,7 +101,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/rawdata"
-            style="@style/TextAppearance.MaterialComponents.Body2"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="MyCardView" parent="Widget.MaterialComponents.CardView">
+    <style name="MyCardView" parent="Widget.Material3.CardView.Outlined">
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginStart">8dp</item>
         <item name="android:layout_marginEnd">8dp</item>
@@ -30,7 +30,7 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <style name="PodInfoItemIcon" parent="TextAppearance.MaterialComponents.Body2">
+    <style name="PodInfoItemIcon" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
         <item name="android:tintMode">multiply</item>
@@ -43,7 +43,7 @@
         <item name="android:layout_width">24dp</item>
     </style>
 
-    <style name="PodInfoItemText" parent="TextAppearance.MaterialComponents.Body2">
+    <style name="PodInfoItemText" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
