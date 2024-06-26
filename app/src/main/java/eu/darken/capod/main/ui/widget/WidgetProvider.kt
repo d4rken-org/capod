@@ -41,6 +41,7 @@ import kotlinx.coroutines.withTimeout
 import java.time.Duration
 import javax.inject.Inject
 
+
 @AndroidEntryPoint
 class WidgetProvider : AppWidgetProvider() {
 
@@ -95,6 +96,14 @@ class WidgetProvider : AppWidgetProvider() {
         }
     }
 
+    private fun getCellsForSize(size: Int): Int {
+        var n = 2
+        while (70 * n - 30 < size) {
+            ++n
+        }
+        return n - 1
+    }
+
     private suspend fun updateWidget(
         context: Context,
         widgetManager: AppWidgetManager,
@@ -107,7 +116,17 @@ class WidgetProvider : AppWidgetProvider() {
 
         val layout = when {
             !upgradeRepo.isPro() -> createUpgradeRequiredLayout(context)
-            device is DualPodDevice -> createDualPodLayout(context, device)
+            device is DualPodDevice -> {
+                val minWidth = widgetManager.getAppWidgetOptions(widgetId)
+                    .getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
+                val columns = getCellsForSize(minWidth)
+                val layout = when (columns) {
+                    2, 3 -> R.layout.widget_pod_dual_compact_layout
+                    else -> R.layout.widget_pod_dual_wide_layout
+                }
+
+                createDualPodLayout(context, device, layout)
+            }
             device is SinglePodDevice -> createSinglePodLayout(context, device)
             device is PodDevice -> createUnknownPodLayout(context, device)
             else -> createNoDeviceLayout(context)
@@ -169,7 +188,8 @@ class WidgetProvider : AppWidgetProvider() {
     private fun createDualPodLayout(
         context: Context,
         podDevice: DualPodDevice,
-    ): RemoteViews = RemoteViews(context.packageName, R.layout.widget_pod_dual_layout).apply {
+        layout: Int
+    ): RemoteViews = RemoteViews(context.packageName, layout).apply {
         log(TAG, VERBOSE) { "createSinglePodLayout(context=$context, podDevice=$podDevice)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PodWidget.Container"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="24dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/pod_left_icon"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/devic_airpods_pro2_left"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/pod_left_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="4dp"
+                tools:text="100%" />
+
+            <ImageView
+                android:id="@+id/pod_left_charging"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/ic_baseline_power_24"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/pod_left_ear"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/ic_baseline_hearing_24"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="24dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/pod_right_icon"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/devic_airpods_pro2_right"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/pod_right_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="4dp"
+                tools:text="100%" />
+
+            <ImageView
+                android:id="@+id/pod_right_charging"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/ic_baseline_power_24"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/pod_right_ear"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/ic_baseline_hearing_24"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/pod_case_icon"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/devic_airpods_gen1_case"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/pod_case_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="4dp"
+                tools:text="100%" />
+
+            <ImageView
+                android:id="@+id/pod_case_charging"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/ic_baseline_power_24" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/headphones_label"
+        style="@style/PodWidget.TextPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        tools:text="AirPods Max" />
+
+</LinearLayout>
