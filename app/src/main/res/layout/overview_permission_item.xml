@@ -15,7 +15,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/request_description"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -27,7 +27,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/permission_label"
-            style="@style/TextAppearance.MaterialComponents.Body1"
+            style="@style/TextAppearance.Material3.BodyLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -39,7 +39,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/permission_description"
-            style="@style/TextAppearance.MaterialComponents.Body2"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_marginTop="4dp"
             android:layout_marginHorizontal="16dp"
@@ -51,7 +51,7 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/privacy_policy"
-            style="@style/TextAppearance.MaterialComponents.Tooltip"
+            style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/grant_action"
-            style="@style/Widget.MaterialComponents.Button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_height="wrap_content"

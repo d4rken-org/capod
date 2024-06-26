@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/label_path"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/recording_path"
-            style="@style/TextAppearance.MaterialComponents.Body1"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/label_size"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
@@ -58,7 +58,7 @@
 
         <TextView
             android:id="@+id/recording_size"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
@@ -70,7 +70,7 @@
 
         <TextView
             android:id="@+id/label_compressed_size"
-            style="@style/TextAppearance.MaterialComponents.Caption"
+            style="@style/TextAppearance.Material3.TitleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -83,7 +83,7 @@
 
         <TextView
             android:id="@+id/recording_size_compressed"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@+id/label_compressed_size"
