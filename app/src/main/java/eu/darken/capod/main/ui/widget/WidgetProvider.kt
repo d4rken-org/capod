@@ -210,7 +210,7 @@ class WidgetProvider : AppWidgetProvider() {
         podDevice: DualPodDevice,
         @LayoutRes layout: Int
     ): RemoteViews = RemoteViews(context.packageName, layout).apply {
-        log(TAG, VERBOSE) { "createSinglePodLayout(context=$context, podDevice=$podDevice)" }
+        log(TAG, VERBOSE) { "createSinglePodLayout(context=$context, podDevice=$podDevice), layout=${layout}" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
             0,
