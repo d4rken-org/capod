@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RemoteViews
+import androidx.annotation.LayoutRes
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.coroutine.AppScope
@@ -188,7 +189,7 @@ class WidgetProvider : AppWidgetProvider() {
     private fun createDualPodLayout(
         context: Context,
         podDevice: DualPodDevice,
-        layout: Int
+        @LayoutRes layout: Int
     ): RemoteViews = RemoteViews(context.packageName, layout).apply {
         log(TAG, VERBOSE) { "createSinglePodLayout(context=$context, podDevice=$podDevice)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
