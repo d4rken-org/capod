@@ -8,7 +8,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/request_description"
-        style="@style/TextAppearance.MaterialComponents.Caption"
+        style="@style/TextAppearance.Material3.LabelMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -20,7 +20,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/permission_label"
-        style="@style/TextAppearance.MaterialComponents.Body1"
+        style="@style/TextAppearance.Material3.BodyLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -32,7 +32,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/permission_description"
-        style="@style/TextAppearance.MaterialComponents.Body2"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -44,11 +44,12 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/grant_action"
-        style="@style/Widget.MaterialComponents.Button"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/general_grant_permission_action"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/permission_description" />

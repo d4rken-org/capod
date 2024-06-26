@@ -18,7 +18,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/title"
-        style="@style/TextAppearance.MaterialComponents.Body1"
+        style="@style/TextAppearance.Material3.TitleMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -31,7 +31,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/body"
-        style="@style/TextAppearance.MaterialComponents.Body2"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
