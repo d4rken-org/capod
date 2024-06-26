@@ -135,7 +135,7 @@ class WidgetProvider : AppWidgetProvider() {
                     .getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
                 val columns = getCellsForSize(minWidth)
 
-                /* Enable wide widgets only when we are provided with 3 or
+                /* Enable wide widgets only when we are provided with 4 or
                  * more columns of space.
                  * Although the minimum size is only 2x1, the safeguards are
                  * added if these restrictions will ever be loosened in the future.
