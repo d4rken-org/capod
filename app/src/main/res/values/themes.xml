@@ -29,6 +29,7 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
 
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item tools:targetApi="29" name="android:enforceNavigationBarContrast">true</item>
         <item tools:targetApi="29" name="android:navigationBarColor">@android:color/transparent</item>
 
