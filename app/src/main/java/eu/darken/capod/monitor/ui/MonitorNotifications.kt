@@ -22,7 +22,6 @@ import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetection
-import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import kotlinx.coroutines.sync.Mutex
@@ -104,7 +103,7 @@ class MonitorNotifications @Inject constructor(
             }
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            setCustomContentView(notificationViewFactory.createContentView(device))
+            setCustomBigContentView(notificationViewFactory.createContentView(device))
             setSmallIcon(device.iconRes)
             setContentTitle(context.getString(contentTitleRes))
             setSubText(null)
