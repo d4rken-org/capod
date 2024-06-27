@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_baseline_looks_one_24"
         android:key="reaction.onepod.enabled"
         android:summary="@string/settings_onepod_mode_description"
         android:title="@string/settings_onepod_mode_label" />
 
-
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_baseline_play_circle_24"
         android:key="reaction.autoplay.enabled"
         android:summary="@string/settings_autoplay_description"
         android:title="@string/settings_autopplay_label" />
 
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_baseline_pause_circle_24"
         android:key="reaction.autopause.enabled"
         android:summary="@string/settings_autopause_description"
         android:title="@string/settings_autopause_label" />
 
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_baseline_bluetooth_connected_24"
         android:key="reaction.autoconnect.enabled"
         android:summary="@string/settings_autoconnect_description"
@@ -32,13 +32,13 @@
         android:summary="@string/settings_autoconnect_condition_description"
         android:title="@string/settings_autoconnect_condition_label" />
 
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_message_outline_24"
         android:key="reaction.popup.caseopen"
         android:summary="@string/settings_popup_caseopen_description"
         android:title="@string/settings_popup_caseopen_label" />
 
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_message_24"
         android:key="reaction.popup.connected"
         android:summary="@string/settings_popup_connected_description"

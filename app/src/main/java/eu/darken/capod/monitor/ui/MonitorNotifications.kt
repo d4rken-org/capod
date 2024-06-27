@@ -22,7 +22,6 @@ import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetection
-import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import kotlinx.coroutines.sync.Mutex
@@ -80,31 +79,30 @@ class MonitorNotifications @Inject constructor(
             // Options here should be mutually exclusive, and are prioritized by their order of importance
             // Some options are omitted here, as they will conflict with other options
             // TODO: Implement a settings pane to allow user to customize this
-            device.apply {
+            when (device) {
                 // Pods charging state
                 // This goes first as pods should not be worn if it is still charging
-                if (this is HasChargeDetection && isHeadsetBeingCharged) {
-                    contentTitleRes = eu.darken.capod.common.R.string.pods_charging_label
-                    return@apply
+                is HasChargeDetection -> {
+                    if (device.isHeadsetBeingCharged)
+                        contentTitleRes = eu.darken.capod.common.R.string.pods_charging_label
                 }
 
                 // Pods wear state
-                if (this is HasEarDetection) {
-                    contentTitleRes = if (isBeingWorn) eu.darken.capod.common.R.string.headset_being_worn_label
-                        else eu.darken.capod.common.R.string.headset_not_being_worn_label
-                    return@apply
+                is HasEarDetection -> {
+                    contentTitleRes = if (device.isBeingWorn) eu.darken.capod.common.R.string.headset_being_worn_label
+                    else eu.darken.capod.common.R.string.headset_not_being_worn_label
                 }
 
                 // Case charge state
                 // This is under pods wear state as we don't want it conflicting with it
-                if (this is HasCase && isCaseCharging) {
-                    contentTitleRes = eu.darken.capod.common.R.string.pods_charging_label
-                    return@apply
+                is HasCase -> {
+                    if (device.isCaseCharging)
+                        contentTitleRes = eu.darken.capod.common.R.string.pods_charging_label
                 }
             }
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            setCustomContentView(notificationViewFactory.createContentView(device))
+            setCustomBigContentView(notificationViewFactory.createContentView(device))
             setSmallIcon(device.iconRes)
             setContentTitle(context.getString(contentTitleRes))
             setSubText(null)

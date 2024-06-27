@@ -98,7 +98,7 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.activity:activity-ktx:1.8.0")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
 
-    implementation("com.google.android.material:material:1.5.0-rc01")
+    implementation("com.google.android.material:material:1.12.0")
 
     val lifecycleVers = "2.6.2"
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")

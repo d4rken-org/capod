@@ -14,7 +14,7 @@
         android:summary="@string/settings_scanner_mode_description"
         android:title="@string/settings_scanner_mode_label" />
 
-    <CheckBoxPreference
+    <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_baseline_devices_other_24"
         android:key="core.showall.enabled"
         android:summary="@string/settings_showall_description"
@@ -49,19 +49,19 @@
         android:title="@string/settings_category_compatibility_options_title"
         app:icon="@drawable/ic_chip_24">
 
-        <CheckBoxPreference
+        <eu.darken.capod.common.preferences.MaterialSwitchPreference
             android:icon="@drawable/ic_filter_cog_outline_24"
             android:key="core.compat.offloaded.filtering.disabled"
             android:summary="@string/settings_compat_offloaded_filtering_disabled_summary"
             android:title="@string/settings_compat_offloaded_filtering_disabled_title" />
 
-        <CheckBoxPreference
+        <eu.darken.capod.common.preferences.MaterialSwitchPreference
             android:icon="@drawable/ic_format_list_group_24"
             android:key="core.compat.offloaded.batching.disabled"
             android:summary="@string/settings_compat_offloaded_batching_disabled_summary"
             android:title="@string/settings_compat_offloaded_batching_disabled_title" />
 
-        <CheckBoxPreference
+        <eu.darken.capod.common.preferences.MaterialSwitchPreference
             android:icon="@drawable/ic_strategy_24"
             android:key="core.compat.indirectcallback.enabled"
             android:summary="@string/settings_compat_indirectcallback_summary"
