@@ -61,6 +61,7 @@
     <string name="pods_microphone_label">Microphone</string>
     <string name="pods_yours">Yours</string>
     <string name="headset_being_worn_label">Being worn</string>
+    <string name="headset_not_being_worn_label">Not being worn</string>
     <string name="pods_case_unknown_state">Unknown state</string>
 
     <string name="last_seen_x">Last seen: %s</string>
