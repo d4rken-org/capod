@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
-import androidx.preference.Preference
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
@@ -26,17 +25,6 @@ class SupportFragment : PreferenceFragment3() {
     override val settings: GeneralSettings by lazy { generalSettings }
 
     @Inject lateinit var clipboardHelper: ClipboardHelper
-
-    private val installIdPref by lazy { findPreference<Preference>("support.installid")!! }
-
-    override fun onPreferencesCreated() {
-        installIdPref.setOnPreferenceClickListener {
-            vm.copyInstallID()
-            true
-        }
-
-        super.onPreferencesCreated()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.clipboardEvent.observe2(this) { installId ->
