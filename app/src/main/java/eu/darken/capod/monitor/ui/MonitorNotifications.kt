@@ -8,7 +8,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
-import androidx.annotation.StringRes
 import androidx.core.app.NotificationCompat
 import androidx.work.ForegroundInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -20,10 +19,16 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
+import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.getBatteryLevelCase
+import eu.darken.capod.pods.core.getBatteryLevelHeadset
+import eu.darken.capod.pods.core.getBatteryLevelLeftPod
+import eu.darken.capod.pods.core.getBatteryLevelRightPod
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -75,36 +80,65 @@ class MonitorNotifications @Inject constructor(
         }
 
         return builder.apply {
-            @StringRes var contentTitleRes = eu.darken.capod.common.R.string.pods_case_unknown_state
+
             // Options here should be mutually exclusive, and are prioritized by their order of importance
             // Some options are omitted here, as they will conflict with other options
             // TODO: Implement a settings pane to allow user to customize this
-            when (device) {
+            val stateText = when {
                 // Pods charging state
                 // This goes first as pods should not be worn if it is still charging
-                is HasChargeDetection -> {
-                    if (device.isHeadsetBeingCharged)
-                        contentTitleRes = eu.darken.capod.common.R.string.pods_charging_label
+                device is HasChargeDetection && device.isHeadsetBeingCharged -> {
+                    context.getString(eu.darken.capod.common.R.string.pods_charging_label)
                 }
 
                 // Pods wear state
-                is HasEarDetection -> {
-                    contentTitleRes = if (device.isBeingWorn) eu.darken.capod.common.R.string.headset_being_worn_label
-                    else eu.darken.capod.common.R.string.headset_not_being_worn_label
+                device is HasEarDetection -> {
+                    if (device.isBeingWorn) context.getString(eu.darken.capod.common.R.string.headset_being_worn_label)
+                    else context.getString(eu.darken.capod.common.R.string.headset_not_being_worn_label)
                 }
 
                 // Case charge state
                 // This is under pods wear state as we don't want it conflicting with it
-                is HasCase -> {
-                    if (device.isCaseCharging)
-                        contentTitleRes = eu.darken.capod.common.R.string.pods_charging_label
+                device is HasCase && device.isCaseCharging -> {
+                    context.getString(eu.darken.capod.common.R.string.pods_charging_label)
                 }
+
+                else -> context.getString(eu.darken.capod.common.R.string.pods_case_unknown_state)
+            }
+
+            val batteryText = when (device) {
+                is DualPodDevice -> {
+                    val left = device.getBatteryLevelLeftPod(context)
+                    val right = device.getBatteryLevelRightPod(context)
+                    when {
+                        device is HasCase -> {
+                            val case = device.getBatteryLevelCase(context)
+                            "$left $case $right"
+                        }
+
+                        else -> "$left $right"
+                    }
+                }
+
+                is SinglePodDevice -> {
+                    val headset = device.getBatteryLevelHeadset(context)
+                    when {
+                        device is HasCase -> {
+                            val case = device.getBatteryLevelCase(context)
+                            "$headset $case"
+                        }
+
+                        else -> headset
+                    }
+                }
+
+                else -> "?"
             }
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
             setCustomBigContentView(notificationViewFactory.createContentView(device))
             setSmallIcon(device.iconRes)
-            setContentTitle(context.getString(contentTitleRes))
+            setContentTitle("$batteryText ~ $stateText")
             setSubText(null)
             log(TAG, VERBOSE) { "updatingNotification(): $device" }
         }
