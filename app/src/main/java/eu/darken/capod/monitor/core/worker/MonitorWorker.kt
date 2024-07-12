@@ -80,8 +80,6 @@ class MonitorWorker @AssistedInject constructor(
         val start = System.currentTimeMillis()
         log(TAG, VERBOSE) { "Executing $inputData now (runAttemptCount=$runAttemptCount)" }
 
-        setForeground(monitorNotifications.getForegroundInfo(null))
-
         doDoWork()
 
         val duration = System.currentTimeMillis() - start
@@ -107,6 +105,8 @@ class MonitorWorker @AssistedInject constructor(
             log(TAG, WARN) { "Aborting, missing permissions: $permissionsMissingOnStart" }
             return
         }
+
+        setForeground(monitorNotifications.getForegroundInfo(null))
 
         val monitorJob = podMonitor.mainDevice
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
