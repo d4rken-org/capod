@@ -18,6 +18,8 @@
             app:destination="@id/troubleShooterFragment" />
         <action
             android:id="@+id/action_overviewFragment_to_onboardingFragment"
+            app:popUpTo="@id/overviewFragment"
+            app:popUpToInclusive="true"
             app:destination="@id/onboardingFragment" />
     </fragment>
 
@@ -36,7 +38,9 @@
         tools:layout="@layout/onboarding_fragment">
         <action
             android:id="@+id/action_onboardingFragment_to_overviewFragment"
-            app:destination="@id/overviewFragment" />
+            app:destination="@id/overviewFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/onboardingFragment" />
     </fragment>
 
 </navigation>
