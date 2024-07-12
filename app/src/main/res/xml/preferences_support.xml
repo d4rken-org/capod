@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <eu.darken.capod.common.preferences.IntentPreference
         android:icon="@drawable/ic_discord_onsurface"
         android:summary="@string/discord_description"
@@ -18,19 +17,4 @@
             android:data="https://github.com/d4rken-org/capod/issues" />
     </eu.darken.capod.common.preferences.IntentPreference>
 
-    <!-- Hide Install-ID and bug reporting settings, but keep for possible use in the future.
-    <PreferenceCategory app:title="@string/settings_category_other_label">
-        <Preference
-            android:icon="@drawable/ic_id_onsurface"
-            android:key="support.installid"
-            android:summary="@string/settings_support_installid_desc"
-            android:title="@string/settings_support_installid_label" />
-
-        <CheckBoxPreference
-            android:icon="@drawable/ic_spider_thread_onsurface"
-            android:key="debug.bugreport.automatic.enabled"
-            android:summary="@string/settings_debug_autoreports_description"
-            android:title="@string/settings_debug_autoreports_label" />
-    </PreferenceCategory>
-    -->
 </PreferenceScreen>

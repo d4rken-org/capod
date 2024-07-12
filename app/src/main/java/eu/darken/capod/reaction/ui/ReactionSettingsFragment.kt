@@ -5,9 +5,9 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
-import androidx.preference.CheckBoxPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
+import androidx.preference.TwoStatePreference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
@@ -51,17 +51,17 @@ class ReactionSettingsFragment : PreferenceFragment3() {
 
     override fun onPreferenceTreeClick(preference: Preference): Boolean {
         if (preference.key == reactionSettings.autoPlay.key && !isPro) {
-            preference as CheckBoxPreference
+            preference as TwoStatePreference
             upgradeRepo.launchBillingFlow(requireActivity())
             preference.isChecked = false
             return true
         } else if (preference.key == reactionSettings.autoPause.key && !isPro) {
-            preference as CheckBoxPreference
+            preference as TwoStatePreference
             upgradeRepo.launchBillingFlow(requireActivity())
             preference.isChecked = false
             return true
         } else if (preference.key == reactionSettings.autoConnect.key) {
-            preference as CheckBoxPreference
+            preference as TwoStatePreference
 
             if (!isPro) {
                 upgradeRepo.launchBillingFlow(requireActivity())
@@ -79,12 +79,12 @@ class ReactionSettingsFragment : PreferenceFragment3() {
                 return true
             }
         } else if (preference.key == reactionSettings.showPopUpOnCaseOpen.key && !isPro) {
-            preference as CheckBoxPreference
+            preference as TwoStatePreference
             upgradeRepo.launchBillingFlow(requireActivity())
             preference.isChecked = false
             return true
         } else if (preference.key == reactionSettings.showPopUpOnConnection.key && !isPro) {
-            preference as CheckBoxPreference
+            preference as TwoStatePreference
             upgradeRepo.launchBillingFlow(requireActivity())
             preference.isChecked = false
             return true
