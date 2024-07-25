@@ -9,13 +9,19 @@ import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.capod.common.debug.logging.Logging.Priority.*
+import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -132,12 +138,12 @@ class BleScanner @Inject constructor(
                 ScannerMode.LOW_POWER -> {
                     setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
                     setMatchMode(ScanSettings.MATCH_MODE_STICKY)
-                    setNumOfMatches(ScanSettings.MATCH_NUM_FEW_ADVERTISEMENT)
+                    setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
                 }
                 ScannerMode.BALANCED -> {
                     setScanMode(ScanSettings.SCAN_MODE_BALANCED)
                     setMatchMode(ScanSettings.MATCH_MODE_STICKY)
-                    setNumOfMatches(ScanSettings.MATCH_NUM_FEW_ADVERTISEMENT)
+                    setNumOfMatches(ScanSettings.MATCH_NUM_MAX_ADVERTISEMENT)
                 }
                 ScannerMode.LOW_LATENCY -> {
                     setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY)
