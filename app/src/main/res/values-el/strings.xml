@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Μέγεθος</string>
     <string name="debug_debuglog_size_compressed_label">Συμπιεσμένο μέγεθος</string>
     <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
-    <string name="debug_debuglog_file_label">Εγγεγραμμένο αρχείο καταγραφής</string>
-    <string name="debug_debuglog_record_action">Εγγραφή καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="settings_support_installid_label">Αναγνωριστικό εγκατάστασης</string>
     <string name="settings_support_installid_desc">Οι αυτόματες αναφορές σφαλμάτων είναι ανώνυμες. Κοινοποιήστε το αναγνωριστικό εγκατάστασης εάν ο προγραμματιστής πρέπει να βρει τις αναφορές σας σφαλμάτων.</string>
     <string name="settings_support_label">Υποστήριξη</string>

@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Dimensiune</string>
     <string name="debug_debuglog_size_compressed_label">Dimensiune comprimată</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
-    <string name="debug_debuglog_file_label">Fișier jurnal înregistrat</string>
-    <string name="debug_debuglog_record_action">Înregistrați jurnalul de depanare</string>
     <string name="settings_support_installid_label">ID de instalare</string>
     <string name="settings_support_installid_desc">Rapoartele automate de eroare sunt anonime. Partajați ID-ul de instalare dacă dezvoltatorul trebuie să vă găsească rapoartele de eroare.</string>
     <string name="settings_support_label">Suport</string>

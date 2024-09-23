@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporingsmeldingen</string>
-    <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
-    <string name="debug_debuglog_record_action">Foutopsporingslogboek opnemen</string>
     <string name="settings_support_installid_label">Installatie-ID</string>
     <string name="settings_support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel uw installatie-ID als de ontwikkelaar uw foutrapporten moet vinden.</string>
     <string name="settings_support_label">Ondersteuning</string>

@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Rozmiar</string>
     <string name="debug_debuglog_size_compressed_label">Rozmiar skompresowanego</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
-    <string name="debug_debuglog_file_label">Nagrany plik logowania</string>
-    <string name="debug_debuglog_record_action">Nagraj plik logowania</string>
     <string name="settings_support_installid_label">ID instalacji</string>
     <string name="settings_support_installid_desc">Automatyczne raporty błędów są anonimowe. Udostępni swoje ID instalacji, aby autor mógł znaleźć twój raport błędu.</string>
     <string name="settings_support_label">Wsparcie</string>

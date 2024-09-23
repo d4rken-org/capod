@@ -40,8 +40,6 @@
     <string name="debug_debuglog_size_label">Həcm</string>
     <string name="debug_debuglog_size_compressed_label">Sıxışdırılmış həcm</string>
     <string name="debug_notification_channel_label">Sazlama bildirişləri</string>
-    <string name="debug_debuglog_file_label">Yazılmış jurnal faylı</string>
-    <string name="debug_debuglog_record_action">Sazlama jurnalına yaz</string>
     <string name="settings_support_installid_label">Quraşdırma kimliyi</string>
     <string name="settings_support_installid_desc">Avtomatik xəta hesabatları anonimdir. Tərtibatçının xəta hesabatlarınızı tapmasına ehtiyacı varsa quraşdırma kimliyinizi paylaşın.</string>
     <string name="settings_support_label">Dəstək</string>

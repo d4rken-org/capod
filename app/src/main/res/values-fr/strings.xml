@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Taille</string>
     <string name="debug_debuglog_size_compressed_label">Taille compressée</string>
     <string name="debug_notification_channel_label">Notifications de débogage</string>
-    <string name="debug_debuglog_file_label">Ficher journal enregistré</string>
-    <string name="debug_debuglog_record_action">Enregistrer le journal de débogage</string>
     <string name="settings_support_installid_label">ID d’installation</string>
     <string name="settings_support_installid_desc">Les relevés automatiques d’erreur sont anonymes. Partagez votre ID d’installation au cas où le développeur aurait besoin de trouver votre relevé d’erreur.</string>
     <string name="settings_support_label">Assistance</string>

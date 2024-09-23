@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Розмір</string>
     <string name="debug_debuglog_size_compressed_label">Стиснутий розмір</string>
     <string name="debug_notification_channel_label">Повідомлення зневадження</string>
-    <string name="debug_debuglog_file_label">Журнал зневадження</string>
-    <string name="debug_debuglog_record_action">Зберегти журнал зневадження</string>
     <string name="settings_support_installid_label">ID інсталяції</string>
     <string name="settings_support_installid_desc">Автоматичні звіти про помилки є анонімними. Поділіться своїм ID інсталяції, якщо розробнику потрібно знайти ваші звіти про помилки.</string>
     <string name="settings_support_label">Підтримка</string>

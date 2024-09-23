@@ -48,8 +48,6 @@
     <string name="debug_debuglog_size_label">サイズ</string>
     <string name="debug_debuglog_size_compressed_label">圧縮サイズ</string>
     <string name="debug_notification_channel_label">デバッグ通知</string>
-    <string name="debug_debuglog_file_label">記録されたログファイル</string>
-    <string name="debug_debuglog_record_action">デバッグログを記録する</string>
     <string name="settings_support_installid_label">インストールID</string>
     <string name="settings_support_installid_desc">自動エラーレポートは匿名です。開発者があなたのエラーレポートを見つける必要がある場合は、インストールIDを共有してください。</string>
     <string name="settings_support_label">サポート</string>

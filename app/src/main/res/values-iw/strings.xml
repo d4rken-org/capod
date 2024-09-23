@@ -50,8 +50,6 @@
     <string name="debug_debuglog_size_label">מידה</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחיסה</string>
     <string name="debug_notification_channel_label">ניפוי באגים</string>
-    <string name="debug_debuglog_file_label">קובץ לוג מוקלט</string>
-    <string name="debug_debuglog_record_action">הקלט יומן ניפוי באגים</string>
     <string name="settings_support_installid_label">מזהה התקנה</string>
     <string name="settings_support_installid_desc">דוחות שגיאה אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאות שלך.</string>
     <string name="settings_support_label">תמיכה</string>

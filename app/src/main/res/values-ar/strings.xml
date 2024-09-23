@@ -44,8 +44,6 @@
     <string name="debug_debuglog_size_label">الحجم</string>
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
     <string name="debug_notification_channel_label">اشعارات التصحيح</string>
-    <string name="debug_debuglog_file_label">ملف مسجل</string>
-    <string name="debug_debuglog_record_action">ملف التصحيح مسجل</string>
     <string name="settings_support_installid_label">مُعرف التثبيت</string>
     <string name="settings_support_installid_desc">تقارير الأخطاء والمشاكل التلقائية تكون مجهول المصدر. شارك مُعرف التثبيت الخاص بك إذا احتاج المطور إلى العثور على الأخطاء والمشاكل الخاصة بك.</string>
     <string name="settings_support_label">الدعم</string>

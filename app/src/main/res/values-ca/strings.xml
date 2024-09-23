@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
-    <string name="debug_debuglog_file_label">Fitxer de registre gravat</string>
-    <string name="debug_debuglog_record_action">Grava el registre de depuració</string>
     <string name="settings_support_installid_label">ID d\'instal·lació</string>
     <string name="settings_support_installid_desc">Els informes d\'error automàtics són anònims. Compartiu el vostre ID d\'instal·lació si el desenvolupador necessita trobar els vostres informes d\'error.</string>
     <string name="settings_support_label">Suport</string>

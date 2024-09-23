@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Размер</string>
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Уведомления отладки</string>
-    <string name="debug_debuglog_file_label">Записанный файл лога</string>
-    <string name="debug_debuglog_record_action">Записать лог отладки</string>
     <string name="settings_support_installid_label">ID установки</string>
     <string name="settings_support_installid_desc">Автоматические отчёты об ошибках анонимны. Поделитесь Вашим ID установки, если разработчику нужен доступ к Вашим отчётам об ошибках.</string>
     <string name="settings_support_label">Поддержка</string>

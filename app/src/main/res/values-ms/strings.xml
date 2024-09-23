@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Saiz</string>
     <string name="debug_debuglog_size_compressed_label">Saiz termampat</string>
     <string name="debug_notification_channel_label">Notifikasi nyahpepijat</string>
-    <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
-    <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
     <string name="settings_support_installid_label">Pasang ID</string>
     <string name="settings_support_installid_desc">Laporan ralat automatik adalah tanpa nama. Kongsi ID pemasangan anda jika pembangun perlu mencari laporan ralat anda.</string>
     <string name="settings_support_label">Sokongan</string>

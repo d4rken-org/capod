@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Veľkosť</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná veľkosť</string>
     <string name="debug_notification_channel_label">Oznámenia o ladení</string>
-    <string name="debug_debuglog_file_label">Zaznamenaný súbor protokolu</string>
-    <string name="debug_debuglog_record_action">Zaznamenať protokol ladenia</string>
     <string name="settings_support_installid_label">ID inštalácie</string>
     <string name="settings_support_installid_desc">Automatické chybové hlásenia sú anonymné. Zdieľajte svoje ID inštalácie, ak vývojár potrebuje nájsť vaše chybové hlásenia.</string>
     <string name="settings_support_label">Podpora</string>

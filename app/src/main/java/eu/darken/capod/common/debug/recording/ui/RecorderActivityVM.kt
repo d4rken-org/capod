@@ -95,7 +95,7 @@ class RecorderActivityVM @Inject constructor(
         }
 
 
-        val chooserIntent = Intent.createChooser(intent, context.getString(R.string.debug_debuglog_file_label))
+        val chooserIntent = Intent.createChooser(intent, context.getString(R.string.support_debuglog_label))
         shareEvent.postValue(chooserIntent)
     }
 
