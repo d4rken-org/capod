@@ -83,6 +83,10 @@ interface PodDevice {
             "AirPods (Gen 3)",
             R.drawable.devic_airpods_gen2_both,
         ),
+        @Json(name = "airpods.gen4") AIRPODS_GEN4(
+            "AirPods (Gen 4)",
+            R.drawable.devic_airpods_gen2_both,
+        ),
         @Json(name = "airpods.pro") AIRPODS_PRO(
             "AirPods Pro",
             R.drawable.devic_airpods_pro2_both
