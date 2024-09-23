@@ -26,6 +26,8 @@ Currently supported models:
 * AirPods 1. Generation
 * AirPods 2. Generation
 * AirPods 3. Generation
+* AirPods 4. Generation
+* AirPods 4. Generation with ANC
 * AirPods Pro 1. Generation
 * AirPods Pro 2. Generation
 * AirPods Pro 2. Generation (USB-C)
