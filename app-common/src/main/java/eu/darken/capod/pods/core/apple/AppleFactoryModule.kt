@@ -9,6 +9,7 @@ import eu.darken.capod.pods.core.apple.airpods.AirPodsGen1
 import eu.darken.capod.pods.core.apple.airpods.AirPodsGen2
 import eu.darken.capod.pods.core.apple.airpods.AirPodsGen3
 import eu.darken.capod.pods.core.apple.airpods.AirPodsGen4
+import eu.darken.capod.pods.core.apple.airpods.AirPodsGen4Anc
 import eu.darken.capod.pods.core.apple.airpods.AirPodsMax
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro2
@@ -35,6 +36,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun airPodsGen2(factory: AirPodsGen2.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsGen3(factory: AirPodsGen3.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsGen4(factory: AirPodsGen4.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet abstract fun airPodsGen4Anc(factory: AirPodsGen4Anc.Factory): ApplePodsFactory<out ApplePods>
 
     @Binds @IntoSet abstract fun airPodsPro(factory: AirPodsPro.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsPro2(factory: AirPodsPro2.Factory): ApplePodsFactory<out ApplePods>
