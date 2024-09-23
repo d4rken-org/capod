@@ -5,9 +5,27 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.capod.pods.core.apple.airpods.*
-import eu.darken.capod.pods.core.apple.beats.*
-import eu.darken.capod.pods.core.apple.misc.*
+import eu.darken.capod.pods.core.apple.airpods.AirPodsGen1
+import eu.darken.capod.pods.core.apple.airpods.AirPodsGen2
+import eu.darken.capod.pods.core.apple.airpods.AirPodsGen3
+import eu.darken.capod.pods.core.apple.airpods.AirPodsGen4
+import eu.darken.capod.pods.core.apple.airpods.AirPodsMax
+import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
+import eu.darken.capod.pods.core.apple.airpods.AirPodsPro2
+import eu.darken.capod.pods.core.apple.airpods.AirPodsPro2Usbc
+import eu.darken.capod.pods.core.apple.beats.BeatsFitPro
+import eu.darken.capod.pods.core.apple.beats.BeatsFlex
+import eu.darken.capod.pods.core.apple.beats.BeatsSolo3
+import eu.darken.capod.pods.core.apple.beats.BeatsStudio3
+import eu.darken.capod.pods.core.apple.beats.BeatsX
+import eu.darken.capod.pods.core.apple.beats.PowerBeats3
+import eu.darken.capod.pods.core.apple.beats.PowerBeats4
+import eu.darken.capod.pods.core.apple.beats.PowerBeatsPro
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen1
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen2
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen3
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsPro
+import eu.darken.capod.pods.core.apple.misc.FakeAirPodsPro2
 
 @InstallIn(SingletonComponent::class)
 @Module
@@ -16,6 +34,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun airPodsGen1(factory: AirPodsGen1.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsGen2(factory: AirPodsGen2.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsGen3(factory: AirPodsGen3.Factory): ApplePodsFactory<out ApplePods>
+    @Binds @IntoSet abstract fun airPodsGen4(factory: AirPodsGen4.Factory): ApplePodsFactory<out ApplePods>
 
     @Binds @IntoSet abstract fun airPodsPro(factory: AirPodsPro.Factory): ApplePodsFactory<out ApplePods>
     @Binds @IntoSet abstract fun airPodsPro2(factory: AirPodsPro2.Factory): ApplePodsFactory<out ApplePods>
