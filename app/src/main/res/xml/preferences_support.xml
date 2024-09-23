@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <eu.darken.capod.common.preferences.IntentPreference
         android:icon="@drawable/ic_discord_onsurface"
         android:summary="@string/discord_description"
@@ -17,4 +18,11 @@
             android:data="https://github.com/d4rken-org/capod/issues" />
     </eu.darken.capod.common.preferences.IntentPreference>
 
+    <PreferenceCategory app:title="@string/settings_category_other_label">
+        <Preference
+            android:icon="@drawable/ic_baseline_bug_report_24"
+            android:key="support.debuglog"
+            android:summary="@string/support_debuglog_desc"
+            android:title="@string/support_debuglog_label" />
+    </PreferenceCategory>
 </PreferenceScreen>

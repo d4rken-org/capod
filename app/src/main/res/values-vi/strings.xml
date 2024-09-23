@@ -47,8 +47,6 @@
     <string name="debug_debuglog_size_label">Kích thước</string>
     <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
-    <string name="debug_debuglog_file_label">Tệp nhật ký đã ghi</string>
-    <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="settings_support_installid_label">ID Cài đặt</string>
     <string name="settings_support_installid_desc">Các báo cáo lỗi tự động được ẩn danh. Chia sẻ ID cài đặt của bạn nếu nhà phát triển cần tìm các báo cáo lỗi của bạn.</string>
     <string name="settings_support_label">Hỗ trợ</string>

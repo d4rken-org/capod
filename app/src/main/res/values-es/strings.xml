@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de la depuración</string>
-    <string name="debug_debuglog_file_label">Registro guardado</string>
-    <string name="debug_debuglog_record_action">Registro de depuración</string>
     <string name="settings_support_installid_label">ID de la instalación</string>
     <string name="settings_support_installid_desc">Los informes automáticos de errores son anónimos. Comparte tu ID de la instalación si el desarrollador necesita encontrar tus informes de errores.</string>
     <string name="settings_support_label">Ayuda</string>

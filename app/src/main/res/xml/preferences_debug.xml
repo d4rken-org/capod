@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
-        android:icon="@drawable/ic_baseline_text_snippet_24"
-        android:key="debug.log.record"
-        android:title="@string/debug_debuglog_record_action" />
-
     <eu.darken.capod.common.preferences.MaterialSwitchPreference
         android:icon="@drawable/ic_baseline_bug_report_24"
         android:key="debug.mode.enabled"

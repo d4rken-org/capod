@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
+    <string name="general_cancel_action">Cancel</string>
     <string name="general_copy_action">Copy</string>
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_upgrade_action">Upgrade</string>
@@ -53,15 +54,19 @@
     <string name="settings_popup_connected_label">Show connection popup</string>
     <string name="settings_popup_connected_description">Show a popup when the device connects for the first time.</string>
 
-
     <string name="notification_channel_device_status_label">Device status</string>
 
+    <string name="support_debuglog_label">Debug log</string>
+    <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
     <string name="debug_debuglog_size_label">Size</string>
     <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
+    <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
-
+    <string name="debug_debuglog_stop_action">Stop recording</string>
+    <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. Bluetooth device details). Only share it with trusted parties.</string>
+    <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. Bluetooth device details). Only share it with trusted parties (e.g. a developer that is troubleshooting an issue).</string>
 
     <string name="settings_support_installid_label">Install ID</string>
     <string name="settings_support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>

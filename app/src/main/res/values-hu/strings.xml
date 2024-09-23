@@ -44,8 +44,6 @@
     <string name="debug_debuglog_size_label">Méret</string>
     <string name="debug_debuglog_size_compressed_label">Tömörített_méret</string>
     <string name="debug_notification_channel_label">Hibakeresési_értesítések</string>
-    <string name="debug_debuglog_file_label">Rögzített_naplófájl</string>
-    <string name="debug_debuglog_record_action">Hibakeresési_napló_rögzítése</string>
     <string name="settings_support_installid_label">Azonosító</string>
     <string name="settings_support_installid_desc">Az automatikus hibajelentések névtelenek. Ossza meg azonosítóját, hogy a fejlesztő megtalálja a hibajelentéseket.</string>
     <string name="settings_support_label">Támogatás</string>

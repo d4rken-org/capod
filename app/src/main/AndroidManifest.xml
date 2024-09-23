@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <uses-feature
         android:name="android.hardware.bluetooth_le"
@@ -76,14 +75,6 @@
         <activity
             android:name=".common.debug.recording.ui.RecorderActivity"
             android:theme="@style/AppThemeFloating" />
-
-        <service
-            android:name=".common.debug.recording.core.RecorderService"
-            android:foregroundServiceType="specialUse">
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Users can record a debug log to help developers with bugs. The debug log recording is controlled via notifications and hosted in a foreground service." />
-        </service>
 
         <!-- Worker stuff-->
         <service

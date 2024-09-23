@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
     <string name="debug_notification_channel_label">Debug Benachrichtigungen</string>
-    <string name="debug_debuglog_file_label">Aufgenommene Log-Datei</string>
-    <string name="debug_debuglog_record_action">Debug Log aufnehmen</string>
     <string name="settings_support_installid_label">Installations-ID</string>
     <string name="settings_support_installid_desc">Automatische Fehlermeldungen sind anonym. Teilen Sie Ihre Installations- ID dem Entwickler mit, wenn er Ihre Fehlerberichte finden muss.</string>
     <string name="settings_support_label">Unterstützung</string>

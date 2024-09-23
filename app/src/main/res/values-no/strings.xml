@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarslinger</string>
-    <string name="debug_debuglog_file_label">Registrert loggfil</string>
-    <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
     <string name="settings_support_installid_label">Installasjons-ID</string>
     <string name="settings_support_installid_desc">Automatiske feilrapporter er anonyme. Del installasjons-ID-en din hvis utvikleren skal finne feilrapportene dine.</string>
     <string name="settings_support_label">Brukerstøtte</string>

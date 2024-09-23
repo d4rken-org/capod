@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
-    <string name="debug_debuglog_file_label">Kayıtlı günlük dosyası</string>
-    <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
     <string name="settings_support_installid_label">Kurulum Kimliği</string>
     <string name="settings_support_installid_desc">Otomatik hata raporları anonimdir. Geliştiricinin hata raporlarınızı bulması gerekiyorsa kurulum kimliğinizi paylaşabilirsiniz.</string>
     <string name="settings_support_label">Destek</string>

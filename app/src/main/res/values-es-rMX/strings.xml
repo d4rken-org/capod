@@ -11,6 +11,4 @@
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Depurar notificaciones</string>
-    <string name="debug_debuglog_file_label">Archivo de registro guardado</string>
-    <string name="debug_debuglog_record_action">Grabar registro de depuracion</string>
 </resources>

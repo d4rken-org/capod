@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">压缩后大小</string>
     <string name="debug_notification_channel_label">调试通知</string>
-    <string name="debug_debuglog_file_label">记录的日志文件</string>
-    <string name="debug_debuglog_record_action">记录调试日志</string>
     <string name="settings_support_installid_label">安装 ID</string>
     <string name="settings_support_installid_desc">自动发送的错误报告是匿名的。如果需要，给开发者发送您的安装 ID 以便找出您的错误报告。</string>
     <string name="settings_support_label">用户支持</string>

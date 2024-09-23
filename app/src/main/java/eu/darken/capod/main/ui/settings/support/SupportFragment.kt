@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
-import com.google.android.material.snackbar.Snackbar
+import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
-import eu.darken.capod.common.ClipboardHelper
+import eu.darken.capod.common.WebpageTool
+import eu.darken.capod.common.debug.recording.ui.RecorderConsentDialog
 import eu.darken.capod.common.observe2
 import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.main.core.GeneralSettings
@@ -24,17 +25,36 @@ class SupportFragment : PreferenceFragment3() {
 
     override val settings: GeneralSettings by lazy { generalSettings }
 
-    @Inject lateinit var clipboardHelper: ClipboardHelper
+    @Inject lateinit var webpageTool: WebpageTool
+
+    private val debugLogPref by lazy { findPreference<Preference>("support.debuglog")!! }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        vm.clipboardEvent.observe2(this) { installId ->
-            Snackbar.make(requireView(), installId, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.general_copy_action) {
-                    clipboardHelper.copyToClipboard(installId)
-                }
-                .show()
-        }
+        vm.recorderState.observe2(this) { state ->
+            debugLogPref.setIcon(
+                if (state.isRecording) R.drawable.ic_cancel
+                else R.drawable.ic_baseline_bug_report_24
+            )
+            debugLogPref.setTitle(
+                if (state.isRecording) R.string.debug_debuglog_stop_action
+                else R.string.debug_debuglog_record_action
+            )
+            debugLogPref.summary = when {
+                state.isRecording -> state.currentLogPath?.path
+                else -> getString(R.string.debug_debuglog_record_action)
+            }
 
+            debugLogPref.setOnPreferenceClickListener {
+                if (state.isRecording) {
+                    vm.stopDebugLog()
+                } else {
+                    RecorderConsentDialog(requireContext(), webpageTool).showDialog {
+                        vm.startDebugLog()
+                    }
+                }
+                true
+            }
+        }
         super.onViewCreated(view, savedInstanceState)
     }
 }

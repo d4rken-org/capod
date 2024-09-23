@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Памер</string>
     <string name="debug_debuglog_size_compressed_label">Сціснуты памер</string>
     <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
-    <string name="debug_debuglog_file_label">Файл журнала</string>
-    <string name="debug_debuglog_record_action">Запісаць лог аладкі ў журнал</string>
     <string name="settings_support_installid_label">ID інсталяцыі</string>
     <string name="settings_support_installid_desc">Аўтаматычныя справаздачы пра памылкі з\'яўляюцца ананімнымі. Падзяліцеся вашым ID інсталяцыі, калі распрацоўшчыку спатрэбіцца доступ да вашых справаздач пра памылкі.</string>
     <string name="settings_support_label">Падтрымка</string>

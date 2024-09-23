@@ -53,8 +53,6 @@
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompresi</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
-    <string name="debug_debuglog_file_label">File log yang direkam</string>
-    <string name="debug_debuglog_record_action">Rekam log debug</string>
     <string name="settings_support_installid_label">ID pemasangan</string>
     <string name="settings_support_installid_desc">Laporan kesalahan otomatis bersifat anonim. Bagikan ID pemasangan anda jika pengembang perlu menemukan laporan kesalahan anda.</string>
     <string name="settings_support_label">Dukungan</string>

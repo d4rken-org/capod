@@ -44,8 +44,6 @@
     <string name="debug_debuglog_size_label">크기</string>
     <string name="debug_debuglog_size_compressed_label">압축된 크기</string>
     <string name="debug_notification_channel_label">디버그 알림</string>
-    <string name="debug_debuglog_file_label">기록된 로그 파일</string>
-    <string name="debug_debuglog_record_action">기록된 디버그 로그</string>
     <string name="settings_support_installid_label">설치 ID</string>
     <string name="settings_support_installid_desc">자동 오류 보고는 익명성이 보장됩니다. 개발자가 오류 보고서를 필요로 할 때 설치 ID를 알려주세요.</string>
     <string name="settings_support_label">지원</string>
