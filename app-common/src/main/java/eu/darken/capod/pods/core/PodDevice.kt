@@ -107,6 +107,10 @@ interface PodDevice {
             "AirPods Max",
             R.drawable.devic_headphones_generic
         ),
+        @Json(name = "airpods.max2") AIRPODS_MAX2(
+            "AirPods Max 2",
+            R.drawable.devic_headphones_generic
+        ),
         @Json(name = "beats.flex") BEATS_FLEX(
             "Beats Flex"
         ),
