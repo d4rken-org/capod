@@ -39,7 +39,7 @@ data class AirPodsMax(
     class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
-            getModelInfo().dirty == DEVICE_CODE_DIRTY && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
+            getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
         override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
@@ -63,7 +63,7 @@ data class AirPodsMax(
     }
 
     companion object {
-        private val DEVICE_CODE_DIRTY = 0x200A.toUByte()
+        private val DEVICE_CODE = 0x0A20.toUShort()
         private val TAG = logTag("PodDevice", "Apple", "AirPods", "Max")
     }
 }
