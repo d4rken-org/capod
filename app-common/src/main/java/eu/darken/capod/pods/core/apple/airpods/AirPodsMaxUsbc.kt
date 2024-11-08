@@ -14,7 +14,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import java.time.Instant
 import javax.inject.Inject
 
-data class AirPodsMax2(
+data class AirPodsMaxUsbc(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
@@ -25,7 +25,7 @@ data class AirPodsMax2(
     private val rssiAverage: Int? = null,
 ) : SingleApplePods, HasEarDetection, HasChargeDetection, HasAppleColor {
 
-    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX2
+    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX_USBC
 
     override val rssi: Int
         get() = rssiAverage ?: super<SingleApplePods>.rssi
@@ -39,11 +39,11 @@ data class AirPodsMax2(
     class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
 
         override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
-            getModelInfo().dirty == DEVICE_CODE_DIRTY && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
+            getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
         override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
-            var basic = AirPodsMax2(scanResult = scanResult, proximityMessage = message)
+            var basic = AirPodsMaxUsbc(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -63,7 +63,7 @@ data class AirPodsMax2(
     }
 
     companion object {
-        private val DEVICE_CODE_DIRTY = 0x201F.toUByte()
-        private val TAG = logTag("PodDevice", "Apple", "AirPods", "Max2")
+        private val DEVICE_CODE = 0x1F20.toUShort()
+        private val TAG = logTag("PodDevice", "Apple", "AirPods", "Max", "USBC")
     }
 }
