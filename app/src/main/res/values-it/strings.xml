@@ -59,9 +59,7 @@
     <string name="settings_support_description">Se ti serve aiuto.</string>
     <string name="issue_tracker_label">Tracker di problemi</string>
     <string name="issue_tracker_description">Un tracker di problemi pubblico per segnalare problemi e richieste di nuove funzionalità (solo in inglese).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Un posto dove poter fare domande.</string>
-    <string name="changelog_label">Changelog</string>
     <string name="settings_label">Impostazioni</string>
     <string name="settings_privacy_policy_label">Politica sulla privacy</string>
     <string name="settings_privacy_policy_desc">Gestione dei dati responsabile.</string>

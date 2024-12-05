@@ -59,7 +59,6 @@
     <string name="settings_support_description">Potřebujete-li pomoc.</string>
     <string name="issue_tracker_label">Sledování problémů</string>
     <string name="issue_tracker_description">Veřejné sledování problémů pro hlášení chyb a požadavky na funkce (pouze v angličtině).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Místo, kde můžete psát a klást otázky.</string>
     <string name="changelog_label">Seznam změn</string>
     <string name="settings_label">Nastavení</string>

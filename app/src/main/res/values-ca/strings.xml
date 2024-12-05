@@ -59,7 +59,6 @@
     <string name="settings_support_description">Si necessiteu ajuda.</string>
     <string name="issue_tracker_label">Seguiment de problemes</string>
     <string name="issue_tracker_description">Un seguiment de problemes públics per a informes d\'errors i sol·licituds de característiques (només en anglès).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lloc on passar l\'estona i fer preguntes.</string>
     <string name="changelog_label">Registre de canvis</string>
     <string name="settings_label">Configuració</string>

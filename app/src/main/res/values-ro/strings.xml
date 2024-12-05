@@ -59,7 +59,6 @@
     <string name="settings_support_description">Dacă ai nevoie de ajutor.</string>
     <string name="issue_tracker_label">Detector de probleme</string>
     <string name="issue_tracker_description">Un instrument public de urmărire a problemelor pentru rapoartele de erori și solicitările de funcții (numai în limba engleză).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Un loc în care să stai și să pui întrebări.</string>
     <string name="changelog_label">Jurnalul modificărilor</string>
     <string name="settings_label">Setări</string>

@@ -54,7 +54,6 @@
     <string name="settings_support_description">何か困ったことがあったら</string>
     <string name="issue_tracker_label">イシュー・トラッカー</string>
     <string name="issue_tracker_description">バグレポートや機能要望のための公開されたイシュー・トラッカー（英語のみ）。</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">質問がしやすい場所です。</string>
     <string name="changelog_label">更新の内容</string>
     <string name="settings_label">設定</string>

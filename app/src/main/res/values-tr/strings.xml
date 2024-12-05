@@ -59,7 +59,6 @@
     <string name="settings_support_description">Yardıma ihtiyacınız olursa.</string>
     <string name="issue_tracker_label">Sorun izleyici</string>
     <string name="issue_tracker_description">Hata raporları ve yeni özellik talepleri için genel bir sorun izleyici (yalnızca İngilizce).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Takılmak ve soru sormak için bir yer.</string>
     <string name="changelog_label">Sürüm günlüğü</string>
     <string name="settings_label">Ayarlar</string>
@@ -81,7 +80,6 @@
     <string name="help_translate_label">Çeviri</string>
     <string name="help_translate_description">Uygulamayı favori dilinize tercüme etmeye yardımcı olun.</string>
     <string name="translators_thanks_title">Çevirmenler</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Bilinen son cihaz durumunu gösteren bir pencere öğesi (widget).</string>
     <string name="settings_compat_indirectcallback_title">Dolaylı veri teslimi</string>
     <string name="settings_compat_indirectcallback_summary">Sistemden BLE verilerini almak için alternatif bir yöntem kullanır (geri arama yerine yayın yapar).</string>
