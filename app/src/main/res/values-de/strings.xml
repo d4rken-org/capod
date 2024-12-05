@@ -4,7 +4,6 @@
     <string name="general_done_action">Fertig</string>
     <string name="general_copy_action">Kopieren</string>
     <string name="general_thank_you_label">Danke</string>
-    <string name="general_upgrade_action">Upgrade</string>
     <string name="general_check_action">Überprüfen</string>
     <string name="general_close_action">Schließen</string>
     <string name="upgrade_capod_label">Verbesser CAPod</string>
@@ -59,7 +58,6 @@
     <string name="settings_support_description">Wenn du Hilfe brauchst.</string>
     <string name="issue_tracker_label">Issue-Tracker</string>
     <string name="issue_tracker_description">Ein öffentlicher Issue-Tracker für Fehlerberichte und Funktionsanfragen (nur auf Englisch).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Ein Ort zum Verweilen und Fragen stellen.</string>
     <string name="changelog_label">Änderungsprotokoll</string>
     <string name="settings_label">Einstellungen</string>

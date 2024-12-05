@@ -59,7 +59,6 @@
     <string name="settings_support_description">Si necesitas ayuda.</string>
     <string name="issue_tracker_label">Gestor de incidencias</string>
     <string name="issue_tracker_description">Un gestor de incidencias público para los informes de errores y solicitudes de funciones (solo en inglés).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar donde pasar el rato y hacer preguntas.</string>
     <string name="changelog_label">Registro de cambios</string>
     <string name="settings_label">Ajustes</string>

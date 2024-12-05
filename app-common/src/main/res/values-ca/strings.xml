@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">N/D</string>
-    <string name="general_error_label">Error</string>
     <string name="general_grant_permission_action">Concedeix el permís</string>
     <string name="overview_nomaindevice_label">Cap dispositiu principal</string>
     <string name="overview_nomaindevice_description">És poc probable que tots els dispositius detectats siguin vostres. Enceneu i connecteu el dispositiu o ajusteu la configuració.</string>
@@ -14,7 +10,6 @@
     <string name="permission_bluetooth_connect_description">Aquesta aplicació requereix el permís «Connexió Bluetooth» per interactuar amb dispositius emparellats i iniciar connexions.</string>
     <string name="permission_bluetooth_scan_label">Escaneig Bluetooth</string>
     <string name="permission_bluetooth_scan_description">El permís «Escaneig Bluetooth» permet que aquesta aplicació descobreixi i rebi dades Bluetooth de dispositius propers, com ara els vostres AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Aquesta aplicació requereix el permís «Bluetooth» per connectar-se als dispositius Bluetooth emparellats.</string>
     <string name="permission_access_fine_location_label">Accés a la ubicació precisa</string>
     <string name="permission_access_fine_location_description">El CAPod utilitza el permís «ubicació precisa» per rebre dades Bluetooth Low Energy. Els vostres auriculars utilitzen la tecnologia Bluetooth Low Energy per transmetre el seu estat. Aquesta aplicació NO utilitzarà dades Bluetooth per determinar la vostra ubicació.</string>

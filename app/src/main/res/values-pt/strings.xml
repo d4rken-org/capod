@@ -59,7 +59,6 @@
     <string name="settings_support_description">Se precisar de ajuda.</string>
     <string name="issue_tracker_label">Rastreador de problemas</string>
     <string name="issue_tracker_description">Um rastreador de problemas públicos para relatórios de erros e solicitações de recursos (somente em inglês).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para conviver e tirar dúvidas.</string>
     <string name="changelog_label">Registo de alterações</string>
     <string name="settings_label">Definições</string>
@@ -81,7 +80,6 @@
     <string name="help_translate_label">Tradução</string>
     <string name="help_translate_description">Ajude a traduzir esta aplicação para o seu idioma favorito.</string>
     <string name="translators_thanks_title">Tradutores</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Um widget que apresenta o último estado conhecido do dispositivo.</string>
     <string name="settings_compat_indirectcallback_title">Entrega de dados indireta</string>
     <string name="settings_compat_indirectcallback_summary">Utilizar um método alternativo de receber dados BLE do sistema (transmissão em vez de retorno de chamada).</string>

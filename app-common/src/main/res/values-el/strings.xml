@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">Δε διατίθεται</string>
     <string name="general_error_label">Σφάλμα</string>
     <string name="general_grant_permission_action">Παραχώρηση άδειας</string>
@@ -14,7 +11,6 @@
     <string name="permission_bluetooth_connect_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Σύνδεση Bluetooth\" για να αλληλεπιδρά με αντιστοιχισμένες συσκευές και να ξεκινά συνδέσεις.</string>
     <string name="permission_bluetooth_scan_label">Σάρωση Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Η άδεια \"Σάρωση Bluetooth\" επιτρέπει σε αυτήν την εφαρμογή να εντοπίζει και να λαμβάνει δεδομένα Bluetooth από κοντινές συσκευές, όπως τα AirPods σας.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Bluetooth\" για να συνδέεται σε αντιστοιχισμένες συσκευές Bluetooth.</string>
     <string name="permission_access_fine_location_label">Πρόσβαση ακριβούς τοποθεσίας</string>
     <string name="permission_access_fine_location_description">Το CAPod χρησιμοποιεί την άδεια \"Ακριβής τοποθεσία\" για να λαμβάνει δεδομένα χαμηλής ενέργειας Bluetooth. Τα ακουστικά σας χρησιμοποιούν τεχνολογία χαμηλής ενέργειας Bluetooth για να μεταδίδουν την κατάστασή τους. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιεί δεδομένα Bluetooth για να προσδιορίσει την τοποθεσία σας.</string>

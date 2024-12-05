@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="app_name">CAPod</string>
     <string name="app_name_pro">Tasuline CAPod</string>
-    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">Pole saadaval</string>
     <string name="pods_dual_left_label">Vasak klapp</string>
     <string name="pods_dual_right_label">Parem klapp</string>

@@ -81,7 +81,6 @@
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help deze app te vertalen in uw favoriete taal.</string>
     <string name="translators_thanks_title">Vertalers</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Een widget dat de laatst gekende apparaatstatus toont.</string>
     <string name="settings_compat_indirectcallback_title">Onrechtstreekse data aflevering</string>
     <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE data van het systeem (broadcast inplaats van callback).</string>
