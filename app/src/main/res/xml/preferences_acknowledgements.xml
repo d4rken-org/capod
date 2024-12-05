@@ -49,6 +49,15 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/furiousMAC/continuity" />
         </eu.darken.capod.common.preferences.IntentPreference>
+        <eu.darken.capod.common.preferences.IntentPreference
+            android:key="thanks.crowdin"
+            android:summary="For supporting translation of open-source projects"
+            android:title="crowdin.com"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://crowdin.com/" />
+        </eu.darken.capod.common.preferences.IntentPreference>
     </PreferenceCategory>
 
     <PreferenceCategory
