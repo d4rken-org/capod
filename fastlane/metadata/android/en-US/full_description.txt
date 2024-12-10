@@ -7,7 +7,7 @@ Features:
 * Additional infos about connection, microphone and case.
 * Can receive and show all nearby devices.
 * Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
+* Automatically connect device and AirPods.
 * Show popup when case is opened.
 
 CAPod is ad-free. Some features require an in-app purchase.
