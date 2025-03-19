@@ -10,11 +10,4 @@
         android:tooltipText="Sponsor development"
         android:visible="false"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/menu_item_twitter"
-        android:icon="@drawable/ic_twitter"
-        android:orderInCategory="100"
-        android:title="Twitter"
-        android:tooltipText="Twitter"
-        app:showAsAction="always" />
 </menu>
