@@ -1,0 +1,23 @@
+theme: minima
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+
+title: "CAPod"
+description: "A companion app for AirPods on Android."
+author: "by Matthias Urhahn"
+
+include:
+  - PRIVACY_POLICY.md
+exclude:
+  - buildSrc
+  - gradle/wrapper
+  - fastlane
+  - Gemfile
+  - Gemfile.lock
+  - crowdin*
+  - app
+  - app-common
+  - app-wear
