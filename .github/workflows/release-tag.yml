@@ -8,7 +8,9 @@ on:
 jobs:
   release-github:
     name: Create GitHub release
-    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    runs-on: ubuntu-22.04
     environment: foss-production
     steps:
       - name: Decode Keystore
@@ -21,24 +23,21 @@ jobs:
           echo $ENCODED_KEYSTORE | base64 -di > "${TMP_KEYSTORE_FILE_PATH}"
           echo "STORE_PATH=$(echo $TMP_KEYSTORE_FILE_PATH)" >> $GITHUB_ENV
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
         with:
           fetch-depth: 0
 
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
       - name: Get the version
         id: tagger
-        uses: jimschubert/query-tag-action@v2
+        uses: jimschubert/query-tag-action@0b288a5fff630fea2e96d61b99047ed823ca19dc #v2.2
         with:
           skip-unshallow: 'true'
           abbrev: false
           commit-ish: HEAD
-
-      - name: Install JDK ${{ matrix.java_version }}
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: 17
 
       - name: Assemble beta APK
         if: contains(steps.tagger.outputs.tag, '-beta')
@@ -60,7 +59,7 @@ jobs:
 
       - name: Create pre-release
         if: contains(steps.tagger.outputs.tag, '-beta')
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda #v2.2.1
         with:
           prerelease: true
           tag_name: ${{ steps.tagger.outputs.tag }}
@@ -74,21 +73,19 @@ jobs:
 
       - name: Create release
         if: "!contains(steps.tagger.outputs.tag, '-beta')"
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda #v2.2.1
         with:
           prerelease: false
           tag_name: ${{ steps.tagger.outputs.tag }}
           name: ${{ steps.tagger.outputs.tag }}
           generate_release_notes: true
-          files: |
-            app/build/outputs/apk/foss/release/*.apk
-            app-wear/build/outputs/apk/foss/release/*.apk
+          files: app/build/outputs/apk/foss/release/*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   release-gplay:
     name: Create Google Play release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment: gplay-production
     steps:
       - name: Decode Keystore
@@ -111,29 +108,26 @@ jobs:
           echo $ENCODED_SERVICE_KEY | base64 -di > "${TMP_SERVICEKEY_FILE_PATH}"
           echo "SUPPLY_JSON_KEY=$(echo $TMP_SERVICEKEY_FILE_PATH)" >> $GITHUB_ENV
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
         with:
           fetch-depth: 0
 
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
       - name: Get the version
         id: tagger
-        uses: jimschubert/query-tag-action@v2
+        uses: jimschubert/query-tag-action@0b288a5fff630fea2e96d61b99047ed823ca19dc #v2.2
         with:
           skip-unshallow: 'true'
           abbrev: false
           commit-ish: HEAD
 
-      - name: Install JDK ${{ matrix.java_version }}
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'adopt'
-          java-version: 17
-
       - name: Set up ruby env
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@354a1ad156761f5ee2b7b13fa8e09943a5e8d252 #v1.229.0
         with:
-          ruby-version: 2.7.6
+          ruby-version: 3.3.6
           bundler-cache: true
 
       #      - name: Assemble WearOS beta and upload to Google Play
