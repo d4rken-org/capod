@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="general_value_not_available_label">Δε διατίθεται</string>
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">Μ/Δ</string>
     <string name="general_error_label">Σφάλμα</string>
     <string name="general_grant_permission_action">Παραχώρηση άδειας</string>
     <string name="overview_nomaindevice_label">Καμία κύρια συσκευή</string>
@@ -11,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Σύνδεση Bluetooth\" για να αλληλεπιδρά με αντιστοιχισμένες συσκευές και να ξεκινά συνδέσεις.</string>
     <string name="permission_bluetooth_scan_label">Σάρωση Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Η άδεια \"Σάρωση Bluetooth\" επιτρέπει σε αυτήν την εφαρμογή να εντοπίζει και να λαμβάνει δεδομένα Bluetooth από κοντινές συσκευές, όπως τα AirPods σας.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Bluetooth\" για να συνδέεται σε αντιστοιχισμένες συσκευές Bluetooth.</string>
     <string name="permission_access_fine_location_label">Πρόσβαση ακριβούς τοποθεσίας</string>
     <string name="permission_access_fine_location_description">Το CAPod χρησιμοποιεί την άδεια \"Ακριβής τοποθεσία\" για να λαμβάνει δεδομένα χαμηλής ενέργειας Bluetooth. Τα ακουστικά σας χρησιμοποιούν τεχνολογία χαμηλής ενέργειας Bluetooth για να μεταδίδουν την κατάστασή τους. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιεί δεδομένα Bluetooth για να προσδιορίσει την τοποθεσία σας.</string>
@@ -19,7 +23,7 @@
     <string name="permission_ignore_battery_optimizations_label">Απενεργοποίηση βελτιστοποιήσεων μπαταρίας</string>
     <string name="permission_ignore_battery_optimizations_description">Οι βελτιστοποιήσεις μπαταρίας εμποδίζουν αυτήν την εφαρμογή να λαμβάνει αξιόπιστα δεδομένα Bluetooth ενώ η εφαρμογή βρίσκεται στο παρασκήνιο.</string>
     <string name="permission_required_title">Η ακόλουθη άδεια είναι απαραίτητη:</string>
-    <string name="permission_system_alert_window_label">Παράθυρο ειδοποίησης συστήματος</string>
+    <string name="permission_system_alert_window_label">Παράθυρο Ειδοποίησης Συστήματος</string>
     <string name="permission_system_alert_window_description">Επιτρέψτε στο CAPod να εμφανίζεται πάνω από άλλες εφαρμογές για να είναι δυνατή η λειτουργία \"Εμφάνιση αναδυόμενου\".</string>
     <string name="settings_scanner_mode_lowpower_label">Χαμηλή ισχύς</string>
     <string name="settings_scanner_mode_balanced_label">Εξισορρόπηση</string>
@@ -42,7 +46,7 @@
     <string name="pods_connection_state_ringing_label">Κουδούνισμα</string>
     <string name="pods_connection_state_hanging_up_label">Τερματισμός κλήσης</string>
     <string name="pods_connection_state_unknown_label">Άγνωστη κατάσταση σύνδεσης</string>
-    <string name="pods_unknown_raw_data_label">Ανεπεξέργαστα δεδομένα</string>
+    <string name="pods_unknown_raw_data_label">Ακατέργαστα δεδομένα</string>
     <string name="pods_unknown_label">Άγνωστη συσκευή</string>
     <string name="pods_unknown_contact_dev">Αυτή είναι μια άγνωστη συσκευή, αλλά χρησιμοποιεί παρόμοια μορφή μηνυμάτων. Ας προσθέσουμε υποστήριξη για αυτήν, επικοινωνήστε μαζί μου :)</string>
     <string name="pods_none_label_short">Καμία συσκευή</string>
@@ -51,6 +55,7 @@
     <string name="pods_microphone_label">Μικρόφωνο</string>
     <string name="pods_yours">Δικό σας</string>
     <string name="headset_being_worn_label">Φοριέται</string>
+    <string name="headset_not_being_worn_label">Δε φοριέται</string>
     <string name="pods_case_unknown_state">Άγνωστη κατάσταση</string>
     <string name="last_seen_x">Τελευταία εμφάνιση: %s</string>
     <string name="first_seen_x">Πρώτη εμφάνιση: %s</string>

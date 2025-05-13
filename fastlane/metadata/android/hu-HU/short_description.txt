@@ -1,1 +1,1 @@
-A CAPod az AirPods kísérőalkalmazása.
+A CAPod egy AirPods kísérőalkalmazás Androidhoz.

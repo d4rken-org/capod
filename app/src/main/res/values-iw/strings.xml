@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">שתף</string>
     <string name="general_done_action">בוצע</string>
+    <string name="general_cancel_action">בטל</string>
     <string name="general_copy_action">העתק</string>
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_upgrade_action">שידרוג</string>
@@ -45,11 +46,22 @@
     <string name="settings_maindevice_model_description">הדגם של המכשיר הראשי שלך. זה עוזר לאפליקציה לזהות את המכשיר שלך כשהוא לא מחובר לטלפון שלך.</string>
     <string name="settings_onepod_mode_label">מצב אוזניה בודדת</string>
     <string name="settings_onepod_mode_description">אין צורך לענוד את שני האוזניות, לבישת אוזניה בודדת מספיקה כדי לעורר תגובות.</string>
+    <string name="settings_popup_caseopen_label">הצג חלון קופץ</string>
     <string name="settings_popup_caseopen_description">הצג חלון הודעה כאשר מארז המכשיר נפתח (ניסיוני).</string>
+    <string name="settings_popup_connected_label">הצג חלון קופץ של חיבור</string>
+    <string name="settings_popup_connected_description">הצג חלון קופץ כאשר המכשיר מתחבר בפעם הראשונה.</string>
     <string name="notification_channel_device_status_label">מצב המכשיר</string>
+    <string name="support_debuglog_label">יומן ניפוי באגים</string>
+    <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה בקובץ טקסט שתוכל לשתף.</string>
     <string name="debug_debuglog_size_label">מידה</string>
     <string name="debug_debuglog_size_compressed_label">גודל דחיסה</string>
     <string name="debug_notification_channel_label">ניפוי באגים</string>
+    <string name="debug_debuglog_file_label">קובץ לוג מוקלט</string>
+    <string name="debug_debuglog_recording_progress">מקליט יומן ניפוי באגים</string>
+    <string name="debug_debuglog_record_action">הקלט יומן ניפוי באגים</string>
+    <string name="debug_debuglog_stop_action">עצור הקלטה</string>
+    <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים.</string>
+    <string name="settings_debuglog_explanation">תכונה זו מתעדת את כל מה שהאפליקציה עושה לקובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים (למשל מפתח שפותר בעיות).</string>
     <string name="settings_support_installid_label">מזהה התקנה</string>
     <string name="settings_support_installid_desc">דוחות שגיאה אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאות שלך.</string>
     <string name="settings_support_label">תמיכה</string>
@@ -92,7 +104,13 @@
     <string name="troubleshooter_ble_result_success_body">שידורי פרסומת BLE מתקבלים על ידי CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">לא מוצלח</string>
     <string name="troubleshooter_ble_result_failure_body">פתרון הבעיות נכשל. שום שילוב של אפשרויות תאימות לא עזר.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">הטלפון שלך לא קיבל נתוני BLE בכלל. אתה יכול לנסות שוב את הבדיקה הזו באזור צפוף כדי לראות אם ניתן לקבל מקורות נתונים נוספים (מלבד האוזניות שלך). אין מידע שמתקבל מצביע על בעיה במערכת ההפעלה של הטלפון שלך.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">טלפון שלך קיבל נתוני BLE, אך הנתונים אינם מגיעים ממכשיר אשר נתמך. האם האוזניות שלך מופעלות? האם CAPod תומך באוזניות שלך?</string>
     <string name="troubleshooter_ble_result_failure_action">נסה שנית</string>
     <string name="troubleshoot_action">פתרון בעיות</string>
+    <string name="onboarding_body1">אפליקציה זו מוסיפה תמיכה בתכונות ספציפיות של AirPod לאנדרואיד.</string>
+    <string name="onboarding_body2">לא כל מכשירי האנדרואיד תומכים באופן מלא בתכונות הנוספות של AirPod. מערכת ההפעלה שלך דורשת יישום תקין של Bluetooth-Low-Energy.</string>
+    <string name="onboarding_body3">ב-CAPod אין מודעות ואיננו אוספים נתונים שלך.</string>
+    <string name="onboarding_body4">אתה יכול לשדרג ל-CAPod Pro כדי לקבל תכונות נוספות ותמיכה בפיתוח.</string>
+    <string name="general_continue_action">המשך</string>
 </resources>

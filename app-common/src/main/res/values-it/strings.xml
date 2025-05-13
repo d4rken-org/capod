@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">Non disponibile</string>
     <string name="general_error_label">Errore</string>
     <string name="general_grant_permission_action">Concedi permessi</string>
     <string name="overview_nomaindevice_label">Nessun device primario</string>
@@ -10,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Questa applicazione richiede il permesso di \"Connesione bluetooth\" per interagire con i dispotivi collegati e iniziare le connesioni.</string>
     <string name="permission_bluetooth_scan_label">Scansione bluetooth</string>
     <string name="permission_bluetooth_scan_description">Il permesso di \"Scansione bluetooth\" permette a questa app di trovare e ricevere dati Bluetooth da dispositivi vicini come le tue Airpods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Questa app richiede il permesso \"Bluetooth\" per connettersi ai dispoitivi Bluetooth.</string>
     <string name="permission_access_fine_location_label">Accedi alla posizione precisa</string>
     <string name="permission_access_fine_location_description">CAPod usa i permessi di Geolocalizzazione per ricevere dati Bluetooth a basso consumo. Le tue cuffie suano la tecnologia Bluetooth a basso consumo per inviare al dispositivo al quale sono connesse il loro stato. Questa app non utilizza i dati Bluetooth per geolocalizzarti.</string>
@@ -50,6 +55,7 @@
     <string name="pods_microphone_label">Microfono</string>
     <string name="pods_yours">Tuoi</string>
     <string name="headset_being_worn_label">Indossato</string>
+    <string name="headset_not_being_worn_label">Non indossato</string>
     <string name="pods_case_unknown_state">Stato sconosciuto</string>
     <string name="last_seen_x">Ultimo accesso: %s</string>
     <string name="first_seen_x">Primo accesso: %s</string>

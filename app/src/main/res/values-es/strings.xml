@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
+    <string name="general_cancel_action">Cancelar</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_upgrade_action">Actualizar</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Mostrar una ventana emergente con la conexión</string>
     <string name="settings_popup_connected_description">Mostrar una ventana emergente cuando el dispositivo se conecta por primera vez.</string>
     <string name="notification_channel_device_status_label">Estado del dispositivo</string>
+    <string name="support_debuglog_label">Registro de depuración</string>
+    <string name="support_debuglog_desc">Registra todo lo que hace la aplicación en un archivo de texto que puedes compartir.</string>
     <string name="debug_debuglog_size_label">Tamaño</string>
     <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
     <string name="debug_notification_channel_label">Notificaciones de la depuración</string>
+    <string name="debug_debuglog_file_label">Archivo de registro grabado</string>
+    <string name="debug_debuglog_recording_progress">Registro de depuración</string>
+    <string name="debug_debuglog_record_action">Grabar el registro de depuración</string>
+    <string name="debug_debuglog_stop_action">Detener la grabación</string>
+    <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información sensible (por ejemplo, detalles del dispositivo Bluetooth). Compártalo únicamente con personas de confianza.</string>
+    <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, detalles del dispositivo Bluetooth). Compártalo solo con personas de confianza (por ejemplo, un desarrollador que esté solucionando un problema).</string>
     <string name="settings_support_installid_label">ID de la instalación</string>
     <string name="settings_support_installid_desc">Los informes automáticos de errores son anónimos. Comparte tu ID de la instalación si el desarrollador necesita encontrar tus informes de errores.</string>
     <string name="settings_support_label">Ayuda</string>
     <string name="settings_support_description">Si necesitas ayuda.</string>
     <string name="issue_tracker_label">Gestor de incidencias</string>
     <string name="issue_tracker_description">Un gestor de incidencias público para los informes de errores y solicitudes de funciones (solo en inglés).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar donde pasar el rato y hacer preguntas.</string>
     <string name="changelog_label">Registro de cambios</string>
     <string name="settings_label">Ajustes</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="upgrades_gplay_unavailable_error">구글 플레이 서비스는 제공되지 않습니다.</string>
+    <string name="upgrades_gplay_unavailable_error">Google Play 서비스를 사용할 수 없습니다.</string>
     <string name="upgrades_no_purchases_found_check_account">구매 내역을 찾지 못했습니다. 결제했던 계정이 맞나요?</string>
 </resources>

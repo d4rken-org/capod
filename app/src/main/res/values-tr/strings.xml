@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamam</string>
+    <string name="general_cancel_action">İptal</string>
     <string name="general_copy_action">Kopyala</string>
     <string name="general_thank_you_label">Katkı sağlayanlar.</string>
     <string name="general_upgrade_action">Güncelle</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Bağlantı için açılır pencere göster</string>
     <string name="settings_popup_connected_description">Cihaz ilk kez bağlantı kurduğunda, açılır bir pencere gösterir.</string>
     <string name="notification_channel_device_status_label">Aygıt durumu</string>
+    <string name="support_debuglog_label">Hata ayıklama günlüğü</string>
+    <string name="support_debuglog_desc">Uygulamanın yaptığı her şeyi paylaşabileceğiniz bir metin dosyasına kaydeder.</string>
     <string name="debug_debuglog_size_label">Boyut</string>
     <string name="debug_debuglog_size_compressed_label">Sıkıştırılmış boyut</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
+    <string name="debug_debuglog_file_label">Kayıtlı günlük dosyası</string>
+    <string name="debug_debuglog_recording_progress">Hata ayıklama günlüğü kaydediliyor</string>
+    <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>
+    <string name="debug_debuglog_stop_action">Kaydı durdur</string>
+    <string name="debug_debuglog_sensitive_information_message">Oluşturulan dosya hassas bilgiler içerir (örn. Bluetooth cihaz detayları). Yalnızca güvenilir taraflarla paylaşın.</string>
+    <string name="settings_debuglog_explanation">Bu özellik, uygulamanın yaptığı her şeyi paylaşılabilir bir dosyaya kaydeder. Oluşturulan dosya hassas bilgiler içerir (örn. Bluetooth cihaz detayları). Bu dosyayı yalnızca güvenilir taraflarla paylaşın (örneğin, bir sorunu gideren geliştirici).</string>
     <string name="settings_support_installid_label">Kurulum Kimliği</string>
     <string name="settings_support_installid_desc">Otomatik hata raporları anonimdir. Geliştiricinin hata raporlarınızı bulması gerekiyorsa kurulum kimliğinizi paylaşabilirsiniz.</string>
     <string name="settings_support_label">Destek</string>
     <string name="settings_support_description">Yardıma ihtiyacınız olursa.</string>
     <string name="issue_tracker_label">Sorun izleyici</string>
     <string name="issue_tracker_description">Hata raporları ve yeni özellik talepleri için genel bir sorun izleyici (yalnızca İngilizce).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Takılmak ve soru sormak için bir yer.</string>
     <string name="changelog_label">Sürüm günlüğü</string>
     <string name="settings_label">Ayarlar</string>
@@ -80,6 +90,7 @@
     <string name="help_translate_label">Çeviri</string>
     <string name="help_translate_description">Uygulamayı favori dilinize tercüme etmeye yardımcı olun.</string>
     <string name="translators_thanks_title">Çevirmenler</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Bilinen son cihaz durumunu gösteren bir pencere öğesi (widget).</string>
     <string name="settings_compat_indirectcallback_title">Dolaylı veri teslimi</string>
     <string name="settings_compat_indirectcallback_summary">Sistemden BLE verilerini almak için alternatif bir yöntem kullanır (geri arama yerine yayın yapar).</string>

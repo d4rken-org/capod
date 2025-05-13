@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
+    <string name="general_cancel_action">Отмена</string>
     <string name="general_copy_action">Копировать</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_upgrade_action">Улучшить</string>
@@ -53,6 +54,9 @@
     <string name="debug_debuglog_size_label">Размер</string>
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Уведомления отладки</string>
+    <string name="debug_debuglog_stop_action">Остановить запись</string>
+    <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, сведения об устройстве Bluetooth). Передавайте его только доверенным лицам.</string>
+    <string name="settings_debuglog_explanation">Эта функция записывает все, что делает приложение, в общий файл. Созданный файл содержит конфиденциальную информацию (например, сведения об устройстве Bluetooth). Делитесь им только с доверенными сторонами (например, разработчиком, который устраняет проблему).</string>
     <string name="settings_support_installid_label">ID установки</string>
     <string name="settings_support_installid_desc">Автоматические отчёты об ошибках анонимны. Поделитесь Вашим ID установки, если разработчику нужен доступ к Вашим отчётам об ошибках.</string>
     <string name="settings_support_label">Поддержка</string>

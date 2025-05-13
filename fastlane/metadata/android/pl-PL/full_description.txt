@@ -4,8 +4,8 @@ Funkcje:
 
 * Poziom baterii pod'ów oraz obudowy.
 * Status ładowania pod'ów oraz obudowy.
-* Dodatkowe informacje nt. połączenia, mikrofonu oraz obudowy.
-* Wyświetlanie i odbierane urządzeń w pobliżu.
+* Dodatkowe informacje na temat połączenia, mikrofonu i obudowy.
+* Może odbierać i pokazywać wszystkie pobliskie urządzenia.
 * Detekcja ucha, z automatycznym odtwarzaniem/pauzowaniem.
 * Automatyczne łączenie telefonu oraz AirPods.
 * Wyświetlanie okienka, gdy obudowa jest otwarta.

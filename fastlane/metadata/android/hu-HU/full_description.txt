@@ -1,18 +1,18 @@
-A CAPod az AirPods kísérőalkalmazása.
+A CAPod egy AirPods kísérőalkalmazás.
 
 Jellemzők:
 
-* Battery level for pods and cases.
-* A fejhallgatók és a tok töltöttségi állapota.
-* További információk a csatlakozásról, a mikrofonról és a tokról.
-* Képes fogadni és megjeleníteni az összes közeli eszközt.
+* Akkumulátor töltöttségi szintje fülhallgatóhoz és tokokhoz.
+* Fülhallgatók és tok töltöttségi állapota.
+* További információk a csatlakozásról, mikrofonról és a tokról.
+* Képes megjeleníteni az összes közeli eszközt.
 * Fülérzékelés automatikus lejátszás/szünet funkcióval.
-* A telefon és az AirPod automatikus csatlakoztatása.
-* Az előugró ablak megjelenítése az tok megnyitásakor.
+* A telefon és az AirPods automatikus csatlakoztatása.
+* Előugró ablak megjelenítése a tok kinyitásakor.
 
 A CAPod reklámmentes. Egyes funkciók az alkalmazáson belül megvásárolható.
 
 A legtöbb népszerű AirPods és Beats eszköz támogatott.
 Ha az eszköze hasonló az AirPodshoz, de még nem támogatott, küldjön egy rövid e-mailt.
 
-Van egy jó ötlete egy új funkcióhoz? Jelentkezzen!
+Van egy jó ötlete egy új funkcióhoz? Keressen meg!

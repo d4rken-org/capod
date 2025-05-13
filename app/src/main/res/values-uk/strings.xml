@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Зроблено</string>
+    <string name="general_cancel_action">Скасувати</string>
     <string name="general_copy_action">Копіювати</string>
     <string name="general_thank_you_label">Дякуємо</string>
     <string name="general_upgrade_action">Оновити</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Показувати спливаюче вікно при приєднанні</string>
     <string name="settings_popup_connected_description">Показувати спливаюче вікно коли пристрій підключається вперше.</string>
     <string name="notification_channel_device_status_label">Статус пристрою</string>
+    <string name="support_debuglog_label">Журнал зневадження</string>
+    <string name="support_debuglog_desc">Запис всього, що робить програма, у текстовий файл, яким можна поділитися.</string>
     <string name="debug_debuglog_size_label">Розмір</string>
     <string name="debug_debuglog_size_compressed_label">Стиснутий розмір</string>
     <string name="debug_notification_channel_label">Повідомлення зневадження</string>
+    <string name="debug_debuglog_file_label">Файл журналу зневадження</string>
+    <string name="debug_debuglog_recording_progress">Запис журналу зневадження</string>
+    <string name="debug_debuglog_record_action">Записати журнал зневадження</string>
+    <string name="debug_debuglog_stop_action">Зупинити запис</string>
+    <string name="debug_debuglog_sensitive_information_message">Створений файл містить чутливу інформацію (наприклад, відомості про пристрої Bluetooth). Діліться ним лише з довіреними особами.</string>
+    <string name="settings_debuglog_explanation">Ця функція записує все, що робить програма, у файл, яким можна ділитися. Створений файл містить чутливу інформацію (наприклад, відомості про пристрої Bluetooth). Діліться ним лише з довіреними особами (наприклад, розробником, що розв\'язує проблему).</string>
     <string name="settings_support_installid_label">ID інсталяції</string>
     <string name="settings_support_installid_desc">Автоматичні звіти про помилки є анонімними. Поділіться своїм ID інсталяції, якщо розробнику потрібно знайти ваші звіти про помилки.</string>
     <string name="settings_support_label">Підтримка</string>
     <string name="settings_support_description">Якщо необхідна допомога.</string>
     <string name="issue_tracker_label">Баґтрекер</string>
     <string name="issue_tracker_description">Загальнодоступна система відстеження помилок для звітів про помилки та запитів на функції (лише англійською).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Місце для зависання та задавання питань.</string>
     <string name="changelog_label">Список змін</string>
     <string name="settings_label">Налаштування</string>

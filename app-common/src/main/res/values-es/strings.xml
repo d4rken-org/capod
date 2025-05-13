@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">Hello, I am Izan</string>
+    <string name="app_name_pro">AirPods Pro
+Popu</string>
+    <string name="app_name_foss">PodCAPod FOSS</string>
     <string name="general_value_not_available_label">No disponible</string>
-    <string name="general_error_label">Fallo</string>
-    <string name="general_grant_permission_action">Conceder el permiso</string>
-    <string name="overview_nomaindevice_label">Sin dispositivo principal</string>
-    <string name="overview_nomaindevice_description">Es poco probable que todos los dispositivos detectados sean tuyos. Enciende y conecta tu dispositivo o ajusta la configuración.</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_grant_permission_action">Otorgar el permiso</string>
+    <string name="overview_nomaindevice_label">Ningún dispositivo principal</string>
+    <string name="overview_nomaindevice_description">Es poco probable que todos los dispositivos detectados sean suyos. Enciende y conecta tu dispositivo o ajusta la configuración.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth desactivado</string>
-    <string name="overview_bluetooth_disabled_description">El Bluetooth está desactivado, actívalo ;)</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth está desactivado, actívalo ;)</string>
     <string name="permission_bluetooth_connect_label">Conexión por Bluetooth</string>
-    <string name="permission_bluetooth_connect_description">Esta aplicación requiere el permiso \"Conexión por Bluetooth\" para interactuar con los dispositivos emparejados e iniciar las conexiones.</string>
+    <string name="permission_bluetooth_connect_description">Esta aplicación necesita el permiso \"Conexión Bluetooth\" para interactuar con los dispositivos emparejados e iniciar conexiones.</string>
     <string name="permission_bluetooth_scan_label">El Bluetooth está escaneando</string>
-    <string name="permission_bluetooth_scan_description">El permiso \"Escaneo del Bluetooth\" permite que esta aplicación descubra y reciba datos de Bluetooth de dispositivos cercanos, como tus AirPods.</string>
-    <string name="permission_bluetooth_description">Esta aplicación requiere el permiso \"Bluetooth\" para conectarse a dispositivos bluetooth emparejados.</string>
+    <string name="permission_bluetooth_scan_description">El permiso \"Escaneo por Bluetooth\" permite que esta aplicación detecte y reciba datos de Bluetooth de dispositivos cercanos, como los AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Esta aplicación requiere el permiso \"Bluetooth\" para conectarse a dispositivos emparejados de bluetooth.</string>
     <string name="permission_access_fine_location_label">Acceso preciso a tu ubicación</string>
-    <string name="permission_access_fine_location_description">CAPod utiliza el permiso \"localización precisa\" para recibir datos Bluetooth Low Energy. Tus auriculares utilizan la tecnología Bluetooth Low Energy para transmitir tu estado. Esta aplicación NO utilizará los datos Bluetooth para determinar tu ubicación.</string>
-    <string name="permission_background_location_label">Ubicación en segundo plano</string>
-    <string name="permission_background_location_description">CAPod utiliza el \"la ubicación en segundo plano\" para activar funciones como \"Mostrar ventana emergente\" y \"Conexión automática\" mientras la aplicación está cerrada. El acceso a la localización en segundo plano permite a la aplicación recibir datos de Bluetooth Low Energy mientras está en segundo plano. Esta aplicación NO utilizará los datos Bluetooth para determinar tu ubicación.</string>
+    <string name="permission_access_fine_location_description">CAPod utiliza el permiso \"ubicación fina\" para recibir datos de Bluetooth de baja energía. Tus auriculares utilizan la tecnología Bluetooth de baja energía para transmitir su estado. Esta aplicación NO utilizará datos Bluetooth para determinar tu ubicación.</string>
+    <string name="permission_background_location_label">Acceso a la ubicación en segundo plano</string>
+    <string name="permission_background_location_description">CAPod utiliza \"acceso a la ubicación en segundo plano\" para habilitar características como \"Mostrar popup\" y \"AutoConnect\" mientras la aplicación está cerrada. El acceso a la ubicación en segundo plano permite que la aplicación reciba datos de Bluetooth de baja energía mientras está en segundo plano. Esta aplicación NO utilizará datos de Bluetooth para determinar su ubicación.</string>
     <string name="permission_ignore_battery_optimizations_label">Desactivar las optimizaciones de la batería</string>
-    <string name="permission_ignore_battery_optimizations_description">Las optimizaciones de la batería impiden que esta aplicación reciba datos Bluetooth de forma fiable mientras está en segundo plano.</string>
+    <string name="permission_ignore_battery_optimizations_description">Las optimizaciones de la batería impiden que esta aplicación reciba datos Bluetooth de forma fiable mientras la aplicación está en segundo plano.</string>
     <string name="permission_required_title">Se requiere el siguiente permiso:</string>
     <string name="permission_system_alert_window_label">Ventana de alerta del sistema</string>
-    <string name="permission_system_alert_window_description">Permite a CAPod dibujar sobre otras aplicaciones para hacer posible la función \"Mostrar una ventana emergente\".</string>
+    <string name="permission_system_alert_window_description">Permitir que CAPod funcione sobre otras aplicaciones para hacer posible la función \"Mostrar una ventana emergente\".</string>
     <string name="settings_scanner_mode_lowpower_label">Bajo consumo</string>
     <string name="settings_scanner_mode_balanced_label">Equilibrado</string>
     <string name="settings_scanner_mode_lowlatency_label">Baja latencia</string>
@@ -49,8 +54,9 @@
     <string name="pods_charging_label">Cargando</string>
     <string name="pods_inear_label">En el oído</string>
     <string name="pods_microphone_label">Micrófono</string>
-    <string name="pods_yours">Tuyos</string>
+    <string name="pods_yours">Tus</string>
     <string name="headset_being_worn_label">Utilizándose</string>
+    <string name="headset_not_being_worn_label">No se usan</string>
     <string name="pods_case_unknown_state">Estado desconocido</string>
     <string name="last_seen_x">Visto por última vez: %s</string>
     <string name="first_seen_x">Visto por primera vez: %s</string>
