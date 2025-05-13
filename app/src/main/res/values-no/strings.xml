@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Ferdig</string>
+    <string name="general_cancel_action">Avbryt</string>
     <string name="general_copy_action">Kopier</string>
     <string name="general_thank_you_label">Tusen takk</string>
     <string name="general_upgrade_action">Oppgrader</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Vis tilkobling popup</string>
     <string name="settings_popup_connected_description">Vis en popup første gang enheten kobles til.</string>
     <string name="notification_channel_device_status_label">Enhetsstatus</string>
+    <string name="support_debuglog_label">Feilsøkingslogg</string>
+    <string name="support_debuglog_desc">Registrer alt appen gjør i en tekstfil som du kan dele.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
     <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarslinger</string>
+    <string name="debug_debuglog_file_label">Fil med registrert logg</string>
+    <string name="debug_debuglog_recording_progress">Registrerer feilsøkingslogg</string>
+    <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
+    <string name="debug_debuglog_stop_action">Stopp opptak</string>
+    <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. detaljer om Bluetooth-enhet). Bare del den med parter du stoler på.</string>
+    <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. detaljer om Bluetooth-enhet). Bare del den med parter du stoler på (f.eks. en utvikler som feilsøker et problem).</string>
     <string name="settings_support_installid_label">Installasjons-ID</string>
     <string name="settings_support_installid_desc">Automatiske feilrapporter er anonyme. Del installasjons-ID-en din hvis utvikleren skal finne feilrapportene dine.</string>
     <string name="settings_support_label">Brukerstøtte</string>
     <string name="settings_support_description">Hvis du trenger hjelp med noe.</string>
     <string name="issue_tracker_label">Problemsporing</string>
     <string name="issue_tracker_description">En offentlig problemsporing for feilrapporter og funksjonsforespørsler (kun på engelsk).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted til å henge og for å stille spørsmål.</string>
     <string name="changelog_label">Endringslogg</string>
     <string name="settings_label">Innstillinger</string>

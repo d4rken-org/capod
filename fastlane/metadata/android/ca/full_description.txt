@@ -1,4 +1,4 @@
-CAPod és una aplicació complementària per als AirPods.
+El CAPod és una aplicació complementària per als AirPods.
 
 Característiques:
 
@@ -10,9 +10,9 @@ Característiques:
 * Connecta automàticament el telèfon i els AirPods.
 * Mostra una finestra emergent quan s'obre la funda.
 
-CAPod no inclou anuncis. Algunes funcions requereixen una compra des de l'aplicació.
+El CAPod no inclou anuncis. Algunes funcions requereixen una compra des de l'aplicació.
 
 Els dispositius AirPods i Beats més populars són compatibles.
 Si el vostre dispositiu és semblant als AirPods però encara no és compatible, envieu-me un correu.
 
-Teniu una idea genail per a una característica nova? Fes-m'ho saber!
+Teniu una idea genial per a una característica nova? Feu-m'ho saber!

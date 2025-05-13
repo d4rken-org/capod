@@ -10,9 +10,9 @@ Caractéristiques :
 * Connecter automatiquement le téléphone et les AirPods.
 * Afficher une fenêtre surgissante à l’ouverture de l’étui.
 
-CAPod est exempt de publicités. L’achat intégré donne accès à des fonctions supplémentaires.
+CAPod est exempt de publicités. Certaines fonctions nécessitent un achat intégré.
 
 La plupart des Airpods et des appareils Beats sont pris en charge.
-Si votre appareil est semblable à des AirPods, mais qu’il n’est pas encore pris en charge, envoyez-moi un bref courriel.
+Si votre appareil est semblable à des AirPods, mais n’est pas encore pris en charge, envoyez-moi un courriel.
 
 Avez-vous pensé à une nouvelle fonction ? Contactez-moi.

@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Sdílet</string>
     <string name="general_done_action">Hotovo</string>
+    <string name="general_cancel_action">Zrušit</string>
     <string name="general_copy_action">Kopírovat</string>
     <string name="general_thank_you_label">Děkuji Vám</string>
     <string name="general_upgrade_action">Upgradovat</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Zobrazit vyskakovací okno při připojení</string>
     <string name="settings_popup_connected_description">Zobrazit vyskakovací okno při prvním připojení zařízení.</string>
     <string name="notification_channel_device_status_label">Stav zařízení</string>
+    <string name="support_debuglog_label">Log ladění</string>
+    <string name="support_debuglog_desc">Zaznamenávejte vše, co aplikace dělá, do textového souboru, který můžete sdílet.</string>
     <string name="debug_debuglog_size_label">Velikost</string>
     <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
+    <string name="debug_debuglog_file_label">Zaznamenaný log soubor</string>
+    <string name="debug_debuglog_recording_progress">Zaznamenávání logu ladění</string>
+    <string name="debug_debuglog_record_action">Zaznamenat log ladění</string>
+    <string name="debug_debuglog_stop_action">Ukončit zaznamenávání</string>
+    <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. podrobnosti o zařízení Bluetooth). Sdílejte ho pouze s důvěryhodnými stranami.</string>
+    <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru pro sdílení. Vygenerovaný soubor obsahuje citlivé informace (např. detaily o zařízení Bluetooth). Sdílejte ho pouze s důvěryhodnými stranami (např. vývojář, který řeší problémy).</string>
     <string name="settings_support_installid_label">ID instalace</string>
     <string name="settings_support_installid_desc">Automatická hlášení chyb jsou anonymní. Sdílíte pouze své ID instalace, pokud vývojář potřebuje najít vaše chybová hlášení.</string>
     <string name="settings_support_label">Podpora</string>
     <string name="settings_support_description">Potřebujete-li pomoc.</string>
     <string name="issue_tracker_label">Sledování problémů</string>
     <string name="issue_tracker_description">Veřejné sledování problémů pro hlášení chyb a požadavky na funkce (pouze v angličtině).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Místo, kde můžete psát a klást otázky.</string>
     <string name="changelog_label">Seznam změn</string>
     <string name="settings_label">Nastavení</string>

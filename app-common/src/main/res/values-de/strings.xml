@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">k.A.</string>
     <string name="general_error_label">Fehler</string>
     <string name="general_grant_permission_action">Berechtigung erteilen</string>
@@ -11,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Diese App benötigt die \"Bluetooth verbinden\" Berechtigung um mit bereits verbundenen und neuen Geräten zu interagieren.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth Suche</string>
     <string name="permission_bluetooth_scan_description">Die \"Bluetooth verbinden\" Berechtigung erlaubt dieser App Bluetooth Daten von Geräten wie AirPods zu finden und zu erhalten.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Diese App benötigt die \"Bluetooth\" Berechtigung um sich mit gekoppelten Geräten zu verbinden.</string>
     <string name="permission_access_fine_location_label">Auf genauen Standort zugreifen</string>
     <string name="permission_access_fine_location_description">CAPod benutzt die \"genauen Gerätestandort verwenden\" Berechtigung um Bluetooth Low Energy Daten zu erhalten. Ihre Kopfhörer nutzen Bluetooth Low Energy um ihren Batterie Status zu übertragen. Diese App greift nicht auf ihren Standort zu.</string>
@@ -28,7 +32,7 @@
     <string name="settings_monitor_mode_automatic_label">Wenn das Gerät verbunden ist</string>
     <string name="settings_monitor_mode_always_label">Stets</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wenn gesehen</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Fall ist offen</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Ladecase ist offen</string>
     <string name="settings_reaction_autoconnect_inear_label">Im Ohr</string>
     <string name="pods_dual_left_label">Linker Pod</string>
     <string name="pods_dual_right_label">Rechter Pod</string>
@@ -51,6 +55,7 @@
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="pods_yours">Dein</string>
     <string name="headset_being_worn_label">Wird getragen</string>
+    <string name="headset_not_being_worn_label">Wird nicht getragen</string>
     <string name="pods_case_unknown_state">Unbekannter Zustand</string>
     <string name="last_seen_x">Zuletzt gesehen: %s</string>
     <string name="first_seen_x">Zum ersten Mal gesehen: %s</string>

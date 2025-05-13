@@ -2,8 +2,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Teilen</string>
     <string name="general_done_action">Fertig</string>
+    <string name="general_cancel_action">Abbrechen</string>
     <string name="general_copy_action">Kopieren</string>
     <string name="general_thank_you_label">Danke</string>
+    <string name="general_upgrade_action">Upgrade</string>
     <string name="general_check_action">Überprüfen</string>
     <string name="general_close_action">Schließen</string>
     <string name="upgrade_capod_label">Verbesser CAPod</string>
@@ -49,15 +51,24 @@
     <string name="settings_popup_connected_label">Verbindungs-Popup anzeigen</string>
     <string name="settings_popup_connected_description">Zeigt ein Popup an, wenn das Gerät zum ersten Mal eine Verbindung herstellt.</string>
     <string name="notification_channel_device_status_label">Geräte Status</string>
+    <string name="support_debuglog_label">Debug-Protokoll</string>
+    <string name="support_debuglog_desc">Zeichne alle Aktivitäten der App in einer Textdatei auf, die du weitergeben kannst.</string>
     <string name="debug_debuglog_size_label">Größe</string>
     <string name="debug_debuglog_size_compressed_label">Komprimierte Größe</string>
     <string name="debug_notification_channel_label">Debug Benachrichtigungen</string>
+    <string name="debug_debuglog_file_label">Aufgezeichnete Protokolldatei</string>
+    <string name="debug_debuglog_recording_progress">Aufzeichnen des Debug-Protokolls</string>
+    <string name="debug_debuglog_record_action">Debug-Protokoll aufzeichnen</string>
+    <string name="debug_debuglog_stop_action">Aufnahme beenden</string>
+    <string name="debug_debuglog_sensitive_information_message">Die generierte Datei enthält vertrauliche Informationen (z. B. Bluetooth-Gerätedetails). Gebe sie nur an vertrauenswürdige Parteien weiter.</string>
+    <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Bluetooth-Gerätedetails). Gebe sie nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
     <string name="settings_support_installid_label">Installations-ID</string>
     <string name="settings_support_installid_desc">Automatische Fehlermeldungen sind anonym. Teilen Sie Ihre Installations- ID dem Entwickler mit, wenn er Ihre Fehlerberichte finden muss.</string>
     <string name="settings_support_label">Unterstützung</string>
     <string name="settings_support_description">Wenn du Hilfe brauchst.</string>
     <string name="issue_tracker_label">Issue-Tracker</string>
     <string name="issue_tracker_description">Ein öffentlicher Issue-Tracker für Fehlerberichte und Funktionsanfragen (nur auf Englisch).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Ein Ort zum Verweilen und Fragen stellen.</string>
     <string name="changelog_label">Änderungsprotokoll</string>
     <string name="settings_label">Einstellungen</string>

@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Delen</string>
     <string name="general_done_action">Klaar</string>
+    <string name="general_cancel_action">Annuleren</string>
     <string name="general_copy_action">Kopiëren</string>
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_upgrade_action">Upgraden</string>
@@ -50,9 +51,17 @@
     <string name="settings_popup_connected_label">Verbindingspop-up weergeven</string>
     <string name="settings_popup_connected_description">Toon een pop-up wanneer het apparaat voor de eerste keer verbinding maakt.</string>
     <string name="notification_channel_device_status_label">Apparaatstatus</string>
+    <string name="support_debuglog_label">Foutopsporingslogboek</string>
+    <string name="support_debuglog_desc">Registreer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
     <string name="debug_debuglog_size_label">Grootte</string>
     <string name="debug_debuglog_size_compressed_label">Gecomprimeerde grootte</string>
     <string name="debug_notification_channel_label">Foutopsporingsmeldingen</string>
+    <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
+    <string name="debug_debuglog_recording_progress">Opnemen van foutopsporingslogboek</string>
+    <string name="debug_debuglog_record_action">Foutopsporingslogboek opnemen</string>
+    <string name="debug_debuglog_stop_action">Stop met opnemen</string>
+    <string name="debug_debuglog_sensitive_information_message">Het gegenereerde bestand bevat gevoelige informatie (bijv. Bluetooth-apparaatdetails). Deel het alleen met vertrouwde partijen.</string>
+    <string name="settings_debuglog_explanation">Deze functie slaat alles op wat de app doet in een deelbaar bestand. Het gegenereerde bestand bevat gevoelige informatie (bijvoorbeeld. Bluetooth apparaat details). Deel het alleen met vertrouwde partijen (bijv. een ontwikkelaar die problemen oplost).</string>
     <string name="settings_support_installid_label">Installatie-ID</string>
     <string name="settings_support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel uw installatie-ID als de ontwikkelaar uw foutrapporten moet vinden.</string>
     <string name="settings_support_label">Ondersteuning</string>
@@ -81,6 +90,7 @@
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help deze app te vertalen in uw favoriete taal.</string>
     <string name="translators_thanks_title">Vertalers</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Een widget dat de laatst gekende apparaatstatus toont.</string>
     <string name="settings_compat_indirectcallback_title">Onrechtstreekse data aflevering</string>
     <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE data van het systeem (broadcast inplaats van callback).</string>

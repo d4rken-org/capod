@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Udostępnij</string>
     <string name="general_done_action">Gotowe</string>
+    <string name="general_cancel_action">Anuluj</string>
     <string name="general_copy_action">Kopiuj</string>
     <string name="general_thank_you_label">Dziękuję</string>
     <string name="general_upgrade_action">Ulepsz</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Wyświetl okienko połączenia</string>
     <string name="settings_popup_connected_description">Wyświetla okienko, gdy urządzenie łączy się po raz pierwszy.</string>
     <string name="notification_channel_device_status_label">Status urządzenia</string>
+    <string name="support_debuglog_label">Logi debugowania</string>
+    <string name="support_debuglog_desc">Nagrywaj wszystko, co robi aplikacja w pliku tekstowym, który możesz udostępnić.</string>
     <string name="debug_debuglog_size_label">Rozmiar</string>
     <string name="debug_debuglog_size_compressed_label">Rozmiar skompresowanego</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
+    <string name="debug_debuglog_file_label">Nagrany plik logów</string>
+    <string name="debug_debuglog_recording_progress">Nagrywanie logów debugowania</string>
+    <string name="debug_debuglog_record_action">Nagraj logi debugowania</string>
+    <string name="debug_debuglog_stop_action">Zatrzymaj nagrywanie</string>
+    <string name="debug_debuglog_sensitive_information_message">Wygenerowany plik zawiera poufne informacje (np. szczegóły urządzenia Bluetooth). Udostępnij go tylko zaufanym stronom.</string>
+    <string name="settings_debuglog_explanation">Funkcja zapisuje wszystko, co robi aplikacja możliwym do udostępnienia pliku. Wygenerowany plik zawiera poufne informacje (np. Szczegóły urządzenia Bluetooth). Udostępnij je tylko zaufanym stronom (np. deweloper, który rozwiązuje problemy).</string>
     <string name="settings_support_installid_label">ID instalacji</string>
     <string name="settings_support_installid_desc">Automatyczne raporty błędów są anonimowe. Udostępni swoje ID instalacji, aby autor mógł znaleźć twój raport błędu.</string>
     <string name="settings_support_label">Wsparcie</string>
     <string name="settings_support_description">Jeśli potrzebujesz pomocy.</string>
     <string name="issue_tracker_label">Śledzenie problemów</string>
     <string name="issue_tracker_description">Publiczna lista problemów, dla raportów błędów oraz próśb o nowe funkcjonalności (tylko po angielsku).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Miejsce do rozmów i zadawania pytań.</string>
     <string name="changelog_label">Lista zmian</string>
     <string name="settings_label">Ustawienia</string>

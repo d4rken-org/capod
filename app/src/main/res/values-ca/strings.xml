@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Comparteix</string>
     <string name="general_done_action">Fet</string>
+    <string name="general_cancel_action">Cancel·la</string>
     <string name="general_copy_action">Copia</string>
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_upgrade_action">Actualitza</string>
@@ -50,15 +51,24 @@
     <string name="settings_popup_connected_label">Mostra la finestra emergent de connexió</string>
     <string name="settings_popup_connected_description">Mostra una finestra emergent quan el dispositiu es connecti per primera vegada.</string>
     <string name="notification_channel_device_status_label">Estat del dispositiu</string>
+    <string name="support_debuglog_label">Registre de depuració</string>
+    <string name="support_debuglog_desc">Enregistra tot el que fa l\'aplicació en un fitxer de text que podeu compartir.</string>
     <string name="debug_debuglog_size_label">Mida</string>
     <string name="debug_debuglog_size_compressed_label">Mida comprimida</string>
     <string name="debug_notification_channel_label">Notificacions de depuració</string>
+    <string name="debug_debuglog_file_label">Fitxer de registre gravat</string>
+    <string name="debug_debuglog_recording_progress">Enregistrament del registre de depuració</string>
+    <string name="debug_debuglog_record_action">Grava el registre de depuració</string>
+    <string name="debug_debuglog_stop_action">Atura la gravació</string>
+    <string name="debug_debuglog_sensitive_information_message">El fitxer generat conté informació sensible (p. ex. detalls del dispositiu Bluetooth). Compartiu-ho només amb persones de confiança.</string>
+    <string name="settings_debuglog_explanation">Aquesta funció enregistra tot el que fa l\'aplicació en un fitxer compartible. El fitxer generat conté informació sensible (p. ex. detalls del dispositiu Bluetooth). Compartiu-ho només amb persones de confiança (p. ex. un desenvolupador que està solucionant un problema).</string>
     <string name="settings_support_installid_label">ID d\'instal·lació</string>
     <string name="settings_support_installid_desc">Els informes d\'error automàtics són anònims. Compartiu el vostre ID d\'instal·lació si el desenvolupador necessita trobar els vostres informes d\'error.</string>
     <string name="settings_support_label">Suport</string>
     <string name="settings_support_description">Si necessiteu ajuda.</string>
     <string name="issue_tracker_label">Seguiment de problemes</string>
     <string name="issue_tracker_description">Un seguiment de problemes públics per a informes d\'errors i sol·licituds de característiques (només en anglès).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lloc on passar l\'estona i fer preguntes.</string>
     <string name="changelog_label">Registre de canvis</string>
     <string name="settings_label">Configuració</string>
