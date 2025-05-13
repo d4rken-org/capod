@@ -2,13 +2,10 @@ import com.android.build.api.dsl.Packaging
 import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Action
 import org.gradle.api.JavaVersion
-import org.gradle.api.Project
-import org.gradle.kotlin.dsl.apply
-import org.gradle.kotlin.dsl.extra
 import java.io.File
 import java.io.FileInputStream
 import java.time.Instant
-import java.util.*
+import java.util.Properties
 
 object ProjectConfig {
     const val packageName = "eu.darken.capod"
@@ -75,7 +72,7 @@ fun LibraryExtension.setupLibraryDefaults() {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
         freeCompilerArgs = freeCompilerArgs + listOf(
             "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-opt-in=kotlinx.coroutines.FlowPreview",

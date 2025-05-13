@@ -20,10 +20,10 @@ private fun DependencyHandler.androidTestImplementation(dependencyNotation: Any)
 private fun DependencyHandler.kaptAndroidTest(dependencyNotation: Any): Dependency? =
     add("kaptAndroidTest", dependencyNotation)
 
-private fun DependencyHandler.`testRuntimeOnly`(dependencyNotation: Any): Dependency? =
+private fun DependencyHandler.testRuntimeOnly(dependencyNotation: Any): Dependency? =
     add("testRuntimeOnly", dependencyNotation)
 
-private fun DependencyHandler.`debugImplementation`(dependencyNotation: Any): Dependency? =
+private fun DependencyHandler.debugImplementation(dependencyNotation: Any): Dependency? =
     add("debugImplementation", dependencyNotation)
 
 fun DependencyHandlerScope.addBaseKotlin() {
@@ -63,7 +63,7 @@ fun DependencyHandlerScope.addDagger() {
 fun DependencyHandlerScope.addMoshi() {
     implementation("com.squareup.moshi:moshi:${Versions.Moshi.core}")
     implementation("com.squareup.moshi:moshi-adapters:${Versions.Moshi.core}")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:${Versions.Moshi.core}")
+    add("ksp", "com.squareup.moshi:moshi-kotlin-codegen:${Versions.Moshi.core}")
 }
 
 fun DependencyHandlerScope.addOkio() {
@@ -77,10 +77,13 @@ fun DependencyHandlerScope.addNavigation() {
 }
 
 fun DependencyHandlerScope.addBaseWorkManager() {
-    implementation("androidx.work:work-runtime:${Versions.AndroidX.WorkManager.core}")
-    testImplementation("androidx.work:work-testing:${Versions.AndroidX.WorkManager.core}")
-    implementation("androidx.work:work-runtime-ktx:${Versions.AndroidX.WorkManager.core}")
+    val version = "2.9.0"
+    implementation("androidx.work:work-runtime:$version")
+    testImplementation("androidx.work:work-testing:$version")
+    implementation("androidx.work:work-runtime-ktx:$version")
+
     implementation("androidx.hilt:hilt-work:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
 }
 
 fun DependencyHandlerScope.addBaseAndroid() {

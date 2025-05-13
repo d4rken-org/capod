@@ -4,9 +4,14 @@ import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
+import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
-import eu.darken.capod.common.debug.logging.*
+import eu.darken.capod.common.debug.logging.LogCatLogger
+import eu.darken.capod.common.debug.logging.Logging
+import eu.darken.capod.common.debug.logging.asLog
+import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
@@ -62,10 +67,20 @@ open class App : Application(), Configuration.Provider {
             .launchIn(appScope)
     }
 
-    override fun getWorkManagerConfiguration(): Configuration = Configuration.Builder()
-        .setMinimumLoggingLevel(android.util.Log.VERBOSE)
-        .setWorkerFactory(workerFactory)
-        .build()
+
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
+            .setMinimumLoggingLevel(
+                when {
+                    BuildConfigWrap.DEBUG -> android.util.Log.VERBOSE
+                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV -> android.util.Log.DEBUG
+                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.BETA -> android.util.Log.INFO
+                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE -> android.util.Log.WARN
+                    else -> android.util.Log.VERBOSE
+                }
+            )
+            .setWorkerFactory(workerFactory)
+            .build()
 
     companion object {
         internal val TAG = logTag("CAP")

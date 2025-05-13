@@ -1,34 +1,26 @@
 object Versions {
     object Kotlin {
-        const val core = "1.9.10"
-        const val coroutines = "1.7.3"
-    }
-
-    object Dokka {
-        const val core = "1.6.21"
+        const val core = "2.1.21"
+        const val coroutines = "1.8.0"
     }
 
     object Dagger {
-        const val core = "2.48.1"
+        const val core = "2.56.2"
     }
 
     object Moshi {
-        const val core = "1.14.0"
+        const val core = "1.15.2"
     }
 
     object AndroidX {
         const val core = ""
 
         object Navigation {
-            const val core = "2.7.3"
+            const val core = "2.9.0"
         }
 
         object Testing {
             const val coreKtx = "1.4.0"
-        }
-
-        object WorkManager {
-            const val core = "2.8.1"
         }
     }
 
