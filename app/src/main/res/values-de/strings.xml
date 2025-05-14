@@ -51,6 +51,7 @@
     <string name="settings_popup_connected_label">Verbindungs-Popup anzeigen</string>
     <string name="settings_popup_connected_description">Zeigt ein Popup an, wenn das Gerät zum ersten Mal eine Verbindung herstellt.</string>
     <string name="notification_channel_device_status_label">Geräte Status</string>
+    <string name="notification_channel_device_status_connected_label">Verbundenes Gerät</string>
     <string name="support_debuglog_label">Debug-Protokoll</string>
     <string name="support_debuglog_desc">Zeichne alle Aktivitäten der App in einer Textdatei auf, die du weitergeben kannst.</string>
     <string name="debug_debuglog_size_label">Größe</string>
@@ -77,7 +78,7 @@
     <string name="settings_licenses_label">Lizenzen</string>
     <string name="settings_category_other_label">Andere</string>
     <string name="settings_general_label">Einstellungen</string>
-    <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
+    <string name="settings_general_description" tools:ignore="Typos">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
     <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>

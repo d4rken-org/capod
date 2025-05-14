@@ -22,7 +22,6 @@ import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
-import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.ui.MonitorNotifications
@@ -51,7 +50,7 @@ class MonitorWorker @AssistedInject constructor(
     @Assisted private val context: Context,
     @Assisted private val params: WorkerParameters,
     private val dispatcherProvider: DispatcherProvider,
-    private val monitorNotifications: MonitorNotifications,
+    private val notifications: MonitorNotifications,
     private val notificationManager: NotificationManager,
     private val generalSettings: GeneralSettings,
     private val permissionTool: PermissionTool,
@@ -61,7 +60,6 @@ class MonitorWorker @AssistedInject constructor(
     private val autoConnect: AutoConnect,
     private val popUpReaction: PopUpReaction,
     private val popUpWindow: PopUpWindow,
-    private val widgetManager: WidgetManager,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -73,7 +71,7 @@ class MonitorWorker @AssistedInject constructor(
     }
 
     override suspend fun getForegroundInfo(): ForegroundInfo {
-        return monitorNotifications.getForegroundInfo(null)
+        return notifications.getForegroundInfo(null)
     }
 
     override suspend fun doWork(): Result = try {
@@ -106,7 +104,7 @@ class MonitorWorker @AssistedInject constructor(
             return
         }
 
-        setForeground(monitorNotifications.getForegroundInfo(null))
+        setForeground(notifications.getForegroundInfo(null))
 
         val monitorJob = podMonitor.mainDevice
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
@@ -115,8 +113,14 @@ class MonitorWorker @AssistedInject constructor(
             .onEach { currentDevice ->
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,
-                    monitorNotifications.getNotification(currentDevice)
+                    notifications.getNotification(currentDevice),
                 )
+                if (generalSettings.useExtraMonitorNotification.value && currentDevice != null) {
+                    notificationManager.notify(
+                        MonitorNotifications.NOTIFICATION_ID_CONNECTED,
+                        notifications.getNotificationConnected(currentDevice),
+                    )
+                }
             }
             .catch {
                 log(TAG, WARN) { "Pod Flow failed:\n${it.asLog()}" }
@@ -128,20 +132,23 @@ class MonitorWorker @AssistedInject constructor(
                 if (missingPermsFlow.isNotEmpty()) {
                     log(TAG, WARN) { "Aborting, permissions are missing: $missingPermsFlow" }
                     workerScope.coroutineContext.cancelChildren()
-                    return@flatMapLatest emptyFlow()
-                }
-                combine(
-                    generalSettings.monitorMode.flow,
-                    generalSettings.mainDeviceAddress.flow,
-                    bluetoothManager.connectedDevices(),
-                ) { monitorMode, mainAddress, connectedDevices ->
-                    listOf(monitorMode, mainAddress, connectedDevices)
+                    emptyFlow()
+                } else {
+                    combine(
+                        generalSettings.monitorMode.flow,
+                        generalSettings.mainDeviceAddress.flow,
+                        bluetoothManager.connectedDevices(),
+                    ) { monitorMode, mainAddress, connectedDevices ->
+                        listOf(monitorMode, mainAddress, connectedDevices)
+                    }
                 }
             }
             .setupCommonEventHandlers(TAG) { "MonitorMode" }
             .flatMapLatest { arguments ->
                 val monitorMode = arguments[0] as MonitorMode
                 val mainAddress = arguments[1] as String?
+
+                @Suppress("UNCHECKED_CAST")
                 val devices = arguments[2] as Collection<BluetoothDevice2>
 
                 log(TAG) { "Monitor mode: $monitorMode" }
@@ -150,15 +157,18 @@ class MonitorWorker @AssistedInject constructor(
                         // Cancel worker, ui scans manually
                         workerScope.coroutineContext.cancelChildren()
                     }
+
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
                         when {
                             mainAddress == null && devices.isNotEmpty() -> {
                                 log(TAG, WARN) { "Main device address not set, staying alive while any is connected" }
                             }
+
                             devices.any { it.address == mainAddress } -> {
                                 log(TAG) { "Main device is connected ($mainAddress), aborting any timeout." }
                             }
+
                             else -> {
                                 log(TAG) { "No known Pods are connected, canceling worker soon." }
                                 delay(15 * 1000)

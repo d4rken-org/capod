@@ -49,6 +49,11 @@ class MonitorNotifications @Inject constructor(
             context.getString(R.string.notification_channel_device_status_label),
             NotificationManager.IMPORTANCE_LOW
         ).run { notificationManager.createNotificationChannel(this) }
+        NotificationChannel(
+            NOTIFICATION_CHANNEL_ID_CONNECTED,
+            context.getString(R.string.notification_channel_device_status_connected_label),
+            NotificationManager.IMPORTANCE_LOW
+        ).run { notificationManager.createNotificationChannel(this) }
 
         val openIntent = Intent(context, MainActivity::class.java)
         val openPi = PendingIntent.getActivity(
@@ -59,7 +64,6 @@ class MonitorNotifications @Inject constructor(
         )
 
         builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).apply {
-            setChannelId(NOTIFICATION_CHANNEL_ID)
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
             setSmallIcon(eu.darken.capod.common.R.drawable.devic_earbuds_generic_both)
@@ -145,11 +149,21 @@ class MonitorNotifications @Inject constructor(
     }
 
     suspend fun getNotification(podDevice: PodDevice?): Notification = builderLock.withLock {
-        getBuilder(podDevice).build()
+        getBuilder(podDevice).apply {
+            setChannelId(NOTIFICATION_CHANNEL_ID)
+        }.build()
+    }
+
+    suspend fun getNotificationConnected(podDevice: PodDevice?): Notification = builderLock.withLock {
+        getBuilder(podDevice).apply {
+            setChannelId(NOTIFICATION_CHANNEL_ID_CONNECTED)
+        }.build()
     }
 
     suspend fun getForegroundInfo(podDevice: PodDevice?): ForegroundInfo = builderLock.withLock {
-        getBuilder(podDevice).toForegroundInfo()
+        getBuilder(podDevice).apply {
+            setChannelId(NOTIFICATION_CHANNEL_ID)
+        }.toForegroundInfo()
     }
 
     @SuppressLint("InlinedApi")
@@ -168,8 +182,10 @@ class MonitorNotifications @Inject constructor(
 
     companion object {
         val TAG = logTag("Monitor", "Notifications")
-        private val NOTIFICATION_CHANNEL_ID =
-            "${BuildConfigWrap.APPLICATION_ID}.notification.channel.device.status"
+        private val NOTIFICATION_CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.device.status"
+        private val NOTIFICATION_CHANNEL_ID_CONNECTED =
+            "${BuildConfigWrap.APPLICATION_ID}.notification.channel.device.status.connected"
         internal const val NOTIFICATION_ID = 1
+        internal const val NOTIFICATION_ID_CONNECTED = 2
     }
 }
