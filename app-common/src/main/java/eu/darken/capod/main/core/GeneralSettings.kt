@@ -24,6 +24,9 @@ class GeneralSettings @Inject constructor(
     override val preferences: SharedPreferences = context.getSharedPreferences("settings_general", Context.MODE_PRIVATE)
 
     val monitorMode = preferences.createFlowPreference("core.monitor.mode", MonitorMode.AUTOMATIC, moshi)
+
+    val useExtraMonitorNotification = preferences.createFlowPreference("core.monitor.notification.connected", false)
+
     val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
     val showAll = preferences.createFlowPreference("core.showall.enabled", true)
@@ -44,6 +47,7 @@ class GeneralSettings @Inject constructor(
 
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
+        useExtraMonitorNotification,
         scannerMode,
         showAll,
         minimumSignalQuality,

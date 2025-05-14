@@ -70,6 +70,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/settings_category_other_label">
+
+        <eu.darken.capod.common.preferences.MaterialSwitchPreference
+            android:icon="@drawable/ic_checkbox_blank_badge_24"
+            android:key="core.monitor.notification.connected"
+            android:summary="@string/settings_monitor_connected_notification_description"
+            android:title="@string/settings_monitor_connected_notification_label" />
+
         <Preference
             android:fragment="eu.darken.capod.main.ui.settings.general.debug.DebugSettingsFragment"
             android:icon="@drawable/ic_baseline_bug_report_24"
