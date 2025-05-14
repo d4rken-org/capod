@@ -28,7 +28,7 @@ class GeneralSettings @Inject constructor(
 
     val showAll = preferences.createFlowPreference("core.showall.enabled", true)
 
-    val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.25f)
+    val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
 
     val mainDeviceAddress = preferences.createFlowPreference<String?>("core.maindevice.address", null)
     val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
