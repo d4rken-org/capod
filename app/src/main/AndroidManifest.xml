@@ -26,7 +26,6 @@
         <activity
             android:name=".main.ui.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppThemeSplash">
             <intent-filter>
@@ -43,9 +42,6 @@
             android:label="Service trigger">
             <intent-filter>
                 <action android:name="android.bluetooth.device.action.ACL_CONNECTED" />
-                <!--                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED" />-->
-                <!--                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED" />-->
-                <!--                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED" />-->
             </intent-filter>
         </receiver>
 
