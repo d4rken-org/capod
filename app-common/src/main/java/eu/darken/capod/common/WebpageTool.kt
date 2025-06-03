@@ -6,6 +6,7 @@ import androidx.core.net.toUri
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class WebpageTool @Inject constructor(
         try {
             context.startActivity(intent)
         } catch (e: Exception) {
-            log(ERROR) { "Failed to launch" }
+            log(ERROR) { "Failed to launch: ${e.asLog()}" }
         }
     }
 

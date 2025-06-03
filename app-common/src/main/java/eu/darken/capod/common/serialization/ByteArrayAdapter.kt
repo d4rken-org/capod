@@ -5,6 +5,7 @@ import com.squareup.moshi.ToJson
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
+@Suppress("unused")
 @OptIn(ExperimentalEncodingApi::class)
 class ByteArrayAdapter {
     @ToJson

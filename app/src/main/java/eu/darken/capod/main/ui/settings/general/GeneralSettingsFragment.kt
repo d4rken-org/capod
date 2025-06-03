@@ -42,12 +42,12 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
     override fun onPreferencesCreated() {
         monitorModePref.apply {
-            entries = MonitorMode.values().map { getString(it.labelRes) }.toTypedArray()
-            entryValues = MonitorMode.values().map { settings.monitorMode.rawWriter(it) as String }.toTypedArray()
+            entries = MonitorMode.entries.map { getString(it.labelRes) }.toTypedArray()
+            entryValues = MonitorMode.entries.map { settings.monitorMode.rawWriter(it) as String }.toTypedArray()
         }
         scanModePref.apply {
-            entries = ScannerMode.values().map { getString(it.labelRes) }.toTypedArray()
-            entryValues = ScannerMode.values().map { settings.scannerMode.rawWriter(it) as String }.toTypedArray()
+            entries = ScannerMode.entries.map { getString(it.labelRes) }.toTypedArray()
+            entryValues = ScannerMode.entries.map { settings.scannerMode.rawWriter(it) as String }.toTypedArray()
         }
         mainDeviceIdentityKeyPref.setOnPreferenceClickListener {
             AirPodKeyInputDialog(requireContext()).create(
@@ -97,7 +97,7 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
         mainDeviceModelPref.setOnPreferenceClickListener {
             val dialog = ModelSelectionDialogFactory(requireContext()).create(
-                PodDevice.Model.values().toList(),
+                PodDevice.Model.entries,
                 generalSettings.mainDeviceModel.value
             ) { selected ->
                 generalSettings.mainDeviceModel.value = selected
