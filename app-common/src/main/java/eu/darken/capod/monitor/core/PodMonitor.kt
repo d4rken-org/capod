@@ -22,9 +22,17 @@ import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import okio.ByteString.Companion.toByteString
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -40,6 +48,7 @@ class PodMonitor @Inject constructor(
     private val debugSettings: DebugSettings,
     private val podDeviceCache: PodDeviceCache,
     private val permissionTool: PermissionTool,
+    private val rpaChecker: RPAChecker,
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
@@ -121,6 +130,7 @@ class PodMonitor @Inject constructor(
                     log(TAG, WARN) { "Using unfiltered scan mode" }
                     setOf(ScanFilter.Builder().build())
                 }
+
                 else -> ProximityPairing.getBleScanFilter()
             }
 
@@ -189,8 +199,15 @@ class PodMonitor @Inject constructor(
     }
 
     private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
-        val mainDeviceModel = generalSettings.mainDeviceModel.value
+        generalSettings.mainDeviceIdentityKey.value
+            .also { log(TAG) { "Identity-Resolving-Key (IRK): ${it?.toByteString()}" } }
+            ?.let { irkKey -> pods.firstOrNull { pod -> rpaChecker.verify(pod, irkKey) } }
+            ?.let {
+                log(TAG) { "Main device determined via IRK: $it" }
+                return it
+            }
 
+        val mainDeviceModel = generalSettings.mainDeviceModel.value
         val presorted = sortPodsToInterest(pods).sortedByDescending {
             it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN
         }
