@@ -7,6 +7,11 @@
     <string name="general_upgrade_action">Upgrade</string>
     <string name="general_check_action">Check</string>
     <string name="general_close_action">Close</string>
+    <string name="general_save_action">Save</string>
+    <string name="general_guide_action">Guide</string>
+    <string name="general_continue_action">Continue</string>
+
+    <string name="general_example_label">E.g.: %s</string>
 
     <string name="upgrade_capod_label">Upgrade CAPod</string>
     <string name="upgrade_capod_description">Get additional features and support the developer.</string>
@@ -49,6 +54,13 @@
     <string name="settings_maindevice_address_none">None</string>
     <string name="settings_maindevice_model_label">Your device model</string>
     <string name="settings_maindevice_model_description">The model of your main device. This helps the app recognize your device when it is not connected to your phone.</string>
+    <string name="settings_maindevice_identitykey_label">Identity Key</string>
+    <string name="settings_maindevice_identitykey_description">Your device\'s Identity Resolving Key (IRK), which helps CAPod identify it among nearby devices.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods frequently change their Bluetooth address for privacy. The IRK helps CAPod recognize your device. You need one-time access to a MacBook.</string>
+    <string name="settings_maindevice_encryptionkey_label">Encryption Key</string>
+    <string name="settings_maindevice_encryptionkey_description">Your device\'s encryption key, which allows CAPod to retrieve detailed status information.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods send a status message, part of which is encrypted. The encryption key allows CAPod to decrypt the full message. You need one-time access to a MacBook.</string>
+
     <string name="settings_onepod_mode_label">One pod mode</string>
     <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
     <string name="settings_popup_caseopen_label">Show case popup</string>
@@ -133,7 +145,5 @@
     <string name="onboarding_body2">Not all Android devices fully support the extra AirPod features. Your operating system requires a correctly working Bluetooth-Low-Energy implementation.</string>
     <string name="onboarding_body3">CAPod has no ads and does not collect your data.</string>
     <string name="onboarding_body4">You can upgrade to CAPod Pro to gain extra features and support development.</string>
-
-    <string name="general_continue_action">Continue</string>
 
 </resources>
