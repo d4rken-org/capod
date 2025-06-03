@@ -76,17 +76,18 @@ class GeneralSettingsFragment : PreferenceFragment3() {
     private fun String.fromHumanReadable(): ByteArray = split("-").map { it.toInt(16).toByte() }.toByteArray()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        vm.bondedDevices.observe2 { devices ->
+        vm.state.observe2 { state ->
             mainDeviceAddressPref.setOnPreferenceClickListener {
                 val dialog = DeviceSelectionDialogFactory(requireContext()).create(
-                    devices,
-                    devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
+                    state.devices,
+                    state.devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
                 ) { selected ->
                     generalSettings.mainDeviceAddress.value = selected?.address
                 }
                 dialog.show()
                 true
             }
+            mainDeviceEncryptionKeyPref.isEnabled = state.hasIdentityKey
         }
 
         vm.events.observe2 {

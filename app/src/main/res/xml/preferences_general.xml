@@ -51,6 +51,7 @@
         <Preference
             android:icon="@drawable/ic_key_24"
             android:key="core.maindevice.encryptionkey"
+            app:enabled="false"
             android:summary="@string/settings_maindevice_encryptionkey_description"
             android:title="@string/settings_maindevice_encryptionkey_label" />
     </PreferenceCategory>
