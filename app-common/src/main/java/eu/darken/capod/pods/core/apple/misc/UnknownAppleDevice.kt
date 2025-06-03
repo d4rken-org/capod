@@ -35,6 +35,7 @@ data class UnknownAppleDevice(
         override fun create(
             scanResult: BleScanResult,
             message: ProximityPairing.Message,
+            decrypted: UByteArray?,
         ): ApplePods {
             var basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)

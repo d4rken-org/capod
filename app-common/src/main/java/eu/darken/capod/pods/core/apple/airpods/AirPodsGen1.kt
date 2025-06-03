@@ -41,7 +41,11 @@ data class AirPodsGen1 constructor(
         }
 
 
-        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
+        override fun create(
+            scanResult: BleScanResult,
+            message: ProximityPairing.Message,
+            decrypted: UByteArray?
+        ): ApplePods {
             var basic = AirPodsGen1(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 

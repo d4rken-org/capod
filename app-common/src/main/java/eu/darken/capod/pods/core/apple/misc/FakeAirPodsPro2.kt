@@ -139,7 +139,11 @@ data class FakeAirPodsPro2 constructor(
             getModelInfo().full == DEVICE_CODE && length == 19
         }
 
-        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
+        override fun create(
+            scanResult: BleScanResult,
+            message: ProximityPairing.Message,
+            decrypted: UByteArray?
+        ): ApplePods {
             var basic = FakeAirPodsPro2(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 
