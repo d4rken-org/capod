@@ -5,9 +5,11 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.apple.protocol.MessageDecrypter
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -20,6 +22,8 @@ class AppleFactory @Inject constructor(
     private val proximityPairingDecoder: ProximityPairing.Decoder,
     private val podFactories: @JvmSuppressWildcards Set<ApplePodsFactory<out ApplePods>>,
     private val unknownAppleFactory: UnknownAppleDevice.Factory,
+    private val generalSettings: GeneralSettings,
+    private val messageDecrypter: MessageDecrypter,
 ) {
 
     private val lock = Mutex()
@@ -54,9 +58,13 @@ class AppleFactory @Inject constructor(
 
         val factory = podFactories.firstOrNull { it.isResponsible(pm) }
 
+        val decryptedData = generalSettings.mainDeviceEncryptionKey.value
+            ?.let { messageDecrypter.decrypt(pm, it) }
+
         return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
             message = pm,
+            decrypted = decryptedData,
         )
     }
 

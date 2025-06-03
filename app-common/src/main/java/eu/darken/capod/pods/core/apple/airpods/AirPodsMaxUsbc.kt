@@ -42,7 +42,11 @@ data class AirPodsMaxUsbc(
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
+        override fun create(
+            scanResult: BleScanResult,
+            message: ProximityPairing.Message,
+            decrypted: UByteArray?
+        ): ApplePods {
             var basic = AirPodsMaxUsbc(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 

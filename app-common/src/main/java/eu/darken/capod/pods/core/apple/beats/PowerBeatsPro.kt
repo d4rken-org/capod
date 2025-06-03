@@ -40,7 +40,11 @@ data class PowerBeatsPro(
             getModelInfo().dirty == DEVICE_CODE_DIRTY && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
+        override fun create(
+            scanResult: BleScanResult,
+            message: ProximityPairing.Message,
+            decrypted: UByteArray?
+        ): ApplePods {
             var basic = PowerBeatsPro(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 

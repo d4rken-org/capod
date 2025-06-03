@@ -29,7 +29,11 @@ data class BeatsStudio3(
             getModelInfo().dirty == DEVICE_CODE_DIRTY && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
+        override fun create(
+            scanResult: BleScanResult,
+            message: ProximityPairing.Message,
+            decrypted: UByteArray?
+        ): ApplePods {
             var basic = BeatsStudio3(scanResult = scanResult, proximityMessage = message)
             val result = searchHistory(basic)
 

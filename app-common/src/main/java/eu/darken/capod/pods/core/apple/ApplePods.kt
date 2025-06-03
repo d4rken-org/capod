@@ -10,6 +10,9 @@ interface ApplePods : PodDevice {
 
     val proximityMessage: ProximityPairing.Message
 
+    val decryptedPayload: UByteArray?
+        get() = null
+
     // We start counting at the airpods prefix byte
     val rawPrefix: UByte
         get() = proximityMessage.data[0]

@@ -20,6 +20,7 @@ data class AirPodsPro(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val proximityMessage: ProximityPairing.Message,
+    override val decryptedPayload: UByteArray?,
     override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
@@ -59,8 +60,16 @@ data class AirPodsPro(
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-        override fun create(scanResult: BleScanResult, message: ProximityPairing.Message): ApplePods {
-            var basic = AirPodsPro(scanResult = scanResult, proximityMessage = message)
+        override fun create(
+            scanResult: BleScanResult,
+            message: ProximityPairing.Message,
+            decrypted: UByteArray?
+        ): ApplePods {
+            var basic = AirPodsPro(
+                scanResult = scanResult,
+                proximityMessage = message,
+                decryptedPayload = decrypted
+            )
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -79,7 +88,6 @@ data class AirPodsPro(
                 cachedCaseState = result.getLatestCaseLidState(basic)
             )
         }
-
     }
 
     companion object {

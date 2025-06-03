@@ -202,5 +202,6 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
     abstract fun create(
         scanResult: BleScanResult,
         message: ProximityPairing.Message,
+        decrypted: UByteArray?,
     ): ApplePods
 }

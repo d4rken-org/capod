@@ -4,8 +4,12 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.DualPodDevice.Pod
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasChargeDetectionDual
+import eu.darken.capod.pods.core.HasDualMicrophone
+import eu.darken.capod.pods.core.HasEarDetectionDual
 
 interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
     HasDualMicrophone, HasAppleColor {
@@ -25,6 +29,10 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val batteryLeftPodPercent: Float?
         get() {
+            decryptedPayload?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
+                val level = (raw and 0x7Fu).toInt() / 100f
+                if (level <= 1.0f) return level
+            }
             val value = when (areValuesFlipped) {
                 true -> rawPodsBattery.upperNibble.toInt()
                 false -> rawPodsBattery.lowerNibble.toInt()
@@ -42,6 +50,10 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val batteryRightPodPercent: Float?
         get() {
+            decryptedPayload?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
+                val level = (raw and 0x7Fu).toInt() / 100f
+                if (level <= 1.0f) return level
+            }
             val value = when (areValuesFlipped) {
                 true -> rawPodsBattery.lowerNibble.toInt()
                 false -> rawPodsBattery.upperNibble.toInt()
@@ -93,30 +105,55 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
         get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
 
     override val isLeftPodCharging: Boolean
-        get() = when (areValuesFlipped) {
-            false -> rawFlags.isBitSet(0)
-            true -> rawFlags.isBitSet(1)
+        get() {
+            decryptedPayload?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
+                val isCharging = (raw and 0x80u).toInt() != 0
+                return isCharging
+            }
+            return when (areValuesFlipped) {
+                false -> rawFlags.isBitSet(0)
+                true -> rawFlags.isBitSet(1)
+            }
         }
 
     override val isRightPodCharging: Boolean
-        get() = when (areValuesFlipped) {
-            false -> rawFlags.isBitSet(1)
-            true -> rawFlags.isBitSet(0)
+        get() {
+            decryptedPayload?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
+                val isCharging = (raw and 0x80u).toInt() != 0
+                return isCharging
+            }
+            return when (areValuesFlipped) {
+                false -> rawFlags.isBitSet(1)
+                true -> rawFlags.isBitSet(0)
+            }
         }
 
     override val batteryCasePercent: Float?
-        get() = when (val value = rawCaseBattery.toInt()) {
-            15 -> null
-            else -> if (value > 10) {
-                log { "Case: Above 100% battery: $value" }
-                1.0f
-            } else {
-                value / 10f
+        get() {
+            decryptedPayload?.get(3)?.let { raw ->
+                val level = (raw and 0x7Fu).toInt() / 100f
+                if (level <= 1.0f) return level
+            }
+            return when (val value = rawCaseBattery.toInt()) {
+                15 -> null
+                else -> if (value > 10) {
+                    log { "Case: Above 100% battery: $value" }
+                    1.0f
+                } else {
+                    value / 10f
+                }
             }
         }
 
     override val isCaseCharging: Boolean
-        get() = rawFlags.isBitSet(2)
+        get() {
+            decryptedPayload?.get(3)?.let { raw ->
+                val isCharging = (raw and 0x80u).toInt() != 0
+                if (batteryCasePercent != null) return isCharging
+            }
+
+            return rawFlags.isBitSet(2)
+        }
 
     val caseLidState: LidState
         get() {
