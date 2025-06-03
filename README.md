@@ -1,6 +1,7 @@
 <img src="https://github.com/d4rken-org/capod/raw/main/.assets/banner.png" width="400">
 
 # Companion App for AirPods (CAPod)
+
 [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/d4rken-org/capod?include_prereleases)](https://github.com/d4rken-org/capod/releases/latest)
 [![Code tests & eval](https://github.com/d4rken-org/capod/actions/workflows/code-checks.yml/badge.svg)](https://github.com/d4rken/capod/actions/workflows/code-checks.yml)
 [![Crowdin](https://badges.crowdin.net/capod/localized.svg)](https://crowdin.com/project/capod)
@@ -56,7 +57,6 @@ Currently supported models:
 | [F-Droid](https://f-droid.org/en/packages/eu.darken.capod/)                  | [![](https://img.shields.io/f-droid/v/eu.darken.capod)](https://f-droid.org/en/packages/eu.darken.capod/)                                                                                                                                                      |
 | [F-Droid (IzzyOnDroid)](https://apt.izzysoft.de/packages/eu.darken.capod/)   | [![](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/eu.darken.capod)](https://apt.izzysoft.de/packages/eu.darken.capod/)                                                                                                     |
 
-
 ## Support the project
 
 * Buy the CAPod Pro In-App purchase on [Google Play](https://play.google.com/store/apps/details?id=eu.darken.capod)
@@ -72,6 +72,7 @@ Currently supported models:
 
 <img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/4.png" width="200">
 <img src="https://raw.githubusercontent.com/d4rken-org/capod/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200">
+
 ## Thanks to
 
 * The [OpenPods](https://github.com/adolfintel/OpenPods) project,
@@ -82,6 +83,8 @@ Currently supported models:
 * Celosia, Guillaume. (2020). Privacy Challenges in Wireless Communications of the Internet of Things.
 * The [MagicPods](https://github.com/steam3d/MagicPods-Windows) project. If you are looking for "CAPod for Windows",
   check it out.
+* [@kavishdevar](https://github.com/kavishdevar/librepods) and
+  his [LibrePods project](https://github.com/kavishdevar/librepods) for sharing a lot of cool stuff.
 
 ## License
 

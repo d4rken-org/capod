@@ -35,6 +35,9 @@ class GeneralSettings @Inject constructor(
 
     val mainDeviceAddress = preferences.createFlowPreference<String?>("core.maindevice.address", null)
     val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
+    val mainDeviceIdentityKey = preferences.createFlowPreference<ByteArray?>("core.maindevice.identitykey", null, moshi)
+    val mainDeviceEncryptionKey =
+        preferences.createFlowPreference<ByteArray?>("core.maindevice.encryptionkey", null, moshi)
 
     val isOffloadedFilteringDisabled = preferences.createFlowPreference(
         "core.compat.offloaded.filtering.disabled",

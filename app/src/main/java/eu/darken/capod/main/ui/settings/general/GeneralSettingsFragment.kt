@@ -8,6 +8,7 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.preferences.PercentSliderPreference
 import eu.darken.capod.common.uix.PreferenceFragment3
@@ -25,6 +26,7 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var upgradeRepo: UpgradeRepo
+    @Inject lateinit var webpageTool: WebpageTool
 
     override val settings: GeneralSettings
         get() = generalSettings
@@ -35,6 +37,8 @@ class GeneralSettingsFragment : PreferenceFragment3() {
     private val scanModePref by lazy { findPreference<ListPreference>(generalSettings.scannerMode.key)!! }
     private val mainDeviceAddressPref by lazy { findPreference<Preference>(generalSettings.mainDeviceAddress.key)!! }
     private val mainDeviceModelPref by lazy { findPreference<Preference>(generalSettings.mainDeviceModel.key)!! }
+    private val mainDeviceIdentityKeyPref by lazy { findPreference<Preference>(generalSettings.mainDeviceIdentityKey.key)!! }
+    private val mainDeviceEncryptionKeyPref by lazy { findPreference<Preference>(generalSettings.mainDeviceEncryptionKey.key)!! }
 
     override fun onPreferencesCreated() {
         monitorModePref.apply {
@@ -45,8 +49,31 @@ class GeneralSettingsFragment : PreferenceFragment3() {
             entries = ScannerMode.values().map { getString(it.labelRes) }.toTypedArray()
             entryValues = ScannerMode.values().map { settings.scannerMode.rawWriter(it) as String }.toTypedArray()
         }
+        mainDeviceIdentityKeyPref.setOnPreferenceClickListener {
+            AirPodKeyInputDialog(requireContext()).create(
+                mode = AirPodKeyInputDialog.Mode.IRK,
+                current = generalSettings.mainDeviceIdentityKey.value?.toHumanReadable() ?: "",
+                onKey = { generalSettings.mainDeviceIdentityKey.value = it.fromHumanReadable() },
+                onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
+            ).show()
+            true
+        }
+        mainDeviceEncryptionKeyPref.setOnPreferenceClickListener {
+            AirPodKeyInputDialog(requireContext()).create(
+                mode = AirPodKeyInputDialog.Mode.ENC,
+                current = generalSettings.mainDeviceEncryptionKey.value?.toHumanReadable() ?: "",
+                onKey = { generalSettings.mainDeviceEncryptionKey.value = it.fromHumanReadable() },
+                onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
+            ).show()
+            true
+        }
+
         super.onPreferencesCreated()
     }
+
+    private fun ByteArray.toHumanReadable(): String = joinToString("-") { "%02X".format(it) }
+
+    private fun String.fromHumanReadable(): ByteArray = split("-").map { it.toInt(16).toByte() }.toByteArray()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.bondedDevices.observe2 { devices ->
