@@ -36,4 +36,22 @@ interface ApplePods : PodDevice {
 
     val pubSuffix: UByte
         get() = payload.public.data[8]
+
+    data class BatteryState(
+        val isCharging: Boolean,
+        val level: Float,
+    )
+
+    fun ProximityPayload.Private.asBatteryState(pos: Int): BatteryState? {
+        val raw = data[pos]
+        val level = (raw and 0x7Fu).toInt() / 100f
+        if (level < 0f || level > 1.0f) return null
+
+        val isCharging = (raw and 0x80u).toInt() != 0
+
+        return BatteryState(
+            isCharging = isCharging,
+            level = level
+        )
+    }
 }
