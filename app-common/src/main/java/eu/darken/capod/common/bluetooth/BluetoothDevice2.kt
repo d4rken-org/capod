@@ -7,7 +7,7 @@ data class BluetoothDevice2(
     internal val internal: BluetoothDevice,
     val seenFirstAt: Instant,
 ) {
-    val address: String
+    val address: BluetoothAddress
         get() = internal.address
 
     val name: String?

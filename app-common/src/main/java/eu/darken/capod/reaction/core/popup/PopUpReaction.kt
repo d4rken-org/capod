@@ -1,5 +1,6 @@
 package eu.darken.capod.reaction.core.popup
 
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -109,7 +110,7 @@ class PopUpReaction @Inject constructor(
         else -> null
     }
 
-    private val connectionCoolDowns = mutableMapOf<String, Instant>()
+    private val connectionCoolDowns = mutableMapOf<BluetoothAddress, Instant>()
 
     private fun monitorConnection(): Flow<Event> = reactionSettings.showPopUpOnConnection.flow
         .flatMapLatest { isEnabled ->

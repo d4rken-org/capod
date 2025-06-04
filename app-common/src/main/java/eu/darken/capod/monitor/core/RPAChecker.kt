@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core
 
 import android.annotation.SuppressLint
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
@@ -13,7 +14,7 @@ import javax.inject.Inject
 class RPAChecker @Inject constructor() {
 
     // Resolvable-Private-Address
-    fun verify(address: String, irk: ByteArray): Boolean = try {
+    fun verify(address: BluetoothAddress, irk: ByteArray): Boolean = try {
         val rpa = address.split(":").map { it.toInt(16).toByte() }.reversed().toByteArray()
         val prand = rpa.copyOfRange(3, 6)
         val hash = rpa.copyOfRange(0, 3)

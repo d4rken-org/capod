@@ -8,6 +8,7 @@ import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -146,7 +147,7 @@ class MonitorWorker @AssistedInject constructor(
             .setupCommonEventHandlers(TAG) { "MonitorMode" }
             .flatMapLatest { arguments ->
                 val monitorMode = arguments[0] as MonitorMode
-                val mainAddress = arguments[1] as String?
+                val mainAddress = arguments[1] as BluetoothAddress?
 
                 @Suppress("UNCHECKED_CAST")
                 val devices = arguments[2] as Collection<BluetoothDevice2>
