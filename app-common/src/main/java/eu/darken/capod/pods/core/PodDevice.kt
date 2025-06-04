@@ -6,6 +6,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 import eu.darken.capod.common.R
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import java.time.Duration
@@ -20,7 +21,7 @@ interface PodDevice {
 
     val model: Model
 
-    val address: String
+    val address: BluetoothAddress
         get() = scanResult.address
 
     val seenLastAt: Instant

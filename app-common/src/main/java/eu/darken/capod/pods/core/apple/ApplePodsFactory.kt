@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple
 
 import android.R.id.message
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.collections.median
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -16,7 +17,9 @@ import java.time.Duration
 import java.time.Instant
 import kotlin.math.max
 
-abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
+abstract class ApplePodsFactory<PodType : ApplePods>(
+    private val tag: String,
+) {
 
     data class Identifier(
         val device: UShort,
@@ -43,7 +46,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val lastPayload: ProximityPayload
             get() = history.last().payload
 
-        val lastAddress: String
+        val lastAddress: BluetoothAddress
             get() = history.last().address
 
         val reliability: Float
@@ -92,7 +95,6 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
     }
 
     internal val knownDevices = mutableMapOf<PodDevice.Id, KnownDevice>()
-
 
     fun KnownDevice.getLatestCaseBattery(): Float? = this.lastCaseBattery
 
@@ -144,6 +146,8 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         var recognizedDevice: KnownDevice? = knownDevices.values
             .firstOrNull { it.lastAddress == scanResult.address }
             ?.also { log(tag, VERBOSE) { "searchHistory1: Recovered previous ID via address: $it" } }
+
+//        if()
 
         if (recognizedDevice == null) {
             val currentMarkers = payload.getFuzzyIdentifier()

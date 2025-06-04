@@ -26,7 +26,7 @@ data class ProximityMessage(
     @Reusable
     class Decrypter @Inject constructor() {
         @SuppressLint("GetInstance")
-        fun decrypt(data: ByteArray, key: ByteArray): UByteArray? {
+        fun decrypt(data: ByteArray, key: ProximityEncryptionKey): UByteArray? {
             val decryptedData = try {
                 val cipher = Cipher.getInstance("AES/ECB/NoPadding").apply {
                     val secretKey = SecretKeySpec(key, "AES")

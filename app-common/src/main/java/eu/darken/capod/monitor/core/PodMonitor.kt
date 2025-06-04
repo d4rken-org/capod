@@ -20,6 +20,7 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
