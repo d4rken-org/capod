@@ -188,4 +188,30 @@ class AirPodsProTest : BaseAirPodsTest() {
             batteryCasePercent shouldBe null
         }
     }
+
+    @Test
+    fun `decrypt data`() = runTest {
+        val data = "07 19 01 0E 20 51 9A 98 33 00 04 0C 14 E0 EB 43 3F 4B 22 C0 A9 ED CB 33 E7 09 71"
+        val address = "5A:16:2B:91:D1:CD"
+        create<AirPodsPro>(data, address) {
+            batteryLeftPodPercent shouldBe 0.9f
+            isLeftPodCharging shouldBe false
+            batteryRightPodPercent shouldBe 1.0f
+            isRightPodCharging shouldBe true
+
+            batteryCasePercent shouldBe 0.8f
+            isCaseCharging shouldBe false
+        }
+        setKeyIRK("79-04-65-1E-E2-CC-D9-26-F2-6E-20-EE-3E-CC-DE-79")
+        setKeyEnc("3B-9C-80-57-E6-45-7F-F2-1B-8E-07-63-6C-99-E0-29")
+        create<AirPodsPro>(data, address) {
+            batteryLeftPodPercent shouldBe 0.98f
+            isLeftPodCharging shouldBe false
+            batteryRightPodPercent shouldBe 1.0f
+            isRightPodCharging shouldBe true
+
+            batteryCasePercent shouldBe 0.86f
+            isCaseCharging shouldBe false
+        }
+    }
 }

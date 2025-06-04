@@ -42,7 +42,6 @@ data class AirPodsGen1(
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-
         override fun create(
             scanResult: BleScanResult,
             payload: ProximityPayload
