@@ -7,6 +7,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
+import eu.darken.capod.pods.core.apple.history.PodHistoryRepo
 import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Instant
@@ -30,7 +31,9 @@ data class UnknownAppleDevice(
     override val rssi: Int
         get() = rssiAverage ?: super.rssi
 
-    class Factory @Inject constructor() : ApplePodsFactory<ApplePods>(TAG) {
+    class Factory @Inject constructor(
+        private val repo: PodHistoryRepo,
+    ) : ApplePodsFactory {
         override fun isResponsible(message: ProximityMessage): Boolean = true
 
         override fun create(
@@ -38,10 +41,10 @@ data class UnknownAppleDevice(
             payload: ProximityPayload,
         ): ApplePods {
             var basic = UnknownAppleDevice(scanResult = scanResult, payload = payload)
-            val result = searchHistory(basic)
+            val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
-            updateHistory(basic)
+            repo.updateHistory(basic)
 
             if (result == null) return basic
 

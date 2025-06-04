@@ -4,8 +4,9 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.SingleApplePods
-import eu.darken.capod.pods.core.apple.SingleApplePodsFactory
+import eu.darken.capod.pods.core.apple.history.PodHistoryRepo
 import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
@@ -28,7 +29,9 @@ data class BeatsX(
     override val rssi: Int
         get() = rssiAverage ?: super.rssi
 
-    class Factory @Inject constructor() : SingleApplePodsFactory(TAG) {
+    class Factory @Inject constructor(
+        private val repo: PodHistoryRepo,
+    ) : ApplePodsFactory {
 
         override fun isResponsible(message: ProximityMessage): Boolean = message.run {
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
@@ -39,10 +42,10 @@ data class BeatsX(
             payload: ProximityPayload
         ): ApplePods {
             var basic = BeatsX(scanResult = scanResult, payload = payload)
-            val result = searchHistory(basic)
+            val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
-            updateHistory(basic)
+            repo.updateHistory(basic)
 
             if (result == null) return basic
 

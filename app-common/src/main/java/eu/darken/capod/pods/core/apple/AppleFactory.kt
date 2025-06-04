@@ -23,7 +23,7 @@ class AppleFactory @Inject constructor(
     private val continuityProtocolDecoder: ContinuityProtocol.Decoder,
     private val proximityPairingDecoder: ProximityPairing.Decoder,
     private val proximityMessageDecrypter: ProximityMessage.Decrypter,
-    private val podFactories: @JvmSuppressWildcards Set<ApplePodsFactory<out ApplePods>>,
+    private val podFactories: @JvmSuppressWildcards Set<ApplePodsFactory>,
     private val unknownAppleFactory: UnknownAppleDevice.Factory,
     private val generalSettings: GeneralSettings,
     private val rpaChecker: RPAChecker,
