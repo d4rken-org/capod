@@ -29,10 +29,10 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val batteryLeftPodPercent: Float?
         get() {
-            payload.private?.data?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
-                val level = (raw and 0x7Fu).toInt() / 100f
-                if (level <= 1.0f) return level
+            payload.private?.asBatteryState(if (areValuesFlipped) 2 else 1)?.let {
+                return it.level
             }
+
             val value = when (areValuesFlipped) {
                 true -> pubPodsBattery.upperNibble.toInt()
                 false -> pubPodsBattery.lowerNibble.toInt()
@@ -50,10 +50,10 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val batteryRightPodPercent: Float?
         get() {
-            payload.private?.data?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
-                val level = (raw and 0x7Fu).toInt() / 100f
-                if (level <= 1.0f) return level
+            payload.private?.asBatteryState(if (areValuesFlipped) 1 else 2)?.let {
+                return it.level
             }
+
             val value = when (areValuesFlipped) {
                 true -> pubPodsBattery.lowerNibble.toInt()
                 false -> pubPodsBattery.upperNibble.toInt()
@@ -106,9 +106,8 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val isLeftPodCharging: Boolean
         get() {
-            payload.private?.data?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
-                val isCharging = (raw and 0x80u).toInt() != 0
-                return isCharging
+            payload.private?.asBatteryState(if (areValuesFlipped) 2 else 1)?.let {
+                return it.isCharging
             }
             return when (areValuesFlipped) {
                 false -> pubFlags.isBitSet(0)
@@ -118,9 +117,8 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val isRightPodCharging: Boolean
         get() {
-            payload.private?.data?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
-                val isCharging = (raw and 0x80u).toInt() != 0
-                return isCharging
+            payload.private?.asBatteryState(if (areValuesFlipped) 1 else 2)?.let {
+                return it.isCharging
             }
             return when (areValuesFlipped) {
                 false -> pubFlags.isBitSet(1)
@@ -130,10 +128,8 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val batteryCasePercent: Float?
         get() {
-            payload.private?.data?.get(3)?.let { raw ->
-                val level = (raw and 0x7Fu).toInt() / 100f
-                if (level <= 1.0f) return level
-            }
+            payload.private?.asBatteryState(3)?.let { return it.level }
+
             return when (val value = pubCaseBattery.toInt()) {
                 15 -> null
                 else -> if (value > 10) {
@@ -147,11 +143,7 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val isCaseCharging: Boolean
         get() {
-            payload.private?.data?.get(3)?.let { raw ->
-                val level = (raw and 0x7Fu).toInt() / 100f
-                val isCharging = (raw and 0x80u).toInt() != 0
-                if (0f <= level && level <= 1.0f) return isCharging
-            }
+            payload.private?.asBatteryState(3)?.let { return it.isCharging }
 
             return pubFlags.isBitSet(2)
         }
