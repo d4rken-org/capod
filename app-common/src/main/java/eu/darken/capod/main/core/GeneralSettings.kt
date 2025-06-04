@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.preference.PreferenceDataStore
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
@@ -33,7 +34,7 @@ class GeneralSettings @Inject constructor(
 
     val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
 
-    val mainDeviceAddress = preferences.createFlowPreference<String?>("core.maindevice.address", null)
+    val mainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
     val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
     val mainDeviceIdentityKey = preferences.createFlowPreference<ByteArray?>("core.maindevice.identitykey", null, moshi)
     val mainDeviceEncryptionKey =
