@@ -4,6 +4,7 @@ import dagger.BindsInstance
 import dagger.Component
 import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.serialization.SerializationModule
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.PodDevice
@@ -39,12 +40,9 @@ abstract class BaseAirPodsTest : BaseTest() {
     }
 
     private fun hexToByteArray(hex: String): ByteArray = hex
-        .replace(" ", "")
         .replace(">", "")
         .replace("<", "")
-        .replace("-", "")
-        .also { require(it.length % 2 == 0) { "Not a HEX string" } }
-        .chunked(2).map { it.toInt(16).toByte() }.toByteArray()
+        .fromHex()
 
     private fun cleanKey(key: String): ByteArray = hexToByteArray(key)
         .also { require(it.size == 16) { "Not a valid key: ${it.size} byte" } }

@@ -1,6 +1,6 @@
 package eu.darken.capod.common
 
-import java.util.*
+import java.util.BitSet
 
 fun Byte.toHex(): String = String.format("%02X", this)
 fun UByte.toHex(): String = this.toByte().toHex()
@@ -18,3 +18,12 @@ fun UShort.isBitSet(pos: Int): Boolean = this.toShort().isBitSet(pos)
 
 fun UShort.toBinaryString(): String = Integer.toBinaryString(this.toInt()).padStart(4, '0')
 fun UByte.toBinaryString(): String = Integer.toBinaryString(this.toInt()).padStart(8, '0')
+
+
+fun ByteArray.toHex(separator: String = "-"): String = joinToString(separator) { "%02X".format(it) }
+fun String.fromHex(): ByteArray = this
+    .replace(" ", "")
+    .replace("-", "")
+    .also { require(it.length % 2 == 0) { "Not a HEX string, length: ${it.length}" } }
+    .chunked(2).map { it.toInt(16).toByte() }
+    .toByteArray()
