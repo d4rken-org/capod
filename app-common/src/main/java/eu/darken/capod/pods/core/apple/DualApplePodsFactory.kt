@@ -13,7 +13,7 @@ abstract class DualApplePodsFactory(private val tag: String) : ApplePodsFactory<
         microPhoneRight = isRightPodMicrophone,
         chargingLeft = isLeftPodCharging,
         chargingRight = isRightPodCharging,
-        color = rawDeviceColor,
+        color = pubDeviceColor,
         model = model
     )
 

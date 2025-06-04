@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple
 
+import android.R.id.message
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.collections.median
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -9,30 +10,27 @@ import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
+import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Duration
 import java.time.Instant
 import kotlin.math.max
 
 abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
-    data class Markings(
-        val vendor: UByte,
-        val length: UByte,
+    data class Identifier(
         val device: UShort,
         val podBatteryData: Set<UShort>,
         val caseBatteryData: UShort,
         val deviceColor: UByte,
     )
 
-    private fun ProximityPairing.Message.getApplePodsMarkings(): Markings = Markings(
-        vendor = ProximityPairing.CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING,
-        length = ProximityPairing.PAIRING_MESSAGE_LENGTH.toUByte(),
-        device = (((data[1].toInt() and 255) shl 8) or (data[2].toInt() and 255)).toUShort(),
+    private fun ProximityPayload.getFuzzyIdentifier(): Identifier = Identifier(
+        device = (((public.data[1].toInt() and 255) shl 8) or (public.data[2].toInt() and 255)).toUShort(),
         // Make comparison order independent
-        podBatteryData = setOf(data[4].upperNibble, data[4].lowerNibble),
-        caseBatteryData = data[5].lowerNibble,
-        deviceColor = data[7]
+        podBatteryData = setOf(public.data[4].upperNibble, public.data[4].lowerNibble),
+        caseBatteryData = public.data[5].lowerNibble,
+        deviceColor = public.data[7]
     )
 
     data class KnownDevice(
@@ -42,8 +40,8 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val history: List<ApplePods>,
         val lastCaseBattery: Float?,
     ) {
-        val lastMessage: ProximityPairing.Message
-            get() = history.last().proximityMessage
+        val lastPayload: ProximityPayload
+            get() = history.last().payload
 
         val lastAddress: String
             get() = history.last().address
@@ -127,7 +125,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
 
     internal open fun searchHistory(current: PodType): KnownDevice? {
         val scanResult = current.scanResult
-        val message = current.proximityMessage
+        val payload = current.payload
 
         knownDevices.values.toList().forEach { knownDevice ->
             if (knownDevice.isOlderThan(Duration.ofSeconds(30))) {
@@ -148,9 +146,9 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
             ?.also { log(tag, VERBOSE) { "searchHistory1: Recovered previous ID via address: $it" } }
 
         if (recognizedDevice == null) {
-            val currentMarkers = message.getApplePodsMarkings()
+            val currentMarkers = payload.getFuzzyIdentifier()
             recognizedDevice = knownDevices.values
-                .firstOrNull { it.lastMessage.getApplePodsMarkings() == currentMarkers }
+                .firstOrNull { it.lastPayload.getFuzzyIdentifier() == currentMarkers }
                 ?.also { log(tag) { "searchHistory1: Close match based on similarity: $currentMarkers" } }
         }
 
@@ -173,6 +171,7 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
                     lastCaseBattery = history.determineLatestCaseBattery() ?: existing.lastCaseBattery
                 )
             }
+
             else -> {
                 log(tag) { "searchHistory1: Creating new history for $device" }
                 val history = listOf(device)
@@ -192,16 +191,15 @@ abstract class ApplePodsFactory<PodType : ApplePods>(private val tag: String) {
         val dirty: UByte,
     )
 
-    fun ProximityPairing.Message.getModelInfo(): ModelInfo = ModelInfo(
+    fun ProximityMessage.getModelInfo(): ModelInfo = ModelInfo(
         full = (((data[1].toInt() and 255) shl 8) or (data[2].toInt() and 255)).toUShort(),
         dirty = data[1]
     )
 
-    abstract fun isResponsible(message: ProximityPairing.Message): Boolean
+    abstract fun isResponsible(message: ProximityMessage): Boolean
 
     abstract fun create(
         scanResult: BleScanResult,
-        message: ProximityPairing.Message,
-        decrypted: UByteArray?,
+        payload: ProximityPayload,
     ): ApplePods
 }

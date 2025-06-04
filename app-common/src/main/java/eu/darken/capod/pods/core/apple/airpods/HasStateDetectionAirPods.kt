@@ -9,7 +9,7 @@ import eu.darken.capod.pods.core.apple.ApplePods
 interface HasStateDetectionAirPods : HasStateDetection, ApplePods {
 
     override val state: ConnectionState
-        get() = ConnectionState.values().firstOrNull { rawSuffix == it.raw } ?: ConnectionState.UNKNOWN
+        get() = ConnectionState.entries.firstOrNull { pubSuffix == it.raw } ?: ConnectionState.UNKNOWN
 
     enum class ConnectionState(val raw: UByte?, @StringRes val labelRes: Int) : HasStateDetection.State {
         DISCONNECTED(0x00, R.string.pods_connection_state_disconnected_label),

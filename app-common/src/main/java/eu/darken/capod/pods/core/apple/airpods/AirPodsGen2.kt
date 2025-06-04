@@ -6,17 +6,19 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePodsFactory
+import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Instant
 import javax.inject.Inject
 
-data class AirPodsGen2 constructor(
+data class AirPodsGen2(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
-    override val proximityMessage: ProximityPairing.Message,
+    override val payload: ProximityPayload,
     override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
@@ -36,16 +38,15 @@ data class AirPodsGen2 constructor(
 
     class Factory @Inject constructor() : DualApplePodsFactory(TAG) {
 
-        override fun isResponsible(message: ProximityPairing.Message): Boolean = message.run {
+        override fun isResponsible(message: ProximityMessage): Boolean = message.run {
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
         override fun create(
             scanResult: BleScanResult,
-            message: ProximityPairing.Message,
-            decrypted: UByteArray?
+            payload: ProximityPayload
         ): ApplePods {
-            var basic = AirPodsGen2(scanResult = scanResult, proximityMessage = message)
+            var basic = AirPodsGen2(scanResult = scanResult, payload = payload)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

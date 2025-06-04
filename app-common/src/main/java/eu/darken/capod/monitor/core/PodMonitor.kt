@@ -19,7 +19,6 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
-import eu.darken.capod.monitor.core.RPAChecker
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -202,7 +201,7 @@ class PodMonitor @Inject constructor(
     private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
         generalSettings.mainDeviceIdentityKey.value
             .also { log(TAG) { "Identity-Resolving-Key (IRK): ${it?.toByteString()}" } }
-            ?.let { irkKey -> pods.firstOrNull { pod -> rpaChecker.verify(pod, irkKey) } }
+            ?.let { irkKey -> pods.firstOrNull { pod -> rpaChecker.verify(pod.address, irkKey) } }
             ?.let {
                 log(TAG) { "Main device determined via IRK: $it" }
                 return it

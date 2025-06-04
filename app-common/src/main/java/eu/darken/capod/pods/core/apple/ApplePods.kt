@@ -1,51 +1,39 @@
 package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.lowerNibble
-import eu.darken.capod.common.toHex
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 
 interface ApplePods : PodDevice {
 
-    val proximityMessage: ProximityPairing.Message
-
-    val decryptedPayload: UByteArray?
-        get() = null
+    val payload: ProximityPayload
 
     // We start counting at the airpods prefix byte
-    val rawPrefix: UByte
-        get() = proximityMessage.data[0]
+    val pubPrefix: UByte
+        get() = payload.public.data[0]
 
-    val rawDeviceModel: UShort
-        get() = (((proximityMessage.data[1].toInt() and 255) shl 8) or (proximityMessage.data[2].toInt() and 255)).toUShort()
+    val pubDeviceModel: UShort
+        get() = (((payload.public.data[1].toInt() and 255) shl 8) or (payload.public.data[2].toInt() and 255)).toUShort()
 
-    val rawStatus: UByte
-        get() = proximityMessage.data[3]
+    val pubStatus: UByte
+        get() = payload.public.data[3]
 
-    val rawStatusHex: String
-        get() = rawStatus.toHex()
+    val pubPodsBattery: UByte
+        get() = payload.public.data[4]
 
-    val rawPodsBattery: UByte
-        get() = proximityMessage.data[4]
+    val pubFlags: UShort
+        get() = payload.public.data[5].upperNibble
 
-    val rawPodsBatteryHex: String
-        get() = rawPodsBattery.toHex()
+    val pubCaseBattery: UShort
+        get() = payload.public.data[5].lowerNibble
 
-    val rawFlags: UShort
-        get() = proximityMessage.data[5].upperNibble
+    val pubCaseLidState: UByte
+        get() = payload.public.data[6]
 
-    val rawCaseBattery: UShort
-        get() = proximityMessage.data[5].lowerNibble
+    val pubDeviceColor: UByte
+        get() = payload.public.data[7]
 
-    val rawCaseLidState: UByte
-        get() = proximityMessage.data[6]
-
-    val rawDeviceColor: UByte
-        get() = proximityMessage.data[7]
-
-    val rawSuffix: UByte
-        get() = proximityMessage.data[8]
-
-
+    val pubSuffix: UByte
+        get() = payload.public.data[8]
 }
