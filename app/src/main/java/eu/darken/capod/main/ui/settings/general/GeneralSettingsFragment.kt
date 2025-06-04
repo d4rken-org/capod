@@ -10,7 +10,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.ScannerMode
+import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.preferences.PercentSliderPreference
+import eu.darken.capod.common.toHex
 import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -52,8 +54,8 @@ class GeneralSettingsFragment : PreferenceFragment3() {
         mainDeviceIdentityKeyPref.setOnPreferenceClickListener {
             AirPodKeyInputDialog(requireContext()).create(
                 mode = AirPodKeyInputDialog.Mode.IRK,
-                current = generalSettings.mainDeviceIdentityKey.value?.toHumanReadable() ?: "",
-                onKey = { generalSettings.mainDeviceIdentityKey.value = it.fromHumanReadable() },
+                current = generalSettings.mainDeviceIdentityKey.value?.toHex() ?: "",
+                onKey = { generalSettings.mainDeviceIdentityKey.value = it.fromHex() },
                 onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
             ).show()
             true
@@ -61,8 +63,8 @@ class GeneralSettingsFragment : PreferenceFragment3() {
         mainDeviceEncryptionKeyPref.setOnPreferenceClickListener {
             AirPodKeyInputDialog(requireContext()).create(
                 mode = AirPodKeyInputDialog.Mode.ENC,
-                current = generalSettings.mainDeviceEncryptionKey.value?.toHumanReadable() ?: "",
-                onKey = { generalSettings.mainDeviceEncryptionKey.value = it.fromHumanReadable() },
+                current = generalSettings.mainDeviceEncryptionKey.value?.toHex() ?: "",
+                onKey = { generalSettings.mainDeviceEncryptionKey.value = it.fromHex() },
                 onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
             ).show()
             true
@@ -70,10 +72,6 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
         super.onPreferencesCreated()
     }
-
-    private fun ByteArray.toHumanReadable(): String = joinToString("-") { "%02X".format(it) }
-
-    private fun String.fromHumanReadable(): ByteArray = split("-").map { it.toInt(16).toByte() }.toByteArray()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.state.observe2 { state ->
