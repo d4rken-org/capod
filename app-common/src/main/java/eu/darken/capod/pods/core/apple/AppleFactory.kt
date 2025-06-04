@@ -58,10 +58,10 @@ class AppleFactory @Inject constructor(
 
     suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
         val proximityMessage = getMessage(scanResult) ?: return@withLock null
+        val payload = getPayload(scanResult, proximityMessage)
 
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) }
 
-        val payload = getPayload(scanResult, proximityMessage)
 
         return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,

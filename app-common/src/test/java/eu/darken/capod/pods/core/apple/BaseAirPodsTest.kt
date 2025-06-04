@@ -33,17 +33,32 @@ abstract class BaseAirPodsTest : BaseTest() {
         }
     }
 
-    private val baseBleScanResult = BleScanResult(
-        receivedAt = Instant.now(),
-        address = "77:49:4C:D8:25:0C",
-        rssi = -66,
-        generatedAtNanos = 136136027721826,
-        manufacturerSpecificData = emptyMap()
-    )
-
     val generalSettings = mockk<GeneralSettings>().apply {
         every { mainDeviceIdentityKey } returns mockFlowPreference(null)
         every { mainDeviceEncryptionKey } returns mockFlowPreference(null)
+    }
+
+    private fun hexToByteArray(hex: String): ByteArray = hex
+        .replace(" ", "")
+        .replace(">", "")
+        .replace("<", "")
+        .replace("-", "")
+        .also { require(it.length % 2 == 0) { "Not a HEX string" } }
+        .chunked(2).map { it.toInt(16).toByte() }.toByteArray()
+
+    private fun cleanKey(key: String): ByteArray = hexToByteArray(key)
+        .also { require(it.size == 16) { "Not a valid key: ${it.size} byte" } }
+
+    fun setKeyIRK(key: String?) {
+        generalSettings.apply {
+            every { mainDeviceIdentityKey } returns mockFlowPreference(key?.let { cleanKey(it) })
+        }
+    }
+
+    fun setKeyEnc(key: String?) {
+        generalSettings.apply {
+            every { mainDeviceEncryptionKey } returns mockFlowPreference(key?.let { cleanKey(it) })
+        }
     }
 
     val factory: AppleFactory = DaggerBaseAirPodsTest_AppleFactoryTestComponent.factory().create(
@@ -58,30 +73,21 @@ abstract class BaseAirPodsTest : BaseTest() {
         every { SystemClockWrap.elapsedRealtimeNanos } returns 1000L
     }
 
-    suspend inline fun <reified T : PodDevice?> create(hex: String, block: T.() -> Unit) {
-        val trimmed = hex
-            .replace(" ", "")
-            .replace(">", "")
-            .replace("<", "")
-        require(trimmed.length % 2 == 0) { "Not a HEX string" }
-        val bytes = trimmed.chunked(2).map { it.toInt(16).toByte() }.toByteArray()
-        val result = mockData(bytes)
+    internal suspend inline fun <reified T : PodDevice?> create(
+        hex: String,
+        address: String = "77:49:4C:D8:25:0C",
+        block: T.() -> Unit
+    ) {
+        val result = BleScanResult(
+            receivedAt = Instant.now(),
+            address = address,
+            rssi = -66,
+            generatedAtNanos = 136136027721826,
+            manufacturerSpecificData = mutableMapOf<Int, ByteArray>().apply {
+                this[ContinuityProtocol.APPLE_COMPANY_IDENTIFIER] = hexToByteArray(hex)
+            }
+        )
+
         block.invoke(factory.create(result) as T)
     }
-
-    fun mockData(hex: String): BleScanResult {
-        val trimmed = hex
-            .replace(" ", "")
-            .replace(">", "")
-            .replace("<", "")
-        require(trimmed.length % 2 == 0) { "Not a HEX string" }
-        val bytes = trimmed.chunked(2).map { it.toInt(16).toByte() }.toByteArray()
-        return mockData(bytes)
-    }
-
-    fun mockData(data: ByteArray): BleScanResult = baseBleScanResult.copy(
-        manufacturerSpecificData = mutableMapOf<Int, ByteArray>().apply {
-            this[ContinuityProtocol.APPLE_COMPANY_IDENTIFIER] = data
-        }
-    )
 }
