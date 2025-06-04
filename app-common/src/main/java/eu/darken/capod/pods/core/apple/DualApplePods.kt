@@ -148,8 +148,9 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
     override val isCaseCharging: Boolean
         get() {
             payload.private?.data?.get(3)?.let { raw ->
+                val level = (raw and 0x7Fu).toInt() / 100f
                 val isCharging = (raw and 0x80u).toInt() != 0
-                if (batteryCasePercent != null) return isCharging
+                if (0f <= level && level <= 1.0f) return isCharging
             }
 
             return pubFlags.isBitSet(2)
