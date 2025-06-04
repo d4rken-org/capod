@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.fromHex
+import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest

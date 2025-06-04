@@ -12,6 +12,8 @@ import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.preferences.createFlowPreference
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
+import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -36,9 +38,16 @@ class GeneralSettings @Inject constructor(
 
     val mainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
     val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
-    val mainDeviceIdentityKey = preferences.createFlowPreference<ByteArray?>("core.maindevice.identitykey", null, moshi)
-    val mainDeviceEncryptionKey =
-        preferences.createFlowPreference<ByteArray?>("core.maindevice.encryptionkey", null, moshi)
+    val mainDeviceIdentityKey = preferences.createFlowPreference<IdentityResolvingKey?>(
+        "core.maindevice.identitykey",
+        null,
+        moshi
+    )
+    val mainDeviceEncryptionKey = preferences.createFlowPreference<ProximityEncryptionKey?>(
+        "core.maindevice.encryptionkey",
+        null,
+        moshi
+    )
 
     val isOffloadedFilteringDisabled = preferences.createFlowPreference(
         "core.compat.offloaded.filtering.disabled",

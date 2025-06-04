@@ -6,13 +6,13 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.monitor.core.RPAChecker
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -61,7 +61,6 @@ class AppleFactory @Inject constructor(
         val payload = getPayload(scanResult, proximityMessage)
 
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) }
-
 
         return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
