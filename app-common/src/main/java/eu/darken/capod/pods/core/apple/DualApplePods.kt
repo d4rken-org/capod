@@ -15,7 +15,7 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
     HasDualMicrophone, HasAppleColor {
 
     val primaryPod: Pod
-        get() = when (rawStatus.isBitSet(5)) {
+        get() = when (pubStatus.isBitSet(5)) {
             true -> Pod.LEFT
             false -> Pod.RIGHT
         }
@@ -25,17 +25,17 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
      * If the right pod is the primary, the values are flipped.
      */
     val areValuesFlipped: Boolean
-        get() = !rawStatus.isBitSet(5)
+        get() = !pubStatus.isBitSet(5)
 
     override val batteryLeftPodPercent: Float?
         get() {
-            decryptedPayload?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
+            payload.private?.data?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
                 val level = (raw and 0x7Fu).toInt() / 100f
                 if (level <= 1.0f) return level
             }
             val value = when (areValuesFlipped) {
-                true -> rawPodsBattery.upperNibble.toInt()
-                false -> rawPodsBattery.lowerNibble.toInt()
+                true -> pubPodsBattery.upperNibble.toInt()
+                false -> pubPodsBattery.lowerNibble.toInt()
             }
             return when (value) {
                 15 -> null
@@ -50,13 +50,13 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val batteryRightPodPercent: Float?
         get() {
-            decryptedPayload?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
+            payload.private?.data?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
                 val level = (raw and 0x7Fu).toInt() / 100f
                 if (level <= 1.0f) return level
             }
             val value = when (areValuesFlipped) {
-                true -> rawPodsBattery.lowerNibble.toInt()
-                false -> rawPodsBattery.upperNibble.toInt()
+                true -> pubPodsBattery.lowerNibble.toInt()
+                false -> pubPodsBattery.upperNibble.toInt()
             }
             return when (value) {
                 15 -> null
@@ -70,24 +70,24 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
         }
 
     val isThisPodInThecase: Boolean
-        get() = rawStatus.isBitSet(6)
+        get() = pubStatus.isBitSet(6)
 
     val isOnePodInCase: Boolean
-        get() = rawStatus.isBitSet(4)
+        get() = pubStatus.isBitSet(4)
 
     val areBothPodsInCase: Boolean
-        get() = rawStatus.isBitSet(2)
+        get() = pubStatus.isBitSet(2)
 
     override val isLeftPodInEar: Boolean
         get() = when (areValuesFlipped xor isThisPodInThecase) {
-            true -> rawStatus.isBitSet(3)
-            false -> rawStatus.isBitSet(1)
+            true -> pubStatus.isBitSet(3)
+            false -> pubStatus.isBitSet(1)
         }
 
     override val isRightPodInEar: Boolean
         get() = when (areValuesFlipped xor isThisPodInThecase) {
-            true -> rawStatus.isBitSet(1)
-            false -> rawStatus.isBitSet(3)
+            true -> pubStatus.isBitSet(1)
+            false -> pubStatus.isBitSet(3)
         }
 
     /**
@@ -95,46 +95,46 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
      * For the pod that is in the case, this is flipped again though.
      */
     override val isLeftPodMicrophone: Boolean
-        get() = rawStatus.isBitSet(5) xor isThisPodInThecase
+        get() = pubStatus.isBitSet(5) xor isThisPodInThecase
 
     /**
      * The data flip bit is UNset if the right pod is primary.
      * For the pod that is in the case, this is flipped again though.
      */
     override val isRightPodMicrophone: Boolean
-        get() = !rawStatus.isBitSet(5) xor isThisPodInThecase
+        get() = !pubStatus.isBitSet(5) xor isThisPodInThecase
 
     override val isLeftPodCharging: Boolean
         get() {
-            decryptedPayload?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
+            payload.private?.data?.get(if (areValuesFlipped) 2 else 1)?.let { raw ->
                 val isCharging = (raw and 0x80u).toInt() != 0
                 return isCharging
             }
             return when (areValuesFlipped) {
-                false -> rawFlags.isBitSet(0)
-                true -> rawFlags.isBitSet(1)
+                false -> pubFlags.isBitSet(0)
+                true -> pubFlags.isBitSet(1)
             }
         }
 
     override val isRightPodCharging: Boolean
         get() {
-            decryptedPayload?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
+            payload.private?.data?.get(if (areValuesFlipped) 1 else 2)?.let { raw ->
                 val isCharging = (raw and 0x80u).toInt() != 0
                 return isCharging
             }
             return when (areValuesFlipped) {
-                false -> rawFlags.isBitSet(1)
-                true -> rawFlags.isBitSet(0)
+                false -> pubFlags.isBitSet(1)
+                true -> pubFlags.isBitSet(0)
             }
         }
 
     override val batteryCasePercent: Float?
         get() {
-            decryptedPayload?.get(3)?.let { raw ->
+            payload.private?.data?.get(3)?.let { raw ->
                 val level = (raw and 0x7Fu).toInt() / 100f
                 if (level <= 1.0f) return level
             }
-            return when (val value = rawCaseBattery.toInt()) {
+            return when (val value = pubCaseBattery.toInt()) {
                 15 -> null
                 else -> if (value > 10) {
                     log { "Case: Above 100% battery: $value" }
@@ -147,18 +147,18 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasE
 
     override val isCaseCharging: Boolean
         get() {
-            decryptedPayload?.get(3)?.let { raw ->
+            payload.private?.data?.get(3)?.let { raw ->
                 val isCharging = (raw and 0x80u).toInt() != 0
                 if (batteryCasePercent != null) return isCharging
             }
 
-            return rawFlags.isBitSet(2)
+            return pubFlags.isBitSet(2)
         }
 
     val caseLidState: LidState
         get() {
-            val rawstate = rawCaseLidState
-            return LidState.values().firstOrNull { it.rawRange.contains(rawstate.toInt()) } ?: LidState.UNKNOWN
+            val rawstate = pubCaseLidState
+            return LidState.entries.firstOrNull { it.rawRange.contains(rawstate.toInt()) } ?: LidState.UNKNOWN
         }
 
     /**

@@ -7,7 +7,8 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
-import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
+import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Instant
 import javax.inject.Inject
 
@@ -17,7 +18,7 @@ data class UnknownAppleDevice(
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
-    override val proximityMessage: ProximityPairing.Message,
+    override val payload: ProximityPayload,
     override val reliability: Float = 0f,
     private val rssiAverage: Int? = null,
 ) : ApplePods {
@@ -30,14 +31,13 @@ data class UnknownAppleDevice(
         get() = rssiAverage ?: super.rssi
 
     class Factory @Inject constructor() : ApplePodsFactory<ApplePods>(TAG) {
-        override fun isResponsible(message: ProximityPairing.Message): Boolean = true
+        override fun isResponsible(message: ProximityMessage): Boolean = true
 
         override fun create(
             scanResult: BleScanResult,
-            message: ProximityPairing.Message,
-            decrypted: UByteArray?,
+            payload: ProximityPayload,
         ): ApplePods {
-            var basic = UnknownAppleDevice(scanResult = scanResult, proximityMessage = message)
+            var basic = UnknownAppleDevice(scanResult = scanResult, payload = payload)
             val result = searchHistory(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

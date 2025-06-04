@@ -8,27 +8,15 @@ import javax.inject.Inject
 
 object ProximityPairing {
 
-    data class Message(
-        val type: UByte,
-        val length: Int,
-        val data: UByteArray
-    ) {
-
-        override fun toString(): String {
-            val dataHex = data.joinToString(separator = " ") { String.format("%02X", it.toByte()) }
-            return "ProximityPairing.Message(type=$type, length=$length, data=$dataHex)"
-        }
-    }
-
     @Reusable
     class Decoder @Inject constructor() {
-        fun decode(message: ContinuityProtocol.Message): Message? {
+        fun decode(message: ContinuityProtocol.Message): ProximityMessage? {
             if (message.type != CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING) {
                 log { "Not a proximity pairing message: $this" }
                 return null
             }
 
-            return Message(
+            return ProximityMessage(
                 type = message.type,
                 length = message.length,
                 data = message.data

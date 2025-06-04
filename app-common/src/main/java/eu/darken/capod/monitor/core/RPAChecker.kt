@@ -5,7 +5,6 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
 import okio.ByteString.Companion.toByteString
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
@@ -14,14 +13,14 @@ import javax.inject.Inject
 class RPAChecker @Inject constructor() {
 
     // Resolvable-Private-Address
-    fun verify(dev: PodDevice, irk: ByteArray): Boolean = try {
-        val rpa = dev.address.split(":").map { it.toInt(16).toByte() }.reversed().toByteArray()
+    fun verify(address: String, irk: ByteArray): Boolean = try {
+        val rpa = address.split(":").map { it.toInt(16).toByte() }.reversed().toByteArray()
         val prand = rpa.copyOfRange(3, 6)
         val hash = rpa.copyOfRange(0, 3)
         val computedHash = ah(irk, prand)
         hash.contentEquals(computedHash)
     } catch (e: Exception) {
-        log(TAG, ERROR) { "Failed to verify RPA\nPod=${dev}\nIRK=${irk.toByteString()}\n${e.asLog()}" }
+        log(TAG, ERROR) { "Failed to verify RPA\naddress=${address}\nIRK=${irk.toByteString()}\n${e.asLog()}" }
         false
     }
 

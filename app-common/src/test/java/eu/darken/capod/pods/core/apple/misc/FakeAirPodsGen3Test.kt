@@ -11,15 +11,15 @@ class FakeAirPodsGen3Test : BaseAirPodsTest() {
     @Test
     fun `charging in case`() = runTest {
         create<FakeAirPodsGen3>("07 13 01 13 20 75 AA 37 34 00 10 00 E4 E4 64 00 00 00 00 00 00") {
-            rawPrefix shouldBe 0x01.toUByte()
-            rawDeviceModel shouldBe 0x1320.toUShort()
-            rawStatus shouldBe 0x75.toUByte()
-            rawPodsBattery shouldBe 0xAA.toUByte()
-            rawFlags shouldBe 0x3.toUShort()
-            rawCaseBattery shouldBe 0x7.toUShort()
-            rawCaseLidState shouldBe 0x34.toUByte()
-            rawDeviceColor shouldBe 0x00.toUByte()
-            rawSuffix shouldBe 0x10.toUByte()
+            pubPrefix shouldBe 0x01.toUByte()
+            pubDeviceModel shouldBe 0x1320.toUShort()
+            pubStatus shouldBe 0x75.toUByte()
+            pubPodsBattery shouldBe 0xAA.toUByte()
+            pubFlags shouldBe 0x3.toUShort()
+            pubCaseBattery shouldBe 0x7.toUShort()
+            pubCaseLidState shouldBe 0x34.toUByte()
+            pubDeviceColor shouldBe 0x00.toUByte()
+            pubSuffix shouldBe 0x10.toUByte()
 
             batteryLeftPodPercent shouldBe 1f
             batteryRightPodPercent shouldBe 1f

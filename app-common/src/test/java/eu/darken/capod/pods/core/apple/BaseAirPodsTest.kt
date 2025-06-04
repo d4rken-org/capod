@@ -1,28 +1,35 @@
 package eu.darken.capod.pods.core.apple
 
+import dagger.BindsInstance
 import dagger.Component
 import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.serialization.SerializationModule
+import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import io.mockk.MockKAnnotations
 import io.mockk.every
+import io.mockk.mockk
 import io.mockk.mockkObject
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
+import testhelpers.preferences.mockFlowPreference
 import java.time.Instant
 import javax.inject.Singleton
 
 abstract class BaseAirPodsTest : BaseTest() {
     @Singleton
-    @Component(modules = [AppleFactoryModule::class])
+    @Component(modules = [AppleFactoryModule::class, SerializationModule::class])
     interface AppleFactoryTestComponent {
 
         val appleFactory: AppleFactory
 
         @Component.Factory
         interface Factory {
-            fun create(): AppleFactoryTestComponent
+            fun create(
+                @BindsInstance generalSettings: GeneralSettings,
+            ): AppleFactoryTestComponent
         }
     }
 
@@ -34,7 +41,14 @@ abstract class BaseAirPodsTest : BaseTest() {
         manufacturerSpecificData = emptyMap()
     )
 
-    val factory: AppleFactory = DaggerBaseAirPodsTest_AppleFactoryTestComponent.factory().create().appleFactory
+    val generalSettings = mockk<GeneralSettings>().apply {
+        every { mainDeviceIdentityKey } returns mockFlowPreference(null)
+        every { mainDeviceEncryptionKey } returns mockFlowPreference(null)
+    }
+
+    val factory: AppleFactory = DaggerBaseAirPodsTest_AppleFactoryTestComponent.factory().create(
+        generalSettings = generalSettings
+    ).appleFactory
 
     @BeforeEach
     fun setup() {

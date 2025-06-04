@@ -6,8 +6,8 @@ import eu.darken.capod.pods.core.HasPodStyle
 interface HasAppleColor : ApplePods, HasPodStyle {
 
     override val podStyle: HasPodStyle.PodStyle
-        get() = DeviceColor.values()
-            .firstOrNull { it.raw == rawDeviceColor }
+        get() = DeviceColor.entries
+            .firstOrNull { it.raw == pubDeviceColor }
             ?: DeviceColor.UNKNOWN
 
     enum class DeviceColor(val raw: UByte?) : HasPodStyle.PodStyle {

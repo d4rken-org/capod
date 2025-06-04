@@ -51,8 +51,8 @@ class PopUpReaction @Inject constructor(
                 return@mapNotNull null
             }
             log(TAG, VERBOSE) {
-                val prev = previous?.rawCaseLidState?.let { String.format("%02X", it.toByte()) }
-                val cur = current.rawCaseLidState.let { String.format("%02X", it.toByte()) }
+                val prev = previous?.pubCaseLidState?.let { String.format("%02X", it.toByte()) }
+                val cur = current.pubCaseLidState.let { String.format("%02X", it.toByte()) }
                 "previous=$prev (${previous?.caseLidState}), current=$cur (${current.caseLidState})"
             }
             log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
