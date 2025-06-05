@@ -19,8 +19,8 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
+import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
-import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -33,7 +33,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import okio.ByteString.Companion.toByteString
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
@@ -45,11 +44,10 @@ class PodMonitor @Inject constructor(
     private val bleScanner: BleScanner,
     private val podFactory: PodFactory,
     private val generalSettings: GeneralSettings,
-    private val bluetoothManager: BluetoothManager2,
+    bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
     private val podDeviceCache: PodDeviceCache,
-    private val permissionTool: PermissionTool,
-    private val rpaChecker: RPAChecker,
+    permissionTool: PermissionTool,
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
@@ -200,13 +198,11 @@ class PodMonitor @Inject constructor(
     }
 
     private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
-        generalSettings.mainDeviceIdentityKey.value
-            .also { log(TAG) { "Identity-Resolving-Key (IRK): ${it?.toByteString()}" } }
-            ?.let { irkKey -> pods.firstOrNull { pod -> rpaChecker.verify(pod.address, irkKey) } }
-            ?.let {
-                log(TAG) { "Main device determined via IRK: $it" }
-                return it
-            }
+        val irkHit = pods.filterIsInstance<ApplePods>().firstOrNull { it.flags.isIRKMatch }
+        if (irkHit != null) {
+            log(TAG) { "Main device determined via IRK: $irkHit" }
+            return irkHit
+        }
 
         val mainDeviceModel = generalSettings.mainDeviceModel.value
         val presorted = sortPodsToInterest(pods).sortedByDescending {
