@@ -20,6 +20,7 @@ data class UnknownAppleDevice(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,
+    override val flags: ApplePods.Flags,
     override val reliability: Float = 0f,
     private val rssiAverage: Int? = null,
 ) : ApplePods {
@@ -39,8 +40,9 @@ data class UnknownAppleDevice(
         override fun create(
             scanResult: BleScanResult,
             payload: ProximityPayload,
+            flags: ApplePods.Flags,
         ): ApplePods {
-            var basic = UnknownAppleDevice(scanResult = scanResult, payload = payload)
+            var basic = UnknownAppleDevice(scanResult = scanResult, payload = payload, flags = flags)
             val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

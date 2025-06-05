@@ -4,10 +4,17 @@ import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsSingleItemBinding
-import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.HasChargeDetection
+import eu.darken.capod.pods.core.HasEarDetection
+import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.getBatteryLevelHeadset
+import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Instant
 
 class SinglePodsCardVH(parent: ViewGroup) :
@@ -32,6 +39,17 @@ class SinglePodsCardVH(parent: ViewGroup) :
         lastSeen.text = device.lastSeenFormatted(item.now)
 
         reception.text = item.getReceptionText()
+
+        keyIcon.apply {
+            isVisible = device is ApplePods && device.flags.isIRKMatch
+            if (device !is ApplePods) return@apply
+            setImageResource(
+                when {
+                    device.payload.private != null -> R.drawable.ic_key_24
+                    else -> R.drawable.ic_key_outline_24
+                }
+            )
+        }
 
         // Battery level
         device.apply {

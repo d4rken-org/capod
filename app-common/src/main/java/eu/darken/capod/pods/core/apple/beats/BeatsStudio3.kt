@@ -20,6 +20,7 @@ data class BeatsStudio3(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,
+    override val flags: ApplePods.Flags,
     override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
 ) : SingleApplePods {
@@ -36,9 +37,10 @@ data class BeatsStudio3(
 
         override fun create(
             scanResult: BleScanResult,
-            payload: ProximityPayload
+            payload: ProximityPayload,
+            flags: ApplePods.Flags
         ): ApplePods {
-            var basic = BeatsStudio3(scanResult = scanResult, payload = payload)
+            var basic = BeatsStudio3(scanResult = scanResult, payload = payload, flags = flags)
             val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

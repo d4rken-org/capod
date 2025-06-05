@@ -8,6 +8,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 interface ApplePods : PodDevice {
 
     val payload: ProximityPayload
+    val flags: Flags
 
     // We start counting at the airpods prefix byte
     val pubPrefix: UByte
@@ -54,4 +55,8 @@ interface ApplePods : PodDevice {
             level = level
         )
     }
+
+    data class Flags(
+        val isIRKMatch: Boolean,
+    )
 }
