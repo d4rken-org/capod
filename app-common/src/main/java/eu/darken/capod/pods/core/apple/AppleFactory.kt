@@ -58,37 +58,39 @@ class AppleFactory @Inject constructor(
 
     suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
         val proximityMessage = getMessage(scanResult) ?: return@withLock null
-        val payload = getPayload(scanResult, proximityMessage)
+
+        val isIrkMatch = generalSettings.mainDeviceIdentityKey.value
+            ?.let { rpaChecker.verify(scanResult.address, it) }
+            ?: false
+
+        val payload = ProximityPayload(
+            public = ProximityPayload.Public(
+                proximityMessage.data.take(16).toUByteArray()
+            ),
+            private = run {
+                if (!isIrkMatch) return@run null
+
+                val encKey = generalSettings.mainDeviceEncryptionKey.value
+                if (encKey == null) return@run null
+
+                val encrypted = proximityMessage.data.takeLast(16).toUByteArray().toByteArray()
+                proximityMessageDecrypter.decrypt(encrypted, encKey)?.let {
+                    ProximityPayload.Private(data = it)
+                }
+            },
+        )
 
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) }
+
 
         return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
             payload = payload,
+            flags = ApplePods.Flags(
+                isIRKMatch = true,
+            ),
         )
     }
-
-    private fun getPayload(
-        scanResult: BleScanResult,
-        proximityMessage: ProximityMessage
-    ) = ProximityPayload(
-        public = ProximityPayload.Public(
-            proximityMessage.data.take(16).toUByteArray()
-        ),
-        private = run {
-            val irkKey = generalSettings.mainDeviceIdentityKey.value
-            if (irkKey == null) return@run null
-            val encKey = generalSettings.mainDeviceEncryptionKey.value
-            if (encKey == null) return@run null
-
-            if (!rpaChecker.verify(scanResult.address, irkKey)) return@run null
-
-            val encrypted = proximityMessage.data.takeLast(16).toUByteArray().toByteArray()
-            proximityMessageDecrypter.decrypt(encrypted, encKey)?.let {
-                ProximityPayload.Private(data = it)
-            }
-        },
-    )
 
     companion object {
         private val TAG = logTag("Pod", "Apple", "Factory")

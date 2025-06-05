@@ -4,6 +4,7 @@ import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
@@ -14,6 +15,7 @@ import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.HasPodStyle
 import eu.darken.capod.pods.core.HasStateDetection
+import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
 import eu.darken.capod.pods.core.firstSeenFormatted
@@ -61,6 +63,17 @@ class DualPodsCardVH(parent: ViewGroup) :
         firstSeen.isGone = Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() < 1
 
         reception.text = item.getReceptionText()
+
+        keyIcon.apply {
+            isVisible = device is ApplePods && device.flags.isIRKMatch
+            if (device !is ApplePods) return@apply
+            setImageResource(
+                when {
+                    device.payload.private != null -> R.drawable.ic_key_24
+                    else -> R.drawable.ic_key_outline_24
+                }
+            )
+        }
 
         // Pods battery state
         device.apply {
