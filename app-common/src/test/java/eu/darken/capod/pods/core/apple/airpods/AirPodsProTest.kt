@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple.airpods
 
+import eu.darken.capod.common.toHex
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
@@ -201,6 +202,9 @@ class AirPodsProTest : BaseAirPodsTest() {
 
             batteryCasePercent shouldBe 0.8f
             isCaseCharging shouldBe false
+
+            payload.public.data.toByteArray().toHex(" ") shouldBe "01 0E 20 51 9A 98 33 00 04"
+            payload.private shouldBe null
         }
         setKeyIRK("79-04-65-1E-E2-CC-D9-26-F2-6E-20-EE-3E-CC-DE-79")
         setKeyEnc("3B-9C-80-57-E6-45-7F-F2-1B-8E-07-63-6C-99-E0-29")
@@ -212,6 +216,9 @@ class AirPodsProTest : BaseAirPodsTest() {
 
             batteryCasePercent shouldBe 0.86f
             isCaseCharging shouldBe false
+
+            payload.public.data.toByteArray().toHex(" ") shouldBe "01 0E 20 51 9A 98 33 00 04"
+            payload.private!!.data.toByteArray().toHex(" ") shouldBe "44 E4 62 56 17 FA 06 31 E4 0A 01 13 31 13 4C 40"
         }
     }
 }
