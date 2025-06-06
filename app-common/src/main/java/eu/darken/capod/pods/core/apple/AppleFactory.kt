@@ -65,10 +65,11 @@ class AppleFactory @Inject constructor(
 
         val payload = ProximityPayload(
             public = ProximityPayload.Public(
-                proximityMessage.data.take(16).toUByteArray()
+                proximityMessage.data.take(9).toUByteArray()
             ),
             private = run {
                 if (!isIrkMatch) return@run null
+                if (proximityMessage.data.size != ProximityPairing.PAIRING_MESSAGE_LENGTH) return@run null
 
                 val encKey = generalSettings.mainDeviceEncryptionKey.value
                 if (encKey == null) return@run null
