@@ -7,7 +7,7 @@ Característiques:
 * Informació addicional sobre la connexió, micròfon i funda.
 * Pot rebre i mostrar tots els dispositius propers.
 * Detecció de l'oïda amb reproducció/pausa automàtica.
-* Connecta automàticament el telèfon i els AirPods.
+* Connecta automàticament el dispositiu i els AirPods.
 * Mostra una finestra emergent quan s'obre la funda.
 
 El CAPod no inclou anuncis. Algunes funcions requereixen una compra des de l'aplicació.

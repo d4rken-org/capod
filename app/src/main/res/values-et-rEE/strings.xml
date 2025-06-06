@@ -12,6 +12,8 @@
     <string name="upgrade_capod_description">Saate lisavõimalusi ja toetate arendajat.</string>
     <string name="settings_monitor_mode_label">Jälgimisrežiim</string>
     <string name="settings_monitor_mode_description">Mis olukordades jälgib see rakendus Bluetooth andmeid.</string>
+    <string name="settings_monitor_connected_notification_label">Lisateavitus</string>
+    <string name="settings_monitor_connected_notification_description">Kuvab seadme ühendumisel lisateavituse. See peidab pidevalt nähtava „Seadmed puuduvad“ teate, selleks keelates „Seadme olek“ kanali.</string>
     <string name="settings_scanner_mode_label">Skannimisrežiim</string>
     <string name="settings_scanner_mode_description">Kas Bluetooth madalama energiatarbimisega andmete skanner eelistab jõudlust või mõõdukat energiahaldust?</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
@@ -51,6 +53,7 @@
     <string name="settings_popup_connected_label">Näita ühenduse hüpikakent</string>
     <string name="settings_popup_connected_description">Näita seadme esmaühendumisel hüpikakent.</string>
     <string name="notification_channel_device_status_label">Seadme olek</string>
+    <string name="notification_channel_device_status_connected_label">Ühendatud seade</string>
     <string name="support_debuglog_label">Silumisinfo</string>
     <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavasse tekstifaili.</string>
     <string name="debug_debuglog_size_label">Maht</string>

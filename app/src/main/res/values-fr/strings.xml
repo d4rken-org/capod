@@ -12,6 +12,8 @@
     <string name="upgrade_capod_description">Obtenez des fonctions supplémentaires et soutenez le développeur.</string>
     <string name="settings_monitor_mode_label">Mode surveillance</string>
     <string name="settings_monitor_mode_description">Les circonstances de surveillance des données Bluetooth par l’appli.</string>
+    <string name="settings_monitor_connected_notification_label">Notification supplémentaire</string>
+    <string name="settings_monitor_connected_notification_description">Affiche une notification supplémentaire si un appareil est connecté. Cela vous permet de masquer la notification permanente « Aucun appareil » en désactivant le canal « État de l’appareil ».</string>
     <string name="settings_scanner_mode_label">Mode analyse</string>
     <string name="settings_scanner_mode_description">L’analyseur des données « basse énergie » de Bluetooth devrait-il prioriser les performances ou préserver l’énergie ?</string>
     <string name="settings_autopause_label">Pause automatique</string>
@@ -51,6 +53,7 @@
     <string name="settings_popup_connected_label">Afficher une fenêtre de connection</string>
     <string name="settings_popup_connected_description">Afficher une fenêtre contextuelle quand l’appareil se connecte pour la première fois.</string>
     <string name="notification_channel_device_status_label">État de l’appareil</string>
+    <string name="notification_channel_device_status_connected_label">L’appareil est connecté</string>
     <string name="support_debuglog_label">Journal de débogage</string>
     <string name="support_debuglog_desc">Enregistrez les actions de l’appli dans un fichier texte que vous pouvez partager.</string>
     <string name="debug_debuglog_size_label">Taille</string>

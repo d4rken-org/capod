@@ -7,7 +7,7 @@ Funkce:
 * Další informace o připojení, mikrofonu a pouzdru.
 * Zobrazení podrobností o všech okolních zařízeních.
 * Detekce uložení v uchu s automatickým přehráváním/pozastavením.
-* Automatické připojení telefonu a sluchátek AirPods.
+* Automatické připojení zařízení a sluchátek AirPods.
 * Zobrazení vyskakovacího okna při otevření pouzdra.
 
 CAPod je bez reklam. Některé funkce vyžadují nákup v aplikaci.

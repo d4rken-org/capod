@@ -11,10 +11,10 @@
     <string name="overview_bluetooth_disabled_label">בלוטות כבוי</string>
     <string name="overview_bluetooth_disabled_description">בלוטות\' מכובה, יש להדליקו ;)</string>
     <string name="permission_bluetooth_connect_label">בלוטות חיבור</string>
-    <string name="permission_bluetooth_connect_description">אפליקציה זו דורשת הרשאת \"חיבור Bluetooth\" כדי ליצור אינטראקציה עם מכשירים מותאמים וליזום חיבורים.</string>
-    <string name="permission_bluetooth_scan_label">סריקת Bluetooth</string>
-    <string name="permission_bluetooth_scan_description">הרשאת \"סריקת Bluetooth\" מאפשרת לאפליקציה הזו לגלות ולקבל נתוני Bluetooth ממכשירים קרובים כמו ה-AirPods שלך.</string>
-    <string name="permission_bluetooth_label">בלוטות</string>
+    <string name="permission_bluetooth_connect_description">אפליקציה זו דורשת הרשאת \"חיבור בלוטוס\" כדי ליצור אינטראקציה עם מכשירים מותאמים וליזום חיבורים.</string>
+    <string name="permission_bluetooth_scan_label">סריקת בלוטוס</string>
+    <string name="permission_bluetooth_scan_description">הרשאת \"סריקת בלוטוס\" מאפשרת לאפליקציה הזו לגלות ולקבל נתוני בלוטוס ממכשירים קרובים כמו ה-איירפודס שלך.</string>
+    <string name="permission_bluetooth_label">בלוטוס</string>
     <string name="permission_bluetooth_description">אפליקציה זו דורשת הרשאת \"בלוטות\'\" כדי להתחבר למכשירי בלוטות\' מותאמים.</string>
     <string name="permission_access_fine_location_label">גישה למיקום מדוייק</string>
     <string name="permission_access_fine_location_description">CAPod משתמש בהרשאת \"שיפור מיקום\" כדי לקבל הפחתת צריכת אנרגיה בנתוני Bluetooth.  האוזניות שלך משתמשות בטכנולוגיית Bluetooth Low Energy כדי לשדר את הסטטוס שלהן. אפליקציה זו לא תשתמש בנתוני Bluetooth כדי לקבוע את מיקומך.</string>

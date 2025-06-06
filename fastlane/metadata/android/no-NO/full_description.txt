@@ -7,7 +7,7 @@ Funksjoner:
 * Ytterlig informasjon om tilkobling, mikrofon og deksel.
 * Kan motta og vise alle enheter i nærheten.
 * Øre-deteksjon med automatisk avspilling/pause.
-* Koble telefonen til AirPods automatisk.
+* Koble enheten til AirPods automatisk.
 * Vis popup når dekselet åpnes.
 
 CAPod er reklamefri. Noen funksjoner krever et kjøp i appen.

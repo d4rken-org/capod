@@ -7,7 +7,7 @@ Võimalused:
 * ühenduse, mikrofoni ja kaane lisateave;
 * tuvastab ja näitab kõiki lähedal asuvaid seadmeid;
 * kõrva tuvastamisel esitab/pausib ise;
-* telefon ja AirPodsid ühenduvad ise;
+* Seadme ja AirPodside automaatne ühendamine.
 * hüpikakna näitamine, kui kaas avatud.
 
 CAPodis pole reklaame. Osa võimalusi saab osta rakendusest.

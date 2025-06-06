@@ -12,6 +12,8 @@
     <string name="upgrade_capod_description">Få flere funksjoner og støtt utvikleren.</string>
     <string name="settings_monitor_mode_label">Overvåkingsmodus</string>
     <string name="settings_monitor_mode_description">Under hvilke omstendigheter denne appen skal overvåke Bluetooth-data.</string>
+    <string name="settings_monitor_connected_notification_label">Ekstra varsling</string>
+    <string name="settings_monitor_connected_notification_description">Viser en ekstra varsling når en enhet er tilkoblet. Dette lar deg skjule det permanente varselet «Ingen enheter» ved å deaktivere kanalen «Enhetsstatus».</string>
     <string name="settings_scanner_mode_label">Skannermodus</string>
     <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy data-skanneren prioritere ytelse eller å spare energi?</string>
     <string name="settings_autopause_label">Sett på pause automatisk</string>
@@ -51,6 +53,7 @@
     <string name="settings_popup_connected_label">Vis tilkobling popup</string>
     <string name="settings_popup_connected_description">Vis en popup første gang enheten kobles til.</string>
     <string name="notification_channel_device_status_label">Enhetsstatus</string>
+    <string name="notification_channel_device_status_connected_label">Tilkoblet enhet</string>
     <string name="support_debuglog_label">Feilsøkingslogg</string>
     <string name="support_debuglog_desc">Registrer alt appen gjør i en tekstfil som du kan dele.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>

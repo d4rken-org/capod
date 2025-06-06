@@ -12,6 +12,8 @@
     <string name="upgrade_capod_description">Erhalten Sie zusätzliche Funktionen und unterstützen Sie den Entwickler.</string>
     <string name="settings_monitor_mode_label">Überwachungsmodus</string>
     <string name="settings_monitor_mode_description">Unter welchen Umständen überwacht diese App Bluetooth-Daten.</string>
+    <string name="settings_monitor_connected_notification_label">Zusätzliche Benachrichtigung</string>
+    <string name="settings_monitor_connected_notification_description">Zeigt eine zusätzliche Benachrichtigung an, wenn ein Gerät verbunden ist. Dadurch kannst du die permanente Benachrichtigung „Keine Geräte“ ausblenden, indem du den Kanal „Gerätestatus“ deaktivierst.</string>
     <string name="settings_scanner_mode_label">Scan-Modus</string>
     <string name="settings_scanner_mode_description">Soll die Bluetooth Low Energy Überwachung Leistung priorisieren oder Energie sparen?</string>
     <string name="settings_autopause_label">Automatische Pause</string>
@@ -78,7 +80,7 @@
     <string name="settings_licenses_label">Lizenzen</string>
     <string name="settings_category_other_label">Andere</string>
     <string name="settings_general_label">Einstellungen</string>
-    <string name="settings_general_description" tools:ignore="Typos">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
+    <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
     <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
