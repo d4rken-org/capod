@@ -7,7 +7,7 @@ Funciones:
 * informacion adicional de conexion, microfono y estuche.
 * Recepcion y muestra de dispositivos cercanos.
 * "detector de orejas" con inicio/pausa automaticos.
-* Conecta automáticamente el teléfono y los AirPods.
+* Conecta automáticamente el dispositivo y los AirPods.
 * Aviso emergente de estuche abierto.
 
 CAPod es sin publicidad. Algunas características requieren una compra en la aplicación.

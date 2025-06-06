@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
+    <string name="general_cancel_action">إلغاء</string>
     <string name="general_copy_action">نسخ</string>
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_upgrade_action">ترقية</string>
@@ -40,10 +41,19 @@
     <string name="settings_onepod_mode_label">وضعية السماعة الواحدة</string>
     <string name="settings_onepod_mode_description">ليس بالضرورة ارتداء كِلتا السمَّاعتين، ارتداء سمَّاعة واحدة يكفي لتحريك ردود الفعل.</string>
     <string name="settings_popup_caseopen_description">عرض إشعار منبثق عند فتح علبة الجهاز (تجريبي).</string>
+    <string name="settings_popup_connected_description">إظهار نافذة منبثقة عند اتصال الجهاز أول مرة.</string>
     <string name="notification_channel_device_status_label">حالة الجهاز</string>
+    <string name="support_debuglog_label">سجل تصحيح الأخطاء</string>
+    <string name="support_debuglog_desc">سجّل كلما يقوم به التطبيق في مِلَفّ نصي يمكنك مشاركته.</string>
     <string name="debug_debuglog_size_label">الحجم</string>
     <string name="debug_debuglog_size_compressed_label">الحجم المضغوط</string>
     <string name="debug_notification_channel_label">اشعارات التصحيح</string>
+    <string name="debug_debuglog_file_label">مِلَفّ السجل المدون</string>
+    <string name="debug_debuglog_recording_progress">تسجيل سجل تصحيح الأخطاء</string>
+    <string name="debug_debuglog_record_action">تسجيل سجل تصحيح الأخطاء</string>
+    <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
+    <string name="debug_debuglog_sensitive_information_message">يحتوي المِلَفّ الذي تم إنشاؤه على معلومات حساسة (مثل تفاصيل جهاز البلوتوث). شاركه فقط مع الأطراف الموثوق بها.</string>
+    <string name="settings_debuglog_explanation">تسجل هذه المِيزة كلّ ما يقوم به التطبيق في مِلَفّ قابل للمشاركة. يحتوي المِلَفّ الذي تم إنشاؤه على معلومات حساسة (مثل تفاصيل جهاز البلوتوث). شاركه فقط مع الأطراف الموثوقة (مثل مطور يستكشف مشكلة ما ويصلحها).</string>
     <string name="settings_support_installid_label">مُعرف التثبيت</string>
     <string name="settings_support_installid_desc">تقارير الأخطاء والمشاكل التلقائية تكون مجهول المصدر. شارك مُعرف التثبيت الخاص بك إذا احتاج المطور إلى العثور على الأخطاء والمشاكل الخاصة بك.</string>
     <string name="settings_support_label">الدعم</string>
@@ -72,4 +82,27 @@
     <string name="help_translate_label">التَّرْجَمَةً</string>
     <string name="help_translate_description">ساعد في تَرْجَمَة هذا التطبيق إلى لغتك المفضلة.</string>
     <string name="translators_thanks_title">المُترجمون</string>
+    <string name="translators_thanks_description">متطوعون على كراودن</string>
+    <string name="widget_description">عنصر واجهة مستخدم يعرض آخر حالة معروفة للجهاز.</string>
+    <string name="settings_compat_indirectcallback_title">التوصيل غير المباشر للبيانات</string>
+    <string name="settings_compat_indirectcallback_summary">استخدم طريقة بديلة لتلقي بيانات BLE من النظام (البث بدلاً من رد الاتصال).</string>
+    <string name="troubleshooter_title">مستكشف الأخطاء ومصلحها</string>
+    <string name="troubleshooter_ble_intro_title">عمليات بث البلوتوث منخفضة الطاقة</string>
+    <string name="troubleshooter_ble_intro_body1">تقوم سماعات إيربودز (وسماعات الرأس المماثلة) ببث معلومات الحالة باستخدام تقنية BLE تسمى ”الإعلانات“. بعض الهواتف لا تنفذ هذه التقنية بشكل صحيح. يمكن لـ كابود محاولة إصلاح ذلك من خلال تجربة خيارات توافق مختلفة حتى يتم استقبال البيانات. ابدأ تشغيل الموسيقى على سماعات الرأس وضعها بالقرب من هاتفك، ثم ابدأ العملية.</string>
+    <string name="troubleshooter_ble_intro_start_action">بَدْء استكشاف الأخطاء</string>
+    <string name="troubleshooter_ble_process_title">جارٍ استكشاف الأخطاء</string>
+    <string name="troubleshooter_ble_process_subtile">كل خطوة تستغرق 5 - 10 ثوان</string>
+    <string name="troubleshooter_ble_result_success_title">نجاح</string>
+    <string name="troubleshooter_ble_result_success_body">يتم استقبال بث إعلانات BLE بواسطة كابود.</string>
+    <string name="troubleshooter_ble_result_failure_title">فشل</string>
+    <string name="troubleshooter_ble_result_failure_body">فشل استكشاف الأخطاء وإصلاحها. لم تجدي أي مجموعة من خيارات التوافق نفعاً.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">لم يستقبل هاتفك أي بيانات BLE على الإطلاق. يمكنك إعادة إجراء هذا الاختبار في منطقة مزدحمة لمعرفة ما إذا كان يمكن استقبال مصادر البيانات (بخلاف سماعات الرأس). يشير عدم تلقي أي بيانات إلى وجود مشكلة في نظام تشغيل هاتفك.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">تلقى هاتفك بيانات BLE، ولكن البيانات لا تأتي من جهاز مدعوم. هل سماعاتك قيد التشغيل؟ هل يدعم كابود سمّاعتك؟</string>
+    <string name="troubleshooter_ble_result_failure_action">حاول مجددًا</string>
+    <string name="troubleshoot_action">اكتشاف الأخطاء وإصلاحها</string>
+    <string name="onboarding_body1">يضيف هذا التطبيق دعمًا لميزات أيربود محددة إلى نظام أندرويد.</string>
+    <string name="onboarding_body2">لا تدعم جميع أجهزة الأندرويد ميزات إيربود الإضافية بشكل كامل. يتطلب نظام التشغيل الخاص بك تطبيق بلوتوث منخفض الطاقة يعمل بشكل صحيح.</string>
+    <string name="onboarding_body3">لا يحتوي كابود على إعلانات ولا يجمع بياناتك.</string>
+    <string name="onboarding_body4">يمكنك الترقية إلى كابود الاحترافي للحصول على ميزات إضافية ودعم التطوير.</string>
+    <string name="general_continue_action">استمر</string>
 </resources>

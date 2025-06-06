@@ -7,7 +7,7 @@ Funktionen:
 *Zusätzliche Infos zu Anschluss, Mikrofon und Gehäuse.
 * Zeigt Details zu allen Geräten in der Nähe an.
 * Ohr-Erkennung mit automatischem Play/Pause.
-* Telefon und AirPods automatisch verbinden.
+* Gerät und AirPods automatisch verbinden.
 * Zeigt Pop-Ups an, wenn das Case geöffnet wird.
 
 CAPod ist werbefrei. Einige Funktionen erfordern einen In-App-Kauf.

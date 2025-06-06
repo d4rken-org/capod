@@ -12,6 +12,8 @@
     <string name="upgrade_capod_description">Λάβετε επιπλέον λειτουργίες και υποστηρίξτε τον προγραμματιστή.</string>
     <string name="settings_monitor_mode_label">Λειτουργία παρακολούθησης</string>
     <string name="settings_monitor_mode_description">Κάτω από ποιες συνθήκες αυτή η εφαρμογή παρακολουθεί τα δεδομένα Bluetooth.</string>
+    <string name="settings_monitor_connected_notification_label">Επιπλέον ειδοποίηση</string>
+    <string name="settings_monitor_connected_notification_description">Εμφανίζει μια επιπλέον ειδοποίηση όταν μια συσκευή είναι συνδεδεμένη. Αυτό σας επιτρέπει να αποκρύψετε τη μόνιμη ειδοποίηση \"Καμία συσκευή\" απενεργοποιώντας το κανάλι \"Κατάσταση συσκευής\".</string>
     <string name="settings_scanner_mode_label">Λειτουργία σάρωσης</string>
     <string name="settings_scanner_mode_description">Θα πρέπει η σάρωση δεδομένων χαμηλής ενέργειας Bluetooth να δίνει προτεραιότητα στην απόδοση ή να εξοικονομεί ενέργεια;</string>
     <string name="settings_autopause_label">Αυτόματη παύση</string>
@@ -51,6 +53,7 @@
     <string name="settings_popup_connected_label">Εμφάνιση αναδυόμενου παράθυρου σύνδεσης</string>
     <string name="settings_popup_connected_description">Εμφάνιση παραθύρου όταν η συσκευή συνδέεται για πρώτη φορά.</string>
     <string name="notification_channel_device_status_label">Κατάσταση συσκευής</string>
+    <string name="notification_channel_device_status_connected_label">Συνδεδεμένη συσκευή</string>
     <string name="support_debuglog_label">Καταγραφή σφαλμάτων</string>
     <string name="support_debuglog_desc">Καταγράψτε όλα όσα κάνει η εφαρμογή σε ένα αρχείο κειμένου που μπορείτε να μοιραστείτε.</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>

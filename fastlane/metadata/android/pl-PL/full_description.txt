@@ -7,7 +7,7 @@ Funkcje:
 * Dodatkowe informacje na temat połączenia, mikrofonu i obudowy.
 * Może odbierać i pokazywać wszystkie pobliskie urządzenia.
 * Detekcja ucha, z automatycznym odtwarzaniem/pauzowaniem.
-* Automatyczne łączenie telefonu oraz AirPods.
+* Automatyczne łączenie urządzenia oraz AirPods.
 * Wyświetlanie okienka, gdy obudowa jest otwarta.
 
 CAPod jest bez reklam. Niektóre funkcje wymagają zakupów wewnątrz aplikacji.
