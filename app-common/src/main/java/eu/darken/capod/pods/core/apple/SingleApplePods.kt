@@ -10,13 +10,18 @@ import eu.darken.capod.pods.core.SinglePodDevice
 interface SingleApplePods : ApplePods, SinglePodDevice, HasAppleColor {
 
     override val batteryHeadsetPercent: Float?
-        get() = when (val value = pubPodsBattery.lowerNibble.toInt()) {
-            15 -> null
-            else -> if (value > 10) {
-                log { "Headset above 100% battery: $value" }
-                1.0f
-            } else {
-                (value / 10f)
+        get() {
+            payload.private?.asBatteryState(1)?.let {
+                return it.level
+            }
+            return when (val value = pubPodsBattery.lowerNibble.toInt()) {
+                15 -> null
+                else -> if (value > 10) {
+                    log { "Headset above 100% battery: $value" }
+                    1.0f
+                } else {
+                    (value / 10f)
+                }
             }
         }
 }

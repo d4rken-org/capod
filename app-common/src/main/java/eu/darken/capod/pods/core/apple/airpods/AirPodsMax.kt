@@ -35,7 +35,12 @@ data class AirPodsMax(
         get() = rssiAverage ?: super<SingleApplePods>.rssi
 
     override val isHeadsetBeingCharged: Boolean
-        get() = pubFlags.isBitSet(0)
+        get() {
+            payload.private?.asBatteryState(1)?.let {
+                return it.isCharging
+            }
+            return pubFlags.isBitSet(0)
+        }
 
     override val isBeingWorn: Boolean
         get() = pubStatus.isBitSet(5)
