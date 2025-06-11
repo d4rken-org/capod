@@ -2,6 +2,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">कैपोड</string>
     <string name="app_name_pro">कैपोड प्रो</string>
+    <string name="app_name_foss">कैपॉड फॉस्स</string>
+    <string name="general_value_not_available_label">अनुवाद उपलब्ध नहीं है।</string>
     <string name="general_error_label">त्रुटि</string>
     <string name="general_grant_permission_action">अनुदान अनुमति</string>
     <string name="overview_nomaindevice_label">कोई प्राथमिक उपकरण नहीं</string>
@@ -53,7 +55,10 @@
     <string name="pods_microphone_label">माइक्रोफ़ोन</string>
     <string name="pods_yours">आपका</string>
     <string name="headset_being_worn_label">पहना जा रहा है</string>
+    <string name="headset_not_being_worn_label">नहीं पहना गया</string>
     <string name="pods_case_unknown_state">अज्ञात अवस्था</string>
     <string name="last_seen_x">अंतिम बार देखे गए: %s</string>
     <string name="first_seen_x">पहली बार देखा गया: %s</string>
+    <string name="permission_post_notifications_label">नोटिफिकेशन्स सूचनाएँ दिखाएँ</string>
+    <string name="permission_post_notifications_description">"CAPod को आपके AirPods के बारे में नोटिफिकेशन दिखाने दें, जैसे कि कनेक्टेड रहते हुए उनका वर्तमान स्टेटस।"</string>
 </resources>

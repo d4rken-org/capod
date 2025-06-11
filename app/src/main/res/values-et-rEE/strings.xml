@@ -8,6 +8,10 @@
     <string name="general_upgrade_action">Uuenda</string>
     <string name="general_check_action">Kontrolli</string>
     <string name="general_close_action">Sulge</string>
+    <string name="general_save_action">Salvesta</string>
+    <string name="general_guide_action">Juhend</string>
+    <string name="general_continue_action">Jätka</string>
+    <string name="general_example_label">Nt: %s</string>
     <string name="upgrade_capod_label">Maksa CAPodi eest</string>
     <string name="upgrade_capod_description">Saate lisavõimalusi ja toetate arendajat.</string>
     <string name="settings_monitor_mode_label">Jälgimisrežiim</string>
@@ -46,6 +50,12 @@
     <string name="settings_maindevice_address_none">Mitte ükski</string>
     <string name="settings_maindevice_model_label">Seadme mudel</string>
     <string name="settings_maindevice_model_description">Põhiseadme mudel. See aitab rakendusel tuvastada teie seadet, kui see pole ühendatud teie telefoniga.</string>
+    <string name="settings_maindevice_identitykey_label">Tuvastamisvõti</string>
+    <string name="settings_maindevice_identitykey_description">Teie seadme tunnuse lahendamisvõti (IRK), mis võimaldab CAPodil tuvastada seda ümberkaudsete seadmete hulgast.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPodsid muudavad privaatsuse tõttu sageli oma Bluetooth aadressi. IRK aitab CAPodil tuvastada teie seadet. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
+    <string name="settings_maindevice_encryptionkey_label">Krüpteerimisvõti</string>
+    <string name="settings_maindevice_encryptionkey_description">Teie seadme krüpteerimisvõti, mis võimaldab CaPodil saada täpset oleku teavet.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPodsid saadavad olekuteateid, millest osad on krüptitut. Krüpteerimisvõti võimaldab CAPodil kogu teadet lugeda. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
     <string name="settings_onepod_mode_description">Mõlema kõrvaklapi kandmine pole kohustuslik, tegevustega alustamiseks piisab ühe kõrvaklapi kandmisest.</string>
     <string name="settings_popup_caseopen_label">Näita kaane hüpikakent</string>
@@ -115,5 +125,4 @@
     <string name="onboarding_body2">Vaid mõned Androidi seadmed toetavad kõiki AirPodi võimalusi. Operatsioonisüsteem vajab õigesti toimivat madalama energiatarbimisega Bluetoothi tuge.</string>
     <string name="onboarding_body3">CAPodis pole reklaame ja see ei kogu andmeid.</string>
     <string name="onboarding_body4">Lisavõimaluste saamiseks ja arendamise toetamiseks soetage CAPod Pro.</string>
-    <string name="general_continue_action">Jätka</string>
 </resources>

@@ -8,6 +8,10 @@
     <string name="general_upgrade_action">Upgradovat</string>
     <string name="general_check_action">Ověřit</string>
     <string name="general_close_action">Zavřít</string>
+    <string name="general_save_action">Uložit</string>
+    <string name="general_guide_action">Průvodce</string>
+    <string name="general_continue_action">Pokračovat</string>
+    <string name="general_example_label">Např.: %s</string>
     <string name="upgrade_capod_label">Upgradovat CAPod</string>
     <string name="upgrade_capod_description">Získat další funkce a podpořit vývojáře.</string>
     <string name="settings_monitor_mode_label">Režim monitorování</string>
@@ -46,6 +50,12 @@
     <string name="settings_maindevice_address_none">Žádná</string>
     <string name="settings_maindevice_model_label">Model vašeho zařízení</string>
     <string name="settings_maindevice_model_description">Model vašeho hlavního zařízení. To pomůže aplikaci rozpoznat vaše zařízení, když není připojeno k telefonu.</string>
+    <string name="settings_maindevice_identitykey_label">Klíč identity</string>
+    <string name="settings_maindevice_identitykey_description">Klíč identity (IRK) vašeho zařízení, který pomáhá aplikaci CAPod identifikovat jej mezi okolními zařízeními.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods často mění svou Bluetooth adresu pro ochranu soukromí. IRK pomáhá aplikaci CAPod rozpoznat vaše zařízení. Potřebujete jednorázový přístup k MacBooku.</string>
+    <string name="settings_maindevice_encryptionkey_label">Šifrovací klíč</string>
+    <string name="settings_maindevice_encryptionkey_description">Šifrovací klíč vašeho zařízení, který umožňuje aplikaci CAPod získat podrobné informace o stavu.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods odesílají zprávu o stavu, jejíž část je zašifrovaná. Šifrovací klíč umožňuje aplikaci CAPod dešifrovat celou zprávu. Potřebujete jednorázový přístup k MacBooku.</string>
     <string name="settings_onepod_mode_label">Režim jednoho sluchátka</string>
     <string name="settings_onepod_mode_description">Není nutné nosit obě sluchátka, k vyvolání reakce stačí nosit jen jedno.</string>
     <string name="settings_popup_caseopen_label">Zobrazit vyskakovací okno pouzdra</string>
@@ -115,5 +125,4 @@
     <string name="onboarding_body2">Ne všechna zařízení s Androidem plně podporují speciální funkce AirPods.</string>
     <string name="onboarding_body3">CAPod neobsahuje žádné reklamy a neshromažďuje vaše údaje.</string>
     <string name="onboarding_body4">Chcete-li získat speciální funkce a podpořit vývoj, můžete přejít na verzi CAPod Pro.</string>
-    <string name="general_continue_action">Pokračovat</string>
 </resources>

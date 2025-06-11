@@ -8,10 +8,16 @@
     <string name="general_upgrade_action">ارتقاء</string>
     <string name="general_check_action">بررسی</string>
     <string name="general_close_action">بستن</string>
+    <string name="general_save_action"></string>
+    <string name="general_guide_action"></string>
+    <string name="general_continue_action">ادامه</string>
+    <string name="general_example_label"></string>
     <string name="upgrade_capod_label">ارتقا CAPod</string>
     <string name="upgrade_capod_description">ویژگی های اضافی را دریافت کنید و از توسعه دهنده پشتیبانی کنید.</string>
     <string name="settings_monitor_mode_label">حالت نمایشگر</string>
     <string name="settings_monitor_mode_description">تحت چه شرایطی این برنامه داده های بلوتوث را نظارت می کند.</string>
+    <string name="settings_monitor_connected_notification_label"></string>
+    <string name="settings_monitor_connected_notification_description"></string>
     <string name="settings_scanner_mode_label">حالت اسکنر</string>
     <string name="settings_scanner_mode_description">آیا اسکنر داده کم مصرف بلوتوث باید عملکرد را در اولویت قرار دهد یا در مصرف انرژی صرفه‌جویی کند؟</string>
     <string name="settings_autopause_label">توقف خودکار</string>
@@ -44,6 +50,12 @@
     <string name="settings_maindevice_address_none">هیچ</string>
     <string name="settings_maindevice_model_label">مدل دستگاه شما</string>
     <string name="settings_maindevice_model_description">مدل دستگاه اصلی شما. این اطلاعات به برنامه کمک می‌کند دستگاه شما را زمانی که به تلفن‌تان متصل نیست شناسایی کند.</string>
+    <string name="settings_maindevice_identitykey_label"></string>
+    <string name="settings_maindevice_identitykey_description"></string>
+    <string name="settings_maindevice_identitykey_explanation">.</string>
+    <string name="settings_maindevice_encryptionkey_label"></string>
+    <string name="settings_maindevice_encryptionkey_description"></string>
+    <string name="settings_maindevice_encryptionkey_explanation"></string>
     <string name="settings_onepod_mode_label">حالت یک ایرپاد</string>
     <string name="settings_onepod_mode_description">پوشیدن هر دو پاد ضروری نیست؛ پوشیدن یک پاد کافی تا واکنش‌ها فعال شوند.</string>
     <string name="settings_popup_caseopen_label">نمایش پنجره بازشو کیس</string>
@@ -51,6 +63,7 @@
     <string name="settings_popup_connected_label">نمایش پنجره بازشو اتصال</string>
     <string name="settings_popup_connected_description">نمایش یک پنجره بازشو زمانی که دستگاه برای اولین بار متصل می‌شود.</string>
     <string name="notification_channel_device_status_label">وضعیت دستگاه</string>
+    <string name="notification_channel_device_status_connected_label"></string>
     <string name="support_debuglog_label">گزارش خطا</string>
     <string name="support_debuglog_desc">همه فعالیت‌های برنامه را در یک فایل متنی ثبت کنید تا بتوانید آن را به اشتراک بگذارید.</string>
     <string name="debug_debuglog_size_label">اندازه</string>
@@ -112,5 +125,4 @@
     <string name="onboarding_body2">همه دستگاه‌های اندرویدی به طور کامل از ویژگی‌های اضافی ایرپاد پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی صحیح از بلوتوث با کم مصرف نیاز دارد.</string>
     <string name="onboarding_body3">CAPod بدون تبلیغات است و اطلاعات شما را جمع‌آوری نمی‌کند.</string>
     <string name="onboarding_body4">شما می‌توانید به نسخه CAPod Pro ارتقا دهید تا به ویژگی‌های اضافی دسترسی پیدا کنید و از توسعه اپلیکیشن حمایت کنید.</string>
-    <string name="general_continue_action">ادامه</string>
 </resources>
