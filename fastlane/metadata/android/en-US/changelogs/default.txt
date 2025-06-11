@@ -1,2 +1,5 @@
-Bugfixes, performance improvements and maybe new features.
+Updates contain bugfixes, performance improvements and maybe new features.
+A detailed changelog is always available on GitHub.
+
+FYI: It’s just me here, sometimes replies might take a bit. Sorry for that!
 ¯\_(ツ)_/¯
