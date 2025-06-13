@@ -88,7 +88,7 @@ class AppleFactory @Inject constructor(
             scanResult = scanResult,
             payload = payload,
             flags = ApplePods.Flags(
-                isIRKMatch = true,
+                isIRKMatch = isIrkMatch,
             ),
         )
     }
