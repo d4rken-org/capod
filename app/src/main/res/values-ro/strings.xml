@@ -7,6 +7,7 @@
     <string name="general_upgrade_action">Actualizare</string>
     <string name="general_check_action">Verifică</string>
     <string name="general_close_action">Închide</string>
+    <string name="general_continue_action">Continuă</string>
     <string name="upgrade_capod_label">Actualizați CaPod</string>
     <string name="upgrade_capod_description">Obțineți funcții suplimentare și sprijiniți dezvoltatorul.</string>
     <string name="settings_monitor_mode_label">Modul monitorizare</string>
@@ -102,5 +103,4 @@
     <string name="onboarding_body2">Nu toate dispozitivele Android acceptă pe deplin funcțiile suplimentare AirPod. Sistemul dvs. de operare necesită o implementare Bluetooth Energie Scăzută (BLE) care funcționează corect.</string>
     <string name="onboarding_body3">CAPod nu are reclame și nu colectează datele dumneavoastră.</string>
     <string name="onboarding_body4">Puteți face upgrade la CAPod Pro pentru a obține funcții suplimentare și pentru a sprijini dezvoltarea.</string>
-    <string name="general_continue_action">Continuă</string>
 </resources>

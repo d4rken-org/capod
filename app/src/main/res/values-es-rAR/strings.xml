@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="general_continue_action">Sigue</string>
     <string name="onboarding_body1">Esta aplicación agrega soporte para funciones específicas de los AirPods para Android.</string>
     <string name="onboarding_body2">No todos los dispositivos Android son totalmente compatibles con las funciones adicionales de los AirPods. Tu sistema operativo requiere una implementación de un Bluetooth de baja energía que funcione correctamente.</string>
     <string name="onboarding_body3">CAPod no contiene anuncios y no recopila tus datos.</string>
     <string name="onboarding_body4">Puedes actualizar a CAPod Pro para obtener funciones adicionales y apoyar el desarrollo.</string>
-    <string name="general_continue_action">Sigue</string>
 </resources>

@@ -8,6 +8,7 @@
     <string name="general_upgrade_action">Aggiorna</string>
     <string name="general_check_action">Controlla</string>
     <string name="general_close_action">Chiudi</string>
+    <string name="general_continue_action">Continua</string>
     <string name="upgrade_capod_label">Passa a CAPod PRO</string>
     <string name="upgrade_capod_description">Ottieni funzionalità aggiuntive e supporta lo sviluppatore.</string>
     <string name="settings_monitor_mode_label">Modalità di monitoraggio</string>
@@ -112,5 +113,4 @@
     <string name="onboarding_body2">Non tutti i dispositivi Android supportano le funzionalità extra delle AirPods. Un prerequisito del tuo sistema operativo è l\'implementazione di Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod non contiene pubblicità e non raccoglie i tuoi dati.</string>
     <string name="onboarding_body4">Puoi aggiornare alla versione Pro per sbloccare funzioni aggiuntive e supportare lo sviluppo.</string>
-    <string name="general_continue_action">Continua</string>
 </resources>

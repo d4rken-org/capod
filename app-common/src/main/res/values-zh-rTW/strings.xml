@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">不適用</string>
     <string name="general_error_label">錯誤</string>
     <string name="general_grant_permission_action">授予權限</string>
@@ -52,7 +55,6 @@
     <string name="pods_microphone_label">麥克風</string>
     <string name="pods_yours">您的</string>
     <string name="headset_being_worn_label">正被佩戴</string>
-    <string name="headset_not_being_worn_label"></string>
     <string name="pods_case_unknown_state">未知狀態</string>
     <string name="last_seen_x">最後連線：%s</string>
     <string name="first_seen_x">首次連線：%s</string>

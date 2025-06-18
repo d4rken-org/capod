@@ -8,6 +8,7 @@
     <string name="general_upgrade_action">Frissítés</string>
     <string name="general_check_action">Ellenőrzés</string>
     <string name="general_close_action">Bezár</string>
+    <string name="general_continue_action">Tovább</string>
     <string name="upgrade_capod_label">CAPod frissítése</string>
     <string name="upgrade_capod_description">Szerezzen be további funkciókat és támogassa a fejlesztőt.</string>
     <string name="settings_monitor_mode_label">Monitor mód</string>
@@ -112,5 +113,4 @@
     <string name="onboarding_body2">Nem minden Android eszköz támogatja teljes mértékben az extra AirPod szolgáltatásokat. Az eszköz operációs rendszere megfelelően működő Bluetooth-Low-Energy megvalósítást igényel.</string>
     <string name="onboarding_body3">A CAPod nem tartalmaz hirdetéseket, és nem gyűjti az adataidat.</string>
     <string name="onboarding_body4">A CAPod Pro verzióra frissítése további funkciókat adhat és támogatja a fejlesztést.</string>
-    <string name="general_continue_action">Tovább</string>
 </resources>

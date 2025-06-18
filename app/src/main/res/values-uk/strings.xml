@@ -8,6 +8,7 @@
     <string name="general_upgrade_action">Оновити</string>
     <string name="general_check_action">Перевірити</string>
     <string name="general_close_action">Закрити</string>
+    <string name="general_continue_action">Продовжити</string>
     <string name="upgrade_capod_label">Оновити CAPod</string>
     <string name="upgrade_capod_description">Отримайте додаткові функції та підтримайте розробника.</string>
     <string name="settings_monitor_mode_label">Режим відстеження</string>
@@ -112,5 +113,4 @@
     <string name="onboarding_body2">Не всі Android пристрої повністю підтримують додаткові функції AirPod. Ваша операційна система повинна підтримувати коректну реалізацію Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не містить реклами та не збирає ваші дані.</string>
     <string name="onboarding_body4">Ви можете оновитись до CAPod Pro, щоб отримати підтримку додаткових функцій та підтримати розробку.</string>
-    <string name="general_continue_action">Продовжити</string>
 </resources>

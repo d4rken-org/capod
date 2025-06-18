@@ -2,7 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
-    <string name="general_cancel_action">T</string>
     <string name="general_copy_action">複製</string>
     <string name="general_thank_you_label">感謝你們</string>
     <string name="general_upgrade_action">升級</string>
@@ -51,24 +50,15 @@
     <string name="settings_popup_connected_label">顯示連線彈出式視窗</string>
     <string name="settings_popup_connected_description">在裝置首次連線時顯示彈出式視窗。</string>
     <string name="notification_channel_device_status_label">裝置狀態</string>
-    <string name="support_debuglog_label">L</string>
-    <string name="support_debuglog_desc">Q</string>
     <string name="debug_debuglog_size_label">大小</string>
     <string name="debug_debuglog_size_compressed_label">壓縮後大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
-    <string name="debug_debuglog_file_label">D</string>
-    <string name="debug_debuglog_recording_progress">Z</string>
-    <string name="debug_debuglog_record_action">F</string>
-    <string name="debug_debuglog_stop_action">H</string>
-    <string name="debug_debuglog_sensitive_information_message">K</string>
-    <string name="settings_debuglog_explanation">。x。</string>
     <string name="settings_support_installid_label">安裝 ID</string>
     <string name="settings_support_installid_desc">自動傳送的錯誤報告是匿名的。如果開發人員需要找出您的錯誤報告將分享你的安裝 ID。</string>
     <string name="settings_support_label">支援</string>
     <string name="settings_support_description">如果您需要協助。</string>
     <string name="issue_tracker_label">問題追蹤器</string>
     <string name="issue_tracker_description">一個用於錯誤回報和功能需求的公用問題追蹤器 (僅英文)。</string>
-    <string name="discord_label">R</string>
     <string name="discord_description">一個可以在其中閒逛並提出問題的地方。</string>
     <string name="changelog_label">變更記錄</string>
     <string name="settings_label">設定</string>
@@ -108,9 +98,4 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">您的手機收到了低功耗藍牙資料，但此資料並非來自任何支援的裝置。您的耳機是否已開機？CAPod 是否支援您的耳機？</string>
     <string name="troubleshooter_ble_result_failure_action">再試一次</string>
     <string name="troubleshoot_action">疑難排解</string>
-    <string name="onboarding_body1">。</string>
-    <string name="onboarding_body2">。</string>
-    <string name="onboarding_body3">。</string>
-    <string name="onboarding_body4">。</string>
-    <string name="general_continue_action">A</string>
 </resources>
