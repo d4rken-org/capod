@@ -8,10 +8,16 @@
     <string name="general_upgrade_action">Inovovať</string>
     <string name="general_check_action">Overiť</string>
     <string name="general_close_action">Zavrieť</string>
+    <string name="general_save_action">Uložiť</string>
+    <string name="general_guide_action">Sprievodca</string>
+    <string name="general_continue_action">Pokračovať</string>
+    <string name="general_example_label">Napr.: %s</string>
     <string name="upgrade_capod_label">Upgradovať CAPod</string>
     <string name="upgrade_capod_description">Získajte ďalšie funkcie a podporte vývojára.</string>
     <string name="settings_monitor_mode_label">Režim monitorovania</string>
     <string name="settings_monitor_mode_description">Za akých okolností táto aplikácia monitoruje údaje Bluetooth.</string>
+    <string name="settings_monitor_connected_notification_label">Dodatočné oznámenie</string>
+    <string name="settings_monitor_connected_notification_description">Zobrazí dodatočné oznámenie keď je zariadenie pripojené. To umožňuje skryť trvalé oznámenie \"Žiadne zariadenia\" vypnutím kanálu \"Stav zariadenia\".</string>
     <string name="settings_scanner_mode_label">Režim skenera</string>
     <string name="settings_scanner_mode_description">Mal by skener Bluetooth Low Energy uprednostňovať výkon alebo šetriť energiu?</string>
     <string name="settings_autopause_label">Automatické pozastavenie</string>
@@ -44,6 +50,12 @@
     <string name="settings_maindevice_address_none">Žiadna</string>
     <string name="settings_maindevice_model_label">Model vašeho zariadenia</string>
     <string name="settings_maindevice_model_description">Model vášho hlavného zariadenia. Pomáha to aplikácii rozpoznať vaše zariadenie, keď nie je pripojené k telefónu.</string>
+    <string name="settings_maindevice_identitykey_label">Kľúč identity</string>
+    <string name="settings_maindevice_identitykey_description">Kľúč identity (IRK) vašeho zariadenia, ktorý pomáha aplikácii CAPod identifikovať ho medzi zariadeniami okolo.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods často menia Bluetooth adresu pre ochranu súkromia. IRK pomáha aplikácii CAPod rozpoznať vaše zariadenie.</string>
+    <string name="settings_maindevice_encryptionkey_label">Šifrovací kľúč</string>
+    <string name="settings_maindevice_encryptionkey_description">Šifrovací kľúč vašeho zariadenia, ktorý umožňuje aplikácii CAPod získať podrobné informácie o stave.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods odosielajú správu o stave, ktorá je z časti šifrovaná. Šifrovací kľúč umožňuje aplikácii CAPod dešifrovať celú správu. Potrebujete jednorázový prístup k MacBooku.</string>
     <string name="settings_onepod_mode_label">Režim jedného slúchadla</string>
     <string name="settings_onepod_mode_description">Nosenie oboch slúchadiel nie je potrebné, na spustenie reakcií postačuje nosenie jedného slúchadla.</string>
     <string name="settings_popup_caseopen_label">Zobraziť vyskakovacie okno puzdra</string>
@@ -51,6 +63,7 @@
     <string name="settings_popup_connected_label">Zobraziť vyskakovacie okno pri pripojení</string>
     <string name="settings_popup_connected_description">Pri prvom pripojení zariadenia zobraziť vyskakovacie okno.</string>
     <string name="notification_channel_device_status_label">Stav zariadenia</string>
+    <string name="notification_channel_device_status_connected_label">Pripojené zariadenie</string>
     <string name="support_debuglog_label">Ladiaci log</string>
     <string name="support_debuglog_desc">Zaznamenajte všetko, čo aplikácia robí do textového súboru, ktorý môžete zdieľať.</string>
     <string name="debug_debuglog_size_label">Veľkosť</string>
@@ -112,5 +125,4 @@
     <string name="onboarding_body2">Nie všetky zariadenia so systémom Android plne podporujú ďalšie funkcie AirPod. Váš operačný systém vyžaduje správne fungujúcu implementáciu Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nemá žiadne reklamy a nezhromažďuje vaše údaje.</string>
     <string name="onboarding_body4">Môžete upgradovať na CAPod Pro, aby ste získali ďalšie funkcie a podporili vývoj.</string>
-    <string name="general_continue_action">Pokračovať</string>
 </resources>

@@ -7,7 +7,7 @@ Funkcie:
 * Ďalšie informácie o pripojení, mikrofóne a puzdre.
 * Môže prijímať a zobrazovať všetky zariadenia v okolí.
 * Detekcia ucha s automatickým prehrávaním/pozastavením.
-* Automatické pripojenie telefónu a AirPods.
+* Automatické pripojenie zariadenia a AirPods.
 * Zobrazenie vyskakovacieho okna pri otvorení puzdra.
 
 CAPod je bez reklám. Niektoré funkcie vyžadujú nákup v aplikácii.
