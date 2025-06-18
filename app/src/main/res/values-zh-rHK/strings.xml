@@ -7,6 +7,7 @@
     <string name="general_upgrade_action">升級</string>
     <string name="general_check_action">檢查</string>
     <string name="general_close_action">關閉</string>
+    <string name="general_continue_action">繼續</string>
     <string name="upgrade_capod_label">升級 CAPod</string>
     <string name="upgrade_capod_description">取得附加功能並支持開發人員。</string>
     <string name="settings_monitor_mode_label">監視模式</string>
@@ -98,5 +99,4 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">您的手機收到了低功耗藍牙資料，但此資料並非來自任何支援的裝置。您的耳機是否已開機？CAPod 是否支援您的耳機？</string>
     <string name="troubleshooter_ble_result_failure_action">再試一次</string>
     <string name="troubleshoot_action">疑難排解</string>
-    <string name="general_continue_action">繼續</string>
 </resources>

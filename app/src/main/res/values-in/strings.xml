@@ -2,11 +2,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Bagikan</string>
     <string name="general_done_action">Selesai</string>
+    <string name="general_cancel_action">Batal</string>
     <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Tingkatkan</string>
     <string name="general_check_action">Memeriksa</string>
     <string name="general_close_action">Tutup</string>
+    <string name="general_save_action">Simpan</string>
+    <string name="general_guide_action">Panduan</string>
+    <string name="general_continue_action">Lanjutkan</string>
+    <string name="general_example_label">Misalnya: %s</string>
     <string name="upgrade_capod_label">Perbarui CAPod</string>
     <string name="upgrade_capod_description">Dapatkan fitur tambahan dan dukung pengembang.</string>
     <string name="settings_monitor_mode_label">Modus pantau</string>
@@ -50,15 +55,19 @@
     <string name="settings_popup_connected_label">Tampilkan popup saat terkoneksi</string>
     <string name="settings_popup_connected_description">Tampilkan popup ketika perangkat terhubung pertama kalinya.</string>
     <string name="notification_channel_device_status_label">Status perangkat</string>
+    <string name="support_debuglog_label">Log debug</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
     <string name="debug_debuglog_size_compressed_label">Ukuran terkompresi</string>
     <string name="debug_notification_channel_label">Notifikasi debug</string>
+    <string name="debug_debuglog_file_label">File log yang direkam</string>
+    <string name="debug_debuglog_stop_action">Hentikan Rekaman</string>
     <string name="settings_support_installid_label">ID pemasangan</string>
     <string name="settings_support_installid_desc">Laporan kesalahan otomatis bersifat anonim. Bagikan ID pemasangan anda jika pengembang perlu menemukan laporan kesalahan anda.</string>
     <string name="settings_support_label">Dukungan</string>
     <string name="settings_support_description">Jika anda membutuhkan bantuan.</string>
     <string name="issue_tracker_label">Pelacak masalah</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug &amp; permintaan fitur (hanya dalam bahasa Inggris).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat nongkrong &amp; bertanya-tanya.</string>
     <string name="changelog_label">Catatan perubahan</string>
     <string name="settings_label">Pengaturan</string>
@@ -102,5 +111,4 @@
     <string name="onboarding_body2">Tidak semua perangkat Android mendukung fitur AirPod ekstra. Sistem Os anda memerlukan implementasi Bluetooth-Low-Energy yang bekerja.</string>
     <string name="onboarding_body3">CAPod tidak menampilkan iklan dan tidak mengambil data anda.</string>
     <string name="onboarding_body4">Anda bisa membeli CAPod Pro agar bisa menggunakan fitur ekstra dan mendukung pengembangan aplikasi.</string>
-    <string name="general_continue_action">Lanjutkan</string>
 </resources>

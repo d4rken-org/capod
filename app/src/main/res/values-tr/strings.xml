@@ -8,6 +8,7 @@
     <string name="general_upgrade_action">Güncelle</string>
     <string name="general_check_action">Kontrol et</string>
     <string name="general_close_action">Kapat</string>
+    <string name="general_continue_action">Devam et</string>
     <string name="upgrade_capod_label">CAPod\'u Güncelle</string>
     <string name="upgrade_capod_description">Ek özellikler edinir ve geliştiriciyi desteklersiniz.</string>
     <string name="settings_monitor_mode_label">İzleme modu</string>
@@ -112,5 +113,4 @@
     <string name="onboarding_body2">Tüm Android cihazlar ekstra AirPod özelliklerini tam olarak desteklemez. İşletim sisteminiz doğru çalışan bir Bluetooth-Düşük Enerji uygulaması gerektirir.</string>
     <string name="onboarding_body3">CAPod\'da reklam yoktur ve verilerinizi toplamaz.</string>
     <string name="onboarding_body4">Ekstra özellikler kazanmak ve geliştirmeyi desteklemek için CAPod Pro\'ya yükseltebilirsiniz.</string>
-    <string name="general_continue_action">Devam et</string>
 </resources>

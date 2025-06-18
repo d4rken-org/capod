@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Про</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">Боломжүй</string>
+    <string name="general_error_label">Алдаа</string>
+    <string name="general_grant_permission_action">Зөвшөөрөл олгох</string>
+    <string name="overview_nomaindevice_label">Үндсэн төхөөрөмж байхгүй</string>
+    <string name="overview_nomaindevice_description">Илэрсэн бүх төхөөрөмж таных байх магадлал багатай. Төхөөрөмжөө асааж, холбож эсвэл тохиргоог хийнэ үү.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth идэвхгүй байна</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth идэвхгүй, идэвхжүүлээрэй ;)</string>
+    <string name="permission_bluetooth_connect_label">Bluetooth холболт</string>
+    <string name="permission_bluetooth_connect_description">Энэ апп нь хосолсон төхөөрөмжүүдтэй харилцах, холболт эхлүүлэхийн тулд \'Bluetooth холболт\' зөвшөөрөл шаарддаг.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth скан хийж байна</string>
+    <string name="permission_bluetooth_scan_description">\'Bluetooth скан хийх\' зөвшөөрөл нь энэ апп-д таны AirPods зэрэг ойролцоох төхөөрөмжүүдээс Bluetooth өгөгдлийг олж, хүлээн авах боломжийг олгодог.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Энэ апп нь бүртгэгдсэн bluetooth төхөөрөмжтэй холбогдохын тулд \'Bluetooth\' зөвшөөрөл шаарддаг.</string>
+    <string name="permission_access_fine_location_label">Нарийвчилсан байршилд хандах</string>
+    <string name="permission_access_fine_location_description">CAPod нь Bluetooth Low Energy өгөгдлийг хүлээн авахын тулд \"нарийвчилсан байршилд хандах\" зөвшөөрлийг ашигладаг. Таны чихэвч Bluetooth Low Energy технологийг ашиглан өөрийн төлвийг дамжуулдаг. Энэ аппликэйшн таны байршлыг тодорхойлоход Bluetooth өгөгдлийг ашиглахгүй.</string>
+    <string name="permission_background_location_label">Далд байршлын хандалт</string>
+    <string name="permission_background_location_description">CAPod нь апп хаалттай байх үед \"Далд байршлын хандалт\"-ыг ашиглан \"Popup харуулах\" болон \"AutoConnect\" зэрэг боломжуудыг идэвхжүүлдэг. Фон байршлын хандалт нь апп фон орчинд байх үед Bluetooth цөөн эрчимтэй мэдээллийг хүлээн авах боломжийг олгодог. Энэхүү апп таны байршлыг тогтоохдоо Bluetooth мэдээллийг ашиглахгүй.</string>
+    <string name="permission_ignore_battery_optimizations_label">Батерейны оновчлолыг идэвхгүй болгох</string>
+    <string name="permission_ignore_battery_optimizations_description">Батерейны оновчлол нь энэ апп-г далд ажиллаж байхад Bluetooth өгөгдлийг найдвартай хүлээн авахаас сэргийлдэг.</string>
+    <string name="permission_required_title">Дараах зөвшөөрөл шаардлагатай:</string>
+    <string name="settings_monitor_mode_automatic_label"></string>
+</resources>

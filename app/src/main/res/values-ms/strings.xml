@@ -7,6 +7,7 @@
     <string name="general_upgrade_action">Naik taraf</string>
     <string name="general_check_action">Semak</string>
     <string name="general_close_action">Tutup</string>
+    <string name="general_continue_action">Teruskan</string>
     <string name="upgrade_capod_label">Naik taraf CAPod</string>
     <string name="upgrade_capod_description">Dapatkan ciri tambahan dan dokongi pemaju.</string>
     <string name="settings_monitor_mode_label">Mod monitor</string>
@@ -103,5 +104,4 @@
     <string name="onboarding_body2">Tidak semua peranti Android menyokong sepenuhnya ciri AirPod tambahan. Sistem pengendalian anda memerlukan pelaksanaan Bluetooth-Tenaga-Rendah yang berfungsi dengan betul.</string>
     <string name="onboarding_body3">CAPod tiada iklan serta tidak mengumpul data anda.</string>
     <string name="onboarding_body4">Anda boleh menaik taraf kepada CAPod Pro untuk mendapatkan ciri tambahan serta pembangunan sokongan.</string>
-    <string name="general_continue_action">Teruskan</string>
 </resources>

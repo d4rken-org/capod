@@ -8,10 +8,16 @@
     <string name="general_upgrade_action">Улучшить</string>
     <string name="general_check_action">Проверить</string>
     <string name="general_close_action">Закрыть</string>
+    <string name="general_save_action">Сохранить</string>
+    <string name="general_guide_action">Руководство</string>
+    <string name="general_continue_action">Продолжить</string>
+    <string name="general_example_label">Например: %s</string>
     <string name="upgrade_capod_label">Улучшить CAPod</string>
     <string name="upgrade_capod_description">Получите дополнительные функции и поддержите разработчика.</string>
     <string name="settings_monitor_mode_label">Режим мониторинга</string>
     <string name="settings_monitor_mode_description">При каких условиях приложение отслеживает данные Bluetooth.</string>
+    <string name="settings_monitor_connected_notification_label">Дополнительное уведомление</string>
+    <string name="settings_monitor_connected_notification_description">Показывать дополнительное уведомление, когда устройство подключено. Это позволяет скрыть постоянное уведомление «Нет устройств», отключая канал «Статус устройства».</string>
     <string name="settings_scanner_mode_label">Режим сканера</string>
     <string name="settings_scanner_mode_description">Какой режим должен по умолчанию использовать сканер данных Bluetooth Low Energy - производительность или экономию энергии?</string>
     <string name="settings_autopause_label">Автопауза</string>
@@ -44,6 +50,12 @@
     <string name="settings_maindevice_address_none">Нет</string>
     <string name="settings_maindevice_model_label">Модель Вашего устройства</string>
     <string name="settings_maindevice_model_description">Модель Вашего основного устройства. Это помогает приложению опознать Ваше устройство, когда оно не подключено к Вашему телефону.</string>
+    <string name="settings_maindevice_identitykey_label">Ключ идентификации</string>
+    <string name="settings_maindevice_identitykey_description">Идентификационный ключ (IRK), который помогает CAPod идентифицировать его между близлежащими устройствами.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods часто меняет Bluetooth-адрес для приватности. IRK помогает CAPod распознать Ваше устройство. Вам нужен одноразовый доступ к MacBook.</string>
+    <string name="settings_maindevice_encryptionkey_label">Ключ шифрования</string>
+    <string name="settings_maindevice_encryptionkey_description">Ключ шифрования вашего устройства, который позволяет CAPod получать подробную информацию.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods отправляет статусное сообщение, часть которого зашифрована. Ключ шифрования позволяет CAPod расшифровать полное сообщение. Вам нужен одноразовый доступ к MacBook.</string>
     <string name="settings_onepod_mode_label">Режим одного наушника</string>
     <string name="settings_onepod_mode_description">Нет необходимости носить оба наушника, один наушник уже запускает реакции.</string>
     <string name="settings_popup_caseopen_label">Показать открытие футляра</string>
@@ -51,6 +63,7 @@
     <string name="settings_popup_connected_label">Показать соединение</string>
     <string name="settings_popup_connected_description">Показывать окно при первом подключении.</string>
     <string name="notification_channel_device_status_label">Статус устройства</string>
+    <string name="notification_channel_device_status_connected_label">Подключенное устройство</string>
     <string name="debug_debuglog_size_label">Размер</string>
     <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
     <string name="debug_notification_channel_label">Уведомления отладки</string>
@@ -108,5 +121,4 @@ AL_Cool_T</string>
     <string name="onboarding_body2">Не все устройства Android полностью поддерживают дополнительные функции AirPod. Вашей операционной системе требуется корректно работающая версия Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не содержит рекламы и не собирает Ваши данные.</string>
     <string name="onboarding_body4">Вы можете обновиться до CAPod Pro для дополнительных функций и поддержки разработки.</string>
-    <string name="general_continue_action">Продолжить</string>
 </resources>

@@ -8,6 +8,10 @@
     <string name="general_upgrade_action">Oppgrader</string>
     <string name="general_check_action">Sjekk</string>
     <string name="general_close_action">Lukk</string>
+    <string name="general_save_action">Lagre</string>
+    <string name="general_guide_action">Veiledning</string>
+    <string name="general_continue_action">Fortsett</string>
+    <string name="general_example_label">F.eks.: %s</string>
     <string name="upgrade_capod_label">Oppgrader CAPod</string>
     <string name="upgrade_capod_description">Få flere funksjoner og støtt utvikleren.</string>
     <string name="settings_monitor_mode_label">Overvåkingsmodus</string>
@@ -46,6 +50,8 @@
     <string name="settings_maindevice_address_none">Ingen</string>
     <string name="settings_maindevice_model_label">Enhetens modell</string>
     <string name="settings_maindevice_model_description">Modellen til hovedenheten din. Dette hjelper appen med å gjenkjenne enheten din når den ikke er koblet til telefonen.</string>
+    <string name="settings_maindevice_identitykey_label">Identitetsnøkkel</string>
+    <string name="settings_maindevice_encryptionkey_label">Krypteringsnøkkel</string>
     <string name="settings_onepod_mode_label">En pod modus</string>
     <string name="settings_onepod_mode_description">Du trenger kun ha på deg en pod for å utløse reaksjoner, i stedet for begge.</string>
     <string name="settings_popup_caseopen_label">Vis etui popup</string>
@@ -115,5 +121,4 @@
     <string name="onboarding_body2">Ikke alle Android-enheter støtter de ekstra AirPod-funksjonene fullt ut. Operativsystemet ditt krever en fungerende Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har ingen annonser og samler ikke inn dataene dine.</string>
     <string name="onboarding_body4">Du kan oppgradere til CAPod Pro for å få ekstra funksjoner og støtte utviklingen.</string>
-    <string name="general_continue_action">Fortsett</string>
 </resources>

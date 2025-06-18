@@ -7,6 +7,7 @@
     <string name="general_upgrade_action">Nâng cấp</string>
     <string name="general_check_action">Kiểm tra</string>
     <string name="general_close_action">Đóng</string>
+    <string name="general_continue_action">Tiếp tục</string>
     <string name="upgrade_capod_label">Nâng cấp CAPod</string>
     <string name="upgrade_capod_description">Nhận các tính năng bổ sung và hỗ trợ nhà phát triển.</string>
     <string name="settings_monitor_mode_label">Chế độ giám sát</string>
@@ -81,5 +82,4 @@
     <string name="onboarding_body2">Không phải tất cả các thiết bị Android đều hỗ trợ đầy đủ các tính năng bổ sung của AirPod. Hệ điều hành của bạn yêu cầu triển khai Bluetooth-Năng lượng thấp hoạt động chính xác.</string>
     <string name="onboarding_body3">CAPod không có quảng cáo và không thu thập dữ liệu của bạn.</string>
     <string name="onboarding_body4">Bạn có thể nâng cấp lên CAPod Pro để có thêm các tính năng và hỗ trợ phát triển.</string>
-    <string name="general_continue_action">Tiếp tục</string>
 </resources>
