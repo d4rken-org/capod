@@ -13,7 +13,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Instant
 import javax.inject.Inject
 
-data class PowerBeatsPro(
+data class PowerBeatsPro2(
     override val identifier: PodDevice.Id = PodDevice.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
@@ -27,7 +27,7 @@ data class PowerBeatsPro(
     private val cachedCaseState: DualApplePods.LidState? = null
 ) : DualApplePods {
 
-    override val model: PodDevice.Model = PodDevice.Model.POWERBEATS_PRO
+    override val model: PodDevice.Model = PodDevice.Model.POWERBEATS_PRO2
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
@@ -51,7 +51,7 @@ data class PowerBeatsPro(
             payload: ProximityPayload,
             flags: ApplePods.Flags
         ): ApplePods {
-            var basic = PowerBeatsPro(scanResult = scanResult, payload = payload, flags = flags)
+            var basic = PowerBeatsPro2(scanResult = scanResult, payload = payload, flags = flags)
             val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
@@ -74,7 +74,7 @@ data class PowerBeatsPro(
     }
 
     companion object {
-        private val DEVICE_CODE = 0x0B20.toUShort()
-        private val TAG = logTag("PodDevice", "Beats", "PowerBeats", "Pro")
+        private val DEVICE_CODE = 0x1D20.toUShort()
+        private val TAG = logTag("PodDevice", "Beats", "PowerBeats", "Pro2")
     }
 }

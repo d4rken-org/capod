@@ -23,6 +23,7 @@ import eu.darken.capod.pods.core.apple.beats.BeatsX
 import eu.darken.capod.pods.core.apple.beats.PowerBeats3
 import eu.darken.capod.pods.core.apple.beats.PowerBeats4
 import eu.darken.capod.pods.core.apple.beats.PowerBeatsPro
+import eu.darken.capod.pods.core.apple.beats.PowerBeatsPro2
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen1
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen2
 import eu.darken.capod.pods.core.apple.misc.FakeAirPodsGen3
@@ -52,6 +53,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun powerBeats3(factory: PowerBeats3.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun powerBeats4(factory: PowerBeats4.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun powerBeatsPro(factory: PowerBeatsPro.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun powerBeatsPro2(factory: PowerBeatsPro2.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun beatsFitPro(factory: BeatsFitPro.Factory): ApplePodsFactory
 
     @Binds @IntoSet abstract fun fakeAirPodsGen1(factory: FakeAirPodsGen1.Factory): ApplePodsFactory
