@@ -1,5 +1,5 @@
-Updates contain bugfixes, performance improvements and maybe new features.
-A detailed changelog is always available on GitHub.
+🐛 Bug fixes, 🚀 performance boosts, maybe even ✨ new features.
 
-FYI: It’s just me here, sometimes replies might take a bit. Sorry for that!
-¯\_(ツ)_/¯
+Changelog: https://capod.darken.eu/changelog
+
+FYI: It’s just me here — thanks for understanding if replies take a bit. ¯\_(ツ)_/¯
