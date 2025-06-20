@@ -133,6 +133,9 @@ interface PodDevice {
         @Json(name = "beats.powerbeats.pro") POWERBEATS_PRO(
             "Power Beats Pro"
         ),
+        @Json(name = "beats.powerbeats.pro2") POWERBEATS_PRO2(
+            "Power Beats Pro 2"
+        ),
         @Json(name = "beats.fit.pro") BEATS_FIT_PRO(
             "Beats Fit Pro"
         ),
