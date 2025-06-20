@@ -1,5 +1,5 @@
-🐛 Fehlerbehebungen, 🚀 Leistungsverbesserungen, vielleicht sogar ✨ neue Funktionen.
+🐛 Fehlerbehebungen, 🚀 Leistungssteigerungen, vielleicht sogar ✨ neue Funktionen.
 
-Änderungsprotokoll: https://capod.darken.eu/changelog
+Changelog: https://capod.darken.eu/changelog
 
-Info: Das hier ist ein Ein-Mann-Projekt – danke für dein Verständnis, wenn Antworten etwas dauern. ¯\_(ツ)_/¯
+Zur Info: Ich bin hier alleine – danke für dein Verständnis, wenn Antworten etwas dauern. ¯\_(ツ)_/¯
