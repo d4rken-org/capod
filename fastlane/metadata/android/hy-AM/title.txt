@@ -1,1 +1,1 @@
-CAPod - Companion for AirPods
+CAPod - AirPods-ի ուղեկից

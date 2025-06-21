@@ -1,18 +1,18 @@
-CAPod is a companion app for AirPods.
+CAPod ni programu rafiki ya AirPods.
 
-Features:
+Vipengele:
 
-* Battery level for pods and cases.
-* Charging status for pods and case.
-* Additional infos about connection, microphone and case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
-* Show popup when case is opened.
+* Kiwango cha betri kwa vifurushi na kesi.
+* Hali ya kuchaji kwa vifurushi na kesi.
+* Maelezo ya ziada kuhusu muunganisho, maikrofoni na kesi.
+* Inaweza kupokea na kuonyesha vifaa vyote vilivyo karibu.
+* Kugundua sikio na uchezaji/sitisha otomatiki.
+* Unganisha simu na AirPods kiotomatiki.
+* Onyesha popup wakati kesi inafunguliwa.
 
-CAPod is ad-free. Some features require an in-app purchase.
+CAPod haina matangazo. Baadhi ya vipengele vinahitaji ununuzi wa ndani ya programu.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a short mail.
+Vifaa maarufu vya AirPods na Beats vinatumika.
+Ikiwa kifaa chako kinafanana na AirPods lakini bado hakijaungwa mkono, nitumie barua pepe fupi.
 
-Got a cool idea for a new feature? Reach out!
+Je, una wazo zuri la kipengele kipya? Wasiliana!
