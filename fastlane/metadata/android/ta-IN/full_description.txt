@@ -1,18 +1,18 @@
-சி. எ. பாட் ஏர்பாட்ஸ்க்கு ஒரு துணை செயலி.
+CAPod ஆனது ஏர்பாட்ஸ்களுக்கான ஒரு துணை செயலி.
 
 அம்சங்கள்:
 
-* Battery level for pods and cases.
-* Charging status for pods and case.
-* Additional infos about connection, microphone and case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
-* Show popup when case is opened.
+* பாட்ஸ் மற்றும் கேஸ்களுக்கான பேட்டரி நிலை.
+* பாட்ஸ் மற்றும் கேஸ்களுக்கான சார்ஜிங் நிலை.
+* இணைப்பு, ஒலிவாங்கி மற்றும் கேஸ் பற்றிய கூடுதல் தகவல்கள்.
+* அருகிலுள்ள அனைத்து சாதனங்களையும் பெறலாம் மற்றும் காட்டலாம்.
+* தானியங்கி இயக்கம்/இடைநிறுத்தத்துடன் காது கண்டறிதல்.
+* தானாகவே தொலைபேசி மற்றும் ஏர்பாட்ஸை இணைக்கவும்.
+* கேஸ் திறக்கும்போது பாப்அப் காட்டவும்.
 
-CAPod is ad-free. Some features require an in-app purchase.
+CAPod விளம்பரம் இல்லாதது. சில அம்சங்களுக்கு பயன்பாட்டு வாங்குதல் தேவைப்படுகிறது.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a short mail.
+மிகவும் பிரபலமான ஏர்பாட்ஸ் மற்றும் பீட்ஸ் சாதனங்கள் ஆதரிக்கப்படுகின்றன.
+உங்கள் சாதனம் ஏர்பாட்ஸை ஒத்ததாக இருந்தால், ஆனால் இன்னும் ஆதரிக்கப்படவில்லை என்றால், எனக்கு ஒரு சிறிய மின்னஞ்சலை அனுப்பவும்.
 
-Got a cool idea for a new feature? Reach out!
+புதிய அம்சத்திற்கான அருமையான யோசனை கிடைத்ததா? அணுகவும்!

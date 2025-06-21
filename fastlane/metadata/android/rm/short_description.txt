@@ -1,1 +1,1 @@
-CAPod is a companion app for AirPods on Android.
+CAPod è in'app cumplementara per AirPods sin Android.
