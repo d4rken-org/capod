@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
     <string name="settings_signal_minimum_description">La qualitad minimala dal signal che in apparat sto avair per vegnir considerà sco Voss.</string>
     <string name="settings_autoconnect_label">Connectar automaticamain</string>
-    <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \\\"Adina\\\'.</string>
+    <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \"Adina\".</string>
     <string name="settings_autoconnect_condition_label">Cundiziun per connectar automaticamain</string>
     <string name="settings_autoconnect_condition_description">Cura duain nus empruvar da connectar cun Voss apparat?</string>
     <string name="settings_reaction_label">Reacziuns</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Schliader da problems</string>
     <string name="troubleshooter_ble_intro_title">Emissiuns Bluetooth Low Energy</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (e cularins sumegliants) emettan infurmaziuns da stadi cun ina tecnologia BLE numnada \\\"advertisements\\\". Intgins telefonins n\'implementeschan betg correctamain questa tecnologia. CAPod po empruvar da curreger quai cun empruvar differentas opziuns da cumpatibilitad enfin che datas vegnan retschavidas. Cumenzar la reproducziun da musica sin Voss cularins e plazzar els datiers da Voss telefonin, lura cumenzar il process.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (e cularins sumegliants) emettan infurmaziuns da stadi cun ina tecnologia BLE numnada \"advertisements\". Intgins telefonins n\'implementeschan betg correctamain questa tecnologia. CAPod po empruvar da curreger quai cun empruvar differentas opziuns da cumpatibilitad enfin che datas vegnan retschavidas. Cumenzar la reproducziun da musica sin Voss cularins e plazzar els datiers da Voss telefonin, lura cumenzar il process.</string>
     <string name="troubleshooter_ble_intro_start_action">Cumenzar la schliaziun da problems</string>
     <string name="troubleshooter_ble_process_title">Schliaziun da problems en progress</string>
     <string name="troubleshooter_ble_process_subtile">Mintga pass dovra 5–10 secundas</string>
