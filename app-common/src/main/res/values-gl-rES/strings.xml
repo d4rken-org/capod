@@ -14,20 +14,20 @@
     <string name="overview_bluetooth_disabled_description">O Bluetooth está desactivado, actívao ;)</string>
 
     <string name="permission_bluetooth_connect_label">Conexión Bluetooth</string>
-    <string name="permission_bluetooth_connect_description">Esta aplicación require o permiso de \\\"Conexión Bluetooth\\\" para interactuar con dispositivos emparellados e iniciar conexións.</string>
+    <string name="permission_bluetooth_connect_description">Esta aplicación require o permiso de \"Conexión Bluetooth\" para interactuar con dispositivos emparellados e iniciar conexións.</string>
     <string name="permission_bluetooth_scan_label">Escaneo Bluetooth</string>
-    <string name="permission_bluetooth_scan_description">O permiso de \\\"Escaneo Bluetooth\\\" permite a esta aplicación descubrir e recibir datos Bluetooth de dispositivos próximos como os teus AirPods.</string>
+    <string name="permission_bluetooth_scan_description">O permiso de \"Escaneo Bluetooth\" permite a esta aplicación descubrir e recibir datos Bluetooth de dispositivos próximos como os teus AirPods.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Esta aplicación require o permiso de \\\"Bluetooth\\\" para conectarse a dispositivos bluetooth emparellados.</string>
+    <string name="permission_bluetooth_description">Esta aplicación require o permiso de \"Bluetooth\" para conectarse a dispositivos bluetooth emparellados.</string>
     <string name="permission_access_fine_location_label">Acceder á localización precisa</string>
-    <string name="permission_access_fine_location_description">CAPod usa o permiso de \\\"localización precisa\\\" para recibir datos de Bluetooth Low Energy. Os teus auriculares usan a tecnoloxía Bluetooth Low Energy para transmitir o seu estado. Esta aplicación NON usará datos Bluetooth para determinar a túa localización.</string>
+    <string name="permission_access_fine_location_description">CAPod usa o permiso de \"localización precisa\" para recibir datos de Bluetooth Low Energy. Os teus auriculares usan a tecnoloxía Bluetooth Low Energy para transmitir o seu estado. Esta aplicación NON usará datos Bluetooth para determinar a túa localización.</string>
     <string name="permission_background_location_label">Acceso á localización en segundo plano</string>
-    <string name="permission_background_location_description">CAPod usa o \\\"acceso á localización en segundo plano\\\" para habilitar funcións como \\\"Mostrar ventá emerxente\\\" e \\\"Conexión automática\\\" mentres a aplicación está pechada. O acceso á localización en segundo plano permite á aplicación recibir datos de Bluetooth Low Energy mentres está en segundo plano. Esta aplicación NON usará datos Bluetooth para determinar a túa localización.</string>
+    <string name="permission_background_location_description">CAPod usa o \"acceso á localización en segundo plano\" para habilitar funcións como \"Mostrar ventá emerxente\" e \"Conexión automática\" mentres a aplicación está pechada. O acceso á localización en segundo plano permite á aplicación recibir datos de Bluetooth Low Energy mentres está en segundo plano. Esta aplicación NON usará datos Bluetooth para determinar a túa localización.</string>
     <string name="permission_ignore_battery_optimizations_label">Desactivar optimizacións da batería</string>
     <string name="permission_ignore_battery_optimizations_description">As optimizacións da batería impiden que esta aplicación reciba datos Bluetooth de forma fiable mentres a aplicación está en segundo plano.</string>
     <string name="permission_required_title">Requírese o seguinte permiso:</string>
     <string name="permission_system_alert_window_label">Ventá de alerta do sistema</string>
-    <string name="permission_system_alert_window_description">Permitir a CAPod debuxar sobre outras aplicacións para facer posible a función \\\"Mostrar ventá emerxente\\\".</string>
+    <string name="permission_system_alert_window_description">Permitir a CAPod debuxar sobre outras aplicacións para facer posible a función \"Mostrar ventá emerxente\".</string>
 
     <string name="settings_scanner_mode_lowpower_label">Baixa potencia</string>
     <string name="settings_scanner_mode_balanced_label">Equilibrado</string>

@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">పర్యవేక్షణ మోడ్</string>
     <string name="settings_monitor_mode_description">ఈ యాప్ ఏ పరిస్థితులలో బ్లూటూత్ డేటాను పర్యవేక్షిస్తుంది.</string>
     <string name="settings_monitor_connected_notification_label">అదనపు నోటిఫికేషన్</string>
-    <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \\"పరికర స్థితి\\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \\"పరికరం లేదు\\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
+    <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \"పరికర స్థితి\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \"పరికరం లేదు\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
     <string name="settings_scanner_mode_label">స్కానర్ మోడ్</string>
     <string name="settings_scanner_mode_description">బ్లూటూత్ తక్కువ శక్తి డేటా స్కానర్ పనితీరుకు ప్రాధాన్యత ఇవ్వాలా లేదా శక్తిని ఆదా చేయాలా?</string>
     <string name="settings_autopause_label">ఆటో పాజ్</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
     <string name="settings_signal_minimum_description">ఒక పరికరం మీదిగా పరిగణించబడటానికి అవసరమైన కనీస సిగ్నల్ నాణ్యత.</string>
     <string name="settings_autoconnect_label">ఆటో కనెక్ట్</string>
-    <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మేము కూడా అడగవచ్చు. ఇది మానిటర్ మోడ్ సెట్టింగ్‌ను \\'ఎల్లప్పుడూ\\'కి సెట్ చేస్తుంది.</string>
+    <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మేము కూడా అడగవచ్చు. ఇది మానిటర్ మోడ్ సెట్టింగ్‌ను \'ఎల్లప్పుడూ\'కి సెట్ చేస్తుంది.</string>
     <string name="settings_autoconnect_condition_label">ఆటో కనెక్ట్ షరతు</string>
     <string name="settings_autoconnect_condition_description">మేము మీ పరికరానికి ఎప్పుడు కనెక్ట్ చేయడానికి ప్రయత్నించాలి?</string>
     <string name="settings_reaction_label">ప్రతిచర్యలు</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">ట్రబుల్షూటర్</string>
     <string name="troubleshooter_ble_intro_title">బ్లూటూత్ తక్కువ శక్తి ప్రసారాలు</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (మరియు ఇలాంటి హెడ్‌ఫోన్‌లు) \\"ప్రకటనలు\\" అని పిలువబడే BLE సాంకేతికతను ఉపయోగించి స్థితి సమాచారాన్ని ప్రసారం చేస్తాయి. కొన్ని ఫోన్‌లు ఈ సాంకేతికతను సరిగ్గా అమలు చేయవు. డేటా స్వీకరించబడే వరకు వివిధ అనుకూలత ఎంపికలను ప్రయత్నించడం ద్వారా CAPod దీన్ని పరిష్కరించడానికి ప్రయత్నించవచ్చు. మీ హెడ్‌ఫోన్‌లలో సంగీత ప్లేబ్యాక్‌ను ప్రారంభించి, వాటిని మీ ఫోన్‌కు దగ్గరగా ఉంచి, ఆపై ప్రక్రియను ప్రారంభించండి.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (మరియు ఇలాంటి హెడ్‌ఫోన్‌లు) \"ప్రకటనలు\" అని పిలువబడే BLE సాంకేతికతను ఉపయోగించి స్థితి సమాచారాన్ని ప్రసారం చేస్తాయి. కొన్ని ఫోన్‌లు ఈ సాంకేతికతను సరిగ్గా అమలు చేయవు. డేటా స్వీకరించబడే వరకు వివిధ అనుకూలత ఎంపికలను ప్రయత్నించడం ద్వారా CAPod దీన్ని పరిష్కరించడానికి ప్రయత్నించవచ్చు. మీ హెడ్‌ఫోన్‌లలో సంగీత ప్లేబ్యాక్‌ను ప్రారంభించి, వాటిని మీ ఫోన్‌కు దగ్గరగా ఉంచి, ఆపై ప్రక్రియను ప్రారంభించండి.</string>
     <string name="troubleshooter_ble_intro_start_action">ట్రబుల్షూటింగ్ ప్రారంభించు</string>
     <string name="troubleshooter_ble_process_title">ట్రబుల్షూటింగ్ పురోగతిలో ఉంది</string>
     <string name="troubleshooter_ble_process_subtile">ప్రతి దశ 5–10 సెకన్లు పడుతుంది</string>
