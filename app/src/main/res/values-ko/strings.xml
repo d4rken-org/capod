@@ -11,12 +11,9 @@
     <string name="general_save_action">저장</string>
     <string name="general_guide_action">가이드</string>
     <string name="general_continue_action">계속</string>
-
     <string name="general_example_label">예: %s</string>
-
     <string name="upgrade_capod_label">CAPod 업그레이드</string>
     <string name="upgrade_capod_description">추가 기능을 받고 개발자를 지원하세요.</string>
-
     <string name="settings_monitor_mode_label">모니터링 모드</string>
     <string name="settings_monitor_mode_description">이 앱이 Bluetooth 데이터를 모니터링하는 상황입니다.</string>
     <string name="settings_monitor_connected_notification_label">추가 알림</string>
@@ -42,14 +39,12 @@
     <string name="settings_reaction_label">반응</string>
     <string name="settings_reaction_description">이벤트 및 행동에 반응합니다.</string>
     <string name="settings_category_yourdevice_label">내 기기</string>
-
     <string name="settings_category_compatibility_options_title">호환성 옵션</string>
     <string name="settings_category_compatibility_options_description">모든 것이 작동하면 건드리지 마세요 ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">하드웨어 필터링 비활성화</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">데이터 필터링을 시스템에 위임하지 말고 대신 모든 데이터를 가져와 앱 내에서 필터링합니다.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">하드웨어 일괄 처리 비활성화</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">수집된 BLE 데이터를 저희에게 전달하기 전에 시스템이 그룹화하도록 허용하지 마십시오.</string>
-
     <string name="settings_maindevice_address_label">기기 주소</string>
     <string name="settings_maindevice_address_description">페어링된 기기의 주소입니다. 앱은 이 주소를 사용하여 언제 휴대폰에 연결되었는지 확인합니다.</string>
     <string name="settings_maindevice_address_none">없음</string>
@@ -61,17 +56,14 @@
     <string name="settings_maindevice_encryptionkey_label">암호화 키</string>
     <string name="settings_maindevice_encryptionkey_description">기기의 암호화 키로, CAPod가 자세한 상태 정보를 검색할 수 있도록 합니다.</string>
     <string name="settings_maindevice_encryptionkey_explanation">AirPods는 상태 메시지를 보내며, 그중 일부는 암호화됩니다. 암호화 키를 사용하면 CAPod가 전체 메시지를 해독할 수 있습니다. MacBook에 한 번 액세스해야 합니다.</string>
-
     <string name="settings_onepod_mode_label">단일 Pod 모드</string>
     <string name="settings_onepod_mode_description">두 Pod를 모두 착용할 필요는 없으며, 반응을 트리거하려면 단일 Pod를 착용하는 것으로 충분합니다.</string>
     <string name="settings_popup_caseopen_label">케이스 팝업 표시</string>
     <string name="settings_popup_caseopen_description">기기 케이스를 열면 팝업을 표시합니다(실험적).</string>
     <string name="settings_popup_connected_label">연결 팝업 표시</string>
     <string name="settings_popup_connected_description">기기가 처음 연결될 때 팝업을 표시합니다.</string>
-
     <string name="notification_channel_device_status_label">기기 상태</string>
     <string name="notification_channel_device_status_connected_label">연결된 기기</string>
-
     <string name="support_debuglog_label">디버그 로그</string>
     <string name="support_debuglog_desc">앱이 수행하는 모든 작업을 공유할 수 있는 텍스트 파일에 기록합니다.</string>
     <string name="debug_debuglog_size_label">크기</string>
@@ -83,18 +75,14 @@
     <string name="debug_debuglog_stop_action">기록 중지</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일에는 민감한 정보(예: Bluetooth 기기 세부 정보)가 포함되어 있습니다. 신뢰할 수 있는 당사자와만 공유하십시오.</string>
     <string name="settings_debuglog_explanation">이 기능은 앱이 수행하는 모든 작업을 공유 가능한 파일에 기록합니다. 생성된 파일에는 민감한 정보(예: Bluetooth 기기 세부 정보)가 포함되어 있습니다. 신뢰할 수 있는 당사자(예: 문제를 해결하는 개발자)와만 공유하십시오.</string>
-
     <string name="settings_support_installid_label">설치 ID</string>
     <string name="settings_support_installid_desc">자동 오류 보고서는 익명입니다. 개발자가 오류 보고서를 찾아야 하는 경우 설치 ID를 공유하십시오.</string>
     <string name="settings_support_label">지원</string>
     <string name="settings_support_description">도움이 필요한 경우.</string>
-
     <string name="issue_tracker_label">문제 추적기</string>
     <string name="issue_tracker_description">버그 보고서 및 기능 요청을 위한 공개 문제 추적기(영어만 해당).</string>
-
-    <string name="discord_label">Discord</string>
+    <string name="discord_label">디스코드</string>
     <string name="discord_description">이야기를 나누고 질문을 할 수 있는 곳.</string>
-
     <string name="changelog_label">변경 로그</string>
     <string name="settings_label">설정</string>
     <string name="settings_privacy_policy_label">개인 정보 보호 정책</string>
@@ -104,28 +92,21 @@
     <string name="settings_general_label">설정</string>
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
-
     <string name="settings_debug_autoreports_label">자동 버그 보고서</string>
     <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string>
     <string name="settings_debug_mode_label">디버그 모드</string>
     <string name="settings_debug_mode_description">문제 해결을 위한 추가 정보를 표시합니다.</string>
-
     <string name="settings_blescanner_unfiltered_label">필터링되지 않은 BLE 데이터</string>
     <string name="settings_blescanner_unfiltered_description">모든 브로드캐스트된 BLE 데이터를 표시하려면 BLE 스캐너에서 모든 필터를 제거합니다. 새로운 유형의 헤드폰에 대한 지원을 추가하는 데 유용합니다.</string>
-
     <string name="settings_compatibility_mode_label">호환성 모드</string>
     <string name="settings_compatibility_mode_description">호환성을 향상시키려면 최적화를 비활성화합니다. 데이터가 표시되지 않으면 이 옵션을 사용해 보십시오.</string>
-
     <string name="help_translate_label">번역</string>
     <string name="help_translate_description">이 앱을 즐겨 사용하는 언어로 번역하는 데 도움을 주세요.</string>
-
     <string name="translators_thanks_title">번역가</string>
-    <string name="translators_thanks_description">darken</string>
-
+    <string name="translators_thanks_description">윤지호(annyeong1alt@gmail.com)</string>
     <string name="widget_description">마지막으로 알려진 기기 상태를 표시하는 위젯입니다.</string>
     <string name="settings_compat_indirectcallback_title">간접 데이터 전달</string>
     <string name="settings_compat_indirectcallback_summary">시스템에서 BLE 데이터를 수신하는 대체 방법을 사용합니다(콜백 대신 브로드캐스트).</string>
-
     <string name="troubleshooter_title">문제 해결사</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy 브로드캐스트</string>
     <string name="troubleshooter_ble_intro_body1">AirPods(및 유사한 헤드폰)는 \"광고\"라는 BLE 기술을 사용하여 상태 정보를 브로드캐스트합니다. 일부 휴대폰은 이 기술을 올바르게 구현하지 않습니다. CAPod는 데이터가 수신될 때까지 다양한 호환성 옵션을 시도하여 이 문제를 해결하려고 시도할 수 있습니다. 헤드폰에서 음악 재생을 시작하고 휴대폰 가까이에 놓은 다음 프로세스를 시작하십시오.</string>
@@ -140,7 +121,6 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">휴대전화에서 BLE 데이터를 수신했지만 데이터가 지원되는 기기에서 오지 않았습니다. 헤드폰이 켜져 있습니까? CAPod가 헤드폰을 지원합니까?</string>
     <string name="troubleshooter_ble_result_failure_action">다시 시도</string>
     <string name="troubleshoot_action">문제 해결</string>
-
     <string name="onboarding_body1">이 앱은 Android에 AirPod 특정 기능에 대한 지원을 추가합니다.</string>
     <string name="onboarding_body2">모든 Android 기기가 추가 AirPod 기능을 완벽하게 지원하는 것은 아닙니다. 운영 체제에는 올바르게 작동하는 Bluetooth Low Energy 구현이 필요합니다.</string>
     <string name="onboarding_body3">CAPod에는 광고가 없으며 데이터를 수집하지 않습니다.</string>

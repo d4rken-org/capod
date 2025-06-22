@@ -24,13 +24,13 @@
     <string name="permission_ignore_battery_optimizations_description">Batterie Optimierung hindert die App daran Bluetooth Daten zu erhalten während die App im Hintergrund ist.</string>
     <string name="permission_required_title">Die folgende Genehmigung ist erforderlich:</string>
     <string name="permission_system_alert_window_label">Systemwarnungsfenster</string>
-    <string name="permission_system_alert_window_description">Erlauben Sie CAPod, über andere Apps zu zeichnen, um die Funktion \"PopUp anzeigen\" zu ermöglichen.</string>
+    <string name="permission_system_alert_window_description">Erlauben Sie CAPod, PopUp Benachrichtigungen über anderen Apps anzuzeigen.</string>
     <string name="settings_scanner_mode_lowpower_label">Geringer Strom</string>
     <string name="settings_scanner_mode_balanced_label">Ausgewogen</string>
     <string name="settings_scanner_mode_lowlatency_label">Geringe Latenz</string>
     <string name="settings_monitor_mode_manual_label">Wenn die App geöffnet ist</string>
     <string name="settings_monitor_mode_automatic_label">Wenn das Gerät verbunden ist</string>
-    <string name="settings_monitor_mode_always_label">Stets</string>
+    <string name="settings_monitor_mode_always_label">Immer</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wenn gesehen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Ladecase ist offen</string>
     <string name="settings_reaction_autoconnect_inear_label">Im Ohr</string>
@@ -44,7 +44,7 @@
     <string name="pods_connection_state_music_label">Im Musik Modus</string>
     <string name="pods_connection_state_call_label">Im Anruf Modus</string>
     <string name="pods_connection_state_ringing_label">Klingelt</string>
-    <string name="pods_connection_state_hanging_up_label">Legt auf</string>
+    <string name="pods_connection_state_hanging_up_label">Auflegen</string>
     <string name="pods_connection_state_unknown_label">Unbekannter Verbindungsstatus</string>
     <string name="pods_unknown_raw_data_label">Rohe Daten</string>
     <string name="pods_unknown_label">Unbekanntes Gerät</string>

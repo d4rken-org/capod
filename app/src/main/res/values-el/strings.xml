@@ -11,12 +11,9 @@
     <string name="general_save_action">Αποθήκευση</string>
     <string name="general_guide_action">Οδηγός</string>
     <string name="general_continue_action">Συνέχεια</string>
-
     <string name="general_example_label">Π.χ.: %s</string>
-
     <string name="upgrade_capod_label">Αναβάθμιση CAPod</string>
     <string name="upgrade_capod_description">Αποκτήστε πρόσθετες λειτουργίες και υποστηρίξτε τον προγραμματιστή.</string>
-
     <string name="settings_monitor_mode_label">Λειτουργία παρακολούθησης</string>
     <string name="settings_monitor_mode_description">Υπό ποιες συνθήκες αυτή η εφαρμογή παρακολουθεί δεδομένα Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Επιπλέον ειδοποίηση</string>
@@ -42,14 +39,12 @@
     <string name="settings_reaction_label">Αντιδράσεις</string>
     <string name="settings_reaction_description">Αντιδράστε σε γεγονότα και συμπεριφορές.</string>
     <string name="settings_category_yourdevice_label">Η συσκευή σας</string>
-
     <string name="settings_category_compatibility_options_title">Επιλογές συμβατότητας</string>
     <string name="settings_category_compatibility_options_description">Μην αγγίζετε αν όλα λειτουργούν ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Απενεργοποίηση φιλτραρίσματος υλικού</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Μην αναθέτετε το φιλτράρισμα δεδομένων στο σύστημα, αντίθετα λάβετε όλα τα δεδομένα και φιλτράρετε εντός της εφαρμογής.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Απενεργοποίηση ομαδοποίησης υλικού</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Μην αφήσετε το σύστημα να ομαδοποιήσει τα συλλεγμένα δεδομένα BLE πριν μας τα προωθήσει.</string>
-
     <string name="settings_maindevice_address_label">Η διεύθυνση της συσκευής σας</string>
     <string name="settings_maindevice_address_description">Η διεύθυνση της συνδεδεμένης συσκευής σας. Η εφαρμογή τη χρησιμοποιεί για να καθορίσει πότε είναι συνδεδεμένη στο τηλέφωνό σας.</string>
     <string name="settings_maindevice_address_none">Κανένα</string>
@@ -61,17 +56,14 @@
     <string name="settings_maindevice_encryptionkey_label">Κλειδί κρυπτογράφησης</string>
     <string name="settings_maindevice_encryptionkey_description">Το κλειδί κρυπτογράφησης της συσκευής σας, το οποίο επιτρέπει στο CAPod να ανακτήσει λεπτομερείς πληροφορίες κατάστασης.</string>
     <string name="settings_maindevice_encryptionkey_explanation">Τα AirPods στέλνουν ένα μήνυμα κατάστασης, μέρος του οποίου είναι κρυπτογραφημένο. Το κλειδί κρυπτογράφησης επιτρέπει στο CAPod να αποκρυπτογραφήσει ολόκληρο το μήνυμα. Χρειάζεστε εφάπαξ πρόσβαση σε MacBook.</string>
-
     <string name="settings_onepod_mode_label">Λειτουργία ενός pod</string>
     <string name="settings_onepod_mode_description">Η χρήση και των δύο pod δεν είναι απαραίτητη, η χρήση ενός μόνο pod αρκεί για την ενεργοποίηση αντιδράσεων.</string>
     <string name="settings_popup_caseopen_label">Εμφάνιση αναδυόμενου παραθύρου θήκης</string>
     <string name="settings_popup_caseopen_description">Εμφάνιση αναδυόμενου παραθύρου όταν ανοίγει η θήκη της συσκευής (πειραματικό).</string>
     <string name="settings_popup_connected_label">Εμφάνιση αναδυόμενου παραθύρου σύνδεσης</string>
     <string name="settings_popup_connected_description">Εμφάνιση αναδυόμενου παραθύρου όταν η συσκευή συνδέεται για πρώτη φορά.</string>
-
     <string name="notification_channel_device_status_label">Κατάσταση συσκευής</string>
     <string name="notification_channel_device_status_connected_label">Συνδεδεμένη συσκευή</string>
-
     <string name="support_debuglog_label">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="support_debuglog_desc">Καταγράψτε ό,τι κάνει η εφαρμογή σε ένα αρχείο κειμένου που μπορείτε να μοιραστείτε.</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
@@ -83,18 +75,14 @@
     <string name="debug_debuglog_stop_action">Διακοπή εγγραφής</string>
     <string name="debug_debuglog_sensitive_information_message">Το αρχείο που δημιουργήθηκε περιέχει ευαίσθητες πληροφορίες (π.χ. λεπτομέρειες συσκευής Bluetooth). Μοιραστείτε το μόνο με αξιόπιστα μέρη.</string>
     <string name="settings_debuglog_explanation">Αυτή η δυνατότητα καταγράφει ό,τι κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργήθηκε περιέχει ευαίσθητες πληροφορίες (π.χ. λεπτομέρειες συσκευής Bluetooth). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. έναν προγραμματιστή που αντιμετωπίζει ένα πρόβλημα).</string>
-
-    <string name="settings_support_installid_label">Αναγνωριστικό εγκατάστασης</string>
+    <string name="settings_support_installid_label">ID Εγκατάστασης</string>
     <string name="settings_support_installid_desc">Οι αυτόματες αναφορές σφαλμάτων είναι ανώνυμες. Μοιραστείτε το αναγνωριστικό εγκατάστασής σας εάν ο προγραμματιστής πρέπει να βρει τις αναφορές σφαλμάτων σας.</string>
     <string name="settings_support_label">Υποστήριξη</string>
     <string name="settings_support_description">Εάν χρειάζεστε βοήθεια.</string>
-
     <string name="issue_tracker_label">Παρακολούθηση ζητημάτων</string>
     <string name="issue_tracker_description">Ένα δημόσιο σύστημα παρακολούθησης ζητημάτων για αναφορές σφαλμάτων και αιτήματα λειτουργιών (μόνο στα αγγλικά).</string>
-
     <string name="discord_label">Discord</string>
     <string name="discord_description">Ένα μέρος για να συναντηθείτε και να κάνετε ερωτήσεις.</string>
-
     <string name="changelog_label">Αρχείο καταγραφής αλλαγών</string>
     <string name="settings_label">Ρυθμίσεις</string>
     <string name="settings_privacy_policy_label">Πολιτική απορρήτου</string>
@@ -104,28 +92,21 @@
     <string name="settings_general_label">Ρυθμίσεις</string>
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
-
     <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
     <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
     <string name="settings_debug_mode_label">Λειτουργία εντοπισμού σφαλμάτων</string>
     <string name="settings_debug_mode_description">Εμφάνιση πρόσθετων πληροφοριών για την αντιμετώπιση προβλημάτων.</string>
-
     <string name="settings_blescanner_unfiltered_label">Αφιλτράριστα δεδομένα BLE</string>
     <string name="settings_blescanner_unfiltered_description">Αφαιρέστε τυχόν φίλτρα από τον σαρωτή BLE για να εμφανιστούν όλα τα μεταδιδόμενα δεδομένα BLE. Χρήσιμο για την προσθήκη υποστήριξης για νέους τύπους ακουστικών.</string>
-
     <string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
     <string name="settings_compatibility_mode_description">Απενεργοποιήστε τις βελτιστοποιήσεις για να βελτιώσετε τη συμβατότητα. Δοκιμάστε το εάν δεν βλέπετε δεδομένα.</string>
-
     <string name="help_translate_label">Μετάφραση</string>
     <string name="help_translate_description">Βοηθήστε να μεταφράσετε αυτήν την εφαρμογή στην αγαπημένη σας γλώσσα.</string>
-
     <string name="translators_thanks_title">Μεταφραστές</string>
-    <string name="translators_thanks_description">darken</string>
-
+    <string name="translators_thanks_description">Vagelis1608;Theodoros Asimakopoulos;gogoboss_stampolidis;Matthias;Christos Chronopoulos</string>
     <string name="widget_description">Ένα widget που εμφανίζει την τελευταία γνωστή κατάσταση της συσκευής.</string>
     <string name="settings_compat_indirectcallback_title">Έμμεση παράδοση δεδομένων</string>
     <string name="settings_compat_indirectcallback_summary">Χρησιμοποιήστε μια εναλλακτική μέθοδο για τη λήψη δεδομένων BLE από το σύστημα (μετάδοση αντί για επανάκληση).</string>
-
     <string name="troubleshooter_title">Αντιμετώπιση προβλημάτων</string>
     <string name="troubleshooter_ble_intro_title">Εκπομπές Bluetooth χαμηλής ενέργειας</string>
     <string name="troubleshooter_ble_intro_body1">Τα AirPods (και παρόμοια ακουστικά) μεταδίδουν πληροφορίες κατάστασης χρησιμοποιώντας μια τεχνολογία BLE που ονομάζεται \"διαφημίσεις\". Ορισμένα τηλέφωνα δεν εφαρμόζουν σωστά αυτήν την τεχνολογία. Το CAPod μπορεί να προσπαθήσει να το διορθώσει δοκιμάζοντας διαφορετικές επιλογές συμβατότητας μέχρι να ληφθούν δεδομένα. Ξεκινήστε την αναπαραγωγή μουσικής στα ακουστικά σας και τοποθετήστε τα κοντά στο τηλέφωνό σας, στη συνέχεια ξεκινήστε τη διαδικασία.</string>
@@ -140,7 +121,6 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Το τηλέφωνό σας έλαβε δεδομένα BLE, αλλά τα δεδομένα δεν προέρχονται από καμία υποστηριζόμενη συσκευή. Είναι ενεργοποιημένα τα ακουστικά σας; Υποστηρίζει το CAPod τα ακουστικά σας;</string>
     <string name="troubleshooter_ble_result_failure_action">Προσπαθήστε ξανά</string>
     <string name="troubleshoot_action">Αντιμετώπιση προβλημάτων</string>
-
     <string name="onboarding_body1">Αυτή η εφαρμογή προσθέτει υποστήριξη για συγκεκριμένες λειτουργίες AirPod στο Android.</string>
     <string name="onboarding_body2">Δεν υποστηρίζουν όλες οι συσκευές Android πλήρως τις επιπλέον λειτουργίες AirPod. Το λειτουργικό σας σύστημα απαιτεί μια σωστά λειτουργούσα υλοποίηση Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">Το CAPod δεν έχει διαφημίσεις και δεν συλλέγει τα δεδομένα σας.</string>

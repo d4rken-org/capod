@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">Indisponibil</string>
     <string name="general_error_label">Eroare</string>
     <string name="general_grant_permission_action">Acordați permisiuni</string>
     <string name="overview_nomaindevice_label">Niciun dispozitiv principal</string>
@@ -10,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Această aplicație necesită permisiunea „Conectare Bluetooth” pentru a interacționa cu dispozitivele asociate și a iniția conexiuni.</string>
     <string name="permission_bluetooth_scan_label">Scanare Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Permisiunea „Scanare Bluetooth” permite acestei aplicații să descopere și să primească date Bluetooth de la dispozitivele din apropiere, cum ar fi AirPod-urile dvs.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Această aplicație necesită permisiunea „Bluetooth” pentru a se conecta la dispozitive Bluetooth asociate.</string>
     <string name="permission_access_fine_location_label">Permiteți locație exactă</string>
     <string name="permission_access_fine_location_description">CAPod folosește permisiunea „locație exactă” pentru a primi date Bluetooth Energie Scăzută (BLE). Căștile dvs. folosesc tehnologia Bluetooth Energie Scăzută (BLE) pentru a-și transmite starea. Această aplicație NU va folosi date Bluetooth pentru a vă determina locația.</string>
@@ -50,6 +55,7 @@
     <string name="pods_microphone_label">Microfon</string>
     <string name="pods_yours">Ale tale</string>
     <string name="headset_being_worn_label">Fiind purtate</string>
+    <string name="headset_not_being_worn_label">Nu sunt purtate</string>
     <string name="pods_case_unknown_state">Stare necunoscută</string>
     <string name="last_seen_x">Vazute ultima dată: %s</string>
     <string name="first_seen_x">Prima dată văzute: %s</string>

@@ -8,11 +8,16 @@
     <string name="general_upgrade_action">Güncelle</string>
     <string name="general_check_action">Kontrol et</string>
     <string name="general_close_action">Kapat</string>
+    <string name="general_save_action">Kaydet</string>
+    <string name="general_guide_action">Rehber</string>
     <string name="general_continue_action">Devam et</string>
+    <string name="general_example_label">Örn.: %s</string>
     <string name="upgrade_capod_label">CAPod\'u Güncelle</string>
     <string name="upgrade_capod_description">Ek özellikler edinir ve geliştiriciyi desteklersiniz.</string>
     <string name="settings_monitor_mode_label">İzleme modu</string>
     <string name="settings_monitor_mode_description">Uygulamanın hangi şartlar altında Bluetooth verilerini dinleyeceğine dair seçenekler.</string>
+    <string name="settings_monitor_connected_notification_label">Ek bildirim</string>
+    <string name="settings_monitor_connected_notification_description">Bir cihaz bağlandığında ek bir bildirim gösterir. Bu, \"Cihaz durumu\" kanalını devre dışı bırakarak kalıcı \"Cihaz yok\" bildirimini gizlemenizi sağlar.</string>
     <string name="settings_scanner_mode_label">Tarama modu</string>
     <string name="settings_scanner_mode_description">Bluetooth Düşük Enerji veri tarayıcısının performansa mı yoksa enerji tasarrufuna mı öncelik vereceğine dair seçenekler.</string>
     <string name="settings_autopause_label">Otomatik duraklat</string>
@@ -45,6 +50,12 @@
     <string name="settings_maindevice_address_none">Hiçbiri</string>
     <string name="settings_maindevice_model_label">Aygıt modeliniz</string>
     <string name="settings_maindevice_model_description">Ana aygıtın modeli. Bu, uygulamanın telefonunuza bağlı olmadığında aygıtınızı tanımasına yardımcı olur.</string>
+    <string name="settings_maindevice_identitykey_label">Kimlik Anahtarı</string>
+    <string name="settings_maindevice_identitykey_description">Cihazınızın Kimlik Çözümleme Anahtarı (IRK), CAPod\'un yakındaki cihazlar arasında onu tanımlamasına yardımcı olur.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPod\'lar gizlilik nedeniyle Bluetooth adreslerini sık sık değiştirir. IRK, CAPod\'un cihazınızı tanımasına yardımcı olur. Bir MacBook\'a tek seferlik erişiminiz olması gerekir.</string>
+    <string name="settings_maindevice_encryptionkey_label">Şifreleme Anahtarı</string>
+    <string name="settings_maindevice_encryptionkey_description">Cihazınızın şifreleme anahtarı, CAPod\'un ayrıntılı durum bilgilerini almasını sağlar.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPod\'lar, bir kısmı şifrelenmiş bir durum mesajı gönderir. Şifreleme anahtarı, CAPod\'un tüm mesajın şifresini çözmesine olanak tanır. Bir MacBook\'a tek seferlik erişiminiz olması gerekir.</string>
     <string name="settings_onepod_mode_label">Tek kulaklık modu</string>
     <string name="settings_onepod_mode_description">Her iki kulaklığı da takmak gerekli değildir, tek bir kulaklık takmak eylemleri tetiklemek için yeterlidir.</string>
     <string name="settings_popup_caseopen_label">Şarj kutusu için açılır pencere göster</string>
@@ -52,6 +63,7 @@
     <string name="settings_popup_connected_label">Bağlantı için açılır pencere göster</string>
     <string name="settings_popup_connected_description">Cihaz ilk kez bağlantı kurduğunda, açılır bir pencere gösterir.</string>
     <string name="notification_channel_device_status_label">Aygıt durumu</string>
+    <string name="notification_channel_device_status_connected_label">Bağlı cihaz</string>
     <string name="support_debuglog_label">Hata ayıklama günlüğü</string>
     <string name="support_debuglog_desc">Uygulamanın yaptığı her şeyi paylaşabileceğiniz bir metin dosyasına kaydeder.</string>
     <string name="debug_debuglog_size_label">Boyut</string>
@@ -113,16 +125,4 @@
     <string name="onboarding_body2">Tüm Android cihazlar ekstra AirPod özelliklerini tam olarak desteklemez. İşletim sisteminiz doğru çalışan bir Bluetooth-Düşük Enerji uygulaması gerektirir.</string>
     <string name="onboarding_body3">CAPod\'da reklam yoktur ve verilerinizi toplamaz.</string>
     <string name="onboarding_body4">Ekstra özellikler kazanmak ve geliştirmeyi desteklemek için CAPod Pro\'ya yükseltebilirsiniz.</string>
-    <string name="general_save_action">Kaydet</string>
-    <string name="general_guide_action">Rehber</string>
-    <string name="general_example_label">Örn.: %s</string>
-    <string name="settings_monitor_connected_notification_label">Ek bildirim</string>
-    <string name="settings_monitor_connected_notification_description">Bir cihaz bağlandığında ek bir bildirim gösterir. Bu, \"Cihaz durumu\" kanalını devre dışı bırakarak kalıcı \"Cihaz yok\" bildirimini gizlemenizi sağlar.</string>
-    <string name="settings_maindevice_identitykey_label">Kimlik Anahtarı</string>
-    <string name="settings_maindevice_identitykey_description">Cihazınızın Kimlik Çözümleme Anahtarı (IRK), CAPod\'un yakındaki cihazlar arasında onu tanımlamasına yardımcı olur.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPod\'lar gizlilik nedeniyle Bluetooth adreslerini sık sık değiştirir. IRK, CAPod\'un cihazınızı tanımasına yardımcı olur. Bir MacBook\'a tek seferlik erişiminiz olması gerekir.</string>
-    <string name="settings_maindevice_encryptionkey_label">Şifreleme Anahtarı</string>
-    <string name="settings_maindevice_encryptionkey_description">Cihazınızın şifreleme anahtarı, CAPod\'un ayrıntılı durum bilgilerini almasını sağlar.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPod\'lar, bir kısmı şifrelenmiş bir durum mesajı gönderir. Şifreleme anahtarı, CAPod\'un tüm mesajın şifresini çözmesine olanak tanır. Bir MacBook\'a tek seferlik erişiminiz olması gerekir.</string>
-    <string name="notification_channel_device_status_connected_label">Bağlı cihaz</string>
 </resources>
