@@ -10,6 +10,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
+        "sc-IT": "sc-rIT",
+        "sq-AL": "sq-rAL",
         "ar": "ar",
         "am": "am",
         "hy-AM": "hy-rAM",
@@ -89,6 +91,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
+        "sc-IT": "sc-rIT",
+        "sq-AL": "sq-rAL",
         "ar": "ar",
         "am": "am",
         "hy-AM": "hy-rAM",
@@ -168,6 +172,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
+        "sc-IT": "sc-rIT",
+        "sq-AL": "sq-rAL",
         "ar": "ar",
         "am": "am",
         "hy-AM": "hy-rAM",
@@ -247,6 +253,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
+        "sc-IT": "sc-rIT",
+        "sq-AL": "sq-rAL",
         "ar": "ar",
         "am": "am",
         "hy-AM": "hy-rAM",
@@ -326,6 +334,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &stringmapping {
       "android_code": {
+        "sc-IT": "sc-rIT",
+        "sq-AL": "sq-rAL",
         "ar": "ar",
         "am": "am",
         "hy-AM": "hy-rAM",
@@ -405,6 +415,8 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": &playstoremapping {
       "locale": {
+        "sc-IT": "sc-IT",
+        "sq-AL": "sq-AL",
         "af": "af",
         "ar": "ar",
         "am": "am",
