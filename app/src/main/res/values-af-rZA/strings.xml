@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Monitormodus</string>
     <string name="settings_monitor_mode_description">Onder watter omstandighede hierdie toepassing Bluetooth-data monitor.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra kennisgewing</string>
-    <string name="settings_monitor_connected_notification_description">Wys \'n ekstra kennisgewing wanneer \'n toestel gekoppel is. Dit laat jou toe om die permanente \\\"Geen toestelle\\\" kennisgewing te versteek deur die \\\"Toestelstatus\\\" kanaal te deaktiveer.</string>
+    <string name="settings_monitor_connected_notification_description">Wys \'n ekstra kennisgewing wanneer \'n toestel gekoppel is. Dit laat jou toe om die permanente \"Geen toestelle\" kennisgewing te versteek deur die \"Toestelstatus\" kanaal te deaktiveer.</string>
     <string name="settings_scanner_mode_label">Skandeerdermodus</string>
     <string name="settings_scanner_mode_description">Moet die Bluetooth Lae Energie-dataskandeerder werkverrigting prioritiseer of energie bespaar?</string>
     <string name="settings_autopause_label">Outo-pouse</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Minimum seingehalte</string>
     <string name="settings_signal_minimum_description">Die minimum seingehalte wat \'n toestel moet hê om as joune beskou te word.</string>
     <string name="settings_autoconnect_label">Outo-koppel</string>
-    <string name="settings_autoconnect_description">As Android nie outomaties koppel nie, kan ons dit ook vra. Dit sal die monitormodus-instelling na \\\'Altyd\\\' stel.</string>
+    <string name="settings_autoconnect_description">As Android nie outomaties koppel nie, kan ons dit ook vra. Dit sal die monitormodus-instelling na \'Altyd\' stel.</string>
     <string name="settings_autoconnect_condition_label">Outo-koppelvoorwaarde</string>
     <string name="settings_autoconnect_condition_description">Wanneer moet ons probeer om aan jou toestel te koppel?</string>
     <string name="settings_reaction_label">Reaksies</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Probleemoplosser</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Lae Energie-uitsendings</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (en soortgelyke koptelefoon) saai statusinligting uit deur \'n BLE-tegnologie genaamd \\\"advertensies\\\". Sommige fone implementeer hierdie tegnologie nie korrek nie. CAPod kan probeer om dit reg te stel deur verskillende verenigbaarheidsopsies te probeer totdat data ontvang word. Begin musiek speel op jou koptelefoon en plaas dit naby jou foon, begin dan die proses.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (en soortgelyke koptelefoon) saai statusinligting uit deur \'n BLE-tegnologie genaamd \"advertensies\". Sommige fone implementeer hierdie tegnologie nie korrek nie. CAPod kan probeer om dit reg te stel deur verskillende verenigbaarheidsopsies te probeer totdat data ontvang word. Begin musiek speel op jou koptelefoon en plaas dit naby jou foon, begin dan die proses.</string>
     <string name="troubleshooter_ble_intro_start_action">Begin probleemoplossing</string>
     <string name="troubleshooter_ble_process_title">Probleemoplossing aan die gang</string>
     <string name="troubleshooter_ble_process_subtile">Elke stap neem 5–10 sekondes</string>

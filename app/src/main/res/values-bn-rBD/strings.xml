@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">মনিটর মোড</string>
     <string name="settings_monitor_mode_description">এই অ্যাপটি কোন পরিস্থিতিতে ব্লুটুথ ডেটা পর্যবেক্ষণ করবে।</string>
     <string name="settings_monitor_connected_notification_label">অতিরিক্ত বিজ্ঞপ্তি</string>
-    <string name="settings_monitor_connected_notification_description">একটি ডিভাইস সংযুক্ত হলে একটি অতিরিক্ত বিজ্ঞপ্তি দেখায়। এটি আপনাকে \\"ডিভাইস স্ট্যাটাস\\" চ্যানেল নিষ্ক্রিয় করে স্থায়ী \\"কোনো ডিভাইস নেই\\" বিজ্ঞপ্তি লুকাতে দেয়।</string>
+    <string name="settings_monitor_connected_notification_description">একটি ডিভাইস সংযুক্ত হলে একটি অতিরিক্ত বিজ্ঞপ্তি দেখায়। এটি আপনাকে \"ডিভাইস স্ট্যাটাস\" চ্যানেল নিষ্ক্রিয় করে স্থায়ী \"কোনো ডিভাইস নেই\" বিজ্ঞপ্তি লুকাতে দেয়।</string>
     <string name="settings_scanner_mode_label">স্ক্যানার মোড</string>
     <string name="settings_scanner_mode_description">ব্লুটুথ লো এনার্জি ডেটা স্ক্যানার কি কর্মক্ষমতাকে অগ্রাধিকার দেবে নাকি শক্তি সংরক্ষণ করবে?</string>
     <string name="settings_autopause_label">স্বয়ংক্রিয় বিরতি</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">ন্যূনতম সংকেত গুণমান</string>
     <string name="settings_signal_minimum_description">একটি ডিভাইসকে আপনার হিসাবে বিবেচনা করার জন্য ন্যূনতম সংকেত গুণমান থাকতে হবে।</string>
     <string name="settings_autoconnect_label">স্বয়ংক্রিয় সংযোগ</string>
-    <string name="settings_autoconnect_description">যদি অ্যান্ড্রয়েড স্বয়ংক্রিয়ভাবে সংযোগ না করে, আমরাও এটি জিজ্ঞাসা করতে পারি। এটি মনিটর মোড সেটিংকে \\"সর্বদা\\" তে সেট করবে।</string>
+    <string name="settings_autoconnect_description">যদি অ্যান্ড্রয়েড স্বয়ংক্রিয়ভাবে সংযোগ না করে, আমরাও এটি জিজ্ঞাসা করতে পারি। এটি মনিটর মোড সেটিংকে \"সর্বদা\" তে সেট করবে।</string>
     <string name="settings_autoconnect_condition_label">স্বয়ংক্রিয় সংযোগের শর্ত</string>
     <string name="settings_autoconnect_condition_description">কখন আমাদের আপনার ডিভাইসের সাথে সংযোগ করার চেষ্টা করা উচিত?</string>
     <string name="settings_reaction_label">প্রতিক্রিয়া</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">সমস্যা সমাধানকারী</string>
     <string name="troubleshooter_ble_intro_title">ব্লুটুথ লো এনার্জি ব্রডকাস্ট</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (এবং অনুরূপ হেডফোন) \\"বিজ্ঞাপন\\" নামক একটি BLE প্রযুক্তি ব্যবহার করে স্ট্যাটাস তথ্য সম্প্রচার করে। কিছু ফোন এই প্রযুক্তি সঠিকভাবে প্রয়োগ করে না। CAPod ডেটা প্রাপ্ত না হওয়া পর্যন্ত বিভিন্ন সামঞ্জস্যতার বিকল্প চেষ্টা করে এটি ঠিক করার চেষ্টা করতে পারে। আপনার হেডফোনে সঙ্গীত প্লেব্যাক শুরু করুন এবং সেগুলি আপনার ফোনের কাছে রাখুন, তারপর প্রক্রিয়াটি শুরু করুন।</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (এবং অনুরূপ হেডফোন) \"বিজ্ঞাপন\" নামক একটি BLE প্রযুক্তি ব্যবহার করে স্ট্যাটাস তথ্য সম্প্রচার করে। কিছু ফোন এই প্রযুক্তি সঠিকভাবে প্রয়োগ করে না। CAPod ডেটা প্রাপ্ত না হওয়া পর্যন্ত বিভিন্ন সামঞ্জস্যতার বিকল্প চেষ্টা করে এটি ঠিক করার চেষ্টা করতে পারে। আপনার হেডফোনে সঙ্গীত প্লেব্যাক শুরু করুন এবং সেগুলি আপনার ফোনের কাছে রাখুন, তারপর প্রক্রিয়াটি শুরু করুন।</string>
     <string name="troubleshooter_ble_intro_start_action">সমস্যা সমাধান শুরু করুন</string>
     <string name="troubleshooter_ble_process_title">সমস্যা সমাধান চলছে</string>
     <string name="troubleshooter_ble_process_subtile">প্রতিটি ধাপ ৫-১০ সেকেন্ড সময় নেয়</string>

@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Λειτουργία παρακολούθησης</string>
     <string name="settings_monitor_mode_description">Υπό ποιες συνθήκες αυτή η εφαρμογή παρακολουθεί δεδομένα Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Επιπλέον ειδοποίηση</string>
-    <string name="settings_monitor_connected_notification_description">Εμφανίζει μια επιπλέον ειδοποίηση όταν μια συσκευή είναι συνδεδεμένη. Αυτό σας επιτρέπει να αποκρύψετε τη μόνιμη ειδοποίηση \\"Δεν υπάρχουν συσκευές\\" απενεργοποιώντας το κανάλι \\"Κατάσταση συσκευής\\".</string>
+    <string name="settings_monitor_connected_notification_description">Εμφανίζει μια επιπλέον ειδοποίηση όταν μια συσκευή είναι συνδεδεμένη. Αυτό σας επιτρέπει να αποκρύψετε τη μόνιμη ειδοποίηση \"Δεν υπάρχουν συσκευές\" απενεργοποιώντας το κανάλι \"Κατάσταση συσκευής\".</string>
     <string name="settings_scanner_mode_label">Λειτουργία σαρωτή</string>
     <string name="settings_scanner_mode_description">Ο σαρωτής δεδομένων Bluetooth Low Energy θα πρέπει να δώσει προτεραιότητα στην απόδοση ή στην εξοικονόμηση ενέργειας;</string>
     <string name="settings_autopause_label">Αυτόματη παύση</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
     <string name="settings_signal_minimum_description">Η ελάχιστη ποιότητα σήματος που πρέπει να έχει μια συσκευή για να θεωρηθεί δική σας.</string>
     <string name="settings_autoconnect_label">Αυτόματη σύνδεση</string>
-    <string name="settings_autoconnect_description">Εάν το Android δεν συνδεθεί αυτόματα, μπορούμε να το ζητήσουμε κι εμείς. Αυτό θα ορίσει τη ρύθμιση της λειτουργίας παρακολούθησης σε \\"Πάντα\\".</string>
+    <string name="settings_autoconnect_description">Εάν το Android δεν συνδεθεί αυτόματα, μπορούμε να το ζητήσουμε κι εμείς. Αυτό θα ορίσει τη ρύθμιση της λειτουργίας παρακολούθησης σε \"Πάντα\".</string>
     <string name="settings_autoconnect_condition_label">Συνθήκη αυτόματης σύνδεσης</string>
     <string name="settings_autoconnect_condition_description">Πότε πρέπει να προσπαθήσουμε να συνδεθούμε στη συσκευή σας;</string>
     <string name="settings_reaction_label">Αντιδράσεις</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Αντιμετώπιση προβλημάτων</string>
     <string name="troubleshooter_ble_intro_title">Εκπομπές Bluetooth χαμηλής ενέργειας</string>
-    <string name="troubleshooter_ble_intro_body1">Τα AirPods (και παρόμοια ακουστικά) μεταδίδουν πληροφορίες κατάστασης χρησιμοποιώντας μια τεχνολογία BLE που ονομάζεται \\"διαφημίσεις\\". Ορισμένα τηλέφωνα δεν εφαρμόζουν σωστά αυτήν την τεχνολογία. Το CAPod μπορεί να προσπαθήσει να το διορθώσει δοκιμάζοντας διαφορετικές επιλογές συμβατότητας μέχρι να ληφθούν δεδομένα. Ξεκινήστε την αναπαραγωγή μουσικής στα ακουστικά σας και τοποθετήστε τα κοντά στο τηλέφωνό σας, στη συνέχεια ξεκινήστε τη διαδικασία.</string>
+    <string name="troubleshooter_ble_intro_body1">Τα AirPods (και παρόμοια ακουστικά) μεταδίδουν πληροφορίες κατάστασης χρησιμοποιώντας μια τεχνολογία BLE που ονομάζεται \"διαφημίσεις\". Ορισμένα τηλέφωνα δεν εφαρμόζουν σωστά αυτήν την τεχνολογία. Το CAPod μπορεί να προσπαθήσει να το διορθώσει δοκιμάζοντας διαφορετικές επιλογές συμβατότητας μέχρι να ληφθούν δεδομένα. Ξεκινήστε την αναπαραγωγή μουσικής στα ακουστικά σας και τοποθετήστε τα κοντά στο τηλέφωνό σας, στη συνέχεια ξεκινήστε τη διαδικασία.</string>
     <string name="troubleshooter_ble_intro_start_action">Έναρξη αντιμετώπισης προβλημάτων</string>
     <string name="troubleshooter_ble_process_title">Η αντιμετώπιση προβλημάτων βρίσκεται σε εξέλιξη</string>
     <string name="troubleshooter_ble_process_subtile">Κάθε βήμα διαρκεί 5–10 δευτερόλεπτα</string>

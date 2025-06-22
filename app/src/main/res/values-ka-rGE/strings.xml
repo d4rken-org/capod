@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">მონიტორინგის რეჟიმი</string>
     <string name="settings_monitor_mode_description">რა გარემოებებში აკონტროლებს ეს აპლიკაცია Bluetooth-ის მონაცემებს.</string>
     <string name="settings_monitor_connected_notification_label">დამატებითი შეტყობინება</string>
-    <string name="settings_monitor_connected_notification_description">აჩვენებს დამატებით შეტყობინებას, როდესაც მოწყობილობა დაკავშირებულია. ეს საშუალებას გაძლევთ დამალოთ მუდმივი \\"მოწყობილობები არ არის\\" შეტყობინება \\"მოწყობილობის სტატუსის\\" არხის გამორთვით.</string>
+    <string name="settings_monitor_connected_notification_description">აჩვენებს დამატებით შეტყობინებას, როდესაც მოწყობილობა დაკავშირებულია. ეს საშუალებას გაძლევთ დამალოთ მუდმივი \"მოწყობილობები არ არის\" შეტყობინება \"მოწყობილობის სტატუსის\" არხის გამორთვით.</string>
     <string name="settings_scanner_mode_label">სკანერის რეჟიმი</string>
     <string name="settings_scanner_mode_description">Bluetooth Low Energy მონაცემთა სკანერმა პრიორიტეტი უნდა მიანიჭოს შესრულებას თუ ენერგიის დაზოგვას?</string>
     <string name="settings_autopause_label">ავტომატური პაუზა</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">სიგნალის მინიმალური ხარისხი</string>
     <string name="settings_signal_minimum_description">სიგნალის მინიმალური ხარისხი, რომელიც მოწყობილობას უნდა ჰქონდეს, რომ თქვენად ჩაითვალოს.</string>
     <string name="settings_autoconnect_label">ავტომატური დაკავშირება</string>
-    <string name="settings_autoconnect_description">თუ Android ავტომატურად არ უკავშირდება, ჩვენც შეგვიძლია მოვითხოვოთ. ეს მონიტორინგის რეჟიმის პარამეტრს \\"ყოველთვის\\"-ზე დააყენებს.</string>
+    <string name="settings_autoconnect_description">თუ Android ავტომატურად არ უკავშირდება, ჩვენც შეგვიძლია მოვითხოვოთ. ეს მონიტორინგის რეჟიმის პარამეტრს \"ყოველთვის\"-ზე დააყენებს.</string>
     <string name="settings_autoconnect_condition_label">ავტომატური დაკავშირების პირობა</string>
     <string name="settings_autoconnect_condition_description">როდის უნდა ვცადოთ თქვენს მოწყობილობასთან დაკავშირება?</string>
     <string name="settings_reaction_label">რეაქციები</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">პრობლემების 해결</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy მაუწყებლობა</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (და მსგავსი ყურსასმენები) სტატუსის ინფორმაციას მაუწყებლობენ BLE ტექნოლოგიის გამოყენებით, რომელსაც \\"რეკლამები\\" ეწოდება. ზოგიერთი ტელეფონი ამ ტექნოლოგიას სწორად არ ახორციელებს. CAPod-ს შეუძლია სცადოს ამის გამოსწორება სხვადასხვა თავსებადობის ვარიანტების ცდით, სანამ მონაცემები არ მიიღება. დაიწყეთ მუსიკის დაკვრა თქვენს ყურსასმენებში და მოათავსეთ ისინი თქვენს ტელეფონთან ახლოს, შემდეგ დაიწყეთ პროცესი.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (და მსგავსი ყურსასმენები) სტატუსის ინფორმაციას მაუწყებლობენ BLE ტექნოლოგიის გამოყენებით, რომელსაც \"რეკლამები\" ეწოდება. ზოგიერთი ტელეფონი ამ ტექნოლოგიას სწორად არ ახორციელებს. CAPod-ს შეუძლია სცადოს ამის გამოსწორება სხვადასხვა თავსებადობის ვარიანტების ცდით, სანამ მონაცემები არ მიიღება. დაიწყეთ მუსიკის დაკვრა თქვენს ყურსასმენებში და მოათავსეთ ისინი თქვენს ტელეფონთან ახლოს, შემდეგ დაიწყეთ პროცესი.</string>
     <string name="troubleshooter_ble_intro_start_action">პრობლემების მოგვარების დაწყება</string>
     <string name="troubleshooter_ble_process_title">პრობლემების მოგვარება მიმდინარეობს</string>
     <string name="troubleshooter_ble_process_subtile">თითოეულ ნაბიჯს 5-10 წამი სჭირდება</string>

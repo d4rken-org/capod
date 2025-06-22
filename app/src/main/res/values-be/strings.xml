@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Рэжым маніторынгу</string>
     <string name="settings_monitor_mode_description">Пры якіх абставінах гэта праграма сочыць за данымі Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Дадатковае апавяшчэнне</string>
-    <string name="settings_monitor_connected_notification_description">Паказвае дадатковае апавяшчэнне пры падключэнні прылады. Гэта дазваляе схаваць пастаяннае апавяшчэнне \\"Няма прылад\\" шляхам адключэння канала \\"Стан прылады\\".</string>
+    <string name="settings_monitor_connected_notification_description">Паказвае дадатковае апавяшчэнне пры падключэнні прылады. Гэта дазваляе схаваць пастаяннае апавяшчэнне \"Няма прылад\" шляхам адключэння канала \"Стан прылады\".</string>
     <string name="settings_scanner_mode_label">Рэжым сканера</string>
     <string name="settings_scanner_mode_description">Ці павінен сканер даных Bluetooth Low Energy аддаваць перавагу прадукцыйнасці або эканоміць энергію?</string>
     <string name="settings_autopause_label">Аўтаматычная паўза</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Мінімальная якасць сігналу</string>
     <string name="settings_signal_minimum_description">Мінімальная якасць сігналу, якую павінна мець прылада, каб лічыцца вашай.</string>
     <string name="settings_autoconnect_label">Аўтаматычнае падключэнне</string>
-    <string name="settings_autoconnect_description">Калі Android не падключаецца аўтаматычна, мы таксама можам запытаць гэта. Гэта ўсталюе для налады рэжыму маніторынгу значэнне \\"Заўсёды\\".</string>
+    <string name="settings_autoconnect_description">Калі Android не падключаецца аўтаматычна, мы таксама можам запытаць гэта. Гэта ўсталюе для налады рэжыму маніторынгу значэнне \"Заўсёды\".</string>
     <string name="settings_autoconnect_condition_label">Умова аўтаматычнага падключэння</string>
     <string name="settings_autoconnect_condition_description">Калі мы павінны спрабаваць падключыцца да вашай прылады?</string>
     <string name="settings_reaction_label">Рэакцыі</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Ліквідатар непаладак</string>
     <string name="troubleshooter_ble_intro_title">Трансляцыі Bluetooth Low Energy</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (і падобныя навушнікі) транслююць інфармацыю пра стан з дапамогай тэхналогіі BLE пад назвай \\"рэкламныя аб\'явы\\". Некаторыя тэлефоны не рэалізуюць гэту тэхналогію правільна. CAPod можа паспрабаваць выправіць гэта, спрабуючы розныя параметры сумяшчальнасці, пакуль не будуць атрыманы даныя. Пачніце прайграванне музыкі на навушніках і размесціце іх побач з тэлефонам, затым пачніце працэс.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (і падобныя навушнікі) транслююць інфармацыю пра стан з дапамогай тэхналогіі BLE пад назвай \"рэкламныя аб\'явы\". Некаторыя тэлефоны не рэалізуюць гэту тэхналогію правільна. CAPod можа паспрабаваць выправіць гэта, спрабуючы розныя параметры сумяшчальнасці, пакуль не будуць атрыманы даныя. Пачніце прайграванне музыкі на навушніках і размесціце іх побач з тэлефонам, затым пачніце працэс.</string>
     <string name="troubleshooter_ble_intro_start_action">Пачаць ліквідацыю непаладак</string>
     <string name="troubleshooter_ble_process_title">Ліквідацыя непаладак у працэсе</string>
     <string name="troubleshooter_ble_process_subtile">Кожны крок займае 5–10 секунд</string>

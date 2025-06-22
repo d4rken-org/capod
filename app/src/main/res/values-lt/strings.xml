@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Stebėjimo režimas</string>
     <string name="settings_monitor_mode_description">Kokiomis aplinkybėmis ši programa stebi „Bluetooth“ duomenis.</string>
     <string name="settings_monitor_connected_notification_label">Papildomas pranešimas</string>
-    <string name="settings_monitor_connected_notification_description">Rodo papildomą pranešimą, kai prijungiamas įrenginys. Tai leidžia paslėpti nuolatinį pranešimą \\"Nėra įrenginių\\" išjungiant kanalą \\"Įrenginio būsena\\".</string>
+    <string name="settings_monitor_connected_notification_description">Rodo papildomą pranešimą, kai prijungiamas įrenginys. Tai leidžia paslėpti nuolatinį pranešimą \"Nėra įrenginių\" išjungiant kanalą \"Įrenginio būsena\".</string>
     <string name="settings_scanner_mode_label">Skenavimo režimas</string>
     <string name="settings_scanner_mode_description">Ar „Bluetooth Low Energy“ duomenų skaitytuvas turėtų teikti pirmenybę našumui ar taupyti energiją?</string>
     <string name="settings_autopause_label">Automatinė pauzė</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
     <string name="settings_signal_minimum_description">Minimali signalo kokybė, kurią turi turėti įrenginys, kad būtų laikomas jūsų.</string>
     <string name="settings_autoconnect_label">Automatinis prisijungimas</string>
-    <string name="settings_autoconnect_description">Jei „Android“ neprisijungia automatiškai, mes taip pat galime to paprašyti. Tai nustatys stebėjimo režimo nustatymą į \\"Visada\\".</string>
+    <string name="settings_autoconnect_description">Jei „Android“ neprisijungia automatiškai, mes taip pat galime to paprašyti. Tai nustatys stebėjimo režimo nustatymą į \"Visada\".</string>
     <string name="settings_autoconnect_condition_label">Automatinio prisijungimo sąlyga</string>
     <string name="settings_autoconnect_condition_description">Kada turėtume bandyti prisijungti prie jūsų įrenginio?</string>
     <string name="settings_reaction_label">Reakcijos</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Problemų sprendiklis</string>
     <string name="troubleshooter_ble_intro_title">„Bluetooth Low Energy“ transliacijos</string>
-    <string name="troubleshooter_ble_intro_body1">„AirPods“ (ir panašios ausinės) transliuoja būsenos informaciją naudodamos BLE technologiją, vadinamą \\"reklamomis\\". Kai kurie telefonai šios technologijos tinkamai neįgyvendina. CAPod gali bandyti tai ištaisyti bandydamas skirtingas suderinamumo parinktis, kol bus gauti duomenys. Pradėkite muzikos atkūrimą ausinėse ir padėkite jas šalia telefono, tada pradėkite procesą.</string>
+    <string name="troubleshooter_ble_intro_body1">„AirPods“ (ir panašios ausinės) transliuoja būsenos informaciją naudodamos BLE technologiją, vadinamą \"reklamomis\". Kai kurie telefonai šios technologijos tinkamai neįgyvendina. CAPod gali bandyti tai ištaisyti bandydamas skirtingas suderinamumo parinktis, kol bus gauti duomenys. Pradėkite muzikos atkūrimą ausinėse ir padėkite jas šalia telefono, tada pradėkite procesą.</string>
     <string name="troubleshooter_ble_intro_start_action">Pradėti problemų sprendimą</string>
     <string name="troubleshooter_ble_process_title">Vykdomas problemų sprendimas</string>
     <string name="troubleshooter_ble_process_subtile">Kiekvienas žingsnis trunka 5–10 sekundžių</string>

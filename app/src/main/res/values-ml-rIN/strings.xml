@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">മോണിറ്റർ മോഡ്</string>
     <string name="settings_monitor_mode_description">ഈ ആപ്പ് ഏത് സാഹചര്യത്തിലാണ് ബ്ലൂടൂത്ത് ഡാറ്റ നിരീക്ഷിക്കുന്നത്.</string>
     <string name="settings_monitor_connected_notification_label">അധിക അറിയിപ്പ്</string>
-    <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ ഒരു അധിക അറിയിപ്പ് കാണിക്കുന്നു. \\"ഉപകരണ നില\\" ചാനൽ പ്രവർത്തനരഹിതമാക്കി സ്ഥിരമായ \\"ഉപകരണങ്ങളൊന്നുമില്ല\\" അറിയിപ്പ് മറയ്ക്കാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു.</string>
+    <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ ഒരു അധിക അറിയിപ്പ് കാണിക്കുന്നു. \"ഉപകരണ നില\" ചാനൽ പ്രവർത്തനരഹിതമാക്കി സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് മറയ്ക്കാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു.</string>
     <string name="settings_scanner_mode_label">സ്കാനർ മോഡ്</string>
     <string name="settings_scanner_mode_description">ബ്ലൂടൂത്ത് ലോ എനർജി ഡാറ്റ സ്കാനർ പ്രകടനത്തിന് മുൻഗണന നൽകണോ അതോ ഊർജ്ജം ലാഭിക്കണോ?</string>
     <string name="settings_autopause_label">യാന്ത്രികമായി താൽക്കാലികമായി നിർത്തുക</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">കുറഞ്ഞ സിഗ്നൽ നിലവാരം</string>
     <string name="settings_signal_minimum_description">ഒരു ഉപകരണം നിങ്ങളുടേതാണെന്ന് കണക്കാക്കാൻ ആവശ്യമായ ഏറ്റവും കുറഞ്ഞ സിഗ്നൽ നിലവാരം.</string>
     <string name="settings_autoconnect_label">യാന്ത്രികമായി കണക്റ്റുചെയ്യുക</string>
-    <string name="settings_autoconnect_description">Android യാന്ത്രികമായി കണക്റ്റുചെയ്യുന്നില്ലെങ്കിൽ, ഞങ്ങൾക്കും അത് അഭ്യർത്ഥിക്കാം. ഇത് മോണിറ്റർ മോഡ് ക്രമീകരണം \\"എപ്പോഴും\\" എന്നതിലേക്ക് സജ്ജമാക്കും.</string>
+    <string name="settings_autoconnect_description">Android യാന്ത്രികമായി കണക്റ്റുചെയ്യുന്നില്ലെങ്കിൽ, ഞങ്ങൾക്കും അത് അഭ്യർത്ഥിക്കാം. ഇത് മോണിറ്റർ മോഡ് ക്രമീകരണം \"എപ്പോഴും\" എന്നതിലേക്ക് സജ്ജമാക്കും.</string>
     <string name="settings_autoconnect_condition_label">യാന്ത്രിക കണക്ഷൻ വ്യവസ്ഥ</string>
     <string name="settings_autoconnect_condition_description">എപ്പോഴാണ് ഞങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്യാൻ ശ്രമിക്കേണ്ടത്?</string>
     <string name="settings_reaction_label">പ്രতিকകരണങ്ങൾ</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">ട്രബിൾഷൂട്ടർ</string>
     <string name="troubleshooter_ble_intro_title">ബ്ലൂടൂത്ത് ലോ എനർജി പ്രക്ഷേപണങ്ങൾ</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \\"പരസ്യങ്ങൾ\\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ ಪ್ರಾರಂಭിക്കുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \"പരസ്യങ്ങൾ\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ ಪ್ರಾರಂಭിക്കുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
     <string name="troubleshooter_ble_intro_start_action">ട്രബിൾഷൂട്ടിംഗ് ആരംഭിക്കുക</string>
     <string name="troubleshooter_ble_process_title">ട്രബിൾഷൂട്ടിംഗ് പുരോഗമിക്കുന്നു</string>
     <string name="troubleshooter_ble_process_subtile">ഓരോ ഘട്ടവും 5-10 സെക്കൻഡ് എടുക്കും</string>

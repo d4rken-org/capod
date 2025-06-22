@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Monitor mode</string>
     <string name="settings_monitor_mode_description">Sa ilalim ng anong mga pangyayari mino-monitor ng app na ito ang data ng Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Karagdagang notipikasyon</string>
-    <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \\\"Walang mga device\\\" na notipikasyon sa pamamagitan ng pag-disable sa \\\"Katayuan ng device\\\" na channel.</string>
+    <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \"Walang mga device\" na notipikasyon sa pamamagitan ng pag-disable sa \"Katayuan ng device\" na channel.</string>
     <string name="settings_scanner_mode_label">Scanner mode</string>
     <string name="settings_scanner_mode_description">Dapat bang unahin ng Bluetooth Low Energy data scanner ang performance o magtipid ng enerhiya?</string>
     <string name="settings_autopause_label">Auto pause</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
     <string name="settings_signal_minimum_description">Ang minimum na kalidad ng signal na kailangan ng isang device para maituring na sa iyo.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
-    <string name="settings_autoconnect_description">Kung hindi awtomatikong kumonekta ang Android, maaari rin natin itong hilingin. Itatakda nito ang setting ng monitor mode sa \\\'Palagi\\\'.</string>
+    <string name="settings_autoconnect_description">Kung hindi awtomatikong kumonekta ang Android, maaari rin natin itong hilingin. Itatakda nito ang setting ng monitor mode sa \'Palagi\'.</string>
     <string name="settings_autoconnect_condition_label">Kondisyon ng auto connect</string>
     <string name="settings_autoconnect_condition_description">Kailan tayo dapat sumubok kumonekta sa iyong device?</string>
     <string name="settings_reaction_label">Mga Reaksyon</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Troubleshooter</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcasts</string>
-    <string name="troubleshooter_ble_intro_body1">Ang AirPods (at mga katulad na headphone) ay nagbo-broadcast ng impormasyon ng status gamit ang isang BLE technology na tinatawag na \\\"advertisements\\\". Hindi ipinapatupad ng ilang telepono nang tama ang technology na ito. Maaaring subukan ng CAPod na ayusin ito sa pamamagitan ng pagsubok ng iba\'t ibang mga opsyon sa compatibility hanggang sa matanggap ang data. Simulan ang pag-playback ng musika sa iyong mga headphone at ilagay ang mga ito malapit sa iyong telepono, pagkatapos ay simulan ang proseso.</string>
+    <string name="troubleshooter_ble_intro_body1">Ang AirPods (at mga katulad na headphone) ay nagbo-broadcast ng impormasyon ng status gamit ang isang BLE technology na tinatawag na \"advertisements\". Hindi ipinapatupad ng ilang telepono nang tama ang technology na ito. Maaaring subukan ng CAPod na ayusin ito sa pamamagitan ng pagsubok ng iba\'t ibang mga opsyon sa compatibility hanggang sa matanggap ang data. Simulan ang pag-playback ng musika sa iyong mga headphone at ilagay ang mga ito malapit sa iyong telepono, pagkatapos ay simulan ang proseso.</string>
     <string name="troubleshooter_ble_intro_start_action">Simulan ang pag-troubleshoot</string>
     <string name="troubleshooter_ble_process_title">Kasalukuyang nag-troubleshoot</string>
     <string name="troubleshooter_ble_process_subtile">Bawat hakbang ay tumatagal ng 5–10 segundo</string>

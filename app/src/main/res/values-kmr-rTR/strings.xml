@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Moda çavdêriyê</string>
     <string name="settings_monitor_mode_description">Di kîjan şert û mercan de ev sepan daneyên Bluetooth dişopîne.</string>
     <string name="settings_monitor_connected_notification_label">Agahdariya zêde</string>
-    <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \\"Amûr tune\\" bi neçalakkirina kanala \\"Rewşa amûrê\\" veşêrin.</string>
+    <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \"Amûr tune\" bi neçalakkirina kanala \"Rewşa amûrê\" veşêrin.</string>
     <string name="settings_scanner_mode_label">Moda skanerê</string>
     <string name="settings_scanner_mode_description">Gelo divê skanera daneyên Bluetooth Kêm Enerjiyê pêşî li performansê bigire an enerjiyê biparêze?</string>
     <string name="settings_autopause_label">Rawestandina otomatîk</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
     <string name="settings_signal_minimum_description">Qalîteya sînyala herî kêm a ku divê amûrek hebe da ku ya we were hesibandin.</string>
     <string name="settings_autoconnect_label">Girêdana otomatîk</string>
-    <string name="settings_autoconnect_description">Heke Android bixweber girê nede, em jî dikarin jê bixwazin. Ev ê mîhenga moda çavdêriyê bike \\"Herdem\\".</string>
+    <string name="settings_autoconnect_description">Heke Android bixweber girê nede, em jî dikarin jê bixwazin. Ev ê mîhenga moda çavdêriyê bike \"Herdem\".</string>
     <string name="settings_autoconnect_condition_label">Şertê girêdana otomatîk</string>
     <string name="settings_autoconnect_condition_description">Kengê divê em hewl bidin ku bi amûra we ve girêbidin?</string>
     <string name="settings_reaction_label">Bertek</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Çareserkerê pirsgirêkan</string>
     <string name="troubleshooter_ble_intro_title">Weşanên Bluetooth Kêm Enerjiyê</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (û guhêrên mîna wan) agahdariya rewşê bi karanîna teknolojiyek BLE ya bi navê \\"reklam\\" diweşînin. Hin têlefon vê teknolojiyê rast bicîh naynin. CAPod dikare hewl bide ku vê yekê bi ceribandina vebijarkên lihevhatinê yên cihêreng heya ku dane werin wergirtin sererast bike. Lîstina muzîkê li ser guhêrên xwe bidin destpêkirin û wan li nêzî têlefona xwe bicîh bikin, paşê pêvajoyê bidin destpêkirin.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (û guhêrên mîna wan) agahdariya rewşê bi karanîna teknolojiyek BLE ya bi navê \"reklam\" diweşînin. Hin têlefon vê teknolojiyê rast bicîh naynin. CAPod dikare hewl bide ku vê yekê bi ceribandina vebijarkên lihevhatinê yên cihêreng heya ku dane werin wergirtin sererast bike. Lîstina muzîkê li ser guhêrên xwe bidin destpêkirin û wan li nêzî têlefona xwe bicîh bikin, paşê pêvajoyê bidin destpêkirin.</string>
     <string name="troubleshooter_ble_intro_start_action">Dest bi çareserkirina pirsgirêkan bike</string>
     <string name="troubleshooter_ble_process_title">Çareserkirina pirsgirêkan didome</string>
     <string name="troubleshooter_ble_process_subtile">Her gav 5-10 saniyan digire</string>

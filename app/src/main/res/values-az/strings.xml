@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">İzləmə rejimi</string>
     <string name="settings_monitor_mode_description">Bu tətbiqin Bluetooth məlumatlarını hansı şəraitdə izlədiyi.</string>
     <string name="settings_monitor_connected_notification_label">Əlavə bildiriş</string>
-    <string name="settings_monitor_connected_notification_description">Cihaz qoşulduqda əlavə bildiriş göstərir. Bu, \\"Cihaz statusu\\" kanalını deaktiv etməklə daimi \\"Cihaz yoxdur\\" bildirişini gizlətməyə imkan verir.</string>
+    <string name="settings_monitor_connected_notification_description">Cihaz qoşulduqda əlavə bildiriş göstərir. Bu, \"Cihaz statusu\" kanalını deaktiv etməklə daimi \"Cihaz yoxdur\" bildirişini gizlətməyə imkan verir.</string>
     <string name="settings_scanner_mode_label">Skaner rejimi</string>
     <string name="settings_scanner_mode_description">Bluetooth Aşağı Enerji məlumat skaneri performansa üstünlük verməli, yoxsa enerjiyə qənaət etməlidir?</string>
     <string name="settings_autopause_label">Avtomatik fasilə</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
     <string name="settings_signal_minimum_description">Bir cihazın sizə aid hesab edilməsi üçün malik olmalı olduğu minimum siqnal keyfiyyəti.</string>
     <string name="settings_autoconnect_label">Avtomatik qoşulma</string>
-    <string name="settings_autoconnect_description">Əgər Android avtomatik qoşulmursa, biz də ondan xahiş edə bilərik. Bu, izləmə rejimi parametrini \\"Həmişə\\" olaraq təyin edəcək.</string>
+    <string name="settings_autoconnect_description">Əgər Android avtomatik qoşulmursa, biz də ondan xahiş edə bilərik. Bu, izləmə rejimi parametrini \"Həmişə\" olaraq təyin edəcək.</string>
     <string name="settings_autoconnect_condition_label">Avtomatik qoşulma şərti</string>
     <string name="settings_autoconnect_condition_description">Cihazınıza nə vaxt qoşulmağa cəhd etməliyik?</string>
     <string name="settings_reaction_label">Reaksiyalar</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Problem Aradan Qaldırıcı</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Aşağı Enerji Yayımları</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (və oxşar qulaqlıqlar) \\"reklamlar\\" adlanan BLE texnologiyasından istifadə edərək status məlumatlarını yayımlayır. Bəzi telefonlar bu texnologiyanı düzgün tətbiq etmir. CAPod, məlumat alınana qədər fərqli uyğunluq seçimlərini sınayaraq bunu düzəltməyə cəhd edə bilər. Qulaqlıqlarınızda musiqi oxutmasını başladın və onları telefonunuza yaxın yerləşdirin, sonra prosesi başladın.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (və oxşar qulaqlıqlar) \"reklamlar\" adlanan BLE texnologiyasından istifadə edərək status məlumatlarını yayımlayır. Bəzi telefonlar bu texnologiyanı düzgün tətbiq etmir. CAPod, məlumat alınana qədər fərqli uyğunluq seçimlərini sınayaraq bunu düzəltməyə cəhd edə bilər. Qulaqlıqlarınızda musiqi oxutmasını başladın və onları telefonunuza yaxın yerləşdirin, sonra prosesi başladın.</string>
     <string name="troubleshooter_ble_intro_start_action">Problem aradan qaldırmağa başla</string>
     <string name="troubleshooter_ble_process_title">Problem aradan qaldırılır</string>
     <string name="troubleshooter_ble_process_subtile">Hər addım 5-10 saniyə çəkir</string>

@@ -17,7 +17,7 @@
     <string name="settings_monitor_mode_label">Način praćenja</string>
     <string name="settings_monitor_mode_description">Pod kojim okolnostima ova aplikacija prati Bluetooth podatke.</string>
     <string name="settings_monitor_connected_notification_label">Dodatna obavijest</string>
-    <string name="settings_monitor_connected_notification_description">Prikazuje dodatnu obavijest kada je uređaj povezan. To vam omogućuje da sakrijete trajnu obavijest \\\"Nema uređaja\\\" onemogućavanjem kanala \\\"Status uređaja\\\".</string>
+    <string name="settings_monitor_connected_notification_description">Prikazuje dodatnu obavijest kada je uređaj povezan. To vam omogućuje da sakrijete trajnu obavijest \"Nema uređaja\" onemogućavanjem kanala \"Status uređaja\".</string>
     <string name="settings_scanner_mode_label">Način skeniranja</string>
     <string name="settings_scanner_mode_description">Treba li Bluetooth Low Energy skener podataka dati prednost performansama ili štedjeti energiju?</string>
     <string name="settings_autopause_label">Automatska pauza</string>
@@ -33,7 +33,7 @@
     <string name="settings_signal_minimum_label">Minimalna kvaliteta signala</string>
     <string name="settings_signal_minimum_description">Minimalna kvaliteta signala koju uređaj mora imati da bi se smatrao vašim.</string>
     <string name="settings_autoconnect_label">Automatsko povezivanje</string>
-    <string name="settings_autoconnect_description">Ako se Android ne poveže automatski, možemo ga i mi zatražiti. Ovo će postaviti način praćenja na \\\'Uvijek\\\'.</string>
+    <string name="settings_autoconnect_description">Ako se Android ne poveže automatski, možemo ga i mi zatražiti. Ovo će postaviti način praćenja na \'Uvijek\'.</string>
     <string name="settings_autoconnect_condition_label">Uvjet automatskog povezivanja</string>
     <string name="settings_autoconnect_condition_description">Kada bismo se trebali pokušati povezati s vašim uređajem?</string>
     <string name="settings_reaction_label">Reakcije</string>
@@ -109,7 +109,7 @@
     <string name="settings_compat_indirectcallback_summary">Koristite alternativnu metodu za primanje BLE podataka od sustava (emitiranje umjesto povratnog poziva).</string>
     <string name="troubleshooter_title">Rješavanje problema</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy emisije</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (i slične slušalice) emitiraju informacije o statusu koristeći BLE tehnologiju zvanu \\\"oglasi\\\". Neki telefoni ne implementiraju ovu tehnologiju ispravno. CAPod može pokušati to popraviti isprobavanjem različitih opcija kompatibilnosti dok se podaci ne prime. Pokrenite reprodukciju glazbe na slušalicama i postavite ih blizu telefona, zatim pokrenite proces.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (i slične slušalice) emitiraju informacije o statusu koristeći BLE tehnologiju zvanu \"oglasi\". Neki telefoni ne implementiraju ovu tehnologiju ispravno. CAPod može pokušati to popraviti isprobavanjem različitih opcija kompatibilnosti dok se podaci ne prime. Pokrenite reprodukciju glazbe na slušalicama i postavite ih blizu telefona, zatim pokrenite proces.</string>
     <string name="troubleshooter_ble_intro_start_action">Započni rješavanje problema</string>
     <string name="troubleshooter_ble_process_title">Rješavanje problema u tijeku</string>
     <string name="troubleshooter_ble_process_subtile">Svaki korak traje 5–10 sekundi</string>

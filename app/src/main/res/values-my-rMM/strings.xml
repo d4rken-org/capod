@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">စောင့်ကြည့်မုဒ်</string>
     <string name="settings_monitor_mode_description">ဤအက်ပ်က Bluetooth ဒေတာကို မည်သည့်အခြေအနေတွင် စောင့်ကြည့်သနည်း။</string>
     <string name="settings_monitor_connected_notification_label">အပိုအသိပေးချက်</string>
-    <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခုချိတ်ဆက်သောအခါ အပိုအသိပေးချက်တစ်ခုပြသသည်။ ၎င်းသည် \\"စက်ပစ္စည်းအခြေအနေ\\" ချန်နယ်ကို ပိတ်ခြင်းဖြင့် အမြဲတမ်း \\"စက်ပစ္စည်းမရှိပါ\\" အသိပေးချက်ကို ဝှက်ထားနိုင်စေသည်။</string>
+    <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခုချိတ်ဆက်သောအခါ အပိုအသိပေးချက်တစ်ခုပြသသည်။ ၎င်းသည် \"စက်ပစ္စည်းအခြေအနေ\" ချန်နယ်ကို ပိတ်ခြင်းဖြင့် အမြဲတမ်း \"စက်ပစ္စည်းမရှိပါ\" အသိပေးချက်ကို ဝှက်ထားနိုင်စေသည်။</string>
     <string name="settings_scanner_mode_label">စကင်နာမုဒ်</string>
     <string name="settings_scanner_mode_description">Bluetooth Low Energy ဒေတာစကင်နာသည် စွမ်းဆောင်ရည်ကို ဦးစားပေးသင့်သလား သို့မဟုတ် စွမ်းအင်ချွေတာသင့်သလား။</string>
     <string name="settings_autopause_label">အလိုအလြှောက်ရပ်တန့်ခြင်း</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
     <string name="settings_signal_minimum_description">သင့်စက်ပစ္စည်းဟု မှတ်ယူရန် စက်ပစ္စည်းတစ်ခုတွင်ရှိရမည့် အနိမ့်ဆုံးအချက်ပြအရည်အသွေး။</string>
     <string name="settings_autoconnect_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်း</string>
-    <string name="settings_autoconnect_description">Android က အလိုအလြှောက်မချိတ်ဆက်ပါက ကျွန်ုပ်တို့လည်း တောင်းဆိုနိုင်သည်။ ၎င်းသည် စောင့်ကြည့်မုဒ်ဆက်တင်ကို \\"အမြဲတမ်း\\" ဟု သတ်မှတ်ပေးမည်ဖြစ်သည်။</string>
+    <string name="settings_autoconnect_description">Android က အလိုအလြှောက်မချိတ်ဆက်ပါက ကျွန်ုပ်တို့လည်း တောင်းဆိုနိုင်သည်။ ၎င်းသည် စောင့်ကြည့်မုဒ်ဆက်တင်ကို \"အမြဲတမ်း\" ဟု သတ်မှတ်ပေးမည်ဖြစ်သည်။</string>
     <string name="settings_autoconnect_condition_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်းအခြေအနေ</string>
     <string name="settings_autoconnect_condition_description">သင့်စက်ပစ္စည်းသို့ မည်သည့်အချိန်တွင် ချိတ်ဆက်ရန်ကြိုးစားသင့်သနည်း။</string>
     <string name="settings_reaction_label">တုံ့ပြန်မှုများ</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">ပြဿနာဖြေရှင်းသူ</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy ထုတ်လွှင့်မှုများ</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (နှင့် အလားတူနားကြပ်များ) သည် \\"ကြော်ငြာများ\\" ဟုခေါ်သော BLE နည်းပညာကိုအသုံးပြု၍ အခြေအနေအချက်အလက်များကို ထုတ်လွှင့်သည်။ အချို့ဖုန်းများသည် ဤနည်းပညာကို မှန်ကန်စွာအကောင်အထည်မဖော်နိုင်ပါ။ CAPod သည် ဒေတာလက်ခံရရှိသည်အထိ မတူညီသောလိုက်ဖက်ညီမှုရွေးချယ်စရာများကို ကြိုးစားခြင်းဖြင့် ၎င်းကိုဖြေရှင်းရန်ကြိုးစားနိုင်သည်။ သင့်နားကြပ်များတွင် သီချင်းဖွင့်ခြင်းကိုစတင်ပြီး ၎င်းတို့ကို သင့်ဖုန်းအနီးတွင်ထားပါ၊ ထို့နောက် လုပ်ငန်းစဉ်ကိုစတင်ပါ။</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (နှင့် အလားတူနားကြပ်များ) သည် \"ကြော်ငြာများ\" ဟုခေါ်သော BLE နည်းပညာကိုအသုံးပြု၍ အခြေအနေအချက်အလက်များကို ထုတ်လွှင့်သည်။ အချို့ဖုန်းများသည် ဤနည်းပညာကို မှန်ကန်စွာအကောင်အထည်မဖော်နိုင်ပါ။ CAPod သည် ဒေတာလက်ခံရရှိသည်အထိ မတူညီသောလိုက်ဖက်ညီမှုရွေးချယ်စရာများကို ကြိုးစားခြင်းဖြင့် ၎င်းကိုဖြေရှင်းရန်ကြိုးစားနိုင်သည်။ သင့်နားကြပ်များတွင် သီချင်းဖွင့်ခြင်းကိုစတင်ပြီး ၎င်းတို့ကို သင့်ဖုန်းအနီးတွင်ထားပါ၊ ထို့နောက် လုပ်ငန်းစဉ်ကိုစတင်ပါ။</string>
     <string name="troubleshooter_ble_intro_start_action">ပြဿနာဖြေရှင်းခြင်းစတင်ပါ</string>
     <string name="troubleshooter_ble_process_title">ပြဿနာဖြေရှင်းခြင်းလုပ်ဆောင်နေသည်</string>
     <string name="troubleshooter_ble_process_subtile">အဆင့်တစ်ခုစီသည် ၅-၁၀ စက္ကန့်ကြာသည်</string>

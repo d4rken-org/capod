@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">ಮಾನಿಟರ್ ಮೋಡ್</string>
     <string name="settings_monitor_mode_description">ಯಾವ ಸಂದರ್ಭಗಳಲ್ಲಿ ಈ ಅಪ್ಲಿಕೇಶನ್ ಬ್ಲೂಟೂತ್ ಡೇಟಾವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ.</string>
     <string name="settings_monitor_connected_notification_label">ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆ</string>
-    <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದು \\"ಸಾಧನ ಸ್ಥಿತಿ\\" ಚಾನಲ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವ ಮೂಲಕ ಶಾಶ್ವತ \\"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
+    <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದು \"ಸಾಧನ ಸ್ಥಿತಿ\" ಚಾನಲ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವ ಮೂಲಕ ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
     <string name="settings_scanner_mode_label">ಸ್ಕ್ಯಾನರ್ ಮೋಡ್</string>
     <string name="settings_scanner_mode_description">ಬ್ಲೂಟೂತ್ ಕಡಿಮೆ ಶಕ್ತಿಯ ಡೇಟಾ ಸ್ಕ್ಯಾನರ್ ಕಾರ್ಯಕ್ಷಮತೆಗೆ ಆದ್ಯತೆ ನೀಡಬೇಕೇ ಅಥವಾ ಶಕ್ತಿಯನ್ನು ಉಳಿಸಬೇಕೇ?</string>
     <string name="settings_autopause_label">ಸ್ವಯಂ-ವಿರಾಮ</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
     <string name="settings_signal_minimum_description">ನಿಮ್ಮದೆಂದು ಪರಿಗಣಿಸಲು ಸಾಧನವು ಹೊಂದಿರಬೇಕಾದ ಕನಿಷ್ಠ ಸಿగ్ನಲ್ ಗುಣಮಟ್ಟ.</string>
     <string name="settings_autoconnect_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ</string>
-    <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಗೊಳ್ಳದಿದ್ದರೆ, ನಾವು ಕೂಡ ಅದನ್ನು ವಿನಂತಿಸಬಹುದು. ಇದು ಮಾನಿಟರ್ ಮೋಡ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು \\"ಯಾವಾಗಲೂ\\" ಗೆ ಹೊಂದಿಸುತ್ತದೆ.</string>
+    <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಗೊಳ್ಳದಿದ್ದರೆ, ನಾವು ಕೂಡ ಅದನ್ನು ವಿನಂತಿಸಬಹುದು. ಇದು ಮಾನಿಟರ್ ಮೋಡ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು \"ಯಾವಾಗಲೂ\" ಗೆ ಹೊಂದಿಸುತ್ತದೆ.</string>
     <string name="settings_autoconnect_condition_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ ಸ್ಥಿತಿ</string>
     <string name="settings_autoconnect_condition_description">ನಾವು ಯಾವಾಗ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಸಂಪರ್ಕಿಸಲು ಪ್ರಯತ್ನಿಸಬೇಕು?</string>
     <string name="settings_reaction_label">ಪ್ರತಿಕ್ರಿಯೆಗಳು</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">ಸಮಸ್ಯೆ ನಿವಾರಕ</string>
     <string name="troubleshooter_ble_intro_title">ಬ್ಲೂಟೂತ್ ಕಡಿಮೆ ಶಕ್ತಿಯ ಪ್ರಸಾರಗಳು</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (ಮತ್ತು ಅಂತಹುದೇ ಹೆಡ್‌ಫೋನ್‌ಗಳು) \\"ಜಾಹೀರಾತುಗಳು\\" ಎಂದು ಕರೆಯಲ್ಪಡುವ BLE ತಂತ್ರಜ್ಞಾನವನ್ನು ಬಳಸಿಕೊಂಡು ಸ್ಥಿತಿ ಮಾಹಿತಿಯನ್ನು ಪ್ರಸಾರ ಮಾಡುತ್ತವೆ. ಕೆಲವು ಫೋನ್‌ಗಳು ಈ ತಂತ್ರಜ್ಞಾನವನ್ನು ಸರಿಯಾಗಿ ಕಾರ್ಯಗತಗೊಳಿಸುವುದಿಲ್ಲ. ಡೇಟಾ ಸ್ವೀಕರಿಸುವವರೆಗೆ CAPod ವಿವಿಧ ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳನ್ನು ಪ್ರಯತ್ನಿಸುವ ಮೂಲಕ ಇದನ್ನು ಸರಿಪಡಿಸಲು ಪ್ರಯತ್ನಿಸಬಹುದು. ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳಲ್ಲಿ ಸಂಗೀತ ಪ್ಲೇಬ್ಯಾಕ್ ಪ್ರಾರಂಭಿಸಿ ಮತ್ತು ಅವುಗಳನ್ನು ನಿಮ್ಮ ಫೋನ್‌ನ ಹತ್ತಿರ ಇರಿಸಿ, ನಂತರ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (ಮತ್ತು ಅಂತಹುದೇ ಹೆಡ್‌ಫೋನ್‌ಗಳು) \"ಜಾಹೀರಾತುಗಳು\" ಎಂದು ಕರೆಯಲ್ಪಡುವ BLE ತಂತ್ರಜ್ಞಾನವನ್ನು ಬಳಸಿಕೊಂಡು ಸ್ಥಿತಿ ಮಾಹಿತಿಯನ್ನು ಪ್ರಸಾರ ಮಾಡುತ್ತವೆ. ಕೆಲವು ಫೋನ್‌ಗಳು ಈ ತಂತ್ರಜ್ಞಾನವನ್ನು ಸರಿಯಾಗಿ ಕಾರ್ಯಗತಗೊಳಿಸುವುದಿಲ್ಲ. ಡೇಟಾ ಸ್ವೀಕರಿಸುವವರೆಗೆ CAPod ವಿವಿಧ ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳನ್ನು ಪ್ರಯತ್ನಿಸುವ ಮೂಲಕ ಇದನ್ನು ಸರಿಪಡಿಸಲು ಪ್ರಯತ್ನಿಸಬಹುದು. ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳಲ್ಲಿ ಸಂಗೀತ ಪ್ಲೇಬ್ಯಾಕ್ ಪ್ರಾರಂಭಿಸಿ ಮತ್ತು ಅವುಗಳನ್ನು ನಿಮ್ಮ ಫೋನ್‌ನ ಹತ್ತಿರ ಇರಿಸಿ, ನಂತರ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ.</string>
     <string name="troubleshooter_ble_intro_start_action">ಸಮಸ್ಯೆ ನಿವಾರಣೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿ</string>
     <string name="troubleshooter_ble_process_title">ಸಮಸ್ಯೆ ನಿವಾರಣೆ ಪ್ರಗತಿಯಲ್ಲಿದೆ</string>
     <string name="troubleshooter_ble_process_subtile">ಪ್ರತಿ ಹಂತವು 5-10 ಸೆಕೆಂಡುಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ</string>

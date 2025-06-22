@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">मॉनिटर मोड</string>
     <string name="settings_monitor_mode_description">यह ऐप किन परिस्थितियों में ब्लूटूथ डेटा की निगरानी करता है।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
-    <string name="settings_monitor_connected_notification_description">जब कोई डिवाइस कनेक्ट होता है तो एक अतिरिक्त सूचना दिखाता है। यह आपको \\"डिवाइस स्थिति\\" चैनल को अक्षम करके स्थायी \\"कोई डिवाइस नहीं\\" सूचना को छिपाने की अनुमति देता है।</string>
+    <string name="settings_monitor_connected_notification_description">जब कोई डिवाइस कनेक्ट होता है तो एक अतिरिक्त सूचना दिखाता है। यह आपको \"डिवाइस स्थिति\" चैनल को अक्षम करके स्थायी \"कोई डिवाइस नहीं\" सूचना को छिपाने की अनुमति देता है।</string>
     <string name="settings_scanner_mode_label">स्कैनर मोड</string>
     <string name="settings_scanner_mode_description">क्या ब्लूटूथ लो एनर्जी डेटा स्कैनर को प्रदर्शन को प्राथमिकता देनी चाहिए या ऊर्जा बचानी चाहिए?</string>
     <string name="settings_autopause_label">ऑटो-पॉज़</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणवत्ता</string>
     <string name="settings_signal_minimum_description">न्यूनतम सिग्नल गुणवत्ता जो किसी डिवाइस के पास आपकी मानी जाने के लिए होनी चाहिए।</string>
     <string name="settings_autoconnect_label">ऑटो-कनेक्ट</string>
-    <string name="settings_autoconnect_description">यदि एंड्रॉइड स्वचालित रूप से कनेक्ट नहीं होता है, तो हम भी अनुरोध कर सकते हैं। यह मॉनिटर मोड सेटिंग को \\"हमेशा\\" पर सेट करेगा।</string>
+    <string name="settings_autoconnect_description">यदि एंड्रॉइड स्वचालित रूप से कनेक्ट नहीं होता है, तो हम भी अनुरोध कर सकते हैं। यह मॉनिटर मोड सेटिंग को \"हमेशा\" पर सेट करेगा।</string>
     <string name="settings_autoconnect_condition_label">ऑटो-कनेक्ट शर्त</string>
     <string name="settings_autoconnect_condition_description">हमें आपके डिवाइस से कनेक्ट करने का प्रयास कब करना चाहिए?</string>
     <string name="settings_reaction_label">प्रतिक्रियाएँ</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">समस्या निवारक</string>
     <string name="troubleshooter_ble_intro_title">ब्लूटूथ कम ऊर्जा प्रसारण</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (और इसी तरह के हेडफ़ोन) \\"विज्ञापन\\" नामक BLE तकनीक का उपयोग करके स्थिति की जानकारी प्रसारित करते हैं। कुछ फ़ोन इस तकनीक को सही ढंग से लागू नहीं करते हैं। CAPod डेटा प्राप्त होने तक विभिन्न संगतता विकल्पों को आज़माकर इसे ठीक करने का प्रयास कर सकता है। अपने हेडफ़ोन पर संगीत प्लेबैक शुरू करें और उन्हें अपने फ़ोन के पास रखें, फिर प्रक्रिया शुरू करें।</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (और इसी तरह के हेडफ़ोन) \"विज्ञापन\" नामक BLE तकनीक का उपयोग करके स्थिति की जानकारी प्रसारित करते हैं। कुछ फ़ोन इस तकनीक को सही ढंग से लागू नहीं करते हैं। CAPod डेटा प्राप्त होने तक विभिन्न संगतता विकल्पों को आज़माकर इसे ठीक करने का प्रयास कर सकता है। अपने हेडफ़ोन पर संगीत प्लेबैक शुरू करें और उन्हें अपने फ़ोन के पास रखें, फिर प्रक्रिया शुरू करें।</string>
     <string name="troubleshooter_ble_intro_start_action">समस्या निवारण शुरू करें</string>
     <string name="troubleshooter_ble_process_title">समस्या निवारण प्रगति पर है</string>
     <string name="troubleshooter_ble_process_subtile">प्रत्येक चरण में 5-10 सेकंड लगते हैं</string>

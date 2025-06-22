@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
     <string name="settings_signal_minimum_description">Gailu batek zurea dela kontsideratzeko izan behar duen seinalearen gutxieneko kalitatea.</string>
     <string name="settings_autoconnect_label">Automatikoki konektatu</string>
-    <string name="settings_autoconnect_description">Android automatikoki konektatzen ez bada, guk ere eska diezaiokegu. Honek monitorizazio moduaren ezarpena \\\"Beti\\\" moduan jarriko du.</string>
+    <string name="settings_autoconnect_description">Android automatikoki konektatzen ez bada, guk ere eska diezaiokegu. Honek monitorizazio moduaren ezarpena \"Beti\" moduan jarriko du.</string>
     <string name="settings_autoconnect_condition_label">Automatikoki konektatzeko baldintza</string>
     <string name="settings_autoconnect_condition_description">Noiz saiatu behar gara zure gailura konektatzen?</string>
     <string name="settings_reaction_label">Erreakzioak</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Arazo-konpontzailea</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Energia Baxuko Igorpenak</string>
-    <string name="troubleshooter_ble_intro_body1">AirPod-ek (eta antzeko entzungailuek) egoeraren informazioa igortzen dute \\\"iragarkiak\\\" izeneko BLE teknologia erabiliz. Telefono batzuek ez dute teknologia hau behar bezala ezartzen. CAPod-ek hau konpontzen saia daiteke bateragarritasun aukera desberdinak probatuz datuak jaso arte. Hasi musika erreproduzitzen zure entzungailuetan eta jarri zure telefonoaren ondoan, ondoren hasi prozesua.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPod-ek (eta antzeko entzungailuek) egoeraren informazioa igortzen dute \"iragarkiak\" izeneko BLE teknologia erabiliz. Telefono batzuek ez dute teknologia hau behar bezala ezartzen. CAPod-ek hau konpontzen saia daiteke bateragarritasun aukera desberdinak probatuz datuak jaso arte. Hasi musika erreproduzitzen zure entzungailuetan eta jarri zure telefonoaren ondoan, ondoren hasi prozesua.</string>
     <string name="troubleshooter_ble_intro_start_action">Hasi arazoak konpontzen</string>
     <string name="troubleshooter_ble_process_title">Arazoak konpontzen ari da</string>
     <string name="troubleshooter_ble_process_subtile">Urrats bakoitzak 5-10 segundo behar ditu</string>

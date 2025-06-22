@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Хяналтын горим</string>
     <string name="settings_monitor_mode_description">Энэ апп Bluetooth-н өгөгдлийг ямар нөхцөлд хянадаг.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
-    <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдсон үед нэмэлт мэдэгдэл харуулна. Энэ нь \\"Төхөөрөмжийн төлөв\\" сувгийг идэвхгүй болгосноор \\"Төхөөрөмж алга\\" гэсэн байнгын мэдэгдлийг нуух боломжийг олгоно.</string>
+    <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдсон үед нэмэлт мэдэгдэл харуулна. Энэ нь \"Төхөөрөмжийн төлөв\" сувгийг идэвхгүй болгосноор \"Төхөөрөмж алга\" гэсэн байнгын мэдэгдлийг нуух боломжийг олгоно.</string>
     <string name="settings_scanner_mode_label">Сканнерын горим</string>
     <string name="settings_scanner_mode_description">Bluetooth Low Energy өгөгдлийн сканнер нь гүйцэтгэлийг эсвэл эрчим хүчийг хэмнэхийг урьтал болгох ёстой юу?</string>
     <string name="settings_autopause_label">Автомат түр зогсоох</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
     <string name="settings_signal_minimum_description">Төхөөрөмж таных гэж тооцогдохын тулд байх ёстой дохионы хамгийн бага чанар.</string>
     <string name="settings_autoconnect_label">Автомат холболт</string>
-    <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид ч бас хүсэлт гаргаж болно. Энэ нь хяналтын горимын тохиргоог \\"Үргэлж\\" болгож тохируулна.</string>
+    <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид ч бас хүсэлт гаргаж болно. Энэ нь хяналтын горимын тохиргоог \"Үргэлж\" болгож тохируулна.</string>
     <string name="settings_autoconnect_condition_label">Автомат холболтын нөхцөл</string>
     <string name="settings_autoconnect_condition_description">Бид таны төхөөрөмжид хэзээ холбогдохыг оролдох ёстой вэ?</string>
     <string name="settings_reaction_label">Урвалууд</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Асуудал шийдвэрлэгч</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy нэвтрүүлэг</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (болон ижил төстэй чихэвчнүүд) нь \\"зар сурталчилгаа\\" гэж нэрлэгддэг BLE технологийг ашиглан төлөвийн мэдээллийг нэвтрүүлдэг. Зарим утас энэ технологийг зөв хэрэгжүүлдэггүй. CAPod нь өгөгдөл хүлээн авах хүртэл янз бүрийн тохиромжтой байдлын сонголтуудыг туршиж үзэх замаар үүнийг засахыг оролдож болно. Чихэвч дээрээ хөгжим тоглуулж эхлээд утсаныхаа ойролцоо байрлуулж, дараа нь процессыг эхлүүлнэ үү.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (болон ижил төстэй чихэвчнүүд) нь \"зар сурталчилгаа\" гэж нэрлэгддэг BLE технологийг ашиглан төлөвийн мэдээллийг нэвтрүүлдэг. Зарим утас энэ технологийг зөв хэрэгжүүлдэггүй. CAPod нь өгөгдөл хүлээн авах хүртэл янз бүрийн тохиромжтой байдлын сонголтуудыг туршиж үзэх замаар үүнийг засахыг оролдож болно. Чихэвч дээрээ хөгжим тоглуулж эхлээд утсаныхаа ойролцоо байрлуулж, дараа нь процессыг эхлүүлнэ үү.</string>
     <string name="troubleshooter_ble_intro_start_action">Асуудал шийдвэрлэж эхлэх</string>
     <string name="troubleshooter_ble_process_title">Асуудал шийдвэрлэж байна</string>
     <string name="troubleshooter_ble_process_subtile">Алхам бүр 5-10 секунд болно</string>
