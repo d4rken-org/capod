@@ -3,4 +3,70 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">የለም</string>
+    <string name="general_error_label">ስህተት</string>
+    <string name="general_grant_permission_action">ፍቃድ ስጥ</string>
+
+    <string name="overview_nomaindevice_label">ዋና መሣሪያ የለም</string>
+    <string name="overview_nomaindevice_description">የተገኙት ሁሉም መሣሪያዎች የእርስዎ ላይሆኑ ይችላሉ። መሣሪያዎን ያብሩና ያገናኙ ወይም ቅንብሮቹን ያስተካክሉ።</string>
+    <string name="overview_bluetooth_disabled_label">ብሉቱዝ ጠፍቷል</string>
+    <string name="overview_bluetooth_disabled_description">ብሉቱዝ ጠፍቷል፣ ያብሩት ;)</string>
+
+    <string name="permission_bluetooth_connect_label">የብሉቱዝ ግንኙነት</string>
+    <string name="permission_bluetooth_connect_description">ይህ መተግበሪያ ከተጣመሩ መሣሪያዎች ጋር ለመገናኘት እና ግንኙነቶችን ለመጀመር የ \"ብሉቱዝ ግንኙነት\" ፍቃድ ያስፈልገዋል።</string>
+    <string name="permission_bluetooth_scan_label">የብሉቱዝ ቅኝት</string>
+    <string name="permission_bluetooth_scan_description">የ \"ብሉቱዝ ቅኝት\" ፍቃድ ይህ መተግበሪያ እንደ የእርስዎ AirPods ካሉ በአቅራቢያ ካሉ መሣሪያዎች የብሉቱዝ መረጃን እንዲያገኝ እና እንዲቀበል ያስችለዋል።</string>
+    <string name="permission_bluetooth_label">ብሉቱዝ</string>
+    <string name="permission_bluetooth_description">ይህ መተግበሪያ ከተጣመሩ የብሉቱዝ መሣሪያዎች ጋር ለመገናኘት የ \"ብሉቱዝ\" ፍቃድ ያስፈልገዋል።</string>
+    <string name="permission_access_fine_location_label">ትክክለኛ አካባቢን ይድረሱ</string>
+    <string name="permission_access_fine_location_description">CAPod የብሉቱዝ ዝቅተኛ ኃይል መረጃን ለመቀበል የ \"ትክክለኛ አካባቢ\" ፍቃድን ይጠቀማል። የእርስዎ የጆሮ ማዳመጫዎች ሁኔታቸውን ለማሰራጨት የብሉቱዝ ዝቅተኛ ኃይል ቴክኖሎጂን ይጠቀማሉ። ይህ መተግበሪያ አካባቢዎን ለመወሰን የብሉቱዝ መረጃን አይጠቀምም።</string>
+    <string name="permission_background_location_label">የዳራ አካባቢ መዳረሻ</string>
+    <string name="permission_background_location_description">CAPod መተግበሪያው ሲዘጋ እንደ \"ብቅ-ባይ አሳይ\" እና \"ራስ-ሰር ግንኙነት\" ያሉ ባህሪያትን ለማንቃት \"የዳራ አካባቢ መዳረሻ\"ን ይጠቀማል። የዳራ አካባቢ መዳረሻ መተግበሪያው በዳራ ውስጥ እያለ የብሉቱዝ ዝቅተኛ ኃይል መረጃን እንዲቀበል ያስችለዋል። ይህ መተግበሪያ አካባቢዎን ለመወሰን የብሉቱዝ መረጃን አይጠቀምም።</string>
+    <string name="permission_ignore_battery_optimizations_label">የባትሪ ማመቻቸትን አሰናክል</string>
+    <string name="permission_ignore_battery_optimizations_description">የባትሪ ማመቻቸት ይህ መተግበሪያ በዳራ ውስጥ እያለ የብሉቱዝ መረጃን በአስተማማኝ ሁኔታ እንዳይቀበል ይከለክላል።</string>
+    <string name="permission_required_title">የሚከተለው ፍቃድ ያስፈልጋል፦</string>
+    <string name="permission_system_alert_window_label">የسርዓት ማንቂያ መስኮት</string>
+    <string name="permission_system_alert_window_description">CAPod \"ብቅ-ባይ አሳይ\" ባህሪን እንዲቻል ለማድረግ በሌሎች መተግበሪያዎች ላይ እንዲስል ይፍቀዱለት።</string>
+
+    <string name="settings_scanner_mode_lowpower_label">ዝቅተኛ ኃይል</string>
+    <string name="settings_scanner_mode_balanced_label">ሚዛናዊ</string>
+    <string name="settings_scanner_mode_lowlatency_label">ዝቅተኛ መዘግየት</string>
+
+    <string name="settings_monitor_mode_manual_label">መተግበሪያው ሲከፈት</string>
+    <string name="settings_monitor_mode_automatic_label">መሣሪያው ሲገናኝ</string>
+    <string name="settings_monitor_mode_always_label">ሁልጊዜ</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">ሲታይ</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">ኬዝ ክፍት ነው</string>
+    <string name="settings_reaction_autoconnect_inear_label">በጆሮ ውስጥ</string>
+
+    <string name="pods_dual_left_label">ግራ ፖድ</string>
+    <string name="pods_dual_right_label">ቀኝ ፖድ</string>
+    <string name="pods_case_label">ኬዝ</string>
+    <string name="pods_case_status_open_label">ክፍት</string>
+    <string name="pods_case_status_closed_label">ዝግ</string>
+    <string name="pods_connection_state_disconnected_label">ከመሳሪያ ጋር አልተገናኘም</string>
+    <string name="pods_connection_state_idle_label">ከመሳሪያ ጋር ተገናኝቷል、ግን ስራ ፈት</string>
+    <string name="pods_connection_state_music_label">በሙዚቃ ሁነታ</string>
+    <string name="pods_connection_state_call_label">በጥሪ ሁነታ</string>
+    <string name="pods_connection_state_ringing_label">እየጠራ</string>
+    <string name="pods_connection_state_hanging_up_label">እየዘጋ</string>
+    <string name="pods_connection_state_unknown_label">ያልታወቀ የግንኙነት ሁኔታ</string>
+    <string name="pods_unknown_raw_data_label">ጥሬ መረጃ</string>
+    <string name="pods_unknown_label">ያልታወቀ መሣሪያ</string>
+    <string name="pods_unknown_contact_dev">ይህ ያልታወቀ መሣሪያ ነው、ግን ተመሳሳይ የመልእክት ቅርጸት እየተጠቀመ ነው። ለእሱ ድጋፍ እንጨምርበት、አግኙኝ :)</string>
+    <string name="pods_none_label_short">መሣሪያ የለም</string>
+    <string name="pods_charging_label">ኃይል እየሞላ</string>
+    <string name="pods_inear_label">በጆሮ ውስጥ</string>
+    <string name="pods_microphone_label">ማይክሮፎን</string>
+    <string name="pods_yours">የእርስዎ</string>
+    <string name="headset_being_worn_label">እየተለበሰ</string>
+    <string name="headset_not_being_worn_label">አልተለበሰም</string>
+    <string name="pods_case_unknown_state">ያልታወቀ ሁኔታ</string>
+
+    <string name="last_seen_x">ለመጨረሻ ጊዜ የታየው፦ %s</string>
+    <string name="first_seen_x">ለመጀመሪያ ጊዜ የታየው፦ %s</string>
+    <string name="permission_post_notifications_label">ማሳወቂያዎችን አሳይ</string>
+    <string name="permission_post_notifications_description">CAPod ስለ የእርስዎ AirPods ማሳወቂያዎችን እንዲያሳይ ይፍቀዱለት፣ ለምሳሌ ሲገናኙ የአሁኑ ሁኔታቸው።</string>
 </resources>

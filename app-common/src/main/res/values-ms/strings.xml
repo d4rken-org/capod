@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">T/A</string>
     <string name="general_error_label">Ralat</string>
     <string name="general_grant_permission_action">Berikan kebenaran</string>
@@ -11,6 +14,7 @@
     <string name="permission_bluetooth_connect_description">Apl ini memerlukan kebenaran \"Bluetooth connect\" untuk berinteraksi dengan pasangan peranti dan memulakan sambungan.</string>
     <string name="permission_bluetooth_scan_label">Pengimbasan bluetooth</string>
     <string name="permission_bluetooth_scan_description">Kebenaran \"Pengimbasan Bluetooth\" membolehkan apl ini menemui dan menerima data Bluetooth daripada peranti berdekatan seperti AirPods anda.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
     <string name="permission_bluetooth_description">Apl ini memerlukan kebenaran \"Bluetooth\" untuk menyambung ke peranti bluetooth yang dipasangkan.</string>
     <string name="permission_access_fine_location_label">Akses lokasi yang baik</string>
     <string name="permission_access_fine_location_description">CAPod menggunakan kebenaran \"lokasi baik\" untuk menerima data Bluetooth Tenaga Rendah. Fon kepala anda menggunakan teknologi Bluetooth Tenaga Rendah untuk menyiarkan statusnya. Apl ini TIDAK akan menggunakan data Bluetooth untuk menentukan lokasi anda.</string>
@@ -51,6 +55,7 @@
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="pods_yours">Milik anda</string>
     <string name="headset_being_worn_label">Sedang dipakai</string>
+    <string name="headset_not_being_worn_label">Tidak dipakai</string>
     <string name="pods_case_unknown_state">Keadaan tidak diketahui</string>
     <string name="last_seen_x">Terakhir dilihat: %s</string>
     <string name="first_seen_x">Pertama dilihat: %s</string>

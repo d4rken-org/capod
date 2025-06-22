@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="foss_upgrade_donate_label">நன்கொடை</string>
+    <string name="foss_upgrade_alreadydonated_label">நான் ஏற்கனவே நன்கொடை அளித்துவிட்டேன்</string>
+    <string name="foss_upgrade_no_money_label">எனது பணத்தை எல்லாம் ஏர்பாட்களில் செலவிடுகிறேன்</string>
+</resources>

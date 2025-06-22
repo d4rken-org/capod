@@ -1,2 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="general_share_action">Parve bike</string>
+    <string name="general_done_action">Qediya</string>
+    <string name="general_cancel_action">Betal bike</string>
+    <string name="general_copy_action">Kopî bike</string>
+    <string name="general_thank_you_label">Spas</string>
+    <string name="general_upgrade_action">Nûjen bike</string>
+    <string name="general_check_action">Kontrol bike</string>
+    <string name="general_close_action">Bigire</string>
+    <string name="general_save_action">Tomar bike</string>
+    <string name="general_guide_action">Rêber</string>
+    <string name="general_continue_action">Berdewam bike</string>
+
+    <string name="general_example_label">Mînak: %s</string>
+
+    <string name="upgrade_capod_label">CAPod nûjen bike</string>
+    <string name="upgrade_capod_description">Taybetmendiyên zêdetir bistînin û piştgiriyê bidin pêşvebir.</string>
+
+    <string name="settings_monitor_mode_label">Moda çavdêriyê</string>
+    <string name="settings_monitor_mode_description">Di kîjan şert û mercan de ev sepan daneyên Bluetooth dişopîne.</string>
+    <string name="settings_monitor_connected_notification_label">Agahdariya zêde</string>
+    <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \\"Amûr tune\\" bi neçalakkirina kanala \\"Rewşa amûrê\\" veşêrin.</string>
+    <string name="settings_scanner_mode_label">Moda skanerê</string>
+    <string name="settings_scanner_mode_description">Gelo divê skanera daneyên Bluetooth Kêm Enerjiyê pêşî li performansê bigire an enerjiyê biparêze?</string>
+    <string name="settings_autopause_label">Rawestandina otomatîk</string>
+    <string name="settings_autopause_description">Dema ku amûrê ji guhê xwe derdixin, deng rawestînin.</string>
+    <string name="settings_showall_label">Hemî amûran nîşan bide</string>
+    <string name="settings_showall_description">Amûrên kesên din ên li nêzî we nîşan bide.</string>
+    <string name="settings_autopplay_label">Lîstina otomatîk</string>
+    <string name="settings_autoplay_description">Dema ku amûr li xwe kirî ye, lîstina deng dest pê bike.</string>
+    <string name="settings_fake_data_label">Daneyên sexte</string>
+    <string name="settings_fake_data_description">Daneyên sexte nîşan bide, ango amûrên ku tune ne simul bike.</string>
+    <string name="settings_debug_label">Mîhengên çareserkirinê</string>
+    <string name="settings_debug_description">Mîhengên zêde ji bo alîkariya çareserkirina pirsgirêkên bi sepanê re.</string>
+    <string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
+    <string name="settings_signal_minimum_description">Qalîteya sînyala herî kêm a ku divê amûrek hebe da ku ya we were hesibandin.</string>
+    <string name="settings_autoconnect_label">Girêdana otomatîk</string>
+    <string name="settings_autoconnect_description">Heke Android bixweber girê nede, em jî dikarin jê bixwazin. Ev ê mîhenga moda çavdêriyê bike \\"Herdem\\".</string>
+    <string name="settings_autoconnect_condition_label">Şertê girêdana otomatîk</string>
+    <string name="settings_autoconnect_condition_description">Kengê divê em hewl bidin ku bi amûra we ve girêbidin?</string>
+    <string name="settings_reaction_label">Bertek</string>
+    <string name="settings_reaction_description">Bertek nîşanî bûyer û tevgeran bide.</string>
+    <string name="settings_category_yourdevice_label">Amûra we</string>
+
+    <string name="settings_category_compatibility_options_title">Vebijarkên lihevhatinê</string>
+    <string name="settings_category_compatibility_options_description">Heke her tişt baş dixebite dest nedin ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Parzûnkirina hardware neçalak bike</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Parzûnkirina daneyan ji pergalê re nehêlin, li şûna wê hemî daneyan bistînin û di nav sepanê de parzûn bikin.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Komkirina hardware neçalak bike</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Nehêlin ku pergal daneyên BLE yên berhevkirî kom bike berî ku wan ji me re bişîne.</string>
+
+    <string name="settings_maindevice_address_label">Navnîşana amûra we</string>
+    <string name="settings_maindevice_address_description">Navnîşana amûra we ya hevgirtî. Sepan vê bikar tîne da ku diyar bike kengê ew bi têlefona we ve girêdayî ye.</string>
+    <string name="settings_maindevice_address_none">Tune</string>
+    <string name="settings_maindevice_model_label">Modela amûra we</string>
+    <string name="settings_maindevice_model_description">Modela amûra we ya sereke. Ev alîkariya sepanê dike ku amûra we nas bike dema ku ew bi têlefona we ve ne girêdayî ye.</string>
+    <string name="settings_maindevice_identitykey_label">Mifteya Nasnameyê</string>
+    <string name="settings_maindevice_identitykey_description">Mifteya Çareserkirina Nasnameya (IRK) amûra we, ku alîkariya CAPod dike ku wê di nav amûrên nêz de nas bike.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods ji ber nepenîtiyê pir caran navnîşana xwe ya Bluetooth diguherînin. IRK alîkariya CAPod dike ku amûra we nas bike. Pêdiviya we bi gihîştina yekcarî ya MacBook heye.</string>
+    <string name="settings_maindevice_encryptionkey_label">Mifteya Şîfrekirinê</string>
+    <string name="settings_maindevice_encryptionkey_description">Mifteya şîfrekirina amûra we, ku dihêle CAPod agahdariya rewşa berfireh bistîne.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods peyamek rewşê dişînin, ku beşek jê şîfrekirî ye. Mifteya şîfrekirinê dihêle CAPod peyama tevahî deşîfre bike. Pêdiviya we bi gihîştina yekcarî ya MacBook heye.</string>
+
+    <string name="settings_onepod_mode_label">Moda yek pod</string>
+    <string name="settings_onepod_mode_description">Ne hewce ye ku herdu pod werin lixwekirin, lixwekirina podek tenê bes e ku bertekan bide destpêkirin.</string>
+    <string name="settings_popup_caseopen_label">Pop-upa qapaxê nîşan bide</string>
+    <string name="settings_popup_caseopen_description">Dema ku qapaxa amûrê vedibe pop-upek nîşan bide (ceribandinî).</string>
+    <string name="settings_popup_connected_label">Pop-upa girêdanê nîşan bide</string>
+    <string name="settings_popup_connected_description">Dema ku amûr cara yekem girêdide pop-upek nîşan bide.</string>
+
+    <string name="notification_channel_device_status_label">Rewşa amûrê</string>
+    <string name="notification_channel_device_status_connected_label">Amûra girêdayî</string>
+
+    <string name="support_debuglog_label">Tomara çareserkirinê</string>
+    <string name="support_debuglog_desc">Her tiştê ku sepan dike di pelek nivîskî de tomar bike ku hûn dikarin parve bikin.</string>
+    <string name="debug_debuglog_size_label">Mezinahî</string>
+    <string name="debug_debuglog_size_compressed_label">Mezinahiya pêçandî</string>
+    <string name="debug_notification_channel_label">Agahdariyên çareserkirinê</string>
+    <string name="debug_debuglog_file_label">Pela tomara tomarkirî</string>
+    <string name="debug_debuglog_recording_progress">Tomara çareserkirinê tê tomarkirin</string>
+    <string name="debug_debuglog_record_action">Tomara çareserkirinê tomar bike</string>
+    <string name="debug_debuglog_stop_action">Tomarkirinê rawestîne</string>
+    <string name="debug_debuglog_sensitive_information_message">Pela hatî çêkirin agahdariya hestiyar dihewîne (mînak hûrguliyên amûra Bluetooth). Wê tenê bi aliyên pêbawer re parve bikin.</string>
+    <string name="settings_debuglog_explanation">Ev taybetmendî her tiştê ku sepan dike di pelek parvekirî de tomar dike. Pela hatî çêkirin agahdariya hestiyar dihewîne (mînak hûrguliyên amûra Bluetooth). Wê tenê bi aliyên pêbawer re parve bikin (mînak pêşvebirek ku pirsgirêkek çareser dike).</string>
+
+    <string name="settings_support_installid_label">Nasnameya sazkirinê</string>
+    <string name="settings_support_installid_desc">Raporên xeletiyan ên otomatîk nenas in. Nasnameya xwe ya sazkirinê parve bikin heke pêşvebir hewce bike ku raporên xeletiyên we bibîne.</string>
+    <string name="settings_support_label">Piştgirî</string>
+    <string name="settings_support_description">Heke hûn hewceyê hin alîkariyê ne.</string>
+
+    <string name="issue_tracker_label">Şopînera pirsgirêkan</string>
+    <string name="issue_tracker_description">Şopînerek pirsgirêkên giştî ji bo raporên xeletiyan û daxwazên taybetmendiyan (tenê bi îngilîzî).</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Cîhek ji bo hevdîtin û pirsînê.</string>
+
+    <string name="changelog_label">Tomara guhertinan</string>
+    <string name="settings_label">Mîheng</string>
+    <string name="settings_privacy_policy_label">Polîtîkaya nepenîtiyê</string>
+    <string name="settings_privacy_policy_desc">Bi berpirsiyarî daneyan bi rêve bibin.</string>
+    <string name="settings_licenses_label">Lîsans</string>
+    <string name="settings_category_other_label">Yên din</string>
+    <string name="settings_general_label">Mîheng</string>
+    <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
+    <string name="settings_acknowledgements_label">Spasdarî</string>
+
+    <string name="settings_debug_autoreports_label">Raporên xeletiyan ên otomatîk</string>
+    <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string>
+    <string name="settings_debug_mode_label">Moda çareserkirinê</string>
+    <string name="settings_debug_mode_description">Ji bo çareserkirina pirsgirêkan agahdariya zêde nîşan bide.</string>
+
+    <string name="settings_blescanner_unfiltered_label">Daneyên BLE yên neparzandî</string>
+    <string name="settings_blescanner_unfiltered_description">Hemî parzûnan ji skanera BLE rakin da ku hemî daneyên BLE yên weşandî nîşan bidin. Ji bo lêzêdekirina piştgiriyê ji bo cûreyên nû yên guhêran bikêr e.</string>
+
+    <string name="settings_compatibility_mode_label">Moda lihevhatinê</string>
+    <string name="settings_compatibility_mode_description">Ji bo baştirkirina lihevhatinê xweşbîniyan neçalak bikin. Heke hûn tu daneyan nabînin vê biceribînin.</string>
+
+    <string name="help_translate_label">Werger</string>
+    <string name="help_translate_description">Alîkariya wergerandina vê sepanê li zimanê xwe yê bijare bikin.</string>
+
+    <string name="translators_thanks_title">Wergêr</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">Widgetek ku rewşa dawîn a naskirî ya amûrê nîşan dide.</string>
+    <string name="settings_compat_indirectcallback_title">Radestkirina daneyan a neyekser</string>
+    <string name="settings_compat_indirectcallback_summary">Ji bo wergirtina daneyên BLE ji pergalê rêbazek alternatîf bikar bînin (weşan li şûna paşvexwendinê).</string>
+
+    <string name="troubleshooter_title">Çareserkerê pirsgirêkan</string>
+    <string name="troubleshooter_ble_intro_title">Weşanên Bluetooth Kêm Enerjiyê</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (û guhêrên mîna wan) agahdariya rewşê bi karanîna teknolojiyek BLE ya bi navê \\"reklam\\" diweşînin. Hin têlefon vê teknolojiyê rast bicîh naynin. CAPod dikare hewl bide ku vê yekê bi ceribandina vebijarkên lihevhatinê yên cihêreng heya ku dane werin wergirtin sererast bike. Lîstina muzîkê li ser guhêrên xwe bidin destpêkirin û wan li nêzî têlefona xwe bicîh bikin, paşê pêvajoyê bidin destpêkirin.</string>
+    <string name="troubleshooter_ble_intro_start_action">Dest bi çareserkirina pirsgirêkan bike</string>
+    <string name="troubleshooter_ble_process_title">Çareserkirina pirsgirêkan didome</string>
+    <string name="troubleshooter_ble_process_subtile">Her gav 5-10 saniyan digire</string>
+    <string name="troubleshooter_ble_result_success_title">Serketî</string>
+    <string name="troubleshooter_ble_result_success_body">Weşanên reklaman ên BLE ji hêla CAPod ve tên wergirtin.</string>
+    <string name="troubleshooter_ble_result_failure_title">Neserketî</string>
+    <string name="troubleshooter_ble_result_failure_body">Çareserkirina pirsgirêkan bi ser neket. Tu tevliheviyek vebijarkên lihevhatinê alîkar nebû.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Têlefona we qet daneyên BLE wernegirt. Hûn dikarin vê ceribandinê li deverek qerebalix dîsa biceribînin da ku bibînin ka çavkaniyên daneyan (ji bilî guhêrên we) dikarin werin wergirtin. Wergirtina tu daneyan pirsgirêkek bi pergala xebitandinê ya têlefona we nîşan dide.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Têlefona we daneyên BLE wergirt, lê dane ji tu amûrek piştgirîkirî nayên. Gelo guhêrên we vekirî ne? Gelo CAPod guhêrên we piştgirî dike?</string>
+    <string name="troubleshooter_ble_result_failure_action">Dîsa biceribîne</string>
+    <string name="troubleshoot_action">Pirsgirêkan çareser bike</string>
+
+    <string name="onboarding_body1">Ev sepan piştgiriyê ji bo taybetmendiyên taybet ên AirPod li Android zêde dike.</string>
+    <string name="onboarding_body2">Ne hemî amûrên Android bi tevahî taybetmendiyên zêde yên AirPod piştgirî dikin. Pergala xebitandinê ya we pêkanînek Bluetooth-Kêm-Enerjiyê ya ku rast dixebite hewce dike.</string>
+    <string name="onboarding_body3">CAPod reklam tune û daneyên we berhev nake.</string>
+    <string name="onboarding_body4">Hûn dikarin ji bo bidestxistina taybetmendiyên zêde û piştgirîkirina pêşveçûnê nûjen bikin CAPod Pro.</string>
+</resources>

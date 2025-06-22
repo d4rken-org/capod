@@ -106,4 +106,22 @@
     <string name="onboarding_body2">并非所有 Android 设备都充分支持额外的 AirPod 功能。您的操作系统必须正确处理低功耗蓝牙的相关内容。</string>
     <string name="onboarding_body3">CAPod 不含广告且不会收集您的数据。</string>
     <string name="onboarding_body4">您可以升级 CAPod Pro 以获得额外功能和支持开发者。</string>
+    <string name="general_save_action">保存</string>
+    <string name="general_guide_action">指南</string>
+    <string name="general_example_label">例如：%s</string>
+    <string name="settings_maindevice_identitykey_label">身份密钥</string>
+    <string name="settings_maindevice_identitykey_description">您设备的身份解析密钥 (IRK)，可帮助 CAPod 在附近的设备中识别它。</string>
+    <string name="settings_maindevice_identitykey_explanation">出于隐私原因，AirPods 会经常更改其蓝牙地址。IRK 可帮助 CAPod 识别您的设备。您需要一次性访问 MacBook。</string>
+    <string name="settings_maindevice_encryptionkey_label">加密密钥</string>
+    <string name="settings_maindevice_encryptionkey_description">您设备的加密密钥，允许 CAPod 检索详细的状态信息。</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods 会发送状态消息，其中一部分是加密的。加密密钥允许 CAPod 解密完整的消息。您需要一次性访问 MacBook。</string>
+    <string name="support_debuglog_label">调试日志</string>
+    <string name="support_debuglog_desc">将应用执行的所有操作记录到您可以共享的文本文件中。</string>
+    <string name="debug_debuglog_file_label">已录制的日志文件</string>
+    <string name="debug_debuglog_recording_progress">正在录制调试日志</string>
+    <string name="debug_debuglog_record_action">录制调试日志</string>
+    <string name="debug_debuglog_stop_action">停止录制</string>
+    <string name="debug_debuglog_sensitive_information_message">生成的文件包含敏感信息（例如蓝牙设备详细信息）。仅与受信任方共享。</string>
+    <string name="settings_debuglog_explanation">此功能会将应用执行的所有操作记录到一个可共享的文件中。生成的文件包含敏感信息（例如蓝牙设备详细信息）。仅与受信任方（例如正在解决问题的开发人员）共享。</string>
+    <string name="discord_label">Discord</string>
 </resources>

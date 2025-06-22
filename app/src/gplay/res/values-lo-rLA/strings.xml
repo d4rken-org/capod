@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">ບໍລິການ Google Play ບໍ່ສາມາດໃຊ້ໄດ້.</string>
+    <string name="upgrades_no_purchases_found_check_account">ບໍ່ພົບການຊື້. ທ່ານກຳລັງໃຊ້ບັນຊີທີ່ຖືກຕ້ອງບໍ?</string>
+</resources>

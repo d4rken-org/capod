@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="foss_upgrade_donate_label">Хандивлах</string>
+    <string name="foss_upgrade_alreadydonated_label">Би аль хэдийн хандивласан</string>
+    <string name="foss_upgrade_no_money_label">Би бүх мөнгөө AirPods-д зарцуулдаг</string>
+</resources>

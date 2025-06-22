@@ -1,2 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">ບໍ່ມີຂໍ້ມູນ</string>
+    <string name="general_error_label">ຜິດພາດ</string>
+    <string name="general_grant_permission_action">ໃຫ້ສิทธิ์</string>
+
+    <string name="overview_nomaindevice_label">ບໍ່ມີອຸປະກອນຫຼັກ</string>
+    <string name="overview_nomaindevice_description">ອຸປະກອນທັງໝົດທີ່ກວດພົບບໍ່ໜ້າຈະແມ່ນຂອງທ່ານ. ເປີດໄຟ ແລະເຊື່ອມຕໍ່ອຸປະກອນຂອງທ່ານ ຫຼືປັບການຕັ້ງຄ່າ.</string>
+    <string name="overview_bluetooth_disabled_label">ບລູທູດປິດຢູ່</string>
+    <string name="overview_bluetooth_disabled_description">ບລູທູດປິດຢູ່, ກະລຸນາເປີດ ;)</string>
+
+    <string name="permission_bluetooth_connect_label">ການເຊື່ອມຕໍ່ Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">ແອັບນີ້ຕ້ອງການສິດ \"ການເຊື່ອມຕໍ່ Bluetooth\" ເພື່ອໂຕ້ຕອບກັບອຸປະກອນທີ່ຈັບຄູ່ແລ້ວ ແລະ ເລີ່ມການເຊື່ອມຕໍ່.</string>
+    <string name="permission_bluetooth_scan_label">ການສະແກນ Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">ສິດ \"การสแกน Bluetooth\" ຊ່ວຍໃຫ້ແອັບນີ້ຄົ້ນພົບ ແລະ ຮັບຂໍ້ມູນ Bluetooth ຈາກອຸປະກອນໃກ້ຄຽງເຊັ່ນ AirPods ຂອງທ່ານ.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">ແອັບນີ້ຕ້ອງການສິດ \"Bluetooth\" ເພື່ອເຊື່ອມຕໍ່ກັບອຸປະກອນ Bluetooth ທີ່ຈັບຄູ່ແລ້ວ.</string>
+    <string name="permission_access_fine_location_label">ການເຂົ້າເຖິງທີ່ຕັ້ງທີ່ແນ່ນອນ</string>
+    <string name="permission_access_fine_location_description">CAPod ໃຊ້ສິດ \"ທີ່ຕັ້ງທີ່ແນ່ນອນ\" ເພື່ອຮັບຂໍ້ມູນ Bluetooth ພະລັງງານຕ່ຳ. ຫູຟັງຂອງທ່ານໃຊ້ເທັກໂນໂລຢີ Bluetooth ພະລັງງານຕ່ຳເພື່ອຖ່າຍທອດສະຖານະຂອງມັນ. ແອັບນີ້ຈະບໍ່ໃຊ້ຂໍ້ມູນ Bluetooth ເພື່ອກຳນົດທີ່ຕັ້ງຂອງທ່ານ.</string>
+    <string name="permission_background_location_label">ການເຂົ້າເຖິງທີ່ຕັ້ງໃນພື້ນຫຼັງ</string>
+    <string name="permission_background_location_description">CAPod ໃຊ້ \"ການເຂົ້າເຖິງທີ່ຕັ້ງໃນພື້ນຫຼັງ\" ເພື່ອເປີດໃຊ້ງານຄຸນສົມບັດຕ່າງໆ ເຊັ່ນ \"ສະແດງປັອບອັບ\" ແລະ \"ເຊື່ອມຕໍ່ອັດຕະໂນມັດ\" ໃນຂະນະທີ່ແອັບປິດຢູ່. ການເຂົ້າເຖິງທີ່ຕັ້ງໃນພື້ນຫຼັງຊ່ວຍໃຫ້ແອັບສາມາດຮັບຂໍ້ມູນ Bluetooth ພະລັງງານຕ່ຳໃນຂະນະທີ່ຢູ່ໃນພື້ນຫຼັງ. ແອັບນີ້ຈະບໍ່ໃຊ້ຂໍ້ມູນ Bluetooth ເພື່ອກຳນົດທີ່ຕັ້ງຂອງທ່ານ.</string>
+    <string name="permission_ignore_battery_optimizations_label">ປິດການເພີ່ມປະສິດທິພາບແບັດເຕີຣີ</string>
+    <string name="permission_ignore_battery_optimizations_description">ການເພີ່ມປະສິດທິພາບແບັດເຕີຣີເຮັດໃຫ້ແອັບນີ້ບໍ່ສາມາດຮັບຂໍ້ມູນ Bluetooth ໄດ້ຢ່າງໜ້າເຊື່ອຖືໃນຂະນະທີ່ແອັບຢູ່ໃນພື້ນຫຼັງ.</string>
+    <string name="permission_required_title">ຕ້ອງການການອະນຸຍາດດັ່ງຕໍ່ໄປນີ້:</string>
+    <string name="permission_system_alert_window_label">ໜ້າຕ່າງແຈ້ງເຕືອນຂອງລະບົບ</string>
+    <string name="permission_system_alert_window_description">ອະນຸຍາດໃຫ້ CAPod ແຕ້ມທັບແອັບອື່ນເພື່ອໃຫ້ຄຸນສົມບັດ \"ສະແດງ PopUp\" ເຮັດວຽກໄດ້.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">ພະລັງງານຕ່ຳ</string>
+    <string name="settings_scanner_mode_balanced_label">ສົມດຸນ</string>
+    <string name="settings_scanner_mode_lowlatency_label">ຄວາມລ່າຊ້າຕ່ຳ</string>
+
+    <string name="settings_monitor_mode_manual_label">ເມື່ອແອັບເປີດຢູ່</string>
+    <string name="settings_monitor_mode_automatic_label">ເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ</string>
+    <string name="settings_monitor_mode_always_label">ສະເໝີ</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">ເມື່ອເຫັນ</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">ກ່ອງເປີດຢູ່</string>
+    <string name="settings_reaction_autoconnect_inear_label">ໃນຫູ</string>
+
+    <string name="pods_dual_left_label">ຫູຟັງຊ້າຍ</string>
+    <string name="pods_dual_right_label">ຫູຟັງຂວາ</string>
+    <string name="pods_case_label">ກ່ອງ</string>
+    <string name="pods_case_status_open_label">ເປີດ</string>
+    <string name="pods_case_status_closed_label">ປິດ</string>
+    <string name="pods_connection_state_disconnected_label">ບໍ່ໄດ້ເຊື່ອມຕໍ່ກັບອຸປະກອນ</string>
+    <string name="pods_connection_state_idle_label">ເຊື່ອມຕໍ່ກັບອຸປະກອນແລ້ວ, ແຕ່ບໍ່ເຄື່ອນໄຫວ</string>
+    <string name="pods_connection_state_music_label">ໃນໂໝດເພງ</string>
+    <string name="pods_connection_state_call_label">ໃນໂໝດການໂທ</string>
+    <string name="pods_connection_state_ringing_label">ກຳລັງໂທເຂົ້າ</string>
+    <string name="pods_connection_state_hanging_up_label">ກຳລັງວາງສາຍ</string>
+    <string name="pods_connection_state_unknown_label">ສະຖານະການເຊື່ອມຕໍ່ບໍ່ຮູ້ຈັກ</string>
+    <string name="pods_unknown_raw_data_label">ຂໍ້ມູນດິប</string>
+    <string name="pods_unknown_label">ອຸປະກອນບໍ່ຮູ້ຈັກ</string>
+    <string name="pods_unknown_contact_dev">ນີ້ແມ່ນອຸປະກອນທີ່ບໍ່ຮູ້ຈັກ, ແຕ່ມັນໃຊ້ຮູບແບບຂໍ້ຄວາມທີ່ຄ້າຍຄືກັນ. ມາເພີ່ມການຮອງຮັບໃຫ້ມັນ, ຕິດຕໍ່ຂ້ອຍ :)</string>
+    <string name="pods_none_label_short">ບໍ່ມີອຸປະກອນ</string>
+    <string name="pods_charging_label">ກຳລັງສາກໄຟ</string>
+    <string name="pods_inear_label">ໃນຫູ</string>
+    <string name="pods_microphone_label">ໄມໂຄຣໂຟນ</string>
+    <string name="pods_yours">ຂອງທ່ານ</string>
+    <string name="headset_being_worn_label">ກຳລັງໃສ່</string>
+    <string name="headset_not_being_worn_label">ບໍ່ໄດ້ໃສ່</string>
+    <string name="pods_case_unknown_state">ສະຖານະບໍ່ຮູ້ຈັກ</string>
+
+    <string name="last_seen_x">ເຫັນຄັ້ງສຸດທ້າຍ: %s</string>
+    <string name="first_seen_x">ເຫັນຄັ້ງທຳອິດ: %s</string>
+
+    <string name="permission_post_notifications_label">ສະແດງການແຈ້ງເຕືອນ</string>
+    <string name="permission_post_notifications_description">ອະນຸຍາດໃຫ້ CAPod ສະແດງການແຈ້ງເຕືອນກ່ຽວກັບ AirPods ຂອງທ່ານ, ຕົວຢ່າງ: ສະຖານະປັດຈຸບັນຂອງພວກເຂົາໃນຂະນະທີ່ເຊື່ອມຕໍ່.</string>
+</resources>

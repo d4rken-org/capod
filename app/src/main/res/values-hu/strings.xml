@@ -8,11 +8,19 @@
     <string name="general_upgrade_action">Frissítés</string>
     <string name="general_check_action">Ellenőrzés</string>
     <string name="general_close_action">Bezár</string>
+    <string name="general_save_action">Mentés</string>
+    <string name="general_guide_action">Útmutató</string>
     <string name="general_continue_action">Tovább</string>
+
+    <string name="general_example_label">Pl.: %s</string>
+
     <string name="upgrade_capod_label">CAPod frissítése</string>
     <string name="upgrade_capod_description">Szerezzen be további funkciókat és támogassa a fejlesztőt.</string>
+
     <string name="settings_monitor_mode_label">Monitor mód</string>
     <string name="settings_monitor_mode_description">Milyen körülmények között figyelje az alkalmazás a Bluetooth-adatokat.</string>
+    <string name="settings_monitor_connected_notification_label">Extra értesítés</string>
+    <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \\\"Nincs eszköz\\\" értesítés elrejtését az \\\"Eszköz állapota\\\" csatorna letiltásával.</string>
     <string name="settings_scanner_mode_label">Szkenner mód</string>
     <string name="settings_scanner_mode_description">A Bluetooth Low Energy szkenner a teljesítményt vagy az energiatakarékosságot részesítse előnyben?</string>
     <string name="settings_autopause_label">Automatikus szünet</string>
@@ -34,24 +42,36 @@
     <string name="settings_reaction_label">Reakciók</string>
     <string name="settings_reaction_description">Reagáljon az eseményekre és viselkedésekre.</string>
     <string name="settings_category_yourdevice_label">Eszközei</string>
+
     <string name="settings_category_compatibility_options_title">Kompatibilitási opciók</string>
     <string name="settings_category_compatibility_options_description">Ezekhez ne nyúljon, ha minden jól műkődik ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Hardveres szűrés letiltása</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ne bízza az adatok szűrését a rendszerre, hanem kérje le az összes adatot és szűrje az alkalmazáson belül.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Hardveres összefűzés letiltása</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ne hagyja, hogy a rendszer csoportosítsa az összegyűjtött BLE-adatokat, mielőtt továbbítja azokat nekünk.</string>
+
     <string name="settings_maindevice_address_label">Az Ön készülékének címe</string>
     <string name="settings_maindevice_address_description">A párosított eszköz címe. Az alkalmazás ezt használja annak meghatározására, hogy mikor csatlakozik a telefonhoz.</string>
     <string name="settings_maindevice_address_none">Semmi</string>
     <string name="settings_maindevice_model_label">Az Ön eszközének modellje</string>
     <string name="settings_maindevice_model_description">A fő eszközöd típusa. Ez segít az alkalmazásnak felismerni az eszközt, amikor az nincs csatlakoztatva a telefonhoz.</string>
+    <string name="settings_maindevice_identitykey_label">Azonosító kulcs</string>
+    <string name="settings_maindevice_identitykey_description">Az eszköz identitásfeloldó kulcsa (IRK), amely segít a CAPodnak azonosítani azt a közeli eszközök között.</string>
+    <string name="settings_maindevice_identitykey_explanation">Az AirPod-ok adatvédelmi okokból gyakran változtatják a Bluetooth-címüket. Az IRK segít a CAPodnak felismerni az eszközét. Egyszeri hozzáférésre van szüksége egy MacBookhoz.</string>
+    <string name="settings_maindevice_encryptionkey_label">Titkosítási kulcs</string>
+    <string name="settings_maindevice_encryptionkey_description">Az eszköz titkosítási kulcsa, amely lehetővé teszi a CAPod számára a részletes állapotinformációk lekérését.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">Az AirPod-ok állapotüzenetet küldenek, amelynek egy része titkosítva van. A titkosítási kulcs lehetővé teszi a CAPod számára a teljes üzenet visszafejtését. Egyszeri hozzáférésre van szüksége egy MacBookhoz.</string>
+
     <string name="settings_onepod_mode_label">Egy fülhallgató mód</string>
     <string name="settings_onepod_mode_description">Nem szükséges mindkét fülhallgató viselése, egyetlen elegendő a reakciók kiváltásához.</string>
     <string name="settings_popup_caseopen_label">Előugró ablak a tok kinyitásakor</string>
     <string name="settings_popup_caseopen_description">Egy előugró ablak megjelenítése az eszköz házának kinyitásakor (kísérleti).</string>
     <string name="settings_popup_connected_label">Előugró ablak csatlakozáskor</string>
     <string name="settings_popup_connected_description">Előugró ablak megjelenítése, amikor az eszköz először csatlakozik.</string>
+
     <string name="notification_channel_device_status_label">Eszköz állapota</string>
+    <string name="notification_channel_device_status_connected_label">Csatlakoztatott eszköz</string>
+
     <string name="support_debuglog_label">Hibakeresési napló</string>
     <string name="support_debuglog_desc">Rögzítse mindazt, amit az alkalmazás csinál, egy megosztható szövegfájlba.</string>
     <string name="debug_debuglog_size_label">Méret</string>
@@ -63,14 +83,18 @@
     <string name="debug_debuglog_stop_action">Rögzítés leállítása</string>
     <string name="debug_debuglog_sensitive_information_message">A generált fájl érzékeny információkat tartalmaz (pl. a Bluetooth-eszköz adatait). Csak megbízható felekkel ossza meg.</string>
     <string name="settings_debuglog_explanation">Ez a funkció egy megosztható fájlba rögzíti mindazt, amit az alkalmazás csinál. A létrehozott fájl bizalmas információkat tartalmaz (például Bluetooth-eszköz adatait). Csak megbízható felekkel ossza meg (pl. egy fejlesztővel, aki egy probléma megoldását végzi).</string>
+
     <string name="settings_support_installid_label">Telepítési azonosító</string>
     <string name="settings_support_installid_desc">Az automatikus hibajelentések névtelenek. Ossza meg az azonosítót, ha fejlesztőnek meg kell keresnie a hibajelentésedet.</string>
     <string name="settings_support_label">Támogatás</string>
     <string name="settings_support_description">Ha segítségre van szüksége.</string>
+
     <string name="issue_tracker_label">Hibajegyek</string>
     <string name="issue_tracker_description">Nyilvános hibajelentések és szolgáltatás kérések (csak angol nyelven).</string>
+
     <string name="discord_label">Discord</string>
     <string name="discord_description">Egy hely, ahol kérdéseket tehet fel.</string>
+
     <string name="changelog_label">Változások listája</string>
     <string name="settings_label">Beállítások</string>
     <string name="settings_privacy_policy_label">Adatvédelmi irányelvek</string>
@@ -80,21 +104,28 @@
     <string name="settings_general_label">Beállítások</string>
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
+
     <string name="settings_debug_autoreports_label">Automatikus hibajelentések</string>
     <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string>
     <string name="settings_debug_mode_label">Hibakeresési mód</string>
     <string name="settings_debug_mode_description">További információk megjelenítése a problémák hibaelhárításához.</string>
+
     <string name="settings_blescanner_unfiltered_label">Nem szűrt BLE adatok</string>
     <string name="settings_blescanner_unfiltered_description">Minden szűrő eltávolítása a BLE szkennerből, hogy az összes adat megjelenjen. Hasznos új fejhallgató típusok támogatásához.</string>
+
     <string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
     <string name="settings_compatibility_mode_description">A kompatibilitás javítása érdekében letiltja az optimalizálást. Próbálja ki ezt, ha nem lát semmilyen adatot.</string>
+
     <string name="help_translate_label">Fordítás</string>
     <string name="help_translate_description">Segítsen nekünk hogy az alkalmazás le legyen fordítva az Ön nyelvére.</string>
+
     <string name="translators_thanks_title">Fordító</string>
     <string name="translators_thanks_description">darken, bembee</string>
+
     <string name="widget_description">A widget az utolsó ismert eszköz adatait mutatja.</string>
     <string name="settings_compat_indirectcallback_title">Közvetett adatszolgáltatás</string>
     <string name="settings_compat_indirectcallback_summary">Alternatív módszer használata a BLE adatok lekérésére (broadcast, callback helyett).</string>
+
     <string name="troubleshooter_title">Hibaelhárító</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcast</string>
     <string name="troubleshooter_ble_intro_body1">Az AirPods (és a hasonló fülhallgatók) a „broadcast” nevű BLE-technológia segítségével sugározzák az állapotinformációkat. Egyes telefonok nem megfelelően valósítják meg ezt a technológiát. A CAPod megkísérelheti kijavítani ezt úgy, hogy különböző kompatibilitási opciókat próbál ki, amíg az adatok meg nem érkeznek. Indítson el zenelejátszást a fülhallgatón, helyezze a telefon közelébe, majd indítsa el a folyamatot.</string>
@@ -109,6 +140,7 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">A telefon BLE-adatokat fogadott, de az adatok nem egy támogatott eszközről származnak. Be van kapcsolva a fülhallgatója? Támogatja a CAPod a fülhallgatóját?</string>
     <string name="troubleshooter_ble_result_failure_action">Próbálja újra</string>
     <string name="troubleshoot_action">Hibaelhárító</string>
+
     <string name="onboarding_body1">Ez az alkalmazás AirPod specifikus funkciók támogatását adja hozzá az Android rendszerhez.</string>
     <string name="onboarding_body2">Nem minden Android eszköz támogatja teljes mértékben az extra AirPod szolgáltatásokat. Az eszköz operációs rendszere megfelelően működő Bluetooth-Low-Energy megvalósítást igényel.</string>
     <string name="onboarding_body3">A CAPod nem tartalmaz hirdetéseket, és nem gyűjti az adataidat.</string>

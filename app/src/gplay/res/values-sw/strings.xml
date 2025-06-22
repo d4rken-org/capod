@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Huduma za Google Play hazipatikani.</string>
+    <string name="upgrades_no_purchases_found_check_account">Hakuna manunuzi yaliyopatikana. Je, unatumia akaunti sahihi?</string>
+</resources>

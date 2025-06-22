@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Hindi available ang mga serbisyo ng Google Play.</string>
+    <string name="upgrades_no_purchases_found_check_account">Walang nakitang binili. Tamang account ba ang gamit mo?</string>
+</resources>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">บริการ Google Play ไม่พร้อมใช้งาน</string>
+    <string name="upgrades_no_purchases_found_check_account">ไม่พบการสั่งซื้อ คุณใช้บัญชีที่ถูกต้องหรือไม่</string>
+</resources>

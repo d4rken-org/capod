@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Google Play кызматтары жеткиликсиз.</string>
+    <string name="upgrades_no_purchases_found_check_account">Эч кандай сатып алуулар табылган жок. Туура каттоо эсебин колдонуп жатасызбы?</string>
+</resources>

@@ -54,4 +54,10 @@
     <string name="pods_case_unknown_state">不明な状態</string>
     <string name="last_seen_x">最後に確認した時間：%s</string>
     <string name="first_seen_x">最初に確認した時間：%s</string>
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="headset_not_being_worn_label">未着用</string>
+    <string name="permission_post_notifications_label">通知を表示</string>
+    <string name="permission_post_notifications_description">CAPod が AirPods に関する通知（接続中の現在のステータスなど）を表示できるようにします。</string>
 </resources>

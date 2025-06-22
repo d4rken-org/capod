@@ -1,2 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">Н/П</string>
+    <string name="general_error_label">Грешка</string>
+    <string name="general_grant_permission_action">Дај дозволу</string>
+    <string name="overview_nomaindevice_label">Нема примарног уређаја</string>
+    <string name="overview_nomaindevice_description">Мала је вероватноћа да су сви откривени уређаји ваши. Укључите и повежите уређај или прилагодите подешавања.</string>
+    +
+    <string name="overview_bluetooth_disabled_label">Bluetooth је онемогућен</string>
+    +
+    <string name="overview_bluetooth_disabled_description">Bluetooth је онемогућен, омогућите га ;)</string>
+    +
+    <string name="permission_bluetooth_connect_label">Bluetooth повезивање</string>
+    +
+    <string name="permission_bluetooth_connect_description">Ова апликација захтева дозволу „Bluetooth повезивање“ за интеракцију са упареним уређајима и покретање веза.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth скенирање</string>
+    <string name="permission_bluetooth_scan_description">Дозвола „Bluetooth скенирање“ омогућава овој апликацији да открива и прима Bluetooth податке са оближњих уређаја као што су ваши AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Ова апликација захтева дозволу „Bluetooth“ за повезивање са упареним Bluetooth уређајима.</string>
+    <string name="permission_access_fine_location_label">Приступ прецизној локацији</string>
+    <string name="permission_access_fine_location_description">CAPod користи дозволу „прецизна локација“ за примање Bluetooth Low Energy података. Ваше слушалице користе технологију Bluetooth Low Energy за емитовање свог статуса. Ова апликација НЕЋЕ користити Bluetooth податке за одређивање ваше локације.</string>
+    <string name="permission_background_location_label">Приступ локацији у позадини</string>
+    <string name="permission_background_location_description">CAPod користи „приступ локацији у позадини“ да би омогућио функције као што су „Прикажи искачући прозор“ и „Аутоматско повезивање“ док је апликација затворена. Приступ локацији у позадини омогућава апликацији да прима Bluetooth Low Energy податке док је у позадини. Ова апликација НЕЋЕ користити Bluetooth податке за одређивање ваше локације.</string>
+    <string name="permission_ignore_battery_optimizations_label">Онемогућите оптимизације батерије</string>
+    <string name="permission_ignore_battery_optimizations_description">Оптимизације батерије спречавају ову апликацију да поуздано прима Bluetooth податке док је апликација у позадини.</string>
+    <string name="permission_required_title">Потребна је следећа дозвола:</string>
+    <string name="permission_system_alert_window_label">Прозор системских упозорења</string>
+    <string name="permission_system_alert_window_description">Дозволите CAPod да црта преко других апликација да би функција „Прикажи PopUp“ била могућа.</string>
+    <string name="settings_scanner_mode_lowpower_label">Ниска потрошња енергије</string>
+    <string name="settings_scanner_mode_balanced_label">Уравнотежено</string>
+    <string name="settings_scanner_mode_lowlatency_label">Ниска латенција</string>
+    <string name="settings_monitor_mode_manual_label">Када је апликација отворена</string>
+    <string name="settings_monitor_mode_automatic_label">Када је уређај повезан</string>
+    <string name="settings_monitor_mode_always_label">Увек</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">Када се види</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Кућиште је отворено</string>
+    <string name="settings_reaction_autoconnect_inear_label">У уху</string>
+    <string name="pods_dual_left_label">Лева слушалица</string>
+    <string name="pods_dual_right_label">Десна слушалица</string>
+    <string name="pods_case_label">Кућиште</string>
+    <string name="pods_case_status_open_label">Отворено</string>
+    <string name="pods_case_status_closed_label">Затворено</string>
+    <string name="pods_connection_state_disconnected_label">Није повезан са уређајем</string>
+    <string name="pods_connection_state_idle_label">Повезан са уређајем, али неактиван</string>
+    <string name="pods_connection_state_music_label">У режиму музике</string>
+    <string name="pods_connection_state_call_label">У режиму позива</string>
+    <string name="pods_connection_state_ringing_label">Звони</string>
+    <string name="pods_connection_state_hanging_up_label">Прекидање везе</string>
+    <string name="pods_connection_state_unknown_label">Непознато стање везе</string>
+    <string name="pods_unknown_raw_data_label">Сирови подаци</string>
+    <string name="pods_unknown_label">Непознати уређај</string>
+    <string name="pods_unknown_contact_dev">Ово је непознати уређај, али користи сличан формат поруке. Додајмо подршку за њега, контактирајте ме :)</string>
+    <string name="pods_none_label_short">Нема уређаја</string>
+    <string name="pods_charging_label">Пуњење</string>
+    <string name="pods_inear_label">У уху</string>
+    <string name="pods_microphone_label">Микрофон</string>
+    <string name="pods_yours">Ваше</string>
+    <string name="headset_being_worn_label">Носи се</string>
+    <string name="headset_not_being_worn_label">Не носи се</string>
+    <string name="pods_case_unknown_state">Непознато стање</string>
+    <string name="last_seen_x">Последњи пут виђен: %s</string>
+    <string name="first_seen_x">Први пут виђен: %s</string>
+    <string name="permission_post_notifications_label">Прикажи обавештења</string>
+    <string name="permission_post_notifications_description">"Дозволите CAPod-у да приказује обавештења о вашим AirPods слушалицама, нпр. њихов тренутни статус док су повезане."</string>
+</resources>

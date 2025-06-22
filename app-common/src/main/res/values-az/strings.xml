@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
     <string name="general_value_not_available_label">Mövcud deyil</string>
     <string name="general_error_label">Xəta</string>
     <string name="general_grant_permission_action">İcazə ver</string>
@@ -10,8 +14,9 @@
     <string name="permission_bluetooth_connect_label">Bluetooth bağlantısı</string>
     <string name="permission_bluetooth_connect_description">Bu tətbiq, cütləşdirilmiş cihazlarla qarşılıqlı əlaqədə olmaq və bağlantıları başlatmaq üçün \"Bluetooth bağlantısı\" icazəsini tələb edir.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth skan etmə</string>
-    <string name="permission_bluetooth_scan_description">\"Bluetooth skan etmə\" icazəsi, tətbiqə AirPods kimi yaxınlıqda olan cihazlardan Bluetooth verilənlərini almağa və kəşf etməyə icazə verir.</string>
-    <string name="permission_bluetooth_description">Bu tətbiq, cütləşdirilmiş bluetooth cihazlarına bağlanmaq üçün \"Bluetooth\" icazəsini tələb edir.</string>
+    <string name="permission_bluetooth_scan_description">\\\"Bluetooth skan etmə\\\" icazəsi, tətbiqə AirPods kimi yaxınlıqda olan cihazlardan Bluetooth verilənlərini almağa və kəşf etməyə icazə verir.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Bu tətbiq, cütləşdirilmiş bluetooth cihazlarına bağlanmaq üçün \\\"Bluetooth\\\" icazəsini tələb edir.</string>
     <string name="permission_access_fine_location_label">Həssas yerləşməyə müraciət</string>
     <string name="permission_access_fine_location_description">CAPod, Bluetooth Zəif Enerji verilənlərini almaq üçün \"dəqiq yerləşmə\" icazəsini istifadə edir. Qulaqlıqlarınız, öz vəziyyətlərini (qalan batereya faizini) yayımlamaq Bluetooth Zəif Enerji texnologiyasını istifadə edir. Bu tətbiq, Bluetooth verilənlərini yerləşmənizi müəyyənləşdirmək üçün İSTİFADƏ ETMİR.</string>
     <string name="permission_background_location_label">Arxaplanda yerləşmə müraciəti</string>
@@ -51,7 +56,10 @@
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="pods_yours">Sizin</string>
     <string name="headset_being_worn_label">Taxılır</string>
+    <string name="headset_not_being_worn_label">Taxılmayıb</string>
     <string name="pods_case_unknown_state">Bilinməyən vəziyyət</string>
     <string name="last_seen_x">Son görünmə: %s</string>
     <string name="first_seen_x">İlk görünmə: %s</string>
+    <string name="permission_post_notifications_label">Bildirişləri göstər</string>
+    <string name="permission_post_notifications_description">CAPod-a AirPods-larınız haqqında bildirişlər göstərməyə icazə verin, məsələn, qoşulmuş vəziyyətdə olduqları zaman onların mövcud statusu.</string>
 </resources>

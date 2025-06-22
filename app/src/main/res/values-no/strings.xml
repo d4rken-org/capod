@@ -11,13 +11,16 @@
     <string name="general_save_action">Lagre</string>
     <string name="general_guide_action">Veiledning</string>
     <string name="general_continue_action">Fortsett</string>
+
     <string name="general_example_label">F.eks.: %s</string>
+
     <string name="upgrade_capod_label">Oppgrader CAPod</string>
     <string name="upgrade_capod_description">Få flere funksjoner og støtt utvikleren.</string>
+
     <string name="settings_monitor_mode_label">Overvåkingsmodus</string>
     <string name="settings_monitor_mode_description">Under hvilke omstendigheter denne appen skal overvåke Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra varsling</string>
-    <string name="settings_monitor_connected_notification_description">Viser en ekstra varsling når en enhet er tilkoblet. Dette lar deg skjule det permanente varselet «Ingen enheter» ved å deaktivere kanalen «Enhetsstatus».</string>
+    <string name="settings_monitor_connected_notification_description">Viser en ekstra varsling når en enhet er tilkoblet. Dette lar deg skjule det permanente varselet \\"Ingen enheter\\" ved å deaktivere kanalen \\"Enhetsstatus\\".</string>
     <string name="settings_scanner_mode_label">Skannermodus</string>
     <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy data-skanneren prioritere ytelse eller å spare energi?</string>
     <string name="settings_autopause_label">Sett på pause automatisk</string>
@@ -33,33 +36,42 @@
     <string name="settings_signal_minimum_label">Minimum signalkvalitet</string>
     <string name="settings_signal_minimum_description">Minimumssignalkvaliteten som en enhet må ha for å anses som din.</string>
     <string name="settings_autoconnect_label">Autotilkobling</string>
-    <string name="settings_autoconnect_description">Hvis Android ikke kobler til automatisk, kan vi spørre den om å gjøre det. Dette vil sette overvåkingsmodus-innstillingen til \'Alltid\'.</string>
+    <string name="settings_autoconnect_description">Hvis Android ikke kobler til automatisk, kan vi spørre den om å gjøre det. Dette vil sette overvåkingsmodus-innstillingen til \\"Alltid\\".</string>
     <string name="settings_autoconnect_condition_label">Betingelse for autotilkobling</string>
     <string name="settings_autoconnect_condition_description">Når skal vi prøve å koble til enheten din?</string>
     <string name="settings_reaction_label">Reaksjoner</string>
     <string name="settings_reaction_description">Reager på hendelser og oppførsel.</string>
     <string name="settings_category_yourdevice_label">Enheten din</string>
+
     <string name="settings_category_compatibility_options_title">Kompatibilitets-alternativer</string>
     <string name="settings_category_compatibility_options_description">Ikke rør hvis alt virker ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Deaktiver maskinvarefiltrering</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ikke deleger datafiltrering til systemet, i stedet hent alle data og filtrere i appen.</string>
-    <string name="settings_compat_offloaded_batching_disabled_title">Deaktiver maskinvare \"batching\"</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Deaktiver maskinvare-batching</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ikke la systemet gruppere innsamlet BLE-data før du videresender det til oss.</string>
+
     <string name="settings_maindevice_address_label">Enhetens adresse</string>
     <string name="settings_maindevice_address_description">Adressen til den sammenkoblede enheten. Appen bruker denne til å finne ut når den er koblet til telefonen din.</string>
     <string name="settings_maindevice_address_none">Ingen</string>
     <string name="settings_maindevice_model_label">Enhetens modell</string>
     <string name="settings_maindevice_model_description">Modellen til hovedenheten din. Dette hjelper appen med å gjenkjenne enheten din når den ikke er koblet til telefonen.</string>
     <string name="settings_maindevice_identitykey_label">Identitetsnøkkel</string>
+    <string name="settings_maindevice_identitykey_description">Enhetens identitetsoppløsningsnøkkel (IRK), som hjelper CAPod med å identifisere den blant enheter i nærheten.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods endrer ofte Bluetooth-adressen sin for personvern. IRK-en hjelper CAPod med å gjenkjenne enheten din. Du trenger engangstilgang til en MacBook.</string>
     <string name="settings_maindevice_encryptionkey_label">Krypteringsnøkkel</string>
-    <string name="settings_onepod_mode_label">En pod modus</string>
+    <string name="settings_maindevice_encryptionkey_description">Enhetens krypteringsnøkkel, som lar CAPod hente detaljert statusinformasjon.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods sender en statusmelding, der deler av den er kryptert. Krypteringsnøkkelen lar CAPod dekryptere hele meldingen. Du trenger engangstilgang til en MacBook.</string>
+
+    <string name="settings_onepod_mode_label">En pod-modus</string>
     <string name="settings_onepod_mode_description">Du trenger kun ha på deg en pod for å utløse reaksjoner, i stedet for begge.</string>
-    <string name="settings_popup_caseopen_label">Vis etui popup</string>
+    <string name="settings_popup_caseopen_label">Vis etui-popup</string>
     <string name="settings_popup_caseopen_description">Vis en popup når enhetens deksel åpnes (eksperimentelt).</string>
-    <string name="settings_popup_connected_label">Vis tilkobling popup</string>
+    <string name="settings_popup_connected_label">Vis tilkoblings-popup</string>
     <string name="settings_popup_connected_description">Vis en popup første gang enheten kobles til.</string>
+
     <string name="notification_channel_device_status_label">Enhetsstatus</string>
     <string name="notification_channel_device_status_connected_label">Tilkoblet enhet</string>
+
     <string name="support_debuglog_label">Feilsøkingslogg</string>
     <string name="support_debuglog_desc">Registrer alt appen gjør i en tekstfil som du kan dele.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
@@ -71,14 +83,18 @@
     <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. detaljer om Bluetooth-enhet). Bare del den med parter du stoler på.</string>
     <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. detaljer om Bluetooth-enhet). Bare del den med parter du stoler på (f.eks. en utvikler som feilsøker et problem).</string>
+
     <string name="settings_support_installid_label">Installasjons-ID</string>
     <string name="settings_support_installid_desc">Automatiske feilrapporter er anonyme. Del installasjons-ID-en din hvis utvikleren skal finne feilrapportene dine.</string>
     <string name="settings_support_label">Brukerstøtte</string>
     <string name="settings_support_description">Hvis du trenger hjelp med noe.</string>
+
     <string name="issue_tracker_label">Problemsporing</string>
     <string name="issue_tracker_description">En offentlig problemsporing for feilrapporter og funksjonsforespørsler (kun på engelsk).</string>
+
     <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted til å henge og for å stille spørsmål.</string>
+
     <string name="changelog_label">Endringslogg</string>
     <string name="settings_label">Innstillinger</string>
     <string name="settings_privacy_policy_label">Personvernerklæring</string>
@@ -88,24 +104,31 @@
     <string name="settings_general_label">Innstillinger</string>
     <string name="settings_general_description">Generelle justeringer som påvirker hele appen.</string>
     <string name="settings_acknowledgements_label">Anerkjennelser</string>
+
     <string name="settings_debug_autoreports_label">Automatiske feilrapporter</string>
     <string name="settings_debug_autoreports_description">Rapporterer problemer automatisk, f.eks. detaljer om en appkrasj slik at jeg kan finne ut hvordan jeg kan fikse det.</string>
     <string name="settings_debug_mode_label">Feilsøkingsmodus</string>
     <string name="settings_debug_mode_description">Vis tilleggsinformasjon for å feilsøke problemer.</string>
+
     <string name="settings_blescanner_unfiltered_label">Ufiltrert BLE-data</string>
     <string name="settings_blescanner_unfiltered_description">Fjern eventuelle filtre fra BLE-skanneren for å vise alle kringkastede BLE-data. Nyttig for å kunne støtte nye hodetelefontyper.</string>
+
     <string name="settings_compatibility_mode_label">Kompatibilitetsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktiver optimaliseringer for å forbedre kompatibiliteten. Prøv dette hvis du ikke ser noen data.</string>
+
     <string name="help_translate_label">Oversettelse</string>
     <string name="help_translate_description">Hjelp til med å oversette denne appen til ditt favorittspråk.</string>
+
     <string name="translators_thanks_title">Oversettere</string>
-    <string name="translators_thanks_description">Kristoffer Vassbø(kristoffervassbo@gmail.com)</string>
+    <string name="translators_thanks_description">darken</string>
+
     <string name="widget_description">En widget som viser sist kjent enhetsstatus.</string>
     <string name="settings_compat_indirectcallback_title">Indirekte datalevering</string>
     <string name="settings_compat_indirectcallback_summary">Bruk en alternativ metode for å motta BLE-data fra systemet (kringkast i stedet for callback).</string>
+
     <string name="troubleshooter_title">Feilsøker</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy kringkastinger</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hodetelefoner) kringkaster statusinformasjon ved bruk av en BLE-teknologi kalt \"advertisements\". Noen telefoner implementerer ikke denne teknologien riktig. CAPod kan prøve å fikse dette ved å prøve forskjellige kompatibilitets-alternativer til data er mottatt. Start musikkavspilling på hodetelefonene dine og legg dem nær telefonen din, og start deretter prosessen.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hodetelefoner) kringkaster statusinformasjon ved bruk av en BLE-teknologi kalt \\"advertisements\\". Noen telefoner implementerer ikke denne teknologien riktig. CAPod kan prøve å fikse dette ved å prøve forskjellige kompatibilitets-alternativer til data er mottatt. Start musikkavspilling på hodetelefonene dine og legg dem nær telefonen din, og start deretter prosessen.</string>
     <string name="troubleshooter_ble_intro_start_action">Start feilsøking</string>
     <string name="troubleshooter_ble_process_title">Feilsøking pågår</string>
     <string name="troubleshooter_ble_process_subtile">Hvert steg tar 5–10 sekunder</string>
@@ -117,6 +140,7 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonen din mottok BLE-data, men dataene kommer ikke fra en støttet enhet. Er hodetelefonene dine slått på? Støtter CAPod din type hodetelefoner?</string>
     <string name="troubleshooter_ble_result_failure_action">Prøv igjen</string>
     <string name="troubleshoot_action">Feilsøk</string>
+
     <string name="onboarding_body1">Denne appen legger til støtte for AirPod-spesifikke funksjoner til Android.</string>
     <string name="onboarding_body2">Ikke alle Android-enheter støtter de ekstra AirPod-funksjonene fullt ut. Operativsystemet ditt krever en fungerende Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har ingen annonser og samler ikke inn dataene dine.</string>

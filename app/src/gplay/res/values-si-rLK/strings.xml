@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">ගූගල් ප්ලේ සේවා නොතිබේ.</string>
+    <string name="upgrades_no_purchases_found_check_account">කිසිදු මිලදී ගැනීමක් හමු නොවීය. ඔබ ትክክለኛ ගිණුම භාවිතා කරනවාද?</string>
 </resources>
