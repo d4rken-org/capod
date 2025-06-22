@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Overvågningstilstand</string>
     <string name="settings_monitor_mode_description">Under hvilke omstændigheder denne app overvåger Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra notifikation</string>
-    <string name="settings_monitor_connected_notification_description">Viser en ekstra notifikation, når en enhed er tilsluttet. Dette lader dig skjule den permanente \\\"Ingen enheder\\\"-notifikation ved at deaktivere \\\"Enhedsstatus\\\"-kanalen.</string>
+    <string name="settings_monitor_connected_notification_description">Viser en ekstra notifikation, når en enhed er tilsluttet. Dette lader dig skjule den permanente \"Ingen enheder\"-notifikation ved at deaktivere \"Enhedsstatus\"-kanalen.</string>
     <string name="settings_scanner_mode_label">Scannertilstand</string>
     <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy-datascanneren prioritere ydeevne eller spare på energien?</string>
     <string name="settings_autopause_label">Auto-pause</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Minimum signalkvalitet</string>
     <string name="settings_signal_minimum_description">Den minimum signalkvalitet, en enhed skal have for at blive betragtet som din.</string>
     <string name="settings_autoconnect_label">Auto-tilslut</string>
-    <string name="settings_autoconnect_description">Hvis Android ikke automatisk tilslutter, kan vi også bede den om det. Dette vil sætte overvågningstilstanden til \\\'Altid\\\'.</string>
+    <string name="settings_autoconnect_description">Hvis Android ikke automatisk tilslutter, kan vi også bede den om det. Dette vil sætte overvågningstilstanden til \'Altid\'.</string>
     <string name="settings_autoconnect_condition_label">Auto-tilslutningsbetingelse</string>
     <string name="settings_autoconnect_condition_description">Hvornår skal vi forsøge at tilslutte til din enhed?</string>
     <string name="settings_reaction_label">Reaktioner</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Fejlfinder</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-udsendelser</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hovedtelefoner) udsender statusoplysninger ved hjælp af en BLE-teknologi kaldet \\\"annoncer\\\". Nogle telefoner implementerer ikke denne teknologi korrekt. CAPod kan forsøge at løse dette ved at prøve forskellige kompatibilitetsindstillinger, indtil data modtages. Start musikafspilning på dine hovedtelefoner og placer dem tæt på din telefon, start derefter processen.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hovedtelefoner) udsender statusoplysninger ved hjælp af en BLE-teknologi kaldet \"annoncer\". Nogle telefoner implementerer ikke denne teknologi korrekt. CAPod kan forsøge at løse dette ved at prøve forskellige kompatibilitetsindstillinger, indtil data modtages. Start musikafspilning på dine hovedtelefoner og placer dem tæt på din telefon, start derefter processen.</string>
     <string name="troubleshooter_ble_intro_start_action">Start fejlfinding</string>
     <string name="troubleshooter_ble_process_title">Fejlfinding i gang</string>
     <string name="troubleshooter_ble_process_subtile">Hvert trin tager 5-10 sekunder</string>

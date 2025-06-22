@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Valvontatila</string>
     <string name="settings_monitor_mode_description">Missä olosuhteissa tämä sovellus valvoo Bluetooth-tietoja.</string>
     <string name="settings_monitor_connected_notification_label">Lisäilmoitus</string>
-    <string name="settings_monitor_connected_notification_description">Näyttää lisäilmoituksen, kun laite on yhdistetty. Tämä antaa sinun piilottaa pysyvän \\\"Ei laitteita\\\" -ilmoituksen poistamalla \\\"Laitteen tila\\\" -kanavan käytöstä.</string>
+    <string name="settings_monitor_connected_notification_description">Näyttää lisäilmoituksen, kun laite on yhdistetty. Tämä antaa sinun piilottaa pysyvän \"Ei laitteita\" -ilmoituksen poistamalla \"Laitteen tila\" -kanavan käytöstä.</string>
     <string name="settings_scanner_mode_label">Skanneritila</string>
     <string name="settings_scanner_mode_description">Pitäisikö Bluetooth Low Energy -dataskannerin priorisoida suorituskykyä vai säästää energiaa?</string>
     <string name="settings_autopause_label">Automaattinen tauko</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Signaalin vähimmäislaatu</string>
     <string name="settings_signal_minimum_description">Signaalin vähimmäislaatu, joka laitteella on oltava, jotta se katsotaan omaksesi.</string>
     <string name="settings_autoconnect_label">Automaattinen yhdistäminen</string>
-    <string name="settings_autoconnect_description">Jos Android ei yhdistä automaattisesti, voimme myös pyytää sitä. Tämä asettaa valvontatilan asetukseksi \\\'Aina\\\'.</string>
+    <string name="settings_autoconnect_description">Jos Android ei yhdistä automaattisesti, voimme myös pyytää sitä. Tämä asettaa valvontatilan asetukseksi \'Aina\'.</string>
     <string name="settings_autoconnect_condition_label">Automaattisen yhdistämisen ehto</string>
     <string name="settings_autoconnect_condition_description">Milloin meidän pitäisi yrittää yhdistää laitteeseesi?</string>
     <string name="settings_reaction_label">Reaktiot</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Vianmääritys</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy -lähetykset</string>
-    <string name="troubleshooter_ble_intro_body1">AirPodit (ja vastaavat kuulokkeet) lähettävät tilatietoja käyttämällä BLE-tekniikkaa nimeltä \\\"mainokset\\\". Jotkin puhelimet eivät toteuta tätä tekniikkaa oikein. CAPod voi yrittää korjata tämän kokeilemalla erilaisia yhteensopivuusvaihtoehtoja, kunnes tietoja vastaanotetaan. Aloita musiikin toisto kuulokkeillasi ja aseta ne lähelle puhelintasi, aloita sitten prosessi.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPodit (ja vastaavat kuulokkeet) lähettävät tilatietoja käyttämällä BLE-tekniikkaa nimeltä \"mainokset\". Jotkin puhelimet eivät toteuta tätä tekniikkaa oikein. CAPod voi yrittää korjata tämän kokeilemalla erilaisia yhteensopivuusvaihtoehtoja, kunnes tietoja vastaanotetaan. Aloita musiikin toisto kuulokkeillasi ja aseta ne lähelle puhelintasi, aloita sitten prosessi.</string>
     <string name="troubleshooter_ble_intro_start_action">Aloita vianmääritys</string>
     <string name="troubleshooter_ble_process_title">Vianmääritys käynnissä</string>
     <string name="troubleshooter_ble_process_subtile">Jokainen vaihe kestää 5–10 sekuntia</string>

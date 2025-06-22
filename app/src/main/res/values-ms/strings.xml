@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Mod monitor</string>
     <string name="settings_monitor_mode_description">Dalam keadaan apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Pemberitahuan tambahan</string>
-    <string name="settings_monitor_connected_notification_description">Memaparkan pemberitahuan tambahan apabila peranti disambungkan. Ini membolehkan anda menyembunyikan pemberitahuan kekal \\"Tiada peranti\\" dengan melumpuhkan saluran \\"Status peranti\\".</string>
+    <string name="settings_monitor_connected_notification_description">Memaparkan pemberitahuan tambahan apabila peranti disambungkan. Ini membolehkan anda menyembunyikan pemberitahuan kekal \"Tiada peranti\" dengan melumpuhkan saluran \"Status peranti\".</string>
     <string name="settings_scanner_mode_label">Mod pengimbas</string>
     <string name="settings_scanner_mode_description">Patutkah pengimbas data Bluetooth Tenaga Rendah mengutamakan prestasi atau menjimatkan tenaga?</string>
     <string name="settings_autopause_label">Jeda automatik</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Kualiti isyarat minimum</string>
     <string name="settings_signal_minimum_description">Kualiti isyarat minimum yang peranti perlukan untuk dianggap sebagai milik anda.</string>
     <string name="settings_autoconnect_label">Sambung automatik</string>
-    <string name="settings_autoconnect_description">Jika Android tidak bersambung secara automatik, kami juga boleh memintanya. Ini akan menetapkan tetapan mod monitor kepada \\"Sentiasa\\".</string>
+    <string name="settings_autoconnect_description">Jika Android tidak bersambung secara automatik, kami juga boleh memintanya. Ini akan menetapkan tetapan mod monitor kepada \"Sentiasa\".</string>
     <string name="settings_autoconnect_condition_label">Syarat sambungan automatik</string>
     <string name="settings_autoconnect_condition_description">Bilakah kami patut cuba menyambung ke peranti anda?</string>
     <string name="settings_reaction_label">Reaksi</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Penyelesai masalah</string>
     <string name="troubleshooter_ble_intro_title">Siaran Bluetooth Tenaga Rendah</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (dan fon kepala yang serupa) menyiarkan maklumat status menggunakan teknologi BLE yang dipanggil \\"iklan\\". Sesetengah telefon tidak melaksanakan teknologi ini dengan betul. CAPod boleh cuba membetulkannya dengan mencuba pilihan keserasian yang berbeza sehingga data diterima. Mulakan main balik muzik pada fon kepala anda dan letakkannya berdekatan dengan telefon anda, kemudian mulakan proses.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (dan fon kepala yang serupa) menyiarkan maklumat status menggunakan teknologi BLE yang dipanggil \"iklan\". Sesetengah telefon tidak melaksanakan teknologi ini dengan betul. CAPod boleh cuba membetulkannya dengan mencuba pilihan keserasian yang berbeza sehingga data diterima. Mulakan main balik muzik pada fon kepala anda dan letakkannya berdekatan dengan telefon anda, kemudian mulakan proses.</string>
     <string name="troubleshooter_ble_intro_start_action">Mulakan penyelesaian masalah</string>
     <string name="troubleshooter_ble_process_title">Penyelesaian masalah sedang berjalan</string>
     <string name="troubleshooter_ble_process_subtile">Setiap langkah mengambil masa 5–10 saat</string>

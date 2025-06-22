@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">मोनिटर मोड</string>
     <string name="settings_monitor_mode_description">यो एपले कुन परिस्थितिमा ब्लुटुथ डाटा निगरानी गर्छ।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
-    <string name="settings_monitor_connected_notification_description">उपकरण जडान हुँदा अतिरिक्त सूचना देखाउँछ। यसले तपाईंलाई \\"उपकरण स्थिति\\" च्यानल असक्षम गरेर स्थायी \\"कुनै उपकरण छैन\\" सूचना लुकाउन अनुमति दिन्छ।</string>
+    <string name="settings_monitor_connected_notification_description">उपकरण जडान हुँदा अतिरिक्त सूचना देखाउँछ। यसले तपाईंलाई \"उपकरण स्थिति\" च्यानल असक्षम गरेर स्थायी \"कुनै उपकरण छैन\" सूचना लुकाउन अनुमति दिन्छ।</string>
     <string name="settings_scanner_mode_label">स्क्यानर मोड</string>
     <string name="settings_scanner_mode_description">ब्लुटुथ कम ऊर्जा डाटा स्क्यानरले प्रदर्शनलाई प्राथमिकता दिनुपर्छ वा ऊर्जा बचत गर्नुपर्छ?</string>
     <string name="settings_autopause_label">स्वत: पज</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
     <string name="settings_signal_minimum_description">उपकरणलाई तपाइँको मान्नको लागि आवश्यक पर्ने न्यूनतम सिग्नल गुणस्तर।</string>
     <string name="settings_autoconnect_label">स्वत: जडान</string>
-    <string name="settings_autoconnect_description">यदि एन्ड्रोइडले स्वचालित रूपमा जडान गर्दैन भने, हामी पनि अनुरोध गर्न सक्छौं। यसले मोनिटर मोड सेटिङलाई \\"सधैं\\" मा सेट गर्नेछ।</string>
+    <string name="settings_autoconnect_description">यदि एन्ड्रोइडले स्वचालित रूपमा जडान गर्दैन भने, हामी पनि अनुरोध गर्न सक्छौं। यसले मोनिटर मोड सेटिङलाई \"सधैं\" मा सेट गर्नेछ।</string>
     <string name="settings_autoconnect_condition_label">स्वत: जडान अवस्था</string>
     <string name="settings_autoconnect_condition_description">हामीले कहिले तपाइँको उपकरणमा जडान गर्ने प्रयास गर्नुपर्छ?</string>
     <string name="settings_reaction_label">प्रतिक्रियाहरू</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">समस्या निवारक</string>
     <string name="troubleshooter_ble_intro_title">ब्लुटुथ कम ऊर्जा प्रसारणहरू</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (र यस्तै हेडफोनहरू) ले \\"विज्ञापनहरू\\" भनिने BLE प्रविधि प्रयोग गरेर स्थिति जानकारी प्रसारण गर्दछ। केही फोनहरूले यो प्रविधि सही रूपमा लागू गर्दैनन्। CAPod ले डाटा प्राप्त नभएसम्म विभिन्न अनुकूलता विकल्पहरू प्रयास गरेर यसलाई ठीक गर्ने प्रयास गर्न सक्छ। आफ्नो हेडफोनमा संगीत प्लेब्याक सुरु गर्नुहोस् र तिनीहरूलाई आफ्नो फोनको नजिक राख्नुहोस्, त्यसपछि प्रक्रिया सुरु गर्नुहोस्।</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (र यस्तै हेडफोनहरू) ले \"विज्ञापनहरू\" भनिने BLE प्रविधि प्रयोग गरेर स्थिति जानकारी प्रसारण गर्दछ। केही फोनहरूले यो प्रविधि सही रूपमा लागू गर्दैनन्। CAPod ले डाटा प्राप्त नभएसम्म विभिन्न अनुकूलता विकल्पहरू प्रयास गरेर यसलाई ठीक गर्ने प्रयास गर्न सक्छ। आफ्नो हेडफोनमा संगीत प्लेब्याक सुरु गर्नुहोस् र तिनीहरूलाई आफ्नो फोनको नजिक राख्नुहोस्, त्यसपछि प्रक्रिया सुरु गर्नुहोस्।</string>
     <string name="troubleshooter_ble_intro_start_action">समस्या निवारण सुरु गर्नुहोस्</string>
     <string name="troubleshooter_ble_process_title">समस्या निवारण प्रगतिमा छ</string>
     <string name="troubleshooter_ble_process_subtile">प्रत्येक चरणमा ५-१० सेकेन्ड लाग्छ</string>

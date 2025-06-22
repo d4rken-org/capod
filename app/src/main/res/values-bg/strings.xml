@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Режим на наблюдение</string>
     <string name="settings_monitor_mode_description">При какви обстоятелства това приложение следи Bluetooth данните.</string>
     <string name="settings_monitor_connected_notification_label">Допълнително известие</string>
-    <string name="settings_monitor_connected_notification_description">Показва допълнително известие, когато устройство е свързано. Това ви позволява да скриете постоянното известие \\"Няма устройства\\" чрез деактивиране на канала \\"Състояние на устройството\\".</string>
+    <string name="settings_monitor_connected_notification_description">Показва допълнително известие, когато устройство е свързано. Това ви позволява да скриете постоянното известие \"Няма устройства\" чрез деактивиране на канала \"Състояние на устройството\".</string>
     <string name="settings_scanner_mode_label">Режим на скенер</string>
     <string name="settings_scanner_mode_description">Трябва ли скенерът за данни с ниска енергия на Bluetooth да даде приоритет на производителността или да пести енергия?</string>
     <string name="settings_autopause_label">Автоматична пауза</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Минимално качество на сигнала</string>
     <string name="settings_signal_minimum_description">Минималното качество на сигнала, което устройството трябва да има, за да се счита за ваше.</string>
     <string name="settings_autoconnect_label">Автоматично свързване</string>
-    <string name="settings_autoconnect_description">Ако Android не се свързва автоматично, ние също можем да го поискаме. Това ще зададе настройката на режима на наблюдение на \\"Винаги\\".</string>
+    <string name="settings_autoconnect_description">Ако Android не се свързва автоматично, ние също можем да го поискаме. Това ще зададе настройката на режима на наблюдение на \"Винаги\".</string>
     <string name="settings_autoconnect_condition_label">Условие за автоматично свързване</string>
     <string name="settings_autoconnect_condition_description">Кога трябва да се опитаме да се свържем с вашето устройство?</string>
     <string name="settings_reaction_label">Реакции</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Отстраняване на неизправности</string>
     <string name="troubleshooter_ble_intro_title">Излъчвания с ниска енергия на Bluetooth</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (и подобни слушалки) излъчват информация за състоянието, използвайки BLE технология, наречена \\"реклами\\". Някои телефони не прилагат правилно тази технология. CAPod може да се опита да поправи това, като изпробва различни опции за съвместимост, докато не бъдат получени данни. Започнете възпроизвеждане на музика на слушалките си и ги поставете близо до телефона си, след което започнете процеса.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (и подобни слушалки) излъчват информация за състоянието, използвайки BLE технология, наречена \"реклами\". Някои телефони не прилагат правилно тази технология. CAPod може да се опита да поправи това, като изпробва различни опции за съвместимост, докато не бъдат получени данни. Започнете възпроизвеждане на музика на слушалките си и ги поставете близо до телефона си, след което започнете процеса.</string>
     <string name="troubleshooter_ble_intro_start_action">Започване на отстраняване на неизправности</string>
     <string name="troubleshooter_ble_process_title">Отстраняването на неизправности е в ход</string>
     <string name="troubleshooter_ble_process_subtile">Всяка стъпка отнема 5–10 секунди</string>

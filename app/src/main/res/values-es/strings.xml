@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Modo monitor</string>
     <string name="settings_monitor_mode_description">Bajo qué circunstancias esta aplicación supervisa los datos de Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificación adicional</string>
-    <string name="settings_monitor_connected_notification_description">Muestra una notificación adicional cuando un dispositivo está conectado. Esto te permite ocultar la notificación permanente \\"Sin dispositivos\\" desactivando el canal \\"Estado del dispositivo\\".</string>
+    <string name="settings_monitor_connected_notification_description">Muestra una notificación adicional cuando un dispositivo está conectado. Esto te permite ocultar la notificación permanente \"Sin dispositivos\" desactivando el canal \"Estado del dispositivo\".</string>
     <string name="settings_scanner_mode_label">Modo escáner</string>
     <string name="settings_scanner_mode_description">¿Debería el escáner de datos de Bluetooth de baja energía priorizar el rendimiento o conservar energía?</string>
     <string name="settings_autopause_label">Pausa automática</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Calidad mínima de la señal</string>
     <string name="settings_signal_minimum_description">La calidad mínima de la señal que debe tener un dispositivo para que se considere tuyo.</string>
     <string name="settings_autoconnect_label">Conexión automática</string>
-    <string name="settings_autoconnect_description">Si Android no se conecta automáticamente, también podemos solicitarlo. Esto establecerá la configuración del modo de monitorización en \\"Siempre\\".</string>
+    <string name="settings_autoconnect_description">Si Android no se conecta automáticamente, también podemos solicitarlo. Esto establecerá la configuración del modo de monitorización en \"Siempre\".</string>
     <string name="settings_autoconnect_condition_label">Condición de conexión automática</string>
     <string name="settings_autoconnect_condition_description">¿Cuándo deberíamos intentar conectarnos a tu dispositivo?</string>
     <string name="settings_reaction_label">Reacciones</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Solucionador de problemas</string>
     <string name="troubleshooter_ble_intro_title">Transmisiones de Bluetooth de baja energía</string>
-    <string name="troubleshooter_ble_intro_body1">Los AirPods (y auriculares similares) transmiten información de estado mediante una tecnología BLE denominada \\"anuncios\\". Algunos teléfonos no implementan esta tecnología correctamente. CAPod puede intentar solucionarlo probando diferentes opciones de compatibilidad hasta que se reciban los datos. Inicia la reproducción de música en tus auriculares y colócalos cerca de tu teléfono, luego inicia el proceso.</string>
+    <string name="troubleshooter_ble_intro_body1">Los AirPods (y auriculares similares) transmiten información de estado mediante una tecnología BLE denominada \"anuncios\". Algunos teléfonos no implementan esta tecnología correctamente. CAPod puede intentar solucionarlo probando diferentes opciones de compatibilidad hasta que se reciban los datos. Inicia la reproducción de música en tus auriculares y colócalos cerca de tu teléfono, luego inicia el proceso.</string>
     <string name="troubleshooter_ble_intro_start_action">Iniciar solucionador de problemas</string>
     <string name="troubleshooter_ble_process_title">Solución de problemas en curso</string>
     <string name="troubleshooter_ble_process_subtile">Cada paso tarda de 5 a 10 segundos</string>

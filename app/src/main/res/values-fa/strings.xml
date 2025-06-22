@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">حالت نظارت</string>
     <string name="settings_monitor_mode_description">این برنامه تحت چه شرایطی داده‌های بلوتوث را نظارت می‌کند.</string>
     <string name="settings_monitor_connected_notification_label">اعلان اضافی</string>
-    <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \\"بدون دستگاه\\" را با غیرفعال کردن کانال \\"وضعیت دستگاه\\" پنهان کنید.</string>
+    <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \"بدون دستگاه\" را با غیرفعال کردن کانال \"وضعیت دستگاه\" پنهان کنید.</string>
     <string name="settings_scanner_mode_label">حالت اسکنر</string>
     <string name="settings_scanner_mode_description">آیا اسکنر داده بلوتوث کم‌مصرف باید عملکرد را در اولویت قرار دهد یا انرژی را ذخیره کند؟</string>
     <string name="settings_autopause_label">مکث خودکار</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
     <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا متعلق به شما در نظر گرفته شود.</string>
     <string name="settings_autoconnect_label">اتصال خودکار</string>
-    <string name="settings_autoconnect_description">اگر Android به‌طور خودکار متصل نشود، ما نیز می‌توانیم آن را درخواست کنیم. این کار تنظیم حالت نظارت را روی \\"همیشه\\" قرار می‌دهد.</string>
+    <string name="settings_autoconnect_description">اگر Android به‌طور خودکار متصل نشود، ما نیز می‌توانیم آن را درخواست کنیم. این کار تنظیم حالت نظارت را روی \"همیشه\" قرار می‌دهد.</string>
     <string name="settings_autoconnect_condition_label">شرط اتصال خودکار</string>
     <string name="settings_autoconnect_condition_description">چه زمانی باید سعی کنیم به دستگاه شما متصل شویم؟</string>
     <string name="settings_reaction_label">واکنش‌ها</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">عیب‌یاب</string>
     <string name="troubleshooter_ble_intro_title">پخش‌های بلوتوث کم‌مصرف</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (و هدفون‌های مشابه) اطلاعات وضعیت را با استفاده از فناوری BLE به نام \\"تبلیغات\\" پخش می‌کنند. برخی از تلفن‌ها این فناوری را به‌درستی پیاده‌سازی نمی‌کنند. CAPod می‌تواند با امتحان کردن گزینه‌های مختلف سازگاری تا زمان دریافت داده‌ها، سعی در رفع این مشکل کند. پخش موسیقی را در هدفون خود شروع کرده و آن را نزدیک تلفن خود قرار دهید، سپس فرآیند را شروع کنید.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (و هدفون‌های مشابه) اطلاعات وضعیت را با استفاده از فناوری BLE به نام \"تبلیغات\" پخش می‌کنند. برخی از تلفن‌ها این فناوری را به‌درستی پیاده‌سازی نمی‌کنند. CAPod می‌تواند با امتحان کردن گزینه‌های مختلف سازگاری تا زمان دریافت داده‌ها، سعی در رفع این مشکل کند. پخش موسیقی را در هدفون خود شروع کرده و آن را نزدیک تلفن خود قرار دهید، سپس فرآیند را شروع کنید.</string>
     <string name="troubleshooter_ble_intro_start_action">شروع عیب‌یابی</string>
     <string name="troubleshooter_ble_process_title">عیب‌یابی در حال انجام است</string>
     <string name="troubleshooter_ble_process_subtile">هر مرحله 5 تا 10 ثانیه طول می‌کشد</string>

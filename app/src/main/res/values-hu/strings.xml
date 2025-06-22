@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Monitor mód</string>
     <string name="settings_monitor_mode_description">Milyen körülmények között figyelje az alkalmazás a Bluetooth-adatokat.</string>
     <string name="settings_monitor_connected_notification_label">Extra értesítés</string>
-    <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \\\"Nincs eszköz\\\" értesítés elrejtését az \\\"Eszköz állapota\\\" csatorna letiltásával.</string>
+    <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \"Nincs eszköz\" értesítés elrejtését az \"Eszköz állapota\" csatorna letiltásával.</string>
     <string name="settings_scanner_mode_label">Szkenner mód</string>
     <string name="settings_scanner_mode_description">A Bluetooth Low Energy szkenner a teljesítményt vagy az energiatakarékosságot részesítse előnyben?</string>
     <string name="settings_autopause_label">Automatikus szünet</string>

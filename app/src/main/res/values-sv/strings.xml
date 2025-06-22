@@ -16,7 +16,7 @@
     <string name="settings_monitor_mode_label">Övervakningsläge</string>
     <string name="settings_monitor_mode_description">Under vilka omständigheter denna app övervakar Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Extra avisering</string>
-    <string name="settings_monitor_connected_notification_description">Visar en extra avisering när en enhet är ansluten. Detta låter dig dölja den permanenta aviseringen \\\"Inga enheter\\\" genom att inaktivera kanalen \\\"Enhetsstatus\\\".</string>
+    <string name="settings_monitor_connected_notification_description">Visar en extra avisering när en enhet är ansluten. Detta låter dig dölja den permanenta aviseringen \"Inga enheter\" genom att inaktivera kanalen \"Enhetsstatus\".</string>
     <string name="settings_scanner_mode_label">Skannerläge</string>
     <string name="settings_scanner_mode_description">Ska Bluetooth Low Energy-dataskannern prioritera prestanda eller spara energi?</string>
     <string name="settings_autopause_label">Automatisk paus</string>
@@ -32,7 +32,7 @@
     <string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
     <string name="settings_signal_minimum_description">Den minsta signalkvalitet som en enhet måste ha för att betraktas som din.</string>
     <string name="settings_autoconnect_label">Anslut automatiskt</string>
-    <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi också be den. Detta ställer in övervakningsläget på \\\"Alltid\\\".</string>
+    <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi också be den. Detta ställer in övervakningsläget på \"Alltid\".</string>
     <string name="settings_autoconnect_condition_label">Villkor för automatisk anslutning</string>
     <string name="settings_autoconnect_condition_description">När ska vi försöka ansluta till din enhet?</string>
     <string name="settings_reaction_label">Reaktioner</string>
@@ -108,7 +108,7 @@
     <string name="settings_compat_indirectcallback_summary">Använd en alternativ metod för att ta emot BLE-data från systemet (sändning istället för återanrop).</string>
     <string name="troubleshooter_title">Felsökare</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-sändningar</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (och liknande hörlurar) sänder statusinformation med en BLE-teknik som kallas \\\"annonser\\\". Vissa telefoner implementerar inte denna teknik korrekt. CAPod kan försöka åtgärda detta genom att prova olika kompatibilitetsalternativ tills data tas emot. Starta musikuppspelning på dina hörlurar och placera dem nära din telefon, starta sedan processen.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (och liknande hörlurar) sänder statusinformation med en BLE-teknik som kallas \"annonser\". Vissa telefoner implementerar inte denna teknik korrekt. CAPod kan försöka åtgärda detta genom att prova olika kompatibilitetsalternativ tills data tas emot. Starta musikuppspelning på dina hörlurar och placera dem nära din telefon, starta sedan processen.</string>
     <string name="troubleshooter_ble_intro_start_action">Starta felsökning</string>
     <string name="troubleshooter_ble_process_title">Felsökning pågår</string>
     <string name="troubleshooter_ble_process_subtile">Varje steg tar 5–10 sekunder</string>

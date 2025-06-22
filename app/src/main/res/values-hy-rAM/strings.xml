@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Մոնիթորինգի ռեժիմ</string>
     <string name="settings_monitor_mode_description">Ինչ պայմաններում է այս հավելվածը վերահսկում Bluetooth-ի տվյալները։</string>
     <string name="settings_monitor_connected_notification_label">Լրացուցիչ ծանուցում</string>
-    <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \\"Սարքեր չկան\\" ծանուցումը՝ անջատելով \\"Սարքի կարգավիճակը\\" ալիքը։</string>
+    <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \"Սարքեր չկան\" ծանուցումը՝ անջատելով \"Սարքի կարգավիճակը\" ալիքը։</string>
     <string name="settings_scanner_mode_label">Սկաների ռեժիմ</string>
     <string name="settings_scanner_mode_description">Bluetooth Low Energy տվյալների սկաները պետք է առաջնահերթություն տա արդյունավետությանը, թե՞ խնայի էներգիան։</string>
     <string name="settings_autopause_label">Ինքնադադար</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
     <string name="settings_signal_minimum_description">Ազդանշանի նվազագույն որակը, որը պետք է ունենա սարքը՝ ձերը համարվելու համար։</string>
     <string name="settings_autoconnect_label">Ինքնամիացում</string>
-    <string name="settings_autoconnect_description">Եթե Android-ն ինքնաբերաբար չի միանում, մենք նույնպես կարող ենք դա պահանջել։ Սա մոնիթորինգի ռեժիմի կարգավորումը կդնի \\"Միշտ\\" վիճակում։</string>
+    <string name="settings_autoconnect_description">Եթե Android-ն ինքնաբերաբար չի միանում, մենք նույնպես կարող ենք դա պահանջել։ Սա մոնիթորինգի ռեժիմի կարգավորումը կդնի \"Միշտ\" վիճակում։</string>
     <string name="settings_autoconnect_condition_label">Ինքնամիացման պայման</string>
     <string name="settings_autoconnect_condition_description">Ե՞րբ պետք է փորձենք միանալ ձեր սարքին։</string>
     <string name="settings_reaction_label">Արձագանքներ</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Խնդիրների լուծիչ</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy հեռարձակումներ</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods-ները (և նմանատիպ ականջակալները) կարգավիճակի տեղեկատվություն են հեռարձակում՝ օգտագործելով BLE տեխնոլոգիա, որը կոչվում է \\"գովազդներ\\"։ Որոշ հեռախոսներ այս տեխնոլոգիան ճիշտ չեն իրականացնում։ CAPod-ը կարող է փորձել շտկել դա՝ փորձելով համատեղելիության տարբեր տարբերակներ, մինչև տվյալները ստացվեն։ Սկսեք երաժշտության նվագարկումը ձեր ականջակալներում և տեղադրեք դրանք ձեր հեռախոսի մոտ, այնուհետև սկսեք գործընթացը։</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods-ները (և նմանատիպ ականջակալները) կարգավիճակի տեղեկատվություն են հեռարձակում՝ օգտագործելով BLE տեխնոլոգիա, որը կոչվում է \"գովազդներ\"։ Որոշ հեռախոսներ այս տեխնոլոգիան ճիշտ չեն իրականացնում։ CAPod-ը կարող է փորձել շտկել դա՝ փորձելով համատեղելիության տարբեր տարբերակներ, մինչև տվյալները ստացվեն։ Սկսեք երաժշտության նվագարկումը ձեր ականջակալներում և տեղադրեք դրանք ձեր հեռախոսի մոտ, այնուհետև սկսեք գործընթացը։</string>
     <string name="troubleshooter_ble_intro_start_action">Սկսել խնդիրների լուծումը</string>
     <string name="troubleshooter_ble_process_title">Խնդիրների լուծումն ընթացքի մեջ է</string>
     <string name="troubleshooter_ble_process_subtile">Յուրաքանչյուր քայլը տևում է 5–10 վայրկյան</string>

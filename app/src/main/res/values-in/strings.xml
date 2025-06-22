@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Mode pantau</string>
     <string name="settings_monitor_mode_description">Dalam kondisi apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notifikasi tambahan</string>
-    <string name="settings_monitor_connected_notification_description">Menampilkan notifikasi tambahan ketika perangkat terhubung. Ini memungkinkan Anda menyembunyikan notifikasi permanen \\"Tidak ada perangkat\\" dengan menonaktifkan saluran \\"Status perangkat\\".</string>
+    <string name="settings_monitor_connected_notification_description">Menampilkan notifikasi tambahan ketika perangkat terhubung. Ini memungkinkan Anda menyembunyikan notifikasi permanen \"Tidak ada perangkat\" dengan menonaktifkan saluran \"Status perangkat\".</string>
     <string name="settings_scanner_mode_label">Mode pemindai</string>
     <string name="settings_scanner_mode_description">Haruskah pemindai data Bluetooth Hemat Energi memprioritaskan kinerja atau menghemat energi?</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
     <string name="settings_signal_minimum_description">Kualitas sinyal minimum yang harus dimiliki perangkat agar dianggap milik Anda.</string>
     <string name="settings_autoconnect_label">Sambungkan otomatis</string>
-    <string name="settings_autoconnect_description">Jika Android tidak terhubung secara otomatis, kami juga dapat memintanya. Ini akan mengatur pengaturan mode monitor ke \\"Selalu\\".</string>
+    <string name="settings_autoconnect_description">Jika Android tidak terhubung secara otomatis, kami juga dapat memintanya. Ini akan mengatur pengaturan mode monitor ke \"Selalu\".</string>
     <string name="settings_autoconnect_condition_label">Kondisi sambung otomatis</string>
     <string name="settings_autoconnect_condition_description">Kapan kami harus mencoba menyambung ke perangkat Anda?</string>
     <string name="settings_reaction_label">Reaksi</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Pemecah masalah</string>
     <string name="troubleshooter_ble_intro_title">Siaran Bluetooth Hemat Energi</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (dan headphone serupa) menyiarkan informasi status menggunakan teknologi BLE yang disebut \\"iklan\\". Beberapa telepon tidak menerapkan teknologi ini dengan benar. CAPod dapat mencoba memperbaikinya dengan mencoba berbagai opsi kompatibilitas hingga data diterima. Mulai pemutaran musik di headphone Anda dan letakkan di dekat ponsel Anda, lalu mulai prosesnya.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (dan headphone serupa) menyiarkan informasi status menggunakan teknologi BLE yang disebut \"iklan\". Beberapa telepon tidak menerapkan teknologi ini dengan benar. CAPod dapat mencoba memperbaikinya dengan mencoba berbagai opsi kompatibilitas hingga data diterima. Mulai pemutaran musik di headphone Anda dan letakkan di dekat ponsel Anda, lalu mulai prosesnya.</string>
     <string name="troubleshooter_ble_intro_start_action">Mulai pemecahan masalah</string>
     <string name="troubleshooter_ble_process_title">Pemecahan masalah sedang berlangsung</string>
     <string name="troubleshooter_ble_process_subtile">Setiap langkah membutuhkan waktu 5–10 detik</string>

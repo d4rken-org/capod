@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Vöktunarstilling</string>
     <string name="settings_monitor_mode_description">Undir hvaða kringumstæðum þetta forrit fylgist með Bluetooth gögnum.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
-    <string name="settings_monitor_connected_notification_description">Sýnir auka tilkynningu þegar tæki er tengt. Þetta gerir þér kleift að fela varanlega \\"Engin tæki\\" tilkynninguna með því að slökkva á \\"Staða tækis\\" rásinni.</string>
+    <string name="settings_monitor_connected_notification_description">Sýnir auka tilkynningu þegar tæki er tengt. Þetta gerir þér kleift að fela varanlega \"Engin tæki\" tilkynninguna með því að slökkva á \"Staða tækis\" rásinni.</string>
     <string name="settings_scanner_mode_label">Skannastilling</string>
     <string name="settings_scanner_mode_description">Ætti Bluetooth Low Energy gagnaskanninn að forgangsraða afköstum eða spara orku?</string>
     <string name="settings_autopause_label">Sjálfvirk hlé</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
     <string name="settings_signal_minimum_description">Lágmarksgæði merkis sem tæki þarf að hafa til að teljast þitt.</string>
     <string name="settings_autoconnect_label">Sjálfvirk tenging</string>
-    <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við líka beðið um það. Þetta mun stilla vöktunarstillinguna á \\"Alltaf\\".</string>
+    <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við líka beðið um það. Þetta mun stilla vöktunarstillinguna á \"Alltaf\".</string>
     <string name="settings_autoconnect_condition_label">Skilyrði fyrir sjálfvirkri tengingu</string>
     <string name="settings_autoconnect_condition_description">Hvenær ættum við að reyna að tengjast tækinu þínu?</string>
     <string name="settings_reaction_label">Viðbrögð</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Villuleit</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy útsendingar</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (og svipuð heyrnartól) senda út stöðuupplýsingar með BLE tækni sem kallast \\"auglýsingar\\". Sumir símar útfæra þessa tækni ekki rétt. CAPod getur reynt að laga þetta með því að prófa mismunandi samhæfisvalkosti þar til gögn berast. Byrjaðu tónlistarspilun í heyrnartólunum þínum og settu þau nálægt símanum þínum, byrjaðu síðan ferlið.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (og svipuð heyrnartól) senda út stöðuupplýsingar með BLE tækni sem kallast \"auglýsingar\". Sumir símar útfæra þessa tækni ekki rétt. CAPod getur reynt að laga þetta með því að prófa mismunandi samhæfisvalkosti þar til gögn berast. Byrjaðu tónlistarspilun í heyrnartólunum þínum og settu þau nálægt símanum þínum, byrjaðu síðan ferlið.</string>
     <string name="troubleshooter_ble_intro_start_action">Byrja villuleit</string>
     <string name="troubleshooter_ble_process_title">Villuleit í gangi</string>
     <string name="troubleshooter_ble_process_subtile">Hvert skref tekur 5–10 sekúndur</string>

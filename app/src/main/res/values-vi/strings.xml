@@ -87,7 +87,7 @@
     <string name="general_guide_action">Hướng dẫn</string>
     <string name="general_example_label">Ví dụ: %s</string>
     <string name="settings_monitor_connected_notification_label">Thông báo bổ sung</string>
-    <string name="settings_monitor_connected_notification_description">Hiển thị thông báo bổ sung khi một thiết bị được kết nối. Điều này cho phép bạn ẩn thông báo cố định \\\"Không có thiết bị\\\" bằng cách tắt kênh \\\"Trạng thái thiết bị\\\".</string>
+    <string name="settings_monitor_connected_notification_description">Hiển thị thông báo bổ sung khi một thiết bị được kết nối. Điều này cho phép bạn ẩn thông báo cố định \"Không có thiết bị\" bằng cách tắt kênh \"Trạng thái thiết bị\".</string>
     <string name="settings_category_compatibility_options_title">Tùy chọn tương thích</string>
     <string name="settings_category_compatibility_options_description">Đừng chạm vào nếu mọi thứ hoạt động ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Tắt bộ lọc phần cứng</string>
@@ -114,7 +114,7 @@
     <string name="settings_compat_indirectcallback_summary">Sử dụng một phương pháp thay thế để nhận dữ liệu BLE từ hệ thống (phát sóng thay vì gọi lại).</string>
     <string name="troubleshooter_title">Trình khắc phục sự cố</string>
     <string name="troubleshooter_ble_intro_title">Phát sóng Bluetooth năng lượng thấp</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (và các tai nghe tương tự) phát thông tin trạng thái bằng công nghệ BLE được gọi là \\\"quảng cáo\\\". Một số điện thoại không triển khai công nghệ này một cách chính xác. CAPod có thể cố gắng khắc phục điều này bằng cách thử các tùy chọn tương thích khác nhau cho đến khi nhận được dữ liệu. Bắt đầu phát nhạc trên tai nghe của bạn và đặt chúng gần điện thoại của bạn, sau đó bắt đầu quá trình.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (và các tai nghe tương tự) phát thông tin trạng thái bằng công nghệ BLE được gọi là \"quảng cáo\". Một số điện thoại không triển khai công nghệ này một cách chính xác. CAPod có thể cố gắng khắc phục điều này bằng cách thử các tùy chọn tương thích khác nhau cho đến khi nhận được dữ liệu. Bắt đầu phát nhạc trên tai nghe của bạn và đặt chúng gần điện thoại của bạn, sau đó bắt đầu quá trình.</string>
     <string name="troubleshooter_ble_intro_start_action">Bắt đầu khắc phục sự cố</string>
     <string name="troubleshooter_ble_process_title">Đang tiến hành khắc phục sự cố</string>
     <string name="troubleshooter_ble_process_subtile">Mỗi bước mất 5–10 giây</string>

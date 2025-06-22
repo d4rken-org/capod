@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">وضع المراقبة</string>
     <string name="settings_monitor_mode_description">تحت أي ظروف يراقب هذا التطبيق بيانات البلوتوث.</string>
     <string name="settings_monitor_connected_notification_label">إشعار إضافي</string>
-    <string name="settings_monitor_connected_notification_description">يعرض إشعارًا إضافيًا عند توصيل جهاز. يتيح لك هذا إخفاء الإشعار الدائم \\"لا توجد أجهزة\\" عن طريق تعطيل قناة \\"حالة الجهاز\\".</string>
+    <string name="settings_monitor_connected_notification_description">يعرض إشعارًا إضافيًا عند توصيل جهاز. يتيح لك هذا إخفاء الإشعار الدائم \"لا توجد أجهزة\" عن طريق تعطيل قناة \"حالة الجهاز\".</string>
     <string name="settings_scanner_mode_label">وضع الماسح الضوئي</string>
     <string name="settings_scanner_mode_description">هل يجب أن يعطي ماسح بيانات البلوتوث منخفض الطاقة الأولوية للأداء أم يحافظ على الطاقة؟</string>
     <string name="settings_autopause_label">إيقاف مؤقت تلقائي</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">الحد الأدنى لجودة الإشارة</string>
     <string name="settings_signal_minimum_description">الحد الأدنى لجودة الإشارة التي يجب أن يتمتع بها الجهاز حتى يعتبر ملكك.</string>
     <string name="settings_autoconnect_label">اتصال تلقائي</string>
-    <string name="settings_autoconnect_description">إذا لم يتصل Android تلقائيًا، فيمكننا أن نطلب منه ذلك أيضًا. سيؤدي هذا إلى ضبط إعداد وضع الشاشة على \\"دائمًا\\".</string>
+    <string name="settings_autoconnect_description">إذا لم يتصل Android تلقائيًا، فيمكننا أن نطلب منه ذلك أيضًا. سيؤدي هذا إلى ضبط إعداد وضع الشاشة على \"دائمًا\".</string>
     <string name="settings_autoconnect_condition_label">شرط الاتصال التلقائي</string>
     <string name="settings_autoconnect_condition_description">متى يجب أن نحاول الاتصال بجهازك؟</string>
     <string name="settings_reaction_label">ردود الفعل</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">مستكشف الأخطاء ومصلحها</string>
     <string name="troubleshooter_ble_intro_title">عمليات بث البلوتوث منخفض الطاقة</string>
-    <string name="troubleshooter_ble_intro_body1">تبث AirPods (وسماعات الرأس المشابهة) معلومات الحالة باستخدام تقنية BLE تسمى \\"الإعلانات\\". لا تطبق بعض الهواتف هذه التقنية بشكل صحيح. يمكن لـ CAPod محاولة إصلاح ذلك عن طريق تجربة خيارات توافق مختلفة حتى يتم تلقي البيانات. ابدأ تشغيل الموسيقى على سماعات الرأس الخاصة بك وضعها بالقرب من هاتفك، ثم ابدأ العملية.</string>
+    <string name="troubleshooter_ble_intro_body1">تبث AirPods (وسماعات الرأس المشابهة) معلومات الحالة باستخدام تقنية BLE تسمى \"الإعلانات\". لا تطبق بعض الهواتف هذه التقنية بشكل صحيح. يمكن لـ CAPod محاولة إصلاح ذلك عن طريق تجربة خيارات توافق مختلفة حتى يتم تلقي البيانات. ابدأ تشغيل الموسيقى على سماعات الرأس الخاصة بك وضعها بالقرب من هاتفك، ثم ابدأ العملية.</string>
     <string name="troubleshooter_ble_intro_start_action">بدء استكشاف الأخطاء وإصلاحها</string>
     <string name="troubleshooter_ble_process_title">استكشاف الأخطاء وإصلاحها قيد التقدم</string>
     <string name="troubleshooter_ble_process_subtile">تستغرق كل خطوة من 5 إلى 10 ثوانٍ</string>

@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">मॉनिटर मोड</string>
     <string name="settings_monitor_mode_description">हे अॅप कोणत्या परिस्थितीत ब्लूटूथ डेटाचे निरीक्षण करते.</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
-    <string name="settings_monitor_connected_notification_description">जेव्हा एखादे डिव्हाइस कनेक्ट केलेले असते तेव्हा अतिरिक्त सूचना दर्शविते. हे आपल्याला \\"डिव्हाइस स्थिती\\" चॅनेल अक्षम करून कायमस्वरूपी \\"कोणतेही डिव्हाइस नाही\\" सूचना लपविण्यास अनुमती देते.</string>
+    <string name="settings_monitor_connected_notification_description">जेव्हा एखादे डिव्हाइस कनेक्ट केलेले असते तेव्हा अतिरिक्त सूचना दर्शविते. हे आपल्याला \"डिव्हाइस स्थिती\" चॅनेल अक्षम करून कायमस्वरूपी \"कोणतेही डिव्हाइस नाही\" सूचना लपविण्यास अनुमती देते.</string>
     <string name="settings_scanner_mode_label">स्कॅनर मोड</string>
     <string name="settings_scanner_mode_description">ब्लूटूथ लो एनर्जी डेटा स्कॅनरने कार्यक्षमतेला प्राधान्य द्यावे की ऊर्जा वाचवावी?</string>
     <string name="settings_autopause_label">ऑटो-पॉज</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">किमान सिग्नल गुणवत्ता</string>
     <string name="settings_signal_minimum_description">डिव्हाइसला आपले मानण्यासाठी आवश्यक असलेली किमान सिग्नल गुणवत्ता.</string>
     <string name="settings_autoconnect_label">ऑटो-कनेक्ट</string>
-    <string name="settings_autoconnect_description">Android आपोआप कनेक्ट होत नसल्यास, आम्ही देखील विनंती करू शकतो. हे मॉनिटर मोड सेटिंग \\"नेहमी\\" वर सेट करेल.</string>
+    <string name="settings_autoconnect_description">Android आपोआप कनेक्ट होत नसल्यास, आम्ही देखील विनंती करू शकतो. हे मॉनिटर मोड सेटिंग \"नेहमी\" वर सेट करेल.</string>
     <string name="settings_autoconnect_condition_label">ऑटो-कनेक्ट अट</string>
     <string name="settings_autoconnect_condition_description">आम्ही आपल्या डिव्हाइसशी कधी कनेक्ट करण्याचा प्रयत्न करावा?</string>
     <string name="settings_reaction_label">प्रतिक्रिया</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">समस्या निवारक</string>
     <string name="troubleshooter_ble_intro_title">ब्लूटूथ कमी ऊर्जा प्रसारण</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (आणि तत्सम हेडफोन) \\"जाहिराती\\" नावाच्या BLE तंत्रज्ञानाचा वापर करून स्थिती माहिती प्रसारित करतात. काही फोन हे तंत्रज्ञान योग्यरित्या अंमलात आणत नाहीत. डेटा प्राप्त होईपर्यंत CAPod विविध सुसंगतता पर्याय वापरून हे दुरुस्त करण्याचा प्रयत्न करू शकते. तुमच्या हेडफोनवर संगीत प्लेबॅक सुरू करा आणि त्यांना तुमच्या फोनजवळ ठेवा, नंतर प्रक्रिया सुरू करा.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (आणि तत्सम हेडफोन) \"जाहिराती\" नावाच्या BLE तंत्रज्ञानाचा वापर करून स्थिती माहिती प्रसारित करतात. काही फोन हे तंत्रज्ञान योग्यरित्या अंमलात आणत नाहीत. डेटा प्राप्त होईपर्यंत CAPod विविध सुसंगतता पर्याय वापरून हे दुरुस्त करण्याचा प्रयत्न करू शकते. तुमच्या हेडफोनवर संगीत प्लेबॅक सुरू करा आणि त्यांना तुमच्या फोनजवळ ठेवा, नंतर प्रक्रिया सुरू करा.</string>
     <string name="troubleshooter_ble_intro_start_action">समस्या निवारण सुरू करा</string>
     <string name="troubleshooter_ble_process_title">समस्या निवारण सुरू आहे</string>
     <string name="troubleshooter_ble_process_subtile">प्रत्येक पायरीला ५-१० सेकंद लागतात</string>

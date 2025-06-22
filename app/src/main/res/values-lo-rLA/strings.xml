@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">ໂໝດຕິດຕາມ</string>
     <string name="settings_monitor_mode_description">ແອັບນີ້ຕິດຕາມຂໍ້ມູນ Bluetooth ພາຍໃຕ້ສະຖານະການໃດ.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
-    <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \\"ບໍ່ມີອຸປະກອນ\\" ໂດຍການປິດຊ່ອງ \\"ສະຖານະອຸປະກອນ\\" .</string>
+    <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \"ບໍ່ມີອຸປະກອນ\" ໂດຍການປິດຊ່ອງ \"ສະຖານະອຸປະກອນ\" .</string>
     <string name="settings_scanner_mode_label">ໂໝດສະແກນ</string>
     <string name="settings_scanner_mode_description">ເຄື່ອງສະແກນຂໍ້ມູນ Bluetooth Low Energy ຄວນໃຫ້ຄວາມສຳຄັນກັບປະສິດທິພາບ ຫຼື ປະຢັດພະລັງງານ?</string>
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
     <string name="settings_signal_minimum_description">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າທີ່ອຸປະກອນຕ້ອງມີເພື່ອຖືວ່າເປັນຂອງທ່ານ.</string>
     <string name="settings_autoconnect_label">ເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
-    <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ, ພວກເຮົາກໍສາມາດຮ້ອງຂໍໄດ້. ນີ້ຈະຕັ້ງຄ່າໂໝດຕິດຕາມເປັນ \\"ສະເໝີ\\" .</string>
+    <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ, ພວກເຮົາກໍສາມາດຮ້ອງຂໍໄດ້. ນີ້ຈະຕັ້ງຄ່າໂໝດຕິດຕາມເປັນ \"ສະເໝີ\" .</string>
     <string name="settings_autoconnect_condition_label">ເງື່ອນໄຂການເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
     <string name="settings_autoconnect_condition_description">ພວກເຮົາຄວນພະຍາຍາມເຊື່ອມຕໍ່ກັບອຸປະກອນຂອງທ່ານເມື່ອໃດ?</string>
     <string name="settings_reaction_label">ປະຕິກິລິຍາ</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">ຕົວແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_intro_title">ການອອກອາກາດ Bluetooth Low Energy</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \\"ການໂຄສະນາ\\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂปัญหานี้ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ้ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂปัญหานี้ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ้ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
     <string name="troubleshooter_ble_intro_start_action">ເລີ່ມການແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_process_title">ກຳລັງແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_process_subtile">ແຕ່ລະຂັ້ນຕອນໃຊ້ເວລາ 5-10 ວິນາທີ</string>

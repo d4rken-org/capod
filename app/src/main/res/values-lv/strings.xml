@@ -20,7 +20,7 @@
     <string name="settings_monitor_mode_label">Monitorēšanas režīms</string>
     <string name="settings_monitor_mode_description">Kādos apstākļos šī lietotne monitorē Bluetooth datus.</string>
     <string name="settings_monitor_connected_notification_label">Papildu paziņojums</string>
-    <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \\"Nav ierīču\\", atspējojot kanālu \\"Ierīces statuss\\".</string>
+    <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \"Nav ierīču\", atspējojot kanālu \"Ierīces statuss\".</string>
     <string name="settings_scanner_mode_label">Skenēšanas režīms</string>
     <string name="settings_scanner_mode_description">Vai Bluetooth Low Energy datu skenerim vajadzētu prioritizēt veiktspēju vai taupīt enerģiju?</string>
     <string name="settings_autopause_label">Automātiska pauze</string>
@@ -36,7 +36,7 @@
     <string name="settings_signal_minimum_label">Minimālā signāla kvalitāte</string>
     <string name="settings_signal_minimum_description">Minimālā signāla kvalitāte, kādai jābūt ierīcei, lai tā tiktu uzskatīta par jūsu.</string>
     <string name="settings_autoconnect_label">Automātiska savienošana</string>
-    <string name="settings_autoconnect_description">Ja Android automātiski nesavienojas, mēs arī varam to pieprasīt. Tas iestatīs monitorēšanas režīma iestatījumu uz \\"Vienmēr\\".</string>
+    <string name="settings_autoconnect_description">Ja Android automātiski nesavienojas, mēs arī varam to pieprasīt. Tas iestatīs monitorēšanas režīma iestatījumu uz \"Vienmēr\".</string>
     <string name="settings_autoconnect_condition_label">Automātiskas savienošanas nosacījums</string>
     <string name="settings_autoconnect_condition_description">Kad mums vajadzētu mēģināt izveidot savienojumu ar jūsu ierīci?</string>
     <string name="settings_reaction_label">Reakcijas</string>
@@ -128,7 +128,7 @@
 
     <string name="troubleshooter_title">Problēmu risinātājs</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy pārraides</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (un līdzīgas austiņas) pārraida statusa informāciju, izmantojot BLE tehnoloģiju, ko sauc par \\"reklāmām\\". Daži tālruņi šo tehnoloģiju neīsteno pareizi. CAPod var mēģināt to labot, izmēģinot dažādas saderības opcijas, līdz tiek saņemti dati. Sāciet mūzikas atskaņošanu austiņās un novietojiet tās tuvu tālrunim, pēc tam sāciet procesu.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (un līdzīgas austiņas) pārraida statusa informāciju, izmantojot BLE tehnoloģiju, ko sauc par \"reklāmām\". Daži tālruņi šo tehnoloģiju neīsteno pareizi. CAPod var mēģināt to labot, izmēģinot dažādas saderības opcijas, līdz tiek saņemti dati. Sāciet mūzikas atskaņošanu austiņās un novietojiet tās tuvu tālrunim, pēc tam sāciet procesu.</string>
     <string name="troubleshooter_ble_intro_start_action">Sākt problēmu risināšanu</string>
     <string name="troubleshooter_ble_process_title">Notiek problēmu risināšana</string>
     <string name="troubleshooter_ble_process_subtile">Katrs solis aizņem 5–10 sekundes</string>
