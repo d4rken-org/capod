@@ -21,12 +21,22 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane android beta
 ```
 
+### android beta_wearos
 
+```sh
+[bundle exec] fastlane android beta_wearos
+```
 
 ### android production
 
 ```sh
 [bundle exec] fastlane android production
+```
+
+### android production_wearos
+
+```sh
+[bundle exec] fastlane android production_wearos
 ```
 
 ### android listing_only
