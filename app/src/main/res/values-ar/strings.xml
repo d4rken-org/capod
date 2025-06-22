@@ -11,12 +11,9 @@
     <string name="general_save_action">حفظ</string>
     <string name="general_guide_action">دليل</string>
     <string name="general_continue_action">متابعة</string>
-
     <string name="general_example_label">مثال: %s</string>
-
     <string name="upgrade_capod_label">ترقية CAPod</string>
     <string name="upgrade_capod_description">احصل على ميزات إضافية وادعم المطور.</string>
-
     <string name="settings_monitor_mode_label">وضع المراقبة</string>
     <string name="settings_monitor_mode_description">تحت أي ظروف يراقب هذا التطبيق بيانات البلوتوث.</string>
     <string name="settings_monitor_connected_notification_label">إشعار إضافي</string>
@@ -42,14 +39,12 @@
     <string name="settings_reaction_label">ردود الفعل</string>
     <string name="settings_reaction_description">التفاعل مع الأحداث والسلوكيات.</string>
     <string name="settings_category_yourdevice_label">جهازك</string>
-
     <string name="settings_category_compatibility_options_title">خيارات التوافق</string>
     <string name="settings_category_compatibility_options_description">لا تلمس إذا كان كل شيء يعمل ؛)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">تعطيل تصفية الأجهزة</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">لا تفوض تصفية البيانات إلى النظام، بل احصل على جميع البيانات وقم بالتصفية داخل التطبيق.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">تعطيل التجميع بالأجهزة</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">لا تدع النظام يجمع بيانات BLE المجمعة قبل إرسالها إلينا.</string>
-
     <string name="settings_maindevice_address_label">عنوان جهازك</string>
     <string name="settings_maindevice_address_description">عنوان جهازك المقترن. يستخدمه التطبيق لتحديد وقت اتصاله بهاتفك.</string>
     <string name="settings_maindevice_address_none">لا شيء</string>
@@ -61,17 +56,14 @@
     <string name="settings_maindevice_encryptionkey_label">مفتاح التشفير</string>
     <string name="settings_maindevice_encryptionkey_description">مفتاح تشفير جهازك، والذي يسمح لـ CAPod باسترداد معلومات الحالة التفصيلية.</string>
     <string name="settings_maindevice_encryptionkey_explanation">ترسل AirPods رسالة حالة، جزء منها مشفر. يسمح مفتاح التشفير لـ CAPod بفك تشفير الرسالة الكاملة. تحتاج إلى الوصول لمرة واحدة إلى جهاز MacBook.</string>
-
     <string name="settings_onepod_mode_label">وضع سماعة واحدة</string>
     <string name="settings_onepod_mode_description">ليس مطلوبًا ارتداء كلتا السماعتين، فارتداء سماعة واحدة كافٍ لتشغيل ردود الفعل.</string>
     <string name="settings_popup_caseopen_label">إظهار نافذة منبثقة للعلبة</string>
     <string name="settings_popup_caseopen_description">إظهار نافذة منبثقة عند فتح علبة الجهاز (تجريبي).</string>
     <string name="settings_popup_connected_label">إظهار نافذة منبثقة للاتصال</string>
     <string name="settings_popup_connected_description">إظهار نافذة منبثقة عند اتصال الجهاز لأول مرة.</string>
-
     <string name="notification_channel_device_status_label">حالة الجهاز</string>
     <string name="notification_channel_device_status_connected_label">جهاز متصل</string>
-
     <string name="support_debuglog_label">سجل التصحيح</string>
     <string name="support_debuglog_desc">سجل كل ما يفعله التطبيق في ملف نصي يمكنك مشاركته.</string>
     <string name="debug_debuglog_size_label">الحجم</string>
@@ -83,18 +75,14 @@
     <string name="debug_debuglog_stop_action">إيقاف التسجيل</string>
     <string name="debug_debuglog_sensitive_information_message">يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل تفاصيل جهاز البلوتوث). شاركه فقط مع الأطراف الموثوق بها.</string>
     <string name="settings_debuglog_explanation">تسجل هذه الميزة كل ما يفعله التطبيق في ملف قابل للمشاركة. يحتوي الملف الذي تم إنشاؤه على معلومات حساسة (مثل تفاصيل جهاز البلوتوث). شاركه فقط مع الأطراف الموثوق بها (مثل مطور يقوم باستكشاف مشكلة وإصلاحها).</string>
-
     <string name="settings_support_installid_label">معرف التثبيت</string>
     <string name="settings_support_installid_desc">تقارير الأخطاء التلقائية مجهولة المصدر. شارك معرف التثبيت الخاص بك إذا كان المطور بحاجة إلى العثور على تقارير الأخطاء الخاصة بك.</string>
     <string name="settings_support_label">الدعم</string>
     <string name="settings_support_description">إذا كنت بحاجة إلى بعض المساعدة.</string>
-
     <string name="issue_tracker_label">متتبع المشكلات</string>
     <string name="issue_tracker_description">متتبع مشكلات عام لتقارير الأخطاء وطلبات الميزات (باللغة الإنجليزية فقط).</string>
-
     <string name="discord_label">ديسكورد</string>
     <string name="discord_description">مكان للتسكع وطرح الأسئلة.</string>
-
     <string name="changelog_label">سجل التغييرات</string>
     <string name="settings_label">الإعدادات</string>
     <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
@@ -104,28 +92,21 @@
     <string name="settings_general_label">الإعدادات</string>
     <string name="settings_general_description">تعديلات عامة تؤثر على التطبيق بأكمله.</string>
     <string name="settings_acknowledgements_label">شكر وتقدير</string>
-
     <string name="settings_debug_autoreports_label">تقارير الأخطاء التلقائية</string>
     <string name="settings_debug_autoreports_description">الإبلاغ تلقائيًا عن المشكلات، على سبيل المثال تفاصيل حول تعطل التطبيق حتى أتمكن من معرفة كيفية إصلاحه.</string>
     <string name="settings_debug_mode_label">وضع التصحيح</string>
     <string name="settings_debug_mode_description">عرض معلومات إضافية لاستكشاف المشكلات وإصلاحها.</string>
-
     <string name="settings_blescanner_unfiltered_label">بيانات BLE غير المصفاة</string>
     <string name="settings_blescanner_unfiltered_description">إزالة أي عوامل تصفية من ماسح BLE لعرض جميع بيانات BLE المذاعة. مفيد لإضافة دعم لأنواع سماعات الرأس الجديدة.</string>
-
     <string name="settings_compatibility_mode_label">وضع التوافق</string>
     <string name="settings_compatibility_mode_description">تعطيل التحسينات لتحسين التوافق. جرب هذا إذا كنت لا ترى أي بيانات.</string>
-
     <string name="help_translate_label">الترجمة</string>
     <string name="help_translate_description">ساعد في ترجمة هذا التطبيق إلى لغتك المفضلة.</string>
-
     <string name="translators_thanks_title">المترجمون</string>
-    <string name="translators_thanks_description">darken</string>
-
+    <string name="translators_thanks_description">متطوعون على كراودن</string>
     <string name="widget_description">أداة تعرض آخر حالة معروفة للجهاز.</string>
     <string name="settings_compat_indirectcallback_title">تسليم البيانات غير المباشر</string>
     <string name="settings_compat_indirectcallback_summary">استخدم طريقة بديلة لتلقي بيانات BLE من النظام (بث بدلاً من رد الاتصال).</string>
-
     <string name="troubleshooter_title">مستكشف الأخطاء ومصلحها</string>
     <string name="troubleshooter_ble_intro_title">عمليات بث البلوتوث منخفض الطاقة</string>
     <string name="troubleshooter_ble_intro_body1">تبث AirPods (وسماعات الرأس المشابهة) معلومات الحالة باستخدام تقنية BLE تسمى \"الإعلانات\". لا تطبق بعض الهواتف هذه التقنية بشكل صحيح. يمكن لـ CAPod محاولة إصلاح ذلك عن طريق تجربة خيارات توافق مختلفة حتى يتم تلقي البيانات. ابدأ تشغيل الموسيقى على سماعات الرأس الخاصة بك وضعها بالقرب من هاتفك، ثم ابدأ العملية.</string>
@@ -140,7 +121,6 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">تلقى هاتفك بيانات BLE، لكن البيانات لا تأتي من أي جهاز مدعوم. هل سماعات الرأس الخاصة بك قيد التشغيل؟ هل يدعم CAPod سماعة الرأس الخاصة بك؟</string>
     <string name="troubleshooter_ble_result_failure_action">حاول مرة أخرى</string>
     <string name="troubleshoot_action">استكشاف الأخطاء وإصلاحها</string>
-
     <string name="onboarding_body1">يضيف هذا التطبيق دعمًا لميزات AirPods المحددة إلى Android.</string>
     <string name="onboarding_body2">لا تدعم جميع أجهزة Android ميزات AirPods الإضافية بشكل كامل. يتطلب نظام التشغيل الخاص بك تطبيق Bluetooth-Low-Energy يعمل بشكل صحيح.</string>
     <string name="onboarding_body3">لا يحتوي CAPod على إعلانات ولا يجمع بياناتك.</string>

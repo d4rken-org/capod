@@ -11,12 +11,9 @@
     <string name="general_save_action">Simpan</string>
     <string name="general_guide_action">Panduan</string>
     <string name="general_continue_action">Lanjutkan</string>
-
     <string name="general_example_label">Misalnya: %s</string>
-
     <string name="upgrade_capod_label">Tingkatkan CAPod</string>
     <string name="upgrade_capod_description">Dapatkan fitur tambahan dan dukung pengembang.</string>
-
     <string name="settings_monitor_mode_label">Mode pantau</string>
     <string name="settings_monitor_mode_description">Dalam kondisi apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notifikasi tambahan</string>
@@ -42,14 +39,12 @@
     <string name="settings_reaction_label">Reaksi</string>
     <string name="settings_reaction_description">Bereaksi terhadap peristiwa dan perilaku.</string>
     <string name="settings_category_yourdevice_label">Perangkat Anda</string>
-
     <string name="settings_category_compatibility_options_title">Opsi kompatibilitas</string>
     <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Nonaktifkan pemfilteran perangkat keras</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Jangan mendelegasikan pemfilteran data ke sistem, alih-alih dapatkan semua data dan filter di dalam aplikasi.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Nonaktifkan pengelompokan perangkat keras</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Jangan biarkan sistem mengelompokkan data BLE yang terkumpul sebelum meneruskannya kepada kami.</string>
-
     <string name="settings_maindevice_address_label">Alamat perangkat Anda</string>
     <string name="settings_maindevice_address_description">Alamat perangkat Anda yang dipasangkan. Aplikasi menggunakan ini untuk menentukan kapan terhubung ke ponsel Anda.</string>
     <string name="settings_maindevice_address_none">Tidak ada</string>
@@ -61,17 +56,14 @@
     <string name="settings_maindevice_encryptionkey_label">Kunci Enkripsi</string>
     <string name="settings_maindevice_encryptionkey_description">Kunci enkripsi perangkat Anda, yang memungkinkan CAPod mengambil informasi status terperinci.</string>
     <string name="settings_maindevice_encryptionkey_explanation">AirPods mengirimkan pesan status, yang sebagian dienkripsi. Kunci enkripsi memungkinkan CAPod mendekripsi pesan lengkap. Anda memerlukan akses sekali pakai ke MacBook.</string>
-
     <string name="settings_onepod_mode_label">Mode satu pod</string>
     <string name="settings_onepod_mode_description">Memakai kedua pod tidak diperlukan, memakai satu pod saja sudah cukup untuk memicu reaksi.</string>
     <string name="settings_popup_caseopen_label">Tampilkan pop-up casing</string>
     <string name="settings_popup_caseopen_description">Tampilkan pop-up saat casing perangkat dibuka (eksperimental).</string>
     <string name="settings_popup_connected_label">Tampilkan pop-up koneksi</string>
     <string name="settings_popup_connected_description">Tampilkan pop-up saat perangkat pertama kali terhubung.</string>
-
     <string name="notification_channel_device_status_label">Status perangkat</string>
     <string name="notification_channel_device_status_connected_label">Perangkat terhubung</string>
-
     <string name="support_debuglog_label">Log debug</string>
     <string name="support_debuglog_desc">Rekam semua yang dilakukan aplikasi dalam file teks yang dapat Anda bagikan.</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
@@ -83,18 +75,14 @@
     <string name="debug_debuglog_stop_action">Hentikan perekaman</string>
     <string name="debug_debuglog_sensitive_information_message">File yang dihasilkan berisi informasi sensitif (misalnya detail perangkat Bluetooth). Bagikan hanya dengan pihak tepercaya.</string>
     <string name="settings_debuglog_explanation">Fitur ini merekam semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dihasilkan berisi informasi sensitif (misalnya detail perangkat Bluetooth). Bagikan hanya dengan pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
-
     <string name="settings_support_installid_label">ID Instalasi</string>
     <string name="settings_support_installid_desc">Laporan kesalahan otomatis bersifat anonim. Bagikan ID instalasi Anda jika pengembang perlu menemukan laporan kesalahan Anda.</string>
     <string name="settings_support_label">Dukungan</string>
     <string name="settings_support_description">Jika Anda membutuhkan bantuan.</string>
-
     <string name="issue_tracker_label">Pelacak masalah</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug &amp; permintaan fitur (hanya dalam bahasa Inggris).</string>
-
     <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat untuk bersantai &amp; bertanya.</string>
-
     <string name="changelog_label">Catatan perubahan</string>
     <string name="settings_label">Pengaturan</string>
     <string name="settings_privacy_policy_label">Kebijakan privasi</string>
@@ -104,28 +92,21 @@
     <string name="settings_general_label">Pengaturan</string>
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
     <string name="settings_acknowledgements_label">Ucapan Terima Kasih</string>
-
     <string name="settings_debug_autoreports_label">Laporan bug otomatis</string>
     <string name="settings_debug_autoreports_description">Melaporkan masalah secara otomatis, mis. detail tentang kerusakan aplikasi sehingga saya dapat mencari tahu cara memperbaikinya.</string>
     <string name="settings_debug_mode_label">Mode debug</string>
     <string name="settings_debug_mode_description">Tampilkan informasi tambahan untuk memecahkan masalah.</string>
-
     <string name="settings_blescanner_unfiltered_label">Data BLE yang tidak difilter</string>
     <string name="settings_blescanner_unfiltered_description">Hapus semua filter dari pemindai BLE untuk menampilkan semua data BLE yang disiarkan. Berguna untuk menambahkan dukungan untuk jenis headphone baru.</string>
-
     <string name="settings_compatibility_mode_label">Mode kompatibilitas</string>
     <string name="settings_compatibility_mode_description">Nonaktifkan pengoptimalan untuk meningkatkan kompatibilitas. Coba ini jika Anda tidak melihat data apa pun.</string>
-
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan aplikasi ini ke bahasa favorit Anda.</string>
-
     <string name="translators_thanks_title">Penerjemah</string>
-    <string name="translators_thanks_description">darken</string>
-
+    <string name="translators_thanks_description">gelapkan</string>
     <string name="widget_description">Widget yang menampilkan status perangkat terakhir yang diketahui.</string>
     <string name="settings_compat_indirectcallback_title">Pengiriman data tidak langsung</string>
     <string name="settings_compat_indirectcallback_summary">Gunakan metode alternatif untuk menerima data BLE dari sistem (siaran alih-alih panggilan balik).</string>
-
     <string name="troubleshooter_title">Pemecah masalah</string>
     <string name="troubleshooter_ble_intro_title">Siaran Bluetooth Hemat Energi</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (dan headphone serupa) menyiarkan informasi status menggunakan teknologi BLE yang disebut \"iklan\". Beberapa telepon tidak menerapkan teknologi ini dengan benar. CAPod dapat mencoba memperbaikinya dengan mencoba berbagai opsi kompatibilitas hingga data diterima. Mulai pemutaran musik di headphone Anda dan letakkan di dekat ponsel Anda, lalu mulai prosesnya.</string>
@@ -140,7 +121,6 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telepon Anda menerima data BLE, tetapi data tersebut tidak berasal dari perangkat yang didukung. Apakah headphone Anda dihidupkan? Apakah CAPod mendukung headphone Anda?</string>
     <string name="troubleshooter_ble_result_failure_action">Coba lagi</string>
     <string name="troubleshoot_action">Pecahkan masalah</string>
-
     <string name="onboarding_body1">Aplikasi ini menambahkan dukungan untuk fitur khusus AirPod ke Android.</string>
     <string name="onboarding_body2">Tidak semua perangkat Android sepenuhnya mendukung fitur tambahan AirPod. Sistem operasi Anda memerlukan implementasi Bluetooth Hemat Energi yang berfungsi dengan baik.</string>
     <string name="onboarding_body3">CAPod tidak memiliki iklan dan tidak mengumpulkan data Anda.</string>

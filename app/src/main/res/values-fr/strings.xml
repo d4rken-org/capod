@@ -85,7 +85,7 @@
     <string name="discord_description">Un endroit à fréquenter où poser des questions.</string>
     <string name="changelog_label">Journal des changements</string>
     <string name="settings_label">Paramètres</string>
-    <string name="settings_privacy_policy_label">Politique de protection des données personnelles</string>
+    <string name="settings_privacy_policy_label">Politique de confidentialité</string>
     <string name="settings_privacy_policy_desc">Gestion responsable des données.</string>
     <string name="settings_licenses_label">Licences</string>
     <string name="settings_category_other_label">Autre</string>
