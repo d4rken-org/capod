@@ -1,2 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/D</string>
+    <string name="general_error_label">Erro</string>
+    <string name="general_grant_permission_action">Conceder permiso</string>
+
+    <string name="overview_nomaindevice_label">Sen dispositivo principal</string>
+    <string name="overview_nomaindevice_description">É improbable que todos os dispositivos detectados sexan teus. Acende e conecta o teu dispositivo ou axusta a configuración.</string>
+    <string name="overview_bluetooth_disabled_label">O Bluetooth está desactivado</string>
+    <string name="overview_bluetooth_disabled_description">O Bluetooth está desactivado, actívao ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Conexión Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Esta aplicación require o permiso de \\\"Conexión Bluetooth\\\" para interactuar con dispositivos emparellados e iniciar conexións.</string>
+    <string name="permission_bluetooth_scan_label">Escaneo Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">O permiso de \\\"Escaneo Bluetooth\\\" permite a esta aplicación descubrir e recibir datos Bluetooth de dispositivos próximos como os teus AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Esta aplicación require o permiso de \\\"Bluetooth\\\" para conectarse a dispositivos bluetooth emparellados.</string>
+    <string name="permission_access_fine_location_label">Acceder á localización precisa</string>
+    <string name="permission_access_fine_location_description">CAPod usa o permiso de \\\"localización precisa\\\" para recibir datos de Bluetooth Low Energy. Os teus auriculares usan a tecnoloxía Bluetooth Low Energy para transmitir o seu estado. Esta aplicación NON usará datos Bluetooth para determinar a túa localización.</string>
+    <string name="permission_background_location_label">Acceso á localización en segundo plano</string>
+    <string name="permission_background_location_description">CAPod usa o \\\"acceso á localización en segundo plano\\\" para habilitar funcións como \\\"Mostrar ventá emerxente\\\" e \\\"Conexión automática\\\" mentres a aplicación está pechada. O acceso á localización en segundo plano permite á aplicación recibir datos de Bluetooth Low Energy mentres está en segundo plano. Esta aplicación NON usará datos Bluetooth para determinar a túa localización.</string>
+    <string name="permission_ignore_battery_optimizations_label">Desactivar optimizacións da batería</string>
+    <string name="permission_ignore_battery_optimizations_description">As optimizacións da batería impiden que esta aplicación reciba datos Bluetooth de forma fiable mentres a aplicación está en segundo plano.</string>
+    <string name="permission_required_title">Requírese o seguinte permiso:</string>
+    <string name="permission_system_alert_window_label">Ventá de alerta do sistema</string>
+    <string name="permission_system_alert_window_description">Permitir a CAPod debuxar sobre outras aplicacións para facer posible a función \\\"Mostrar ventá emerxente\\\".</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Baixa potencia</string>
+    <string name="settings_scanner_mode_balanced_label">Equilibrado</string>
+    <string name="settings_scanner_mode_lowlatency_label">Baixa latencia</string>
+
+    <string name="settings_monitor_mode_manual_label">Cando a aplicación está aberta</string>
+    <string name="settings_monitor_mode_automatic_label">Cando o dispositivo está conectado</string>
+    <string name="settings_monitor_mode_always_label">Sempre</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Cando se ve</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">A funda está aberta</string>
+    <string name="settings_reaction_autoconnect_inear_label">Na orella</string>
+
+    <string name="pods_dual_left_label">Auricular esquerdo</string>
+    <string name="pods_dual_right_label">Auricular dereito</string>
+    <string name="pods_case_label">Funda</string>
+    <string name="pods_case_status_open_label">Aberta</string>
+    <string name="pods_case_status_closed_label">Pechada</string>
+    <string name="pods_connection_state_disconnected_label">Non conectado a un dispositivo</string>
+    <string name="pods_connection_state_idle_label">Conectado a un dispositivo, pero inactivo</string>
+    <string name="pods_connection_state_music_label">En modo música</string>
+    <string name="pods_connection_state_call_label">En modo chamada</string>
+    <string name="pods_connection_state_ringing_label">Soando</string>
+    <string name="pods_connection_state_hanging_up_label">Colgando</string>
+    <string name="pods_connection_state_unknown_label">Estado de conexión descoñecido</string>
+    <string name="pods_unknown_raw_data_label">Datos brutos</string>
+    <string name="pods_unknown_label">Dispositivo descoñecido</string>
+    <string name="pods_unknown_contact_dev">Este é un dispositivo descoñecido, pero está a usar un formato de mensaxe similar. Imos engadir soporte para el, ponte en contacto comigo :)</string>
+    <string name="pods_none_label_short">Sen dispositivo</string>
+    <string name="pods_charging_label">Cargando</string>
+    <string name="pods_inear_label">Na orella</string>
+    <string name="pods_microphone_label">Micrófono</string>
+    <string name="pods_yours">Teus</string>
+    <string name="headset_being_worn_label">Postos</string>
+    <string name="headset_not_being_worn_label">Non postos</string>
+    <string name="pods_case_unknown_state">Estado descoñecido</string>
+
+    <string name="last_seen_x">Visto por última vez: %s</string>
+    <string name="first_seen_x">Visto por primeira vez: %s</string>
+    <string name="permission_post_notifications_label">Mostrar notificacións</string>
+    <string name="permission_post_notifications_description">"Permitir a CAPod mostrar notificacións sobre os teus AirPods, p. ex., o seu estado actual mentres están conectados."</string>
+</resources>

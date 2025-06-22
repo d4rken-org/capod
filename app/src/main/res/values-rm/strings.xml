@@ -1,2 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="general_share_action">Partir</string>
+    <string name="general_done_action">Terminà</string>
+    <string name="general_cancel_action">Interrumper</string>
+    <string name="general_copy_action">Copiar</string>
+    <string name="general_thank_you_label">Engraziel</string>
+    <string name="general_upgrade_action">Actualisar</string>
+    <string name="general_check_action">Controllar</string>
+    <string name="general_close_action">Serrar</string>
+    <string name="general_save_action">Memorisar</string>
+    <string name="general_guide_action">Guida</string>
+    <string name="general_continue_action">Cuntinuar</string>
+
+    <string name="general_example_label">Ex.: %s</string>
+
+    <string name="upgrade_capod_label">Actualisar CAPod</string>
+    <string name="upgrade_capod_description">Obtegnair funcziuns supplementaras e sustegnair il sviluppader.</string>
+
+    <string name="settings_monitor_mode_label">Modus da surveglianza</string>
+    <string name="settings_monitor_mode_description">Sut tge circumstanzas surveglia questa app datas da Bluetooth.</string>
+    <string name="settings_monitor_connected_notification_label">Notificaziun supplementara</string>
+    <string name="settings_monitor_connected_notification_description">Mussa ina notificaziun supplementara cura ch\'in apparat è connectà. Quai permetta da zoppar la notificaziun permanenta \"Nagins apparats\" cun deactivar il chanal \"Stadi da l\'apparat\".</string>
+    <string name="settings_scanner_mode_label">Modus da scanner</string>
+    <string name="settings_scanner_mode_description">Duai il scanner da datas da Bluetooth Low Energy priorisar la prestaziun u spargnar energia?</string>
+    <string name="settings_autopause_label">Pausa automata</string>
+    <string name="settings_autopause_description">Interrumper l\'audio cura che l\'apparat vegn allontanà da l\'ureglia.</string>
+    <string name="settings_showall_label">Mussar tut ils apparats</string>
+    <string name="settings_showall_description">Mussar apparats d\'autras persunas che sa chattan en Vossa vischinanza.</string>
+    <string name="settings_autopplay_label">Play automatic</string>
+    <string name="settings_autoplay_description">Cumenzar la reproducziun audio cura che l\'apparat vegn purtà.</string>
+    <string name="settings_fake_data_label">Datas fictivas</string>
+    <string name="settings_fake_data_description">Mussar datas fictivas, pia simular apparats che n\'existan betg.</string>
+    <string name="settings_debug_label">Configuraziuns da debugging</string>
+    <string name="settings_debug_description">Configuraziuns supplementaras per gidar a schliar problems cun l\'app.</string>
+    <string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
+    <string name="settings_signal_minimum_description">La qualitad minimala dal signal che in apparat sto avair per vegnir considerà sco Voss.</string>
+    <string name="settings_autoconnect_label">Connectar automaticamain</string>
+    <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \\\"Adina\\\'.</string>
+    <string name="settings_autoconnect_condition_label">Cundiziun per connectar automaticamain</string>
+    <string name="settings_autoconnect_condition_description">Cura duain nus empruvar da connectar cun Voss apparat?</string>
+    <string name="settings_reaction_label">Reacziuns</string>
+    <string name="settings_reaction_description">Reagir sin eveniments e cumportaments.</string>
+    <string name="settings_category_yourdevice_label">Voss apparat</string>
+
+    <string name="settings_category_compatibility_options_title">Opziuns da cumpatibilitad</string>
+    <string name="settings_category_compatibility_options_description">Betg tuccar sche tut funcziuna ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Deactivar la filtraziun hardware</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Betg delegar la filtraziun da datas al sistem, mabain obtegnair tut las datas e filtrar entaifer l\'app.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Deactivar il batching hardware</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Betg laschar che il sistem gruppeschia datas BLE collecziunadas avant che las trametter a nus.</string>
+
+    <string name="settings_maindevice_address_label">Adressa da Voss apparat</string>
+    <string name="settings_maindevice_address_description">L\'adressa da Voss apparat accumpagnà. L\'app dovra quai per determinar cura ch\'el è connectà cun Voss telefonin.</string>
+    <string name="settings_maindevice_address_none">Nagin</string>
+    <string name="settings_maindevice_model_label">Model da Voss apparat</string>
+    <string name="settings_maindevice_model_description">Il model da Voss apparat principal. Quai gida l\'app a reconuscher Voss apparat cura ch\'el n\'è betg connectà cun Voss telefonin.</string>
+    <string name="settings_maindevice_identitykey_label">clav d\'identitad</string>
+    <string name="settings_maindevice_identitykey_description">La clav da resoluziun d\'identitad (IRK) da Voss apparat, che gida CAPod ad identificar el tranter ils apparats en vischinanza.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods midan savens lur adressa Bluetooth per motivs da privatezza. L\'IRK gida CAPod a reconuscher Voss apparat. Vus duvrais in access unic ad in MacBook.</string>
+    <string name="settings_maindevice_encryptionkey_label">Clav da cifratura</string>
+    <string name="settings_maindevice_encryptionkey_description">La clav da cifratura da Voss apparat, che permetta a CAPod da recuperar infurmaziuns detagliadas dal stadi.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods tramettan in messadi da stadi, da la quala ina part è cifrada. La clav da cifratura permetta a CAPod da decifrar il messadi cumplet. Vus duvrais in access unic ad in MacBook.</string>
+
+    <string name="settings_onepod_mode_label">Modus cun in singul pod</string>
+    <string name="settings_onepod_mode_description">Purtar omadus pods n\'è betg necessari, purtar in singul pod basta per provocar reacziuns.</string>
+    <string name="settings_popup_caseopen_label">Mussar il popup da la scatla</string>
+    <string name="settings_popup_caseopen_description">Mussar in popup cura che la scatla da l\'apparat vegn averta (experimental).</string>
+    <string name="settings_popup_connected_label">Mussar il popup da connexiun</string>
+    <string name="settings_popup_connected_description">Mussar in popup cura che l\'apparat sa connecta per l\'emprima giada.</string>
+
+    <string name="notification_channel_device_status_label">Stadi da l\'apparat</string>
+    <string name="notification_channel_device_status_connected_label">Apparat connectà</string>
+
+    <string name="support_debuglog_label">Protocol da debugging</string>
+    <string name="support_debuglog_desc">Registrar tut quai che l\'app fa en in datotec text che Vus pudais partir.</string>
+    <string name="debug_debuglog_size_label">Grondezza</string>
+    <string name="debug_debuglog_size_compressed_label">Grondezza cumprimida</string>
+    <string name="debug_notification_channel_label">Notificaziuns da debugging</string>
+    <string name="debug_debuglog_file_label">Datotec da protocol registrà</string>
+    <string name="debug_debuglog_recording_progress">Registrar il protocol da debugging</string>
+    <string name="debug_debuglog_record_action">Registrar il protocol da debugging</string>
+    <string name="debug_debuglog_stop_action">Finir la registraziun</string>
+    <string name="debug_debuglog_sensitive_information_message">Il datotec generà cuntegn infurmaziuns sensiblas (p.ex. detagls da l\'apparat Bluetooth). Partir el be cun terzas persunas fidadas.</string>
+    <string name="settings_debuglog_explanation">Questa funcziun registrescha tut quai che l\'app fa en in datotec che sa lascha partir. Il datotec generà cuntegn infurmaziuns sensiblas (p.ex. detagls da l\'apparat Bluetooth). Partir el be cun terzas persunas fidadas (p.ex. in sviluppader che tracta in problem).</string>
+
+    <string name="settings_support_installid_label">ID d\'installaziun</string>
+    <string name="settings_support_installid_desc">Raports d\'errur automatics èn anonims. Partir Voss ID d\'installaziun sche il sviluppader dovra da chattar Voss rapports d\'errur.</string>
+    <string name="settings_support_label">Support</string>
+    <string name="settings_support_description">Sche Vus avais basegn d\'agid.</string>
+
+    <string name="issue_tracker_label">Tracker da problems</string>
+    <string name="issue_tracker_description">In tracker da problems public per rapports da bugs e dumondas da funcziuns (be englais).</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">In lieu per star ensemen e far dumondas.</string>
+
+    <string name="changelog_label">Protocol da midadas</string>
+    <string name="settings_label">Configuraziuns</string>
+    <string name="settings_privacy_policy_label">Protecziun da datas</string>
+    <string name="settings_privacy_policy_desc">Tractar datas a moda responsabla.</string>
+    <string name="settings_licenses_label">Licenzas</string>
+    <string name="settings_category_other_label">Auter</string>
+    <string name="settings_general_label">Configuraziuns</string>
+    <string name="settings_general_description">Adattaziuns generalas che concernan l\'entira app.</string>
+    <string name="settings_acknowledgements_label">Remerciaments</string>
+
+    <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
+    <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
+    <string name="settings_debug_mode_label">Modus da debugging</string>
+    <string name="settings_debug_mode_description">Mussar infurmaziuns supplementaras per schliar problems.</string>
+
+    <string name="settings_blescanner_unfiltered_label">Datas BLE betg filtradas</string>
+    <string name="settings_blescanner_unfiltered_description">Allontanar tut ils filters dal scanner BLE per mussar tut las datas BLE emessas. Utila per agiuntar support per novs tips da cularins.</string>
+
+    <string name="settings_compatibility_mode_label">Modus da cumpatibilitad</string>
+    <string name="settings_compatibility_mode_description">Deactivar optimaziuns per meglierar la cumpatibilitad. Empruvai quai sche Vus na visais naginas datas.</string>
+
+    <string name="help_translate_label">Translaziun</string>
+    <string name="help_translate_description">Gidar a translatar questa app en Vossa lingua preferida.</string>
+
+    <string name="translators_thanks_title">Translataders</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">In widget che mussa il davos stadi enconuschent da l\'apparat.</string>
+    <string name="settings_compat_indirectcallback_title">Furniziun indirecta da datas</string>
+    <string name="settings_compat_indirectcallback_summary">Duvrar ina metoda alternativa per retschaiver datas BLE dal sistem (emissiun enstagl da callback).</string>
+
+    <string name="troubleshooter_title">Schliader da problems</string>
+    <string name="troubleshooter_ble_intro_title">Emissiuns Bluetooth Low Energy</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (e cularins sumegliants) emettan infurmaziuns da stadi cun ina tecnologia BLE numnada \\\"advertisements\\\". Intgins telefonins n\'implementeschan betg correctamain questa tecnologia. CAPod po empruvar da curreger quai cun empruvar differentas opziuns da cumpatibilitad enfin che datas vegnan retschavidas. Cumenzar la reproducziun da musica sin Voss cularins e plazzar els datiers da Voss telefonin, lura cumenzar il process.</string>
+    <string name="troubleshooter_ble_intro_start_action">Cumenzar la schliaziun da problems</string>
+    <string name="troubleshooter_ble_process_title">Schliaziun da problems en progress</string>
+    <string name="troubleshooter_ble_process_subtile">Mintga pass dovra 5–10 secundas</string>
+    <string name="troubleshooter_ble_result_success_title">Success</string>
+    <string name="troubleshooter_ble_result_success_body">Emissiuns da reclama BLE vegnan retschavidas da CAPod.</string>
+    <string name="troubleshooter_ble_result_failure_title">Senza success</string>
+    <string name="troubleshooter_ble_result_failure_body">La schliaziun da problems ha fatg fiasco. Nagina cumbinaziun d\'opziuns da cumpatibilitad ha gidà.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Voss telefonin n\'ha retschavì naginas datas BLE. Vus pudais repeter quest test en in lieu cun blera glieud per vesair sche funtaunas da datas (autras che Voss cularins) pon vegnir retschavidas. Naginas datas retschavidas inditgeschan in problem cun il sistem operativ da Voss telefonin.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Voss telefonin ha retschavì datas BLE, ma las datas na derivan da nagin apparat sustegnì. Èn Voss cularins empits? Sustegn CAPod Voss cularin?</string>
+    <string name="troubleshooter_ble_result_failure_action">Empruvar anc ina giada</string>
+    <string name="troubleshoot_action">Schliar problems</string>
+
+    <string name="onboarding_body1">Questa app agiunta support per funcziuns specificas dad AirPods ad Android.</string>
+    <string name="onboarding_body2">Betg tut ils apparats Android sustegnan cumplainamain las funcziuns supplementaras dad AirPods. Voss sistem operativ dovra in\'implementaziun da Bluetooth-Low-Energy che funcziuna correctamain.</string>
+    <string name="onboarding_body3">CAPod n\'ha nagina reclama e na collecziunescha betg Vossas datas.</string>
+    <string name="onboarding_body4">Vus pudais actualisar sin CAPod Pro per obtegnair funcziuns supplementaras e sustegnair il svilup.</string>
+
+</resources>
