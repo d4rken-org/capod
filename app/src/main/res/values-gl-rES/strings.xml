@@ -1,2 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="general_share_action">Compartir</string>
+    <string name="general_done_action">Feito</string>
+    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>
+    <string name="general_thank_you_label">Grazas</string>
+    <string name="general_upgrade_action">Actualizar</string>
+    <string name="general_check_action">Comprobar</string>
+    <string name="general_close_action">Pechar</string>
+    <string name="general_save_action">Gardar</string>
+    <string name="general_guide_action">Guía</string>
+    <string name="general_continue_action">Continuar</string>
+
+    <string name="general_example_label">P. ex.: %s</string>
+
+    <string name="upgrade_capod_label">Actualizar CAPod</string>
+    <string name="upgrade_capod_description">Obtén funcións adicionais e apoia ao programador.</string>
+
+    <string name="settings_monitor_mode_label">Modo de supervisión</string>
+    <string name="settings_monitor_mode_description">Baixo que circunstancias esta aplicación supervisa os datos Bluetooth.</string>
+    <string name="settings_monitor_connected_notification_label">Notificación adicional</string>
+    <string name="settings_monitor_connected_notification_description">Mostra unha notificación adicional cando un dispositivo está conectado. Isto permíteche ocultar a notificación permanente de \"Sen dispositivos\" desactivando a canle \"Estado do dispositivo\".</string>
+    <string name="settings_scanner_mode_label">Modo de escáner</string>
+    <string name="settings_scanner_mode_description">O escáner de datos Bluetooth de baixa enerxía debería priorizar o rendemento ou conservar enerxía?</string>
+    <string name="settings_autopause_label">Pausa automática</string>
+    <string name="settings_autopause_description">Pausar o son ao quitar o dispositivo da orella.</string>
+    <string name="settings_showall_label">Mostrar todos os dispositivos</string>
+    <string name="settings_showall_description">Mostrar os dispositivos doutras persoas que están preto de ti.</string>
+    <string name="settings_autopplay_label">Reprodución automática</string>
+    <string name="settings_autoplay_description">Iniciar a reprodución de son cando se leva posto o dispositivo.</string>
+    <string name="settings_fake_data_label">Datos falsos</string>
+    <string name="settings_fake_data_description">Mostrar datos falsos, é dicir, simular dispositivos que non existen.</string>
+    <string name="settings_debug_label">Configuración de depuración</string>
+    <string name="settings_debug_description">Configuración adicional para axudar a solucionar problemas coa aplicación.</string>
+    <string name="settings_signal_minimum_label">Calidade mínima do sinal</string>
+    <string name="settings_signal_minimum_description">A calidade mínima do sinal que un dispositivo necesita ter para ser considerado teu.</string>
+    <string name="settings_autoconnect_label">Conexión automática</string>
+    <string name="settings_autoconnect_description">Se Android non se conecta automaticamente, tamén podemos solicitalo. Isto establecerá a configuración do modo de supervisión en \"Sempre\".</string>
+    <string name="settings_autoconnect_condition_label">Condición de conexión automática</string>
+    <string name="settings_autoconnect_condition_description">Cando deberiamos tentar conectarnos ao teu dispositivo?</string>
+    <string name="settings_reaction_label">Reaccións</string>
+    <string name="settings_reaction_description">Reaccionar a eventos e comportamentos.</string>
+    <string name="settings_category_yourdevice_label">O teu dispositivo</string>
+
+    <string name="settings_category_compatibility_options_title">Opcións de compatibilidade</string>
+    <string name="settings_category_compatibility_options_description">Non tocar se todo funciona ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Desactivar o filtrado por hardware</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Non delegar o filtrado de datos ao sistema, senón obter todos os datos e filtrar dentro da aplicación.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Desactivar o procesamento por lotes por hardware</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Non permitir que o sistema agrupe os datos BLE recollidos antes de envialos.</string>
+
+    <string name="settings_maindevice_address_label">Enderezo do teu dispositivo</string>
+    <string name="settings_maindevice_address_description">O enderezo do teu dispositivo emparellado. A aplicación úsao para determinar cando está conectado ao teu teléfono.</string>
+    <string name="settings_maindevice_address_none">Ningún</string>
+    <string name="settings_maindevice_model_label">Modelo do teu dispositivo</string>
+    <string name="settings_maindevice_model_description">O modelo do teu dispositivo principal. Isto axuda á aplicación a recoñecer o teu dispositivo cando non está conectado ao teu teléfono.</string>
+    <string name="settings_maindevice_identitykey_label">Chave de identidade</string>
+    <string name="settings_maindevice_identitykey_description">A Chave de Resolución de Identidade (IRK) do teu dispositivo, que axuda a CAPod a identificalo entre os dispositivos próximos.</string>
+    <string name="settings_maindevice_identitykey_explanation">Os AirPods cambian frecuentemente o seu enderezo Bluetooth por privacidade. A IRK axuda a CAPod a recoñecer o teu dispositivo. Necesitas acceso único a un MacBook.</string>
+    <string name="settings_maindevice_encryptionkey_label">Chave de cifrado</string>
+    <string name="settings_maindevice_encryptionkey_description">A chave de cifrado do teu dispositivo, que permite a CAPod recuperar información detallada do estado.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">Os AirPods envían unha mensaxe de estado, parte da cal está cifrada. A chave de cifrado permite a CAPod descifrar a mensaxe completa. Necesitas acceso único a un MacBook.</string>
+
+    <string name="settings_onepod_mode_label">Modo dun só auricular</string>
+    <string name="settings_onepod_mode_description">Non é necesario levar ambos os auriculares, levar un só é suficiente para activar reaccións.</string>
+    <string name="settings_popup_caseopen_label">Mostrar ventá emerxente da funda</string>
+    <string name="settings_popup_caseopen_description">Mostrar unha ventá emerxente cando se abre a funda do dispositivo (experimental).</string>
+    <string name="settings_popup_connected_label">Mostrar ventá emerxente de conexión</string>
+    <string name="settings_popup_connected_description">Mostrar unha ventá emerxente cando o dispositivo se conecta por primeira vez.</string>
+
+    <string name="notification_channel_device_status_label">Estado do dispositivo</string>
+    <string name="notification_channel_device_status_connected_label">Dispositivo conectado</string>
+
+    <string name="support_debuglog_label">Rexistro de depuración</string>
+    <string name="support_debuglog_desc">Grava todo o que fai a aplicación nun ficheiro de texto que podes compartir.</string>
+    <string name="debug_debuglog_size_label">Tamaño</string>
+    <string name="debug_debuglog_size_compressed_label">Tamaño comprimido</string>
+    <string name="debug_notification_channel_label">Notificacións de depuración</string>
+    <string name="debug_debuglog_file_label">Ficheiro de rexistro gravado</string>
+    <string name="debug_debuglog_recording_progress">Gravando rexistro de depuración</string>
+    <string name="debug_debuglog_record_action">Gravar rexistro de depuración</string>
+    <string name="debug_debuglog_stop_action">Deter gravación</string>
+    <string name="debug_debuglog_sensitive_information_message">O ficheiro xerado contén información sensible (p. ex., detalles do dispositivo Bluetooth). Compárteo só con partes de confianza.</string>
+    <string name="settings_debuglog_explanation">Esta función grava todo o que fai a aplicación nun ficheiro que se pode compartir. O ficheiro xerado contén información sensible (p. ex., detalles do dispositivo Bluetooth). Compárteo só con partes de confianza (p. ex., un programador que está a solucionar un problema).</string>
+
+    <string name="settings_support_installid_label">ID de instalación</string>
+    <string name="settings_support_installid_desc">Os informes de erros automáticos son anónimos. Comparte o teu ID de instalación se o programador necesita atopar os teus informes de erros.</string>
+    <string name="settings_support_label">Soporte</string>
+    <string name="settings_support_description">Se necesitas axuda.</string>
+
+    <string name="issue_tracker_label">Seguidor de incidencias</string>
+    <string name="issue_tracker_description">Un seguidor público de incidencias para informes de erros e solicitudes de funcións (só en inglés).</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Un lugar para pasar o tempo e facer preguntas.</string>
+
+    <string name="changelog_label">Rexistro de cambios</string>
+    <string name="settings_label">Configuración</string>
+    <string name="settings_privacy_policy_label">Política de privacidade</string>
+    <string name="settings_privacy_policy_desc">Manexo responsable dos datos.</string>
+    <string name="settings_licenses_label">Licenzas</string>
+    <string name="settings_category_other_label">Outro</string>
+    <string name="settings_general_label">Configuración</string>
+    <string name="settings_general_description">Axustes xerais que afectan a toda a aplicación.</string>
+    <string name="settings_acknowledgements_label">Agradecementos</string>
+
+    <string name="settings_debug_autoreports_label">Informes de erros automáticos</string>
+    <string name="settings_debug_autoreports_description">Informa automaticamente de problemas, p. ex., detalles sobre un fallo da aplicación para que poida descubrir como solucionalo.</string>
+    <string name="settings_debug_mode_label">Modo de depuración</string>
+    <string name="settings_debug_mode_description">Mostrar información adicional para solucionar problemas.</string>
+
+    <string name="settings_blescanner_unfiltered_label">Datos BLE sen filtrar</string>
+    <string name="settings_blescanner_unfiltered_description">Elimina calquera filtro do escáner BLE para mostrar todos os datos BLE emitidos. Útil para engadir soporte para novos tipos de auriculares.</string>
+
+    <string name="settings_compatibility_mode_label">Modo de compatibilidade</string>
+    <string name="settings_compatibility_mode_description">Desactivar as optimizacións para mellorar a compatibilidade. Proba isto se non ves ningún dato.</string>
+
+    <string name="help_translate_label">Tradución</string>
+    <string name="help_translate_description">Axuda a traducir esta aplicación ao teu idioma favorito.</string>
+
+    <string name="translators_thanks_title">Tradutores</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">Un widget que mostra o último estado coñecido do dispositivo.</string>
+    <string name="settings_compat_indirectcallback_title">Entrega indirecta de datos</string>
+    <string name="settings_compat_indirectcallback_summary">Usa un método alternativo para recibir datos BLE do sistema (emisión en lugar de chamada de volta).</string>
+
+    <string name="troubleshooter_title">Solucionador de problemas</string>
+    <string name="troubleshooter_ble_intro_title">Emisións Bluetooth de baixa enerxía</string>
+    <string name="troubleshooter_ble_intro_body1">Os AirPods (e auriculares similares) emiten información de estado usando unha tecnoloxía BLE chamada \"anuncios\". Algúns teléfonos non implementan esta tecnoloxía correctamente. CAPod pode tentar solucionalo probando diferentes opcións de compatibilidade ata que se reciban os datos. Inicia a reprodución de música nos teus auriculares e colócaos preto do teu teléfono, logo inicia o proceso.</string>
+    <string name="troubleshooter_ble_intro_start_action">Iniciar a solución de problemas</string>
+    <string name="troubleshooter_ble_process_title">Solución de problemas en curso</string>
+    <string name="troubleshooter_ble_process_subtile">Cada paso leva entre 5 e 10 segundos</string>
+    <string name="troubleshooter_ble_result_success_title">Éxito</string>
+    <string name="troubleshooter_ble_result_success_body">CAPod está a recibir as emisións de anuncios BLE.</string>
+    <string name="troubleshooter_ble_result_failure_title">Sen éxito</string>
+    <string name="troubleshooter_ble_result_failure_body">A solución de problemas fallou. Ningunha combinación de opcións de compatibilidade axudou.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">O teu teléfono non recibiu ningún dato BLE. Podes tentalo de novo nunha zona concorrida para ver se se poden recibir fontes de datos (distintas dos teus auriculares). Non recibir datos apunta a un problema co sistema operativo do teu teléfono.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">O teu teléfono recibiu datos BLE, pero os datos non proveñen de ningún dispositivo compatible. Están acendidos os teus auriculares? CAPod é compatible cos teus auriculares?</string>
+    <string name="troubleshooter_ble_result_failure_action">Tentar de novo</string>
+    <string name="troubleshoot_action">Solucionar problemas</string>
+
+    <string name="onboarding_body1">Esta aplicación engade soporte para funcións específicas de AirPod a Android.</string>
+    <string name="onboarding_body2">Non todos os dispositivos Android admiten completamente as funcións adicionais de AirPod. O teu sistema operativo require unha implementación de Bluetooth de baixa enerxía que funcione correctamente.</string>
+    <string name="onboarding_body3">CAPod non ten anuncios e non recompila os teus datos.</string>
+    <string name="onboarding_body4">Podes actualizar a CAPod Pro para obter funcións adicionais e apoiar o desenvolvemento.</string>
+
+</resources>

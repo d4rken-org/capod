@@ -103,4 +103,26 @@
     <string name="onboarding_body2">Nu toate dispozitivele Android acceptă pe deplin funcțiile suplimentare AirPod. Sistemul dvs. de operare necesită o implementare Bluetooth Energie Scăzută (BLE) care funcționează corect.</string>
     <string name="onboarding_body3">CAPod nu are reclame și nu colectează datele dumneavoastră.</string>
     <string name="onboarding_body4">Puteți face upgrade la CAPod Pro pentru a obține funcții suplimentare și pentru a sprijini dezvoltarea.</string>
+    <string name="general_cancel_action">Anulare</string>
+    <string name="general_save_action">Salvare</string>
+    <string name="general_guide_action">Ghid</string>
+    <string name="general_example_label">Ex.: %s</string>
+    <string name="settings_monitor_connected_notification_label">Notificare suplimentară</string>
+    <string name="settings_monitor_connected_notification_description">Afișează o notificare suplimentară atunci când un dispozitiv este conectat. Acest lucru vă permite să ascundeți notificarea permanentă \"Niciun dispozitiv\" prin dezactivarea canalului \"Stare dispozitiv\".</string>
+    <string name="settings_maindevice_identitykey_label">Cheie de identitate</string>
+    <string name="settings_maindevice_identitykey_description">Cheia de rezolvare a identității (IRK) a dispozitivului dvs., care ajută CAPod să o identifice printre dispozitivele din apropiere.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPod-urile își schimbă frecvent adresa Bluetooth din motive de confidențialitate. IRK ajută CAPod să vă recunoască dispozitivul. Aveți nevoie de acces o singură dată la un MacBook.</string>
+    <string name="settings_maindevice_encryptionkey_label">Cheie de criptare</string>
+    <string name="settings_maindevice_encryptionkey_description">Cheia de criptare a dispozitivului dvs., care permite CAPod să recupereze informații detaliate despre stare.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPod-urile trimit un mesaj de stare, o parte din acesta fiind criptat. Cheia de criptare permite CAPod să decripteze mesajul complet. Aveți nevoie de acces o singură dată la un MacBook.</string>
+    <string name="notification_channel_device_status_connected_label">Dispozitiv conectat</string>
+    <string name="support_debuglog_label">Jurnal de depanare</string>
+    <string name="support_debuglog_desc">Înregistrați tot ce face aplicația într-un fișier text pe care îl puteți partaja.</string>
+    <string name="debug_debuglog_file_label">Fișier jurnal înregistrat</string>
+    <string name="debug_debuglog_recording_progress">Înregistrare jurnal de depanare</string>
+    <string name="debug_debuglog_record_action">Înregistrare jurnal de depanare</string>
+    <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
+    <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (de exemplu, detalii despre dispozitivul Bluetooth). Partajați-l numai cu terți de încredere.</string>
+    <string name="settings_debuglog_explanation">Această funcție înregistrează tot ce face aplicația într-un fișier partajabil. Fișierul generat conține informații sensibile (de exemplu, detalii despre dispozitivul Bluetooth). Partajați-l numai cu terți de încredere (de exemplu, un dezvoltator care depanează o problemă).</string>
+    <string name="discord_label">Discord</string>
 </resources>

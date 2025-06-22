@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">موجود نیست</string>
+    <string name="general_error_label">خطا</string>
     <string name="general_grant_permission_action">دادن دسترسی</string>
+    <string name="overview_nomaindevice_label">دستگاه اصلی وجود ندارد</string>
     <string name="overview_nomaindevice_description">همه دستگاه‌های شناسایی شده به احتمال زیاد متعلق به شما نیستند. دستگاه خود را روشن کنید و متصل کنید یا تنظیمات را تغییر دهید.</string>
     <string name="overview_bluetooth_disabled_label">بلوتوث غیرفعال است.</string>
     <string name="overview_bluetooth_disabled_description">بلوتوث غیرفعال است، آن را فعال کنید. ;)</string>
     <string name="permission_bluetooth_connect_label">اتصال بلوتوث</string>
-    <string name="permission_bluetooth_connect_description">.</string>
+    <string name="permission_bluetooth_connect_description">این برنامه برای تعامل با دستگاه‌های جفت‌شده و آغاز اتصالات به مجوز «اتصال بلوتوث» نیاز دارد.</string>
     <string name="permission_bluetooth_scan_label">اسکن کردن بلوتوث</string>
+    <string name="permission_bluetooth_scan_description">مجوز «اسکن کردن بلوتوث» به این برنامه اجازه می‌دهد داده‌های بلوتوث را از دستگاه‌های نزدیک مانند AirPods شما کشف و دریافت کند.</string>
     <string name="permission_bluetooth_label">بلوتوث</string>
+    <string name="permission_bluetooth_description">این برنامه برای اتصال به دستگاه‌های بلوتوث جفت‌شده به مجوز «بلوتوث» نیاز دارد.</string>
+    <string name="permission_access_fine_location_label">دسترسی به مکان دقیق</string>
+    <string name="permission_access_fine_location_description">CAPod از مجوز «مکان دقیق» برای دریافت داده‌های بلوتوث کم‌مصرف استفاده می‌کند. هدفون‌های شما از فناوری بلوتوث کم‌مصرف برای پخش وضعیت خود استفاده می‌کنند. این برنامه از داده‌های بلوتوث برای تعیین موقعیت مکانی شما استفاده نخواهد کرد.</string>
     <string name="permission_background_location_label">دسترسی به مکان در پس‌زمینه</string>
     <string name="permission_background_location_description"> برنامه CAPod از \"دسترسی به مکان در پس‌زمینه\" برای فعال کردن ویژگی‌هایی مانند \"نمایش پنجره بازشو\" و \"اتصال خودکار\" در زمانی که برنامه بسته است، استفاده می‌کند. این دسترسی به برنامه امکان دریافت داده‌های بلوتوث کم مصرف در پس‌زمینه را می‌دهد. این برنامه از داده‌های بلوتوث برای تعیین موقعیت مکانی شما استفاده نخواهد کرد.</string>
     <string name="permission_ignore_battery_optimizations_label">غیرفعال کردن بهینه‌سازی‌ باتری</string>

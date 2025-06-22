@@ -1,2 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">មិនអាចใช้បាន</string>
+    <string name="general_error_label">កំហុស</string>
+    <string name="general_grant_permission_action">ផ្តល់ការអនុញ្ញាត</string>
+
+    <string name="overview_nomaindevice_label">គ្មានឧបករណ៍ចម្បង</string>
+    <string name="overview_nomaindevice_description">ឧបករណ៍ដែលបានរកឃើញទាំងអស់ទំនងជាមិនមែនជារបស់អ្នកទេ។ បើកថាមពល ហើយភ្ជាប់ឧបករណ៍របស់អ្នក ឬปรับការកំណត់។</string>
+    <string name="overview_bluetooth_disabled_label">ប៊្លូធូសត្រូវបានបិទ</string>
+    <string name="overview_bluetooth_disabled_description">ប៊្លូធូសត្រូវបានបិទ, បើកវា ;)</string>
+
+    <string name="permission_bluetooth_connect_label">ការតភ្ជាប់ប៊្លូធូស</string>
+    <string name="permission_bluetooth_connect_description">កម្មវិធីនេះតម្រូវឱ្យមានការអនុញ្ញាត \"ការតភ្ជាប់ប៊្លូធូស\" ដើម្បីโต้ตอบกับឧបករណ៍ที่จับคู่ ហើយចាប់ផ្តើមการเชื่อมต่อ។</string>
+    <string name="permission_bluetooth_scan_label">ការវិភាគប៊្លូធូស</string>
+    <string name="permission_bluetooth_scan_description">ការអនុញ្ញាត \"ការវិភាគប៊្លូធូស\" អនុញ្ញាតឱ្យកម្មវិធីនេះរកឃើញ និងទទួលទិន្នន័យប៊្លូធូសពីឧបករណ៍នៅក្បែរៗ ដូចជា AirPods របស់អ្នក។</string>
+    <string name="permission_bluetooth_label">ប៊្លូធូស</string>
+    <string name="permission_bluetooth_description">កម្មវិធីនេះតម្រូវឱ្យមានការអនុញ្ញាត \"ប៊្លូធូស\" ដើម្បីភ្ជាប់ទៅឧបករណ៍ប៊្លូធូសដែលបានจับคู่។</string>
+    <string name="permission_access_fine_location_label">ការเข้าถึงទីតាំងជាក់លាក់</string>
+    <string name="permission_access_fine_location_description">CAPod ប្រើការអនុញ្ញាត \"ទីតាំងជាក់លាក់\" ដើម្បីទទួលទិន្នន័យប៊្លូធូសថាមពលទាប។ កាសស្តាប់ត្រចៀករបស់អ្នកប្រើបច្ចេកវិទ្យាប៊្លូធូសថាមពលទាបដើម្បីផ្សព្វផ្សាយស្ថានភាពរបស់ពួកគេ។ កម្មវិធីនេះនឹងមិនប្រើទិន្នន័យប៊្លូធូសដើម្បីកំណត់ទីតាំងរបស់អ្នកទេ។</string>
+    <string name="permission_background_location_label">ការចូលដំណើរការទីតាំងផ្ទៃខាងหลัง</string>
+    <string name="permission_background_location_description">CAPod ប្រើ \"ការចូលដំណើរការទីតាំងផ្ទៃខាងหลัง\" ដើម្បីเปิดใช้งานคุณลักษณะต่างๆ เช่น \"បង្ហាញផ្ទាំងលោត\" และ \"เชื่อมต่ออัตโนมัติ\" ខណៈពេលដែលកម្មវិធីត្រូវបានបិទ។ ការចូលដំណើរការទីតាំងផ្ទៃខាងหลังអនុញ្ញាតឱ្យកម្មវិធីទទួលទិន្នន័យប៊្លូធូសថាមពលទាបខណៈពេលដែលវាកំពុងដំណើរការនៅក្នុងផ្ទៃខាងหลัง។ កម្មវិធីនេះនឹងមិនប្រើទិន្នន័យប៊្លូធូសដើម្បីកំណត់ទីតាំងរបស់អ្នកទេ។</string>
+    <string name="permission_ignore_battery_optimizations_label">បិទការបង្កើនប្រសិទ្ធភាពថ្ម</string>
+    <string name="permission_ignore_battery_optimizations_description">ការបង្កើនប្រសិទ្ធភាពថ្មរារាំងកម្មវិធីនេះពីការទទួលទិន្នន័យប៊្លូធូសដោយទុកចិត្តបាន ខណៈពេលដែលកម្មវិធីកំពុងដំណើរការនៅក្នុងផ្ទៃខាងหลัง។</string>
+    <string name="permission_required_title">ត្រូវការការអនុញ្ញាតដូចខាងក្រោម៖</string>
+    <string name="permission_system_alert_window_label">បង្អួចប្រុងប្រយ័ត្នប្រព័ន្ធ</string>
+    <string name="permission_system_alert_window_description">អនុញ្ញាតឱ្យ CAPod គូរលើកម្មវិធីផ្សេងទៀតដើម្បីធ្វើឱ្យคุณลักษณะ \"បង្ហាញ PopUp\" អាចធ្វើទៅបាន។</string>
+
+    <string name="settings_scanner_mode_lowpower_label">ថាមពលទាប</string>
+    <string name="settings_scanner_mode_balanced_label">មានតុល្យភាព</string>
+    <string name="settings_scanner_mode_lowlatency_label">ភាពយឺតយ៉ាវទាប</string>
+
+    <string name="settings_monitor_mode_manual_label">នៅពេលកម្មវិធីបើក</string>
+    <string name="settings_monitor_mode_automatic_label">នៅពេលឧបករណ៍ត្រូវបានភ្ជាប់</string>
+    <string name="settings_monitor_mode_always_label">ជានិច្ច</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">នៅពេលឃើញ</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">ប្រអប់បើក</string>
+    <string name="settings_reaction_autoconnect_inear_label">ក្នុងត្រចៀក</string>
+
+    <string name="pods_dual_left_label">ផតខាងឆ្វេង</string>
+    <string name="pods_dual_right_label">ផតខាងស្ដាំ</string>
+    <string name="pods_case_label">ប្រអប់</string>
+    <string name="pods_case_status_open_label">បើក</string>
+    <string name="pods_case_status_closed_label">បិទ</string>
+    <string name="pods_connection_state_disconnected_label">មិនបានភ្ជាប់ទៅឧបករណ៍ទេ</string>
+    <string name="pods_connection_state_idle_label">បានភ្ជាប់ទៅឧបករណ៍ ប៉ុន្តែទំនេរ</string>
+    <string name="pods_connection_state_music_label">ក្នុងរបៀបតន្ត្រី</string>
+    <string name="pods_connection_state_call_label">ក្នុងរបៀបហៅ</string>
+    <string name="pods_connection_state_ringing_label">កំពុងរោទ៍</string>
+    <string name="pods_connection_state_hanging_up_label">កំពុងព្យួរ</string>
+    <string name="pods_connection_state_unknown_label">ស្ថានភាពការតភ្ជាប់មិនស្គាល់</string>
+    <string name="pods_unknown_raw_data_label">ទិន្នន័យឆៅ</string>
+    <string name="pods_unknown_label">ឧបករណ៍មិនស្គាល់</string>
+    <string name="pods_unknown_contact_dev">នេះគឺជាឧបករណ៍មិនស្គាល់ ប៉ុន្តែវាកំពុងប្រើទម្រង់សារស្រដៀងគ្នា។ តោះបន្ថែមការគាំទ្រសម្រាប់វា ទាក់ទងមកខ្ញុំ :)</string>
+    <string name="pods_none_label_short">គ្មានឧបករណ៍</string>
+    <string name="pods_charging_label">កំពុងសាក</string>
+    <string name="pods_inear_label">ក្នុងត្រចៀក</string>
+    <string name="pods_microphone_label">ไมโครโฟน</string>
+    <string name="pods_yours">របស់អ្នក</string>
+    <string name="headset_being_worn_label">កំពុងពាក់</string>
+    <string name="headset_not_being_worn_label">មិនបានពាក់</string>
+    <string name="pods_case_unknown_state">ស្ថានភាពមិនស្គាល់</string>
+
+    <string name="last_seen_x">បានឃើញចុងក្រោយ៖ %s</string>
+    <string name="first_seen_x">បានឃើញដំបូង៖ %s</string>
+    <string name="permission_post_notifications_label">បង្ហាញការជូនដំណឹង</string>
+    <string name="permission_post_notifications_description">អនុញ្ញាតឱ្យ CAPod បង្ហាញការជូនដំណឹងអំពី AirPods របស់អ្នក ឧ. ស្ថានភាពបច្ចុប្បន្នរបស់ពួកគេខណៈពេលដែលបានភ្ជាប់។</string>
+</resources>

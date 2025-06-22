@@ -1,2 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="general_share_action">Partekatu</string>
+    <string name="general_done_action">Eginda</string>
+    <string name="general_cancel_action">Utzi</string>
+    <string name="general_copy_action">Kopiatu</string>
+    <string name="general_thank_you_label">Eskerrik asko</string>
+    <string name="general_upgrade_action">Bertsio-berritu</string>
+    <string name="general_check_action">Egiaztatu</string>
+    <string name="general_close_action">Itxi</string>
+    <string name="general_save_action">Gorde</string>
+    <string name="general_guide_action">Gida</string>
+    <string name="general_continue_action">Jarraitu</string>
+
+    <string name="general_example_label">Adib.: %s</string>
+
+    <string name="upgrade_capod_label">Bertsio-berritu CAPod</string>
+    <string name="upgrade_capod_description">Lortu ezaugarri gehigarriak eta lagundu garatzaileari.</string>
+
+    <string name="settings_monitor_mode_label">Monitorizazio modua</string>
+    <string name="settings_monitor_mode_description">Zein egoeratan monitorizatzen ditu aplikazio honek Bluetooth datuak.</string>
+    <string name="settings_monitor_connected_notification_label">Jakinarazpen gehigarria</string>
+    <string name="settings_monitor_connected_notification_description">Gailu bat konektatuta dagoenean jakinarazpen gehigarri bat erakusten du. Honek \"Gailurik ez\" jakinarazpen iraunkorra ezkutatzeko aukera ematen dizu \"Gailuaren egoera\" kanala desgaituz.</string>
+    <string name="settings_scanner_mode_label">Eskaner modua</string>
+    <string name="settings_scanner_mode_description">Bluetooth Energia Baxuko datuen eskanerrak errendimendua lehenetsi behar al du ala energia aurreztu?</string>
+    <string name="settings_autopause_label">Pausatze automatikoa</string>
+    <string name="settings_autopause_description">Pausatu audioa gailua belarritik kentzean.</string>
+    <string name="settings_showall_label">Erakutsi gailu guztiak</string>
+    <string name="settings_showall_description">Erakutsi zure inguruan dauden beste pertsona batzuen gailuak.</string>
+    <string name="settings_autopplay_label">Erreprodukzio automatikoa</string>
+    <string name="settings_autoplay_description">Hasi audio erreprodukzioa gailua jantzita dagoenean.</string>
+    <string name="settings_fake_data_label">Datu faltsuak</string>
+    <string name="settings_fake_data_description">Erakutsi datu faltsuak, hau da, existitzen ez diren gailuak simulatu.</string>
+    <string name="settings_debug_label">Arazketa ezarpenak</string>
+    <string name="settings_debug_description">Aplikazioarekin arazoak konpontzen laguntzeko ezarpen gehigarriak.</string>
+    <string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
+    <string name="settings_signal_minimum_description">Gailu batek zurea dela kontsideratzeko izan behar duen seinalearen gutxieneko kalitatea.</string>
+    <string name="settings_autoconnect_label">Automatikoki konektatu</string>
+    <string name="settings_autoconnect_description">Android automatikoki konektatzen ez bada, guk ere eska diezaiokegu. Honek monitorizazio moduaren ezarpena \\\"Beti\\\" moduan jarriko du.</string>
+    <string name="settings_autoconnect_condition_label">Automatikoki konektatzeko baldintza</string>
+    <string name="settings_autoconnect_condition_description">Noiz saiatu behar gara zure gailura konektatzen?</string>
+    <string name="settings_reaction_label">Erreakzioak</string>
+    <string name="settings_reaction_description">Erreakzionatu gertaera eta portaerei.</string>
+    <string name="settings_category_yourdevice_label">Zure gailua</string>
+
+    <string name="settings_category_compatibility_options_title">Bateragarritasun aukerak</string>
+    <string name="settings_category_compatibility_options_description">Ez ukitu dena ondo badabil ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">Desgaitu hardware bidezko iragazketa</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">Ez utzi datuen iragazketa sistemaren esku, horren ordez lortu datu guztiak eta iragazi aplikazioaren barruan.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">Desgaitu hardware bidezko sortakatzea</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">Ez utzi sistemak bildutako BLE datuak sortaka ditzan gurera bidali aurretik.</string>
+
+    <string name="settings_maindevice_address_label">Zure gailuaren helbidea</string>
+    <string name="settings_maindevice_address_description">Parekatutako gailuaren helbidea. Aplikazioak hau erabiltzen du zure telefonora noiz konektatuta dagoen zehazteko.</string>
+    <string name="settings_maindevice_address_none">Bat ere ez</string>
+    <string name="settings_maindevice_model_label">Zure gailuaren eredua</string>
+    <string name="settings_maindevice_model_description">Zure gailu nagusiaren eredua. Honek aplikazioari zure gailua ezagutzen laguntzen dio zure telefonora konektatuta ez dagoenean.</string>
+    <string name="settings_maindevice_identitykey_label">Identitate Gakoa</string>
+    <string name="settings_maindevice_identitykey_description">Zure gailuaren Identitatea Ebazteko Gakoa (IRK), CAPod-i inguruko gailuen artean identifikatzen laguntzen diona.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPod-ek maiz aldatzen dute Bluetooth helbidea pribatutasunagatik. IRK-k CAPod-i zure gailua ezagutzen laguntzen dio. MacBook batera behin-behineko sarbidea behar duzu.</string>
+    <string name="settings_maindevice_encryptionkey_label">Enkriptazio Gakoa</string>
+    <string name="settings_maindevice_encryptionkey_description">Zure gailuaren enkriptazio gakoa, CAPod-i egoeraren informazio zehatza eskuratzeko aukera ematen diona.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPod-ek egoera mezu bat bidaltzen dute, zati bat enkriptatuta dagoelarik. Enkriptazio gakoak CAPod-i mezu osoa deszifratzeko aukera ematen dio. MacBook batera behin-behineko sarbidea behar duzu.</string>
+
+    <string name="settings_onepod_mode_label">Pod bakarreko modua</string>
+    <string name="settings_onepod_mode_description">Ez da beharrezkoa bi pod-ak janztea, pod bakar bat janztea nahikoa da erreakzioak abiarazteko.</string>
+    <string name="settings_popup_caseopen_label">Erakutsi kaxaren pop-up-a</string>
+    <string name="settings_popup_caseopen_description">Erakutsi pop-up bat gailuaren kaxa irekitzean (esperimentala).</string>
+    <string name="settings_popup_connected_label">Erakutsi konexioaren pop-up-a</string>
+    <string name="settings_popup_connected_description">Erakutsi pop-up bat gailua lehen aldiz konektatzen denean.</string>
+
+    <string name="notification_channel_device_status_label">Gailuaren egoera</string>
+    <string name="notification_channel_device_status_connected_label">Konektatutako gailua</string>
+
+    <string name="support_debuglog_label">Arazketa erregistroa</string>
+    <string name="support_debuglog_desc">Grabatu aplikazioak egiten duen guztia parteka dezakezun testu fitxategi batean.</string>
+    <string name="debug_debuglog_size_label">Tamaina</string>
+    <string name="debug_debuglog_size_compressed_label">Tamaina konprimitua</string>
+    <string name="debug_notification_channel_label">Arazketa jakinarazpenak</string>
+    <string name="debug_debuglog_file_label">Grabatutako erregistro fitxategia</string>
+    <string name="debug_debuglog_recording_progress">Arazketa erregistroa grabatzen</string>
+    <string name="debug_debuglog_record_action">Grabatu arazketa erregistroa</string>
+    <string name="debug_debuglog_stop_action">Gelditu grabazioa</string>
+    <string name="debug_debuglog_sensitive_information_message">Sortutako fitxategiak informazio sentikorra dauka (adib. Bluetooth gailuaren xehetasunak). Partekatu konfiantzazkoekin soilik.</string>
+    <string name="settings_debuglog_explanation">Ezaugarri honek aplikazioak egiten duen guztia parteka daitekeen fitxategi batean grabatzen du. Sortutako fitxategiak informazio sentikorra dauka (adib. Bluetooth gailuaren xehetasunak). Partekatu konfiantzazkoekin soilik (adib. arazo bat konpontzen ari den garatzaile batekin).</string>
+
+    <string name="settings_support_installid_label">Instalazio IDa</string>
+    <string name="settings_support_installid_desc">Erroreen txosten automatikoak anonimoak dira. Partekatu zure instalazio IDa garatzaileak zure erroreen txostenak aurkitu behar baditu.</string>
+    <string name="settings_support_label">Laguntza</string>
+    <string name="settings_support_description">Laguntza behar baduzu.</string>
+
+    <string name="issue_tracker_label">Arazoen jarraitzailea</string>
+    <string name="issue_tracker_description">Erroreen txostenetarako eta ezaugarri eskaeretarako arazoen jarraitzaile publikoa (ingelesez soilik).</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">Elkartzeko eta galderak egiteko lekua.</string>
+
+    <string name="changelog_label">Aldaketen erregistroa</string>
+    <string name="settings_label">Ezarpenak</string>
+    <string name="settings_privacy_policy_label">Pribatutasun politika</string>
+    <string name="settings_privacy_policy_desc">Datuak arduraz kudeatzea.</string>
+    <string name="settings_licenses_label">Lizentziak</string>
+    <string name="settings_category_other_label">Beste batzuk</string>
+    <string name="settings_general_label">Ezarpenak</string>
+    <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
+    <string name="settings_acknowledgements_label">Eskertzak</string>
+
+    <string name="settings_debug_autoreports_label">Erroreen txosten automatikoak</string>
+    <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string>
+    <string name="settings_debug_mode_label">Arazketa modua</string>
+    <string name="settings_debug_mode_description">Erakutsi informazio gehigarria arazoak konpontzeko.</string>
+
+    <string name="settings_blescanner_unfiltered_label">Iragazi gabeko BLE datuak</string>
+    <string name="settings_blescanner_unfiltered_description">Kendu BLE eskanerreko iragazki guztiak igorritako BLE datu guztiak erakusteko. Entzungailu mota berrietarako euskarria gehitzeko erabilgarria.</string>
+
+    <string name="settings_compatibility_mode_label">Bateragarritasun modua</string>
+    <string name="settings_compatibility_mode_description">Desgaitu optimizazioak bateragarritasuna hobetzeko. Saiatu hau daturik ikusten ez baduzu.</string>
+
+    <string name="help_translate_label">Itzulpena</string>
+    <string name="help_translate_description">Lagundu aplikazio hau zure hizkuntza gogokoenera itzultzen.</string>
+
+    <string name="translators_thanks_title">Itzultzaileak</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">Azken gailuaren egoera ezaguna erakusten duen trepeta.</string>
+    <string name="settings_compat_indirectcallback_title">Datuen zeharkako bidalketa</string>
+    <string name="settings_compat_indirectcallback_summary">Erabili metodo alternatibo bat sistematik BLE datuak jasotzeko (igorpena deiaren ordez).</string>
+
+    <string name="troubleshooter_title">Arazo-konpontzailea</string>
+    <string name="troubleshooter_ble_intro_title">Bluetooth Energia Baxuko Igorpenak</string>
+    <string name="troubleshooter_ble_intro_body1">AirPod-ek (eta antzeko entzungailuek) egoeraren informazioa igortzen dute \\\"iragarkiak\\\" izeneko BLE teknologia erabiliz. Telefono batzuek ez dute teknologia hau behar bezala ezartzen. CAPod-ek hau konpontzen saia daiteke bateragarritasun aukera desberdinak probatuz datuak jaso arte. Hasi musika erreproduzitzen zure entzungailuetan eta jarri zure telefonoaren ondoan, ondoren hasi prozesua.</string>
+    <string name="troubleshooter_ble_intro_start_action">Hasi arazoak konpontzen</string>
+    <string name="troubleshooter_ble_process_title">Arazoak konpontzen ari da</string>
+    <string name="troubleshooter_ble_process_subtile">Urrats bakoitzak 5-10 segundo behar ditu</string>
+    <string name="troubleshooter_ble_result_success_title">Arrakasta</string>
+    <string name="troubleshooter_ble_result_success_body">CAPod BLE iragarkien igorpenak jasotzen ari da.</string>
+    <string name="troubleshooter_ble_result_failure_title">Arrakastarik gabe</string>
+    <string name="troubleshooter_ble_result_failure_body">Arazoak konpontzeak huts egin du. Ez du bateragarritasun aukeren konbinaziorik lagundu.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">Zure telefonoak ez du BLE daturik jaso. Proba hau jendez gainezka dagoen leku batean errepika dezakezu datu iturriak (zure entzungailuak ez direnak) jaso daitezkeen ikusteko. Daturik ez jasotzeak zure telefonoaren sistema eragilearekin arazo bat dagoela adierazten du.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">Zure telefonoak BLE datuak jaso ditu, baina datuak ez datoz batere onartutako gailu batetik. Zure entzungailuak piztuta al daude? CAPod-ek zure entzungailuak onartzen al ditu?</string>
+    <string name="troubleshooter_ble_result_failure_action">Saiatu berriro</string>
+    <string name="troubleshoot_action">Arazoak konpondu</string>
+
+    <string name="onboarding_body1">Aplikazio honek AirPod-en ezaugarri espezifikoetarako euskarria gehitzen dio Android-i.</string>
+    <string name="onboarding_body2">Android gailu guztiek ez dituzte AirPod-en ezaugarri gehigarriak guztiz onartzen. Zure sistema eragileak Bluetooth-Energia-Baxuko inplementazio zuzen bat behar du.</string>
+    <string name="onboarding_body3">CAPod-ek ez du iragarkirik eta ez ditu zure datuak biltzen.</string>
+    <string name="onboarding_body4">CAPod Pro-ra bertsio-berritu dezakezu ezaugarri gehigarriak lortzeko eta garapena laguntzeko.</string>
+
+</resources>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Google Play సేవలు అందుబాటులో లేవు.</string>
+    <string name="upgrades_no_purchases_found_check_account">కొనుగోళ్లు ఏవీ కనుగొనబడలేదు. మీరు సరైన ఖాతాను ఉపయోగిస్తున్నారా?</string>
+</resources>

@@ -113,4 +113,13 @@
     <string name="onboarding_body2">Не всі Android пристрої повністю підтримують додаткові функції AirPod. Ваша операційна система повинна підтримувати коректну реалізацію Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не містить реклами та не збирає ваші дані.</string>
     <string name="onboarding_body4">Ви можете оновитись до CAPod Pro, щоб отримати підтримку додаткових функцій та підтримати розробку.</string>
+    <string name="general_save_action">Зберегти</string>
+    <string name="general_example_label">Напр.: %s</string>
+    <string name="settings_monitor_connected_notification_label">Додаткове сповіщення</string>
+    <string name="settings_monitor_connected_notification_description">Показує додаткове сповіщення, коли пристрій підключено. Це дозволяє приховати постійне сповіщення \"Немає пристроїв\", вимкнувши канал \"Стан пристрою\".</string>
+    <string name="settings_maindevice_identitykey_label">Ключ ідентифікації</string>
+    <string name="settings_maindevice_identitykey_description">Ключ розпізнавання ідентичності вашого пристрою (IRK), який допомагає CAPod ідентифікувати його серед пристроїв поблизу.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods часто змінюють свою Bluetooth-адресу для конфіденційності. IRK допомагає CAPod розпізнати ваш пристрій. Вам потрібен одноразовий доступ до MacBook.</string>
+    <string name="settings_maindevice_encryptionkey_label">Ключ шифрування</string>
+    <string name="settings_maindevice_encryptionkey_description">Ключ шифрування вашого пристрою, який дозволяє CAPod отримувати детальну інформацію про стан.</string>
 </resources>

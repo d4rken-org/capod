@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Google Play सेवाहरू अनुपलब्ध छन्।</string>
+    <string name="upgrades_no_purchases_found_check_account">कुनै खरिदहरू फेला परेनन्। के तपाईंले सही खाता प्रयोग गरिरहनुभएको छ?</string>
+</resources>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Google Play পরিষেবাগুলি উপলব্ধ নেই৷</string>
+    <string name="upgrades_no_purchases_found_check_account">কোনও কেনাকাটা খুঁজে পাওয়া যায়নি। আপনি কি সঠিক অ্যাকাউন্ট ব্যবহার করছেন?</string>
+</resources>

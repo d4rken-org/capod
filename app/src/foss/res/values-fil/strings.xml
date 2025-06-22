@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="foss_upgrade_donate_label">Mag-donate</string>
+    <string name="foss_upgrade_alreadydonated_label">Nakapag-donate na ako</string>
+    <string name="foss_upgrade_no_money_label">Ginagastos ko lahat ng pera ko sa AirPods</string>
+</resources>

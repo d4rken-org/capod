@@ -1,2 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Errur</string>
+    <string name="general_grant_permission_action">Dar permissiun</string>
+
+    <string name="overview_nomaindevice_label">Nagins apparats primars</string>
+    <string name="overview_nomaindevice_description">Apparats detgids na tutgan per ordinari betg a Vus. Encender e connectar Voss apparat u adattar las configuraziuns.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth è deactivà</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth è deactivà, activai quai ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth connectar</string>
+    <string name="permission_bluetooth_connect_description">Questa app dovra la permissiun "Connectar Bluetooth" per interagir cun apparats cumplexads ed iniziar connexiuns.</string>
+    <string name="permission_bluetooth_scan_label">Scannar Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">La permissiun "Scannar Bluetooth" permetta a questa app da scuvrir e retschaiver datas da Bluetooth d\'apparats en vischinanza sco Voss AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Questa app dovra la permissiun "Bluetooth" per sa connectar cun apparats da Bluetooth cumplexads.</string>
+    <string name="permission_access_fine_location_label">Access a posiziun precisa</string>
+    <string name="permission_access_fine_location_description">CAPod dovra la permissiun "posiziun precisa" per retschaiver datas da Bluetooth Low Energy. Voss Cularins dovran la tecnologia Bluetooth Low Energy per transmetter lur status. Questa app NÁ dovra datas da Bluetooth per determinar Voss posiziun.</string>
+    <string name="permission_background_location_label">Access a posiziun en fund</string>
+    <string name="permission_background_location_description">CAPod dovra "Access a posiziun en fund" per activar funcziuns sco "Mussar popup" e "Connectar automaticamain" cura che l\'app è serrada. Access a posiziun en fund permetta a l\'app da retschaiver datas da Bluetooth Low Energy cura ch\'ella è en fund. Questa app NÁ dovra datas da Bluetooth per determinar Voss posiziun.</string>
+    <string name="permission_ignore_battery_optimizations_label">Deactivar optimaziuns da batteria</string>
+    <string name="permission_ignore_battery_optimizations_description">Optimaziuns da batteria impedeschan a questa app da retschaiver a moda fidaivla datas da Bluetooth cura che l\'app è en fund.</string>
+    <string name="permission_required_title">La suandanta permissiun è necessaria:</string>
+    <string name="permission_system_alert_window_label">Finestra d\'alarma dal sistem</string>
+    <string name="permission_system_alert_window_description">Permetter a CAPod da malegiar sur autras apps per render pussaivel la funcziun "Mussar PopUp".</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Bassa energia</string>
+    <string name="settings_scanner_mode_balanced_label">Equilibrà</string>
+    <string name="settings_scanner_mode_lowlatency_label">Bassa latenza</string>
+
+    <string name="settings_monitor_mode_manual_label">Cura che l\'app è averta</string>
+    <string name="settings_monitor_mode_automatic_label">Cura che l\'apparat è connectà</string>
+    <string name="settings_monitor_mode_always_label">Adina</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Cura che visibel</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">La scatla è averta</string>
+    <string name="settings_reaction_autoconnect_inear_label">En l\'ureglia</string>
+
+    <string name="pods_dual_left_label">Pod sanester</string>
+    <string name="pods_dual_right_label">Pod dretg</string>
+    <string name="pods_case_label">Scatla</string>
+    <string name="pods_case_status_open_label">Averta</string>
+    <string name="pods_case_status_closed_label">Serrada</string>
+    <string name="pods_connection_state_disconnected_label">Betg connectà ad in apparat</string>
+    <string name="pods_connection_state_idle_label">Connectà ad in apparat, ma adina</string>
+    <string name="pods_connection_state_music_label">En modus da musica</string>
+    <string name="pods_connection_state_call_label">En modus da clom</string>
+    <string name="pods_connection_state_ringing_label">Resonar</string>
+    <string name="pods_connection_state_hanging_up_label">Serrar giu</string>
+    <string name="pods_connection_state_unknown_label">Stadi da connexiun nunenconuschent</string>
+    <string name="pods_unknown_raw_data_label">Datas crudas</string>
+    <string name="pods_unknown_label">Apparat nunenconuschent</string>
+    <string name="pods_unknown_contact_dev">Quai è in apparat nunenconuschent, ma el dovra in format da messadi sumegliant. Nus agiuntain support per quai, contactai mai :)</string>
+    <string name="pods_none_label_short">Nagin apparat</string>
+    <string name="pods_charging_label">Chargiar</string>
+    <string name="pods_inear_label">En l\'ureglia</string>
+    <string name="pods_microphone_label">Microfon</string>
+    <string name="pods_yours">Voss</string>
+    <string name="headset_being_worn_label">Vegna purtà</string>
+    <string name="headset_not_being_worn_label">Vegna betg purtà</string>
+    <string name="pods_case_unknown_state">Stadi nunenconuschent</string>
+
+    <string name="last_seen_x">Vesì per l\'ultima giada: %s</string>
+    <string name="first_seen_x">Vesì per l\'emprima giada: %s</string>
+    <string name="permission_post_notifications_label">Mussar notificaziuns</string>
+    <string name="permission_post_notifications_description">Permetter a CAPod da mussar notificaziuns davart Voss AirPods, sco per exempel lur stadi actual cura ch\'els èn connectads.</string>
+</resources>

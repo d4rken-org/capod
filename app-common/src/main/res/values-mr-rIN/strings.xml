@@ -1,2 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">त्रुटी</string>
+    <string name="general_grant_permission_action">परवानगी द्या</string>
+
+    <string name="overview_nomaindevice_label">प्राथमिक डिव्हाइस नाही</string>
+    <string name="overview_nomaindevice_description">शोधलेले सर्व डिव्हाइसेस तुमचे असण्याची शक्यता नाही. तुमचे डिव्हाइस चालू करा आणि कनेक्ट करा किंवा सेटिंग्ज समायोजित करा.</string>
+    <string name="overview_bluetooth_disabled_label">ब्लूटूथ अक्षम केले आहे</string>
+    <string name="overview_bluetooth_disabled_description">ब्लूटूथ अक्षम केले आहे, ते सक्षम करा ;)</string>
+
+    <string name="permission_bluetooth_connect_label">ब्लूटूथ कनेक्ट करा</string>
+    <string name="permission_bluetooth_connect_description">या अॅपला जोडलेल्या डिव्हाइसेसशी संवाद साधण्यासाठी आणि कनेक्शन सुरू करण्यासाठी \"ब्लूटूथ कनेक्ट करा\" परवानगी आवश्यक आहे.</string>
+    <string name="permission_bluetooth_scan_label">ब्लूटूथ स्कॅनिंग</string>
+    <string name="permission_bluetooth_scan_description">\"ब्लूटूथ स्कॅनिंग\" परवानगी या अॅपला तुमच्या AirPods सारख्या जवळपासच्या डिव्हाइसेसवरून ब्लूटूथ डेटा शोधण्याची आणि प्राप्त करण्याची अनुमती देते.</string>
+    <string name="permission_bluetooth_label">ब्लूटूथ</string>
+    <string name="permission_bluetooth_description">या अॅपला जोडलेल्या ब्लूटूथ डिव्हाइसेसशी कनेक्ट करण्यासाठी \"ब्लूटूथ\" परवानगी आवश्यक आहे.</string>
+    <string name="permission_access_fine_location_label">अचूक स्थानावर प्रवेश करा</string>
+    <string name="permission_access_fine_location_description">CAPod ब्लूटूथ कमी ऊर्जा डेटा प्राप्त करण्यासाठी \"अचूक स्थान\" परवानगी वापरते. तुमचे हेडफोन त्यांची स्थिती प्रसारित करण्यासाठी ब्लूटूथ कमी ऊर्जा तंत्रज्ञान वापरतात. हे अॅप तुमचे स्थान निर्धारित करण्यासाठी ब्लूटूथ डेटा वापरणार नाही.</string>
+    <string name="permission_background_location_label">पार्श्वभूमी स्थान प्रवेश</string>
+    <string name="permission_background_location_description">CAPod अॅप बंद असताना \"पॉपअप दर्शवा\" आणि \"ऑटोकनेक्ट\" सारख्या वैशिष्ट्ये सक्षम करण्यासाठी \"पार्श्वभूमी स्थान प्रवेश\" वापरते. पार्श्वभूमी स्थान प्रवेश अॅपला पार्श्वभूमीत असताना ब्लूटूथ कमी ऊर्जा डेटा प्राप्त करण्यास अनुमती देतो. हे अॅप तुमचे स्थान निर्धारित करण्यासाठी ब्लूटूथ डेटा वापरणार नाही.</string>
+    <string name="permission_ignore_battery_optimizations_label">बॅटरी ऑप्टिमायझेशन अक्षम करा</string>
+    <string name="permission_ignore_battery_optimizations_description">अॅप पार्श्वभूमीत असताना बॅटरी ऑप्टिमायझेशन या अॅपला विश्वसनीयपणे ब्लूटूथ डेटा प्राप्त करण्यापासून प्रतिबंधित करते.</string>
+    <string name="permission_required_title">खालील परवानगी आवश्यक आहे:</string>
+    <string name="permission_system_alert_window_label">सिस्टम अलर्ट विंडो</string>
+    <string name="permission_system_alert_window_description">\"पॉपअप दर्शवा\" वैशिष्ट्य शक्य करण्यासाठी CAPod ला इतर अॅप्सवर रेखाचित्र काढण्याची अनुमती द्या.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">कमी ऊर्जा</string>
+    <string name="settings_scanner_mode_balanced_label">संतुलित</string>
+    <string name="settings_scanner_mode_lowlatency_label">कमी विलंब</string>
+
+    <string name="settings_monitor_mode_manual_label">जेव्हा अॅप उघडे असेल</string>
+    <string name="settings_monitor_mode_automatic_label">जेव्हा डिव्हाइस कनेक्ट केलेले असेल</string>
+    <string name="settings_monitor_mode_always_label">नेहमी</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">जेव्हा दिसेल</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">केस उघडा आहे</string>
+    <string name="settings_reaction_autoconnect_inear_label">कानामध्ये</string>
+
+    <string name="pods_dual_left_label">डावा पॉड</string>
+    <string name="pods_dual_right_label">उजवा पॉड</string>
+    <string name="pods_case_label">केस</string>
+    <string name="pods_case_status_open_label">उघडा</string>
+    <string name="pods_case_status_closed_label">बंद</string>
+    <string name="pods_connection_state_disconnected_label">डिव्हाइसशी कनेक्ट केलेले नाही</string>
+    <string name="pods_connection_state_idle_label">डिव्हाइसशी कनेक्ट केलेले आहे, परंतु निष्क्रिय आहे</string>
+    <string name="pods_connection_state_music_label">संगीत मोडमध्ये</string>
+    <string name="pods_connection_state_call_label">कॉल मोडमध्ये</string>
+    <string name="pods_connection_state_ringing_label">रिंग होत आहे</string>
+    <string name="pods_connection_state_hanging_up_label">कॉल कट करत आहे</string>
+    <string name="pods_connection_state_unknown_label">अज्ञात कनेक्शन स्थिती</string>
+    <string name="pods_unknown_raw_data_label">कच्चा डेटा</string>
+    <string name="pods_unknown_label">अज्ञात डिव्हाइस</string>
+    <string name="pods_unknown_contact_dev">हे एक अज्ञात डिव्हाइस आहे, परंतु ते समान संदेश स्वरूप वापरत आहे. चला यासाठी समर्थन జోడిద్దాం, माझ्याशी संपर्क साधा :)</string>
+    <string name="pods_none_label_short">डिव्हाइस नाही</string>
+    <string name="pods_charging_label">चार्ज होत आहे</string>
+    <string name="pods_inear_label">कानामध्ये</string>
+    <string name="pods_microphone_label">मायक्रोफोन</string>
+    <string name="pods_yours">तुमचे</string>
+    <string name="headset_being_worn_label">घातलेले आहे</string>
+    <string name="headset_not_being_worn_label">घातलेले नाही</string>
+    <string name="pods_case_unknown_state">अज्ञात स्थिती</string>
+
+    <string name="last_seen_x">शेवटचे पाहिले: %s</string>
+    <string name="first_seen_x">प्रथम पाहिले: %s</string>
+    <string name="permission_post_notifications_label">सूचना दर्शवा</string>
+    <string name="permission_post_notifications_description">\"CAPod ला तुमच्या AirPods बद्दल सूचना दर्शविण्याची परवानगी द्या, उदा. कनेक्ट केलेले असताना त्यांची सध्याची स्थिती.\"</string>
+</resources>

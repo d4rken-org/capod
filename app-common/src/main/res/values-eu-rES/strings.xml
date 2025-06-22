@@ -1,2 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">E/E</string>
+    <string name="general_error_label">Errorea</string>
+    <string name="general_grant_permission_action">Eman baimena</string>
+
+    <string name="overview_nomaindevice_label">Ez dago gailu nagusirik</string>
+    <string name="overview_nomaindevice_description">Detektatutako gailu guztiak nekez izango dira zureak. Piztu eta konektatu zure gailua edo egokitu ezarpenak.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth desgaituta dago</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth desgaituta dago, gaitu ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth konexioa</string>
+    <string name="permission_bluetooth_connect_description">Aplikazio honek \"Bluetooth konexioa\" baimena behar du parekatutako gailuekin elkarreragiteko eta konexioak hasteko.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth eskaneatzea</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth eskaneatzea\" baimenak aplikazio honi zure AirPods bezalako inguruko gailuetatik Bluetooth datuak aurkitu eta jasotzeko aukera ematen dio.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Aplikazio honek \"Bluetooth\" baimena behar du parekatutako Bluetooth gailuetara konektatzeko.</string>
+    <string name="permission_access_fine_location_label">Sarbide zehatza kokapenera</string>
+    <string name="permission_access_fine_location_description">CAPod-ek \"kokapen zehatza\" baimena erabiltzen du Bluetooth Energia Baxuko datuak jasotzeko. Zure entzungailuek Bluetooth Energia Baxuko teknologia erabiltzen dute beren egoera igortzeko. Aplikazio honek EZ du Bluetooth datuak erabiliko zure kokapena zehazteko.</string>
+    <string name="permission_background_location_label">Atzeko planoko kokapen sarbidea</string>
+    <string name="permission_background_location_description">CAPod-ek \"atzeko planoko kokapen sarbidea\" erabiltzen du aplikazioa itxita dagoen bitartean \"Erakutsi pop-up\" eta \"Automatikoki konektatu\" bezalako funtzioak gaitzeko. Atzeko planoko kokapen sarbideak aplikazioari Bluetooth Energia Baxuko datuak jasotzeko aukera ematen dio atzeko planoan dagoen bitartean. Aplikazio honek EZ du Bluetooth datuak erabiliko zure kokapena zehazteko.</string>
+    <string name="permission_ignore_battery_optimizations_label">Desgaitu bateriaren optimizazioak</string>
+    <string name="permission_ignore_battery_optimizations_description">Bateriaren optimizazioek aplikazio honek atzeko planoan dagoen bitartean Bluetooth datuak modu fidagarrian jasotzea eragozten dute.</string>
+    <string name="permission_required_title">Baimen hau beharrezkoa da:</string>
+    <string name="permission_system_alert_window_label">Sistemaren Alerta Leihoa</string>
+    <string name="permission_system_alert_window_description">Baimendu CAPod-i beste aplikazio batzuen gainean marrazteko \"Erakutsi PopUp\" funtzioa posible egiteko.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Energia baxua</string>
+    <string name="settings_scanner_mode_balanced_label">Orekatua</string>
+    <string name="settings_scanner_mode_lowlatency_label">Latentzia baxua</string>
+
+    <string name="settings_monitor_mode_manual_label">Aplikazioa irekita dagoenean</string>
+    <string name="settings_monitor_mode_automatic_label">Gailua konektatuta dagoenean</string>
+    <string name="settings_monitor_mode_always_label">Beti</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Ikustean</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Kaxa irekita dago</string>
+    <string name="settings_reaction_autoconnect_inear_label">Belarrian</string>
+
+    <string name="pods_dual_left_label">Ezkerreko poda</string>
+    <string name="pods_dual_right_label">Eskuineko poda</string>
+    <string name="pods_case_label">Kaxa</string>
+    <string name="pods_case_status_open_label">Irekia</string>
+    <string name="pods_case_status_closed_label">Itxita</string>
+    <string name="pods_connection_state_disconnected_label">Ez dago gailu batera konektatuta</string>
+    <string name="pods_connection_state_idle_label">Gailu batera konektatuta, baina inaktibo</string>
+    <string name="pods_connection_state_music_label">Musika moduan</string>
+    <string name="pods_connection_state_call_label">Dei moduan</string>
+    <string name="pods_connection_state_ringing_label">Deitzen ari da</string>
+    <string name="pods_connection_state_hanging_up_label">Eskegitzen ari da</string>
+    <string name="pods_connection_state_unknown_label">Konexio egoera ezezaguna</string>
+    <string name="pods_unknown_raw_data_label">Datu gordinak</string>
+    <string name="pods_unknown_label">Gailu ezezaguna</string>
+    <string name="pods_unknown_contact_dev">Hau gailu ezezagun bat da, baina antzeko mezu formatua erabiltzen ari da. Gehitu diezaiogun euskarria, jarri nirekin harremanetan :)</string>
+    <string name="pods_none_label_short">Gailurik ez</string>
+    <string name="pods_charging_label">Kargatzen</string>
+    <string name="pods_inear_label">Belarrian</string>
+    <string name="pods_microphone_label">Mikrofonoa</string>
+    <string name="pods_yours">Zureak</string>
+    <string name="headset_being_worn_label">Jantzita</string>
+    <string name="headset_not_being_worn_label">Ez dago jantzita</string>
+    <string name="pods_case_unknown_state">Egoera ezezaguna</string>
+
+    <string name="last_seen_x">Azken aldiz ikusia: %s</string>
+    <string name="first_seen_x">Lehen aldiz ikusia: %s</string>
+    <string name="permission_post_notifications_label">Erakutsi jakinarazpenak</string>
+    <string name="permission_post_notifications_description">Baimendu CAPod-i zure AirPods-ei buruzko jakinarazpenak erakustea, adibidez, konektatuta dauden bitartean duten uneko egoera.</string>
+</resources>

@@ -1,2 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrades_gplay_unavailable_error">Google Play کی سروسز دستیاب نہیں ہیں۔</string>
+    <string name="upgrades_no_purchases_found_check_account">کوئی خریداری نہیں ملی۔ کیا آپ درست اکاؤنٹ استعمال کر رہے ہیں؟</string>
+</resources>

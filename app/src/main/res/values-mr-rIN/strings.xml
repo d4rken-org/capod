@@ -1,2 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation"></resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="general_share_action">शेअर करा</string>
+    <string name="general_done_action">झाले</string>
+    <string name="general_cancel_action">रद्द करा</string>
+    <string name="general_copy_action">कॉपी करा</string>
+    <string name="general_thank_you_label">धन्यवाद</string>
+    <string name="general_upgrade_action">अपग्रेड करा</string>
+    <string name="general_check_action">तपासा</string>
+    <string name="general_close_action">बंद करा</string>
+    <string name="general_save_action">सेव्ह करा</string>
+    <string name="general_guide_action">मार्गदर्शक</string>
+    <string name="general_continue_action">सुरू ठेवा</string>
+
+    <string name="general_example_label">उदा.: %s</string>
+
+    <string name="upgrade_capod_label">CAPod अपग्रेड करा</string>
+    <string name="upgrade_capod_description">अतिरिक्त वैशिष्ट्ये मिळवा आणि विकसकाला पाठिंबा द्या.</string>
+
+    <string name="settings_monitor_mode_label">मॉनिटर मोड</string>
+    <string name="settings_monitor_mode_description">हे अॅप कोणत्या परिस्थितीत ब्लूटूथ डेटाचे निरीक्षण करते.</string>
+    <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
+    <string name="settings_monitor_connected_notification_description">जेव्हा एखादे डिव्हाइस कनेक्ट केलेले असते तेव्हा अतिरिक्त सूचना दर्शविते. हे आपल्याला \\"डिव्हाइस स्थिती\\" चॅनेल अक्षम करून कायमस्वरूपी \\"कोणतेही डिव्हाइस नाही\\" सूचना लपविण्यास अनुमती देते.</string>
+    <string name="settings_scanner_mode_label">स्कॅनर मोड</string>
+    <string name="settings_scanner_mode_description">ब्लूटूथ लो एनर्जी डेटा स्कॅनरने कार्यक्षमतेला प्राधान्य द्यावे की ऊर्जा वाचवावी?</string>
+    <string name="settings_autopause_label">ऑटो-पॉज</string>
+    <string name="settings_autopause_description">आपल्या कानातून डिव्हाइस काढताना ऑडिओ थांबवा.</string>
+    <string name="settings_showall_label">सर्व डिव्हाइस दर्शवा</string>
+    <string name="settings_showall_description">आपल्या जवळील इतर लोकांचे डिव्हाइस दर्शवा.</string>
+    <string name="settings_autopplay_label">ऑटो-प्ले</string>
+    <string name="settings_autoplay_description">डिव्हाइस घातल्यावर ऑडिओ प्लेबॅक सुरू करा.</string>
+    <string name="settings_fake_data_label">बनावट डेटा</string>
+    <string name="settings_fake_data_description">बनावट डेटा दर्शवा, म्हणजे अस्तित्वात नसलेल्या डिव्हाइसची नक्कल करा.</string>
+    <string name="settings_debug_label">डीबग सेटिंग्ज</string>
+    <string name="settings_debug_description">अॅपमधील समस्यांचे निवारण करण्यात मदत करण्यासाठी अतिरिक्त सेटिंग्ज.</string>
+    <string name="settings_signal_minimum_label">किमान सिग्नल गुणवत्ता</string>
+    <string name="settings_signal_minimum_description">डिव्हाइसला आपले मानण्यासाठी आवश्यक असलेली किमान सिग्नल गुणवत्ता.</string>
+    <string name="settings_autoconnect_label">ऑटो-कनेक्ट</string>
+    <string name="settings_autoconnect_description">Android आपोआप कनेक्ट होत नसल्यास, आम्ही देखील विनंती करू शकतो. हे मॉनिटर मोड सेटिंग \\"नेहमी\\" वर सेट करेल.</string>
+    <string name="settings_autoconnect_condition_label">ऑटो-कनेक्ट अट</string>
+    <string name="settings_autoconnect_condition_description">आम्ही आपल्या डिव्हाइसशी कधी कनेक्ट करण्याचा प्रयत्न करावा?</string>
+    <string name="settings_reaction_label">प्रतिक्रिया</string>
+    <string name="settings_reaction_description">घटना आणि वर्तनांवर प्रतिक्रिया द्या.</string>
+    <string name="settings_category_yourdevice_label">तुमचे डिव्हाइस</string>
+
+    <string name="settings_category_compatibility_options_title">सुसंगतता पर्याय</string>
+    <string name="settings_category_compatibility_options_description">सर्व काही ठीक चालत असल्यास स्पर्श करू नका ;)</string>
+    <string name="settings_compat_offloaded_filtering_disabled_title">हार्डवेअर फिल्टरिंग अक्षम करा</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">सिस्टमला डेटा फिल्टरिंग देऊ नका, त्याऐवजी सर्व डेटा मिळवा आणि अॅपमध्ये फिल्टर करा.</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">हार्डवेअर बॅचिंग अक्षम करा</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">आम्हाला पाठवण्यापूर्वी सिस्टमला संकलित BLE डेटा गटबद्ध करण्याची परवानगी देऊ नका.</string>
+
+    <string name="settings_maindevice_address_label">तुमच्या डिव्हाइसचा पत्ता</string>
+    <string name="settings_maindevice_address_description">तुमच्या जोडलेल्या डिव्हाइसचा पत्ता. अॅप तुमच्या फोनशी कधी कनेक्ट आहे हे निर्धारित करण्यासाठी याचा वापर करते.</string>
+    <string name="settings_maindevice_address_none">काहीही नाही</string>
+    <string name="settings_maindevice_model_label">तुमच्या डिव्हाइसचे मॉडेल</string>
+    <string name="settings_maindevice_model_description">तुमच्या मुख्य डिव्हाइसचे मॉडेल. हे अॅपला तुमच्या फोनशी कनेक्ट नसताना तुमचे डिव्हाइस ओळखण्यात मदत करते.</string>
+    <string name="settings_maindevice_identitykey_label">ओळख की</string>
+    <string name="settings_maindevice_identitykey_description">तुमच्या डिव्हाइसची ओळख निराकरण की (IRK), जी CAPod ला जवळपासच्या डिव्हाइसपैकी ओळखण्यास मदत करते.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods गोपनीयतेसाठी वारंवार त्यांचे ब्लूटूथ पत्ते बदलतात. IRK CAPod ला तुमचे डिव्हाइस ओळखण्यास मदत करते. तुम्हाला MacBook मध्ये एकदा प्रवेश आवश्यक आहे.</string>
+    <string name="settings_maindevice_encryptionkey_label">एनक्रिप्शन की</string>
+    <string name="settings_maindevice_encryptionkey_description">तुमच्या डिव्हाइसची एनक्रिप्शन की, जी CAPod ला तपशीलवार स्थिती माहिती पुनर्प्राप्त करण्यास अनुमती देते.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods स्थिती संदेश पाठवतात, ज्याचा काही भाग एनक्रिप्ट केलेला असतो. एनक्रिप्शन की CAPod ला संपूर्ण संदेश डीक्रिप्ट करण्यास अनुमती देते. तुम्हाला MacBook मध्ये एकदा प्रवेश आवश्यक आहे.</string>
+
+    <string name="settings_onepod_mode_label">एक पॉड मोड</string>
+    <string name="settings_onepod_mode_description">दोन्ही पॉड्स घालणे आवश्यक नाही, प्रतिक्रिया सुरू करण्यासाठी एकच पॉड घालणे पुरेसे आहे.</string>
+    <string name="settings_popup_caseopen_label">केस पॉपअप दर्शवा</string>
+    <string name="settings_popup_caseopen_description">डिव्हाइस केस उघडल्यावर पॉपअप दर्शवा (प्रायोगिक).</string>
+    <string name="settings_popup_connected_label">कनेक्शन पॉपअप दर्शवा</string>
+    <string name="settings_popup_connected_description">डिव्हाइस पहिल्यांदा कनेक्ट झाल्यावर पॉपअप दर्शवा.</string>
+
+    <string name="notification_channel_device_status_label">डिव्हाइस स्थिती</string>
+    <string name="notification_channel_device_status_connected_label">कनेक्ट केलेले डिव्हाइस</string>
+
+    <string name="support_debuglog_label">डीबग लॉग</string>
+    <string name="support_debuglog_desc">अॅप करत असलेल्या प्रत्येक गोष्टीची नोंद तुम्ही शेअर करू शकता अशा टेक्स्ट फाइलमध्ये करा.</string>
+    <string name="debug_debuglog_size_label">आकार</string>
+    <string name="debug_debuglog_size_compressed_label">संकुचित आकार</string>
+    <string name="debug_notification_channel_label">डीबग सूचना</string>
+    <string name="debug_debuglog_file_label">नोंदणीकृत लॉग फाइल</string>
+    <string name="debug_debuglog_recording_progress">डीबग लॉग रेकॉर्ड करत आहे</string>
+    <string name="debug_debuglog_record_action">डीबग लॉग रेकॉर्ड करा</string>
+    <string name="debug_debuglog_stop_action">रेकॉर्डिंग थांबवा</string>
+    <string name="debug_debuglog_sensitive_information_message">तयार केलेल्या फाइलमध्ये संवेदनशील माहिती आहे (उदा. ब्लूटूथ डिव्हाइस तपशील). ती फक्त विश्वासार्ह पक्षांसोबत शेअर करा.</string>
+    <string name="settings_debuglog_explanation">हे वैशिष्ट्य अॅप करत असलेल्या प्रत्येक गोष्टीची नोंद शेअर करण्यायोग्य फाइलमध्ये करते. तयार केलेल्या फाइलमध्ये संवेदनशील माहिती आहे (उदा. ब्लूटूथ डिव्हाइस तपशील). ती फक्त विश्वासार्ह पक्षांसोबत शेअर करा (उदा. समस्येचे निवारण करणारा विकसक).</string>
+
+    <string name="settings_support_installid_label">इंस्टॉल आयडी</string>
+    <string name="settings_support_installid_desc">स्वयंचलित त्रुटी अहवाल अनामिक असतात. विकसकाला तुमच्या त्रुटी अहवाल शोधण्याची आवश्यकता असल्यास तुमचा इंस्टॉल आयडी शेअर करा.</string>
+    <string name="settings_support_label">समर्थन</string>
+    <string name="settings_support_description">तुम्हाला काही मदत हवी असल्यास.</string>
+
+    <string name="issue_tracker_label">समस्या ट्रॅकर</string>
+    <string name="issue_tracker_description">बग अहवाल आणि वैशिष्ट्य विनंत्यांसाठी सार्वजनिक समस्या ट्रॅकर (केवळ इंग्रजी).</string>
+
+    <string name="discord_label">डिस्कॉर्ड</string>
+    <string name="discord_description">वेळ घालवण्यासाठी आणि प्रश्न विचारण्यासाठी एक जागा.</string>
+
+    <string name="changelog_label">बदल लॉग</string>
+    <string name="settings_label">सेटिंग्ज</string>
+    <string name="settings_privacy_policy_label">गोपनीयता धोरण</string>
+    <string name="settings_privacy_policy_desc">डेटा जबाबदारीने हाताळणे.</string>
+    <string name="settings_licenses_label">परवाने</string>
+    <string name="settings_category_other_label">इतर</string>
+    <string name="settings_general_label">सेटिंग्ज</string>
+    <string name="settings_general_description">संपूर्ण अॅपवर परिणाम करणारे सामान्य बदल.</string>
+    <string name="settings_acknowledgements_label">पोचपावती</string>
+
+    <string name="settings_debug_autoreports_label">स्वयंचलित बग अहवाल</string>
+    <string name="settings_debug_autoreports_description">समस्या स्वयंचलितपणे नोंदवते, उदा. अॅप क्रॅशबद्दल तपशील जेणेकरून मी ते कसे दुरुस्त करायचे हे शोधू शकेन.</string>
+    <string name="settings_debug_mode_label">डीबग मोड</string>
+    <string name="settings_debug_mode_description">समस्यांचे निवारण करण्यासाठी अतिरिक्त माहिती दर्शवा.</string>
+
+    <string name="settings_blescanner_unfiltered_label">फिल्टर न केलेला BLE डेटा</string>
+    <string name="settings_blescanner_unfiltered_description">सर्व प्रसारित BLE डेटा दर्शविण्यासाठी BLE स्कॅनरमधून कोणतेही फिल्टर काढून टाका. नवीन हेडफोन प्रकारांसाठी समर्थन जोडण्यासाठी उपयुक्त.</string>
+
+    <string name="settings_compatibility_mode_label">सुसंगतता मोड</string>
+    <string name="settings_compatibility_mode_description">सुसंगतता सुधारण्यासाठी ऑप्टिमायझेशन अक्षम करा. तुम्हाला कोणताही डेटा दिसत नसल्यास हे वापरून पहा.</string>
+
+    <string name="help_translate_label">भाषांतर</string>
+    <string name="help_translate_description">हे अॅप तुमच्या आवडत्या भाषेत भाषांतरित करण्यात मदत करा.</string>
+
+    <string name="translators_thanks_title">भाषांतरकर्ते</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">डिव्हाइसची शेवटची ज्ञात स्थिती दर्शवणारे विजेट.</string>
+    <string name="settings_compat_indirectcallback_title">अप्रत्यक्ष डेटा वितरण</string>
+    <string name="settings_compat_indirectcallback_summary">सिस्टममधून BLE डेटा प्राप्त करण्यासाठी पर्यायी पद्धत वापरा (कॉलबॅकऐवजी प्रसारण).</string>
+
+    <string name="troubleshooter_title">समस्या निवारक</string>
+    <string name="troubleshooter_ble_intro_title">ब्लूटूथ कमी ऊर्जा प्रसारण</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (आणि तत्सम हेडफोन) \\"जाहिराती\\" नावाच्या BLE तंत्रज्ञानाचा वापर करून स्थिती माहिती प्रसारित करतात. काही फोन हे तंत्रज्ञान योग्यरित्या अंमलात आणत नाहीत. डेटा प्राप्त होईपर्यंत CAPod विविध सुसंगतता पर्याय वापरून हे दुरुस्त करण्याचा प्रयत्न करू शकते. तुमच्या हेडफोनवर संगीत प्लेबॅक सुरू करा आणि त्यांना तुमच्या फोनजवळ ठेवा, नंतर प्रक्रिया सुरू करा.</string>
+    <string name="troubleshooter_ble_intro_start_action">समस्या निवारण सुरू करा</string>
+    <string name="troubleshooter_ble_process_title">समस्या निवारण सुरू आहे</string>
+    <string name="troubleshooter_ble_process_subtile">प्रत्येक पायरीला ५-१० सेकंद लागतात</string>
+    <string name="troubleshooter_ble_result_success_title">यश</string>
+    <string name="troubleshooter_ble_result_success_body">CAPod द्वारे BLE जाहिरात प्रसारण प्राप्त होत आहेत.</string>
+    <string name="troubleshooter_ble_result_failure_title">अयशस्वी</string>
+    <string name="troubleshooter_ble_result_failure_body">समस्या निवारण अयशस्वी झाले. सुसंगतता पर्यायांचे कोणतेही संयोजन मदत करू शकले नाही.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">तुमच्या फोनला कोणतीही BLE डेटा अजिबात मिळाली नाही. डेटा स्रोत (तुमच्या हेडफोन व्यतिरिक्त) प्राप्त होऊ शकतात की नाही हे पाहण्यासाठी तुम्ही गर्दीच्या ठिकाणी हा चाचणी पुन्हा प्रयत्न करू शकता. कोणताही डेटा प्राप्त न होणे तुमच्या फोनच्या ऑपरेटिंग सिस्टममध्ये समस्या दर्शवते.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">तुमच्या फोनला BLE डेटा मिळाला, परंतु डेटा कोणत्याही समर्थित डिव्हाइसवरून येत नाही. तुमचे हेडफोन चालू आहेत का? CAPod तुमच्या हेडफोनला समर्थन देते का?</string>
+    <string name="troubleshooter_ble_result_failure_action">पुन्हा प्रयत्न करा</string>
+    <string name="troubleshoot_action">समस्या सोडवा</string>
+
+    <string name="onboarding_body1">हे अॅप Android साठी AirPod विशिष्ट वैशिष्ट्यांसाठी समर्थन जोडते.</string>
+    <string name="onboarding_body2">सर्व Android डिव्हाइस अतिरिक्त AirPod वैशिष्ट्यांना पूर्णपणे समर्थन देत नाहीत. तुमच्या ऑपरेटिंग सिस्टमला योग्यरित्या कार्य करणारे ब्लूटूथ-लो-एनर्जी अंमलबजावणी आवश्यक आहे.</string>
+    <string name="onboarding_body3">CAPod मध्ये कोणत्याही जाहिराती नाहीत आणि तुमचा डेटा गोळा करत नाही.</string>
+    <string name="onboarding_body4">अतिरिक्त वैशिष्ट्ये मिळवण्यासाठी आणि विकासाला समर्थन देण्यासाठी तुम्ही CAPod Pro वर श्रेणीसुधारित करू शकता.</string>
+</resources>

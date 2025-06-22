@@ -2,78 +2,147 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">共有</string>
     <string name="general_done_action">完了</string>
+    <string name="general_cancel_action">キャンセル</string>
     <string name="general_copy_action">コピー</string>
     <string name="general_thank_you_label">ありがとう</string>
     <string name="general_upgrade_action">アップグレード</string>
     <string name="general_check_action">確認</string>
     <string name="general_close_action">閉じる</string>
+    <string name="general_save_action">保存</string>
+    <string name="general_guide_action">ガイド</string>
+    <string name="general_continue_action">続行</string>
+
+    <string name="general_example_label">例: %s</string>
+
     <string name="upgrade_capod_label">CAPodをアップグレード</string>
-    <string name="upgrade_capod_description">追加機能を取得し、開発者を支援する。</string>
+    <string name="upgrade_capod_description">追加機能を入手し、開発者をサポートします。</string>
+
     <string name="settings_monitor_mode_label">モニターモード</string>
-    <string name="settings_monitor_mode_description">このアプリがいつ、Bluetoothデータの監視をするのかを選択します。</string>
-    <string name="settings_scanner_mode_label">スキャンモード</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energyデータスキャンがパフォーマンスと省電力のどちらを優先すべきかを選択します。</string>
-    <string name="settings_autopause_label">自動停止</string>
-    <string name="settings_autopause_description">耳から外したときに再生を一時停止する。</string>
+    <string name="settings_monitor_mode_description">このアプリがBluetoothデータを監視する状況。</string>
+    <string name="settings_monitor_connected_notification_label">追加通知</string>
+    <string name="settings_monitor_connected_notification_description">デバイスが接続されると追加の通知を表示します。これにより、「デバイスステータス」チャネルを無効にすることで、永続的な「デバイスなし」通知を非表示にできます。</string>
+    <string name="settings_scanner_mode_label">スキャナーモード</string>
+    <string name="settings_scanner_mode_description">Bluetooth Low Energyデータスキャナーはパフォーマンスを優先すべきか、エネルギーを節約すべきか？</string>
+    <string name="settings_autopause_label">自動一時停止</string>
+    <string name="settings_autopause_description">デバイスを耳から外すとオーディオを一時停止します。</string>
     <string name="settings_showall_label">すべてのデバイスを表示</string>
     <string name="settings_showall_description">近くにいる他の人のデバイスを表示します。</string>
     <string name="settings_autopplay_label">自動再生</string>
-    <string name="settings_autoplay_description">装着時に再生を開始する。</string>
-    <string name="settings_fake_data_label">フェイクデータ</string>
-    <string name="settings_fake_data_description">実在しない機器を模したフェイクデータを表示します。</string>
-    <string name="settings_debug_label">デバッグ用の設定</string>
-    <string name="settings_debug_description">トラブルシューティングに役立つ追加設定。</string>
-    <string name="settings_signal_minimum_label">最低限必要な信号品質</string>
-    <string name="settings_signal_minimum_description">デバイスが自分のものとみなすために必要な最低限の信号品質を調節します。</string>
+    <string name="settings_autoplay_description">デバイスを装着するとオーディオ再生を開始します。</string>
+    <string name="settings_fake_data_label">偽のデータ</string>
+    <string name="settings_fake_data_description">偽のデータを表示します。つまり、存在しないデバイスをシミュレートします。</string>
+    <string name="settings_debug_label">デバッグ設定</string>
+    <string name="settings_debug_description">アプリの問題のトラブルシューティングに役立つ追加設定。</string>
+    <string name="settings_signal_minimum_label">最小信号品質</string>
+    <string name="settings_signal_minimum_description">デバイスがあなたのものと見なされるために必要な最小信号品質。</string>
     <string name="settings_autoconnect_label">自動接続</string>
-    <string name="settings_autoconnect_description">Androidが自動的に接続しない場合は、こちらからも問い合わせることができます。これにより、モニターモードの設定が「常に」になります。</string>
-    <string name="settings_autoconnect_condition_label">自動接続の条件</string>
-    <string name="settings_autoconnect_condition_description">接続をいつ試みるのかを選択します。</string>
-    <string name="settings_reaction_label">アクション</string>
-    <string name="settings_reaction_description">イベントや行動に対して機能が動作します</string>
+    <string name="settings_autoconnect_description">Androidが自動的に接続しない場合、私たちもそれを要求できます。これにより、モニターモードの設定が「常に」に設定されます。</string>
+    <string name="settings_autoconnect_condition_label">自動接続条件</string>
+    <string name="settings_autoconnect_condition_description">いつデバイスに接続しようとすべきですか？</string>
+    <string name="settings_reaction_label">リアクション</string>
+    <string name="settings_reaction_description">イベントや行動に反応します。</string>
     <string name="settings_category_yourdevice_label">あなたのデバイス</string>
-    <string name="settings_category_compatibility_options_title">互換性のオプション</string>
-    <string name="settings_category_compatibility_options_description">正常に動く場合は触らないでください。 ;)</string>
+
+    <string name="settings_category_compatibility_options_title">互換性オプション</string>
+    <string name="settings_category_compatibility_options_description">すべてが機能する場合は触れないでください ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ハードウェアフィルタリングを無効にする</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">データフィルタリングをシステムに任せません。アプリ内ですべてのデータとフィルターを取得します。</string>
-    <string name="settings_maindevice_address_label">あなたのデバイスのアドレス</string>
-    <string name="settings_maindevice_address_description">ペアリングされたデバイスのアドレス。 アプリはこれを使って、携帯電話にいつ接続されたかを判断します。</string>
-    <string name="settings_maindevice_address_none">無し</string>
-    <string name="settings_maindevice_model_label">あなたのデバイスのモデル</string>
-    <string name="settings_maindevice_model_description">あなたが主に使うデバイスのモデルです。これにより、デバイスが機器に接続されていないときに、アプリがデバイスを認識しやすくなります。</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">データフィルタリングをシステムに委任せず、代わりにすべてのデータを取得してアプリ内でフィルタリングします。</string>
+    <string name="settings_compat_offloaded_batching_disabled_title">ハードウェアバッチ処理を無効にする</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">収集されたBLEデータを私たちに転送する前にシステムがグループ化するのを許可しないでください。</string>
+
+    <string name="settings_maindevice_address_label">デバイスアドレス</string>
+    <string name="settings_maindevice_address_description">ペアリングされたデバイスのアドレス。アプリはこれを使用して、いつ電話に接続されているかを判断します。</string>
+    <string name="settings_maindevice_address_none">なし</string>
+    <string name="settings_maindevice_model_label">デバイスモデル</string>
+    <string name="settings_maindevice_model_description">メインデバイスのモデル。これにより、アプリは電話に接続されていないときにデバイスを認識できます。</string>
+    <string name="settings_maindevice_identitykey_label">アイデンティティキー</string>
+    <string name="settings_maindevice_identitykey_description">デバイスのアイデンティティ解決キー（IRK）。CAPodが近くのデバイスの中からそれを識別するのに役立ちます。</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPodsはプライバシーのためにBluetoothアドレスを頻繁に変更します。IRKはCAPodがデバイスを認識するのに役立ちます。MacBookへの1回限りのアクセスが必要です。</string>
+    <string name="settings_maindevice_encryptionkey_label">暗号化キー</string>
+    <string name="settings_maindevice_encryptionkey_description">デバイスの暗号化キー。CAPodが詳細なステータス情報を取得できるようにします。</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPodsはステータスメッセージを送信し、その一部は暗号化されています。暗号化キーを使用すると、CAPodは完全なメッセージを復号化できます。MacBookへの1回限りのアクセスが必要です。</string>
+
     <string name="settings_onepod_mode_label">片耳モード</string>
-    <string name="settings_onepod_mode_description">両方装着する必要はなく、1つだけを装着することで反応します。</string>
-    <string name="settings_popup_caseopen_description">デバイスのケースが開いたときにポップアップを表示します (実験的)。</string>
-    <string name="notification_channel_device_status_label">デバイスの状態</string>
+    <string name="settings_onepod_mode_description">両方のポッドを装着する必要はありません。リアクションをトリガーするには、片方のポッドを装着するだけで十分です。</string>
+    <string name="settings_popup_caseopen_label">ケースポップアップを表示</string>
+    <string name="settings_popup_caseopen_description">デバイスケースが開いたときにポップアップを表示します（実験的）。</string>
+    <string name="settings_popup_connected_label">接続ポップアップを表示</string>
+    <string name="settings_popup_connected_description">デバイスが初めて接続されたときにポップアップを表示します。</string>
+
+    <string name="notification_channel_device_status_label">デバイスステータス</string>
+    <string name="notification_channel_device_status_connected_label">接続済みデバイス</string>
+
+    <string name="support_debuglog_label">デバッグログ</string>
+    <string name="support_debuglog_desc">アプリが行っているすべてのことを、共有できるテキストファイルに記録します。</string>
     <string name="debug_debuglog_size_label">サイズ</string>
     <string name="debug_debuglog_size_compressed_label">圧縮サイズ</string>
     <string name="debug_notification_channel_label">デバッグ通知</string>
+    <string name="debug_debuglog_file_label">記録されたログファイル</string>
+    <string name="debug_debuglog_recording_progress">デバッグログを記録中</string>
+    <string name="debug_debuglog_record_action">デバッグログを記録</string>
+    <string name="debug_debuglog_stop_action">記録を停止</string>
+    <string name="debug_debuglog_sensitive_information_message">生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者とのみ共有してください。</string>
+    <string name="settings_debuglog_explanation">この機能は、アプリが行っているすべてのことを共有可能なファイルに記録します。生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者（問題をトラブルシューティングしている開発者など）とのみ共有してください。</string>
+
     <string name="settings_support_installid_label">インストールID</string>
-    <string name="settings_support_installid_desc">自動エラーレポートは匿名です。開発者があなたのエラーレポートを見つける必要がある場合は、インストールIDを共有してください。</string>
+    <string name="settings_support_installid_desc">自動エラーレポートは匿名です。開発者がエラーレポートを見つける必要がある場合は、インストールIDを共有してください。</string>
     <string name="settings_support_label">サポート</string>
-    <string name="settings_support_description">何か困ったことがあったら</string>
-    <string name="issue_tracker_label">イシュー・トラッカー</string>
-    <string name="issue_tracker_description">バグレポートや機能要望のための公開されたイシュー・トラッカー（英語のみ）。</string>
-    <string name="discord_description">質問がしやすい場所です。</string>
-    <string name="changelog_label">更新の内容</string>
+    <string name="settings_support_description">ヘルプが必要な場合。</string>
+
+    <string name="issue_tracker_label">課題トラッカー</string>
+    <string name="issue_tracker_description">バグレポートと機能リクエストのための公開課題トラッカー（英語のみ）。</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">くつろいだり質問したりする場所。</string>
+
+    <string name="changelog_label">変更履歴</string>
     <string name="settings_label">設定</string>
-    <string name="settings_privacy_policy_label">個人情報の取り扱いについて</string>
-    <string name="settings_privacy_policy_desc">責任を持ってデータを取り扱います</string>
-    <string name="settings_licenses_label">ライセンス情報</string>
+    <string name="settings_privacy_policy_label">プライバシーポリシー</string>
+    <string name="settings_privacy_policy_desc">責任あるデータ処理。</string>
+    <string name="settings_licenses_label">ライセンス</string>
     <string name="settings_category_other_label">その他</string>
-    <string name="settings_general_label">全般</string>
-    <string name="settings_general_description">アプリの一般的な設定</string>
+    <string name="settings_general_label">設定</string>
+    <string name="settings_general_description">アプリ全体に影響する一般的な調整。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
-    <string name="settings_debug_autoreports_label">自動的にバグレポートを送信</string>
-    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細情報など、問題を自動的に報告してくれるので、修正の方法を把握することができます。</string>
+
+    <string name="settings_debug_autoreports_label">自動バグレポート</string>
+    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
     <string name="settings_debug_mode_label">デバッグモード</string>
-    <string name="settings_debug_mode_description">トラブルシューティングのための追加情報を表示します。</string>
-    <string name="settings_blescanner_unfiltered_label">未処理のBLEデータ</string>
-    <string name="settings_blescanner_unfiltered_description">Bluetooth Low Energy（BLE）のフィルタを完全に削除して、すべての配信されているBLEデータを表示します。 新しいデバイスをアプリでサポートしようとするために便利です。</string>
+    <string name="settings_debug_mode_description">問題のトラブルシューティングのために追加情報を表示します。</string>
+
+    <string name="settings_blescanner_unfiltered_label">未フィルタリングBLEデータ</string>
+    <string name="settings_blescanner_unfiltered_description">BLEスキャナーからすべてのフィルターを削除して、ブロードキャストされたすべてのBLEデータを表示します。新しいタイプのヘッドフォンのサポートを追加するのに役立ちます。</string>
+
     <string name="settings_compatibility_mode_label">互換モード</string>
-    <string name="settings_compatibility_mode_description">互換性を向上させるために最適化を無効にします。データが表示されない場合は、こちらをお試しください。</string>
+    <string name="settings_compatibility_mode_description">互換性を向上させるために最適化を無効にします。データが表示されない場合は、これを試してください。</string>
+
     <string name="help_translate_label">翻訳</string>
-    <string name="help_translate_description">このアプリをあなたの好きな言語に翻訳するのを手伝ってください</string>
+    <string name="help_translate_description">このアプリをあなたの好きな言語に翻訳するのを手伝ってください。</string>
+
     <string name="translators_thanks_title">翻訳者</string>
-    <string name="translators_thanks_description">OrangeOC(translation.love@na-cat.com)</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">デバイスの最後に確認されたステータスを表示するウィジェット。</string>
+    <string name="settings_compat_indirectcallback_title">間接的なデータ配信</string>
+    <string name="settings_compat_indirectcallback_summary">システムからBLEデータを受信するための代替方法を使用します（コールバックではなくブロードキャスト）。</string>
+
+    <string name="troubleshooter_title">トラブルシューター</string>
+    <string name="troubleshooter_ble_intro_title">Bluetooth Low Energyブロードキャスト</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods（および同様のヘッドフォン）は、「アドバタイズメント」と呼ばれるBLEテクノロジーを使用してステータス情報をブロードキャストします。一部の電話機はこのテクノロジーを正しく実装していません。CAPodは、データが受信されるまでさまざまな互換性オプションを試すことで、これを修正しようとすることがあります。ヘッドフォンで音楽再生を開始し、電話機の近くに置いてから、プロセスを開始してください。</string>
+    <string name="troubleshooter_ble_intro_start_action">トラブルシューティングを開始</string>
+    <string name="troubleshooter_ble_process_title">トラブルシューティング進行中</string>
+    <string name="troubleshooter_ble_process_subtile">各ステップには5〜10秒かかります</string>
+    <string name="troubleshooter_ble_result_success_title">成功</string>
+    <string name="troubleshooter_ble_result_success_body">BLEアドバタイズメントブロードキャストはCAPodによって受信されています。</string>
+    <string name="troubleshooter_ble_result_failure_title">失敗</string>
+    <string name="troubleshooter_ble_result_failure_body">トラブルシューティングに失敗しました。互換性オプションの組み合わせは役に立ちませんでした。</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">お使いの電話機はBLEデータをまったく受信しませんでした。混雑した場所でこのテストを再試行して、データソース（ヘッドフォン以外）を受信できるかどうかを確認できます。データが受信されない場合は、電話機のオペレーティングシステムに問題があることを示しています。</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">お使いの電話機はBLEデータを受信しましたが、データはサポートされているどのデバイスからも送信されていません。ヘッドフォンはオンになっていますか？CAPodはヘッドフォンをサポートしていますか？</string>
+    <string name="troubleshooter_ble_result_failure_action">再試行</string>
+    <string name="troubleshoot_action">トラブルシューティング</string>
+
+    <string name="onboarding_body1">このアプリは、AndroidにAirPod固有の機能のサポートを追加します。</string>
+    <string name="onboarding_body2">すべてのAndroidデバイスが追加のAirPod機能を完全にサポートしているわけではありません。オペレーティングシステムには、正しく機能するBluetooth Low Energyの実装が必要です。</string>
+    <string name="onboarding_body3">CAPodには広告がなく、データを収集しません。</string>
+    <string name="onboarding_body4">追加機能を利用して開発をサポートするために、CAPod Proにアップグレードできます。</string>
 </resources>

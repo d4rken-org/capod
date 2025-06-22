@@ -1,116 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="general_share_action">هم‌رسانی</string>
+    <string name="general_share_action">اشتراک‌گذاری</string>
     <string name="general_done_action">انجام شد</string>
     <string name="general_cancel_action">لغو</string>
-    <string name="general_copy_action">رونوشت‌</string>
-    <string name="general_thank_you_label">متشکریم</string>
-    <string name="general_upgrade_action">ارتقاء</string>
+    <string name="general_copy_action">کپی</string>
+    <string name="general_thank_you_label">متشکرم</string>
+    <string name="general_upgrade_action">ارتقا</string>
     <string name="general_check_action">بررسی</string>
     <string name="general_close_action">بستن</string>
+    <string name="general_save_action">ذخیره</string>
+    <string name="general_guide_action">راهنما</string>
     <string name="general_continue_action">ادامه</string>
-    <string name="upgrade_capod_label">ارتقا CAPod</string>
-    <string name="upgrade_capod_description">ویژگی های اضافی را دریافت کنید و از توسعه دهنده پشتیبانی کنید.</string>
-    <string name="settings_monitor_mode_label">حالت نمایشگر</string>
-    <string name="settings_monitor_mode_description">تحت چه شرایطی این برنامه داده های بلوتوث را نظارت می کند.</string>
+
+    <string name="general_example_label">مثال: %s</string>
+
+    <string name="upgrade_capod_label">ارتقای CAPod</string>
+    <string name="upgrade_capod_description">ویژگی‌های اضافی دریافت کنید و از توسعه‌دهنده حمایت کنید.</string>
+
+    <string name="settings_monitor_mode_label">حالت نظارت</string>
+    <string name="settings_monitor_mode_description">این برنامه تحت چه شرایطی داده‌های بلوتوث را نظارت می‌کند.</string>
+    <string name="settings_monitor_connected_notification_label">اعلان اضافی</string>
+    <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \\"بدون دستگاه\\" را با غیرفعال کردن کانال \\"وضعیت دستگاه\\" پنهان کنید.</string>
     <string name="settings_scanner_mode_label">حالت اسکنر</string>
-    <string name="settings_scanner_mode_description">آیا اسکنر داده کم مصرف بلوتوث باید عملکرد را در اولویت قرار دهد یا در مصرف انرژی صرفه‌جویی کند؟</string>
-    <string name="settings_autopause_label">توقف خودکار</string>
-    <string name="settings_autopause_description">هنگام خارج کردن دستگاه از گوش، صدا را مکث کنید.</string>
-    <string name="settings_showall_label">نمایش همه دستگاه ها</string>
-    <string name="settings_showall_description">دستگاه‌های دیگران را که در نزدیکی شما هستند نشان دهید.</string>
+    <string name="settings_scanner_mode_description">آیا اسکنر داده بلوتوث کم‌مصرف باید عملکرد را در اولویت قرار دهد یا انرژی را ذخیره کند؟</string>
+    <string name="settings_autopause_label">مکث خودکار</string>
+    <string name="settings_autopause_description">هنگام برداشتن دستگاه از گوش، صدا را متوقف کنید.</string>
+    <string name="settings_showall_label">نمایش همه دستگاه‌ها</string>
+    <string name="settings_showall_description">دستگاه‌های افراد دیگر را که در نزدیکی شما هستند نشان دهید.</string>
     <string name="settings_autopplay_label">پخش خودکار</string>
-    <string name="settings_autoplay_description">وقتی دستگاه در گوش بود پخش صدا شروع شود.</string>
-    <string name="settings_fake_data_label">داده جعلی</string>
-    <string name="settings_fake_data_description">نمایش داده های جعلی به عنوان مثال، شبیه سازی دستگاه هایی که وجود ندارند.</string>
+    <string name="settings_autoplay_description">هنگام استفاده از دستگاه، پخش صدا را شروع کنید.</string>
+    <string name="settings_fake_data_label">داده‌های جعلی</string>
+    <string name="settings_fake_data_description">داده‌های جعلی را نشان دهید، یعنی دستگاه‌هایی را که وجود ندارند شبیه‌سازی کنید.</string>
     <string name="settings_debug_label">تنظیمات اشکال‌زدایی</string>
-    <string name="settings_debug_description">تنظیمات اضافی برای کمک به عیب یابی مشکلات برنامه.</string>
+    <string name="settings_debug_description">تنظیمات اضافی برای کمک به عیب‌یابی مشکلات برنامه.</string>
     <string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
-    <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا به عنوان دستگاه شما در نظر گرفته شود.</string>
+    <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا متعلق به شما در نظر گرفته شود.</string>
     <string name="settings_autoconnect_label">اتصال خودکار</string>
-    <string name="settings_autoconnect_description">اگر اندروید به صورت خودکار متصل نشود، می‌توانیم از آن درخواست کنیم. این کار تنظیم حالت نظارت را به \"همیشه\" تغییر می‌دهد.</string>
+    <string name="settings_autoconnect_description">اگر Android به‌طور خودکار متصل نشود، ما نیز می‌توانیم آن را درخواست کنیم. این کار تنظیم حالت نظارت را روی \\"همیشه\\" قرار می‌دهد.</string>
     <string name="settings_autoconnect_condition_label">شرط اتصال خودکار</string>
-    <string name="settings_autoconnect_condition_description">چه زمانی باید تلاش کنیم به دستگاه شما متصل شویم؟</string>
+    <string name="settings_autoconnect_condition_description">چه زمانی باید سعی کنیم به دستگاه شما متصل شویم؟</string>
     <string name="settings_reaction_label">واکنش‌ها</string>
-    <string name="settings_reaction_description">واکنش به رویدادها و رفتارها.</string>
+    <string name="settings_reaction_description">به رویدادها و رفتارها واکنش نشان دهید.</string>
     <string name="settings_category_yourdevice_label">دستگاه شما</string>
+
     <string name="settings_category_compatibility_options_title">گزینه‌های سازگاری</string>
-    <string name="settings_category_compatibility_options_description">دست نزن اگر همه چیز درست کار می‌کنه ;)</string>
+    <string name="settings_category_compatibility_options_description">اگر همه چیز کار می‌کند، دست نزنید ؛)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">غیرفعال کردن فیلتر سخت‌افزاری</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">اطمینان حاصل کن که داده‌های خام به طور کامل دریافت می‌شود و فیلترها یا پردازش‌های مورد نظر درون برنامه پیاده‌سازی می‌شود.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">فیلتر کردن داده‌ها را به سیستم واگذار نکنید، در عوض همه داده‌ها را دریافت کرده و در داخل برنامه فیلتر کنید.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">غیرفعال کردن دسته‌بندی سخت‌افزاری</string>
-    <string name="settings_compat_offloaded_batching_disabled_summary">اطمینان حاصل کنید که داده‌های بلوتوث کم‌مصرف به صورت خام و بدون گروه‌بندی توسط سیستم ارسال شوند.</string>
+    <string name="settings_compat_offloaded_batching_disabled_summary">اجازه ندهید سیستم داده‌های BLE جمع‌آوری‌شده را قبل از ارسال به ما، گروه‌بندی کند.</string>
+
     <string name="settings_maindevice_address_label">آدرس دستگاه شما</string>
-    <string name="settings_maindevice_address_description">آدرس دستگاه جفت‌شده شما. برنامه از این آدرس برای تشخیص زمانی که به تلفن شما متصل است استفاده می‌کند.</string>
-    <string name="settings_maindevice_address_none">هیچ</string>
+    <string name="settings_maindevice_address_description">آدرس دستگاه جفت‌شده شما. برنامه از این برای تعیین زمان اتصال به تلفن شما استفاده می‌کند.</string>
+    <string name="settings_maindevice_address_none">هیچ‌کدام</string>
     <string name="settings_maindevice_model_label">مدل دستگاه شما</string>
-    <string name="settings_maindevice_model_description">مدل دستگاه اصلی شما. این اطلاعات به برنامه کمک می‌کند دستگاه شما را زمانی که به تلفن‌تان متصل نیست شناسایی کند.</string>
+    <string name="settings_maindevice_model_description">مدل دستگاه اصلی شما. این به برنامه کمک می‌کند دستگاه شما را هنگامی که به تلفن شما متصل نیست، تشخیص دهد.</string>
+    <string name="settings_maindevice_identitykey_label">کلید شناسایی</string>
+    <string name="settings_maindevice_identitykey_description">کلید حل هویت دستگاه شما (IRK)، که به CAPod کمک می‌کند آن را در میان دستگاه‌های اطراف شناسایی کند.</string>
+    <string name="settings_maindevice_identitykey_explanation">AirPods برای حفظ حریم خصوصی، آدرس بلوتوث خود را مرتباً تغییر می‌دهند. IRK به CAPod کمک می‌کند دستگاه شما را تشخیص دهد. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
+    <string name="settings_maindevice_encryptionkey_label">کلید رمزگذاری</string>
+    <string name="settings_maindevice_encryptionkey_description">کلید رمزگذاری دستگاه شما، که به CAPod امکان بازیابی اطلاعات دقیق وضعیت را می‌دهد.</string>
+    <string name="settings_maindevice_encryptionkey_explanation">AirPods یک پیام وضعیت ارسال می‌کنند که بخشی از آن رمزگذاری شده است. کلید رمزگذاری به CAPod امکان می‌دهد پیام کامل را رمزگشایی کند. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
+
     <string name="settings_onepod_mode_label">حالت یک ایرپاد</string>
-    <string name="settings_onepod_mode_description">پوشیدن هر دو پاد ضروری نیست؛ پوشیدن یک پاد کافی تا واکنش‌ها فعال شوند.</string>
-    <string name="settings_popup_caseopen_label">نمایش پنجره بازشو کیس</string>
-    <string name="settings_popup_caseopen_description">نمایش یک پنجره بازشو زمانی که کیس دستگاه باز می‌شود (آزمایشی).</string>
-    <string name="settings_popup_connected_label">نمایش پنجره بازشو اتصال</string>
-    <string name="settings_popup_connected_description">نمایش یک پنجره بازشو زمانی که دستگاه برای اولین بار متصل می‌شود.</string>
+    <string name="settings_onepod_mode_description">استفاده از هر دو ایرپاد الزامی نیست، استفاده از یک ایرپاد برای ایجاد واکنش کافی است.</string>
+    <string name="settings_popup_caseopen_label">نمایش پاپ‌آپ کیس</string>
+    <string name="settings_popup_caseopen_description">هنگام باز شدن کیس دستگاه، یک پاپ‌آپ نشان داده شود (آزمایشی).</string>
+    <string name="settings_popup_connected_label">نمایش پاپ‌آپ اتصال</string>
+    <string name="settings_popup_connected_description">هنگام اتصال دستگاه برای اولین بار، یک پاپ‌آپ نشان داده شود.</string>
+
     <string name="notification_channel_device_status_label">وضعیت دستگاه</string>
-    <string name="support_debuglog_label">گزارش خطا</string>
-    <string name="support_debuglog_desc">همه فعالیت‌های برنامه را در یک فایل متنی ثبت کنید تا بتوانید آن را به اشتراک بگذارید.</string>
+    <string name="notification_channel_device_status_connected_label">دستگاه متصل</string>
+
+    <string name="support_debuglog_label">گزارش اشکال‌زدایی</string>
+    <string name="support_debuglog_desc">تمام کارهایی که برنامه انجام می‌دهد را در یک فایل متنی که می‌توانید به اشتراک بگذارید، ضبط کنید.</string>
     <string name="debug_debuglog_size_label">اندازه</string>
-    <string name="debug_debuglog_size_compressed_label">اندازه فشرده</string>
-    <string name="debug_notification_channel_label">اعلان اشکال زدایی</string>
-    <string name="debug_debuglog_file_label">فایل گزارش ثبت‌شده</string>
-    <string name="debug_debuglog_recording_progress">درحال ثبت گزارش عیب‌یابی</string>
-    <string name="debug_debuglog_record_action">ثبت گزارش عیب‌یابی</string>
+    <string name="debug_debuglog_size_compressed_label">اندازه فشرده‌شده</string>
+    <string name="debug_notification_channel_label">اعلان‌های اشکال‌زدایی</string>
+    <string name="debug_debuglog_file_label">فایل گزارش ضبط‌شده</string>
+    <string name="debug_debuglog_recording_progress">در حال ضبط گزارش اشکال‌زدایی</string>
+    <string name="debug_debuglog_record_action">ضبط گزارش اشکال‌زدایی</string>
     <string name="debug_debuglog_stop_action">توقف ضبط</string>
-    <string name="debug_debuglog_sensitive_information_message">فایل ایجادشده شامل اطلاعات حساس است (مانند جزئیات دستگاه بلوتوث). آن را فقط با افراد مورد اعتماد به اشتراک بگذارید.</string>
-    <string name="settings_debuglog_explanation">این ویژگی تمام فعالیت‌های برنامه را در یک فایل قابل اشتراک‌گذاری ثبت می‌کند. فایل تولیدشده شامل اطلاعات حساس است (مانند جزئیات دستگاه بلوتوث). فقط آن را با افراد مورد اعتماد، مانند توسعه‌دهنده‌ای که در حال رفع اشکال است، به اشتراک بگذارید.</string>
+    <string name="debug_debuglog_sensitive_information_message">فایل تولیدشده حاوی اطلاعات حساس است (مثلاً جزئیات دستگاه بلوتوث). آن را فقط با افراد مورداعتماد به اشتراک بگذارید.</string>
+    <string name="settings_debuglog_explanation">این ویژگی تمام کارهایی که برنامه انجام می‌دهد را در یک فایل قابل اشتراک‌گذاری ضبط می‌کند. فایل تولیدشده حاوی اطلاعات حساس است (مثلاً جزئیات دستگاه بلوتوث). آن را فقط با افراد مورداعتماد به اشتراک بگذارید (مثلاً توسعه‌دهنده‌ای که در حال عیب‌یابی یک مشکل است).</string>
+
     <string name="settings_support_installid_label">شناسه نصب</string>
-    <string name="settings_support_installid_desc">گزارش‌های خطای خودکار به صورت ناشناس ارسال می‌شوند. در صورتی که توسعه‌دهنده برای یافتن گزارش‌ خطای شما به آن نیاز دارد، شناسه نصب خود را به اشتراک بگذارید.</string>
+    <string name="settings_support_installid_desc">گزارش‌های خطای خودکار ناشناس هستند. اگر توسعه‌دهنده نیاز به یافتن گزارش‌های خطای شما دارد، شناسه نصب خود را به اشتراک بگذارید.</string>
     <string name="settings_support_label">پشتیبانی</string>
     <string name="settings_support_description">اگر به کمک نیاز دارید.</string>
+
     <string name="issue_tracker_label">ردیاب مشکل</string>
-    <string name="issue_tracker_description">یک ردیاب عمومی برای گزارش اشکالات و درخواست ویژگی‌ها (فقط به انگلیسی).</string>
-    <string name="discord_label">دیسکورد</string>
-    <string name="discord_description">محیطی برای گفتگو و پرسیدن سوالات.</string>
-    <string name="changelog_label">تغییرات</string>
+    <string name="issue_tracker_description">یک ردیاب مشکل عمومی برای گزارش‌های اشکال و درخواست‌های ویژگی (فقط انگلیسی).</string>
+
+    <string name="discord_label">Discord</string>
+    <string name="discord_description">مکانی برای وقت‌گذرانی و پرسیدن سؤال.</string>
+
+    <string name="changelog_label">لیست تغییرات</string>
     <string name="settings_label">تنظیمات</string>
     <string name="settings_privacy_policy_label">سیاست حفظ حریم خصوصی</string>
     <string name="settings_privacy_policy_desc">مدیریت مسئولانه داده‌ها.</string>
     <string name="settings_licenses_label">مجوزها</string>
-    <string name="settings_category_other_label">دیگر</string>
+    <string name="settings_category_other_label">سایر</string>
     <string name="settings_general_label">تنظیمات</string>
-    <string name="settings_general_description">تنظیمات کلی که بر عملکرد کل برنامه تأثیر می‌گذارد.</string>
-    <string name="settings_acknowledgements_label">سپاسگزاری‌ها</string>
-    <string name="settings_debug_autoreports_label">گزارش خودکار عیب‌یابی</string>
-    <string name="settings_debug_autoreports_description">به‌طور خودکار مشکلات را گزارش می‌دهد، مثلاً جزئیات یک خرابی برنامه را ثبت می‌کند تا بتوانید راه‌حلی برای رفع آن پیدا کنید.</string>
-    <string name="settings_debug_mode_label">حالت عیب‌یابی</string>
-    <string name="settings_debug_mode_description">نمایش اطلاعات اضافی برای رفع مشکلات.</string>
-    <string name="settings_blescanner_unfiltered_label">داده‌های خام بلوتوث کم‌مصرف</string>
-    <string name="settings_blescanner_unfiltered_description">فیلترها را از اسکنر بلوتوث کم‌مصرف حذف کنید تا تمامی داده‌های پخش‌شده آن نمایش داده شود. این کار برای افزودن پشتیبانی از انواع جدید هدفون‌ها مفید است.</string>
+    <string name="settings_general_description">تنظیمات کلی که بر کل برنامه تأثیر می‌گذارند.</string>
+    <string name="settings_acknowledgements_label">قدردانی‌ها</string>
+
+    <string name="settings_debug_autoreports_label">گزارش‌های خطای خودکار</string>
+    <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string>
+    <string name="settings_debug_mode_label">حالت اشکال‌زدایی</string>
+    <string name="settings_debug_mode_description">نمایش اطلاعات اضافی برای عیب‌یابی مشکلات.</string>
+
+    <string name="settings_blescanner_unfiltered_label">داده‌های BLE فیلترنشده</string>
+    <string name="settings_blescanner_unfiltered_description">هرگونه فیلتر را از اسکنر BLE حذف کنید تا تمام داده‌های BLE پخش‌شده نمایش داده شود. برای افزودن پشتیبانی از انواع جدید هدفون مفید است.</string>
+
     <string name="settings_compatibility_mode_label">حالت سازگاری</string>
-    <string name="settings_compatibility_mode_description">بهینه‌سازی‌ را غیرفعال کنید تا سازگاری بهبود یابد. اگر هیچ داده‌ای مشاهده نمی‌کنید، این گزینه را امتحان کنید.</string>
+    <string name="settings_compatibility_mode_description">بهینه‌سازی‌ها را برای بهبود سازگاری غیرفعال کنید. اگر هیچ داده‌ای نمی‌بینید، این را امتحان کنید.</string>
+
     <string name="help_translate_label">ترجمه</string>
-    <string name="help_translate_description">به ترجمه این اپلیکیشن به زبان مورد علاقه‌تان کمک کنید.</string>
+    <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>
+
     <string name="translators_thanks_title">مترجمان</string>
-    <string name="translators_thanks_description">تیره کردن</string>
-    <string name="widget_description">ابزاری که آخرین وضعیت شناخته شده دستگاه را نمایش می‌دهد.</string>
-    <string name="settings_compat_indirectcallback_title">تحویل داده غیرمستقیم</string>
-    <string name="settings_compat_indirectcallback_summary">از یک روش جایگزین برای دریافت داده‌های بلوتوث کم مصرف استفاده کنید (پخش کردن به جای فراخوانی دوباره).</string>
-    <string name="troubleshooter_title">عیب یاب</string>
+    <string name="translators_thanks_description">darken</string>
+
+    <string name="widget_description">ویجتی که آخرین وضعیت شناخته‌شده دستگاه را نشان می‌دهد.</string>
+    <string name="settings_compat_indirectcallback_title">تحویل غیرمستقیم داده</string>
+    <string name="settings_compat_indirectcallback_summary">از یک روش جایگزین برای دریافت داده‌های BLE از سیستم استفاده کنید (پخش به‌جای فراخوانی مجدد).</string>
+
+    <string name="troubleshooter_title">عیب‌یاب</string>
     <string name="troubleshooter_ble_intro_title">پخش‌های بلوتوث کم‌مصرف</string>
-    <string name="troubleshooter_ble_intro_body1">ایرپادها (و هدفون‌های مشابه) اطلاعات وضعیت خود را از طریق یک فناوری کم مصرف به نام \"اعلان\" پخش می‌کنند. برخی از تلفن‌ها این فناوری را به درستی پیاده‌سازی نمی‌کنند. CAPod می‌تواند با آزمایش گزینه‌های مختلف سازگاری تا زمان دریافت داده‌ها این مشکل را رفع کند. پخش موسیقی را روی هدفون‌های خود شروع کرده و آن‌ها را نزدیک تلفن خود قرار دهید، سپس فرآیند را آغاز کنید.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (و هدفون‌های مشابه) اطلاعات وضعیت را با استفاده از فناوری BLE به نام \\"تبلیغات\\" پخش می‌کنند. برخی از تلفن‌ها این فناوری را به‌درستی پیاده‌سازی نمی‌کنند. CAPod می‌تواند با امتحان کردن گزینه‌های مختلف سازگاری تا زمان دریافت داده‌ها، سعی در رفع این مشکل کند. پخش موسیقی را در هدفون خود شروع کرده و آن را نزدیک تلفن خود قرار دهید، سپس فرآیند را شروع کنید.</string>
     <string name="troubleshooter_ble_intro_start_action">شروع عیب‌یابی</string>
     <string name="troubleshooter_ble_process_title">عیب‌یابی در حال انجام است</string>
-    <string name="troubleshooter_ble_process_subtile">هر مرحله ۵ تا ۱۰ ثانیه طول می‌کشد.</string>
-    <string name="troubleshooter_ble_result_success_title">موفق</string>
-    <string name="troubleshooter_ble_result_success_body">پخش‌های اعلان بلوتوث کم‌مصرف توسط CAPod دریافت می‌شوند.</string>
+    <string name="troubleshooter_ble_process_subtile">هر مرحله 5 تا 10 ثانیه طول می‌کشد</string>
+    <string name="troubleshooter_ble_result_success_title">موفقیت</string>
+    <string name="troubleshooter_ble_result_success_body">پخش‌های تبلیغاتی BLE توسط CAPod دریافت می‌شوند.</string>
     <string name="troubleshooter_ble_result_failure_title">ناموفق</string>
-    <string name="troubleshooter_ble_result_failure_body">عیب‌یابی شکست خورد. هیچ ترکیبی از گزینه‌های سازگاری کمکی نکرد.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">گوشی شما هیچ داده بلوتوثی دریافت نکرده است. می‌توان این آزمایش را در مکانی شلوغ تکرار کرد تا بررسی شود که آیا داده‌های دیگری (غیر از هدفون‌ شما) قابل دریافت هستند یا خیر. عدم دریافت داده نشان‌دهنده احتمال وجود مشکلی در سیستم‌عامل تلفن شما است. بهتر است نسخه سیستم‌عامل یا تنظیمات بلوتوث گوشی را بررسی کنید تا شاید علت بهتر مشخص شود.</string>
-    <string name="troubleshooter_ble_result_failure_phone_headphones">گوشی شما داده‌ بلوتوث را دریافت کرده، اما این داده‌ها از هیچ دستگاه پشتیبانی‌شده‌ای نمی‌آیند. آیا هدفون‌ شما روشن هستند؟ آیا CAPod از هدفون‌ شما پشتیبانی می‌کند؟</string>
-    <string name="troubleshooter_ble_result_failure_action">دوباره امتحان کن</string>
-    <string name="troubleshoot_action">اشکال‌زدایی</string>
-    <string name="onboarding_body1">این اپلیکیشن ویژگی‌های اختصاصی ایرپاد را برای دستگاه‌های اندرویدی پشتیبانی می‌کند.</string>
-    <string name="onboarding_body2">همه دستگاه‌های اندرویدی به طور کامل از ویژگی‌های اضافی ایرپاد پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی صحیح از بلوتوث با کم مصرف نیاز دارد.</string>
-    <string name="onboarding_body3">CAPod بدون تبلیغات است و اطلاعات شما را جمع‌آوری نمی‌کند.</string>
-    <string name="onboarding_body4">شما می‌توانید به نسخه CAPod Pro ارتقا دهید تا به ویژگی‌های اضافی دسترسی پیدا کنید و از توسعه اپلیکیشن حمایت کنید.</string>
+    <string name="troubleshooter_ble_result_failure_body">عیب‌یابی ناموفق بود. هیچ ترکیبی از گزینه‌های سازگاری کمکی نکرد.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">تلفن شما اصلاً هیچ داده BLE دریافت نکرد. می‌توانید این آزمایش را در یک منطقه شلوغ دوباره امتحان کنید تا ببینید آیا می‌توان منابع داده (غیر از هدفون شما) را دریافت کرد. عدم دریافت هیچ داده‌ای نشان‌دهنده مشکلی در سیستم‌عامل تلفن شما است.</string>
+    <string name="troubleshooter_ble_result_failure_phone_headphones">تلفن شما داده‌های BLE دریافت کرد، اما داده‌ها از هیچ دستگاه پشتیبانی‌شده‌ای نمی‌آیند. آیا هدفون شما روشن است؟ آیا CAPod از هدفون شما پشتیبانی می‌کند؟</string>
+    <string name="troubleshooter_ble_result_failure_action">دوباره امتحان کنید</string>
+    <string name="troubleshoot_action">عیب‌یابی</string>
+
+    <string name="onboarding_body1">این برنامه پشتیبانی از ویژگی‌های خاص AirPod را به Android اضافه می‌کند.</string>
+    <string name="onboarding_body2">همه دستگاه‌های Android به‌طور کامل از ویژگی‌های اضافی AirPod پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی بلوتوث کم‌مصرف که به‌درستی کار کند نیاز دارد.</string>
+    <string name="onboarding_body3">CAPod هیچ تبلیغی ندارد و داده‌های شما را جمع‌آوری نمی‌کند.</string>
+    <string name="onboarding_body4">می‌توانید برای دریافت ویژگی‌های اضافی و حمایت از توسعه، به CAPod Pro ارتقا دهید.</string>
 </resources>
