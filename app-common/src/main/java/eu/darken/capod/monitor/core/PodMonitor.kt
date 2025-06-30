@@ -198,7 +198,7 @@ class PodMonitor @Inject constructor(
     }
 
     private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
-        val identityKey = generalSettings.mainDeviceIdentityKey.value
+        val identityKey = generalSettings.mainDeviceIdentityKey.value?.takeIf { it.isNotEmpty() }
         if (identityKey != null) {
             val irkHit = pods.filterIsInstance<ApplePods>().firstOrNull { it.flags.isIRKMatch }
             log(TAG) { "IRK is configured, main device irkHit=$irkHit" }

@@ -55,7 +55,9 @@ class GeneralSettingsFragment : PreferenceFragment3() {
             AirPodKeyInputDialog(requireContext()).create(
                 mode = AirPodKeyInputDialog.Mode.IRK,
                 current = generalSettings.mainDeviceIdentityKey.value?.toHex() ?: "",
-                onKey = { generalSettings.mainDeviceIdentityKey.value = it.fromHex() },
+                onKey = { raw ->
+                    generalSettings.mainDeviceIdentityKey.value = raw.fromHex().takeIf { it.isNotEmpty() }
+                },
                 onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
             ).show()
             true
@@ -64,7 +66,9 @@ class GeneralSettingsFragment : PreferenceFragment3() {
             AirPodKeyInputDialog(requireContext()).create(
                 mode = AirPodKeyInputDialog.Mode.ENC,
                 current = generalSettings.mainDeviceEncryptionKey.value?.toHex() ?: "",
-                onKey = { generalSettings.mainDeviceEncryptionKey.value = it.fromHex() },
+                onKey = { raw ->
+                    generalSettings.mainDeviceEncryptionKey.value = raw.fromHex().takeIf { it.isNotEmpty() }
+                },
                 onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
             ).show()
             true

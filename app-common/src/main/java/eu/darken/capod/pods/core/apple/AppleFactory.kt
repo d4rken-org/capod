@@ -71,7 +71,7 @@ class AppleFactory @Inject constructor(
                 if (!isIrkMatch) return@run null
                 if (proximityMessage.data.size != ProximityPairing.PAIRING_MESSAGE_LENGTH) return@run null
 
-                val encKey = generalSettings.mainDeviceEncryptionKey.value
+                val encKey = generalSettings.mainDeviceEncryptionKey.value?.takeIf { it.isNotEmpty() }
                 if (encKey == null) return@run null
 
                 val encrypted = proximityMessage.data.takeLast(16).toUByteArray().toByteArray()
