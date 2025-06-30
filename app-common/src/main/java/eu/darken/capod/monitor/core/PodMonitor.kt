@@ -52,6 +52,7 @@ class PodMonitor @Inject constructor(
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
     private val cacheLock = Mutex()
+    private var lastIrkMatchedDevice: PodDevice? = null // Stores the last IRK-matched device
 
     val devices: Flow<List<PodDevice>> = combine(
         permissionTool.missingPermissions,
@@ -107,15 +108,11 @@ class PodMonitor @Inject constructor(
         generalSettings.isOffloadedBatchingDisabled.flow,
         generalSettings.isOffloadedFilteringDisabled.flow,
         generalSettings.useIndirectScanResultCallback.flow,
-    ) {
-            scannermode,
-            showUnfiltered,
-            isOffloadedBatchingDisabled,
-            isOffloadedFilteringDisabled,
-            useIndirectScanResultCallback,
-        ->
+    ) { scannermode, showUnfiltered, isOffloadedBatchingDisabled, isOffloadedFilteringDisabled, useIndirectScanResultCallback ->
+        // If IRK match exists, force LOW_POWER scan mode for battery saving
+        val effectiveScannerMode = if (lastIrkMatchedDevice != null) ScannerMode.LOW_POWER else scannermode
         ScannerOptions(
-            scannerMode = scannermode,
+            scannerMode = effectiveScannerMode,
             showUnfiltered = showUnfiltered,
             offloadedFilteringDisabled = isOffloadedFilteringDisabled,
             offloadedBatchingDisabled = isOffloadedBatchingDisabled,
@@ -198,12 +195,24 @@ class PodMonitor @Inject constructor(
     }
 
     private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
+        // Prioritize IRK match
         val irkHit = pods.filterIsInstance<ApplePods>().firstOrNull { it.flags.isIRKMatch }
         if (irkHit != null) {
             log(TAG) { "Main device determined via IRK: $irkHit" }
+            lastIrkMatchedDevice = irkHit // Update state when IRK match occurs
             return irkHit
         }
 
+        // If IRK/ENC keys are configured, prevent heuristic fallback and keep last IRK-matched device
+        val identityKey = generalSettings.mainDeviceIdentityKey.value
+        val encryptionKey = generalSettings.mainDeviceEncryptionKey.value
+        val hasValidIrkKeys = (identityKey != null) || (encryptionKey != null)
+        if (hasValidIrkKeys) {
+            log(TAG) { "IRK/ENC keys are configured but no IRK match found, maintaining last known IRK-matched device state." }
+            return lastIrkMatchedDevice
+        }
+
+        // Original heuristic logic (only if keys are not set)
         val mainDeviceModel = generalSettings.mainDeviceModel.value
         val presorted = sortPodsToInterest(pods).sortedByDescending {
             it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN
