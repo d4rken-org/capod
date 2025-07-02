@@ -2,10 +2,7 @@ package eu.darken.capod.main.ui.settings
 
 import android.os.Bundle
 import android.os.Parcelable
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
@@ -13,6 +10,7 @@ import androidx.preference.PreferenceFragmentCompat
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.BuildConfigWrap
+import eu.darken.capod.common.EdgeToEdgeHelper
 import eu.darken.capod.common.uix.Fragment2
 import eu.darken.capod.common.viewbinding.viewBinding
 import eu.darken.capod.databinding.SettingsFragmentBinding
@@ -38,6 +36,11 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
     ) : Parcelable
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.toolbar, top = true)
+            insetsPadding(ui.contentFrame, bottom = true)
+        }
         childFragmentManager.addOnBackStackChangedListener {
             val backStackCnt = childFragmentManager.backStackEntryCount
             val newScreenInfo = when {

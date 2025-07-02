@@ -10,7 +10,7 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 android {
     compileSdk = ProjectConfig.compileSdk
-    namespace = "${ProjectConfig.packageName}"
+    namespace = ProjectConfig.packageName
 
     defaultConfig {
         applicationId = ProjectConfig.packageName
@@ -122,9 +122,9 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
-        tasks.withType<Test> {
-            useJUnitPlatform()
-        }
+    }
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
 }
 

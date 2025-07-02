@@ -8,12 +8,11 @@ import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.BuildConfig
 import eu.darken.capod.R
+import eu.darken.capod.common.EdgeToEdgeHelper
 import eu.darken.capod.common.colorString
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lists.differ.update
@@ -49,6 +48,11 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.toolbar, top = true)
+            insetsPadding(ui.list, bottom = false)
+        }
         ui.apply {
             list.setupDefaults(adapter, dividers = false)
         }
@@ -60,14 +64,17 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                         vm.goToSettings()
                         true
                     }
+
                     R.id.menu_item_donate -> {
                         vm.onUpgrade()
                         true
                     }
+
                     R.id.menu_item_upgrade -> {
                         vm.onUpgrade()
                         true
                     }
+
                     else -> false
                 }
             }
@@ -93,6 +100,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                         )
                     )
                 }
+
                 Permission.SYSTEM_ALERT_WINDOW -> {
                     awaitingPermission = true
                     startActivity(
@@ -102,6 +110,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                         )
                     )
                 }
+
                 else -> {
                     permissionLauncher.launch(it.permissionId)
                 }
@@ -123,6 +132,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                         getString(eu.darken.capod.common.R.string.app_name)
                     }
                 }
+
                 UpgradeRepo.Type.FOSS -> {
                     if (info.isPro) {
                         getString(eu.darken.capod.common.R.string.app_name_foss)

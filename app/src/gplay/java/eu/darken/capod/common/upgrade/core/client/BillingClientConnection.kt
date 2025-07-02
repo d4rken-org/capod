@@ -85,9 +85,10 @@ data class BillingClientConnection(
 
         val params = QueryProductDetailsParams.newBuilder().setProductList(listOf(productDetails)).build()
 
-        val (result, details) = suspendCoroutine<Pair<BillingResult, Collection<ProductDetails>?>> { continuation ->
-            client.queryProductDetailsAsync(params) { result, skuDetails ->
-                continuation.resume(result to skuDetails)
+        val (result, details) = suspendCoroutine<Pair<BillingResult, List<ProductDetails>>> { continuation ->
+            client.queryProductDetailsAsync(params) { billingResult, queryResult ->
+                val productDetailsList = queryResult.productDetailsList ?: emptyList()
+                continuation.resume(billingResult to productDetailsList)
             }
         }
 
@@ -97,7 +98,7 @@ data class BillingClientConnection(
 
         if (!result.isSuccess) throw BillingResultException(result)
 
-        if (details.isNullOrEmpty()) throw IllegalStateException("Unknown SKU, no details available.")
+        if (details.isEmpty()) throw IllegalStateException("Unknown SKU, no details available.")
 
         return Sku.Details(sku, details)
     }

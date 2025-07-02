@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.EdgeToEdgeHelper
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.navigation.popBackStack
 import eu.darken.capod.common.uix.Fragment3
@@ -26,6 +27,11 @@ class TroubleShooterFragment : Fragment3(R.layout.troubleshooter_fragment) {
     @Inject lateinit var webpageTool: WebpageTool
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        EdgeToEdgeHelper(requireActivity()).apply {
+            insetsPadding(ui.root, left = true, right = true)
+            insetsPadding(ui.toolbar, top = true)
+            insetsPadding(ui.scrollView, bottom = true)
+        }
         ui.toolbar.apply {
             setupWithNavController(findNavController())
         }
