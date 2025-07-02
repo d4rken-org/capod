@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,9 +18,9 @@ class MainActivity : Activity2() {
     private val navController by lazy { supportFragmentManager.findNavController(R.id.nav_host) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
-
         super.onCreate(savedInstanceState)
+        installSplashScreen()
+        enableEdgeToEdge()
 
         ui = MainActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)
