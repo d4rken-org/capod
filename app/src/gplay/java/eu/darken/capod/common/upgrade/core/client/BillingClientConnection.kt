@@ -8,6 +8,7 @@ import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryPurchasesParams
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -39,8 +40,12 @@ data class BillingClientConnection(
         .setupCommonEventHandlers(TAG) { "purchases" }
 
     suspend fun queryPurchases(): Collection<Purchase> {
+        val params = QueryPurchasesParams.newBuilder()
+            .setProductType(BillingClient.ProductType.INAPP)
+            .build()
+        
         val (result: BillingResult, purchases) = suspendCoroutine<Pair<BillingResult, Collection<Purchase>?>> { continuation ->
-            client.queryPurchasesAsync(BillingClient.SkuType.INAPP) { result, purchases ->
+            client.queryPurchasesAsync(params) { result, purchases ->
                 continuation.resume(result to purchases)
             }
         }

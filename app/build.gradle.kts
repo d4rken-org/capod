@@ -151,6 +151,6 @@ dependencies {
 
     addTesting()
 
-    "gplayImplementation"("com.android.billingclient:billing:7.1.1")
-    "gplayImplementation"("com.android.billingclient:billing-ktx:7.1.1")
+    "gplayImplementation"("com.android.billingclient:billing:8.0.0")
+    "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
 }

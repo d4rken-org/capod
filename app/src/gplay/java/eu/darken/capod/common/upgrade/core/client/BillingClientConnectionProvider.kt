@@ -5,6 +5,7 @@ import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingClient.newBuilder
 import com.android.billingclient.api.BillingClientStateListener
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.PendingPurchasesParams
 import com.android.billingclient.api.Purchase
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.debug.logging.Logging.Priority.*
@@ -33,7 +34,11 @@ class BillingClientConnectionProvider @Inject constructor(
         val purchasePublisher = MutableStateFlow<Collection<Purchase>>(emptySet())
 
         val client = newBuilder(context).apply {
-            enablePendingPurchases()
+            enablePendingPurchases(
+                PendingPurchasesParams.newBuilder()
+                    .enableOneTimeProducts()
+                    .build()
+            )
             setListener { result, purchases ->
                 if (result.isSuccess) {
                     log(TAG) {
