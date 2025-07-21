@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play үйлчилгээ боломжгүй байна.</string>
     <string name="upgrades_no_purchases_found_check_account">Худалдан авалт олдсонгүй. Та зөв бүртгэл ашиглаж байна уу?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play алдаа</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-д алдаа гарлаа. Дараа дахин оролдож үзнэ үү эсвэл утсаа дахин асаана уу.\n\nАлдаа: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play төлбөрийн алдаа</string>
+    <string name="upgrades_gplay_billing_result_error_description">Таны худалдан авалтын дэлгэрэнгүй мэдээллийг Google Play-ээс асуухад алдаа гарсан. Google Play-н кэшийг цэвэрлээд утсаа дахин асаана уу.\n\nАлдаа %s</string>
 </resources>

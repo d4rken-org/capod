@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Storitve Google Play niso na voljo.</string>
     <string name="upgrades_no_purchases_found_check_account">Ni najdenih nakupov. Ali uporabljate pravi račun?</string>
+    <string name="upgrades_gplay_billing_error_label">Napaka Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Prišlo je do napake v Google Play. Poskusite znova pozneje ali ponovno zaženite telefon.\n\nNapaka: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Napaka obračunavanja Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Prišlo je do napake pri zahtevanju podrobnosti vašega nakupa iz Google Play. Počistite predpomnilnik Google Play in ponovno zaženite telefon.\n\nNapaka %s</string>
 </resources>

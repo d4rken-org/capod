@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play सेवाएं अनुपलब्ध हैं।</string>
     <string name="upgrades_no_purchases_found_check_account">कोई खरीदारी नहीं मिली, क्या आप सही खाते का उपयोग कर रहे हैं?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play त्रुटि</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play में कोई त्रुटि हुई थी। कृपया बाद में पुनः प्रयास करें या अपना फ़ोन रीबूट करें।\n\nत्रुटि: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play बिलिंग त्रुटि</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play से आपकी खरीदारी का विवरण मांगते समय कोई त्रुटि हुई थी। Google Play कैश साफ़ करें और अपना फ़ोन रीबूट करें।\n\nत्रुटि %s</string>
 </resources>

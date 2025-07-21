@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">ບໍລິການ Google Play ບໍ່ສາມາດໃຊ້ໄດ້.</string>
     <string name="upgrades_no_purchases_found_check_account">ບໍ່ພົບການຊື້. ທ່ານກຳລັງໃຊ້ບັນຊີທີ່ຖືກຕ້ອງບໍ?</string>
+    <string name="upgrades_gplay_billing_error_label">ຂໍ້ຜິດພາດ Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">ເກີດຂໍ້ຜິດພາດໃນ Google Play. ກະລຸນາລອງໃໝ່ອີກຄັ້ງພາຍຫຼັງ ຫຼື ຣີບູດໂທລະສັບຂອງທ່ານ.\n\nຂໍ້ຜິດພາດ: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">ຂໍ້ຜິດພາດການເກັບເງິນ Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">ເກີດຂໍ້ຜິດພາດໃນຂະນະຖາມ Google Play ເພື່ອຂໍລາຍລະອຽດການຊື້ຂອງທ່ານ. ລ້າງກາກເກັບ Google Play ແລະຣີບູດໂທລະສັບຂອງທ່ານ.\n\nຂໍ້ຜິດພາດ %s</string>
 </resources>

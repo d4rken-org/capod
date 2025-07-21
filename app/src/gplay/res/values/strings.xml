@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play services are unavailable.</string>
     <string name="upgrades_no_purchases_found_check_account">No purchases found. Are you using the right account?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play Error</string>
+    <string name="upgrades_gplay_billing_error_description">There was an error in Google Play. Please try again later or reboot your phone.\n\nError: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play Billing Error</string>
+    <string name="upgrades_gplay_billing_result_error_description">There was an error when asking Google Play for your purchase details. Clear Google Play cache and reboot your phone.\n\nError %s</string>
 </resources>

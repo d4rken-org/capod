@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Perkhidmatan Google Play tidak tersedia.</string>
     <string name="upgrades_no_purchases_found_check_account">Tiada pembelian ditemui. Adakah anda menggunakan akaun yang betul?</string>
+    <string name="upgrades_gplay_billing_error_label">Ralat Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Terdapat ralat dalam Google Play. Sila cuba lagi kemudian atau boot semula telefon anda.\n\nRalat: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Ralat Pengebilan Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Terdapat ralat semasa meminta butiran pembelian anda daripada Google Play. Kosongkan cache Google Play dan boot semula telefon anda.\n\nRalat %s</string>
 </resources>

@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">De Google Play-diensten zijn niet beschikbaar.</string>
     <string name="upgrades_no_purchases_found_check_account">Geen aankopen gevonden. Gebruikt u de juiste rekening?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play-fout</string>
+    <string name="upgrades_gplay_billing_error_description">Er is een fout opgetreden in Google Play. Probeer het later opnieuw of start uw telefoon opnieuw op.\n\nFout: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play-factureringsfout</string>
+    <string name="upgrades_gplay_billing_result_error_description">Er is een fout opgetreden bij het opvragen van uw aankoopgegevens bij Google Play. Wis de Google Play-cache en start uw telefoon opnieuw op.\n\nFout %s</string>
 </resources>
