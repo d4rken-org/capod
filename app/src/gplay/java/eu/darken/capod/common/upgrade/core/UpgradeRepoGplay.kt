@@ -2,7 +2,6 @@ package eu.darken.capod.common.upgrade.core
 
 import android.app.Activity
 import android.widget.Toast
-import com.android.billingclient.api.BillingResult
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
 import eu.darken.capod.common.coroutine.AppScope
@@ -14,7 +13,6 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.error.asErrorDialogBuilder
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.common.upgrade.core.client.BillingResultException
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
 import eu.darken.capod.common.upgrade.core.data.PurchasedSku
@@ -28,6 +26,7 @@ import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.pow
 
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
@@ -63,16 +62,16 @@ class UpgradeRepoGplay @Inject constructor(
                 }
             }
         }
-        .retryWhen { error, count ->
+        .retryWhen { error, attempt ->
             val now = System.currentTimeMillis()
             log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, error=$error" }
             if ((now - lastProStateAt) < 24 * 60 * 60 * 1000L) { // 24 hours
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
-                emit(Info(billingData = null, error = if (count == 0L) error else null))
+                emit(Info(billingData = null, error = if (attempt == 0L) error else null))
             }
-            delay(count * 60 * 1000L)
+            delay(30_000L * 2.0.pow(attempt.toDouble()).toLong())
             true
         }
         .replayingShare(scope)
