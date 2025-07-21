@@ -64,6 +64,7 @@ class UpgradeControlFoss @Inject constructor(
         override val isPro: Boolean = false,
         override val upgradedAt: Instant? = null,
         val upgradeReason: FossUpgrade.Reason? = null,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
     }

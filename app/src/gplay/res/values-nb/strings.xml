@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play-tjenester er utilgjengelige.</string>
     <string name="upgrades_no_purchases_found_check_account">Ingen kjøp funnet. Bruker du riktig konto?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play-feil</string>
+    <string name="upgrades_gplay_billing_error_description">Det oppstod en feil i Google Play. Vennligst prøv igjen senere eller start telefonen på nytt.\n\nFeil: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play-faktureringsfeil</string>
+    <string name="upgrades_gplay_billing_result_error_description">Det oppstod en feil da Google Play ble spurt om kjøpsdetaljene dine. Tøm Google Play-hurtigbufferen og start telefonen på nytt.\n\nFeil %s</string>
 </resources>

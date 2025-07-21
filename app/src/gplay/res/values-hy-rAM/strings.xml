@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play ծառայությունները հասանելի չեն:</string>
     <string name="upgrades_no_purchases_found_check_account">Գնումներ չեն գտնվել: Արդյո՞ք ճիշտ հաշիվն եք օգտագործում:</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play սխալ</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-ում սխալ է տեղի ունեցել: Խնդրում ենք փորձել ավելի ուշ կամ վերագործարկել հեռախոսը:\n\nՍխալ՝ %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play վճարման սխալ</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play-ից ձեր գնումների մանրամասները հարցնելիս սխալ է տեղի ունեցել: Մաքրեք Google Play-ի քեշը և վերագործարկեք հեռախոսը:\n\nՍխալ %s</string>
 </resources>

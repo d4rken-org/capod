@@ -2,6 +2,7 @@ package eu.darken.capod.common.upgrade.core
 
 import android.app.Activity
 import android.widget.Toast
+import com.android.billingclient.api.BillingResult
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
 import eu.darken.capod.common.coroutine.AppScope
@@ -13,13 +14,15 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.error.asErrorDialogBuilder
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.core.client.BillingResultException
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
 import eu.darken.capod.common.upgrade.core.data.PurchasedSku
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.Instant
@@ -49,25 +52,28 @@ class UpgradeRepoGplay @Inject constructor(
                     lastProStateAt = now
                     Info(billingData = data)
                 }
+
                 (now - lastProStateAt) < 6 * 60 * 60 * 1000L -> { // 6 hours
                     log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
                     Info(gracePeriod = true, billingData = null)
                 }
+
                 else -> {
                     Info(billingData = data)
                 }
             }
         }
-        .catch {
-            // Ignore Google Play errors if the last pro state was recent
+        .retryWhen { error, count ->
             val now = System.currentTimeMillis()
-            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, error=$it" }
+            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, error=$error" }
             if ((now - lastProStateAt) < 24 * 60 * 60 * 1000L) { // 24 hours
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
-                throw it
+                emit(Info(billingData = null, error = if (count == 0L) error else null))
             }
+            delay(count * 60 * 1000L)
+            true
         }
         .replayingShare(scope)
 
@@ -117,6 +123,7 @@ class UpgradeRepoGplay @Inject constructor(
     data class Info(
         private val gracePeriod: Boolean = false,
         private val billingData: BillingData?,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
 
         override val type: UpgradeRepo.Type

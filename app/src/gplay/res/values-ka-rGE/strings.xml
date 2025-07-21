@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play სერვისები მიუწვდომელია.</string>
     <string name="upgrades_no_purchases_found_check_account">შენაძენები ვერ მოიძებნა. იყენებთ სწორ ანგარიშს?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play შეცდომა</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-ში შეცდომა მოხდა. გთხოვთ სცადოთ მოგვიანებით ან გადატვირთეთ თელეფონი.\n\nშეცდომა: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play გადახდის შეცდომა</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play-ს თქვენი შეძენის დეტალების კითხვისას შეცდომა მოხდა. გაასუფთავეთ Google Play-ის ქეში და გადატვირთეთ თელეფონი.\n\nშეცდომა %s</string>
 </resources>

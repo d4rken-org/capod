@@ -17,6 +17,8 @@ interface UpgradeRepo {
         val isPro: Boolean
 
         val upgradedAt: Instant?
+
+        val error: Throwable?
     }
 
     enum class Type {

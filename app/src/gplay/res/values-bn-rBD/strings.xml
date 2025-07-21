@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play পরিষেবাগুলি উপলব্ধ নেই৷</string>
     <string name="upgrades_no_purchases_found_check_account">কোনও কেনাকাটা খুঁজে পাওয়া যায়নি। আপনি কি সঠিক অ্যাকাউন্ট ব্যবহার করছেন?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play ত্রুটি</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-এ একটি ত্রুটি হয়েছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন বা আপনার ফোন রিবুট করুন।\n\nত্রুটি: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play বিলিং ত্রুটি</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play কে আপনার ক্রয়ের বিবরণ জিজ্ঞাসা করার সময় একটি ত্রুটি হয়েছে। Google Play ক্যাশে সাফ করুন এবং আপনার ফোন রিবুট করুন।\n\nত্রুটি %s</string>
 </resources>

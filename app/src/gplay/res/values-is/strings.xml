@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play þjónustur eru ekki tiltækar.</string>
     <string name="upgrades_no_purchases_found_check_account">Engin kaup fundust. Ertu að nota réttan aðgang?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play villa</string>
+    <string name="upgrades_gplay_billing_error_description">Villa kom upp í Google Play. Vinsamlegast reyndu aftur síðar eða endurræstu símann.\n\nVilla: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play reikningsvilla</string>
+    <string name="upgrades_gplay_billing_result_error_description">Villa kom upp við að sækja kaupupplýsingar frá Google Play. Hreinsaðu Google Play skyndiminni og endurræstu símann.\n\nVilla %s</string>
 </resources>

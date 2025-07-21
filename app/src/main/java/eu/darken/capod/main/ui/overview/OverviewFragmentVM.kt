@@ -29,7 +29,14 @@ import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import java.time.Instant
 import javax.inject.Inject
@@ -53,7 +60,13 @@ class OverviewFragmentVM @Inject constructor(
         }
     }
 
-    val upgradeState = upgradeRepo.upgradeInfo.asLiveData2()
+    val upgradeState = upgradeRepo.upgradeInfo
+        .onEach {
+            if (!it.isPro && it.error != null) {
+                errorEvents.postValue(it.error)
+            }
+        }
+        .asLiveData2()
     val launchUpgradeFlow = SingleLiveEvent<(Activity) -> Unit>()
 
     private val updateTicker = channelFlow<Unit> {

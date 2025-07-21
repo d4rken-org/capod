@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play teenused pole saadaval.</string>
     <string name="upgrades_no_purchases_found_check_account">Ühtki ostu ei leitud. Kasutate õiget kontot?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play viga</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play\'s tekkis viga. Palun proovige hiljem uuesti või taaskäivitage telefon.\n\nViga: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play arvelduse viga</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play\'lt ostu üksikasjade küsimisel tekkis viga. Tühjendage Google Play vahemälu ja taaskäivitage telefon.\n\nViga %s</string>
 </resources>

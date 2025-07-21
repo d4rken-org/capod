@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Hindi available ang mga serbisyo ng Google Play.</string>
     <string name="upgrades_no_purchases_found_check_account">Walang nakitang binili. Tamang account ba ang gamit mo?</string>
+    <string name="upgrades_gplay_billing_error_label">Error sa Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">May error sa Google Play. Mangyaring subukan muli mamaya o i-reboot ang iyong telepono.\n\nError: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Error sa Pagsingil ng Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">May error nang hingin sa Google Play ang mga detalye ng iyong pagbili. I-clear ang cache ng Google Play at i-reboot ang iyong telepono.\n\nError %s</string>
 </resources>

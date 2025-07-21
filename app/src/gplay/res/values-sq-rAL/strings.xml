@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Shërbimet e Google Play nuk janë të disponueshme.</string>
     <string name="upgrades_no_purchases_found_check_account">Nuk u gjetën blerje. Po përdorni llogarinë e duhur?</string>
+    <string name="upgrades_gplay_billing_error_label">Gabim Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Ndodhi një gabim në Google Play. Ju lutemi provoni përsëri më vonë ose rindizni telefonin tuaj.\n\nGabim: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Gabim faturimi Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Ndodhi një gabim gjatë kërkimit të detajeve të blerjes suaj nga Google Play. Pastroni cache-n e Google Play dhe rindizni telefonin tuaj.\n\nGabim %s</string>
 </resources>

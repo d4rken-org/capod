@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Сервисы Google Play недоступны.</string>
     <string name="upgrades_no_purchases_found_check_account">Покупки не найдены. Вы используете правильный аккаунт?</string>
+    <string name="upgrades_gplay_billing_error_label">Ошибка Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Произошла ошибка в Google Play. Повторите попытку позже или перезагрузите телефон.\n\nОшибка: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Ошибка оплаты Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Произошла ошибка при запросе деталей покупки в Google Play. Очистите кэш Google Play и перезагрузите телефон.\n\nОшибка %s</string>
 </resources>
