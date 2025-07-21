@@ -64,7 +64,7 @@ class UpgradeRepoGplay @Inject constructor(
         }
         .retryWhen { error, attempt ->
             val now = System.currentTimeMillis()
-            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, error=$error" }
+            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, attempt=$attempt, error=$error" }
             if ((now - lastProStateAt) < 24 * 60 * 60 * 1000L) { // 24 hours
                 log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
