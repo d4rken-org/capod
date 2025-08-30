@@ -57,7 +57,7 @@
     <string name="settings_maindevice_encryptionkey_description">기기의 암호화 키로, CAPod가 자세한 상태 정보를 검색할 수 있도록 합니다.</string>
     <string name="settings_maindevice_encryptionkey_explanation">AirPods는 상태 메시지를 보내며, 그중 일부는 암호화됩니다. 암호화 키를 사용하면 CAPod가 전체 메시지를 해독할 수 있습니다. MacBook에 한 번 액세스해야 합니다.</string>
     <string name="settings_onepod_mode_label">단일 Pod 모드</string>
-    <string name="settings_onepod_mode_description">두 Pod를 모두 착용할 필요는 없으며, 반응을 트리거하려면 단일 Pod를 착용하는 것으로 충분합니다.</string>
+    <string name="settings_onepod_mode_description">양쪽 기기를 모두 착용할 필요 없이 한쪽만 착용해도 앱이 반응합니다.</string>
     <string name="settings_popup_caseopen_label">케이스 팝업 표시</string>
     <string name="settings_popup_caseopen_description">기기 케이스를 열면 팝업을 표시합니다(실험적).</string>
     <string name="settings_popup_connected_label">연결 팝업 표시</string>

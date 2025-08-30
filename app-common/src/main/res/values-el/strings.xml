@@ -21,7 +21,7 @@
     <string name="permission_background_location_label">Πρόσβαση τοποθεσίας στο παρασκήνιο</string>
     <string name="permission_background_location_description">Το CAPod χρησιμοποιεί \"Πρόσβαση τοποθεσίας στο παρασκήνιο\" για να ενεργοποιεί λειτουργίες όπως \"Εμφάνιση αναδυόμενου\" και \"Αυτόματη σύνδεση\" ενώ η εφαρμογή είναι κλειστή. Η πρόσβαση τοποθεσίας στο παρασκήνιο επιτρέπει στην εφαρμογή να λαμβάνει δεδομένα χαμηλής ενέργειας Bluetooth ενώ βρίσκεται στο παρασκήνιο. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιεί δεδομένα Bluetooth για τον προσδιορισμό της τοποθεσία σας.</string>
     <string name="permission_ignore_battery_optimizations_label">Απενεργοποίηση βελτιστοποιήσεων μπαταρίας</string>
-    <string name="permission_ignore_battery_optimizations_description">Οι βελτιστοποιήσεις μπαταρίας εμποδίζουν αυτήν την εφαρμογή να λαμβάνει αξιόπιστα δεδομένα Bluetooth ενώ η εφαρμογή βρίσκεται στο παρασκήνιο.</string>
+    <string name="permission_ignore_battery_optimizations_description">Οι βελτιστοποιήσεις μπαταρίας εμποδίζουν αυτήν την εφαρμογή από το να λαμβάνει αξιόπιστα δεδομένα Bluetooth ενώ η εφαρμογή βρίσκεται στο παρασκήνιο.</string>
     <string name="permission_required_title">Η ακόλουθη άδεια είναι απαραίτητη:</string>
     <string name="permission_system_alert_window_label">Παράθυρο Ειδοποίησης Συστήματος</string>
     <string name="permission_system_alert_window_description">Επιτρέψτε στο CAPod να εμφανίζεται πάνω από άλλες εφαρμογές για να είναι δυνατή η λειτουργία \"Εμφάνιση αναδυόμενου\".</string>
@@ -60,5 +60,5 @@
     <string name="last_seen_x">Τελευταία εμφάνιση: %s</string>
     <string name="first_seen_x">Πρώτη εμφάνιση: %s</string>
     <string name="permission_post_notifications_label">Εμφάνιση ειδοποιήσεων</string>
-    <string name="permission_post_notifications_description">"Επιτρέψτε στην εφαρμογή να εμφανίζει ειδοποιήσεις σχετικά με τα AirPods σας, π.χ. την τρέχουσα κατάστασή τους ενώ είστε συνδεδεμένοι."</string>
+    <string name="permission_post_notifications_description">"Επιτρέψτε στην εφαρμογή να εμφανίζει ειδοποιήσεις σχετικά με τα AirPods σας, π.χ. την τρέχουσα κατάστασή τους ενώ είναι συνδεδεμένα."</string>
 </resources>
