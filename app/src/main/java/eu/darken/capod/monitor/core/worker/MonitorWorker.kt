@@ -95,6 +95,13 @@ class MonitorWorker @AssistedInject constructor(
             Result.success()
         }
     } finally {
+        if (generalSettings.useExtraMonitorNotification.value && !generalSettings.keepConnectedNotificationAfterDisconnect.value) {
+            try {
+                notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID_CONNECTED)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to cancel connected notification: ${e.message}" }
+            }
+        }
         this.workerScope.cancel("Worker finished (withError?=$finishedWithError).")
     }
 

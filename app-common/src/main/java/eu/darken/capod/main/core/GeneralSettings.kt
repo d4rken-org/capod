@@ -30,6 +30,9 @@ class GeneralSettings @Inject constructor(
 
     val useExtraMonitorNotification = preferences.createFlowPreference("core.monitor.notification.connected", false)
 
+    val keepConnectedNotificationAfterDisconnect =
+        preferences.createFlowPreference("core.monitor.notification.connected.keepafterdisconnected", false)
+
     val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
     val showAll = preferences.createFlowPreference("core.showall.enabled", true)
@@ -61,6 +64,7 @@ class GeneralSettings @Inject constructor(
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         useExtraMonitorNotification,
+        keepConnectedNotificationAfterDisconnect,
         scannerMode,
         showAll,
         minimumSignalQuality,

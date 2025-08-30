@@ -20,6 +20,8 @@
     <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>
     <string name="settings_monitor_connected_notification_label">Extra notification</string>
     <string name="settings_monitor_connected_notification_description">Shows an extra notification when a device is connected. This lets you hide the permanent \"No devices\" notification by disabling the \"Device status\" channel.</string>
+    <string name="settings_keep_notification_after_disconnect_label">Keep notification after disconnect</string>
+    <string name="settings_keep_notification_after_disconnect_description">Continue showing the last known battery levels even after your AirPods disconnect</string>
     <string name="settings_scanner_mode_label">Scanner mode</string>
     <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy data scanner prioritize performance or conserve energy?</string>
     <string name="settings_autopause_label">Auto pause</string>
