@@ -1,0 +1,21 @@
+{
+  "permissions": {
+	"allow": [
+	  "mcp__ide__getDiagnostics",
+	  "Bash(./gradlew tasks:*)",
+	  "Bash(./gradlew:*)",
+	  "Bash(find:*)",
+	  "Bash(ls:*)",
+	  "Bash(grep:*)",
+	  "Bash(rg:*)",
+	  "WebSearch",
+	  "WebFetch(domain:support.google.com)",
+	  "WebFetch(domain:github.com)",
+	  "WebFetch(domain:mvnrepository.com)",
+	  "WebFetch(domain:kotlinlang.org)",
+	  "WebFetch(domain:developer.android.com)",
+	  "WebFetch(domain:issuetracker.google.com)"
+	],
+	"deny": []
+  }
+}
