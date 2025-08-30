@@ -14,6 +14,8 @@ author: "by Matthias Urhahn"
 
 include:
   - PRIVACY_POLICY.md
+  - README.md
+  - CHANGELOG.md
 exclude:
   - buildSrc
   - gradle/wrapper
@@ -24,3 +26,5 @@ exclude:
   - app
   - app-common
   - app-wear
+  - CONTRIBUTING.md
+  - CLAUDE.md
