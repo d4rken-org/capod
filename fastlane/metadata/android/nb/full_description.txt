@@ -1,0 +1,18 @@
+CAPod er en følgesvenn-app for AirPods.
+
+Funksjoner:
+
+* Batterinivå for pods og deksel.
+* Ladestatus for pods og deksel.
+* Ytterlig informasjon om tilkobling, mikrofon og deksel.
+* Kan motta og vise alle enheter i nærheten.
+* Øre-deteksjon med automatisk avspilling/pause.
+* Koble enheten til AirPods automatisk.
+* Vis popup når dekselet åpnes.
+
+CAPod er reklamefri. Noen funksjoner krever et kjøp i appen.
+
+De fleste populære AirPods og Beats-enheter støttes.
+Hvis enheten din minner om AirPods, men ikke støttes enda, send meg en kort e-post.
+
+Har du en kul idé til en ny funksjon? Si ifra!

@@ -3,16 +3,12 @@
     <string name="app_name">سی اے پوڈ</string>
     <string name="app_name_pro">سی اے پوڈ پرو</string>
     <string name="app_name_foss">سی اے پوڈ FOSS</string>
-
-    <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">خرابی</string>
     <string name="general_grant_permission_action">اجازت دیں</string>
-
     <string name="overview_nomaindevice_label">کوئی بنیادی ڈیوائس نہیں</string>
     <string name="overview_nomaindevice_description">تمام پتہ چلنے والی ڈیوائسز ممکنہ طور پر آپ کی نہیں ہیں۔ اپنی ڈیوائس کو پاور آن کریں اور جوڑیں یا سیٹنگز کو ایڈجسٹ کریں۔</string>
     <string name="overview_bluetooth_disabled_label">بلوٹوتھ غیر فعال ہے</string>
     <string name="overview_bluetooth_disabled_description">بلوٹوتھ غیر فعال ہے، اسے فعال کریں ؛)</string>
-
     <string name="permission_bluetooth_connect_label">بلوٹوتھ کنیکٹ</string>
     <string name="permission_bluetooth_connect_description">اس ایپ کو جوڑی والی ڈیوائسز کے ساتھ تعامل کرنے اور کنکشن شروع کرنے کے لیے \"بلوٹوتھ کنیکٹ\" کی اجازت درکار ہے۔</string>
     <string name="permission_bluetooth_scan_label">بلوٹوتھ اسکیننگ</string>
@@ -28,19 +24,15 @@
     <string name="permission_required_title">درج ذیل اجازت درکار ہے:</string>
     <string name="permission_system_alert_window_label">سسٹم الرٹ ونڈو</string>
     <string name="permission_system_alert_window_description">سی اے پوڈ کو دیگر ایپس پر ڈرا کرنے کی اجازت دیں تاکہ \"پاپ اپ دکھائیں\" کی خصوصیت ممکن ہو سکے۔</string>
-
     <string name="settings_scanner_mode_lowpower_label">کم پاور</string>
     <string name="settings_scanner_mode_balanced_label">متوازن</string>
     <string name="settings_scanner_mode_lowlatency_label">کم تاخیر</string>
-
     <string name="settings_monitor_mode_manual_label">جب ایپ کھلی ہو</string>
     <string name="settings_monitor_mode_automatic_label">جب ڈیوائس منسلک ہو</string>
     <string name="settings_monitor_mode_always_label">ہمیشہ</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">جب دیکھا جائے</string>
     <string name="settings_reaction_autoconnect_caseopen_label">کیس کھلا ہے</string>
     <string name="settings_reaction_autoconnect_inear_label">کان میں</string>
-
     <string name="pods_dual_left_label">بایاں پوڈ</string>
     <string name="pods_dual_right_label">دایاں پوڈ</string>
     <string name="pods_case_label">کیس</string>
@@ -64,7 +56,6 @@
     <string name="headset_being_worn_label">پہنا ہوا ہے</string>
     <string name="headset_not_being_worn_label">نہیں پہنا ہوا</string>
     <string name="pods_case_unknown_state">نامعلوم حالت</string>
-
     <string name="last_seen_x">آخری بار دیکھا گیا: %s</string>
     <string name="first_seen_x">پہلی بار دیکھا گیا: %s</string>
     <string name="permission_post_notifications_label">اطلاعات دکھائیں</string>

@@ -1,18 +1,18 @@
-CAPod este o aplicație însoțitoare pentru AirPods.
+CAPod este o aplicație asistent pentru AirPods.
 
 Caracteristici:
 
 * Nivelul bateriei pentru căști și carcasă.
-* Starea de încărcare pentru căști și carcasă.
+* Statutul de încărcare ale căștilor și carcasei.
 * Informații suplimentare despre conexiune, microfon și carcasă.
-* Poate primi și afișa toate dispozitivele din apropiere.
+* Poate recepționa și afișa toate dispozitivele din apropiere.
 * Detectare urechi cu redare/pauză automată.
-* Conectați automat telefonul și AirPod-urile.
-* Afișează pop-up când este deschisă carcasa.
+* Conectați automat dispozitivul și AirPods-urile.
+* Afișează o fereastră pop-up când carcasa este deschisă.
 
-CAPod este fără reclame. Unele funcții necesită o achiziție în aplicație.
+CAPod nu conține publicitate. Unele funcționalități necesită o achiziție în aplicație.
 
-Cele mai populare dispozitive AirPods și Beats sunt acceptate.
-Dacă dispozitivul dvs. este similar cu AirPods, dar nu este încă acceptat, trimiteți-mi un scurt e-mail.
+Cele mai populare dispozitive AirPods și Beats sunt suportate.
+Dacă dispozitivul dvs. este similar cu AirPods, dar încă nu este suportat, transmiteți-mi un scurt e-mail.
 
-Aveți o idee grozavă pentru o funcție nouă? Contactați!
+Aveți o idee tare pentru o funcție nouă? Contactați-mă!

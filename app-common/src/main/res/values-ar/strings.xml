@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_pro">CAPod et Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
     <string name="general_value_not_available_label">غير متوفر</string>
     <string name="general_error_label">خطأ</string>
@@ -51,7 +51,7 @@
     <string name="pods_unknown_contact_dev">هذا جهاز غير معروف لكنه يستخدم صيغة رسالة مشابهة. دعنا نضيف دعما لها. اتصل بي :)</string>
     <string name="pods_none_label_short">لا يوجد جهاز</string>
     <string name="pods_charging_label">في حالة الشحن</string>
-    <string name="pods_inear_label">في الأذن</string>
+    <string name="pods_inear_label">في الأذن نعم</string>
     <string name="pods_microphone_label">ميكروفون</string>
     <string name="pods_yours">الخاصة بك</string>
     <string name="headset_being_worn_label">يتم ارتداؤها</string>

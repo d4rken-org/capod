@@ -2,17 +2,17 @@ CAPod adalah aplikasi pendamping untuk AirPods.
 
 Fitur:
 
-* Tingkat baterai untuk pod dan kasing.
-* Status pengisian daya untuk pod dan kasing.
-* Info tambahan tentang koneksi, mikrofon, dan kasing.
-* Dapat menerima dan menampilkan semua perangkat terdekat.
-* Putar/jeda otomatis dengan deteksi telinga.
-* Secara otomatis menghubungkan telepon dan AirPods.
-* Menampilkan PopUp saat kasing dibuka.
+Tingkat baterai untuk pod dan casing.
+Status pengisian daya untuk pod dan casing.
+Informasi tambahan terkait koneksi, mikrofon dan casing.
+Dapat menerima dan menampilkan semua perangkat di sekitar.
+Deteksi telinga dengan putar/jeda otomatis.
+Hubungkan perangkat dengan AirPods secara otomatis.
+Tunjukkan pop up saat casing dalam keadaan terbuka.
 
-CAPod bebas iklan. Beberapa fitur memerlukan pembelian dalam aplikasi.
+CAPod bebas iklan. Beberapa fitur butuh pembelian dalam aplikasi.
 
-Mendukung perangkat AirPods & Beats.
-Jika perangkat anda mirip dengan AirPods tetapi belum didukung, silahkan kirimi saya email singkat.
+Hampir semua perangkat AirPods dan Beats terkenal didukung.
+Jika perangkatmu mirip AirPods, tetapi belum didukung, kirimkan email pendek kepada saya.
 
-Punya ide keren untuk fitur baru? Mencapai!
+Punya ide untuk fitur baru? Sampaikan ke kami!

@@ -7,7 +7,7 @@ Jellemzők:
 * További információk a csatlakozásról, mikrofonról és a tokról.
 * Képes megjeleníteni az összes közeli eszközt.
 * Fülérzékelés automatikus lejátszás/szünet funkcióval.
-* A telefon és az AirPods automatikus csatlakoztatása.
+* Az eszköz és az AirPods automatikusan csatlakozik.
 * Előugró ablak megjelenítése a tok kinyitásakor.
 
 A CAPod reklámmentes. Egyes funkciók az alkalmazáson belül megvásárolható.
