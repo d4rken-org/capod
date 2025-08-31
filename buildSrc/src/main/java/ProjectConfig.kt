@@ -1,6 +1,5 @@
 import java.io.File
 import java.io.FileInputStream
-import java.time.Instant
 import java.util.Properties
 
 object ProjectConfig {
@@ -34,8 +33,6 @@ fun lastCommitHash(): String = Runtime.getRuntime().exec("git rev-parse --short 
     process.destroy()
     output.trim()
 }
-
-fun buildTime(): Instant = Instant.now()
 
 fun com.android.build.api.dsl.SigningConfig.setupCredentials(
     signingPropsPath: File? = null

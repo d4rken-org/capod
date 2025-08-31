@@ -21,7 +21,6 @@ android {
         buildConfigField("String", "VERSION_NAME", "\"${ProjectConfig.Version.name}\"")
         buildConfigField("String", "APPLICATION_ID", "\"${ProjectConfig.packageName}\"")
         buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
-        buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
     }
 
     buildFeatures {
@@ -77,6 +76,7 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
+        //noinspection WrongGradleMethod
         tasks.withType<Test> {
             useJUnitPlatform()
         }

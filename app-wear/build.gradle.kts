@@ -9,7 +9,7 @@ apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 android {
     compileSdk = ProjectConfig.compileSdk
-    namespace = "${ProjectConfig.packageName}"
+    namespace = ProjectConfig.packageName
 
     defaultConfig {
         applicationId = ProjectConfig.packageName
@@ -23,7 +23,6 @@ android {
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
 
         buildConfigField("String", "GITSHA", "\"${lastCommitHash()}\"")
-        buildConfigField("String", "BUILDTIME", "\"${buildTime()}\"")
     }
 
     signingConfigs {
