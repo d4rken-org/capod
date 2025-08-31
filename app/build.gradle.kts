@@ -88,10 +88,10 @@ android {
         val variantOutputImpl = this as com.android.build.gradle.internal.api.BaseVariantOutputImpl
         val variantName: String = variantOutputImpl.name
 
-        if (listOf("release", "beta").any { variantName.toLowerCase().contains(it) }) {
+        if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
             val outputFileName = ProjectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
-                    "-${variantName.toUpperCase()}.apk"
+                    "-${variantName.uppercase()}.apk"
 
             variantOutputImpl.outputFileName = outputFileName
         }
