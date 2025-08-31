@@ -1,7 +1,3 @@
-import com.android.build.api.dsl.Packaging
-import com.android.build.gradle.LibraryExtension
-import org.gradle.api.Action
-import org.gradle.api.JavaVersion
 import java.io.File
 import java.io.FileInputStream
 import java.time.Instant
@@ -40,51 +36,6 @@ fun lastCommitHash(): String = Runtime.getRuntime().exec("git rev-parse --short 
 }
 
 fun buildTime(): Instant = Instant.now()
-
-/**
- * Configures the [kotlinOptions][org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions] extension.
- */
-private fun LibraryExtension.kotlinOptions(configure: Action<org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions>): Unit =
-    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
-
-fun LibraryExtension.setupLibraryDefaults() {
-    compileSdk = ProjectConfig.compileSdk
-
-    defaultConfig {
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-
-    compileOptions {
-        isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "17"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-opt-in=kotlinx.coroutines.FlowPreview",
-            "-opt-in=kotlin.time.ExperimentalTime",
-            "-opt-in=kotlin.RequiresOptIn"
-        )
-    }
-
-    fun Packaging.() {
-        resources.excludes += "DebugProbesKt.bin"
-    }
-}
 
 fun com.android.build.api.dsl.SigningConfig.setupCredentials(
     signingPropsPath: File? = null

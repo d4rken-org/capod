@@ -61,9 +61,9 @@ fun DependencyHandlerScope.addDagger() {
 }
 
 fun DependencyHandlerScope.addMoshi() {
-    implementation("com.squareup.moshi:moshi:${Versions.Moshi.core}")
-    implementation("com.squareup.moshi:moshi-adapters:${Versions.Moshi.core}")
-    add("ksp", "com.squareup.moshi:moshi-kotlin-codegen:${Versions.Moshi.core}")
+    implementation("com.squareup.moshi:moshi:1.15.2")
+    implementation("com.squareup.moshi:moshi-adapters:1.15.2")
+    add("ksp", "com.squareup.moshi:moshi-kotlin-codegen:1.15.2")
 }
 
 fun DependencyHandlerScope.addOkio() {
@@ -112,26 +112,26 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVers")
 }
 
-fun DependencyHandlerScope.addTesting(junit: Boolean = true, instrumentation: Boolean = true) {
-    testImplementation("junit:junit:${Versions.Junit.legacy}")
+fun DependencyHandlerScope.addTesting() {
+    testImplementation("junit:junit:4.13.2")
 
-    testImplementation("org.junit.vintage:junit-vintage-engine:${Versions.Junit.jupiter}")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${Versions.Junit.jupiter}")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:${Versions.Junit.jupiter}")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:${Versions.Junit.jupiter}")
+    testImplementation("org.junit.vintage:junit-vintage-engine:5.7.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.7.1")
 
-    testImplementation("androidx.test:core-ktx:${Versions.AndroidX.Testing.coreKtx}")
+    testImplementation("androidx.test:core-ktx:1.4.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
-    testImplementation("io.mockk:mockk:${Versions.Mockk.core}")
-    androidTestImplementation("io.mockk:mockk-android:${Versions.Mockk.android}")
+    testImplementation("io.mockk:mockk:1.12.4")
+    androidTestImplementation("io.mockk:mockk-android:1.12.4")
 
-    testImplementation("io.kotest:kotest-runner-junit5:${Versions.Kotest.core}")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:${Versions.Kotest.core}")
-    testImplementation("io.kotest:kotest-property-jvm:${Versions.Kotest.core}")
-    androidTestImplementation("io.kotest:kotest-assertions-core-jvm:${Versions.Kotest.core}")
-    androidTestImplementation("io.kotest:kotest-property-jvm:${Versions.Kotest.core}")
+    testImplementation("io.kotest:kotest-runner-junit5:4.6.4")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:4.6.4")
+    testImplementation("io.kotest:kotest-property-jvm:4.6.4")
+    androidTestImplementation("io.kotest:kotest-assertions-core-jvm:4.6.4")
+    androidTestImplementation("io.kotest:kotest-property-jvm:4.6.4")
 
     debugImplementation("androidx.fragment:fragment-testing:1.4.1")
 }
