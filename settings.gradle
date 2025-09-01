@@ -1,4 +1,3 @@
 rootProject.name = "Companion App for AirPods"
 include ':app'
-include ':app-wear'
 include ':app-common'

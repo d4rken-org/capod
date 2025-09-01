@@ -65,8 +65,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Multi-Module Structure
 
 - **app/**: Main Android application with FOSS and Google Play flavors
-- **app-common/**: Shared code between main app and Wear OS
-- **app-wear/**: Dedicated Wear OS companion application
+- **app-common/**: Shared code between main app
 
 ### Core Architecture Patterns
 
