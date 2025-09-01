@@ -67,7 +67,6 @@ jobs:
           generate_release_notes: true
           files: |
             app/build/outputs/apk/foss/beta/*.apk
-            app-wear/build/outputs/apk/foss/beta/*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -130,14 +129,6 @@ jobs:
           ruby-version: 3.3.6
           bundler-cache: true
 
-      #      - name: Assemble WearOS beta and upload to Google Play
-      #        if: contains(steps.tagger.outputs.tag, '-beta')
-      #        run: bundle exec fastlane beta_wearos
-      #        env:
-      #          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      #          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      #          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-
       - name: Assemble beta and upload to Google Play
         if: contains(steps.tagger.outputs.tag, '-beta')
         run: bundle exec fastlane beta
@@ -145,14 +136,6 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-
-      #      - name: Assemble WearOS production and upload to Google Play
-      #        if: "!contains(steps.tagger.outputs.tag, '-beta')"
-      #        run: bundle exec fastlane production_wearos
-      #        env:
-      #          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-      #          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-      #          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
       - name: Assemble production and upload to Google Play
         if: "!contains(steps.tagger.outputs.tag, '-beta')"

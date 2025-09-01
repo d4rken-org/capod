@@ -25,6 +25,5 @@ exclude:
   - crowdin*
   - app
   - app-common
-  - app-wear
   - CONTRIBUTING.md
   - CLAUDE.md
