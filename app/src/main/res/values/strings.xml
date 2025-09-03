@@ -40,6 +40,8 @@
     <string name="settings_autoconnect_description">If Android does not automatically connect, we can ask it too. This will set the monitor mode setting to \'Always\'.</string>
     <string name="settings_autoconnect_condition_label">Auto connect condition</string>
     <string name="settings_autoconnect_condition_description">When should we try to connect to your device?</string>
+    <string name="settings_devices_label">Devices</string>
+    <string name="settings_devices_description">Manage your devices.</string>
     <string name="settings_reaction_label">Reactions</string>
     <string name="settings_reaction_description">React to events and behaviors.</string>
     <string name="settings_category_yourdevice_label">Your device</string>

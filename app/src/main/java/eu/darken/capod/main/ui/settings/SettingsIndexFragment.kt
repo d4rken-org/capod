@@ -2,8 +2,10 @@ package eu.darken.capod.main.ui.settings
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.MainDirections
 import eu.darken.capod.R
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.PrivacyPolicy
@@ -41,6 +43,10 @@ class SettingsIndexFragment : PreferenceFragment2() {
         findPreference<Preference>("core.changelog")!!.summary = BuildConfigWrap.VERSION_DESCRIPTION_LONG
         findPreference<Preference>("core.privacy")!!.setOnPreferenceClickListener {
             webpageTool.open(PrivacyPolicy.URL)
+            true
+        }
+        findPreference<Preference>("core.profile.manager")!!.setOnPreferenceClickListener {
+            findNavController().navigate(MainDirections.actionGlobalDeviceManagerFragment())
             true
         }
 

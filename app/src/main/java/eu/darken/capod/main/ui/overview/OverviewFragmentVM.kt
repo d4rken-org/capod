@@ -189,6 +189,10 @@ class OverviewFragmentVM @Inject constructor(
         OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navigate()
     }
 
+    fun goToDeviceManager() = launch {
+        OverviewFragmentDirections.actionOverviewFragmentToDeviceManagerFragment().navigate()
+    }
+
     fun onUpgrade() = launch {
         val call: (Activity) -> Unit = {
             upgradeRepo.launchBillingFlow(it)
