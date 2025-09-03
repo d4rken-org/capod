@@ -41,6 +41,11 @@
         android:label="DeviceManagerFragment"
         tools:layout="@layout/device_manager_fragment" />
     <fragment
+        android:id="@+id/deviceManagerFragment"
+        android:name="eu.darken.capod.devices.ui.DeviceManagerFragment"
+        android:label="DeviceManagerFragment"
+        tools:layout="@layout/device_manager_fragment" />
+    <fragment
         android:id="@+id/troubleShooterFragment"
         android:name="eu.darken.capod.troubleshooter.ui.TroubleShooterFragment"
         tools:layout="@layout/troubleshooter_fragment" />
