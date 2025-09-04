@@ -26,8 +26,6 @@
     <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy data scanner prioritize performance or conserve energy?</string>
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
-    <string name="settings_showall_label">Show all devices</string>
-    <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
     <string name="settings_autopplay_label">Auto play</string>
     <string name="settings_autoplay_description">Start audio playback when device is worn.</string>
     <string name="settings_fake_data_label">Fake data</string>
