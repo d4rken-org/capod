@@ -11,6 +11,7 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.core.ReactionSettings
@@ -40,7 +41,7 @@ class PopUpReaction @Inject constructor(
     private fun monitorCase(): Flow<Event> = reactionSettings.showPopUpOnCaseOpen.flow
         .flatMapLatest { isEnabled ->
             if (isEnabled) {
-                podMonitor.mainDevice.distinctUntilChangedBy { it?.rawDataHex }
+                podMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex }
             } else {
                 emptyFlow()
             }
@@ -119,7 +120,7 @@ class PopUpReaction @Inject constructor(
             combine(
                 generalSettings.mainDeviceAddress.flow,
                 bluetoothManager.connectedDevices().distinctUntilChanged(),
-                podMonitor.mainDevice.distinctUntilChangedBy { it?.rawDataHex },
+                podMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
             ) { targetAddress, devices, broadcast ->
                 log(TAG) { "$targetAddress $broadcast $devices " }
                 val direct = devices.singleOrNull { it.address == targetAddress }.also {

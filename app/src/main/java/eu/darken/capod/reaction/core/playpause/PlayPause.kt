@@ -9,6 +9,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.reaction.core.ReactionSettings
@@ -41,7 +42,7 @@ class PlayPause @Inject constructor(
                 emptyFlow()
             } else {
                 log(TAG) { "Known devices connected: $it" }
-                podMonitor.mainDevice
+                podMonitor.primaryDevice()
             }
         }
         .distinctUntilChanged()

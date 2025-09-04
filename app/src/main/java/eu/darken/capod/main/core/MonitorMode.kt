@@ -7,7 +7,7 @@ import eu.darken.capod.R
 
 @JsonClass(generateAdapter = false)
 enum class MonitorMode(
-    @param:StringRes val labelRes: Int
+    @StringRes val labelRes: Int
 ) {
     @Json(name = "monitor.mode.manual") MANUAL(
         R.string.settings_monitor_mode_manual_label

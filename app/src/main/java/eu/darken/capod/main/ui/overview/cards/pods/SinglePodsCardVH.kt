@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsSingleItemBinding
+import eu.darken.capod.devices.core.DeviceProfile
 import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.SinglePodDevice
@@ -30,8 +31,6 @@ class SinglePodsCardVH(parent: ViewGroup) :
 
         name.apply {
             text = device.getLabel(context)
-            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
-            else setTypeface(null, Typeface.NORMAL)
         }
 
         deviceIcon.setImageResource(device.iconRes)
@@ -41,7 +40,7 @@ class SinglePodsCardVH(parent: ViewGroup) :
         reception.text = item.getReceptionText()
 
         keyIcon.apply {
-            isVisible = device is ApplePods && device.flags.isIRKMatch
+            isVisible = device is ApplePods && device.meta.isIRKMatch
             if (device !is ApplePods) return@apply
             setImageResource(
                 when {
@@ -94,6 +93,5 @@ class SinglePodsCardVH(parent: ViewGroup) :
         override val now: Instant,
         override val device: SinglePodDevice,
         override val showDebug: Boolean,
-        override val isMainPod: Boolean,
     ) : PodDeviceVH.Item
 }

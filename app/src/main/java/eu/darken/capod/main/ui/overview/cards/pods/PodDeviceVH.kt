@@ -11,6 +11,7 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.getSignalQuality
 import java.time.Instant
 import eu.darken.capod.R
+import eu.darken.capod.devices.core.DeviceProfile
 
 abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
     @LayoutRes layoutId: Int,
@@ -19,7 +20,6 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
 
     fun Item.getReceptionText(): String = device.getSignalQuality(context)
         .let { if (showDebug) "$it ${device.seenCounter}" else it }
-        .let { if (isMainPod) "$it\n(${getString(R.string.pods_yours)})" else it }
 
     interface Item : OverviewAdapter.Item {
 
@@ -28,8 +28,6 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
         val device: PodDevice
 
         val showDebug: Boolean
-
-        val isMainPod: Boolean
 
         override val stableId: Long get() = device.identifier.hashCode().toLong()
 

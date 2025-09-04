@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsUnknownItemBinding
+import eu.darken.capod.devices.core.DeviceProfile
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.lastSeenFormatted
@@ -24,8 +25,6 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         val device = item.device
         name.apply {
             text = device.getLabel(context)
-            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
-            else setTypeface(null, Typeface.NORMAL)
         }
 
         lastSeen.text = device.lastSeenFormatted(item.now)
@@ -43,6 +42,5 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         override val now: Instant,
         override val device: PodDevice,
         override val showDebug: Boolean = false,
-        override val isMainPod: Boolean = false,
     ) : PodDeviceVH.Item
 }

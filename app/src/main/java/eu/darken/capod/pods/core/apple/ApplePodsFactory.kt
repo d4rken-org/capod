@@ -7,7 +7,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 
 interface ApplePodsFactory {
     fun isResponsible(message: ProximityMessage): Boolean
-    fun create(scanResult: BleScanResult, payload: ProximityPayload, flags: ApplePods.Flags): ApplePods
+    fun create(scanResult: BleScanResult, payload: ProximityPayload, meta: ApplePods.AppleMeta): ApplePods
 
     data class ModelInfo(
         val full: UShort,

@@ -5,7 +5,8 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.devices.core.AppleDeviceProfile
+import eu.darken.capod.devices.core.DeviceProfilesRepo
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
@@ -13,6 +14,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import eu.darken.capod.pods.core.apple.protocol.RPAChecker
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -25,8 +27,8 @@ class AppleFactory @Inject constructor(
     private val proximityMessageDecrypter: ProximityMessage.Decrypter,
     private val podFactories: @JvmSuppressWildcards Set<ApplePodsFactory>,
     private val unknownAppleFactory: UnknownAppleDevice.Factory,
-    private val generalSettings: GeneralSettings,
     private val rpaChecker: RPAChecker,
+    private val profilesRepo: DeviceProfilesRepo,
 ) {
 
     private val lock = Mutex()
@@ -59,19 +61,27 @@ class AppleFactory @Inject constructor(
     suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
         val proximityMessage = getMessage(scanResult) ?: return@withLock null
 
-        val isIrkMatch = generalSettings.mainDeviceIdentityKey.value
-            ?.let { rpaChecker.verify(scanResult.address, it) }
-            ?: false
+        var isIRKMatch = false
+        val profile = profilesRepo.profiles.first()
+            .filterIsInstance<AppleDeviceProfile>()
+            .firstOrNull {
+                if (it.identityKey != null && rpaChecker.verify(scanResult.address, it.identityKey)) {
+                    isIRKMatch = true
+                    return@firstOrNull true
+                }
+                // TODO more checks heuristicbased
+                return@firstOrNull false
+            }
 
         val payload = ProximityPayload(
             public = ProximityPayload.Public(
                 proximityMessage.data.take(9).toUByteArray()
             ),
             private = run {
-                if (!isIrkMatch) return@run null
+                if (profile == null) return@run null
                 if (proximityMessage.data.size != ProximityPairing.PAIRING_MESSAGE_LENGTH) return@run null
 
-                val encKey = generalSettings.mainDeviceEncryptionKey.value?.takeIf { it.isNotEmpty() }
+                val encKey = profile.encryptionKey?.takeIf { it.isNotEmpty() }
                 if (encKey == null) return@run null
 
                 val encrypted = proximityMessage.data.takeLast(16).toUByteArray().toByteArray()
@@ -86,8 +96,9 @@ class AppleFactory @Inject constructor(
         return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
             payload = payload,
-            flags = ApplePods.Flags(
-                isIRKMatch = isIrkMatch,
+            meta = ApplePods.AppleMeta(
+                isIRKMatch = isIRKMatch,
+                profile = profile,
             ),
         )
     }

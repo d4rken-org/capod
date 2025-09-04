@@ -10,6 +10,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.unknown.UnknownDevice
 import kotlinx.coroutines.flow.*
@@ -67,7 +68,7 @@ class TroubleShooterFragmentVM @Inject constructor(
         run {
             progress("Checking for headphones...")
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.mainDevice.filterNotNull().firstOrNull()
+                podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 success("Headphones found, nothing to troubleshoot.")
@@ -161,7 +162,7 @@ class TroubleShooterFragmentVM @Inject constructor(
         run {
             progress("Checking for your headphones with new BLE settings...")
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.mainDevice.filterNotNull().firstOrNull()
+                podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 success("Found your headphones, new BLE settings worked :)!")
@@ -200,7 +201,7 @@ class TroubleShooterFragmentVM @Inject constructor(
             generalSettings.mainDeviceModel.value = otherDevices.maxBy { it.signalQuality }.model
 
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.mainDevice.filterNotNull().firstOrNull()
+                podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 generalSettings.mainDeviceModel.value = mainDevice.model
@@ -259,7 +260,6 @@ class TroubleShooterFragmentVM @Inject constructor(
             }
         }
     }
-
 
     companion object {
         const val STEP_TIME = 10 * 1000L // 6 scans per 30 seconds max

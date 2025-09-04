@@ -20,7 +20,7 @@ data class AirPodsGen2(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,
-    override val flags: ApplePods.Flags,
+    override val meta: ApplePods.AppleMeta,
     override val reliability: Float = PodDevice.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
@@ -49,12 +49,12 @@ data class AirPodsGen2(
         override fun create(
             scanResult: BleScanResult,
             payload: ProximityPayload,
-            flags: ApplePods.Flags
+            meta: ApplePods.AppleMeta
         ): ApplePods {
             var basic = AirPodsGen2(
                 scanResult = scanResult,
                 payload = payload,
-                flags = flags,
+                meta = meta,
             )
             val result = repo.search(basic)
 
