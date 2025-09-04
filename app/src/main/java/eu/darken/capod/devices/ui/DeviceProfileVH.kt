@@ -21,10 +21,6 @@ class DeviceProfileVH(parent: ViewGroup) :
 
         deviceName.text = profile.name
         deviceDetails.text = buildString {
-            profile.address?.let { 
-                append(it.toString())
-                append(" • ")
-            }
             append(profile.model.name)
         }
 

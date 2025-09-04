@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Singleton
 class DeviceProfilesRepo @Inject constructor(
-    @param:ApplicationContext private val context: Context,
+    @ApplicationContext private val context: Context,
     private val moshi: Moshi,
 ) {
 
@@ -75,10 +75,6 @@ class DeviceProfilesRepo @Inject constructor(
         updatedProfiles.removeAll { it.id == profileId }
         _profiles.value = updatedProfiles
         saveProfiles()
-    }
-
-    fun getProfile(profileId: String): DeviceProfile? {
-        return _profiles.value.find { it.id == profileId }
     }
 
     companion object {

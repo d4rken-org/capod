@@ -1,11 +1,17 @@
 @file:Suppress("MemberVisibilityCanBePrivate")
 
-package eu.darken.sdmse.common.serialization
+package eu.darken.capod.common.serialization
 
 import com.squareup.moshi.*
 import java.lang.reflect.Type
 import java.util.*
 import javax.annotation.CheckReturnValue
+import kotlin.apply
+import kotlin.collections.isNotEmpty
+import kotlin.collections.plus
+import kotlin.collections.toTypedArray
+import kotlin.io.use
+import kotlin.jvm.javaClass
 
 class NameBasedPolyJsonAdapterFactory<T> internal constructor(
     val baseType: Class<T>,
