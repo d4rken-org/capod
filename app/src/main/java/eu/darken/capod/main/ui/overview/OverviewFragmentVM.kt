@@ -141,9 +141,11 @@ class OverviewFragmentVM @Inject constructor(
             if (!isBluetoothEnabled) {
                 items.add(0, BluetoothDisabledVH.Item)
             } else if (mainPod == null) {
-                items.add(0, MissingMainDeviceVH.Item {
-                    OverviewFragmentDirections.actionOverviewFragmentToTroubleShooterFragment().navigate()
-                })
+                items.add(0, MissingMainDeviceVH.Item(
+                    onManageDevices = {
+                        OverviewFragmentDirections.actionOverviewFragmentToDeviceManagerFragment().navigate()
+                    }
+                ))
             }
         }
 
@@ -187,6 +189,10 @@ class OverviewFragmentVM @Inject constructor(
 
     fun goToSettings() = launch {
         OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navigate()
+    }
+
+    fun goToDeviceManager() = launch {
+        OverviewFragmentDirections.actionOverviewFragmentToDeviceManagerFragment().navigate()
     }
 
     fun onUpgrade() = launch {

@@ -40,6 +40,8 @@
     <string name="settings_autoconnect_description">If Android does not automatically connect, we can ask it too. This will set the monitor mode setting to \'Always\'.</string>
     <string name="settings_autoconnect_condition_label">Auto connect condition</string>
     <string name="settings_autoconnect_condition_description">When should we try to connect to your device?</string>
+    <string name="settings_devices_label">Devices</string>
+    <string name="settings_devices_description">Manage your devices.</string>
     <string name="settings_reaction_label">Reactions</string>
     <string name="settings_reaction_description">React to events and behaviors.</string>
     <string name="settings_category_yourdevice_label">Your device</string>
@@ -128,6 +130,7 @@
     <string name="settings_compat_indirectcallback_summary">Use an alternative method to receive BLE data from the system (broadcast instead of callback).</string>
 
     <string name="troubleshooter_title">Troubleshooter</string>
+    <string name="troubleshooter_summary">Diagnose and fix Bluetooth connectivity issues.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcasts</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (and similar headphones) broadcast status information using a BLE technology called \"advertisements\". Some phones don\'t implement this technology correctly. CAPod can attempt to fix this by trying different compatibility options until data is received. Start music playback on your headphones and place them close to your phone, then start the process.</string>
     <string name="troubleshooter_ble_intro_start_action">Start troubleshooting</string>

@@ -8,6 +8,12 @@
         app:title="@string/settings_general_label" />
 
     <Preference
+        android:key="core.profile.manager"
+        android:icon="@drawable/ic_baseline_devices_other_24"
+        app:summary="@string/settings_devices_description"
+        app:title="@string/settings_devices_label" />
+
+    <Preference
         android:icon="@drawable/ic_baseline_widgets_24"
         app:fragment="eu.darken.capod.reaction.ui.ReactionSettingsFragment"
         app:summary="@string/settings_reaction_description"

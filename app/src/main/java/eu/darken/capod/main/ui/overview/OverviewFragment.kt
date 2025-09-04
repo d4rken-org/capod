@@ -60,6 +60,11 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         ui.toolbar.apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.menu_item_devices -> {
+                        vm.goToDeviceManager()
+                        true
+                    }
+
                     R.id.menu_item_settings -> {
                         vm.goToSettings()
                         true
