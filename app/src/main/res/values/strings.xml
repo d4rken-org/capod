@@ -10,6 +10,8 @@
     <string name="general_save_action">Save</string>
     <string name="general_guide_action">Guide</string>
     <string name="general_continue_action">Continue</string>
+    <string name="general_show_action">Show</string>
+    <string name="general_hide_action">Hide</string>
 
     <string name="general_example_label">E.g.: %s</string>
 
@@ -163,6 +165,9 @@
     <string name="overview_nomaindevice_description">Configure your device to start monitoring battery levels and enable additional features.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
+    <string name="overview_unmatched_devices_label">Unmatched devices</string>
+    <string name="overview_unmatched_devices_count_single">1 device without matching profile</string>
+    <string name="overview_unmatched_devices_count_plural">%d devices without matching profile</string>
 
     <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
     <string name="permission_bluetooth_connect_description">This app requires the \"Bluetooth connect\" permission to interact with paired devices and initiate connections.</string>

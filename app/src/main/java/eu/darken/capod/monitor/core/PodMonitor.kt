@@ -1,10 +1,10 @@
 package eu.darken.capod.monitor.core
 
 import android.bluetooth.le.ScanFilter
-import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.ScannerMode
+import eu.darken.capod.common.bluetooth.onlyNewAndUnique
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -13,18 +13,18 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
-import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.throttleLatest
+import eu.darken.capod.devices.core.DeviceProfilesRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
-import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -48,6 +48,7 @@ class PodMonitor @Inject constructor(
     private val debugSettings: DebugSettings,
     private val podDeviceCache: PodDeviceCache,
     permissionTool: PermissionTool,
+    private val profilesRepo: DeviceProfilesRepo,
 ) {
 
     private val deviceCache = mutableMapOf<PodDevice.Id, PodDevice>()
@@ -69,17 +70,9 @@ class PodMonitor @Inject constructor(
                 createBleScanner()
             }
         }
-        .map { newPods ->
-            val pods = processWithCache(newPods)
-
-            val presorted = sortPodsToInterest(pods.values)
-            val main = determineMainDevice(presorted)
-            newPods?.firstOrNull { it.device.identifier == main?.identifier }?.let {
-                podDeviceCache.saveMainDevice(it.scanResult)
-            }
-
-            presorted.sortedByDescending { it == main }
-        }
+        .map { results -> results?.mapNotNull { podFactory.createPod(it) } }
+        .map { processWithCache(it).values }
+        .map { sortPodsToInterest(it) }
         .retryWhen { cause, attempt ->
             log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
             delay(3000)
@@ -88,10 +81,18 @@ class PodMonitor @Inject constructor(
         .onStart { emit(emptyList()) }
         .replayingShare(appScope)
 
-    val mainDevice: Flow<PodDevice?> = devices
-        .map { determineMainDevice(it) }
-        .setupCommonEventHandlers(TAG) { "mainDevice" }
-        .replayingShare(appScope)
+    private fun sortPodsToInterest(devices: Collection<PodDevice>): List<PodDevice> {
+        val now = Instant.now()
+        return devices.sortedWith(
+            compareBy<PodDevice> { it.meta.profile?.priority ?: Int.MAX_VALUE }
+                .thenBy {
+                    val age = Duration.between(it.seenLastAt, now).seconds
+                    if (age < 5) 0L else (age / 3L)
+                }
+                .thenByDescending { it.signalQuality }
+                .thenByDescending { (it.seenCounter / 10) }
+        )
+    }
 
     private data class ScannerOptions(
         val scannerMode: ScannerMode,
@@ -139,8 +140,9 @@ class PodMonitor @Inject constructor(
                 disableOffloadFiltering = options.offloadedFilteringDisabled,
                 disableOffloadBatching = options.offloadedBatchingDisabled,
                 disableDirectScanCallback = options.disableDirectCallback,
-            ).map { preFilterAndMap(it) }
+            )
         }
+        .map { it.onlyNewAndUnique() }
 
     private suspend fun processWithCache(
         newPods: List<PodFactory.Result>?
@@ -170,61 +172,12 @@ class PodMonitor @Inject constructor(
         return pods
     }
 
-    private suspend fun preFilterAndMap(rawResults: Collection<BleScanResult>): List<PodFactory.Result> = rawResults
-        .groupBy { it.address }
-        .values
-        .map { sameAdrDevs ->
-            // For each address we only want the newest result, upstream may batch data
-            val newest = sameAdrDevs.maxByOrNull { it.generatedAtNanos }!!
-            sameAdrDevs.minus(newest).let {
-                if (it.isNotEmpty()) log(TAG, VERBOSE) { "Discarding stale results: $it" }
-            }
-            newest
-        }
-        .mapNotNull { podFactory.createPod(it) }
-
-    private fun sortPodsToInterest(pods: Collection<PodDevice>): List<PodDevice> {
-        val now = Instant.now()
-
-        return pods.sortedWith(
-            compareByDescending<PodDevice> { true }
-                .thenBy {
-                    val age = Duration.between(it.seenLastAt, now).seconds
-                    if (age < 5) 0L else (age / 3L)
-                }
-                .thenByDescending { it.signalQuality }
-                .thenByDescending { (it.seenCounter / 10) }
-        )
-    }
-
-    private fun determineMainDevice(pods: List<PodDevice>): PodDevice? {
-        val identityKey = generalSettings.mainDeviceIdentityKey.value?.takeIf { it.isNotEmpty() }
-        if (identityKey != null) {
-            val irkHit = pods.filterIsInstance<ApplePods>().firstOrNull { it.flags.isIRKMatch }
-            log(TAG) { "IRK is configured, main device irkHit=$irkHit" }
-            return irkHit
-        }
-
-        val mainDeviceModel = generalSettings.mainDeviceModel.value
-        val presorted = sortPodsToInterest(pods).sortedByDescending {
-            it.model == mainDeviceModel && it.model != PodDevice.Model.UNKNOWN
-        }
-
-        return presorted.firstOrNull()?.let { candidate ->
-            when {
-                candidate.model == PodDevice.Model.UNKNOWN -> null
-                mainDeviceModel != PodDevice.Model.UNKNOWN && candidate.model != mainDeviceModel -> null
-                candidate.signalQuality <= generalSettings.minimumSignalQuality.value -> null
-                else -> candidate
-            }
-        }
-    }
-
     suspend fun latestMainDevice(): PodDevice? {
-        val currentMain = mainDevice.firstOrNull()
+        val currentMain = devices.firstOrNull()?.firstOrNull()
         log(TAG) { "Live mainDevice is $currentMain" }
 
-        return currentMain ?: podDeviceCache.loadMainDevice()
+        return currentMain ?: profilesRepo.profiles.first().firstOrNull()
+            ?.let { podDeviceCache.load(it.id) }
             ?.let { podFactory.createPod(it)?.device }
             .also { log(TAG) { "Cached mainDevice is $it" } }
     }
