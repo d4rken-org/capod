@@ -6,6 +6,6 @@ import kotlinx.coroutines.flow.map
 import kotlin.collections.firstOrNull
 
 fun PodMonitor.devicesWithProfiles(): Flow<List<PodDevice>> = devices
-    .map { devices -> devices.filter { it.profile != null } }
+    .map { devices -> devices.filter { it.meta.profile != null } }
 
 fun PodMonitor.primaryDevice(): Flow<PodDevice?> = devicesWithProfiles().map { it.firstOrNull() }

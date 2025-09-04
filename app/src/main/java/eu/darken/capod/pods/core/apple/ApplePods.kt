@@ -2,13 +2,13 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
+import eu.darken.capod.devices.core.AppleDeviceProfile
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 
 interface ApplePods : PodDevice {
 
     val payload: ProximityPayload
-    val flags: Flags
 
     // We start counting at the airpods prefix byte
     val pubPrefix: UByte
@@ -56,7 +56,10 @@ interface ApplePods : PodDevice {
         )
     }
 
-    data class Flags(
+    data class AppleMeta(
         val isIRKMatch: Boolean,
-    )
+        override val profile: AppleDeviceProfile?,
+    ) : PodDevice.Meta
+
+    override val meta: AppleMeta
 }
