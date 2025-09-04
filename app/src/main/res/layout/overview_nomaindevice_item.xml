@@ -33,18 +33,18 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="4dp"
             android:text="@string/overview_nomaindevice_description"
-            app:layout_constraintBottom_toTopOf="@id/troubleshoot_action"
+            app:layout_constraintBottom_toTopOf="@id/manage_devices_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/permission_label" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/troubleshoot_action"
+            android:id="@+id/manage_devices_action"
             style="@style/Widget.Material3.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/troubleshoot_action"
+            android:text="@string/general_manage_devices_action"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/permission_description" />

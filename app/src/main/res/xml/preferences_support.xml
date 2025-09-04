@@ -20,6 +20,11 @@
 
     <PreferenceCategory app:title="@string/settings_category_other_label">
         <Preference
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:key="support.troubleshooter"
+            android:summary="@string/troubleshooter_summary"
+            android:title="@string/troubleshooter_title" />
+        <Preference
             android:icon="@drawable/ic_baseline_bug_report_24"
             android:key="support.debuglog"
             android:summary="@string/support_debuglog_desc"

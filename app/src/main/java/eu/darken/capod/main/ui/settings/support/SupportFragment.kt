@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
@@ -12,6 +13,7 @@ import eu.darken.capod.common.debug.recording.ui.RecorderConsentDialog
 import eu.darken.capod.common.observe2
 import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.ui.settings.SettingsFragmentDirections
 import javax.inject.Inject
 
 @Keep
@@ -28,6 +30,7 @@ class SupportFragment : PreferenceFragment3() {
     @Inject lateinit var webpageTool: WebpageTool
 
     private val debugLogPref by lazy { findPreference<Preference>("support.debuglog")!! }
+    private val troubleshooterPref by lazy { findPreference<Preference>("support.troubleshooter")!! }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.recorderState.observe2(this) { state ->
@@ -55,6 +58,13 @@ class SupportFragment : PreferenceFragment3() {
                 true
             }
         }
+        
+        troubleshooterPref.setOnPreferenceClickListener {
+            val navController = requireActivity().findNavController(R.id.nav_host)
+            navController.navigate(SettingsFragmentDirections.actionSettingsFragmentToTroubleShooterFragment())
+            true
+        }
+        
         super.onViewCreated(view, savedInstanceState)
     }
 }

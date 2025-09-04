@@ -6,9 +6,10 @@
     <string name="general_value_not_available_label">N/A</string>
     <string name="general_error_label">Error</string>
     <string name="general_grant_permission_action">Grant permission</string>
+    <string name="general_manage_devices_action">Manage devices</string>
 
-    <string name="overview_nomaindevice_label">No primary device</string>
-    <string name="overview_nomaindevice_description">All detected devices are unlikely to be yours. Power on and connect your device or adjust the settings.</string>
+    <string name="overview_nomaindevice_label">No device configured</string>
+    <string name="overview_nomaindevice_description">Configure your device to start monitoring battery levels and enable additional features.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
 
