@@ -11,6 +11,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.devices.core.ProfileId
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -18,7 +19,6 @@ import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Suppress("BlockingMethodInNonBlockingContext")
 @Singleton
 class PodDeviceCache @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -60,6 +60,15 @@ class PodDeviceCache @Inject constructor(
                 null
             }
         }
+    }
+
+    fun load(id: ProfileId): BleScanResult? {
+        log(TAG, VERBOSE) { "load(): $id" }
+        return null
+    }
+
+    fun save(id: ProfileId) {
+        log(TAG, VERBOSE) { "save(): $id" }
     }
 
     companion object {

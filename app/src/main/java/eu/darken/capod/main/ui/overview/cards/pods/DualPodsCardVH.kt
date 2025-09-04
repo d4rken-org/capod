@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsDualItemBinding
+import eu.darken.capod.devices.core.DeviceProfile
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
@@ -45,9 +46,6 @@ class DualPodsCardVH(parent: ViewGroup) :
             }
             text = sb
 
-            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
-            else setTypeface(null, Typeface.NORMAL)
-
             if (device is DualApplePods && item.showDebug) {
                 append(" [${device.primaryPod.name}]")
             }
@@ -65,7 +63,7 @@ class DualPodsCardVH(parent: ViewGroup) :
         reception.text = item.getReceptionText()
 
         keyIcon.apply {
-            isVisible = device is ApplePods && device.flags.isIRKMatch
+            isVisible = device is ApplePods && device.meta.isIRKMatch
             if (device !is ApplePods) return@apply
             setImageResource(
                 when {
@@ -191,6 +189,5 @@ class DualPodsCardVH(parent: ViewGroup) :
         override val now: Instant,
         override val device: DualPodDevice,
         override val showDebug: Boolean,
-        override val isMainPod: Boolean,
     ) : PodDeviceVH.Item
 }

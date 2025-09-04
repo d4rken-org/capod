@@ -4,20 +4,20 @@ import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.common.lists.differ.DifferItem
-import eu.darken.capod.databinding.OverviewNomaindeviceItemBinding
+import eu.darken.capod.databinding.OverviewNoprofilesItemBinding
 import eu.darken.capod.main.ui.overview.OverviewAdapter
 
-class MissingMainDeviceVH(parent: ViewGroup) :
-    OverviewAdapter.BaseVH<MissingMainDeviceVH.Item, OverviewNomaindeviceItemBinding>(
-        R.layout.overview_nomaindevice_item,
+class NoProfilesVH(parent: ViewGroup) :
+    OverviewAdapter.BaseVH<NoProfilesVH.Item, OverviewNoprofilesItemBinding>(
+        R.layout.overview_noprofiles_item,
         parent
     ) {
 
     override val viewBinding = lazy {
-        OverviewNomaindeviceItemBinding.bind(itemView)
+        OverviewNoprofilesItemBinding.bind(itemView)
     }
 
-    override val onBindData: OverviewNomaindeviceItemBinding.(
+    override val onBindData: OverviewNoprofilesItemBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding(payload = true) { item ->

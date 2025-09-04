@@ -8,6 +8,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -37,7 +38,7 @@ class AutoConnect @Inject constructor(
             if (isAutoConnectEnabled) {
                 combine(
                     bluetoothManager.connectedDevices().distinctUntilChanged(),
-                    podMonitor.mainDevice.filterNotNull().distinctUntilChangedBy { it.rawDataHex },
+                    podMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy { it.rawDataHex },
                 ) { connectedDevices, mainDevice ->
                     connectedDevices to mainDevice
                 }

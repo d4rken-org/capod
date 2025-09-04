@@ -25,6 +25,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
@@ -114,7 +115,7 @@ class MonitorWorker @AssistedInject constructor(
 
         setForeground(notifications.getForegroundInfo(null))
 
-        val monitorJob = podMonitor.mainDevice
+        val monitorJob = podMonitor.primaryDevice()
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
             .distinctUntilChanged()
             .throttleLatest(1000)

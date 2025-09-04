@@ -13,8 +13,8 @@ import eu.darken.capod.common.withinApiLevel
 enum class Permission(
     val minApiLevel: Int,
     val maxApiLevel: Int = Int.MAX_VALUE,
-    @param:StringRes val labelRes: Int,
-    @param:StringRes val descriptionRes: Int,
+    @StringRes val labelRes: Int,
+    @StringRes val descriptionRes: Int,
     val permissionId: String,
     val isGranted: (Context) -> Boolean = {
         ContextCompat.checkSelfPermission(it, permissionId) == PackageManager.PERMISSION_GRANTED
