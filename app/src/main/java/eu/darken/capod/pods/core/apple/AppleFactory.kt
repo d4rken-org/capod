@@ -5,8 +5,8 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.devices.core.AppleDeviceProfile
-import eu.darken.capod.devices.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol

@@ -1,11 +1,9 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
-import android.graphics.Typeface
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsUnknownItemBinding
-import eu.darken.capod.devices.core.DeviceProfile
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.lastSeenFormatted

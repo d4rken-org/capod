@@ -9,7 +9,7 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
-import eu.darken.capod.devices.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Duration
 import java.time.Instant
 import java.util.UUID

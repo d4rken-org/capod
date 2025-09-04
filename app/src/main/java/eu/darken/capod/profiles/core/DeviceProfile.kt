@@ -1,4 +1,4 @@
-package eu.darken.capod.devices.core
+package eu.darken.capod.profiles.core
 
 import android.os.Parcelable
 import eu.darken.capod.common.serialization.NameBasedPolyJsonAdapterFactory
