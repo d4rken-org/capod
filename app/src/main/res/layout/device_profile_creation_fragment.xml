@@ -16,7 +16,6 @@
         app:menu="@menu/device_profile_creation_menu"
         app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
         app:title="@string/device_profiles_create_title"
-        app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"
         app:titleMarginStart="16dp" />
 
     <androidx.core.widget.NestedScrollView
