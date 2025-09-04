@@ -35,8 +35,6 @@ class GeneralSettings @Inject constructor(
 
     val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
-    val showAll = preferences.createFlowPreference("core.showall.enabled", true)
-
     val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
 
     val mainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
@@ -66,7 +64,6 @@ class GeneralSettings @Inject constructor(
         useExtraMonitorNotification,
         keepConnectedNotificationAfterDisconnect,
         scannerMode,
-        showAll,
         minimumSignalQuality,
         mainDeviceAddress,
         isOffloadedFilteringDisabled,

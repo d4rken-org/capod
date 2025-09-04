@@ -83,7 +83,6 @@ class AppleFactory @Inject constructor(
 
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) }
 
-
         return@withLock (factory ?: unknownAppleFactory).create(
             scanResult = scanResult,
             payload = payload,

@@ -104,15 +104,7 @@ class OverviewFragmentVM @Inject constructor(
                 return@flatMapLatest flowOf(emptyList())
             }
 
-            generalSettings.showAll.flow.flatMapLatest { showAll ->
-                if (showAll) {
-                    podMonitor.devices
-                } else {
-                    podMonitor.mainDevice.map { mainDevice ->
-                        mainDevice?.let { listOf(it) } ?: emptyList()
-                    }
-                }
-            }
+            podMonitor.devices
         }
         .catch { errorEvents.postValue(it) }
         .throttleLatest(1000)
@@ -122,10 +114,9 @@ class OverviewFragmentVM @Inject constructor(
         permissionTool.missingPermissions,
         pods,
         debugSettings.isDebugModeEnabled.flow,
-        generalSettings.showAll.flow,
         bluetoothManager.isBluetoothEnabled,
         podMonitor.mainDevice,
-    ) { _, permissions, pods, isDebugMode, showAll, isBluetoothEnabled, mainPod ->
+    ) { _, permissions, pods, isDebugMode, isBluetoothEnabled, mainPod ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         permissions
