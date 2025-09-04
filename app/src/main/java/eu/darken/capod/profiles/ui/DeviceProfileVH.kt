@@ -1,9 +1,9 @@
-package eu.darken.capod.devices.ui
+package eu.darken.capod.profiles.ui
 
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.databinding.DeviceManagerItemBinding
-import eu.darken.capod.devices.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfile
 
 class DeviceProfileVH(parent: ViewGroup) :
     DeviceManagerAdapter.BaseVH<DeviceProfileVH.Item, DeviceManagerItemBinding>(

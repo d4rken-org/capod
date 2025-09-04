@@ -1,4 +1,4 @@
-package eu.darken.capod.devices.core
+package eu.darken.capod.profiles.core
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

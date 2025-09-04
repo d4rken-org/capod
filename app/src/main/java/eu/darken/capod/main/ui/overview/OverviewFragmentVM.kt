@@ -15,7 +15,7 @@ import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.devices.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
@@ -41,10 +41,8 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
-import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
-import kotlin.collections.sortedWith
 
 @HiltViewModel
 class OverviewFragmentVM @Inject constructor(

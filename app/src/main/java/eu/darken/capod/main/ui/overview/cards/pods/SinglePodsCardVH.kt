@@ -1,6 +1,5 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
-import android.graphics.Typeface
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
@@ -8,7 +7,6 @@ import androidx.core.view.isVisible
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
 import eu.darken.capod.databinding.OverviewPodsSingleItemBinding
-import eu.darken.capod.devices.core.DeviceProfile
 import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.SinglePodDevice

@@ -1,4 +1,4 @@
-package eu.darken.capod.devices.core
+package eu.darken.capod.profiles.core
 
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log

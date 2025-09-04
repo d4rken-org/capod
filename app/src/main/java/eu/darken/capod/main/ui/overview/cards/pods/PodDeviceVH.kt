@@ -10,8 +10,6 @@ import eu.darken.capod.main.ui.overview.OverviewAdapter
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.getSignalQuality
 import java.time.Instant
-import eu.darken.capod.R
-import eu.darken.capod.devices.core.DeviceProfile
 
 abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
     @LayoutRes layoutId: Int,

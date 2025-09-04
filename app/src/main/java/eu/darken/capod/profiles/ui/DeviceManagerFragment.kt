@@ -1,4 +1,4 @@
-package eu.darken.capod.devices.ui
+package eu.darken.capod.profiles.ui
 
 import android.os.Bundle
 import android.util.TypedValue

@@ -14,7 +14,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.flow.throttleLatest
-import eu.darken.capod.devices.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice

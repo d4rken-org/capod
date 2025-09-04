@@ -37,12 +37,12 @@
     </fragment>
     <fragment
         android:id="@+id/deviceManagerFragment"
-        android:name="eu.darken.capod.devices.ui.DeviceManagerFragment"
+        android:name="eu.darken.capod.profiles.ui.DeviceManagerFragment"
         android:label="DeviceManagerFragment"
         tools:layout="@layout/device_manager_fragment" />
     <fragment
         android:id="@+id/deviceManagerFragment"
-        android:name="eu.darken.capod.devices.ui.DeviceManagerFragment"
+        android:name="eu.darken.capod.profiles.ui.DeviceManagerFragment"
         android:label="DeviceManagerFragment"
         tools:layout="@layout/device_manager_fragment">
         <action
@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/deviceProfileCreationFragment"
-        android:name="eu.darken.capod.devices.ui.DeviceProfileCreationFragment"
+        android:name="eu.darken.capod.profiles.ui.DeviceProfileCreationFragment"
         android:label="DeviceProfileCreationFragment"
         tools:layout="@layout/device_profile_creation_fragment">
         <argument

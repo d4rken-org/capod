@@ -1,4 +1,4 @@
-package eu.darken.capod.devices.ui
+package eu.darken.capod.profiles.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
@@ -10,8 +10,8 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel3
-import eu.darken.capod.devices.core.AppleDeviceProfile
-import eu.darken.capod.devices.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
