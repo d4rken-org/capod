@@ -68,7 +68,7 @@ class MonitorNotifications @Inject constructor(
             priority = NotificationCompat.PRIORITY_LOW
             setSmallIcon(R.drawable.devic_earbuds_generic_both)
             setOngoing(true)
-            setContentTitle(context.getString(eu.darken.capod.common.R.string.app_name))
+            setContentTitle(context.getString(R.string.app_name))
         }
     }
 
@@ -77,8 +77,8 @@ class MonitorNotifications @Inject constructor(
             return builder.apply {
                 setCustomContentView(null)
                 setStyle(NotificationCompat.BigTextStyle())
-                setContentTitle(context.getString(eu.darken.capod.common.R.string.pods_none_label_short))
-                setSubText(context.getString(eu.darken.capod.common.R.string.app_name))
+                setContentTitle(context.getString(R.string.pods_none_label_short))
+                setSubText(context.getString(R.string.app_name))
                 setSmallIcon(R.drawable.devic_earbuds_generic_both)
             }
         }
@@ -92,22 +92,22 @@ class MonitorNotifications @Inject constructor(
                 // Pods charging state
                 // This goes first as pods should not be worn if it is still charging
                 device is HasChargeDetection && device.isHeadsetBeingCharged -> {
-                    context.getString(eu.darken.capod.common.R.string.pods_charging_label)
+                    context.getString(R.string.pods_charging_label)
                 }
 
                 // Pods wear state
                 device is HasEarDetection -> {
-                    if (device.isBeingWorn) context.getString(eu.darken.capod.common.R.string.headset_being_worn_label)
-                    else context.getString(eu.darken.capod.common.R.string.headset_not_being_worn_label)
+                    if (device.isBeingWorn) context.getString(R.string.headset_being_worn_label)
+                    else context.getString(R.string.headset_not_being_worn_label)
                 }
 
                 // Case charge state
                 // This is under pods wear state as we don't want it conflicting with it
                 device is HasCase && device.isCaseCharging -> {
-                    context.getString(eu.darken.capod.common.R.string.pods_charging_label)
+                    context.getString(R.string.pods_charging_label)
                 }
 
-                else -> context.getString(eu.darken.capod.common.R.string.pods_case_unknown_state)
+                else -> context.getString(R.string.pods_case_unknown_state)
             }
 
             val batteryText = when (device) {

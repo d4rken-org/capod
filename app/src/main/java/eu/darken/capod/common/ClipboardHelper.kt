@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import java.util.concurrent.locks.ReentrantLock

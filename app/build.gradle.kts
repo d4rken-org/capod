@@ -130,8 +130,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":app-common"))
-
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     addBaseKotlin()

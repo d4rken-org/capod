@@ -145,4 +145,76 @@
     <string name="onboarding_body2">ಎಲ್ಲಾ Android ಸಾಧನಗಳು ಹೆಚ್ಚುವರಿ AirPod ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ ಆಪರೇಟಿಂಗ್ ಸಿಸ್ಟಮ್‌ಗೆ ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಬ್ಲೂಟೂತ್-ಕಡಿಮೆ-ಶಕ್ತಿಯ ಅನುಷ್ಠಾನದ ಅಗತ್ಯವಿದೆ.</string>
     <string name="onboarding_body3">CAPod ಯಾವುದೇ ಜಾಹೀರಾತುಗಳನ್ನು ಹೊಂದಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ.</string>
     <string name="onboarding_body4">ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪಡೆಯಲು ಮತ್ತು ಅಭಿವೃದ್ಧಿಯನ್ನು ಬೆಂಬಲಿಸಲು ನೀವು CAPod Pro ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಬಹುದು.</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="general_error_label">ದೋಷ</string>
+    <string name="general_grant_permission_action">ಅನುಮತಿ ನೀಡಿ</string>
+
+    <string name="overview_nomaindevice_label">ಯಾವುದೇ ಪ್ರಾಥಮික ಸಾಧನವಿಲ್ಲ</string>
+    <string name="overview_nomaindevice_description">గుర్తించబడిన అన్ని పరికరాలు మీవి కాకపోవచ్చు. మీ పరికరాన్ని ఆన్ చేసి కనెక్ట్ చేయండి లేదా సెట్టింగ్‌లను సర్దుబాటు చేయండి.</string>
+    <string name="overview_bluetooth_disabled_label">ಬ್ಲೂಟೂತ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
+    <string name="overview_bluetooth_disabled_description">ಬ್ಲೂటూత్ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ, ಅದನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ;)</string>
+
+    <string name="permission_bluetooth_connect_label">ಬ್ಲೂಟೂತ್ ಸಂಪರ್ಕ</string>
+    <string name="permission_bluetooth_connect_description">ఈ అనువర్తనానికి జత చేసిన పరికరాలతో పరస్పర చర్య చేయడానికి మరియు కనెక్షన్‌లను ప్రారంభించడానికి \"బ్లూటూత్ కనెక్ట్\" అనుమతి అవసరం.</string>
+    <string name="permission_bluetooth_scan_label">బ్లూటూత్ ಸ್ಕാനിಂಗ್</string>
+    <string name="permission_bluetooth_scan_description">\"బ్లూటూత్ స్కానింగ్\" అనుమతి ఈ అనువర్తనం మీ AirPods వంటి సమీప పరికరాల నుండి బ్లూటూత్ డేటాను కనుగొనడానికి మరియు స్వీకరించడానికి అనుమతిస్తుంది.</string>
+    <string name="permission_bluetooth_label">ಬ್ಲೂಟೂತ್</string>
+    <string name="permission_bluetooth_description">ఈ అనువర్తనానికి జత చేసిన బ్లూటూత్ పరికరాలకు కనెక్ట్ చేయడానికి \"బ్లూటూత్\" అనుమతి అవసరం.</string>
+    <string name="permission_access_fine_location_label">ఖచ్చితమైన స్థానానికి ప్రాప్యత</string>
+    <string name="permission_access_fine_location_description">CAPod బ్లూటూత్ తక్కువ శక్తి డేటాను స్వీకరించడానికి \"ఖచ్చితమైన స్థానం\" అనుమతిని ఉపయోగిస్తుంది. మీ హెడ్‌ఫోన్‌లు వాటి స్థితిని ప్రసారం చేయడానికి బ్లూటూత్ తక్కువ శక్తి సాంకేతికతను ఉపయోగిస్తాయి. ఈ అనువర్తనం మీ స్థానాన్ని ನಿರ್ಧರಿಸಲು బ్లూటూత్ డేటాను ఉపయోగించదు.</string>
+    <string name="permission_background_location_label">నేపథ్య స్థాన ప్రాప్యత</string>
+    <string name="permission_background_location_description">CAPod అనువర్తనం మూసివేయబడినప్పుడు \"పాపప్ చూపించు\" మరియు \"ఆటోకనెక్ట్\" వంటి లక్షణాలను ప్రారంభించడానికి \"నేపథ్య స్థాన ప్రాప్యత\"ను ఉపయోగిస్తుంది. నేపథ్య స్థాన ప్రాప్యత అనువర్తనం నేపథ్యంలో ఉన్నప్పుడు బ్లూటూత్ తక్కువ శక్తి డేటాను స్వీకరించడానికి అనుమతిస్తుంది. ఈ అనువర్తనం మీ స్థానాన్ని ನಿರ್ಧರಿಸಲು బ్లూటూత్ డేటాను ఉపయోగించదు.</string>
+    <string name="permission_ignore_battery_optimizations_label">బ్యాటరీ ఆప్టిమైజేషన్‌లను నిలిపివేయండి</string>
+    <string name="permission_ignore_battery_optimizations_description">బ్యాటరీ ఆప్టిమైజేషన్‌లు ఈ అనువర్తనం నేపథ్యంలో ఉన్నప్పుడు బ్లూటూత్ డేటాను విశ్వసనీయంగా స్వీకరించకుండా నిరోధిస్తాయి.</string>
+    <string name="permission_required_title">కింది అనుమతి అవసరం:</string>
+    <string name="permission_system_alert_window_label">సిస్టమ్ హెచ్చరిక విండో</string>
+    <string name="permission_system_alert_window_description">CAPod \"పాపప్ చూపించు\" లక్షణాన్ని సాధ్యం చేయడానికి ఇతర అనువర్తనాలపై గీయడానికి అనుమతించండి.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">ಕಡಿಮೆ ಶಕ್ತಿ</string>
+    <string name="settings_scanner_mode_balanced_label">ಸಮತೋಲಿತ</string>
+    <string name="settings_scanner_mode_lowlatency_label">ಕಡಿಮೆ ಲೇಟೆನ್ಸಿ</string>
+
+    <string name="settings_monitor_mode_manual_label">ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದಾಗ</string>
+    <string name="settings_monitor_mode_automatic_label">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ</string>
+    <string name="settings_monitor_mode_always_label">ಯಾವಾಗಲೂ</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">ಕಂಡಾಗ</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">ಕೇಸ್ ತೆರೆದಿದೆ</string>
+    <string name="settings_reaction_autoconnect_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
+
+    <string name="pods_dual_left_label">ಎಡ ಪಾಡ್</string>
+    <string name="pods_dual_right_label">ಬಲ ಪಾಡ್</string>
+    <string name="pods_case_label">ಕೇಸ್</string>
+    <string name="pods_case_status_open_label">ತೆರೆದಿದೆ</string>
+    <string name="pods_case_status_closed_label">ಮುಚ್ಚಲಾಗಿದೆ</string>
+    <string name="pods_connection_state_disconnected_label">ಸಾಧನಕ್ಕೆ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ</string>
+    <string name="pods_connection_state_idle_label">ಸಾಧನಕ್ಕೆ ಸಂಪರ್ಕಗೊಂಡಿದೆ, ಆದರೆ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ</string>
+    <string name="pods_connection_state_music_label">ಸಂಗೀತ ಮೋಡ್‌ನಲ್ಲಿ</string>
+    <string name="pods_connection_state_call_label">ಕರೆ ಮೋಡ್‌ನಲ್ಲಿ</string>
+    <string name="pods_connection_state_ringing_label">ರಿಂಗಿಂಗ್</string>
+    <string name="pods_connection_state_hanging_up_label">ಕರೆ ಸ್ಥಗಿತಗೊಳಿಸಲಾಗುತ್ತಿದೆ</string>
+    <string name="pods_connection_state_unknown_label">ಅಜ್ಞಾತ ಸಂಪರ್ಕ ಸ್ಥಿತಿ</string>
+    <string name="pods_unknown_raw_data_label">ಕಚ್ಚಾ ಡೇಟಾ</string>
+    <string name="pods_unknown_label">ಅಜ್ಞಾತ ಸಾಧನ</string>
+    <string name="pods_unknown_contact_dev">ಇದು ಅಜ್ಞಾತ ಸಾಧನವಾಗಿದೆ, ಆದರೆ ఇది సారూప్య ಸಂದೇಶ ఆకృతిని ఉపయోగిస్తోంది. దీనికి మద్దతు జోడిద్దాం, నన్ను సంప్రదించండి :)</string>
+    <string name="pods_none_label_short">ಯಾವುದೇ ಸಾಧನವಿಲ್ಲ</string>
+    <string name="pods_charging_label">ಚಾರ್ಜಿಂಗ್</string>
+    <string name="pods_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
+    <string name="pods_microphone_label">ಮೈಕ್ರೊಫೋನ್</string>
+    <string name="pods_yours">ನಿಮ್ಮದು</string>
+    <string name="headset_being_worn_label">ಧರಿಸಲಾಗುತ್ತಿದೆ</string>
+    <string name="headset_not_being_worn_label">ಧರಿಸಲಾಗಿಲ್ಲ</string>
+    <string name="pods_case_unknown_state">ಅಜ್ಞಾತ ಸ್ಥಿತಿ</string>
+
+    <string name="last_seen_x">ಕೊನೆಯದಾಗಿ ನೋಡಿದ್ದು: %s</string>
+    <string name="first_seen_x">ಮೊದಲ ಬಾರಿಗೆ ನೋಡಿದ್ದು: %s</string>
+    <string name="permission_post_notifications_label">ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ</string>
+    <string name="permission_post_notifications_description">CAPod ನಿಮ್ಮ AirPods ಕುರಿತು ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಲು ಅನುಮತಿಸಿ, ಉದಾ. ಸಂಪರ್ಕಗೊಂಡಿರುವಾಗ ಅವುಗಳ ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ.</string>
+
 </resources>

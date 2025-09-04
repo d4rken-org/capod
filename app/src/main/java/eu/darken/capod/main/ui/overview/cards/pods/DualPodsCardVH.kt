@@ -57,9 +57,9 @@ class DualPodsCardVH(parent: ViewGroup) :
         podRightIcon.setImageResource(device.rightPodIcon)
 
         lastSeen.text =
-            context.getString(eu.darken.capod.common.R.string.last_seen_x, device.lastSeenFormatted(item.now))
+            context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
         firstSeen.text =
-            context.getString(eu.darken.capod.common.R.string.first_seen_x, device.firstSeenFormatted(item.now))
+            context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
         firstSeen.isGone = Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() < 1
 
         reception.text = item.getReceptionText()
@@ -158,9 +158,9 @@ class DualPodsCardVH(parent: ViewGroup) :
         device.apply {
             if (this is DualApplePods) {
                 podCaseLidLabel.text = when (caseLidState) {
-                    LidState.OPEN -> context.getString(eu.darken.capod.common.R.string.pods_case_status_open_label)
-                    LidState.CLOSED -> context.getString(eu.darken.capod.common.R.string.pods_case_status_closed_label)
-                    else -> context.getString(eu.darken.capod.common.R.string.pods_case_unknown_state)
+                    LidState.OPEN -> context.getString(R.string.pods_case_status_open_label)
+                    LidState.CLOSED -> context.getString(R.string.pods_case_status_closed_label)
+                    else -> context.getString(R.string.pods_case_unknown_state)
                 }
 
                 val hideInfo = !listOf(LidState.OPEN, LidState.CLOSED).contains(caseLidState)

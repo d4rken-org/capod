@@ -7,7 +7,7 @@ import android.os.PowerManager
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import eu.darken.capod.common.BuildConfigWrap
-import eu.darken.capod.common.R
+import eu.darken.capod.R
 import eu.darken.capod.common.withinApiLevel
 
 enum class Permission(

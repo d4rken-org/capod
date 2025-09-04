@@ -145,4 +145,76 @@
     <string name="onboarding_body2">সব অ্যান্ড্রয়েড ডিভাইস সম্পূর্ণরূপে অতিরিক্ত AirPod বৈশিষ্ট্য সমর্থন করে না। আপনার অপারেটিং সিস্টেমের একটি সঠিকভাবে কাজ করা ব্লুটুথ-লো-এনার্জি বাস্তবায়ন প্রয়োজন।</string>
     <string name="onboarding_body3">CAPod-এ কোনো বিজ্ঞাপন নেই এবং আপনার ডেটা সংগ্রহ করে না।</string>
     <string name="onboarding_body4">অতিরিক্ত বৈশিষ্ট্য পেতে এবং উন্নয়ন সমর্থন করতে আপনি CAPod Pro-তে আপগ্রেড করতে পারেন।</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">প্রযোজ্য নয়</string>
+    <string name="general_error_label">ত্রুটি</string>
+    <string name="general_grant_permission_action">অনুমতি প্রদান করুন</string>
+
+    <string name="overview_nomaindevice_label">কোনও প্রাথমিক ডিভাইস নেই</string>
+    <string name="overview_nomaindevice_description">শনাক্ত করা সমস্ত ডিভাইস সম্ভবত আপনার নয়। আপনার ডিভাইস চালু করুন এবং সংযোগ করুন অথবা সেটিংস সামঞ্জস্য করুন।</string>
+    <string name="overview_bluetooth_disabled_label">ব্লুটুথ নিষ্ক্রিয় করা আছে</string>
+    <string name="overview_bluetooth_disabled_description">ব্লুটুথ নিষ্ক্রিয় করা আছে, এটি সক্রিয় করুন ;)</string>
+
+    <string name="permission_bluetooth_connect_label">ব্লুটুথ সংযোগ</string>
+    <string name="permission_bluetooth_connect_description">এই অ্যাপটির পেয়ার করা ডিভাইসগুলির সাথে ইন্টারঅ্যাক্ট করতে এবং সংযোগ শুরু করতে "ব্লুটুথ সংযোগ" অনুমতির প্রয়োজন।</string>
+    <string name="permission_bluetooth_scan_label">ব্লুটুথ স্ক্যানিং</string>
+    <string name="permission_bluetooth_scan_description">"ব্লুটুথ স্ক্যানিং" অনুমতি এই অ্যাপটিকে আপনার AirPods-এর মতো কাছাকাছি ডিভাইসগুলি থেকে ব্লুটুথ ডেটা আবিষ্কার এবং গ্রহণ করতে দেয়।</string>
+    <string name="permission_bluetooth_label">ব্লুটুথ</string>
+    <string name="permission_bluetooth_description">এই অ্যাপটির পেয়ার করা ব্লুটুথ ডিভাইসগুলির সাথে সংযোগ করতে "ব্লুটুথ" অনুমতির প্রয়োজন।</string>
+    <string name="permission_access_fine_location_label">সঠিক অবস্থানে অ্যাক্সেস</string>
+    <string name="permission_access_fine_location_description">CAPod ব্লুটুথ লো এনার্জি ডেটা গ্রহণ করতে "সঠিক অবস্থান" অনুমতি ব্যবহার করে। আপনার হেডফোনগুলি তাদের স্থিতি সম্প্রচার করতে ব্লুটুথ লো এনার্জি প্রযুক্তি ব্যবহার করে। এই অ্যাপটি আপনার অবস্থান নির্ধারণ করতে ব্লুটুথ ডেটা ব্যবহার করবে না।</string>
+    <string name="permission_background_location_label">পটভূমি অবস্থানে অ্যাক্সেস</string>
+    <string name="permission_background_location_description">অ্যাপটি বন্ধ থাকা অবস্থায় "পপআপ দেখান" এবং "স্বয়ংক্রিয় সংযোগ" এর মতো বৈশিষ্ট্যগুলি সক্ষম করতে CAPod "পটভূমি অবস্থানে অ্যাক্সেস" ব্যবহার করে। পটভূমি অবস্থানে অ্যাক্সেস অ্যাপটিকে পটভূমিতে থাকাকালীন ব্লুটুথ লো এনার্জি ডেটা গ্রহণ করতে দেয়। এই অ্যাপটি আপনার অবস্থান নির্ধারণ করতে ব্লুটুথ ডেটা ব্যবহার করবে না।</string>
+    <string name="permission_ignore_battery_optimizations_label">ব্যাটারি অপ্টিমাইজেশন নিষ্ক্রিয় করুন</string>
+    <string name="permission_ignore_battery_optimizations_description">অ্যাপটি পটভূমিতে থাকাকালীন ব্যাটারি অপ্টিমাইজেশন এই অ্যাপটিকে নির্ভরযোগ্যভাবে ব্লুটুথ ডেটা গ্রহণ করতে বাধা দেয়।</string>
+    <string name="permission_required_title">নিম্নলিখিত অনুমতি প্রয়োজন:</string>
+    <string name="permission_system_alert_window_label">সিস্টেম সতর্কতা উইন্ডো</string>
+    <string name="permission_system_alert_window_description">CAPod-কে "পপআপ দেখান" বৈশিষ্ট্যটি সম্ভব করতে অন্যান্য অ্যাপের উপর আঁকতে অনুমতি দিন।</string>
+
+    <string name="settings_scanner_mode_lowpower_label">কম শক্তি</string>
+    <string name="settings_scanner_mode_balanced_label">ভারসাম্যপূর্ণ</string>
+    <string name="settings_scanner_mode_lowlatency_label">কম লেটেন্সি</string>
+
+    <string name="settings_monitor_mode_manual_label">অ্যাপ খোলা থাকলে</string>
+    <string name="settings_monitor_mode_automatic_label">ডিভাইস সংযুক্ত থাকলে</string>
+    <string name="settings_monitor_mode_always_label">সবসময়</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">দেখলে</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">কেস খোলা আছে</string>
+    <string name="settings_reaction_autoconnect_inear_label">কানে</string>
+
+    <string name="pods_dual_left_label">বাম পড</string>
+    <string name="pods_dual_right_label">ডান পড</string>
+    <string name="pods_case_label">কেস</string>
+    <string name="pods_case_status_open_label">খোলা</string>
+    <string name="pods_case_status_closed_label">বন্ধ</string>
+    <string name="pods_connection_state_disconnected_label">কোনও ডিভাইসের সাথে সংযুক্ত নয়</string>
+    <string name="pods_connection_state_idle_label">একটি ডিভাইসের সাথে সংযুক্ত, কিন্তু নিষ্ক্রিয়</string>
+    <string name="pods_connection_state_music_label">মিউজিক মোডে</string>
+    <string name="pods_connection_state_call_label">কল মোডে</string>
+    <string name="pods_connection_state_ringing_label">রিং হচ্ছে</string>
+    <string name="pods_connection_state_hanging_up_label">সংযোগ বিচ্ছিন্ন হচ্ছে</string>
+    <string name="pods_connection_state_unknown_label">অজানা সংযোগ স্থিতি</string>
+    <string name="pods_unknown_raw_data_label">কাঁচা ডেটা</string>
+    <string name="pods_unknown_label">অজানা ডিভাইস</string>
+    <string name="pods_unknown_contact_dev">এটি একটি অজানা ডিভাইস, তবে এটি একই ধরনের বার্তা বিন্যাস ব্যবহার করছে। আসুন এটির জন্য সমর্থন যোগ করি, আমার সাথে যোগাযোগ করুন :)</string>
+    <string name="pods_none_label_short">কোনও ডিভাইস নেই</string>
+    <string name="pods_charging_label">চার্জ হচ্ছে</string>
+    <string name="pods_inear_label">কানে</string>
+    <string name="pods_microphone_label">মাইক্রোফোন</string>
+    <string name="pods_yours">আপনার</string>
+    <string name="headset_being_worn_label">পরিধান করা হচ্ছে</string>
+    <string name="headset_not_being_worn_label">পরিধান করা হয়নি</string>
+    <string name="pods_case_unknown_state">অজানা স্থিতি</string>
+
+    <string name="last_seen_x">শেষ দেখা: %s</string>
+    <string name="first_seen_x">প্রথম দেখা: %s</string>
+    <string name="permission_post_notifications_label">বিজ্ঞপ্তি দেখান</string>
+    <string name="permission_post_notifications_description">CAPod-কে আপনার AirPods সম্পর্কে বিজ্ঞপ্তি দেখাতে অনুমতি দিন, যেমন সংযুক্ত থাকাকালীন তাদের বর্তমান স্থিতি।</string>
+
 </resources>

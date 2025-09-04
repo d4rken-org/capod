@@ -2,6 +2,7 @@ package eu.darken.capod.common.error
 
 import android.content.Context
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import eu.darken.capod.R
 
 fun Throwable.asErrorDialogBuilder(
     context: Context

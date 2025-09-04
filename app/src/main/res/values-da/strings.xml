@@ -147,4 +147,76 @@
     <string name="onboarding_body3">CAPod har ingen annoncer og indsamler ikke dine data.</string>
     <string name="onboarding_body4">Du kan opgradere til CAPod Pro for at få ekstra funktioner og støtte udviklingen.</string>
 
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">I/T</string>
+    <string name="general_error_label">Fejl</string>
+    <string name="general_grant_permission_action">Giv tilladelse</string>
+
+    <string name="overview_nomaindevice_label">Ingen primær enhed</string>
+    <string name="overview_nomaindevice_description">Alle registrerede enheder er sandsynligvis ikke dine. Tænd og tilslut din enhed, eller juster indstillingerne.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth er deaktiveret</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth er deaktiveret, aktiver det ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth-forbindelse</string>
+    <string name="permission_bluetooth_connect_description">Denne app kræver tilladelsen \"Bluetooth-forbindelse\" for at interagere med parrede enheder og starte forbindelser.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth-scanning</string>
+    <string name="permission_bluetooth_scan_description">Tilladelsen \"Bluetooth-scanning\" giver denne app mulighed for at finde og modtage Bluetooth-data fra nærliggende enheder såsom dine AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Denne app kræver tilladelsen \"Bluetooth\" for at oprette forbindelse til parrede Bluetooth-enheder.</string>
+    <string name="permission_access_fine_location_label">Adgang til fin placering</string>
+    <string name="permission_access_fine_location_description">CAPod bruger tilladelsen \"fin placering\" til at modtage Bluetooth Low Energy-data. Dine hovedtelefoner bruger Bluetooth Low Energy-teknologi til at udsende deres status. Denne app vil IKKE bruge Bluetooth-data til at bestemme din placering.</string>
+    <string name="permission_background_location_label">Adgang til baggrundsplacering</string>
+    <string name="permission_background_location_description">CAPod bruger \"adgang til baggrundsplacering\" til at aktivere funktioner som \"Vis pop op\" og \"AutoConnect\", mens appen er lukket. Adgang til baggrundsplacering giver appen mulighed for at modtage Bluetooth Low Energy-data, mens den er i baggrunden. Denne app vil IKKE bruge Bluetooth-data til at bestemme din placering.</string>
+    <string name="permission_ignore_battery_optimizations_label">Deaktiver batterioptimeringer</string>
+    <string name="permission_ignore_battery_optimizations_description">Batterioptimeringer forhindrer denne app i at modtage Bluetooth-data pålideligt, mens appen er i baggrunden.</string>
+    <string name="permission_required_title">Følgende tilladelse er påkrævet:</string>
+    <string name="permission_system_alert_window_label">Systemadvarselsvindue</string>
+    <string name="permission_system_alert_window_description">Tillad CAPod at tegne oven på andre apps for at gøre funktionen \"Vis PopOp\" mulig.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Lav effekt</string>
+    <string name="settings_scanner_mode_balanced_label">Balanceret</string>
+    <string name="settings_scanner_mode_lowlatency_label">Lav latenstid</string>
+
+    <string name="settings_monitor_mode_manual_label">Når appen er åben</string>
+    <string name="settings_monitor_mode_automatic_label">Når enheden er tilsluttet</string>
+    <string name="settings_monitor_mode_always_label">Altid</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Når set</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Etui er åbent</string>
+    <string name="settings_reaction_autoconnect_inear_label">I øret</string>
+
+    <string name="pods_dual_left_label">Venstre pod</string>
+    <string name="pods_dual_right_label">Højre pod</string>
+    <string name="pods_case_label">Etui</string>
+    <string name="pods_case_status_open_label">Åben</string>
+    <string name="pods_case_status_closed_label">Lukket</string>
+    <string name="pods_connection_state_disconnected_label">Ikke tilsluttet en enhed</string>
+    <string name="pods_connection_state_idle_label">Tilsluttet en enhed, men inaktiv</string>
+    <string name="pods_connection_state_music_label">I musiktilstand</string>
+    <string name="pods_connection_state_call_label">I opkaldstilstand</string>
+    <string name="pods_connection_state_ringing_label">Ringer</string>
+    <string name="pods_connection_state_hanging_up_label">Lægger på</string>
+    <string name="pods_connection_state_unknown_label">Ukendt forbindelsestilstand</string>
+    <string name="pods_unknown_raw_data_label">Rådata</string>
+    <string name="pods_unknown_label">Ukendt enhed</string>
+    <string name="pods_unknown_contact_dev">Dette er en ukendt enhed, men den bruger et lignende meddelelsesformat. Lad os tilføje understøttelse for den, kontakt mig :)</string>
+    <string name="pods_none_label_short">Ingen enhed</string>
+    <string name="pods_charging_label">Oplader</string>
+    <string name="pods_inear_label">I øret</string>
+    <string name="pods_microphone_label">Mikrofon</string>
+    <string name="pods_yours">Dine</string>
+    <string name="headset_being_worn_label">Bæres</string>
+    <string name="headset_not_being_worn_label">Bæres ikke</string>
+    <string name="pods_case_unknown_state">Ukendt tilstand</string>
+
+    <string name="last_seen_x">Sidst set: %s</string>
+    <string name="first_seen_x">Først set: %s</string>
+    <string name="permission_post_notifications_label">Vis notifikationer</string>
+    <string name="permission_post_notifications_description">Tillad CAPod at vise notifikationer om dine AirPods, f.eks. deres aktuelle status, mens de er tilsluttet.</string>
+
+
 </resources>

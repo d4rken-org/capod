@@ -2,7 +2,7 @@ package eu.darken.capod.pods.core.apple.airpods
 
 import android.content.Context
 import androidx.annotation.StringRes
-import eu.darken.capod.common.R
+import eu.darken.capod.R
 import eu.darken.capod.pods.core.HasStateDetection
 import eu.darken.capod.pods.core.apple.ApplePods
 

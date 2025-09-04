@@ -145,4 +145,76 @@
     <string name="onboarding_body2">Android စက်ပစ္စည်းအားလုံးသည် အပို AirPod အင်္ဂါရပ်များကို အပြည့်အဝမပံ့ပိုးပါ။ သင့်လည်ပတ်မှုစနစ်သည် မှန်ကန်စွာအလုပ်လုပ်သော Bluetooth-Low-Energy အကောင်အထည်ဖော်မှုတစ်ခုလိုအပ်သည်။</string>
     <string name="onboarding_body3">CAPod တွင် ကြော်ငြာများမရှိပါ၊ ၎င်းသည် သင့်ဒေတာကိုမစုဆောင်းပါ။</string>
     <string name="onboarding_body4">အပိုအင်္ဂါရပ်များရယူရန်နှင့် ဖွံ့ဖြိုးတိုးတက်မှုကိုထောက်ပံ့ရန် သင် CAPod Pro သို့ အဆင့်မြှင့်နိုင်သည်။</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">မရနိုင်ပါ</string>
+    <string name="general_error_label">အမှား</string>
+    <string name="general_grant_permission_action">ခွင့်ပြုချက်ပေးပါ</string>
+
+    <string name="overview_nomaindevice_label">ပင်မစက်ပစ္စည်းမရှိပါ</string>
+    <string name="overview_nomaindevice_description">တွေ့ရှိutako စက်ပစ္စည်းအားလုံးသည် သင့်စက်ပစ္စည်းများ ဖြစ်နိုင်ခြေနည်းပါသည်။ သင့်စက်ပစ္စည်းကို ဖွင့်ပြီး ချိတ်ဆက်ပါ သို့မဟုတ် ဆက်တင်များကို ချိန်ညှိပါ။</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth ကို ပိတ်ထားသည်</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth ကို ပိတ်ထားသည်, ဖွင့်ပါ ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth ချိတ်ဆက်မှု</string>
+    <string name="permission_bluetooth_connect_description">ဤအက်ပ်သည် ချိတ်ဆက်ထားသော စက်ပစ္စည်းများနှင့် အပြန်အလှัน 작용하고 ချိတ်ဆက်မှုများ စတင်ရန် \"Bluetooth ချိတ်ဆက်မှု\" ခွင့်ပြုချက် လိုအပ်သည်။</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth စကင်ဖတ်ခြင်း</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth စကင်ဖတ်ခြင်း\" ခွင့်ပြုချက်သည် ဤအက်ပ်အား သင့် AirPods ကဲ့သို့သော အနီးအနားရှိ စက်ပစ္စည်းများမှ Bluetooth ဒေတာကို ရှာဖွေတွေ့ရှိရန်နှင့် လက်ခံရယူရန် ခွင့်ပြုသည်။</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">ဤအက်ပ်သည် ချိတ်ဆက်ထားသော Bluetooth စက်ပစ္စည်းများသို့ ချိတ်ဆက်ရန် \"Bluetooth\" ခွင့်ပြုချက် လိုအပ်သည်။</string>
+    <string name="permission_access_fine_location_label">တိကျသောတည်နေရာကို ဝင်ရောက်ကြည့်ရှုပါ</string>
+    <string name="permission_access_fine_location_description">CAPod သည် Bluetooth Low Energy ဒေတာကို လက်ခံရယူရန် \"တိကျသောတည်နေရာ\" ခွင့်ပြုချက်ကို အသုံးပြုသည်။ သင့်နားကြပ်များသည် ၎င်းတို့၏အခြေအနေကို ထုတ်လွှင့်ရန် Bluetooth Low Energy နည်းပညာကို အသုံးပြုသည်။ ဤအက်ပ်သည် သင့်တည်နေရာကို ဆုံးဖြတ်ရန် Bluetooth ဒေတာကို အသုံးမပြုပါ။</string>
+    <string name="permission_background_location_label">နောက်ခံတည်နေရာဝင်ရောက်ခွင့်</string>
+    <string name="permission_background_location_description">CAPod သည် အက်ပ်ပိတ်ထားသည့်အခါ \"Pop-up ပြ\" နှင့် \"အလိုအလျောက်ချိတ်ဆက်\" ကဲ့သို့သော လုပ်ဆောင်ချက်များကို ဖွင့်ရန် \"နောက်ခံတည်နေရာဝင်ရောက်ခွင့်\" ကို အသုံးပြုသည်။ နောက်ခံတည်နေရာဝင်ရောက်ခွင့်သည် အက်ပ်နောက်ခံတွင်ရှိနေစဉ် Bluetooth Low Energy ဒေတာကို လက်ခံရယူခွင့်ပြုသည်။ ဤအက်ပ်သည် သင့်တည်နေရာကို ဆုံးဖြတ်ရန် Bluetooth ဒေတာကို အသုံးမပြုပါ။</string>
+    <string name="permission_ignore_battery_optimizations_label">ဘက်ထရီ օптимизациясын өчүрүү</string>
+    <string name="permission_ignore_battery_optimizations_description">ဘက်ထရီ օптимизациясы бул колдонмо фондо турганда Bluetooth дайындарын ишенимдүү түрдө алуусуна тоскоол болот.</string>
+    <string name="permission_required_title">အောက်ပါခွင့်ပြုချက် လိုအပ်သည်:</string>
+    <string name="permission_system_alert_window_label">စနစ်သတိပေးဝင်းဒိုး</string>
+    <string name="permission_system_alert_window_description">CAPod အား \"PopUp ပြ\" လုပ်ဆောင်ချက်ကို ဖြစ်နိုင်စေရန် အခြားအက်ပ်များပေါ်တွင် ဆွဲခွင့်ပြုပါ။</string>
+
+    <string name="settings_scanner_mode_lowpower_label">ថាមពលទាប</string>
+    <string name="settings_scanner_mode_balanced_label">តុល្យភាព</string>
+    <string name="settings_scanner_mode_lowlatency_label">ភាពយឺតយ៉ាវទាប</string>
+
+    <string name="settings_monitor_mode_manual_label">အက်ပ်ဖွင့်ထားသည့်အခါ</string>
+    <string name="settings_monitor_mode_automatic_label">စက်ပစ္စည်းချိတ်ဆက်ထားသည့်အခါ</string>
+    <string name="settings_monitor_mode_always_label">အမြဲတမ်း</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">မြင်တွေ့သည့်အခါ</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">ဘူးခွံဖွင့်ထားသည်</string>
+    <string name="settings_reaction_autoconnect_inear_label">နားထဲတွင်</string>
+
+    <string name="pods_dual_left_label">ဘယ်ဘက် pod</string>
+    <string name="pods_dual_right_label">ညာဘက် pod</string>
+    <string name="pods_case_label">ဘူးခွံ</string>
+    <string name="pods_case_status_open_label">ဖွင့်ထားသည်</string>
+    <string name="pods_case_status_closed_label">ပိတ်ထားသည်</string>
+    <string name="pods_connection_state_disconnected_label">စက်ပစ္စည်းတစ်ခုသို့ ချိတ်ဆက်မထားပါ</string>
+    <string name="pods_connection_state_idle_label">စက်ပစ္စည်းတစ်ခုသို့ ချိတ်ဆက်ထားသော်လည်း செயலற்று உள்ளது</string>
+    <string name="pods_connection_state_music_label">တေးဂီတမုဒ်တွင်</string>
+    <string name="pods_connection_state_call_label">ခေါ်ဆိုမှုမုဒ်တွင်</string>
+    <string name="pods_connection_state_ringing_label">မြည်နေသည်</string>
+    <string name="pods_connection_state_hanging_up_label">ချိတ်ပိတ်နေသည်</string>
+    <string name="pods_connection_state_unknown_label">မသိသော ချိတ်ဆက်မှုအခြေအနေ</string>
+    <string name="pods_unknown_raw_data_label">ดิบข้อมูล</string>
+    <string name="pods_unknown_label">မသိသော စက်ပစ္စည်း</string>
+    <string name="pods_unknown_contact_dev">នេះគឺជាឧបករណ៍ដែលមិនรู้จัก ប៉ុន្តែវាកំពុងប្រើទ្រង់ទ្រាយសារស្រដៀងគ្នា។ តោះបន្ថែមការគាំទ្រសម្រាប់វា ទាក់ទងមកខ្ញុំ :)</string>
+    <string name="pods_none_label_short">စက်ပစ္စည်းမရှိပါ</string>
+    <string name="pods_charging_label">အားသွင်းနေသည်</string>
+    <string name="pods_inear_label">နားထဲတွင်</string>
+    <string name="pods_microphone_label">မိုက်ခရိုဖုန်း</string>
+    <string name="pods_yours">သင့်</string>
+    <string name="headset_being_worn_label">ဝတ်ဆင်ထားသည်</string>
+    <string name="headset_not_being_worn_label">ဝတ်ဆင်မထားပါ</string>
+    <string name="pods_case_unknown_state">မသိသော အခြေအနေ</string>
+
+    <string name="last_seen_x">နောက်ဆုံးမြင်တွေ့ချိန်: %s</string>
+    <string name="first_seen_x">ပထမဆုံးမြင်တွေ့ချိန်: %s</string>
+    <string name="permission_post_notifications_label">အသိပေးချက်များပြသရန်</string>
+    <string name="permission_post_notifications_description">CAPod အား သင်၏ AirPods เกี่ยวกับ အသိပေးချက်များပြသရန် ခွင့်ပြုပါ, ဥပမာ။ ချိတ်ဆက်ထားစဉ် ၎င်းတို့၏ လက်ရှိအခြေအနေ။</string>
+
 </resources>

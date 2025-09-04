@@ -147,4 +147,76 @@
     <string name="onboarding_body3">CAPod жарнамасыз жана сиздин маалыматтарыңызды чогултпайт.</string>
     <string name="onboarding_body4">Сиз CAPod Pro\'го жаңыртып, кошумча функцияларды алып, иштеп чыгууну колдой аласыз.</string>
 
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Ж/Ж</string>
+    <string name="general_error_label">Ката</string>
+    <string name="general_grant_permission_action">Уруксат берүү</string>
+
+    <string name="overview_nomaindevice_label">Негизги түзмөк жок</string>
+    <string name="overview_nomaindevice_description">Табылган бардык түзмөктөр сиздики эмес болушу мүмкүн. Түзмөгүңүздү күйгүзүп, туташтырыңыз же жөндөөлөрдү тууралаңыз.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth өчүрүлгөн</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth өчүрүлгөн, аны күйгүзүңүз ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth туташуусу</string>
+    <string name="permission_bluetooth_connect_description">Бул колдонмого жупташкан түзмөктөр менен иштешүү жана туташууларды баштоо үчүн \"Bluetooth туташуусу\" уруксаты талап кылынат.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth скандоо</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth скандоо\" уруксаты бул колдонмого AirPods сыяктуу жакынкы түзмөктөрдөн Bluetooth дайындарын табууга жана алууга мүмкүндүк берет.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Бул колдонмого жупташкан Bluetooth түзмөктөрүнө туташуу үчүн \"Bluetooth\" уруксаты талап кылынат.</string>
+    <string name="permission_access_fine_location_label">Так жайгашууга жетүү</string>
+    <string name="permission_access_fine_location_description">CAPod Bluetooth Low Energy дайындарын алуу үчүн \"так жайгашуу\" уруксатын колдонот. Сиздин наушниктериңиз статусун берүү үчүн Bluetooth Low Energy технологиясын колдонот. Бул колдонмо жайгашкан жериңизди аныктоо үчүн Bluetooth дайындарын КОЛДОНБОЙТ.</string>
+    <string name="permission_background_location_label">Фондук жайгашууга жетүү</string>
+    <string name="permission_background_location_description">CAPod колдонмо жабык турганда \"Калкыма терезени көрсөтүү\" жана \"Автотуташуу\" сыяктуу функцияларды иштетүү үчүн \"фондук жайгашууга жетүү\" мүмкүнчүлүгүн колдонот. Фондук жайгашууга жетүү колдонмого фондо турганда Bluetooth Low Energy дайындарын алууга мүмкүндүк берет. Бул колдонмо жайгашкан жериңизди аныктоо үчүн Bluetooth дайындарын КОЛДОНБОЙТ.</string>
+    <string name="permission_ignore_battery_optimizations_label">Батареяны оптималдаштырууну өчүрүү</string>
+    <string name="permission_ignore_battery_optimizations_description">Батареяны оптималдаштыруу бул колдонмо фондо турганда Bluetooth дайындарын ишенимдүү түрдө алуусуна тоскоол болот.</string>
+    <string name="permission_required_title">Төмөнкү уруксат талап кылынат:</string>
+    <string name="permission_system_alert_window_label">Системалык эскертүү терезеси</string>
+    <string name="permission_system_alert_window_description">CAPodго \"PopUp көрсөтүү\" функциясын иштетүү үчүн башка колдонмолордун үстүнө тартууга уруксат бериңиз.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Төмөн кубаттуулук</string>
+    <string name="settings_scanner_mode_balanced_label">Тең салмактуу</string>
+    <string name="settings_scanner_mode_lowlatency_label">Төмөн кечигүү</string>
+
+    <string name="settings_monitor_mode_manual_label">Колдонмо ачык кезде</string>
+    <string name="settings_monitor_mode_automatic_label">Түзмөк туташканда</string>
+    <string name="settings_monitor_mode_always_label">Ар дайым</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Көрүнгөндө</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Кап ачык</string>
+    <string name="settings_reaction_autoconnect_inear_label">Кулакта</string>
+
+    <string name="pods_dual_left_label">Сол кулакчын</string>
+    <string name="pods_dual_right_label">Оң кулакчын</string>
+    <string name="pods_case_label">Кап</string>
+    <string name="pods_case_status_open_label">Ачык</string>
+    <string name="pods_case_status_closed_label">Жабык</string>
+    <string name="pods_connection_state_disconnected_label">Түзмөккө туташкан эмес</string>
+    <string name="pods_connection_state_idle_label">Түзмөккө туташкан, бирок бош</string>
+    <string name="pods_connection_state_music_label">Музыка режиминде</string>
+    <string name="pods_connection_state_call_label">Чалуу режиминде</string>
+    <string name="pods_connection_state_ringing_label">шыңгырап жатат</string>
+    <string name="pods_connection_state_hanging_up_label">Линияны коюу</string>
+    <string name="pods_connection_state_unknown_label">Белгисиз туташуу абалы</string>
+    <string name="pods_unknown_raw_data_label">Чийки маалыматтар</string>
+    <string name="pods_unknown_label">Белгисиз түзмөк</string>
+    <string name="pods_unknown_contact_dev">Бул белгисиз түзмөк, бирок ал окшош билдирүү форматын колдонуп жатат. Ага колдоо кошолу, мени менен байланышыңыз :)</string>
+    <string name="pods_none_label_short">Түзмөк жок</string>
+    <string name="pods_charging_label">Заряддалууда</string>
+    <string name="pods_inear_label">Кулакта</string>
+    <string name="pods_microphone_label">Микрофон</string>
+    <string name="pods_yours">Сиздики</string>
+    <string name="headset_being_worn_label">Тагылган</string>
+    <string name="headset_not_being_worn_label">Тагылган эмес</string>
+    <string name="pods_case_unknown_state">Белгисиз абал</string>
+
+    <string name="last_seen_x">Акыркы жолу көрүлгөн: %s</string>
+    <string name="first_seen_x">Биринчи жолу көрүлгөн: %s</string>
+    <string name="permission_post_notifications_label">Билдирмелерди көрсөтүү</string>
+    <string name="permission_post_notifications_description">CAPodго AirPods жөнүндө билдирмелерди көрсөтүүгө уруксат бериңиз, мисалы, туташып тургандагы учурдагы абалы.</string>
+
+
 </resources>

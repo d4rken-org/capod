@@ -1,7 +1,7 @@
 package eu.darken.capod.common.error
 
 import android.content.Context
-import eu.darken.capod.common.R
+import eu.darken.capod.R
 
 interface HasLocalizedError {
     fun getLocalizedError(context: Context): LocalizedError

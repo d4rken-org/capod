@@ -125,4 +125,76 @@
     <string name="onboarding_body2">Barcha Android qurilmalari AirPod qo\'shimcha xususiyatlarini to\'liq qo\'llab-quvvatlamaydi. Operatsion tizimingiz to\'g\'ri ishlaydigan Bluetooth-Low-Energy amalga oshirishni talab qiladi.</string>
     <string name="onboarding_body3">CAPod\'da reklamalar yo\'q va u sizning ma\'lumotlaringizni yig\'maydi.</string>
     <string name="onboarding_body4">Qo\'shimcha xususiyatlarni olish va rivojlanishni qo\'llab-quvvatlash uchun CAPod Pro\'ga yangilashingiz mumkin.</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Mavjud emas</string>
+    <string name="general_error_label">Xato</string>
+    <string name="general_grant_permission_action">Ruxsat berish</string>
+
+    <string name="overview_nomaindevice_label">Asosiy qurilma yo\'q</string>
+    <string name="overview_nomaindevice_description">Aniqlangan barcha qurilmalar sizniki bo\'lishi dargumon. Qurilmangizni yoqing va ulang yoki sozlamalarni o\'zgartiring.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth o\'chirilgan</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth o\'chirilgan, uni yoqing ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth ulanishi</string>
+    <string name="permission_bluetooth_connect_description">Ushbu ilovaga ulangan qurilmalar bilan ishlash va ulanishlarni boshlash uchun \"Bluetooth ulanishi\" ruxsati kerak.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth skanerlash</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth skanerlash\" ruxsati ushbu ilovaga AirPods kabi yaqin atrofdagi qurilmalardan Bluetooth ma\'lumotlarini topish va qabul qilish imkonini beradi.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Ushbu ilovaga ulangan bluetooth qurilmalariga ulanish uchun \"Bluetooth\" ruxsati kerak.</string>
+    <string name="permission_access_fine_location_label">Aniq joylashuvga kirish</string>
+    <string name="permission_access_fine_location_description">CAPod Bluetooth Low Energy ma\'lumotlarini qabul qilish uchun \"aniq joylashuv\" ruxsatidan foydalanadi. Eshitish vositalaringiz o\'z holatini uzatish uchun Bluetooth Low Energy texnologiyasidan foydalanadi. Ushbu ilova joylashuvingizni aniqlash uchun Bluetooth ma\'lumotlaridan foydalanmaydi.</string>
+    <string name="permission_background_location_label">Fonda joylashuvga kirish</string>
+    <string name="permission_background_location_description">CAPod ilova yopiq bo\'lganda \"Qalqib chiquvchi oynani ko\'rsatish\" va \"Avtomatik ulanish\" kabi funktsiyalarni yoqish uchun \"fonda joylashuvga kirish\" dan foydalanadi. Fonda joylashuvga kirish ilovaga fonda bo\'lganda Bluetooth Low Energy ma\'lumotlarini qabul qilish imkonini beradi. Ushbu ilova joylashuvingizni aniqlash uchun Bluetooth ma\'lumotlaridan foydalanmaydi.</string>
+    <string name="permission_ignore_battery_optimizations_label">Batareyani optimallashtirishni o\'chirib qo\'yish</string>
+    <string name="permission_ignore_battery_optimizations_description">Batareyani optimallashtirish ushbu ilovaga fonda bo\'lganda Bluetooth ma\'lumotlarini ishonchli tarzda qabul qilishiga to\'sqinlik qiladi.</string>
+    <string name="permission_required_title">Quyidagi ruxsat talab qilinadi:</string>
+    <string name="permission_system_alert_window_label">Tizim ogohlantirish oynasi</string>
+    <string name="permission_system_alert_window_description">CAPodga \"Qalqib chiquvchi oynani ko\'rsatish\" funktsiyasini amalga oshirish uchun boshqa ilovalar ustiga chizishga ruxsat bering.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Kam quvvat</string>
+    <string name="settings_scanner_mode_balanced_label">Muvozanatli</string>
+    <string name="settings_scanner_mode_lowlatency_label">Kam kechikish</string>
+
+    <string name="settings_monitor_mode_manual_label">Ilova ochiq bo\'lganda</string>
+    <string name="settings_monitor_mode_automatic_label">Qurilma ulanganda</string>
+    <string name="settings_monitor_mode_always_label">Har doim</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Ko\'ringanda</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Keys ochiq</string>
+    <string name="settings_reaction_autoconnect_inear_label">Quloqda</string>
+
+    <string name="pods_dual_left_label">Chap pod</string>
+    <string name="pods_dual_right_label">O\'ng pod</string>
+    <string name="pods_case_label">Keys</string>
+    <string name="pods_case_status_open_label">Ochiq</string>
+    <string name="pods_case_status_closed_label">Yopiq</string>
+    <string name="pods_connection_state_disconnected_label">Qurilmaga ulanmagan</string>
+    <string name="pods_connection_state_idle_label">Qurilmaga ulangan, lekin bo\'sh</string>
+    <string name="pods_connection_state_music_label">Musiqa rejimida</string>
+    <string name="pods_connection_state_call_label">Qo\'ng\'iroq rejimida</string>
+    <string name="pods_connection_state_ringing_label">Jiringlamoqda</string>
+    <string name="pods_connection_state_hanging_up_label">Go\'shakni qo\'ymoqda</string>
+    <string name="pods_connection_state_unknown_label">Noma\'lum ulanish holati</string>
+    <string name="pods_unknown_raw_data_label">Xom ma\'lumotlar</string>
+    <string name="pods_unknown_label">Noma\'lum qurilma</string>
+    <string name="pods_unknown_contact_dev">Bu noma\'lum qurilma, lekin u shunga o\'xshash xabar formatidan foydalanmoqda. Keling, uni qo\'llab-quvvatlaylik, men bilan bog\'laning :)</string>
+    <string name="pods_none_label_short">Qurilma yo\'q</string>
+    <string name="pods_charging_label">Zaryadlanmoqda</string>
+    <string name="pods_inear_label">Quloqda</string>
+    <string name="pods_microphone_label">Mikrofon</string>
+    <string name="pods_yours">Sizniki</string>
+    <string name="headset_being_worn_label">Taqilgan</string>
+    <string name="headset_not_being_worn_label">Taqilmagan</string>
+    <string name="pods_case_unknown_state">Noma\'lum holat</string>
+
+    <string name="last_seen_x">Oxirgi marta ko\'rilgan: %s</string>
+    <string name="first_seen_x">Birinchi marta ko\'rilgan: %s</string>
+    <string name="permission_post_notifications_label">Bildirishnomalarni ko\'rsatish</string>
+    <string name="permission_post_notifications_description">CAPodga AirPodslaringiz haqida bildirishnomalarni ko\'rsatishga ruxsat bering, masalan, ulanganda ularning joriy holati.</string>
+
 </resources>

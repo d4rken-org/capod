@@ -10,19 +10,19 @@ import kotlin.math.roundToInt
 
 fun DualPodDevice.getBatteryLevelLeftPod(context: Context): String =
     batteryLeftPodPercent?.let { "${(it * 100).roundToInt()}%" }
-        ?: context.getString(eu.darken.capod.common.R.string.general_value_not_available_label)
+        ?: context.getString(R.string.general_value_not_available_label)
 
 fun DualPodDevice.getBatteryLevelRightPod(context: Context): String =
     batteryRightPodPercent?.let { "${(it * 100).roundToInt()}%" }
-        ?: context.getString(eu.darken.capod.common.R.string.general_value_not_available_label)
+        ?: context.getString(R.string.general_value_not_available_label)
 
 fun HasCase.getBatteryLevelCase(context: Context): String =
     batteryCasePercent?.let { "${(it * 100).roundToInt()}%" }
-        ?: context.getString(eu.darken.capod.common.R.string.general_value_not_available_label)
+        ?: context.getString(R.string.general_value_not_available_label)
 
 fun SinglePodDevice.getBatteryLevelHeadset(context: Context): String =
     batteryHeadsetPercent?.let { "${(it * 100).roundToInt()}%" }
-        ?: context.getString(eu.darken.capod.common.R.string.general_value_not_available_label)
+        ?: context.getString(R.string.general_value_not_available_label)
 
 fun PodDevice.getSignalQuality(context: Context): String {
     val multiplier = 100 * signalQuality

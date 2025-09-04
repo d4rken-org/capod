@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple
 
 import android.content.Context
 import eu.darken.capod.pods.core.HasPodStyle
+import eu.darken.capod.R
 
 interface HasAppleColor : ApplePods, HasPodStyle {
 

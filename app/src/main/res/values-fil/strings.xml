@@ -146,4 +146,76 @@
     <string name="onboarding_body3">Walang mga ad ang CAPod at hindi nangongolekta ng iyong data.</string>
     <string name="onboarding_body4">Maaari kang mag-upgrade sa CAPod Pro para makakuha ng mga dagdag na feature at suportahan ang development.</string>
 
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Hindi Magagamit</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_grant_permission_action">Bigyan ng permiso</string>
+
+    <string name="overview_nomaindevice_label">Walang pangunahing device</string>
+    <string name="overview_nomaindevice_description">Lahat ng mga natukoyang device ay malamang na hindi sa iyo. I-on at ikonekta ang iyong device o ayusin ang mga setting.</string>
+    <string name="overview_bluetooth_disabled_label">Naka-disable ang Bluetooth</string>
+    <string name="overview_bluetooth_disabled_description">Naka-disable ang Bluetooth, i-enable ito ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Kumonekta sa Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Ang app na ito ay nangangailangan ng pahintulot na \"Kumonekta sa Bluetooth\" upang makipag-ugnayan sa mga naka-pares na device at simulan ang mga koneksyon.</string>
+    <string name="permission_bluetooth_scan_label">Pag-scan sa Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Ang pahintulot na \"Pag-scan sa Bluetooth\" ay nagbibigay-daan sa app na ito na matuklasan at makatanggap ng data ng Bluetooth mula sa mga kalapit na device tulad ng iyong AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Ang app na ito ay nangangailangan ng pahintulot na \"Bluetooth\" upang kumonekta sa mga naka-pares na bluetooth device.</string>
+    <string name="permission_access_fine_location_label">I-access ang eksaktong lokasyon</string>
+    <string name="permission_access_fine_location_description">Ginagamit ng CAPod ang pahintulot na \"eksaktong lokasyon\" upang makatanggap ng data ng Bluetooth Low Energy. Ginagamit ng iyong mga headphone ang teknolohiyang Bluetooth Low Energy upang i-broadcast ang kanilang status. HINDI gagamitin ng app na ito ang data ng Bluetooth upang matukoy ang iyong lokasyon.</string>
+    <string name="permission_background_location_label">Access sa lokasyon sa background</string>
+    <string name="permission_background_location_description">Ginagamit ng CAPod ang \"access sa lokasyon sa background\" upang paganahin ang mga feature tulad ng \"Ipakita ang popup\" at \"AutoConnect\" habang sarado ang app. Ang access sa lokasyon sa background ay nagbibigay-daan sa app na makatanggap ng data ng Bluetooth Low Energy habang nasa background ito. HINDI gagamitin ng app na ito ang data ng Bluetooth upang matukoy ang iyong lokasyon.</string>
+    <string name="permission_ignore_battery_optimizations_label">I-disable ang mga pag-optimize ng baterya</string>
+    <string name="permission_ignore_battery_optimizations_description">Pinipigilan ng mga pag-optimize ng baterya ang app na ito na mapagkakatiwalaang makatanggap ng data ng Bluetooth habang nasa background ang app.</string>
+    <string name="permission_required_title">Kinakailangan ang sumusunod na pahintulot:</string>
+    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_description">Payagan ang CAPod na mag-drawing sa ibabaw ng iba pang mga app upang maging posible ang feature na \"Ipakita ang PopUp\".</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Mababang konsumo ng kuryente</string>
+    <string name="settings_scanner_mode_balanced_label">Balanse</string>
+    <string name="settings_scanner_mode_lowlatency_label">Mababang latency</string>
+
+    <string name="settings_monitor_mode_manual_label">Kapag bukas ang app</string>
+    <string name="settings_monitor_mode_automatic_label">Kapag konektado ang device</string>
+    <string name="settings_monitor_mode_always_label">Palagi</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Kapag nakita</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Bukas ang case</string>
+    <string name="settings_reaction_autoconnect_inear_label">Nasa tainga</string>
+
+    <string name="pods_dual_left_label">Kaliwang pod</string>
+    <string name="pods_dual_right_label">Kanang pod</string>
+    <string name="pods_case_label">Case</string>
+    <string name="pods_case_status_open_label">Buksan</string>
+    <string name="pods_case_status_closed_label">Sarado</string>
+    <string name="pods_connection_state_disconnected_label">Hindi konektado sa isang device</string>
+    <string name="pods_connection_state_idle_label">Konektado sa isang device, ngunit idle</string>
+    <string name="pods_connection_state_music_label">Nasa music mode</string>
+    <string name="pods_connection_state_call_label">Nasa call mode</string>
+    <string name="pods_connection_state_ringing_label">Nagri-ring</string>
+    <string name="pods_connection_state_hanging_up_label">Binababa ang tawag</string>
+    <string name="pods_connection_state_unknown_label">Hindi kilalang estado ng koneksyon</string>
+    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_label">Hindi kilalang device</string>
+    <string name="pods_unknown_contact_dev">Ito ay isang hindi kilalang device, ngunit gumagamit ito ng katulad na format ng mensahe. Suportahan natin ito, makipag-ugnayan sa akin :)</string>
+    <string name="pods_none_label_short">Walang device</string>
+    <string name="pods_charging_label">Nagcha-charge</string>
+    <string name="pods_inear_label">Nasa tainga</string>
+    <string name="pods_microphone_label">Mikropono</string>
+    <string name="pods_yours">Sa iyo</string>
+    <string name="headset_being_worn_label">Suot</string>
+    <string name="headset_not_being_worn_label">Hindi suot</string>
+    <string name="pods_case_unknown_state">Hindi kilalang estado</string>
+
+    <string name="last_seen_x">Huling nakita: %s</string>
+    <string name="first_seen_x">Unang nakita: %s</string>
+    <string name="permission_post_notifications_label">Ipakita ang mga notification</string>
+    <string name="permission_post_notifications_description">"Payagan ang CAPod na magpakita ng mga notification tungkol sa iyong AirPods, hal. ang kanilang kasalukuyang status habang konektado."</string>
+
+
 </resources>
