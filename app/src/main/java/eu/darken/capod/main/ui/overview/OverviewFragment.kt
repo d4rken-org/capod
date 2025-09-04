@@ -1,13 +1,13 @@
 package eu.darken.capod.main.ui.overview
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
@@ -97,7 +97,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                     startActivity(
                         Intent(
                             Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-                            Uri.parse("package:${requireContext().packageName}")
+                            "package:${requireContext().packageName}".toUri()
                         )
                     )
                 }
@@ -107,7 +107,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                     startActivity(
                         Intent(
                             Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                            Uri.parse("package:${requireContext().packageName}")
+                            "package:${requireContext().packageName}".toUri()
                         )
                     )
                 }
