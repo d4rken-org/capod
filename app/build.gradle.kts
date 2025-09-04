@@ -122,9 +122,10 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
-    }
-    tasks.withType<Test> {
-        useJUnitPlatform()
+        //noinspection WrongGradleMethod
+        tasks.withType<Test> {
+            useJUnitPlatform()
+        }
     }
 }
 

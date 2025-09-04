@@ -78,7 +78,7 @@ class UpgradeRepoGplay @Inject constructor(
 
     override fun launchBillingFlow(activity: Activity) {
         MaterialAlertDialogBuilder(activity).apply {
-            setIcon(eu.darken.capod.common.R.drawable.ic_heart)
+            setIcon(R.drawable.ic_heart)
             setTitle(R.string.upgrade_capod_label)
             setMessage(R.string.upgrade_capod_description)
             setPositiveButton(R.string.general_upgrade_action) { _, _ ->
