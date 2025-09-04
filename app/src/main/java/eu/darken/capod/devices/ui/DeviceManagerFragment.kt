@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
 import eu.darken.capod.common.EdgeToEdgeHelper
@@ -25,6 +27,8 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
 
     @Inject
     lateinit var adapter: DeviceManagerAdapter
+    
+    private var isDragging = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
@@ -56,10 +60,57 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
             fab.setOnClickListener {
                 vm.onAddDevice()
             }
+            
+            // Setup drag-to-reorder for profiles
+            val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+                ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0
+            ) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    val fromPosition = viewHolder.adapterPosition
+                    val toPosition = target.adapterPosition
+                    
+                    // Only allow reordering of profile items, not empty state cards
+                    if (adapter.data[fromPosition] is DeviceProfileVH.Item && 
+                        adapter.data[toPosition] is DeviceProfileVH.Item) {
+                        return adapter.moveItem(fromPosition, toPosition)
+                    }
+                    return false
+                }
+                
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    // No swipe to dismiss
+                }
+                
+                override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
+                    super.onSelectedChanged(viewHolder, actionState)
+                    when (actionState) {
+                        ItemTouchHelper.ACTION_STATE_DRAG -> {
+                            isDragging = true
+                        }
+                        ItemTouchHelper.ACTION_STATE_IDLE -> {
+                            if (isDragging) {
+                                // Drag finished, save new order
+                                vm.onProfilesReordered(adapter.getItems())
+                                isDragging = false
+                            }
+                        }
+                    }
+                }
+                
+                override fun isLongPressDragEnabled(): Boolean = true
+                override fun isItemViewSwipeEnabled(): Boolean = false
+            })
+            itemTouchHelper.attachToRecyclerView(list)
         }
 
         vm.listItems.observe2(ui) { items ->
-            adapter.update(items)
+            if (!isDragging) {
+                adapter.update(items)
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)

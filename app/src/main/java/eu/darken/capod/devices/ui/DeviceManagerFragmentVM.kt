@@ -23,12 +23,19 @@ class DeviceManagerFragmentVM @Inject constructor(
 
     val listItems: LiveData<List<DeviceManagerAdapter.Item>> = deviceProfilesRepo.profiles
         .map { profiles ->
-            profiles.map { profile ->
-                DeviceProfileVH.Item(
-                    profile = profile,
-                    onItemClick = { onItemClick(it) },
-                    onMenuClick = { onMenuClick(it) }
+            if (profiles.isEmpty()) {
+                listOf(
+                    NoProfilesCardVH.Item(
+                        onAddProfile = { onAddDevice() }
+                    )
                 )
+            } else {
+                profiles.map { profile ->
+                    DeviceProfileVH.Item(
+                        profile = profile,
+                        onItemClick = { onEditProfile(it) }
+                    )
+                }
             }
         }
         .onEach { log(TAG) { "Profiles updated: ${it.size} items" } }
@@ -36,7 +43,9 @@ class DeviceManagerFragmentVM @Inject constructor(
 
     fun onAddDevice() {
         log(TAG) { "onAddDevice()" }
-        // TODO: Navigate to device profile creation screen
+        DeviceManagerFragmentDirections
+            .actionDeviceManagerFragmentToDeviceProfileCreationFragment()
+            .navigate()
     }
 
     fun onBackPressed() {
@@ -44,14 +53,22 @@ class DeviceManagerFragmentVM @Inject constructor(
         navEvents.postValue(null)
     }
 
-    private fun onItemClick(profile: DeviceProfile) {
-        log(TAG) { "onItemClick(): $profile" }
-        // TODO: Navigate to device profile edit screen
+    private fun onEditProfile(profile: DeviceProfile) {
+        log(TAG) { "onEditProfile(): $profile" }
+        DeviceManagerFragmentDirections
+            .actionDeviceManagerFragmentToDeviceProfileCreationFragment(profileId = profile.id)
+            .navigate()
     }
 
-    private fun onMenuClick(profile: DeviceProfile) {
-        log(TAG) { "onMenuClick(): $profile" }
-        // TODO: Show menu with edit/delete options
+    fun onProfilesReordered(items: List<DeviceManagerAdapter.Item>) {
+        log(TAG) { "onProfilesReordered(): ${items.size} items" }
+        val profiles = items.filterIsInstance<DeviceProfileVH.Item>().map { it.profile }
+        if (profiles.isNotEmpty()) {
+            launch {
+                deviceProfilesRepo.reorderProfiles(profiles)
+                log(TAG) { "Profiles reordered: ${profiles.map { it.label }}" }
+            }
+        }
     }
 
     companion object {

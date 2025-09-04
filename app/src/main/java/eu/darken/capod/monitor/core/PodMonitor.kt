@@ -72,7 +72,9 @@ class PodMonitor @Inject constructor(
         }
         .map { results -> results?.mapNotNull { podFactory.createPod(it) } }
         .map { processWithCache(it).values }
-        .map { sortPodsToInterest(it) }
+        .flatMapLatest { devices -> 
+            flowOf(sortPodsToInterest(devices))
+        }
         .retryWhen { cause, attempt ->
             log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
             delay(3000)
@@ -81,10 +83,17 @@ class PodMonitor @Inject constructor(
         .onStart { emit(emptyList()) }
         .replayingShare(appScope)
 
-    private fun sortPodsToInterest(devices: Collection<PodDevice>): List<PodDevice> {
+    private suspend fun sortPodsToInterest(devices: Collection<PodDevice>): List<PodDevice> {
         val now = Instant.now()
+        val profiles = profilesRepo.profiles.firstOrNull() ?: emptyList()
+        
         return devices.sortedWith(
-            compareBy<PodDevice> { it.meta.profile?.priority ?: Int.MAX_VALUE }
+            compareBy<PodDevice> { device ->
+                // Use profile position in list as priority (0 = highest priority)
+                device.meta.profile?.let { profile ->
+                    profiles.indexOfFirst { it.id == profile.id }.takeIf { it >= 0 } ?: Int.MAX_VALUE
+                } ?: Int.MAX_VALUE
+            }
                 .thenBy {
                     val age = Duration.between(it.seenLastAt, now).seconds
                     if (age < 5) 0L else (age / 3L)

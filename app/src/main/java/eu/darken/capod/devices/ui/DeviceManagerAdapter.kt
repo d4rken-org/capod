@@ -22,9 +22,27 @@ class DeviceManagerAdapter @Inject constructor() :
     init {
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is DeviceProfileVH.Item }) { DeviceProfileVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is NoProfilesCardVH.Item }) { NoProfilesCardVH(it) })
     }
 
     override fun getItemCount(): Int = data.size
+
+    fun moveItem(fromPosition: Int, toPosition: Int): Boolean {
+        if (fromPosition < 0 || toPosition < 0 || fromPosition >= data.size || toPosition >= data.size) {
+            return false
+        }
+        
+        val currentData = data.toMutableList()
+        val item = currentData.removeAt(fromPosition)
+        currentData.add(toPosition, item)
+        
+        // Update the adapter data through the differ for proper visual feedback
+        asyncDiffer.submitUpdate(currentData)
+        notifyItemMoved(fromPosition, toPosition)
+        return true
+    }
+
+    fun getItems(): List<Item> = data.toList()
 
     abstract class BaseVH<D : Item, B : ViewBinding>(
         @LayoutRes layoutId: Int,

@@ -44,7 +44,28 @@
         android:id="@+id/deviceManagerFragment"
         android:name="eu.darken.capod.devices.ui.DeviceManagerFragment"
         android:label="DeviceManagerFragment"
-        tools:layout="@layout/device_manager_fragment" />
+        tools:layout="@layout/device_manager_fragment">
+        <action
+            android:id="@+id/action_deviceManagerFragment_to_deviceProfileCreationFragment"
+            app:destination="@id/deviceProfileCreationFragment">
+            <argument
+                android:name="profileId"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/deviceProfileCreationFragment"
+        android:name="eu.darken.capod.devices.ui.DeviceProfileCreationFragment"
+        android:label="DeviceProfileCreationFragment"
+        tools:layout="@layout/device_profile_creation_fragment">
+        <argument
+            android:name="profileId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
     <fragment
         android:id="@+id/troubleShooterFragment"
         android:name="eu.darken.capod.troubleshooter.ui.TroubleShooterFragment"
