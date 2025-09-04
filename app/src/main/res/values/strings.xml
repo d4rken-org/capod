@@ -149,4 +149,77 @@
     <string name="onboarding_body3">CAPod has no ads and does not collect your data.</string>
     <string name="onboarding_body4">You can upgrade to CAPod Pro to gain extra features and support development.</string>
 
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_grant_permission_action">Grant permission</string>
+    <string name="general_manage_devices_action">Manage devices</string>
+
+    <string name="overview_nomaindevice_label">No device configured</string>
+    <string name="overview_nomaindevice_description">Configure your device to start monitoring battery levels and enable additional features.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
+    <string name="permission_bluetooth_connect_description">This app requires the \"Bluetooth connect\" permission to interact with paired devices and initiate connections.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth scanning</string>
+    <string name="permission_bluetooth_scan_description">The \"Bluetooth scanning\" permission allows this app to discover and receive Bluetooth data from nearby devices such as your AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">This app requires the \"Bluetooth\" permission to connect to paired bluetooth devices.</string>
+    <string name="permission_access_fine_location_label">Access fine location</string>
+    <string name="permission_access_fine_location_description">CAPod uses the \"fine location\" permission to receive Bluetooth Low Energy data. Your headphones use Bluetooth Low Energy technology to broadcast their status. This app will NOT use Bluetooth data to determine your location.</string>
+    <string name="permission_background_location_label">Background location access</string>
+    <string name="permission_background_location_description">CAPod uses \"background location access\" to enable features like \"Show popup\" and \"AutoConnect\" while the app is closed. Background location access allows the app to receive Bluetooth Low Energy data while it is in the background. This app will NOT use Bluetooth data to determine your location.</string>
+    <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
+    <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app from reliably receiving Bluetooth data while the app is in the background.</string>
+    <string name="permission_required_title">The following permission is required:</string>
+    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Low power</string>
+    <string name="settings_scanner_mode_balanced_label">Balanced</string>
+    <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
+
+    <string name="settings_monitor_mode_manual_label">When app is open</string>
+    <string name="settings_monitor_mode_automatic_label">When device is connected</string>
+    <string name="settings_monitor_mode_always_label">Always</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Case is open</string>
+    <string name="settings_reaction_autoconnect_inear_label">In ear</string>
+
+    <string name="pods_dual_left_label">Left pod</string>
+    <string name="pods_dual_right_label">Right pod</string>
+    <string name="pods_case_label">Case</string>
+    <string name="pods_case_status_open_label">Open</string>
+    <string name="pods_case_status_closed_label">Closed</string>
+    <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
+    <string name="pods_connection_state_idle_label">Connected to a device, but idle</string>
+    <string name="pods_connection_state_music_label">In music mode</string>
+    <string name="pods_connection_state_call_label">In call mode</string>
+    <string name="pods_connection_state_ringing_label">Ringing</string>
+    <string name="pods_connection_state_hanging_up_label">Hanging up</string>
+    <string name="pods_connection_state_unknown_label">Unknown connection state</string>
+    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_label">Unknown device</string>
+    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :)</string>
+    <string name="pods_none_label_short">No device</string>
+    <string name="pods_charging_label">Charging</string>
+    <string name="pods_inear_label">In ear</string>
+    <string name="pods_microphone_label">Microphone</string>
+    <string name="pods_yours">Yours</string>
+    <string name="headset_being_worn_label">Being worn</string>
+    <string name="headset_not_being_worn_label">Not being worn</string>
+    <string name="pods_case_unknown_state">Unknown state</string>
+
+    <string name="last_seen_x">Last seen: %s</string>
+    <string name="first_seen_x">First seen: %s</string>
+    <string name="permission_post_notifications_label">Show notifications</string>
+    <string name="permission_post_notifications_description">"Allow CAPod to show notifications about your AirPods, e.g. their current status while connected."</string>
+
+
 </resources>

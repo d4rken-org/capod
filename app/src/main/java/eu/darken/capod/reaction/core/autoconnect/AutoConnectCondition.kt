@@ -3,7 +3,7 @@ package eu.darken.capod.reaction.core.autoconnect
 import androidx.annotation.StringRes
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import eu.darken.capod.common.R
+import eu.darken.capod.R
 
 @JsonClass(generateAdapter = false)
 enum class AutoConnectCondition(

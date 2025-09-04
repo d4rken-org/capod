@@ -125,4 +125,76 @@
     <string name="onboarding_body2">Akuwona wonke amadivayisi e-Android asekela ngokugcwele izici ezengeziwe ze-AirPod. Uhlelo lwakho lokusebenza ludinga ukusebenza kwe-Bluetooth-Low-Energy okusebenza kahle.</string>
     <string name="onboarding_body3">I-CAPod ayinazo izikhangiso futhi ayiqoqi idatha yakho.</string>
     <string name="onboarding_body4">Ungathuthukela ku-CAPod Pro ukuze uthole izici ezengeziwe futhi usekele ukuthuthukiswa.</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Ayitholakali</string>
+    <string name="general_error_label">Iphutha</string>
+    <string name="general_grant_permission_action">Nika imvume</string>
+
+    <string name="overview_nomaindevice_label">Ayikho idivayisi eyinhloko</string>
+    <string name="overview_nomaindevice_description">Wonke amadivayisi atholiwe mancane amathuba okuthi awakho. Vula futhi uxhume idivayisi yakho noma ulungise izilungiselelo.</string>
+    <string name="overview_bluetooth_disabled_label">I-Bluetooth ikhubaziwe</string>
+    <string name="overview_bluetooth_disabled_description">I-Bluetooth ikhubaziwe, yivule ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Ukuxhuma kwe-Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Lolu hlelo lokusebenza ludinga imvume ethi \"Ukuxhuma kwe-Bluetooth\" ukuze lusebenzisane namadivayisi abhanqiwe futhi luqale ukuxhumana.</string>
+    <string name="permission_bluetooth_scan_label">Ukuskena kwe-Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Imvume \"Ukuskena kwe-Bluetooth\" ivumela lolu hlelo lokusebenza ukuthola nokwamukela idatha ye-Bluetooth kumadivayisi aseduze njengama-AirPods akho.</string>
+    <string name="permission_bluetooth_label">I-Bluetooth</string>
+    <string name="permission_bluetooth_description">Lolu hlelo lokusebenza ludinga imvume ye-\"Bluetooth\" ukuze luxhumeke kumadivayisi e-bluetooth abhanqiwe.</string>
+    <string name="permission_access_fine_location_label">Ukufinyelela indawo eqondile</string>
+    <string name="permission_access_fine_location_description">I-CAPod isebenzisa imvume \"yendawo eqondile\" ukuze yamukele idatha ye-Bluetooth Low Energy. Amahedfoni akho asebenzisa ubuchwepheshe be-Bluetooth Low Energy ukusakaza isimo sawo. Lolu hlelo lokusebenza NGEKE lusebenzise idatha ye-Bluetooth ukunquma indawo yakho.</string>
+    <string name="permission_background_location_label">Ukufinyelela indawo engemuva</string>
+    <string name="permission_background_location_description">I-CAPod isebenzisa \"ukufinyelela indawo engemuva\" ukuze inike amandla izici ezifana ne-\"Bonisa isigelekeqe\" kanye ne-\"AutoConnect\" ngenkathi uhlelo lokusebenza luvaliwe. Ukufinyelela indawo engemuva kuvumela uhlelo lokusebenza ukwamukela idatha ye-Bluetooth Low Energy ngenkathi lusengemuva. Lolu hlelo lokusebenza NGEKE lusebenzise idatha ye-Bluetooth ukunquma indawo yakho.</string>
+    <string name="permission_ignore_battery_optimizations_label">Khubaza ukuthuthukiswa kwebhethri</string>
+    <string name="permission_ignore_battery_optimizations_description">Ukuthuthukiswa kwebhethri kuvimbela lolu hlelo lokusebenza ekwamukeleni idatha ye-Bluetooth ngokuthembekile ngenkathi uhlelo lokusebenza lusengemuva.</string>
+    <string name="permission_required_title">Kudingeka le mvume elandelayo:</string>
+    <string name="permission_system_alert_window_label">Iwindi Lesexwayiso Lesistimu</string>
+    <string name="permission_system_alert_window_description">Vumela i-CAPod ukuthi idwebe ngaphezu kwezinye izinhlelo zokusebenza ukuze kwenzeke isici esithi \"Bonisa i-PopUp\".</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Amandla aphansi</string>
+    <string name="settings_scanner_mode_balanced_label">Okulinganiselwe</string>
+    <string name="settings_scanner_mode_lowlatency_label">Ukubambezeleka okuphansi</string>
+
+    <string name="settings_monitor_mode_manual_label">Uma uhlelo lokusebenza luvuliwe</string>
+    <string name="settings_monitor_mode_automatic_label">Uma idivayisi ixhunyiwe</string>
+    <string name="settings_monitor_mode_always_label">Njalo</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Uma kubonakala</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Ikesi livuliwe</string>
+    <string name="settings_reaction_autoconnect_inear_label">Endlebeni</string>
+
+    <string name="pods_dual_left_label">I-pod yesinxele</string>
+    <string name="pods_dual_right_label">I-pod yesokudla</string>
+    <string name="pods_case_label">Ikesi</string>
+    <string name="pods_case_status_open_label">Vula</string>
+    <string name="pods_case_status_closed_label">Valiwe</string>
+    <string name="pods_connection_state_disconnected_label">Ayixhunyiwe kudivayisi</string>
+    <string name="pods_connection_state_idle_label">Ixhunywe kudivayisi, kodwa ayisebenzi</string>
+    <string name="pods_connection_state_music_label">Kumodi yomculo</string>
+    <string name="pods_connection_state_call_label">Kumodi yekholi</string>
+    <string name="pods_connection_state_ringing_label">Iyakhalisa</string>
+    <string name="pods_connection_state_hanging_up_label">Ivala ucingo</string>
+    <string name="pods_connection_state_unknown_label">Isimo sokuxhuma esingaziwa</string>
+    <string name="pods_unknown_raw_data_label">Idatha eluhlaza</string>
+    <string name="pods_unknown_label">Idivayisi engaziwa</string>
+    <string name="pods_unknown_contact_dev">Lena idivayisi engaziwa, kodwa isebenzisa ifomethi yomlayezo efanayo. Ake sengeze ukusekelwa kwayo, xhumana nami :)</string>
+    <string name="pods_none_label_short">Ayikho idivayisi</string>
+    <string name="pods_charging_label">Iyashaja</string>
+    <string name="pods_inear_label">Endlebeni</string>
+    <string name="pods_microphone_label">Imakrofoni</string>
+    <string name="pods_yours">Okwakho</string>
+    <string name="headset_being_worn_label">Iyagqokwa</string>
+    <string name="headset_not_being_worn_label">Ayigqokiwe</string>
+    <string name="pods_case_unknown_state">Isimo esingaziwa</string>
+
+    <string name="last_seen_x">Igcinwe ukubonakala: %s</string>
+    <string name="first_seen_x">Yaqala ukubonakala: %s</string>
+    <string name="permission_post_notifications_label">Bonisa izaziso</string>
+    <string name="permission_post_notifications_description">Vumela i-CAPod ukuthi ibonise izaziso mayelana nama-AirPods akho, isb. isimo sawo samanje ngenkathi exhunyiwe.</string>
+
 </resources>

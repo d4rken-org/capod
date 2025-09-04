@@ -1,3 +1,2 @@
 rootProject.name = "Companion App for AirPods"
 include ':app'
-include ':app-common'

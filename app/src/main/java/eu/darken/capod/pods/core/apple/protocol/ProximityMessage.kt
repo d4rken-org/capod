@@ -11,6 +11,7 @@ import okio.ByteString.Companion.toByteString
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
 import javax.inject.Inject
+import eu.darken.capod.R
 
 data class ProximityMessage(
     val type: UByte,

@@ -145,4 +145,76 @@
     <string name="onboarding_body2">Ekki öll Android tæki styðja að fullu viðbótar AirPod eiginleika. Stýrikerfið þitt krefst rétt virkandi Bluetooth-Low-Energy útfærslu.</string>
     <string name="onboarding_body3">CAPod hefur engar auglýsingar og safnar ekki gögnunum þínum.</string>
     <string name="onboarding_body4">Þú getur uppfært í CAPod Pro til að fá viðbótareiginleika og styðja við þróun.</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Ekki tiltækt</string>
+    <string name="general_error_label">Villa</string>
+    <string name="general_grant_permission_action">Veita leyfi</string>
+
+    <string name="overview_nomaindevice_label">Ekkert aðaltæki</string>
+    <string name="overview_nomaindevice_description">Öll skynjuð tæki eru ólíklega þín. Kveiktu á og tengdu tækið þitt eða stilltu stillingarnar.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth er óvirkt</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth er óvirkt, virkjaðu það ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth-tenging</string>
+    <string name="permission_bluetooth_connect_description">Þetta forrit krefst \"Bluetooth-tenging\" leyfis til að hafa samskipti við pöruð tæki og hefja tengingar.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth-skönnun</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth-skönnun\" leyfið gerir þessu forriti kleift að finna og taka á móti Bluetooth-gögnum frá nálægum tækjum eins og AirPods þínum.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Þetta forrit krefst \"Bluetooth\" leyfis til að tengjast pöruðum Bluetooth-tækjum.</string>
+    <string name="permission_access_fine_location_label">Aðgangur að nákvæmri staðsetningu</string>
+    <string name="permission_access_fine_location_description">CAPod notar \"nákvæma staðsetningu\" leyfið til að taka á móti Bluetooth Low Energy gögnum. Heyrnartólin þín nota Bluetooth Low Energy tækni til að senda út stöðu sína. Þetta forrit mun EKKI nota Bluetooth-gögn til að ákvarða staðsetningu þína.</string>
+    <string name="permission_background_location_label">Aðgangur að staðsetningu í bakgrunni</string>
+    <string name="permission_background_location_description">CAPod notar \"aðgang að staðsetningu í bakgrunni\" til að virkja eiginleika eins og \"Sýna sprettiglugga\" og \"Sjálfvirk tenging\" á meðan forritið er lokað. Aðgangur að staðsetningu í bakgrunni gerir forritinu kleift að taka á móti Bluetooth Low Energy gögnum á meðan það er í bakgrunni. Þetta forrit mun EKKI nota Bluetooth-gögn til að ákvarða staðsetningu þína.</string>
+    <string name="permission_ignore_battery_optimizations_label">Slökkva á rafhlöðubestun</string>
+    <string name="permission_ignore_battery_optimizations_description">Rafhlöðubestun kemur í veg fyrir að þetta forrit geti áreiðanlega tekið á móti Bluetooth-gögnum á meðan forritið er í bakgrunni.</string>
+    <string name="permission_required_title">Eftirfarandi leyfi er krafist:</string>
+    <string name="permission_system_alert_window_label">Kerfisviðvörunargluggi</string>
+    <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit til að gera eiginleikann \"Sýna PopUp\" mögulegan.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Lítil orka</string>
+    <string name="settings_scanner_mode_balanced_label">Jafnvægi</string>
+    <string name="settings_scanner_mode_lowlatency_label">Lítil biðtími</string>
+
+    <string name="settings_monitor_mode_manual_label">Þegar forrit er opið</string>
+    <string name="settings_monitor_mode_automatic_label">Þegar tæki er tengt</string>
+    <string name="settings_monitor_mode_always_label">Alltaf</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Þegar sést</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Hulstur er opið</string>
+    <string name="settings_reaction_autoconnect_inear_label">Í eyra</string>
+
+    <string name="pods_dual_left_label">Vinstri hylki</string>
+    <string name="pods_dual_right_label">Hægri hylki</string>
+    <string name="pods_case_label">Hulstur</string>
+    <string name="pods_case_status_open_label">Opið</string>
+    <string name="pods_case_status_closed_label">Lokað</string>
+    <string name="pods_connection_state_disconnected_label">Ekki tengt tæki</string>
+    <string name="pods_connection_state_idle_label">Tengt tæki, en aðgerðalaus</string>
+    <string name="pods_connection_state_music_label">Í tónlistarham</string>
+    <string name="pods_connection_state_call_label">Í símtalsham</string>
+    <string name="pods_connection_state_ringing_label">Hringir</string>
+    <string name="pods_connection_state_hanging_up_label">Leggur á</string>
+    <string name="pods_connection_state_unknown_label">Óþekkt tengistöðu</string>
+    <string name="pods_unknown_raw_data_label">Hrágögn</string>
+    <string name="pods_unknown_label">Óþekkt tæki</string>
+    <string name="pods_unknown_contact_dev">Þetta er óþekkt tæki, en það notar svipað skilaboðasnið. Bætum við stuðningi fyrir það, hafðu samband við mig :)</string>
+    <string name="pods_none_label_short">Ekkert tæki</string>
+    <string name="pods_charging_label">Hleðsla</string>
+    <string name="pods_inear_label">Í eyra</string>
+    <string name="pods_microphone_label">Hljóðnemi</string>
+    <string name="pods_yours">Þín</string>
+    <string name="headset_being_worn_label">Í notkun</string>
+    <string name="headset_not_being_worn_label">Ekki í notkun</string>
+    <string name="pods_case_unknown_state">Óþekkt staða</string>
+
+    <string name="last_seen_x">Síðast séð: %s</string>
+    <string name="first_seen_x">Fyrst séð: %s</string>
+    <string name="permission_post_notifications_label">Sýna tilkynningar</string>
+    <string name="permission_post_notifications_description">Leyfðu CAPod að sýna tilkynningar um AirPods þín, t.d. núverandi stöðu þeirra meðan þau eru tengd.</string>
+
 </resources>

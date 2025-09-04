@@ -145,4 +145,76 @@
     <string name="onboarding_body2">Ne hemî amûrên Android bi tevahî taybetmendiyên zêde yên AirPod piştgirî dikin. Pergala xebitandinê ya we pêkanînek Bluetooth-Kêm-Enerjiyê ya ku rast dixebite hewce dike.</string>
     <string name="onboarding_body3">CAPod reklam tune û daneyên we berhev nake.</string>
     <string name="onboarding_body4">Hûn dikarin ji bo bidestxistina taybetmendiyên zêde û piştgirîkirina pêşveçûnê nûjen bikin CAPod Pro.</string>
+
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/B</string>
+    <string name="general_error_label">Çewtî</string>
+    <string name="general_grant_permission_action">Destûrê bide</string>
+
+    <string name="overview_nomaindevice_label">Cîhaza bingehîn tune</string>
+    <string name="overview_nomaindevice_description">Hemî cîhazên hatine tespît kirin ne gengaz e ku yên we bin. Hêzê vekin û cîhaza xwe girêdin an mîhengan rast bikin.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth neçalak e</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth neçalak e, wê çalak bike ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Girêdana Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Ji bo danûstendina bi cîhazên hevgirtî re û destpêkirina girêdanan, ji vê sepanê re destûra \"Girêdana Bluetooth\" hewce dike.</string>
+    <string name="permission_bluetooth_scan_label">Lêgerîna Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Destûra \"Lêgerîna Bluetooth\" dihêle ku ev sepan daneyên Bluetooth ji cîhazên nêzîk ên wekî AirPodsên we bibîne û bistîne.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Ji bo girêdana bi cîhazên Bluetooth ên hevgirtî re, ji vê sepanê re destûra \"Bluetooth\" hewce dike.</string>
+    <string name="permission_access_fine_location_label">Gihîştina cîhê rast</string>
+    <string name="permission_access_fine_location_description">CAPod ji bo wergirtina daneyên Bluetooth Kêm Enerjiyê destûra \"cîhê rast\" bikar tîne. Gûhên we teknolojiya Bluetooth Kêm Enerjiyê bikar tînin da ku rewşa xwe biweşînin. Ev sepan dê daneyên Bluetooth bikar NEÊNE da ku cîhê we diyar bike.</string>
+    <string name="permission_background_location_label">Gihîştina cîhê paşxanê</string>
+    <string name="permission_background_location_description">CAPod \"gihîştina cîhê paşxanê\" bikar tîne da ku taybetmendiyên wekî \"Pencereya pop-up nîşan bide\" û \"Xweber-girêdan\" çalak bike dema ku sepan girtî ye. Gihîştina cîhê paşxanê dihêle ku sepan daneyên Bluetooth Kêm Enerjiyê werbigire dema ku ew di paşxanê de ye. Ev sepan dê daneyên Bluetooth bikar NEÊNE da ku cîhê we diyar bike.</string>
+    <string name="permission_ignore_battery_optimizations_label">Optimîzasyonên bateriyê neçalak bike</string>
+    <string name="permission_ignore_battery_optimizations_description">Optimîzasyonên bateriyê nahêlin ku ev sepan daneyên Bluetooth bi ewlehî werbigire dema ku sepan di paşxanê de ye.</string>
+    <string name="permission_required_title">Destûra jêrîn hewce ye:</string>
+    <string name="permission_system_alert_window_label">Pencereya Hişyariya Pergalê</string>
+    <string name="permission_system_alert_window_description">Destûrê bide CAPod ku li ser sepanên din xêz bike da ku taybetmendiya \"PopUp Nîşan Bide\" gengaz be.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Hêza kêm</string>
+    <string name="settings_scanner_mode_balanced_label">Hevseng</string>
+    <string name="settings_scanner_mode_lowlatency_label">Derengiya kêm</string>
+
+    <string name="settings_monitor_mode_manual_label">Dema ku sepan vekirî ye</string>
+    <string name="settings_monitor_mode_automatic_label">Dema ku cîhaz girêdayî ye</string>
+    <string name="settings_monitor_mode_always_label">Her dem</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Dema ku tê dîtin</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Qapax vekirî ye</string>
+    <string name="settings_reaction_autoconnect_inear_label">Di guh de</string>
+
+    <string name="pods_dual_left_label">Gûhê çepê</string>
+    <string name="pods_dual_right_label">Gûhê rastê</string>
+    <string name="pods_case_label">Qapax</string>
+    <string name="pods_case_status_open_label">Vekirî</string>
+    <string name="pods_case_status_closed_label">Girtî</string>
+    <string name="pods_connection_state_disconnected_label">Bi cîhazekê ve ne girêdayî ye</string>
+    <string name="pods_connection_state_idle_label">Bi cîhazekê ve girêdayî ye, lê bêkar e</string>
+    <string name="pods_connection_state_music_label">Di moda muzîkê de</string>
+    <string name="pods_connection_state_call_label">Di moda bangê de</string>
+    <string name="pods_connection_state_ringing_label">Zingînî</string>
+    <string name="pods_connection_state_hanging_up_label">Dadiqurtîne</string>
+    <string name="pods_connection_state_unknown_label">Rewşa girêdanê ya nenas</string>
+    <string name="pods_unknown_raw_data_label">Daneyên xav</string>
+    <string name="pods_unknown_label">Cîhaza nenas</string>
+    <string name="pods_unknown_contact_dev">Ev cîhazek nenas e, lê formata peyamê ya bi vî rengî bikar tîne. Ka em piştgiriyê lê zêde bikin, bi min re têkilî daynin :)</string>
+    <string name="pods_none_label_short">Cîhaz tune</string>
+    <string name="pods_charging_label">Bardibe</string>
+    <string name="pods_inear_label">Di guh de</string>
+    <string name="pods_microphone_label">Mîkrofon</string>
+    <string name="pods_yours">Yên te</string>
+    <string name="headset_being_worn_label">Tê bikaranîn</string>
+    <string name="headset_not_being_worn_label">Nayê bikaranîn</string>
+    <string name="pods_case_unknown_state">Rewşa nenas</string>
+
+    <string name="last_seen_x">Cara dawî hat dîtin: %s</string>
+    <string name="first_seen_x">Cara ewil hat dîtin: %s</string>
+    <string name="permission_post_notifications_label">Agahdariyan nîşan bide</string>
+    <string name="permission_post_notifications_description">Destûrê bide CAPod ku agahdariyan di derbarê AirPodsên we de nîşan bide, mînakî rewşa wan a niha dema ku girêdayî ne.</string>
+
 </resources>

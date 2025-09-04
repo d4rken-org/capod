@@ -146,4 +146,76 @@
     <string name="onboarding_body3">CAPodissa ei ole mainoksia eikä se kerää tietojasi.</string>
     <string name="onboarding_body4">Voit päivittää CAPod Prohon saadaksesi lisäominaisuuksia ja tukeaksesi kehitystä.</string>
 
+    <!-- Strings from app-common -->
+<string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Virhe</string>
+    <string name="general_grant_permission_action">Myönnä lupa</string>
+
+    <string name="overview_nomaindevice_label">Ei ensisijaista laitetta</string>
+    <string name="overview_nomaindevice_description">Kaikki havaitut laitteet eivät todennäköisesti ole sinun. Kytke laitteeseesi virta ja yhdistä se tai säädä asetuksia.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth on pois käytöstä</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth on pois käytöstä, ota se käyttöön ;)</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth-yhteys</string>
+    <string name="permission_bluetooth_connect_description">Tämä sovellus vaatii \"Bluetooth-yhteys\"-luvan ollakseen vuorovaikutuksessa pariliitettyjen laitteiden kanssa ja aloittaakseen yhteyksiä.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth-skannaus</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth-skannaus\"-lupa antaa tämän sovelluksen löytää ja vastaanottaa Bluetooth-tietoja lähellä olevista laitteista, kuten AirPodeistasi.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Tämä sovellus vaatii \"Bluetooth\"-luvan yhdistääkseen pariliitettyihin Bluetooth-laitteisiin.</string>
+    <string name="permission_access_fine_location_label">Tarkka sijainti</string>
+    <string name="permission_access_fine_location_description">CAPod käyttää \"tarkka sijainti\" -lupaa vastaanottaakseen Bluetooth Low Energy -tietoja. Kuulokkeesi käyttävät Bluetooth Low Energy -tekniikkaa lähettääkseen tilansa. Tämä sovellus EI käytä Bluetooth-tietoja sijaintisi määrittämiseen.</string>
+    <string name="permission_background_location_label">Sijainnin käyttö taustalla</string>
+    <string name="permission_background_location_description">CAPod käyttää \"sijainnin käyttö taustalla\" -lupaa mahdollistaakseen ominaisuuksia, kuten \"Näytä ponnahdusikkuna\" ja \"Automaattinen yhdistäminen\", kun sovellus on suljettu. Sijainnin käyttö taustalla antaa sovelluksen vastaanottaa Bluetooth Low Energy -tietoja sen ollessa taustalla. Tämä sovellus EI käytä Bluetooth-tietoja sijaintisi määrittämiseen.</string>
+    <string name="permission_ignore_battery_optimizations_label">Poista akun optimoinnit käytöstä</string>
+    <string name="permission_ignore_battery_optimizations_description">Akun optimoinnit estävät tätä sovellusta vastaanottamasta luotettavasti Bluetooth-tietoja sovelluksen ollessa taustalla.</string>
+    <string name="permission_required_title">Seuraava lupa vaaditaan:</string>
+    <string name="permission_system_alert_window_label">Järjestelmän ilmoitusikkuna</string>
+    <string name="permission_system_alert_window_description">Salli CAPodin piirtää muiden sovellusten päälle mahdollistaaksesi \"Näytä ponnahdusikkuna\" -ominaisuuden.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Alhainen virrankulutus</string>
+    <string name="settings_scanner_mode_balanced_label">Tasapainotettu</string>
+    <string name="settings_scanner_mode_lowlatency_label">Matala viive</string>
+
+    <string name="settings_monitor_mode_manual_label">Kun sovellus on auki</string>
+    <string name="settings_monitor_mode_automatic_label">Kun laite on yhdistetty</string>
+    <string name="settings_monitor_mode_always_label">Aina</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Kun havaittu</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Kotelo on auki</string>
+    <string name="settings_reaction_autoconnect_inear_label">Korvassa</string>
+
+    <string name="pods_dual_left_label">Vasen kuuloke</string>
+    <string name="pods_dual_right_label">Oikea kuuloke</string>
+    <string name="pods_case_label">Kotelo</string>
+    <string name="pods_case_status_open_label">Auki</string>
+    <string name="pods_case_status_closed_label">Suljettu</string>
+    <string name="pods_connection_state_disconnected_label">Ei yhteydessä laitteeseen</string>
+    <string name="pods_connection_state_idle_label">Yhdistetty laitteeseen, mutta käyttämättömänä</string>
+    <string name="pods_connection_state_music_label">Musiikkitilassa</string>
+    <string name="pods_connection_state_call_label">Puhelutilassa</string>
+    <string name="pods_connection_state_ringing_label">Soi</string>
+    <string name="pods_connection_state_hanging_up_label">Lopettaa puhelua</string>
+    <string name="pods_connection_state_unknown_label">Tuntematon yhteystila</string>
+    <string name="pods_unknown_raw_data_label">Raakadata</string>
+    <string name="pods_unknown_label">Tuntematon laite</string>
+    <string name="pods_unknown_contact_dev">Tämä on tuntematon laite, mutta se käyttää samanlaista viestimuotoa. Lisätään tuki sille, ota yhteyttä :)</string>
+    <string name="pods_none_label_short">Ei laitetta</string>
+    <string name="pods_charging_label">Latautuu</string>
+    <string name="pods_inear_label">Korvassa</string>
+    <string name="pods_microphone_label">Mikrofoni</string>
+    <string name="pods_yours">Sinun</string>
+    <string name="headset_being_worn_label">Käytössä</string>
+    <string name="headset_not_being_worn_label">Ei käytössä</string>
+    <string name="pods_case_unknown_state">Tuntematon tila</string>
+
+    <string name="last_seen_x">Viimeksi nähty: %s</string>
+    <string name="first_seen_x">Ensimmäisen kerran nähty: %s</string>
+    <string name="permission_post_notifications_label">Näytä ilmoitukset</string>
+    <string name="permission_post_notifications_description">"Salli CAPodin näyttää ilmoituksia AirPodeistasi, esim. niiden nykyinen tila yhdistettynä."</string>
+
+
 </resources>
