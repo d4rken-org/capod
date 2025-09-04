@@ -14,41 +14,41 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/permission_label"
+            android:id="@+id/title_label"
             style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/overview_nomaindevice_label"
+            android:text="@string/device_profiles_empty_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/permission_description"
+            android:id="@+id/description_label"
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="4dp"
-            android:text="@string/overview_nomaindevice_description"
-            app:layout_constraintBottom_toTopOf="@id/manage_devices_action"
+            android:text="@string/device_profiles_empty_description"
+            app:layout_constraintBottom_toTopOf="@id/add_profile_action"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/permission_label" />
+            app:layout_constraintTop_toBottomOf="@id/title_label" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/manage_devices_action"
+            android:id="@+id/add_profile_action"
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:icon="@drawable/ic_baseline_devices_other_24"
-            android:text="@string/general_manage_devices_action"
+            android:text="@string/device_profiles_add_action"
+            app:icon="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/permission_description" />
+            app:layout_constraintTop_toBottomOf="@id/description_label" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -19,7 +19,8 @@ class DeviceProfileVH(parent: ViewGroup) :
     ) -> Unit = { item, _ ->
         val profile = item.profile
 
-        deviceName.text = profile.name
+        deviceIcon.setImageResource(profile.model.iconRes)
+        deviceName.text = profile.label
         deviceDetails.text = buildString {
             profile.address?.let {
                 append(it.toString())
@@ -29,13 +30,11 @@ class DeviceProfileVH(parent: ViewGroup) :
         }
 
         itemView.setOnClickListener { item.onItemClick(profile) }
-        menuButton.setOnClickListener { item.onMenuClick(profile) }
     }
 
     data class Item(
         val profile: DeviceProfile,
         val onItemClick: (DeviceProfile) -> Unit,
-        val onMenuClick: (DeviceProfile) -> Unit,
     ) : DeviceManagerAdapter.Item {
         override val stableId: Long = profile.id.hashCode().toLong()
     }

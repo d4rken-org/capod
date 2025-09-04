@@ -53,13 +53,14 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/menu_button"
+                android:id="@+id/drag_handle"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
                 android:background="?selectableItemBackgroundBorderless"
-                android:contentDescription="Menu"
-                android:src="@drawable/abc_ic_menu_overflow_material" />
+                android:contentDescription="@string/device_profiles_drag_handle_description"
+                android:src="@drawable/ic_baseline_drag_handle_24"
+                android:alpha="0.6" />
 
         </LinearLayout>
 

@@ -226,5 +226,43 @@
     <string name="permission_post_notifications_label">Show notifications</string>
     <string name="permission_post_notifications_description">"Allow CAPod to show notifications about your AirPods, e.g. their current status while connected."</string>
 
+    <!-- Device profiles -->
+    <string name="device_profiles_empty_title">No device profiles configured</string>
+    <string name="device_profiles_empty_description">Create device profiles to manage multiple devices with custom settings and priorities.</string>
+    <string name="device_profiles_add_action">Add profile</string>
+    <string name="device_profiles_create_title">Create Profile</string>
+    <string name="device_profiles_edit_title">Edit Profile</string>
+    <string name="device_profiles_name_label">Profile name</string>
+    <string name="device_profiles_name_hint">My AirPods Pro</string>
+    <string name="device_profiles_model_label">Device model</string>
+    <string name="device_profiles_model_hint">Select your device model</string>
+    <string name="device_profiles_paired_device_label">Paired device (optional)</string>
+    <string name="device_profiles_paired_device_hint">Select paired Bluetooth device</string>
+    <string name="device_profiles_priority_label">Priority</string>
+    <string name="device_profiles_priority_hint">0 (highest priority)</string>
+    <string name="device_profiles_priority_description">Lower numbers have higher priority. Use 0 for your main device.</string>
+    <string name="device_profiles_save_action">Save profile</string>
+    <string name="device_profiles_validation_name_required">Profile name is required</string>
+    <string name="device_profiles_validation_priority_invalid">Priority must be a number between 0 and 999</string>
+    <string name="device_profiles_priority_default">0</string>
+    <string name="device_profiles_identity_key_label">Identity Key: Not set</string>
+    <string name="device_profiles_identity_key_set">Configured</string>
+    <string name="device_profiles_encryption_key_label">Encryption Key: Not set</string>
+    <string name="device_profiles_encryption_key_set">Configured</string>
+    <string name="device_profiles_identity_key_title">Identity Key (IRK)</string>
+    <string name="device_profiles_identity_key_not_set">Not configured</string>
+    <string name="device_profiles_identity_key_description">Optional: Identity key for enhanced device recognition</string>
+    <string name="device_profiles_encryption_key_title">Proximity Encryption Key</string>
+    <string name="device_profiles_encryption_key_not_set">Not configured</string>
+    <string name="device_profiles_encryption_key_description">Optional: Encryption key for proximity data decryption</string>
+    <string name="device_profiles_drag_handle_description">Drag to reorder</string>
+    <string name="device_profiles_delete_title">Delete Profile</string>
+    <string name="device_profiles_delete_message">Are you sure you want to delete this profile? This action cannot be undone.</string>
+    <string name="device_profiles_delete_action">Delete</string>
+    <string name="device_profiles_basic_info_title">Device Information</string>
+    <string name="device_profiles_basic_info_description">Configure your device name, model, and optional Bluetooth pairing.</string>
+    <string name="device_profiles_signal_quality_title">Minimum Signal Quality</string>
+    <string name="device_profiles_signal_quality_description">Only detect devices with signal strength above this threshold. Lower values increase detection range but may cause false positives.</string>
+
 
 </resources>
