@@ -10,7 +10,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.capod.BuildConfig
 import eu.darken.capod.R
 import eu.darken.capod.common.EdgeToEdgeHelper
 import eu.darken.capod.common.colorString
@@ -85,10 +84,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
             }
         }
 
-        vm.listItems.observe2(ui) {
-            if (BuildConfig.DEBUG) toolbar.subtitle = "${it.size} items"
-            adapter.update(it)
-        }
+        vm.listItems.observe2(ui) { adapter.update(it) }
 
         vm.workerAutolaunch.observe2 {
             // While UI is active, subscribe to the autolaunch routine
