@@ -66,7 +66,7 @@ class MonitorNotifications @Inject constructor(
         builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).apply {
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(eu.darken.capod.common.R.drawable.devic_earbuds_generic_both)
+            setSmallIcon(R.drawable.devic_earbuds_generic_both)
             setOngoing(true)
             setContentTitle(context.getString(eu.darken.capod.common.R.string.app_name))
         }
@@ -79,7 +79,7 @@ class MonitorNotifications @Inject constructor(
                 setStyle(NotificationCompat.BigTextStyle())
                 setContentTitle(context.getString(eu.darken.capod.common.R.string.pods_none_label_short))
                 setSubText(context.getString(eu.darken.capod.common.R.string.app_name))
-                setSmallIcon(eu.darken.capod.common.R.drawable.devic_earbuds_generic_both)
+                setSmallIcon(R.drawable.devic_earbuds_generic_both)
             }
         }
 

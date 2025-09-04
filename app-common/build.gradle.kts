@@ -5,7 +5,6 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
 }
-apply(plugin = "dagger.hilt.android.plugin")
 
 android {
     compileSdk = ProjectConfig.compileSdk
@@ -28,7 +27,6 @@ android {
     }
 
     compileOptions {
-        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
@@ -72,28 +70,8 @@ android {
         }
     }
 
-    testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
-        }
-        //noinspection WrongGradleMethod
-        tasks.withType<Test> {
-            useJUnitPlatform()
-        }
-    }
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
-
-    addBaseAndroid()
-    addBaseAndroidUi()
-    addBaseKotlin()
-    addDagger()
-    addMoshi()
-    addBaseWorkManager()
-    addNavigation()
-
-    addTesting()
 
 }
