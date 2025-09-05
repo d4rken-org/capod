@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">ഒന്നുമില്ല</string>
     <string name="settings_maindevice_model_label">നിങ്ങളുടെ ഉപകരണ മോഡൽ</string>
     <string name="settings_maindevice_model_description">നിങ്ങളുടെ പ്രധാന ഉപകരണത്തിന്റെ മോഡൽ. നിങ്ങളുടെ ഫോണിലേക്ക് കണക്റ്റുചെയ്‌തിട്ടില്ലാത്തപ്പോൾ നിങ്ങളുടെ ഉപകരണം തിരിച്ചറിയാൻ ഇത് ആപ്പിനെ സഹായിക്കുന്നു.</string>
-    <string name="settings_maindevice_identitykey_label">ഐഡന്റിറ്റി കീ</string>
-    <string name="settings_maindevice_identitykey_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ ഐഡന്റിറ്റി റിസോൾവിംഗ് കീ (IRK), സമീപത്തുള്ള ഉപകരണങ്ങൾക്കിടയിൽ അതിനെ തിരിച്ചറിയാൻ CAPod-നെ സഹായിക്കുന്നു.</string>
-    <string name="settings_maindevice_identitykey_explanation">സ്വകാര്യതയ്ക്കായി AirPods അവരുടെ ബ്ലൂടൂത്ത് വിലാസം പതിവായി മാറ്റുന്നു. നിങ്ങളുടെ ഉപകരണം തിരിച്ചറിയാൻ IRK CAPod-നെ സഹായിക്കുന്നു. നിങ്ങൾക്ക് MacBook-ലേക്ക് ഒരു തവണ ആക്‌സസ് ആവശ്യമാണ്.</string>
-    <string name="settings_maindevice_encryptionkey_label">എൻക്രിപ്ഷൻ കീ</string>
-    <string name="settings_maindevice_encryptionkey_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ എൻക്രിപ്ഷൻ കീ, ഇത് CAPod-ന് വിശദമായ സ്റ്റാറ്റസ് വിവരങ്ങൾ വീണ്ടെടുക്കാൻ ಅನುಮತಿಸುತ್ತದೆ.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ഒരു സ്റ്റാറ്റസ് സന്ദേശം അയയ്ക്കുന്നു, അതിന്റെ ഒരു ഭാഗം എൻക്രിപ്റ്റ് ചെയ്‌തിരിക്കുന്നു. എൻക്രിപ്ഷൻ കീ CAPod-ന് മുഴുവൻ സന്ദേശവും ഡീക്രിപ്റ്റ് ചെയ്യാൻ ಅನುಮತಿಸುತ್ತದೆ. നിങ്ങൾക്ക് MacBook-ലേക്ക് ഒരു തവണ ആക്‌സസ് ആവശ്യമാണ്.</string>
+    <string name="profiles_identitykey_label">ഐഡന്റിറ്റി കീ</string>
+    <string name="profilessettings_maindevice_identitykey_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ ഐഡന്റിറ്റി റിസോൾവിംഗ് കീ (IRK), സമീപത്തുള്ള ഉപകരണങ്ങൾക്കിടയിൽ അതിനെ തിരിച്ചറിയാൻ CAPod-നെ സഹായിക്കുന്നു.</string>
+    <string name="profiles_maindevice_identitykey_explanation">സ്വകാര്യതയ്ക്കായി AirPods അവരുടെ ബ്ലൂടൂത്ത് വിലാസം പതിവായി മാറ്റുന്നു. നിങ്ങളുടെ ഉപകരണം തിരിച്ചറിയാൻ IRK CAPod-നെ സഹായിക്കുന്നു. നിങ്ങൾക്ക് MacBook-ലേക്ക് ഒരു തവണ ആക്‌സസ് ആവശ്യമാണ്.</string>
+    <string name="profiles_maindevice_encryptionkey_label">എൻക്രിപ്ഷൻ കീ</string>
+    <string name="profiles_maindevice_encryptionkey_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ എൻക്രിപ്ഷൻ കീ, ഇത് CAPod-ന് വിശദമായ സ്റ്റാറ്റസ് വിവരങ്ങൾ വീണ്ടെടുക്കാൻ ಅನುಮತಿಸುತ್ತದೆ.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ഒരു സ്റ്റാറ്റസ് സന്ദേശം അയയ്ക്കുന്നു, അതിന്റെ ഒരു ഭാഗം എൻക്രിപ്റ്റ് ചെയ്‌തിരിക്കുന്നു. എൻക്രിപ്ഷൻ കീ CAPod-ന് മുഴുവൻ സന്ദേശവും ഡീക്രിപ്റ്റ് ചെയ്യാൻ ಅನುಮತಿಸುತ್ತದೆ. നിങ്ങൾക്ക് MacBook-ലേക്ക് ഒരു തവണ ആക്‌സസ് ആവശ്യമാണ്.</string>
 
     <string name="settings_onepod_mode_label">ഒരു പോഡ് മോഡ്</string>
     <string name="settings_onepod_mode_description">രണ്ട് പോഡുകളും ധരിക്കേണ്ട ആവശ്യമില്ല, പ്രതികരണങ്ങൾ പ്രവർത്തനക്ഷമമാക്കാൻ ഒരൊറ്റ പോഡ് ധരിച്ചാൽ മതി.</string>

@@ -15,7 +15,7 @@ data class AppleDeviceProfile(
     @Json(name = "label") override val label: String,
     @Json(name = "priority") override val priority: Int = 0,
     @Json(name = "model") override val model: PodDevice.Model = PodDevice.Model.UNKNOWN,
-    @Json(name = "minimumSignalQuality") override val minimumSignalQuality: Float? = 0.20f,
+    @Json(name = "minimumSignalQuality") override val minimumSignalQuality: Float? = DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY,
     @Json(name = "identityKey") val identityKey: IdentityResolvingKey? = null,
     @Json(name = "encryptionKey") val encryptionKey: ProximityEncryptionKey? = null,
     @Json(name = "address") override val address: String? = null,

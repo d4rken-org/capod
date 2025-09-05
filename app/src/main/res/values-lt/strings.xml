@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Nėra</string>
     <string name="settings_maindevice_model_label">Jūsų įrenginio modelis</string>
     <string name="settings_maindevice_model_description">Jūsų pagrindinio įrenginio modelis. Tai padeda programai atpažinti jūsų įrenginį, kai jis neprijungtas prie jūsų telefono.</string>
-    <string name="settings_maindevice_identitykey_label">Identifikavimo raktas</string>
-    <string name="settings_maindevice_identitykey_description">Jūsų įrenginio tapatybės nustatymo raktas (IRK), padedantis CAPod jį identifikuoti tarp netoliese esančių įrenginių.</string>
-    <string name="settings_maindevice_identitykey_explanation">„AirPods“ dažnai keičia savo „Bluetooth“ adresą privatumo sumetimais. IRK padeda CAPod atpažinti jūsų įrenginį. Jums reikės vienkartinės prieigos prie „MacBook“.</string>
-    <string name="settings_maindevice_encryptionkey_label">Šifravimo raktas</string>
-    <string name="settings_maindevice_encryptionkey_description">Jūsų įrenginio šifravimo raktas, leidžiantis CAPod gauti išsamią būsenos informaciją.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">„AirPods“ siunčia būsenos pranešimą, kurio dalis yra užšifruota. Šifravimo raktas leidžia CAPod iššifruoti visą pranešimą. Jums reikės vienkartinės prieigos prie „MacBook“.</string>
+    <string name="profiles_identitykey_label">Identifikavimo raktas</string>
+    <string name="profilessettings_maindevice_identitykey_description">Jūsų įrenginio tapatybės nustatymo raktas (IRK), padedantis CAPod jį identifikuoti tarp netoliese esančių įrenginių.</string>
+    <string name="profiles_maindevice_identitykey_explanation">„AirPods“ dažnai keičia savo „Bluetooth“ adresą privatumo sumetimais. IRK padeda CAPod atpažinti jūsų įrenginį. Jums reikės vienkartinės prieigos prie „MacBook“.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Šifravimo raktas</string>
+    <string name="profiles_maindevice_encryptionkey_description">Jūsų įrenginio šifravimo raktas, leidžiantis CAPod gauti išsamią būsenos informaciją.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">„AirPods“ siunčia būsenos pranešimą, kurio dalis yra užšifruota. Šifravimo raktas leidžia CAPod iššifruoti visą pranešimą. Jums reikės vienkartinės prieigos prie „MacBook“.</string>
 
     <string name="settings_onepod_mode_label">Vieno „pod“ režimas</string>
     <string name="settings_onepod_mode_description">Nebūtina nešioti abiejų „pod“; vieno „pod“ nešiojimo pakanka reakcijoms suaktyvinti.</string>

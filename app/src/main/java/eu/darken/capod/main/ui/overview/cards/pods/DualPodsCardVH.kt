@@ -36,7 +36,10 @@ class DualPodsCardVH(parent: ViewGroup) :
 
     override val onBindData = binding(payload = true) { item: Item ->
         val device = item.device
-        name.apply {
+
+        name.text = device.meta.profile?.label ?: "?"
+
+        deviceType.apply {
             val sb = StringBuilder(device.getLabel(context))
             if (device is HasPodStyle && item.showDebug) {
                 val style = device.podStyle

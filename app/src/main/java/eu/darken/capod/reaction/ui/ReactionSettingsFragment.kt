@@ -15,7 +15,6 @@ import eu.darken.capod.common.uix.PreferenceFragment3
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
-import eu.darken.capod.main.ui.settings.general.DeviceSelectionDialogFactory
 import eu.darken.capod.reaction.core.ReactionSettings
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import javax.inject.Inject
@@ -62,19 +61,8 @@ class ReactionSettingsFragment : PreferenceFragment3() {
             return true
         } else if (preference.key == reactionSettings.autoConnect.key) {
             preference as TwoStatePreference
-
             if (!isPro) {
                 upgradeRepo.launchBillingFlow(requireActivity())
-                preference.isChecked = false
-                return true
-            } else if (generalSettings.mainDeviceAddress.value == null) {
-                DeviceSelectionDialogFactory(requireContext()).create(
-                    devices = bondedDevices,
-                    current = bondedDevices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
-                ) { selected ->
-                    generalSettings.mainDeviceAddress.value = selected?.address
-                    if (selected != null) preference.isChecked = true
-                }.show()
                 preference.isChecked = false
                 return true
             }

@@ -57,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/deviceProfileCreationFragment"
-        android:name="eu.darken.capod.profiles.ui.DeviceProfileCreationFragment"
+        android:name="eu.darken.capod.profiles.ui.creation.DeviceProfileCreationFragment"
         android:label="DeviceProfileCreationFragment"
         tools:layout="@layout/device_profile_creation_fragment">
         <argument

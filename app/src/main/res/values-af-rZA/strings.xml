@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Geen</string>
     <string name="settings_maindevice_model_label">Jou toestelmodel</string>
     <string name="settings_maindevice_model_description">Die model van jou hoof toestel. Dit help die toepassing om jou toestel te herken wanneer dit nie aan jou foon gekoppel is nie.</string>
-    <string name="settings_maindevice_identitykey_label">Identiteitsleutel</string>
-    <string name="settings_maindevice_identitykey_description">Jou toestel se Identiteit Oplossingsleutel (IRK), wat CAPod help om dit tussen nabygeleë toestelle te identifiseer.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods verander gereeld hul Bluetooth-adres vir privaatheid. Die IRK help CAPod om jou toestel te herken. Jy benodig eenmalige toegang tot \'n MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Enkripsiesleutel</string>
-    <string name="settings_maindevice_encryptionkey_description">Jou toestel se enkripsiesleutel, wat CAPod toelaat om gedetailleerde statusinligting te herwin.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods stuur \'n statusboodskap, waarvan \'n deel geïnkripteer is. Die enkripsiesleutel laat CAPod toe om die volle boodskap te dekripteer. Jy benodig eenmalige toegang tot \'n MacBook.</string>
+    <string name="profiles_identitykey_label">Identiteitsleutel</string>
+    <string name="profilessettings_maindevice_identitykey_description">Jou toestel se Identiteit Oplossingsleutel (IRK), wat CAPod help om dit tussen nabygeleë toestelle te identifiseer.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods verander gereeld hul Bluetooth-adres vir privaatheid. Die IRK help CAPod om jou toestel te herken. Jy benodig eenmalige toegang tot \'n MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Enkripsiesleutel</string>
+    <string name="profiles_maindevice_encryptionkey_description">Jou toestel se enkripsiesleutel, wat CAPod toelaat om gedetailleerde statusinligting te herwin.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods stuur \'n statusboodskap, waarvan \'n deel geïnkripteer is. Die enkripsiesleutel laat CAPod toe om die volle boodskap te dekripteer. Jy benodig eenmalige toegang tot \'n MacBook.</string>
 
     <string name="settings_onepod_mode_label">Een-pod-modus</string>
     <string name="settings_onepod_mode_description">Die dra van albei pods is nie nodig nie, die dra van \'n enkele pod is voldoende om reaksies te aktiveer.</string>

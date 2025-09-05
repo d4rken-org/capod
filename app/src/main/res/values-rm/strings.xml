@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Nagin</string>
     <string name="settings_maindevice_model_label">Model da Voss apparat</string>
     <string name="settings_maindevice_model_description">Il model da Voss apparat principal. Quai gida l\'app a reconuscher Voss apparat cura ch\'el n\'è betg connectà cun Voss telefonin.</string>
-    <string name="settings_maindevice_identitykey_label">clav d\'identitad</string>
-    <string name="settings_maindevice_identitykey_description">La clav da resoluziun d\'identitad (IRK) da Voss apparat, che gida CAPod ad identificar el tranter ils apparats en vischinanza.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods midan savens lur adressa Bluetooth per motivs da privatezza. L\'IRK gida CAPod a reconuscher Voss apparat. Vus duvrais in access unic ad in MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Clav da cifratura</string>
-    <string name="settings_maindevice_encryptionkey_description">La clav da cifratura da Voss apparat, che permetta a CAPod da recuperar infurmaziuns detagliadas dal stadi.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods tramettan in messadi da stadi, da la quala ina part è cifrada. La clav da cifratura permetta a CAPod da decifrar il messadi cumplet. Vus duvrais in access unic ad in MacBook.</string>
+    <string name="profiles_identitykey_label">clav d\'identitad</string>
+    <string name="profilessettings_maindevice_identitykey_description">La clav da resoluziun d\'identitad (IRK) da Voss apparat, che gida CAPod ad identificar el tranter ils apparats en vischinanza.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods midan savens lur adressa Bluetooth per motivs da privatezza. L\'IRK gida CAPod a reconuscher Voss apparat. Vus duvrais in access unic ad in MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Clav da cifratura</string>
+    <string name="profiles_maindevice_encryptionkey_description">La clav da cifratura da Voss apparat, che permetta a CAPod da recuperar infurmaziuns detagliadas dal stadi.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods tramettan in messadi da stadi, da la quala ina part è cifrada. La clav da cifratura permetta a CAPod da decifrar il messadi cumplet. Vus duvrais in access unic ad in MacBook.</string>
 
     <string name="settings_onepod_mode_label">Modus cun in singul pod</string>
     <string name="settings_onepod_mode_description">Purtar omadus pods n\'è betg necessari, purtar in singul pod basta per provocar reacziuns.</string>

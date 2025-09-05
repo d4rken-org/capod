@@ -35,6 +35,7 @@ data class UnknownAppleDevice(
     class Factory @Inject constructor(
         private val repo: PodHistoryRepo,
     ) : ApplePodsFactory {
+        override val deviceModel: PodDevice.Model = PodDevice.Model.UNKNOWN
         override fun isResponsible(message: ProximityMessage): Boolean = true
 
         override fun create(

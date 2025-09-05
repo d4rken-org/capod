@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">ምንም</string>
     <string name="settings_maindevice_model_label">የመሳሪያዎ ሞዴል</string>
     <string name="settings_maindevice_model_description">የዋና መሳሪያዎ ሞዴል። ይህ መተግበሪያው ከስልክዎ ጋር ባልተገናኘ ጊዜ መሳሪያዎን እንዲያውቅ ይረዳል።</string>
-    <string name="settings_maindevice_identitykey_label">የማንነት ቁልፍ</string>
-    <string name="settings_maindevice_identitykey_description">የመሳሪያዎ የማንነት መፍቻ ቁልፍ (IRK)፣ ይህም CAPod በአቅራቢያ ካሉ መሳሪያዎች መካከል እንዲለየው ይረዳል።</string>
-    <string name="settings_maindevice_identitykey_explanation">ኤርፖዶች ለግላዊነት ሲሉ የብሉቱዝ አድራሻቸውን በተደጋጋሚ ይለውጣሉ። IRK CAPod መሳሪያዎን እንዲያውቅ ይረዳል። የአንድ ጊዜ የማክቡክ መዳረሻ ያስፈልግዎታል።</string>
-    <string name="settings_maindevice_encryptionkey_label">የምስጠራ ቁልፍ</string>
-    <string name="settings_maindevice_encryptionkey_description">የመሳሪያዎ የምስጠራ ቁልፍ፣ ይህም CAPod ዝርዝር የሁኔታ መረጃ እንዲያገኝ ያስችለዋል።</string>
-    <string name="settings_maindevice_encryptionkey_explanation">ኤርፖዶች የሁኔታ መልእክት ይልካሉ፣ ከፊሉ የተመሰጠረ ነው። የምስጠራ ቁልፉ CAPod ሙሉውን መልእክት እንዲፈታ ያስችለዋል። የአንድ ጊዜ የማክቡክ መዳረሻ ያስፈልግዎታል።</string>
+    <string name="profiles_identitykey_label">የማንነት ቁልፍ</string>
+    <string name="profilessettings_maindevice_identitykey_description">የመሳሪያዎ የማንነት መፍቻ ቁልፍ (IRK)፣ ይህም CAPod በአቅራቢያ ካሉ መሳሪያዎች መካከል እንዲለየው ይረዳል።</string>
+    <string name="profiles_maindevice_identitykey_explanation">ኤርፖዶች ለግላዊነት ሲሉ የብሉቱዝ አድራሻቸውን በተደጋጋሚ ይለውጣሉ። IRK CAPod መሳሪያዎን እንዲያውቅ ይረዳል። የአንድ ጊዜ የማክቡክ መዳረሻ ያስፈልግዎታል።</string>
+    <string name="profiles_maindevice_encryptionkey_label">የምስጠራ ቁልፍ</string>
+    <string name="profiles_maindevice_encryptionkey_description">የመሳሪያዎ የምስጠራ ቁልፍ፣ ይህም CAPod ዝርዝር የሁኔታ መረጃ እንዲያገኝ ያስችለዋል።</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">ኤርፖዶች የሁኔታ መልእክት ይልካሉ፣ ከፊሉ የተመሰጠረ ነው። የምስጠራ ቁልፉ CAPod ሙሉውን መልእክት እንዲፈታ ያስችለዋል። የአንድ ጊዜ የማክቡክ መዳረሻ ያስፈልግዎታል።</string>
 
     <string name="settings_onepod_mode_label">ባለአንድ ፖድ ሁነታ</string>
     <string name="settings_onepod_mode_description">ሁለቱንም ፖዶች መልበስ አያስፈልግም፣ አንድ ነጠላ ፖድ መልበስ ግብረመልሶችን ለማስነሳት በቂ ነው።</string>

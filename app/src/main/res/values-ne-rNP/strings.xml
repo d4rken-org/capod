@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">कुनै पनि छैन</string>
     <string name="settings_maindevice_model_label">तपाईंको उपकरणको मोडेल</string>
     <string name="settings_maindevice_model_description">तपाईंको मुख्य उपकरणको मोडेल। यसले एपलाई तपाईंको फोनमा जडान नभएको बेला तपाईंको उपकरण चिन्न मद्दत गर्दछ।</string>
-    <string name="settings_maindevice_identitykey_label">पहिचान कुञ्जी</string>
-    <string name="settings_maindevice_identitykey_description">तपाईंको उपकरणको पहिचान समाधान कुञ्जी (IRK), जसले CAPod लाई नजिकका उपकरणहरू बीचमा पहिचान गर्न मद्दत गर्दछ।</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ले गोपनीयताका लागि आफ्नो ब्लुटुथ ठेगाना बारम्बार परिवर्तन गर्दछ। IRK ले CAPod लाई तपाईंको उपकरण चिन्न मद्दत गर्दछ। तपाईंलाई MacBook मा एक पटक पहुँच आवश्यक छ।</string>
-    <string name="settings_maindevice_encryptionkey_label">इन्क्रिप्शन कुञ्जी</string>
-    <string name="settings_maindevice_encryptionkey_description">तपाईंको उपकरणको इन्क्रिप्शन कुञ्जी, जसले CAPod लाई विस्तृत स्थिति जानकारी पुन: प्राप्त गर्न अनुमति दिन्छ।</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ले स्थिति सन्देश पठाउँछ, जसको अंश इन्क्रिप्ट गरिएको हुन्छ। इन्क्रिप्शन कुञ्जीले CAPod लाई पूर्ण सन्देश डिक्रिप्ट गर्न अनुमति दिन्छ। तपाईंलाई MacBook मा एक पटक पहुँच आवश्यक छ।</string>
+    <string name="profiles_identitykey_label">पहिचान कुञ्जी</string>
+    <string name="profilessettings_maindevice_identitykey_description">तपाईंको उपकरणको पहिचान समाधान कुञ्जी (IRK), जसले CAPod लाई नजिकका उपकरणहरू बीचमा पहिचान गर्न मद्दत गर्दछ।</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ले गोपनीयताका लागि आफ्नो ब्लुटुथ ठेगाना बारम्बार परिवर्तन गर्दछ। IRK ले CAPod लाई तपाईंको उपकरण चिन्न मद्दत गर्दछ। तपाईंलाई MacBook मा एक पटक पहुँच आवश्यक छ।</string>
+    <string name="profiles_maindevice_encryptionkey_label">इन्क्रिप्शन कुञ्जी</string>
+    <string name="profiles_maindevice_encryptionkey_description">तपाईंको उपकरणको इन्क्रिप्शन कुञ्जी, जसले CAPod लाई विस्तृत स्थिति जानकारी पुन: प्राप्त गर्न अनुमति दिन्छ।</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ले स्थिति सन्देश पठाउँछ, जसको अंश इन्क्रिप्ट गरिएको हुन्छ। इन्क्रिप्शन कुञ्जीले CAPod लाई पूर्ण सन्देश डिक्रिप्ट गर्न अनुमति दिन्छ। तपाईंलाई MacBook मा एक पटक पहुँच आवश्यक छ।</string>
 
     <string name="settings_onepod_mode_label">एक पोड मोड</string>
     <string name="settings_onepod_mode_description">दुबै पोडहरू लगाउन आवश्यक छैन, प्रतिक्रियाहरू ट्रिगर गर्न एकल पोड लगाउनु पर्याप्त छ।</string>

@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">ບໍ່ມີ</string>
     <string name="settings_maindevice_model_label">ម៉ូដែលឧបករណ៍ຂອງທ່ານ</string>
     <string name="settings_maindevice_model_description">ម៉ូដែលឧបករណ៍ຫຼັກຂອງທ່ານ. ນີ້ຊ່ວຍໃຫ້ແອັບຮັບຮູ້ອຸປະກອນຂອງທ່ານເມື່ອມັນບໍ່ໄດ້ເຊື່ອມຕໍ່ກັບໂທລະສັບຂອງທ່ານ.</string>
-    <string name="settings_maindevice_identitykey_label">ລະຫັດປະຈຳຕົວ</string>
-    <string name="settings_maindevice_identitykey_description">ລະຫັດແກ້ໄຂປະຈຳຕົວອຸປະກອນຂອງທ່ານ (IRK), ເຊິ່ງຊ່ວຍ CAPod ໃຫ້ລະບຸມັນໃນບັນດາອຸປະກອນໃກ้ຄຽງ.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ມັກປ່ຽນທີ່ຢູ່ Bluetooth ຂອງພວກເຂົາເພື່ອຄວາມເປັນສ່ວນຕົວ. IRK ຊ່ວຍ CAPod ໃຫ້ຮັບຮູ້ອຸປະກອນຂອງທ່ານ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
-    <string name="settings_maindevice_encryptionkey_label">ລະຫັດເຂົ້າລະຫັດ</string>
-    <string name="settings_maindevice_encryptionkey_description">ລະຫັດເຂົ້າລະຫັດອຸປະກອນຂອງທ່ານ, ເຊິ່ງອະນຸຍາດໃຫ້ CAPod ເອົາຂໍ້ມູນສະຖານະລະອຽດ.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ສົ່ງຂໍ້ຄວາມສະຖານະ, ສ່ວນໜຶ່ງຂອງມັນຖືກເຂົ້າລະຫັດ. ລະຫັດເຂົ້າລະຫັດອະນຸຍາດໃຫ້ CAPod ຖອດລະຫັດຂໍ້ຄວາມເຕັມ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
+    <string name="profiles_identitykey_label">ລະຫັດປະຈຳຕົວ</string>
+    <string name="profilessettings_maindevice_identitykey_description">ລະຫັດແກ້ໄຂປະຈຳຕົວອຸປະກອນຂອງທ່ານ (IRK), ເຊິ່ງຊ່ວຍ CAPod ໃຫ້ລະບຸມັນໃນບັນດາອຸປະກອນໃກ้ຄຽງ.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ມັກປ່ຽນທີ່ຢູ່ Bluetooth ຂອງພວກເຂົາເພື່ອຄວາມເປັນສ່ວນຕົວ. IRK ຊ່ວຍ CAPod ໃຫ້ຮັບຮູ້ອຸປະກອນຂອງທ່ານ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
+    <string name="profiles_maindevice_encryptionkey_label">ລະຫັດເຂົ້າລະຫັດ</string>
+    <string name="profiles_maindevice_encryptionkey_description">ລະຫັດເຂົ້າລະຫັດອຸປະກອນຂອງທ່ານ, ເຊິ່ງອະນຸຍາດໃຫ້ CAPod ເອົາຂໍ້ມູນສະຖານະລະອຽດ.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ສົ່ງຂໍ້ຄວາມສະຖານະ, ສ່ວນໜຶ່ງຂອງມັນຖືກເຂົ້າລະຫັດ. ລະຫັດເຂົ້າລະຫັດອະນຸຍາດໃຫ້ CAPod ຖອດລະຫັດຂໍ້ຄວາມເຕັມ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
 
     <string name="settings_onepod_mode_label">ໂໝດផតດຽວ</string>
     <string name="settings_onepod_mode_description">ບໍ່ຈຳເປັນຕ້ອງໃສ່ផតທັງສອງ, ການໃສ່ផតດຽວກໍພຽງພໍທີ່ຈະກະຕຸ້ນປະຕິກິริยา.</string>

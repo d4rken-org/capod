@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Ei mitään</string>
     <string name="settings_maindevice_model_label">Laitteesi malli</string>
     <string name="settings_maindevice_model_description">Päälaitteesi malli. Tämä auttaa sovellusta tunnistamaan laitteesi, kun se ei ole yhdistetty puhelimeesi.</string>
-    <string name="settings_maindevice_identitykey_label">Tunnisteavain</string>
-    <string name="settings_maindevice_identitykey_description">Laitteesi identiteetinratkaisuavain (IRK), joka auttaa CAPodia tunnistamaan sen lähellä olevien laitteiden joukosta.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPodit vaihtavat usein Bluetooth-osoitettaan yksityisyyden vuoksi. IRK auttaa CAPodia tunnistamaan laitteesi. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
-    <string name="settings_maindevice_encryptionkey_label">Salausavain</string>
-    <string name="settings_maindevice_encryptionkey_description">Laitteesi salausavain, jonka avulla CAPod voi hakea yksityiskohtaisia tilatietoja.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPodit lähettävät tilaviestin, josta osa on salattu. Salausavain antaa CAPodille mahdollisuuden purkaa koko viestin salauksen. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
+    <string name="profiles_identitykey_label">Tunnisteavain</string>
+    <string name="profilessettings_maindevice_identitykey_description">Laitteesi identiteetinratkaisuavain (IRK), joka auttaa CAPodia tunnistamaan sen lähellä olevien laitteiden joukosta.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPodit vaihtavat usein Bluetooth-osoitettaan yksityisyyden vuoksi. IRK auttaa CAPodia tunnistamaan laitteesi. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Salausavain</string>
+    <string name="profiles_maindevice_encryptionkey_description">Laitteesi salausavain, jonka avulla CAPod voi hakea yksityiskohtaisia tilatietoja.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPodit lähettävät tilaviestin, josta osa on salattu. Salausavain antaa CAPodille mahdollisuuden purkaa koko viestin salauksen. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
 
     <string name="settings_onepod_mode_label">Yhden kuulokkeen tila</string>
     <string name="settings_onepod_mode_description">Molempien kuulokkeiden käyttäminen ei ole pakollista, yhden kuulokkeen käyttäminen riittää reaktioiden laukaisemiseen.</string>

@@ -11,9 +11,11 @@ import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.getBatteryLevelHeadset
 import eu.darken.capod.pods.core.lastSeenFormatted
+import java.time.Duration
 import java.time.Instant
 
 class SinglePodsCardVH(parent: ViewGroup) :
@@ -27,13 +29,16 @@ class SinglePodsCardVH(parent: ViewGroup) :
     override val onBindData = binding(payload = true) { item: Item ->
         val device = item.device
 
-        name.apply {
-            text = device.getLabel(context)
-        }
+        name.text = device.meta.profile?.label ?: "?"
+        deviceType.text = device.getLabel(context)
 
         deviceIcon.setImageResource(device.iconRes)
 
-        lastSeen.text = device.lastSeenFormatted(item.now)
+        lastSeen.text =
+            context.getString(R.string.last_seen_x, device.lastSeenFormatted(item.now))
+        firstSeen.text =
+            context.getString(R.string.first_seen_x, device.firstSeenFormatted(item.now))
+        firstSeen.isGone = Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() < 1
 
         reception.text = item.getReceptionText()
 

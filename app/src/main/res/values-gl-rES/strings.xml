@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Ningún</string>
     <string name="settings_maindevice_model_label">Modelo do teu dispositivo</string>
     <string name="settings_maindevice_model_description">O modelo do teu dispositivo principal. Isto axuda á aplicación a recoñecer o teu dispositivo cando non está conectado ao teu teléfono.</string>
-    <string name="settings_maindevice_identitykey_label">Chave de identidade</string>
-    <string name="settings_maindevice_identitykey_description">A Chave de Resolución de Identidade (IRK) do teu dispositivo, que axuda a CAPod a identificalo entre os dispositivos próximos.</string>
-    <string name="settings_maindevice_identitykey_explanation">Os AirPods cambian frecuentemente o seu enderezo Bluetooth por privacidade. A IRK axuda a CAPod a recoñecer o teu dispositivo. Necesitas acceso único a un MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Chave de cifrado</string>
-    <string name="settings_maindevice_encryptionkey_description">A chave de cifrado do teu dispositivo, que permite a CAPod recuperar información detallada do estado.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Os AirPods envían unha mensaxe de estado, parte da cal está cifrada. A chave de cifrado permite a CAPod descifrar a mensaxe completa. Necesitas acceso único a un MacBook.</string>
+    <string name="profiles_identitykey_label">Chave de identidade</string>
+    <string name="profilessettings_maindevice_identitykey_description">A Chave de Resolución de Identidade (IRK) do teu dispositivo, que axuda a CAPod a identificalo entre os dispositivos próximos.</string>
+    <string name="profiles_maindevice_identitykey_explanation">Os AirPods cambian frecuentemente o seu enderezo Bluetooth por privacidade. A IRK axuda a CAPod a recoñecer o teu dispositivo. Necesitas acceso único a un MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Chave de cifrado</string>
+    <string name="profiles_maindevice_encryptionkey_description">A chave de cifrado do teu dispositivo, que permite a CAPod recuperar información detallada do estado.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">Os AirPods envían unha mensaxe de estado, parte da cal está cifrada. A chave de cifrado permite a CAPod descifrar a mensaxe completa. Necesitas acceso único a un MacBook.</string>
 
     <string name="settings_onepod_mode_label">Modo dun só auricular</string>
     <string name="settings_onepod_mode_description">Non é necesario levar ambos os auriculares, levar un só é suficiente para activar reaccións.</string>
