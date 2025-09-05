@@ -60,7 +60,7 @@ data class AirPodsPro2Usbc(
     class Factory @Inject constructor(
         private val repo: PodHistoryRepo,
     ) : ApplePodsFactory {
-
+        override val deviceModel: PodDevice.Model = PodDevice.Model.AIRPODS_PRO2_USBC
         override fun isResponsible(message: ProximityMessage): Boolean = message.run {
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }

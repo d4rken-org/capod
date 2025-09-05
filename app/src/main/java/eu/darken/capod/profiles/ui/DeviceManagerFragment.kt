@@ -27,7 +27,7 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
 
     @Inject
     lateinit var adapter: DeviceManagerAdapter
-    
+
     private var isDragging = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,16 +52,11 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
 
         ui.apply {
             list.setupDefaults(adapter, dividers = false)
-            
-            toolbar.setNavigationOnClickListener {
-                vm.onBackPressed()
-            }
 
-            fab.setOnClickListener {
-                vm.onAddDevice()
-            }
-            
-            // Setup drag-to-reorder for profiles
+            toolbar.setNavigationOnClickListener { vm.onBackPressed() }
+
+            fab.setOnClickListener { vm.onAddDevice() }
+
             val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
                 ItemTouchHelper.UP or ItemTouchHelper.DOWN, 0
             ) {
@@ -72,35 +67,33 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
                 ): Boolean {
                     val fromPosition = viewHolder.adapterPosition
                     val toPosition = target.adapterPosition
-                    
+
                     // Only allow reordering of profile items, not empty state cards
-                    if (adapter.data[fromPosition] is DeviceProfileVH.Item && 
-                        adapter.data[toPosition] is DeviceProfileVH.Item) {
+                    if (adapter.data[fromPosition] is DeviceProfileVH.Item &&
+                        adapter.data[toPosition] is DeviceProfileVH.Item
+                    ) {
                         return adapter.moveItem(fromPosition, toPosition)
                     }
                     return false
                 }
-                
+
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     // No swipe to dismiss
                 }
-                
+
                 override fun onSelectedChanged(viewHolder: RecyclerView.ViewHolder?, actionState: Int) {
                     super.onSelectedChanged(viewHolder, actionState)
                     when (actionState) {
                         ItemTouchHelper.ACTION_STATE_DRAG -> {
                             isDragging = true
                         }
+
                         ItemTouchHelper.ACTION_STATE_IDLE -> {
-                            if (isDragging) {
-                                // Drag finished, save new order
-                                vm.onProfilesReordered(adapter.getItems())
-                                isDragging = false
-                            }
+                            if (isDragging) vm.onProfilesReordered(adapter.getItems())
                         }
                     }
                 }
-                
+
                 override fun isLongPressDragEnabled(): Boolean = true
                 override fun isItemViewSwipeEnabled(): Boolean = false
             })
@@ -108,9 +101,8 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
         }
 
         vm.listItems.observe2(ui) { items ->
-            if (!isDragging) {
-                adapter.update(items)
-            }
+            adapter.update(items)
+            isDragging = false
         }
 
         super.onViewCreated(view, savedInstanceState)

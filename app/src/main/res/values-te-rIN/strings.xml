@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">ఏదీ లేదు</string>
     <string name="settings_maindevice_model_label">మీ పరికర నమూనా</string>
     <string name="settings_maindevice_model_description">మీ ప్రధాన పరికర నమూనా. ఇది మీ ఫోన్‌కు కనెక్ట్ కానప్పుడు మీ పరికరాన్ని గుర్తించడానికి యాప్‌కు సహాయపడుతుంది.</string>
-    <string name="settings_maindevice_identitykey_label">గుర్తింపు కీ</string>
-    <string name="settings_maindevice_identitykey_description">మీ పరికరం యొక్క గుర్తింపు పరిష్కార కీ (IRK), ఇది సమీపంలోని పరికరాల మధ్య CAPod దాన్ని గుర్తించడంలో సహాయపడుతుంది.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods గోప్యత కోసం తరచుగా వాటి బ్లూటూత్ చిరునామాను మారుస్తాయి. IRK మీ పరికరాన్ని గుర్తించడంలో CAPodకి సహాయపడుతుంది. మీకు MacBookకి ఒకేసారి యాక్సెస్ అవసరం.</string>
-    <string name="settings_maindevice_encryptionkey_label">ఎన్క్రిప్షన్ కీ</string>
-    <string name="settings_maindevice_encryptionkey_description">మీ పరికరం యొక్క ఎన్క్రిప్షన్ కీ, ఇది వివరణాత్మక స్థితి సమాచారాన్ని తిరిగి పొందడానికి CAPodని అనుమతిస్తుంది.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ఒక స్థితి సందేశాన్ని పంపుతాయి, దానిలో కొంత భాగం ఎన్క్రిప్ట్ చేయబడింది. ఎన్క్రిప్షన్ కీ పూర్తి సందేశాన్ని డీక్రిప్ట్ చేయడానికి CAPodని అనుమతిస్తుంది. మీకు MacBookకి ఒకేసారి యాక్సెస్ అవసరం.</string>
+    <string name="profiles_identitykey_label">గుర్తింపు కీ</string>
+    <string name="profilessettings_maindevice_identitykey_description">మీ పరికరం యొక్క గుర్తింపు పరిష్కార కీ (IRK), ఇది సమీపంలోని పరికరాల మధ్య CAPod దాన్ని గుర్తించడంలో సహాయపడుతుంది.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods గోప్యత కోసం తరచుగా వాటి బ్లూటూత్ చిరునామాను మారుస్తాయి. IRK మీ పరికరాన్ని గుర్తించడంలో CAPodకి సహాయపడుతుంది. మీకు MacBookకి ఒకేసారి యాక్సెస్ అవసరం.</string>
+    <string name="profiles_maindevice_encryptionkey_label">ఎన్క్రిప్షన్ కీ</string>
+    <string name="profiles_maindevice_encryptionkey_description">మీ పరికరం యొక్క ఎన్క్రిప్షన్ కీ, ఇది వివరణాత్మక స్థితి సమాచారాన్ని తిరిగి పొందడానికి CAPodని అనుమతిస్తుంది.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ఒక స్థితి సందేశాన్ని పంపుతాయి, దానిలో కొంత భాగం ఎన్క్రిప్ట్ చేయబడింది. ఎన్క్రిప్షన్ కీ పూర్తి సందేశాన్ని డీక్రిప్ట్ చేయడానికి CAPodని అనుమతిస్తుంది. మీకు MacBookకి ఒకేసారి యాక్సెస్ అవసరం.</string>
 
     <string name="settings_onepod_mode_label">ఒక పాడ్ మోడ్</string>
     <string name="settings_onepod_mode_description">రెండు పాడ్‌లను ధరించడం అవసరం లేదు, ప్రతిచర్యలను ప్రేరేపించడానికి ఒకే పాడ్‌ను ధరించడం సరిపోతుంది.</string>

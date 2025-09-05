@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Ingen</string>
     <string name="settings_maindevice_model_label">Din enhedsmodel</string>
     <string name="settings_maindevice_model_description">Modellen af din hovedenhed. Dette hjælper appen med at genkende din enhed, når den ikke er tilsluttet din telefon.</string>
-    <string name="settings_maindevice_identitykey_label">Identitetsnøgle</string>
-    <string name="settings_maindevice_identitykey_description">Din enheds identitetsopløsningsnøgle (IRK), som hjælper CAPod med at identificere den blandt nærliggende enheder.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ændrer ofte deres Bluetooth-adresse af hensyn til privatlivets fred. IRK\'en hjælper CAPod med at genkende din enhed. Du skal have engangsadgang til en MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Krypteringsnøgle</string>
-    <string name="settings_maindevice_encryptionkey_description">Din enheds krypteringsnøgle, som giver CAPod mulighed for at hente detaljerede statusoplysninger.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods sender en statusmeddelelse, hvoraf en del er krypteret. Krypteringsnøglen giver CAPod mulighed for at dekryptere hele meddelelsen. Du skal have engangsadgang til en MacBook.</string>
+    <string name="profiles_identitykey_label">Identitetsnøgle</string>
+    <string name="profilessettings_maindevice_identitykey_description">Din enheds identitetsopløsningsnøgle (IRK), som hjælper CAPod med at identificere den blandt nærliggende enheder.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ændrer ofte deres Bluetooth-adresse af hensyn til privatlivets fred. IRK\'en hjælper CAPod med at genkende din enhed. Du skal have engangsadgang til en MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Krypteringsnøgle</string>
+    <string name="profiles_maindevice_encryptionkey_description">Din enheds krypteringsnøgle, som giver CAPod mulighed for at hente detaljerede statusoplysninger.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods sender en statusmeddelelse, hvoraf en del er krypteret. Krypteringsnøglen giver CAPod mulighed for at dekryptere hele meddelelsen. Du skal have engangsadgang til en MacBook.</string>
 
     <string name="settings_onepod_mode_label">Enkelt pod-tilstand</string>
     <string name="settings_onepod_mode_description">Det er ikke påkrævet at bære begge pods, at bære en enkelt pod er tilstrækkeligt til at udløse reaktioner.</string>

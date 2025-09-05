@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">কোনোটিই নয়</string>
     <string name="settings_maindevice_model_label">আপনার ডিভাইসের মডেল</string>
     <string name="settings_maindevice_model_description">আপনার প্রধান ডিভাইসের মডেল। এটি অ্যাপটিকে আপনার ডিভাইস চিনতে সাহায্য করে যখন এটি আপনার ফোনের সাথে সংযুক্ত না থাকে।</string>
-    <string name="settings_maindevice_identitykey_label">পরিচয় চাবি</string>
-    <string name="settings_maindevice_identitykey_description">আপনার ডিভাইসের আইডেন্টিটি রিজলভিং কী (IRK), যা CAPod-কে কাছাকাছি ডিভাইসগুলির মধ্যে এটি সনাক্ত করতে সাহায্য করে।</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods গোপনীয়তার জন্য প্রায়শই তাদের ব্লুটুথ ঠিকানা পরিবর্তন করে। IRK CAPod-কে আপনার ডিভাইস চিনতে সাহায্য করে। আপনার একটি MacBook-এ এককালীন অ্যাক্সেস প্রয়োজন।</string>
-    <string name="settings_maindevice_encryptionkey_label">এনক্রিপশন চাবি</string>
-    <string name="settings_maindevice_encryptionkey_description">আপনার ডিভাইসের এনক্রিপশন চাবি, যা CAPod-কে বিস্তারিত স্ট্যাটাস তথ্য পুনরুদ্ধার করতে দেয়।</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods একটি স্ট্যাটাস বার্তা পাঠায়, যার একটি অংশ এনক্রিপ্ট করা থাকে। এনক্রিপশন চাবি CAPod-কে সম্পূর্ণ বার্তা ডিক্রিপ্ট করতে দেয়। আপনার একটি MacBook-এ এককালীন অ্যাক্সেস প্রয়োজন।</string>
+    <string name="profiles_identitykey_label">পরিচয় চাবি</string>
+    <string name="profilessettings_maindevice_identitykey_description">আপনার ডিভাইসের আইডেন্টিটি রিজলভিং কী (IRK), যা CAPod-কে কাছাকাছি ডিভাইসগুলির মধ্যে এটি সনাক্ত করতে সাহায্য করে।</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods গোপনীয়তার জন্য প্রায়শই তাদের ব্লুটুথ ঠিকানা পরিবর্তন করে। IRK CAPod-কে আপনার ডিভাইস চিনতে সাহায্য করে। আপনার একটি MacBook-এ এককালীন অ্যাক্সেস প্রয়োজন।</string>
+    <string name="profiles_maindevice_encryptionkey_label">এনক্রিপশন চাবি</string>
+    <string name="profiles_maindevice_encryptionkey_description">আপনার ডিভাইসের এনক্রিপশন চাবি, যা CAPod-কে বিস্তারিত স্ট্যাটাস তথ্য পুনরুদ্ধার করতে দেয়।</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods একটি স্ট্যাটাস বার্তা পাঠায়, যার একটি অংশ এনক্রিপ্ট করা থাকে। এনক্রিপশন চাবি CAPod-কে সম্পূর্ণ বার্তা ডিক্রিপ্ট করতে দেয়। আপনার একটি MacBook-এ এককালীন অ্যাক্সেস প্রয়োজন।</string>
 
     <string name="settings_onepod_mode_label">একক পড মোড</string>
     <string name="settings_onepod_mode_description">দুটি পড পরিধান করা আবশ্যক নয়, প্রতিক্রিয়া ট্রিগার করার জন্য একটি একক পড পরিধান করাই যথেষ্ট।</string>

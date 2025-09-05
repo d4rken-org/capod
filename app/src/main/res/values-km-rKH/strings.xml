@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">គ្មាន</string>
     <string name="settings_maindevice_model_label">ម៉ូដែលឧបករណ៍របស់អ្នក</string>
     <string name="settings_maindevice_model_description">ម៉ូដែលឧបករណ៍ចម្បងរបស់អ្នក។ វាជួយកម្មវិធីឱ្យស្គាល់ឧបករណ៍របស់អ្នកនៅពេលដែលវាមិនត្រូវបានភ្ជាប់ទៅទូរស័ព្ទរបស់អ្នក។</string>
-    <string name="settings_maindevice_identitykey_label">កូនសោអត្តសញ្ញាណ</string>
-    <string name="settings_maindevice_identitykey_description">កូនសោដោះស្រាយអត្តសញ្ញាណឧបករណ៍របស់អ្នក (IRK) ដែលជួយ CAPod ឱ្យស្គាល់វាក្នុងចំណោមឧបករណ៍នៅក្បែរ។</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods តែងតែផ្លាស់ប្តូរអាសយដ្ឋាន Bluetooth របស់ពួកគេដើម្បីរក្សាភាពឯកជន។ IRK ជួយ CAPod ឱ្យស្គាល់ឧបករណ៍របស់អ្នក។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តងប៉ុណ្ណោះ។</string>
-    <string name="settings_maindevice_encryptionkey_label">កូនសោអ៊ិនគ្រីប</string>
-    <string name="settings_maindevice_encryptionkey_description">កូនសោអ៊ិនគ្រីបឧបករណ៍របស់អ្នក ដែលអនុញ្ញាតឱ្យ CAPod ទាញយកព័ត៌មានស្ថានភាពលម្អិត។</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ផ្ញើសារស្ថានភាព ដែលផ្នែកខ្លះត្រូវបានអ៊ិនគ្រីប។ កូនសោអ៊ិនគ្រីបអនុញ្ញាតឱ្យ CAPod ឌិគ្រីបសារពេញលេញ។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តងប៉ុណ្ណោះ។</string>
+    <string name="profiles_identitykey_label">កូនសោអត្តសញ្ញាណ</string>
+    <string name="profilessettings_maindevice_identitykey_description">កូនសោដោះស្រាយអត្តសញ្ញាណឧបករណ៍របស់អ្នក (IRK) ដែលជួយ CAPod ឱ្យស្គាល់វាក្នុងចំណោមឧបករណ៍នៅក្បែរ។</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods តែងតែផ្លាស់ប្តូរអាសយដ្ឋាន Bluetooth របស់ពួកគេដើម្បីរក្សាភាពឯកជន។ IRK ជួយ CAPod ឱ្យស្គាល់ឧបករណ៍របស់អ្នក។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តងប៉ុណ្ណោះ។</string>
+    <string name="profiles_maindevice_encryptionkey_label">កូនសោអ៊ិនគ្រីប</string>
+    <string name="profiles_maindevice_encryptionkey_description">កូនសោអ៊ិនគ្រីបឧបករណ៍របស់អ្នក ដែលអនុញ្ញាតឱ្យ CAPod ទាញយកព័ត៌មានស្ថានភាពលម្អិត។</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ផ្ញើសារស្ថានភាព ដែលផ្នែកខ្លះត្រូវបានអ៊ិនគ្រីប។ កូនសោអ៊ិនគ្រីបអនុញ្ញាតឱ្យ CAPod ឌិគ្រីបសារពេញលេញ។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តងប៉ុណ្ណោះ។</string>
 
     <string name="settings_onepod_mode_label">របៀបផតមួយ</string>
     <string name="settings_onepod_mode_description">មិនតម្រូវឱ្យពាក់ផតទាំងពីរទេ ការពាក់ផតតែមួយគឺគ្រប់គ្រាន់ដើម្បីបង្កឱ្យមានប្រតិកម្ម។</string>

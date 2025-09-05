@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Ոչ մեկը</string>
     <string name="settings_maindevice_model_label">Ձեր սարքի մոդելը</string>
     <string name="settings_maindevice_model_description">Ձեր հիմնական սարքի մոդելը։ Սա օգնում է հավելվածին ճանաչել ձեր սարքը, երբ այն միացված չէ ձեր հեռախոսին։</string>
-    <string name="settings_maindevice_identitykey_label">Նույնականացման բանալի</string>
-    <string name="settings_maindevice_identitykey_description">Ձեր սարքի Նույնականացման լուծման բանալին (IRK), որն օգնում է CAPod-ին այն նույնականացնել մոտակա սարքերի մեջ։</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods-ները գաղտնիության նկատառումներով հաճախ փոխում են իրենց Bluetooth հասցեն։ IRK-ն օգնում է CAPod-ին ճանաչել ձեր սարքը։ Ձեզ անհրաժեշտ է մեկանգամյա մուտք դեպի MacBook։</string>
-    <string name="settings_maindevice_encryptionkey_label">Գաղտնագրման բանալի</string>
-    <string name="settings_maindevice_encryptionkey_description">Ձեր սարքի գաղտնագրման բանալին, որը թույլ է տալիս CAPod-ին ստանալ կարգավիճակի մանրամասն տեղեկատվություն։</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods-ները ուղարկում են կարգավիճակի հաղորդագրություն, որի մի մասը գաղտնագրված է։ Գաղտնագրման բանալին թույլ է տալիս CAPod-ին վերծանել ամբողջական հաղորդագրությունը։ Ձեզ անհրաժեշտ է մեկանգամյա մուտք դեպի MacBook։</string>
+    <string name="profiles_identitykey_label">Նույնականացման բանալի</string>
+    <string name="profilessettings_maindevice_identitykey_description">Ձեր սարքի Նույնականացման լուծման բանալին (IRK), որն օգնում է CAPod-ին այն նույնականացնել մոտակա սարքերի մեջ։</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods-ները գաղտնիության նկատառումներով հաճախ փոխում են իրենց Bluetooth հասցեն։ IRK-ն օգնում է CAPod-ին ճանաչել ձեր սարքը։ Ձեզ անհրաժեշտ է մեկանգամյա մուտք դեպի MacBook։</string>
+    <string name="profiles_maindevice_encryptionkey_label">Գաղտնագրման բանալի</string>
+    <string name="profiles_maindevice_encryptionkey_description">Ձեր սարքի գաղտնագրման բանալին, որը թույլ է տալիս CAPod-ին ստանալ կարգավիճակի մանրամասն տեղեկատվություն։</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods-ները ուղարկում են կարգավիճակի հաղորդագրություն, որի մի մասը գաղտնագրված է։ Գաղտնագրման բանալին թույլ է տալիս CAPod-ին վերծանել ամբողջական հաղորդագրությունը։ Ձեզ անհրաժեշտ է մեկանգամյա մուտք դեպի MacBook։</string>
 
     <string name="settings_onepod_mode_label">Մեկ ականջակալի ռեժիմ</string>
     <string name="settings_onepod_mode_description">Երկու ականջակալներն էլ կրելը պարտադիր չէ, մեկ ականջակալ կրելը բավարար է արձագանքներն ակտիվացնելու համար։</string>

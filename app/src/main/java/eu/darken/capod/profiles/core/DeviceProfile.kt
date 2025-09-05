@@ -1,8 +1,10 @@
 package eu.darken.capod.profiles.core
 
 import android.os.Parcelable
+import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import eu.darken.capod.common.serialization.NameBasedPolyJsonAdapterFactory
 import eu.darken.capod.pods.core.PodDevice
+import kotlin.jvm.java
 
 sealed interface DeviceProfile : Parcelable {
     val id: ProfileId
@@ -13,8 +15,9 @@ sealed interface DeviceProfile : Parcelable {
     val address: String?
 
     companion object {
-        val MOSHI_FACTORY: NameBasedPolyJsonAdapterFactory<DeviceProfile> =
-            NameBasedPolyJsonAdapterFactory.of(DeviceProfile::class.java)
-                .withSubtype(AppleDeviceProfile::class.java, "identityKey")
+        const val DEFAULT_MINIMUM_SIGNAL_QUALITY = 0.20f
+        
+        val MOSHI_FACTORY = PolymorphicJsonAdapterFactory.of(DeviceProfile::class.java, "type")
+            .withSubtype(AppleDeviceProfile::class.java, "apple")
     }
 }

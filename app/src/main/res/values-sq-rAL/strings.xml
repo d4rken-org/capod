@@ -54,12 +54,12 @@
     <string name="settings_maindevice_address_none">Asnjë</string>
     <string name="settings_maindevice_model_label">Modeli i pajisjes suaj</string>
     <string name="settings_maindevice_model_description">Modeli i pajisjes suaj kryesore. Kjo ndihmon aplikacionin të njohë pajisjen tuaj kur nuk është lidhur me telefonin tuaj.</string>
-    <string name="settings_maindevice_identitykey_label">Çelësi i Identitetit</string>
-    <string name="settings_maindevice_identitykey_description">Çelësi i Zgjidhjes së Identitetit (IRK) i pajisjes suaj, i cili ndihmon CAPod ta identifikojë atë midis pajisjeve të afërta.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ndryshojnë shpesh adresën e tyre Bluetooth për privatësi. IRK ndihmon CAPod të njohë pajisjen tuaj. Ju nevojitet qasje njëherëshe në një MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Çelësi i Kriptimit</string>
-    <string name="settings_maindevice_encryptionkey_description">Çelësi i kriptimit i pajisjes suaj, i cili lejon CAPod të marrë informacion të detajuar mbi statusin.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods dërgojnë një mesazh statusi, një pjesë e të cilit është e kriptuar. Çelësi i kriptimit lejon CAPod të deshifrojë mesazhin e plotë. Ju nevojitet qasje njëherëshe në një MacBook.</string>
+    <string name="profiles_identitykey_label">Çelësi i Identitetit</string>
+    <string name="profilessettings_maindevice_identitykey_description">Çelësi i Zgjidhjes së Identitetit (IRK) i pajisjes suaj, i cili ndihmon CAPod ta identifikojë atë midis pajisjeve të afërta.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ndryshojnë shpesh adresën e tyre Bluetooth për privatësi. IRK ndihmon CAPod të njohë pajisjen tuaj. Ju nevojitet qasje njëherëshe në një MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Çelësi i Kriptimit</string>
+    <string name="profiles_maindevice_encryptionkey_description">Çelësi i kriptimit i pajisjes suaj, i cili lejon CAPod të marrë informacion të detajuar mbi statusin.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods dërgojnë një mesazh statusi, një pjesë e të cilit është e kriptuar. Çelësi i kriptimit lejon CAPod të deshifrojë mesazhin e plotë. Ju nevojitet qasje njëherëshe në një MacBook.</string>
 
     <string name="settings_onepod_mode_label">Modaliteti me një kufje</string>
     <string name="settings_onepod_mode_description">Mbajtja e të dyja kufjeve nuk është e nevojshme, mbajtja e një kufjeje të vetme mjafton për të shkaktuar reagime.</string>

@@ -41,7 +41,7 @@ data class PowerBeatsPro2(
     class Factory @Inject constructor(
         private val repo: PodHistoryRepo,
     ) : ApplePodsFactory {
-
+        override val deviceModel: PodDevice.Model = PodDevice.Model.POWERBEATS_PRO2
         override fun isResponsible(message: ProximityMessage): Boolean = message.run {
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }

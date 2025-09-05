@@ -1,13 +1,16 @@
-package eu.darken.capod.profiles.ui
+package eu.darken.capod.profiles.ui.creation
 
 import android.content.Context
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -39,8 +42,30 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
             insetsPadding(ui.toolbar, top = true)
         }
 
+        // Handle bottom padding for NestedScrollView to avoid navigation bar overlap
+        ViewCompat.setOnApplyWindowInsetsListener(ui.scrollView) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val basePadding = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 16f,
+                resources.displayMetrics
+            ).toInt()
+            view.setPadding(
+                view.paddingLeft,
+                view.paddingTop,
+                view.paddingRight,
+                basePadding + systemBars.bottom
+            )
+            insets
+        }
+
         ui.apply {
-            toolbar.setNavigationOnClickListener { vm.onBackPressed() }
+            toolbar.setNavigationOnClickListener { 
+                if (vm.hasUnsavedChanges()) {
+                    showUnsavedChangesConfirmation()
+                } else {
+                    vm.onBackPressed()
+                }
+            }
             toolbar.setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.action_save -> {
@@ -66,14 +91,54 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
                 vm.updateMinimumSignalQuality(value / 100f)
             }
             
+            // Key validation regex - matches dialog format: "FE-D0-1C-54-11-81-BC-BC-87-D2-C4-3F-31-64-5F-EE"
+            val keyRegex = Regex("^([0-9A-F]{2}-){15}[0-9A-F]{2}$")
+            val exampleKey = "FE-D0-1C-54-11-81-BC-BC-87-D2-C4-3F-31-64-5F-EE"
+
             identityKeyInput.doOnTextChanged { text, _, _, _ ->
                 val keyText = text?.toString() ?: ""
-                vm.updateIdentityKey(keyText.fromHex().takeIf { it.isNotEmpty() })
+                when {
+                    keyText.isEmpty() -> {
+                        identityKeyInputLayout.error = null
+                        vm.updateIdentityKey(null)
+                    }
+                    keyText.matches(keyRegex) -> {
+                        identityKeyInputLayout.error = null
+                        try {
+                            vm.updateIdentityKey(keyText.fromHex())
+                        } catch (e: Exception) {
+                            // Fallback - should not happen with regex validation
+                            identityKeyInputLayout.error = getString(R.string.profiles_key_invalid_format)
+                        }
+                    }
+                    else -> {
+                        identityKeyInputLayout.error = getString(R.string.profiles_key_expected_format, exampleKey)
+                        // Don't update ViewModel with invalid input
+                    }
+                }
             }
             
             encryptionKeyInput.doOnTextChanged { text, _, _, _ ->
                 val keyText = text?.toString() ?: ""
-                vm.updateEncryptionKey(keyText.fromHex().takeIf { it.isNotEmpty() })
+                when {
+                    keyText.isEmpty() -> {
+                        encryptionKeyInputLayout.error = null
+                        vm.updateEncryptionKey(null)
+                    }
+                    keyText.matches(keyRegex) -> {
+                        encryptionKeyInputLayout.error = null
+                        try {
+                            vm.updateEncryptionKey(keyText.fromHex())
+                        } catch (e: Exception) {
+                            // Fallback - should not happen with regex validation
+                            encryptionKeyInputLayout.error = getString(R.string.profiles_key_invalid_format)
+                        }
+                    }
+                    else -> {
+                        encryptionKeyInputLayout.error = getString(R.string.profiles_key_expected_format, exampleKey)
+                        // Don't update ViewModel with invalid input
+                    }
+                }
             }
             
             identityKeyGuideButton.setOnClickListener {
@@ -85,7 +150,6 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
             }
             
             // Set hints using same format as AirPodKeyInputDialog
-            val exampleKey = "FE-D0-1C-54-11-81-BC-BC-87-D2-C4-3F-31-64-5F-EE"
             identityKeyInputLayout.hint = getString(R.string.general_example_label, exampleKey)
             encryptionKeyInputLayout.hint = getString(R.string.general_example_label, exampleKey)
 
@@ -97,14 +161,21 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
                 val selectedModel = vm.availableModels[position]
                 vm.updateModel(selectedModel)
             }
+            
         }
 
         vm.bondedDevices.observe2(ui) { devices ->
             val deviceAdapter = DeviceArrayAdapter(requireContext(), devices)
             deviceInput.setAdapter(deviceAdapter)
             deviceInput.setOnItemClickListener { _, _, position, _ ->
-                val selectedDevice = devices[position]
-                vm.updateSelectedDevice(selectedDevice)
+                if (position == 0) {
+                    // "None" option selected
+                    vm.updateSelectedDevice(null)
+                } else {
+                    // Regular device selected (position - 1 to account for "None" option)
+                    val selectedDevice = devices[position - 1]
+                    vm.updateSelectedDevice(selectedDevice)
+                }
             }
         }
 
@@ -153,11 +224,13 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
         }
         
         vm.selectedDevice.observe2(ui) { device ->
-            device?.let {
-                val deviceText = "${it.name ?: "Unknown Device"} (${it.address})"
-                if (deviceInput.text?.toString() != deviceText) {
-                    deviceInput.setText(deviceText, false)
-                }
+            val deviceText = if (device != null) {
+                "${device.name ?: getString(R.string.pods_unknown_label)} (${device.address})"
+            } else {
+                getString(R.string.profiles_paired_device_none)
+            }
+            if (deviceInput.text?.toString() != deviceText) {
+                deviceInput.setText(deviceText, false)
             }
         }
         
@@ -174,12 +247,26 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
     
     private fun showDeleteConfirmation() {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.device_profiles_delete_title)
-            .setMessage(R.string.device_profiles_delete_message)
-            .setPositiveButton(R.string.device_profiles_delete_action) { _, _ ->
+            .setTitle(R.string.profiles_delete_title)
+            .setMessage(R.string.profiles_delete_message)
+            .setPositiveButton(R.string.profiles_delete_action) { _, _ ->
                 vm.deleteProfile()
             }
             .setNegativeButton(R.string.general_cancel_action, null)
+            .show()
+    }
+    
+    private fun showUnsavedChangesConfirmation() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.general_unsaved_changes_title)
+            .setMessage(R.string.general_unsaved_changes_message)
+            .setPositiveButton(R.string.general_save_and_exit_action) { _, _ ->
+                vm.saveProfile()
+            }
+            .setNegativeButton(R.string.general_discard_action) { _, _ ->
+                vm.discardChanges()
+            }
+            .setNeutralButton(R.string.general_keep_editing_action, null)
             .show()
     }
     
@@ -212,8 +299,16 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
     
     private class DeviceArrayAdapter(
         context: Context,
-        devices: List<BluetoothDevice2>
-    ) : ArrayAdapter<BluetoothDevice2>(context, R.layout.paired_device_dropdown_item, devices) {
+        private val devices: List<BluetoothDevice2>
+    ) : ArrayAdapter<String>(context, R.layout.paired_device_dropdown_item) {
+        
+        init {
+            // Add "None" as first item, then all device names
+            add(context.getString(R.string.profiles_paired_device_none))
+            devices.forEach { device ->
+                add("${device.name ?: context.getString(R.string.pods_unknown_label)} (${device.address})")
+            }
+        }
         
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             return createView(position, convertView, parent)
@@ -224,14 +319,21 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
         }
         
         private fun createView(position: Int, convertView: View?, parent: ViewGroup): View {
-            val device = getItem(position)!!
             val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.paired_device_dropdown_item, parent, false)
             
             val nameView = view.findViewById<TextView>(R.id.device_name)
             val addressView = view.findViewById<TextView>(R.id.device_address)
             
-            nameView.text = device.name ?: "Unknown Device"
-            addressView.text = device.address
+            if (position == 0) {
+                // "None" option
+                nameView.text = context.getString(R.string.profiles_paired_device_none)
+                addressView.text = context.getString(R.string.profiles_paired_device_none_description)
+            } else {
+                // Regular device (position - 1 to account for "None" option)
+                val device = devices[position - 1]
+                nameView.text = device.name ?: context.getString(R.string.pods_unknown_label)
+                addressView.text = device.address
+            }
             
             return view
         }

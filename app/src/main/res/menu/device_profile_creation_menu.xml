@@ -5,14 +5,14 @@
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_baseline_delete_24"
-        android:title="@string/device_profiles_delete_action"
+        android:title="@string/profiles_delete_action"
         android:visible="false"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_save"
         android:icon="@drawable/ic_baseline_save_24"
-        android:title="@string/device_profiles_save_action"
+        android:title="@string/profiles_save_action"
         app:showAsAction="always" />
 
 </menu>

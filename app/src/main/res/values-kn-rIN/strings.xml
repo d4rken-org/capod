@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">ಯಾವುದೂ ಇಲ್ಲ</string>
     <string name="settings_maindevice_model_label">ನಿಮ್ಮ ಸಾಧನದ ಮಾದರಿ</string>
     <string name="settings_maindevice_model_description">ನಿಮ್ಮ ಮುಖ್ಯ ಸಾಧನದ ಮಾದರಿ. ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲದಿದ್ದಾಗ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಗುರುತಿಸಲು ಇದು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
-    <string name="settings_maindevice_identitykey_label">ಗುರುತಿನ ಕೀ</string>
-    <string name="settings_maindevice_identitykey_description">ನಿಮ್ಮ ಸಾಧನದ ಗುರುತಿನ ಪರಿಹಾರ ಕೀ (IRK), ಇದು ಹತ್ತಿರದ ಸಾಧನಗಳ ನಡುವೆ ಅದನ್ನು ಗುರುತಿಸಲು CAPod ಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ಗೌಪ್ಯತೆಗಾಗಿ ತಮ್ಮ ಬ್ಲೂಟೂತ್ ವಿಳಾಸವನ್ನು ಆಗಾಗ್ಗೆ ಬದಲಾಯಿಸುತ್ತವೆ. IRK CAPod ಗೆ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಗುರುತಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನಿಮಗೆ MacBook ಗೆ ಒಮ್ಮೆ ಪ್ರವೇಶದ ಅಗತ್ಯವಿದೆ.</string>
-    <string name="settings_maindevice_encryptionkey_label">ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ</string>
-    <string name="settings_maindevice_encryptionkey_description">ನಿಮ್ಮ ಸಾಧನದ ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ, ಇದು CAPod ಗೆ ವಿವರವಾದ ಸ್ಥಿತಿ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ಸ್ಥಿತಿ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುತ್ತವೆ, ಅದರ ಒಂದು ಭಾಗವನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ. ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ CAPod ಗೆ ಪೂರ್ಣ ಸಂದೇಶವನ್ನು ಡೀಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ. ನಿಮಗೆ MacBook ಗೆ ಒಮ್ಮೆ ಪ್ರವೇಶದ ಅಗತ್ಯವಿದೆ.</string>
+    <string name="profiles_identitykey_label">ಗುರುತಿನ ಕೀ</string>
+    <string name="profilessettings_maindevice_identitykey_description">ನಿಮ್ಮ ಸಾಧನದ ಗುರುತಿನ ಪರಿಹಾರ ಕೀ (IRK), ಇದು ಹತ್ತಿರದ ಸಾಧನಗಳ ನಡುವೆ ಅದನ್ನು ಗುರುತಿಸಲು CAPod ಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ಗೌಪ್ಯತೆಗಾಗಿ ತಮ್ಮ ಬ್ಲೂಟೂತ್ ವಿಳಾಸವನ್ನು ಆಗಾಗ್ಗೆ ಬದಲಾಯಿಸುತ್ತವೆ. IRK CAPod ಗೆ ನಿಮ್ಮ ಸಾಧನವನ್ನು ಗುರುತಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ. ನಿಮಗೆ MacBook ಗೆ ಒಮ್ಮೆ ಪ್ರವೇಶದ ಅಗತ್ಯವಿದೆ.</string>
+    <string name="profiles_maindevice_encryptionkey_label">ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ</string>
+    <string name="profiles_maindevice_encryptionkey_description">ನಿಮ್ಮ ಸಾಧನದ ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ, ಇದು CAPod ಗೆ ವಿವರವಾದ ಸ್ಥಿತಿ ಮಾಹಿತಿಯನ್ನು ಹಿಂಪಡೆಯಲು ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ಸ್ಥಿತಿ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುತ್ತವೆ, ಅದರ ಒಂದು ಭಾಗವನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ. ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ CAPod ಗೆ ಪೂರ್ಣ ಸಂದೇಶವನ್ನು ಡೀಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ. ನಿಮಗೆ MacBook ಗೆ ಒಮ್ಮೆ ಪ್ರವೇಶದ ಅಗತ್ಯವಿದೆ.</string>
 
     <string name="settings_onepod_mode_label">ಒಂದು ಪಾಡ್ ಮೋಡ್</string>
     <string name="settings_onepod_mode_description">ಎರಡೂ ಪಾಡ್‌ಗಳನ್ನು ಧರಿಸುವುದು ಅನಿವಾರ್ಯವಲ್ಲ, ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಪ್ರಚೋದಿಸಲು ಒಂದೇ ಪಾಡ್ ಧರಿಸಿದರೆ ಸಾಕು.</string>

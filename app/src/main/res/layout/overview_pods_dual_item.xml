@@ -35,11 +35,26 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:ellipsize="end"
             android:gravity="center_vertical"
-            app:layout_constraintBottom_toTopOf="@+id/last_seen"
+            android:maxLines="1"
+            app:layout_constraintBottom_toTopOf="@+id/device_type"
             app:layout_constraintEnd_toStartOf="@id/reception"
             app:layout_constraintStart_toEndOf="@id/device_icon"
             app:layout_constraintTop_toTopOf="parent"
+            tools:text="My headphones" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/device_type"
+            style="@style/TextAppearance.Material3.LabelSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/last_seen"
+            app:layout_constraintEnd_toEndOf="@id/name"
+            app:layout_constraintStart_toStartOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="Apple AirPods Pro" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -47,10 +62,11 @@
             style="@style/TextAppearance.Material3.LabelMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             app:layout_constraintBottom_toTopOf="@id/first_seen"
             app:layout_constraintEnd_toEndOf="@id/name"
             app:layout_constraintStart_toStartOf="@id/name"
-            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintTop_toBottomOf="@id/device_type"
             app:layout_goneMarginBottom="8dp"
             tools:text="Last seen: 3s ago" />
 

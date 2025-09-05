@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Nav</string>
     <string name="settings_maindevice_model_label">Jūsu ierīces modelis</string>
     <string name="settings_maindevice_model_description">Jūsu galvenās ierīces modelis. Tas palīdz lietotnei atpazīt jūsu ierīci, kad tā nav savienota ar jūsu tālruni.</string>
-    <string name="settings_maindevice_identitykey_label">Identitātes atslēga</string>
-    <string name="settings_maindevice_identitykey_description">Jūsu ierīces identitātes atrisināšanas atslēga (IRK), kas palīdz CAPod to identificēt starp tuvumā esošajām ierīcēm.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods privātuma apsvērumu dēļ bieži maina savu Bluetooth adresi. IRK palīdz CAPod atpazīt jūsu ierīci. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Šifrēšanas atslēga</string>
-    <string name="settings_maindevice_encryptionkey_description">Jūsu ierīces šifrēšanas atslēga, kas ļauj CAPod iegūt detalizētu statusa informāciju.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods nosūta statusa ziņojumu, kura daļa ir šifrēta. Šifrēšanas atslēga ļauj CAPod atšifrēt pilnu ziņojumu. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
+    <string name="profiles_identitykey_label">Identitātes atslēga</string>
+    <string name="profilessettings_maindevice_identitykey_description">Jūsu ierīces identitātes atrisināšanas atslēga (IRK), kas palīdz CAPod to identificēt starp tuvumā esošajām ierīcēm.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods privātuma apsvērumu dēļ bieži maina savu Bluetooth adresi. IRK palīdz CAPod atpazīt jūsu ierīci. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Šifrēšanas atslēga</string>
+    <string name="profiles_maindevice_encryptionkey_description">Jūsu ierīces šifrēšanas atslēga, kas ļauj CAPod iegūt detalizētu statusa informāciju.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods nosūta statusa ziņojumu, kura daļa ir šifrēta. Šifrēšanas atslēga ļauj CAPod atšifrēt pilnu ziņojumu. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
 
     <string name="settings_onepod_mode_label">Viena austiņas režīms</string>
     <string name="settings_onepod_mode_description">Nav nepieciešams nēsāt abas austiņas, pietiek ar vienas austiņas nēsāšanu, lai izraisītu reakcijas.</string>

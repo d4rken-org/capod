@@ -37,6 +37,8 @@
                 <TextView
                     android:id="@+id/device_name"
                     android:layout_width="match_parent"
+                    android:maxLines="1"
+                    android:ellipsize="end"
                     android:layout_height="wrap_content"
                     android:textAppearance="?textAppearanceSubtitle1"
                     android:textStyle="bold"
@@ -52,15 +54,22 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/drag_handle"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="8dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:contentDescription="@string/device_profiles_drag_handle_description"
-                android:src="@drawable/ic_baseline_drag_handle_24"
-                android:alpha="0.6" />
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp">
+
+                <ImageView
+                    android:id="@+id/drag_handle"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/profiles_drag_handle_description"
+                    android:src="@drawable/ic_baseline_drag_handle_24"
+                    android:alpha="0.6" />
+
+            </FrameLayout>
 
         </LinearLayout>
 

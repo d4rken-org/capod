@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">なし</string>
     <string name="settings_maindevice_model_label">デバイスモデル</string>
     <string name="settings_maindevice_model_description">メインデバイスのモデル。これにより、アプリは電話に接続されていないときにデバイスを認識できます。</string>
-    <string name="settings_maindevice_identitykey_label">アイデンティティキー</string>
-    <string name="settings_maindevice_identitykey_description">デバイスのアイデンティティ解決キー（IRK）。CAPodが近くのデバイスの中からそれを識別するのに役立ちます。</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPodsはプライバシーのためにBluetoothアドレスを頻繁に変更します。IRKはCAPodがデバイスを認識するのに役立ちます。MacBookへの1回限りのアクセスが必要です。</string>
-    <string name="settings_maindevice_encryptionkey_label">暗号化キー</string>
-    <string name="settings_maindevice_encryptionkey_description">デバイスの暗号化キー。CAPodが詳細なステータス情報を取得できるようにします。</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPodsはステータスメッセージを送信し、その一部は暗号化されています。暗号化キーを使用すると、CAPodは完全なメッセージを復号化できます。MacBookへの1回限りのアクセスが必要です。</string>
+    <string name="profiles_identitykey_label">アイデンティティキー</string>
+    <string name="profilessettings_maindevice_identitykey_description">デバイスのアイデンティティ解決キー（IRK）。CAPodが近くのデバイスの中からそれを識別するのに役立ちます。</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPodsはプライバシーのためにBluetoothアドレスを頻繁に変更します。IRKはCAPodがデバイスを認識するのに役立ちます。MacBookへの1回限りのアクセスが必要です。</string>
+    <string name="profiles_maindevice_encryptionkey_label">暗号化キー</string>
+    <string name="profiles_maindevice_encryptionkey_description">デバイスの暗号化キー。CAPodが詳細なステータス情報を取得できるようにします。</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPodsはステータスメッセージを送信し、その一部は暗号化されています。暗号化キーを使用すると、CAPodは完全なメッセージを復号化できます。MacBookへの1回限りのアクセスが必要です。</string>
 
     <string name="settings_onepod_mode_label">片耳モード</string>
     <string name="settings_onepod_mode_description">両方のポッドを装着する必要はありません。リアクションをトリガーするには、片方のポッドを装着するだけで十分です。</string>

@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">မရှိပါ</string>
     <string name="settings_maindevice_model_label">သင့်စက်ပစ္စည်းမော်ဒယ်</string>
     <string name="settings_maindevice_model_description">သင့်ပင်မစက်ပစ္စည်း၏မော်ဒယ်။ ၎င်းသည် သင့်ဖုန်းသို့မချိတ်ဆက်ထားသည့်အခါ သင့်စက်ပစ္စည်းကို အက်ပ်ကမှတ်မိစေရန် ကူညီပေးသည်။</string>
-    <string name="settings_maindevice_identitykey_label">အထောက်အထားကီး</string>
-    <string name="settings_maindevice_identitykey_description">သင့်စက်ပစ္စည်း၏ အထောက်အထားဖြေရှင်းရေးကီး (IRK)၊ ၎င်းသည် CAPod အား အနီးနားရှိစက်ပစ္စည်းများကြားတွင် ၎င်းကိုခွဲခြားသိရှိနိုင်ရန် ကူညီပေးသည်။</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods သည် လုံခြုံရေးအတွက် ၎င်းတို့၏ Bluetooth လိပ်စာကို မကြာခဏပြောင်းလဲတတ်သည်။ IRK သည် CAPod အား သင့်စက်ပစ္စည်းကိုမှတ်မိစေရန် ကူညီပေးသည်။ သင့်အနေဖြင့် MacBook သို့ တစ်ကြိမ်ဝင်ရောက်ခွင့်လိုအပ်သည်။</string>
-    <string name="settings_maindevice_encryptionkey_label">စာဝှက်ကီး</string>
-    <string name="settings_maindevice_encryptionkey_description">သင့်စက်ပစ္စည်း၏ စာဝှက်ကီး၊ ၎င်းသည် CAPod အား အသေးစိတ်အခြေအနေအချက်အလက်များကို ရယူနိုင်စေသည်။</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods သည် အခြေအနေမက်ဆေ့ချ်တစ်ခုပို့လွှတ်ပြီး ၎င်း၏တစ်စိတ်တစ်ပိုင်းကို စာဝှက်ထားသည်။ စာဝှက်ကီးသည် CAPod အား မက်ဆေ့ချ်အပြည့်အစုံကို စာဝှက်ဖြည်နိုင်စေသည်။ သင့်အနေဖြင့် MacBook သို့ တစ်ကြိမ်ဝင်ရောက်ခွင့်လိုအပ်သည်။</string>
+    <string name="profiles_identitykey_label">အထောက်အထားကီး</string>
+    <string name="profilessettings_maindevice_identitykey_description">သင့်စက်ပစ္စည်း၏ အထောက်အထားဖြေရှင်းရေးကီး (IRK)၊ ၎င်းသည် CAPod အား အနီးနားရှိစက်ပစ္စည်းများကြားတွင် ၎င်းကိုခွဲခြားသိရှိနိုင်ရန် ကူညီပေးသည်။</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods သည် လုံခြုံရေးအတွက် ၎င်းတို့၏ Bluetooth လိပ်စာကို မကြာခဏပြောင်းလဲတတ်သည်။ IRK သည် CAPod အား သင့်စက်ပစ္စည်းကိုမှတ်မိစေရန် ကူညီပေးသည်။ သင့်အနေဖြင့် MacBook သို့ တစ်ကြိမ်ဝင်ရောက်ခွင့်လိုအပ်သည်။</string>
+    <string name="profiles_maindevice_encryptionkey_label">စာဝှက်ကီး</string>
+    <string name="profiles_maindevice_encryptionkey_description">သင့်စက်ပစ္စည်း၏ စာဝှက်ကီး၊ ၎င်းသည် CAPod အား အသေးစိတ်အခြေအနေအချက်အလက်များကို ရယူနိုင်စေသည်။</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods သည် အခြေအနေမက်ဆေ့ချ်တစ်ခုပို့လွှတ်ပြီး ၎င်း၏တစ်စိတ်တစ်ပိုင်းကို စာဝှက်ထားသည်။ စာဝှက်ကီးသည် CAPod အား မက်ဆေ့ချ်အပြည့်အစုံကို စာဝှက်ဖြည်နိုင်စေသည်။ သင့်အနေဖြင့် MacBook သို့ တစ်ကြိမ်ဝင်ရောက်ခွင့်လိုအပ်သည်။</string>
 
     <string name="settings_onepod_mode_label">တစ်လုံးတည်းမုဒ်</string>
     <string name="settings_onepod_mode_description">နားကြပ်နှစ်လုံးလုံးတပ်ရန်မလိုအပ်ပါ၊ တုံ့ပြန်မှုများကိုစတင်ရန် နားကြပ်တစ်လုံးတည်းတပ်ရုံဖြင့် လုံလောက်ပါသည်။</string>

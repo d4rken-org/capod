@@ -22,11 +22,11 @@ class DeviceProfileVH(parent: ViewGroup) :
         deviceIcon.setImageResource(profile.model.iconRes)
         deviceName.text = profile.label
         deviceDetails.text = buildString {
-            profile.address?.let {
-                append(it.toString())
-                append(" • ")
-            }
             append(profile.model.name)
+            profile.address?.let {
+                append(" • ")
+                append(it)
+            }
         }
 
         itemView.setOnClickListener { item.onItemClick(profile) }

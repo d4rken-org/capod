@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Tune</string>
     <string name="settings_maindevice_model_label">Modela amûra we</string>
     <string name="settings_maindevice_model_description">Modela amûra we ya sereke. Ev alîkariya sepanê dike ku amûra we nas bike dema ku ew bi têlefona we ve ne girêdayî ye.</string>
-    <string name="settings_maindevice_identitykey_label">Mifteya Nasnameyê</string>
-    <string name="settings_maindevice_identitykey_description">Mifteya Çareserkirina Nasnameya (IRK) amûra we, ku alîkariya CAPod dike ku wê di nav amûrên nêz de nas bike.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ji ber nepenîtiyê pir caran navnîşana xwe ya Bluetooth diguherînin. IRK alîkariya CAPod dike ku amûra we nas bike. Pêdiviya we bi gihîştina yekcarî ya MacBook heye.</string>
-    <string name="settings_maindevice_encryptionkey_label">Mifteya Şîfrekirinê</string>
-    <string name="settings_maindevice_encryptionkey_description">Mifteya şîfrekirina amûra we, ku dihêle CAPod agahdariya rewşa berfireh bistîne.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods peyamek rewşê dişînin, ku beşek jê şîfrekirî ye. Mifteya şîfrekirinê dihêle CAPod peyama tevahî deşîfre bike. Pêdiviya we bi gihîştina yekcarî ya MacBook heye.</string>
+    <string name="profiles_identitykey_label">Mifteya Nasnameyê</string>
+    <string name="profilessettings_maindevice_identitykey_description">Mifteya Çareserkirina Nasnameya (IRK) amûra we, ku alîkariya CAPod dike ku wê di nav amûrên nêz de nas bike.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ji ber nepenîtiyê pir caran navnîşana xwe ya Bluetooth diguherînin. IRK alîkariya CAPod dike ku amûra we nas bike. Pêdiviya we bi gihîştina yekcarî ya MacBook heye.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Mifteya Şîfrekirinê</string>
+    <string name="profiles_maindevice_encryptionkey_description">Mifteya şîfrekirina amûra we, ku dihêle CAPod agahdariya rewşa berfireh bistîne.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods peyamek rewşê dişînin, ku beşek jê şîfrekirî ye. Mifteya şîfrekirinê dihêle CAPod peyama tevahî deşîfre bike. Pêdiviya we bi gihîştina yekcarî ya MacBook heye.</string>
 
     <string name="settings_onepod_mode_label">Moda yek pod</string>
     <string name="settings_onepod_mode_description">Ne hewce ye ku herdu pod werin lixwekirin, lixwekirina podek tenê bes e ku bertekan bide destpêkirin.</string>

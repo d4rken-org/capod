@@ -20,11 +20,9 @@ class DeviceProfilesSettings @Inject constructor(
 
     override val preferences: SharedPreferences = context.getSharedPreferences("device_profiles", Context.MODE_PRIVATE)
 
-    private val listType = Types.newParameterizedType(List::class.java, DeviceProfile::class.java)
-    
-    val profiles = preferences.createFlowPreference<List<DeviceProfile>>(
+    val profiles = preferences.createFlowPreference<DeviceProfilesContainer>(
         "profiles",
-        emptyList(),
+        DeviceProfilesContainer(),
         moshi
     )
 

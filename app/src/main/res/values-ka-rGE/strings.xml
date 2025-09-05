@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">არცერთი</string>
     <string name="settings_maindevice_model_label">თქვენი მოწყობილობის მოდელი</string>
     <string name="settings_maindevice_model_description">თქვენი ძირითადი მოწყობილობის მოდელი. ეს ეხმარება აპლიკაციას თქვენი მოწყობილობის ამოცნობაში, როდესაც ის არ არის დაკავშირებული თქვენს ტელეფონთან.</string>
-    <string name="settings_maindevice_identitykey_label">იდენტურობის გასაღები</string>
-    <string name="settings_maindevice_identitykey_description">თქვენი მოწყობილობის იდენტურობის გადაჭრის გასაღები (IRK), რომელიც ეხმარება CAPod-ს ახლომდებარე მოწყობილობებს შორის მისი იდენტიფიცირებაში.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods-ები კონფიდენციალურობის მიზნით ხშირად იცვლიან Bluetooth მისამართს. IRK ეხმარება CAPod-ს თქვენი მოწყობილობის ამოცნობაში. MacBook-ზე ერთჯერადი წვდომა გჭირდებათ.</string>
-    <string name="settings_maindevice_encryptionkey_label">დაშიფვრის გასაღები</string>
-    <string name="settings_maindevice_encryptionkey_description">თქვენი მოწყობილობის დაშიფვრის გასაღები, რომელიც CAPod-ს საშუალებას აძლევს მიიღოს დეტალური სტატუსის ინფორმაცია.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods-ები აგზავნიან სტატუსის შეტყობინებას, რომლის ნაწილი დაშიფრულია. დაშიფვრის გასაღები CAPod-ს საშუალებას აძლევს გაშიფროს სრული შეტყობინება. MacBook-ზე ერთჯერადი წვდომა გჭირდებათ.</string>
+    <string name="profiles_identitykey_label">იდენტურობის გასაღები</string>
+    <string name="profilessettings_maindevice_identitykey_description">თქვენი მოწყობილობის იდენტურობის გადაჭრის გასაღები (IRK), რომელიც ეხმარება CAPod-ს ახლომდებარე მოწყობილობებს შორის მისი იდენტიფიცირებაში.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods-ები კონფიდენციალურობის მიზნით ხშირად იცვლიან Bluetooth მისამართს. IRK ეხმარება CAPod-ს თქვენი მოწყობილობის ამოცნობაში. MacBook-ზე ერთჯერადი წვდომა გჭირდებათ.</string>
+    <string name="profiles_maindevice_encryptionkey_label">დაშიფვრის გასაღები</string>
+    <string name="profiles_maindevice_encryptionkey_description">თქვენი მოწყობილობის დაშიფვრის გასაღები, რომელიც CAPod-ს საშუალებას აძლევს მიიღოს დეტალური სტატუსის ინფორმაცია.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods-ები აგზავნიან სტატუსის შეტყობინებას, რომლის ნაწილი დაშიფრულია. დაშიფვრის გასაღები CAPod-ს საშუალებას აძლევს გაშიფროს სრული შეტყობინება. MacBook-ზე ერთჯერადი წვდომა გჭირდებათ.</string>
 
     <string name="settings_onepod_mode_label">ერთი ყურსასმენის რეჟიმი</string>
     <string name="settings_onepod_mode_description">ორივე ყურსასმენის ტარება არ არის აუცილებელი, ერთი ყურსასმენის ტარება საკმარისია რეაქციების გასააქტიურებლად.</string>

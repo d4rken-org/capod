@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Bat ere ez</string>
     <string name="settings_maindevice_model_label">Zure gailuaren eredua</string>
     <string name="settings_maindevice_model_description">Zure gailu nagusiaren eredua. Honek aplikazioari zure gailua ezagutzen laguntzen dio zure telefonora konektatuta ez dagoenean.</string>
-    <string name="settings_maindevice_identitykey_label">Identitate Gakoa</string>
-    <string name="settings_maindevice_identitykey_description">Zure gailuaren Identitatea Ebazteko Gakoa (IRK), CAPod-i inguruko gailuen artean identifikatzen laguntzen diona.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPod-ek maiz aldatzen dute Bluetooth helbidea pribatutasunagatik. IRK-k CAPod-i zure gailua ezagutzen laguntzen dio. MacBook batera behin-behineko sarbidea behar duzu.</string>
-    <string name="settings_maindevice_encryptionkey_label">Enkriptazio Gakoa</string>
-    <string name="settings_maindevice_encryptionkey_description">Zure gailuaren enkriptazio gakoa, CAPod-i egoeraren informazio zehatza eskuratzeko aukera ematen diona.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPod-ek egoera mezu bat bidaltzen dute, zati bat enkriptatuta dagoelarik. Enkriptazio gakoak CAPod-i mezu osoa deszifratzeko aukera ematen dio. MacBook batera behin-behineko sarbidea behar duzu.</string>
+    <string name="profiles_identitykey_label">Identitate Gakoa</string>
+    <string name="profilessettings_maindevice_identitykey_description">Zure gailuaren Identitatea Ebazteko Gakoa (IRK), CAPod-i inguruko gailuen artean identifikatzen laguntzen diona.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPod-ek maiz aldatzen dute Bluetooth helbidea pribatutasunagatik. IRK-k CAPod-i zure gailua ezagutzen laguntzen dio. MacBook batera behin-behineko sarbidea behar duzu.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Enkriptazio Gakoa</string>
+    <string name="profiles_maindevice_encryptionkey_description">Zure gailuaren enkriptazio gakoa, CAPod-i egoeraren informazio zehatza eskuratzeko aukera ematen diona.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPod-ek egoera mezu bat bidaltzen dute, zati bat enkriptatuta dagoelarik. Enkriptazio gakoak CAPod-i mezu osoa deszifratzeko aukera ematen dio. MacBook batera behin-behineko sarbidea behar duzu.</string>
 
     <string name="settings_onepod_mode_label">Pod bakarreko modua</string>
     <string name="settings_onepod_mode_description">Ez da beharrezkoa bi pod-ak janztea, pod bakar bat janztea nahikoa da erreakzioak abiarazteko.</string>

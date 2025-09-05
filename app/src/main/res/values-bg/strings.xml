@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Няма</string>
     <string name="settings_maindevice_model_label">Модел на вашето устройство</string>
     <string name="settings_maindevice_model_description">Моделът на вашето основно устройство. Това помага на приложението да разпознае вашето устройство, когато не е свързано с телефона ви.</string>
-    <string name="settings_maindevice_identitykey_label">Идентификационен ключ</string>
-    <string name="settings_maindevice_identitykey_description">Идентификационният ключ за разрешаване (IRK) на вашето устройство, който помага на CAPod да го идентифицира сред близките устройства.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods често променят своя Bluetooth адрес от съображения за поверителност. IRK помага на CAPod да разпознае вашето устройство. Нуждаете се от еднократен достъп до MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Ключ за шифроване</string>
-    <string name="settings_maindevice_encryptionkey_description">Ключът за шифроване на вашето устройство, който позволява на CAPod да извлича подробна информация за състоянието.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods изпращат съобщение за състоянието, част от което е шифровано. Ключът за шифроване позволява на CAPod да дешифрира пълното съобщение. Нуждаете се от еднократен достъп до MacBook.</string>
+    <string name="profiles_identitykey_label">Идентификационен ключ</string>
+    <string name="profilessettings_maindevice_identitykey_description">Идентификационният ключ за разрешаване (IRK) на вашето устройство, който помага на CAPod да го идентифицира сред близките устройства.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods често променят своя Bluetooth адрес от съображения за поверителност. IRK помага на CAPod да разпознае вашето устройство. Нуждаете се от еднократен достъп до MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Ключ за шифроване</string>
+    <string name="profiles_maindevice_encryptionkey_description">Ключът за шифроване на вашето устройство, който позволява на CAPod да извлича подробна информация за състоянието.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods изпращат съобщение за състоянието, част от което е шифровано. Ключът за шифроване позволява на CAPod да дешифрира пълното съобщение. Нуждаете се от еднократен достъп до MacBook.</string>
 
     <string name="settings_onepod_mode_label">Режим с една слушалка</string>
     <string name="settings_onepod_mode_description">Носенето на двете слушалки не е необходимо, носенето на една слушалка е достатъчно за задействане на реакции.</string>

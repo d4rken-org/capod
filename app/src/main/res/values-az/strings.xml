@@ -55,12 +55,12 @@
     <string name="settings_maindevice_address_none">Heç biri</string>
     <string name="settings_maindevice_model_label">Cihazınızın modeli</string>
     <string name="settings_maindevice_model_description">Əsas cihazınızın modeli. Bu, tətbiqin telefonunuza qoşulmadığı zaman cihazınızı tanımasına kömək edir.</string>
-    <string name="settings_maindevice_identitykey_label">Kimlik Açarı</string>
-    <string name="settings_maindevice_identitykey_description">Cihazınızın Kimlik Həlletmə Açarı (IRK), CAPod-un onu yaxınlıqdakı cihazlar arasında tanımasına kömək edir.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods məxfilik üçün Bluetooth ünvanlarını tez-tez dəyişir. IRK CAPod-un cihazınızı tanımasına kömək edir. MacBook-a birdəfəlik girişiniz olmalıdır.</string>
-    <string name="settings_maindevice_encryptionkey_label">Şifrələmə Açarı</string>
-    <string name="settings_maindevice_encryptionkey_description">Cihazınızın şifrələmə açarı, CAPod-un ətraflı status məlumatlarını əldə etməsinə imkan verir.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods status mesajı göndərir, bunun bir hissəsi şifrələnir. Şifrələmə açarı CAPod-un tam mesajı deşifrə etməsinə imkan verir. MacBook-a birdəfəlik girişiniz olmalıdır.</string>
+    <string name="profiles_identitykey_label">Kimlik Açarı</string>
+    <string name="profilessettings_maindevice_identitykey_description">Cihazınızın Kimlik Həlletmə Açarı (IRK), CAPod-un onu yaxınlıqdakı cihazlar arasında tanımasına kömək edir.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods məxfilik üçün Bluetooth ünvanlarını tez-tez dəyişir. IRK CAPod-un cihazınızı tanımasına kömək edir. MacBook-a birdəfəlik girişiniz olmalıdır.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Şifrələmə Açarı</string>
+    <string name="profiles_maindevice_encryptionkey_description">Cihazınızın şifrələmə açarı, CAPod-un ətraflı status məlumatlarını əldə etməsinə imkan verir.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods status mesajı göndərir, bunun bir hissəsi şifrələnir. Şifrələmə açarı CAPod-un tam mesajı deşifrə etməsinə imkan verir. MacBook-a birdəfəlik girişiniz olmalıdır.</string>
 
     <string name="settings_onepod_mode_label">Tək qulaqlıq rejimi</string>
     <string name="settings_onepod_mode_description">Hər iki qulaqlığı taxmaq tələb olunmur, reaksiyaları tətikləmək üçün tək bir qulaqlığı taxmaq kifayətdir.</string>
