@@ -35,8 +35,8 @@ class GeneralSettings @Inject constructor(
 
     val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
+    // TODO migrate these to new profiles
     val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
-
     val mainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
     val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
     val mainDeviceIdentityKey = preferences.createFlowPreference<IdentityResolvingKey?>(
