@@ -24,6 +24,11 @@ android {
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
     }
 
+    // Enable automatic per-app language preferences generation
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     signingConfigs {
         val basePath = File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}")
         create("releaseFoss") {
