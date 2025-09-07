@@ -9,7 +9,6 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.PodDevice
@@ -32,7 +31,6 @@ import javax.inject.Singleton
 class PopUpReaction @Inject constructor(
     private val podMonitor: PodMonitor,
     private val reactionSettings: ReactionSettings,
-    private val generalSettings: GeneralSettings,
     private val bluetoothManager: BluetoothManager2,
 ) {
 
@@ -118,17 +116,17 @@ class PopUpReaction @Inject constructor(
             if (!isEnabled) return@flatMapLatest emptyFlow()
 
             combine(
-                generalSettings.mainDeviceAddress.flow,
                 bluetoothManager.connectedDevices().distinctUntilChanged(),
                 podMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
-            ) { targetAddress, devices, broadcast ->
-                log(TAG) { "$targetAddress $broadcast $devices " }
-                val direct = devices.singleOrNull { it.address == targetAddress }.also {
+            ) { devices, broadcast ->
+                log(TAG) { "$broadcast $devices " }
+                val primaryAddr = broadcast?.meta?.profile?.address
+                val direct = devices.singleOrNull { it.address == primaryAddr }.also {
                     log(TAG, VERBOSE) { "Connected main device is $it" }
                 }
                 if (direct == null) {
-                    connectionCoolDowns.remove(targetAddress).also {
-                        if (it != null) log(TAG) { "Cleared connection cooldown for $targetAddress due to disconect" }
+                    connectionCoolDowns.remove(primaryAddr).also {
+                        if (it != null) log(TAG) { "Cleared connection cooldown for $primaryAddr due to disconect" }
                     }
                 }
                 if (direct != null && broadcast != null) direct to broadcast else null

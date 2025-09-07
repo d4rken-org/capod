@@ -12,6 +12,7 @@ import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -30,7 +31,8 @@ class AutoConnect @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val podMonitor: PodMonitor,
     private val generalSettings: GeneralSettings,
-    private val reactionSettings: ReactionSettings
+    private val reactionSettings: ReactionSettings,
+    private val deviceProfilesRepo: DeviceProfilesRepo,
 ) {
 
     fun monitor(): Flow<Unit> = reactionSettings.autoConnect.flow
@@ -49,7 +51,7 @@ class AutoConnect @Inject constructor(
         .map { (connectedDevices, mainDevice) ->
             log(TAG, VERBOSE) { "mainPodDevice is $mainDevice" }
 
-            val mainDeviceAddr = generalSettings.mainDeviceAddress.value
+            val mainDeviceAddr = mainDevice.meta.profile?.address
             if (mainDeviceAddr.isNullOrEmpty()) {
                 log(TAG, WARN) { "mainDeviceAddress is null" }
                 return@map

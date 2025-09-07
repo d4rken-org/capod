@@ -1,14 +1,13 @@
 package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.bluetooth.BleScanResult
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.history.KnownDevice
 import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 
 interface ApplePodsFactory {
     fun isResponsible(message: ProximityMessage): Boolean
-    fun create(scanResult: BleScanResult, payload: ProximityPayload, meta: ApplePods.AppleMeta): ApplePods
+    suspend fun create(scanResult: BleScanResult, payload: ProximityPayload, meta: ApplePods.AppleMeta): ApplePods
 
     data class ModelInfo(
         val full: UShort,

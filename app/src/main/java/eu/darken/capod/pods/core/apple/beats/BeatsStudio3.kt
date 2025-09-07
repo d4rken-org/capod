@@ -34,7 +34,7 @@ data class BeatsStudio3(
             getModelInfo().dirty == DEVICE_CODE_DIRTY && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-        override fun create(
+        override suspend fun create(
             scanResult: BleScanResult,
             payload: ProximityPayload,
             meta: ApplePods.AppleMeta

@@ -6,20 +6,21 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.R
 import eu.darken.capod.common.uix.ViewModel3
-import eu.darken.capod.profiles.core.AppleDeviceProfile
-import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ProfileId
+import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
@@ -188,7 +189,7 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
     private fun loadProfile(profileId: String) {
         launch {
             try {
-                val profiles = deviceProfilesRepo.profiles.first()
+                val profiles = deviceProfilesRepo.currentProfiles()
                 val profile = profiles.find { it.id == profileId }
                 if (profile != null) {
                     // Set current values

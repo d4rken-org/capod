@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceDataStore
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings
@@ -21,10 +20,12 @@ class DeviceProfilesSettings @Inject constructor(
     override val preferences: SharedPreferences = context.getSharedPreferences("device_profiles", Context.MODE_PRIVATE)
 
     val profiles = preferences.createFlowPreference<DeviceProfilesContainer>(
-        "profiles",
+        "profiles.data",
         DeviceProfilesContainer(),
         moshi
     )
+    val singleToMultiMigrationDone = preferences.createFlowPreference("profiles.migration.v2.done", false)
+    val defaultProfileCreated = preferences.createFlowPreference("profiles.default.v2.created", false)
 
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper()
 }

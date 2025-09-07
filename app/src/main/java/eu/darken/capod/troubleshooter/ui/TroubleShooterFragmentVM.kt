@@ -13,7 +13,16 @@ import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.unknown.UnknownDevice
-import kotlinx.coroutines.flow.*
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.takeWhile
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
@@ -22,6 +31,7 @@ class TroubleShooterFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
     private val dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
+    private val profilesRepo: DeviceProfilesRepo,
     private val podMonitor: PodMonitor,
     private val debugSettings: DebugSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
@@ -192,25 +202,28 @@ class TroubleShooterFragmentVM @Inject constructor(
 
             progress("Headphones found nearby, but not detected as yours. Resetting filters.\n")
 
-            generalSettings.mainDeviceModel.value = PodDevice.Model.UNKNOWN
-            generalSettings.mainDeviceAddress.value = null
-            generalSettings.minimumSignalQuality.value = 0.25f
+            profilesRepo.clear()
 
             progress("Setting headphone with strongest signal as yours.")
 
-            generalSettings.mainDeviceModel.value = otherDevices.maxBy { it.signalQuality }.model
+            profilesRepo.addProfile(
+                AppleDeviceProfile(
+                    label = "Test",
+                    model = otherDevices.maxBy { it.signalQuality }.model,
+                )
+            )
 
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
                 podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
-            if (mainDevice != null) {
-                generalSettings.mainDeviceModel.value = mainDevice.model
-                generalSettings.scannerMode.value = ScannerMode.BALANCED
-                success("Success! Detected your headphones.")
-                return@launch
-            }
 
-            failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
+            generalSettings.scannerMode.value = ScannerMode.BALANCED
+
+            if (mainDevice != null) {
+                success("Success! Detected your headphones.")
+            } else {
+                failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
+            }
         }
     }
 

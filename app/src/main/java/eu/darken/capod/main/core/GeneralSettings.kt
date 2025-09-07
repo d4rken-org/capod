@@ -35,16 +35,19 @@ class GeneralSettings @Inject constructor(
 
     val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
 
-    // TODO migrate these to new profiles
-    val minimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
-    val mainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
-    val mainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
-    val mainDeviceIdentityKey = preferences.createFlowPreference<IdentityResolvingKey?>(
+    val oldMinimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
+
+    val oldMainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
+
+    val oldMainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
+
+    val oldMainDeviceIdentityKey = preferences.createFlowPreference<IdentityResolvingKey?>(
         "core.maindevice.identitykey",
         null,
         moshi
     )
-    val mainDeviceEncryptionKey = preferences.createFlowPreference<ProximityEncryptionKey?>(
+
+    val oldMainDeviceEncryptionKey = preferences.createFlowPreference<ProximityEncryptionKey?>(
         "core.maindevice.encryptionkey",
         null,
         moshi
@@ -64,8 +67,6 @@ class GeneralSettings @Inject constructor(
         useExtraMonitorNotification,
         keepConnectedNotificationAfterDisconnect,
         scannerMode,
-        minimumSignalQuality,
-        mainDeviceAddress,
         isOffloadedFilteringDisabled,
         isOffloadedBatchingDisabled,
         useIndirectScanResultCallback,
