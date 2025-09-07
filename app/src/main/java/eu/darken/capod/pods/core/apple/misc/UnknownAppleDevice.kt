@@ -37,7 +37,7 @@ data class UnknownAppleDevice(
     ) : ApplePodsFactory {
         override fun isResponsible(message: ProximityMessage): Boolean = true
 
-        override fun create(
+        override suspend fun create(
             scanResult: BleScanResult,
             payload: ProximityPayload,
             meta: ApplePods.AppleMeta,

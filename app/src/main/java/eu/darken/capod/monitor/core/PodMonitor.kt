@@ -14,17 +14,17 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.flow.throttleLatest
-import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -85,7 +85,7 @@ class PodMonitor @Inject constructor(
 
     private suspend fun sortPodsToInterest(devices: Collection<PodDevice>): List<PodDevice> {
         val now = Instant.now()
-        val profiles = profilesRepo.profiles.firstOrNull() ?: emptyList()
+        val profiles = profilesRepo.currentProfiles() ?: emptyList()
         
         return devices.sortedWith(
             compareBy<PodDevice> { device ->
@@ -185,7 +185,7 @@ class PodMonitor @Inject constructor(
         val currentMain = devices.firstOrNull()?.firstOrNull()
         log(TAG) { "Live mainDevice is $currentMain" }
 
-        return currentMain ?: profilesRepo.profiles.first().firstOrNull()
+        return currentMain ?: profilesRepo.currentProfiles().firstOrNull()
             ?.let { podDeviceCache.load(it.id) }
             ?.let { podFactory.createPod(it)?.device }
             .also { log(TAG) { "Cached mainDevice is $it" } }

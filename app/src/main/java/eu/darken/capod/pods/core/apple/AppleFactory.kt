@@ -15,7 +15,7 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import kotlinx.coroutines.flow.first
+import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -63,7 +63,7 @@ class AppleFactory @Inject constructor(
         val proximityMessage = getMessage(scanResult) ?: return@withLock null
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) } ?: unknownAppleFactory
 
-        val profiles = profilesRepo.profiles.first().filterIsInstance<AppleDeviceProfile>()
+        val profiles = profilesRepo.currentProfiles().filterIsInstance<AppleDeviceProfile>()
         var profile = profiles.firstOrNull {
             it.identityKey != null && rpaChecker.verify(scanResult.address, it.identityKey)
         }

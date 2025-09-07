@@ -7,20 +7,22 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import eu.darken.capod.pods.core.apple.protocol.RPAChecker
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.currentProfiles
 import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class PodHistoryRepo @Inject constructor(
-    private val generalSettings: GeneralSettings,
+    private val profilesRepo: DeviceProfilesRepo,
     private val rpaChecker: RPAChecker,
 ) {
 
@@ -66,7 +68,7 @@ class PodHistoryRepo @Inject constructor(
         val model: PodDevice.Model,
     )
 
-    fun search(current: ApplePods): KnownDevice? {
+    suspend fun search(current: ApplePods): KnownDevice? {
         val basicResult = baseSearch(current)
 
         val caseIgnored = if (current is DualApplePods) {
@@ -97,7 +99,7 @@ class PodHistoryRepo @Inject constructor(
         }
     }
 
-    private fun baseSearch(current: ApplePods): KnownDevice? {
+    private suspend fun baseSearch(current: ApplePods): KnownDevice? {
         val scanResult = current.scanResult
         val payload = current.payload
 
@@ -120,14 +122,14 @@ class PodHistoryRepo @Inject constructor(
             ?.also { log(TAG, VERBOSE) { "search1: Recovered previous ID via address: $it" } }
 
         if (recognizedDevice == null) {
-            generalSettings.mainDeviceIdentityKey.value?.let { key ->
-                if (!rpaChecker.verify(current.address, key)) {
-                    log(TAG, VERBOSE) { "search1: Current device does not match IRK" }
-                    return@let
-                }
+            val profile = profilesRepo.currentProfiles()
+                .filterIsInstance<AppleDeviceProfile>()
+                .filter { it.identityKey != null }
+                .firstOrNull { rpaChecker.verify(current.address, it.identityKey!!) }
 
+            if (profile != null) {
                 recognizedDevice = knownDevices.values
-                    .firstOrNull { rpaChecker.verify(it.lastAddress, key) }
+                    .firstOrNull { rpaChecker.verify(it.lastAddress, profile.identityKey!!) }
                     .also { log(TAG, VERBOSE) { "search1: Recovered previous ID via IRK: $it" } }
             }
         }
