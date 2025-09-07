@@ -98,7 +98,7 @@ class AppleFactory @Inject constructor(
                 meta = ApplePods.AppleMeta(),
             )
             profile = profiles
-                .filter { it.model == tempDevice.model }
+                .filter { it.model == PodDevice.Model.UNKNOWN || it.model == tempDevice.model }
                 .filter { it.minimumSignalQuality <= tempDevice.signalQuality }
                 .firstOrNull()
         }
@@ -107,7 +107,7 @@ class AppleFactory @Inject constructor(
             scanResult = scanResult,
             payload = payload,
             meta = ApplePods.AppleMeta(
-                isIRKMatch = profile != null,
+                isIRKMatch = isIrkMatch,
                 profile = profile,
             ),
         )
