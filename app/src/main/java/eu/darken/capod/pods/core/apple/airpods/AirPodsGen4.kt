@@ -42,7 +42,6 @@ data class AirPodsGen4(
         private val repo: PodHistoryRepo,
     ) : ApplePodsFactory {
 
-        override val deviceModel: PodDevice.Model = PodDevice.Model.AIRPODS_GEN4
 
         override fun isResponsible(message: ProximityMessage): Boolean = message.run {
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH

@@ -61,49 +61,53 @@ class AppleFactory @Inject constructor(
 
     suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
         val proximityMessage = getMessage(scanResult) ?: return@withLock null
-
-        var isIRKMatch = false
-        val candidates = profilesRepo.profiles.first().filterIsInstance<AppleDeviceProfile>()
-        var profile = candidates.firstOrNull {
-            it.identityKey != null && rpaChecker.verify(scanResult.address, it.identityKey)
-        }
-        if (profile != null) {
-            isIRKMatch = true
-            log(TAG, VERBOSE) { "Got IRK match for from $profile for $scanResult" }
-        }
-
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) } ?: unknownAppleFactory
 
-        // TODO more checks heuristicbased
-        if (profile == null) {
-            profile = candidates.firstOrNull { it.model == factory.deviceModel }
-            log(TAG, VERBOSE) { "Got no IRK match for from $profile for $scanResult" }
+        val profiles = profilesRepo.profiles.first().filterIsInstance<AppleDeviceProfile>()
+        var profile = profiles.firstOrNull {
+            it.identityKey != null && rpaChecker.verify(scanResult.address, it.identityKey)
         }
 
-        val payload = ProximityPayload(
+        val isIrkMatch = profile != null
+        if (isIrkMatch) log(TAG, VERBOSE) { "IRK match for $scanResult -> $profile" }
+
+        var payload = ProximityPayload(
             public = ProximityPayload.Public(
                 proximityMessage.data.take(9).toUByteArray()
             ),
-            private = run {
-                if (!isIRKMatch || profile == null) return@run null
-                if (proximityMessage.data.size != ProximityPairing.PAIRING_MESSAGE_LENGTH) return@run null
-
-                val encKey = profile.encryptionKey?.takeIf { it.isNotEmpty() }
-                if (encKey == null) return@run null
-
-                val encrypted = proximityMessage.data.takeLast(16).toUByteArray().toByteArray()
-                proximityMessageDecrypter.decrypt(encrypted, encKey)?.let {
-                    ProximityPayload.Private(data = it)
-                }
-            },
+            private = null,
         )
 
+        if (profile != null && profile.encryptionKey != null) {
+            payload = payload.copy(
+                private = run {
+                    if (proximityMessage.data.size != ProximityPairing.PAIRING_MESSAGE_LENGTH) return@run null
+                    val encKey = profile.encryptionKey
+                    val encrypted = proximityMessage.data.takeLast(16).toUByteArray().toByteArray()
+                    proximityMessageDecrypter.decrypt(encrypted, encKey)?.let {
+                        ProximityPayload.Private(data = it)
+                    }
+                },
+            )
+        }
+
+        if (profile == null) {
+            val tempDevice = factory.create(
+                scanResult = scanResult,
+                payload = payload,
+                meta = ApplePods.AppleMeta(),
+            )
+            profile = profiles
+                .filter { it.model == tempDevice.model }
+                .filter { it.minimumSignalQuality <= tempDevice.signalQuality }
+                .firstOrNull()
+        }
 
         factory.create(
             scanResult = scanResult,
             payload = payload,
             meta = ApplePods.AppleMeta(
-                isIRKMatch = isIRKMatch,
+                isIRKMatch = profile != null,
                 profile = profile,
             ),
         )

@@ -57,8 +57,8 @@ interface ApplePods : PodDevice {
     }
 
     data class AppleMeta(
-        val isIRKMatch: Boolean,
-        override val profile: AppleDeviceProfile?,
+        val isIRKMatch: Boolean = false,
+        override val profile: AppleDeviceProfile? = null,
     ) : PodDevice.Meta
 
     override val meta: AppleMeta

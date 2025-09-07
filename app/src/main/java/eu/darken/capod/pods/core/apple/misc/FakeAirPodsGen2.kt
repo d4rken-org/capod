@@ -42,7 +42,6 @@ data class FakeAirPodsGen2(
     class Factory @Inject constructor(
         private val repo: PodHistoryRepo,
     ) : ApplePodsFactory {
-        override val deviceModel: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_GEN2
         override fun isResponsible(message: ProximityMessage): Boolean = message.run {
             // Official message length is 19HEX, i.e. binary 25, did they copy this wrong?
             getModelInfo().full == DEVICE_CODE && length == 19
