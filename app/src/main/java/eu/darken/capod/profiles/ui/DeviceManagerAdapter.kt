@@ -23,6 +23,7 @@ class DeviceManagerAdapter @Inject constructor() :
         modules.add(DataBinderMod(data))
         modules.add(TypedVHCreatorMod({ data[it] is DeviceProfileVH.Item }) { DeviceProfileVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is NoProfilesCardVH.Item }) { NoProfilesCardVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is PriorityHintVH.Item }) { PriorityHintVH(it) })
     }
 
     override fun getItemCount(): Int = data.size
