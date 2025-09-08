@@ -12,6 +12,8 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.fromHex
+import eu.darken.capod.common.toHex
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
@@ -29,6 +31,15 @@ import kotlinx.coroutines.flow.map
 import java.util.UUID
 import javax.inject.Inject
 
+data class ProfileEditorState(
+    val name: String = "",
+    val selectedModel: PodDevice.Model? = null,
+    val identityKeyHex: String? = null,
+    val encryptionKeyHex: String? = null,
+    val selectedDeviceAddress: String? = null,
+    val minimumSignalQuality: Float = DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
+)
+
 @HiltViewModel
 class DeviceProfileCreationFragmentVM @Inject constructor(
     @ApplicationContext private val context: Context,
@@ -41,20 +52,8 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
     private val profileId: String? = handle.get<ProfileId>("profileId")
     val isEditMode: Boolean = profileId != null
 
-    private val _name = MutableStateFlow("")
-    private val _selectedModel = MutableStateFlow<PodDevice.Model?>(null)
-    private val _identityKey = MutableStateFlow<IdentityResolvingKey?>(null)
-    private val _encryptionKey = MutableStateFlow<ProximityEncryptionKey?>(null)
-    private val _selectedDevice = MutableStateFlow<BluetoothDevice2?>(null)
-    private val _minimumSignalQuality = MutableStateFlow(DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY)
-
-    // Track initial values for unsaved changes detection
-    private val initialName = MutableStateFlow("")
-    private val initialSelectedModel = MutableStateFlow<PodDevice.Model?>(null)
-    private val initialIdentityKey = MutableStateFlow<IdentityResolvingKey?>(null)
-    private val initialEncryptionKey = MutableStateFlow<ProximityEncryptionKey?>(null)
-    private val initialSelectedDevice = MutableStateFlow<BluetoothDevice2?>(null)
-    private val initialMinimumSignalQuality = MutableStateFlow(DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY)
+    private val _currentState = MutableStateFlow(ProfileEditorState())
+    private val _initialState = MutableStateFlow(ProfileEditorState())
 
     private val _nameError = MutableStateFlow<String?>(null)
     
@@ -63,17 +62,30 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
             loadProfile(profileId)
         } else {
             // Prefill with localizable default for new profiles
-            _name.value = context.getString(R.string.profiles_name_default)
+            val defaultName = context.getString(R.string.profiles_name_default)
+            _currentState.value = _currentState.value.copy(name = defaultName)
+            // Initial state remains empty for create mode
         }
     }
 
-    val name: LiveData<String> = _name.asLiveData()
-    val selectedModel: LiveData<PodDevice.Model?> = _selectedModel.asLiveData()
+    val name: LiveData<String> = _currentState.map { it.name }.asLiveData()
+    val selectedModel: LiveData<PodDevice.Model?> = _currentState.map { it.selectedModel }.asLiveData()
     val nameError: LiveData<String?> = _nameError.asLiveData()
-    val identityKey: LiveData<IdentityResolvingKey?> = _identityKey.asLiveData()
-    val encryptionKey: LiveData<ProximityEncryptionKey?> = _encryptionKey.asLiveData()
-    val selectedDevice: LiveData<BluetoothDevice2?> = _selectedDevice.asLiveData()
-    val minimumSignalQuality: LiveData<Float> = _minimumSignalQuality.asLiveData()
+    val identityKey: LiveData<IdentityResolvingKey?> = _currentState.map { 
+        it.identityKeyHex?.fromHex()
+    }.asLiveData()
+    val encryptionKey: LiveData<ProximityEncryptionKey?> = _currentState.map { 
+        it.encryptionKeyHex?.fromHex()
+    }.asLiveData()
+    val selectedDevice: LiveData<BluetoothDevice2?> = combine(
+        _currentState,
+        bluetoothManager.bondedDevices().catch { emit(emptySet()) }
+    ) { state: ProfileEditorState, devices: Set<BluetoothDevice2> ->
+        state.selectedDeviceAddress?.let { address ->
+            devices.find { it.address == address }
+        }
+    }.asLiveData()
+    val minimumSignalQuality: LiveData<Float> = _currentState.map { it.minimumSignalQuality }.asLiveData()
 
     val availableModels: List<PodDevice.Model> = PodDevice.Model.entries
     
@@ -83,49 +95,28 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
         .asLiveData()
 
     private val hasUnsavedChangesFlow = combine(
-        _name, _selectedModel, _identityKey, _encryptionKey, _selectedDevice, _minimumSignalQuality,
-        initialName, initialSelectedModel, initialIdentityKey, initialEncryptionKey, initialSelectedDevice, initialMinimumSignalQuality
-    ) { flows ->
-        val currentName = flows[0] as String
-        val currentModel = flows[1] as PodDevice.Model?
-        val currentIdentityKey = flows[2] as IdentityResolvingKey?
-        val currentEncryptionKey = flows[3] as ProximityEncryptionKey?
-        val currentDevice = flows[4] as BluetoothDevice2?
-        val currentSignalQuality = flows[5] as Float
-        
-        val initName = flows[6] as String
-        val initModel = flows[7] as PodDevice.Model?
-        val initIdentityKey = flows[8] as IdentityResolvingKey?
-        val initEncryptionKey = flows[9] as ProximityEncryptionKey?
-        val initDevice = flows[10] as BluetoothDevice2?
-        val initSignalQuality = flows[11] as Float
-        
+        _currentState, _initialState
+    ) { current, initial ->
         if (isEditMode) {
-            // For edit mode, check if any current values differ from initial
-            currentName != initName ||
-            currentModel != initModel ||
-            currentIdentityKey != initIdentityKey ||
-            currentEncryptionKey != initEncryptionKey ||
-            currentDevice?.address != initDevice?.address ||
-            currentSignalQuality != initSignalQuality
+            // For edit mode, check if current state differs from initial state
+            current != initial
         } else {
-            // For create mode, check if any values have been entered
-            currentName.isNotBlank() ||
-            currentModel != null ||
-            currentIdentityKey != null ||
-            currentEncryptionKey != null ||
-            currentDevice != null ||
-            currentSignalQuality != DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
+            // For create mode, check if any meaningful values have been entered
+            current.name.isNotBlank() ||
+            current.selectedModel != null ||
+            current.identityKeyHex != null ||
+            current.encryptionKeyHex != null ||
+            current.selectedDeviceAddress != null ||
+            current.minimumSignalQuality != DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
         }
     }
 
     private val isFormValid = combine(
-        _name,
-        _selectedModel,
+        _currentState,
         _nameError
-    ) { name, model, nameError ->
-        name.isNotBlank() && 
-        model != null && 
+    ) { state, nameError ->
+        state.name.isNotBlank() && 
+        state.selectedModel != null && 
         nameError == null
     }
 
@@ -137,52 +128,50 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
     }.asLiveData()
 
     fun hasUnsavedChanges(): Boolean {
+        val current = _currentState.value
+        val initial = _initialState.value
+        
         return if (isEditMode) {
-            // For edit mode, check if any current values differ from initial
-            _name.value != initialName.value ||
-            _selectedModel.value != initialSelectedModel.value ||
-            _identityKey.value != initialIdentityKey.value ||
-            _encryptionKey.value != initialEncryptionKey.value ||
-            _selectedDevice.value?.address != initialSelectedDevice.value?.address ||
-            _minimumSignalQuality.value != initialMinimumSignalQuality.value
+            // For edit mode, check if current state differs from initial state
+            current != initial
         } else {
-            // For create mode, check if any values have been entered
-            _name.value.isNotBlank() ||
-            _selectedModel.value != null ||
-            _identityKey.value != null ||
-            _encryptionKey.value != null ||
-            _selectedDevice.value != null ||
-            _minimumSignalQuality.value != DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
+            // For create mode, check if any meaningful values have been entered
+            current.name.isNotBlank() ||
+            current.selectedModel != null ||
+            current.identityKeyHex != null ||
+            current.encryptionKeyHex != null ||
+            current.selectedDeviceAddress != null ||
+            current.minimumSignalQuality != DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
         }
     }
 
     fun updateName(name: String) {
-        _name.value = name
+        _currentState.value = _currentState.value.copy(name = name)
         _nameError.value = if (name.isBlank()) "Profile name is required" else null
     }
 
     fun updateModel(model: PodDevice.Model) {
-        _selectedModel.value = model
+        _currentState.value = _currentState.value.copy(selectedModel = model)
         log(TAG) { "Selected model: $model" }
     }
 
     fun updateIdentityKey(key: IdentityResolvingKey?) {
-        _identityKey.value = key
+        _currentState.value = _currentState.value.copy(identityKeyHex = key?.toHex())
         log(TAG) { "Identity key updated: ${key != null}" }
     }
 
     fun updateEncryptionKey(key: ProximityEncryptionKey?) {
-        _encryptionKey.value = key
+        _currentState.value = _currentState.value.copy(encryptionKeyHex = key?.toHex())
         log(TAG) { "Encryption key updated: ${key != null}" }
     }
     
     fun updateSelectedDevice(device: BluetoothDevice2?) {
-        _selectedDevice.value = device
+        _currentState.value = _currentState.value.copy(selectedDeviceAddress = device?.address)
         log(TAG) { "Selected device updated: ${device?.name} (${device?.address})" }
     }
     
     fun updateMinimumSignalQuality(quality: Float) {
-        _minimumSignalQuality.value = quality
+        _currentState.value = _currentState.value.copy(minimumSignalQuality = quality)
         log(TAG) { "Minimum signal quality updated: $quality" }
     }
     
@@ -192,40 +181,19 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
                 val profiles = deviceProfilesRepo.currentProfiles()
                 val profile = profiles.find { it.id == profileId }
                 if (profile != null) {
-                    // Set current values
-                    _name.value = profile.label
-                    _selectedModel.value = profile.model
-                    _minimumSignalQuality.value = profile.minimumSignalQuality ?: DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
+                    // Create the loaded state
+                    val loadedState = ProfileEditorState(
+                        name = profile.label,
+                        selectedModel = profile.model,
+                        identityKeyHex = (profile as? AppleDeviceProfile)?.identityKey?.toHex(),
+                        encryptionKeyHex = (profile as? AppleDeviceProfile)?.encryptionKey?.toHex(),
+                        selectedDeviceAddress = (profile as? AppleDeviceProfile)?.address,
+                        minimumSignalQuality = profile.minimumSignalQuality ?: DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
+                    )
                     
-                    if (profile is AppleDeviceProfile) {
-                        _identityKey.value = profile.identityKey
-                        _encryptionKey.value = profile.encryptionKey
-                        
-                        // Restore selected device if address is available
-                        profile.address?.let { address ->
-                            launch {
-                                try {
-                                    val bondedDevices = bluetoothManager.bondedDevices().first()
-                                    val matchingDevice = bondedDevices.find { it.address == address }
-                                    _selectedDevice.value = matchingDevice
-                                    initialSelectedDevice.value = matchingDevice
-                                    log(TAG) { "Restored selected device: ${matchingDevice?.name} ($address)" }
-                                } catch (e: Exception) {
-                                    log(TAG) { "Failed to restore selected device: $e" }
-                                }
-                            }
-                        }
-                    }
-                    
-                    // Set initial values for change tracking
-                    initialName.value = profile.label
-                    initialSelectedModel.value = profile.model
-                    initialMinimumSignalQuality.value = profile.minimumSignalQuality ?: DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
-                    
-                    if (profile is AppleDeviceProfile) {
-                        initialIdentityKey.value = profile.identityKey
-                        initialEncryptionKey.value = profile.encryptionKey
-                    }
+                    // Set both initial and current state atomically
+                    _initialState.value = loadedState
+                    _currentState.value = loadedState
                     
                     log(TAG) { "Profile loaded: ${profile.label}" }
                 } else {
@@ -243,15 +211,15 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
     fun saveProfile() {
         log(TAG) { "saveProfile()" }
         
-        val name = _name.value.trim()
-        val model = _selectedModel.value
+        val state = _currentState.value
+        val name = state.name.trim()
         
         if (name.isBlank()) {
             _nameError.value = "Profile name is required"
             return
         }
         
-        if (model == null) {
+        if (state.selectedModel == null) {
             log(TAG) { "No model selected" }
             return
         }
@@ -262,11 +230,11 @@ class DeviceProfileCreationFragmentVM @Inject constructor(
                 val profile = AppleDeviceProfile(
                     id = if (isEditMode) profileId!! else UUID.randomUUID().toString(),
                     label = name,
-                    model = model,
-                    minimumSignalQuality = _minimumSignalQuality.value,
-                    identityKey = _identityKey.value,
-                    encryptionKey = _encryptionKey.value,
-                    address = _selectedDevice.value?.address
+                    model = state.selectedModel,
+                    minimumSignalQuality = state.minimumSignalQuality,
+                    identityKey = state.identityKeyHex?.fromHex(),
+                    encryptionKey = state.encryptionKeyHex?.fromHex(),
+                    address = state.selectedDeviceAddress
                 )
                 
                 if (isEditMode) {
