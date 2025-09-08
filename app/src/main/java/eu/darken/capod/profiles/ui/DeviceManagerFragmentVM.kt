@@ -30,11 +30,18 @@ class DeviceManagerFragmentVM @Inject constructor(
                     )
                 )
             } else {
-                profiles.map { profile ->
+                val profileItems = profiles.map { profile ->
                     DeviceProfileVH.Item(
                         profile = profile,
                         onItemClick = { onEditProfile(it) }
                     )
+                }
+                
+                // Add priority hint at the end if there are 2+ profiles
+                if (profiles.size >= 2) {
+                    profileItems + PriorityHintVH.Item()
+                } else {
+                    profileItems
                 }
             }
         }

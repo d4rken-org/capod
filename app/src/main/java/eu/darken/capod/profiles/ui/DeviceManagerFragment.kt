@@ -68,7 +68,7 @@ class DeviceManagerFragment : Fragment3(R.layout.device_manager_fragment) {
                     val fromPosition = viewHolder.adapterPosition
                     val toPosition = target.adapterPosition
 
-                    // Only allow reordering of profile items, not empty state cards
+                    // Only allow reordering of profile items, not empty state cards or hints
                     if (adapter.data[fromPosition] is DeviceProfileVH.Item &&
                         adapter.data[toPosition] is DeviceProfileVH.Item
                     ) {
