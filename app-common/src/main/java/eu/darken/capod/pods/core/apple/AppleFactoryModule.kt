@@ -15,6 +15,7 @@ import eu.darken.capod.pods.core.apple.airpods.AirPodsMaxUsbc
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro2
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro2Usbc
+import eu.darken.capod.pods.core.apple.airpods.AirPodsPro3
 import eu.darken.capod.pods.core.apple.beats.BeatsFitPro
 import eu.darken.capod.pods.core.apple.beats.BeatsFlex
 import eu.darken.capod.pods.core.apple.beats.BeatsSolo3
@@ -43,6 +44,7 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun airPodsPro(factory: AirPodsPro.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun airPodsPro2(factory: AirPodsPro2.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun airPodsPro2Usbc(factory: AirPodsPro2Usbc.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun airPodsPro3(factory: AirPodsPro3.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun airPodsMax(factory: AirPodsMax.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun airPodsMax2(factory: AirPodsMaxUsbc.Factory): ApplePodsFactory
 
