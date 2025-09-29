@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">هل يجب أن يعطي ماسح بيانات البلوتوث منخفض الطاقة الأولوية للأداء أم يحافظ على الطاقة؟</string>
     <string name="settings_autopause_label">إيقاف مؤقت تلقائي</string>
     <string name="settings_autopause_description">إيقاف الصوت مؤقتًا عند إزالة الجهاز من أذنك.</string>
-    <string name="settings_showall_label">عرض جميع الأجهزة</string>
-    <string name="settings_showall_description">عرض أجهزة الأشخاص الآخرين القريبة منك.</string>
     <string name="settings_autopplay_label">تشغيل تلقائي</string>
     <string name="settings_autoplay_description">بدء تشغيل الصوت عند ارتداء الجهاز.</string>
     <string name="settings_fake_data_label">بيانات وهمية</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">لا تفوض تصفية البيانات إلى النظام، بل احصل على جميع البيانات وقم بالتصفية داخل التطبيق.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">تعطيل التجميع بالأجهزة</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">لا تدع النظام يجمع بيانات BLE المجمعة قبل إرسالها إلينا.</string>
-    <string name="settings_maindevice_address_label">عنوان جهازك</string>
-    <string name="settings_maindevice_address_description">عنوان جهازك المقترن. يستخدمه التطبيق لتحديد وقت اتصاله بهاتفك.</string>
-    <string name="settings_maindevice_address_none">لا شيء</string>
-    <string name="settings_maindevice_model_label">طراز جهازك</string>
-    <string name="settings_maindevice_model_description">طراز جهازك الرئيسي. يساعد هذا التطبيق في التعرف على جهازك عندما لا يكون متصلاً بهاتفك.</string>
-    <string name="settings_maindevice_identitykey_label">مفتاح الهوية</string>
-    <string name="settings_maindevice_identitykey_description">مفتاح حل هوية جهازك (IRK)، والذي يساعد CAPod في التعرف عليه بين الأجهزة القريبة.</string>
-    <string name="settings_maindevice_identitykey_explanation">تغير AirPods عنوان البلوتوث الخاص بها بشكل متكرر للخصوصية. يساعد IRK CAPod في التعرف على جهازك. تحتاج إلى الوصول لمرة واحدة إلى جهاز MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">مفتاح التشفير</string>
-    <string name="settings_maindevice_encryptionkey_description">مفتاح تشفير جهازك، والذي يسمح لـ CAPod باسترداد معلومات الحالة التفصيلية.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">ترسل AirPods رسالة حالة، جزء منها مشفر. يسمح مفتاح التشفير لـ CAPod بفك تشفير الرسالة الكاملة. تحتاج إلى الوصول لمرة واحدة إلى جهاز MacBook.</string>
     <string name="settings_onepod_mode_label">وضع سماعة واحدة</string>
     <string name="settings_onepod_mode_description">ليس مطلوبًا ارتداء كلتا السماعتين، فارتداء سماعة واحدة كافٍ لتشغيل ردود الفعل.</string>
     <string name="settings_popup_caseopen_label">إظهار نافذة منبثقة للعلبة</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">لا تدعم جميع أجهزة Android ميزات AirPods الإضافية بشكل كامل. يتطلب نظام التشغيل الخاص بك تطبيق Bluetooth-Low-Energy يعمل بشكل صحيح.</string>
     <string name="onboarding_body3">لا يحتوي CAPod على إعلانات ولا يجمع بياناتك.</string>
     <string name="onboarding_body4">يمكنك الترقية إلى CAPod Pro للحصول على ميزات إضافية ودعم التطوير.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

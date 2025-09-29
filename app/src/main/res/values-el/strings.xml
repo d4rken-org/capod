@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Ο σαρωτής δεδομένων Bluetooth Low Energy θα πρέπει να δώσει προτεραιότητα στην απόδοση ή στην εξοικονόμηση ενέργειας;</string>
     <string name="settings_autopause_label">Αυτόματη παύση</string>
     <string name="settings_autopause_description">Παύση ήχου κατά την αφαίρεση της συσκευής από το αυτί σας.</string>
-    <string name="settings_showall_label">Εμφάνιση όλων των συσκευών</string>
-    <string name="settings_showall_description">Εμφάνιση συσκευών άλλων ατόμων που βρίσκονται κοντά σας.</string>
     <string name="settings_autopplay_label">Αυτόματη αναπαραγωγή</string>
     <string name="settings_autoplay_description">Έναρξη αναπαραγωγής ήχου όταν φοριέται η συσκευή.</string>
     <string name="settings_fake_data_label">Ψευδή δεδομένα</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Μην αναθέτετε το φιλτράρισμα δεδομένων στο σύστημα, αντίθετα λάβετε όλα τα δεδομένα και φιλτράρετε εντός της εφαρμογής.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Απενεργοποίηση ομαδοποίησης υλικού</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Μην αφήσετε το σύστημα να ομαδοποιήσει τα συλλεγμένα δεδομένα BLE πριν μας τα προωθήσει.</string>
-    <string name="settings_maindevice_address_label">Η διεύθυνση της συσκευής σας</string>
-    <string name="settings_maindevice_address_description">Η διεύθυνση της συνδεδεμένης συσκευής σας. Η εφαρμογή τη χρησιμοποιεί για να καθορίσει πότε είναι συνδεδεμένη στο τηλέφωνό σας.</string>
-    <string name="settings_maindevice_address_none">Καμία</string>
-    <string name="settings_maindevice_model_label">Το μοντέλο της συσκευής σας</string>
-    <string name="settings_maindevice_model_description">Το μοντέλο της κύριας συσκευής σας. Αυτό βοηθά την εφαρμογή να αναγνωρίσει τη συσκευή σας όταν δεν είναι συνδεδεμένη στο τηλέφωνό σας.</string>
-    <string name="settings_maindevice_identitykey_label">Κλειδί Ταυτότητας</string>
-    <string name="settings_maindevice_identitykey_description">Το Κλειδί Επίλυσης Ταυτότητας της συσκευής σας (IRK), το οποίο βοηθά το CAPod να την αναγνωρίσει μεταξύ κοντινών συσκευών.</string>
-    <string name="settings_maindevice_identitykey_explanation">Τα AirPods αλλάζουν συχνά τη διεύθυνση Bluetooth τους για λόγους απορρήτου. Το IRK βοηθά το CAPod να αναγνωρίσει τη συσκευή σας. Χρειάζεστε εφάπαξ πρόσβαση σε MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Κλειδί Κρυπτογράφησης</string>
-    <string name="settings_maindevice_encryptionkey_description">Το κλειδί κρυπτογράφησης της συσκευής σας, το οποίο επιτρέπει στο CAPod να ανακτήσει λεπτομερείς πληροφορίες κατάστασης.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Τα AirPods στέλνουν ένα μήνυμα κατάστασης, μέρος του οποίου είναι κρυπτογραφημένο. Το κλειδί κρυπτογράφησης επιτρέπει στο CAPod να αποκρυπτογραφήσει ολόκληρο το μήνυμα. Χρειάζεστε εφάπαξ πρόσβαση σε MacBook.</string>
     <string name="settings_onepod_mode_label">Λειτουργία ενός pod</string>
     <string name="settings_onepod_mode_description">Η χρήση και των δύο pod δεν είναι απαραίτητη, η χρήση ενός μόνο pod αρκεί για την ενεργοποίηση αντιδράσεων.</string>
     <string name="settings_popup_caseopen_label">Εμφάνιση αναδυόμενου παραθύρου θήκης</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Δεν υποστηρίζουν όλες οι συσκευές Android πλήρως τις επιπλέον λειτουργίες AirPod. Το λειτουργικό σας σύστημα απαιτεί μια σωστά λειτουργούσα υλοποίηση Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">Το CAPod δεν έχει διαφημίσεις και δεν συλλέγει τα δεδομένα σας.</string>
     <string name="onboarding_body4">Μπορείτε να κάνετε αναβάθμιση σε CAPod Pro για να αποκτήσετε επιπλέον λειτουργίες και να υποστηρίξετε την ανάπτυξη.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

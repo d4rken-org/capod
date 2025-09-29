@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Οι υπηρεσίες Google Play δεν είναι διαθέσιμες.</string>
     <string name="upgrades_no_purchases_found_check_account">Δε βρέθηκαν αγορές. Χρησιμοποιείτε τον σωστό λογαριασμό;</string>
-    <string name="upgrades_gplay_billing_error_label">Σφάλμα Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Παρουσιάστηκε σφάλμα στο Google Play. Παρακαλώ δοκιμάστε ξανά αργότερα ή επανεκκινήστε το τηλέφωνό σας.\n\nΣφάλμα: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Σφάλμα Χρέωσης Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Παρουσιάστηκε σφάλμα όταν ζητήθηκαν από το Google Play τα στοιχεία της αγοράς σας. Καθαρίστε την προσωρινή μνήμη του Google Play και επανεκκινήστε το τηλέφωνό σας.\n\nΣφάλμα %s</string>
 </resources>

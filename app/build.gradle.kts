@@ -24,6 +24,11 @@ android {
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
     }
 
+    // Enable automatic per-app language preferences generation
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     signingConfigs {
         val basePath = File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}")
         create("releaseFoss") {
@@ -114,7 +119,9 @@ android {
             "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
             "-opt-in=kotlinx.coroutines.FlowPreview",
             "-opt-in=kotlin.time.ExperimentalTime",
-            "-opt-in=kotlin.RequiresOptIn"
+            "-opt-in=kotlin.RequiresOptIn",
+            "-opt-in=kotlin.ExperimentalUnsignedTypes",
+            "-Xannotation-default-target=param-property"
         )
     }
 
@@ -122,15 +129,14 @@ android {
         unitTests {
             isIncludeAndroidResources = true
         }
-    }
-    tasks.withType<Test> {
-        useJUnitPlatform()
+        //noinspection WrongGradleMethod
+        tasks.withType<Test> {
+            useJUnitPlatform()
+        }
     }
 }
 
 dependencies {
-    implementation(project(":app-common"))
-
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
     addBaseKotlin()

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Сканер даних Bluetooth Low Energy має зосередитися на продуктивності чи збереженні заряду батареї?</string>
     <string name="settings_autopause_label">Автопауза</string>
     <string name="settings_autopause_description">Зупинка відтворення аудіо, коли навушник прибрано з Вашого вуха.</string>
-    <string name="settings_showall_label">Показувати усі пристрої</string>
-    <string name="settings_showall_description">Показ пристроїв інших людей поблизу Вас.</string>
     <string name="settings_autopplay_label">Автовідтворення</string>
     <string name="settings_autoplay_description">Почати відтворення коли ви одягли навушники.</string>
     <string name="settings_fake_data_label">Підроблені дані</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Не доручати фільтрацію даних системі, замість цього отримувати всі дані та фільтрувати в додатку.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Вимкнути апаратне пакетування</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Не дозволяти системі групувати зібрані дані BLE, перш ніж пересилати їх нам.</string>
-    <string name="settings_maindevice_address_label">Адреса Вашого пристрою</string>
-    <string name="settings_maindevice_address_description">Адреса Вашого приєднаного пристрою. Програма використовує її для визначення, коли його під\'єднано до Вашого телефону.</string>
-    <string name="settings_maindevice_address_none">Немає</string>
-    <string name="settings_maindevice_model_label">Модель Вашого пристрою</string>
-    <string name="settings_maindevice_model_description">Модель вашого пристрою. Це допомагає розпізнати ваш пристрій коли він не підʼєднаний до вашого телефону.</string>
-    <string name="settings_maindevice_identitykey_label">Ключ ідентифікації</string>
-    <string name="settings_maindevice_identitykey_description">Ключ розпізнавання ідентичності вашого пристрою (IRK), який допомагає CAPod ідентифікувати його серед пристроїв поблизу.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods часто змінюють свою Bluetooth-адресу для конфіденційності. IRK допомагає CAPod розпізнати ваш пристрій. Вам потрібен одноразовий доступ до MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Ключ шифрування</string>
-    <string name="settings_maindevice_encryptionkey_description">Ключ шифрування вашого пристрою, який дозволяє CAPod отримувати детальну інформацію про стан.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods відправляє повідомлення про стан, частина якого зашифрована. Ключ шифрування дозволяє CAPod розшифрувати повне повідомлення. Вам потрібен одноразовий доступ до MacBook.</string>
     <string name="settings_onepod_mode_label">Режим одного навушника</string>
     <string name="settings_onepod_mode_description">Одягання обох навушників не є необхідним, одягання одного навушника цілком достатньо для запуску реагування.</string>
     <string name="settings_popup_caseopen_label">Показувати спливаюче вікно при відкритті футляра</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Не всі Android пристрої повністю підтримують додаткові функції AirPod. Ваша операційна система повинна підтримувати коректну реалізацію Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod не містить реклами та не збирає ваші дані.</string>
     <string name="onboarding_body4">Ви можете оновитись до CAPod Pro, щоб отримати підтримку додаткових функцій та підтримати розробку.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

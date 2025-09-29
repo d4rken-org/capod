@@ -1,26 +1,42 @@
 package eu.darken.capod.troubleshooter.ui
 
+import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.unknown.UnknownDevice
-import kotlinx.coroutines.flow.*
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.takeWhile
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
 @HiltViewModel
 class TroubleShooterFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
+    private val profilesRepo: DeviceProfilesRepo,
     private val podMonitor: PodMonitor,
     private val debugSettings: DebugSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
@@ -67,7 +83,7 @@ class TroubleShooterFragmentVM @Inject constructor(
         run {
             progress("Checking for headphones...")
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.mainDevice.filterNotNull().firstOrNull()
+                podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 success("Headphones found, nothing to troubleshoot.")
@@ -161,7 +177,7 @@ class TroubleShooterFragmentVM @Inject constructor(
         run {
             progress("Checking for your headphones with new BLE settings...")
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.mainDevice.filterNotNull().firstOrNull()
+                podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 success("Found your headphones, new BLE settings worked :)!")
@@ -184,32 +200,41 @@ class TroubleShooterFragmentVM @Inject constructor(
                     .distinctBy { it.address }
             } ?: emptyList()
 
+            otherDevices.forEachIndexed { index, dev -> log(TAG) { "Device #$index: $dev" } }
+
             if (otherDevices.isEmpty()) {
                 failure("No supported headphones found near your device.", BleState.Result.Failure.Type.HEADPHONES)
                 return@launch
             }
 
-            progress("Headphones found nearby, but not detected as yours. Resetting filters.\n")
+            progress("Headphones found nearby, but not detected as yours.\n")
+            progress("Creating profile for closest headphones.")
 
-            generalSettings.mainDeviceModel.value = PodDevice.Model.UNKNOWN
-            generalSettings.mainDeviceAddress.value = null
-            generalSettings.minimumSignalQuality.value = 0.25f
+            val candidate = otherDevices
+                .filter { it !is UnknownDevice }
+                .maxBy { it.signalQuality }
 
-            progress("Setting headphone with strongest signal as yours.")
+            log(TAG, INFO) { "Candidate is $candidate" }
 
-            generalSettings.mainDeviceModel.value = otherDevices.maxBy { it.signalQuality }.model
+            profilesRepo.addProfile(
+                profile = AppleDeviceProfile(
+                    label = context.getString(R.string.troubleshooter_title),
+                    model = candidate.model,
+                ),
+                addFirst = true,
+            )
 
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.mainDevice.filterNotNull().firstOrNull()
-            }
-            if (mainDevice != null) {
-                generalSettings.mainDeviceModel.value = mainDevice.model
-                generalSettings.scannerMode.value = ScannerMode.BALANCED
-                success("Success! Detected your headphones.")
-                return@launch
+                podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
 
-            failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
+            generalSettings.scannerMode.value = ScannerMode.BALANCED
+
+            if (mainDevice != null) {
+                success("Success! Detected your headphones.")
+            } else {
+                failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
+            }
         }
     }
 
@@ -259,7 +284,6 @@ class TroubleShooterFragmentVM @Inject constructor(
             }
         }
     }
-
 
     companion object {
         const val STEP_TIME = 10 * 1000L // 6 scans per 30 seconds max

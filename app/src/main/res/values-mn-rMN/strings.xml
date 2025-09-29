@@ -11,12 +11,9 @@
     <string name="general_save_action">Хадгалах</string>
     <string name="general_guide_action">Удирдамж</string>
     <string name="general_continue_action">Үргэлжлүүлэх</string>
-
     <string name="general_example_label">Жишээ нь: %s</string>
-
     <string name="upgrade_capod_label">CAPod-г шинэчлэх</string>
     <string name="upgrade_capod_description">Нэмэлт боломжуудыг авч, хөгжүүлэгчийг дэмжинэ үү.</string>
-
     <string name="settings_monitor_mode_label">Хяналтын горим</string>
     <string name="settings_monitor_mode_description">Энэ апп Bluetooth-н өгөгдлийг ямар нөхцөлд хянадаг.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Bluetooth Low Energy өгөгдлийн сканнер нь гүйцэтгэлийг эсвэл эрчим хүчийг хэмнэхийг урьтал болгох ёстой юу?</string>
     <string name="settings_autopause_label">Автомат түр зогсоох</string>
     <string name="settings_autopause_description">Төхөөрөмжийг чихнээсээ салгахад дууг түр зогсооно.</string>
-    <string name="settings_showall_label">Бүх төхөөрөмжийг харуулах</string>
-    <string name="settings_showall_description">Ойролцоох бусад хүмүүсийн төхөөрөмжийг харуулна.</string>
     <string name="settings_autopplay_label">Автомат тоглуулах</string>
     <string name="settings_autoplay_description">Төхөөрөмжийг зүүсэн үед дуу тоглуулалтыг эхлүүлнэ.</string>
     <string name="settings_fake_data_label">Хуурамч өгөгдөл</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">Урвалууд</string>
     <string name="settings_reaction_description">Үйл явдал, зан үйлд хариу үйлдэл үзүүлнэ.</string>
     <string name="settings_category_yourdevice_label">Таны төхөөрөмж</string>
-
     <string name="settings_category_compatibility_options_title">Тохиромжтой байдлын сонголтууд</string>
     <string name="settings_category_compatibility_options_description">Хэрэв бүх зүйл ажиллаж байвал бүү хүр ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Техник хангамжийн шүүлтүүрийг идэвхгүй болгох</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Өгөгдлийн шүүлтүүрийг системд даатгахгүй, харин бүх өгөгдлийг авч, апп дотор шүүнэ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Техник хангамжийн багцлалтыг идэвхгүй болгох</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Системд цуглуулсан BLE өгөгдлийг бидэнд дамжуулахаас өмнө бүлэглэхийг бүү зөвшөөр.</string>
-
-    <string name="settings_maindevice_address_label">Таны төхөөрөмжийн хаяг</string>
-    <string name="settings_maindevice_address_description">Таны хосолсон төхөөрөмжийн хаяг. Апп үүнийг таны утсанд хэзээ холбогдсоныг тодорхойлоход ашигладаг.</string>
-    <string name="settings_maindevice_address_none">Байхгүй</string>
-    <string name="settings_maindevice_model_label">Таны төхөөрөмжийн загвар</string>
-    <string name="settings_maindevice_model_description">Таны үндсэн төхөөрөмжийн загвар. Энэ нь таны утсанд холбогдоогүй үед апп-д таны төхөөрөмжийг танихад тусалдаг.</string>
-    <string name="settings_maindevice_identitykey_label">Таних түлхүүр</string>
-    <string name="settings_maindevice_identitykey_description">Таны төхөөрөмжийн Таних Түлхүүр Шийдвэрлэх Түлхүүр (IRK), энэ нь CAPod-д ойролцоох төхөөрөмжүүдийн дундаас түүнийг танихад тусалдаг.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods нь нууцлалын үүднээс Bluetooth хаягаа байнга сольдог. IRK нь CAPod-д таны төхөөрөмжийг танихад тусалдаг. Танд MacBook-д нэг удаагийн хандалт хэрэгтэй.</string>
-    <string name="settings_maindevice_encryptionkey_label">Шифрлэлтийн түлхүүр</string>
-    <string name="settings_maindevice_encryptionkey_description">Таны төхөөрөмжийн шифрлэлтийн түлхүүр, энэ нь CAPod-д нарийвчилсан төлөвийн мэдээллийг авахад тусалдаг.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods нь төлөвийн мессеж илгээдэг бөгөөд түүний зарим хэсэг нь шифрлэгдсэн байдаг. Шифрлэлтийн түлхүүр нь CAPod-д бүхэл мессежийг тайлахад тусалдаг. Танд MacBook-д нэг удаагийн хандалт хэрэгтэй.</string>
-
     <string name="settings_onepod_mode_label">Нэг чихэвчний горим</string>
     <string name="settings_onepod_mode_description">Хоёр чихэвчийг хоёуланг нь зүүх шаардлагагүй, урвалыг өдөөхийн тулд ганц чихэвч зүүхэд л хангалттай.</string>
     <string name="settings_popup_caseopen_label">Кейсний попап цонхыг харуулах</string>
     <string name="settings_popup_caseopen_description">Төхөөрөмжийн кейс нээгдэхэд попап цонхыг харуулна (туршилтын).</string>
     <string name="settings_popup_connected_label">Холболтын попап цонхыг харуулах</string>
     <string name="settings_popup_connected_description">Төхөөрөмж анх удаа холбогдоход попап цонхыг харуулна.</string>
-
     <string name="notification_channel_device_status_label">Төхөөрөмжийн төлөв</string>
     <string name="notification_channel_device_status_connected_label">Холбогдсон төхөөрөмж</string>
-
     <string name="support_debuglog_label">Дибаг лог</string>
     <string name="support_debuglog_desc">Апп-н хийж буй бүх зүйлийг хуваалцаж болох текст файлд бүртгэнэ.</string>
     <string name="debug_debuglog_size_label">Хэмжээ</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">Бүртгэлийг зогсоох</string>
     <string name="debug_debuglog_sensitive_information_message">Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй хуваалцана уу.</string>
     <string name="settings_debuglog_explanation">Энэ функц нь апп-н хийж буй бүх зүйлийг хуваалцаж болох файлд бүртгэдэг. Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй (жишээ нь, асуудлыг шийдвэрлэж буй хөгжүүлэгчтэй) хуваалцана уу.</string>
-
     <string name="settings_support_installid_label">Суулгалтын ID</string>
     <string name="settings_support_installid_desc">Автомат алдааны тайлангууд нэргүй байна. Хэрэв хөгжүүлэгчид таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-гаа хуваалцана уу.</string>
     <string name="settings_support_label">Дэмжлэг</string>
     <string name="settings_support_description">Хэрэв танд тусламж хэрэгтэй бол.</string>
-
     <string name="issue_tracker_label">Асуудал хянагч</string>
     <string name="issue_tracker_description">Алдааны тайлан болон функцийн хүсэлтүүдэд зориулсан нийтийн асуудал хянагч (зөвхөн англи хэлээр).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Чөлөөт цагаа өнгөрөөх, асуулт асуух газар.</string>
-
     <string name="changelog_label">Өөрчлөлтийн түүх</string>
     <string name="settings_label">Тохиргоо</string>
     <string name="settings_privacy_policy_label">Нууцлалын бодлого</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">Тохиргоо</string>
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
-
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
     <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
     <string name="settings_debug_mode_label">Дибаг горим</string>
     <string name="settings_debug_mode_description">Асуудлыг шийдвэрлэхэд зориулж нэмэлт мэдээлэл харуулна.</string>
-
     <string name="settings_blescanner_unfiltered_label">Шүүлтүүргүй BLE өгөгдөл</string>
     <string name="settings_blescanner_unfiltered_description">Бүх цацагдсан BLE өгөгдлийг харуулахын тулд BLE сканнерээс бүх шүүлтүүрийг арилгана. Шинэ төрлийн чихэвчний дэмжлэгийг нэмэхэд хэрэгтэй.</string>
-
     <string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
     <string name="settings_compatibility_mode_description">Тохиромжтой байдлыг сайжруулахын тулд оновчлолыг идэвхгүй болгоно. Хэрэв та ямар ч өгөгдөл харахгүй байвал үүнийг туршиж үзнэ үү.</string>
-
     <string name="help_translate_label">Орчуулга</string>
     <string name="help_translate_description">Энэ апп-г дуртай хэл рүүгээ орчуулахад тусална уу.</string>
-
     <string name="translators_thanks_title">Орчуулагчид</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Төхөөрөмжийн хамгийн сүүлийн үеийн мэдэгдэж буй төлвийг харуулсан виджет.</string>
     <string name="settings_compat_indirectcallback_title">Шууд бус өгөгдөл хүргэлт</string>
     <string name="settings_compat_indirectcallback_summary">Системээс BLE өгөгдлийг хүлээн авах өөр аргыг ашиглана (буцах дуудлагын оронд өргөн нэвтрүүлэг).</string>
-
     <string name="troubleshooter_title">Асуудал шийдвэрлэгч</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy нэвтрүүлэг</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (болон ижил төстэй чихэвчнүүд) нь \"зар сурталчилгаа\" гэж нэрлэгддэг BLE технологийг ашиглан төлөвийн мэдээллийг нэвтрүүлдэг. Зарим утас энэ технологийг зөв хэрэгжүүлдэггүй. CAPod нь өгөгдөл хүлээн авах хүртэл янз бүрийн тохиромжтой байдлын сонголтуудыг туршиж үзэх замаар үүнийг засахыг оролдож болно. Чихэвч дээрээ хөгжим тоглуулж эхлээд утсаныхаа ойролцоо байрлуулж, дараа нь процессыг эхлүүлнэ үү.</string>
@@ -140,9 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Таны утас BLE өгөгдөл хүлээн авсан боловч өгөгдөл нь дэмжигдсэн ямар ч төхөөрөмжөөс ирээгүй байна. Таны чихэвч асаалттай байна уу? CAPod таны чихэвчийг дэмждэг үү?</string>
     <string name="troubleshooter_ble_result_failure_action">Дахин оролдоно уу</string>
     <string name="troubleshoot_action">Асуудлыг шийдвэрлэх</string>
-
     <string name="onboarding_body1">Энэхүү аппликейшн нь Android-д AirPod-н тусгай функцуудыг дэмждэг.</string>
     <string name="onboarding_body2">Бүх Android төхөөрөмж AirPod-н нэмэлт функцуудыг бүрэн дэмждэггүй. Таны үйлдлийн системд зөв ажилладаг Bluetooth-Low-Energy-н хэрэгжилт шаардлагатай.</string>
     <string name="onboarding_body3">CAPod-д зар сурталчилгаа байхгүй бөгөөд таны өгөгдлийг цуглуулдаггүй.</string>
     <string name="onboarding_body4">Нэмэлт функцуудыг авах, хөгжүүлэлтийг дэмжихийн тулд CAPod Pro руу шинэчилж болно.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">เครื่องสแกนข้อมูล Bluetooth Low Energy ควรให้ความสำคัญกับประสิทธิภาพหรือประหยัดพลังงาน?</string>
     <string name="settings_autopause_label">หยุดชั่วคราวอัตโนมัติ</string>
     <string name="settings_autopause_description">หยุดเสียงชั่วคราวเมื่อถอดอุปกรณ์ออกจากหู</string>
-    <string name="settings_showall_label">แสดงอุปกรณ์ทั้งหมด</string>
-    <string name="settings_showall_description">แสดงอุปกรณ์ของคนอื่นที่อยู่ใกล้คุณ</string>
     <string name="settings_autopplay_label">เล่นอัตโนมัติ</string>
     <string name="settings_autoplay_description">เริ่มเล่นเสียงเมื่อสวมใส่อุปกรณ์</string>
     <string name="settings_fake_data_label">ข้อมูลปลอม</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">อย่ามอบหมายการกรองข้อมูลให้กับระบบ แต่ให้รับข้อมูลทั้งหมดและกรองภายในแอปแทน</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ปิดใช้งานการจัดกลุ่มฮาร์ดแวร์</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">อย่าให้ระบบจัดกลุ่มข้อมูล BLE ที่รวบรวมไว้ก่อนที่จะส่งต่อมาให้เรา</string>
-    <string name="settings_maindevice_address_label">ที่อยู่อุปกรณ์ของคุณ</string>
-    <string name="settings_maindevice_address_description">ที่อยู่ของอุปกรณ์ที่จับคู่ของคุณ แอปใช้สิ่งนี้เพื่อกำหนดว่าเมื่อใดที่เชื่อมต่อกับโทรศัพท์ของคุณ</string>
-    <string name="settings_maindevice_address_none">ไม่มี</string>
-    <string name="settings_maindevice_model_label">รุ่นอุปกรณ์ของคุณ</string>
-    <string name="settings_maindevice_model_description">รุ่นของอุปกรณ์หลักของคุณ สิ่งนี้ช่วยให้แอปรู้จักอุปกรณ์ของคุณเมื่อไม่ได้เชื่อมต่อกับโทรศัพท์ของคุณ</string>
-    <string name="settings_maindevice_identitykey_label">คีย์ระบุตัวตน</string>
-    <string name="settings_maindevice_identitykey_description">คีย์แก้ไขข้อมูลประจำตัว (IRK) ของอุปกรณ์ของคุณ ซึ่งช่วยให้ CAPod สามารถระบุอุปกรณ์ท่ามกลางอุปกรณ์ใกล้เคียงได้</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods มักจะเปลี่ยนที่อยู่บลูทูธเพื่อความเป็นส่วนตัว IRK ช่วยให้ CAPod รู้จักอุปกรณ์ของคุณ คุณต้องเข้าถึง MacBook เพียงครั้งเดียว</string>
-    <string name="settings_maindevice_encryptionkey_label">คีย์เข้ารหัส</string>
-    <string name="settings_maindevice_encryptionkey_description">คีย์เข้ารหัสของอุปกรณ์ของคุณ ซึ่งช่วยให้ CAPod สามารถดึงข้อมูลสถานะโดยละเอียดได้</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ส่งข้อความสถานะซึ่งบางส่วนถูกเข้ารหัส คีย์เข้ารหัสช่วยให้ CAPod สามารถถอดรหัสข้อความทั้งหมดได้ คุณต้องเข้าถึง MacBook เพียงครั้งเดียว</string>
     <string name="settings_onepod_mode_label">โหมดพ็อดเดียว</string>
     <string name="settings_onepod_mode_description">ไม่จำเป็นต้องสวมใส่พ็อดทั้งสองข้าง การสวมใส่พ็อดเดียวก็เพียงพอที่จะกระตุ้นการตอบสนอง</string>
     <string name="settings_popup_caseopen_label">แสดงป๊อปอัปเคส</string>
@@ -81,7 +68,7 @@
     <string name="settings_support_description">หากคุณต้องการความช่วยเหลือ</string>
     <string name="issue_tracker_label">เครื่องมือติดตามปัญหา</string>
     <string name="issue_tracker_description">เครื่องมือติดตามปัญหาแบบสาธารณะสำหรับรายงานข้อบกพร่องและคำขอคุณลักษณะ (ภาษาอังกฤษเท่านั้น)</string>
-    <string name="discord_label">Discord</string>
+    <string name="discord_label"></string>
     <string name="discord_description">สถานที่สำหรับสังสรรค์และถามคำถาม</string>
     <string name="changelog_label">บันทึกการเปลี่ยนแปลง</string>
     <string name="settings_label">การตั้งค่า</string>
@@ -103,7 +90,6 @@
     <string name="help_translate_label">การแปล</string>
     <string name="help_translate_description">ช่วยแปลแอปนี้เป็นภาษาที่คุณชื่นชอบ</string>
     <string name="translators_thanks_title">ผู้แปล</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">วิดเจ็ตที่แสดงสถานะอุปกรณ์ล่าสุดที่ทราบ</string>
     <string name="settings_compat_indirectcallback_title">การส่งข้อมูลทางอ้อม</string>
     <string name="settings_compat_indirectcallback_summary">ใช้วิธีการอื่นในการรับข้อมูล BLE จากระบบ (ออกอากาศแทนการเรียกกลับ)</string>
@@ -125,4 +111,7 @@
     <string name="onboarding_body2">อุปกรณ์ Android บางรุ่นไม่รองรับคุณสมบัติพิเศษของ AirPod ทั้งหมด ระบบปฏิบัติการของคุณต้องมีการใช้งาน Bluetooth Low Energy ที่ทำงานได้อย่างถูกต้อง</string>
     <string name="onboarding_body3">CAPod ไม่มีโฆษณาและไม่รวบรวมข้อมูลของคุณ</string>
     <string name="onboarding_body4">คุณสามารถอัปเกรดเป็น CAPod Pro เพื่อรับคุณสมบัติเพิ่มเติมและสนับสนุนการพัฒนา</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

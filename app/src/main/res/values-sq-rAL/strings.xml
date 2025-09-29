@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Ndaj</string>
     <string name="general_done_action">U krye</string>
@@ -10,12 +11,9 @@
     <string name="general_save_action">Ruaj</string>
     <string name="general_guide_action">Udhëzues</string>
     <string name="general_continue_action">Vazhdo</string>
-
     <string name="general_example_label">P.sh.: %s</string>
-
     <string name="upgrade_capod_label">Përmirëso CAPod</string>
     <string name="upgrade_capod_description">Merr veçori shtesë dhe mbështet zhvilluesin.</string>
-
     <string name="settings_monitor_mode_label">Modaliteti i monitorimit</string>
     <string name="settings_monitor_mode_description">Në çfarë rrethanash ky aplikacion monitoron të dhënat Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Njoftim shtesë</string>
@@ -24,8 +22,6 @@
     <string name="settings_scanner_mode_description">A duhet skaneri i të dhënave Bluetooth Low Energy të prioritizojë performancën apo të kursejë energji?</string>
     <string name="settings_autopause_label">Pauzë automatike</string>
     <string name="settings_autopause_description">Vendos në pauzë audion kur hiqni pajisjen nga veshi.</string>
-    <string name="settings_showall_label">Shfaq të gjitha pajisjet</string>
-    <string name="settings_showall_description">Shfaq pajisjet e njerëzve të tjerë që janë pranë jush.</string>
     <string name="settings_autopplay_label">Luaj automatikisht</string>
     <string name="settings_autoplay_description">Nis riprodhimin e audios kur pajisja vihet në përdorim.</string>
     <string name="settings_fake_data_label">Të dhëna false</string>
@@ -41,36 +37,20 @@
     <string name="settings_reaction_label">Reagimet</string>
     <string name="settings_reaction_description">Reago ndaj ngjarjeve dhe sjelljeve.</string>
     <string name="settings_category_yourdevice_label">Pajisja juaj</string>
-
     <string name="settings_category_compatibility_options_title">Opsionet e përputhshmërisë</string>
     <string name="settings_category_compatibility_options_description">Mos i prekni nëse gjithçka funksionon ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Çaktivizo filtrimin e harduerit</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Mos ia delego sistemit filtrimin e të dhënave, në vend të kësaj merr të gjitha të dhënat dhe filtro brenda aplikacionit.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Çaktivizo grumbullimin e harduerit</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Mos lejo sistemin të grupojë të dhënat e mbledhura BLE përpara se t\'i përcjellë tek ne.</string>
-
-    <string name="settings_maindevice_address_label">Adresa e pajisjes suaj</string>
-    <string name="settings_maindevice_address_description">Adresa e pajisjes suaj të çiftuar. Aplikacioni e përdor këtë për të përcaktuar kur është lidhur me telefonin tuaj.</string>
-    <string name="settings_maindevice_address_none">Asnjë</string>
-    <string name="settings_maindevice_model_label">Modeli i pajisjes suaj</string>
-    <string name="settings_maindevice_model_description">Modeli i pajisjes suaj kryesore. Kjo ndihmon aplikacionin të njohë pajisjen tuaj kur nuk është lidhur me telefonin tuaj.</string>
-    <string name="settings_maindevice_identitykey_label">Çelësi i Identitetit</string>
-    <string name="settings_maindevice_identitykey_description">Çelësi i Zgjidhjes së Identitetit (IRK) i pajisjes suaj, i cili ndihmon CAPod ta identifikojë atë midis pajisjeve të afërta.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ndryshojnë shpesh adresën e tyre Bluetooth për privatësi. IRK ndihmon CAPod të njohë pajisjen tuaj. Ju nevojitet qasje njëherëshe në një MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Çelësi i Kriptimit</string>
-    <string name="settings_maindevice_encryptionkey_description">Çelësi i kriptimit i pajisjes suaj, i cili lejon CAPod të marrë informacion të detajuar mbi statusin.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods dërgojnë një mesazh statusi, një pjesë e të cilit është e kriptuar. Çelësi i kriptimit lejon CAPod të deshifrojë mesazhin e plotë. Ju nevojitet qasje njëherëshe në një MacBook.</string>
-
     <string name="settings_onepod_mode_label">Modaliteti me një kufje</string>
     <string name="settings_onepod_mode_description">Mbajtja e të dyja kufjeve nuk është e nevojshme, mbajtja e një kufjeje të vetme mjafton për të shkaktuar reagime.</string>
     <string name="settings_popup_caseopen_label">Shfaq popup-in e kutisë</string>
     <string name="settings_popup_caseopen_description">Shfaq një popup kur hapet kutia e pajisjes (eksperimentale).</string>
     <string name="settings_popup_connected_label">Shfaq popup-in e lidhjes</string>
     <string name="settings_popup_connected_description">Shfaq një popup kur pajisja lidhet për herë të parë.</string>
-
     <string name="notification_channel_device_status_label">Statusi i pajisjes</string>
     <string name="notification_channel_device_status_connected_label">Pajisja e lidhur</string>
-
     <string name="support_debuglog_label">Regjistri i korrigjimit</string>
     <string name="support_debuglog_desc">Regjistro gjithçka që aplikacioni po bën në një skedar teksti që mund ta ndani.</string>
     <string name="debug_debuglog_size_label">Madhësia</string>
@@ -82,18 +62,13 @@
     <string name="debug_debuglog_stop_action">Ndalo regjistrimin</string>
     <string name="debug_debuglog_sensitive_information_message">Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. detajet e pajisjes Bluetooth). Ndajeni vetëm me palë të besuara.</string>
     <string name="settings_debuglog_explanation">Kjo veçori regjistron gjithçka që aplikacioni po bën në një skedar të ndashëm. Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. detajet e pajisjes Bluetooth). Ndajeni vetëm me palë të besuara (p.sh. një zhvillues që po zgjidh një problem).</string>
-
     <string name="settings_support_installid_label">ID-ja e Instalimit</string>
     <string name="settings_support_installid_desc">Raportet automatike të gabimeve janë anonime. Ndani ID-në tuaj të instalimit nëse zhvilluesi ka nevojë të gjejë raportet tuaja të gabimeve.</string>
     <string name="settings_support_label">Mbështetje</string>
     <string name="settings_support_description">Nëse keni nevojë për ndihmë.</string>
-
     <string name="issue_tracker_label">Gjurmuesi i problemeve</string>
     <string name="issue_tracker_description">Një gjurmues publik i problemeve për raportet e gabimeve dhe kërkesat për veçori (vetëm në anglisht).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Një vend për t\'u shoqëruar dhe për të bërë pyetje.</string>
-
     <string name="changelog_label">Regjistri i ndryshimeve</string>
     <string name="settings_label">Cilësimet</string>
     <string name="settings_privacy_policy_label">Politika e privatësisë</string>
@@ -103,28 +78,20 @@
     <string name="settings_general_label">Cilësimet</string>
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
-
     <string name="settings_debug_autoreports_label">Raporte automatike të gabimeve</string>
     <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string>
     <string name="settings_debug_mode_label">Modaliteti i korrigjimit</string>
     <string name="settings_debug_mode_description">Shfaq informacion shtesë për të zgjidhur problemet.</string>
-
     <string name="settings_blescanner_unfiltered_label">Të dhëna BLE të pafiltruara</string>
     <string name="settings_blescanner_unfiltered_description">Hiq çdo filtër nga skaneri BLE për të shfaqur të gjitha të dhënat e transmetuara BLE. E dobishme për të shtuar mbështetje për lloje të reja kufjesh.</string>
-
     <string name="settings_compatibility_mode_label">Modaliteti i përputhshmërisë</string>
     <string name="settings_compatibility_mode_description">Çaktivizo optimizimet për të përmirësuar përputhshmërinë. Provojeni këtë nëse nuk po shihni asnjë të dhënë.</string>
-
     <string name="help_translate_label">Përkthimi</string>
     <string name="help_translate_description">Ndihmoni në përkthimin e këtij aplikacioni në gjuhën tuaj të preferuar.</string>
-
     <string name="translators_thanks_title">Përkthyesit</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Një widget që tregon statusin e fundit të njohur të pajisjes.</string>
     <string name="settings_compat_indirectcallback_title">Dorëzimi indirekt i të dhënave</string>
     <string name="settings_compat_indirectcallback_summary">Përdorni një metodë alternative për të marrë të dhëna BLE nga sistemi (transmetim në vend të kthimit të thirrjes).</string>
-
     <string name="troubleshooter_title">Zgjidhësi i problemeve</string>
     <string name="troubleshooter_ble_intro_title">Transmetimet Bluetooth Low Energy</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (dhe kufje të ngjashme) transmetojnë informacionin e statusit duke përdorur një teknologji BLE të quajtur \"reklama\". Disa telefona nuk e zbatojnë saktë këtë teknologji. CAPod mund të përpiqet ta rregullojë këtë duke provuar opsione të ndryshme përputhshmërie derisa të merren të dhënat. Nisni riprodhimin e muzikës në kufjet tuaja dhe vendosini pranë telefonit tuaj, pastaj filloni procesin.</string>
@@ -139,10 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefoni juaj mori të dhëna BLE, por të dhënat nuk vijnë nga asnjë pajisje e mbështetur. A janë ndezur kufjet tuaja? A i mbështet CAPod kufjet tuaja?</string>
     <string name="troubleshooter_ble_result_failure_action">Provo përsëri</string>
     <string name="troubleshoot_action">Zgjidh problemet</string>
-
     <string name="onboarding_body1">Ky aplikacion shton mbështetje për veçoritë specifike të AirPod në Android.</string>
     <string name="onboarding_body2">Jo të gjitha pajisjet Android mbështesin plotësisht veçoritë shtesë të AirPod. Sistemi juaj operativ kërkon një implementim të saktë të Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nuk ka reklama dhe nuk mbledh të dhënat tuaja.</string>
     <string name="onboarding_body4">Mund të përmirësoni në CAPod Pro për të fituar veçori shtesë dhe për të mbështetur zhvillimin.</string>
-
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Lo scanner di dati Bluetooth Low Energy deve dare priorità alle prestazioni o risparmiare energia?</string>
     <string name="settings_autopause_label">Pausa automatica</string>
     <string name="settings_autopause_description">Metti in pausa l\'audio quando rimuovi il dispositivo dall\'orecchio.</string>
-    <string name="settings_showall_label">Mostra tutti i dispositivi</string>
-    <string name="settings_showall_description">Mostra i dispositivi di altre persone che ti sono vicine.</string>
     <string name="settings_autopplay_label">Riproduzione automatica</string>
     <string name="settings_autoplay_description">Avvia la riproduzione audio quando il dispositivo è indossato.</string>
     <string name="settings_fake_data_label">Dati falsi</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Non delegare il filtraggio dei dati al sistema, ricevi invece tutti i dati e filtrali all\'interno dell\'app.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Disabilita batching hardware</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Non consentire al sistema di raggruppare i dati BLE raccolti prima di inoltrarceli.</string>
-    <string name="settings_maindevice_address_label">Indirizzo del tuo dispositivo</string>
-    <string name="settings_maindevice_address_description">L\'indirizzo del tuo dispositivo associato. L\'app lo usa per determinare quando è connesso al tuo telefono.</string>
-    <string name="settings_maindevice_address_none">Nessuno</string>
-    <string name="settings_maindevice_model_label">Modello del tuo dispositivo</string>
-    <string name="settings_maindevice_model_description">Il modello del tuo dispositivo principale. Questo aiuta l\'app a riconoscere il tuo dispositivo quando non è connesso al tuo telefono.</string>
-    <string name="settings_maindevice_identitykey_label">Chiave di identità</string>
-    <string name="settings_maindevice_identitykey_description">La Chiave di Risoluzione dell\'Identità (IRK) del tuo dispositivo, che aiuta CAPod a identificarlo tra i dispositivi vicini.</string>
-    <string name="settings_maindevice_identitykey_explanation">Gli AirPods cambiano frequentemente il loro indirizzo Bluetooth per motivi di privacy. L\'IRK aiuta CAPod a riconoscere il tuo dispositivo. Hai bisogno di un accesso una tantum a un MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Chiave di crittografia</string>
-    <string name="settings_maindevice_encryptionkey_description">La chiave di crittografia del tuo dispositivo, che consente a CAPod di recuperare informazioni dettagliate sullo stato.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Gli AirPods inviano un messaggio di stato, parte del quale è crittografato. La chiave di crittografia consente a CAPod di decrittografare l\'intero messaggio. Hai bisogno di un accesso una tantum a un MacBook.</string>
     <string name="settings_onepod_mode_label">Modalità un solo auricolare</string>
     <string name="settings_onepod_mode_description">Non è necessario indossare entrambi gli auricolari, indossarne uno solo è sufficiente per attivare le reazioni.</string>
     <string name="settings_popup_caseopen_label">Mostra pop-up custodia</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Non tutti i dispositivi Android supportano pienamente le funzionalità aggiuntive degli AirPods. Il tuo sistema operativo richiede un\'implementazione Bluetooth Low Energy correttamente funzionante.</string>
     <string name="onboarding_body3">CAPod non contiene pubblicità e non raccoglie i tuoi dati.</string>
     <string name="onboarding_body4">Puoi passare a CAPod Pro per ottenere funzionalità aggiuntive e supportare lo sviluppo.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

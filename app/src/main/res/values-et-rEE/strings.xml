@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Kas Bluetooth madalama energiatarbimisega andmete skanner eelistab jõudlust või mõõdukat energiahaldust?</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
     <string name="settings_autopause_description">Seadme kõrvast eemaldamisel peata esitamine.</string>
-    <string name="settings_showall_label">Näita kõiki seadmeid</string>
-    <string name="settings_showall_description">Näita teie läheduses olevaid teiste seadmeid.</string>
     <string name="settings_autopplay_label">Automaatne esitamine</string>
     <string name="settings_autoplay_description">Automaatne esitamine, kui seade pannakse kõrva.</string>
     <string name="settings_fake_data_label">Valeandmed</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Süsteemis andmete filtreerimise asemel saate seda teha rakenduses.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Keelake süsteemil rühmitada kogutud andmeid madalama energiatarbimisega Bluetoothi kohta enne meile saatmist.</string>
-    <string name="settings_maindevice_address_label">Teie seadme aadress</string>
-    <string name="settings_maindevice_address_description">Ühendatud seadme aadress. Rakendus tuvastab sellega, millal see on ühendatud teie telefoniga.</string>
-    <string name="settings_maindevice_address_none">Mitte ükski</string>
-    <string name="settings_maindevice_model_label">Seadme mudel</string>
-    <string name="settings_maindevice_model_description">Põhiseadme mudel. See aitab rakendusel tuvastada teie seadet, kui see pole ühendatud teie telefoniga.</string>
-    <string name="settings_maindevice_identitykey_label">Tuvastamisvõti</string>
-    <string name="settings_maindevice_identitykey_description">Teie seadme tunnuse lahendamisvõti (IRK), mis võimaldab CAPodil tuvastada seda ümberkaudsete seadmete hulgast.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPodsid muudavad privaatsuse tõttu sageli oma Bluetooth aadressi. IRK aitab CAPodil tuvastada teie seadet. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
-    <string name="settings_maindevice_encryptionkey_label">Krüpteerimisvõti</string>
-    <string name="settings_maindevice_encryptionkey_description">Teie seadme krüpteerimisvõti, mis võimaldab CaPodil saada täpset oleku teavet.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPodsid saadavad olekuteateid, millest osad on krüptitut. Krüpteerimisvõti võimaldab CAPodil kogu teadet lugeda. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
     <string name="settings_onepod_mode_description">Mõlema kõrvaklapi kandmine pole kohustuslik, tegevustega alustamiseks piisab ühe kõrvaklapi kandmisest.</string>
     <string name="settings_popup_caseopen_label">Näita kaane hüpikakent</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Vaid mõned Androidi seadmed toetavad kõiki AirPodi võimalusi. Operatsioonisüsteem vajab õigesti toimivat madalama energiatarbimisega Bluetoothi tuge.</string>
     <string name="onboarding_body3">CAPodis pole reklaame ja see ei kogu andmeid.</string>
     <string name="onboarding_body4">Lisavõimaluste saamiseks ja arendamise toetamiseks soetage CAPod Pro.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

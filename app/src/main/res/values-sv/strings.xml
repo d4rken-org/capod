@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Dela</string>
     <string name="general_done_action">Klar</string>
@@ -8,7 +9,6 @@
     <string name="general_check_action">Kontrollera</string>
     <string name="general_close_action">Stäng</string>
     <string name="general_save_action">Spara</string>
-    <string name="general_guide_action">Guide</string>
     <string name="general_continue_action">Fortsätt</string>
     <string name="general_example_label">T.ex.: %s</string>
     <string name="upgrade_capod_label">Uppgradera CAPod</string>
@@ -21,8 +21,6 @@
     <string name="settings_scanner_mode_description">Ska Bluetooth Low Energy-dataskannern prioritera prestanda eller spara energi?</string>
     <string name="settings_autopause_label">Automatisk paus</string>
     <string name="settings_autopause_description">Pausa ljudet när du tar bort enheten från örat.</string>
-    <string name="settings_showall_label">Visa alla enheter</string>
-    <string name="settings_showall_description">Visa andra personers enheter som är nära dig.</string>
     <string name="settings_autopplay_label">Automatisk uppspelning</string>
     <string name="settings_autoplay_description">Starta ljuduppspelning när enheten bärs.</string>
     <string name="settings_fake_data_label">Falska data</string>
@@ -44,17 +42,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Delegera inte datafiltrering till systemet, utan hämta istället all data och filtrera inom appen.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Inaktivera maskinvarubatchning</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Låt inte systemet gruppera insamlad BLE-data innan den vidarebefordras till oss.</string>
-    <string name="settings_maindevice_address_label">Din enhets adress</string>
-    <string name="settings_maindevice_address_description">Adressen till din parkopplade enhet. Appen använder detta för att avgöra när den är ansluten till din telefon.</string>
-    <string name="settings_maindevice_address_none">Ingen</string>
-    <string name="settings_maindevice_model_label">Din enhetsmodell</string>
-    <string name="settings_maindevice_model_description">Modellen på din huvudenhet. Detta hjälper appen att känna igen din enhet när den inte är ansluten till din telefon.</string>
-    <string name="settings_maindevice_identitykey_label">Identitetsnyckel</string>
-    <string name="settings_maindevice_identitykey_description">Din enhets identitetsmatchningsnyckel (IRK), som hjälper CAPod att identifiera den bland närliggande enheter.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ändrar ofta sin Bluetooth-adress för integritetens skull. IRK hjälper CAPod att känna igen din enhet. Du behöver engångsåtkomst till en MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Krypteringsnyckel</string>
-    <string name="settings_maindevice_encryptionkey_description">Din enhets krypteringsnyckel, som gör att CAPod kan hämta detaljerad statusinformation.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods skickar ett statusmeddelande, varav en del är krypterad. Krypteringsnyckeln gör att CAPod kan dekryptera hela meddelandet. Du behöver engångsåtkomst till en MacBook.</string>
     <string name="settings_onepod_mode_label">Enkelsnäckläge</string>
     <string name="settings_onepod_mode_description">Att bära båda snäckorna krävs inte, att bära en enda snäcka räcker för att utlösa reaktioner.</string>
     <string name="settings_popup_caseopen_label">Visa popup för fodral</string>
@@ -102,7 +89,6 @@
     <string name="help_translate_label">Översättning</string>
     <string name="help_translate_description">Hjälp till att översätta den här appen till ditt favoritspråk.</string>
     <string name="translators_thanks_title">Översättare</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">En widget som visar den senast kända enhetsstatusen.</string>
     <string name="settings_compat_indirectcallback_title">Indirekt dataleverans</string>
     <string name="settings_compat_indirectcallback_summary">Använd en alternativ metod för att ta emot BLE-data från systemet (sändning istället för återanrop).</string>
@@ -124,4 +110,7 @@
     <string name="onboarding_body2">Inte alla Android-enheter stöder fullt ut de extra AirPod-funktionerna. Ditt operativsystem kräver en korrekt fungerande Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har inga annonser och samlar inte in dina data.</string>
     <string name="onboarding_body4">Du kan uppgradera till CAPod Pro för att få extra funktioner och stödja utvecklingen.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

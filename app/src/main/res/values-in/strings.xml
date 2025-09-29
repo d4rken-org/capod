@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Haruskah pemindai data Bluetooth Hemat Energi memprioritaskan kinerja atau menghemat energi?</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
     <string name="settings_autopause_description">Jeda audio saat melepas perangkat dari telinga Anda.</string>
-    <string name="settings_showall_label">Tampilkan semua perangkat</string>
-    <string name="settings_showall_description">Tampilkan perangkat orang lain yang ada di dekat Anda.</string>
     <string name="settings_autopplay_label">Putar otomatis</string>
     <string name="settings_autoplay_description">Mulai pemutaran audio saat perangkat dipakai.</string>
     <string name="settings_fake_data_label">Data palsu</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Jangan mendelegasikan pemfilteran data ke sistem, alih-alih dapatkan semua data dan filter di dalam aplikasi.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Nonaktifkan pengelompokan perangkat keras</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Jangan biarkan sistem mengelompokkan data BLE yang terkumpul sebelum meneruskannya kepada kami.</string>
-    <string name="settings_maindevice_address_label">Alamat perangkat Anda</string>
-    <string name="settings_maindevice_address_description">Alamat perangkat Anda yang dipasangkan. Aplikasi menggunakan ini untuk menentukan kapan terhubung ke ponsel Anda.</string>
-    <string name="settings_maindevice_address_none">Tidak ada</string>
-    <string name="settings_maindevice_model_label">Model perangkat Anda</string>
-    <string name="settings_maindevice_model_description">Model perangkat utama Anda. Ini membantu aplikasi mengenali perangkat Anda saat tidak terhubung ke ponsel Anda.</string>
-    <string name="settings_maindevice_identitykey_label">Kunci Identitas</string>
-    <string name="settings_maindevice_identitykey_description">Kunci Penyelesaian Identitas (IRK) perangkat Anda, yang membantu CAPod mengidentifikasinya di antara perangkat terdekat.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods sering mengubah alamat Bluetooth mereka untuk privasi. IRK membantu CAPod mengenali perangkat Anda. Anda memerlukan akses sekali pakai ke MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Kunci Enkripsi</string>
-    <string name="settings_maindevice_encryptionkey_description">Kunci enkripsi perangkat Anda, yang memungkinkan CAPod mengambil informasi status terperinci.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods mengirimkan pesan status, yang sebagian dienkripsi. Kunci enkripsi memungkinkan CAPod mendekripsi pesan lengkap. Anda memerlukan akses sekali pakai ke MacBook.</string>
     <string name="settings_onepod_mode_label">Mode satu pod</string>
     <string name="settings_onepod_mode_description">Memakai kedua pod tidak diperlukan, memakai satu pod saja sudah cukup untuk memicu reaksi.</string>
     <string name="settings_popup_caseopen_label">Tampilkan pop-up casing</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Tidak semua perangkat Android sepenuhnya mendukung fitur tambahan AirPod. Sistem operasi Anda memerlukan implementasi Bluetooth Hemat Energi yang berfungsi dengan baik.</string>
     <string name="onboarding_body3">CAPod tidak memiliki iklan dan tidak mengumpulkan data Anda.</string>
     <string name="onboarding_body4">Anda dapat meningkatkan ke CAPod Pro untuk mendapatkan fitur tambahan dan mendukung pengembangan.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

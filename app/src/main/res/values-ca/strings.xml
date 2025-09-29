@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">L\'escàner de dades Bluetooth Low Energy hauria de prioritzar el rendiment o estalviar energia?</string>
     <string name="settings_autopause_label">Pausa automàtica</string>
     <string name="settings_autopause_description">Pausa l\'àudio quan ús tragueu el dispositiu de l\'orella.</string>
-    <string name="settings_showall_label">Mostra tots els dispositius</string>
-    <string name="settings_showall_description">Mostra els dispositius d\'altres persones que estan a prop vostre.</string>
     <string name="settings_autopplay_label">Reproducció automàtica</string>
     <string name="settings_autoplay_description">Inicia la reproducció d\'àudio en utilitzar el dispositiu.</string>
     <string name="settings_fake_data_label">Dades falses</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">No delegueu el filtratge de dades al sistema, obtingueu totes les dades i filtreu-les dins de l\'aplicació.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Desactiva el processament per lots de maquinari</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">No deixeu que el grup del sistema reculli dades BLE abans de reenviar-nos-les.</string>
-    <string name="settings_maindevice_address_label">L\'adreça del vostre dispositiu</string>
-    <string name="settings_maindevice_address_description">L\'adreça del dispositiu emparellat. L\'aplicació la fa servir per determinar quan està connectat al telèfon.</string>
-    <string name="settings_maindevice_address_none">Cap</string>
-    <string name="settings_maindevice_model_label">El vostre model de dispositiu</string>
-    <string name="settings_maindevice_model_description">El model del vostre dispositiu principal. Això ajuda l\'aplicació a reconèixer el vostre dispositiu quan no està connectat al vostre telèfon.</string>
-    <string name="settings_maindevice_identitykey_label">Clau d\'identitat</string>
-    <string name="settings_maindevice_identitykey_description">La clau de resolució d\'identitat (IRK) del dispositiu ajuda al CAPod a identificar-lo entre els dispositius propers.</string>
-    <string name="settings_maindevice_identitykey_explanation">Els AirPods canvien sovint la seva adreça Bluetooth per motius de privadesa. L\'IRK ajuda al CAPod a reconèixer el vostre dispositiu. Necessiteu accés únic a un MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Clau de xifratge</string>
-    <string name="settings_maindevice_encryptionkey_description">La clau de xifratge del vostre dispositiu permet al CAPod recuperar informació detallada de l\'estat.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Els AirPods envien un missatge d\'estat, part del missatge està xifrat. La clau de xifratge permet que el CAPod desxifri el missatge complet. Necessiteu accés únic a un MacBook.</string>
     <string name="settings_onepod_mode_label">Mode d\'un AirPod</string>
     <string name="settings_onepod_mode_description">No cal portar els dos AirdPods, per provocar reaccions només cal portar-ne un.</string>
     <string name="settings_popup_caseopen_label">Mostra la finestra emergent de la funda</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">No tots els dispositius Android són compatibles completament amb les funcions addicionals d\'AirPod. El vostre sistema operatiu requereix una implementació de Bluetooth de baixa energia que funcioni correctament.</string>
     <string name="onboarding_body3">El CAPod no conté anuncis i no recull les vostres dades.</string>
     <string name="onboarding_body4">Podeu actualitzar a CAPod Pro per obtenir funcions addicionals i donar suport al desenvolupament.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

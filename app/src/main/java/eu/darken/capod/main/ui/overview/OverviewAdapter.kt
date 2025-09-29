@@ -12,8 +12,10 @@ import eu.darken.capod.common.lists.modular.ModularAdapter
 import eu.darken.capod.common.lists.modular.mods.DataBinderMod
 import eu.darken.capod.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
-import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
+import eu.darken.capod.main.ui.overview.cards.MonitoringActiveVH
+import eu.darken.capod.main.ui.overview.cards.NoProfilesVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
+import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualPodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.SinglePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
@@ -30,8 +32,10 @@ class OverviewAdapter @Inject constructor() :
         modules.add(TypedVHCreatorMod({ data[it] is PermissionCardVH.Item }) { PermissionCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is DualPodsCardVH.Item }) { DualPodsCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is SinglePodsCardVH.Item }) { SinglePodsCardVH(it) })
-        modules.add(TypedVHCreatorMod({ data[it] is MissingMainDeviceVH.Item }) { MissingMainDeviceVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is NoProfilesVH.Item }) { NoProfilesVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is BluetoothDisabledVH.Item }) { BluetoothDisabledVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is MonitoringActiveVH.Item }) { MonitoringActiveVH(it) })
+        modules.add(TypedVHCreatorMod({ data[it] is UnmatchedDevicesCardVH.Item }) { UnmatchedDevicesCardVH(it) })
         modules.add(TypedVHCreatorMod({ data[it] is UnknownPodDeviceCardVH.Item }) { UnknownPodDeviceCardVH(it) })
     }
 
@@ -40,7 +44,7 @@ class OverviewAdapter @Inject constructor() :
     abstract class BaseVH<D : Item, B : ViewBinding>(
         @LayoutRes layoutId: Int,
         parent: ViewGroup
-    ) : ModularAdapter.VH(layoutId, parent), BindableVH<D, B>
+    ) : VH(layoutId, parent), BindableVH<D, B>
 
     interface Item : DifferItem
 

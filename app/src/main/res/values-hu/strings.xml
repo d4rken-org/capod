@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">A Bluetooth Low Energy szkenner a teljesítményt vagy az energiatakarékosságot részesítse előnyben?</string>
     <string name="settings_autopause_label">Automatikus szünet</string>
     <string name="settings_autopause_description">Zene leállítása, amikor kiveszi a füléből az eszközt.</string>
-    <string name="settings_showall_label">Összes eszköz megjelenítése</string>
-    <string name="settings_showall_description">Közel lévő más eszközök mutatása.</string>
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
     <string name="settings_autoplay_description">Hanglejátszás elindítása, ha az eszköz viselve van.</string>
     <string name="settings_fake_data_label">Hamis adat</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ne bízza az adatok szűrését a rendszerre, hanem kérje le az összes adatot és szűrje az alkalmazáson belül.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Hardveres összefűzés letiltása</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ne hagyja, hogy a rendszer csoportosítsa az összegyűjtött BLE-adatokat, mielőtt továbbítja azokat nekünk.</string>
-    <string name="settings_maindevice_address_label">Az Ön készülékének címe</string>
-    <string name="settings_maindevice_address_description">A párosított eszköz címe. Az alkalmazás ezt használja annak meghatározására, hogy mikor csatlakozik a telefonhoz.</string>
-    <string name="settings_maindevice_address_none">Semmi</string>
-    <string name="settings_maindevice_model_label">Az Ön eszközének modellje</string>
-    <string name="settings_maindevice_model_description">A fő eszközöd típusa. Ez segít az alkalmazásnak felismerni az eszközt, amikor az nincs csatlakoztatva a telefonhoz.</string>
-    <string name="settings_maindevice_identitykey_label">Azonosító kulcs</string>
-    <string name="settings_maindevice_identitykey_description">Az eszköz identitásfeloldó kulcsa (IRK), amely segít a CAPodnak azonosítani azt a közeli eszközök között.</string>
-    <string name="settings_maindevice_identitykey_explanation">Az AirPod-ok adatvédelmi okokból gyakran változtatják a Bluetooth-címüket. Az IRK segít a CAPodnak felismerni az eszközét. Egyszeri hozzáférésre van szüksége egy MacBookhoz.</string>
-    <string name="settings_maindevice_encryptionkey_label">Titkosítási kulcs</string>
-    <string name="settings_maindevice_encryptionkey_description">Az eszköz titkosítási kulcsa, amely lehetővé teszi a CAPod számára a részletes állapotinformációk lekérését.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Az AirPod-ok állapotüzenetet küldenek, amelynek egy része titkosítva van. A titkosítási kulcs lehetővé teszi a CAPod számára a teljes üzenet visszafejtését. Egyszeri hozzáférésre van szüksége egy MacBookhoz.</string>
     <string name="settings_onepod_mode_label">Egy fülhallgató mód</string>
     <string name="settings_onepod_mode_description">Nem szükséges mindkét fülhallgató viselése, egyetlen elegendő a reakciók kiváltásához.</string>
     <string name="settings_popup_caseopen_label">Előugró ablak a tok kinyitásakor</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Nem minden Android eszköz támogatja teljes mértékben az extra AirPod szolgáltatásokat. Az eszköz operációs rendszere megfelelően működő Bluetooth-Low-Energy megvalósítást igényel.</string>
     <string name="onboarding_body3">A CAPod nem tartalmaz hirdetéseket, és nem gyűjti az adataidat.</string>
     <string name="onboarding_body4">A CAPod Pro verzióra frissítése további funkciókat adhat és támogatja a fejlesztést.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

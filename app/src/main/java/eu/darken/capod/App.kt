@@ -16,6 +16,7 @@ import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.devicesWithProfiles
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -48,7 +49,7 @@ open class App : Application(), Configuration.Provider {
             monitorControl.startMonitor(forceStart = true)
         }
 
-        podMonitor.mainDevice
+        podMonitor.devicesWithProfiles()
             .distinctUntilChanged()
             .throttleLatest(1000)
             .onEach {

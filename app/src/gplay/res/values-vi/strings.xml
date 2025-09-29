@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Các dịch vụ của Google Play không khả dụng.</string>
     <string name="upgrades_no_purchases_found_check_account">Không tìm thấy giao dịch mua nào. Bạn có đang sử dụng đúng tài khoản không?</string>
-    <string name="upgrades_gplay_billing_error_label">Lỗi Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Đã xảy ra lỗi trong Google Play. Vui lòng thử lại sau hoặc khởi động lại điện thoại của bạn.\n\nLỗi: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Lỗi thanh toán Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Đã xảy ra lỗi khi yêu cầu Google Play cung cấp chi tiết giao dịch mua của bạn. Xóa bộ nhớ đệm Google Play và khởi động lại điện thoại.\n\nLỗi %s</string>
 </resources>

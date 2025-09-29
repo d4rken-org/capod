@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play pakalpojumi nav pieejami.</string>
     <string name="upgrades_no_purchases_found_check_account">Nav atrasts neviens pirkums. Vai izmantojat pareizo kontu?</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play kļūda</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play radās kļūda. Lūdzu, mēģiniet vēlreiz vēlāk vai resteartējiet tālruni.\n\nKļūda: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play norēķinu kļūda</string>
-    <string name="upgrades_gplay_billing_result_error_description">Radās kļūda, jautājot Google Play par jūsu pirkuma informāciju. Notīriet Google Play kešatmiņu un resteartējiet tālruni.\n\nKļūda %s</string>
 </resources>

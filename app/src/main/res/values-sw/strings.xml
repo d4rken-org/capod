@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Je, skana ya data ya Bluetooth Low Energy itangulize utendakazi au ihifadhi nishati?</string>
     <string name="settings_autopause_label">Sitisha kiotomatiki</string>
     <string name="settings_autopause_description">Sitisha sauti unapotoa kifaa sikioni.</string>
-    <string name="settings_showall_label">Onyesha vifaa vyote</string>
-    <string name="settings_showall_description">Onyesha vifaa vya watu wengine vilivyo karibu nawe.</string>
     <string name="settings_autopplay_label">Cheza kiotomatiki</string>
     <string name="settings_autoplay_description">Anzisha uchezaji wa sauti kifaa kinapovaliwa.</string>
     <string name="settings_fake_data_label">Data bandia</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Usipeane uchujaji wa data kwa mfumo, badala yake pata data yote na uchuje ndani ya programu.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Zima uunganishaji wa maunzi</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Usiruhusu mfumo kuunganisha data ya BLE iliyokusanywa kabla ya kuituma kwetu.</string>
-    <string name="settings_maindevice_address_label">Anwani ya kifaa chako</string>
-    <string name="settings_maindevice_address_description">Anwani ya kifaa chako kilichooanishwa. Programu hutumia hii kubaini inapounganishwa na simu yako.</string>
-    <string name="settings_maindevice_address_none">Hakuna</string>
-    <string name="settings_maindevice_model_label">Mfumo wa kifaa chako</string>
-    <string name="settings_maindevice_model_description">Mfumo wa kifaa chako kikuu. Hii husaidia programu kutambua kifaa chako kisipounganishwa na simu yako.</string>
-    <string name="settings_maindevice_identitykey_label">Ufunguo wa Utambulisho</string>
-    <string name="settings_maindevice_identitykey_description">Ufunguo wa Kutatua Utambulisho (IRK) wa kifaa chako, unaosaidia CAPod kukitambua miongoni mwa vifaa vilivyo karibu.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods hubadilisha anwani yao ya Bluetooth mara kwa mara kwa faragha. IRK husaidia CAPod kutambua kifaa chako. Unahitaji ufikiaji wa mara moja kwa MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Ufunguo wa Usimbaji</string>
-    <string name="settings_maindevice_encryptionkey_description">Ufunguo wa usimbaji wa kifaa chako, unaoruhusu CAPod kupata maelezo ya kina ya hali.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods hutuma ujumbe wa hali, ambao sehemu yake imesimbwa. Ufunguo wa usimbaji huruhusu CAPod kusimbua ujumbe kamili. Unahitaji ufikiaji wa mara moja kwa MacBook.</string>
     <string name="settings_onepod_mode_label">Hali ya ganda moja</string>
     <string name="settings_onepod_mode_description">Kuvaa maganda yote mawili si lazima, kuvaa ganda moja kunatosha kuanzisha matendo.</string>
     <string name="settings_popup_caseopen_label">Onyesha kidirisha cha kipochi</string>
@@ -81,7 +68,6 @@
     <string name="settings_support_description">Ikiwa unahitaji msaada.</string>
     <string name="issue_tracker_label">Kifuatiliaji cha matatizo</string>
     <string name="issue_tracker_description">Kifuatiliaji cha matatizo cha umma kwa ripoti za hitilafu na maombi ya vipengele (Kiingereza pekee).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Mahali pa kukaa na kuuliza maswali.</string>
     <string name="changelog_label">Kumbukumbu ya mabadiliko</string>
     <string name="settings_label">Mipangilio</string>
@@ -103,7 +89,6 @@
     <string name="help_translate_label">Tafsiri</string>
     <string name="help_translate_description">Saidia kutafsiri programu hii katika lugha yako uipendayo.</string>
     <string name="translators_thanks_title">Watafsiri</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Wijeti inayoonyesha hali ya mwisho inayojulikana ya kifaa.</string>
     <string name="settings_compat_indirectcallback_title">Uwasilishaji wa data usio wa moja kwa moja</string>
     <string name="settings_compat_indirectcallback_summary">Tumia njia mbadala kupokea data ya BLE kutoka kwa mfumo (tangaza badala ya kurudisha simu).</string>
@@ -125,4 +110,7 @@
     <string name="onboarding_body2">Si vifaa vyote vya Android vinavyosaidia kikamilifu vipengele vya ziada vya AirPod. Mfumo wako wa uendeshaji unahitaji utekelezaji sahihi wa Bluetooth ya Nishati ya Chini.</string>
     <string name="onboarding_body3">CAPod haina matangazo na haikusanyi data yako.</string>
     <string name="onboarding_body4">Unaweza kuboresha hadi CAPod Pro kupata vipengele vya ziada na kusaidia maendeleo.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

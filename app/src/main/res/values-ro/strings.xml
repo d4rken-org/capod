@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Scanerul de date Bluetooth Energie Scăzută (BLE) ar trebui să acorde prioritate performanței sau economiei de energie?</string>
     <string name="settings_autopause_label">Pauză automată</string>
     <string name="settings_autopause_description">Întrerupeți sunetul când scoateți dispozitivul din ureche.</string>
-    <string name="settings_showall_label">Arată toate dispozitivele</string>
-    <string name="settings_showall_description">Afișați dispozitivele altor persoane care sunt în apropierea dvs.</string>
     <string name="settings_autopplay_label">Redare automată</string>
     <string name="settings_autoplay_description">Porniți redarea audio când dispozitivul este purtat.</string>
     <string name="settings_fake_data_label">Date false</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Nu delegați filtrarea datelor către sistem, în schimb, obțineți toate datele și filtrați în cadrul aplicației.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Dezactivați lotizarea hardware</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Nu lăsați sistemul să grupeze datele BLE colectate înainte de a ni le transmite.</string>
-    <string name="settings_maindevice_address_label">Adresa dispozitivului dvs.</string>
-    <string name="settings_maindevice_address_description">Adresa dispozitivului dvs. asociat. Aplicația utilizează aceasta pentru a determina când este conectată la telefonul dvs.</string>
-    <string name="settings_maindevice_address_none">Niciunul</string>
-    <string name="settings_maindevice_model_label">Modelul dispozitivului dvs.</string>
-    <string name="settings_maindevice_model_description">Modelul dispozitivului principal. Acest lucru ajută aplicația să recunoască dispozitivul dvs. atunci când nu este conectat la telefonul dvs.</string>
-    <string name="settings_maindevice_identitykey_label">Cheie de identitate</string>
-    <string name="settings_maindevice_identitykey_description">Cheia de rezolvare a identității (IRK) a dispozitivului dvs., care ajută CAPod să o identifice printre dispozitivele din apropiere.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPod-urile își schimbă frecvent adresa Bluetooth din motive de confidențialitate. IRK ajută CAPod să vă recunoască dispozitivul. Aveți nevoie de acces o singură dată la un MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Cheie de criptare</string>
-    <string name="settings_maindevice_encryptionkey_description">Cheia de criptare a dispozitivului dvs., care permite CAPod să recupereze informații detaliate despre stare.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPod-urile trimit un mesaj de stare, o parte din acesta fiind criptat. Cheia de criptare permite CAPod să decripteze mesajul complet. Aveți nevoie de acces o singură dată la un MacBook.</string>
     <string name="settings_onepod_mode_label">Modul de utilizare o singură cască</string>
     <string name="settings_onepod_mode_description">Nu este necesar să purtați ambele caști, o singură cască este suficientă pentru a declanșa reacțiile.</string>
     <string name="settings_popup_caseopen_label">Afișați pop-upul carcasei</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Nu toate dispozitivele Android acceptă pe deplin funcțiile suplimentare AirPod. Sistemul dvs. de operare necesită o implementare Bluetooth Energie Scăzută (BLE) care funcționează corect.</string>
     <string name="onboarding_body3">CAPod nu conține reclame și nu colectează datele dumneavoastră.</string>
     <string name="onboarding_body4">Puteți face upgrade la CAPod Pro pentru a obține funcții suplimentare și pentru a sprijini dezvoltarea.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

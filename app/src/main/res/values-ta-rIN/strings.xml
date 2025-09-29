@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">புளூடூத் குறைந்த ஆற்றல் தரவு ஸ்கேனர் செயல்திறனுக்கு முன்னுரிமை அளிக்க வேண்டுமா அல்லது ஆற்றலைச் சேமிக்க வேண்டுமா?</string>
     <string name="settings_autopause_label">தானியங்கு இடைநிறுத்தம்</string>
     <string name="settings_autopause_description">உங்கள் காதில் இருந்து சாதனத்தை அகற்றும்போது ஆடியோவை இடைநிறுத்தவும்.</string>
-    <string name="settings_showall_label">எல்லா சாதனங்களையும் காட்டு</string>
-    <string name="settings_showall_description">உங்களுக்கு அருகிலுள்ள மற்றவர்களின் சாதனங்களைக் காட்டு.</string>
     <string name="settings_autopplay_label">தானியங்கு இயக்கம்</string>
     <string name="settings_autoplay_description">சாதனம் அணியும்போது ஆடியோ இயக்கத்தைத் தொடங்கு.</string>
     <string name="settings_fake_data_label">போலித் தரவு</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">கணினிக்கு தரவு வடிகட்டலை ஒப்படைக்கಬೇடீர், பதிலாக எல்லா தரவையும் பெற்று ஆப்ஸிலேயே வடிகட்டு.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">வன்பொருள் தொகுதிப்படுத்தலை முடக்கு</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">சேகரிக்கப்பட்ட BLE தரவை எங்களுக்கு அனுப்புவதற்கு முன்பு கணினி குழுவாக்க அனுமதிக்காதீர்கள்.</string>
-    <string name="settings_maindevice_address_label">உங்கள் சாதனத்தின் முகவரி</string>
-    <string name="settings_maindevice_address_description">உங்கள் இணைக்கப்பட்ட சாதனத்தின் முகவரி. உங்கள் தொலைபேசியுடன் எப்போது இணைக்கப்பட்டுள்ளது என்பதைத் தீர்மானிக்க ஆப்ஸ் இதைப் பயன்படுத்துகிறது.</string>
-    <string name="settings_maindevice_address_none">எதுவுமில்லை</string>
-    <string name="settings_maindevice_model_label">உங்கள் சாதனத்தின் மாதிரி</string>
-    <string name="settings_maindevice_model_description">உங்கள் முக்கிய சாதனத்தின் மாதிரி. உங்கள் தொலைபேசியுடன் இணைக்கப்படாதபோது உங்கள் சாதனத்தை ஆப்ஸ் அடையாளம் காண இது உதவுகிறது.</string>
-    <string name="settings_maindevice_identitykey_label">அடையாள விசை</string>
-    <string name="settings_maindevice_identitykey_description">உங்கள் சாதனத்தின் அடையாளத் தீர்வு விசை (IRK), இது அருகிலுள்ள சாதனங்களிடையே CAPod அடையாளம் காண உதவுகிறது.</string>
-    <string name="settings_maindevice_identitykey_explanation">தனியுரிமைக்காக AirPods தங்கள் புளூடூத் முகவரியை அடிக்கடி மாற்றுகின்றன. IRK உங்கள் சாதனத்தை CAPod அடையாளம் காண உதவுகிறது. உங்களுக்கு ஒரு முறை MacBook அணுகல் தேவை.</string>
-    <string name="settings_maindevice_encryptionkey_label">குறியாக்க விசை</string>
-    <string name="settings_maindevice_encryptionkey_description">உங்கள் சாதனத்தின் குறியாக்க விசை, இது விரிவான நிலைத் தகவலை மீட்டெடுக்க CAPod ஐ அனுமதிக்கிறது.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ஒரு நிலை செய்தியை அனுப்புகிறது, அதன் ஒரு பகுதி குறியாக்கம் செய்யப்பட்டுள்ளது. குறியாக்க விசை முழு செய்தியையும் CAPod குறியாக்கம் செய்ய அனுமதிக்கிறது. உங்களுக்கு ஒரு முறை MacBook அணுகல் தேவை.</string>
     <string name="settings_onepod_mode_label">ஒரு பாட் முறை</string>
     <string name="settings_onepod_mode_description">இரண்டு பாட்களையும் அணிய வேண்டிய அவசியமில்லை, எதிர்வினைகளைத் தூண்டுவதற்கு ஒரு பாட் அணிந்தால் போதும்.</string>
     <string name="settings_popup_caseopen_label">கேஸ் பாப்அப்பைக் காட்டு</string>
@@ -103,7 +90,6 @@
     <string name="help_translate_label">மொழிபெயர்ப்பு</string>
     <string name="help_translate_description">இந்த ஆப்ஸை உங்களுக்குப் பிடித்த மொழியில் மொழிபெயர்க்க உதவுங்கள்.</string>
     <string name="translators_thanks_title">மொழிபெயர்ப்பாளர்கள்</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">கடைசியாக அறியப்பட்ட சாதன நிலையைக் காட்டும் ஒரு விட்ஜெட்.</string>
     <string name="settings_compat_indirectcallback_title">மறைமுக தரவு விநியோகம்</string>
     <string name="settings_compat_indirectcallback_summary">கணினியிலிருந்து BLE தரவைப் பெற மாற்று முறையைப் பயன்படுத்தவும் (அழைப்புக்குப் பதிலாக ஒளிபரப்பு).</string>
@@ -125,4 +111,7 @@
     <string name="onboarding_body2">எல்லா ஆண்ட்ராய்டு சாதனங்களும் கூடுதல் AirPod அம்சங்களை முழுமையாக ஆதரிக்காது. உங்கள் இயக்க முறைமைக்கு சரியாக வேலை செய்யும் புளூடூத்-குறைந்த-ஆற்றல் செயலாக்கம் தேவை.</string>
     <string name="onboarding_body3">CAPod இல் விளம்பரங்கள் இல்லை மற்றும் உங்கள் தரவைச் சேகரிக்காது.</string>
     <string name="onboarding_body4">கூடுதல் அம்சங்களைப் பெறவும் மேம்பாட்டை ஆதரிக்கவும் நீங்கள் CAPod Pro க்கு மேம்படுத்தலாம்.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

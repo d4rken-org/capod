@@ -11,12 +11,9 @@
     <string name="general_save_action">Salvar</string>
     <string name="general_guide_action">Guia</string>
     <string name="general_continue_action">Continuar</string>
-
     <string name="general_example_label">Ex.: %s</string>
-
     <string name="upgrade_capod_label">Atualizar CAPod</string>
     <string name="upgrade_capod_description">Obtenha recursos adicionais e apoie o desenvolvedor.</string>
-
     <string name="settings_monitor_mode_label">Modo de monitoramento</string>
     <string name="settings_monitor_mode_description">Em quais circunstâncias este aplicativo monitora os dados do Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificação extra</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">O scanner de dados Bluetooth de Baixo Consumo de Energia deve priorizar o desempenho ou economizar energia?</string>
     <string name="settings_autopause_label">Pausa automática</string>
     <string name="settings_autopause_description">Pause o áudio ao remover o dispositivo do ouvido.</string>
-    <string name="settings_showall_label">Mostrar todos os dispositivos</string>
-    <string name="settings_showall_description">Mostre os dispositivos de outras pessoas que estão perto de você.</string>
     <string name="settings_autopplay_label">Reprodução automática</string>
     <string name="settings_autoplay_description">Inicie a reprodução de áudio quando o dispositivo estiver em uso.</string>
     <string name="settings_fake_data_label">Dados falsos</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">Reações</string>
     <string name="settings_reaction_description">Reaja a eventos e comportamentos.</string>
     <string name="settings_category_yourdevice_label">Seu dispositivo</string>
-
     <string name="settings_category_compatibility_options_title">Opções de compatibilidade</string>
     <string name="settings_category_compatibility_options_description">Não toque se tudo funcionar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Desativar filtragem de hardware</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Não delegue a filtragem de dados ao sistema, em vez disso, obtenha todos os dados e filtre dentro do aplicativo.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Desativar processamento em lote por hardware</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Não permita que o sistema agrupe os dados BLE coletados antes de encaminhá-los para nós.</string>
-
-    <string name="settings_maindevice_address_label">Endereço do seu dispositivo</string>
-    <string name="settings_maindevice_address_description">O endereço do seu dispositivo emparelhado. O aplicativo usa isso para determinar quando está conectado ao seu telefone.</string>
-    <string name="settings_maindevice_address_none">Nenhum</string>
-    <string name="settings_maindevice_model_label">Modelo do seu dispositivo</string>
-    <string name="settings_maindevice_model_description">O modelo do seu dispositivo principal. Isso ajuda o aplicativo a reconhecer seu dispositivo quando ele não está conectado ao seu telefone.</string>
-    <string name="settings_maindevice_identitykey_label">Chave de Identidade</string>
-    <string name="settings_maindevice_identitykey_description">A Chave de Resolução de Identidade (IRK) do seu dispositivo, que ajuda o CAPod a identificá-lo entre dispositivos próximos.</string>
-    <string name="settings_maindevice_identitykey_explanation">Os AirPods mudam frequentemente o endereço Bluetooth por motivos de privacidade. A IRK ajuda o CAPod a reconhecer o seu dispositivo. Você precisa de acesso único a um MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Chave de Criptografia</string>
-    <string name="settings_maindevice_encryptionkey_description">A chave de criptografia do seu dispositivo, que permite ao CAPod obter informações detalhadas do status.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Os AirPods enviam uma mensagem de status, parte da qual está criptografada. A chave de criptografia permite ao CAPod descriptografar a mensagem completa. Você precisa de acesso único a um MacBook.</string>
-
     <string name="settings_onepod_mode_label">Modo de um só pod</string>
     <string name="settings_onepod_mode_description">Não é necessário usar os dois pods, usar um único pod é suficiente para desencadear reações.</string>
     <string name="settings_popup_caseopen_label">Mostrar pop-up da case</string>
     <string name="settings_popup_caseopen_description">Mostrar um pop-up quando o estojo do dispositivo for aberto (experimental).</string>
     <string name="settings_popup_connected_label">Mostrar pop-up de conexão</string>
     <string name="settings_popup_connected_description">Mostrar um pop-up quando o dispositivo se conectar pela primeira vez.</string>
-
     <string name="notification_channel_device_status_label">Status do dispositivo</string>
     <string name="notification_channel_device_status_connected_label">Dispositivo conectado</string>
-
     <string name="support_debuglog_label">Log de depuração</string>
     <string name="support_debuglog_desc">Registre tudo o que o aplicativo faz em um arquivo de texto que você pode compartilhar.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">Parar gravação</string>
     <string name="debug_debuglog_sensitive_information_message">O arquivo gerado contém informações confidenciais (por exemplo, detalhes do dispositivo Bluetooth). Compartilhe-o apenas com partes confiáveis.</string>
     <string name="settings_debuglog_explanation">Este recurso registra tudo o que o aplicativo faz em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo, detalhes do dispositivo Bluetooth). Compartilhe-o apenas com partes confiáveis (por exemplo, um desenvolvedor que está solucionando um problema).</string>
-
     <string name="settings_support_installid_label">ID de instalação</string>
     <string name="settings_support_installid_desc">Os relatórios automáticos de erros são anônimos. Compartilhe seu ID de instalação se o desenvolvedor precisar encontrar seus relatórios de erros.</string>
     <string name="settings_support_label">Suporte</string>
     <string name="settings_support_description">Se você precisar de alguma ajuda.</string>
-
     <string name="issue_tracker_label">Rastreador de problemas</string>
     <string name="issue_tracker_description">Um rastreador de problemas público para relatórios de bugs e solicitações de recursos (somente em inglês).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para conversar e tirar dúvidas.</string>
-
     <string name="changelog_label">Registro de alterações</string>
     <string name="settings_label">Configurações</string>
     <string name="settings_privacy_policy_label">Política de Privacidade</string>
@@ -104,28 +78,21 @@
     <string name="settings_general_label">Configurações</string>
     <string name="settings_general_description">Ajustes gerais que afetam todo o aplicativo.</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
-
     <string name="settings_debug_autoreports_label">Relatórios automáticos de bugs</string>
     <string name="settings_debug_autoreports_description">Relata problemas automaticamente, por exemplo. detalhes sobre uma falha de aplicativo para que eu possa descobrir como corrigi-lo.</string>
     <string name="settings_debug_mode_label">Modo de depuração</string>
     <string name="settings_debug_mode_description">Mostre informações adicionais para solucionar problemas.</string>
-
     <string name="settings_blescanner_unfiltered_label">Dados BLE não filtrados</string>
     <string name="settings_blescanner_unfiltered_description">Remova quaisquer filtros do scanner BLE para mostrar todos os dados BLE transmitidos. Útil para adicionar suporte para novos tipos de fones de ouvido.</string>
-
     <string name="settings_compatibility_mode_label">Modo de compatibilidade</string>
     <string name="settings_compatibility_mode_description">Desative as otimizações para melhorar a compatibilidade. Tente isto se você não estiver vendo nenhum dado.</string>
-
     <string name="help_translate_label">Tradução</string>
     <string name="help_translate_description">Ajude a traduzir este aplicativo para seu idioma favorito.</string>
-
     <string name="translators_thanks_title">Tradutores</string>
-    <string name="translators_thanks_description">darken</string>
-
+    <string name="translators_thanks_description">Igor Silva (ferrare42@gmail.com)</string>
     <string name="widget_description">Um widget que mostra o último status conhecido do dispositivo.</string>
     <string name="settings_compat_indirectcallback_title">Entrega indireta de dados</string>
     <string name="settings_compat_indirectcallback_summary">Use um método alternativo para receber dados BLE do sistema (transmissão em vez de retorno de chamada).</string>
-
     <string name="troubleshooter_title">Solucionador de problemas</string>
     <string name="troubleshooter_ble_intro_title">Transmissões Bluetooth de baixa energia</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (e fones de ouvido semelhantes) transmitem informações de status usando uma tecnologia BLE chamada \"anúncios\". Alguns telefones não implementam essa tecnologia corretamente. O CAPod pode tentar corrigir isso tentando diferentes opções de compatibilidade até que os dados sejam recebidos. Inicie a reprodução de música em seus fones de ouvido e coloque-os perto do telefone e inicie o processo.</string>
@@ -140,9 +107,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Seu telefone recebeu dados BLE, mas os dados não vêm de nenhum dispositivo compatível. Seus fones de ouvido estão ligados? O CAPod suporta seu fone de ouvido?</string>
     <string name="troubleshooter_ble_result_failure_action">Tentar novamente</string>
     <string name="troubleshoot_action">Solucionar problemas</string>
-
     <string name="onboarding_body1">Este aplicativo adiciona suporte para recursos específicos do AirPod ao Android.</string>
     <string name="onboarding_body2">Nem todos os dispositivos Android oferecem suporte total aos recursos extras do AirPod. Seu sistema operacional requer uma implementação de Bluetooth de Baixo Consumo de Energia que funcione corretamente.</string>
     <string name="onboarding_body3">O CAPod não possui anúncios e não coleta seus dados.</string>
     <string name="onboarding_body4">Você pode atualizar para o CAPod Pro para obter recursos extras e apoiar o desenvolvimento.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

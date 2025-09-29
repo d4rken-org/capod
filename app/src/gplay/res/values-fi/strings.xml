@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play -palvelut eivät ole käytettävissä.</string>
     <string name="upgrades_no_purchases_found_check_account">Ostoksia ei löytynyt. Käytätkö oikeaa tiliä?</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play -virhe</string>
-    <string name="upgrades_gplay_billing_error_description">Google Playssa tapahtui virhe. Yritä uudelleen myöhemmin tai käynnistä puhelimesi uudelleen.\n\nVirhe: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play -laskutusvirhe</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Playltä ostotietoja pyydettäessä tapahtui virhe. Tyhjennä Google Playn välimuisti ja käynnistä puhelimesi uudelleen.\n\nVirhe %s</string>
 </resources>

@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play кызматтары жеткиликсиз.</string>
     <string name="upgrades_no_purchases_found_check_account">Эч кандай сатып алуулар табылган жок. Туура каттоо эсебин колдонуп жатасызбы?</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play катасы</string>
-    <string name="upgrades_gplay_billing_error_description">Google Playде ката кетти. Сураныч, кийинчереек кайра аракет кылыңыз же телефонуңузду өчүрүп күйгүзүңүз.\n\nКата: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play төлөм катасы</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Playден сатып алуу маалыматын сураганда ката кетти. Google Play кэшин тазалап, телефонуңузду өчүрүп күйгүзүңүз.\n\nКата %s</string>
 </resources>

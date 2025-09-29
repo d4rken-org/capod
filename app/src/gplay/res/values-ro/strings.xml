@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Serviciile Google Play nu sunt disponibile.</string>
     <string name="upgrades_no_purchases_found_check_account">Nu s-au găsit achiziții. Folosești contul corect?</string>
-    <string name="upgrades_gplay_billing_error_label">Eroare Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">A apărut o eroare în Google Play. Încearcă din nou mai târziu sau repornește telefonul.\n\nEroare: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Eroare de facturare Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">A apărut o eroare la solicitarea detaliilor achiziției de la Google Play. Șterge cache-ul Google Play și repornește telefonul.\n\nEroare %s</string>
 </resources>

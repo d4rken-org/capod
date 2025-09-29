@@ -11,6 +11,7 @@ import androidx.preference.Preference
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.R
 
 
 class IntentPreference @JvmOverloads constructor(

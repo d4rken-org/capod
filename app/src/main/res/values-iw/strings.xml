@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">האם סורק ה-Bluetooth Low Energy צריך לתת עדיפות לביצועים או לחסוך באנרגיה?</string>
     <string name="settings_autopause_label">השהייה אוטומטית</string>
     <string name="settings_autopause_description">עצירת אודיו בהסרת המכשיר מהאוזן.</string>
-    <string name="settings_showall_label">הצג את כל המכשירים</string>
-    <string name="settings_showall_description">הצג מכשירים של אנשים אחרים שנמצאים בקרבתך.</string>
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
     <string name="settings_autoplay_description">התחלת ניגון אודיו בלבישת המכשיר.</string>
     <string name="settings_fake_data_label">נתונים מזויפים</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">אל תאציל סינון נתונים למערכת, במקום זאת קבל את כל הנתונים וסנן בתוך האפליקציה.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ביטול אצוות חומרה</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">אל תאפשר לקבוצת המערכת אסיפת נתוני BLE לפני שתעביר אותם אלינו.</string>
-    <string name="settings_maindevice_address_label">כתובת המכשיר שלך</string>
-    <string name="settings_maindevice_address_description">הכתובת של המכשיר המחובר שלך. האפליקציה משתמשת בזה כדי לקבוע מתי היא מחוברת לטלפון שלך.</string>
-    <string name="settings_maindevice_address_none">אף אחד</string>
-    <string name="settings_maindevice_model_label">דגם המכשיר שלך</string>
-    <string name="settings_maindevice_model_description">הדגם של המכשיר הראשי שלך. זה עוזר לאפליקציה לזהות את המכשיר שלך כשהוא לא מחובר לטלפון שלך.</string>
-    <string name="settings_maindevice_identitykey_label">מפתח מזהה</string>
-    <string name="settings_maindevice_identitykey_description">מפתח זיהוי ההתקן (IRK) של המכשיר שלך, אשר עוזר ל-CAPod לזהות אותו בין התקנים קרובים.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods משנים לעתים קרובות את כתובת ה-Bluetooth שלהן למען פרטיות. כתובת ה-IRK עוזרת ל-CAPod לזהות את המכשיר שלך. תזדקק לגישה חד פעמית ל-MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">מפתח הצפנה</string>
-    <string name="settings_maindevice_encryptionkey_description">מפתח ההצפנה של המכשיר שלך, המאפשר ל-CAPod לאחזר מידע מפורט על המצב.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods שולחים הודעת סטטוס, שחלקה מוצפן. מפתח ההצפנה מאפשר ל-CAPod לפענח את ההודעה המלאה. תזדקק לגישה חד פעמית ל-MacBook.</string>
     <string name="settings_onepod_mode_label">מצב אוזניה בודדת</string>
     <string name="settings_onepod_mode_description">אין צורך לענוד את שני האוזניות, לבישת אוזניה בודדת מספיקה כדי לעורר תגובות.</string>
     <string name="settings_popup_caseopen_label">הצג חלון קופץ</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">לא כל מכשירי האנדרואיד תומכים באופן מלא בתכונות הנוספות של AirPod. מערכת ההפעלה שלך דורשת יישום תקין של Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">ב-CAPod אין מודעות ואיננו אוספים נתונים שלך.</string>
     <string name="onboarding_body4">אתה יכול לשדרג ל-CAPod Pro כדי לקבל תכונות נוספות ותמיכה בפיתוח.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

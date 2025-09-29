@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">ගූගල් ප්ලේ සේවා නොතිබේ.</string>
     <string name="upgrades_no_purchases_found_check_account">කිසිදු මිලදී ගැනීමක් හමු නොවීය. ඔබ ትክክለኛ ගිණුම භාවිතා කරනවාද?</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play දෝෂය</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play හි දෝෂයක් සිදු විය. කරුණාකර නැවත උත්සාහ කරන්න හෝ ඔබගේ දුරකථනය නැවත ආරම්භ කරන්න.\n\nදෝෂය: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play බිල් කිරීමේ දෝෂය</string>
-    <string name="upgrades_gplay_billing_result_error_description">Google Play වෙතින් ඔබගේ මිලදී ගැනීමේ විස්තර ඉල්ලීමේදී දෝෂයක් සිදු විය. Google Play cache හිස් කර ඔබගේ දුරකථනය නැවත ආරම්භ කරන්න.\n\nදෝෂය %s</string>
 </resources>

@@ -11,12 +11,9 @@
     <string name="general_save_action">သိမ်းဆည်းရန်</string>
     <string name="general_guide_action">လမ်းညွှန်</string>
     <string name="general_continue_action">ဆက်လုပ်ရန်</string>
-
     <string name="general_example_label">ဥပမာ: %s</string>
-
     <string name="upgrade_capod_label">CAPod အဆင့်မြှင့်တင်ရန်</string>
     <string name="upgrade_capod_description">အပိုဝန်ဆောင်မှုများရယူပြီး developer ကိုထောက်ပံ့ပါ။</string>
-
     <string name="settings_monitor_mode_label">စောင့်ကြည့်မုဒ်</string>
     <string name="settings_monitor_mode_description">ဤအက်ပ်က Bluetooth ဒေတာကို မည်သည့်အခြေအနေတွင် စောင့်ကြည့်သနည်း။</string>
     <string name="settings_monitor_connected_notification_label">အပိုအသိပေးချက်</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Bluetooth Low Energy ဒေတာစကင်နာသည် စွမ်းဆောင်ရည်ကို ဦးစားပေးသင့်သလား သို့မဟုတ် စွမ်းအင်ချွေတာသင့်သလား။</string>
     <string name="settings_autopause_label">အလိုအလြှောက်ရပ်တန့်ခြင်း</string>
     <string name="settings_autopause_description">သင့်နားကြပ်ကို နားမှဖယ်ရှားသည့်အခါ အသံကိုခေတ္တရပ်ပါ။</string>
-    <string name="settings_showall_label">စက်ပစ္စည်းအားလုံးပြသရန်</string>
-    <string name="settings_showall_description">သင့်အနီးရှိ အခြားသူများ၏စက်ပစ္စည်းများကို ပြသပါ။</string>
     <string name="settings_autopplay_label">အလိုအလြှောက်ဖွင့်ခြင်း</string>
     <string name="settings_autoplay_description">စက်ပစ္စည်းတပ်ဆင်သည့်အခါ အသံဖွင့်ခြင်းကို စတင်ပါ။</string>
     <string name="settings_fake_data_label">အချက်အလက်အတု</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">တုံ့ပြန်မှုများ</string>
     <string name="settings_reaction_description">ဖြစ်ရပ်များနှင့် အပြုအမူများအပေါ် တုံ့ပြန်ပါ။</string>
     <string name="settings_category_yourdevice_label">သင့်စက်ပစ္စည်း</string>
-
     <string name="settings_category_compatibility_options_title">လိုက်ဖက်ညီမှုရွေးချယ်စရာများ</string>
     <string name="settings_category_compatibility_options_description">အရာအားလုံးအဆင်ပြေနေပါက မထိပါနှင့် ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ဟာ့ဒ်ဝဲစစ်ထုတ်ခြင်းကို ပိတ်ပါ</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">ဒေတာစစ်ထုတ်ခြင်းကို စနစ်သို့ လွှဲမပေးပါနှင့်၊ အဲဒီအစား ဒေတာအားလုံးကိုရယူပြီး အက်ပ်အတွင်း၌ စစ်ထုတ်ပါ။</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ဟာ့ဒ်ဝဲအစုလိုက်လုပ်ဆောင်ခြင်းကို ပိတ်ပါ</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">ကျွန်ုပ်တို့ထံ မပို့မီ စုဆောင်းထားသော BLE ဒေတာကို စနစ်က အုပ်စုဖွဲ့ခွင့်မပြုပါနှင့်။</string>
-
-    <string name="settings_maindevice_address_label">သင့်စက်ပစ္စည်းလိပ်စာ</string>
-    <string name="settings_maindevice_address_description">သင့်တွဲထားသောစက်ပစ္စည်း၏လိပ်စာ။ ၎င်းသည် သင့်ဖုန်းသို့ချိတ်ဆက်သည့်အခါ ဆုံးဖြတ်ရန် အက်ပ်ကအသုံးပြုသည်။</string>
-    <string name="settings_maindevice_address_none">မရှိပါ</string>
-    <string name="settings_maindevice_model_label">သင့်စက်ပစ္စည်းမော်ဒယ်</string>
-    <string name="settings_maindevice_model_description">သင့်ပင်မစက်ပစ္စည်း၏မော်ဒယ်။ ၎င်းသည် သင့်ဖုန်းသို့မချိတ်ဆက်ထားသည့်အခါ သင့်စက်ပစ္စည်းကို အက်ပ်ကမှတ်မိစေရန် ကူညီပေးသည်။</string>
-    <string name="settings_maindevice_identitykey_label">အထောက်အထားကီး</string>
-    <string name="settings_maindevice_identitykey_description">သင့်စက်ပစ္စည်း၏ အထောက်အထားဖြေရှင်းရေးကီး (IRK)၊ ၎င်းသည် CAPod အား အနီးနားရှိစက်ပစ္စည်းများကြားတွင် ၎င်းကိုခွဲခြားသိရှိနိုင်ရန် ကူညီပေးသည်။</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods သည် လုံခြုံရေးအတွက် ၎င်းတို့၏ Bluetooth လိပ်စာကို မကြာခဏပြောင်းလဲတတ်သည်။ IRK သည် CAPod အား သင့်စက်ပစ္စည်းကိုမှတ်မိစေရန် ကူညီပေးသည်။ သင့်အနေဖြင့် MacBook သို့ တစ်ကြိမ်ဝင်ရောက်ခွင့်လိုအပ်သည်။</string>
-    <string name="settings_maindevice_encryptionkey_label">စာဝှက်ကီး</string>
-    <string name="settings_maindevice_encryptionkey_description">သင့်စက်ပစ္စည်း၏ စာဝှက်ကီး၊ ၎င်းသည် CAPod အား အသေးစိတ်အခြေအနေအချက်အလက်များကို ရယူနိုင်စေသည်။</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods သည် အခြေအနေမက်ဆေ့ချ်တစ်ခုပို့လွှတ်ပြီး ၎င်း၏တစ်စိတ်တစ်ပိုင်းကို စာဝှက်ထားသည်။ စာဝှက်ကီးသည် CAPod အား မက်ဆေ့ချ်အပြည့်အစုံကို စာဝှက်ဖြည်နိုင်စေသည်။ သင့်အနေဖြင့် MacBook သို့ တစ်ကြိမ်ဝင်ရောက်ခွင့်လိုအပ်သည်။</string>
-
     <string name="settings_onepod_mode_label">တစ်လုံးတည်းမုဒ်</string>
     <string name="settings_onepod_mode_description">နားကြပ်နှစ်လုံးလုံးတပ်ရန်မလိုအပ်ပါ၊ တုံ့ပြန်မှုများကိုစတင်ရန် နားကြပ်တစ်လုံးတည်းတပ်ရုံဖြင့် လုံလောက်ပါသည်။</string>
     <string name="settings_popup_caseopen_label">အိတ်အဖွင့်ပြတင်းပေါက်ပြသရန်</string>
     <string name="settings_popup_caseopen_description">စက်ပစ္စည်းအိတ်ဖွင့်သောအခါ ပြတင်းပေါက်တစ်ခုပြသပါ (စမ်းသပ်ဆဲ)။</string>
     <string name="settings_popup_connected_label">ချိတ်ဆက်မှုပြတင်းပေါက်ပြသရန်</string>
     <string name="settings_popup_connected_description">စက်ပစ္စည်းပထမဆုံးချိတ်ဆက်သည့်အခါ ပြတင်းပေါက်တစ်ခုပြသပါ။</string>
-
     <string name="notification_channel_device_status_label">စက်ပစ္စည်းအခြေအနေ</string>
     <string name="notification_channel_device_status_connected_label">ချိတ်ဆက်ထားသောစက်ပစ္စည်း</string>
-
     <string name="support_debuglog_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်း</string>
     <string name="support_debuglog_desc">အက်ပ်လုပ်ဆောင်သမျှကို သင်မျှဝေနိုင်သော စာသားဖိုင်တစ်ခုတွင် မှတ်တမ်းတင်ပါ။</string>
     <string name="debug_debuglog_size_label">အရွယ်အစား</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">မှတ်တမ်းတင်ခြင်းကိုရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်လိုက်သောဖိုင်တွင် အရေးကြီးအချက်အလက်များ (ဥပမာ Bluetooth စက်ပစ္စည်းအသေးစိတ်များ) ပါဝင်သည်။ ၎င်းကို ယုံကြည်စိတ်ချရသောသူများနှင့်သာ မျှဝေပါ။</string>
     <string name="settings_debuglog_explanation">ဤအင်္ဂါရပ်သည် အက်ပ်လုပ်ဆောင်သမျှကို မျှဝေနိုင်သောဖိုင်တစ်ခုတွင် မှတ်တမ်းတင်သည်။ ထုတ်လုပ်လိုက်သောဖိုင်တွင် အရေးကြီးအချက်အလက်များ (ဥပမာ Bluetooth စက်ပစ္စည်းအသေးစိတ်များ) ပါဝင်သည်။ ၎င်းကို ယုံကြည်စိတ်ချရသောသူများ (ဥပမာ ပြဿနာဖြေရှင်းနေသော developer) နှင့်သာ မျှဝေပါ။</string>
-
     <string name="settings_support_installid_label">ထည့်သွင်းမှု ID</string>
     <string name="settings_support_installid_desc">အလိုအလြှောက်အမှားအယွင်းအစီရင်ခံစာများသည် အမည်မသိဖြစ်ကြသည်။ developer က သင့်အမှားအယွင်းအစီရင်ခံစာများကို ရှာဖွေရန်လိုအပ်ပါက သင်၏ထည့်သွင်းမှု ID ကိုမျှဝေပါ။</string>
     <string name="settings_support_label">အကူအညီ</string>
     <string name="settings_support_description">သင်အကူအညီအချို့လိုအပ်ပါက။</string>
-
     <string name="issue_tracker_label">ပြဿနာခြေရာခံစနစ်</string>
     <string name="issue_tracker_description">ချွတ်ယွင်းချက်အစီရင်ခံစာများနှင့် အင်္ဂါရပ်တောင်းဆိုချက်များအတွက် အများပြည်သူဆိုင်ရာပြဿနာခြေရာခံစနစ် (အင်္ဂလိပ်ဘာသာဖြင့်သာ)။</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">စကားပြောคุยและถามคำถามได้ที่นี่</string>
-
     <string name="changelog_label">ပြောင်းလဲမှုမှတ်တမ်း</string>
     <string name="settings_label">ဆက်တင်များ</string>
     <string name="settings_privacy_policy_label">ကိုယ်ရေးကိုယ်တာပေါ်လစီ</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">ဆက်တင်များ</string>
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
-
     <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
     <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ် Absturz အကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
     <string name="settings_debug_mode_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမုဒ်</string>
     <string name="settings_debug_mode_description">ပြဿနာများကိုဖြေရှင်းရန် နောက်ထပ်အချက်အလက်များပြသပါ။</string>
-
     <string name="settings_blescanner_unfiltered_label">စစ်ထုတ်မထားသော BLE ဒေတာ</string>
     <string name="settings_blescanner_unfiltered_description">ထုတ်လွှင့်လိုက်သော BLE ဒေတာအားလုံးကိုပြသရန် BLE စကင်နာမှ စစ်ထုတ်မှုအားလုံးကိုဖယ်ရှားပါ။ နားကြပ်အမျိုးအစားအသစ်များအတွက် အထောက်အပံ့ထည့်သွင်းရာတွင် အသုံးဝင်သည်။</string>
-
     <string name="settings_compatibility_mode_label">လိုက်ဖက်ညီမှုမုဒ်</string>
     <string name="settings_compatibility_mode_description">လိုက်ဖက်ညီမှုကိုတိုးတက်စေရန် အကောင်းဆုံးလုပ်ဆောင်မှုများကို ပိတ်ပါ။ သင်ဒေတာတစ်စုံတစ်ရာမတွေ့ပါက ဤအရာကိုစမ်းကြည့်ပါ။</string>
-
     <string name="help_translate_label">ဘာသာပြန်ဆိုခြင်း</string>
     <string name="help_translate_description">ဤအက်ပ်ကို သင်အကြိုက်ဆုံးဘာသာစကားသို့ ဘာသာပြန်ဆိုရာတွင် ကူညီပါ။</string>
-
     <string name="translators_thanks_title">ဘာသာပြန်သူများ</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">စက်ပစ္စည်း၏ နောက်ဆုံးသိရှိထားသော အခြေအနေကိုပြသသည့် ဝစ်ဂျက်။</string>
     <string name="settings_compat_indirectcallback_title">သွယ်ဝိုက်ဒေတာပေးပို့ခြင်း</string>
     <string name="settings_compat_indirectcallback_summary">စနစ်မှ BLE ဒေတာကိုလက်ခံရန် အစားထိုးနည်းလမ်းတစ်ခုအသုံးပြုပါ (ခေါ်ဆိုမှုအစား ထုတ်လွှင့်ခြင်း)။</string>
-
     <string name="troubleshooter_title">ပြဿနာဖြေရှင်းသူ</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy ထုတ်လွှင့်မှုများ</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (နှင့် အလားတူနားကြပ်များ) သည် \"ကြော်ငြာများ\" ဟုခေါ်သော BLE နည်းပညာကိုအသုံးပြု၍ အခြေအနေအချက်အလက်များကို ထုတ်လွှင့်သည်။ အချို့ဖုန်းများသည် ဤနည်းပညာကို မှန်ကန်စွာအကောင်အထည်မဖော်နိုင်ပါ။ CAPod သည် ဒေတာလက်ခံရရှိသည်အထိ မတူညီသောလိုက်ဖက်ညီမှုရွေးချယ်စရာများကို ကြိုးစားခြင်းဖြင့် ၎င်းကိုဖြေရှင်းရန်ကြိုးစားနိုင်သည်။ သင့်နားကြပ်များတွင် သီချင်းဖွင့်ခြင်းကိုစတင်ပြီး ၎င်းတို့ကို သင့်ဖုန်းအနီးတွင်ထားပါ၊ ထို့နောက် လုပ်ငန်းစဉ်ကိုစတင်ပါ။</string>
@@ -140,9 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">သင့်ဖုန်းသည် BLE ဒေတာကိုလက်ခံရရှိခဲ့သော်လည်း ဒေတာသည် ပံ့ပိုးထားသောမည်သည့်စက်ပစ္စည်းမှမလာပါ။ သင့်နားကြပ်များဖွင့်ထားပါသလား။ CAPod သည် သင့်နားကြပ်များကိုပံ့ပိုးပါသလား။</string>
     <string name="troubleshooter_ble_result_failure_action">ထပ်ကြိုးစားပါ</string>
     <string name="troubleshoot_action">ပြဿနာဖြေရှင်းပါ</string>
-
     <string name="onboarding_body1">ဤအက်ပ်သည် Android သို့ AirPod-خاصအင်္ဂါရပ်များအတွက် အထောက်အပံ့ကိုထည့်သွင်းသည်။</string>
     <string name="onboarding_body2">Android စက်ပစ္စည်းအားလုံးသည် အပို AirPod အင်္ဂါရပ်များကို အပြည့်အဝမပံ့ပိုးပါ။ သင့်လည်ပတ်မှုစနစ်သည် မှန်ကန်စွာအလုပ်လုပ်သော Bluetooth-Low-Energy အကောင်အထည်ဖော်မှုတစ်ခုလိုအပ်သည်။</string>
     <string name="onboarding_body3">CAPod တွင် ကြော်ငြာများမရှိပါ၊ ၎င်းသည် သင့်ဒေတာကိုမစုဆောင်းပါ။</string>
     <string name="onboarding_body4">အပိုအင်္ဂါရပ်များရယူရန်နှင့် ဖွံ့ဖြိုးတိုးတက်မှုကိုထောက်ပံ့ရန် သင် CAPod Pro သို့ အဆင့်မြှင့်နိုင်သည်။</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

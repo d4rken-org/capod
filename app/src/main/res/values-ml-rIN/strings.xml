@@ -11,12 +11,9 @@
     <string name="general_save_action">സേവ് ചെയ്യുക</string>
     <string name="general_guide_action">വഴികാട്ടി</string>
     <string name="general_continue_action">തുടരുക</string>
-
     <string name="general_example_label">ഉദാ: %s</string>
-
     <string name="upgrade_capod_label">CAPod അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
     <string name="upgrade_capod_description">കൂടുതൽ സവിശേഷതകൾ നേടുകയും ഡെവലപ്പറെ പിന്തുണയ്ക്കുകയും ചെയ്യുക.</string>
-
     <string name="settings_monitor_mode_label">മോണിറ്റർ മോഡ്</string>
     <string name="settings_monitor_mode_description">ഈ ആപ്പ് ഏത് സാഹചര്യത്തിലാണ് ബ്ലൂടൂത്ത് ഡാറ്റ നിരീക്ഷിക്കുന്നത്.</string>
     <string name="settings_monitor_connected_notification_label">അധിക അറിയിപ്പ്</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">ബ്ലൂടൂത്ത് ലോ എനർജി ഡാറ്റ സ്കാനർ പ്രകടനത്തിന് മുൻഗണന നൽകണോ അതോ ഊർജ്ജം ലാഭിക്കണോ?</string>
     <string name="settings_autopause_label">യാന്ത്രികമായി താൽക്കാലികമായി നിർത്തുക</string>
     <string name="settings_autopause_description">നിങ്ങളുടെ ചെവിയിൽ നിന്ന് ഉപകരണം നീക്കം ചെയ്യുമ്പോൾ ഓഡിയോ താൽക്കാലികമായി നിർത്തുക.</string>
-    <string name="settings_showall_label">എല്ലാ ഉപകരണങ്ങളും കാണിക്കുക</string>
-    <string name="settings_showall_description">നിങ്ങളുടെ അടുത്തുള്ള മറ്റ് ആളുകളുടെ ഉപകരണങ്ങൾ കാണിക്കുക.</string>
     <string name="settings_autopplay_label">യാന്ത്രികമായി പ്ലേ ചെയ്യുക</string>
     <string name="settings_autoplay_description">ഉപകരണം ധരിക്കുമ്പോൾ ഓഡിയോ പ്ലേബാക്ക് ആരംഭിക്കുക.</string>
     <string name="settings_fake_data_label">വ്യാജ ഡാറ്റ</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">പ്രতিকകരണങ്ങൾ</string>
     <string name="settings_reaction_description">സംഭവങ്ങളോടും പെരുമാറ്റങ്ങളോടും പ്രതികരിക്കുക.</string>
     <string name="settings_category_yourdevice_label">നിങ്ങളുടെ ഉപകരണം</string>
-
     <string name="settings_category_compatibility_options_title">അനുയോജ്യത ഓപ്ഷനുകൾ</string>
     <string name="settings_category_compatibility_options_description">എല്ലാം ശരിയായി പ്രവർത്തിക്കുന്നുണ്ടെങ്കിൽ തൊടരുത് ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ഹാർഡ്‌വെയർ ഫിൽട്ടറിംഗ് പ്രവർത്തനരഹിതമാക്കുക</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">സിസ്റ്റത്തിലേക്ക് ഡാറ്റ ഫിൽട്ടറിംഗ് ഏൽപ്പിക്കരുത്, പകരം എല്ലാ ഡാറ്റയും നേടുകയും ആപ്പിനുള്ളിൽ ഫിൽട്ടർ ചെയ്യുകയും ചെയ്യുക.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ഹാർഡ്‌വെയർ ബാച്ചിംഗ് പ്രവർത്തനരഹിതമാക്കുക</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">ശേഖരിച്ച BLE ഡാറ്റ ഞങ്ങൾക്ക് കൈമാറുന്നതിന് മുമ്പ് സിസ്റ്റം ഗ്രൂപ്പുചെയ്യാൻ അനുവദിക്കരുത്.</string>
-
-    <string name="settings_maindevice_address_label">നിങ്ങളുടെ ഉപകരണ വിലാസം</string>
-    <string name="settings_maindevice_address_description">നിങ്ങളുടെ ജോടിയാക്കിയ ഉപകരണത്തിന്റെ വിലാസം. നിങ്ങളുടെ ഫോണിലേക്ക് എപ്പോഴാണ് കണക്റ്റുചെയ്‌തിരിക്കുന്നതെന്ന് നിർണ്ണയിക്കാൻ ആപ്പ് ഇത് ഉപയോഗിക്കുന്നു.</string>
-    <string name="settings_maindevice_address_none">ഒന്നുമില്ല</string>
-    <string name="settings_maindevice_model_label">നിങ്ങളുടെ ഉപകരണ മോഡൽ</string>
-    <string name="settings_maindevice_model_description">നിങ്ങളുടെ പ്രധാന ഉപകരണത്തിന്റെ മോഡൽ. നിങ്ങളുടെ ഫോണിലേക്ക് കണക്റ്റുചെയ്‌തിട്ടില്ലാത്തപ്പോൾ നിങ്ങളുടെ ഉപകരണം തിരിച്ചറിയാൻ ഇത് ആപ്പിനെ സഹായിക്കുന്നു.</string>
-    <string name="settings_maindevice_identitykey_label">ഐഡന്റിറ്റി കീ</string>
-    <string name="settings_maindevice_identitykey_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ ഐഡന്റിറ്റി റിസോൾവിംഗ് കീ (IRK), സമീപത്തുള്ള ഉപകരണങ്ങൾക്കിടയിൽ അതിനെ തിരിച്ചറിയാൻ CAPod-നെ സഹായിക്കുന്നു.</string>
-    <string name="settings_maindevice_identitykey_explanation">സ്വകാര്യതയ്ക്കായി AirPods അവരുടെ ബ്ലൂടൂത്ത് വിലാസം പതിവായി മാറ്റുന്നു. നിങ്ങളുടെ ഉപകരണം തിരിച്ചറിയാൻ IRK CAPod-നെ സഹായിക്കുന്നു. നിങ്ങൾക്ക് MacBook-ലേക്ക് ഒരു തവണ ആക്‌സസ് ആവശ്യമാണ്.</string>
-    <string name="settings_maindevice_encryptionkey_label">എൻക്രിപ്ഷൻ കീ</string>
-    <string name="settings_maindevice_encryptionkey_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ എൻക്രിപ്ഷൻ കീ, ഇത് CAPod-ന് വിശദമായ സ്റ്റാറ്റസ് വിവരങ്ങൾ വീണ്ടെടുക്കാൻ ಅನುಮತಿಸುತ್ತದೆ.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ഒരു സ്റ്റാറ്റസ് സന്ദേശം അയയ്ക്കുന്നു, അതിന്റെ ഒരു ഭാഗം എൻക്രിപ്റ്റ് ചെയ്‌തിരിക്കുന്നു. എൻക്രിപ്ഷൻ കീ CAPod-ന് മുഴുവൻ സന്ദേശവും ഡീക്രിപ്റ്റ് ചെയ്യാൻ ಅನುಮತಿಸುತ್ತದೆ. നിങ്ങൾക്ക് MacBook-ലേക്ക് ഒരു തവണ ആക്‌സസ് ആവശ്യമാണ്.</string>
-
     <string name="settings_onepod_mode_label">ഒരു പോഡ് മോഡ്</string>
     <string name="settings_onepod_mode_description">രണ്ട് പോഡുകളും ധരിക്കേണ്ട ആവശ്യമില്ല, പ്രതികരണങ്ങൾ പ്രവർത്തനക്ഷമമാക്കാൻ ഒരൊറ്റ പോഡ് ധരിച്ചാൽ മതി.</string>
     <string name="settings_popup_caseopen_label">കേസ് പോപ്പ്അപ്പ് കാണിക്കുക</string>
     <string name="settings_popup_caseopen_description">ഉപകരണ കേസ് തുറക്കുമ്പോൾ ഒരു പോപ്പ്അപ്പ് കാണിക്കുക (പരീക്ഷണാടിസ്ഥാനത്തിൽ).</string>
     <string name="settings_popup_connected_label">കണക്ഷൻ പോപ്പ്അപ്പ് കാണിക്കുക</string>
     <string name="settings_popup_connected_description">ഉപകരണം ആദ്യമായി കണക്റ്റുചെയ്യുമ്പോൾ ഒരു പോപ്പ്അപ്പ് കാണിക്കുക.</string>
-
     <string name="notification_channel_device_status_label">ഉപകരണ നില</string>
     <string name="notification_channel_device_status_connected_label">കണക്റ്റുചെയ്‌ത ഉപകരണം</string>
-
     <string name="support_debuglog_label">ഡീബഗ് ലോഗ്</string>
     <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്നതെല്ലാം നിങ്ങൾക്ക് പങ്കിടാൻ കഴിയുന്ന ഒരു ടെക്സ്റ്റ് ഫയലിൽ റെക്കോർഡ് ചെയ്യുക.</string>
     <string name="debug_debuglog_size_label">വലുപ്പം</string>
@@ -83,18 +62,14 @@
     <string name="debug_debuglog_stop_action">റെക്കോർഡിംഗ് നിർത്തുക</string>
     <string name="debug_debuglog_sensitive_information_message">സൃഷ്ടിച്ച ഫയലിൽ സെൻസിറ്റീവ് വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു (ഉദാ. ബ്ലൂടൂത്ത് ഉപകരണ വിശദാംശങ്ങൾ). വിശ്വസ്തരായ കക്ഷികളുമായി മാത്രം ഇത് പങ്കിടുക.</string>
     <string name="settings_debuglog_explanation">ഈ സവിശേഷത ആപ്പ് ചെയ്യുന്നതെല്ലാം പങ്കിടാവുന്ന ഒരു ഫയലിൽ റെക്കോർഡ് ചെയ്യുന്നു. സൃഷ്ടിച്ച ഫയലിൽ സെൻസിറ്റീവ് വിവരങ്ങൾ അടങ്ങിയിരിക്കുന്നു (ഉദാ. ബ്ലൂടൂത്ത് ഉപകരണ വിശദാംശങ്ങൾ). വിശ്വസ്തരായ കക്ഷികളുമായി മാത്രം ഇത് പങ്കിടുക (ഉദാ. ഒരു പ്രശ്നം പരിഹരിക്കുന്ന ഒരു ഡെവലപ്പർ).</string>
-
     <string name="settings_support_installid_label">ഇൻസ്റ്റാൾ ഐഡി</string>
     <string name="settings_support_installid_desc">യാന്ത്രിക പിശക് റിപ്പോർട്ടുകൾ അജ്ഞാതമാണ്. ഡെവലപ്പർക്ക് നിങ്ങളുടെ പിശക് റിപ്പോർട്ടുകൾ കണ്ടെത്തണമെങ്കിൽ നിങ്ങളുടെ ഇൻസ്റ്റാൾ ഐഡി പങ്കിടുക.</string>
     <string name="settings_support_label">പിന്തുണ</string>
     <string name="settings_support_description">നിങ്ങൾക്ക് എന്തെങ്കിലും സഹായം ആവശ്യമുണ്ടെങ്കിൽ.</string>
-
     <string name="issue_tracker_label">പ്രശ്ന ട്രാക്കർ</string>
     <string name="issue_tracker_description">ബഗ് റിപ്പോർട്ടുകൾക്കും ഫീച്ചർ അഭ്യർത്ഥനകൾക്കുമായി ഒരു പൊതു പ്രശ്ന ട്രാക്കർ (ഇംഗ്ലീഷിൽ മാത്രം).</string>
-
     <string name="discord_label">ഡിസ്കോർഡ്</string>
     <string name="discord_description">ഒത്തുകൂടാനും ചോദ്യങ്ങൾ ചോദിക്കാനുമുള്ള ഒരിടം.</string>
-
     <string name="changelog_label">മാറ്റങ്ങളുടെ ലോഗ്</string>
     <string name="settings_label">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
@@ -104,28 +79,20 @@
     <string name="settings_general_label">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
-
     <string name="settings_debug_autoreports_label">യാന്ത്രിക ബഗ് റിപ്പോർട്ടുകൾ</string>
     <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string>
     <string name="settings_debug_mode_label">ഡീബഗ് മോഡ്</string>
     <string name="settings_debug_mode_description">പ്രശ്നങ്ങൾ പരിഹരിക്കാൻ അധിക വിവരങ്ങൾ കാണിക്കുക.</string>
-
     <string name="settings_blescanner_unfiltered_label">ഫിൽട്ടർ ചെയ്യാത്ത BLE ഡാറ്റ</string>
     <string name="settings_blescanner_unfiltered_description">എല്ലാ പ്രക്ഷേപണം ചെയ്ത BLE ഡാറ്റയും കാണിക്കാൻ BLE സ്കാനറിൽ നിന്ന് ഏതെങ്കിലും ഫിൽട്ടറുകൾ നീക്കം ചെയ്യുക. പുതിയ ഹെഡ്‌ഫോൺ തരങ്ങൾക്കുള്ള പിന്തുണ ചേർക്കാൻ ഇത് ഉപയോഗപ്രദമാണ്.</string>
-
     <string name="settings_compatibility_mode_label">അനുയോജ്യത മോഡ്</string>
     <string name="settings_compatibility_mode_description">അനുയോജ്യത മെച്ചപ്പെടുത്താൻ ഒപ്റ്റിമൈസേഷനുകൾ പ്രവർത്തനരഹിതമാക്കുക. നിങ്ങൾക്ക് ഡാറ്റയൊന്നും കാണുന്നില്ലെങ്കിൽ ഇത് പരീക്ഷിക്കുക.</string>
-
     <string name="help_translate_label">പരിഭാഷ</string>
     <string name="help_translate_description">ഈ ആപ്പ് നിങ്ങളുടെ പ്രിയപ്പെട്ട ഭാഷയിലേക്ക് വിവർത്തനം ചെയ്യാൻ സഹായിക്കുക.</string>
-
     <string name="translators_thanks_title">പരിഭാഷകർ</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">അവസാനമായി അറിയപ്പെടുന്ന ഉപകരണ നില കാണിക്കുന്ന ഒരു വിഡ്ജറ്റ്.</string>
     <string name="settings_compat_indirectcallback_title">പരോക്ഷ ഡാറ്റ ഡെലിവറി</string>
     <string name="settings_compat_indirectcallback_summary">സിസ്റ്റത്തിൽ നിന്ന് BLE ഡാറ്റ സ്വീകരിക്കാൻ ഒരു ഇതര രീതി ഉപയോഗിക്കുക (കോൾബാക്കിന് പകരം പ്രക്ഷേപണം ചെയ്യുക).</string>
-
     <string name="troubleshooter_title">ട്രബിൾഷൂട്ടർ</string>
     <string name="troubleshooter_ble_intro_title">ബ്ലൂടൂത്ത് ലോ എനർജി പ്രക്ഷേപണങ്ങൾ</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \"പരസ്യങ്ങൾ\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ ಪ್ರಾರಂಭിക്കുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
@@ -140,9 +107,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">നിങ്ങളുടെ ഫോണിന് BLE ഡാറ്റ ലഭിച്ചു, പക്ഷേ ഡാറ്റ ഏതെങ്കിലും പിന്തുണയ്ക്കുന്ന ഉപകരണത്തിൽ നിന്നല്ല വരുന്നത്. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകൾ ഓണാണോ? CAPod നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളെ പിന്തുണയ്ക്കുന്നുണ്ടോ?</string>
     <string name="troubleshooter_ble_result_failure_action">വീണ്ടും ശ്രമിക്കുക</string>
     <string name="troubleshoot_action">ട്രബിൾഷൂട്ട് ചെയ്യുക</string>
-
     <string name="onboarding_body1">ഈ ആപ്പ് Android-ലേക്ക് AirPod-നിർദ്ദിഷ്ട സവിശേഷതകൾക്കുള്ള പിന്തുണ ചേർക്കുന്നു.</string>
     <string name="onboarding_body2">എല്ലാ Android ഉപകരണങ്ങളും അധിക AirPod സവിശേഷതകളെ പൂർണ്ണമായി പിന്തുണയ്ക്കുന്നില്ല. നിങ്ങളുടെ ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിന് ശരിയായി പ്രവർത്തിക്കുന്ന ബ്ലൂടൂത്ത്-ലോ-എനർജി നടപ്പിലാക്കൽ ആവശ്യമാണ്.</string>
     <string name="onboarding_body3">CAPod-ൽ പരസ്യങ്ങളൊന്നുമില്ല, അത് നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല.</string>
     <string name="onboarding_body4">അധിക സവിശേഷതകൾ നേടാനും വികസനത്തെ പിന്തുണയ്ക്കാനും നിങ്ങൾക്ക് CAPod Pro-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യാം.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

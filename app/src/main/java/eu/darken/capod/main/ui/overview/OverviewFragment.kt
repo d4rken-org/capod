@@ -1,16 +1,15 @@
 package eu.darken.capod.main.ui.overview
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.text.SpannableStringBuilder
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.capod.BuildConfig
 import eu.darken.capod.R
 import eu.darken.capod.common.EdgeToEdgeHelper
 import eu.darken.capod.common.colorString
@@ -60,6 +59,11 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
         ui.toolbar.apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.menu_item_devices -> {
+                        vm.goToDeviceManager()
+                        true
+                    }
+
                     R.id.menu_item_settings -> {
                         vm.goToSettings()
                         true
@@ -80,10 +84,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
             }
         }
 
-        vm.listItems.observe2(ui) {
-            if (BuildConfig.DEBUG) toolbar.subtitle = "${it.size} items"
-            adapter.update(it)
-        }
+        vm.listItems.observe2(ui) { adapter.update(it) }
 
         vm.workerAutolaunch.observe2 {
             // While UI is active, subscribe to the autolaunch routine
@@ -96,7 +97,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                     startActivity(
                         Intent(
                             Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
-                            Uri.parse("package:${requireContext().packageName}")
+                            "package:${requireContext().packageName}".toUri()
                         )
                     )
                 }
@@ -106,7 +107,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                     startActivity(
                         Intent(
                             Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                            Uri.parse("package:${requireContext().packageName}")
+                            "package:${requireContext().packageName}".toUri()
                         )
                     )
                 }
@@ -126,19 +127,19 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
             val baseTitle = when (info.type) {
                 UpgradeRepo.Type.GPLAY -> {
                     if (info.isPro) {
-                        getString(eu.darken.capod.common.R.string.app_name_pro)
+                        getString(R.string.app_name_pro)
                     } else {
                         gplay.isVisible = true
-                        getString(eu.darken.capod.common.R.string.app_name)
+                        getString(R.string.app_name)
                     }
                 }
 
                 UpgradeRepo.Type.FOSS -> {
                     if (info.isPro) {
-                        getString(eu.darken.capod.common.R.string.app_name_foss)
+                        getString(R.string.app_name_foss)
                     } else {
                         donate.isVisible = true
-                        getString(eu.darken.capod.common.R.string.app_name)
+                        getString(R.string.app_name)
                     }
                 }
             }.split(" ".toRegex())
@@ -153,7 +154,7 @@ class OverviewFragment : Fragment3(R.layout.main_fragment) {
                 }
                 builder.append(colorString(requireContext(), color, baseTitle[1]))
             } else {
-                getString(eu.darken.capod.common.R.string.app_name)
+                getString(R.string.app_name)
             }
         }
         vm.launchUpgradeFlow.observe2 {

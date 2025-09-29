@@ -37,10 +37,6 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
     private val monitorModePref by lazy { findPreference<ListPreference>(generalSettings.monitorMode.key)!! }
     private val scanModePref by lazy { findPreference<ListPreference>(generalSettings.scannerMode.key)!! }
-    private val mainDeviceAddressPref by lazy { findPreference<Preference>(generalSettings.mainDeviceAddress.key)!! }
-    private val mainDeviceModelPref by lazy { findPreference<Preference>(generalSettings.mainDeviceModel.key)!! }
-    private val mainDeviceIdentityKeyPref by lazy { findPreference<Preference>(generalSettings.mainDeviceIdentityKey.key)!! }
-    private val mainDeviceEncryptionKeyPref by lazy { findPreference<Preference>(generalSettings.mainDeviceEncryptionKey.key)!! }
 
     override fun onPreferencesCreated() {
         monitorModePref.apply {
@@ -51,65 +47,7 @@ class GeneralSettingsFragment : PreferenceFragment3() {
             entries = ScannerMode.entries.map { getString(it.labelRes) }.toTypedArray()
             entryValues = ScannerMode.entries.map { settings.scannerMode.rawWriter(it) as String }.toTypedArray()
         }
-        mainDeviceIdentityKeyPref.setOnPreferenceClickListener {
-            AirPodKeyInputDialog(requireContext()).create(
-                mode = AirPodKeyInputDialog.Mode.IRK,
-                current = generalSettings.mainDeviceIdentityKey.value?.toHex() ?: "",
-                onKey = { raw ->
-                    generalSettings.mainDeviceIdentityKey.value = raw.fromHex().takeIf { it.isNotEmpty() }
-                },
-                onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
-            ).show()
-            true
-        }
-        mainDeviceEncryptionKeyPref.setOnPreferenceClickListener {
-            AirPodKeyInputDialog(requireContext()).create(
-                mode = AirPodKeyInputDialog.Mode.ENC,
-                current = generalSettings.mainDeviceEncryptionKey.value?.toHex() ?: "",
-                onKey = { raw ->
-                    generalSettings.mainDeviceEncryptionKey.value = raw.fromHex().takeIf { it.isNotEmpty() }
-                },
-                onGuide = { webpageTool.open("https://github.com/d4rken-org/capod/wiki/airpod-Keys") }
-            ).show()
-            true
-        }
-
         super.onPreferencesCreated()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        vm.state.observe2 { state ->
-            mainDeviceAddressPref.setOnPreferenceClickListener {
-                val dialog = DeviceSelectionDialogFactory(requireContext()).create(
-                    state.devices,
-                    state.devices.firstOrNull { it.address == generalSettings.mainDeviceAddress.value }
-                ) { selected ->
-                    generalSettings.mainDeviceAddress.value = selected?.address
-                }
-                dialog.show()
-                true
-            }
-            mainDeviceEncryptionKeyPref.isEnabled = state.hasIdentityKey
-        }
-
-        vm.events.observe2 {
-            when (it) {
-                GeneralSettingsEvents.SelectDeviceAddressEvent -> mainDeviceAddressPref.performClick()
-            }
-        }
-
-        mainDeviceModelPref.setOnPreferenceClickListener {
-            val dialog = ModelSelectionDialogFactory(requireContext()).create(
-                PodDevice.Model.entries,
-                generalSettings.mainDeviceModel.value
-            ) { selected ->
-                generalSettings.mainDeviceModel.value = selected
-            }
-            dialog.show()
-            true
-        }
-
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) {

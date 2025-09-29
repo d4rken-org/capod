@@ -11,12 +11,9 @@
     <string name="general_save_action">አስቀምጥ</string>
     <string name="general_guide_action">መመሪያ</string>
     <string name="general_continue_action">ቀጥል</string>
-
     <string name="general_example_label">ለምሳሌ፦ %s</string>
-
     <string name="upgrade_capod_label">CAPodን አሻሽል</string>
     <string name="upgrade_capod_description">ተጨማሪ ባህሪያትን ያግኙ እና ገንቢውን ይደግፉ።</string>
-
     <string name="settings_monitor_mode_label">የክትትል ሁነታ</string>
     <string name="settings_monitor_mode_description">ይህ መተግበሪያ የብሉቱዝ መረጃን የሚከታተልበት ሁኔታዎች።</string>
     <string name="settings_monitor_connected_notification_label">ተጨማሪ ማሳወቂያ</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">የብሉቱዝ ዝቅተኛ ኃይል ዳታ ቃኚው አፈጻጸምን ቅድሚያ መስጠት አለበት ወይስ ኃይል መቆጠብ አለበት?</string>
     <string name="settings_autopause_label">ራስ-ሰር ለአፍታ ማቆም</string>
     <string name="settings_autopause_description">መሳሪያውን ከጆሮዎ ሲያወጡ ድምጽን ለአፍታ ያቁሙ።</string>
-    <string name="settings_showall_label">ሁሉንም መሳሪያዎች አሳይ</string>
-    <string name="settings_showall_description">በአቅራቢያዎ ያሉ የሌሎች ሰዎችን መሳሪያዎች ያሳዩ።</string>
     <string name="settings_autopplay_label">ራስ-ሰር አጫውት</string>
     <string name="settings_autoplay_description">መሳሪያው ሲለበስ የድምጽ መልሶ ማጫወት ይጀምሩ።</string>
     <string name="settings_fake_data_label">የውሸት መረጃ</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">ግብረመልሶች</string>
     <string name="settings_reaction_description">ለክስተቶች እና ባህሪዎች ምላሽ ይስጡ።</string>
     <string name="settings_category_yourdevice_label">የእርስዎ መሣሪያ</string>
-
     <string name="settings_category_compatibility_options_title">የተኳኋኝነት አማራጮች</string>
     <string name="settings_category_compatibility_options_description">ሁሉም ነገር የሚሰራ ከሆነ አይንኩ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">የሃርድዌር ማጣሪያን አሰናክል</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">የመረጃ ማጣሪያን ለሲስተሙ አትውክል፣ ይልቁንስ ሁሉንም መረጃ ያግኙ እና በመተግበሪያው ውስጥ ያጣሩ።</string>
     <string name="settings_compat_offloaded_batching_disabled_title">የሃርድዌር ባቺንግን አሰናክል</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">ሲስተሙ የተሰበሰበውን የBLE መረጃ ወደ እኛ ከማስተላለፉ በፊት እንዲစုር አትፍቀዱለት።</string>
-
-    <string name="settings_maindevice_address_label">የመሳሪያዎ አድራሻ</string>
-    <string name="settings_maindevice_address_description">የተጣመረው መሳሪያዎ አድራሻ። መተግበሪያው ከስልክዎ ጋር መቼ እንደተገናኘ ለመወሰን ይህንን ይጠቀማል።</string>
-    <string name="settings_maindevice_address_none">ምንም</string>
-    <string name="settings_maindevice_model_label">የመሳሪያዎ ሞዴል</string>
-    <string name="settings_maindevice_model_description">የዋና መሳሪያዎ ሞዴል። ይህ መተግበሪያው ከስልክዎ ጋር ባልተገናኘ ጊዜ መሳሪያዎን እንዲያውቅ ይረዳል።</string>
-    <string name="settings_maindevice_identitykey_label">የማንነት ቁልፍ</string>
-    <string name="settings_maindevice_identitykey_description">የመሳሪያዎ የማንነት መፍቻ ቁልፍ (IRK)፣ ይህም CAPod በአቅራቢያ ካሉ መሳሪያዎች መካከል እንዲለየው ይረዳል።</string>
-    <string name="settings_maindevice_identitykey_explanation">ኤርፖዶች ለግላዊነት ሲሉ የብሉቱዝ አድራሻቸውን በተደጋጋሚ ይለውጣሉ። IRK CAPod መሳሪያዎን እንዲያውቅ ይረዳል። የአንድ ጊዜ የማክቡክ መዳረሻ ያስፈልግዎታል።</string>
-    <string name="settings_maindevice_encryptionkey_label">የምስጠራ ቁልፍ</string>
-    <string name="settings_maindevice_encryptionkey_description">የመሳሪያዎ የምስጠራ ቁልፍ፣ ይህም CAPod ዝርዝር የሁኔታ መረጃ እንዲያገኝ ያስችለዋል።</string>
-    <string name="settings_maindevice_encryptionkey_explanation">ኤርፖዶች የሁኔታ መልእክት ይልካሉ፣ ከፊሉ የተመሰጠረ ነው። የምስጠራ ቁልፉ CAPod ሙሉውን መልእክት እንዲፈታ ያስችለዋል። የአንድ ጊዜ የማክቡክ መዳረሻ ያስፈልግዎታል።</string>
-
     <string name="settings_onepod_mode_label">ባለአንድ ፖድ ሁነታ</string>
     <string name="settings_onepod_mode_description">ሁለቱንም ፖዶች መልበስ አያስፈልግም፣ አንድ ነጠላ ፖድ መልበስ ግብረመልሶችን ለማስነሳት በቂ ነው።</string>
     <string name="settings_popup_caseopen_label">የኬዝ ብቅ-ባይ አሳይ</string>
     <string name="settings_popup_caseopen_description">የመሳሪያው ኬዝ ሲከፈት ብቅ-ባይ አሳይ (ሙከራ)።</string>
     <string name="settings_popup_connected_label">የግንኙነት ብቅ-ባይ አሳይ</string>
     <string name="settings_popup_connected_description">መሳሪያው ለመጀመሪያ ጊዜ ሲገናኝ ብቅ-ባይ አሳይ።</string>
-
     <string name="notification_channel_device_status_label">የመሳሪያ ሁኔታ</string>
     <string name="notification_channel_device_status_connected_label">የተገናኘ መሣሪያ</string>
-
     <string name="support_debuglog_label">የማረሚያ ምዝግብ</string>
     <string name="support_debuglog_desc">መተግበሪያው የሚያደርገውን ሁሉ ሊያጋሩት በሚችሉት የጽሑፍ ፋይል ውስጥ ይመዝግቡ።</string>
     <string name="debug_debuglog_size_label">መጠን</string>
@@ -83,18 +62,14 @@
     <string name="debug_debuglog_stop_action">መቅዳት አቁም</string>
     <string name="debug_debuglog_sensitive_information_message">የተፈጠረው ፋይል ሚስጥራዊ መረጃ (ለምሳሌ የብሉቱዝ መሣሪያ ዝርዝሮች) ይዟል። ለታመኑ ወገኖች ብቻ ያጋሩት።</string>
     <string name="settings_debuglog_explanation">ይህ ባህሪ መተግበሪያው የሚያደርገውን ሁሉ ሊጋራ በሚችል ፋይል ውስጥ ይመዘግባል። የተፈጠረው ፋይል ሚስጥራዊ መረጃ (ለምሳሌ የብሉቱዝ መሣሪያ ዝርዝሮች) ይዟል። ለታመኑ ወገኖች ብቻ ያጋሩት (ለምሳሌ ችግርን እያስተካከለ ላለ ገንቢ)።</string>
-
     <string name="settings_support_installid_label">የመጫኛ መለያ</string>
     <string name="settings_support_installid_desc">ራስ-ሰር የስህተት ሪፖርቶች ስም-አልባ ናቸው። ገንቢው የእርስዎን የስህተት ሪፖርቶች ማግኘት ከፈለገ የመጫኛ መለያዎን ያጋሩ።</string>
     <string name="settings_support_label">ድጋፍ</string>
     <string name="settings_support_description">ጥቂት እርዳታ ከፈለጉ።</string>
-
     <string name="issue_tracker_label">የችግር መከታተያ</string>
     <string name="issue_tracker_description">ለሳንካ ሪፖርቶች እና ለባህሪ ጥያቄዎች ይፋዊ የችግር መከታተያ (እንግሊዝኛ ብቻ)።</string>
-
     <string name="discord_label">ዲስኮርድ</string>
     <string name="discord_description">ለመዝናናት እና ጥያቄዎችን ለመጠየቅ የሚሆን ቦታ።</string>
-
     <string name="changelog_label">የለውጥ መዝገብ</string>
     <string name="settings_label">ቅንብሮች</string>
     <string name="settings_privacy_policy_label">የግላዊነት መመሪያ</string>
@@ -104,28 +79,20 @@
     <string name="settings_general_label">ቅንብሮች</string>
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
-
     <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
     <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
     <string name="settings_debug_mode_label">የማረሚያ ሁነታ</string>
     <string name="settings_debug_mode_description">ችግሮችን ለመፍታት ተጨማሪ መረጃ ያሳዩ።</string>
-
     <string name="settings_blescanner_unfiltered_label">ያልተጣራ የBLE መረጃ</string>
     <string name="settings_blescanner_unfiltered_description">ሁሉንም የተላለፉ የBLE መረጃዎችን ለማሳየት ማንኛውንም ማጣሪያ ከBLE ቃኚው ያስወግዱ። ለአዲስ የጆሮ ማዳመጫ አይነቶች ድጋፍ ለመጨመር ጠቃሚ ነው።</string>
-
     <string name="settings_compatibility_mode_label">የተኳኋኝነት ሁነታ</string>
     <string name="settings_compatibility_mode_description">ተኳኋኝነትን ለማሻሻል ማመቻቸቶችን አሰናክል። ምንም መረጃ ካላዩ ይህንን ይሞክሩ።</string>
-
     <string name="help_translate_label">ትርጉም</string>
     <string name="help_translate_description">ይህንን መተግበሪያ ወደ እርስዎ ተወዳጅ ቋንቋ ለመተርጎም ያግዙ።</string>
-
     <string name="translators_thanks_title">ተርጓሚዎች</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">የመጨረሻውን የታወቀ የመሣሪያ ሁኔታ የሚያሳይ መግብር።</string>
     <string name="settings_compat_indirectcallback_title">ቀጥተኛ ያልሆነ የመረጃ አቅርቦት</string>
     <string name="settings_compat_indirectcallback_summary">ከሲስተሙ የBLE መረጃ ለመቀበል አማራጭ ዘዴ ይጠቀሙ (ከጥሪ-ጀርባ ይልቅ ስርጭት)።</string>
-
     <string name="troubleshooter_title">ችግር ፈቺ</string>
     <string name="troubleshooter_ble_intro_title">የብሉቱዝ ዝቅተኛ ኃይል ስርጭቶች</string>
     <string name="troubleshooter_ble_intro_body1">ኤርፖዶች (እና መሰል የጆሮ ማዳመጫዎች) \"ማስታወቂያዎች\" የሚባል የBLE ቴክኖሎጂን በመጠቀም የሁኔታ መረጃ ያስተላልፋሉ። አንዳንድ ስልኮች ይህንን ቴክኖሎጂ በትክክል አይተገብሩም። CAPod መረጃ እስኪደርሰው ድረስ የተለያዩ የተኳኋኝነት አማራጮችን በመሞከር ይህንን ለማስተካከል መሞከር ይችላል። በጆሮ ማዳመጫዎ ላይ ሙዚቃ ማጫወት ይጀምሩ እና ወደ ስልክዎ ያቅርቡት፣ ከዚያ ሂደቱን ይጀምሩ።</string>
@@ -140,9 +107,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">ስልክዎ የBLE መረጃ ተቀብሏል፣ ነገር ግን መረጃው ከማንኛውም የሚደገፍ መሣሪያ የመጣ አይደለም። የጆሮ ማዳመጫዎችዎ በርተዋል? CAPod የእርስዎን የጆሮ ማዳመጫ ይደግፋል?</string>
     <string name="troubleshooter_ble_result_failure_action">እንደገና ሞክር</string>
     <string name="troubleshoot_action">ችግር ፍታ</string>
-
     <string name="onboarding_body1">ይህ መተግበሪያ ለኤርፖድ የተለዩ ባህሪያትን ለአንድሮይድ ይጨምራል።</string>
     <string name="onboarding_body2">ሁሉም የአንድሮይድ መሳሪያዎች ተጨማሪ የኤርፖድ ባህሪያትን ሙሉ በሙሉ አይደግፉም። የእርስዎ ኦፐሬቲንግ ሲስተም በትክክል የሚሰራ የብሉቱዝ-ዝቅተኛ-ኃይል ትግበራ ይፈልጋል።</string>
     <string name="onboarding_body3">CAPod ምንም ማስታወቂያ የለውም እና የእርስዎን መረጃ አይሰበስብም።</string>
     <string name="onboarding_body4">ተጨማሪ ባህሪያትን ለማግኘት እና ልማትን ለመደገፍ ወደ CAPod Pro ማሻሻል ይችላሉ።</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

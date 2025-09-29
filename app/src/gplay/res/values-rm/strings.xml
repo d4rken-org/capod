@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Ils servezzans da Google Play n\'èn betg disponibels.</string>
     <string name="upgrades_no_purchases_found_check_account">Nagins acquists chattads. Utiliseschas ti il conto gist?</string>
-    <string name="upgrades_gplay_billing_error_label">Errur da Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Igl è succedida in\'errur en Google Play. Emprova p.pl. pli tard u reaviescha tes telefonin.\n\nErrur: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Errur da facturaziun da Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Igl è succedida in\'errur cun dumandar ils detagls da tes acquist da Google Play. Svidescha il cache da Google Play e reaviescha tes telefonin.\n\nErrur %s</string>
 </resources>

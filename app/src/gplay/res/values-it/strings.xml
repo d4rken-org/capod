@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">I servizi di Google Play non sono disponibili.</string>
     <string name="upgrades_no_purchases_found_check_account">Nessun acquisto trovato. Stai usando l\'account giusto?</string>
-    <string name="upgrades_gplay_billing_error_label">Errore Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Si è verificato un errore in Google Play. Riprova più tardi o riavvia il telefono.\n\nErrore: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Errore di fatturazione Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Si è verificato un errore durante la richiesta dei dettagli dell\'acquisto a Google Play. Cancella la cache di Google Play e riavvia il telefono.\n\nErrore %s</string>
 </resources>

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy data-skanneren prioritere ytelse eller å spare energi?</string>
     <string name="settings_autopause_label">Sett på pause automatisk</string>
     <string name="settings_autopause_description">Sett lyden på pause når du fjerner enheten fra øret.</string>
-    <string name="settings_showall_label">Vis alle enheter</string>
-    <string name="settings_showall_description">Vis andres enheter som er i nærheten av deg.</string>
     <string name="settings_autopplay_label">Spill av automatisk</string>
     <string name="settings_autoplay_description">Spill av lyd når enheten er i bruk.</string>
     <string name="settings_fake_data_label">Falsk data</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ikke deleger datafiltrering til systemet, i stedet hent alle data og filtrere i appen.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Deaktiver maskinvare-batching</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ikke la systemet gruppere innsamlet BLE-data før du videresender det til oss.</string>
-    <string name="settings_maindevice_address_label">Enhetens adresse</string>
-    <string name="settings_maindevice_address_description">Adressen til den sammenkoblede enheten. Appen bruker denne til å finne ut når den er koblet til telefonen din.</string>
-    <string name="settings_maindevice_address_none">Ingen</string>
-    <string name="settings_maindevice_model_label">Enhetens modell</string>
-    <string name="settings_maindevice_model_description">Modellen til hovedenheten din. Dette hjelper appen med å gjenkjenne enheten din når den ikke er koblet til telefonen.</string>
-    <string name="settings_maindevice_identitykey_label">Identitetsnøkkel</string>
-    <string name="settings_maindevice_identitykey_description">Enhetens identitetsoppløsningsnøkkel (IRK), som hjelper CAPod med å identifisere den blant enheter i nærheten.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods endrer ofte Bluetooth-adressen sin for personvern. IRK-en hjelper CAPod med å gjenkjenne enheten din. Du trenger engangstilgang til en MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Krypteringsnøkkel</string>
-    <string name="settings_maindevice_encryptionkey_description">Enhetens krypteringsnøkkel, som lar CAPod hente detaljert statusinformasjon.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods sender en statusmelding, der deler av den er kryptert. Krypteringsnøkkelen lar CAPod dekryptere hele meldingen. Du trenger engangstilgang til en MacBook.</string>
     <string name="settings_onepod_mode_label">En pod-modus</string>
     <string name="settings_onepod_mode_description">Du trenger kun ha på deg en pod for å utløse reaksjoner, i stedet for begge.</string>
     <string name="settings_popup_caseopen_label">Vis etui-popup</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Ikke alle Android-enheter støtter de ekstra AirPod-funksjonene fullt ut. Operativsystemet ditt krever en fungerende Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har ingen annonser og samler ikke inn dataene dine.</string>
     <string name="onboarding_body4">Du kan oppgradere til CAPod Pro for å få ekstra funksjoner og støtte utviklingen.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

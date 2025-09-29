@@ -11,12 +11,9 @@
     <string name="general_save_action">ບັນທຶກ</string>
     <string name="general_guide_action">ຄູ່ມື</string>
     <string name="general_continue_action">ສືບຕໍ່</string>
-
     <string name="general_example_label">ຕົວຢ່າງ: %s</string>
-
     <string name="upgrade_capod_label">ອັບເກຣດ CAPod</string>
     <string name="upgrade_capod_description">ຮັບຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ສະໜັບສະໜູນຜູ້ພັດທະນາ.</string>
-
     <string name="settings_monitor_mode_label">ໂໝດຕິດຕາມ</string>
     <string name="settings_monitor_mode_description">ແອັບນີ້ຕິດຕາມຂໍ້ມູນ Bluetooth ພາຍໃຕ້ສະຖານະການໃດ.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">ເຄື່ອງສະແກນຂໍ້ມູນ Bluetooth Low Energy ຄວນໃຫ້ຄວາມສຳຄັນກັບປະສິດທິພາບ ຫຼື ປະຢັດພະລັງງານ?</string>
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
     <string name="settings_autopause_description">ຢຸດສຽງຊົ່ວຄາວເມື່ອຖອດອຸປະກອນອອກຈາກຫູຂອງທ່ານ.</string>
-    <string name="settings_showall_label">ສະແດງອຸປະກອນທັງໝົດ</string>
-    <string name="settings_showall_description">ສະແດງອຸປະກອນຂອງຄົນອື່ນທີ່ຢູ່ໃກ้ທ່ານ.</string>
     <string name="settings_autopplay_label">ຫຼິ້ນອັດຕະໂນມັດ</string>
     <string name="settings_autoplay_description">ເລີ່ມການຫຼິ້ນສຽງເມື່ອໃສ่อຸປະກອນ.</string>
     <string name="settings_fake_data_label">ຂໍ້ມູນປອມ</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">ປະຕິກິລິຍາ</string>
     <string name="settings_reaction_description">ປະຕິກິລິຍາຕໍ່ເຫດການ ແລະ ພຶດຕິກຳ.</string>
     <string name="settings_category_yourdevice_label">ອຸປະກອນຂອງທ່ານ</string>
-
     <string name="settings_category_compatibility_options_title">ຕົວເລືອກຄວາມເຂົ້າກັນໄດ້</string>
     <string name="settings_category_compatibility_options_description">ຢ່າແຕະຕ້ອງຖ້າທຸກຢ່າງເຮັດວຽກ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ປິດການກັ່ນຕອງຮາດແວ</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">ຢ່າໂອນການກັ່ນຕອງຂໍ້ມູນໄປໃຫ້ລະບົບ, ແທນທີ່ຈະຮັບຂໍ້ມູນທັງໝົດ ແລະ ກັ່ນຕອງພາຍໃນແອັບ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ປິດການຈັດກຸ່ມຮາດແວ</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">ຢ່າໃຫ້ລະບົບຈັດກຸ່ມຂໍ້ມູນ BLE ທີ່ເກັບກຳໄດ້ກ່ອນທີ່ຈະສົ່ງຕໍ່ໃຫ້ພວກເຮົາ.</string>
-
-    <string name="settings_maindevice_address_label">ທີ່ຢູ່ອຸປະກອນຂອງທ່ານ</string>
-    <string name="settings_maindevice_address_description">ທີ່ຢູ່ຂອງອຸປະກອນທີ່ຈັບຄູ່ຂອງທ່ານ. ແອັບໃຊ້ສິ່ງນີ້ເພື່ອລະບຸວ່າເມື່ອໃດມັນເຊື່ອມຕໍ່ກັບໂທລະສັບຂອງທ່ານ.</string>
-    <string name="settings_maindevice_address_none">ບໍ່ມີ</string>
-    <string name="settings_maindevice_model_label">ម៉ូដែលឧបករណ៍ຂອງທ່ານ</string>
-    <string name="settings_maindevice_model_description">ម៉ូដែលឧបករណ៍ຫຼັກຂອງທ່ານ. ນີ້ຊ່ວຍໃຫ້ແອັບຮັບຮູ້ອຸປະກອນຂອງທ່ານເມື່ອມັນບໍ່ໄດ້ເຊື່ອມຕໍ່ກັບໂທລະສັບຂອງທ່ານ.</string>
-    <string name="settings_maindevice_identitykey_label">ລະຫັດປະຈຳຕົວ</string>
-    <string name="settings_maindevice_identitykey_description">ລະຫັດແກ້ໄຂປະຈຳຕົວອຸປະກອນຂອງທ່ານ (IRK), ເຊິ່ງຊ່ວຍ CAPod ໃຫ້ລະບຸມັນໃນບັນດາອຸປະກອນໃກ้ຄຽງ.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ມັກປ່ຽນທີ່ຢູ່ Bluetooth ຂອງພວກເຂົາເພື່ອຄວາມເປັນສ່ວນຕົວ. IRK ຊ່ວຍ CAPod ໃຫ້ຮັບຮູ້ອຸປະກອນຂອງທ່ານ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
-    <string name="settings_maindevice_encryptionkey_label">ລະຫັດເຂົ້າລະຫັດ</string>
-    <string name="settings_maindevice_encryptionkey_description">ລະຫັດເຂົ້າລະຫັດອຸປະກອນຂອງທ່ານ, ເຊິ່ງອະນຸຍາດໃຫ້ CAPod ເອົາຂໍ້ມູນສະຖານະລະອຽດ.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ສົ່ງຂໍ້ຄວາມສະຖານະ, ສ່ວນໜຶ່ງຂອງມັນຖືກເຂົ້າລະຫັດ. ລະຫັດເຂົ້າລະຫັດອະນຸຍາດໃຫ້ CAPod ຖອດລະຫັດຂໍ້ຄວາມເຕັມ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
-
     <string name="settings_onepod_mode_label">ໂໝດផតດຽວ</string>
     <string name="settings_onepod_mode_description">ບໍ່ຈຳເປັນຕ້ອງໃສ່ផតທັງສອງ, ການໃສ່ផតດຽວກໍພຽງພໍທີ່ຈະກະຕຸ້ນປະຕິກິริยา.</string>
     <string name="settings_popup_caseopen_label">ສະແດງປັອບອັບເຄສ</string>
     <string name="settings_popup_caseopen_description">ສະແດງປັອບອັບເມື່ອເຄສອຸປະກອນເປີດ (ທົດລອງ).</string>
     <string name="settings_popup_connected_label">ສະແດງປັອບອັບການເຊື່ອມຕໍ່</string>
     <string name="settings_popup_connected_description">ສະແດງປັອບອັບເມື່ອອຸປະກອນເຊື່ອມຕໍ່ຄັ້ງທຳອິດ.</string>
-
     <string name="notification_channel_device_status_label">ສະຖານະອຸປະກອນ</string>
     <string name="notification_channel_device_status_connected_label">ອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ</string>
-
     <string name="support_debuglog_label">ບັນທຶກດີບัก</string>
     <string name="support_debuglog_desc">ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ຂໍ້ຄວາມທີ່ທ່ານສາມາດແບ່ງປັນໄດ້.</string>
     <string name="debug_debuglog_size_label">ຂະໜາດ</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
     <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ຕົວຢ່າງ: ຜູ້ພັດທະນາທີ່ກຳລັງແກ້ໄຂບັນຫາ).</string>
-
     <string name="settings_support_installid_label">ID ການຕິດຕັ້ງ</string>
     <string name="settings_support_installid_desc">รายงานข้อผิดพลาดอัตโนมัติจะไม่ระบุชื่อ แบ่งปัน ID การติดตั้งของคุณหากนักพัฒนาซอฟต์แวร์ต้องการค้นหารายงานข้อผิดพลาดของคุณ</string>
     <string name="settings_support_label">ການຊ່ວຍເຫຼືອ</string>
     <string name="settings_support_description">ຖ້າທ່ານຕ້ອງການການຊ່ວຍເຫຼືອ.</string>
-
     <string name="issue_tracker_label">ຕົວຕິດຕາມບັນຫາ</string>
     <string name="issue_tracker_description">ຕົວຕິດຕາມບັນຫາສາທາລະນະສຳລັບລາຍງານຂໍ້ບົກພ່ອງ ແລະ ຄຳຮ້ອງຂໍຄຸນສົມບັດ (ພາສາອັງກິດເທົ່ານັ້ນ).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">ບ່ອນສຳລັບສົນທະນາ ແລະ ຖາມຄຳຖາມ.</string>
-
     <string name="changelog_label">ບັນທຶກການປ່ຽນແປງ</string>
     <string name="settings_label">ການຕັ້ງຄ່າ</string>
     <string name="settings_privacy_policy_label">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">ການຕັ້ງຄ່າ</string>
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
-
     <string name="settings_debug_autoreports_label">ລາຍງານຂໍ້ບົກພ່ອງອັດຕະໂນມັດ</string>
     <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string>
     <string name="settings_debug_mode_label">ໂໝດດີບัก</string>
     <string name="settings_debug_mode_description">ສະແດງຂໍ້ມູນເພີ່ມເຕີມເພື່ອແກ້ໄຂບັນຫາ.</string>
-
     <string name="settings_blescanner_unfiltered_label">ຂໍ້ມູນ BLE ທີ່ບໍ່ໄດ້ກັ່ນຕອງ</string>
     <string name="settings_blescanner_unfiltered_description">ລຶບຕົວກັ່ນຕອງໃດໆອອກຈາກເຄື່ອງສະແກນ BLE ເພື່ອສະແດງຂໍ້ມູນ BLE ທີ່ອອກອາກາດທັງໝົດ. ມີປະໂຫຍດສຳລັບການເພີ່ມການຮອງຮັບປະເພດຫູຟັງໃໝ່.</string>
-
     <string name="settings_compatibility_mode_label">ໂໝດຄວາມເຂົ້າກັນໄດ້</string>
     <string name="settings_compatibility_mode_description">ປິດການປັບແຕ່ງໃຫ້ເໝາະສົມເພື່ອປັບປຸງຄວາມເຂົ້າກັນໄດ້. ລອງໃຊ້ອັນນີ້ຖ້າທ່ານບໍ່ເຫັນຂໍ້ມູນໃດໆ.</string>
-
     <string name="help_translate_label">ການແປພາສາ</string>
     <string name="help_translate_description">ຊ່ວຍແປແອັບນີ້ເປັນພາສາທີ່ທ່ານມັກ.</string>
-
     <string name="translators_thanks_title">ຜູ້ແປ</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">ວິດເຈັດສະແດງສະຖານະອຸປະກອນທີ່ຮູ້ຈັກຫຼ້າສຸດ.</string>
     <string name="settings_compat_indirectcallback_title">ການສົ່ງຂໍ້ມູນທາງອ້ອມ</string>
     <string name="settings_compat_indirectcallback_summary">ใช้วิธีอื่นในการรับข้อมูล BLE จากระบบ (ออกอากาศแทนการโทรกลับ)</string>
-
     <string name="troubleshooter_title">ຕົວແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_intro_title">ການອອກອາກາດ Bluetooth Low Energy</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂปัญหานี้ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ้ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
@@ -140,9 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">ໂທລະສັບຂອງທ່ານໄດ້ຮັບຂໍ້ມູນ BLE, ແຕ່ຂໍ້ມູນບໍ່ໄດ້ມາຈາກອຸປະກອນທີ່ຮອງຮັບໃດໆ. ຫູຟັງຂອງທ່ານເປີດຢູ່ບໍ? CAPod ຮອງຮັບຫູຟັງຂອງທ່ານບໍ?</string>
     <string name="troubleshooter_ble_result_failure_action">ລອງອີກຄັ້ງ</string>
     <string name="troubleshoot_action">ແກ້ໄຂບັນຫາ</string>
-
     <string name="onboarding_body1">ແອັບນີ້ເພີ່ມການຮອງຮັບຄຸນສົມບັດສະເພາະຂອງ AirPod ໃຫ້ກັບ Android.</string>
     <string name="onboarding_body2">ບໍ່ແມ່ນອຸປະກອນ Android ທັງໝົດທີ່ຮອງຮັບຄຸນສົມບັດເພີ່ມເຕີມຂອງ AirPod ຢ່າງເຕັມທີ່. ລະບົບປະຕິບັດການຂອງທ່ານຕ້ອງການການປະຕິບັດ Bluetooth-Low-Energy ທີ່ເຮັດວຽກຢ່າງຖືກຕ້ອງ.</string>
     <string name="onboarding_body3">CAPod ບໍ່ມີໂຄສະນາ ແລະ ບໍ່ເກັບກຳຂໍ້ມູນຂອງທ່ານ.</string>
     <string name="onboarding_body4">ທ່ານສາມາດອັບເກຣດເປັນ CAPod Pro ເພື່ອຮັບຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ສະໜັບສະໜູນການພັດທະນາ.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

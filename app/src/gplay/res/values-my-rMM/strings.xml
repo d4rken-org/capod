@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play ဝန်ဆောင်မှုများ မရရှိနိုင်ပါ။</string>
     <string name="upgrades_no_purchases_found_check_account">ဝယ်ယူမှုများ မတွေ့ပါ။ သင်အသုံးပြုနေသော အကောင့်မှန်ကန်ပါသလား။</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play အမှား</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play တွင် အမှားတစ်ခု ဖြစ်ပေါ်ခဲ့သည်။ ကျေးဇူးပြု၍ နောင်မှ ထပ်ကြိုးစားပါ သို့မဟုတ် သင့်ဖုန်းကို ပြန်လည်စတင်ပါ။\n\nအမှား- %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play ငွေတောင်းမှု အမှား</string>
-    <string name="upgrades_gplay_billing_result_error_description">သင့်ဝယ်ယူမှု အသေးစိတ်များကို Google Play ထံမှ မေးမြန်းစဥ် အမှားတစ်ခု ဖြစ်ပေါ်ခဲ့သည်။ Google Play cache ကို ရှင်းလင်းပြီး သင့်ဖုန်းကို ပြန်လည်စတင်ပါ။\n\nအမှား %s</string>
 </resources>

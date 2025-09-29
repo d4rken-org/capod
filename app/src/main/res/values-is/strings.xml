@@ -11,12 +11,9 @@
     <string name="general_save_action">Vista</string>
     <string name="general_guide_action">Leiðbeiningar</string>
     <string name="general_continue_action">Halda áfram</string>
-
     <string name="general_example_label">T.d.: %s</string>
-
     <string name="upgrade_capod_label">Uppfæra CAPod</string>
     <string name="upgrade_capod_description">Fáðu viðbótareiginleika og styrktu þróunaraðilann.</string>
-
     <string name="settings_monitor_mode_label">Vöktunarstilling</string>
     <string name="settings_monitor_mode_description">Undir hvaða kringumstæðum þetta forrit fylgist með Bluetooth gögnum.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Ætti Bluetooth Low Energy gagnaskanninn að forgangsraða afköstum eða spara orku?</string>
     <string name="settings_autopause_label">Sjálfvirk hlé</string>
     <string name="settings_autopause_description">Gera hlé á hljóði þegar tækið er tekið úr eyranu.</string>
-    <string name="settings_showall_label">Sýna öll tæki</string>
-    <string name="settings_showall_description">Sýna tæki annarra sem eru nálægt þér.</string>
     <string name="settings_autopplay_label">Sjálfvirk spilun</string>
     <string name="settings_autoplay_description">Hefja hljóðspilun þegar tækið er notað.</string>
     <string name="settings_fake_data_label">Fölsuð gögn</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">Viðbrögð</string>
     <string name="settings_reaction_description">Bregðast við atburðum og hegðun.</string>
     <string name="settings_category_yourdevice_label">Tækið þitt</string>
-
     <string name="settings_category_compatibility_options_title">Samhæfisvalkostir</string>
     <string name="settings_category_compatibility_options_description">Ekki snerta ef allt virkar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Slökkva á vélbúnaðarsíun</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ekki úthluta gagnasíun til kerfisins, fáðu í staðinn öll gögn og síaðu innan forritsins.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Slökkva á vélbúnaðarflokkun</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ekki láta kerfið flokka saman söfnuð BLE gögn áður en þau eru send til okkar.</string>
-
-    <string name="settings_maindevice_address_label">Heimilisfang tækisins þíns</string>
-    <string name="settings_maindevice_address_description">Heimilisfang paraða tækisins þíns. Forritið notar þetta til að ákvarða hvenær það er tengt símanum þínum.</string>
-    <string name="settings_maindevice_address_none">Ekkert</string>
-    <string name="settings_maindevice_model_label">Gerð tækisins þíns</string>
-    <string name="settings_maindevice_model_description">Gerð aðaltækisins þíns. Þetta hjálpar forritinu að þekkja tækið þitt þegar það er ekki tengt símanum þínum.</string>
-    <string name="settings_maindevice_identitykey_label">Auðkennislykill</string>
-    <string name="settings_maindevice_identitykey_description">Auðkennisupplausnarlykill tækisins þíns (IRK), sem hjálpar CAPod að bera kennsl á það meðal nálægra tækja.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods breyta oft Bluetooth heimilisfangi sínu vegna persónuverndar. IRK hjálpar CAPod að þekkja tækið þitt. Þú þarft aðgang að MacBook einu sinni.</string>
-    <string name="settings_maindevice_encryptionkey_label">Dulkóðunarlykill</string>
-    <string name="settings_maindevice_encryptionkey_description">Dulkóðunarlykill tækisins þíns, sem gerir CAPod kleift að sækja nákvæmar stöðuupplýsingar.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods senda stöðuskilaboð, en hluti þeirra er dulkóðaður. Dulkóðunarlykillinn gerir CAPod kleift að afkóða öll skilaboðin. Þú þarft aðgang að MacBook einu sinni.</string>
-
     <string name="settings_onepod_mode_label">Eins heyrnartóls stilling</string>
     <string name="settings_onepod_mode_description">Ekki er krafist þess að nota bæði heyrnartólin, nóg er að nota eitt heyrnartól til að kalla fram viðbrögð.</string>
     <string name="settings_popup_caseopen_label">Sýna upplýsingaglugga hulsturs</string>
     <string name="settings_popup_caseopen_description">Sýna upplýsingaglugga þegar hulstur tækis er opnað (tilraunakennt).</string>
     <string name="settings_popup_connected_label">Sýna upplýsingaglugga tengingar</string>
     <string name="settings_popup_connected_description">Sýna upplýsingaglugga þegar tækið tengist í fyrsta skipti.</string>
-
     <string name="notification_channel_device_status_label">Staða tækis</string>
     <string name="notification_channel_device_status_connected_label">Tengt tæki</string>
-
     <string name="support_debuglog_label">Villuleitarskrá</string>
     <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
     <string name="debug_debuglog_size_label">Stærð</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">Hætta skráningu</string>
     <string name="debug_debuglog_sensitive_information_message">Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum.</string>
     <string name="settings_debuglog_explanation">Þessi aðgerð skráir allt sem forritið gerir í skrá sem hægt er að deila. Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
-
     <string name="settings_support_installid_label">Uppsetningarauðkenni</string>
     <string name="settings_support_installid_desc">Sjálfvirkar villuskýrslur eru nafnlausar. Deildu uppsetningarauðkenninu þínu ef þróunaraðilinn þarf að finna villuskýrslurnar þínar.</string>
     <string name="settings_support_label">Aðstoð</string>
     <string name="settings_support_description">Ef þú þarft hjálp.</string>
-
     <string name="issue_tracker_label">Vandamálarakning</string>
     <string name="issue_tracker_description">Opinber vandamálarakning fyrir villuskýrslur og beiðnir um eiginleika (aðeins á ensku).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Staður til að hanga og spyrja spurninga.</string>
-
     <string name="changelog_label">Breytingaskrá</string>
     <string name="settings_label">Stillingar</string>
     <string name="settings_privacy_policy_label">Persónuverndarstefna</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">Stillingar</string>
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
-
     <string name="settings_debug_autoreports_label">Sjálfvirkar villuskýrslur</string>
     <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string>
     <string name="settings_debug_mode_label">Villuleitarstilling</string>
     <string name="settings_debug_mode_description">Sýna viðbótarupplýsingar til að leysa vandamál.</string>
-
     <string name="settings_blescanner_unfiltered_label">Ósíað BLE gögn</string>
     <string name="settings_blescanner_unfiltered_description">Fjarlægðu allar síur úr BLE skannanum til að sýna öll send BLE gögn. Gagnlegt til að bæta við stuðningi fyrir nýjar gerðir heyrnartóla.</string>
-
     <string name="settings_compatibility_mode_label">Samhæfisstilling</string>
     <string name="settings_compatibility_mode_description">Slökkva á hagræðingum til að bæta samhæfni. Prófaðu þetta ef þú sérð engin gögn.</string>
-
     <string name="help_translate_label">Þýðing</string>
     <string name="help_translate_description">Hjálpaðu til við að þýða þetta forrit á þitt uppáhalds tungumál.</string>
-
     <string name="translators_thanks_title">Þýðendur</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Græja sem sýnir síðast þekkta stöðu tækis.</string>
     <string name="settings_compat_indirectcallback_title">Óbein gagnaafhending</string>
     <string name="settings_compat_indirectcallback_summary">Notaðu aðra aðferð til að taka á móti BLE gögnum frá kerfinu (útsending í stað endurkalls).</string>
-
     <string name="troubleshooter_title">Villuleit</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy útsendingar</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (og svipuð heyrnartól) senda út stöðuupplýsingar með BLE tækni sem kallast \"auglýsingar\". Sumir símar útfæra þessa tækni ekki rétt. CAPod getur reynt að laga þetta með því að prófa mismunandi samhæfisvalkosti þar til gögn berast. Byrjaðu tónlistarspilun í heyrnartólunum þínum og settu þau nálægt símanum þínum, byrjaðu síðan ferlið.</string>
@@ -140,9 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Síminn þinn tók á móti BLE gögnum, en gögnin koma ekki frá neinu studdu tæki. Eru heyrnartólin þín kveikt? Styður CAPod heyrnartólin þín?</string>
     <string name="troubleshooter_ble_result_failure_action">Reyndu aftur</string>
     <string name="troubleshoot_action">Leysa vandamál</string>
-
     <string name="onboarding_body1">Þetta forrit bætir við stuðningi fyrir AirPod sértæka eiginleika í Android.</string>
     <string name="onboarding_body2">Ekki öll Android tæki styðja að fullu viðbótar AirPod eiginleika. Stýrikerfið þitt krefst rétt virkandi Bluetooth-Low-Energy útfærslu.</string>
     <string name="onboarding_body3">CAPod hefur engar auglýsingar og safnar ekki gögnunum þínum.</string>
     <string name="onboarding_body4">Þú getur uppfært í CAPod Pro til að fá viðbótareiginleika og styðja við þróun.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

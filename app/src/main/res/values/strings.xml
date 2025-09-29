@@ -10,6 +10,8 @@
     <string name="general_save_action">Save</string>
     <string name="general_guide_action">Guide</string>
     <string name="general_continue_action">Continue</string>
+    <string name="general_show_action">Show</string>
+    <string name="general_hide_action">Hide</string>
 
     <string name="general_example_label">E.g.: %s</string>
 
@@ -26,8 +28,6 @@
     <string name="settings_scanner_mode_description">Should the Bluetooth Low Energy data scanner prioritize performance or conserve energy?</string>
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
-    <string name="settings_showall_label">Show all devices</string>
-    <string name="settings_showall_description">Show other people\'s devices that are near you.</string>
     <string name="settings_autopplay_label">Auto play</string>
     <string name="settings_autoplay_description">Start audio playback when device is worn.</string>
     <string name="settings_fake_data_label">Fake data</string>
@@ -40,6 +40,8 @@
     <string name="settings_autoconnect_description">If Android does not automatically connect, we can ask it too. This will set the monitor mode setting to \'Always\'.</string>
     <string name="settings_autoconnect_condition_label">Auto connect condition</string>
     <string name="settings_autoconnect_condition_description">When should we try to connect to your device?</string>
+    <string name="settings_devices_label">Devices</string>
+    <string name="settings_devices_description">Manage your devices.</string>
     <string name="settings_reaction_label">Reactions</string>
     <string name="settings_reaction_description">React to events and behaviors.</string>
     <string name="settings_category_yourdevice_label">Your device</string>
@@ -50,18 +52,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Don\'t delegate data filtering to the system, instead get all data and filter within the app.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Disable hardware batching</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Don\'t let the system group collected BLE data before forwarding it to us.</string>
-
-    <string name="settings_maindevice_address_label">Your device address</string>
-    <string name="settings_maindevice_address_description">The address of your paired device. The app uses this to determine when it is connected to your phone.</string>
-    <string name="settings_maindevice_address_none">None</string>
-    <string name="settings_maindevice_model_label">Your device model</string>
-    <string name="settings_maindevice_model_description">The model of your main device. This helps the app recognize your device when it is not connected to your phone.</string>
-    <string name="settings_maindevice_identitykey_label">Identity Key</string>
-    <string name="settings_maindevice_identitykey_description">Your device\'s Identity Resolving Key (IRK), which helps CAPod identify it among nearby devices.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods frequently change their Bluetooth address for privacy. The IRK helps CAPod recognize your device. You need one-time access to a MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Encryption Key</string>
-    <string name="settings_maindevice_encryptionkey_description">Your device\'s encryption key, which allows CAPod to retrieve detailed status information.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods send a status message, part of which is encrypted. The encryption key allows CAPod to decrypt the full message. You need one-time access to a MacBook.</string>
 
     <string name="settings_onepod_mode_label">One pod mode</string>
     <string name="settings_onepod_mode_description">Wearing both pods is not required, wearing a single pod is sufficient to trigger reactions.</string>
@@ -128,6 +118,7 @@
     <string name="settings_compat_indirectcallback_summary">Use an alternative method to receive BLE data from the system (broadcast instead of callback).</string>
 
     <string name="troubleshooter_title">Troubleshooter</string>
+    <string name="troubleshooter_summary">Diagnose and fix Bluetooth connectivity issues.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcasts</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (and similar headphones) broadcast status information using a BLE technology called \"advertisements\". Some phones don\'t implement this technology correctly. CAPod can attempt to fix this by trying different compatibility options until data is received. Start music playback on your headphones and place them close to your phone, then start the process.</string>
     <string name="troubleshooter_ble_intro_start_action">Start troubleshooting</string>
@@ -147,5 +138,120 @@
     <string name="onboarding_body2">Not all Android devices fully support the extra AirPod features. Your operating system requires a correctly working Bluetooth-Low-Energy implementation.</string>
     <string name="onboarding_body3">CAPod has no ads and does not collect your data.</string>
     <string name="onboarding_body4">You can upgrade to CAPod Pro to gain extra features and support development.</string>
+
+    <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_grant_permission_action">Grant permission</string>
+    <string name="general_manage_devices_action">Manage devices</string>
+
+    <string name="overview_nomaindevice_label">No device configured</string>
+    <string name="overview_nomaindevice_description">Configure your device to start monitoring battery levels and enable additional features.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
+    <string name="overview_monitoring_active_label">Monitoring for devices</string>
+    <string name="overview_monitoring_active_description">Make sure your device is nearby and active.</string>
+    <string name="overview_unmatched_devices_label">Unmatched devices</string>
+    <string name="overview_unmatched_devices_count_single">1 device without matching profile</string>
+    <string name="overview_unmatched_devices_count_plural">%d devices without matching profile</string>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
+    <string name="permission_bluetooth_connect_description">This app requires the \"Bluetooth connect\" permission to interact with paired devices and initiate connections.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth scanning</string>
+    <string name="permission_bluetooth_scan_description">The \"Bluetooth scanning\" permission allows this app to discover and receive Bluetooth data from nearby devices such as your AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">This app requires the \"Bluetooth\" permission to connect to paired bluetooth devices.</string>
+    <string name="permission_access_fine_location_label">Access fine location</string>
+    <string name="permission_access_fine_location_description">CAPod uses the \"fine location\" permission to receive Bluetooth Low Energy data. Your headphones use Bluetooth Low Energy technology to broadcast their status. This app will NOT use Bluetooth data to determine your location.</string>
+    <string name="permission_background_location_label">Background location access</string>
+    <string name="permission_background_location_description">CAPod uses \"background location access\" to enable features like \"Show popup\" and \"AutoConnect\" while the app is closed. Background location access allows the app to receive Bluetooth Low Energy data while it is in the background. This app will NOT use Bluetooth data to determine your location.</string>
+    <string name="permission_ignore_battery_optimizations_label">Disable battery optimizations</string>
+    <string name="permission_ignore_battery_optimizations_description">Battery optimizations prevent this app from reliably receiving Bluetooth data while the app is in the background.</string>
+    <string name="permission_required_title">The following permission is required:</string>
+    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Low power</string>
+    <string name="settings_scanner_mode_balanced_label">Balanced</string>
+    <string name="settings_scanner_mode_lowlatency_label">Low latency</string>
+
+    <string name="settings_monitor_mode_manual_label">When app is open</string>
+    <string name="settings_monitor_mode_automatic_label">When device is connected</string>
+    <string name="settings_monitor_mode_always_label">Always</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Case is open</string>
+    <string name="settings_reaction_autoconnect_inear_label">In ear</string>
+
+    <string name="pods_dual_left_label">Left pod</string>
+    <string name="pods_dual_right_label">Right pod</string>
+    <string name="pods_case_label">Case</string>
+    <string name="pods_case_status_open_label">Open</string>
+    <string name="pods_case_status_closed_label">Closed</string>
+    <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
+    <string name="pods_connection_state_idle_label">Connected to a device, but idle</string>
+    <string name="pods_connection_state_music_label">In music mode</string>
+    <string name="pods_connection_state_call_label">In call mode</string>
+    <string name="pods_connection_state_ringing_label">Ringing</string>
+    <string name="pods_connection_state_hanging_up_label">Hanging up</string>
+    <string name="pods_connection_state_unknown_label">Unknown connection state</string>
+    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_label">Unknown device</string>
+    <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :)</string>
+    <string name="pods_none_label_short">No device</string>
+    <string name="pods_charging_label">Charging</string>
+    <string name="pods_inear_label">In ear</string>
+    <string name="pods_microphone_label">Microphone</string>
+    <string name="pods_yours">Yours</string>
+    <string name="headset_being_worn_label">Being worn</string>
+    <string name="headset_not_being_worn_label">Not being worn</string>
+    <string name="pods_case_unknown_state">Unknown state</string>
+
+    <string name="last_seen_x">Last seen: %s</string>
+    <string name="first_seen_x">First seen: %s</string>
+    <string name="permission_post_notifications_label">Show notifications</string>
+    <string name="permission_post_notifications_description">"Allow CAPod to show notifications about your AirPods, e.g. their current status while connected."</string>
+
+    <!-- Device profiles -->
+    <string name="profiles_empty_title">No device profiles configured</string>
+    <string name="profiles_empty_description">Create device profiles to manage multiple devices with custom settings and priorities.</string>
+    <string name="profiles_add_action">Add profile</string>
+    <string name="profiles_create_title">Create Profile</string>
+    <string name="profiles_name_label">Profile name</string>
+    <string name="profiles_name_default">My Headphones</string>
+    <string name="profiles_model_label">Device model</string>
+    <string name="profiles_paired_device_label">Paired device</string>
+    <string name="profiles_paired_device_none">None</string>
+    <string name="profiles_paired_device_none_description">No device selected</string>
+    <string name="profiles_save_action">Save profile</string>
+    <string name="profiles_drag_handle_description">Drag to reorder</string>
+    <string name="profiles_delete_title">Delete Profile</string>
+    <string name="profiles_delete_message">Are you sure you want to delete this profile? This action cannot be undone.</string>
+    <string name="profiles_delete_action">Delete</string>
+    <string name="profiles_basic_info_title">Device Information</string>
+    <string name="profiles_basic_info_description">Configure your device name, model, and optional Bluetooth pairing.</string>
+    <string name="profiles_signal_quality_title">Minimum Signal Quality</string>
+    <string name="profiles_signal_quality_description">Only detect devices with signal strength above this threshold. Lower values increase detection range but may cause false positives. Don\'t set this too high - Bluetooth reception is generally poor and varies with distance and obstacles.</string>
+    <string name="profiles_identitykey_label">Identity Key</string>
+    <string name="profilessettings_maindevice_identitykey_description">Your device\'s Identity Resolving Key (IRK), which helps CAPod identify it among nearby devices.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods frequently change their Bluetooth address for privacy. The IRK helps CAPod recognize your device. You need one-time access to a MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Encryption Key</string>
+    <string name="profiles_maindevice_encryptionkey_description">Your device\'s encryption key, which allows CAPod to retrieve detailed status information.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods send a status message, part of which is encrypted. The encryption key allows CAPod to decrypt the full message. You need one-time access to a MacBook.</string>
+    <string name="profiles_key_invalid_format">Invalid key format</string>
+    <string name="profiles_key_expected_format">Expected format: %1$s</string>
+    <string name="profiles_priority_hint">Profile order determines priority. Drag profiles to reorder them - profiles higher in the list take precedence when multiple devices match.</string>
+
+    <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Unsaved Changes</string>
+    <string name="general_unsaved_changes_message">You have unsaved changes. What would you like to do?</string>
+    <string name="general_save_and_exit_action">Save &amp; Exit</string>
+    <string name="general_discard_action">Discard</string>
+    <string name="general_keep_editing_action">Keep Editing</string>
+
 
 </resources>

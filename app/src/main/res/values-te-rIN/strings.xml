@@ -11,12 +11,9 @@
     <string name="general_save_action">సేవ్ చేయి</string>
     <string name="general_guide_action">మార్గదర్శి</string>
     <string name="general_continue_action">కొనసాగించు</string>
-
     <string name="general_example_label">ఉదా.: %s</string>
-
     <string name="upgrade_capod_label">CAPod నవీకరించు</string>
     <string name="upgrade_capod_description">అదనపు ఫీచర్లను పొందండి మరియు డెవలపర్‌కు మద్దతు ఇవ్వండి.</string>
-
     <string name="settings_monitor_mode_label">పర్యవేక్షణ మోడ్</string>
     <string name="settings_monitor_mode_description">ఈ యాప్ ఏ పరిస్థితులలో బ్లూటూత్ డేటాను పర్యవేక్షిస్తుంది.</string>
     <string name="settings_monitor_connected_notification_label">అదనపు నోటిఫికేషన్</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">బ్లూటూత్ తక్కువ శక్తి డేటా స్కానర్ పనితీరుకు ప్రాధాన్యత ఇవ్వాలా లేదా శక్తిని ఆదా చేయాలా?</string>
     <string name="settings_autopause_label">ఆటో పాజ్</string>
     <string name="settings_autopause_description">మీ చెవి నుండి పరికరాన్ని తీసివేసినప్పుడు ఆడియోను పాజ్ చేయండి.</string>
-    <string name="settings_showall_label">అన్ని పరికరాలను చూపించు</string>
-    <string name="settings_showall_description">మీ సమీపంలో ఉన్న ఇతర వ్యక్తుల పరికరాలను చూపించు.</string>
     <string name="settings_autopplay_label">ఆటో ప్లే</string>
     <string name="settings_autoplay_description">పరికరం ధరించినప్పుడు ఆడియో ప్లేబ్యాక్ ప్రారంభించండి.</string>
     <string name="settings_fake_data_label">నకిలీ డేటా</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">ప్రతిచర్యలు</string>
     <string name="settings_reaction_description">ఈవెంట్‌లు మరియు ప్రవర్తనలకు ప్రతిస్పందించండి.</string>
     <string name="settings_category_yourdevice_label">మీ పరికరం</string>
-
     <string name="settings_category_compatibility_options_title">అనుకూలత ఎంపికలు</string>
     <string name="settings_category_compatibility_options_description">అన్నీ పని చేస్తే తాకవద్దు ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">హార్డ్‌వేర్ ఫిల్టరింగ్‌ను నిలిపివేయండి</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">డేటా ఫిల్టరింగ్‌ను సిస్టమ్‌కు అప్పగించవద్దు, బదులుగా మొత్తం డేటాను పొందండి మరియు యాప్‌లోనే ఫిల్టర్ చేయండి.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">హార్డ్‌వేర్ బ్యాచింగ్‌ను నిలిపివేయండి</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">సేకరించిన BLE డేటాను మాకు ఫార్వార్డ్ చేయడానికి ముందు సిస్టమ్ సమూహపరచడానికి అనుమతించవద్దు.</string>
-
-    <string name="settings_maindevice_address_label">మీ పరికర చిరునామా</string>
-    <string name="settings_maindevice_address_description">మీ జత చేసిన పరికర చిరునామా. ఇది మీ ఫోన్‌కు ఎప్పుడు కనెక్ట్ అయిందో గుర్తించడానికి యాప్ దీన్ని ఉపయోగిస్తుంది.</string>
-    <string name="settings_maindevice_address_none">ఏదీ లేదు</string>
-    <string name="settings_maindevice_model_label">మీ పరికర నమూనా</string>
-    <string name="settings_maindevice_model_description">మీ ప్రధాన పరికర నమూనా. ఇది మీ ఫోన్‌కు కనెక్ట్ కానప్పుడు మీ పరికరాన్ని గుర్తించడానికి యాప్‌కు సహాయపడుతుంది.</string>
-    <string name="settings_maindevice_identitykey_label">గుర్తింపు కీ</string>
-    <string name="settings_maindevice_identitykey_description">మీ పరికరం యొక్క గుర్తింపు పరిష్కార కీ (IRK), ఇది సమీపంలోని పరికరాల మధ్య CAPod దాన్ని గుర్తించడంలో సహాయపడుతుంది.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods గోప్యత కోసం తరచుగా వాటి బ్లూటూత్ చిరునామాను మారుస్తాయి. IRK మీ పరికరాన్ని గుర్తించడంలో CAPodకి సహాయపడుతుంది. మీకు MacBookకి ఒకేసారి యాక్సెస్ అవసరం.</string>
-    <string name="settings_maindevice_encryptionkey_label">ఎన్క్రిప్షన్ కీ</string>
-    <string name="settings_maindevice_encryptionkey_description">మీ పరికరం యొక్క ఎన్క్రిప్షన్ కీ, ఇది వివరణాత్మక స్థితి సమాచారాన్ని తిరిగి పొందడానికి CAPodని అనుమతిస్తుంది.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ఒక స్థితి సందేశాన్ని పంపుతాయి, దానిలో కొంత భాగం ఎన్క్రిప్ట్ చేయబడింది. ఎన్క్రిప్షన్ కీ పూర్తి సందేశాన్ని డీక్రిప్ట్ చేయడానికి CAPodని అనుమతిస్తుంది. మీకు MacBookకి ఒకేసారి యాక్సెస్ అవసరం.</string>
-
     <string name="settings_onepod_mode_label">ఒక పాడ్ మోడ్</string>
     <string name="settings_onepod_mode_description">రెండు పాడ్‌లను ధరించడం అవసరం లేదు, ప్రతిచర్యలను ప్రేరేపించడానికి ఒకే పాడ్‌ను ధరించడం సరిపోతుంది.</string>
     <string name="settings_popup_caseopen_label">కేస్ పాపప్ చూపించు</string>
     <string name="settings_popup_caseopen_description">పరికరం కేస్ తెరిచినప్పుడు పాపప్ చూపించు (ప్రయోగాత్మక).</string>
     <string name="settings_popup_connected_label">కనెక్షన్ పాపప్ చూపించు</string>
     <string name="settings_popup_connected_description">పరికరం మొదటిసారి కనెక్ట్ అయినప్పుడు పాపప్ చూపించు.</string>
-
     <string name="notification_channel_device_status_label">పరికర స్థితి</string>
     <string name="notification_channel_device_status_connected_label">కనెక్ట్ చేయబడిన పరికరం</string>
-
     <string name="support_debuglog_label">డీబగ్ లాగ్</string>
     <string name="support_debuglog_desc">యాప్ చేస్తున్న ప్రతిదాన్ని మీరు షేర్ చేయగల టెక్స్ట్ ఫైల్‌లో రికార్డ్ చేయండి.</string>
     <string name="debug_debuglog_size_label">పరిమాణం</string>
@@ -83,18 +62,14 @@
     <string name="debug_debuglog_stop_action">రికార్డింగ్ ఆపు</string>
     <string name="debug_debuglog_sensitive_information_message">ఉత్పత్తి చేయబడిన ఫైల్ సున్నితమైన సమాచారాన్ని కలిగి ఉంది (ఉదా. బ్లూటూత్ పరికర వివరాలు). దీన్ని విశ్వసనీయ పార్టీలతో మాత్రమే పంచుకోండి.</string>
     <string name="settings_debuglog_explanation">ఈ ఫీచర్ యాప్ చేస్తున్న ప్రతిదాన్ని షేర్ చేయగల ఫైల్‌లో రికార్డ్ చేస్తుంది. ఉత్పత్తి చేయబడిన ఫైల్ సున్నితమైన సమాచారాన్ని కలిగి ఉంది (ఉదా. బ్లూటూత్ పరికర వివరాలు). దీన్ని విశ్వసనీయ పార్టీలతో మాత్రమే పంచుకోండి (ఉదా. సమస్యను పరిష్కరిస్తున్న డెవలపర్).</string>
-
     <string name="settings_support_installid_label">ఇన్‌స్టాల్ ID</string>
     <string name="settings_support_installid_desc">స్వయంచాలక లోపం నివేదికలు అనామధేయమైనవి. డెవలపర్‌కు మీ లోపం నివేదికలను కనుగొనవలసి వస్తే మీ ఇన్‌స్టాల్ IDని పంచుకోండి.</string>
     <string name="settings_support_label">మద్దతు</string>
     <string name="settings_support_description">మీకు కొంత సహాయం అవసరమైతే.</string>
-
     <string name="issue_tracker_label">సమస్య ట్రాకర్</string>
     <string name="issue_tracker_description">బగ్ నివేదికలు మరియు ఫీచర్ అభ్యర్థనల కోసం పబ్లిక్ ఇష్యూ ట్రాకర్ (ఇంగ్లీష్ మాత్రమే).</string>
-
     <string name="discord_label">డిస్కార్డ్</string>
     <string name="discord_description">సమయం గడపడానికి మరియు ప్రశ్నలు అడగడానికి ఒక ప్రదేశం.</string>
-
     <string name="changelog_label">మార్పుల జాబితా</string>
     <string name="settings_label">సెట్టింగ్‌లు</string>
     <string name="settings_privacy_policy_label">గోప్యతా విధానం</string>
@@ -104,28 +79,20 @@
     <string name="settings_general_label">సెట్టింగ్‌లు</string>
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
-
     <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
     <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
     <string name="settings_debug_mode_label">డీబగ్ మోడ్</string>
     <string name="settings_debug_mode_description">సమస్యలను పరిష్కరించడానికి అదనపు సమాచారాన్ని చూపించు.</string>
-
     <string name="settings_blescanner_unfiltered_label">ఫిల్టర్ చేయని BLE డేటా</string>
     <string name="settings_blescanner_unfiltered_description">అన్ని ప్రసారం చేయబడిన BLE డేటాను చూపించడానికి BLE స్కానర్ నుండి ఏదైనా ఫిల్టర్‌లను తీసివేయండి. కొత్త హెడ్‌ఫోన్ రకాలకు మద్దతు జోడించడానికి ఉపయోగపడుతుంది.</string>
-
     <string name="settings_compatibility_mode_label">అనుకూలత మోడ్</string>
     <string name="settings_compatibility_mode_description">అనుకూలతను మెరుగుపరచడానికి ఆప్టిమైజేషన్‌లను నిలిపివేయండి. మీరు ఏ డేటాను చూడకపోతే దీన్ని ప్రయత్నించండి.</string>
-
     <string name="help_translate_label">అనువాదం</string>
     <string name="help_translate_description">ఈ యాప్‌ను మీ ఇష్టమైన భాషలోకి అనువదించడంలో సహాయపడండి.</string>
-
     <string name="translators_thanks_title">అనువాదకులు</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">చివరిగా తెలిసిన పరికర స్థితిని చూపే విడ్జెట్.</string>
     <string name="settings_compat_indirectcallback_title">పరోక్ష డేటా డెలివరీ</string>
     <string name="settings_compat_indirectcallback_summary">సిస్టమ్ నుండి BLE డేటాను స్వీకరించడానికి ప్రత్యామ్నాయ పద్ధతిని ఉపయోగించండి (కాల్‌బ్యాక్‌కు బదులుగా ప్రసారం).</string>
-
     <string name="troubleshooter_title">ట్రబుల్షూటర్</string>
     <string name="troubleshooter_ble_intro_title">బ్లూటూత్ తక్కువ శక్తి ప్రసారాలు</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (మరియు ఇలాంటి హెడ్‌ఫోన్‌లు) \"ప్రకటనలు\" అని పిలువబడే BLE సాంకేతికతను ఉపయోగించి స్థితి సమాచారాన్ని ప్రసారం చేస్తాయి. కొన్ని ఫోన్‌లు ఈ సాంకేతికతను సరిగ్గా అమలు చేయవు. డేటా స్వీకరించబడే వరకు వివిధ అనుకూలత ఎంపికలను ప్రయత్నించడం ద్వారా CAPod దీన్ని పరిష్కరించడానికి ప్రయత్నించవచ్చు. మీ హెడ్‌ఫోన్‌లలో సంగీత ప్లేబ్యాక్‌ను ప్రారంభించి, వాటిని మీ ఫోన్‌కు దగ్గరగా ఉంచి, ఆపై ప్రక్రియను ప్రారంభించండి.</string>
@@ -140,10 +107,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">మీ ఫోన్ BLE డేటాను స్వీకరించింది, కానీ డేటా ఏ మద్దతు ఉన్న పరికరం నుండి రాలేదు. మీ హెడ్‌ఫోన్‌లు ఆన్ చేయబడి ఉన్నాయా? CAPod మీ హెడ్‌ఫోన్‌కు మద్దతు ఇస్తుందా?</string>
     <string name="troubleshooter_ble_result_failure_action">మళ్ళీ ప్రయత్నించు</string>
     <string name="troubleshoot_action">ట్రబుల్షూట్</string>
-
     <string name="onboarding_body1">ఈ యాప్ Androidకి AirPod నిర్దిష్ట ఫీచర్‌లకు మద్దతును జోడిస్తుంది.</string>
     <string name="onboarding_body2">అన్ని Android పరికరాలు AirPod అదనపు ఫీచర్‌లకు పూర్తిగా మద్దతు ఇవ్వవు. మీ ఆపరేటింగ్ సిస్టమ్‌కు సరిగ్గా పనిచేసే బ్లూటూత్-తక్కువ-శక్తి అమలు అవసరం.</string>
     <string name="onboarding_body3">CAPodలో ప్రకటనలు లేవు మరియు మీ డేటాను సేకరించదు.</string>
     <string name="onboarding_body4">అదనపు ఫీచర్లను పొందడానికి మరియు అభివృద్ధికి మద్దతు ఇవ్వడానికి మీరు CAPod Proకి అప్‌గ్రేడ్ చేయవచ్చు.</string>
-
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

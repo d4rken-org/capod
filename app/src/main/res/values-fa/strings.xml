@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">آیا اسکنر داده بلوتوث کم‌مصرف باید عملکرد را در اولویت قرار دهد یا انرژی را ذخیره کند؟</string>
     <string name="settings_autopause_label">مکث خودکار</string>
     <string name="settings_autopause_description">هنگام برداشتن دستگاه از گوش، صدا را متوقف کنید.</string>
-    <string name="settings_showall_label">نمایش همه دستگاه‌ها</string>
-    <string name="settings_showall_description">دستگاه‌های افراد دیگر را که در نزدیکی شما هستند نشان دهید.</string>
     <string name="settings_autopplay_label">پخش خودکار</string>
     <string name="settings_autoplay_description">هنگام استفاده از دستگاه، پخش صدا را شروع کنید.</string>
     <string name="settings_fake_data_label">داده‌های جعلی</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">فیلتر کردن داده‌ها را به سیستم واگذار نکنید، در عوض همه داده‌ها را دریافت کرده و در داخل برنامه فیلتر کنید.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">غیرفعال کردن دسته‌بندی سخت‌افزاری</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">اجازه ندهید سیستم داده‌های BLE جمع‌آوری‌شده را قبل از ارسال به ما، گروه‌بندی کند.</string>
-    <string name="settings_maindevice_address_label">آدرس دستگاه شما</string>
-    <string name="settings_maindevice_address_description">آدرس دستگاه جفت‌شده شما. برنامه از این برای تعیین زمان اتصال به تلفن شما استفاده می‌کند.</string>
-    <string name="settings_maindevice_address_none">هیچ‌کدام</string>
-    <string name="settings_maindevice_model_label">مدل دستگاه شما</string>
-    <string name="settings_maindevice_model_description">مدل دستگاه اصلی شما. این به برنامه کمک می‌کند دستگاه شما را هنگامی که به تلفن شما متصل نیست، تشخیص دهد.</string>
-    <string name="settings_maindevice_identitykey_label">کلید شناسایی</string>
-    <string name="settings_maindevice_identitykey_description">کلید حل هویت دستگاه شما (IRK)، که به CAPod کمک می‌کند آن را در میان دستگاه‌های اطراف شناسایی کند.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods برای حفظ حریم خصوصی، آدرس بلوتوث خود را مرتباً تغییر می‌دهند. IRK به CAPod کمک می‌کند دستگاه شما را تشخیص دهد. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
-    <string name="settings_maindevice_encryptionkey_label">کلید رمزگذاری</string>
-    <string name="settings_maindevice_encryptionkey_description">کلید رمزگذاری دستگاه شما، که به CAPod امکان بازیابی اطلاعات دقیق وضعیت را می‌دهد.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods یک پیام وضعیت ارسال می‌کنند که بخشی از آن رمزگذاری شده است. کلید رمزگذاری به CAPod امکان می‌دهد پیام کامل را رمزگشایی کند. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
     <string name="settings_onepod_mode_label">حالت یک ایرپاد</string>
     <string name="settings_onepod_mode_description">استفاده از هر دو ایرپاد الزامی نیست، استفاده از یک ایرپاد برای ایجاد واکنش کافی است.</string>
     <string name="settings_popup_caseopen_label">نمایش پاپ‌آپ کیس</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">همه دستگاه‌های Android به‌طور کامل از ویژگی‌های اضافی AirPod پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی بلوتوث کم‌مصرف که به‌درستی کار کند نیاز دارد.</string>
     <string name="onboarding_body3">CAPod هیچ تبلیغی ندارد و داده‌های شما را جمع‌آوری نمی‌کند.</string>
     <string name="onboarding_body4">می‌توانید برای دریافت ویژگی‌های اضافی و حمایت از توسعه، به CAPod Pro ارتقا دهید.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

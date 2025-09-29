@@ -3,7 +3,7 @@
     <string name="upgrades_gplay_unavailable_error">Služby Google Play nejsou k dispozici.</string>
     <string name="upgrades_no_purchases_found_check_account">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
     <string name="upgrades_gplay_billing_error_label">Chyba Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">V Google Play došlo k chybě. Zkuste to prosím později nebo restartujte telefon.\n\nChyba: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Chyba fakturace Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Při žádosti o podrobnosti nákupu od Google Play došlo k chybě. Vymažte mezipaměť Google Play a restartujte telefon.\n\nChyba %s</string>
+    <string name="upgrades_gplay_billing_error_description">V Google Play došlo k chybě. Zkuste to prosím znovu později nebo restartujte telefon.\n\nChyba: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Chyba fakturacie Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Při dotazování Google Play na podrobnosti o nákupu došlo k chybě. Smažte mezipaměť Google Play a restartujte telefon.\n\nChyba %s</string>
 </resources>

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">L’analyseur des données « basse énergie » de Bluetooth devrait-il prioriser les performances ou préserver l’énergie ?</string>
     <string name="settings_autopause_label">Pause automatique</string>
     <string name="settings_autopause_description">Mettre le son en pause si vous ôtez l’appareil de votre oreille.</string>
-    <string name="settings_showall_label">Afficher tous les appareils</string>
-    <string name="settings_showall_description">Afficher les appareils d’autres personnes à proximité.</string>
     <string name="settings_autopplay_label">Lecture automatique</string>
     <string name="settings_autoplay_description">Démarrer la lecture du son quand l’appareil est porté.</string>
     <string name="settings_fake_data_label">Fausses données</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ne pas déléguer pas le filtrage des données au système, gardez plutôt toutes les données et filtres dans l\'appli.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Désactiver le groupage du matériel</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Avant de nous les transmettre, ne pas laisser le système regrouper les données BÉB recueillies.</string>
-    <string name="settings_maindevice_address_label">L’adresse de votre appareil</string>
-    <string name="settings_maindevice_address_description">L’adresse de votre appareil jumelé. L’appli l’utilise pour déterminer s’il est connecté à votre téléphone.</string>
-    <string name="settings_maindevice_address_none">Aucune</string>
-    <string name="settings_maindevice_model_label">Le modèle de votre appareil</string>
-    <string name="settings_maindevice_model_description">Le modèle de votre appareil principal. Facilite la reconnaissance de votre appareil par l’appli s’il n’est pas connecté à votre téléphone.</string>
-    <string name="settings_maindevice_identitykey_label">Clé d’identité</string>
-    <string name="settings_maindevice_identitykey_description">La clé de résolution d\'identité de votre appareil (CRI/IRK), qui aide CAPod à l\'identifier parmi les appareils proches.</string>
-    <string name="settings_maindevice_identitykey_explanation">Les AirPods changent fréquemment d’adresse Bluetooth pour des raisons de confidentialité. La CRI aide CAPod à reconnaître votre appareil. Un accès ponctuel à un MacBook est nécessaire.</string>
-    <string name="settings_maindevice_encryptionkey_label">Clé de chiffrement</string>
-    <string name="settings_maindevice_encryptionkey_description">La clé de chiffrement de votre appareil, qui permet à CAPod de récupérer des renseignements détaillés sur l’état de l’appareil.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Les AirPods envoient un message d’état, dont une partie est chiffrée. La clé de chiffrement permet à CAPod de déchiffrer l’intégralité du message. Un accès ponctuel à un MacBook est nécessaire.</string>
     <string name="settings_onepod_mode_label">Mode à un seul AirPod</string>
     <string name="settings_onepod_mode_description">Il n’est pas nécessaire de porter deux AirPods, en porter un seul suffit à déclencher les réactions.</string>
     <string name="settings_popup_caseopen_label">Afficher une fenêtre pour l’étui</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">Tous les appareils Android ne prennent pas en charge les fonctions supplémentaires des AirPods. Votre système d’exploitation a besoin d’une mise en œuvre fonctionnelle du système à basse énergie Bluetooth.</string>
     <string name="onboarding_body3">CAPod ne présente aucune publicité et ne recueille pas vos données.</string>
     <string name="onboarding_body4">Vous pouvez passer à CAPod Pro pour obtenir des fonctions supplémentaires et soutenir le développement.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

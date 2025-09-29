@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Služby Google Play nie sú k dispozícii.</string>
     <string name="upgrades_no_purchases_found_check_account">Nenašli sa žiadne nákupy. Používate správny účet?</string>
-    <string name="upgrades_gplay_billing_error_label">Chyba Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">V Google Play sa vyskytla chyba. Skúste to neskôr alebo reštartujte telefón.\n\nChyba: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Chyba fakturácie Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Pri vyžiadaní podrobností o vašom nákupe z Google Play sa vyskytla chyba. Vymažte vyrovnávaciu pamäť Google Play a reštartujte telefón.\n\nChyba %s</string>
 </resources>

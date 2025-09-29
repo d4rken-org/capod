@@ -1,6 +1,5 @@
 package eu.darken.capod.main.ui.overview.cards.pods
 
-import android.graphics.Typeface
 import android.view.ViewGroup
 import eu.darken.capod.R
 import eu.darken.capod.common.lists.binding
@@ -24,16 +23,14 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         val device = item.device
         name.apply {
             text = device.getLabel(context)
-            if (item.isMainPod) setTypeface(null, Typeface.BOLD)
-            else setTypeface(null, Typeface.NORMAL)
         }
 
         lastSeen.text = device.lastSeenFormatted(item.now)
         reception.text = item.getReceptionText()
 
         details.text = when (item.device) {
-            is ApplePods -> getString(eu.darken.capod.common.R.string.pods_unknown_contact_dev)
-            else -> getString(eu.darken.capod.common.R.string.pods_unknown_label)
+            is ApplePods -> getString(R.string.pods_unknown_contact_dev)
+            else -> getString(R.string.pods_unknown_label)
         }
 
         rawdata.text = device.rawDataHex.joinToString("\n")
@@ -43,6 +40,5 @@ class UnknownPodDeviceCardVH(parent: ViewGroup) :
         override val now: Instant,
         override val device: PodDevice,
         override val showDebug: Boolean = false,
-        override val isMainPod: Boolean = false,
     ) : PodDeviceVH.Item
 }

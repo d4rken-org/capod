@@ -8,7 +8,6 @@ import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -25,7 +24,10 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
+import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction
@@ -61,6 +63,7 @@ class MonitorWorker @AssistedInject constructor(
     private val autoConnect: AutoConnect,
     private val popUpReaction: PopUpReaction,
     private val popUpWindow: PopUpWindow,
+    private val profilesRepo: DeviceProfilesRepo,
 ) : CoroutineWorker(context, params) {
 
     private val workerScope = MonitorCoroutineScope()
@@ -114,7 +117,7 @@ class MonitorWorker @AssistedInject constructor(
 
         setForeground(notifications.getForegroundInfo(null))
 
-        val monitorJob = podMonitor.mainDevice
+        val monitorJob = podMonitor.primaryDevice()
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
             .distinctUntilChanged()
             .throttleLatest(1000)
@@ -144,22 +147,29 @@ class MonitorWorker @AssistedInject constructor(
                 } else {
                     combine(
                         generalSettings.monitorMode.flow,
-                        generalSettings.mainDeviceAddress.flow,
+                        profilesRepo.profiles,
                         bluetoothManager.connectedDevices(),
-                    ) { monitorMode, mainAddress, connectedDevices ->
-                        listOf(monitorMode, mainAddress, connectedDevices)
+                    ) { monitorMode, profiles, connectedDevices ->
+                        listOf(monitorMode, profiles, connectedDevices)
                     }
                 }
             }
             .setupCommonEventHandlers(TAG) { "MonitorMode" }
             .flatMapLatest { arguments ->
                 val monitorMode = arguments[0] as MonitorMode
-                val mainAddress = arguments[1] as BluetoothAddress?
 
+                @Suppress("UNCHECKED_CAST")
+                val profiles = arguments[1] as List<DeviceProfile>
                 @Suppress("UNCHECKED_CAST")
                 val devices = arguments[2] as Collection<BluetoothDevice2>
 
+
+                val connectedAddresses = devices.map { it.address }.toSet()
+                val knownAddresses = profiles.mapNotNull { it.address }.toSet()
                 log(TAG) { "Monitor mode: $monitorMode" }
+                log(TAG) { "connectedAddresses: $connectedAddresses" }
+                log(TAG) { "knownAddresses: $knownAddresses" }
+
                 when (monitorMode) {
                     MonitorMode.MANUAL -> flow<Unit> {
                         // Cancel worker, ui scans manually
@@ -169,12 +179,12 @@ class MonitorWorker @AssistedInject constructor(
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
                         when {
-                            mainAddress == null && devices.isNotEmpty() -> {
+                            profiles.isEmpty() && devices.isNotEmpty() -> {
                                 log(TAG, WARN) { "Main device address not set, staying alive while any is connected" }
                             }
 
-                            devices.any { it.address == mainAddress } -> {
-                                log(TAG) { "Main device is connected ($mainAddress), aborting any timeout." }
+                            knownAddresses.any { it in connectedAddresses } -> {
+                                log(TAG) { "A device is connected, aborting any timeout." }
                             }
 
                             else -> {

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">क्या ब्लूटूथ लो एनर्जी डेटा स्कैनर को प्रदर्शन को प्राथमिकता देनी चाहिए या ऊर्जा बचानी चाहिए?</string>
     <string name="settings_autopause_label">ऑटो-पॉज़</string>
     <string name="settings_autopause_description">डिवाइस को अपने कान से हटाने पर ऑडियो रोकें।</string>
-    <string name="settings_showall_label">सभी डिवाइस दिखाएं</string>
-    <string name="settings_showall_description">आपके आस-पास के अन्य लोगों के डिवाइस दिखाएं।</string>
     <string name="settings_autopplay_label">ऑटो-प्ले</string>
     <string name="settings_autoplay_description">डिवाइस पहनने पर ऑडियो प्लेबैक शुरू करें।</string>
     <string name="settings_fake_data_label">नकली डेटा</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">सिस्टम को डेटा फ़िल्टरिंग न सौंपें, इसके बजाय सभी डेटा प्राप्त करें और ऐप के भीतर फ़िल्टर करें।</string>
     <string name="settings_compat_offloaded_batching_disabled_title">हार्डवेयर बैचिंग अक्षम करें</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">सिस्टम को एकत्रित BLE डेटा को हमें अग्रेषित करने से पहले समूहित न करने दें।</string>
-    <string name="settings_maindevice_address_label">आपके डिवाइस का पता</string>
-    <string name="settings_maindevice_address_description">आपके युग्मित डिवाइस का पता। ऐप इसका उपयोग यह निर्धारित करने के लिए करता है कि यह आपके फ़ोन से कब कनेक्ट है।</string>
-    <string name="settings_maindevice_address_none">कोई नहीं</string>
-    <string name="settings_maindevice_model_label">आपके डिवाइस का मॉडल</string>
-    <string name="settings_maindevice_model_description">आपके मुख्य डिवाइस का मॉडल। यह ऐप को आपके डिवाइस को पहचानने में मदद करता है जब यह आपके फ़ोन से कनेक्ट नहीं होता है।</string>
-    <string name="settings_maindevice_identitykey_label">पहचान कुंजी</string>
-    <string name="settings_maindevice_identitykey_description">आपके डिवाइस की पहचान समाधान कुंजी (IRK), जो CAPod को आस-पास के डिवाइसों के बीच इसे पहचानने में मदद करती है।</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods गोपनीयता के लिए अक्सर अपना ब्लूटूथ पता बदलते हैं। IRK CAPod को आपके डिवाइस को पहचानने में मदद करता है। आपको MacBook तक एकमुश्त पहुंच की आवश्यकता है।</string>
-    <string name="settings_maindevice_encryptionkey_label">एन्क्रिप्शन कुंजी</string>
-    <string name="settings_maindevice_encryptionkey_description">आपके डिवाइस की एन्क्रिप्शन कुंजी, जो CAPod को विस्तृत स्थिति जानकारी पुनर्प्राप्त करने की अनुमति देती है।</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods एक स्थिति संदेश भेजते हैं, जिसका एक हिस्सा एन्क्रिप्ट किया गया है। एन्क्रिप्शन कुंजी CAPod को पूरा संदेश डिक्रिप्ट करने की अनुमति देती है। आपको MacBook तक एकमुश्त पहुंच की आवश्यकता है।</string>
     <string name="settings_onepod_mode_label">एक पॉड मोड</string>
     <string name="settings_onepod_mode_description">दोनों पॉड्स पहनना आवश्यक नहीं है, प्रतिक्रियाओं को ट्रिगर करने के लिए एक ही पॉड पहनना पर्याप्त है।</string>
     <string name="settings_popup_caseopen_label">केस पॉपअप दिखाएं</string>
@@ -125,4 +112,7 @@
     <string name="onboarding_body2">सभी एंड्रॉइड डिवाइस अतिरिक्त एयरपॉड सुविधाओं का पूरी तरह से समर्थन नहीं करते हैं। आपके ऑपरेटिंग सिस्टम को सही ढंग से काम करने वाले ब्लूटूथ-लो-एनर्जी कार्यान्वयन की आवश्यकता है।</string>
     <string name="onboarding_body3">CAPod में कोई विज्ञापन नहीं है और यह आपका डेटा एकत्र नहीं करता है।</string>
     <string name="onboarding_body4">अतिरिक्त सुविधाएँ प्राप्त करने और विकास का समर्थन करने के लिए आप CAPod Pro में अपग्रेड कर सकते हैं।</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

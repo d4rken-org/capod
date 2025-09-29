@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">សេវាកម្ម Google Play មិនអាចប្រើបានទេ</string>
     <string name="upgrades_no_purchases_found_check_account">រកមិនឃើញការទិញទេ។ តើអ្នកកំពុងប្រើគណនីត្រឹមត្រូវទេ?</string>
-    <string name="upgrades_gplay_billing_error_label">កំហុស Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">មានកំហុសនៅក្នុង Google Play។ សូមព្យាយាមម្តងទៀតពេលក្រោយ ឬចាប់ផ្តើមទូរស័ព្ទរបស់អ្នកឡើងវិញ។\n\nកំហុស: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">កំហុសការគិតថ្លៃ Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">មានកំហុសនៅពេលសួរ Google Play អំពីព័ត៌មានលម្អិតនៃការទិញរបស់អ្នក។ សម្អាតឯកសារ គាំងស្ទុះ Google Play ហើយចាប់ផ្តើមទូរស័ព្ទរបស់អ្នកឡើងវិញ។\n\nកំហុស %s</string>
 </resources>

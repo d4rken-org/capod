@@ -14,6 +14,9 @@
             android:id="@+id/action_overviewFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
         <action
+            android:id="@+id/action_overviewFragment_to_deviceManagerFragment"
+            app:destination="@id/deviceManagerFragment" />
+        <action
             android:id="@+id/action_overviewFragment_to_troubleShooterFragment"
             app:destination="@id/troubleShooterFragment" />
         <action
@@ -27,7 +30,37 @@
         android:id="@+id/settingsFragment"
         android:name="eu.darken.capod.main.ui.settings.SettingsFragment"
         android:label="SettingsFragment"
-        tools:layout="@layout/settings_fragment" />
+        tools:layout="@layout/settings_fragment">
+        <action
+            android:id="@+id/action_settingsFragment_to_troubleShooterFragment"
+            app:destination="@id/troubleShooterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceManagerFragment"
+        android:name="eu.darken.capod.profiles.ui.DeviceManagerFragment"
+        android:label="DeviceManagerFragment"
+        tools:layout="@layout/device_manager_fragment">
+        <action
+            android:id="@+id/action_deviceManagerFragment_to_deviceProfileCreationFragment"
+            app:destination="@id/deviceProfileCreationFragment">
+            <argument
+                android:name="profileId"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/deviceProfileCreationFragment"
+        android:name="eu.darken.capod.profiles.ui.creation.DeviceProfileCreationFragment"
+        android:label="DeviceProfileCreationFragment"
+        tools:layout="@layout/device_profile_creation_fragment">
+        <argument
+            android:name="profileId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
     <fragment
         android:id="@+id/troubleShooterFragment"
         android:name="eu.darken.capod.troubleshooter.ui.TroubleShooterFragment"
@@ -42,5 +75,9 @@
             app:popUpToInclusive="true"
             app:popUpTo="@id/onboardingFragment" />
     </fragment>
+
+    <action
+        android:id="@+id/action_global_deviceManagerFragment"
+        app:destination="@id/deviceManagerFragment" />
 
 </navigation>

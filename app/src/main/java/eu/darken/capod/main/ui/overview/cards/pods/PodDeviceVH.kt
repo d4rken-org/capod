@@ -18,7 +18,6 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
 
     fun Item.getReceptionText(): String = device.getSignalQuality(context)
         .let { if (showDebug) "$it ${device.seenCounter}" else it }
-        .let { if (isMainPod) "$it\n(${getString(eu.darken.capod.common.R.string.pods_yours)})" else it }
 
     interface Item : OverviewAdapter.Item {
 
@@ -27,8 +26,6 @@ abstract class PodDeviceVH<D : PodDeviceVH.Item, B : ViewBinding>(
         val device: PodDevice
 
         val showDebug: Boolean
-
-        val isMainPod: Boolean
 
         override val stableId: Long get() = device.identifier.hashCode().toLong()
 

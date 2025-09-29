@@ -11,12 +11,9 @@
     <string name="general_save_action">Gem</string>
     <string name="general_guide_action">Vejledning</string>
     <string name="general_continue_action">Fortsæt</string>
-
     <string name="general_example_label">F.eks.: %s</string>
-
     <string name="upgrade_capod_label">Opgrader CAPod</string>
     <string name="upgrade_capod_description">Få yderligere funktioner og støt udvikleren.</string>
-
     <string name="settings_monitor_mode_label">Overvågningstilstand</string>
     <string name="settings_monitor_mode_description">Under hvilke omstændigheder denne app overvåger Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra notifikation</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy-datascanneren prioritere ydeevne eller spare på energien?</string>
     <string name="settings_autopause_label">Auto-pause</string>
     <string name="settings_autopause_description">Sæt lyd på pause, når du fjerner enheden fra dit øre.</string>
-    <string name="settings_showall_label">Vis alle enheder</string>
-    <string name="settings_showall_description">Vis andre personers enheder, der er i nærheden af dig.</string>
     <string name="settings_autopplay_label">Auto-afspilning</string>
     <string name="settings_autoplay_description">Start lydafspilning, når enheden bæres.</string>
     <string name="settings_fake_data_label">Falske data</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">Reaktioner</string>
     <string name="settings_reaction_description">Reager på begivenheder og adfærd.</string>
     <string name="settings_category_yourdevice_label">Din enhed</string>
-
     <string name="settings_category_compatibility_options_title">Kompatibilitetsindstillinger</string>
     <string name="settings_category_compatibility_options_description">Rør ikke, hvis alt virker ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Deaktiver hardwarefiltrering</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Overlad ikke datafiltrering til systemet, men hent i stedet alle data og filtrer i appen.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Deaktiver hardware-batching</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Lad ikke systemet gruppere indsamlede BLE-data, før de videresendes til os.</string>
-
-    <string name="settings_maindevice_address_label">Din enheds adresse</string>
-    <string name="settings_maindevice_address_description">Adressen på din parrede enhed. Appen bruger dette til at bestemme, hvornår den er tilsluttet din telefon.</string>
-    <string name="settings_maindevice_address_none">Ingen</string>
-    <string name="settings_maindevice_model_label">Din enhedsmodel</string>
-    <string name="settings_maindevice_model_description">Modellen af din hovedenhed. Dette hjælper appen med at genkende din enhed, når den ikke er tilsluttet din telefon.</string>
-    <string name="settings_maindevice_identitykey_label">Identitetsnøgle</string>
-    <string name="settings_maindevice_identitykey_description">Din enheds identitetsopløsningsnøgle (IRK), som hjælper CAPod med at identificere den blandt nærliggende enheder.</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods ændrer ofte deres Bluetooth-adresse af hensyn til privatlivets fred. IRK\'en hjælper CAPod med at genkende din enhed. Du skal have engangsadgang til en MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Krypteringsnøgle</string>
-    <string name="settings_maindevice_encryptionkey_description">Din enheds krypteringsnøgle, som giver CAPod mulighed for at hente detaljerede statusoplysninger.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods sender en statusmeddelelse, hvoraf en del er krypteret. Krypteringsnøglen giver CAPod mulighed for at dekryptere hele meddelelsen. Du skal have engangsadgang til en MacBook.</string>
-
     <string name="settings_onepod_mode_label">Enkelt pod-tilstand</string>
     <string name="settings_onepod_mode_description">Det er ikke påkrævet at bære begge pods, at bære en enkelt pod er tilstrækkeligt til at udløse reaktioner.</string>
     <string name="settings_popup_caseopen_label">Vis etui-pop op</string>
     <string name="settings_popup_caseopen_description">Vis en pop op, når enhedens etui åbnes (eksperimentelt).</string>
     <string name="settings_popup_connected_label">Vis forbindelses-pop op</string>
     <string name="settings_popup_connected_description">Vis en pop op, når enheden tilsluttes for første gang.</string>
-
     <string name="notification_channel_device_status_label">Enhedsstatus</string>
     <string name="notification_channel_device_status_connected_label">Tilsluttet enhed</string>
-
     <string name="support_debuglog_label">Fejlfindingslog</string>
     <string name="support_debuglog_desc">Optag alt, hvad appen gør, i en tekstfil, som du kan dele.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
@@ -83,18 +62,12 @@
     <string name="debug_debuglog_stop_action">Stop optagelse</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererede fil indeholder følsomme oplysninger (f.eks. Bluetooth-enhedsdetaljer). Del den kun med betroede parter.</string>
     <string name="settings_debuglog_explanation">Denne funktion optager alt, hvad appen gør, i en delbar fil. Den genererede fil indeholder følsomme oplysninger (f.eks. Bluetooth-enhedsdetaljer). Del den kun med betroede parter (f.eks. en udvikler, der fejlfinder et problem).</string>
-
     <string name="settings_support_installid_label">Installations-ID</string>
     <string name="settings_support_installid_desc">Automatiske fejlrapporter er anonyme. Del dit installations-ID, hvis udvikleren har brug for at finde dine fejlrapporter.</string>
-    <string name="settings_support_label">Support</string>
     <string name="settings_support_description">Hvis du har brug for hjælp.</string>
-
     <string name="issue_tracker_label">Problemsporing</string>
     <string name="issue_tracker_description">En offentlig problemsporing for fejlrapporter og funktionsanmodninger (kun engelsk).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted at hænge ud og stille spørgsmål.</string>
-
     <string name="changelog_label">Ændringslog</string>
     <string name="settings_label">Indstillinger</string>
     <string name="settings_privacy_policy_label">Privatlivspolitik</string>
@@ -104,28 +77,20 @@
     <string name="settings_general_label">Indstillinger</string>
     <string name="settings_general_description">Generelle justeringer, der påvirker hele appen.</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
-
     <string name="settings_debug_autoreports_label">Automatiske fejlrapporter</string>
     <string name="settings_debug_autoreports_description">Rapporterer automatisk problemer, f.eks. detaljer om et app-nedbrud, så jeg kan finde ud af, hvordan jeg løser det.</string>
     <string name="settings_debug_mode_label">Fejlfindingstilstand</string>
     <string name="settings_debug_mode_description">Vis yderligere oplysninger for at fejlfinde problemer.</string>
-
     <string name="settings_blescanner_unfiltered_label">Ufiltrerede BLE-data</string>
     <string name="settings_blescanner_unfiltered_description">Fjern alle filtre fra BLE-scanneren for at vise alle udsendte BLE-data. Nyttigt til at tilføje understøttelse af nye hovedtelefontyper.</string>
-
     <string name="settings_compatibility_mode_label">Kompatibilitetstilstand</string>
     <string name="settings_compatibility_mode_description">Deaktiver optimeringer for at forbedre kompatibiliteten. Prøv dette, hvis du ikke ser nogen data.</string>
-
     <string name="help_translate_label">Oversættelse</string>
     <string name="help_translate_description">Hjælp med at oversætte denne app til dit yndlingssprog.</string>
-
     <string name="translators_thanks_title">Oversættere</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">En widget, der viser den sidst kendte enhedsstatus.</string>
     <string name="settings_compat_indirectcallback_title">Indirekte datalevering</string>
     <string name="settings_compat_indirectcallback_summary">Brug en alternativ metode til at modtage BLE-data fra systemet (udsendelse i stedet for tilbagekald).</string>
-
     <string name="troubleshooter_title">Fejlfinder</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-udsendelser</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hovedtelefoner) udsender statusoplysninger ved hjælp af en BLE-teknologi kaldet \"annoncer\". Nogle telefoner implementerer ikke denne teknologi korrekt. CAPod kan forsøge at løse dette ved at prøve forskellige kompatibilitetsindstillinger, indtil data modtages. Start musikafspilning på dine hovedtelefoner og placer dem tæt på din telefon, start derefter processen.</string>
@@ -140,11 +105,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Din telefon modtog BLE-data, men dataene kommer ikke fra nogen understøttet enhed. Er dine hovedtelefoner tændt? Understøtter CAPod dine hovedtelefoner?</string>
     <string name="troubleshooter_ble_result_failure_action">Prøv igen</string>
     <string name="troubleshoot_action">Fejlfind</string>
-
-
     <string name="onboarding_body1">Denne app tilføjer understøttelse af AirPod-specifikke funktioner til Android.</string>
     <string name="onboarding_body2">Ikke alle Android-enheder understøtter fuldt ud de ekstra AirPod-funktioner. Dit operativsystem kræver en korrekt fungerende Bluetooth Low Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har ingen annoncer og indsamler ikke dine data.</string>
     <string name="onboarding_body4">Du kan opgradere til CAPod Pro for at få ekstra funktioner og støtte udviklingen.</string>
-
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

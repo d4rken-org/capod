@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">کیا بلوٹوتھ لو انرجی ڈیٹا اسکینر کو کارکردگی کو ترجیح دینی چاہئے یا توانائی بچانی چاہئے؟</string>
     <string name="settings_autopause_label">خودکار توقف</string>
     <string name="settings_autopause_description">آلہ کو کان سے ہٹاتے وقت آڈیو کو روکیں۔</string>
-    <string name="settings_showall_label">تمام آلات دکھائیں</string>
-    <string name="settings_showall_description">اپنے قریب موجود دوسرے لوگوں کے آلات دکھائیں۔</string>
     <string name="settings_autopplay_label">خودکار پلے</string>
     <string name="settings_autoplay_description">آلہ پہنا ہونے پر آڈیو پلے بیک شروع کریں۔</string>
     <string name="settings_fake_data_label">جعلی ڈیٹا</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">ڈیٹا فلٹرنگ کو سسٹم کے حوالے نہ کریں، اس کے بجائے تمام ڈیٹا حاصل کریں اور ایپ کے اندر فلٹر کریں۔</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ہارڈ ویئر بیچنگ کو غیر فعال کریں</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">سسٹم کو جمع کردہ BLE ڈیٹا کو ہمیں بھیجنے سے پہلے گروپ کرنے نہ دیں۔</string>
-    <string name="settings_maindevice_address_label">آپ کے آلہ کا پتہ</string>
-    <string name="settings_maindevice_address_description">آپ کے جوڑا بنائے گئے آلہ کا پتہ۔ ایپ اس کا استعمال یہ تعین کرنے کے لئے کرتی ہے کہ یہ آپ کے فون سے کب منسلک ہے۔</string>
-    <string name="settings_maindevice_address_none">کوئی نہیں</string>
-    <string name="settings_maindevice_model_label">آپ کے آلہ کا ماڈل</string>
-    <string name="settings_maindevice_model_description">آپ کے مرکزی آلہ کا ماڈل۔ یہ ایپ کو آپ کے آلہ کو پہچاننے میں مدد کرتا ہے جب یہ آپ کے فون سے منسلک نہ ہو۔</string>
-    <string name="settings_maindevice_identitykey_label">شناختی کلید</string>
-    <string name="settings_maindevice_identitykey_description">آپ کے آلہ کی شناختی حل کرنے والی کلید (IRK)، جو CAPod کو قریبی آلات میں اسے شناخت کرنے میں مدد کرتی ہے۔</string>
-    <string name="settings_maindevice_identitykey_explanation">AirPods رازداری کے لئے اکثر اپنا بلوٹوتھ پتہ تبدیل کرتے ہیں۔ IRK CAPod کو آپ کے آلہ کو پہچاننے میں مدد کرتا ہے۔ آپ کو MacBook تک ایک بار رسائی درکار ہے۔</string>
-    <string name="settings_maindevice_encryptionkey_label">خفیہ کاری کلید</string>
-    <string name="settings_maindevice_encryptionkey_description">آپ کے آلہ کی خفیہ کاری کلید، جو CAPod کو تفصیلی حیثیت کی معلومات بازیافت کرنے کی اجازت دیتی ہے۔</string>
-    <string name="settings_maindevice_encryptionkey_explanation">AirPods ایک حیثیت کا پیغام بھیجتے ہیں، جس کا کچھ حصہ خفیہ ہوتا ہے۔ خفیہ کاری کلید CAPod کو مکمل پیغام کو ڈی کرپٹ کرنے کی اجازت دیتی ہے۔ آپ کو MacBook تک ایک بار رسائی درکار ہے۔</string>
     <string name="settings_onepod_mode_label">ایک پوڈ موڈ</string>
     <string name="settings_onepod_mode_description">دونوں پوڈ پہننا ضروری نہیں، ایک ہی پوڈ پہننا رد عمل کو متحرک کرنے کے لئے کافی ہے۔</string>
     <string name="settings_popup_caseopen_label">کیس پاپ اپ دکھائیں</string>
@@ -103,7 +90,6 @@
     <string name="help_translate_label">ترجمہ</string>
     <string name="help_translate_description">اس ایپ کو اپنی پسندیدہ زبان میں ترجمہ کرنے میں مدد کریں۔</string>
     <string name="translators_thanks_title">مترجمین</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ایک ویجیٹ جو آخری معلوم آلہ کی حیثیت دکھاتا ہے۔</string>
     <string name="settings_compat_indirectcallback_title">بالواسطہ ڈیٹا کی فراہمی</string>
     <string name="settings_compat_indirectcallback_summary">سسٹم سے BLE ڈیٹا وصول کرنے کے لئے ایک متبادل طریقہ استعمال کریں (کال بیک کے بجائے براڈکاسٹ)۔</string>
@@ -125,4 +111,7 @@
     <string name="onboarding_body2">تمام اینڈرائیڈ آلات ایئر پوڈ کی اضافی خصوصیات کو مکمل طور پر سپورٹ نہیں کرتے ہیں۔ آپ کے آپریटिंग سسٹم کو صحیح طریقے سے کام کرنے والے بلوٹوتھ-لو-انرجی نفاذ کی ضرورت ہے۔</string>
     <string name="onboarding_body3">CAPod میں کوئی اشتہار نہیں ہے اور یہ آپ کا ڈیٹا جمع نہیں کرتا ہے۔</string>
     <string name="onboarding_body4">آپ اضافی خصوصیات حاصل کرنے اور ترقی کی حمایت کرنے کے لئے CAPod Pro میں اپ گریڈ کر سکتے ہیں۔</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

@@ -8,6 +8,7 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.livedata.SingleLiveEvent
@@ -18,8 +19,10 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
-import eu.darken.capod.main.ui.overview.cards.MissingMainDeviceVH
+import eu.darken.capod.main.ui.overview.cards.MonitoringActiveVH
+import eu.darken.capod.main.ui.overview.cards.NoProfilesVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
+import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.DualPodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.SinglePodsCardVH
 import eu.darken.capod.main.ui.overview.cards.pods.UnknownPodDeviceCardVH
@@ -28,6 +31,7 @@ import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -52,6 +56,7 @@ class OverviewFragmentVM @Inject constructor(
     debugSettings: DebugSettings,
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
+    private val profilesRepo: DeviceProfilesRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     init {
@@ -98,21 +103,15 @@ class OverviewFragmentVM @Inject constructor(
 
     val requestPermissionEvent = SingleLiveEvent<Permission>()
 
+    private var showUnmatchedDevices = false
+
     private val pods: Flow<List<PodDevice>> = permissionTool.missingPermissions
         .flatMapLatest { permissions ->
             if (permissions.isNotEmpty()) {
                 return@flatMapLatest flowOf(emptyList())
             }
 
-            generalSettings.showAll.flow.flatMapLatest { showAll ->
-                if (showAll) {
-                    podMonitor.devices
-                } else {
-                    podMonitor.mainDevice.map { mainDevice ->
-                        mainDevice?.let { listOf(it) } ?: emptyList()
-                    }
-                }
-            }
+            podMonitor.devices
         }
         .catch { errorEvents.postValue(it) }
         .throttleLatest(1000)
@@ -122,10 +121,9 @@ class OverviewFragmentVM @Inject constructor(
         permissionTool.missingPermissions,
         pods,
         debugSettings.isDebugModeEnabled.flow,
-        generalSettings.showAll.flow,
         bluetoothManager.isBluetoothEnabled,
-        podMonitor.mainDevice,
-    ) { _, permissions, pods, isDebugMode, showAll, isBluetoothEnabled, mainPod ->
+        profilesRepo.profiles,
+    ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles ->
         val items = mutableListOf<OverviewAdapter.Item>()
 
         permissions
@@ -140,40 +138,83 @@ class OverviewFragmentVM @Inject constructor(
         if (permissions.isEmpty()) {
             if (!isBluetoothEnabled) {
                 items.add(0, BluetoothDisabledVH.Item)
-            } else if (mainPod == null) {
-                items.add(0, MissingMainDeviceVH.Item {
-                    OverviewFragmentDirections.actionOverviewFragmentToTroubleShooterFragment().navigate()
-                })
+            } else if (profiles.isEmpty()) {
+                items.add(
+                    0, NoProfilesVH.Item(
+                        onManageDevices = {
+                            OverviewFragmentDirections.actionOverviewFragmentToDeviceManagerFragment().navigate()
+                        }
+                    ))
             }
         }
 
         if (permissions.isEmpty() && isBluetoothEnabled) {
-            pods.map {
-                val now = Instant.now()
-                val isMainPod = it.identifier == mainPod?.identifier
-                when (it) {
+            val now = Instant.now()
+            
+            // Split devices into profiled and unmatched
+            val profiledDevices = devices.filter { it.meta.profile != null }
+            val unmatchedDevices = devices.filter { it.meta.profile == null }
+            
+            // Add profiled devices first
+            profiledDevices.map { device ->
+                when (device) {
                     is DualPodDevice -> DualPodsCardVH.Item(
                         now = now,
-                        device = it,
+                        device = device,
                         showDebug = isDebugMode,
-                        isMainPod = isMainPod,
                     )
 
                     is SinglePodDevice -> SinglePodsCardVH.Item(
                         now = now,
-                        device = it,
+                        device = device,
                         showDebug = isDebugMode,
-                        isMainPod = isMainPod,
                     )
 
                     else -> UnknownPodDeviceCardVH.Item(
                         now = now,
-                        device = it,
+                        device = device,
                         showDebug = isDebugMode,
-                        isMainPod = isMainPod,
                     )
                 }
             }.run { items.addAll(this) }
+
+            if (profiles.isNotEmpty() && devices.isEmpty()) {
+                items.add(MonitoringActiveVH.Item)
+            }
+
+            // Add unmatched devices section if any exist
+            if (unmatchedDevices.isNotEmpty()) {
+                items.add(UnmatchedDevicesCardVH.Item(
+                    count = unmatchedDevices.size,
+                    isExpanded = showUnmatchedDevices,
+                    onToggle = { toggleUnmatchedDevices() }
+                ))
+                
+                // Show unmatched devices if expanded
+                if (showUnmatchedDevices) {
+                    unmatchedDevices.map { device ->
+                        when (device) {
+                            is DualPodDevice -> DualPodsCardVH.Item(
+                                now = now,
+                                device = device,
+                                showDebug = isDebugMode,
+                            )
+
+                            is SinglePodDevice -> SinglePodsCardVH.Item(
+                                now = now,
+                                device = device,
+                                showDebug = isDebugMode,
+                            )
+
+                            else -> UnknownPodDeviceCardVH.Item(
+                                now = now,
+                                device = device,
+                                showDebug = isDebugMode,
+                            )
+                        }
+                    }.run { items.addAll(this) }
+                }
+            }
         }
 
         items
@@ -189,6 +230,10 @@ class OverviewFragmentVM @Inject constructor(
         OverviewFragmentDirections.actionOverviewFragmentToSettingsFragment().navigate()
     }
 
+    fun goToDeviceManager() = launch {
+        OverviewFragmentDirections.actionOverviewFragmentToDeviceManagerFragment().navigate()
+    }
+
     fun onUpgrade() = launch {
         val call: (Activity) -> Unit = {
             upgradeRepo.launchBillingFlow(it)
@@ -196,4 +241,11 @@ class OverviewFragmentVM @Inject constructor(
         launchUpgradeFlow.postValue(call)
     }
 
+    private fun toggleUnmatchedDevices() {
+        showUnmatchedDevices = !showUnmatchedDevices
+    }
+
+    companion object {
+        private val TAG = logTag("Overview", "OverviewFragmentVM")
+    }
 }

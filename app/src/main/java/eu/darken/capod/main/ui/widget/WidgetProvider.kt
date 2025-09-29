@@ -186,7 +186,7 @@ class WidgetProvider : AppWidgetProvider() {
 
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
-        setTextViewText(R.id.primary, context.getString(eu.darken.capod.common.R.string.pods_unknown_label))
+        setTextViewText(R.id.primary, context.getString(R.string.pods_unknown_label))
     }
 
     private fun createNoDeviceLayout(
@@ -202,7 +202,7 @@ class WidgetProvider : AppWidgetProvider() {
 
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
-        setTextViewText(R.id.primary, context.getString(eu.darken.capod.common.R.string.overview_nomaindevice_label))
+        setTextViewText(R.id.primary, context.getString(R.string.overview_nomaindevice_label))
     }
 
     private fun createDualPodLayout(

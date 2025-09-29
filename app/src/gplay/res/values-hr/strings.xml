@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Usluge Google Playa nisu dostupne.</string>
     <string name="upgrades_no_purchases_found_check_account">Nisu pronađene kupnje. Koristite li pravi račun?</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play pogreška</string>
-    <string name="upgrades_gplay_billing_error_description">Dogodila se pogreška u Google Playu. Pokušajte ponovno kasnije ili ponovno pokrenite telefon.\n\nPogreška: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play pogreška naplaćivanja</string>
-    <string name="upgrades_gplay_billing_result_error_description">Dogodila se pogreška prilikom traženja detalja vaše kupnje od Google Playa. Očistite predmemoriju Google Playa i ponovno pokrenite telefon.\n\nPogreška %s</string>
 </resources>

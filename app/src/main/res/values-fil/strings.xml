@@ -11,23 +11,14 @@
     <string name="general_save_action">I-save</string>
     <string name="general_guide_action">Gabay</string>
     <string name="general_continue_action">Magpatuloy</string>
-
     <string name="general_example_label">Hal.: %s</string>
-
     <string name="upgrade_capod_label">I-upgrade ang CAPod</string>
     <string name="upgrade_capod_description">Kumuha ng mga karagdagang feature at suportahan ang developer.</string>
-
-    <string name="settings_monitor_mode_label">Monitor mode</string>
     <string name="settings_monitor_mode_description">Sa ilalim ng anong mga pangyayari mino-monitor ng app na ito ang data ng Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Karagdagang notipikasyon</string>
     <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \"Walang mga device\" na notipikasyon sa pamamagitan ng pag-disable sa \"Katayuan ng device\" na channel.</string>
-    <string name="settings_scanner_mode_label">Scanner mode</string>
     <string name="settings_scanner_mode_description">Dapat bang unahin ng Bluetooth Low Energy data scanner ang performance o magtipid ng enerhiya?</string>
-    <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">I-pause ang audio kapag inaalis ang device sa iyong tainga.</string>
-    <string name="settings_showall_label">Ipakita ang lahat ng device</string>
-    <string name="settings_showall_description">Ipakita ang mga device ng ibang tao na malapit sa iyo.</string>
-    <string name="settings_autopplay_label">Auto play</string>
     <string name="settings_autoplay_description">Simulan ang pag-playback ng audio kapag suot ang device.</string>
     <string name="settings_fake_data_label">Pekeng data</string>
     <string name="settings_fake_data_description">Magpakita ng pekeng data, ibig sabihin, gayahin ang mga device na wala.</string>
@@ -35,44 +26,25 @@
     <string name="settings_debug_description">Mga karagdagang setting para makatulong sa pag-troubleshoot ng mga isyu sa app.</string>
     <string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
     <string name="settings_signal_minimum_description">Ang minimum na kalidad ng signal na kailangan ng isang device para maituring na sa iyo.</string>
-    <string name="settings_autoconnect_label">Auto connect</string>
     <string name="settings_autoconnect_description">Kung hindi awtomatikong kumonekta ang Android, maaari rin natin itong hilingin. Itatakda nito ang setting ng monitor mode sa \'Palagi\'.</string>
     <string name="settings_autoconnect_condition_label">Kondisyon ng auto connect</string>
     <string name="settings_autoconnect_condition_description">Kailan tayo dapat sumubok kumonekta sa iyong device?</string>
     <string name="settings_reaction_label">Mga Reaksyon</string>
     <string name="settings_reaction_description">Mag-react sa mga kaganapan at pag-uugali.</string>
     <string name="settings_category_yourdevice_label">Iyong device</string>
-
     <string name="settings_category_compatibility_options_title">Mga opsyon sa compatibility</string>
     <string name="settings_category_compatibility_options_description">Huwag galawin kung gumagana ang lahat ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">I-disable ang hardware filtering</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Huwag ipaubaya ang data filtering sa system, sa halip kunin ang lahat ng data at i-filter sa loob ng app.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">I-disable ang hardware batching</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Huwag hayaang i-grupo ng system ang nakolektang BLE data bago ito ipasa sa amin.</string>
-
-    <string name="settings_maindevice_address_label">Address ng iyong device</string>
-    <string name="settings_maindevice_address_description">Ang address ng iyong naka-pair na device. Ginagamit ito ng app para matukoy kung kailan ito konektado sa iyong telepono.</string>
-    <string name="settings_maindevice_address_none">Wala</string>
-    <string name="settings_maindevice_model_label">Modelo ng iyong device</string>
-    <string name="settings_maindevice_model_description">Ang modelo ng iyong pangunahing device. Nakakatulong ito sa app na makilala ang iyong device kapag hindi ito konektado sa iyong telepono.</string>
-    <string name="settings_maindevice_identitykey_label">Identity Key</string>
-    <string name="settings_maindevice_identitykey_description">Ang Identity Resolving Key (IRK) ng iyong device, na tumutulong sa CAPod na matukoy ito sa mga kalapit na device.</string>
-    <string name="settings_maindevice_identitykey_explanation">Madalas palitan ng AirPods ang kanilang Bluetooth address para sa privacy. Tinutulungan ng IRK ang CAPod na makilala ang iyong device. Kailangan mo ng isang beses na access sa isang MacBook.</string>
-    <string name="settings_maindevice_encryptionkey_label">Encryption Key</string>
-    <string name="settings_maindevice_encryptionkey_description">Ang encryption key ng iyong device, na nagpapahintulot sa CAPod na makuha ang detalyadong impormasyon ng status.</string>
-    <string name="settings_maindevice_encryptionkey_explanation">Nagpapadala ang AirPods ng status message, na bahagi nito ay naka-encrypt. Pinapayagan ng encryption key ang CAPod na i-decrypt ang buong mensahe. Kailangan mo ng isang beses na access sa isang MacBook.</string>
-
-    <string name="settings_onepod_mode_label">One pod mode</string>
     <string name="settings_onepod_mode_description">Hindi kinakailangang suotin ang parehong pods, sapat na ang pagsusuot ng isang pod para mag-trigger ng mga reaksyon.</string>
     <string name="settings_popup_caseopen_label">Ipakita ang case popup</string>
     <string name="settings_popup_caseopen_description">Magpakita ng popup kapag binuksan ang case ng device (experimental).</string>
     <string name="settings_popup_connected_label">Ipakita ang connection popup</string>
     <string name="settings_popup_connected_description">Magpakita ng popup kapag unang kumonekta ang device.</string>
-
     <string name="notification_channel_device_status_label">Katayuan ng device</string>
     <string name="notification_channel_device_status_connected_label">Konektadong device</string>
-
-    <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">I-record ang lahat ng ginagawa ng app sa isang text file na maaari mong ibahagi.</string>
     <string name="debug_debuglog_size_label">Sukat</string>
     <string name="debug_debuglog_size_compressed_label">Sukat na naka-compress</string>
@@ -83,19 +55,11 @@
     <string name="debug_debuglog_stop_action">Itigil ang pagre-record</string>
     <string name="debug_debuglog_sensitive_information_message">Ang nabuong file ay naglalaman ng sensitibong impormasyon (hal. mga detalye ng Bluetooth device). Ibahagi lamang ito sa mga pinagkakatiwalaang partido.</string>
     <string name="settings_debuglog_explanation">Ang feature na ito ay nagre-record ng lahat ng ginagawa ng app sa isang naibabahaging file. Ang nabuong file ay naglalaman ng sensitibong impormasyon (hal. mga detalye ng Bluetooth device). Ibahagi lamang ito sa mga pinagkakatiwalaang partido (hal. isang developer na nag-troubleshoot ng isang isyu).</string>
-
-    <string name="settings_support_installid_label">Install ID</string>
     <string name="settings_support_installid_desc">Ang mga awtomatikong ulat ng error ay anonymous. Ibahagi ang iyong install ID kung kailangan ng developer na mahanap ang iyong mga ulat ng error.</string>
     <string name="settings_support_label">Suporta</string>
     <string name="settings_support_description">Kung kailangan mo ng tulong.</string>
-
-    <string name="issue_tracker_label">Issue tracker</string>
     <string name="issue_tracker_description">Isang pampublikong issue tracker para sa mga ulat ng bug at mga hiling na feature (Ingles lamang).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Isang lugar para tumambay at magtanong.</string>
-
-    <string name="changelog_label">Changelog</string>
     <string name="settings_label">Mga Setting</string>
     <string name="settings_privacy_policy_label">Patakaran sa Privacy</string>
     <string name="settings_privacy_policy_desc">Responsableng paghawak ng data.</string>
@@ -104,30 +68,18 @@
     <string name="settings_general_label">Mga Setting</string>
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
-
     <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
     <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
-    <string name="settings_debug_mode_label">Debug mode</string>
     <string name="settings_debug_mode_description">Magpakita ng karagdagang impormasyon para sa pag-troubleshoot ng mga isyu.</string>
-
     <string name="settings_blescanner_unfiltered_label">Hindi na-filter na BLE data</string>
     <string name="settings_blescanner_unfiltered_description">Alisin ang anumang mga filter mula sa BLE scanner para ipakita ang lahat ng na-broadcast na BLE data. Kapaki-pakinabang para magdagdag ng suporta para sa mga bagong uri ng headphone.</string>
-
-    <string name="settings_compatibility_mode_label">Compatibility mode</string>
     <string name="settings_compatibility_mode_description">I-disable ang mga optimization para mapabuti ang compatibility. Subukan ito kung wala kang nakikitang data.</string>
-
     <string name="help_translate_label">Pagsasalin</string>
     <string name="help_translate_description">Tumulong sa pagsasalin ng app na ito sa iyong paboritong wika.</string>
-
     <string name="translators_thanks_title">Mga Tagasalin</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Isang widget na nagpapakita ng huling kilalang status ng device.</string>
     <string name="settings_compat_indirectcallback_title">Hindi direktang paghahatid ng data</string>
     <string name="settings_compat_indirectcallback_summary">Gumamit ng alternatibong paraan para makatanggap ng BLE data mula sa system (broadcast sa halip na callback).</string>
-
-    <string name="troubleshooter_title">Troubleshooter</string>
-    <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcasts</string>
     <string name="troubleshooter_ble_intro_body1">Ang AirPods (at mga katulad na headphone) ay nagbo-broadcast ng impormasyon ng status gamit ang isang BLE technology na tinatawag na \"advertisements\". Hindi ipinapatupad ng ilang telepono nang tama ang technology na ito. Maaaring subukan ng CAPod na ayusin ito sa pamamagitan ng pagsubok ng iba\'t ibang mga opsyon sa compatibility hanggang sa matanggap ang data. Simulan ang pag-playback ng musika sa iyong mga headphone at ilagay ang mga ito malapit sa iyong telepono, pagkatapos ay simulan ang proseso.</string>
     <string name="troubleshooter_ble_intro_start_action">Simulan ang pag-troubleshoot</string>
     <string name="troubleshooter_ble_process_title">Kasalukuyang nag-troubleshoot</string>
@@ -140,10 +92,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Nakatanggap ng BLE data ang iyong telepono, ngunit hindi nagmula ang data sa anumang suportadong device. Naka-on ba ang iyong mga headphone? Sinusuportahan ba ng CAPod ang iyong headphone?</string>
     <string name="troubleshooter_ble_result_failure_action">Subukang muli</string>
     <string name="troubleshoot_action">I-troubleshoot</string>
-
     <string name="onboarding_body1">Nagdaragdag ang app na ito ng suporta para sa mga partikular na feature ng AirPod sa Android.</string>
     <string name="onboarding_body2">Hindi lahat ng Android device ay ganap na sumusuporta sa mga dagdag na feature ng AirPod. Nangangailangan ang iyong operating system ng wastong gumaganang implementasyon ng Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">Walang mga ad ang CAPod at hindi nangongolekta ng iyong data.</string>
     <string name="onboarding_body4">Maaari kang mag-upgrade sa CAPod Pro para makakuha ng mga dagdag na feature at suportahan ang development.</string>
-
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>
