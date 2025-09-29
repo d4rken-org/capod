@@ -39,11 +39,6 @@
         android:id="@+id/deviceManagerFragment"
         android:name="eu.darken.capod.profiles.ui.DeviceManagerFragment"
         android:label="DeviceManagerFragment"
-        tools:layout="@layout/device_manager_fragment" />
-    <fragment
-        android:id="@+id/deviceManagerFragment"
-        android:name="eu.darken.capod.profiles.ui.DeviceManagerFragment"
-        android:label="DeviceManagerFragment"
         tools:layout="@layout/device_manager_fragment">
         <action
             android:id="@+id/action_deviceManagerFragment_to_deviceProfileCreationFragment"
