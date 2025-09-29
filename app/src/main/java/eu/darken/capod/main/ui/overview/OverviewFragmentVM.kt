@@ -15,11 +15,11 @@ import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.uix.ViewModel3
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledVH
+import eu.darken.capod.main.ui.overview.cards.MonitoringActiveVH
 import eu.darken.capod.main.ui.overview.cards.NoProfilesVH
 import eu.darken.capod.main.ui.overview.cards.PermissionCardVH
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCardVH
@@ -31,6 +31,7 @@ import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -176,7 +177,11 @@ class OverviewFragmentVM @Inject constructor(
                     )
                 }
             }.run { items.addAll(this) }
-            
+
+            if (profiles.isNotEmpty() && devices.isEmpty()) {
+                items.add(MonitoringActiveVH.Item)
+            }
+
             // Add unmatched devices section if any exist
             if (unmatchedDevices.isNotEmpty()) {
                 items.add(UnmatchedDevicesCardVH.Item(

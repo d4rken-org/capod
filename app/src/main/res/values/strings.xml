@@ -140,7 +140,7 @@
     <string name="onboarding_body4">You can upgrade to CAPod Pro to gain extra features and support development.</string>
 
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
+    <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
 
@@ -153,6 +153,8 @@
     <string name="overview_nomaindevice_description">Configure your device to start monitoring battery levels and enable additional features.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
+    <string name="overview_monitoring_active_label">Monitoring for devices</string>
+    <string name="overview_monitoring_active_description">Make sure your device is nearby and active.</string>
     <string name="overview_unmatched_devices_label">Unmatched devices</string>
     <string name="overview_unmatched_devices_count_single">1 device without matching profile</string>
     <string name="overview_unmatched_devices_count_plural">%d devices without matching profile</string>
