@@ -14,6 +14,30 @@
         android:summary="@string/settings_scanner_mode_description"
         android:title="@string/settings_scanner_mode_label" />
 
+    <PreferenceCategory android:title="@string/settings_category_other_label">
+
+        <eu.darken.capod.common.preferences.MaterialSwitchPreference
+            android:icon="@drawable/ic_checkbox_blank_badge_24"
+            android:key="core.monitor.notification.connected"
+            android:summary="@string/settings_monitor_connected_notification_description"
+            android:title="@string/settings_monitor_connected_notification_label" />
+
+        <eu.darken.capod.common.preferences.MaterialSwitchPreference
+            android:dependency="core.monitor.notification.connected"
+            android:icon="@drawable/ic_message_24"
+            android:key="core.monitor.notification.connected.keepafterdisconnected"
+            android:summary="@string/settings_keep_notification_after_disconnect_description"
+            android:title="@string/settings_keep_notification_after_disconnect_label" />
+
+        <Preference
+            android:fragment="eu.darken.capod.main.ui.settings.general.debug.DebugSettingsFragment"
+            android:icon="@drawable/ic_baseline_bug_report_24"
+            android:key="debug.settings"
+            android:summary="@string/settings_debug_description"
+            android:title="@string/settings_debug_label" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:singleLineTitle="false"
         android:summary="@string/settings_category_compatibility_options_description"
@@ -40,32 +64,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/settings_category_other_label">
-
-        <eu.darken.capod.common.preferences.MaterialSwitchPreference
-            android:icon="@drawable/ic_checkbox_blank_badge_24"
-            android:key="core.monitor.notification.connected"
-            android:summary="@string/settings_monitor_connected_notification_description"
-            android:title="@string/settings_monitor_connected_notification_label" />
-
-        <eu.darken.capod.common.preferences.MaterialSwitchPreference
-            android:icon="@drawable/ic_message_24"
-            android:key="core.monitor.notification.connected.keepafterdisconnected"
-            android:summary="@string/settings_keep_notification_after_disconnect_description"
-            android:title="@string/settings_keep_notification_after_disconnect_label"
-            android:dependency="core.monitor.notification.connected" />
-
-        <Preference
-            android:fragment="eu.darken.capod.main.ui.settings.general.debug.DebugSettingsFragment"
-            android:icon="@drawable/ic_baseline_bug_report_24"
-            android:key="debug.settings"
-            android:summary="@string/settings_debug_description"
-            android:title="@string/settings_debug_label" />
-
-        <Preference
-            android:summary=""
-            android:title="" />
-
-    </PreferenceCategory>
-
+    <Preference
+        android:summary=""
+        android:title="" />
 </PreferenceScreen>
