@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">سرویس‌های Google Play در دسترس نیستند.</string>
     <string name="upgrades_no_purchases_found_check_account">خریدی یافت نشد. آیا از حساب درستی استفاده می‌کنید؟</string>
-    <string name="upgrades_gplay_billing_error_label">خطای Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">در Google Play خطایی رخ داد. لطفاً بعداً دوباره تلاش کنید یا تلفن خود را راه‌اندازی مجدد کنید.\n\nخطا: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">خطای صورتحساب Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">هنگام درخواست جزئیات خرید شما از Google Play خطایی رخ داد. حافظه نهان Google Play را پاک کنید و تلفن خود را راه‌اندازی مجدد کنید.\n\nخطا %s</string>
 </resources>

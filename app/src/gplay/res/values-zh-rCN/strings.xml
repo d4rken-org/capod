@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play 服务不可用</string>
     <string name="upgrades_no_purchases_found_check_account">未找到购买记录，您使用的帐户正确吗？</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play 错误</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play 出现错误。请稍后再试或重启您的手机。\n\n错误：%s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play 计费错误</string>
-    <string name="upgrades_gplay_billing_result_error_description">向 Google Play 请求您的购买详情时出现错误。清除 Google Play 缓存并重启您的手机。\n\n错误 %s</string>
 </resources>

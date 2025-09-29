@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Huduma za Google Play hazipatikani.</string>
     <string name="upgrades_no_purchases_found_check_account">Hakuna manunuzi yaliyopatikana. Je, unatumia akaunti sahihi?</string>
-    <string name="upgrades_gplay_billing_error_label">Hitilafu ya Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">Kulikuwa na hitilafu katika Google Play. Tafadhali jaribu tena baadaye au anzisha upya simu yako.\n\nHitilafu: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Hitilafu ya Malipo ya Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">Kulikuwa na hitilafu wakati wa kuuliza Google Play maelezo ya ununuzi wako. Futa cache ya Google Play na uanzishe upya simu yako.\n\nHitilafu %s</string>
 </resources>

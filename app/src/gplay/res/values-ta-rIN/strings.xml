@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play சேவைகள் கிடைக்கவில்லை.</string>
     <string name="upgrades_no_purchases_found_check_account">வாங்குதல்கள் எதுவும் இல்லை. நீங்கள் சரியான கணக்கைப் பயன்படுத்துகிறீர்களா?</string>
-    <string name="upgrades_gplay_billing_error_label">Google Play பிழை</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play இல் பிழை ஏற்பட்டது. பின்னர் மீண்டும் முயற்சிக்கவும் அல்லது உங்கள் தொலைபேசியை மறுதொடக்கம் செய்யவும்.\n\nபிழை: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play பில்லிங் பிழை</string>
-    <string name="upgrades_gplay_billing_result_error_description">உங்கள் கொள்முதல் விவரங்களை Google Play இடம் கேட்கும்போது பிழை ஏற்பட்டது. Google Play தற்காலிக சேமிப்பை அழித்து உங்கள் தொலைபேசியை மறுதொடக்கம் செய்யவும்.\n\nபிழை %s</string>
 </resources>

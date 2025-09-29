@@ -2,8 +2,4 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">خدمات Google Play غير متاحة.</string>
     <string name="upgrades_no_purchases_found_check_account">لم يتم العثور على أي مشتريات. هل تستخدم الحساب الصحيح؟</string>
-    <string name="upgrades_gplay_billing_error_label">خطأ في Google Play</string>
-    <string name="upgrades_gplay_billing_error_description">حدث خطأ في Google Play. يرجى المحاولة مرة أخرى لاحقاً أو إعادة تشغيل هاتفك.\n\nالخطأ: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">خطأ في فوترة Google Play</string>
-    <string name="upgrades_gplay_billing_result_error_description">حدث خطأ عند طلب تفاصيل الشراء من Google Play. امسح ذاكرة التخزين المؤقت لـ Google Play وأعد تشغيل هاتفك.\n\nالخطأ %s</string>
 </resources>

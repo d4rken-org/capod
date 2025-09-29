@@ -11,12 +11,9 @@
     <string name="general_save_action">保存</string>
     <string name="general_guide_action">ガイド</string>
     <string name="general_continue_action">続行</string>
-
     <string name="general_example_label">例: %s</string>
-
     <string name="upgrade_capod_label">CAPodをアップグレード</string>
     <string name="upgrade_capod_description">追加機能を入手し、開発者をサポートします。</string>
-
     <string name="settings_monitor_mode_label">モニターモード</string>
     <string name="settings_monitor_mode_description">このアプリがBluetoothデータを監視する状況。</string>
     <string name="settings_monitor_connected_notification_label">追加通知</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Bluetooth Low Energyデータスキャナーはパフォーマンスを優先すべきか、エネルギーを節約すべきか？</string>
     <string name="settings_autopause_label">自動一時停止</string>
     <string name="settings_autopause_description">デバイスを耳から外すとオーディオを一時停止します。</string>
-    <string name="settings_showall_label">すべてのデバイスを表示</string>
-    <string name="settings_showall_description">近くにいる他の人のデバイスを表示します。</string>
     <string name="settings_autopplay_label">自動再生</string>
     <string name="settings_autoplay_description">デバイスを装着するとオーディオ再生を開始します。</string>
     <string name="settings_fake_data_label">偽のデータ</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">リアクション</string>
     <string name="settings_reaction_description">イベントや行動に反応します。</string>
     <string name="settings_category_yourdevice_label">あなたのデバイス</string>
-
     <string name="settings_category_compatibility_options_title">互換性オプション</string>
     <string name="settings_category_compatibility_options_description">すべてが機能する場合は触れないでください ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ハードウェアフィルタリングを無効にする</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">データフィルタリングをシステムに委任せず、代わりにすべてのデータを取得してアプリ内でフィルタリングします。</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ハードウェアバッチ処理を無効にする</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">収集されたBLEデータを私たちに転送する前にシステムがグループ化するのを許可しないでください。</string>
-
-    <string name="settings_maindevice_address_label">デバイスアドレス</string>
-    <string name="settings_maindevice_address_description">ペアリングされたデバイスのアドレス。アプリはこれを使用して、いつ電話に接続されているかを判断します。</string>
-    <string name="settings_maindevice_address_none">なし</string>
-    <string name="settings_maindevice_model_label">デバイスモデル</string>
-    <string name="settings_maindevice_model_description">メインデバイスのモデル。これにより、アプリは電話に接続されていないときにデバイスを認識できます。</string>
-    <string name="profiles_identitykey_label">アイデンティティキー</string>
-    <string name="profilessettings_maindevice_identitykey_description">デバイスのアイデンティティ解決キー（IRK）。CAPodが近くのデバイスの中からそれを識別するのに役立ちます。</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPodsはプライバシーのためにBluetoothアドレスを頻繁に変更します。IRKはCAPodがデバイスを認識するのに役立ちます。MacBookへの1回限りのアクセスが必要です。</string>
-    <string name="profiles_maindevice_encryptionkey_label">暗号化キー</string>
-    <string name="profiles_maindevice_encryptionkey_description">デバイスの暗号化キー。CAPodが詳細なステータス情報を取得できるようにします。</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPodsはステータスメッセージを送信し、その一部は暗号化されています。暗号化キーを使用すると、CAPodは完全なメッセージを復号化できます。MacBookへの1回限りのアクセスが必要です。</string>
-
     <string name="settings_onepod_mode_label">片耳モード</string>
     <string name="settings_onepod_mode_description">両方のポッドを装着する必要はありません。リアクションをトリガーするには、片方のポッドを装着するだけで十分です。</string>
     <string name="settings_popup_caseopen_label">ケースポップアップを表示</string>
     <string name="settings_popup_caseopen_description">デバイスケースが開いたときにポップアップを表示します（実験的）。</string>
     <string name="settings_popup_connected_label">接続ポップアップを表示</string>
     <string name="settings_popup_connected_description">デバイスが初めて接続されたときにポップアップを表示します。</string>
-
     <string name="notification_channel_device_status_label">デバイスステータス</string>
     <string name="notification_channel_device_status_connected_label">接続済みデバイス</string>
-
     <string name="support_debuglog_label">デバッグログ</string>
     <string name="support_debuglog_desc">アプリが行っているすべてのことを、共有できるテキストファイルに記録します。</string>
     <string name="debug_debuglog_size_label">サイズ</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">記録を停止</string>
     <string name="debug_debuglog_sensitive_information_message">生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者とのみ共有してください。</string>
     <string name="settings_debuglog_explanation">この機能は、アプリが行っているすべてのことを共有可能なファイルに記録します。生成されたファイルには機密情報（Bluetoothデバイスの詳細など）が含まれています。信頼できる関係者（問題をトラブルシューティングしている開発者など）とのみ共有してください。</string>
-
     <string name="settings_support_installid_label">インストールID</string>
     <string name="settings_support_installid_desc">自動エラーレポートは匿名です。開発者がエラーレポートを見つける必要がある場合は、インストールIDを共有してください。</string>
     <string name="settings_support_label">サポート</string>
     <string name="settings_support_description">ヘルプが必要な場合。</string>
-
     <string name="issue_tracker_label">課題トラッカー</string>
     <string name="issue_tracker_description">バグレポートと機能リクエストのための公開課題トラッカー（英語のみ）。</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">くつろいだり質問したりする場所。</string>
-
     <string name="changelog_label">変更履歴</string>
     <string name="settings_label">設定</string>
     <string name="settings_privacy_policy_label">プライバシーポリシー</string>
@@ -104,28 +78,21 @@
     <string name="settings_general_label">設定</string>
     <string name="settings_general_description">アプリ全体に影響する一般的な調整。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
-
     <string name="settings_debug_autoreports_label">自動バグレポート</string>
     <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
     <string name="settings_debug_mode_label">デバッグモード</string>
     <string name="settings_debug_mode_description">問題のトラブルシューティングのために追加情報を表示します。</string>
-
     <string name="settings_blescanner_unfiltered_label">未フィルタリングBLEデータ</string>
     <string name="settings_blescanner_unfiltered_description">BLEスキャナーからすべてのフィルターを削除して、ブロードキャストされたすべてのBLEデータを表示します。新しいタイプのヘッドフォンのサポートを追加するのに役立ちます。</string>
-
     <string name="settings_compatibility_mode_label">互換モード</string>
     <string name="settings_compatibility_mode_description">互換性を向上させるために最適化を無効にします。データが表示されない場合は、これを試してください。</string>
-
     <string name="help_translate_label">翻訳</string>
     <string name="help_translate_description">このアプリをあなたの好きな言語に翻訳するのを手伝ってください。</string>
-
     <string name="translators_thanks_title">翻訳者</string>
-    <string name="translators_thanks_description">darken</string>
-
+    <string name="translators_thanks_description">OrangeOC(translation.love@na-cat.com)</string>
     <string name="widget_description">デバイスの最後に確認されたステータスを表示するウィジェット。</string>
     <string name="settings_compat_indirectcallback_title">間接的なデータ配信</string>
     <string name="settings_compat_indirectcallback_summary">システムからBLEデータを受信するための代替方法を使用します（コールバックではなくブロードキャスト）。</string>
-
     <string name="troubleshooter_title">トラブルシューター</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energyブロードキャスト</string>
     <string name="troubleshooter_ble_intro_body1">AirPods（および同様のヘッドフォン）は、「アドバタイズメント」と呼ばれるBLEテクノロジーを使用してステータス情報をブロードキャストします。一部の電話機はこのテクノロジーを正しく実装していません。CAPodは、データが受信されるまでさまざまな互換性オプションを試すことで、これを修正しようとすることがあります。ヘッドフォンで音楽再生を開始し、電話機の近くに置いてから、プロセスを開始してください。</string>
@@ -140,72 +107,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">お使いの電話機はBLEデータを受信しましたが、データはサポートされているどのデバイスからも送信されていません。ヘッドフォンはオンになっていますか？CAPodはヘッドフォンをサポートしていますか？</string>
     <string name="troubleshooter_ble_result_failure_action">再試行</string>
     <string name="troubleshoot_action">トラブルシューティング</string>
-
     <string name="onboarding_body1">このアプリは、AndroidにAirPod固有の機能のサポートを追加します。</string>
     <string name="onboarding_body2">すべてのAndroidデバイスが追加のAirPod機能を完全にサポートしているわけではありません。オペレーティングシステムには、正しく機能するBluetooth Low Energyの実装が必要です。</string>
     <string name="onboarding_body3">CAPodには広告がなく、データを収集しません。</string>
     <string name="onboarding_body4">追加機能を利用して開発をサポートするために、CAPod Proにアップグレードできます。</string>
-
     <!-- Strings from app-common -->
-<string name="general_value_not_available_label">該当なし</string>
-    <string name="general_error_label">エラー</string>
-    <string name="general_grant_permission_action">許可する</string>
-    <string name="overview_nomaindevice_label">主要なデバイスがありません</string>
-    <string name="overview_nomaindevice_description">検出されたすべてのデバイスは、あなたのものである可能性は低いです。デバイスの電源を入れて接続するか、設定を調整してください。</string>
-    <string name="overview_bluetooth_disabled_label">Bluetoothが無効になっています</string>
-    <string name="overview_bluetooth_disabled_description">Bluetoothが無効になっています。有効にしてください(;_;)</string>
-    <string name="permission_bluetooth_connect_label">Bluetooth接続</string>
-    <string name="permission_bluetooth_connect_description">このアプリでは、ペアリングされたデバイスとやり取りして接続を開始するには、「Bluetooth接続」の権限が必要です。</string>
-    <string name="permission_bluetooth_scan_label">Bluetoothスキャン</string>
-    <string name="permission_bluetooth_scan_description">「Bluetoothスキャン」権限により、このアプリはAirPodsなどの近くのデバイスからBluetoothのデータを検出して受信することができます。</string>
-    <string name="permission_bluetooth_description">このアプリは、ペアリングされたBluetoothデバイスに接続するために「Bluetooth」権限が必要です。</string>
-    <string name="permission_access_fine_location_label">正確な位置情報</string>
-    <string name="permission_access_fine_location_description">CAPodは、Bluetooth Low Energyデータを受信するために、「正確な位置情報」権限の許可を使用します。ヘッドホンはBluetooth Low Energyテクノロジーを使用してデバイスの状態を送信します。このアプリは、Bluetoothデータを使用して現在地を特定することはありません。</string>
-    <string name="permission_background_location_label">バックグラウンドでの位置情報へのアクセス</string>
-    <string name="permission_background_location_description">CAPodは「バックグラウンドでの位置情報へのアクセス」を使用して、アプリが閉じている間に「ポップアップ表示」や「自動接続」などの機能を有効にします。バックグラウンドでの位置情報アクセスにより、アプリはバックグラウンドでBluetooth Low Energyデータを受信できます。このアプリはBluetoothデータを使用して現在地を特定しません。</string>
-    <string name="permission_ignore_battery_optimizations_label">バッテリーの最適化を無効</string>
-    <string name="permission_ignore_battery_optimizations_description">バッテリーの最適化により、アプリがバックグラウンドにある間、このアプリはBluetoothデータを確実に受信できなくなります。</string>
-    <string name="permission_required_title">次の権限の許可が必要です：</string>
-    <string name="permission_system_alert_window_label">他のアプリの上に重ねて表示</string>
-    <string name="permission_system_alert_window_description">CAPodが他のアプリの上に描画できるようにして、「ポップアップ表示」機能を有効にします。</string>
-    <string name="settings_scanner_mode_lowpower_label">省電力</string>
-    <string name="settings_scanner_mode_balanced_label">バランス</string>
-    <string name="settings_scanner_mode_lowlatency_label">低遅延</string>
-    <string name="settings_monitor_mode_manual_label">アプリ起動時</string>
-    <string name="settings_monitor_mode_automatic_label">デバイス接続時</string>
-    <string name="settings_monitor_mode_always_label">常に</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">デバイスが見えたとき</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">ケースが開いたとき</string>
-    <string name="settings_reaction_autoconnect_inear_label">デバイスを装着したとき</string>
-    <string name="pods_dual_left_label">左側</string>
-    <string name="pods_dual_right_label">右側</string>
-    <string name="pods_case_label">ケース</string>
-    <string name="pods_case_status_open_label">開いています</string>
-    <string name="pods_case_status_closed_label">閉じています</string>
-    <string name="pods_connection_state_disconnected_label">デバイスが接続されていません</string>
-    <string name="pods_connection_state_idle_label">デバイスに接続されていますが、アイドル状態です</string>
-    <string name="pods_connection_state_music_label">音楽モード中</string>
-    <string name="pods_connection_state_call_label">通話モード中</string>
-    <string name="pods_connection_state_ringing_label">着信中</string>
-    <string name="pods_connection_state_hanging_up_label">通話を終了</string>
-    <string name="pods_connection_state_unknown_label">接続状態が不明</string>
-    <string name="pods_unknown_raw_data_label">RAWデータ</string>
-    <string name="pods_unknown_label">不明なデバイス</string>
-    <string name="pods_unknown_contact_dev">これは不明なデバイスですが、似ている信号の形式が使われています。サポートをするために、連絡をください。(^-^)</string>
-    <string name="pods_none_label_short">デバイスなし</string>
-    <string name="pods_charging_label">充電中</string>
-    <string name="pods_inear_label">耳に装着中</string>
-    <string name="pods_microphone_label">マイク</string>
-    <string name="pods_yours">あなたの</string>
-    <string name="headset_being_worn_label">着用中</string>
-    <string name="pods_case_unknown_state">不明な状態</string>
-    <string name="last_seen_x">最後に確認した時間：%s</string>
-    <string name="first_seen_x">最初に確認した時間：%s</string>
-    <string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="headset_not_being_worn_label">未着用</string>
-    <string name="permission_post_notifications_label">通知を表示</string>
-    <string name="permission_post_notifications_description">CAPod が AirPods に関する通知（接続中の現在のステータスなど）を表示できるようにします。</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Treba li Bluetooth Low Energy skener podataka dati prednost performansama ili štedjeti energiju?</string>
     <string name="settings_autopause_label">Automatska pauza</string>
     <string name="settings_autopause_description">Pauzirajte zvuk kada uklonite uređaj iz uha.</string>
-    <string name="settings_showall_label">Prikaži sve uređaje</string>
-    <string name="settings_showall_description">Prikaži uređaje drugih ljudi koji su u vašoj blizini.</string>
     <string name="settings_autopplay_label">Automatska reprodukcija</string>
     <string name="settings_autoplay_description">Pokrenite reprodukciju zvuka kada se uređaj nosi.</string>
     <string name="settings_fake_data_label">Lažni podaci</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ne delegirajte filtriranje podataka sustavu, umjesto toga dohvatite sve podatke i filtrirajte unutar aplikacije.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Onemogući hardversko grupiranje</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ne dopustite da sustav grupira prikupljene BLE podatke prije nego što ih proslijedi nama.</string>
-    <string name="settings_maindevice_address_label">Adresa vašeg uređaja</string>
-    <string name="settings_maindevice_address_description">Adresa vašeg uparenog uređaja. Aplikacija ovo koristi za određivanje kada je povezana s vašim telefonom.</string>
-    <string name="settings_maindevice_address_none">Nijedan</string>
-    <string name="settings_maindevice_model_label">Model vašeg uređaja</string>
-    <string name="settings_maindevice_model_description">Model vašeg glavnog uređaja. Ovo pomaže aplikaciji da prepozna vaš uređaj kada nije povezan s vašim telefonom.</string>
-    <string name="profiles_identitykey_label">Identifikacijski ključ</string>
-    <string name="profilessettings_maindevice_identitykey_description">Identifikacijski ključ za rješavanje (IRK) vašeg uređaja, koji pomaže CAPod-u da ga identificira među obližnjim uređajima.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods često mijenjaju svoju Bluetooth adresu radi privatnosti. IRK pomaže CAPod-u da prepozna vaš uređaj. Potreban vam je jednokratni pristup MacBooku.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Ključ za šifriranje</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ključ za šifriranje vašeg uređaja, koji omogućuje CAPod-u dohvaćanje detaljnih informacija o statusu.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods šalju poruku o statusu, čiji je dio šifriran. Ključ za šifriranje omogućuje CAPod-u dešifriranje cijele poruke. Potreban vam je jednokratni pristup MacBooku.</string>
     <string name="settings_onepod_mode_label">Način jedne slušalice</string>
     <string name="settings_onepod_mode_description">Nošenje obje slušalice nije potrebno, nošenje jedne slušalice dovoljno je za pokretanje reakcija.</string>
     <string name="settings_popup_caseopen_label">Prikaži skočni prozor kućišta</string>
@@ -81,7 +68,6 @@
     <string name="settings_support_description">Ako trebate pomoć.</string>
     <string name="issue_tracker_label">Praćenje problema</string>
     <string name="issue_tracker_description">Javno praćenje problema za izvješća o pogreškama i zahtjeve za značajkama (samo na engleskom).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Mjesto za druženje i postavljanje pitanja.</string>
     <string name="changelog_label">Popis promjena</string>
     <string name="settings_label">Postavke</string>
@@ -103,7 +89,6 @@
     <string name="help_translate_label">Prijevod</string>
     <string name="help_translate_description">Pomozite prevesti ovu aplikaciju na svoj omiljeni jezik.</string>
     <string name="translators_thanks_title">Prevoditelji</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Widget koji prikazuje posljednji poznati status uređaja.</string>
     <string name="settings_compat_indirectcallback_title">Neizravna dostava podataka</string>
     <string name="settings_compat_indirectcallback_summary">Koristite alternativnu metodu za primanje BLE podataka od sustava (emitiranje umjesto povratnog poziva).</string>
@@ -125,68 +110,7 @@
     <string name="onboarding_body2">Ne podržavaju svi Android uređaji u potpunosti dodatne značajke AirPoda. Vaš operativni sustav zahtijeva ispravno funkcionirajuću implementaciju Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nema oglasa i ne prikuplja vaše podatke.</string>
     <string name="onboarding_body4">Možete nadograditi na CAPod Pro kako biste dobili dodatne značajke i podržali razvoj.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
-    <string name="general_error_label">Greška</string>
-    <string name="general_grant_permission_action">Daj dopuštenje</string>
-    <string name="overview_nomaindevice_label">Nema primarnog uređaja</string>
-    <string name="overview_nomaindevice_description">Svi otkriveni uređaji vjerojatno nisu vaši. Uključite i povežite svoj uređaj ili prilagodite postavke.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth je onemogućen</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth je onemogućen, omogućite ga ;)</string>
-    <string name="permission_bluetooth_connect_label">Bluetooth povezivanje</string>
-    <string name="permission_bluetooth_connect_description">Ova aplikacija zahtijeva dopuštenje \"Bluetooth povezivanje\" za interakciju s uparenim uređajima i pokretanje veza.</string>
-    <string name="permission_bluetooth_scan_label">Bluetooth skeniranje</string>
-    <string name="permission_bluetooth_scan_description">Dopuštenje \"Bluetooth skeniranje\" omogućuje ovoj aplikaciji otkrivanje i primanje Bluetooth podataka s obližnjih uređaja kao što su vaši AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Ova aplikacija zahtijeva dopuštenje \"Bluetooth\" za povezivanje s uparenim Bluetooth uređajima.</string>
-    <string name="permission_access_fine_location_label">Pristup preciznoj lokaciji</string>
-    <string name="permission_access_fine_location_description">CAPod koristi dopuštenje \"precizna lokacija\" za primanje podataka Bluetooth Low Energy. Vaše slušalice koriste tehnologiju Bluetooth Low Energy za emitiranje svog statusa. Ova aplikacija NEĆE koristiti Bluetooth podatke za određivanje vaše lokacije.</string>
-    <string name="permission_background_location_label">Pristup lokaciji u pozadini</string>
-    <string name="permission_background_location_description">CAPod koristi \"pristup lokaciji u pozadini\" kako bi omogućio značajke kao što su \"Prikaži skočni prozor\" i \"Automatsko povezivanje\" dok je aplikacija zatvorena. Pristup lokaciji u pozadini omogućuje aplikaciji primanje podataka Bluetooth Low Energy dok je u pozadini. Ova aplikacija NEĆE koristiti Bluetooth podatke za određivanje vaše lokacije.</string>
-    <string name="permission_ignore_battery_optimizations_label">Onemogući optimizaciju baterije</string>
-    <string name="permission_ignore_battery_optimizations_description">Optimizacija baterije sprječava ovu aplikaciju da pouzdano prima Bluetooth podatke dok je aplikacija u pozadini.</string>
-    <string name="permission_required_title">Potrebno je sljedeće dopuštenje:</string>
-    <string name="permission_system_alert_window_label">Prozor sistemskog upozorenja</string>
-    <string name="permission_system_alert_window_description">Dopustite CAPod-u da se prikazuje preko drugih aplikacija kako bi značajka \"Prikaži PopUp\" bila moguća.</string>
-    <string name="settings_scanner_mode_lowpower_label">Niska snaga</string>
-    <string name="settings_scanner_mode_balanced_label">Uravnoteženo</string>
-    <string name="settings_scanner_mode_lowlatency_label">Niska latencija</string>
-    <string name="settings_monitor_mode_manual_label">Kada je aplikacija otvorena</string>
-    <string name="settings_monitor_mode_automatic_label">Kada je uređaj povezan</string>
-    <string name="settings_monitor_mode_always_label">Uvijek</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">Kada se vidi</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Kućište je otvoreno</string>
-    <string name="settings_reaction_autoconnect_inear_label">U uhu</string>
-    <string name="pods_dual_left_label">Lijeva slušalica</string>
-    <string name="pods_dual_right_label">Desna slušalica</string>
-    <string name="pods_case_label">Kućište</string>
-    <string name="pods_case_status_open_label">Otvoreno</string>
-    <string name="pods_case_status_closed_label">Zatvoreno</string>
-    <string name="pods_connection_state_disconnected_label">Nije povezan s uređajem</string>
-    <string name="pods_connection_state_idle_label">Povezan s uređajem, ali neaktivan</string>
-    <string name="pods_connection_state_music_label">U glazbenom načinu</string>
-    <string name="pods_connection_state_call_label">U načinu poziva</string>
-    <string name="pods_connection_state_ringing_label">Zvoni</string>
-    <string name="pods_connection_state_hanging_up_label">Prekidanje veze</string>
-    <string name="pods_connection_state_unknown_label">Nepoznato stanje veze</string>
-    <string name="pods_unknown_raw_data_label">Sirovi podaci</string>
-    <string name="pods_unknown_label">Nepoznati uređaj</string>
-    <string name="pods_unknown_contact_dev">Ovo je nepoznati uređaj, ali koristi sličan format poruke. Dodajmo podršku za njega, kontaktirajte me :)</string>
-    <string name="pods_none_label_short">Nema uređaja</string>
-    <string name="pods_charging_label">Punjenje</string>
-    <string name="pods_inear_label">U uhu</string>
-    <string name="pods_microphone_label">Mikrofon</string>
-    <string name="pods_yours">Vaše</string>
-    <string name="headset_being_worn_label">Nosi se</string>
-    <string name="headset_not_being_worn_label">Ne nosi se</string>
-    <string name="pods_case_unknown_state">Nepoznato stanje</string>
-    <string name="last_seen_x">Posljednji put viđen: %s</string>
-    <string name="first_seen_x">Prvi put viđen: %s</string>
-    <string name="permission_post_notifications_label">Prikaži obavijesti</string>
-    <string name="permission_post_notifications_description">Dopustite CAPod-u da prikazuje obavijesti o vašim AirPods slušalicama, npr. njihov trenutni status dok su povezane.</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

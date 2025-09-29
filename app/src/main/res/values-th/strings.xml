@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">เครื่องสแกนข้อมูล Bluetooth Low Energy ควรให้ความสำคัญกับประสิทธิภาพหรือประหยัดพลังงาน?</string>
     <string name="settings_autopause_label">หยุดชั่วคราวอัตโนมัติ</string>
     <string name="settings_autopause_description">หยุดเสียงชั่วคราวเมื่อถอดอุปกรณ์ออกจากหู</string>
-    <string name="settings_showall_label">แสดงอุปกรณ์ทั้งหมด</string>
-    <string name="settings_showall_description">แสดงอุปกรณ์ของคนอื่นที่อยู่ใกล้คุณ</string>
     <string name="settings_autopplay_label">เล่นอัตโนมัติ</string>
     <string name="settings_autoplay_description">เริ่มเล่นเสียงเมื่อสวมใส่อุปกรณ์</string>
     <string name="settings_fake_data_label">ข้อมูลปลอม</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">อย่ามอบหมายการกรองข้อมูลให้กับระบบ แต่ให้รับข้อมูลทั้งหมดและกรองภายในแอปแทน</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ปิดใช้งานการจัดกลุ่มฮาร์ดแวร์</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">อย่าให้ระบบจัดกลุ่มข้อมูล BLE ที่รวบรวมไว้ก่อนที่จะส่งต่อมาให้เรา</string>
-    <string name="settings_maindevice_address_label">ที่อยู่อุปกรณ์ของคุณ</string>
-    <string name="settings_maindevice_address_description">ที่อยู่ของอุปกรณ์ที่จับคู่ของคุณ แอปใช้สิ่งนี้เพื่อกำหนดว่าเมื่อใดที่เชื่อมต่อกับโทรศัพท์ของคุณ</string>
-    <string name="settings_maindevice_address_none">ไม่มี</string>
-    <string name="settings_maindevice_model_label">รุ่นอุปกรณ์ของคุณ</string>
-    <string name="settings_maindevice_model_description">รุ่นของอุปกรณ์หลักของคุณ สิ่งนี้ช่วยให้แอปรู้จักอุปกรณ์ของคุณเมื่อไม่ได้เชื่อมต่อกับโทรศัพท์ของคุณ</string>
-    <string name="profiles_identitykey_label">คีย์ระบุตัวตน</string>
-    <string name="profilessettings_maindevice_identitykey_description">คีย์แก้ไขข้อมูลประจำตัว (IRK) ของอุปกรณ์ของคุณ ซึ่งช่วยให้ CAPod สามารถระบุอุปกรณ์ท่ามกลางอุปกรณ์ใกล้เคียงได้</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods มักจะเปลี่ยนที่อยู่บลูทูธเพื่อความเป็นส่วนตัว IRK ช่วยให้ CAPod รู้จักอุปกรณ์ของคุณ คุณต้องเข้าถึง MacBook เพียงครั้งเดียว</string>
-    <string name="profiles_maindevice_encryptionkey_label">คีย์เข้ารหัส</string>
-    <string name="profiles_maindevice_encryptionkey_description">คีย์เข้ารหัสของอุปกรณ์ของคุณ ซึ่งช่วยให้ CAPod สามารถดึงข้อมูลสถานะโดยละเอียดได้</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ส่งข้อความสถานะซึ่งบางส่วนถูกเข้ารหัส คีย์เข้ารหัสช่วยให้ CAPod สามารถถอดรหัสข้อความทั้งหมดได้ คุณต้องเข้าถึง MacBook เพียงครั้งเดียว</string>
     <string name="settings_onepod_mode_label">โหมดพ็อดเดียว</string>
     <string name="settings_onepod_mode_description">ไม่จำเป็นต้องสวมใส่พ็อดทั้งสองข้าง การสวมใส่พ็อดเดียวก็เพียงพอที่จะกระตุ้นการตอบสนอง</string>
     <string name="settings_popup_caseopen_label">แสดงป๊อปอัปเคส</string>
@@ -81,7 +68,7 @@
     <string name="settings_support_description">หากคุณต้องการความช่วยเหลือ</string>
     <string name="issue_tracker_label">เครื่องมือติดตามปัญหา</string>
     <string name="issue_tracker_description">เครื่องมือติดตามปัญหาแบบสาธารณะสำหรับรายงานข้อบกพร่องและคำขอคุณลักษณะ (ภาษาอังกฤษเท่านั้น)</string>
-    <string name="discord_label">Discord</string>
+    <string name="discord_label"></string>
     <string name="discord_description">สถานที่สำหรับสังสรรค์และถามคำถาม</string>
     <string name="changelog_label">บันทึกการเปลี่ยนแปลง</string>
     <string name="settings_label">การตั้งค่า</string>
@@ -103,7 +90,6 @@
     <string name="help_translate_label">การแปล</string>
     <string name="help_translate_description">ช่วยแปลแอปนี้เป็นภาษาที่คุณชื่นชอบ</string>
     <string name="translators_thanks_title">ผู้แปล</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">วิดเจ็ตที่แสดงสถานะอุปกรณ์ล่าสุดที่ทราบ</string>
     <string name="settings_compat_indirectcallback_title">การส่งข้อมูลทางอ้อม</string>
     <string name="settings_compat_indirectcallback_summary">ใช้วิธีการอื่นในการรับข้อมูล BLE จากระบบ (ออกอากาศแทนการเรียกกลับ)</string>
@@ -125,68 +111,7 @@
     <string name="onboarding_body2">อุปกรณ์ Android บางรุ่นไม่รองรับคุณสมบัติพิเศษของ AirPod ทั้งหมด ระบบปฏิบัติการของคุณต้องมีการใช้งาน Bluetooth Low Energy ที่ทำงานได้อย่างถูกต้อง</string>
     <string name="onboarding_body3">CAPod ไม่มีโฆษณาและไม่รวบรวมข้อมูลของคุณ</string>
     <string name="onboarding_body4">คุณสามารถอัปเกรดเป็น CAPod Pro เพื่อรับคุณสมบัติเพิ่มเติมและสนับสนุนการพัฒนา</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">ไม่มีข้อมูล</string>
-    <string name="general_error_label">ข้อผิดพลาด</string>
-    <string name="general_grant_permission_action">ให้สิทธิ์</string>
-    <string name="overview_nomaindevice_label">ไม่มีอุปกรณ์หลัก</string>
-    <string name="overview_nomaindevice_description">อุปกรณ์ที่ตรวจพบทั้งหมดไม่น่าจะเป็นของคุณ เปิดเครื่องและเชื่อมต่ออุปกรณ์ของคุณหรือปรับการตั้งค่า</string>
-    <string name="overview_bluetooth_disabled_label">บลูทูธถูกปิดใช้งาน</string>
-    <string name="overview_bluetooth_disabled_description">บลูทูธถูกปิดใช้งาน เปิดใช้งาน ;)</string>
-    <string name="permission_bluetooth_connect_label">การเชื่อมต่อบลูทูธ</string>
-    <string name="permission_bluetooth_connect_description">แอปนี้ต้องการการอนุญาต \"การเชื่อมต่อบลูทูธ\" เพื่อโต้ตอบกับอุปกรณ์ที่จับคู่และเริ่มต้นการเชื่อมต่อ</string>
-    <string name="permission_bluetooth_scan_label">การสแกนบลูทูธ</string>
-    <string name="permission_bluetooth_scan_description">การอนุญาต \"การสแกนบลูทูธ\" ช่วยให้แอปนี้ค้นพบและรับข้อมูลบลูทูธจากอุปกรณ์ใกล้เคียง เช่น AirPods ของคุณ</string>
-    <string name="permission_bluetooth_label">บลูทูธ</string>
-    <string name="permission_bluetooth_description">แอปนี้ต้องการการอนุญาต \"บลูทูธ\" เพื่อเชื่อมต่อกับอุปกรณ์บลูทูธที่จับคู่แล้ว</string>
-    <string name="permission_access_fine_location_label">การเข้าถึงตำแหน่งที่แม่นยำ</string>
-    <string name="permission_access_fine_location_description">CAPod ใช้การอนุญาต \"ตำแหน่งที่แม่นยำ\" เพื่อรับข้อมูลบลูทูธพลังงานต่ำ หูฟังของคุณใช้เทคโนโลยีบลูทูธพลังงานต่ำเพื่อถ่ายทอดสถานะของพวกเขา แอปนี้จะไม่ใช้ข้อมูลบลูทูธเพื่อระบุตำแหน่งของคุณ</string>
-    <string name="permission_background_location_label">การเข้าถึงตำแหน่งพื้นหลัง</string>
-    <string name="permission_background_location_description">CAPod ใช้ \"การเข้าถึงตำแหน่งพื้นหลัง\" เพื่อเปิดใช้งานคุณลักษณะต่างๆ เช่น \"แสดงป๊อปอัป\" และ \"เชื่อมต่ออัตโนมัติ\" ในขณะที่แอปปิดอยู่ การเข้าถึงตำแหน่งพื้นหลังช่วยให้แอปสามารถรับข้อมูลบลูทูธพลังงานต่ำในขณะที่อยู่ในพื้นหลัง แอปนี้จะไม่ใช้ข้อมูลบลูทูธเพื่อระบุตำแหน่งของคุณ</string>
-    <string name="permission_ignore_battery_optimizations_label">ปิดการใช้งานการเพิ่มประสิทธิภาพแบตเตอรี่</string>
-    <string name="permission_ignore_battery_optimizations_description">การเพิ่มประสิทธิภาพแบตเตอรี่ทำให้แอปนี้ไม่สามารถรับข้อมูลบลูทูธได้อย่างน่าเชื่อถือในขณะที่แอปอยู่ในพื้นหลัง</string>
-    <string name="permission_required_title">ต้องการการอนุญาตดังต่อไปนี้:</string>
-    <string name="permission_system_alert_window_label">หน้าต่างแจ้งเตือนของระบบ</string>
-    <string name="permission_system_alert_window_description">อนุญาตให้ CAPod วาดทับแอปอื่นๆ เพื่อให้คุณลักษณะ \"แสดง PopUp\" ทำงานได้</string>
-    <string name="settings_scanner_mode_lowpower_label">พลังงานต่ำ</string>
-    <string name="settings_scanner_mode_balanced_label">สมดุล</string>
-    <string name="settings_scanner_mode_lowlatency_label">ความล่าช้าต่ำ</string>
-    <string name="settings_monitor_mode_manual_label">เมื่อแอปเปิดอยู่</string>
-    <string name="settings_monitor_mode_automatic_label">เมื่ออุปกรณ์เชื่อมต่อแล้ว</string>
-    <string name="settings_monitor_mode_always_label">เสมอ</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">เมื่อเห็น</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">เคสเปิดอยู่</string>
-    <string name="settings_reaction_autoconnect_inear_label">ในหู</string>
-    <string name="pods_dual_left_label">พ็อดซ้าย</string>
-    <string name="pods_dual_right_label">พ็อดขวา</string>
-    <string name="pods_case_label">เคส</string>
-    <string name="pods_case_status_open_label">เปิด</string>
-    <string name="pods_case_status_closed_label">ปิด</string>
-    <string name="pods_connection_state_disconnected_label">ไม่ได้เชื่อมต่อกับอุปกรณ์</string>
-    <string name="pods_connection_state_idle_label">เชื่อมต่อกับอุปกรณ์แล้ว แต่ไม่ได้ใช้งาน</string>
-    <string name="pods_connection_state_music_label">ในโหมดเพลง</string>
-    <string name="pods_connection_state_call_label">ในโหมดการโทร</string>
-    <string name="pods_connection_state_ringing_label">กำลังโทรเข้า</string>
-    <string name="pods_connection_state_hanging_up_label">กำลังวางสาย</string>
-    <string name="pods_connection_state_unknown_label">สถานะการเชื่อมต่อที่ไม่รู้จัก</string>
-    <string name="pods_unknown_raw_data_label">ข้อมูลดิบ</string>
-    <string name="pods_unknown_label">อุปกรณ์ที่ไม่รู้จัก</string>
-    <string name="pods_unknown_contact_dev">นี่คืออุปกรณ์ที่ไม่รู้จัก แต่ใช้รูปแบบข้อความที่คล้ายกัน มาเพิ่มการสนับสนุนสำหรับมัน ติดต่อฉัน :)</string>
-    <string name="pods_none_label_short">ไม่มีอุปกรณ์</string>
-    <string name="pods_charging_label">กำลังชาร์จ</string>
-    <string name="pods_inear_label">ในหู</string>
-    <string name="pods_microphone_label">ไมโครโฟน</string>
-    <string name="pods_yours">ของคุณ</string>
-    <string name="headset_being_worn_label">กำลังสวมใส่</string>
-    <string name="headset_not_being_worn_label">ไม่ได้สวมใส่</string>
-    <string name="pods_case_unknown_state">สถานะที่ไม่รู้จัก</string>
-    <string name="last_seen_x">เห็นครั้งล่าสุด: %s</string>
-    <string name="first_seen_x">เห็นครั้งแรก: %s</string>
-    <string name="permission_post_notifications_label">แสดงการแจ้งเตือน</string>
-    <string name="permission_post_notifications_description">อนุญาตให้ CAPod แสดงการแจ้งเตือนเกี่ยวกับ AirPods ของคุณ เช่น สถานะปัจจุบันของพวกเขาในขณะที่เชื่อมต่อ</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

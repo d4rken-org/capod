@@ -11,6 +11,8 @@
     <string name="general_save_action">Speichern</string>
     <string name="general_guide_action">Anleitung</string>
     <string name="general_continue_action">Fortfahren</string>
+    <string name="general_show_action">Anzeigen</string>
+    <string name="general_hide_action">Ausblenden</string>
     <string name="general_example_label">zB: %s</string>
     <string name="upgrade_capod_label">Verbesser CAPod</string>
     <string name="upgrade_capod_description">Erhalten Sie zusätzliche Funktionen und unterstützen Sie den Entwickler.</string>
@@ -22,8 +24,6 @@
     <string name="settings_scanner_mode_description">Soll die Bluetooth Low Energy Überwachung Leistung priorisieren oder Energie sparen?</string>
     <string name="settings_autopause_label">Automatische Pause</string>
     <string name="settings_autopause_description">Musik pausieren, wenn der Kopfhörer vom Ohr entfernt wird.</string>
-    <string name="settings_showall_label">Alle Geräte anzeigen</string>
-    <string name="settings_showall_description">Alle in der Nähe befindlichen Geräte anzeigen (auch die von anderen Personen).</string>
     <string name="settings_autopplay_label">Automatisches abspielen</string>
     <string name="settings_autoplay_description">Audiowiedergabe starten, wenn das Gerät getragen wird.</string>
     <string name="settings_fake_data_label">Gefälschte Daten</string>
@@ -36,6 +36,8 @@
     <string name="settings_autoconnect_description">Wenn Android keine automatische Verbindung herstellt, können wir es auch auslösen. Durch diese Option wird die Monitormodus-Einstellung auf „Immer“ gesetzt.</string>
     <string name="settings_autoconnect_condition_label">Bedingung für automatische Verbindung</string>
     <string name="settings_autoconnect_condition_description">Wann sollten wir versuchen, eine Verbindung zu Ihrem Gerät herzustellen?</string>
+    <string name="settings_devices_label">Geräte</string>
+    <string name="settings_devices_description">Verwalte Deine Geräte.</string>
     <string name="settings_reaction_label">Reaktionen</string>
     <string name="settings_reaction_description">Reagieren Sie auf Ereignisse und Verhaltensweisen.</string>
     <string name="settings_category_yourdevice_label">Ihr Gerät</string>
@@ -45,17 +47,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Delegieren Sie die Datenfilterung nicht an das System, sondern erhalten Sie alle Daten und Filter innerhalb der App.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Hardware-Batching deaktivieren</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Lassen Sie nicht zu, dass die Systemgruppe BLE-Daten sammelt, bevor Sie sie an uns weiterleiten.</string>
-    <string name="settings_maindevice_address_label">Ihre Geräteadresse</string>
-    <string name="settings_maindevice_address_description">Die Adresse Ihres gekoppelten Geräts. Die App verwendet dies, um festzustellen, wann sie mit Ihrem Telefon verbunden ist.</string>
-    <string name="settings_maindevice_address_none">Keine</string>
-    <string name="settings_maindevice_model_label">Ihr Gerätemodell</string>
-    <string name="settings_maindevice_model_description">Das Modell Ihres Hauptgeräts. Dies hilft der App, Ihr Gerät zu erkennen, wenn es nicht mit Ihrem Telefon verbunden ist.</string>
-    <string name="profiles_identitykey_label">Identitätsschlüssel</string>
-    <string name="profilessettings_maindevice_identitykey_description">Der Identity Resolving Key (IRK) deines Geräts, der CAPod dabei hilft, es unter Geräten in der Nähe zu identifizieren.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods ändern häufig ihre Bluetooth-Adresse aus Datenschutzgründen. Der IRK hilft CAPod, dein Gerät zu erkennen. Du benötigst einmaligen Zugriff auf ein MacBook.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Verschlüsselungsschlüssel</string>
-    <string name="profiles_maindevice_encryptionkey_description">Der Verschlüsselungsschlüssel deines Geräts, der es CAPod ermöglicht, detaillierte Statusinformationen abzurufen.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods senden eine Statusnachricht, die teilweise verschlüsselt ist. Der Verschlüsselungsschlüssel ermöglicht es CAPod, die vollständige Nachricht zu entschlüsseln. Du benötigst einmaligen Zugriff auf ein MacBook.</string>
     <string name="settings_onepod_mode_label">Ein-Pod-Modus</string>
     <string name="settings_onepod_mode_description">Das Tragen beider Pods ist nicht erforderlich. Das Tragen eines einzigen Pods reicht aus, um Reaktionen auszulösen.</string>
     <string name="settings_popup_caseopen_label">Hüllen popup anzeigen</string>
@@ -125,16 +116,14 @@
     <string name="onboarding_body2">Nicht alle Android-Geräte unterstützen die zusätzlichen AirPod-Funktionen vollständig. Ihr Betriebssystem erfordert eine korrekt funktionierende Bluetooth-Low-Energy-Implementierung.</string>
     <string name="onboarding_body3">CAPod hat keine Werbung und sammelt Ihre Daten nicht.</string>
     <string name="onboarding_body4">Sie können auf CAPod Pro upgraden, um zusätzliche Funktionen zu erhalten und die Entwicklung zu unterstützen.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
+    <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">k.A.</string>
     <string name="general_error_label">Fehler</string>
-    <string name="general_grant_permission_action">Berechtigung erteilen</string>
-    <string name="overview_nomaindevice_label">Kein primäres Gerät</string>
-    <string name="overview_nomaindevice_description">Alle gefundenen Geräte gehören wahrscheinlich nicht dir. Schalte deine Kopfhörer ein oder passe die Einstellungen von CAPod an.</string>
+    <string name="general_grant_permission_action">Berechtigungen erteilen</string>
+    <string name="general_manage_devices_action">Geräte verwalten</string>
+    <string name="overview_nomaindevice_label">Kein Gerät konfiguriert</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ist deaktiviert</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth ist deaktiviert, aktiviere es ;)</string>
     <string name="permission_bluetooth_connect_label">Bluetooth verbinden</string>
@@ -158,35 +147,19 @@
     <string name="settings_monitor_mode_manual_label">Wenn die App geöffnet ist</string>
     <string name="settings_monitor_mode_automatic_label">Wenn das Gerät verbunden ist</string>
     <string name="settings_monitor_mode_always_label">Immer</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">Wenn gesehen</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">Wann gesehen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Ladecase ist offen</string>
     <string name="settings_reaction_autoconnect_inear_label">Im Ohr</string>
     <string name="pods_dual_left_label">Linker Pod</string>
     <string name="pods_dual_right_label">Rechter Pod</string>
     <string name="pods_case_label">Ladecase</string>
-    <string name="pods_case_status_open_label">Offen</string>
-    <string name="pods_case_status_closed_label">Geschlossen</string>
-    <string name="pods_connection_state_disconnected_label">Mit keinem Gerät verbunden</string>
-    <string name="pods_connection_state_idle_label">Mit einem Gerät verbunden, aber im Leerlauf</string>
-    <string name="pods_connection_state_music_label">Im Musik Modus</string>
-    <string name="pods_connection_state_call_label">Im Anruf Modus</string>
-    <string name="pods_connection_state_ringing_label">Klingelt</string>
-    <string name="pods_connection_state_hanging_up_label">Auflegen</string>
-    <string name="pods_connection_state_unknown_label">Unbekannter Verbindungsstatus</string>
-    <string name="pods_unknown_raw_data_label">Rohe Daten</string>
-    <string name="pods_unknown_label">Unbekanntes Gerät</string>
-    <string name="pods_unknown_contact_dev">Dies ist ein unbekanntes Gerät, aber es verwendet ein ähnliches Nachrichtenformat.  Lassen Sie uns Unterstützung dafür hinzufügen, kontaktieren Sie mich :)</string>
-    <string name="pods_none_label_short">Kein Gerät</string>
-    <string name="pods_charging_label">Laden</string>
-    <string name="pods_inear_label">Im Ohr</string>
-    <string name="pods_microphone_label">Mikrofon</string>
-    <string name="pods_yours">Dein</string>
-    <string name="headset_being_worn_label">Wird getragen</string>
-    <string name="headset_not_being_worn_label">Wird nicht getragen</string>
-    <string name="pods_case_unknown_state">Unbekannter Zustand</string>
-    <string name="last_seen_x">Zuletzt gesehen: %s</string>
-    <string name="first_seen_x">Zum ersten Mal gesehen: %s</string>
-    <string name="permission_post_notifications_label">Zeige Benachrichtigungen</string>
-    <string name="permission_post_notifications_description">"Erlaube CAPod, Benachrichtigungen über deine AirPods anzuzeigen, z. B. deren aktuellen Status, während die Verbindung besteht."</string>
-
+    <!-- Device profiles -->
+    <string name="profiles_signal_quality_title">Minimale Signalqualität</string>
+    <string name="profiles_identitykey_label">Identitätsschlüssel</string>
+    <string name="profilessettings_maindevice_identitykey_description">Der Identity Resolving Key (IRK) deines Geräts, der CAPod dabei hilft, es unter Geräten in der Nähe zu identifizieren.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ändern häufig ihre Bluetooth-Adresse aus Datenschutzgründen. Der IRK hilft CAPod, dein Gerät zu erkennen. Du benötigst einmaligen Zugriff auf ein MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Verschlüsselungsschlüssel</string>
+    <string name="profiles_maindevice_encryptionkey_description">Der Verschlüsselungsschlüssel deines Geräts, der es CAPod ermöglicht, detaillierte Statusinformationen abzurufen.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods senden eine Statusnachricht, die teilweise verschlüsselt ist. Der Verschlüsselungsschlüssel ermöglicht es CAPod, die vollständige Nachricht zu entschlüsseln. Du benötigst einmaligen Zugriff auf ein MacBook.</string>
+    <!-- Unsaved changes dialog -->
 </resources>

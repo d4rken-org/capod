@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Czy skaner danych Bluetooth Low Energy ma priorytetowo działać w ramach wydajności, czy oszczędzania energii?</string>
     <string name="settings_autopause_label">Automatyczna pauza</string>
     <string name="settings_autopause_description">Pauzuj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
-    <string name="settings_showall_label">Wyświetl wszystkie urządzenia</string>
-    <string name="settings_showall_description">Wyświetla urządzenia innych osób, które są w pobliżu.</string>
     <string name="settings_autopplay_label">Automatyczne odtwarzanie</string>
     <string name="settings_autoplay_description">Rozpocznij odtwarzanie, gdy urządzenie jest noszone.</string>
     <string name="settings_fake_data_label">Fałszywe dane</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Nie używaj systemu do filtrowania danych, zamiast tego pobieraj wszystkie dane i filtruj w aplikacji.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Wyłącz sprzętowe zbieranie danych</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Nie pozwól, aby system zgrupował zebrane dane BLE przed przekazaniem ich do CAPod.</string>
-    <string name="settings_maindevice_address_label">Adres twojego urządzenia</string>
-    <string name="settings_maindevice_address_description">Adres twojego sparowanego urządzenia. Aplikacja korzysta z niego, aby ustalić czy jest połączone z twoim telefonem.</string>
-    <string name="settings_maindevice_address_none">Brak</string>
-    <string name="settings_maindevice_model_label">Model twojego urządzenia</string>
-    <string name="settings_maindevice_model_description">Model twojego głównego urządzenia. Pomaga aplikacji rozpoznać twoje urządzenie, gdy nie jest połączone z telefonem.</string>
-    <string name="profiles_identitykey_label">Klucz Identyfikacyjny</string>
-    <string name="profilessettings_maindevice_identitykey_description">Klucz Identyfikacyjny Rozwiązania Twojego urządzenia (IRK), który pomaga CAPod zidentyfikować go wśród pobliskich urządzeń.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods często zmienia swój adres Bluetooth dla prywatności. IRK pomaga CAPod rozpoznawać twoje urządzenie. Potrzebujesz jednorazowego dostępu do MacBook.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Klucz Szyfrowania</string>
-    <string name="profiles_maindevice_encryptionkey_description">Klucz szyfrowania Twojego urządzenia, który umożliwia CAPod pobieranie szczegółowych informacji o statusie.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods wysyła wiadomość o statusie, której część jest zaszyfrowana. Klucz szyfrowania pozwala CAPod odszyfrować całą wiadomość. Potrzebujesz jednorazowego dostępu do MacBook.</string>
     <string name="settings_onepod_mode_label">Tryb jednego pod\'a</string>
     <string name="settings_onepod_mode_description">Noszenie obu pod\'ów nie jest wymagane. Wystarczy jeden, aby aktywować reakcje.</string>
     <string name="settings_popup_caseopen_label">Wyświetl okienko obudowy</string>
@@ -125,68 +112,7 @@
     <string name="onboarding_body2">Nie wszystkie urządzenia z Androidem w pełni wspierają dodatkowe funkcje AirPods. Twój system operacyjny wymaga dobrze działającej implementacji Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod nie wyświetla reklam i nie zbiera Twoich danych.</string>
     <string name="onboarding_body4">Możesz ulepszyć do CAPod Pro, by zyskać dodatkowe funkcje i wesprzeć rozwój.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/D</string>
-    <string name="general_error_label">Błąd</string>
-    <string name="general_grant_permission_action">Udziel uprawnień</string>
-    <string name="overview_nomaindevice_label">Brak podstawowego urządzenia</string>
-    <string name="overview_nomaindevice_description">Żadne z wykrytych urządzeń nie wygląda na twoje. Włącz i połącz swoje urządzenie lub dostosuj ustawienia.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth jest wyłączony</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth jest wyłączony, włącz go ;)</string>
-    <string name="permission_bluetooth_connect_label">Połączenie Bluetooth</string>
-    <string name="permission_bluetooth_connect_description">Aplikacja wymaga uprawnień do \"Połączenia Bluetooth\", aby oddziaływać na sparowane urządzenia i inicjować połączenia.</string>
-    <string name="permission_bluetooth_scan_label">Skanowanie Bluetooth</string>
-    <string name="permission_bluetooth_scan_description">Uprawnienie \"Skanowanie Bluetooth\" zezwala aplikacji na odkrywanie i odbieranie danych Bluetooth od urządzeń znajdujących się w pobliżu, takich jak AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Aplikacja wymaga uprawnień \"Bluetooth\", aby łączyć się ze sparowanymi urządzeniami bluetooth.</string>
-    <string name="permission_access_fine_location_label">Dostęp do dokładnej lokalizacji</string>
-    <string name="permission_access_fine_location_description">CAPod korzysta z uprawnienia do \"dokładnej lokalizacji\", aby odbierać dane Bluetooth Low Energy. Twoje słuchawki korzystają z technologii Bluetooth Low Energy, aby przekazywać informacje o swoim stanie. Aplikacja NIE BĘDZIE korzystać z danych Bluetooth do ustalenia twojego położenia.</string>
-    <string name="permission_background_location_label">Dostęp do lokalizacji w tle</string>
-    <string name="permission_background_location_description">CAPdo wykorzystuje \"Dostęp do lokalizacji w tle\", aby skorzystać z funkcjonalności takich jak \"Wyświetl okienko\" lub \"Automatycznie połącz\", gdy aplikacja jest zamknięta. Dostęp do lokalizacji w tle pozwala aplikacji na odbieranie danych Bluetooth Low Energy, gdy aplikacja działa w tle. Aplikacja NIE BĘDZIE korzystać z danych Bluetooth do ustalenia twojego położenia.</string>
-    <string name="permission_ignore_battery_optimizations_label">Wyłącz optymalizacje baterii</string>
-    <string name="permission_ignore_battery_optimizations_description">Optymalizacja baterii zapobiega przed niezawodnym odbieraniem danych Bluetooth, gdy aplikacja działa w tle.</string>
-    <string name="permission_required_title">Następujące uprawnienie jest wymagane:</string>
-    <string name="permission_system_alert_window_label">Okna alertów systemowych</string>
-    <string name="permission_system_alert_window_description">Zezwól na wyświetlanie CAPod nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie informacji\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Oszczędzanie energii</string>
-    <string name="settings_scanner_mode_balanced_label">Zbalansowana</string>
-    <string name="settings_scanner_mode_lowlatency_label">Małe opóźnienia</string>
-    <string name="settings_monitor_mode_manual_label">Gdy aplikacja jest uruchomiona</string>
-    <string name="settings_monitor_mode_automatic_label">Gdy urządzenie jest podłączone</string>
-    <string name="settings_monitor_mode_always_label">Zawsze</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">Gdy widoczne</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Otwarta obudowa</string>
-    <string name="settings_reaction_autoconnect_inear_label">W uszach</string>
-    <string name="pods_dual_left_label">Lewy pod</string>
-    <string name="pods_dual_right_label">Prawy pod</string>
-    <string name="pods_case_label">Obudowa</string>
-    <string name="pods_case_status_open_label">Otwarta</string>
-    <string name="pods_case_status_closed_label">Zamknięta</string>
-    <string name="pods_connection_state_disconnected_label">Nie połączono z urządzeniem</string>
-    <string name="pods_connection_state_idle_label">Połączono z urządzeniem, bezczynność</string>
-    <string name="pods_connection_state_music_label">W trybie muzyki</string>
-    <string name="pods_connection_state_call_label">W trybie rozmowy</string>
-    <string name="pods_connection_state_ringing_label">Dzwoni</string>
-    <string name="pods_connection_state_hanging_up_label">Rozłączanie</string>
-    <string name="pods_connection_state_unknown_label">Nieznany stan połączenia</string>
-    <string name="pods_unknown_raw_data_label">Surowe dane</string>
-    <string name="pods_unknown_label">Nieznane urządzenie</string>
-    <string name="pods_unknown_contact_dev">Urządzenie nie zostało rozpoznane, ale korzysta z podobnego formatu danych. Możemy dodać jego obsługę - skontaktuj się ze mną :)</string>
-    <string name="pods_none_label_short">Brak urządzenia</string>
-    <string name="pods_charging_label">Ładowanie</string>
-    <string name="pods_inear_label">W uszach</string>
-    <string name="pods_microphone_label">Mikrofon</string>
-    <string name="pods_yours">Twoje</string>
-    <string name="headset_being_worn_label">Jest noszony</string>
-    <string name="headset_not_being_worn_label">Nie był noszony</string>
-    <string name="pods_case_unknown_state">Nieznany stan</string>
-    <string name="last_seen_x">Ostatnio widziane: %s</string>
-    <string name="first_seen_x">Widziane pierwszy raz: %s</string>
-    <string name="permission_post_notifications_label">Wyświetl powiadomienia</string>
-    <string name="permission_post_notifications_description">"Zezwól CAPod na wyświetlanie powiadomień o słuchawkach AirPods, np. ich aktualnym statusie podczas połączenia."</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

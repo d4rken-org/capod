@@ -11,12 +11,9 @@
     <string name="general_save_action">Tallenna</string>
     <string name="general_guide_action">Opas</string>
     <string name="general_continue_action">Jatka</string>
-
     <string name="general_example_label">Esim.: %s</string>
-
     <string name="upgrade_capod_label">Päivitä CAPod</string>
     <string name="upgrade_capod_description">Hanki lisäominaisuuksia ja tue kehittäjää.</string>
-
     <string name="settings_monitor_mode_label">Valvontatila</string>
     <string name="settings_monitor_mode_description">Missä olosuhteissa tämä sovellus valvoo Bluetooth-tietoja.</string>
     <string name="settings_monitor_connected_notification_label">Lisäilmoitus</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Pitäisikö Bluetooth Low Energy -dataskannerin priorisoida suorituskykyä vai säästää energiaa?</string>
     <string name="settings_autopause_label">Automaattinen tauko</string>
     <string name="settings_autopause_description">Keskeytä ääni, kun poistat laitteen korvastasi.</string>
-    <string name="settings_showall_label">Näytä kaikki laitteet</string>
-    <string name="settings_showall_description">Näytä muiden lähelläsi olevien ihmisten laitteet.</string>
     <string name="settings_autopplay_label">Automaattinen toisto</string>
     <string name="settings_autoplay_description">Aloita äänentoisto, kun laitetta käytetään.</string>
     <string name="settings_fake_data_label">Valetiedot</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">Reaktiot</string>
     <string name="settings_reaction_description">Reagoi tapahtumiin ja käyttäytymiseen.</string>
     <string name="settings_category_yourdevice_label">Laitteesi</string>
-
     <string name="settings_category_compatibility_options_title">Yhteensopivuusasetukset</string>
     <string name="settings_category_compatibility_options_description">Älä koske, jos kaikki toimii ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Poista laitteistosuodatus käytöstä</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Älä delegoi tietojen suodatusta järjestelmälle, vaan hanki kaikki tiedot ja suodata ne sovelluksessa.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Poista laitteistoeräajo käytöstä</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Älä anna järjestelmän ryhmitellä kerättyjä BLE-tietoja ennen niiden välittämistä meille.</string>
-
-    <string name="settings_maindevice_address_label">Laitteesi osoite</string>
-    <string name="settings_maindevice_address_description">Pariliitetyn laitteesi osoite. Sovellus käyttää tätä määrittääkseen, milloin se on yhdistetty puhelimeesi.</string>
-    <string name="settings_maindevice_address_none">Ei mitään</string>
-    <string name="settings_maindevice_model_label">Laitteesi malli</string>
-    <string name="settings_maindevice_model_description">Päälaitteesi malli. Tämä auttaa sovellusta tunnistamaan laitteesi, kun se ei ole yhdistetty puhelimeesi.</string>
-    <string name="profiles_identitykey_label">Tunnisteavain</string>
-    <string name="profilessettings_maindevice_identitykey_description">Laitteesi identiteetinratkaisuavain (IRK), joka auttaa CAPodia tunnistamaan sen lähellä olevien laitteiden joukosta.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPodit vaihtavat usein Bluetooth-osoitettaan yksityisyyden vuoksi. IRK auttaa CAPodia tunnistamaan laitteesi. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Salausavain</string>
-    <string name="profiles_maindevice_encryptionkey_description">Laitteesi salausavain, jonka avulla CAPod voi hakea yksityiskohtaisia tilatietoja.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPodit lähettävät tilaviestin, josta osa on salattu. Salausavain antaa CAPodille mahdollisuuden purkaa koko viestin salauksen. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
-
     <string name="settings_onepod_mode_label">Yhden kuulokkeen tila</string>
     <string name="settings_onepod_mode_description">Molempien kuulokkeiden käyttäminen ei ole pakollista, yhden kuulokkeen käyttäminen riittää reaktioiden laukaisemiseen.</string>
     <string name="settings_popup_caseopen_label">Näytä kotelon ponnahdusikkuna</string>
     <string name="settings_popup_caseopen_description">Näytä ponnahdusikkuna, kun laitteen kotelo avataan (kokeellinen).</string>
     <string name="settings_popup_connected_label">Näytä yhteyden ponnahdusikkuna</string>
     <string name="settings_popup_connected_description">Näytä ponnahdusikkuna, kun laite yhdistetään ensimmäisen kerran.</string>
-
     <string name="notification_channel_device_status_label">Laitteen tila</string>
     <string name="notification_channel_device_status_connected_label">Yhdistetty laite</string>
-
     <string name="support_debuglog_label">Virheenkorjausloki</string>
     <string name="support_debuglog_desc">Tallenna kaikki sovelluksen tekemiset tekstitiedostoon, jonka voit jakaa.</string>
     <string name="debug_debuglog_size_label">Koko</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">Lopeta tallennus</string>
     <string name="debug_debuglog_sensitive_information_message">Luotu tiedosto sisältää arkaluonteista tietoa (esim. Bluetooth-laitteen tiedot). Jaa se vain luotettujen osapuolten kanssa.</string>
     <string name="settings_debuglog_explanation">Tämä ominaisuus tallentaa kaikki sovelluksen tekemiset jaettavaan tiedostoon. Luotu tiedosto sisältää arkaluonteista tietoa (esim. Bluetooth-laitteen tiedot). Jaa se vain luotettujen osapuolten kanssa (esim. kehittäjän kanssa, joka vianmäärittää ongelmaa).</string>
-
     <string name="settings_support_installid_label">Asennustunnus</string>
     <string name="settings_support_installid_desc">Automaattiset virheraportit ovat anonyymejä. Jaa asennustunnuksesi, jos kehittäjän on löydettävä virheraporttisi.</string>
     <string name="settings_support_label">Tuki</string>
     <string name="settings_support_description">Jos tarvitset apua.</string>
-
     <string name="issue_tracker_label">Ongelmien seuranta</string>
     <string name="issue_tracker_description">Julkinen ongelmien seurantajärjestelmä virheraporteille ja ominaisuuspyynnöille (vain englanniksi).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Paikka hengailla ja esittää kysymyksiä.</string>
-
     <string name="changelog_label">Muutosloki</string>
     <string name="settings_label">Asetukset</string>
     <string name="settings_privacy_policy_label">Tietosuojakäytäntö</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">Asetukset</string>
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
-
     <string name="settings_debug_autoreports_label">Automaattiset virheraportit</string>
     <string name="settings_debug_autoreports_description">Raportoi ongelmat automaattisesti, esim. tiedot sovelluksen kaatumisesta, jotta voin selvittää, miten se korjataan.</string>
     <string name="settings_debug_mode_label">Virheenkorjaustila</string>
     <string name="settings_debug_mode_description">Näytä lisätietoja ongelmien vianmääritykseen.</string>
-
     <string name="settings_blescanner_unfiltered_label">Suodattamattomat BLE-tiedot</string>
     <string name="settings_blescanner_unfiltered_description">Poista kaikki suodattimet BLE-skannerista näyttääksesi kaikki lähetetyt BLE-tiedot. Hyödyllinen uusien kuuloketyyppien tuen lisäämiseen.</string>
-
     <string name="settings_compatibility_mode_label">Yhteensopivuustila</string>
     <string name="settings_compatibility_mode_description">Poista optimoinnit käytöstä yhteensopivuuden parantamiseksi. Kokeile tätä, jos et näe mitään tietoja.</string>
-
     <string name="help_translate_label">Käännös</string>
     <string name="help_translate_description">Auta kääntämään tämä sovellus suosikkikielellesi.</string>
-
     <string name="translators_thanks_title">Kääntäjät</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Widget, joka näyttää laitteen viimeisimmän tunnetun tilan.</string>
     <string name="settings_compat_indirectcallback_title">Epäsuora tietojen toimitus</string>
     <string name="settings_compat_indirectcallback_summary">Käytä vaihtoehtoista tapaa vastaanottaa BLE-tietoja järjestelmästä (lähetys takaisinkutsun sijaan).</string>
-
     <string name="troubleshooter_title">Vianmääritys</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy -lähetykset</string>
     <string name="troubleshooter_ble_intro_body1">AirPodit (ja vastaavat kuulokkeet) lähettävät tilatietoja käyttämällä BLE-tekniikkaa nimeltä \"mainokset\". Jotkin puhelimet eivät toteuta tätä tekniikkaa oikein. CAPod voi yrittää korjata tämän kokeilemalla erilaisia yhteensopivuusvaihtoehtoja, kunnes tietoja vastaanotetaan. Aloita musiikin toisto kuulokkeillasi ja aseta ne lähelle puhelintasi, aloita sitten prosessi.</string>
@@ -140,82 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Puhelimesi vastaanotti BLE-tietoja, mutta tiedot eivät tule mistään tuetusta laitteesta. Ovatko kuulokkeesi päällä? Tukeeko CAPod kuulokkeitasi?</string>
     <string name="troubleshooter_ble_result_failure_action">Yritä uudelleen</string>
     <string name="troubleshoot_action">Vianmääritys</string>
-
     <string name="onboarding_body1">Tämä sovellus lisää tuen AirPod-kohtaisille ominaisuuksille Androidiin.</string>
     <string name="onboarding_body2">Kaikki Android-laitteet eivät täysin tue ylimääräisiä AirPod-ominaisuuksia. Käyttöjärjestelmäsi vaatii oikein toimivan Bluetooth Low Energy -toteutuksen.</string>
     <string name="onboarding_body3">CAPodissa ei ole mainoksia eikä se kerää tietojasi.</string>
     <string name="onboarding_body4">Voit päivittää CAPod Prohon saadaksesi lisäominaisuuksia ja tukeaksesi kehitystä.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-
-    <string name="general_value_not_available_label">N/A</string>
-    <string name="general_error_label">Virhe</string>
-    <string name="general_grant_permission_action">Myönnä lupa</string>
-
-    <string name="overview_nomaindevice_label">Ei ensisijaista laitetta</string>
-    <string name="overview_nomaindevice_description">Kaikki havaitut laitteet eivät todennäköisesti ole sinun. Kytke laitteeseesi virta ja yhdistä se tai säädä asetuksia.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth on pois käytöstä</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth on pois käytöstä, ota se käyttöön ;)</string>
-
-    <string name="permission_bluetooth_connect_label">Bluetooth-yhteys</string>
-    <string name="permission_bluetooth_connect_description">Tämä sovellus vaatii \"Bluetooth-yhteys\"-luvan ollakseen vuorovaikutuksessa pariliitettyjen laitteiden kanssa ja aloittaakseen yhteyksiä.</string>
-    <string name="permission_bluetooth_scan_label">Bluetooth-skannaus</string>
-    <string name="permission_bluetooth_scan_description">\"Bluetooth-skannaus\"-lupa antaa tämän sovelluksen löytää ja vastaanottaa Bluetooth-tietoja lähellä olevista laitteista, kuten AirPodeistasi.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Tämä sovellus vaatii \"Bluetooth\"-luvan yhdistääkseen pariliitettyihin Bluetooth-laitteisiin.</string>
-    <string name="permission_access_fine_location_label">Tarkka sijainti</string>
-    <string name="permission_access_fine_location_description">CAPod käyttää \"tarkka sijainti\" -lupaa vastaanottaakseen Bluetooth Low Energy -tietoja. Kuulokkeesi käyttävät Bluetooth Low Energy -tekniikkaa lähettääkseen tilansa. Tämä sovellus EI käytä Bluetooth-tietoja sijaintisi määrittämiseen.</string>
-    <string name="permission_background_location_label">Sijainnin käyttö taustalla</string>
-    <string name="permission_background_location_description">CAPod käyttää \"sijainnin käyttö taustalla\" -lupaa mahdollistaakseen ominaisuuksia, kuten \"Näytä ponnahdusikkuna\" ja \"Automaattinen yhdistäminen\", kun sovellus on suljettu. Sijainnin käyttö taustalla antaa sovelluksen vastaanottaa Bluetooth Low Energy -tietoja sen ollessa taustalla. Tämä sovellus EI käytä Bluetooth-tietoja sijaintisi määrittämiseen.</string>
-    <string name="permission_ignore_battery_optimizations_label">Poista akun optimoinnit käytöstä</string>
-    <string name="permission_ignore_battery_optimizations_description">Akun optimoinnit estävät tätä sovellusta vastaanottamasta luotettavasti Bluetooth-tietoja sovelluksen ollessa taustalla.</string>
-    <string name="permission_required_title">Seuraava lupa vaaditaan:</string>
-    <string name="permission_system_alert_window_label">Järjestelmän ilmoitusikkuna</string>
-    <string name="permission_system_alert_window_description">Salli CAPodin piirtää muiden sovellusten päälle mahdollistaaksesi \"Näytä ponnahdusikkuna\" -ominaisuuden.</string>
-
-    <string name="settings_scanner_mode_lowpower_label">Alhainen virrankulutus</string>
-    <string name="settings_scanner_mode_balanced_label">Tasapainotettu</string>
-    <string name="settings_scanner_mode_lowlatency_label">Matala viive</string>
-
-    <string name="settings_monitor_mode_manual_label">Kun sovellus on auki</string>
-    <string name="settings_monitor_mode_automatic_label">Kun laite on yhdistetty</string>
-    <string name="settings_monitor_mode_always_label">Aina</string>
-
-    <string name="settings_reaction_autoconnect_whenseen_label">Kun havaittu</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Kotelo on auki</string>
-    <string name="settings_reaction_autoconnect_inear_label">Korvassa</string>
-
-    <string name="pods_dual_left_label">Vasen kuuloke</string>
-    <string name="pods_dual_right_label">Oikea kuuloke</string>
-    <string name="pods_case_label">Kotelo</string>
-    <string name="pods_case_status_open_label">Auki</string>
-    <string name="pods_case_status_closed_label">Suljettu</string>
-    <string name="pods_connection_state_disconnected_label">Ei yhteydessä laitteeseen</string>
-    <string name="pods_connection_state_idle_label">Yhdistetty laitteeseen, mutta käyttämättömänä</string>
-    <string name="pods_connection_state_music_label">Musiikkitilassa</string>
-    <string name="pods_connection_state_call_label">Puhelutilassa</string>
-    <string name="pods_connection_state_ringing_label">Soi</string>
-    <string name="pods_connection_state_hanging_up_label">Lopettaa puhelua</string>
-    <string name="pods_connection_state_unknown_label">Tuntematon yhteystila</string>
-    <string name="pods_unknown_raw_data_label">Raakadata</string>
-    <string name="pods_unknown_label">Tuntematon laite</string>
-    <string name="pods_unknown_contact_dev">Tämä on tuntematon laite, mutta se käyttää samanlaista viestimuotoa. Lisätään tuki sille, ota yhteyttä :)</string>
-    <string name="pods_none_label_short">Ei laitetta</string>
-    <string name="pods_charging_label">Latautuu</string>
-    <string name="pods_inear_label">Korvassa</string>
-    <string name="pods_microphone_label">Mikrofoni</string>
-    <string name="pods_yours">Sinun</string>
-    <string name="headset_being_worn_label">Käytössä</string>
-    <string name="headset_not_being_worn_label">Ei käytössä</string>
-    <string name="pods_case_unknown_state">Tuntematon tila</string>
-
-    <string name="last_seen_x">Viimeksi nähty: %s</string>
-    <string name="first_seen_x">Ensimmäisen kerran nähty: %s</string>
-    <string name="permission_post_notifications_label">Näytä ilmoitukset</string>
-    <string name="permission_post_notifications_description">"Salli CAPodin näyttää ilmoituksia AirPodeistasi, esim. niiden nykyinen tila yhdistettynä."</string>
-
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

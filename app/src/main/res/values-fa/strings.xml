@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">آیا اسکنر داده بلوتوث کم‌مصرف باید عملکرد را در اولویت قرار دهد یا انرژی را ذخیره کند؟</string>
     <string name="settings_autopause_label">مکث خودکار</string>
     <string name="settings_autopause_description">هنگام برداشتن دستگاه از گوش، صدا را متوقف کنید.</string>
-    <string name="settings_showall_label">نمایش همه دستگاه‌ها</string>
-    <string name="settings_showall_description">دستگاه‌های افراد دیگر را که در نزدیکی شما هستند نشان دهید.</string>
     <string name="settings_autopplay_label">پخش خودکار</string>
     <string name="settings_autoplay_description">هنگام استفاده از دستگاه، پخش صدا را شروع کنید.</string>
     <string name="settings_fake_data_label">داده‌های جعلی</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">فیلتر کردن داده‌ها را به سیستم واگذار نکنید، در عوض همه داده‌ها را دریافت کرده و در داخل برنامه فیلتر کنید.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">غیرفعال کردن دسته‌بندی سخت‌افزاری</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">اجازه ندهید سیستم داده‌های BLE جمع‌آوری‌شده را قبل از ارسال به ما، گروه‌بندی کند.</string>
-    <string name="settings_maindevice_address_label">آدرس دستگاه شما</string>
-    <string name="settings_maindevice_address_description">آدرس دستگاه جفت‌شده شما. برنامه از این برای تعیین زمان اتصال به تلفن شما استفاده می‌کند.</string>
-    <string name="settings_maindevice_address_none">هیچ‌کدام</string>
-    <string name="settings_maindevice_model_label">مدل دستگاه شما</string>
-    <string name="settings_maindevice_model_description">مدل دستگاه اصلی شما. این به برنامه کمک می‌کند دستگاه شما را هنگامی که به تلفن شما متصل نیست، تشخیص دهد.</string>
-    <string name="profiles_identitykey_label">کلید شناسایی</string>
-    <string name="profilessettings_maindevice_identitykey_description">کلید حل هویت دستگاه شما (IRK)، که به CAPod کمک می‌کند آن را در میان دستگاه‌های اطراف شناسایی کند.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods برای حفظ حریم خصوصی، آدرس بلوتوث خود را مرتباً تغییر می‌دهند. IRK به CAPod کمک می‌کند دستگاه شما را تشخیص دهد. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
-    <string name="profiles_maindevice_encryptionkey_label">کلید رمزگذاری</string>
-    <string name="profiles_maindevice_encryptionkey_description">کلید رمزگذاری دستگاه شما، که به CAPod امکان بازیابی اطلاعات دقیق وضعیت را می‌دهد.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods یک پیام وضعیت ارسال می‌کنند که بخشی از آن رمزگذاری شده است. کلید رمزگذاری به CAPod امکان می‌دهد پیام کامل را رمزگشایی کند. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
     <string name="settings_onepod_mode_label">حالت یک ایرپاد</string>
     <string name="settings_onepod_mode_description">استفاده از هر دو ایرپاد الزامی نیست، استفاده از یک ایرپاد برای ایجاد واکنش کافی است.</string>
     <string name="settings_popup_caseopen_label">نمایش پاپ‌آپ کیس</string>
@@ -125,68 +112,7 @@
     <string name="onboarding_body2">همه دستگاه‌های Android به‌طور کامل از ویژگی‌های اضافی AirPod پشتیبانی نمی‌کنند. سیستم‌عامل شما به یک پیاده‌سازی بلوتوث کم‌مصرف که به‌درستی کار کند نیاز دارد.</string>
     <string name="onboarding_body3">CAPod هیچ تبلیغی ندارد و داده‌های شما را جمع‌آوری نمی‌کند.</string>
     <string name="onboarding_body4">می‌توانید برای دریافت ویژگی‌های اضافی و حمایت از توسعه، به CAPod Pro ارتقا دهید.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">موجود نیست</string>
-    <string name="general_error_label">خطا</string>
-    <string name="general_grant_permission_action">دادن دسترسی</string>
-    <string name="overview_nomaindevice_label">دستگاه اصلی وجود ندارد</string>
-    <string name="overview_nomaindevice_description">همه دستگاه‌های شناسایی شده به احتمال زیاد متعلق به شما نیستند. دستگاه خود را روشن کنید و متصل کنید یا تنظیمات را تغییر دهید.</string>
-    <string name="overview_bluetooth_disabled_label">بلوتوث غیرفعال است.</string>
-    <string name="overview_bluetooth_disabled_description">بلوتوث غیرفعال است، آن را فعال کنید. ;)</string>
-    <string name="permission_bluetooth_connect_label">اتصال بلوتوث</string>
-    <string name="permission_bluetooth_connect_description">این برنامه برای تعامل با دستگاه‌های جفت‌شده و آغاز اتصالات به مجوز «اتصال بلوتوث» نیاز دارد.</string>
-    <string name="permission_bluetooth_scan_label">اسکن کردن بلوتوث</string>
-    <string name="permission_bluetooth_scan_description">مجوز «اسکن کردن بلوتوث» به این برنامه اجازه می‌دهد داده‌های بلوتوث را از دستگاه‌های نزدیک مانند AirPods شما کشف و دریافت کند.</string>
-    <string name="permission_bluetooth_label">بلوتوث</string>
-    <string name="permission_bluetooth_description">این برنامه برای اتصال به دستگاه‌های بلوتوث جفت‌شده به مجوز «بلوتوث» نیاز دارد.</string>
-    <string name="permission_access_fine_location_label">دسترسی به مکان دقیق</string>
-    <string name="permission_access_fine_location_description">CAPod از مجوز «مکان دقیق» برای دریافت داده‌های بلوتوث کم‌مصرف استفاده می‌کند. هدفون‌های شما از فناوری بلوتوث کم‌مصرف برای پخش وضعیت خود استفاده می‌کنند. این برنامه از داده‌های بلوتوث برای تعیین موقعیت مکانی شما استفاده نخواهد کرد.</string>
-    <string name="permission_background_location_label">دسترسی به مکان در پس‌زمینه</string>
-    <string name="permission_background_location_description"> برنامه CAPod از \"دسترسی به مکان در پس‌زمینه\" برای فعال کردن ویژگی‌هایی مانند \"نمایش پنجره بازشو\" و \"اتصال خودکار\" در زمانی که برنامه بسته است، استفاده می‌کند. این دسترسی به برنامه امکان دریافت داده‌های بلوتوث کم مصرف در پس‌زمینه را می‌دهد. این برنامه از داده‌های بلوتوث برای تعیین موقعیت مکانی شما استفاده نخواهد کرد.</string>
-    <string name="permission_ignore_battery_optimizations_label">غیرفعال کردن بهینه‌سازی‌ باتری</string>
-    <string name="permission_ignore_battery_optimizations_description">بهینه‌سازی‌ باتری باعث می‌شود این برنامه نتواند به‌طور قابل‌اعتماد داده‌های بلوتوث را هنگامی که در پس‌زمینه فعال است، دریافت کند.</string>
-    <string name="permission_required_title">مجوز زیر مورد نیاز است:</string>
-    <string name="permission_system_alert_window_label">پنجره هشدار سیستمی</string>
-    <string name="permission_system_alert_window_description">اجازه دهید CAPod بتواند روی برنامه‌های دیگر نمایش داده شود تا قابلیت \"نمایش پنجره بازشو\" امکان‌پذیر شود.</string>
-    <string name="settings_scanner_mode_lowpower_label">قدرت کم</string>
-    <string name="settings_scanner_mode_balanced_label">متعادل</string>
-    <string name="settings_scanner_mode_lowlatency_label">تأخیر کم</string>
-    <string name="settings_monitor_mode_manual_label">وقتی برنامه باز است</string>
-    <string name="settings_monitor_mode_automatic_label">وقتی دستگاه وصل است</string>
-    <string name="settings_monitor_mode_always_label">همیشه</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">موقع دیدن</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">بسته بودن کیس</string>
-    <string name="settings_reaction_autoconnect_inear_label">در گوش</string>
-    <string name="pods_dual_left_label">گوش چپ</string>
-    <string name="pods_dual_right_label">گوش راست</string>
-    <string name="pods_case_label">کیس</string>
-    <string name="pods_case_status_open_label">باز</string>
-    <string name="pods_case_status_closed_label">بسته</string>
-    <string name="pods_connection_state_disconnected_label">هیچ دستگاهی متصل نیست</string>
-    <string name="pods_connection_state_idle_label">متصل به یک دستگاه، اما غیرفعال</string>
-    <string name="pods_connection_state_music_label">در حالت موسیقی</string>
-    <string name="pods_connection_state_call_label">در حالت تماس</string>
-    <string name="pods_connection_state_ringing_label">زنگ زدن</string>
-    <string name="pods_connection_state_hanging_up_label">قطع کردن</string>
-    <string name="pods_connection_state_unknown_label">وضعیت اتصال نامشخص</string>
-    <string name="pods_unknown_raw_data_label">داده های خام</string>
-    <string name="pods_unknown_label">دستگاه ناشناخته</string>
-    <string name="pods_unknown_contact_dev">این یک دستگاه ناشناخته است، اما از فرمت پیام مشابهی استفاده می‌کند. بیایید از آن پشتیبانی کنیم، با من تماس بگیرید. :)</string>
-    <string name="pods_none_label_short">بدون دستگاه</string>
-    <string name="pods_charging_label">درحال شارژ</string>
-    <string name="pods_inear_label">در گوش</string>
-    <string name="pods_microphone_label">میکروفون</string>
-    <string name="pods_yours">مال شما</string>
-    <string name="headset_being_worn_label">در حال استفاده</string>
-    <string name="headset_not_being_worn_label">عدم استفاده</string>
-    <string name="pods_case_unknown_state">وضعیت ناشناخته</string>
-    <string name="last_seen_x">آخرین بازدید: %s</string>
-    <string name="first_seen_x">اولین بازدید: %s</string>
-    <string name="permission_post_notifications_label">نمایش اعلان‌ها</string>
-    <string name="permission_post_notifications_description">"اجازه دهید CAPod اعلان‌هایی درباره ایرپادهای شما نمایش دهد، مانند وضعیت فعلی آنها هنگام اتصال."</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

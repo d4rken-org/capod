@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="general_share_action">Deli</string>
     <string name="general_done_action">Končano</string>
@@ -21,8 +22,6 @@
     <string name="settings_scanner_mode_description">Ali naj optični bralnik podatkov Bluetooth Low Energy daje prednost zmogljivosti ali varčuje z energijo?</string>
     <string name="settings_autopause_label">Samodejna prekinitev</string>
     <string name="settings_autopause_description">Začasno ustavi zvok, ko napravo odstranite iz ušesa.</string>
-    <string name="settings_showall_label">Pokaži vse naprave</string>
-    <string name="settings_showall_description">Pokaži naprave drugih oseb, ki so v vaši bližini.</string>
     <string name="settings_autopplay_label">Samodejno predvajanje</string>
     <string name="settings_autoplay_description">Začni predvajanje zvoka, ko je naprava nošena.</string>
     <string name="settings_fake_data_label">Lažni podatki</string>
@@ -44,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ne prenašajte filtriranja podatkov na sistem, temveč pridobite vse podatke in jih filtrirajte znotraj aplikacije.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Onemogoči strojno paketiranje</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ne dovolite sistemu, da združuje zbrane podatke BLE, preden nam jih posreduje.</string>
-    <string name="settings_maindevice_address_label">Naslov vaše naprave</string>
-    <string name="settings_maindevice_address_description">Naslov vaše seznanjene naprave. Aplikacija to uporablja za določanje, kdaj je povezana z vašim telefonom.</string>
-    <string name="settings_maindevice_address_none">Brez</string>
-    <string name="settings_maindevice_model_label">Model vaše naprave</string>
-    <string name="settings_maindevice_model_description">Model vaše glavne naprave. To pomaga aplikaciji prepoznati vašo napravo, ko ni povezana z vašim telefonom.</string>
-    <string name="profiles_identitykey_label">Identifikacijski ključ</string>
-    <string name="profilessettings_maindevice_identitykey_description">Identifikacijski ključ za razreševanje (IRK) vaše naprave, ki pomaga CAPod-u, da jo identificira med bližnjimi napravami.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods pogosto spreminjajo svoj naslov Bluetooth zaradi zasebnosti. IRK pomaga CAPod-u prepoznati vašo napravo. Potrebujete enkraten dostop do MacBooka.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Šifrirni ključ</string>
-    <string name="profiles_maindevice_encryptionkey_description">Šifrirni ključ vaše naprave, ki CAPod-u omogoča pridobivanje podrobnih informacij o stanju.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods pošljejo sporočilo o stanju, katerega del je šifriran. Šifrirni ključ CAPod-u omogoča dešifriranje celotnega sporočila. Potrebujete enkraten dostop do MacBooka.</string>
     <string name="settings_onepod_mode_label">Način ene slušalke</string>
     <string name="settings_onepod_mode_description">Nošenje obeh slušalk ni potrebno, nošenje ene same slušalke zadostuje za sprožitev reakcij.</string>
     <string name="settings_popup_caseopen_label">Pokaži pojavno okno ohišja</string>
@@ -80,7 +68,6 @@
     <string name="settings_support_description">Če potrebujete pomoč.</string>
     <string name="issue_tracker_label">Sledilnik težav</string>
     <string name="issue_tracker_description">Javni sledilnik težav za poročila o napakah in zahteve za funkcije (samo v angleščini).</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Mesto za druženje in postavljanje vprašanj.</string>
     <string name="changelog_label">Dnevnik sprememb</string>
     <string name="settings_label">Nastavitve</string>
@@ -102,7 +89,6 @@
     <string name="help_translate_label">Prevajanje</string>
     <string name="help_translate_description">Pomagajte prevesti to aplikacijo v svoj najljubši jezik.</string>
     <string name="translators_thanks_title">Prevajalci</string>
-    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Pripomoček, ki prikazuje zadnje znano stanje naprave.</string>
     <string name="settings_compat_indirectcallback_title">Posredna dostava podatkov</string>
     <string name="settings_compat_indirectcallback_summary">Uporabite alternativno metodo za prejemanje podatkov BLE iz sistema (oddajanje namesto povratnega klica).</string>
@@ -124,4 +110,7 @@
     <string name="onboarding_body2">Vse naprave Android ne podpirajo v celoti dodatnih funkcij AirPod. Vaš operacijski sistem zahteva pravilno delujočo implementacijo Bluetooth z nizko porabo energije.</string>
     <string name="onboarding_body3">CAPod nima oglasov in ne zbira vaših podatkov.</string>
     <string name="onboarding_body4">Za dodatne funkcije in podporo razvoju lahko nadgradite na CAPod Pro.</string>
+    <!-- Strings from app-common -->
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

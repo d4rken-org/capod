@@ -11,12 +11,9 @@
     <string name="general_save_action">Saglabāt</string>
     <string name="general_guide_action">Ceļvedis</string>
     <string name="general_continue_action">Turpināt</string>
-
     <string name="general_example_label">Piem.: %s</string>
-
     <string name="upgrade_capod_label">Jaunināt CAPod</string>
     <string name="upgrade_capod_description">Iegūstiet papildu funkcijas un atbalstiet izstrādātāju.</string>
-
     <string name="settings_monitor_mode_label">Monitorēšanas režīms</string>
     <string name="settings_monitor_mode_description">Kādos apstākļos šī lietotne monitorē Bluetooth datus.</string>
     <string name="settings_monitor_connected_notification_label">Papildu paziņojums</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Vai Bluetooth Low Energy datu skenerim vajadzētu prioritizēt veiktspēju vai taupīt enerģiju?</string>
     <string name="settings_autopause_label">Automātiska pauze</string>
     <string name="settings_autopause_description">Pauzēt audio, noņemot ierīci no auss.</string>
-    <string name="settings_showall_label">Rādīt visas ierīces</string>
-    <string name="settings_showall_description">Rādīt citu cilvēku ierīces, kas atrodas jūsu tuvumā.</string>
     <string name="settings_autopplay_label">Automātiska atskaņošana</string>
     <string name="settings_autoplay_description">Sākt audio atskaņošanu, kad ierīce tiek nēsāta.</string>
     <string name="settings_fake_data_label">Viltus dati</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">Reakcijas</string>
     <string name="settings_reaction_description">Reaģēt uz notikumiem un uzvedību.</string>
     <string name="settings_category_yourdevice_label">Jūsu ierīce</string>
-
     <string name="settings_category_compatibility_options_title">Saderības opcijas</string>
     <string name="settings_category_compatibility_options_description">Neaiztieciet, ja viss darbojas ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Atspējot aparatūras filtrēšanu</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Nedelegējiet datu filtrēšanu sistēmai, tā vietā iegūstiet visus datus un filtrējiet lietotnē.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Atspējot aparatūras pakešapstrādi</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Neļaujiet sistēmai grupēt savāktos BLE datus pirms to pārsūtīšanas mums.</string>
-
-    <string name="settings_maindevice_address_label">Jūsu ierīces adrese</string>
-    <string name="settings_maindevice_address_description">Jūsu pārī savienotās ierīces adrese. Lietotne to izmanto, lai noteiktu, kad tā ir savienota ar jūsu tālruni.</string>
-    <string name="settings_maindevice_address_none">Nav</string>
-    <string name="settings_maindevice_model_label">Jūsu ierīces modelis</string>
-    <string name="settings_maindevice_model_description">Jūsu galvenās ierīces modelis. Tas palīdz lietotnei atpazīt jūsu ierīci, kad tā nav savienota ar jūsu tālruni.</string>
-    <string name="profiles_identitykey_label">Identitātes atslēga</string>
-    <string name="profilessettings_maindevice_identitykey_description">Jūsu ierīces identitātes atrisināšanas atslēga (IRK), kas palīdz CAPod to identificēt starp tuvumā esošajām ierīcēm.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods privātuma apsvērumu dēļ bieži maina savu Bluetooth adresi. IRK palīdz CAPod atpazīt jūsu ierīci. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Šifrēšanas atslēga</string>
-    <string name="profiles_maindevice_encryptionkey_description">Jūsu ierīces šifrēšanas atslēga, kas ļauj CAPod iegūt detalizētu statusa informāciju.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods nosūta statusa ziņojumu, kura daļa ir šifrēta. Šifrēšanas atslēga ļauj CAPod atšifrēt pilnu ziņojumu. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
-
     <string name="settings_onepod_mode_label">Viena austiņas režīms</string>
     <string name="settings_onepod_mode_description">Nav nepieciešams nēsāt abas austiņas, pietiek ar vienas austiņas nēsāšanu, lai izraisītu reakcijas.</string>
     <string name="settings_popup_caseopen_label">Rādīt korpusa uznirstošo logu</string>
     <string name="settings_popup_caseopen_description">Rādīt uznirstošo logu, kad ierīces korpuss tiek atvērts (eksperimentāls).</string>
     <string name="settings_popup_connected_label">Rādīt savienojuma uznirstošo logu</string>
     <string name="settings_popup_connected_description">Rādīt uznirstošo logu, kad ierīce pirmo reizi izveido savienojumu.</string>
-
     <string name="notification_channel_device_status_label">Ierīces statuss</string>
     <string name="notification_channel_device_status_connected_label">Pievienota ierīce</string>
-
     <string name="support_debuglog_label">Atkļūdošanas žurnāls</string>
     <string name="support_debuglog_desc">Ierakstiet visu, ko lietotne dara, teksta failā, ko varat kopīgot.</string>
     <string name="debug_debuglog_size_label">Izmērs</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">Pārtraukt ierakstīšanu</string>
     <string name="debug_debuglog_sensitive_information_message">Ģenerētais fails satur sensitīvu informāciju (piem., Bluetooth ierīces informāciju). Kopīgojiet to tikai ar uzticamām pusēm.</string>
     <string name="settings_debuglog_explanation">Šī funkcija ieraksta visu, ko lietotne dara, koplietojamā failā. Ģenerētais fails satur sensitīvu informāciju (piem., Bluetooth ierīces informāciju). Kopīgojiet to tikai ar uzticamām pusēm (piem., izstrādātāju, kas novērš problēmu).</string>
-
     <string name="settings_support_installid_label">Instalācijas ID</string>
     <string name="settings_support_installid_desc">Automātiskie kļūdu ziņojumi ir anonīmi. Kopīgojiet savu instalācijas ID, ja izstrādātājam ir nepieciešams atrast jūsu kļūdu ziņojumus.</string>
     <string name="settings_support_label">Atbalsts</string>
     <string name="settings_support_description">Ja jums nepieciešama palīdzība.</string>
-
     <string name="issue_tracker_label">Problēmu izsekotājs</string>
     <string name="issue_tracker_description">Publisks problēmu izsekotājs kļūdu ziņojumiem un funkciju pieprasījumiem (tikai angļu valodā).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Vieta, kur pavadīt laiku un uzdot jautājumus.</string>
-
     <string name="changelog_label">Izmaiņu žurnāls</string>
     <string name="settings_label">Iestatījumi</string>
     <string name="settings_privacy_policy_label">Privātuma politika</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">Iestatījumi</string>
     <string name="settings_general_description">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
     <string name="settings_acknowledgements_label">Pateicības</string>
-
     <string name="settings_debug_autoreports_label">Automātiski kļūdu ziņojumi</string>
     <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string>
     <string name="settings_debug_mode_label">Atkļūdošanas režīms</string>
     <string name="settings_debug_mode_description">Rādīt papildu informāciju problēmu novēršanai.</string>
-
     <string name="settings_blescanner_unfiltered_label">Nefiltrēti BLE dati</string>
     <string name="settings_blescanner_unfiltered_description">Noņemiet visus filtrus no BLE skenera, lai parādītu visus pārraidītos BLE datus. Noderīgi, lai pievienotu atbalstu jauniem austiņu veidiem.</string>
-
     <string name="settings_compatibility_mode_label">Saderības režīms</string>
     <string name="settings_compatibility_mode_description">Atspējojiet optimizācijas, lai uzlabotu saderību. Izmēģiniet šo, ja neredzat nekādus datus.</string>
-
     <string name="help_translate_label">Tulkošana</string>
     <string name="help_translate_description">Palīdziet tulkot šo lietotni savā iecienītajā valodā.</string>
-
     <string name="translators_thanks_title">Tulkotāji</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Logrīks, kas rāda pēdējo zināmo ierīces statusu.</string>
     <string name="settings_compat_indirectcallback_title">Netieša datu piegāde</string>
     <string name="settings_compat_indirectcallback_summary">Izmantojiet alternatīvu metodi, lai saņemtu BLE datus no sistēmas (pārraide, nevis atzvanīšana).</string>
-
     <string name="troubleshooter_title">Problēmu risinātājs</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy pārraides</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (un līdzīgas austiņas) pārraida statusa informāciju, izmantojot BLE tehnoloģiju, ko sauc par \"reklāmām\". Daži tālruņi šo tehnoloģiju neīsteno pareizi. CAPod var mēģināt to labot, izmēģinot dažādas saderības opcijas, līdz tiek saņemti dati. Sāciet mūzikas atskaņošanu austiņās un novietojiet tās tuvu tālrunim, pēc tam sāciet procesu.</string>
@@ -140,81 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Jūsu tālrunis saņēma BLE datus, bet dati nenāk no nevienas atbalstītas ierīces. Vai jūsu austiņas ir ieslēgtas? Vai CAPod atbalsta jūsu austiņas?</string>
     <string name="troubleshooter_ble_result_failure_action">Mēģiniet vēlreiz</string>
     <string name="troubleshoot_action">Risināt problēmas</string>
-
     <string name="onboarding_body1">Šī lietotne pievieno Android ierīcēm AirPod specifisko funkciju atbalstu.</string>
     <string name="onboarding_body2">Ne visas Android ierīces pilnībā atbalsta papildu AirPod funkcijas. Jūsu operētājsistēmai ir nepieciešama pareizi funkcionējoša Bluetooth Low Energy implementācija.</string>
     <string name="onboarding_body3">CAPod nesatur reklāmas un neapkopo jūsu datus.</string>
     <string name="onboarding_body4">Jūs varat jaunināt uz CAPod Pro, lai iegūtu papildu funkcijas un atbalstītu izstrādi.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-
-    <string name="general_value_not_available_label">N/P</string>
-    <string name="general_error_label">Kļūda</string>
-    <string name="general_grant_permission_action">Piešķirt atļauju</string>
-
-    <string name="overview_nomaindevice_label">Nav primārās ierīces</string>
-    <string name="overview_nomaindevice_description">Visas atklātās ierīces, visticamāk, nav jūsu. Ieslēdziet un pievienojiet ierīci vai pielāgojiet iestatījumus.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth ir atspējots</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth ir atspējots, iespējojiet to ;)</string>
-
-    <string name="permission_bluetooth_connect_label">Bluetooth savienojums</string>
-    <string name="permission_bluetooth_connect_description">Šai lietotnei ir nepieciešama \"Bluetooth savienojuma\" atļauja, lai mijiedarbotos ar pārī savienotām ierīcēm un uzsāktu savienojumus.</string>
-    <string name="permission_bluetooth_scan_label">Bluetooth skenēšana</string>
-    <string name="permission_bluetooth_scan_description">\"Bluetooth skenēšanas\" atļauja ļauj šai lietotnei atklāt un saņemt Bluetooth datus no tuvumā esošām ierīcēm, piemēram, jūsu AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Šai lietotnei ir nepieciešama \"Bluetooth\" atļauja, lai izveidotu savienojumu ar pārī savienotām Bluetooth ierīcēm.</string>
-    <string name="permission_access_fine_location_label">Piekļuve precīzai atrašanās vietai</string>
-    <string name="permission_access_fine_location_description">CAPod izmanto \"precīzas atrašanās vietas\" atļauju, lai saņemtu Bluetooth Low Energy datus. Jūsu austiņas izmanto Bluetooth Low Energy tehnoloģiju, lai pārraidītu savu statusu. Šī lietotne NEIZMANTOS Bluetooth datus, lai noteiktu jūsu atrašanās vietu.</string>
-    <string name="permission_background_location_label">Piekļuve atrašanās vietai fonā</string>
-    <string name="permission_background_location_description">CAPod izmanto \"piekļuvi atrašanās vietai fonā\", lai iespējotu tādas funkcijas kā \"Rādīt uznirstošo logu\" un \"Automātiskais savienojums\", kamēr lietotne ir aizvērta. Piekļuve atrašanās vietai fonā ļauj lietotnei saņemt Bluetooth Low Energy datus, kamēr tā darbojas fonā. Šī lietotne NEIZMANTOS Bluetooth datus, lai noteiktu jūsu atrašanās vietu.</string>
-    <string name="permission_ignore_battery_optimizations_label">Atspējot akumulatora optimizāciju</string>
-    <string name="permission_ignore_battery_optimizations_description">Akumulatora optimizācija neļauj šai lietotnei uzticami saņemt Bluetooth datus, kamēr lietotne darbojas fonā.</string>
-    <string name="permission_required_title">Nepieciešama šāda atļauja:</string>
-    <string name="permission_system_alert_window_label">Sistēmas brīdinājuma logs</string>
-    <string name="permission_system_alert_window_description">Atļaujiet CAPod zīmēt virs citām lietotnēm, lai padarītu iespējamu funkciju \"Rādīt PopUp\".</string>
-
-    <string name="settings_scanner_mode_lowpower_label">Mazjaudīgs</string>
-    <string name="settings_scanner_mode_balanced_label">Līdzsvarots</string>
-    <string name="settings_scanner_mode_lowlatency_label">Zems latentums</string>
-
-    <string name="settings_monitor_mode_manual_label">Kad lietotne ir atvērta</string>
-    <string name="settings_monitor_mode_automatic_label">Kad ierīce ir pievienota</string>
-    <string name="settings_monitor_mode_always_label">Vienmēr</string>
-
-    <string name="settings_reaction_autoconnect_whenseen_label">Kad redzams</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Korpuss ir atvērts</string>
-    <string name="settings_reaction_autoconnect_inear_label">Ausī</string>
-
-    <string name="pods_dual_left_label">Kreisais ieliktnis</string>
-    <string name="pods_dual_right_label">Labais ieliktnis</string>
-    <string name="pods_case_label">Korpuss</string>
-    <string name="pods_case_status_open_label">Atvērts</string>
-    <string name="pods_case_status_closed_label">Aizvērts</string>
-    <string name="pods_connection_state_disconnected_label">Nav savienots ar ierīci</string>
-    <string name="pods_connection_state_idle_label">Savienots ar ierīci, bet dīkstāvē</string>
-    <string name="pods_connection_state_music_label">Mūzikas režīmā</string>
-    <string name="pods_connection_state_call_label">Zvana režīmā</string>
-    <string name="pods_connection_state_ringing_label">Zvana</string>
-    <string name="pods_connection_state_hanging_up_label">Noliek klausuli</string>
-    <string name="pods_connection_state_unknown_label">Nezināms savienojuma stāvoklis</string>
-    <string name="pods_unknown_raw_data_label">Neapstrādāti dati</string>
-    <string name="pods_unknown_label">Nezināma ierīce</string>
-    <string name="pods_unknown_contact_dev">Šī ir nezināma ierīce, bet tā izmanto līdzīgu ziņojuma formātu. Pievienosim tai atbalstu, sazinieties ar mani :)</string>
-    <string name="pods_none_label_short">Nav ierīces</string>
-    <string name="pods_charging_label">Uzlādējas</string>
-    <string name="pods_inear_label">Ausī</string>
-    <string name="pods_microphone_label">Mikrofons</string>
-    <string name="pods_yours">Jūsu</string>
-    <string name="headset_being_worn_label">Tiek nēsātas</string>
-    <string name="headset_not_being_worn_label">Netiek nēsātas</string>
-    <string name="pods_case_unknown_state">Nezināms stāvoklis</string>
-
-    <string name="last_seen_x">Pēdējo reizi redzēts: %s</string>
-    <string name="first_seen_x">Pirmo reizi redzēts: %s</string>
-    <string name="permission_post_notifications_label">Rādīt paziņojumus</string>
-    <string name="permission_post_notifications_description">Atļaut CAPod rādīt paziņojumus par jūsu AirPods, piemēram, to pašreizējo statusu, kamēr tie ir pievienoti.</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

@@ -22,8 +22,6 @@
     <string name="settings_scanner_mode_description">Kas Bluetooth madalama energiatarbimisega andmete skanner eelistab jõudlust või mõõdukat energiahaldust?</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
     <string name="settings_autopause_description">Seadme kõrvast eemaldamisel peata esitamine.</string>
-    <string name="settings_showall_label">Näita kõiki seadmeid</string>
-    <string name="settings_showall_description">Näita teie läheduses olevaid teiste seadmeid.</string>
     <string name="settings_autopplay_label">Automaatne esitamine</string>
     <string name="settings_autoplay_description">Automaatne esitamine, kui seade pannakse kõrva.</string>
     <string name="settings_fake_data_label">Valeandmed</string>
@@ -45,17 +43,6 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">Süsteemis andmete filtreerimise asemel saate seda teha rakenduses.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Keelake süsteemil rühmitada kogutud andmeid madalama energiatarbimisega Bluetoothi kohta enne meile saatmist.</string>
-    <string name="settings_maindevice_address_label">Teie seadme aadress</string>
-    <string name="settings_maindevice_address_description">Ühendatud seadme aadress. Rakendus tuvastab sellega, millal see on ühendatud teie telefoniga.</string>
-    <string name="settings_maindevice_address_none">Mitte ükski</string>
-    <string name="settings_maindevice_model_label">Seadme mudel</string>
-    <string name="settings_maindevice_model_description">Põhiseadme mudel. See aitab rakendusel tuvastada teie seadet, kui see pole ühendatud teie telefoniga.</string>
-    <string name="profiles_identitykey_label">Tuvastamisvõti</string>
-    <string name="profilessettings_maindevice_identitykey_description">Teie seadme tunnuse lahendamisvõti (IRK), mis võimaldab CAPodil tuvastada seda ümberkaudsete seadmete hulgast.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPodsid muudavad privaatsuse tõttu sageli oma Bluetooth aadressi. IRK aitab CAPodil tuvastada teie seadet. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Krüpteerimisvõti</string>
-    <string name="profiles_maindevice_encryptionkey_description">Teie seadme krüpteerimisvõti, mis võimaldab CaPodil saada täpset oleku teavet.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPodsid saadavad olekuteateid, millest osad on krüptitut. Krüpteerimisvõti võimaldab CAPodil kogu teadet lugeda. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
     <string name="settings_onepod_mode_description">Mõlema kõrvaklapi kandmine pole kohustuslik, tegevustega alustamiseks piisab ühe kõrvaklapi kandmisest.</string>
     <string name="settings_popup_caseopen_label">Näita kaane hüpikakent</string>
@@ -125,68 +112,7 @@
     <string name="onboarding_body2">Vaid mõned Androidi seadmed toetavad kõiki AirPodi võimalusi. Operatsioonisüsteem vajab õigesti toimivat madalama energiatarbimisega Bluetoothi tuge.</string>
     <string name="onboarding_body3">CAPodis pole reklaame ja see ei kogu andmeid.</string>
     <string name="onboarding_body4">Lisavõimaluste saamiseks ja arendamise toetamiseks soetage CAPod Pro.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">Tasuline CAPod</string>
-    <string name="app_name_foss">CAPod – tasuta ja vabavaraline</string>
-    <string name="general_value_not_available_label">Pole saadaval</string>
-    <string name="general_error_label">Viga</string>
-    <string name="general_grant_permission_action">Anna õigus</string>
-    <string name="overview_nomaindevice_label">Puudub peamine seade</string>
-    <string name="overview_nomaindevice_description">Kõik tuvastatud seadmeid ei kuulu tõenäoliselt teile. Lülitage oma seade sisse ja ühendage või muutke seadeid.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth on välja lülitatud</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth on keelatud, lubage see ;)</string>
-    <string name="permission_bluetooth_connect_label">Bluetooth ühendus</string>
-    <string name="permission_bluetooth_connect_description">See rakendus nõuab luba kasutada Bluetooh ühendust, et suhelda seotud seadmetega ja käivitada ühendamist.</string>
-    <string name="permission_bluetooth_scan_label">Bluetoothi skannimine</string>
-    <string name="permission_bluetooth_scan_description">Bluetoothi skannimise luba võimaldab rakendusel avastada ja vastu võtta Bluetooth andmeid lähedal asuvatest seadmetest, nagu AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">See rakendus nõuab Bluetooth luba, et ühenduda seotud Bluetooth seadmetega.</string>
-    <string name="permission_access_fine_location_label">Luba täpne asukoht</string>
-    <string name="permission_access_fine_location_description">CAPod saab täpse asukoha loaga madalama energiatarbimisega andmeid. Kõrvaklapid edastavad selle tehnoloogiaga oma olekut. See rakendus ei tuvasta Bluetooth andmetega teie asukohta.</string>
-    <string name="permission_background_location_label">Juurdepääs asukohale taustal</string>
-    <string name="permission_background_location_description">CAPod võimaldab sellega hüpikakende näitamist ja automaatset ühendumist, kui rakendus on suletud ning saada Bluetooth madala energiatarbimisega andmeid, kui rakendus töötab taustal. See rakendus ei tuvasta Bluetooth andmetega teie asukohta.</string>
-    <string name="permission_ignore_battery_optimizations_label">Keela aku optimeerimine</string>
-    <string name="permission_ignore_battery_optimizations_description">Aku optimeerimine takistab rakendusel Bluetooth andmete saamist taustal töötades.</string>
-    <string name="permission_required_title">Vaja on järgmist luba:</string>
-    <string name="permission_system_alert_window_label">Süsteemi teate aken</string>
-    <string name="permission_system_alert_window_description">Luba CAPodil toimetada teiste rakenduste kohal, et näha hüpikaknaid.</string>
-    <string name="settings_scanner_mode_lowpower_label">Madal võimsus</string>
-    <string name="settings_scanner_mode_balanced_label">Tasakaalustatud</string>
-    <string name="settings_scanner_mode_lowlatency_label">Madal latents</string>
-    <string name="settings_monitor_mode_manual_label">Kui rakendus on avatud</string>
-    <string name="settings_monitor_mode_automatic_label">Kui seade on ühendatud</string>
-    <string name="settings_monitor_mode_always_label">Alati</string>
-    <string name="settings_reaction_autoconnect_whenseen_label">Kui nähtaval</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">Kaas on avatud</string>
-    <string name="settings_reaction_autoconnect_inear_label">Kõrvas</string>
-    <string name="pods_dual_left_label">Vasak klapp</string>
-    <string name="pods_dual_right_label">Parem klapp</string>
-    <string name="pods_case_label">Kaas</string>
-    <string name="pods_case_status_open_label">Avatud</string>
-    <string name="pods_case_status_closed_label">Suletud</string>
-    <string name="pods_connection_state_disconnected_label">Puudub ühendus seadmega</string>
-    <string name="pods_connection_state_idle_label">Ühendatud seadmega, ent ooterežiimil</string>
-    <string name="pods_connection_state_music_label">Muusikarežiimis</string>
-    <string name="pods_connection_state_call_label">Kõnerežiimis</string>
-    <string name="pods_connection_state_ringing_label">Heliseb</string>
-    <string name="pods_connection_state_hanging_up_label">Kõne lõpetamine</string>
-    <string name="pods_connection_state_unknown_label">Tundmatu ühenduse olek</string>
-    <string name="pods_unknown_raw_data_label">Algandmed</string>
-    <string name="pods_unknown_label">Tundmatu seade</string>
-    <string name="pods_unknown_contact_dev">See on tundmatu seade, mis kasutab sarnast teatevormingut. Las ma muudan selle ühilduvaks, selleks võta minuga ühendust :)</string>
-    <string name="pods_none_label_short">Puudub seade</string>
-    <string name="pods_charging_label">Laeb</string>
-    <string name="pods_inear_label">Kõrvas</string>
-    <string name="pods_microphone_label">Mikrofon</string>
-    <string name="pods_yours">Sinu</string>
-    <string name="headset_being_worn_label">Kasutusel</string>
-    <string name="headset_not_being_worn_label">Ei kasuta</string>
-    <string name="pods_case_unknown_state">Tundmatu olek</string>
-    <string name="last_seen_x">Viimati kasutusel: %s</string>
-    <string name="first_seen_x">Esimesena kasutusel: %s</string>
-    <string name="permission_post_notifications_label">Näita teateid</string>
-    <string name="permission_post_notifications_description">"Luba CAPodil näidata AirPodsi teateid, nt praegust olekut ühendatud olles."</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

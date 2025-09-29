@@ -11,12 +11,9 @@
     <string name="general_save_action"> सुरक्षित गर्नुहोस्</string>
     <string name="general_guide_action">मार्गनिर्देशन</string>
     <string name="general_continue_action">जारी राख्नुहोस्</string>
-
     <string name="general_example_label">उदाहरण: %s</string>
-
     <string name="upgrade_capod_label">CAPod अपग्रेड गर्नुहोस्</string>
     <string name="upgrade_capod_description">थप सुविधाहरू पाउनुहोस् र विकासकर्तालाई समर्थन गर्नुहोस्।</string>
-
     <string name="settings_monitor_mode_label">मोनिटर मोड</string>
     <string name="settings_monitor_mode_description">यो एपले कुन परिस्थितिमा ब्लुटुथ डाटा निगरानी गर्छ।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">ब्लुटुथ कम ऊर्जा डाटा स्क्यानरले प्रदर्शनलाई प्राथमिकता दिनुपर्छ वा ऊर्जा बचत गर्नुपर्छ?</string>
     <string name="settings_autopause_label">स्वत: पज</string>
     <string name="settings_autopause_description">आफ्नो कानबाट उपकरण हटाउँदा अडियो पज गर्नुहोस्।</string>
-    <string name="settings_showall_label">सबै उपकरणहरू देखाउनुहोस्</string>
-    <string name="settings_showall_description">आफ्नो नजिक रहेका अन्य व्यक्तिहरूको उपकरणहरू देखाउनुहोस्।</string>
     <string name="settings_autopplay_label">स्वत: प्ले</string>
     <string name="settings_autoplay_description">उपकरण लगाउँदा अडियो प्लेब्याक सुरु गर्नुहोस्।</string>
     <string name="settings_fake_data_label">नक्कली डाटा</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">प्रतिक्रियाहरू</string>
     <string name="settings_reaction_description">घटनाहरू र व्यवहारहरूमा प्रतिक्रिया दिनुहोस्।</string>
     <string name="settings_category_yourdevice_label">तपाईंको उपकरण</string>
-
     <string name="settings_category_compatibility_options_title">अनुकूलता विकल्पहरू</string>
     <string name="settings_category_compatibility_options_description">सबै कुरा ठीकठाक चलिरहेको छ भने नचलाउनुहोस् ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">हार्डवेयर फिल्टरिङ असक्षम गर्नुहोस्</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">डाटा फिल्टरिङलाई प्रणालीमा प्रत्यायोजित नगर्नुहोस्, बरु सबै डाटा प्राप्त गर्नुहोस् र एप भित्र फिल्टर गर्नुहोस्।</string>
     <string name="settings_compat_offloaded_batching_disabled_title">हार्डवेयर ब्याचिङ असक्षम गर्नुहोस्</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">हामीलाई फर्वार्ड गर्नु अघि प्रणालीलाई सङ्कलन गरिएको BLE डाटा समूहबद्ध गर्न नदिनुहोस्।</string>
-
-    <string name="settings_maindevice_address_label">तपाईंको उपकरणको ठेगाना</string>
-    <string name="settings_maindevice_address_description">तपाईंको जोडिएको उपकरणको ठेगाना। एपले तपाईंको फोनमा कहिले जडान भएको छ भनी निर्धारण गर्न यसलाई प्रयोग गर्दछ।</string>
-    <string name="settings_maindevice_address_none">कुनै पनि छैन</string>
-    <string name="settings_maindevice_model_label">तपाईंको उपकरणको मोडेल</string>
-    <string name="settings_maindevice_model_description">तपाईंको मुख्य उपकरणको मोडेल। यसले एपलाई तपाईंको फोनमा जडान नभएको बेला तपाईंको उपकरण चिन्न मद्दत गर्दछ।</string>
-    <string name="profiles_identitykey_label">पहिचान कुञ्जी</string>
-    <string name="profilessettings_maindevice_identitykey_description">तपाईंको उपकरणको पहिचान समाधान कुञ्जी (IRK), जसले CAPod लाई नजिकका उपकरणहरू बीचमा पहिचान गर्न मद्दत गर्दछ।</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods ले गोपनीयताका लागि आफ्नो ब्लुटुथ ठेगाना बारम्बार परिवर्तन गर्दछ। IRK ले CAPod लाई तपाईंको उपकरण चिन्न मद्दत गर्दछ। तपाईंलाई MacBook मा एक पटक पहुँच आवश्यक छ।</string>
-    <string name="profiles_maindevice_encryptionkey_label">इन्क्रिप्शन कुञ्जी</string>
-    <string name="profiles_maindevice_encryptionkey_description">तपाईंको उपकरणको इन्क्रिप्शन कुञ्जी, जसले CAPod लाई विस्तृत स्थिति जानकारी पुन: प्राप्त गर्न अनुमति दिन्छ।</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ले स्थिति सन्देश पठाउँछ, जसको अंश इन्क्रिप्ट गरिएको हुन्छ। इन्क्रिप्शन कुञ्जीले CAPod लाई पूर्ण सन्देश डिक्रिप्ट गर्न अनुमति दिन्छ। तपाईंलाई MacBook मा एक पटक पहुँच आवश्यक छ।</string>
-
     <string name="settings_onepod_mode_label">एक पोड मोड</string>
     <string name="settings_onepod_mode_description">दुबै पोडहरू लगाउन आवश्यक छैन, प्रतिक्रियाहरू ट्रिगर गर्न एकल पोड लगाउनु पर्याप्त छ।</string>
     <string name="settings_popup_caseopen_label">केस पपअप देखाउनुहोस्</string>
     <string name="settings_popup_caseopen_description">उपकरण केस खोल्दा पपअप देखाउनुहोस् (प्रयोगात्मक)।</string>
     <string name="settings_popup_connected_label">कनेक्सन पपअप देखाउनुहोस्</string>
     <string name="settings_popup_connected_description">उपकरण पहिलो पटक जडान हुँदा पपअप देखाउनुहोस्।</string>
-
     <string name="notification_channel_device_status_label">उपकरण स्थिति</string>
     <string name="notification_channel_device_status_connected_label">जडान भएको उपकरण</string>
-
     <string name="support_debuglog_label">डिबग लग</string>
     <string name="support_debuglog_desc">एपले गर्ने सबै कुरालाई तपाईंले साझेदारी गर्न सक्ने टेक्स्ट फाइलमा रेकर्ड गर्नुहोस्।</string>
     <string name="debug_debuglog_size_label">आकार</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">रेकर्डिङ रोक्नुहोस्</string>
     <string name="debug_debuglog_sensitive_information_message">उत्पन्न गरिएको फाइलमा संवेदनशील जानकारी (जस्तै ब्लुटुथ उपकरण विवरणहरू) समावेश छ। यसलाई विश्वसनीय पक्षहरूसँग मात्र साझेदारी गर्नुहोस्।</string>
     <string name="settings_debuglog_explanation">यो सुविधाले एपले गर्ने सबै कुरालाई साझेदारी गर्न मिल्ने फाइलमा रेकर्ड गर्छ। उत्पन्न गरिएको फाइलमा संवेदनशील जानकारी (जस्तै ब्लुटुथ उपकरण विवरणहरू) समावेश छ। यसलाई विश्वसनीय पक्षहरूसँग मात्र साझेदारी गर्नुहोस् (जस्तै समस्या निवारण गरिरहेको विकासकर्ता)।</string>
-
     <string name="settings_support_installid_label">स्थापना आईडी</string>
     <string name="settings_support_installid_desc">स्वचालित त्रुटि रिपोर्टहरू गुमनाम छन्। यदि विकासकर्तालाई तपाईंको त्रुटि रिपोर्टहरू फेला पार्न आवश्यक छ भने आफ्नो स्थापना आईडी साझेदारी गर्नुहोस्।</string>
     <string name="settings_support_label">समर्थन</string>
     <string name="settings_support_description">यदि तपाईंलाई केही मद्दत चाहिन्छ भने।</string>
-
     <string name="issue_tracker_label">समस्या ट्र्याकर</string>
     <string name="issue_tracker_description">बग रिपोर्टहरू र सुविधा अनुरोधहरूका लागि सार्वजनिक समस्या ट्र्याकर (अंग्रेजी मात्र)।</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">समय बिताउन र प्रश्नहरू सोध्नको लागि ठाउँ।</string>
-
     <string name="changelog_label">परिवर्तन लग</string>
     <string name="settings_label">सेटिङहरू</string>
     <string name="settings_privacy_policy_label">गोपनीयता नीति</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">सेटिङहरू</string>
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
-
     <string name="settings_debug_autoreports_label">स्वचालित बग रिपोर्टहरू</string>
     <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string>
     <string name="settings_debug_mode_label">डिबग मोड</string>
     <string name="settings_debug_mode_description">समस्याहरू समाधान गर्न अतिरिक्त जानकारी देखाउनुहोस्।</string>
-
     <string name="settings_blescanner_unfiltered_label">फिल्टर नगरिएको BLE डाटा</string>
     <string name="settings_blescanner_unfiltered_description">सबै प्रसारित BLE डाटा देखाउन BLE स्क्यानरबाट कुनै पनि फिल्टरहरू हटाउनुहोस्। नयाँ हेडफोन प्रकारहरूको लागि समर्थन थप्न उपयोगी।</string>
-
     <string name="settings_compatibility_mode_label">अनुकूलता मोड</string>
     <string name="settings_compatibility_mode_description">अनुकूलता सुधार गर्न अप्टिमाइजेसनहरू असक्षम गर्नुहोस्। यदि तपाईंले कुनै डाटा देख्नुभएन भने यो प्रयास गर्नुहोस्।</string>
-
     <string name="help_translate_label">अनुवाद</string>
     <string name="help_translate_description">यो एपलाई आफ्नो मनपर्ने भाषामा अनुवाद गर्न मद्दत गर्नुहोस्।</string>
-
     <string name="translators_thanks_title">अनुवादकहरू</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">उपकरणको अन्तिम ज्ञात स्थिति देखाउने विजेट।</string>
     <string name="settings_compat_indirectcallback_title">अप्रत्यक्ष डाटा डेलिभरी</string>
     <string name="settings_compat_indirectcallback_summary">प्रणालीबाट BLE डाटा प्राप्त गर्न वैकल्पिक विधि प्रयोग गर्नुहोस् (कलब्याकको सट्टा प्रसारण)।</string>
-
     <string name="troubleshooter_title">समस्या निवारक</string>
     <string name="troubleshooter_ble_intro_title">ब्लुटुथ कम ऊर्जा प्रसारणहरू</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (र यस्तै हेडफोनहरू) ले \"विज्ञापनहरू\" भनिने BLE प्रविधि प्रयोग गरेर स्थिति जानकारी प्रसारण गर्दछ। केही फोनहरूले यो प्रविधि सही रूपमा लागू गर्दैनन्। CAPod ले डाटा प्राप्त नभएसम्म विभिन्न अनुकूलता विकल्पहरू प्रयास गरेर यसलाई ठीक गर्ने प्रयास गर्न सक्छ। आफ्नो हेडफोनमा संगीत प्लेब्याक सुरु गर्नुहोस् र तिनीहरूलाई आफ्नो फोनको नजिक राख्नुहोस्, त्यसपछि प्रक्रिया सुरु गर्नुहोस्।</string>
@@ -140,81 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">तपाईंको फोनले BLE डाटा प्राप्त गर्‍यो, तर डाटा कुनै पनि समर्थित उपकरणबाट आएको छैन। तपाईंको हेडफोनहरू सक्रिय छन्? CAPod ले तपाईंको हेडफोनलाई समर्थन गर्छ?</string>
     <string name="troubleshooter_ble_result_failure_action">फेरि प्रयास गर्नुहोस्</string>
     <string name="troubleshoot_action">समस्या समाधान गर्नुहोस्</string>
-
     <string name="onboarding_body1">यो एपले एन्ड्रोइडमा AirPod विशेष सुविधाहरूको लागि समर्थन थप्छ।</string>
     <string name="onboarding_body2">सबै एन्ड्रोइड उपकरणहरूले अतिरिक्त AirPod सुविधाहरूलाई पूर्ण रूपमा समर्थन गर्दैनन्। तपाईंको अपरेटिङ सिस्टमलाई सही रूपमा काम गर्ने ब्लुटुथ-कम-ऊर्जा कार्यान्वयन आवश्यक छ।</string>
     <string name="onboarding_body3">CAPod मा कुनै विज्ञापन छैन र तपाईंको डाटा सङ्कलन गर्दैन।</string>
     <string name="onboarding_body4">थप सुविधाहरू प्राप्त गर्न र विकासलाई समर्थन गर्न तपाईं CAPod Pro मा अपग्रेड गर्न सक्नुहुन्छ।</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-
-    <string name="general_value_not_available_label">उपलब्ध छैन</string>
-    <string name="general_error_label">त्रुटि</string>
-    <string name="general_grant_permission_action">अनुमति दिनुहोस्</string>
-
-    <string name="overview_nomaindevice_label">कुनै प्राथमिक उपकरण छैन</string>
-    <string name="overview_nomaindevice_description">सबै पत्ता लगाइएका उपकरणहरू तपाईंको नहुन सक्छन्। आफ्नो उपकरण अन गर्नुहोस् र जडान गर्नुहोस् वा सेटिङहरू समायोजन गर्नुहोस्।</string>
-    <string name="overview_bluetooth_disabled_label">ब्लुटुथ असक्षम पारिएको छ</string>
-    <string name="overview_bluetooth_disabled_description">ब्लुटुथ असक्षम पारिएको छ, यसलाई सक्षम पार्नुहोस् ;)</string>
-
-    <string name="permission_bluetooth_connect_label">ब्लुटुथ जडान</string>
-    <string name="permission_bluetooth_connect_description">यो एपलाई जोडिएका उपकरणहरूसँग अन्तरक्रिया गर्न र जडानहरू सुरु गर्न \"ब्लुटुथ जडान\" अनुमति चाहिन्छ।</string>
-    <string name="permission_bluetooth_scan_label">ब्लुटुथ स्क्यानिङ</string>
-    <string name="permission_bluetooth_scan_description">\"ब्लुटुथ स्क्यानिङ\" अनुमतिले यो एपलाई तपाईंको AirPods जस्ता नजिकका उपकरणहरूबाट ब्लुटुथ ডেটা खोज्न र प्राप्त गर्न अनुमति दिन्छ।</string>
-    <string name="permission_bluetooth_label">ब्लुटुथ</string>
-    <string name="permission_bluetooth_description">यो एपलाई जोडिएका ब्लुटुथ उपकरणहरूमा जडान गर्न \"ब्लुटुथ\" अनुमति चाहिन्छ।</string>
-    <string name="permission_access_fine_location_label">ठीक स्थानमा पहुँच</string>
-    <string name="permission_access_fine_location_description">CAPod ले ब्लुटुथ न्यून ऊर्जा ডেটা प्राप्त गर्न \"ठीक स्थान\" अनुमति प्रयोग गर्दछ। तपाईंको हेडफोनले आफ्नो स्थिति प्रसारण गर्न ब्लुटुथ न्यून ऊर्जा प्रविधि प्रयोग गर्दछ। यो एपले तपाईंको स्थान निर्धारण गर्न ब्लुटुथ ডেটা प्रयोग गर्दैन।</string>
-    <string name="permission_background_location_label">पृष्ठभूमि स्थान पहुँच</string>
-    <string name="permission_background_location_description">CAPod ले एप बन्द हुँदा \"पपअप देखाउनुहोस्\" र \"स्वत: जडान\" जस्ता सुविधाहरू सक्षम गर्न \"पृष्ठभूमि स्थान पहुँच\" प्रयोग गर्दछ। पृष्ठभूमि स्थान पहुँचले एपलाई पृष्ठभूमिमा हुँदा ब्लुटुथ न्यून ऊर्जा ডেটা प्राप्त गर्न अनुमति दिन्छ। यो एपले तपाईंको स्थान निर्धारण गर्न ब्लुटुथ ডেটা प्रयोग गर्दैन।</string>
-    <string name="permission_ignore_battery_optimizations_label">ब्याट्री अप्टिमाइजेसन असक्षम पार्नुहोस्</string>
-    <string name="permission_ignore_battery_optimizations_description">एप पृष्ठभूमिमा हुँदा ब्याट्री अप्टिमाइजेसनले यो एपलाई विश्वसनीय रूपमा ब्लुटुथ ডেটা प्राप्त गर्नबाट रोक्छ।</string>
-    <string name="permission_required_title">निम्न अनुमति आवश्यक छ:</string>
-    <string name="permission_system_alert_window_label">प्रणाली चेतावनी विन्डो</string>
-    <string name="permission_system_alert_window_description">CAPod लाई \"PopUp देखाउनुहोस्\" सुविधा सम्भव बनाउन अन्य एपहरूमाथि चित्र बनाउन अनुमति दिनुहोस्।</string>
-
-    <string name="settings_scanner_mode_lowpower_label">कम पावर</string>
-    <string name="settings_scanner_mode_balanced_label">सन्तुलित</string>
-    <string name="settings_scanner_mode_lowlatency_label">कम विलम्बता</string>
-
-    <string name="settings_monitor_mode_manual_label">एप खुला हुँदा</string>
-    <string name="settings_monitor_mode_automatic_label">उपकरण जडान हुँदा</string>
-    <string name="settings_monitor_mode_always_label">सधैं</string>
-
-    <string name="settings_reaction_autoconnect_whenseen_label">देख्दा</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">केस खुला छ</string>
-    <string name="settings_reaction_autoconnect_inear_label">कानमा</string>
-
-    <string name="pods_dual_left_label">बायाँ पोड</string>
-    <string name="pods_dual_right_label">दायाँ पोड</string>
-    <string name="pods_case_label">केस</string>
-    <string name="pods_case_status_open_label">खुला</string>
-    <string name="pods_case_status_closed_label">बन्द</string>
-    <string name="pods_connection_state_disconnected_label">उपकरणमा जडान गरिएको छैन</string>
-    <string name="pods_connection_state_idle_label">उपकरणमा जडान गरिएको छ, तर निष्क्रिय छ</string>
-    <string name="pods_connection_state_music_label">संगीत मोडमा</string>
-    <string name="pods_connection_state_call_label">कल मोडमा</string>
-    <string name="pods_connection_state_ringing_label">घण्टी बजिरहेको छ</string>
-    <string name="pods_connection_state_hanging_up_label">फोन काट्दै</string>
-    <string name="pods_connection_state_unknown_label">अज्ञात जडान स्थिति</string>
-    <string name="pods_unknown_raw_data_label">कच्चा ডেটা</string>
-    <string name="pods_unknown_label">अज्ञात उपकरण</string>
-    <string name="pods_unknown_contact_dev">यो एक अज्ञात उपकरण हो, तर यसले समान सन्देश ढाँचा प्रयोग गरिरहेको छ। यसको लागि समर्थन थपौं, मलाई सम्पर्क गर्नुहोस् :)</string>
-    <string name="pods_none_label_short">कुनै उपकरण छैन</string>
-    <string name="pods_charging_label">चार्ज हुँदैछ</string>
-    <string name="pods_inear_label">कानमा</string>
-    <string name="pods_microphone_label">माइक्रोफोन</string>
-    <string name="pods_yours">तपाईंको</string>
-    <string name="headset_being_worn_label">लगाइएको छ</string>
-    <string name="headset_not_being_worn_label">लगाइएको छैन</string>
-    <string name="pods_case_unknown_state">अज्ञात स्थिति</string>
-
-    <string name="last_seen_x">अन्तिम पटक देखिएको: %s</string>
-    <string name="first_seen_x">पहिलो पटक देखिएको: %s</string>
-    <string name="permission_post_notifications_label">सूचनाहरू देखाउनुहोस्</string>
-    <string name="permission_post_notifications_description">CAPod लाई तपाईंको AirPods बारे सूचनाहरू देखाउन अनुमति दिनुहोस्, उदाहरणका लागि, जडान हुँदा तिनीहरूको हालको स्थिति।</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>

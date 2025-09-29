@@ -11,12 +11,9 @@
     <string name="general_save_action">შენახვა</string>
     <string name="general_guide_action">სახელმძღვანელო</string>
     <string name="general_continue_action">გაგრძელება</string>
-
     <string name="general_example_label">მაგ.: %s</string>
-
     <string name="upgrade_capod_label">CAPod-ის განახლება</string>
     <string name="upgrade_capod_description">მიიღეთ დამატებითი ფუნქციები და მხარი დაუჭირეთ დეველოპერს.</string>
-
     <string name="settings_monitor_mode_label">მონიტორინგის რეჟიმი</string>
     <string name="settings_monitor_mode_description">რა გარემოებებში აკონტროლებს ეს აპლიკაცია Bluetooth-ის მონაცემებს.</string>
     <string name="settings_monitor_connected_notification_label">დამატებითი შეტყობინება</string>
@@ -25,8 +22,6 @@
     <string name="settings_scanner_mode_description">Bluetooth Low Energy მონაცემთა სკანერმა პრიორიტეტი უნდა მიანიჭოს შესრულებას თუ ენერგიის დაზოგვას?</string>
     <string name="settings_autopause_label">ავტომატური პაუზა</string>
     <string name="settings_autopause_description">აუდიოს დაპაუზება მოწყობილობის ყურიდან ამოღებისას.</string>
-    <string name="settings_showall_label">ყველა მოწყობილობის ჩვენება</string>
-    <string name="settings_showall_description">აჩვენეთ თქვენს მახლობლად მყოფი სხვა ადამიანების მოწყობილობები.</string>
     <string name="settings_autopplay_label">ავტომატური დაკვრა</string>
     <string name="settings_autoplay_description">აუდიო დაკვრის დაწყება მოწყობილობის ტარებისას.</string>
     <string name="settings_fake_data_label">ყალბი მონაცემები</string>
@@ -42,36 +37,20 @@
     <string name="settings_reaction_label">რეაქციები</string>
     <string name="settings_reaction_description">რეაგირება მოვლენებსა და ქცევებზე.</string>
     <string name="settings_category_yourdevice_label">თქვენი მოწყობილობა</string>
-
     <string name="settings_category_compatibility_options_title">თავსებადობის პარამეტრები</string>
     <string name="settings_category_compatibility_options_description">არ შეეხოთ, თუ ყველაფერი მუშაობს ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">აპარატურული ფილტრაციის გამორთვა</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">არ გადასცეთ მონაცემთა ფილტრაცია სისტემას, ამის ნაცვლად მიიღეთ ყველა მონაცემი და გაფილტრეთ აპლიკაციის შიგნით.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">აპარატურული დაჯგუფების გამორთვა</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">არ დაუშვათ სისტემამ შეგროვებული BLE მონაცემების დაჯგუფება, სანამ ჩვენთან გადმოგზავნის.</string>
-
-    <string name="settings_maindevice_address_label">თქვენი მოწყობილობის მისამართი</string>
-    <string name="settings_maindevice_address_description">თქვენი დაწყვილებული მოწყობილობის მისამართი. აპლიკაცია ამას იყენებს იმის დასადგენად, თუ როდის არის ის დაკავშირებული თქვენს ტელეფონთან.</string>
-    <string name="settings_maindevice_address_none">არცერთი</string>
-    <string name="settings_maindevice_model_label">თქვენი მოწყობილობის მოდელი</string>
-    <string name="settings_maindevice_model_description">თქვენი ძირითადი მოწყობილობის მოდელი. ეს ეხმარება აპლიკაციას თქვენი მოწყობილობის ამოცნობაში, როდესაც ის არ არის დაკავშირებული თქვენს ტელეფონთან.</string>
-    <string name="profiles_identitykey_label">იდენტურობის გასაღები</string>
-    <string name="profilessettings_maindevice_identitykey_description">თქვენი მოწყობილობის იდენტურობის გადაჭრის გასაღები (IRK), რომელიც ეხმარება CAPod-ს ახლომდებარე მოწყობილობებს შორის მისი იდენტიფიცირებაში.</string>
-    <string name="profiles_maindevice_identitykey_explanation">AirPods-ები კონფიდენციალურობის მიზნით ხშირად იცვლიან Bluetooth მისამართს. IRK ეხმარება CAPod-ს თქვენი მოწყობილობის ამოცნობაში. MacBook-ზე ერთჯერადი წვდომა გჭირდებათ.</string>
-    <string name="profiles_maindevice_encryptionkey_label">დაშიფვრის გასაღები</string>
-    <string name="profiles_maindevice_encryptionkey_description">თქვენი მოწყობილობის დაშიფვრის გასაღები, რომელიც CAPod-ს საშუალებას აძლევს მიიღოს დეტალური სტატუსის ინფორმაცია.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">AirPods-ები აგზავნიან სტატუსის შეტყობინებას, რომლის ნაწილი დაშიფრულია. დაშიფვრის გასაღები CAPod-ს საშუალებას აძლევს გაშიფროს სრული შეტყობინება. MacBook-ზე ერთჯერადი წვდომა გჭირდებათ.</string>
-
     <string name="settings_onepod_mode_label">ერთი ყურსასმენის რეჟიმი</string>
     <string name="settings_onepod_mode_description">ორივე ყურსასმენის ტარება არ არის აუცილებელი, ერთი ყურსასმენის ტარება საკმარისია რეაქციების გასააქტიურებლად.</string>
     <string name="settings_popup_caseopen_label">ქეისის ამომხტარი ფანჯრის ჩვენება</string>
     <string name="settings_popup_caseopen_description">აჩვენეთ ამომხტარი ფანჯარა მოწყობილობის ქეისის გახსნისას (ექსპერიმენტული).</string>
     <string name="settings_popup_connected_label">დაკავშირების ამომხტარი ფანჯრის ჩვენება</string>
     <string name="settings_popup_connected_description">აჩვენეთ ამომხტარი ფანჯარა მოწყობილობის პირველად დაკავშირებისას.</string>
-
     <string name="notification_channel_device_status_label">მოწყობილობის სტატუსი</string>
     <string name="notification_channel_device_status_connected_label">დაკავშირებული მოწყობილობა</string>
-
     <string name="support_debuglog_label">გამართვის ჟურნალი</string>
     <string name="support_debuglog_desc">ჩაწერეთ ყველაფერი, რასაც აპლიკაცია აკეთებს ტექსტურ ფაილში, რომლის გაზიარებაც შეგიძლიათ.</string>
     <string name="debug_debuglog_size_label">ზომა</string>
@@ -83,18 +62,13 @@
     <string name="debug_debuglog_stop_action">ჩაწერის შეწყვეტა</string>
     <string name="debug_debuglog_sensitive_information_message">გენერირებული ფაილი შეიცავს მგრძნობიარე ინფორმაციას (მაგ. Bluetooth მოწყობილობის დეტალები). გააზიარეთ იგი მხოლოდ სანდო მხარეებთან.</string>
     <string name="settings_debuglog_explanation">ეს ფუნქცია ჩაწერს ყველაფერს, რასაც აპლიკაცია აკეთებს, გასაზიარებელ ფაილში. გენერირებული ფაილი შეიცავს მგრძნობიარე ინფორმაციას (მაგ. Bluetooth მოწყობილობის დეტალები). გააზიარეთ იგი მხოლოდ სანდო მხარეებთან (მაგ. დეველოპერთან, რომელიც პრობლემას აგვარებს).</string>
-
     <string name="settings_support_installid_label">ინსტალაციის ID</string>
     <string name="settings_support_installid_desc">შეცდომების ავტომატური ანგარიშები ანონიმურია. გააზიარეთ თქვენი ინსტალაციის ID, თუ დეველოპერს სჭირდება თქვენი შეცდომების ანგარიშების პოვნა.</string>
     <string name="settings_support_label">მხარდაჭერა</string>
     <string name="settings_support_description">თუ დახმარება გჭირდებათ.</string>
-
     <string name="issue_tracker_label">პრობლემების ტრეკერი</string>
     <string name="issue_tracker_description">შეცდომების ანგარიშებისა და ფუნქციების მოთხოვნების საჯარო პრობლემების ტრეკერი (მხოლოდ ინგლისურად).</string>
-
-    <string name="discord_label">Discord</string>
     <string name="discord_description">ადგილი დასვენებისა და კითხვების დასმისთვის.</string>
-
     <string name="changelog_label">ცვლილებების ჟურნალი</string>
     <string name="settings_label">პარამეტრები</string>
     <string name="settings_privacy_policy_label">კონფიდენციალურობის პოლიტიკა</string>
@@ -104,28 +78,20 @@
     <string name="settings_general_label">პარამეტრები</string>
     <string name="settings_general_description">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
     <string name="settings_acknowledgements_label">მადლობები</string>
-
     <string name="settings_debug_autoreports_label">შეცდომების ავტომატური ანგარიშები</string>
     <string name="settings_debug_autoreports_description">ავტომატურად აცნობებს პრობლემების შესახებ, მაგ. აპლიკაციის ავარიის დეტალებს, რათა გავარკვიო, როგორ გამოვასწორო.</string>
     <string name="settings_debug_mode_label">გამართვის რეჟიმი</string>
     <string name="settings_debug_mode_description">აჩვენეთ დამატებითი ინფორმაცია პრობლემების აღმოსაფხვრელად.</string>
-
     <string name="settings_blescanner_unfiltered_label">გაუფილტრავი BLE მონაცემები</string>
     <string name="settings_blescanner_unfiltered_description">ამოიღეთ ნებისმიერი ფილტრი BLE სკანერიდან, რათა აჩვენოთ ყველა გადაცემული BLE მონაცემი. სასარგებლოა ახალი ტიპის ყურსასმენების მხარდაჭერის დასამატებლად.</string>
-
     <string name="settings_compatibility_mode_label">თავსებადობის რეჟიმი</string>
     <string name="settings_compatibility_mode_description">გამორთეთ ოპტიმიზაციები თავსებადობის გასაუმჯობესებლად. სცადეთ ეს, თუ მონაცემებს ვერ ხედავთ.</string>
-
     <string name="help_translate_label">თარგმანი</string>
     <string name="help_translate_description">დაეხმარეთ ამ აპლიკაციის თქვენს საყვარელ ენაზე თარგმნაში.</string>
-
     <string name="translators_thanks_title">მთარგმნელები</string>
-    <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">ვიჯეტი, რომელიც აჩვენებს მოწყობილობის ბოლო ცნობილ სტატუსს.</string>
     <string name="settings_compat_indirectcallback_title">მონაცემთა არაპირდაპირი მიწოდება</string>
     <string name="settings_compat_indirectcallback_summary">გამოიყენეთ ალტერნატიული მეთოდი სისტემიდან BLE მონაცემების მისაღებად (მაუწყებლობა გამოძახების ნაცვლად).</string>
-
     <string name="troubleshooter_title">პრობლემების 해결</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy მაუწყებლობა</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (და მსგავსი ყურსასმენები) სტატუსის ინფორმაციას მაუწყებლობენ BLE ტექნოლოგიის გამოყენებით, რომელსაც \"რეკლამები\" ეწოდება. ზოგიერთი ტელეფონი ამ ტექნოლოგიას სწორად არ ახორციელებს. CAPod-ს შეუძლია სცადოს ამის გამოსწორება სხვადასხვა თავსებადობის ვარიანტების ცდით, სანამ მონაცემები არ მიიღება. დაიწყეთ მუსიკის დაკვრა თქვენს ყურსასმენებში და მოათავსეთ ისინი თქვენს ტელეფონთან ახლოს, შემდეგ დაიწყეთ პროცესი.</string>
@@ -140,81 +106,11 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">თქვენმა ტელეფონმა მიიღო BLE მონაცემები, მაგრამ მონაცემები არ მოდის არცერთი მხარდაჭერილი მოწყობილობიდან. ჩართულია თუ არა თქვენი ყურსასმენები? CAPod მხარს უჭერს თუ არა თქვენს ყურსასმენებს?</string>
     <string name="troubleshooter_ble_result_failure_action">Კვლავ ცდა</string>
     <string name="troubleshoot_action">პრობლემების მოგვარება</string>
-
     <string name="onboarding_body1">ეს აპლიკაცია Android-ს ამატებს AirPod-ის სპეციფიკური ფუნქციების მხარდაჭერას.</string>
     <string name="onboarding_body2">ყველა Android მოწყობილობა სრულად არ უჭერს მხარს AirPod-ის დამატებით ფუნქციებს. თქვენს ოპერაციულ სისტემას სჭირდება Bluetooth-Low-Energy-ის სწორად მომუშავე იმპლემენტაცია.</string>
     <string name="onboarding_body3">CAPod-ს არ აქვს რეკლამები და არ აგროვებს თქვენს მონაცემებს.</string>
     <string name="onboarding_body4">შეგიძლიათ განაახლოთ CAPod Pro-ზე დამატებითი ფუნქციების მისაღებად და განვითარების მხარდასაჭერად.</string>
-
     <!-- Strings from app-common -->
-<string name="app_name">CAPod</string>
-    <string name="app_name_pro">CAPod Pro</string>
-    <string name="app_name_foss">CAPod FOSS</string>
-
-    <string name="general_value_not_available_label">მიუწვდომელი</string>
-    <string name="general_error_label">შეცდომა</string>
-    <string name="general_grant_permission_action">ნებართვის მინიჭება</string>
-
-    <string name="overview_nomaindevice_label">ძირითადი მოწყობილობა არ არის</string>
-    <string name="overview_nomaindevice_description">ყველა აღმოჩენილი მოწყობილობა, სავარაუდოდ, თქვენი არ არის. ჩართეთ და დააკავშირეთ თქვენი მოწყობილობა ან დაარეგულირეთ პარამეტრები.</string>
-    <string name="overview_bluetooth_disabled_label">Bluetooth გათიშულია</string>
-    <string name="overview_bluetooth_disabled_description">Bluetooth გათიშულია, ჩართეთ ;)</string>
-
-    <string name="permission_bluetooth_connect_label">Bluetooth-ის დაკავშირება</string>
-    <string name="permission_bluetooth_connect_description">ამ აპს სჭირდება „Bluetooth-ის დაკავშირების“ ნებართვა, რათა ურთიერთქმედდეს დაწყვილებულ მოწყობილობებთან და დაიწყოს კავშირები.</string>
-    <string name="permission_bluetooth_scan_label">Bluetooth-ის სკანირება</string>
-    <string name="permission_bluetooth_scan_description">„Bluetooth-ის სკანირების“ ნებართვა საშუალებას აძლევს ამ აპს აღმოაჩინოს და მიიღოს Bluetooth მონაცემები ახლომდებარე მოწყობილობებიდან, როგორიცაა თქვენი AirPods.</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">ამ აპს სჭირდება „Bluetooth“ ნებართვა, რომ დაუკავშირდეს დაწყვილებულ Bluetooth მოწყობილობებს.</string>
-    <string name="permission_access_fine_location_label">წვდომა ზუსტ მდებარეობაზე</string>
-    <string name="permission_access_fine_location_description">CAPod იყენებს „ზუსტი მდებარეობის“ ნებართვას Bluetooth დაბალი ენერგიის მონაცემების მისაღებად. თქვენი ყურსასმენები იყენებენ Bluetooth დაბალი ენერგიის ტექნოლოგიას თავიანთი სტატუსის გადასაცემად. ეს აპი არ გამოიყენებს Bluetooth მონაცემებს თქვენი მდებარეობის დასადგენად.</string>
-    <string name="permission_background_location_label">მდებარეობაზე წვდომა ფონურ რეჟიმში</string>
-    <string name="permission_background_location_description">CAPod იყენებს „მდებარეობაზე წვდომას ფონურ რეჟიმში“ ისეთი ფუნქციების გასააქტიურებლად, როგორიცაა „ამომხტარი ფანჯრის ჩვენება“ და „ავტომატური დაკავშირება“, სანამ აპი დახურულია. ფონურ რეჟიმში მდებარეობაზე წვდომა აპს საშუალებას აძლევს მიიღოს Bluetooth დაბალი ენერგიის მონაცემები, სანამ ის ფონურ რეჟიმშია. ეს აპი არ გამოიყენებს Bluetooth მონაცემებს თქვენი მდებარეობის დასადგენად.</string>
-    <string name="permission_ignore_battery_optimizations_label">ბატარეის ოპტიმიზაციის გამორთვა</string>
-    <string name="permission_ignore_battery_optimizations_description">ბატარეის ოპტიმიზაცია ხელს უშლის ამ აპს Bluetooth მონაცემების საიმედოდ მიღებაში, სანამ აპი ფონურ რეჟიმშია.</string>
-    <string name="permission_required_title">საჭიროა შემდეგი ნებართვა:</string>
-    <string name="permission_system_alert_window_label">სისტემური შეტყობინებების ფანჯარა</string>
-    <string name="permission_system_alert_window_description">CAPod-ს მიეცით სხვა აპებზე ხატვის ნებართვა, რათა ფუნქცია „ამომხტარი ფანჯრის ჩვენება“ შესაძლებელი გახდეს.</string>
-
-    <string name="settings_scanner_mode_lowpower_label">დაბალი ენერგია</string>
-    <string name="settings_scanner_mode_balanced_label">დაბალანსებული</string>
-    <string name="settings_scanner_mode_lowlatency_label">დაბალი ლატენტობა</string>
-
-    <string name="settings_monitor_mode_manual_label">როცა აპი გახსნილია</string>
-    <string name="settings_monitor_mode_automatic_label">როდესაც მოწყობილობა დაკავშირებულია</string>
-    <string name="settings_monitor_mode_always_label">ყოველთვის</string>
-
-    <string name="settings_reaction_autoconnect_whenseen_label">როდესაც გამოჩნდება</string>
-    <string name="settings_reaction_autoconnect_caseopen_label">ქეისი გახსნილია</string>
-    <string name="settings_reaction_autoconnect_inear_label">ყურში</string>
-
-    <string name="pods_dual_left_label">მარცხენა ყურსასმენი</string>
-    <string name="pods_dual_right_label">მარჯვენა ყურსასმენი</string>
-    <string name="pods_case_label">ქეისი</string>
-    <string name="pods_case_status_open_label">გახსნილი</string>
-    <string name="pods_case_status_closed_label">დახურული</string>
-    <string name="pods_connection_state_disconnected_label">მოწყობილობა არ არის დაკავშირებული</string>
-    <string name="pods_connection_state_idle_label">მოწყობილობასთან დაკავშირებულია, მაგრამ უმოქმედოა</string>
-    <string name="pods_connection_state_music_label">მუსიკის რეჟიმში</string>
-    <string name="pods_connection_state_call_label">ზარის რეჟიმში</string>
-    <string name="pods_connection_state_ringing_label">რეკავს</string>
-    <string name="pods_connection_state_hanging_up_label">წყვეტს კავშირს</string>
-    <string name="pods_connection_state_unknown_label">უცნობი კავშირის მდგომარეობა</string>
-    <string name="pods_unknown_raw_data_label">ნედლი მონაცემები</string>
-    <string name="pods_unknown_label">უცნობი მოწყობილობა</string>
-    <string name="pods_unknown_contact_dev">ეს უცნობი მოწყობილობაა, მაგრამ მსგავს შეტყობინებათა ფორმატს იყენებს. მოდით დავამატოთ მისი მხარდაჭერა, დამიკავშირდით :)</string>
-    <string name="pods_none_label_short">მოწყობილობა არ არის</string>
-    <string name="pods_charging_label">იტენება</string>
-    <string name="pods_inear_label">ყურში</string>
-    <string name="pods_microphone_label">მიკროფონი</string>
-    <string name="pods_yours">თქვენი</string>
-    <string name="headset_being_worn_label">ატარებენ</string>
-    <string name="headset_not_being_worn_label">არ ატარებენ</string>
-    <string name="pods_case_unknown_state">უცნობი მდგომარეობა</string>
-
-    <string name="last_seen_x">ბოლოს ნანახია: %s</string>
-    <string name="first_seen_x">პირველად ნანახია: %s</string>
-    <string name="permission_post_notifications_label">შეტყობინებების ჩვენება</string>
-    <string name="permission_post_notifications_description">"CAPod-ს მიეცით თქვენი AirPods-ის შესახებ შეტყობინებების ჩვენების ნებართვა, მაგ., მათი მიმდინარე სტატუსის, სანამ დაკავშირებულია."</string>
-
+    <!-- Device profiles -->
+    <!-- Unsaved changes dialog -->
 </resources>
