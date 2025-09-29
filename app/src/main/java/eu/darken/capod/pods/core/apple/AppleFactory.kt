@@ -99,8 +99,7 @@ class AppleFactory @Inject constructor(
             )
             profile = profiles
                 .filter { it.model == PodDevice.Model.UNKNOWN || it.model == tempDevice.model }
-                .filter { it.minimumSignalQuality <= tempDevice.signalQuality }
-                .firstOrNull()
+                .firstOrNull { it.minimumSignalQuality <= tempDevice.signalQuality }
         }
 
         factory.create(

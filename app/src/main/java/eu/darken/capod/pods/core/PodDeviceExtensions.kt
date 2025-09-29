@@ -26,7 +26,7 @@ fun SinglePodDevice.getBatteryLevelHeadset(context: Context): String =
 
 fun PodDevice.getSignalQuality(context: Context): String {
     val multiplier = 100 * signalQuality
-    return "${multiplier.roundToInt()}"
+    return "${multiplier.roundToInt()}%"
 }
 
 @DrawableRes
