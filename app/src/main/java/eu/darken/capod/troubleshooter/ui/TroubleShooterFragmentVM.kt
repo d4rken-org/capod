@@ -1,10 +1,14 @@
 package eu.darken.capod.troubleshooter.ui
 
+import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel3
@@ -29,6 +33,7 @@ import javax.inject.Inject
 @HiltViewModel
 class TroubleShooterFragmentVM @Inject constructor(
     @Suppress("UNUSED_PARAMETER") handle: SavedStateHandle,
+    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
     private val profilesRepo: DeviceProfilesRepo,
@@ -195,22 +200,28 @@ class TroubleShooterFragmentVM @Inject constructor(
                     .distinctBy { it.address }
             } ?: emptyList()
 
+            otherDevices.forEachIndexed { index, dev -> log(TAG) { "Device #$index: $dev" } }
+
             if (otherDevices.isEmpty()) {
                 failure("No supported headphones found near your device.", BleState.Result.Failure.Type.HEADPHONES)
                 return@launch
             }
 
-            progress("Headphones found nearby, but not detected as yours. Resetting filters.\n")
+            progress("Headphones found nearby, but not detected as yours.\n")
+            progress("Creating profile for closest headphones.")
 
-            profilesRepo.clear()
+            val candidate = otherDevices
+                .filter { it !is UnknownDevice }
+                .maxBy { it.signalQuality }
 
-            progress("Setting headphone with strongest signal as yours.")
+            log(TAG, INFO) { "Candidate is $candidate" }
 
             profilesRepo.addProfile(
-                AppleDeviceProfile(
-                    label = "Test",
-                    model = otherDevices.maxBy { it.signalQuality }.model,
-                )
+                profile = AppleDeviceProfile(
+                    label = context.getString(R.string.troubleshooter_title),
+                    model = candidate.model,
+                ),
+                addFirst = true,
             )
 
             val mainDevice = withTimeoutOrNull(STEP_TIME) {

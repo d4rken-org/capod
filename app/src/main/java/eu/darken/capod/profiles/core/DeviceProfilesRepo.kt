@@ -56,9 +56,11 @@ class DeviceProfilesRepo @Inject constructor(
 
     val profiles: Flow<List<DeviceProfile>> = settings.profiles.flow.map { it.profiles }
 
-    suspend fun addProfile(profile: DeviceProfile) = mutex.withLock {
+    suspend fun addProfile(profile: DeviceProfile, addFirst: Boolean = false) = mutex.withLock {
         val currentContainer = settings.profiles.value
-        val updatedProfiles = currentContainer.profiles + profile
+        val updatedProfiles = currentContainer.profiles.toMutableList().apply {
+            if (addFirst) add(0, profile) else add(profile)
+        }.toList()
         settings.profiles.value = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Added device profile: ${profile.label}" }
     }
