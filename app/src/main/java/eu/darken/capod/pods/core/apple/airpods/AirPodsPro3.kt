@@ -1,7 +1,7 @@
 package eu.darken.capod.pods.core.apple.airpods
 
 import androidx.annotation.DrawableRes
-import eu.darken.capod.common.R
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
@@ -23,8 +23,8 @@ data class AirPodsPro3(
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,
-    override val flags: ApplePods.Flags,
     override val reliability: Float = PodDevice.BASE_CONFIDENCE,
+    override val meta: ApplePods.AppleMeta,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
     private val cachedCaseState: LidState? = null
@@ -65,12 +65,12 @@ data class AirPodsPro3(
             getModelInfo().full == DEVICE_CODE && length == ProximityPairing.PAIRING_MESSAGE_LENGTH
         }
 
-        override fun create(
+        override suspend fun create(
             scanResult: BleScanResult,
             payload: ProximityPayload,
-            flags: ApplePods.Flags
+            meta: ApplePods.AppleMeta
         ): ApplePods {
-            var basic = AirPodsPro3(scanResult = scanResult, payload = payload, flags = flags)
+            var basic = AirPodsPro3(scanResult = scanResult, payload = payload, meta = meta)
             val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)
