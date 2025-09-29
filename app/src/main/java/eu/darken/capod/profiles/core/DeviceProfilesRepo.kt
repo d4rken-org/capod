@@ -8,6 +8,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.monitor.core.PodDeviceCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -23,6 +24,7 @@ class DeviceProfilesRepo @Inject constructor(
     @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val settings: DeviceProfilesSettings,
+    private val podDeviceCache: PodDeviceCache,
 ) {
 
     private val mutex = Mutex()
@@ -74,11 +76,12 @@ class DeviceProfilesRepo @Inject constructor(
         log(VERBOSE) { "Updated device profile: ${profile.label}" }
     }
 
-    suspend fun removeProfile(profileId: String) = mutex.withLock {
+    suspend fun removeProfile(profileId: ProfileId) = mutex.withLock {
         val currentContainer = settings.profiles.value
         val updatedProfiles = currentContainer.profiles.filter { it.id != profileId }
         settings.profiles.value = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Removed device profile with ID: $profileId" }
+        podDeviceCache.delete(profileId)
     }
 
     suspend fun reorderProfiles(profiles: List<DeviceProfile>) = mutex.withLock {

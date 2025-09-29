@@ -97,6 +97,16 @@
                 android:resource="@xml/file_provider_paths" />
         </provider>
 
+        <!-- Widget configuration -->
+        <activity
+            android:name=".main.ui.widget.WidgetConfigurationActivity"
+            android:theme="@style/AppTheme"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
         <!-- Debug stuff-->
         <activity
             android:name=".common.debug.recording.ui.RecorderActivity"

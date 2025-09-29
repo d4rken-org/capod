@@ -35,6 +35,7 @@ import eu.darken.capod.pods.core.getBatteryLevelCase
 import eu.darken.capod.pods.core.getBatteryLevelHeadset
 import eu.darken.capod.pods.core.getBatteryLevelLeftPod
 import eu.darken.capod.pods.core.getBatteryLevelRightPod
+import eu.darken.capod.profiles.core.ProfileId
 import finish2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -50,6 +51,7 @@ class WidgetProvider : AppWidgetProvider() {
     @Inject lateinit var podDeviceCache: PodDeviceCache
     @Inject lateinit var podFactory: PodFactory
     @Inject lateinit var upgradeRepo: UpgradeRepo
+    @Inject lateinit var widgetSettings: WidgetSettings
     @AppScope @Inject lateinit var appScope: CoroutineScope
 
     private fun executeAsync(
@@ -97,6 +99,15 @@ class WidgetProvider : AppWidgetProvider() {
         }
     }
 
+    override fun onDeleted(context: Context, appWidgetIds: IntArray) {
+        log(TAG) { "onDeleted(appWidgetIds=${appWidgetIds.toList()})" }
+        executeAsync("onDeleted") {
+            appWidgetIds.forEach { widgetId ->
+                widgetSettings.removeWidget(widgetId)
+            }
+        }
+    }
+
     /**
      * Returns number of cells needed for given size of the widget.
      *
@@ -124,9 +135,10 @@ class WidgetProvider : AppWidgetProvider() {
         widgetId: Int,
         options: Bundle?
     ) {
-        log(TAG) { "updateWidget(widgetId=$widgetId, options=$options)" }
+        val profileId: ProfileId? = widgetSettings.getWidgetProfile(widgetId)
+        log(TAG) { "updateWidget(widgetId=$widgetId, profileId=$profileId options=$options)" }
 
-        val device: PodDevice? = podMonitor.latestMainDevice()
+        val device: PodDevice? = profileId?.let { podMonitor.getDeviceForProfile(it) }
 
         val layout = when {
             !upgradeRepo.isPro() -> createUpgradeRequiredLayout(context)
@@ -141,15 +153,16 @@ class WidgetProvider : AppWidgetProvider() {
                  * added if these restrictions will ever be loosened in the future.
                  */
                 val layout = when (columns) {
-                    in 1 .. 4 -> R.layout.widget_pod_dual_compact_layout
+                    in 1..4 -> R.layout.widget_pod_dual_compact_layout
                     else -> R.layout.widget_pod_dual_wide_layout
                 }
 
                 createDualPodLayout(context, device, layout)
             }
+
             device is SinglePodDevice -> createSinglePodLayout(context, device)
             device is PodDevice -> createUnknownPodLayout(context, device)
-            else -> createNoDeviceLayout(context)
+            else -> createNoDeviceLayout(context, profileId != null)
         }
         widgetManager.updateAppWidget(widgetId, layout)
     }
@@ -191,8 +204,9 @@ class WidgetProvider : AppWidgetProvider() {
 
     private fun createNoDeviceLayout(
         context: Context,
+        hasConfiguredProfile: Boolean = false
     ): RemoteViews = RemoteViews(context.packageName, R.layout.widget_message_layout).apply {
-        log(TAG, VERBOSE) { "createNoDeviceLayout(context=$context)" }
+        log(TAG, VERBOSE) { "createNoDeviceLayout(context=$context, hasConfiguredProfile=$hasConfiguredProfile)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
             0,
@@ -202,7 +216,12 @@ class WidgetProvider : AppWidgetProvider() {
 
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
-        setTextViewText(R.id.primary, context.getString(R.string.overview_nomaindevice_label))
+        val messageRes = if (hasConfiguredProfile) {
+            R.string.widget_no_data_label
+        } else {
+            R.string.overview_nomaindevice_label
+        }
+        setTextViewText(R.id.primary, context.getString(messageRes))
     }
 
     private fun createDualPodLayout(
@@ -286,5 +305,13 @@ class WidgetProvider : AppWidgetProvider() {
 
     companion object {
         val TAG = logTag("Widget", "Provider")
+
+        fun updateWidget(context: Context, appWidgetManager: AppWidgetManager, widgetId: Int) {
+            val intent = Intent(context, WidgetProvider::class.java).apply {
+                action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+                putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, intArrayOf(widgetId))
+            }
+            context.sendBroadcast(intent)
+        }
     }
 }

@@ -11,5 +11,6 @@
     android:initialLayout="@layout/widget_loading_layout"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
-    android:widgetFeatures="reconfigurable|configuration_optional"
+    android:widgetFeatures="reconfigurable"
+    android:configure="eu.darken.capod.main.ui.widget.WidgetConfigurationActivity"
     tools:targetApi="s" />

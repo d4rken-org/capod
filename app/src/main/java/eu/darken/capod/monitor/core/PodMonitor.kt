@@ -72,7 +72,7 @@ class PodMonitor @Inject constructor(
         }
         .map { results -> results?.mapNotNull { podFactory.createPod(it) } }
         .map { processWithCache(it).values }
-        .flatMapLatest { devices -> 
+        .flatMapLatest { devices ->
             flowOf(sortPodsToInterest(devices))
         }
         .retryWhen { cause, attempt ->
@@ -86,7 +86,7 @@ class PodMonitor @Inject constructor(
     private suspend fun sortPodsToInterest(devices: Collection<PodDevice>): List<PodDevice> {
         val now = Instant.now()
         val profiles = profilesRepo.currentProfiles() ?: emptyList()
-        
+
         return devices.sortedWith(
             compareBy<PodDevice> { device ->
                 // Use profile position in list as priority (0 = highest priority)
@@ -178,17 +178,33 @@ class PodMonitor @Inject constructor(
             deviceCache[it.identifier] = it
             pods[it.identifier] = it
         }
+
+        newPods
+            .mapNotNull {
+                val profileId = it.device.meta.profile?.id ?: return@mapNotNull null
+                profileId to it.device.scanResult
+            }
+            .toMap()
+            .run {                podDeviceCache.saveAll(this)            }
         return pods
     }
 
-    suspend fun latestMainDevice(): PodDevice? {
-        val currentMain = devices.firstOrNull()?.firstOrNull()
-        log(TAG) { "Live mainDevice is $currentMain" }
+    suspend fun getDeviceForProfile(profileId: String): PodDevice? {
+        log(TAG) { "getDeviceForProfile(profileId=$profileId)" }
 
-        return currentMain ?: profilesRepo.currentProfiles().firstOrNull()
-            ?.let { podDeviceCache.load(it.id) }
-            ?.let { podFactory.createPod(it)?.device }
-            .also { log(TAG) { "Cached mainDevice is $it" } }
+        val liveDevice = devices.firstOrNull()?.firstOrNull { device ->
+            device.meta.profile?.id == profileId
+        }
+        if (liveDevice != null) {
+            log(TAG) { "Found live device for profile $profileId: $liveDevice" }
+            return liveDevice
+        }
+
+        val cachedDevice = podDeviceCache.load(profileId)?.let {
+            podFactory.createPod(it)?.device
+        }
+        log(TAG) { "Cached device for profile $profileId: $cachedDevice" }
+        return cachedDevice
     }
 
     companion object {

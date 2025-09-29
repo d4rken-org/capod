@@ -28,47 +28,54 @@ class PodDeviceCache @Inject constructor(
     private val cacheDir by lazy {
         File(context.cacheDir, "device_cache").apply { mkdirs() }
     }
-    private val mainDeviceCacheFile = File(cacheDir, "main_device.raw")
     private val jsonAdapter = moshi.adapter<BleScanResult>()
     private val lock = Mutex()
 
-    suspend fun saveMainDevice(device: BleScanResult?) = withContext(dispatcherProvider.IO) {
-        log(TAG, VERBOSE) { "saveMainDevice(device=$device)" }
-        lock.withLock {
-            try {
-                if (device == null) {
-                    mainDeviceCacheFile.delete()
-                } else {
-                    val json = jsonAdapter.toJson(device)
-                    mainDeviceCacheFile.writeText(json)
-                }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to save $device:${e.asLog()}" }
-            }
-        }
-    }
+    private fun ProfileId.toCacheFile(): File = File(cacheDir, "profile_${this}.json")
 
-    suspend fun loadMainDevice(): BleScanResult? = withContext(dispatcherProvider.IO) {
-        log(TAG, VERBOSE) { "loadMainDevice()" }
+    suspend fun load(id: ProfileId): BleScanResult? = withContext(dispatcherProvider.IO) {
+        log(TAG, VERBOSE) { "load(id=$id)" }
+        val cacheFile = id.toCacheFile()
         lock.withLock {
-            if (!mainDeviceCacheFile.exists()) return@withLock null
+            if (!cacheFile.exists()) return@withLock null
             try {
-                val raw = mainDeviceCacheFile.readText()
+                val raw = cacheFile.readText()
                 jsonAdapter.fromJson(raw)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to read main-device:${e.asLog()}" }
+                log(TAG, ERROR) { "Failed to read profile $id device: ${e.asLog()}, deleting corrupted cache file" }
+                cacheFile.delete()
                 null
             }
         }
     }
 
-    fun load(id: ProfileId): BleScanResult? {
-        log(TAG, VERBOSE) { "load(): $id" }
-        return null
+    suspend fun saveAll(data: Map<ProfileId, BleScanResult>) {
+        log(TAG, VERBOSE) { "saveAll(): ${data.size} entries" }
+        lock.withLock {
+            data.forEach { (id, device) ->
+                log(TAG, VERBOSE) { "save(id=$id, device=$device)" }
+                val cacheFile = id.toCacheFile()
+                try {
+                    val json = jsonAdapter.toJson(device)
+                    cacheFile.writeText(json)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to save profile $id device $device: ${e.asLog()}" }
+                    cacheFile.delete()
+                }
+            }
+        }
     }
 
-    fun save(id: ProfileId) {
-        log(TAG, VERBOSE) { "save(): $id" }
+    suspend fun delete(id: ProfileId) {
+        log(TAG, VERBOSE) { "delete(): profileId=$id" }
+        lock.withLock {
+            val cacheFile = id.toCacheFile()
+            try {
+                cacheFile.delete()
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Failed to delete profile for $id: ${e.asLog()}" }
+            }
+        }
     }
 
     companion object {
