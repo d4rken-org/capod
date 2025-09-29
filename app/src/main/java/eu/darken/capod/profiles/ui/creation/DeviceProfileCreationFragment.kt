@@ -92,7 +92,7 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
             }
             
             // Key validation regex - matches dialog format: "FE-D0-1C-54-11-81-BC-BC-87-D2-C4-3F-31-64-5F-EE"
-            val keyRegex = Regex("^([0-9A-F]{2}-){15}[0-9A-F]{2}$")
+            val keyRegex = Regex("^([0-9A-F]{2}[- ]){15}[0-9A-F]{2}\$")
             val exampleKey = "FE-D0-1C-54-11-81-BC-BC-87-D2-C4-3F-31-64-5F-EE"
 
             identityKeyInput.doOnTextChanged { text, _, _, _ ->
@@ -106,7 +106,7 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
                         identityKeyInputLayout.error = null
                         try {
                             vm.updateIdentityKey(keyText.fromHex())
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             // Fallback - should not happen with regex validation
                             identityKeyInputLayout.error = getString(R.string.profiles_key_invalid_format)
                         }
@@ -129,7 +129,7 @@ class DeviceProfileCreationFragment : Fragment3(R.layout.device_profile_creation
                         encryptionKeyInputLayout.error = null
                         try {
                             vm.updateEncryptionKey(keyText.fromHex())
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             // Fallback - should not happen with regex validation
                             encryptionKeyInputLayout.error = getString(R.string.profiles_key_invalid_format)
                         }
