@@ -114,6 +114,11 @@
     <string name="translators_thanks_description">darken</string>
 
     <string name="widget_description">A widget showing the last known device status.</string>
+    <string name="widget_configuration_title">Select Device</string>
+    <string name="widget_configuration_description">Choose which device profile this widget should display.</string>
+    <string name="common_feature_requires_pro_msg">This feature requires CAPod Pro.</string>
+
+    <string name="widget_no_data_label">No data</string>
     <string name="settings_compat_indirectcallback_title">Indirect data delivery</string>
     <string name="settings_compat_indirectcallback_summary">Use an alternative method to receive BLE data from the system (broadcast instead of callback).</string>
 
