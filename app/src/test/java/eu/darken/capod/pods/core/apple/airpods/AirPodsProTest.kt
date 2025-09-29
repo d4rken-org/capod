@@ -4,6 +4,7 @@ import eu.darken.capod.common.toHex
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -206,8 +207,15 @@ class AirPodsProTest : BaseAirPodsTest() {
             payload.public.data.toByteArray().toHex(" ") shouldBe "01 0E 20 51 9A 98 33 00 04"
             payload.private shouldBe null
         }
-        setKeyIRK("79-04-65-1E-E2-CC-D9-26-F2-6E-20-EE-3E-CC-DE-79")
-        setKeyEnc("3B-9C-80-57-E6-45-7F-F2-1B-8E-07-63-6C-99-E0-29")
+
+        profileList.add(
+            AppleDeviceProfile(
+                label = "TestProfile",
+                identityKey = cleanKey("79-04-65-1E-E2-CC-D9-26-F2-6E-20-EE-3E-CC-DE-79"),
+                encryptionKey = cleanKey("3B-9C-80-57-E6-45-7F-F2-1B-8E-07-63-6C-99-E0-29")
+            )
+        )
+
         create<AirPodsPro>(data, address) {
             batteryLeftPodPercent shouldBe 0.98f
             isLeftPodCharging shouldBe false

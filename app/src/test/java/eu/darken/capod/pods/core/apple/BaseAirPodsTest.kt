@@ -6,16 +6,17 @@ import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.serialization.SerializationModule
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
+import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
-import testhelpers.preferences.mockFlowPreference
 import java.time.Instant
 import javax.inject.Singleton
 
@@ -29,14 +30,14 @@ abstract class BaseAirPodsTest : BaseTest() {
         @Component.Factory
         interface Factory {
             fun create(
-                @BindsInstance generalSettings: GeneralSettings,
+                @BindsInstance profilesRepo: DeviceProfilesRepo,
             ): AppleFactoryTestComponent
         }
     }
 
-    val generalSettings = mockk<GeneralSettings>().apply {
-        every { mainDeviceIdentityKey } returns mockFlowPreference(null)
-        every { mainDeviceEncryptionKey } returns mockFlowPreference(null)
+    val profileList = mutableListOf<DeviceProfile>()
+    val profileRepo = mockk<DeviceProfilesRepo>().apply {
+        every { profiles } returns flowOf(profileList)
     }
 
     private fun hexToByteArray(hex: String): ByteArray = hex
@@ -44,23 +45,11 @@ abstract class BaseAirPodsTest : BaseTest() {
         .replace("<", "")
         .fromHex()
 
-    private fun cleanKey(key: String): ByteArray = hexToByteArray(key)
+    fun cleanKey(key: String): ByteArray = hexToByteArray(key)
         .also { require(it.size == 16) { "Not a valid key: ${it.size} byte" } }
 
-    fun setKeyIRK(key: String?) {
-        generalSettings.apply {
-            every { mainDeviceIdentityKey } returns mockFlowPreference(key?.let { cleanKey(it) })
-        }
-    }
-
-    fun setKeyEnc(key: String?) {
-        generalSettings.apply {
-            every { mainDeviceEncryptionKey } returns mockFlowPreference(key?.let { cleanKey(it) })
-        }
-    }
-
     val factory: AppleFactory = DaggerBaseAirPodsTest_AppleFactoryTestComponent.factory().create(
-        generalSettings = generalSettings
+        profilesRepo = profileRepo
     ).appleFactory
 
     @BeforeEach
