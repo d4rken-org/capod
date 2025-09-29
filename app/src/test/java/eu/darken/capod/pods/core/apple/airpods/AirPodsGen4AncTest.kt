@@ -34,7 +34,7 @@ class AirPodsGen4AncTest : BaseAirPodsTest() {
             isRightPodInEar shouldBe true
             batteryCasePercent shouldBe null
 
-            caseLidState shouldBe DualApplePods.LidState.UNKNOWN
+            caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
 
             state shouldBe HasStateDetectionAirPods.ConnectionState.IDLE
 
