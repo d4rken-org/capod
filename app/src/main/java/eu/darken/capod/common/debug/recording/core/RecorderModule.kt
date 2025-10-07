@@ -59,7 +59,7 @@ class RecorderModule @Inject constructor(
                         triggerFile.createNewFile()
 
                         log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
-                        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION_LONG}" }
+                        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
 
                         copy(
                             recorder = newRecorder

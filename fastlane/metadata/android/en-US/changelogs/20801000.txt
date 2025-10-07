@@ -1,2 +1,0 @@
-Bugfixes and performance improvements.
-¯\_(ツ)_/¯

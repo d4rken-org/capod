@@ -40,7 +40,7 @@ class SettingsIndexFragment : PreferenceFragment2() {
     }
 
     override fun onPreferencesCreated() {
-        findPreference<Preference>("core.changelog")!!.summary = BuildConfigWrap.VERSION_DESCRIPTION_LONG
+        findPreference<Preference>("core.changelog")!!.summary = BuildConfigWrap.VERSION_DESCRIPTION
         findPreference<Preference>("core.privacy")!!.setOnPreferenceClickListener {
             webpageTool.open(PrivacyPolicy.URL)
             true
