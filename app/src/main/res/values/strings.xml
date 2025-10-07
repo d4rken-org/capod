@@ -161,8 +161,10 @@
     <string name="overview_monitoring_active_label">Monitoring for devices</string>
     <string name="overview_monitoring_active_description">Make sure your device is nearby and active.</string>
     <string name="overview_unmatched_devices_label">Unmatched devices</string>
-    <string name="overview_unmatched_devices_count_single">1 device without matching profile</string>
-    <string name="overview_unmatched_devices_count_plural">%d devices without matching profile</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d device without matching profile</item>
+        <item quantity="other">%d devices without matching profile</item>
+    </plurals>
 
     <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
     <string name="permission_bluetooth_connect_description">This app requires the \"Bluetooth connect\" permission to interact with paired devices and initiate connections.</string>
