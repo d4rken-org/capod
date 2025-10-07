@@ -134,8 +134,6 @@
     <string name="overview_monitoring_active_label">Monitorování zařízení</string>
     <string name="overview_monitoring_active_description">Ujistěte se, že je vaše zařízení v dosahu a aktivní.</string>
     <string name="overview_unmatched_devices_label">Nepřiřazená zařízení</string>
-    <string name="overview_unmatched_devices_count_single">1 zařízení bez odpovídajícího profilu</string>
-    <string name="overview_unmatched_devices_count_plural">%d zařízení bez odpovídajícího profilu</string>
     <string name="permission_bluetooth_connect_label">Připojení Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Tato aplikace vyžaduje oprávnění \"připojení Bluetooth\" pro interakci se spárovanými zařízeními a zahájení připojení.</string>
     <string name="permission_bluetooth_scan_label">Skenování Bluetooth</string>

@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Els serveis de Google Play no estan disponibles.</string>
     <string name="upgrades_no_purchases_found_check_account">No s\'ha trobat cap compra. Esteu utilitzant el compte correcte?</string>
+    <string name="upgrades_gplay_billing_error_label">Error del Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">S\'ha produït un error al Google Play. Torneu-ho a provar més tard o reinicieu el telèfon.\n\nError: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Error de facturació del Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">S\'ha produït un error en demanar al Google Play els detalls de la vostra compra. Netegeu la memòria cau del Google Play i reinicieu el telèfon.\n\nError %s</string>
 </resources>

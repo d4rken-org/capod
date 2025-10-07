@@ -11,6 +11,8 @@
     <string name="general_save_action">저장</string>
     <string name="general_guide_action">가이드</string>
     <string name="general_continue_action">계속</string>
+    <string name="general_show_action">보이기</string>
+    <string name="general_hide_action">숨기기</string>
     <string name="general_example_label">예: %s</string>
     <string name="upgrade_capod_label">CAPod 업그레이드</string>
     <string name="upgrade_capod_description">추가 기능을 받고 개발자를 지원하세요.</string>
@@ -18,6 +20,8 @@
     <string name="settings_monitor_mode_description">이 앱이 Bluetooth 데이터를 모니터링하는 상황입니다.</string>
     <string name="settings_monitor_connected_notification_label">추가 알림</string>
     <string name="settings_monitor_connected_notification_description">기기가 연결되면 추가 알림을 표시합니다. 이렇게 하면 \"기기 상태\" 채널을 비활성화하여 영구적인 \"기기 없음\" 알림을 숨길 수 있습니다.</string>
+    <string name="settings_keep_notification_after_disconnect_label">연결 해제 후에도 알림 유지하기</string>
+    <string name="settings_keep_notification_after_disconnect_description">AirPods이 연결 해제된 후에도 마지막으로 알려진 배터리 잔량 계속 표시하기</string>
     <string name="settings_scanner_mode_label">스캐너 모드</string>
     <string name="settings_scanner_mode_description">Bluetooth Low Energy 데이터 스캐너가 성능을 우선시해야 할까요, 아니면 에너지를 절약해야 할까요?</string>
     <string name="settings_autopause_label">자동 일시 중지</string>
@@ -34,6 +38,8 @@
     <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터 모드 설정이 \"항상\"으로 설정됩니다.</string>
     <string name="settings_autoconnect_condition_label">자동 연결 조건</string>
     <string name="settings_autoconnect_condition_description">언제 기기에 연결을 시도해야 할까요?</string>
+    <string name="settings_devices_label">장치</string>
+    <string name="settings_devices_description">당신의 장치를 관리하세요.</string>
     <string name="settings_reaction_label">반응</string>
     <string name="settings_reaction_description">이벤트 및 행동에 반응합니다.</string>
     <string name="settings_category_yourdevice_label">내 기기</string>
@@ -95,6 +101,7 @@
     <string name="settings_compat_indirectcallback_title">간접 데이터 전달</string>
     <string name="settings_compat_indirectcallback_summary">시스템에서 BLE 데이터를 수신하는 대체 방법을 사용합니다(콜백 대신 브로드캐스트).</string>
     <string name="troubleshooter_title">문제 해결사</string>
+    <string name="troubleshooter_summary">Bluetooth 연결 문제를 진단하고 고칩니다.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy 브로드캐스트</string>
     <string name="troubleshooter_ble_intro_body1">AirPods(및 유사한 헤드폰)는 \"광고\"라는 BLE 기술을 사용하여 상태 정보를 브로드캐스트합니다. 일부 휴대폰은 이 기술을 올바르게 구현하지 않습니다. CAPod는 데이터가 수신될 때까지 다양한 호환성 옵션을 시도하여 이 문제를 해결하려고 시도할 수 있습니다. 헤드폰에서 음악 재생을 시작하고 휴대폰 가까이에 놓은 다음 프로세스를 시작하십시오.</string>
     <string name="troubleshooter_ble_intro_start_action">문제 해결 시작</string>
@@ -113,6 +120,47 @@
     <string name="onboarding_body3">CAPod에는 광고가 없으며 데이터를 수집하지 않습니다.</string>
     <string name="onboarding_body4">추가 기능을 얻고 개발을 지원하려면 CAPod Pro로 업그레이드할 수 있습니다.</string>
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">값 없음</string>
+    <string name="general_error_label">오류</string>
+    <string name="general_grant_permission_action">권한 부여</string>
+    <string name="general_manage_devices_action">장치 관리</string>
+    <string name="overview_nomaindevice_label">설정된 장치가 없음</string>
+    <string name="overview_nomaindevice_description">배터리 잔량 감시와 추가 기능을 활성화하기 위해 당신의 장치를 설정하십시오.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth가 꺼져 있습니다</string>
+    <string name="overview_monitoring_active_label">장치 감시중</string>
+    <string name="permission_bluetooth_connect_label">블루투스 연결</string>
+    <string name="permission_bluetooth_connect_description">이 앱은 페어링된 기기와 상호작용하고 연결을 시작하기 위해 \"Bluetooth 연결\"권한을 필요로 합니다.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth 검색</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth 검색\" 권한은 앱이 당신의 AirPods같은 주변의 기기를 찾고 Bluetooth 데이터를 받도록 합니다.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_ignore_battery_optimizations_label">배터리 사용량 최적화 비활성화</string>
+    <string name="permission_ignore_battery_optimizations_description">배터리 사용량 최적화는 앱이 백그라운드에서 Bluetooth 신호를 지속적으로 받지 못하게 합니다.</string>
+    <string name="permission_required_title">다음과 같은 권한이 필요합니다:</string>
+    <string name="permission_system_alert_window_description">\"팝업 표시\" 기능을 사용하려면 다른 앱 위에 그리기를 허용해야 합니다.</string>
+    <string name="settings_scanner_mode_lowpower_label">저전력</string>
+    <string name="settings_scanner_mode_balanced_label">균형잡힌</string>
+    <string name="settings_scanner_mode_lowlatency_label">저지연</string>
+    <string name="settings_monitor_mode_manual_label">앱이 열려있을때</string>
+    <string name="settings_monitor_mode_automatic_label">장치가 연결되었을때</string>
+    <string name="settings_monitor_mode_always_label">항상</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">앱이 장치를 찾았을때</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">케이스가 열렸을때</string>
+    <string name="settings_reaction_autoconnect_inear_label">귀에 착용했을때</string>
+    <string name="pods_dual_left_label">왼쪽 유닛</string>
+    <string name="pods_dual_right_label">오른쪽 유닛</string>
+    <string name="pods_case_label">케이스</string>
+    <string name="pods_case_status_open_label">열림</string>
     <!-- Device profiles -->
+    <string name="profiles_maindevice_identitykey_explanation">AirPods은 개인정보 보호를 위해 자주 Bluetooth 주소를 변경합니다. IRK는 앱이 당신의 기기를 인식하는데 도움이 됩니다. MacBook을 잠깐 사용해야 합니다.</string>
+    <string name="profiles_maindevice_encryptionkey_label">암호화 키</string>
+    <string name="profiles_maindevice_encryptionkey_description">당신의 기기의 암호화 키. 앱이 구체적인 상태 정보를 불러올 수 있게 합니다.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods은 일부가 암호화된 상태 메시지를 보냅니다. 암호화 키는 앱이 완전한 메시지를 해독하도록 합니다. MacBook이 잠깐 필요합니다.</string>
+    <string name="profiles_key_invalid_format">올바르지 않은 키 형식</string>
+    <string name="profiles_key_expected_format">올바른 형식: %1$s</string>
+    <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요.
+리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
     <!-- Unsaved changes dialog -->
 </resources>

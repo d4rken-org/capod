@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play-Dienste sind nicht verfügbar.</string>
-    <string name="upgrades_no_purchases_found_check_account">Keine Käufe gefunden. Verwenden Sie das richtige Konto?</string>
+    <string name="upgrades_no_purchases_found_check_account">Keine Käufe gefunden. Verwendest Du das richtige Konto?</string>
     <string name="upgrades_gplay_billing_error_label">Google Play Fehler</string>
-    <string name="upgrades_gplay_billing_error_description">Es gab einen Fehler in Google Play. Bitte versuchen Sie es später erneut oder starten Sie Ihr Telefon neu.\n\nFehler: %s</string>
-    <string name="upgrades_gplay_billing_result_error_label">Google Play Fehler</string>
+    <string name="upgrades_gplay_billing_error_description">Es gab einen Fehler in Google Play. Bitte versuche es später erneut oder starte Dein Telefon neu.\n\nFehler: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play Abrechnungsfehler</string>
     <string name="upgrades_gplay_billing_result_error_description">Es trat ein Fehler auf, als Google Play nach Kaufdetails gefragt wurde. Lösch deinen Google Play-Cache und starte dein Gerät neu.\n\nFehler %s</string>
 </resources>

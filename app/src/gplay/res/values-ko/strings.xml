@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play 서비스를 사용할 수 없습니다.</string>
     <string name="upgrades_no_purchases_found_check_account">구매 내역을 찾지 못했습니다. 결제했던 계정이 맞나요?</string>
+    <string name="upgrades_gplay_billing_error_label">구글 플레이 오류</string>
+    <string name="upgrades_gplay_billing_error_description">구글 플레이에 오류가 발생했습니다. 나중에 다시 시도하거나 휴대전화를 재시작하세요.\n\n오류:%s</string>
+    <string name="upgrades_gplay_billing_result_error_label">구글 플레이 결제 오류</string>
+    <string name="upgrades_gplay_billing_result_error_description">구글 플레이에서 귀하의 구매 세부 사항을 불러오는데 문제가 발생했습니다. 구글 플레이 캐시를 지우고 휴대전화를 재시작해주세요.\n\n오류%s</string>
 </resources>
