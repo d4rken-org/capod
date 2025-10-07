@@ -21,19 +21,15 @@ class UnmatchedDevicesCardVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding(payload = true) { item ->
-        val countText = when (item.count) {
-            1 -> context.getString(R.string.overview_unmatched_devices_count_single)
-            else -> context.getString(R.string.overview_unmatched_devices_count_plural, item.count)
-        }
-        unmatchedCount.text = countText
-        
+        unmatchedCount.text = getQuantityString(R.plurals.overview_unmatched_devices_count, item.count, item.count)
+
         val toggleText = if (item.isExpanded) {
             context.getString(R.string.general_hide_action)
         } else {
             context.getString(R.string.general_show_action)
         }
         toggleAction.text = toggleText
-        
+
         toggleAction.setOnClickListener { item.onToggle() }
     }
 
