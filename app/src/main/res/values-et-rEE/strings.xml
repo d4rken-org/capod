@@ -98,6 +98,10 @@
     <string name="translators_thanks_title">Tõlkijad</string>
     <string name="translators_thanks_description">Olav</string>
     <string name="widget_description">Viimast teadaolevat seadme seisu näitab vidin.</string>
+    <string name="widget_configuration_title">Vali seade</string>
+    <string name="widget_configuration_description">Valige, millist seadmeprofiili see vidin võiks kuvada.</string>
+    <string name="common_feature_requires_pro_msg">Selleks on vaja osta CAPod Pro.</string>
+    <string name="widget_no_data_label">Andmed puuduvad</string>
     <string name="settings_compat_indirectcallback_title">Kaudsete andmete edastamine</string>
     <string name="settings_compat_indirectcallback_summary">Süsteemis vähem energiat tarbiva Bluetoothi andmete saamine muul viisil (edasta tagasi kutsumise asemel).</string>
     <string name="troubleshooter_title">Abistaja</string>
@@ -134,6 +138,10 @@
     <string name="overview_monitoring_active_label">Seadmete jälgimine</string>
     <string name="overview_monitoring_active_description">Veenduge, et seade oleks läheduses ja kasutusel.</string>
     <string name="overview_unmatched_devices_label">Omavahel sobimatud seadmed</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d seade ei kattu profiiliga</item>
+        <item quantity="other">%d seadet ei kattu profiiliga</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth ühendus</string>
     <string name="permission_bluetooth_connect_description">See rakendus nõuab luba kasutada Bluetooh ühendust, et suhelda seotud seadmetega ja käivitada ühendamist.</string>
     <string name="permission_bluetooth_scan_label">Bluetoothi skannimine</string>

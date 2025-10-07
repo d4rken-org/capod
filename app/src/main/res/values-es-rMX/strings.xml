@@ -11,6 +11,8 @@
     <string name="general_save_action">Guardar</string>
     <string name="general_guide_action">Guía</string>
     <string name="general_continue_action">Continuar</string>
+    <string name="general_show_action">Mostrar</string>
+    <string name="general_hide_action">Ocultar</string>
     <string name="general_example_label">P. ej.: %s</string>
     <string name="upgrade_capod_label">Actualizar CAPod</string>
     <string name="upgrade_capod_description">Obtén funciones adicionales y apoya al desarrollador.</string>
@@ -18,6 +20,8 @@
     <string name="settings_monitor_mode_description">Bajo qué circunstancias esta aplicación monitorea los datos de Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificación adicional</string>
     <string name="settings_monitor_connected_notification_description">Muestra una notificación adicional cuando un dispositivo está conectado. Esto te permite ocultar la notificación permanente \"Sin dispositivos\" desactivando el canal \"Estado del dispositivo\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">Mantener la notificación después de la desconexión</string>
+    <string name="settings_keep_notification_after_disconnect_description">Seguir mostrando los últimos niveles de batería conocidos incluso después de que tus AirPods se desconecten</string>
     <string name="settings_scanner_mode_label">Modo escáner</string>
     <string name="settings_scanner_mode_description">¿Debería el escáner de datos de Bluetooth de baja energía priorizar el rendimiento o conservar energía?</string>
     <string name="settings_autopause_label">Pausa automática</string>
@@ -34,6 +38,8 @@
     <string name="settings_autoconnect_description">Si Android no se conecta automáticamente, también podemos pedirlo. Esto establecerá el ajuste del modo monitor en \"Siempre\".</string>
     <string name="settings_autoconnect_condition_label">Condición de conexión automática</string>
     <string name="settings_autoconnect_condition_description">¿Cuándo deberíamos intentar conectarnos a tu dispositivo?</string>
+    <string name="settings_devices_label">Dispositivos</string>
+    <string name="settings_devices_description">Gestionar tus dispositivos.</string>
     <string name="settings_reaction_label">Reacciones</string>
     <string name="settings_reaction_description">Reaccionar a eventos y comportamientos.</string>
     <string name="settings_category_yourdevice_label">Tu dispositivo</string>
@@ -92,9 +98,14 @@
     <string name="translators_thanks_title">Traductores</string>
     <string name="translators_thanks_description">español</string>
     <string name="widget_description">Un widget que muestra el último estado conocido del dispositivo.</string>
+    <string name="widget_configuration_title">Selecciona el dispositivo</string>
+    <string name="widget_configuration_description">Elige qué perfil del dispositivo debe mostrar este complemento.</string>
+    <string name="common_feature_requires_pro_msg">Esta función requiere CAPod Pro.</string>
+    <string name="widget_no_data_label">Sin datos</string>
     <string name="settings_compat_indirectcallback_title">Entrega indirecta de datos</string>
     <string name="settings_compat_indirectcallback_summary">Usar un método alternativo para recibir datos BLE del sistema (transmisión en lugar de devolución de llamada).</string>
     <string name="troubleshooter_title">Solucionador de problemas</string>
+    <string name="troubleshooter_summary">Diagnosticar y solucionar problemas de conectividad del Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Transmisiones de Bluetooth de Baja Energía</string>
     <string name="troubleshooter_ble_intro_body1">Los AirPods (y auriculares similares) transmiten información de estado usando una tecnología BLE llamada \"anuncios\". Algunos teléfonos no implementan esta tecnología correctamente. CAPod puede intentar solucionarlo probando diferentes opciones de compatibilidad hasta que se reciban datos. Inicia la reproducción de música en tus auriculares y colócalos cerca de tu teléfono, luego inicia el proceso.</string>
     <string name="troubleshooter_ble_intro_start_action">Iniciar solución de problemas</string>
@@ -113,6 +124,25 @@
     <string name="onboarding_body3">CAPod no contiene anuncios y no recopila tus datos.</string>
     <string name="onboarding_body4">Puedes actualizar a CAPod Pro para obtener funciones adicionales y apoyar el desarrollo.</string>
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">No disponible</string>
+    <string name="general_error_label">Error</string>
+    <string name="general_grant_permission_action">Conceder el permiso</string>
+    <string name="general_manage_devices_action">Gestionar dispositivos</string>
+    <string name="overview_nomaindevice_label">Sin dispositivos configurados</string>
+    <string name="overview_nomaindevice_description">Configure su dispositivo para comenzar a supervisar los niveles de batería y habilitar funciones adicionales.</string>
+    <string name="overview_bluetooth_disabled_label">El Bluetooth está desactivado</string>
+    <string name="overview_bluetooth_disabled_description">El Bluetooth está desactivado, actívalo ;)</string>
+    <string name="overview_monitoring_active_label">Monitoreo de dispositivos</string>
+    <string name="overview_monitoring_active_description">Asegúrate de que tu dispositivo esté cerca y activo.</string>
+    <string name="overview_unmatched_devices_label">Dispositivos no emparejados</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d dispositivo sin perfil coincidente</item>
+        <item quantity="other">%d dispositivos sin perfil coincidentes</item>
+    </plurals>
+    <string name="permission_bluetooth_connect_label">Conexión Bluetooth</string>
     <!-- Device profiles -->
     <!-- Unsaved changes dialog -->
 </resources>
