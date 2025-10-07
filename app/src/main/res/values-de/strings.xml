@@ -98,6 +98,10 @@
     <string name="translators_thanks_title">Übersetzer</string>
     <string name="translators_thanks_description">Gamechanger181</string>
     <string name="widget_description">Ein Widget, das den letzten bekannten Gerätestatus anzeigt.</string>
+    <string name="widget_configuration_title">Gerät auswählen</string>
+    <string name="widget_configuration_description">Wähle aus, welches Geräteprofil dieses Widget anzeigen soll.</string>
+    <string name="common_feature_requires_pro_msg">Diese Funktion erfordert CAPod Pro.</string>
+    <string name="widget_no_data_label">Keine Daten</string>
     <string name="settings_compat_indirectcallback_title">Indirekte Datenlieferung</string>
     <string name="settings_compat_indirectcallback_summary">Verwende eine alternative Methode, um BLE-Daten vom System zu erhalten (Broadcast statt Callback).</string>
     <string name="troubleshooter_title">Fehlerbehebung</string>
@@ -217,4 +221,7 @@
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nicht gespeicherte Änderungen</string>
     <string name="general_unsaved_changes_message">Du hast nicht gespeicherte Änderungen. Was möchtest du tun?</string>
+    <string name="general_save_and_exit_action">Sichern &amp; Beenden</string>
+    <string name="general_discard_action">Verwerfen</string>
+    <string name="general_keep_editing_action">Weiter bearbeiten</string>
 </resources>

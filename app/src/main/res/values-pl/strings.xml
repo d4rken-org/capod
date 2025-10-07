@@ -98,6 +98,10 @@
     <string name="translators_thanks_title">Tłumacze</string>
     <string name="translators_thanks_description">darken; K4r0lSz;</string>
     <string name="widget_description">Widżet pokazujący ostatni znany stan urządzenia.</string>
+    <string name="widget_configuration_title">Wybierz urządzenie</string>
+    <string name="widget_configuration_description">Wybierz profil urządzenia, które ma być wyświetlane przez widżet.</string>
+    <string name="common_feature_requires_pro_msg">Funkcja wymaga CAPod Pro.</string>
+    <string name="widget_no_data_label">Brak danych</string>
     <string name="settings_compat_indirectcallback_title">Pośrednie dostarczanie danych</string>
     <string name="settings_compat_indirectcallback_summary">Użyj alternatywnej metody odbierania danych BLE z systemu (transmisja zamiast połączenia zwrotnego).</string>
     <string name="troubleshooter_title">Rozwiązywanie problemów</string>
