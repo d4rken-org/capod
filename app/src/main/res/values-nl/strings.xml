@@ -11,6 +11,8 @@
     <string name="general_save_action">Opslaan</string>
     <string name="general_guide_action">Handleiding</string>
     <string name="general_continue_action">Doorgaan</string>
+    <string name="general_show_action">Tonen</string>
+    <string name="general_hide_action">Verbergen</string>
     <string name="general_example_label">Bijv.: %s</string>
     <string name="upgrade_capod_label">CAPod upgraden</string>
     <string name="upgrade_capod_description">Krijg extra functies en ondersteun de ontwikkelaar.</string>
@@ -18,6 +20,8 @@
     <string name="settings_monitor_mode_description">Onder welke omstandigheden houdt deze app Bluetooth-gegevens bij.</string>
     <string name="settings_monitor_connected_notification_label">Extra melding</string>
     <string name="settings_monitor_connected_notification_description">Toont een extra melding wanneer een apparaat is verbonden. Hiermee kunt u de permanente melding \"Geen apparaten\" verbergen door het kanaal \"Apparaatstatus\" uit te schakelen.</string>
+    <string name="settings_keep_notification_after_disconnect_label">Melding behouden na verbreken verbinding</string>
+    <string name="settings_keep_notification_after_disconnect_description">Blijf de laatst bekende batterijniveaus weergeven, zelfs nadat je AirPods zijn losgekoppeld</string>
     <string name="settings_scanner_mode_label">Scannermodus</string>
     <string name="settings_scanner_mode_description">Moet de Bluetooth Low Energy-gegevensscanner prioriteit geven aan prestaties of energie besparen?</string>
     <string name="settings_autopause_label">Auto pauze</string>
@@ -34,6 +38,8 @@
     <string name="settings_autoconnect_description">Als Android niet automatisch verbinding maakt, kunnen we dat ook vragen. Hierdoor wordt de instelling van de monitormodus ingesteld op \'Altijd\'.</string>
     <string name="settings_autoconnect_condition_label">Auto verbindingsvoorwaarde</string>
     <string name="settings_autoconnect_condition_description">Wanneer moeten we proberen verbinding te maken met uw apparaat?</string>
+    <string name="settings_devices_label">Apparaten</string>
+    <string name="settings_devices_description">Beheer je apparaten.</string>
     <string name="settings_reaction_label">Reacties</string>
     <string name="settings_reaction_description">Reageren op gebeurtenissen en gedragingen.</string>
     <string name="settings_category_yourdevice_label">Uw apparaat</string>
@@ -95,6 +101,7 @@
     <string name="settings_compat_indirectcallback_title">Onrechtstreekse data aflevering</string>
     <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE data van het systeem (broadcast inplaats van callback).</string>
     <string name="troubleshooter_title">Probleemoplossing</string>
+    <string name="troubleshooter_summary">Problemen met Bluetooth connectiviteit diagnosticeren en oplossen.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-uitzendingen</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (en vergelijkbare hoofdtelefoons) zenden statusinformatie uit met behulp van een BLE-technologie die \"advertenties\" wordt genoemd. Sommige telefoons implementeren deze technologie niet correct. CAPod kan dit proberen op te lossen door verschillende compatibiliteitsopties uit te proberen totdat er gegevens zijn ontvangen. Start het afspelen van muziek op uw hoofdtelefoon en plaats deze dicht bij uw telefoon en start het proces.</string>
     <string name="troubleshooter_ble_intro_start_action">Begin met probleemoplossing</string>
@@ -113,6 +120,54 @@
     <string name="onboarding_body3">CAPod heeft geen advertenties en verzamelt je gegevens niet.</string>
     <string name="onboarding_body4">Je kunt upgraden naar CAPod Pro om extra functies te krijgen en de ontwikkeling te ondersteunen.</string>
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Fout</string>
+    <string name="general_grant_permission_action">Toestemming verlenen</string>
+    <string name="general_manage_devices_action">Apparaten beheren</string>
+    <string name="overview_nomaindevice_label">Geen apparaat geconfigureerd</string>
+    <string name="overview_nomaindevice_description">Configureer je apparaat om de batterijniveaus te controleren en extra functies in te schakelen.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth is uitgeschakeld</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is uitgeschakeld, schakel het in ;)</string>
+    <string name="overview_monitoring_active_label">Monitoring voor apparaten</string>
+    <string name="overview_monitoring_active_description">Zorg ervoor dat je apparaat in de buurt is en actief is.</string>
+    <string name="overview_unmatched_devices_label">Niet overeenkomende apparaten</string>
+    <string name="permission_bluetooth_connect_label">Bluetooth-verbinding</string>
+    <string name="permission_bluetooth_connect_description">Deze app heeft de toestemming voor \'Bluetooth verbinden\' nodig om met gekoppelde apparaten te communiceren en verbindingen tot stand te brengen.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth-scannen</string>
+    <string name="permission_bluetooth_scan_description">Met de machtiging \'Bluetooth-scannen\' kan deze app Bluetooth-gegevens van apparaten in de buurt, zoals je AirPods, detecteren en ontvangen.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Deze app heeft de toestemming \'Bluetooth\' nodig om verbinding te maken met gekoppelde Bluetooth-apparaten.</string>
+    <string name="permission_access_fine_location_label">Toegang tot een prima locatie</string>
+    <string name="permission_access_fine_location_description">CAPod gebruikt de \'prima locatie\'-machtiging om Bluetooth Low Energy-gegevens te ontvangen. Je hoofdtelefoon gebruikt Bluetooth Low Energy-technologie om zijn status uit te zenden. Deze app gebruikt GEEN Bluetooth-gegevens om je locatie te bepalen.</string>
+    <string name="permission_background_location_label">Toegang tot achtergrondlocatie</string>
+    <string name="permission_background_location_description">CAPod gebruikt \'locatietoegang op de achtergrond\' om functies zoals \'Pop-up weergeven\' en \'Automatisch verbinden\' in te schakelen terwijl de app gesloten is. Met locatietoegang op de achtergrond kan de app Bluetooth Low Energy-gegevens ontvangen terwijl deze op de achtergrond actief is. Deze app gebruikt GEEN Bluetooth-gegevens om je locatie te bepalen.</string>
+    <string name="permission_ignore_battery_optimizations_label">Batterij-optimalisaties uitschakelen</string>
+    <string name="permission_ignore_battery_optimizations_description">Door batterijoptimalisatie kan deze app geen betrouwbare Bluetooth-gegevens ontvangen zolang de app op de achtergrond draait.</string>
+    <string name="permission_required_title">De volgende toestemming is vereist:</string>
+    <string name="permission_system_alert_window_label">Systeemwaarschuwingsvenster</string>
+    <string name="permission_system_alert_window_description">Geef CAPod de mogelijkheid om over andere apps heen te tekenen, zodat de functie \"Pop-up weergeven\" mogelijk is.</string>
+    <string name="settings_scanner_mode_lowpower_label">Laag vermogen</string>
+    <string name="settings_scanner_mode_balanced_label">Evenwichtig</string>
+    <string name="settings_scanner_mode_lowlatency_label">Lage latentie</string>
+    <string name="settings_monitor_mode_manual_label">Wanneer de app geopend is</string>
+    <string name="settings_monitor_mode_automatic_label">Wanneer het apparaat is aangesloten</string>
+    <string name="settings_monitor_mode_always_label">Altijd</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">Wanneer gezien</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Zaak is geopend</string>
+    <string name="settings_reaction_autoconnect_inear_label">In oor</string>
+    <string name="pods_dual_left_label">Linker pod</string>
     <!-- Device profiles -->
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods sturen een statusbericht, waarvan een deel versleuteld is. De encryptiesleutel stelt CAPod in staat het volledige bericht te ontsleutelen. Je hebt hiervoor eenmalige toegang tot een MacBook nodig.</string>
+    <string name="profiles_key_invalid_format">Ongeldige sleutelindeling</string>
+    <string name="profiles_key_expected_format">Verwachte indeling: %1$s</string>
+    <string name="profiles_priority_hint">De volgorde van de profielen bepaalt de prioriteit. Versleep profielen om de volgorde te wijzigen. Profielen hoger in de lijst krijgen voorrang wanneer meerdere apparaten overeenkomen.</string>
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Niet-opgeslagen wijzigingen</string>
+    <string name="general_unsaved_changes_message">Er zijn nog geen wijzigingen opgeslagen. Wat wil je doen?</string>
+    <string name="general_save_and_exit_action">Opslaan &amp; afsluiten</string>
+    <string name="general_discard_action">Weggooien</string>
+    <string name="general_keep_editing_action">Blijf Bewerken</string>
 </resources>
