@@ -308,6 +308,7 @@ do-version-properties() {
   V_MINOR_REGEX='^([a-zA-Z\.]+minor)=([0-9]+)$'
   V_PATCH_REGEX='^([a-zA-Z\.]+patch)=([0-9]+)$'
   V_BUILD_REGEX='^([a-zA-Z\.]+build)=([0-9]+)$'
+  V_TYPE_REGEX='^([a-zA-Z\.]+type)=(rc|beta)$'
 
   PROPS_FILE_NEW=""
 
@@ -332,6 +333,10 @@ do-version-properties() {
     elif [[ $line =~ $V_BUILD_REGEX ]]; then
       updated="${BASH_REMATCH[1]}=${V_BUILD_COUNTER}"
       echo "Found build, replacing: $line -> $updated"
+      PROPS_FILE_NEW+=$updated
+    elif [[ $line =~ $V_TYPE_REGEX ]]; then
+      updated="${BASH_REMATCH[1]}=${V_BUILD_TYPE}"
+      echo "Found type, replacing: $line -> $updated"
       PROPS_FILE_NEW+=$updated
     else
       PROPS_FILE_NEW+="$line"
@@ -358,25 +363,6 @@ do-versionfile() {
 
   # Stage file for commit
   git add VERSION
-}
-
-# Update a version file that can be parsed by third-parties, e.g. F-Droid
-do-fastlane-changelog() {
-  CHANGELOGS_DIR="fastlane/metadata/android/en-US/changelogs"
-  NEW_CHANGELOG="$CHANGELOGS_DIR/$V_CODE.txt"
-
-  [ -f "$NEW_CHANGELOG" ] && return
-
-  echo -e "\n${S_NOTICE}Creating new default fastlane changelog file for $V_CODE...\n"
-
-  cp "$CHANGELOGS_DIR/default.txt" "$NEW_CHANGELOG"
-
-  cat "$NEW_CHANGELOG"
-
-  echo -e "\n\n${I_OK} ${S_NOTICE}${ACTION_MSG} [${S_NORM}$NEW_CHANGELOG${S_NOTICE}] file"
-
-  # Stage file for commit
-  git add "$CHANGELOGS_DIR/$V_CODE.txt"
 }
 
 # Does the release branch already exist?
@@ -467,7 +453,6 @@ echo -e "\n${S_LIGHT}––––––"
 # Update steps
 do-version-properties
 do-versionfile
-do-fastlane-changelog
 do-branch
 do-commit
 create-tag "${V_NAME}" "${REL_NOTE}"

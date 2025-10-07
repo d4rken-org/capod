@@ -1,4 +1,5 @@
 plugins {
+    id("projectConfig")
     id("com.android.application")
     id("kotlin-android")
     id("com.google.devtools.ksp")
@@ -9,28 +10,32 @@ apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 android {
-    compileSdk = ProjectConfig.compileSdk
-    namespace = ProjectConfig.packageName
+    compileSdk = projectConfig.compileSdk
 
     defaultConfig {
-        applicationId = ProjectConfig.packageName
+        namespace = projectConfig.packageName
 
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
+        minSdk = projectConfig.minSdk
+        targetSdk = projectConfig.targetSdk
 
-        versionCode = ProjectConfig.Version.code + 0 // Base app
-        versionName = ProjectConfig.Version.name
+        versionCode = projectConfig.version.code.toInt()
+        versionName = projectConfig.version.name
 
         testInstrumentationRunner = "eu.darken.capod.HiltTestRunner"
+
+        buildConfigField("String", "PACKAGENAME", "\"${projectConfig.packageName}\"")
+        buildConfigField("String", "VERSION_CODE", "\"${projectConfig.version.code}\"")
+        buildConfigField("String", "VERSION_NAME", "\"${projectConfig.version.name}\"")
     }
 
     // Enable automatic per-app language preferences generation
     androidResources {
+        @Suppress("UnstableApiUsage")
         generateLocaleConfig = true
     }
 
     signingConfigs {
-        val basePath = File(System.getProperty("user.home"), ".appconfig/${ProjectConfig.packageName}")
+        val basePath = File(System.getProperty("user.home"), ".appconfig/${projectConfig.packageName}")
         create("releaseFoss") {
             setupCredentials(File(basePath, "signing-foss.properties"))
         }
@@ -94,7 +99,7 @@ android {
         val variantName: String = variantOutputImpl.name
 
         if (listOf("release", "beta").any { variantName.lowercase().contains(it) }) {
-            val outputFileName = ProjectConfig.packageName +
+            val outputFileName = projectConfig.packageName +
                     "-v${defaultConfig.versionName}-${defaultConfig.versionCode}" +
                     "-${variantName.uppercase()}.apk"
 

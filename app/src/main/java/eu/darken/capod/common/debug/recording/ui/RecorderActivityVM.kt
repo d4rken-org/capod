@@ -74,7 +74,7 @@ class RecorderActivityVM @Inject constructor(
     }
 
     fun share() = launch {
-        val (path, size) = resultCacheCompressedObs.first()
+        val (path, _) = resultCacheCompressedObs.first()
 
         val intent = Intent(Intent.ACTION_SEND).apply {
             val uri = FileProvider.getUriForFile(
@@ -89,7 +89,7 @@ class RecorderActivityVM @Inject constructor(
             type = "application/zip"
 
             addCategory(Intent.CATEGORY_DEFAULT)
-            putExtra(Intent.EXTRA_SUBJECT, "CAPod DebugLog - ${BuildConfigWrap.VERSION_DESCRIPTION_LONG})")
+            putExtra(Intent.EXTRA_SUBJECT, "CAPod DebugLog - ${BuildConfigWrap.VERSION_DESCRIPTION})")
             putExtra(Intent.EXTRA_TEXT, "Your text here.")
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
