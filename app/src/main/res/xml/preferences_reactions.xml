@@ -21,6 +21,12 @@
             android:summary="@string/settings_autopause_description"
             android:title="@string/settings_autopause_label" />
 
+        <Preference
+            android:icon="@drawable/ic_baseline_question_mark_24"
+            android:selectable="false"
+            android:summary="@string/settings_eardetection_info_description"
+            android:title="@string/settings_eardetection_info_label" />
+
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/settings_autoconnect_label">

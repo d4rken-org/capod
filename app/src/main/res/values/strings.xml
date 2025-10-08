@@ -30,6 +30,8 @@
     <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
     <string name="settings_autopplay_label">Auto play</string>
     <string name="settings_autoplay_description">Start audio playback when device is worn.</string>
+    <string name="settings_eardetection_info_label">Ear detection note</string>
+    <string name="settings_eardetection_info_description">If ear detection only works for one pod, this is an Apple limitation. Only the \"primary pod\" (used for microphone) is detected. Configure on Apple devices: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_fake_data_label">Fake data</string>
     <string name="settings_fake_data_description">Show fake data, i.e., simulate devices that don\’t exist.</string>
     <string name="settings_debug_label">Debug settings</string>
