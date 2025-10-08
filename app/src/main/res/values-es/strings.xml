@@ -143,6 +143,8 @@
         <item quantity="other">%d dispositivos sin perfil coincidentes</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Conexión Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Esta aplicación requiere el «Bluetooth» para interactuar con dispositivos emparejados e iniciar conexiones.</string>
+    <string name="permission_bluetooth_scan_label">El Bluetooth está escaneando</string>
     <!-- Device profiles -->
     <!-- Unsaved changes dialog -->
 </resources>

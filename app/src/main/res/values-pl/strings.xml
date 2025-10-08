@@ -138,6 +138,12 @@
     <string name="overview_monitoring_active_label">Monitorowanie urządzeń</string>
     <string name="overview_monitoring_active_description">Upewnij się, że urządzenie znajduje się w pobliżu i jest aktywne.</string>
     <string name="overview_unmatched_devices_label">Niedopasowane urządzenia</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d urządzenie bez pasującego profilu</item>
+        <item quantity="few">%d urządzenia bez pasującego profilu</item>
+        <item quantity="many">%d urządzeń bez pasującego profilu</item>
+        <item quantity="other">%d urządzeń bez pasującego profilu</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Połączenie Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Aplikacja wymaga uprawnień do \"Połączenia Bluetooth\", aby oddziaływać na sparowane urządzenia i inicjować połączenia.</string>
     <string name="permission_bluetooth_scan_label">Skanowanie Bluetooth</string>
