@@ -98,6 +98,10 @@
     <string name="translators_thanks_title">Traductors</string>
     <string name="translators_thanks_description">Jaime Muñoz(jmmartin_5@outlook.com)</string>
     <string name="widget_description">Un giny que mostra l\'estat de l\'últim dispositiu conegut.</string>
+    <string name="widget_configuration_title">Seleccioneu un dispositiu</string>
+    <string name="widget_configuration_description">Trieu quin perfil de dispositiu ha de mostrar aquest giny.</string>
+    <string name="common_feature_requires_pro_msg">Aquesta funció requereix el CAPod Pro.</string>
+    <string name="widget_no_data_label">Sense dades</string>
     <string name="settings_compat_indirectcallback_title">Lliurament indirecte de dades</string>
     <string name="settings_compat_indirectcallback_summary">Utilitza un mètode alternatiu per rebre dades BLE del sistema (emissió en lloc de devolució de trucada).</string>
     <string name="troubleshooter_title">Solucionador de problemes</string>
@@ -134,6 +138,10 @@
     <string name="overview_monitoring_active_label">Monitorització de dispositius</string>
     <string name="overview_monitoring_active_description">Assegureu-vos que el dispositiu estigui a prop i actiu.</string>
     <string name="overview_unmatched_devices_label">Dispositius no coincidents</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d dispositiu sense perfil coincident</item>
+        <item quantity="other">%d dispositius sense perfil coincident</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Connexió Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Aquesta aplicació requereix el permís «Connexió Bluetooth» per interactuar amb dispositius emparellats i iniciar connexions.</string>
     <string name="permission_bluetooth_scan_label">Escaneig Bluetooth</string>
