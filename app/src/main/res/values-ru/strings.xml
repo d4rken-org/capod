@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Приостановка аудио при удалении устройства из уха.</string>
     <string name="settings_autopplay_label">Автовоспроизведение</string>
     <string name="settings_autoplay_description">Включение воспроизведения аудио при начале использования устройства.</string>
+    <string name="settings_eardetection_info_label">Уведомление об обнаружении уха</string>
+    <string name="settings_eardetection_info_description">Если обнаружение уха работает только для одного наушника, это ограничение Apple. Обнаруживается только \"основной наушник\" (используемый для микрофона). Настроить на устройствах Apple: Настройки → Bluetooth → AirPods → Микрофон.</string>
     <string name="settings_fake_data_label">Пустые данные</string>
     <string name="settings_fake_data_description">Показывать пустые данные, например, симулировать устройства, которые не существуют.</string>
     <string name="settings_debug_label">Настройки отладки</string>

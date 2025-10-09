@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Pozastavení zvuku při vyjmutí zařízení z ucha.</string>
     <string name="settings_autopplay_label">Autom. přehrávání</string>
     <string name="settings_autoplay_description">Spuštění přehrávání zvuku při nošení zařízení.</string>
+    <string name="settings_eardetection_info_label">Poznámka k detekci ucha</string>
+    <string name="settings_eardetection_info_description">Pokud detekce sluchátek funguje pouze pro jedno sluchátko, jedná se o omezení společnosti Apple. Detekováno je pouze \"primární sluchátko\" (používané jako mikrofon). Konfigurace na zařízeních Apple: Nastavení → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_fake_data_label">Falešná data</string>
     <string name="settings_fake_data_description">Zobrazit falešná data např. simulovat zařízení, které neexistuje.</string>
     <string name="settings_debug_label">Nastavení ladění</string>

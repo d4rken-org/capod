@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Pauzuj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
     <string name="settings_autopplay_label">Automatyczne odtwarzanie</string>
     <string name="settings_autoplay_description">Rozpocznij odtwarzanie, gdy urządzenie jest noszone.</string>
+    <string name="settings_eardetection_info_label">Informacja o wykryciu ucha</string>
+    <string name="settings_eardetection_info_description">Jeśli wykrywanie ucha działa tylko dla jednego poda, jest to ograniczenie Apple\'a. Wykryto tylko \"pod\" (używany do mikrofonu). Skonfiguruj na urządzeniach Apple: Ustawienia → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_fake_data_label">Fałszywe dane</string>
     <string name="settings_fake_data_description">Wyświetla fałszywe dane, na przykłady symuluje urządzenie, które nie istnieje.</string>
     <string name="settings_debug_label">Ustawienia debugowania</string>

@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Musik pausieren, wenn der Kopfhörer vom Ohr entfernt wird.</string>
     <string name="settings_autopplay_label">Automatisches abspielen</string>
     <string name="settings_autoplay_description">Audiowiedergabe starten, wenn das Gerät getragen wird.</string>
+    <string name="settings_eardetection_info_label">Hinweis zur Ohr-Erkennung</string>
+    <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_fake_data_label">Gefälschte Daten</string>
     <string name="settings_fake_data_description">Gefälschte Test-Daten anzeigen, d.h. nicht existierende Geräte simulieren.</string>
     <string name="settings_debug_label">Debug-Einstellungen</string>
@@ -138,6 +140,10 @@
     <string name="overview_monitoring_active_label">Überwachung für Geräte</string>
     <string name="overview_monitoring_active_description">Stelle sicher, dass dein Gerät in der Nähe ist und aktiv ist.</string>
     <string name="overview_unmatched_devices_label">Nicht zugeordnete Geräte</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d Gerät ohne passendes Profil</item>
+        <item quantity="other">%d Geräte ohne passendes Profil</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth verbinden</string>
     <string name="permission_bluetooth_connect_description">Diese App benötigt die \"Bluetooth verbinden\" Berechtigung um mit bereits verbundenen und neuen Geräten zu interagieren.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth Suche</string>

@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Seadme kõrvast eemaldamisel peata esitamine.</string>
     <string name="settings_autopplay_label">Automaatne esitamine</string>
     <string name="settings_autoplay_description">Automaatne esitamine, kui seade pannakse kõrva.</string>
+    <string name="settings_eardetection_info_label">Kõrva tuvastamisest</string>
+    <string name="settings_eardetection_info_description">Kui tuvastatakse vaid üks klapp, siis seda põhjustab Apple\'i piirang. Tuvastatakse vaid peamine klapp (kasutatakse mikrofonina). Seadista Apple\'i seadmetes: Seaded (Settings) → Bluetooth → AirPods (AirPodid) → Mikrofon (Microphone).</string>
     <string name="settings_fake_data_label">Valeandmed</string>
     <string name="settings_fake_data_description">Näita valeandmeid, nt samad seadmed, mida pole olemas.</string>
     <string name="settings_debug_label">Vealogide seaded</string>
