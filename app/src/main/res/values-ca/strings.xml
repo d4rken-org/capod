@@ -23,11 +23,13 @@
     <string name="settings_keep_notification_after_disconnect_label">Mantén les notificacions després de la desconnexió</string>
     <string name="settings_keep_notification_after_disconnect_description">Continua mostrant els últims nivells de bateria coneguts fins i tot després que els AirPods es desconnectin</string>
     <string name="settings_scanner_mode_label">Mode escàner</string>
-    <string name="settings_scanner_mode_description">L\'escàner de dades Bluetooth Low Energy hauria de prioritzar el rendiment o estalviar energia?</string>
+    <string name="settings_scanner_mode_description">L\'escàner de dades Bluetooth de baix consum hauria de prioritzar el rendiment o estalviar energia?</string>
     <string name="settings_autopause_label">Pausa automàtica</string>
     <string name="settings_autopause_description">Pausa l\'àudio quan ús tragueu el dispositiu de l\'orella.</string>
     <string name="settings_autopplay_label">Reproducció automàtica</string>
     <string name="settings_autoplay_description">Inicia la reproducció d\'àudio en utilitzar el dispositiu.</string>
+    <string name="settings_eardetection_info_label">Nota de detecció de l\'oïda</string>
+    <string name="settings_eardetection_info_description">Si la detecció de l\'oïda només funciona per a un auricular, això és degut a una limitació d\'Apple. Només es detecta «l\'auricular principal» (utilitzat per al micròfon). Configureu-ho en dispositius Apple: Configuració → Bluetooth → AirPods → Micròfon.</string>
     <string name="settings_fake_data_label">Dades falses</string>
     <string name="settings_fake_data_description">Mostra dades falses. Per exemple: simula dispositius que no existeixen.</string>
     <string name="settings_debug_label">Configuració de depuració</string>
@@ -49,8 +51,8 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">No delegueu el filtratge de dades al sistema, obtingueu totes les dades i filtreu-les dins de l\'aplicació.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Desactiva el processament per lots de maquinari</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">No deixeu que el grup del sistema reculli dades BLE abans de reenviar-nos-les.</string>
-    <string name="settings_onepod_mode_label">Mode d\'un AirPod</string>
-    <string name="settings_onepod_mode_description">No cal portar els dos AirdPods, per provocar reaccions només cal portar-ne un.</string>
+    <string name="settings_onepod_mode_label">Mode d\'un auricular</string>
+    <string name="settings_onepod_mode_description">No cal portar els dos auriculars, només cal portar-ne un per activar les reaccions.</string>
     <string name="settings_popup_caseopen_label">Mostra la finestra emergent de la funda</string>
     <string name="settings_popup_caseopen_description">Mostra una finestra emergent quan s\'obre la funda del dispositiu (experimental).</string>
     <string name="settings_popup_connected_label">Mostra la finestra emergent de connexió</string>
@@ -115,7 +117,7 @@
     <string name="troubleshooter_ble_result_success_body">El CAPod està rebent emissions d\'anuncis BLE.</string>
     <string name="troubleshooter_ble_result_failure_title">Incorrecte</string>
     <string name="troubleshooter_ble_result_failure_body">La resolució de problemes ha fallat. No ha funcionat cap combinació d\'opcions de compatibilitat.</string>
-    <string name="troubleshooter_ble_result_failure_phone_body">El vostres telèfon no ha rebut cap dada BLE. Podeu tornar a provar aquesta prova en una zona plena de gent per veure si es poden rebre fonts de dades (que no siguin els vostres auriculars). No rebre dades indica un problema amb el sistema operatiu del telèfon.</string>
+    <string name="troubleshooter_ble_result_failure_phone_body">El vostre telèfon no ha rebut cap dada BLE. Podeu tornar a executar aquesta prova en una zona plena de gent per veure si es poden rebre fonts de dades (que no siguin els vostres auriculars). No rebre dades indica un problema amb el sistema operatiu del telèfon.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">El vostre telèfon ha rebut dades BLE, però les dades no provenen de cap dispositiu compatible. Teniu els auriculars encesos? El CAPod és compatible amb els vostres auriculars?</string>
     <string name="troubleshooter_ble_result_failure_action">Torna-ho a provar</string>
     <string name="troubleshoot_action">Resolució de problemes</string>
