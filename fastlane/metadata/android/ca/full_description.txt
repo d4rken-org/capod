@@ -2,8 +2,8 @@ El CAPod és una aplicació complementària per als AirPods.
 
 Característiques:
 
-* Nivell de bateria per als AirPods i fundes.
-* Estat de càrrega per als AirPods i fundes.
+* Nivell de bateria per als auriculars i fundes.
+* Estat de càrrega per als auriculars i fundes.
 * Informació addicional sobre la connexió, micròfon i funda.
 * Pot rebre i mostrar tots els dispositius propers.
 * Detecció de l'oïda amb reproducció/pausa automàtica.
