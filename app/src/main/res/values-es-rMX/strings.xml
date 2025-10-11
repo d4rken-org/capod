@@ -76,7 +76,7 @@
     <string name="settings_support_description">Si necesitas ayuda.</string>
     <string name="issue_tracker_label">Seguidor de problemas</string>
     <string name="issue_tracker_description">Un seguidor público de problemas para reportes de errores y solicitudes de funciones (solo en inglés).</string>
-    <string name="discord_label">En español</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar para pasar el rato y hacer preguntas.</string>
     <string name="changelog_label">Registro de cambios</string>
     <string name="settings_label">Ajustes</string>
@@ -98,7 +98,7 @@
     <string name="help_translate_label">Traducción</string>
     <string name="help_translate_description">Ayuda a traducir esta aplicación a tu idioma favorito.</string>
     <string name="translators_thanks_title">Traductores</string>
-    <string name="translators_thanks_description">español</string>
+    <string name="translators_thanks_description">Jaime Muñoz(jmmartin_5@outlook.com)</string>
     <string name="widget_description">Un widget que muestra el último estado conocido del dispositivo.</string>
     <string name="widget_configuration_title">Selecciona el dispositivo</string>
     <string name="widget_configuration_description">Elige qué perfil del dispositivo debe mostrar este complemento.</string>

@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Pauzeer de muziek wanneer u het apparaat van uw oor haalt.</string>
     <string name="settings_autopplay_label">Automatisch afspelen</string>
     <string name="settings_autoplay_description">Start audioweergave wanneer het apparaat wordt gedragen.</string>
+    <string name="settings_eardetection_info_label">Oordetectienotitie</string>
+    <string name="settings_eardetection_info_description">Als oordetectie slechts voor één pod werkt, is dit een beperking van Apple. Alleen de \"primaire pod\" (gebruikt voor de microfoon) wordt gedetecteerd. Configureer op Apple-apparaten: Instellingen → Bluetooth → AirPods → Microfoon.</string>
     <string name="settings_fake_data_label">Nep gegevens</string>
     <string name="settings_fake_data_description">Toon nepgegevens, d.w.z. simuleer apparaten die niet bestaan.</string>
     <string name="settings_debug_label">Foutopsporingsinstellingen</string>
@@ -98,6 +100,10 @@
     <string name="translators_thanks_title">Vertalers</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Een widget dat de laatst gekende apparaatstatus toont.</string>
+    <string name="widget_configuration_title">Selecteer Apparaat</string>
+    <string name="widget_configuration_description">Kies welk apparaatprofiel deze widget moet weergeven.</string>
+    <string name="common_feature_requires_pro_msg">Voor deze functie is CAPod Pro vereist.</string>
+    <string name="widget_no_data_label">Geen data</string>
     <string name="settings_compat_indirectcallback_title">Onrechtstreekse data aflevering</string>
     <string name="settings_compat_indirectcallback_summary">Gebruik een alternatieve methode om BLE data van het systeem (broadcast inplaats van callback).</string>
     <string name="troubleshooter_title">Probleemoplossing</string>
@@ -134,6 +140,10 @@
     <string name="overview_monitoring_active_label">Monitoring voor apparaten</string>
     <string name="overview_monitoring_active_description">Zorg ervoor dat je apparaat in de buurt is en actief is.</string>
     <string name="overview_unmatched_devices_label">Niet overeenkomende apparaten</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d apparaat zonder overeenkomend profiel</item>
+        <item quantity="other">%d apparaten zonder overeenkomend profiel</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth-verbinding</string>
     <string name="permission_bluetooth_connect_description">Deze app heeft de toestemming voor \'Bluetooth verbinden\' nodig om met gekoppelde apparaten te communiceren en verbindingen tot stand te brengen.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth-scannen</string>
@@ -159,6 +169,17 @@
     <string name="settings_reaction_autoconnect_caseopen_label">Zaak is geopend</string>
     <string name="settings_reaction_autoconnect_inear_label">In oor</string>
     <string name="pods_dual_left_label">Linker pod</string>
+    <string name="pods_dual_right_label">Rechter pod</string>
+    <string name="pods_case_label">Geval</string>
+    <string name="pods_case_status_open_label">Open</string>
+    <string name="pods_case_status_closed_label">Gesloten</string>
+    <string name="pods_connection_state_disconnected_label">Niet verbonden met een apparaat</string>
+    <string name="pods_connection_state_idle_label">Aangesloten op een apparaat, maar inactief</string>
+    <string name="pods_connection_state_music_label">In muziekmodus</string>
+    <string name="pods_connection_state_call_label">In oproepmodus</string>
+    <string name="pods_connection_state_ringing_label">Rinkelen</string>
+    <string name="pods_connection_state_hanging_up_label">Ophangen</string>
+    <string name="pods_connection_state_unknown_label">Onbekende verbindingsstatus</string>
     <!-- Device profiles -->
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods sturen een statusbericht, waarvan een deel versleuteld is. De encryptiesleutel stelt CAPod in staat het volledige bericht te ontsleutelen. Je hebt hiervoor eenmalige toegang tot een MacBook nodig.</string>
     <string name="profiles_key_invalid_format">Ongeldige sleutelindeling</string>
