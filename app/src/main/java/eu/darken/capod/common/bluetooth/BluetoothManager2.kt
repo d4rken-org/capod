@@ -24,11 +24,12 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -36,6 +37,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
@@ -259,10 +261,23 @@ class BluetoothManager2 @Inject constructor(
                     )
                 }
         }
+        .retryWhen { cause, attempt ->
+            log(TAG, WARN) { "connectedDevices Flow failed (attempt ${attempt + 1}): $cause" }
+            if (attempt < 3) {
+                delay(1000 * (attempt + 1))  // 1s, 2s, 3s exponential backoff
+                true  // Retry
+            } else {
+                false  // Give up after 3 attempts
+            }
+        }
+        .catch { e ->
+            log(TAG, ERROR) { "connectedDevices Flow failed after retries: $e" }
+            emit(emptyList())  // Emit empty list and complete gracefully
+        }
         .distinctUntilChanged()
         .setupCommonEventHandlers(TAG) { "connectedDevices" }
         .stateIn(
-            scope = appScope + Dispatchers.IO,
+            scope = appScope + dispatcherProvider.IO,
             started = SharingStarted.WhileSubscribed(
                 stopTimeoutMillis = 5_000L,
                 replayExpirationMillis = 0L,
