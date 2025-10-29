@@ -35,7 +35,7 @@ class PlayPause @Inject constructor(
         reactionSettings.autoPause.flow,
         reactionSettings.onePodMode.flow,
     ) { play, pause, _ -> play || pause }
-        .flatMapLatest { if (it) bluetoothManager.connectedDevices() else emptyFlow() }
+        .flatMapLatest { if (it) bluetoothManager.connectedDevices else emptyFlow() }
         .flatMapLatest {
             if (it.isEmpty()) {
                 log(TAG) { "No known devices connected." }

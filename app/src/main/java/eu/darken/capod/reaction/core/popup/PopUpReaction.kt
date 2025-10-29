@@ -16,7 +16,6 @@ import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapLatest
@@ -116,7 +115,7 @@ class PopUpReaction @Inject constructor(
             if (!isEnabled) return@flatMapLatest emptyFlow()
 
             combine(
-                bluetoothManager.connectedDevices().distinctUntilChanged(),
+                bluetoothManager.connectedDevices,
                 podMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
             ) { devices, broadcast ->
                 log(TAG) { "$broadcast $devices " }

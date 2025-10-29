@@ -148,7 +148,7 @@ class MonitorWorker @AssistedInject constructor(
                     combine(
                         generalSettings.monitorMode.flow,
                         profilesRepo.profiles,
-                        bluetoothManager.connectedDevices(),
+                        bluetoothManager.connectedDevices,
                     ) { monitorMode, profiles, connectedDevices ->
                         listOf(monitorMode, profiles, connectedDevices)
                     }

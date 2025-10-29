@@ -16,7 +16,6 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -39,7 +38,7 @@ class AutoConnect @Inject constructor(
         .flatMapLatest { isAutoConnectEnabled ->
             if (isAutoConnectEnabled) {
                 combine(
-                    bluetoothManager.connectedDevices().distinctUntilChanged(),
+                    bluetoothManager.connectedDevices,
                     podMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy { it.rawDataHex },
                 ) { connectedDevices, mainDevice ->
                     connectedDevices to mainDevice
