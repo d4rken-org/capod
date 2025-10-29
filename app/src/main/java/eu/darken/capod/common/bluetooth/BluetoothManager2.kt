@@ -107,12 +107,11 @@ class BluetoothManager2 @Inject constructor(
         profile: Int = BluetoothProfile.HEADSET
     ): Flow<Set<BluetoothDevice>> = getBluetoothProfile(profile).flatMapLatest { bluetoothProfile ->
         callbackFlow {
-            log(TAG, VERBOSE) { "connectedDevices(profile=$profile) starting" }
+            log(TAG, VERBOSE) { "monitorDevices(): for profile=$profile starting" }
             trySend(bluetoothProfile.connectedDevices)
 
             val filter = IntentFilter().apply {
-                addAction(BluetoothDevice.ACTION_ACL_CONNECTED)
-                addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED)
+                addAction(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)
             }
 
             val handlerThread = HandlerThread("BluetoothEventReceiver").apply {
@@ -122,30 +121,60 @@ class BluetoothManager2 @Inject constructor(
 
             val receiver: BroadcastReceiver = object : BroadcastReceiver() {
                 override fun onReceive(context: Context, intent: Intent) {
-                    log(TAG, VERBOSE) { "Bluetooth event (intent=$intent, extras=${intent.extras})" }
+                    log(TAG, VERBOSE) { "monitorDevices(): Bluetooth event (intent=$intent, extras=${intent.extras})" }
                     val action = intent.action
                     if (action == null) {
-                        log(TAG, ERROR) { "Bluetooth event without action, how did we get this?" }
+                        log(TAG, ERROR) { "monitorDevices(): Bluetooth event without action?" }
                         return
                     }
                     val device = intent.getParcelableExtra<BluetoothDevice?>(BluetoothDevice.EXTRA_DEVICE)
                     if (device == null) {
-                        log(TAG, ERROR) { "Connection event is missing EXTRA_DEVICE: ${intent.extras}" }
+                        log(TAG, ERROR) { "monitorDevices(): Event is missing EXTRA_DEVICE" }
                         return
                     }
 
                     this@callbackFlow.launch {
-                        val currentDevices = bluetoothProfile.connectedDevices
+                        val currentDevices = bluetoothProfile.connectedDevices.toMutableSet()
+                        log(TAG) { "monitorDevices(): currentDevices: $currentDevices" }
 
-                        when (action) {
-                            BluetoothDevice.ACTION_ACL_CONNECTED -> {
-                                log(TAG) { "Adding $device to current devices $currentDevices" }
-                                trySend(currentDevices.plus(device))
+                        if (action != BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED) {
+                            log(TAG, WARN) { "Unknown action: $action" }
+                            return@launch
+                        }
+
+                        // Profile connection changed - query actual state from proxy
+                        val statePrevious = intent.getIntExtra(BluetoothProfile.EXTRA_PREVIOUS_STATE, -1)
+                        log(TAG) { "monitorDevices(): HEADSET profile state changed for $device - previous: $statePrevious" }
+
+                        val stateNow = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, -1)
+                        log(TAG) { "monitorDevices(): HEADSET profile state changed for $device - now: $stateNow" }
+
+
+                        when (stateNow) {
+                            BluetoothProfile.STATE_CONNECTING -> {
+                                log(TAG) { "monitorDevices(): Currently connecting $device" }
                             }
 
-                            BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
-                                log(TAG) { "Removing $device from current devices $currentDevices" }
-                                trySend(currentDevices.minus(device))
+                            BluetoothProfile.STATE_CONNECTED -> {
+                                log(TAG) { "monitorDevices(): Device has connected $device" }
+                                if (!currentDevices.contains(device)) {
+                                    log(TAG, WARN) { "monitorDevices(): $device was not in $currentDevices" }
+                                    currentDevices.add(device)
+                                }
+                                trySend(currentDevices)
+                            }
+
+                            BluetoothProfile.STATE_DISCONNECTING -> {
+                                log(TAG) { "monitorDevices(): Currently DISconnecting $device" }
+                            }
+
+                            BluetoothProfile.STATE_DISCONNECTED -> {
+                                log(TAG) { "monitorDevices(): Device has disconnected $device" }
+                                if (!currentDevices.contains(device)) {
+                                    log(TAG, WARN) { "monitorDevices(): $device WAS in $currentDevices" }
+                                    currentDevices.remove(device)
+                                }
+                                trySend(currentDevices)
                             }
                         }
                     }
