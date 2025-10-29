@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">기기를 귀에서 빼면 오디오를 일시 중지합니다.</string>
     <string name="settings_autopplay_label">자동 재생</string>
     <string name="settings_autoplay_description">기기를 착용하면 오디오 재생을 시작합니다.</string>
+    <string name="settings_eardetection_info_label">착용 감지 알림</string>
+    <string name="settings_eardetection_info_description">Apple의 제한으로 착용 감지가 마이크를 이용하는 데 사용되는 한쪽 유닛만 작동할 수 있습니다. Apple 기기에서 다음에 따라 설정할 수 있습니다. 설정 → 블루투스 → Airpods → 마이크</string>
     <string name="settings_fake_data_label">가짜 데이터</string>
     <string name="settings_fake_data_description">가짜 데이터를 표시합니다. 즉, 존재하지 않는 기기를 시뮬레이션합니다.</string>
     <string name="settings_debug_label">디버그 설정</string>
@@ -35,7 +37,7 @@
     <string name="settings_signal_minimum_label">최소 신호 품질</string>
     <string name="settings_signal_minimum_description">기기가 사용자의 것으로 간주되기 위해 필요한 최소 신호 품질입니다.</string>
     <string name="settings_autoconnect_label">자동 연결</string>
-    <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터 모드 설정이 \"항상\"으로 설정됩니다.</string>
+    <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터링 모드 설정이 \"항상\"으로 설정됩니다.</string>
     <string name="settings_autoconnect_condition_label">자동 연결 조건</string>
     <string name="settings_autoconnect_condition_description">언제 기기에 연결을 시도해야 할까요?</string>
     <string name="settings_devices_label">장치</string>
@@ -49,7 +51,7 @@
     <string name="settings_compat_offloaded_filtering_disabled_summary">데이터 필터링을 시스템에 위임하지 말고 대신 모든 데이터를 가져와 앱 내에서 필터링합니다.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">하드웨어 일괄 처리 비활성화</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">수집된 BLE 데이터를 저희에게 전달하기 전에 시스템이 그룹화하도록 허용하지 마십시오.</string>
-    <string name="settings_onepod_mode_label">단일 Pod 모드</string>
+    <string name="settings_onepod_mode_label">단일 유닛 모드</string>
     <string name="settings_onepod_mode_description">양쪽 기기를 모두 착용할 필요 없이 한쪽만 착용해도 앱이 반응합니다.</string>
     <string name="settings_popup_caseopen_label">케이스 팝업 표시</string>
     <string name="settings_popup_caseopen_description">기기 케이스를 열면 팝업을 표시합니다(실험적).</string>
@@ -98,6 +100,10 @@
     <string name="translators_thanks_title">번역가</string>
     <string name="translators_thanks_description">윤지호(annyeong1alt@gmail.com)</string>
     <string name="widget_description">마지막으로 알려진 기기 상태를 표시하는 위젯입니다.</string>
+    <string name="widget_configuration_title">기기 선택</string>
+    <string name="widget_configuration_description">이 위젯에 표시할 기기 프로필을 선택해 주세요.</string>
+    <string name="common_feature_requires_pro_msg">이 기능을 사용하기 위해  CAPod Pro가 필요합니다.</string>
+    <string name="widget_no_data_label">데이터 없음</string>
     <string name="settings_compat_indirectcallback_title">간접 데이터 전달</string>
     <string name="settings_compat_indirectcallback_summary">시스템에서 BLE 데이터를 수신하는 대체 방법을 사용합니다(콜백 대신 브로드캐스트).</string>
     <string name="troubleshooter_title">문제 해결사</string>
@@ -130,15 +136,27 @@
     <string name="overview_nomaindevice_label">설정된 장치가 없음</string>
     <string name="overview_nomaindevice_description">배터리 잔량 감시와 추가 기능을 활성화하기 위해 당신의 장치를 설정하십시오.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth가 꺼져 있습니다</string>
-    <string name="overview_monitoring_active_label">장치 감시중</string>
+    <string name="overview_bluetooth_disabled_description">블루투스를 켜야 연결할 수 있어요 ;)</string>
+    <string name="overview_monitoring_active_label">기기 모니터링 중</string>
+    <string name="overview_monitoring_active_description">기기가 켜진 상태에서 가까이 위치해 있는지 확인해 주세요.</string>
+    <string name="overview_unmatched_devices_label">일치하지 않는 기기</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="other">%d프로필과 일치하지 않는 기기</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">블루투스 연결</string>
-    <string name="permission_bluetooth_connect_description">이 앱은 페어링된 기기와 상호작용하고 연결을 시작하기 위해 \"Bluetooth 연결\"권한을 필요로 합니다.</string>
+    <string name="permission_bluetooth_connect_description">이 앱은 페어링 된 기기와 상호작용하고 연결을 시작하기 위해 \"Bluetooth 연결\"권한을 필요로 합니다.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth 검색</string>
     <string name="permission_bluetooth_scan_description">\"Bluetooth 검색\" 권한은 앱이 당신의 AirPods같은 주변의 기기를 찾고 Bluetooth 데이터를 받도록 합니다.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">이 앱은 페어링 된 기기에 접근하기 위해 블루투스 권한을 필요로 합니다.</string>
+    <string name="permission_access_fine_location_label">정밀 위치 접근</string>
+    <string name="permission_access_fine_location_description">CAPod는 BLE 정보를 받기 위해 정밀 위치 접근 권한을 사용합니다. 앱은 블루투스 헤드폰의 BLE 기술을 사용해 기기의 상태에 접근합니다. CAPod는 이 권한으로 사용자의 위치를 확인하지 않습니다.</string>
+    <string name="permission_background_location_label">백그라운드 위치 접근</string>
+    <string name="permission_background_location_description">CAPod는 팝업 보기나 자동 연결과 같은 기능을 앱이 꺼져있는 상태에서도 사용할 수 있게 하기 위해 백그라운드 위치 접근 권한을 사용합니다. 백그라운드 위치 접근 권한은 백그라운드에서도 BLE 정보를 받을 수 있게 합니다. CAPod는 이 권한으로 사용자의 위치를 확인하지 않습니다.</string>
     <string name="permission_ignore_battery_optimizations_label">배터리 사용량 최적화 비활성화</string>
     <string name="permission_ignore_battery_optimizations_description">배터리 사용량 최적화는 앱이 백그라운드에서 Bluetooth 신호를 지속적으로 받지 못하게 합니다.</string>
     <string name="permission_required_title">다음과 같은 권한이 필요합니다:</string>
+    <string name="permission_system_alert_window_label">시스템 알림창</string>
     <string name="permission_system_alert_window_description">\"팝업 표시\" 기능을 사용하려면 다른 앱 위에 그리기를 허용해야 합니다.</string>
     <string name="settings_scanner_mode_lowpower_label">저전력</string>
     <string name="settings_scanner_mode_balanced_label">균형잡힌</string>
@@ -148,12 +166,57 @@
     <string name="settings_monitor_mode_always_label">항상</string>
     <string name="settings_reaction_autoconnect_whenseen_label">앱이 장치를 찾았을때</string>
     <string name="settings_reaction_autoconnect_caseopen_label">케이스가 열렸을때</string>
-    <string name="settings_reaction_autoconnect_inear_label">귀에 착용했을때</string>
+    <string name="settings_reaction_autoconnect_inear_label">귀에 착용했을 때</string>
     <string name="pods_dual_left_label">왼쪽 유닛</string>
     <string name="pods_dual_right_label">오른쪽 유닛</string>
     <string name="pods_case_label">케이스</string>
     <string name="pods_case_status_open_label">열림</string>
+    <string name="pods_case_status_closed_label">닫힘</string>
+    <string name="pods_connection_state_disconnected_label">연결되지 않음</string>
+    <string name="pods_connection_state_idle_label">대기 모드</string>
+    <string name="pods_connection_state_music_label">음악 모드</string>
+    <string name="pods_connection_state_call_label">통화 모드</string>
+    <string name="pods_connection_state_ringing_label">수신 중</string>
+    <string name="pods_connection_state_hanging_up_label">끊는 중</string>
+    <string name="pods_connection_state_unknown_label">연결 상태 알 수 없음</string>
+    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_label">알 수 없는 기기</string>
+    <string name="pods_unknown_contact_dev">알 수 없는 기기이나 비슷한 형식으로 정보를 보내는 기기인 것 같습니다. 제게 알려주시면 앱에 해당 기기 지원을 추가해 드릴게요 :)</string>
+    <string name="pods_none_label_short">기기 없음</string>
+    <string name="pods_charging_label">충전 중</string>
+    <string name="pods_inear_label">착용 중</string>
+    <string name="pods_microphone_label">마이크</string>
+    <string name="pods_yours">내 기기</string>
+    <string name="headset_being_worn_label">착용 중</string>
+    <string name="headset_not_being_worn_label">착용하지 않음</string>
+    <string name="pods_case_unknown_state">알 수 없는 상태</string>
+    <string name="last_seen_x">마지막 업데이트: %s</string>
+    <string name="first_seen_x">처음 업데이트: %s</string>
+    <string name="permission_post_notifications_label">알림 표시</string>
+    <string name="permission_post_notifications_description">"CAPod이 현재 연결 상태 등 AirPods에 대한 알림을 표시할 수 있도록 허용합니다."</string>
     <!-- Device profiles -->
+    <string name="profiles_empty_title">기기 프로필이 설정되지 않음</string>
+    <string name="profiles_empty_description">여러 기기를 설정하고 우선순위를 지정하기 위해 기기 프로필을 생성하세요.</string>
+    <string name="profiles_add_action">프로필 추가</string>
+    <string name="profiles_create_title">프로필 생성</string>
+    <string name="profiles_name_label">프로필 이름</string>
+    <string name="profiles_name_default">나의 헤드폰</string>
+    <string name="profiles_model_label">기기 모델</string>
+    <string name="profiles_paired_device_label">페어링 된 기기</string>
+    <string name="profiles_paired_device_none">없음</string>
+    <string name="profiles_paired_device_none_description">선택된 기기가 없습니다.</string>
+    <string name="profiles_save_action">프로필 저장</string>
+    <string name="profiles_drag_handle_description">드래그하여 순서 변경</string>
+    <string name="profiles_delete_title">프로필 삭제</string>
+    <string name="profiles_delete_message">프로필을 삭제하시겠습니까? 
+이 작업은 취소할 수 없습니다.</string>
+    <string name="profiles_delete_action">삭제</string>
+    <string name="profiles_basic_info_title">기기 정보</string>
+    <string name="profiles_basic_info_description">기기의 이름, 모델 및 선택적 블루투스 페어링을 설정하세요.</string>
+    <string name="profiles_signal_quality_title">최소 신호 품질</string>
+    <string name="profiles_signal_quality_description">이 수치 이상의 신호 세기를 가진 기기만이 감지 됩니다. 낮은 값은 감지 범위를 넓히지만, 오탐을 일으킬 수 있습니다. 너무 높은 값은 블루투스 수신이 거리와 장애물에 민감하기에 권장하지 않습니다.</string>
+    <string name="profiles_identitykey_label">ID 키</string>
+    <string name="profilessettings_maindevice_identitykey_description">기기의 ID 확인 키(IRK)로, CAPod가 주변 기기 중에서 해당 기기를 식별하는 데 도움이 됩니다.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods은 개인정보 보호를 위해 자주 Bluetooth 주소를 변경합니다. IRK는 앱이 당신의 기기를 인식하는데 도움이 됩니다. MacBook을 잠깐 사용해야 합니다.</string>
     <string name="profiles_maindevice_encryptionkey_label">암호화 키</string>
     <string name="profiles_maindevice_encryptionkey_description">당신의 기기의 암호화 키. 앱이 구체적인 상태 정보를 불러올 수 있게 합니다.</string>
@@ -163,4 +226,9 @@
     <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요.
 리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">저장되지 않은 변경 사항</string>
+    <string name="general_unsaved_changes_message">저장되지 않은 변경 사항이 있습니다. 어떻게 하시겠습니까?</string>
+    <string name="general_save_and_exit_action">저장 &amp; 종료</string>
+    <string name="general_discard_action">무시</string>
+    <string name="general_keep_editing_action">계속 수정하기</string>
 </resources>
