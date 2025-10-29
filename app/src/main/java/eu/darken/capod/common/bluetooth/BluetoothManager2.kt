@@ -12,8 +12,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Handler
 import android.os.HandlerThread
-import android.os.ParcelUuid
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
@@ -21,15 +21,23 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.io.IOException
@@ -39,9 +47,10 @@ import javax.inject.Singleton
 
 @Singleton
 class BluetoothManager2 @Inject constructor(
-    private val manager: BluetoothManager,
-    @ApplicationContext private val context: Context,
+    @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
+    @ApplicationContext private val context: Context,
+    private val manager: BluetoothManager,
 ) {
 
     val adapter: BluetoothAdapter?
@@ -103,11 +112,11 @@ class BluetoothManager2 @Inject constructor(
     }
 
 
-    private fun monitorDevicesForProfile(
+    private fun monitorProfile(
         profile: Int = BluetoothProfile.HEADSET
     ): Flow<Set<BluetoothDevice>> = getBluetoothProfile(profile).flatMapLatest { bluetoothProfile ->
         callbackFlow {
-            log(TAG, VERBOSE) { "monitorDevices(): for profile=$profile starting" }
+            log(TAG, VERBOSE) { "monitorProfile(): for profile=$profile starting" }
             trySend(bluetoothProfile.connectedDevices)
 
             val filter = IntentFilter().apply {
@@ -121,21 +130,21 @@ class BluetoothManager2 @Inject constructor(
 
             val receiver: BroadcastReceiver = object : BroadcastReceiver() {
                 override fun onReceive(context: Context, intent: Intent) {
-                    log(TAG, VERBOSE) { "monitorDevices(): Bluetooth event (intent=$intent, extras=${intent.extras})" }
+                    log(TAG, VERBOSE) { "monitorProfile(): Bluetooth event (intent=$intent, extras=${intent.extras})" }
                     val action = intent.action
                     if (action == null) {
-                        log(TAG, ERROR) { "monitorDevices(): Bluetooth event without action?" }
+                        log(TAG, ERROR) { "monitorProfile(): Bluetooth event without action?" }
                         return
                     }
                     val device = intent.getParcelableExtra<BluetoothDevice?>(BluetoothDevice.EXTRA_DEVICE)
                     if (device == null) {
-                        log(TAG, ERROR) { "monitorDevices(): Event is missing EXTRA_DEVICE" }
+                        log(TAG, ERROR) { "monitorProfile(): Event is missing EXTRA_DEVICE" }
                         return
                     }
 
                     this@callbackFlow.launch {
                         val currentDevices = bluetoothProfile.connectedDevices.toMutableSet()
-                        log(TAG) { "monitorDevices(): currentDevices: $currentDevices" }
+                        log(TAG) { "monitorProfile(): currentDevices: $currentDevices" }
 
                         if (action != BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED) {
                             log(TAG, WARN) { "Unknown action: $action" }
@@ -144,34 +153,34 @@ class BluetoothManager2 @Inject constructor(
 
                         // Profile connection changed - query actual state from proxy
                         val statePrevious = intent.getIntExtra(BluetoothProfile.EXTRA_PREVIOUS_STATE, -1)
-                        log(TAG) { "monitorDevices(): HEADSET profile state changed for $device - previous: $statePrevious" }
+                        log(TAG) { "monitorProfile(): HEADSET profile state changed for $device - previous: $statePrevious" }
 
                         val stateNow = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, -1)
-                        log(TAG) { "monitorDevices(): HEADSET profile state changed for $device - now: $stateNow" }
+                        log(TAG) { "monitorProfile(): HEADSET profile state changed for $device - now: $stateNow" }
 
 
                         when (stateNow) {
                             BluetoothProfile.STATE_CONNECTING -> {
-                                log(TAG) { "monitorDevices(): Currently connecting $device" }
+                                log(TAG) { "monitorProfile(): Currently connecting $device" }
                             }
 
                             BluetoothProfile.STATE_CONNECTED -> {
-                                log(TAG) { "monitorDevices(): Device has connected $device" }
+                                log(TAG) { "monitorProfile(): Device has connected $device" }
                                 if (!currentDevices.contains(device)) {
-                                    log(TAG, WARN) { "monitorDevices(): $device was not in $currentDevices" }
+                                    log(TAG, WARN) { "monitorProfile(): $device was not in $currentDevices" }
                                     currentDevices.add(device)
                                 }
                                 trySend(currentDevices)
                             }
 
                             BluetoothProfile.STATE_DISCONNECTING -> {
-                                log(TAG) { "monitorDevices(): Currently DISconnecting $device" }
+                                log(TAG) { "monitorProfile(): Currently DISconnecting $device" }
                             }
 
                             BluetoothProfile.STATE_DISCONNECTED -> {
-                                log(TAG) { "monitorDevices(): Device has disconnected $device" }
-                                if (!currentDevices.contains(device)) {
-                                    log(TAG, WARN) { "monitorDevices(): $device WAS in $currentDevices" }
+                                log(TAG) { "monitorProfile(): Device has disconnected $device" }
+                                if (currentDevices.contains(device)) {
+                                    log(TAG, WARN) { "monitorProfile(): $device WAS in $currentDevices" }
                                     currentDevices.remove(device)
                                 }
                                 trySend(currentDevices)
@@ -183,7 +192,7 @@ class BluetoothManager2 @Inject constructor(
             context.registerReceiver(receiver, filter, null, handler)
 
             awaitClose {
-                log(TAG, VERBOSE) { "connectedDevices(profile=$profile) closed." }
+                log(TAG, VERBOSE) { "monitorProfile(): profile=$profile closed." }
                 context.unregisterReceiver(receiver)
             }
         }
@@ -192,10 +201,8 @@ class BluetoothManager2 @Inject constructor(
     private val seenDevicesLock = Mutex()
     private val seenDevicesCache = mutableMapOf<String, Instant>()
 
-    fun connectedDevices(
-        featureFilter: Set<ParcelUuid> = ContinuityProtocol.BLE_FEATURE_UUIDS
-    ): Flow<List<BluetoothDevice2>> = isBluetoothEnabled
-        .flatMapLatest { monitorDevicesForProfile(BluetoothProfile.HEADSET) }
+    val connectedDevices: Flow<List<BluetoothDevice2>> = isBluetoothEnabled
+        .flatMapLatest { monitorProfile(BluetoothProfile.HEADSET) }
         .map { devices ->
             val currentAddresses = devices.map { it.address }
 
@@ -206,7 +213,9 @@ class BluetoothManager2 @Inject constructor(
             }
 
             devices
-                .filter { device -> featureFilter.any { feature -> device.hasFeature(feature) } }
+                .filter { device ->
+                    ContinuityProtocol.BLE_FEATURE_UUIDS.any { feature -> device.hasFeature(feature) }
+                }
                 .map { device ->
                     BluetoothDevice2(
                         internal = device,
@@ -218,6 +227,17 @@ class BluetoothManager2 @Inject constructor(
                     )
                 }
         }
+        .distinctUntilChanged()
+        .setupCommonEventHandlers(TAG) { "connectedDevices" }
+        .stateIn(
+            scope = appScope + Dispatchers.IO,
+            started = SharingStarted.WhileSubscribed(
+                stopTimeoutMillis = 5_000L,
+                replayExpirationMillis = 0L,
+            ),
+            initialValue = null
+        )
+        .filterNotNull()
 
     fun bondedDevices(): Flow<Set<BluetoothDevice2>> = flow {
         val rawDevices = adapter?.bondedDevices ?: throw IllegalStateException("Bluetooth adapter unavailable")
