@@ -34,13 +34,13 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import java.io.IOException
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -98,7 +98,7 @@ class BluetoothManager2 @Inject constructor(
 
             override fun onServiceDisconnected(profile: Int) {
                 log(TAG, WARN) { "onServiceDisconnected(profile=$profile)" }
-                close(IOException("BluetoothProfile service disconnected (profile=$profile)"))
+                close()  // Close gracefully without exception to prevent crash
             }
 
         }, profile)
@@ -117,22 +117,27 @@ class BluetoothManager2 @Inject constructor(
     ): Flow<Set<BluetoothDevice>> = getBluetoothProfile(profile).flatMapLatest { bluetoothProfile ->
         callbackFlow {
             log(TAG, VERBOSE) { "monitorProfile(): for profile=$profile starting" }
-            trySend(bluetoothProfile.connectedDevices)
+
+            try {
+                trySend(bluetoothProfile.connectedDevices)
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "monitorProfile(): Error querying initial connected devices: $e" }
+                close(e)
+                return@callbackFlow
+            }
 
             val filter = IntentFilter().apply {
                 addAction(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)
             }
 
-            val handlerThread = HandlerThread("BluetoothEventReceiver").apply {
-                start()
-            }
+            val handlerThread = HandlerThread("BluetoothEventReceiver").apply { start() }
             val handler = Handler(handlerThread.looper)
 
             val receiver: BroadcastReceiver = object : BroadcastReceiver() {
                 override fun onReceive(context: Context, intent: Intent) {
                     log(TAG, VERBOSE) { "monitorProfile(): Bluetooth event (intent=$intent, extras=${intent.extras})" }
-                    val action = intent.action
-                    if (action == null) {
+
+                    if (intent.action == null) {
                         log(TAG, ERROR) { "monitorProfile(): Bluetooth event without action?" }
                         return
                     }
@@ -143,11 +148,8 @@ class BluetoothManager2 @Inject constructor(
                     }
 
                     this@callbackFlow.launch {
-                        val currentDevices = bluetoothProfile.connectedDevices.toMutableSet()
-                        log(TAG) { "monitorProfile(): currentDevices: $currentDevices" }
-
-                        if (action != BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED) {
-                            log(TAG, WARN) { "Unknown action: $action" }
+                        if (intent.action != BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED) {
+                            log(TAG, WARN) { "Unknown action: ${intent.action}" }
                             return@launch
                         }
 
@@ -158,6 +160,14 @@ class BluetoothManager2 @Inject constructor(
                         val stateNow = intent.getIntExtra(BluetoothProfile.EXTRA_STATE, -1)
                         log(TAG) { "monitorProfile(): HEADSET profile state changed for $device - now: $stateNow" }
 
+                        val currentDevices = try {
+                            bluetoothProfile.connectedDevices
+                        } catch (e: Exception) {
+                            log(TAG, ERROR) { "monitorProfile(): Error handling profile event: $e" }
+                            // Log but continue - don't kill the whole Flow for one bad event
+                            emptySet()
+                        }.toMutableSet()
+                        log(TAG) { "monitorProfile(): currentDevices: $currentDevices" }
 
                         when (stateNow) {
                             BluetoothProfile.STATE_CONNECTING -> {
@@ -167,7 +177,10 @@ class BluetoothManager2 @Inject constructor(
                             BluetoothProfile.STATE_CONNECTED -> {
                                 log(TAG) { "monitorProfile(): Device has connected $device" }
                                 if (!currentDevices.contains(device)) {
-                                    log(TAG, WARN) { "monitorProfile(): $device was not in $currentDevices" }
+                                    log(
+                                        TAG,
+                                        VERBOSE
+                                    ) { "monitorProfile(): $device not in proxy yet, adding manually" }
                                     currentDevices.add(device)
                                 }
                                 trySend(currentDevices)
@@ -180,7 +193,10 @@ class BluetoothManager2 @Inject constructor(
                             BluetoothProfile.STATE_DISCONNECTED -> {
                                 log(TAG) { "monitorProfile(): Device has disconnected $device" }
                                 if (currentDevices.contains(device)) {
-                                    log(TAG, WARN) { "monitorProfile(): $device WAS in $currentDevices" }
+                                    log(
+                                        TAG,
+                                        VERBOSE
+                                    ) { "monitorProfile(): $device still in proxy, removing manually" }
                                     currentDevices.remove(device)
                                 }
                                 trySend(currentDevices)
@@ -189,11 +205,24 @@ class BluetoothManager2 @Inject constructor(
                     }
                 }
             }
-            context.registerReceiver(receiver, filter, null, handler)
+
+            try {
+                context.registerReceiver(receiver, filter, null, handler)
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "monitorProfile(): Failed to register receiver: $e" }
+                close(e)
+                return@callbackFlow
+            }
 
             awaitClose {
                 log(TAG, VERBOSE) { "monitorProfile(): profile=$profile closed." }
-                context.unregisterReceiver(receiver)
+                try {
+                    context.unregisterReceiver(receiver)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "monitorProfile(): Error unregistering receiver: $e" }
+                } finally {
+                    handlerThread.quitSafely()
+                }
             }
         }
     }
@@ -202,7 +231,10 @@ class BluetoothManager2 @Inject constructor(
     private val seenDevicesCache = mutableMapOf<String, Instant>()
 
     val connectedDevices: Flow<List<BluetoothDevice2>> = isBluetoothEnabled
-        .flatMapLatest { monitorProfile(BluetoothProfile.HEADSET) }
+        .flatMapLatest { enabled ->
+            if (enabled) monitorProfile(BluetoothProfile.HEADSET)
+            else flowOf(emptySet())  // Return empty when Bluetooth is off
+        }
         .map { devices ->
             val currentAddresses = devices.map { it.address }
 
