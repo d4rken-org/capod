@@ -28,7 +28,7 @@
     <string name="settings_autopause_description">Pauzeer de muziek wanneer u het apparaat van uw oor haalt.</string>
     <string name="settings_autopplay_label">Automatisch afspelen</string>
     <string name="settings_autoplay_description">Start audioweergave wanneer het apparaat wordt gedragen.</string>
-    <string name="settings_eardetection_info_label">Oordetectienotitie</string>
+    <string name="settings_eardetection_info_label">Ear detectie notitie</string>
     <string name="settings_eardetection_info_description">Als oordetectie slechts voor één pod werkt, is dit een beperking van Apple. Alleen de \"primaire pod\" (gebruikt voor de microfoon) wordt gedetecteerd. Configureer op Apple-apparaten: Instellingen → Bluetooth → AirPods → Microfoon.</string>
     <string name="settings_fake_data_label">Nep gegevens</string>
     <string name="settings_fake_data_description">Toon nepgegevens, d.w.z. simuleer apparaten die niet bestaan.</string>
