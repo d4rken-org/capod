@@ -298,9 +298,10 @@ class WidgetProvider : AppWidgetProvider() {
             if (podDevice is HasEarDetection && podDevice.isBeingWorn) View.VISIBLE else View.GONE
         )
 
-        if (this is HasChargeDetectionDual) {
-            setViewVisibility(R.id.headphones_charging, if (isHeadsetBeingCharged) View.VISIBLE else View.GONE)
-        }
+        setViewVisibility(
+            R.id.headphones_charging,
+            if (podDevice is HasChargeDetectionDual && podDevice.isHeadsetBeingCharged) View.VISIBLE else View.GONE
+        )
     }
 
     companion object {
