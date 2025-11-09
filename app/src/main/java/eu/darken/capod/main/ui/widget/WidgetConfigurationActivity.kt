@@ -1,12 +1,14 @@
 package eu.darken.capod.main.ui.widget
 
 import android.appwidget.AppWidgetManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.common.EdgeToEdgeHelper
 import eu.darken.capod.common.debug.logging.log
@@ -24,6 +26,7 @@ class WidgetConfigurationActivity : Activity2() {
 
     @Inject lateinit var profileAdapter: WidgetProfileSelectionAdapter
     @Inject lateinit var upgradeRepo: UpgradeRepo
+    @ApplicationContext @Inject lateinit var appContext: Context
 
     private var widgetId: Int = AppWidgetManager.INVALID_APPWIDGET_ID
 
@@ -101,10 +104,10 @@ class WidgetConfigurationActivity : Activity2() {
         val resultValue = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
         setResult(RESULT_OK, resultValue)
 
-        val appWidgetManager = AppWidgetManager.getInstance(this@WidgetConfigurationActivity)
+        val appWidgetManager = AppWidgetManager.getInstance(appContext)
 
         WidgetProvider.updateWidget(
-            context = this@WidgetConfigurationActivity,
+            context = appContext,
             appWidgetManager = appWidgetManager,
             widgetId = widgetId
         )
