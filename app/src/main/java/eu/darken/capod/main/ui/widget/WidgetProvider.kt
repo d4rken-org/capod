@@ -141,7 +141,7 @@ class WidgetProvider : AppWidgetProvider() {
         val device: PodDevice? = profileId?.let { podMonitor.getDeviceForProfile(it) }
 
         val layout = when {
-            !upgradeRepo.isPro() -> createUpgradeRequiredLayout(context)
+            !upgradeRepo.isPro() -> createUpgradeRequiredLayout(context, widgetId)
             device is DualPodDevice -> {
                 val minWidth = widgetManager.getAppWidgetOptions(widgetId)
                     .getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
@@ -157,23 +157,24 @@ class WidgetProvider : AppWidgetProvider() {
                     else -> R.layout.widget_pod_dual_wide_layout
                 }
 
-                createDualPodLayout(context, device, layout)
+                createDualPodLayout(context, device, layout, widgetId)
             }
 
-            device is SinglePodDevice -> createSinglePodLayout(context, device)
-            device is PodDevice -> createUnknownPodLayout(context, device)
-            else -> createNoDeviceLayout(context, profileId != null)
+            device is SinglePodDevice -> createSinglePodLayout(context, device, widgetId)
+            device is PodDevice -> createUnknownPodLayout(context, device, widgetId)
+            else -> createNoDeviceLayout(context, profileId != null, widgetId)
         }
         widgetManager.updateAppWidget(widgetId, layout)
     }
 
     private suspend fun createUpgradeRequiredLayout(
-        context: Context
+        context: Context,
+        widgetId: Int
     ) = RemoteViews(context.packageName, R.layout.widget_message_layout).apply {
         log(TAG, VERBOSE) { "createUpgradeRequiredLayout(context=$context)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
-            0,
+            widgetId,
             Intent(context, MainActivity::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -188,11 +189,12 @@ class WidgetProvider : AppWidgetProvider() {
     private fun createUnknownPodLayout(
         context: Context,
         podDevice: PodDevice,
+        widgetId: Int
     ): RemoteViews = RemoteViews(context.packageName, R.layout.widget_message_layout).apply {
         log(TAG, VERBOSE) { "createUnknownPodLayout(context=$context, podDevice=$podDevice)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
-            0,
+            widgetId,
             Intent(context, MainActivity::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -204,12 +206,13 @@ class WidgetProvider : AppWidgetProvider() {
 
     private fun createNoDeviceLayout(
         context: Context,
-        hasConfiguredProfile: Boolean = false
+        hasConfiguredProfile: Boolean = false,
+        widgetId: Int
     ): RemoteViews = RemoteViews(context.packageName, R.layout.widget_message_layout).apply {
         log(TAG, VERBOSE) { "createNoDeviceLayout(context=$context, hasConfiguredProfile=$hasConfiguredProfile)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
-            0,
+            widgetId,
             Intent(context, MainActivity::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -227,12 +230,13 @@ class WidgetProvider : AppWidgetProvider() {
     private fun createDualPodLayout(
         context: Context,
         podDevice: DualPodDevice,
-        @LayoutRes layout: Int
+        @LayoutRes layout: Int,
+        widgetId: Int
     ): RemoteViews = RemoteViews(context.packageName, layout).apply {
         log(TAG, VERBOSE) { "createSinglePodLayout(context=$context, podDevice=$podDevice), layout=${layout}" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
-            0,
+            widgetId,
             Intent(context, MainActivity::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -277,11 +281,12 @@ class WidgetProvider : AppWidgetProvider() {
     private fun createSinglePodLayout(
         context: Context,
         podDevice: SinglePodDevice,
+        widgetId: Int
     ): RemoteViews = RemoteViews(context.packageName, R.layout.widget_pod_single_layout).apply {
         log(TAG, VERBOSE) { "createSinglePodLayout(context=$context, podDevice=$podDevice)" }
         val pendingIntent: PendingIntent = PendingIntent.getActivity(
             context,
-            0,
+            widgetId,
             Intent(context, MainActivity::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
