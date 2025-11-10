@@ -28,6 +28,8 @@
     <string name="settings_autopause_description">Mettre le son en pause si vous ôtez l’appareil de votre oreille.</string>
     <string name="settings_autopplay_label">Lecture automatique</string>
     <string name="settings_autoplay_description">Démarrer la lecture du son quand l’appareil est porté.</string>
+    <string name="settings_eardetection_info_label">Note de détection de l’oreille</string>
+    <string name="settings_eardetection_info_description">Si la détection de l’oreille ne fonctionne que pour un seul AirPod, cela est causé par une limitation d’Apple. Seul « l’AirPod principal » (utilisé pour le microphone) est détecté. Configurez dans les appareils Apple : Paramètres → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_fake_data_label">Fausses données</string>
     <string name="settings_fake_data_description">Afficher les fausses données, c.-à-d. simuler les appareils qui n’existent pas.</string>
     <string name="settings_debug_label">Paramètres de débogage</string>
@@ -98,6 +100,10 @@
     <string name="translators_thanks_title">Traducteurs</string>
     <string name="translators_thanks_description">yahoe-001</string>
     <string name="widget_description">Un widget qui affiche le dernier état connu de l’appareil.</string>
+    <string name="widget_configuration_title">Choisir un appareil</string>
+    <string name="widget_configuration_description">Choisissez le profil d’appareil que ce widget doit afficher.</string>
+    <string name="common_feature_requires_pro_msg">Cette fonction est offerte avec CAPod Pro.</string>
+    <string name="widget_no_data_label">Aucune donnée</string>
     <string name="settings_compat_indirectcallback_title">Transmission indirecte des données</string>
     <string name="settings_compat_indirectcallback_summary">Utiliser une méthode de remplacement pour recevoir les données BÉB du système (diffusion au lieu de rappel).</string>
     <string name="troubleshooter_title">Dépannage</string>
@@ -134,6 +140,10 @@
     <string name="overview_monitoring_active_label">Surveillance des appareils</string>
     <string name="overview_monitoring_active_description">Assurez-vous que votre appareil est proche et actif.</string>
     <string name="overview_unmatched_devices_label">Appareils sans correspondance</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d appareil sans profil correspondant</item>
+        <item quantity="other">%d appareils sans profil correspondant</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Connexion Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Cette appli exige l’autorisation « Connexion Bluetooth » pour interagir avec les appareils jumelés et démarrer les connexions.</string>
     <string name="permission_bluetooth_scan_label">Analyse Bluetooth</string>
