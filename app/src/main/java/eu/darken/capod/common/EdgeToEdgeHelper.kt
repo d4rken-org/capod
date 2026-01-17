@@ -2,7 +2,6 @@ package eu.darken.capod.common
 
 import android.app.Activity
 import android.view.View
-import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import eu.darken.capod.common.debug.logging.logTag
@@ -20,12 +19,14 @@ class EdgeToEdgeHelper(activity: Activity) {
         bottom: Boolean = false,
     ) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { v: View, insets: WindowInsetsCompat ->
-            val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val displayCutout = insets.getInsets(WindowInsetsCompat.Type.displayCutout())
+
             v.setPadding(
-                if (left) systemBars.left else v.paddingLeft,
-                if (top) systemBars.top else v.paddingTop,
-                if (right) systemBars.right else v.paddingRight,
-                if (bottom) systemBars.bottom else v.paddingBottom,
+                if (left) maxOf(systemBars.left, displayCutout.left) else v.paddingLeft,
+                if (top) maxOf(systemBars.top, displayCutout.top) else v.paddingTop,
+                if (right) maxOf(systemBars.right, displayCutout.right) else v.paddingRight,
+                if (bottom) maxOf(systemBars.bottom, displayCutout.bottom) else v.paddingBottom,
             )
             insets
         }
