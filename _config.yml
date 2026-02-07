@@ -26,4 +26,3 @@ exclude:
   - app
   - app-common
   - CONTRIBUTING.md
-  - CLAUDE.md

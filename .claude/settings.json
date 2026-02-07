@@ -15,7 +15,6 @@
 	  "Bash(git checkout:*)",
 	  "Bash(git branch:*)",
 	  "Bash(git stash:*)",
-	  "Bash(git pop:*)",
 	  "Bash(gh issue list:*)",
 	  "Bash(gh pr list:*)",
 	  "Bash(gh label list:*)",
