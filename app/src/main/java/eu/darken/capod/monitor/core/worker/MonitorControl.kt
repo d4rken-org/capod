@@ -1,48 +1,36 @@
 package eu.darken.capod.monitor.core.worker
 
-import android.bluetooth.BluetoothDevice
-import androidx.work.Data
-import androidx.work.ExistingWorkPolicy
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.WorkManager
-import eu.darken.capod.common.BuildConfigWrap
-import eu.darken.capod.common.coroutine.DispatcherProvider
+import android.content.Context
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import kotlinx.coroutines.withContext
+import eu.darken.capod.common.startServiceCompat
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class MonitorControl @Inject constructor(
-    private val workerManager: WorkManager,
-    private val dispatcherProvider: DispatcherProvider,
+    @ApplicationContext private val context: Context,
 ) {
 
-    suspend fun startMonitor(
-        bluetoothDevice: BluetoothDevice? = null,
+    fun startMonitor(
         forceStart: Boolean = false,
-    ): Unit = withContext(dispatcherProvider.IO) {
-        val workerData = Data.Builder().apply {
+    ) {
+        log(TAG, VERBOSE) { "startMonitor(forceStart=$forceStart)" }
+        try {
+            context.startServiceCompat(MonitorService.intent(context, forceStart))
+            log(TAG) { "Monitor start request sent." }
+        } catch (e: IllegalStateException) {
+            log(TAG, WARN) { "Failed to start monitor service: ${e.message}" }
+        }
+    }
 
-        }.build()
-        log(TAG, VERBOSE) { "Worker data: $workerData" }
-
-        val workRequest = OneTimeWorkRequestBuilder<MonitorWorker>().apply {
-            setInputData(workerData)
-        }.build()
-
-        log(TAG, VERBOSE) { "Worker request: $workRequest" }
-
-        val operation = workerManager.enqueueUniqueWork(
-            "${BuildConfigWrap.APPLICATION_ID}.monitor.worker",
-            if (forceStart) ExistingWorkPolicy.REPLACE else ExistingWorkPolicy.KEEP,
-            workRequest,
-        )
-
-        operation.result.get()
-        log(TAG) { "Monitor start request send." }
+    fun stopMonitor() {
+        log(TAG, VERBOSE) { "stopMonitor()" }
+        context.stopService(MonitorService.intent(context))
+        log(TAG) { "Monitor stop request sent." }
     }
 
     companion object {

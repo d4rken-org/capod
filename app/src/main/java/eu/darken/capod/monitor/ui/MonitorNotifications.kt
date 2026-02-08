@@ -1,22 +1,18 @@
 package eu.darken.capod.monitor.ui
 
-import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ServiceInfo
 import androidx.core.app.NotificationCompat
-import androidx.work.ForegroundInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.pods.core.DualPodDevice
@@ -160,25 +156,9 @@ class MonitorNotifications @Inject constructor(
         }.build()
     }
 
-    suspend fun getForegroundInfo(podDevice: PodDevice?): ForegroundInfo = builderLock.withLock {
-        getBuilder(podDevice).apply {
-            setChannelId(NOTIFICATION_CHANNEL_ID)
-        }.toForegroundInfo()
-    }
-
-    @SuppressLint("InlinedApi")
-    private fun NotificationCompat.Builder.toForegroundInfo(): ForegroundInfo = if (hasApiLevel(29)) {
-        ForegroundInfo(
-            NOTIFICATION_ID,
-            this.build(),
-            ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE
-        )
-    } else {
-        ForegroundInfo(
-            NOTIFICATION_ID,
-            this.build()
-        )
-    }
+    fun getStartupNotification(): Notification = getBuilder(null).apply {
+        setChannelId(NOTIFICATION_CHANNEL_ID)
+    }.build()
 
     companion object {
         val TAG = logTag("Monitor", "Notifications")

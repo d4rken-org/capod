@@ -76,16 +76,6 @@ fun DependencyHandlerScope.addNavigation() {
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
 }
 
-fun DependencyHandlerScope.addBaseWorkManager() {
-    val version = "2.9.0"
-    implementation("androidx.work:work-runtime:$version")
-    testImplementation("androidx.work:work-testing:$version")
-    implementation("androidx.work:work-runtime-ktx:$version")
-
-    implementation("androidx.hilt:hilt-work:1.0.0")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-}
-
 fun DependencyHandlerScope.addBaseAndroid() {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.annotation:annotation:1.7.0")
