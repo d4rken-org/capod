@@ -12,7 +12,13 @@ import eu.darken.capod.R
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.databinding.PopupNotificationDualPodsBinding
 import eu.darken.capod.databinding.PopupNotificationSinglePodsBinding
-import eu.darken.capod.pods.core.*
+import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.formatBatteryPercent
+import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.getSignalQuality
 import javax.inject.Inject
 
 
@@ -33,43 +39,43 @@ class PopUpPodViewFactory @Inject constructor(
 
     private fun createDualPods(parent: ViewGroup, device: DualPodDevice): View =
         PopupNotificationDualPodsBinding.inflate(layoutInflater, parent, false).apply {
-            device.apply {
-                podIcon.setImageResource(iconRes)
-                podLabel.text = getLabel(context)
-                signal.text = getSignalQuality(context)
-                signal.isInvisible = debugSettings.isDebugModeEnabled.value
+            podIcon.setImageResource(device.iconRes)
+            podLabel.text = device.getLabel(context)
+            signal.text = device.getSignalQuality(context)
+            signal.isInvisible = debugSettings.isDebugModeEnabled.value
 
-                // Left
-                podLeftIcon.setImageResource(device.leftPodIcon)
-                podLeftBatteryIcon.setImageResource(getBatteryDrawable(batteryLeftPodPercent))
-                podLeftBatteryLabel.text = getBatteryLevelLeftPod(context)
+            // Left
+            val leftPercent = device.batteryLeftPodPercent
+            podLeftIcon.setImageResource(device.leftPodIcon)
+            podLeftBatteryIcon.setImageResource(getBatteryDrawable(leftPercent))
+            podLeftBatteryLabel.text = formatBatteryPercent(context, leftPercent)
 
-                // Case
-                podCaseContainer.isVisible = device is HasCase
-                (device as? HasCase)?.let { case ->
-                    podCaseIcon.setImageResource(case.caseIcon)
-                    podCaseBatteryIcon.setImageResource(getBatteryDrawable(case.batteryCasePercent))
-                    podCaseBatteryLabel.text = case.getBatteryLevelCase(context)
-                }
-
-                // Right
-                podRightIcon.setImageResource(device.rightPodIcon)
-                podRightBatteryIcon.setImageResource(getBatteryDrawable(batteryRightPodPercent))
-                podRightBatteryLabel.text = getBatteryLevelRightPod(context)
+            // Case
+            podCaseContainer.isVisible = device is HasCase
+            (device as? HasCase)?.let { case ->
+                val casePercent = case.batteryCasePercent
+                podCaseIcon.setImageResource(case.caseIcon)
+                podCaseBatteryIcon.setImageResource(getBatteryDrawable(casePercent))
+                podCaseBatteryLabel.text = formatBatteryPercent(context, casePercent)
             }
+
+            // Right
+            val rightPercent = device.batteryRightPodPercent
+            podRightIcon.setImageResource(device.rightPodIcon)
+            podRightBatteryIcon.setImageResource(getBatteryDrawable(rightPercent))
+            podRightBatteryLabel.text = formatBatteryPercent(context, rightPercent)
         }.root
 
     private fun createSinglePod(parent: ViewGroup, device: SinglePodDevice): View =
         PopupNotificationSinglePodsBinding.inflate(layoutInflater, parent, false).apply {
-            device.apply {
-                headphonesIcon.setImageResource(iconRes)
-                headphonesLabel.text = getLabel(context)
-                signal.text = getSignalQuality(context)
-                signal.isInvisible = debugSettings.isDebugModeEnabled.value
+            headphonesIcon.setImageResource(device.iconRes)
+            headphonesLabel.text = device.getLabel(context)
+            signal.text = device.getSignalQuality(context)
+            signal.isInvisible = debugSettings.isDebugModeEnabled.value
 
-                headphonesBatteryIcon.setImageResource(getBatteryDrawable(batteryHeadsetPercent))
-                headphonesBatteryLabel.text = getBatteryLevelHeadset(context)
-            }
+            val headsetPercent = device.batteryHeadsetPercent
+            headphonesBatteryIcon.setImageResource(getBatteryDrawable(headsetPercent))
+            headphonesBatteryLabel.text = formatBatteryPercent(context, headsetPercent)
         }.root
 
 }

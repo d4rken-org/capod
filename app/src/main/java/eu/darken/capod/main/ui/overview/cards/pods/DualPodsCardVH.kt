@@ -19,9 +19,7 @@ import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
 import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.getBatteryDrawable
-import eu.darken.capod.pods.core.getBatteryLevelCase
-import eu.darken.capod.pods.core.getBatteryLevelLeftPod
-import eu.darken.capod.pods.core.getBatteryLevelRightPod
+import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Duration
 import java.time.Instant
@@ -76,11 +74,13 @@ class DualPodsCardVH(parent: ViewGroup) :
 
         // Pods battery state
         device.apply {
-            podLeftBatteryIcon.setImageResource(getBatteryDrawable(batteryLeftPodPercent))
-            podLeftBatteryLabel.text = getBatteryLevelLeftPod(context)
+            val leftPercent = batteryLeftPodPercent
+            podLeftBatteryIcon.setImageResource(getBatteryDrawable(leftPercent))
+            podLeftBatteryLabel.text = formatBatteryPercent(context, leftPercent)
 
-            podRightBatteryIcon.setImageResource(getBatteryDrawable(batteryRightPodPercent))
-            podRightBatteryLabel.text = getBatteryLevelRightPod(context)
+            val rightPercent = batteryRightPodPercent
+            podRightBatteryIcon.setImageResource(getBatteryDrawable(rightPercent))
+            podRightBatteryLabel.text = formatBatteryPercent(context, rightPercent)
         }
 
         // Pods charging state
@@ -139,8 +139,9 @@ class DualPodsCardVH(parent: ViewGroup) :
             if (this is HasCase) {
                 podCaseIcon.setImageResource(caseIcon)
                 podCaseBatteryIcon.isGone = false
-                podCaseBatteryIcon.setImageResource(getBatteryDrawable(batteryCasePercent))
-                podCaseBatteryLabel.text = getBatteryLevelCase(context)
+                val casePercent = batteryCasePercent
+                podCaseBatteryIcon.setImageResource(getBatteryDrawable(casePercent))
+                podCaseBatteryLabel.text = formatBatteryPercent(context, casePercent)
 
                 podCaseChargingIcon.isInvisible = !isCaseCharging
                 podCaseChargingLabel.isInvisible = !isCaseCharging
