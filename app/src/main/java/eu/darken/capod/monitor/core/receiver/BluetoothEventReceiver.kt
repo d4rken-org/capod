@@ -8,21 +8,17 @@ import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.bluetooth.hasFeature
-import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class BluetoothEventReceiver : BroadcastReceiver() {
 
     @Inject lateinit var monitorControl: MonitorControl
-    @Inject @AppScope lateinit var appScope: CoroutineScope
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context, $intent)" }
@@ -47,12 +43,8 @@ class BluetoothEventReceiver : BroadcastReceiver() {
             log { "Device has the following we features we support $supportedFeatures" }
         }
 
-        val pending = goAsync()
-        appScope.launch {
-            log(TAG) { "Starting monitor" }
-            monitorControl.startMonitor(bluetoothDevice, forceStart = false)
-            pending.finish()
-        }
+        log(TAG) { "Starting monitor" }
+        monitorControl.startMonitor(forceStart = false)
     }
 
     companion object {

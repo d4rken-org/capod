@@ -1,10 +1,7 @@
 package eu.darken.capod
 
 import android.app.Application
-import androidx.hilt.work.HiltWorkerFactory
-import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
-import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.common.debug.logging.LogCatLogger
@@ -23,13 +20,11 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltAndroidApp
-open class App : Application(), Configuration.Provider {
+open class App : Application() {
 
-    @Inject lateinit var workerFactory: HiltWorkerFactory
     @Inject lateinit var autoReporting: AutomaticBugReporter
     @Inject lateinit var monitorControl: MonitorControl
     @Inject lateinit var podMonitor: PodMonitor
@@ -45,9 +40,7 @@ open class App : Application(), Configuration.Provider {
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
 
-        appScope.launch {
-            monitorControl.startMonitor(forceStart = true)
-        }
+        monitorControl.startMonitor(forceStart = true)
 
         podMonitor.devicesWithProfiles()
             .distinctUntilChanged()
@@ -67,21 +60,6 @@ open class App : Application(), Configuration.Provider {
             }
             .launchIn(appScope)
     }
-
-
-    override val workManagerConfiguration: Configuration
-        get() = Configuration.Builder()
-            .setMinimumLoggingLevel(
-                when {
-                    BuildConfigWrap.DEBUG -> android.util.Log.VERBOSE
-                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.DEV -> android.util.Log.DEBUG
-                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.BETA -> android.util.Log.INFO
-                    BuildConfigWrap.BUILD_TYPE == BuildConfigWrap.BuildType.RELEASE -> android.util.Log.WARN
-                    else -> android.util.Log.VERBOSE
-                }
-            )
-            .setWorkerFactory(workerFactory)
-            .build()
 
     companion object {
         internal val TAG = logTag("CAP")
