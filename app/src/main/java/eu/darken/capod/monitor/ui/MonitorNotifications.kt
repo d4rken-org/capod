@@ -25,10 +25,7 @@ import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
-import eu.darken.capod.pods.core.getBatteryLevelCase
-import eu.darken.capod.pods.core.getBatteryLevelHeadset
-import eu.darken.capod.pods.core.getBatteryLevelLeftPod
-import eu.darken.capod.pods.core.getBatteryLevelRightPod
+import eu.darken.capod.pods.core.formatBatteryPercent
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -112,11 +109,11 @@ class MonitorNotifications @Inject constructor(
 
             val batteryText = when (device) {
                 is DualPodDevice -> {
-                    val left = device.getBatteryLevelLeftPod(context)
-                    val right = device.getBatteryLevelRightPod(context)
+                    val left = formatBatteryPercent(context, device.batteryLeftPodPercent)
+                    val right = formatBatteryPercent(context, device.batteryRightPodPercent)
                     when {
                         device is HasCase -> {
-                            val case = device.getBatteryLevelCase(context)
+                            val case = formatBatteryPercent(context, device.batteryCasePercent)
                             "$left $case $right"
                         }
 
@@ -125,10 +122,10 @@ class MonitorNotifications @Inject constructor(
                 }
 
                 is SinglePodDevice -> {
-                    val headset = device.getBatteryLevelHeadset(context)
+                    val headset = formatBatteryPercent(context, device.batteryHeadsetPercent)
                     when {
                         device is HasCase -> {
-                            val case = device.getBatteryLevelCase(context)
+                            val case = formatBatteryPercent(context, device.batteryCasePercent)
                             "$headset $case"
                         }
 

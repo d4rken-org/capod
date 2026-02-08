@@ -30,11 +30,8 @@ import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodFactory
 import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
-import eu.darken.capod.pods.core.getBatteryLevelCase
-import eu.darken.capod.pods.core.getBatteryLevelHeadset
-import eu.darken.capod.pods.core.getBatteryLevelLeftPod
-import eu.darken.capod.pods.core.getBatteryLevelRightPod
 import eu.darken.capod.profiles.core.ProfileId
 import finish2
 import kotlinx.coroutines.CoroutineScope
@@ -246,8 +243,9 @@ class WidgetProvider : AppWidgetProvider() {
         setTextViewText(R.id.headphones_label, podDevice.getLabel(context))
 
         // Left
+        val leftPercent = podDevice.batteryLeftPodPercent
         setImageViewResource(R.id.pod_left_icon, podDevice.leftPodIcon)
-        setTextViewText(R.id.pod_left_label, podDevice.getBatteryLevelLeftPod(context))
+        setTextViewText(R.id.pod_left_label, formatBatteryPercent(context, leftPercent))
         setViewVisibility(
             R.id.pod_left_charging,
             if (podDevice is HasChargeDetectionDual && podDevice.isLeftPodCharging) View.VISIBLE else View.GONE
@@ -259,15 +257,17 @@ class WidgetProvider : AppWidgetProvider() {
 
         // Case
         (podDevice as? HasCase)?.let { setImageViewResource(R.id.pod_case_icon, it.caseIcon) }
-        setTextViewText(R.id.pod_case_label, (podDevice as? HasCase)?.getBatteryLevelCase(context))
+        val casePercent = (podDevice as? HasCase)?.batteryCasePercent
+        setTextViewText(R.id.pod_case_label, formatBatteryPercent(context, casePercent))
         setViewVisibility(
             R.id.pod_case_charging,
             if (podDevice is HasCase && podDevice.isCaseCharging) View.VISIBLE else View.GONE
         )
 
         // Right
+        val rightPercent = podDevice.batteryRightPodPercent
         setImageViewResource(R.id.pod_right_icon, podDevice.rightPodIcon)
-        setTextViewText(R.id.pod_right_label, podDevice.getBatteryLevelRightPod(context))
+        setTextViewText(R.id.pod_right_label, formatBatteryPercent(context, rightPercent))
         setViewVisibility(
             R.id.pod_right_charging,
             if (podDevice is HasChargeDetectionDual && podDevice.isRightPodCharging) View.VISIBLE else View.GONE
@@ -293,10 +293,11 @@ class WidgetProvider : AppWidgetProvider() {
 
         setOnClickPendingIntent(R.id.widget_root, pendingIntent)
 
+        val headsetPercent = podDevice.batteryHeadsetPercent
         setTextViewText(R.id.headphones_label, podDevice.getLabel(context))
         setImageViewResource(R.id.headphones_icon, podDevice.iconRes)
-        setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(podDevice.batteryHeadsetPercent))
-        setTextViewText(R.id.headphones_battery_label, podDevice.getBatteryLevelHeadset(context))
+        setImageViewResource(R.id.headphones_battery_icon, getBatteryDrawable(headsetPercent))
+        setTextViewText(R.id.headphones_battery_label, formatBatteryPercent(context, headsetPercent))
 
         setViewVisibility(
             R.id.headphones_worn,

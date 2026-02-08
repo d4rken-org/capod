@@ -13,7 +13,7 @@ import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.getBatteryDrawable
-import eu.darken.capod.pods.core.getBatteryLevelHeadset
+import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Duration
 import java.time.Instant
@@ -55,8 +55,9 @@ class SinglePodsCardVH(parent: ViewGroup) :
 
         // Battery level
         device.apply {
-            batteryLabel.text = getBatteryLevelHeadset(context)
-            batteryIcon.setImageResource(getBatteryDrawable(batteryHeadsetPercent))
+            val headsetPercent = batteryHeadsetPercent
+            batteryIcon.setImageResource(getBatteryDrawable(headsetPercent))
+            batteryLabel.text = formatBatteryPercent(context, headsetPercent)
         }
 
         // Charge state
