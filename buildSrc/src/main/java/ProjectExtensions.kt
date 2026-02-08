@@ -7,7 +7,6 @@ import org.gradle.api.tasks.testing.TestResult
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import java.io.File
-import java.io.FileInputStream
 import java.util.Properties
 
 val Project.projectConfig: ProjectConfig
@@ -21,23 +20,35 @@ fun SigningConfig.setupCredentials(
 
     if (keyStoreFromEnv?.exists() == true) {
         println("Using signing data from environment variables.")
+
+        val missingVars = listOf("STORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD")
+            .filter { System.getenv(it).isNullOrBlank() }
+        if (missingVars.isNotEmpty()) {
+            println("WARNING: STORE_PATH is set but missing env vars: ${missingVars.joinToString()}")
+        }
+
         storeFile = keyStoreFromEnv
         storePassword = System.getenv("STORE_PASSWORD")
         keyAlias = System.getenv("KEY_ALIAS")
         keyPassword = System.getenv("KEY_PASSWORD")
     } else {
-        println("Using signing data from properties file.")
+        println("Trying signing data from properties file: $signingPropsPath")
         val props = Properties().apply {
-            signingPropsPath?.takeIf { it.canRead() }?.let { load(FileInputStream(it)) }
+            signingPropsPath?.takeIf { it.canRead() }?.let { file ->
+                file.inputStream().use { stream -> load(stream) }
+            }
         }
 
         val keyStorePath = props.getProperty("release.storePath")?.let { File(it) }
 
         if (keyStorePath?.exists() == true) {
+            println("Using signing data from properties file: $signingPropsPath")
             storeFile = keyStorePath
             storePassword = props.getProperty("release.storePassword")
             keyAlias = props.getProperty("release.keyAlias")
             keyPassword = props.getProperty("release.keyPassword")
+        } else {
+            println("WARNING: No valid signing configuration found (no env vars or properties file)")
         }
     }
 }
