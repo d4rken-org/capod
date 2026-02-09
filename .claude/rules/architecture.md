@@ -25,8 +25,8 @@ globs:
 ### PodMonitor System
 
 - `PodMonitor`: Core service that detects and tracks AirPods via Bluetooth LE
-- `MonitorControl`: Manages background monitoring worker lifecycle
-- `MonitorWorker`: Background worker that continuously scans for AirPods
+- `MonitorControl`: Manages MonitorService lifecycle
+- `MonitorService`: Foreground service that continuously scans for AirPods
 - `BluetoothEventReceiver`: Handles system Bluetooth events
 
 ### Reaction System
@@ -57,7 +57,7 @@ globs:
 The app follows a unidirectional data flow:
 
 1. `BluetoothEventReceiver` detects Bluetooth events
-2. `MonitorWorker` scans for AirPods beacon data
+2. `MonitorService` scans for AirPods beacon data
 3. `PodMonitor` processes and stores device information
 4. ViewModels observe monitor data via repositories
 5. UI components react to ViewModel state changes
@@ -65,7 +65,7 @@ The app follows a unidirectional data flow:
 
 ## Bluetooth LE Implementation
 
-The app uses Android's Bluetooth LE APIs to scan for Apple device advertisements. The core scanning logic is in `MonitorWorker` which runs as a long-lived background task.
+The app uses Android's Bluetooth LE APIs to scan for Apple device advertisements. The core scanning logic is in `MonitorService` which runs as a foreground service.
 
 ## Multi-Platform Considerations
 
@@ -80,6 +80,5 @@ Code shared between phone and Wear OS apps is placed in `app-common`. When modif
 
 - **Hilt**: Dependency injection framework
 - **AndroidX Navigation**: Fragment navigation with SafeArgs
-- **WorkManager**: Background task scheduling for monitoring
 - **Moshi**: JSON serialization for configuration and debugging
 - **Material Design**: UI components following Material Design guidelines
