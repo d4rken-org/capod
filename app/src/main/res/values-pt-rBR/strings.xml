@@ -11,6 +11,8 @@
     <string name="general_save_action">Salvar</string>
     <string name="general_guide_action">Guia</string>
     <string name="general_continue_action">Continuar</string>
+    <string name="general_show_action">Exibir</string>
+    <string name="general_hide_action">Ocultar</string>
     <string name="general_example_label">Ex.: %s</string>
     <string name="upgrade_capod_label">Atualizar CAPod</string>
     <string name="upgrade_capod_description">Obtenha recursos adicionais e apoie o desenvolvedor.</string>
@@ -18,6 +20,8 @@
     <string name="settings_monitor_mode_description">Em quais circunstâncias este aplicativo monitora os dados do Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificação extra</string>
     <string name="settings_monitor_connected_notification_description">Mostra uma notificação extra quando um dispositivo está conectado. Isso permite que você oculte a notificação permanente \"Nenhum dispositivo\" desativando o canal \"Status do dispositivo\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">Manter notificação após desconectar</string>
+    <string name="settings_keep_notification_after_disconnect_description">Continuar mostrando os últimos níveis de bateria registrados mesmo após a desconexão do AirPods</string>
     <string name="settings_scanner_mode_label">Modo de scanner</string>
     <string name="settings_scanner_mode_description">O scanner de dados Bluetooth de Baixo Consumo de Energia deve priorizar o desempenho ou economizar energia?</string>
     <string name="settings_autopause_label">Pausa automática</string>
@@ -34,6 +38,8 @@
     <string name="settings_autoconnect_description">Se o Android não se conectar automaticamente, também podemos solicitá-lo. Isso definirá a configuração do modo de monitoramento para \"Sempre\".</string>
     <string name="settings_autoconnect_condition_label">Condição de conexão automática</string>
     <string name="settings_autoconnect_condition_description">Quando devemos tentar nos conectar ao seu dispositivo?</string>
+    <string name="settings_devices_label">Dispositivos</string>
+    <string name="settings_devices_description">Gerenciar seus dispositivos</string>
     <string name="settings_reaction_label">Reações</string>
     <string name="settings_reaction_description">Reaja a eventos e comportamentos.</string>
     <string name="settings_category_yourdevice_label">Seu dispositivo</string>
@@ -68,6 +74,7 @@
     <string name="settings_support_description">Se você precisar de alguma ajuda.</string>
     <string name="issue_tracker_label">Rastreador de problemas</string>
     <string name="issue_tracker_description">Um rastreador de problemas público para relatórios de bugs e solicitações de recursos (somente em inglês).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para conversar e tirar dúvidas.</string>
     <string name="changelog_label">Registro de alterações</string>
     <string name="settings_label">Configurações</string>
@@ -91,9 +98,14 @@
     <string name="translators_thanks_title">Tradutores</string>
     <string name="translators_thanks_description">Igor Silva (ferrare42@gmail.com)</string>
     <string name="widget_description">Um widget que mostra o último status conhecido do dispositivo.</string>
+    <string name="widget_configuration_title">Selecionar Dispositivo</string>
+    <string name="widget_configuration_description">Escolha qual o perfil de dispositivo este widget deve exibir.</string>
+    <string name="common_feature_requires_pro_msg">Este recurso requer CAPod Pro.</string>
+    <string name="widget_no_data_label">Sem Informação</string>
     <string name="settings_compat_indirectcallback_title">Entrega indireta de dados</string>
     <string name="settings_compat_indirectcallback_summary">Use um método alternativo para receber dados BLE do sistema (transmissão em vez de retorno de chamada).</string>
     <string name="troubleshooter_title">Solucionador de problemas</string>
+    <string name="troubleshooter_summary">Diagnostique e corrija problemas de conectividade Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Transmissões Bluetooth de baixa energia</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (e fones de ouvido semelhantes) transmitem informações de status usando uma tecnologia BLE chamada \"anúncios\". Alguns telefones não implementam essa tecnologia corretamente. O CAPod pode tentar corrigir isso tentando diferentes opções de compatibilidade até que os dados sejam recebidos. Inicie a reprodução de música em seus fones de ouvido e coloque-os perto do telefone e inicie o processo.</string>
     <string name="troubleshooter_ble_intro_start_action">Iniciar solução de problemas</string>
@@ -112,6 +124,22 @@
     <string name="onboarding_body3">O CAPod não possui anúncios e não coleta seus dados.</string>
     <string name="onboarding_body4">Você pode atualizar para o CAPod Pro para obter recursos extras e apoiar o desenvolvimento.</string>
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Erro</string>
+    <string name="general_grant_permission_action">Conceder permissão</string>
+    <string name="general_manage_devices_action">Gerenciar dispositivos</string>
+    <string name="overview_nomaindevice_label">Sem dispositivos configurados</string>
+    <string name="overview_nomaindevice_description">Configure o seu dispositivo para começar a monitorar os níveis de bateria e habilitar recursos adicionais.</string>
+    <string name="settings_scanner_mode_lowpower_label">Baixa potência</string>
+    <string name="settings_scanner_mode_balanced_label">Balanceado</string>
+    <string name="settings_scanner_mode_lowlatency_label">Baixa latência</string>
+    <string name="settings_monitor_mode_manual_label">Quando o aplicativo está aberto</string>
+    <string name="settings_monitor_mode_automatic_label">Quando o dispositivo está conectado</string>
+    <string name="settings_monitor_mode_always_label">Sempre</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">Quando visto</string>
     <!-- Device profiles -->
     <!-- Unsaved changes dialog -->
 </resources>

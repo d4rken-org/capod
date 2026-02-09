@@ -212,5 +212,22 @@
     <string name="profiles_delete_message">¿Estás seguro de que quieres eliminar este perfil? Esto no se puede deshacer.</string>
     <string name="profiles_delete_action">Borrar</string>
     <string name="profiles_basic_info_title">Información del dispositivo</string>
+    <string name="profiles_basic_info_description">Configure el nombre de su dispositivo, modelo y sincronización opcional con Bluetooth.</string>
+    <string name="profiles_signal_quality_title">Calidad mínima de la señal</string>
+    <string name="profiles_signal_quality_description">Solo detecta dispositivos con una intensidad de señal superior a este umbral. Valores más bajos aumentan el rango de detección pero pueden causar falsos positivos. No lo configures demasiado alto; la recepción de Bluetooth es generalmente mala y varía con la distancia y los obstáculos.</string>
+    <string name="profiles_identitykey_label">Clave de Identidad</string>
+    <string name="profilessettings_maindevice_identitykey_description">La Clave de Resolución de Identidad (IRK) de su dispositivo, que ayuda a CAPod a identificarlo entre los dispositivos cercanos.</string>
+    <string name="profiles_maindevice_identitykey_explanation">Los AirPods cambian con frecuencia su dirección Bluetooth por motivos de privacidad. El IRK ayuda a CAPod a reconocer tu dispositivo. Necesitas acceso único a un MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Clave de cifrado</string>
+    <string name="profiles_maindevice_encryptionkey_description">La clave de cifrado de tu dispositivo, que permite a CAPod recuperar información detallada sobre el estado.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">Los AirPods envían un mensaje de estado, parte del cual está cifrado. La clave de cifrado permite a CAPod descifrar el mensaje completo. Se necesita acceso único a un MacBook.</string>
+    <string name="profiles_key_invalid_format">El formato de la clave no es correcta</string>
+    <string name="profiles_key_expected_format">Formato esperado: %1$s</string>
+    <string name="profiles_priority_hint">El orden de los perfiles determina la prioridad. Arrastra los perfiles para reordenarlos: los perfiles que aparecen más arriba en la lista tienen prioridad cuando coinciden varios dispositivos.</string>
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Cambios sin guardar</string>
+    <string name="general_unsaved_changes_message">Tienes cambios sin guardar. ¿Qué quieres hacer?</string>
+    <string name="general_save_and_exit_action">Guardar y salir</string>
+    <string name="general_discard_action">Descartar</string>
+    <string name="general_keep_editing_action">Seguir editando</string>
 </resources>
