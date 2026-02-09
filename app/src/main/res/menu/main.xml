@@ -5,14 +5,14 @@
     <item
         android:id="@+id/menu_item_donate"
         android:icon="@drawable/ic_baseline_heart_24"
-        android:title="@string/settings_general_label"
+        android:title="@string/general_donate_action"
         android:visible="false"
         tool:visible="true"
         app:showAsAction="always" />
     <item
         android:id="@+id/menu_item_upgrade"
         android:icon="@drawable/ic_baseline_stars_24"
-        android:title="@string/settings_general_label"
+        android:title="@string/general_upgrade_action"
         android:visible="false"
         tool:visible="true"
         app:showAsAction="always" />
