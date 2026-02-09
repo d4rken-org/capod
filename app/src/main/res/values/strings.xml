@@ -5,6 +5,7 @@
     <string name="general_copy_action">Copy</string>
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_upgrade_action">Upgrade</string>
+    <string name="general_donate_action">Donate</string>
     <string name="general_check_action">Check</string>
     <string name="general_close_action">Close</string>
     <string name="general_save_action">Save</string>
