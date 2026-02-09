@@ -212,6 +212,7 @@ class BluetoothManager2 @Inject constructor(
                 context.registerReceiver(receiver, filter, null, handler)
             } catch (e: Exception) {
                 log(TAG, ERROR) { "monitorProfile(): Failed to register receiver: $e" }
+                handlerThread.quitSafely()
                 close(e)
                 return@callbackFlow
             }

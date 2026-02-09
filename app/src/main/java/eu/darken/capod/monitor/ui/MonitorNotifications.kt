@@ -105,11 +105,14 @@ class MonitorNotifications @Inject constructor(
 
             val batteryText = when (device) {
                 is DualPodDevice -> {
-                    val left = formatBatteryPercent(context, device.batteryLeftPodPercent)
-                    val right = formatBatteryPercent(context, device.batteryRightPodPercent)
+                    val leftPercent = device.batteryLeftPodPercent
+                    val rightPercent = device.batteryRightPodPercent
+                    val left = formatBatteryPercent(context, leftPercent)
+                    val right = formatBatteryPercent(context, rightPercent)
                     when {
                         device is HasCase -> {
-                            val case = formatBatteryPercent(context, device.batteryCasePercent)
+                            val casePercent = device.batteryCasePercent
+                            val case = formatBatteryPercent(context, casePercent)
                             "$left $case $right"
                         }
 
@@ -118,10 +121,12 @@ class MonitorNotifications @Inject constructor(
                 }
 
                 is SinglePodDevice -> {
-                    val headset = formatBatteryPercent(context, device.batteryHeadsetPercent)
+                    val headsetPercent = device.batteryHeadsetPercent
+                    val headset = formatBatteryPercent(context, headsetPercent)
                     when {
                         device is HasCase -> {
-                            val case = formatBatteryPercent(context, device.batteryCasePercent)
+                            val casePercent = device.batteryCasePercent
+                            val case = formatBatteryPercent(context, casePercent)
                             "$headset $case"
                         }
 
