@@ -86,7 +86,6 @@ fun DependencyHandlerScope.addBaseAndroid() {
 fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
-    implementation("androidx.fragment:fragment-ktx:1.4.1")
 
     implementation("androidx.activity:activity-ktx:1.8.0")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
@@ -94,7 +93,6 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("com.google.android.material:material:1.12.0")
 
     val lifecycleVers = "2.6.2"
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVers")
@@ -123,5 +121,5 @@ fun DependencyHandlerScope.addTesting() {
     androidTestImplementation("io.kotest:kotest-assertions-core-jvm:4.6.4")
     androidTestImplementation("io.kotest:kotest-property-jvm:4.6.4")
 
-    debugImplementation("androidx.fragment:fragment-testing:1.4.1")
+    debugImplementation("androidx.fragment:fragment-testing:1.6.1")
 }
