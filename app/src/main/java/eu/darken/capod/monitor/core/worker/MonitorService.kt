@@ -73,9 +73,26 @@ class MonitorService : Service() {
 
     @SuppressLint("InlinedApi")
     override fun onCreate() {
+        // Promote to foreground BEFORE Hilt DI (triggered by super.onCreate()) to avoid
+        // ForegroundServiceDidNotStartInTimeException when DI is slow on backgrounded cold starts.
+        MonitorNotifications.ensureChannel(this)
+        val earlyNotification = MonitorNotifications.createEarlyNotification(this)
+        if (hasApiLevel(29)) {
+            startForeground(
+                MonitorNotifications.NOTIFICATION_ID,
+                earlyNotification,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE,
+            )
+        } else {
+            startForeground(MonitorNotifications.NOTIFICATION_ID, earlyNotification)
+        }
+
         super.onCreate()
         log(TAG, VERBOSE) { "onCreate()" }
 
+        // Replace early notification with the full one from injected MonitorNotifications.
+        // Second startForeground() with the same ID updates the notification in place and is
+        // preferred over notify() for robust foreground state on OEM variants.
         val notification = notifications.getStartupNotification()
         if (hasApiLevel(29)) {
             startForeground(
