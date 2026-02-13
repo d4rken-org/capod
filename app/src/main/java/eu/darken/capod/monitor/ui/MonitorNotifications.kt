@@ -37,11 +37,7 @@ class MonitorNotifications @Inject constructor(
     private val builder: NotificationCompat.Builder
 
     init {
-        NotificationChannel(
-            NOTIFICATION_CHANNEL_ID,
-            context.getString(R.string.notification_channel_device_status_label),
-            NotificationManager.IMPORTANCE_LOW
-        ).run { notificationManager.createNotificationChannel(this) }
+        ensureChannel(context)
         NotificationChannel(
             NOTIFICATION_CHANNEL_ID_CONNECTED,
             context.getString(R.string.notification_channel_device_status_connected_label),
@@ -51,7 +47,7 @@ class MonitorNotifications @Inject constructor(
         val openIntent = Intent(context, MainActivity::class.java)
         val openPi = PendingIntent.getActivity(
             context,
-            0,
+            PENDING_INTENT_REQUEST_CODE,
             openIntent,
             PendingIntentCompat.FLAG_IMMUTABLE
         )
@@ -164,10 +160,37 @@ class MonitorNotifications @Inject constructor(
 
     companion object {
         val TAG = logTag("Monitor", "Notifications")
-        private val NOTIFICATION_CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.device.status"
+        internal val NOTIFICATION_CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.device.status"
         private val NOTIFICATION_CHANNEL_ID_CONNECTED =
             "${BuildConfigWrap.APPLICATION_ID}.notification.channel.device.status.connected"
         internal const val NOTIFICATION_ID = 1
         internal const val NOTIFICATION_ID_CONNECTED = 2
+        private const val PENDING_INTENT_REQUEST_CODE = 0
+
+        fun ensureChannel(context: Context) {
+            val nm = context.getSystemService(NotificationManager::class.java)
+            nm.createNotificationChannel(
+                NotificationChannel(
+                    NOTIFICATION_CHANNEL_ID,
+                    context.getString(R.string.notification_channel_device_status_label),
+                    NotificationManager.IMPORTANCE_LOW,
+                )
+            )
+        }
+
+        fun createEarlyNotification(context: Context): Notification {
+            val openPi = PendingIntent.getActivity(
+                context, PENDING_INTENT_REQUEST_CODE,
+                Intent(context, MainActivity::class.java),
+                PendingIntentCompat.FLAG_IMMUTABLE,
+            )
+            return NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+                .setContentIntent(openPi)
+                .setSmallIcon(R.drawable.devic_earbuds_generic_both)
+                .setContentTitle(context.getString(R.string.app_name))
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setOngoing(true)
+                .build()
+        }
     }
 }
