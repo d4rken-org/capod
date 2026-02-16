@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Услугите на Google Play не се достапни.</string>
     <string name="upgrades_no_purchases_found_check_account">Не се пронајдени купувања. Дали ја користите вистинската сметка?</string>
+    <string name="upgrades_gplay_billing_error_label">Грешка во Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Настана грешка во Google Play. Обидете се повторно подоцна или рестартирајте го телефонот.\n\nГрешка: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Грешка при наплата на Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Настана грешка при барање на деталите за вашата купувања од Google Play. Исчистете го кешот на Google Play и рестартирајте го телефонот.\n\nГрешка %s</string>
 </resources>

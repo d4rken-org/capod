@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play کی سروسز دستیاب نہیں ہیں۔</string>
     <string name="upgrades_no_purchases_found_check_account">کوئی خریداری نہیں ملی۔ کیا آپ درست اکاؤنٹ استعمال کر رہے ہیں؟</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play خرابی</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play میں ایک خرابی پیش آئی۔ براہ کرم بعد میں دوبارہ کوشش کریں یا اپنا فون ری بوٹ کریں۔\n\nخرابی: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play بلنگ خرابی</string>
+    <string name="upgrades_gplay_billing_result_error_description">آپ کی خریداری کی تفصیلات کے لیے Google Play سے پوچھتے وقت ایک خرابی پیش آئی۔ Google Play کیش صاف کریں اور اپنا فون ری بوٹ کریں۔\n\nخرابی %s</string>
 </resources>

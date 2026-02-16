@@ -6,6 +6,7 @@
     <string name="general_copy_action">Копировать</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_upgrade_action">Улучшить</string>
+    <string name="general_donate_action">Пожертвовать</string>
     <string name="general_check_action">Проверить</string>
     <string name="general_close_action">Закрыть</string>
     <string name="general_save_action">Сохранить</string>
@@ -104,6 +105,7 @@ AL_Cool_T</string>
     <string name="widget_configuration_title">Выберите устройство</string>
     <string name="widget_configuration_description">Выберите, какой профиль устройства должен отображать виджет.</string>
     <string name="common_feature_requires_pro_msg">Эта функция требует CAPod Pro.</string>
+    <string name="widget_no_data_label">Нет данных</string>
     <string name="settings_compat_indirectcallback_title">Косвенная доставка данных</string>
     <string name="settings_compat_indirectcallback_summary">Использовать альтернативный метод для получения данных BLE системы (широковещательная рассылка вместо обратного вызова).</string>
     <string name="troubleshooter_title">Помощник</string>
@@ -140,6 +142,12 @@ AL_Cool_T</string>
     <string name="overview_monitoring_active_label">Мониторинг устройств</string>
     <string name="overview_monitoring_active_description">Убедитесь, что Ваше устройство находится поблизости и активно.</string>
     <string name="overview_unmatched_devices_label">Несопряжённые устройства</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d устройство без соответствующего профиля</item>
+        <item quantity="few">%d устройства без соответствующего профиля</item>
+        <item quantity="many">%d устройств без соответствующего профиля</item>
+        <item quantity="other">%d устройств без соответствующего профиля</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Подключение по Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Этому приложению требуется разрешение \"Подключение по Bluetooth\" для взаимодействия с сопряженными устройствами и инициирования соединений.</string>
     <string name="permission_bluetooth_scan_label">Сканирование Bluetooth</string>

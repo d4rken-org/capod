@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play hizmetleri kullanılamıyor.</string>
     <string name="upgrades_no_purchases_found_check_account">Satın alma bulunamadı. Doğru hesabı mı kullanıyorsunuz?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play Hatası</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play üzerinde bir hata oluştu. Lütfen daha sonra tekrar deneyin veya telefonunuzu yeniden başlatın.\n\nHata: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play Faturalandırma Hatası</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play üzerinden satın alma ayrıntılarınız istenirken bir hata oluştu. Google Play önbelleğini temizleyin ve telefonunuzu yeniden başlatın.\n\nHata %s</string>
 </resources>

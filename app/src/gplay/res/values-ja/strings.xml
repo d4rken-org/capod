@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Playサービスが利用できません。</string>
     <string name="upgrades_no_purchases_found_check_account">購入履歴がありません。正しいアカウントを使用していますか？</string>
+    <string name="upgrades_gplay_billing_error_label">Google Playエラー</string>
+    <string name="upgrades_gplay_billing_error_description">Google Playでエラーが発生しました。後でもう一度お試しいただくか、スマートフォンを再起動してください。\n\nエラー: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play請求エラー</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Playに購入情報を問い合わせる際にエラーが発生しました。Google Playのキャッシュをクリアし、スマートフォンを再起動してください。\n\nエラー %s</string>
 </resources>

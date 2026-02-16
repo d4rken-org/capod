@@ -6,24 +6,34 @@
     <string name="general_copy_action">העתק</string>
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_upgrade_action">שידרוג</string>
+    <string name="general_donate_action">תרומה</string>
     <string name="general_check_action">בדיקה</string>
     <string name="general_close_action">סגור</string>
     <string name="general_save_action">שמור</string>
     <string name="general_guide_action">מדריך</string>
     <string name="general_continue_action">המשך</string>
+    <string name="general_show_action">הצג</string>
+    <string name="general_hide_action">הסתר</string>
+
     <string name="general_example_label">דוגמא: %s</string>
+
     <string name="upgrade_capod_label">שדרוג CAPod</string>
     <string name="upgrade_capod_description">קבל תכונות נוספות ותמיכה במפתח.</string>
+
     <string name="settings_monitor_mode_label">מצב מוניטור</string>
     <string name="settings_monitor_mode_description">באילו נסיבות אפליקציה זו עוקבת אחר נתוני Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">התראה נוספת</string>
     <string name="settings_monitor_connected_notification_description">מציג התראה נוספת כאשר מכשיר מחובר. זה מאפשר לך להסתיר את ההתראה הקבועה \"אין מכשירים\" על ידי השבתת הערוץ \"סטטוס מכשיר\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">שמור התראה לאחר ניתוק</string>
+    <string name="settings_keep_notification_after_disconnect_description">המשך להציג את רמות הסוללה האחרונות הידועות גם לאחר ניתוק ה-AirPods</string>
     <string name="settings_scanner_mode_label">מצב סורק</string>
     <string name="settings_scanner_mode_description">האם סורק ה-Bluetooth Low Energy צריך לתת עדיפות לביצועים או לחסוך באנרגיה?</string>
     <string name="settings_autopause_label">השהייה אוטומטית</string>
     <string name="settings_autopause_description">עצירת אודיו בהסרת המכשיר מהאוזן.</string>
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
     <string name="settings_autoplay_description">התחלת ניגון אודיו בלבישת המכשיר.</string>
+    <string name="settings_eardetection_info_label">הערה לגבי זיהוי אוזן</string>
+    <string name="settings_eardetection_info_description">אם זיהוי אוזן עובד רק עבור אוזניה אחת, זוהי מגבלה של Apple. רק \"האוזניה הראשית\" (המשמשת למיקרופון) מזוהה. הגדר במכשירי Apple: הגדרות → Bluetooth → AirPods → מיקרופון.</string>
     <string name="settings_fake_data_label">נתונים מזויפים</string>
     <string name="settings_fake_data_description">הצגת נתונים מזויפים, לרבות, הדמיית מכשירים שאינם קיימים.</string>
     <string name="settings_debug_label">הגדרות ניפוי באגים</string>
@@ -34,23 +44,29 @@
     <string name="settings_autoconnect_description">אם אנדרואיד לא מתחבר אוטומטית, אנחנו גם יכולים לבקש זאת. פעולה זו תגדיר את הגדרת מצב ניתור ל\'תמיד\'.</string>
     <string name="settings_autoconnect_condition_label">מצב חיבור אוטומטי</string>
     <string name="settings_autoconnect_condition_description">מתי עלינו לנסות להתחבר למכשיר שלך?</string>
+    <string name="settings_devices_label">מכשירים</string>
+    <string name="settings_devices_description">ניהול המכשירים שלך.</string>
     <string name="settings_reaction_label">תגובות</string>
     <string name="settings_reaction_description">להגיב לאירועים והתנהגויות.</string>
     <string name="settings_category_yourdevice_label">המכשיר שלך</string>
+
     <string name="settings_category_compatibility_options_title">מצב תאימות</string>
     <string name="settings_category_compatibility_options_description">אל תיגע אם הכל עובד ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ביטול סינון בחומרה</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">אל תאציל סינון נתונים למערכת, במקום זאת קבל את כל הנתונים וסנן בתוך האפליקציה.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ביטול אצוות חומרה</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">אל תאפשר לקבוצת המערכת אסיפת נתוני BLE לפני שתעביר אותם אלינו.</string>
+
     <string name="settings_onepod_mode_label">מצב אוזניה בודדת</string>
     <string name="settings_onepod_mode_description">אין צורך לענוד את שני האוזניות, לבישת אוזניה בודדת מספיקה כדי לעורר תגובות.</string>
     <string name="settings_popup_caseopen_label">הצג חלון קופץ</string>
     <string name="settings_popup_caseopen_description">הצג חלון הודעה כאשר מארז המכשיר נפתח (ניסיוני).</string>
     <string name="settings_popup_connected_label">הצג חלון קופץ של חיבור</string>
     <string name="settings_popup_connected_description">הצג חלון קופץ כאשר המכשיר מתחבר בפעם הראשונה.</string>
+
     <string name="notification_channel_device_status_label">מצב המכשיר</string>
     <string name="notification_channel_device_status_connected_label">מכשיר מחובר</string>
+
     <string name="support_debuglog_label">יומן ניפוי באגים</string>
     <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה בקובץ טקסט שתוכל לשתף.</string>
     <string name="debug_debuglog_size_label">מידה</string>
@@ -62,14 +78,18 @@
     <string name="debug_debuglog_stop_action">עצור הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים.</string>
     <string name="settings_debuglog_explanation">תכונה זו מתעדת את כל מה שהאפליקציה עושה לקובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל פרטי מכשיר Bluetooth). שתף אותו רק עם גורמים מהימנים (למשל מפתח שפותר בעיות).</string>
+
     <string name="settings_support_installid_label">מזהה התקנה</string>
     <string name="settings_support_installid_desc">דוחות שגיאה אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאות שלך.</string>
     <string name="settings_support_label">תמיכה</string>
     <string name="settings_support_description">אם אתה צריך קצת עזרה.</string>
+
     <string name="issue_tracker_label">מאתר בעיות</string>
     <string name="issue_tracker_description">מעקב אחר בעיות ציבוריות לדיווחי באגים ובקשות לתכונות (באנגלית בלבד).</string>
+
     <string name="discord_label">דיסקורד</string>
     <string name="discord_description">מקום לבלות בו ולשאול שאלות.</string>
+
     <string name="changelog_label">יומן שינויים</string>
     <string name="settings_label">הגדרות</string>
     <string name="settings_privacy_policy_label">מדיניות הפרטיות</string>
@@ -79,22 +99,35 @@
     <string name="settings_general_label">הגדרות</string>
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
     <string name="settings_acknowledgements_label">תודות</string>
+
     <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
     <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
     <string name="settings_debug_mode_label">מצב ניפוי באגים</string>
     <string name="settings_debug_mode_description">הצג מידע נוסף לפתרון בעיות.</string>
+
     <string name="settings_blescanner_unfiltered_label">נתוני BLE לא מפולטרים</string>
     <string name="settings_blescanner_unfiltered_description">הסר מסננים מסורק BLE כדי להציג את כל נתוני BLE ששודרו. שימושי להוספת תמיכה בסוגי אוזניות חדשים.</string>
+
     <string name="settings_compatibility_mode_label">מצב תאימות</string>
     <string name="settings_compatibility_mode_description">נטרול אופטימיזציה לשיפור התאימות. נסו את זה אם לא מוצגים נתונים כלל.</string>
+
     <string name="help_translate_label">תרגום</string>
     <string name="help_translate_description">עזרו בתרגום אפליקציה זו לשפה המועדפת עליכם.</string>
+
     <string name="translators_thanks_title">מתרגמים</string>
     <string name="translators_thanks_description">AL_Cool_T</string>
+
     <string name="widget_description">ווידג\'ט המציג את מצב האחרון הידוע של המכשיר.</string>
+    <string name="widget_configuration_title">בחירת מכשיר</string>
+    <string name="widget_configuration_description">בחר איזה פרופיל מכשיר הווידג\'ט צריך להציג.</string>
+    <string name="common_feature_requires_pro_msg">תכונה זו דורשת CAPod Pro.</string>
+
+    <string name="widget_no_data_label">אין נתונים</string>
     <string name="settings_compat_indirectcallback_title">העברה עקיפה של הנתונים</string>
     <string name="settings_compat_indirectcallback_summary">השתמש בשיטה חלופית כדי לקבל נתוני BLE מהמערכת (שידור במקום התקשרות חוזרת).</string>
+
     <string name="troubleshooter_title">פותר בעיות</string>
+    <string name="troubleshooter_summary">אבחון ותיקון בעיות קישוריות Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">שידורי Bluetooth באנרגיה נמוכה</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (ואוזניות דומות) משדרות מידע באמצעות טכנולוגיית BLE הנקראת \"פרסומות\". טלפונים מסוימים אינם מיישמים את הטכנולוגיה הזו כהלכה. CAPod יכול לנסות לתקן זאת על ידי אפשרויות תאימות שונות עד לקבלת נתונים. התחל את השמעת מוזיקה באוזניות שלך והנח אותן קרוב לטלפון שלך, ולאחר מכן התחל את התהליך.</string>
     <string name="troubleshooter_ble_intro_start_action">התחל בפתרון בעיות</string>
@@ -108,11 +141,128 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">טלפון שלך קיבל נתוני BLE, אך הנתונים אינם מגיעים ממכשיר אשר נתמך. האם האוזניות שלך מופעלות? האם CAPod תומך באוזניות שלך?</string>
     <string name="troubleshooter_ble_result_failure_action">נסה שנית</string>
     <string name="troubleshoot_action">פתרון בעיות</string>
+
     <string name="onboarding_body1">אפליקציה זו מוסיפה תמיכה בתכונות ספציפיות של AirPod לאנדרואיד.</string>
     <string name="onboarding_body2">לא כל מכשירי האנדרואיד תומכים באופן מלא בתכונות הנוספות של AirPod. מערכת ההפעלה שלך דורשת יישום תקין של Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">ב-CAPod אין מודעות ואיננו אוספים נתונים שלך.</string>
     <string name="onboarding_body4">אתה יכול לשדרג ל-CAPod Pro כדי לקבל תכונות נוספות ותמיכה בפיתוח.</string>
+
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">לא זמין</string>
+    <string name="general_error_label">שגיאה</string>
+    <string name="general_grant_permission_action">הענק הרשאה</string>
+    <string name="general_manage_devices_action">ניהול מכשירים</string>
+
+    <string name="overview_nomaindevice_label">לא הוגדר מכשיר</string>
+    <string name="overview_nomaindevice_description">הגדר את המכשיר שלך כדי להתחיל לעקוב אחר רמות הסוללה ולהפעיל תכונות נוספות.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth מושבת</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth מושבת, הפעל אותו ;)</string>
+    <string name="overview_monitoring_active_label">מחפש מכשירים</string>
+    <string name="overview_monitoring_active_description">ודא שהמכשיר שלך בקרבת מקום ופעיל.</string>
+    <string name="overview_unmatched_devices_label">מכשירים ללא התאמה</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">מכשיר %d ללא פרופיל תואם</item>
+        <item quantity="two">%d מכשירים ללא פרופיל תואם</item>
+        <item quantity="many">%d מכשירים ללא פרופיל תואם</item>
+        <item quantity="other">%d מכשירים ללא פרופיל תואם</item>
+    </plurals>
+
+    <string name="permission_bluetooth_connect_label">חיבור Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">אפליקציה זו דורשת הרשאת \"חיבור Bluetooth\" כדי לתקשר עם מכשירים מותאמים וליזום חיבורים.</string>
+    <string name="permission_bluetooth_scan_label">סריקת Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">הרשאת \"סריקת Bluetooth\" מאפשרת לאפליקציה זו לגלות ולקבל נתוני Bluetooth ממכשירים קרובים כגון ה-AirPods שלך.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">אפליקציה זו דורשת הרשאת \"Bluetooth\" כדי להתחבר למכשירי Bluetooth מותאמים.</string>
+    <string name="permission_access_fine_location_label">גישה למיקום מדויק</string>
+    <string name="permission_access_fine_location_description">CAPod משתמש בהרשאת \"מיקום מדויק\" כדי לקבל נתוני Bluetooth Low Energy. האוזניות שלך משתמשות בטכנולוגיית Bluetooth Low Energy כדי לשדר את מצבן. אפליקציה זו לא תשתמש בנתוני Bluetooth כדי לקבוע את מיקומך.</string>
+    <string name="permission_background_location_label">גישה למיקום ברקע</string>
+    <string name="permission_background_location_description">CAPod משתמש ב\"גישה למיקום ברקע\" כדי לאפשר תכונות כמו \"הצג חלון קופץ\" ו\"חיבור אוטומטי\" כאשר האפליקציה סגורה. גישה למיקום ברקע מאפשרת לאפליקציה לקבל נתוני Bluetooth Low Energy כשהיא ברקע. אפליקציה זו לא תשתמש בנתוני Bluetooth כדי לקבוע את מיקומך.</string>
+    <string name="permission_ignore_battery_optimizations_label">השבתת אופטימיזציית סוללה</string>
+    <string name="permission_ignore_battery_optimizations_description">אופטימיזציית סוללה מונעת מאפליקציה זו לקבל נתוני Bluetooth באופן אמין כשהיא ברקע.</string>
+    <string name="permission_required_title">ההרשאה הבאה נדרשת:</string>
+    <string name="permission_system_alert_window_label">חלון התראת מערכת</string>
+    <string name="permission_system_alert_window_description">אפשר ל-CAPod לצייר מעל אפליקציות אחרות כדי לאפשר את תכונת \"הצג חלון קופץ\".</string>
+
+    <string name="settings_scanner_mode_lowpower_label">חיסכון באנרגיה</string>
+    <string name="settings_scanner_mode_balanced_label">מאוזן</string>
+    <string name="settings_scanner_mode_lowlatency_label">השהייה נמוכה</string>
+
+    <string name="settings_monitor_mode_manual_label">כשהאפליקציה פתוחה</string>
+    <string name="settings_monitor_mode_automatic_label">כשמכשיר מחובר</string>
+    <string name="settings_monitor_mode_always_label">תמיד</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">כשנראה</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">מארז פתוח</string>
+    <string name="settings_reaction_autoconnect_inear_label">באוזן</string>
+
+    <string name="pods_dual_left_label">אוזניה שמאלית</string>
+    <string name="pods_dual_right_label">אוזניה ימנית</string>
+    <string name="pods_case_label">מארז</string>
+    <string name="pods_case_status_open_label">פתוח</string>
+    <string name="pods_case_status_closed_label">סגור</string>
+    <string name="pods_connection_state_disconnected_label">לא מחובר למכשיר</string>
+    <string name="pods_connection_state_idle_label">מחובר למכשיר, אבל לא פעיל</string>
+    <string name="pods_connection_state_music_label">במצב מוזיקה</string>
+    <string name="pods_connection_state_call_label">במצב שיחה</string>
+    <string name="pods_connection_state_ringing_label">מצלצל</string>
+    <string name="pods_connection_state_hanging_up_label">מנתק שיחה</string>
+    <string name="pods_connection_state_unknown_label">מצב חיבור לא ידוע</string>
+    <string name="pods_unknown_raw_data_label">נתונים גולמיים</string>
+    <string name="pods_unknown_label">מכשיר לא ידוע</string>
+    <string name="pods_unknown_contact_dev">זהו מכשיר לא ידוע, אך הוא משתמש בפורמט הודעות דומה. בואו נוסיף תמיכה בו, צרו איתי קשר :)</string>
+    <string name="pods_none_label_short">אין מכשיר</string>
+    <string name="pods_charging_label">טעינה</string>
+    <string name="pods_inear_label">באוזן</string>
+    <string name="pods_microphone_label">מיקרופון</string>
+    <string name="pods_yours">שלך</string>
+    <string name="headset_being_worn_label">מורכב</string>
+    <string name="headset_not_being_worn_label">לא מורכב</string>
+    <string name="pods_case_unknown_state">מצב לא ידוע</string>
+
+    <string name="last_seen_x">נראה לאחרונה: %s</string>
+    <string name="first_seen_x">נראה לראשונה: %s</string>
+    <string name="permission_post_notifications_label">הצגת התראות</string>
+    <string name="permission_post_notifications_description">"אפשר ל-CAPod להציג התראות על ה-AirPods שלך, למשל המצב הנוכחי שלהם בזמן חיבור."</string>
+
     <!-- Device profiles -->
+    <string name="profiles_empty_title">לא הוגדרו פרופילי מכשיר</string>
+    <string name="profiles_empty_description">צור פרופילי מכשיר כדי לנהל מכשירים מרובים עם הגדרות ועדיפויות מותאמות אישית.</string>
+    <string name="profiles_add_action">הוסף פרופיל</string>
+    <string name="profiles_create_title">יצירת פרופיל</string>
+    <string name="profiles_name_label">שם פרופיל</string>
+    <string name="profiles_name_default">האוזניות שלי</string>
+    <string name="profiles_model_label">דגם מכשיר</string>
+    <string name="profiles_paired_device_label">מכשיר מותאם</string>
+    <string name="profiles_paired_device_none">ללא</string>
+    <string name="profiles_paired_device_none_description">לא נבחר מכשיר</string>
+    <string name="profiles_save_action">שמור פרופיל</string>
+    <string name="profiles_drag_handle_description">גרור כדי לסדר מחדש</string>
+    <string name="profiles_delete_title">מחיקת פרופיל</string>
+    <string name="profiles_delete_message">האם אתה בטוח שברצונך למחוק פרופיל זה? פעולה זו אינה ניתנת לביטול.</string>
+    <string name="profiles_delete_action">מחק</string>
+    <string name="profiles_basic_info_title">פרטי מכשיר</string>
+    <string name="profiles_basic_info_description">הגדר את שם המכשיר, הדגם והתאמת Bluetooth אופציונלית.</string>
+    <string name="profiles_signal_quality_title">איכות אות מינימלית</string>
+    <string name="profiles_signal_quality_description">זהה רק מכשירים עם עוצמת אות מעל סף זה. ערכים נמוכים יותר מגדילים את טווח הזיהוי אך עלולים לגרום לזיהויים שגויים. אל תגדיר ערך גבוה מדי - קליטת Bluetooth בדרך כלל חלשה ומשתנה עם המרחק והמכשולים.</string>
+    <string name="profiles_identitykey_label">מפתח זיהוי</string>
+    <string name="profilessettings_maindevice_identitykey_description">מפתח פענוח הזהות (IRK) של המכשיר שלך, שעוזר ל-CAPod לזהות אותו בין מכשירים קרובים.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods משנים לעיתים קרובות את כתובת ה-Bluetooth שלהם לצורכי פרטיות. ה-IRK עוזר ל-CAPod לזהות את המכשיר שלך. נדרשת גישה חד-פעמית ל-MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">מפתח הצפנה</string>
+    <string name="profiles_maindevice_encryptionkey_description">מפתח ההצפנה של המכשיר שלך, המאפשר ל-CAPod לאחזר מידע מפורט על המצב.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods שולחים הודעת מצב, שחלקה מוצפן. מפתח ההצפנה מאפשר ל-CAPod לפענח את ההודעה המלאה. נדרשת גישה חד-פעמית ל-MacBook.</string>
+    <string name="profiles_key_invalid_format">פורמט מפתח לא חוקי</string>
+    <string name="profiles_key_expected_format">פורמט צפוי: %1$s</string>
+    <string name="profiles_priority_hint">סדר הפרופילים קובע את העדיפות. גרור פרופילים כדי לסדר אותם מחדש - פרופילים גבוהים יותר ברשימה מקבלים עדיפות כאשר מספר מכשירים תואמים.</string>
+
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">שינויים שלא נשמרו</string>
+    <string name="general_unsaved_changes_message">יש לך שינויים שלא נשמרו. מה תרצה לעשות?</string>
+    <string name="general_save_and_exit_action">שמור וצא</string>
+    <string name="general_discard_action">בטל</string>
+    <string name="general_keep_editing_action">המשך לערוך</string>
+
 </resources>

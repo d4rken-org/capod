@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play సేవలు అందుబాటులో లేవు.</string>
     <string name="upgrades_no_purchases_found_check_account">కొనుగోళ్లు ఏవీ కనుగొనబడలేదు. మీరు సరైన ఖాతాను ఉపయోగిస్తున్నారా?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play లోపం</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play లో ఒక లోపం జరిగింది. దయచేసి తర్వాత మళ్లీ ప్రయత్నించండి లేదా మీ ఫోన్‌ను రీబూట్ చేయండి.\n\nలోపం: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play Billing లోపం</string>
+    <string name="upgrades_gplay_billing_result_error_description">మీ కొనుగోలు వివరాల కోసం Google Play ను అడిగేటప్పుడు ఒక లోపం జరిగింది. Google Play క్యాష్‌ను క్లియర్ చేసి మీ ఫోన్‌ను రీబూట్ చేయండి.\n\nలోపం %s</string>
 </resources>

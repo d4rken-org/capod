@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopiëren</string>
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_upgrade_action">Upgraden</string>
+    <string name="general_donate_action">Doneren</string>
     <string name="general_check_action">Controleren</string>
     <string name="general_close_action">Sluiten</string>
     <string name="general_save_action">Opslaan</string>
@@ -180,6 +181,7 @@
     <string name="pods_connection_state_ringing_label">Rinkelen</string>
     <string name="pods_connection_state_hanging_up_label">Ophangen</string>
     <string name="pods_connection_state_unknown_label">Onbekende verbindingsstatus</string>
+    <string name="pods_unknown_raw_data_label">Onbewerkte gegevens</string>
     <string name="pods_unknown_label">Onbekend apparaat</string>
     <string name="pods_unknown_contact_dev">Dit is een onbekend apparaat, maar het gebruikt hetzelfde berichtformaat</string>
     <string name="pods_none_label_short">Geen apparaat</string>
@@ -218,6 +220,7 @@
     <string name="profilessettings_maindevice_identitykey_description">De Identity Resolving Key (IRK) van uw apparaat, waarmee CAPod uw apparaat kan identificeren tussen apparaten in de buurt.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods veranderen regelmatig hun Bluetooth-adres om privacyredenen. De IRK helpt CAPod uw apparaat te herkennen. U hebt eenmalig toegang tot een MacBook nodig.</string>
     <string name="profiles_maindevice_encryptionkey_label">Encryptiesleutel</string>
+    <string name="profiles_maindevice_encryptionkey_description">De encryptiesleutel van uw apparaat, waarmee CAPod gedetailleerde statusinformatie kan ophalen.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods sturen een statusbericht, waarvan een deel versleuteld is. De encryptiesleutel stelt CAPod in staat het volledige bericht te ontsleutelen. Je hebt hiervoor eenmalige toegang tot een MacBook nodig.</string>
     <string name="profiles_key_invalid_format">Ongeldige sleutelindeling</string>
     <string name="profiles_key_expected_format">Verwachte indeling: %1$s</string>

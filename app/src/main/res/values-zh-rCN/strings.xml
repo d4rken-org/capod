@@ -6,6 +6,7 @@
     <string name="general_copy_action">复制</string>
     <string name="general_thank_you_label">谢谢你</string>
     <string name="general_upgrade_action">升级</string>
+    <string name="general_donate_action">捐赠</string>
     <string name="general_check_action">检查</string>
     <string name="general_close_action">关闭</string>
     <string name="general_save_action">保存</string>

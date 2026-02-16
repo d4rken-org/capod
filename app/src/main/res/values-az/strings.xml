@@ -6,24 +6,34 @@
     <string name="general_copy_action">Kopyala</string>
     <string name="general_thank_you_label">Təşəkkür edirik</string>
     <string name="general_upgrade_action">Yenilə</string>
+    <string name="general_donate_action">İanə et</string>
     <string name="general_check_action">Yoxla</string>
     <string name="general_close_action">Bağla</string>
     <string name="general_save_action">Saxla</string>
     <string name="general_guide_action">Bələdçi</string>
     <string name="general_continue_action">Davam et</string>
+    <string name="general_show_action">Göstər</string>
+    <string name="general_hide_action">Gizlə</string>
+
     <string name="general_example_label">Nümunə: %s</string>
+
     <string name="upgrade_capod_label">CAPod-u yenilə</string>
     <string name="upgrade_capod_description">Əlavə funksiyalar əldə edin və tərtibatçını dəstəkləyin.</string>
+
     <string name="settings_monitor_mode_label">İzləmə rejimi</string>
     <string name="settings_monitor_mode_description">Bu tətbiqin Bluetooth məlumatlarını hansı şəraitdə izlədiyi.</string>
     <string name="settings_monitor_connected_notification_label">Əlavə bildiriş</string>
     <string name="settings_monitor_connected_notification_description">Cihaz qoşulduqda əlavə bildiriş göstərir. Bu, \"Cihaz statusu\" kanalını deaktiv etməklə daimi \"Cihaz yoxdur\" bildirişini gizlətməyə imkan verir.</string>
+    <string name="settings_keep_notification_after_disconnect_label">Ayrıldıqdan sonra bildirişi saxla</string>
+    <string name="settings_keep_notification_after_disconnect_description">AirPods ayrıldıqdan sonra belə sonuncu bilinən batareya səviyyələrini göstərməyə davam et</string>
     <string name="settings_scanner_mode_label">Skaner rejimi</string>
     <string name="settings_scanner_mode_description">Bluetooth Aşağı Enerji məlumat skaneri performansa üstünlük verməli, yoxsa enerjiyə qənaət etməlidir?</string>
     <string name="settings_autopause_label">Avtomatik fasilə</string>
     <string name="settings_autopause_description">Cihazı qulağınızdan çıxardıqda səsi dayandırın.</string>
     <string name="settings_autopplay_label">Avtomatik oxutma</string>
     <string name="settings_autoplay_description">Cihaz taxıldıqda səs oxutmasını başladın.</string>
+    <string name="settings_eardetection_info_label">Qulaq aşkarlama qeydi</string>
+    <string name="settings_eardetection_info_description">Qulaq aşkarlama yalnız bir qulaqlıq üçün işləyirsə, bu Apple məhdudiyyətidir. Yalnız \"əsas qulaqlıq\" (mikrofon üçün istifadə olunan) aşkarlanır. Apple cihazlarında tənzimləyin: Parametrlər → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_fake_data_label">Saxta məlumat</string>
     <string name="settings_fake_data_description">Saxta məlumat göstər, yəni mövcud olmayan cihazları simulyasiya et.</string>
     <string name="settings_debug_label">Sazlama parametrləri</string>
@@ -34,23 +44,29 @@
     <string name="settings_autoconnect_description">Əgər Android avtomatik qoşulmursa, biz də ondan xahiş edə bilərik. Bu, izləmə rejimi parametrini \"Həmişə\" olaraq təyin edəcək.</string>
     <string name="settings_autoconnect_condition_label">Avtomatik qoşulma şərti</string>
     <string name="settings_autoconnect_condition_description">Cihazınıza nə vaxt qoşulmağa cəhd etməliyik?</string>
+    <string name="settings_devices_label">Cihazlar</string>
+    <string name="settings_devices_description">Cihazlarınızı idarə edin.</string>
     <string name="settings_reaction_label">Reaksiyalar</string>
     <string name="settings_reaction_description">Hadisələrə və davranışlara reaksiya verin.</string>
     <string name="settings_category_yourdevice_label">Sizin cihazınız</string>
+
     <string name="settings_category_compatibility_options_title">Uyğunluq seçimləri</string>
     <string name="settings_category_compatibility_options_description">Hər şey işləyirsə toxunmayın ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Aparat filtrasiyasını deaktiv edin</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Məlumat filtrasiyasını sistemə həvalə etməyin, bunun əvəzinə bütün məlumatları əldə edin və tətbiq daxilində filtr edin.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Aparat qruplaşdırmasını deaktiv edin</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Sistemin toplanmış BLE məlumatlarını bizə ötürməzdən əvvəl qruplaşdırmasına icazə verməyin.</string>
+
     <string name="settings_onepod_mode_label">Tək qulaqlıq rejimi</string>
     <string name="settings_onepod_mode_description">Hər iki qulaqlığı taxmaq tələb olunmur, reaksiyaları tətikləmək üçün tək bir qulaqlığı taxmaq kifayətdir.</string>
     <string name="settings_popup_caseopen_label">Qutu pop-up-ını göstər</string>
     <string name="settings_popup_caseopen_description">Cihaz qutusu açıldıqda pop-up göstər (eksperimental).</string>
     <string name="settings_popup_connected_label">Qoşulma pop-up-ını göstər</string>
     <string name="settings_popup_connected_description">Cihaz ilk dəfə qoşulduqda pop-up göstər.</string>
+
     <string name="notification_channel_device_status_label">Cihaz statusu</string>
     <string name="notification_channel_device_status_connected_label">Qoşulmuş cihaz</string>
+
     <string name="support_debuglog_label">Sazlama jurnalı</string>
     <string name="support_debuglog_desc">Tətbiqin etdiyi hər şeyi paylaşa biləcəyiniz bir mətn faylına yazın.</string>
     <string name="debug_debuglog_size_label">Ölçü</string>
@@ -62,13 +78,18 @@
     <string name="debug_debuglog_stop_action">Qeydiyyatı dayandır</string>
     <string name="debug_debuglog_sensitive_information_message">Yaradılmış faylda həssas məlumatlar (məsələn, Bluetooth cihazı təfərrüatları) var. Yalnız etibarlı tərəflərlə paylaşın.</string>
     <string name="settings_debuglog_explanation">Bu xüsusiyyət tətbiqin etdiyi hər şeyi paylaşa biləcəyiniz bir fayla yazır. Yaradılmış faylda həssas məlumatlar (məsələn, Bluetooth cihazı təfərrüatları) var. Yalnız etibarlı tərəflərlə paylaşın (məsələn, bir problemi aradan qaldıran bir tərtibatçı).</string>
+
     <string name="settings_support_installid_label">Quraşdırma ID-si</string>
     <string name="settings_support_installid_desc">Avtomatik səhv hesabatları anonimdir. Tərtibatçının səhv hesabatlarınızı tapması lazımdırsa, quraşdırma ID-nizi paylaşın.</string>
     <string name="settings_support_label">Dəstək</string>
     <string name="settings_support_description">Əgər bir az köməyə ehtiyacınız varsa.</string>
+
     <string name="issue_tracker_label">Problem izləyicisi</string>
     <string name="issue_tracker_description">Səhv hesabatları və funksiya tələbləri üçün ictimai problem izləyicisi (yalnız ingilis dilində).</string>
+
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Vaxt keçirmək və sual vermək üçün bir yer.</string>
+
     <string name="changelog_label">Dəyişiklik jurnalı</string>
     <string name="settings_label">Parametrlər</string>
     <string name="settings_privacy_policy_label">Məxfilik siyasəti</string>
@@ -78,21 +99,35 @@
     <string name="settings_general_label">Parametrlər</string>
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
+
     <string name="settings_debug_autoreports_label">Avtomatik səhv hesabatları</string>
     <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string>
     <string name="settings_debug_mode_label">Sazlama rejimi</string>
     <string name="settings_debug_mode_description">Problemlərin aradan qaldırılması üçün əlavə məlumat göstərin.</string>
+
     <string name="settings_blescanner_unfiltered_label">Filtrlənməmiş BLE məlumatları</string>
     <string name="settings_blescanner_unfiltered_description">Bütün yayımlanan BLE məlumatlarını göstərmək üçün BLE skanerindən hər hansı bir filtri çıxarın. Yeni qulaqlıq növləri üçün dəstək əlavə etmək üçün faydalıdır.</string>
+
     <string name="settings_compatibility_mode_label">Uyğunluq rejimi</string>
     <string name="settings_compatibility_mode_description">Uyğunluğu yaxşılaşdırmaq üçün optimallaşdırmaları deaktiv edin. Heç bir məlumat görmürsünüzsə, bunu sınayın.</string>
+
     <string name="help_translate_label">Tərcümə</string>
     <string name="help_translate_description">Bu tətbiqi sevdiyiniz dilə tərcümə etməyə kömək edin.</string>
+
     <string name="translators_thanks_title">Tərcüməçilər</string>
+    <string name="translators_thanks_description">darken</string>
+
     <string name="widget_description">Ən son məlum cihaz statusunu göstərən bir vidcet.</string>
+    <string name="widget_configuration_title">Cihaz seçin</string>
+    <string name="widget_configuration_description">Bu vidcetin hansı cihaz profilini göstərəcəyini seçin.</string>
+    <string name="common_feature_requires_pro_msg">Bu funksiya CAPod Pro tələb edir.</string>
+
+    <string name="widget_no_data_label">Məlumat yoxdur</string>
     <string name="settings_compat_indirectcallback_title">Dolayı məlumat çatdırılması</string>
     <string name="settings_compat_indirectcallback_summary">Sistemdən BLE məlumatlarını almaq üçün alternativ bir üsuldan istifadə edin (geri zəng əvəzinə yayım).</string>
+
     <string name="troubleshooter_title">Problem Aradan Qaldırıcı</string>
+    <string name="troubleshooter_summary">Bluetooth bağlantı problemlərini diaqnoz edin və həll edin.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Aşağı Enerji Yayımları</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (və oxşar qulaqlıqlar) \"reklamlar\" adlanan BLE texnologiyasından istifadə edərək status məlumatlarını yayımlayır. Bəzi telefonlar bu texnologiyanı düzgün tətbiq etmir. CAPod, məlumat alınana qədər fərqli uyğunluq seçimlərini sınayaraq bunu düzəltməyə cəhd edə bilər. Qulaqlıqlarınızda musiqi oxutmasını başladın və onları telefonunuza yaxın yerləşdirin, sonra prosesi başladın.</string>
     <string name="troubleshooter_ble_intro_start_action">Problem aradan qaldırmağa başla</string>
@@ -106,11 +141,127 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefonunuz BLE məlumatı aldı, ancaq məlumat hər hansı dəstəklənən cihazdan gəlmir. Qulaqlıqlarınız açıqdırmı? CAPod qulaqlığınızı dəstəkləyirmi?</string>
     <string name="troubleshooter_ble_result_failure_action">Yenidən cəhd edin</string>
     <string name="troubleshoot_action">Problem Aradan Qaldır</string>
+
+
     <string name="onboarding_body1">Bu tətbiq Android üçün AirPod-a məxsus xüsusiyyətlərə dəstək əlavə edir.</string>
     <string name="onboarding_body2">Bütün Android cihazları əlavə AirPod xüsusiyyətlərini tam dəstəkləmir. Əməliyyat sisteminiz düzgün işləyən Bluetooth-Aşağı-Enerji tətbiqini tələb edir.</string>
     <string name="onboarding_body3">CAPod-da reklam yoxdur və məlumatlarınızı toplamır.</string>
     <string name="onboarding_body4">Əlavə xüsusiyyətlər əldə etmək və inkişafı dəstəkləmək üçün CAPod Pro-ya yüksəldə bilərsiniz.</string>
+
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Mövcud deyil</string>
+    <string name="general_error_label">Xəta</string>
+    <string name="general_grant_permission_action">İcazə ver</string>
+    <string name="general_manage_devices_action">Cihazları idarə et</string>
+
+    <string name="overview_nomaindevice_label">Heç bir cihaz konfiqurasiya edilməyib</string>
+    <string name="overview_nomaindevice_description">Batareya səviyyəsini izləməyə başlamaq və əlavə xüsusiyyətləri aktivləşdirmək üçün cihazınızı konfiqurasiya edin.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth deaktivdir</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth deaktivdir, onu aktivləşdirin ;)</string>
+    <string name="overview_monitoring_active_label">Cihazlar axtarılır</string>
+    <string name="overview_monitoring_active_description">Cihazınızın yaxında və aktiv olduğundan əmin olun.</string>
+    <string name="overview_unmatched_devices_label">Uyğunlaşdırılmamış cihazlar</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">Uyğun profili olmayan %d cihaz</item>
+        <item quantity="other">Uyğun profili olmayan %d cihaz</item>
+    </plurals>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth qoşulma</string>
+    <string name="permission_bluetooth_connect_description">Bu tətbiq cütləşdirilmiş cihazlarla qarşılıqlı əlaqə qurmaq və əlaqə başlatmaq üçün \"Bluetooth qoşulma\" icazəsini tələb edir.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth skaneri</string>
+    <string name="permission_bluetooth_scan_description">\"Bluetooth skaneri\" icazəsi bu tətbiqə AirPods kimi yaxınlıqdakı cihazlardan Bluetooth məlumatlarını kəşf etməyə və almağa imkan verir.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Bu tətbiq cütləşdirilmiş Bluetooth cihazlarına qoşulmaq üçün \"Bluetooth\" icazəsini tələb edir.</string>
+    <string name="permission_access_fine_location_label">Dəqiq məkan</string>
+    <string name="permission_access_fine_location_description">CAPod Bluetooth Low Energy məlumatlarını almaq üçün \"dəqiq məkan\" icazəsindən istifadə edir. Qulaqlıqlarınız statuslarını yayımlamaq üçün Bluetooth Low Energy texnologiyasından istifadə edir. Bu tətbiq məkanınızı müəyyən etmək üçün Bluetooth məlumatlarından İSTİFADƏ ETMƏYƏCƏK.</string>
+    <string name="permission_background_location_label">Arxa plan məkan girişi</string>
+    <string name="permission_background_location_description">CAPod tətbiq bağlı olarkən \"Pop-up göstər\" və \"Avtomatik qoşulma\" kimi xüsusiyyətləri aktivləşdirmək üçün \"arxa plan məkan girişi\"ndən istifadə edir. Arxa plan məkan girişi tətbiqin arxa planda Bluetooth Low Energy məlumatlarını almasına imkan verir. Bu tətbiq məkanınızı müəyyən etmək üçün Bluetooth məlumatlarından İSTİFADƏ ETMƏYƏCƏK.</string>
+    <string name="permission_ignore_battery_optimizations_label">Batareya optimallaşdırmasını deaktiv edin</string>
+    <string name="permission_ignore_battery_optimizations_description">Batareya optimallaşdırmaları bu tətbiqin arxa planda Bluetooth məlumatlarını etibarlı şəkildə almasının qarşısını alır.</string>
+    <string name="permission_required_title">Aşağıdakı icazə tələb olunur:</string>
+    <string name="permission_system_alert_window_label">Sistem xəbərdarlıq pəncərəsi</string>
+    <string name="permission_system_alert_window_description">\"Pop-up göstər\" xüsusiyyətini mümkün etmək üçün CAPod-a digər tətbiqlərin üzərində çəkməyə icazə verin.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Aşağı güc</string>
+    <string name="settings_scanner_mode_balanced_label">Balanslaşdırılmış</string>
+    <string name="settings_scanner_mode_lowlatency_label">Aşağı gecikmə</string>
+
+    <string name="settings_monitor_mode_manual_label">Tətbiq açıq olduqda</string>
+    <string name="settings_monitor_mode_automatic_label">Cihaz qoşulduqda</string>
+    <string name="settings_monitor_mode_always_label">Həmişə</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Görüldüyündə</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Qutu açıqdır</string>
+    <string name="settings_reaction_autoconnect_inear_label">Qulaqda</string>
+
+    <string name="pods_dual_left_label">Sol qulaqlıq</string>
+    <string name="pods_dual_right_label">Sağ qulaqlıq</string>
+    <string name="pods_case_label">Qutu</string>
+    <string name="pods_case_status_open_label">Açıq</string>
+    <string name="pods_case_status_closed_label">Bağlı</string>
+    <string name="pods_connection_state_disconnected_label">Cihaza qoşulmayıb</string>
+    <string name="pods_connection_state_idle_label">Cihaza qoşulub, lakin boş</string>
+    <string name="pods_connection_state_music_label">Musiqi rejimində</string>
+    <string name="pods_connection_state_call_label">Zəng rejimində</string>
+    <string name="pods_connection_state_ringing_label">Zəng gəlir</string>
+    <string name="pods_connection_state_hanging_up_label">Zəngi bitirir</string>
+    <string name="pods_connection_state_unknown_label">Naməlum bağlantı vəziyyəti</string>
+    <string name="pods_unknown_raw_data_label">Xam məlumat</string>
+    <string name="pods_unknown_label">Naməlum cihaz</string>
+    <string name="pods_unknown_contact_dev">Bu naməlum bir cihazdır, lakin oxşar mesaj formatından istifadə edir. Onun üçün dəstək əlavə edək, mənimlə əlaqə saxlayın :)</string>
+    <string name="pods_none_label_short">Cihaz yoxdur</string>
+    <string name="pods_charging_label">Şarj olunur</string>
+    <string name="pods_inear_label">Qulaqda</string>
+    <string name="pods_microphone_label">Mikrofon</string>
+    <string name="pods_yours">Sizinki</string>
+    <string name="headset_being_worn_label">Taxılıb</string>
+    <string name="headset_not_being_worn_label">Taxılmayıb</string>
+    <string name="pods_case_unknown_state">Naməlum vəziyyət</string>
+
+    <string name="last_seen_x">Son görülmə: %s</string>
+    <string name="first_seen_x">İlk görülmə: %s</string>
+    <string name="permission_post_notifications_label">Bildirişlər göstər</string>
+    <string name="permission_post_notifications_description">"CAPod-a AirPods haqqında bildirişlər göstərməyə icazə verin, məsələn, qoşulduqda onların cari statusu."</string>
+
     <!-- Device profiles -->
+    <string name="profiles_empty_title">Heç bir cihaz profili konfiqurasiya edilməyib</string>
+    <string name="profiles_empty_description">Xüsusi parametrlər və prioritetlərlə birdən çox cihazı idarə etmək üçün cihaz profilləri yaradın.</string>
+    <string name="profiles_add_action">Profil əlavə et</string>
+    <string name="profiles_create_title">Profil yarat</string>
+    <string name="profiles_name_label">Profil adı</string>
+    <string name="profiles_name_default">Qulaqlıqlarım</string>
+    <string name="profiles_model_label">Cihaz modeli</string>
+    <string name="profiles_paired_device_label">Cütləşdirilmiş cihaz</string>
+    <string name="profiles_paired_device_none">Yoxdur</string>
+    <string name="profiles_paired_device_none_description">Cihaz seçilməyib</string>
+    <string name="profiles_save_action">Profili saxla</string>
+    <string name="profiles_drag_handle_description">Yenidən sıralamaq üçün sürüşdürün</string>
+    <string name="profiles_delete_title">Profili sil</string>
+    <string name="profiles_delete_message">Bu profili silmək istədiyinizə əminsiniz? Bu əməliyyat geri alına bilməz.</string>
+    <string name="profiles_delete_action">Sil</string>
+    <string name="profiles_basic_info_title">Cihaz məlumatı</string>
+    <string name="profiles_basic_info_description">Cihazınızın adını, modelini və isteğe bağlı Bluetooth cütləşdirməsini konfiqurasiya edin.</string>
+    <string name="profiles_signal_quality_title">Minimum siqnal keyfiyyəti</string>
+    <string name="profiles_signal_quality_description">Yalnız bu həddən yuxarı siqnal gücünə malik cihazları aşkarlayın. Aşağı dəyərlər aşkarlama məsafəsini artırır, lakin yanlış müsbət nəticələrə səbəb ola bilər. Bunu çox yüksək təyin etməyin — Bluetooth qəbulu ümumiyyətlə zəifdir və məsafə və maneələrə görə dəyişir.</string>
+    <string name="profiles_identitykey_label">Kimlik açarı</string>
+    <string name="profilessettings_maindevice_identitykey_description">Cihazınızın Identity Resolving Key (IRK), CAPod-a yaxınlıqdakı cihazlar arasında onu tanımağa kömək edir.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods məxfilik üçün Bluetooth ünvanını tez-tez dəyişdirir. IRK CAPod-a cihazınızı tanımağa kömək edir. Bir dəfə MacBook-a girişiniz olmalıdır.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Şifrələmə açarı</string>
+    <string name="profiles_maindevice_encryptionkey_description">Cihazınızın şifrələmə açarı, CAPod-a ətraflı status məlumatlarını əldə etməyə imkan verir.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods status mesajı göndərir, bunun bir hissəsi şifrələnmişdir. Şifrələmə açarı CAPod-a tam mesajı deşifrə etməyə imkan verir. Bir dəfə MacBook-a girişiniz olmalıdır.</string>
+    <string name="profiles_key_invalid_format">Yanlış açar formatı</string>
+    <string name="profiles_key_expected_format">Gözlənilən format: %1$s</string>
+    <string name="profiles_priority_hint">Profil sırası prioriteti müəyyən edir. Profilləri yenidən sıralamaq üçün sürüşdürün — siyahıda daha yuxarıda olan profillər bir neçə cihaz uyğun gəldikdə üstünlük təşkil edir.</string>
+
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Saxlanmamış dəyişikliklər</string>
+    <string name="general_unsaved_changes_message">Saxlanmamış dəyişiklikləriniz var. Nə etmək istərdiniz?</string>
+    <string name="general_save_and_exit_action">Saxla &amp; Çıx</string>
+    <string name="general_discard_action">İmtina et</string>
+    <string name="general_keep_editing_action">Redaktəyə davam et</string>
+
 </resources>

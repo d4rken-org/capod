@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">„Google Play“ paslaugos nepasiekiamos.</string>
     <string name="upgrades_no_purchases_found_check_account">Nerasta jokių pirkinių. Ar naudojate tinkamą paskyrą?</string>
+    <string name="upgrades_gplay_billing_error_label">„Google Play" klaida</string>
+    <string name="upgrades_gplay_billing_error_description">„Google Play" įvyko klaida. Bandykite dar kartą vėliau arba paleiskite telefoną iš naujo.\n\nKlaida: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">„Google Play" atsiskaitymo klaida</string>
+    <string name="upgrades_gplay_billing_result_error_description">Įvyko klaida gaunant pirkinių informaciją iš „Google Play". Išvalykite „Google Play" talpyklą ir paleiskite telefoną iš naujo.\n\nKlaida %s</string>
 </resources>

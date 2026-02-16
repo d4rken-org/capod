@@ -6,24 +6,34 @@
     <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Naik taraf</string>
+    <string name="general_donate_action">Derma</string>
     <string name="general_check_action">Semak</string>
     <string name="general_close_action">Tutup</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_guide_action">Panduan</string>
     <string name="general_continue_action">Teruskan</string>
+    <string name="general_show_action">Tunjuk</string>
+    <string name="general_hide_action">Sembunyikan</string>
+
     <string name="general_example_label">Cth.: %s</string>
+
     <string name="upgrade_capod_label">Naik taraf CAPod</string>
     <string name="upgrade_capod_description">Dapatkan ciri tambahan dan sokong pembangun.</string>
+
     <string name="settings_monitor_mode_label">Mod monitor</string>
     <string name="settings_monitor_mode_description">Dalam keadaan apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Pemberitahuan tambahan</string>
     <string name="settings_monitor_connected_notification_description">Memaparkan pemberitahuan tambahan apabila peranti disambungkan. Ini membolehkan anda menyembunyikan pemberitahuan kekal \"Tiada peranti\" dengan melumpuhkan saluran \"Status peranti\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">Kekalkan pemberitahuan selepas nyahsambung</string>
+    <string name="settings_keep_notification_after_disconnect_description">Terus menunjukkan tahap bateri terakhir yang diketahui walaupun selepas AirPods anda nyahsambung</string>
     <string name="settings_scanner_mode_label">Mod pengimbas</string>
     <string name="settings_scanner_mode_description">Patutkah pengimbas data Bluetooth Tenaga Rendah mengutamakan prestasi atau menjimatkan tenaga?</string>
     <string name="settings_autopause_label">Jeda automatik</string>
     <string name="settings_autopause_description">Jeda audio apabila peranti dikeluarkan dari telinga anda.</string>
     <string name="settings_autopplay_label">Main automatik</string>
     <string name="settings_autoplay_description">Mulakan main balik audio apabila peranti dipakai.</string>
+    <string name="settings_eardetection_info_label">Nota pengesanan telinga</string>
+    <string name="settings_eardetection_info_description">Jika pengesanan telinga hanya berfungsi untuk satu pod, ini adalah had Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang dikesan. Konfigurasikan pada peranti Apple: Tetapan → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_fake_data_label">Data palsu</string>
     <string name="settings_fake_data_description">Tunjukkan data palsu, iaitu, simulasi peranti yang tidak wujud.</string>
     <string name="settings_debug_label">Tetapan nyahpepijat</string>
@@ -34,23 +44,29 @@
     <string name="settings_autoconnect_description">Jika Android tidak bersambung secara automatik, kami juga boleh memintanya. Ini akan menetapkan tetapan mod monitor kepada \"Sentiasa\".</string>
     <string name="settings_autoconnect_condition_label">Syarat sambungan automatik</string>
     <string name="settings_autoconnect_condition_description">Bilakah kami patut cuba menyambung ke peranti anda?</string>
+    <string name="settings_devices_label">Peranti</string>
+    <string name="settings_devices_description">Urus peranti anda.</string>
     <string name="settings_reaction_label">Reaksi</string>
     <string name="settings_reaction_description">Bertindak balas terhadap peristiwa dan tingkah laku.</string>
     <string name="settings_category_yourdevice_label">Peranti anda</string>
+
     <string name="settings_category_compatibility_options_title">Pilihan keserasian</string>
     <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Nyahdayakan penapisan perkakasan</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Jangan wakilkan penapisan data kepada sistem, sebaliknya dapatkan semua data dan tapis dalam apl.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Nyahdayakan pengumpulan perkakasan</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Jangan biarkan sistem mengumpulkan data BLE yang dikumpul sebelum memajukannya kepada kami.</string>
+
     <string name="settings_onepod_mode_label">Mod satu pod</string>
     <string name="settings_onepod_mode_description">Memakai kedua-dua pod tidak diperlukan, memakai satu pod sudah memadai untuk mencetuskan tindak balas.</string>
     <string name="settings_popup_caseopen_label">Tunjukkan pop timbul bekas</string>
     <string name="settings_popup_caseopen_description">Tunjukkan pop timbul apabila bekas peranti dibuka (percubaan).</string>
     <string name="settings_popup_connected_label">Tunjukkan pop timbul sambungan</string>
     <string name="settings_popup_connected_description">Tunjukkan pop timbul apabila peranti disambungkan buat kali pertama.</string>
+
     <string name="notification_channel_device_status_label">Status peranti</string>
     <string name="notification_channel_device_status_connected_label">Peranti disambungkan</string>
+
     <string name="support_debuglog_label">Log nyahpepijat</string>
     <string name="support_debuglog_desc">Rekod semua yang dilakukan oleh apl dalam fail teks yang boleh anda kongsi.</string>
     <string name="debug_debuglog_size_label">Saiz</string>
@@ -62,14 +78,18 @@
     <string name="debug_debuglog_stop_action">Hentikan rakaman</string>
     <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (cth. butiran peranti Bluetooth). Kongsi hanya dengan pihak yang dipercayai.</string>
     <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan oleh apl ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (cth. butiran peranti Bluetooth). Kongsi hanya dengan pihak yang dipercayai (cth. pembangun yang sedang menyelesaikan masalah).</string>
+
     <string name="settings_support_installid_label">ID Pemasangan</string>
     <string name="settings_support_installid_desc">Laporan ralat automatik adalah tanpa nama. Kongsi ID pemasangan anda jika pembangun perlu mencari laporan ralat anda.</string>
     <string name="settings_support_label">Sokongan</string>
     <string name="settings_support_description">Jika anda perlukan bantuan.</string>
+
     <string name="issue_tracker_label">Penjejak isu</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri (bahasa Inggeris sahaja).</string>
-    <string name="discord_label">Perselisihan</string>
+
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat untuk melepak dan bertanya soalan.</string>
+
     <string name="changelog_label">Log perubahan</string>
     <string name="settings_label">Tetapan</string>
     <string name="settings_privacy_policy_label">Dasar privasi</string>
@@ -79,22 +99,35 @@
     <string name="settings_general_label">Tetapan</string>
     <string name="settings_general_description">Penyesuaian umum yang mempengaruhi keseluruhan apl.</string>
     <string name="settings_acknowledgements_label">Penghargaan</string>
+
     <string name="settings_debug_autoreports_label">Laporan pepijat automatik</string>
     <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string>
     <string name="settings_debug_mode_label">Mod nyahpepijat</string>
     <string name="settings_debug_mode_description">Tunjukkan maklumat tambahan untuk menyelesaikan masalah.</string>
+
     <string name="settings_blescanner_unfiltered_label">Data BLE tidak ditapis</string>
     <string name="settings_blescanner_unfiltered_description">Alih keluar sebarang penapis daripada pengimbas BLE untuk menunjukkan semua data BLE yang disiarkan. Berguna untuk menambah sokongan bagi jenis fon kepala baharu.</string>
+
     <string name="settings_compatibility_mode_label">Mod keserasian</string>
     <string name="settings_compatibility_mode_description">Nyahdayakan pengoptimuman untuk meningkatkan keserasian. Cuba ini jika anda tidak melihat sebarang data.</string>
+
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan apl ini ke dalam bahasa kegemaran anda.</string>
+
     <string name="translators_thanks_title">Penterjemah</string>
     <string name="translators_thanks_description">bob hasnul(bobhasnul@gmail. com)</string>
+
     <string name="widget_description">Widget yang menunjukkan status peranti terakhir yang diketahui.</string>
+    <string name="widget_configuration_title">Pilih Peranti</string>
+    <string name="widget_configuration_description">Pilih profil peranti yang perlu dipaparkan oleh widget ini.</string>
+    <string name="common_feature_requires_pro_msg">Ciri ini memerlukan CAPod Pro.</string>
+
+    <string name="widget_no_data_label">Tiada data</string>
     <string name="settings_compat_indirectcallback_title">Penghantaran data tidak langsung</string>
     <string name="settings_compat_indirectcallback_summary">Gunakan kaedah alternatif untuk menerima data BLE daripada sistem (siaran dan bukannya panggilan balik).</string>
+
     <string name="troubleshooter_title">Penyelesai masalah</string>
+    <string name="troubleshooter_summary">Diagnosis dan selesaikan masalah sambungan Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Siaran Bluetooth Tenaga Rendah</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (dan fon kepala yang serupa) menyiarkan maklumat status menggunakan teknologi BLE yang dipanggil \"iklan\". Sesetengah telefon tidak melaksanakan teknologi ini dengan betul. CAPod boleh cuba membetulkannya dengan mencuba pilihan keserasian yang berbeza sehingga data diterima. Mulakan main balik muzik pada fon kepala anda dan letakkannya berdekatan dengan telefon anda, kemudian mulakan proses.</string>
     <string name="troubleshooter_ble_intro_start_action">Mulakan penyelesaian masalah</string>
@@ -108,11 +141,126 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Telefon anda menerima data BLE, tetapi data itu tidak datang daripada mana-mana peranti yang disokong. Adakah fon kepala anda dihidupkan? Adakah CAPod menyokong fon kepala anda?</string>
     <string name="troubleshooter_ble_result_failure_action">Cuba semula</string>
     <string name="troubleshoot_action">Selesaikan masalah</string>
+
+
     <string name="onboarding_body1">Aplikasi ini menambah sokongan untuk ciri khusus AirPod pada Android.</string>
     <string name="onboarding_body2">Tidak semua peranti Android menyokong sepenuhnya ciri AirPod tambahan. Sistem pengendalian anda memerlukan pelaksanaan Bluetooth Tenaga Rendah yang berfungsi dengan betul.</string>
     <string name="onboarding_body3">CAPod tiada iklan dan tidak mengumpul data anda.</string>
     <string name="onboarding_body4">Anda boleh menaik taraf kepada CAPod Pro untuk mendapatkan ciri tambahan dan menyokong pembangunan.</string>
+
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">Tidak tersedia</string>
+    <string name="general_error_label">Ralat</string>
+    <string name="general_grant_permission_action">Beri kebenaran</string>
+    <string name="general_manage_devices_action">Urus peranti</string>
+
+    <string name="overview_nomaindevice_label">Tiada peranti dikonfigurasikan</string>
+    <string name="overview_nomaindevice_description">Konfigurasikan peranti anda untuk mula memantau tahap bateri dan mendayakan ciri tambahan.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth dilumpuhkan</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth dilumpuhkan, dayakannya ;)</string>
+    <string name="overview_monitoring_active_label">Memantau peranti</string>
+    <string name="overview_monitoring_active_description">Pastikan peranti anda berdekatan dan aktif.</string>
+    <string name="overview_unmatched_devices_label">Peranti tidak sepadan</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d peranti tanpa profil yang sepadan</item>
+        <item quantity="other">%d peranti tanpa profil yang sepadan</item>
+    </plurals>
+
+    <string name="permission_bluetooth_connect_label">Sambungan Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">Apl ini memerlukan kebenaran \"Sambungan Bluetooth\" untuk berinteraksi dengan peranti yang digandingkan dan memulakan sambungan.</string>
+    <string name="permission_bluetooth_scan_label">Pengimbasan Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">Kebenaran \"Pengimbasan Bluetooth\" membenarkan apl ini menemui dan menerima data Bluetooth daripada peranti berdekatan seperti AirPods anda.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Apl ini memerlukan kebenaran \"Bluetooth\" untuk bersambung ke peranti Bluetooth yang digandingkan.</string>
+    <string name="permission_access_fine_location_label">Akses lokasi tepat</string>
+    <string name="permission_access_fine_location_description">CAPod menggunakan kebenaran \"lokasi tepat\" untuk menerima data Bluetooth Low Energy. Fon kepala anda menggunakan teknologi Bluetooth Low Energy untuk menyiarkan status mereka. Apl ini TIDAK akan menggunakan data Bluetooth untuk menentukan lokasi anda.</string>
+    <string name="permission_background_location_label">Akses lokasi latar belakang</string>
+    <string name="permission_background_location_description">CAPod menggunakan \"akses lokasi latar belakang\" untuk mendayakan ciri seperti \"Tunjukkan pop timbul\" dan \"Sambung automatik\" semasa apl ditutup. Akses lokasi latar belakang membenarkan apl menerima data Bluetooth Low Energy semasa ia berada di latar belakang. Apl ini TIDAK akan menggunakan data Bluetooth untuk menentukan lokasi anda.</string>
+    <string name="permission_ignore_battery_optimizations_label">Lumpuhkan pengoptimuman bateri</string>
+    <string name="permission_ignore_battery_optimizations_description">Pengoptimuman bateri menghalang apl ini daripada menerima data Bluetooth secara boleh dipercayai semasa apl berada di latar belakang.</string>
+    <string name="permission_required_title">Kebenaran berikut diperlukan:</string>
+    <string name="permission_system_alert_window_label">Tetingkap Amaran Sistem</string>
+    <string name="permission_system_alert_window_description">Benarkan CAPod melukis di atas apl lain untuk membolehkan ciri \"Tunjukkan pop timbul\".</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Kuasa rendah</string>
+    <string name="settings_scanner_mode_balanced_label">Seimbang</string>
+    <string name="settings_scanner_mode_lowlatency_label">Kependaman rendah</string>
+
+    <string name="settings_monitor_mode_manual_label">Apabila apl dibuka</string>
+    <string name="settings_monitor_mode_automatic_label">Apabila peranti disambungkan</string>
+    <string name="settings_monitor_mode_always_label">Sentiasa</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Apabila dilihat</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Bekas dibuka</string>
+    <string name="settings_reaction_autoconnect_inear_label">Dalam telinga</string>
+
+    <string name="pods_dual_left_label">Pod kiri</string>
+    <string name="pods_dual_right_label">Pod kanan</string>
+    <string name="pods_case_label">Bekas</string>
+    <string name="pods_case_status_open_label">Buka</string>
+    <string name="pods_case_status_closed_label">Tutup</string>
+    <string name="pods_connection_state_disconnected_label">Tidak disambungkan ke peranti</string>
+    <string name="pods_connection_state_idle_label">Disambungkan ke peranti, tetapi melahu</string>
+    <string name="pods_connection_state_music_label">Dalam mod muzik</string>
+    <string name="pods_connection_state_call_label">Dalam mod panggilan</string>
+    <string name="pods_connection_state_ringing_label">Berdering</string>
+    <string name="pods_connection_state_hanging_up_label">Menutup telefon</string>
+    <string name="pods_connection_state_unknown_label">Keadaan sambungan tidak diketahui</string>
+    <string name="pods_unknown_raw_data_label">Data mentah</string>
+    <string name="pods_unknown_label">Peranti tidak dikenali</string>
+    <string name="pods_unknown_contact_dev">Ini adalah peranti yang tidak dikenali, tetapi ia menggunakan format mesej yang serupa. Mari tambah sokongan untuknya, hubungi saya :)</string>
+    <string name="pods_none_label_short">Tiada peranti</string>
+    <string name="pods_charging_label">Mengecas</string>
+    <string name="pods_inear_label">Dalam telinga</string>
+    <string name="pods_microphone_label">Mikrofon</string>
+    <string name="pods_yours">Milik anda</string>
+    <string name="headset_being_worn_label">Sedang dipakai</string>
+    <string name="headset_not_being_worn_label">Tidak dipakai</string>
+    <string name="pods_case_unknown_state">Keadaan tidak diketahui</string>
+
+    <string name="last_seen_x">Terakhir dilihat: %s</string>
+    <string name="first_seen_x">Pertama kali dilihat: %s</string>
+    <string name="permission_post_notifications_label">Tunjukkan pemberitahuan</string>
+    <string name="permission_post_notifications_description">"Benarkan CAPod menunjukkan pemberitahuan tentang AirPods anda, cth. status semasa mereka semasa disambungkan."</string>
+
     <!-- Device profiles -->
+    <string name="profiles_empty_title">Tiada profil peranti dikonfigurasikan</string>
+    <string name="profiles_empty_description">Cipta profil peranti untuk mengurus berbilang peranti dengan tetapan dan keutamaan tersuai.</string>
+    <string name="profiles_add_action">Tambah profil</string>
+    <string name="profiles_create_title">Cipta Profil</string>
+    <string name="profiles_name_label">Nama profil</string>
+    <string name="profiles_name_default">Fon Kepala Saya</string>
+    <string name="profiles_model_label">Model peranti</string>
+    <string name="profiles_paired_device_label">Peranti yang digandingkan</string>
+    <string name="profiles_paired_device_none">Tiada</string>
+    <string name="profiles_paired_device_none_description">Tiada peranti dipilih</string>
+    <string name="profiles_save_action">Simpan profil</string>
+    <string name="profiles_drag_handle_description">Seret untuk menyusun semula</string>
+    <string name="profiles_delete_title">Padam Profil</string>
+    <string name="profiles_delete_message">Adakah anda pasti mahu memadamkan profil ini? Tindakan ini tidak boleh dibuat asal.</string>
+    <string name="profiles_delete_action">Padam</string>
+    <string name="profiles_basic_info_title">Maklumat Peranti</string>
+    <string name="profiles_basic_info_description">Konfigurasikan nama peranti, model, dan gandingan Bluetooth pilihan anda.</string>
+    <string name="profiles_signal_quality_title">Kualiti Isyarat Minimum</string>
+    <string name="profiles_signal_quality_description">Hanya kesan peranti dengan kekuatan isyarat melebihi ambang ini. Nilai yang lebih rendah meningkatkan julat pengesanan tetapi mungkin menyebabkan positif palsu. Jangan tetapkan terlalu tinggi - penerimaan Bluetooth secara amnya lemah dan berbeza mengikut jarak dan halangan.</string>
+    <string name="profiles_identitykey_label">Kunci Identiti</string>
+    <string name="profilessettings_maindevice_identitykey_description">Kunci Penyelesaian Identiti (IRK) peranti anda, yang membantu CAPod mengenal pastinya di antara peranti berdekatan.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods kerap menukar alamat Bluetooth mereka untuk privasi. IRK membantu CAPod mengenali peranti anda. Anda memerlukan akses sekali ke MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Kunci Penyulitan</string>
+    <string name="profiles_maindevice_encryptionkey_description">Kunci penyulitan peranti anda, yang membenarkan CAPod mendapatkan maklumat status terperinci.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods menghantar mesej status, sebahagiannya disulitkan. Kunci penyulitan membenarkan CAPod menyahsulit mesej penuh. Anda memerlukan akses sekali ke MacBook.</string>
+    <string name="profiles_key_invalid_format">Format kunci tidak sah</string>
+    <string name="profiles_key_expected_format">Format yang dijangka: %1$s</string>
+    <string name="profiles_priority_hint">Susunan profil menentukan keutamaan. Seret profil untuk menyusun semula - profil yang lebih tinggi dalam senarai diutamakan apabila berbilang peranti sepadan.</string>
+
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Perubahan Tidak Disimpan</string>
+    <string name="general_unsaved_changes_message">Anda mempunyai perubahan yang tidak disimpan. Apa yang anda ingin lakukan?</string>
+    <string name="general_save_and_exit_action">Simpan &amp; Keluar</string>
+    <string name="general_discard_action">Buang</string>
+    <string name="general_keep_editing_action">Terus Mengedit</string>
 </resources>

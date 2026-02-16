@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play ಸೇವೆಗಳು ಲಭ್ಯವಿಲ್ಲ.</string>
     <string name="upgrades_no_purchases_found_check_account">ಯಾವುದೇ ಖರೀದಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ. ನೀವು ಸರಿಯಾದ ಖಾತೆಯನ್ನು ಬಳಸುತ್ತಿದ್ದೀರಾ?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play ದೋಷ</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play ನಲ್ಲಿ ದೋಷ ಸಂಭವಿಸಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ.\n\nದೋಷ: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play ಬಿಲ್ಲಿಂಗ್ ದೋಷ</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play ನಿಂದ ನಿಮ್ಮ ಖರೀದಿ ವಿವರಗಳನ್ನು ಕೇಳುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ. Google Play ಕ್ಯಾಶ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ.\n\nದೋಷ %s</string>
 </resources>
