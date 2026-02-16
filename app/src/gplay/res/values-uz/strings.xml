@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play xizmatlari mavjud emas.</string>
     <string name="upgrades_no_purchases_found_check_account">Xaridlar topilmadi. To‘g‘ri hisobdan foydalanayapsizmi?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play xatosi</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play’da xatolik yuz berdi. Iltimos, keyinroq qayta urinib ko‘ring yoki telefoningizni qayta ishga tushiring.\n\nXato: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play Billing xatosi</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play’dan xaridingiz tafsilotlarini so‘rashda xatolik yuz berdi. Google Play keshini tozalang va telefoningizni qayta ishga tushiring.\n\nXato %s</string>
 </resources>

@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">የGoogle Play አገልግሎቶች አይገኙም።</string>
     <string name="upgrades_no_purchases_found_check_account">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
+    <string name="upgrades_gplay_billing_error_label">የGoogle Play ስህተት</string>
+    <string name="upgrades_gplay_billing_error_description">በGoogle Play ላይ ስህተት ነበር። እባክዎ ቆይተው ይሞክሩ ወይም ስልክዎን እንደገና ያስጀምሩ።\n\nስህተት: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">የGoogle Play ክፍያ ስህተት</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play የግዢ ዝርዝሮችዎን ሲጠይቅ ስህተት ነበር። የGoogle Play መሸጎጫውን ያጽዱ እና ስልክዎን እንደገና ያስጀምሩ።\n\nስህተት %s</string>
 </resources>

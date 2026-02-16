@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play 服務無法使用。</string>
     <string name="upgrades_no_purchases_found_check_account">未找到訂單，確定帳戶無誤？</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play 錯誤</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play 發生錯誤。請稍後再試或重新啟動手機。\n\n錯誤：%s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play 結帳錯誤</string>
+    <string name="upgrades_gplay_billing_result_error_description">向 Google Play 請求購買明細時發生錯誤。請清除 Google Play 快取並重新啟動手機。\n\n錯誤：%s</string>
 </resources>

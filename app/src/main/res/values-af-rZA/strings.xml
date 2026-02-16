@@ -6,24 +6,37 @@
     <string name="general_copy_action">Kopieer</string>
     <string name="general_thank_you_label">Dankie</string>
     <string name="general_upgrade_action">Opgradeer</string>
+    <string name="general_donate_action">Skenk</string>
     <string name="general_check_action">Kontroleer</string>
     <string name="general_close_action">Maak toe</string>
     <string name="general_save_action">Stoor</string>
     <string name="general_guide_action">Gids</string>
     <string name="general_continue_action">Gaan voort</string>
+    <string name="general_show_action">Wys</string>
+    <string name="general_hide_action">Versteek</string>
     <string name="general_example_label">Bv.: %s</string>
     <string name="upgrade_capod_label">Gradeer CAPod op</string>
     <string name="upgrade_capod_description">Kry addisionele kenmerke en ondersteun die ontwikkelaar.</string>
     <string name="settings_monitor_mode_label">Monitormodus</string>
     <string name="settings_monitor_mode_description">Onder watter omstandighede hierdie toepassing Bluetooth-data monitor.</string>
+    <string name="settings_monitor_mode_manual_label">Wanneer toepassing oop is</string>
+    <string name="settings_monitor_mode_automatic_label">Wanneer toestel gekoppel is</string>
+    <string name="settings_monitor_mode_always_label">Altyd</string>
     <string name="settings_monitor_connected_notification_label">Ekstra kennisgewing</string>
     <string name="settings_monitor_connected_notification_description">Wys \'n ekstra kennisgewing wanneer \'n toestel gekoppel is. Dit laat jou toe om die permanente \"Geen toestelle\" kennisgewing te versteek deur die \"Toestelstatus\" kanaal te deaktiveer.</string>
+    <string name="settings_keep_notification_after_disconnect_label">Hou kennisgewing ná ontkoppeling</string>
+    <string name="settings_keep_notification_after_disconnect_description">Hou aan om die laaste bekende batteryvlakke te wys selfs nadat jou AirPods ontkoppel.</string>
     <string name="settings_scanner_mode_label">Skandeerdermodus</string>
     <string name="settings_scanner_mode_description">Moet die Bluetooth Lae Energie-dataskandeerder werkverrigting prioritiseer of energie bespaar?</string>
+    <string name="settings_scanner_mode_lowpower_label">Lae krag</string>
+    <string name="settings_scanner_mode_balanced_label">Gebalanseer</string>
+    <string name="settings_scanner_mode_lowlatency_label">Lae latensie</string>
     <string name="settings_autopause_label">Outo-pouse</string>
     <string name="settings_autopause_description">Pouseer oudio wanneer die toestel uit jou oor verwyder word.</string>
     <string name="settings_autopplay_label">Outo-speel</string>
     <string name="settings_autoplay_description">Begin oudio-terugspeel wanneer toestel gedra word.</string>
+    <string name="settings_eardetection_info_label">Nota oor oorbespeuring</string>
+    <string name="settings_eardetection_info_description">As oorbespeuring net vir een pod werk, is dit \'n Apple-beperking. Slegs die primêre pod (wat vir die mikrofoon gebruik word) word bespeur. Stel op Apple-toestelle op: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_fake_data_label">Vals data</string>
     <string name="settings_fake_data_description">Wys vals data, d.w.s. simuleer toestelle wat nie bestaan nie.</string>
     <string name="settings_debug_label">Ontfoutinstellings</string>
@@ -34,8 +47,13 @@
     <string name="settings_autoconnect_description">As Android nie outomaties koppel nie, kan ons dit ook vra. Dit sal die monitormodus-instelling na \'Altyd\' stel.</string>
     <string name="settings_autoconnect_condition_label">Outo-koppelvoorwaarde</string>
     <string name="settings_autoconnect_condition_description">Wanneer moet ons probeer om aan jou toestel te koppel?</string>
+    <string name="settings_devices_label">Toestelle</string>
+    <string name="settings_devices_description">Bestuur jou toestelle.</string>
     <string name="settings_reaction_label">Reaksies</string>
     <string name="settings_reaction_description">Reageer op gebeure en gedrag.</string>
+    <string name="settings_reaction_autoconnect_whenseen_label">Wanneer gesien</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Kassie is oop</string>
+    <string name="settings_reaction_autoconnect_inear_label">In oor</string>
     <string name="settings_category_yourdevice_label">Jou toestel</string>
     <string name="settings_category_compatibility_options_title">Verenigbaarheidsopsies</string>
     <string name="settings_category_compatibility_options_description">Moenie aanraak as alles werk nie ;)</string>
@@ -68,6 +86,7 @@
     <string name="settings_support_description">As jy hulp nodig het.</string>
     <string name="issue_tracker_label">Probleemopspoorder</string>
     <string name="issue_tracker_description">\'n Openbare probleemopspoorder vir foutverslae en kenmerkaanvrae (slegs Engels).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">\'n Plek om te kuier en vrae te vra.</string>
     <string name="changelog_label">Veranderingslog</string>
     <string name="settings_label">Instellings</string>
@@ -89,10 +108,16 @@
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help om hierdie toepassing in jou gunstelingtaal te vertaal.</string>
     <string name="translators_thanks_title">Vertalers</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">\'n Legstuk wat die laas bekende toestelstatus wys.</string>
+    <string name="widget_configuration_title">Kies toestel</string>
+    <string name="widget_configuration_description">Kies watter toestelprofiel hierdie legstuk moet wys.</string>
+    <string name="common_feature_requires_pro_msg">Hierdie kenmerk vereis CAPod Pro.</string>
+    <string name="widget_no_data_label">Geen data</string>
     <string name="settings_compat_indirectcallback_title">Indirekte data-aflewering</string>
     <string name="settings_compat_indirectcallback_summary">Gebruik \'n alternatiewe metode om BLE-data van die stelsel te ontvang (uitsaai in plaas van terugbel).</string>
     <string name="troubleshooter_title">Probleemoplosser</string>
+    <string name="troubleshooter_summary">Diagnoseer en los Bluetooth-verbindingsprobleme op.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Lae Energie-uitsendings</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (en soortgelyke koptelefoon) saai statusinligting uit deur \'n BLE-tegnologie genaamd \"advertensies\". Sommige fone implementeer hierdie tegnologie nie korrek nie. CAPod kan probeer om dit reg te stel deur verskillende verenigbaarheidsopsies te probeer totdat data ontvang word. Begin musiek speel op jou koptelefoon en plaas dit naby jou foon, begin dan die proses.</string>
     <string name="troubleshooter_ble_intro_start_action">Begin probleemoplossing</string>
@@ -110,7 +135,108 @@
     <string name="onboarding_body2">Nie alle Android-toestelle ondersteun die ekstra AirPod-kenmerke ten volle nie. Jou bedryfstelsel vereis \'n korrek werkende Bluetooth-Lae-Energie-implementasie.</string>
     <string name="onboarding_body3">CAPod het geen advertensies nie en versamel nie jou data nie.</string>
     <string name="onboarding_body4">Jy kan opgradeer na CAPod Pro om ekstra kenmerke te kry en ontwikkeling te ondersteun.</string>
+
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Fout</string>
+    <string name="general_grant_permission_action">Gee toestemming</string>
+    <string name="general_manage_devices_action">Bestuur toestelle</string>
+
+    <string name="overview_nomaindevice_label">Geen toestel gekonfigureer</string>
+    <string name="overview_nomaindevice_description">Stel jou toestel op om batteryvlakke te begin monitor en ekstra kenmerke te aktiveer.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth is gedeaktiveer</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth is gedeaktiveer, aktiveer dit ;)</string>
+    <string name="overview_monitoring_active_label">Moniteer vir toestelle</string>
+    <string name="overview_monitoring_active_description">Maak seker jou toestel is naby en aktief.</string>
+    <string name="overview_unmatched_devices_label">Ongepasde toestelle</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d toestel sonder ooreenstemmende profiel</item>
+        <item quantity="other">%d toestelle sonder ooreenstemmende profiel</item>
+    </plurals>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth-verbinding</string>
+    <string name="permission_bluetooth_connect_description">Hierdie toepassing benodig die Bluetooth connect-toestemming om met gepaarde toestelle te werk en verbindings te begin.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth-skandering</string>
+    <string name="permission_bluetooth_scan_description">Die Bluetooth-skanderingtoestemming laat hierdie toepassing toe om Bluetooth-data van nabygeleë toestelle soos jou AirPods te ontdek en te ontvang.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Hierdie toepassing benodig die Bluetooth-toestemming om aan gepaarde Bluetooth-toestelle te koppel.</string>
+    <string name="permission_access_fine_location_label">Toegang tot presiese ligging</string>
+    <string name="permission_access_fine_location_description">CAPod gebruik die presiese liggingtoestemming om Bluetooth Low Energy-data te ontvang. Jou koptelefoon gebruik Bluetooth Low Energy-tegnologie om hul status uit te saai. Hierdie toepassing sal NIE Bluetooth-data gebruik om jou ligging te bepaal nie.</string>
+    <string name="permission_background_location_label">Agtergrondliggingtoegang</string>
+    <string name="permission_background_location_description">CAPod gebruik agtergrondliggingtoegang om kenmerke soos Wys opspringer en AutoConnect te aktiveer terwyl die toepassing gesluit is. Agtergrondliggingtoegang laat die toepassing toe om Bluetooth Low Energy-data te ontvang terwyl dit in die agtergrond is. Hierdie toepassing sal NIE Bluetooth-data gebruik om jou ligging te bepaal nie.</string>
+    <string name="permission_ignore_battery_optimizations_label">Deaktiveer battery-optimalisasies</string>
+    <string name="permission_ignore_battery_optimizations_description">Battery-optimalisasies keer dat hierdie toepassing Bluetooth-data betroubaar ontvang terwyl dit in die agtergrond is.</string>
+    <string name="permission_required_title">Die volgende toestemming is vereis:</string>
+    <string name="permission_system_alert_window_label">Stelselwaarskuwingsvenster</string>
+    <string name="permission_system_alert_window_description">Laat CAPod toe om oor ander toepassings te teken om die kenmerk Wys opspringer moontlik te maak.</string>
+
+    <string name="pods_dual_left_label">Linker pod</string>
+    <string name="pods_dual_right_label">Regter pod</string>
+    <string name="pods_case_label">Kassie</string>
+    <string name="pods_case_status_open_label">Oop</string>
+    <string name="pods_case_status_closed_label">Toe</string>
+    <string name="pods_connection_state_disconnected_label">Nie aan \'n toestel gekoppel nie</string>
+    <string name="pods_connection_state_idle_label">Aan \'n toestel gekoppel, maar ledig</string>
+    <string name="pods_connection_state_music_label">In musiekmodus</string>
+    <string name="pods_connection_state_call_label">In oproepmodus</string>
+    <string name="pods_connection_state_ringing_label">Lui</string>
+    <string name="pods_connection_state_hanging_up_label">Besig om op te hang</string>
+    <string name="pods_connection_state_unknown_label">Onbekende verbindingsstatus</string>
+    <string name="pods_unknown_raw_data_label">Ruwe data</string>
+    <string name="pods_unknown_label">Onbekende toestel</string>
+    <string name="pods_unknown_contact_dev">Dit is \'n onbekende toestel, maar dit gebruik \'n soortgelyke boodskapformaat. Kom ons voeg ondersteuning daarvoor by, kontak my :)</string>
+    <string name="pods_none_label_short">Geen toestel</string>
+    <string name="pods_charging_label">Laai</string>
+    <string name="pods_inear_label">In oor</string>
+    <string name="pods_microphone_label">Mikrofoon</string>
+    <string name="pods_yours">Joune</string>
+    <string name="headset_being_worn_label">Word gedra</string>
+    <string name="headset_not_being_worn_label">Word nie gedra nie</string>
+    <string name="pods_case_unknown_state">Onbekende status</string>
+
+    <string name="last_seen_x">Laas gesien: %s</string>
+    <string name="first_seen_x">Eerste keer gesien: %s</string>
+    <string name="permission_post_notifications_label">Wys kennisgewings</string>
+    <string name="permission_post_notifications_description">Laat CAPod toe om kennisgewings oor jou AirPods te wys, bv. hul huidige status terwyl hulle gekoppel is.</string>
+
     <!-- Device profiles -->
+    <string name="profiles_empty_title">Geen toestelprofiele gekonfigureer</string>
+    <string name="profiles_empty_description">Skep toestelprofiele om veelvuldige toestelle met pasgemaakte instellings en prioriteite te bestuur.</string>
+    <string name="profiles_add_action">Voeg profiel by</string>
+    <string name="profiles_create_title">Skep profiel</string>
+    <string name="profiles_name_label">Profielnaam</string>
+    <string name="profiles_name_default">My koptelefoon</string>
+    <string name="profiles_model_label">Toestelmodel</string>
+    <string name="profiles_paired_device_label">Gepaarde toestel</string>
+    <string name="profiles_paired_device_none">Geen</string>
+    <string name="profiles_paired_device_none_description">Geen toestel gekies</string>
+    <string name="profiles_save_action">Stoor profiel</string>
+    <string name="profiles_drag_handle_description">Sleep om te herrangskik</string>
+    <string name="profiles_delete_title">Vee profiel uit</string>
+    <string name="profiles_delete_message">Is jy seker jy wil hierdie profiel uitvee? Hierdie aksie kan nie ongedaan gemaak word nie.</string>
+    <string name="profiles_delete_action">Vee uit</string>
+    <string name="profiles_basic_info_title">Toestelinligting</string>
+    <string name="profiles_basic_info_description">Stel jou toestelnaam, model en opsionele Bluetooth-paring op.</string>
+    <string name="profiles_signal_quality_title">Minimum seingehalte</string>
+    <string name="profiles_signal_quality_description">Bespeur slegs toestelle met seinsterkte bo hierdie drempel. Laer waardes vergroot opsporingsreikwydte maar kan vals positiewes veroorsaak. Moenie dit te hoog stel nie - Bluetooth-ontvangs is oor die algemeen swak en wissel met afstand en hindernisse.</string>
+    <string name="profiles_identitykey_label">Identiteitsleutel</string>
+    <string name="profilessettings_maindevice_identitykey_description">Jou toestel se Identity Resolving Key (IRK), wat CAPod help om dit tussen nabygeleë toestelle te identifiseer.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods verander dikwels hul Bluetooth-adres vir privaatheid. Die IRK help CAPod om jou toestel te herken. Jy benodig eenmalige toegang tot \'n MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Enkripsiesleutel</string>
+    <string name="profiles_maindevice_encryptionkey_description">Jou toestel se enkripsiesleutel, wat CAPod toelaat om gedetailleerde statusinligting te verkry.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods stuur \'n statusboodskap, waarvan \'n deel geënkripteer is. Die enkripsiesleutel laat CAPod toe om die volle boodskap te dekripteer. Jy benodig eenmalige toegang tot \'n MacBook.</string>
+    <string name="profiles_key_invalid_format">Ongeldige sleutelformaat</string>
+    <string name="profiles_key_expected_format">Verwagte formaat: %1$s</string>
+    <string name="profiles_priority_hint">Profielvolgorde bepaal prioriteit. Sleep profiele om hulle te herrangskik - profiele hoër in die lys kry voorrang wanneer veelvuldige toestelle ooreenstem.</string>
+
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Ongestoorde veranderinge</string>
+    <string name="general_unsaved_changes_message">Jy het ongestoorde veranderinge. Wat wil jy doen?</string>
+    <string name="general_save_and_exit_action">Stoor en verlaat</string>
+    <string name="general_discard_action">Verwerp</string>
+    <string name="general_keep_editing_action">Hou aan wysig</string>
 </resources>

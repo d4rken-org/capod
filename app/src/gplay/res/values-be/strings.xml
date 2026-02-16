@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Службы Google Play недаступныя.</string>
     <string name="upgrades_no_purchases_found_check_account">Пакупак не знойдзена. Вы выкарыстоўваеце правільны ўліковы запіс?</string>
+    <string name="upgrades_gplay_billing_error_label">Памылка Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Адбылася памылка ў Google Play. Калі ласка, паспрабуйце пазней або перазагрузіце тэлефон.\n\nПамылка: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Памылка выстаўлення рахункаў Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Адбылася памылка пры запыце дэталяў пакупкі ў Google Play. Ачысціце кэш Google Play і перазагрузіце тэлефон.\n\nПамылка %s</string>
 </resources>

@@ -6,24 +6,34 @@
     <string name="general_copy_action">ចម្លង</string>
     <string name="general_thank_you_label">សូមអរគុណ</string>
     <string name="general_upgrade_action">ដំឡើងកំណែ</string>
+    <string name="general_donate_action">បរិច្ចាគ</string>
     <string name="general_check_action">ពិនិត្យ</string>
     <string name="general_close_action">បិទ</string>
     <string name="general_save_action">រក្សាទុក</string>
     <string name="general_guide_action">មគ្គុទ្ទេសក៍</string>
     <string name="general_continue_action">បន្ត</string>
+    <string name="general_show_action">បង្ហាញ</string>
+    <string name="general_hide_action">លាក់</string>
+
     <string name="general_example_label">ឧទាហរណ៍៖ %s</string>
+
     <string name="upgrade_capod_label">ដំឡើងកំណែ CAPod</string>
     <string name="upgrade_capod_description">ទទួលបានមុខងារបន្ថែម និងគាំទ្រអ្នកអភិវឌ្ឍន៍។</string>
-    <string name="settings_monitor_mode_label">របៀបຕິດຕាម</string>
-    <string name="settings_monitor_mode_description">នៅក្រោមលក្ខខណ្ឌអ្វីខ្លះដែលកម្មវិធីនេះຕິດຕាមទិន្នន័យ Bluetooth ។</string>
+
+    <string name="settings_monitor_mode_label">របៀបតាមដាន</string>
+    <string name="settings_monitor_mode_description">នៅក្រោមលក្ខខណ្ឌអ្វីខ្លះដែលកម្មវិធីនេះតាមដានទិន្នន័យ Bluetooth។</string>
     <string name="settings_monitor_connected_notification_label">ការជូនដំណឹងបន្ថែម</string>
-    <string name="settings_monitor_connected_notification_description">បង្ហាញការជូនដំណឹងបន្ថែមនៅពេលឧបករណ៍ត្រូវបានភ្ជាប់។ វាអនុញ្ញាតឱ្យអ្នកលាក់ការជូនដំណឹងអចិន្ត្រៃយ៍ \"គ្មានឧបករណ៍\" ដោយបិទឆានែល \"ស្ថានភាពឧបករណ៍\" ។</string>
+    <string name="settings_monitor_connected_notification_description">បង្ហាញការជូនដំណឹងបន្ថែមនៅពេលឧបករណ៍ត្រូវបានភ្ជាប់។ វាអនុញ្ញាតឱ្យអ្នកលាក់ការជូនដំណឹងអចិន្ត្រៃយ៍ \"គ្មានឧបករណ៍\" ដោយបិទឆានែល \"ស្ថានភាពឧបករណ៍\"។</string>
+    <string name="settings_keep_notification_after_disconnect_label">រក្សាការជូនដំណឹងបន្ទាប់ពីផ្តាច់</string>
+    <string name="settings_keep_notification_after_disconnect_description">បន្តបង្ហាញកម្រិតថ្មចុងក្រោយដែលស្គាល់ សូម្បីបន្ទាប់ពី AirPods របស់អ្នកផ្តាច់ក៏ដោយ</string>
     <string name="settings_scanner_mode_label">របៀបវិភាគ</string>
     <string name="settings_scanner_mode_description">តើម៉ាស៊ីនវិភាគទិន្នន័យ Bluetooth Low Energy គួរតែផ្តល់អាទិភាពដល់ដំណើរការ ឬសន្សំសំចៃថាមពល?</string>
     <string name="settings_autopause_label">ផ្អាកដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_autopause_description">ផ្អាកសំឡេងនៅពេលដកឧបករណ៍ចេញពីត្រចៀករបស់អ្នក។</string>
     <string name="settings_autopplay_label">ចាក់ដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_autoplay_description">ចាប់ផ្តើមចាក់សំឡេងនៅពេលឧបករណ៍ត្រូវបានពាក់។</string>
+    <string name="settings_eardetection_info_label">ចំណាំការរកឃើញត្រចៀក</string>
+    <string name="settings_eardetection_info_description">ប្រសិនបើការរកឃើញត្រចៀកដំណើរការតែសម្រាប់ផតមួយ នេះជាដែនកំណត់របស់ Apple។ មានតែ \"ផតចម្បង\" (ប្រើសម្រាប់មីក្រូហ្វូន) ប៉ុណ្ណោះត្រូវបានរកឃើញ។ កំណត់រចនាសម្ព័ន្ធនៅលើឧបករណ៍ Apple: ការកំណត់ → Bluetooth → AirPods → មីក្រូហ្វូន។</string>
     <string name="settings_fake_data_label">ទិន្នន័យក្លែងក្លាយ</string>
     <string name="settings_fake_data_description">បង្ហាញទិន្នន័យក្លែងក្លាយ ពោលគឺក្លែងធ្វើឧបករណ៍ដែលមិនមាន។</string>
     <string name="settings_debug_label">ការកំណត់កែកំហុស</string>
@@ -31,26 +41,32 @@
     <string name="settings_signal_minimum_label">គុណភាពសញ្ញាអប្បបរមា</string>
     <string name="settings_signal_minimum_description">គុណភាពសញ្ញាអប្បបរមាដែលឧបករណ៍ត្រូវតែមានដើម្បីចាត់ទុកថាជារបស់អ្នក។</string>
     <string name="settings_autoconnect_label">ភ្ជាប់ដោយស្វ័យប្រវត្តិ</string>
-    <string name="settings_autoconnect_description">ប្រសិនបើ Android មិនភ្ជាប់ដោយស្វ័យប្រវត្តិទេ យើងក៏អាចស្នើសុំវាបានដែរ។ វានឹងកំណត់ការកំណត់របៀបຕິດຕាមទៅ \"ជានិច្ច\" ។</string>
+    <string name="settings_autoconnect_description">ប្រសិនបើ Android មិនភ្ជាប់ដោយស្វ័យប្រវត្តិទេ យើងក៏អាចស្នើសុំវាបានដែរ។ វានឹងកំណត់ការកំណត់របៀបតាមដានទៅ \"ជានិច្ច\"។</string>
     <string name="settings_autoconnect_condition_label">លក្ខខណ្ឌភ្ជាប់ដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_autoconnect_condition_description">តើយើងគួរព្យាយាមភ្ជាប់ទៅឧបករណ៍របស់អ្នកនៅពេលណា?</string>
+    <string name="settings_devices_label">ឧបករណ៍</string>
+    <string name="settings_devices_description">គ្រប់គ្រងឧបករណ៍របស់អ្នក។</string>
     <string name="settings_reaction_label">ប្រតិកម្ម</string>
     <string name="settings_reaction_description">ប្រតិកម្មចំពោះព្រឹត្តិការណ៍ និងអាកប្បកិរិយា។</string>
     <string name="settings_category_yourdevice_label">ឧបករណ៍របស់អ្នក</string>
+
     <string name="settings_category_compatibility_options_title">ជម្រើសភាពឆបគ្នា</string>
     <string name="settings_category_compatibility_options_description">កុំប៉ះប្រសិនបើអ្វីៗដំណើរការបានល្អ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">បិទការត្រងផ្នែករឹង</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">កុំផ្ទេរការត្រងទិន្នន័យទៅប្រព័ន្ធ ផ្ទុយទៅវិញទទួលបានទិន្នន័យទាំងអស់ ហើយត្រងនៅក្នុងកម្មវិធី។</string>
     <string name="settings_compat_offloaded_batching_disabled_title">បិទការដាក់ជាក្រុមផ្នែករឹង</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">កុំឱ្យប្រព័ន្ធដាក់ជាក្រុមទិន្នន័យ BLE ដែលប្រមូលបានមុនពេលបញ្ជូនវាទៅយើង។</string>
+
     <string name="settings_onepod_mode_label">របៀបផតមួយ</string>
     <string name="settings_onepod_mode_description">មិនតម្រូវឱ្យពាក់ផតទាំងពីរទេ ការពាក់ផតតែមួយគឺគ្រប់គ្រាន់ដើម្បីបង្កឱ្យមានប្រតិកម្ម។</string>
     <string name="settings_popup_caseopen_label">បង្ហាញផ្ទាំងលោតប្រអប់</string>
     <string name="settings_popup_caseopen_description">បង្ហាញផ្ទាំងលោតនៅពេលប្រអប់ឧបករណ៍ត្រូវបានបើក (ពិសោធន៍)។</string>
     <string name="settings_popup_connected_label">បង្ហាញផ្ទាំងលោតការភ្ជាប់</string>
     <string name="settings_popup_connected_description">បង្ហាញផ្ទាំងលោតនៅពេលឧបករណ៍ភ្ជាប់ជាលើកដំបូង។</string>
+
     <string name="notification_channel_device_status_label">ស្ថានភាពឧបករណ៍</string>
     <string name="notification_channel_device_status_connected_label">ឧបករណ៍បានភ្ជាប់</string>
+
     <string name="support_debuglog_label">កំណត់ហេតុកែកំហុស</string>
     <string name="support_debuglog_desc">កត់ត្រាអ្វីគ្រប់យ៉ាងដែលកម្មវិធីកំពុងធ្វើទៅក្នុងឯកសារអត្ថបទដែលអ្នកអាចចែករំលែកបាន។</string>
     <string name="debug_debuglog_size_label">ទំហំ</string>
@@ -62,13 +78,18 @@
     <string name="debug_debuglog_stop_action">បញ្ឈប់ការកត់ត្រា</string>
     <string name="debug_debuglog_sensitive_information_message">ឯកសារដែលបានបង្កើតមានព័ត៌មានរសើប (ឧ. ព័ត៌មានលម្អិតអំពីឧបករណ៍ Bluetooth)។ ចែករំលែកវាជាមួយភាគីដែលទុកចិត្តតែប៉ុណ្ណោះ។</string>
     <string name="settings_debuglog_explanation">មុខងារនេះកត់ត្រាអ្វីគ្រប់យ៉ាងដែលកម្មវិធីកំពុងធ្វើទៅក្នុងឯកសារដែលអាចចែករំលែកបាន។ ឯកសារដែលបានបង្កើតមានព័ត៌មានរសើប (ឧ. ព័ត៌មានលម្អិតអំពីឧបករណ៍ Bluetooth)។ ចែករំលែកវាជាមួយភាគីដែលទុកចិត្តតែប៉ុណ្ណោះ (ឧ. អ្នកអភិវឌ្ឍន៍ដែលកំពុងដោះស្រាយបញ្ហា)។</string>
+
     <string name="settings_support_installid_label">ID ដំឡើង</string>
-    <string name="settings_support_installid_desc">របាយការណ៍កំហុសដោយស្វ័យប្រវត្តិគឺអនាមិក។ ចែករំលែក ID ដំឡើងរបស់អ្នក ប្រសិនបើអ្នកអភិវឌ្ឍន៍ត្រូវការស្វែងរករូបការណ៍កំហុសរបស់អ្នក។</string>
+    <string name="settings_support_installid_desc">របាយការណ៍កំហុសដោយស្វ័យប្រវត្តិគឺអនាមិក។ ចែករំលែក ID ដំឡើងរបស់អ្នក ប្រសិនបើអ្នកអភិវឌ្ឍន៍ត្រូវការស្វែងរករបាយការណ៍កំហុសរបស់អ្នក។</string>
     <string name="settings_support_label">ជំនួយ</string>
     <string name="settings_support_description">ប្រសិនបើអ្នកត្រូវការជំនួយខ្លះ។</string>
+
     <string name="issue_tracker_label">កម្មវិធីតាមដានបញ្ហា</string>
     <string name="issue_tracker_description">កម្មវិធីតាមដានបញ្ហាសាធារណៈសម្រាប់របាយការណ៍កំហុស និងសំណូមពរមុខងារ (ភាសាអង់គ្លេសតែប៉ុណ្ណោះ)។</string>
+
+    <string name="discord_label">Discord</string>
     <string name="discord_description">កន្លែងសម្រាប់ជជែកកំសាន្ត និងសួរសំណួរ។</string>
+
     <string name="changelog_label">កំណត់ហេតុផ្លាស់ប្តូរ</string>
     <string name="settings_label">ការកំណត់</string>
     <string name="settings_privacy_policy_label">គោលការណ៍ឯកជនភាព</string>
@@ -78,39 +99,169 @@
     <string name="settings_general_label">ការកំណត់</string>
     <string name="settings_general_description">ការកែតម្រូវទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
     <string name="settings_acknowledgements_label">ការទទួលស្គាល់</string>
+
     <string name="settings_debug_autoreports_label">របាយការណ៍កំហុសដោយស្វ័យប្រវត្តិ</string>
     <string name="settings_debug_autoreports_description">រាយការណ៍បញ្ហាដោយស្វ័យប្រវត្តិ ឧ. ព័ត៌មានលម្អិតអំពីការគាំងកម្មវិធី ដូច្នេះខ្ញុំអាចរកវិធីដោះស្រាយវាបាន។</string>
     <string name="settings_debug_mode_label">របៀបកែកំហុស</string>
     <string name="settings_debug_mode_description">បង្ហាញព័ត៌មានបន្ថែមដើម្បីដោះស្រាយបញ្ហា។</string>
+
     <string name="settings_blescanner_unfiltered_label">ទិន្នន័យ BLE ដែលមិនបានត្រង</string>
     <string name="settings_blescanner_unfiltered_description">ដកតម្រងណាមួយចេញពីម៉ាស៊ីនវិភាគ BLE ដើម្បីបង្ហាញទិន្នន័យ BLE ដែលបានផ្សាយទាំងអស់។ មានប្រយោជន៍សម្រាប់ការបន្ថែមការគាំទ្រសម្រាប់ប្រភេទកាសស្តាប់ត្រចៀកថ្មី។</string>
+
     <string name="settings_compatibility_mode_label">របៀបភាពឆបគ្នា</string>
     <string name="settings_compatibility_mode_description">បិទការបង្កើនប្រសិទ្ធភាពដើម្បីកែលម្អភាពឆបគ្នា។ សាកល្បងវានៅពេលអ្នកមិនឃើញទិន្នន័យណាមួយ។</string>
+
     <string name="help_translate_label">ការបកប្រែ</string>
     <string name="help_translate_description">ជួយបកប្រែកម្មវិធីនេះទៅជាភាសាដែលអ្នកចូលចិត្ត។</string>
+
     <string name="translators_thanks_title">អ្នកបកប្រែ</string>
+    <string name="translators_thanks_description">darken</string>
+
     <string name="widget_description">ធាតុក្រាហ្វិកបង្ហាញស្ថានភាពឧបករណ៍ដែលស្គាល់ចុងក្រោយ។</string>
+    <string name="widget_configuration_title">ជ្រើសរើសឧបករណ៍</string>
+    <string name="widget_configuration_description">ជ្រើសរើសទម្រង់ឧបករណ៍ណាមួយដែលធាតុក្រាហ្វិកនេះគួរបង្ហាញ។</string>
+    <string name="common_feature_requires_pro_msg">មុខងារនេះត្រូវការ CAPod Pro។</string>
+
+    <string name="widget_no_data_label">គ្មានទិន្នន័យ</string>
     <string name="settings_compat_indirectcallback_title">ការបញ្ជូនទិន្នន័យដោយប្រយោល</string>
     <string name="settings_compat_indirectcallback_summary">ប្រើវិធីសាស្ត្រជំនួសដើម្បីទទួលទិន្នន័យ BLE ពីប្រព័ន្ធ (ផ្សាយជំនួសឱ្យការហៅត្រឡប់)។</string>
+
     <string name="troubleshooter_title">កម្មវិធីដោះស្រាយបញ្ហា</string>
+    <string name="troubleshooter_summary">ធ្វើរោគវិនិច្ឆ័យ និងដោះស្រាយបញ្ហាការតភ្ជាប់ Bluetooth។</string>
     <string name="troubleshooter_ble_intro_title">ការផ្សាយ Bluetooth Low Energy</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (និងកាសស្តាប់ត្រចៀកស្រដៀងគ្នា) ផ្សាយព័ត៌មានស្ថានភាពដោយប្រើបច្ចេកវិទ្យា BLE ដែលហៅថា \"ការផ្សាយពាណិជ្ជកម្ម\" ។ ទូរស័ព្ទមួយចំនួនមិនអនុវត្តបច្ចេកវិទ្យានេះបានត្រឹមត្រូវទេ។ CAPod អាចព្យាយាមដោះស្រាយបញ្ហានេះដោយសាកល្បងជម្រើសភាពឆបគ្នាផ្សេងៗរហូតដល់ទទួលបានទិន្នន័យ។ ចាប់ផ្តើមចាក់តន្ត្រីនៅលើកាសស្តាប់ត្រចៀករបស់អ្នក ហើយដាក់វានៅជិតទូរស័ព្ទរបស់អ្នក បន្ទាប់មកចាប់ផ្តើមដំណើរការ។</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (និងកាសស្តាប់ត្រចៀកស្រដៀងគ្នា) ផ្សាយព័ត៌មានស្ថានភាពដោយប្រើបច្ចេកវិទ្យា BLE ដែលហៅថា \"ការផ្សាយពាណិជ្ជកម្ម\"។ ទូរស័ព្ទមួយចំនួនមិនអនុវត្តបច្ចេកវិទ្យានេះបានត្រឹមត្រូវទេ។ CAPod អាចព្យាយាមដោះស្រាយបញ្ហានេះដោយសាកល្បងជម្រើសភាពឆបគ្នាផ្សេងៗរហូតដល់ទទួលបានទិន្នន័យ។ ចាប់ផ្តើមចាក់តន្ត្រីនៅលើកាសស្តាប់ត្រចៀករបស់អ្នក ហើយដាក់វានៅជិតទូរស័ព្ទរបស់អ្នក បន្ទាប់មកចាប់ផ្តើមដំណើរការ។</string>
     <string name="troubleshooter_ble_intro_start_action">ចាប់ផ្តើមដោះស្រាយបញ្ហា</string>
     <string name="troubleshooter_ble_process_title">កំពុងដោះស្រាយបញ្ហា</string>
     <string name="troubleshooter_ble_process_subtile">ជំហាននីមួយៗចំណាយពេល 5-10 វិនាទី</string>
     <string name="troubleshooter_ble_result_success_title">ជោគជ័យ</string>
-    <string name="troubleshooter_ble_result_success_body">ការផ្សាយពាណិជ្ជកម្ម BLE កំពុងត្រូវបានទទួលដោយ CAPod ។</string>
+    <string name="troubleshooter_ble_result_success_body">ការផ្សាយពាណិជ្ជកម្ម BLE កំពុងត្រូវបានទទួលដោយ CAPod។</string>
     <string name="troubleshooter_ble_result_failure_title">មិនជោគជ័យ</string>
     <string name="troubleshooter_ble_result_failure_body">ការដោះស្រាយបញ្ហាមិនបានជោគជ័យ។ គ្មានការរួមបញ្ចូលជម្រើសភាពឆបគ្នាណាមួយជួយបានទេ។</string>
     <string name="troubleshooter_ble_result_failure_phone_body">ទូរស័ព្ទរបស់អ្នកមិនបានទទួលទិន្នន័យ BLE ទាល់តែសោះ។ អ្នកអាចសាកល្បងតេស្តនេះម្តងទៀតនៅក្នុងតំបន់ដែលមានមនុស្សច្រើន ដើម្បីមើលថាតើអាចទទួលប្រភពទិន្នន័យ (ក្រៅពីកាសស្តាប់ត្រចៀករបស់អ្នក) បានដែរឬទេ។ ការមិនទទួលបានទិន្នន័យណាមួយបង្ហាញពីបញ្ហាជាមួយប្រព័ន្ធប្រតិបត្តិការទូរស័ព្ទរបស់អ្នក។</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">ទូរស័ព្ទរបស់អ្នកបានទទួលទិន្នន័យ BLE ប៉ុន្តែទិន្នន័យមិនបានមកពីឧបករណ៍ដែលគាំទ្រណាមួយទេ។ តើកាសស្តាប់ត្រចៀករបស់អ្នកបានបើកទេ? តើ CAPod គាំទ្រកាសស្តាប់ត្រចៀករបស់អ្នកទេ?</string>
     <string name="troubleshooter_ble_result_failure_action">ព្យាយាម​ម្តង​ទៀត</string>
     <string name="troubleshoot_action">ដោះស្រាយបញ្ហា</string>
-    <string name="onboarding_body1">កម្មវិធីនេះបន្ថែមការគាំទ្រសម្រាប់មុខងារជាក់លាក់របស់ AirPod ទៅ Android ។</string>
+
+
+    <string name="onboarding_body1">កម្មវិធីនេះបន្ថែមការគាំទ្រសម្រាប់មុខងារជាក់លាក់របស់ AirPod ទៅ Android។</string>
     <string name="onboarding_body2">មិនមែនឧបករណ៍ Android ទាំងអស់គាំទ្រមុខងារបន្ថែមរបស់ AirPod ពេញលេញនោះទេ។ ប្រព័ន្ធប្រតិបត្តិការរបស់អ្នកត្រូវការការអនុវត្ត Bluetooth-Low-Energy ដែលដំណើរការបានត្រឹមត្រូវ។</string>
     <string name="onboarding_body3">CAPod មិនមានការផ្សាយពាណិជ្ជកម្ម ហើយមិនប្រមូលទិន្នន័យរបស់អ្នកទេ។</string>
     <string name="onboarding_body4">អ្នកអាចដំឡើងកំណែទៅ CAPod Pro ដើម្បីទទួលបានមុខងារបន្ថែម និងគាំទ្រការអភិវឌ្ឍន៍។</string>
+
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">មិនមាន</string>
+    <string name="general_error_label">កំហុស</string>
+    <string name="general_grant_permission_action">ផ្តល់ការអនុញ្ញាត</string>
+    <string name="general_manage_devices_action">គ្រប់គ្រងឧបករណ៍</string>
+
+    <string name="overview_nomaindevice_label">មិនមានឧបករណ៍បានកំណត់រចនាសម្ព័ន្ធ</string>
+    <string name="overview_nomaindevice_description">កំណត់រចនាសម្ព័ន្ធឧបករណ៍របស់អ្នកដើម្បីចាប់ផ្តើមតាមដានកម្រិតថ្ម និងបើកមុខងារបន្ថែម។</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth ត្រូវបានបិទ</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth ត្រូវបានបិទ សូមបើកវា ;)</string>
+    <string name="overview_monitoring_active_label">កំពុងតាមដានឧបករណ៍</string>
+    <string name="overview_monitoring_active_description">សូមប្រាកដថាឧបករណ៍របស់អ្នកនៅជិត និងសកម្ម។</string>
+    <string name="overview_unmatched_devices_label">ឧបករណ៍ដែលមិនត្រូវគ្នា</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">ឧបករណ៍ %d គ្មានទម្រង់ត្រូវគ្នា</item>
+        <item quantity="other">ឧបករណ៍ %d គ្មានទម្រង់ត្រូវគ្នា</item>
+    </plurals>
+
+    <string name="permission_bluetooth_connect_label">ការភ្ជាប់ Bluetooth</string>
+    <string name="permission_bluetooth_connect_description">កម្មវិធីនេះត្រូវការការអនុញ្ញាត \"ការភ្ជាប់ Bluetooth\" ដើម្បីធ្វើអន្តរកម្មជាមួយឧបករណ៍ដែលបានផ្គូផ្គង និងចាប់ផ្តើមការតភ្ជាប់។</string>
+    <string name="permission_bluetooth_scan_label">ការស្កេន Bluetooth</string>
+    <string name="permission_bluetooth_scan_description">ការអនុញ្ញាត \"ការស្កេន Bluetooth\" អនុញ្ញាតឱ្យកម្មវិធីនេះរកឃើញ និងទទួលទិន្នន័យ Bluetooth ពីឧបករណ៍ជិតដូចជា AirPods របស់អ្នក។</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">កម្មវិធីនេះត្រូវការការអនុញ្ញាត \"Bluetooth\" ដើម្បីភ្ជាប់ទៅឧបករណ៍ Bluetooth ដែលបានផ្គូផ្គង។</string>
+    <string name="permission_access_fine_location_label">ទីតាំងច្បាស់លាស់</string>
+    <string name="permission_access_fine_location_description">CAPod ប្រើការអនុញ្ញាត \"ទីតាំងច្បាស់លាស់\" ដើម្បីទទួលទិន្នន័យ Bluetooth Low Energy។ កាសស្តាប់ត្រចៀករបស់អ្នកប្រើបច្ចេកវិទ្យា Bluetooth Low Energy ដើម្បីផ្សាយស្ថានភាពរបស់ពួកគេ។ កម្មវិធីនេះនឹងមិនប្រើទិន្នន័យ Bluetooth ដើម្បីកំណត់ទីតាំងរបស់អ្នកទេ។</string>
+    <string name="permission_background_location_label">ការចូលប្រើទីតាំងផ្ទៃខាងក្រោយ</string>
+    <string name="permission_background_location_description">CAPod ប្រើ \"ការចូលប្រើទីតាំងផ្ទៃខាងក្រោយ\" ដើម្បីបើកមុខងារដូចជា \"បង្ហាញផ្ទាំងលោត\" និង \"ភ្ជាប់ដោយស្វ័យប្រវត្តិ\" ខណៈពេលដែលកម្មវិធីត្រូវបានបិទ។ ការចូលប្រើទីតាំងផ្ទៃខាងក្រោយអនុញ្ញាតឱ្យកម្មវិធីទទួលទិន្នន័យ Bluetooth Low Energy ខណៈពេលដែលវានៅផ្ទៃខាងក្រោយ។ កម្មវិធីនេះនឹងមិនប្រើទិន្នន័យ Bluetooth ដើម្បីកំណត់ទីតាំងរបស់អ្នកទេ។</string>
+    <string name="permission_ignore_battery_optimizations_label">បិទការបង្កើនប្រសិទ្ធភាពថ្ម</string>
+    <string name="permission_ignore_battery_optimizations_description">ការបង្កើនប្រសិទ្ធភាពថ្មរារាំងកម្មវិធីនេះពីការទទួលទិន្នន័យ Bluetooth ដោយជឿជាក់នៅពេលកម្មវិធីស្ថិតក្នុងផ្ទៃខាងក្រោយ។</string>
+    <string name="permission_required_title">ការអនុញ្ញាតខាងក្រោមត្រូវបានទាមទារ:</string>
+    <string name="permission_system_alert_window_label">បង្អួចជូនដំណឹងប្រព័ន្ធ</string>
+    <string name="permission_system_alert_window_description">អនុញ្ញាតឱ្យ CAPod គូរពីលើកម្មវិធីផ្សេងទៀតដើម្បីធ្វើឱ្យមុខងារ \"បង្ហាញផ្ទាំងលោត\" អាចធ្វើទៅបាន។</string>
+
+    <string name="settings_scanner_mode_lowpower_label">ថាមពលទាប</string>
+    <string name="settings_scanner_mode_balanced_label">មានតុល្យភាព</string>
+    <string name="settings_scanner_mode_lowlatency_label">ភាពយឺតយ៉ាវទាប</string>
+
+    <string name="settings_monitor_mode_manual_label">នៅពេលកម្មវិធីបើក</string>
+    <string name="settings_monitor_mode_automatic_label">នៅពេលឧបករណ៍បានភ្ជាប់</string>
+    <string name="settings_monitor_mode_always_label">ជានិច្ច</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">នៅពេលឃើញ</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">ប្រអប់បើក</string>
+    <string name="settings_reaction_autoconnect_inear_label">ក្នុងត្រចៀក</string>
+
+    <string name="pods_dual_left_label">ផតឆ្វេង</string>
+    <string name="pods_dual_right_label">ផតស្តាំ</string>
+    <string name="pods_case_label">ប្រអប់</string>
+    <string name="pods_case_status_open_label">បើក</string>
+    <string name="pods_case_status_closed_label">បិទ</string>
+    <string name="pods_connection_state_disconnected_label">មិនបានភ្ជាប់ទៅឧបករណ៍</string>
+    <string name="pods_connection_state_idle_label">បានភ្ជាប់ទៅឧបករណ៍ ប៉ុន្តែទំនេរ</string>
+    <string name="pods_connection_state_music_label">ក្នុងរបៀបតន្ត្រី</string>
+    <string name="pods_connection_state_call_label">ក្នុងរបៀបហៅទូរស័ព្ទ</string>
+    <string name="pods_connection_state_ringing_label">កំពុងរោទ៍</string>
+    <string name="pods_connection_state_hanging_up_label">កំពុងដាក់ចុះ</string>
+    <string name="pods_connection_state_unknown_label">ស្ថានភាពការតភ្ជាប់មិនស្គាល់</string>
+    <string name="pods_unknown_raw_data_label">ទិន្នន័យឆៅ</string>
+    <string name="pods_unknown_label">ឧបករណ៍មិនស្គាល់</string>
+    <string name="pods_unknown_contact_dev">នេះជាឧបករណ៍មិនស្គាល់ ប៉ុន្តែវាកំពុងប្រើទម្រង់សារស្រដៀងគ្នា។ សូមបន្ថែមការគាំទ្រសម្រាប់វា ទាក់ទងមកខ្ញុំ :)</string>
+    <string name="pods_none_label_short">គ្មានឧបករណ៍</string>
+    <string name="pods_charging_label">កំពុងសាក</string>
+    <string name="pods_inear_label">ក្នុងត្រចៀក</string>
+    <string name="pods_microphone_label">មីក្រូហ្វូន</string>
+    <string name="pods_yours">របស់អ្នក</string>
+    <string name="headset_being_worn_label">កំពុងពាក់</string>
+    <string name="headset_not_being_worn_label">មិនកំពុងពាក់</string>
+    <string name="pods_case_unknown_state">ស្ថានភាពមិនស្គាល់</string>
+
+    <string name="last_seen_x">ឃើញចុងក្រោយ: %s</string>
+    <string name="first_seen_x">ឃើញដំបូង: %s</string>
+    <string name="permission_post_notifications_label">បង្ហាញការជូនដំណឹង</string>
+    <string name="permission_post_notifications_description">"អនុញ្ញាតឱ្យ CAPod បង្ហាញការជូនដំណឹងអំពី AirPods របស់អ្នក ឧ. ស្ថានភាពបច្ចុប្បន្នរបស់ពួកគេខណៈពេលភ្ជាប់។"</string>
+
     <!-- Device profiles -->
+    <string name="profiles_empty_title">មិនមានទម្រង់ឧបករណ៍បានកំណត់រចនាសម្ព័ន្ធ</string>
+    <string name="profiles_empty_description">បង្កើតទម្រង់ឧបករណ៍ដើម្បីគ្រប់គ្រងឧបករណ៍ច្រើនជាមួយការកំណត់ និងអាទិភាពផ្ទាល់ខ្លួន។</string>
+    <string name="profiles_add_action">បន្ថែមទម្រង់</string>
+    <string name="profiles_create_title">បង្កើតទម្រង់</string>
+    <string name="profiles_name_label">ឈ្មោះទម្រង់</string>
+    <string name="profiles_name_default">កាសស្តាប់ត្រចៀករបស់ខ្ញុំ</string>
+    <string name="profiles_model_label">ម៉ូដែលឧបករណ៍</string>
+    <string name="profiles_paired_device_label">ឧបករណ៍ដែលបានផ្គូផ្គង</string>
+    <string name="profiles_paired_device_none">គ្មាន</string>
+    <string name="profiles_paired_device_none_description">មិនមានឧបករណ៍បានជ្រើសរើស</string>
+    <string name="profiles_save_action">រក្សាទុកទម្រង់</string>
+    <string name="profiles_drag_handle_description">អូសដើម្បីរៀបចំឡើងវិញ</string>
+    <string name="profiles_delete_title">លុបទម្រង់</string>
+    <string name="profiles_delete_message">តើអ្នកប្រាកដថាចង់លុបទម្រង់នេះទេ? សកម្មភាពនេះមិនអាចត្រឡប់វិញបានទេ។</string>
+    <string name="profiles_delete_action">លុប</string>
+    <string name="profiles_basic_info_title">ព័ត៌មានឧបករណ៍</string>
+    <string name="profiles_basic_info_description">កំណត់រចនាសម្ព័ន្ធឈ្មោះ ម៉ូដែល និងការផ្គូផ្គង Bluetooth ស្រេចចិត្តរបស់ឧបករណ៍អ្នក។</string>
+    <string name="profiles_signal_quality_title">គុណភាពសញ្ញាអប្បបរមា</string>
+    <string name="profiles_signal_quality_description">រកឃើញតែឧបករណ៍ដែលមានកម្លាំងសញ្ញាលើសពីចំណុចកំណត់នេះ។ តម្លៃទាបបង្កើនចម្ងាយរកឃើញប៉ុន្តែអាចបណ្តាលឱ្យមានការវិជ្ជមានមិនពិត។ កុំកំណត់វាខ្ពស់ពេក — ការទទួល Bluetooth ជាទូទៅខ្សោយ ហើយប្រែប្រួលតាមចម្ងាយ និងឧបសគ្គ។</string>
+    <string name="profiles_identitykey_label">សោអត្តសញ្ញាណ</string>
+    <string name="profilessettings_maindevice_identitykey_description">Identity Resolving Key (IRK) របស់ឧបករណ៍អ្នក ដែលជួយ CAPod កំណត់អត្តសញ្ញាណវានៅក្នុងចំណោមឧបករណ៍ជិត។</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ផ្លាស់ប្តូរអាសយដ្ឋាន Bluetooth របស់ពួកគេជាញឹកញាប់សម្រាប់ភាពឯកជន។ IRK ជួយ CAPod ស្គាល់ឧបករណ៍របស់អ្នក។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តង។</string>
+    <string name="profiles_maindevice_encryptionkey_label">សោអ៊ិនគ្រីប</string>
+    <string name="profiles_maindevice_encryptionkey_description">សោអ៊ិនគ្រីបរបស់ឧបករណ៍អ្នក ដែលអនុញ្ញាតឱ្យ CAPod ទាញយកព័ត៌មានស្ថានភាពលម្អិត។</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods ផ្ញើសារស្ថានភាព ដែលផ្នែកមួយត្រូវបានអ៊ិនគ្រីប។ សោអ៊ិនគ្រីបអនុញ្ញាតឱ្យ CAPod ឌិគ្រីបសារពេញលេញ។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តង។</string>
+    <string name="profiles_key_invalid_format">ទម្រង់សោមិនត្រឹមត្រូវ</string>
+    <string name="profiles_key_expected_format">ទម្រង់រំពឹង: %1$s</string>
+    <string name="profiles_priority_hint">លំដាប់ទម្រង់កំណត់អាទិភាព។ អូសទម្រង់ដើម្បីរៀបចំឡើងវិញ — ទម្រង់ដែលខ្ពស់ជាងក្នុងបញ្ជីមានអាទិភាពនៅពេលឧបករណ៍ច្រើនត្រូវគ្នា។</string>
+
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">ការផ្លាស់ប្តូរមិនបានរក្សាទុក</string>
+    <string name="general_unsaved_changes_message">អ្នកមានការផ្លាស់ប្តូរមិនបានរក្សាទុក។ តើអ្នកចង់ធ្វើអ្វី?</string>
+    <string name="general_save_and_exit_action">រក្សាទុក &amp; ចាកចេញ</string>
+    <string name="general_discard_action">បោះបង់</string>
+    <string name="general_keep_editing_action">បន្តកែសម្រួល</string>
+
 </resources>

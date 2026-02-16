@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">บริการ Google Play ไม่พร้อมใช้งาน</string>
     <string name="upgrades_no_purchases_found_check_account">ไม่พบการสั่งซื้อ คุณใช้บัญชีที่ถูกต้องหรือไม่</string>
+    <string name="upgrades_gplay_billing_error_label">ข้อผิดพลาด Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">เกิดข้อผิดพลาดใน Google Play โปรดลองอีกครั้งในภายหลังหรือรีบูตโทรศัพท์ของคุณ\n\nข้อผิดพลาด: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">ข้อผิดพลาดการเรียกเก็บเงินของ Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">เกิดข้อผิดพลาดขณะขอรายละเอียดการสั่งซื้อของคุณจาก Google Play ล้างแคช Google Play แล้วรีบูตโทรศัพท์ของคุณ\n\nข้อผิดพลาด %s</string>
 </resources>

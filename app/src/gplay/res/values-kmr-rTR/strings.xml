@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Xizmetên Google Play ne berdest in.</string>
     <string name="upgrades_no_purchases_found_check_account">Kirîn nehatin dîtin. Hûn hesabê rast bikar tînin?</string>
+    <string name="upgrades_gplay_billing_error_label">Çewtiya Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Di Google Play de çewtiyek çêbû. Ji kerema xwe paşê dîsa biceribîne an jî têlefona xwe ji nû ve bide destpêkirin.\n\nÇewtî: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Çewtiya Fatûrekirina Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Dema ku ji Google Play agahdariyên kirîna we hat xwestin çewtiyek çêbû. Pêşbîra Google Play paqij bikin û têlefona xwe ji nû ve bide destpêkirin.\n\nÇewtî %s</string>
 </resources>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copier</string>
     <string name="general_thank_you_label">Merci</string>
     <string name="general_upgrade_action">Passer Pro</string>
+    <string name="general_donate_action">Faire un don</string>
     <string name="general_check_action">Vérifier</string>
     <string name="general_close_action">Fermer</string>
     <string name="general_save_action">Enregistrer</string>

@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play സേവനങ്ങൾ ലഭ്യമല്ല.</string>
     <string name="upgrades_no_purchases_found_check_account">വാങ്ങലുകളൊന്നും കണ്ടെത്തിയില്ല. നിങ്ങൾ ശരിയായ അക്കൗണ്ട് ആണോ ഉപയോഗിക്കുന്നത്?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play പിശക്</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-ൽ ഒരു പിശക് സംഭവിച്ചു. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ നിങ്ങളുടെ ഫോൺ റീബൂട്ട് ചെയ്യുക.\n\nപിശക്: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play ബില്ലിംഗ് പിശക്</string>
+    <string name="upgrades_gplay_billing_result_error_description">നിങ്ങളുടെ വാങ്ങൽ വിശദാംശങ്ങൾക്കായി Google Play-യോട് അഭ്യർത്ഥിക്കുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു. Google Play കാഷെ മായ്‌ച്ച് നിങ്ങളുടെ ഫോൺ റീബൂട്ട് ചെയ്യുക.\n\nപിശക് %s</string>
 </resources>

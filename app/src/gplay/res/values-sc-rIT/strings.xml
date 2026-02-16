@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Servìtzios Google Play non sunt disponìbiles.</string>
     <string name="upgrades_no_purchases_found_check_account">Perunu achistu agatadu. Ses usende su contu giustu?</string>
+    <string name="upgrades_gplay_billing_error_label">Errore de Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">B\'at àpidu un errore in Google Play. Proa torra prus a tardu o torra a allùere su telèfonu.\n\nErrore: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Errore de fatturatzione de Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">B\'at àpidu un errore cando si cherent is detàllios de s\'achistu a Google Play. Isbòida sa cache de Google Play e torra a allùere su telèfonu.\n\nErrore %s</string>
 </resources>

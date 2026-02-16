@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">שירותי Google Play אינם זמינים.</string>
     <string name="upgrades_no_purchases_found_check_account">לא נמצאו רכישות. האם אתה משתמש בחשבון הנכון?</string>
+    <string name="upgrades_gplay_billing_error_label">שגיאת Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">אירעה שגיאה ב-Google Play. נסה שוב מאוחר יותר או הפעל מחדש את הטלפון.\n\nשגיאה: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">שגיאת חיוב Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">אירעה שגיאה בעת בקשת פרטי הרכישה מ-Google Play. נקה את המטמון של Google Play והפעל מחדש את הטלפון.\n\nשגיאה %s</string>
 </resources>

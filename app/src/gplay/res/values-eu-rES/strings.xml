@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play zerbitzuak ez daude erabilgarri.</string>
     <string name="upgrades_no_purchases_found_check_account">Ez da erosketarik aurkitu. Kontu egokia erabiltzen ari zara?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play errorea</string>
+    <string name="upgrades_gplay_billing_error_description">Errore bat gertatu da Google Play-n. Mesedez, saiatu berriro geroago edo berrabiarazi telefonoa.\n\nErrorea: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play fakturazio errorea</string>
+    <string name="upgrades_gplay_billing_result_error_description">Errore bat gertatu da Google Play-ri zure erosketa xehetasunak eskatzean. Garbitu Google Play-ren cachea eta berrabiarazi telefonoa.\n\nErrorea %s</string>
 </resources>

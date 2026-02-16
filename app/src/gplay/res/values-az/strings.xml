@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Google Play xidmətləri əlçatmazdır.</string>
     <string name="upgrades_no_purchases_found_check_account">Heç bir satın alma tapılmadı. Doğru hesabı istifadə edirsiniz?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play xətası</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play-də xəta baş verdi. Zəhmət olmasa daha sonra yenidən cəhd edin və ya telefonunuzu yenidən başladın.\n\nXəta: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play faktura xətası</string>
+    <string name="upgrades_gplay_billing_result_error_description">Google Play-dən satınalma təfərrüatlarınızı soruşarkən xəta baş verdi. Google Play keşini təmizləyin və telefonunuzu yenidən başladın.\n\nXəta %s</string>
 </resources>

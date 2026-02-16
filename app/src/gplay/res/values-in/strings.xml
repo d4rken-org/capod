@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Layanan Google Play tidak tersedia.</string>
     <string name="upgrades_no_purchases_found_check_account">Tidak ada pembelian yang ditemukan. Apakah Anda menggunakan akun yang benar?</string>
+    <string name="upgrades_gplay_billing_error_label">Kesalahan Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Terjadi kesalahan di Google Play. Silakan coba lagi nanti atau mulai ulang ponsel Anda.\n\nKesalahan: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Kesalahan Penagihan Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Terjadi kesalahan saat meminta detail pembelian Anda dari Google Play. Hapus cache Google Play dan mulai ulang ponsel Anda.\n\nKesalahan %s</string>
 </resources>

@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">A Google Play szolgáltatások nem érhetők el.</string>
     <string name="upgrades_no_purchases_found_check_account">Nem található vásárlás. A megfelelő fiókot használja?</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play hiba</string>
+    <string name="upgrades_gplay_billing_error_description">Hiba történt a Google Playben. Kérjük, próbálja újra később, vagy indítsa újra a telefonját.\n\nHiba: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Google Play számlázási hiba</string>
+    <string name="upgrades_gplay_billing_result_error_description">Hiba történt a vásárlási adatok lekérésekor a Google Playből. Törölje a Google Play gyorsítótárát, és indítsa újra a telefonját.\n\nHiba %s</string>
 </resources>

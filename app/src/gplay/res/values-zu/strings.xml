@@ -2,4 +2,8 @@
 <resources>
     <string name="upgrades_gplay_unavailable_error">Amasevisi e-Google Play awakutholakali.</string>
     <string name="upgrades_no_purchases_found_check_account">Akukho ukuthenga okutholakele. Ingabe usebenzisa i-akhawunti efanele?</string>
+    <string name="upgrades_gplay_billing_error_label">Iphutha le-Google Play</string>
+    <string name="upgrades_gplay_billing_error_description">Kube nephutha ku-Google Play. Sicela uzame futhi ngemuva kwesikhathi noma uqalise kabusha ifoni yakho.\n\nIphutha: %s</string>
+    <string name="upgrades_gplay_billing_result_error_label">Iphutha Lokukhokha le-Google Play</string>
+    <string name="upgrades_gplay_billing_result_error_description">Kube nephutha lapho kucelwa ku-Google Play imininingwane yokuthenga kwakho. Sula inqolobane ye-Google Play bese uqalisa kabusha ifoni yakho.\n\nIphutha %s</string>
 </resources>
