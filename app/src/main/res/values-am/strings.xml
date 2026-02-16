@@ -99,6 +99,7 @@
     <string name="help_translate_label">ትርጉም</string>
     <string name="help_translate_description">ይህንን መተግበሪያ ወደ እርስዎ ተወዳጅ ቋንቋ ለመተርጎም ያግዙ።</string>
     <string name="translators_thanks_title">ተርጓሚዎች</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">የመጨረሻውን የታወቀ የመሣሪያ ሁኔታ የሚያሳይ መግብር።</string>
     <string name="widget_configuration_title">መሣሪያ ይምረጡ</string>
     <string name="widget_configuration_description">ይህ መግብር የትኛውን የመሣሪያ መገለጫ ማሳየት እንዳለበት ይምረጡ።</string>

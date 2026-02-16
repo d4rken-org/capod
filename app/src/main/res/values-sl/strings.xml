@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">Ohrani obvestilo po prekinitvi povezave</string>
     <string name="settings_keep_notification_after_disconnect_description">Nadaljuj s prikazovanjem zadnjih znanih ravni baterije tudi po prekinitvi povezave z vašimi AirPods</string>
     <string name="settings_eardetection_info_label">Opomba o zaznavi ušesa</string>
+    <string name="settings_eardetection_info_description">Če zaznava ušesa deluje samo za eno slušalko, je to omejitev Apple. Zaznana je samo \"primarna slušalka\" (uporabljena za mikrofon). Konfigurirajte na napravah Apple: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_devices_label">Naprave</string>
     <string name="settings_devices_description">Upravljajte svoje naprave.</string>
     <string name="overview_nomaindevice_label">Nobena naprava ni konfigurirana</string>

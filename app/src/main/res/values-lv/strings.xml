@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
     <string name="settings_keep_notification_after_disconnect_description">Turpināt rādīt pēdējos zināmos baterijas līmeņus arī pēc AirPods atvienošanas</string>
     <string name="settings_eardetection_info_label">Piezīme par auss noteikšanu</string>
+    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_devices_label">Ierīces</string>
     <string name="settings_devices_description">Pārvaldiet savas ierīces.</string>
     <string name="overview_nomaindevice_label">Neviena ierīce nav konfigurēta</string>

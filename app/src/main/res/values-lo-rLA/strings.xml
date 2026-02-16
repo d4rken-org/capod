@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_keep_notification_after_disconnect_description">ສືບຕໍ່ສະແດງລະດັບແບັດເຕີລີ້ທີ່ຮູ້ຈັກຫຼ້າສຸດແມ້ຫຼັງຈາກ AirPods ຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_eardetection_info_label">ໝາຍເຫດການກວດຈັບຫູ</string>
+    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string>
     <string name="settings_devices_label">ອຸປະກອນ</string>
     <string name="settings_devices_description">ຈັດການອຸປະກອນຂອງທ່ານ.</string>
     <string name="overview_nomaindevice_label">ບໍ່ມີອຸປະກອນທີ່ຕັ້ງຄ່າ</string>

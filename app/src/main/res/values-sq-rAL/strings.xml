@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">Mbaj njoftimin pas shkëputjes</string>
     <string name="settings_keep_notification_after_disconnect_description">Vazhdo të shfaqësh nivelet e fundit të njohura të baterisë edhe pasi AirPods tuaja shkëputen</string>
     <string name="settings_eardetection_info_label">Shënim mbi zbulimin e veshit</string>
+    <string name="settings_eardetection_info_description">Nëse zbulimi i veshit funksionon vetëm për një kufje, kjo është një kufizim i Apple. Vetëm \"kufjja kryesore\" (e përdorur për mikrofonin) zbulohet. Konfiguroni në pajisjet Apple: Cilësimet → Bluetooth → AirPods → Mikrofoni.</string>
     <string name="settings_devices_label">Pajisjet</string>
     <string name="settings_devices_description">Menaxhoni pajisjet tuaja.</string>
     <string name="overview_nomaindevice_label">Asnjë pajisje e konfiguruar</string>
