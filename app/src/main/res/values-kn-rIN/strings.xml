@@ -115,6 +115,7 @@
     <string name="help_translate_description">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ನೆಚ್ಚಿನ ಭಾಷೆಗೆ ಅನುವಾದಿಸಲು ಸಹಾಯ ಮಾಡಿ.</string>
 
     <string name="translators_thanks_title">ಅನುವಾದಕರು</string>
+    <string name="translators_thanks_description">darken</string>
 
     <string name="widget_description">ಸಾಧನದ ಕೊನೆಯದಾಗಿ ತಿಳಿದಿರುವ ಸ್ಥಿತಿಯನ್ನು ತೋರಿಸುವ ವಿಜೆಟ್.</string>
     <string name="widget_configuration_title">ಸಾಧನ ಆಯ್ಕೆಮಾಡಿ</string>

@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">Piştî qutbûnê agahdariyê biparêze</string>
     <string name="settings_keep_notification_after_disconnect_description">Piştî ku AirPods-ên te qut dibin jî asta dawîn a naskirî ya bataryayê nîşan bide</string>
     <string name="settings_eardetection_info_label">Nîşeya tespîtkirina guhê</string>
+    <string name="settings_eardetection_info_description">Heke tespîtkirina guhê tenê ji bo yek podê dixebite, ev sînordariya Apple ye. Tenê \"poda sereke\" (ji bo mîkrofonê tê bikaranîn) tê tespîtkirin. Li ser amûrên Apple saz bikin: Mîheng → Bluetooth → AirPods → Mîkrofon.</string>
     <string name="settings_devices_label">Amûr</string>
     <string name="settings_devices_description">Amûrên xwe birêve bibin.</string>
     <string name="overview_nomaindevice_label">Tu amûr nehatiye saz kirin</string>

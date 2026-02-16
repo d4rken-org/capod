@@ -99,6 +99,7 @@
     <string name="help_translate_label">অনুবাদ</string>
     <string name="help_translate_description">এই অ্যাপটি আপনার প্রিয় ভাষায় অনুবাদ করতে সাহায্য করুন।</string>
     <string name="translators_thanks_title">অনুবাদক</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">সর্বশেষ পরিচিত ডিভাইস স্ট্যাটাস দেখানো একটি উইজেট।</string>
     <string name="widget_configuration_title">ডিভাইস নির্বাচন করুন</string>
     <string name="widget_configuration_description">এই উইজেটটি কোন ডিভাইস প্রোফাইল প্রদর্শন করবে তা চয়ন করুন।</string>

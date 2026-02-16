@@ -99,6 +99,7 @@
     <string name="help_translate_label">පරිවර්තනය</string>
     <string name="help_translate_description">මෙම යෙදුම ඔබගේ ප්‍රියතම භාෂාවට පරිවර්තනය කිරීමට උදව් වන්න.</string>
     <string name="translators_thanks_title">පරිවර්තකයින්</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">අවසාන වරට දන්නා උපාංග තත්ත්වය පෙන්වන විජට් එකක්.</string>
     <string name="widget_configuration_title">උපාංගය තෝරන්න</string>
     <string name="widget_configuration_description">මෙම විජට් එක කුමන උපාංග පැතිකඩ පෙන්විය යුතුද යන්න තෝරන්න.</string>

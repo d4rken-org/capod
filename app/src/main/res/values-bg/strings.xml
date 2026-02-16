@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">Запази известието след прекъсване</string>
     <string name="settings_keep_notification_after_disconnect_description">Продължавай да показваш последните известни нива на батерията дори след прекъсване на връзката с AirPods</string>
     <string name="settings_eardetection_info_label">Бележка за разпознаване на ухото</string>
+    <string name="settings_eardetection_info_description">Ако разпознаването на ухото работи само за една слушалка, това е ограничение на Apple. Само \"основната слушалка\" (използвана за микрофон) се разпознава. Конфигурирайте на Apple устройства: Настройки → Bluetooth → AirPods → Микрофон.</string>
     <string name="settings_devices_label">Устройства</string>
     <string name="settings_devices_description">Управлявайте устройствата си.</string>
     <string name="overview_nomaindevice_label">Няма конфигурирано устройство</string>

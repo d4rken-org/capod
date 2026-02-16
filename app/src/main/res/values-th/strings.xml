@@ -115,6 +115,7 @@
     <string name="help_translate_description">ช่วยแปลแอปนี้เป็นภาษาที่คุณชื่นชอบ</string>
 
     <string name="translators_thanks_title">ผู้แปล</string>
+    <string name="translators_thanks_description">darken</string>
 
     <string name="widget_description">วิดเจ็ตที่แสดงสถานะอุปกรณ์ล่าสุดที่ทราบ</string>
     <string name="widget_configuration_title">เลือกอุปกรณ์</string>

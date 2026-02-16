@@ -124,6 +124,7 @@
     <string name="settings_keep_notification_after_disconnect_label">Zadrži obavijest nakon prekida veze</string>
     <string name="settings_keep_notification_after_disconnect_description">Nastavi prikazivati zadnje poznate razine baterije i nakon što se vaši AirPods odspoje</string>
     <string name="settings_eardetection_info_label">Napomena o detekciji uha</string>
+    <string name="settings_eardetection_info_description">Ako detekcija uha radi samo za jednu slušalicu, to je ograničenje Applea. Samo \"primarna slušalica\" (korištena za mikrofon) se detektira. Konfigurirajte na Apple uređajima: Postavke → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_devices_label">Uređaji</string>
     <string name="settings_devices_description">Upravljajte svojim uređajima.</string>
     <string name="overview_nomaindevice_label">Nijedan uređaj nije konfiguriran</string>

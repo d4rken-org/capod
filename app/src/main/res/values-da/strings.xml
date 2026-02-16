@@ -6,11 +6,14 @@
     <string name="general_copy_action">Kopiér</string>
     <string name="general_thank_you_label">Tak</string>
     <string name="general_upgrade_action">Opgrader</string>
+    <string name="general_donate_action">Donér</string>
     <string name="general_check_action">Kontrollér</string>
     <string name="general_close_action">Luk</string>
     <string name="general_save_action">Gem</string>
     <string name="general_guide_action">Vejledning</string>
     <string name="general_continue_action">Fortsæt</string>
+    <string name="general_show_action">Vis</string>
+    <string name="general_hide_action">Skjul</string>
     <string name="general_example_label">F.eks.: %s</string>
     <string name="upgrade_capod_label">Opgrader CAPod</string>
     <string name="upgrade_capod_description">Få yderligere funktioner og støt udvikleren.</string>
@@ -18,12 +21,16 @@
     <string name="settings_monitor_mode_description">Under hvilke omstændigheder denne app overvåger Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra notifikation</string>
     <string name="settings_monitor_connected_notification_description">Viser en ekstra notifikation, når en enhed er tilsluttet. Dette lader dig skjule den permanente \"Ingen enheder\"-notifikation ved at deaktivere \"Enhedsstatus\"-kanalen.</string>
+    <string name="settings_keep_notification_after_disconnect_label">Behold notifikation efter afbrydelse</string>
+    <string name="settings_keep_notification_after_disconnect_description">Fortsæt med at vise de sidst kendte batteriniveauer, selv efter dine AirPods afbrydes</string>
     <string name="settings_scanner_mode_label">Scannertilstand</string>
     <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy-datascanneren prioritere ydeevne eller spare på energien?</string>
     <string name="settings_autopause_label">Auto-pause</string>
     <string name="settings_autopause_description">Sæt lyd på pause, når du fjerner enheden fra dit øre.</string>
     <string name="settings_autopplay_label">Auto-afspilning</string>
     <string name="settings_autoplay_description">Start lydafspilning, når enheden bæres.</string>
+    <string name="settings_eardetection_info_label">Bemærkning om øredetektion</string>
+    <string name="settings_eardetection_info_description">Hvis øredetektion kun virker for én pod, er dette en Apple-begrænsning. Kun den \"primære pod\" (brugt til mikrofon) detekteres. Konfigurer på Apple-enheder: Indstillinger → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_fake_data_label">Falske data</string>
     <string name="settings_fake_data_description">Vis falske data, dvs. simuler enheder, der ikke eksisterer.</string>
     <string name="settings_debug_label">Fejlfindingsindstillinger</string>
@@ -34,6 +41,8 @@
     <string name="settings_autoconnect_description">Hvis Android ikke automatisk tilslutter, kan vi også bede den om det. Dette vil sætte overvågningstilstanden til \'Altid\'.</string>
     <string name="settings_autoconnect_condition_label">Auto-tilslutningsbetingelse</string>
     <string name="settings_autoconnect_condition_description">Hvornår skal vi forsøge at tilslutte til din enhed?</string>
+    <string name="settings_devices_label">Enheder</string>
+    <string name="settings_devices_description">Administrer dine enheder.</string>
     <string name="settings_reaction_label">Reaktioner</string>
     <string name="settings_reaction_description">Reager på begivenheder og adfærd.</string>
     <string name="settings_category_yourdevice_label">Din enhed</string>
@@ -64,9 +73,11 @@
     <string name="settings_debuglog_explanation">Denne funktion optager alt, hvad appen gør, i en delbar fil. Den genererede fil indeholder følsomme oplysninger (f.eks. Bluetooth-enhedsdetaljer). Del den kun med betroede parter (f.eks. en udvikler, der fejlfinder et problem).</string>
     <string name="settings_support_installid_label">Installations-ID</string>
     <string name="settings_support_installid_desc">Automatiske fejlrapporter er anonyme. Del dit installations-ID, hvis udvikleren har brug for at finde dine fejlrapporter.</string>
+    <string name="settings_support_label">Support</string>
     <string name="settings_support_description">Hvis du har brug for hjælp.</string>
     <string name="issue_tracker_label">Problemsporing</string>
     <string name="issue_tracker_description">En offentlig problemsporing for fejlrapporter og funktionsanmodninger (kun engelsk).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted at hænge ud og stille spørgsmål.</string>
     <string name="changelog_label">Ændringslog</string>
     <string name="settings_label">Indstillinger</string>
@@ -88,10 +99,16 @@
     <string name="help_translate_label">Oversættelse</string>
     <string name="help_translate_description">Hjælp med at oversætte denne app til dit yndlingssprog.</string>
     <string name="translators_thanks_title">Oversættere</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">En widget, der viser den sidst kendte enhedsstatus.</string>
+    <string name="widget_configuration_title">Vælg enhed</string>
+    <string name="widget_configuration_description">Vælg hvilken enhedsprofil denne widget skal vise.</string>
+    <string name="common_feature_requires_pro_msg">Denne funktion kræver CAPod Pro.</string>
+    <string name="widget_no_data_label">Ingen data</string>
     <string name="settings_compat_indirectcallback_title">Indirekte datalevering</string>
     <string name="settings_compat_indirectcallback_summary">Brug en alternativ metode til at modtage BLE-data fra systemet (udsendelse i stedet for tilbagekald).</string>
     <string name="troubleshooter_title">Fejlfinder</string>
+    <string name="troubleshooter_summary">Diagnosticer og løs Bluetooth-forbindelsesproblemer.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-udsendelser</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (og lignende hovedtelefoner) udsender statusoplysninger ved hjælp af en BLE-teknologi kaldet \"annoncer\". Nogle telefoner implementerer ikke denne teknologi korrekt. CAPod kan forsøge at løse dette ved at prøve forskellige kompatibilitetsindstillinger, indtil data modtages. Start musikafspilning på dine hovedtelefoner og placer dem tæt på din telefon, start derefter processen.</string>
     <string name="troubleshooter_ble_intro_start_action">Start fejlfinding</string>
@@ -110,6 +127,119 @@
     <string name="onboarding_body3">CAPod har ingen annoncer og indsamler ikke dine data.</string>
     <string name="onboarding_body4">Du kan opgradere til CAPod Pro for at få ekstra funktioner og støtte udviklingen.</string>
     <!-- Strings from app-common -->
+    <string name="app_name">CAPod</string>
+    <string name="app_name_pro">CAPod Pro</string>
+    <string name="app_name_foss">CAPod FOSS</string>
+
+    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_error_label">Fejl</string>
+    <string name="general_grant_permission_action">Giv tilladelse</string>
+    <string name="general_manage_devices_action">Administrer enheder</string>
+
+    <string name="overview_nomaindevice_label">Ingen enhed konfigureret</string>
+    <string name="overview_nomaindevice_description">Konfigurer din enhed for at begynde at overvåge batteriniveauer og aktivere yderligere funktioner.</string>
+    <string name="overview_bluetooth_disabled_label">Bluetooth er deaktiveret</string>
+    <string name="overview_bluetooth_disabled_description">Bluetooth er deaktiveret, aktivér det ;)</string>
+    <string name="overview_monitoring_active_label">Overvåger for enheder</string>
+    <string name="overview_monitoring_active_description">Sørg for, at din enhed er i nærheden og aktiv.</string>
+    <string name="overview_unmatched_devices_label">Uparrede enheder</string>
+    <plurals name="overview_unmatched_devices_count">
+        <item quantity="one">%d enhed uden matchende profil</item>
+        <item quantity="other">%d enheder uden matchende profil</item>
+    </plurals>
+
+    <string name="permission_bluetooth_connect_label">Bluetooth-forbindelse</string>
+    <string name="permission_bluetooth_connect_description">Denne app kræver tilladelsen \"Bluetooth-forbindelse\" for at interagere med parrede enheder og starte forbindelser.</string>
+    <string name="permission_bluetooth_scan_label">Bluetooth-scanning</string>
+    <string name="permission_bluetooth_scan_description">Tilladelsen \"Bluetooth-scanning\" gør det muligt for denne app at opdage og modtage Bluetooth-data fra enheder i nærheden, f.eks. dine AirPods.</string>
+    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_description">Denne app kræver \"Bluetooth\"-tilladelsen for at oprette forbindelse til parrede Bluetooth-enheder.</string>
+    <string name="permission_access_fine_location_label">Adgang til præcis placering</string>
+    <string name="permission_access_fine_location_description">CAPod bruger tilladelsen \"præcis placering\" til at modtage Bluetooth Low Energy-data. Dine hovedtelefoner bruger Bluetooth Low Energy-teknologi til at udsende deres status. Denne app vil IKKE bruge Bluetooth-data til at bestemme din placering.</string>
+    <string name="permission_background_location_label">Baggrundsplaceringsadgang</string>
+    <string name="permission_background_location_description">CAPod bruger \"baggrundsplaceringsadgang\" til at aktivere funktioner som \"Vis pop op\" og \"Auto-tilslut\", mens appen er lukket. Baggrundsplaceringsadgang gør det muligt for appen at modtage Bluetooth Low Energy-data, mens den er i baggrunden. Denne app vil IKKE bruge Bluetooth-data til at bestemme din placering.</string>
+    <string name="permission_ignore_battery_optimizations_label">Deaktiver batterioptimeringer</string>
+    <string name="permission_ignore_battery_optimizations_description">Batterioptimeringer forhindrer denne app i pålideligt at modtage Bluetooth-data, mens appen er i baggrunden.</string>
+    <string name="permission_required_title">Følgende tilladelse er påkrævet:</string>
+    <string name="permission_system_alert_window_label">Systemalarmvindue</string>
+    <string name="permission_system_alert_window_description">Tillad CAPod at tegne over andre apps for at gøre funktionen \"Vis pop op\" mulig.</string>
+
+    <string name="settings_scanner_mode_lowpower_label">Lavt strømforbrug</string>
+    <string name="settings_scanner_mode_balanced_label">Balanceret</string>
+    <string name="settings_scanner_mode_lowlatency_label">Lav latens</string>
+
+    <string name="settings_monitor_mode_manual_label">Når appen er åben</string>
+    <string name="settings_monitor_mode_automatic_label">Når enheden er tilsluttet</string>
+    <string name="settings_monitor_mode_always_label">Altid</string>
+
+    <string name="settings_reaction_autoconnect_whenseen_label">Når den ses</string>
+    <string name="settings_reaction_autoconnect_caseopen_label">Etui er åbent</string>
+    <string name="settings_reaction_autoconnect_inear_label">I øret</string>
+
+    <string name="pods_dual_left_label">Venstre pod</string>
+    <string name="pods_dual_right_label">Højre pod</string>
+    <string name="pods_case_label">Etui</string>
+    <string name="pods_case_status_open_label">Åben</string>
+    <string name="pods_case_status_closed_label">Lukket</string>
+    <string name="pods_connection_state_disconnected_label">Ikke forbundet til en enhed</string>
+    <string name="pods_connection_state_idle_label">Forbundet til en enhed, men inaktiv</string>
+    <string name="pods_connection_state_music_label">I musiktilstand</string>
+    <string name="pods_connection_state_call_label">I opkaldstilstand</string>
+    <string name="pods_connection_state_ringing_label">Ringer</string>
+    <string name="pods_connection_state_hanging_up_label">Lægger på</string>
+    <string name="pods_connection_state_unknown_label">Ukendt forbindelsestilstand</string>
+    <string name="pods_unknown_raw_data_label">Rå data</string>
+    <string name="pods_unknown_label">Ukendt enhed</string>
+    <string name="pods_unknown_contact_dev">Dette er en ukendt enhed, men den bruger et lignende meddelelsesformat. Lad os tilføje understøttelse for den, kontakt mig :)</string>
+    <string name="pods_none_label_short">Ingen enhed</string>
+    <string name="pods_charging_label">Oplader</string>
+    <string name="pods_inear_label">I øret</string>
+    <string name="pods_microphone_label">Mikrofon</string>
+    <string name="pods_yours">Din</string>
+    <string name="headset_being_worn_label">Bæres</string>
+    <string name="headset_not_being_worn_label">Bæres ikke</string>
+    <string name="pods_case_unknown_state">Ukendt tilstand</string>
+
+    <string name="last_seen_x">Sidst set: %s</string>
+    <string name="first_seen_x">Først set: %s</string>
+    <string name="permission_post_notifications_label">Vis notifikationer</string>
+    <string name="permission_post_notifications_description">"Tillad CAPod at vise notifikationer om dine AirPods, f.eks. deres aktuelle status mens de er tilsluttet."</string>
+
     <!-- Device profiles -->
+    <string name="profiles_empty_title">Ingen enhedsprofiler konfigureret</string>
+    <string name="profiles_empty_description">Opret enhedsprofiler for at administrere flere enheder med tilpassede indstillinger og prioriteter.</string>
+    <string name="profiles_add_action">Tilføj profil</string>
+    <string name="profiles_create_title">Opret profil</string>
+    <string name="profiles_name_label">Profilnavn</string>
+    <string name="profiles_name_default">Mine hovedtelefoner</string>
+    <string name="profiles_model_label">Enhedsmodel</string>
+    <string name="profiles_paired_device_label">Parret enhed</string>
+    <string name="profiles_paired_device_none">Ingen</string>
+    <string name="profiles_paired_device_none_description">Ingen enhed valgt</string>
+    <string name="profiles_save_action">Gem profil</string>
+    <string name="profiles_drag_handle_description">Træk for at omarrangere</string>
+    <string name="profiles_delete_title">Slet profil</string>
+    <string name="profiles_delete_message">Er du sikker på, at du vil slette denne profil? Denne handling kan ikke fortrydes.</string>
+    <string name="profiles_delete_action">Slet</string>
+    <string name="profiles_basic_info_title">Enhedsoplysninger</string>
+    <string name="profiles_basic_info_description">Konfigurer dit enhedsnavn, model og valgfri Bluetooth-parring.</string>
+    <string name="profiles_signal_quality_title">Minimum signalkvalitet</string>
+    <string name="profiles_signal_quality_description">Registrer kun enheder med signalstyrke over denne tærskel. Lavere værdier øger registreringsrækkevidden, men kan forårsage falske positive resultater. Sæt den ikke for højt - Bluetooth-modtagelse er generelt dårlig og varierer med afstand og forhindringer.</string>
+    <string name="profiles_identitykey_label">Identitetsnøgle</string>
+    <string name="profilessettings_maindevice_identitykey_description">Din enheds Identity Resolving Key (IRK), som hjælper CAPod med at identificere den blandt enheder i nærheden.</string>
+    <string name="profiles_maindevice_identitykey_explanation">AirPods ændrer ofte deres Bluetooth-adresse af hensyn til privatlivet. IRK hjælper CAPod med at genkende din enhed. Du har brug for engangsadgang til en MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Krypteringsnøgle</string>
+    <string name="profiles_maindevice_encryptionkey_description">Din enheds krypteringsnøgle, som gør det muligt for CAPod at hente detaljerede statusoplysninger.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">AirPods sender en statusmeddelelse, hvoraf en del er krypteret. Krypteringsnøglen gør det muligt for CAPod at dekryptere hele meddelelsen. Du har brug for engangsadgang til en MacBook.</string>
+    <string name="profiles_key_invalid_format">Ugyldigt nøgleformat</string>
+    <string name="profiles_key_expected_format">Forventet format: %1$s</string>
+    <string name="profiles_priority_hint">Profilrækkefølge bestemmer prioritet. Træk profiler for at omarrangere dem - profiler højere på listen har forrang, når flere enheder matcher.</string>
+
     <!-- Unsaved changes dialog -->
+    <string name="general_unsaved_changes_title">Ikke-gemte ændringer</string>
+    <string name="general_unsaved_changes_message">Du har ikke-gemte ændringer. Hvad vil du gøre?</string>
+    <string name="general_save_and_exit_action">Gem &amp; Afslut</string>
+    <string name="general_discard_action">Kassér</string>
+    <string name="general_keep_editing_action">Fortsæt redigering</string>
+
 </resources>
