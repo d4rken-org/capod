@@ -2,17 +2,17 @@ CAPod je spremljevalna aplikacija za AirPods.
 
 Funkcije:
 
-* Nivo baterije za slušalke in ohišja.
-* Status polnjenja za slušalke in ohišje.
-* Dodatne informacije o povezavi, mikrofonu in ohišju.
-* Lahko prejema in prikazuje vse bližnje naprave.
-* Zaznavanje ušesa s samodejnim predvajanjem/pavzo.
-* Samodejno povežite telefon in AirPods.
-* Prikaži pojavno okno, ko se ohišje odpre.
+* Nivo baterije za slušalke in etui.
+* Stanje polnjenja za slušalke in etui.
+* Dodatne informacije o povezavi, mikrofonu in etuiju.
+* Lahko prejme in prikaže vse naprave v bližini.
+* Zaznavanje ušes s samodejnim predvajanjem/premorom.
+* Samodejna povezava naprave in AirPods.
+* Prikaz pojavnega okna ob odprtju etuija.
 
 CAPod je brez oglasov. Nekatere funkcije zahtevajo nakup v aplikaciji.
 
 Podprte so najbolj priljubljene naprave AirPods in Beats.
-Če je vaša naprava podobna AirPods, vendar še ni podprta, mi pošljite kratko e-pošto.
+Če je vaša naprava podobna AirPods, a še ni podprta, mi pošljite kratko sporočilo.
 
-Imate odlično idejo za novo funkcijo? Pišite nam!
+Imate dobro idejo za novo funkcijo? Stopite v stik!

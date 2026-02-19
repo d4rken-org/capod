@@ -1,18 +1,18 @@
-CAPod is a companion app for AirPods.
+Ang CAPod ay isang companion app para sa AirPods.
 
-Features:
+Mga tampok:
 
-* Battery level for pods and cases.
-* Charging status for pods and case.
-* Additional infos about connection, microphone and case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
-* Show popup when case is opened.
+* Antas ng baterya para sa mga pods at case.
+* Katayuan ng pag-charge para sa mga pod at case.
+* Karagdagang impormasyon tungkol sa koneksyon, mikropono at case.
+* Maaaring tumanggap at magpakita ng lahat ng mga kalapit na device.
+* Pagtuklas ng tainga na may awtomatikong play/pause.
+* Awtomatikong ikonekta ang device at AirPods.
+* Magpakita ng popup kapag binuksan ang case.
 
-CAPod is ad-free. Some features require an in-app purchase.
+Ang CAPod ay walang advertisement. Ang ilang mga tampok ay nangangailangan ng in-app na pagbili.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a short mail.
+Sinusuportahan ang karamihan sa mga sikat na AirPods at Beats na device.
+Kung ang iyong device ay katulad ng AirPods ngunit hindi pa sinusuportahan, magpadala sa akin ng maikling mail.
 
-Got a cool idea for a new feature? Reach out!
+May magandang ideya para sa bagong tampok? Makipag-ugnayan!

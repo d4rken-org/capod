@@ -1,18 +1,18 @@
-CAPod - AirPods uchun hamroh ilova.
+CAPod — AirPods uchun hamroh ilovasi.
 
-Xususiyatlari:
+Imkoniyatlar:
 
-* Podlar va qutilar uchun batareya darajasi.
-* Podlar va quti uchun zaryadlash holati.
-* Ulanish, mikrofon va quti haqida qo'shimcha ma'lumotlar.
-* Yaqindagi barcha qurilmalarni qabul qilishi va ko'rsatishi mumkin.
-* Avtomatik ijro/pauza bilan quloqni aniqlash.
-* Telefon va AirPod'larni avtomatik ravishda ulang.
-* Quti ochilganda popup ko'rsatish.
+* Pod va korpu uchun batareya darajasi.
+* Pod va korpu uchun quvvat olish holati.
+* Ulanish, mikrofon va korpu haqida qoʻshimcha maʻlumotlar.
+* Barcha yaqin qurilmalarni qabul qilish va koʻrsatish mumkin.
+* Quloq aniqlash avtomatik ijro/pauza bilan.
+* Qurilma va AirPodsni avtomatik ravishda ulang.
+* Korpu ochilganda pop-ap koʻrsatish.
 
-CAPod reklamalarsiz. Ba'zi xususiyatlar ilova ichidagi xaridni talab qiladi.
+CAPod reklamasiz. Baʻzi imkoniyatlar ilovada xarid qilishni talab qiladi.
 
-Eng mashhur AirPods va Beats qurilmalari qo'llab-quvvatlanadi.
-Agar sizning qurilmangiz AirPods'ga o'xshash bo'lsa, lekin hali qo'llab-quvvatlanmagan bo'lsa, menga qisqa xabar yuboring.
+Koʻpchilik mashhur AirPods va Beats qurilmalari qoʻllab-quvvatlanadi.
+Agar sizning qurilma AirPods ga oʻxshash lekin hali qoʻllab-quvvatlanmasa, menga qisqa xat yuboring.
 
-Yangi funksiya uchun ajoyib g'oyangiz bormi? Bog'laning!
+Yangi xususiyat uchun qiziqarli fikringiz bormi? Bogʻlanish!

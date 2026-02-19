@@ -1,1 +1,1 @@
-CAPod – бул Android'деги AirPods үчүн шериктеш колдонмо.
+CAPod - Android үчүн AirPods жалпы программасы.
