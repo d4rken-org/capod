@@ -122,6 +122,20 @@
     <string name="common_feature_requires_pro_msg">This feature requires CAPod Pro.</string>
 
     <string name="widget_no_data_label">No data</string>
+    <string name="widget_config_appearance_label">Appearance</string>
+    <string name="widget_config_preset_label">Presets</string>
+    <string name="widget_config_background_color_label">Background color</string>
+    <string name="widget_config_foreground_color_label">Text &amp; icon color</string>
+    <string name="widget_config_transparency_label">Background transparency</string>
+    <string name="widget_config_show_device_label">Show device name</string>
+    <string name="widget_config_reset_label">Reset to defaults</string>
+    <string name="widget_config_custom_label">Custom</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">Dark</string>
+    <string name="widget_config_preset_light">Light</string>
+    <string name="widget_config_preset_blue">Blue</string>
+    <string name="widget_config_preset_green">Green</string>
+    <string name="widget_config_preset_red">Red</string>
     <string name="settings_compat_indirectcallback_title">Indirect data delivery</string>
     <string name="settings_compat_indirectcallback_summary">Use an alternative method to receive BLE data from the system (broadcast instead of callback).</string>
 
