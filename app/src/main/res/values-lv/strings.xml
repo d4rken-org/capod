@@ -11,6 +11,8 @@
     <string name="general_save_action">Saglabāt</string>
     <string name="general_guide_action">Ceļvedis</string>
     <string name="general_continue_action">Turpināt</string>
+    <string name="general_show_action">Rādīt</string>
+    <string name="general_hide_action">Paslēpt</string>
     <string name="general_example_label">Piem.: %s</string>
     <string name="upgrade_capod_label">Jaunināt CAPod</string>
     <string name="upgrade_capod_description">Iegūstiet papildu funkcijas un atbalstiet izstrādātāju.</string>
@@ -18,12 +20,16 @@
     <string name="settings_monitor_mode_description">Kādos apstākļos šī lietotne monitorē Bluetooth datus.</string>
     <string name="settings_monitor_connected_notification_label">Papildu paziņojums</string>
     <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \"Nav ierīču\", atspējojot kanālu \"Ierīces statuss\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
+    <string name="settings_keep_notification_after_disconnect_description">Turpināt rādīt pēdējos zināmos baterijas līmeņus arī pēc AirPods atvienošanas</string>
     <string name="settings_scanner_mode_label">Skenēšanas režīms</string>
     <string name="settings_scanner_mode_description">Vai Bluetooth Low Energy datu skenerim vajadzētu prioritizēt veiktspēju vai taupīt enerģiju?</string>
     <string name="settings_autopause_label">Automātiska pauze</string>
     <string name="settings_autopause_description">Pauzēt audio, noņemot ierīci no auss.</string>
     <string name="settings_autopplay_label">Automātiska atskaņošana</string>
     <string name="settings_autoplay_description">Sākt audio atskaņošanu, kad ierīce tiek nēsāta.</string>
+    <string name="settings_eardetection_info_label">Piezīme par auss noteikšanu</string>
+    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_fake_data_label">Viltus dati</string>
     <string name="settings_fake_data_description">Rādīt viltus datus, t.i., simulēt neesošas ierīces.</string>
     <string name="settings_debug_label">Atkļūdošanas iestatījumi</string>
@@ -34,6 +40,8 @@
     <string name="settings_autoconnect_description">Ja Android automātiski nesavienojas, mēs arī varam to pieprasīt. Tas iestatīs monitorēšanas režīma iestatījumu uz \"Vienmēr\".</string>
     <string name="settings_autoconnect_condition_label">Automātiskas savienošanas nosacījums</string>
     <string name="settings_autoconnect_condition_description">Kad mums vajadzētu mēģināt izveidot savienojumu ar jūsu ierīci?</string>
+    <string name="settings_devices_label">Ierīces</string>
+    <string name="settings_devices_description">Pārvaldiet savas ierīces.</string>
     <string name="settings_reaction_label">Reakcijas</string>
     <string name="settings_reaction_description">Reaģēt uz notikumiem un uzvedību.</string>
     <string name="settings_category_yourdevice_label">Jūsu ierīce</string>
@@ -68,6 +76,7 @@
     <string name="settings_support_description">Ja jums nepieciešama palīdzība.</string>
     <string name="issue_tracker_label">Problēmu izsekotājs</string>
     <string name="issue_tracker_description">Publisks problēmu izsekotājs kļūdu ziņojumiem un funkciju pieprasījumiem (tikai angļu valodā).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Vieta, kur pavadīt laiku un uzdot jautājumus.</string>
     <string name="changelog_label">Izmaiņu žurnāls</string>
     <string name="settings_label">Iestatījumi</string>
@@ -89,10 +98,16 @@
     <string name="help_translate_label">Tulkošana</string>
     <string name="help_translate_description">Palīdziet tulkot šo lietotni savā iecienītajā valodā.</string>
     <string name="translators_thanks_title">Tulkotāji</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Logrīks, kas rāda pēdējo zināmo ierīces statusu.</string>
+    <string name="widget_configuration_title">Izvēlieties ierīci</string>
+    <string name="widget_configuration_description">Izvēlieties, kuru ierīces profilu šim logrīkam vajadzētu rādīt.</string>
+    <string name="common_feature_requires_pro_msg">Šī funkcija prasa CAPod Pro.</string>
+    <string name="widget_no_data_label">Nav datu</string>
     <string name="settings_compat_indirectcallback_title">Netieša datu piegāde</string>
     <string name="settings_compat_indirectcallback_summary">Izmantojiet alternatīvu metodi, lai saņemtu BLE datus no sistēmas (pārraide, nevis atzvanīšana).</string>
     <string name="troubleshooter_title">Problēmu risinātājs</string>
+    <string name="troubleshooter_summary">Diagnosticējiet un novērsiet Bluetooth savienojamības problēmas.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy pārraides</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (un līdzīgas austiņas) pārraida statusa informāciju, izmantojot BLE tehnoloģiju, ko sauc par \"reklāmām\". Daži tālruņi šo tehnoloģiju neīsteno pareizi. CAPod var mēģināt to labot, izmēģinot dažādas saderības opcijas, līdz tiek saņemti dati. Sāciet mūzikas atskaņošanu austiņās un novietojiet tās tuvu tālrunim, pēc tam sāciet procesu.</string>
     <string name="troubleshooter_ble_intro_start_action">Sākt problēmu risināšanu</string>
@@ -118,15 +133,6 @@
     <string name="general_error_label">Kļūda</string>
     <string name="general_grant_permission_action">Piešķirt atļauju</string>
     <string name="general_manage_devices_action">Pārvaldīt ierīces</string>
-    <string name="general_donate_action">Ziedot</string>
-    <string name="general_show_action">Rādīt</string>
-    <string name="general_hide_action">Paslēpt</string>
-    <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
-    <string name="settings_keep_notification_after_disconnect_description">Turpināt rādīt pēdējos zināmos baterijas līmeņus arī pēc AirPods atvienošanas</string>
-    <string name="settings_eardetection_info_label">Piezīme par auss noteikšanu</string>
-    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_devices_label">Ierīces</string>
-    <string name="settings_devices_description">Pārvaldiet savas ierīces.</string>
     <string name="overview_nomaindevice_label">Neviena ierīce nav konfigurēta</string>
     <string name="overview_nomaindevice_description">Konfigurējiet savu ierīci, lai sāktu uzraudzīt baterijas līmeņus un iespējotu papildu funkcijas.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ir atspējots</string>
@@ -135,7 +141,8 @@
     <string name="overview_monitoring_active_description">Pārliecinieties, ka jūsu ierīce ir tuvumā un aktīva.</string>
     <string name="overview_unmatched_devices_label">Neatbilstošas ierīces</string>
     <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d ierīce bez atbilstoša profila</item>
+        <item quantity="zero">%d ierīce bez atbilstoša profila</item>
+        <item quantity="one">%d ierīces bez atbilstoša profila</item>
         <item quantity="other">%d ierīces bez atbilstoša profila</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth savienojums</string>
@@ -151,7 +158,7 @@
     <string name="permission_ignore_battery_optimizations_label">Atspējot baterijas optimizācijas</string>
     <string name="permission_ignore_battery_optimizations_description">Baterijas optimizācijas neļauj šai lietotnei droši saņemt Bluetooth datus, kamēr lietotne ir fonā.</string>
     <string name="permission_required_title">Nepieciešama šāda atļauja:</string>
-    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_label">Sistēmas brīdinājuma logs</string>
     <string name="permission_system_alert_window_description">Atļaujiet CAPod zīmēt virs citām lietotnēm, lai iespējotu funkciju \"Rādīt uznirstošo logu\".</string>
     <string name="settings_scanner_mode_lowpower_label">Zema jauda</string>
     <string name="settings_scanner_mode_balanced_label">Līdzsvarots</string>
@@ -189,13 +196,6 @@
     <string name="first_seen_x">Pirmo reizi redzēta: %s</string>
     <string name="permission_post_notifications_label">Rādīt paziņojumus</string>
     <string name="permission_post_notifications_description">"Atļaujiet CAPod rādīt paziņojumus par jūsu AirPods, piem., to pašreizējo statusu, kamēr tie ir savienoti."</string>
-    <string name="discord_label">Discord</string>
-    <string name="translators_thanks_description">darken</string>
-    <string name="widget_configuration_title">Izvēlieties ierīci</string>
-    <string name="widget_configuration_description">Izvēlieties, kuru ierīces profilu šim logrīkam vajadzētu rādīt.</string>
-    <string name="common_feature_requires_pro_msg">Šī funkcija prasa CAPod Pro.</string>
-    <string name="widget_no_data_label">Nav datu</string>
-    <string name="troubleshooter_summary">Diagnosticējiet un novērsiet Bluetooth savienojamības problēmas.</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Nav konfigurēti ierīču profili</string>
     <string name="profiles_empty_description">Izveidojiet ierīču profilus, lai pārvaldītu vairākas ierīces ar pielāgotiem iestatījumiem un prioritātēm.</string>
@@ -216,10 +216,10 @@
     <string name="profiles_basic_info_description">Konfigurējiet ierīces nosaukumu, modeli un neobligāto Bluetooth sapārošanu.</string>
     <string name="profiles_signal_quality_title">Minimālā signāla kvalitāte</string>
     <string name="profiles_signal_quality_description">Noteikt tikai ierīces ar signāla stiprumu virs šī sliekšņa. Zemākas vērtības palielina noteikšanas diapazonu, bet var izraisīt viltus pozitīvus rezultātus. Neiestatiet pārāk augstu - Bluetooth uztveršana parasti ir vāja un mainās atkarībā no attāluma un šķēršļiem.</string>
-    <string name="profiles_identitykey_label">Identity Key</string>
+    <string name="profiles_identitykey_label">Identitātes atslēga</string>
     <string name="profilessettings_maindevice_identitykey_description">Jūsu ierīces Identity Resolving Key (IRK), kas palīdz CAPod to identificēt starp tuvumā esošām ierīcēm.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods bieži maina savu Bluetooth adresi konfidencialitātes nolūkos. IRK palīdz CAPod atpazīt jūsu ierīci. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Encryption Key</string>
+    <string name="profiles_maindevice_encryptionkey_label">Šifrēšanas atslēga</string>
     <string name="profiles_maindevice_encryptionkey_description">Jūsu ierīces šifrēšanas atslēga, kas ļauj CAPod iegūt detalizētu statusa informāciju.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods sūta statusa ziņojumu, kura daļa ir šifrēta. Šifrēšanas atslēga ļauj CAPod atšifrēt pilnu ziņojumu. Jums ir nepieciešama vienreizēja piekļuve MacBook.</string>
     <string name="profiles_key_invalid_format">Nederīgs atslēgas formāts</string>

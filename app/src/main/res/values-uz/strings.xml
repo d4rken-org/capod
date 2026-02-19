@@ -6,7 +6,6 @@
     <string name="general_copy_action">Nusxalash</string>
     <string name="general_thank_you_label">Rahmat</string>
     <string name="general_upgrade_action">Yangilash</string>
-    <string name="general_donate_action">Xayriya qilish</string>
     <string name="general_check_action">Tekshirish</string>
     <string name="general_close_action">Yopish</string>
     <string name="general_save_action">Saqlash</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">Oxirgi ko\'rilgan: %s</string>
     <string name="first_seen_x">Birinchi ko\'rilgan: %s</string>
     <string name="permission_post_notifications_label">Bildirishnomalarni ko\'rsatish</string>
-    <string name="permission_post_notifications_description">CAPod\'ga AirPods haqida bildirishnomalarni ko\'rsatish ruxsatini bering, masalan, ulangan paytdagi joriy holati.</string>
+    <string name="permission_post_notifications_description">"CAPod'ga AirPods haqida bildirishnomalarni ko'rsatish ruxsatini bering, masalan, ulangan paytdagi joriy holati."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Qurilma profillari sozlanmagan</string>
     <string name="profiles_empty_description">Maxsus sozlamalar va ustuvorliklar bilan bir nechta qurilmani boshqarish uchun qurilma profillari yarating.</string>

@@ -11,6 +11,8 @@
     <string name="general_save_action">సేవ్ చేయి</string>
     <string name="general_guide_action">మార్గదర్శి</string>
     <string name="general_continue_action">కొనసాగించు</string>
+    <string name="general_show_action">చూపించు</string>
+    <string name="general_hide_action">దాచు</string>
     <string name="general_example_label">ఉదా.: %s</string>
     <string name="upgrade_capod_label">CAPod నవీకరించు</string>
     <string name="upgrade_capod_description">అదనపు ఫీచర్లను పొందండి మరియు డెవలపర్‌కు మద్దతు ఇవ్వండి.</string>
@@ -18,12 +20,16 @@
     <string name="settings_monitor_mode_description">ఈ యాప్ ఏ పరిస్థితులలో బ్లూటూత్ డేటాను పర్యవేక్షిస్తుంది.</string>
     <string name="settings_monitor_connected_notification_label">అదనపు నోటిఫికేషన్</string>
     <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \"పరికర స్థితి\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \"పరికరం లేదు\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
+    <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
+    <string name="settings_keep_notification_after_disconnect_description">మీ AirPods డిస్‌కనెక్ట్ అయిన తర్వాత కూడా చివరిగా తెలిసిన బ్యాటరీ స్థాయిలను చూపించడం కొనసాగించు</string>
     <string name="settings_scanner_mode_label">స్కానర్ మోడ్</string>
     <string name="settings_scanner_mode_description">బ్లూటూత్ తక్కువ శక్తి డేటా స్కానర్ పనితీరుకు ప్రాధాన్యత ఇవ్వాలా లేదా శక్తిని ఆదా చేయాలా?</string>
     <string name="settings_autopause_label">ఆటో పాజ్</string>
     <string name="settings_autopause_description">మీ చెవి నుండి పరికరాన్ని తీసివేసినప్పుడు ఆడియోను పాజ్ చేయండి.</string>
     <string name="settings_autopplay_label">ఆటో ప్లే</string>
     <string name="settings_autoplay_description">పరికరం ధరించినప్పుడు ఆడియో ప్లేబ్యాక్ ప్రారంభించండి.</string>
+    <string name="settings_eardetection_info_label">చెవి గుర్తింపు గమనిక</string>
+    <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string>
     <string name="settings_fake_data_label">నకిలీ డేటా</string>
     <string name="settings_fake_data_description">నకిలీ డేటాను చూపించు, అనగా, ఉనికిలో లేని పరికరాలను అనుకరించండి.</string>
     <string name="settings_debug_label">డీబగ్ సెట్టింగ్‌లు</string>
@@ -34,6 +40,8 @@
     <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మేము కూడా అడగవచ్చు. ఇది మానిటర్ మోడ్ సెట్టింగ్‌ను \'ఎల్లప్పుడూ\'కి సెట్ చేస్తుంది.</string>
     <string name="settings_autoconnect_condition_label">ఆటో కనెక్ట్ షరతు</string>
     <string name="settings_autoconnect_condition_description">మేము మీ పరికరానికి ఎప్పుడు కనెక్ట్ చేయడానికి ప్రయత్నించాలి?</string>
+    <string name="settings_devices_label">పరికరాలు</string>
+    <string name="settings_devices_description">మీ పరికరాలను నిర్వహించండి.</string>
     <string name="settings_reaction_label">ప్రతిచర్యలు</string>
     <string name="settings_reaction_description">ఈవెంట్‌లు మరియు ప్రవర్తనలకు ప్రతిస్పందించండి.</string>
     <string name="settings_category_yourdevice_label">మీ పరికరం</string>
@@ -92,9 +100,14 @@
     <string name="translators_thanks_title">అనువాదకులు</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">చివరిగా తెలిసిన పరికర స్థితిని చూపే విడ్జెట్.</string>
+    <string name="widget_configuration_title">పరికరాన్ని ఎంచుకోండి</string>
+    <string name="widget_configuration_description">ఈ విడ్జెట్ ఏ పరికర ప్రొఫైల్‌ను ప్రదర్శించాలో ఎంచుకోండి.</string>
+    <string name="common_feature_requires_pro_msg">ఈ ఫీచర్‌కు CAPod Pro అవసరం.</string>
+    <string name="widget_no_data_label">డేటా లేదు</string>
     <string name="settings_compat_indirectcallback_title">పరోక్ష డేటా డెలివరీ</string>
     <string name="settings_compat_indirectcallback_summary">సిస్టమ్ నుండి BLE డేటాను స్వీకరించడానికి ప్రత్యామ్నాయ పద్ధతిని ఉపయోగించండి (కాల్‌బ్యాక్‌కు బదులుగా ప్రసారం).</string>
     <string name="troubleshooter_title">ట్రబుల్షూటర్</string>
+    <string name="troubleshooter_summary">బ్లూటూత్ కనెక్టివిటీ సమస్యలను నిర్ధారించి పరిష్కరించండి.</string>
     <string name="troubleshooter_ble_intro_title">బ్లూటూత్ తక్కువ శక్తి ప్రసారాలు</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (మరియు ఇలాంటి హెడ్‌ఫోన్‌లు) \"ప్రకటనలు\" అని పిలువబడే BLE సాంకేతికతను ఉపయోగించి స్థితి సమాచారాన్ని ప్రసారం చేస్తాయి. కొన్ని ఫోన్‌లు ఈ సాంకేతికతను సరిగ్గా అమలు చేయవు. డేటా స్వీకరించబడే వరకు వివిధ అనుకూలత ఎంపికలను ప్రయత్నించడం ద్వారా CAPod దీన్ని పరిష్కరించడానికి ప్రయత్నించవచ్చు. మీ హెడ్‌ఫోన్‌లలో సంగీత ప్లేబ్యాక్‌ను ప్రారంభించి, వాటిని మీ ఫోన్‌కు దగ్గరగా ఉంచి, ఆపై ప్రక్రియను ప్రారంభించండి.</string>
     <string name="troubleshooter_ble_intro_start_action">ట్రబుల్షూటింగ్ ప్రారంభించు</string>
@@ -112,21 +125,6 @@
     <string name="onboarding_body2">అన్ని Android పరికరాలు AirPod అదనపు ఫీచర్‌లకు పూర్తిగా మద్దతు ఇవ్వవు. మీ ఆపరేటింగ్ సిస్టమ్‌కు సరిగ్గా పనిచేసే బ్లూటూత్-తక్కువ-శక్తి అమలు అవసరం.</string>
     <string name="onboarding_body3">CAPodలో ప్రకటనలు లేవు మరియు మీ డేటాను సేకరించదు.</string>
     <string name="onboarding_body4">అదనపు ఫీచర్లను పొందడానికి మరియు అభివృద్ధికి మద్దతు ఇవ్వడానికి మీరు CAPod Proకి అప్‌గ్రేడ్ చేయవచ్చు.</string>
-    <string name="general_donate_action">విరాళం ఇవ్వు</string>
-    <string name="general_show_action">చూపించు</string>
-    <string name="general_hide_action">దాచు</string>
-    <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
-    <string name="settings_keep_notification_after_disconnect_description">మీ AirPods డిస్‌కనెక్ట్ అయిన తర్వాత కూడా చివరిగా తెలిసిన బ్యాటరీ స్థాయిలను చూపించడం కొనసాగించు</string>
-    <string name="settings_eardetection_info_label">చెవి గుర్తింపు గమనిక</string>
-    <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string>
-    <string name="settings_devices_label">పరికరాలు</string>
-    <string name="settings_devices_description">మీ పరికరాలను నిర్వహించండి.</string>
-    <string name="troubleshooter_summary">బ్లూటూత్ కనెక్టివిటీ సమస్యలను నిర్ధారించి పరిష్కరించండి.</string>
-    <string name="widget_configuration_title">పరికరాన్ని ఎంచుకోండి</string>
-    <string name="widget_configuration_description">ఈ విడ్జెట్ ఏ పరికర ప్రొఫైల్‌ను ప్రదర్శించాలో ఎంచుకోండి.</string>
-    <string name="common_feature_requires_pro_msg">ఈ ఫీచర్‌కు CAPod Pro అవసరం.</string>
-    <string name="widget_no_data_label">డేటా లేదు</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
@@ -196,8 +194,7 @@
     <string name="last_seen_x">చివరిగా చూడబడింది: %s</string>
     <string name="first_seen_x">మొదటిసారి చూడబడింది: %s</string>
     <string name="permission_post_notifications_label">నోటిఫికేషన్‌లు చూపించు</string>
-    <string name="permission_post_notifications_description">మీ AirPods గురించి నోటిఫికేషన్‌లు చూపించడానికి CAPodను అనుమతించండి, ఉదా. కనెక్ట్ అయినప్పుడు వాటి ప్రస్తుత స్థితి.</string>
-
+    <string name="permission_post_notifications_description">"మీ AirPods గురించి నోటిఫికేషన్‌లు చూపించడానికి CAPodను అనుమతించండి, ఉదా. కనెక్ట్ అయినప్పుడు వాటి ప్రస్తుత స్థితి."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">పరికర ప్రొఫైల్‌లు కాన్ఫిగర్ చేయబడలేదు</string>
     <string name="profiles_empty_description">అనుకూల సెట్టింగ్‌లు మరియు ప్రాధాన్యతలతో బహుళ పరికరాలను నిర్వహించడానికి పరికర ప్రొఫైల్‌లను సృష్టించండి.</string>
@@ -227,7 +224,6 @@
     <string name="profiles_key_invalid_format">చెల్లని కీ ఫార్మాట్</string>
     <string name="profiles_key_expected_format">ఆశించిన ఫార్మాట్: %1$s</string>
     <string name="profiles_priority_hint">ప్రొఫైల్ క్రమం ప్రాధాన్యతను నిర్ణయిస్తుంది. ప్రొఫైల్‌లను పునఃక్రమం చేయడానికి లాగండి — జాబితాలో ఎక్కువగా ఉన్న ప్రొఫైల్‌లు బహుళ పరికరాలు సరిపోలినప్పుడు ప్రాధాన్యత పొందుతాయి.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">సేవ్ చేయని మార్పులు</string>
     <string name="general_unsaved_changes_message">మీకు సేవ్ చేయని మార్పులు ఉన్నాయి. మీరు ఏమి చేయాలనుకుంటున్నారు?</string>

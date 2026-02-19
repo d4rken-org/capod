@@ -6,7 +6,6 @@
     <string name="general_copy_action">Хуулах</string>
     <string name="general_thank_you_label">Баярлалаа</string>
     <string name="general_upgrade_action">Шинэчлэх</string>
-    <string name="general_donate_action">Хандивлах</string>
     <string name="general_check_action">Шалгах</string>
     <string name="general_close_action">Хаах</string>
     <string name="general_save_action">Хадгалах</string>
@@ -14,12 +13,9 @@
     <string name="general_continue_action">Үргэлжлүүлэх</string>
     <string name="general_show_action">Харуулах</string>
     <string name="general_hide_action">Нуух</string>
-
     <string name="general_example_label">Жишээ нь: %s</string>
-
     <string name="upgrade_capod_label">CAPod-г шинэчлэх</string>
     <string name="upgrade_capod_description">Нэмэлт боломжуудыг авч, хөгжүүлэгчийг дэмжинэ үү.</string>
-
     <string name="settings_monitor_mode_label">Хяналтын горим</string>
     <string name="settings_monitor_mode_description">Энэ апп Bluetooth-н өгөгдлийг ямар нөхцөлд хянадаг.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
@@ -49,24 +45,20 @@
     <string name="settings_reaction_label">Урвалууд</string>
     <string name="settings_reaction_description">Үйл явдал, зан үйлд хариу үйлдэл үзүүлнэ.</string>
     <string name="settings_category_yourdevice_label">Таны төхөөрөмж</string>
-
     <string name="settings_category_compatibility_options_title">Тохиромжтой байдлын сонголтууд</string>
     <string name="settings_category_compatibility_options_description">Хэрэв бүх зүйл ажиллаж байвал бүү хүр ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Техник хангамжийн шүүлтүүрийг идэвхгүй болгох</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Өгөгдлийн шүүлтүүрийг системд даатгахгүй, харин бүх өгөгдлийг авч, апп дотор шүүнэ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Техник хангамжийн багцлалтыг идэвхгүй болгох</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Системд цуглуулсан BLE өгөгдлийг бидэнд дамжуулахаас өмнө бүлэглэхийг бүү зөвшөөр.</string>
-
     <string name="settings_onepod_mode_label">Нэг чихэвчний горим</string>
     <string name="settings_onepod_mode_description">Хоёр чихэвчийг хоёуланг нь зүүх шаардлагагүй, урвалыг өдөөхийн тулд ганц чихэвч зүүхэд л хангалттай.</string>
     <string name="settings_popup_caseopen_label">Кейсний попап цонхыг харуулах</string>
     <string name="settings_popup_caseopen_description">Төхөөрөмжийн кейс нээгдэхэд попап цонхыг харуулна (туршилтын).</string>
     <string name="settings_popup_connected_label">Холболтын попап цонхыг харуулах</string>
     <string name="settings_popup_connected_description">Төхөөрөмж анх удаа холбогдоход попап цонхыг харуулна.</string>
-
     <string name="notification_channel_device_status_label">Төхөөрөмжийн төлөв</string>
     <string name="notification_channel_device_status_connected_label">Холбогдсон төхөөрөмж</string>
-
     <string name="support_debuglog_label">Дибаг лог</string>
     <string name="support_debuglog_desc">Апп-н хийж буй бүх зүйлийг хуваалцаж болох текст файлд бүртгэнэ.</string>
     <string name="debug_debuglog_size_label">Хэмжээ</string>
@@ -78,18 +70,14 @@
     <string name="debug_debuglog_stop_action">Бүртгэлийг зогсоох</string>
     <string name="debug_debuglog_sensitive_information_message">Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй хуваалцана уу.</string>
     <string name="settings_debuglog_explanation">Энэ функц нь апп-н хийж буй бүх зүйлийг хуваалцаж болох файлд бүртгэдэг. Үүсгэсэн файл нь нууц мэдээлэл агуулсан (жишээ нь, Bluetooth төхөөрөмжийн дэлгэрэнгүй мэдээлэл). Зөвхөн итгэмжлэгдсэн этгээдүүдтэй (жишээ нь, асуудлыг шийдвэрлэж буй хөгжүүлэгчтэй) хуваалцана уу.</string>
-
     <string name="settings_support_installid_label">Суулгалтын ID</string>
     <string name="settings_support_installid_desc">Автомат алдааны тайлангууд нэргүй байна. Хэрэв хөгжүүлэгчид таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-гаа хуваалцана уу.</string>
     <string name="settings_support_label">Дэмжлэг</string>
     <string name="settings_support_description">Хэрэв танд тусламж хэрэгтэй бол.</string>
-
     <string name="issue_tracker_label">Асуудал хянагч</string>
     <string name="issue_tracker_description">Алдааны тайлан болон функцийн хүсэлтүүдэд зориулсан нийтийн асуудал хянагч (зөвхөн англи хэлээр).</string>
-
     <string name="discord_label">Discord</string>
     <string name="discord_description">Чөлөөт цагаа өнгөрөөх, асуулт асуух газар.</string>
-
     <string name="changelog_label">Өөрчлөлтийн түүх</string>
     <string name="settings_label">Тохиргоо</string>
     <string name="settings_privacy_policy_label">Нууцлалын бодлого</string>
@@ -99,33 +87,25 @@
     <string name="settings_general_label">Тохиргоо</string>
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
-
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
     <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
     <string name="settings_debug_mode_label">Дибаг горим</string>
     <string name="settings_debug_mode_description">Асуудлыг шийдвэрлэхэд зориулж нэмэлт мэдээлэл харуулна.</string>
-
     <string name="settings_blescanner_unfiltered_label">Шүүлтүүргүй BLE өгөгдөл</string>
     <string name="settings_blescanner_unfiltered_description">Бүх цацагдсан BLE өгөгдлийг харуулахын тулд BLE сканнерээс бүх шүүлтүүрийг арилгана. Шинэ төрлийн чихэвчний дэмжлэгийг нэмэхэд хэрэгтэй.</string>
-
     <string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
     <string name="settings_compatibility_mode_description">Тохиромжтой байдлыг сайжруулахын тулд оновчлолыг идэвхгүй болгоно. Хэрэв та ямар ч өгөгдөл харахгүй байвал үүнийг туршиж үзнэ үү.</string>
-
     <string name="help_translate_label">Орчуулга</string>
     <string name="help_translate_description">Энэ апп-г дуртай хэл рүүгээ орчуулахад тусална уу.</string>
-
     <string name="translators_thanks_title">Орчуулагчид</string>
     <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Төхөөрөмжийн хамгийн сүүлийн үеийн мэдэгдэж буй төлвийг харуулсан виджет.</string>
     <string name="widget_configuration_title">Төхөөрөмж сонгох</string>
     <string name="widget_configuration_description">Энэ виджет аль төхөөрөмжийн профайлыг харуулахыг сонгоно уу.</string>
     <string name="common_feature_requires_pro_msg">Энэ функц нь CAPod Pro шаарддаг.</string>
-
     <string name="widget_no_data_label">Өгөгдөл алга</string>
     <string name="settings_compat_indirectcallback_title">Шууд бус өгөгдөл хүргэлт</string>
     <string name="settings_compat_indirectcallback_summary">Системээс BLE өгөгдлийг хүлээн авах өөр аргыг ашиглана (буцах дуудлагын оронд өргөн нэвтрүүлэг).</string>
-
     <string name="troubleshooter_title">Асуудал шийдвэрлэгч</string>
     <string name="troubleshooter_summary">Bluetooth холболтын асуудлыг оношлож засна.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy нэвтрүүлэг</string>
@@ -141,22 +121,18 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Таны утас BLE өгөгдөл хүлээн авсан боловч өгөгдөл нь дэмжигдсэн ямар ч төхөөрөмжөөс ирээгүй байна. Таны чихэвч асаалттай байна уу? CAPod таны чихэвчийг дэмждэг үү?</string>
     <string name="troubleshooter_ble_result_failure_action">Дахин оролдоно уу</string>
     <string name="troubleshoot_action">Асуудлыг шийдвэрлэх</string>
-
     <string name="onboarding_body1">Энэхүү аппликейшн нь Android-д AirPod-н тусгай функцуудыг дэмждэг.</string>
     <string name="onboarding_body2">Бүх Android төхөөрөмж AirPod-н нэмэлт функцуудыг бүрэн дэмждэггүй. Таны үйлдлийн системд зөв ажилладаг Bluetooth-Low-Energy-н хэрэгжилт шаардлагатай.</string>
     <string name="onboarding_body3">CAPod-д зар сурталчилгаа байхгүй бөгөөд таны өгөгдлийг цуглуулдаггүй.</string>
     <string name="onboarding_body4">Нэмэлт функцуудыг авах, хөгжүүлэлтийг дэмжихийн тулд CAPod Pro руу шинэчилж болно.</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-
     <string name="general_value_not_available_label">Байхгүй</string>
     <string name="general_error_label">Алдаа</string>
     <string name="general_grant_permission_action">Зөвшөөрөл олгох</string>
     <string name="general_manage_devices_action">Төхөөрөмжүүдийг удирдах</string>
-
     <string name="overview_nomaindevice_label">Төхөөрөмж тохируулаагүй</string>
     <string name="overview_nomaindevice_description">Батарейн түвшинг хянаж эхлэхийн тулд төхөөрөмжөө тохируулж, нэмэлт боломжуудыг идэвхжүүлнэ үү.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth идэвхгүй байна</string>
@@ -168,7 +144,6 @@
         <item quantity="one">Тохирох профайлгүй %d төхөөрөмж</item>
         <item quantity="other">Тохирох профайлгүй %d төхөөрөмж</item>
     </plurals>
-
     <string name="permission_bluetooth_connect_label">Bluetooth холболт</string>
     <string name="permission_bluetooth_connect_description">Энэ апп нь хослуулсан төхөөрөмжүүдтэй харилцаж, холболт эхлүүлэхийн тулд \"Bluetooth холболт\" зөвшөөрөл шаарддаг.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth скан</string>
@@ -184,19 +159,15 @@
     <string name="permission_required_title">Дараах зөвшөөрөл шаардлагатай:</string>
     <string name="permission_system_alert_window_label">Системийн анхааруулгын цонх</string>
     <string name="permission_system_alert_window_description">CAPod-д \"Попап харуулах\" боломжийг ажиллуулахын тулд бусад апп-уудын дээр зурах зөвшөөрөл олгоно уу.</string>
-
     <string name="settings_scanner_mode_lowpower_label">Бага эрчим хүч</string>
     <string name="settings_scanner_mode_balanced_label">Тэнцвэртэй</string>
     <string name="settings_scanner_mode_lowlatency_label">Бага хоцрогдол</string>
-
     <string name="settings_monitor_mode_manual_label">Апп нээлттэй үед</string>
     <string name="settings_monitor_mode_automatic_label">Төхөөрөмж холбогдсон үед</string>
     <string name="settings_monitor_mode_always_label">Үргэлж</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">Харагдах үед</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Кейс нээлттэй</string>
     <string name="settings_reaction_autoconnect_inear_label">Чихэнд</string>
-
     <string name="pods_dual_left_label">Зүүн чихэвч</string>
     <string name="pods_dual_right_label">Баруун чихэвч</string>
     <string name="pods_case_label">Кейс</string>
@@ -220,12 +191,10 @@
     <string name="headset_being_worn_label">Зүүсэн</string>
     <string name="headset_not_being_worn_label">Зүүгээгүй</string>
     <string name="pods_case_unknown_state">Тодорхойгүй төлөв</string>
-
     <string name="last_seen_x">Сүүлд харагдсан: %s</string>
     <string name="first_seen_x">Анх харагдсан: %s</string>
     <string name="permission_post_notifications_label">Мэдэгдэл харуулах</string>
     <string name="permission_post_notifications_description">"CAPod-д таны AirPods-ийн талаарх мэдэгдлүүдийг, жишээ нь холбогдсон үеийн одоогийн төлөвийг харуулах зөвшөөрөл олгоно уу."</string>
-
     <!-- Device profiles -->
     <string name="profiles_empty_title">Төхөөрөмжийн профайл тохируулаагүй</string>
     <string name="profiles_empty_description">Олон төхөөрөмжийг тохиргоо, ач холбогдлын дагуу удирдахын тулд төхөөрөмжийн профайл үүсгэнэ үү.</string>
@@ -255,12 +224,10 @@
     <string name="profiles_key_invalid_format">Түлхүүрийн формат буруу</string>
     <string name="profiles_key_expected_format">Хүлээгдэж буй формат: %1$s</string>
     <string name="profiles_priority_hint">Профайлын дараалал нь ач холбогдлыг тодорхойлно. Профайлуудыг дахин эрэмбэлэхийн тулд чирнэ үү - жагсаалтад дээр байгаа профайлууд олон төхөөрөмж тохирох үед давуу эрхтэй.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Хадгалаагүй өөрчлөлтүүд</string>
     <string name="general_unsaved_changes_message">Танд хадгалаагүй өөрчлөлтүүд байна. Та юу хийхийг хүсэж байна вэ?</string>
     <string name="general_save_and_exit_action">Хадгалаад гарах</string>
     <string name="general_discard_action">Цуцлах</string>
     <string name="general_keep_editing_action">Засварлах үргэлжлүүлэх</string>
-
 </resources>

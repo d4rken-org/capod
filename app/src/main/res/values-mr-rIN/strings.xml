@@ -6,7 +6,6 @@
     <string name="general_copy_action">कॉपी करा</string>
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_upgrade_action">अपग्रेड करा</string>
-    <string name="general_donate_action">दान करा</string>
     <string name="general_check_action">तपासा</string>
     <string name="general_close_action">बंद करा</string>
     <string name="general_save_action">सेव्ह करा</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">शेवटचे दिसले: %s</string>
     <string name="first_seen_x">पहिल्यांदा दिसले: %s</string>
     <string name="permission_post_notifications_label">सूचना दर्शवा</string>
-    <string name="permission_post_notifications_description">CAPod ला तुमच्या AirPods बद्दल सूचना दर्शवण्याची परवानगी द्या, उदा. कनेक्ट असताना त्यांची सध्याची स्थिती.</string>
+    <string name="permission_post_notifications_description">"CAPod ला तुमच्या AirPods बद्दल सूचना दर्शवण्याची परवानगी द्या, उदा. कनेक्ट असताना त्यांची सध्याची स्थिती."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">कोणतेही डिव्हाइस प्रोफाइल कॉन्फिगर केलेले नाहीत</string>
     <string name="profiles_empty_description">सानुकूल सेटिंग्ज आणि प्राधान्यक्रमांसह अनेक डिव्हाइस व्यवस्थापित करण्यासाठी डिव्हाइस प्रोफाइल तयार करा.</string>

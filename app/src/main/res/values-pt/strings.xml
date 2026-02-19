@@ -6,7 +6,6 @@
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_upgrade_action">Atualizar</string>
-    <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Fechar</string>
     <string name="general_save_action">Guardar</string>
@@ -38,13 +37,13 @@
     <string name="settings_signal_minimum_label">Qualidade mínima do sinal</string>
     <string name="settings_signal_minimum_description">A qualidade mínima do sinal que um dispositivo tem de ter para ser considerado seu.</string>
     <string name="settings_autoconnect_label">Ligar automaticamente</string>
-    <string name="settings_autoconnect_description">Se o Android не ligar automaticamente, também podemos pedi-lo. Isto irá definir a definição do modo de monitorização para \"Sempre\".</string>
+    <string name="settings_autoconnect_description">Se o Android não ligar automaticamente, também podemos pedi-lo. Isto irá definir a definição do modo de monitorização para \"Sempre\".</string>
     <string name="settings_autoconnect_condition_label">Condição de ligação automática</string>
     <string name="settings_autoconnect_condition_description">Quando é que devemos tentar ligar ao seu dispositivo?</string>
-    <string name="settings_reaction_label">Reações</string>
-    <string name="settings_reaction_description">Reagir a eventos e comportamentos.</string>
     <string name="settings_devices_label">Dispositivos</string>
     <string name="settings_devices_description">Gerir os seus dispositivos.</string>
+    <string name="settings_reaction_label">Reações</string>
+    <string name="settings_reaction_description">Reagir a eventos e comportamentos.</string>
     <string name="settings_category_yourdevice_label">O seu dispositivo</string>
     <string name="settings_category_compatibility_options_title">Opções de compatibilidade</string>
     <string name="settings_category_compatibility_options_description">Não mexa se tudo estiver a funcionar ;)</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">N/D</string>
     <string name="general_error_label">Erro</string>
     <string name="general_grant_permission_action">Conceder permissão</string>
     <string name="general_manage_devices_action">Gerir dispositivos</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">Visto pela última vez: %s</string>
     <string name="first_seen_x">Visto pela primeira vez: %s</string>
     <string name="permission_post_notifications_label">Mostrar notificações</string>
-    <string name="permission_post_notifications_description">Permitir que o CAPod mostre notificações sobre os seus AirPods, p. ex., o estado atual enquanto ligado.</string>
+    <string name="permission_post_notifications_description">"Permitir que o CAPod mostre notificações sobre os seus AirPods, p. ex., o estado atual enquanto ligado."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Nenhum perfil de dispositivo configurado</string>
     <string name="profiles_empty_description">Crie perfis de dispositivos para gerir vários dispositivos com definições e prioridades personalizadas.</string>

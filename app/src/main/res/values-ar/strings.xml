@@ -6,7 +6,6 @@
     <string name="general_copy_action">نسخ</string>
     <string name="general_thank_you_label">شكرًا لك</string>
     <string name="general_upgrade_action">ترقية</string>
-    <string name="general_donate_action">تبرع</string>
     <string name="general_check_action">تحقق</string>
     <string name="general_close_action">إغلاق</string>
     <string name="general_save_action">حفظ</string>
@@ -77,7 +76,7 @@
     <string name="settings_support_description">إذا كنت بحاجة إلى بعض المساعدة.</string>
     <string name="issue_tracker_label">متتبع المشكلات</string>
     <string name="issue_tracker_description">متتبع مشكلات عام لتقارير الأخطاء وطلبات الميزات (باللغة الإنجليزية فقط).</string>
-    <string name="discord_label">Discord</string>
+    <string name="discord_label">ديسكورد</string>
     <string name="discord_description">مكان للتسكع وطرح الأسئلة.</string>
     <string name="changelog_label">سجل التغييرات</string>
     <string name="settings_label">الإعدادات</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">غ/م</string>
     <string name="general_error_label">خطأ</string>
     <string name="general_grant_permission_action">منح الإذن</string>
     <string name="general_manage_devices_action">إدارة الأجهزة</string>

@@ -6,7 +6,6 @@
     <string name="general_copy_action">Sao chép</string>
     <string name="general_thank_you_label">Cảm ơn</string>
     <string name="general_upgrade_action">Nâng cấp</string>
-    <string name="general_donate_action">Quyên góp</string>
     <string name="general_check_action">Kiểm tra</string>
     <string name="general_close_action">Đóng</string>
     <string name="general_save_action">Lưu</string>
@@ -77,7 +76,7 @@
     <string name="settings_support_description">Nếu bạn cần trợ giúp.</string>
     <string name="issue_tracker_label">Tìm kiếm lỗi</string>
     <string name="issue_tracker_description">Trình theo dõi vấn đề công khai cho các báo cáo lỗi và yêu cầu tính năng (chỉ bằng tiếng Anh).</string>
-    <string name="discord_label">Phản hồi</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Một nơi để trao đổi và đặt câu hỏi.</string>
     <string name="changelog_label">Các thay đổi</string>
     <string name="settings_label">Cài đặt</string>
@@ -99,8 +98,12 @@
     <string name="help_translate_label">Dịch</string>
     <string name="help_translate_description">Giúp dịch ứng dụng này sang ngôn ngữ yêu thích của bạn.</string>
     <string name="translators_thanks_title">Dịch thuật</string>
-    <string name="translators_thanks_description">dovanchuc7521</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Một widget hiển thị trạng thái thiết bị được biết đến gần đây nhất.</string>
+    <string name="widget_configuration_title">Chọn thiết bị</string>
+    <string name="widget_configuration_description">Chọn hồ sơ thiết bị mà tiện ích này sẽ hiển thị.</string>
+    <string name="common_feature_requires_pro_msg">Tính năng này yêu cầu CAPod Pro.</string>
+    <string name="widget_no_data_label">Không có dữ liệu</string>
     <string name="settings_compat_indirectcallback_title">Phân phối dữ liệu gián tiếp</string>
     <string name="settings_compat_indirectcallback_summary">Sử dụng một phương pháp thay thế để nhận dữ liệu BLE từ hệ thống (phát sóng thay vì gọi lại).</string>
     <string name="troubleshooter_title">Trình khắc phục sự cố</string>
@@ -126,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">Không có</string>
     <string name="general_error_label">Lỗi</string>
     <string name="general_grant_permission_action">Cấp quyền</string>
     <string name="general_manage_devices_action">Quản lý thiết bị</string>
@@ -138,7 +141,6 @@
     <string name="overview_monitoring_active_description">Đảm bảo thiết bị của bạn ở gần và đang hoạt động.</string>
     <string name="overview_unmatched_devices_label">Thiết bị chưa khớp</string>
     <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d thiết bị không có hồ sơ khớp</item>
         <item quantity="other">%d thiết bị không có hồ sơ khớp</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Kết nối Bluetooth</string>
@@ -191,11 +193,7 @@
     <string name="last_seen_x">Lần thấy gần nhất: %s</string>
     <string name="first_seen_x">Lần thấy đầu tiên: %s</string>
     <string name="permission_post_notifications_label">Hiển thị thông báo</string>
-    <string name="permission_post_notifications_description">Cho phép CAPod hiển thị thông báo về AirPods của bạn, ví dụ trạng thái hiện tại của chúng khi đang kết nối.</string>
-    <string name="widget_configuration_title">Chọn thiết bị</string>
-    <string name="widget_configuration_description">Chọn hồ sơ thiết bị mà tiện ích này sẽ hiển thị.</string>
-    <string name="common_feature_requires_pro_msg">Tính năng này yêu cầu CAPod Pro.</string>
-    <string name="widget_no_data_label">Không có dữ liệu</string>
+    <string name="permission_post_notifications_description">"Cho phép CAPod hiển thị thông báo về AirPods của bạn, ví dụ trạng thái hiện tại của chúng khi đang kết nối."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Chưa cấu hình hồ sơ thiết bị</string>
     <string name="profiles_empty_description">Tạo hồ sơ thiết bị để quản lý nhiều thiết bị với cài đặt và mức ưu tiên tùy chỉnh.</string>

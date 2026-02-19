@@ -6,7 +6,6 @@
     <string name="general_copy_action">複製</string>
     <string name="general_thank_you_label">感謝你們</string>
     <string name="general_upgrade_action">升級</string>
-    <string name="general_donate_action">捐款</string>
     <string name="general_check_action">檢查</string>
     <string name="general_close_action">關閉</string>
     <string name="general_save_action">儲存</string>
@@ -194,7 +193,7 @@
     <string name="last_seen_x">最後出現：%s</string>
     <string name="first_seen_x">首次出現：%s</string>
     <string name="permission_post_notifications_label">顯示通知</string>
-    <string name="permission_post_notifications_description">\"允許 CAPod 顯示有關您 AirPods 的通知，例如連線時的目前狀態。\"</string>
+    <string name="permission_post_notifications_description">"\"允許 CAPod 顯示有關您 AirPods 的通知，例如連線時的目前狀態。\""</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">尚未設定任何裝置設定檔</string>
     <string name="profiles_empty_description">建立裝置設定檔，以自訂設定和優先順序來管理多個裝置。</string>

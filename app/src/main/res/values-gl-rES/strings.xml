@@ -6,7 +6,6 @@
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Grazas</string>
     <string name="general_upgrade_action">Actualizar</string>
-    <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Comprobar</string>
     <string name="general_close_action">Pechar</string>
     <string name="general_save_action">Gardar</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">Visto por última vez: %s</string>
     <string name="first_seen_x">Visto por primeira vez: %s</string>
     <string name="permission_post_notifications_label">Mostrar notificacións</string>
-    <string name="permission_post_notifications_description">Permitir que CAPod mostre notificacións sobre os teus AirPods, p. ex., o seu estado actual mentres están conectados.</string>
+    <string name="permission_post_notifications_description">"Permitir que CAPod mostre notificacións sobre os teus AirPods, p. ex., o seu estado actual mentres están conectados."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Sen perfís de dispositivo configurados</string>
     <string name="profiles_empty_description">Crea perfís de dispositivo para xestionar varios dispositivos con axustes e prioridades personalizados.</string>

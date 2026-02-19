@@ -11,6 +11,8 @@
     <string name="general_save_action">Hifadhi</string>
     <string name="general_guide_action">Mwongozo</string>
     <string name="general_continue_action">Endelea</string>
+    <string name="general_show_action">Onyesha</string>
+    <string name="general_hide_action">Ficha</string>
     <string name="general_example_label">K.m.: %s</string>
     <string name="upgrade_capod_label">Boresha CAPod</string>
     <string name="upgrade_capod_description">Pata vipengele vya ziada na usaidie msanidi programu.</string>
@@ -18,12 +20,16 @@
     <string name="settings_monitor_mode_description">Chini ya mazingira gani programu hii inafuatilia data ya Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Arifa ya ziada</string>
     <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya ziada wakati kifaa kimeunganishwa. Hii inakuwezesha kuficha arifa ya kudumu ya \"Hakuna vifaa\" kwa kuzima kituo cha \"Hali ya kifaa\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
+    <string name="settings_keep_notification_after_disconnect_description">Endelea kuonyesha viwango vya mwisho vya betri hata baada ya AirPods yako kukatika muunganisho</string>
     <string name="settings_scanner_mode_label">Hali ya skana</string>
     <string name="settings_scanner_mode_description">Je, skana ya data ya Bluetooth Low Energy itangulize utendakazi au ihifadhi nishati?</string>
     <string name="settings_autopause_label">Sitisha kiotomatiki</string>
     <string name="settings_autopause_description">Sitisha sauti unapotoa kifaa sikioni.</string>
     <string name="settings_autopplay_label">Cheza kiotomatiki</string>
     <string name="settings_autoplay_description">Anzisha uchezaji wa sauti kifaa kinapovaliwa.</string>
+    <string name="settings_eardetection_info_label">Maelezo ya utambuzi wa sikio</string>
+    <string name="settings_eardetection_info_description">Ikiwa utambuzi wa sikio unafanya kazi kwa ganda moja tu, hii ni kizuizi cha Apple. Ganda \"kuu\" pekee (linalotumiwa kwa kipaza sauti) linatambuliwa. Sanidi kwenye vifaa vya Apple: Mipangilio → Bluetooth → AirPods → Kipaza sauti.</string>
     <string name="settings_fake_data_label">Data bandia</string>
     <string name="settings_fake_data_description">Onyesha data bandia, yaani, iga vifaa ambavyo havipo.</string>
     <string name="settings_debug_label">Mipangilio ya utatuzi</string>
@@ -34,6 +40,8 @@
     <string name="settings_autoconnect_description">Ikiwa Android haiunganishi kiotomatiki, tunaweza kuiuliza pia. Hii itaweka mpangilio wa hali ya ufuatiliaji kuwa \'Kila mara\'.</string>
     <string name="settings_autoconnect_condition_label">Sharti la kuunganisha kiotomatiki</string>
     <string name="settings_autoconnect_condition_description">Lini tujaribu kuunganisha kwenye kifaa chako?</string>
+    <string name="settings_devices_label">Vifaa</string>
+    <string name="settings_devices_description">Simamia vifaa vyako.</string>
     <string name="settings_reaction_label">Matendo</string>
     <string name="settings_reaction_description">Jibu kwa matukio na tabia.</string>
     <string name="settings_category_yourdevice_label">Kifaa chako</string>
@@ -68,6 +76,7 @@
     <string name="settings_support_description">Ikiwa unahitaji msaada.</string>
     <string name="issue_tracker_label">Kifuatiliaji cha matatizo</string>
     <string name="issue_tracker_description">Kifuatiliaji cha matatizo cha umma kwa ripoti za hitilafu na maombi ya vipengele (Kiingereza pekee).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Mahali pa kukaa na kuuliza maswali.</string>
     <string name="changelog_label">Kumbukumbu ya mabadiliko</string>
     <string name="settings_label">Mipangilio</string>
@@ -91,9 +100,14 @@
     <string name="translators_thanks_title">Watafsiri</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Wijeti inayoonyesha hali ya mwisho inayojulikana ya kifaa.</string>
+    <string name="widget_configuration_title">Chagua Kifaa</string>
+    <string name="widget_configuration_description">Chagua wasifu gani wa kifaa wijeti hii inapaswa kuonyesha.</string>
+    <string name="common_feature_requires_pro_msg">Kipengele hiki kinahitaji CAPod Pro.</string>
+    <string name="widget_no_data_label">Hakuna data</string>
     <string name="settings_compat_indirectcallback_title">Uwasilishaji wa data usio wa moja kwa moja</string>
     <string name="settings_compat_indirectcallback_summary">Tumia njia mbadala kupokea data ya BLE kutoka kwa mfumo (tangaza badala ya kurudisha simu).</string>
     <string name="troubleshooter_title">Kitatuzi cha matatizo</string>
+    <string name="troubleshooter_summary">Tambua na urekebishe matatizo ya muunganisho wa Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Matangazo ya Bluetooth ya Nishati ya Chini</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (na vipokea sauti vinavyofanana) hutangaza taarifa za hali kwa kutumia teknolojia ya BLE iitwayo \"matangazo\". Baadhi ya simu hazitekelezi teknolojia hii ipasavyo. CAPod inaweza kujaribu kurekebisha hili kwa kujaribu chaguo tofauti za uoanifu hadi data ipokewe. Anzisha uchezaji wa muziki kwenye vipokea sauti vyako na uviweke karibu na simu yako, kisha anzisha mchakato.</string>
     <string name="troubleshooter_ble_intro_start_action">Anza kutatua matatizo</string>
@@ -111,22 +125,6 @@
     <string name="onboarding_body2">Si vifaa vyote vya Android vinavyosaidia kikamilifu vipengele vya ziada vya AirPod. Mfumo wako wa uendeshaji unahitaji utekelezaji sahihi wa Bluetooth ya Nishati ya Chini.</string>
     <string name="onboarding_body3">CAPod haina matangazo na haikusanyi data yako.</string>
     <string name="onboarding_body4">Unaweza kuboresha hadi CAPod Pro kupata vipengele vya ziada na kusaidia maendeleo.</string>
-    <string name="general_donate_action">Changia</string>
-    <string name="general_show_action">Onyesha</string>
-    <string name="general_hide_action">Ficha</string>
-    <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
-    <string name="settings_keep_notification_after_disconnect_description">Endelea kuonyesha viwango vya mwisho vya betri hata baada ya AirPods yako kukatika muunganisho</string>
-    <string name="settings_eardetection_info_label">Maelezo ya utambuzi wa sikio</string>
-    <string name="settings_eardetection_info_description">Ikiwa utambuzi wa sikio unafanya kazi kwa ganda moja tu, hii ni kizuizi cha Apple. Ganda \"kuu\" pekee (linalotumiwa kwa kipaza sauti) linatambuliwa. Sanidi kwenye vifaa vya Apple: Mipangilio → Bluetooth → AirPods → Kipaza sauti.</string>
-    <string name="settings_devices_label">Vifaa</string>
-    <string name="settings_devices_description">Simamia vifaa vyako.</string>
-    <string name="discord_label">Discord</string>
-    <string name="troubleshooter_summary">Tambua na urekebishe matatizo ya muunganisho wa Bluetooth.</string>
-    <string name="widget_configuration_title">Chagua Kifaa</string>
-    <string name="widget_configuration_description">Chagua wasifu gani wa kifaa wijeti hii inapaswa kuonyesha.</string>
-    <string name="common_feature_requires_pro_msg">Kipengele hiki kinahitaji CAPod Pro.</string>
-    <string name="widget_no_data_label">Hakuna data</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
@@ -196,8 +194,7 @@
     <string name="last_seen_x">Mara ya mwisho kuonekana: %s</string>
     <string name="first_seen_x">Mara ya kwanza kuonekana: %s</string>
     <string name="permission_post_notifications_label">Onyesha arifa</string>
-    <string name="permission_post_notifications_description">Ruhusu CAPod kuonyesha arifa kuhusu AirPods zako, k.m. hali yao ya sasa wakati zimeunganishwa.</string>
-
+    <string name="permission_post_notifications_description">"Ruhusu CAPod kuonyesha arifa kuhusu AirPods zako, k.m. hali yao ya sasa wakati zimeunganishwa."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Hakuna wasifu wa vifaa uliowekwa</string>
     <string name="profiles_empty_description">Unda wasifu wa vifaa ili kusimamia vifaa vingi na mipangilio na vipaumbele maalum.</string>
@@ -227,7 +224,6 @@
     <string name="profiles_key_invalid_format">Muundo batili wa ufunguo</string>
     <string name="profiles_key_expected_format">Muundo unaotarajiwa: %1$s</string>
     <string name="profiles_priority_hint">Mpangilio wa wasifu unaamua kipaumbele. Buruta wasifu ili kupanga upya — wasifu wa juu zaidi katika orodha una kipaumbele wakati vifaa vingi vinapolingana.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Mabadiliko Yasiyohifadhiwa</string>
     <string name="general_unsaved_changes_message">Una mabadiliko yasiyohifadhiwa. Ungependa kufanya nini?</string>

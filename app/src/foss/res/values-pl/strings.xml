@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="foss_upgrade_donate_label">Wsparcie</string>
-    <string name="foss_upgrade_alreadydonated_label">Już się zrzuciłem</string>
+    <string name="foss_upgrade_donate_label">Wesprzyj</string>
+    <string name="foss_upgrade_alreadydonated_label">Już wsparłem</string>
     <string name="foss_upgrade_no_money_label">Wydałem wszystkie pieniądze na AirPods</string>
 </resources>

@@ -11,7 +11,6 @@
     <string name="general_save_action">Зберегти</string>
     <string name="general_guide_action">Посібник</string>
     <string name="general_continue_action">Продовжити</string>
-    <string name="general_donate_action">Донат</string>
     <string name="general_show_action">Показати</string>
     <string name="general_hide_action">Приховати</string>
     <string name="general_example_label">Напр.: %s</string>

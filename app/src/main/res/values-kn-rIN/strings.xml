@@ -6,7 +6,6 @@
     <string name="general_copy_action">ನಕಲಿಸಿ</string>
     <string name="general_thank_you_label">ಧನ್ಯವಾದಗಳು</string>
     <string name="general_upgrade_action">ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
-    <string name="general_donate_action">ದಾನ ಮಾಡಿ</string>
     <string name="general_check_action">ಪರಿಶೀಲಿಸಿ</string>
     <string name="general_close_action">ಮುಚ್ಚಿ</string>
     <string name="general_save_action">ಉಳಿಸಿ</string>
@@ -14,12 +13,9 @@
     <string name="general_continue_action">ಮುಂದುವರಿಸಿ</string>
     <string name="general_show_action">ತೋರಿಸಿ</string>
     <string name="general_hide_action">ಮರೆಮಾಡಿ</string>
-
     <string name="general_example_label">ಉದಾ.: %s</string>
-
     <string name="upgrade_capod_label">CAPod ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
     <string name="upgrade_capod_description">ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪಡೆಯಿರಿ ಮತ್ತು ಡೆವಲಪರ್‌ರನ್ನು ಬೆಂಬಲಿಸಿ.</string>
-
     <string name="settings_monitor_mode_label">ಮಾನಿಟರ್ ಮೋಡ್</string>
     <string name="settings_monitor_mode_description">ಯಾವ ಸಂದರ್ಭಗಳಲ್ಲಿ ಈ ಅಪ್ಲಿಕೇಶನ್ ಬ್ಲೂಟೂತ್ ಡೇಟಾವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ.</string>
     <string name="settings_monitor_connected_notification_label">ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆ</string>
@@ -49,24 +45,20 @@
     <string name="settings_reaction_label">ಪ್ರತಿಕ್ರಿಯೆಗಳು</string>
     <string name="settings_reaction_description">ಘಟನೆಗಳು ಮತ್ತು ನಡವಳಿಕೆಗಳಿಗೆ ಪ್ರತಿಕ್ರಿಯಿಸಿ.</string>
     <string name="settings_category_yourdevice_label">ನಿಮ್ಮ ಸಾಧನ</string>
-
     <string name="settings_category_compatibility_options_title">ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಗಳು</string>
     <string name="settings_category_compatibility_options_description">ಎಲ್ಲವೂ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದ್ದರೆ ಮುಟ್ಟಬೇಡಿ ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">ಹಾರ್ಡ್‌ವೇರ್ ಫಿಲ್ಟರಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">ಡೇಟಾ ಫಿಲ್ಟರಿಂಗ್ ಅನ್ನು ಸಿಸ್ಟಮ್‌ಗೆ ನಿಯೋಜಿಸಬೇಡಿ, ಬದಲಿಗೆ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಪಡೆದುಕೊಳ್ಳಿ ಮತ್ತು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಫಿಲ್ಟರ್ ಮಾಡಿ.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">ಹಾರ್ಡ್‌ವೇರ್ ಬ್ಯಾಚಿಂಗ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">ಸಂಗ್ರಹಿಸಿದ BLE ಡೇಟಾವನ್ನು ನಮಗೆ ರವಾನಿಸುವ ಮೊದಲು ಸಿಸ್ಟಮ್ ಗುಂಪು ಮಾಡಲು ಬಿಡಬೇಡಿ.</string>
-
     <string name="settings_onepod_mode_label">ಒಂದು ಪಾಡ್ ಮೋಡ್</string>
     <string name="settings_onepod_mode_description">ಎರಡೂ ಪಾಡ್‌ಗಳನ್ನು ಧರಿಸುವುದು ಅನಿವಾರ್ಯವಲ್ಲ, ಪ್ರತಿಕ್ರಿಯೆಗಳನ್ನು ಪ್ರಚೋದಿಸಲು ಒಂದೇ ಪಾಡ್ ಧರಿಸಿದರೆ ಸಾಕು.</string>
     <string name="settings_popup_caseopen_label">ಕೇಸ್ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ</string>
     <string name="settings_popup_caseopen_description">ಸಾಧನದ ಕೇಸ್ ತೆರೆದಾಗ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ (ಪ್ರಾಯೋಗಿಕ).</string>
     <string name="settings_popup_connected_label">ಸಂಪರ್ಕ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ</string>
     <string name="settings_popup_connected_description">ಸಾಧನವು ಮೊದಲ ಬಾರಿಗೆ ಸಂಪರ್ಕಗೊಂಡಾಗ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ.</string>
-
     <string name="notification_channel_device_status_label">ಸಾಧನದ ಸ್ಥಿತಿ</string>
     <string name="notification_channel_device_status_connected_label">ಸಂಪರ್ಕಿತ ಸಾಧನ</string>
-
     <string name="support_debuglog_label">ಡೀಬಗ್ ಲಾಗ್</string>
     <string name="support_debuglog_desc">ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ನೀವು ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಪಠ್ಯ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
     <string name="debug_debuglog_size_label">ಗಾತ್ರ</string>
@@ -78,18 +70,14 @@
     <string name="debug_debuglog_stop_action">ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸಿ</string>
     <string name="debug_debuglog_sensitive_information_message">ರಚಿಸಲಾದ ಫೈಲ್ ಸೂಕ್ಷ್ಮ ಮಾಹಿತಿಯನ್ನು (ಉದಾ. Bluetooth ಸಾಧನದ ವಿವರಗಳು) ಒಳಗೊಂಡಿದೆ. ಅದನ್ನು ವಿಶ್ವಾಸಾರ್ಹ ಪಕ್ಷಗಳೊಂದಿಗೆ ಮಾತ್ರ ಹಂಚಿಕೊಳ್ಳಿ.</string>
     <string name="settings_debuglog_explanation">ಈ ವೈಶಿಷ್ಟ್ಯವು ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡುತ್ತದೆ. ರಚಿಸಲಾದ ಫೈಲ್ ಸೂಕ್ಷ್ಮ ಮಾಹಿತಿಯನ್ನು (ಉದಾ. Bluetooth ಸಾಧನದ ವಿವರಗಳು) ಒಳಗೊಂಡಿದೆ. ಅದನ್ನು ವಿಶ್ವಾಸಾರ್ಹ ಪಕ್ಷಗಳೊಂದಿಗೆ ಮಾತ್ರ ಹಂಚಿಕೊಳ್ಳಿ (ಉದಾ. ಸಮಸ್ಯೆಯನ್ನು ನಿವಾರಿಸುತ್ತಿರುವ ಡೆವಲಪರ್).</string>
-
     <string name="settings_support_installid_label">ಇನ್‌ಸ್ಟಾಲ್ ಐಡಿ</string>
     <string name="settings_support_installid_desc">ಸ್ವಯಂಚಾಲಿತ ದೋಷ ವರದಿಗಳು ಅನಾಮಧೇಯವಾಗಿವೆ. ಡೆವಲಪರ್‌ಗೆ ನಿಮ್ಮ ದೋಷ ವರದಿಗಳನ್ನು ಹುಡುಕಬೇಕಾದರೆ ನಿಮ್ಮ ಇನ್‌ಸ್ಟಾಲ್ ಐಡಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.</string>
     <string name="settings_support_label">ಬೆಂಬಲ</string>
     <string name="settings_support_description">ನಿಮಗೆ ಸ್ವಲ್ಪ ಸಹಾಯ ಬೇಕಾದರೆ.</string>
-
     <string name="issue_tracker_label">ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್</string>
     <string name="issue_tracker_description">ಬಗ್ ವರದಿಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿಗಳಿಗಾಗಿ ಸಾರ್ವಜನಿಕ ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್ (ಇಂಗ್ಲಿಷ್ ಮಾತ್ರ).</string>
-
-    <string name="discord_label">Discord</string>
+    <string name="discord_label">ಡಿಸ್ಕಾರ್ಡ್</string>
     <string name="discord_description">ಹ್ಯಾಂಗ್ ಔಟ್ ಮಾಡಲು ಮತ್ತು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಲು ಒಂದು ಸ್ಥಳ.</string>
-
     <string name="changelog_label">ಬದಲಾವಣೆ ಲಾಗ್</string>
     <string name="settings_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_privacy_policy_label">ಗೌಪ್ಯತೆ ನೀತಿ</string>
@@ -99,33 +87,25 @@
     <string name="settings_general_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
-
     <string name="settings_debug_autoreports_label">ಸ್ವಯಂಚಾಲಿತ ಬಗ್ ವರದಿಗಳು</string>
     <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string>
     <string name="settings_debug_mode_label">ಡೀಬಗ್ ಮೋಡ್</string>
     <string name="settings_debug_mode_description">ಸಮಸ್ಯೆಗಳನ್ನು ನಿವಾರಿಸಲು ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಿ.</string>
-
     <string name="settings_blescanner_unfiltered_label">ಫಿಲ್ಟರ್ ಮಾಡದ BLE ಡೇಟಾ</string>
     <string name="settings_blescanner_unfiltered_description">ಎಲ್ಲಾ ಪ್ರಸಾರವಾದ BLE ಡೇಟಾವನ್ನು ತೋರಿಸಲು BLE ಸ್ಕ್ಯಾನರ್‌ನಿಂದ ಯಾವುದೇ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕಿ. ಹೊಸ ಹೆಡ್‌ಫೋನ್ ಪ್ರಕಾರಗಳಿಗೆ ಬೆಂಬಲವನ್ನು ಸೇರಿಸಲು ಉಪಯುಕ್ತವಾಗಿದೆ.</string>
-
     <string name="settings_compatibility_mode_label">ಹೊಂದಾಣಿಕೆ ಮೋಡ್</string>
     <string name="settings_compatibility_mode_description">ಹೊಂದಾಣಿಕೆಯನ್ನು ಸುಧಾರಿಸಲು ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ನೀವು ಯಾವುದೇ ಡೇಟಾವನ್ನು ನೋಡದಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ.</string>
-
     <string name="help_translate_label">ಅನುವಾದ</string>
     <string name="help_translate_description">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ನೆಚ್ಚಿನ ಭಾಷೆಗೆ ಅನುವಾದಿಸಲು ಸಹಾಯ ಮಾಡಿ.</string>
-
     <string name="translators_thanks_title">ಅನುವಾದಕರು</string>
     <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">ಸಾಧನದ ಕೊನೆಯದಾಗಿ ತಿಳಿದಿರುವ ಸ್ಥಿತಿಯನ್ನು ತೋರಿಸುವ ವಿಜೆಟ್.</string>
     <string name="widget_configuration_title">ಸಾಧನ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="widget_configuration_description">ಈ ವಿಜೆಟ್ ಯಾವ ಸಾಧನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
     <string name="common_feature_requires_pro_msg">ಈ ವೈಶಿಷ್ಟ್ಯಕ್ಕೆ CAPod Pro ಅಗತ್ಯವಿದೆ.</string>
-
     <string name="widget_no_data_label">ಡೇಟಾ ಇಲ್ಲ</string>
     <string name="settings_compat_indirectcallback_title">ಡೇಟಾದ ಪರೋಕ್ಷ ವಿತರಣೆ</string>
     <string name="settings_compat_indirectcallback_summary">ಸಿಸ್ಟಮ್‌ನಿಂದ BLE ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಲು ಪರ್ಯಾಯ ವಿಧಾನವನ್ನು ಬಳಸಿ (ಕಾಲ್‌ಬ್ಯಾಕ್ ಬದಲಿಗೆ ಪ್ರಸಾರ).</string>
-
     <string name="troubleshooter_title">ಸಮಸ್ಯೆ ನಿವಾರಕ</string>
     <string name="troubleshooter_summary">Bluetooth ಸಂಪರ್ಕ ಸಮಸ್ಯೆಗಳನ್ನು ಪತ್ತೆಹಚ್ಚಿ ಮತ್ತು ಸರಿಪಡಿಸಿ.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy ಪ್ರಸಾರಗಳು</string>
@@ -141,23 +121,18 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">ನಿಮ್ಮ ಫೋನ್ BLE ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಿದೆ, ಆದರೆ ಡೇಟಾ ಯಾವುದೇ ಬೆಂಬಲಿತ ಸಾಧನದಿಂದ ಬರುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳು ಆನ್ ಆಗಿವೆಯೇ? CAPod ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆಯೇ?</string>
     <string name="troubleshooter_ble_result_failure_action">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ</string>
     <string name="troubleshoot_action">ಸಮಸ್ಯೆ ನಿವಾರಿಸಿ</string>
-
-
     <string name="onboarding_body1">ಈ ಅಪ್ಲಿಕೇಶನ್ Android ಗೆ AirPod ನಿರ್ದಿಷ್ಟ ವೈಶಿಷ್ಟ್ಯಗಳಿಗೆ ಬೆಂಬಲವನ್ನು ಸೇರಿಸುತ್ತದೆ.</string>
     <string name="onboarding_body2">ಎಲ್ಲಾ Android ಸಾಧನಗಳು ಹೆಚ್ಚುವರಿ AirPod ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. ನಿಮ್ಮ ಆಪರೇಟಿಂಗ್ ಸಿಸ್ಟಮ್‌ಗೆ ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಬ್ಲೂಟೂತ್-ಕಡಿಮೆ-ಶಕ್ತಿಯ ಅನುಷ್ಠಾನದ ಅಗತ್ಯವಿದೆ.</string>
     <string name="onboarding_body3">CAPod ಯಾವುದೇ ಜಾಹೀರಾತುಗಳನ್ನು ಹೊಂದಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ.</string>
     <string name="onboarding_body4">ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪಡೆಯಲು ಮತ್ತು ಅಭಿವೃದ್ಧಿಯನ್ನು ಬೆಂಬಲಿಸಲು ನೀವು CAPod Pro ಗೆ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಬಹುದು.</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-
     <string name="general_value_not_available_label">ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="general_error_label">ದೋಷ</string>
     <string name="general_grant_permission_action">ಅನುಮತಿ ನೀಡಿ</string>
     <string name="general_manage_devices_action">ಸಾಧನಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
-
     <string name="overview_nomaindevice_label">ಯಾವುದೇ ಸಾಧನ ಕಾನ್ಫಿಗರ್ ಆಗಿಲ್ಲ</string>
     <string name="overview_nomaindevice_description">ಬ್ಯಾಟರಿ ಮಟ್ಟವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಮತ್ತು ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ನಿಮ್ಮ ಸಾಧನವನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ</string>
@@ -169,7 +144,6 @@
         <item quantity="one">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನ</item>
         <item quantity="other">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನಗಳು</item>
     </plurals>
-
     <string name="permission_bluetooth_connect_label">Bluetooth ಸಂಪರ್ಕ</string>
     <string name="permission_bluetooth_connect_description">ಜೋಡಿಸಲಾದ ಸಾಧನಗಳೊಂದಿಗೆ ಸಂವಹನ ನಡೆಸಲು ಮತ್ತು ಸಂಪರ್ಕಗಳನ್ನು ಪ್ರಾರಂಭಿಸಲು ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ \"Bluetooth ಸಂಪರ್ಕ\" ಅನುಮತಿ ಅಗತ್ಯವಿದೆ.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth ಸ್ಕ್ಯಾನಿಂಗ್</string>
@@ -185,19 +159,15 @@
     <string name="permission_required_title">ಕೆಳಗಿನ ಅನುಮತಿ ಅಗತ್ಯವಿದೆ:</string>
     <string name="permission_system_alert_window_label">ಸಿಸ್ಟಮ್ ಅಲರ್ಟ್ ವಿಂಡೋ</string>
     <string name="permission_system_alert_window_description">\"ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ\" ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಾಧ್ಯವಾಗಿಸಲು CAPod ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಮೇಲೆ ಚಿತ್ರಿಸಲು ಅನುಮತಿಸಿ.</string>
-
     <string name="settings_scanner_mode_lowpower_label">ಕಡಿಮೆ ಶಕ್ತಿ</string>
     <string name="settings_scanner_mode_balanced_label">ಸಮತೋಲಿತ</string>
     <string name="settings_scanner_mode_lowlatency_label">ಕಡಿಮೆ ವಿಳಂಬ</string>
-
     <string name="settings_monitor_mode_manual_label">ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದಿರುವಾಗ</string>
     <string name="settings_monitor_mode_automatic_label">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ</string>
     <string name="settings_monitor_mode_always_label">ಯಾವಾಗಲೂ</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">ಕಂಡಾಗ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ಕೇಸ್ ತೆರೆದಿದೆ</string>
     <string name="settings_reaction_autoconnect_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
-
     <string name="pods_dual_left_label">ಎಡ ಪಾಡ್</string>
     <string name="pods_dual_right_label">ಬಲ ಪಾಡ್</string>
     <string name="pods_case_label">ಕೇಸ್</string>
@@ -221,12 +191,10 @@
     <string name="headset_being_worn_label">ಧರಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="headset_not_being_worn_label">ಧರಿಸಲಾಗಿಲ್ಲ</string>
     <string name="pods_case_unknown_state">ಅಜ್ಞಾತ ಸ್ಥಿತಿ</string>
-
     <string name="last_seen_x">ಕೊನೆಯ ಬಾರಿ ಕಂಡಿದ್ದು: %s</string>
     <string name="first_seen_x">ಮೊದಲ ಬಾರಿ ಕಂಡಿದ್ದು: %s</string>
     <string name="permission_post_notifications_label">ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="permission_post_notifications_description">"ನಿಮ್ಮ AirPods ಬಗ್ಗೆ ಅಧಿಸೂಚನೆಗಳನ್ನು ತೋರಿಸಲು CAPod ಅನ್ನು ಅನುಮತಿಸಿ, ಉದಾ. ಸಂಪರ್ಕಗೊಂಡಾಗ ಅವುಗಳ ಪ್ರಸ್ತುತ ಸ್ಥಿತಿ."</string>
-
     <!-- Device profiles -->
     <string name="profiles_empty_title">ಯಾವುದೇ ಸಾಧನ ಪ್ರೊಫೈಲ್‌ಗಳು ಕಾನ್ಫಿಗರ್ ಆಗಿಲ್ಲ</string>
     <string name="profiles_empty_description">ಕಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಆದ್ಯತೆಗಳೊಂದಿಗೆ ಬಹು ಸಾಧನಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಸಾಧನ ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ರಚಿಸಿ.</string>
@@ -256,7 +224,6 @@
     <string name="profiles_key_invalid_format">ಅಮಾನ್ಯ ಕೀ ಸ್ವರೂಪ</string>
     <string name="profiles_key_expected_format">ನಿರೀಕ್ಷಿತ ಸ್ವರೂಪ: %1$s</string>
     <string name="profiles_priority_hint">ಪ್ರೊಫೈಲ್ ಕ್ರಮವು ಆದ್ಯತೆಯನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಮರುಕ್ರಮಗೊಳಿಸಲು ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಎಳೆಯಿರಿ - ಪಟ್ಟಿಯಲ್ಲಿ ಮೇಲಿರುವ ಪ್ರೊಫೈಲ್‌ಗಳು ಬಹು ಸಾಧನಗಳು ಹೊಂದಿಕೆಯಾದಾಗ ಆದ್ಯತೆ ಪಡೆಯುತ್ತವೆ.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ಉಳಿಸದ ಬದಲಾವಣೆಗಳು</string>
     <string name="general_unsaved_changes_message">ನೀವು ಉಳಿಸದ ಬದಲಾವಣೆಗಳನ್ನು ಹೊಂದಿದ್ದೀರಿ. ನೀವು ಏನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?</string>

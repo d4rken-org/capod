@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="upgrades_gplay_unavailable_error">Usługi Google Play nie są dostępne.</string>
-    <string name="upgrades_no_purchases_found_check_account">Nie znaleziono zakupu. Czy na pewno korzystasz z poprawnego konta?</string>
+    <string name="upgrades_gplay_unavailable_error">Usługi Google Play są niedostępne.</string>
+    <string name="upgrades_no_purchases_found_check_account">Nie znaleziono zakupów. Czy używasz właściwego konta?</string>
     <string name="upgrades_gplay_billing_error_label">Błąd Google Play</string>
     <string name="upgrades_gplay_billing_error_description">Wystąpił błąd w Google Play. Spróbuj ponownie później lub uruchom ponownie telefon.\n\nBłąd: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Błąd płatności Google Play</string>

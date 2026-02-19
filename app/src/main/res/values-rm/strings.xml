@@ -6,7 +6,6 @@
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Engraziel</string>
     <string name="general_upgrade_action">Actualisar</string>
-    <string name="general_donate_action">Donar</string>
     <string name="general_check_action">Controllar</string>
     <string name="general_close_action">Serrar</string>
     <string name="general_save_action">Memorisar</string>
@@ -41,10 +40,10 @@
     <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \"Adina\".</string>
     <string name="settings_autoconnect_condition_label">Cundiziun per connectar automaticamain</string>
     <string name="settings_autoconnect_condition_description">Cura duain nus empruvar da connectar cun Voss apparat?</string>
-    <string name="settings_reaction_label">Reacziuns</string>
-    <string name="settings_reaction_description">Reagir sin eveniments e cumportaments.</string>
     <string name="settings_devices_label">Apparats</string>
     <string name="settings_devices_description">Administrar Voss apparats.</string>
+    <string name="settings_reaction_label">Reacziuns</string>
+    <string name="settings_reaction_description">Reagir sin eveniments e cumportaments.</string>
     <string name="settings_category_yourdevice_label">Voss apparat</string>
     <string name="settings_category_compatibility_options_title">Opziuns da cumpatibilitad</string>
     <string name="settings_category_compatibility_options_description">Betg tuccar sche tut funcziuna ;)</string>
@@ -101,6 +100,10 @@
     <string name="translators_thanks_title">Translataders</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">In widget che mussa il davos stadi enconuschent da l\'apparat.</string>
+    <string name="widget_configuration_title">Tscherner l\'apparat</string>
+    <string name="widget_configuration_description">Tscherner tge profil d\'apparat quest widget duai mussar.</string>
+    <string name="common_feature_requires_pro_msg">Questa funcziun pretenda CAPod Pro.</string>
+    <string name="widget_no_data_label">Naginas datas</string>
     <string name="settings_compat_indirectcallback_title">Furniziun indirecta da datas</string>
     <string name="settings_compat_indirectcallback_summary">Duvrar ina metoda alternativa per retschaiver datas BLE dal sistem (emissiun enstagl da callback).</string>
     <string name="troubleshooter_title">Schliader da problems</string>
@@ -110,7 +113,7 @@
     <string name="troubleshooter_ble_intro_start_action">Cumenzar la schliaziun da problems</string>
     <string name="troubleshooter_ble_process_title">Schliaziun da problems en progress</string>
     <string name="troubleshooter_ble_process_subtile">Mintga pass dovra 5–10 secundas</string>
-    <string name="troubleshooter_ble_result_success_title">Success</string>
+    <string name="troubleshooter_ble_result_success_title">Reussì</string>
     <string name="troubleshooter_ble_result_success_body">Emissiuns da reclama BLE vegnan retschavidas da CAPod.</string>
     <string name="troubleshooter_ble_result_failure_title">Senza success</string>
     <string name="troubleshooter_ble_result_failure_body">La schliaziun da problems ha fatg fiasco. Nagina cumbinaziun d\'opziuns da cumpatibilitad ha gidà.</string>
@@ -191,11 +194,7 @@
     <string name="last_seen_x">Vis l\'ultima giada: %s</string>
     <string name="first_seen_x">Vis l\'emprima giada: %s</string>
     <string name="permission_post_notifications_label">Mussar notificaziuns</string>
-    <string name="permission_post_notifications_description">Permetter a CAPod da mussar notificaziuns davart Voss AirPods, p.ex. il stadi actual durant ch\'els èn connectads.</string>
-    <string name="widget_configuration_title">Tscherner l\'apparat</string>
-    <string name="widget_configuration_description">Tscherner tge profil d\'apparat quest widget duai mussar.</string>
-    <string name="common_feature_requires_pro_msg">Questa funcziun pretenda CAPod Pro.</string>
-    <string name="widget_no_data_label">Naginas datas</string>
+    <string name="permission_post_notifications_description">"Permetter a CAPod da mussar notificaziuns davart Voss AirPods, p.ex. il stadi actual durant ch'els èn connectads."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Nagins profils d\'apparat configurads</string>
     <string name="profiles_empty_description">Creai profils d\'apparat per administrar plirs apparats cun configuraziuns e prioritads persunalisadas.</string>

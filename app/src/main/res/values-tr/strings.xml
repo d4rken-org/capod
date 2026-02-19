@@ -4,9 +4,8 @@
     <string name="general_done_action">Tamam</string>
     <string name="general_cancel_action">İptal</string>
     <string name="general_copy_action">Kopyala</string>
-    <string name="general_thank_you_label">Katkı sağlayanlar.</string>
+    <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_upgrade_action">Güncelle</string>
-    <string name="general_donate_action">Bağış yap</string>
     <string name="general_check_action">Kontrol et</string>
     <string name="general_close_action">Kapat</string>
     <string name="general_save_action">Kaydet</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">Son görülme: %s</string>
     <string name="first_seen_x">İlk görülme: %s</string>
     <string name="permission_post_notifications_label">Bildirimleri göster</string>
-    <string name="permission_post_notifications_description">"CAPod\'un AirPods hakkında bildirimler göstermesine izin verin, ör. bağlıyken mevcut durumları."</string>
+    <string name="permission_post_notifications_description">"CAPod'un AirPods hakkında bildirimler göstermesine izin verin, ör. bağlıyken mevcut durumları."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Yapılandırılmış cihaz profili yok</string>
     <string name="profiles_empty_description">Özel ayarlar ve önceliklerle birden fazla cihazı yönetmek için cihaz profilleri oluşturun.</string>

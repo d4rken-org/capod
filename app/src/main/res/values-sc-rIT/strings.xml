@@ -6,7 +6,6 @@
     <string name="general_copy_action">Còpia</string>
     <string name="general_thank_you_label">Gràtzias</string>
     <string name="general_upgrade_action">Agioma</string>
-    <string name="general_donate_action">Dona</string>
     <string name="general_check_action">Controlla</string>
     <string name="general_close_action">Serra</string>
     <string name="general_save_action">Sarva</string>
@@ -14,12 +13,9 @@
     <string name="general_continue_action">Sighi</string>
     <string name="general_show_action">Mustra</string>
     <string name="general_hide_action">Cua</string>
-
     <string name="general_example_label">Es.: %s</string>
-
     <string name="upgrade_capod_label">Agioma CAPod</string>
     <string name="upgrade_capod_description">Otene funtziones agiuntivas e susteni s\'isvilupadore.</string>
-
     <string name="settings_monitor_mode_label">Modalidade de monitoràgiu</string>
     <string name="settings_monitor_mode_description">In cales tzircustàntzias custa app monitorat datos Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notìfica extra</string>
@@ -49,24 +45,20 @@
     <string name="settings_reaction_label">Reatziones</string>
     <string name="settings_reaction_description">Reaghit a eventos e cumportamentos.</string>
     <string name="settings_category_yourdevice_label">Su dispositivu tuo</string>
-
     <string name="settings_category_compatibility_options_title">Opsiones de cumpatibilidade</string>
     <string name="settings_category_compatibility_options_description">Non toches si totu funtzionat ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Disativa filtràgiu hardware</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Non delegare su filtràgiu de datos a su sistema, imbetzes otene totu is datos e filtra intro s\'app.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Disativa batching hardware</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Non permitas chi su sistema agrupit is datos BLE regortos prima de ddos imbiare a nois.</string>
-
     <string name="settings_onepod_mode_label">Modalidade una sola corfita</string>
     <string name="settings_onepod_mode_description">Indossare ambas is corfitas non est netzessàriu, indossare una sola corfita est bastante pro iscadenare reatziones.</string>
     <string name="settings_popup_caseopen_label">Mustra popup de sa càscia</string>
     <string name="settings_popup_caseopen_description">Mustra unu popup cando sa càscia de su dispositivu est aberta (isperimentale).</string>
     <string name="settings_popup_connected_label">Mustra popup de cullegamentu</string>
     <string name="settings_popup_connected_description">Mustra unu popup cando su dispositivu si cullegat sa prima borta.</string>
-
     <string name="notification_channel_device_status_label">Istadu de su dispositivu</string>
     <string name="notification_channel_device_status_connected_label">Dispositivu cullegadu</string>
-
     <string name="support_debuglog_label">Registru de debug</string>
     <string name="support_debuglog_desc">Registra totu su chi s\'app est faghende in unu file de testu chi podes cumpartzire.</string>
     <string name="debug_debuglog_size_label">Mannària</string>
@@ -78,18 +70,14 @@
     <string name="debug_debuglog_stop_action">Frima registratzione</string>
     <string name="debug_debuglog_sensitive_information_message">Su file generadu cuntenet informatziones sensìbiles (es. detàllios de su dispositivu Bluetooth). Cumpartzi·ddu isceti cun partes afidàbiles.</string>
     <string name="settings_debuglog_explanation">Custa funtzione registrat totu su chi s\'app est faghende in unu file cumpartzìbile. Su file generadu cuntenet informatziones sensìbiles (es. detàllios de su dispositivu Bluetooth). Cumpartzi·ddu isceti cun partes afidàbiles (es. un\'isvilupadore chi est risolvende unu problema).</string>
-
     <string name="settings_support_installid_label">ID de installatzione</string>
     <string name="settings_support_installid_desc">Is reportes de errores automàticos sunt anònimos. Cumpartzi s\'ID de installatzione tuo si s\'isvilupadore tenet bisòngiu de agatare is reportes de errores tuos.</string>
     <string name="settings_support_label">Sustènnidu</string>
     <string name="settings_support_description">Si tenes bisòngiu de agiudu.</string>
-
     <string name="issue_tracker_label">Gestiore de problemas</string>
     <string name="issue_tracker_description">Unu gestiore de problemas pùblicu pro reportes de errores e rechestas de funtziones (isceti in inglesu).</string>
-
     <string name="discord_label">Discord</string>
     <string name="discord_description">Unu logu pro s\'agatare e fàghere preguntas.</string>
-
     <string name="changelog_label">Registru de is mudàntzias</string>
     <string name="settings_label">Cunfiguratziones</string>
     <string name="settings_privacy_policy_label">Polìtica de riservadesa</string>
@@ -99,33 +87,25 @@
     <string name="settings_general_label">Cunfiguratziones</string>
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
-
     <string name="settings_debug_autoreports_label">Reportes de errores automàticos</string>
     <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string>
     <string name="settings_debug_mode_label">Modalidade debug</string>
     <string name="settings_debug_mode_description">Mustra informatziones agiuntivas pro risòlvere problemas.</string>
-
     <string name="settings_blescanner_unfiltered_label">Datos BLE no filtrados</string>
     <string name="settings_blescanner_unfiltered_description">Boga cale si siat filtru dae s\'iscaner BLE pro mustrare totu is datos BLE trasmìtidos. Ùtile pro agiùnghere suportu pro tipos de corfitas noos.</string>
-
     <string name="settings_compatibility_mode_label">Modalidade de cumpatibilidade</string>
     <string name="settings_compatibility_mode_description">Disativa otimizatziones pro megiorare sa cumpatibilidade. Proa custu si non ses bidende perunu datu.</string>
-
     <string name="help_translate_label">Tradutzione</string>
     <string name="help_translate_description">Agiuda a traduire custa app in sa limba tua preferida.</string>
-
     <string name="translators_thanks_title">Tradutores</string>
     <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Unu widget chi mustrat s\'ùrtimu istadu connotu de su dispositivu.</string>
     <string name="widget_configuration_title">Seletziona dispositivu</string>
     <string name="widget_configuration_description">Sceglide cale profilu de dispositivu custu widget depet mustrare.</string>
     <string name="common_feature_requires_pro_msg">Custa funtzione recheret CAPod Pro.</string>
-
     <string name="widget_no_data_label">Perunu datu</string>
     <string name="settings_compat_indirectcallback_title">Cunsegna indireta de datos</string>
     <string name="settings_compat_indirectcallback_summary">Usa unu mètodu alternativu pro retzire datos BLE dae su sistema (broadcast imbetzes de callback).</string>
-
     <string name="troubleshooter_title">Risolvidore de problemas</string>
     <string name="troubleshooter_summary">Diagnòstica e risòlve problemas de connessione Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Trasmissiones Bluetooth Low Energy</string>
@@ -141,22 +121,18 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Su telèfonu tuo at retzidu datos BLE, ma is datos non benint dae perunu dispositivu suportadu. Is corfitas tuas sunt allutas? CAPod suportat sa corfita tua?</string>
     <string name="troubleshooter_ble_result_failure_action">Proa torra</string>
     <string name="troubleshoot_action">Risòlve problemas</string>
-
     <string name="onboarding_body1">Custa app agiunghet suportu pro funtziones ispetzìficas de is AirPods a Android.</string>
     <string name="onboarding_body2">No totu is dispositivos Android suportant in prenu is funtziones extra de is AirPods. Su sistema operativu tuo recheret un\'implementatzione Bluetooth-Low-Energy chi funtzionet in manera curreta.</string>
     <string name="onboarding_body3">CAPod no tenet publitzidade e no arregollit is datos tuos.</string>
     <string name="onboarding_body4">Podes agiornare a CAPod Pro pro otènnere funtziones extra e sustènnere s\'isvilupu.</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-
     <string name="general_value_not_available_label">N/D</string>
     <string name="general_error_label">Errore</string>
     <string name="general_grant_permission_action">Cuntze permissu</string>
     <string name="general_manage_devices_action">Gestisci dispositivos</string>
-
     <string name="overview_nomaindevice_label">Perunu dispositivu cunfiguradu</string>
     <string name="overview_nomaindevice_description">Cunfigura su dispositivu tuo pro cumintzare a monitorare is livelos de bateria e ativare funtziones agiuntivas.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth est disativadu</string>
@@ -168,7 +144,6 @@
         <item quantity="one">%d dispositivu sena profilu currispondente</item>
         <item quantity="other">%d dispositivos sena profilu currispondente</item>
     </plurals>
-
     <string name="permission_bluetooth_connect_label">Cullegamentu Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Custa app recheret su permissu \"Cullegamentu Bluetooth\" pro interagire cun dispositivos assotziados e aviare cullegamentos.</string>
     <string name="permission_bluetooth_scan_label">Iscansione Bluetooth</string>
@@ -184,19 +159,15 @@
     <string name="permission_required_title">Su permissu in fata est netzessàriu:</string>
     <string name="permission_system_alert_window_label">Ventana de alerta de su sistema</string>
     <string name="permission_system_alert_window_description">Permiti a CAPod de disegnare subra àteras apps pro rèndere possìbile sa funtzione \"Mustra PopUp\".</string>
-
     <string name="settings_scanner_mode_lowpower_label">Consumu bàsciu</string>
     <string name="settings_scanner_mode_balanced_label">Ecuilibradu</string>
     <string name="settings_scanner_mode_lowlatency_label">Latèntzia bàscia</string>
-
     <string name="settings_monitor_mode_manual_label">Cando s\'app est aberta</string>
     <string name="settings_monitor_mode_automatic_label">Cando su dispositivu est cullegadu</string>
     <string name="settings_monitor_mode_always_label">Sèmper</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">Cando est bidu</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Sa càscia est aberta</string>
     <string name="settings_reaction_autoconnect_inear_label">In s\'origra</string>
-
     <string name="pods_dual_left_label">Corfita manca</string>
     <string name="pods_dual_right_label">Corfita dereta</string>
     <string name="pods_case_label">Càscia</string>
@@ -220,12 +191,10 @@
     <string name="headset_being_worn_label">Indossadu</string>
     <string name="headset_not_being_worn_label">Non indossadu</string>
     <string name="pods_case_unknown_state">Istadu disconnotu</string>
-
     <string name="last_seen_x">Bidu s\'ùrtima borta: %s</string>
     <string name="first_seen_x">Bidu sa prima borta: %s</string>
     <string name="permission_post_notifications_label">Mustra notìficas</string>
-    <string name="permission_post_notifications_description">"Permiti a CAPod de mustrare notìficas subra is AirPods tuos, es. s\'istadu issoro atuale cando sunt cullegados."</string>
-
+    <string name="permission_post_notifications_description">"Permiti a CAPod de mustrare notìficas subra is AirPods tuos, es. s'istadu issoro atuale cando sunt cullegados."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Perunu profilu de dispositivu cunfiguradu</string>
     <string name="profiles_empty_description">Crea profilos de dispositivu pro gestire dispositivos mùltiplos cun cunfiguratziones e prioridades personalizadas.</string>
@@ -255,12 +224,10 @@
     <string name="profiles_key_invalid_format">Formadu de crae non vàlidu</string>
     <string name="profiles_key_expected_format">Formadu previstu: %1$s</string>
     <string name="profiles_priority_hint">S\'òrdine de is profilos determinat sa prioridade. Troga is profilos pro ddos ordinare - is profilos prus artos in sa lista tenent sa prioridade cando dispositivos mùltiplos currispondent.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Modìficas non sarvadas</string>
     <string name="general_unsaved_changes_message">Tenes modìficas non sarvadas. Ite boles fàghere?</string>
     <string name="general_save_and_exit_action">Sarva e essi</string>
     <string name="general_discard_action">Iscarta</string>
     <string name="general_keep_editing_action">Sighi a modificare</string>
-
 </resources>

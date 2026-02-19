@@ -6,7 +6,6 @@
     <string name="general_copy_action">کاپی کریں</string>
     <string name="general_thank_you_label">شکریہ</string>
     <string name="general_upgrade_action">اپ گریڈ کریں</string>
-    <string name="general_donate_action">عطیہ دیں</string>
     <string name="general_check_action">چیک کریں</string>
     <string name="general_close_action">بند کریں</string>
     <string name="general_save_action">محفوظ کریں</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">آخری بار دیکھا گیا: %s</string>
     <string name="first_seen_x">پہلی بار دیکھا گیا: %s</string>
     <string name="permission_post_notifications_label">اطلاعات دکھائیں</string>
-    <string name="permission_post_notifications_description">CAPod کو آپ کے AirPods کے بارے میں اطلاعات دکھانے کی اجازت دیں، مثلاً منسلک ہونے پر ان کی موجودہ حیثیت۔</string>
+    <string name="permission_post_notifications_description">"CAPod کو آپ کے AirPods کے بارے میں اطلاعات دکھانے کی اجازت دیں، مثلاً منسلک ہونے پر ان کی موجودہ حیثیت۔"</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">کوئی آلہ پروفائل ترتیب نہیں دیا گیا</string>
     <string name="profiles_empty_description">حسب ضرورت سیٹنگز اور ترجیحات کے ساتھ متعدد آلات کا نظم کرنے کے لئے آلہ پروفائل بنائیں۔</string>

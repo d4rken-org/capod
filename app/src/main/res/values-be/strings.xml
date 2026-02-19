@@ -6,7 +6,6 @@
     <string name="general_copy_action">Капіяваць</string>
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_upgrade_action">Абнавіць</string>
-    <string name="general_donate_action">Ахвяраваць</string>
     <string name="general_check_action">Праверыць</string>
     <string name="general_close_action">Закрыць</string>
     <string name="general_save_action">Захаваць</string>
@@ -99,7 +98,7 @@
     <string name="help_translate_label">Пераклад</string>
     <string name="help_translate_description">Дапамажыце перакласці гэту праграму на вашу любімую мову.</string>
     <string name="translators_thanks_title">Перакладчыкі</string>
-    <string name="translators_thanks_description">Goshaproject(goooosha@gmail.com)</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Віджэт, які паказвае апошні вядомы стан прылады.</string>
     <string name="widget_configuration_title">Выбраць прыладу</string>
     <string name="widget_configuration_description">Выберыце, які профіль прылады павінен адлюстроўваць гэты віджэт.</string>

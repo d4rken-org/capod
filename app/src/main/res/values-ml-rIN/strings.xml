@@ -6,7 +6,6 @@
     <string name="general_copy_action">പകർത്തുക</string>
     <string name="general_thank_you_label">നന്ദി</string>
     <string name="general_upgrade_action">അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
-    <string name="general_donate_action">സംഭാവന ചെയ്യുക</string>
     <string name="general_check_action">പരിശോധിക്കുക</string>
     <string name="general_close_action">അടയ്ക്കുക</string>
     <string name="general_save_action">സേവ് ചെയ്യുക</string>
@@ -41,10 +40,10 @@
     <string name="settings_autoconnect_description">Android യാന്ത്രികമായി കണക്റ്റുചെയ്യുന്നില്ലെങ്കിൽ, ഞങ്ങൾക്കും അത് അഭ്യർത്ഥിക്കാം. ഇത് മോണിറ്റർ മോഡ് ക്രമീകരണം \"എപ്പോഴും\" എന്നതിലേക്ക് സജ്ജമാക്കും.</string>
     <string name="settings_autoconnect_condition_label">യാന്ത്രിക കണക്ഷൻ വ്യവസ്ഥ</string>
     <string name="settings_autoconnect_condition_description">എപ്പോഴാണ് ഞങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്യാൻ ശ്രമിക്കേണ്ടത്?</string>
-    <string name="settings_reaction_label">പ്രতিকകരണങ്ങൾ</string>
-    <string name="settings_reaction_description">സംഭവങ്ങളോടും പെരുമാറ്റങ്ങളോടും പ്രതികരിക്കുക.</string>
     <string name="settings_devices_label">ഉപകരണങ്ങൾ</string>
     <string name="settings_devices_description">നിങ്ങളുടെ ഉപകരണങ്ങൾ നിയന്ത്രിക്കുക.</string>
+    <string name="settings_reaction_label">പ്രതികകരണങ്ങൾ</string>
+    <string name="settings_reaction_description">സംഭവങ്ങളോടും പെരുമാറ്റങ്ങളോടും പ്രതികരിക്കുക.</string>
     <string name="settings_category_yourdevice_label">നിങ്ങളുടെ ഉപകരണം</string>
     <string name="settings_category_compatibility_options_title">അനുയോജ്യത ഓപ്ഷനുകൾ</string>
     <string name="settings_category_compatibility_options_description">എല്ലാം ശരിയായി പ്രവർത്തിക്കുന്നുണ്ടെങ്കിൽ തൊടരുത് ;)</string>
@@ -110,7 +109,7 @@
     <string name="troubleshooter_title">ട്രബിൾഷൂട്ടർ</string>
     <string name="troubleshooter_summary">Bluetooth കണക്റ്റിവിറ്റി പ്രശ്നങ്ങൾ കണ്ടെത്തി പരിഹരിക്കുക.</string>
     <string name="troubleshooter_ble_intro_title">ബ്ലൂടൂത്ത് ലോ എനർജി പ്രക്ഷേപണങ്ങൾ</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \"പരസ്യങ്ങൾ\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ ಪ್ರಾರಂಭിക്കുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \"പരസ്യങ്ങൾ\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ ആരംഭിക്കുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
     <string name="troubleshooter_ble_intro_start_action">ട്രബിൾഷൂട്ടിംഗ് ആരംഭിക്കുക</string>
     <string name="troubleshooter_ble_process_title">ട്രബിൾഷൂട്ടിംഗ് പുരോഗമിക്കുന്നു</string>
     <string name="troubleshooter_ble_process_subtile">ഓരോ ഘട്ടവും 5-10 സെക്കൻഡ് എടുക്കും</string>
@@ -148,7 +147,7 @@
     <string name="permission_bluetooth_connect_label">ബ്ലൂടൂത്ത് കണക്ട്</string>
     <string name="permission_bluetooth_connect_description">ജോഡിയാക്കിയ ഉപകരണങ്ങളുമായി ഇടപഴകാനും കണക്ഷനുകൾ ആരംഭിക്കാനും ഈ ആപ്പിന് \"ബ്ലൂടൂത്ത് കണക്ട്\" അനുമതി ആവശ്യമാണ്.</string>
     <string name="permission_bluetooth_scan_label">ബ്ലൂടൂത്ത് സ്കാനിംഗ്</string>
-    <string name="permission_bluetooth_scan_description">നിങ്ങളുടെ AirPods പോലുള്ള സമീപത്തുള്ള ഉപകരണങ്ങളിൽ നിന്ന് ബ്ലൂടൂത്ത് ഡാറ്റ കണ്ടെത്താനും സ്വീകരിക്കാനും \"ബ്ലൂടൂത്ത് സ്കാനിംഗ്\" അനുമതി ഈ ആപ്പിനെ അനുവദിക്കുന്നു.</string>
+    <string name="permission_bluetooth_scan_description">നിങ്ങളുടെ AirPods പോലുള്ള സമീപത്തുള്ള ഉപകരണങ്ങളിൽ നിന്ന് ബ്ലൂടൂത്ത് ഡാറ്റ കണ്ടെത്താനും സ്വീകരിക്കാൻ \"ബ്ലൂടൂത്ത് സ്കാനിംഗ്\" അനുമതി ഈ ആപ്പിനെ അനുവദിക്കുന്നു.</string>
     <string name="permission_bluetooth_label">ബ്ലൂടൂത്ത്</string>
     <string name="permission_bluetooth_description">ജോഡിയാക്കിയ ബ്ലൂടൂത്ത് ഉപകരണങ്ങളിലേക്ക് കണക്റ്റുചെയ്യാൻ ഈ ആപ്പിന് \"ബ്ലൂടൂത്ത്\" അനുമതി ആവശ്യമാണ്.</string>
     <string name="permission_access_fine_location_label">കൃത്യമായ ലൊക്കേഷൻ ആക്സസ്</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">അവസാനം കണ്ടത്: %s</string>
     <string name="first_seen_x">ആദ്യം കണ്ടത്: %s</string>
     <string name="permission_post_notifications_label">അറിയിപ്പുകൾ കാണിക്കുക</string>
-    <string name="permission_post_notifications_description">നിങ്ങളുടെ AirPods-നെ കുറിച്ചുള്ള അറിയിപ്പുകൾ കാണിക്കാൻ CAPod-നെ അനുവദിക്കുക, ഉദാ. കണക്റ്റുചെയ്തിരിക്കുമ്പോൾ അവയുടെ നിലവിലെ നില.</string>
+    <string name="permission_post_notifications_description">"നിങ്ങളുടെ AirPods-നെ കുറിച്ചുള്ള അറിയിപ്പുകൾ കാണിക്കാൻ CAPod-നെ അനുവദിക്കുക, ഉദാ. കണക്റ്റുചെയ്തിരിക്കുമ്പോൾ അവയുടെ നിലവിലെ നില."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">ഉപകരണ പ്രൊഫൈലുകൾ ക്രമീകരിച്ചിട്ടില്ല</string>
     <string name="profiles_empty_description">ഇഷ്‌ടാനുസൃത ക്രമീകരണങ്ങളും മുൻഗണനകളുമുള്ള ഒന്നിലധികം ഉപകരണങ്ങൾ നിയന്ത്രിക്കാൻ ഉപകരണ പ്രൊഫൈലുകൾ സൃഷ്ടിക്കുക.</string>

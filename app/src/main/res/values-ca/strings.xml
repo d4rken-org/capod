@@ -11,7 +11,6 @@
     <string name="general_save_action">Desa</string>
     <string name="general_guide_action">Guia</string>
     <string name="general_continue_action">Continua</string>
-    <string name="general_donate_action">Dona</string>
     <string name="general_show_action">Mostra</string>
     <string name="general_hide_action">Amaga</string>
     <string name="general_example_label">P. ex.: %s</string>

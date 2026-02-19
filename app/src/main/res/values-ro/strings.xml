@@ -6,7 +6,6 @@
     <string name="general_copy_action">Copiază</string>
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_upgrade_action">Actualizare</string>
-    <string name="general_donate_action">Donează</string>
     <string name="general_check_action">Verifică</string>
     <string name="general_close_action">Închide</string>
     <string name="general_save_action">Salvare</string>
@@ -41,10 +40,10 @@
     <string name="settings_autoconnect_description">Dacă Android nu se conectează automat, îl putem întreba și noi. Aceasta va seta setarea modului monitorizare la „Întotdeauna”.</string>
     <string name="settings_autoconnect_condition_label">Condiția de conectare automată</string>
     <string name="settings_autoconnect_condition_description">Când ar trebui să încercăm să ne conectăm la dispozitivul dvs.?</string>
-    <string name="settings_reaction_label">Reacții</string>
-    <string name="settings_reaction_description">Reacționați la evenimente și comportamente.</string>
     <string name="settings_devices_label">Dispozitive</string>
     <string name="settings_devices_description">Gestionați dispozitivele dvs.</string>
+    <string name="settings_reaction_label">Reacții</string>
+    <string name="settings_reaction_description">Reacționați la evenimente și comportamente.</string>
     <string name="settings_category_yourdevice_label">Dispozitivul tău</string>
     <string name="settings_category_compatibility_options_title">Opțiuni de compatibilitate</string>
     <string name="settings_category_compatibility_options_description">Nu atingeți dacă totul funcționează ;)</string>
@@ -101,6 +100,10 @@
     <string name="translators_thanks_title">Traducători</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Un widget care arată starea ultimului dispozitiv cunoscut.</string>
+    <string name="widget_configuration_title">Selectare Dispozitiv</string>
+    <string name="widget_configuration_description">Alegeți ce profil de dispozitiv ar trebui să afișeze acest widget.</string>
+    <string name="common_feature_requires_pro_msg">Această funcție necesită CAPod Pro.</string>
+    <string name="widget_no_data_label">Fără date</string>
     <string name="settings_compat_indirectcallback_title">Livrarea indirectă a datelor</string>
     <string name="settings_compat_indirectcallback_summary">Utilizați o metodă alternativă pentru a primi date BLE de la sistem (difuzare în loc de apel invers).</string>
     <string name="troubleshooter_title">Depanator</string>
@@ -192,11 +195,7 @@
     <string name="last_seen_x">Ultima detectare: %s</string>
     <string name="first_seen_x">Prima detectare: %s</string>
     <string name="permission_post_notifications_label">Afișare notificări</string>
-    <string name="permission_post_notifications_description">Permiteți CAPod să afișeze notificări despre AirPods-urile dvs., de ex. starea curentă în timp ce sunt conectate.</string>
-    <string name="widget_configuration_title">Selectare Dispozitiv</string>
-    <string name="widget_configuration_description">Alegeți ce profil de dispozitiv ar trebui să afișeze acest widget.</string>
-    <string name="common_feature_requires_pro_msg">Această funcție necesită CAPod Pro.</string>
-    <string name="widget_no_data_label">Fără date</string>
+    <string name="permission_post_notifications_description">"Permiteți CAPod să afișeze notificări despre AirPods-urile dvs., de ex. starea curentă în timp ce sunt conectate."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Niciun profil de dispozitiv configurat</string>
     <string name="profiles_empty_description">Creați profiluri de dispozitive pentru a gestiona mai multe dispozitive cu setări și priorități personalizate.</string>

@@ -6,7 +6,6 @@
     <string name="general_copy_action">コピー</string>
     <string name="general_thank_you_label">ありがとう</string>
     <string name="general_upgrade_action">アップグレード</string>
-    <string name="general_donate_action">寄付</string>
     <string name="general_check_action">確認</string>
     <string name="general_close_action">閉じる</string>
     <string name="general_save_action">保存</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">該当なし</string>
     <string name="general_error_label">エラー</string>
     <string name="general_grant_permission_action">権限を付与</string>
     <string name="general_manage_devices_action">デバイスを管理</string>
@@ -142,7 +141,6 @@
     <string name="overview_monitoring_active_description">デバイスが近くにあり、アクティブであることを確認してください。</string>
     <string name="overview_unmatched_devices_label">一致しないデバイス</string>
     <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">一致するプロファイルがないデバイス %d 台</item>
         <item quantity="other">一致するプロファイルがないデバイス %d 台</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth接続</string>
@@ -195,7 +193,7 @@
     <string name="last_seen_x">最終確認: %s</string>
     <string name="first_seen_x">初回確認: %s</string>
     <string name="permission_post_notifications_label">通知を表示</string>
-    <string name="permission_post_notifications_description">接続中の現在の状態など、AirPodsに関する通知をCAPodが表示できるようにします。</string>
+    <string name="permission_post_notifications_description">"接続中の現在の状態など、AirPodsに関する通知をCAPodが表示できるようにします。"</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">デバイスプロファイルが設定されていません</string>
     <string name="profiles_empty_description">複数デバイスをカスタム設定や優先度で管理するために、デバイスプロファイルを作成してください。</string>
@@ -216,10 +214,10 @@
     <string name="profiles_basic_info_description">デバイス名、モデル、必要に応じてBluetoothペアリングを設定します。</string>
     <string name="profiles_signal_quality_title">最小信号品質</string>
     <string name="profiles_signal_quality_description">このしきい値を超える信号強度のデバイスのみ検出します。値を下げると検出範囲は広がりますが、誤検出が増える可能性があります。高くしすぎないでください。Bluetooth受信は一般的に不安定で、距離や障害物によって変動します。</string>
-    <string name="profiles_identitykey_label">Identity Key</string>
+    <string name="profiles_identitykey_label">識別キー</string>
     <string name="profilessettings_maindevice_identitykey_description">あなたのデバイスのIdentity Resolving Key（IRK）。近くのデバイスの中からCAPodがあなたのデバイスを識別するのに役立ちます。</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPodsはプライバシー保護のためBluetoothアドレスを頻繁に変更します。IRKによりCAPodがあなたのデバイスを認識できます。MacBookへの一時的なアクセスが必要です。</string>
-    <string name="profiles_maindevice_encryptionkey_label">Encryption Key</string>
+    <string name="profiles_maindevice_encryptionkey_label">暗号化キー</string>
     <string name="profiles_maindevice_encryptionkey_description">あなたのデバイスの暗号鍵。CAPodが詳細な状態情報を取得できるようになります。</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPodsは状態メッセージを送信しますが、その一部は暗号化されています。暗号鍵によりCAPodはメッセージ全体を復号できます。MacBookへの一時的なアクセスが必要です。</string>
     <string name="profiles_key_invalid_format">無効な鍵形式です</string>

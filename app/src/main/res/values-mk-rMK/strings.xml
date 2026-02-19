@@ -6,7 +6,6 @@
     <string name="general_copy_action">Копирај</string>
     <string name="general_thank_you_label">Ви благодарам</string>
     <string name="general_upgrade_action">Надгради</string>
-    <string name="general_donate_action">Донирај</string>
     <string name="general_check_action">Провери</string>
     <string name="general_close_action">Затвори</string>
     <string name="general_save_action">Зачувај</string>
@@ -41,10 +40,10 @@
     <string name="settings_autoconnect_description">Ако Android не се поврзе автоматски, можеме и ние да го побараме тоа. Ова ќе ја постави поставката за режимот на мониторинг на \"Секогаш\".</string>
     <string name="settings_autoconnect_condition_label">Услов за автоматско поврзување</string>
     <string name="settings_autoconnect_condition_description">Кога треба да се обидеме да се поврземе со вашиот уред?</string>
-    <string name="settings_reaction_label">Реакции</string>
-    <string name="settings_reaction_description">Реагирајте на настани и однесувања.</string>
     <string name="settings_devices_label">Уреди</string>
     <string name="settings_devices_description">Управувајте со вашите уреди.</string>
+    <string name="settings_reaction_label">Реакции</string>
+    <string name="settings_reaction_description">Реагирајте на настани и однесувања.</string>
     <string name="settings_category_yourdevice_label">Вашиот уред</string>
     <string name="settings_category_compatibility_options_title">Опции за компатибилност</string>
     <string name="settings_category_compatibility_options_description">Не допирајте ако сè работи ;)</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">Последно видено: %s</string>
     <string name="first_seen_x">Прво видено: %s</string>
     <string name="permission_post_notifications_label">Прикажи известувања</string>
-    <string name="permission_post_notifications_description">Дозволете CAPod да прикажува известувања за вашите AirPods, на пр. нивниот тековен статус додека се поврзани.</string>
+    <string name="permission_post_notifications_description">"Дозволете CAPod да прикажува известувања за вашите AirPods, на пр. нивниот тековен статус додека се поврзани."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Нема конфигурирани профили на уреди</string>
     <string name="profiles_empty_description">Создајте профили на уреди за управување со повеќе уреди со прилагодени поставки и приоритети.</string>
