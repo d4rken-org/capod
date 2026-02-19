@@ -6,7 +6,6 @@
     <string name="general_copy_action">Kopiér</string>
     <string name="general_thank_you_label">Tak</string>
     <string name="general_upgrade_action">Opgrader</string>
-    <string name="general_donate_action">Donér</string>
     <string name="general_check_action">Kontrollér</string>
     <string name="general_close_action">Luk</string>
     <string name="general_save_action">Gem</string>
@@ -130,12 +129,10 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">I/T</string>
     <string name="general_error_label">Fejl</string>
     <string name="general_grant_permission_action">Giv tilladelse</string>
     <string name="general_manage_devices_action">Administrer enheder</string>
-
     <string name="overview_nomaindevice_label">Ingen enhed konfigureret</string>
     <string name="overview_nomaindevice_description">Konfigurer din enhed for at begynde at overvåge batteriniveauer og aktivere yderligere funktioner.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth er deaktiveret</string>
@@ -147,7 +144,6 @@
         <item quantity="one">%d enhed uden matchende profil</item>
         <item quantity="other">%d enheder uden matchende profil</item>
     </plurals>
-
     <string name="permission_bluetooth_connect_label">Bluetooth-forbindelse</string>
     <string name="permission_bluetooth_connect_description">Denne app kræver tilladelsen \"Bluetooth-forbindelse\" for at interagere med parrede enheder og starte forbindelser.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth-scanning</string>
@@ -163,19 +159,15 @@
     <string name="permission_required_title">Følgende tilladelse er påkrævet:</string>
     <string name="permission_system_alert_window_label">Systemalarmvindue</string>
     <string name="permission_system_alert_window_description">Tillad CAPod at tegne over andre apps for at gøre funktionen \"Vis pop op\" mulig.</string>
-
     <string name="settings_scanner_mode_lowpower_label">Lavt strømforbrug</string>
     <string name="settings_scanner_mode_balanced_label">Balanceret</string>
     <string name="settings_scanner_mode_lowlatency_label">Lav latens</string>
-
     <string name="settings_monitor_mode_manual_label">Når appen er åben</string>
     <string name="settings_monitor_mode_automatic_label">Når enheden er tilsluttet</string>
     <string name="settings_monitor_mode_always_label">Altid</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">Når den ses</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Etui er åbent</string>
     <string name="settings_reaction_autoconnect_inear_label">I øret</string>
-
     <string name="pods_dual_left_label">Venstre pod</string>
     <string name="pods_dual_right_label">Højre pod</string>
     <string name="pods_case_label">Etui</string>
@@ -199,12 +191,10 @@
     <string name="headset_being_worn_label">Bæres</string>
     <string name="headset_not_being_worn_label">Bæres ikke</string>
     <string name="pods_case_unknown_state">Ukendt tilstand</string>
-
     <string name="last_seen_x">Sidst set: %s</string>
     <string name="first_seen_x">Først set: %s</string>
     <string name="permission_post_notifications_label">Vis notifikationer</string>
     <string name="permission_post_notifications_description">"Tillad CAPod at vise notifikationer om dine AirPods, f.eks. deres aktuelle status mens de er tilsluttet."</string>
-
     <!-- Device profiles -->
     <string name="profiles_empty_title">Ingen enhedsprofiler konfigureret</string>
     <string name="profiles_empty_description">Opret enhedsprofiler for at administrere flere enheder med tilpassede indstillinger og prioriteter.</string>
@@ -234,12 +224,10 @@
     <string name="profiles_key_invalid_format">Ugyldigt nøgleformat</string>
     <string name="profiles_key_expected_format">Forventet format: %1$s</string>
     <string name="profiles_priority_hint">Profilrækkefølge bestemmer prioritet. Træk profiler for at omarrangere dem - profiler højere på listen har forrang, når flere enheder matcher.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ikke-gemte ændringer</string>
     <string name="general_unsaved_changes_message">Du har ikke-gemte ændringer. Hvad vil du gøre?</string>
     <string name="general_save_and_exit_action">Gem &amp; Afslut</string>
     <string name="general_discard_action">Kassér</string>
     <string name="general_keep_editing_action">Fortsæt redigering</string>
-
 </resources>

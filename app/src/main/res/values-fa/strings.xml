@@ -6,7 +6,6 @@
     <string name="general_copy_action">کپی</string>
     <string name="general_thank_you_label">متشکرم</string>
     <string name="general_upgrade_action">ارتقا</string>
-    <string name="general_donate_action">کمک مالی</string>
     <string name="general_check_action">بررسی</string>
     <string name="general_close_action">بستن</string>
     <string name="general_save_action">ذخیره</string>
@@ -99,7 +98,7 @@
     <string name="help_translate_label">ترجمه</string>
     <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>
     <string name="translators_thanks_title">مترجمان</string>
-    <string name="translators_thanks_description">تیره کردن</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ویجتی که آخرین وضعیت شناخته‌شده دستگاه را نشان می‌دهد.</string>
     <string name="widget_configuration_title">انتخاب دستگاه</string>
     <string name="widget_configuration_description">انتخاب کنید این ویجت کدام پروفایل دستگاه را نمایش دهد.</string>

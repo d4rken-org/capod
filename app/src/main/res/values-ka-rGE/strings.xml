@@ -6,7 +6,6 @@
     <string name="general_copy_action">კოპირება</string>
     <string name="general_thank_you_label">გმადლობთ</string>
     <string name="general_upgrade_action">განახლება</string>
-    <string name="general_donate_action">შემოწირულობა</string>
     <string name="general_check_action">შემოწმება</string>
     <string name="general_close_action">დახურვა</string>
     <string name="general_save_action">შენახვა</string>
@@ -107,7 +106,7 @@
     <string name="widget_no_data_label">მონაცემები არ არის</string>
     <string name="settings_compat_indirectcallback_title">მონაცემთა არაპირდაპირი მიწოდება</string>
     <string name="settings_compat_indirectcallback_summary">გამოიყენეთ ალტერნატიული მეთოდი სისტემიდან BLE მონაცემების მისაღებად (მაუწყებლობა გამოძახების ნაცვლად).</string>
-    <string name="troubleshooter_title">პრობლემების 해결</string>
+    <string name="troubleshooter_title">პრობლემების მოგვარება</string>
     <string name="troubleshooter_summary">Bluetooth კავშირის პრობლემების დიაგნოსტიკა და გამოსწორება.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy მაუწყებლობა</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (და მსგავსი ყურსასმენები) სტატუსის ინფორმაციას მაუწყებლობენ BLE ტექნოლოგიის გამოყენებით, რომელსაც \"რეკლამები\" ეწოდება. ზოგიერთი ტელეფონი ამ ტექნოლოგიას სწორად არ ახორციელებს. CAPod-ს შეუძლია სცადოს ამის გამოსწორება სხვადასხვა თავსებადობის ვარიანტების ცდით, სანამ მონაცემები არ მიიღება. დაიწყეთ მუსიკის დაკვრა თქვენს ყურსასმენებში და მოათავსეთ ისინი თქვენს ტელეფონთან ახლოს, შემდეგ დაიწყეთ პროცესი.</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">მიუწვდომელი</string>
     <string name="general_error_label">შეცდომა</string>
     <string name="general_grant_permission_action">ნებართვის მინიჭება</string>
     <string name="general_manage_devices_action">მოწყობილობების მართვა</string>
@@ -158,7 +157,7 @@
     <string name="permission_ignore_battery_optimizations_label">ბატარეის ოპტიმიზაციების გამორთვა</string>
     <string name="permission_ignore_battery_optimizations_description">ბატარეის ოპტიმიზაციები ხელს უშლის ამ აპს ფონურ რეჟიმში Bluetooth მონაცემების საიმედოდ მიღებაში.</string>
     <string name="permission_required_title">საჭიროა შემდეგი ნებართვა:</string>
-    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_label">სისტემური გამაფრთხილებელი ფანჯარა</string>
     <string name="permission_system_alert_window_description">დაუშვით, რომ CAPod სხვა აპებზე ზემოდან გამოჩნდეს, რათა \"Show PopUp\" ფუნქცია შესაძლებელი გახდეს.</string>
     <string name="settings_scanner_mode_lowpower_label">დაბალი ენერგომოხმარება</string>
     <string name="settings_scanner_mode_balanced_label">ბალანსირებული</string>
@@ -195,7 +194,7 @@
     <string name="last_seen_x">ბოლოს ნანახია: %s</string>
     <string name="first_seen_x">პირველად ნანახია: %s</string>
     <string name="permission_post_notifications_label">შეტყობინებების ჩვენება</string>
-    <string name="permission_post_notifications_description">დაუშვით, რომ CAPod აჩვენებდეს შეტყობინებებს თქვენი AirPods-ის შესახებ, მაგალითად მათ მიმდინარე სტატუსს დაკავშირებისას.</string>
+    <string name="permission_post_notifications_description">"დაუშვით, რომ CAPod აჩვენებდეს შეტყობინებებს თქვენი AirPods-ის შესახებ, მაგალითად მათ მიმდინარე სტატუსს დაკავშირებისას."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">მოწყობილობის პროფილები კონფიგურირებული არ არის</string>
     <string name="profiles_empty_description">რამდენიმე მოწყობილობის სამართავად და მორგებული პარამეტრებისა და პრიორიტეტების გამოსაყენებლად შექმენით მოწყობილობის პროფილები.</string>
@@ -216,10 +215,10 @@
     <string name="profiles_basic_info_description">დააკონფიგურირეთ თქვენი მოწყობილობის სახელი, მოდელი და სურვილისამებრ Bluetooth დაწყვილება.</string>
     <string name="profiles_signal_quality_title">სიგნალის მინიმალური ხარისხი</string>
     <string name="profiles_signal_quality_description">აღმოაჩინეთ მხოლოდ ის მოწყობილობები, რომელთა სიგნალის სიმძლავრე ამ ზღვარზე მაღალია. დაბალი მნიშვნელობები ზრდის აღმოჩენის არეალს, მაგრამ შეიძლება გამოიწვიოს მცდარი დადებითი შედეგები. ნუ დააყენებთ ამას ძალიან მაღლა - Bluetooth მიღება ჩვეულებრივ სუსტია და იცვლება მანძილისა და დაბრკოლებების მიხედვით.</string>
-    <string name="profiles_identitykey_label">Identity Key</string>
+    <string name="profiles_identitykey_label">იდენტობის გასაღები</string>
     <string name="profilessettings_maindevice_identitykey_description">თქვენი მოწყობილობის Identity Resolving Key (IRK), რომელიც CAPod-ს ეხმარება ახლომდებარე მოწყობილობებს შორის მის ამოცნობაში.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods კონფიდენციალურობისთვის ხშირად ცვლის Bluetooth მისამართს. IRK CAPod-ს ეხმარება თქვენი მოწყობილობის ამოცნობაში. საჭიროა MacBook-ზე ერთჯერადი წვდომა.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Encryption Key</string>
+    <string name="profiles_maindevice_encryptionkey_label">დაშიფვრის გასაღები</string>
     <string name="profiles_maindevice_encryptionkey_description">თქვენი მოწყობილობის დაშიფვრის გასაღები, რომელიც CAPod-ს დეტალური სტატუსის ინფორმაციის მიღების საშუალებას აძლევს.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods აგზავნის სტატუსის შეტყობინებას, რომლის ნაწილიც დაშიფრულია. დაშიფვრის გასაღები CAPod-ს სრული შეტყობინების გაშიფვრის საშუალებას აძლევს. საჭიროა MacBook-ზე ერთჯერადი წვდომა.</string>
     <string name="profiles_key_invalid_format">გასაღების ფორმატი არასწორია</string>

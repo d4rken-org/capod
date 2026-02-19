@@ -6,7 +6,6 @@
     <string name="general_copy_action">Afrita</string>
     <string name="general_thank_you_label">Þakka þér fyrir</string>
     <string name="general_upgrade_action">Uppfæra</string>
-    <string name="general_donate_action">Styrkja</string>
     <string name="general_check_action">Athuga</string>
     <string name="general_close_action">Loka</string>
     <string name="general_save_action">Vista</string>
@@ -14,12 +13,9 @@
     <string name="general_continue_action">Halda áfram</string>
     <string name="general_show_action">Sýna</string>
     <string name="general_hide_action">Fela</string>
-
     <string name="general_example_label">T.d.: %s</string>
-
     <string name="upgrade_capod_label">Uppfæra CAPod</string>
     <string name="upgrade_capod_description">Fáðu viðbótareiginleika og styrktu þróunaraðilann.</string>
-
     <string name="settings_monitor_mode_label">Vöktunarstilling</string>
     <string name="settings_monitor_mode_description">Undir hvaða kringumstæðum þetta forrit fylgist með Bluetooth gögnum.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
@@ -49,24 +45,20 @@
     <string name="settings_reaction_label">Viðbrögð</string>
     <string name="settings_reaction_description">Bregðast við atburðum og hegðun.</string>
     <string name="settings_category_yourdevice_label">Tækið þitt</string>
-
     <string name="settings_category_compatibility_options_title">Samhæfisvalkostir</string>
     <string name="settings_category_compatibility_options_description">Ekki snerta ef allt virkar ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Slökkva á vélbúnaðarsíun</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Ekki úthluta gagnasíun til kerfisins, fáðu í staðinn öll gögn og síaðu innan forritsins.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Slökkva á vélbúnaðarflokkun</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Ekki láta kerfið flokka saman söfnuð BLE gögn áður en þau eru send til okkar.</string>
-
     <string name="settings_onepod_mode_label">Eins heyrnartóls stilling</string>
     <string name="settings_onepod_mode_description">Ekki er krafist þess að nota bæði heyrnartólin, nóg er að nota eitt heyrnartól til að kalla fram viðbrögð.</string>
     <string name="settings_popup_caseopen_label">Sýna upplýsingaglugga hulsturs</string>
     <string name="settings_popup_caseopen_description">Sýna upplýsingaglugga þegar hulstur tækis er opnað (tilraunakennt).</string>
     <string name="settings_popup_connected_label">Sýna upplýsingaglugga tengingar</string>
     <string name="settings_popup_connected_description">Sýna upplýsingaglugga þegar tækið tengist í fyrsta skipti.</string>
-
     <string name="notification_channel_device_status_label">Staða tækis</string>
     <string name="notification_channel_device_status_connected_label">Tengt tæki</string>
-
     <string name="support_debuglog_label">Villuleitarskrá</string>
     <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
     <string name="debug_debuglog_size_label">Stærð</string>
@@ -78,18 +70,14 @@
     <string name="debug_debuglog_stop_action">Hætta skráningu</string>
     <string name="debug_debuglog_sensitive_information_message">Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum.</string>
     <string name="settings_debuglog_explanation">Þessi aðgerð skráir allt sem forritið gerir í skrá sem hægt er að deila. Mynduð skrá inniheldur viðkvæmar upplýsingar (t.d. upplýsingar um Bluetooth tæki). Deildu henni aðeins með traustum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
-
     <string name="settings_support_installid_label">Uppsetningarauðkenni</string>
     <string name="settings_support_installid_desc">Sjálfvirkar villuskýrslur eru nafnlausar. Deildu uppsetningarauðkenninu þínu ef þróunaraðilinn þarf að finna villuskýrslurnar þínar.</string>
     <string name="settings_support_label">Aðstoð</string>
     <string name="settings_support_description">Ef þú þarft hjálp.</string>
-
     <string name="issue_tracker_label">Vandamálarakning</string>
     <string name="issue_tracker_description">Opinber vandamálarakning fyrir villuskýrslur og beiðnir um eiginleika (aðeins á ensku).</string>
-
     <string name="discord_label">Discord</string>
     <string name="discord_description">Staður til að hanga og spyrja spurninga.</string>
-
     <string name="changelog_label">Breytingaskrá</string>
     <string name="settings_label">Stillingar</string>
     <string name="settings_privacy_policy_label">Persónuverndarstefna</string>
@@ -99,33 +87,25 @@
     <string name="settings_general_label">Stillingar</string>
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
-
     <string name="settings_debug_autoreports_label">Sjálfvirkar villuskýrslur</string>
     <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string>
     <string name="settings_debug_mode_label">Villuleitarstilling</string>
     <string name="settings_debug_mode_description">Sýna viðbótarupplýsingar til að leysa vandamál.</string>
-
     <string name="settings_blescanner_unfiltered_label">Ósíað BLE gögn</string>
     <string name="settings_blescanner_unfiltered_description">Fjarlægðu allar síur úr BLE skannanum til að sýna öll send BLE gögn. Gagnlegt til að bæta við stuðningi fyrir nýjar gerðir heyrnartóla.</string>
-
     <string name="settings_compatibility_mode_label">Samhæfisstilling</string>
     <string name="settings_compatibility_mode_description">Slökkva á hagræðingum til að bæta samhæfni. Prófaðu þetta ef þú sérð engin gögn.</string>
-
     <string name="help_translate_label">Þýðing</string>
     <string name="help_translate_description">Hjálpaðu til við að þýða þetta forrit á þitt uppáhalds tungumál.</string>
-
     <string name="translators_thanks_title">Þýðendur</string>
     <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Græja sem sýnir síðast þekkta stöðu tækis.</string>
     <string name="widget_configuration_title">Velja tæki</string>
     <string name="widget_configuration_description">Veldu hvaða tækjasnið þessi græja á að sýna.</string>
     <string name="common_feature_requires_pro_msg">Þessi eiginleiki krefst CAPod Pro.</string>
-
     <string name="widget_no_data_label">Engin gögn</string>
     <string name="settings_compat_indirectcallback_title">Óbein gagnaafhending</string>
     <string name="settings_compat_indirectcallback_summary">Notaðu aðra aðferð til að taka á móti BLE gögnum frá kerfinu (útsending í stað endurkalls).</string>
-
     <string name="troubleshooter_title">Villuleit</string>
     <string name="troubleshooter_summary">Greina og laga vandamál við Bluetooth tengingu.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy útsendingar</string>
@@ -141,23 +121,18 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Síminn þinn tók á móti BLE gögnum, en gögnin koma ekki frá neinu studdu tæki. Eru heyrnartólin þín kveikt? Styður CAPod heyrnartólin þín?</string>
     <string name="troubleshooter_ble_result_failure_action">Reyndu aftur</string>
     <string name="troubleshoot_action">Leysa vandamál</string>
-
-
     <string name="onboarding_body1">Þetta forrit bætir við stuðningi fyrir AirPod sértæka eiginleika í Android.</string>
     <string name="onboarding_body2">Ekki öll Android tæki styðja að fullu viðbótar AirPod eiginleika. Stýrikerfið þitt krefst rétt virkandi Bluetooth-Low-Energy útfærslu.</string>
     <string name="onboarding_body3">CAPod hefur engar auglýsingar og safnar ekki gögnunum þínum.</string>
     <string name="onboarding_body4">Þú getur uppfært í CAPod Pro til að fá viðbótareiginleika og styðja við þróun.</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-
     <string name="general_value_not_available_label">Ekki tiltækt</string>
     <string name="general_error_label">Villa</string>
     <string name="general_grant_permission_action">Veita heimild</string>
     <string name="general_manage_devices_action">Hafa umsjón með tækjum</string>
-
     <string name="overview_nomaindevice_label">Ekkert tæki stillt</string>
     <string name="overview_nomaindevice_description">Stilltu tækið þitt til að hefja vöktun á rafhlöðustöðu og virkja viðbótareiginleika.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth er óvirkt</string>
@@ -169,7 +144,6 @@
         <item quantity="one">%d tæki án samsvarandi sniðs</item>
         <item quantity="other">%d tæki án samsvarandi sniðs</item>
     </plurals>
-
     <string name="permission_bluetooth_connect_label">Bluetooth tenging</string>
     <string name="permission_bluetooth_connect_description">Þetta forrit þarfnast \"Bluetooth tengi\" heimild til að hafa samskipti við pöruð tæki og hefja tengingar.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth skönnun</string>
@@ -185,19 +159,15 @@
     <string name="permission_required_title">Eftirfarandi heimild er nauðsynleg:</string>
     <string name="permission_system_alert_window_label">Kerfisviðvörunargluggi</string>
     <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit til að gera eiginleikann \"Sýna upplýsingaglugga\" mögulegan.</string>
-
     <string name="settings_scanner_mode_lowpower_label">Lágt afl</string>
     <string name="settings_scanner_mode_balanced_label">Jafnvægi</string>
     <string name="settings_scanner_mode_lowlatency_label">Lítil töf</string>
-
     <string name="settings_monitor_mode_manual_label">Þegar forrit er opið</string>
     <string name="settings_monitor_mode_automatic_label">Þegar tæki er tengt</string>
     <string name="settings_monitor_mode_always_label">Alltaf</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">Þegar séð</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Hulstur opið</string>
     <string name="settings_reaction_autoconnect_inear_label">Í eyra</string>
-
     <string name="pods_dual_left_label">Vinstra heyrnartól</string>
     <string name="pods_dual_right_label">Hægra heyrnartól</string>
     <string name="pods_case_label">Hulstur</string>
@@ -221,12 +191,10 @@
     <string name="headset_being_worn_label">Verið borið</string>
     <string name="headset_not_being_worn_label">Ekki verið borið</string>
     <string name="pods_case_unknown_state">Óþekkt staða</string>
-
     <string name="last_seen_x">Síðast séð: %s</string>
     <string name="first_seen_x">Fyrst séð: %s</string>
     <string name="permission_post_notifications_label">Sýna tilkynningar</string>
     <string name="permission_post_notifications_description">"Leyfðu CAPod að sýna tilkynningar um AirPods, t.d. núverandi stöðu þeirra á meðan þau eru tengd."</string>
-
     <!-- Device profiles -->
     <string name="profiles_empty_title">Engin tækjasnið stillt</string>
     <string name="profiles_empty_description">Búðu til tækjasnið til að hafa umsjón með mörgum tækjum með sérsniðnum stillingum og forgangsstillingum.</string>
@@ -256,12 +224,10 @@
     <string name="profiles_key_invalid_format">Ógilt lyklasnið</string>
     <string name="profiles_key_expected_format">Vænt snið: %1$s</string>
     <string name="profiles_priority_hint">Röð sniða ákvarðar forgang. Dragðu snið til að endurraða þeim — snið ofar á listanum hafa forgang þegar mörg tæki passa.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Óvistaðar breytingar</string>
     <string name="general_unsaved_changes_message">Þú ert með óvistaðar breytingar. Hvað viltu gera?</string>
     <string name="general_save_and_exit_action">Vista &amp; Hætta</string>
     <string name="general_discard_action">Henda</string>
     <string name="general_keep_editing_action">Halda áfram að breyta</string>
-
 </resources>

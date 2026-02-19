@@ -11,6 +11,8 @@
     <string name="general_save_action">Պահպանել</string>
     <string name="general_guide_action">Ուղեցույց</string>
     <string name="general_continue_action">Շարունակել</string>
+    <string name="general_show_action">Ցուցադրել</string>
+    <string name="general_hide_action">Թաքցնել</string>
     <string name="general_example_label">Օրինակ՝ %s</string>
     <string name="upgrade_capod_label">Թարմացնել CAPod-ը</string>
     <string name="upgrade_capod_description">Ստացեք լրացուցիչ հնարավորություններ և աջակցեք մշակողին։</string>
@@ -18,12 +20,16 @@
     <string name="settings_monitor_mode_description">Ինչ պայմաններում է այս հավելվածը վերահսկում Bluetooth-ի տվյալները։</string>
     <string name="settings_monitor_connected_notification_label">Լրացուցիչ ծանուցում</string>
     <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \"Սարքեր չկան\" ծանուցումը՝ անջատելով \"Սարքի կարգավիճակը\" ալիքը։</string>
+    <string name="settings_keep_notification_after_disconnect_label">Պահել ծանուցումը անջատումից հետո</string>
+    <string name="settings_keep_notification_after_disconnect_description">Շարունակել ցուցադրել վերջին հայտնի մարտկոցի մակարդակները նույնիսկ ձեր AirPods-ների անջատումից հետո</string>
     <string name="settings_scanner_mode_label">Սկաների ռեժիմ</string>
     <string name="settings_scanner_mode_description">Bluetooth Low Energy տվյալների սկաները պետք է առաջնահերթություն տա արդյունավետությանը, թե՞ խնայի էներգիան։</string>
     <string name="settings_autopause_label">Ինքնադադար</string>
     <string name="settings_autopause_description">Դադարեցրեք ձայնը, երբ սարքը հանում եք ականջից։</string>
     <string name="settings_autopplay_label">Ինքնանվագարկում</string>
     <string name="settings_autoplay_description">Սկսեք ձայնի նվագարկումը, երբ սարքը կրում եք։</string>
+    <string name="settings_eardetection_info_label">Ականջում հայտնաբերման նշում</string>
+    <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string>
     <string name="settings_fake_data_label">Կեղծ տվյալներ</string>
     <string name="settings_fake_data_description">Ցուցադրել կեղծ տվյալներ, այսինքն՝ գոյություն չունեցող սարքերի նմանակում։</string>
     <string name="settings_debug_label">Կարգաբերման կարգավորումներ</string>
@@ -34,6 +40,8 @@
     <string name="settings_autoconnect_description">Եթե Android-ն ինքնաբերաբար չի միանում, մենք նույնպես կարող ենք դա պահանջել։ Սա մոնիթորինգի ռեժիմի կարգավորումը կդնի \"Միշտ\" վիճակում։</string>
     <string name="settings_autoconnect_condition_label">Ինքնամիացման պայման</string>
     <string name="settings_autoconnect_condition_description">Ե՞րբ պետք է փորձենք միանալ ձեր սարքին։</string>
+    <string name="settings_devices_label">Սարքեր</string>
+    <string name="settings_devices_description">Կառավարեք ձեր սարքերը։</string>
     <string name="settings_reaction_label">Արձագանքներ</string>
     <string name="settings_reaction_description">Արձագանքեք իրադարձություններին և վարքագծերին։</string>
     <string name="settings_category_yourdevice_label">Ձեր սարքը</string>
@@ -68,6 +76,7 @@
     <string name="settings_support_description">Եթե օգնության կարիք ունեք։</string>
     <string name="issue_tracker_label">Խնդիրների հետագծիչ</string>
     <string name="issue_tracker_description">Սխալների հաշվետվությունների և գործառույթների հարցումների համար հանրային խնդիրների հետագծիչ (միայն անգլերեն)։</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Ժամանցի և հարցեր տալու վայր։</string>
     <string name="changelog_label">Փոփոխությունների մատյան</string>
     <string name="settings_label">Կարգավորումներ</string>
@@ -89,10 +98,16 @@
     <string name="help_translate_label">Թարգմանություն</string>
     <string name="help_translate_description">Օգնեք թարգմանել այս հավելվածը ձեր սիրելի լեզվով։</string>
     <string name="translators_thanks_title">Թարգմանիչներ</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Վիջեթ, որը ցույց է տալիս սարքի վերջին հայտնի կարգավիճակը։</string>
+    <string name="widget_configuration_title">Ընտրել սարք</string>
+    <string name="widget_configuration_description">Ընտրեք, թե որ սարքի պրոֆիլը պետք է ցուցադրի այս վիջեթը։</string>
+    <string name="common_feature_requires_pro_msg">Այս գործառույթը պահանջում է CAPod Pro։</string>
+    <string name="widget_no_data_label">Տվյալներ չկան</string>
     <string name="settings_compat_indirectcallback_title">Անուղղակի տվյալների առաքում</string>
     <string name="settings_compat_indirectcallback_summary">Օգտագործեք այլընտրանքային մեթոդ՝ համակարգից BLE տվյալներ ստանալու համար (հեռարձակում՝ հետկանչի փոխարեն)։</string>
     <string name="troubleshooter_title">Խնդիրների լուծիչ</string>
+    <string name="troubleshooter_summary">Ախտորոշել և շտկել Bluetooth միացման խնդիրները։</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy հեռարձակումներ</string>
     <string name="troubleshooter_ble_intro_body1">AirPods-ները (և նմանատիպ ականջակալները) կարգավիճակի տեղեկատվություն են հեռարձակում՝ օգտագործելով BLE տեխնոլոգիա, որը կոչվում է \"գովազդներ\"։ Որոշ հեռախոսներ այս տեխնոլոգիան ճիշտ չեն իրականացնում։ CAPod-ը կարող է փորձել շտկել դա՝ փորձելով համատեղելիության տարբեր տարբերակներ, մինչև տվյալները ստացվեն։ Սկսեք երաժշտության նվագարկումը ձեր ականջակալներում և տեղադրեք դրանք ձեր հեռախոսի մոտ, այնուհետև սկսեք գործընթացը։</string>
     <string name="troubleshooter_ble_intro_start_action">Սկսել խնդիրների լուծումը</string>
@@ -118,9 +133,6 @@
     <string name="general_error_label">Սխալ</string>
     <string name="general_grant_permission_action">Տալ թույլտվություն</string>
     <string name="general_manage_devices_action">Կառավարել սարքերը</string>
-    <string name="general_donate_action">Նվիրաբերել</string>
-    <string name="general_show_action">Ցուցադրել</string>
-    <string name="general_hide_action">Թաքցնել</string>
     <string name="overview_nomaindevice_label">Ոչ մի սարք կարգավորված չէ</string>
     <string name="overview_nomaindevice_description">Կարգավորեք ձեր սարքը՝ մարտկոցի մոնիթորինգը սկսելու և լրացուցիչ գործառույթներ միացնելու համար։</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth-ը անջատված է</string>
@@ -147,8 +159,6 @@
     <string name="permission_required_title">Հետևյալ թույլտվությունն անհրաժեշտ է՝</string>
     <string name="permission_system_alert_window_label">Համակարգային զգուշացման պատուհան</string>
     <string name="permission_system_alert_window_description">Թույլ տվեք CAPod-ին նկարել այլ հավելվածների վերևում՝ \"Ցուցադրել բացվող պատուհան\" գործառույթը հնարավոր դարձնելու համար։</string>
-    <string name="permission_post_notifications_label">Ցուցադրել ծանուցումներ</string>
-    <string name="permission_post_notifications_description">Թույլ տվեք CAPod-ին ցուցադրել ծանուցումներ ձեր AirPods-ների մասին, օրինակ՝ դրանց ընթացիկ կարգավիճակը՝ երբ միացված են։</string>
     <string name="settings_scanner_mode_lowpower_label">Ցածր էներգիա</string>
     <string name="settings_scanner_mode_balanced_label">Հավասարակշռված</string>
     <string name="settings_scanner_mode_lowlatency_label">Ցածր ուշացում</string>
@@ -158,19 +168,6 @@
     <string name="settings_reaction_autoconnect_whenseen_label">Երբ տեսնվում է</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Պատյանը բաց է</string>
     <string name="settings_reaction_autoconnect_inear_label">Ականջում է</string>
-    <string name="settings_keep_notification_after_disconnect_label">Պահել ծանուցումը անջատումից հետո</string>
-    <string name="settings_keep_notification_after_disconnect_description">Շարունակել ցուցադրել վերջին հայտնի մարտկոցի մակարդակները նույնիսկ ձեր AirPods-ների անջատումից հետո</string>
-    <string name="settings_eardetection_info_label">Ականջում հայտնաբերման նշում</string>
-    <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string>
-    <string name="settings_devices_label">Սարքեր</string>
-    <string name="settings_devices_description">Կառավարեք ձեր սարքերը։</string>
-    <string name="discord_label">Discord</string>
-    <string name="translators_thanks_description">darken</string>
-    <string name="troubleshooter_summary">Ախտորոշել և շտկել Bluetooth միացման խնդիրները։</string>
-    <string name="widget_configuration_title">Ընտրել սարք</string>
-    <string name="widget_configuration_description">Ընտրեք, թե որ սարքի պրոֆիլը պետք է ցուցադրի այս վիջեթը։</string>
-    <string name="widget_no_data_label">Տվյալներ չկան</string>
-    <string name="common_feature_requires_pro_msg">Այս գործառույթը պահանջում է CAPod Pro։</string>
     <string name="pods_dual_left_label">Ձախ ականջակալ</string>
     <string name="pods_dual_right_label">Աջ ականջակալ</string>
     <string name="pods_case_label">Պատյան</string>
@@ -196,6 +193,8 @@
     <string name="pods_case_unknown_state">Անհայտ վիճակ</string>
     <string name="last_seen_x">Վերջին անգամ տեսնված՝ %s</string>
     <string name="first_seen_x">Առաջին անգամ տեսնված՝ %s</string>
+    <string name="permission_post_notifications_label">Ցուցադրել ծանուցումներ</string>
+    <string name="permission_post_notifications_description">"Թույլ տվեք CAPod-ին ցուցադրել ծանուցումներ ձեր AirPods-ների մասին, օրինակ՝ դրանց ընթացիկ կարգավիճակը՝ երբ միացված են։"</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Սարքի պրոֆիլներ կարգավորված չեն</string>
     <string name="profiles_empty_description">Ստեղծեք սարքի պրոֆիլներ՝ բազմաթիվ սարքերի կառավարման համար՝ անհատական կարգավորումներով և առաջնահերթություններով։</string>

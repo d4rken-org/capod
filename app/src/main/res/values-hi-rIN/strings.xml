@@ -6,7 +6,6 @@
     <string name="general_copy_action">कॉपी करें</string>
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_upgrade_action">अपग्रेड करें</string>
-    <string name="general_donate_action">दान करें</string>
     <string name="general_check_action">जाँचें</string>
     <string name="general_close_action">बंद करें</string>
     <string name="general_save_action">सहेजें</string>
@@ -77,7 +76,7 @@
     <string name="settings_support_description">यदि आपको कुछ सहायता चाहिए।</string>
     <string name="issue_tracker_label">समस्या ट्रैकर</string>
     <string name="issue_tracker_description">बग रिपोर्ट और सुविधा अनुरोधों के लिए एक सार्वजनिक समस्या ट्रैकर (केवल अंग्रेजी)।</string>
-    <string name="discord_label">Discord</string>
+    <string name="discord_label">डिस्कॉर्ड</string>
     <string name="discord_description">घूमने-फिरने और सवाल पूछने की जगह।</string>
     <string name="changelog_label">परिवर्तन लॉग</string>
     <string name="settings_label">सेटिंग्स</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">उपलब्ध नहीं</string>
     <string name="general_error_label">त्रुटि</string>
     <string name="general_grant_permission_action">अनुमति दें</string>
     <string name="general_manage_devices_action">डिवाइस प्रबंधित करें</string>
@@ -149,7 +148,7 @@
     <string name="permission_bluetooth_connect_description">इस ऐप को पेयर किए गए डिवाइसों से इंटरैक्ट करने और कनेक्शन शुरू करने के लिए \"Bluetooth कनेक्ट\" अनुमति चाहिए।</string>
     <string name="permission_bluetooth_scan_label">Bluetooth स्कैनिंग</string>
     <string name="permission_bluetooth_scan_description">\"Bluetooth स्कैनिंग\" अनुमति इस ऐप को आपके AirPods जैसे पास के डिवाइसों से Bluetooth डेटा खोजने और प्राप्त करने की अनुमति देती है।</string>
-    <string name="permission_bluetooth_label">Bluetooth</string>
+    <string name="permission_bluetooth_label">ब्लूटूथ</string>
     <string name="permission_bluetooth_description">इस ऐप को पेयर किए गए Bluetooth डिवाइसों से कनेक्ट करने के लिए \"Bluetooth\" अनुमति चाहिए।</string>
     <string name="permission_access_fine_location_label">सटीक स्थान तक पहुँच</string>
     <string name="permission_access_fine_location_description">CAPod Bluetooth Low Energy डेटा प्राप्त करने के लिए \"सटीक स्थान\" अनुमति का उपयोग करता है। आपके हेडफ़ोन अपनी स्थिति प्रसारित करने के लिए Bluetooth Low Energy तकनीक का उपयोग करते हैं। यह ऐप आपका स्थान निर्धारित करने के लिए Bluetooth डेटा का उपयोग नहीं करेगा।</string>

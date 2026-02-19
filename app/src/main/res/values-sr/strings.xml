@@ -11,6 +11,8 @@
     <string name="general_save_action">Сачувај</string>
     <string name="general_guide_action">Водич</string>
     <string name="general_continue_action">Настави</string>
+    <string name="general_show_action">Прикажи</string>
+    <string name="general_hide_action">Сакриј</string>
     <string name="general_example_label">Нпр.: %s</string>
     <string name="upgrade_capod_label">Надогради CAPod</string>
     <string name="upgrade_capod_description">Добијте додатне функције и подржите програмера.</string>
@@ -18,12 +20,16 @@
     <string name="settings_monitor_mode_description">Под којим околностима ова апликација надгледа Bluetooth податке.</string>
     <string name="settings_monitor_connected_notification_label">Додатно обавештење</string>
     <string name="settings_monitor_connected_notification_description">Приказује додатно обавештење када је уређај повезан. Ово вам омогућава да сакријете трајно обавештење „Нема уређаја” онемогућавањем канала „Статус уређаја”.</string>
+    <string name="settings_keep_notification_after_disconnect_label">Задржи обавештење након прекида везе</string>
+    <string name="settings_keep_notification_after_disconnect_description">Настави да приказује последње познате нивое батерије чак и након што се AirPods искључе</string>
     <string name="settings_scanner_mode_label">Режим скенера</string>
     <string name="settings_scanner_mode_description">Да ли би скенер података Bluetooth Low Energy требало да да приоритет перформансама или да штеди енергију?</string>
     <string name="settings_autopause_label">Аутоматска пауза</string>
     <string name="settings_autopause_description">Паузирајте звук када уклоните уређај из ува.</string>
     <string name="settings_autopplay_label">Аутоматска репродукција</string>
     <string name="settings_autoplay_description">Покрените аудио репродукцију када се уређај носи.</string>
+    <string name="settings_eardetection_info_label">Напомена о детекцији уха</string>
+    <string name="settings_eardetection_info_description">Ако детекција уха ради само за једну слушалицу, то је ограничење Apple-а. Детектује се само \"примарна слушалица\" (која се користи за микрофон). Подесите на Apple уређајима: Подешавања → Bluetooth → AirPods → Микрофон.</string>
     <string name="settings_fake_data_label">Лажни подаци</string>
     <string name="settings_fake_data_description">Прикажи лажне податке, тј. симулирајте уређаје који не постоје.</string>
     <string name="settings_debug_label">Подешавања за отклањање грешака</string>
@@ -34,6 +40,8 @@
     <string name="settings_autoconnect_description">Ако се Android не повеже аутоматски, можемо и ми то да затражимо. Ово ће поставити режим надгледања на „Увек”.</string>
     <string name="settings_autoconnect_condition_label">Услов за аутоматско повезивање</string>
     <string name="settings_autoconnect_condition_description">Када би требало да покушамо да се повежемо са вашим уређајем?</string>
+    <string name="settings_devices_label">Уређаји</string>
+    <string name="settings_devices_description">Управљајте својим уређајима.</string>
     <string name="settings_reaction_label">Реакције</string>
     <string name="settings_reaction_description">Реагујте на догађаје и понашања.</string>
     <string name="settings_category_yourdevice_label">Ваш уређај</string>
@@ -68,6 +76,7 @@
     <string name="settings_support_description">Ако вам је потребна помоћ.</string>
     <string name="issue_tracker_label">Праћење проблема</string>
     <string name="issue_tracker_description">Јавни систем за праћење проблема за пријаве грешака и захтеве за функције (само на енглеском).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Место за дружење и постављање питања.</string>
     <string name="changelog_label">Дневник измена</string>
     <string name="settings_label">Подешавања</string>
@@ -91,9 +100,14 @@
     <string name="translators_thanks_title">Преводиоци</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Виџет који приказује последњи познати статус уређаја.</string>
+    <string name="widget_configuration_title">Изаберите уређај</string>
+    <string name="widget_configuration_description">Изаберите који профил уређаја овај виџет треба да приказује.</string>
+    <string name="common_feature_requires_pro_msg">Ова функција захтева CAPod Pro.</string>
+    <string name="widget_no_data_label">Нема података</string>
     <string name="settings_compat_indirectcallback_title">Индиректна достава података</string>
     <string name="settings_compat_indirectcallback_summary">Користите алтернативни метод за пријем BLE података из система (емитовање уместо повратног позива).</string>
     <string name="troubleshooter_title">Решавање проблема</string>
+    <string name="troubleshooter_summary">Дијагностикујте и поправите проблеме са Bluetooth повезивањем.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy емитовања</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (и сличне слушалице) емитују информације о статусу користећи BLE технологију названу „огласи”. Неки телефони не имплементирају ову технологију исправно. CAPod може покушати да то поправи испробавањем различитих опција компатибилности док се подаци не приме. Покрените репродукцију музике на слушалицама и поставите их близу телефона, а затим покрените поступак.</string>
     <string name="troubleshooter_ble_intro_start_action">Започни решавање проблема</string>
@@ -111,22 +125,6 @@
     <string name="onboarding_body2">Не подржавају сви Android уређаји у потпуности додатне функције AirPod-а. Ваш оперативни систем захтева исправно функционисање имплементације Bluetooth-Low-Energy.</string>
     <string name="onboarding_body3">CAPod нема рекламе и не прикупља ваше податке.</string>
     <string name="onboarding_body4">Можете надоградити на CAPod Pro да бисте добили додатне функције и подржали развој.</string>
-    <string name="general_donate_action">Донирај</string>
-    <string name="general_show_action">Прикажи</string>
-    <string name="general_hide_action">Сакриј</string>
-    <string name="settings_keep_notification_after_disconnect_label">Задржи обавештење након прекида везе</string>
-    <string name="settings_keep_notification_after_disconnect_description">Настави да приказује последње познате нивое батерије чак и након што се AirPods искључе</string>
-    <string name="settings_eardetection_info_label">Напомена о детекцији уха</string>
-    <string name="settings_eardetection_info_description">Ако детекција уха ради само за једну слушалицу, то је ограничење Apple-а. Детектује се само \"примарна слушалица\" (која се користи за микрофон). Подесите на Apple уређајима: Подешавања → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_devices_label">Уређаји</string>
-    <string name="settings_devices_description">Управљајте својим уређајима.</string>
-    <string name="discord_label">Discord</string>
-    <string name="troubleshooter_summary">Дијагностикујте и поправите проблеме са Bluetooth повезивањем.</string>
-    <string name="widget_configuration_title">Изаберите уређај</string>
-    <string name="widget_configuration_description">Изаберите који профил уређаја овај виџет треба да приказује.</string>
-    <string name="common_feature_requires_pro_msg">Ова функција захтева CAPod Pro.</string>
-    <string name="widget_no_data_label">Нема података</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
@@ -197,8 +195,7 @@
     <string name="last_seen_x">Последње виђење: %s</string>
     <string name="first_seen_x">Прво виђење: %s</string>
     <string name="permission_post_notifications_label">Прикажи обавештења</string>
-    <string name="permission_post_notifications_description">Дозволите CAPod-у да приказује обавештења о вашим AirPods-има, нпр. тренутни статус док су повезани.</string>
-
+    <string name="permission_post_notifications_description">"Дозволите CAPod-у да приказује обавештења о вашим AirPods-има, нпр. тренутни статус док су повезани."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Нема подешених профила уређаја</string>
     <string name="profiles_empty_description">Креирајте профиле уређаја за управљање више уређаја са прилагођеним подешавањима и приоритетима.</string>
@@ -228,7 +225,6 @@
     <string name="profiles_key_invalid_format">Неважећи формат кључа</string>
     <string name="profiles_key_expected_format">Очекивани формат: %1$s</string>
     <string name="profiles_priority_hint">Редослед профила одређује приоритет. Превуците профиле да бисте их преуредили — профили виши на листи имају предност када се подудара више уређаја.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Несачуване измене</string>
     <string name="general_unsaved_changes_message">Имате несачуване измене. Шта желите да урадите?</string>

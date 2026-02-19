@@ -6,7 +6,6 @@
     <string name="general_copy_action">Kopyahin</string>
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
-    <string name="general_donate_action">Mag-donate</string>
     <string name="general_check_action">Suriin</string>
     <string name="general_close_action">Isara</string>
     <string name="general_save_action">I-save</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">Hindi Available</string>
     <string name="general_error_label">Error</string>
     <string name="general_grant_permission_action">Ibigay ang pahintulot</string>
     <string name="general_manage_devices_action">Pamahalaan ang mga device</string>
@@ -145,7 +144,7 @@
         <item quantity="one">%d device na walang katugmang profile</item>
         <item quantity="other">%d mga device na walang katugmang profile</item>
     </plurals>
-    <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
+    <string name="permission_bluetooth_connect_label">Bluetooth na koneksyon</string>
     <string name="permission_bluetooth_connect_description">Kailangan ng app na ito ang pahintulot na \"Bluetooth connect\" para makipag-ugnayan sa mga naka-pair na device at magsimula ng mga koneksyon.</string>
     <string name="permission_bluetooth_scan_label">Pag-scan ng Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Pinapayagan ng pahintulot na \"Pag-scan ng Bluetooth\" ang app na ito na makatuklas at makatanggap ng data ng Bluetooth mula sa mga kalapit na device tulad ng iyong AirPods.</string>
@@ -181,7 +180,7 @@
     <string name="pods_connection_state_ringing_label">Nagri-ring</string>
     <string name="pods_connection_state_hanging_up_label">Nagva-vaglag</string>
     <string name="pods_connection_state_unknown_label">Hindi kilalang estado ng koneksyon</string>
-    <string name="pods_unknown_raw_data_label">Raw data</string>
+    <string name="pods_unknown_raw_data_label">Raw na data</string>
     <string name="pods_unknown_label">Hindi kilalang device</string>
     <string name="pods_unknown_contact_dev">Ito ay isang hindi kilalang device, ngunit gumagamit ito ng katulad na format ng mensahe. Magdagdag tayo ng suporta para dito, kontakin mo ako :)</string>
     <string name="pods_none_label_short">Walang device</string>

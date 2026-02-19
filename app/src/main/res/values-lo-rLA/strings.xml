@@ -11,6 +11,8 @@
     <string name="general_save_action">ບັນທຶກ</string>
     <string name="general_guide_action">ຄູ່ມື</string>
     <string name="general_continue_action">ສືບຕໍ່</string>
+    <string name="general_show_action">ສະແດງ</string>
+    <string name="general_hide_action">ເຊື່ອງ</string>
     <string name="general_example_label">ຕົວຢ່າງ: %s</string>
     <string name="upgrade_capod_label">ອັບເກຣດ CAPod</string>
     <string name="upgrade_capod_description">ຮັບຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ສະໜັບສະໜູນຜູ້ພັດທະນາ.</string>
@@ -18,12 +20,16 @@
     <string name="settings_monitor_mode_description">ແອັບນີ້ຕິດຕາມຂໍ້ມູນ Bluetooth ພາຍໃຕ້ສະຖານະການໃດ.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
     <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \"ບໍ່ມີອຸປະກອນ\" ໂດຍການປິດຊ່ອງ \"ສະຖານະອຸປະກອນ\" .</string>
+    <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
+    <string name="settings_keep_notification_after_disconnect_description">ສືບຕໍ່ສະແດງລະດັບແບັດເຕີລີ້ທີ່ຮູ້ຈັກຫຼ້າສຸດແມ້ຫຼັງຈາກ AirPods ຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_scanner_mode_label">ໂໝດສະແກນ</string>
     <string name="settings_scanner_mode_description">ເຄື່ອງສະແກນຂໍ້ມູນ Bluetooth Low Energy ຄວນໃຫ້ຄວາມສຳຄັນກັບປະສິດທິພາບ ຫຼື ປະຢັດພະລັງງານ?</string>
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
     <string name="settings_autopause_description">ຢຸດສຽງຊົ່ວຄາວເມື່ອຖອດອຸປະກອນອອກຈາກຫູຂອງທ່ານ.</string>
     <string name="settings_autopplay_label">ຫຼິ້ນອັດຕະໂນມັດ</string>
     <string name="settings_autoplay_description">ເລີ່ມການຫຼິ້ນສຽງເມື່ອໃສ่อຸປະກອນ.</string>
+    <string name="settings_eardetection_info_label">ໝາຍເຫດການກວດຈັບຫູ</string>
+    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string>
     <string name="settings_fake_data_label">ຂໍ້ມູນປອມ</string>
     <string name="settings_fake_data_description">ສະແດງຂໍ້ມູນປອມ, ເຊັ່ນ: ຈຳລອງອຸປະກອນທີ່ບໍ່ມີຢູ່.</string>
     <string name="settings_debug_label">ການຕັ້ງຄ່າດີບัก</string>
@@ -34,6 +40,8 @@
     <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ, ພວກເຮົາກໍສາມາດຮ້ອງຂໍໄດ້. ນີ້ຈະຕັ້ງຄ່າໂໝດຕິດຕາມເປັນ \"ສະເໝີ\" .</string>
     <string name="settings_autoconnect_condition_label">ເງື່ອນໄຂການເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
     <string name="settings_autoconnect_condition_description">ພວກເຮົາຄວນພະຍາຍາມເຊື່ອມຕໍ່ກັບອຸປະກອນຂອງທ່ານເມື່ອໃດ?</string>
+    <string name="settings_devices_label">ອຸປະກອນ</string>
+    <string name="settings_devices_description">ຈັດການອຸປະກອນຂອງທ່ານ.</string>
     <string name="settings_reaction_label">ປະຕິກິລິຍາ</string>
     <string name="settings_reaction_description">ປະຕິກິລິຍາຕໍ່ເຫດການ ແລະ ພຶດຕິກຳ.</string>
     <string name="settings_category_yourdevice_label">ອຸປະກອນຂອງທ່ານ</string>
@@ -63,11 +71,12 @@
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
     <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ຕົວຢ່າງ: ຜູ້ພັດທະນາທີ່ກຳລັງແກ້ໄຂບັນຫາ).</string>
     <string name="settings_support_installid_label">ID ການຕິດຕັ້ງ</string>
-    <string name="settings_support_installid_desc">รายงานข้อผิดพลาดอัตโนมัติจะไม่ระบุชื่อ แบ่งปัน ID การติดตั้งของคุณหากนักพัฒนาซอฟต์แวร์ต้องการค้นหารายงานข้อผิดพลาดของคุณ</string>
+    <string name="settings_support_installid_desc">ລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດຈະບໍ່ລະບຸຕົວຕົນ. ແບ່ງປັນ ID ການຕິດຕັ້ງຂອງທ່ານຖ້າຜູ້ພັດທະນາຕ້ອງການຊອກຫາລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
     <string name="settings_support_label">ການຊ່ວຍເຫຼືອ</string>
     <string name="settings_support_description">ຖ້າທ່ານຕ້ອງການການຊ່ວຍເຫຼືອ.</string>
     <string name="issue_tracker_label">ຕົວຕິດຕາມບັນຫາ</string>
     <string name="issue_tracker_description">ຕົວຕິດຕາມບັນຫາສາທາລະນະສຳລັບລາຍງານຂໍ້ບົກພ່ອງ ແລະ ຄຳຮ້ອງຂໍຄຸນສົມບັດ (ພາສາອັງກິດເທົ່ານັ້ນ).</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">ບ່ອນສຳລັບສົນທະນາ ແລະ ຖາມຄຳຖາມ.</string>
     <string name="changelog_label">ບັນທຶກການປ່ຽນແປງ</string>
     <string name="settings_label">ການຕັ້ງຄ່າ</string>
@@ -89,10 +98,16 @@
     <string name="help_translate_label">ການແປພາສາ</string>
     <string name="help_translate_description">ຊ່ວຍແປແອັບນີ້ເປັນພາສາທີ່ທ່ານມັກ.</string>
     <string name="translators_thanks_title">ຜູ້ແປ</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ວິດເຈັດສະແດງສະຖານະອຸປະກອນທີ່ຮູ້ຈັກຫຼ້າສຸດ.</string>
+    <string name="widget_configuration_title">ເລືອກອຸປະກອນ</string>
+    <string name="widget_configuration_description">ເລືອກໂປຣໄຟລ໌ອຸປະກອນທີ່ວິດເຈັດນີ້ຄວນສະແດງ.</string>
+    <string name="common_feature_requires_pro_msg">ຄຸນສົມບັດນີ້ຕ້ອງການ CAPod Pro.</string>
+    <string name="widget_no_data_label">ບໍ່ມີຂໍ້ມູນ</string>
     <string name="settings_compat_indirectcallback_title">ການສົ່ງຂໍ້ມູນທາງອ້ອມ</string>
-    <string name="settings_compat_indirectcallback_summary">ใช้วิธีอื่นในการรับข้อมูล BLE จากระบบ (ออกอากาศแทนการโทรกลับ)</string>
+    <string name="settings_compat_indirectcallback_summary">ໃຊ້ວິທີທາງເລືອກເພື່ອຮັບຂໍ້ມູນ BLE ຈາກລະບົບ (ອອກອາກາດແທນການໂທກັບ).</string>
     <string name="troubleshooter_title">ຕົວແກ້ໄຂບັນຫາ</string>
+    <string name="troubleshooter_summary">ກວດຫາ ແລະ ແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">ການອອກອາກາດ Bluetooth Low Energy</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂปัญหานี้ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ้ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
     <string name="troubleshooter_ble_intro_start_action">ເລີ່ມການແກ້ໄຂບັນຫາ</string>
@@ -118,15 +133,6 @@
     <string name="general_error_label">ຜິດພາດ</string>
     <string name="general_grant_permission_action">ອະນຸຍາດ</string>
     <string name="general_manage_devices_action">ຈັດການອຸປະກອນ</string>
-    <string name="general_donate_action">ບໍລິຈາກ</string>
-    <string name="general_show_action">ສະແດງ</string>
-    <string name="general_hide_action">ເຊື່ອງ</string>
-    <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
-    <string name="settings_keep_notification_after_disconnect_description">ສືບຕໍ່ສະແດງລະດັບແບັດເຕີລີ້ທີ່ຮູ້ຈັກຫຼ້າສຸດແມ້ຫຼັງຈາກ AirPods ຕັດການເຊື່ອມຕໍ່</string>
-    <string name="settings_eardetection_info_label">ໝາຍເຫດການກວດຈັບຫູ</string>
-    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string>
-    <string name="settings_devices_label">ອຸປະກອນ</string>
-    <string name="settings_devices_description">ຈັດການອຸປະກອນຂອງທ່ານ.</string>
     <string name="overview_nomaindevice_label">ບໍ່ມີອຸປະກອນທີ່ຕັ້ງຄ່າ</string>
     <string name="overview_nomaindevice_description">ຕັ້ງຄ່າອຸປະກອນຂອງທ່ານເພື່ອເລີ່ມຕິດຕາມລະດັບແບັດເຕີລີ້ ແລະ ເປີດໃຊ້ຄຸນສົມບັດເພີ່ມເຕີມ.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ຖືກປິດ</string>
@@ -135,7 +141,6 @@
     <string name="overview_monitoring_active_description">ໃຫ້ແນ່ໃຈວ່າອຸປະກອນຂອງທ່ານຢູ່ໃກ້ ແລະ ເຮັດວຽກຢູ່.</string>
     <string name="overview_unmatched_devices_label">ອຸປະກອນທີ່ບໍ່ກົງກັນ</string>
     <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">%d ອຸປະກອນທີ່ບໍ່ມີໂປຣໄຟລ໌ກົງກັນ</item>
         <item quantity="other">%d ອຸປະກອນທີ່ບໍ່ມີໂປຣໄຟລ໌ກົງກັນ</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">ການເຊື່ອມຕໍ່ Bluetooth</string>
@@ -151,7 +156,7 @@
     <string name="permission_ignore_battery_optimizations_label">ປິດການປັບແຕ່ງແບັດເຕີລີ້</string>
     <string name="permission_ignore_battery_optimizations_description">ການປັບແຕ່ງແບັດເຕີລີ້ປ້ອງກັນບໍ່ໃຫ້ແອັບນີ້ຮັບຂໍ້ມູນ Bluetooth ຢ່າງໜ້າເຊື່ອຖືໃນຂະນະທີ່ແອັບຢູ່ໃນພື້ນຫຼັງ.</string>
     <string name="permission_required_title">ຕ້ອງການການອະນຸຍາດຕໍ່ໄປນີ້:</string>
-    <string name="permission_system_alert_window_label">System Alert Window</string>
+    <string name="permission_system_alert_window_label">ໜ້າຕ່າງການແຈ້ງເຕືອນລະບົບ</string>
     <string name="permission_system_alert_window_description">ອະນຸຍາດໃຫ້ CAPod ແຕ້ມທັບແອັບອື່ນເພື່ອໃຫ້ຄຸນສົມບັດ \"ສະແດງປັອບອັບ\" ເປັນໄປໄດ້.</string>
     <string name="settings_scanner_mode_lowpower_label">ພະລັງງານຕໍ່າ</string>
     <string name="settings_scanner_mode_balanced_label">ສົມດູນ</string>
@@ -189,13 +194,6 @@
     <string name="first_seen_x">ເຫັນຄັ້ງທຳອິດ: %s</string>
     <string name="permission_post_notifications_label">ສະແດງການແຈ້ງເຕືອນ</string>
     <string name="permission_post_notifications_description">"ອະນຸຍາດໃຫ້ CAPod ສະແດງການແຈ້ງເຕືອນກ່ຽວກັບ AirPods ຂອງທ່ານ, ຕົວຢ່າງ: ສະຖານະປັດຈຸບັນໃນຂະນະເຊື່ອມຕໍ່."</string>
-    <string name="discord_label">Discord</string>
-    <string name="translators_thanks_description">darken</string>
-    <string name="widget_configuration_title">ເລືອກອຸປະກອນ</string>
-    <string name="widget_configuration_description">ເລືອກໂປຣໄຟລ໌ອຸປະກອນທີ່ວິດເຈັດນີ້ຄວນສະແດງ.</string>
-    <string name="common_feature_requires_pro_msg">ຄຸນສົມບັດນີ້ຕ້ອງການ CAPod Pro.</string>
-    <string name="widget_no_data_label">ບໍ່ມີຂໍ້ມູນ</string>
-    <string name="troubleshooter_summary">ກວດຫາ ແລະ ແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ Bluetooth.</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">ບໍ່ມີໂປຣໄຟລ໌ອຸປະກອນທີ່ຕັ້ງຄ່າ</string>
     <string name="profiles_empty_description">ສ້າງໂປຣໄຟລ໌ອຸປະກອນເພື່ອຈັດການຫຼາຍອຸປະກອນດ້ວຍການຕັ້ງຄ່າ ແລະ ລຳດັບຄວາມສຳຄັນແບບກຳນົດເອງ.</string>
@@ -216,10 +214,10 @@
     <string name="profiles_basic_info_description">ຕັ້ງຄ່າຊື່ອຸປະກອນ, ຮຸ່ນ, ແລະ ການຈັບຄູ່ Bluetooth ທາງເລືອກ.</string>
     <string name="profiles_signal_quality_title">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
     <string name="profiles_signal_quality_description">ກວດຈັບສະເພາະອຸປະກອນທີ່ມີຄວາມແຮງສັນຍານເກີນເກນນີ້. ຄ່າຕໍ່າກວ່າເພີ່ມຂອບເຂດການກວດຈັບແຕ່ອາດເຮັດໃຫ້ເກີດການກວດຈັບຜິດ. ຢ່າຕັ້ງສູງເກີນໄປ - ການຮັບ Bluetooth ໂດຍທົ່ວໄປແມ່ນບໍ່ດີ ແລະ ແຕກຕ່າງກັນຕາມໄລຍະ ແລະ ສິ່ງກີດຂວາງ.</string>
-    <string name="profiles_identitykey_label">Identity Key</string>
+    <string name="profiles_identitykey_label">ລະຫັດຕົວຕົນ</string>
     <string name="profilessettings_maindevice_identitykey_description">Identity Resolving Key (IRK) ຂອງອຸປະກອນທ່ານ, ຊຶ່ງຊ່ວຍ CAPod ລະບຸມັນໃນບັນດາອຸປະກອນໃກ້ຄຽງ.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods ປ່ຽນທີ່ຢູ່ Bluetooth ເລື້ອຍໆເພື່ອຄວາມເປັນສ່ວນຕົວ. IRK ຊ່ວຍ CAPod ຮັບຮູ້ອຸປະກອນຂອງທ່ານ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Encryption Key</string>
+    <string name="profiles_maindevice_encryptionkey_label">ລະຫັດການເຂົ້າລະຫັດ</string>
     <string name="profiles_maindevice_encryptionkey_description">ກະແຈເຂົ້າລະຫັດຂອງອຸປະກອນທ່ານ, ຊຶ່ງອະນຸຍາດໃຫ້ CAPod ດຶງຂໍ້ມູນສະຖານະລະອຽດ.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ສົ່ງຂໍ້ຄວາມສະຖານະ, ບາງສ່ວນຂອງມັນຖືກເຂົ້າລະຫັດ. ກະແຈເຂົ້າລະຫັດອະນຸຍາດໃຫ້ CAPod ຖອດລະຫັດຂໍ້ຄວາມທັງໝົດ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
     <string name="profiles_key_invalid_format">ຮູບແບບກະແຈບໍ່ຖືກຕ້ອງ</string>

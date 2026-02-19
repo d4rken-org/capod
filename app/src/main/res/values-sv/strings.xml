@@ -9,7 +9,10 @@
     <string name="general_check_action">Kontrollera</string>
     <string name="general_close_action">Stäng</string>
     <string name="general_save_action">Spara</string>
+    <string name="general_guide_action">Guide</string>
     <string name="general_continue_action">Fortsätt</string>
+    <string name="general_show_action">Visa</string>
+    <string name="general_hide_action">Dölj</string>
     <string name="general_example_label">T.ex.: %s</string>
     <string name="upgrade_capod_label">Uppgradera CAPod</string>
     <string name="upgrade_capod_description">Få ytterligare funktioner och stöd utvecklaren.</string>
@@ -17,12 +20,16 @@
     <string name="settings_monitor_mode_description">Under vilka omständigheter denna app övervakar Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Extra avisering</string>
     <string name="settings_monitor_connected_notification_description">Visar en extra avisering när en enhet är ansluten. Detta låter dig dölja den permanenta aviseringen \"Inga enheter\" genom att inaktivera kanalen \"Enhetsstatus\".</string>
+    <string name="settings_keep_notification_after_disconnect_label">Behåll avisering efter frånkoppling</string>
+    <string name="settings_keep_notification_after_disconnect_description">Fortsätt visa de senast kända batterinivåerna även efter att dina AirPods kopplas från</string>
     <string name="settings_scanner_mode_label">Skannerläge</string>
     <string name="settings_scanner_mode_description">Ska Bluetooth Low Energy-dataskannern prioritera prestanda eller spara energi?</string>
     <string name="settings_autopause_label">Automatisk paus</string>
     <string name="settings_autopause_description">Pausa ljudet när du tar bort enheten från örat.</string>
     <string name="settings_autopplay_label">Automatisk uppspelning</string>
     <string name="settings_autoplay_description">Starta ljuduppspelning när enheten bärs.</string>
+    <string name="settings_eardetection_info_label">Örondetektionsnotering</string>
+    <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_fake_data_label">Falska data</string>
     <string name="settings_fake_data_description">Visa falska data, dvs. simulera enheter som inte finns.</string>
     <string name="settings_debug_label">Felsökningsinställningar</string>
@@ -33,6 +40,8 @@
     <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi också be den. Detta ställer in övervakningsläget på \"Alltid\".</string>
     <string name="settings_autoconnect_condition_label">Villkor för automatisk anslutning</string>
     <string name="settings_autoconnect_condition_description">När ska vi försöka ansluta till din enhet?</string>
+    <string name="settings_devices_label">Enheter</string>
+    <string name="settings_devices_description">Hantera dina enheter.</string>
     <string name="settings_reaction_label">Reaktioner</string>
     <string name="settings_reaction_description">Reagera på händelser och beteenden.</string>
     <string name="settings_category_yourdevice_label">Din enhet</string>
@@ -91,9 +100,14 @@
     <string name="translators_thanks_title">Översättare</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">En widget som visar den senast kända enhetsstatusen.</string>
+    <string name="widget_configuration_title">Välj enhet</string>
+    <string name="widget_configuration_description">Välj vilken enhetsprofil denna widget ska visa.</string>
+    <string name="common_feature_requires_pro_msg">Denna funktion kräver CAPod Pro.</string>
+    <string name="widget_no_data_label">Ingen data</string>
     <string name="settings_compat_indirectcallback_title">Indirekt dataleverans</string>
     <string name="settings_compat_indirectcallback_summary">Använd en alternativ metod för att ta emot BLE-data från systemet (sändning istället för återanrop).</string>
     <string name="troubleshooter_title">Felsökare</string>
+    <string name="troubleshooter_summary">Diagnostisera och åtgärda Bluetooth-anslutningsproblem.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy-sändningar</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (och liknande hörlurar) sänder statusinformation med en BLE-teknik som kallas \"annonser\". Vissa telefoner implementerar inte denna teknik korrekt. CAPod kan försöka åtgärda detta genom att prova olika kompatibilitetsalternativ tills data tas emot. Starta musikuppspelning på dina hörlurar och placera dem nära din telefon, starta sedan processen.</string>
     <string name="troubleshooter_ble_intro_start_action">Starta felsökning</string>
@@ -111,27 +125,11 @@
     <string name="onboarding_body2">Inte alla Android-enheter stöder fullt ut de extra AirPod-funktionerna. Ditt operativsystem kräver en korrekt fungerande Bluetooth-Low-Energy-implementering.</string>
     <string name="onboarding_body3">CAPod har inga annonser och samlar inte in dina data.</string>
     <string name="onboarding_body4">Du kan uppgradera till CAPod Pro för att få extra funktioner och stödja utvecklingen.</string>
-    <string name="general_donate_action">Donera</string>
-    <string name="general_guide_action">Guide</string>
-    <string name="general_show_action">Visa</string>
-    <string name="general_hide_action">Dölj</string>
-    <string name="settings_keep_notification_after_disconnect_label">Behåll avisering efter frånkoppling</string>
-    <string name="settings_keep_notification_after_disconnect_description">Fortsätt visa de senast kända batterinivåerna även efter att dina AirPods kopplas från</string>
-    <string name="settings_eardetection_info_label">Örondetektionsnotering</string>
-    <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_devices_label">Enheter</string>
-    <string name="settings_devices_description">Hantera dina enheter.</string>
-    <string name="troubleshooter_summary">Diagnostisera och åtgärda Bluetooth-anslutningsproblem.</string>
-    <string name="widget_configuration_title">Välj enhet</string>
-    <string name="widget_configuration_description">Välj vilken enhetsprofil denna widget ska visa.</string>
-    <string name="common_feature_requires_pro_msg">Denna funktion kräver CAPod Pro.</string>
-    <string name="widget_no_data_label">Ingen data</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">Ej tillgängligt</string>
     <string name="general_error_label">Fel</string>
     <string name="general_grant_permission_action">Bevilja behörighet</string>
     <string name="general_manage_devices_action">Hantera enheter</string>
@@ -196,8 +194,7 @@
     <string name="last_seen_x">Senast sedd: %s</string>
     <string name="first_seen_x">Först sedd: %s</string>
     <string name="permission_post_notifications_label">Visa aviseringar</string>
-    <string name="permission_post_notifications_description">Tillåt CAPod att visa aviseringar om dina AirPods, t.ex. deras aktuella status när de är anslutna.</string>
-
+    <string name="permission_post_notifications_description">"Tillåt CAPod att visa aviseringar om dina AirPods, t.ex. deras aktuella status när de är anslutna."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Inga enhetsprofiler konfigurerade</string>
     <string name="profiles_empty_description">Skapa enhetsprofiler för att hantera flera enheter med anpassade inställningar och prioriteringar.</string>
@@ -227,7 +224,6 @@
     <string name="profiles_key_invalid_format">Ogiltigt nyckelformat</string>
     <string name="profiles_key_expected_format">Förväntat format: %1$s</string>
     <string name="profiles_priority_hint">Profilordning bestämmer prioritet. Dra profiler för att ändra ordning — profiler högre upp i listan har företräde när flera enheter matchar.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Osparade ändringar</string>
     <string name="general_unsaved_changes_message">Du har osparade ändringar. Vad vill du göra?</string>

@@ -6,7 +6,6 @@
     <string name="general_copy_action">Копировать</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_upgrade_action">Улучшить</string>
-    <string name="general_donate_action">Пожертвовать</string>
     <string name="general_check_action">Проверить</string>
     <string name="general_close_action">Закрыть</string>
     <string name="general_save_action">Сохранить</string>
@@ -77,7 +76,7 @@
     <string name="settings_support_description">Если нужна помощь.</string>
     <string name="issue_tracker_label">Список проблем</string>
     <string name="issue_tracker_description">Общедоступный список для сообщений об ошибках и запросов функций (только английский).</string>
-    <string name="discord_label">Обсуждение</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Место для общения и вопросов.</string>
     <string name="changelog_label">История изменений</string>
     <string name="settings_label">Настройки</string>
@@ -88,8 +87,8 @@
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общие настройки, влияющие на всё приложение.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
-    <string name="settings_debug_autoreports_label">Автоматические очёты об ошибках</string>
-    <string name="settings_debug_autoreports_description">Автоматические очёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
+    <string name="settings_debug_autoreports_label">Автоматические отчёты об ошибках</string>
+    <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
     <string name="settings_debug_mode_label">Режим отладки</string>
     <string name="settings_debug_mode_description">Показать дополнительную информацию для проблемных вопросов.</string>
     <string name="settings_blescanner_unfiltered_label">Нефильтрованные данные BLE</string>
@@ -111,14 +110,14 @@ AL_Cool_T</string>
     <string name="troubleshooter_title">Помощник</string>
     <string name="troubleshooter_summary">Диагностика и исправление проблем с подключением Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">Трансляции Bluetooth с низким энергопотреблением</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (и аналогичные наушники) передают информацию о состоянии с использованием технологию BLE, называемой «рекламой». Некоторые телефоны неправильно реализуют эту технологию. CAPod может попытаться исправить это, пробуя разные варианты совместимости, пока данные не будут получены. Запустите воспроизведение музыки в наушниках и поднесите их к телефону, затем запустите процесс.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (и аналогичные наушники) передают информацию о состоянии с использованием технологии BLE, называемой «рекламой». Некоторые телефоны неправильно реализуют эту технологию. CAPod может попытаться исправить это, пробуя разные варианты совместимости, пока данные не будут получены. Запустите воспроизведение музыки в наушниках и поднесите их к телефону, затем запустите процесс.</string>
     <string name="troubleshooter_ble_intro_start_action">Начать устранение неполадок</string>
     <string name="troubleshooter_ble_process_title">Выполняется устранение неполадок</string>
     <string name="troubleshooter_ble_process_subtile">Каждый шаг занимает 5–10 секунд</string>
-    <string name="troubleshooter_ble_result_success_title">Успех</string>
+    <string name="troubleshooter_ble_result_success_title">Успешно</string>
     <string name="troubleshooter_ble_result_success_body">BLE рекламные трансляции принимаются на CAPod.</string>
-    <string name="troubleshooter_ble_result_failure_title">Неудачный</string>
-    <string name="troubleshooter_ble_result_failure_body">Не удалось устранить неполадки. Ни одна комбинация параметров совместимости не помогала.</string>
+    <string name="troubleshooter_ble_result_failure_title">Ошибка</string>
+    <string name="troubleshooter_ble_result_failure_body">Не удалось устранить неполадки. Ни одна комбинация параметров совместимости не помогла.</string>
     <string name="troubleshooter_ble_result_failure_phone_body">Ваш телефон не получал никаких BLE данных. Вы можете повторить этот тест в людном месте, чтобы проверить, могут ли быть получены данные (c других источников кроме наушников). Отсутствие полученных данных указывает на проблему с операционной системой Вашего телефона.</string>
     <string name="troubleshooter_ble_result_failure_phone_headphones">Ваш телефон получил BLE данные, но данные не поступают ни с одного поддерживаемого устройства. Ваши наушники включены? Поддерживает ли CAPod ваши наушники?</string>
     <string name="troubleshooter_ble_result_failure_action">Попробуйте еще раз</string>
@@ -144,9 +143,9 @@ AL_Cool_T</string>
     <string name="overview_unmatched_devices_label">Несопряжённые устройства</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d устройство без соответствующего профиля</item>
-        <item quantity="few">%d устройства без соответствующего профиля</item>
-        <item quantity="many">%d устройств без соответствующего профиля</item>
-        <item quantity="other">%d устройств без соответствующего профиля</item>
+        <item quantity="few">%d устр. без соответствующего профиля</item>
+        <item quantity="many">%d устр. без соответствующего профиля</item>
+        <item quantity="other">%d устр. без соответствующего профиля</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Подключение по Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Этому приложению требуется разрешение \"Подключение по Bluetooth\" для взаимодействия с сопряженными устройствами и инициирования соединений.</string>
@@ -223,7 +222,7 @@ AL_Cool_T</string>
     <string name="profilessettings_maindevice_identitykey_description">Идентификационный ключ (IRK), который помогает CAPod идентифицировать его между близлежащими устройствами.</string>
     <string name="profiles_maindevice_identitykey_explanation">AirPods часто меняют Bluetooth-адрес для приватности. IRK помогает CAPod распознать Ваше устройство. Вам нужен одноразовый доступ к MacBook.</string>
     <string name="profiles_maindevice_encryptionkey_label">Ключ шифрования</string>
-    <string name="profiles_maindevice_encryptionkey_description">Ключ шифрования вашего устройства, который позволяет CAPod получать подробную информацию.</string>
+    <string name="profiles_maindevice_encryptionkey_description">Ключ шифрования Вашего устройства, который позволяет CAPod получать подробную информацию.</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods отправляет сообщение о состоянии, часть которого зашифрована. Ключ шифрования позволяет CAPod расшифровать полное сообщение. Вам нужен одноразовый доступ к MacBook.</string>
     <string name="profiles_key_invalid_format">Неверный формат ключа</string>
     <string name="profiles_key_expected_format">Правильный формат: %1$s</string>

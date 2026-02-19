@@ -6,7 +6,6 @@
     <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Tingkatkan</string>
-    <string name="general_donate_action">Donasi</string>
     <string name="general_check_action">Periksa</string>
     <string name="general_close_action">Tutup</string>
     <string name="general_save_action">Simpan</string>
@@ -99,7 +98,7 @@
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan aplikasi ini ke bahasa favorit Anda.</string>
     <string name="translators_thanks_title">Penerjemah</string>
-    <string name="translators_thanks_description">gelapkan</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Widget yang menampilkan status perangkat terakhir yang diketahui.</string>
     <string name="widget_configuration_title">Pilih Perangkat</string>
     <string name="widget_configuration_description">Pilih profil perangkat mana yang akan ditampilkan widget ini.</string>
@@ -130,7 +129,7 @@
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-    <string name="general_value_not_available_label">N/A</string>
+    <string name="general_value_not_available_label">Tidak Tersedia</string>
     <string name="general_error_label">Kesalahan</string>
     <string name="general_grant_permission_action">Berikan izin</string>
     <string name="general_manage_devices_action">Kelola perangkat</string>

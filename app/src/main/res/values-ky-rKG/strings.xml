@@ -6,7 +6,6 @@
     <string name="general_copy_action">Көчүрүү</string>
     <string name="general_thank_you_label">Рахмат</string>
     <string name="general_upgrade_action">Жаңыртуу</string>
-    <string name="general_donate_action">Кайрымдуулук</string>
     <string name="general_check_action">Текшерүү</string>
     <string name="general_close_action">Жабуу</string>
     <string name="general_save_action">Сактоо</string>
@@ -14,12 +13,9 @@
     <string name="general_continue_action">Улантуу</string>
     <string name="general_show_action">Көрсөтүү</string>
     <string name="general_hide_action">Жашыруу</string>
-
     <string name="general_example_label">Мис.: %s</string>
-
     <string name="upgrade_capod_label">CAPod жаңыртуу</string>
     <string name="upgrade_capod_description">Кошумча функцияларды алыңыз жана иштеп чыгуучуну колдоңуз.</string>
-
     <string name="settings_monitor_mode_label">Мониторинг режими</string>
     <string name="settings_monitor_mode_description">Бул колдонмо Bluetooth маалыматтарын кайсы шарттарда көзөмөлдөйт.</string>
     <string name="settings_monitor_connected_notification_label">Кошумча билдирүү</string>
@@ -49,24 +45,20 @@
     <string name="settings_reaction_label">Реакциялар</string>
     <string name="settings_reaction_description">Окуяларга жана жүрүм-турумдарга реакция кылыңыз.</string>
     <string name="settings_category_yourdevice_label">Сиздин түзмөгүңүз</string>
-
     <string name="settings_category_compatibility_options_title">Шайкештик опциялары</string>
     <string name="settings_category_compatibility_options_description">Эгер баары иштесе тийбеңиз ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">Аппараттык чыпкалоону өчүрүү</string>
     <string name="settings_compat_offloaded_filtering_disabled_summary">Маалыматтарды чыпкалоону тутумга тапшырбаңыз, анын ордуна бардык маалыматтарды алып, колдонмонун ичинде чыпкалаңыз.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">Аппараттык топтомдоону өчүрүү</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Чогултулган BLE маалыматтарын бизге жөнөтүүдөн мурун тутумдун топтоштуруусуна жол бербеңиз.</string>
-
     <string name="settings_onepod_mode_label">Бир кулакчын режими</string>
     <string name="settings_onepod_mode_description">Эки кулакчынды тең тагуу талап кылынбайт, бир кулакчынды тагуу реакцияларды жаратуу үчүн жетиштүү.</string>
     <string name="settings_popup_caseopen_label">Кап ачылганда калкыма терезени көрсөтүү</string>
     <string name="settings_popup_caseopen_description">Түзмөктүн кабы ачылганда калкыма терезени көрсөтүү (эксперименталдык).</string>
     <string name="settings_popup_connected_label">Туташуу калкыма терезесин көрсөтүү</string>
     <string name="settings_popup_connected_description">Түзмөк биринчи жолу туташканда калкыма терезени көрсөтүү.</string>
-
     <string name="notification_channel_device_status_label">Түзмөктүн абалы</string>
     <string name="notification_channel_device_status_connected_label">Туташкан түзмөк</string>
-
     <string name="support_debuglog_label">Мүчүлүштүктөрдү оңдоо журналы</string>
     <string name="support_debuglog_desc">Колдонмо жасап жаткан бардык нерсени бөлүшө турган текст файлына жазыңыз.</string>
     <string name="debug_debuglog_size_label">Өлчөмү</string>
@@ -78,18 +70,14 @@
     <string name="debug_debuglog_stop_action">Жаздырууну токтотуу</string>
     <string name="debug_debuglog_sensitive_information_message">Түзүлгөн файл купуя маалыматты камтыйт (мис., Bluetooth түзмөгүнүн чоо-жайы). Аны ишенимдүү тараптар менен гана бөлүшүңүз.</string>
     <string name="settings_debuglog_explanation">Бул функция колдонмо жасап жаткан бардык нерсени бөлүшүлүүчү файлга жазат. Түзүлгөн файл купуя маалыматты камтыйт (мис., Bluetooth түзмөгүнүн чоо-жайы). Аны ишенимдүү тараптар менен гана бөлүшүңүз (мис., маселени чечип жаткан иштеп чыгуучу).</string>
-
     <string name="settings_support_installid_label">Орнотуу ID</string>
     <string name="settings_support_installid_desc">Автоматтык ката отчеттору анонимдүү. Эгер иштеп чыгуучуга ката отчетторуңузду табуу керек болсо, орнотуу ID\'ңизди бөлүшүңүз.</string>
     <string name="settings_support_label">Колдоо</string>
     <string name="settings_support_description">Эгер сизге жардам керек болсо.</string>
-
     <string name="issue_tracker_label">Маселелерди көзөмөлдөгүч</string>
     <string name="issue_tracker_description">Каталар жөнүндө отчеттор жана функция сурамдары үчүн коомдук маселелерди көзөмөлдөгүч (англисче гана).</string>
-
     <string name="discord_label">Discord</string>
     <string name="discord_description">Эс алуу жана суроолорду берүү үчүн жай.</string>
-
     <string name="changelog_label">Өзгөртүүлөр журналы</string>
     <string name="settings_label">Орнотуулар</string>
     <string name="settings_privacy_policy_label">Купуялык саясаты</string>
@@ -99,33 +87,25 @@
     <string name="settings_general_label">Орнотуулар</string>
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
     <string name="settings_acknowledgements_label">Ыраазычылыктар</string>
-
     <string name="settings_debug_autoreports_label">Автоматтык ката отчеттору</string>
     <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string>
     <string name="settings_debug_mode_label">Мүчүлүштүктөрдү оңдоо режими</string>
     <string name="settings_debug_mode_description">Маселелерди чечүү үчүн кошумча маалыматты көрсөтүңүз.</string>
-
     <string name="settings_blescanner_unfiltered_label">Чыпкаланбаган BLE маалыматтары</string>
     <string name="settings_blescanner_unfiltered_description">Бардык уктурулган BLE маалыматтарын көрсөтүү үчүн BLE сканеринен бардык чыпкаларды алып салыңыз. Жаңы гарнитура түрлөрүнө колдоо кошуу үчүн пайдалуу.</string>
-
     <string name="settings_compatibility_mode_label">Шайкештик режими</string>
     <string name="settings_compatibility_mode_description">Шайкештикти жакшыртуу үчүн оптималдаштырууларды өчүрүңүз. Эгер эч кандай маалымат көрбөсөңүз, муну байкап көрүңүз.</string>
-
     <string name="help_translate_label">Котормо</string>
     <string name="help_translate_description">Бул колдонмону сүйүктүү тилиңизге которууга жардам бериңиз.</string>
-
     <string name="translators_thanks_title">Котормочулар</string>
     <string name="translators_thanks_description">darken</string>
-
     <string name="widget_description">Акыркы белгилүү түзмөк абалын көрсөткөн виджет.</string>
     <string name="widget_configuration_title">Түзмөк тандоо</string>
     <string name="widget_configuration_description">Бул виджетте кайсы түзмөк профили көрсөтүлүшү керектигин тандаңыз.</string>
     <string name="common_feature_requires_pro_msg">Бул функция CAPod Pro талап кылат.</string>
-
     <string name="widget_no_data_label">Маалымат жок</string>
     <string name="settings_compat_indirectcallback_title">Кыйыр маалымат жеткирүү</string>
     <string name="settings_compat_indirectcallback_summary">Тутумдан BLE маалыматтарын алуу үчүн альтернативдүү ыкманы колдонуңуз (кайра чалуунун ордуна уктуруу).</string>
-
     <string name="troubleshooter_title">Кыйынчылыктарды аныктагыч</string>
     <string name="troubleshooter_summary">Bluetooth туташуу көйгөйлөрүн диагностикалоо жана оңдоо.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy уктуруулары</string>
@@ -141,23 +121,18 @@
     <string name="troubleshooter_ble_result_failure_phone_headphones">Телефонуңуз BLE маалыматын алды, бирок маалымат колдоого алынган эч бир түзмөктөн келген жок. Кулакчындарыңыз күйүп турабы? CAPod сиздин кулакчыныңызды колдойбу?</string>
     <string name="troubleshooter_ble_result_failure_action">Кайра аракет кылуу</string>
     <string name="troubleshoot_action">Кыйынчылыктарды аныктоо</string>
-
-
     <string name="onboarding_body1">Бул колдонмо Android\'ге AirPod\'го тиешелүү функцияларды колдоону кошот.</string>
     <string name="onboarding_body2">Бардык Android түзмөктөрү AirPod\'дун кошумча функцияларын толук колдобойт. Сиздин операциялык тутумуңуз туура иштеген Bluetooth-Low-Energy ишке ашырылышын талап кылат.</string>
     <string name="onboarding_body3">CAPod жарнамасыз жана сиздин маалыматтарыңызды чогултпайт.</string>
     <string name="onboarding_body4">Сиз CAPod Pro\'го жаңыртып, кошумча функцияларды алып, иштеп чыгууну колдой аласыз.</string>
-
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
     <string name="app_name_pro">CAPod Pro</string>
     <string name="app_name_foss">CAPod FOSS</string>
-
     <string name="general_value_not_available_label">Жок</string>
     <string name="general_error_label">Ката</string>
     <string name="general_grant_permission_action">Уруксат берүү</string>
     <string name="general_manage_devices_action">Түзмөктөрдү башкаруу</string>
-
     <string name="overview_nomaindevice_label">Түзмөк конфигурацияланган эмес</string>
     <string name="overview_nomaindevice_description">Батарея деңгээлин көзөмөлдөөнү баштоо жана кошумча функцияларды иштетүү үчүн түзмөгүңүздү конфигурациялаңыз.</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth өчүрүлгөн</string>
@@ -169,7 +144,6 @@
         <item quantity="one">%d түзмөк профилсиз</item>
         <item quantity="other">%d түзмөк профилсиз</item>
     </plurals>
-
     <string name="permission_bluetooth_connect_label">Bluetooth туташуу</string>
     <string name="permission_bluetooth_connect_description">Бул колдонмо жупташкан түзмөктөр менен иштешүү жана туташууну баштоо үчүн \"Bluetooth туташуу\" уруксатын талап кылат.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth сканерлөө</string>
@@ -185,19 +159,15 @@
     <string name="permission_required_title">Төмөнкү уруксат талап кылынат:</string>
     <string name="permission_system_alert_window_label">Тутум эскертүү терезеси</string>
     <string name="permission_system_alert_window_description">\"Калкыма терезе көрсөтүү\" функциясын мүмкүн кылуу үчүн CAPod\'го башка колдонмолордун үстүнөн тартууга уруксат бериңиз.</string>
-
     <string name="settings_scanner_mode_lowpower_label">Аз кубаттуулук</string>
     <string name="settings_scanner_mode_balanced_label">Тең салмактуу</string>
     <string name="settings_scanner_mode_lowlatency_label">Аз кечигүү</string>
-
     <string name="settings_monitor_mode_manual_label">Колдонмо ачык болгондо</string>
     <string name="settings_monitor_mode_automatic_label">Түзмөк туташканда</string>
     <string name="settings_monitor_mode_always_label">Ар дайым</string>
-
     <string name="settings_reaction_autoconnect_whenseen_label">Көрүнгөндө</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Кап ачык</string>
     <string name="settings_reaction_autoconnect_inear_label">Кулакта</string>
-
     <string name="pods_dual_left_label">Сол кулакчын</string>
     <string name="pods_dual_right_label">Оң кулакчын</string>
     <string name="pods_case_label">Кап</string>
@@ -221,12 +191,10 @@
     <string name="headset_being_worn_label">Тагылган</string>
     <string name="headset_not_being_worn_label">Тагылган эмес</string>
     <string name="pods_case_unknown_state">Белгисиз абал</string>
-
     <string name="last_seen_x">Акыркы көрүлгөн: %s</string>
     <string name="first_seen_x">Биринчи көрүлгөн: %s</string>
     <string name="permission_post_notifications_label">Билдирүүлөрдү көрсөтүү</string>
-    <string name="permission_post_notifications_description">"CAPod\'го AirPods жөнүндө билдирүүлөрдү көрсөтүүгө уруксат бериңиз, мис., учурдагы абалы туташып турганда."</string>
-
+    <string name="permission_post_notifications_description">"CAPod'го AirPods жөнүндө билдирүүлөрдү көрсөтүүгө уруксат бериңиз, мис., учурдагы абалы туташып турганда."</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">Түзмөк профилдери конфигурацияланган эмес</string>
     <string name="profiles_empty_description">Бир нече түзмөктөрдү ыңгайлаштырылган жөндөөлөр жана артыкчылыктар менен башкаруу үчүн түзмөк профилдерин түзүңүз.</string>
@@ -256,12 +224,10 @@
     <string name="profiles_key_invalid_format">Жараксыз ачкыч форматы</string>
     <string name="profiles_key_expected_format">Күтүлгөн формат: %1$s</string>
     <string name="profiles_priority_hint">Профиль иретин артыкчылыкты аныктайт. Профилдерди иреттөө үчүн сүйрөңүз — тизмеде жогору турган профилдер бир нече түзмөк дал келгенде артыкчылыкка ээ.</string>
-
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Сакталбаган өзгөртүүлөр</string>
     <string name="general_unsaved_changes_message">Сиздин сакталбаган өзгөртүүлөрүңүз бар. Эмне кылгыңыз келет?</string>
     <string name="general_save_and_exit_action">Сактоо &amp; Чыгуу</string>
     <string name="general_discard_action">Жокко чыгаруу</string>
     <string name="general_keep_editing_action">Түзөтүүнү улантуу</string>
-
 </resources>

@@ -6,7 +6,6 @@
     <string name="general_copy_action">ကူးယူရန်</string>
     <string name="general_thank_you_label">ကျေးဇူးတင်ပါတယ်</string>
     <string name="general_upgrade_action">အဆင့်မြှင့်တင်ရန်</string>
-    <string name="general_donate_action">လှူဒါန်းရန်</string>
     <string name="general_check_action">စစ်ဆေးရန်</string>
     <string name="general_close_action">ပိတ်ရန်</string>
     <string name="general_save_action">သိမ်းဆည်းရန်</string>
@@ -142,7 +141,6 @@
     <string name="overview_monitoring_active_description">သင့်စက်ပစ္စည်းသည် အနီးအနားတွင်ရှိပြီး အသုံးပြုနေကြောင်း သေချာပါစေ။</string>
     <string name="overview_unmatched_devices_label">တိုက်ဆိုင်မှုမရှိသော စက်ပစ္စည်းများ</string>
     <plurals name="overview_unmatched_devices_count">
-        <item quantity="one">ကိုက်ညီသောပရိုဖိုင်မရှိသော စက်ပစ္စည်း %d ခု</item>
         <item quantity="other">ကိုက်ညီသောပရိုဖိုင်မရှိသော စက်ပစ္စည်း %d ခု</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth ချိတ်ဆက်ခြင်း</string>
@@ -195,7 +193,7 @@
     <string name="last_seen_x">နောက်ဆုံးတွေ့ရှိချိန်: %s</string>
     <string name="first_seen_x">ပထမဆုံးတွေ့ရှိချိန်: %s</string>
     <string name="permission_post_notifications_label">အသိပေးချက်များပြသရန်</string>
-    <string name="permission_post_notifications_description">သင့် AirPods အကြောင်း အသိပေးချက်များပြသရန် CAPod ကိုခွင့်ပြုပါ၊ ဥပမာ ချိတ်ဆက်ထားစဉ် ၎င်းတို့၏ လက်ရှိအခြေအနေ။</string>
+    <string name="permission_post_notifications_description">"သင့် AirPods အကြောင်း အသိပေးချက်များပြသရန် CAPod ကိုခွင့်ပြုပါ၊ ဥပမာ ချိတ်ဆက်ထားစဉ် ၎င်းတို့၏ လက်ရှိအခြေအနေ။"</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">စက်ပစ္စည်းပရိုဖိုင်များ ပြင်ဆင်မထားပါ</string>
     <string name="profiles_empty_description">စိတ်ကြိုက်ဆက်တင်များနှင့် ဦးစားပေးအဆင့်များဖြင့် စက်ပစ္စည်းအမျိုးမျိုးကို စီမံခန့်ခွဲရန် စက်ပစ္စည်းပရိုဖိုင်များ ဖန်တီးပါ။</string>

@@ -6,7 +6,6 @@
     <string name="general_copy_action">Másolás</string>
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_upgrade_action">Frissítés</string>
-    <string name="general_donate_action">Adományozás</string>
     <string name="general_check_action">Ellenőrzés</string>
     <string name="general_close_action">Bezár</string>
     <string name="general_save_action">Mentés</string>
@@ -38,7 +37,7 @@
     <string name="settings_signal_minimum_label">Minimális jelerősség</string>
     <string name="settings_signal_minimum_description">Vegye figyelembe a minimális jelerősséget, amelyre egy eszköznek szüksége van.</string>
     <string name="settings_autoconnect_label">Automatikus csatlakozás</string>
-    <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan. A monitor mód beállítása „Mindig" lesz.</string>
+    <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan. A monitor mód beállítása „Mindig” lesz.</string>
     <string name="settings_autoconnect_condition_label">Automatikus csatlakozás állapota</string>
     <string name="settings_autoconnect_condition_description">Mikor próbáljunk meg csatlakozni az eszközéhez?</string>
     <string name="settings_devices_label">Eszközök</string>
@@ -110,7 +109,7 @@
     <string name="troubleshooter_title">Hibaelhárító</string>
     <string name="troubleshooter_summary">Bluetooth-csatlakozási problémák diagnosztizálása és javítása.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy Broadcast</string>
-    <string name="troubleshooter_ble_intro_body1">Az AirPods (és a hasonló fülhallgatók) a „broadcast" nevű BLE-technológia segítségével sugározzák az állapotinformációkat. Egyes telefonok nem megfelelően valósítják meg ezt a technológiát. A CAPod megkísérelheti kijavítani ezt úgy, hogy különböző kompatibilitási opciókat próbál ki, amíg az adatok meg nem érkeznek. Indítson el zenelejátszást a fülhallgatón, helyezze a telefon közelébe, majd indítsa el a folyamatot.</string>
+    <string name="troubleshooter_ble_intro_body1">Az AirPods (és a hasonló fülhallgatók) a „broadcast\" nevű BLE-technológia segítségével sugározzák az állapotinformációkat. Egyes telefonok nem megfelelően valósítják meg ezt a technológiát. A CAPod megkísérelheti kijavítani ezt úgy, hogy különböző kompatibilitási opciókat próbál ki, amíg az adatok meg nem érkeznek. Indítson el zenelejátszást a fülhallgatón, helyezze a telefon közelébe, majd indítsa el a folyamatot.</string>
     <string name="troubleshooter_ble_intro_start_action">Hibaelhárítás indítása</string>
     <string name="troubleshooter_ble_process_title">Hibaelhárítás folyamatban</string>
     <string name="troubleshooter_ble_process_subtile">Minden lépés 5-10 másodpercet vesz igénybe</string>
