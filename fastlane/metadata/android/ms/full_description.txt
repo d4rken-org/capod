@@ -1,18 +1,18 @@
-CAPod ialah aplikasi peneman untuk AirPods.
+CAPod ialah aplikasi pendamping untuk AirPods.
 
 Ciri-ciri:
 
-* Paras bateri untuk pod dan sarung.
-* Status pengecasan untuk pod dan sarung.
-* Maklumat tambahan tentang sambungan, mikrofon dan sarung.
+* Paras bateri untuk pod dan kes.
+* Status pengisian untuk pod dan kes.
+* Maklumat tambahan tentang sambungan, mikrofon dan kes.
 * Boleh menerima dan menunjukkan semua peranti berdekatan.
 * Pengesanan telinga dengan main/jeda automatik.
-* Sambungkan telefon dan AirPod secara automatik.
-* Pamerkan timbul apabila sarung dibuka.
+* Sambungkan peranti dan AirPods secara automatik.
+* Tunjukkan popup apabila kes dibuka.
 
-CAPod adalah bebas iklan. Sesetengah ciri memerlukan pembelian dalam aplikasi.
+CAPod bebas iklan. Beberapa ciri memerlukan pembelian dalam aplikasi.
 
 Kebanyakan peranti AirPods dan Beats yang popular disokong.
-Jika peranti anda serupa dengan AirPods tetapi belum disokong, kirimkan mel ringkas kepada saya.
+Jika peranti anda serupa dengan AirPods tetapi belum disokong, hantar saya e-mel ringkas.
 
-Ada idea hebat untuk ciri yang baharu? Menjangkau!
+Ada idea hebat untuk ciri baharu? Hubungi saya!

@@ -1,1 +1,1 @@
-CAPod yra AirPods kompaniono programa, skirta Android.
+CAPod yra AirPods palydinis programėlis sistemoje Android.

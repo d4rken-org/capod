@@ -1,18 +1,18 @@
-CAPod là một ứng dụng đồng hành dành cho AirPods.
+CAPod là một ứng dụng bạn đồng hành cho AirPods.
 
 Tính năng:
 
-* Mức pin cho tai nghe và hộp đựng.
-* Trạng thái sạc cho tai nghe và hộp đựng.
-* Thông tin bổ sung về kết nối, micrô và hộp đựng.
-* Có thể nhận và hiển thị tất cả các thiết bị lân cận.
-* Phát hiện tai để tự động phát / tạm dừng.
-* Tự động kết nối điện thoại và AirPods.
-* Hiển thị cửa sổ bật lên khi hộp được mở.
+* Mức pin cho tai nghe và hộp.
+* Trạng thái sạc cho tai nghe và hộp.
+* Thông tin bổ sung về kết nối, micrô và hộp.
+* Có thể nhận và hiển thị tất cả các thiết bị gần đó.
+* Phát hiện tai với phát/tạm dừng tự động.
+* Tự động kết nối thiết bị và AirPods.
+* Hiển thị cửa sổ bật lên khi mở hộp.
 
-CAPod không có quảng cáo. Một số tính năng yêu cầu mua hàng trong ứng dụng.
+CAPod không có quảng cáo. Một số tính năng yêu cầu mua trong ứng dụng.
 
-Hầu hết các thiết bị AirPods và Beats phổ biến đều được hỗ trợ.
-Nếu thiết bị của bạn tương tự như AirPods nhưng chưa được hỗ trợ, hãy gửi cho tôi một email ngắn.
+Hầu hết các thiết bị AirPods và Beats phổ biến được hỗ trợ.
+Nếu thiết bị của bạn tương tự AirPods nhưng chưa được hỗ trợ, hãy gửi cho tôi một email ngắn.
 
-Bạn có một ý tưởng hay cho một tính năng mới? Đưa tay ra!
+Có ý tưởng tuyệt vời cho một tính năng mới? Hãy liên hệ!

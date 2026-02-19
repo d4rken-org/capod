@@ -2,17 +2,17 @@ CAPod jest aplikacją pomocniczą dla AirPods.
 
 Funkcje:
 
-* Poziom baterii pod'ów oraz obudowy.
-* Status ładowania pod'ów oraz obudowy.
-* Dodatkowe informacje na temat połączenia, mikrofonu i obudowy.
-* Może odbierać i pokazywać wszystkie pobliskie urządzenia.
-* Detekcja ucha, z automatycznym odtwarzaniem/pauzowaniem.
+* Poziom baterii słuchawek i etui.
+* Stan ładowania słuchawek i etui.
+* Dodatkowe informacje o połączeniu, mikrofonie i etui.
+* Może odbierać i wyświetlać wszystkie pobliskie urządzenia.
+* Detekcja ucha, z automatycznym odtwarzaniem/wstrzymywaniem.
 * Automatyczne łączenie urządzenia oraz AirPods.
-* Wyświetlanie okienka, gdy obudowa jest otwarta.
+* Wyświetlanie okienka, gdy etui jest otwarte.
 
-CAPod jest bez reklam. Niektóre funkcje wymagają zakupów wewnątrz aplikacji.
+CAPod jest wolny od reklam. Niektóre funkcje wymagają zakupów wewnątrz aplikacji.
 
 Większość popularnych urządzeń AirPods oraz Beats jest obsługiwana.
-Jeśli twoje urządzenie jest podobne do AirPods, ale nie jest obsługiwane - wyślij do mnie maila.
+Jeśli twoje urządzenie jest podobne do AirPods, ale nie jest obsługiwane, wyślij do mnie maila.
 
-Masz pomysł na nową funkcję? Skontaktuj się!
+Masz pomysł na nową funkcję? Nawiąż kontakt!

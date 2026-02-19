@@ -1,18 +1,18 @@
-CAPod ni programu rafiki ya AirPods.
+CAPod ni programu ya rafiki ya AirPods.
 
-Vipengele:
+Sifa:
 
-* Kiwango cha betri kwa vifurushi na kesi.
-* Hali ya kuchaji kwa vifurushi na kesi.
-* Maelezo ya ziada kuhusu muunganisho, maikrofoni na kesi.
+* Kiwango cha betri kwa pods na vituo.
+* Hali ya kuchaji kwa pods na kesi.
+* Taarifa za ziada kuhusu muunganisho, maikrofoni na kesi.
 * Inaweza kupokea na kuonyesha vifaa vyote vilivyo karibu.
-* Kugundua sikio na uchezaji/sitisha otomatiki.
-* Unganisha simu na AirPods kiotomatiki.
-* Onyesha popup wakati kesi inafunguliwa.
+* Kuchunguzwa kwa sikio na kucheza/kusimamisha kiotomatiki.
+* Kuunganisha kifaa na AirPods kiotomatiki.
+* Kuonyesha popup wakati kesi inafunguliwa.
 
-CAPod haina matangazo. Baadhi ya vipengele vinahitaji ununuzi wa ndani ya programu.
+CAPod haina tangazo. Baadhi ya sifa zinahitaji ununuzi wa ndani ya programu.
 
-Vifaa maarufu vya AirPods na Beats vinatumika.
-Ikiwa kifaa chako kinafanana na AirPods lakini bado hakijaungwa mkono, nitumie barua pepe fupi.
+AirPods na vifaa vya Beats vingi vya kawaida vinasimamiwa.
+Ikiwa kifaa chako ni sawa na AirPods lakini bado hakisimamiwi, nitumie barua mfupi.
 
-Je, una wazo zuri la kipengele kipya? Wasiliana!
+Una wazo nzuri la sifa mpya? Wasiliana!

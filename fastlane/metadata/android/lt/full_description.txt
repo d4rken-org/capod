@@ -1,18 +1,18 @@
-CAPod is a companion app for AirPods.
+CAPod yra AirPods palydinis programėlis.
 
-Features:
+Funkcijos:
 
-* Battery level for pods and cases.
-* Charging status for pods and case.
-* Additional infos about connection, microphone and case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
-* Show popup when case is opened.
+* Akumuliatoriaus lygis ausiniams ir dėžutei.
+* Įkrovimo būsena ausiniams ir dėžutei.
+* Papildoma informacija apie ryšį, mikrofoną ir dėžutę.
+* Gali gauti ir rodyti visus netoliese esančius įrenginius.
+* Ausies detekcija su automatiniu grojimu/pauzėjimu.
+* Automatiškai prijungti įrenginį ir AirPods.
+* Rodyti iškylantį langą, kai dėžutė atidaryta.
 
-CAPod is ad-free. Some features require an in-app purchase.
+CAPod neturi reklamų. Kai kurioms funkcijoms reikalingas programėlės naudojimas.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a short mail.
+Dauguma populiarių AirPods ir Beats įrenginių palaikomi.
+Jei jūsų įrenginys panašus į AirPods, bet dar nepalaikomas, nusiųskite man trumpą laišką.
 
-Got a cool idea for a new feature? Reach out!
+Turite puikią idėją naujai funkcijai? Susisiekite!

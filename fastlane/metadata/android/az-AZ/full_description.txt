@@ -1,18 +1,18 @@
-CAPod, AirPods-lar üçün köməkçi bir tətbiqdir.
+CAPod, AirPods üçün bir yardımcı tətbiqdir.
 
-Özəlliklər:
+Xüsusiyyətlər:
 
-* Qulaqlıq və qutusu üçün batereya səviyyəsi.
-* Qulaqlıq və qutusu üçün enerji yığma vəziyyəti.
-* Bağlantı, mikrofon və qutu haqqında əlavə məlumatlar.
-* Yaxınlıqdakı bütün cihazları qəbul edə və göstərə bilir.
-* Qulağa taxarkən/çıxararkən musiqini oynatma/dayandırma.
-* Telefon və AirPods ilə avtomatik bağlantı qurma.
-* Qulaqlıq qutusu açılarkən açılan pəncərə bildirişi göstərmə.
+* Podlar və qablar üçün batareya səviyyəsi.
+* Podlar və qab üçün şarj vəziyyəti.
+* Əlaqə, mikrofon və qab haqqında əlavə məlumat.
+* Yaxınlıqdakı bütün cihazları qəbul edə və göstərə bilər.
+* Qulaq aşkarlama ilə avtomatik oynatma/pauzalaşdırma.
+* Cihazı və AirPods-u avtomatik olaraq bağlayın.
+* Qab açıldıqda pəncərə göstər.
 
-CAPod, reklamsızdır. Bəzi özəlliklər tətbiq daxili satın alma tələb edir.
+CAPod reklamsızdır. Bəzi xüsusiyyətlər tətbiq daxilində satın almağı tələb edir.
 
-Ən məşhur AirPods və Beats cihazları dəstəklənir.
-Cihazınız AirPods-a bənzəyir, ancaq dəstəklənmirsə, mənə e-poçt ilə bildirin.
+Ən populyar AirPods və Beats cihazları dəstəklənir.
+Cihazınız AirPods-a bənzəsə də hələ dəstəklənmirsə, mənə qısa bir məktub göndərin.
 
-Yeni bir özəllik üçün maraqlı bir ideyanız var? Əlaqə saxlayın!
+Yeni xüsusiyyət üçün gözəl fikir var? Əlaqə saxla!

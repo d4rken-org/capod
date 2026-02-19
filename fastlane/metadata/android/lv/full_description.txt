@@ -1,18 +1,18 @@
-CAPod ir pavadošā lietotne AirPods ierīcēm.
+CAPod ir pavadoņprogramma AirPods austiņām.
 
 Funkcijas:
 
-* Akumulatora līmenis austiņām un maciņiem.
-* Austiņu un maciņa uzlādes statuss.
-* Papildu informācija par savienojumu, mikrofonu un maciņu.
-* Var saņemt un rādīt visas tuvumā esošās ierīces.
-* Ausu noteikšana ar automātisku atskaņošanu/pauzēšanu.
-* Automātiski savienot tālruni un AirPods.
-* Rādīt uznirstošo logu, kad maciņš ir atvērts.
+* Akumulatora līmenis austiņām un futrālim.
+* Uzlādes statuss austiņām un futrālim.
+* Papildu informācija par savienojumu, mikrofonu un futrāli.
+* Var uztvert un rādīt visas tuvumā esošās ierīces.
+* Auss noteikšana ar automātisku atskaņošanu/pauzēšanu.
+* Automātiski savienot ierīci ar AirPods.
+* Rādīt uznirstošo logu, atverot futrāli.
 
-CAPod ir bez reklāmām. Dažas funkcijas prasa pirkumu lietotnē.
+CAPod nav reklāmu. Dažām funkcijām nepieciešams pirkums lietotnē.
 
-Tiek atbalstītas populārākās AirPods un Beats ierīces.
-Ja jūsu ierīce ir līdzīga AirPods, bet vēl netiek atbalstīta, nosūtiet man īsu e-pastu.
+Atbalstītas populārākās AirPods un Beats ierīces.
+Ja jūsu ierīce ir līdzīga AirPods, bet vēl netiek atbalstīta, nosūtīet man īsu e-pastu.
 
-Vai jums ir forša ideja jaunai funkcijai? Sazinieties ar mums!
+Ir jauna funkcija, ko vēlaties ierosināt? Sazinieties!

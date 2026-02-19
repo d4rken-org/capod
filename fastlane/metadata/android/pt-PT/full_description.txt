@@ -15,4 +15,4 @@ CAPod é livre de anúncios. Algumas funcionalidades exigem uma compra na aplica
 Os dispositivos AirPods e Beats mais populares são suportados.
 Se o seu dispositivo é semelhante aos AirPods, mas ainda não é suportado, envie-me um pequeno email.
 
-Tem alguma ideia fixe para uma nova funcionalidade? Contacte-me!
+Tem alguma ideia fixe para uma nova funcionalidade? Contacte-nos!

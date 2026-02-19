@@ -1,18 +1,18 @@
-CAPod is a companion app for AirPods.
+CAPod on apusovellus AirPodsille.
 
-Features:
+Ominaisuudet:
 
-* Battery level for pods and cases.
-* Charging status for pods and case.
-* Additional infos about connection, microphone and case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
-* Show popup when case is opened.
+* Akun taso kuulokkeille ja latauskotelolle.
+* Lataustila kuulokkeille ja latauskotelolle.
+* Lisätietoja yhteydestä, mikrofonista ja latauskoteloista.
+* Voi vastaanottaa ja näyttää kaikki lähikkäiset laitteet.
+* Korvien tunnistaminen automaattisella toiston pysäytyksellä.
+* Yhdistä laite ja AirPods automaattisesti.
+* Näytä ponnahdusikkuna kun kotelo avataan.
 
-CAPod is ad-free. Some features require an in-app purchase.
+CAPod on ilmainen mainoksista. Jotkut ominaisuudet vaativat sovelluksen sisäistä ostoa.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a short mail.
+Useimmat suositut AirPods- ja Beats-laitteet ovat tuettuja.
+Jos laitteesi muistuttaa AirPodia mutta sitä ei vielä tueta, lähetä minulle lyhyt sähköposti.
 
-Got a cool idea for a new feature? Reach out!
+Onko sinulla siistiä ideaa uudesta ominaisuudesta? Ota yhteyttä!

@@ -1,18 +1,18 @@
-CAPod is a companion app for AirPods.
+CAPod je prateća aplikacija za AirPods.
 
-Features:
+Značajke:
 
-* Battery level for pods and cases.
-* Charging status for pods and case.
-* Additional infos about connection, microphone and case.
-* Can receive and show all nearby devices.
-* Ear detection with automatic play/pause.
-* Automatically connect phone and AirPods.
-* Show popup when case is opened.
+* Razina baterije za slušalice i kutiju.
+* Status punjenja slušalica i kutije.
+* Dodatne informacije o povezivanju, mikrofonu i kutiji.
+* Može primati i prikazivati sve obližnje uređaje.
+* Detekcija uha s automatskim reprodukcijom/pauzom.
+* Automatski poveži uređaj i AirPods.
+* Prikaži skočni prozor kada se kutija otvori.
 
-CAPod is ad-free. Some features require an in-app purchase.
+CAPod je bez oglasa. Neke značajke zahtijevaju kupnju unutar aplikacije.
 
-Most popular AirPods and Beats devices are supported.
-If your device is similar to AirPods but not yet supported, send me a short mail.
+Najpopularniji AirPods i Beats uređaji su podržani.
+Ako je vaš uređaj sličan AirPods slušalicama ali još nije podržan, pošaljite mi kratku poruku e-poštom.
 
-Got a cool idea for a new feature? Reach out!
+Imate sjajnu ideju za novu značajku? Javite se!

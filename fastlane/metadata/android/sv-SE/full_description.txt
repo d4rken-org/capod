@@ -1,18 +1,18 @@
-CAPod är en följeslagarapp för AirPods.
+CAPod är en kompanjonapp för AirPods.
 
 Funktioner:
 
-* Batterinivå för pods och fodral.
-* Laddningsstatus för pods och fodral.
+* Batterinivå för poddar och fodral.
+* Laddningsstatus för poddar och fodral.
 * Ytterligare information om anslutning, mikrofon och fodral.
 * Kan ta emot och visa alla enheter i närheten.
 * Örondetektering med automatisk uppspelning/paus.
-* Anslut telefonen och AirPods automatiskt.
+* Anslut enhet och AirPods automatiskt.
 * Visa popup när fodralet öppnas.
 
-CAPod är annonsfri. Vissa funktioner kräver köp i appen.
+CAPod är reklamfritt. Vissa funktioner kräver ett köp i appen.
 
-De mest populära AirPods- och Beats-enheterna stöds.
-Om din enhet liknar AirPods men ännu inte stöds, skicka mig ett kort mail.
+De flesta populära AirPods- och Beats-enheter stöds.
+Om din enhet liknar AirPods men ännu inte stöds, skicka mig ett kort mejl.
 
-Har du en bra idé för en ny funktion? Hör av dig!
+Har du en cool idé för en ny funktion? Hör av dig!

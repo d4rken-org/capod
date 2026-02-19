@@ -1,1 +1,1 @@
-CAPod ir pavadošā lietotne AirPods ierīcēm Android platformā.
+CAPod ir pavadoņprogramma AirPods austiņām Android ierīcēs.
