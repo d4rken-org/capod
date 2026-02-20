@@ -33,7 +33,7 @@ class PlayPause @Inject constructor(
     fun monitor() = combine(
         reactionSettings.autoPlay.flow,
         reactionSettings.autoPause.flow,
-        reactionSettings.onePodMode.flow,
+        reactionSettings.onePodMode.flow, // Included to restart pipeline when toggled; value read at decision time
     ) { play, pause, _ -> play || pause }
         .flatMapLatest { if (it) bluetoothManager.connectedDevices else emptyFlow() }
         .flatMapLatest {
@@ -194,7 +194,7 @@ class PlayPause @Inject constructor(
     data class EarDetectionState(
         val leftInEar: Boolean?,    // null for single pod devices
         val rightInEar: Boolean?,   // null for single pod devices
-        val isWorn: Boolean         // Always populated
+        val isWorn: Boolean         // Single-pod: device worn state. Dual-pod: equivalent to bothInEar (left && right).
     ) {
         val isDualPod: Boolean get() = leftInEar != null && rightInEar != null
         val isSinglePod: Boolean get() = !isDualPod

@@ -11,5 +11,10 @@
 	  "WebFetch(domain:issuetracker.google.com)"
 	],
 	"deny": []
+  },
+  "enabledPlugins": {
+	"android-translation@claude-code-cafe": true,
+	"debugbadger@claude-code-cafe": true,
+	"jvm-tools@claude-code-cafe": true
   }
 }

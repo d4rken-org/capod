@@ -155,6 +155,22 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
+        fun `both in stays both in - no action`() {
+            val previous = EarDetectionState.fromDualPod(left = true, right = true)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = true
+            )
+
+            decision.shouldPlay shouldBe false
+            decision.shouldPause shouldBe false
+        }
+
+        @Test
         fun `both out to one in - no action (need both)`() {
             val previous = EarDetectionState.fromDualPod(left = false, right = false)
             val current = EarDetectionState.fromDualPod(left = false, right = true)
@@ -359,22 +375,9 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         /**
-         * THE EDGE CASE: This test documents the bug in the current implementation.
-         *
-         * User scenario:
-         * 1. Both pods in ears, music playing
-         * 2. Remove right pod → should pause
-         * 3. Reinsert right pod → should play
-         *
-         * Expected behavior:
-         * - Step 1→2: shouldPause = true
-         * - Step 2→3: shouldPlay = true
-         *
-         * Current behavior (BUG):
-         * - Step 1→2: No action (eitherInEar stays true)
-         * - Step 2→3: No action (eitherInEar stays true)
-         *
-         * This test verifies the EXPECTED behavior and will FAIL until we implement the fix.
+         * Verifies the fix for the one-pod mode edge case where removing a pod
+         * while another remains in ear previously did not trigger pause
+         * (eitherInEar stayed true, masking individual pod removal).
          */
         @Test
         fun `EDGE CASE - both in, remove one, reinsert - should pause then play`() {
@@ -391,7 +394,7 @@ class PlayPauseLogicTest : BaseTest() {
 
             // Expected: should pause when a pod is removed, even if another is still in
             decision1to2.shouldPlay shouldBe false
-            decision1to2.shouldPause shouldBe true  // THIS WILL FAIL with current implementation
+            decision1to2.shouldPause shouldBe true
 
             // Step 2→3: Right reinserted (should play)
             val step3 = EarDetectionState.fromDualPod(left = true, right = true)
@@ -404,7 +407,7 @@ class PlayPauseLogicTest : BaseTest() {
             )
 
             // Expected: should play when a pod is reinserted
-            decision2to3.shouldPlay shouldBe true  // THIS WILL FAIL with current implementation
+            decision2to3.shouldPlay shouldBe true
             decision2to3.shouldPause shouldBe false
         }
 
@@ -500,6 +503,17 @@ class PlayPauseLogicTest : BaseTest() {
         fun `podCount - none in`() {
             val state = EarDetectionState.fromDualPod(left = false, right = false)
             state.podCount shouldBe 0
+        }
+
+        @Test
+        fun `single pod - eitherInEar and bothInEar delegate to isWorn`() {
+            val worn = EarDetectionState.fromSinglePod(worn = true)
+            worn.eitherInEar shouldBe true
+            worn.bothInEar shouldBe true
+
+            val notWorn = EarDetectionState.fromSinglePod(worn = false)
+            notWorn.eitherInEar shouldBe false
+            notWorn.bothInEar shouldBe false
         }
     }
 
@@ -603,8 +617,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `single pod - one-pod mode enabled - behaves same as normal mode`() {
-            // For single-pod devices, one-pod mode doesn't change behavior
+        fun `single pod - one-pod mode enabled - play behaves same as normal mode`() {
             val previous = EarDetectionState.fromSinglePod(worn = false)
             val current = EarDetectionState.fromSinglePod(worn = true)
 
@@ -618,13 +631,39 @@ class PlayPauseLogicTest : BaseTest() {
             val decisionOnePod = playPause.evaluatePlayPauseAction(
                 previous = previous,
                 current = current,
-                onePodMode = true, // Should behave the same
+                onePodMode = true,
                 isCurrentlyPlaying = false
             )
 
-            // Both should trigger play
             decisionNormal.shouldPlay shouldBe true
+            decisionNormal.shouldPause shouldBe false
             decisionOnePod.shouldPlay shouldBe true
+            decisionOnePod.shouldPause shouldBe false
+        }
+
+        @Test
+        fun `single pod - one-pod mode enabled - pause behaves same as normal mode`() {
+            val previous = EarDetectionState.fromSinglePod(worn = true)
+            val current = EarDetectionState.fromSinglePod(worn = false)
+
+            val decisionNormal = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = true
+            )
+
+            val decisionOnePod = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = true,
+                isCurrentlyPlaying = true
+            )
+
+            decisionNormal.shouldPlay shouldBe false
+            decisionNormal.shouldPause shouldBe true
+            decisionOnePod.shouldPlay shouldBe false
+            decisionOnePod.shouldPause shouldBe true
         }
 
         @Test
