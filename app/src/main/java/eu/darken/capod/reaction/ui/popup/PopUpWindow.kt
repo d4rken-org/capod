@@ -32,13 +32,15 @@ class PopUpWindow @Inject constructor(
     private val windowManager = context.getSystemService(WINDOW_SERVICE) as WindowManager
     private val layoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.WRAP_CONTENT,
-        WindowManager.LayoutParams.WRAP_CONTENT,  // Display it on top of other application windows
-        WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,  // Don't let it grab the input focus
-        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,  // Make the underlying application window visible
-
+        WindowManager.LayoutParams.WRAP_CONTENT,
+        WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+        WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
         PixelFormat.TRANSLUCENT
     ).apply {
-        gravity = Gravity.BOTTOM
+        gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
+        val dm = appContext.resources.displayMetrics
+        val margin = (24 * dm.density).toInt()
+        width = minOf(dm.widthPixels - margin * 2, (400 * dm.density).toInt())
     }
     private val popUpView: View = layoutInflater.inflate(R.layout.popup_window_container_layout, null).apply {
         findViewById<View>(R.id.close_action).setOnClickListener { close() }

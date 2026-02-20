@@ -48,6 +48,11 @@
         <item name="android:layout_width">24dp</item>
     </style>
 
+    <style name="PodInfoItemIcon.Popup.Large">
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_width">64dp</item>
+    </style>
+
     <style name="PodInfoItemText" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
