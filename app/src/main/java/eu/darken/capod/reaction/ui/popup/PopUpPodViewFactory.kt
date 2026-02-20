@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.view.ContextThemeWrapper
-import androidx.core.view.isInvisible
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
@@ -39,10 +39,9 @@ class PopUpPodViewFactory @Inject constructor(
 
     private fun createDualPods(parent: ViewGroup, device: DualPodDevice): View =
         PopupNotificationDualPodsBinding.inflate(layoutInflater, parent, false).apply {
-            podIcon.setImageResource(device.iconRes)
             podLabel.text = device.getLabel(context)
             signal.text = device.getSignalQuality(context)
-            signal.isInvisible = debugSettings.isDebugModeEnabled.value
+            signal.isGone = debugSettings.isDebugModeEnabled.value
 
             // Left
             val leftPercent = device.batteryLeftPodPercent
@@ -71,7 +70,7 @@ class PopUpPodViewFactory @Inject constructor(
             headphonesIcon.setImageResource(device.iconRes)
             headphonesLabel.text = device.getLabel(context)
             signal.text = device.getSignalQuality(context)
-            signal.isInvisible = debugSettings.isDebugModeEnabled.value
+            signal.isGone = debugSettings.isDebugModeEnabled.value
 
             val headsetPercent = device.batteryHeadsetPercent
             headphonesBatteryIcon.setImageResource(getBatteryDrawable(headsetPercent))
