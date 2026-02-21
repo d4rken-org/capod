@@ -1,11 +1,14 @@
 package eu.darken.capod.monitor.core.worker
 
 import android.annotation.SuppressLint
+import android.app.ForegroundServiceStartNotAllowedException
+import android.app.Notification
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.os.Build
 import android.os.IBinder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
@@ -70,43 +73,62 @@ class MonitorService : Service() {
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
     @Volatile private var monitorGeneration = 0
+    private var foregroundStartFailed = false
 
     @SuppressLint("InlinedApi")
+    private fun promoteToForeground(notification: Notification): Boolean {
+        return try {
+            if (hasApiLevel(29)) {
+                startForeground(
+                    MonitorNotifications.NOTIFICATION_ID,
+                    notification,
+                    ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE,
+                )
+            } else {
+                startForeground(MonitorNotifications.NOTIFICATION_ID, notification)
+            }
+            true
+        } catch (e: IllegalStateException) {
+            @Suppress("NewApi")
+            if (Build.VERSION.SDK_INT >= 31 && e is ForegroundServiceStartNotAllowedException) {
+                log(TAG, WARN) { "Foreground service start denied by OS: ${e.message}" }
+                false
+            } else {
+                throw e
+            }
+        } catch (e: SecurityException) {
+            log(TAG, WARN) { "Foreground service start denied (security): ${e.message}" }
+            false
+        }
+    }
+
     override fun onCreate() {
         // Promote to foreground BEFORE Hilt DI (triggered by super.onCreate()) to avoid
         // ForegroundServiceDidNotStartInTimeException when DI is slow on backgrounded cold starts.
         MonitorNotifications.ensureChannel(this)
-        val earlyNotification = MonitorNotifications.createEarlyNotification(this)
-        if (hasApiLevel(29)) {
-            startForeground(
-                MonitorNotifications.NOTIFICATION_ID,
-                earlyNotification,
-                ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE,
-            )
-        } else {
-            startForeground(MonitorNotifications.NOTIFICATION_ID, earlyNotification)
+        if (!promoteToForeground(MonitorNotifications.createEarlyNotification(this))) {
+            foregroundStartFailed = true
+            stopSelf()
+            super.onCreate()
+            return
         }
 
         super.onCreate()
         log(TAG, VERBOSE) { "onCreate()" }
 
         // Replace early notification with the full one from injected MonitorNotifications.
-        // Second startForeground() with the same ID updates the notification in place and is
-        // preferred over notify() for robust foreground state on OEM variants.
-        val notification = notifications.getStartupNotification()
-        if (hasApiLevel(29)) {
-            startForeground(
-                MonitorNotifications.NOTIFICATION_ID,
-                notification,
-                ServiceInfo.FOREGROUND_SERVICE_TYPE_CONNECTED_DEVICE,
-            )
-        } else {
-            startForeground(MonitorNotifications.NOTIFICATION_ID, notification)
-        }
+        // Failure here is non-fatal — the service is already foreground from the early call.
+        promoteToForeground(notifications.getStartupNotification())
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         log(TAG, VERBOSE) { "onStartCommand(intent=$intent, flags=$flags, startId=$startId)" }
+
+        if (foregroundStartFailed) {
+            log(TAG, WARN) { "Skipping monitor start, foreground promotion was denied." }
+            stopSelf(startId)
+            return START_NOT_STICKY
+        }
 
         val forceStart = intent?.getBooleanExtra(EXTRA_FORCE_START, false) ?: false
 
