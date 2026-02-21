@@ -34,19 +34,19 @@ data class AirPodsPro2(
 
     @get:DrawableRes
     override val iconRes: Int
-        get() = R.drawable.devic_airpods_pro2_both
+        get() = R.drawable.device_airpods_pro2_both
 
     @get:DrawableRes
     override val caseIcon: Int
-        get() = R.drawable.devic_airpods_pro2_case
+        get() = R.drawable.device_airpods_pro2_case
 
     @get:DrawableRes
     override val leftPodIcon: Int
-        get() = R.drawable.devic_airpods_pro2_left
+        get() = R.drawable.device_airpods_pro2_left
 
     @get:DrawableRes
     override val rightPodIcon: Int
-        get() = R.drawable.devic_airpods_pro2_right
+        get() = R.drawable.device_airpods_pro2_right
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage

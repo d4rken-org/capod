@@ -1,5 +1,7 @@
 package eu.darken.capod.pods.core.apple.misc
 
+import androidx.annotation.DrawableRes
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.HasCase
@@ -34,6 +36,18 @@ data class FakeAirPodsGen3(
 ) : DualApplePods, HasEarDetectionDual, HasChargeDetectionDual, HasCase {
 
     override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_GEN3
+
+    @get:DrawableRes
+    override val leftPodIcon: Int
+        get() = R.drawable.device_airpods_gen3_left
+
+    @get:DrawableRes
+    override val rightPodIcon: Int
+        get() = R.drawable.device_airpods_gen3_right
+
+    @get:DrawableRes
+    override val caseIcon: Int
+        get() = R.drawable.device_airpods_gen3_case
 
     override val rssi: Int
         get() = rssiAverage ?: super<DualApplePods>.rssi

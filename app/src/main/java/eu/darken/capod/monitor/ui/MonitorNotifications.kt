@@ -55,7 +55,7 @@ class MonitorNotifications @Inject constructor(
         builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).apply {
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(R.drawable.devic_earbuds_generic_both)
+            setSmallIcon(R.drawable.device_earbuds_generic_both)
             setOngoing(true)
             setContentTitle(context.getString(R.string.app_name))
         }
@@ -68,7 +68,7 @@ class MonitorNotifications @Inject constructor(
                 setStyle(NotificationCompat.BigTextStyle())
                 setContentTitle(context.getString(R.string.pods_none_label_short))
                 setSubText(context.getString(R.string.app_name))
-                setSmallIcon(R.drawable.devic_earbuds_generic_both)
+                setSmallIcon(R.drawable.device_earbuds_generic_both)
             }
         }
 
@@ -135,7 +135,7 @@ class MonitorNotifications @Inject constructor(
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
             setCustomBigContentView(notificationViewFactory.createContentView(device))
-            setSmallIcon(device.iconRes)
+            setSmallIcon(R.drawable.device_earbuds_generic_both)
             setContentTitle("$batteryText ~ $stateText")
             setSubText(null)
             log(TAG, VERBOSE) { "updatingNotification(): $device" }
@@ -186,7 +186,7 @@ class MonitorNotifications @Inject constructor(
             )
             return NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
                 .setContentIntent(openPi)
-                .setSmallIcon(R.drawable.devic_earbuds_generic_both)
+                .setSmallIcon(R.drawable.device_earbuds_generic_both)
                 .setContentTitle(context.getString(R.string.app_name))
                 .setPriority(NotificationCompat.PRIORITY_LOW)
                 .setOngoing(true)

@@ -41,11 +41,12 @@ class PopUpPodViewFactory @Inject constructor(
         PopupNotificationDualPodsBinding.inflate(layoutInflater, parent, false).apply {
             podLabel.text = device.getLabel(context)
             signal.text = device.getSignalQuality(context)
-            signal.isGone = debugSettings.isDebugModeEnabled.value
+            signal.isGone = !debugSettings.isDebugModeEnabled.value
 
             // Left
             val leftPercent = device.batteryLeftPodPercent
             podLeftIcon.setImageResource(device.leftPodIcon)
+            podLeftIcon.imageTintList = null
             podLeftBatteryIcon.setImageResource(getBatteryDrawable(leftPercent))
             podLeftBatteryLabel.text = formatBatteryPercent(context, leftPercent)
 
@@ -54,6 +55,7 @@ class PopUpPodViewFactory @Inject constructor(
             (device as? HasCase)?.let { case ->
                 val casePercent = case.batteryCasePercent
                 podCaseIcon.setImageResource(case.caseIcon)
+                podCaseIcon.imageTintList = null
                 podCaseBatteryIcon.setImageResource(getBatteryDrawable(casePercent))
                 podCaseBatteryLabel.text = formatBatteryPercent(context, casePercent)
             }
@@ -61,6 +63,7 @@ class PopUpPodViewFactory @Inject constructor(
             // Right
             val rightPercent = device.batteryRightPodPercent
             podRightIcon.setImageResource(device.rightPodIcon)
+            podRightIcon.imageTintList = null
             podRightBatteryIcon.setImageResource(getBatteryDrawable(rightPercent))
             podRightBatteryLabel.text = formatBatteryPercent(context, rightPercent)
         }.root
@@ -68,9 +71,10 @@ class PopUpPodViewFactory @Inject constructor(
     private fun createSinglePod(parent: ViewGroup, device: SinglePodDevice): View =
         PopupNotificationSinglePodsBinding.inflate(layoutInflater, parent, false).apply {
             headphonesIcon.setImageResource(device.iconRes)
+            headphonesIcon.imageTintList = null
             headphonesLabel.text = device.getLabel(context)
             signal.text = device.getSignalQuality(context)
-            signal.isGone = debugSettings.isDebugModeEnabled.value
+            signal.isGone = !debugSettings.isDebugModeEnabled.value
 
             val headsetPercent = device.batteryHeadsetPercent
             headphonesBatteryIcon.setImageResource(getBatteryDrawable(headsetPercent))

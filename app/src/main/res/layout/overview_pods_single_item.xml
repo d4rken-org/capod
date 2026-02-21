@@ -24,7 +24,7 @@
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/name"
-            app:srcCompat="@drawable/devic_headphones_generic" />
+            app:srcCompat="@drawable/device_headphones_generic" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/name"

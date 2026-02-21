@@ -46,7 +46,7 @@
         android:id="@+id/headphones_icon"
         style="@style/PodInfoItemIcon.Popup.Large"
         android:layout_marginTop="16dp"
-        android:src="@drawable/devic_earbuds_generic_both"
+        android:src="@drawable/device_earbuds_generic_both"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signal" />
