@@ -19,28 +19,26 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="AirPods Max" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/signal"
-        style="@style/TextAppearance.Material3.LabelMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintEnd_toStartOf="@+id/signal_icon"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headphones_label"
-        tools:text="29%" />
-
     <ImageView
         android:id="@+id/signal_icon"
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:layout_marginStart="3dp"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="4dp"
         android:src="@drawable/ic_baseline_signal_cellular_alt_24"
-        app:layout_constraintBottom_toBottomOf="@id/signal"
+        app:layout_constraintBottom_toBottomOf="@id/headphones_label"
+        app:layout_constraintEnd_toStartOf="@id/signal"
+        app:layout_constraintTop_toTopOf="@id/headphones_label" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/signal"
+        style="@style/TextAppearance.Material3.LabelSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/headphones_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/signal"
-        app:layout_constraintTop_toTopOf="@id/signal" />
+        app:layout_constraintTop_toTopOf="@id/headphones_label"
+        tools:text="29%" />
 
     <ImageView
         android:id="@+id/headphones_icon"
@@ -49,7 +47,7 @@
         android:src="@drawable/device_earbuds_generic_both"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signal" />
+        app:layout_constraintTop_toBottomOf="@id/headphones_label" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headphones_container"

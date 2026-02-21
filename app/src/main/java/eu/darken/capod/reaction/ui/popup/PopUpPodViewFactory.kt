@@ -9,7 +9,6 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
-import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.databinding.PopupNotificationDualPodsBinding
 import eu.darken.capod.databinding.PopupNotificationSinglePodsBinding
 import eu.darken.capod.pods.core.DualPodDevice
@@ -24,7 +23,6 @@ import javax.inject.Inject
 
 class PopUpPodViewFactory @Inject constructor(
     @ApplicationContext private val appContext: Context,
-    private val debugSettings: DebugSettings,
 ) {
 
     private val context = ContextThemeWrapper(appContext, R.style.AppTheme)
@@ -41,7 +39,8 @@ class PopUpPodViewFactory @Inject constructor(
         PopupNotificationDualPodsBinding.inflate(layoutInflater, parent, false).apply {
             podLabel.text = device.getLabel(context)
             signal.text = device.getSignalQuality(context)
-            signal.isGone = !debugSettings.isDebugModeEnabled.value
+            signalIcon.isGone = signal.text.isNullOrBlank()
+            signal.isGone = signal.text.isNullOrBlank()
 
             // Left
             val leftPercent = device.batteryLeftPodPercent
@@ -74,7 +73,8 @@ class PopUpPodViewFactory @Inject constructor(
             headphonesIcon.imageTintList = null
             headphonesLabel.text = device.getLabel(context)
             signal.text = device.getSignalQuality(context)
-            signal.isGone = !debugSettings.isDebugModeEnabled.value
+            signalIcon.isGone = signal.text.isNullOrBlank()
+            signal.isGone = signal.text.isNullOrBlank()
 
             val headsetPercent = device.batteryHeadsetPercent
             headphonesBatteryIcon.setImageResource(getBatteryDrawable(headsetPercent))
