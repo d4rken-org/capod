@@ -176,7 +176,7 @@
     <string name="pods_case_status_open_label">Otwarte</string>
     <string name="pods_case_status_closed_label">Zamknięte</string>
     <string name="pods_connection_state_disconnected_label">Nie połączono z urządzeniem</string>
-    <string name="pods_connection_state_idle_label">Połączony z urządzeniem, ale są bezczynne</string>
+    <string name="pods_connection_state_idle_label">Połączono z urządzeniem, ale są bezczynne</string>
     <string name="pods_connection_state_music_label">W trybie muzyki</string>
     <string name="pods_connection_state_call_label">W trybie rozmowy</string>
     <string name="pods_connection_state_ringing_label">Dzwoni</string>
