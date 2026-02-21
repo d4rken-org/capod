@@ -22,8 +22,6 @@ import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.formatBatteryPercent
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 
 
@@ -33,8 +31,7 @@ class MonitorNotifications @Inject constructor(
     private val notificationViewFactory: MonitorNotificationViewFactory
 ) {
 
-    private val builderLock = Mutex()
-    private val builder: NotificationCompat.Builder
+    private val openPi: PendingIntent
 
     init {
         ensureChannel(context)
@@ -44,35 +41,32 @@ class MonitorNotifications @Inject constructor(
             NotificationManager.IMPORTANCE_LOW
         ).run { notificationManager.createNotificationChannel(this) }
 
-        val openIntent = Intent(context, MainActivity::class.java)
-        val openPi = PendingIntent.getActivity(
+        openPi = PendingIntent.getActivity(
             context,
             PENDING_INTENT_REQUEST_CODE,
-            openIntent,
+            Intent(context, MainActivity::class.java),
             PendingIntentCompat.FLAG_IMMUTABLE
         )
+    }
 
-        builder = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).apply {
+    private fun baseBuilder(channelId: String): NotificationCompat.Builder =
+        NotificationCompat.Builder(context, channelId).apply {
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
             setSmallIcon(R.drawable.device_earbuds_generic_both)
             setOngoing(true)
-            setContentTitle(context.getString(R.string.app_name))
         }
-    }
 
-    private fun getBuilder(device: PodDevice?): NotificationCompat.Builder {
+    private fun getBuilder(device: PodDevice?, channelId: String): NotificationCompat.Builder {
         if (device == null) {
-            return builder.apply {
-                setCustomContentView(null)
+            return baseBuilder(channelId).apply {
                 setStyle(NotificationCompat.BigTextStyle())
                 setContentTitle(context.getString(R.string.pods_none_label_short))
                 setSubText(context.getString(R.string.app_name))
-                setSmallIcon(R.drawable.device_earbuds_generic_both)
             }
         }
 
-        return builder.apply {
+        return baseBuilder(channelId).apply {
 
             // Options here should be mutually exclusive, and are prioritized by their order of importance
             // Some options are omitted here, as they will conflict with other options
@@ -135,28 +129,20 @@ class MonitorNotifications @Inject constructor(
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
             setCustomBigContentView(notificationViewFactory.createContentView(device))
-            setSmallIcon(R.drawable.device_earbuds_generic_both)
             setContentTitle("$batteryText ~ $stateText")
             setSubText(null)
             log(TAG, VERBOSE) { "updatingNotification(): $device" }
         }
     }
 
-    suspend fun getNotification(podDevice: PodDevice?): Notification = builderLock.withLock {
-        getBuilder(podDevice).apply {
-            setChannelId(NOTIFICATION_CHANNEL_ID)
-        }.build()
-    }
+    fun getNotification(podDevice: PodDevice?): Notification =
+        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID).build()
 
-    suspend fun getNotificationConnected(podDevice: PodDevice?): Notification = builderLock.withLock {
-        getBuilder(podDevice).apply {
-            setChannelId(NOTIFICATION_CHANNEL_ID_CONNECTED)
-        }.build()
-    }
+    fun getNotificationConnected(podDevice: PodDevice?): Notification =
+        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID_CONNECTED).build()
 
-    fun getStartupNotification(): Notification = getBuilder(null).apply {
-        setChannelId(NOTIFICATION_CHANNEL_ID)
-    }.build()
+    fun getStartupNotification(): Notification =
+        getBuilder(null, NOTIFICATION_CHANNEL_ID).build()
 
     companion object {
         val TAG = logTag("Monitor", "Notifications")
