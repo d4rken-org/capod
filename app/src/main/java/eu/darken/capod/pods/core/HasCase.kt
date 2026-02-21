@@ -11,5 +11,5 @@ interface HasCase {
 
     @get:DrawableRes
     val caseIcon: Int
-        get() = R.drawable.devic_airpods_gen1_case
+        get() = R.drawable.device_airpods_gen1_case
 }

@@ -16,9 +16,9 @@ interface DualPodDevice : PodDevice {
 
     @get:DrawableRes
     val leftPodIcon: Int
-        get() = R.drawable.devic_airpods_gen1_left
+        get() = R.drawable.device_airpods_gen1_left
 
     @get:DrawableRes
     val rightPodIcon: Int
-        get() = R.drawable.devic_airpods_gen1_right
+        get() = R.drawable.device_airpods_gen1_right
 }

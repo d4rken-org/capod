@@ -77,98 +77,107 @@ interface PodDevice {
     @JsonClass(generateAdapter = false)
     enum class Model(
         val label: String,
-        @DrawableRes val iconRes: Int = R.drawable.devic_earbuds_generic_both,
+        @DrawableRes val iconRes: Int = R.drawable.device_earbuds_generic_both,
     ) {
         @Json(name = "airpods.gen1") AIRPODS_GEN1(
             label = "AirPods (Gen 1)",
-            iconRes = R.drawable.devic_airpods_gen1_both,
+            iconRes = R.drawable.device_airpods_gen1_both,
         ),
         @Json(name = "airpods.gen2") AIRPODS_GEN2(
             "AirPods (Gen 2)",
-            R.drawable.devic_airpods_gen2_both,
+            R.drawable.device_airpods_gen1_both,
         ),
         @Json(name = "airpods.gen3") AIRPODS_GEN3(
             "AirPods (Gen 3)",
-            R.drawable.devic_airpods_gen2_both,
+            R.drawable.device_airpods_gen3_both,
         ),
         @Json(name = "airpods.gen4") AIRPODS_GEN4(
             "AirPods (Gen 4)",
-            R.drawable.devic_airpods_gen2_both,
+            R.drawable.device_airpods_gen3_both,
         ),
         @Json(name = "airpods.gen4.anc") AIRPODS_GEN4_ANC(
             "AirPods (Gen 4 ANC)",
-            R.drawable.devic_airpods_gen2_both,
+            R.drawable.device_airpods_gen4anc_both,
         ),
         @Json(name = "airpods.pro") AIRPODS_PRO(
             "AirPods Pro",
-            R.drawable.devic_airpods_pro2_both
+            R.drawable.device_airpods_pro2_both
         ),
         @Json(name = "airpods.pro2") AIRPODS_PRO2(
             "AirPods Pro 2",
-            R.drawable.devic_airpods_pro2_both
+            R.drawable.device_airpods_pro2_both
         ),
         @Json(name = "airpods.pro2.usbc") AIRPODS_PRO2_USBC(
             "AirPods Pro 2 USB-C",
-            R.drawable.devic_airpods_pro2_both
+            R.drawable.device_airpods_pro2_both
         ),
         @Json(name = "airpods.pro3") AIRPODS_PRO3(
             "AirPods Pro 3",
-            R.drawable.devic_airpods_pro2_both
+            R.drawable.device_airpods_pro2_both
         ),
         @Json(name = "airpods.max") AIRPODS_MAX(
             "AirPods Max",
-            R.drawable.devic_headphones_generic
+            R.drawable.device_airpods_max
         ),
         @Json(name = "airpods.max.usbc") AIRPODS_MAX_USBC(
             "AirPods Max USB-C",
-            R.drawable.devic_headphones_generic
+            R.drawable.device_airpods_max
         ),
         @Json(name = "beats.flex") BEATS_FLEX(
-            "Beats Flex"
+            "Beats Flex",
+            R.drawable.device_beats_earbuds,
         ),
         @Json(name = "beats.solo.3") BEATS_SOLO_3(
-            "Beats Solo 3"
+            "Beats Solo 3",
+            R.drawable.device_beats_headphones,
         ),
         @Json(name = "beats.studio.3") BEATS_STUDIO_3(
-            "Beats Studio 3"
+            "Beats Studio 3",
+            R.drawable.device_beats_studio3,
         ),
         @Json(name = "beats.x") BEATS_X(
-            "Beats X"
+            "Beats X",
+            R.drawable.device_beats_x,
         ),
         @Json(name = "beats.powerbeats.3") POWERBEATS_3(
-            "Power Beats 3"
+            "Power Beats 3",
+            R.drawable.device_powerbeats_3,
         ),
         @Json(name = "beats.powerbeats.4") POWERBEATS_4(
-            "Power Beats 4"
+            "Power Beats 4",
+            R.drawable.device_powerbeats_4,
         ),
         @Json(name = "beats.powerbeats.pro") POWERBEATS_PRO(
-            "Power Beats Pro"
+            "Power Beats Pro",
+            R.drawable.device_powerbeats_pro_both,
         ),
         @Json(name = "beats.powerbeats.pro2") POWERBEATS_PRO2(
-            "Power Beats Pro 2"
+            "Power Beats Pro 2",
+            R.drawable.device_powerbeats_pro2_both,
         ),
         @Json(name = "beats.fit.pro") BEATS_FIT_PRO(
-            "Beats Fit Pro"
+            "Beats Fit Pro",
+            R.drawable.device_beats_fitpro_both,
         ),
         @Json(name = "fakes.tws.i99999") FAKE_AIRPODS_GEN1(
             "AirPods (Gen 1)? \uD83C\uDFAD",
-            R.drawable.devic_airpods_gen1_both,
+            R.drawable.device_airpods_gen1_both,
         ),
         @Json(name = "fakes.generic.airpods.gen2") FAKE_AIRPODS_GEN2(
             "AirPods (Gen 2)? \uD83C\uDFAD",
-            R.drawable.devic_airpods_gen2_both,
+            R.drawable.device_airpods_gen1_both,
         ),
         @Json(name = "fakes.generic.airpods.gen3") FAKE_AIRPODS_GEN3(
             "AirPods (Gen 3)? \uD83C\uDFAD",
-            R.drawable.devic_airpods_gen2_both,
+            R.drawable.device_airpods_gen3_both,
         ),
         @Json(name = "fakes.varunr.airpodspro") FAKE_AIRPODS_PRO(
             "AirPods Pro? \uD83C\uDFAD",
-            R.drawable.devic_airpods_pro2_both,
+            R.drawable.device_airpods_pro2_both,
         ),
         @Json(name = "fakes.generic.airpods.pro2") FAKE_AIRPODS_PRO2(
             "AirPods Pro2? \uD83C\uDFAD",
-            R.drawable.devic_airpods_pro2_both,
+            R.drawable.device_airpods_pro2_both,
         ),
         @Json(name = "unknown") UNKNOWN(
             "Unknown"

@@ -13,7 +13,7 @@
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
         android:scaleType="centerInside"
-        tools:src="@drawable/devic_airpods_gen1_both" />
+        tools:src="@drawable/device_airpods_gen1_both" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/model_name"

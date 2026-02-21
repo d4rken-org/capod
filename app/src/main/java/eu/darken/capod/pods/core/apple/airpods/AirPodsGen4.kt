@@ -1,5 +1,7 @@
 package eu.darken.capod.pods.core.apple.airpods
 
+import androidx.annotation.DrawableRes
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
@@ -28,6 +30,18 @@ data class AirPodsGen4(
 ) : DualApplePods, HasStateDetectionAirPods {
 
     override val model: PodDevice.Model = PodDevice.Model.AIRPODS_GEN4
+
+    @get:DrawableRes
+    override val leftPodIcon: Int
+        get() = R.drawable.device_airpods_gen3_left
+
+    @get:DrawableRes
+    override val rightPodIcon: Int
+        get() = R.drawable.device_airpods_gen3_right
+
+    @get:DrawableRes
+    override val caseIcon: Int
+        get() = R.drawable.device_airpods_gen3_case
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage
