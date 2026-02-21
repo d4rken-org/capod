@@ -184,13 +184,13 @@ class MonitorNotifications @Inject constructor(
                 Intent(context, MainActivity::class.java),
                 PendingIntentCompat.FLAG_IMMUTABLE,
             )
-            return NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
-                .setContentIntent(openPi)
-                .setSmallIcon(R.drawable.device_earbuds_generic_both)
-                .setContentTitle(context.getString(R.string.app_name))
-                .setPriority(NotificationCompat.PRIORITY_LOW)
-                .setOngoing(true)
-                .build()
+            return NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID).apply {
+                setContentIntent(openPi)
+                setSmallIcon(R.drawable.device_earbuds_generic_both)
+                setContentTitle(context.getString(R.string.app_name))
+                setPriority(NotificationCompat.PRIORITY_LOW)
+                setOngoing(true)
+            }.build()
         }
     }
 }
