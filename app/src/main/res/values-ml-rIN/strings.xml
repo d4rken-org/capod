@@ -6,6 +6,7 @@
     <string name="general_copy_action">പകർത്തുക</string>
     <string name="general_thank_you_label">നന്ദി</string>
     <string name="general_upgrade_action">അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
+    <string name="general_donate_action">സംഭാവനചെയ്യുക</string>
     <string name="general_check_action">പരിശോധിക്കുക</string>
     <string name="general_close_action">അടയ്ക്കുക</string>
     <string name="general_save_action">സേവ് ചെയ്യുക</string>
@@ -42,7 +43,7 @@
     <string name="settings_autoconnect_condition_description">എപ്പോഴാണ് ഞങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്യാൻ ശ്രമിക്കേണ്ടത്?</string>
     <string name="settings_devices_label">ഉപകരണങ്ങൾ</string>
     <string name="settings_devices_description">നിങ്ങളുടെ ഉപകരണങ്ങൾ നിയന്ത്രിക്കുക.</string>
-    <string name="settings_reaction_label">പ്രতিকകരണങ്ങൾ</string>
+    <string name="settings_reaction_label">പ്രതികകരണങ്ങൾ</string>
     <string name="settings_reaction_description">സംഭവങ്ങളോടും പെരുമാറ്റങ്ങളോടും പ്രതികരിക്കുക.</string>
     <string name="settings_category_yourdevice_label">നിങ്ങളുടെ ഉപകരണം</string>
     <string name="settings_category_compatibility_options_title">അനുയോജ്യത ഓപ്ഷനുകൾ</string>
@@ -104,6 +105,20 @@
     <string name="widget_configuration_description">ഈ വിഡ്ജറ്റ് ഏത് ഉപകരണ പ്രൊഫൈൽ പ്രദർശിപ്പിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
     <string name="common_feature_requires_pro_msg">ഈ സവിശേഷതയ്ക്ക് CAPod Pro ആവശ്യമാണ്.</string>
     <string name="widget_no_data_label">ഡാറ്റ ഇല്ല</string>
+    <string name="widget_config_appearance_label">രൂപരേഖ</string>
+    <string name="widget_config_preset_label">പ്രിസെറ്റുകള്‍</string>
+    <string name="widget_config_background_color_label">പശ്ചാത്തല വർണ്ണം</string>
+    <string name="widget_config_foreground_color_label">ടെക്സ്റ്റും ഐക്കണും വർണ്ണം</string>
+    <string name="widget_config_transparency_label">പശ്ചാത്തല സ്വച്ഛത</string>
+    <string name="widget_config_show_device_label">ഉപകരണത്തിന്റെ പേര് കാണിക്കുക</string>
+    <string name="widget_config_reset_label">ഡിഫോള്‍ട്ടിലേക്ക് പുനഃസജ്ജമാക്കുക</string>
+    <string name="widget_config_custom_label">കസ്റ്റം</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">ഗാഢം</string>
+    <string name="widget_config_preset_light">നിരപേക്ഷം</string>
+    <string name="widget_config_preset_blue">നീലം</string>
+    <string name="widget_config_preset_green">പച്ച</string>
+    <string name="widget_config_preset_red">ചുവപ്പ്</string>
     <string name="settings_compat_indirectcallback_title">പരോക്ഷ ഡാറ്റ ഡെലിവറി</string>
     <string name="settings_compat_indirectcallback_summary">സിസ്റ്റത്തിൽ നിന്ന് BLE ഡാറ്റ സ്വീകരിക്കാൻ ഒരു ഇതര രീതി ഉപയോഗിക്കുക (കോൾബാക്കിന് പകരം പ്രക്ഷേപണം ചെയ്യുക).</string>
     <string name="troubleshooter_title">ട്രബിൾഷൂട്ടർ</string>
