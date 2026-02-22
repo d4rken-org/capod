@@ -6,6 +6,7 @@
     <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Naik taraf</string>
+    <string name="general_donate_action">Menderma</string>
     <string name="general_check_action">Semak</string>
     <string name="general_close_action">Tutup</string>
     <string name="general_save_action">Simpan</string>
@@ -76,7 +77,7 @@
     <string name="settings_support_description">Jika anda perlukan bantuan.</string>
     <string name="issue_tracker_label">Penjejak isu</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri (bahasa Inggeris sahaja).</string>
-    <string name="discord_label">Perselisihan</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat untuk melepak dan bertanya soalan.</string>
     <string name="changelog_label">Log perubahan</string>
     <string name="settings_label">Tetapan</string>
@@ -104,6 +105,20 @@
     <string name="widget_configuration_description">Pilih profil peranti yang perlu dipaparkan oleh widget ini.</string>
     <string name="common_feature_requires_pro_msg">Ciri ini memerlukan CAPod Pro.</string>
     <string name="widget_no_data_label">Tiada data</string>
+    <string name="widget_config_appearance_label">Penampilan</string>
+    <string name="widget_config_preset_label">Praset</string>
+    <string name="widget_config_background_color_label">Warna latar belakang</string>
+    <string name="widget_config_foreground_color_label">Warna teks &amp; ikon</string>
+    <string name="widget_config_transparency_label">Ketelusan latar belakang</string>
+    <string name="widget_config_show_device_label">Tampilkan nama peranti</string>
+    <string name="widget_config_reset_label">Tetapkan semula ke nilai lalai</string>
+    <string name="widget_config_custom_label">Tersuai</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">Gelap</string>
+    <string name="widget_config_preset_light">Cerah</string>
+    <string name="widget_config_preset_blue">Biru</string>
+    <string name="widget_config_preset_green">Hijau</string>
+    <string name="widget_config_preset_red">Merah</string>
     <string name="settings_compat_indirectcallback_title">Penghantaran data tidak langsung</string>
     <string name="settings_compat_indirectcallback_summary">Gunakan kaedah alternatif untuk menerima data BLE daripada sistem (siaran dan bukannya panggilan balik).</string>
     <string name="troubleshooter_title">Penyelesai masalah</string>

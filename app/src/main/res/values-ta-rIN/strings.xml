@@ -6,6 +6,7 @@
     <string name="general_copy_action">நகலெடு</string>
     <string name="general_thank_you_label">நன்றி</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
+    <string name="general_donate_action">நன்கொடை</string>
     <string name="general_check_action">சரிபார்</string>
     <string name="general_close_action">மூடு</string>
     <string name="general_save_action">சேமி</string>
@@ -48,7 +49,7 @@
     <string name="settings_category_compatibility_options_title">இணக்கத்தன்மை விருப்பங்கள்</string>
     <string name="settings_category_compatibility_options_description">எல்லாம் வேலை செய்தால் தொடாதே ;)</string>
     <string name="settings_compat_offloaded_filtering_disabled_title">வன்பொருள் வடிகட்டலை முடக்கு</string>
-    <string name="settings_compat_offloaded_filtering_disabled_summary">கணினிக்கு தரவு வடிகட்டலை ஒப்படைக்காதீர்கள், பதிலாக எல்லா தரவையும் பெற்று ஆப்ஸிலேயே வடிகட்டு.</string>
+    <string name="settings_compat_offloaded_filtering_disabled_summary">கணினிக்கு தரவு வடிகட்டலை ஒப்படைக்காதீர், பதிலாக எல்லா தரவையும் பெற்று ஆப்ஸிலேயே வடிகட்டு.</string>
     <string name="settings_compat_offloaded_batching_disabled_title">வன்பொருள் தொகுதிப்படுத்தலை முடக்கு</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">சேகரிக்கப்பட்ட BLE தரவை எங்களுக்கு அனுப்புவதற்கு முன்பு கணினி குழுவாக்க அனுமதிக்காதீர்கள்.</string>
     <string name="settings_onepod_mode_label">ஒரு பாட் முறை</string>
@@ -104,6 +105,20 @@
     <string name="widget_configuration_description">இந்த விட்ஜெட் எந்த சாதன சுயவிவரத்தைக் காட்ட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="common_feature_requires_pro_msg">இந்த அம்சத்திற்கு CAPod Pro தேவை.</string>
     <string name="widget_no_data_label">தரவு இல்லை</string>
+    <string name="widget_config_appearance_label">தோற்றம்</string>
+    <string name="widget_config_preset_label">முன்னமைப்புகள்</string>
+    <string name="widget_config_background_color_label">பின்னணி நிறம்</string>
+    <string name="widget_config_foreground_color_label">உரை மற்றும் சின்ன வண்ணம்</string>
+    <string name="widget_config_transparency_label">பின்னணி வெளிப்படையாக்கம்</string>
+    <string name="widget_config_show_device_label">சாதன பெயரைக் காட்டு</string>
+    <string name="widget_config_reset_label">இயல்பிற்கு மீட்டமை</string>
+    <string name="widget_config_custom_label">தனிப்பயன்</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">இருண்ட</string>
+    <string name="widget_config_preset_light">வெளிர்</string>
+    <string name="widget_config_preset_blue">நீலம்</string>
+    <string name="widget_config_preset_green">பச்சை</string>
+    <string name="widget_config_preset_red">சிவப்பு</string>
     <string name="settings_compat_indirectcallback_title">மறைமுக தரவு விநியோகம்</string>
     <string name="settings_compat_indirectcallback_summary">கணினியிலிருந்து BLE தரவைப் பெற மாற்று முறையைப் பயன்படுத்தவும் (அழைப்புக்குப் பதிலாக ஒளிபரப்பு).</string>
     <string name="troubleshooter_title">சிக்கல் தீர்ப்பான்</string>

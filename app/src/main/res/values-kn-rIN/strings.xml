@@ -6,6 +6,7 @@
     <string name="general_copy_action">ನಕಲಿಸಿ</string>
     <string name="general_thank_you_label">ಧನ್ಯವಾದಗಳು</string>
     <string name="general_upgrade_action">ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
+    <string name="general_donate_action">ದಾನ ಮಾಡಿ</string>
     <string name="general_check_action">ಪರಿಶೀಲಿಸಿ</string>
     <string name="general_close_action">ಮುಚ್ಚಿ</string>
     <string name="general_save_action">ಉಳಿಸಿ</string>
@@ -76,7 +77,7 @@
     <string name="settings_support_description">ನಿಮಗೆ ಸ್ವಲ್ಪ ಸಹಾಯ ಬೇಕಾದರೆ.</string>
     <string name="issue_tracker_label">ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್</string>
     <string name="issue_tracker_description">ಬಗ್ ವರದಿಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿಗಳಿಗಾಗಿ ಸಾರ್ವಜನಿಕ ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್ (ಇಂಗ್ಲಿಷ್ ಮಾತ್ರ).</string>
-    <string name="discord_label">ಡಿಸ್ಕಾರ್ಡ್</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">ಹ್ಯಾಂಗ್ ಔಟ್ ಮಾಡಲು ಮತ್ತು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಲು ಒಂದು ಸ್ಥಳ.</string>
     <string name="changelog_label">ಬದಲಾವಣೆ ಲಾಗ್</string>
     <string name="settings_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
@@ -104,6 +105,20 @@
     <string name="widget_configuration_description">ಈ ವಿಜೆಟ್ ಯಾವ ಸಾಧನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
     <string name="common_feature_requires_pro_msg">ಈ ವೈಶಿಷ್ಟ್ಯಕ್ಕೆ CAPod Pro ಅಗತ್ಯವಿದೆ.</string>
     <string name="widget_no_data_label">ಡೇಟಾ ಇಲ್ಲ</string>
+    <string name="widget_config_appearance_label">ನೋಟ</string>
+    <string name="widget_config_preset_label">ಪೂರ್ವನಿರ್ಧಾರಿತಗಳು</string>
+    <string name="widget_config_background_color_label">ಹಿನ್ನೆಲೆ ಬಣ್ಣ</string>
+    <string name="widget_config_foreground_color_label">ಪಠ್ಯ ಮತ್ತು ಐಕನ್ ಬಣ್ಣ</string>
+    <string name="widget_config_transparency_label">ಹಿನ್ನೆಲೆ ಪಾರದರ್ಶಕತೆ</string>
+    <string name="widget_config_show_device_label">ಸಾಧನ ಹೆಸರು ತೋರಿಸಿ</string>
+    <string name="widget_config_reset_label">ಪೂರ್ವನಿರ್ಧಾರಿತಕ್ಕೆ ಮರುಹೊಂದಿಸಿ</string>
+    <string name="widget_config_custom_label">ಕಸ್ಟಮ್</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">ಗಾಢ</string>
+    <string name="widget_config_preset_light">ಬೆಳಕು</string>
+    <string name="widget_config_preset_blue">ನೀಲಿ</string>
+    <string name="widget_config_preset_green">ಹಸಿರು</string>
+    <string name="widget_config_preset_red">ಕೆಂಪು</string>
     <string name="settings_compat_indirectcallback_title">ಡೇಟಾದ ಪರೋಕ್ಷ ವಿತರಣೆ</string>
     <string name="settings_compat_indirectcallback_summary">ಸಿಸ್ಟಮ್‌ನಿಂದ BLE ಡೇಟಾವನ್ನು ಸ್ವೀಕರಿಸಲು ಪರ್ಯಾಯ ವಿಧಾನವನ್ನು ಬಳಸಿ (ಕಾಲ್‌ಬ್ಯಾಕ್ ಬದಲಿಗೆ ಪ್ರಸಾರ).</string>
     <string name="troubleshooter_title">ಸಮಸ್ಯೆ ನಿವಾರಕ</string>

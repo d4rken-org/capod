@@ -6,6 +6,7 @@
     <string name="general_copy_action">복사</string>
     <string name="general_thank_you_label">감사합니다</string>
     <string name="general_upgrade_action">업그레이드</string>
+    <string name="general_donate_action">후원하기</string>
     <string name="general_check_action">확인</string>
     <string name="general_close_action">닫기</string>
     <string name="general_save_action">저장</string>
@@ -76,7 +77,7 @@
     <string name="settings_support_description">도움이 필요한 경우.</string>
     <string name="issue_tracker_label">문제 추적기</string>
     <string name="issue_tracker_description">버그 보고서 및 기능 요청을 위한 공개 문제 추적기(영어만 해당).</string>
-    <string name="discord_label">디스코드</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">이야기를 나누고 질문을 할 수 있는 곳.</string>
     <string name="changelog_label">변경 로그</string>
     <string name="settings_label">설정</string>
@@ -104,6 +105,20 @@
     <string name="widget_configuration_description">이 위젯에 표시할 기기 프로필을 선택해 주세요.</string>
     <string name="common_feature_requires_pro_msg">이 기능을 사용하기 위해  CAPod Pro가 필요합니다.</string>
     <string name="widget_no_data_label">데이터 없음</string>
+    <string name="widget_config_appearance_label">외관</string>
+    <string name="widget_config_preset_label">사전 설정</string>
+    <string name="widget_config_background_color_label">배경색</string>
+    <string name="widget_config_foreground_color_label">텍스트 및 아이콘 색상</string>
+    <string name="widget_config_transparency_label">배경 투명도</string>
+    <string name="widget_config_show_device_label">기기 이름 표시</string>
+    <string name="widget_config_reset_label">기본값으로 재설정</string>
+    <string name="widget_config_custom_label">사용자 정의</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">어두움</string>
+    <string name="widget_config_preset_light">밝음</string>
+    <string name="widget_config_preset_blue">파랑</string>
+    <string name="widget_config_preset_green">초록</string>
+    <string name="widget_config_preset_red">빨강</string>
     <string name="settings_compat_indirectcallback_title">간접 데이터 전달</string>
     <string name="settings_compat_indirectcallback_summary">시스템에서 BLE 데이터를 수신하는 대체 방법을 사용합니다(콜백 대신 브로드캐스트).</string>
     <string name="troubleshooter_title">문제 해결사</string>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopeeri</string>
     <string name="general_thank_you_label">Tänan</string>
     <string name="general_upgrade_action">Uuenda</string>
+    <string name="general_donate_action">Anneta</string>
     <string name="general_check_action">Kontrolli</string>
     <string name="general_close_action">Sulge</string>
     <string name="general_save_action">Salvesta</string>
@@ -104,6 +105,20 @@
     <string name="widget_configuration_description">Valige, millist seadmeprofiili see vidin võiks kuvada.</string>
     <string name="common_feature_requires_pro_msg">Selleks on vaja osta CAPod Pro.</string>
     <string name="widget_no_data_label">Andmed puuduvad</string>
+    <string name="widget_config_appearance_label">Välimus</string>
+    <string name="widget_config_preset_label">Eelseadistused</string>
+    <string name="widget_config_background_color_label">Tausta värvus</string>
+    <string name="widget_config_foreground_color_label">Teksti ja ikooni värvus</string>
+    <string name="widget_config_transparency_label">Tausta läbipaistvus</string>
+    <string name="widget_config_show_device_label">Kuva seadme nimi</string>
+    <string name="widget_config_reset_label">Lähtesta vaikeseadistused</string>
+    <string name="widget_config_custom_label">Kohandatud</string>
+    <string name="widget_config_preset_material_you">Material You</string>
+    <string name="widget_config_preset_dark">Tume</string>
+    <string name="widget_config_preset_light">Hele</string>
+    <string name="widget_config_preset_blue">Sinine</string>
+    <string name="widget_config_preset_green">Roheline</string>
+    <string name="widget_config_preset_red">Punane</string>
     <string name="settings_compat_indirectcallback_title">Kaudsete andmete edastamine</string>
     <string name="settings_compat_indirectcallback_summary">Süsteemis vähem energiat tarbiva Bluetoothi andmete saamine muul viisil (edasta tagasi kutsumise asemel).</string>
     <string name="troubleshooter_title">Abistaja</string>
@@ -210,7 +225,7 @@
     <string name="profiles_drag_handle_description">Järjekorra muutmiseks lohista</string>
     <string name="profiles_delete_title">Eemalda Profiil</string>
     <string name="profiles_delete_message">Kas soovid kindlasti seda profiili kustutada? Seda toimingut ei saa tagasi võtta.</string>
-    <string name="profiles_delete_action">Kustuta</string>
+    <string name="profiles_delete_action">Delete</string>
     <string name="profiles_basic_info_title">Seadme teave</string>
     <string name="profiles_basic_info_description">Seadistage seadme nime, mudelit ja valikulist Bluetooth-sidumist.</string>
     <string name="profiles_signal_quality_title">Väikseim signaali kvaliteet</string>
