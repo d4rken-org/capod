@@ -106,7 +106,7 @@
     <string name="common_feature_requires_pro_msg">Funkcja wymaga CAPod Pro.</string>
     <string name="widget_no_data_label">Brak danych</string>
     <string name="widget_config_appearance_label">Wygląd</string>
-    <string name="widget_config_preset_label">Zestawy</string>
+    <string name="widget_config_preset_label">Predefiniowane</string>
     <string name="widget_config_background_color_label">Kolor tła</string>
     <string name="widget_config_foreground_color_label">Kolor tekstu i ikon</string>
     <string name="widget_config_transparency_label">Przezroczystość tła</string>
