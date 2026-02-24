@@ -11,12 +11,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.BatteryChargingFull
-import androidx.compose.material.icons.filled.GridView
-import androidx.compose.material.icons.filled.Hearing
-import androidx.compose.material.icons.filled.Key
-import androidx.compose.material.icons.filled.KeyboardVoice
-import androidx.compose.material.icons.filled.SettingsInputAntenna
+import androidx.compose.material.icons.twotone.BatteryChargingFull
+import androidx.compose.material.icons.twotone.GridView
+import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.Key
+import androidx.compose.material.icons.twotone.KeyboardVoice
+import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -88,7 +88,7 @@ fun DualPodsCard(
                         if (device is ApplePods && device.meta.isIRKMatch) {
                             Spacer(modifier = Modifier.width(6.dp))
                             Icon(
-                                imageVector = if (device.payload.private != null) Icons.Default.Key else Icons.Outlined.Key,
+                                imageVector = if (device.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -119,7 +119,7 @@ fun DualPodsCard(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Icon(
-                    imageVector = Icons.Default.SettingsInputAntenna,
+                    imageVector = Icons.TwoTone.SettingsInputAntenna,
                     contentDescription = null,
                     modifier = Modifier.size(16.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -196,7 +196,7 @@ fun DualPodsCard(
                             modifier = Modifier.padding(start = 32.dp, top = 2.dp),
                         ) {
                             Icon(
-                                imageVector = Icons.Default.GridView,
+                                imageVector = Icons.TwoTone.GridView,
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -290,7 +290,7 @@ private fun BatteryRow(
             horizontalArrangement = Arrangement.End,
         ) {
             Icon(
-                imageVector = Icons.Default.BatteryChargingFull,
+                imageVector = Icons.TwoTone.BatteryChargingFull,
                 contentDescription = null,
                 modifier = Modifier
                     .size(16.dp)
@@ -299,7 +299,7 @@ private fun BatteryRow(
             )
 
             Icon(
-                imageVector = Icons.Default.KeyboardVoice,
+                imageVector = Icons.TwoTone.KeyboardVoice,
                 contentDescription = stringResource(R.string.pods_microphone_label),
                 modifier = Modifier
                     .size(16.dp)
@@ -308,7 +308,7 @@ private fun BatteryRow(
             )
 
             Icon(
-                imageVector = Icons.Default.Hearing,
+                imageVector = Icons.TwoTone.Hearing,
                 contentDescription = null,
                 modifier = Modifier
                     .size(16.dp)

@@ -9,7 +9,14 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.BluetoothConnected
+import androidx.compose.material.icons.twotone.LooksOne
+import androidx.compose.material.icons.automirrored.twotone.Message
+import androidx.compose.material.icons.twotone.PauseCircle
+import androidx.compose.material.icons.twotone.PlayCircle
+import androidx.compose.material.icons.twotone.QuestionMark
+import androidx.compose.material.icons.twotone.Workspaces
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -29,7 +36,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -89,7 +95,7 @@ fun ReactionSettingsScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                             contentDescription = null,
                         )
                     }
@@ -105,7 +111,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_onepod_mode_label),
                     subtitle = stringResource(R.string.settings_onepod_mode_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_looks_one_24),
+                    icon = Icons.TwoTone.LooksOne,
                     onClick = { onOnePodModeChanged(!state.onePodMode) },
                     trailingContent = {
                         Switch(
@@ -120,7 +126,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_autopplay_label),
                     subtitle = stringResource(R.string.settings_autoplay_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_play_circle_24),
+                    icon = Icons.TwoTone.PlayCircle,
                     onClick = { onAutoPlayChanged(!state.autoPlay) },
                     trailingContent = {
                         Switch(
@@ -135,7 +141,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_autopause_label),
                     subtitle = stringResource(R.string.settings_autopause_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_pause_circle_24),
+                    icon = Icons.TwoTone.PauseCircle,
                     onClick = { onAutoPauseChanged(!state.autoPause) },
                     trailingContent = {
                         Switch(
@@ -150,7 +156,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_eardetection_info_label),
                     subtitle = stringResource(R.string.settings_eardetection_info_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_question_mark_24),
+                    icon = Icons.TwoTone.QuestionMark,
                     onClick = {},
                     enabled = false,
                 )
@@ -162,7 +168,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_autoconnect_label),
                     subtitle = stringResource(R.string.settings_autoconnect_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_bluetooth_connected_24),
+                    icon = Icons.TwoTone.BluetoothConnected,
                     onClick = { onAutoConnectChanged(!state.autoConnect) },
                     trailingContent = {
                         Switch(
@@ -177,7 +183,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_autoconnect_condition_label),
                     subtitle = stringResource(state.autoConnectCondition.labelRes),
-                    iconPainter = painterResource(R.drawable.ic_baseline_workspaces_24),
+                    icon = Icons.TwoTone.Workspaces,
                     onClick = { if (state.autoConnect) showAutoConnectConditionDialog = true },
                     enabled = state.autoConnect,
                 )
@@ -189,7 +195,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_popup_caseopen_label),
                     subtitle = stringResource(R.string.settings_popup_caseopen_description),
-                    iconPainter = painterResource(R.drawable.ic_message_outline_24),
+                    icon = Icons.AutoMirrored.TwoTone.Message,
                     onClick = { onShowPopUpOnCaseOpenChanged(!state.showPopUpOnCaseOpen) },
                     trailingContent = {
                         Switch(
@@ -204,7 +210,7 @@ fun ReactionSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_popup_connected_label),
                     subtitle = stringResource(R.string.settings_popup_connected_description),
-                    iconPainter = painterResource(R.drawable.ic_message_24),
+                    icon = Icons.AutoMirrored.TwoTone.Message,
                     onClick = { onShowPopUpOnConnectionChanged(!state.showPopUpOnConnection) },
                     trailingContent = {
                         Switch(

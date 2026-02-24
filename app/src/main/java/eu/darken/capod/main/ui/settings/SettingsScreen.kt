@@ -3,7 +3,14 @@ package eu.darken.capod.main.ui.settings
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Book
+import androidx.compose.material.icons.twotone.DevicesOther
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Settings
+import androidx.compose.material.icons.twotone.SupportAgent
+import androidx.compose.material.icons.twotone.Translate
+import androidx.compose.material.icons.twotone.Widgets
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -75,7 +82,7 @@ fun SettingsScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                             contentDescription = null,
                         )
                     }
@@ -85,7 +92,7 @@ fun SettingsScreen(
                     if (sponsorUrl != null) {
                         IconButton(onClick = { onSponsor(sponsorUrl) }) {
                             Icon(
-                                painter = painterResource(R.drawable.ic_heart),
+                                imageVector = Icons.TwoTone.Favorite,
                                 contentDescription = "Sponsor development",
                             )
                         }
@@ -99,7 +106,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_general_label),
                     subtitle = stringResource(R.string.settings_general_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_settings_24),
+                    icon = Icons.TwoTone.Settings,
                     onClick = onGeneralSettings,
                 )
             }
@@ -107,7 +114,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_devices_label),
                     subtitle = stringResource(R.string.settings_devices_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_devices_other_24),
+                    icon = Icons.TwoTone.DevicesOther,
                     onClick = onDeviceManager,
                 )
             }
@@ -115,7 +122,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_reaction_label),
                     subtitle = stringResource(R.string.settings_reaction_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_widgets_24),
+                    icon = Icons.TwoTone.Widgets,
                     onClick = onReactions,
                 )
             }
@@ -123,7 +130,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_support_label),
                     subtitle = stringResource(R.string.settings_support_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_support_agent_24),
+                    icon = Icons.TwoTone.SupportAgent,
                     onClick = onSupport,
                 )
             }
@@ -142,7 +149,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.help_translate_label),
                     subtitle = stringResource(R.string.help_translate_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_translate_24),
+                    icon = Icons.TwoTone.Translate,
                     onClick = onHelpTranslate,
                 )
             }
@@ -150,7 +157,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_acknowledgements_label),
                     subtitle = stringResource(R.string.general_thank_you_label),
-                    iconPainter = painterResource(R.drawable.ic_heart),
+                    icon = Icons.TwoTone.Favorite,
                     onClick = onAcknowledgements,
                 )
             }
@@ -158,7 +165,7 @@ fun SettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_privacy_policy_label),
                     subtitle = stringResource(R.string.settings_privacy_policy_desc),
-                    iconPainter = painterResource(R.drawable.ic_baseline_book_24),
+                    icon = Icons.TwoTone.Book,
                     onClick = onPrivacyPolicy,
                 )
             }

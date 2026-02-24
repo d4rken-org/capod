@@ -11,9 +11,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.BatteryChargingFull
-import androidx.compose.material.icons.filled.Hearing
-import androidx.compose.material.icons.filled.SettingsInputAntenna
+import androidx.compose.material.icons.twotone.BatteryChargingFull
+import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
@@ -86,7 +86,7 @@ fun SinglePodsCard(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Icon(
-                    imageVector = Icons.Default.SettingsInputAntenna,
+                    imageVector = Icons.TwoTone.SettingsInputAntenna,
                     contentDescription = null,
                     modifier = Modifier.size(16.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -137,7 +137,7 @@ fun SinglePodsCard(
                 ) {
                     if (device is HasChargeDetection && device.isHeadsetBeingCharged) {
                         Icon(
-                            imageVector = Icons.Default.BatteryChargingFull,
+                            imageVector = Icons.TwoTone.BatteryChargingFull,
                             contentDescription = null,
                             modifier = Modifier.size(16.dp),
                             tint = MaterialTheme.colorScheme.primary,
@@ -146,7 +146,7 @@ fun SinglePodsCard(
 
                     if (device is HasEarDetection && device.isBeingWorn) {
                         Icon(
-                            imageVector = Icons.Default.Hearing,
+                            imageVector = Icons.TwoTone.Hearing,
                             contentDescription = null,
                             modifier = Modifier.size(16.dp),
                             tint = MaterialTheme.colorScheme.primary,

@@ -3,7 +3,10 @@ package eu.darken.capod.main.ui.settings.support
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.Cancel
+import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -63,7 +66,7 @@ fun SupportScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                             contentDescription = null,
                         )
                     }
@@ -95,7 +98,7 @@ fun SupportScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.troubleshooter_title),
                     subtitle = stringResource(R.string.troubleshooter_summary),
-                    iconPainter = painterResource(R.drawable.ic_baseline_settings_24),
+                    icon = Icons.TwoTone.Settings,
                     onClick = onTroubleShooter,
                 )
             }
@@ -111,10 +114,10 @@ fun SupportScreen(
                     } else {
                         stringResource(R.string.debug_debuglog_record_action)
                     },
-                    iconPainter = if (state.isRecording) {
-                        painterResource(R.drawable.ic_cancel)
+                    icon = if (state.isRecording) {
+                        Icons.TwoTone.Cancel
                     } else {
-                        painterResource(R.drawable.ic_baseline_bug_report_24)
+                        Icons.TwoTone.BugReport
                     },
                     onClick = onDebugLogToggle,
                 )

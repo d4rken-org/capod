@@ -8,7 +8,15 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.AccountTree
+import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.DisabledVisible
+import androidx.compose.material.icons.twotone.FilterList
+import androidx.compose.material.icons.automirrored.twotone.Message
+import androidx.compose.material.icons.twotone.Notifications
+import androidx.compose.material.icons.twotone.SettingsBluetooth
+import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -27,7 +35,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -89,7 +96,7 @@ fun GeneralSettingsScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                             contentDescription = null,
                         )
                     }
@@ -102,7 +109,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_monitor_mode_label),
                     subtitle = stringResource(state.monitorMode.labelRes),
-                    iconPainter = painterResource(R.drawable.ic_baseline_disabled_visible_24),
+                    icon = Icons.TwoTone.DisabledVisible,
                     onClick = { showMonitorModeDialog = true },
                 )
             }
@@ -110,7 +117,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_scanner_mode_label),
                     subtitle = stringResource(state.scannerMode.labelRes),
-                    iconPainter = painterResource(R.drawable.ic_baseline_settings_bluetooth_24),
+                    icon = Icons.TwoTone.SettingsBluetooth,
                     onClick = { showScannerModeDialog = true },
                 )
             }
@@ -121,7 +128,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_monitor_connected_notification_label),
                     subtitle = stringResource(R.string.settings_monitor_connected_notification_description),
-                    iconPainter = painterResource(R.drawable.ic_checkbox_blank_badge_24),
+                    icon = Icons.TwoTone.Notifications,
                     onClick = { onShowConnectedNotificationChanged(!state.showConnectedNotification) },
                     trailingContent = {
                         Switch(
@@ -136,7 +143,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_keep_notification_after_disconnect_label),
                     subtitle = stringResource(R.string.settings_keep_notification_after_disconnect_description),
-                    iconPainter = painterResource(R.drawable.ic_message_24),
+                    icon = Icons.AutoMirrored.TwoTone.Message,
                     onClick = { onKeepNotificationAfterDisconnectChanged(!state.keepNotificationAfterDisconnect) },
                     enabled = state.showConnectedNotification,
                     trailingContent = {
@@ -153,7 +160,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_debug_label),
                     subtitle = stringResource(R.string.settings_debug_description),
-                    iconPainter = painterResource(R.drawable.ic_baseline_bug_report_24),
+                    icon = Icons.TwoTone.BugReport,
                     onClick = onDebugSettings,
                 )
             }
@@ -164,7 +171,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_compat_offloaded_filtering_disabled_title),
                     subtitle = stringResource(R.string.settings_compat_offloaded_filtering_disabled_summary),
-                    iconPainter = painterResource(R.drawable.ic_filter_cog_outline_24),
+                    icon = Icons.TwoTone.FilterList,
                     onClick = { onOffloadedFilteringDisabledChanged(!state.isOffloadedFilteringDisabled) },
                     trailingContent = {
                         Switch(
@@ -179,7 +186,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_compat_offloaded_batching_disabled_title),
                     subtitle = stringResource(R.string.settings_compat_offloaded_batching_disabled_summary),
-                    iconPainter = painterResource(R.drawable.ic_format_list_group_24),
+                    icon = Icons.AutoMirrored.TwoTone.ViewList,
                     onClick = { onOffloadedBatchingDisabledChanged(!state.isOffloadedBatchingDisabled) },
                     trailingContent = {
                         Switch(
@@ -194,7 +201,7 @@ fun GeneralSettingsScreen(
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_compat_indirectcallback_title),
                     subtitle = stringResource(R.string.settings_compat_indirectcallback_summary),
-                    iconPainter = painterResource(R.drawable.ic_strategy_24),
+                    icon = Icons.TwoTone.AccountTree,
                     onClick = { onUseIndirectScanResultCallbackChanged(!state.useIndirectScanResultCallback) },
                     trailingContent = {
                         Switch(
