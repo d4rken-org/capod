@@ -1,7 +1,6 @@
 package eu.darken.capod.profiles.ui.creation
 
 import android.content.Context
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
@@ -43,15 +42,15 @@ private data class ProfileEditorState(
 @HiltViewModel
 class DeviceProfileCreationViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val deviceProfilesRepo: DeviceProfilesRepo,
     private val bluetoothManager: BluetoothManager2,
     private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider) {
 
-    private val profileId: ProfileId? = handle.get<String>("profileId")
-    private val isEditMode: Boolean = profileId != null
+    private var profileId: ProfileId? = null
+    private var isEditMode: Boolean = false
+    private var initialized = false
 
     private val _currentState = MutableStateFlow(ProfileEditorState())
     private val _initialState = MutableStateFlow(ProfileEditorState())
@@ -60,7 +59,13 @@ class DeviceProfileCreationViewModel @Inject constructor(
     val showUnsavedChangesEvent = SingleEventFlow<Unit>()
     val showDeleteConfirmationEvent = SingleEventFlow<Unit>()
 
-    init {
+    fun initialize(profileId: String?) {
+        if (initialized && this.profileId == profileId) return
+        initialized = true
+
+        this.profileId = profileId
+        this.isEditMode = profileId != null
+
         if (isEditMode && profileId != null) {
             loadProfile(profileId)
         } else {
@@ -161,12 +166,17 @@ class DeviceProfileCreationViewModel @Inject constructor(
 
     fun hasUnsavedChanges(): Boolean = _currentState.value != _initialState.value
 
+    private fun exitScreen() {
+        initialized = false
+        navUp()
+    }
+
     fun onBackPressed() {
         log(TAG) { "onBackPressed()" }
         if (hasUnsavedChanges()) {
             showUnsavedChangesEvent.tryEmit(Unit)
         } else {
-            navUp()
+            exitScreen()
         }
     }
 
@@ -204,7 +214,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
                     deviceProfilesRepo.addProfile(profile)
                     log(TAG) { "Profile created: $profile" }
                 }
-                navUp()
+                exitScreen()
             } catch (e: Exception) {
                 log(TAG) { "Failed to save profile: $e" }
                 errorEvents.emitBlocking(e)
@@ -218,12 +228,13 @@ class DeviceProfileCreationViewModel @Inject constructor(
     }
 
     fun deleteProfile() {
-        if (isEditMode && profileId != null) {
+        val id = profileId
+        if (isEditMode && id != null) {
             launch {
                 try {
-                    deviceProfilesRepo.removeProfile(profileId)
-                    log(TAG) { "Profile deleted: $profileId" }
-                    navUp()
+                    deviceProfilesRepo.removeProfile(id)
+                    log(TAG) { "Profile deleted: $id" }
+                    exitScreen()
                 } catch (e: Exception) {
                     log(TAG) { "Failed to delete profile: $e" }
                     errorEvents.emitBlocking(e)
@@ -234,7 +245,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
 
     fun discardChanges() {
         log(TAG) { "discardChanges()" }
-        navUp()
+        exitScreen()
     }
 
     fun openKeyGuide() {

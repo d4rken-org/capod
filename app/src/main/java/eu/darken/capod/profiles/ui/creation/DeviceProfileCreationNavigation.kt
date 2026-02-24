@@ -13,7 +13,9 @@ import javax.inject.Inject
 
 class DeviceProfileCreationNavigation @Inject constructor() : NavigationEntry {
     override fun EntryProviderScope<NavKey>.setup() {
-        entry<Nav.Main.DeviceProfileCreation> { DeviceProfileCreationScreenHost() }
+        entry<Nav.Main.DeviceProfileCreation> { key ->
+            DeviceProfileCreationScreenHost(profileId = key.profileId)
+        }
     }
 
     @Module
