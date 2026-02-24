@@ -19,6 +19,7 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
+import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.pods.core.PodDevice
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -26,6 +27,7 @@ import javax.inject.Singleton
 @Singleton
 class PopUpWindow @Inject constructor(
     @ApplicationContext private val appContext: Context,
+    private val generalSettings: GeneralSettings,
 ) {
 
     private val windowManager = appContext.getSystemService(WINDOW_SERVICE) as WindowManager
@@ -67,7 +69,7 @@ class PopUpWindow @Inject constructor(
             setViewTreeLifecycleOwner(owner)
             setViewTreeSavedStateRegistryOwner(owner)
             setContent {
-                CapodTheme {
+                CapodTheme(state = generalSettings.currentThemeState) {
                     PopUpContent(device = device, onClose = { close() })
                 }
             }
