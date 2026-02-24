@@ -42,6 +42,7 @@ class PopUpWindow @Inject constructor(
         val dm = appContext.resources.displayMetrics
         val margin = (24 * dm.density).toInt()
         width = minOf(dm.widthPixels - margin * 2, (400 * dm.density).toInt())
+        y = (8 * dm.density).toInt()
     }
 
     private var composeView: ComposeView? = null
