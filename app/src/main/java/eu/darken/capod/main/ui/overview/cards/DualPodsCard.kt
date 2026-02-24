@@ -46,6 +46,9 @@ import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getSignalQuality
 import eu.darken.capod.pods.core.lastSeenFormatted
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import java.time.Duration
 import java.time.Instant
 
@@ -244,6 +247,42 @@ fun DualPodsCard(
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardFullChargePreview() = PreviewWrapper {
+    DualPodsCard(device = MockPodDataProvider.airPodsProFullCharge(), showDebug = false, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardMixedBatteryPreview() = PreviewWrapper {
+    DualPodsCard(device = MockPodDataProvider.airPodsProMixed(), showDebug = false, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardLowBatteryPreview() = PreviewWrapper {
+    DualPodsCard(device = MockPodDataProvider.airPodsProLowBattery(), showDebug = false, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardInCasePreview() = PreviewWrapper {
+    DualPodsCard(device = MockPodDataProvider.airPodsProInCase(), showDebug = false, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardDebugPreview() = PreviewWrapper {
+    DualPodsCard(device = MockPodDataProvider.airPodsProMixed(), showDebug = true, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardNoCasePreview() = PreviewWrapper {
+    DualPodsCard(device = MockPodDataProvider.powerBeatsPro(), showDebug = false, now = Instant.now())
 }
 
 @Composable

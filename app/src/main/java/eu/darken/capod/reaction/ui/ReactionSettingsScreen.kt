@@ -41,6 +41,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -266,4 +268,29 @@ fun ReactionSettingsScreen(
             },
         )
     }
+}
+
+@Preview2
+@Composable
+private fun ReactionSettingsScreenPreview() = PreviewWrapper {
+    ReactionSettingsScreen(
+        state = ReactionSettingsViewModel.State(
+            isPro = true,
+            onePodMode = false,
+            autoPlay = true,
+            autoPause = true,
+            autoConnect = false,
+            autoConnectCondition = AutoConnectCondition.WHEN_SEEN,
+            showPopUpOnCaseOpen = true,
+            showPopUpOnConnection = false,
+        ),
+        onNavigateUp = {},
+        onOnePodModeChanged = {},
+        onAutoPlayChanged = {},
+        onAutoPauseChanged = {},
+        onAutoConnectChanged = {},
+        onAutoConnectConditionSelected = {},
+        onShowPopUpOnCaseOpenChanged = {},
+        onShowPopUpOnConnectionChanged = {},
+    )
 }

@@ -34,6 +34,9 @@ import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getSignalQuality
 import eu.darken.capod.pods.core.lastSeenFormatted
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import java.time.Duration
 import java.time.Instant
 
@@ -172,4 +175,22 @@ fun SinglePodsCard(
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardWearingPreview() = PreviewWrapper {
+    SinglePodsCard(device = MockPodDataProvider.airPodsMax(), showDebug = false, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardChargingPreview() = PreviewWrapper {
+    SinglePodsCard(device = MockPodDataProvider.airPodsMaxCharging(), showDebug = false, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardDebugPreview() = PreviewWrapper {
+    SinglePodsCard(device = MockPodDataProvider.beatsSolo3(), showDebug = true, now = Instant.now())
 }

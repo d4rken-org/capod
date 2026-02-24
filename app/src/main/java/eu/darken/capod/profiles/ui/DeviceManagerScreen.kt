@@ -36,9 +36,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
+import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfile
 
 @Composable
@@ -119,6 +123,34 @@ fun DeviceManagerScreen(
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun DeviceManagerScreenWithProfilesPreview() = PreviewWrapper {
+    DeviceManagerScreen(
+        state = DeviceManagerViewModel.State(
+            profiles = listOf(
+                MockPodDataProvider.profile("Work AirPods", PodDevice.Model.AIRPODS_PRO2),
+                MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+                MockPodDataProvider.profile("Gym Beats", PodDevice.Model.POWERBEATS_PRO),
+            ),
+        ),
+        onBack = {},
+        onAddDevice = {},
+        onEditProfile = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceManagerScreenEmptyPreview() = PreviewWrapper {
+    DeviceManagerScreen(
+        state = DeviceManagerViewModel.State(profiles = emptyList()),
+        onBack = {},
+        onAddDevice = {},
+        onEditProfile = {},
+    )
 }
 
 @Composable

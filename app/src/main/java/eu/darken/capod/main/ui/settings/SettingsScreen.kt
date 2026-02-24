@@ -24,6 +24,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.compose.waitForState
@@ -171,4 +173,22 @@ fun SettingsScreen(
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun SettingsScreenPreview() = PreviewWrapper {
+    SettingsScreen(
+        state = SettingsViewModel.State(sponsorUrl = "https://example.com"),
+        onNavigateUp = {},
+        onGeneralSettings = {},
+        onDeviceManager = {},
+        onReactions = {},
+        onSupport = {},
+        onChangelog = {},
+        onHelpTranslate = {},
+        onAcknowledgements = {},
+        onPrivacyPolicy = {},
+        onSponsor = {},
+    )
 }

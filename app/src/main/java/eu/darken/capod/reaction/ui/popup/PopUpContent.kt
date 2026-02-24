@@ -30,6 +30,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
@@ -191,4 +194,22 @@ private fun BatteryColumn(
             )
         }
     }
+}
+
+@Preview2
+@Composable
+private fun PopUpContentDualPodPreview() = PreviewWrapper {
+    PopUpContent(device = MockPodDataProvider.airPodsProMixed(), onClose = {})
+}
+
+@Preview2
+@Composable
+private fun PopUpContentDualPodNoCasePreview() = PreviewWrapper {
+    PopUpContent(device = MockPodDataProvider.powerBeatsPro(), onClose = {})
+}
+
+@Preview2
+@Composable
+private fun PopUpContentSinglePodPreview() = PreviewWrapper {
+    PopUpContent(device = MockPodDataProvider.airPodsMax(), onClose = {})
 }

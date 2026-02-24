@@ -11,6 +11,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,6 +24,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
 fun <T> SettingsListPreferenceItem(
@@ -88,4 +92,17 @@ fun <T> SettingsListPreferenceItem(
             },
         )
     }
+}
+
+@Preview2
+@Composable
+private fun SettingsListPreferenceItemPreview() = PreviewWrapper {
+    SettingsListPreferenceItem(
+        icon = Icons.TwoTone.Tune,
+        title = "Mode",
+        entries = listOf("Manual", "Automatic", "Always"),
+        selectedEntry = "Automatic",
+        onEntrySelected = {},
+        entryLabel = { it },
+    )
 }

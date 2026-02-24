@@ -24,6 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -120,4 +122,10 @@ fun OnboardingScreen(
             Spacer(modifier = Modifier.height(64.dp))
         }
     }
+}
+
+@Preview2
+@Composable
+private fun OnboardingScreenPreview() = PreviewWrapper {
+    OnboardingScreen(onPrivacyPolicy = {}, onContinue = {})
 }

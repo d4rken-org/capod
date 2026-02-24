@@ -71,6 +71,9 @@ import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isVisible
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfile
 
@@ -647,6 +650,68 @@ private fun HexColorInput(
         label = { Text("#") },
         singleLine = true,
         modifier = modifier.width(160.dp),
+    )
+}
+
+@Preview2
+@Composable
+private fun WidgetConfigurationScreenPreview() = PreviewWrapper {
+    val profiles = listOf(
+        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
+        MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+    )
+    WidgetConfigurationScreen(
+        state = WidgetConfigurationViewModel.State(
+            profiles = profiles,
+            selectedProfile = profiles.first().id,
+            isPro = true,
+            theme = WidgetTheme.DEFAULT,
+            activePreset = WidgetTheme.Preset.MATERIAL_YOU,
+            isCustomMode = false,
+        ),
+        onSelectProfile = {},
+        onSelectPreset = {},
+        onEnterCustomMode = { _, _ -> },
+        onSetBackgroundColor = {},
+        onSetForegroundColor = {},
+        onSetBackgroundAlpha = {},
+        onSetShowDeviceLabel = {},
+        onReset = {},
+        onConfirm = {},
+        onCancel = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun WidgetConfigurationScreenCustomPreview() = PreviewWrapper {
+    val profiles = listOf(
+        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
+    )
+    WidgetConfigurationScreen(
+        state = WidgetConfigurationViewModel.State(
+            profiles = profiles,
+            selectedProfile = profiles.first().id,
+            isPro = true,
+            theme = WidgetTheme(
+                backgroundColor = 0xFF1565C0.toInt(),
+                foregroundColor = 0xFFFFFFFF.toInt(),
+                backgroundAlpha = 200,
+                showDeviceLabel = true,
+            ),
+            activePreset = null,
+            isCustomMode = true,
+        ),
+        onSelectProfile = {},
+        onSelectPreset = {},
+        onEnterCustomMode = { _, _ -> },
+        onSetBackgroundColor = {},
+        onSetForegroundColor = {},
+        onSetBackgroundAlpha = {},
+        onSetShowDeviceLabel = {},
+        onReset = {},
+        onConfirm = {},
+        onCancel = {},
     )
 }
 

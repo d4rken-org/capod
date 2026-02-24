@@ -13,12 +13,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -93,4 +97,15 @@ fun SettingsBaseItem(
 
         trailingContent?.invoke()
     }
+}
+
+@Preview2
+@Composable
+private fun SettingsBaseItemPreview() = PreviewWrapper {
+    SettingsBaseItem(
+        title = "General Settings",
+        subtitle = "Monitor mode, scanner, notifications",
+        icon = Icons.TwoTone.Settings,
+        onClick = {},
+    )
 }

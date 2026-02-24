@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
@@ -161,4 +163,10 @@ fun AcknowledgementsScreen(
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun AcknowledgementsScreenPreview() = PreviewWrapper {
+    AcknowledgementsScreen(onNavigateUp = {}, onOpenUrl = {})
 }

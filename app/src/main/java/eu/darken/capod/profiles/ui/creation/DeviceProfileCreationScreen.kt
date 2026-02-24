@@ -48,6 +48,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
@@ -545,6 +547,66 @@ private fun UnsavedChangesDialog(
                 Text(text = stringResource(R.string.general_discard_action))
             }
         },
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceProfileCreationScreenNewPreview() = PreviewWrapper {
+    DeviceProfileCreationScreen(
+        state = DeviceProfileCreationViewModel.State(
+            isEditMode = false,
+            name = "",
+            nameError = null,
+            selectedModel = null,
+            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            identityKey = null,
+            encryptionKey = null,
+            selectedDevice = null,
+            bondedDevices = emptyList(),
+            minimumSignalQuality = 0.15f,
+            canSave = false,
+        ),
+        onBack = {},
+        onSave = {},
+        onDelete = {},
+        onNameChange = {},
+        onModelChange = {},
+        onDeviceChange = {},
+        onIdentityKeyChange = {},
+        onEncryptionKeyChange = {},
+        onSignalQualityChange = {},
+        onKeyGuide = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceProfileCreationScreenEditPreview() = PreviewWrapper {
+    DeviceProfileCreationScreen(
+        state = DeviceProfileCreationViewModel.State(
+            isEditMode = true,
+            name = "My AirPods Pro",
+            nameError = null,
+            selectedModel = PodDevice.Model.AIRPODS_PRO2,
+            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            identityKey = null,
+            encryptionKey = null,
+            selectedDevice = null,
+            bondedDevices = emptyList(),
+            minimumSignalQuality = 0.25f,
+            canSave = true,
+        ),
+        onBack = {},
+        onSave = {},
+        onDelete = {},
+        onNameChange = {},
+        onModelChange = {},
+        onDeviceChange = {},
+        onIdentityKeyChange = {},
+        onEncryptionKeyChange = {},
+        onSignalQualityChange = {},
+        onKeyGuide = {},
     )
 }
 
