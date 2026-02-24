@@ -58,7 +58,12 @@ import eu.darken.capod.common.toHex
 import eu.darken.capod.pods.core.PodDevice
 
 @Composable
-fun DeviceProfileCreationScreenHost(vm: DeviceProfileCreationViewModel = hiltViewModel()) {
+fun DeviceProfileCreationScreenHost(
+    profileId: String? = null,
+    vm: DeviceProfileCreationViewModel = hiltViewModel(),
+) {
+    LaunchedEffect(Unit) { vm.initialize(profileId) }
+
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
