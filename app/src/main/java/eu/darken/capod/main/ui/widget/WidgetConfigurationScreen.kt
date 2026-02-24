@@ -4,11 +4,21 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.Shader
-import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -35,10 +45,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Check
+import androidx.compose.material.icons.twotone.Palette
+import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -46,6 +60,7 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Slider
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -57,9 +72,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
@@ -92,6 +107,9 @@ fun WidgetConfigurationScreen(
     onConfirm: () -> Unit,
     onCancel: () -> Unit,
 ) {
+    val screenHPad = 16.dp
+    val cardPad = 16.dp
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -103,220 +121,239 @@ fun WidgetConfigurationScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(top = 24.dp, bottom = 16.dp),
         ) {
-            // Profile selection header
-            Text(
-                text = stringResource(R.string.widget_configuration_title),
-                style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-            Text(
-                text = stringResource(R.string.widget_configuration_description),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 24.dp, vertical = 4.dp),
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Profile list
-            Column(modifier = Modifier.padding(horizontal = 16.dp)) {
-                state.profiles.forEach { profile ->
-                    ProfileSelectionItem(
-                        profile = profile,
-                        isSelected = profile.id == state.selectedProfile,
-                        onClick = { onSelectProfile(profile) },
+            // Card A — Select Device
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = screenHPad),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                ),
+                shape = RoundedCornerShape(16.dp),
+            ) {
+                Column(modifier = Modifier.padding(cardPad)) {
+                    Text(
+                        text = stringResource(R.string.widget_configuration_title),
+                        style = MaterialTheme.typography.titleLarge,
                     )
+                    Text(
+                        text = stringResource(R.string.widget_configuration_description),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(vertical = 4.dp),
+                    )
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    state.profiles.forEach { profile ->
+                        ProfileSelectionItem(
+                            profile = profile,
+                            isSelected = profile.id == state.selectedProfile,
+                            onClick = { onSelectProfile(profile) },
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Card B — Appearance
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = screenHPad),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+                ),
+                shape = RoundedCornerShape(16.dp),
+            ) {
+                Column(modifier = Modifier.padding(cardPad)) {
+                    // Appearance header + reset
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = stringResource(R.string.widget_config_appearance_label),
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier.weight(1f),
+                        )
+                        TextButton(onClick = onReset) {
+                            Text(text = stringResource(R.string.widget_config_reset_label))
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(12.dp))
+
+                    // Live preview
+                    WidgetPreview(
+                        theme = state.theme,
+                        deviceLabel = state.profiles.firstOrNull { it.id == state.selectedProfile }?.label,
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Transparency slider
+                    val hasCustomBg = state.theme.backgroundColor != null
+                    val transparencyPercent = ((255 - state.theme.backgroundAlpha) / 255f * 100f)
+                    val displayPercent = (transparencyPercent / 5f).toInt() * 5
+
+                    Text(
+                        text = buildString {
+                            append(stringResource(R.string.widget_config_transparency_label))
+                            if (hasCustomBg && displayPercent > 0) append(" ($displayPercent%)")
+                        },
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (hasCustomBg) 1f else 0.5f),
+                    )
+
+                    Slider(
+                        value = displayPercent.toFloat(),
+                        onValueChange = { value ->
+                            val alpha = 255 - (value / 100f * 255f).toInt()
+                            onSetBackgroundAlpha(alpha)
+                        },
+                        valueRange = 0f..100f,
+                        steps = 19,
+                        enabled = hasCustomBg,
+                    )
+
+                    // Show device label switch
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = stringResource(R.string.widget_config_show_device_label),
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.weight(1f),
+                        )
+                        Switch(
+                            checked = state.theme.showDeviceLabel,
+                            onCheckedChange = onSetShowDeviceLabel,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Preset chips
+                    Text(
+                        text = stringResource(R.string.widget_config_preset_label),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+
                     Spacer(modifier = Modifier.height(8.dp))
+
+                    PresetChips(
+                        activePreset = state.activePreset,
+                        isCustomMode = state.isCustomMode,
+                        onSelectPreset = onSelectPreset,
+                        onEnterCustomMode = onEnterCustomMode,
+                    )
+
+                    // Custom color sections — animated expand/collapse
+                    AnimatedVisibility(
+                        visible = state.isCustomMode,
+                        enter = expandVertically(
+                            expandFrom = Alignment.Top,
+                        ) + fadeIn(animationSpec = tween(200)),
+                        exit = shrinkVertically(
+                            shrinkTowards = Alignment.Top,
+                        ) + fadeOut(animationSpec = tween(150)),
+                    ) {
+                        Column {
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Background color
+                            Text(
+                                text = stringResource(R.string.widget_config_background_color_label),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            ColorSwatchGrid(
+                                selectedColor = state.theme.backgroundColor,
+                                onColorSelected = onSetBackgroundColor,
+                            )
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            HexColorInput(
+                                color = state.theme.backgroundColor,
+                                onColorChanged = onSetBackgroundColor,
+                            )
+
+                            Spacer(modifier = Modifier.height(16.dp))
+
+                            // Foreground color
+                            Text(
+                                text = stringResource(R.string.widget_config_foreground_color_label),
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            ColorSwatchGrid(
+                                selectedColor = state.theme.foregroundColor,
+                                onColorSelected = onSetForegroundColor,
+                            )
+
+                            Spacer(modifier = Modifier.height(8.dp))
+
+                            HexColorInput(
+                                color = state.theme.foregroundColor,
+                                onColorChanged = onSetForegroundColor,
+                            )
+                        }
+                    }
                 }
-            }
-
-            HorizontalDivider(modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp))
-
-            // Appearance section header + reset
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(R.string.widget_config_appearance_label),
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.weight(1f),
-                )
-                TextButton(onClick = onReset) {
-                    Text(text = stringResource(R.string.widget_config_reset_label))
-                }
-            }
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Live preview
-            WidgetPreview(
-                theme = state.theme,
-                deviceLabel = state.profiles.firstOrNull { it.id == state.selectedProfile }?.label,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Transparency slider
-            val hasCustomBg = state.theme.backgroundColor != null
-            val transparencyPercent = ((255 - state.theme.backgroundAlpha) / 255f * 100f)
-            val displayPercent = (transparencyPercent / 5f).toInt() * 5
-
-            Text(
-                text = buildString {
-                    append(stringResource(R.string.widget_config_transparency_label))
-                    if (hasCustomBg && displayPercent > 0) append(" ($displayPercent%)")
-                },
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (hasCustomBg) 1f else 0.5f),
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-
-            Slider(
-                value = displayPercent.toFloat(),
-                onValueChange = { value ->
-                    val alpha = 255 - (value / 100f * 255f).toInt()
-                    onSetBackgroundAlpha(alpha)
-                },
-                valueRange = 0f..100f,
-                steps = 19, // 0, 5, 10, ... 100 → 19 intermediate steps
-                enabled = hasCustomBg,
-                modifier = Modifier.padding(horizontal = 16.dp),
-            )
-
-            // Show device label switch
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp)
-                    .height(48.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(R.string.widget_config_show_device_label),
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.weight(1f),
-                )
-                Switch(
-                    checked = state.theme.showDeviceLabel,
-                    onCheckedChange = onSetShowDeviceLabel,
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Preset chips
-            Text(
-                text = stringResource(R.string.widget_config_preset_label),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            PresetChips(
-                activePreset = state.activePreset,
-                isCustomMode = state.isCustomMode,
-                onSelectPreset = onSelectPreset,
-                onEnterCustomMode = onEnterCustomMode,
-                modifier = Modifier.padding(horizontal = 24.dp),
-            )
-
-            // Custom color sections (only visible in custom mode)
-            if (state.isCustomMode) {
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Background color
-                Text(
-                    text = stringResource(R.string.widget_config_background_color_label),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                ColorSwatchGrid(
-                    selectedColor = state.theme.backgroundColor,
-                    onColorSelected = onSetBackgroundColor,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                HexColorInput(
-                    color = state.theme.backgroundColor,
-                    onColorChanged = onSetBackgroundColor,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Foreground color
-                Text(
-                    text = stringResource(R.string.widget_config_foreground_color_label),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                ColorSwatchGrid(
-                    selectedColor = state.theme.foregroundColor,
-                    onColorSelected = onSetForegroundColor,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                HexColorInput(
-                    color = state.theme.foregroundColor,
-                    onColorChanged = onSetForegroundColor,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
             }
         }
 
         // Bottom bar
-        HorizontalDivider()
+        Surface(tonalElevation = 3.dp) {
+            Column {
+                if (!state.isPro) {
+                    Text(
+                        text = stringResource(R.string.common_feature_requires_pro_msg),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.error,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 24.dp, vertical = 12.dp),
+                    )
+                }
 
-        if (!state.isPro) {
-            Text(
-                text = stringResource(R.string.common_feature_requires_pro_msg),
-                style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.error,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp, vertical = 12.dp),
-            )
-        }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 12.dp),
-            horizontalArrangement = Arrangement.End,
-        ) {
-            OutlinedButton(onClick = onCancel) {
-                Text(text = stringResource(android.R.string.cancel))
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            Button(
-                onClick = onConfirm,
-                enabled = if (state.isPro) state.canConfirm else true,
-            ) {
-                Text(
-                    text = if (state.isPro) {
-                        stringResource(android.R.string.ok)
-                    } else {
-                        stringResource(R.string.general_upgrade_action)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 24.dp, vertical = 12.dp),
+                    horizontalArrangement = Arrangement.End,
+                ) {
+                    OutlinedButton(onClick = onCancel) {
+                        Text(text = stringResource(android.R.string.cancel))
                     }
-                )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Button(
+                        onClick = onConfirm,
+                        enabled = if (state.isPro) state.canConfirm else true,
+                    ) {
+                        Text(
+                            text = if (state.isPro) {
+                                stringResource(android.R.string.ok)
+                            } else {
+                                stringResource(R.string.general_upgrade_action)
+                            }
+                        )
+                    }
+                }
             }
         }
     }
@@ -328,14 +365,37 @@ private fun ProfileSelectionItem(
     isSelected: Boolean,
     onClick: () -> Unit,
 ) {
+    val borderColor by animateColorAsState(
+        targetValue = if (isSelected) {
+            MaterialTheme.colorScheme.primary
+        } else {
+            MaterialTheme.colorScheme.outlineVariant
+        },
+        animationSpec = tween(durationMillis = 200),
+        label = "profileBorderColor",
+    )
+    val borderWidth by animateDpAsState(
+        targetValue = if (isSelected) 2.dp else 1.dp,
+        animationSpec = tween(durationMillis = 200),
+        label = "profileBorderWidth",
+    )
+    val containerColor by animateColorAsState(
+        targetValue = if (isSelected) {
+            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+        } else {
+            MaterialTheme.colorScheme.surface
+        },
+        animationSpec = tween(durationMillis = 200),
+        label = "profileContainerColor",
+    )
+
     OutlinedCard(
         onClick = onClick,
         shape = RoundedCornerShape(12.dp),
-        border = if (isSelected) {
-            BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
-        } else {
-            BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant)
-        },
+        border = BorderStroke(borderWidth, borderColor),
+        colors = CardDefaults.outlinedCardColors(
+            containerColor = containerColor,
+        ),
     ) {
         Row(
             modifier = Modifier
@@ -413,11 +473,11 @@ private fun WidgetPreview(
         resolveThemeColor(context, android.R.attr.colorAccent)
     }
 
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(16.dp)),
-        contentAlignment = Alignment.Center,
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        color = MaterialTheme.colorScheme.surfaceContainerHighest,
+        tonalElevation = 2.dp,
     ) {
         AndroidView(
             factory = { ctx ->
@@ -529,12 +589,39 @@ private fun PresetChips(
     FlowRow(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         WidgetTheme.Preset.entries.forEach { preset ->
             FilterChip(
                 selected = activePreset == preset,
                 onClick = { onSelectPreset(preset) },
                 label = { Text(presetNames[preset] ?: preset.name) },
+                leadingIcon = if (preset == WidgetTheme.Preset.MATERIAL_YOU) {
+                    {
+                        Icon(
+                            imageVector = Icons.TwoTone.Palette,
+                            contentDescription = null,
+                            modifier = Modifier.size(FilterChipDefaults.IconSize),
+                        )
+                    }
+                } else {
+                    {
+                        Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                            Box(
+                                modifier = Modifier
+                                    .size(12.dp)
+                                    .clip(CircleShape)
+                                    .background(Color(preset.presetBg!! or 0xFF000000.toInt()))
+                            )
+                            Box(
+                                modifier = Modifier
+                                    .size(12.dp)
+                                    .clip(CircleShape)
+                                    .background(Color(preset.presetFg!! or 0xFF000000.toInt()))
+                            )
+                        }
+                    }
+                },
             )
         }
         FilterChip(
@@ -545,6 +632,13 @@ private fun PresetChips(
                 onEnterCustomMode(defaultBg, defaultFg)
             },
             label = { Text(stringResource(R.string.widget_config_custom_label)) },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.TwoTone.Tune,
+                    contentDescription = null,
+                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                )
+            },
         )
     }
 }
@@ -580,38 +674,64 @@ private fun ColorSwatch(
     isSelected: Boolean,
     onClick: () -> Unit,
 ) {
+    val borderWidth by animateDpAsState(
+        targetValue = if (isSelected) 3.dp else 1.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioNoBouncy,
+            stiffness = Spring.StiffnessMedium,
+        ),
+        label = "swatchBorderWidth",
+    )
+    val borderColor by animateColorAsState(
+        targetValue = if (isSelected) {
+            MaterialTheme.colorScheme.primary
+        } else {
+            MaterialTheme.colorScheme.outlineVariant
+        },
+        animationSpec = tween(durationMillis = 200),
+        label = "swatchBorderColor",
+    )
+    val swatchSize by animateDpAsState(
+        targetValue = if (isSelected) 38.dp else 36.dp,
+        animationSpec = spring(
+            dampingRatio = Spring.DampingRatioNoBouncy,
+            stiffness = Spring.StiffnessMedium,
+        ),
+        label = "swatchSize",
+    )
+    val checkAlpha by animateFloatAsState(
+        targetValue = if (isSelected) 1f else 0f,
+        animationSpec = tween(durationMillis = 150),
+        label = "swatchCheckAlpha",
+    )
+
     Box(
         modifier = Modifier
             .size(44.dp)
             .clickable(onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
-        // Color circle
         Box(
             modifier = Modifier
-                .size(36.dp)
+                .size(swatchSize)
                 .clip(CircleShape)
                 .background(Color(color))
                 .border(
-                    width = if (isSelected) 3.dp else 1.dp,
-                    color = if (isSelected) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        Color(0x20000000)
-                    },
+                    width = borderWidth,
+                    color = borderColor,
                     shape = CircleShape,
                 ),
             contentAlignment = Alignment.Center,
         ) {
-            if (isSelected) {
-                val checkColor = WidgetTheme.bestContrastForeground(color)
-                Icon(
-                    imageVector = Icons.TwoTone.Check,
-                    contentDescription = null,
-                    modifier = Modifier.size(16.dp),
-                    tint = Color(checkColor),
-                )
-            }
+            val checkColor = WidgetTheme.bestContrastForeground(color)
+            Icon(
+                imageVector = Icons.TwoTone.Check,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(16.dp)
+                    .alpha(checkAlpha),
+                tint = Color(checkColor),
+            )
         }
     }
 }
@@ -701,6 +821,34 @@ private fun WidgetConfigurationScreenCustomPreview() = PreviewWrapper {
             ),
             activePreset = null,
             isCustomMode = true,
+        ),
+        onSelectProfile = {},
+        onSelectPreset = {},
+        onEnterCustomMode = { _, _ -> },
+        onSetBackgroundColor = {},
+        onSetForegroundColor = {},
+        onSetBackgroundAlpha = {},
+        onSetShowDeviceLabel = {},
+        onReset = {},
+        onConfirm = {},
+        onCancel = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun WidgetConfigurationScreenNonProPreview() = PreviewWrapper {
+    val profiles = listOf(
+        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
+    )
+    WidgetConfigurationScreen(
+        state = WidgetConfigurationViewModel.State(
+            profiles = profiles,
+            selectedProfile = profiles.first().id,
+            isPro = false,
+            theme = WidgetTheme.DEFAULT,
+            activePreset = WidgetTheme.Preset.MATERIAL_YOU,
+            isCustomMode = false,
         ),
         onSelectProfile = {},
         onSelectPreset = {},
