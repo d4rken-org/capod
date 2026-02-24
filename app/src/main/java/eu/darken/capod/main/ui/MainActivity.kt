@@ -18,6 +18,7 @@ import eu.darken.capod.common.navigation.NavigationController
 import eu.darken.capod.common.navigation.NavigationEntry
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
+import eu.darken.capod.main.core.GeneralSettings
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -25,14 +26,21 @@ class MainActivity : Activity2() {
 
     @Inject lateinit var navCtrl: NavigationController
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
+    @Inject lateinit var generalSettings: GeneralSettings
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         enableEdgeToEdge()
 
+        val startDestination: NavKey = if (generalSettings.isOnboardingDone.value) {
+            Nav.Main.Overview
+        } else {
+            Nav.Main.Onboarding
+        }
+
         setContent {
-            val backStack = rememberNavBackStack(Nav.Main.Overview)
+            val backStack = rememberNavBackStack(startDestination)
             navCtrl.setup(backStack)
 
             CapodTheme {
