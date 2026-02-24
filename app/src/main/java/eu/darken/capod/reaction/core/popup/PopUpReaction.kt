@@ -33,7 +33,7 @@ class PopUpReaction @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
 ) {
 
-    private val caseCoolDowns = mutableMapOf<PodDevice.Id, Instant>()
+    private val caseCoolDowns = mutableMapOf<String, Instant>()
 
     private fun monitorCase(): Flow<Event> = reactionSettings.showPopUpOnCaseOpen.flow
         .flatMapLatest { isEnabled ->
@@ -56,10 +56,10 @@ class PopUpReaction @Inject constructor(
             }
             log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
 
-            val isSameDeviceWithCaseNowOpen =
-                previous?.identifier == current.identifier && previous.caseLidState != current.caseLidState
-            val isNewDeviceWithJustOpenedCase =
-                previous?.identifier != current.identifier && previous?.caseLidState != current.caseLidState
+            val isSameDeviceOrProfile = previous?.identifier == current.identifier ||
+                (previous?.meta?.profile?.id != null && previous.meta.profile?.id == current.meta.profile?.id)
+            val isSameDeviceWithCaseNowOpen = isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
+            val isNewDeviceWithJustOpenedCase = !isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
 
             if (!isSameDeviceWithCaseNowOpen && !isNewDeviceWithJustOpenedCase) {
                 return@mapNotNull null
@@ -69,43 +69,46 @@ class PopUpReaction @Inject constructor(
             throttleCasePopUps(current)
         }
 
-    private fun throttleCasePopUps(current: DualApplePods): Event? = when {
-        current.caseLidState == DualApplePods.LidState.OPEN -> {
-            log(TAG, INFO) { "Show popup" }
+    private fun throttleCasePopUps(current: DualApplePods): Event? {
+        val cooldownKey = current.meta.profile?.id ?: current.identifier.toString()
+        return when {
+            current.caseLidState == DualApplePods.LidState.OPEN -> {
+                log(TAG, INFO) { "Show popup" }
 
-            val now = Instant.now()
-            val lastShown = caseCoolDowns[current.identifier] ?: Instant.MIN
-            val sinceLastPop = Duration.between(lastShown, now)
-            log(TAG) { "Time since last case popup: $sinceLastPop" }
+                val now = Instant.now()
+                val lastShown = caseCoolDowns[cooldownKey] ?: Instant.MIN
+                val sinceLastPop = Duration.between(lastShown, now)
+                log(TAG) { "Time since last case popup: $sinceLastPop" }
 
-            if (sinceLastPop >= Duration.ofSeconds(10)) {
-                caseCoolDowns[current.identifier] = Instant.now()
-                Event.PopupShow(device = current)
-            } else {
-                log(TAG, INFO) { "Case popup is still on cooldown: $sinceLastPop" }
-                null
-            }
-        }
-
-        current.caseLidState != DualApplePods.LidState.OPEN -> {
-            when (current.caseLidState) {
-                DualApplePods.LidState.CLOSED -> {
-                    log(TAG, INFO) { "Lid was actively closed, resetting cooldown." }
-                    caseCoolDowns.remove(current.identifier)
-                }
-
-                else -> {
-                    log(TAG, WARN) { "Lid was was not actively closed, refreshing cooldown." }
-                    caseCoolDowns[current.identifier] = Instant.now()
+                if (sinceLastPop >= Duration.ofSeconds(10)) {
+                    caseCoolDowns[cooldownKey] = Instant.now()
+                    Event.PopupShow(device = current)
+                } else {
+                    log(TAG, INFO) { "Case popup is still on cooldown: $sinceLastPop" }
+                    null
                 }
             }
 
-            log(TAG, INFO) { "Hide popup" }
+            current.caseLidState != DualApplePods.LidState.OPEN -> {
+                when (current.caseLidState) {
+                    DualApplePods.LidState.CLOSED -> {
+                        log(TAG, INFO) { "Lid was actively closed, resetting cooldown." }
+                        caseCoolDowns.remove(cooldownKey)
+                    }
 
-            Event.PopupHide()
+                    else -> {
+                        log(TAG, WARN) { "Lid was was not actively closed, refreshing cooldown." }
+                        caseCoolDowns[cooldownKey] = Instant.now()
+                    }
+                }
+
+                log(TAG, INFO) { "Hide popup" }
+
+                Event.PopupHide()
+            }
+
+            else -> null
         }
-
-        else -> null
     }
 
     private val connectionCoolDowns = mutableMapOf<BluetoothAddress, Instant>()
