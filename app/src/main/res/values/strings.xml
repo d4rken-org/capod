@@ -246,6 +246,7 @@
     <string name="profiles_add_action">Add profile</string>
     <string name="profiles_create_title">Create Profile</string>
     <string name="profiles_name_label">Profile name</string>
+    <string name="profiles_name_empty_error">Name can\'t be empty</string>
     <string name="profiles_name_default">My Headphones</string>
     <string name="profiles_model_label">Device model</string>
     <string name="profiles_paired_device_label">Paired device</string>

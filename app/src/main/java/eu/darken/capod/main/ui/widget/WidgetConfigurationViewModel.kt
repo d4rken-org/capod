@@ -9,7 +9,8 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.combine
-import eu.darken.capod.common.uix.ViewModel3
+import eu.darken.capod.common.flow.shareLatest
+import eu.darken.capod.common.uix.ViewModel2
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -25,7 +26,7 @@ class WidgetConfigurationViewModel @Inject constructor(
     private val widgetSettings: WidgetSettings,
     private val upgradeRepo: UpgradeRepo,
     @ApplicationContext private val context: Context,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel2(dispatcherProvider) {
 
     private val appWidgetManager by lazy { AppWidgetManager.getInstance(context) }
 
@@ -51,7 +52,7 @@ class WidgetConfigurationViewModel @Inject constructor(
 
     private val currentTheme = MutableStateFlow(initialTheme)
 
-    val state = eu.darken.capod.common.flow.combine(
+    val state = combine(
         selectedProfile,
         currentTheme,
         forceCustomMode,
@@ -69,7 +70,7 @@ class WidgetConfigurationViewModel @Inject constructor(
             activePreset = activePreset,
             isCustomMode = activePreset == null,
         )
-    }.asLiveData2()
+    }.shareLatest(scope = vmScope)
 
     data class State(
         val profiles: List<DeviceProfile> = emptyList(),

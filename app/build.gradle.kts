@@ -5,9 +5,10 @@ plugins {
     id("com.google.devtools.ksp")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 apply(plugin = "dagger.hilt.android.plugin")
-apply(plugin = "androidx.navigation.safeargs.kotlin")
 
 android {
     compileSdk = projectConfig.compileSdk
@@ -97,6 +98,7 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        compose = true
     }
 
     compileOptions {
@@ -182,6 +184,10 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
 
     addNavigation()
+
+    addCompose()
+    addNavigation3()
+    addSerialization()
 
     addTesting()
 

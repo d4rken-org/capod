@@ -11,7 +11,6 @@ buildscript {
         classpath("com.android.tools.build:gradle:9.0.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.core}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.Dagger.core}")
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.AndroidX.Navigation.core}")
     }
 }
 
