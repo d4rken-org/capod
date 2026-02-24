@@ -7,7 +7,7 @@ import eu.darken.capod.common.theming.CapodTheme
 
 @Composable
 fun PreviewWrapper(content: @Composable () -> Unit) {
-    CapodTheme(dynamicColor = false) {
+    CapodTheme {
         Surface(color = MaterialTheme.colorScheme.background) {
             content()
         }

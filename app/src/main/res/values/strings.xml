@@ -271,6 +271,29 @@
     <string name="profiles_key_expected_format">Expected format: %1$s</string>
     <string name="profiles_priority_hint">Profile order determines priority. Drag profiles to reorder them - profiles higher in the list take precedence when multiple devices match.</string>
 
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Theme mode</string>
+    <string name="ui_theme_mode_system_label">System</string>
+    <string name="ui_theme_mode_dark_label">Dark</string>
+    <string name="ui_theme_mode_light_label">Light</string>
+
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Theme style</string>
+    <string name="ui_theme_style_default_label">Default</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Medium contrast</string>
+    <string name="ui_theme_style_high_contrast_label">High contrast</string>
+
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Theme color</string>
+    <string name="ui_theme_color_blue_label">Blue</string>
+    <string name="ui_theme_color_green_label">Green</string>
+    <string name="ui_theme_color_amber_label">Amber</string>
+    <string name="ui_theme_color_disabled_materialyou">Uses wallpaper colors</string>
+
+    <!-- Settings categories -->
+    <string name="settings_category_appearance_label">Appearance</string>
+
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Unsaved Changes</string>
     <string name="general_unsaved_changes_message">You have unsaved changes. What would you like to do?</string>

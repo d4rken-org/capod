@@ -6,6 +6,10 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.shareLatest
 import eu.darken.capod.common.navigation.Nav
+import eu.darken.capod.common.theming.ThemeColor
+import eu.darken.capod.common.theming.ThemeMode
+import eu.darken.capod.common.theming.ThemeState
+import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
@@ -26,25 +30,38 @@ class GeneralSettingsViewModel @Inject constructor(
         val isOffloadedFilteringDisabled: Boolean,
         val isOffloadedBatchingDisabled: Boolean,
         val useIndirectScanResultCallback: Boolean,
+        val themeState: ThemeState,
     )
 
     val state = combine(
-        generalSettings.monitorMode.flow,
-        generalSettings.scannerMode.flow,
-        generalSettings.useExtraMonitorNotification.flow,
-        generalSettings.keepConnectedNotificationAfterDisconnect.flow,
-        generalSettings.isOffloadedFilteringDisabled.flow,
-        generalSettings.isOffloadedBatchingDisabled.flow,
-        generalSettings.useIndirectScanResultCallback.flow,
-    ) { values ->
+        combine(
+            generalSettings.monitorMode.flow,
+            generalSettings.scannerMode.flow,
+            generalSettings.useExtraMonitorNotification.flow,
+            generalSettings.keepConnectedNotificationAfterDisconnect.flow,
+        ) { monitorMode, scannerMode, showNotif, keepNotif ->
+            @Suppress("USELESS_CAST")
+            arrayOf<Any>(monitorMode as Any, scannerMode as Any, showNotif as Any, keepNotif as Any)
+        },
+        combine(
+            generalSettings.isOffloadedFilteringDisabled.flow,
+            generalSettings.isOffloadedBatchingDisabled.flow,
+            generalSettings.useIndirectScanResultCallback.flow,
+        ) { filtering, batching, indirect ->
+            @Suppress("USELESS_CAST")
+            arrayOf<Any>(filtering as Any, batching as Any, indirect as Any)
+        },
+        generalSettings.themeState,
+    ) { general, compat, themeState ->
         State(
-            monitorMode = values[0] as MonitorMode,
-            scannerMode = values[1] as ScannerMode,
-            showConnectedNotification = values[2] as Boolean,
-            keepNotificationAfterDisconnect = values[3] as Boolean,
-            isOffloadedFilteringDisabled = values[4] as Boolean,
-            isOffloadedBatchingDisabled = values[5] as Boolean,
-            useIndirectScanResultCallback = values[6] as Boolean,
+            monitorMode = general[0] as MonitorMode,
+            scannerMode = general[1] as ScannerMode,
+            showConnectedNotification = general[2] as Boolean,
+            keepNotificationAfterDisconnect = general[3] as Boolean,
+            isOffloadedFilteringDisabled = compat[0] as Boolean,
+            isOffloadedBatchingDisabled = compat[1] as Boolean,
+            useIndirectScanResultCallback = compat[2] as Boolean,
+            themeState = themeState,
         )
     }.shareLatest(scope = vmScope)
 
@@ -74,6 +91,18 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setUseIndirectScanResultCallback(enabled: Boolean) {
         generalSettings.useIndirectScanResultCallback.value = enabled
+    }
+
+    fun setThemeMode(mode: ThemeMode) {
+        generalSettings.themeMode.value = mode
+    }
+
+    fun setThemeStyle(style: ThemeStyle) {
+        generalSettings.themeStyle.value = style
+    }
+
+    fun setThemeColor(color: ThemeColor) {
+        generalSettings.themeColor.value = color
     }
 
     fun goToDebugSettings() {

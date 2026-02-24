@@ -11,9 +11,15 @@ import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.preferences.PreferenceStoreMapper
 import eu.darken.capod.common.preferences.Settings
 import eu.darken.capod.common.preferences.createFlowPreference
+import eu.darken.capod.common.theming.ThemeColor
+import eu.darken.capod.common.theming.ThemeMode
+import eu.darken.capod.common.theming.ThemeState
+import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -62,6 +68,28 @@ class GeneralSettings @Inject constructor(
 
     val isOnboardingDone = preferences.createFlowPreference("core.onboarding.done", false)
 
+    val themeMode = preferences.createFlowPreference(
+        "core.ui.theme.mode", ThemeMode.SYSTEM, moshi, onErrorFallbackToDefault = true
+    )
+    val themeStyle = preferences.createFlowPreference(
+        "core.ui.theme.style", ThemeStyle.DEFAULT, moshi, onErrorFallbackToDefault = true
+    )
+    val themeColor = preferences.createFlowPreference(
+        "core.ui.theme.color", ThemeColor.BLUE, moshi, onErrorFallbackToDefault = true
+    )
+
+    val currentThemeState: ThemeState
+        get() = ThemeState(
+            mode = themeMode.value,
+            style = themeStyle.value,
+            color = themeColor.value,
+        )
+
+    val themeState: Flow<ThemeState>
+        get() = combine(themeMode.flow, themeStyle.flow, themeColor.flow) { mode, style, color ->
+            ThemeState(mode, style, color)
+        }
+
     override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
         monitorMode,
         useExtraMonitorNotification,
@@ -70,6 +98,9 @@ class GeneralSettings @Inject constructor(
         isOffloadedFilteringDisabled,
         isOffloadedBatchingDisabled,
         useIndirectScanResultCallback,
+        themeMode,
+        themeStyle,
+        themeColor,
         debugSettings.isAutoReportingEnabled,
     )
 }

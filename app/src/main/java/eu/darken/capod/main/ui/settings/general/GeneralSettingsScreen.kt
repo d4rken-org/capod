@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.settings.general
 
+import android.os.Build
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,10 +12,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AccountTree
 import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.Contrast
+import androidx.compose.material.icons.twotone.DarkMode
 import androidx.compose.material.icons.twotone.DisabledVisible
 import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Notifications
+import androidx.compose.material.icons.twotone.Palette
 import androidx.compose.material.icons.twotone.SettingsBluetooth
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.AlertDialog
@@ -48,6 +52,12 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.settings.SettingsListPreferenceItem
+import eu.darken.capod.common.settings.ThemeColorSelectorDialog
+import eu.darken.capod.common.theming.ThemeColor
+import eu.darken.capod.common.theming.ThemeMode
+import eu.darken.capod.common.theming.ThemeState
+import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.main.core.MonitorMode
 
 @Composable
@@ -68,6 +78,9 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             onOffloadedFilteringDisabledChanged = { disabled -> vm.setOffloadedFilteringDisabled(disabled) },
             onOffloadedBatchingDisabledChanged = { disabled -> vm.setOffloadedBatchingDisabled(disabled) },
             onUseIndirectScanResultCallbackChanged = { enabled -> vm.setUseIndirectScanResultCallback(enabled) },
+            onThemeModeSelected = { mode -> vm.setThemeMode(mode) },
+            onThemeStyleSelected = { style -> vm.setThemeStyle(style) },
+            onThemeColorSelected = { color -> vm.setThemeColor(color) },
         )
     }
 }
@@ -85,10 +98,17 @@ fun GeneralSettingsScreen(
     onOffloadedFilteringDisabledChanged: (Boolean) -> Unit,
     onOffloadedBatchingDisabledChanged: (Boolean) -> Unit,
     onUseIndirectScanResultCallbackChanged: (Boolean) -> Unit,
+    onThemeModeSelected: (ThemeMode) -> Unit = {},
+    onThemeStyleSelected: (ThemeStyle) -> Unit = {},
+    onThemeColorSelected: (ThemeColor) -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     var showMonitorModeDialog by remember { mutableStateOf(false) }
     var showScannerModeDialog by remember { mutableStateOf(false) }
+    var showColorDialog by remember { mutableStateOf(false) }
+
+    val isMaterialYouActive = state.themeState.style == ThemeStyle.MATERIAL_YOU &&
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
 
     Scaffold(
         modifier = modifier,
@@ -107,6 +127,42 @@ fun GeneralSettingsScreen(
         },
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
+            item {
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
+            }
+            item {
+                SettingsListPreferenceItem(
+                    icon = Icons.TwoTone.DarkMode,
+                    title = stringResource(R.string.ui_theme_mode_label),
+                    entries = ThemeMode.entries,
+                    selectedEntry = state.themeState.mode,
+                    onEntrySelected = onThemeModeSelected,
+                    entryLabel = { stringResource(it.labelRes) },
+                )
+            }
+            item {
+                SettingsListPreferenceItem(
+                    icon = Icons.TwoTone.Contrast,
+                    title = stringResource(R.string.ui_theme_style_label),
+                    entries = ThemeStyle.entries,
+                    selectedEntry = state.themeState.style,
+                    onEntrySelected = onThemeStyleSelected,
+                    entryLabel = { stringResource(it.labelRes) },
+                )
+            }
+            item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.ui_theme_color_label),
+                    subtitle = if (isMaterialYouActive) {
+                        stringResource(R.string.ui_theme_color_disabled_materialyou)
+                    } else {
+                        stringResource(state.themeState.color.labelRes)
+                    },
+                    icon = Icons.TwoTone.Palette,
+                    onClick = { showColorDialog = true },
+                    enabled = !isMaterialYouActive,
+                )
+            }
             item {
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_monitor_mode_label),
@@ -244,6 +300,17 @@ fun GeneralSettingsScreen(
             onDismiss = { showScannerModeDialog = false },
         )
     }
+
+    if (showColorDialog) {
+        ThemeColorSelectorDialog(
+            selectedColor = state.themeState.color,
+            onColorSelected = {
+                onThemeColorSelected(it)
+                showColorDialog = false
+            },
+            onDismiss = { showColorDialog = false },
+        )
+    }
 }
 
 @Preview2
@@ -258,6 +325,7 @@ private fun GeneralSettingsScreenPreview() = PreviewWrapper {
             isOffloadedFilteringDisabled = false,
             isOffloadedBatchingDisabled = false,
             useIndirectScanResultCallback = false,
+            themeState = ThemeState(),
         ),
         onNavigateUp = {},
         onMonitorModeSelected = {},

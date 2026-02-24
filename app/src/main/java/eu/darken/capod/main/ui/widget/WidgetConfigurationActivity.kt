@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -16,6 +17,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.main.core.GeneralSettings
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,6 +26,7 @@ class WidgetConfigurationActivity : Activity2() {
     private val vm: WidgetConfigurationViewModel by viewModels()
 
     @Inject lateinit var upgradeRepo: UpgradeRepo
+    @Inject lateinit var generalSettings: GeneralSettings
     @ApplicationContext @Inject lateinit var appContext: Context
 
     private var widgetId: Int = AppWidgetManager.INVALID_APPWIDGET_ID
@@ -48,7 +51,8 @@ class WidgetConfigurationActivity : Activity2() {
         }
 
         setContent {
-            CapodTheme {
+            val themeState by generalSettings.themeState.collectAsState(initial = generalSettings.currentThemeState)
+            CapodTheme(state = themeState) {
                 val state by waitForState(vm.state)
                 state?.let { currentState ->
                     WidgetConfigurationScreen(
