@@ -18,6 +18,8 @@ import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
 fun NoProfilesCard(onManageDevices: () -> Unit) {
@@ -56,4 +58,10 @@ fun NoProfilesCard(onManageDevices: () -> Unit) {
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun NoProfilesCardPreview() = PreviewWrapper {
+    NoProfilesCard(onManageDevices = {})
 }

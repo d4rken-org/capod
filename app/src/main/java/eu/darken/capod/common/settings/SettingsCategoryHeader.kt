@@ -7,6 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
 fun SettingsCategoryHeader(
@@ -20,4 +22,10 @@ fun SettingsCategoryHeader(
         fontWeight = FontWeight.Medium,
         modifier = modifier.padding(horizontal = 16.dp, vertical = 12.dp)
     )
+}
+
+@Preview2
+@Composable
+private fun SettingsCategoryHeaderPreview() = PreviewWrapper {
+    SettingsCategoryHeader(text = "Other")
 }

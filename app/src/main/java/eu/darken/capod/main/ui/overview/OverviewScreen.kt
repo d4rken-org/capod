@@ -41,6 +41,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -274,6 +277,101 @@ private fun PodDeviceCard(device: PodDevice, showDebug: Boolean, now: Instant) {
         is SinglePodDevice -> SinglePodsCard(device = device, showDebug = showDebug, now = now)
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug, now = now)
     }
+}
+
+@Preview2
+@Composable
+private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
+    OverviewScreen(
+        state = OverviewViewModel.State(
+            now = Instant.now(),
+            permissions = emptySet(),
+            devices = listOf(
+                MockPodDataProvider.airPodsProMixed(),
+                MockPodDataProvider.airPodsMax(),
+                MockPodDataProvider.unknownDevice(),
+            ),
+            isDebugMode = false,
+            isBluetoothEnabled = true,
+            profiles = listOf(
+                MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
+                MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+            ),
+            upgradeInfo = MockPodDataProvider.fossInfo(),
+            showUnmatchedDevices = false,
+        ),
+        onRequestPermission = {},
+        onManageDevices = {},
+        onSettings = {},
+        onUpgrade = {},
+        onToggleUnmatched = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun OverviewScreenEmptyPreview() = PreviewWrapper {
+    OverviewScreen(
+        state = OverviewViewModel.State(
+            now = Instant.now(),
+            permissions = emptySet(),
+            devices = emptyList(),
+            isDebugMode = false,
+            isBluetoothEnabled = true,
+            profiles = listOf(MockPodDataProvider.profile("My AirPods", PodDevice.Model.AIRPODS_PRO2)),
+            upgradeInfo = MockPodDataProvider.fossInfo(),
+            showUnmatchedDevices = false,
+        ),
+        onRequestPermission = {},
+        onManageDevices = {},
+        onSettings = {},
+        onUpgrade = {},
+        onToggleUnmatched = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun OverviewScreenNoProfilesPreview() = PreviewWrapper {
+    OverviewScreen(
+        state = OverviewViewModel.State(
+            now = Instant.now(),
+            permissions = emptySet(),
+            devices = emptyList(),
+            isDebugMode = false,
+            isBluetoothEnabled = true,
+            profiles = emptyList(),
+            upgradeInfo = MockPodDataProvider.gplayInfo(),
+            showUnmatchedDevices = false,
+        ),
+        onRequestPermission = {},
+        onManageDevices = {},
+        onSettings = {},
+        onUpgrade = {},
+        onToggleUnmatched = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun OverviewScreenBluetoothOffPreview() = PreviewWrapper {
+    OverviewScreen(
+        state = OverviewViewModel.State(
+            now = Instant.now(),
+            permissions = emptySet(),
+            devices = emptyList(),
+            isDebugMode = false,
+            isBluetoothEnabled = false,
+            profiles = listOf(MockPodDataProvider.profile("My AirPods", PodDevice.Model.AIRPODS_PRO2)),
+            upgradeInfo = MockPodDataProvider.fossInfo(isPro = true),
+            showUnmatchedDevices = false,
+        ),
+        onRequestPermission = {},
+        onManageDevices = {},
+        onSettings = {},
+        onUpgrade = {},
+        onToggleUnmatched = {},
+    )
 }
 
 @Composable

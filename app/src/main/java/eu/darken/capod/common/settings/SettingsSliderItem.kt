@@ -6,10 +6,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.VolumeUp
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
 fun SettingsSliderItem(
@@ -54,4 +58,17 @@ fun SettingsSliderItem(
                 .padding(bottom = 8.dp),
         )
     }
+}
+
+@Preview2
+@Composable
+private fun SettingsSliderItemPreview() = PreviewWrapper {
+    SettingsSliderItem(
+        icon = Icons.AutoMirrored.TwoTone.VolumeUp,
+        title = "Volume",
+        subtitle = "Adjust volume level",
+        value = 0.6f,
+        onValueChange = {},
+        valueLabel = { "${(it * 100).toInt()}%" },
+    )
 }

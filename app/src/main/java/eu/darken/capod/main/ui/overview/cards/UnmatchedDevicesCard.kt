@@ -15,6 +15,8 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
 fun UnmatchedDevicesCard(
@@ -51,4 +53,16 @@ fun UnmatchedDevicesCard(
             }
         }
     }
+}
+
+@Preview2
+@Composable
+private fun UnmatchedDevicesCardCollapsedPreview() = PreviewWrapper {
+    UnmatchedDevicesCard(count = 3, isExpanded = false, onToggle = {})
+}
+
+@Preview2
+@Composable
+private fun UnmatchedDevicesCardExpandedPreview() = PreviewWrapper {
+    UnmatchedDevicesCard(count = 3, isExpanded = true, onToggle = {})
 }

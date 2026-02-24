@@ -40,6 +40,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
@@ -242,6 +244,31 @@ fun GeneralSettingsScreen(
             onDismiss = { showScannerModeDialog = false },
         )
     }
+}
+
+@Preview2
+@Composable
+private fun GeneralSettingsScreenPreview() = PreviewWrapper {
+    GeneralSettingsScreen(
+        state = GeneralSettingsViewModel.State(
+            monitorMode = MonitorMode.AUTOMATIC,
+            scannerMode = ScannerMode.BALANCED,
+            showConnectedNotification = true,
+            keepNotificationAfterDisconnect = false,
+            isOffloadedFilteringDisabled = false,
+            isOffloadedBatchingDisabled = false,
+            useIndirectScanResultCallback = false,
+        ),
+        onNavigateUp = {},
+        onMonitorModeSelected = {},
+        onScannerModeSelected = {},
+        onShowConnectedNotificationChanged = {},
+        onKeepNotificationAfterDisconnectChanged = {},
+        onDebugSettings = {},
+        onOffloadedFilteringDisabledChanged = {},
+        onOffloadedBatchingDisabledChanged = {},
+        onUseIndirectScanResultCallbackChanged = {},
+    )
 }
 
 @Composable
