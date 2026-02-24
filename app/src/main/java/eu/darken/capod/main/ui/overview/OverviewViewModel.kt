@@ -49,12 +49,6 @@ class OverviewViewModel @Inject constructor(
     private val profilesRepo: DeviceProfilesRepo,
 ) : ViewModel4(dispatcherProvider) {
 
-    init {
-        if (!generalSettings.isOnboardingDone.value) {
-            navTo(Nav.Main.Onboarding, popUpTo = Nav.Main.Overview, inclusive = true)
-        }
-    }
-
     val requestPermissionEvent = SingleEventFlow<Permission>()
     val launchUpgradeFlow = SingleEventFlow<(Activity) -> Unit>()
 
