@@ -65,7 +65,9 @@ class DeviceProfileCreationViewModel @Inject constructor(
             loadProfile(profileId)
         } else {
             val defaultName = context.getString(R.string.profiles_name_default)
-            _currentState.value = _currentState.value.copy(name = defaultName)
+            val defaultState = ProfileEditorState(name = defaultName)
+            _initialState.value = defaultState
+            _currentState.value = defaultState
         }
     }
 
@@ -76,16 +78,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
     private val hasUnsavedChangesFlow = combine(
         _currentState, _initialState
     ) { current, initial ->
-        if (isEditMode) {
-            current != initial
-        } else {
-            current.name.isNotBlank() ||
-                current.selectedModel != null ||
-                current.identityKeyHex != null ||
-                current.encryptionKeyHex != null ||
-                current.selectedDeviceAddress != null ||
-                current.minimumSignalQuality != DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
-        }
+        current != initial
     }
 
     private val isFormValid = combine(
@@ -166,20 +159,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
         log(TAG) { "Minimum signal quality updated: $quality" }
     }
 
-    fun hasUnsavedChanges(): Boolean {
-        val current = _currentState.value
-        val initial = _initialState.value
-        return if (isEditMode) {
-            current != initial
-        } else {
-            current.name.isNotBlank() ||
-                current.selectedModel != null ||
-                current.identityKeyHex != null ||
-                current.encryptionKeyHex != null ||
-                current.selectedDeviceAddress != null ||
-                current.minimumSignalQuality != DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY
-        }
-    }
+    fun hasUnsavedChanges(): Boolean = _currentState.value != _initialState.value
 
     fun onBackPressed() {
         log(TAG) { "onBackPressed()" }
