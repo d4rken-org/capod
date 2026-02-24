@@ -71,9 +71,7 @@ fun DependencyHandlerScope.addOkio() {
 }
 
 fun DependencyHandlerScope.addNavigation() {
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-common:${Versions.AndroidX.Navigation.core}")
 }
 
 fun DependencyHandlerScope.addBaseAndroid() {
@@ -84,7 +82,7 @@ fun DependencyHandlerScope.addBaseAndroid() {
 }
 
 fun DependencyHandlerScope.addBaseAndroidUi() {
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.3")
 
     implementation("androidx.activity:activity-ktx:1.8.0")
@@ -98,6 +96,38 @@ fun DependencyHandlerScope.addBaseAndroidUi() {
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-process:$lifecycleVers")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVers")
+}
+
+fun DependencyHandlerScope.addCompose() {
+    val composeBom = platform("androidx.compose:compose-bom:${Versions.Compose.bom}")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("androidx.activity:activity-compose:1.12.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
+}
+
+fun DependencyHandlerScope.addNavigation3() {
+    implementation("androidx.navigation3:navigation3-runtime:${Versions.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-ui:${Versions.Navigation3.core}")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")
+
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0-alpha06")
+}
+
+fun DependencyHandlerScope.addSerialization() {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.Serialization.core}")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Serialization.core}")
 }
 
 fun DependencyHandlerScope.addTesting() {

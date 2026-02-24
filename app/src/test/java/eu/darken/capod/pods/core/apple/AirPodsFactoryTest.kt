@@ -6,7 +6,6 @@ import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.instanceOf
-import kotlinx.coroutines.test.runBlockingTest
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
@@ -34,7 +33,7 @@ class AirPodsFactoryTest : BaseAirPodsTest() {
     }
 
     @Test
-    fun `invalid data`() = runBlockingTest {
+    fun `invalid data`() = runTest {
         create<PodDevice?>("abcd") {
             this shouldBe null
         }
