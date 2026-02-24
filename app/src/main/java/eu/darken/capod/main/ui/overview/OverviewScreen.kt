@@ -26,7 +26,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.DevicesOther
+import androidx.compose.material.icons.twotone.Favorite
+import androidx.compose.material.icons.twotone.Settings
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -155,14 +159,14 @@ fun OverviewScreen(
                 actions = {
                     IconButton(onClick = onManageDevices) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_baseline_devices_other_24),
+                            imageVector = Icons.TwoTone.DevicesOther,
                             contentDescription = stringResource(R.string.settings_devices_label),
                         )
                     }
 
                     IconButton(onClick = onSettings) {
                         Icon(
-                            painter = painterResource(R.drawable.ic_baseline_settings_24),
+                            imageVector = Icons.TwoTone.Settings,
                             contentDescription = stringResource(R.string.settings_general_label),
                         )
                     }
@@ -173,7 +177,7 @@ fun OverviewScreen(
                         info.type == UpgradeRepo.Type.GPLAY && !info.isPro -> {
                             IconButton(onClick = onUpgrade) {
                                 Icon(
-                                    painter = painterResource(R.drawable.ic_baseline_stars_24),
+                                    imageVector = Icons.TwoTone.Stars,
                                     contentDescription = stringResource(R.string.general_upgrade_action),
                                 )
                             }
@@ -182,7 +186,7 @@ fun OverviewScreen(
                         info.type == UpgradeRepo.Type.FOSS && !info.isPro -> {
                             IconButton(onClick = onUpgrade) {
                                 Icon(
-                                    painter = painterResource(R.drawable.ic_baseline_heart_24),
+                                    imageVector = Icons.TwoTone.Favorite,
                                     contentDescription = stringResource(R.string.general_donate_action),
                                 )
                             }

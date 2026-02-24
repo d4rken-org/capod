@@ -15,8 +15,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -72,7 +72,7 @@ fun DeviceManagerScreen(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                             contentDescription = null,
                         )
                     }
@@ -82,7 +82,7 @@ fun DeviceManagerScreen(
         floatingActionButton = {
             FloatingActionButton(onClick = onAddDevice) {
                 Icon(
-                    imageVector = Icons.Filled.Add,
+                    imageVector = Icons.TwoTone.Add,
                     contentDescription = stringResource(R.string.profiles_add_action),
                 )
             }
@@ -150,7 +150,7 @@ private fun EmptyState(
                 Spacer(modifier = Modifier.height(16.dp))
                 TextButton(onClick = onAddDevice) {
                     Icon(
-                        imageVector = Icons.Filled.Add,
+                        imageVector = Icons.TwoTone.Add,
                         contentDescription = null,
                         modifier = Modifier.size(18.dp),
                     )

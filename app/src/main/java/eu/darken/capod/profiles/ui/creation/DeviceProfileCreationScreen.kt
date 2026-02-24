@@ -13,9 +13,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Save
+import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.Save
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
@@ -149,7 +149,7 @@ fun DeviceProfileCreationScreen(
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                             contentDescription = null,
                         )
                     }
@@ -160,7 +160,7 @@ fun DeviceProfileCreationScreen(
                         enabled = state.canSave,
                     ) {
                         Icon(
-                            imageVector = Icons.Filled.Save,
+                            imageVector = Icons.TwoTone.Save,
                             contentDescription = stringResource(R.string.profiles_save_action),
                             tint = if (state.canSave) {
                                 MaterialTheme.colorScheme.onSurface
@@ -172,7 +172,7 @@ fun DeviceProfileCreationScreen(
                     if (state.isEditMode) {
                         IconButton(onClick = onDelete) {
                             Icon(
-                                imageVector = Icons.Filled.Delete,
+                                imageVector = Icons.TwoTone.Delete,
                                 contentDescription = stringResource(R.string.profiles_delete_action),
                             )
                         }
