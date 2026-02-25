@@ -270,6 +270,10 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods send a status message, part of which is encrypted. The encryption key allows CAPod to decrypt the full message. You need one-time access to a MacBook.</string>
     <string name="profiles_key_invalid_format">Invalid key format</string>
     <string name="profiles_key_expected_format">Expected format: %1$s</string>
+    <string name="profiles_key_status_configured">Configured</string>
+    <string name="profiles_key_status_not_set">Not set</string>
+    <string name="profiles_signal_quality_min_label">Off</string>
+    <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">Profile order determines priority. Drag profiles to reorder them - profiles higher in the list take precedence when multiple devices match.</string>
 
     <!-- Theme Mode -->
