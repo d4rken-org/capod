@@ -14,9 +14,9 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 LOCALES_FILE="$PROJECT_DIR/app/src/screenshotTest/kotlin/eu/darken/capod/screenshots/PlayStoreLocales.kt"
 REF_DIR="$PROJECT_DIR/app/src/screenshotTestGplayDebug/reference"
 
-# Default batch size — 6 locales × 8 composables = 48 renders per batch.
-# Kept small to avoid layoutlib OOM (leaks ~4MB per rendered image at 720p; more at 1080p).
-BATCH_SIZE=4
+# Default batch size — 2 locales × 8 composables = 16 renders per batch.
+# Kept small to avoid layoutlib OOM (leaks ~10MB per rendered image at 1080p).
+BATCH_SIZE=2
 SMOKE=false
 
 while [[ $# -gt 0 ]]; do
