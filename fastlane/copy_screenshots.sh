@@ -23,11 +23,12 @@ fi
 declare -A SCREEN_MAP=(
     [DashboardLight]="1_dashboard_light"
     [DashboardDark]="2_dashboard_dark"
-    [DeviceProfiles]="3_device_profiles"
-    [AddProfile]="4_add_profile"
-    [SettingsIndex]="5_settings"
-    [ReactionSettings]="6_reaction_settings"
-    [WidgetConfiguration]="7_widget_configuration"
+    [CasePopUp]="3_case_popup"
+    [WidgetConfiguration]="4_widget_configuration"
+    [DeviceProfiles]="5_device_profiles"
+    [AddProfile]="6_add_profile"
+    [SettingsIndex]="7_settings"
+    [ReactionSettings]="8_reaction_settings"
 )
 
 if [[ ! -d "$REF_DIR" ]]; then
