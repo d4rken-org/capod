@@ -15,3 +15,5 @@
 /fastlane/Appfile
 /fastlane/README.md
 .kotlin
+# Screenshot test reference images (ephemeral, regenerated on demand)
+app/src/screenshotTest*/reference/

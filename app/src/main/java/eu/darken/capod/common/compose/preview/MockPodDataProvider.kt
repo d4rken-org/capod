@@ -18,10 +18,13 @@ import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
 
+/** Fixed timestamp for deterministic preview/screenshot rendering. */
+val MOCK_NOW: Instant = Instant.parse("2025-06-15T10:30:00Z")
+
 object MockPodDataProvider {
 
     fun dummyScanResult(rssi: Int = -50): BleScanResult = BleScanResult(
-        receivedAt = Instant.now(),
+        receivedAt = MOCK_NOW,
         address = "AA:BB:CC:DD:EE:FF",
         rssi = rssi,
         generatedAtNanos = 0L,
@@ -177,8 +180,8 @@ private class MockDualPodDevice(
 ) : DualPodDevice, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
     override val identifier: PodDevice.Id = PodDevice.Id()
     override val model: PodDevice.Model = _model
-    override val seenLastAt: Instant = Instant.now()
-    override val seenFirstAt: Instant = Instant.now()
+    override val seenLastAt: Instant = MOCK_NOW
+    override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5
     override val scanResult: BleScanResult = MockPodDataProvider.dummyScanResult(rssi)
     override val reliability: Float = 1.0f
@@ -219,8 +222,8 @@ private class MockDualPodDeviceNoCase(
 ) : DualPodDevice, HasChargeDetectionDual, HasEarDetectionDual {
     override val identifier: PodDevice.Id = PodDevice.Id()
     override val model: PodDevice.Model = _model
-    override val seenLastAt: Instant = Instant.now()
-    override val seenFirstAt: Instant = Instant.now()
+    override val seenLastAt: Instant = MOCK_NOW
+    override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5
     override val scanResult: BleScanResult = MockPodDataProvider.dummyScanResult(rssi)
     override val reliability: Float = 1.0f
@@ -251,8 +254,8 @@ private class MockSinglePodDevice(
 ) : SinglePodDevice, HasChargeDetection, HasEarDetection {
     override val identifier: PodDevice.Id = PodDevice.Id()
     override val model: PodDevice.Model = _model
-    override val seenLastAt: Instant = Instant.now()
-    override val seenFirstAt: Instant = Instant.now()
+    override val seenLastAt: Instant = MOCK_NOW
+    override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5
     override val scanResult: BleScanResult = MockPodDataProvider.dummyScanResult(rssi)
     override val reliability: Float = 1.0f

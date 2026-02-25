@@ -121,6 +121,14 @@ fun WidgetConfigurationScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(top = 24.dp, bottom = 16.dp),
         ) {
+            Text(
+                text = stringResource(R.string.widget_config_screen_title),
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = screenHPad, end = screenHPad, bottom = 16.dp),
+            )
+
             // Card A — Select Device
             Card(
                 modifier = Modifier
@@ -170,16 +178,15 @@ fun WidgetConfigurationScreen(
             ) {
                 Column(modifier = Modifier.padding(cardPad)) {
                     // Appearance header + reset
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
+                    Column(modifier = Modifier.fillMaxWidth()) {
                         Text(
                             text = stringResource(R.string.widget_config_appearance_label),
                             style = MaterialTheme.typography.titleLarge,
-                            modifier = Modifier.weight(1f),
                         )
-                        TextButton(onClick = onReset) {
+                        TextButton(
+                            onClick = onReset,
+                            modifier = Modifier.align(Alignment.End),
+                        ) {
                             Text(text = stringResource(R.string.widget_config_reset_label))
                         }
                     }
@@ -327,7 +334,7 @@ fun WidgetConfigurationScreen(
                         color = MaterialTheme.colorScheme.error,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(horizontal = 24.dp, vertical = 12.dp),
+                            .padding(start = 24.dp, end = 24.dp, top = 16.dp, bottom = 4.dp),
                     )
                 }
 
@@ -496,11 +503,13 @@ private fun WidgetPreview(
                 // Inner preview content
                 LayoutInflater.from(ctx).inflate(R.layout.widget_config_preview, clipWrapper, true)
 
-                container.addView(clipWrapper, android.widget.FrameLayout.LayoutParams(
-                    android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
-                    android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
-                    android.view.Gravity.CENTER,
-                ))
+                container.addView(
+                    clipWrapper, android.widget.FrameLayout.LayoutParams(
+                        android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+                        android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
+                        android.view.Gravity.CENTER,
+                    )
+                )
 
                 container
             },
@@ -744,7 +753,14 @@ private fun HexColorInput(
 ) {
     val hexString = color?.let { String.format("%06X", 0xFFFFFF and it) } ?: ""
 
-    var textFieldValue by remember { mutableStateOf(TextFieldValue(text = hexString, selection = TextRange(hexString.length))) }
+    var textFieldValue by remember {
+        mutableStateOf(
+            TextFieldValue(
+                text = hexString,
+                selection = TextRange(hexString.length)
+            )
+        )
+    }
 
     // Sync from external color changes (e.g. swatch clicks) only when content genuinely differs
     LaunchedEffect(hexString) {
