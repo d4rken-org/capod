@@ -2,6 +2,7 @@ package eu.darken.capod.profiles.ui.creation
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,14 +15,19 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.Check
 import androidx.compose.material.icons.twotone.Delete
+import androidx.compose.material.icons.twotone.DevicesOther
+import androidx.compose.material.icons.twotone.Key
 import androidx.compose.material.icons.twotone.Save
+import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Card
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -30,6 +36,8 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SuggestionChip
+import androidx.compose.material3.SuggestionChipDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -42,15 +50,17 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -195,7 +205,6 @@ fun DeviceProfileCreationScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
         ) {
-            // Device Information Card
             DeviceInfoCard(
                 name = state.name,
                 nameError = state.nameError,
@@ -210,7 +219,6 @@ fun DeviceProfileCreationScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Identity Key Card
             KeyCard(
                 title = stringResource(R.string.profiles_identitykey_label),
                 description = stringResource(R.string.profiles_maindevice_identitykey_explanation),
@@ -221,7 +229,6 @@ fun DeviceProfileCreationScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Encryption Key Card
             KeyCard(
                 title = stringResource(R.string.profiles_maindevice_encryptionkey_label),
                 description = stringResource(R.string.profiles_maindevice_encryptionkey_explanation),
@@ -232,13 +239,55 @@ fun DeviceProfileCreationScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Signal Quality Card
             SignalQualityCard(
                 minimumSignalQuality = state.minimumSignalQuality,
                 onSignalQualityChange = onSignalQualityChange,
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(48.dp))
+        }
+    }
+}
+
+@Composable
+private fun ProfileSectionCard(
+    icon: ImageVector,
+    title: String,
+    description: String,
+    modifier: Modifier = Modifier,
+    headerEnd: (@Composable () -> Unit)? = null,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    ElevatedCard(modifier = modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.weight(1f),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                if (headerEnd != null) {
+                    Spacer(modifier = Modifier.width(8.dp))
+                    headerEnd()
+                }
+            }
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = description,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+            content()
         }
     }
 }
@@ -256,140 +305,139 @@ private fun DeviceInfoCard(
     onModelChange: (PodDevice.Model) -> Unit,
     onDeviceChange: (BluetoothDevice2?) -> Unit,
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = stringResource(R.string.profiles_basic_info_title),
-                style = MaterialTheme.typography.titleMedium,
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = stringResource(R.string.profiles_basic_info_description),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(modifier = Modifier.height(16.dp))
+    ProfileSectionCard(
+        icon = Icons.TwoTone.DevicesOther,
+        title = stringResource(R.string.profiles_basic_info_title),
+        description = stringResource(R.string.profiles_basic_info_description),
+    ) {
+        // Name input
+        OutlinedTextField(
+            value = name,
+            onValueChange = onNameChange,
+            label = { Text(text = stringResource(R.string.profiles_name_label)) },
+            isError = nameError != null,
+            supportingText = nameError?.let { { Text(text = it) } },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+        )
 
-            // Name input
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // Model dropdown
+        var modelExpanded by remember { mutableStateOf(false) }
+        ExposedDropdownMenuBox(
+            expanded = modelExpanded,
+            onExpandedChange = { modelExpanded = it },
+        ) {
             OutlinedTextField(
-                value = name,
-                onValueChange = onNameChange,
-                label = { Text(text = stringResource(R.string.profiles_name_label)) },
-                isError = nameError != null,
-                supportingText = nameError?.let { { Text(text = it) } },
-                singleLine = true,
-                modifier = Modifier.fillMaxWidth(),
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Model dropdown
-            var modelExpanded by remember { mutableStateOf(false) }
-            ExposedDropdownMenuBox(
-                expanded = modelExpanded,
-                onExpandedChange = { modelExpanded = it },
-            ) {
-                OutlinedTextField(
-                    value = selectedModel?.label ?: "",
-                    onValueChange = {},
-                    readOnly = true,
-                    label = { Text(text = stringResource(R.string.profiles_model_label)) },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = modelExpanded) },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .menuAnchor(MenuAnchorType.PrimaryNotEditable),
-                )
-                ExposedDropdownMenu(
-                    expanded = modelExpanded,
-                    onDismissRequest = { modelExpanded = false },
-                ) {
-                    availableModels.forEach { model ->
-                        DropdownMenuItem(
-                            text = {
-                                Row(verticalAlignment = Alignment.CenterVertically) {
-                                    Icon(
-                                        painter = painterResource(model.iconRes),
-                                        contentDescription = null,
-                                        modifier = Modifier.size(24.dp),
-                                    )
-                                    Spacer(modifier = Modifier.width(12.dp))
-                                    Text(text = model.label)
-                                }
-                            },
-                            onClick = {
-                                onModelChange(model)
-                                modelExpanded = false
-                            },
+                value = selectedModel?.label ?: "",
+                onValueChange = {},
+                readOnly = true,
+                label = { Text(text = stringResource(R.string.profiles_model_label)) },
+                leadingIcon = selectedModel?.let {
+                    {
+                        Icon(
+                            painter = painterResource(it.iconRes),
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp),
                         )
                     }
+                },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = modelExpanded) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .menuAnchor(MenuAnchorType.PrimaryNotEditable),
+            )
+            ExposedDropdownMenu(
+                expanded = modelExpanded,
+                onDismissRequest = { modelExpanded = false },
+            ) {
+                availableModels.forEach { model ->
+                    DropdownMenuItem(
+                        text = {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    painter = painterResource(model.iconRes),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(24.dp),
+                                )
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(text = model.label)
+                            }
+                        },
+                        onClick = {
+                            onModelChange(model)
+                            modelExpanded = false
+                        },
+                    )
                 }
             }
+        }
 
-            Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(12.dp))
 
-            // Paired device dropdown
-            var deviceExpanded by remember { mutableStateOf(false) }
-            val noneLabel = stringResource(R.string.profiles_paired_device_none)
-            val unknownLabel = stringResource(R.string.pods_unknown_label)
-            val deviceDisplayText = if (selectedDevice != null) {
-                "${selectedDevice.name ?: unknownLabel} (${selectedDevice.address})"
-            } else {
-                noneLabel
-            }
+        // Paired device dropdown
+        var deviceExpanded by remember { mutableStateOf(false) }
+        val noneLabel = stringResource(R.string.profiles_paired_device_none)
+        val unknownLabel = stringResource(R.string.pods_unknown_label)
+        val deviceDisplayText = if (selectedDevice != null) {
+            "${selectedDevice.name ?: unknownLabel} (${selectedDevice.address})"
+        } else {
+            noneLabel
+        }
 
-            ExposedDropdownMenuBox(
+        ExposedDropdownMenuBox(
+            expanded = deviceExpanded,
+            onExpandedChange = { deviceExpanded = it },
+        ) {
+            OutlinedTextField(
+                value = deviceDisplayText,
+                onValueChange = {},
+                readOnly = true,
+                label = { Text(text = stringResource(R.string.profiles_paired_device_label)) },
+                trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = deviceExpanded) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .menuAnchor(MenuAnchorType.PrimaryNotEditable),
+            )
+            ExposedDropdownMenu(
                 expanded = deviceExpanded,
-                onExpandedChange = { deviceExpanded = it },
+                onDismissRequest = { deviceExpanded = false },
             ) {
-                OutlinedTextField(
-                    value = deviceDisplayText,
-                    onValueChange = {},
-                    readOnly = true,
-                    label = { Text(text = stringResource(R.string.profiles_paired_device_label)) },
-                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = deviceExpanded) },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .menuAnchor(MenuAnchorType.PrimaryNotEditable),
+                // "None" option
+                DropdownMenuItem(
+                    text = {
+                        Column {
+                            Text(text = noneLabel)
+                            Text(
+                                text = stringResource(R.string.profiles_paired_device_none_description),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    },
+                    onClick = {
+                        onDeviceChange(null)
+                        deviceExpanded = false
+                    },
                 )
-                ExposedDropdownMenu(
-                    expanded = deviceExpanded,
-                    onDismissRequest = { deviceExpanded = false },
-                ) {
-                    // "None" option
+                bondedDevices.forEach { device ->
                     DropdownMenuItem(
                         text = {
                             Column {
-                                Text(text = noneLabel)
+                                Text(text = device.name ?: unknownLabel)
                                 Text(
-                                    text = stringResource(R.string.profiles_paired_device_none_description),
+                                    text = device.address,
                                     style = MaterialTheme.typography.bodySmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 )
                             }
                         },
                         onClick = {
-                            onDeviceChange(null)
+                            onDeviceChange(device)
                             deviceExpanded = false
                         },
                     )
-                    bondedDevices.forEach { device ->
-                        DropdownMenuItem(
-                            text = {
-                                Column {
-                                    Text(text = device.name ?: unknownLabel)
-                                    Text(
-                                        text = device.address,
-                                        style = MaterialTheme.typography.bodySmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    )
-                                }
-                            },
-                            onClick = {
-                                onDeviceChange(device)
-                                deviceExpanded = false
-                            },
-                        )
-                    }
                 }
             }
         }
@@ -424,63 +472,106 @@ private fun KeyCard(
     val invalidFormatLabel = stringResource(R.string.profiles_key_invalid_format)
     val expectedFormatLabel = stringResource(R.string.profiles_key_expected_format, exampleKey)
 
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleMedium,
+    // Derive chip state from local validation, not from external keyValue
+    val isConfigured = textFieldValue.isNotEmpty() && keyError == null
+
+    ProfileSectionCard(
+        icon = Icons.TwoTone.Key,
+        title = title,
+        description = description,
+        headerEnd = {
+            SuggestionChip(
+                onClick = {},
+                enabled = false,
+                label = {
+                    Text(
+                        text = stringResource(
+                            if (isConfigured) R.string.profiles_key_status_configured
+                            else R.string.profiles_key_status_not_set
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                    )
+                },
+                icon = if (isConfigured) {
+                    {
+                        Icon(
+                            imageVector = Icons.TwoTone.Check,
+                            contentDescription = null,
+                            modifier = Modifier.size(14.dp),
+                        )
+                    }
+                } else null,
+                colors = SuggestionChipDefaults.suggestionChipColors(
+                    disabledContainerColor = if (isConfigured) {
+                        MaterialTheme.colorScheme.primaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.surfaceVariant
+                    },
+                    disabledLabelColor = if (isConfigured) {
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                    disabledIconContentColor = if (isConfigured) {
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                ),
             )
-            Spacer(modifier = Modifier.height(4.dp))
-            Text(
-                text = description,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(modifier = Modifier.height(12.dp))
+        },
+    ) {
+        OutlinedTextField(
+            value = textFieldValue,
+            onValueChange = { text ->
+                textFieldValue = text
+                when {
+                    text.isEmpty() -> {
+                        keyError = null
+                        onKeyChange(null)
+                    }
 
-            OutlinedTextField(
-                value = textFieldValue,
-                onValueChange = { text ->
-                    textFieldValue = text
-                    when {
-                        text.isEmpty() -> {
-                            keyError = null
-                            onKeyChange(null)
-                        }
-
-                        text.matches(keyRegex) -> {
-                            keyError = null
-                            try {
-                                val normalized = text
-                                    .replace(" ", "")
-                                    .replace("-", "")
-                                    .chunked(2)
-                                    .map { it.toInt(16).toByte() }
-                                    .toByteArray()
-                                onKeyChange(normalized)
-                            } catch (_: Exception) {
-                                keyError = invalidFormatLabel
-                            }
-                        }
-
-                        else -> {
-                            keyError = expectedFormatLabel
+                    text.matches(keyRegex) -> {
+                        keyError = null
+                        try {
+                            val normalized = text
+                                .replace(" ", "")
+                                .replace("-", "")
+                                .chunked(2)
+                                .map { it.toInt(16).toByte() }
+                                .toByteArray()
+                            onKeyChange(normalized)
+                        } catch (_: Exception) {
+                            keyError = invalidFormatLabel
                         }
                     }
-                },
-                label = { Text(text = stringResource(R.string.general_example_label, exampleKey)) },
-                isError = keyError != null,
-                supportingText = keyError?.let { { Text(text = it) } },
-                singleLine = true,
-                textStyle = MaterialTheme.typography.bodyMedium.copy(fontFamily = FontFamily.Monospace),
-                modifier = Modifier.fillMaxWidth(),
-            )
 
-            Spacer(modifier = Modifier.height(8.dp))
+                    else -> {
+                        keyError = expectedFormatLabel
+                        onKeyChange(null)
+                    }
+                }
+            },
+            label = {
+                Text(
+                    text = stringResource(R.string.general_example_label, exampleKey),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            },
+            isError = keyError != null,
+            supportingText = keyError?.let { { Text(text = it) } },
+            singleLine = true,
+            textStyle = MaterialTheme.typography.bodyMedium.copy(fontFamily = FontFamily.Monospace),
+            modifier = Modifier.fillMaxWidth(),
+        )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Spacer(modifier = Modifier.weight(1f))
             OutlinedButton(
                 onClick = onKeyGuide,
-                modifier = Modifier.align(Alignment.End),
             ) {
                 Text(
                     text = stringResource(R.string.general_guide_action),
@@ -496,38 +587,42 @@ private fun SignalQualityCard(
     minimumSignalQuality: Float,
     onSignalQualityChange: (Float) -> Unit,
 ) {
-    val percentage = (minimumSignalQuality * 100).toInt()
+    val clamped = minimumSignalQuality.coerceIn(0f, 1f)
+    val percentage = (clamped * 100).toInt()
 
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = stringResource(R.string.profiles_signal_quality_title),
-                style = MaterialTheme.typography.titleMedium,
+    ProfileSectionCard(
+        icon = Icons.TwoTone.SettingsInputAntenna,
+        title = stringResource(R.string.profiles_signal_quality_title),
+        description = stringResource(R.string.profiles_signal_quality_description),
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            Slider(
+                value = clamped * 100f,
+                onValueChange = { onSignalQualityChange(it / 100f) },
+                valueRange = 0f..100f,
+                modifier = Modifier.weight(1f),
             )
-            Spacer(modifier = Modifier.height(4.dp))
+            Spacer(modifier = Modifier.width(12.dp))
             Text(
-                text = stringResource(R.string.profiles_signal_quality_description),
-                style = MaterialTheme.typography.bodySmall,
+                text = "$percentage%",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        }
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Text(
+                text = stringResource(R.string.profiles_signal_quality_min_label),
+                style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Slider(
-                    value = minimumSignalQuality * 100f,
-                    onValueChange = { onSignalQualityChange(it / 100f) },
-                    valueRange = 0f..100f,
-                    modifier = Modifier.weight(1f),
-                )
-                Spacer(modifier = Modifier.width(12.dp))
-                Text(
-                    text = "$percentage%",
-                    style = MaterialTheme.typography.bodyMedium,
-                )
-            }
+            Spacer(modifier = Modifier.weight(1f))
+            Text(
+                text = stringResource(R.string.profiles_signal_quality_max_label),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
@@ -600,6 +695,46 @@ private fun DeviceProfileCreationScreenEditPreview() = PreviewWrapper {
             selectedDevice = null,
             bondedDevices = emptyList(),
             minimumSignalQuality = 0.25f,
+            canSave = true,
+        ),
+        onBack = {},
+        onSave = {},
+        onDelete = {},
+        onNameChange = {},
+        onModelChange = {},
+        onDeviceChange = {},
+        onIdentityKeyChange = {},
+        onEncryptionKeyChange = {},
+        onSignalQualityChange = {},
+        onKeyGuide = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceProfileCreationScreenWithKeysPreview() = PreviewWrapper {
+    DeviceProfileCreationScreen(
+        state = DeviceProfileCreationViewModel.State(
+            isEditMode = true,
+            name = "My AirPods Pro",
+            nameError = null,
+            selectedModel = PodDevice.Model.AIRPODS_PRO2,
+            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            identityKey = byteArrayOf(
+                0xFE.toByte(), 0xD0.toByte(), 0x1C.toByte(), 0x54.toByte(),
+                0x11.toByte(), 0x81.toByte(), 0xBC.toByte(), 0xBC.toByte(),
+                0x87.toByte(), 0xD2.toByte(), 0xC4.toByte(), 0x3F.toByte(),
+                0x31.toByte(), 0x64.toByte(), 0x5F.toByte(), 0xEE.toByte(),
+            ),
+            encryptionKey = byteArrayOf(
+                0xAB.toByte(), 0xCD.toByte(), 0xEF.toByte(), 0x01.toByte(),
+                0x23.toByte(), 0x45.toByte(), 0x67.toByte(), 0x89.toByte(),
+                0xAB.toByte(), 0xCD.toByte(), 0xEF.toByte(), 0x01.toByte(),
+                0x23.toByte(), 0x45.toByte(), 0x67.toByte(), 0x89.toByte(),
+            ),
+            selectedDevice = null,
+            bondedDevices = emptyList(),
+            minimumSignalQuality = 0.35f,
             canSave = true,
         ),
         onBack = {},
