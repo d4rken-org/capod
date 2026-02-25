@@ -25,6 +25,8 @@ Quick build check: `./gradlew assembleFossDebug`
 | `app/src/main/res/` | Layouts, drawables, strings |
 | `app-common/src/test/` | Unit tests |
 | `app/build.gradle.kts` | App build config, dependencies, flavors |
+| `app/src/debug/java/.../screenshots/` | Play Store screenshot content composables |
+| `fastlane/` | Screenshot generation scripts, Play Store metadata |
 
 ## Development Tips
 
@@ -43,3 +45,4 @@ Detailed guidelines are in `.claude/rules/`:
 - `localization.md` — String resource naming conventions
 - `commit-guidelines.md` — Commit message format and prefixes
 - `agent-instructions.md` — Sub-agent delegation and critical thinking
+- `screenshots.md` — Play Store screenshot pipeline, commands, adding new screens
