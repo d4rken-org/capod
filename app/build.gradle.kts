@@ -3,10 +3,10 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
     id("kotlin-parcelize")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.plugin.serialization")
+    id("com.android.compose.screenshot") version "0.0.1-alpha13"
 }
 apply(plugin = "dagger.hilt.android.plugin")
 
@@ -94,6 +94,8 @@ android {
             proguardFiles(*customProguardRules.toList().toTypedArray())
         }
     }
+
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 
     buildFeatures {
         viewBinding = true
@@ -193,4 +195,8 @@ dependencies {
 
     "gplayImplementation"("com.android.billingclient:billing:8.0.0")
     "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
+
+    "screenshotTestImplementation"(platform("androidx.compose:compose-bom:${Versions.Compose.bom}"))
+    "screenshotTestImplementation"("com.android.tools.screenshot:screenshot-validation-api:0.0.1-alpha13")
+    "screenshotTestImplementation"("androidx.compose.ui:ui-tooling")
 }

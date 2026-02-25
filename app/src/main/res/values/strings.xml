@@ -117,6 +117,7 @@
     <string name="translators_thanks_description">darken</string>
 
     <string name="widget_description">A widget showing the last known device status.</string>
+    <string name="widget_config_screen_title">Widget Configuration</string>
     <string name="widget_configuration_title">Select Device</string>
     <string name="widget_configuration_description">Choose which device profile this widget should display.</string>
     <string name="common_feature_requires_pro_msg">This feature requires CAPod Pro.</string>
