@@ -5,6 +5,8 @@ import android.content.Context.WINDOW_SERVICE
 import android.graphics.PixelFormat
 import android.view.Gravity
 import android.view.WindowManager
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleRegistry
@@ -47,60 +49,73 @@ class PopUpWindow @Inject constructor(
 
     private var composeView: ComposeView? = null
     private var lifecycleOwner: OverlayLifecycleOwner? = null
+    private var deviceState: MutableState<PodDevice?>? = null
 
-    fun show(device: PodDevice) = try {
-        log(TAG) { "open()" }
-        // Unconditionally clean up any existing lifecycle owner before creating a new one
+    fun show(device: PodDevice) {
+        try {
+            log(TAG) { "open()" }
+
+            if (composeView?.parent != null && deviceState != null) {
+                log(TAG) { "Popup already visible, updating device." }
+                deviceState?.value = device
+                return
+            }
+
+            teardown()
+
+            val state = mutableStateOf<PodDevice?>(device)
+            deviceState = state
+
+            val owner = OverlayLifecycleOwner()
+            lifecycleOwner = owner
+
+            val view = ComposeView(appContext).apply {
+                setViewTreeLifecycleOwner(owner)
+                setViewTreeSavedStateRegistryOwner(owner)
+                setContent {
+                    val currentDevice = state.value
+                    if (currentDevice != null) {
+                        CapodTheme(state = generalSettings.currentThemeState) {
+                            PopUpContent(device = currentDevice, onClose = { close() })
+                        }
+                    }
+                }
+            }
+            composeView = view
+
+            owner.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
+            owner.handleLifecycleEvent(Lifecycle.Event.ON_START)
+            owner.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
+
+            windowManager.addView(view, layoutParams)
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "open() failed: ${e.asLog()}" }
+        }
+    }
+
+    fun close() = try {
+        log(TAG) { "close()" }
+        if (composeView?.parent != null) {
+            teardown()
+        } else {
+            log(TAG) { "View was not added" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "close() failed: ${e.asLog()}" }
+    }
+
+    private fun teardown() {
         lifecycleOwner?.let { existing ->
             existing.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE)
             existing.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
             existing.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         }
         if (composeView?.parent != null) {
-            log(TAG) { "View already added." }
             windowManager.removeView(composeView)
         }
         composeView = null
         lifecycleOwner = null
-
-        val owner = OverlayLifecycleOwner()
-        lifecycleOwner = owner
-
-        val view = ComposeView(appContext).apply {
-            setViewTreeLifecycleOwner(owner)
-            setViewTreeSavedStateRegistryOwner(owner)
-            setContent {
-                CapodTheme(state = generalSettings.currentThemeState) {
-                    PopUpContent(device = device, onClose = { close() })
-                }
-            }
-        }
-        composeView = view
-
-        owner.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
-        owner.handleLifecycleEvent(Lifecycle.Event.ON_START)
-        owner.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
-
-        windowManager.addView(view, layoutParams)
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "open() failed: ${e.asLog()}" }
-    }
-
-    fun close() = try {
-        log(TAG) { "close()" }
-        val view = composeView
-        if (view?.parent != null) {
-            lifecycleOwner?.handleLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-            lifecycleOwner?.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
-            lifecycleOwner?.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            windowManager.removeView(view)
-        } else {
-            log(TAG) { "View was not added" }
-        }
-        composeView = null
-        lifecycleOwner = null
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "close() failed: ${e.asLog()}" }
+        deviceState = null
     }
 
     /**
