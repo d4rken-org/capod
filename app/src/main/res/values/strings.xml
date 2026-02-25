@@ -292,6 +292,7 @@
     <string name="ui_theme_color_disabled_materialyou">Uses wallpaper colors</string>
 
     <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitoring</string>
     <string name="settings_category_appearance_label">Appearance</string>
 
     <!-- Unsaved changes dialog -->
