@@ -17,6 +17,11 @@ fun DashboardDark() = DashboardContent()
 @PreviewTest
 @PlayStoreLocales
 @Composable
+fun CasePopUp() = CasePopUpContent()
+
+@PreviewTest
+@PlayStoreLocales
+@Composable
 fun DeviceProfiles() = DeviceProfilesContent()
 
 @PreviewTest

@@ -14,7 +14,7 @@ PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 LOCALES_FILE="$PROJECT_DIR/app/src/screenshotTest/kotlin/eu/darken/capod/screenshots/PlayStoreLocales.kt"
 REF_DIR="$PROJECT_DIR/app/src/screenshotTestGplayDebug/reference"
 
-# Default batch size — 6 locales × 7 composables = 42 renders per batch.
+# Default batch size — 6 locales × 8 composables = 48 renders per batch.
 # Kept small to avoid layoutlib OOM (leaks ~4MB per rendered image at 720p; more at 1080p).
 BATCH_SIZE=4
 SMOKE=false
@@ -211,7 +211,7 @@ done
 
 # Count final results
 FINAL_COUNT=$(find "$REF_DIR" -name "*.png" 2>/dev/null | wc -l)
-EXPECTED=$(( TOTAL * 7 ))  # 7 composables per locale
+EXPECTED=$(( TOTAL * 8 ))  # 8 composables per locale
 
 echo "=== Generation Complete ==="
 echo "Generated: $FINAL_COUNT images (expected: $EXPECTED)"

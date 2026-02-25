@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.reaction.ui.popup.PopUpContent as PopUpCard
 import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
 import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
 import eu.darken.capod.main.ui.widget.WidgetTheme
@@ -191,6 +192,32 @@ internal fun WidgetConfigurationContent() = PreviewWrapper {
 }
 
 @Composable
+internal fun CasePopUpContent() {
+    CapodTheme {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color(0xFF1A237E),
+                            Color(0xFF0D47A1),
+                            Color(0xFF006064),
+                        )
+                    )
+                ),
+            contentAlignment = Alignment.Center,
+        ) {
+            PopUpCard(
+                device = MockPodDataProvider.airPodsProMixed(),
+                onClose = {},
+                modifier = Modifier.padding(horizontal = 32.dp),
+            )
+        }
+    }
+}
+
+@Composable
 internal fun HomescreenWidgetContent() {
     CapodTheme {
         Box(
@@ -330,26 +357,30 @@ private fun PreviewDashboardLight() = DashboardContent()
 @Composable
 private fun PreviewDashboardDark() = DashboardContent()
 
-@Preview(name = "3 - Device Profiles", locale = "en", device = DS, showSystemUi = true)
+@Preview(name = "3 - Case Pop-up", device = DS, showSystemUi = true)
+@Composable
+private fun PreviewCasePopUp() = CasePopUpContent()
+
+@Preview(name = "4 - Widget Configuration", locale = "en", device = DS, showSystemUi = true)
+@Composable
+private fun PreviewWidgetConfiguration() = WidgetConfigurationContent()
+
+@Preview(name = "5 - Device Profiles", locale = "en", device = DS, showSystemUi = true)
 @Composable
 private fun PreviewDeviceProfiles() = DeviceProfilesContent()
 
-@Preview(name = "4 - Add Profile", locale = "en", device = DS, showSystemUi = true)
+@Preview(name = "6 - Add Profile", locale = "en", device = DS, showSystemUi = true)
 @Composable
 private fun PreviewAddProfile() = AddProfileContent()
 
-@Preview(name = "5 - Settings", locale = "en", device = DS, showSystemUi = true)
+@Preview(name = "7 - Settings", locale = "en", device = DS, showSystemUi = true)
 @Composable
 private fun PreviewSettingsIndex() = SettingsIndexContent()
 
-@Preview(name = "6 - Reaction Settings", locale = "en", device = DS, showSystemUi = true)
+@Preview(name = "8 - Reaction Settings", locale = "en", device = DS, showSystemUi = true)
 @Composable
 private fun PreviewReactionSettings() = ReactionSettingsContent()
 
-@Preview(name = "7 - Homescreen Widget", device = DS, showSystemUi = true)
+@Preview(name = "9 - Homescreen Widget", device = DS, showSystemUi = true)
 @Composable
 private fun PreviewHomescreenWidget() = HomescreenWidgetContent()
-
-@Preview(name = "7 - Widget Configuration", locale = "en", device = DS, showSystemUi = true)
-@Composable
-private fun PreviewWidgetConfiguration() = WidgetConfigurationContent()
