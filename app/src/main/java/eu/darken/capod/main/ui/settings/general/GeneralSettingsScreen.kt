@@ -128,6 +128,25 @@ fun GeneralSettingsScreen(
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
             item {
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_monitoring_label))
+            }
+            item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.settings_monitor_mode_label),
+                    subtitle = stringResource(state.monitorMode.labelRes),
+                    icon = Icons.TwoTone.DisabledVisible,
+                    onClick = { showMonitorModeDialog = true },
+                )
+            }
+            item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.settings_scanner_mode_label),
+                    subtitle = stringResource(state.scannerMode.labelRes),
+                    icon = Icons.TwoTone.SettingsBluetooth,
+                    onClick = { showScannerModeDialog = true },
+                )
+            }
+            item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
             }
             item {
@@ -161,22 +180,6 @@ fun GeneralSettingsScreen(
                     icon = Icons.TwoTone.Palette,
                     onClick = { showColorDialog = true },
                     enabled = !isMaterialYouActive,
-                )
-            }
-            item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_monitor_mode_label),
-                    subtitle = stringResource(state.monitorMode.labelRes),
-                    icon = Icons.TwoTone.DisabledVisible,
-                    onClick = { showMonitorModeDialog = true },
-                )
-            }
-            item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_scanner_mode_label),
-                    subtitle = stringResource(state.scannerMode.labelRes),
-                    icon = Icons.TwoTone.SettingsBluetooth,
-                    onClick = { showScannerModeDialog = true },
                 )
             }
             item {
