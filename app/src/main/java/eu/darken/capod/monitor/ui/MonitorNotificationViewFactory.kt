@@ -15,6 +15,7 @@ import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 
 class MonitorNotificationViewFactory @Inject constructor(
@@ -78,9 +79,79 @@ class MonitorNotificationViewFactory @Inject constructor(
 
     private fun createUnknownDevice(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
-        R.layout.monitor_notification_dual_pods_small
+        R.layout.monitor_notification_unknown_device_small
     ).apply {
         setTextViewText(R.id.device, device.getLabel(context))
+    }
+
+    fun createBigContentView(device: PodDevice): RemoteViews = when (device) {
+        is DualPodDevice -> createDualPodsBig(device)
+        is SinglePodDevice -> createSinglePodBig(device)
+        else -> createUnknownDeviceBig(device)
+    }
+
+    private fun createDualPodsBig(device: DualPodDevice): RemoteViews = RemoteViews(
+        context.packageName,
+        R.layout.monitor_notification_dual_pods_big
+    ).apply {
+        // Left
+        val leftPercent = device.batteryLeftPodPercent
+        setImageViewResource(R.id.pod_left_icon, device.leftPodIcon)
+        setProgressBar(R.id.pod_left_progress, 100, percentToInt(leftPercent), false)
+        setTextViewText(R.id.pod_left_label, formatBatteryPercent(context, leftPercent))
+        val isLeftPodCharging = (device as? HasChargeDetectionDual)?.isLeftPodCharging ?: false
+        setViewVisibility(R.id.pod_left_charging, if (isLeftPodCharging) View.VISIBLE else View.GONE)
+        val isLeftPodInEar = (device as? HasEarDetectionDual)?.isLeftPodInEar ?: false
+        setViewVisibility(R.id.pod_left_ear, if (isLeftPodInEar) View.VISIBLE else View.GONE)
+
+        // Case
+        setViewVisibility(R.id.pod_case_container, if (device is HasCase) View.VISIBLE else View.GONE)
+        (device as? HasCase)?.let { case ->
+            setImageViewResource(R.id.pod_case_icon, device.caseIcon)
+            val casePercent = case.batteryCasePercent
+            setProgressBar(R.id.pod_case_progress, 100, percentToInt(casePercent), false)
+            setTextViewText(R.id.pod_case_label, formatBatteryPercent(context, casePercent))
+            setViewVisibility(R.id.pod_case_charging, if (case.isCaseCharging) View.VISIBLE else View.GONE)
+        }
+
+        // Right
+        val rightPercent = device.batteryRightPodPercent
+        setImageViewResource(R.id.pod_right_icon, device.rightPodIcon)
+        setProgressBar(R.id.pod_right_progress, 100, percentToInt(rightPercent), false)
+        setTextViewText(R.id.pod_right_label, formatBatteryPercent(context, rightPercent))
+        val isRightPodCharging = (device as? HasChargeDetectionDual)?.isRightPodCharging ?: false
+        setViewVisibility(R.id.pod_right_charging, if (isRightPodCharging) View.VISIBLE else View.GONE)
+        val isRightPodInEar = (device as? HasEarDetectionDual)?.isRightPodInEar ?: false
+        setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
+    }
+
+    private fun createSinglePodBig(device: SinglePodDevice): RemoteViews = RemoteViews(
+        context.packageName,
+        R.layout.monitor_notification_single_pods_big
+    ).apply {
+        val headsetPercent = device.batteryHeadsetPercent
+        setTextViewText(R.id.headphones_label, device.getLabel(context))
+        setImageViewResource(R.id.headphones_icon, device.iconRes)
+        setProgressBar(R.id.headphones_battery_progress, 100, percentToInt(headsetPercent), false)
+        setTextViewText(R.id.headphones_battery_label, formatBatteryPercent(context, headsetPercent))
+        if (device is HasEarDetection) {
+            setViewVisibility(R.id.headphones_worn, if (device.isBeingWorn) View.VISIBLE else View.GONE)
+        }
+        if (device is HasChargeDetectionDual) {
+            setViewVisibility(R.id.headphones_charging, if (device.isHeadsetBeingCharged) View.VISIBLE else View.GONE)
+        }
+    }
+
+    private fun createUnknownDeviceBig(device: PodDevice): RemoteViews = RemoteViews(
+        context.packageName,
+        R.layout.monitor_notification_unknown_device_big
+    ).apply {
+        setTextViewText(R.id.device, device.getLabel(context))
+    }
+
+    private fun percentToInt(percent: Float?): Int {
+        if (percent == null) return 0
+        return (percent * 100).roundToInt().coerceIn(0, 100)
     }
 
 }
