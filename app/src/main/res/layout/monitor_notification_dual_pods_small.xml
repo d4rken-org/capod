@@ -1,129 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Notification.Container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:orientation="horizontal"
     android:paddingVertical="8dp">
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/pod_left_icon"
-            style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/device_airpods_gen1_left" />
-
-        <TextView
-            android:id="@+id/pod_left_label"
-            style="@style/PodInfoItemText.Notification"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingHorizontal="2dp"
-            tools:text="100%" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/pod_left_charging"
-            style="@style/PodInfoItemIcon.Notification"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_baseline_power_24" />
+            <ImageView
+                android:id="@+id/pod_left_icon"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/device_airpods_gen1_left" />
 
-        <ImageView
-            android:id="@+id/pod_left_ear"
-            style="@style/PodInfoItemIcon.Notification"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_baseline_hearing_24" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/pod_left_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                tools:text="100%" />
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/pod_left_charging"
+                style="@style/PodInfoItemIcon.Notification"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_baseline_power_24" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:id="@+id/pod_case_container"
-        android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/pod_left_ear"
+                style="@style/PodInfoItemIcon.Notification"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_baseline_hearing_24" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/pod_case_icon"
-            style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/device_airpods_gen1_case" />
-
-        <TextView
-            android:id="@+id/pod_case_label"
-            style="@style/PodInfoItemText.Notification"
+        <LinearLayout
+            android:id="@+id/pod_case_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingHorizontal="4dp"
-            tools:text="100%" />
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/pod_case_charging"
-            style="@style/PodInfoItemIcon.Notification"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_baseline_power_24" />
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/pod_case_icon"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/device_airpods_gen1_case" />
 
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+            <TextView
+                android:id="@+id/pod_case_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                tools:text="100%" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/pod_case_charging"
+                style="@style/PodInfoItemIcon.Notification"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_baseline_power_24" />
+        </LinearLayout>
 
-        <ImageView
-            android:id="@+id/pod_right_icon"
-            style="@style/PodInfoItemIcon.Notification"
-            android:src="@drawable/device_airpods_gen1_right" />
-
-        <TextView
-            android:id="@+id/pod_right_label"
-            style="@style/PodInfoItemText.Notification"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:paddingHorizontal="2dp"
-            tools:text="100%" />
+            android:layout_marginStart="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/pod_right_charging"
-            style="@style/PodInfoItemIcon.Notification"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_baseline_power_24" />
+            <ImageView
+                android:id="@+id/pod_right_icon"
+                style="@style/PodInfoItemIcon.Notification"
+                android:src="@drawable/device_airpods_gen1_right" />
 
-        <ImageView
-            android:id="@+id/pod_right_ear"
-            style="@style/PodInfoItemIcon.Notification"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:src="@drawable/ic_baseline_hearing_24" />
+            <TextView
+                android:id="@+id/pod_right_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                tools:text="100%" />
+
+            <ImageView
+                android:id="@+id/pod_right_charging"
+                style="@style/PodInfoItemIcon.Notification"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_baseline_power_24" />
+
+            <ImageView
+                android:id="@+id/pod_right_ear"
+                style="@style/PodInfoItemIcon.Notification"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/ic_baseline_hearing_24" />
+        </LinearLayout>
+
     </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-</LinearLayout>
+</FrameLayout>
