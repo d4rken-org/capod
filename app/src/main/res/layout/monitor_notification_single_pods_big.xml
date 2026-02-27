@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Notification.Container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Device name row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp">
+
+            <ImageView
+                android:id="@+id/headphones_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:tintMode="multiply"
+                android:tint="?android:attr/colorAccent"
+                android:src="@drawable/twotone_headphones_24" />
+
+            <TextView
+                android:id="@+id/headphones_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="AirPods Max" />
+
+        </LinearLayout>
+
+        <!-- Battery row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="4dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="0dp">
+
+            <ProgressBar
+                android:id="@+id/headphones_battery_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_weight="1"
+                android:max="100"
+                android:progressDrawable="@drawable/notification_battery_progress"
+                tools:progress="95" />
+
+            <TextView
+                android:id="@+id/headphones_battery_label"
+                style="@style/PodInfoItemText.Notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="95%" />
+
+            <ImageView
+                android:id="@+id/headphones_charging"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:tintMode="multiply"
+                android:tint="?android:attr/colorAccent"
+                android:src="@drawable/ic_baseline_power_24" />
+
+            <ImageView
+                android:id="@+id/headphones_worn"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="2dp"
+                android:tintMode="multiply"
+                android:tint="?android:attr/colorAccent"
+                android:src="@drawable/ic_baseline_hearing_24" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

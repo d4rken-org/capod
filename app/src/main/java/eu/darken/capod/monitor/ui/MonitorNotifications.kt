@@ -128,7 +128,8 @@ class MonitorNotifications @Inject constructor(
             }
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
-            setCustomBigContentView(notificationViewFactory.createContentView(device))
+            setCustomContentView(notificationViewFactory.createContentView(device))
+            setCustomBigContentView(notificationViewFactory.createBigContentView(device))
             setContentTitle("$batteryText ~ $stateText")
             setSubText(null)
             log(TAG, VERBOSE) { "updatingNotification(): $device" }
