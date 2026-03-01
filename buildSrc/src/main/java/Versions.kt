@@ -22,6 +22,10 @@ object Versions {
         const val core = "1.0.0"
     }
 
+    object Glance {
+        const val core = "1.2.0-rc01"
+    }
+
     object Serialization {
         const val core = "1.9.0"
     }

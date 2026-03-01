@@ -67,7 +67,7 @@ data class WidgetTheme(
         }
 
         fun matchPreset(theme: WidgetTheme): Preset? = Preset.entries.firstOrNull { preset ->
-            preset.presetBg == theme.backgroundColor && preset.presetFg == theme.foregroundColor && theme.backgroundAlpha == 255
+            preset.presetBg == theme.backgroundColor && preset.presetFg == theme.foregroundColor
         }
     }
 

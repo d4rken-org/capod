@@ -123,6 +123,7 @@
     <string name="common_feature_requires_pro_msg">This feature requires CAPod Pro.</string>
 
     <string name="widget_no_data_label">No data</string>
+    <string name="widget_error_loading_label">Error loading widget</string>
     <string name="widget_config_appearance_label">Appearance</string>
     <string name="widget_config_preset_label">Presets</string>
     <string name="widget_config_background_color_label">Background color</string>

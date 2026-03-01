@@ -130,6 +130,11 @@ fun DependencyHandlerScope.addSerialization() {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Serialization.core}")
 }
 
+fun DependencyHandlerScope.addGlance() {
+    implementation("androidx.glance:glance-appwidget:${Versions.Glance.core}")
+    implementation("androidx.glance:glance-material3:${Versions.Glance.core}")
+}
+
 fun DependencyHandlerScope.addTesting() {
     testImplementation("junit:junit:4.13.2")
 

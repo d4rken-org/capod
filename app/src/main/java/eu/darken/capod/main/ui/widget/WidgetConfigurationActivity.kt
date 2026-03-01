@@ -14,6 +14,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.view.WindowCompat
+import androidx.glance.appwidget.GlanceAppWidgetManager
+import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.compose.waitForState
@@ -23,6 +25,7 @@ import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -99,15 +102,12 @@ class WidgetConfigurationActivity : Activity2() {
         val resultValue = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
         setResult(RESULT_OK, resultValue)
 
-        val appWidgetManager = AppWidgetManager.getInstance(appContext)
-
-        WidgetProvider.updateWidget(
-            context = appContext,
-            appWidgetManager = appWidgetManager,
-            widgetId = widgetId
-        )
-
-        finish()
+        lifecycleScope.launch {
+            val manager = GlanceAppWidgetManager(appContext)
+            val glanceId = manager.getGlanceIdBy(widgetId)
+            BatteryGlanceWidget().update(appContext, glanceId)
+            finish()
+        }
     }
 
     companion object {

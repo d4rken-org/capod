@@ -1,32 +1,23 @@
 package eu.darken.capod.screenshots
 
 import android.content.res.Configuration
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.graphics.toArgb
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.main.ui.widget.ComposeWidgetPreview
+import eu.darken.capod.main.ui.widget.WidgetRenderState
 import eu.darken.capod.reaction.ui.popup.PopUpContent as PopUpCard
 import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
 import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
@@ -234,116 +225,12 @@ internal fun HomescreenWidgetContent() {
                 ),
             contentAlignment = Alignment.Center,
         ) {
-            WidgetDualCompact()
-        }
-    }
-}
-
-@Composable
-private fun WidgetDualCompact() {
-    Surface(
-        shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.surface,
-        tonalElevation = 2.dp,
-    ) {
-        Column(
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            WidgetPodRow(
-                icon = R.drawable.device_airpods_pro2_left,
-                percent = 85,
-                charging = false,
-                inEar = true,
-            )
-            WidgetPodRow(
-                icon = R.drawable.device_airpods_pro2_right,
-                percent = 92,
-                charging = true,
-                inEar = false,
-            )
-            WidgetCaseRow(
-                icon = R.drawable.device_airpods_pro2_case,
-                percent = 100,
-                charging = false,
-            )
-            Text(
-                text = "My AirPods Pro",
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-        }
-    }
-}
-
-@Composable
-private fun WidgetPodRow(
-    @DrawableRes icon: Int,
-    percent: Int,
-    charging: Boolean,
-    inEar: Boolean,
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(vertical = 2.dp),
-    ) {
-        Image(
-            painter = painterResource(icon),
-            contentDescription = null,
-            modifier = Modifier.size(20.dp),
-        )
-        Text(
-            text = "$percent%",
-            fontSize = 12.sp,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(horizontal = 4.dp),
-        )
-        if (charging) {
-            Image(
-                painter = painterResource(R.drawable.ic_baseline_power_24),
-                contentDescription = null,
-                modifier = Modifier.size(20.dp),
-            )
-        }
-        if (inEar) {
-            Image(
-                painter = painterResource(R.drawable.ic_baseline_hearing_24),
-                contentDescription = null,
-                modifier = Modifier.size(20.dp),
-            )
-        }
-    }
-}
-
-@Composable
-private fun WidgetCaseRow(
-    @DrawableRes icon: Int,
-    percent: Int,
-    charging: Boolean,
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(vertical = 2.dp),
-    ) {
-        Image(
-            painter = painterResource(icon),
-            contentDescription = null,
-            modifier = Modifier.size(20.dp),
-        )
-        Text(
-            text = "$percent%",
-            fontSize = 12.sp,
-            color = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.padding(horizontal = 4.dp),
-        )
-        if (charging) {
-            Image(
-                painter = painterResource(R.drawable.ic_baseline_power_24),
-                contentDescription = null,
-                modifier = Modifier.size(20.dp),
+            ComposeWidgetPreview(
+                state = WidgetRenderState.previewDualPod(
+                    bgColor = MaterialTheme.colorScheme.surface.toArgb(),
+                    textColor = MaterialTheme.colorScheme.onSurface.toArgb(),
+                    iconColor = MaterialTheme.colorScheme.onSurface.toArgb(),
+                ),
             )
         }
     }
