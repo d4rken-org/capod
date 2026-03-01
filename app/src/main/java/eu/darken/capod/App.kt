@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -41,6 +42,8 @@ open class App : Application() {
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
 
         monitorControl.startMonitor(forceStart = true)
+
+        appScope.launch { widgetManager.refreshWidgets() }
 
         podMonitor.devicesWithProfiles()
             .distinctUntilChanged()

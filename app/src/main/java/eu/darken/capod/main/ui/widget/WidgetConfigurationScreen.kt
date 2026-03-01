@@ -1,13 +1,5 @@
 package eu.darken.capod.main.ui.widget
 
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.PorterDuff
-import android.graphics.Shader
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
@@ -78,15 +70,10 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.graphics.createBitmap
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.isVisible
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
@@ -126,6 +113,7 @@ fun WidgetConfigurationScreen(
             Text(
                 text = stringResource(R.string.widget_config_screen_title),
                 style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = screenHPad, end = screenHPad, bottom = 16.dp),
@@ -196,7 +184,7 @@ fun WidgetConfigurationScreen(
                     Spacer(modifier = Modifier.height(12.dp))
 
                     // Live preview
-                    WidgetPreview(
+                    WidgetConfigPreview(
                         theme = state.theme,
                         deviceLabel = state.profiles.firstOrNull { it.id == state.selectedProfile }?.label,
                     )
@@ -445,41 +433,21 @@ private fun ProfileSelectionItem(
 }
 
 @Composable
-private fun WidgetPreview(
+private fun WidgetConfigPreview(
     theme: WidgetTheme,
     deviceLabel: String?,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val density = LocalDensity.current
+    val hasTransparency = theme.backgroundColor != null && theme.backgroundAlpha < 255
 
-    val checkerboardDrawable = remember(density) {
-        val cellSize = (8 * context.resources.displayMetrics.density).toInt()
-        val bitmap = createBitmap(cellSize * 2, cellSize * 2)
-        val canvas = Canvas(bitmap)
-        val paint = Paint()
-        paint.color = 0xFFE8E8E8.toInt()
-        canvas.drawRect(0f, 0f, (cellSize * 2).toFloat(), (cellSize * 2).toFloat(), paint)
-        paint.color = 0xFFD0D0D0.toInt()
-        canvas.drawRect(0f, 0f, cellSize.toFloat(), cellSize.toFloat(), paint)
-        canvas.drawRect(
-            cellSize.toFloat(), cellSize.toFloat(),
-            (cellSize * 2).toFloat(), (cellSize * 2).toFloat(), paint,
-        )
-        bitmap.toDrawable(context.resources).apply {
-            tileModeX = Shader.TileMode.REPEAT
-            tileModeY = Shader.TileMode.REPEAT
-        }
-    }
-
-    val resolvedBgColor = remember(context) {
-        resolveThemeColor(context, android.R.attr.colorBackground)
-    }
-    val resolvedTextColor = remember(context) {
-        resolveThemeColor(context, android.R.attr.textColorPrimary)
-    }
-    val resolvedAccentColor = remember(context) {
-        resolveThemeColor(context, android.R.attr.colorAccent)
+    val previewState = remember(theme, deviceLabel) {
+        WidgetRenderState.previewDualPod(
+            theme = theme,
+            bgColor = WidgetRenderStateMapper.resolvedBgColor(context, theme),
+            textColor = WidgetRenderStateMapper.resolvedTextColor(context, theme),
+            iconColor = WidgetRenderStateMapper.resolvedIconColor(context, theme),
+        ).copy(deviceLabel = deviceLabel)
     }
 
     Surface(
@@ -488,93 +456,22 @@ private fun WidgetPreview(
         color = MaterialTheme.colorScheme.surfaceContainerHighest,
         tonalElevation = 2.dp,
     ) {
-        AndroidView(
-            factory = { ctx ->
-                val container = android.widget.FrameLayout(ctx)
-
-                // Outer container for checkerboard
-                val outerPadding = (24 * ctx.resources.displayMetrics.density).toInt()
-                container.setPadding(outerPadding, outerPadding, outerPadding, outerPadding)
-
-                // Clip wrapper — rounded background + clipToOutline so the inner content is clipped
-                val clipWrapper = android.widget.FrameLayout(ctx).apply {
-                    setBackgroundResource(R.drawable.widget_preview_bg)
-                    clipToOutline = true
-                }
-
-                // Inner preview content
-                LayoutInflater.from(ctx).inflate(R.layout.widget_config_preview, clipWrapper, true)
-
-                container.addView(
-                    clipWrapper, android.widget.FrameLayout.LayoutParams(
-                        android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
-                        android.widget.FrameLayout.LayoutParams.WRAP_CONTENT,
-                        android.view.Gravity.CENTER,
-                    )
-                )
-
-                container
-            },
-            update = { container ->
-                val hasTransparency = theme.backgroundColor != null && theme.backgroundAlpha < 255
-                container.background = if (hasTransparency) {
-                    checkerboardDrawable
-                } else {
-                    androidx.appcompat.content.res.AppCompatResources.getDrawable(
-                        context, R.drawable.widget_preview_checkerboard
+        Box(
+            modifier = Modifier.fillMaxWidth().padding(24.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            if (hasTransparency) {
+                CheckerboardBackground {
+                    ComposeWidgetPreview(
+                        state = previewState,
+                        modifier = Modifier.padding(6.dp),
                     )
                 }
-
-                val clipWrapper = container.getChildAt(0) ?: return@AndroidView
-                val widgetRoot = clipWrapper.findViewById<View>(R.id.preview_widget_root) ?: return@AndroidView
-
-                // Background color applied to the inner view — clipWrapper's outline clips the corners
-                val bgColor = theme.backgroundColor
-                if (bgColor != null) {
-                    widgetRoot.setBackgroundColor(WidgetTheme.applyAlpha(bgColor, theme.backgroundAlpha))
-                } else {
-                    widgetRoot.setBackgroundColor(resolvedBgColor)
-                }
-
-                // Foreground colors
-                val fgColor = theme.foregroundColor
-                val textColor = fgColor ?: resolvedTextColor
-                val iconColor = fgColor ?: resolvedAccentColor
-
-                val textIds = intArrayOf(
-                    R.id.preview_left_label, R.id.preview_right_label,
-                    R.id.preview_case_label, R.id.preview_device_label,
-                )
-                val iconIds = intArrayOf(
-                    R.id.preview_left_icon, R.id.preview_right_icon, R.id.preview_case_icon,
-                )
-
-                for (id in textIds) {
-                    clipWrapper.findViewById<TextView>(id)?.setTextColor(textColor)
-                }
-                for (id in iconIds) {
-                    clipWrapper.findViewById<ImageView>(id)?.setColorFilter(iconColor, PorterDuff.Mode.SRC_IN)
-                }
-
-                // Device label
-                val labelView = clipWrapper.findViewById<TextView>(R.id.preview_device_label)
-                labelView?.isVisible = theme.showDeviceLabel
-                labelView?.text = deviceLabel ?: ""
-            },
-            modifier = Modifier.fillMaxWidth(),
-        )
+            } else {
+                ComposeWidgetPreview(state = previewState)
+            }
+        }
     }
-}
-
-private fun resolveThemeColor(context: android.content.Context, attr: Int): Int {
-    val wrapper = androidx.appcompat.view.ContextThemeWrapper(
-        context,
-        com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight,
-    )
-    val typedArray = wrapper.theme.obtainStyledAttributes(intArrayOf(attr))
-    val color = typedArray.getColor(0, android.graphics.Color.BLACK)
-    typedArray.recycle()
-    return color
 }
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -638,8 +535,8 @@ private fun PresetChips(
         FilterChip(
             selected = isCustomMode,
             onClick = {
-                val defaultBg = resolveThemeColor(context, android.R.attr.colorBackground)
-                val defaultFg = resolveThemeColor(context, android.R.attr.textColorPrimary)
+                val defaultBg = WidgetRenderStateMapper.resolveThemeColor(context, android.R.attr.colorBackground)
+                val defaultFg = WidgetRenderStateMapper.resolveThemeColor(context, android.R.attr.textColorPrimary)
                 onEnterCustomMode(defaultBg, defaultFg)
             },
             label = { Text(stringResource(R.string.widget_config_custom_label)) },
