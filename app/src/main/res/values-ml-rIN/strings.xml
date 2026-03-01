@@ -103,7 +103,6 @@
     <string name="widget_description">അവസാനമായി അറിയപ്പെടുന്ന ഉപകരണ നില കാണിക്കുന്ന ഒരു വിഡ്ജറ്റ്.</string>
     <string name="widget_configuration_title">ഉപകരണം തിരഞ്ഞെടുക്കുക</string>
     <string name="widget_configuration_description">ഈ വിഡ്ജറ്റ് ഏത് ഉപകരണ പ്രൊഫൈൽ പ്രദർശിപ്പിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
-    <string name="common_feature_requires_pro_msg">ഈ സവിശേഷതയ്ക്ക് CAPod Pro ആവശ്യമാണ്.</string>
     <string name="widget_no_data_label">ഡാറ്റ ഇല്ല</string>
     <string name="widget_config_appearance_label">രൂപരേഖ</string>
     <string name="widget_config_preset_label">പ്രിസെറ്റുകള്‍</string>

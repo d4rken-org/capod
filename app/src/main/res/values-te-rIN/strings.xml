@@ -103,7 +103,6 @@
     <string name="widget_description">చివరిగా తెలిసిన పరికర స్థితిని చూపే విడ్జెట్.</string>
     <string name="widget_configuration_title">పరికరాన్ని ఎంచుకోండి</string>
     <string name="widget_configuration_description">ఈ విడ్జెట్ ఏ పరికర ప్రొఫైల్‌ను ప్రదర్శించాలో ఎంచుకోండి.</string>
-    <string name="common_feature_requires_pro_msg">ఈ ఫీచర్‌కు CAPod Pro అవసరం.</string>
     <string name="widget_no_data_label">డేటా లేదు</string>
     <string name="widget_config_appearance_label">ఆవిర్భావం</string>
     <string name="widget_config_preset_label">ప్రీసెట్‌లు</string>

@@ -103,7 +103,6 @@
     <string name="widget_description">Акыркы белгилүү түзмөк абалын көрсөткөн виджет.</string>
     <string name="widget_configuration_title">Түзмөк тандоо</string>
     <string name="widget_configuration_description">Бул виджетте кайсы түзмөк профили көрсөтүлүшү керектигин тандаңыз.</string>
-    <string name="common_feature_requires_pro_msg">Бул функция CAPod Pro талап кылат.</string>
     <string name="widget_no_data_label">Маалымат жок</string>
     <string name="widget_config_appearance_label">Көрүнүшү</string>
     <string name="widget_config_preset_label">Шаблондор</string>

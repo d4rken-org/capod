@@ -103,7 +103,6 @@
     <string name="widget_description">Un widget che mostra l\'ultimo stato noto del dispositivo.</string>
     <string name="widget_configuration_title">Seleziona dispositivo</string>
     <string name="widget_configuration_description">Scegli quale profilo dispositivo questo widget dovrebbe visualizzare.</string>
-    <string name="common_feature_requires_pro_msg">Questa funzionalità richiede CAPod Pro.</string>
     <string name="widget_no_data_label">Nessun dato</string>
     <string name="widget_config_appearance_label">Aspetto</string>
     <string name="widget_config_preset_label">Preset</string>

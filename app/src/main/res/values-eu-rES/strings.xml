@@ -103,7 +103,6 @@
     <string name="widget_description">Azken gailuaren egoera ezaguna erakusten duen trepeta.</string>
     <string name="widget_configuration_title">Hautatu Gailua</string>
     <string name="widget_configuration_description">Aukeratu trepeta honek zein gailu-profil erakutsi behar duen.</string>
-    <string name="common_feature_requires_pro_msg">Ezaugarri honek CAPod Pro behar du.</string>
     <string name="widget_no_data_label">Daturik ez</string>
     <string name="widget_config_appearance_label">Itxura</string>
     <string name="widget_config_preset_label">Aurrealdeak</string>

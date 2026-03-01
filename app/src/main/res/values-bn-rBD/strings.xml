@@ -103,7 +103,6 @@
     <string name="widget_description">সর্বশেষ পরিচিত ডিভাইস স্ট্যাটাস দেখানো একটি উইজেট।</string>
     <string name="widget_configuration_title">ডিভাইস নির্বাচন করুন</string>
     <string name="widget_configuration_description">এই উইজেটটি কোন ডিভাইস প্রোফাইল প্রদর্শন করবে তা চয়ন করুন।</string>
-    <string name="common_feature_requires_pro_msg">এই বৈশিষ্ট্যটির জন্য CAPod Pro প্রয়োজন।</string>
     <string name="widget_no_data_label">কোনো ডেটা নেই</string>
     <string name="widget_config_appearance_label">চেহারা</string>
     <string name="widget_config_preset_label">প্রিসেট</string>

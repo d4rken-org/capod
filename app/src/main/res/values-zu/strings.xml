@@ -103,7 +103,6 @@
     <string name="widget_description">Iwindi elibonisa isimo sakamuva esaziwayo sedivayisi.</string>
     <string name="widget_configuration_title">Khetha Idivayisi</string>
     <string name="widget_configuration_description">Khetha ukuthi iyiphi iphrofayili yedivayisi leli wiji okufanele liyibonise.</string>
-    <string name="common_feature_requires_pro_msg">Lesi sici sidinga i-CAPod Pro.</string>
     <string name="widget_no_data_label">Ayikho idatha</string>
     <string name="widget_config_appearance_label">Ukuonakala</string>
     <string name="widget_config_preset_label">Imikhakha</string>

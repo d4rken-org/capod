@@ -103,7 +103,6 @@
     <string name="widget_description">Bilinen son cihaz durumunu gösteren bir pencere öğesi (widget).</string>
     <string name="widget_configuration_title">Cihaz Seçin</string>
     <string name="widget_configuration_description">Bu widget\'ın hangi cihaz profilini göstereceğini seçin.</string>
-    <string name="common_feature_requires_pro_msg">Bu özellik CAPod Pro gerektirir.</string>
     <string name="widget_no_data_label">Veri yok</string>
     <string name="widget_config_appearance_label">Görünüm</string>
     <string name="widget_config_preset_label">Ön Ayarlar</string>

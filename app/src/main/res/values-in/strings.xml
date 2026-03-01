@@ -103,7 +103,6 @@
     <string name="widget_description">Widget yang menampilkan status perangkat terakhir yang diketahui.</string>
     <string name="widget_configuration_title">Pilih Perangkat</string>
     <string name="widget_configuration_description">Pilih profil perangkat mana yang akan ditampilkan widget ini.</string>
-    <string name="common_feature_requires_pro_msg">Fitur ini memerlukan CAPod Pro.</string>
     <string name="widget_no_data_label">Tidak ada data</string>
     <string name="widget_config_appearance_label">Penampilan</string>
     <string name="widget_config_preset_label">Prasetel</string>

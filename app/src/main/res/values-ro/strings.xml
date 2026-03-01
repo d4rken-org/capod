@@ -103,7 +103,6 @@
     <string name="widget_description">Un widget care arată starea ultimului dispozitiv cunoscut.</string>
     <string name="widget_configuration_title">Selectare Dispozitiv</string>
     <string name="widget_configuration_description">Alegeți ce profil de dispozitiv ar trebui să afișeze acest widget.</string>
-    <string name="common_feature_requires_pro_msg">Această funcție necesită CAPod Pro.</string>
     <string name="widget_no_data_label">Fără date</string>
     <string name="widget_config_appearance_label">Aspect</string>
     <string name="widget_config_preset_label">Presetări</string>

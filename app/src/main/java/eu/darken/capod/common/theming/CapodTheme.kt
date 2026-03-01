@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
@@ -21,14 +22,13 @@ fun CapodTheme(
 
     val dynamicColors = state.style == ThemeStyle.MATERIAL_YOU && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
 
-    val colorScheme = if (dynamicColors) {
-        val context = LocalContext.current
-        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-    } else {
-        if (darkTheme) {
-            ThemeColorProvider.getDarkColorScheme(state.color, state.style)
-        } else {
-            ThemeColorProvider.getLightColorScheme(state.color, state.style)
+    val context = LocalContext.current
+    val colorScheme = remember(state, darkTheme, dynamicColors) {
+        when {
+            dynamicColors && darkTheme -> dynamicDarkColorScheme(context)
+            dynamicColors && !darkTheme -> dynamicLightColorScheme(context)
+            darkTheme -> ThemeColorProvider.getDarkColorScheme(state.color, state.style)
+            else -> ThemeColorProvider.getLightColorScheme(state.color, state.style)
         }
     }
 

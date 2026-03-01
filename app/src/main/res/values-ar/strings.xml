@@ -103,7 +103,6 @@
     <string name="widget_description">أداة تعرض آخر حالة معروفة للجهاز.</string>
     <string name="widget_configuration_title">اختيار الجهاز</string>
     <string name="widget_configuration_description">اختر ملف تعريف الجهاز الذي يجب أن تعرضه هذه الأداة.</string>
-    <string name="common_feature_requires_pro_msg">تتطلب هذه الميزة CAPod Pro.</string>
     <string name="widget_no_data_label">لا توجد بيانات</string>
     <string name="widget_config_appearance_label">المظهر</string>
     <string name="widget_config_preset_label">الإعدادات المسبقة</string>

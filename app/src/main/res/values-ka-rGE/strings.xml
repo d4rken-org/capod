@@ -103,7 +103,6 @@
     <string name="widget_description">ვიჯეტი, რომელიც აჩვენებს მოწყობილობის ბოლო ცნობილ სტატუსს.</string>
     <string name="widget_configuration_title">მოწყობილობის არჩევა</string>
     <string name="widget_configuration_description">აირჩიეთ, რომელი მოწყობილობის პროფილი უნდა აჩვენოს ამ ვიჯეტმა.</string>
-    <string name="common_feature_requires_pro_msg">ეს ფუნქცია მოითხოვს CAPod Pro-ს.</string>
     <string name="widget_no_data_label">მონაცემები არ არის</string>
     <string name="widget_config_appearance_label">გარეგნობა</string>
     <string name="widget_config_preset_label">პრესეტები</string>

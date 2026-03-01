@@ -103,7 +103,6 @@
     <string name="widget_description">Widget koji prikazuje posljednji poznati status uređaja.</string>
     <string name="widget_configuration_title">Odaberi uređaj</string>
     <string name="widget_configuration_description">Odaberite koji profil uređaja ovaj widget treba prikazivati.</string>
-    <string name="common_feature_requires_pro_msg">Ova značajka zahtijeva CAPod Pro.</string>
     <string name="widget_no_data_label">Nema podataka</string>
     <string name="widget_config_appearance_label">Izgled</string>
     <string name="widget_config_preset_label">Unaprijed postavljene opcije</string>

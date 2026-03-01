@@ -103,7 +103,6 @@
     <string name="widget_description">顯示最後已知裝置狀態的小工具。</string>
     <string name="widget_configuration_title">選擇裝置</string>
     <string name="widget_configuration_description">選擇此小工具要顯示的裝置設定檔。</string>
-    <string name="common_feature_requires_pro_msg">此功能需要 CAPod Pro。</string>
     <string name="widget_no_data_label">無資料</string>
     <string name="widget_config_appearance_label">外觀</string>
     <string name="widget_config_preset_label">預設</string>

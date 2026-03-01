@@ -103,7 +103,6 @@
     <string name="widget_description">ធាតុក្រាហ្វិកបង្ហាញស្ថានភាពឧបករណ៍ដែលស្គាល់ចុងក្រោយ។</string>
     <string name="widget_configuration_title">ជ្រើសរើសឧបករណ៍</string>
     <string name="widget_configuration_description">ជ្រើសរើសទម្រង់ឧបករណ៍ណាមួយដែលធាតុក្រាហ្វិកនេះគួរបង្ហាញ។</string>
-    <string name="common_feature_requires_pro_msg">មុខងារនេះត្រូវការ CAPod Pro។</string>
     <string name="widget_no_data_label">គ្មានទិន្នន័យ</string>
     <string name="widget_config_appearance_label">រូបរាង</string>
     <string name="widget_config_preset_label">ការកំណត់ដើម</string>

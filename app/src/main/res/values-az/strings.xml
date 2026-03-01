@@ -103,7 +103,6 @@
     <string name="widget_description">Ən son məlum cihaz statusunu göstərən bir vidcet.</string>
     <string name="widget_configuration_title">Cihaz seçin</string>
     <string name="widget_configuration_description">Bu vidcetin hansı cihaz profilini göstərəcəyini seçin.</string>
-    <string name="common_feature_requires_pro_msg">Bu funksiya CAPod Pro tələb edir.</string>
     <string name="widget_no_data_label">Məlumat yoxdur</string>
     <string name="widget_config_appearance_label">Görünüş</string>
     <string name="widget_config_preset_label">Hazır şablonlar</string>

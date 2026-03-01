@@ -22,6 +22,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.pods.core.PodDevice
 import javax.inject.Inject
 import javax.inject.Singleton

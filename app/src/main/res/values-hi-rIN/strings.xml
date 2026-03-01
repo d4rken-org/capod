@@ -103,7 +103,6 @@
     <string name="widget_description">डिवाइस की अंतिम ज्ञात स्थिति दिखाने वाला एक विजेट।</string>
     <string name="widget_configuration_title">डिवाइस चुनें</string>
     <string name="widget_configuration_description">चुनें कि यह विजेट कौन सा डिवाइस प्रोफ़ाइल प्रदर्शित करेगा।</string>
-    <string name="common_feature_requires_pro_msg">इस सुविधा के लिए CAPod Pro आवश्यक है।</string>
     <string name="widget_no_data_label">कोई डेटा नहीं</string>
     <string name="widget_config_appearance_label">उपस्थिति</string>
     <string name="widget_config_preset_label">प्रीसेट</string>

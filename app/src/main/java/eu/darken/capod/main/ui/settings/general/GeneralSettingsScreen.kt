@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.settings.general
 
+import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,12 +34,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
@@ -64,6 +67,11 @@ import eu.darken.capod.main.core.MonitorMode
 fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    val activity = LocalContext.current as? Activity
+    LaunchedEffect(Unit) {
+        vm.launchUpgradeFlow.collect { action -> activity?.let { action(it) } }
+    }
 
     val state by waitForState(vm.state)
     state?.let {
@@ -149,6 +157,16 @@ fun GeneralSettingsScreen(
             item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
             }
+            if (!state.isPro) {
+                item {
+                    Text(
+                        text = stringResource(R.string.common_feature_requires_pro_msg),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.padding(start = 56.dp, end = 16.dp, bottom = 4.dp),
+                    )
+                }
+            }
             item {
                 SettingsListPreferenceItem(
                     icon = Icons.TwoTone.DarkMode,
@@ -157,6 +175,7 @@ fun GeneralSettingsScreen(
                     selectedEntry = state.themeState.mode,
                     onEntrySelected = onThemeModeSelected,
                     entryLabel = { stringResource(it.labelRes) },
+                    enabled = state.isPro,
                 )
             }
             item {
@@ -167,6 +186,7 @@ fun GeneralSettingsScreen(
                     selectedEntry = state.themeState.style,
                     onEntrySelected = onThemeStyleSelected,
                     entryLabel = { stringResource(it.labelRes) },
+                    enabled = state.isPro,
                 )
             }
             item {
@@ -179,7 +199,7 @@ fun GeneralSettingsScreen(
                     },
                     icon = Icons.TwoTone.Palette,
                     onClick = { showColorDialog = true },
-                    enabled = !isMaterialYouActive,
+                    enabled = state.isPro && !isMaterialYouActive,
                 )
             }
             item {
@@ -321,6 +341,7 @@ fun GeneralSettingsScreen(
 private fun GeneralSettingsScreenPreview() = PreviewWrapper {
     GeneralSettingsScreen(
         state = GeneralSettingsViewModel.State(
+            isPro = true,
             monitorMode = MonitorMode.AUTOMATIC,
             scannerMode = ScannerMode.BALANCED,
             showConnectedNotification = true,

@@ -103,7 +103,6 @@
     <string name="widget_description">Miniaplikácia zobrazujúca posledný známy stav zariadenia.</string>
     <string name="widget_configuration_title">Vybrať zariadenie</string>
     <string name="widget_configuration_description">Vyberte, ktorý profil zariadenia by mal tento widget zobrazovať.</string>
-    <string name="common_feature_requires_pro_msg">Táto funkcia vyžaduje CAPod Pro.</string>
     <string name="widget_no_data_label">Žiadne údaje</string>
     <string name="widget_config_appearance_label">Vzhľad</string>
     <string name="widget_config_preset_label">Prednastavenia</string>

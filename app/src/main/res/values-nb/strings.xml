@@ -103,7 +103,6 @@
     <string name="widget_description">En widget som viser sist kjent enhetsstatus.</string>
     <string name="widget_configuration_title">Velg enhet</string>
     <string name="widget_configuration_description">Velg hvilken enhetsprofil denne widgeten skal vise.</string>
-    <string name="common_feature_requires_pro_msg">Denne funksjonen krever CAPod Pro.</string>
     <string name="widget_no_data_label">Ingen data</string>
     <string name="widget_config_appearance_label">Utseende</string>
     <string name="widget_config_preset_label">Forhåndsinnstillinger</string>

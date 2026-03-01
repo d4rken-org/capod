@@ -103,7 +103,6 @@
     <string name="widget_description">A widget az utolsó ismert eszköz adatait mutatja.</string>
     <string name="widget_configuration_title">Eszköz kiválasztása</string>
     <string name="widget_configuration_description">Válassza ki, melyik eszközprofilt jelenítse meg ez a widget.</string>
-    <string name="common_feature_requires_pro_msg">Ez a funkció CAPod Pro-t igényel.</string>
     <string name="widget_no_data_label">Nincs adat</string>
     <string name="widget_config_appearance_label">Megjelenés</string>
     <string name="widget_config_preset_label">Előbeállítások</string>

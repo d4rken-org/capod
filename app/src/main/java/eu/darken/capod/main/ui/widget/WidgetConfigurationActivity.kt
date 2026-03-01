@@ -25,6 +25,8 @@ import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.currentThemeState
+import eu.darken.capod.main.core.themeState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -103,7 +103,6 @@
     <string name="widget_description">Græja sem sýnir síðast þekkta stöðu tækis.</string>
     <string name="widget_configuration_title">Velja tæki</string>
     <string name="widget_configuration_description">Veldu hvaða tækjasnið þessi græja á að sýna.</string>
-    <string name="common_feature_requires_pro_msg">Þessi eiginleiki krefst CAPod Pro.</string>
     <string name="widget_no_data_label">Engin gögn</string>
     <string name="widget_config_appearance_label">Útlit</string>
     <string name="widget_config_preset_label">Forstillingar</string>

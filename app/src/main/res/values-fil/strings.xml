@@ -103,7 +103,6 @@
     <string name="widget_description">Isang widget na nagpapakita ng huling kilalang status ng device.</string>
     <string name="widget_configuration_title">Pumili ng Device</string>
     <string name="widget_configuration_description">Piliin kung aling device profile ang ipapakita ng widget na ito.</string>
-    <string name="common_feature_requires_pro_msg">Kailangan ng CAPod Pro ang feature na ito.</string>
     <string name="widget_no_data_label">Walang data</string>
     <string name="widget_config_appearance_label">Hitsura</string>
     <string name="widget_config_preset_label">Mga Preset</string>

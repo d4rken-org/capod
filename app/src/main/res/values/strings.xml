@@ -5,6 +5,7 @@
     <string name="general_copy_action">Copy</string>
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_upgrade_action">Upgrade</string>
+    <string name="common_feature_requires_pro_msg">Upgrade to unlock.</string>
     <string name="general_donate_action">Donate</string>
     <string name="general_check_action">Check</string>
     <string name="general_close_action">Close</string>
@@ -120,7 +121,6 @@
     <string name="widget_config_screen_title">Widget Configuration</string>
     <string name="widget_configuration_title">Select Device</string>
     <string name="widget_configuration_description">Choose which device profile this widget should display.</string>
-    <string name="common_feature_requires_pro_msg">This feature requires CAPod Pro.</string>
 
     <string name="widget_no_data_label">No data</string>
     <string name="widget_error_loading_label">Error loading widget</string>

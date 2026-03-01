@@ -104,7 +104,6 @@ AL_Cool_T</string>
     <string name="widget_description">Виджет показывающий последний известный статус устройства.</string>
     <string name="widget_configuration_title">Выберите устройство</string>
     <string name="widget_configuration_description">Выберите, какой профиль устройства должен отображать виджет.</string>
-    <string name="common_feature_requires_pro_msg">Эта функция требует CAPod Pro.</string>
     <string name="widget_no_data_label">Нет данных</string>
     <string name="widget_config_appearance_label">Внешний вид</string>
     <string name="widget_config_preset_label">Предустановки</string>
