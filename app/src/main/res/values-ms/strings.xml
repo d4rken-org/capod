@@ -103,7 +103,6 @@
     <string name="widget_description">Widget yang menunjukkan status peranti terakhir yang diketahui.</string>
     <string name="widget_configuration_title">Pilih Peranti</string>
     <string name="widget_configuration_description">Pilih profil peranti yang perlu dipaparkan oleh widget ini.</string>
-    <string name="common_feature_requires_pro_msg">Ciri ini memerlukan CAPod Pro.</string>
     <string name="widget_no_data_label">Tiada data</string>
     <string name="widget_config_appearance_label">Penampilan</string>
     <string name="widget_config_preset_label">Praset</string>

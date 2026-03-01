@@ -103,7 +103,6 @@
     <string name="widget_description">Віджет, який показує останній відомий стан пристрою.</string>
     <string name="widget_configuration_title">Оберіть пристрій</string>
     <string name="widget_configuration_description">Оберіть, який профіль пристрою має відображати цей віджет.</string>
-    <string name="common_feature_requires_pro_msg">Ця функція вимагає CAPod Pro.</string>
     <string name="widget_no_data_label">Немає даних</string>
     <string name="widget_config_appearance_label">Зовнішній вигляд</string>
     <string name="widget_config_preset_label">Попередні встановлення</string>

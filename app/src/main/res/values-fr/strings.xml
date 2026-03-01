@@ -103,7 +103,6 @@
     <string name="widget_description">Un widget qui affiche le dernier état connu de l’appareil.</string>
     <string name="widget_configuration_title">Choisir un appareil</string>
     <string name="widget_configuration_description">Choisissez le profil d’appareil que ce widget doit afficher.</string>
-    <string name="common_feature_requires_pro_msg">Cette fonction est offerte avec CAPod Pro.</string>
     <string name="widget_no_data_label">Aucune donnée</string>
     <string name="widget_config_appearance_label">Apparence</string>
     <string name="widget_config_preset_label">Présets</string>

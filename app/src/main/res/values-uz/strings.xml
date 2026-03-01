@@ -103,7 +103,6 @@
     <string name="widget_description">Qurilmaning oxirgi ma\'lum holatini ko\'rsatadigan vidjet.</string>
     <string name="widget_configuration_title">Qurilmani tanlang</string>
     <string name="widget_configuration_description">Ushbu vidjet qaysi qurilma profilini ko\'rsatishi kerakligini tanlang.</string>
-    <string name="common_feature_requires_pro_msg">Bu funksiya CAPod Pro talab qiladi.</string>
     <string name="widget_no_data_label">Ma\'lumot yo\'q</string>
     <string name="widget_config_appearance_label">Tashqi ko‘rinish</string>
     <string name="widget_config_preset_label">Preset‘lar</string>

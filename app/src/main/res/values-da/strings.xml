@@ -103,7 +103,6 @@
     <string name="widget_description">En widget, der viser den sidst kendte enhedsstatus.</string>
     <string name="widget_configuration_title">Vælg enhed</string>
     <string name="widget_configuration_description">Vælg hvilken enhedsprofil denne widget skal vise.</string>
-    <string name="common_feature_requires_pro_msg">Denne funktion kræver CAPod Pro.</string>
     <string name="widget_no_data_label">Ingen data</string>
     <string name="widget_config_appearance_label">Udseende</string>
     <string name="widget_config_preset_label">Forudindstillinger</string>

@@ -103,7 +103,6 @@
     <string name="widget_description">Ein Widget, das den letzten bekannten Gerätestatus anzeigt.</string>
     <string name="widget_configuration_title">Gerät auswählen</string>
     <string name="widget_configuration_description">Wähle aus, welches Geräteprofil dieses Widget anzeigen soll.</string>
-    <string name="common_feature_requires_pro_msg">Diese Funktion erfordert CAPod Pro.</string>
     <string name="widget_no_data_label">Keine Daten</string>
     <string name="widget_config_appearance_label">Erscheinungsbild</string>
     <string name="widget_config_preset_label">Voreinstellungen</string>

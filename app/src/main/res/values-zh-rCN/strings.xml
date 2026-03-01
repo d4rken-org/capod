@@ -103,7 +103,6 @@
     <string name="widget_description">显示上次连接设备状态的小部件</string>
     <string name="widget_configuration_title">选择设备</string>
     <string name="widget_configuration_description">选择此部件应显示的设备配置文件。</string>
-    <string name="common_feature_requires_pro_msg">此功能需要 CAPod Pro。</string>
     <string name="widget_no_data_label">暂无数据</string>
     <string name="widget_config_appearance_label">外观</string>
     <string name="widget_config_preset_label">预设</string>

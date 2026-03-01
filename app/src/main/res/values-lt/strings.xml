@@ -103,7 +103,6 @@
     <string name="widget_description">Valdiklis, rodantis paskutinę žinomą įrenginio būseną.</string>
     <string name="widget_configuration_title">Pasirinkite įrenginį</string>
     <string name="widget_configuration_description">Pasirinkite, kurio įrenginio profilį šis valdiklis turėtų rodyti.</string>
-    <string name="common_feature_requires_pro_msg">Šiai funkcijai reikalingas CAPod Pro.</string>
     <string name="widget_no_data_label">Nėra duomenų</string>
     <string name="widget_config_appearance_label">Išvaizda</string>
     <string name="widget_config_preset_label">Nustatymai</string>

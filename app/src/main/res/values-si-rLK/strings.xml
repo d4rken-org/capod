@@ -103,7 +103,6 @@
     <string name="widget_description">අවසාන වරට දන්නා උපාංග තත්ත්වය පෙන්වන විජට් එකක්.</string>
     <string name="widget_configuration_title">උපාංගය තෝරන්න</string>
     <string name="widget_configuration_description">මෙම විජට් එක කුමන උපාංග පැතිකඩ පෙන්විය යුතුද යන්න තෝරන්න.</string>
-    <string name="common_feature_requires_pro_msg">මෙම විශේෂාංගයට CAPod Pro අවශ්‍ය වේ.</string>
     <string name="widget_no_data_label">දත්ත නොමැත</string>
     <string name="widget_config_appearance_label">පෙනුම</string>
     <string name="widget_config_preset_label">පෙර සැකසුම්</string>

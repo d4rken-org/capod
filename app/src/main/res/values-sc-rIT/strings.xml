@@ -103,7 +103,6 @@
     <string name="widget_description">Unu widget chi mustrat s\'ùrtimu istadu connotu de su dispositivu.</string>
     <string name="widget_configuration_title">Seletziona dispositivu</string>
     <string name="widget_configuration_description">Sceglide cale profilu de dispositivu custu widget depet mustrare.</string>
-    <string name="common_feature_requires_pro_msg">Custa funtzione recheret CAPod Pro.</string>
     <string name="widget_no_data_label">Perunu datu</string>
     <string name="widget_config_appearance_label">Apparitzia</string>
     <string name="widget_config_preset_label">Preset</string>

@@ -103,7 +103,6 @@
     <string name="widget_description">Ένα widget που εμφανίζει την τελευταία γνωστή κατάσταση της συσκευής.</string>
     <string name="widget_configuration_title">Επιλογή συσκευής</string>
     <string name="widget_configuration_description">Επιλέξτε ποιο προφίλ συσκευής θα εμφανίζει αυτό το widget.</string>
-    <string name="common_feature_requires_pro_msg">Αυτή η λειτουργία απαιτεί CAPod Pro.</string>
     <string name="widget_no_data_label">Δεν υπάρχουν δεδομένα</string>
     <string name="widget_config_appearance_label">Εμφάνιση</string>
     <string name="widget_config_preset_label">Προρυθμίσεις</string>

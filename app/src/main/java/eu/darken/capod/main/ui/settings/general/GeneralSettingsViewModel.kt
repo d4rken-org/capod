@@ -1,9 +1,11 @@
 package eu.darken.capod.main.ui.settings.general
 
+import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.flow.shareLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.theming.ThemeColor
@@ -11,18 +13,24 @@ import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeState
 import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.common.uix.ViewModel4
+import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
+import eu.darken.capod.main.core.themeState
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
 class GeneralSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel4(dispatcherProvider) {
 
     data class State(
+        val isPro: Boolean,
         val monitorMode: MonitorMode,
         val scannerMode: ScannerMode,
         val showConnectedNotification: Boolean,
@@ -32,6 +40,10 @@ class GeneralSettingsViewModel @Inject constructor(
         val useIndirectScanResultCallback: Boolean,
         val themeState: ThemeState,
     )
+
+    private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.shareLatest(scope = vmScope)
+
+    val launchUpgradeFlow = SingleEventFlow<(Activity) -> Unit>()
 
     val state = combine(
         combine(
@@ -52,8 +64,10 @@ class GeneralSettingsViewModel @Inject constructor(
             arrayOf<Any>(filtering as Any, batching as Any, indirect as Any)
         },
         generalSettings.themeState,
-    ) { general, compat, themeState ->
+        isPro,
+    ) { general, compat, themeState, isPro ->
         State(
+            isPro = isPro,
             monitorMode = general[0] as MonitorMode,
             scannerMode = general[1] as ScannerMode,
             showConnectedNotification = general[2] as Boolean,
@@ -93,16 +107,28 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.useIndirectScanResultCallback.value = enabled
     }
 
-    fun setThemeMode(mode: ThemeMode) {
-        generalSettings.themeMode.value = mode
+    fun setThemeMode(mode: ThemeMode) = launch {
+        if (isPro.first()) {
+            generalSettings.themeMode.value = mode
+        } else {
+            launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+        }
     }
 
-    fun setThemeStyle(style: ThemeStyle) {
-        generalSettings.themeStyle.value = style
+    fun setThemeStyle(style: ThemeStyle) = launch {
+        if (isPro.first()) {
+            generalSettings.themeStyle.value = style
+        } else {
+            launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+        }
     }
 
-    fun setThemeColor(color: ThemeColor) {
-        generalSettings.themeColor.value = color
+    fun setThemeColor(color: ThemeColor) = launch {
+        if (isPro.first()) {
+            generalSettings.themeColor.value = color
+        } else {
+            launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+        }
     }
 
     fun goToDebugSettings() {

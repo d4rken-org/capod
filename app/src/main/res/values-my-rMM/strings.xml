@@ -103,7 +103,6 @@
     <string name="widget_description">စက်ပစ္စည်း၏ နောက်ဆုံးသိရှိထားသော အခြေအနေကိုပြသသည့် ဝစ်ဂျက်။</string>
     <string name="widget_configuration_title">စက်ပစ္စည်းရွေးချယ်ပါ</string>
     <string name="widget_configuration_description">ဤဝစ်ဂျက်တွင် မည်သည့်စက်ပစ္စည်းပရိုဖိုင်ကို ပြသမည်ကို ရွေးချယ်ပါ။</string>
-    <string name="common_feature_requires_pro_msg">ဤအင်္ဂါရပ်အတွက် CAPod Pro လိုအပ်သည်။</string>
     <string name="widget_no_data_label">ဒေတာမရှိပါ</string>
     <string name="widget_config_appearance_label">အသွင်အပြင်</string>
     <string name="widget_config_preset_label">စိတ်ကြိုက်ချမ်းသာများ</string>

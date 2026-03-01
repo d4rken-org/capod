@@ -103,7 +103,6 @@
     <string name="widget_description">Төхөөрөмжийн хамгийн сүүлийн үеийн мэдэгдэж буй төлвийг харуулсан виджет.</string>
     <string name="widget_configuration_title">Төхөөрөмж сонгох</string>
     <string name="widget_configuration_description">Энэ виджет аль төхөөрөмжийн профайлыг харуулахыг сонгоно уу.</string>
-    <string name="common_feature_requires_pro_msg">Энэ функц нь CAPod Pro шаарддаг.</string>
     <string name="widget_no_data_label">Өгөгдөл алга</string>
     <string name="widget_config_appearance_label">Гадаад төрх</string>
     <string name="widget_config_preset_label">Урьдчилсан сонголтууд</string>

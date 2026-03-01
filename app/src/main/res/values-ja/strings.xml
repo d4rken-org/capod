@@ -103,7 +103,6 @@
     <string name="widget_description">デバイスの最後に確認されたステータスを表示するウィジェット。</string>
     <string name="widget_configuration_title">デバイスを選択</string>
     <string name="widget_configuration_description">このウィジェットに表示するデバイスプロファイルを選択してください。</string>
-    <string name="common_feature_requires_pro_msg">この機能にはCAPod Proが必要です。</string>
     <string name="widget_no_data_label">データなし</string>
     <string name="widget_config_appearance_label">外観</string>
     <string name="widget_config_preset_label">プリセット</string>

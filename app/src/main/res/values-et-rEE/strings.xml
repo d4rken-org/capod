@@ -103,7 +103,6 @@
     <string name="widget_description">Viimast teadaolevat seadme seisu näitab vidin.</string>
     <string name="widget_configuration_title">Vali seade</string>
     <string name="widget_configuration_description">Valige, millist seadmeprofiili see vidin võiks kuvada.</string>
-    <string name="common_feature_requires_pro_msg">Selleks on vaja osta CAPod Pro.</string>
     <string name="widget_no_data_label">Andmed puuduvad</string>
     <string name="widget_config_appearance_label">Välimus</string>
     <string name="widget_config_preset_label">Eelseadistused</string>

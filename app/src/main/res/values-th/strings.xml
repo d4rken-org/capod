@@ -103,7 +103,6 @@
     <string name="widget_description">วิดเจ็ตที่แสดงสถานะอุปกรณ์ล่าสุดที่ทราบ</string>
     <string name="widget_configuration_title">เลือกอุปกรณ์</string>
     <string name="widget_configuration_description">เลือกโปรไฟล์อุปกรณ์ที่วิดเจ็ตนี้ควรแสดง</string>
-    <string name="common_feature_requires_pro_msg">คุณสมบัตินี้ต้องการ CAPod Pro</string>
     <string name="widget_no_data_label">ไม่มีข้อมูล</string>
     <string name="widget_config_appearance_label">ลักษณะที่ปรากฏ</string>
     <string name="widget_config_preset_label">พรีเซ็ต</string>

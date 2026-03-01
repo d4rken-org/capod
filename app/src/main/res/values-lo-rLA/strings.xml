@@ -103,7 +103,6 @@
     <string name="widget_description">ວິດເຈັດສະແດງສະຖານະອຸປະກອນທີ່ຮູ້ຈັກຫຼ້າສຸດ.</string>
     <string name="widget_configuration_title">ເລືອກອຸປະກອນ</string>
     <string name="widget_configuration_description">ເລືອກໂປຣໄຟລ໌ອຸປະກອນທີ່ວິດເຈັດນີ້ຄວນສະແດງ.</string>
-    <string name="common_feature_requires_pro_msg">ຄຸນສົມບັດນີ້ຕ້ອງການ CAPod Pro.</string>
     <string name="widget_no_data_label">ບໍ່ມີຂໍ້ມູນ</string>
     <string name="widget_config_appearance_label">ລັກສະການ</string>
     <string name="widget_config_preset_label">ຕັ້ງໂຫມດ</string>

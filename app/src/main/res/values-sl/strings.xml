@@ -103,7 +103,6 @@
     <string name="widget_description">Pripomoček, ki prikazuje zadnje znano stanje naprave.</string>
     <string name="widget_configuration_title">Izberi napravo</string>
     <string name="widget_configuration_description">Izberite, kateri profil naprave naj ta pripomoček prikazuje.</string>
-    <string name="common_feature_requires_pro_msg">Ta funkcija zahteva CAPod Pro.</string>
     <string name="widget_no_data_label">Ni podatkov</string>
     <string name="widget_config_appearance_label">Videz</string>
     <string name="widget_config_preset_label">Prednastavke</string>

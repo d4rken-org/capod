@@ -103,7 +103,6 @@
     <string name="widget_description">Een widget dat de laatst gekende apparaatstatus toont.</string>
     <string name="widget_configuration_title">Selecteer Apparaat</string>
     <string name="widget_configuration_description">Kies welk apparaatprofiel deze widget moet weergeven.</string>
-    <string name="common_feature_requires_pro_msg">Voor deze functie is CAPod Pro vereist.</string>
     <string name="widget_no_data_label">Geen data</string>
     <string name="widget_config_appearance_label">Uiterlijk</string>
     <string name="widget_config_preset_label">Vooringestelde waarden</string>

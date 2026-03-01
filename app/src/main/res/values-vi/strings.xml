@@ -103,7 +103,6 @@
     <string name="widget_description">Một widget hiển thị trạng thái thiết bị được biết đến gần đây nhất.</string>
     <string name="widget_configuration_title">Chọn thiết bị</string>
     <string name="widget_configuration_description">Chọn hồ sơ thiết bị mà tiện ích này sẽ hiển thị.</string>
-    <string name="common_feature_requires_pro_msg">Tính năng này yêu cầu CAPod Pro.</string>
     <string name="widget_no_data_label">Không có dữ liệu</string>
     <string name="widget_config_appearance_label">Giao diện</string>
     <string name="widget_config_preset_label">Cài đặt sẵn</string>

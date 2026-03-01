@@ -103,7 +103,6 @@
     <string name="widget_description">Widget, joka näyttää laitteen viimeisimmän tunnetun tilan.</string>
     <string name="widget_configuration_title">Valitse laite</string>
     <string name="widget_configuration_description">Valitse, minkä laiteprofiilin tämä widget näyttää.</string>
-    <string name="common_feature_requires_pro_msg">Tämä ominaisuus vaatii CAPod Pron.</string>
     <string name="widget_no_data_label">Ei tietoja</string>
     <string name="widget_config_appearance_label">Ulkoasu</string>
     <string name="widget_config_preset_label">Esiasetukset</string>

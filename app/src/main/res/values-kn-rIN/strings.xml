@@ -103,7 +103,6 @@
     <string name="widget_description">ಸಾಧನದ ಕೊನೆಯದಾಗಿ ತಿಳಿದಿರುವ ಸ್ಥಿತಿಯನ್ನು ತೋರಿಸುವ ವಿಜೆಟ್.</string>
     <string name="widget_configuration_title">ಸಾಧನ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="widget_configuration_description">ಈ ವಿಜೆಟ್ ಯಾವ ಸಾಧನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
-    <string name="common_feature_requires_pro_msg">ಈ ವೈಶಿಷ್ಟ್ಯಕ್ಕೆ CAPod Pro ಅಗತ್ಯವಿದೆ.</string>
     <string name="widget_no_data_label">ಡೇಟಾ ಇಲ್ಲ</string>
     <string name="widget_config_appearance_label">ನೋಟ</string>
     <string name="widget_config_preset_label">ಪೂರ್ವನಿರ್ಧಾರಿತಗಳು</string>

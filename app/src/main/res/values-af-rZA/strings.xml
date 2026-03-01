@@ -103,7 +103,6 @@
     <string name="widget_description">\'n Legstuk wat die laas bekende toestelstatus wys.</string>
     <string name="widget_configuration_title">Kies toestel</string>
     <string name="widget_configuration_description">Kies watter toestelprofiel hierdie legstuk moet wys.</string>
-    <string name="common_feature_requires_pro_msg">Hierdie kenmerk vereis CAPod Pro.</string>
     <string name="widget_no_data_label">Geen data</string>
     <string name="widget_config_appearance_label">Voorkoms</string>
     <string name="widget_config_preset_label">Voorafstellings</string>

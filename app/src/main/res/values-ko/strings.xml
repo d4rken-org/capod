@@ -103,7 +103,6 @@
     <string name="widget_description">마지막으로 알려진 기기 상태를 표시하는 위젯입니다.</string>
     <string name="widget_configuration_title">기기 선택</string>
     <string name="widget_configuration_description">이 위젯에 표시할 기기 프로필을 선택해 주세요.</string>
-    <string name="common_feature_requires_pro_msg">이 기능을 사용하기 위해  CAPod Pro가 필요합니다.</string>
     <string name="widget_no_data_label">데이터 없음</string>
     <string name="widget_config_appearance_label">외관</string>
     <string name="widget_config_preset_label">사전 설정</string>

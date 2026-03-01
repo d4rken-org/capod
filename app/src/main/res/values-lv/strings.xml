@@ -103,7 +103,6 @@
     <string name="widget_description">Logrīks, kas rāda pēdējo zināmo ierīces statusu.</string>
     <string name="widget_configuration_title">Izvēlieties ierīci</string>
     <string name="widget_configuration_description">Izvēlieties, kuru ierīces profilu šim logrīkam vajadzētu rādīt.</string>
-    <string name="common_feature_requires_pro_msg">Šī funkcija prasa CAPod Pro.</string>
     <string name="widget_no_data_label">Nav datu</string>
     <string name="widget_config_appearance_label">Izskats</string>
     <string name="widget_config_preset_label">Priekšiestatījumi</string>
