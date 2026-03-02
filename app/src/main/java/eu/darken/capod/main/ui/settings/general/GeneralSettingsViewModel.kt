@@ -131,6 +131,10 @@ class GeneralSettingsViewModel @Inject constructor(
         }
     }
 
+    fun launchUpgrade() = launch {
+        launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+    }
+
     fun goToDebugSettings() {
         navTo(Nav.Settings.Debug)
     }
