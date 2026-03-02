@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -89,6 +90,7 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             onThemeModeSelected = { mode -> vm.setThemeMode(mode) },
             onThemeStyleSelected = { style -> vm.setThemeStyle(style) },
             onThemeColorSelected = { color -> vm.setThemeColor(color) },
+            onUpgrade = { vm.launchUpgrade() },
         )
     }
 }
@@ -109,6 +111,7 @@ fun GeneralSettingsScreen(
     onThemeModeSelected: (ThemeMode) -> Unit = {},
     onThemeStyleSelected: (ThemeStyle) -> Unit = {},
     onThemeColorSelected: (ThemeColor) -> Unit = {},
+    onUpgrade: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
     var showMonitorModeDialog by remember { mutableStateOf(false) }
@@ -155,16 +158,20 @@ fun GeneralSettingsScreen(
                 )
             }
             item {
-                SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
-            }
-            if (!state.isPro) {
-                item {
-                    Text(
-                        text = stringResource(R.string.common_feature_requires_pro_msg),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.error,
-                        modifier = Modifier.padding(start = 56.dp, end = 16.dp, bottom = 4.dp),
-                    )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
+                    if (!state.isPro) {
+                        Spacer(modifier = Modifier.weight(1f))
+                        TextButton(
+                            onClick = onUpgrade,
+                            modifier = Modifier.padding(end = 4.dp),
+                        ) {
+                            Text(
+                                text = stringResource(R.string.common_feature_requires_pro_msg),
+                                style = MaterialTheme.typography.labelSmall,
+                            )
+                        }
+                    }
                 }
             }
             item {
