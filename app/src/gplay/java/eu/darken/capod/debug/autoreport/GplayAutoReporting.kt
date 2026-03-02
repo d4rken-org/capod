@@ -12,6 +12,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import javax.inject.Inject
 import javax.inject.Singleton
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class GplayAutoReporting @Inject constructor(
@@ -21,7 +22,7 @@ class GplayAutoReporting @Inject constructor(
 ) : AutomaticBugReporter {
 
     override fun setup(application: Application) {
-        val isEnabled = debugSettings.isAutoReportingEnabled.value
+        val isEnabled = debugSettings.isAutoReportingEnabled.valueBlocking
         log(TAG) { "setup(): isEnabled=$isEnabled" }
 
         if (!isEnabled) return

@@ -1,101 +1,93 @@
 package eu.darken.capod.main.core
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceDataStore
-import com.squareup.moshi.Moshi
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.SharedPreferencesMigration
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.ScannerMode
-import eu.darken.capod.common.debug.DebugSettings
-import eu.darken.capod.common.preferences.PreferenceStoreMapper
-import eu.darken.capod.common.preferences.Settings
-import eu.darken.capod.common.preferences.createFlowPreference
+import eu.darken.capod.common.datastore.createValue
+import eu.darken.capod.common.serialization.ByteArrayBase64Serializer
+import eu.darken.capod.common.serialization.SerializationCapod
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
+import kotlinx.serialization.builtins.nullable
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class GeneralSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    debugSettings: DebugSettings,
-    moshi: Moshi,
-) : Settings() {
+    @SerializationCapod json: Json,
+) {
 
-    override val preferences: SharedPreferences = context.getSharedPreferences("settings_general", Context.MODE_PRIVATE)
+    private val Context.dataStore by preferencesDataStore(
+        name = "settings_general",
+        produceMigrations = { ctx -> listOf(SharedPreferencesMigration(ctx, "settings_general")) }
+    )
 
-    val monitorMode = preferences.createFlowPreference("core.monitor.mode", MonitorMode.AUTOMATIC, moshi)
+    private val dataStore: DataStore<Preferences> get() = context.dataStore
 
-    val useExtraMonitorNotification = preferences.createFlowPreference("core.monitor.notification.connected", false)
+    val monitorMode = dataStore.createValue("core.monitor.mode", MonitorMode.AUTOMATIC, json, onErrorFallbackToDefault = true)
+
+    val useExtraMonitorNotification = dataStore.createValue("core.monitor.notification.connected", false)
 
     val keepConnectedNotificationAfterDisconnect =
-        preferences.createFlowPreference("core.monitor.notification.connected.keepafterdisconnected", false)
+        dataStore.createValue("core.monitor.notification.connected.keepafterdisconnected", false)
 
-    val scannerMode = preferences.createFlowPreference("core.scanner.mode", ScannerMode.BALANCED, moshi)
+    val scannerMode = dataStore.createValue("core.scanner.mode", ScannerMode.BALANCED, json, onErrorFallbackToDefault = true)
 
-    val oldMinimumSignalQuality = preferences.createFlowPreference("core.signal.minimum", 0.20f)
+    val oldMinimumSignalQuality = dataStore.createValue("core.signal.minimum", 0.20f)
 
-    val oldMainDeviceAddress = preferences.createFlowPreference<BluetoothAddress?>("core.maindevice.address", null)
-
-    val oldMainDeviceModel = preferences.createFlowPreference("core.maindevice.model", PodDevice.Model.UNKNOWN, moshi)
-
-    val oldMainDeviceIdentityKey = preferences.createFlowPreference<IdentityResolvingKey?>(
-        "core.maindevice.identitykey",
-        null,
-        moshi
+    val oldMainDeviceAddress = dataStore.createValue<BluetoothAddress?>(
+        key = stringPreferencesKey("core.maindevice.address"),
+        reader = { raw -> raw as? String },
+        writer = { value -> value },
     )
 
-    val oldMainDeviceEncryptionKey = preferences.createFlowPreference<ProximityEncryptionKey?>(
-        "core.maindevice.encryptionkey",
-        null,
-        moshi
+    val oldMainDeviceModel = dataStore.createValue("core.maindevice.model", PodDevice.Model.UNKNOWN, json, onErrorFallbackToDefault = true)
+
+    val oldMainDeviceIdentityKey = dataStore.createValue<IdentityResolvingKey?>(
+        key = "core.maindevice.identitykey",
+        defaultValue = null,
+        json = json,
+        serializer = ByteArrayBase64Serializer.nullable,
+        onErrorFallbackToDefault = true,
     )
 
-    val isOffloadedFilteringDisabled = preferences.createFlowPreference(
-        "core.compat.offloaded.filtering.disabled",
-        false
+    val oldMainDeviceEncryptionKey = dataStore.createValue<ProximityEncryptionKey?>(
+        key = "core.maindevice.encryptionkey",
+        defaultValue = null,
+        json = json,
+        serializer = ByteArrayBase64Serializer.nullable,
+        onErrorFallbackToDefault = true,
     )
-    val isOffloadedBatchingDisabled = preferences.createFlowPreference("core.compat.offloaded.batching.disabled", false)
-    val useIndirectScanResultCallback = preferences.createFlowPreference("core.compat.indirectcallback.enabled", false)
 
-    val isOnboardingDone = preferences.createFlowPreference("core.onboarding.done", false)
+    val isOffloadedFilteringDisabled = dataStore.createValue("core.compat.offloaded.filtering.disabled", false)
+    val isOffloadedBatchingDisabled = dataStore.createValue("core.compat.offloaded.batching.disabled", false)
+    val useIndirectScanResultCallback = dataStore.createValue("core.compat.indirectcallback.enabled", false)
 
-    val themeMode = preferences.createFlowPreference(
-        "core.ui.theme.mode",
-        ThemeMode.SYSTEM,
-        moshi,
+    val isOnboardingDone = dataStore.createValue("core.onboarding.done", false)
+
+    val themeMode = dataStore.createValue(
+        "core.ui.theme.mode", ThemeMode.SYSTEM, json,
         onErrorFallbackToDefault = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.DEV,
     )
-    val themeStyle = preferences.createFlowPreference(
-        "core.ui.theme.style",
-        ThemeStyle.DEFAULT,
-        moshi,
+    val themeStyle = dataStore.createValue(
+        "core.ui.theme.style", ThemeStyle.DEFAULT, json,
         onErrorFallbackToDefault = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.DEV,
     )
-    val themeColor = preferences.createFlowPreference(
-        "core.ui.theme.color",
-        ThemeColor.BLUE,
-        moshi,
+    val themeColor = dataStore.createValue(
+        "core.ui.theme.color", ThemeColor.BLUE, json,
         onErrorFallbackToDefault = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.DEV,
-    )
-
-    override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
-        monitorMode,
-        useExtraMonitorNotification,
-        keepConnectedNotificationAfterDisconnect,
-        scannerMode,
-        isOffloadedFilteringDisabled,
-        isOffloadedBatchingDisabled,
-        useIndirectScanResultCallback,
-        themeMode,
-        themeStyle,
-        themeColor,
-        debugSettings.isAutoReportingEnabled,
     )
 }

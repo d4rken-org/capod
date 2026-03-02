@@ -9,6 +9,7 @@ import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class OnboardingViewModel @Inject constructor(
@@ -22,7 +23,7 @@ class OnboardingViewModel @Inject constructor(
     }
 
     fun finishOnboarding() = launch {
-        generalSettings.isOnboardingDone.value = true
+        generalSettings.isOnboardingDone.valueBlocking = true
         navTo(Nav.Main.Overview, popUpTo = Nav.Main.Onboarding, inclusive = true)
     }
 

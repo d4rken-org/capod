@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class ReactionSettingsViewModel @Inject constructor(
@@ -59,16 +60,16 @@ class ReactionSettingsViewModel @Inject constructor(
     }.asLiveState()
 
     fun setOnePodMode(enabled: Boolean) {
-        reactionSettings.onePodMode.value = enabled
+        reactionSettings.onePodMode.valueBlocking = enabled
     }
 
     fun setAutoPlay(enabled: Boolean) = launch {
         if (!enabled) {
-            reactionSettings.autoPlay.value = false
+            reactionSettings.autoPlay.valueBlocking = false
             return@launch
         }
         if (isPro.first()) {
-            reactionSettings.autoPlay.value = true
+            reactionSettings.autoPlay.valueBlocking = true
         } else {
             navTo(Nav.Main.Upgrade)
         }
@@ -76,11 +77,11 @@ class ReactionSettingsViewModel @Inject constructor(
 
     fun setAutoPause(enabled: Boolean) = launch {
         if (!enabled) {
-            reactionSettings.autoPause.value = false
+            reactionSettings.autoPause.valueBlocking = false
             return@launch
         }
         if (isPro.first()) {
-            reactionSettings.autoPause.value = true
+            reactionSettings.autoPause.valueBlocking = true
         } else {
             navTo(Nav.Main.Upgrade)
         }
@@ -88,28 +89,28 @@ class ReactionSettingsViewModel @Inject constructor(
 
     fun setAutoConnect(enabled: Boolean) = launch {
         if (!enabled) {
-            reactionSettings.autoConnect.value = false
+            reactionSettings.autoConnect.valueBlocking = false
             return@launch
         }
         if (isPro.first()) {
-            reactionSettings.autoConnect.value = true
-            generalSettings.monitorMode.value = MonitorMode.ALWAYS
+            reactionSettings.autoConnect.valueBlocking = true
+            generalSettings.monitorMode.valueBlocking = MonitorMode.ALWAYS
         } else {
             navTo(Nav.Main.Upgrade)
         }
     }
 
     fun setAutoConnectCondition(condition: AutoConnectCondition) {
-        reactionSettings.autoConnectCondition.value = condition
+        reactionSettings.autoConnectCondition.valueBlocking = condition
     }
 
     fun setShowPopUpOnCaseOpen(enabled: Boolean) = launch {
         if (!enabled) {
-            reactionSettings.showPopUpOnCaseOpen.value = false
+            reactionSettings.showPopUpOnCaseOpen.valueBlocking = false
             return@launch
         }
         if (isPro.first()) {
-            reactionSettings.showPopUpOnCaseOpen.value = true
+            reactionSettings.showPopUpOnCaseOpen.valueBlocking = true
         } else {
             navTo(Nav.Main.Upgrade)
         }
@@ -117,11 +118,11 @@ class ReactionSettingsViewModel @Inject constructor(
 
     fun setShowPopUpOnConnection(enabled: Boolean) = launch {
         if (!enabled) {
-            reactionSettings.showPopUpOnConnection.value = false
+            reactionSettings.showPopUpOnConnection.valueBlocking = false
             return@launch
         }
         if (isPro.first()) {
-            reactionSettings.showPopUpOnConnection.value = true
+            reactionSettings.showPopUpOnConnection.valueBlocking = true
         } else {
             navTo(Nav.Main.Upgrade)
         }

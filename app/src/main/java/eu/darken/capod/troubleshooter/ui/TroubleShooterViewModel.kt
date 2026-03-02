@@ -30,6 +30,7 @@ import kotlinx.coroutines.flow.takeWhile
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class TroubleShooterViewModel @Inject constructor(
@@ -80,7 +81,7 @@ class TroubleShooterViewModel @Inject constructor(
     fun troubleShootBle() = launch(context = dispatcherProvider.IO) {
         log(TAG) { "troubleShootBle()" }
 
-        generalSettings.scannerMode.value = ScannerMode.LOW_LATENCY
+        generalSettings.scannerMode.valueBlocking = ScannerMode.LOW_LATENCY
 
         run {
             progress("Checking for headphones...")
@@ -105,10 +106,10 @@ class TroubleShooterViewModel @Inject constructor(
             sb.append("indirectCallback=$indirectCallback, ")
             sb.append("unfiltered=$unfiltered")
             progress(sb.toString())
-            generalSettings.isOffloadedFilteringDisabled.value = hardwareFilteringDisabled
-            generalSettings.isOffloadedBatchingDisabled.value = hardwareBatchingDisabled
-            generalSettings.useIndirectScanResultCallback.value = indirectCallback
-            debugSettings.showUnfiltered.value = unfiltered
+            generalSettings.isOffloadedFilteringDisabled.valueBlocking = hardwareFilteringDisabled
+            generalSettings.isOffloadedBatchingDisabled.valueBlocking = hardwareBatchingDisabled
+            generalSettings.useIndirectScanResultCallback.valueBlocking = indirectCallback
+            debugSettings.showUnfiltered.valueBlocking = unfiltered
 
             val start = System.currentTimeMillis()
             val devices = withTimeoutOrNull(STEP_TIME) {
@@ -142,10 +143,10 @@ class TroubleShooterViewModel @Inject constructor(
 
             failure("Phone is not receiving BLE data.", BleState.Result.Failure.Type.PHONE)
 
-            generalSettings.isOffloadedFilteringDisabled.value = false
-            generalSettings.isOffloadedBatchingDisabled.value = false
-            generalSettings.useIndirectScanResultCallback.value = false
-            debugSettings.showUnfiltered.value = false
+            generalSettings.isOffloadedFilteringDisabled.valueBlocking = false
+            generalSettings.isOffloadedBatchingDisabled.valueBlocking = false
+            generalSettings.useIndirectScanResultCallback.valueBlocking = false
+            debugSettings.showUnfiltered.valueBlocking = false
 
             return@launch
         }
@@ -166,9 +167,9 @@ class TroubleShooterViewModel @Inject constructor(
 
             failure("No compatible headphones found", BleState.Result.Failure.Type.HEADPHONES)
 
-            generalSettings.isOffloadedFilteringDisabled.value = false
-            generalSettings.isOffloadedBatchingDisabled.value = false
-            generalSettings.useIndirectScanResultCallback.value = false
+            generalSettings.isOffloadedFilteringDisabled.valueBlocking = false
+            generalSettings.isOffloadedBatchingDisabled.valueBlocking = false
+            generalSettings.useIndirectScanResultCallback.valueBlocking = false
 
             return@launch
         }
@@ -229,7 +230,7 @@ class TroubleShooterViewModel @Inject constructor(
                 podMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
 
-            generalSettings.scannerMode.value = ScannerMode.BALANCED
+            generalSettings.scannerMode.valueBlocking = ScannerMode.BALANCED
 
             if (mainDevice != null) {
                 success("Success! Detected your headphones.")

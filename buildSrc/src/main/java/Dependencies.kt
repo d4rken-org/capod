@@ -131,6 +131,10 @@ fun DependencyHandlerScope.addSerialization() {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Serialization.core}")
 }
 
+fun DependencyHandlerScope.addDataStore() {
+    implementation("androidx.datastore:datastore-preferences:1.1.4")
+}
+
 fun DependencyHandlerScope.addGlance() {
     implementation("androidx.glance:glance-appwidget:${Versions.Glance.core}")
     implementation("androidx.glance:glance-material3:${Versions.Glance.core}")

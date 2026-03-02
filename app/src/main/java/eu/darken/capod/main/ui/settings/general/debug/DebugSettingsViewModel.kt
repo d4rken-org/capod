@@ -8,6 +8,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel4
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class DebugSettingsViewModel @Inject constructor(
@@ -34,15 +35,15 @@ class DebugSettingsViewModel @Inject constructor(
     }.asLiveState()
 
     fun setDebugModeEnabled(enabled: Boolean) {
-        debugSettings.isDebugModeEnabled.value = enabled
+        debugSettings.isDebugModeEnabled.valueBlocking = enabled
     }
 
     fun setShowFakeData(enabled: Boolean) {
-        debugSettings.showFakeData.value = enabled
+        debugSettings.showFakeData.valueBlocking = enabled
     }
 
     fun setShowUnfiltered(enabled: Boolean) {
-        debugSettings.showUnfiltered.value = enabled
+        debugSettings.showUnfiltered.valueBlocking = enabled
     }
 
     companion object {

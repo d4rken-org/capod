@@ -1,38 +1,37 @@
 package eu.darken.capod.common.debug
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceDataStore
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.SharedPreferencesMigration
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
-import eu.darken.capod.common.preferences.PreferenceStoreMapper
-import eu.darken.capod.common.preferences.Settings
-import eu.darken.capod.common.preferences.createFlowPreference
+import eu.darken.capod.common.datastore.createValue
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class DebugSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-) : Settings() {
+) {
 
-    override val preferences: SharedPreferences = context.getSharedPreferences("settings_debug", Context.MODE_PRIVATE)
+    private val Context.dataStore by preferencesDataStore(
+        name = "settings_debug",
+        produceMigrations = { ctx -> listOf(SharedPreferencesMigration(ctx, "settings_debug")) }
+    )
 
-    val isAutoReportingEnabled = preferences.createFlowPreference(
+    private val dataStore: DataStore<Preferences> get() = context.dataStore
+
+    val isAutoReportingEnabled = dataStore.createValue(
         key = "debug.bugreport.automatic.enabled",
         // Reporting is opt-out for gplay, and opt-in for github builds
         defaultValue = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
     )
-    val isDebugModeEnabled = preferences.createFlowPreference("debug.mode.enabled", false)
+    val isDebugModeEnabled = dataStore.createValue("debug.mode.enabled", false)
 
-    val showFakeData = preferences.createFlowPreference("debug.fakedata.enabled", false)
+    val showFakeData = dataStore.createValue("debug.fakedata.enabled", false)
 
-    val showUnfiltered = preferences.createFlowPreference("debug.blescanner.unfiltered.enabled", false)
-
-    override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper(
-        isDebugModeEnabled,
-        showFakeData,
-        showUnfiltered,
-    )
+    val showUnfiltered = dataStore.createValue("debug.blescanner.unfiltered.enabled", false)
 
 }

@@ -31,6 +31,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.main.core.themeState
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @AndroidEntryPoint
 class MainActivity : Activity2() {
@@ -44,7 +45,7 @@ class MainActivity : Activity2() {
         installSplashScreen()
         enableEdgeToEdge()
 
-        val startDestination: NavKey = if (generalSettings.isOnboardingDone.value) {
+        val startDestination: NavKey = if (generalSettings.isOnboardingDone.valueBlocking) {
             Nav.Main.Overview
         } else {
             Nav.Main.Onboarding
@@ -99,7 +100,7 @@ class MainActivity : Activity2() {
     private fun consumeUpgradeExtra(intent: Intent?) {
         if (intent?.getBooleanExtra(EXTRA_NAVIGATE_TO_UPGRADE, false) == true) {
             intent.removeExtra(EXTRA_NAVIGATE_TO_UPGRADE)
-            if (generalSettings.isOnboardingDone.value) {
+            if (generalSettings.isOnboardingDone.valueBlocking) {
                 navCtrl.goTo(Nav.Main.Upgrade)
             }
         }
