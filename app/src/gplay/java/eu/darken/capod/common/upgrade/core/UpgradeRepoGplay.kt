@@ -18,6 +18,7 @@ import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.pow
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
@@ -27,8 +28,8 @@ class UpgradeRepoGplay @Inject constructor(
 ) : UpgradeRepo {
 
     private var lastProStateAt: Long
-        get() = billingCache.lastProStateAt.value
-        set(value) = billingCache.lastProStateAt.update { value }
+        get() = billingCache.lastProStateAt.valueBlocking
+        set(value) { billingCache.lastProStateAt.valueBlocking = value }
 
     override val upgradeInfo: Flow<UpgradeRepo.Info> = billingDataRepo.billingData
         .map { data -> // Only relinquish pro state if we haven't had it for a while

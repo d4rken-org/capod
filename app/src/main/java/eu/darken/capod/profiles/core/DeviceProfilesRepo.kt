@@ -17,6 +17,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import javax.inject.Singleton
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class DeviceProfilesRepo @Inject constructor(
@@ -31,66 +32,66 @@ class DeviceProfilesRepo @Inject constructor(
 
     init {
         scope.launch {
-            if (settings.defaultProfileCreated.value) return@launch
+            if (settings.defaultProfileCreated.valueBlocking) return@launch
 
 
             log(TAG) { "Creating default profile" }
             var defaultProfile = AppleDeviceProfile(
                 label = context.getString(R.string.profiles_name_default),
             )
-            if (!settings.singleToMultiMigrationDone.value) {
+            if (!settings.singleToMultiMigrationDone.valueBlocking) {
                 log(TAG) { "Migrating settings default profile" }
                 defaultProfile = defaultProfile.copy(
-                    minimumSignalQuality = generalSettings.oldMinimumSignalQuality.value,
-                    model = generalSettings.oldMainDeviceModel.value,
-                    address = generalSettings.oldMainDeviceAddress.value,
-                    identityKey = generalSettings.oldMainDeviceIdentityKey.value,
-                    encryptionKey = generalSettings.oldMainDeviceEncryptionKey.value,
+                    minimumSignalQuality = generalSettings.oldMinimumSignalQuality.valueBlocking,
+                    model = generalSettings.oldMainDeviceModel.valueBlocking,
+                    address = generalSettings.oldMainDeviceAddress.valueBlocking,
+                    identityKey = generalSettings.oldMainDeviceIdentityKey.valueBlocking,
+                    encryptionKey = generalSettings.oldMainDeviceEncryptionKey.valueBlocking,
                 )
-                settings.singleToMultiMigrationDone.value = true
+                settings.singleToMultiMigrationDone.valueBlocking = true
             }
 
             log(TAG) { "Default profile: $defaultProfile" }
             addProfile(defaultProfile)
-            settings.defaultProfileCreated.value = true
+            settings.defaultProfileCreated.valueBlocking = true
         }
     }
 
     val profiles: Flow<List<DeviceProfile>> = settings.profiles.flow.map { it.profiles }
 
     suspend fun addProfile(profile: DeviceProfile, addFirst: Boolean = false) = mutex.withLock {
-        val currentContainer = settings.profiles.value
+        val currentContainer = settings.profiles.valueBlocking
         val updatedProfiles = currentContainer.profiles.toMutableList().apply {
             if (addFirst) add(0, profile) else add(profile)
         }.toList()
-        settings.profiles.value = DeviceProfilesContainer(updatedProfiles)
+        settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Added device profile: ${profile.label}" }
     }
 
     suspend fun updateProfile(profile: DeviceProfile) = mutex.withLock {
-        val currentContainer = settings.profiles.value
+        val currentContainer = settings.profiles.valueBlocking
         val updatedProfiles = currentContainer.profiles.map {
             if (it.id == profile.id) profile else it
         }
-        settings.profiles.value = DeviceProfilesContainer(updatedProfiles)
+        settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Updated device profile: ${profile.label}" }
     }
 
     suspend fun removeProfile(profileId: ProfileId) = mutex.withLock {
-        val currentContainer = settings.profiles.value
+        val currentContainer = settings.profiles.valueBlocking
         val updatedProfiles = currentContainer.profiles.filter { it.id != profileId }
-        settings.profiles.value = DeviceProfilesContainer(updatedProfiles)
+        settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Removed device profile with ID: $profileId" }
         podDeviceCache.delete(profileId)
     }
 
     suspend fun reorderProfiles(profiles: List<DeviceProfile>) = mutex.withLock {
-        settings.profiles.value = DeviceProfilesContainer(profiles.toList())
+        settings.profiles.valueBlocking = DeviceProfilesContainer(profiles.toList())
         log(VERBOSE) { "Reordered ${profiles.size} device profiles" }
     }
 
     suspend fun clear() {
-        settings.profiles.value = DeviceProfilesContainer(emptyList())
+        settings.profiles.valueBlocking = DeviceProfilesContainer(emptyList())
     }
 
     companion object {

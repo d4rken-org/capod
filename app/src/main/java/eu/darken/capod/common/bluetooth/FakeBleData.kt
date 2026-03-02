@@ -7,6 +7,7 @@ import eu.darken.capod.common.fromHex
 import java.time.Instant
 import javax.inject.Inject
 import kotlin.random.Random
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Reusable
 class FakeBleData @Inject constructor(
@@ -14,7 +15,7 @@ class FakeBleData @Inject constructor(
 ) {
 
     fun maybeAddfakeData(originals: Collection<BleScanResult>): Collection<BleScanResult> {
-        if (!debugSettings.showFakeData.value) return originals
+        if (!debugSettings.showFakeData.valueBlocking) return originals
         return originals + getFakeData()
     }
 

@@ -6,6 +6,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import eu.darken.capod.profiles.core.DeviceProfile
+import kotlinx.serialization.json.Json
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -20,4 +22,17 @@ class SerializationModule {
         add(DeviceProfile.MOSHI_FACTORY)
     }.build()
 
+    @Provides
+    @Singleton
+    @SerializationCapod
+    fun json(): Json = Json {
+        ignoreUnknownKeys = true
+        encodeDefaults = true
+        explicitNulls = false
+    }
 }
+
+@Qualifier
+@MustBeDocumented
+@Retention(AnnotationRetention.RUNTIME)
+annotation class SerializationCapod

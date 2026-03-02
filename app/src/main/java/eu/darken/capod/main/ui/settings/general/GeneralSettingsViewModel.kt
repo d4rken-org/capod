@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class GeneralSettingsViewModel @Inject constructor(
@@ -75,36 +76,36 @@ class GeneralSettingsViewModel @Inject constructor(
     }.asLiveState()
 
     fun setMonitorMode(mode: MonitorMode) {
-        generalSettings.monitorMode.value = mode
+        generalSettings.monitorMode.valueBlocking = mode
     }
 
     fun setScannerMode(mode: ScannerMode) {
-        generalSettings.scannerMode.value = mode
+        generalSettings.scannerMode.valueBlocking = mode
     }
 
     fun setShowConnectedNotification(enabled: Boolean) {
-        generalSettings.useExtraMonitorNotification.value = enabled
+        generalSettings.useExtraMonitorNotification.valueBlocking = enabled
     }
 
     fun setKeepNotificationAfterDisconnect(enabled: Boolean) {
-        generalSettings.keepConnectedNotificationAfterDisconnect.value = enabled
+        generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking = enabled
     }
 
     fun setOffloadedFilteringDisabled(disabled: Boolean) {
-        generalSettings.isOffloadedFilteringDisabled.value = disabled
+        generalSettings.isOffloadedFilteringDisabled.valueBlocking = disabled
     }
 
     fun setOffloadedBatchingDisabled(disabled: Boolean) {
-        generalSettings.isOffloadedBatchingDisabled.value = disabled
+        generalSettings.isOffloadedBatchingDisabled.valueBlocking = disabled
     }
 
     fun setUseIndirectScanResultCallback(enabled: Boolean) {
-        generalSettings.useIndirectScanResultCallback.value = enabled
+        generalSettings.useIndirectScanResultCallback.valueBlocking = enabled
     }
 
     fun setThemeMode(mode: ThemeMode) = launch {
         if (isPro.first()) {
-            generalSettings.themeMode.value = mode
+            generalSettings.themeMode.valueBlocking = mode
         } else {
             navTo(Nav.Main.Upgrade)
         }
@@ -112,7 +113,7 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setThemeStyle(style: ThemeStyle) = launch {
         if (isPro.first()) {
-            generalSettings.themeStyle.value = style
+            generalSettings.themeStyle.valueBlocking = style
         } else {
             navTo(Nav.Main.Upgrade)
         }
@@ -120,7 +121,7 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun setThemeColor(color: ThemeColor) = launch {
         if (isPro.first()) {
-            generalSettings.themeColor.value = color
+            generalSettings.themeColor.valueBlocking = color
         } else {
             navTo(Nav.Main.Upgrade)
         }

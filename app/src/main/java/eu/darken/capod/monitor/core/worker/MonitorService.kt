@@ -53,6 +53,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @AndroidEntryPoint
 class MonitorService : Service() {
@@ -172,12 +173,12 @@ class MonitorService : Service() {
             .distinctUntilChanged()
             .throttleLatest(1000)
             .onEach { currentDevice ->
-                val useExtraNotification = generalSettings.useExtraMonitorNotification.value
+                val useExtraNotification = generalSettings.useExtraMonitorNotification.valueBlocking
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,
                     notifications.getNotification(currentDevice, showHint = useExtraNotification),
                 )
-                if (generalSettings.useExtraMonitorNotification.value && currentDevice != null) {
+                if (generalSettings.useExtraMonitorNotification.valueBlocking && currentDevice != null) {
                     notificationManager.notify(
                         MonitorNotifications.NOTIFICATION_ID_CONNECTED,
                         notifications.getNotificationConnected(currentDevice),
@@ -284,7 +285,7 @@ class MonitorService : Service() {
         log(TAG, VERBOSE) { "onDestroy()" }
         monitorScope.cancel("Service destroyed")
 
-        if (generalSettings.useExtraMonitorNotification.value && !generalSettings.keepConnectedNotificationAfterDisconnect.value) {
+        if (generalSettings.useExtraMonitorNotification.valueBlocking && !generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking) {
             try {
                 notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID_CONNECTED)
             } catch (e: Exception) {

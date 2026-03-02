@@ -24,6 +24,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class AutoConnect @Inject constructor(
@@ -74,7 +75,7 @@ class AutoConnect @Inject constructor(
                 return@map
             }
 
-            val condition = reactionSettings.autoConnectCondition.value
+            val condition = reactionSettings.autoConnectCondition.valueBlocking
             log(TAG) { "Checking condition $condition" }
             val conditionFulfilled = when (condition) {
                 AutoConnectCondition.WHEN_SEEN -> true
@@ -84,7 +85,7 @@ class AutoConnect @Inject constructor(
                 }
                 AutoConnectCondition.IN_EAR -> when (mainDevice) {
                     is HasEarDetection -> {
-                        if (mainDevice is HasEarDetectionDual && reactionSettings.onePodMode.value) {
+                        if (mainDevice is HasEarDetectionDual && reactionSettings.onePodMode.valueBlocking) {
                             mainDevice.isEitherPodInEar
                         } else {
                             mainDevice.isBeingWorn

@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class PlayPause @Inject constructor(
@@ -88,7 +89,7 @@ class PlayPause @Inject constructor(
             val decision = evaluatePlayPauseAction(
                 previous = prevState,
                 current = currState,
-                onePodMode = reactionSettings.onePodMode.value,
+                onePodMode = reactionSettings.onePodMode.valueBlocking,
                 isCurrentlyPlaying = mediaControl.isPlaying
             )
 
@@ -96,21 +97,21 @@ class PlayPause @Inject constructor(
 
             // Execute the decision
             when {
-                decision.shouldPlay && reactionSettings.autoPlay.value -> {
+                decision.shouldPlay && reactionSettings.autoPlay.valueBlocking -> {
                     log(TAG) { "autoPlay is triggered, sendPlay() - ${decision.reason}" }
                     mediaControl.sendPlay()
                 }
 
-                decision.shouldPlay && !reactionSettings.autoPlay.value -> {
+                decision.shouldPlay && !reactionSettings.autoPlay.valueBlocking -> {
                     log(TAG, VERBOSE) { "autoPlay is disabled" }
                 }
 
-                decision.shouldPause && reactionSettings.autoPause.value -> {
+                decision.shouldPause && reactionSettings.autoPause.valueBlocking -> {
                     log(TAG) { "autoPause is triggered, sendPause() - ${decision.reason}" }
                     mediaControl.sendPause()
                 }
 
-                decision.shouldPause && !reactionSettings.autoPause.value -> {
+                decision.shouldPause && !reactionSettings.autoPause.valueBlocking -> {
                     log(TAG, VERBOSE) { "autoPause is disabled" }
                 }
             }

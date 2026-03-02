@@ -34,6 +34,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class OverviewViewModel @Inject constructor(
@@ -59,7 +60,7 @@ class OverviewViewModel @Inject constructor(
                 return@onEach
             }
 
-            val shouldStart = when (generalSettings.monitorMode.value) {
+            val shouldStart = when (generalSettings.monitorMode.valueBlocking) {
                 MonitorMode.MANUAL -> false
                 MonitorMode.AUTOMATIC -> {
                     val devices = withTimeoutOrNull(5_000) { bluetoothManager.connectedDevices.first() }

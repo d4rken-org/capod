@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.map
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
+import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class UpgradeControlFoss @Inject constructor(
@@ -25,7 +26,7 @@ class UpgradeControlFoss @Inject constructor(
     }
 
     fun upgrade(reason: FossUpgrade.Reason) {
-        fossCache.upgrade.value = FossUpgrade(
+        fossCache.upgrade.valueBlocking = FossUpgrade(
             upgradedAt = Instant.now(),
             reason = reason
         )

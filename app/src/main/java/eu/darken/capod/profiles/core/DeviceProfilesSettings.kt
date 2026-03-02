@@ -1,31 +1,37 @@
 package eu.darken.capod.profiles.core
 
 import android.content.Context
-import android.content.SharedPreferences
-import androidx.preference.PreferenceDataStore
-import com.squareup.moshi.Moshi
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.SharedPreferencesMigration
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.capod.common.preferences.PreferenceStoreMapper
-import eu.darken.capod.common.preferences.Settings
-import eu.darken.capod.common.preferences.createFlowPreference
+import eu.darken.capod.common.datastore.createValue
+import eu.darken.capod.common.serialization.SerializationCapod
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class DeviceProfilesSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    moshi: Moshi,
-) : Settings() {
+    @SerializationCapod json: Json,
+) {
 
-    override val preferences: SharedPreferences = context.getSharedPreferences("device_profiles", Context.MODE_PRIVATE)
+    private val Context.dataStore by preferencesDataStore(
+        name = "device_profiles",
+        produceMigrations = { ctx -> listOf(SharedPreferencesMigration(ctx, "device_profiles")) }
+    )
 
-    val profiles = preferences.createFlowPreference<DeviceProfilesContainer>(
+    private val dataStore: DataStore<Preferences> get() = context.dataStore
+
+    val profiles = dataStore.createValue(
         "profiles.data",
         DeviceProfilesContainer(),
-        moshi
+        json,
+        onErrorFallbackToDefault = true,
     )
-    val singleToMultiMigrationDone = preferences.createFlowPreference("profiles.migration.v2.done", false)
-    val defaultProfileCreated = preferences.createFlowPreference("profiles.default.v2.created", false)
+    val singleToMultiMigrationDone = dataStore.createValue("profiles.migration.v2.done", false)
+    val defaultProfileCreated = dataStore.createValue("profiles.default.v2.created", false)
 
-    override val preferenceDataStore: PreferenceDataStore = PreferenceStoreMapper()
 }
