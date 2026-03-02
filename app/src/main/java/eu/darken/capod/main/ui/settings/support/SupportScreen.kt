@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.settings.support
 
+import android.text.format.Formatter
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -14,38 +15,98 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
+import eu.darken.capod.common.PrivacyPolicy
+import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.waitForState
+import eu.darken.capod.common.debug.recording.ui.RecorderConsentDialog
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
-
 @Composable
 fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
+    val context = LocalContext.current
+
     val state by waitForState(vm.state)
+
+    var showShortRecordingWarning by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        vm.events.collect { event ->
+            when (event) {
+                SupportViewModel.Event.ShowConsentDialog -> {
+                    RecorderConsentDialog(context, WebpageTool(context)).showDialog {
+                        vm.startDebugLog()
+                    }
+                }
+
+                SupportViewModel.Event.ShowShortRecordingWarning -> {
+                    showShortRecordingWarning = true
+                }
+            }
+        }
+    }
+
+    if (showShortRecordingWarning) {
+        ShortRecordingWarningDialog(context) {
+            showShortRecordingWarning = false
+            vm.forceStopDebugLog()
+        }
+        // Dismiss on cancel handled internally
+    }
+
     state?.let {
         SupportScreen(
             state = it,
             onNavigateUp = { vm.navUp() },
+            onContactDeveloper = { vm.goToContactSupport() },
             onDiscord = { vm.openUrl("https://discord.gg/rrxxng35jq") },
             onIssueTracker = { vm.openUrl("https://github.com/d4rken-org/capod/issues") },
             onTroubleShooter = { vm.goToTroubleShooter() },
-            onDebugLogToggle = {
-                if (it.isRecording) vm.stopDebugLog()
-                else vm.startDebugLog()
-            },
+            onDebugLogToggle = { vm.onDebugLogToggle() },
+            onClearLogs = { vm.clearDebugLogs() },
         )
+    }
+}
+
+@Composable
+private fun ShortRecordingWarningDialog(
+    context: android.content.Context,
+    onStopAnyway: () -> Unit,
+) {
+    var dismissed by remember { mutableStateOf(false) }
+    if (!dismissed) {
+        LaunchedEffect(Unit) {
+            MaterialAlertDialogBuilder(context).apply {
+                setTitle(R.string.debug_debuglog_short_recording_title)
+                setMessage(R.string.debug_debuglog_short_recording_message)
+                setPositiveButton(R.string.debug_debuglog_short_recording_continue) { _, _ ->
+                    dismissed = true
+                }
+                setNegativeButton(R.string.debug_debuglog_short_recording_stop) { _, _ ->
+                    dismissed = true
+                    onStopAnyway()
+                }
+                setOnCancelListener { dismissed = true }
+            }.show()
+        }
     }
 }
 
@@ -54,12 +115,16 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
 fun SupportScreen(
     state: SupportViewModel.State,
     onNavigateUp: () -> Unit,
+    onContactDeveloper: () -> Unit,
     onDiscord: () -> Unit,
     onIssueTracker: () -> Unit,
     onTroubleShooter: () -> Unit,
     onDebugLogToggle: () -> Unit,
+    onClearLogs: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
+
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -77,6 +142,14 @@ fun SupportScreen(
         },
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
+            item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.support_contact_label),
+                    subtitle = stringResource(R.string.support_contact_desc),
+                    iconPainter = painterResource(R.drawable.ic_contact_support_24),
+                    onClick = onContactDeveloper,
+                )
+            }
             item {
                 SettingsBaseItem(
                     title = stringResource(R.string.discord_label),
@@ -105,6 +178,7 @@ fun SupportScreen(
                 )
             }
             item {
+                val logSizeFormatted = Formatter.formatShortFileSize(context, state.logFolderSize)
                 SettingsBaseItem(
                     title = if (state.isRecording) {
                         stringResource(R.string.debug_debuglog_stop_action)
@@ -114,7 +188,7 @@ fun SupportScreen(
                     subtitle = if (state.isRecording) {
                         state.currentLogPath?.path
                     } else {
-                        stringResource(R.string.debug_debuglog_record_action)
+                        stringResource(R.string.support_debuglog_folder_size, logSizeFormatted)
                     },
                     icon = if (state.isRecording) {
                         Icons.TwoTone.Cancel
@@ -124,6 +198,15 @@ fun SupportScreen(
                     onClick = onDebugLogToggle,
                 )
             }
+            if (state.logFolderSize > 0 && !state.isRecording) {
+                item {
+                    SettingsBaseItem(
+                        title = stringResource(R.string.support_debuglog_clear_action),
+                        iconPainter = painterResource(R.drawable.ic_delete_sweep_24),
+                        onClick = onClearLogs,
+                    )
+                }
+            }
         }
     }
 }
@@ -132,11 +215,13 @@ fun SupportScreen(
 @Composable
 private fun SupportScreenPreview() = PreviewWrapper {
     SupportScreen(
-        state = SupportViewModel.State(isRecording = false, currentLogPath = null),
+        state = SupportViewModel.State(),
         onNavigateUp = {},
+        onContactDeveloper = {},
         onDiscord = {},
         onIssueTracker = {},
         onTroubleShooter = {},
         onDebugLogToggle = {},
+        onClearLogs = {},
     )
 }

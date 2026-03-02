@@ -1,25 +1,22 @@
 package eu.darken.capod.common.debug.recording.ui
 
-
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.FileProvider
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
-import eu.darken.capod.common.BuildConfigWrap
-import eu.darken.capod.common.compression.Zipper
+import eu.darken.capod.common.PrivacyPolicy
+import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.debug.recording.core.DebugLogZipper
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.onError
-import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.livedata.SingleLiveEvent
 import eu.darken.capod.common.uix.ViewModel3
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import java.io.File
@@ -30,81 +27,101 @@ class RecorderActivityVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
+    private val debugLogZipper: DebugLogZipper,
+    private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val recordedPath = handle.get<String>(RecorderActivity.RECORD_PATH)!!
-    private val pathCache = MutableStateFlow(recordedPath)
-    private val resultCacheObs = pathCache
-        .map { path -> Pair(path, File(path).length()) }
-        .replayingShare(vmScope)
+    private val recordedDirPath = handle.get<String>(RecorderActivity.RECORD_PATH)
+    private val logDir = recordedDirPath?.let { File(it) }
 
-    private val resultCacheCompressedObs = resultCacheObs
-        .map { uncompressed ->
-            val zipped = "${uncompressed.first}.zip"
-            Zipper().zip(arrayOf(uncompressed.first), zipped)
-            Pair(zipped, File(zipped).length())
+    private val stater = DynamicStateFlow(TAG, vmScope + dispatcherProvider.IO) {
+        if (logDir == null || !logDir.exists()) {
+            return@DynamicStateFlow State(logDir = null)
         }
-        .replayingShare(vmScope + dispatcherProvider.IO)
 
-    private val stater = DynamicStateFlow(TAG, vmScope) { State() }
+        val files = logDir.listFiles()?.toList() ?: emptyList()
+        val entries = files.map { LogFileAdapter.Item(it, it.length()) }
+        val totalSize = entries.sumOf { it.size }
+
+        val compressedSize = try {
+            val zipFile = File(logDir.parentFile, "${logDir.name}.zip")
+            debugLogZipper.zipAndGetUri(logDir)
+            zipFile.length()
+        } catch (e: Exception) {
+            log(TAG) { "Failed to zip: $e" }
+            -1L
+        }
+
+        State(
+            logDir = logDir,
+            logEntries = entries,
+            totalSize = totalSize,
+            compressedSize = compressedSize,
+            isWorking = false,
+        )
+    }
     val state = stater.asLiveData2()
 
     val shareEvent = SingleLiveEvent<Intent>()
+    val finishEvent = SingleLiveEvent<Unit>()
 
     init {
-        resultCacheObs
-            .onEach { (path, size) ->
-                stater.updateBlocking { copy(normalPath = path, normalSize = size) }
-            }
-            .launchInViewModel()
-
-        resultCacheCompressedObs
-            .onEach { (path, size) ->
-                stater.updateBlocking {
-                    copy(
-                        compressedPath = path,
-                        compressedSize = size,
-                        loading = false
-                    )
-                }
-            }
+        stater.flow
+            .onEach { log(TAG) { "State: $it" } }
             .onError { errorEvents.postValue(it) }
             .launchInViewModel()
-
     }
 
     fun share() = launch {
-        val (path, _) = resultCacheCompressedObs.first()
+        val currentState = stater.flow.first()
+        val dir = currentState.logDir ?: return@launch
 
-        val intent = Intent(Intent.ACTION_SEND).apply {
-            val uri = FileProvider.getUriForFile(
-                context,
-                BuildConfigWrap.APPLICATION_ID + ".provider",
-                File(path)
-            )
+        stater.updateBlocking { copy(isWorking = true) }
 
-            putExtra(Intent.EXTRA_STREAM, uri)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            type = "application/zip"
+        try {
+            val uri = debugLogZipper.zipAndGetUri(dir)
 
-            addCategory(Intent.CATEGORY_DEFAULT)
-            putExtra(Intent.EXTRA_SUBJECT, "CAPod DebugLog - ${BuildConfigWrap.VERSION_DESCRIPTION})")
-            putExtra(Intent.EXTRA_TEXT, "Your text here.")
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                putExtra(Intent.EXTRA_STREAM, uri)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                type = "application/zip"
+                addCategory(Intent.CATEGORY_DEFAULT)
+                putExtra(Intent.EXTRA_SUBJECT, "CAPod DebugLog - ${dir.name}")
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }
+
+            val chooserIntent = Intent.createChooser(intent, context.getString(R.string.support_debuglog_label))
+            shareEvent.postValue(chooserIntent)
+        } finally {
+            stater.updateBlocking { copy(isWorking = false) }
         }
+    }
 
+    fun keep() {
+        finishEvent.postValue(Unit)
+    }
 
-        val chooserIntent = Intent.createChooser(intent, context.getString(R.string.support_debuglog_label))
-        shareEvent.postValue(chooserIntent)
+    fun discard() = launch {
+        val currentState = stater.flow.first()
+        val dir = currentState.logDir ?: return@launch
+
+        dir.deleteRecursively()
+        val zipFile = File(dir.parentFile, "${dir.name}.zip")
+        if (zipFile.exists()) zipFile.delete()
+
+        finishEvent.postValue(Unit)
+    }
+
+    fun goPrivacyPolicy() {
+        webpageTool.open(PrivacyPolicy.URL)
     }
 
     data class State(
-        val normalPath: String? = null,
-        val normalSize: Long = -1L,
-        val compressedPath: String? = null,
+        val logDir: File? = null,
+        val logEntries: List<LogFileAdapter.Item> = emptyList(),
+        val totalSize: Long = 0L,
         val compressedSize: Long = -1L,
-        val loading: Boolean = true
+        val isWorking: Boolean = true,
     )
 
     companion object {
