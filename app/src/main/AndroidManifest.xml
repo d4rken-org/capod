@@ -119,7 +119,7 @@
         <!-- Debug stuff-->
         <activity
             android:name=".common.debug.recording.ui.RecorderActivity"
-            android:theme="@style/AppThemeFloating" />
+            android:theme="@style/AppTheme" />
 
         <service
             android:name=".monitor.core.worker.MonitorService"
