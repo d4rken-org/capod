@@ -57,10 +57,17 @@ class MonitorNotifications @Inject constructor(
             setOngoing(true)
         }
 
-    private fun getBuilder(device: PodDevice?, channelId: String): NotificationCompat.Builder {
+    private fun getBuilder(device: PodDevice?, channelId: String, showHint: Boolean = false): NotificationCompat.Builder {
         if (device == null) {
             return baseBuilder(channelId).apply {
-                setStyle(NotificationCompat.BigTextStyle())
+                if (showHint) {
+                    setStyle(
+                        NotificationCompat.BigTextStyle()
+                            .bigText(context.getString(R.string.monitor_notification_extra_enabled_hint))
+                    )
+                } else {
+                    setStyle(NotificationCompat.BigTextStyle())
+                }
                 setContentTitle(context.getString(R.string.pods_none_label_short))
                 setSubText(context.getString(R.string.app_name))
             }
@@ -136,8 +143,8 @@ class MonitorNotifications @Inject constructor(
         }
     }
 
-    fun getNotification(podDevice: PodDevice?): Notification =
-        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID).build()
+    fun getNotification(podDevice: PodDevice?, showHint: Boolean = false): Notification =
+        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID, showHint).build()
 
     fun getNotificationConnected(podDevice: PodDevice?): Notification =
         getBuilder(podDevice, NOTIFICATION_CHANNEL_ID_CONNECTED).build()
