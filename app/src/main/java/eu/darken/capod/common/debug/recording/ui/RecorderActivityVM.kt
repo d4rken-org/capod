@@ -13,11 +13,9 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.core.DebugLogZipper
 import eu.darken.capod.common.flow.DynamicStateFlow
-import eu.darken.capod.common.flow.onError
-import eu.darken.capod.common.livedata.SingleLiveEvent
-import eu.darken.capod.common.uix.ViewModel3
+import eu.darken.capod.common.flow.SingleEventFlow
+import eu.darken.capod.common.uix.ViewModel2
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import java.io.File
 import javax.inject.Inject
@@ -29,7 +27,26 @@ class RecorderActivityVM @Inject constructor(
     @ApplicationContext private val context: Context,
     private val debugLogZipper: DebugLogZipper,
     private val webpageTool: WebpageTool,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel2(dispatcherProvider) {
+
+    data class LogEntry(
+        val file: File,
+        val size: Long,
+    )
+
+    data class State(
+        val logDir: File? = null,
+        val logEntries: List<LogEntry> = emptyList(),
+        val totalSize: Long = 0L,
+        val compressedSize: Long = -1L,
+        val recordingDurationSecs: Long = 0L,
+        val isWorking: Boolean = true,
+    )
+
+    sealed interface Event {
+        data class ShareIntent(val intent: Intent) : Event
+        data object Finish : Event
+    }
 
     private val recordedDirPath = handle.get<String>(RecorderActivity.RECORD_PATH)
     private val logDir = recordedDirPath?.let { File(it) }
@@ -40,37 +57,33 @@ class RecorderActivityVM @Inject constructor(
         }
 
         val files = logDir.listFiles()?.toList() ?: emptyList()
-        val entries = files.map { LogFileAdapter.Item(it, it.length()) }
+        val entries = files.map { LogEntry(it, it.length()) }
         val totalSize = entries.sumOf { it.size }
 
         val compressedSize = try {
-            val zipFile = File(logDir.parentFile, "${logDir.name}.zip")
             debugLogZipper.zipAndGetUri(logDir)
-            zipFile.length()
+            File(logDir.parentFile, "${logDir.name}.zip").length()
         } catch (e: Exception) {
             log(TAG) { "Failed to zip: $e" }
             -1L
         }
+
+        val dirCreated = logDir.lastModified()
+        val latestFileModified = files.maxOfOrNull { it.lastModified() } ?: dirCreated
+        val durationSecs = ((latestFileModified - dirCreated) / 1000).coerceAtLeast(0)
 
         State(
             logDir = logDir,
             logEntries = entries,
             totalSize = totalSize,
             compressedSize = compressedSize,
+            recordingDurationSecs = durationSecs,
             isWorking = false,
         )
     }
-    val state = stater.asLiveData2()
+    val state = stater.flow
 
-    val shareEvent = SingleLiveEvent<Intent>()
-    val finishEvent = SingleLiveEvent<Unit>()
-
-    init {
-        stater.flow
-            .onEach { log(TAG) { "State: $it" } }
-            .onError { errorEvents.postValue(it) }
-            .launchInViewModel()
-    }
+    val events = SingleEventFlow<Event>()
 
     fun share() = launch {
         val currentState = stater.flow.first()
@@ -79,7 +92,12 @@ class RecorderActivityVM @Inject constructor(
         stater.updateBlocking { copy(isWorking = true) }
 
         try {
-            val uri = debugLogZipper.zipAndGetUri(dir)
+            val zipFile = File(dir.parentFile, "${dir.name}.zip")
+            val uri = if (zipFile.exists()) {
+                debugLogZipper.getUriForZip(zipFile)
+            } else {
+                debugLogZipper.zipAndGetUri(dir)
+            }
 
             val intent = Intent(Intent.ACTION_SEND).apply {
                 putExtra(Intent.EXTRA_STREAM, uri)
@@ -91,14 +109,14 @@ class RecorderActivityVM @Inject constructor(
             }
 
             val chooserIntent = Intent.createChooser(intent, context.getString(R.string.support_debuglog_label))
-            shareEvent.postValue(chooserIntent)
+            events.tryEmit(Event.ShareIntent(chooserIntent))
         } finally {
             stater.updateBlocking { copy(isWorking = false) }
         }
     }
 
     fun keep() {
-        finishEvent.postValue(Unit)
+        events.tryEmit(Event.Finish)
     }
 
     fun discard() = launch {
@@ -109,20 +127,12 @@ class RecorderActivityVM @Inject constructor(
         val zipFile = File(dir.parentFile, "${dir.name}.zip")
         if (zipFile.exists()) zipFile.delete()
 
-        finishEvent.postValue(Unit)
+        events.tryEmit(Event.Finish)
     }
 
     fun goPrivacyPolicy() {
         webpageTool.open(PrivacyPolicy.URL)
     }
-
-    data class State(
-        val logDir: File? = null,
-        val logEntries: List<LogFileAdapter.Item> = emptyList(),
-        val totalSize: Long = 0L,
-        val compressedSize: Long = -1L,
-        val isWorking: Boolean = true,
-    )
 
     companion object {
         private val TAG = logTag("Debug", "Recorder", "VM")

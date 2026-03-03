@@ -84,6 +84,9 @@
     <string name="settings_support_label">Support</string>
     <string name="settings_support_description">If you need some help.</string>
 
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; Guides</string>
+
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="issue_tracker_description">A public issue tracker for bug reports and feature requests (english only).</string>
 
@@ -96,6 +99,8 @@
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
     <string name="settings_licenses_label">Licenses</string>
     <string name="settings_category_other_label">Other</string>
+    <string name="settings_category_gethelp_label">Get help</string>
+    <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Settings</string>
     <string name="settings_general_description">General tweaks that affect the whole app.</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
@@ -327,24 +332,27 @@
     <string name="debug_debuglog_screen_discard_action">Discard</string>
 
     <!-- Log management -->
-    <string name="support_debuglog_folder_size">Debug logs (%s)</string>
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d debug log (%2$s)</item>
+        <item quantity="other">%1$d debug logs (%2$s)</item>
+    </plurals>
     <string name="support_debuglog_clear_action">Clear stored debug logs</string>
 
     <!-- Contact form -->
     <string name="support_contact_label">Contact developer</string>
     <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
-    <string name="support_contact_welcome">I read every message myself and do my best to reply. Since I handle development, bug fixes, and support on my own, it can take a little time. Thanks for your patience.</string>
+    <string name="support_contact_welcome">I read every message myself and do my best to reply, but since I work on this alone, it can take a little time. Thanks for your patience.</string>
     <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand it.</string>
     <string name="support_contact_category_label">Category</string>
     <string name="support_contact_category_question_label">Question</string>
     <string name="support_contact_category_feature_label">Feature request</string>
     <string name="support_contact_category_bug_label">Bug report</string>
     <string name="support_contact_description_label">Description</string>
-    <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific (minimum 20 words).</string>
-    <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific (minimum 20 words).</string>
-    <string name="support_contact_description_bug_hint">Describe what happened and how to reproduce the issue. Please be specific (minimum 20 words).</string>
+    <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific.</string>
+    <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific.</string>
+    <string name="support_contact_description_bug_hint">Describe what happened and how to reproduce the issue. Please be specific.</string>
     <string name="support_contact_expected_label">Expected behavior</string>
-    <string name="support_contact_expected_hint">Describe what you expected to happen (minimum 10 words).</string>
+    <string name="support_contact_expected_hint">Describe what you expected to happen.</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d word</item>
         <item quantity="other">%1$d / %2$d words</item>

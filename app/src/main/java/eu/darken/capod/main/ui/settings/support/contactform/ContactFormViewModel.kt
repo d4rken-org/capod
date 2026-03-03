@@ -16,6 +16,7 @@ import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.io.File
@@ -84,19 +85,19 @@ class ContactFormViewModel @Inject constructor(
                     copy(
                         isRecording = recorderState.isRecording,
                         recordingStartedAt = recorderState.recordingStartedAt,
-                        sessions = loadLogSessions(),
+                        sessions = loadLogSessions(activeDir = recorderState.currentLogDir),
                     )
                 }
             }
             .launchIn(vmScope)
     }
 
-    private fun loadLogSessions(): List<LogSessionItem> {
+    private fun loadLogSessions(activeDir: File? = null): List<LogSessionItem> {
         return recorderModule.getLogDirectories()
             .flatMap { dir ->
                 if (!dir.exists()) return@flatMap emptyList()
                 val entries = dir.listFiles() ?: return@flatMap emptyList()
-                entries.filter { it.isDirectory || (it.isFile && it.extension == "zip") }
+                entries.filter { it != activeDir && (it.isDirectory || (it.isFile && it.extension == "zip")) }
                     .map { entry ->
                         val size = if (entry.isDirectory) {
                             entry.walkTopDown().filter { it.isFile }.sumOf { it.length() }
@@ -164,8 +165,8 @@ class ContactFormViewModel @Inject constructor(
     }
 
     fun stopRecording() = launch {
-        val currentState = stater.value()
-        val duration = System.currentTimeMillis() - currentState.recordingStartedAt
+        val recorderState = recorderModule.state.first()
+        val duration = System.currentTimeMillis() - recorderState.recordingStartedAt
         if (duration < 5_000) {
             events.tryEmit(Event.ShowShortRecordingWarning)
             return@launch

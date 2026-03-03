@@ -20,9 +20,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -41,6 +43,10 @@ import eu.darken.capod.common.settings.SettingsCategoryHeader
 fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+    LifecycleResumeEffect(Unit) {
+        vm.refreshLogSize()
+        onPauseOrDispose {}
+    }
 
     val context = LocalContext.current
 
@@ -65,11 +71,11 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
     }
 
     if (showShortRecordingWarning) {
-        ShortRecordingWarningDialog(context) {
-            showShortRecordingWarning = false
-            vm.forceStopDebugLog()
-        }
-        // Dismiss on cancel handled internally
+        ShortRecordingWarningDialog(
+            context = context,
+            onDismiss = { showShortRecordingWarning = false },
+            onStopAnyway = { vm.forceStopDebugLog() },
+        )
     }
 
     state?.let {
@@ -89,24 +95,22 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
 @Composable
 private fun ShortRecordingWarningDialog(
     context: android.content.Context,
+    onDismiss: () -> Unit,
     onStopAnyway: () -> Unit,
 ) {
-    var dismissed by remember { mutableStateOf(false) }
-    if (!dismissed) {
-        LaunchedEffect(Unit) {
-            MaterialAlertDialogBuilder(context).apply {
-                setTitle(R.string.debug_debuglog_short_recording_title)
-                setMessage(R.string.debug_debuglog_short_recording_message)
-                setPositiveButton(R.string.debug_debuglog_short_recording_continue) { _, _ ->
-                    dismissed = true
-                }
-                setNegativeButton(R.string.debug_debuglog_short_recording_stop) { _, _ ->
-                    dismissed = true
-                    onStopAnyway()
-                }
-                setOnCancelListener { dismissed = true }
-            }.show()
-        }
+    LaunchedEffect(Unit) {
+        MaterialAlertDialogBuilder(context).apply {
+            setTitle(R.string.debug_debuglog_short_recording_title)
+            setMessage(R.string.debug_debuglog_short_recording_message)
+            setPositiveButton(R.string.debug_debuglog_short_recording_continue) { _, _ ->
+                onDismiss()
+            }
+            setNegativeButton(R.string.debug_debuglog_short_recording_stop) { _, _ ->
+                onDismiss()
+                onStopAnyway()
+            }
+            setOnCancelListener { onDismiss() }
+        }.show()
     }
 }
 
@@ -144,10 +148,21 @@ fun SupportScreen(
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
             item {
                 SettingsBaseItem(
-                    title = stringResource(R.string.support_contact_label),
-                    subtitle = stringResource(R.string.support_contact_desc),
-                    iconPainter = painterResource(R.drawable.ic_contact_support_24),
-                    onClick = onContactDeveloper,
+                    title = stringResource(R.string.troubleshooter_title),
+                    subtitle = stringResource(R.string.troubleshooter_summary),
+                    icon = Icons.TwoTone.Settings,
+                    onClick = onTroubleShooter,
+                )
+            }
+            item {
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_gethelp_label))
+            }
+            item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.issue_tracker_label),
+                    subtitle = stringResource(R.string.issue_tracker_description),
+                    iconPainter = painterResource(R.drawable.ic_github_onsurface),
+                    onClick = onIssueTracker,
                 )
             }
             item {
@@ -160,25 +175,16 @@ fun SupportScreen(
             }
             item {
                 SettingsBaseItem(
-                    title = stringResource(R.string.issue_tracker_label),
-                    subtitle = stringResource(R.string.issue_tracker_description),
-                    iconPainter = painterResource(R.drawable.ic_github_onsurface),
-                    onClick = onIssueTracker,
+                    title = stringResource(R.string.support_contact_label),
+                    subtitle = stringResource(R.string.support_contact_desc),
+                    iconPainter = painterResource(R.drawable.ic_contact_support_24),
+                    onClick = onContactDeveloper,
                 )
             }
             item {
-                SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label))
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_debug_label))
             }
             item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.troubleshooter_title),
-                    subtitle = stringResource(R.string.troubleshooter_summary),
-                    icon = Icons.TwoTone.Settings,
-                    onClick = onTroubleShooter,
-                )
-            }
-            item {
-                val logSizeFormatted = Formatter.formatShortFileSize(context, state.logFolderSize)
                 SettingsBaseItem(
                     title = if (state.isRecording) {
                         stringResource(R.string.debug_debuglog_stop_action)
@@ -188,7 +194,7 @@ fun SupportScreen(
                     subtitle = if (state.isRecording) {
                         state.currentLogPath?.path
                     } else {
-                        stringResource(R.string.support_debuglog_folder_size, logSizeFormatted)
+                        stringResource(R.string.support_debuglog_desc)
                     },
                     icon = if (state.isRecording) {
                         Icons.TwoTone.Cancel
@@ -200,8 +206,15 @@ fun SupportScreen(
             }
             if (state.logFolderSize > 0 && !state.isRecording) {
                 item {
+                    val logSizeFormatted = Formatter.formatShortFileSize(context, state.logFolderSize)
                     SettingsBaseItem(
                         title = stringResource(R.string.support_debuglog_clear_action),
+                        subtitle = pluralStringResource(
+                            R.plurals.support_debuglog_folder_summary,
+                            state.logSessionCount,
+                            state.logSessionCount,
+                            logSizeFormatted,
+                        ),
                         iconPainter = painterResource(R.drawable.ic_delete_sweep_24),
                         onClick = onClearLogs,
                     )

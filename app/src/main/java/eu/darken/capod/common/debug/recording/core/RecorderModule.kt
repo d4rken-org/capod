@@ -133,6 +133,13 @@ class RecorderModule @Inject constructor(
         File(context.cacheDir, "debug/logs"),
     )
 
+    fun getLogSessionCount(): Int {
+        return getLogDirectories().sumOf { dir ->
+            if (!dir.exists()) return@sumOf 0
+            dir.listFiles()?.count { it.isDirectory || (it.isFile && it.extension == "zip") } ?: 0
+        }
+    }
+
     fun getLogFolderSize(): Long {
         return getLogDirectories().sumOf { dir ->
             if (!dir.exists()) return@sumOf 0L
