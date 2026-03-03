@@ -122,6 +122,7 @@ internal fun SettingsIndexContent() = PreviewWrapper {
         onDeviceManager = {},
         onReactions = {},
         onSupport = {},
+        onWiki = {},
         onChangelog = {},
         onHelpTranslate = {},
         onAcknowledgements = {},

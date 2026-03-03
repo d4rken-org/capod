@@ -10,6 +10,7 @@ import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.io.File
@@ -27,6 +28,7 @@ class SupportViewModel @Inject constructor(
         val currentLogPath: File? = null,
         val recordingStartedAt: Long = 0L,
         val logFolderSize: Long = 0L,
+        val logSessionCount: Int = 0,
     )
 
     sealed interface Event {
@@ -37,7 +39,10 @@ class SupportViewModel @Inject constructor(
     val events = SingleEventFlow<Event>()
 
     private val stater = DynamicStateFlow(TAG, vmScope) {
-        State(logFolderSize = recorderModule.getLogFolderSize())
+        State(
+            logFolderSize = recorderModule.getLogFolderSize(),
+            logSessionCount = recorderModule.getLogSessionCount(),
+        )
     }
     val state = stater.flow
 
@@ -50,6 +55,7 @@ class SupportViewModel @Inject constructor(
                         currentLogPath = recorderState.currentLogPath,
                         recordingStartedAt = recorderState.recordingStartedAt,
                         logFolderSize = recorderModule.getLogFolderSize(),
+                        logSessionCount = recorderModule.getLogSessionCount(),
                     )
                 }
             }
@@ -86,32 +92,39 @@ class SupportViewModel @Inject constructor(
     }
 
     private suspend fun doStopDebugLog() {
-        val currentState = stater.value()
-        val duration = System.currentTimeMillis() - currentState.recordingStartedAt
+        val recorderState = recorderModule.state.first()
+        val duration = System.currentTimeMillis() - recorderState.recordingStartedAt
         if (duration < 5_000) {
             events.tryEmit(Event.ShowShortRecordingWarning)
             return
         }
         log(TAG) { "stopDebugLog()" }
         recorderModule.stopRecorder()
-        refreshLogSize()
+        doRefreshLogSize()
     }
 
     fun forceStopDebugLog() = launch {
         log(TAG) { "forceStopDebugLog()" }
         recorderModule.stopRecorder()
-        refreshLogSize()
+        doRefreshLogSize()
     }
 
     fun clearDebugLogs() = launch {
         log(TAG) { "clearDebugLogs()" }
         recorderModule.deleteAllLogs()
-        refreshLogSize()
+        doRefreshLogSize()
     }
 
-    private suspend fun refreshLogSize() {
+    fun refreshLogSize() = launch {
+        doRefreshLogSize()
+    }
+
+    private suspend fun doRefreshLogSize() {
         stater.updateBlocking {
-            copy(logFolderSize = recorderModule.getLogFolderSize())
+            copy(
+                logFolderSize = recorderModule.getLogFolderSize(),
+                logSessionCount = recorderModule.getLogSessionCount(),
+            )
         }
     }
 

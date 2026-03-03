@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Book
+import androidx.compose.material.icons.automirrored.twotone.MenuBook
 import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Settings
@@ -49,6 +50,7 @@ fun SettingsScreenHost(vm: SettingsViewModel = hiltViewModel()) {
             onDeviceManager = { vm.navTo(Nav.Main.DeviceManager) },
             onReactions = { vm.navTo(Nav.Settings.Reactions) },
             onSupport = { vm.navTo(Nav.Settings.Support) },
+            onWiki = { vm.openUrl("https://github.com/d4rken-org/capod/wiki") },
             onChangelog = { vm.openUrl("https://capod.darken.eu/changelog") },
             onHelpTranslate = { vm.openUrl("https://crowdin.com/project/capod") },
             onAcknowledgements = { vm.navTo(Nav.Settings.Acknowledgements) },
@@ -67,6 +69,7 @@ fun SettingsScreen(
     onDeviceManager: () -> Unit,
     onReactions: () -> Unit,
     onSupport: () -> Unit,
+    onWiki: () -> Unit,
     onChangelog: () -> Unit,
     onHelpTranslate: () -> Unit,
     onAcknowledgements: () -> Unit,
@@ -129,6 +132,9 @@ fun SettingsScreen(
                 )
             }
             item {
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label))
+            }
+            item {
                 SettingsBaseItem(
                     title = stringResource(R.string.settings_support_label),
                     subtitle = stringResource(R.string.settings_support_description),
@@ -137,7 +143,12 @@ fun SettingsScreen(
                 )
             }
             item {
-                SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label))
+                SettingsBaseItem(
+                    title = stringResource(R.string.settings_wiki_label),
+                    subtitle = stringResource(R.string.settings_wiki_description),
+                    icon = Icons.AutoMirrored.TwoTone.MenuBook,
+                    onClick = onWiki,
+                )
             }
             item {
                 SettingsBaseItem(
@@ -185,6 +196,7 @@ private fun SettingsScreenPreview() = PreviewWrapper {
         onDeviceManager = {},
         onReactions = {},
         onSupport = {},
+        onWiki = {},
         onChangelog = {},
         onHelpTranslate = {},
         onAcknowledgements = {},
