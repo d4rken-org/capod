@@ -44,5 +44,6 @@ Detailed guidelines are in `.claude/rules/`:
 - `build-commands.md` — Build, test, lint, and release commands
 - `localization.md` — String resource naming conventions
 - `commit-guidelines.md` — Commit message format and prefixes
+- `pull-requests.md` — PR title and description conventions
 - `agent-instructions.md` — Sub-agent delegation and critical thinking
 - `screenshots.md` — Play Store screenshot pipeline, commands, adding new screens
