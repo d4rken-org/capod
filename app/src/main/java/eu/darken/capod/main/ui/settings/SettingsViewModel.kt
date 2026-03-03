@@ -18,11 +18,12 @@ class SettingsViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider) {
 
     data class State(
+        val isPro: Boolean,
         val sponsorUrl: String?,
     )
 
     val state = upgradeRepo.upgradeInfo
-        .map { State(sponsorUrl = upgradeRepo.getSponsorUrl()) }
+        .map { State(isPro = it.isPro, sponsorUrl = upgradeRepo.getSponsorUrl()) }
         .asLiveState()
 
     fun openUrl(url: String) {

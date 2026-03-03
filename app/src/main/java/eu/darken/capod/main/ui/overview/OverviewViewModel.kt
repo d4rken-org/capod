@@ -1,6 +1,5 @@
 package eu.darken.capod.main.ui.overview
 
-import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -50,7 +49,6 @@ class OverviewViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider) {
 
     val requestPermissionEvent = SingleEventFlow<Permission>()
-    val launchUpgradeFlow = SingleEventFlow<(Activity) -> Unit>()
 
     private val showUnmatchedDevices = MutableStateFlow(false)
 
@@ -141,8 +139,8 @@ class OverviewViewModel @Inject constructor(
         navTo(Nav.Main.DeviceManager)
     }
 
-    fun onUpgrade() = launch {
-        launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+    fun onUpgrade() {
+        navTo(Nav.Main.Upgrade)
     }
 
     fun toggleUnmatchedDevices() {

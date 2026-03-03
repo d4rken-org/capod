@@ -1,11 +1,9 @@
 package eu.darken.capod.main.ui.settings.general
 
-import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
@@ -41,8 +39,6 @@ class GeneralSettingsViewModel @Inject constructor(
     )
 
     private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.asLiveState()
-
-    val launchUpgradeFlow = SingleEventFlow<(Activity) -> Unit>()
 
     val state = combine(
         combine(
@@ -110,7 +106,7 @@ class GeneralSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             generalSettings.themeMode.value = mode
         } else {
-            launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+            navTo(Nav.Main.Upgrade)
         }
     }
 
@@ -118,7 +114,7 @@ class GeneralSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             generalSettings.themeStyle.value = style
         } else {
-            launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+            navTo(Nav.Main.Upgrade)
         }
     }
 
@@ -126,12 +122,12 @@ class GeneralSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             generalSettings.themeColor.value = color
         } else {
-            launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+            navTo(Nav.Main.Upgrade)
         }
     }
 
-    fun launchUpgrade() = launch {
-        launchUpgradeFlow.tryEmit { upgradeRepo.launchBillingFlow(it) }
+    fun launchUpgrade() {
+        navTo(Nav.Main.Upgrade)
     }
 
     fun goToDebugSettings() {

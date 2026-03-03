@@ -1,10 +1,9 @@
 package eu.darken.capod.reaction.ui
 
-import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
-
+import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -63,7 +62,7 @@ class ReactionSettingsViewModel @Inject constructor(
         reactionSettings.onePodMode.value = enabled
     }
 
-    fun setAutoPlay(enabled: Boolean, activity: Activity) = launch {
+    fun setAutoPlay(enabled: Boolean) = launch {
         if (!enabled) {
             reactionSettings.autoPlay.value = false
             return@launch
@@ -71,11 +70,11 @@ class ReactionSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             reactionSettings.autoPlay.value = true
         } else {
-            upgradeRepo.launchBillingFlow(activity)
+            navTo(Nav.Main.Upgrade)
         }
     }
 
-    fun setAutoPause(enabled: Boolean, activity: Activity) = launch {
+    fun setAutoPause(enabled: Boolean) = launch {
         if (!enabled) {
             reactionSettings.autoPause.value = false
             return@launch
@@ -83,11 +82,11 @@ class ReactionSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             reactionSettings.autoPause.value = true
         } else {
-            upgradeRepo.launchBillingFlow(activity)
+            navTo(Nav.Main.Upgrade)
         }
     }
 
-    fun setAutoConnect(enabled: Boolean, activity: Activity) = launch {
+    fun setAutoConnect(enabled: Boolean) = launch {
         if (!enabled) {
             reactionSettings.autoConnect.value = false
             return@launch
@@ -96,7 +95,7 @@ class ReactionSettingsViewModel @Inject constructor(
             reactionSettings.autoConnect.value = true
             generalSettings.monitorMode.value = MonitorMode.ALWAYS
         } else {
-            upgradeRepo.launchBillingFlow(activity)
+            navTo(Nav.Main.Upgrade)
         }
     }
 
@@ -104,7 +103,7 @@ class ReactionSettingsViewModel @Inject constructor(
         reactionSettings.autoConnectCondition.value = condition
     }
 
-    fun setShowPopUpOnCaseOpen(enabled: Boolean, activity: Activity) = launch {
+    fun setShowPopUpOnCaseOpen(enabled: Boolean) = launch {
         if (!enabled) {
             reactionSettings.showPopUpOnCaseOpen.value = false
             return@launch
@@ -112,11 +111,11 @@ class ReactionSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             reactionSettings.showPopUpOnCaseOpen.value = true
         } else {
-            upgradeRepo.launchBillingFlow(activity)
+            navTo(Nav.Main.Upgrade)
         }
     }
 
-    fun setShowPopUpOnConnection(enabled: Boolean, activity: Activity) = launch {
+    fun setShowPopUpOnConnection(enabled: Boolean) = launch {
         if (!enabled) {
             reactionSettings.showPopUpOnConnection.value = false
             return@launch
@@ -124,7 +123,7 @@ class ReactionSettingsViewModel @Inject constructor(
         if (isPro.first()) {
             reactionSettings.showPopUpOnConnection.value = true
         } else {
-            upgradeRepo.launchBillingFlow(activity)
+            navTo(Nav.Main.Upgrade)
         }
     }
 

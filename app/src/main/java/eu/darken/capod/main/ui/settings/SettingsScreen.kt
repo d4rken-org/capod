@@ -94,11 +94,11 @@ fun SettingsScreen(
                 },
                 actions = {
                     val sponsorUrl = state.sponsorUrl
-                    if (sponsorUrl != null) {
+                    if (state.isPro && sponsorUrl != null) {
                         IconButton(onClick = { onSponsor(sponsorUrl) }) {
                             Icon(
                                 imageVector = Icons.TwoTone.Favorite,
-                                contentDescription = "Sponsor development",
+                                contentDescription = null,
                             )
                         }
                     }
@@ -190,7 +190,7 @@ fun SettingsScreen(
 @Composable
 private fun SettingsScreenPreview() = PreviewWrapper {
     SettingsScreen(
-        state = SettingsViewModel.State(sponsorUrl = "https://example.com"),
+        state = SettingsViewModel.State(isPro = true, sponsorUrl = "https://example.com"),
         onNavigateUp = {},
         onGeneralSettings = {},
         onDeviceManager = {},

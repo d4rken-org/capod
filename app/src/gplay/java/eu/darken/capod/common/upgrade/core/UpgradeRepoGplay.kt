@@ -1,16 +1,9 @@
 package eu.darken.capod.common.upgrade.core
 
-import android.app.Activity
-import android.widget.Toast
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import eu.darken.capod.R
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.error.asErrorDialogBuilder
 import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.core.data.BillingData
@@ -21,8 +14,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.retryWhen
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -31,7 +22,6 @@ import kotlin.math.pow
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
     @AppScope private val scope: CoroutineScope,
-    private val dispatcherProvider: DispatcherProvider,
     private val billingDataRepo: BillingDataRepo,
     private val billingCache: BillingCache,
 ) : UpgradeRepo {
@@ -75,49 +65,6 @@ class UpgradeRepoGplay @Inject constructor(
             true
         }
         .replayingShare(scope)
-
-    override fun launchBillingFlow(activity: Activity) {
-        MaterialAlertDialogBuilder(activity).apply {
-            setIcon(R.drawable.ic_heart)
-            setTitle(R.string.upgrade_capod_label)
-            setMessage(R.string.upgrade_capod_description)
-            setPositiveButton(R.string.general_upgrade_action) { _, _ ->
-                scope.launch {
-                    try {
-                        billingDataRepo.startIapFlow(activity, CapodSku.PRO_UPGRADE.sku)
-                    } catch (e: Exception) {
-                        log(TAG) { "startIapFlow failed:${e.asLog()}" }
-                        withContext(dispatcherProvider.Main) {
-                            e.asErrorDialogBuilder(activity).show()
-                        }
-                    }
-                }
-            }
-            setNeutralButton(R.string.general_check_action) { dialog, _ ->
-                log(TAG) { "recheck()" }
-                scope.launch {
-                    try {
-                        val data = billingDataRepo.getIapData()
-                        log(TAG) { "Recheck successful: $data" }
-                        withContext(dispatcherProvider.Main) {
-                            if (data.purchases.isEmpty()) {
-                                Toast.makeText(
-                                    activity,
-                                    R.string.upgrades_no_purchases_found_check_account,
-                                    Toast.LENGTH_LONG
-                                ).show()
-                            }
-                        }
-                    } catch (e: Exception) {
-                        log(TAG) { "Recheck failed:${e.asLog()}" }
-                        withContext(dispatcherProvider.Main) {
-                            e.asErrorDialogBuilder(activity).show()
-                        }
-                    }
-                }
-            }
-        }.show()
-    }
 
     data class Info(
         private val gracePeriod: Boolean = false,

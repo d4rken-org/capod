@@ -1,10 +1,12 @@
 package eu.darken.capod.main.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -53,6 +55,10 @@ class MainActivity : Activity2() {
             val backStack = rememberNavBackStack(startDestination)
             navCtrl.setup(backStack)
 
+            LaunchedEffect(Unit) {
+                consumeUpgradeExtra(intent)
+            }
+
             CapodTheme(state = themeState) {
                 val backgroundColor = MaterialTheme.colorScheme.background
                 val useDarkIcons = backgroundColor.luminance() > 0.5f
@@ -85,7 +91,22 @@ class MainActivity : Activity2() {
         }
     }
 
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        consumeUpgradeExtra(intent)
+    }
+
+    private fun consumeUpgradeExtra(intent: Intent?) {
+        if (intent?.getBooleanExtra(EXTRA_NAVIGATE_TO_UPGRADE, false) == true) {
+            intent.removeExtra(EXTRA_NAVIGATE_TO_UPGRADE)
+            if (generalSettings.isOnboardingDone.value) {
+                navCtrl.goTo(Nav.Main.Upgrade)
+            }
+        }
+    }
+
     companion object {
+        const val EXTRA_NAVIGATE_TO_UPGRADE = "navigate_to_upgrade"
         private val TAG = logTag("MainActivity")
     }
 }

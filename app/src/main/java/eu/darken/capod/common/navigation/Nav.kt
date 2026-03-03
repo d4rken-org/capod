@@ -18,6 +18,9 @@ object Nav {
 
         @Serializable
         data object TroubleShooter : Main
+
+        @Serializable
+        data object Upgrade : Main
     }
 
     sealed interface Settings : NavigationDestination {

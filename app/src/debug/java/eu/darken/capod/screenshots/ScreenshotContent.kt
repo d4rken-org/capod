@@ -116,7 +116,7 @@ internal fun AddProfileContent() = PreviewWrapper {
 @Composable
 internal fun SettingsIndexContent() = PreviewWrapper {
     SettingsScreen(
-        state = SettingsViewModel.State(sponsorUrl = "https://example.com"),
+        state = SettingsViewModel.State(isPro = true, sponsorUrl = "https://example.com"),
         onNavigateUp = {},
         onGeneralSettings = {},
         onDeviceManager = {},
