@@ -28,7 +28,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.DevicesOther
-import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.ui.res.stringResource
@@ -160,20 +159,6 @@ fun OverviewScreen(
                     ToolbarTitle(upgradeInfo = state.upgradeInfo)
                 },
                 actions = {
-                    IconButton(onClick = onManageDevices) {
-                        Icon(
-                            imageVector = Icons.TwoTone.DevicesOther,
-                            contentDescription = stringResource(R.string.settings_devices_label),
-                        )
-                    }
-
-                    IconButton(onClick = onSettings) {
-                        Icon(
-                            imageVector = Icons.TwoTone.Settings,
-                            contentDescription = stringResource(R.string.settings_general_label),
-                        )
-                    }
-
                     // Upgrade/donate button based on type and pro status
                     val info = state.upgradeInfo
                     when {
@@ -189,11 +174,25 @@ fun OverviewScreen(
                         info.type == UpgradeRepo.Type.FOSS && !info.isPro -> {
                             IconButton(onClick = onUpgrade) {
                                 Icon(
-                                    imageVector = Icons.TwoTone.Favorite,
+                                    imageVector = Icons.TwoTone.Stars,
                                     contentDescription = stringResource(R.string.general_donate_action),
                                 )
                             }
                         }
+                    }
+
+                    IconButton(onClick = onManageDevices) {
+                        Icon(
+                            imageVector = Icons.TwoTone.DevicesOther,
+                            contentDescription = stringResource(R.string.settings_devices_label),
+                        )
+                    }
+
+                    IconButton(onClick = onSettings) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Settings,
+                            contentDescription = stringResource(R.string.settings_general_label),
+                        )
                     }
                 },
             )
