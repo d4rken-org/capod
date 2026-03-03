@@ -59,8 +59,7 @@ class PodMonitor @Inject constructor(
         bluetoothManager.isBluetoothEnabled
     ) { missingPermissions, isBluetoothEnabled ->
         log(TAG) { "devices: missingPermissions=$missingPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
-        // We just want to retrigger if permissions change.
-        isBluetoothEnabled
+        missingPermissions.isEmpty() && isBluetoothEnabled
     }
         .flatMapLatest { isReady ->
             if (!isReady) {
@@ -76,9 +75,14 @@ class PodMonitor @Inject constructor(
             flowOf(sortPodsToInterest(devices))
         }
         .retryWhen { cause, attempt ->
-            log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
-            delay(3000)
-            true
+            if (cause is SecurityException) {
+                log(TAG, WARN) { "PodMonitor failed due to missing permission, not retrying: ${cause.asLog()}" }
+                false
+            } else {
+                log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
+                delay(3000)
+                true
+            }
         }
         .onStart { emit(emptyList()) }
         .replayingShare(appScope)
