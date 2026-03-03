@@ -6,8 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -49,7 +49,7 @@ class MainActivity : Activity2() {
         }
 
         setContent {
-            val themeState by generalSettings.themeState.collectAsState(initial = generalSettings.currentThemeState)
+            val themeState by generalSettings.themeState.collectAsStateWithLifecycle(initialValue = generalSettings.currentThemeState)
             val backStack = rememberNavBackStack(startDestination)
             navCtrl.setup(backStack)
 

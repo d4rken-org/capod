@@ -4,7 +4,7 @@ import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.flow.shareLatest
+
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -35,7 +35,7 @@ class ReactionSettingsViewModel @Inject constructor(
         val showPopUpOnConnection: Boolean,
     )
 
-    private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.shareLatest(scope = vmScope)
+    private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.asLiveState()
 
     val state = combine(
         isPro,
@@ -57,7 +57,7 @@ class ReactionSettingsViewModel @Inject constructor(
             showPopUpOnCaseOpen = values[6] as Boolean,
             showPopUpOnConnection = values[7] as Boolean,
         )
-    }.shareLatest(scope = vmScope)
+    }.asLiveState()
 
     fun setOnePodMode(enabled: Boolean) {
         reactionSettings.onePodMode.value = enabled

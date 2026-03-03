@@ -29,7 +29,7 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.PrivacyPolicy
-import eu.darken.capod.common.compose.waitForState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -41,7 +41,7 @@ fun SettingsScreenHost(vm: SettingsViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val state by waitForState(vm.state)
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     state?.let {
         SettingsScreen(
             state = it,

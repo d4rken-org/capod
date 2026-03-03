@@ -9,7 +9,6 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.combine
-import eu.darken.capod.common.flow.shareLatest
 import eu.darken.capod.common.uix.ViewModel2
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -70,7 +69,7 @@ class WidgetConfigurationViewModel @Inject constructor(
             activePreset = activePreset,
             isCustomMode = activePreset == null,
         )
-    }.shareLatest(scope = vmScope)
+    }.asLiveState()
 
     data class State(
         val profiles: List<DeviceProfile> = emptyList(),

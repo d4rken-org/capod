@@ -9,8 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.view.WindowCompat
@@ -18,7 +18,6 @@ import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.capod.common.compose.waitForState
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
@@ -61,7 +60,7 @@ class WidgetConfigurationActivity : Activity2() {
         }
 
         setContent {
-            val themeState by generalSettings.themeState.collectAsState(initial = generalSettings.currentThemeState)
+            val themeState by generalSettings.themeState.collectAsStateWithLifecycle(initialValue = generalSettings.currentThemeState)
             CapodTheme(state = themeState) {
                 val backgroundColor = MaterialTheme.colorScheme.background
                 val useDarkIcons = backgroundColor.luminance() > 0.5f
@@ -72,7 +71,7 @@ class WidgetConfigurationActivity : Activity2() {
                     insetsController.isAppearanceLightNavigationBars = useDarkIcons
                 }
 
-                val state by waitForState(vm.state)
+                val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
                 state?.let { currentState ->
                     WidgetConfigurationScreen(
                         state = currentState,

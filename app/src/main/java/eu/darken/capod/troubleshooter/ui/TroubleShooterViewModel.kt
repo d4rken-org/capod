@@ -10,7 +10,7 @@ import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.flow.shareLatest
+
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.PodMonitor
@@ -45,7 +45,7 @@ class TroubleShooterViewModel @Inject constructor(
 
     data class State(val bleState: BleState)
 
-    val state = _bleState.map { State(it) }.shareLatest(scope = vmScope)
+    val state = _bleState.map { State(it) }.asLiveState()
 
     init {
         _bleState

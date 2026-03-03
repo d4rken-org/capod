@@ -43,7 +43,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.common.compose.waitForState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.permissions.Permission
@@ -129,11 +129,11 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         }
     }
 
-    val stateHolder = waitForState(vm.state)
-    val state = stateHolder.value ?: return
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
+    val currentState = state ?: return
 
     OverviewScreen(
-        state = state,
+        state = currentState,
         onRequestPermission = { vm.requestPermission(it) },
         onManageDevices = { vm.goToDeviceManager() },
         onSettings = { vm.goToSettings() },

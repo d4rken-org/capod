@@ -57,7 +57,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
 import eu.darken.capod.common.WebpageTool
-import eu.darken.capod.common.compose.waitForState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.debug.recording.ui.RecorderConsentDialog
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -120,7 +120,7 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
         }
     }
 
-    val state by waitForState(vm.state)
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     state?.let {
         ContactFormScreen(
             state = it,

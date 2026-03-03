@@ -11,7 +11,6 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
-import eu.darken.capod.common.flow.shareLatest
 import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.toHex
 import eu.darken.capod.common.uix.ViewModel4
@@ -118,7 +117,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
             minimumSignalQuality = editorState.minimumSignalQuality,
             canSave = formValid && hasChanges,
         )
-    }.shareLatest(scope = vmScope)
+    }.asLiveState()
 
     data class State(
         val isEditMode: Boolean,

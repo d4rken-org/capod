@@ -112,6 +112,7 @@ fun DependencyHandlerScope.addCompose() {
 
     implementation("androidx.activity:activity-compose:1.12.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.5")
 
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
 }

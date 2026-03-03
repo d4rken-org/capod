@@ -6,7 +6,6 @@ import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
-import eu.darken.capod.common.flow.shareLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
@@ -41,7 +40,7 @@ class GeneralSettingsViewModel @Inject constructor(
         val themeState: ThemeState,
     )
 
-    private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.shareLatest(scope = vmScope)
+    private val isPro = upgradeRepo.upgradeInfo.map { it.isPro }.asLiveState()
 
     val launchUpgradeFlow = SingleEventFlow<(Activity) -> Unit>()
 
@@ -77,7 +76,7 @@ class GeneralSettingsViewModel @Inject constructor(
             useIndirectScanResultCallback = compat[2] as Boolean,
             themeState = themeState,
         )
-    }.shareLatest(scope = vmScope)
+    }.asLiveState()
 
     fun setMonitorMode(mode: MonitorMode) {
         generalSettings.monitorMode.value = mode
