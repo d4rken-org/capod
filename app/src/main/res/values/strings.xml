@@ -19,6 +19,13 @@
 
     <string name="upgrade_capod_label">Upgrade CAPod</string>
     <string name="upgrade_capod_description">Get additional features and support the developer.</string>
+    <string name="upgrade_preamble">CAPod is developed by a single person. Upgrading unlocks extra features and helps keep the app alive.</string>
+    <string name="upgrade_benefit_themes">Theme customization</string>
+    <string name="upgrade_benefit_autoplay">Auto-play &amp; auto-pause</string>
+    <string name="upgrade_benefit_autoconnect">Auto-connect</string>
+    <string name="upgrade_benefit_popups">Popup on case open &amp; connection</string>
+    <string name="upgrade_benefit_widgets">Home screen widgets</string>
+    <string name="upgrade_benefit_support">Support the developer</string>
 
     <string name="settings_monitor_mode_label">Monitor mode</string>
     <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>

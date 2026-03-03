@@ -22,7 +22,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
-import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.main.core.themeState
@@ -34,7 +34,6 @@ class WidgetConfigurationActivity : Activity2() {
 
     private val vm: WidgetConfigurationViewModel by viewModels()
 
-    @Inject lateinit var upgradeRepo: UpgradeRepo
     @Inject lateinit var generalSettings: GeneralSettings
     @ApplicationContext @Inject lateinit var appContext: Context
 
@@ -87,7 +86,11 @@ class WidgetConfigurationActivity : Activity2() {
                             if (currentState.isPro) {
                                 confirmSelection()
                             } else {
-                                upgradeRepo.launchBillingFlow(this@WidgetConfigurationActivity)
+                                startActivity(
+                                    Intent(this@WidgetConfigurationActivity, MainActivity::class.java).apply {
+                                        putExtra(MainActivity.EXTRA_NAVIGATE_TO_UPGRADE, true)
+                                    }
+                                )
                             }
                         },
                         onCancel = { finish() },

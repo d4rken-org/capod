@@ -1,6 +1,5 @@
 package eu.darken.capod.main.ui.overview
 
-import android.app.Activity
 import android.content.Intent
 import android.provider.Settings
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -67,7 +66,6 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
     NavigationEventHandler(vm)
 
     val context = LocalContext.current
-    val activity = context as? Activity
 
     // Collect workerAutolaunch passively to keep it active
     LaunchedEffect(Unit) {
@@ -119,13 +117,6 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
                     permissionLauncher.launch(permission.permissionId)
                 }
             }
-        }
-    }
-
-    // Handle upgrade flow events
-    LaunchedEffect(Unit) {
-        vm.launchUpgradeFlow.collect { action ->
-            activity?.let { action(it) }
         }
     }
 
