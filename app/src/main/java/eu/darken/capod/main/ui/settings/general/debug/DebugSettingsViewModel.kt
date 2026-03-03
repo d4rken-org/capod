@@ -4,7 +4,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.flow.shareLatest
+
 import eu.darken.capod.common.uix.ViewModel4
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject
@@ -31,7 +31,7 @@ class DebugSettingsViewModel @Inject constructor(
             showFakeData = fakeData,
             showUnfiltered = unfiltered,
         )
-    }.shareLatest(scope = vmScope)
+    }.asLiveState()
 
     fun setDebugModeEnabled(enabled: Boolean) {
         debugSettings.isDebugModeEnabled.value = enabled

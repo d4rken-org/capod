@@ -61,7 +61,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.common.compose.waitForState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.toHex
@@ -77,7 +77,7 @@ fun DeviceProfileCreationScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val state by waitForState(vm.state)
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
 
     var showUnsavedChangesDialog by rememberSaveable { mutableStateOf(false) }
     var showDeleteDialog by rememberSaveable { mutableStateOf(false) }

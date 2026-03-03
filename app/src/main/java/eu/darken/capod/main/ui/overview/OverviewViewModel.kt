@@ -9,7 +9,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.flow.combine
-import eu.darken.capod.common.flow.shareLatest
+
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.permissions.Permission
@@ -74,7 +74,7 @@ class OverviewViewModel @Inject constructor(
                 monitorControl.startMonitor()
             }
         }
-        .shareLatest(scope = vmScope)
+        .asLiveState()
 
     private val updateTicker = channelFlow<Unit> {
         while (isActive) {
@@ -113,7 +113,7 @@ class OverviewViewModel @Inject constructor(
             upgradeInfo = upgradeInfo,
             showUnmatchedDevices = showUnmatched,
         )
-    }.shareLatest(scope = vmScope)
+    }.asLiveState()
 
     data class State(
         val now: Instant,

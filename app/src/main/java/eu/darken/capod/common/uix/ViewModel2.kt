@@ -13,7 +13,11 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.WhileSubscribed
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlin.coroutines.CoroutineContext
@@ -63,5 +67,13 @@ abstract class ViewModel2(
     }
 
     open fun <T> Flow<T>.launchInViewModel() = this.launchIn(vmScope)
+
+    fun <T : Any> Flow<T>.asLiveState(
+        started: SharingStarted = SharingStarted.WhileSubscribed(5_000),
+    ): Flow<T> = this.stateIn(
+        scope = vmScope,
+        started = started,
+        initialValue = null,
+    ).filterNotNull()
 
 }

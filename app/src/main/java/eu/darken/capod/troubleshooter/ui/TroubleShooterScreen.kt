@@ -32,7 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.common.compose.waitForState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 
@@ -41,7 +41,7 @@ fun TroubleShooterScreenHost(vm: TroubleShooterViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val state by waitForState(vm.state)
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     state?.let {
         TroubleShooterScreen(
             state = it,

@@ -24,8 +24,6 @@ PR titles appear in auto-generated changelogs and are read by users. Use **ELI5,
 | **General** | Dashboard, settings, notifications, themes, onboarding, support, app-wide UI |
 | **Fix** | Bug fixes spanning multiple areas |
 
-For non-user-facing PRs (refactors, tests, CI, dependency bumps, translations), apply the `changelog-ignore` GitHub label. These don't need user-facing titles.
-
 ### Title Examples
 
 - `Widget: Add color themes and transparency slider`

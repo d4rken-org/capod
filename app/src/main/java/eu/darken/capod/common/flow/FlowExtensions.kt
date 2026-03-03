@@ -14,41 +14,17 @@ import kotlinx.coroutines.flow.WhileSubscribed
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.flow.shareIn
-import kotlinx.coroutines.flow.stateIn
+
 import kotlinx.coroutines.flow.transform
 import kotlinx.coroutines.flow.transformWhile
 import kotlin.time.Duration
 
-/**
- * Create a stateful flow, with the initial value of null, but never emits a null value.
- * Helper method to create a new flow without suspending and without initial value
- * The flow collector will just wait for the first value
- */
-fun <T : Any> Flow<T>.shareLatest(
-    tag: String? = null,
-    scope: CoroutineScope,
-    started: SharingStarted = SharingStarted.WhileSubscribed(replayExpirationMillis = 0)
-) = this
-    .onStart { if (tag != null) log(tag) { "shareLatest(...) start" } }
-    .onEach { if (tag != null) log(tag) { "shareLatest(...) emission: $it" } }
-    .onCompletion { if (tag != null) log(tag) { "shareLatest(...) completed." } }
-    .catch {
-        if (tag != null) log(tag) { "shareLatest(...) catch(): ${it.asLog()}" }
-        throw it
-    }
-    .stateIn(
-        scope = scope,
-        started = started,
-        initialValue = null
-    )
-    .filterNotNull()
 
 fun <T : Any?> Flow<T>.replayingShare(scope: CoroutineScope) = this.shareIn(
     scope = scope,

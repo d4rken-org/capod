@@ -51,7 +51,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.bluetooth.ScannerMode
-import eu.darken.capod.common.compose.waitForState
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
@@ -74,7 +74,7 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
         vm.launchUpgradeFlow.collect { action -> activity?.let { action(it) } }
     }
 
-    val state by waitForState(vm.state)
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     state?.let {
         GeneralSettingsScreen(
             state = it,
