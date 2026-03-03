@@ -172,9 +172,10 @@ class MonitorService : Service() {
             .distinctUntilChanged()
             .throttleLatest(1000)
             .onEach { currentDevice ->
+                val useExtraNotification = generalSettings.useExtraMonitorNotification.value
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,
-                    notifications.getNotification(currentDevice),
+                    notifications.getNotification(currentDevice, showHint = useExtraNotification),
                 )
                 if (generalSettings.useExtraMonitorNotification.value && currentDevice != null) {
                     notificationManager.notify(
