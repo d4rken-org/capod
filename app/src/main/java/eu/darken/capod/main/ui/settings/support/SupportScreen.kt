@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
+import androidx.compose.material.icons.automirrored.twotone.MenuBook
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -85,6 +86,7 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
             onContactDeveloper = { vm.goToContactSupport() },
             onDiscord = { vm.openUrl("https://discord.gg/rrxxng35jq") },
             onIssueTracker = { vm.openUrl("https://github.com/d4rken-org/capod/issues") },
+            onWiki = { vm.openUrl("https://github.com/d4rken-org/capod/wiki") },
             onTroubleShooter = { vm.goToTroubleShooter() },
             onDebugLogToggle = { vm.onDebugLogToggle() },
             onClearLogs = { vm.clearDebugLogs() },
@@ -122,6 +124,7 @@ fun SupportScreen(
     onContactDeveloper: () -> Unit,
     onDiscord: () -> Unit,
     onIssueTracker: () -> Unit,
+    onWiki: () -> Unit,
     onTroubleShooter: () -> Unit,
     onDebugLogToggle: () -> Unit,
     onClearLogs: () -> Unit,
@@ -156,6 +159,14 @@ fun SupportScreen(
             }
             item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_gethelp_label))
+            }
+            item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.settings_wiki_label),
+                    subtitle = stringResource(R.string.settings_wiki_description),
+                    icon = Icons.AutoMirrored.TwoTone.MenuBook,
+                    onClick = onWiki,
+                )
             }
             item {
                 SettingsBaseItem(
@@ -233,6 +244,7 @@ private fun SupportScreenPreview() = PreviewWrapper {
         onContactDeveloper = {},
         onDiscord = {},
         onIssueTracker = {},
+        onWiki = {},
         onTroubleShooter = {},
         onDebugLogToggle = {},
         onClearLogs = {},
