@@ -9,6 +9,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesContainer
+import eu.darken.capod.common.upgrade.core.FossUpgrade
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import io.kotest.matchers.shouldBe
 import kotlinx.serialization.SerialName
@@ -16,6 +17,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Instant
 
 /**
  * Tests that verify @SerialName values match @Json(name=...) values,
@@ -69,6 +71,9 @@ class DataStoreMigrationCompatTest : BaseTest() {
     fun `SerialName matches Json name - PodDevice Model`() = verifyEnumSerialNameParity<PodDevice.Model>()
 
     @Test
+    fun `SerialName matches Json name - FossUpgrade Reason`() = verifyEnumSerialNameParity<FossUpgrade.Reason>()
+
+    @Test
     fun `Moshi-serialized ThemeMode string is readable by kotlinx`() {
         // Moshi stores enums as JSON strings like: "theme.mode.dark"
         val moshiOutput = "\"theme.mode.dark\""
@@ -101,6 +106,36 @@ class DataStoreMigrationCompatTest : BaseTest() {
                 result shouldBe model
             }
         }
+    }
+
+    @Test
+    fun `Moshi-serialized ThemeStyle string is readable by kotlinx`() {
+        val moshiOutput = "\"theme.style.materialyou\""
+        val result = json.decodeFromString(serializer<ThemeStyle>(), moshiOutput)
+        result shouldBe ThemeStyle.MATERIAL_YOU
+    }
+
+    @Test
+    fun `Moshi-serialized ThemeColor string is readable by kotlinx`() {
+        val moshiOutput = "\"theme.color.green\""
+        val result = json.decodeFromString(serializer<ThemeColor>(), moshiOutput)
+        result shouldBe ThemeColor.GREEN
+    }
+
+    @Test
+    fun `Moshi-serialized AutoConnectCondition string is readable by kotlinx`() {
+        val moshiOutput = "\"autoconnect.condition.seen\""
+        val result = json.decodeFromString(serializer<AutoConnectCondition>(), moshiOutput)
+        result shouldBe AutoConnectCondition.WHEN_SEEN
+    }
+
+    @Test
+    fun `Moshi-serialized FossUpgrade JSON is readable by kotlinx`() {
+        // Moshi with JavaInstantAdapter serializes Instant as epoch millis Long
+        val moshiJson = """{"upgradedAt":1709553600000,"reason":"foss.upgrade.reason.donated"}"""
+        val result = json.decodeFromString(serializer<FossUpgrade>(), moshiJson)
+        result.upgradedAt shouldBe Instant.ofEpochMilli(1709553600000)
+        result.reason shouldBe FossUpgrade.Reason.DONATED
     }
 
     @Test
