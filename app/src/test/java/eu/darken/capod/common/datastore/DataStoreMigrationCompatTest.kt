@@ -9,7 +9,6 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesContainer
-import eu.darken.capod.common.upgrade.core.FossUpgrade
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import io.kotest.matchers.shouldBe
 import kotlinx.serialization.SerialName
@@ -17,7 +16,6 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
-import java.time.Instant
 
 /**
  * Tests that verify @SerialName values match @Json(name=...) values,
@@ -69,9 +67,6 @@ class DataStoreMigrationCompatTest : BaseTest() {
 
     @Test
     fun `SerialName matches Json name - PodDevice Model`() = verifyEnumSerialNameParity<PodDevice.Model>()
-
-    @Test
-    fun `SerialName matches Json name - FossUpgrade Reason`() = verifyEnumSerialNameParity<FossUpgrade.Reason>()
 
     @Test
     fun `Moshi-serialized ThemeMode string is readable by kotlinx`() {
@@ -127,15 +122,6 @@ class DataStoreMigrationCompatTest : BaseTest() {
         val moshiOutput = "\"autoconnect.condition.seen\""
         val result = json.decodeFromString(serializer<AutoConnectCondition>(), moshiOutput)
         result shouldBe AutoConnectCondition.WHEN_SEEN
-    }
-
-    @Test
-    fun `Moshi-serialized FossUpgrade JSON is readable by kotlinx`() {
-        // Moshi with JavaInstantAdapter serializes Instant as epoch millis Long
-        val moshiJson = """{"upgradedAt":1709553600000,"reason":"foss.upgrade.reason.donated"}"""
-        val result = json.decodeFromString(serializer<FossUpgrade>(), moshiJson)
-        result.upgradedAt shouldBe Instant.ofEpochMilli(1709553600000)
-        result.reason shouldBe FossUpgrade.Reason.DONATED
     }
 
     @Test
