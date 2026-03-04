@@ -5,16 +5,16 @@ import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,14 +31,18 @@ import androidx.compose.material.icons.twotone.Widgets
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -59,6 +63,7 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 
+
 @Composable
 fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
@@ -66,6 +71,7 @@ fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
 
     val context = LocalContext.current
     val activity = context as? Activity
+    val state by vm.state.collectAsState()
 
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
@@ -73,7 +79,7 @@ fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
                 UpgradeViewModel.UpgradeEvent.RestoreFailed -> {
                     Toast.makeText(
                         context,
-                        R.string.upgrades_no_purchases_found_check_account,
+                        R.string.upgrade_screen_restore_purchase_message,
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -81,9 +87,23 @@ fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
         }
     }
 
+    LaunchedEffect(Unit) {
+        vm.billingEvents.collect { event ->
+            activity ?: return@collect
+            when (event) {
+                UpgradeViewModel.BillingEvent.LaunchIap -> vm.launchBillingIap(activity)
+                UpgradeViewModel.BillingEvent.LaunchSubscription -> vm.launchBillingSubscription(activity)
+                UpgradeViewModel.BillingEvent.LaunchSubscriptionTrial -> vm.launchBillingSubscriptionTrial(activity)
+            }
+        }
+    }
+
     UpgradeScreen(
+        state = state,
         onNavigateUp = { vm.navUp() },
-        onUpgrade = { activity?.let { vm.startPurchase(it) } },
+        onSubscription = { vm.onGoSubscription() },
+        onSubscriptionTrial = { vm.onGoSubscriptionTrial() },
+        onIap = { vm.onGoIap() },
         onRestore = { vm.restorePurchase() },
     )
 }
@@ -92,8 +112,11 @@ private data class Benefit(val icon: ImageVector, val textRes: Int)
 
 @Composable
 fun UpgradeScreen(
+    state: UpgradeViewModel.Pricing?,
     onNavigateUp: () -> Unit,
-    onUpgrade: () -> Unit,
+    onSubscription: () -> Unit,
+    onSubscriptionTrial: () -> Unit,
+    onIap: () -> Unit,
     onRestore: () -> Unit,
 ) {
     val benefits = listOf(
@@ -137,15 +160,7 @@ fun UpgradeScreen(
                     }
                 },
                 style = MaterialTheme.typography.headlineLarge,
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = stringResource(R.string.upgrade_capod_description),
-                style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -185,7 +200,7 @@ fun UpgradeScreen(
                                     Icon(
                                         imageVector = benefit.icon,
                                         contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.primary,
+                                        tint = MaterialTheme.colorScheme.onPrimaryContainer,
                                         modifier = Modifier.size(16.dp),
                                     )
                                 }
@@ -200,32 +215,18 @@ fun UpgradeScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
-            Button(
-                onClick = onUpgrade,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp),
-                shape = RoundedCornerShape(12.dp),
-            ) {
-                Icon(
-                    imageVector = Icons.TwoTone.Stars,
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp),
+            if (state == null) {
+                CircularProgressIndicator(modifier = Modifier.padding(16.dp))
+            } else {
+                PricingContent(
+                    state = state,
+                    onSubscription = onSubscription,
+                    onSubscriptionTrial = onSubscriptionTrial,
+                    onIap = onIap,
+                    onRestore = onRestore,
                 )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = stringResource(R.string.general_upgrade_action),
-                    style = MaterialTheme.typography.titleMedium,
-                )
-            }
-
-            TextButton(
-                onClick = onRestore,
-                modifier = Modifier.padding(top = 4.dp),
-            ) {
-                Text(text = stringResource(R.string.upgrade_restore_action))
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -238,8 +239,129 @@ fun UpgradeScreen(
             Icon(
                 imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                 contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurface,
             )
         }
+    }
+}
+
+@Composable
+private fun PricingContent(
+    state: UpgradeViewModel.Pricing,
+    onSubscription: () -> Unit,
+    onSubscriptionTrial: () -> Unit,
+    onIap: () -> Unit,
+    onRestore: () -> Unit,
+) {
+    // Subscription button (primary)
+    if (state.subAvailable) {
+        val subscriptionAction = if (state.hasTrialOffer) onSubscriptionTrial else onSubscription
+
+        val subscriptionLabel = if (state.hasTrialOffer) {
+            stringResource(R.string.upgrade_screen_subscription_trial_action)
+        } else {
+            stringResource(R.string.upgrade_screen_subscription_action)
+        }
+
+        Button(
+            onClick = subscriptionAction,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp),
+            shape = RoundedCornerShape(12.dp),
+        ) {
+            Icon(
+                imageVector = Icons.TwoTone.Stars,
+                contentDescription = null,
+                modifier = Modifier.size(20.dp),
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = subscriptionLabel,
+                style = MaterialTheme.typography.titleMedium,
+            )
+        }
+
+        if (state.subPrice != null) {
+            Text(
+                text = stringResource(R.string.upgrade_screen_subscription_action_hint, state.subPrice),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+    }
+
+    // IAP button (secondary)
+    if (state.iapAvailable) {
+        FilledTonalButton(
+            onClick = onIap,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp),
+            shape = RoundedCornerShape(12.dp),
+        ) {
+            Text(
+                text = stringResource(R.string.upgrade_screen_iap_action),
+                style = MaterialTheme.typography.titleMedium,
+            )
+        }
+
+        if (state.iapPrice != null) {
+            Text(
+                text = stringResource(R.string.upgrade_screen_iap_action_hint, state.iapPrice),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+        }
+    }
+
+    // If no details loaded at all, show a simple fallback upgrade button
+    if (!state.subAvailable && !state.iapAvailable) {
+        Button(
+            onClick = onIap,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(52.dp),
+            shape = RoundedCornerShape(12.dp),
+        ) {
+            Icon(
+                imageVector = Icons.TwoTone.Stars,
+                contentDescription = null,
+                modifier = Modifier.size(20.dp),
+                tint = MaterialTheme.colorScheme.onPrimary,
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = stringResource(R.string.general_upgrade_action),
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onPrimary,
+            )
+        }
+    }
+
+    Spacer(modifier = Modifier.height(8.dp))
+
+    Text(
+        text = stringResource(R.string.upgrade_screen_options_description),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textAlign = TextAlign.Center,
+    )
+
+    Spacer(modifier = Modifier.height(16.dp))
+
+    OutlinedButton(
+        onClick = onRestore,
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(52.dp),
+        shape = RoundedCornerShape(12.dp),
+    ) {
+        Text(text = stringResource(R.string.upgrade_screen_restore_purchase_action))
     }
 }
 
@@ -247,8 +369,15 @@ fun UpgradeScreen(
 @Composable
 private fun UpgradeScreenPreview() = PreviewWrapper {
     UpgradeScreen(
+        state = UpgradeViewModel.Pricing(
+            subPrice = "€3.49",
+            iapPrice = "€6.49",
+            hasTrialOffer = true,
+        ),
         onNavigateUp = {},
-        onUpgrade = {},
+        onSubscription = {},
+        onSubscriptionTrial = {},
+        onIap = {},
         onRestore = {},
     )
 }

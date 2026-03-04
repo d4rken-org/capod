@@ -5,4 +5,6 @@
     <string name="foss_upgrade_no_money_label">I spend all my money on AirPods</string>
     <string name="upgrade_foss_preamble">CAPod FOSS is free and open source. If you find it useful, consider sponsoring development to help keep the project going.</string>
     <string name="upgrade_foss_sponsor_action">Sponsor development</string>
+    <string name="upgrade_foss_sponsor_subtitle">No ads. No tracking. No Google Play lock-in.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Back already? Your support keeps CAPod alive.</string>
 </resources>

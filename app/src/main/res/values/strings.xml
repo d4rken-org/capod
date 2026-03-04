@@ -27,6 +27,19 @@
     <string name="upgrade_benefit_widgets">Home screen widgets</string>
     <string name="upgrade_benefit_support">Support the developer</string>
 
+    <string name="upgrade_screen_options_description">Same features, different pricing. The subscription includes a free trial and can be cancelled at any time.</string>
+
+    <string name="upgrade_screen_subscription_trial_action">Start free trial</string>
+    <string name="upgrade_screen_subscription_action">Subscribe yearly</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/year</string>
+    <string name="upgrade_screen_iap_action">Buy once</string>
+    <string name="upgrade_screen_iap_action_hint">One-time purchase: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Restore purchase</string>
+    <string name="upgrade_screen_restore_purchase_message">No purchases found. Are you using the right account?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">If you\'ve recently purchased, it may take a moment for Google Play to sync.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Try again in a few minutes if your purchase doesn\'t appear.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Make sure you\'re signed in with the same Google account used for the purchase.</string>
+
     <string name="settings_monitor_mode_label">Monitor mode</string>
     <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>
     <string name="settings_monitor_connected_notification_label">Extra notification</string>

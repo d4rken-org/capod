@@ -3,16 +3,16 @@ package eu.darken.capod.upgrade.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,22 +31,30 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
@@ -58,7 +66,32 @@ fun UpgradeScreenHost(vm: UpgradeViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
+    val snackbarHostState = remember { SnackbarHostState() }
+    val returnedEarlyMessage = stringResource(R.string.upgrade_foss_sponsor_returned_early)
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                vm.onResume()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
+
+    LaunchedEffect(Unit) {
+        vm.sponsorEvents.collect { event ->
+            when (event) {
+                UpgradeViewModel.SponsorEvent.ReturnedTooEarly -> {
+                    snackbarHostState.showSnackbar(returnedEarlyMessage)
+                }
+            }
+        }
+    }
+
     UpgradeScreen(
+        snackbarHostState = snackbarHostState,
         onNavigateUp = { vm.navUp() },
         onSponsor = { vm.sponsor() },
     )
@@ -68,6 +101,7 @@ private data class Benefit(val icon: ImageVector, val textRes: Int)
 
 @Composable
 fun UpgradeScreen(
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onNavigateUp: () -> Unit,
     onSponsor: () -> Unit,
 ) {
@@ -80,7 +114,14 @@ fun UpgradeScreen(
         Benefit(Icons.TwoTone.Favorite, R.string.upgrade_benefit_support),
     )
 
-    Box(modifier = Modifier.windowInsetsPadding(WindowInsets.systemBars)) {
+    Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        containerColor = MaterialTheme.colorScheme.surface,
+    ) { paddingValues ->
+    Box(modifier = Modifier
+        .windowInsetsPadding(WindowInsets.systemBars)
+        .padding(paddingValues)
+    ) {
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
@@ -112,15 +153,7 @@ fun UpgradeScreen(
                     }
                 },
                 style = MaterialTheme.typography.headlineLarge,
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            Text(
-                text = stringResource(R.string.upgrade_capod_description),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurface,
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -138,7 +171,7 @@ fun UpgradeScreen(
                 )
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Card(
                 modifier = Modifier.fillMaxWidth(),
@@ -160,7 +193,7 @@ fun UpgradeScreen(
                                     Icon(
                                         imageVector = benefit.icon,
                                         contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.secondary,
+                                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
                                         modifier = Modifier.size(16.dp),
                                     )
                                 }
@@ -175,7 +208,7 @@ fun UpgradeScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Button(
                 onClick = onSponsor,
@@ -196,6 +229,13 @@ fun UpgradeScreen(
                 )
             }
 
+            Text(
+                text = stringResource(R.string.upgrade_foss_sponsor_subtitle),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+
             Spacer(modifier = Modifier.height(24.dp))
         }
 
@@ -206,8 +246,10 @@ fun UpgradeScreen(
             Icon(
                 imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                 contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurface,
             )
         }
+    }
     }
 }
 

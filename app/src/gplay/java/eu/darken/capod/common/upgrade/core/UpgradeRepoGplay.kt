@@ -1,23 +1,28 @@
 package eu.darken.capod.common.upgrade.core
 
+import android.app.Activity
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.core.data.BillingData
 import eu.darken.capod.common.upgrade.core.data.BillingDataRepo
 import eu.darken.capod.common.upgrade.core.data.PurchasedSku
+import eu.darken.capod.common.upgrade.core.data.Sku
+import eu.darken.capod.common.upgrade.core.data.SkuDetails
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.retryWhen
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.shareIn
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.math.pow
 import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
@@ -32,44 +37,49 @@ class UpgradeRepoGplay @Inject constructor(
         set(value) { billingCache.lastProStateAt.valueBlocking = value }
 
     override val upgradeInfo: Flow<UpgradeRepo.Info> = billingDataRepo.billingData
-        .map { data -> // Only relinquish pro state if we haven't had it for a while
+        .map { data ->
             val now = System.currentTimeMillis()
             val proSku = data.getProSku()
             log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, data=${data}" }
             when {
                 proSku != null -> {
-                    // If we are pro refresh timestamp
                     lastProStateAt = now
-                    Info(billingData = data)
+                    Info(billingData = data, upgrades = data.getProSkus())
                 }
 
-                (now - lastProStateAt) < 6 * 60 * 60 * 1000L -> { // 6 hours
+                (now - lastProStateAt) < 7 * 24 * 60 * 60 * 1000L -> { // 7 days
                     log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
                     Info(gracePeriod = true, billingData = null)
                 }
 
                 else -> {
-                    Info(billingData = data)
+                    Info(billingData = data, upgrades = data.getProSkus())
                 }
             }
         }
-        .retryWhen { error, attempt ->
+        .onStart {
             val now = System.currentTimeMillis()
-            log(TAG) { "now=$now, lastProStateAt=$lastProStateAt, attempt=$attempt, error=$error" }
-            if ((now - lastProStateAt) < 24 * 60 * 60 * 1000L) { // 24 hours
-                log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
+            if ((now - lastProStateAt) < 7 * 24 * 60 * 60 * 1000L) {
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
-                emit(Info(billingData = null, error = if (attempt == 0L) error else null))
+                emit(Info(billingData = null))
             }
-            delay(30_000L * 2.0.pow(attempt.toDouble()).toLong())
-            true
         }
-        .replayingShare(scope)
+        .catch { error ->
+            log(TAG, WARN) { "upgradeInfo error: ${error.asLog()}" }
+            val now = System.currentTimeMillis()
+            if ((now - lastProStateAt) < 7 * 24 * 60 * 60 * 1000L) {
+                emit(Info(gracePeriod = true, billingData = null))
+            } else {
+                emit(Info(billingData = null, error = error))
+            }
+        }
+        .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
     data class Info(
         private val gracePeriod: Boolean = false,
         private val billingData: BillingData?,
+        val upgrades: Collection<PurchasedSku> = emptyList(),
         override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
 
@@ -79,6 +89,12 @@ class UpgradeRepoGplay @Inject constructor(
         override val isPro: Boolean
             get() = billingData?.getProSku() != null || gracePeriod
 
+        val hasIap: Boolean
+            get() = upgrades.any { it.sku is Sku.Iap }
+
+        val hasSub: Boolean
+            get() = upgrades.any { it.sku is Sku.Subscription }
+
         override val upgradedAt: Instant?
             get() = billingData
                 ?.getProSku()
@@ -86,9 +102,22 @@ class UpgradeRepoGplay @Inject constructor(
                 ?.let { Instant.ofEpochMilli(it) }
     }
 
+    suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = billingDataRepo.querySkus(*skus)
+
+    suspend fun launchBillingFlow(
+        activity: Activity,
+        sku: Sku,
+        offer: Sku.Subscription.Offer? = null,
+    ) = billingDataRepo.startBillingFlow(activity, sku, offer)
+
+    suspend fun refresh(): BillingData = billingDataRepo.refresh()
+
     companion object {
         private fun BillingData.getProSku(): PurchasedSku? = purchasedSkus
-            .firstOrNull { it.sku == CapodSku.PRO_UPGRADE.sku }
+            .firstOrNull { it.sku in CapodSku.PRO_SKUS }
+
+        private fun BillingData.getProSkus(): Collection<PurchasedSku> = purchasedSkus
+            .filter { it.sku in CapodSku.PRO_SKUS }
 
         val TAG: String = logTag("Upgrade", "Gplay", "Control")
     }
