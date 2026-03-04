@@ -37,6 +37,7 @@ class BillingClientConnectionProvider @Inject constructor(
             enablePendingPurchases(
                 PendingPurchasesParams.newBuilder()
                     .enableOneTimeProducts()
+                    .enablePrepaidPlans()
                     .build()
             )
             setListener { result, purchases ->
@@ -69,10 +70,10 @@ class BillingClientConnectionProvider @Inject constructor(
 
                         launch {
                             try {
-                                purchasePublisher.value = connection.queryPurchases()
-                                log(TAG) { "Initial IAP query successful." }
+                                connection.refreshPurchases()
+                                log(TAG) { "Initial purchase query successful." }
                             } catch (e: Exception) {
-                                log(TAG, ERROR) { "Initial IAP query failed:\n${e.asLog()}" }
+                                log(TAG, ERROR) { "Initial purchase query failed:\n${e.asLog()}" }
                             }
                         }
                     }

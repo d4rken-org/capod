@@ -24,13 +24,16 @@ class BillingDataRepo @Inject constructor(
 ) {
 
     private val connectionProvider = billingClientConnectionProvider.connection
-        .catch { log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" } }
+        .catch {
+            log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" }
+            throw it
+        }
         .replayingShare(scope)
 
     val billingData: Flow<BillingData> = connectionProvider
         .flatMapLatest { it.purchases }
         .map { BillingData(purchases = it) }
-        .setupCommonEventHandlers(TAG) { "iapData" }
+        .setupCommonEventHandlers(TAG) { "billingData" }
         .replayingShare(scope)
 
     init {
@@ -84,26 +87,35 @@ class BillingDataRepo @Inject constructor(
             .launchIn(scope)
     }
 
-    suspend fun getIapData(): BillingData = try {
+    suspend fun refresh(): BillingData = try {
         val clientConnection = connectionProvider.first()
-        val iaps = clientConnection.queryPurchases()
+        val purchases = clientConnection.refreshPurchases()
 
-        BillingData(
-            purchases = iaps
-        )
+        BillingData(purchases = purchases)
     } catch (e: Exception) {
         throw e.tryMapUserFriendly()
     }
 
-    suspend fun startIapFlow(activity: Activity, sku: Sku) {
+    suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> = try {
+        val clientConnection = connectionProvider.first()
+        clientConnection.querySkus(*skus)
+    } catch (e: Exception) {
+        throw e.tryMapUserFriendly()
+    }
+
+    suspend fun startBillingFlow(
+        activity: Activity,
+        sku: Sku,
+        offer: Sku.Subscription.Offer? = null,
+    ) {
         try {
             val clientConnection = connectionProvider.first()
-            clientConnection.launchBillingFlow(activity, sku)
+            clientConnection.launchBillingFlow(activity, sku, offer)
         } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to start IAP flow:\n${e.asLog()}" }
+            log(TAG, WARN) { "Failed to start billing flow:\n${e.asLog()}" }
             val ignoredCodes = listOf(3, 6)
             if (e !is BillingResultException || !e.result.responseCode.let { ignoredCodes.contains(it) }) {
-                Bugs.report(TAG, "IAP flow failed for $sku", e)
+                Bugs.report(TAG, "Billing flow failed for $sku", e)
             }
 
             throw e.tryMapUserFriendly()
