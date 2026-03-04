@@ -7,7 +7,6 @@ import eu.darken.capod.common.serialization.InstantEpochMillisSerializer
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
-import eu.darken.capod.common.upgrade.core.FossUpgrade
 import eu.darken.capod.main.core.MonitorMode
 import kotlinx.serialization.builtins.nullable
 import eu.darken.capod.pods.core.PodDevice
@@ -204,24 +203,6 @@ class DataStoreValueSerializationTest : BaseTest() {
             pref.value(condition)
             pref.value() shouldBe condition
         }
-    }
-
-    @Test
-    fun `data class round-trip - FossUpgrade nullable`() = runTest2 {
-        val ds = createDataStore()
-        val pref = ds.createValue<FossUpgrade?>("upgrade", null, json)
-
-        pref.value() shouldBe null
-
-        val upgrade = FossUpgrade(
-            upgradedAt = Instant.ofEpochMilli(1709553600000),
-            reason = FossUpgrade.Reason.DONATED,
-        )
-        pref.value(upgrade)
-        val result = pref.value()
-
-        result!!.upgradedAt shouldBe Instant.ofEpochMilli(1709553600000)
-        result.reason shouldBe FossUpgrade.Reason.DONATED
     }
 
     @Test
