@@ -5,14 +5,15 @@ import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.debug.recording.core.DebugSession
 import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import java.io.File
 import javax.inject.Inject
 
@@ -27,39 +28,38 @@ class SupportViewModel @Inject constructor(
         val isRecording: Boolean = false,
         val currentLogPath: File? = null,
         val recordingStartedAt: Long = 0L,
-        val logFolderSize: Long = 0L,
-        val logSessionCount: Int = 0,
-    )
+        val sessions: List<DebugSession> = emptyList(),
+    ) {
+        val logSessionCount: Int get() = sessions.count { it !is DebugSession.Recording }
+        val logFolderSize: Long get() = sessions.sumOf { it.diskSize }
+        val failedSessions: List<DebugSession.Failed> get() = sessions.filterIsInstance<DebugSession.Failed>()
+    }
 
     sealed interface Event {
         data object ShowConsentDialog : Event
         data object ShowShortRecordingWarning : Event
+        data class OpenRecorderActivity(val sessionId: String, val legacyPath: String?) : Event
     }
 
     val events = SingleEventFlow<Event>()
 
-    private val stater = DynamicStateFlow(TAG, vmScope) {
-        State(
-            logFolderSize = recorderModule.getLogFolderSize(),
-            logSessionCount = recorderModule.getLogSessionCount(),
-        )
-    }
+    private val stater = DynamicStateFlow(TAG, vmScope) { State() }
     val state = stater.flow
 
     init {
-        recorderModule.state
-            .onEach { recorderState ->
-                stater.updateBlocking {
-                    copy(
-                        isRecording = recorderState.isRecording,
-                        currentLogPath = recorderState.currentLogPath,
-                        recordingStartedAt = recorderState.recordingStartedAt,
-                        logFolderSize = recorderModule.getLogFolderSize(),
-                        logSessionCount = recorderModule.getLogSessionCount(),
-                    )
-                }
+        combine(
+            recorderModule.state,
+            recorderModule.sessions,
+        ) { recorderState, sessions ->
+            stater.updateBlocking {
+                copy(
+                    isRecording = recorderState.isRecording,
+                    currentLogPath = recorderState.currentLogPath,
+                    recordingStartedAt = recorderState.recordingStartedAt,
+                    sessions = sessions,
+                )
             }
-            .launchIn(vmScope)
+        }.launchIn(vmScope)
     }
 
     fun openUrl(url: String) {
@@ -100,32 +100,31 @@ class SupportViewModel @Inject constructor(
         }
         log(TAG) { "stopDebugLog()" }
         recorderModule.stopRecorder()
-        doRefreshLogSize()
     }
 
     fun forceStopDebugLog() = launch {
         log(TAG) { "forceStopDebugLog()" }
         recorderModule.stopRecorder()
-        doRefreshLogSize()
     }
 
     fun clearDebugLogs() = launch {
         log(TAG) { "clearDebugLogs()" }
         recorderModule.deleteAllLogs()
-        doRefreshLogSize()
     }
 
-    fun refreshLogSize() = launch {
-        doRefreshLogSize()
+    fun openSession(sessionId: String) = launch {
+        val session = recorderModule.sessions.first().firstOrNull { it.id == sessionId } ?: return@launch
+        val legacyPath = (session as? DebugSession.Ready)?.logDir?.path
+        events.tryEmit(Event.OpenRecorderActivity(sessionId, legacyPath))
     }
 
-    private suspend fun doRefreshLogSize() {
-        stater.updateBlocking {
-            copy(
-                logFolderSize = recorderModule.getLogFolderSize(),
-                logSessionCount = recorderModule.getLogSessionCount(),
-            )
-        }
+    fun refreshSessions() = launch {
+        recorderModule.refreshSessions()
+    }
+
+    fun deleteSession(id: String) = launch {
+        log(TAG) { "deleteSession($id)" }
+        recorderModule.deleteSession(id)
     }
 
     companion object {

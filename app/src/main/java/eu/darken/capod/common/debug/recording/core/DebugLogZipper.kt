@@ -19,7 +19,14 @@ class DebugLogZipper @Inject constructor(
             ?: throw IllegalStateException("No log files in $logDir")
 
         val zipFile = File(logDir.parentFile, "${logDir.name}.zip")
-        Zipper().zip(logFiles.map { it.path }.toTypedArray(), zipFile.path)
+        val tempFile = File(logDir.parentFile, "${logDir.name}.zip.tmp")
+        try {
+            Zipper().zip(logFiles.map { it.path }.toTypedArray(), tempFile.path)
+            tempFile.renameTo(zipFile)
+        } catch (e: Exception) {
+            tempFile.delete()
+            throw e
+        }
 
         return FileProvider.getUriForFile(
             context,
