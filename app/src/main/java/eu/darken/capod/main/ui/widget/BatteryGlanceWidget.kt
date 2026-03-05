@@ -10,6 +10,7 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
+import androidx.annotation.Keep
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
@@ -22,12 +23,14 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 
 class BatteryGlanceWidget : GlanceAppWidget() {
 
     override val sizeMode = SizeMode.Exact
 
+    @Keep
     @EntryPoint
     @InstallIn(SingletonComponent::class)
     interface WidgetEntryPoint {
@@ -38,15 +41,35 @@ class BatteryGlanceWidget : GlanceAppWidget() {
     }
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        val ep = EntryPointAccessors.fromApplication(context, WidgetEntryPoint::class.java)
+        val ep: WidgetEntryPoint
+        val appWidgetId: Int
+        val initialIsPro: Boolean
+        val initialProfileId: String?
+        val cachedDevice: PodDevice?
 
-        val appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
-        log(TAG, VERBOSE) { "provideGlance(appWidgetId=$appWidgetId)" }
-
-        // Pre-load initial values (runs once per session, suspend OK)
-        val initialIsPro = ep.upgradeRepo().isPro()
-        val initialProfileId = ep.widgetSettings().getWidgetProfile(appWidgetId)
-        val cachedDevice = initialProfileId?.let { ep.podMonitor().getDeviceForProfile(it) }
+        try {
+            ep = EntryPointAccessors.fromApplication(context, WidgetEntryPoint::class.java)
+            appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
+            log(TAG, VERBOSE) { "provideGlance(appWidgetId=$appWidgetId)" }
+            initialIsPro = ep.upgradeRepo().isPro()
+            initialProfileId = ep.widgetSettings().getWidgetProfile(appWidgetId)
+            cachedDevice = initialProfileId?.let { ep.podMonitor().getDeviceForProfile(it) }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "provideGlance setup failed: ${e.asLog()}" }
+            provideContent {
+                GlanceWidgetContent(
+                    state = WidgetRenderState.Message(
+                        theme = WidgetTheme.DEFAULT,
+                        resolvedBgColor = WidgetRenderStateMapper.resolvedBgColor(context, WidgetTheme.DEFAULT),
+                        resolvedTextColor = WidgetRenderStateMapper.resolvedTextColor(context, WidgetTheme.DEFAULT),
+                        resolvedIconColor = WidgetRenderStateMapper.resolvedIconColor(context, WidgetTheme.DEFAULT),
+                        primaryText = context.getString(eu.darken.capod.R.string.widget_error_loading_label),
+                    ),
+                    context = context,
+                )
+            }
+            return
+        }
 
         provideContent {
             // Composable reads — must be outside try-catch
