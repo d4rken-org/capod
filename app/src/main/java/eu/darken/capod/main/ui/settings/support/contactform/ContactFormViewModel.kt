@@ -11,15 +11,14 @@ import eu.darken.capod.common.SupportLinks
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.debug.recording.core.DebugLogZipper
+import eu.darken.capod.common.debug.recording.core.DebugSession
 import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
-import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,17 +26,10 @@ class ContactFormViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val recorderModule: RecorderModule,
-    private val debugLogZipper: DebugLogZipper,
     private val emailTool: EmailTool,
 ) : ViewModel4(dispatcherProvider) {
 
     enum class Category { QUESTION, FEATURE, BUG }
-
-    data class LogSessionItem(
-        val path: File,
-        val size: Long,
-        val lastModified: Long,
-    )
 
     data class State(
         val category: Category = Category.QUESTION,
@@ -46,8 +38,8 @@ class ContactFormViewModel @Inject constructor(
         val isSending: Boolean = false,
         val isRecording: Boolean = false,
         val recordingStartedAt: Long = 0L,
-        val sessions: List<LogSessionItem> = emptyList(),
-        val selectedSessionPath: File? = null,
+        val sessions: List<DebugSession.Ready> = emptyList(),
+        val selectedSessionId: String? = null,
     ) {
         val isBug: Boolean get() = category == Category.BUG
 
@@ -73,45 +65,28 @@ class ContactFormViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
-    private val stater = DynamicStateFlow(TAG, vmScope) {
-        State(sessions = loadLogSessions())
-    }
+    private val stater = DynamicStateFlow(TAG, vmScope) { State() }
     val state = stater.flow
 
     init {
-        recorderModule.state
-            .onEach { recorderState ->
-                stater.updateBlocking {
-                    copy(
-                        isRecording = recorderState.isRecording,
-                        recordingStartedAt = recorderState.recordingStartedAt,
-                        sessions = loadLogSessions(activeDir = recorderState.currentLogDir),
-                    )
-                }
+        combine(
+            recorderModule.state,
+            recorderModule.sessions,
+        ) { recorderState, allSessions ->
+            val completed = allSessions.filterIsInstance<DebugSession.Ready>()
+            stater.updateBlocking {
+                copy(
+                    isRecording = recorderState.isRecording,
+                    recordingStartedAt = recorderState.recordingStartedAt,
+                    sessions = completed,
+                    selectedSessionId = if (selectedSessionId != null && completed.none { it.id == selectedSessionId }) {
+                        null
+                    } else {
+                        selectedSessionId
+                    },
+                )
             }
-            .launchIn(vmScope)
-    }
-
-    private fun loadLogSessions(activeDir: File? = null): List<LogSessionItem> {
-        return recorderModule.getLogDirectories()
-            .flatMap { dir ->
-                if (!dir.exists()) return@flatMap emptyList()
-                val entries = dir.listFiles() ?: return@flatMap emptyList()
-                entries.filter { it != activeDir && (it.isDirectory || (it.isFile && it.extension == "zip")) }
-                    .map { entry ->
-                        val size = if (entry.isDirectory) {
-                            entry.walkTopDown().filter { it.isFile }.sumOf { it.length() }
-                        } else {
-                            entry.length()
-                        }
-                        LogSessionItem(
-                            path = entry,
-                            size = size,
-                            lastModified = entry.lastModified(),
-                        )
-                    }
-            }
-            .sortedByDescending { it.lastModified }
+        }.launchIn(vmScope)
     }
 
     fun updateCategory(category: Category) = launch {
@@ -130,29 +105,17 @@ class ContactFormViewModel @Inject constructor(
         }
     }
 
-    fun selectLogSession(path: File) = launch {
-        stater.updateBlocking { copy(selectedSessionPath = path) }
+    fun selectLogSession(id: String) = launch {
+        stater.updateBlocking { copy(selectedSessionId = id) }
     }
 
-    fun deleteLogSession(path: File) = launch {
-        log(TAG) { "deleteLogSession($path)" }
-        if (path.isDirectory) {
-            path.deleteRecursively()
-            val zip = File(path.parentFile, "${path.name}.zip")
-            if (zip.exists()) zip.delete()
-        } else {
-            path.delete()
-        }
-        stater.updateBlocking {
-            copy(
-                sessions = loadLogSessions(),
-                selectedSessionPath = if (selectedSessionPath == path) null else selectedSessionPath,
-            )
-        }
+    fun deleteLogSession(id: String) = launch {
+        log(TAG) { "deleteLogSession($id)" }
+        recorderModule.deleteSession(id)
     }
 
     fun refreshLogSessions() = launch {
-        stater.updateBlocking { copy(sessions = loadLogSessions()) }
+        recorderModule.refreshSessions()
     }
 
     fun startRecording() {
@@ -173,13 +136,11 @@ class ContactFormViewModel @Inject constructor(
         }
         log(TAG) { "stopRecording()" }
         recorderModule.stopRecorder(showResultUi = false)
-        stater.updateBlocking { copy(sessions = loadLogSessions()) }
     }
 
     fun forceStopRecording() = launch {
         log(TAG) { "forceStopRecording()" }
         recorderModule.stopRecorder(showResultUi = false)
-        stater.updateBlocking { copy(sessions = loadLogSessions()) }
     }
 
     fun send() = launch {
@@ -189,15 +150,9 @@ class ContactFormViewModel @Inject constructor(
         stater.updateBlocking { copy(isSending = true) }
 
         try {
-            val attachmentUri = currentState.selectedSessionPath?.let { sessionPath ->
+            val attachmentUri = currentState.selectedSessionId?.let { sessionId ->
                 try {
-                    if (sessionPath.isDirectory) {
-                        debugLogZipper.zipAndGetUri(sessionPath)
-                    } else if (sessionPath.extension == "zip" && sessionPath.exists()) {
-                        debugLogZipper.getUriForZip(sessionPath)
-                    } else {
-                        null
-                    }
+                    recorderModule.getZipUri(sessionId)
                 } catch (e: Exception) {
                     log(TAG) { "Failed to prepare attachment: $e" }
                     events.tryEmit(

@@ -34,7 +34,7 @@ class RecorderActivity : Activity2() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        if (intent.getStringExtra(RECORD_PATH) == null) {
+        if (intent.getStringExtra(RECORD_SESSION_ID) == null && intent.getStringExtra(RECORD_PATH) == null) {
             finish()
             return
         }
@@ -76,11 +76,13 @@ class RecorderActivity : Activity2() {
 
     companion object {
         internal val TAG = logTag("Debug", "Log", "RecorderActivity")
+        const val RECORD_SESSION_ID = "sessionId"
         const val RECORD_PATH = "logPath"
 
-        fun getLaunchIntent(context: Context, path: String): Intent {
+        fun getLaunchIntent(context: Context, sessionId: String, legacyPath: String? = null): Intent {
             val intent = Intent(context, RecorderActivity::class.java)
-            intent.putExtra(RECORD_PATH, path)
+            intent.putExtra(RECORD_SESSION_ID, sessionId)
+            if (legacyPath != null) intent.putExtra(RECORD_PATH, legacyPath)
             return intent
         }
     }

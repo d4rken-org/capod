@@ -11,11 +11,14 @@ import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.common.debug.recording.core.DebugLogZipper
+import eu.darken.capod.common.debug.recording.core.DebugSession
+import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel2
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import java.io.File
 import javax.inject.Inject
@@ -25,7 +28,7 @@ class RecorderActivityVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
-    private val debugLogZipper: DebugLogZipper,
+    private val recorderModule: RecorderModule,
     private val webpageTool: WebpageTool,
 ) : ViewModel2(dispatcherProvider) {
 
@@ -48,24 +51,57 @@ class RecorderActivityVM @Inject constructor(
         data object Finish : Event
     }
 
-    private val recordedDirPath = handle.get<String>(RecorderActivity.RECORD_PATH)
-    private val logDir = recordedDirPath?.let { File(it) }
+    private val sessionId: String? = handle.get<String>(RecorderActivity.RECORD_SESSION_ID)
+    private val legacyPath: String? = handle.get<String>(RecorderActivity.RECORD_PATH)
+
+    private suspend fun resolveSession(): DebugSession? {
+        if (sessionId != null) {
+            val session = recorderModule.sessions.first().firstOrNull { it.id == sessionId }
+            if (session != null) return session
+            recorderModule.refreshSessions()
+            return recorderModule.sessions.first().firstOrNull { it.id == sessionId }
+        }
+        // Legacy fallback: derive ID from path
+        if (legacyPath != null) {
+            val file = File(legacyPath)
+            val prefix = if (file.absolutePath.contains("/cache/")) "cache:" else "ext:"
+            val derivedId = prefix + file.name.removeSuffix(".zip")
+            recorderModule.refreshSessions()
+            return recorderModule.sessions.first().firstOrNull { it.id == derivedId }
+        }
+        return null
+    }
 
     private val stater = DynamicStateFlow(TAG, vmScope + dispatcherProvider.IO) {
+        val session = resolveSession()
+        val logDir = when (session) {
+            is DebugSession.Ready -> session.logDir
+            is DebugSession.Compressing -> session.path
+            is DebugSession.Failed -> session.path.takeIf { it.isDirectory }
+            is DebugSession.Recording -> session.path
+            null -> legacyPath?.let { File(it) }
+        }
+
+        val isCompressing = session is DebugSession.Compressing
+
         if (logDir == null || !logDir.exists()) {
-            return@DynamicStateFlow State(logDir = null)
+            return@DynamicStateFlow State(logDir = null, isWorking = isCompressing)
         }
 
         val files = logDir.listFiles()?.toList() ?: emptyList()
         val entries = files.map { LogEntry(it, it.length()) }
         val totalSize = entries.sumOf { it.size }
 
-        val compressedSize = try {
-            debugLogZipper.zipAndGetUri(logDir)
-            File(logDir.parentFile, "${logDir.name}.zip").length()
-        } catch (e: Exception) {
-            log(TAG) { "Failed to zip: $e" }
+        val compressedSize = if (isCompressing) {
             -1L
+        } else {
+            try {
+                val zipFile = session?.id?.let { recorderModule.zipSession(it) }
+                zipFile?.length() ?: -1L
+            } catch (e: Exception) {
+                log(TAG) { "Failed to zip: $e" }
+                -1L
+            }
         }
 
         val dirCreated = logDir.lastModified()
@@ -78,26 +114,43 @@ class RecorderActivityVM @Inject constructor(
             totalSize = totalSize,
             compressedSize = compressedSize,
             recordingDurationSecs = durationSecs,
-            isWorking = false,
+            isWorking = isCompressing,
         )
     }
     val state = stater.flow
 
     val events = SingleEventFlow<Event>()
 
+    init {
+        recorderModule.sessions
+            .onEach { allSessions ->
+                val sid = sessionId ?: return@onEach
+                val session = allSessions.firstOrNull { it.id == sid } ?: return@onEach
+                if (session is DebugSession.Ready) {
+                    stater.updateBlocking {
+                        if (!isWorking) return@updateBlocking this
+                        val zipSize = try {
+                            recorderModule.zipSession(sid).length()
+                        } catch (e: Exception) {
+                            log(TAG) { "Failed to get zip size: $e" }
+                            -1L
+                        }
+                        copy(compressedSize = zipSize, isWorking = false)
+                    }
+                }
+            }
+            .launchIn(vmScope)
+    }
+
     fun share() = launch {
         val currentState = stater.flow.first()
         val dir = currentState.logDir ?: return@launch
+        val sid = sessionId ?: return@launch
 
         stater.updateBlocking { copy(isWorking = true) }
 
         try {
-            val zipFile = File(dir.parentFile, "${dir.name}.zip")
-            val uri = if (zipFile.exists()) {
-                debugLogZipper.getUriForZip(zipFile)
-            } else {
-                debugLogZipper.zipAndGetUri(dir)
-            }
+            val uri = recorderModule.getZipUri(sid)
 
             val intent = Intent(Intent.ACTION_SEND).apply {
                 putExtra(Intent.EXTRA_STREAM, uri)
@@ -120,13 +173,8 @@ class RecorderActivityVM @Inject constructor(
     }
 
     fun discard() = launch {
-        val currentState = stater.flow.first()
-        val dir = currentState.logDir ?: return@launch
-
-        dir.deleteRecursively()
-        val zipFile = File(dir.parentFile, "${dir.name}.zip")
-        if (zipFile.exists()) zipFile.delete()
-
+        val sid = sessionId ?: return@launch
+        recorderModule.deleteSession(sid)
         events.tryEmit(Event.Finish)
     }
 

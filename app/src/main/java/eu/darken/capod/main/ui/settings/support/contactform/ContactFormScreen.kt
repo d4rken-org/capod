@@ -130,12 +130,12 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
             onDescriptionChange = { vm.updateDescription(it) },
             onExpectedChange = { vm.updateExpectedBehavior(it) },
             onSelectSession = { vm.selectLogSession(it) },
-            onDeleteSession = { path ->
+            onDeleteSession = { id ->
                 MaterialAlertDialogBuilder(context).apply {
                     setTitle(R.string.support_contact_debuglog_delete_title)
                     setMessage(R.string.support_contact_debuglog_delete_message)
                     setPositiveButton(R.string.profiles_delete_action) { _, _ ->
-                        vm.deleteLogSession(path)
+                        vm.deleteLogSession(id)
                     }
                     setNegativeButton(R.string.general_cancel_action) { _, _ -> }
                 }.show()
@@ -156,8 +156,8 @@ fun ContactFormScreen(
     onCategoryChange: (Category) -> Unit,
     onDescriptionChange: (String) -> Unit,
     onExpectedChange: (String) -> Unit,
-    onSelectSession: (java.io.File) -> Unit,
-    onDeleteSession: (java.io.File) -> Unit,
+    onSelectSession: (String) -> Unit,
+    onDeleteSession: (String) -> Unit,
     onStartRecording: () -> Unit,
     onStopRecording: () -> Unit,
     onSend: () -> Unit,
@@ -255,7 +255,7 @@ fun ContactFormScreen(
                             )
                         } else {
                             state.sessions.forEach { session ->
-                                val isSelected = state.selectedSessionPath == session.path
+                                val isSelected = state.selectedSessionId == session.id
                                 Row(
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -264,7 +264,7 @@ fun ContactFormScreen(
                                 ) {
                                     RadioButton(
                                         selected = isSelected,
-                                        onClick = { onSelectSession(session.path) },
+                                        onClick = { onSelectSession(session.id) },
                                     )
                                     Column(
                                         modifier = Modifier
@@ -272,16 +272,16 @@ fun ContactFormScreen(
                                             .padding(start = 4.dp),
                                     ) {
                                         Text(
-                                            text = session.path.name,
+                                            text = session.displayName,
                                             style = MaterialTheme.typography.bodyMedium,
                                         )
                                         Text(
-                                            text = Formatter.formatShortFileSize(context, session.size),
+                                            text = Formatter.formatShortFileSize(context, session.diskSize),
                                             style = MaterialTheme.typography.bodySmall,
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )
                                     }
-                                    IconButton(onClick = { onDeleteSession(session.path) }) {
+                                    IconButton(onClick = { onDeleteSession(session.id) }) {
                                         Icon(
                                             Icons.TwoTone.Delete,
                                             contentDescription = null,
