@@ -350,7 +350,7 @@
         <item quantity="one">%1$d file ready (%2$s)</item>
         <item quantity="other">%1$d files ready (%2$s)</item>
     </plurals>
-    <string name="debug_debuglog_screen_discard_action">Discard</string>
+    <string name="debug_debuglog_screen_discard_action">Delete</string>
 
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
@@ -358,6 +358,16 @@
         <item quantity="other">%1$d debug logs (%2$s)</item>
     </plurals>
     <string name="support_debuglog_clear_action">Clear stored debug logs</string>
+    <string name="support_debuglog_sessions_label">Debug sessions</string>
+    <string name="support_debuglog_sessions_desc">Manage recorded debug log sessions</string>
+    <string name="support_debuglog_sessions_empty">No debug sessions</string>
+    <string name="support_debuglog_session_recording">Recording…</string>
+    <string name="support_debuglog_session_compressing">Compressing…</string>
+    <string name="support_debuglog_session_delete_title">Delete session?</string>
+    <string name="support_debuglog_session_delete_message">This debug session will be permanently deleted.</string>
+    <string name="support_debuglog_failed_empty_log">Failed: log file is empty</string>
+    <string name="support_debuglog_failed_missing_log">Failed: log file is missing</string>
+    <string name="support_debuglog_failed_corrupt_zip">Failed: zip file is corrupt</string>
 
     <!-- Contact form -->
     <string name="support_contact_label">Contact developer</string>
