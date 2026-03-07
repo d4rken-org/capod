@@ -34,7 +34,7 @@ class UpgradeViewModel @Inject constructor(
         val openedAt = savedStateHandle.get<Long>(KEY_SPONSOR_OPENED_AT) ?: return
         savedStateHandle.remove<Long>(KEY_SPONSOR_OPENED_AT)
 
-        if (SystemClock.elapsedRealtime() - openedAt >= 10_000L) {
+        if (SystemClock.elapsedRealtime() - openedAt >= 5_000L) {
             upgradeControlFoss.upgrade(FossUpgrade.Reason.DONATED)
             navUp()
         } else {
