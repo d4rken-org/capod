@@ -71,42 +71,32 @@ class PopUpReaction @Inject constructor(
 
     private fun throttleCasePopUps(current: DualApplePods): Event? {
         val cooldownKey = current.meta.profile?.id ?: current.identifier.toString()
+        val now = Instant.now()
+        val lastShown = caseCoolDowns[cooldownKey]
+
+        val decision = evaluateCasePopUp(
+            currentLidState = current.caseLidState,
+            lastShownTime = lastShown,
+            now = now,
+        )
+
+        log(TAG) { "Case popup decision: ${decision.reason}" }
+
+        if (decision.shouldResetCooldown) {
+            caseCoolDowns.remove(cooldownKey)
+        }
+
         return when {
-            current.caseLidState == DualApplePods.LidState.OPEN -> {
-                log(TAG, INFO) { "Show popup" }
-
-                val now = Instant.now()
-                val lastShown = caseCoolDowns[cooldownKey] ?: Instant.MIN
-                val sinceLastPop = Duration.between(lastShown, now)
-                log(TAG) { "Time since last case popup: $sinceLastPop" }
-
-                if (sinceLastPop >= Duration.ofSeconds(10)) {
-                    caseCoolDowns[cooldownKey] = Instant.now()
-                    Event.PopupShow(device = current)
-                } else {
-                    log(TAG, INFO) { "Case popup is still on cooldown: $sinceLastPop" }
-                    null
-                }
+            decision.shouldShow -> {
+                caseCoolDowns[cooldownKey] = now
+                Event.PopupShow(device = current)
             }
-
-            current.caseLidState != DualApplePods.LidState.OPEN -> {
-                when (current.caseLidState) {
-                    DualApplePods.LidState.CLOSED -> {
-                        log(TAG, INFO) { "Lid was actively closed, resetting cooldown." }
-                        caseCoolDowns.remove(cooldownKey)
-                    }
-
-                    else -> {
-                        log(TAG, WARN) { "Lid was was not actively closed, refreshing cooldown." }
-                        caseCoolDowns[cooldownKey] = Instant.now()
-                    }
+            decision.shouldHide -> {
+                if (!decision.shouldResetCooldown) {
+                    caseCoolDowns[cooldownKey] = now
                 }
-
-                log(TAG, INFO) { "Hide popup" }
-
                 Event.PopupHide()
             }
-
             else -> null
         }
     }
@@ -150,29 +140,26 @@ class PopUpReaction @Inject constructor(
             }
 
             if (currentConnected == null || currentBroadcasted == null) {
-                // We need an active connection
                 return@mapNotNull null
             }
 
-            val ageOfBroadcastedDevice = Duration.between(Instant.now(), currentBroadcasted.seenFirstAt)
-            val ageOfConnectedDevice = Duration.between(Instant.now(), currentConnected.seenFirstAt)
-            if (ageOfBroadcastedDevice > (ageOfConnectedDevice + Duration.ofSeconds(30))) {
-                // This is likely a false positive, some random nearby device
-                // We expect the first broadcasts to not be much older than the first connection
-                log(TAG, VERBOSE) { "Current broadcasted main device is probably a false-positive" }
-                return@mapNotNull null
-            }
+            val deviceAge = Duration.between(currentBroadcasted.seenFirstAt, Instant.now())
+            val connectionAge = Duration.between(currentConnected.seenFirstAt, Instant.now())
 
-            val now = Instant.now()
-            val lastShown = connectionCoolDowns[currentConnected.address]
-            val sinceLastPop = lastShown?.let { Duration.between(it, now) }
-            log(TAG) { "Time since last connection popup: ${sinceLastPop?.seconds}s" }
+            val decision = evaluateConnectionPopUp(
+                hasConnectedDevice = true,
+                hasPodDevice = true,
+                hasAlreadyShown = connectionCoolDowns.containsKey(currentConnected.address),
+                deviceAge = deviceAge,
+                connectionAge = connectionAge,
+            )
 
-            if (lastShown == null) {
+            log(TAG) { "Connection popup decision: ${decision.reason}" }
+
+            if (decision.shouldShow) {
                 connectionCoolDowns[currentConnected.address] = Instant.now()
                 Event.PopupShow(device = currentBroadcasted)
             } else {
-                log(TAG) { "Connection popup is still on cooldown: $sinceLastPop" }
                 null
             }
         }
@@ -190,6 +177,89 @@ class PopUpReaction @Inject constructor(
             val eventAt: Instant = Instant.now(),
         ) : Event()
     }
+
+    internal fun evaluateCasePopUp(
+        currentLidState: DualApplePods.LidState?,
+        lastShownTime: Instant?,
+        now: Instant,
+        cooldownDuration: Duration = Duration.ofSeconds(10),
+    ): CasePopUpDecision {
+        if (currentLidState == null) {
+            return CasePopUpDecision(
+                shouldShow = false,
+                shouldHide = false,
+                shouldResetCooldown = false,
+                reason = "Non-DualApplePods device",
+            )
+        }
+        return when (currentLidState) {
+            DualApplePods.LidState.OPEN -> {
+                val sinceLastPop = lastShownTime?.let { Duration.between(it, now) }
+                if (sinceLastPop == null || sinceLastPop >= cooldownDuration) {
+                    CasePopUpDecision(
+                        shouldShow = true,
+                        shouldHide = false,
+                        shouldResetCooldown = false,
+                        reason = "Lid OPEN, cooldown expired or first show",
+                    )
+                } else {
+                    CasePopUpDecision(
+                        shouldShow = false,
+                        shouldHide = false,
+                        shouldResetCooldown = false,
+                        reason = "Lid OPEN, still on cooldown ($sinceLastPop)",
+                    )
+                }
+            }
+            DualApplePods.LidState.CLOSED -> CasePopUpDecision(
+                shouldShow = false,
+                shouldHide = true,
+                shouldResetCooldown = true,
+                reason = "Lid CLOSED, resetting cooldown",
+            )
+            else -> CasePopUpDecision(
+                shouldShow = false,
+                shouldHide = true,
+                shouldResetCooldown = false,
+                reason = "Lid $currentLidState, refreshing cooldown",
+            )
+        }
+    }
+
+    data class CasePopUpDecision(
+        val shouldShow: Boolean,
+        val shouldHide: Boolean,
+        val shouldResetCooldown: Boolean,
+        val reason: String,
+    )
+
+    internal fun evaluateConnectionPopUp(
+        hasConnectedDevice: Boolean,
+        hasPodDevice: Boolean,
+        hasAlreadyShown: Boolean,
+        deviceAge: Duration,
+        connectionAge: Duration,
+        maxAgeDiff: Duration = Duration.ofSeconds(30),
+    ): ConnectionPopUpDecision {
+        if (!hasConnectedDevice) {
+            return ConnectionPopUpDecision(false, "No connected device")
+        }
+        if (!hasPodDevice) {
+            return ConnectionPopUpDecision(false, "No pod device found")
+        }
+        if (deviceAge.abs() > (connectionAge.abs() + maxAgeDiff)) {
+            return ConnectionPopUpDecision(false, "Broadcast too old, likely false positive")
+        }
+        if (hasAlreadyShown) {
+            return ConnectionPopUpDecision(false, "Already shown for this connection")
+        }
+        return ConnectionPopUpDecision(true, "New connection detected")
+    }
+
+    data class ConnectionPopUpDecision(
+        val shouldShow: Boolean,
+        val reason: String,
+    )
 
     companion object {
         private val TAG = logTag("Reaction", "PopUp")

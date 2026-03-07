@@ -1,0 +1,303 @@
+package eu.darken.capod.main.ui.overview
+
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
+import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.permissions.Permission
+import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.MonitorMode
+import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.worker.MonitorControl
+import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.verify
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
+import testhelpers.coroutine.TestDispatcherProvider
+import testhelpers.datastore.FakeDataStoreValue
+import testhelpers.livedata.InstantExecutorExtension
+import org.junit.jupiter.api.extension.ExtendWith
+
+@OptIn(ExperimentalCoroutinesApi::class)
+@ExtendWith(InstantExecutorExtension::class)
+class OverviewViewModelTest : BaseTest() {
+
+    private val testDispatcher = UnconfinedTestDispatcher()
+
+    private lateinit var monitorControl: MonitorControl
+    private lateinit var podMonitor: PodMonitor
+    private lateinit var permissionTool: PermissionTool
+    private lateinit var generalSettings: GeneralSettings
+    private lateinit var debugSettings: DebugSettings
+    private lateinit var upgradeRepo: UpgradeRepo
+    private lateinit var bluetoothManager: BluetoothManager2
+    private lateinit var profilesRepo: DeviceProfilesRepo
+
+    private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
+    private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
+    private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
+    private lateinit var isBluetoothEnabledFlow: MutableStateFlow<Boolean>
+    private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
+    private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
+    private lateinit var fakeMonitorMode: FakeDataStoreValue<MonitorMode>
+    private lateinit var fakeDebugMode: FakeDataStoreValue<Boolean>
+
+    @BeforeEach
+    fun setup() {
+        Dispatchers.setMain(testDispatcher)
+
+        missingPermissionsFlow = MutableStateFlow(emptySet())
+        devicesFlow = MutableStateFlow(emptyList())
+        connectedDevicesFlow = MutableStateFlow(emptyList())
+        isBluetoothEnabledFlow = MutableStateFlow(true)
+        profilesFlow = MutableStateFlow(emptyList())
+        upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true))
+        fakeMonitorMode = FakeDataStoreValue(MonitorMode.AUTOMATIC)
+        fakeDebugMode = FakeDataStoreValue(false)
+
+        monitorControl = mockk(relaxed = true)
+
+        podMonitor = mockk<PodMonitor>().also {
+            every { it.devices } returns devicesFlow
+        }
+
+        permissionTool = mockk<PermissionTool>(relaxed = true).also {
+            every { it.missingPermissions } returns missingPermissionsFlow
+        }
+
+        generalSettings = mockk<GeneralSettings>().also {
+            every { it.monitorMode } returns fakeMonitorMode.mock
+        }
+
+        debugSettings = mockk<DebugSettings>().also {
+            every { it.isDebugModeEnabled } returns fakeDebugMode.mock
+        }
+
+        upgradeRepo = mockk<UpgradeRepo>().also {
+            every { it.upgradeInfo } returns upgradeInfoFlow
+        }
+
+        bluetoothManager = mockk<BluetoothManager2>().also {
+            every { it.connectedDevices } returns connectedDevicesFlow
+            every { it.isBluetoothEnabled } returns isBluetoothEnabledFlow
+        }
+
+        profilesRepo = mockk<DeviceProfilesRepo>().also {
+            every { it.profiles } returns profilesFlow
+        }
+    }
+
+    @AfterEach
+    fun teardown() {
+        Dispatchers.resetMain()
+    }
+
+    private fun createViewModel() = OverviewViewModel(
+        dispatcherProvider = TestDispatcherProvider(testDispatcher),
+        monitorControl = monitorControl,
+        podMonitor = podMonitor,
+        permissionTool = permissionTool,
+        generalSettings = generalSettings,
+        debugSettings = debugSettings,
+        upgradeRepo = upgradeRepo,
+        bluetoothManager = bluetoothManager,
+        profilesRepo = profilesRepo,
+    )
+
+    @Nested
+    inner class StateTests {
+
+        @Test
+        fun `state emits with correct initial values`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+            val state = vm.state.first()
+
+            state.permissions shouldBe emptySet()
+            state.devices shouldBe emptyList()
+            state.isDebugMode shouldBe false
+            state.isBluetoothEnabled shouldBe true
+            state.showUnmatchedDevices shouldBe false
+        }
+
+        @Test
+        fun `devices empty when permissions missing`() = runTest(testDispatcher) {
+            missingPermissionsFlow.value = setOf(Permission.BLUETOOTH)
+
+            val vm = createViewModel()
+            val state = vm.state.first()
+
+            state.devices shouldBe emptyList()
+        }
+
+        @Test
+        fun `devices passed through when permissions granted`() = runTest(testDispatcher) {
+            val device = mockk<PodDevice>(relaxed = true)
+            devicesFlow.value = listOf(device)
+
+            val vm = createViewModel()
+            val state = vm.state.first()
+
+            state.devices shouldBe listOf(device)
+        }
+
+        @Test
+        fun `profiledDevices returns only devices with non-null profile`() {
+            val withProfile = object : PodDevice.Meta {
+                override val profile: DeviceProfile = AppleDeviceProfile(label = "Test")
+            }
+            val withoutProfile = object : PodDevice.Meta {
+                override val profile: DeviceProfile? = null
+            }
+            val profiled = mockk<PodDevice>(relaxed = true) { every { meta } returns withProfile }
+            val unmatched = mockk<PodDevice>(relaxed = true) { every { meta } returns withoutProfile }
+
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(profiled, unmatched),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = mockk(relaxed = true),
+                showUnmatchedDevices = false,
+            )
+
+            state.profiledDevices shouldBe listOf(profiled)
+        }
+
+        @Test
+        fun `unmatchedDevices returns only devices with null profile`() {
+            val withProfile = object : PodDevice.Meta {
+                override val profile: DeviceProfile = AppleDeviceProfile(label = "Test")
+            }
+            val withoutProfile = object : PodDevice.Meta {
+                override val profile: DeviceProfile? = null
+            }
+            val profiled = mockk<PodDevice>(relaxed = true) { every { meta } returns withProfile }
+            val unmatched = mockk<PodDevice>(relaxed = true) { every { meta } returns withoutProfile }
+
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(profiled, unmatched),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = mockk(relaxed = true),
+                showUnmatchedDevices = false,
+            )
+
+            state.unmatchedDevices shouldBe listOf(unmatched)
+        }
+    }
+
+    @Nested
+    inner class WorkerAutolaunchTests {
+
+        @Test
+        fun `MANUAL mode - never starts monitor`() = runTest(testDispatcher) {
+            fakeMonitorMode.value = MonitorMode.MANUAL
+            val vm = createViewModel()
+
+            // Collect workerAutolaunch to trigger the side effect
+            vm.workerAutolaunch.first()
+
+            verify(exactly = 0) { monitorControl.startMonitor(any()) }
+        }
+
+        @Test
+        fun `ALWAYS mode - starts monitor when permissions OK`() = runTest(testDispatcher) {
+            fakeMonitorMode.value = MonitorMode.ALWAYS
+            val vm = createViewModel()
+
+            vm.workerAutolaunch.first()
+
+            verify(exactly = 1) { monitorControl.startMonitor(any()) }
+        }
+
+        @Test
+        fun `ALWAYS mode - does NOT start monitor when permissions missing`() = runTest(testDispatcher) {
+            fakeMonitorMode.value = MonitorMode.ALWAYS
+            missingPermissionsFlow.value = setOf(Permission.BLUETOOTH)
+            val vm = createViewModel()
+
+            vm.workerAutolaunch.first()
+
+            verify(exactly = 0) { monitorControl.startMonitor(any()) }
+        }
+
+        @Test
+        fun `AUTOMATIC mode - starts monitor when connected devices exist`() = runTest(testDispatcher) {
+            fakeMonitorMode.value = MonitorMode.AUTOMATIC
+            connectedDevicesFlow.value = listOf(mockk(relaxed = true))
+            val vm = createViewModel()
+
+            vm.workerAutolaunch.first()
+
+            verify(exactly = 1) { monitorControl.startMonitor(any()) }
+        }
+
+        @Test
+        fun `AUTOMATIC mode - does NOT start monitor when no connected devices`() = runTest(testDispatcher) {
+            fakeMonitorMode.value = MonitorMode.AUTOMATIC
+            connectedDevicesFlow.value = emptyList()
+            val vm = createViewModel()
+
+            vm.workerAutolaunch.first()
+
+            verify(exactly = 0) { monitorControl.startMonitor(any()) }
+        }
+    }
+
+    @Nested
+    inner class ActionTests {
+
+        @Test
+        fun `toggleUnmatchedDevices flips state`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+            val initial = vm.state.first()
+            initial.showUnmatchedDevices shouldBe false
+
+            vm.toggleUnmatchedDevices()
+
+            val updated = vm.state.first()
+            updated.showUnmatchedDevices shouldBe true
+        }
+
+        @Test
+        fun `onPermissionResult calls permissionTool recheck`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+
+            vm.onPermissionResult(true)
+
+            verify(exactly = 1) { permissionTool.recheck() }
+        }
+
+        @Test
+        fun `requestPermission emits event`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+            vm.requestPermission(Permission.BLUETOOTH)
+
+            val event = vm.requestPermissionEvent.first()
+            event shouldBe Permission.BLUETOOTH
+        }
+    }
+}
