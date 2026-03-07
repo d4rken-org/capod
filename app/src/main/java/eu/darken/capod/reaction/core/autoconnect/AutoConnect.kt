@@ -77,31 +77,77 @@ class AutoConnect @Inject constructor(
 
             val condition = reactionSettings.autoConnectCondition.valueBlocking
             log(TAG) { "Checking condition $condition" }
-            val conditionFulfilled = when (condition) {
-                AutoConnectCondition.WHEN_SEEN -> true
-                AutoConnectCondition.CASE_OPEN -> when (mainDevice) {
-                    is DualApplePods -> mainDevice.caseLidState == DualApplePods.LidState.OPEN
-                    else -> true
-                }
-                AutoConnectCondition.IN_EAR -> when (mainDevice) {
-                    is HasEarDetection -> {
-                        if (mainDevice is HasEarDetectionDual && reactionSettings.onePodMode.valueBlocking) {
-                            mainDevice.isEitherPodInEar
-                        } else {
-                            mainDevice.isBeingWorn
-                        }
-                    }
-                    else -> true
-                }
-            }
-            if (!conditionFulfilled) {
-                log(TAG) { "Auto connect condition ($condition) is not fullfilled." }
+
+            val lidState = (mainDevice as? DualApplePods)?.caseLidState
+            val isBeingWorn = (mainDevice as? HasEarDetection)?.isBeingWorn ?: false
+            val isEitherPodInEar = (mainDevice as? HasEarDetectionDual)?.isEitherPodInEar ?: false
+            val onePodMode = reactionSettings.onePodMode.valueBlocking
+
+            val decision = evaluateAutoConnect(
+                mainDeviceAddr = mainDeviceAddr,
+                hasBondedDevice = true,
+                isAlreadyConnected = false,
+                condition = condition,
+                lidState = lidState,
+                isBeingWorn = isBeingWorn,
+                isEitherPodInEar = isEitherPodInEar,
+                onePodMode = onePodMode,
+                supportsEarDetection = mainDevice is HasEarDetection,
+            )
+
+            if (!decision.shouldConnect) {
+                log(TAG) { "Auto connect condition ($condition) is not fullfilled: ${decision.reason}" }
                 return@map
             }
             val result = bluetoothManager.nudgeConnection(bondedDevice)
             log(TAG) { "nudgeConnection($bondedDevice) returned $result" }
         }
         .setupCommonEventHandlers(TAG) { "monitor" }
+
+    internal fun evaluateAutoConnect(
+        mainDeviceAddr: String?,
+        hasBondedDevice: Boolean,
+        isAlreadyConnected: Boolean,
+        condition: AutoConnectCondition,
+        lidState: DualApplePods.LidState?,
+        isBeingWorn: Boolean,
+        isEitherPodInEar: Boolean,
+        onePodMode: Boolean,
+        supportsEarDetection: Boolean,
+    ): AutoConnectDecision {
+        if (mainDeviceAddr.isNullOrEmpty()) {
+            return AutoConnectDecision(false, "No main device address")
+        }
+        if (!hasBondedDevice) {
+            return AutoConnectDecision(false, "No bonded device")
+        }
+        if (isAlreadyConnected) {
+            return AutoConnectDecision(false, "Already connected")
+        }
+        return when (condition) {
+            AutoConnectCondition.WHEN_SEEN -> AutoConnectDecision(true, "WHEN_SEEN: device visible")
+            AutoConnectCondition.CASE_OPEN -> {
+                if (lidState == null) {
+                    AutoConnectDecision(true, "CASE_OPEN: unsupported device, permissive fallback")
+                } else when (lidState) {
+                    DualApplePods.LidState.OPEN -> AutoConnectDecision(true, "CASE_OPEN: lid is open")
+                    else -> AutoConnectDecision(false, "CASE_OPEN: lid is $lidState")
+                }
+            }
+            AutoConnectCondition.IN_EAR -> {
+                if (!supportsEarDetection) {
+                    return AutoConnectDecision(true, "IN_EAR: unsupported device, permissive fallback")
+                }
+                val inEar = if (onePodMode) isEitherPodInEar else isBeingWorn
+                AutoConnectDecision(inEar, if (inEar) "IN_EAR: pod in ear" else "IN_EAR: not in ear")
+            }
+        }
+    }
+
+    data class AutoConnectDecision(
+        val shouldConnect: Boolean,
+        val reason: String,
+    )
 
     companion object {
         private val TAG = logTag("Reaction", "AutoConnect")
