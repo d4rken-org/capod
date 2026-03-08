@@ -1,6 +1,7 @@
 package eu.darken.capod.common.debug.recording.ui
 
 import android.text.format.Formatter
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -378,6 +379,10 @@ private fun BottomActionBar(
                 OutlinedButton(
                     onClick = onDiscard,
                     modifier = Modifier.weight(1f),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error,
+                    ),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.error),
                 ) {
                     Text(text = stringResource(R.string.debug_debuglog_screen_discard_action))
                 }
@@ -385,7 +390,7 @@ private fun BottomActionBar(
                     onClick = onKeep,
                     modifier = Modifier.weight(1f),
                 ) {
-                    Text(text = stringResource(R.string.general_done_action))
+                    Text(text = stringResource(R.string.general_close_action))
                 }
                 androidx.compose.material3.Button(
                     onClick = onShare,
