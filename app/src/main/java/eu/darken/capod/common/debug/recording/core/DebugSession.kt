@@ -1,17 +1,18 @@
 package eu.darken.capod.common.debug.recording.core
 
 import java.io.File
+import java.time.Instant
 
 sealed interface DebugSession {
     val id: String
     val displayName: String
-    val createdAt: Long
+    val createdAt: Instant
     val diskSize: Long
 
     data class Recording(
         override val id: String,
         override val displayName: String,
-        override val createdAt: Long,
+        override val createdAt: Instant,
         override val diskSize: Long,
         val path: File,
         val startedAt: Long,
@@ -20,7 +21,7 @@ sealed interface DebugSession {
     data class Compressing(
         override val id: String,
         override val displayName: String,
-        override val createdAt: Long,
+        override val createdAt: Instant,
         override val diskSize: Long,
         val path: File,
     ) : DebugSession
@@ -28,7 +29,7 @@ sealed interface DebugSession {
     data class Ready(
         override val id: String,
         override val displayName: String,
-        override val createdAt: Long,
+        override val createdAt: Instant,
         override val diskSize: Long,
         val logDir: File?,
         val zipFile: File?,
@@ -38,7 +39,7 @@ sealed interface DebugSession {
     data class Failed(
         override val id: String,
         override val displayName: String,
-        override val createdAt: Long,
+        override val createdAt: Instant,
         override val diskSize: Long,
         val path: File,
         val reason: Reason,

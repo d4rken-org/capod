@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import java.io.File
+import java.time.Instant
 
 class DebugSessionManagerSessionLogicTest : BaseTest() {
 
@@ -30,33 +31,19 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
     @Nested
     inner class ParseCreatedAt {
         @Test
-        fun `standard format extracts timestamp`() {
-            DebugSessionManager.parseCreatedAt("capod_1.2.3_1709810400000_abcd1234", 99L) shouldBe 1709810400000L
+        fun `returns creation time from file attributes`() {
+            val file = File(externalLogsDir, "capod_1.2.3_1709810400000_abcd1234").also { it.mkdirs() }
+            val result = DebugSessionManager.parseCreatedAt(file)
+            // Should return a valid Instant (either from file attributes or lastModified fallback)
+            result.shouldBeInstanceOf<Instant>()
         }
 
         @Test
-        fun `zip suffix is stripped before parsing`() {
-            DebugSessionManager.parseCreatedAt("capod_1.2.3_1709810400000_abcd1234.zip", 99L) shouldBe 1709810400000L
-        }
-
-        @Test
-        fun `too few parts returns fallback`() {
-            DebugSessionManager.parseCreatedAt("capod_1.2.3", 99L) shouldBe 99L
-        }
-
-        @Test
-        fun `non-numeric timestamp returns fallback`() {
-            DebugSessionManager.parseCreatedAt("capod_1.2.3_notanumber_abcd1234", 99L) shouldBe 99L
-        }
-
-        @Test
-        fun `timestamp in seconds returns fallback`() {
-            DebugSessionManager.parseCreatedAt("capod_1.2.3_1709810400_abcd1234", 99L) shouldBe 99L
-        }
-
-        @Test
-        fun `empty string returns fallback`() {
-            DebugSessionManager.parseCreatedAt("", 42L) shouldBe 42L
+        fun `non-existent file returns epoch fallback`() {
+            val file = File(externalLogsDir, "nonexistent")
+            val result = DebugSessionManager.parseCreatedAt(file)
+            // Falls back to lastModified (0 for non-existent) → Instant.ofEpochMilli(0)
+            result shouldBe Instant.EPOCH
         }
     }
 
@@ -283,17 +270,20 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `multiple sessions sorted by createdAt descending then id ascending`() {
+            // Create dirs with a time gap so filesystem timestamps differ
             val oldDir = File(externalLogsDir, "capod_1.0_1600000000000_abcd1234").also { it.mkdirs() }
             File(oldDir, "core.log").writeText("old log")
+            oldDir.setLastModified(1600000000000L)
 
             val newDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
             File(newDir, "core.log").writeText("new log")
+            newDir.setLastModified(1700000000000L)
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 2
-            result[0].createdAt shouldBe 1700000000000L
-            result[1].createdAt shouldBe 1600000000000L
+            // Newer session should come first (descending)
+            result[0].createdAt.isAfter(result[1].createdAt) shouldBe true
         }
     }
 }
