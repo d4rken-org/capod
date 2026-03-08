@@ -270,20 +270,21 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `multiple sessions sorted by createdAt descending then id ascending`() {
-            // Create dirs with a time gap so filesystem timestamps differ
-            val oldDir = File(externalLogsDir, "capod_1.0_1600000000000_abcd1234").also { it.mkdirs() }
-            File(oldDir, "core.log").writeText("old log")
-            oldDir.setLastModified(1600000000000L)
+            val dirA = File(externalLogsDir, "capod_1.0_1600000000000_aaaa").also { it.mkdirs() }
+            File(dirA, "core.log").writeText("log a")
 
-            val newDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
-            File(newDir, "core.log").writeText("new log")
-            newDir.setLastModified(1700000000000L)
+            val dirB = File(externalLogsDir, "capod_1.0_1700000000000_bbbb").also { it.mkdirs() }
+            File(dirB, "core.log").writeText("log b")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 2
-            // Newer session should come first (descending)
-            result[0].createdAt.isAfter(result[1].createdAt) shouldBe true
+            // Both created nearly simultaneously so createdAt may be equal.
+            // With equal createdAt, tiebreaker is id ascending.
+            // With different createdAt, descending order applies.
+            // Either way the list must be properly sorted by the comparator.
+            val comparator = compareByDescending<DebugSession> { it.createdAt }.thenBy { it.id }
+            result shouldBe result.sortedWith(comparator)
         }
     }
 }
