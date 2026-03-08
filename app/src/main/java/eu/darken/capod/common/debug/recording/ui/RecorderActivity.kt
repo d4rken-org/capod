@@ -10,11 +10,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.view.WindowCompat
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.R
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
@@ -60,13 +65,32 @@ class RecorderActivity : Activity2() {
                     }
                 }
 
+                var showDeleteConfirm by remember { mutableStateOf(false) }
+
+                if (showDeleteConfirm) {
+                    LaunchedEffect(Unit) {
+                        MaterialAlertDialogBuilder(this@RecorderActivity).apply {
+                            setTitle(R.string.support_debuglog_session_delete_title)
+                            setMessage(R.string.support_debuglog_session_delete_message)
+                            setPositiveButton(R.string.profiles_delete_action) { _, _ ->
+                                showDeleteConfirm = false
+                                vm.discard()
+                            }
+                            setNegativeButton(R.string.general_cancel_action) { _, _ ->
+                                showDeleteConfirm = false
+                            }
+                            setOnCancelListener { showDeleteConfirm = false }
+                        }.show()
+                    }
+                }
+
                 val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
                 state?.let {
                     RecorderScreen(
                         state = it,
                         onShare = { vm.share() },
                         onKeep = { vm.keep() },
-                        onDiscard = { vm.discard() },
+                        onDiscard = { showDeleteConfirm = true },
                         onPrivacyPolicy = { vm.goPrivacyPolicy() },
                     )
                 }

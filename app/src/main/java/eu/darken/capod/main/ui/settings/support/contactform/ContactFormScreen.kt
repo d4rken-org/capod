@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.settings.support.contactform
 
 import android.content.ActivityNotFoundException
+import android.text.format.DateUtils
 import android.text.format.Formatter
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -54,6 +55,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
 import eu.darken.capod.common.WebpageTool
@@ -67,6 +69,11 @@ import eu.darken.capod.main.ui.settings.support.contactform.ContactFormViewModel
 fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    LifecycleResumeEffect(Unit) {
+        vm.refreshLogSessions()
+        onPauseOrDispose {}
+    }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
@@ -275,8 +282,15 @@ fun ContactFormScreen(
                                             text = session.displayName,
                                             style = MaterialTheme.typography.bodyMedium,
                                         )
+                                        val sizeText = Formatter.formatShortFileSize(context, session.diskSize)
+                                        val agoText = DateUtils.getRelativeTimeSpanString(
+                                            session.createdAt,
+                                            System.currentTimeMillis(),
+                                            DateUtils.SECOND_IN_MILLIS,
+                                            DateUtils.FORMAT_ABBREV_RELATIVE,
+                                        )
                                         Text(
-                                            text = Formatter.formatShortFileSize(context, session.diskSize),
+                                            text = "$sizeText · $agoText",
                                             style = MaterialTheme.typography.bodySmall,
                                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         )

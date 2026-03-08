@@ -385,7 +385,7 @@ private fun BottomActionBar(
                     onClick = onKeep,
                     modifier = Modifier.weight(1f),
                 ) {
-                    Text(text = stringResource(R.string.general_save_action))
+                    Text(text = stringResource(R.string.general_done_action))
                 }
                 androidx.compose.material3.Button(
                     onClick = onShare,

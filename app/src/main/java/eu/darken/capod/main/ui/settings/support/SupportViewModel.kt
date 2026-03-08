@@ -6,6 +6,7 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.core.DebugSession
+import eu.darken.capod.common.debug.recording.core.DebugSessionManager
 import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
@@ -21,7 +22,7 @@ import javax.inject.Inject
 class SupportViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val webpageTool: WebpageTool,
-    private val recorderModule: RecorderModule,
+    private val sessionManager: DebugSessionManager,
 ) : ViewModel4(dispatcherProvider) {
 
     data class State(
@@ -48,8 +49,8 @@ class SupportViewModel @Inject constructor(
 
     init {
         combine(
-            recorderModule.state,
-            recorderModule.sessions,
+            sessionManager.recorderState,
+            sessionManager.sessions,
         ) { recorderState, sessions ->
             stater.updateBlocking {
                 copy(
@@ -84,7 +85,7 @@ class SupportViewModel @Inject constructor(
 
     fun startDebugLog() = launch {
         log(TAG) { "startDebugLog()" }
-        recorderModule.startRecorder()
+        sessionManager.startRecording()
     }
 
     fun stopDebugLog() = launch {
@@ -92,39 +93,42 @@ class SupportViewModel @Inject constructor(
     }
 
     private suspend fun doStopDebugLog() {
-        val recorderState = recorderModule.state.first()
-        val duration = System.currentTimeMillis() - recorderState.recordingStartedAt
-        if (duration < 5_000) {
-            events.tryEmit(Event.ShowShortRecordingWarning)
-            return
+        when (val result = sessionManager.requestStopRecording()) {
+            is RecorderModule.StopResult.TooShort -> events.tryEmit(Event.ShowShortRecordingWarning)
+            is RecorderModule.StopResult.Stopped -> {
+                log(TAG) { "stopDebugLog() -> ${result.sessionId}" }
+                events.tryEmit(Event.OpenRecorderActivity(result.sessionId, result.logDir.path))
+            }
+            is RecorderModule.StopResult.NotRecording -> {}
         }
-        log(TAG) { "stopDebugLog()" }
-        recorderModule.stopRecorder()
     }
 
     fun forceStopDebugLog() = launch {
         log(TAG) { "forceStopDebugLog()" }
-        recorderModule.stopRecorder()
+        val result = sessionManager.forceStopRecording()
+        if (result != null) {
+            events.tryEmit(Event.OpenRecorderActivity(result.sessionId, result.logDir.path))
+        }
     }
 
     fun clearDebugLogs() = launch {
         log(TAG) { "clearDebugLogs()" }
-        recorderModule.deleteAllLogs()
+        sessionManager.deleteAllSessions()
     }
 
     fun openSession(sessionId: String) = launch {
-        val session = recorderModule.sessions.first().firstOrNull { it.id == sessionId } ?: return@launch
+        val session = sessionManager.sessions.first().firstOrNull { it.id == sessionId } ?: return@launch
         val legacyPath = (session as? DebugSession.Ready)?.logDir?.path
         events.tryEmit(Event.OpenRecorderActivity(sessionId, legacyPath))
     }
 
     fun refreshSessions() = launch {
-        recorderModule.refreshSessions()
+        sessionManager.refresh()
     }
 
     fun deleteSession(id: String) = launch {
         log(TAG) { "deleteSession($id)" }
-        recorderModule.deleteSession(id)
+        sessionManager.deleteSession(id)
     }
 
     companion object {
