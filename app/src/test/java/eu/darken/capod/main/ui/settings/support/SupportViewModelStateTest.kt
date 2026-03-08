@@ -8,13 +8,16 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.io.File
+import java.time.Instant
 
 class SupportViewModelStateTest : BaseTest() {
+
+    private val testInstant = Instant.ofEpochMilli(1700000000000L)
 
     private fun readySession(id: String = "ext:s1", diskSize: Long = 100L) = DebugSession.Ready(
         id = id,
         displayName = "s1",
-        createdAt = 1700000000000L,
+        createdAt = testInstant,
         diskSize = diskSize,
         logDir = File("/tmp/s1"),
         zipFile = null,
@@ -24,7 +27,7 @@ class SupportViewModelStateTest : BaseTest() {
     private fun recordingSession(id: String = "ext:rec") = DebugSession.Recording(
         id = id,
         displayName = "rec",
-        createdAt = 1700000000000L,
+        createdAt = testInstant,
         diskSize = 50L,
         path = File("/tmp/rec"),
         startedAt = 1700000000000L,
@@ -33,7 +36,7 @@ class SupportViewModelStateTest : BaseTest() {
     private fun failedSession(id: String = "ext:fail", diskSize: Long = 10L) = DebugSession.Failed(
         id = id,
         displayName = "fail",
-        createdAt = 1700000000000L,
+        createdAt = testInstant,
         diskSize = diskSize,
         path = File("/tmp/fail"),
         reason = DebugSession.Failed.Reason.EMPTY_LOG,
@@ -42,7 +45,7 @@ class SupportViewModelStateTest : BaseTest() {
     private fun compressingSession(id: String = "ext:comp", diskSize: Long = 75L) = DebugSession.Compressing(
         id = id,
         displayName = "comp",
-        createdAt = 1700000000000L,
+        createdAt = testInstant,
         diskSize = diskSize,
         path = File("/tmp/comp"),
     )

@@ -10,13 +10,14 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import java.io.File
+import java.time.Instant
 
 /**
  * Tests for [DebugSessionManager] overlay and reconciliation logic.
  *
  * These tests exercise the instance-level behaviors (zippingIds overlay, failedZipIds overlay,
  * orphan detection) by calling the companion [scanSessions] and then manually applying overlays,
- * mirroring what [DebugSessionManager.applyOverlays] and [DebugSessionManager.reconcileOrphans] do.
+ * mirroring what [DebugSessionManager.applyOverlays] and [DebugSessionManager.findOrphans] do.
  *
  * Full integration tests with mocked RecorderModule are deferred until MockK/Java 21 compat is resolved.
  */

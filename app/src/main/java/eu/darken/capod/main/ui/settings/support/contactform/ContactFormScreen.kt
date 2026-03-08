@@ -284,7 +284,7 @@ fun ContactFormScreen(
                                         )
                                         val sizeText = Formatter.formatShortFileSize(context, session.diskSize)
                                         val agoText = DateUtils.getRelativeTimeSpanString(
-                                            session.createdAt,
+                                            session.createdAt.toEpochMilli(),
                                             System.currentTimeMillis(),
                                             DateUtils.SECOND_IN_MILLIS,
                                             DateUtils.FORMAT_ABBREV_RELATIVE,

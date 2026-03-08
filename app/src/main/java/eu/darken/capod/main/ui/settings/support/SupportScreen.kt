@@ -431,7 +431,7 @@ private fun SessionRow(
                 overflow = TextOverflow.Ellipsis,
             )
             val agoText = DateUtils.getRelativeTimeSpanString(
-                session.createdAt,
+                session.createdAt.toEpochMilli(),
                 System.currentTimeMillis(),
                 DateUtils.SECOND_IN_MILLIS,
                 DateUtils.FORMAT_ABBREV_RELATIVE,
