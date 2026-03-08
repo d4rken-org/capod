@@ -12,12 +12,12 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.core.DebugSession
+import eu.darken.capod.common.debug.recording.core.DebugSessionManager
 import eu.darken.capod.common.debug.recording.core.RecorderModule
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import javax.inject.Inject
 
@@ -25,7 +25,7 @@ import javax.inject.Inject
 class ContactFormViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
-    private val recorderModule: RecorderModule,
+    private val sessionManager: DebugSessionManager,
     private val emailTool: EmailTool,
 ) : ViewModel4(dispatcherProvider) {
 
@@ -68,22 +68,29 @@ class ContactFormViewModel @Inject constructor(
     private val stater = DynamicStateFlow(TAG, vmScope) { State() }
     val state = stater.flow
 
+    @Volatile private var autoSelectSessionId: String? = null
+
     init {
         combine(
-            recorderModule.state,
-            recorderModule.sessions,
+            sessionManager.recorderState,
+            sessionManager.sessions,
         ) { recorderState, allSessions ->
-            val completed = allSessions.filterIsInstance<DebugSession.Ready>()
+            val completed = allSessions.filterIsInstance<DebugSession.Ready>().take(MAX_PICKER_SESSIONS)
             stater.updateBlocking {
+                val pendingAutoSelect = autoSelectSessionId
+                val newSelectedId = when {
+                    pendingAutoSelect != null && completed.any { it.id == pendingAutoSelect } -> {
+                        autoSelectSessionId = null
+                        pendingAutoSelect
+                    }
+                    selectedSessionId != null && completed.none { it.id == selectedSessionId } -> null
+                    else -> selectedSessionId
+                }
                 copy(
                     isRecording = recorderState.isRecording,
                     recordingStartedAt = recorderState.recordingStartedAt,
                     sessions = completed,
-                    selectedSessionId = if (selectedSessionId != null && completed.none { it.id == selectedSessionId }) {
-                        null
-                    } else {
-                        selectedSessionId
-                    },
+                    selectedSessionId = newSelectedId,
                 )
             }
         }.launchIn(vmScope)
@@ -111,11 +118,11 @@ class ContactFormViewModel @Inject constructor(
 
     fun deleteLogSession(id: String) = launch {
         log(TAG) { "deleteLogSession($id)" }
-        recorderModule.deleteSession(id)
+        sessionManager.deleteSession(id)
     }
 
     fun refreshLogSessions() = launch {
-        recorderModule.refreshSessions()
+        sessionManager.refresh()
     }
 
     fun startRecording() {
@@ -124,23 +131,24 @@ class ContactFormViewModel @Inject constructor(
 
     fun doStartRecording() = launch {
         log(TAG) { "doStartRecording()" }
-        recorderModule.startRecorder()
+        sessionManager.startRecording()
     }
 
     fun stopRecording() = launch {
-        val recorderState = recorderModule.state.first()
-        val duration = System.currentTimeMillis() - recorderState.recordingStartedAt
-        if (duration < 5_000) {
-            events.tryEmit(Event.ShowShortRecordingWarning)
-            return@launch
+        when (val result = sessionManager.requestStopRecording()) {
+            is RecorderModule.StopResult.TooShort -> events.tryEmit(Event.ShowShortRecordingWarning)
+            is RecorderModule.StopResult.Stopped -> {
+                log(TAG) { "stopRecording() -> ${result.sessionId}" }
+                autoSelectSessionId = result.sessionId
+            }
+            is RecorderModule.StopResult.NotRecording -> {}
         }
-        log(TAG) { "stopRecording()" }
-        recorderModule.stopRecorder(showResultUi = false)
     }
 
     fun forceStopRecording() = launch {
         log(TAG) { "forceStopRecording()" }
-        recorderModule.stopRecorder(showResultUi = false)
+        val result = sessionManager.forceStopRecording()
+        if (result != null) autoSelectSessionId = result.sessionId
     }
 
     fun send() = launch {
@@ -152,7 +160,7 @@ class ContactFormViewModel @Inject constructor(
         try {
             val attachmentUri = currentState.selectedSessionId?.let { sessionId ->
                 try {
-                    recorderModule.getZipUri(sessionId)
+                    sessionManager.getZipUri(sessionId)
                 } catch (e: Exception) {
                     log(TAG) { "Failed to prepare attachment: $e" }
                     events.tryEmit(
@@ -205,5 +213,6 @@ class ContactFormViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "Support", "ContactForm", "VM")
+        private const val MAX_PICKER_SESSIONS = 3
     }
 }

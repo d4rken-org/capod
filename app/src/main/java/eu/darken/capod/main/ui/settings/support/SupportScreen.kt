@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.settings.support
 
 import android.content.Intent
+import android.text.format.DateUtils
 import android.text.format.Formatter
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -133,7 +134,16 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
                 }.show()
             },
             onStopRecording = { vm.onDebugLogToggle() },
-            onClearLogs = { vm.clearDebugLogs() },
+            onClearLogs = {
+                MaterialAlertDialogBuilder(context).apply {
+                    setTitle(R.string.support_debuglog_session_delete_title)
+                    setMessage(R.string.support_debuglog_clear_all_message)
+                    setPositiveButton(R.string.profiles_delete_action) { _, _ ->
+                        vm.clearDebugLogs()
+                    }
+                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
+                }.show()
+            },
         )
     }
 }
@@ -420,16 +430,23 @@ private fun SessionRow(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+            val agoText = DateUtils.getRelativeTimeSpanString(
+                session.createdAt,
+                System.currentTimeMillis(),
+                DateUtils.SECOND_IN_MILLIS,
+                DateUtils.FORMAT_ABBREV_RELATIVE,
+            )
             Text(
                 text = when (session) {
                     is DebugSession.Recording -> stringResource(R.string.support_debuglog_session_recording)
                     is DebugSession.Compressing -> stringResource(R.string.support_debuglog_session_compressing)
-                    is DebugSession.Ready -> Formatter.formatShortFileSize(context, session.diskSize)
+                    is DebugSession.Ready -> "${Formatter.formatShortFileSize(context, session.diskSize)} · $agoText"
                     is DebugSession.Failed -> when (session.reason) {
                         DebugSession.Failed.Reason.EMPTY_LOG -> stringResource(R.string.support_debuglog_failed_empty_log)
                         DebugSession.Failed.Reason.MISSING_LOG -> stringResource(R.string.support_debuglog_failed_missing_log)
                         DebugSession.Failed.Reason.CORRUPT_ZIP -> stringResource(R.string.support_debuglog_failed_corrupt_zip)
-                    }
+                        DebugSession.Failed.Reason.ZIP_FAILED -> stringResource(R.string.support_debuglog_failed_zip_failed)
+                    } + " · $agoText"
                 },
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,

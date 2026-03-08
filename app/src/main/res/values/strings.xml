@@ -365,9 +365,11 @@
     <string name="support_debuglog_session_compressing">Compressing…</string>
     <string name="support_debuglog_session_delete_title">Delete session?</string>
     <string name="support_debuglog_session_delete_message">This debug session will be permanently deleted.</string>
+    <string name="support_debuglog_clear_all_message">All debug sessions will be permanently deleted.</string>
     <string name="support_debuglog_failed_empty_log">Failed: log file is empty</string>
     <string name="support_debuglog_failed_missing_log">Failed: log file is missing</string>
     <string name="support_debuglog_failed_corrupt_zip">Failed: zip file is corrupt</string>
+    <string name="support_debuglog_failed_zip_failed">Failed: compression failed</string>
 
     <!-- Contact form -->
     <string name="support_contact_label">Contact developer</string>

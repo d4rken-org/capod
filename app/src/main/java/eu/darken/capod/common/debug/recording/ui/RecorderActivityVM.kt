@@ -12,7 +12,7 @@ import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.core.DebugSession
-import eu.darken.capod.common.debug.recording.core.RecorderModule
+import eu.darken.capod.common.debug.recording.core.DebugSessionManager
 import eu.darken.capod.common.flow.DynamicStateFlow
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel2
@@ -28,7 +28,7 @@ class RecorderActivityVM @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
-    private val recorderModule: RecorderModule,
+    private val sessionManager: DebugSessionManager,
     private val webpageTool: WebpageTool,
 ) : ViewModel2(dispatcherProvider) {
 
@@ -56,18 +56,16 @@ class RecorderActivityVM @Inject constructor(
 
     private suspend fun resolveSession(): DebugSession? {
         if (sessionId != null) {
-            val session = recorderModule.sessions.first().firstOrNull { it.id == sessionId }
+            val session = sessionManager.sessions.first().firstOrNull { it.id == sessionId }
             if (session != null) return session
-            recorderModule.refreshSessions()
-            return recorderModule.sessions.first().firstOrNull { it.id == sessionId }
+            sessionManager.refresh()
+            return sessionManager.sessions.first().firstOrNull { it.id == sessionId }
         }
-        // Legacy fallback: derive ID from path
         if (legacyPath != null) {
             val file = File(legacyPath)
-            val prefix = if (file.absolutePath.contains("/cache/")) "cache:" else "ext:"
-            val derivedId = prefix + file.name.removeSuffix(".zip")
-            recorderModule.refreshSessions()
-            return recorderModule.sessions.first().firstOrNull { it.id == derivedId }
+            val derivedId = DebugSessionManager.deriveSessionId(file)
+            sessionManager.refresh()
+            return sessionManager.sessions.first().firstOrNull { it.id == derivedId }
         }
         return null
     }
@@ -92,16 +90,10 @@ class RecorderActivityVM @Inject constructor(
         val entries = files.map { LogEntry(it, it.length()) }
         val totalSize = entries.sumOf { it.size }
 
-        val compressedSize = if (isCompressing) {
-            -1L
-        } else {
-            try {
-                val zipFile = session?.id?.let { recorderModule.zipSession(it) }
-                zipFile?.length() ?: -1L
-            } catch (e: Exception) {
-                log(TAG) { "Failed to zip: $e" }
-                -1L
-            }
+        val compressedSize = when (session) {
+            is DebugSession.Compressing -> -1L
+            is DebugSession.Ready -> session.compressedSize.takeIf { it > 0 } ?: -1L
+            else -> -1L
         }
 
         val dirCreated = logDir.lastModified()
@@ -122,20 +114,17 @@ class RecorderActivityVM @Inject constructor(
     val events = SingleEventFlow<Event>()
 
     init {
-        recorderModule.sessions
+        sessionManager.sessions
             .onEach { allSessions ->
                 val sid = sessionId ?: return@onEach
                 val session = allSessions.firstOrNull { it.id == sid } ?: return@onEach
                 if (session is DebugSession.Ready) {
                     stater.updateBlocking {
                         if (!isWorking) return@updateBlocking this
-                        val zipSize = try {
-                            recorderModule.zipSession(sid).length()
-                        } catch (e: Exception) {
-                            log(TAG) { "Failed to get zip size: $e" }
-                            -1L
-                        }
-                        copy(compressedSize = zipSize, isWorking = false)
+                        copy(
+                            compressedSize = session.compressedSize.takeIf { it > 0 } ?: -1L,
+                            isWorking = false,
+                        )
                     }
                 }
             }
@@ -150,7 +139,7 @@ class RecorderActivityVM @Inject constructor(
         stater.updateBlocking { copy(isWorking = true) }
 
         try {
-            val uri = recorderModule.getZipUri(sid)
+            val uri = sessionManager.getZipUri(sid)
 
             val intent = Intent(Intent.ACTION_SEND).apply {
                 putExtra(Intent.EXTRA_STREAM, uri)
@@ -174,7 +163,7 @@ class RecorderActivityVM @Inject constructor(
 
     fun discard() = launch {
         val sid = sessionId ?: return@launch
-        recorderModule.deleteSession(sid)
+        sessionManager.deleteSession(sid)
         events.tryEmit(Event.Finish)
     }
 

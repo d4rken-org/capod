@@ -31,6 +31,8 @@ sealed interface DebugSession {
         override val createdAt: Long,
         override val diskSize: Long,
         val logDir: File?,
+        val zipFile: File?,
+        val compressedSize: Long,
     ) : DebugSession
 
     data class Failed(
@@ -41,6 +43,6 @@ sealed interface DebugSession {
         val path: File,
         val reason: Reason,
     ) : DebugSession {
-        enum class Reason { EMPTY_LOG, MISSING_LOG, CORRUPT_ZIP }
+        enum class Reason { EMPTY_LOG, MISSING_LOG, CORRUPT_ZIP, ZIP_FAILED }
     }
 }
