@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.CancellationException
@@ -43,7 +42,7 @@ class DebugSessionManager @Inject constructor(
     private val zippingIds = MutableStateFlow<Set<String>>(emptySet())
     private val failedZipIds = MutableStateFlow<Set<String>>(emptySet())
     private val refreshTrigger = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
-    private val pendingAutoZips = mutableSetOf<String>()
+    private val pendingAutoZips: MutableSet<String> = java.util.Collections.synchronizedSet(mutableSetOf())
 
     val recorderState: Flow<RecorderModule.State> get() = recorderModule.state
 
@@ -160,10 +159,11 @@ class DebugSessionManager @Inject constructor(
         refreshTrigger.tryEmit(Unit)
     }
 
+    private fun activeSessionId(): String? = recorderModule.currentLogDir?.let { deriveSessionId(it) }
+
     suspend fun zipSession(sessionId: String): File = fsMutex.withLock {
-        val activeRecording = sessions.first().filterIsInstance<DebugSession.Recording>()
-            .firstOrNull { it.id == sessionId }
-        require(activeRecording == null) { "Cannot zip an active recording session" }
+        // Do NOT call sessions.first() here — deadlock risk with fsMutex
+        require(activeSessionId() != sessionId) { "Cannot zip an active recording session" }
 
         val (dir, existingZip) = findSessionFiles(sessionId)
 
@@ -185,15 +185,19 @@ class DebugSessionManager @Inject constructor(
     }
 
     suspend fun deleteSession(sessionId: String) = fsMutex.withLock {
-        val currentSessions = sessions.first()
-        val recording = currentSessions.filterIsInstance<DebugSession.Recording>()
-            .firstOrNull { it.id == sessionId }
-        require(recording == null) { "Cannot delete an active recording session" }
+        // Do NOT call sessions.first() here — deadlock risk with fsMutex
+        require(activeSessionId() != sessionId) { "Cannot delete an active recording session" }
         require(sessionId !in zippingIds.value) { "Cannot delete a session that is being compressed" }
 
-        val (dir, zip) = findSessionFiles(sessionId)
-        dir?.deleteRecursively()
-        zip?.delete()
+        withContext(dispatcherProvider.IO) {
+            val (dir, zip) = findSessionFiles(sessionId)
+            if (dir?.deleteRecursively() == false) {
+                log(TAG, WARN) { "Failed to fully delete session dir: ${dir.path}" }
+            }
+            if (zip?.delete() == false) {
+                log(TAG, WARN) { "Failed to delete session zip: ${zip.path}" }
+            }
+        }
         failedZipIds.update { it - sessionId }
 
         log(TAG) { "Deleted session: $sessionId" }
@@ -201,24 +205,23 @@ class DebugSessionManager @Inject constructor(
     }
 
     suspend fun deleteAllSessions() = fsMutex.withLock {
-        val activeDir = recorderModule.state.first().currentLogDir
+        val activeDir = recorderModule.currentLogDir
         val currentlyZipping = zippingIds.value
-        for (dir in recorderModule.getLogDirectories()) {
-            if (!dir.exists()) continue
-            for (entry in dir.listFiles() ?: emptyArray()) {
-                if (entry == activeDir) {
-                    log(TAG) { "Skipping active session dir: $entry" }
-                    continue
-                }
-                val entryId = deriveSessionId(entry)
-                if (entryId in currentlyZipping) {
-                    log(TAG) { "Skipping zipping session: $entry" }
-                    continue
-                }
-                if (entry.isDirectory) {
-                    entry.deleteRecursively()
-                } else {
-                    entry.delete()
+        withContext(dispatcherProvider.IO) {
+            for (dir in recorderModule.getLogDirectories()) {
+                if (!dir.exists()) continue
+                for (entry in dir.listFiles() ?: emptyArray()) {
+                    if (entry == activeDir) {
+                        log(TAG) { "Skipping active session dir: $entry" }
+                        continue
+                    }
+                    val entryId = deriveSessionId(entry)
+                    if (entryId in currentlyZipping) {
+                        log(TAG) { "Skipping zipping session: $entry" }
+                        continue
+                    }
+                    val deleted = if (entry.isDirectory) entry.deleteRecursively() else entry.delete()
+                    if (!deleted) log(TAG, WARN) { "Failed to delete: ${entry.path}" }
                 }
             }
         }
