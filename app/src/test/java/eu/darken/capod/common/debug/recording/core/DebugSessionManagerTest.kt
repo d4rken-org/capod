@@ -200,6 +200,23 @@ class DebugSessionManagerTest : BaseTest() {
         }
 
         @Test
+        fun `ext and cache sessions with same basename have different IDs`() {
+            val cacheLogsDir = File(tempDir, "cache/debug/logs").also { it.mkdirs() }
+            val extDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(extDir, "core.log").writeText("external log")
+            val cacheDir = File(cacheLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(cacheDir, "core.log").writeText("cache log")
+
+            val sessions = DebugSessionManager.scanSessions(
+                logDirectories = listOf(externalLogsDir, cacheLogsDir),
+            )
+
+            sessions shouldHaveSize 2
+            val ids = sessions.map { it.id }.toSet()
+            ids shouldBe setOf("ext:capod_1.0_1700000000000_abcd1234", "cache:capod_1.0_1700000000000_abcd1234")
+        }
+
+        @Test
         fun `zipping session should not be deleted`() {
             val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("done recording")

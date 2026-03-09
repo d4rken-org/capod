@@ -33,6 +33,10 @@ class RecorderModule @Inject constructor(
     private val installId: InstallId,
 ) {
 
+    @Volatile
+    internal var currentLogDir: File? = null
+        private set
+
     private val triggerFile = try {
         File(context.getExternalFilesDir(null), FORCE_FILE)
     } catch (e: Exception) {
@@ -64,6 +68,8 @@ class RecorderModule @Inject constructor(
                         log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
                         log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
 
+                        this@RecorderModule.currentLogDir = sessionDir
+
                         copy(
                             recorder = newRecorder,
                             currentLogDir = sessionDir,
@@ -75,6 +81,8 @@ class RecorderModule @Inject constructor(
                         if (triggerFile.exists() && !triggerFile.delete()) {
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
+
+                        this@RecorderModule.currentLogDir = null
 
                         copy(
                             recorder = null,
