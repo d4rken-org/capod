@@ -17,10 +17,11 @@ import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.res.stringResource
 import androidx.core.view.WindowCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.ConfirmationDialog
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
@@ -28,6 +29,11 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.main.core.themeState
 import javax.inject.Inject
+
+private sealed interface RecorderDialog {
+    data object SentConfirm : RecorderDialog
+    data object DeleteConfirm : RecorderDialog
+}
 
 @AndroidEntryPoint
 class RecorderActivity : Activity2() {
@@ -58,6 +64,7 @@ class RecorderActivity : Activity2() {
                 }
 
                 var hasShared by remember { mutableStateOf(false) }
+                var dialog by remember { mutableStateOf<RecorderDialog?>(null) }
 
                 LaunchedEffect(Unit) {
                     vm.events.collect { event ->
@@ -71,50 +78,44 @@ class RecorderActivity : Activity2() {
                     }
                 }
 
-                var showSentConfirm by remember { mutableStateOf(false) }
-
                 LifecycleResumeEffect(hasShared) {
                     if (hasShared) {
-                        showSentConfirm = true
+                        dialog = RecorderDialog.SentConfirm
                         hasShared = false
                     }
                     onPauseOrDispose {}
                 }
 
-                if (showSentConfirm) {
-                    LaunchedEffect(Unit) {
-                        MaterialAlertDialogBuilder(this@RecorderActivity).apply {
-                            setTitle(R.string.support_debuglog_sent_title)
-                            setMessage(R.string.support_debuglog_sent_message)
-                            setPositiveButton(R.string.general_done_action) { _, _ ->
-                                showSentConfirm = false
+                when (dialog) {
+                    is RecorderDialog.SentConfirm -> {
+                        ConfirmationDialog(
+                            title = stringResource(R.string.support_debuglog_sent_title),
+                            message = stringResource(R.string.support_debuglog_sent_message),
+                            confirmLabel = stringResource(R.string.general_done_action),
+                            dismissLabel = stringResource(R.string.general_cancel_action),
+                            onConfirm = {
+                                dialog = null
                                 vm.discard()
-                            }
-                            setNegativeButton(R.string.general_cancel_action) { _, _ ->
-                                showSentConfirm = false
-                            }
-                            setOnCancelListener { showSentConfirm = false }
-                        }.show()
+                            },
+                            onDismiss = { dialog = null },
+                        )
                     }
-                }
 
-                var showDeleteConfirm by remember { mutableStateOf(false) }
-
-                if (showDeleteConfirm) {
-                    LaunchedEffect(Unit) {
-                        MaterialAlertDialogBuilder(this@RecorderActivity).apply {
-                            setTitle(R.string.support_debuglog_session_delete_title)
-                            setMessage(R.string.support_debuglog_session_delete_message)
-                            setPositiveButton(R.string.profiles_delete_action) { _, _ ->
-                                showDeleteConfirm = false
+                    is RecorderDialog.DeleteConfirm -> {
+                        ConfirmationDialog(
+                            title = stringResource(R.string.support_debuglog_session_delete_title),
+                            message = stringResource(R.string.support_debuglog_session_delete_message),
+                            confirmLabel = stringResource(R.string.profiles_delete_action),
+                            dismissLabel = stringResource(R.string.general_cancel_action),
+                            onConfirm = {
+                                dialog = null
                                 vm.discard()
-                            }
-                            setNegativeButton(R.string.general_cancel_action) { _, _ ->
-                                showDeleteConfirm = false
-                            }
-                            setOnCancelListener { showDeleteConfirm = false }
-                        }.show()
+                            },
+                            onDismiss = { dialog = null },
+                        )
                     }
+
+                    null -> {}
                 }
 
                 val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
@@ -123,7 +124,7 @@ class RecorderActivity : Activity2() {
                         state = it,
                         onShare = { vm.share() },
                         onKeep = { vm.keep() },
-                        onDiscard = { showDeleteConfirm = true },
+                        onDiscard = { dialog = RecorderDialog.DeleteConfirm },
                         onPrivacyPolicy = { vm.goPrivacyPolicy() },
                     )
                 }
