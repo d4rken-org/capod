@@ -170,6 +170,7 @@ fun DualPodsCard(
                             showEarDetection = device is HasEarDetectionDual,
                             isMicrophone = (device as? HasDualMicrophone)?.isLeftPodMicrophone ?: false,
                             showMicrophone = device is HasDualMicrophone,
+                            modifier = Modifier.weight(1f),
                         )
 
                         PodGauge(
@@ -180,6 +181,7 @@ fun DualPodsCard(
                             showEarDetection = device is HasEarDetectionDual,
                             isMicrophone = (device as? HasDualMicrophone)?.isRightPodMicrophone ?: false,
                             showMicrophone = device is HasDualMicrophone,
+                            modifier = Modifier.weight(1f),
                         )
                     }
 
@@ -222,6 +224,7 @@ private fun PodGauge(
     showEarDetection: Boolean,
     isMicrophone: Boolean,
     showMicrophone: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     val clamped = batteryPercent?.coerceIn(0f, 1f)
@@ -239,6 +242,7 @@ private fun PodGauge(
     }
 
     Column(
+        modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Ring with icon inside
@@ -327,7 +331,7 @@ private fun CaseRow(
         Text(
             text = formatBatteryPercent(context, device.batteryCasePercent),
             style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.width(48.dp),
+            modifier = Modifier.padding(end = 8.dp),
         )
 
         BatteryCapsule(
