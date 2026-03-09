@@ -98,7 +98,8 @@ class RecorderModule @Inject constructor(
     }
 
     private fun createSessionDir(): File {
-        val timestamp = System.currentTimeMillis()
+        val timestamp = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
+            .format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"))
         val installIdPrefix = installId.id.take(8)
         val dirName = "capod_${BuildConfigWrap.VERSION_NAME}_${timestamp}_$installIdPrefix"
 
