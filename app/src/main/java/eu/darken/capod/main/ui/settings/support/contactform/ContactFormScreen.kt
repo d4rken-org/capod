@@ -23,6 +23,7 @@ import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Email
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -37,6 +38,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -55,14 +57,22 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.LifecycleResumeEffect
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
+import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.WebpageTool
+import eu.darken.capod.common.compose.ConfirmationDialog
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.debug.recording.ui.RecorderConsentDialog
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.main.ui.settings.support.contactform.ContactFormViewModel.Category
+
+private sealed interface ContactFormDialog {
+    data object SentConfirm : ContactFormDialog
+    data object Consent : ContactFormDialog
+    data object ShortRecordingWarning : ContactFormDialog
+    data class DeleteSession(val sessionId: String) : ContactFormDialog
+}
 
 @Composable
 fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
@@ -73,35 +83,16 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
     val snackbarHostState = remember { SnackbarHostState() }
 
     var hasSentEmail by remember { mutableStateOf(false) }
-    var showSentConfirm by remember { mutableStateOf(false) }
+    var dialog by remember { mutableStateOf<ContactFormDialog?>(null) }
 
     LifecycleResumeEffect(hasSentEmail) {
         vm.refreshLogSessions()
         if (hasSentEmail) {
-            showSentConfirm = true
+            dialog = ContactFormDialog.SentConfirm
             hasSentEmail = false
         }
         onPauseOrDispose {}
     }
-
-    if (showSentConfirm) {
-        LaunchedEffect(Unit) {
-            MaterialAlertDialogBuilder(context).apply {
-                setTitle(R.string.support_contact_sent_title)
-                setMessage(R.string.support_contact_sent_message)
-                setPositiveButton(R.string.general_done_action) { _, _ ->
-                    showSentConfirm = false
-                    vm.confirmSent()
-                }
-                setNegativeButton(R.string.general_cancel_action) { _, _ ->
-                    showSentConfirm = false
-                }
-                setOnCancelListener { showSentConfirm = false }
-            }.show()
-        }
-    }
-
-    var showShortRecordingWarning by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
@@ -123,33 +114,79 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
                 }
 
                 ContactFormViewModel.Event.ShowConsentDialog -> {
-                    RecorderConsentDialog(context, WebpageTool(context)).showDialog {
-                        vm.doStartRecording()
-                    }
+                    dialog = ContactFormDialog.Consent
                 }
 
                 ContactFormViewModel.Event.ShowShortRecordingWarning -> {
-                    showShortRecordingWarning = true
+                    dialog = ContactFormDialog.ShortRecordingWarning
                 }
             }
         }
     }
 
-    if (showShortRecordingWarning) {
-        LaunchedEffect(Unit) {
-            MaterialAlertDialogBuilder(context).apply {
-                setTitle(R.string.debug_debuglog_short_recording_title)
-                setMessage(R.string.debug_debuglog_short_recording_message)
-                setPositiveButton(R.string.debug_debuglog_short_recording_continue) { _, _ ->
-                    showShortRecordingWarning = false
-                }
-                setNegativeButton(R.string.debug_debuglog_short_recording_stop) { _, _ ->
-                    showShortRecordingWarning = false
-                    vm.forceStopRecording()
-                }
-                setOnCancelListener { showShortRecordingWarning = false }
-            }.show()
+    when (val d = dialog) {
+        is ContactFormDialog.SentConfirm -> {
+            ConfirmationDialog(
+                title = stringResource(R.string.support_contact_sent_title),
+                message = stringResource(R.string.support_contact_sent_message),
+                confirmLabel = stringResource(R.string.general_done_action),
+                dismissLabel = stringResource(R.string.general_cancel_action),
+                onConfirm = {
+                    dialog = null
+                    vm.confirmSent()
+                },
+                onDismiss = { dialog = null },
+            )
         }
+
+        is ContactFormDialog.Consent -> {
+            RecorderConsentDialog(
+                onStartRecord = {
+                    vm.doStartRecording()
+                },
+                onOpenPrivacyPolicy = {
+                    WebpageTool(context).open(PrivacyPolicy.URL)
+                },
+                onDismiss = { dialog = null },
+            )
+        }
+
+        is ContactFormDialog.ShortRecordingWarning -> {
+            AlertDialog(
+                onDismissRequest = { dialog = null },
+                title = { Text(text = stringResource(R.string.debug_debuglog_short_recording_title)) },
+                text = { Text(text = stringResource(R.string.debug_debuglog_short_recording_message)) },
+                confirmButton = {
+                    TextButton(onClick = { dialog = null }) {
+                        Text(text = stringResource(R.string.debug_debuglog_short_recording_continue))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = {
+                        dialog = null
+                        vm.forceStopRecording()
+                    }) {
+                        Text(text = stringResource(R.string.debug_debuglog_short_recording_stop))
+                    }
+                },
+            )
+        }
+
+        is ContactFormDialog.DeleteSession -> {
+            ConfirmationDialog(
+                title = stringResource(R.string.support_contact_debuglog_delete_title),
+                message = stringResource(R.string.support_contact_debuglog_delete_message),
+                confirmLabel = stringResource(R.string.profiles_delete_action),
+                dismissLabel = stringResource(R.string.general_cancel_action),
+                onConfirm = {
+                    dialog = null
+                    vm.deleteLogSession(d.sessionId)
+                },
+                onDismiss = { dialog = null },
+            )
+        }
+
+        null -> {}
     }
 
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
@@ -162,16 +199,7 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
             onDescriptionChange = { vm.updateDescription(it) },
             onExpectedChange = { vm.updateExpectedBehavior(it) },
             onSelectSession = { vm.selectLogSession(it) },
-            onDeleteSession = { id ->
-                MaterialAlertDialogBuilder(context).apply {
-                    setTitle(R.string.support_contact_debuglog_delete_title)
-                    setMessage(R.string.support_contact_debuglog_delete_message)
-                    setPositiveButton(R.string.profiles_delete_action) { _, _ ->
-                        vm.deleteLogSession(id)
-                    }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                }.show()
-            },
+            onDeleteSession = { id -> dialog = ContactFormDialog.DeleteSession(id) },
             onStartRecording = { vm.startRecording() },
             onStopRecording = { vm.stopRecording() },
             onSend = { vm.send() },

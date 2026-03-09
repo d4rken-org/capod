@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.MenuBook
@@ -25,6 +24,7 @@ import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.FiberManualRecord
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Warning
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -32,6 +32,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
@@ -50,10 +51,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.capod.R
 import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.WebpageTool
+import eu.darken.capod.common.compose.ConfirmationDialog
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -64,6 +65,13 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+
+private sealed interface SupportDialog {
+    data object Consent : SupportDialog
+    data object ShortRecordingWarning : SupportDialog
+    data class DeleteSession(val sessionId: String) : SupportDialog
+    data object ClearLogs : SupportDialog
+}
 
 @Composable
 fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
@@ -78,19 +86,17 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
 
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
 
-    var showShortRecordingWarning by remember { mutableStateOf(false) }
+    var dialog by remember { mutableStateOf<SupportDialog?>(null) }
 
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
             when (event) {
                 SupportViewModel.Event.ShowConsentDialog -> {
-                    RecorderConsentDialog(context, WebpageTool(context)).showDialog {
-                        vm.startDebugLog()
-                    }
+                    dialog = SupportDialog.Consent
                 }
 
                 SupportViewModel.Event.ShowShortRecordingWarning -> {
-                    showShortRecordingWarning = true
+                    dialog = SupportDialog.ShortRecordingWarning
                 }
 
                 is SupportViewModel.Event.OpenRecorderActivity -> {
@@ -103,12 +109,69 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
         }
     }
 
-    if (showShortRecordingWarning) {
-        ShortRecordingWarningDialog(
-            context = context,
-            onDismiss = { showShortRecordingWarning = false },
-            onStopAnyway = { vm.forceStopDebugLog() },
-        )
+    when (val d = dialog) {
+        is SupportDialog.Consent -> {
+            RecorderConsentDialog(
+                onStartRecord = {
+                    vm.startDebugLog()
+                },
+                onOpenPrivacyPolicy = {
+                    WebpageTool(context).open(PrivacyPolicy.URL)
+                },
+                onDismiss = { dialog = null },
+            )
+        }
+
+        is SupportDialog.ShortRecordingWarning -> {
+            AlertDialog(
+                onDismissRequest = { dialog = null },
+                title = { Text(text = stringResource(R.string.debug_debuglog_short_recording_title)) },
+                text = { Text(text = stringResource(R.string.debug_debuglog_short_recording_message)) },
+                confirmButton = {
+                    TextButton(onClick = { dialog = null }) {
+                        Text(text = stringResource(R.string.debug_debuglog_short_recording_continue))
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = {
+                        dialog = null
+                        vm.forceStopDebugLog()
+                    }) {
+                        Text(text = stringResource(R.string.debug_debuglog_short_recording_stop))
+                    }
+                },
+            )
+        }
+
+        is SupportDialog.DeleteSession -> {
+            ConfirmationDialog(
+                title = stringResource(R.string.support_debuglog_session_delete_title),
+                message = stringResource(R.string.support_debuglog_session_delete_message),
+                confirmLabel = stringResource(R.string.profiles_delete_action),
+                dismissLabel = stringResource(R.string.general_cancel_action),
+                onConfirm = {
+                    dialog = null
+                    vm.deleteSession(d.sessionId)
+                },
+                onDismiss = { dialog = null },
+            )
+        }
+
+        is SupportDialog.ClearLogs -> {
+            ConfirmationDialog(
+                title = stringResource(R.string.support_debuglog_session_delete_title),
+                message = stringResource(R.string.support_debuglog_clear_all_message),
+                confirmLabel = stringResource(R.string.profiles_delete_action),
+                dismissLabel = stringResource(R.string.general_cancel_action),
+                onConfirm = {
+                    dialog = null
+                    vm.clearDebugLogs()
+                },
+                onDismiss = { dialog = null },
+            )
+        }
+
+        null -> {}
     }
 
     state?.let {
@@ -122,50 +185,10 @@ fun SupportScreenHost(vm: SupportViewModel = hiltViewModel()) {
             onTroubleShooter = { vm.goToTroubleShooter() },
             onDebugLogToggle = { vm.onDebugLogToggle() },
             onOpenSession = { vm.openSession(it) },
-            onDeleteSession = { id ->
-                MaterialAlertDialogBuilder(context).apply {
-                    setTitle(R.string.support_debuglog_session_delete_title)
-                    setMessage(R.string.support_debuglog_session_delete_message)
-                    setPositiveButton(R.string.profiles_delete_action) { _, _ ->
-                        vm.deleteSession(id)
-                    }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                }.show()
-            },
+            onDeleteSession = { id -> dialog = SupportDialog.DeleteSession(id) },
             onStopRecording = { vm.onDebugLogToggle() },
-            onClearLogs = {
-                MaterialAlertDialogBuilder(context).apply {
-                    setTitle(R.string.support_debuglog_session_delete_title)
-                    setMessage(R.string.support_debuglog_clear_all_message)
-                    setPositiveButton(R.string.profiles_delete_action) { _, _ ->
-                        vm.clearDebugLogs()
-                    }
-                    setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-                }.show()
-            },
+            onClearLogs = { dialog = SupportDialog.ClearLogs },
         )
-    }
-}
-
-@Composable
-private fun ShortRecordingWarningDialog(
-    context: android.content.Context,
-    onDismiss: () -> Unit,
-    onStopAnyway: () -> Unit,
-) {
-    LaunchedEffect(Unit) {
-        MaterialAlertDialogBuilder(context).apply {
-            setTitle(R.string.debug_debuglog_short_recording_title)
-            setMessage(R.string.debug_debuglog_short_recording_message)
-            setPositiveButton(R.string.debug_debuglog_short_recording_continue) { _, _ ->
-                onDismiss()
-            }
-            setNegativeButton(R.string.debug_debuglog_short_recording_stop) { _, _ ->
-                onDismiss()
-                onStopAnyway()
-            }
-            setOnCancelListener { onDismiss() }
-        }.show()
     }
 }
 

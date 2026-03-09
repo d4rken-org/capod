@@ -1,24 +1,55 @@
 package eu.darken.capod.common.debug.recording.ui
 
-import android.content.Context
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
-import eu.darken.capod.common.PrivacyPolicy
-import eu.darken.capod.common.WebpageTool
 
-class RecorderConsentDialog(
-    private val context: Context,
-    private val webpageTool: WebpageTool
+@Composable
+fun RecorderConsentDialog(
+    onStartRecord: () -> Unit,
+    onOpenPrivacyPolicy: () -> Unit,
+    onDismiss: () -> Unit,
 ) {
-    fun showDialog(onStartRecord: () -> Unit) {
-        MaterialAlertDialogBuilder(context).apply {
-            setTitle(R.string.support_debuglog_label)
-            setMessage(R.string.settings_debuglog_explanation)
-            setPositiveButton(R.string.debug_debuglog_record_action) { _, _ -> onStartRecord() }
-            setNegativeButton(R.string.general_cancel_action) { _, _ -> }
-            setNeutralButton(R.string.settings_privacy_policy_label) { _, _ ->
-                webpageTool.open(PrivacyPolicy.URL)
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(text = stringResource(R.string.support_debuglog_label)) },
+        text = {
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(text = stringResource(R.string.settings_debuglog_explanation))
+                Spacer(modifier = Modifier.height(8.dp))
+                TextButton(
+                    onClick = {
+                        onOpenPrivacyPolicy()
+                        onDismiss()
+                    },
+                    modifier = Modifier.align(Alignment.End),
+                ) {
+                    Text(text = stringResource(R.string.settings_privacy_policy_label))
+                }
             }
-        }.show()
-    }
+        },
+        confirmButton = {
+            TextButton(onClick = {
+                onDismiss()
+                onStartRecord()
+            }) {
+                Text(text = stringResource(R.string.debug_debuglog_record_action))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = stringResource(R.string.general_cancel_action))
+            }
+        },
+    )
 }
