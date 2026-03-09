@@ -24,7 +24,7 @@ class DebugLogZipper @Inject constructor(
         val zipFile = File(logDir.parentFile, "${logDir.name}.zip")
         val tempFile = File(logDir.parentFile, "${logDir.name}.zip.tmp")
         try {
-            Zipper().zip(logFiles.map { it.path }.toTypedArray(), tempFile.path)
+            Zipper().zip(logFiles.map { it.path }, tempFile.path)
             try {
                 Files.move(
                     tempFile.toPath(),

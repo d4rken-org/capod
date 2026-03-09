@@ -118,6 +118,7 @@ android {
             "-opt-in=kotlin.time.ExperimentalTime",
             "-opt-in=kotlin.RequiresOptIn",
             "-opt-in=kotlin.ExperimentalUnsignedTypes",
+            "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
             "-Xannotation-default-target=param-property"
         )
     }
