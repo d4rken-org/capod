@@ -10,17 +10,16 @@ import java.io.FileOutputStream
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
-// https://stackoverflow.com/a/48598099/1251958
 class Zipper {
 
     @Throws(Exception::class)
-    fun zip(files: Array<String>, zipFile: String) {
+    fun zip(files: List<String>, zipFile: String) {
         ZipOutputStream(BufferedOutputStream(FileOutputStream(zipFile))).use { out ->
-            for (i in files.indices) {
-                log(TAG, VERBOSE) { "Compressing ${files[i]} into $zipFile" }
-                val origin = BufferedInputStream(FileInputStream(files[i]), BUFFER)
+            for (file in files) {
+                log(TAG, VERBOSE) { "Compressing $file into $zipFile" }
+                val origin = BufferedInputStream(FileInputStream(file), BUFFER)
 
-                val entry = ZipEntry(files[i].substring(files[i].lastIndexOf("/") + 1))
+                val entry = ZipEntry(file.substring(file.lastIndexOf("/") + 1))
                 out.putNextEntry(entry)
 
                 origin.use { input -> input.copyTo(out) }

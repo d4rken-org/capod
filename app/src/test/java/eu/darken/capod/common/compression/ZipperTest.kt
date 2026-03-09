@@ -29,7 +29,7 @@ class ZipperTest : BaseTest() {
             val file2 = createFile("b.txt", "world")
             val zipPath = File(tempDir, "out.zip").path
 
-            Zipper().zip(arrayOf(file1.path, file2.path), zipPath)
+            Zipper().zip(listOf(file1.path, file2.path), zipPath)
 
             val zipFile = File(zipPath)
             zipFile.exists() shouldBe true
@@ -42,7 +42,7 @@ class ZipperTest : BaseTest() {
             val file2 = createFile("extra.log", "extra content")
             val zipPath = File(tempDir, "out.zip").path
 
-            Zipper().zip(arrayOf(file1.path, file2.path), zipPath)
+            Zipper().zip(listOf(file1.path, file2.path), zipPath)
 
             ZipFile(zipPath).use { zf ->
                 zf.entries().toList().map { it.name } shouldContainExactlyInAnyOrder listOf("core.log", "extra.log")
@@ -57,7 +57,7 @@ class ZipperTest : BaseTest() {
             val file2 = createFile("b.txt", content2)
             val zipPath = File(tempDir, "out.zip").path
 
-            Zipper().zip(arrayOf(file1.path, file2.path), zipPath)
+            Zipper().zip(listOf(file1.path, file2.path), zipPath)
 
             ZipFile(zipPath).use { zf ->
                 zf.getInputStream(zf.getEntry("a.txt")).bufferedReader().readText() shouldBe content1
@@ -70,7 +70,7 @@ class ZipperTest : BaseTest() {
             val file = createFile("only.txt", "solo")
             val zipPath = File(tempDir, "out.zip").path
 
-            Zipper().zip(arrayOf(file.path), zipPath)
+            Zipper().zip(listOf(file.path), zipPath)
 
             ZipFile(zipPath).use { zf ->
                 zf.entries().toList().map { it.name } shouldBe listOf("only.txt")
@@ -82,7 +82,7 @@ class ZipperTest : BaseTest() {
             val file = createFile("empty.txt", "")
             val zipPath = File(tempDir, "out.zip").path
 
-            Zipper().zip(arrayOf(file.path), zipPath)
+            Zipper().zip(listOf(file.path), zipPath)
 
             ZipFile(zipPath).use { zf ->
                 val entry = zf.getEntry("empty.txt")
@@ -96,7 +96,7 @@ class ZipperTest : BaseTest() {
             val zipPath = File(tempDir, "out.zip").path
 
             shouldThrow<FileNotFoundException> {
-                Zipper().zip(arrayOf(missing), zipPath)
+                Zipper().zip(listOf(missing), zipPath)
             }
         }
     }

@@ -7,7 +7,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.DataArray
 import androidx.compose.material.icons.twotone.DevicesOther
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -45,7 +44,6 @@ fun DebugSettingsScreenHost(vm: DebugSettingsViewModel = hiltViewModel()) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DebugSettingsScreen(
     state: DebugSettingsViewModel.State,

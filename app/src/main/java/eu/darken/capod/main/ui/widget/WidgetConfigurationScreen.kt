@@ -44,7 +44,6 @@ import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
@@ -81,7 +80,7 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfile
 
-@OptIn(ExperimentalLayoutApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun WidgetConfigurationScreen(
     state: WidgetConfigurationViewModel.State,

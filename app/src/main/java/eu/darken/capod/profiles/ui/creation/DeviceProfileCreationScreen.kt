@@ -24,7 +24,6 @@ import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -138,7 +137,6 @@ fun DeviceProfileCreationScreenHost(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DeviceProfileCreationScreen(
     state: DeviceProfileCreationViewModel.State,
@@ -292,7 +290,6 @@ private fun ProfileSectionCard(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DeviceInfoCard(
     name: String,

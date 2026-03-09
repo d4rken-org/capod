@@ -19,7 +19,6 @@ import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.twotone.Workspaces
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -72,7 +71,6 @@ fun ReactionSettingsScreenHost(vm: ReactionSettingsViewModel = hiltViewModel()) 
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReactionSettingsScreen(
     state: ReactionSettingsViewModel.State,
