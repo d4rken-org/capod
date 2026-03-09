@@ -69,13 +69,37 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    LifecycleResumeEffect(Unit) {
+    val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    var hasSentEmail by remember { mutableStateOf(false) }
+    var showSentConfirm by remember { mutableStateOf(false) }
+
+    LifecycleResumeEffect(hasSentEmail) {
         vm.refreshLogSessions()
+        if (hasSentEmail) {
+            showSentConfirm = true
+            hasSentEmail = false
+        }
         onPauseOrDispose {}
     }
 
-    val context = LocalContext.current
-    val snackbarHostState = remember { SnackbarHostState() }
+    if (showSentConfirm) {
+        LaunchedEffect(Unit) {
+            MaterialAlertDialogBuilder(context).apply {
+                setTitle(R.string.support_contact_sent_title)
+                setMessage(R.string.support_contact_sent_message)
+                setPositiveButton(R.string.general_done_action) { _, _ ->
+                    showSentConfirm = false
+                    vm.confirmSent()
+                }
+                setNegativeButton(R.string.general_cancel_action) { _, _ ->
+                    showSentConfirm = false
+                }
+                setOnCancelListener { showSentConfirm = false }
+            }.show()
+        }
+    }
 
     var showShortRecordingWarning by remember { mutableStateOf(false) }
 
@@ -84,8 +108,10 @@ fun ContactFormScreenHost(vm: ContactFormViewModel = hiltViewModel()) {
             when (event) {
                 is ContactFormViewModel.Event.OpenEmail -> {
                     try {
+                        hasSentEmail = true
                         context.startActivity(event.intent)
                     } catch (e: ActivityNotFoundException) {
+                        hasSentEmail = false
                         snackbarHostState.showSnackbar(
                             context.getString(R.string.support_contact_no_email_app)
                         )

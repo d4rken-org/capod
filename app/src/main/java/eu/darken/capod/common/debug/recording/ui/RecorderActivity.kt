@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
@@ -56,12 +57,44 @@ class RecorderActivity : Activity2() {
                     insetsController.isAppearanceLightNavigationBars = useDarkIcons
                 }
 
+                var hasShared by remember { mutableStateOf(false) }
+
                 LaunchedEffect(Unit) {
                     vm.events.collect { event ->
                         when (event) {
-                            is RecorderActivityVM.Event.ShareIntent -> startActivity(event.intent)
+                            is RecorderActivityVM.Event.ShareIntent -> {
+                                hasShared = true
+                                startActivity(event.intent)
+                            }
                             is RecorderActivityVM.Event.Finish -> finish()
                         }
+                    }
+                }
+
+                var showSentConfirm by remember { mutableStateOf(false) }
+
+                LifecycleResumeEffect(hasShared) {
+                    if (hasShared) {
+                        showSentConfirm = true
+                        hasShared = false
+                    }
+                    onPauseOrDispose {}
+                }
+
+                if (showSentConfirm) {
+                    LaunchedEffect(Unit) {
+                        MaterialAlertDialogBuilder(this@RecorderActivity).apply {
+                            setTitle(R.string.support_debuglog_sent_title)
+                            setMessage(R.string.support_debuglog_sent_message)
+                            setPositiveButton(R.string.general_done_action) { _, _ ->
+                                showSentConfirm = false
+                                vm.discard()
+                            }
+                            setNegativeButton(R.string.general_cancel_action) { _, _ ->
+                                showSentConfirm = false
+                            }
+                            setOnCancelListener { showSentConfirm = false }
+                        }.show()
                     }
                 }
 
