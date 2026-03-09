@@ -15,6 +15,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.CancellationException
@@ -57,21 +59,20 @@ class DebugSessionManager @Inject constructor(
             activeDir = recorderState.currentLogDir,
             recordingStartedAt = recorderState.recordingStartedAt,
         )
-        val overlaid = applyOverlays(raw, zipping, failedZips)
+        applyOverlays(raw, zipping, failedZips)
+    }.replayingShare(appScope)
 
-        val orphans = findOrphans(overlaid, zipping)
-        if (orphans.isNotEmpty()) {
-            orphans.forEach { (id, _) -> pendingAutoZips.add(id) }
-            appScope.launch {
-                orphans.forEach { (id, dir) ->
+    init {
+        sessions.onEach { allSessions ->
+            val orphans = findOrphans(allSessions, zippingIds.value)
+            orphans.forEach { (id, dir) ->
+                if (pendingAutoZips.add(id)) {
                     log(TAG, INFO) { "Orphan session detected, auto-zipping: $id" }
                     zipSessionAsync(id, dir)
                 }
             }
-        }
-
-        overlaid
-    }.replayingShare(appScope)
+        }.launchIn(appScope)
+    }
 
     private fun applyOverlays(
         sessions: List<DebugSession>,
@@ -226,6 +227,7 @@ class DebugSessionManager @Inject constructor(
             }
         }
         failedZipIds.update { emptySet() }
+        pendingAutoZips.clear()
         log(TAG) { "All stored logs deleted" }
         refresh()
     }
