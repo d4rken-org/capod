@@ -300,7 +300,7 @@
     <string name="debug_debuglog_short_recording_continue">Teruskan rakaman</string>
     <string name="debug_debuglog_short_recording_stop">Hentikan juga</string>
     <!-- Recorder screen -->
-    <string name="debug_debuglog_screen_title">Log Debug</string>
+    <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
     <string name="debug_debuglog_screen_subtitle">Eksport maklumat debug untuk penyelesaian masalah</string>
     <string name="debug_debuglog_screen_sensitive_title">Maklumat Sensitif</string>
     <string name="debug_debuglog_screen_session_path_label">Session Path</string>

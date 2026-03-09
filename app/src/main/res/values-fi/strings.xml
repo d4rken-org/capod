@@ -332,7 +332,7 @@
     <!-- Contact form -->
     <string name="support_contact_label">Ota yhteyttä kehittäjään</string>
     <string name="support_contact_desc">Täytä lomake lähettääksesi kehittäjälle sähköpostia.</string>
-    <string name="support_contact_welcome">Luen jokaisen viestin itse ja teen parhaani vastatakseni, mutta koska työskentelen tämän parissa yksin, se voi viedä hieman aikaa. Kiitos kärsivällisyydestäsi.</string>
+    <string name="support_contact_welcome">Luen jokaisen viestin itse ja teen parhaani vastatakseni, mutta koska työskentelen tämän parissa yksin, se voi viedä hetken. Kiitos kärsivällisyydestäsi.</string>
     <string name="support_contact_footer">Viestisi lähetetään sähköpostitse. Laite- ja asetustiedot liitetään automaattisesti. Voit liittää kuvakaappauksia tai videon sähköpostiin. Osa sähköpostista on englanniksi, jotta kehittäjä ymmärtää sen helposti.</string>
     <string name="support_contact_category_label">Luokka</string>
     <string name="support_contact_category_question_label">Kysymys</string>

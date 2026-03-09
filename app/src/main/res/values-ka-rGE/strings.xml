@@ -146,7 +146,7 @@
     <string name="widget_config_preset_red">წითელი</string>
     <string name="settings_compat_indirectcallback_title">მონაცემთა არაპირდაპირი მიწოდება</string>
     <string name="settings_compat_indirectcallback_summary">გამოიყენეთ ალტერნატიული მეთოდი სისტემიდან BLE მონაცემების მისაღებად (მაუწყებლობა გამოძახების ნაცვლად).</string>
-    <string name="troubleshooter_title">პრობლემების გადაჭრა</string>
+    <string name="troubleshooter_title">პრობლემების გადამჭრელი</string>
     <string name="troubleshooter_summary">Bluetooth კავშირის პრობლემების დიაგნოსტიკა და გამოსწორება.</string>
     <string name="troubleshooter_ble_intro_title">Bluetooth Low Energy მაუწყებლობა</string>
     <string name="troubleshooter_ble_intro_body1">AirPods (და მსგავსი ყურსასმენები) სტატუსის ინფორმაციას მაუწყებლობენ BLE ტექნოლოგიის გამოყენებით, რომელსაც \"რეკლამები\" ეწოდება. ზოგიერთი ტელეფონი ამ ტექნოლოგიას სწორად არ ახორციელებს. CAPod-ს შეუძლია სცადოს ამის გამოსწორება სხვადასხვა თავსებადობის ვარიანტების ცდით, სანამ მონაცემები არ მიიღება. დაიწყეთ მუსიკის დაკვრა თქვენს ყურსასმენებში და მოათავსეთ ისინი თქვენს ტელეფონთან ახლოს, შემდეგ დაიწყეთ პროცესი.</string>
@@ -297,13 +297,13 @@
     <string name="general_keep_editing_action">რედაქტირების გაგრძელება</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">ჩანაწერი ძალიან მოკლე</string>
-    <string name="debug_debuglog_short_recording_message">გამართვის ჟურნალმა პრობლემა უნდა ჩაიწეროს მის დაფიქსირების დროს. განაგრძეთ ჩაწერა, გამოიწვიეთ პრობლემა, შემდეგ შეაჩერეთ ჩაწერა.</string>
+    <string name="debug_debuglog_short_recording_message">გამართვის ჟურნალმა პრობლემა უნდა დააფიქსიროს მის დროს. განაგრძეთ ჩაწერა, გაიმეორეთ პრობლემა, შემდეგ შეაჩერეთ ჩაწერა.</string>
     <string name="debug_debuglog_short_recording_continue">ჩაწერის გაგრძელება</string>
     <string name="debug_debuglog_short_recording_stop">მიუხედავად შეჩერება</string>
     <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">გამართვის ჟურნალი</string>
-    <string name="debug_debuglog_screen_subtitle">გამართვის ინფორმაციის ექსპორტი პრობლემების აღმოფსათვისთვის</string>
-    <string name="debug_debuglog_screen_sensitive_title">მახვნიერების ინფორმაცია</string>
+    <string name="debug_debuglog_screen_subtitle">გამართვის ინფორმაციის ექსპორტი პრობლემების გადასაჭრელად</string>
+    <string name="debug_debuglog_screen_sensitive_title">მგრძნობიარე ინფორმაცია</string>
     <string name="debug_debuglog_screen_session_path_label">სესიის მისამართები</string>
     <string name="debug_debuglog_screen_log_files_label">ჟურნალის ფაილები</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -320,8 +320,8 @@
     <string name="support_debuglog_sessions_label">გამართვის სესიები</string>
     <string name="support_debuglog_sessions_desc">ჩაწერის გამართვის ჟურნალის სესიების მართვა</string>
     <string name="support_debuglog_sessions_empty">გამართვის სესიები არ არის</string>
-    <string name="support_debuglog_session_recording">ჩაწერადა...</string>
-    <string name="support_debuglog_session_compressing">შეკუმშვადა...</string>
+    <string name="support_debuglog_session_recording">ჩაწერა...</string>
+    <string name="support_debuglog_session_compressing">შეკუმშვა...</string>
     <string name="support_debuglog_session_delete_title">სესიის წაშლა?</string>
     <string name="support_debuglog_session_delete_message">ეს გამართვის სესია სამუდამოდ წიშლება.</string>
     <string name="support_debuglog_clear_all_message">ყველა გამართვის სესიები სამუდამოდ წიშლება.</string>
@@ -332,8 +332,8 @@
     <!-- Contact form -->
     <string name="support_contact_label">დეველოპერთან დაკავშირება</string>
     <string name="support_contact_desc">შეავსეთ დეველოპერისათვის ელ. ფოსტის გასაგზავნელად ფორმი.</string>
-    <string name="support_contact_welcome">მე თვითონ იკითხავ ყოველ შეტყობინებას და სრიალდების მაქსიმალურად გავავრცელებას, მაგრამამ მას მარტოვ მვედემია დრო დასძირდეს. მადლობა დროისთვის გამო.</string>
-    <string name="support_contact_footer">თქვენი შეტყობინება გაიგზავნება ელ. ფოსტით. მოწყობის და კონფიგურაციის ინფორმაცია ავტომატურად ირთვება. სკრინშოტები ან ვიდეო ვიზუალური შეგიძლიათ დართვათ ელ. ფოსტში. ელ. ფოსტის ზოგიერთა იქნება იყოს ინგლისურად, რათა დეველოპერა ადვილად გაიგოს გაარკვეთ.</string>
+    <string name="support_contact_welcome">მე პირადად ვკითხულობ ყოველ შეტყობინებას და ვცდილობ ვუპასუხო, მაგრამ ვინაიდან ამაზე მარტო ვმუშაობ, გარკვეული დრო შეიძლება დასჭირდეს. გმადლობთ მოთმინებისთვის.</string>
+    <string name="support_contact_footer">თქვენი შეტყობინება გაიგზავნება ელ. ფოსტით. მოწყობილობისა და კონფიგურაციის ინფორმაცია ავტომატურად ერთვის. ელ. ფოსტას შეგიძლიათ დაურთოთ სკრინშოტები ან ვიდეო. ელ. ფოსტის ზოგიერთი ნაწილი იქნება ინგლისურად, რათა დეველოპერმა ადვილად გაიგოს.</string>
     <string name="support_contact_category_label">კატეგორია</string>
     <string name="support_contact_category_question_label">კითხვა</string>
     <string name="support_contact_category_feature_label">ფუნქციის მოთხოვნა</string>

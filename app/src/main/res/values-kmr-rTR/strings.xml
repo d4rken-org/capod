@@ -285,7 +285,7 @@
     <string name="ui_theme_color_blue_label">Şîn</string>
     <string name="ui_theme_color_green_label">Kesk</string>
     <string name="ui_theme_color_amber_label">Amber</string>
-    <string name="ui_theme_color_disabled_materialyou">Rengên dîwarê ekranê bikar tîne</string>
+    <string name="ui_theme_color_disabled_materialyou">Rengên dîwarê bikartîne</string>
     <!-- Settings categories -->
     <string name="settings_category_monitoring_label">Çavdêrî</string>
     <string name="settings_category_appearance_label">Xuyang</string>
@@ -297,9 +297,9 @@
     <string name="general_keep_editing_action">Guherandinê bidomîne</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Tomarkirî pir kurte</string>
-    <string name="debug_debuglog_short_recording_message">Têketinek debugê divê pirsgirêkê bigire dema ku ew diqewime. Tomarkirinê berdewam bike, pirsgirêkê dubare bike, paşê tomarkirinê rawestìne.</string>
+    <string name="debug_debuglog_short_recording_message">Têketinek debugê divê pirsgirêkê bigire dema ku ew diqewime. Tomarkirinê berdewam bike, pirsgirêkê dubare bike, paşê tomarkirinê rawestîne.</string>
     <string name="debug_debuglog_short_recording_continue">Tomarkirinê berdewam bike</string>
-    <string name="debug_debuglog_short_recording_stop">Dîsa jî rawestìne</string>
+    <string name="debug_debuglog_short_recording_stop">Dîsa jî rawestîne</string>
     <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Tomara Çareserkirinê</string>
     <string name="debug_debuglog_screen_subtitle">Agahdariya debugê ji bo çareserkirinê derxe</string>
