@@ -80,5 +80,5 @@ Code shared between phone and Wear OS apps is placed in `app-common`. When modif
 
 - **Hilt**: Dependency injection framework
 - **AndroidX Navigation**: Fragment navigation with SafeArgs
-- **Moshi**: JSON serialization for configuration and debugging
+- **kotlinx.serialization**: JSON serialization for configuration and caching
 - **Material Design**: UI components following Material Design guidelines

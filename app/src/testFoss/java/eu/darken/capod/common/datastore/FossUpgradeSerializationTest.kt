@@ -1,10 +1,8 @@
 package eu.darken.capod.common.datastore
 
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
-import com.squareup.moshi.Json as MoshiJson
 import eu.darken.capod.common.upgrade.core.FossUpgrade
 import io.kotest.matchers.shouldBe
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 import org.junit.jupiter.api.Test
@@ -25,6 +23,7 @@ class FossUpgradeSerializationTest : BaseTest() {
         ignoreUnknownKeys = true
         encodeDefaults = true
         explicitNulls = false
+        classDiscriminator = "type"
     }
 
     private fun createDataStore() = PreferenceDataStoreFactory.create(
@@ -50,24 +49,27 @@ class FossUpgradeSerializationTest : BaseTest() {
     }
 
     @Test
-    fun `SerialName matches Json name - FossUpgrade Reason`() {
-        val enumClass = FossUpgrade.Reason::class.java
-        for (constant in enumClass.enumConstants!!) {
-            val field = enumClass.getField(constant.name)
-            val moshiAnnotation = field.getAnnotation(MoshiJson::class.java)
-            val serialNameAnnotation = field.getAnnotation(SerialName::class.java)
-
-            if (moshiAnnotation != null && serialNameAnnotation != null) {
-                serialNameAnnotation.value shouldBe moshiAnnotation.name
-            }
-        }
+    fun `FossUpgrade Reason encodes to canonical string`() {
+        json.encodeToString(serializer<FossUpgrade.Reason>(), FossUpgrade.Reason.DONATED) shouldBe "\"foss.upgrade.reason.donated\""
     }
 
     @Test
-    fun `Moshi-serialized FossUpgrade JSON is readable by kotlinx`() {
-        val moshiJson = """{"upgradedAt":1709553600000,"reason":"foss.upgrade.reason.donated"}"""
-        val result = json.decodeFromString(serializer<FossUpgrade>(), moshiJson)
+    fun `legacy FossUpgrade JSON decodes correctly`() {
+        val legacyJson = """{"upgradedAt":1709553600000,"reason":"foss.upgrade.reason.donated"}"""
+        val result = json.decodeFromString(serializer<FossUpgrade>(), legacyJson)
         result.upgradedAt shouldBe Instant.ofEpochMilli(1709553600000)
         result.reason shouldBe FossUpgrade.Reason.DONATED
+    }
+
+    @Test
+    fun `FossUpgrade round-trip`() {
+        val upgrade = FossUpgrade(
+            upgradedAt = Instant.ofEpochMilli(1709553600000),
+            reason = FossUpgrade.Reason.ALREADY_DONATED,
+        )
+        val encoded = json.encodeToString(serializer<FossUpgrade>(), upgrade)
+        val decoded = json.decodeFromString(serializer<FossUpgrade>(), encoded)
+        decoded.upgradedAt shouldBe upgrade.upgradedAt
+        decoded.reason shouldBe upgrade.reason
     }
 }

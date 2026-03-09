@@ -1,8 +1,6 @@
 package eu.darken.capod.monitor.core
 
 import android.content.Context
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.adapter
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -11,10 +9,12 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.serialization.SerializationCapod
 import eu.darken.capod.profiles.core.ProfileId
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.Json
 import java.io.File
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -23,12 +23,11 @@ import javax.inject.Singleton
 class PodDeviceCache @Inject constructor(
     @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
-    moshi: Moshi,
+    @SerializationCapod private val json: Json,
 ) {
     private val cacheDir by lazy {
         File(context.cacheDir, "device_cache").apply { mkdirs() }
     }
-    private val jsonAdapter = moshi.adapter<BleScanResult>()
     private val lock = Mutex()
 
     private fun ProfileId.toCacheFile(): File = File(cacheDir, "profile_${this}.json")
@@ -40,7 +39,7 @@ class PodDeviceCache @Inject constructor(
             if (!cacheFile.exists()) return@withLock null
             try {
                 val raw = cacheFile.readText()
-                jsonAdapter.fromJson(raw)
+                json.decodeFromString<BleScanResult>(raw)
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Failed to read profile $id device: ${e.asLog()}, deleting corrupted cache file" }
                 cacheFile.delete()
@@ -56,8 +55,8 @@ class PodDeviceCache @Inject constructor(
                 log(TAG, VERBOSE) { "save(id=$id, device=$device)" }
                 val cacheFile = id.toCacheFile()
                 try {
-                    val json = jsonAdapter.toJson(device)
-                    cacheFile.writeText(json)
+                    val encoded = json.encodeToString(BleScanResult.serializer(), device)
+                    cacheFile.writeText(encoded)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to save profile $id device $device: ${e.asLog()}" }
                     cacheFile.delete()

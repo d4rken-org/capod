@@ -1,9 +1,7 @@
 package eu.darken.capod.profiles.core
 
 import android.os.Parcelable
-import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import eu.darken.capod.pods.core.PodDevice
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -17,8 +15,5 @@ sealed interface DeviceProfile : Parcelable {
 
     companion object {
         const val DEFAULT_MINIMUM_SIGNAL_QUALITY = 0.15f
-
-        val MOSHI_FACTORY = PolymorphicJsonAdapterFactory.of(DeviceProfile::class.java, "type")
-            .withSubtype(AppleDeviceProfile::class.java, "apple")
     }
 }

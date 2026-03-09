@@ -140,13 +140,6 @@ fun AcknowledgementsScreen(
             }
             item {
                 SettingsBaseItem(
-                    title = "Moshi",
-                    subtitle = "A modern JSON library for Kotlin and Java. (APACHE 2.0)",
-                    onClick = { onOpenUrl("https://github.com/square/moshi") },
-                )
-            }
-            item {
-                SettingsBaseItem(
                     title = "Android",
                     subtitle = "Android Open Source Project (APACHE 2.0)",
                     onClick = { onOpenUrl("https://source.android.com/source/licenses.html") },
