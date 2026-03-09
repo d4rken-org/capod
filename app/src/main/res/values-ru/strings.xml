@@ -6,6 +6,7 @@
     <string name="general_copy_action">Копировать</string>
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_upgrade_action">Улучшить</string>
+    <string name="common_feature_requires_pro_msg">Обновите, чтобы разблокировать.</string>
     <string name="general_donate_action">Пожертвовать</string>
     <string name="general_check_action">Проверить</string>
     <string name="general_close_action">Закрыть</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Например: %s</string>
     <string name="upgrade_capod_label">Улучшить CAPod</string>
     <string name="upgrade_capod_description">Получите дополнительные функции и поддержите разработчика.</string>
+    <string name="upgrade_preamble">CAPod разработан одним человеком. Обновление открывает дополнительные функции и помогает поддерживать приложение.</string>
+    <string name="upgrade_benefit_themes">Настройка темы</string>
+    <string name="upgrade_benefit_autoplay">Авто-воспроизведение и авто-пауза</string>
+    <string name="upgrade_benefit_autoconnect">Автоподключение</string>
+    <string name="upgrade_benefit_popups">Всплывающее окно при открытии чехла и подключении</string>
+    <string name="upgrade_benefit_widgets">Виджеты главного экрана</string>
+    <string name="upgrade_benefit_support">Поддержать разработчика</string>
+    <string name="upgrade_screen_options_description">Одинаковые функции, разные цены. Подписка включает бесплатный пробный период и может быть отменена в любое время.</string>
+    <string name="upgrade_screen_subscription_trial_action">Начать бесплатный пробный период</string>
+    <string name="upgrade_screen_subscription_action">Подписаться на год</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/год</string>
+    <string name="upgrade_screen_iap_action">Купить один раз</string>
+    <string name="upgrade_screen_iap_action_hint">Единовременная покупка: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Восстановить покупку</string>
+    <string name="upgrade_screen_restore_purchase_message">Покупки не найдены. Вы используете правильный аккаунт?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Если вы недавно совершили покупку, Google Play может потребоваться некоторое время для синхронизации.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Попробуйте снова через несколько минут, если ваша покупка не отображается.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Убедитесь, что вы вошли в ту же учётную запись Google, которая использовалась при покупке.</string>
     <string name="settings_monitor_mode_label">Режим мониторинга</string>
     <string name="settings_monitor_mode_description">При каких условиях приложение отслеживает данные Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Дополнительное уведомление</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Показывать окно при первом подключении.</string>
     <string name="notification_channel_device_status_label">Статус устройства</string>
     <string name="notification_channel_device_status_connected_label">Подключенное устройство</string>
+    <string name="monitor_notification_extra_enabled_hint">Вы можете отключить это уведомление в системных настройках.</string>
     <string name="support_debuglog_label">Журнал отладки</string>
     <string name="support_debuglog_desc">Запись всего, что делает приложение, в текстовый файл, которым можно поделиться.</string>
     <string name="debug_debuglog_size_label">Размер</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Автоматические отчёты об ошибках анонимны. Поделитесь Вашим ID установки, если разработчику нужен доступ к Вашим отчётам об ошибках.</string>
     <string name="settings_support_label">Поддержка</string>
     <string name="settings_support_description">Если нужна помощь.</string>
+    <string name="settings_wiki_label">Вики</string>
+    <string name="settings_wiki_description">Вопросы и руководства</string>
     <string name="issue_tracker_label">Список проблем</string>
     <string name="issue_tracker_description">Общедоступный список для сообщений об ошибках и запросов функций (только английский).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Ответственность за обработку данных.</string>
     <string name="settings_licenses_label">Лицензии</string>
     <string name="settings_category_other_label">Другое</string>
+    <string name="settings_category_gethelp_label">Получить помощь</string>
+    <string name="settings_category_debug_label">Отладка</string>
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общие настройки, влияющие на всё приложение.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
@@ -102,9 +126,11 @@
     <string name="translators_thanks_description">gaich
 AL_Cool_T</string>
     <string name="widget_description">Виджет показывающий последний известный статус устройства.</string>
+    <string name="widget_config_screen_title">Настройка виджета</string>
     <string name="widget_configuration_title">Выберите устройство</string>
     <string name="widget_configuration_description">Выберите, какой профиль устройства должен отображать виджет.</string>
     <string name="widget_no_data_label">Нет данных</string>
+    <string name="widget_error_loading_label">Ошибка загрузки виджета</string>
     <string name="widget_config_appearance_label">Внешний вид</string>
     <string name="widget_config_preset_label">Предустановки</string>
     <string name="widget_config_background_color_label">Цвет фона</string>
@@ -218,6 +244,7 @@ AL_Cool_T</string>
     <string name="profiles_add_action">Добавить профиль</string>
     <string name="profiles_create_title">Создать профиль</string>
     <string name="profiles_name_label">Имя профиля</string>
+    <string name="profiles_name_empty_error">Имя не может быть пустым</string>
     <string name="profiles_name_default">Мои наушники</string>
     <string name="profiles_model_label">Модель устройства</string>
     <string name="profiles_paired_device_label">Сопряжённое устройство</string>
@@ -240,11 +267,107 @@ AL_Cool_T</string>
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods отправляет сообщение о состоянии, часть которого зашифрована. Ключ шифрования позволяет CAPod расшифровать полное сообщение. Вам нужен одноразовый доступ к MacBook.</string>
     <string name="profiles_key_invalid_format">Неверный формат ключа</string>
     <string name="profiles_key_expected_format">Правильный формат: %1$s</string>
+    <string name="profiles_key_status_configured">Настроено</string>
+    <string name="profiles_key_status_not_set">Не задано</string>
+    <string name="profiles_signal_quality_min_label">Выкл</string>
+    <string name="profiles_signal_quality_max_label">Строго</string>
     <string name="profiles_priority_hint">Порядок сортировки определяет приоритет. Перетащите профили для их сортировки - профили выше в списке имеют приоритет, когда несколько устройств совпадают.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Настройка темы</string>
+    <string name="ui_theme_mode_system_label">Системная</string>
+    <string name="ui_theme_mode_dark_label">Темная</string>
+    <string name="ui_theme_mode_light_label">Светлая</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Стиль темы</string>
+    <string name="ui_theme_style_default_label">По умолчанию</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Средний контраст</string>
+    <string name="ui_theme_style_high_contrast_label">Высокий контраст</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Цвет темы</string>
+    <string name="ui_theme_color_blue_label">Синий</string>
+    <string name="ui_theme_color_green_label">Зелёный</string>
+    <string name="ui_theme_color_amber_label">Янтарный</string>
+    <string name="ui_theme_color_disabled_materialyou">Использует цвета обои</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Мониторинг</string>
+    <string name="settings_category_appearance_label">Внешний вид</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Несохранённые изменения</string>
     <string name="general_unsaved_changes_message">У вас есть несохранённые изменения. Что вы хотите сделать?</string>
     <string name="general_save_and_exit_action">Сохранить и выйти</string>
     <string name="general_discard_action">Отменить</string>
     <string name="general_keep_editing_action">Продолжить редактирование</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Запись слишком короткая</string>
+    <string name="debug_debuglog_short_recording_message">Для захвата проблемы журнал отладки должен фиксировать её в момент возникновения. Продолжайте запись, воспроизведите проблему, затем остановите запись.</string>
+    <string name="debug_debuglog_short_recording_continue">Продолжить запись</string>
+    <string name="debug_debuglog_short_recording_stop">Всё равно остановить</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Журнал отладки</string>
+    <string name="debug_debuglog_screen_subtitle">Экспорт данных отладки для диагностики</string>
+    <string name="debug_debuglog_screen_sensitive_title">Конфиденциальная информация</string>
+    <string name="debug_debuglog_screen_session_path_label">Путь сессии</string>
+    <string name="debug_debuglog_screen_log_files_label">Файлы журналов</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="few">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="many">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="other">Файлов готово: %1$d (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Удалить</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d отладочный журнал (%2$s)</item>
+        <item quantity="few">%1$d отладочных журнала (%2$s)</item>
+        <item quantity="many">%1$d отладочных журналов (%2$s)</item>
+        <item quantity="other">%1$d отладочного журнала (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Очистить сохранённые журналы отладки</string>
+    <string name="support_debuglog_sessions_label">Сеансы отладки</string>
+    <string name="support_debuglog_sessions_desc">Управление записанными сеансами отладки</string>
+    <string name="support_debuglog_sessions_empty">Нет сеансов отладки</string>
+    <string name="support_debuglog_session_recording">Запись…</string>
+    <string name="support_debuglog_session_compressing">Сжатие…</string>
+    <string name="support_debuglog_session_delete_title">Удалить сеанс?</string>
+    <string name="support_debuglog_session_delete_message">Этот сеанс отладки будет удалён безвозвратно.</string>
+    <string name="support_debuglog_clear_all_message">Все сеансы отладки будут удалены безвозвратно.</string>
+    <string name="support_debuglog_failed_empty_log">Ошибка: файл журнала пуст</string>
+    <string name="support_debuglog_failed_missing_log">Ошибка: файл журнала отсутствует</string>
+    <string name="support_debuglog_failed_corrupt_zip">Ошибка: zip-файл повреждён</string>
+    <string name="support_debuglog_failed_zip_failed">Ошибка: сжатие не удалось</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Связаться с разработчиком</string>
+    <string name="support_contact_desc">Заполните форму, чтобы отправить разработчику письмо.</string>
+    <string name="support_contact_welcome">Я лично читаю каждое сообщение и стараюсь ответить, но поскольку я работаю над этим в одиночку, это может занять некоторое время. Спасибо за терпение.</string>
+    <string name="support_contact_footer">Ваше сообщение будет отправлено по электронной почте. Информация об устройстве и настройках прикрепляется автоматически. Вы можете приложить скриншоты или видео к письму. Некоторые части письма будут на английском, чтобы разработчику было легче его понять.</string>
+    <string name="support_contact_category_label">Категория</string>
+    <string name="support_contact_category_question_label">Вопрос</string>
+    <string name="support_contact_category_feature_label">Запрос функции</string>
+    <string name="support_contact_category_bug_label">Отчёт об ошибке</string>
+    <string name="support_contact_description_label">Описание</string>
+    <string name="support_contact_description_question_hint">Подробно опишите ваш вопрос. Будьте конкретны.</string>
+    <string name="support_contact_description_feature_hint">Подробно опишите функцию, которую хотите видеть. Будьте конкретны.</string>
+    <string name="support_contact_description_bug_hint">Опишите, что произошло и как воспроизвести проблему. Будьте конкретны.</string>
+    <string name="support_contact_expected_label">Ожидаемое поведение</string>
+    <string name="support_contact_expected_hint">Опишите, что, по вашему ожиданию, должно было произойти.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d слово</item>
+        <item quantity="few">%1$d / %2$d слова</item>
+        <item quantity="many">%1$d / %2$d слов</item>
+        <item quantity="other">%1$d / %2$d слов</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Журнал отладки</string>
+    <string name="support_contact_debuglog_picker_hint">Прикрепите существующий журнал отладки или запишите новый.</string>
+    <string name="support_contact_debuglog_picker_empty">Журналы отладки не найдены. Запишите хотя бы один.</string>
+    <string name="support_contact_debuglog_zip_error">Не удалось сжать журнал отладки</string>
+    <string name="support_contact_send_action">Открыть приложение электронной почты</string>
+    <string name="support_contact_no_email_app">На этом устройстве не найдено приложение электронной почты.</string>
+    <string name="support_contact_debuglog_delete_title">Удалить журнал отладки?</string>
+    <string name="support_contact_debuglog_delete_message">Этот журнал отладки будет удалён безвозвратно.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Журнал отправлен?</string>
+    <string name="support_debuglog_sent_message">Отладочный журнал был успешно отправлен? Журнал будет удалён.</string>
+    <string name="support_contact_sent_title">Письмо отправлено?</string>
+    <string name="support_contact_sent_message">Письмо с вложенным отладочным журналом было успешно отправлено? Журнал будет удалён.</string>
 </resources>

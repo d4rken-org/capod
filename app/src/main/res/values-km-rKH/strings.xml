@@ -6,6 +6,7 @@
     <string name="general_copy_action">ចម្លង</string>
     <string name="general_thank_you_label">សូមអរគុណ</string>
     <string name="general_upgrade_action">ដំឡើងកំណែ</string>
+    <string name="common_feature_requires_pro_msg">តម្លើងកំណែថ្មីដើម្បីដោះសោ។</string>
     <string name="general_donate_action">បរិច្ចាគ</string>
     <string name="general_check_action">ពិនិត្យ</string>
     <string name="general_close_action">បិទ</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">ឧទាហរណ៍៖ %s</string>
     <string name="upgrade_capod_label">ដំឡើងកំណែ CAPod</string>
     <string name="upgrade_capod_description">ទទួលបានមុខងារបន្ថែម និងគាំទ្រអ្នកអភិវឌ្ឍន៍។</string>
+    <string name="upgrade_preamble">CAPod ត្រូវបានអភិវឌ្ឍដោយបុគ្គលម្នាក់។ ការតម្លើងកំណែថ្មីដោះសោមុខងារបន្ថែម ហើយជួយឱ្យកម្មវិធីនៅតែដំណើរការ។</string>
+    <string name="upgrade_benefit_themes">ការប្ដូរទ្រង់ទ្រាយតាមបំណង</string>
+    <string name="upgrade_benefit_autoplay">ចាក់ដោយស្វ័យប្រវត្តិ &amp; ផ្អាកដោយស្វ័យប្រវត្តិ</string>
+    <string name="upgrade_benefit_autoconnect">ភ្ជាប់ដោយស្វ័យប្រវត្តិ</string>
+    <string name="upgrade_benefit_popups">Popup នៅពេលបើកប្រអប់ &amp; ការភ្ជាប់</string>
+    <string name="upgrade_benefit_widgets">វិជេតអេក្រង់ដើម</string>
+    <string name="upgrade_benefit_support">គាំទ្រអ្នកអភិវឌ្ឍន៍</string>
+    <string name="upgrade_screen_options_description">មុខងារដូចគ្នា តំលៃខុសគ្នា។ ការជាវរួមមានការសាកល្បងឥតគិតថ្លៃ ហើយអាចលុបចោលបានគ្រប់ពេល។</string>
+    <string name="upgrade_screen_subscription_trial_action">ចាប់ផ្ដើមការសាកល្បងឥតគិតថ្លៃ</string>
+    <string name="upgrade_screen_subscription_action">ជាវប្រចាំ១្នាំ</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/១្នាំ</string>
+    <string name="upgrade_screen_iap_action">តិញម្តងជាអចិន្ត្រៀយ៍</string>
+    <string name="upgrade_screen_iap_action_hint">ការតិញម្តង: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">ស្តារការជាវមកវិញ</string>
+    <string name="upgrade_screen_restore_purchase_message">រកមិនឃើញការទិញទេ។ តើអ្នកកំពុងប្រើគណនីត្រឹមត្រូវទេ?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">ប្រសិនបើអ្នកបានតិញថ្មី៦ វាអាចចំណាយពេលបន្តិចដើម្បីឥយ្វ Google Play ធ្វើការធ្វើឥ្ស្របគ្នា។</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ព្យាយាមម្តងតិឡតក្នុងរយែពេលប៉ុន្មានាតិប្រសិនបើការតិញរបស់អ្នកមិនបានបង្ហាញ។</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ត្រូវប្រាកតថ្លៃអ្នកបានចូលដោយប្រើកគណនី Google ដូចគ្នាដែលប្រើសម្រាប់ការតិញ។</string>
     <string name="settings_monitor_mode_label">របៀបតាមដាន</string>
     <string name="settings_monitor_mode_description">នៅក្រោមលក្ខខណ្ឌអ្វីខ្លះដែលកម្មវិធីនេះតាមដានទិន្នន័យ Bluetooth។</string>
     <string name="settings_monitor_connected_notification_label">ការជូនដំណឹងបន្ថែម</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">បង្ហាញផ្ទាំងលោតនៅពេលឧបករណ៍ភ្ជាប់ជាលើកដំបូង។</string>
     <string name="notification_channel_device_status_label">ស្ថានភាពឧបករណ៍</string>
     <string name="notification_channel_device_status_connected_label">ឧបករណ៍បានភ្ជាប់</string>
+    <string name="monitor_notification_extra_enabled_hint">អ្នកអាចបិតការជូនដំណឹងនេហនៅក្នុងការកំណតប្រព័ន្ធ។</string>
     <string name="support_debuglog_label">កំណត់ហេតុកែកំហុស</string>
     <string name="support_debuglog_desc">កត់ត្រាអ្វីគ្រប់យ៉ាងដែលកម្មវិធីកំពុងធ្វើទៅក្នុងឯកសារអត្ថបទដែលអ្នកអាចចែករំលែកបាន។</string>
     <string name="debug_debuglog_size_label">ទំហំ</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">របាយការណ៍កំហុសដោយស្វ័យប្រវត្តិគឺអនាមិក។ ចែករំលែក ID ដំឡើងរបស់អ្នក ប្រសិនបើអ្នកអភិវឌ្ឍន៍ត្រូវការស្វែងរករបាយការណ៍កំហុសរបស់អ្នក។</string>
     <string name="settings_support_label">ជំនួយ</string>
     <string name="settings_support_description">ប្រសិនបើអ្នកត្រូវការជំនួយខ្លះ។</string>
+    <string name="settings_wiki_label">វិគឹ</string>
+    <string name="settings_wiki_description">សំណួរសំខាញ &amp; មគ្គុត្តេសក៍</string>
     <string name="issue_tracker_label">កម្មវិធីតាមដានបញ្ហា</string>
     <string name="issue_tracker_description">កម្មវិធីតាមដានបញ្ហាសាធារណៈសម្រាប់របាយការណ៍កំហុស និងសំណូមពរមុខងារ (ភាសាអង់គ្លេសតែប៉ុណ្ណោះ)។</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">ការគ្រប់គ្រងទិន្នន័យប្រកបដោយការទទួលខុសត្រូវ។</string>
     <string name="settings_licenses_label">អាជ្ញាប័ណ្ណ</string>
     <string name="settings_category_other_label">ផ្សេងៗ</string>
+    <string name="settings_category_gethelp_label">ទទួលបានជំនួយ</string>
+    <string name="settings_category_debug_label">ការបំបាត់កំហុស</string>
     <string name="settings_general_label">ការកំណត់</string>
     <string name="settings_general_description">ការកែតម្រូវទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
     <string name="settings_acknowledgements_label">ការទទួលស្គាល់</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">អ្នកបកប្រែ</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ធាតុក្រាហ្វិកបង្ហាញស្ថានភាពឧបករណ៍ដែលស្គាល់ចុងក្រោយ។</string>
+    <string name="widget_config_screen_title">ការកំណត់រចនាសម្ព័ន្ធវិជេត</string>
     <string name="widget_configuration_title">ជ្រើសរើសឧបករណ៍</string>
     <string name="widget_configuration_description">ជ្រើសរើសទម្រង់ឧបករណ៍ណាមួយដែលធាតុក្រាហ្វិកនេះគួរបង្ហាញ។</string>
     <string name="widget_no_data_label">គ្មានទិន្នន័យ</string>
+    <string name="widget_error_loading_label">មានកំហុសក្នុងការផ្ទុកវិជេត</string>
     <string name="widget_config_appearance_label">រូបរាង</string>
     <string name="widget_config_preset_label">ការកំណត់ដើម</string>
     <string name="widget_config_background_color_label">ពណ៌ផ្ទៃខាងក្រោយ</string>
@@ -214,6 +240,7 @@
     <string name="profiles_add_action">បន្ថែមទម្រង់</string>
     <string name="profiles_create_title">បង្កើតទម្រង់</string>
     <string name="profiles_name_label">ឈ្មោះទម្រង់</string>
+    <string name="profiles_name_empty_error">ឈ្មោះមិនអាចទទេបានទេ</string>
     <string name="profiles_name_default">កាសស្តាប់ត្រចៀករបស់ខ្ញុំ</string>
     <string name="profiles_model_label">ម៉ូដែលឧបករណ៍</string>
     <string name="profiles_paired_device_label">ឧបករណ៍ដែលបានផ្គូផ្គង</string>
@@ -236,11 +263,98 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ផ្ញើសារស្ថានភាព ដែលផ្នែកមួយត្រូវបានអ៊ិនគ្រីប។ សោអ៊ិនគ្រីបអនុញ្ញាតឱ្យ CAPod ឌិគ្រីបសារពេញលេញ។ អ្នកត្រូវការការចូលប្រើ MacBook តែម្តង។</string>
     <string name="profiles_key_invalid_format">ទម្រង់សោមិនត្រឹមត្រូវ</string>
     <string name="profiles_key_expected_format">ទម្រង់រំពឹង: %1$s</string>
+    <string name="profiles_key_status_configured">បានកំណត់រួច</string>
+    <string name="profiles_key_status_not_set">មិនបានកំណត់</string>
+    <string name="profiles_signal_quality_min_label">បិទ</string>
+    <string name="profiles_signal_quality_max_label">តឹងរ៉ឹង</string>
     <string name="profiles_priority_hint">លំដាប់ទម្រង់កំណត់អាទិភាព។ អូសទម្រង់ដើម្បីរៀបចំឡើងវិញ — ទម្រង់ដែលខ្ពស់ជាងក្នុងបញ្ជីមានអាទិភាពនៅពេលឧបករណ៍ច្រើនត្រូវគ្នា។</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">ម៉ូតផ្ទៃស្បែក</string>
+    <string name="ui_theme_mode_system_label">ប្រព័ន្ធ</string>
+    <string name="ui_theme_mode_dark_label">ងងឹត</string>
+    <string name="ui_theme_mode_light_label">ភ្លឺ</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">រចនាបថផ្ទៃស្បែក</string>
+    <string name="ui_theme_style_default_label">បុរេជម្រើស</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">កម្រិតផ្ទុយកម្រិតមធ្យម</string>
+    <string name="ui_theme_style_high_contrast_label">កម្រិតផ្ទុយខ្ពស់</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">ពណ៌ theme</string>
+    <string name="ui_theme_color_blue_label">ពណ៌ខឹវ</string>
+    <string name="ui_theme_color_green_label">ពណ៌បែតង</string>
+    <string name="ui_theme_color_amber_label">ពណ៌លើងតឹកក្រូច</string>
+    <string name="ui_theme_color_disabled_materialyou">ប្រើពណ៌ wallpaper</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">ការត្រួតពិនិត្យ</string>
+    <string name="settings_category_appearance_label">រូបរាង</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ការផ្លាស់ប្តូរមិនបានរក្សាទុក</string>
     <string name="general_unsaved_changes_message">អ្នកមានការផ្លាស់ប្តូរមិនបានរក្សាទុក។ តើអ្នកចង់ធ្វើអ្វី?</string>
     <string name="general_save_and_exit_action">រក្សាទុក &amp; ចាកចេញ</string>
     <string name="general_discard_action">បោះបង់</string>
     <string name="general_keep_editing_action">បន្តកែសម្រួល</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ការកត់ត្រាខ្លីពេក</string>
+    <string name="debug_debuglog_short_recording_message">កំណត់ហេតុបំបាត់កំហុសត្រូវចាប្យកបញ្ហានៅពេលវាកើតើង។ បន្តការកត់ត្រា ធ្វើឥ្សរិយបញ្ហាកើតើងម្តងតឹត ហើយបន្ទាប់មកបញ្ជប់ការកត់ត្រា។</string>
+    <string name="debug_debuglog_short_recording_continue">បន្តការកត់ត្រា</string>
+    <string name="debug_debuglog_short_recording_stop">បញ្ជប់តោះជាយ៉ាងណា</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">កំណត់ហេតុបំបាត់កំហុស</string>
+    <string name="debug_debuglog_screen_subtitle">នាំចើញព័ត៌មានបំបាត់កំហុសសម្រាប់ការដោះស្រាយបញ្ហា</string>
+    <string name="debug_debuglog_screen_sensitive_title">ព័ត៌មានរសើប</string>
+    <string name="debug_debuglog_screen_session_path_label">ផ្លូវ Session</string>
+    <string name="debug_debuglog_screen_log_files_label">កំណត់ហេតុឯកសារ</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ឯកសាររួចរាល់ (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">លុប</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="other">%1$d កំណត់ហេតុបំបាត់កំហុស (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">លុបកំណត់ហេតុបំបាត់កំហុសដែលបានរក្សាតុក</string>
+    <string name="support_debuglog_sessions_label">Session បំបាត់កំហុស</string>
+    <string name="support_debuglog_sessions_desc">គ្រប់គ្រង Session កំណត់ហេតុបំបាត់កំហុសដែលបានកត់ត្រា</string>
+    <string name="support_debuglog_sessions_empty">គ្មាន Session បំបាត់កំហុស</string>
+    <string name="support_debuglog_session_recording">កំពុងកត់ត្រា…</string>
+    <string name="support_debuglog_session_compressing">កំពុងបង់ហាប់…</string>
+    <string name="support_debuglog_session_delete_title">លុប Session?</string>
+    <string name="support_debuglog_session_delete_message">Session បំបាត់កំហុសនេហនឹងត្រូវលុបចោលជាអចិន្ត្រៀយ៍។</string>
+    <string name="support_debuglog_clear_all_message">Session បំបាត់កំហុសតាំងអស់នឹងត្រូវលុបចោលជាអចិន្ត្រៀយ៍។</string>
+    <string name="support_debuglog_failed_empty_log">បរាជ័យ: ឡកសារ log តតេ</string>
+    <string name="support_debuglog_failed_missing_log">បរាជ័យ: ឡកសារ log បាត់</string>
+    <string name="support_debuglog_failed_corrupt_zip">បរាជ័យ: ឡកសារ zip ខូច</string>
+    <string name="support_debuglog_failed_zip_failed">បរាជ័យ: ការបង់ហាប់បានបរាជ័យ</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">តំនាក់តំនងអ្នកអភិវឌ្ឍន៍</string>
+    <string name="support_contact_desc">បំពើញតម្រង់បែបតដើម្បីផ្ញើអឹមែលតោអ្នកអភិវឌ្ឍន៍។</string>
+    <string name="support_contact_welcome">ខ្ញុមអានសារគ្រប់ពេលដោយខ្លួនឡង ហើយខ្ញុមព្យាយាម១្លើយឥ្សរិយបានល្ឡ ប៉ុន្តែដោយសារខ្ញុមធ្វើការម្នាកឡង វាអាចចំណាយពេលបន្តិច។ អរគុណចំពោះការអត់ធ្មត់របស់អ្នក។</string>
+    <string name="support_contact_footer">សាររបស់អ្នកនឹងត្រូវបញ្ជូនតាមអឹមែល។ ព័ត៌មានុបករណ៍និងការកំណត់ត្រូវបានភ្ជាប់ដោយស្វ័យប្រវត្តិ។ អ្នកអាចភ្ជាប់រូបថតអេក្រង់ ហើយវឹឌេអួតោអឹមែល។ ផ្នែកខ្លែនៃអឹមែលនឹងជាភាសាអង់គ្លែសសម្រាប់ឥ្សរិយឥ្សអ្នកអភិវឌ្ឍន៍យលងអាយ។</string>
+    <string name="support_contact_category_label">ប្រភេត</string>
+    <string name="support_contact_category_question_label">សំណួរ</string>
+    <string name="support_contact_category_feature_label">សំណើសុមុខងារ</string>
+    <string name="support_contact_category_bug_label">របាយការណ៍កំហុស</string>
+    <string name="support_contact_description_label">ការពិពណ៌នា</string>
+    <string name="support_contact_description_question_hint">ពិពណ៌នាសំណួររបស់អ្នកឥ្សរិយលម្អិត។ សូមបញ្ជាកឥ្សច្បាសលាស់។</string>
+    <string name="support_contact_description_feature_hint">ពិពណ៌នាមុខងារដែលអ្នកចង់អើញ។ សូមបញ្ជាកឥ្សច្បាសលាស់។</string>
+    <string name="support_contact_description_bug_hint">ពិពណ៌នាអ្វីដែលបានកើតើង និងរបឹបធ្វើឥ្សរិយបញ្ហាកើតើងម្តងតឹត។ សូមបញ្ជាកឥ្សច្បាសលាស់។</string>
+    <string name="support_contact_expected_label">ឥរិយាបថដែលរំពឹងតុក</string>
+    <string name="support_contact_expected_hint">ពិពណ៌នាអ្វីដែលអ្នករំពឹងថ្លៃនឹងកើតើង។</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d ពាក្យ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">កំណត់ហេតុកែកំហុស</string>
+    <string name="support_contact_debuglog_picker_hint">ភ្ជាប់កំណត់ហេតុបំបាត់កំហុសដែលមានស្រាប់ ហើយ កត់ត្រាថ្មី។</string>
+    <string name="support_contact_debuglog_picker_empty">រកមិនហើញកំណត់ហេតុបំបាត់កំហុស។ សូមកត់ត្រាម្តងសិន។</string>
+    <string name="support_contact_debuglog_zip_error">បរាជ័យក្នុងការបង់ហាប់កំណត់ហេតុបំបាត់កំហុស</string>
+    <string name="support_contact_send_action">បើរកម្មវិធីអឹមែល</string>
+    <string name="support_contact_no_email_app">រកមិនហើញកម្មវិធីអឹមែលនៅលើឧបករណ៍នេហ។</string>
+    <string name="support_contact_debuglog_delete_title">លុបកំណត់ហេតុបំបាត់កំហុស?</string>
+    <string name="support_contact_debuglog_delete_message">កំណត់ហេតុបំបាត់កំហុសនេហនឹងត្រូវលុបចោលជាអចិន្ត្រៀយ៍។</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">បានផ្ញើកំណត់ហេតុ?</string>
+    <string name="support_debuglog_sent_message">តើកំណត់ហេតុបំបាត់កំហុសត្រូវបានផ្ញើដោយជោគជ័យឬទេ? កំណត់ហេតុនឹងត្រូវបានលុប។</string>
+    <string name="support_contact_sent_title">បានផ្ញើអ៊ីមែល?</string>
+    <string name="support_contact_sent_message">តើអ៊ីមែលត្រូវបានផ្ញើដោយជោគជ័យឬទេ? កំណត់ហេតុបំបាត់កំហុសដែលភ្ជាប់មកនឹងត្រូវបានលុប។</string>
 </resources>

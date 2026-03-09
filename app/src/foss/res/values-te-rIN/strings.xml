@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">విరాళం ఇవ్వండి</string>
     <string name="foss_upgrade_alreadydonated_label">నేను ఇప్పటికే విరాళం ఇచ్చాను</string>
     <string name="foss_upgrade_no_money_label">నా డబ్బు అంతా ఎయిర్‌పాడ్స్‌కే ఖర్చు చేస్తాను</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS ఉచిత మరియు ముక్త మూలం. ఇది ఉపయోగకరంగా అనిపిస్తే, ప్రాజెక్ట్ కొనసాగించడానికి అభివృద్ధిని స్పాన్సర్ చేయబక్తా పరిగణించండి.</string>
+    <string name="upgrade_foss_sponsor_action">అభివృద్ధిని స్పాన్సర్ చేయండి</string>
+    <string name="upgrade_foss_sponsor_subtitle">జాహీరాతులు లేవు. ట్రాకింగ్ లేదు. Google Play ఒక్కటికి పరిమితం కాదు.</string>
+    <string name="upgrade_foss_sponsor_returned_early">ఇర్వై వెనక్కి వెళ్ళారా? మీ మద్దతు CAPodను సజీవంగా ఉంచుతుంది.</string>
 </resources>

@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Quyên tặng</string>
     <string name="foss_upgrade_alreadydonated_label">Tôi đã quyên góp</string>
     <string name="foss_upgrade_no_money_label">Tôi tiêu hết tiền cho AirPods</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS miễn phí và mã nguồn mở. Nếu bạn thấy nó hữu ích, hãy cân nhắc tài trợ cho việc phát triển để giúp duy trì dự án.</string>
+    <string name="upgrade_foss_sponsor_action">Tài trợ nhà phát triển</string>
+    <string name="upgrade_foss_sponsor_subtitle">Không quảng cáo. Không theo dõi. Không phụ thuộc Google Play.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Quay lại rồi sao? Sự ủng hộ của bạn giúp CAPod tiếp tục tồn tại.</string>
 </resources>

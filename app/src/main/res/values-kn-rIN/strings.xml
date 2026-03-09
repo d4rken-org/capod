@@ -6,6 +6,7 @@
     <string name="general_copy_action">ನಕಲಿಸಿ</string>
     <string name="general_thank_you_label">ಧನ್ಯವಾದಗಳು</string>
     <string name="general_upgrade_action">ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
+    <string name="common_feature_requires_pro_msg">ಅನ್ಲಾಕ್ ಮಾಡಲು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.</string>
     <string name="general_donate_action">ದಾನ ಮಾಡಿ</string>
     <string name="general_check_action">ಪರಿಶೀಲಿಸಿ</string>
     <string name="general_close_action">ಮುಚ್ಚಿ</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">ಉದಾ.: %s</string>
     <string name="upgrade_capod_label">CAPod ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ</string>
     <string name="upgrade_capod_description">ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಪಡೆಯಿರಿ ಮತ್ತು ಡೆವಲಪರ್‌ರನ್ನು ಬೆಂಬಲಿಸಿ.</string>
+    <string name="upgrade_preamble">CAPod ಅನ್ನು ಒಬ್ಬ ವ್ಯಕ್ತಿ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ್ದಾರೆ. ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡುವುದರಿಂದ ಹೆಚ್ಚುವರಿ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ಅ್ಯಾಪ್ ಅನ್ನು ಜೀವಂತವಾಗಿಡಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.</string>
+    <string name="upgrade_benefit_themes">ಥೀಮ್ ಕಸ್ಟಮೈಸೇಶನ್</string>
+    <string name="upgrade_benefit_autoplay">ಆಟೋ-ಪ್ಲೇ ಮತ್ತು ಆಟೋ-ಪಾಸ್</string>
+    <string name="upgrade_benefit_autoconnect">ಸ್ವಯಂ-ಸಂಪರ್ಕ</string>
+    <string name="upgrade_benefit_popups">ಕೇಸ್ ತೆರೆದಾಗ ಮತ್ತು ಸಂಪರ್ಕದ ಸಮಯದಲ್ಲಿ ಪಾಪಪ್</string>
+    <string name="upgrade_benefit_widgets">ಹೋಮ್ ಸ್ಕ್ರೀನ್ ವಿಜೆಟ್‌ಗಳು</string>
+    <string name="upgrade_benefit_support">ಡೆವಲಪರ್‌ಗೆ ಬೆಂಬಲ ನೀಡಿ</string>
+    <string name="upgrade_screen_options_description">ಒಂದೇ ವೈಶಿಷ್ಟ್ಯಗಳು, ವಿಭಿನ್ನ ಬೆಲೆ. ಚಂದಾದಾರಿಕೆಯು ಉಚಿತ ಪ್ರಯೋಗ ಒಳಗೊಂಡಿರುತ್ತದೆ ಮತ್ತು ಯಾವಾಗಲಾದರೂ ರದ್ದು ಮಾಡಬಹುದು.</string>
+    <string name="upgrade_screen_subscription_trial_action">ಉಚಿತ ಪ್ರಯೋಗ ಪ್ರಾರಂಭಿಸಿ</string>
+    <string name="upgrade_screen_subscription_action">ವಾರ್ಷಿಕ ಚಂದಾದಾರಿಕೆ</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ವರ್ಷ</string>
+    <string name="upgrade_screen_iap_action">ಒಮ್ಮೆ ಖರೀದಿಸಿ</string>
+    <string name="upgrade_screen_iap_action_hint">ಏಕಕಾಲಿಕ ಖರೀದಿ: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
+    <string name="upgrade_screen_restore_purchase_message">ಯಾವುದೇ ಖರೀದಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ. ನೀವು ಸರಿಯಾದ ಖಾತೆಯನ್ನು ಬಳಸುತ್ತಿದ್ದೀರಾ?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">ನೀವು ಇತ್ತೀಚೆಗೆ ಖರೀದಿಸಿದ್ದರೆ, Google Play ಸಿಂಕ್ ಆಗಲು ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ನಿಮ್ಮ ಖರೀದಿ ಕಾಣಿಸದಿದ್ದರೆ ಕೆಲವು ನಿಮಿಷಗಳ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ಖರೀದಿಗೆ ಬಳಸಿದ ಅದೇ Google ಖಾತೆಯಿಂದ ಸೈನ್ ಇನ್ ಮಾಡಿರುವಿರಿ ಎಂದು ಖಚಿತಪಡಿಸಿ.</string>
     <string name="settings_monitor_mode_label">ಮಾನಿಟರ್ ಮೋಡ್</string>
     <string name="settings_monitor_mode_description">ಯಾವ ಸಂದರ್ಭಗಳಲ್ಲಿ ಈ ಅಪ್ಲಿಕೇಶನ್ ಬ್ಲೂಟೂತ್ ಡೇಟಾವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ.</string>
     <string name="settings_monitor_connected_notification_label">ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆ</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">ಸಾಧನವು ಮೊದಲ ಬಾರಿಗೆ ಸಂಪರ್ಕಗೊಂಡಾಗ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ.</string>
     <string name="notification_channel_device_status_label">ಸಾಧನದ ಸ್ಥಿತಿ</string>
     <string name="notification_channel_device_status_connected_label">ಸಂಪರ್ಕಿತ ಸಾಧನ</string>
+    <string name="monitor_notification_extra_enabled_hint">ಸಿಸ್ಟಮ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಈ ಅಧಿಸೂಚನೆಯನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು.</string>
     <string name="support_debuglog_label">ಡೀಬಗ್ ಲಾಗ್</string>
     <string name="support_debuglog_desc">ಅಪ್ಲಿಕೇಶನ್ ಮಾಡುವ ಎಲ್ಲವನ್ನೂ ನೀವು ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ಪಠ್ಯ ಫೈಲ್‌ನಲ್ಲಿ ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
     <string name="debug_debuglog_size_label">ಗಾತ್ರ</string>
@@ -75,9 +95,11 @@
     <string name="settings_support_installid_desc">ಸ್ವಯಂಚಾಲಿತ ದೋಷ ವರದಿಗಳು ಅನಾಮಧೇಯವಾಗಿವೆ. ಡೆವಲಪರ್‌ಗೆ ನಿಮ್ಮ ದೋಷ ವರದಿಗಳನ್ನು ಹುಡುಕಬೇಕಾದರೆ ನಿಮ್ಮ ಇನ್‌ಸ್ಟಾಲ್ ಐಡಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ.</string>
     <string name="settings_support_label">ಬೆಂಬಲ</string>
     <string name="settings_support_description">ನಿಮಗೆ ಸ್ವಲ್ಪ ಸಹಾಯ ಬೇಕಾದರೆ.</string>
+    <string name="settings_wiki_label">ವಿಕಿ</string>
+    <string name="settings_wiki_description">FAQ ಮತ್ತು ಮಾರ್ಗದರ್ಶಿಗಳು</string>
     <string name="issue_tracker_label">ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್</string>
     <string name="issue_tracker_description">ಬಗ್ ವರದಿಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿಗಳಿಗಾಗಿ ಸಾರ್ವಜನಿಕ ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್ (ಇಂಗ್ಲಿಷ್ ಮಾತ್ರ).</string>
-    <string name="discord_label">Discord</string>
+    <string name="discord_label">ಡಿಸ್ಕಾರ್ಡ್</string>
     <string name="discord_description">ಹ್ಯಾಂಗ್ ಔಟ್ ಮಾಡಲು ಮತ್ತು ಪ್ರಶ್ನೆಗಳನ್ನು ಕೇಳಲು ಒಂದು ಸ್ಥಳ.</string>
     <string name="changelog_label">ಬದಲಾವಣೆ ಲಾಗ್</string>
     <string name="settings_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">ಡೇಟಾವನ್ನು ಜವಾಬ್ದಾರಿಯುತವಾಗಿ ನಿರ್ವಹಿಸುವುದು.</string>
     <string name="settings_licenses_label">ಪರವಾನಗಿಗಳು</string>
     <string name="settings_category_other_label">ಇತರೆ</string>
+    <string name="settings_category_gethelp_label">ಸಹಾಯ ಪಡೆಯಿರಿ</string>
+    <string name="settings_category_debug_label">ಡೀಬಗ್</string>
     <string name="settings_general_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">ಅನುವಾದಕರು</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ಸಾಧನದ ಕೊನೆಯದಾಗಿ ತಿಳಿದಿರುವ ಸ್ಥಿತಿಯನ್ನು ತೋರಿಸುವ ವಿಜೆಟ್.</string>
+    <string name="widget_config_screen_title">ವಿಜೆಟ್ ಕಾನ್ಫಿಗರೇಶನ್</string>
     <string name="widget_configuration_title">ಸಾಧನ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="widget_configuration_description">ಈ ವಿಜೆಟ್ ಯಾವ ಸಾಧನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
     <string name="widget_no_data_label">ಡೇಟಾ ಇಲ್ಲ</string>
+    <string name="widget_error_loading_label">ವಿಜೆಟ್ ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ದೋಷ</string>
     <string name="widget_config_appearance_label">ನೋಟ</string>
     <string name="widget_config_preset_label">ಪೂರ್ವನಿರ್ಧಾರಿತಗಳು</string>
     <string name="widget_config_background_color_label">ಹಿನ್ನೆಲೆ ಬಣ್ಣ</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">ಪ್ರೊಫೈಲ್ ಸೇರಿಸಿ</string>
     <string name="profiles_create_title">ಪ್ರೊಫೈಲ್ ರಚಿಸಿ</string>
     <string name="profiles_name_label">ಪ್ರೊಫೈಲ್ ಹೆಸರು</string>
+    <string name="profiles_name_empty_error">ಹೆಸರು ಖಾಲಿ ಇರಲಾಗದು</string>
     <string name="profiles_name_default">ನನ್ನ ಹೆಡ್‌ಫೋನ್‌ಗಳು</string>
     <string name="profiles_model_label">ಸಾಧನ ಮಾದರಿ</string>
     <string name="profiles_paired_device_label">ಜೋಡಿಸಲಾದ ಸಾಧನ</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ಸ್ಥಿತಿ ಸಂದೇಶವನ್ನು ಕಳುಹಿಸುತ್ತವೆ, ಅದರ ಭಾಗವು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಆಗಿರುತ್ತದೆ. ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಕೀ ಪೂರ್ಣ ಸಂದೇಶವನ್ನು CAPod ಡೀಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಅನುಮತಿಸುತ್ತದೆ. ನಿಮಗೆ ಒಮ್ಮೆ MacBook ಪ್ರವೇಶ ಬೇಕು.</string>
     <string name="profiles_key_invalid_format">ಅಮಾನ್ಯ ಕೀ ಸ್ವರೂಪ</string>
     <string name="profiles_key_expected_format">ನಿರೀಕ್ಷಿತ ಸ್ವರೂಪ: %1$s</string>
+    <string name="profiles_key_status_configured">ಕಾನ್ಫಿಗರ್ ಆಗಿದೆ</string>
+    <string name="profiles_key_status_not_set">ಹೊಂದಿಸಲಾಗಿಲ್ಲ</string>
+    <string name="profiles_signal_quality_min_label">ಆಫ್</string>
+    <string name="profiles_signal_quality_max_label">ಕಟ್ಟುನಿಟ್ಟಾದ</string>
     <string name="profiles_priority_hint">ಪ್ರೊಫೈಲ್ ಕ್ರಮವು ಆದ್ಯತೆಯನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ. ಮರುಕ್ರಮಗೊಳಿಸಲು ಪ್ರೊಫೈಲ್‌ಗಳನ್ನು ಎಳೆಯಿರಿ - ಪಟ್ಟಿಯಲ್ಲಿ ಮೇಲಿರುವ ಪ್ರೊಫೈಲ್‌ಗಳು ಬಹು ಸಾಧನಗಳು ಹೊಂದಿಕೆಯಾದಾಗ ಆದ್ಯತೆ ಪಡೆಯುತ್ತವೆ.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">ಥೀಮ್ ಮೋಡ್</string>
+    <string name="ui_theme_mode_system_label">ಸಿಸ್ಟಮ್</string>
+    <string name="ui_theme_mode_dark_label">ಗಾಢ</string>
+    <string name="ui_theme_mode_light_label">ಬೆಳಕು</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">ಥೀಮ್ ಶೈಲಿ</string>
+    <string name="ui_theme_style_default_label">ಡಿಫಾಲ್ಟ್</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">ಮಧ್ಯಮ ಕಾಂತಿ</string>
+    <string name="ui_theme_style_high_contrast_label">ಉಚ್ಚ ಕಾಂತಿ</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">ಥೀಮ್ ಬಣ್ಣ</string>
+    <string name="ui_theme_color_blue_label">ನೀಲಿ</string>
+    <string name="ui_theme_color_green_label">ಹಸಿರು</string>
+    <string name="ui_theme_color_amber_label">ಆಂಬರ್</string>
+    <string name="ui_theme_color_disabled_materialyou">ವೊಯಲ್ಪೇಪರ್ ಬಣ್ಣಗಳನ್ನು ಬಳಸುತ್ತದೆ</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">ಮೇಲ್ವಳಿಕೆ</string>
+    <string name="settings_category_appearance_label">ನೋಟರೂಪ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ಉಳಿಸದ ಬದಲಾವಣೆಗಳು</string>
     <string name="general_unsaved_changes_message">ನೀವು ಉಳಿಸದ ಬದಲಾವಣೆಗಳನ್ನು ಹೊಂದಿದ್ದೀರಿ. ನೀವು ಏನು ಮಾಡಲು ಬಯಸುತ್ತೀರಿ?</string>
     <string name="general_save_and_exit_action">ಉಳಿಸಿ &amp; ನಿರ್ಗಮಿಸಿ</string>
     <string name="general_discard_action">ತಿರಸ್ಕರಿಸಿ</string>
     <string name="general_keep_editing_action">ಸಂಪಾದನೆ ಮುಂದುವರಿಸಿ</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ರೆಕಾರ್ಡಿಂಗ್ ತುಂಬಾ ಚಿಕ್ಕದು</string>
+    <string name="debug_debuglog_short_recording_message">ಡೀಬಗ್ ಲಾಗ್ ಸಮಸ್ಯೆ ಸಂಭವಿಸುವಾಗ ಅದನ್ನು ಕಾಪ್ಚರ್ ಮಾಡಬೇಕು. ರೆಕಾರ್ಡಿಂಗ್ ಮುಂದುವರಿಸಿ, ಸಮಸ್ಯೆಯನ್ನು ಪುನರಾವರ್ತಿಸಿ, ನಂತರ ರೆಕಾರ್ಡಿಂಗ್ ನಿಲ್ಲಿಸಿ.</string>
+    <string name="debug_debuglog_short_recording_continue">ರೆಕಾರ್ಡಿಂಗ್ ಮುಂದುವರಿಸಿ</string>
+    <string name="debug_debuglog_short_recording_stop">ಹಾಗಿದ್ದರೂ ನಿಲ್ಲಿಸಿ</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">ಡೀಬಗ್ ಲಾಗ್</string>
+    <string name="debug_debuglog_screen_subtitle">ದೋಷನಿವಾರಣೆಗಾಗಿ ಡೀಬಗ್ ಮಾಹಿತಿ ರಫ್ತು ಮಾಡಿ</string>
+    <string name="debug_debuglog_screen_sensitive_title">ಸಂವೇದನಶೀಲ ಮಾಹಿತಿ</string>
+    <string name="debug_debuglog_screen_session_path_label">ಸೆಶನ್ ಮಾರ್ಗ</string>
+    <string name="debug_debuglog_screen_log_files_label">ಲಾಗ್ ಫೈಲ್‌ಗಳು</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ಫೈಲ್ ಸಿದ್ಧವಾಗಿದೆ (%2$s)</item>
+        <item quantity="other">%1$d ಫೈಲ್‌ಗಳು ಸಿದ್ಧವಾಗಿವೆ (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">ಅಳಿಸಿ</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d ಡೀಬಗ್ ಲಾಗ್ (%2$s)</item>
+        <item quantity="other">%1$d ಡೀಬಗ್ ಲಾಗ್‌ಗಳು (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">ಸಂಗ್ರಹಿಸಿದ ಡೀಬಗ್ ಲಾಗ್‌ಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="support_debuglog_sessions_label">ಡೀಬಗ್ ಸೆಶನ್‌ಗಳು</string>
+    <string name="support_debuglog_sessions_desc">ರೆಕಾರ್ಡ್ ಮಾಡಿದ ಡೀಬಗ್ ಲಾಗ್ ಸೆಶನ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ</string>
+    <string name="support_debuglog_sessions_empty">ಡೀಬಗ್ ಸೆಶನ್‌ಗಳಿಲ್ಲ</string>
+    <string name="support_debuglog_session_recording">ರೆಕಾರ್ಡ್ ಮಾಡುತ್ತಿದೆ…</string>
+    <string name="support_debuglog_session_compressing">ಸಂಕುಚಿಸುತ್ತಿದೆ…</string>
+    <string name="support_debuglog_session_delete_title">ಸೆಶನ್ ಅಳಿಸಬೇಕೆ?</string>
+    <string name="support_debuglog_session_delete_message">ಈ ಡೀಬಗ್ ಸೆಶನ್ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲ್ಪಡುತ್ತದೆ.</string>
+    <string name="support_debuglog_clear_all_message">ಎಲ್ಲಾ ಡೀಬಗ್ ಸೆಶನ್‌ಗಳು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲ್ಪಡುತ್ತವೆ.</string>
+    <string name="support_debuglog_failed_empty_log">ವಿಫಲವಾಯಿತು: ಲಾಗ್ ಫೈಲ್ ಖಾಲಿಯಾಗಿದೆ</string>
+    <string name="support_debuglog_failed_missing_log">ವಿಫಲವಾಯಿತು: ಲಾಗ್ ಫೈಲ್ ಕಾಣೆದಿಲ್ಲ</string>
+    <string name="support_debuglog_failed_corrupt_zip">ವಿಫಲವಾಯಿತು: ಜಿಪ್ ಫೈಲ್ ದೋಷಪೂರಿತವಾಗಿದೆ</string>
+    <string name="support_debuglog_failed_zip_failed">ವಿಫಲವಾಯಿತು: ಸಂಕುಚನ ವಿಫಲವಾಯಿತು</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">ಡೆವಲಪರ್ ಸಂಪರ್ಕಿಸಿ</string>
+    <string name="support_contact_desc">ಡೆವಲಪರ್ಗೆ ಇಮೊಯಿಲ್ ಕಳುಹಿಸಲು ಫಾರ್ಮ್ ತುಂಬಿಸಿ.</string>
+    <string name="support_contact_welcome">ನಾನು ಪ್ರತಿಯೊಂದು ಸಂದೇಶವನ್ನೂ ಸ್ವಯಂ ಓದುತ್ತೇನೆ ಮತ್ತು ಪ್ರತಿಕ್ರಿಯಿಸಲು ಉತ್ತಮ ಪ್ರಯತ್ನ ಮಾಡುತ್ತೇನೆ, ಆದರೆ ನಾನು ಒಟ್ಟು ಕೆಲಸ ಮಾಡುವುದರಿಂದ, ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು. ತಾಳ್ಮೆಗಾಗಿ ಧನ್ಯವಾದ.</string>
+    <string name="support_contact_footer">ನಿಮ್ಮ ಸಂದೇಶವನ್ನು ಇಮೊಯಿಲ್ ಮೂಲಕ ಕಳುಹಿಸಲಾಗುತ್ತದೆ. ಸಾಧನ ಮತ್ತು ಸೆಟಪ್ ಮಾಹಿತಿಯನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಲಗತ್ತಿಸಲಾಗುತ್ತದೆ. ನೀವು ಇಮೊಯಿಲ್ಗೆ ಸ್ಕ್ರೀನ್ಶಾಟ್ ಅಥವಾ ವಿಡಿಯೋ ಲಗತ್ತಿಸಬಹುದು. ಇಮೊಯಿಲ್ನ ಕೆಲವು ಭಾಗಗಳು ಇಂಗ್ಲಿಷ್ನಲ್ಲಿ ಇರುತ್ತವೆ ಮತ್ತು ಡೆವಲಪರ್ಗೆ ಸಾಮಾನ್ಯವಾಗಿ ಅರ್ಥವಾಗುತ್ತದೆ.</string>
+    <string name="support_contact_category_label">ವರ್ಗ</string>
+    <string name="support_contact_category_question_label">ಪ್ರಶ್ನೆ</string>
+    <string name="support_contact_category_feature_label">ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿ</string>
+    <string name="support_contact_category_bug_label">ಬಗ್ ವರದಿ</string>
+    <string name="support_contact_description_label">ವಿವರಣ</string>
+    <string name="support_contact_description_question_hint">ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ವಿವರವಾಗಿ ವಿವರಿಸಿ. ನಿರ್ದಿಷ್ಟವಾಗಿ ತಿಳಿಸಿ.</string>
+    <string name="support_contact_description_feature_hint">ನೀವು ನೋಡಲು ಬಯಸುವ ವೈಶಿಷ್ಟ್ಯವನ್ನು ವಿವರಿಸಿ. ನಿರ್ದಿಷ್ಟವಾಗಿ ತಿಳಿಸಿ.</string>
+    <string name="support_contact_description_bug_hint">ಏನಾಯಿತು ಮತ್ತು ಸಮಸ್ಯೆಯನ್ನು ಮರುಕಳಿಸುವ ಬಗ್ಗೆ ವಿವರಿಸಿ. ನಿರ್ದಿಷ್ಟವಾಗಿ ತಿಳಿಸಿ.</string>
+    <string name="support_contact_expected_label">ನಿರೀಕ್ಷಿತ ನಡವಳಿಕೆ</string>
+    <string name="support_contact_expected_hint">ನೀವು ಏನಾಗಬೇಕೆಂದು ನಿರೀಕ್ಷಿಸಿದ್ದಿರಿ ಎಂಬುದನ್ನು ವಿವರಿಸಿ.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ಪದ</item>
+        <item quantity="other">%1$d / %2$d ಪದಗಳು</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ಡೀಬಗ್ ಲಾಗ್</string>
+    <string name="support_contact_debuglog_picker_hint">ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಡೀಬಗ್ ಲಾಗ್ ಲಗತ್ತಿಸಿ, ಅಥವಾ ಹೊಸದನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
+    <string name="support_contact_debuglog_picker_empty">ಡೀಬಗ್ ಲಾಗ್‌ಗಳು ಕಂಡುಬರಲಿಲ್ಲ. ಮೊದಲು ಒಂದನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ.</string>
+    <string name="support_contact_debuglog_zip_error">ಡೀಬಗ್ ಲಾಗ್ ಸಂಕುಚಿಸಲು ವಿಫಲವಾಯಿತು</string>
+    <string name="support_contact_send_action">ಇಮೊಯಿಲ್ ಅ್ಯಾಪ್ ತೆರೆಯಿರಿ</string>
+    <string name="support_contact_no_email_app">ಈ ಸಾಧನದಲ್ಲಿ ಇಮೆಯಿಲ್ ಅ್ಯಾಪ್ ಕಂಡುಬಂದಿಲ್ಲ.</string>
+    <string name="support_contact_debuglog_delete_title">ಡೀಬಗ್ ಲಾಗ್ ಅಳಿಸಬೇಕೆ?</string>
+    <string name="support_contact_debuglog_delete_message">ಈ ಡೀಬಗ್ ಲಾಗ್ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲ್ಪಡುತ್ತದೆ.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ಲಾಗ್ ಕಳುಹಿಸಲಾಗಿದೆಯೇ?</string>
+    <string name="support_debuglog_sent_message">ಡೀಬಗ್ ಲಾಗ್ ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆಯೇ? ಲಾಗ್ ಅನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ.</string>
+    <string name="support_contact_sent_title">ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗಿದೆಯೇ?</string>
+    <string name="support_contact_sent_message">ಇಮೇಲ್ ಯಶಸ್ವಿಯಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆಯೇ? ಲಗತ್ತಿಸಲಾದ ಡೀಬಗ್ ಲಾಗ್ ಅನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ.</string>
 </resources>

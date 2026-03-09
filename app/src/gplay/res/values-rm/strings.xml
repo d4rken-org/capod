@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Igl ha dà ina errur en Google Play. Emprova per plaschair pli tard u reavvia tes telefon.\n\nErrur: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Errur da facturaziun da Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Igl ha dà ina errur cun la dumonda dals detagls da tes acquist tar Google Play. Stizza il cache da Google Play e reavvia tes telefon.\n\nErrur %s</string>
+    <string name="upgrade_restore_action">Restaurar la cumpra</string>
 </resources>

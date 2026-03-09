@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copia</string>
     <string name="general_thank_you_label">Grazie</string>
     <string name="general_upgrade_action">Aggiorna</string>
+    <string name="common_feature_requires_pro_msg">Aggiorna per sbloccare.</string>
     <string name="general_donate_action">Donazione</string>
     <string name="general_check_action">Controlla</string>
     <string name="general_close_action">Chiudi</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Es.: %s</string>
     <string name="upgrade_capod_label">Aggiorna CAPod</string>
     <string name="upgrade_capod_description">Ottieni funzionalità aggiuntive e supporta lo sviluppatore.</string>
+    <string name="upgrade_preamble">CAPod è sviluppato da una singola persona. Aggiornare sblocca funzionalità extra e aiuta a mantenere l\'app in vita.</string>
+    <string name="upgrade_benefit_themes">Personalizzazione tema</string>
+    <string name="upgrade_benefit_autoplay">Riproduzione automatica e pausa automatica</string>
+    <string name="upgrade_benefit_autoconnect">Connessione automatica</string>
+    <string name="upgrade_benefit_popups">Popup all\'apertura della custodia e alla connessione</string>
+    <string name="upgrade_benefit_widgets">Widget della schermata home</string>
+    <string name="upgrade_benefit_support">Supporta lo sviluppatore</string>
+    <string name="upgrade_screen_options_description">Stesse funzionalità, prezzi diversi. L\'abbonamento include una prova gratuita e può essere annullato in qualsiasi momento.</string>
+    <string name="upgrade_screen_subscription_trial_action">Inizia la prova gratuita</string>
+    <string name="upgrade_screen_subscription_action">Abbonati annualmente</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/anno</string>
+    <string name="upgrade_screen_iap_action">Acquista una volta</string>
+    <string name="upgrade_screen_iap_action_hint">Acquisto una tantum: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Ripristina acquisto</string>
+    <string name="upgrade_screen_restore_purchase_message">Nessun acquisto trovato. Stai usando l\'account giusto?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Se hai acquistato di recente, potrebbe volerci un momento affinché Google Play si sincronizzi.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Riprova tra qualche minuto se il tuo acquisto non appare.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Assicurati di essere connesso con lo stesso account Google utilizzato per l\'acquisto.</string>
     <string name="settings_monitor_mode_label">Modalità di monitoraggio</string>
     <string name="settings_monitor_mode_description">In quali circostanze questa applicazione monitora i dati Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notifica aggiuntiva</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Mostra un pop-up quando il dispositivo si connette per la prima volta.</string>
     <string name="notification_channel_device_status_label">Stato del dispositivo</string>
     <string name="notification_channel_device_status_connected_label">Dispositivo connesso</string>
+    <string name="monitor_notification_extra_enabled_hint">Puoi disabilitare questa notifica nelle impostazioni di sistema.</string>
     <string name="support_debuglog_label">Log di debug</string>
     <string name="support_debuglog_desc">Registra tutto ciò che l\'app fa in un file di testo che puoi condividere.</string>
     <string name="debug_debuglog_size_label">Dimensione</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Le segnalazioni automatiche di errori sono anonime. Condividi il tuo ID di installazione se lo sviluppatore ha bisogno di trovare le tue segnalazioni di errori.</string>
     <string name="settings_support_label">Supporto</string>
     <string name="settings_support_description">Se hai bisogno di aiuto.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ e guide</string>
     <string name="issue_tracker_label">Tracciatore di problemi</string>
     <string name="issue_tracker_description">Un tracciatore di problemi pubblico per segnalazioni di bug e richieste di funzionalità (solo in inglese).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Gestione responsabile dei dati.</string>
     <string name="settings_licenses_label">Licenze</string>
     <string name="settings_category_other_label">Altro</string>
+    <string name="settings_category_gethelp_label">Ottieni aiuto</string>
+    <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Impostazioni</string>
     <string name="settings_general_description">Modifiche generali che interessano l\'intera app.</string>
     <string name="settings_acknowledgements_label">Riconoscimenti</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Traduttori</string>
     <string name="translators_thanks_description">Filippo Lolli (IG: @lolli_filippo)</string>
     <string name="widget_description">Un widget che mostra l\'ultimo stato noto del dispositivo.</string>
+    <string name="widget_config_screen_title">Configurazione widget</string>
     <string name="widget_configuration_title">Seleziona dispositivo</string>
     <string name="widget_configuration_description">Scegli quale profilo dispositivo questo widget dovrebbe visualizzare.</string>
     <string name="widget_no_data_label">Nessun dato</string>
+    <string name="widget_error_loading_label">Errore nel caricamento del widget</string>
     <string name="widget_config_appearance_label">Aspetto</string>
     <string name="widget_config_preset_label">Preset</string>
     <string name="widget_config_background_color_label">Colore di sfondo</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Aggiungi profilo</string>
     <string name="profiles_create_title">Crea profilo</string>
     <string name="profiles_name_label">Nome profilo</string>
+    <string name="profiles_name_empty_error">Il nome non può essere vuoto</string>
     <string name="profiles_name_default">Le mie cuffie</string>
     <string name="profiles_model_label">Modello dispositivo</string>
     <string name="profiles_paired_device_label">Dispositivo associato</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">Gli AirPods inviano un messaggio di stato, parte del quale è crittografato. La chiave di crittografia consente a CAPod di decrittografare l\'intero messaggio. È necessario un accesso una tantum a un MacBook.</string>
     <string name="profiles_key_invalid_format">Formato chiave non valido</string>
     <string name="profiles_key_expected_format">Formato previsto: %1$s</string>
+    <string name="profiles_key_status_configured">Configurato</string>
+    <string name="profiles_key_status_not_set">Non impostato</string>
+    <string name="profiles_signal_quality_min_label">Disattivato</string>
+    <string name="profiles_signal_quality_max_label">Rigoroso</string>
     <string name="profiles_priority_hint">L\'ordine dei profili determina la priorità. Trascina i profili per riordinarli - i profili più in alto nell\'elenco hanno la precedenza quando più dispositivi corrispondono.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Tema</string>
+    <string name="ui_theme_mode_system_label">Come il sistema</string>
+    <string name="ui_theme_mode_dark_label">Scuro</string>
+    <string name="ui_theme_mode_light_label">Chiaro</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Stile del tema</string>
+    <string name="ui_theme_style_default_label">Predefinito</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Contrasto medio</string>
+    <string name="ui_theme_style_high_contrast_label">Alto contrasto</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Colore tema</string>
+    <string name="ui_theme_color_blue_label">Blu</string>
+    <string name="ui_theme_color_green_label">Verde</string>
+    <string name="ui_theme_color_amber_label">Ambra</string>
+    <string name="ui_theme_color_disabled_materialyou">Utilizza i colori dello sfondo</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitoraggio</string>
+    <string name="settings_category_appearance_label">Aspetto</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Modifiche non salvate</string>
     <string name="general_unsaved_changes_message">Hai modifiche non salvate. Cosa vorresti fare?</string>
     <string name="general_save_and_exit_action">Salva &amp; Esci</string>
     <string name="general_discard_action">Scarta</string>
     <string name="general_keep_editing_action">Continua a modificare</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Registrazione troppo breve</string>
+    <string name="debug_debuglog_short_recording_message">Un log di debug deve catturare il problema nel momento in cui si verifica. Continua a registrare, riproduci il problema, quindi interrompi la registrazione.</string>
+    <string name="debug_debuglog_short_recording_continue">Continua la registrazione</string>
+    <string name="debug_debuglog_short_recording_stop">Interrompi comunque</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Log di debug</string>
+    <string name="debug_debuglog_screen_subtitle">Esporta informazioni di debug per la risoluzione dei problemi</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informazioni sensibili</string>
+    <string name="debug_debuglog_screen_session_path_label">Percorso sessione</string>
+    <string name="debug_debuglog_screen_log_files_label">File di log</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d file pronto (%2$s)</item>
+        <item quantity="other">%1$d file pronti (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Elimina</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d log di debug (%2$s)</item>
+        <item quantity="other">%1$d log di debug (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Cancella i log di debug archiviati</string>
+    <string name="support_debuglog_sessions_label">Sessioni di debug</string>
+    <string name="support_debuglog_sessions_desc">Gestisci le sessioni di log di debug registrate</string>
+    <string name="support_debuglog_sessions_empty">Nessuna sessione di debug</string>
+    <string name="support_debuglog_session_recording">Registrazione…</string>
+    <string name="support_debuglog_session_compressing">Compressione…</string>
+    <string name="support_debuglog_session_delete_title">Eliminare la sessione?</string>
+    <string name="support_debuglog_session_delete_message">Questa sessione di debug verrà eliminata definitivamente.</string>
+    <string name="support_debuglog_clear_all_message">Tutte le sessioni di debug verranno eliminate definitivamente.</string>
+    <string name="support_debuglog_failed_empty_log">Errore: il file di log è vuoto</string>
+    <string name="support_debuglog_failed_missing_log">Errore: il file di log è mancante</string>
+    <string name="support_debuglog_failed_corrupt_zip">Errore: il file zip è corrotto</string>
+    <string name="support_debuglog_failed_zip_failed">Errore: compressione fallita</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Contatta lo sviluppatore</string>
+    <string name="support_contact_desc">Compila un modulo per inviare un’e-mail allo sviluppatore.</string>
+    <string name="support_contact_welcome">Leggo ogni messaggio personalmente e faccio del mio meglio per rispondere, ma poiché lavoro da solo, potrebbe volerci un po’ di tempo. Grazie per la tua pazienza.</string>
+    <string name="support_contact_footer">Il tuo messaggio sarà inviato via e-mail. Le informazioni sul dispositivo e sulla configurazione vengono allegate automaticamente. Puoi allegare screenshot o un video all’e-mail. Alcune parti dell’e-mail saranno in inglese affinché lo sviluppatore possa capirle facilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_question_label">Domanda</string>
+    <string name="support_contact_category_feature_label">Richiesta di funzionalità</string>
+    <string name="support_contact_category_bug_label">Segnalazione di bug</string>
+    <string name="support_contact_description_label">Descrizione</string>
+    <string name="support_contact_description_question_hint">Descrivi la tua domanda in dettaglio. Si prega di essere specifici.</string>
+    <string name="support_contact_description_feature_hint">Descrivi la funzionalità che vorresti vedere. Si prega di essere specifici.</string>
+    <string name="support_contact_description_bug_hint">Descrivi cosa è successo e come riprodurre il problema. Si prega di essere specifici.</string>
+    <string name="support_contact_expected_label">Comportamento atteso</string>
+    <string name="support_contact_expected_hint">Descrivi cosa ti aspettavi che accadesse.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d parola</item>
+        <item quantity="other">%1$d / %2$d parole</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log di debug</string>
+    <string name="support_contact_debuglog_picker_hint">Allega un log di debug esistente oppure registrane uno nuovo.</string>
+    <string name="support_contact_debuglog_picker_empty">Nessun log di debug trovato. Registrane prima uno.</string>
+    <string name="support_contact_debuglog_zip_error">Compressione del log di debug non riuscita</string>
+    <string name="support_contact_send_action">Apri l’app e-mail</string>
+    <string name="support_contact_no_email_app">Nessuna app e-mail trovata su questo dispositivo.</string>
+    <string name="support_contact_debuglog_delete_title">Eliminare il log di debug?</string>
+    <string name="support_contact_debuglog_delete_message">Questo log di debug verrà eliminato definitivamente.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log inviato?</string>
+    <string name="support_debuglog_sent_message">Il log di debug è stato inviato correttamente? Il log verrà eliminato.</string>
+    <string name="support_contact_sent_title">Email inviata?</string>
+    <string name="support_contact_sent_message">L\'email è stata inviata correttamente? Il log di debug allegato verrà eliminato.</string>
 </resources>

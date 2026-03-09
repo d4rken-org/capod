@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Der opstod en fejl i Google Play. Prøv venligst igen senere, eller genstart din telefon.\n\nFejl: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Google Play-faktureringsfejl</string>
     <string name="upgrades_gplay_billing_result_error_description">Der opstod en fejl under forespørgsel af dine købsoplysninger fra Google Play. Ryd Google Play-cachen, og genstart din telefon.\n\nFejl %s</string>
+    <string name="upgrade_restore_action">Gendan køb</string>
 </resources>

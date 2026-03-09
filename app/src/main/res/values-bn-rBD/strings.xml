@@ -6,6 +6,7 @@
     <string name="general_copy_action">কপি করুন</string>
     <string name="general_thank_you_label">ধন্যবাদ</string>
     <string name="general_upgrade_action">আপগ্রেড করুন</string>
+    <string name="common_feature_requires_pro_msg">আনলক করতে আপগ্রেড করুন।</string>
     <string name="general_donate_action">অনুদান দিন</string>
     <string name="general_check_action">চেক করুন</string>
     <string name="general_close_action">বন্ধ করুন</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">যেমন: %s</string>
     <string name="upgrade_capod_label">CAPod আপগ্রেড করুন</string>
     <string name="upgrade_capod_description">অতিরিক্ত বৈশিষ্ট্য পান এবং ডেভেলপারকে সমর্থন করুন।</string>
+    <string name="upgrade_preamble">CAPod একজন একক ব্যক্তি দ্বারা তৈরি। আপগ্রেড করলে অতিরিক্ত বৈশিষ্ট্য আনলক হয় এবং অ্যাপটি বাঁচিয়ে রাখতে সহায়তা করে।</string>
+    <string name="upgrade_benefit_themes">থিম কাস্টমাইজেশন</string>
+    <string name="upgrade_benefit_autoplay">স্বয়ংক্রিয় প্লে এবং স্বয়ংক্রিয় পজ</string>
+    <string name="upgrade_benefit_autoconnect">স্বয়ংক্রিয় সংযোগ</string>
+    <string name="upgrade_benefit_popups">কেস খোলা ও সংযোগের সময় পপআপ</string>
+    <string name="upgrade_benefit_widgets">হোম স্ক্রিন উইজেট</string>
+    <string name="upgrade_benefit_support">ডেভেলপারকে সহায়তা করুন</string>
+    <string name="upgrade_screen_options_description">একই বৈশিষ্ট্য, ভিন্ন মূল্য। সাবস্ক্রিপশনে একটি বিনামূল্যে ট্রায়াল অন্তর্ভুক্ত এবং যেকোনো সময় বাতিল করা যাবে।</string>
+    <string name="upgrade_screen_subscription_trial_action">বিনামূল্যের ট্রায়াল শুরু করুন</string>
+    <string name="upgrade_screen_subscription_action">বার্ষিক সাবস্ক্রাইব করুন</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/বছর</string>
+    <string name="upgrade_screen_iap_action">একবার কিনুন</string>
+    <string name="upgrade_screen_iap_action_hint">এককালীন ক্রয়: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">ক্রয় পুনরুদ্ধার</string>
+    <string name="upgrade_screen_restore_purchase_message">কোনও কেনাকাটা খুঁজে পাওয়া যায়নি। আপনি কি সঠিক অ্যাকাউন্ট ব্যবহার করছেন?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">আপনি সম্প্রতি কিনে থাকলে, Google Play সিঙ্ক করতে কিছু সময় লাগতে পারে।</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">কয়েক মিনিট পরে আবার চেষ্টা করুন যদি আপনার ক্রয় না দেখায়।</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">নিশ্চিত করুন যে আপনি ক্রয়ের জন্য ব্যবহৃত একই Google অ্যাকাউন্ট দিয়ে সাইন ইন করেছেন।</string>
     <string name="settings_monitor_mode_label">মনিটর মোড</string>
     <string name="settings_monitor_mode_description">এই অ্যাপটি কোন পরিস্থিতিতে ব্লুটুথ ডেটা পর্যবেক্ষণ করবে।</string>
     <string name="settings_monitor_connected_notification_label">অতিরিক্ত বিজ্ঞপ্তি</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">ডিভাইস প্রথমবার সংযুক্ত হলে একটি পপআপ দেখান।</string>
     <string name="notification_channel_device_status_label">ডিভাইস স্ট্যাটাস</string>
     <string name="notification_channel_device_status_connected_label">সংযুক্ত ডিভাইস</string>
+    <string name="monitor_notification_extra_enabled_hint">আপনি সিস্টেম সেটিংসে এই বিজ্ঞপ্তি নিষ্ক্রিয় করতে পারেন।</string>
     <string name="support_debuglog_label">ডিবাগ লগ</string>
     <string name="support_debuglog_desc">অ্যাপটি যা কিছু করছে তা একটি শেয়ারযোগ্য টেক্সট ফাইলে রেকর্ড করুন।</string>
     <string name="debug_debuglog_size_label">আকার</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">স্বয়ংক্রিয় ত্রুটি প্রতিবেদনগুলি বেনামী। যদি ডেভেলপারের আপনার ত্রুটি প্রতিবেদনগুলি খুঁজে বের করতে হয় তবে আপনার ইনস্টল আইডি শেয়ার করুন।</string>
     <string name="settings_support_label">সহায়তা</string>
     <string name="settings_support_description">যদি আপনার কিছু সাহায্যের প্রয়োজন হয়।</string>
+    <string name="settings_wiki_label">উইকি</string>
+    <string name="settings_wiki_description">FAQ এবং গাইড</string>
     <string name="issue_tracker_label">সমস্যা ট্র্যাকার</string>
     <string name="issue_tracker_description">বাগ রিপোর্ট এবং বৈশিষ্ট্য অনুরোধের জন্য একটি পাবলিক সমস্যা ট্র্যাকার (শুধুমাত্র ইংরেজি)।</string>
     <string name="discord_label">ডিসকর্ড</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">দায়িত্বের সাথে ডেটা পরিচালনা করা।</string>
     <string name="settings_licenses_label">লাইসেন্স</string>
     <string name="settings_category_other_label">অন্যান্য</string>
+    <string name="settings_category_gethelp_label">সাহায্য নিন</string>
+    <string name="settings_category_debug_label">ডিবাগ</string>
     <string name="settings_general_label">সেটিংস</string>
     <string name="settings_general_description">পুরো অ্যাপকে প্রভাবিত করে এমন সাধারণ পরিবর্তন।</string>
     <string name="settings_acknowledgements_label">স্বীকৃতি</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">অনুবাদক</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">সর্বশেষ পরিচিত ডিভাইস স্ট্যাটাস দেখানো একটি উইজেট।</string>
+    <string name="widget_config_screen_title">উইজেট কনফিগারেশন</string>
     <string name="widget_configuration_title">ডিভাইস নির্বাচন করুন</string>
     <string name="widget_configuration_description">এই উইজেটটি কোন ডিভাইস প্রোফাইল প্রদর্শন করবে তা চয়ন করুন।</string>
     <string name="widget_no_data_label">কোনো ডেটা নেই</string>
+    <string name="widget_error_loading_label">উইজেট লোড করতে ত্রুটি</string>
     <string name="widget_config_appearance_label">চেহারা</string>
     <string name="widget_config_preset_label">প্রিসেট</string>
     <string name="widget_config_background_color_label">পটভূমি রঙ</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">প্রোফাইল যোগ করুন</string>
     <string name="profiles_create_title">প্রোফাইল তৈরি করুন</string>
     <string name="profiles_name_label">প্রোফাইলের নাম</string>
+    <string name="profiles_name_empty_error">নাম খালি হতে পারবে না</string>
     <string name="profiles_name_default">আমার হেডফোন</string>
     <string name="profiles_model_label">ডিভাইসের মডেল</string>
     <string name="profiles_paired_device_label">জোড়া করা ডিভাইস</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods একটি স্ট্যাটাস বার্তা পাঠায়, যার অংশবিশেষ এনক্রিপ্টেড। এনক্রিপশন কী CAPod-কে সম্পূর্ণ বার্তাটি ডিক্রিপ্ট করতে দেয়। আপনার একটি MacBook-এ একবারের অ্যাক্সেস প্রয়োজন।</string>
     <string name="profiles_key_invalid_format">অবৈধ কী বিন্যাস</string>
     <string name="profiles_key_expected_format">প্রত্যাশিত বিন্যাস: %1$s</string>
+    <string name="profiles_key_status_configured">কনফিগার করা হয়েছে</string>
+    <string name="profiles_key_status_not_set">সেট করা নেই</string>
+    <string name="profiles_signal_quality_min_label">বন্ধ</string>
+    <string name="profiles_signal_quality_max_label">কঠোর</string>
     <string name="profiles_priority_hint">প্রোফাইল ক্রম অগ্রাধিকার নির্ধারণ করে। প্রোফাইলগুলি পুনর্বিন্যাস করতে টানুন - তালিকায় উপরের প্রোফাইলগুলি একাধিক ডিভাইস মিলে গেলে অগ্রাধিকার পায়।</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">থিমের ধরন</string>
+    <string name="ui_theme_mode_system_label">সিস্টেম</string>
+    <string name="ui_theme_mode_dark_label">গাঢ়</string>
+    <string name="ui_theme_mode_light_label">হালকা</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">থিম স্টাইল</string>
+    <string name="ui_theme_style_default_label">পূর্ব-নির্ধারিত</string>
+    <string name="ui_theme_style_materialyou_label">ম্যাটেরিয়াল ইউ</string>
+    <string name="ui_theme_style_medium_contrast_label">মধ্যম কন্ট্রাস্ট</string>
+    <string name="ui_theme_style_high_contrast_label">উচ্চ কন্ট্রাস্ট</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">থিম রঙ</string>
+    <string name="ui_theme_color_blue_label">নীল</string>
+    <string name="ui_theme_color_green_label">সবুজ</string>
+    <string name="ui_theme_color_amber_label">অ্যাম্বার</string>
+    <string name="ui_theme_color_disabled_materialyou">ওয়ালপেপার রঙ ব্যবহার করে</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">মনিটরিং</string>
+    <string name="settings_category_appearance_label">উপস্থিতি</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">অসংরক্ষিত পরিবর্তন</string>
     <string name="general_unsaved_changes_message">আপনার অসংরক্ষিত পরিবর্তন আছে। আপনি কী করতে চান?</string>
     <string name="general_save_and_exit_action">সংরক্ষণ করুন এবং প্রস্থান করুন</string>
     <string name="general_discard_action">বাতিল করুন</string>
     <string name="general_keep_editing_action">সম্পাদনা চালিয়ে যান</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">রেকর্ডিং খুব সামান্য</string>
+    <string name="debug_debuglog_short_recording_message">সমস্যা ঘটার সময় ডিবাগ লগকে তা ধারণ করতে হবে। রেকর্ডিং চালিয়ে রাখুন, সমস্যাটি পুনরুৎপাদন করুন, তারপর রেকর্ডিং থামান।</string>
+    <string name="debug_debuglog_short_recording_continue">রেকর্ডিং জারি রাখুন</string>
+    <string name="debug_debuglog_short_recording_stop">যাই হোক থামান</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">ডিবাগ লগ</string>
+    <string name="debug_debuglog_screen_subtitle">সমস্যা সমাধানের জন্য ডিবাগ তথ্য রপ্তানি করুন</string>
+    <string name="debug_debuglog_screen_sensitive_title">সংবেদনশীল তথ্য</string>
+    <string name="debug_debuglog_screen_session_path_label">সেশন পাথ</string>
+    <string name="debug_debuglog_screen_log_files_label">লগ ফাইল</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d টি ফাইল প্রস্তুত (%2$s)</item>
+        <item quantity="other">%1$dটি ফাইল প্রস্তুত (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">মুছে ফেলুন</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$dটি ডিবাগ লগ (%2$s)</item>
+        <item quantity="other">%1$dটি ডিবাগ লগ (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">সংরক্ষিত ডিবাগ লগ মুছুন</string>
+    <string name="support_debuglog_sessions_label">ডিবাগ সেশন</string>
+    <string name="support_debuglog_sessions_desc">রেকর্ড করা ডিবাগ লগ সেশন পরিচালনা করুন</string>
+    <string name="support_debuglog_sessions_empty">কোনো ডিবাগ সেশন নেই</string>
+    <string name="support_debuglog_session_recording">রেকর্ড হচ্ছে…</string>
+    <string name="support_debuglog_session_compressing">সংকুচিত হচ্ছে…</string>
+    <string name="support_debuglog_session_delete_title">সেশন মুছে ফেলবেন?</string>
+    <string name="support_debuglog_session_delete_message">এই ডিবাগ সেশন স্থায়ীভাবে মুছে ফেলা হবে।</string>
+    <string name="support_debuglog_clear_all_message">সকল ডিবাগ সেশন স্থায়ীভাবে মুছে ফেলা হবে।</string>
+    <string name="support_debuglog_failed_empty_log">ব্যর্থ: লগ ফাইল খালি</string>
+    <string name="support_debuglog_failed_missing_log">ব্যর্থ: লগ ফাইল বিদ্যমান নেই</string>
+    <string name="support_debuglog_failed_corrupt_zip">ব্যর্থ: zip ফাইল দূষিত</string>
+    <string name="support_debuglog_failed_zip_failed">ব্যর্থ: সংকোচন ব্যর্থ হয়েছে</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">ডেভেলপারের সাথে যোগাযোগ করুন</string>
+    <string name="support_contact_desc">ডেভেলপারকে ইমেইল পাঠাতে একটি ফর্ম পূরণ করুন।</string>
+    <string name="support_contact_welcome">আমি প্রতিটি বার্তা নিজে পড়ি এবং যথাসাধ্য সাড়া দিই, তবে যেহেতু আমি একা কাজ করি, সাড়া দিতে কিছু সময় লাগতে পারে। আপনার ধৈর্য্যের জন্য ধন্যবাদ।</string>
+    <string name="support_contact_footer">আপনার বার্তা ইমেইলের মাধ্যমে পাঠানো হবে। ডিভাইস এবং সেটআপ তথ্য স্বয়ংক্রিয়ভাবে সংযুক্ত হয়। আপনি ইমেইলে স্ক্রিনশট বা ভিডিও সংযুক্ত করতে পারেন। ইমেইলের কিছু অংশ ইংরেজিতে থাকবে যাতে ডেভেলপার সহজে বুঝতে পারেন।</string>
+    <string name="support_contact_category_label">বিভাগ</string>
+    <string name="support_contact_category_question_label">প্রশ্ন</string>
+    <string name="support_contact_category_feature_label">ফিচার অনুরোধ</string>
+    <string name="support_contact_category_bug_label">বাগ রিপোর্ট</string>
+    <string name="support_contact_description_label">বিবরণ</string>
+    <string name="support_contact_description_question_hint">বিস্তারিতভাবে আপনার প্রশ্ন বর্ণনা করুন। দয়া করে নির্দিষ্ট হয়ে বলুন।</string>
+    <string name="support_contact_description_feature_hint">আপনি যে ফিচার দেখতে চান তা বর্ণনা করুন। দয়া করে নির্দিষ্ট হয়ে বলুন।</string>
+    <string name="support_contact_description_bug_hint">কী ঘটেছে এবং সমস্যাটি কীভাবে পুনরুৎপাদন করতে হয় তা বর্ণনা করুন। দয়া করে নির্দিষ্ট হয়ে বলুন।</string>
+    <string name="support_contact_expected_label">প্রত্যাশিত আচরণ</string>
+    <string name="support_contact_expected_hint">আপনি কী ঘটা প্রত্যাশা করেছিলেন তা বর্ণনা করুন।</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$dটি শব্দ</item>
+        <item quantity="other">%1$d / %2$dটি শব্দ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ডিবাগ লগ</string>
+    <string name="support_contact_debuglog_picker_hint">একটি বিদ্যমান ডিবাগ লগ সংযুক্ত করুন, বা নতুন একটি রেকর্ড করুন।</string>
+    <string name="support_contact_debuglog_picker_empty">কোনো ডিবাগ লগ পাওয়া যায়নি। আগে একটি রেকর্ড করুন।</string>
+    <string name="support_contact_debuglog_zip_error">ডিবাগ লগ সংকুচিত করতে ব্যর্থ</string>
+    <string name="support_contact_send_action">ইমেইল অ্যাপ খুলুন</string>
+    <string name="support_contact_no_email_app">এই ডিভাইসে কোনো ইমেইল অ্যাপ পাওয়া যায়নি।</string>
+    <string name="support_contact_debuglog_delete_title">ডিবাগ লগ মুছে ফেলবেন?</string>
+    <string name="support_contact_debuglog_delete_message">এই ডিবাগ লগ স্থায়ীভাবে মুছে ফেলা হবে।</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">লগ পাঠানো হয়েছে?</string>
+    <string name="support_debuglog_sent_message">ডিবাগ লগটি সফলভাবে পাঠানো হয়েছে? লগটি মুছে ফেলা হবে।</string>
+    <string name="support_contact_sent_title">ইমেইল পাঠানো হয়েছে?</string>
+    <string name="support_contact_sent_message">ইমেইলটি সফলভাবে পাঠানো হয়েছে? সংযুক্ত ডিবাগ লগটি মুছে ফেলা হবে।</string>
 </resources>

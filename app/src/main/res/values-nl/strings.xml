@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopiëren</string>
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_upgrade_action">Upgraden</string>
+    <string name="common_feature_requires_pro_msg">Upgrade om te ontgrendelen.</string>
     <string name="general_donate_action">Doneren</string>
     <string name="general_check_action">Controleren</string>
     <string name="general_close_action">Sluiten</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Bijv.: %s</string>
     <string name="upgrade_capod_label">CAPod upgraden</string>
     <string name="upgrade_capod_description">Krijg extra functies en ondersteun de ontwikkelaar.</string>
+    <string name="upgrade_preamble">CAPod wordt ontwikkeld door één persoon. Upgraden ontgrendelt extra functies en helpt de app in leven te houden.</string>
+    <string name="upgrade_benefit_themes">Thema-aanpassing</string>
+    <string name="upgrade_benefit_autoplay">Automatisch afspelen &amp; pauzeren</string>
+    <string name="upgrade_benefit_autoconnect">Automatisch verbinden</string>
+    <string name="upgrade_benefit_popups">Popup bij openen van hoesje &amp; verbinding</string>
+    <string name="upgrade_benefit_widgets">Startscherm-widgets</string>
+    <string name="upgrade_benefit_support">Ondersteun de ontwikkelaar</string>
+    <string name="upgrade_screen_options_description">Dezelfde functies, verschillende prijzen. Het abonnement bevat een gratis proefperiode en kan op elk moment worden opgezegd.</string>
+    <string name="upgrade_screen_subscription_trial_action">Start gratis proefperiode</string>
+    <string name="upgrade_screen_subscription_action">Jaarlijks abonneren</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/jaar</string>
+    <string name="upgrade_screen_iap_action">Eenmalig kopen</string>
+    <string name="upgrade_screen_iap_action_hint">Eenmalige aankoop: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Herstel aankoop</string>
+    <string name="upgrade_screen_restore_purchase_message">Geen aankopen gevonden. Gebruikt u de juiste rekening?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Als je recent hebt gekocht, kan het even duren voordat Google Play synchroniseert.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Probeer het over een paar minuten opnieuw als je aankoop niet verschijnt.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Zorg ervoor dat je bent aangemeld met hetzelfde Google-account dat is gebruikt voor de aankoop.</string>
     <string name="settings_monitor_mode_label">Monitor modus</string>
     <string name="settings_monitor_mode_description">Onder welke omstandigheden houdt deze app Bluetooth-gegevens bij.</string>
     <string name="settings_monitor_connected_notification_label">Extra melding</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Toon een pop-up wanneer het apparaat voor de eerste keer verbinding maakt.</string>
     <string name="notification_channel_device_status_label">Apparaatstatus</string>
     <string name="notification_channel_device_status_connected_label">Verbonden apparaat</string>
+    <string name="monitor_notification_extra_enabled_hint">Je kunt deze melding uitschakelen in de systeeminstellingen.</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
     <string name="support_debuglog_desc">Registreer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
     <string name="debug_debuglog_size_label">Grootte</string>
@@ -75,9 +95,11 @@
     <string name="settings_support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel uw installatie-ID als de ontwikkelaar uw foutrapporten moet vinden.</string>
     <string name="settings_support_label">Ondersteuning</string>
     <string name="settings_support_description">Als u hulp nodig heeft.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; Gidsen</string>
     <string name="issue_tracker_label">Probleemtracker</string>
     <string name="issue_tracker_description">Een openbare probleemtracker voor bugrapporten en functieverzoeken (alleen Engels).</string>
-    <string name="discord_label">Meningsverschil</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Een plek om rond te hangen en vragen te stellen.</string>
     <string name="changelog_label">Wijzigingslog</string>
     <string name="settings_label">Instellingen</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Verantwoord omgaan met gegevens.</string>
     <string name="settings_licenses_label">Licenties</string>
     <string name="settings_category_other_label">Andere</string>
+    <string name="settings_category_gethelp_label">Hulp krijgen</string>
+    <string name="settings_category_debug_label">Foutopsporing</string>
     <string name="settings_general_label">Instellingen</string>
     <string name="settings_general_description">Algemene aanpassingen die de hele app beïnvloeden.</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
@@ -101,15 +125,17 @@
     <string name="translators_thanks_title">Vertalers</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Een widget dat de laatst gekende apparaatstatus toont.</string>
+    <string name="widget_config_screen_title">Widgetconfiguratie</string>
     <string name="widget_configuration_title">Selecteer Apparaat</string>
     <string name="widget_configuration_description">Kies welk apparaatprofiel deze widget moet weergeven.</string>
     <string name="widget_no_data_label">Geen data</string>
+    <string name="widget_error_loading_label">Fout bij laden van widget</string>
     <string name="widget_config_appearance_label">Uiterlijk</string>
-    <string name="widget_config_preset_label">Vooringestelde waarden</string>
+    <string name="widget_config_preset_label">Voorinstellingen</string>
     <string name="widget_config_background_color_label">Achtergrondkleur</string>
     <string name="widget_config_foreground_color_label">Tekst- en pictogramkleur</string>
     <string name="widget_config_transparency_label">Achtergrondtransparantie</string>
-    <string name="widget_config_show_device_label">Apparaatnaam weergeven</string>
+    <string name="widget_config_show_device_label">Toon apparaatnaam</string>
     <string name="widget_config_reset_label">Standaardinstellingen herstellen</string>
     <string name="widget_config_custom_label">Aangepast</string>
     <string name="widget_config_preset_material_you">Material You</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Profiel toevoegen</string>
     <string name="profiles_create_title">Profiel aanmaken</string>
     <string name="profiles_name_label">Profiel naam</string>
+    <string name="profiles_name_empty_error">Naam mag niet leeg zijn</string>
     <string name="profiles_name_default">Mijn koptelefoon</string>
     <string name="profiles_model_label">Apparaatmodel</string>
     <string name="profiles_paired_device_label">Gekoppeld apparaat</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods sturen een statusbericht, waarvan een deel versleuteld is. De encryptiesleutel stelt CAPod in staat het volledige bericht te ontsleutelen. Je hebt hiervoor eenmalige toegang tot een MacBook nodig.</string>
     <string name="profiles_key_invalid_format">Ongeldige sleutelindeling</string>
     <string name="profiles_key_expected_format">Verwachte indeling: %1$s</string>
+    <string name="profiles_key_status_configured">Geconfigureerd</string>
+    <string name="profiles_key_status_not_set">Niet ingesteld</string>
+    <string name="profiles_signal_quality_min_label">Uit</string>
+    <string name="profiles_signal_quality_max_label">Strikt</string>
     <string name="profiles_priority_hint">De volgorde van de profielen bepaalt de prioriteit. Versleep profielen om de volgorde te wijzigen. Profielen hoger in de lijst krijgen voorrang wanneer meerdere apparaten overeenkomen.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Thema-modus</string>
+    <string name="ui_theme_mode_system_label">Systeem</string>
+    <string name="ui_theme_mode_dark_label">Donker</string>
+    <string name="ui_theme_mode_light_label">Licht</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Thema stijl</string>
+    <string name="ui_theme_style_default_label">Standaard</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Gemiddeld contrast</string>
+    <string name="ui_theme_style_high_contrast_label">Hoog contrast</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Themakleur</string>
+    <string name="ui_theme_color_blue_label">Blauw</string>
+    <string name="ui_theme_color_green_label">Groen</string>
+    <string name="ui_theme_color_amber_label">Amber</string>
+    <string name="ui_theme_color_disabled_materialyou">Gebruikt achtergrondkleuren</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitoring</string>
+    <string name="settings_category_appearance_label">Uiterlijk</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Niet opgeslagen wijzigingen</string>
     <string name="general_unsaved_changes_message">Er zijn nog geen wijzigingen opgeslagen. Wat wil je doen?</string>
     <string name="general_save_and_exit_action">Opslaan &amp; afsluiten</string>
     <string name="general_discard_action">Weggooien</string>
     <string name="general_keep_editing_action">Blijf Bewerken</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Opname te kort</string>
+    <string name="debug_debuglog_short_recording_message">Een debuglogboek moet het probleem vastleggen terwijl het zich voordoet. Blijf opnemen, reproduceer het probleem en stop dan de opname.</string>
+    <string name="debug_debuglog_short_recording_continue">Doorgaan met opnemen</string>
+    <string name="debug_debuglog_short_recording_stop">Toch stoppen</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Debug-logboek</string>
+    <string name="debug_debuglog_screen_subtitle">Exporteer debuginformatie voor probleemoplossing</string>
+    <string name="debug_debuglog_screen_sensitive_title">Gevoelige informatie</string>
+    <string name="debug_debuglog_screen_session_path_label">Sessiepad</string>
+    <string name="debug_debuglog_screen_log_files_label">Logbestanden</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d bestand gereed (%2$s)</item>
+        <item quantity="other">%1$d bestanden gereed (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Verwijderen</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d debuglogboek (%2$s)</item>
+        <item quantity="other">%1$d debuglogboeken (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Opgeslagen debuglogboeken wissen</string>
+    <string name="support_debuglog_sessions_label">Debugsessies</string>
+    <string name="support_debuglog_sessions_desc">Opgenomen debuglogsessies beheren</string>
+    <string name="support_debuglog_sessions_empty">Geen debugsessies</string>
+    <string name="support_debuglog_session_recording">Opnemen…</string>
+    <string name="support_debuglog_session_compressing">Comprimeren…</string>
+    <string name="support_debuglog_session_delete_title">Sessie verwijderen?</string>
+    <string name="support_debuglog_session_delete_message">Deze debugsessie wordt permanent verwijderd.</string>
+    <string name="support_debuglog_clear_all_message">Alle debugsessies worden permanent verwijderd.</string>
+    <string name="support_debuglog_failed_empty_log">Mislukt: logbestand is leeg</string>
+    <string name="support_debuglog_failed_missing_log">Mislukt: logbestand ontbreekt</string>
+    <string name="support_debuglog_failed_corrupt_zip">Mislukt: zip-bestand is beschadigd</string>
+    <string name="support_debuglog_failed_zip_failed">Mislukt: compressie mislukt</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Ontwikkelaar contacteren</string>
+    <string name="support_contact_desc">Vul een formulier in om de ontwikkelaar een e-mail te sturen.</string>
+    <string name="support_contact_welcome">Ik lees elk bericht zelf en doe mijn best om te antwoorden, maar omdat ik hier alleen aan werk, kan het even duren. Bedankt voor je geduld.</string>
+    <string name="support_contact_footer">Je bericht wordt per e-mail verzonden. Apparaat- en installatiegegevens worden automatisch als bijlage toegevoegd. Je kunt schermafbeeldingen of een video aan de e-mail toevoegen. Sommige delen van de e-mail zullen in het Engels zijn, zodat de ontwikkelaar deze gemakkelijk kan begrijpen.</string>
+    <string name="support_contact_category_label">Categorie</string>
+    <string name="support_contact_category_question_label">Vraag</string>
+    <string name="support_contact_category_feature_label">Functieverzoek</string>
+    <string name="support_contact_category_bug_label">Foutrapport</string>
+    <string name="support_contact_description_label">Beschrijving</string>
+    <string name="support_contact_description_question_hint">Beschrijf je vraag in detail. Wees zo specifiek mogelijk.</string>
+    <string name="support_contact_description_feature_hint">Beschrijf de functie die je graag zou willen zien. Wees zo specifiek mogelijk.</string>
+    <string name="support_contact_description_bug_hint">Beschrijf wat er is gebeurd en hoe het probleem zich voordoet. Wees zo specifiek mogelijk.</string>
+    <string name="support_contact_expected_label">Verwacht gedrag</string>
+    <string name="support_contact_expected_hint">Beschrijf wat je had verwacht dat er zou gebeuren.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d woord</item>
+        <item quantity="other">%1$d / %2$d woorden</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Foutopsporingslogboek</string>
+    <string name="support_contact_debuglog_picker_hint">Voeg een bestaand debuglogbestand toe of maak een nieuw bestand aan.</string>
+    <string name="support_contact_debuglog_picker_empty">Geen foutopsporingslogboeken gevonden. Neem er eerst een op.</string>
+    <string name="support_contact_debuglog_zip_error">Het comprimeren van het debuglogboek is mislukt</string>
+    <string name="support_contact_send_action">Open de e-mailapp</string>
+    <string name="support_contact_no_email_app">Geen e-mailapp gevonden op dit apparaat.</string>
+    <string name="support_contact_debuglog_delete_title">Debuglogboek verwijderen?</string>
+    <string name="support_contact_debuglog_delete_message">Dit debuglogboek wordt permanent verwijderd.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log verzonden?</string>
+    <string name="support_debuglog_sent_message">Is het foutopsporingslogboek succesvol verzonden? Het logboek wordt verwijderd.</string>
+    <string name="support_contact_sent_title">E-mail verzonden?</string>
+    <string name="support_contact_sent_message">Is de e-mail succesvol verzonden? Het bijgevoegde foutopsporingslogboek wordt verwijderd.</string>
 </resources>

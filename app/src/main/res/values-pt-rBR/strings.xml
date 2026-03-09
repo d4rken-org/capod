@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copiar</string>
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_upgrade_action">Atualizar</string>
+    <string name="common_feature_requires_pro_msg">Atualize para desbloquear.</string>
     <string name="general_donate_action">Doar</string>
     <string name="general_check_action">Verificar</string>
     <string name="general_close_action">Fechar</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Ex.: %s</string>
     <string name="upgrade_capod_label">Atualizar CAPod</string>
     <string name="upgrade_capod_description">Obtenha recursos adicionais e apoie o desenvolvedor.</string>
+    <string name="upgrade_preamble">O CAPod é desenvolvido por uma única pessoa. Fazer upgrade desbloqueia recursos extras e ajuda a manter o aplicativo ativo.</string>
+    <string name="upgrade_benefit_themes">Personalização de tema</string>
+    <string name="upgrade_benefit_autoplay">Reprodução automática &amp; pausa automática</string>
+    <string name="upgrade_benefit_autoconnect">Conexão automática</string>
+    <string name="upgrade_benefit_popups">Popup ao abrir o estojo &amp; conexão</string>
+    <string name="upgrade_benefit_widgets">Widgets da tela inicial</string>
+    <string name="upgrade_benefit_support">Apoie o desenvolvedor</string>
+    <string name="upgrade_screen_options_description">Mesmos recursos, preços diferentes. A assinatura inclui um período de teste gratuito e pode ser cancelada a qualquer momento.</string>
+    <string name="upgrade_screen_subscription_trial_action">Iniciar teste gratuito</string>
+    <string name="upgrade_screen_subscription_action">Assinar anualmente</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ano</string>
+    <string name="upgrade_screen_iap_action">Compra única</string>
+    <string name="upgrade_screen_iap_action_hint">Compra única: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Restaurar a compra</string>
+    <string name="upgrade_screen_restore_purchase_message">Nenhuma compra encontrada. Você está usando a conta certa?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Se você comprou recentemente, pode demorar um momento para o Google Play sincronizar.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Tente novamente em alguns minutos se a sua compra não aparecer.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Certifique-se de estar conectado com a mesma conta Google usada para a compra.</string>
     <string name="settings_monitor_mode_label">Modo de monitoramento</string>
     <string name="settings_monitor_mode_description">Em quais circunstâncias este aplicativo monitora os dados do Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificação extra</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Mostrar um pop-up quando o dispositivo se conectar pela primeira vez.</string>
     <string name="notification_channel_device_status_label">Status do dispositivo</string>
     <string name="notification_channel_device_status_connected_label">Dispositivo conectado</string>
+    <string name="monitor_notification_extra_enabled_hint">Você pode desativar esta notificação nas configurações do sistema.</string>
     <string name="support_debuglog_label">Log de depuração</string>
     <string name="support_debuglog_desc">Registre tudo o que o aplicativo faz em um arquivo de texto que você pode compartilhar.</string>
     <string name="debug_debuglog_size_label">Tamanho</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Os relatórios automáticos de erros são anônimos. Compartilhe seu ID de instalação se o desenvolvedor precisar encontrar seus relatórios de erros.</string>
     <string name="settings_support_label">Suporte</string>
     <string name="settings_support_description">Se você precisar de alguma ajuda.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">Perguntas frequentes &amp; Guias</string>
     <string name="issue_tracker_label">Rastreador de problemas</string>
     <string name="issue_tracker_description">Um rastreador de problemas público para relatórios de bugs e solicitações de recursos (somente em inglês).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Manipulação de dados com responsabilidade.</string>
     <string name="settings_licenses_label">Licenças</string>
     <string name="settings_category_other_label">Outros</string>
+    <string name="settings_category_gethelp_label">Obter ajuda</string>
+    <string name="settings_category_debug_label">Depuração</string>
     <string name="settings_general_label">Configurações</string>
     <string name="settings_general_description">Ajustes gerais que afetam todo o aplicativo.</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Tradutores</string>
     <string name="translators_thanks_description">Igor Silva (ferrare42@gmail.com)</string>
     <string name="widget_description">Um widget que mostra o último status conhecido do dispositivo.</string>
+    <string name="widget_config_screen_title">Configuração de widget</string>
     <string name="widget_configuration_title">Selecionar Dispositivo</string>
     <string name="widget_configuration_description">Escolha qual o perfil de dispositivo este widget deve exibir.</string>
     <string name="widget_no_data_label">Sem Informação</string>
+    <string name="widget_error_loading_label">Erro ao carregar widget</string>
     <string name="widget_config_appearance_label">Aparência</string>
     <string name="widget_config_preset_label">Predefinições</string>
     <string name="widget_config_background_color_label">Cor de fundo</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Adicionar perfil</string>
     <string name="profiles_create_title">Criar Perfil</string>
     <string name="profiles_name_label">Nome do perfil</string>
+    <string name="profiles_name_empty_error">O nome não pode estar vazio</string>
     <string name="profiles_name_default">Meus Fones de Ouvido</string>
     <string name="profiles_model_label">Modelo do dispositivo</string>
     <string name="profiles_paired_device_label">Dispositivo pareado</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">Os AirPods enviam uma mensagem de status, parte da qual é criptografada. A chave de criptografia permite ao CAPod descriptografar a mensagem completa. Você precisa de acesso único a um MacBook.</string>
     <string name="profiles_key_invalid_format">Formato de chave inválido</string>
     <string name="profiles_key_expected_format">Formato esperado: %1$s</string>
+    <string name="profiles_key_status_configured">Configurado</string>
+    <string name="profiles_key_status_not_set">Não definido</string>
+    <string name="profiles_signal_quality_min_label">Desligado</string>
+    <string name="profiles_signal_quality_max_label">Estrito</string>
     <string name="profiles_priority_hint">A ordem dos perfis determina a prioridade. Arraste os perfis para reordená-los - perfis mais altos na lista têm precedência quando vários dispositivos correspondem.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Modo do tema</string>
+    <string name="ui_theme_mode_system_label">Sistema</string>
+    <string name="ui_theme_mode_dark_label">Escuro</string>
+    <string name="ui_theme_mode_light_label">Claro</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Estilo do tema</string>
+    <string name="ui_theme_style_default_label">Padrão</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Contraste médio</string>
+    <string name="ui_theme_style_high_contrast_label">Alto contraste</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Cor do tema</string>
+    <string name="ui_theme_color_blue_label">Azul</string>
+    <string name="ui_theme_color_green_label">Verde</string>
+    <string name="ui_theme_color_amber_label">Âmbar</string>
+    <string name="ui_theme_color_disabled_materialyou">Usa cores do papel de parede</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitoramento</string>
+    <string name="settings_category_appearance_label">Aparência</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Alterações Não Salvas</string>
     <string name="general_unsaved_changes_message">Você tem alterações não salvas. O que gostaria de fazer?</string>
     <string name="general_save_and_exit_action">Salvar &amp; Sair</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_keep_editing_action">Continuar Editando</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Gravação muito curta</string>
+    <string name="debug_debuglog_short_recording_message">Um log de depuração precisa capturar o problema enquanto ele acontece. Continue gravando, reproduza o problema e depois pare a gravação.</string>
+    <string name="debug_debuglog_short_recording_continue">Continuar gravando</string>
+    <string name="debug_debuglog_short_recording_stop">Parar mesmo assim</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Registro de depuração</string>
+    <string name="debug_debuglog_screen_subtitle">Exportar informações de depuração para solução de problemas</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informações sensíveis</string>
+    <string name="debug_debuglog_screen_session_path_label">Caminho da sessão</string>
+    <string name="debug_debuglog_screen_log_files_label">Arquivos de registro</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d arquivo pronto (%2$s)</item>
+        <item quantity="other">%1$d arquivos prontos (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Apagar</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d log de depuração (%2$s)</item>
+        <item quantity="other">%1$d logs de depuração (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Limpar logs de depuração armazenados</string>
+    <string name="support_debuglog_sessions_label">Sessões de depuração</string>
+    <string name="support_debuglog_sessions_desc">Gerenciar sessões de log de depuração gravadas</string>
+    <string name="support_debuglog_sessions_empty">Nenhuma sessão de depuração</string>
+    <string name="support_debuglog_session_recording">Gravando…</string>
+    <string name="support_debuglog_session_compressing">Comprimindo…</string>
+    <string name="support_debuglog_session_delete_title">Excluir sessão?</string>
+    <string name="support_debuglog_session_delete_message">Esta sessão de depuração será excluída permanentemente.</string>
+    <string name="support_debuglog_clear_all_message">Todas as sessões de depuração serão excluídas permanentemente.</string>
+    <string name="support_debuglog_failed_empty_log">Falha: o arquivo de log está vazio</string>
+    <string name="support_debuglog_failed_missing_log">Falha: o arquivo de log está ausente</string>
+    <string name="support_debuglog_failed_corrupt_zip">Falha: o arquivo zip está corrompido</string>
+    <string name="support_debuglog_failed_zip_failed">Falha: compressão falhou</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Contatar o desenvolvedor</string>
+    <string name="support_contact_desc">Preencha um formulário para enviar um e-mail ao desenvolvedor.</string>
+    <string name="support_contact_welcome">Eu leio cada mensagem pessoalmente e faço o máximo para responder, mas como trabalho sozinho nisto, pode demorar um pouco. Obrigado pela paciência.</string>
+    <string name="support_contact_footer">Sua mensagem será enviada por e-mail. Informações do dispositivo e da configuração são anexadas automaticamente. Você pode anexar capturas de tela ou um vídeo ao e-mail. Algumas partes do e-mail estarão em inglês para que o desenvolvedor possa entendê-las facilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_question_label">Pergunta</string>
+    <string name="support_contact_category_feature_label">Solicitação de recurso</string>
+    <string name="support_contact_category_bug_label">Relato de bug</string>
+    <string name="support_contact_description_label">Descrição</string>
+    <string name="support_contact_description_question_hint">Descreva sua dúvida em detalhes. Por favor, seja específico.</string>
+    <string name="support_contact_description_feature_hint">Descreva o recurso que você gostaria de ver. Por favor, seja específico.</string>
+    <string name="support_contact_description_bug_hint">Descreva o que aconteceu e como reproduzir o problema. Por favor, seja específico.</string>
+    <string name="support_contact_expected_label">Comportamento esperado</string>
+    <string name="support_contact_expected_hint">Descreva o que você esperava que acontecesse.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palavra</item>
+        <item quantity="other">%1$d / %2$d palavras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log de depuração</string>
+    <string name="support_contact_debuglog_picker_hint">Anexe um log de depuração existente ou grave um novo.</string>
+    <string name="support_contact_debuglog_picker_empty">Nenhum log de depuração encontrado. Grave um primeiro.</string>
+    <string name="support_contact_debuglog_zip_error">Falha ao comprimir o log de depuração</string>
+    <string name="support_contact_send_action">Abrir aplicativo de e-mail</string>
+    <string name="support_contact_no_email_app">Nenhum aplicativo de e-mail encontrado neste dispositivo.</string>
+    <string name="support_contact_debuglog_delete_title">Excluir log de depuração?</string>
+    <string name="support_contact_debuglog_delete_message">Este log de depuração será excluído permanentemente.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log enviado?</string>
+    <string name="support_debuglog_sent_message">O log de depuração foi enviado com sucesso? O log será excluído.</string>
+    <string name="support_contact_sent_title">E-mail enviado?</string>
+    <string name="support_contact_sent_message">O e-mail foi enviado com sucesso? O log de depuração anexado será excluído.</string>
 </resources>

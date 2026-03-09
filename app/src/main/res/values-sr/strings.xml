@@ -6,6 +6,7 @@
     <string name="general_copy_action">Копирај</string>
     <string name="general_thank_you_label">Хвала</string>
     <string name="general_upgrade_action">Надогради</string>
+    <string name="common_feature_requires_pro_msg">Надоградите да бисте откључали.</string>
     <string name="general_donate_action">Донирај</string>
     <string name="general_check_action">Провери</string>
     <string name="general_close_action">Затвори</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Нпр.: %s</string>
     <string name="upgrade_capod_label">Надогради CAPod</string>
     <string name="upgrade_capod_description">Добијте додатне функције и подржите програмера.</string>
+    <string name="upgrade_preamble">CAPod је развила једна особа. Надоградњом откључавате додатне функције и помажете да апликација опстане.</string>
+    <string name="upgrade_benefit_themes">Прилагођавање теме</string>
+    <string name="upgrade_benefit_autoplay">Аутоматско репродуковање и паузирање</string>
+    <string name="upgrade_benefit_autoconnect">Аутоматско повезивање</string>
+    <string name="upgrade_benefit_popups">Искачући прозор при отварању кућишта и повезивању</string>
+    <string name="upgrade_benefit_widgets">Виџети почетног екрана</string>
+    <string name="upgrade_benefit_support">Подржите програмера</string>
+    <string name="upgrade_screen_options_description">Исте функције, различите цене. Претплата укључује бесплатни пробни период и може се отказати у сваком тренутку.</string>
+    <string name="upgrade_screen_subscription_trial_action">Покрени бесплатни пробни период</string>
+    <string name="upgrade_screen_subscription_action">Претплата годишње</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/годишње</string>
+    <string name="upgrade_screen_iap_action">Купите једном</string>
+    <string name="upgrade_screen_iap_action_hint">Једнократна куповина: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Врати куповину</string>
+    <string name="upgrade_screen_restore_purchase_message">Није пронађена ниједна куповина. Да ли користите прави налог?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Ако сте скоро купили, можда ће бити потребно неколико тренутака да Google Play синхронизује.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Покушајте поново за неколико минута ако ваша куповина не појави.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Проверите да сте пријављени истим Google налогом коришћеним за куповину.</string>
     <string name="settings_monitor_mode_label">Режим надгледања</string>
     <string name="settings_monitor_mode_description">Под којим околностима ова апликација надгледа Bluetooth податке.</string>
     <string name="settings_monitor_connected_notification_label">Додатно обавештење</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Прикажи искачући прозор када се уређај први пут повеже.</string>
     <string name="notification_channel_device_status_label">Статус уређаја</string>
     <string name="notification_channel_device_status_connected_label">Повезани уређај</string>
+    <string name="monitor_notification_extra_enabled_hint">Можете онемогућити ово обавештење у системским подешавањима.</string>
     <string name="support_debuglog_label">Дневник отклањања грешака</string>
     <string name="support_debuglog_desc">Снимите све што апликација ради у текстуалну датотеку коју можете да делите.</string>
     <string name="debug_debuglog_size_label">Величина</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Аутоматски извештаји о грешкама су анонимни. Поделите свој ID инсталације ако програмер треба да пронађе ваше извештаје о грешкама.</string>
     <string name="settings_support_label">Подршка</string>
     <string name="settings_support_description">Ако вам је потребна помоћ.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">Често постављана питања и водичи</string>
     <string name="issue_tracker_label">Праћење проблема</string>
     <string name="issue_tracker_description">Јавни систем за праћење проблема за пријаве грешака и захтеве за функције (само на енглеском).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Одговорно руковање подацима.</string>
     <string name="settings_licenses_label">Лиценце</string>
     <string name="settings_category_other_label">Остало</string>
+    <string name="settings_category_gethelp_label">Добијте помоћ</string>
+    <string name="settings_category_debug_label">Отклањањање грешака</string>
     <string name="settings_general_label">Подешавања</string>
     <string name="settings_general_description">Општа подешавања која утичу на целу апликацију.</string>
     <string name="settings_acknowledgements_label">Захвалнице</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Преводиоци</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Виџет који приказује последњи познати статус уређаја.</string>
+    <string name="widget_config_screen_title">Конфигурација виџета</string>
     <string name="widget_configuration_title">Изаберите уређај</string>
     <string name="widget_configuration_description">Изаберите који профил уређаја овај виџет треба да приказује.</string>
     <string name="widget_no_data_label">Нема података</string>
+    <string name="widget_error_loading_label">Грешка при учитавању виџета</string>
     <string name="widget_config_appearance_label">Изглед</string>
     <string name="widget_config_preset_label">Предложени шаблони</string>
     <string name="widget_config_background_color_label">Боја позадине</string>
@@ -216,6 +242,7 @@
     <string name="profiles_add_action">Додај профил</string>
     <string name="profiles_create_title">Креирај профил</string>
     <string name="profiles_name_label">Назив профила</string>
+    <string name="profiles_name_empty_error">Назив не сме бити празан</string>
     <string name="profiles_name_default">Моје слушалице</string>
     <string name="profiles_model_label">Модел уређаја</string>
     <string name="profiles_paired_device_label">Упарен уређај</string>
@@ -238,11 +265,104 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods шаљу поруку о статусу, чији је део шифрован. Кључ за шифровање омогућава CAPod-у да дешифрује целу поруку. Потребан вам је једнократни приступ MacBook-у.</string>
     <string name="profiles_key_invalid_format">Неважећи формат кључа</string>
     <string name="profiles_key_expected_format">Очекивани формат: %1$s</string>
+    <string name="profiles_key_status_configured">Подешено</string>
+    <string name="profiles_key_status_not_set">Није подешено</string>
+    <string name="profiles_signal_quality_min_label">Искључено</string>
+    <string name="profiles_signal_quality_max_label">Строго</string>
     <string name="profiles_priority_hint">Редослед профила одређује приоритет. Превуците профиле да бисте их преуредили — профили виши на листи имају предност када се подудара више уређаја.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Мод теме</string>
+    <string name="ui_theme_mode_system_label">Системски</string>
+    <string name="ui_theme_mode_dark_label">Таман</string>
+    <string name="ui_theme_mode_light_label">Светао</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Стил теме</string>
+    <string name="ui_theme_style_default_label">Подразумевано</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Средњи контраст</string>
+    <string name="ui_theme_style_high_contrast_label">Високи контраст</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Боја теме</string>
+    <string name="ui_theme_color_blue_label">Плава</string>
+    <string name="ui_theme_color_green_label">Зелена</string>
+    <string name="ui_theme_color_amber_label">Ћилибарна</string>
+    <string name="ui_theme_color_disabled_materialyou">Користи боје позадине</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Надзор</string>
+    <string name="settings_category_appearance_label">Изглед</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Несачуване измене</string>
     <string name="general_unsaved_changes_message">Имате несачуване измене. Шта желите да урадите?</string>
     <string name="general_save_and_exit_action">Сачувај и изађи</string>
     <string name="general_discard_action">Одбаци</string>
     <string name="general_keep_editing_action">Настави уређивање</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Снимање прекратко</string>
+    <string name="debug_debuglog_short_recording_message">Дневник грешака треба да забележи проблем док се догађа. Наставите снимање, репродукујте проблем, затим зауставите снимање.</string>
+    <string name="debug_debuglog_short_recording_continue">Наставите снимање</string>
+    <string name="debug_debuglog_short_recording_stop">Свеједно заустави</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Дневник грешака</string>
+    <string name="debug_debuglog_screen_subtitle">Извоз информација за отклањање грешака</string>
+    <string name="debug_debuglog_screen_sensitive_title">Осетљиви подаци</string>
+    <string name="debug_debuglog_screen_session_path_label">Путања сесије</string>
+    <string name="debug_debuglog_screen_log_files_label">Датотеке дневника</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d датотека је спремна (%2$s)</item>
+        <item quantity="few">%1$d датотеке су спремне (%2$s)</item>
+        <item quantity="other">%1$d датотека су спремне (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Обриши</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d дневник грешака (%2$s)</item>
+        <item quantity="few">%1$d дневника грешака (%2$s)</item>
+        <item quantity="other">%1$d дневника грешака (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Очисти сачуване дневнике грешака</string>
+    <string name="support_debuglog_sessions_label">Сесије дневника грешака</string>
+    <string name="support_debuglog_sessions_desc">Управљајте снимљеним сесијама дневника грешака</string>
+    <string name="support_debuglog_sessions_empty">Нема сесија дневника грешака</string>
+    <string name="support_debuglog_session_recording">Снимање…</string>
+    <string name="support_debuglog_session_compressing">Компресовање…</string>
+    <string name="support_debuglog_session_delete_title">Избрисати сесију?</string>
+    <string name="support_debuglog_session_delete_message">Ова сесија дневника грешака ће бити трајно избрисана.</string>
+    <string name="support_debuglog_clear_all_message">Све сесије дневника грешака ће бити трајно избрисане.</string>
+    <string name="support_debuglog_failed_empty_log">Није успело: датотека дневника је празна</string>
+    <string name="support_debuglog_failed_missing_log">Није успело: датотека дневника недостаје</string>
+    <string name="support_debuglog_failed_corrupt_zip">Није успело: zip датотека је оштећена</string>
+    <string name="support_debuglog_failed_zip_failed">Није успело: компресија није успела</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Контактирајте програмера</string>
+    <string name="support_contact_desc">Попуните формулар да пошаљете програмеру е-пошту.</string>
+    <string name="support_contact_welcome">Лично читам сваку поруку и трудим се да одговорим, али пошто радим сам, може потребати нешто времена. Хвала на стрпљењу.</string>
+    <string name="support_contact_footer">Ваша порука ће бити послата путем е-поште. Информације о уређају и подешавању се аутоматски прилажу. Можете приложити снимке екрана или видео уз е-пошту. Неки делови е-поште ће бити на енглеском да би програмер лакше разумео.</string>
+    <string name="support_contact_category_label">Категорија</string>
+    <string name="support_contact_category_question_label">Питање</string>
+    <string name="support_contact_category_feature_label">Захтев за функцију</string>
+    <string name="support_contact_category_bug_label">Извештај о грешци</string>
+    <string name="support_contact_description_label">Опис</string>
+    <string name="support_contact_description_question_hint">Детаљно опишите своје питање. Молимо будите специфични.</string>
+    <string name="support_contact_description_feature_hint">Опишите функцију коју бисте желели да видите. Молимо будите специфични.</string>
+    <string name="support_contact_description_bug_hint">Опишите шта се догодило и како да репродукујете проблем. Молимо будите специфични.</string>
+    <string name="support_contact_expected_label">Очекивано понашање</string>
+    <string name="support_contact_expected_hint">Опишите шта сте очекивали да се догоди.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d реч</item>
+        <item quantity="few">%1$d / %2$d речи</item>
+        <item quantity="other">%1$d / %2$d речи</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Дневник отклањања грешака</string>
+    <string name="support_contact_debuglog_picker_hint">Приложите постојећи дневник грешака или снимите нови.</string>
+    <string name="support_contact_debuglog_picker_empty">Нису пронађени дневници грешака. Прво снимите један.</string>
+    <string name="support_contact_debuglog_zip_error">Није успело компресовање дневника грешака</string>
+    <string name="support_contact_send_action">Отворите апликацију за е-пошту</string>
+    <string name="support_contact_no_email_app">На овом уређају није пронађена апликација за е-пошту.</string>
+    <string name="support_contact_debuglog_delete_title">Избрисати дневник грешака?</string>
+    <string name="support_contact_debuglog_delete_message">Овај дневник грешака ће бити трајно избрисан.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Дневник послат?</string>
+    <string name="support_debuglog_sent_message">Да ли је дневник за отклањање грешака успешно послат? Дневник ће бити обрисан.</string>
+    <string name="support_contact_sent_title">Е-пошта послата?</string>
+    <string name="support_contact_sent_message">Да ли је е-пошта успешно послата? Приложени дневник за отклањање грешака ће бити обрисан.</string>
 </resources>

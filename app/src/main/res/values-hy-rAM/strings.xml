@@ -6,6 +6,7 @@
     <string name="general_copy_action">Պատճենել</string>
     <string name="general_thank_you_label">Շնորհակալություն</string>
     <string name="general_upgrade_action">Թարմացնել</string>
+    <string name="common_feature_requires_pro_msg">Բարելավե՛ք՝ ապակողպելու համար:</string>
     <string name="general_donate_action">Նվիրաբերել</string>
     <string name="general_check_action">Ստուգել</string>
     <string name="general_close_action">Փակել</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Օրինակ՝ %s</string>
     <string name="upgrade_capod_label">Թարմացնել CAPod-ը</string>
     <string name="upgrade_capod_description">Ստացեք լրացուցիչ հնարավորություններ և աջակցեք մշակողին։</string>
+    <string name="upgrade_preamble">CAPod-ը մշակվում է մեկ անձի կողմից: Բարելավելը բացում է լրացուցիչ հնարավորություններ եւ օգնում է հավելվածը կենդանի պահել:</string>
+    <string name="upgrade_benefit_themes">Թեմայի հարմարեցում</string>
+    <string name="upgrade_benefit_autoplay">Ավտոնվագում &amp; ավտոդադար</string>
+    <string name="upgrade_benefit_autoconnect">Ինքնամիացում</string>
+    <string name="upgrade_benefit_popups">Թռուցիկ՝ պատյան բացելիս &amp; կապվելիս</string>
+    <string name="upgrade_benefit_widgets">Գլխավոր էկրանի վիջեթներ</string>
+    <string name="upgrade_benefit_support">Աջակցե՛ք մշակողին</string>
+    <string name="upgrade_screen_options_description">Նույն հնարավորությունները, տարբեր գին: Բաժանորդագրությունը ներառում է անվճար փորձաշրջան եւ կարող է չեղարկվել ցանկացած պահի:</string>
+    <string name="upgrade_screen_subscription_trial_action">Սկսել անվճար փորձաշրջանը</string>
+    <string name="upgrade_screen_subscription_action">Բաժանորդագրվել տարեկան</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/տարի</string>
+    <string name="upgrade_screen_iap_action">Գնել մեկ անգամ</string>
+    <string name="upgrade_screen_iap_action_hint">Միանգամյա գնում՝ %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Վերականգնել գնումը</string>
+    <string name="upgrade_screen_restore_purchase_message">Գնումներ չեն գտնվել: Արդյո՞ք ճիշտ հաշիվն եք օգտագործում:</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Եթե վերջերս գնել եք, Google Play-ի համաժամացմանը կարող է մի փոքր ժամանակ պահանջվել:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Մի քանի րոպե հետո կրկին փորձեք, եթե ձեր գնումը չի երևում:</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Համոզվեք, որ մուտք եք գործել գնման համար օգտագործված Google հաշվով:</string>
     <string name="settings_monitor_mode_label">Մոնիթորինգի ռեժիմ</string>
     <string name="settings_monitor_mode_description">Ինչ պայմաններում է այս հավելվածը վերահսկում Bluetooth-ի տվյալները։</string>
     <string name="settings_monitor_connected_notification_label">Լրացուցիչ ծանուցում</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Ցուցադրել բացվող պատուհան, երբ սարքն առաջին անգամ է միանում։</string>
     <string name="notification_channel_device_status_label">Սարքի կարգավիճակը</string>
     <string name="notification_channel_device_status_connected_label">Միացված սարք</string>
+    <string name="monitor_notification_extra_enabled_hint">Կարող եք անջատել այս ծանուցումը համակարգի կարգավորումներում:</string>
     <string name="support_debuglog_label">Կարգաբերման մատյան</string>
     <string name="support_debuglog_desc">Գրանցեք այն ամենը, ինչ անում է հավելվածը տեքստային ֆայլում, որը կարող եք կիսվել։</string>
     <string name="debug_debuglog_size_label">Չափը</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Սխալների ավտոմատ հաշվետվություններն անանուն են։ Կիսվեք ձեր տեղադրման ID-ով, եթե մշակողը պետք է գտնի ձեր սխալների հաշվետվությունները։</string>
     <string name="settings_support_label">Աջակցություն</string>
     <string name="settings_support_description">Եթե օգնության կարիք ունեք։</string>
+    <string name="settings_wiki_label">Վիքի</string>
+    <string name="settings_wiki_description">ՀՏՀ &amp; ուղեցույցներ</string>
     <string name="issue_tracker_label">Խնդիրների հետագծիչ</string>
     <string name="issue_tracker_description">Սխալների հաշվետվությունների և գործառույթների հարցումների համար հանրային խնդիրների հետագծիչ (միայն անգլերեն)։</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Տվյալների պատասխանատու մշակում։</string>
     <string name="settings_licenses_label">Լիցենզիաներ</string>
     <string name="settings_category_other_label">Այլ</string>
+    <string name="settings_category_gethelp_label">Ստանալ օգնություն</string>
+    <string name="settings_category_debug_label">Կարգաբանություն</string>
     <string name="settings_general_label">Կարգավորումներ</string>
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Թարգմանիչներ</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Վիջեթ, որը ցույց է տալիս սարքի վերջին հայտնի կարգավիճակը։</string>
+    <string name="widget_config_screen_title">Վիջեթի կարգավորում</string>
     <string name="widget_configuration_title">Ընտրել սարք</string>
     <string name="widget_configuration_description">Ընտրեք, թե որ սարքի պրոֆիլը պետք է ցուցադրի այս վիջեթը։</string>
     <string name="widget_no_data_label">Տվյալներ չկան</string>
+    <string name="widget_error_loading_label">Վիջեթի բեռնման սխալ</string>
     <string name="widget_config_appearance_label">Տեսք</string>
     <string name="widget_config_preset_label">Նախասահմանադ</string>
     <string name="widget_config_background_color_label">Ֆոնի գույն</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Ավելացնել պրոֆիլ</string>
     <string name="profiles_create_title">Ստեղծել պրոֆիլ</string>
     <string name="profiles_name_label">Պրոֆիլի անուն</string>
+    <string name="profiles_name_empty_error">Անունը չի կարող դատարկ լինել</string>
     <string name="profiles_name_default">Իմ ականջակալները</string>
     <string name="profiles_model_label">Սարքի մոդել</string>
     <string name="profiles_paired_device_label">Զույգավորված սարք</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods-ները ուղարկում են վիճակի հաղորդագրություն, որի մի մասը գաղտնագրված է։ Գաղտնագրման բանալին թույլ է տալիս CAPod-ին վերծանել ամբողջ հաղորդագրությունը։ Ձեզ անհրաժեշտ է միանվագ մուտք MacBook։</string>
     <string name="profiles_key_invalid_format">Անվավեր բանալու ձևաչափ</string>
     <string name="profiles_key_expected_format">Ակնկալվող ձևաչափ՝ %1$s</string>
+    <string name="profiles_key_status_configured">Կարգավորված</string>
+    <string name="profiles_key_status_not_set">Սահմանված չէ</string>
+    <string name="profiles_signal_quality_min_label">Անջատված</string>
+    <string name="profiles_signal_quality_max_label">Խիստ</string>
     <string name="profiles_priority_hint">Պրոֆիլների հերթականությունը որոշում է առաջնահերթությունը։ Քաշեք պրոֆիլները՝ վերադասավորելու համար՝ ցանկի վերևում գտնվող պրոֆիլներն ունեն առավելություն, երբ մի քանի սարքեր համապատասխանում են։</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Թեմայի ռեժիմ</string>
+    <string name="ui_theme_mode_system_label">Համակարգային</string>
+    <string name="ui_theme_mode_dark_label">Մուգ</string>
+    <string name="ui_theme_mode_light_label">Բաց</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Թեմայի ոճ</string>
+    <string name="ui_theme_style_default_label">Լռելյայն</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Միջին կոնտրաստ</string>
+    <string name="ui_theme_style_high_contrast_label">Բարձր կոնտրաստ</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Թեմայի գույն</string>
+    <string name="ui_theme_color_blue_label">Կապույտ</string>
+    <string name="ui_theme_color_green_label">Կանաչ</string>
+    <string name="ui_theme_color_amber_label">Ծիրանագույն</string>
+    <string name="ui_theme_color_disabled_materialyou">Պատկերի գույները</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Մոնիտորինգ</string>
+    <string name="settings_category_appearance_label">Արտաքին տեսք</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Չպահպանված փոփոխություններ</string>
     <string name="general_unsaved_changes_message">Դուք ունեք չպահպանված փոփոխություններ։ Ի՞նչ եք ցանկանում անել։</string>
     <string name="general_save_and_exit_action">Պահպանել &amp; Դուրս գալ</string>
     <string name="general_discard_action">Մերժել</string>
     <string name="general_keep_editing_action">Շարունակել խմբագրումը</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Ձայնագրությունը շատ կարճ է</string>
+    <string name="debug_debuglog_short_recording_message">Կարգաբերման մատյանը պետք է գրանցի խնդիրը դրա այն տեղի է ունենում: Շարունակեք Ձայնագրությունը, վերարտադրեք խնդիրը, ապա դադարեցրեք Ձայնագրությունը:</string>
+    <string name="debug_debuglog_short_recording_continue">Շարունակել Ձայնագրությունը</string>
+    <string name="debug_debuglog_short_recording_stop">Ամեն դեպքում դադարեցնել</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Կարգաբերման մատյան</string>
+    <string name="debug_debuglog_screen_subtitle">Կարգաբերման տեղեկատվության արտահանել վհարկարի համար</string>
+    <string name="debug_debuglog_screen_sensitive_title">ԿոնՖիդենցիալ տեղեկատվության</string>
+    <string name="debug_debuglog_screen_session_path_label">Սեսիայի Մարութ</string>
+    <string name="debug_debuglog_screen_log_files_label">Մատյանի Ֆայլեր</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d Ֆայլ պատրաստուաց ե (%2$s)</item>
+        <item quantity="other">%1$d Ֆայլեր պատրաստուաց են (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Ջնջել</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d Կարգաբերման մատյան (%2$s)</item>
+        <item quantity="other">%1$d Կարգաբերման մատյաններ (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Հեռացնել Կարգաբերման մատյանները</string>
+    <string name="support_debuglog_sessions_label">Կարգաբերման Սեսիաներ</string>
+    <string name="support_debuglog_sessions_desc">Կարավարել գրանցված Կարգաբերման մատյանի սեսիանները</string>
+    <string name="support_debuglog_sessions_empty">Կարգաբերման սեսիաններ չկա</string>
+    <string name="support_debuglog_session_recording">Գրանցություն…</string>
+    <string name="support_debuglog_session_compressing">սեղադրություն…</string>
+    <string name="support_debuglog_session_delete_title">Հեռացնել սեսիան?</string>
+    <string name="support_debuglog_session_delete_message">Այս Կարգաբերման սեսիանը կինաբար հեռացվել կլի:</string>
+    <string name="support_debuglog_clear_all_message">Բոլոր Կարգաբերման սեսիանները կինաբար հեռացվել կլին:</string>
+    <string name="support_debuglog_failed_empty_log">Սխալ: մատյանի հալը դատարկ է</string>
+    <string name="support_debuglog_failed_missing_log">Սխալ: մատյանի հալը բացակայում է</string>
+    <string name="support_debuglog_failed_corrupt_zip">Սխալ: zip հալը վնասվածված է</string>
+    <string name="support_debuglog_failed_zip_failed">Սխալ: սեղադրությունը Սխալվել է</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Կապակցություն Մշակողի հետ</string>
+    <string name="support_contact_desc">Լրացնել ձև մշակողին e-mail ուղարկելու համար:</string>
+    <string name="support_contact_welcome">Ես կարդիք բոլոր նամակները կարդաթում ենք և կարկանությամբ պատասխանում, բայց միակայի աշխատում, կարոգ է քիչ ժամանակ պահանջվել: շնորհակալություն:</string>
+    <string name="support_contact_footer">ձևր նամակը կուգկվի ելեկտրոնային նամակով: Բլկի և կարգավորության օգնությունները կցվում են ինքնաբար: Կարող եք կցել խաղագրություններ կամ վիդեո: Նամակի չափերը կլինեն անգլերեն, որպեսզի մշակողին կարող լինի հասկանալ:</string>
+    <string name="support_contact_category_label">Կատեգորիա</string>
+    <string name="support_contact_category_question_label">Հարցում</string>
+    <string name="support_contact_category_feature_label">Ֆունկլության հայց</string>
+    <string name="support_contact_category_bug_label">Սխալի զեկություն</string>
+    <string name="support_contact_description_label">Նկարագրություն</string>
+    <string name="support_contact_description_question_hint">Նկարագրեք ձևր հարցումը մանրամասնորեն: Խնդրում կերկկիսել կոնկրետ:</string>
+    <string name="support_contact_description_feature_hint">Նկարագրեք այն հնարավորությունը, որին կլինեիք տեսնել: Խնդրում կերկկիսել կոնկրետ:</string>
+    <string name="support_contact_description_bug_hint">Նկարագրեք ինչ կատարվել ե կերպես վերարտադրել խնդիրը. Խնդրում կոնկրետ կերկիսել:</string>
+    <string name="support_contact_expected_label">Սպասվող վարքություն</string>
+    <string name="support_contact_expected_hint">Նկարագրեք ինչ կարկանում էիք կատարվի:</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d բառ</item>
+        <item quantity="other">%1$d / %2$d բառեր</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Կարգաբերման մատյան</string>
+    <string name="support_contact_debuglog_picker_hint">Կցել գոյություն ունեցող Կարգաբերման մատյան, կամ գրանցել նոր:</string>
+    <string name="support_contact_debuglog_picker_empty">Կարգաբերման մատյաններ չևն գտնվել: Նախնակին գրանցել մեկը:</string>
+    <string name="support_contact_debuglog_zip_error">Կարգաբերման մատյանի սեղադրությունը չխնդացվել</string>
+    <string name="support_contact_send_action">Բացել ևլեկտրոնային նամակի կիրառությունը</string>
+    <string name="support_contact_no_email_app">Այս սարկին e-mail կիրառություն չկա:</string>
+    <string name="support_contact_debuglog_delete_title">Հեռացնել Կարգաբերման մատյան?</string>
+    <string name="support_contact_debuglog_delete_message">Այս Կարգաբերման մատյանը կինաբար հեռացվել կլի:</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Տե՞ղեկամատյանն ուղարկվեց</string>
+    <string name="support_debuglog_sent_message">Կարգաբերման տեղեկամատյանը հաջողությամբ ուղարկվե՞ց: Տեղեկամատյանը կջնջվի:</string>
+    <string name="support_contact_sent_title">Էլ. նամա՞կն ուղարկվեց</string>
+    <string name="support_contact_sent_message">Էլ. նամակն հաջողությամբ ուղարկվե՞ց: Կցված կարգաբերման տեղեկամատյանը կջնջվի:</string>
 </resources>

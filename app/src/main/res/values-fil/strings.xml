@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopyahin</string>
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
+    <string name="common_feature_requires_pro_msg">Mag-upgrade para ma-unlock.</string>
     <string name="general_donate_action">Mag-donate</string>
     <string name="general_check_action">Suriin</string>
     <string name="general_close_action">Isara</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Hal.: %s</string>
     <string name="upgrade_capod_label">I-upgrade ang CAPod</string>
     <string name="upgrade_capod_description">Kumuha ng mga karagdagang feature at suportahan ang developer.</string>
+    <string name="upgrade_preamble">Ang CAPod ay ginawa ng isang tao. Ang pag-upgrade ay nagbubukas ng mga karagdagang feature at tumutulong na mapanatiling buhay ang app.</string>
+    <string name="upgrade_benefit_themes">Pag-customize ng tema</string>
+    <string name="upgrade_benefit_autoplay">Auto-play &amp; auto-pause</string>
+    <string name="upgrade_benefit_autoconnect">Auto-connect</string>
+    <string name="upgrade_benefit_popups">Popup sa pagbubukas ng case &amp; koneksyon</string>
+    <string name="upgrade_benefit_widgets">Mga widget ng home screen</string>
+    <string name="upgrade_benefit_support">Suportahan ang developer</string>
+    <string name="upgrade_screen_options_description">Parehong mga feature, iba\'t ibang presyo. Ang subscription ay may kasamang libreng pagsubok at maaaring kanselahin anumang oras.</string>
+    <string name="upgrade_screen_subscription_trial_action">Simulan ang libreng pagsubok</string>
+    <string name="upgrade_screen_subscription_action">Mag-subscribe taon-taon</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/taon</string>
+    <string name="upgrade_screen_iap_action">Bilhin nang isang beses</string>
+    <string name="upgrade_screen_iap_action_hint">Isang beses na pagbili: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">I-restore ang pagbili</string>
+    <string name="upgrade_screen_restore_purchase_message">Walang nakitang binili. Tamang account ba ang gamit mo?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Kung nabili mo kamakailan, maaaring tumagal ng ilang sandali para ma-sync ng Google Play.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Subukang muli pagkatapos ng ilang minuto kung hindi lumabas ang iyong pagbili.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Tiyaking naka-sign in ka sa parehong Google account na ginamit sa pagbili.</string>
     <string name="settings_monitor_mode_label">Mode ng monitor</string>
     <string name="settings_monitor_mode_description">Sa ilalim ng anong mga pangyayari mino-monitor ng app na ito ang data ng Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Karagdagang notipikasyon</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Magpakita ng popup kapag unang kumonekta ang device.</string>
     <string name="notification_channel_device_status_label">Katayuan ng device</string>
     <string name="notification_channel_device_status_connected_label">Konektadong device</string>
+    <string name="monitor_notification_extra_enabled_hint">Maaari mong i-disable ang notification na ito sa mga setting ng system.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">I-record ang lahat ng ginagawa ng app sa isang text file na maaari mong ibahagi.</string>
     <string name="debug_debuglog_size_label">Sukat</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Ang mga awtomatikong ulat ng error ay anonymous. Ibahagi ang iyong install ID kung kailangan ng developer na mahanap ang iyong mga ulat ng error.</string>
     <string name="settings_support_label">Suporta</string>
     <string name="settings_support_description">Kung kailangan mo ng tulong.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; Mga Gabay</string>
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="issue_tracker_description">Isang pampublikong issue tracker para sa mga ulat ng bug at mga hiling na feature (Ingles lamang).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Responsableng paghawak ng data.</string>
     <string name="settings_licenses_label">Mga Lisensya</string>
     <string name="settings_category_other_label">Iba pa</string>
+    <string name="settings_category_gethelp_label">Kumuha ng tulong</string>
+    <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mga Setting</string>
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Mga Tagasalin</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Isang widget na nagpapakita ng huling kilalang status ng device.</string>
+    <string name="widget_config_screen_title">Pagsasaayos ng Widget</string>
     <string name="widget_configuration_title">Pumili ng Device</string>
     <string name="widget_configuration_description">Piliin kung aling device profile ang ipapakita ng widget na ito.</string>
     <string name="widget_no_data_label">Walang data</string>
+    <string name="widget_error_loading_label">Error sa pag-load ng widget</string>
     <string name="widget_config_appearance_label">Hitsura</string>
     <string name="widget_config_preset_label">Mga Preset</string>
     <string name="widget_config_background_color_label">Kulay ng background</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Magdagdag ng profile</string>
     <string name="profiles_create_title">Gumawa ng Profile</string>
     <string name="profiles_name_label">Pangalan ng profile</string>
+    <string name="profiles_name_empty_error">Hindi maaaring blangko ang pangalan</string>
     <string name="profiles_name_default">Aking Headphone</string>
     <string name="profiles_model_label">Modelo ng device</string>
     <string name="profiles_paired_device_label">Naka-pair na device</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">Nagpapadala ang AirPods ng status message, na ang bahagi ay naka-encrypt. Pinapayagan ng encryption key ang CAPod na i-decrypt ang buong mensahe. Kailangan mo ng isang beses na access sa isang MacBook.</string>
     <string name="profiles_key_invalid_format">Hindi wastong format ng key</string>
     <string name="profiles_key_expected_format">Inaasahang format: %1$s</string>
+    <string name="profiles_key_status_configured">Naka-configure</string>
+    <string name="profiles_key_status_not_set">Hindi nakatakda</string>
+    <string name="profiles_signal_quality_min_label">Naka-off</string>
+    <string name="profiles_signal_quality_max_label">Mahigpit</string>
     <string name="profiles_priority_hint">Ang pagkakasunod-sunod ng profile ang nagtatakda ng priority. I-drag ang mga profile para i-reorder - ang mga profile na mas mataas sa listahan ang may mas mataas na priority kapag maraming device ang nakatugma.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Mode ng tema</string>
+    <string name="ui_theme_mode_system_label">Sistema</string>
+    <string name="ui_theme_mode_dark_label">Dilim</string>
+    <string name="ui_theme_mode_light_label">Liwanag</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Estilo ng tema</string>
+    <string name="ui_theme_style_default_label">Default</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Katamtamang contrast</string>
+    <string name="ui_theme_style_high_contrast_label">Mataas na contrast</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Kulay ng tema</string>
+    <string name="ui_theme_color_blue_label">Asul</string>
+    <string name="ui_theme_color_green_label">Berde</string>
+    <string name="ui_theme_color_amber_label">Amber</string>
+    <string name="ui_theme_color_disabled_materialyou">Gumagamit ng mga kulay ng wallpaper</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Pagmo-monitor</string>
+    <string name="settings_category_appearance_label">Hitsura</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Mga Hindi Na-save na Pagbabago</string>
     <string name="general_unsaved_changes_message">Mayroon kang mga hindi na-save na pagbabago. Ano ang gusto mong gawin?</string>
     <string name="general_save_and_exit_action">I-save &amp; Lumabas</string>
     <string name="general_discard_action">I-discard</string>
     <string name="general_keep_editing_action">Magpatuloy sa pag-edit</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Masyadong maikli ang recording</string>
+    <string name="debug_debuglog_short_recording_message">Ang debug log ay kailangang makuha ang isyu habang nangyayari ito. Patuloy na i-record, i-reproduce ang problema, pagkatapos ay itigil ang recording.</string>
+    <string name="debug_debuglog_short_recording_continue">Magpatuloy sa pag-record</string>
+    <string name="debug_debuglog_short_recording_stop">Itigil kahit paano</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Debug Log</string>
+    <string name="debug_debuglog_screen_subtitle">I-export ang debug na impormasyon para sa troubleshooting</string>
+    <string name="debug_debuglog_screen_sensitive_title">Sensitibong Impormasyon</string>
+    <string name="debug_debuglog_screen_session_path_label">Session Path</string>
+    <string name="debug_debuglog_screen_log_files_label">Mga Log File</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d file ang handa (%2$s)</item>
+        <item quantity="other">%1$d mga file ang handa (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Burahin</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d debug log (%2$s)</item>
+        <item quantity="other">%1$d mga debug log (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">I-clear ang mga nakaimbak na debug log</string>
+    <string name="support_debuglog_sessions_label">Mga debug session</string>
+    <string name="support_debuglog_sessions_desc">Pamahalaan ang mga naitala na debug log session</string>
+    <string name="support_debuglog_sessions_empty">Walang mga debug session</string>
+    <string name="support_debuglog_session_recording">Nagre-record…</string>
+    <string name="support_debuglog_session_compressing">Kinokompres…</string>
+    <string name="support_debuglog_session_delete_title">Tanggalin ang session?</string>
+    <string name="support_debuglog_session_delete_message">Ang debug session na ito ay permanenteng matatanggal.</string>
+    <string name="support_debuglog_clear_all_message">Lahat ng debug session ay permanenteng matatanggal.</string>
+    <string name="support_debuglog_failed_empty_log">Nabigo: walang laman ang log file</string>
+    <string name="support_debuglog_failed_missing_log">Nabigo: nawawala ang log file</string>
+    <string name="support_debuglog_failed_corrupt_zip">Nabigo: sira ang zip file</string>
+    <string name="support_debuglog_failed_zip_failed">Nabigo: nabigo ang compression</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Makipag-ugnayan sa developer</string>
+    <string name="support_contact_desc">Punan ang isang form para magpadala ng email sa developer.</string>
+    <string name="support_contact_welcome">Personally kong binabasa ang bawat mensahe at ginagawa ko ang lahat para sumagot, ngunit dahil nag-iisa akong nagtatrabaho dito, maaaring tumagal ng kaunting oras. Salamat sa iyong pasensya.</string>
+    <string name="support_contact_footer">Ang iyong mensahe ay ipapadala sa pamamagitan ng email. Ang impormasyon ng device at setup ay awtomatikong naka-attach. Maaari kang mag-attach ng mga screenshot o video sa email. Ang ilang bahagi ng email ay magiging sa Ingles para madaling maintindihan ng developer.</string>
+    <string name="support_contact_category_label">Kategorya</string>
+    <string name="support_contact_category_question_label">Tanong</string>
+    <string name="support_contact_category_feature_label">Kahilingan para sa feature</string>
+    <string name="support_contact_category_bug_label">Ulat ng bug</string>
+    <string name="support_contact_description_label">Paglalarawan</string>
+    <string name="support_contact_description_question_hint">Ilarawan ang iyong tanong nang detalyado. Maging tiyak.</string>
+    <string name="support_contact_description_feature_hint">Ilarawan ang feature na gusto mong makita. Maging tiyak.</string>
+    <string name="support_contact_description_bug_hint">Ilarawan kung ano ang nangyari at kung paano i-reproduce ang isyu. Maging tiyak.</string>
+    <string name="support_contact_expected_label">Inaasahang kilos</string>
+    <string name="support_contact_expected_hint">Ilarawan kung ano ang inaasahan mong mangyayari.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d salita</item>
+        <item quantity="other">%1$d / %2$d mga salita</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Debug log</string>
+    <string name="support_contact_debuglog_picker_hint">Mag-attach ng umiiral na debug log, o mag-record ng bago.</string>
+    <string name="support_contact_debuglog_picker_empty">Walang nahanap na debug log. Mag-record muna.</string>
+    <string name="support_contact_debuglog_zip_error">Nabigo ang pag-compress ng debug log</string>
+    <string name="support_contact_send_action">Buksan ang email app</string>
+    <string name="support_contact_no_email_app">Walang email app na nahanap sa device na ito.</string>
+    <string name="support_contact_debuglog_delete_title">Tanggalin ang debug log?</string>
+    <string name="support_contact_debuglog_delete_message">Ang debug log na ito ay permanenteng matatanggal.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Naipadala na ang log?</string>
+    <string name="support_debuglog_sent_message">Matagumpay bang naipadala ang debug log? Ang log ay matatanggal.</string>
+    <string name="support_contact_sent_title">Naipadala na ang email?</string>
+    <string name="support_contact_sent_message">Matagumpay bang naipadala ang email? Ang kalakip na debug log ay matatanggal.</string>
 </resources>

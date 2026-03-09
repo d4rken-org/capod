@@ -6,6 +6,7 @@
     <string name="general_copy_action">Copia</string>
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_upgrade_action">Actualitza</string>
+    <string name="common_feature_requires_pro_msg">Milloreu per a desbloquejar.</string>
     <string name="general_donate_action">Dona</string>
     <string name="general_check_action">Comprova</string>
     <string name="general_close_action">Tanca</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">P. ex.: %s</string>
     <string name="upgrade_capod_label">Actualitza el CAPod</string>
     <string name="upgrade_capod_description">Obteniu característiques addicionals i doneu suport al desenvolupador.</string>
+    <string name="upgrade_preamble">El CAPod està desenvolupat per una sola persona. La millora desbloqueja funcions addicionals i ajuda a mantenir l\'aplicació activa.</string>
+    <string name="upgrade_benefit_themes">Personalització de temes</string>
+    <string name="upgrade_benefit_autoplay">Reproducció i pausa automàtica</string>
+    <string name="upgrade_benefit_autoconnect">Connexió automàtica</string>
+    <string name="upgrade_benefit_popups">Finestra emergent en obrir la funda i en connectar</string>
+    <string name="upgrade_benefit_widgets">Ginys de la pantalla d\'inici</string>
+    <string name="upgrade_benefit_support">Doneu suport al desenvolupador</string>
+    <string name="upgrade_screen_options_description">Les mateixes funcions, preus diferents. La subscripció inclou una prova gratuïta i es pot cancel·lar en qualsevol moment.</string>
+    <string name="upgrade_screen_subscription_trial_action">Inicia la prova gratuïta</string>
+    <string name="upgrade_screen_subscription_action">Subscripció anual</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/any</string>
+    <string name="upgrade_screen_iap_action">Compra única</string>
+    <string name="upgrade_screen_iap_action_hint">Compra única: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Restaura la compra</string>
+    <string name="upgrade_screen_restore_purchase_message">No s\'ha trobat cap compra. Esteu utilitzant el compte correcte?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Si heu comprat alguna cosa recentment, és possible que el Google Play trigui una estona a sincronitzar-se.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Torneu-ho a provar en uns minuts si la vostra compra no apareix.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Assegureu-vos d\'haver iniciat la sessió amb el mateix compte de Google que heu utilitzat per a la compra.</string>
     <string name="settings_monitor_mode_label">Mode monitor</string>
     <string name="settings_monitor_mode_description">En quines circumstàncies aquesta aplicació supervisa les dades Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificació addicional</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Mostra una finestra emergent quan el dispositiu es connecti per primera vegada.</string>
     <string name="notification_channel_device_status_label">Estat del dispositiu</string>
     <string name="notification_channel_device_status_connected_label">Dispositiu connectat</string>
+    <string name="monitor_notification_extra_enabled_hint">Podeu desactivar aquesta notificació a la configuració del sistema.</string>
     <string name="support_debuglog_label">Registre de depuració</string>
     <string name="support_debuglog_desc">Enregistra tot el que fa l\'aplicació en un fitxer de text que podeu compartir.</string>
     <string name="debug_debuglog_size_label">Mida</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Els informes d\'error automàtics són anònims. Compartiu el vostre ID d\'instal·lació si el desenvolupador necessita trobar els vostres informes d\'error.</string>
     <string name="settings_support_label">Suport</string>
     <string name="settings_support_description">Si necessiteu ajuda.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">PMF i guies</string>
     <string name="issue_tracker_label">Seguiment de problemes</string>
     <string name="issue_tracker_description">Un seguiment de problemes públics per a informes d\'errors i sol·licituds de característiques (només en anglès).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Tractament responsable de les dades.</string>
     <string name="settings_licenses_label">Llicències</string>
     <string name="settings_category_other_label">Altres</string>
+    <string name="settings_category_gethelp_label">Obtén ajuda</string>
+    <string name="settings_category_debug_label">Depuració</string>
     <string name="settings_general_label">Configuració</string>
     <string name="settings_general_description">Configuracions generals que afecten a tota l\'aplicació.</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Traductors</string>
     <string name="translators_thanks_description">Jaime Muñoz(jmmartin_5@outlook.com)</string>
     <string name="widget_description">Un giny que mostra l\'estat de l\'últim dispositiu conegut.</string>
+    <string name="widget_config_screen_title">Configuració del giny</string>
     <string name="widget_configuration_title">Seleccioneu un dispositiu</string>
     <string name="widget_configuration_description">Trieu quin perfil de dispositiu ha de mostrar aquest giny.</string>
     <string name="widget_no_data_label">Sense dades</string>
+    <string name="widget_error_loading_label">Error en carregar el giny</string>
     <string name="widget_config_appearance_label">Aparença</string>
     <string name="widget_config_preset_label">Predefinits</string>
     <string name="widget_config_background_color_label">Color de fons</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Afegeix un perfil</string>
     <string name="profiles_create_title">Crea un perfil</string>
     <string name="profiles_name_label">Nom del perfil</string>
+    <string name="profiles_name_empty_error">El nom no es pot deixar buit</string>
     <string name="profiles_name_default">Els meus auriculars</string>
     <string name="profiles_model_label">Model del dispositiu</string>
     <string name="profiles_paired_device_label">Dispositiu emparellat</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">Els AirPods envien un missatge d\'estat, una part està xifrada. La clau de xifratge permet que el CAPod desxifri el missatge complet. Necessiteu accedir una sola vegada a un MacBook.</string>
     <string name="profiles_key_invalid_format">Format de clau no vàlid</string>
     <string name="profiles_key_expected_format">Format esperat: %1$s</string>
+    <string name="profiles_key_status_configured">Configurat</string>
+    <string name="profiles_key_status_not_set">No s\'ha configurat</string>
+    <string name="profiles_signal_quality_min_label">Desactivat</string>
+    <string name="profiles_signal_quality_max_label">Estricte</string>
     <string name="profiles_priority_hint">L\'ordre dels perfils determina la prioritat. Arrossegueu els perfils per reordenar-los: els perfils més amunt de la llista tenen prioritat quan coincideixen diversos dispositius.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Mode del tema</string>
+    <string name="ui_theme_mode_system_label">Sistema</string>
+    <string name="ui_theme_mode_dark_label">Fosc</string>
+    <string name="ui_theme_mode_light_label">Clar</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Estil del tema</string>
+    <string name="ui_theme_style_default_label">Per defecte</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Contrast mitjà</string>
+    <string name="ui_theme_style_high_contrast_label">Contrast alt</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Color del tema</string>
+    <string name="ui_theme_color_blue_label">Blau</string>
+    <string name="ui_theme_color_green_label">Verd</string>
+    <string name="ui_theme_color_amber_label">Ambre</string>
+    <string name="ui_theme_color_disabled_materialyou">Utilitza els colors del fons de pantalla</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitoratge</string>
+    <string name="settings_category_appearance_label">Aparença</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Canvis no desats</string>
     <string name="general_unsaved_changes_message">Teniu canvis sense desar. Què voleu fer?</string>
     <string name="general_save_and_exit_action">Desa i surt</string>
     <string name="general_discard_action">Descarta</string>
     <string name="general_keep_editing_action">Continua editant</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Gravació massa curta</string>
+    <string name="debug_debuglog_short_recording_message">Un registre de depuració ha de capturar el problema mentre es produeix. Continueu la gravació, reproduïu el problema i després atureu-la.</string>
+    <string name="debug_debuglog_short_recording_continue">Continua la gravació</string>
+    <string name="debug_debuglog_short_recording_stop">Atura-la igualment</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Registre de depuració</string>
+    <string name="debug_debuglog_screen_subtitle">Exporta informació de depuració per a la resolució de problemes</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informació confidencial</string>
+    <string name="debug_debuglog_screen_session_path_label">Ruta de la sessió</string>
+    <string name="debug_debuglog_screen_log_files_label">Fitxers de registre</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fitxer preparat (%2$s)</item>
+        <item quantity="other">%1$d fitxers preparats (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Elimina</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d registre de depuració (%2$s)</item>
+        <item quantity="other">%1$d registres de depuració (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Esborra els registres de depuració emmagatzemats</string>
+    <string name="support_debuglog_sessions_label">Sessions de depuració</string>
+    <string name="support_debuglog_sessions_desc">Gestioneu les sessions de registre de depuració gravades</string>
+    <string name="support_debuglog_sessions_empty">Cap sessió de depuració</string>
+    <string name="support_debuglog_session_recording">S\'està enregistrant…</string>
+    <string name="support_debuglog_session_compressing">S\'està comprimint…</string>
+    <string name="support_debuglog_session_delete_title">Voleu suprimir la sessió?</string>
+    <string name="support_debuglog_session_delete_message">Aquesta sessió de depuració se suprimirà permanentment.</string>
+    <string name="support_debuglog_clear_all_message">Totes les sessions de depuració se suprimiran permanentment.</string>
+    <string name="support_debuglog_failed_empty_log">Error: el fitxer de registre és buit</string>
+    <string name="support_debuglog_failed_missing_log">Error: falta el fitxer de registre</string>
+    <string name="support_debuglog_failed_corrupt_zip">Error: el fitxer zip està corromput</string>
+    <string name="support_debuglog_failed_zip_failed">Error: la compressió ha fallat</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Contacteu amb el desenvolupador</string>
+    <string name="support_contact_desc">Ompliu un formulari per enviar un correu al desenvolupador.</string>
+    <string name="support_contact_welcome">Llegeixo tots els missatges personalment i faig tot el possible per respondre, però com que treballo en això sol, puc trigar una mica. Gràcies per la vostra paciència.</string>
+    <string name="support_contact_footer">El vostre missatge s\'enviarà per correu. La informació del dispositiu i de la configuració s\'adjunta automàticament. Podeu adjuntar captures de pantalla o un vídeo al correu. Algunes parts del correu estaran en anglès perquè el desenvolupador les pugui entendre fàcilment.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_question_label">Pregunta</string>
+    <string name="support_contact_category_feature_label">Sol·licitud de funció</string>
+    <string name="support_contact_category_bug_label">Informe d\'error</string>
+    <string name="support_contact_description_label">Descripció</string>
+    <string name="support_contact_description_question_hint">Descriviu la vostra pregunta amb detall. Si us plau, sigueu específic.</string>
+    <string name="support_contact_description_feature_hint">Descriviu la funcionalitat que us agradaria veure. Si us plau, sigueu específic.</string>
+    <string name="support_contact_description_bug_hint">Descriviu què ha passat i com reproduir el problema. Si us plau, sigueu específic.</string>
+    <string name="support_contact_expected_label">Comportament esperat</string>
+    <string name="support_contact_expected_hint">Descriviu el que esperàveu que passés.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d paraula</item>
+        <item quantity="other">%1$d / %2$d paraules</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Registre de depuració</string>
+    <string name="support_contact_debuglog_picker_hint">Adjunteu un registre de depuració existent o enregistreu-ne un de nou.</string>
+    <string name="support_contact_debuglog_picker_empty">No s\'han trobat registres de depuració. Enregistreu-ne un primer.</string>
+    <string name="support_contact_debuglog_zip_error">No s\'ha pogut comprimir el registre de depuració</string>
+    <string name="support_contact_send_action">Obre l\'aplicació de correu</string>
+    <string name="support_contact_no_email_app">No s\'ha trobat cap aplicació de correu en aquest dispositiu.</string>
+    <string name="support_contact_debuglog_delete_title">Voleu suprimir el registre de depuració?</string>
+    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimrirà permanentment.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">S\'ha enviat el registre?</string>
+    <string name="support_debuglog_sent_message">S\'ha enviat correctament el registre de depuració? El registre s\'eliminarà.</string>
+    <string name="support_contact_sent_title">S\'ha enviat el correu electrònic?</string>
+    <string name="support_contact_sent_message">S\'ha enviat correctament el correu electrònic? El registre de depuració adjunt s\'eliminarà.</string>
 </resources>

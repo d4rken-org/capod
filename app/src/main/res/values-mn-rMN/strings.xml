@@ -6,6 +6,7 @@
     <string name="general_copy_action">Хуулах</string>
     <string name="general_thank_you_label">Баярлалаа</string>
     <string name="general_upgrade_action">Шинэчлэх</string>
+    <string name="common_feature_requires_pro_msg">Нээхийн тулд шинэчлэх.</string>
     <string name="general_donate_action">Хандив өгөх</string>
     <string name="general_check_action">Шалгах</string>
     <string name="general_close_action">Хаах</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Жишээ нь: %s</string>
     <string name="upgrade_capod_label">CAPod-г шинэчлэх</string>
     <string name="upgrade_capod_description">Нэмэлт боломжуудыг авч, хөгжүүлэгчийг дэмжинэ үү.</string>
+    <string name="upgrade_preamble">CAPod-ийг нэг хүн боловсруулсан. Шинэчлэх нь нэмэлт функцуудыг нээж, аппликейшнийг амьд байлгахад тусалдаг.</string>
+    <string name="upgrade_benefit_themes">Загварын тохиргоо</string>
+    <string name="upgrade_benefit_autoplay">Автомат тоглуулах &amp; автомат зогсоох</string>
+    <string name="upgrade_benefit_autoconnect">Автомат холболт</string>
+    <string name="upgrade_benefit_popups">Тохиолдол нээх &amp; холбогдох үед popup</string>
+    <string name="upgrade_benefit_widgets">Нүүр дэлгэцийн виджетүүд</string>
+    <string name="upgrade_benefit_support">Хөгжүүлэгчийг дэмжих</string>
+    <string name="upgrade_screen_options_description">Ижил функцүүд, өөр үнэ. Захиалга үнэгүй туршилтын хугацаатай бөгөөд хүссэн үедээ цуцлах боломжтой.</string>
+    <string name="upgrade_screen_subscription_trial_action">Үнэгүй туршилт эхлэх</string>
+    <string name="upgrade_screen_subscription_action">Жил бүр захиалах</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/жил</string>
+    <string name="upgrade_screen_iap_action">Нэг удаа худалдан авах</string>
+    <string name="upgrade_screen_iap_action_hint">Нэг удаагийн худалдан авалт: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Худалдан авалтыг сэргээх</string>
+    <string name="upgrade_screen_restore_purchase_message">Худалдан авалт олдсонгүй. Та зөв бүртгэл ашиглаж байна уу?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Хэрэв та саяхан худалдан авсан бол Google Play синхрончлоход хэдэн мөч зарцуулж магадгүй.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Худалдан авалт таны дансанд харагдахгүй байвал хэдэн минутын дараа дахин оролдоно уу.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Худалдан авалтад ашигласан Google аккаунтаараа нэвтэрсэн эсэхийг шалгаарай.</string>
     <string name="settings_monitor_mode_label">Хяналтын горим</string>
     <string name="settings_monitor_mode_description">Энэ апп Bluetooth-н өгөгдлийг ямар нөхцөлд хянадаг.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Төхөөрөмж анх удаа холбогдоход попап цонхыг харуулна.</string>
     <string name="notification_channel_device_status_label">Төхөөрөмжийн төлөв</string>
     <string name="notification_channel_device_status_connected_label">Холбогдсон төхөөрөмж</string>
+    <string name="monitor_notification_extra_enabled_hint">Системийн тохиргооноос энэ мэдэгдлийг идэвхгүй болгох боломжтой.</string>
     <string name="support_debuglog_label">Дибаг лог</string>
     <string name="support_debuglog_desc">Апп-н хийж буй бүх зүйлийг хуваалцаж болох текст файлд бүртгэнэ.</string>
     <string name="debug_debuglog_size_label">Хэмжээ</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Автомат алдааны тайлангууд нэргүй байна. Хэрэв хөгжүүлэгчид таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-гаа хуваалцана уу.</string>
     <string name="settings_support_label">Дэмжлэг</string>
     <string name="settings_support_description">Хэрэв танд тусламж хэрэгтэй бол.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">Түгээмэл асуулт &amp; Гарын авлага</string>
     <string name="issue_tracker_label">Асуудал хянагч</string>
     <string name="issue_tracker_description">Алдааны тайлан болон функцийн хүсэлтүүдэд зориулсан нийтийн асуудал хянагч (зөвхөн англи хэлээр).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Өгөгдлийг хариуцлагатайгаар зохицуулах.</string>
     <string name="settings_licenses_label">Лиценз</string>
     <string name="settings_category_other_label">Бусад</string>
+    <string name="settings_category_gethelp_label">Тусламж авах</string>
+    <string name="settings_category_debug_label">Дебаг</string>
     <string name="settings_general_label">Тохиргоо</string>
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Орчуулагчид</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Төхөөрөмжийн хамгийн сүүлийн үеийн мэдэгдэж буй төлвийг харуулсан виджет.</string>
+    <string name="widget_config_screen_title">Виджет тохиргоо</string>
     <string name="widget_configuration_title">Төхөөрөмж сонгох</string>
     <string name="widget_configuration_description">Энэ виджет аль төхөөрөмжийн профайлыг харуулахыг сонгоно уу.</string>
     <string name="widget_no_data_label">Өгөгдөл алга</string>
+    <string name="widget_error_loading_label">Виджет ачааллахад алдаа гарлаа</string>
     <string name="widget_config_appearance_label">Гадаад төрх</string>
     <string name="widget_config_preset_label">Урьдчилсан сонголтууд</string>
     <string name="widget_config_background_color_label">Фоны өнгө</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Профайл нэмэх</string>
     <string name="profiles_create_title">Профайл үүсгэх</string>
     <string name="profiles_name_label">Профайлын нэр</string>
+    <string name="profiles_name_empty_error">Нэр хоосон байж болохгүй</string>
     <string name="profiles_name_default">Миний чихэвч</string>
     <string name="profiles_model_label">Төхөөрөмжийн загвар</string>
     <string name="profiles_paired_device_label">Хослуулсан төхөөрөмж</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods нь төлөвийн мессеж илгээдэг бөгөөд түүний нэг хэсэг нь шифрлэгдсэн байдаг. Шифрлэлтийн түлхүүр нь CAPod-д бүтэн мессежийг тайлах боломжийг олгодог. MacBook-д нэг удаа хандах шаардлагатай.</string>
     <string name="profiles_key_invalid_format">Түлхүүрийн формат буруу</string>
     <string name="profiles_key_expected_format">Хүлээгдэж буй формат: %1$s</string>
+    <string name="profiles_key_status_configured">Тохируулсан</string>
+    <string name="profiles_key_status_not_set">Тохируулаагүй</string>
+    <string name="profiles_signal_quality_min_label">Унтраалттай</string>
+    <string name="profiles_signal_quality_max_label">Хатуу</string>
     <string name="profiles_priority_hint">Профайлын дараалал нь ач холбогдлыг тодорхойлно. Профайлуудыг дахин эрэмбэлэхийн тулд чирнэ үү - жагсаалтад дээр байгаа профайлууд олон төхөөрөмж тохирох үед давуу эрхтэй.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Загварын горим</string>
+    <string name="ui_theme_mode_system_label">Систем</string>
+    <string name="ui_theme_mode_dark_label">Харанхуй</string>
+    <string name="ui_theme_mode_light_label">Гэрэлтэй</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Загварын хэв маяг</string>
+    <string name="ui_theme_style_default_label">Үндсэн</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Дунд зэргийн тод байдал</string>
+    <string name="ui_theme_style_high_contrast_label">Өндөр тод байдал</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Загварын өнгө</string>
+    <string name="ui_theme_color_blue_label">Цэнхэр</string>
+    <string name="ui_theme_color_green_label">Ногоон</string>
+    <string name="ui_theme_color_amber_label">Хув</string>
+    <string name="ui_theme_color_disabled_materialyou">Ханын цаасны өнгийг ашиглана</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Хяналт</string>
+    <string name="settings_category_appearance_label">Гадаад төрх</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Хадгалаагүй өөрчлөлтүүд</string>
     <string name="general_unsaved_changes_message">Танд хадгалаагүй өөрчлөлтүүд байна. Та юу хийхийг хүсэж байна вэ?</string>
     <string name="general_save_and_exit_action">Хадгалаад гарах</string>
     <string name="general_discard_action">Цуцлах</string>
     <string name="general_keep_editing_action">Засварлах үргэлжлүүлэх</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Бичлэг хэтэрхий богино</string>
+    <string name="debug_debuglog_short_recording_message">Дибаг лог нь асуудал гарах үед бичиж авах ёстой. Бичлэгийг үргэлжүүлж, асуудлыг давтан гаргаад, дараа нь бичлэгийг зогсоо.</string>
+    <string name="debug_debuglog_short_recording_continue">Бичлэгийг үргэлжүүлэх</string>
+    <string name="debug_debuglog_short_recording_stop">Ямар ч байсан зогсох</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Дибаг лог</string>
+    <string name="debug_debuglog_screen_subtitle">Алдааг засахад зориулсан дибаг мэдээллийг экспортлох</string>
+    <string name="debug_debuglog_screen_sensitive_title">Нууц мэдээлэл</string>
+    <string name="debug_debuglog_screen_session_path_label">Сессийн зам</string>
+    <string name="debug_debuglog_screen_log_files_label">Лог файлууд</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d файл бэлэн (%2$s)</item>
+        <item quantity="other">%1$d файл бэлэн (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Устгах</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d дибаг лог (%2$s)</item>
+        <item quantity="other">%1$d дибаг лог (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Хадгалагдсан дибаг логуудыг устгах</string>
+    <string name="support_debuglog_sessions_label">Дибаг сессүүд</string>
+    <string name="support_debuglog_sessions_desc">Бичигдсэн дибаг лог сессүүдийг удирдах</string>
+    <string name="support_debuglog_sessions_empty">Дибаг сесс байхгүй</string>
+    <string name="support_debuglog_session_recording">Бичиж байна…</string>
+    <string name="support_debuglog_session_compressing">Шахаж байна…</string>
+    <string name="support_debuglog_session_delete_title">Сессийг устгах уу?</string>
+    <string name="support_debuglog_session_delete_message">Энэ дибаг сесс бүрмөсөн устгагдах болно.</string>
+    <string name="support_debuglog_clear_all_message">Бүх дибаг сессүүд бүрмөсөн устгагдах болно.</string>
+    <string name="support_debuglog_failed_empty_log">Амжилтгүй: лог файл хоосон байна</string>
+    <string name="support_debuglog_failed_missing_log">Амжилтгүй: лог файл олдсонгүй</string>
+    <string name="support_debuglog_failed_corrupt_zip">Амжилтгүй: zip файл гэмтсэн байна</string>
+    <string name="support_debuglog_failed_zip_failed">Амжилтгүй: шахалт амжилтгүй боллоо</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Хөгжүүлэгчтэй холбоо барих</string>
+    <string name="support_contact_desc">Хөгжүүлэгчид имэйл илгээхийн тулд маягтыг бөглөнө үү.</string>
+    <string name="support_contact_welcome">Би бүх мессежийг өөрөө уншиж, хариулахыг хичээдэг, гэхдээ дангаараа ажилладаг тул бага зэрэг хугацаа шаардагдаж болно. Тэвчээртэй байсанд баярлалаа.</string>
+    <string name="support_contact_footer">Таны мессеж имэйлээр илгээгдэх болно. Төхөөрөмж болон тохиргооны мэдээлэл автоматаар хавсаргагдана. Та имэйлд дэлгэцийн зураг эсвэл видео хавсаргаж болно. Имэйлийн зарим хэсэг хөгжүүлэгч ойлгоход хялбар байхаар англи хэлээр байх болно.</string>
+    <string name="support_contact_category_label">Ангилал</string>
+    <string name="support_contact_category_question_label">Асуулт</string>
+    <string name="support_contact_category_feature_label">Функц хүсэх</string>
+    <string name="support_contact_category_bug_label">Алдааны тайлан</string>
+    <string name="support_contact_description_label">Тайлбар</string>
+    <string name="support_contact_description_question_hint">Асуултаа дэлгэрэнгүй тайлбарлана үү. Тодорхой байгаарай.</string>
+    <string name="support_contact_description_feature_hint">Харахыг хүсэж буй функцээ тайлбарлана үү. Тодорхой байгаарай.</string>
+    <string name="support_contact_description_bug_hint">Юу болсон, асуудлыг хэрхэн давтан гаргах талаар тайлбарлана үү. Тодорхой байгаарай.</string>
+    <string name="support_contact_expected_label">Хүлээгдэж буй үйл ажиллагаа</string>
+    <string name="support_contact_expected_hint">Юу болно гэж хүлэсэнээ тайлбарлана үү.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d үг</item>
+        <item quantity="other">%1$d / %2$d үг</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Дибаг лог</string>
+    <string name="support_contact_debuglog_picker_hint">Одоо байгаа дибаг логийг хавсаргах, эсвэл шинийг бичнэ үү.</string>
+    <string name="support_contact_debuglog_picker_empty">Дибаг лог олдсонгүй. Эхлээд нэгийг бичнэ үү.</string>
+    <string name="support_contact_debuglog_zip_error">Дибаг логийг шахахад амжилтгүй боллоо</string>
+    <string name="support_contact_send_action">Имэйл аппыг нээх</string>
+    <string name="support_contact_no_email_app">Энэ төхөөрөмжд имэйл апп олдсонгүй.</string>
+    <string name="support_contact_debuglog_delete_title">Дибаг логийг устгах уу?</string>
+    <string name="support_contact_debuglog_delete_message">Энэ дибаг лог бүрмөсөн устгагдах болно.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Лог илгээсэн үү?</string>
+    <string name="support_debuglog_sent_message">Дебаг лог амжилттай илгээгдсэн үү? Лог устгагдах болно.</string>
+    <string name="support_contact_sent_title">Имэйл илгээсэн үү?</string>
+    <string name="support_contact_sent_message">Имэйл амжилттай илгээгдсэн үү? Хавсаргасан дебаг лог устгагдах болно.</string>
 </resources>

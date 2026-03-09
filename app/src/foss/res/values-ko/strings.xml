@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">후원하기</string>
     <string name="foss_upgrade_alreadydonated_label">이미 후원했어요</string>
     <string name="foss_upgrade_no_money_label">AirPods에 돈을 다 썼어요</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS는 무료 오픈소스입니다. 유용하게 사용하고 계신다면 프로젝트 유지에 도움이 되도록 후원을 고려해 주세요.</string>
+    <string name="upgrade_foss_sponsor_action">개발 후원하기</string>
+    <string name="upgrade_foss_sponsor_subtitle">광고 없음. 추적 없음. Google Play 의존 없음.</string>
+    <string name="upgrade_foss_sponsor_returned_early">벌써 돌아가세요? 여러분의 지원이 CAPod를 유지합니다.</string>
 </resources>

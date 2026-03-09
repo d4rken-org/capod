@@ -6,6 +6,7 @@
     <string name="general_copy_action">පිටපත් කරන්න</string>
     <string name="general_thank_you_label">ඔබට ස්තූතියි</string>
     <string name="general_upgrade_action">යාවත්කාලීන කරන්න</string>
+    <string name="common_feature_requires_pro_msg">අගුළු ඇරීමට උත්සාහ කරන්න.</string>
     <string name="general_donate_action">පරිත්‍යාග කරන්න</string>
     <string name="general_check_action">පරීක්ෂා කරන්න</string>
     <string name="general_close_action">වසන්න</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">උදා: %s</string>
     <string name="upgrade_capod_label">CAPod යාවත්කාලීන කරන්න</string>
     <string name="upgrade_capod_description">අමතර විශේෂාංග ලබාගෙන සංවර්ධකයාට සහාය වන්න.</string>
+    <string name="upgrade_preamble">CAPod සකසා ඇත්තේ එක් කෙනෙකු විසිනි. යාවත්කාලීන කිරීම අමතර විශේෂාංග විවෘත කරන අතර යෙදුම ක්‍රියාත්මකව තබා ගැනීමට උපකාරී වේ.</string>
+    <string name="upgrade_benefit_themes">තේමා අභිරුචිකරණය</string>
+    <string name="upgrade_benefit_autoplay">ස්වයංක්‍රීය ධාවනය සහ ස්වයංක්‍රීය විරාමය</string>
+    <string name="upgrade_benefit_autoconnect">ස්වයංක්‍රීයව සම්බන්ධ වන්න</string>
+    <string name="upgrade_benefit_popups">කේස් විවෘත කිරීමේ සහ සම්බන්ධතාවයේ පොප්අප්</string>
+    <string name="upgrade_benefit_widgets">මුල් පිටු තිර විජට්</string>
+    <string name="upgrade_benefit_support">සංවර්ධකයාට සහාය දෙන්න</string>
+    <string name="upgrade_screen_options_description">එකම විශේෂාංග, විවිධ මිල ගණන්. දායකත්වය නොමිලේ අත්හදා බැලීමක් ඇතුළත් වන අතර ඕනෑම වේලාවක අවලංගු කළ හැකිය.</string>
+    <string name="upgrade_screen_subscription_trial_action">නොමිලේ අත්හදා බැලීම ආරම්භ කරන්න</string>
+    <string name="upgrade_screen_subscription_action">වාර්ෂිකව දායක වන්න</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/වර්ෂයකට</string>
+    <string name="upgrade_screen_iap_action">එකවර මිලදී ගන්න</string>
+    <string name="upgrade_screen_iap_action_hint">එක් වරක් මිලදී ගැනීම: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">මිලදී ගැනීම ප්‍රතිසාධනය කරන්න</string>
+    <string name="upgrade_screen_restore_purchase_message">කිසිදු මිලදී ගැනීමක් හමු නොවීය. ඔබ ትክክለኛ ගිණුම භාවිතා කරනවාද?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">ඔබ මෑතකදී මිලදී ගත්නේ නම්, Google Play සමමුහුර්ත කිරීමට මොහොතක් ගත විය හැක.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ඔබේ මිලදී ගැනීම දිස් නොවේ නම් මිනිත්තු කිහිපයකින් නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">මිලදී ගැනීම සඳහා භාවිතා කළ එකම Google ගිණුමෙන් ඔබ පුරනය වී ඇති බවට සහතික වන්න.</string>
     <string name="settings_monitor_mode_label">නිරීක්ෂණ ප්‍රකාරය</string>
     <string name="settings_monitor_mode_description">මෙම යෙදුම කුමන තත්වයන් යටතේ Bluetooth දත්ත නිරීක්ෂණය කරයිද යන්න.</string>
     <string name="settings_monitor_connected_notification_label">අමතර දැනුම්දීම</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">උපාංගය පළමු වරට සම්බන්ධ වූ විට පොප්-අප් එකක් පෙන්වන්න.</string>
     <string name="notification_channel_device_status_label">උපාංගයේ තත්ත්වය</string>
     <string name="notification_channel_device_status_connected_label">සම්බන්ධිත උපාංගය</string>
+    <string name="monitor_notification_extra_enabled_hint">ඔබට පද්ධති සැකසීම් හි මෙම දැනුම්දීම අබල කළ හැකිය.</string>
     <string name="support_debuglog_label">දෝෂහරණ ලොගය</string>
     <string name="support_debuglog_desc">යෙදුම කරන සෑම දෙයක්ම ඔබට බෙදාගත හැකි පෙළ ගොනුවක සටහන් කරන්න.</string>
     <string name="debug_debuglog_size_label">ප්‍රමාණය</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">ස්වයංක්‍රීය දෝෂ වාර්තා නිර්නාමිකයි. සංවර්ධකයාට ඔබගේ දෝෂ වාර්තා සොයා ගැනීමට අවශ්‍ය නම් ඔබගේ ස්ථාපන හැඳුනුම්පත බෙදා ගන්න.</string>
     <string name="settings_support_label">සහාය</string>
     <string name="settings_support_description">ඔබට යම් උදව්වක් අවශ්‍ය නම්.</string>
+    <string name="settings_wiki_label">විකිය</string>
+    <string name="settings_wiki_description">නිතර අසන ප්‍රශ්න සහ මාර්ගෝපදේශ</string>
     <string name="issue_tracker_label">ගැටළු නිරීක්ෂකය</string>
     <string name="issue_tracker_description">දෝෂ වාර්තා සහ විශේෂාංග ඉල්ලීම් සඳහා වන පොදු ගැටළු නිරීක්ෂකය (ඉංග්‍රීසියෙන් පමණි).</string>
     <string name="discord_label">ඩිස්කෝඩ්</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">දත්ත වගකීමෙන් හැසිරවීම.</string>
     <string name="settings_licenses_label">බලපත්‍ර</string>
     <string name="settings_category_other_label">වෙනත්</string>
+    <string name="settings_category_gethelp_label">සහාය ලබයා ගන්න</string>
+    <string name="settings_category_debug_label">වැදගන්න පරීක්‍ෂණය</string>
     <string name="settings_general_label">සැකසුම්</string>
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">පරිවර්තකයින්</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">අවසාන වරට දන්නා උපාංග තත්ත්වය පෙන්වන විජට් එකක්.</string>
+    <string name="widget_config_screen_title">විජට් වින්යාසය</string>
     <string name="widget_configuration_title">උපාංගය තෝරන්න</string>
     <string name="widget_configuration_description">මෙම විජට් එක කුමන උපාංග පැතිකඩ පෙන්විය යුතුද යන්න තෝරන්න.</string>
     <string name="widget_no_data_label">දත්ත නොමැත</string>
+    <string name="widget_error_loading_label">විජට් පළ්ක් ගැනීම෪ විපත්තියක්</string>
     <string name="widget_config_appearance_label">පෙනුම</string>
     <string name="widget_config_preset_label">පෙර සැකසුම්</string>
     <string name="widget_config_background_color_label">පසුබිම් වර්ණ</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">පැතිකඩ එක් කරන්න</string>
     <string name="profiles_create_title">පැතිකඩ සාදන්න</string>
     <string name="profiles_name_label">පැතිකඩ නම</string>
+    <string name="profiles_name_empty_error">නම හිස් වීම පීල් නෛ</string>
     <string name="profiles_name_default">මගේ හෙඩ්ෆෝන්</string>
     <string name="profiles_model_label">උපාංග ආකෘතිය</string>
     <string name="profiles_paired_device_label">යුගල කළ උපාංගය</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods තත්ත්ව පණිවිඩයක් යවයි, එහි කොටසක් සංකේතනය කර ඇත. සංකේතන යතුර CAPod හට සම්පූර්ණ පණිවිඩය විකේතනය කිරීමට ඉඩ දෙයි. ඔබට එක් වරක් MacBook එකකට ප්‍රවේශය අවශ්‍ය වේ.</string>
     <string name="profiles_key_invalid_format">වලංගු නොවන යතුරු ආකෘතිය</string>
     <string name="profiles_key_expected_format">අපේක්ෂිත ආකෘතිය: %1$s</string>
+    <string name="profiles_key_status_configured">සකස් කරන ලදි</string>
+    <string name="profiles_key_status_not_set">සැකසී නෛ</string>
+    <string name="profiles_signal_quality_min_label">කැපී</string>
+    <string name="profiles_signal_quality_max_label">තරළ</string>
     <string name="profiles_priority_hint">පැතිකඩ අනුපිළිවෙල ප්‍රමුඛතාව තීරණය කරයි. පැතිකඩ නැවත පිළිවෙළට සැකසීමට ඒවා අදින්න - ලැයිස්තුවේ ඉහළ ඇති පැතිකඩවලට බහු උපාංග ගැලපෙන විට ප්‍රමුඛතාව ලැබේ.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">තේමා ප්‍රකාරය</string>
+    <string name="ui_theme_mode_system_label">පද්ධතිය</string>
+    <string name="ui_theme_mode_dark_label">අඳුරු</string>
+    <string name="ui_theme_mode_light_label">ආලෝකමත්</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">තේමා මෝදය</string>
+    <string name="ui_theme_style_default_label">පෙරනිමි</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">මැදුම් ව්‍යතිරේකතාවය</string>
+    <string name="ui_theme_style_high_contrast_label">ඉහළ ව්‍යතිරේකතාවය</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">තේමා වර්ණය</string>
+    <string name="ui_theme_color_blue_label">නීල</string>
+    <string name="ui_theme_color_green_label">හැඩ</string>
+    <string name="ui_theme_color_amber_label">ඇම්බර්</string>
+    <string name="ui_theme_color_disabled_materialyou">වලාකුළිත් වර්ණ භාවිත කරයි</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">පරිශීලනය</string>
+    <string name="settings_category_appearance_label">පෙනුම</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">සුරැකීමට අවශ්‍ය වෙනස්කම්</string>
     <string name="general_unsaved_changes_message">ඔබට සුරැකීමට අවශ්‍ය වෙනස්කම් ඇත. ඔබ කුමක් කිරීමට කැමතිද?</string>
     <string name="general_save_and_exit_action">සුරකින්න සහ පිටවන්න</string>
     <string name="general_discard_action">ඉවතලන්න</string>
     <string name="general_keep_editing_action">සංස්කරණය කරගෙන යන්න</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">රෙකර්ඩිං ඉතා කෙටිය</string>
+    <string name="debug_debuglog_short_recording_message">දෝෂහරණ ලොගයක් ගැටළුව සිදුවෙද්දීම ග්‍රහණය කළ යුතුය. රෙකර්ඩිං දිගටම සිටිය, ගැටළුව නැවත ඇතිකරන්න, ඉන්පසු රෙකර්ඩිං නතර කරන්න.</string>
+    <string name="debug_debuglog_short_recording_continue">රෙකර්ඩිං දිගටම සිටිය</string>
+    <string name="debug_debuglog_short_recording_stop">කෙසේ වෙතත් නතර කරන්න</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">දෝෂහරණ ලොගය</string>
+    <string name="debug_debuglog_screen_subtitle">දෝෂ නිරාකරණය සඳහා දෝෂහරණ තොරතුරු අපනයනය කරන්න</string>
+    <string name="debug_debuglog_screen_sensitive_title">සංවේදී තොරතුරු</string>
+    <string name="debug_debuglog_screen_session_path_label">සැසි මාර්ගය</string>
+    <string name="debug_debuglog_screen_log_files_label">ලොග් ගොනු</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ගොනුව සූදානම් (%2$s)</item>
+        <item quantity="other">%1$d ගොනු සූදානම් (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">මකන්න</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d දෝෂහරණ ලොගය (%2$s)</item>
+        <item quantity="other">%1$d දෝෂහරණ ලොග් (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">සංග්‍රහ දෝෂහරණ ලොග් හිස් කරන්න</string>
+    <string name="support_debuglog_sessions_label">දෝෂහරණ සැශන්</string>
+    <string name="support_debuglog_sessions_desc">රෙකර්ඩ් කරන ලද දෝෂහරණ ලොග් සැශන් කලමනාගත කරන්න</string>
+    <string name="support_debuglog_sessions_empty">දෝෂහරණ සැශන් නැත</string>
+    <string name="support_debuglog_session_recording">රෙකර්ඩිං කරනු ලරි...</string>
+    <string name="support_debuglog_session_compressing">සංකලිත කරනු ලරි...</string>
+    <string name="support_debuglog_session_delete_title">සැශන දුරු කරන්නද?</string>
+    <string name="support_debuglog_session_delete_message">මෙම දෝෂහරණ සැශන හෙළලා දුරු කරනු ලැබේ.</string>
+    <string name="support_debuglog_clear_all_message">සඹු දෝෂහරණ සැශන් හෙළලා දුරු කරනු ලැබේ.</string>
+    <string name="support_debuglog_failed_empty_log">අසහය වී: ලොග් ගොනුව හිස්ය</string>
+    <string name="support_debuglog_failed_missing_log">අසහය වී: ලොග් ගොනුව නැත</string>
+    <string name="support_debuglog_failed_corrupt_zip">අසහය වී: zip ගොනුව විනාශ වී</string>
+    <string name="support_debuglog_failed_zip_failed">අසහය වී: සංකලනය අසහය වී</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">සංවර්ධකයා සමග හය්ක්‍ළ ගන්න</string>
+    <string name="support_contact_desc">සංවර්ධකයාට ඉකිමෙල් දෙනුම් යළ්ලීමට ප්‍රශ්නාවලියක් පිරළන්න.</string>
+    <string name="support_contact_welcome">මම හට හට් ගිණුම් එකක්‍මක් බවට ප්‍රතික්‍‍ෂේප කරන අතර, මම එකක්‍ම් ගිණුම් කරනබින් පිලිතුරුයක් ගත හැක. ඉවත් එකක්‍මක් අවෛ එය්ක කරනබින් ඉවත් ගත හැකිය.</string>
+    <string name="support_contact_footer">ඔබ෪ය සදහන ඉකිමෙල් යන්නේ ඇති යළ්ලනු ලැබේ. උපකරණ සහ සූදානම් හය ස්වයංක්‍රීයව ගල කරයි. ඉකිමෙල්යට ස්ක්‍රීන්ෂොට් හො විඩියොයක් සංලග් කර ගත හැක. ඉකිමෙල්ය෪් කලක් කෝටස් ඉංග්‍රීසි යයින් විය හෙත් සංවර්ධකයාට සහලසින් ඇතික් ගත හැක.</string>
+    <string name="support_contact_category_label">කත්තාව</string>
+    <string name="support_contact_category_question_label">ප්‍රශ්නය</string>
+    <string name="support_contact_category_feature_label">ළන් ඓදිරීමේ</string>
+    <string name="support_contact_category_bug_label">දෝෂ වාර්තාව</string>
+    <string name="support_contact_description_label">විවරණය</string>
+    <string name="support_contact_description_question_hint">ඔබ෪ය ප්‍රශ්නය විස්තරව විවරණ කරන්න. කරුණාකර වන්න.</string>
+    <string name="support_contact_description_feature_hint">ඔබ දකින් ගන්නා ළන් විශේෂාංගය විවරණ කරන්න. කරුණාකර වන්න.</string>
+    <string name="support_contact_description_bug_hint">සිදු වීයද සහ ගැටළුව නැවත ඇති කරන්නේ කෙසේද යන්න විවරණ කරන්න. කරුණාකර වන්න.</string>
+    <string name="support_contact_expected_label">ප෍දු කරනු ලැබීයක්</string>
+    <string name="support_contact_expected_hint">සිදු වේයේ කෙයි යන්න ඔබ යන්න ඇති කලා විවරණ කරන්න.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d වට පදය</item>
+        <item quantity="other">%1$d / %2$d වට් පද</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">දෝෂහරණ ලොගය</string>
+    <string name="support_contact_debuglog_picker_hint">පළ්කාලිය දෝෂහරණ ලොගයක් සංලග් කරන්න, හො අලුත් කරනු ලදියක් රෙකර්ඩ් කරන්න.</string>
+    <string name="support_contact_debuglog_picker_empty">දෝෂහරණ ලොග් හිසි නේ. පළ්වේන් එකක් රෙකර්ඩ් කරන්න.</string>
+    <string name="support_contact_debuglog_zip_error">දෝෂහරණ ලොගය සංකලනය අසහය වී</string>
+    <string name="support_contact_send_action">ඉකිමෙල් යෙදුම ඇහල්න්න</string>
+    <string name="support_contact_no_email_app">මෙම උපකරණයේ ඉකිමෙල් යෙදුමක් පළ්ක් නැත.</string>
+    <string name="support_contact_debuglog_delete_title">දෝෂහරණ ලොගය දුරු කරන්නද?</string>
+    <string name="support_contact_debuglog_delete_message">මෙම දෝෂහරණ ලොගය හෙළලා දුරු කරනු ලැබේ.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ලොග් එක යවා ද?</string>
+    <string name="support_debuglog_sent_message">නිදොස් කිරීමේ ලොග් එක සාර්ථකව යවා ද? ලොග් එක මකා දමනු ඇත.</string>
+    <string name="support_contact_sent_title">විද්‍යුත් තැපෑල යවා ද?</string>
+    <string name="support_contact_sent_message">විද්‍යුත් තැපෑල සාර්ථකව යවා ද? අමුණා ඇති නිදොස් කිරීමේ ලොග් එක මකා දමනු ඇත.</string>
 </resources>

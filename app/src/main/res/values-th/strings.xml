@@ -6,6 +6,7 @@
     <string name="general_copy_action">คัดลอก</string>
     <string name="general_thank_you_label">ขอบคุณ</string>
     <string name="general_upgrade_action">อัปเกรด</string>
+    <string name="common_feature_requires_pro_msg">อัปเกรดเพื่อปลดล็อก</string>
     <string name="general_donate_action">บริจาค</string>
     <string name="general_check_action">ตรวจสอบ</string>
     <string name="general_close_action">ปิด</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">ตัวอย่าง: %s</string>
     <string name="upgrade_capod_label">อัปเกรด CAPod</string>
     <string name="upgrade_capod_description">รับคุณสมบัติเพิ่มเติมและสนับสนุนนักพัฒนา</string>
+    <string name="upgrade_preamble">CAPod พัฒนาโดยบุคคลเพียงคนเดียว การอัปเกรดจะปลดล็อกฟีเจอร์เพิ่มเติมและช่วยให้แอปนี้ดำเนินต่อไปได้</string>
+    <string name="upgrade_benefit_themes">การปรับแต่งธีม</string>
+    <string name="upgrade_benefit_autoplay">เล่นอัตโนมัติและหยุดชั่วคราวอัตโนมัติ</string>
+    <string name="upgrade_benefit_autoconnect">เชื่อมต่ออัตโนมัติ</string>
+    <string name="upgrade_benefit_popups">ป๊อปอัปเมื่อเปิดเคสและเชื่อมต่อ</string>
+    <string name="upgrade_benefit_widgets">วิดเจ็ตหน้าจอหลัก</string>
+    <string name="upgrade_benefit_support">สนับสนุนนักพัฒนา</string>
+    <string name="upgrade_screen_options_description">ฟีเจอร์เดียวกัน ราคาต่างกัน การสมัครสมาชิกมีช่วงทดลองใช้ฟรีและสามารถยกเลิกได้ทุกเมื่อ</string>
+    <string name="upgrade_screen_subscription_trial_action">เริ่มทดลองใช้ฟรี</string>
+    <string name="upgrade_screen_subscription_action">สมัครสมาชิกรายปี</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ปี</string>
+    <string name="upgrade_screen_iap_action">ซื้อครั้งเดียว</string>
+    <string name="upgrade_screen_iap_action_hint">ซื้อครั้งเดียว: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">กู้คืนการซื้อ</string>
+    <string name="upgrade_screen_restore_purchase_message">ไม่พบการสั่งซื้อ คุณใช้บัญชีที่ถูกต้องหรือไม่</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">หากคุณเพิ่งซื้อไป อาจใช้เวลาสักครู่ให้ Google Play ซิงค์ข้อมูล</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ลองอีกครั้งในอีกไม่กี่นาทีหากการซื้อของคุณยังไม่ปรากฏ</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ตรวจสอบให้แน่ใจว่าคุณลงชื่อเข้าใช้ด้วยบัญชี Google เดียวกับที่ใช้ซื้อ</string>
     <string name="settings_monitor_mode_label">โหมดติดตาม</string>
     <string name="settings_monitor_mode_description">ภายใต้สถานการณ์ใดที่แอปนี้จะติดตามข้อมูลบลูทูธ</string>
     <string name="settings_monitor_connected_notification_label">การแจ้งเตือนเพิ่มเติม</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">แสดงป๊อปอัปเมื่ออุปกรณ์เชื่อมต่อเป็นครั้งแรก</string>
     <string name="notification_channel_device_status_label">สถานะอุปกรณ์</string>
     <string name="notification_channel_device_status_connected_label">อุปกรณ์ที่เชื่อมต่อ</string>
+    <string name="monitor_notification_extra_enabled_hint">คุณสามารถปิดการแจ้งเตือนนี้ได้ในการตั้งค่าระบบ</string>
     <string name="support_debuglog_label">บันทึกการดีบัก</string>
     <string name="support_debuglog_desc">บันทึกทุกสิ่งที่แอปกำลังทำลงในไฟล์ข้อความที่คุณสามารถแบ่งปันได้</string>
     <string name="debug_debuglog_size_label">ขนาด</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">รายงานข้อผิดพลาดอัตโนมัติจะไม่ระบุชื่อ แบ่งปัน ID การติดตั้งของคุณหากนักพัฒนาต้องการค้นหารายงานข้อผิดพลาดของคุณ</string>
     <string name="settings_support_label">การสนับสนุน</string>
     <string name="settings_support_description">หากคุณต้องการความช่วยเหลือ</string>
+    <string name="settings_wiki_label">วิกิ</string>
+    <string name="settings_wiki_description">คำถามที่พบบ่อยและคู่มือ</string>
     <string name="issue_tracker_label">เครื่องมือติดตามปัญหา</string>
     <string name="issue_tracker_description">เครื่องมือติดตามปัญหาแบบสาธารณะสำหรับรายงานข้อบกพร่องและคำขอคุณลักษณะ (ภาษาอังกฤษเท่านั้น)</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">การจัดการข้อมูลอย่างมีความรับผิดชอบ</string>
     <string name="settings_licenses_label">ใบอนุญาต</string>
     <string name="settings_category_other_label">อื่นๆ</string>
+    <string name="settings_category_gethelp_label">ขอความช่วยเหลือ</string>
+    <string name="settings_category_debug_label">ดีบัก</string>
     <string name="settings_general_label">การตั้งค่า</string>
     <string name="settings_general_description">การปรับแต่งทั่วไปที่ส่งผลต่อทั้งแอป</string>
     <string name="settings_acknowledgements_label">กิตติกรรมประกาศ</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">ผู้แปล</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">วิดเจ็ตที่แสดงสถานะอุปกรณ์ล่าสุดที่ทราบ</string>
+    <string name="widget_config_screen_title">การตั้งค่าวิดเจ็ต</string>
     <string name="widget_configuration_title">เลือกอุปกรณ์</string>
     <string name="widget_configuration_description">เลือกโปรไฟล์อุปกรณ์ที่วิดเจ็ตนี้ควรแสดง</string>
     <string name="widget_no_data_label">ไม่มีข้อมูล</string>
+    <string name="widget_error_loading_label">เกิดข้อผิดพลาดในการโหลดวิดเจ็ต</string>
     <string name="widget_config_appearance_label">ลักษณะที่ปรากฏ</string>
     <string name="widget_config_preset_label">พรีเซ็ต</string>
     <string name="widget_config_background_color_label">สีพื้นหลัง</string>
@@ -214,6 +240,7 @@
     <string name="profiles_add_action">เพิ่มโปรไฟล์</string>
     <string name="profiles_create_title">สร้างโปรไฟล์</string>
     <string name="profiles_name_label">ชื่อโปรไฟล์</string>
+    <string name="profiles_name_empty_error">ชื่อไม่สามารถว่างเปล่าได้</string>
     <string name="profiles_name_default">หูฟังของฉัน</string>
     <string name="profiles_model_label">รุ่นอุปกรณ์</string>
     <string name="profiles_paired_device_label">อุปกรณ์ที่จับคู่</string>
@@ -236,11 +263,98 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ส่งข้อความสถานะ ซึ่งบางส่วนถูกเข้ารหัส คีย์เข้ารหัสอนุญาตให้ CAPod ถอดรหัสข้อความทั้งหมด คุณต้องเข้าถึง MacBook ครั้งเดียว</string>
     <string name="profiles_key_invalid_format">รูปแบบคีย์ไม่ถูกต้อง</string>
     <string name="profiles_key_expected_format">รูปแบบที่คาดหวัง: %1$s</string>
+    <string name="profiles_key_status_configured">ตั้งค่าแล้ว</string>
+    <string name="profiles_key_status_not_set">ไม่ได้ตั้งค่า</string>
+    <string name="profiles_signal_quality_min_label">ปิด</string>
+    <string name="profiles_signal_quality_max_label">เข้มงวด</string>
     <string name="profiles_priority_hint">ลำดับโปรไฟล์กำหนดลำดับความสำคัญ ลากโปรไฟล์เพื่อจัดเรียงใหม่ - โปรไฟล์ที่อยู่สูงกว่าในรายการจะมีความสำคัญมากกว่าเมื่ออุปกรณ์หลายเครื่องตรงกัน</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">โหมดธีม</string>
+    <string name="ui_theme_mode_system_label">ระบบ</string>
+    <string name="ui_theme_mode_dark_label">มืด</string>
+    <string name="ui_theme_mode_light_label">สว่าง</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">สไตล์ธีม</string>
+    <string name="ui_theme_style_default_label">ค่าเริ่มต้น</string>
+    <string name="ui_theme_style_materialyou_label">วัสดุ ของคุณ</string>
+    <string name="ui_theme_style_medium_contrast_label">ความเปรียบต่างปานกลาง</string>
+    <string name="ui_theme_style_high_contrast_label">ความเปรียบต่างสูง</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">สีธีม</string>
+    <string name="ui_theme_color_blue_label">สีน้ำเงิน</string>
+    <string name="ui_theme_color_green_label">สีเขียว</string>
+    <string name="ui_theme_color_amber_label">สีอำพัน</string>
+    <string name="ui_theme_color_disabled_materialyou">ใช้สีสายตา</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">การตรวจสอบ</string>
+    <string name="settings_category_appearance_label">รูปลักษณ์</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">การเปลี่ยนแปลงที่ไม่ได้บันทึก</string>
     <string name="general_unsaved_changes_message">คุณมีการเปลี่ยนแปลงที่ไม่ได้บันทึก คุณต้องการทำอะไร?</string>
     <string name="general_save_and_exit_action">บันทึก &amp; ออก</string>
     <string name="general_discard_action">ทิ้ง</string>
     <string name="general_keep_editing_action">แก้ไขต่อ</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">การบันทึกสั้นเกินไป</string>
+    <string name="debug_debuglog_short_recording_message">ไฟล์ล็อกดีบักต้องจับปัญหาขณะที่เกิดขึ้น บันทึกต่อไป สร้างปัญหาซ้ำแล้วหยุดการบันทึก</string>
+    <string name="debug_debuglog_short_recording_continue">บันทึกต่อไป</string>
+    <string name="debug_debuglog_short_recording_stop">หยุดอยู่ดี</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">บันทึกดีบัก</string>
+    <string name="debug_debuglog_screen_subtitle">ส่งออกข้อมูลดีบักสำหรับการแก้ไขปัญหา</string>
+    <string name="debug_debuglog_screen_sensitive_title">ข้อมูลที่อ่อนไหว</string>
+    <string name="debug_debuglog_screen_session_path_label">เส้นทางเซสชัน</string>
+    <string name="debug_debuglog_screen_log_files_label">ไฟล์บันทึก</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ไฟล์พร้อม (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">ลบ</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="other">%1$d ไฟล์ล็อกดีบัก (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">ลบไฟล์ล็อกดีบักที่บันทึกไว้</string>
+    <string name="support_debuglog_sessions_label">เซสชันดีบัก</string>
+    <string name="support_debuglog_sessions_desc">จัดการเซสชันล็อกดีบักที่บันทึกไว้</string>
+    <string name="support_debuglog_sessions_empty">ไม่มีเซสชันดีบัก</string>
+    <string name="support_debuglog_session_recording">กำลังบันทึก…</string>
+    <string name="support_debuglog_session_compressing">กำลังบีบอัด…</string>
+    <string name="support_debuglog_session_delete_title">ลบเซสชัน?</string>
+    <string name="support_debuglog_session_delete_message">เซสชันดีบักนี้จะถูกลบอย่างถาวร</string>
+    <string name="support_debuglog_clear_all_message">เซสชันดีบักทั้งหมดจะถูกลบอย่างถาวร</string>
+    <string name="support_debuglog_failed_empty_log">ล้มเหลว: ไฟล์ล็อกว่างเปล่า</string>
+    <string name="support_debuglog_failed_missing_log">ล้มเหลว: ไม่พบไฟล์ล็อก</string>
+    <string name="support_debuglog_failed_corrupt_zip">ล้มเหลว: ไฟล์ zip เสียหาย</string>
+    <string name="support_debuglog_failed_zip_failed">ล้มเหลว: การบีบอัดล้มเหลว</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">ติดต่อนักพัฒนา</string>
+    <string name="support_contact_desc">กรอกแบบฟอร์มเพื่อส่งอีเมลให้นักพัฒนา</string>
+    <string name="support_contact_welcome">ผมอ่านข้อความทุกข้อความด้วยตนเองและพยายามตอบกลับ แต่เนื่องจากทำงานคนเดียว อาจใช้เวลาสักหน่อย ขอบคุณสำหรับความอดทน</string>
+    <string name="support_contact_footer">ข้อความของคุณจะถูกส่งผ่านอีเมล ข้อมูลอุปกรณ์และการตั้งค่าจะแนบโดยอัตโนมัติ คุณสามารถแนบภาพหน้าจอหรือวิดีโอในอีเมล บางส่วนของอีเมลจะเป็นภาษาอังกฤษเพื่อให้นักพัฒนาเข้าใจได้ง่าย</string>
+    <string name="support_contact_category_label">หมวดหมู่</string>
+    <string name="support_contact_category_question_label">คำถาม</string>
+    <string name="support_contact_category_feature_label">คำขอฟีเจอร์</string>
+    <string name="support_contact_category_bug_label">รายงานบัก</string>
+    <string name="support_contact_description_label">คำอธิบาย</string>
+    <string name="support_contact_description_question_hint">อธิบายคำถามของคุณอย่างละเอียด โปรดระบุให้ชัดเจน</string>
+    <string name="support_contact_description_feature_hint">อธิบายฟีเจอร์ที่คุณอยากเห็น โปรดระบุให้ชัดเจน</string>
+    <string name="support_contact_description_bug_hint">อธิบายสิ่งที่เกิดขึ้นและวิธีทำซ้ำปัญหา โปรดระบุให้ชัดเจน</string>
+    <string name="support_contact_expected_label">ผลลัพธ์ที่คาดหวัง</string>
+    <string name="support_contact_expected_hint">อธิบายสิ่งที่คุณคาดว่าจะเกิดขึ้น</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d คำ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">บันทึกการดีบัก</string>
+    <string name="support_contact_debuglog_picker_hint">แนบไฟล์ล็อกดีบักที่มีอยู่แล้ว หรือบันทึกใหม่</string>
+    <string name="support_contact_debuglog_picker_empty">ไม่พบไฟล์ล็อกดีบัก บันทึกก่อน</string>
+    <string name="support_contact_debuglog_zip_error">บีบอัดไฟล์ล็อกดีบักล้มเหลว</string>
+    <string name="support_contact_send_action">เปิดแอปอีเมล</string>
+    <string name="support_contact_no_email_app">ไม่พบแอปอีเมลในอุปกรณ์นี้</string>
+    <string name="support_contact_debuglog_delete_title">ลบไฟล์ล็อกดีบัก?</string>
+    <string name="support_contact_debuglog_delete_message">ไฟล์ล็อกดีบักนี้จะถูกลบอย่างถาวร</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ส่งบันทึกแล้วใช่ไหม?</string>
+    <string name="support_debuglog_sent_message">บันทึกการดีบักถูกส่งสำเร็จหรือไม่? บันทึกจะถูกลบออก</string>
+    <string name="support_contact_sent_title">ส่งอีเมลแล้วใช่ไหม?</string>
+    <string name="support_contact_sent_message">อีเมลถูกส่งสำเร็จหรือไม่? บันทึกการดีบักที่แนบมาจะถูกลบออก</string>
 </resources>

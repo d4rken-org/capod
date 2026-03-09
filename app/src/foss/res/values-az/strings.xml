@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">İanə ver</string>
     <string name="foss_upgrade_alreadydonated_label">Artıq ianə vermişəm</string>
     <string name="foss_upgrade_no_money_label">Bütün pulumu AirPods-lara xərcləyirəm</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS pulsuzdur və açıq mənbəlidir. Faydalı tapırsınızsa, layihənin davamına kömək etmək üçün inkişafı maliyyələşdirməyi düşünün.</string>
+    <string name="upgrade_foss_sponsor_action">İnkişafı sponsor edin</string>
+    <string name="upgrade_foss_sponsor_subtitle">Reklam yoxdur. İzləmə yoxdur. Google Play bağlılığı yoxdur.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Artıq geri qayıtdınız? Dəstəyiniz CAPod-u yaşadır.</string>
 </resources>

@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Doner</string>
     <string name="foss_upgrade_alreadydonated_label">Jeg har allerede donert</string>
     <string name="foss_upgrade_no_money_label">Jeg bruker alle pengene mine på AirPods</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS er gratis og åpen kildekode. Hvis du synes den er nyttig, kan du vurdere å sponse utviklingen for å bidra til at prosjektet går videre.</string>
+    <string name="upgrade_foss_sponsor_action">Støtt utviklingen</string>
+    <string name="upgrade_foss_sponsor_subtitle">Ingen reklame. Ingen sporing. Ingen Google Play-avhengighet.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Allerede tilbake? Din støtte holder CAPod i live.</string>
 </resources>

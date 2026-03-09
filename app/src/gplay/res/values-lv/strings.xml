@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Google Play radās kļūda. Lūdzu, mēģiniet vēlreiz vēlāk vai pārstartējiet tālruni.\n\nKļūda: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Google Play norēķinu kļūda</string>
     <string name="upgrades_gplay_billing_result_error_description">Radās kļūda, pieprasot no Google Play jūsu pirkuma informāciju. Notīriet Google Play kešatmiņu un pārstartējiet tālruni.\n\nKļūda %s</string>
+    <string name="upgrade_restore_action">Atjaunot pirkumu</string>
 </resources>

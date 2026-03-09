@@ -6,6 +6,7 @@
     <string name="general_copy_action">Afrita</string>
     <string name="general_thank_you_label">Þakka þér fyrir</string>
     <string name="general_upgrade_action">Uppfæra</string>
+    <string name="common_feature_requires_pro_msg">Uppfærðu til að opna.</string>
     <string name="general_donate_action">Gefa</string>
     <string name="general_check_action">Athuga</string>
     <string name="general_close_action">Loka</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">T.d.: %s</string>
     <string name="upgrade_capod_label">Uppfæra CAPod</string>
     <string name="upgrade_capod_description">Fáðu viðbótareiginleika og styrktu þróunaraðilann.</string>
+    <string name="upgrade_preamble">CAPod er þróað af einum einstaklingi. Uppfærsla opnar aukaeiginleika og hjálpar til við að halda forritinu lifandi.</string>
+    <string name="upgrade_benefit_themes">Sérsniðið þema</string>
+    <string name="upgrade_benefit_autoplay">Sjálfvirk spilun og hlé</string>
+    <string name="upgrade_benefit_autoconnect">Sjálfvirk tenging</string>
+    <string name="upgrade_benefit_popups">Sprettigluggi við opnun hulsins og tengingu</string>
+    <string name="upgrade_benefit_widgets">Heimaskjáviðbætur</string>
+    <string name="upgrade_benefit_support">Styðja þróunarmann</string>
+    <string name="upgrade_screen_options_description">Sömu eiginleikar, mismunandi verðlag. Áskriftin inniheldur ókeypis prufutímabil og hægt er að segja henni upp hvenær sem er.</string>
+    <string name="upgrade_screen_subscription_trial_action">Hefja ókeypis prufutímabil</string>
+    <string name="upgrade_screen_subscription_action">Gerast áskrifandi árlega</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ár</string>
+    <string name="upgrade_screen_iap_action">Kaupa einu sinni</string>
+    <string name="upgrade_screen_iap_action_hint">Einskiptiskaup: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Endurheimta kaup</string>
+    <string name="upgrade_screen_restore_purchase_message">Engin kaup fundust. Ertu að nota réttan aðgang?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Ef þú keyptir nýlega gæti það tekið smá tíma fyrir Google Play að samstilla.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Reyndu aftur eftir nokkrar mínútur ef kaupin þín birtast ekki.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Gakktu úr skugga um að þú sért skráður inn með sama Google-reikninginn sem notaður var við kaupin.</string>
     <string name="settings_monitor_mode_label">Vöktunarstilling</string>
     <string name="settings_monitor_mode_description">Undir hvaða kringumstæðum þetta forrit fylgist með Bluetooth gögnum.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Sýna upplýsingaglugga þegar tækið tengist í fyrsta skipti.</string>
     <string name="notification_channel_device_status_label">Staða tækis</string>
     <string name="notification_channel_device_status_connected_label">Tengt tæki</string>
+    <string name="monitor_notification_extra_enabled_hint">Þú getur slökkt á þessum tilkynningum í kerfistillingum.</string>
     <string name="support_debuglog_label">Villuleitarskrá</string>
     <string name="support_debuglog_desc">Skráðu allt sem forritið gerir í textaskrá sem þú getur deilt.</string>
     <string name="debug_debuglog_size_label">Stærð</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Sjálfvirkar villuskýrslur eru nafnlausar. Deildu uppsetningarauðkenninu þínu ef þróunaraðilinn þarf að finna villuskýrslurnar þínar.</string>
     <string name="settings_support_label">Aðstoð</string>
     <string name="settings_support_description">Ef þú þarft hjálp.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">Algengar spurningar og leiðbeiningar</string>
     <string name="issue_tracker_label">Vandamálarakning</string>
     <string name="issue_tracker_description">Opinber vandamálarakning fyrir villuskýrslur og beiðnir um eiginleika (aðeins á ensku).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Meðhöndlun gagna á ábyrgan hátt.</string>
     <string name="settings_licenses_label">Leyfi</string>
     <string name="settings_category_other_label">Annað</string>
+    <string name="settings_category_gethelp_label">Fá hjálp</string>
+    <string name="settings_category_debug_label">Kembing</string>
     <string name="settings_general_label">Stillingar</string>
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Þýðendur</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Græja sem sýnir síðast þekkta stöðu tækis.</string>
+    <string name="widget_config_screen_title">Skilgreining viðbætar</string>
     <string name="widget_configuration_title">Velja tæki</string>
     <string name="widget_configuration_description">Veldu hvaða tækjasnið þessi græja á að sýna.</string>
     <string name="widget_no_data_label">Engin gögn</string>
+    <string name="widget_error_loading_label">Villa við hloaðning viðbætar</string>
     <string name="widget_config_appearance_label">Útlit</string>
     <string name="widget_config_preset_label">Forstillingar</string>
     <string name="widget_config_background_color_label">Bakgrunnslitur</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Bæta við sniði</string>
     <string name="profiles_create_title">Búa til snið</string>
     <string name="profiles_name_label">Nafn sniðs</string>
+    <string name="profiles_name_empty_error">Nafn má ekki vera tómt</string>
     <string name="profiles_name_default">Heyrnartólin mín</string>
     <string name="profiles_model_label">Gerð tækis</string>
     <string name="profiles_paired_device_label">Parað tæki</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods senda stöðuskilaboð, hluti þeirra er dulritaður. Dulritunarlykillinn gerir CAPod kleift að afkóða öll skilaboðin. Þú þarft einu sinni aðgang að MacBook.</string>
     <string name="profiles_key_invalid_format">Ógilt lyklasnið</string>
     <string name="profiles_key_expected_format">Vænt snið: %1$s</string>
+    <string name="profiles_key_status_configured">Skilgreint</string>
+    <string name="profiles_key_status_not_set">Ekki stillt</string>
+    <string name="profiles_signal_quality_min_label">Af</string>
+    <string name="profiles_signal_quality_max_label">Strangt</string>
     <string name="profiles_priority_hint">Röð sniða ákvarðar forgang. Dragðu snið til að endurraða þeim — snið ofar á listanum hafa forgang þegar mörg tæki passa.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Þem-stilling</string>
+    <string name="ui_theme_mode_system_label">Kerfi</string>
+    <string name="ui_theme_mode_dark_label">Mörkur</string>
+    <string name="ui_theme_mode_light_label">Ljóst</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Þem-stjóll</string>
+    <string name="ui_theme_style_default_label">Sjálfgefinn</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Miðlungs skarðsætni</string>
+    <string name="ui_theme_style_high_contrast_label">Há skarðsætni</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Þem-litur</string>
+    <string name="ui_theme_color_blue_label">Blár</string>
+    <string name="ui_theme_color_green_label">Grænn</string>
+    <string name="ui_theme_color_amber_label">Gulrauður</string>
+    <string name="ui_theme_color_disabled_materialyou">Notar liti bakgrunnsmyndar</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Eftirlit</string>
+    <string name="settings_category_appearance_label">Utsýni</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Óvistaðar breytingar</string>
     <string name="general_unsaved_changes_message">Þú ert með óvistaðar breytingar. Hvað viltu gera?</string>
     <string name="general_save_and_exit_action">Vista &amp; Hætta</string>
     <string name="general_discard_action">Henda</string>
     <string name="general_keep_editing_action">Halda áfram að breyta</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Upptökun of stutt</string>
+    <string name="debug_debuglog_short_recording_message">Kembingarskrá þá að ná villunni þegar hana geisar. Haltu áfram með upptöku, endurskapa vandamalæ, og stoppau upptökuna.</string>
+    <string name="debug_debuglog_short_recording_continue">Halda áfram upptöku</string>
+    <string name="debug_debuglog_short_recording_stop">Stoppa úvis</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Kembingarskrá</string>
+    <string name="debug_debuglog_screen_subtitle">Flytja út kembingarupplýsingard til bilanagreininga</string>
+    <string name="debug_debuglog_screen_sensitive_title">Vikvæmar upplýsingarr</string>
+    <string name="debug_debuglog_screen_session_path_label">Slóð lotunnar</string>
+    <string name="debug_debuglog_screen_log_files_label">Skráarskrár</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d skrá tilbúinn (%2$s)</item>
+        <item quantity="other">%1$d skráar tilbúnar (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Eyða</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d kembingarskrá (%2$s)</item>
+        <item quantity="other">%1$d kembingarskrár (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Hreinsa geymdar kembingarskrár</string>
+    <string name="support_debuglog_sessions_label">Kembingarltur</string>
+    <string name="support_debuglog_sessions_desc">Sjá um skráðar kembingarlotu-skrár</string>
+    <string name="support_debuglog_sessions_empty">Engar kembingarltur</string>
+    <string name="support_debuglog_session_recording">Tekur upp…</string>
+    <string name="support_debuglog_session_compressing">Er að þjitta…</string>
+    <string name="support_debuglog_session_delete_title">Eyða lotu?</string>
+    <string name="support_debuglog_session_delete_message">Þessari kembingarlotu verður varðlegt eyðt.</string>
+    <string name="support_debuglog_clear_all_message">Allar kembingarlotur verða varðlegt eyðar.</string>
+    <string name="support_debuglog_failed_empty_log">Mistókst: skráarskrá er tóm</string>
+    <string name="support_debuglog_failed_missing_log">Mistókst: skráarskrá vantar</string>
+    <string name="support_debuglog_failed_corrupt_zip">Mistókst: zip-skrá er skemmd</string>
+    <string name="support_debuglog_failed_zip_failed">Mistókst: þjittaðning mistókst</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Hafa samband við þróunarmann</string>
+    <string name="support_contact_desc">Fylltu út eyðublað til að senda þróunarmanni tölvupóst.</string>
+    <string name="support_contact_welcome">Ég les hvert skilaboð sjálfur og geri mitt besta til að svara, en þegar ég vinn á þessu einn kann það taka smá tíma. Pakk þér fyrir þólinmæðina.</string>
+    <string name="support_contact_footer">Skilaboðin þín verða send með tölvupósti. Tæki- og uppsetningarupplýsingarr eru héfðar sjálfkrafa. Hægt er að hæfa skýumyðnd eða mófundarmynd við tölvupóstinn. Sumir hlutar tölvupóstsins verða á ensku svo að þróunarmaðurinn geti að skilja hann.</string>
+    <string name="support_contact_category_label">Flokkur</string>
+    <string name="support_contact_category_question_label">Spurning</string>
+    <string name="support_contact_category_feature_label">Bægi um eiginleika</string>
+    <string name="support_contact_category_bug_label">Villutilkyðning</string>
+    <string name="support_contact_description_label">Lýsing</string>
+    <string name="support_contact_description_question_hint">Settu spurninguna þína ítarlega niður. Vinsamlegast verðu áhertni.</string>
+    <string name="support_contact_description_feature_hint">Lýstu þver eiginleikann sem þú vilt sjá. Vinsamlegast verðu áhertni.</string>
+    <string name="support_contact_description_bug_hint">Lýstu þver þvert sem gerst og hvernig hægt er að endurskapa vandamalæ. Vinsamlegast verðu áhertni.</string>
+    <string name="support_contact_expected_label">Vænt héguð</string>
+    <string name="support_contact_expected_hint">Lýstu þver þver sem þú bjóst við að geriðist.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d orð</item>
+        <item quantity="other">%1$d / %2$d orð</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Villuleitarskrá</string>
+    <string name="support_contact_debuglog_picker_hint">Hæfa fyrirliggjandi kembingarskrá, eða taka upp nýja.</string>
+    <string name="support_contact_debuglog_picker_empty">Engar kembingarskrár fundust. Taktu upp eina fyrst.</string>
+    <string name="support_contact_debuglog_zip_error">Tókst ekki að þjitta kembingarskrá</string>
+    <string name="support_contact_send_action">Opna tölvupóstforrit</string>
+    <string name="support_contact_no_email_app">Ekkert tölvupóstforrit fundiðst á þessum tæki.</string>
+    <string name="support_contact_debuglog_delete_title">Eyða kembingarskrá?</string>
+    <string name="support_contact_debuglog_delete_message">Þessari kembingarskrá verður varðlegt eyðt.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Fannst skráin?</string>
+    <string name="support_debuglog_sent_message">Var villuleitarskráin send? Skráin verður eytt.</string>
+    <string name="support_contact_sent_title">Var tölvupósturinn sendur?</string>
+    <string name="support_contact_sent_message">Var tölvupósturinn sendur? Villuleitarskráin sem fylgdi verður eytt.</string>
 </resources>

@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">පරිත්‍යාග</string>
     <string name="foss_upgrade_alreadydonated_label">මම දැනටමත් පරිත්‍යාග කර ඇත</string>
     <string name="foss_upgrade_no_money_label">මම මගේ මුදල් සියල්ල AirPods සඳහා වියදම් කරමි</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS නියමිත සහ විවෘත මූලාශ්‍රයි. ඔබට ඉත උපකාරී නම්, ආයෝජනය ගිණුම්‍ සහය ගෙවිපීම කිරීමට අර්වමයක් ගෙවිපීම් ප්‍රස්තා කරන්නට සංවර්ධන කරන්න.</string>
+    <string name="upgrade_foss_sponsor_action">සංවර්ධනයට අනුග්‍රහය දෙන්න</string>
+    <string name="upgrade_foss_sponsor_subtitle">අළු නැත. ට්‍රැකිං නැත. Google Play සලක඾ත්වය නැත.</string>
+    <string name="upgrade_foss_sponsor_returned_early">එක්බේන්මට පළ්ට? ඔබ෪් සහය් CAPod ක්‍රියාත්මකව තබා ගෙනයි.</string>
 </resources>

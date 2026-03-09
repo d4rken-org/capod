@@ -6,6 +6,7 @@
     <string name="general_copy_action">Salin</string>
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_upgrade_action">Tingkatkan</string>
+    <string name="common_feature_requires_pro_msg">Tingkatkan untuk membuka.</string>
     <string name="general_donate_action">Donasi</string>
     <string name="general_check_action">Periksa</string>
     <string name="general_close_action">Tutup</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Misalnya: %s</string>
     <string name="upgrade_capod_label">Tingkatkan CAPod</string>
     <string name="upgrade_capod_description">Dapatkan fitur tambahan dan dukung pengembang.</string>
+    <string name="upgrade_preamble">CAPod dikembangkan oleh satu orang. Meningkatkan versi membuka fitur tambahan dan membantu menjaga aplikasi tetap berjalan.</string>
+    <string name="upgrade_benefit_themes">Kustomisasi tema</string>
+    <string name="upgrade_benefit_autoplay">Putar otomatis &amp; jeda otomatis</string>
+    <string name="upgrade_benefit_autoconnect">Sambungkan otomatis</string>
+    <string name="upgrade_benefit_popups">Popup saat kotak dibuka &amp; dihubungkan</string>
+    <string name="upgrade_benefit_widgets">Widget layar beranda</string>
+    <string name="upgrade_benefit_support">Dukung pengembang</string>
+    <string name="upgrade_screen_options_description">Fitur sama, harga berbeda. Langganan mencakup uji coba gratis dan dapat dibatalkan kapan saja.</string>
+    <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis</string>
+    <string name="upgrade_screen_subscription_action">Berlangganan tahunan</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/tahun</string>
+    <string name="upgrade_screen_iap_action">Beli sekali</string>
+    <string name="upgrade_screen_iap_action_hint">Pembelian satu kali: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
+    <string name="upgrade_screen_restore_purchase_message">Tidak ada pembelian yang ditemukan. Apakah Anda menggunakan akun yang benar?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Jika Anda baru saja melakukan pembelian, mungkin butuh beberapa saat agar Google Play dapat menyinkronkan.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Coba lagi dalam beberapa menit jika pembelian Anda belum muncul.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Pastikan Anda masuk dengan akun Google yang sama yang digunakan untuk pembelian.</string>
     <string name="settings_monitor_mode_label">Mode pantau</string>
     <string name="settings_monitor_mode_description">Dalam kondisi apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notifikasi tambahan</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Tampilkan pop-up saat perangkat pertama kali terhubung.</string>
     <string name="notification_channel_device_status_label">Status perangkat</string>
     <string name="notification_channel_device_status_connected_label">Perangkat terhubung</string>
+    <string name="monitor_notification_extra_enabled_hint">Anda dapat menonaktifkan notifikasi ini di pengaturan sistem.</string>
     <string name="support_debuglog_label">Log debug</string>
     <string name="support_debuglog_desc">Rekam semua yang dilakukan aplikasi dalam file teks yang dapat Anda bagikan.</string>
     <string name="debug_debuglog_size_label">Ukuran</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Laporan kesalahan otomatis bersifat anonim. Bagikan ID instalasi Anda jika pengembang perlu menemukan laporan kesalahan Anda.</string>
     <string name="settings_support_label">Dukungan</string>
     <string name="settings_support_description">Jika Anda membutuhkan bantuan.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; Panduan</string>
     <string name="issue_tracker_label">Pelacak masalah</string>
     <string name="issue_tracker_description">Pelacak masalah publik untuk laporan bug &amp; permintaan fitur (hanya dalam bahasa Inggris).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Menangani data secara bertanggung jawab.</string>
     <string name="settings_licenses_label">Lisensi</string>
     <string name="settings_category_other_label">Lainnya</string>
+    <string name="settings_category_gethelp_label">Dapatkan bantuan</string>
+    <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Pengaturan</string>
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
     <string name="settings_acknowledgements_label">Ucapan Terima Kasih</string>
@@ -99,11 +123,13 @@
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan aplikasi ini ke bahasa favorit Anda.</string>
     <string name="translators_thanks_title">Penerjemah</string>
-    <string name="translators_thanks_description">darken</string>
+    <string name="translators_thanks_description">gelapkan</string>
     <string name="widget_description">Widget yang menampilkan status perangkat terakhir yang diketahui.</string>
+    <string name="widget_config_screen_title">Konfigurasi Widget</string>
     <string name="widget_configuration_title">Pilih Perangkat</string>
     <string name="widget_configuration_description">Pilih profil perangkat mana yang akan ditampilkan widget ini.</string>
     <string name="widget_no_data_label">Tidak ada data</string>
+    <string name="widget_error_loading_label">Gagal memuat widget</string>
     <string name="widget_config_appearance_label">Penampilan</string>
     <string name="widget_config_preset_label">Prasetel</string>
     <string name="widget_config_background_color_label">Warna latar belakang</string>
@@ -214,6 +240,7 @@
     <string name="profiles_add_action">Tambah profil</string>
     <string name="profiles_create_title">Buat Profil</string>
     <string name="profiles_name_label">Nama profil</string>
+    <string name="profiles_name_empty_error">Nama tidak boleh kosong</string>
     <string name="profiles_name_default">Headphone Saya</string>
     <string name="profiles_model_label">Model perangkat</string>
     <string name="profiles_paired_device_label">Perangkat yang dipasangkan</string>
@@ -236,11 +263,98 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods mengirim pesan status, yang sebagian dienkripsi. Kunci enkripsi memungkinkan CAPod mendekripsi pesan lengkap. Anda memerlukan akses satu kali ke MacBook.</string>
     <string name="profiles_key_invalid_format">Format kunci tidak valid</string>
     <string name="profiles_key_expected_format">Format yang diharapkan: %1$s</string>
+    <string name="profiles_key_status_configured">Dikonfigurasi</string>
+    <string name="profiles_key_status_not_set">Tidak diatur</string>
+    <string name="profiles_signal_quality_min_label">Nonaktif</string>
+    <string name="profiles_signal_quality_max_label">Ketat</string>
     <string name="profiles_priority_hint">Urutan profil menentukan prioritas. Seret profil untuk mengurutkan ulang - profil yang lebih tinggi dalam daftar diutamakan ketika beberapa perangkat cocok.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Mode tema</string>
+    <string name="ui_theme_mode_system_label">Sistem</string>
+    <string name="ui_theme_mode_dark_label">Gelap</string>
+    <string name="ui_theme_mode_light_label">Terang</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Gaya tema</string>
+    <string name="ui_theme_style_default_label">Bawaan</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Kontras sedang</string>
+    <string name="ui_theme_style_high_contrast_label">Kontras tinggi</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Warna tema</string>
+    <string name="ui_theme_color_blue_label">Biru</string>
+    <string name="ui_theme_color_green_label">Hijau</string>
+    <string name="ui_theme_color_amber_label">Kuning keemasan</string>
+    <string name="ui_theme_color_disabled_materialyou">Menggunakan warna wallpaper</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Pemantauan</string>
+    <string name="settings_category_appearance_label">Tampilan</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Perubahan Belum Disimpan</string>
     <string name="general_unsaved_changes_message">Anda memiliki perubahan yang belum disimpan. Apa yang ingin Anda lakukan?</string>
     <string name="general_save_and_exit_action">Simpan &amp; Keluar</string>
     <string name="general_discard_action">Buang</string>
     <string name="general_keep_editing_action">Lanjutkan Mengedit</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Rekaman terlalu singkat</string>
+    <string name="debug_debuglog_short_recording_message">Log debug perlu merekam masalah saat terjadi. Terus merekam, reproduksi masalah, lalu hentikan rekaman.</string>
+    <string name="debug_debuglog_short_recording_continue">Lanjutkan merekam</string>
+    <string name="debug_debuglog_short_recording_stop">Hentikan saja</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Catatan debug</string>
+    <string name="debug_debuglog_screen_subtitle">Ekspor informasi debug untuk pemecahan masalah</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informasi Sensitif</string>
+    <string name="debug_debuglog_screen_session_path_label">Jalur sesi</string>
+    <string name="debug_debuglog_screen_log_files_label">File log</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d file siap (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Hapus</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="other">%1$d log debug (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Hapus log debug tersimpan</string>
+    <string name="support_debuglog_sessions_label">Sesi debug</string>
+    <string name="support_debuglog_sessions_desc">Kelola sesi log debug yang direkam</string>
+    <string name="support_debuglog_sessions_empty">Tidak ada sesi debug</string>
+    <string name="support_debuglog_session_recording">Merekam…</string>
+    <string name="support_debuglog_session_compressing">Mengompresi…</string>
+    <string name="support_debuglog_session_delete_title">Hapus sesi?</string>
+    <string name="support_debuglog_session_delete_message">Sesi debug ini akan dihapus secara permanen.</string>
+    <string name="support_debuglog_clear_all_message">Semua sesi debug akan dihapus secara permanen.</string>
+    <string name="support_debuglog_failed_empty_log">Gagal: file log kosong</string>
+    <string name="support_debuglog_failed_missing_log">Gagal: file log tidak ditemukan</string>
+    <string name="support_debuglog_failed_corrupt_zip">Gagal: file zip rusak</string>
+    <string name="support_debuglog_failed_zip_failed">Gagal: kompresi gagal</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Hubungi pengembang</string>
+    <string name="support_contact_desc">Isi formulir untuk mengirim email kepada pengembang.</string>
+    <string name="support_contact_welcome">Saya membaca setiap pesan sendiri dan berusaha membalas sebaik mungkin, namun karena saya bekerja sendiri, mungkin butuh waktu. Terima kasih atas kesabaran Anda.</string>
+    <string name="support_contact_footer">Pesan Anda akan dikirim melalui email. Informasi perangkat dan pengaturan dilampirkan secara otomatis. Anda dapat melampirkan tangkapan layar atau video ke email. Beberapa bagian email akan dalam bahasa Inggris agar pengembang dapat memahaminya dengan mudah.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_question_label">Pertanyaan</string>
+    <string name="support_contact_category_feature_label">Permintaan fitur</string>
+    <string name="support_contact_category_bug_label">Laporan bug</string>
+    <string name="support_contact_description_label">Deskripsi</string>
+    <string name="support_contact_description_question_hint">Jelaskan pertanyaan Anda secara terperinci. Mohon bersikap spesifik.</string>
+    <string name="support_contact_description_feature_hint">Jelaskan fitur yang ingin Anda lihat. Mohon bersikap spesifik.</string>
+    <string name="support_contact_description_bug_hint">Jelaskan apa yang terjadi dan cara mereproduksi masalah. Mohon bersikap spesifik.</string>
+    <string name="support_contact_expected_label">Perilaku yang diharapkan</string>
+    <string name="support_contact_expected_hint">Jelaskan apa yang Anda harapkan terjadi.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d kata</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log debug</string>
+    <string name="support_contact_debuglog_picker_hint">Lampirkan log debug yang ada, atau rekam yang baru.</string>
+    <string name="support_contact_debuglog_picker_empty">Tidak ada log debug ditemukan. Rekam satu terlebih dahulu.</string>
+    <string name="support_contact_debuglog_zip_error">Gagal mengompresi log debug</string>
+    <string name="support_contact_send_action">Buka aplikasi email</string>
+    <string name="support_contact_no_email_app">Tidak ada aplikasi email di perangkat ini.</string>
+    <string name="support_contact_debuglog_delete_title">Hapus log debug?</string>
+    <string name="support_contact_debuglog_delete_message">Log debug ini akan dihapus secara permanen.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log terkirim?</string>
+    <string name="support_debuglog_sent_message">Apakah log debug berhasil dikirim? Log akan dihapus.</string>
+    <string name="support_contact_sent_title">Email terkirim?</string>
+    <string name="support_contact_sent_message">Apakah email berhasil dikirim? Log debug yang terlampir akan dihapus.</string>
 </resources>

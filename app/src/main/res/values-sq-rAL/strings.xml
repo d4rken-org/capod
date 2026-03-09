@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopjo</string>
     <string name="general_thank_you_label">Faleminderit</string>
     <string name="general_upgrade_action">Përmirëso</string>
+    <string name="common_feature_requires_pro_msg">Përmirëso për të zhbllokuar.</string>
     <string name="general_donate_action">Dhuroni</string>
     <string name="general_check_action">Kontrollo</string>
     <string name="general_close_action">Mbyll</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">P.sh.: %s</string>
     <string name="upgrade_capod_label">Përmirëso CAPod</string>
     <string name="upgrade_capod_description">Merr veçori shtesë dhe mbështet zhvilluesin.</string>
+    <string name="upgrade_preamble">CAPod është zhvilluar nga një person i vetëm. Përmirësimi zhbllokon veçori shtesë dhe ndihmon të mbajë aplikacionin gjallë.</string>
+    <string name="upgrade_benefit_themes">Personalizimi i temës</string>
+    <string name="upgrade_benefit_autoplay">Auto-luaj &amp; auto-pauzë</string>
+    <string name="upgrade_benefit_autoconnect">Lidhje automatike</string>
+    <string name="upgrade_benefit_popups">Dritare kërcyese kur hapet kuti &amp; lidhja</string>
+    <string name="upgrade_benefit_widgets">Miniaplikacionet e ekranit kryesor</string>
+    <string name="upgrade_benefit_support">Mbështet zhvilluesin</string>
+    <string name="upgrade_screen_options_description">Të njëjtat veçori, çmime të ndryshme. Abonimi përfshin një provë falas dhe mund të anulohet në çdo kohë.</string>
+    <string name="upgrade_screen_subscription_trial_action">Fillo provën falas</string>
+    <string name="upgrade_screen_subscription_action">Abonohu vjetor</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/vit</string>
+    <string name="upgrade_screen_iap_action">Bli një herë</string>
+    <string name="upgrade_screen_iap_action_hint">Blerje një herë: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Rivendos blerjen</string>
+    <string name="upgrade_screen_restore_purchase_message">Nuk u gjetën blerje. Po përdorni llogarinë e duhur?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Nëse keni blerë së fundmi, mund të duhet pak kohë që Google Play të sinkronizohet.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Provo sërish pas disa minutash nëse blerja juaj nuk shfaqet.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Sigurohuni që jeni identifikuar me të njëjtin llogari Google të përdorur për blerjen.</string>
     <string name="settings_monitor_mode_label">Modaliteti i monitorimit</string>
     <string name="settings_monitor_mode_description">Në çfarë rrethanash ky aplikacion monitoron të dhënat Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Njoftim shtesë</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Shfaq një popup kur pajisja lidhet për herë të parë.</string>
     <string name="notification_channel_device_status_label">Statusi i pajisjes</string>
     <string name="notification_channel_device_status_connected_label">Pajisja e lidhur</string>
+    <string name="monitor_notification_extra_enabled_hint">Mund ta çaktivizoni këtë njoftim në cilësimet e sistemit.</string>
     <string name="support_debuglog_label">Regjistri i korrigjimit</string>
     <string name="support_debuglog_desc">Regjistro gjithçka që aplikacioni po bën në një skedar teksti që mund ta ndani.</string>
     <string name="debug_debuglog_size_label">Madhësia</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Raportet automatike të gabimeve janë anonime. Ndani ID-në tuaj të instalimit nëse zhvilluesi ka nevojë të gjejë raportet tuaja të gabimeve.</string>
     <string name="settings_support_label">Mbështetje</string>
     <string name="settings_support_description">Nëse keni nevojë për ndihmë.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; Udhëzues</string>
     <string name="issue_tracker_label">Gjurmuesi i problemeve</string>
     <string name="issue_tracker_description">Një gjurmues publik i problemeve për raportet e gabimeve dhe kërkesat për veçori (vetëm në anglisht).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Trajtimi i të dhënave me përgjegjësi.</string>
     <string name="settings_licenses_label">Licencat</string>
     <string name="settings_category_other_label">Të tjera</string>
+    <string name="settings_category_gethelp_label">Merr ndihmë</string>
+    <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cilësimet</string>
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Përkthyesit</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Një widget që tregon statusin e fundit të njohur të pajisjes.</string>
+    <string name="widget_config_screen_title">Konfigurimi i miniaplikacionit</string>
     <string name="widget_configuration_title">Zgjidh pajisjen</string>
     <string name="widget_configuration_description">Zgjidhni cilin profil pajisje duhet të shfaqë ky widget.</string>
     <string name="widget_no_data_label">Asnjë e dhënë</string>
+    <string name="widget_error_loading_label">Gabim gjatë ngarkimit të miniaplikacionit</string>
     <string name="widget_config_appearance_label">Pamja dhe ndjesia</string>
     <string name="widget_config_preset_label">Parapërmbledhjet</string>
     <string name="widget_config_background_color_label">Ngjyra e sfondit</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Shto profil</string>
     <string name="profiles_create_title">Krijo profil</string>
     <string name="profiles_name_label">Emri i profilit</string>
+    <string name="profiles_name_empty_error">Emri nuk mund të jetë bosh</string>
     <string name="profiles_name_default">Kufjet e mia</string>
     <string name="profiles_model_label">Modeli i pajisjes</string>
     <string name="profiles_paired_device_label">Pajisja e çiftuar</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods dërgojnë një mesazh statusi, pjesa e të cilit është e enkriptuar. Çelësi i enkriptimit lejon CAPod të dekriptojë mesazhin e plotë. Ju nevojitet qasje njëherëshme në një MacBook.</string>
     <string name="profiles_key_invalid_format">Format i pavlefshëm i çelësit</string>
     <string name="profiles_key_expected_format">Formati i pritur: %1$s</string>
+    <string name="profiles_key_status_configured">Konfiguruar</string>
+    <string name="profiles_key_status_not_set">Nuk është caktuar</string>
+    <string name="profiles_signal_quality_min_label">Jo</string>
+    <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">Rendi i profileve përcakton prioritetin. Tërhiqni profilet për t\'i rirenditur - profilet më lart në listë kanë përparësi kur përputhen pajisje të shumta.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Tema e aplikacionit</string>
+    <string name="ui_theme_mode_system_label">Sistemi</string>
+    <string name="ui_theme_mode_dark_label">Errësirë</string>
+    <string name="ui_theme_mode_light_label">Dritë</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Stili i temës</string>
+    <string name="ui_theme_style_default_label">Bazike</string>
+    <string name="ui_theme_style_materialyou_label">Materia dhe Ju</string>
+    <string name="ui_theme_style_medium_contrast_label">Kontrast mesatar</string>
+    <string name="ui_theme_style_high_contrast_label">Kontrast i lartë</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Ngjyra e temës</string>
+    <string name="ui_theme_color_blue_label">Blu</string>
+    <string name="ui_theme_color_green_label">Gjelbrë</string>
+    <string name="ui_theme_color_amber_label">Amber</string>
+    <string name="ui_theme_color_disabled_materialyou">Përdor ngjyrat e sfondit</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitorimi</string>
+    <string name="settings_category_appearance_label">Pamja</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ndryshime të paruajtura</string>
     <string name="general_unsaved_changes_message">Keni ndryshime të paruajtura. Çfarë dëshironi të bëni?</string>
     <string name="general_save_and_exit_action">Ruaj &amp; dil</string>
     <string name="general_discard_action">Hidh poshtë</string>
     <string name="general_keep_editing_action">Vazhdo redaktimin</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Regjistrim shumë i shkurtër</string>
+    <string name="debug_debuglog_short_recording_message">Një regjistrim debug duhet të kapë problemin ndërkohë që ndodh. Vazhdoni të regjistroni, riprodhoni problemin, pastaj ndaloni regjistrimin.</string>
+    <string name="debug_debuglog_short_recording_continue">Vazhdo regjistrimin</string>
+    <string name="debug_debuglog_short_recording_stop">Ndalo gjithsesi</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Regjistri i korrigjimit</string>
+    <string name="debug_debuglog_screen_subtitle">Eksporto informacionin e korrigjimit për zgjidhjen e problemeve</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informacion i ndjeshëm</string>
+    <string name="debug_debuglog_screen_session_path_label">Rruga e sesionit</string>
+    <string name="debug_debuglog_screen_log_files_label">Skedarët e regjistrit</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d skedar gati (%2$s)</item>
+        <item quantity="other">%1$d skedarë gati (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Fshije</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d regjistër korrigjimi (%2$s)</item>
+        <item quantity="other">%1$d regjistër korrigjimi (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Fshi regjistrat e ruajtur të korrigjimit</string>
+    <string name="support_debuglog_sessions_label">Sesionet e korrigjimit</string>
+    <string name="support_debuglog_sessions_desc">Menaxho sesionet e regjistrit të korrigjimit të regjistruara</string>
+    <string name="support_debuglog_sessions_empty">Asnjië sesion korrigjimi</string>
+    <string name="support_debuglog_session_recording">Duke regjistruar…</string>
+    <string name="support_debuglog_session_compressing">Duke kompresuar…</string>
+    <string name="support_debuglog_session_delete_title">Fshi sesionin?</string>
+    <string name="support_debuglog_session_delete_message">Ky sesion korrigjimi do të fshihet përgjithmonë.</string>
+    <string name="support_debuglog_clear_all_message">Të gjitha sesionet e korrigjimit do të fshihen përgjithmonë.</string>
+    <string name="support_debuglog_failed_empty_log">Dështoi: skedari i regjistrit është bosh</string>
+    <string name="support_debuglog_failed_missing_log">Dështoi: skedari i regjistrit mungon</string>
+    <string name="support_debuglog_failed_corrupt_zip">Dështoi: skedari zip është i korruptuar</string>
+    <string name="support_debuglog_failed_zip_failed">Dështoi: kompresimi dështoi</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Kontakto zhvilluesin</string>
+    <string name="support_contact_desc">Plotëso një formular për të dërguar zhvilluesit një email.</string>
+    <string name="support_contact_welcome">I lexoj çdo mesazh vetë dhe bëj çmos të përgjigjem, por meqë punoj vetëm në këtë, mund të duhet pak kohë. Faleminderit për durim.</string>
+    <string name="support_contact_footer">Mesazhi juaj do të dërgohet me email. Informacioni i pajisjes dhe i konfigurimit bash këngjitet automatikisht. Mund të bash këngjitni pamje ekrani ose video në email. Disa pjesë të emailit do të jenë në anglisht që zhvilluesi ta kuptojë le htë.</string>
+    <string name="support_contact_category_label">Kategoria</string>
+    <string name="support_contact_category_question_label">Pyetje</string>
+    <string name="support_contact_category_feature_label">Kërkgesë për veçori</string>
+    <string name="support_contact_category_bug_label">Raport gabimi</string>
+    <string name="support_contact_description_label">Përshkrimi</string>
+    <string name="support_contact_description_question_hint">Përshkruaj pyetjen tënde në detaje. Ju lutem bëhu specifik.</string>
+    <string name="support_contact_description_feature_hint">Përshkruaj veçorinë që do të doje të shihje. Ju lutem bëhu specifik.</string>
+    <string name="support_contact_description_bug_hint">Përshkruaj çfarë ndodhi dhe si të riprodhosh problemin. Ju lutem bëhu specifik.</string>
+    <string name="support_contact_expected_label">Sjellja e pritur</string>
+    <string name="support_contact_expected_hint">Përshkruaj çfarë priste të ndodhte.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d fjalë</item>
+        <item quantity="other">%1$d / %2$d fjalë</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Regjistri i korrigjimit</string>
+    <string name="support_contact_debuglog_picker_hint">Bashkëngjit një regjistër korrigjimi ekzistues, ose regjistro një të ri.</string>
+    <string name="support_contact_debuglog_picker_empty">Asnië regjistër korrigjimi nuk u gjet. Regjistro njërin fillimisht.</string>
+    <string name="support_contact_debuglog_zip_error">Dështoi kompresimi i regjistrit të korrigjimit</string>
+    <string name="support_contact_send_action">Hap aplikacionin e emailit</string>
+    <string name="support_contact_no_email_app">Asnië aplikacion emaili nuk u gjet në këtë pajisje.</string>
+    <string name="support_contact_debuglog_delete_title">Fshi regjistrin e korrigjimit?</string>
+    <string name="support_contact_debuglog_delete_message">Ky regjistër korrigjimi do të fshihet përgjithmonë.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Regjistri u dërgua?</string>
+    <string name="support_debuglog_sent_message">A u dërgua regjistri i korrigjimit me sukses? Regjistri do të fshihet.</string>
+    <string name="support_contact_sent_title">Email-i u dërgua?</string>
+    <string name="support_contact_sent_message">A u dërgua email-i me sukses? Regjistri i korrigjimit i bashkëngjitur do të fshihet.</string>
 </resources>

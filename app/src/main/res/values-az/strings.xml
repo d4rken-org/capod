@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopyala</string>
     <string name="general_thank_you_label">Təşəkkür edirik</string>
     <string name="general_upgrade_action">Yenilə</string>
+    <string name="common_feature_requires_pro_msg">Kiliddən açmaq üçün yüksəldin.</string>
     <string name="general_donate_action">İanə verin</string>
     <string name="general_check_action">Yoxla</string>
     <string name="general_close_action">Bağla</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Nümunə: %s</string>
     <string name="upgrade_capod_label">CAPod-u yenilə</string>
     <string name="upgrade_capod_description">Əlavə funksiyalar əldə edin və tərtibatçını dəstəkləyin.</string>
+    <string name="upgrade_preamble">CAPod tək bir şəxs tərəfindən hazırlanıb. Yüksəltmə əlavə funksiyaları açır və tətbiqin yaşamasına kömək edir.</string>
+    <string name="upgrade_benefit_themes">Tema fərdiləşdirməsi</string>
+    <string name="upgrade_benefit_autoplay">Avtomatik oynat və avtomatik dayandır</string>
+    <string name="upgrade_benefit_autoconnect">Avtomatik qoşulma</string>
+    <string name="upgrade_benefit_popups">Qutunu açarkən və qoşulduqda açılan pəncərə</string>
+    <string name="upgrade_benefit_widgets">Ana ekran vidcetləri</string>
+    <string name="upgrade_benefit_support">Tərtibatçıya dəstək ol</string>
+    <string name="upgrade_screen_options_description">Eyni funksiyalar, fərqli qiymət. Abunəlik pulsuz sınaq müddəti daxildir və istənilən vaxt ləğv edilə bilər.</string>
+    <string name="upgrade_screen_subscription_trial_action">Pulsuz sınaqa başla</string>
+    <string name="upgrade_screen_subscription_action">İllik abunə ol</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/il</string>
+    <string name="upgrade_screen_iap_action">Bir dəfə al</string>
+    <string name="upgrade_screen_iap_action_hint">Birdəfəlik alış: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Alışı bərpa et</string>
+    <string name="upgrade_screen_restore_purchase_message">Heç bir satın alma tapılmadı. Doğru hesabı istifadə edirsiniz?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Əgər bu yaxınlarda satın almısınızsa, Google Play-in sinxronlaşması bir az vaxt ala bilər.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Alışınız görünmürsə bir neçə dəqiqədən sonra yenidən cəhd edin.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Alış üçün istifadə edilmiş eyni Google hesabı ilə daxil olduğunuzu yoxlayın.</string>
     <string name="settings_monitor_mode_label">İzləmə rejimi</string>
     <string name="settings_monitor_mode_description">Bu tətbiqin Bluetooth məlumatlarını hansı şəraitdə izlədiyi.</string>
     <string name="settings_monitor_connected_notification_label">Əlavə bildiriş</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Cihaz ilk dəfə qoşulduqda pop-up göstər.</string>
     <string name="notification_channel_device_status_label">Cihaz statusu</string>
     <string name="notification_channel_device_status_connected_label">Qoşulmuş cihaz</string>
+    <string name="monitor_notification_extra_enabled_hint">Bu bildirişi sistem parametrlərində söndürə bilərsiniz.</string>
     <string name="support_debuglog_label">Sazlama jurnalı</string>
     <string name="support_debuglog_desc">Tətbiqin etdiyi hər şeyi paylaşa biləcəyiniz bir mətn faylına yazın.</string>
     <string name="debug_debuglog_size_label">Ölçü</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Avtomatik səhv hesabatları anonimdir. Tərtibatçının səhv hesabatlarınızı tapması lazımdırsa, quraşdırma ID-nizi paylaşın.</string>
     <string name="settings_support_label">Dəstək</string>
     <string name="settings_support_description">Əgər bir az köməyə ehtiyacınız varsa.</string>
+    <string name="settings_wiki_label">Viki</string>
+    <string name="settings_wiki_description">TSS və bələdlər</string>
     <string name="issue_tracker_label">Problem izləyicisi</string>
     <string name="issue_tracker_description">Səhv hesabatları və funksiya tələbləri üçün ictimai problem izləyicisi (yalnız ingilis dilində).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Məlumatlarla məsuliyyətli davranmaq.</string>
     <string name="settings_licenses_label">Lisenziyalar</string>
     <string name="settings_category_other_label">Digər</string>
+    <string name="settings_category_gethelp_label">Kömək al</string>
+    <string name="settings_category_debug_label">Sazlama</string>
     <string name="settings_general_label">Parametrlər</string>
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Tərcüməçilər</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Ən son məlum cihaz statusunu göstərən bir vidcet.</string>
+    <string name="widget_config_screen_title">Vidcet Konfiqurasiyası</string>
     <string name="widget_configuration_title">Cihaz seçin</string>
     <string name="widget_configuration_description">Bu vidcetin hansı cihaz profilini göstərəcəyini seçin.</string>
     <string name="widget_no_data_label">Məlumat yoxdur</string>
+    <string name="widget_error_loading_label">Vidcet yüklənilərkən xəta</string>
     <string name="widget_config_appearance_label">Görünüş</string>
     <string name="widget_config_preset_label">Hazır şablonlar</string>
     <string name="widget_config_background_color_label">Fon rəngi</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Profil əlavə et</string>
     <string name="profiles_create_title">Profil yarat</string>
     <string name="profiles_name_label">Profil adı</string>
+    <string name="profiles_name_empty_error">Ad boş ola bilməz</string>
     <string name="profiles_name_default">Qulaqlıqlarım</string>
     <string name="profiles_model_label">Cihaz modeli</string>
     <string name="profiles_paired_device_label">Cütləşdirilmiş cihaz</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods status mesajı göndərir, bunun bir hissəsi şifrələnmişdir. Şifrələmə açarı CAPod-a tam mesajı deşifrə etməyə imkan verir. Bir dəfə MacBook-a girişiniz olmalıdır.</string>
     <string name="profiles_key_invalid_format">Yanlış açar formatı</string>
     <string name="profiles_key_expected_format">Gözlənilən format: %1$s</string>
+    <string name="profiles_key_status_configured">Konfiqurasıya edilib</string>
+    <string name="profiles_key_status_not_set">Təyin edilməyib</string>
+    <string name="profiles_signal_quality_min_label">Söndürülüb</string>
+    <string name="profiles_signal_quality_max_label">Sərt</string>
     <string name="profiles_priority_hint">Profil sırası prioriteti müəyyən edir. Profilləri yenidən sıralamaq üçün sürüşdürün — siyahıda daha yuxarıda olan profillər bir neçə cihaz uyğun gəldikdə üstünlük təşkil edir.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Tema modu</string>
+    <string name="ui_theme_mode_system_label">Sistem</string>
+    <string name="ui_theme_mode_dark_label">Tünd</string>
+    <string name="ui_theme_mode_light_label">Açıq</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Tema stili</string>
+    <string name="ui_theme_style_default_label">Standart</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Orta kontrast</string>
+    <string name="ui_theme_style_high_contrast_label">Yüksək kontrast</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Tema rəngi</string>
+    <string name="ui_theme_color_blue_label">Mavi</string>
+    <string name="ui_theme_color_green_label">Yaşıl</string>
+    <string name="ui_theme_color_amber_label">Kəhrəba</string>
+    <string name="ui_theme_color_disabled_materialyou">Divar kăğizi rənglərini istifadə edir</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitorinq</string>
+    <string name="settings_category_appearance_label">Görünüş</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Saxlanmamış dəyişikliklər</string>
     <string name="general_unsaved_changes_message">Saxlanmamış dəyişiklikləriniz var. Nə etmək istərdiniz?</string>
     <string name="general_save_and_exit_action">Saxla &amp; Çıx</string>
     <string name="general_discard_action">İmtina et</string>
     <string name="general_keep_editing_action">Redaktəyə davam et</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Yazılış çox qısa</string>
+    <string name="debug_debuglog_short_recording_message">Sazlama jurnalı problemi baş verdəyi anda əks etdirməlidir. Yazışa davam edin, problemi təkrar edin, sonra yazışı dayandırın.</string>
+    <string name="debug_debuglog_short_recording_continue">Yazışa davam et</string>
+    <string name="debug_debuglog_short_recording_stop">Yenə de dayandır</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Sazlama Jurnalı</string>
+    <string name="debug_debuglog_screen_subtitle">Problemləri həll etmək üçün sazlama məlumatlarını ixrac edin</string>
+    <string name="debug_debuglog_screen_sensitive_title">Həssas Məlumat</string>
+    <string name="debug_debuglog_screen_session_path_label">Seans Yolu</string>
+    <string name="debug_debuglog_screen_log_files_label">Jurnal Faylləri</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fayl hazırdır (%2$s)</item>
+        <item quantity="other">%1$d fayl hazırdır (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Sil</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d sazlama jurnalı (%2$s)</item>
+        <item quantity="other">%1$d sazlama jurnalı (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Saxlanılan sazlama jurnallarını sil</string>
+    <string name="support_debuglog_sessions_label">Sazlama seansı</string>
+    <string name="support_debuglog_sessions_desc">Yazılmış sazlama jurnalı seansını idarə edin</string>
+    <string name="support_debuglog_sessions_empty">Sazlama seansı yoxdur</string>
+    <string name="support_debuglog_session_recording">Yazılır…</string>
+    <string name="support_debuglog_session_compressing">Sıxışdırılır…</string>
+    <string name="support_debuglog_session_delete_title">Seansı silinsin?</string>
+    <string name="support_debuglog_session_delete_message">Bu sazlama seansı həmişəlik silinəcək.</string>
+    <string name="support_debuglog_clear_all_message">Bün sazlama seansı həmişəlik silinəcək.</string>
+    <string name="support_debuglog_failed_empty_log">Uğursuzdur: jurnal fayılı boşdur</string>
+    <string name="support_debuglog_failed_missing_log">Uğursuzdur: jurnal fayılı tapilmadı</string>
+    <string name="support_debuglog_failed_corrupt_zip">Uğursuzdur: zip fayılı pozulmuşdur</string>
+    <string name="support_debuglog_failed_zip_failed">Uğursuzdur: sıxışdurma alınmadı</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Tərtibatçı ilə əlaqə</string>
+    <string name="support_contact_desc">Tərtibatçıya e-məktub göndərmək üçün formu doldurun.</string>
+    <string name="support_contact_welcome">Hər mesajı özüm oxuyuram və cavab verməyə çalışıram, lakin bunu tək etdiyim üçün bir az vaxt ala bilər. Səbriniz üçün təşəkkür edirik.</string>
+    <string name="support_contact_footer">Məktubunuz e-poçt vasitəsilə göndəriləcək. Cihaz və quraşdırma məlumatları avtomatik əlavə olunur. E-məktuba ekran görüntüləri və ya video əlavə edə bilərsiniz. E-poçtun bəzi hissələri ingilis dilində olacaq ki, tərtibatçı asan başa düşsün.</string>
+    <string name="support_contact_category_label">Kateqoriya</string>
+    <string name="support_contact_category_question_label">Sual</string>
+    <string name="support_contact_category_feature_label">Funksiya sorğusu</string>
+    <string name="support_contact_category_bug_label">Xəta hesabatı</string>
+    <string name="support_contact_description_label">Təsvir</string>
+    <string name="support_contact_description_question_hint">Sualınızı ətraflı təsvir edin. Xahiş edirik, konkret olun.</string>
+    <string name="support_contact_description_feature_hint">Görmək istədiyiniz funksiyanı təsvir edin. Xahiş edirik, konkret olun.</string>
+    <string name="support_contact_description_bug_hint">Nə baş verdiyini və problemi necə təkrar etməyi təsvir edin. Xahiş edirik, konkret olun.</string>
+    <string name="support_contact_expected_label">Gözlənilən davanış</string>
+    <string name="support_contact_expected_hint">Nə gözlədiyinizi təsvir edin.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d söz</item>
+        <item quantity="other">%1$d / %2$d söz</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Sazlama jurnalı</string>
+    <string name="support_contact_debuglog_picker_hint">Mövcud bir sazlama jurnalı əlavə edin və ya yenisini yazın.</string>
+    <string name="support_contact_debuglog_picker_empty">Sazlama jurnalı tapilmadı. Əvvəlcə birini yazın.</string>
+    <string name="support_contact_debuglog_zip_error">Sazlama jurnalını sıxışdırmaq mümkün olmadı</string>
+    <string name="support_contact_send_action">E-poçt tətbirini açın</string>
+    <string name="support_contact_no_email_app">Bu cihazda e-poçt tətbiqi tapilmadı.</string>
+    <string name="support_contact_debuglog_delete_title">Sazlama jurnalı silinsin?</string>
+    <string name="support_contact_debuglog_delete_message">Bu sazlama jurnalı həmişəlik silinəcək.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Jurnal göndərildi?</string>
+    <string name="support_debuglog_sent_message">Sazlama jurnalı uğurla göndərildi? Jurnal silinəcək.</string>
+    <string name="support_contact_sent_title">E-poçt göndərildi?</string>
+    <string name="support_contact_sent_message">E-poçt uğurla göndərildi? Əlavə edilmiş sazlama jurnalı silinəcək.</string>
 </resources>

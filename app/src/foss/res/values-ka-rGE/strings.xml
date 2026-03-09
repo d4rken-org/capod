@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">შემოწირულობა</string>
     <string name="foss_upgrade_alreadydonated_label">მე უკვე შემოწირული მაქვს</string>
     <string name="foss_upgrade_no_money_label">მთელ ჩემს ფულს AirPods-ებზე ვხარჯავ</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS უფასოა და ღია წყაროა. თუ გსარგებლია, გაანაბრეთ განვითარება პროექტის გადასაგრელად.</string>
+    <string name="upgrade_foss_sponsor_action">სპონსორის განვითარება</string>
+    <string name="upgrade_foss_sponsor_subtitle">რეკლამა არა. თვალთვალება არა. Google Play-ზე დამოკიდება არა.</string>
+    <string name="upgrade_foss_sponsor_returned_early">უკვე დაბრუნდით? თქვენი მხარდაჯერა CAPod-ს გადარჩენებას ეხმარება.</string>
 </resources>

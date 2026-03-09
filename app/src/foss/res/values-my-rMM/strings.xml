@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">လှူဒါန်းပါ</string>
     <string name="foss_upgrade_alreadydonated_label">ကျွန်တော် လှူပြီးပါပြီ</string>
     <string name="foss_upgrade_no_money_label">ကျွန်တော် ပိုက်ဆံအားလုံးကို AirPods မှာ သုံးတယ်</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS သည် အခမဲ့နှင့် open source ဖြစ်သည်။ အသုံးပြုခုပ်ဆည်းနိုင် အသားဖြစ်ပါက ပရာဗက်ဆက်လက်ရန် ဖွဲ့ဖြီးရေးကို ပံ့ပိုးပေးသည်။</string>
+    <string name="upgrade_foss_sponsor_action">ဖွံ့ဖြိုးတိုးတက်မှုကို ကမကထပံ့ပိုးရန်</string>
+    <string name="upgrade_foss_sponsor_subtitle">ကြောင်ညာမရှိ။ ခြေရာမခံ။ Google Play ချုပ်ချယ်မြုမရှိ။</string>
+    <string name="upgrade_foss_sponsor_returned_early">ပြန်သွားပြီးလါ? သင်၏ ပံ့ပိုးမှု CAPod ကို ရှင်သန်ဆက်လက်ကေစေသည်။</string>
 </resources>

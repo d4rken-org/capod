@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Er is een fout opgetreden in Google Play. Probeer het later opnieuw of start je telefoon opnieuw op.\n\nFout: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Factureringsfout bij Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Er is een fout opgetreden bij het opvragen van je aankoopgegevens bij Google Play. Wis de cache van Google Play en start je telefoon opnieuw op.\n\nFout %s</string>
+    <string name="upgrade_restore_action">Herstel aankoop</string>
 </resources>

@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Lahjoita</string>
     <string name="foss_upgrade_alreadydonated_label">Olen jo lahjoittanut</string>
     <string name="foss_upgrade_no_money_label">Käytän kaikki rahani AirPodeihin</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS on ilmainen ja avoimen lähdekoodin ohjelma. Jos löydät sen hyödylliseksi, harkitse kehityksen tukemista projektin elässä pitämiseksi.</string>
+    <string name="upgrade_foss_sponsor_action">Sponsoroi kehitystä</string>
+    <string name="upgrade_foss_sponsor_subtitle">Ei mainoksia. Ei seurantaa. Ei Google Play -riippuvuutta.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Jo lähdossä? Tukesi pitää CAPod\’in elässä.</string>
 </resources>

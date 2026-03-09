@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopiatu</string>
     <string name="general_thank_you_label">Eskerrik asko</string>
     <string name="general_upgrade_action">Bertsio-berritu</string>
+    <string name="common_feature_requires_pro_msg">Berritu desblokeatzeko.</string>
     <string name="general_donate_action">Dohaintza egin</string>
     <string name="general_check_action">Egiaztatu</string>
     <string name="general_close_action">Itxi</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Adib.: %s</string>
     <string name="upgrade_capod_label">Bertsio-berritu CAPod</string>
     <string name="upgrade_capod_description">Lortu ezaugarri gehigarriak eta lagundu garatzaileari.</string>
+    <string name="upgrade_preamble">CAPod pertsona bakar batek garatzen du. Berrituz gero, funtzio gehigarriak desblokeatzen dira eta aplikazioa bizirik mantentzen laguntzen duzu.</string>
+    <string name="upgrade_benefit_themes">Gai pertsonalizazioa</string>
+    <string name="upgrade_benefit_autoplay">Erreprodukzio automatikoa eta eten automatikoa</string>
+    <string name="upgrade_benefit_autoconnect">Automatikoki konektatu</string>
+    <string name="upgrade_benefit_popups">Leiho gainerakorra kutxako irekieran eta konexioan</string>
+    <string name="upgrade_benefit_widgets">Hasierako pantailako widgetak</string>
+    <string name="upgrade_benefit_support">Lagundu garatzaileari</string>
+    <string name="upgrade_screen_options_description">Funtzio berak, prezio desberdinak. Harpidetzak doako epealdia barne du eta edozein unetan ezeztatu daiteke.</string>
+    <string name="upgrade_screen_subscription_trial_action">Hasi doako epealdia</string>
+    <string name="upgrade_screen_subscription_action">Harpidetza urtekoa</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/urteko</string>
+    <string name="upgrade_screen_iap_action">Erosi behin</string>
+    <string name="upgrade_screen_iap_action_hint">Erosketa bakarra: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Berreskuratu erosketa</string>
+    <string name="upgrade_screen_restore_purchase_message">Ez da erosketarik aurkitu. Kontu egokia erabiltzen ari zara?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Duela gutxi erosi baduzu, baliteke Google Play-k sinkronizatzeko une bat behar izatea.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Saiatu berriro minutu batzuen buruan zure erosketa agertzen ez bada.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Ziurtatu erosketan erabilitako Google kontu berarekin saioa hasita daudela.</string>
     <string name="settings_monitor_mode_label">Monitorizazio modua</string>
     <string name="settings_monitor_mode_description">Zein egoeratan monitorizatzen ditu aplikazio honek Bluetooth datuak.</string>
     <string name="settings_monitor_connected_notification_label">Jakinarazpen gehigarria</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Erakutsi pop-up bat gailua lehen aldiz konektatzen denean.</string>
     <string name="notification_channel_device_status_label">Gailuaren egoera</string>
     <string name="notification_channel_device_status_connected_label">Konektatutako gailua</string>
+    <string name="monitor_notification_extra_enabled_hint">Jakinarazpen hau sistema ezarpenetan desgaitu dezakezu.</string>
     <string name="support_debuglog_label">Arazketa erregistroa</string>
     <string name="support_debuglog_desc">Grabatu aplikazioak egiten duen guztia parteka dezakezun testu fitxategi batean.</string>
     <string name="debug_debuglog_size_label">Tamaina</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Erroreen txosten automatikoak anonimoak dira. Partekatu zure instalazio IDa garatzaileak zure erroreen txostenak aurkitu behar baditu.</string>
     <string name="settings_support_label">Laguntza</string>
     <string name="settings_support_description">Laguntza behar baduzu.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ eta Gidak</string>
     <string name="issue_tracker_label">Arazoen jarraitzailea</string>
     <string name="issue_tracker_description">Erroreen txostenetarako eta ezaugarri eskaeretarako arazoen jarraitzaile publikoa (ingelesez soilik).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Datuak arduraz kudeatzea.</string>
     <string name="settings_licenses_label">Lizentziak</string>
     <string name="settings_category_other_label">Beste batzuk</string>
+    <string name="settings_category_gethelp_label">Laguntza eskatu</string>
+    <string name="settings_category_debug_label">Arazketa</string>
     <string name="settings_general_label">Ezarpenak</string>
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
     <string name="settings_acknowledgements_label">Eskertzak</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Itzultzaileak</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Azken gailuaren egoera ezaguna erakusten duen trepeta.</string>
+    <string name="widget_config_screen_title">Widget konfigurazioa</string>
     <string name="widget_configuration_title">Hautatu Gailua</string>
     <string name="widget_configuration_description">Aukeratu trepeta honek zein gailu-profil erakutsi behar duen.</string>
     <string name="widget_no_data_label">Daturik ez</string>
+    <string name="widget_error_loading_label">Errorea widgeta kargatzean</string>
     <string name="widget_config_appearance_label">Itxura</string>
     <string name="widget_config_preset_label">Aurrealdeak</string>
     <string name="widget_config_background_color_label">Atzeko planoaren kolorea</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Gehitu profila</string>
     <string name="profiles_create_title">Sortu Profila</string>
     <string name="profiles_name_label">Profilaren izena</string>
+    <string name="profiles_name_empty_error">Izena ezin da hutsik egon</string>
     <string name="profiles_name_default">Nire entzungailuak</string>
     <string name="profiles_model_label">Gailuaren modeloa</string>
     <string name="profiles_paired_device_label">Parekatutako gailua</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods-ek egoera-mezu bat bidaltzen dute, zeinaren zati bat enkriptatuta dagoen. Enkriptatze gakoak CAPod-i mezu osoa deszifratzea ahalbidetzen dio. MacBook baterako behin-behineko sarbidea behar duzu.</string>
     <string name="profiles_key_invalid_format">Gako-formatu baliogabea</string>
     <string name="profiles_key_expected_format">Espero den formatua: %1$s</string>
+    <string name="profiles_key_status_configured">Konfiguratuta</string>
+    <string name="profiles_key_status_not_set">Ezarri gabe</string>
+    <string name="profiles_signal_quality_min_label">Itzalita</string>
+    <string name="profiles_signal_quality_max_label">Zorrotza</string>
     <string name="profiles_priority_hint">Profilen ordenak lehentasuna zehazten du. Arrastatu profilak berrordenatzeko - zerrendan gorago dauden profilek lehentasuna dute gailu anitz bat datozenean.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Gai modua</string>
+    <string name="ui_theme_mode_system_label">Sistema</string>
+    <string name="ui_theme_mode_dark_label">Iluna</string>
+    <string name="ui_theme_mode_light_label">Argia</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Gai estiloa</string>
+    <string name="ui_theme_style_default_label">Lehenetsia</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Kontraste ertaina</string>
+    <string name="ui_theme_style_high_contrast_label">Kontraste altua</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Gai kolorea</string>
+    <string name="ui_theme_color_blue_label">Urdina</string>
+    <string name="ui_theme_color_green_label">Berdea</string>
+    <string name="ui_theme_color_amber_label">Anbarra</string>
+    <string name="ui_theme_color_disabled_materialyou">Horma-papereko koloreak erabiltzen ditu</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitorizazioa</string>
+    <string name="settings_category_appearance_label">Itxura</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Gorde gabeko aldaketak</string>
     <string name="general_unsaved_changes_message">Gorde gabeko aldaketak dituzu. Zer egin nahi duzu?</string>
     <string name="general_save_and_exit_action">Gorde &amp; Irten</string>
     <string name="general_discard_action">Baztertu</string>
     <string name="general_keep_editing_action">Jarraitu editatzen</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Grabaketa motzegi</string>
+    <string name="debug_debuglog_short_recording_message">Arazketa erregistro batek arazoa gertatzen ari den bitartean harrapatu behar du. Jarraitu grabatzen, erreproduzitu arazoa, eta gero gelditu grabaketa.</string>
+    <string name="debug_debuglog_short_recording_continue">Jarraitu grabatzen</string>
+    <string name="debug_debuglog_short_recording_stop">Gelditu hala ere</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Arazketa erregistroa</string>
+    <string name="debug_debuglog_screen_subtitle">Esportatu arazketa informazioa arazoak konpontzeko</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informazio sentikorra</string>
+    <string name="debug_debuglog_screen_session_path_label">Saioaren bidea</string>
+    <string name="debug_debuglog_screen_log_files_label">Erregistro fitxategiak</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fitxategi prest (%2$s)</item>
+        <item quantity="other">%1$d fitxategi prest (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Ezabatu</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d arazketa erregistro (%2$s)</item>
+        <item quantity="other">%1$d arazketa erregistro (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Garbitu gordetako arazketa erregistroak</string>
+    <string name="support_debuglog_sessions_label">Arazketa saioak</string>
+    <string name="support_debuglog_sessions_desc">Kudeatu grabatutako arazketa erregistro saioak</string>
+    <string name="support_debuglog_sessions_empty">Ez dago arazketa saiorik</string>
+    <string name="support_debuglog_session_recording">Grabatzen…</string>
+    <string name="support_debuglog_session_compressing">Konprimatzen…</string>
+    <string name="support_debuglog_session_delete_title">Saioa ezabatu?</string>
+    <string name="support_debuglog_session_delete_message">Arazketa saio hau betirako ezabatuko da.</string>
+    <string name="support_debuglog_clear_all_message">Arazketa saio guztiak betirako ezabatuko dira.</string>
+    <string name="support_debuglog_failed_empty_log">Huts egin du: erregistro fitxategia hutsik dago</string>
+    <string name="support_debuglog_failed_missing_log">Huts egin du: erregistro fitxategia falta da</string>
+    <string name="support_debuglog_failed_corrupt_zip">Huts egin du: zip fitxategia hondatuta dago</string>
+    <string name="support_debuglog_failed_zip_failed">Huts egin du: konpresiooak huts egin du</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Jarri harremanetan garatzailearekin</string>
+    <string name="support_contact_desc">Bete formulario bat garatzaileari mezu elektroniko bat bidaltzeko.</string>
+    <string name="support_contact_welcome">Mezu guztiak neronek irakurtzen ditut eta erantzuten saiatzen naiz, baina bakarrik lan egiten dudanez, denbora pixka bat behar izaten da. Eskerrik asko zure pazientziagatik.</string>
+    <string name="support_contact_footer">Zure mezua mezu elektroniko bidez bidaliko da. Gailuaren eta konfigurazio informazioa automatikoki eransten da. Pantaila-argazkiak edo bideo bat erantsi diezaiokezu mezuari. Mezu elektronikoaren zati batzuk ingelesez idatzita egongo dira garatzaileak erraz uler dezan.</string>
+    <string name="support_contact_category_label">Kategoria</string>
+    <string name="support_contact_category_question_label">Galdera</string>
+    <string name="support_contact_category_feature_label">Funtzio eskaera</string>
+    <string name="support_contact_category_bug_label">Akats-txostena</string>
+    <string name="support_contact_description_label">Deskribapena</string>
+    <string name="support_contact_description_question_hint">Deskribatu zure galdera xehetasunez. Mesedez, zehaztu.</string>
+    <string name="support_contact_description_feature_hint">Deskribatu ikusi nahi zenukeen funtzioa. Mesedez, zehaztu.</string>
+    <string name="support_contact_description_bug_hint">Deskribatu zer gertatu den eta nola erreproduzitu arazoa. Mesedez, zehaztu.</string>
+    <string name="support_contact_expected_label">Espero zen portaera</string>
+    <string name="support_contact_expected_hint">Deskribatu zer gertatzea espero zenuen.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d hitz</item>
+        <item quantity="other">%1$d / %2$d hitz</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Arazketa erregistroa</string>
+    <string name="support_contact_debuglog_picker_hint">Erantsi lehendik dagoen arazketa erregistro bat, edo grabatu berria.</string>
+    <string name="support_contact_debuglog_picker_empty">Ez da arazketa erregistrorik aurkitu. Grabatu bat lehenik.</string>
+    <string name="support_contact_debuglog_zip_error">Huts egin du arazketa erregistroa konprimatzerakoan</string>
+    <string name="support_contact_send_action">Ireki mezu elektroniko aplikazioa</string>
+    <string name="support_contact_no_email_app">Ez da mezu elektroniko aplikaziorik aurkitu gailu honetan.</string>
+    <string name="support_contact_debuglog_delete_title">Arazketa erregistroa ezabatu?</string>
+    <string name="support_contact_debuglog_delete_message">Arazketa erregistro hau betirako ezabatuko da.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Loga bidali da?</string>
+    <string name="support_debuglog_sent_message">Arazketa-loga behar bezala bidali al da? Loga ezabatuko da.</string>
+    <string name="support_contact_sent_title">Mezu elektronikoa bidali da?</string>
+    <string name="support_contact_sent_message">Mezu elektronikoa behar bezala bidali al da? Erantsitako arazketa-loga ezabatuko da.</string>
 </resources>

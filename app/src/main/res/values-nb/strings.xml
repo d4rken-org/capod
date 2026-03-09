@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopier</string>
     <string name="general_thank_you_label">Tusen takk</string>
     <string name="general_upgrade_action">Oppgrader</string>
+    <string name="common_feature_requires_pro_msg">Oppgrader for å låse opp.</string>
     <string name="general_donate_action">Doner</string>
     <string name="general_check_action">Sjekk</string>
     <string name="general_close_action">Lukk</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">F.eks.: %s</string>
     <string name="upgrade_capod_label">Oppgrader CAPod</string>
     <string name="upgrade_capod_description">Få flere funksjoner og støtt utvikleren.</string>
+    <string name="upgrade_preamble">CAPod er utviklet av én person. Oppgradering låser opp ekstra funksjoner og bidrar til å holde appen i live.</string>
+    <string name="upgrade_benefit_themes">Tematilpasning</string>
+    <string name="upgrade_benefit_autoplay">Autoavspilling &amp; autopause</string>
+    <string name="upgrade_benefit_autoconnect">Autotilkobling</string>
+    <string name="upgrade_benefit_popups">Popup ved åpning av etui &amp; tilkobling</string>
+    <string name="upgrade_benefit_widgets">Hjemmeskjerm-widgeter</string>
+    <string name="upgrade_benefit_support">Støtt utvikleren</string>
+    <string name="upgrade_screen_options_description">Samme funksjoner, ulike priser. Abonnementet inkluderer en gratis prøveperiode og kan kanselleres når som helst.</string>
+    <string name="upgrade_screen_subscription_trial_action">Start gratis prøveperiode</string>
+    <string name="upgrade_screen_subscription_action">Abonner årlig</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/år</string>
+    <string name="upgrade_screen_iap_action">Kjøp én gang</string>
+    <string name="upgrade_screen_iap_action_hint">Engangskjøp: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Gjenopprett kjøp</string>
+    <string name="upgrade_screen_restore_purchase_message">Ingen kjøp funnet. Bruker du riktig konto?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Hvis du nylig har kjøpt, kan det ta et øyeblikk før Google Play synkroniserer.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Prøv igjen om noen minutter hvis kjøpet ditt ikke vises.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Sørg for at du er logget inn med den samme Google-kontoen som ble brukt til kjøpet.</string>
     <string name="settings_monitor_mode_label">Overvåkingsmodus</string>
     <string name="settings_monitor_mode_description">Under hvilke omstendigheter denne appen skal overvåke Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra varsling</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Vis en popup første gang enheten kobles til.</string>
     <string name="notification_channel_device_status_label">Enhetsstatus</string>
     <string name="notification_channel_device_status_connected_label">Tilkoblet enhet</string>
+    <string name="monitor_notification_extra_enabled_hint">Du kan deaktivere dette varselet i systeminnstillingene.</string>
     <string name="support_debuglog_label">Feilsøkingslogg</string>
     <string name="support_debuglog_desc">Registrer alt appen gjør i en tekstfil som du kan dele.</string>
     <string name="debug_debuglog_size_label">Størrelse</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Automatiske feilrapporter er anonyme. Del installasjons-ID-en din hvis utvikleren skal finne feilrapportene dine.</string>
     <string name="settings_support_label">Brukerstøtte</string>
     <string name="settings_support_description">Hvis du trenger hjelp med noe.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; veiledninger</string>
     <string name="issue_tracker_label">Problemsporing</string>
     <string name="issue_tracker_description">En offentlig problemsporing for feilrapporter og funksjonsforespørsler (kun på engelsk).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
     <string name="settings_licenses_label">Lisenser</string>
     <string name="settings_category_other_label">Annet</string>
+    <string name="settings_category_gethelp_label">Få hjelp</string>
+    <string name="settings_category_debug_label">Feilsøking</string>
     <string name="settings_general_label">Innstillinger</string>
     <string name="settings_general_description">Generelle justeringer som påvirker hele appen.</string>
     <string name="settings_acknowledgements_label">Anerkjennelser</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Oversettere</string>
     <string name="translators_thanks_description">Kristoffer Vassbø(kristoffervassbo@gmail.com)</string>
     <string name="widget_description">En widget som viser sist kjent enhetsstatus.</string>
+    <string name="widget_config_screen_title">Widget-konfigurasjon</string>
     <string name="widget_configuration_title">Velg enhet</string>
     <string name="widget_configuration_description">Velg hvilken enhetsprofil denne widgeten skal vise.</string>
     <string name="widget_no_data_label">Ingen data</string>
+    <string name="widget_error_loading_label">Feil ved lasting av widget</string>
     <string name="widget_config_appearance_label">Utseende</string>
     <string name="widget_config_preset_label">Forhåndsinnstillinger</string>
     <string name="widget_config_background_color_label">Bakgrunnsfarge</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Legg til profil</string>
     <string name="profiles_create_title">Opprett profil</string>
     <string name="profiles_name_label">Profilnavn</string>
+    <string name="profiles_name_empty_error">Navnet kan ikke være tomt</string>
     <string name="profiles_name_default">Mine hodetelefoner</string>
     <string name="profiles_model_label">Enhetsmodell</string>
     <string name="profiles_paired_device_label">Sammenkoblet enhet</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods sender en statusmelding der en del er kryptert. Krypteringsnøkkelen lar CAPod dekryptere hele meldingen. Du trenger engangs tilgang til en MacBook.</string>
     <string name="profiles_key_invalid_format">Ugyldig nøkkelformat</string>
     <string name="profiles_key_expected_format">Forventet format: %1$s</string>
+    <string name="profiles_key_status_configured">Konfigurert</string>
+    <string name="profiles_key_status_not_set">Ikke angitt</string>
+    <string name="profiles_signal_quality_min_label">Av</string>
+    <string name="profiles_signal_quality_max_label">Streng</string>
     <string name="profiles_priority_hint">Profilrekkefølgen bestemmer prioritet. Dra profiler for å omorganisere dem - profiler høyere i listen har forrang når flere enheter matcher.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Tema-modus</string>
+    <string name="ui_theme_mode_system_label">System</string>
+    <string name="ui_theme_mode_dark_label">Mørkt</string>
+    <string name="ui_theme_mode_light_label">Lyst</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Tema-stil</string>
+    <string name="ui_theme_style_default_label">Standard</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Middels kontrast</string>
+    <string name="ui_theme_style_high_contrast_label">Høy kontrast</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Temafarge</string>
+    <string name="ui_theme_color_blue_label">Blå</string>
+    <string name="ui_theme_color_green_label">Grønn</string>
+    <string name="ui_theme_color_amber_label">Rav</string>
+    <string name="ui_theme_color_disabled_materialyou">Bruker bakgrunnsfarger</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Overvåkning</string>
+    <string name="settings_category_appearance_label">Utseende</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ulagrede endringer</string>
     <string name="general_unsaved_changes_message">Du har ulagrede endringer. Hva vil du gjøre?</string>
     <string name="general_save_and_exit_action">Lagre og avslutt</string>
     <string name="general_discard_action">Forkast</string>
     <string name="general_keep_editing_action">Fortsett redigering</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Opptak for kort</string>
+    <string name="debug_debuglog_short_recording_message">En feillogg må fange opp problemet mens det skjer. Fortsett opptaket, reproduser problemet, og stopp deretter opptaket.</string>
+    <string name="debug_debuglog_short_recording_continue">Fortsett opptak</string>
+    <string name="debug_debuglog_short_recording_stop">Stopp uansett</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Feilsøkingslogg</string>
+    <string name="debug_debuglog_screen_subtitle">Eksporter feilsøkingsinformasjon for feilsøking</string>
+    <string name="debug_debuglog_screen_sensitive_title">Sensitiv informasjon</string>
+    <string name="debug_debuglog_screen_session_path_label">Øktsti</string>
+    <string name="debug_debuglog_screen_log_files_label">Loggfiler</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fil klar (%2$s)</item>
+        <item quantity="other">%1$d filer klar (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Slett</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d feillogg (%2$s)</item>
+        <item quantity="other">%1$d feillogger (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Slett lagrede feillogger</string>
+    <string name="support_debuglog_sessions_label">Feilsøkøkter</string>
+    <string name="support_debuglog_sessions_desc">Administrer innspilte feilloggøkter</string>
+    <string name="support_debuglog_sessions_empty">Ingen feilsøkøkter</string>
+    <string name="support_debuglog_session_recording">Tar opp…</string>
+    <string name="support_debuglog_session_compressing">Komprimerer…</string>
+    <string name="support_debuglog_session_delete_title">Slett økt?</string>
+    <string name="support_debuglog_session_delete_message">Denne feilsøkingsøkten vil bli permanent slettet.</string>
+    <string name="support_debuglog_clear_all_message">Alle feilsøkingsøkter vil bli permanent slettet.</string>
+    <string name="support_debuglog_failed_empty_log">Feilet: loggfilen er tom</string>
+    <string name="support_debuglog_failed_missing_log">Feilet: loggfilen mangler</string>
+    <string name="support_debuglog_failed_corrupt_zip">Feilet: zip-filen er korrupt</string>
+    <string name="support_debuglog_failed_zip_failed">Feilet: komprimering mislyktes</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Kontakt utvikleren</string>
+    <string name="support_contact_desc">Fyll ut et skjema for å sende utvikleren en e-post.</string>
+    <string name="support_contact_welcome">Jeg leser hver melding selv og gjør mitt beste for å svare, men siden jeg jobber med dette alene, kan det ta litt tid. Takk for tålmodigheten.</string>
+    <string name="support_contact_footer">Meldingen din sendes via e-post. Enhets- og oppsettsinformasjon legges ved automatisk. Du kan legge ved skårmbilder eller en video i e-posten. Noen deler av e-posten vil være på engelsk slik at utvikleren lett kan forstå den.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_question_label">Spørsmål</string>
+    <string name="support_contact_category_feature_label">Ønske om ny funksjon</string>
+    <string name="support_contact_category_bug_label">Feilrapport</string>
+    <string name="support_contact_description_label">Beskrivelse</string>
+    <string name="support_contact_description_question_hint">Beskriv spørsmålet ditt i detalj. Vær spesifikk.</string>
+    <string name="support_contact_description_feature_hint">Beskriv funksjonen du ønsker å se. Vær spesifikk.</string>
+    <string name="support_contact_description_bug_hint">Beskriv hva som skjedde og hvordan du kan reprodusere problemet. Vær spesifikk.</string>
+    <string name="support_contact_expected_label">Forventet atferd</string>
+    <string name="support_contact_expected_hint">Beskriv hva du forventet skulle skje.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ord</item>
+        <item quantity="other">%1$d / %2$d ord</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Feilsøkingslogg</string>
+    <string name="support_contact_debuglog_picker_hint">Legg ved en eksisterende feillogg, eller ta opp en ny.</string>
+    <string name="support_contact_debuglog_picker_empty">Ingen feillogger funnet. Ta opp en først.</string>
+    <string name="support_contact_debuglog_zip_error">Klarte ikke å komprimere feilloggen</string>
+    <string name="support_contact_send_action">Åpne e-postapp</string>
+    <string name="support_contact_no_email_app">Ingen e-postapp funnet på denne enheten.</string>
+    <string name="support_contact_debuglog_delete_title">Slett feillogg?</string>
+    <string name="support_contact_debuglog_delete_message">Denne feilloggen vil bli permanent slettet.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Logg sendt?</string>
+    <string name="support_debuglog_sent_message">Ble feilsøkingsloggen sendt? Loggen vil bli slettet.</string>
+    <string name="support_contact_sent_title">E-post sendt?</string>
+    <string name="support_contact_sent_message">Ble e-posten sendt? Den vedlagte feilsøkingsloggen vil bli slettet.</string>
 </resources>

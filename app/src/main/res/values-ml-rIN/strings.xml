@@ -6,6 +6,7 @@
     <string name="general_copy_action">പകർത്തുക</string>
     <string name="general_thank_you_label">നന്ദി</string>
     <string name="general_upgrade_action">അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
+    <string name="common_feature_requires_pro_msg">അൺലോക്ക് ചെയ്യാൻ അപ്‌ഗ്രേഡ് ചെയ്യുക.</string>
     <string name="general_donate_action">സംഭാവനചെയ്യുക</string>
     <string name="general_check_action">പരിശോധിക്കുക</string>
     <string name="general_close_action">അടയ്ക്കുക</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">ഉദാ: %s</string>
     <string name="upgrade_capod_label">CAPod അപ്‌ഗ്രേഡ് ചെയ്യുക</string>
     <string name="upgrade_capod_description">കൂടുതൽ സവിശേഷതകൾ നേടുകയും ഡെവലപ്പറെ പിന്തുണയ്ക്കുകയും ചെയ്യുക.</string>
+    <string name="upgrade_preamble">CAPod ഒരൊറ്റ വ്യക്തി വികസിപ്പിച്ചതാണ്. അപ്‌ഗ്രേഡ് ചെയ്യുന്നത് അധിക സവിശേഷതകൾ അൺലോക്ക് ചെയ്യുകയും ആപ്പ് നിലനിർത്താൻ സഹായിക്കുകയും ചെയ്യുന്നു.</string>
+    <string name="upgrade_benefit_themes">തീം ഇഷ്ടാനുസൃതമാക്കൽ</string>
+    <string name="upgrade_benefit_autoplay">ഓട്ടോ-പ്ലേ &amp; ഓട്ടോ-പോസ്</string>
+    <string name="upgrade_benefit_autoconnect">ഓട്ടോ-കണക്റ്റ്</string>
+    <string name="upgrade_benefit_popups">കേസ് തുറക്കുമ്പോഴും കണക്ഷൻ സമയത്തും പോപ്പ്അപ്പ്</string>
+    <string name="upgrade_benefit_widgets">ഹോം സ്ക്രീൻ വിജറ്റുകൾ</string>
+    <string name="upgrade_benefit_support">ഡെവലപ്പറെ പിന്തുണയ്ക്കുക</string>
+    <string name="upgrade_screen_options_description">ഒരേ സവിശേഷതകൾ, വ്യത്യസ്ത വില. സബ്‌സ്ക്രിപ്ഷനിൽ സൗജന്യ ട്രയൽ ഉൾപ്പെടുന്നു, ഏത് സമയത്തും റദ്ദാക്കാം.</string>
+    <string name="upgrade_screen_subscription_trial_action">സൗജന്യ ട്രയൽ ആരംഭിക്കുക</string>
+    <string name="upgrade_screen_subscription_action">വാർഷിക സബ്‌സ്ക്രൈബ് ചെയ്യുക</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/വർഷം</string>
+    <string name="upgrade_screen_iap_action">ഒരിക്കൽ വാങ്ങുക</string>
+    <string name="upgrade_screen_iap_action_hint">ഒറ്റത്തവണ വാങ്ങൽ: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">വാങ്ങൽ പുനഃസ്ഥാപിക്കുക</string>
+    <string name="upgrade_screen_restore_purchase_message">വാങ്ങലുകളൊന്നും കണ്ടെത്തിയില്ല. നിങ്ങൾ ശരിയായ അക്കൗണ്ട് ആണോ ഉപയോഗിക്കുന്നത്?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">നിങ്ങൾ അടുത്തിടെ വാങ്ങിയിട്ടുണ്ടെങ്കിൽ, Google Play സമന്വയിക്കാൻ കുറച്ച് സമയമെടുക്കാം.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">നിങ്ങളുടെ വാങ്ങൽ ദൃശ്യമാകുന്നില്ലെങ്കിൽ കുറച്ച് മിനിറ്റുകൾക്ക് ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">വാങ്ങലിനായി ഉപയോഗിച്ച അതേ Google അക്കൗണ്ടിൽ സൈൻ ഇൻ ചെയ്തിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.</string>
     <string name="settings_monitor_mode_label">മോണിറ്റർ മോഡ്</string>
     <string name="settings_monitor_mode_description">ഈ ആപ്പ് ഏത് സാഹചര്യത്തിലാണ് ബ്ലൂടൂത്ത് ഡാറ്റ നിരീക്ഷിക്കുന്നത്.</string>
     <string name="settings_monitor_connected_notification_label">അധിക അറിയിപ്പ്</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">ഉപകരണം ആദ്യമായി കണക്റ്റുചെയ്യുമ്പോൾ ഒരു പോപ്പ്അപ്പ് കാണിക്കുക.</string>
     <string name="notification_channel_device_status_label">ഉപകരണ നില</string>
     <string name="notification_channel_device_status_connected_label">കണക്റ്റുചെയ്‌ത ഉപകരണം</string>
+    <string name="monitor_notification_extra_enabled_hint">സിസ്റ്റം ക്രമീകരണങ്ങളിൽ ഈ അറിയിപ്പ് പ്രവർത്തനരഹിതമാക്കാം.</string>
     <string name="support_debuglog_label">ഡീബഗ് ലോഗ്</string>
     <string name="support_debuglog_desc">ആപ്പ് ചെയ്യുന്നതെല്ലാം നിങ്ങൾക്ക് പങ്കിടാൻ കഴിയുന്ന ഒരു ടെക്സ്റ്റ് ഫയലിൽ റെക്കോർഡ് ചെയ്യുക.</string>
     <string name="debug_debuglog_size_label">വലുപ്പം</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">യാന്ത്രിക പിശക് റിപ്പോർട്ടുകൾ അജ്ഞാതമാണ്. ഡെവലപ്പർക്ക് നിങ്ങളുടെ പിശക് റിപ്പോർട്ടുകൾ കണ്ടെത്തണമെങ്കിൽ നിങ്ങളുടെ ഇൻസ്റ്റാൾ ഐഡി പങ്കിടുക.</string>
     <string name="settings_support_label">പിന്തുണ</string>
     <string name="settings_support_description">നിങ്ങൾക്ക് എന്തെങ്കിലും സഹായം ആവശ്യമുണ്ടെങ്കിൽ.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">പതിവ് ചോദ്യങ്ങൾ &amp; ഗൈഡുകൾ</string>
     <string name="issue_tracker_label">പ്രശ്ന ട്രാക്കർ</string>
     <string name="issue_tracker_description">ബഗ് റിപ്പോർട്ടുകൾക്കും ഫീച്ചർ അഭ്യർത്ഥനകൾക്കുമായി ഒരു പൊതു പ്രശ്ന ട്രാക്കർ (ഇംഗ്ലീഷിൽ മാത്രം).</string>
     <string name="discord_label">ഡിസ്കോർഡ്</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുക.</string>
     <string name="settings_licenses_label">ലൈസൻസുകൾ</string>
     <string name="settings_category_other_label">മറ്റുള്ളവ</string>
+    <string name="settings_category_gethelp_label">സഹായം നേടുക</string>
+    <string name="settings_category_debug_label">ഡീബഗ്</string>
     <string name="settings_general_label">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">പരിഭാഷകർ</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">അവസാനമായി അറിയപ്പെടുന്ന ഉപകരണ നില കാണിക്കുന്ന ഒരു വിഡ്ജറ്റ്.</string>
+    <string name="widget_config_screen_title">വിജറ്റ് കോൺഫിഗറേഷൻ</string>
     <string name="widget_configuration_title">ഉപകരണം തിരഞ്ഞെടുക്കുക</string>
     <string name="widget_configuration_description">ഈ വിഡ്ജറ്റ് ഏത് ഉപകരണ പ്രൊഫൈൽ പ്രദർശിപ്പിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
     <string name="widget_no_data_label">ഡാറ്റ ഇല്ല</string>
+    <string name="widget_error_loading_label">വിജറ്റ് ലോഡ് ചെയ്യുന്നതിൽ പിശക്</string>
     <string name="widget_config_appearance_label">രൂപരേഖ</string>
     <string name="widget_config_preset_label">പ്രിസെറ്റുകള്‍</string>
     <string name="widget_config_background_color_label">പശ്ചാത്തല വർണ്ണം</string>
@@ -137,7 +163,7 @@
     <string name="troubleshoot_action">ട്രബിൾഷൂട്ട് ചെയ്യുക</string>
     <string name="onboarding_body1">ഈ ആപ്പ് Android-ലേക്ക് AirPod-നിർദ്ദിഷ്ട സവിശേഷതകൾക്കുള്ള പിന്തുണ ചേർക്കുന്നു.</string>
     <string name="onboarding_body2">എല്ലാ Android ഉപകരണങ്ങളും അധിക AirPod സവിശേഷതകളെ പൂർണ്ണമായി പിന്തുണയ്ക്കുന്നില്ല. നിങ്ങളുടെ ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിന് ശരിയായി പ്രവർത്തിക്കുന്ന ബ്ലൂടൂത്ത്-ലോ-എനർജി നടപ്പിലാക്കൽ ആവശ്യമാണ്.</string>
-    <string name="onboarding_body3">CAPod-ൽ പരസ്യങ്ങളൊന്നുമില്ല, അത് നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല.</string>
+    <string name="onboarding_body3">CAPod-ൽ പരസ്യങ്ങൊന്നുമില്ല, അത് നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല.</string>
     <string name="onboarding_body4">അധിക സവിശേഷതകൾ നേടാനും വികസനത്തെ പിന്തുണയ്ക്കാനും നിങ്ങൾക്ക് CAPod Pro-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യാം.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">പ്രൊഫൈൽ ചേർക്കുക</string>
     <string name="profiles_create_title">പ്രൊഫൈൽ സൃഷ്ടിക്കുക</string>
     <string name="profiles_name_label">പ്രൊഫൈൽ പേര്</string>
+    <string name="profiles_name_empty_error">പേര് ശൂന്യമാകരുത്</string>
     <string name="profiles_name_default">എന്റെ ഹെഡ്‌ഫോണുകൾ</string>
     <string name="profiles_model_label">ഉപകരണ മോഡൽ</string>
     <string name="profiles_paired_device_label">ജോഡിയാക്കിയ ഉപകരണം</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ഒരു സ്റ്റാറ്റസ് സന്ദേശം അയയ്ക്കുന്നു, അതിന്റെ ഒരു ഭാഗം എൻക്രിപ്റ്റ് ചെയ്തിരിക്കുന്നു. എൻക്രിപ്ഷൻ കീ CAPod-നെ മുഴുവൻ സന്ദേശവും ഡീക്രിപ്റ്റ് ചെയ്യാൻ അനുവദിക്കുന്നു. നിങ്ങൾക്ക് ഒരു MacBook-ലേക്ക് ഒറ്റത്തവണ ആക്സസ് ആവശ്യമാണ്.</string>
     <string name="profiles_key_invalid_format">അസാധുവായ കീ ഫോർമാറ്റ്</string>
     <string name="profiles_key_expected_format">പ്രതീക്ഷിക്കുന്ന ഫോർമാറ്റ്: %1$s</string>
+    <string name="profiles_key_status_configured">കോൺഫിഗർ ചെയ്തു</string>
+    <string name="profiles_key_status_not_set">സജ്ജമാക്കിയിട്ടില്ല</string>
+    <string name="profiles_signal_quality_min_label">ഓഫ്ഫ്</string>
+    <string name="profiles_signal_quality_max_label">കർശനം</string>
     <string name="profiles_priority_hint">പ്രൊഫൈൽ ക്രമം മുൻഗണന നിർണ്ണയിക്കുന്നു. പ്രൊഫൈലുകൾ പുനഃക്രമീകരിക്കാൻ വലിക്കുക - ഒന്നിലധികം ഉപകരണങ്ങൾ പൊരുത്തപ്പെടുമ്പോൾ ലിസ്റ്റിൽ ഉയർന്ന പ്രൊഫൈലുകൾക്ക് മുൻഗണന ലഭിക്കുന്നു.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">തീം മോഡ്</string>
+    <string name="ui_theme_mode_system_label">സിസ്റ്റം</string>
+    <string name="ui_theme_mode_dark_label">ഇരുണ്ട</string>
+    <string name="ui_theme_mode_light_label">വെളിച്ചം</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">തീം സ്റ്റൈൽ</string>
+    <string name="ui_theme_style_default_label">ഡിഫോൾട്ട്</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">മീഡിയം കോൺട്രാസ്റ്റ്</string>
+    <string name="ui_theme_style_high_contrast_label">ഉയർന്ന കോൺട്രാസ്റ്റ്</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">തീം നിറം</string>
+    <string name="ui_theme_color_blue_label">നീല</string>
+    <string name="ui_theme_color_green_label">പച്ച</string>
+    <string name="ui_theme_color_amber_label">ആംബർ</string>
+    <string name="ui_theme_color_disabled_materialyou">വാൾപ്പേപർ നിറങ്ങൾ ഉപയോഗിക്കുന്നു</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">നിരീക്ഷണം</string>
+    <string name="settings_category_appearance_label">രൂപഭാവം</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ</string>
     <string name="general_unsaved_changes_message">നിങ്ങൾക്ക് സേവ് ചെയ്യാത്ത മാറ്റങ്ങളുണ്ട്. നിങ്ങൾ എന്ത് ചെയ്യാൻ ആഗ്രഹിക്കുന്നു?</string>
     <string name="general_save_and_exit_action">സേവ് ചെയ്ത് പുറത്തുകടക്കുക</string>
     <string name="general_discard_action">ഉപേക്ഷിക്കുക</string>
     <string name="general_keep_editing_action">എഡിറ്റിംഗ് തുടരുക</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">റെക്കോർഡിംഗ് വളരെ ചെറുത്</string>
+    <string name="debug_debuglog_short_recording_message">ഒരു ഡീബഗ് ലോഗ് പ്രശ്നം നടക്കുമ്പോൾ അത് പകർത്തണം. റെക്കോർഡ് ചെയ്തുകൊണ്ടേ ഇരിക്കൂ, പ്രശ്നം പുനഃസൃഷ്ടിക്കൂ, പിന്നെ റെക്കോർഡിംഗ് നിർത്തൂ.</string>
+    <string name="debug_debuglog_short_recording_continue">റെക്കോർഡിംഗ് തുടരുക</string>
+    <string name="debug_debuglog_short_recording_stop">എന്തായാലും നിർത്തുക</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">ഡീബഗ് ലോഗ്</string>
+    <string name="debug_debuglog_screen_subtitle">പ്രശ്നപരിഹാരത്തിനായി ഡീബഗ് വിവരങ്ങൾ എക്സ്പോർട് ചെയ്യുക</string>
+    <string name="debug_debuglog_screen_sensitive_title">സംവേദനക്ഷമ വിവരങ്ങൾ</string>
+    <string name="debug_debuglog_screen_session_path_label">സെഷൻ പാത</string>
+    <string name="debug_debuglog_screen_log_files_label">ലോഗ് ഫയലുകൾ</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ഫയൽ തയ്യാർ (%2$s)</item>
+        <item quantity="other">%1$d ഫയലുകൾ തയ്യാർ (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">ഇല്ലാതാക്കുക</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d ഡീബഗ് ലോഗ് (%2$s)</item>
+        <item quantity="other">%1$d ഡീബഗ് ലോഗുകൾ (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">സംഭരിച്ച ഡീബഗ് ലോഗുകൾ മായ്ക്കുക</string>
+    <string name="support_debuglog_sessions_label">ഡീബഗ് സെഷനുകൾ</string>
+    <string name="support_debuglog_sessions_desc">രേഖപ്പെടുത്തിയ ഡീബഗ് ലോഗ് സെഷനുകൾ നിയന്ത്രിക്കുക</string>
+    <string name="support_debuglog_sessions_empty">ഡീബഗ് സെഷനുകൾ ഇല്ല</string>
+    <string name="support_debuglog_session_recording">റെക്കോർഡ് ചെയ്യുന്നു…</string>
+    <string name="support_debuglog_session_compressing">കംപ്രസ്സ് ചെയ്യുന്നു…</string>
+    <string name="support_debuglog_session_delete_title">സെഷൻ ഇല്ലാതാക്കണോ?</string>
+    <string name="support_debuglog_session_delete_message">ഈ ഡീബഗ് സെഷൻ സ്ഥിരമായി ഇല്ലാതാക്കും.</string>
+    <string name="support_debuglog_clear_all_message">എല്ലാ ഡീബഗ് സെഷനുകളും സ്ഥിരമായി ഇല്ലാതാക്കും.</string>
+    <string name="support_debuglog_failed_empty_log">പരാജയപ്പെട്ടു: ലോഗ് ഫയൽ ശൂന്യമാണ്</string>
+    <string name="support_debuglog_failed_missing_log">പരാജയപ്പെട്ടു: ലോഗ് ഫയൽ കാണുന്നില്ല</string>
+    <string name="support_debuglog_failed_corrupt_zip">പരാജയപ്പെട്ടു: zip ഫയൽ കേടായി</string>
+    <string name="support_debuglog_failed_zip_failed">പരാജയപ്പെട്ടു: കംപ്രഷൻ പരാജയപ്പെട്ടു</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">ഡെവലപ്പറെ ബന്ധപ്പെടുക</string>
+    <string name="support_contact_desc">ഡെവലപ്പർക്ക് ഇമെയിൽ അയക്കാൻ ഒരു ഫോം പൂരിപ്പിക്കുക.</string>
+    <string name="support_contact_welcome">ഞാൻ എല്ലാ സന്ദേശങ്ങളും സ്വയം വായിക്കുകയും മറുപടി നൽകാൻ പരമാവധി ശ്രമിക്കുകയും ചെയ്യും, എന്നാൽ ഞാൻ ഒറ്റയ്ക്ക് പ്രവർത്തിക്കുന്നതിനാൽ, കുറച്ച് സമയം എടുക്കാം. നിങ്ങളുടെ ക്ഷമയ്ക്ക് നന്ദി.</string>
+    <string name="support_contact_footer">നിങ്ങളുടെ സന്ദേശം ഇമെയിൽ വഴി അയക്കും. ഉപകരണത്തിന്റെയും സജ്ജീകരണ വിവരങ്ങളും യാന്ത്രികമായി ഘടിപ്പിക്കും. ഇമെയിലിൽ സ്ക്രീൻഷോട്ടുകളോ വീഡിയോയോ ഘടിപ്പിക്കാം. ഡെവലപ്പർക്ക് എളുപ്പം മനസ്സിലാക്കാൻ ഇമെയിലിന്റെ ചില ഭാഗങ്ങൾ ഇംഗ്ലീഷിൽ ആയിരിക്കും.</string>
+    <string name="support_contact_category_label">വിഭാഗം</string>
+    <string name="support_contact_category_question_label">ചോദ്യം</string>
+    <string name="support_contact_category_feature_label">ഫീച്ചർ അഭ്യർത്ഥന</string>
+    <string name="support_contact_category_bug_label">ബഗ് റിപ്പോർട്ട്</string>
+    <string name="support_contact_description_label">വിവരണം</string>
+    <string name="support_contact_description_question_hint">നിങ്ങളുടെ ചോദ്യം വിശദമായി വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
+    <string name="support_contact_description_feature_hint">നിങ്ങൾ കാണാൻ ആഗ്രഹിക്കുന്ന ഫീച്ചർ വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
+    <string name="support_contact_description_bug_hint">എന്ത് സംഭവിച്ചുവെന്നും പ്രശ്നം പുനഃസൃഷ്ടിക്കാൻ എങ്ങനെ ചെയ്യണമെന്നും വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
+    <string name="support_contact_expected_label">പ്രതീക്ഷിക്കുന്ന പ്രവർത്തനം</string>
+    <string name="support_contact_expected_hint">എന്ത് സംഭവിക്കുമെന്ന് നിങ്ങൾ പ്രതീക്ഷിച്ചിരുന്നുവെന്ന് വിവരിക്കുക.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d വാക്ക്</item>
+        <item quantity="other">%1$d / %2$d വാക്കുകൾ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ഡീബഗ് ലോഗ്</string>
+    <string name="support_contact_debuglog_picker_hint">നിലവിലുള്ള ഒരു ഡീബഗ് ലോഗ് ഘടിപ്പിക്കുക, അല്ലെങ്കിൽ ഒരു പുതിയത് റെക്കോർഡ് ചെയ്യുക.</string>
+    <string name="support_contact_debuglog_picker_empty">ഡീബഗ് ലോഗുകൾ ഒന്നും കണ്ടില്ല. ആദ്യം ഒന്ന് റെക്കോർഡ് ചെയ്യുക.</string>
+    <string name="support_contact_debuglog_zip_error">ഡീബഗ് ലോഗ് കംപ്രസ്സ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു</string>
+    <string name="support_contact_send_action">ഇമെയിൽ ആപ്പ് തുറക്കുക</string>
+    <string name="support_contact_no_email_app">ഈ ഉപകരണത്തിൽ ഇമെയിൽ ആപ്പ് ഒന്നും കണ്ടെത്തിയില്ല.</string>
+    <string name="support_contact_debuglog_delete_title">ഡീബഗ് ലോഗ് ഇല്ലാതാക്കണോ?</string>
+    <string name="support_contact_debuglog_delete_message">ഈ ഡീബഗ് ലോഗ് സ്ഥിരമായി ഇല്ലാതാക്കും.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ലോഗ് അയച്ചോ?</string>
+    <string name="support_debuglog_sent_message">ഡീബഗ് ലോഗ് വിജയകരമായി അയച്ചോ? ലോഗ് ഇല്ലാതാക്കപ്പെടും.</string>
+    <string name="support_contact_sent_title">ഇമെയിൽ അയച്ചോ?</string>
+    <string name="support_contact_sent_message">ഇമെയിൽ വിജയകരമായി അയച്ചോ? അറ്റാച്ച് ചെയ്ത ഡീബഗ് ലോഗ് ഇല്ലാതാക്കപ്പെടും.</string>
 </resources>

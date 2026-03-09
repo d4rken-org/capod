@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Eman dohaintza</string>
     <string name="foss_upgrade_alreadydonated_label">Dagoeneko eman dut dohaintza</string>
     <string name="foss_upgrade_no_money_label">Nire diru guztia AirPods-etan gastatzen dut</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS doakoa eta kode irekikoa da. Erabilgarria iruditzen bazaizu, kontuan hartu garapena babestu proiektua aurrera jarraitzeko.</string>
+    <string name="upgrade_foss_sponsor_action">Garapena babestu</string>
+    <string name="upgrade_foss_sponsor_subtitle">Iragarkirik ez. Jarraipenik ez. Google Play-ren lotura ez.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Dagoeneko itzuli? Zure laguntzak CAPod bizirik mantentzen du.</string>
 </resources>
