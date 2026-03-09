@@ -136,6 +136,19 @@ class DataStoreMigrationCompatTest : BaseTest() {
     }
 
     @Test
+    fun `AutoConnectCondition round-trip`() {
+        AutoConnectCondition.entries.forEach { condition ->
+            val encoded = json.encodeToString(serializer<AutoConnectCondition>(), condition)
+            json.decodeFromString(serializer<AutoConnectCondition>(), encoded) shouldBe condition
+        }
+    }
+
+    @Test
+    fun `PodDevice Model encodes to canonical string`() {
+        json.encodeToString(serializer<PodDevice.Model>(), PodDevice.Model.AIRPODS_PRO) shouldBe "\"airpods.pro\""
+    }
+
+    @Test
     fun `all PodDevice Model values round-trip`() {
         for (model in PodDevice.Model.entries) {
             val encoded = json.encodeToString(serializer<PodDevice.Model>(), model)
