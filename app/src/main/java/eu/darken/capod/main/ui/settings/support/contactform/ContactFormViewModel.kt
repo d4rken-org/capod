@@ -151,6 +151,15 @@ class ContactFormViewModel @Inject constructor(
         if (result != null) autoSelectSessionId = result.sessionId
     }
 
+    fun confirmSent() = launch {
+        val selectedId = stater.value().selectedSessionId
+        if (selectedId != null) {
+            log(TAG) { "confirmSent() deleting session $selectedId" }
+            sessionManager.deleteSession(selectedId)
+        }
+        navUp()
+    }
+
     fun send() = launch {
         val currentState = stater.value()
         if (!currentState.canSend) return@launch

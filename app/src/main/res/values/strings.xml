@@ -399,4 +399,10 @@
     <string name="support_contact_debuglog_delete_title">Delete debug log?</string>
     <string name="support_contact_debuglog_delete_message">This debug log will be permanently deleted.</string>
 
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log sent?</string>
+    <string name="support_debuglog_sent_message">Was the debug log sent successfully? The log will be deleted.</string>
+    <string name="support_contact_sent_title">Email sent?</string>
+    <string name="support_contact_sent_message">Was the email sent successfully? The attached debug log will be deleted.</string>
+
 </resources>
