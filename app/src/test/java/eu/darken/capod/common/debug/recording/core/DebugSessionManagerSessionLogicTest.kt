@@ -66,6 +66,25 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
             val file = File("/data/data/pkg/cache/debug/logs/session1.zip")
             DebugSessionManager.deriveSessionId(file) shouldBe "cache:session1"
         }
+
+        @Test
+        fun `ambiguous path without cache marker defaults to ext`() {
+            val file = File("/tmp/some/random/path/session1")
+            DebugSessionManager.deriveSessionId(file) shouldBe "ext:session1"
+        }
+
+        @Test
+        fun `path with cache substring elsewhere gets cache prefix`() {
+            // Documents a known quirk: any path containing "/cache/debug/logs" gets cache: prefix
+            val file = File("/storage/emulated/0/backup/cache/debug/logs/session1")
+            DebugSessionManager.deriveSessionId(file) shouldBe "cache:session1"
+        }
+
+        @Test
+        fun `dotcache path does not trigger cache prefix`() {
+            val file = File("/storage/emulated/0/.cache/debug/logs/session1")
+            DebugSessionManager.deriveSessionId(file) shouldBe "ext:session1"
+        }
     }
 
     @Nested
@@ -285,6 +304,79 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
             // Either way the list must be properly sorted by the comparator.
             val comparator = compareByDescending<DebugSession> { it.createdAt }.thenBy { it.id }
             result shouldBe result.sortedWith(comparator)
+        }
+    }
+
+    @Nested
+    inner class IdRoundTrip {
+        @Test
+        fun `deriveSessionId on ext dir matches scanSessions output`() {
+            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(sessionDir, "core.log").writeText("log content")
+
+            val derived = DebugSessionManager.deriveSessionId(sessionDir)
+            val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
+
+            scanned shouldHaveSize 1
+            scanned.first().id shouldBe derived
+        }
+
+        @Test
+        fun `deriveSessionId on cache dir matches scanSessions output`() {
+            val sessionDir = File(cacheLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(sessionDir, "core.log").writeText("log content")
+
+            val derived = DebugSessionManager.deriveSessionId(sessionDir)
+            val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
+
+            scanned shouldHaveSize 1
+            scanned.first().id shouldBe derived
+        }
+
+        @Test
+        fun `deriveSessionId on zip file matches scanSessions output`() {
+            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").writeText("zipdata")
+
+            val zipFile = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip")
+            val derived = DebugSessionManager.deriveSessionId(zipFile)
+            val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
+
+            scanned shouldHaveSize 1
+            scanned.first().id shouldBe derived
+        }
+
+        @Test
+        fun `deriveSessionId is consistent for dir and sibling zip`() {
+            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(sessionDir, "core.log").writeText("log content")
+            val zipFile = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").also {
+                it.writeText("zipdata")
+            }
+
+            val dirId = DebugSessionManager.deriveSessionId(sessionDir)
+            val zipId = DebugSessionManager.deriveSessionId(zipFile)
+            dirId shouldBe zipId
+
+            val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
+            scanned shouldHaveSize 1
+            scanned.first().id shouldBe dirId
+        }
+
+        @Test
+        fun `same basename in ext and cache produces distinct IDs in both deriveSessionId and scanSessions`() {
+            val extDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(extDir, "core.log").writeText("ext log")
+            val cacheDir = File(cacheLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            File(cacheDir, "core.log").writeText("cache log")
+
+            val extId = DebugSessionManager.deriveSessionId(extDir)
+            val cacheId = DebugSessionManager.deriveSessionId(cacheDir)
+            extId shouldBe "ext:capod_1.0_1700000000000_abcd1234"
+            cacheId shouldBe "cache:capod_1.0_1700000000000_abcd1234"
+
+            val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
+            scanned shouldHaveSize 2
+            scanned.map { it.id }.toSet() shouldBe setOf(extId, cacheId)
         }
     }
 }
