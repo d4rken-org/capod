@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Došlo je do greške u Google Playu. Pokušajte ponovo kasnije ili ponovo pokrenite telefon.\n\nGreška: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Greška naplate Google Playa</string>
     <string name="upgrades_gplay_billing_result_error_description">Došlo je do greške prilikom dohvaćanja podataka o kupnji iz Google Playa. Očistite predmemoriju Google Playa i ponovo pokrenite telefon.\n\nGreška %s</string>
+    <string name="upgrade_restore_action">Obnovi kupnju</string>
 </resources>

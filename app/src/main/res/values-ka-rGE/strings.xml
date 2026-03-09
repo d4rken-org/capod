@@ -6,6 +6,7 @@
     <string name="general_copy_action">კოპირება</string>
     <string name="general_thank_you_label">გმადლობთ</string>
     <string name="general_upgrade_action">განახლება</string>
+    <string name="common_feature_requires_pro_msg">განბლოკვისთვის განაახლეთ.</string>
     <string name="general_donate_action">შემოწირულება</string>
     <string name="general_check_action">შემოწმება</string>
     <string name="general_close_action">დახურვა</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">მაგ.: %s</string>
     <string name="upgrade_capod_label">CAPod-ის განახლება</string>
     <string name="upgrade_capod_description">მიიღეთ დამატებითი ფუნქციები და მხარი დაუჭირეთ დეველოპერს.</string>
+    <string name="upgrade_preamble">CAPod შემუშავებულია ერთი ადამიანის მიერ. განახლება ხსნის დამატებით ფუნქციებს და ეხმარება აპს გადარჩენაში.</string>
+    <string name="upgrade_benefit_themes">თემის მორგება</string>
+    <string name="upgrade_benefit_autoplay">ავტო-დაკვრა და ავტო-პაუზა</string>
+    <string name="upgrade_benefit_autoconnect">ავტომატური დაკავშირება</string>
+    <string name="upgrade_benefit_popups">Popup ქეისის გახსნისა და დაკავშირებისას</string>
+    <string name="upgrade_benefit_widgets">მთავარი ეკრანის ვიჯეტები</string>
+    <string name="upgrade_benefit_support">დეველოპერის მხარდაჭერა</string>
+    <string name="upgrade_screen_options_description">იგივე ფუნქციები, განსხვავებული ფასი. გამოწერა მოიცავს უფასო საცდელ პერიოდს და შეიძლება გაუქმდეს ნებისმიერ დროს.</string>
+    <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო საცდელი ვერსიით</string>
+    <string name="upgrade_screen_subscription_action">გამოიწერეთ წლიურად</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/წელი</string>
+    <string name="upgrade_screen_iap_action">ერთხელ შეიძინეთ</string>
+    <string name="upgrade_screen_iap_action_hint">ერთჯერადი შეძენა: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
+    <string name="upgrade_screen_restore_purchase_message">შენაძენები ვერ მოიძებნა. იყენებთ სწორ ანგარიშს?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">თუ ახლახანს შეიძინეთ, Google Play-ს სინქრონიზაციას შეიძლება გარკვეული დრო დასჭირდეს.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">რამდენიმე წუთში სცადეთ თავიდან, თუ თქვენი შეძენა არ ჩანს.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">დარწმუნდით, რომ შესულა ხართ იმავე Google ანგარიშით, რომელიც გამოიყენეთ შეძენისას.</string>
     <string name="settings_monitor_mode_label">მონიტორინგის რეჟიმი</string>
     <string name="settings_monitor_mode_description">რა გარემოებებში აკონტროლებს ეს აპლიკაცია Bluetooth-ის მონაცემებს.</string>
     <string name="settings_monitor_connected_notification_label">დამატებითი შეტყობინება</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">აჩვენეთ ამომხტარი ფანჯარა მოწყობილობის პირველად დაკავშირებისას.</string>
     <string name="notification_channel_device_status_label">მოწყობილობის სტატუსი</string>
     <string name="notification_channel_device_status_connected_label">დაკავშირებული მოწყობილობა</string>
+    <string name="monitor_notification_extra_enabled_hint">ამ შეტყობინების გამორთვა შეგიძლიათ სისტემის პარამეტრებში.</string>
     <string name="support_debuglog_label">გამართვის ჟურნალი</string>
     <string name="support_debuglog_desc">ჩაწერეთ ყველაფერი, რასაც აპლიკაცია აკეთებს ტექსტურ ფაილში, რომლის გაზიარებაც შეგიძლიათ.</string>
     <string name="debug_debuglog_size_label">ზომა</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">შეცდომების ავტომატური ანგარიშები ანონიმურია. გააზიარეთ თქვენი ინსტალაციის ID, თუ დეველოპერს სჭირდება თქვენი შეცდომების ანგარიშების პოვნა.</string>
     <string name="settings_support_label">მხარდაჭერა</string>
     <string name="settings_support_description">თუ დახმარება გჭირდებათ.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ და სახელმძღვანელოები</string>
     <string name="issue_tracker_label">პრობლემების ტრეკერი</string>
     <string name="issue_tracker_description">შეცდომების ანგარიშებისა და ფუნქციების მოთხოვნების საჯარო პრობლემების ტრეკერი (მხოლოდ ინგლისურად).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">მონაცემების პასუხისმგებლობით მართვა.</string>
     <string name="settings_licenses_label">ლიცენზიები</string>
     <string name="settings_category_other_label">სხვა</string>
+    <string name="settings_category_gethelp_label">დახმარება</string>
+    <string name="settings_category_debug_label">გამართვა</string>
     <string name="settings_general_label">პარამეტრები</string>
     <string name="settings_general_description">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
     <string name="settings_acknowledgements_label">მადლობები</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">მთარგმნელები</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ვიჯეტი, რომელიც აჩვენებს მოწყობილობის ბოლო ცნობილ სტატუსს.</string>
+    <string name="widget_config_screen_title">ვიჯეტის კონფიგურაცია</string>
     <string name="widget_configuration_title">მოწყობილობის არჩევა</string>
     <string name="widget_configuration_description">აირჩიეთ, რომელი მოწყობილობის პროფილი უნდა აჩვენოს ამ ვიჯეტმა.</string>
     <string name="widget_no_data_label">მონაცემები არ არის</string>
+    <string name="widget_error_loading_label">ვიჯეტის ატვირთვის შეცდომა</string>
     <string name="widget_config_appearance_label">გარეგნობა</string>
     <string name="widget_config_preset_label">პრესეტები</string>
     <string name="widget_config_background_color_label">ფონის ფერი</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">პროფილის დამატება</string>
     <string name="profiles_create_title">პროფილის შექმნა</string>
     <string name="profiles_name_label">პროფილის სახელი</string>
+    <string name="profiles_name_empty_error">დასახელება არ შეიძლება გაათიეროს</string>
     <string name="profiles_name_default">ჩემი ყურსასმენები</string>
     <string name="profiles_model_label">მოწყობილობის მოდელი</string>
     <string name="profiles_paired_device_label">დაწყვილებული მოწყობილობა</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods აგზავნის სტატუსის შეტყობინებას, რომლის ნაწილიც დაშიფრულია. დაშიფვრის გასაღები CAPod-ს სრული შეტყობინების გაშიფვრის საშუალებას აძლევს. საჭიროა MacBook-ზე ერთჯერადი წვდომა.</string>
     <string name="profiles_key_invalid_format">გასაღების ფორმატი არასწორია</string>
     <string name="profiles_key_expected_format">მოსალოდნელი ფორმატი: %1$s</string>
+    <string name="profiles_key_status_configured">კონფიგურირებული</string>
+    <string name="profiles_key_status_not_set">დაუყენებელი</string>
+    <string name="profiles_signal_quality_min_label">გამორტული</string>
+    <string name="profiles_signal_quality_max_label">მკაცრი</string>
     <string name="profiles_priority_hint">პროფილების მიმდევრობა განსაზღვრავს პრიორიტეტს. მიმდევრობის შესაცვლელად პროფილები გადაათრიეთ - სიაში უფრო მაღლა მყოფ პროფილებს უპირატესობა ენიჭება, როცა რამდენიმე მოწყობილობა ემთხვევა.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">თემის რეჟიმი</string>
+    <string name="ui_theme_mode_system_label">სისტემა</string>
+    <string name="ui_theme_mode_dark_label">მუქი</string>
+    <string name="ui_theme_mode_light_label">ღია</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">თემის სტილი</string>
+    <string name="ui_theme_style_default_label">ნაგულისხმევი</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">საშუალო კონტრასტი</string>
+    <string name="ui_theme_style_high_contrast_label">მაღალი კონტრასტი</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">თემის ფერი</string>
+    <string name="ui_theme_color_blue_label">ალისფერი</string>
+    <string name="ui_theme_color_green_label">მწვანე</string>
+    <string name="ui_theme_color_amber_label">ყვითელი</string>
+    <string name="ui_theme_color_disabled_materialyou">იყენებს ფონის ფერებს</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">მონიტორინგი</string>
+    <string name="settings_category_appearance_label">გარეგნობა</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">შეუნახავი ცვლილებები</string>
     <string name="general_unsaved_changes_message">გაქვთ შეუნახავი ცვლილებები. როგორ გსურთ გაგრძელება?</string>
     <string name="general_save_and_exit_action">შენახვა და გასვლა</string>
     <string name="general_discard_action">გაუქმება</string>
     <string name="general_keep_editing_action">რედაქტირების გაგრძელება</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ჩანაწერი ძალიან მოკლე</string>
+    <string name="debug_debuglog_short_recording_message">გამართვის ჟურნალმა პრობლემა უნდა ჩაიწეროს მის დაფიქსირების დროს. განაგრძეთ ჩაწერა, გამოიწვიეთ პრობლემა, შემდეგ შეაჩერეთ ჩაწერა.</string>
+    <string name="debug_debuglog_short_recording_continue">ჩაწერის გაგრძელება</string>
+    <string name="debug_debuglog_short_recording_stop">მიუხედავად შეჩერება</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">გამართვის ჟურნალი</string>
+    <string name="debug_debuglog_screen_subtitle">გამართვის ინფორმაციის ექსპორტი პრობლემების აღმოფსათვისთვის</string>
+    <string name="debug_debuglog_screen_sensitive_title">მახვნიერების ინფორმაცია</string>
+    <string name="debug_debuglog_screen_session_path_label">სესიის მისამართები</string>
+    <string name="debug_debuglog_screen_log_files_label">ჟურნალის ფაილები</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ფაილი მზადაა (%2$s)</item>
+        <item quantity="other">%1$d ფაილი მზადაა (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">წაშლა</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d გამართვის ჟურნალი (%2$s)</item>
+        <item quantity="other">%1$d გამართვის ჟურნალი (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">შენახული გამართვის ჟურნალების გასუფთავება</string>
+    <string name="support_debuglog_sessions_label">გამართვის სესიები</string>
+    <string name="support_debuglog_sessions_desc">ჩაწერის გამართვის ჟურნალის სესიების მართვა</string>
+    <string name="support_debuglog_sessions_empty">გამართვის სესიები არ არის</string>
+    <string name="support_debuglog_session_recording">ჩაწერადა...</string>
+    <string name="support_debuglog_session_compressing">შეკუმშვადა...</string>
+    <string name="support_debuglog_session_delete_title">სესიის წაშლა?</string>
+    <string name="support_debuglog_session_delete_message">ეს გამართვის სესია სამუდამოდ წიშლება.</string>
+    <string name="support_debuglog_clear_all_message">ყველა გამართვის სესიები სამუდამოდ წიშლება.</string>
+    <string name="support_debuglog_failed_empty_log">ჩაიშალდა: ჟურნალის ფაილი გააცარია</string>
+    <string name="support_debuglog_failed_missing_log">ჩაიშალდა: ჟურნალის ფაილი არ არის</string>
+    <string name="support_debuglog_failed_corrupt_zip">ჩაიშალდა: zip ფაილი დაზიანებულია</string>
+    <string name="support_debuglog_failed_zip_failed">ჩაიშალდა: შეკუმშვა ჩაიშალდა</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">დეველოპერთან დაკავშირება</string>
+    <string name="support_contact_desc">შეავსეთ დეველოპერისათვის ელ. ფოსტის გასაგზავნელად ფორმი.</string>
+    <string name="support_contact_welcome">მე თვითონ იკითხავ ყოველ შეტყობინებას და სრიალდების მაქსიმალურად გავავრცელებას, მაგრამამ მას მარტოვ მვედემია დრო დასძირდეს. მადლობა დროისთვის გამო.</string>
+    <string name="support_contact_footer">თქვენი შეტყობინება გაიგზავნება ელ. ფოსტით. მოწყობის და კონფიგურაციის ინფორმაცია ავტომატურად ირთვება. სკრინშოტები ან ვიდეო ვიზუალური შეგიძლიათ დართვათ ელ. ფოსტში. ელ. ფოსტის ზოგიერთა იქნება იყოს ინგლისურად, რათა დეველოპერა ადვილად გაიგოს გაარკვეთ.</string>
+    <string name="support_contact_category_label">კატეგორია</string>
+    <string name="support_contact_category_question_label">კითხვა</string>
+    <string name="support_contact_category_feature_label">ფუნქციის მოთხოვნა</string>
+    <string name="support_contact_category_bug_label">შეცდომის ანგარიში</string>
+    <string name="support_contact_description_label">აღწერა</string>
+    <string name="support_contact_description_question_hint">დააზუსტეთ თქვენი კითხვა დეტალურად. გთხოვეთ კონკრეტული იყოს.</string>
+    <string name="support_contact_description_feature_hint">დააზუსტეთ ფუნქცია, რომელიც გსენდოდათ. გთხოვეთ კონკრეტული იყოს.</string>
+    <string name="support_contact_description_bug_hint">აღწერეთ რა მოხდა და როგორ განმეორეთ პრობლემი. გთხოვეთ კონკრეტული იყოს.</string>
+    <string name="support_contact_expected_label">მოსალოდნელი ქცევა</string>
+    <string name="support_contact_expected_hint">აღწერეთ რა მოილოდინებდით მოხდებოდა.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d სიტყვა</item>
+        <item quantity="other">%1$d / %2$d სიტყვა</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">გამართვის ჟურნალი</string>
+    <string name="support_contact_debuglog_picker_hint">დართეთ არსებული გამართვის ჟურნალი, ან ჩაწერეთ ახალი.</string>
+    <string name="support_contact_debuglog_picker_empty">გამართვის ჟურნალები არ მოიძებნება. ჩაწერეთ ახალად.</string>
+    <string name="support_contact_debuglog_zip_error">გამართვის ჟურნალის შეკუმშვა ჩაიშალდა</string>
+    <string name="support_contact_send_action">ელ. ფოსტის აპლიკაციის გახსნა</string>
+    <string name="support_contact_no_email_app">ამ მოწყობისზე ელ. ფოსტის აპლიკაცია არ არის.</string>
+    <string name="support_contact_debuglog_delete_title">გამართვის ჟურნალის წაშლა?</string>
+    <string name="support_contact_debuglog_delete_message">ეს გამართვის ჟურნალი სამუდამოდ წიშლება.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ლოგი გაიგზავნა?</string>
+    <string name="support_debuglog_sent_message">დებაგის ლოგი წარმატებით გაიგზავნა? ლოგი წაიშლება.</string>
+    <string name="support_contact_sent_title">ელფოსტა გაიგზავნა?</string>
+    <string name="support_contact_sent_message">ელფოსტა წარმატებით გაიგზავნა? თანდართული დებაგის ლოგი წაიშლება.</string>
 </resources>

@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Beşdar bike</string>
     <string name="foss_upgrade_alreadydonated_label">Min berê bexş kir</string>
     <string name="foss_upgrade_no_money_label">Ez hemû pereyê xwe li AirPods xerc dikim</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS belaş û çavkaniya vekirî ye. Ger hûn wê kêrhastî dibînin, fikir bikin ku perkirezan bike da ku alîkariya berdewamî projeya bide.</string>
+    <string name="upgrade_foss_sponsor_action">Pêşdebiriyê teref bike</string>
+    <string name="upgrade_foss_sponsor_subtitle">Reklam tune. Śopandin tune. Girêdana Google Play tune.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Zirû vegeriya? Piştgiriya we CAPod sax dihêle.</string>
 </resources>

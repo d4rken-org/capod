@@ -6,6 +6,7 @@
     <string name="general_copy_action">复制</string>
     <string name="general_thank_you_label">谢谢你</string>
     <string name="general_upgrade_action">升级</string>
+    <string name="common_feature_requires_pro_msg">升级以解锁。</string>
     <string name="general_donate_action">捐赠</string>
     <string name="general_check_action">检查</string>
     <string name="general_close_action">关闭</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">例如：%s</string>
     <string name="upgrade_capod_label">升级 CAPod</string>
     <string name="upgrade_capod_description">享用额外的功能并支持开发者。</string>
+    <string name="upgrade_preamble">CAPod 由一个人开发。升级可解锁额外功能，并帮助应用持续运营。</string>
+    <string name="upgrade_benefit_themes">主题定制</string>
+    <string name="upgrade_benefit_autoplay">自动播放 &amp; 自动暂停</string>
+    <string name="upgrade_benefit_autoconnect">自动连接</string>
+    <string name="upgrade_benefit_popups">打开耳机盒 &amp; 连接时弹出提示</string>
+    <string name="upgrade_benefit_widgets">主屏幕小组件</string>
+    <string name="upgrade_benefit_support">支持开发者</string>
+    <string name="upgrade_screen_options_description">相同功能，不同定价。订阅包含免费试用期，可随时取消。</string>
+    <string name="upgrade_screen_subscription_trial_action">开始免费试用</string>
+    <string name="upgrade_screen_subscription_action">按年订阅</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/年</string>
+    <string name="upgrade_screen_iap_action">一次性购买</string>
+    <string name="upgrade_screen_iap_action_hint">一次性购买：%s</string>
+    <string name="upgrade_screen_restore_purchase_action">恢复购买</string>
+    <string name="upgrade_screen_restore_purchase_message">未找到购买记录，您使用的帐户正确吗？</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">如果您最近已购买，Google Play 可能需要片刻时间同步。</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">如果您的购买未显示，请几分钟后再试。</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">请确保您使用购买时所用的同一个 Google 账户登录。</string>
     <string name="settings_monitor_mode_label">监控模式</string>
     <string name="settings_monitor_mode_description">决定本应用在何时收听蓝牙数据。</string>
     <string name="settings_monitor_connected_notification_label">额外通知</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">当设备初次连接时显示弹窗</string>
     <string name="notification_channel_device_status_label">设备状态</string>
     <string name="notification_channel_device_status_connected_label">连接的设备</string>
+    <string name="monitor_notification_extra_enabled_hint">您可以在系统设置中关闭此通知。</string>
     <string name="support_debuglog_label">调试日志</string>
     <string name="support_debuglog_desc">将应用执行的所有操作记录到您可以共享的文本文件中。</string>
     <string name="debug_debuglog_size_label">大小</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">自动发送的错误报告是匿名的。如果需要，给开发者发送您的安装 ID 以便找出您的错误报告。</string>
     <string name="settings_support_label">用户支持</string>
     <string name="settings_support_description">如果你需要一些帮助。</string>
+    <string name="settings_wiki_label">维基</string>
+    <string name="settings_wiki_description">常见问题 &amp; 指南</string>
     <string name="issue_tracker_label">问题追踪器</string>
     <string name="issue_tracker_description">用于缺陷报告和功能请求的问题追踪系统（仅限英语）。</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">负责任的处理数据。</string>
     <string name="settings_licenses_label">许可协议</string>
     <string name="settings_category_other_label">其他</string>
+    <string name="settings_category_gethelp_label">获取帮助</string>
+    <string name="settings_category_debug_label">调试</string>
     <string name="settings_general_label">设置</string>
     <string name="settings_general_description">影响整个应用的一般性设置。</string>
     <string name="settings_acknowledgements_label">鸣谢</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">翻译人员</string>
     <string name="translators_thanks_description">木仔/chrisvcg</string>
     <string name="widget_description">显示上次连接设备状态的小部件</string>
+    <string name="widget_config_screen_title">小组件配置</string>
     <string name="widget_configuration_title">选择设备</string>
     <string name="widget_configuration_description">选择此部件应显示的设备配置文件。</string>
     <string name="widget_no_data_label">暂无数据</string>
+    <string name="widget_error_loading_label">加载小组件出错</string>
     <string name="widget_config_appearance_label">外观</string>
     <string name="widget_config_preset_label">预设</string>
     <string name="widget_config_background_color_label">背景颜色</string>
@@ -214,6 +240,7 @@
     <string name="profiles_add_action">添加配置文件</string>
     <string name="profiles_create_title">创建配置文件</string>
     <string name="profiles_name_label">配置文件名</string>
+    <string name="profiles_name_empty_error">名称不能为空</string>
     <string name="profiles_name_default">我的耳机</string>
     <string name="profiles_model_label">设备型号</string>
     <string name="profiles_paired_device_label">已配对的设备</string>
@@ -236,11 +263,98 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods 会发送状态消息，其中一部分是加密的。加密密钥允许 CAPod 解密完整的消息。您需要用到一次 MacBook。</string>
     <string name="profiles_key_invalid_format">无效的格式</string>
     <string name="profiles_key_expected_format">预期格式： %1$s</string>
+    <string name="profiles_key_status_configured">已配置</string>
+    <string name="profiles_key_status_not_set">未设置</string>
+    <string name="profiles_signal_quality_min_label">关闭</string>
+    <string name="profiles_signal_quality_max_label">严格</string>
     <string name="profiles_priority_hint">配置文件排序决定优先级。拖动配置文件以重新排序——当多个设备匹配时，列表中的配置文件优先于优先级别。</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">主题样式</string>
+    <string name="ui_theme_mode_system_label">跟随系统</string>
+    <string name="ui_theme_mode_dark_label">深色模式</string>
+    <string name="ui_theme_mode_light_label">浅色模式</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">主题样式</string>
+    <string name="ui_theme_style_default_label">默认</string>
+    <string name="ui_theme_style_materialyou_label">Material You 风格</string>
+    <string name="ui_theme_style_medium_contrast_label">中度对比度</string>
+    <string name="ui_theme_style_high_contrast_label">高对比度</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">主题颜色</string>
+    <string name="ui_theme_color_blue_label">蓝色</string>
+    <string name="ui_theme_color_green_label">绿色</string>
+    <string name="ui_theme_color_amber_label">琥珀色</string>
+    <string name="ui_theme_color_disabled_materialyou">使用壁纸颜色</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">监控中</string>
+    <string name="settings_category_appearance_label">外观</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">未保存的更改</string>
     <string name="general_unsaved_changes_message">您有未保存的更改。您想做什么？</string>
     <string name="general_save_and_exit_action">保存并退出</string>
     <string name="general_discard_action">放弃</string>
     <string name="general_keep_editing_action">继续编辑</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">录制时间太短</string>
+    <string name="debug_debuglog_short_recording_message">调试日志需要在问题发生时进行录制。请保持录制，复现问题，然后停止录制。</string>
+    <string name="debug_debuglog_short_recording_continue">继续录制</string>
+    <string name="debug_debuglog_short_recording_stop">还是停止</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">调试日志</string>
+    <string name="debug_debuglog_screen_subtitle">导出调试信息以供排查</string>
+    <string name="debug_debuglog_screen_sensitive_title">敏感信息</string>
+    <string name="debug_debuglog_screen_session_path_label">会话路径</string>
+    <string name="debug_debuglog_screen_log_files_label">日志文件</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d 文件已准备好(%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">删除</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="other">%1$d 条调试日志（%2$s）</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">清除已存储的调试日志</string>
+    <string name="support_debuglog_sessions_label">调试会话</string>
+    <string name="support_debuglog_sessions_desc">管理已录制的调试日志会话</string>
+    <string name="support_debuglog_sessions_empty">没有调试会话</string>
+    <string name="support_debuglog_session_recording">录制中…</string>
+    <string name="support_debuglog_session_compressing">压缩中…</string>
+    <string name="support_debuglog_session_delete_title">删除会话？</string>
+    <string name="support_debuglog_session_delete_message">此调试会话将被永久删除。</string>
+    <string name="support_debuglog_clear_all_message">所有调试会话将被永久删除。</string>
+    <string name="support_debuglog_failed_empty_log">失败：日志文件为空</string>
+    <string name="support_debuglog_failed_missing_log">失败：日志文件不存在</string>
+    <string name="support_debuglog_failed_corrupt_zip">失败：zip 文件已损坏</string>
+    <string name="support_debuglog_failed_zip_failed">失败：压缩失败</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">联系开发者</string>
+    <string name="support_contact_desc">填写表单向开发者发送邮件。</string>
+    <string name="support_contact_welcome">我亲自阅读每条消息并尽力回复，但由于我是一个人开发，可能需要一点时间。感谢您的耐心。</string>
+    <string name="support_contact_footer">您的消息将通过邮件发送。设备和设置信息将自动附加。您可以在邮件中附加截图或视频。邮件的部分内容将以英文写成，以便开发者易于理解。</string>
+    <string name="support_contact_category_label">类别</string>
+    <string name="support_contact_category_question_label">问题</string>
+    <string name="support_contact_category_feature_label">功能请求</string>
+    <string name="support_contact_category_bug_label">错误报告</string>
+    <string name="support_contact_description_label">描述</string>
+    <string name="support_contact_description_question_hint">请详细描述您的问题，请尽量具体。</string>
+    <string name="support_contact_description_feature_hint">请描述您希望看到的功能，请尽量具体。</string>
+    <string name="support_contact_description_bug_hint">请描述发生了什么以及如何复现问题，请尽量具体。</string>
+    <string name="support_contact_expected_label">预期行为</string>
+    <string name="support_contact_expected_hint">请描述您预期会发生的情况。</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d 字</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">调试日志</string>
+    <string name="support_contact_debuglog_picker_hint">附加已有的调试日志，或录制一个新的。</string>
+    <string name="support_contact_debuglog_picker_empty">未找到调试日志。请先录制一个。</string>
+    <string name="support_contact_debuglog_zip_error">压缩调试日志失败</string>
+    <string name="support_contact_send_action">打开邮件应用</string>
+    <string name="support_contact_no_email_app">此设备上未找到邮件应用。</string>
+    <string name="support_contact_debuglog_delete_title">删除调试日志？</string>
+    <string name="support_contact_debuglog_delete_message">此调试日志将被永久删除。</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">日志已发送？</string>
+    <string name="support_debuglog_sent_message">调试日志是否已成功发送？该日志将被删除。</string>
+    <string name="support_contact_sent_title">邮件已发送？</string>
+    <string name="support_contact_sent_message">邮件是否已成功发送？附带的调试日志将被删除。</string>
 </resources>

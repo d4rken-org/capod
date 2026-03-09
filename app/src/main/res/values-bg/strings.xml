@@ -6,6 +6,7 @@
     <string name="general_copy_action">Копиране</string>
     <string name="general_thank_you_label">Благодаря ви</string>
     <string name="general_upgrade_action">Надграждане</string>
+    <string name="common_feature_requires_pro_msg">Надградете, за да отключите.</string>
     <string name="general_donate_action">Дарение</string>
     <string name="general_check_action">Проверка</string>
     <string name="general_close_action">Затваряне</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Напр.: %s</string>
     <string name="upgrade_capod_label">Надграждане на CAPod</string>
     <string name="upgrade_capod_description">Получете допълнителни функции и подкрепете разработчика.</string>
+    <string name="upgrade_preamble">CAPod е разработен от един човек. Надграждането отключва допълнителни функции и помага да поддържате приложението живо.</string>
+    <string name="upgrade_benefit_themes">Персонализиране на тема</string>
+    <string name="upgrade_benefit_autoplay">Автоматично възпроизвеждане и пауза</string>
+    <string name="upgrade_benefit_autoconnect">Автоматично свързване</string>
+    <string name="upgrade_benefit_popups">Изскачащ прозорец при отваряне на калъфа и свързване</string>
+    <string name="upgrade_benefit_widgets">Джаджи на началния екран</string>
+    <string name="upgrade_benefit_support">Подкрепете разработчика</string>
+    <string name="upgrade_screen_options_description">Същите функции, различни цени. Абонаментът включва безплатен пробен период и може да бъде отменен по всяко време.</string>
+    <string name="upgrade_screen_subscription_trial_action">Започнете безплатен пробен период</string>
+    <string name="upgrade_screen_subscription_action">Абонирайте се годишно</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/година</string>
+    <string name="upgrade_screen_iap_action">Купете еднократно</string>
+    <string name="upgrade_screen_iap_action_hint">Еднократна покупка: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Възстановете покупката</string>
+    <string name="upgrade_screen_restore_purchase_message">Няма намерени покупки. Правилния акаунт ли използвате?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Ако наскоро сте направили покупка, може да отнеме малко, докато Google Play синхронизира.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Опитайте отново след няколко минути, ако покупката ви не се появи.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Уверете се, че сте влезли с акаунта в Google, използван за покупката.</string>
     <string name="settings_monitor_mode_label">Режим на наблюдение</string>
     <string name="settings_monitor_mode_description">При какви обстоятелства това приложение следи Bluetooth данните.</string>
     <string name="settings_monitor_connected_notification_label">Допълнително известие</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Показване на изскачащ прозорец, когато устройството се свърже за първи път.</string>
     <string name="notification_channel_device_status_label">Състояние на устройството</string>
     <string name="notification_channel_device_status_connected_label">Свързано устройство</string>
+    <string name="monitor_notification_extra_enabled_hint">Можете да деактивирате това известие в системните настройки.</string>
     <string name="support_debuglog_label">Журнал за отстраняване на грешки</string>
     <string name="support_debuglog_desc">Запишете всичко, което приложението прави, в текстов файл, който можете да споделите.</string>
     <string name="debug_debuglog_size_label">Размер</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Автоматичните доклади за грешки са анонимни. Споделете своя идентификатор на инсталацията, ако разработчикът трябва да намери вашите доклади за грешки.</string>
     <string name="settings_support_label">Поддръжка</string>
     <string name="settings_support_description">Ако имате нужда от помощ.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">ЧЗВ и ръководства</string>
     <string name="issue_tracker_label">Проследяване на проблеми</string>
     <string name="issue_tracker_description">Обществено проследяване на проблеми за доклади за грешки и заявки за функции (само на английски).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Отговорно боравене с данни.</string>
     <string name="settings_licenses_label">Лицензи</string>
     <string name="settings_category_other_label">Други</string>
+    <string name="settings_category_gethelp_label">Получете помощ</string>
+    <string name="settings_category_debug_label">Отстраняване на грешки</string>
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общи настройки, които засягат цялото приложение.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Преводачи</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Приспособление, показващо последното известно състояние на устройството.</string>
+    <string name="widget_config_screen_title">Настройка на джаджата</string>
     <string name="widget_configuration_title">Избор на устройство</string>
     <string name="widget_configuration_description">Изберете кой профил на устройство да показва това приспособление.</string>
     <string name="widget_no_data_label">Няма данни</string>
+    <string name="widget_error_loading_label">Грешка при зареждане на джаджата</string>
     <string name="widget_config_appearance_label">Външен вид</string>
     <string name="widget_config_preset_label">Предварителни настройки</string>
     <string name="widget_config_background_color_label">Цвят на фона</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Добави профил</string>
     <string name="profiles_create_title">Създай профил</string>
     <string name="profiles_name_label">Име на профила</string>
+    <string name="profiles_name_empty_error">Името не може да е празно</string>
     <string name="profiles_name_default">Моите слушалки</string>
     <string name="profiles_model_label">Модел на устройството</string>
     <string name="profiles_paired_device_label">Сдвоено устройство</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods изпращат съобщение за състояние, част от което е криптирано. Ключът за криптиране позволява на CAPod да декриптира пълното съобщение. Нужен ви е еднократен достъп до MacBook.</string>
     <string name="profiles_key_invalid_format">Невалиден формат на ключа</string>
     <string name="profiles_key_expected_format">Очакван формат: %1$s</string>
+    <string name="profiles_key_status_configured">Настроено</string>
+    <string name="profiles_key_status_not_set">Не е зададено</string>
+    <string name="profiles_signal_quality_min_label">Изключено</string>
+    <string name="profiles_signal_quality_max_label">Строго</string>
     <string name="profiles_priority_hint">Подредбата на профилите определя приоритета. Плъзнете профилите за пренареждане - профилите по-нагоре в списъка имат предимство, когато съвпадат множество устройства.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Режим на тема</string>
+    <string name="ui_theme_mode_system_label">Система</string>
+    <string name="ui_theme_mode_dark_label">Тъмна</string>
+    <string name="ui_theme_mode_light_label">Светла</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Стил на тема</string>
+    <string name="ui_theme_style_default_label">По подразбиране</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Среден контраст</string>
+    <string name="ui_theme_style_high_contrast_label">Висок контраст</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Цвят на темата</string>
+    <string name="ui_theme_color_blue_label">Синьо</string>
+    <string name="ui_theme_color_green_label">Зелено</string>
+    <string name="ui_theme_color_amber_label">Къхъленожълт</string>
+    <string name="ui_theme_color_disabled_materialyou">Използва цветовете на тапета</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Мониторинг</string>
+    <string name="settings_category_appearance_label">Изглед</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Незапазени промени</string>
     <string name="general_unsaved_changes_message">Имате незапазени промени. Какво искате да направите?</string>
     <string name="general_save_and_exit_action">Запази &amp; излез</string>
     <string name="general_discard_action">Отхвърли</string>
     <string name="general_keep_editing_action">Продължи редактирането</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Записът е прекалък късък</string>
+    <string name="debug_debuglog_short_recording_message">Журналът за отстраняване на грешки трябва да улови проблема по време на осъществяването му. Продължете записването, възпроизведете проблема и спрете записването.</string>
+    <string name="debug_debuglog_short_recording_continue">Продължете записването</string>
+    <string name="debug_debuglog_short_recording_stop">Спрете все равно</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Журнал за отстраняване на грешки</string>
+    <string name="debug_debuglog_screen_subtitle">Изнесете информация за отстраняване на грешки</string>
+    <string name="debug_debuglog_screen_sensitive_title">Чувствителна информация</string>
+    <string name="debug_debuglog_screen_session_path_label">Път на сесията</string>
+    <string name="debug_debuglog_screen_log_files_label">Лог файлове</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d файла готови (%2$s)</item>
+        <item quantity="other">%1$d файла готови (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Изтриване</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d журнал за отстраняване на грешки (%2$s)</item>
+        <item quantity="other">%1$d журнала за отстраняване на грешки (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Изчистете съхранените журнали за отстраняване на грешки</string>
+    <string name="support_debuglog_sessions_label">Сесии за отстраняване на грешки</string>
+    <string name="support_debuglog_sessions_desc">Управление на записани сесии с журнал за отстраняване на грешки</string>
+    <string name="support_debuglog_sessions_empty">Няма сесии за отстраняване на грешки</string>
+    <string name="support_debuglog_session_recording">Записване…</string>
+    <string name="support_debuglog_session_compressing">Компресиране…</string>
+    <string name="support_debuglog_session_delete_title">Изтриване на сесията?</string>
+    <string name="support_debuglog_session_delete_message">Тази сесия за отстраняване на грешки ще бъде изтрита завинаги.</string>
+    <string name="support_debuglog_clear_all_message">Всички сесии за отстраняване на грешки ще бъдат изтрити завинаги.</string>
+    <string name="support_debuglog_failed_empty_log">Неуспешно: лог файлът е празен</string>
+    <string name="support_debuglog_failed_missing_log">Неуспешно: лог файлът липсва</string>
+    <string name="support_debuglog_failed_corrupt_zip">Неуспешно: zip файлът е повреден</string>
+    <string name="support_debuglog_failed_zip_failed">Неуспешно: компресирането не успя</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Свържете се с разработчика</string>
+    <string name="support_contact_desc">Попълнете формуляр, за да изпратите имейл на разработчика.</string>
+    <string name="support_contact_welcome">Чета всяко съобщение лично и се старая да отговаря, но тъй като работя само, може да отнеме малко време. Благодаря за търпението ви.</string>
+    <string name="support_contact_footer">Съобщението ви ще бъде изпратено по имейл. Информация за устройството и настройката се прикачва автоматично. Можете да прикачите снимки или видео към имейла. Някои части от имейла ще бъдат на английски, за да може разработчикът лесно да го разбере.</string>
+    <string name="support_contact_category_label">Категория</string>
+    <string name="support_contact_category_question_label">Въпрос</string>
+    <string name="support_contact_category_feature_label">Заявка за функция</string>
+    <string name="support_contact_category_bug_label">Сигнализация за грешка</string>
+    <string name="support_contact_description_label">Описание</string>
+    <string name="support_contact_description_question_hint">Опишете подробно въпроса си. Моля, бъдете конкретни.</string>
+    <string name="support_contact_description_feature_hint">Опишете функцията, която бихте искали да видите. Моля, бъдете конкретни.</string>
+    <string name="support_contact_description_bug_hint">Опишете какво се е случило и как да възпроизведете проблема. Моля, бъдете конкретни.</string>
+    <string name="support_contact_expected_label">Очаквано поведение</string>
+    <string name="support_contact_expected_hint">Опишете какво сте очаквали да се случи.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d дума</item>
+        <item quantity="other">%1$d / %2$d думи</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Журнал за отстраняване на грешки</string>
+    <string name="support_contact_debuglog_picker_hint">Прикачете съществуващ журнал за отстраняване на грешки или запишете нов.</string>
+    <string name="support_contact_debuglog_picker_empty">Няма намерени журнали за отстраняване на грешки. Първо запишете един.</string>
+    <string name="support_contact_debuglog_zip_error">Неуспешно компресиране на журнала за отстраняване на грешки</string>
+    <string name="support_contact_send_action">Отворете приложението за имейл</string>
+    <string name="support_contact_no_email_app">Няма намерено приложение за имейл на това устройство.</string>
+    <string name="support_contact_debuglog_delete_title">Изтриване на журнала за отстраняване на грешки?</string>
+    <string name="support_contact_debuglog_delete_message">Този журнал за отстраняване на грешки ще бъде изтрит завинаги.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Логът изпратен ли е?</string>
+    <string name="support_debuglog_sent_message">Изпратен ли е успешно дневникът за отстраняване на грешки? Логът ще бъде изтрит.</string>
+    <string name="support_contact_sent_title">Имейлът изпратен ли е?</string>
+    <string name="support_contact_sent_message">Изпратен ли е успешно имейлът? Прикаченият дневник за отстраняване на грешки ще бъде изтрит.</string>
 </resources>

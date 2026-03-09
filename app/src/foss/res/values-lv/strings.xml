@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Ziedot</string>
     <string name="foss_upgrade_alreadydonated_label">Es jau ziedoju</string>
     <string name="foss_upgrade_no_money_label">Es iztērēju visu savu naudu AirPods austiņām</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS ir bezmaksas un atkļējkoda. Ja tā ir noderba, apsveriet attīstības sponsēšanu, lai palīdzētu turpināt projektu.</string>
+    <string name="upgrade_foss_sponsor_action">Sponsorēt attīstību</string>
+    <string name="upgrade_foss_sponsor_subtitle">Bez reklamām. Bez seklōšanas. Bez Google Play saistībām.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Jau atpakaļ? Jūsu atbalsts uztur CAPod pie dzīvības.</string>
 </resources>

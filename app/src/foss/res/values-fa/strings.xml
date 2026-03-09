@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">کمک مالی</string>
     <string name="foss_upgrade_alreadydonated_label">کمک مالی کرده‌ام</string>
     <string name="foss_upgrade_no_money_label">من تمام پولم را خرج ایرپاد می‌کنم</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS رایگان و متن-باز است. اگر آن را مفید یافتید، حمایت مالی از توسعه را در نظر بگیرید تا پروژه ادامه یابد.</string>
+    <string name="upgrade_foss_sponsor_action">حامی توسعه دهنده</string>
+    <string name="upgrade_foss_sponsor_subtitle">بدون تبلیغ. بدون ردیابی. بدون وابستگی به Google Play.</string>
+    <string name="upgrade_foss_sponsor_returned_early">زود برگشتیدی؟ حمایت شما CAPod را زنده نگه می‌دارد.</string>
 </resources>

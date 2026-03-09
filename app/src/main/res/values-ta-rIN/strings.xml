@@ -6,6 +6,7 @@
     <string name="general_copy_action">நகலெடு</string>
     <string name="general_thank_you_label">நன்றி</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
+    <string name="common_feature_requires_pro_msg">திறக்க மேம்படுத்தவும்.</string>
     <string name="general_donate_action">நன்கொடை</string>
     <string name="general_check_action">சரிபார்</string>
     <string name="general_close_action">மூடு</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">எ.கா.: %s</string>
     <string name="upgrade_capod_label">CAPod ஐ மேம்படுத்து</string>
     <string name="upgrade_capod_description">கூடுதல் அம்சங்களைப் பெற்று டெவலப்பரை ஆதரிக்கவும்.</string>
+    <string name="upgrade_preamble">CAPod ஒரு நபரால் உருவாக்கப்பட்டது. மேம்படுத்துவது கூடுதல் அம்சங்களை திறக்கிறது மற்றும் பயன்பாட்டை உயிருடன் வைத்திருக்க உதவுகிறது.</string>
+    <string name="upgrade_benefit_themes">தீம் தனிப்பயனாக்கம்</string>
+    <string name="upgrade_benefit_autoplay">தானியங்கு இயக்கம் மற்றும் தானியங்கு இடைநிறுத்தம்</string>
+    <string name="upgrade_benefit_autoconnect">தானியங்கு இணைப்பு</string>
+    <string name="upgrade_benefit_popups">கேஸ் திறக்கும்போது மற்றும் இணைப்பின்போது பாப்அப்</string>
+    <string name="upgrade_benefit_widgets">முகப்புத் திரை விட்ஜெட்கள்</string>
+    <string name="upgrade_benefit_support">டெவலப்பரை ஆதரிக்கவும்</string>
+    <string name="upgrade_screen_options_description">ஒரே அம்சங்கள், வேறுபட்ட விலை. சந்தா இலவச சோதனையை உள்ளடக்கியது மற்றும் எந்த நேரத்திலும் ரத்து செய்யலாம்.</string>
+    <string name="upgrade_screen_subscription_trial_action">இலவச சோதனையை தொடங்கவும்</string>
+    <string name="upgrade_screen_subscription_action">ஆண்டுதோறும் சந்தா செலுத்தவும்</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ஆண்டு</string>
+    <string name="upgrade_screen_iap_action">ஒரு முறை வாங்கவும்</string>
+    <string name="upgrade_screen_iap_action_hint">ஒரு முறை வாங்குதல்: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">வாங்குதலை மீட்டமை</string>
+    <string name="upgrade_screen_restore_purchase_message">வாங்குதல்கள் எதுவும் இல்லை. நீங்கள் சரியான கணக்கைப் பயன்படுத்துகிறீர்களா?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">நீங்கள் சமீபத்தில் வாங்கியிருந்தால், Google Play ஒத்திசைக்க சிறிது நேரம் ஆகலாம்.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">உங்கள் கொள்முதல் தோன்றவில்லை என்றால் சில நிமிடங்களில் மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">கொள்முதலுக்கு பயன்படுத்திய அதே Google கணக்கில் நீங்கள் உள்நுழைந்திருக்கிறீர்கள் என்பதை உறுதிசெய்யவும்.</string>
     <string name="settings_monitor_mode_label">கண்காணிப்பு முறை</string>
     <string name="settings_monitor_mode_description">இந்த ஆப்ஸ் எந்தச் சூழ்நிலைகளில் புளூடூத் தரவைக் கண்காணிக்கிறது.</string>
     <string name="settings_monitor_connected_notification_label">கூடுதல் அறிவிப்பு</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">சாதனம் முதல் முறையாக இணைக்கப்படும்போது ஒரு பாப்அப்பைக் காட்டு.</string>
     <string name="notification_channel_device_status_label">சாதன நிலை</string>
     <string name="notification_channel_device_status_connected_label">இணைக்கப்பட்ட சாதனம்</string>
+    <string name="monitor_notification_extra_enabled_hint">கணினி அமைப்புகளில் இந்த அறிவிப்பை முடக்கலாம்.</string>
     <string name="support_debuglog_label">பிழைத்திருத்த பதிவு</string>
     <string name="support_debuglog_desc">ஆப்ஸ் செய்யும் அனைத்தையும் நீங்கள் பகிரக்கூடிய ஒரு உரைக் கோப்பில் பதிவுசெய்க.</string>
     <string name="debug_debuglog_size_label">அளவு</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">தானியங்கி பிழை அறிக்கைகள் அநாமதேயமானவை. டெவலப்பர் உங்கள் பிழை அறிக்கைகளைக் கண்டுபிடிக்க வேண்டும் என்றால் உங்கள் நிறுவல் ஐடியைப் பகிரவும்.</string>
     <string name="settings_support_label">ஆதரவு</string>
     <string name="settings_support_description">உங்களுக்கு உதவி தேவைப்பட்டால்.</string>
+    <string name="settings_wiki_label">விக்கி</string>
+    <string name="settings_wiki_description">அடிக்கடி கேட்கப்படும் கேள்விகள் &amp; வழிகாட்டிகள்</string>
     <string name="issue_tracker_label">சிக்கல் கண்காணிப்பான்</string>
     <string name="issue_tracker_description">பிழை அறிக்கைகள் மற்றும் அம்சக் கோரிக்கைகளுக்கான பொது சிக்கல் கண்காணிப்பான் (ஆங்கிலம் மட்டும்).</string>
     <string name="discord_label">டிஸ்கார்ட்</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">தரவை பொறுப்புடன் கையாளுதல்.</string>
     <string name="settings_licenses_label">உரிமங்கள்</string>
     <string name="settings_category_other_label">மற்றவை</string>
+    <string name="settings_category_gethelp_label">உதவி பெறவும்</string>
+    <string name="settings_category_debug_label">பிழைதிருத்தல்</string>
     <string name="settings_general_label">அமைப்புகள்</string>
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">மொழிபெயர்ப்பாளர்கள்</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">கடைசியாக அறியப்பட்ட சாதன நிலையைக் காட்டும் ஒரு விட்ஜெட்.</string>
+    <string name="widget_config_screen_title">விட்ஜெட் அமைப்பு</string>
     <string name="widget_configuration_title">சாதனத்தைத் தேர்ந்தெடு</string>
     <string name="widget_configuration_description">இந்த விட்ஜெட் எந்த சாதன சுயவிவரத்தைக் காட்ட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="widget_no_data_label">தரவு இல்லை</string>
+    <string name="widget_error_loading_label">விட்ஜெட் ஏற்றுமதியில் பிழை</string>
     <string name="widget_config_appearance_label">தோற்றம்</string>
     <string name="widget_config_preset_label">முன்னமைப்புகள்</string>
     <string name="widget_config_background_color_label">பின்னணி நிறம்</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">சுயவிவரத்தைச் சேர்</string>
     <string name="profiles_create_title">சுயவிவரத்தை உருவாக்கு</string>
     <string name="profiles_name_label">சுயவிவரப் பெயர்</string>
+    <string name="profiles_name_empty_error">பெயர் காலியாக இருக்ககூடாது</string>
     <string name="profiles_name_default">எனது ஹெட்ஃபோன்கள்</string>
     <string name="profiles_model_label">சாதன மாதிரி</string>
     <string name="profiles_paired_device_label">இணைக்கப்பட்ட சாதனம்</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ஒரு நிலைச் செய்தியை அனுப்புகின்றன, அதன் ஒரு பகுதி குறியாக்கம் செய்யப்பட்டுள்ளது. குறியாக்க விசை CAPod-ஐ முழு செய்தியையும் மறைகுறியாக்க அனுமதிக்கிறது. உங்களுக்கு MacBook-க்கு ஒரு முறை அணுகல் தேவை.</string>
     <string name="profiles_key_invalid_format">தவறான விசை வடிவம்</string>
     <string name="profiles_key_expected_format">எதிர்பார்க்கப்படும் வடிவம்: %1$s</string>
+    <string name="profiles_key_status_configured">அமைக்கப்பட்டது</string>
+    <string name="profiles_key_status_not_set">அமைக்கப்படவில்லை</string>
+    <string name="profiles_signal_quality_min_label">ஆத்</string>
+    <string name="profiles_signal_quality_max_label">கடுமையான</string>
     <string name="profiles_priority_hint">சுயவிவர வரிசை முன்னுரிமையை தீர்மானிக்கிறது. சுயவிவரங்களை மறுவரிசைப்படுத்த இழுக்கவும் — பட்டியலில் உயர்ந்த சுயவிவரங்கள் பல சாதனங்கள் பொருந்தும்போது முன்னுரிமை பெறும்.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">தீம் மோட்</string>
+    <string name="ui_theme_mode_system_label">அமைப்பாளர்</string>
+    <string name="ui_theme_mode_dark_label">இருள்</string>
+    <string name="ui_theme_mode_light_label">வெளிச்சம்</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">தீம் போக்கு</string>
+    <string name="ui_theme_style_default_label">இயல்புநிலை</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">மேட்டியம் கோண்டிராஸ்ட்</string>
+    <string name="ui_theme_style_high_contrast_label">அதிக கோண்டிராஸ்ட்</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">தீம் நிறம்</string>
+    <string name="ui_theme_color_blue_label">நீலம்</string>
+    <string name="ui_theme_color_green_label">பசும்</string>
+    <string name="ui_theme_color_amber_label">அம்பர்</string>
+    <string name="ui_theme_color_disabled_materialyou">வோல்பேப்பர் நிறங்களை பயன்படுத்துகிறது</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">கண்காணிப்பு</string>
+    <string name="settings_category_appearance_label">தோற்றம்</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">சேமிக்கப்படாத மாற்றங்கள்</string>
     <string name="general_unsaved_changes_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன. நீங்கள் என்ன செய்ய விரும்புகிறீர்கள்?</string>
     <string name="general_save_and_exit_action">சேமி &amp; வெளியேறு</string>
     <string name="general_discard_action">நிராகரி</string>
     <string name="general_keep_editing_action">தொடர்ந்து திருத்து</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ரெகார்டிங் மிகவும் குறுகியது</string>
+    <string name="debug_debuglog_short_recording_message">ஒரு பிழைதிருத்தல் பதிவு பிரச்சினை நிகழ்கிற்றபோது பதிவு செய்ய வேண்டும். ரெகார்டிங் தொடர்ந்து, பிரச்சினையை மீண்டும் உருவாக்கி, பின் ரெகார்டிங்ஐ நிறுத்தவும்.</string>
+    <string name="debug_debuglog_short_recording_continue">ரெகார்டிங் தொடரவும்</string>
+    <string name="debug_debuglog_short_recording_stop">எல்லாவிட்டாலும் நிறுத்தவும்</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">பிழைதிருத்தல் பதிவு</string>
+    <string name="debug_debuglog_screen_subtitle">தொழில்நுட்ப பிரச்சினைகளுக்காக பிழைதிருத்தல் தகவல்களை ஏற்றுமதி செய்யவும்</string>
+    <string name="debug_debuglog_screen_sensitive_title">உணர்திரு தகவல்</string>
+    <string name="debug_debuglog_screen_session_path_label">குறியிடு பாதை</string>
+    <string name="debug_debuglog_screen_log_files_label">பதிவு கோப்புகள்</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d கோப்பு தயாராக உள்ளது (%2$s)</item>
+        <item quantity="other">%1$d கோப்புகள் தயாராக உள்ளன (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">நீக்கு</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d பிழைதிருத்தல் பதிவு (%2$s)</item>
+        <item quantity="other">%1$d பிழைதிருத்தல் பதிவுகள் (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">சேமிக்கப்பட்ட பிழைதிருத்தல் பதிவுகளை அழிக்கவும்</string>
+    <string name="support_debuglog_sessions_label">பிழைதிருத்தல் அமர்வுகள்</string>
+    <string name="support_debuglog_sessions_desc">பதிவு செய்யப்பட்ட பிழைதிருத்தல் பதிவு அமர்வுகளை நிர்வகிக்கவும்</string>
+    <string name="support_debuglog_sessions_empty">பிழைதிருத்தல் அமர்வுகள் இல்லை</string>
+    <string name="support_debuglog_session_recording">பதிவு செய்யப்படுகிறது…</string>
+    <string name="support_debuglog_session_compressing">சுருக்கப்படுகிறது…</string>
+    <string name="support_debuglog_session_delete_title">அமர்வை நீக்கவுமா?</string>
+    <string name="support_debuglog_session_delete_message">இந்த பிழைதிருத்தல் அமர்வு நிரந்தரமாக நீக்கப்படும்.</string>
+    <string name="support_debuglog_clear_all_message">அனைத்து பிழைதிருத்தல் அமர்வுகளும் நிரந்தரமாக நீக்கப்படும்.</string>
+    <string name="support_debuglog_failed_empty_log">தோல்வி: பதிவு கோப்பு காலியாக உள்ளது</string>
+    <string name="support_debuglog_failed_missing_log">தோல்வி: பதிவு கோப்பு காணக்கிளையவில்லை</string>
+    <string name="support_debuglog_failed_corrupt_zip">தோல்வி: zip கோப்பு செய்திடப்பட்டது</string>
+    <string name="support_debuglog_failed_zip_failed">தோல்வி: சுருக்கம் தோல்வியடைநதது</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">டெவலப்பரை தொடர்பு கொள்கவும்</string>
+    <string name="support_contact_desc">டெவலப்பருக்கு மின்னஞ்சல் அனுப்பட ஒரு படிவத்தை நிர்ப்பலும்.</string>
+    <string name="support_contact_welcome">ஓர் செய்தியையும் நானே படிக்கிறேன் மற்றும் பதிலளிக்க முற்படுகிறேன், ஆனால் தனியாக பணியேற்றப்படியால் சிறிது நேரம் ஆகலாம். பொறுமைக்கு நன்றி.</string>
+    <string name="support_contact_footer">உங்கள் செய்தி மின்னஞ்சல் மூலம் அனுப்பப்படும். சாதன மற்றும் அமைப்பு தகவல்கள் தானியங்கு இணைக்கப்படுகின்றன. நீங்கள் மின்னஞ்சலில் திரைப்பிடிகள் மற்றும் விடியோககளை இணைக்கலாம். மின்னஞ்சலில் சில பகுதிகள் ஆங்கிலத்தில் இருக்கும் ஞான்று டெவலப்பர் எளிதாக புரிந்துகொளளலாம்.</string>
+    <string name="support_contact_category_label">வகைப்பிரிவு</string>
+    <string name="support_contact_category_question_label">கேள்வி</string>
+    <string name="support_contact_category_feature_label">அம்ச கோரிக்கை</string>
+    <string name="support_contact_category_bug_label">பிழை அறிக்கை</string>
+    <string name="support_contact_description_label">விளக்கம்</string>
+    <string name="support_contact_description_question_hint">உங்கள் கேள்வியை விரிவாக விவரிக்கவும். தயவுசெய்து தெளிவாக கூறவும்.</string>
+    <string name="support_contact_description_feature_hint">நீங்கள் காண விரும்பும் அம்சத்தை விரிவாக விவரிக்கவும். தயவுசெய்து தெளிவாக கூறவும்.</string>
+    <string name="support_contact_description_bug_hint">நடந்ததையும் பிரச்சினையை எவ்வாறு மீண்டும் உருவாக்கலாம் என்பதையும் விரிவாக விவரிக்கவும். தயவுசெய்து தெளிவாக கூறவும்.</string>
+    <string name="support_contact_expected_label">எதிர்பார்த்த நடத்தை</string>
+    <string name="support_contact_expected_hint">என்ன நடக்க எதிர்பார்த்திருந்தீர்கள் என்பதை விவரிக்கவும்.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d வார்த்தை</item>
+        <item quantity="other">%1$d / %2$d வார்த்தைகள்</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">பிழைத்திருத்த பதிவு</string>
+    <string name="support_contact_debuglog_picker_hint">உள்ள பிழைதிருத்தல் பதிவை இணைக்கவும் அல்லது புதிதாக பதிவு செய்யவும்.</string>
+    <string name="support_contact_debuglog_picker_empty">பிழைதிருத்தல் பதிவுகள் காண்டில். முதலில் ஒன்றை பதிவு செய்யவும்.</string>
+    <string name="support_contact_debuglog_zip_error">பிழைதிருத்தல் பதிவை சுருக்கமுடியவில்லை</string>
+    <string name="support_contact_send_action">மின்னஞ்சல் பயன்பாட்டை திறக்கவும்</string>
+    <string name="support_contact_no_email_app">இந்த சாதனத்தில் மின்னஞ்சல் பயன்பாடு ஏதும் காணப்படவில்லை.</string>
+    <string name="support_contact_debuglog_delete_title">பிழைதிருத்தல் பதிவை நீக்கவுமா?</string>
+    <string name="support_contact_debuglog_delete_message">இந்த பிழைதிருத்தல் பதிவு நிரந்தரமாக நீக்கப்படும்.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">பதிவு அனுப்பப்பட்டதா?</string>
+    <string name="support_debuglog_sent_message">பிழைத்திருத்த பதிவு வெற்றிகரமாக அனுப்பப்பட்டதா? பதிவு நீக்கப்படும்.</string>
+    <string name="support_contact_sent_title">மின்னஞ்சல் அனுப்பப்பட்டதா?</string>
+    <string name="support_contact_sent_message">மின்னஞ்சல் வெற்றிகரமாக அனுப்பப்பட்டதா? இணைக்கப்பட்ட பிழைத்திருத்த பதிவு நீக்கப்படும்.</string>
 </resources>

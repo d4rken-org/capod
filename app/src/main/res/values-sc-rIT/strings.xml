@@ -6,6 +6,7 @@
     <string name="general_copy_action">Còpia</string>
     <string name="general_thank_you_label">Gràtzias</string>
     <string name="general_upgrade_action">Agioma</string>
+    <string name="common_feature_requires_pro_msg">Aggiorna pro sblocare.</string>
     <string name="general_donate_action">Donare</string>
     <string name="general_check_action">Controlla</string>
     <string name="general_close_action">Serra</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Es.: %s</string>
     <string name="upgrade_capod_label">Agioma CAPod</string>
     <string name="upgrade_capod_description">Otene funtziones agiuntivas e susteni s\'isvilupadore.</string>
+    <string name="upgrade_preamble">CAPod est isvilupadu dae una sola persona. Aggiornar isbloca funtzionalidades in prus e agiudat a mantènnere s\'app in vita.</string>
+    <string name="upgrade_benefit_themes">Personalizzatzione de su tema</string>
+    <string name="upgrade_benefit_autoplay">Reprodutzione autom. e pausa autom.</string>
+    <string name="upgrade_benefit_autoconnect">Cullegamentu automàticu</string>
+    <string name="upgrade_benefit_popups">Popup a s\'apertùra de sa custodia e cullegamentu</string>
+    <string name="upgrade_benefit_widgets">Widget de sa pantalla printzipale</string>
+    <string name="upgrade_benefit_support">Sostèni su isviluppadore</string>
+    <string name="upgrade_screen_options_description">Sas matessi funtzionalidades, prezzu diferente. S\'abbonamentu inchiet una proa gratis e podet èssere annulladu in cualesisiat momentu.</string>
+    <string name="upgrade_screen_subscription_trial_action">Cumintzare sa proa gratis</string>
+    <string name="upgrade_screen_subscription_action">Abbonare annualmente</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/annu</string>
+    <string name="upgrade_screen_iap_action">Comporare una borta sola</string>
+    <string name="upgrade_screen_iap_action_hint">Compora una borta: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
+    <string name="upgrade_screen_restore_purchase_message">Perunu achistu agatadu. Ses usende su contu giustu?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Si as cumporadu recentemente, podet tocare un momentu pro Google Play a sincronizare.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Proa a torrare in pagas minutos si sa compora tua no cumparit.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Asegurade-bos de èssere intradu cun su matessi contu Google usadu pro sa compora.</string>
     <string name="settings_monitor_mode_label">Modalidade de monitoràgiu</string>
     <string name="settings_monitor_mode_description">In cales tzircustàntzias custa app monitorat datos Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notìfica extra</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Mustra unu popup cando su dispositivu si cullegat sa prima borta.</string>
     <string name="notification_channel_device_status_label">Istadu de su dispositivu</string>
     <string name="notification_channel_device_status_connected_label">Dispositivu cullegadu</string>
+    <string name="monitor_notification_extra_enabled_hint">Podes disabilitare custu avisu in sas impostatziones de su sistema.</string>
     <string name="support_debuglog_label">Registru de debug</string>
     <string name="support_debuglog_desc">Registra totu su chi s\'app est faghende in unu file de testu chi podes cumpartzire.</string>
     <string name="debug_debuglog_size_label">Mannària</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Is reportes de errores automàticos sunt anònimos. Cumpartzi s\'ID de installatzione tuo si s\'isvilupadore tenet bisòngiu de agatare is reportes de errores tuos.</string>
     <string name="settings_support_label">Sustènnidu</string>
     <string name="settings_support_description">Si tenes bisòngiu de agiudu.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ e Guide</string>
     <string name="issue_tracker_label">Gestiore de problemas</string>
     <string name="issue_tracker_description">Unu gestiore de problemas pùblicu pro reportes de errores e rechestas de funtziones (isceti in inglesu).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Tratamentu responsàbile de is datos.</string>
     <string name="settings_licenses_label">Licèntzias</string>
     <string name="settings_category_other_label">Àteru</string>
+    <string name="settings_category_gethelp_label">Ottenni agiudu</string>
+    <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cunfiguratziones</string>
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Tradutores</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Unu widget chi mustrat s\'ùrtimu istadu connotu de su dispositivu.</string>
+    <string name="widget_config_screen_title">Cunfiguratzione widget</string>
     <string name="widget_configuration_title">Seletziona dispositivu</string>
     <string name="widget_configuration_description">Sceglide cale profilu de dispositivu custu widget depet mustrare.</string>
     <string name="widget_no_data_label">Perunu datu</string>
+    <string name="widget_error_loading_label">Errore in su carigamentu de su widget</string>
     <string name="widget_config_appearance_label">Apparitzia</string>
     <string name="widget_config_preset_label">Preset</string>
     <string name="widget_config_background_color_label">Colore de fundus</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Agiunghe profilu</string>
     <string name="profiles_create_title">Crea profilu</string>
     <string name="profiles_name_label">Nòmine de su profilu</string>
+    <string name="profiles_name_empty_error">Su nùmene no podet èssere bòidu</string>
     <string name="profiles_name_default">Is corfitas mias</string>
     <string name="profiles_model_label">Modellu de su dispositivu</string>
     <string name="profiles_paired_device_label">Dispositivu assotziadu</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">Is AirPods imbiant unu messàgiu de istadu, una parte de su cale est tzifradu. Sa crae de tzifradra permitit a CAPod de detzifrare su messàgiu cumpletu. Bisòngiat de atzessu una borta isceti a unu MacBook.</string>
     <string name="profiles_key_invalid_format">Formadu de crae non vàlidu</string>
     <string name="profiles_key_expected_format">Formadu previstu: %1$s</string>
+    <string name="profiles_key_status_configured">Cunfiguradu</string>
+    <string name="profiles_key_status_not_set">No impostadu</string>
+    <string name="profiles_signal_quality_min_label">Ispentiu</string>
+    <string name="profiles_signal_quality_max_label">Rigorosa</string>
     <string name="profiles_priority_hint">S\'òrdine de is profilos determinat sa prioridade. Troga is profilos pro ddos ordinare - is profilos prus artos in sa lista tenent sa prioridade cando dispositivos mùltiplos currispondent.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Modalidade de tema</string>
+    <string name="ui_theme_mode_system_label">Sistema</string>
+    <string name="ui_theme_mode_dark_label">Iscuru</string>
+    <string name="ui_theme_mode_light_label">Craru</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Istile de tema</string>
+    <string name="ui_theme_style_default_label">Predeterminàu</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Cuntrastu mesanu</string>
+    <string name="ui_theme_style_high_contrast_label">Cuntrastu artu</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Colore de su tema</string>
+    <string name="ui_theme_color_blue_label">Biaitu</string>
+    <string name="ui_theme_color_green_label">Birde</string>
+    <string name="ui_theme_color_amber_label">Ambra</string>
+    <string name="ui_theme_color_disabled_materialyou">Usat is colores de su sfundu</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitoraduru</string>
+    <string name="settings_category_appearance_label">Aparentzia</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Modìficas non sarvadas</string>
     <string name="general_unsaved_changes_message">Tenes modìficas non sarvadas. Ite boles fàghere?</string>
     <string name="general_save_and_exit_action">Sarva e essi</string>
     <string name="general_discard_action">Iscarta</string>
     <string name="general_keep_editing_action">Sighi a modificare</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Registratzione tropu curza</string>
+    <string name="debug_debuglog_short_recording_message">Unu log de debug depit capturare su problema mentres sutzedit. Continua a registrare, reproduzi su problema, pustis fermada sa registratzione.</string>
+    <string name="debug_debuglog_short_recording_continue">Continua a registrare</string>
+    <string name="debug_debuglog_short_recording_stop">Ferrma a su matessi</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Log de debug</string>
+    <string name="debug_debuglog_screen_subtitle">Esporta informatziones de debug pro su troubleshooting</string>
+    <string name="debug_debuglog_screen_sensitive_title">Informatziones sensibles</string>
+    <string name="debug_debuglog_screen_session_path_label">Percursu de sessione</string>
+    <string name="debug_debuglog_screen_log_files_label">Archivos de log</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d archiviu prontu (%2$s)</item>
+        <item quantity="other">%1$d archivos prontos (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Iscancellare</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d log de debug (%2$s)</item>
+        <item quantity="other">%1$d log de debug (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Cancella i log de debug immagazzinados</string>
+    <string name="support_debuglog_sessions_label">Sessiones de debug</string>
+    <string name="support_debuglog_sessions_desc">Gesti sas sessiones de log de debug registradas</string>
+    <string name="support_debuglog_sessions_empty">Peroe sessiones de debug</string>
+    <string name="support_debuglog_session_recording">Registrende…</string>
+    <string name="support_debuglog_session_compressing">Cumpressende…</string>
+    <string name="support_debuglog_session_delete_title">Boles cantzellare sa sessione?</string>
+    <string name="support_debuglog_session_delete_message">Custa sessione de debug serriat eliminada in manera permanente.</string>
+    <string name="support_debuglog_clear_all_message">Tottas sas sessiones de debug serriant eliminadas in manera permanente.</string>
+    <string name="support_debuglog_failed_empty_log">Fallidu: su archiviu de log est bòidu</string>
+    <string name="support_debuglog_failed_missing_log">Fallidu: su archiviu de log mancat</string>
+    <string name="support_debuglog_failed_corrupt_zip">Fallidu: su archiviu zip est corrutu</string>
+    <string name="support_debuglog_failed_zip_failed">Fallidu: sa cumpressione est fallida</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Cuntatare su isviluppadore</string>
+    <string name="support_contact_desc">Cumpiesta unu formulariu pro mandare un’email a su isviluppadore.</string>
+    <string name="support_contact_welcome">Lego personalmente cada messazzu e fazio de su miu megius pro rispondere, ma poiccè traballu a sole, podet tocare unu poc’e tempus. Grascias pro sa patiente.</string>
+    <string name="support_contact_footer">Su messazzu tuyu serriat mandadu via email. Informatziones de su dispositivu e su setup sunt allicadas automaticamente. Podes alliccare capturas de termen o unu video a l’email. Calicuna parte de s’email serriat in inglèse pro chi su isviluppadore dda potzat cumprendère.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_question_label">Pregunta</string>
+    <string name="support_contact_category_feature_label">Dimanda de funtzionalidade</string>
+    <string name="support_contact_category_bug_label">Sinnaladura de errore</string>
+    <string name="support_contact_description_label">Descritzione</string>
+    <string name="support_contact_description_question_hint">Describe sa pregunta tua in dettatzu. Sii ispeòs specificu.</string>
+    <string name="support_contact_description_feature_hint">Describe sa funtzionalidade chi boles biri. Sii ispeòs specificu.</string>
+    <string name="support_contact_description_bug_hint">Describe s’acontessidu e comente reproduzire su problema. Sii ispeòs specificu.</string>
+    <string name="support_contact_expected_label">Cumpurtamentu ispettadu</string>
+    <string name="support_contact_expected_hint">Describe s’acontessidu chi tis aspettaias.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d paràula</item>
+        <item quantity="other">%1$d / %2$d paràulas</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Registru de debug</string>
+    <string name="support_contact_debuglog_picker_hint">Allicca unu log de debug esistente o registra unu nou.</string>
+    <string name="support_contact_debuglog_picker_empty">Peroe log de debug atopados. Registra unu prima.</string>
+    <string name="support_contact_debuglog_zip_error">Cumpressione de su log de debug fallida</string>
+    <string name="support_contact_send_action">Abri s’app de email</string>
+    <string name="support_contact_no_email_app">Peroe app de email atopada in custu dispositivu.</string>
+    <string name="support_contact_debuglog_delete_title">Boles cantzellare su log de debug?</string>
+    <string name="support_contact_debuglog_delete_message">Custu log de debug serriat eliminadu in manera permanente.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log inviadu?</string>
+    <string name="support_debuglog_sent_message">Su log de debug est istadu inviadu cun successu? Su log serrà eliminadu.</string>
+    <string name="support_contact_sent_title">Email inviada?</string>
+    <string name="support_contact_sent_message">S\'email est istada inviada cun successu? Su log de debug allegadu serrà eliminadu.</string>
 </resources>

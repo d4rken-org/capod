@@ -6,6 +6,7 @@
     <string name="general_copy_action">Αντιγραφή</string>
     <string name="general_thank_you_label">Ευχαριστώ</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
+    <string name="common_feature_requires_pro_msg">Αναβάθμιση για ξεκλείδωμα.</string>
     <string name="general_donate_action">Δωρεά</string>
     <string name="general_check_action">Έλεγχος</string>
     <string name="general_close_action">Κλείσιμο</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Π.χ.: %s</string>
     <string name="upgrade_capod_label">Αναβάθμιση CAPod</string>
     <string name="upgrade_capod_description">Αποκτήστε πρόσθετες λειτουργίες και υποστηρίξτε τον προγραμματιστή.</string>
+    <string name="upgrade_preamble">Το CAPod αναπτύσσεται από ένα μόνο άτομο. Η αναβάθμιση ξεκλειδώνει επιπλέον λειτουργίες και βοηθά στη συνέχεια της εφαρμογής.</string>
+    <string name="upgrade_benefit_themes">Προσαρμογή θέματος</string>
+    <string name="upgrade_benefit_autoplay">Αυτόματη αναπαραγωγή &amp; αυτόματη παύση</string>
+    <string name="upgrade_benefit_autoconnect">Αυτόματη σύνδεση</string>
+    <string name="upgrade_benefit_popups">Αναδυόμενο παράθυρο κατά το άνοιγμα θήκης &amp; σύνδεση</string>
+    <string name="upgrade_benefit_widgets">Γραφικά στοιχεία αρχικής οθόνης</string>
+    <string name="upgrade_benefit_support">Υποστηρίξτε τον προγραμματιστή</string>
+    <string name="upgrade_screen_options_description">Ίδιες λειτουργίες, διαφορετική τιμολόγηση. Η συνδρομή περιλαμβάνει δωρεάν δοκιμή και μπορεί να ακυρωθεί ανά πάσα στιγμή.</string>
+    <string name="upgrade_screen_subscription_trial_action">Έναρξη δωρεάν δοκιμής</string>
+    <string name="upgrade_screen_subscription_action">Ετήσια συνδρομή</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/έτος</string>
+    <string name="upgrade_screen_iap_action">Αγορά μία φορά</string>
+    <string name="upgrade_screen_iap_action_hint">Εφάπαξ αγορά: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Επαναφορά αγοράς</string>
+    <string name="upgrade_screen_restore_purchase_message">Δε βρέθηκαν αγορές. Χρησιμοποιείτε τον σωστό λογαριασμό;</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Εάν έχετε αγοράσει πρόσφατα, ενδέχεται να χρειαστεί λίγος χρόνος για συγχρονισμό με το Google Play.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Δοκιμάστε ξανά σε λίγα λεπτά αν η αγορά σας δεν εμφανιστεί.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Βεβαιωθείτε ότι έχετε συνδεθεί με τον ίδιο λογαριασμό Google που χρησιμοποιήσατε για την αγορά.</string>
     <string name="settings_monitor_mode_label">Λειτουργία παρακολούθησης</string>
     <string name="settings_monitor_mode_description">Υπό ποιες συνθήκες αυτή η εφαρμογή παρακολουθεί δεδομένα Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Επιπλέον ειδοποίηση</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Εμφάνιση αναδυόμενου παραθύρου όταν η συσκευή συνδέεται για πρώτη φορά.</string>
     <string name="notification_channel_device_status_label">Κατάσταση συσκευής</string>
     <string name="notification_channel_device_status_connected_label">Συνδεδεμένη συσκευή</string>
+    <string name="monitor_notification_extra_enabled_hint">Μπορείτε να απενεργοποιήσετε αυτήν την ειδοποίηση στις ρυθμίσεις του συστήματος.</string>
     <string name="support_debuglog_label">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="support_debuglog_desc">Καταγράψτε ό,τι κάνει η εφαρμογή σε ένα αρχείο κειμένου που μπορείτε να μοιραστείτε.</string>
     <string name="debug_debuglog_size_label">Μέγεθος</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Οι αυτόματες αναφορές σφαλμάτων είναι ανώνυμες. Μοιραστείτε το αναγνωριστικό εγκατάστασής σας εάν ο προγραμματιστής πρέπει να βρει τις αναφορές σφαλμάτων σας.</string>
     <string name="settings_support_label">Υποστήριξη</string>
     <string name="settings_support_description">Εάν χρειάζεστε βοήθεια.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">Συχνές ερωτήσεις &amp; Οδηγοί</string>
     <string name="issue_tracker_label">Παρακολούθηση ζητημάτων</string>
     <string name="issue_tracker_description">Ένα δημόσιο σύστημα παρακολούθησης ζητημάτων για αναφορές σφαλμάτων και αιτήματα λειτουργιών (μόνο στα αγγλικά).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Τα δεδομένα διαχειρίζονται υπεύθυνα.</string>
     <string name="settings_licenses_label">Άδειες χρήσης</string>
     <string name="settings_category_other_label">Άλλα</string>
+    <string name="settings_category_gethelp_label">Λήψη βοήθειας</string>
+    <string name="settings_category_debug_label">Αποσφαλμάτωση</string>
     <string name="settings_general_label">Ρυθμίσεις</string>
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
@@ -99,13 +123,15 @@
     <string name="help_translate_label">Μετάφραση</string>
     <string name="help_translate_description">Βοηθήστε να μεταφράσετε αυτήν την εφαρμογή στην αγαπημένη σας γλώσσα.</string>
     <string name="translators_thanks_title">Μεταφραστές</string>
-    <string name="translators_thanks_description">Vagelis1608;Theodoros Asimakopoulos;gogoboss_stampolidis;Matthias;Christos Chronopoulos</string>
+    <string name="translators_thanks_description">Vagelis1608;Theodoros Asimakopoulos;George Stampolidis;Matthias;Christos Chronopoulos</string>
     <string name="widget_description">Ένα widget που εμφανίζει την τελευταία γνωστή κατάσταση της συσκευής.</string>
-    <string name="widget_configuration_title">Επιλογή συσκευής</string>
+    <string name="widget_config_screen_title">Διαμόρφωση γραφικού στοιχείου</string>
+    <string name="widget_configuration_title">Επιλογή Συσκευής</string>
     <string name="widget_configuration_description">Επιλέξτε ποιο προφίλ συσκευής θα εμφανίζει αυτό το widget.</string>
     <string name="widget_no_data_label">Δεν υπάρχουν δεδομένα</string>
+    <string name="widget_error_loading_label">Σφάλμα φόρτωσης γραφικού στοιχείου</string>
     <string name="widget_config_appearance_label">Εμφάνιση</string>
-    <string name="widget_config_preset_label">Προρυθμίσεις</string>
+    <string name="widget_config_preset_label">Προεπιλογές</string>
     <string name="widget_config_background_color_label">Χρώμα φόντου</string>
     <string name="widget_config_foreground_color_label">Χρώμα κειμένου &amp; εικονιδίου</string>
     <string name="widget_config_transparency_label">Διαφάνεια φόντου</string>
@@ -114,7 +140,7 @@
     <string name="widget_config_custom_label">Προσαρμοσμένη</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Σκοτεινό</string>
-    <string name="widget_config_preset_light">Ανοιχτό</string>
+    <string name="widget_config_preset_light">Φωτεινό</string>
     <string name="widget_config_preset_blue">Μπλε</string>
     <string name="widget_config_preset_green">Πράσινο</string>
     <string name="widget_config_preset_red">Κόκκινο</string>
@@ -159,11 +185,11 @@
         <item quantity="other">%d συσκευές χωρίς αντίστοιχο προφίλ</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Σύνδεση Bluetooth</string>
-    <string name="permission_bluetooth_connect_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Σύνδεση Bluetooth\" για να αλληλεπιδράσει με ζευγαρωμένες συσκευές και να ξεκινήσει συνδέσεις.</string>
+    <string name="permission_bluetooth_connect_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Σύνδεση Bluetooth\" για να αλληλεπιδρά με αντιστοιχισμένες συσκευές και να ξεκινά συνδέσεις.</string>
     <string name="permission_bluetooth_scan_label">Σάρωση Bluetooth</string>
     <string name="permission_bluetooth_scan_description">Η άδεια \"Σάρωση Bluetooth\" επιτρέπει σε αυτήν την εφαρμογή να ανακαλύψει και να λάβει δεδομένα Bluetooth από κοντινές συσκευές όπως τα AirPods σας.</string>
     <string name="permission_bluetooth_label">Bluetooth</string>
-    <string name="permission_bluetooth_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Bluetooth\" για να συνδεθεί με ζευγαρωμένες συσκευές Bluetooth.</string>
+    <string name="permission_bluetooth_description">Αυτή η εφαρμογή απαιτεί την άδεια \"Bluetooth\" για να συνδεθεί σε αντιστοιχισμένες συσκευές Bluetooth.</string>
     <string name="permission_access_fine_location_label">Πρόσβαση ακριβούς τοποθεσίας</string>
     <string name="permission_access_fine_location_description">Το CAPod χρησιμοποιεί την άδεια \"ακριβούς τοποθεσίας\" για να λάβει δεδομένα Bluetooth Low Energy. Τα ακουστικά σας χρησιμοποιούν τεχνολογία Bluetooth Low Energy για να μεταδώσουν την κατάστασή τους. Αυτή η εφαρμογή ΔΕΝ θα χρησιμοποιήσει δεδομένα Bluetooth για να προσδιορίσει την τοποθεσία σας.</string>
     <string name="permission_background_location_label">Πρόσβαση τοποθεσίας στο παρασκήνιο</string>
@@ -215,9 +241,10 @@
     <string name="profiles_add_action">Προσθήκη προφίλ</string>
     <string name="profiles_create_title">Δημιουργία Προφίλ</string>
     <string name="profiles_name_label">Όνομα προφίλ</string>
+    <string name="profiles_name_empty_error">Το όνομα δεν μπορεί να είναι κενό</string>
     <string name="profiles_name_default">Τα ακουστικά μου</string>
     <string name="profiles_model_label">Μοντέλο συσκευής</string>
-    <string name="profiles_paired_device_label">Ζευγαρωμένη συσκευή</string>
+    <string name="profiles_paired_device_label">Συζευγμένη συσκευή</string>
     <string name="profiles_paired_device_none">Κανένα</string>
     <string name="profiles_paired_device_none_description">Δεν έχει επιλεγεί συσκευή</string>
     <string name="profiles_save_action">Αποθήκευση προφίλ</string>
@@ -229,19 +256,109 @@
     <string name="profiles_basic_info_description">Ρυθμίστε το όνομα της συσκευής σας, το μοντέλο και την προαιρετική σύζευξη Bluetooth.</string>
     <string name="profiles_signal_quality_title">Ελάχιστη Ποιότητα Σήματος</string>
     <string name="profiles_signal_quality_description">Ανιχνεύστε μόνο συσκευές με ισχύ σήματος πάνω από αυτό το κατώφλι. Χαμηλότερες τιμές αυξάνουν το εύρος ανίχνευσης αλλά μπορεί να προκαλέσουν ψευδώς θετικά αποτελέσματα. Μην το ρυθμίσετε πολύ ψηλά - η λήψη Bluetooth είναι γενικά κακή και ποικίλλει ανάλογα με την απόσταση και τα εμπόδια.</string>
-    <string name="profiles_identitykey_label">Κλειδί ταυτότητας</string>
+    <string name="profiles_identitykey_label">Κλειδί Ταυτότητας</string>
     <string name="profilessettings_maindevice_identitykey_description">Το Κλειδί Επίλυσης Ταυτότητας (IRK) της συσκευής σας, το οποίο βοηθά το CAPod να την αναγνωρίσει μεταξύ κοντινών συσκευών.</string>
-    <string name="profiles_maindevice_identitykey_explanation">Τα AirPods αλλάζουν συχνά τη διεύθυνση Bluetooth τους για λόγους απορρήτου. Το IRK βοηθά το CAPod να αναγνωρίσει τη συσκευή σας. Χρειάζεστε πρόσβαση μίας φοράς σε MacBook.</string>
-    <string name="profiles_maindevice_encryptionkey_label">Κλειδί κρυπτογράφησης</string>
+    <string name="profiles_maindevice_identitykey_explanation">Τα AirPods αλλάζουν συχνά τη διεύθυνση Bluetooth τους για λόγους απορρήτου. Το IRK βοηθά το CAPod να αναγνωρίσει τη συσκευή σας. Χρειάζεστε πρόσβαση σε MacBook μία φορά.</string>
+    <string name="profiles_maindevice_encryptionkey_label">Κλειδί Κρυπτογράφησης</string>
     <string name="profiles_maindevice_encryptionkey_description">Το κλειδί κρυπτογράφησης της συσκευής σας, το οποίο επιτρέπει στο CAPod να ανακτήσει λεπτομερείς πληροφορίες κατάστασης.</string>
-    <string name="profiles_maindevice_encryptionkey_explanation">Τα AirPods στέλνουν ένα μήνυμα κατάστασης, μέρος του οποίου είναι κρυπτογραφημένο. Το κλειδί κρυπτογράφησης επιτρέπει στο CAPod να αποκρυπτογραφήσει το πλήρες μήνυμα. Χρειάζεστε πρόσβαση μίας φοράς σε MacBook.</string>
+    <string name="profiles_maindevice_encryptionkey_explanation">Τα AirPods στέλνουν ένα μήνυμα κατάστασης, μέρος του οποίου είναι κρυπτογραφημένο. Το κλειδί κρυπτογράφησης επιτρέπει στο CAPod να αποκρυπτογραφήσει το πλήρες μήνυμα. Χρειάζεστε πρόσβαση σε MacBook μία φορά.</string>
     <string name="profiles_key_invalid_format">Μη έγκυρη μορφή κλειδιού</string>
     <string name="profiles_key_expected_format">Αναμενόμενη μορφή: %1$s</string>
+    <string name="profiles_key_status_configured">Διαμορφωμένο</string>
+    <string name="profiles_key_status_not_set">Μη ορισμένο</string>
+    <string name="profiles_signal_quality_min_label">Απενεργο</string>
+    <string name="profiles_signal_quality_max_label">Αυστηρό</string>
     <string name="profiles_priority_hint">Η σειρά των προφίλ καθορίζει την προτεραιότητα. Σύρετε τα προφίλ για αναδιάταξη - τα προφίλ υψηλότερα στη λίστα έχουν προτεραιότητα όταν ταιριάζουν πολλαπλές συσκευές.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Θέμα</string>
+    <string name="ui_theme_mode_system_label">Σύστημα</string>
+    <string name="ui_theme_mode_dark_label">Σκοτεινό</string>
+    <string name="ui_theme_mode_light_label">Φωτεινό</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Στυλ θέματος</string>
+    <string name="ui_theme_style_default_label">Προεπιλογή</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Μεσαία αντίθεση</string>
+    <string name="ui_theme_style_high_contrast_label">Υψηλή αντίθεση</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Χρώμα θέματος</string>
+    <string name="ui_theme_color_blue_label">Μπλε</string>
+    <string name="ui_theme_color_green_label">Πράσινο</string>
+    <string name="ui_theme_color_amber_label">Κεχριμπάρι</string>
+    <string name="ui_theme_color_disabled_materialyou">Χρησιμοποιεί χρώματα ταπετσαρίας</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Παρακολούθηση</string>
+    <string name="settings_category_appearance_label">Εμφάνιση</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Μη αποθηκευμένες αλλαγές</string>
     <string name="general_unsaved_changes_message">Έχετε μη αποθηκευμένες αλλαγές. Τι θέλετε να κάνετε;</string>
     <string name="general_save_and_exit_action">Αποθήκευση &amp; Έξοδος</string>
     <string name="general_discard_action">Απόρριψη</string>
-    <string name="general_keep_editing_action">Συνέχεια επεξεργασίας</string>
+    <string name="general_keep_editing_action">Συνέχιση επεξεργασίας</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Η εγγραφή είναι πολύ σύντομη</string>
+    <string name="debug_debuglog_short_recording_message">Το αρχείο καταγραφής εντοπισμού σφαλμάτων πρέπει να καταγράψει το ζήτημα τη στιγμή που συμβαίνει. Συνεχίστε την εγγραφή, αναπαράγετε το πρόβλημα και στη συνέχεια διακόψτε την εγγραφή.</string>
+    <string name="debug_debuglog_short_recording_continue">Συνέχεια εγγραφής</string>
+    <string name="debug_debuglog_short_recording_stop">Διακοπή ούτως ή άλλως</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
+    <string name="debug_debuglog_screen_subtitle">Εξαγωγή πληροφοριών εντοπισμού σφαλμάτων για αντιμετώπιση προβλημάτων</string>
+    <string name="debug_debuglog_screen_sensitive_title">Ευαίσθητες πληροφορίες</string>
+    <string name="debug_debuglog_screen_session_path_label">Διαδρομή Συνεδρίας</string>
+    <string name="debug_debuglog_screen_log_files_label">Αρχεία καταγραφής</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d αρχείο έτοιμο (%2$s)</item>
+        <item quantity="other">%1$d αρχεία έτοιμα (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Διαγραφή</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d αρχείο καταγραφής εντοπισμού σφαλμάτων (%2$s)</item>
+        <item quantity="other">%1$d αρχεία καταγραφής εντοπισμού σφαλμάτων (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Εκκαθάριση αποθηκευμένων αρχείων καταγραφής εντοπισμού σφαλμάτων</string>
+    <string name="support_debuglog_sessions_label">Συνεδρίες εντοπισμού σφαλμάτων</string>
+    <string name="support_debuglog_sessions_desc">Διαχείριση εγγεγραμμένων συνεδριών αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
+    <string name="support_debuglog_sessions_empty">Δεν υπάρχουν συνεδρίες εντοπισμού σφαλμάτων</string>
+    <string name="support_debuglog_session_recording">Εγγραφή…</string>
+    <string name="support_debuglog_session_compressing">Συμπίεση…</string>
+    <string name="support_debuglog_session_delete_title">Διαγραφή συνεδρίας;</string>
+    <string name="support_debuglog_session_delete_message">Αυτή η συνεδρία εντοπισμού σφαλμάτων θα διαγραφεί οριστικά.</string>
+    <string name="support_debuglog_clear_all_message">Όλες οι συνεδρίες εντοπισμού σφαλμάτων θα διαγραφούν οριστικά.</string>
+    <string name="support_debuglog_failed_empty_log">Αποτυχία: το αρχείο καταγραφής είναι κενό</string>
+    <string name="support_debuglog_failed_missing_log">Αποτυχία: το αρχείο καταγραφής λείπει</string>
+    <string name="support_debuglog_failed_corrupt_zip">Αποτυχία: το αρχείο zip είναι κατεστραμμένο</string>
+    <string name="support_debuglog_failed_zip_failed">Αποτυχία: η συμπίεση απέτυχε</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Επικοινωνία με τον προγραμματιστή</string>
+    <string name="support_contact_desc">Συμπληρώστε μια φόρμα για να στείλετε email στον προγραμματιστή.</string>
+    <string name="support_contact_welcome">Διαβάζω κάθε μήνυμα προσωπικά και κάνω ό,τι μπορώ για να απαντήσω, αλλά επειδή εργάζομαι σε αυτό μόνος μου, μπορεί να χρειαστεί λίγος χρόνος. Σας ευχαριστώ για την υπομονή σας.</string>
+    <string name="support_contact_footer">Το μήνυμά σας θα αποσταλεί μέσω email. Οι πληροφορίες συσκευής και ρύθμισης επισυνάπτονται αυτόματα. Μπορείτε να επισυνάψετε στιγμιότυπα οθόνης ή βίντεο στο email. Ορισμένα μέρη του email θα είναι στα αγγλικά ώστε ο προγραμματιστής να το κατανοεί εύκολα.</string>
+    <string name="support_contact_category_label">Κατηγορία</string>
+    <string name="support_contact_category_question_label">Ερώτηση</string>
+    <string name="support_contact_category_feature_label">Αίτημα λειτουργίας</string>
+    <string name="support_contact_category_bug_label">Αναφορά σφάλματος</string>
+    <string name="support_contact_description_label">Περιγραφή</string>
+    <string name="support_contact_description_question_hint">Περιγράψτε λεπτομερώς την ερώτησή σας. Παρακαλώ να είστε συγκεκριμένοι.</string>
+    <string name="support_contact_description_feature_hint">Περιγράψτε τη λειτουργία που θα θέλατε να δείτε. Παρακαλώ να είστε συγκεκριμένοι.</string>
+    <string name="support_contact_description_bug_hint">Περιγράψτε τι συνέβη και πώς να αναπαραχθεί το πρόβλημα. Παρακαλώ να είστε συγκεκριμένοι.</string>
+    <string name="support_contact_expected_label">Αναμενόμενη συμπεριφορά</string>
+    <string name="support_contact_expected_hint">Περιγράψτε τι περιμένατε να συμβεί.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d λέξη</item>
+        <item quantity="other">%1$d / %2$d λέξεις</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Αρχείο καταγραφής σφαλμάτων</string>
+    <string name="support_contact_debuglog_picker_hint">Επισυνάψτε ένα υπάρχον αρχείο καταγραφής εντοπισμού σφαλμάτων ή εγγράψτε ένα νέο.</string>
+    <string name="support_contact_debuglog_picker_empty">Δεν βρέθηκαν αρχεία καταγραφής σφαλμάτων. Καταγράψτε ένα πρώτα.</string>
+    <string name="support_contact_debuglog_zip_error">Αποτυχία συμπίεσης αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
+    <string name="support_contact_send_action">Ανοίξτε εφαρμογή email</string>
+    <string name="support_contact_no_email_app">Δεν βρέθηκε εφαρμογή email σε αυτή τη συσκευή.</string>
+    <string name="support_contact_debuglog_delete_title">Διαγραφή αρχείου καταγραφής εντοπισμού σφαλμάτων;</string>
+    <string name="support_contact_debuglog_delete_message">Αυτό το αρχείο καταγραφής εντοπισμού σφαλμάτων θα διαγραφεί οριστικά.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Αρχείο καταγραφής εστάλη;</string>
+    <string name="support_debuglog_sent_message">Στάλθηκε επιτυχώς το αρχείο καταγραφής εντοπισμού σφαλμάτων; Το αρχείο καταγραφής θα διαγραφεί.</string>
+    <string name="support_contact_sent_title">Email εστάλη;</string>
+    <string name="support_contact_sent_message">Στάλθηκε επιτυχώς το email; Το συνημμένο αρχείο καταγραφής εντοπισμού σφαλμάτων θα διαγραφεί.</string>
 </resources>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopijuoti</string>
     <string name="general_thank_you_label">Ačiū</string>
     <string name="general_upgrade_action">Naujinti</string>
+    <string name="common_feature_requires_pro_msg">Atnaujinkite, kad atrakintumėte.</string>
     <string name="general_donate_action">Paremti</string>
     <string name="general_check_action">Tikrinti</string>
     <string name="general_close_action">Uždaryti</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Pvz.: %s</string>
     <string name="upgrade_capod_label">Naujinti CAPod</string>
     <string name="upgrade_capod_description">Gaukite papildomų funkcijų ir paremkite kūrėją.</string>
+    <string name="upgrade_preamble">CAPod sukūrė vienas žmogus. Atnaujinimas atrakins papildomas funkcijas ir padės išlaikyti programėlę gyvą.</string>
+    <string name="upgrade_benefit_themes">Temos pritaikymas</string>
+    <string name="upgrade_benefit_autoplay">Automatinis grojimas ir pauzė</string>
+    <string name="upgrade_benefit_autoconnect">Automatinis prisijungimas</string>
+    <string name="upgrade_benefit_popups">Iššokantis langas atidarius dėklą ir prisijungus</string>
+    <string name="upgrade_benefit_widgets">Pradinio ekrano valdikliai</string>
+    <string name="upgrade_benefit_support">Paremkite kūrėją</string>
+    <string name="upgrade_screen_options_description">Tos pačios funkcijos, skirtingos kainos. Prenumerata apima nemokamą bandomąjį laikotarpį ir gali būti atšaukta bet kuriuo metu.</string>
+    <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą bandomąjį laikotarpį</string>
+    <string name="upgrade_screen_subscription_action">Prenumeruoti kasmet</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/metai</string>
+    <string name="upgrade_screen_iap_action">Pirkti vieną kartą</string>
+    <string name="upgrade_screen_iap_action_hint">Vienkartinis pirkimas: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
+    <string name="upgrade_screen_restore_purchase_message">Nerasta jokių pirkinių. Ar naudojate tinkamą paskyrą?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Jei neseniai įsigįjote, gali užtrukti kol „Google Play“ sinchronizuosis.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Pabandykite dar kartą po kelių minučių, jei jūsų pirkimas neatsiranda.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Patikrinkite, ar esate prisijungę ta pačia „Google“ paskyra, kuri buvo naudota pirkiniui.</string>
     <string name="settings_monitor_mode_label">Stebėjimo režimas</string>
     <string name="settings_monitor_mode_description">Kokiomis aplinkybėmis ši programa stebi „Bluetooth\" duomenis.</string>
     <string name="settings_monitor_connected_notification_label">Papildomas pranešimas</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Rodyti iškylantįjį langą, kai įrenginys prisijungia pirmą kartą.</string>
     <string name="notification_channel_device_status_label">Įrenginio būsena</string>
     <string name="notification_channel_device_status_connected_label">Prijungtas įrenginys</string>
+    <string name="monitor_notification_extra_enabled_hint">Šį pranešimą galite išjungti sistemos nustatymuose.</string>
     <string name="support_debuglog_label">Derinimo žurnalas</string>
     <string name="support_debuglog_desc">Įrašykite viską, ką daro programa, į tekstinį failą, kurį galite bendrinti.</string>
     <string name="debug_debuglog_size_label">Dydis</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Automatinės klaidų ataskaitos yra anoniminės. Pasidalykite savo diegimo ID, jei kūrėjui reikia rasti jūsų klaidų ataskaitas.</string>
     <string name="settings_support_label">Pagalba</string>
     <string name="settings_support_description">Jei jums reikia pagalbos.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">DUK ir vadovai</string>
     <string name="issue_tracker_label">Problemų sekiklis</string>
     <string name="issue_tracker_description">Viešas problemų sekiklis klaidų ataskaitoms ir funkcijų užklausoms (tik anglų kalba).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Atsakingas duomenų tvarkymas.</string>
     <string name="settings_licenses_label">Licencijos</string>
     <string name="settings_category_other_label">Kita</string>
+    <string name="settings_category_gethelp_label">Gauti pagalbą</string>
+    <string name="settings_category_debug_label">Derinimas</string>
     <string name="settings_general_label">Nustatymai</string>
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
     <string name="settings_acknowledgements_label">Padėkos</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Vertėjai</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Valdiklis, rodantis paskutinę žinomą įrenginio būseną.</string>
+    <string name="widget_config_screen_title">Valdiklio konfigūracija</string>
     <string name="widget_configuration_title">Pasirinkite įrenginį</string>
     <string name="widget_configuration_description">Pasirinkite, kurio įrenginio profilį šis valdiklis turėtų rodyti.</string>
     <string name="widget_no_data_label">Nėra duomenų</string>
+    <string name="widget_error_loading_label">Klaida įkeliant valdiklį</string>
     <string name="widget_config_appearance_label">Išvaizda</string>
     <string name="widget_config_preset_label">Nustatymai</string>
     <string name="widget_config_background_color_label">Fono spalva</string>
@@ -217,6 +243,7 @@
     <string name="profiles_add_action">Pridėti profilį</string>
     <string name="profiles_create_title">Sukurti profilį</string>
     <string name="profiles_name_label">Profilio pavadinimas</string>
+    <string name="profiles_name_empty_error">Pavadinimas negali būti tuščias</string>
     <string name="profiles_name_default">Mano ausinės</string>
     <string name="profiles_model_label">Įrenginio modelis</string>
     <string name="profiles_paired_device_label">Susietas įrenginys</string>
@@ -239,11 +266,107 @@
     <string name="profiles_maindevice_encryptionkey_explanation">„AirPods\" siunčia būsenos pranešimą, kurio dalis yra užšifruota. Šifravimo raktas leidžia CAPod iššifruoti visą pranešimą. Jums reikia vienkartinės prieigos prie „MacBook\".</string>
     <string name="profiles_key_invalid_format">Netinkamas rakto formatas</string>
     <string name="profiles_key_expected_format">Tikėtinas formatas: %1$s</string>
+    <string name="profiles_key_status_configured">Sukonfigūruota</string>
+    <string name="profiles_key_status_not_set">Nenustatyta</string>
+    <string name="profiles_signal_quality_min_label">Išjungta</string>
+    <string name="profiles_signal_quality_max_label">Griežtas</string>
     <string name="profiles_priority_hint">Profilių tvarka nustato prioritetą. Vilkite profilius, kad juos pertvarktumėte – aukščiau sąraše esantys profiliai turi pirmenybę, kai sutampa keli įrenginiai.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Temos režimas</string>
+    <string name="ui_theme_mode_system_label">Sistemos</string>
+    <string name="ui_theme_mode_dark_label">Tamsi</string>
+    <string name="ui_theme_mode_light_label">Šviesi</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Temos stilius</string>
+    <string name="ui_theme_style_default_label">Numatytasis</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Vidutinis kontrastas</string>
+    <string name="ui_theme_style_high_contrast_label">Didelis kontrastas</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Temos spalva</string>
+    <string name="ui_theme_color_blue_label">Mėlyna</string>
+    <string name="ui_theme_color_green_label">Žalia</string>
+    <string name="ui_theme_color_amber_label">Gintarinė</string>
+    <string name="ui_theme_color_disabled_materialyou">Naudoja fono paveikslėlio spalvas</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Stebėjimas</string>
+    <string name="settings_category_appearance_label">Išvaizda</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Neišsaugoti pakeitimai</string>
     <string name="general_unsaved_changes_message">Turite neišsaugotų pakeitimų. Ką norėtumėte daryti?</string>
     <string name="general_save_and_exit_action">Išsaugoti ir išeiti</string>
     <string name="general_discard_action">Atmesti</string>
     <string name="general_keep_editing_action">Tęsti redagavimą</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Irašas per trumpas</string>
+    <string name="debug_debuglog_short_recording_message">Derinimo žurnalas turi užfiksuoti problemą jos metu. Tęskite įrašymą, atkurkite problemą, tada sustabdykite įrašymą.</string>
+    <string name="debug_debuglog_short_recording_continue">Tęsti įrašymą</string>
+    <string name="debug_debuglog_short_recording_stop">Sustabdyti vis tiek</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Derinimo žurnalas</string>
+    <string name="debug_debuglog_screen_subtitle">Eksportuoti derinimo informaciją trikčių diagnostikai</string>
+    <string name="debug_debuglog_screen_sensitive_title">Neskelbtina informacija</string>
+    <string name="debug_debuglog_screen_session_path_label">Sesijos kelias</string>
+    <string name="debug_debuglog_screen_log_files_label">Žurnalo failai</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d failas paruoštas (%2$s)</item>
+        <item quantity="few">%1$d failai paruošti (%2$s)</item>
+        <item quantity="many">%1$d failų paruošta (%2$s)</item>
+        <item quantity="other">%1$d failų paruošta (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Trinti</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d derinimo žurnalas (%2$s)</item>
+        <item quantity="few">%1$d derinimo žurnalai (%2$s)</item>
+        <item quantity="many">%1$d derinimo žurnalų (%2$s)</item>
+        <item quantity="other">%1$d derinimo žurnalų (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Išvalyti saugotus derinimo žurnalus</string>
+    <string name="support_debuglog_sessions_label">Derinimo sesijos</string>
+    <string name="support_debuglog_sessions_desc">Tvarkyti užregistruotas derinimo žurnalo sesijas</string>
+    <string name="support_debuglog_sessions_empty">Nėra derinimo sesijų</string>
+    <string name="support_debuglog_session_recording">Įrašoma…</string>
+    <string name="support_debuglog_session_compressing">Suspaudžiama…</string>
+    <string name="support_debuglog_session_delete_title">Ištrinti sesiją?</string>
+    <string name="support_debuglog_session_delete_message">Ši derinimo sesija bus ištrinta neatstatomai.</string>
+    <string name="support_debuglog_clear_all_message">Visos derinimo sesijos bus ištrintos neatstatomai.</string>
+    <string name="support_debuglog_failed_empty_log">Nepavyko: žurnalo failas tuščias</string>
+    <string name="support_debuglog_failed_missing_log">Nepavyko: žurnalo failas nerastas</string>
+    <string name="support_debuglog_failed_corrupt_zip">Nepavyko: zip failas sugadintas</string>
+    <string name="support_debuglog_failed_zip_failed">Nepavyko: suspaudimas nepavyko</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Susisiekti su kūrėju</string>
+    <string name="support_contact_desc">Užpildykite formą, kad siųstumėte kūrėjui el. laišką.</string>
+    <string name="support_contact_welcome">Aš asmeniškai skaitau kiekvieną žinutę ir stengiuosi atsakyti, tačiau kadangi dirbu vienas, tai gali užtrukti. Dėkojame už jūsų kantrybe.</string>
+    <string name="support_contact_footer">Jūsų žinutė bus siųčiama el. paštu. Įrenginio ir nustatymų informacija pridedama automatiškai. Prie el. laiško galite prideti ekrano nuotraukų ar vaizdo. Kai kurios el. laiško dalys bus anglų kalba, kad kūrėjas galėtų jas lengvai suprasti.</string>
+    <string name="support_contact_category_label">Kategorija</string>
+    <string name="support_contact_category_question_label">Klausimas</string>
+    <string name="support_contact_category_feature_label">Funkcijos prašymas</string>
+    <string name="support_contact_category_bug_label">Klaidos ataskaita</string>
+    <string name="support_contact_description_label">Aprašymas</string>
+    <string name="support_contact_description_question_hint">Išsamiai aprašykite savo klausimą. Prašome būti konkretūs.</string>
+    <string name="support_contact_description_feature_hint">Aprašykite funkciją, kurią norėtumėte matyti. Prašome būti konkretūs.</string>
+    <string name="support_contact_description_bug_hint">Aprašykite, kas įvyko ir kaip atkurti problemą. Prašome būti konkretūs.</string>
+    <string name="support_contact_expected_label">Tikimasi elgsenos</string>
+    <string name="support_contact_expected_hint">Aprašykite, ko tikėjotės.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d žodis</item>
+        <item quantity="few">%1$d / %2$d žodžių</item>
+        <item quantity="many">%1$d / %2$d žodžių</item>
+        <item quantity="other">%1$d / %2$d žodžių</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Derinimo žurnalas</string>
+    <string name="support_contact_debuglog_picker_hint">Pridekite esančią derinimo žurnalą arba įrašykite naują.</string>
+    <string name="support_contact_debuglog_picker_empty">Derinimo žurnalų nerasta. Pirmiausia įrašykite vieną.</string>
+    <string name="support_contact_debuglog_zip_error">Nepavyko suspausti derinimo žurnalo</string>
+    <string name="support_contact_send_action">Atidaryti el. pašto programą</string>
+    <string name="support_contact_no_email_app">Šiame įrenginyje nerasta el. pašto programų.</string>
+    <string name="support_contact_debuglog_delete_title">Ištrinti derinimo žurnalą?</string>
+    <string name="support_contact_debuglog_delete_message">Šis derinimo žurnalas bus ištrintas neatstatomai.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Žurnalas išsiųstas?</string>
+    <string name="support_debuglog_sent_message">Ar derinimo žurnalas buvo sėkmingai išsiųstas? Žurnalas bus ištrintas.</string>
+    <string name="support_contact_sent_title">El. laiškas išsiųstas?</string>
+    <string name="support_contact_sent_message">Ar el. laiškas buvo sėkmingai išsiųstas? Pridėtas derinimo žurnalas bus ištrintas.</string>
 </resources>

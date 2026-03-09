@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">B\'at àpidu un errore in Google Play. Proa torra prus a tardu o torra a allùere su telèfonu.\n\nErrore: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Errore de fatturatzione de Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">B\'at àpidu un errore cando si cherent is detàllios de s\'achistu a Google Play. Isbòida sa cache de Google Play e torra a allùere su telèfonu.\n\nErrore %s</string>
+    <string name="upgrade_restore_action">Recùpera su cùmperu</string>
 </resources>

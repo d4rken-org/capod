@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopeeri</string>
     <string name="general_thank_you_label">Tänan</string>
     <string name="general_upgrade_action">Uuenda</string>
+    <string name="common_feature_requires_pro_msg">Uuenda, et eemaldada piirang.</string>
     <string name="general_donate_action">Anneta</string>
     <string name="general_check_action">Kontrolli</string>
     <string name="general_close_action">Sulge</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Nt: %s</string>
     <string name="upgrade_capod_label">Maksa CAPodi eest</string>
     <string name="upgrade_capod_description">Saate lisavõimalusi ja toetate arendajat.</string>
+    <string name="upgrade_preamble">CAPodi arendab üks inimene. Uuendamine avab lisavõimalused ja aitab rakendust arendada.</string>
+    <string name="upgrade_benefit_themes">Teema kohandamine</string>
+    <string name="upgrade_benefit_autoplay">Automaatesitus ja automaatne paus</string>
+    <string name="upgrade_benefit_autoconnect">Automaatne ühendamine</string>
+    <string name="upgrade_benefit_popups">Hüpikaken korpuse avamisel ja ühendamisel</string>
+    <string name="upgrade_benefit_widgets">Avakuva vidinad</string>
+    <string name="upgrade_benefit_support">Toeta arendajat</string>
+    <string name="upgrade_screen_options_description">Samad võimalused, erinev hind. Tellimus sisaldab tasuta katseaega ja selle saab igal ajal tühistada.</string>
+    <string name="upgrade_screen_subscription_trial_action">Proovi</string>
+    <string name="upgrade_screen_subscription_action">Telli aastaks</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/aastas</string>
+    <string name="upgrade_screen_iap_action">Osta korra</string>
+    <string name="upgrade_screen_iap_action_hint">Ühekordne ost: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Taasta ost</string>
+    <string name="upgrade_screen_restore_purchase_message">Ühtki ostu ei leitud. Kasutate õiget kontot?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Kui olete hiljuti ostnud, võib Google Playl kuluda ajakohastamiseks hetk.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Proovige mõne minuti pärast uuesti, kui teie ost ei ilmu.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Veenduge, et olete sisse logitud sama Google\'i kontoga, mida kasutasite ostu sooritamiseks.</string>
     <string name="settings_monitor_mode_label">Jälgimisrežiim</string>
     <string name="settings_monitor_mode_description">Mis olukordades jälgib see rakendus Bluetooth andmeid.</string>
     <string name="settings_monitor_connected_notification_label">Lisateavitus</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Näita seadme esmaühendumisel hüpikakent.</string>
     <string name="notification_channel_device_status_label">Seadme olek</string>
     <string name="notification_channel_device_status_connected_label">Ühendatud seade</string>
+    <string name="monitor_notification_extra_enabled_hint">Selle teatise saate keelata süsteemi seadetes.</string>
     <string name="support_debuglog_label">Silumisinfo</string>
     <string name="support_debuglog_desc">Salvesta kogu rakenduse tegevus jagatavasse tekstifaili.</string>
     <string name="debug_debuglog_size_label">Maht</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Automaatsed veateated on anonüümsed. Jagage oma paigalduse tunnust, kui arendaja peab leidma teie veateateid.</string>
     <string name="settings_support_label">Abi</string>
     <string name="settings_support_description">Jagatud mure on pool mure.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">KKK ja juhendid</string>
     <string name="issue_tracker_label">Vigade jälgija</string>
     <string name="issue_tracker_description">Avalik andmebaas muredest teavitamiseks ja võimaluste juurde palumiseks (vaid inglise keeles).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Andmete vastutustundlik käsitlemine.</string>
     <string name="settings_licenses_label">Litsentsid</string>
     <string name="settings_category_other_label">Muu</string>
+    <string name="settings_category_gethelp_label">Abi saamine</string>
+    <string name="settings_category_debug_label">Silumine</string>
     <string name="settings_general_label">Seaded</string>
     <string name="settings_general_description">Kogu rakendust mõjutavad üldseaded.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Tõlkijad</string>
     <string name="translators_thanks_description">Olav</string>
     <string name="widget_description">Viimast teadaolevat seadme seisu näitab vidin.</string>
+    <string name="widget_config_screen_title">Vidina seadistus</string>
     <string name="widget_configuration_title">Vali seade</string>
     <string name="widget_configuration_description">Valige, millist seadmeprofiili see vidin võiks kuvada.</string>
     <string name="widget_no_data_label">Andmed puuduvad</string>
+    <string name="widget_error_loading_label">Vidina laadimine nurjus</string>
     <string name="widget_config_appearance_label">Välimus</string>
     <string name="widget_config_preset_label">Eelseadistused</string>
     <string name="widget_config_background_color_label">Tausta värvus</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Lisa profiil</string>
     <string name="profiles_create_title">Loo profiil</string>
     <string name="profiles_name_label">Profiili nimi</string>
+    <string name="profiles_name_empty_error">Nimi ei saa olla tühi</string>
     <string name="profiles_name_default">Minu kõrvaklapid</string>
     <string name="profiles_model_label">Seadme mudel</string>
     <string name="profiles_paired_device_label">Seotud seade</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPodsid saadavad olekuteateid, millest osad on krüptitut. Krüpteerimisvõti võimaldab CAPodil kogu teadet lugeda. Vajate MacBooki jaoks ühekordset juurdepääsukoodi.</string>
     <string name="profiles_key_invalid_format">Vigane loa vorming</string>
     <string name="profiles_key_expected_format">Eeldati vormingut: %1$s</string>
+    <string name="profiles_key_status_configured">Seadistatud</string>
+    <string name="profiles_key_status_not_set">Määramata</string>
+    <string name="profiles_signal_quality_min_label">Väljas</string>
+    <string name="profiles_signal_quality_max_label">Range</string>
     <string name="profiles_priority_hint">Profiili asukoht määrab olulisuse. Profiilide asukoha muutmiseks lohistage neid. Nimekirja eesosas olevad profiilid on eelisjärjekorras mitme samasuguse seadme puhul.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Teema režiim</string>
+    <string name="ui_theme_mode_system_label">Süsteem</string>
+    <string name="ui_theme_mode_dark_label">Tume</string>
+    <string name="ui_theme_mode_light_label">Hele</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Teema stiil</string>
+    <string name="ui_theme_style_default_label">Tavaline</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Keskmine kontrast</string>
+    <string name="ui_theme_style_high_contrast_label">Kõrge kontrast</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Teema värv</string>
+    <string name="ui_theme_color_blue_label">Sinine</string>
+    <string name="ui_theme_color_green_label">Roheline</string>
+    <string name="ui_theme_color_amber_label">Merevaik</string>
+    <string name="ui_theme_color_disabled_materialyou">Kasutab taustapildi värve</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Jälgimine</string>
+    <string name="settings_category_appearance_label">Välimus</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Salvestamata muudatused</string>
     <string name="general_unsaved_changes_message">Muudatused on salvestamata. Mida tahaksite teha?</string>
     <string name="general_save_and_exit_action">Salvesta ja välju</string>
     <string name="general_discard_action">Hülga</string>
     <string name="general_keep_editing_action">Jätka muutmist</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Salvestis on liiga lühike</string>
+    <string name="debug_debuglog_short_recording_message">Vealogi peab jäädvustama probleemi selle toimumise ajal. Jätkake salvestamist, korrake probleemi ja seejärel peatage salvestamine.</string>
+    <string name="debug_debuglog_short_recording_continue">Jätka salvestamist</string>
+    <string name="debug_debuglog_short_recording_stop">Peata ikkagi</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Silumislogi</string>
+    <string name="debug_debuglog_screen_subtitle">Ekspordi silumisteave tõrkeülesleidmiseks</string>
+    <string name="debug_debuglog_screen_sensitive_title">Tundlik teave</string>
+    <string name="debug_debuglog_screen_session_path_label">Seansi asukoht</string>
+    <string name="debug_debuglog_screen_log_files_label">Logifailid</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fail valmis (%2$s)</item>
+        <item quantity="other">%1$d faili valmis (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Delete</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d silumislogi (%2$s)</item>
+        <item quantity="other">%1$d silumislogi (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Kustuta salvestatud silumislogid</string>
+    <string name="support_debuglog_sessions_label">Silumissessioonid</string>
+    <string name="support_debuglog_sessions_desc">Halda salvestatud silumissessioone</string>
+    <string name="support_debuglog_sessions_empty">Silumissessioone pole</string>
+    <string name="support_debuglog_session_recording">Salvestamine…</string>
+    <string name="support_debuglog_session_compressing">Tihendamine…</string>
+    <string name="support_debuglog_session_delete_title">Kustuta sessioon?</string>
+    <string name="support_debuglog_session_delete_message">See silumisseanss kustutatakse jäädavalt.</string>
+    <string name="support_debuglog_clear_all_message">Kõik silumisseansid kustutatakse jäädavalt.</string>
+    <string name="support_debuglog_failed_empty_log">Nurjus: logifail on tühi</string>
+    <string name="support_debuglog_failed_missing_log">Nurjus: logifail puudub</string>
+    <string name="support_debuglog_failed_corrupt_zip">Nurjus: zip-fail on rikutud</string>
+    <string name="support_debuglog_failed_zip_failed">Nurjus: tihendamine läks aia taha</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Suhtle arendajaga</string>
+    <string name="support_contact_desc">Täida ankeet, et saata arendajale meil.</string>
+    <string name="support_contact_welcome">Loen iga sõnumi ise läbi ja püüan oma parima vastata, kuid kuna töötan selle kallal üksi, võib see natuke aega võtta. Tänan kannatuse eest.</string>
+    <string name="support_contact_footer">Sõnum saadetakse meili teel. Seadme ja seadistuse teave lisandub ise. Saad meilile lisada ekraanipilte või video. Mõned osad meilist on inglise keeles, et arendaja saaks sellest hõlpsalt aru.</string>
+    <string name="support_contact_category_label">Kategooria</string>
+    <string name="support_contact_category_question_label">Küsimus</string>
+    <string name="support_contact_category_feature_label">Uus võimalus</string>
+    <string name="support_contact_category_bug_label">Veaaruanne</string>
+    <string name="support_contact_description_label">Kirjeldus</string>
+    <string name="support_contact_description_question_hint">Kirjelda oma küsimust põhjalikult. Ole täpne.</string>
+    <string name="support_contact_description_feature_hint">Kirjelda võimalust, mida soovid kasutada. Ole täpne.</string>
+    <string name="support_contact_description_bug_hint">Kirjelda, mis juhtus ja kuidas probleemi korrata. Ole täpne.</string>
+    <string name="support_contact_expected_label">Eeldatav käitumine</string>
+    <string name="support_contact_expected_hint">Kirjelda, mida eeldasid juhtuvat.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d sõna</item>
+        <item quantity="other">%1$d / %2$d sõna</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Silumislogi</string>
+    <string name="support_contact_debuglog_picker_hint">Lisa olemasolev silumislogi, või salvesta uus.</string>
+    <string name="support_contact_debuglog_picker_empty">Silumisloge ei leitud. Salvesta esmalt üks.</string>
+    <string name="support_contact_debuglog_zip_error">Silumislogi tihendamine nurjus</string>
+    <string name="support_contact_send_action">Ava meilirakendus</string>
+    <string name="support_contact_no_email_app">Sellel seadmel ei leitud meilirakendust.</string>
+    <string name="support_contact_debuglog_delete_title">Kustuta silumislogi?</string>
+    <string name="support_contact_debuglog_delete_message">See silumislogi kustutatakse jäädavalt.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Logi saadeti?</string>
+    <string name="support_debuglog_sent_message">Kas silumislogi saadeti edukalt? Logi kustutatakse.</string>
+    <string name="support_contact_sent_title">E-kiri saadeti?</string>
+    <string name="support_contact_sent_message">Kas e-kiri saadeti edukalt? Manustatud silumislogi kustutatakse.</string>
 </resources>

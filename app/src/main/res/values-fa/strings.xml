@@ -6,6 +6,7 @@
     <string name="general_copy_action">کپی</string>
     <string name="general_thank_you_label">متشکرم</string>
     <string name="general_upgrade_action">ارتقا</string>
+    <string name="common_feature_requires_pro_msg">برای باز کردن قفل، ارتقا دهید.</string>
     <string name="general_donate_action">کمک مالی</string>
     <string name="general_check_action">بررسی</string>
     <string name="general_close_action">بستن</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">مثال: %s</string>
     <string name="upgrade_capod_label">ارتقای CAPod</string>
     <string name="upgrade_capod_description">ویژگی‌های اضافی دریافت کنید و از توسعه‌دهنده حمایت کنید.</string>
+    <string name="upgrade_preamble">CAPod توسط یک نفر توسعه داده می‌شود. ارتقا دادن ویژگی‌های اضافی را باز می‌کند و به زنده نگه داشتن برنامه کمک می‌کند.</string>
+    <string name="upgrade_benefit_themes">سفارشی‌سازی پوسته</string>
+    <string name="upgrade_benefit_autoplay">پخش خودکار و توقف خودکار</string>
+    <string name="upgrade_benefit_autoconnect">اتصال خودکار</string>
+    <string name="upgrade_benefit_popups">پنجره‌ی بازشو هنگام باز کردن جعبه و اتصال</string>
+    <string name="upgrade_benefit_widgets">ابزارک‌های صفحه‌ی اصلی</string>
+    <string name="upgrade_benefit_support">حمایت از توسعه‌دهنده</string>
+    <string name="upgrade_screen_options_description">ویژگی‌های یکسان، قیمت‌گذاری متفاوت. اشتراک شامل آزمایش رایگان است و در هر زمانی می‌توان آن را لغو کرد.</string>
+    <string name="upgrade_screen_subscription_trial_action">شروع دوره آزمایشی</string>
+    <string name="upgrade_screen_subscription_action">اشتراک سالانه</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/سال</string>
+    <string name="upgrade_screen_iap_action">یک‌بار خرید کنید</string>
+    <string name="upgrade_screen_iap_action_hint">خرید یک‌باره: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">بازیابی خرید</string>
+    <string name="upgrade_screen_restore_purchase_message">خریدی یافت نشد. آیا از حساب درستی استفاده می‌کنید؟</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">اگر اخیراً خرید کرده‌اید، ممکن است چند لحظه طول بکشد تا Google Play همگام‌سازی شود.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">اگر خرید شما نمایش داده نشد، چند دقیقه دیگر دوباره امتحان کنید.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">مطمئن شوید با همان حساب Google که برای خرید استفاده کردید وارد شده‌اید.</string>
     <string name="settings_monitor_mode_label">حالت نظارت</string>
     <string name="settings_monitor_mode_description">این برنامه تحت چه شرایطی داده‌های بلوتوث را نظارت می‌کند.</string>
     <string name="settings_monitor_connected_notification_label">اعلان اضافی</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">هنگام اتصال دستگاه برای اولین بار، یک پاپ‌آپ نشان داده شود.</string>
     <string name="notification_channel_device_status_label">وضعیت دستگاه</string>
     <string name="notification_channel_device_status_connected_label">دستگاه متصل</string>
+    <string name="monitor_notification_extra_enabled_hint">می‌توانید این اعلان را در تنظیمات سیستم غیرفعال کنید.</string>
     <string name="support_debuglog_label">گزارش اشکال‌زدایی</string>
     <string name="support_debuglog_desc">تمام کارهایی که برنامه انجام می‌دهد را در یک فایل متنی که می‌توانید به اشتراک بگذارید، ضبط کنید.</string>
     <string name="debug_debuglog_size_label">اندازه</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">گزارش‌های خطای خودکار ناشناس هستند. اگر توسعه‌دهنده نیاز به یافتن گزارش‌های خطای شما دارد، شناسه نصب خود را به اشتراک بگذارید.</string>
     <string name="settings_support_label">پشتیبانی</string>
     <string name="settings_support_description">اگر به کمک نیاز دارید.</string>
+    <string name="settings_wiki_label">ویکی</string>
+    <string name="settings_wiki_description">سوالات متداول و راهنماها</string>
     <string name="issue_tracker_label">ردیاب مشکل</string>
     <string name="issue_tracker_description">یک ردیاب مشکل عمومی برای گزارش‌های اشکال و درخواست‌های ویژگی (فقط انگلیسی).</string>
     <string name="discord_label">دیسکورد</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">مدیریت مسئولانه داده‌ها.</string>
     <string name="settings_licenses_label">مجوزها</string>
     <string name="settings_category_other_label">سایر</string>
+    <string name="settings_category_gethelp_label">دریافت کمک</string>
+    <string name="settings_category_debug_label">اشکال‌زدایی</string>
     <string name="settings_general_label">تنظیمات</string>
     <string name="settings_general_description">تنظیمات کلی که بر کل برنامه تأثیر می‌گذارند.</string>
     <string name="settings_acknowledgements_label">قدردانی‌ها</string>
@@ -99,11 +123,13 @@
     <string name="help_translate_label">ترجمه</string>
     <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>
     <string name="translators_thanks_title">مترجمان</string>
-    <string name="translators_thanks_description">darken</string>
+    <string name="translators_thanks_description">تیره کردن</string>
     <string name="widget_description">ویجتی که آخرین وضعیت شناخته‌شده دستگاه را نشان می‌دهد.</string>
+    <string name="widget_config_screen_title">پیکربندی ابزارک</string>
     <string name="widget_configuration_title">انتخاب دستگاه</string>
     <string name="widget_configuration_description">انتخاب کنید این ویجت کدام پروفایل دستگاه را نمایش دهد.</string>
     <string name="widget_no_data_label">بدون داده</string>
+    <string name="widget_error_loading_label">خطا در بارگذاری ابزارک</string>
     <string name="widget_config_appearance_label">ظاهر</string>
     <string name="widget_config_preset_label">تنظیمات از پیش تعریف شده</string>
     <string name="widget_config_background_color_label">رنگ پس‌زمینه</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">افزودن پروفایل</string>
     <string name="profiles_create_title">ایجاد پروفایل</string>
     <string name="profiles_name_label">نام پروفایل</string>
+    <string name="profiles_name_empty_error">نام نمی‌تواند خالی باشد</string>
     <string name="profiles_name_default">هدفون‌های من</string>
     <string name="profiles_model_label">مدل دستگاه</string>
     <string name="profiles_paired_device_label">دستگاه جفت‌شده</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods یک پیام وضعیت ارسال می‌کنند که بخشی از آن رمزنگاری شده است. کلید رمزنگاری به CAPod اجازه می‌دهد پیام کامل را رمزگشایی کند. شما به دسترسی یک‌باره به MacBook نیاز دارید.</string>
     <string name="profiles_key_invalid_format">فرمت کلید نامعتبر</string>
     <string name="profiles_key_expected_format">فرمت مورد انتظار: %1$s</string>
+    <string name="profiles_key_status_configured">پیکربندی شده</string>
+    <string name="profiles_key_status_not_set">تنظیم نشده</string>
+    <string name="profiles_signal_quality_min_label">خاموش</string>
+    <string name="profiles_signal_quality_max_label">سختگیرانه</string>
     <string name="profiles_priority_hint">ترتیب پروفایل‌ها اولویت را تعیین می‌کند. پروفایل‌ها را بکشید تا مرتب‌سازی مجدد شوند - پروفایل‌های بالاتر در لیست وقتی چندین دستگاه مطابقت دارند اولویت دارند.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">حالت طرح‌زمینه</string>
+    <string name="ui_theme_mode_system_label">سیستم</string>
+    <string name="ui_theme_mode_dark_label">تاریک</string>
+    <string name="ui_theme_mode_light_label">روشن</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">سبک طرح‌زمینه</string>
+    <string name="ui_theme_style_default_label">پیش فرض</string>
+    <string name="ui_theme_style_materialyou_label">متریال شما</string>
+    <string name="ui_theme_style_medium_contrast_label">کنتراست متوسط</string>
+    <string name="ui_theme_style_high_contrast_label">کنتراست بالا</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">رنگ پوسته</string>
+    <string name="ui_theme_color_blue_label">آبی</string>
+    <string name="ui_theme_color_green_label">سبز</string>
+    <string name="ui_theme_color_amber_label">کهربی</string>
+    <string name="ui_theme_color_disabled_materialyou">از رنگ‌های تصویر پس‌زمینه استفاده می‌کند</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">پایش</string>
+    <string name="settings_category_appearance_label">ظاهر</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">تغییرات ذخیره‌نشده</string>
     <string name="general_unsaved_changes_message">شما تغییرات ذخیره‌نشده دارید. می‌خواهید چه کاری انجام دهید؟</string>
     <string name="general_save_and_exit_action">ذخیره و خروج</string>
     <string name="general_discard_action">دور انداختن</string>
     <string name="general_keep_editing_action">ادامه ویرایش</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ضبط خیلی کوتاه بود</string>
+    <string name="debug_debuglog_short_recording_message">گزارش اشکال‌زدایی باید مشکل را در همان لحظه‌ای که رخ می‌دهد ثبت کند. ضبط را ادامه دهید، مشکل را دوباره ایجاد کنید، سپس ضبط را متوقف کنید.</string>
+    <string name="debug_debuglog_short_recording_continue">ادامه ضبط</string>
+    <string name="debug_debuglog_short_recording_stop">در هر حال متوقف شو</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">گزارش خطا</string>
+    <string name="debug_debuglog_screen_subtitle">خروج اطلاعات اشکال‌زدایی برای عیب‌یابی</string>
+    <string name="debug_debuglog_screen_sensitive_title">اطلاعات حساس</string>
+    <string name="debug_debuglog_screen_session_path_label">مسیر نشست</string>
+    <string name="debug_debuglog_screen_log_files_label">فايل گزارشات</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d پرونده آماده (%2$s)</item>
+        <item quantity="other">%1$d پرونده آماده (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">حذف</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d گزارش اشکال‌زدایی (%2$s)</item>
+        <item quantity="other">%1$d گزارش اشکال‌زدایی (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">پاک کردن گزارش‌های اشکال‌زدایی ذخیره‌شده</string>
+    <string name="support_debuglog_sessions_label">جلسات اشکال‌زدایی</string>
+    <string name="support_debuglog_sessions_desc">مدیریت جلسات گزارش اشکال‌زدایی ضبط‌شده</string>
+    <string name="support_debuglog_sessions_empty">هیچ جلسه اشکال‌زدایی‌ای وجود ندارد</string>
+    <string name="support_debuglog_session_recording">در حال ضبط…</string>
+    <string name="support_debuglog_session_compressing">در حال فشرده‌سازی…</string>
+    <string name="support_debuglog_session_delete_title">حذف جلسه؟</string>
+    <string name="support_debuglog_session_delete_message">این جلسه اشکال‌زدایی به طور دائمی حذف خواهد شد.</string>
+    <string name="support_debuglog_clear_all_message">تمام جلسات اشکال‌زدایی به طور دائمی حذف خواهند شد.</string>
+    <string name="support_debuglog_failed_empty_log">شکست: فایل گزارش خالی است</string>
+    <string name="support_debuglog_failed_missing_log">شکست: فایل گزارش موجود نیست</string>
+    <string name="support_debuglog_failed_corrupt_zip">شکست: فایل zip آسیب‌دیده است</string>
+    <string name="support_debuglog_failed_zip_failed">شکست: فشرده‌سازی ناموفق شد</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">تماس با توسعه‌دهنده</string>
+    <string name="support_contact_desc">فرمی را پر کنید تا برای توسعه‌دهنده ایمیل ارسال شود.</string>
+    <string name="support_contact_welcome">هر پیامی را خودم می‌خوانم و سعی می‌کنم پاسخ دهم، اما چون تنها کار می‌کنم ممکن است کمی طول بکشد. ممنون صبر شما.</string>
+    <string name="support_contact_footer">پیام شما از طریق ایمیل ارسال خواهد شد. اطلاعات دستگاه و راه‌اندازی به طور خودکار پیوست می‌شود. می‌توانید تصویرگرفته‌ها یا ویدیویی به ایمیل ضمیمه کنید. برخی قسمت‌های ایمیل به زبان انگلیسی خواهد بود تا توسعه‌دهنده بتواند آن را به راحتی درک کند.</string>
+    <string name="support_contact_category_label">دسته‌بندی</string>
+    <string name="support_contact_category_question_label">سوال</string>
+    <string name="support_contact_category_feature_label">درخواست ویژگی</string>
+    <string name="support_contact_category_bug_label">گزارش مشکل</string>
+    <string name="support_contact_description_label">توضیح</string>
+    <string name="support_contact_description_question_hint">سوال خود را به تفصیل شرح دهید. لطفاً دقیق باشید.</string>
+    <string name="support_contact_description_feature_hint">ویژگی‌ای را که می‌خواهید ببینید شرح دهید. لطفاً دقیق باشید.</string>
+    <string name="support_contact_description_bug_hint">آنچه رخ داده و نحوه بازتولید مشکل را شرح دهید. لطفاً دقیق باشید.</string>
+    <string name="support_contact_expected_label">رفتار مورد انتظار</string>
+    <string name="support_contact_expected_hint">آنچه انتظار داشتید اتفاق بیفتد را توضیح دهید.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d کلمه</item>
+        <item quantity="other">%1$d / %2$d کلمه</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">گزارش اشکال‌زدایی</string>
+    <string name="support_contact_debuglog_picker_hint">یک گزارش اشکال‌زدایی موجود را پیوست کنید، یا یکی جدید ضبط کنید.</string>
+    <string name="support_contact_debuglog_picker_empty">گزارش اشکال‌زدایی‌ای یافت نشد. ابتدا یکی ضبط کنید.</string>
+    <string name="support_contact_debuglog_zip_error">فشرده‌سازی گزارش اشکال‌زدایی ناموفق شد</string>
+    <string name="support_contact_send_action">باز کردن برنامه ایمیل</string>
+    <string name="support_contact_no_email_app">هیچ برنامه ایمیلی در این دستگاه یافت نشد.</string>
+    <string name="support_contact_debuglog_delete_title">حذف گزارش اشکال‌زدایی؟</string>
+    <string name="support_contact_debuglog_delete_message">این گزارش اشکال‌زدایی به طور دائمی حذف خواهد شد.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">لاگ ارسال شد؟</string>
+    <string name="support_debuglog_sent_message">آیا لاگ اشکال‌زدایی با موفقیت ارسال شد؟ لاگ حذف خواهد شد.</string>
+    <string name="support_contact_sent_title">ایمیل ارسال شد؟</string>
+    <string name="support_contact_sent_message">آیا ایمیل با موفقیت ارسال شد؟ لاگ اشکال‌زدایی پیوست‌شده حذف خواهد شد.</string>
 </resources>

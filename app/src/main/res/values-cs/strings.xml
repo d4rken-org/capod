@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopírovat</string>
     <string name="general_thank_you_label">Děkuji Vám</string>
     <string name="general_upgrade_action">Upgradovat</string>
+    <string name="common_feature_requires_pro_msg">Proveďte upgrade pro odemknutí.</string>
     <string name="general_donate_action">Přispět</string>
     <string name="general_check_action">Ověřit</string>
     <string name="general_close_action">Zavřít</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Např.: %s</string>
     <string name="upgrade_capod_label">Upgradovat CAPod</string>
     <string name="upgrade_capod_description">Získat další funkce a podpořit vývojáře.</string>
+    <string name="upgrade_preamble">CAPod vyvíjí jediná osoba. Upgrade odemkne další funkce a pomůže udržet aplikaci naživu.</string>
+    <string name="upgrade_benefit_themes">Přizpůsobení motivu</string>
+    <string name="upgrade_benefit_autoplay">Automatické přehrávání a pozastavení</string>
+    <string name="upgrade_benefit_autoconnect">Automatické připojení</string>
+    <string name="upgrade_benefit_popups">Vyskakovací okno při otevření a připojení</string>
+    <string name="upgrade_benefit_widgets">Widgety domovské obrazovky</string>
+    <string name="upgrade_benefit_support">Podpořit vývojáře</string>
+    <string name="upgrade_screen_options_description">Stejné funkce, různé ceny. Předplatné zahrnuje bezplatnou zkušební dobu a lze jej kdykoli zrušit.</string>
+    <string name="upgrade_screen_subscription_trial_action">Spustit zkušební verzi</string>
+    <string name="upgrade_screen_subscription_action">Předplatit na rok</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/rok</string>
+    <string name="upgrade_screen_iap_action">Koupit jednou</string>
+    <string name="upgrade_screen_iap_action_hint">Jednorázový nákup: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Obnovit nákup</string>
+    <string name="upgrade_screen_restore_purchase_message">Nebyly nalezeny žádné nákupy. Používáte správný účet?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Pokud jste produkt zakoupili nedávno, synchronizace Google Play může chvíli trvat.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Pokud se váš nákup nezobrazí, zkuste to znovu za několik minut.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Ujistěte se, že jste přihlášeni ke stejnému účtu Google, který jste použili při nákupu.</string>
     <string name="settings_monitor_mode_label">Režim monitorování</string>
     <string name="settings_monitor_mode_description">Za jakých okolností tato aplikace monitoruje data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Dodatečné oznámení</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Zobrazit vyskakovací okno při prvním připojení zařízení.</string>
     <string name="notification_channel_device_status_label">Stav zařízení</string>
     <string name="notification_channel_device_status_connected_label">Připojené zařízení</string>
+    <string name="monitor_notification_extra_enabled_hint">Toto oznámení můžete zakázat v nastavení systému.</string>
     <string name="support_debuglog_label">Log ladění</string>
     <string name="support_debuglog_desc">Zaznamenávejte vše, co aplikace dělá, do textového souboru, který můžete sdílet.</string>
     <string name="debug_debuglog_size_label">Velikost</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Automatická hlášení chyb jsou anonymní. Sdílíte pouze své ID instalace, pokud vývojář potřebuje najít vaše chybová hlášení.</string>
     <string name="settings_support_label">Podpora</string>
     <string name="settings_support_description">Potřebujete-li pomoc.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ a průvodce</string>
     <string name="issue_tracker_label">Sledování problémů</string>
     <string name="issue_tracker_description">Veřejné sledování problémů pro hlášení chyb a požadavky na funkce (pouze v angličtině).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Zodpovědné zacházení s daty.</string>
     <string name="settings_licenses_label">Licence</string>
     <string name="settings_category_other_label">Další</string>
+    <string name="settings_category_gethelp_label">Získat pomoc</string>
+    <string name="settings_category_debug_label">Ladění</string>
     <string name="settings_general_label">Nastavení</string>
     <string name="settings_general_description">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
     <string name="settings_acknowledgements_label">Poděkování</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Překladatelé</string>
     <string name="translators_thanks_description">novas78@xda; woytazzer</string>
     <string name="widget_description">Widget zobrazující poslední známý stav zařízení.</string>
+    <string name="widget_config_screen_title">Konfigurace widgetu</string>
     <string name="widget_configuration_title">Vybrat zařízení</string>
     <string name="widget_configuration_description">Vyberte, který profil zařízení má tento widget zobrazovat.</string>
     <string name="widget_no_data_label">Žádná data</string>
+    <string name="widget_error_loading_label">Chyba při načítání widgetu</string>
     <string name="widget_config_appearance_label">Vzhled</string>
     <string name="widget_config_preset_label">Předvolby</string>
     <string name="widget_config_background_color_label">Barva pozadí</string>
@@ -217,6 +243,7 @@
     <string name="profiles_add_action">Přidat profil</string>
     <string name="profiles_create_title">Vytvořit profil</string>
     <string name="profiles_name_label">Název profilu</string>
+    <string name="profiles_name_empty_error">Název nemůže být prázdný</string>
     <string name="profiles_name_default">Má sluchátka</string>
     <string name="profiles_model_label">Model zařízení</string>
     <string name="profiles_paired_device_label">Spárované zařízení</string>
@@ -239,11 +266,107 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods odesílají zprávu o stavu, jejíž část je zašifrovaná. Šifrovací klíč umožňuje aplikaci CAPod dešifrovat celou zprávu. Potřebujete jednorázový přístup k MacBooku.</string>
     <string name="profiles_key_invalid_format">Neplatný formát klíče</string>
     <string name="profiles_key_expected_format">Očekávaný formát: %1$s</string>
+    <string name="profiles_key_status_configured">Nakonfigurováno</string>
+    <string name="profiles_key_status_not_set">Nenastaveno</string>
+    <string name="profiles_signal_quality_min_label">Vypnuto</string>
+    <string name="profiles_signal_quality_max_label">Přísný</string>
     <string name="profiles_priority_hint">Pořadí profilů určuje prioritu. Přetáhněte profily a změňte jejich pořadí - profily výše v seznamu mají přednost, pokud se shoduje více zařízení.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Režim motivu</string>
+    <string name="ui_theme_mode_system_label">Systémový</string>
+    <string name="ui_theme_mode_dark_label">Tmavý</string>
+    <string name="ui_theme_mode_light_label">Světlý</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Styl motivu</string>
+    <string name="ui_theme_style_default_label">Výchozí</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Střední kontrast</string>
+    <string name="ui_theme_style_high_contrast_label">Vysoký kontrast</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Barva motivu</string>
+    <string name="ui_theme_color_blue_label">Modrá</string>
+    <string name="ui_theme_color_green_label">Zelená</string>
+    <string name="ui_theme_color_amber_label">Jantarová</string>
+    <string name="ui_theme_color_disabled_materialyou">Používá barvy tapety</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Monitorování</string>
+    <string name="settings_category_appearance_label">Vzhled</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Neuložené změny</string>
     <string name="general_unsaved_changes_message">Máte neuložené změny. Co chcete provést?</string>
     <string name="general_save_and_exit_action">Uložit a ukončit</string>
     <string name="general_discard_action">Zahodit</string>
     <string name="general_keep_editing_action">Pokračovat v úpravách</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Záznam je příliš krátký</string>
+    <string name="debug_debuglog_short_recording_message">Log ladění musí zachytit problém v okamžiku, kdy nastane. Pokračujte v zaznamenávání, reprodukujte problém a poté zaznamenávání ukončete.</string>
+    <string name="debug_debuglog_short_recording_continue">Pokračovat v záznamu</string>
+    <string name="debug_debuglog_short_recording_stop">Přesto ukončit</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Log ladění</string>
+    <string name="debug_debuglog_screen_subtitle">Exportovat ladicí informace pro řešení problémů</string>
+    <string name="debug_debuglog_screen_sensitive_title">Citlivé informace</string>
+    <string name="debug_debuglog_screen_session_path_label">Cesta relace</string>
+    <string name="debug_debuglog_screen_log_files_label">Soubory protokolů</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d soubor připraven (%2$s)</item>
+        <item quantity="few">%1$d soubory připraveny (%2$s)</item>
+        <item quantity="many">%1$d souborů připraveno (%2$s)</item>
+        <item quantity="other">%1$d souborů připraveno (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Smazat</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d log ladění (%2$s)</item>
+        <item quantity="few">%1$d logy ladění (%2$s)</item>
+        <item quantity="many">%1$d logů ladění (%2$s)</item>
+        <item quantity="other">%1$d logů ladění (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Smazat uložené logy ladění</string>
+    <string name="support_debuglog_sessions_label">Relace ladění</string>
+    <string name="support_debuglog_sessions_desc">Správa zaznamenaných relací ladění</string>
+    <string name="support_debuglog_sessions_empty">Žádné relace ladění</string>
+    <string name="support_debuglog_session_recording">Zaznamenávání…</string>
+    <string name="support_debuglog_session_compressing">Komprimování…</string>
+    <string name="support_debuglog_session_delete_title">Smazat relaci?</string>
+    <string name="support_debuglog_session_delete_message">Tato relace ladění bude trvale smazána.</string>
+    <string name="support_debuglog_clear_all_message">Všechny relace ladění budou trvale smazány.</string>
+    <string name="support_debuglog_failed_empty_log">Chyba: soubor logu je prázdný</string>
+    <string name="support_debuglog_failed_missing_log">Chyba: soubor logu chybí</string>
+    <string name="support_debuglog_failed_corrupt_zip">Chyba: soubor zip je poškozený</string>
+    <string name="support_debuglog_failed_zip_failed">Chyba: komprimování selhalo</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Kontaktovat vývojáře</string>
+    <string name="support_contact_desc">Vyplňte formulář a odešlete vývojáři e-mail.</string>
+    <string name="support_contact_welcome">Všechny zprávy čtu sám a snažím se na ně odpovídat, ale protože na tom pracuji sám, může to chvíli trvat. Děkuji za trpělivost.</string>
+    <string name="support_contact_footer">Vaše zpráva bude odeslána e-mailem. Informace o zařízení a nastavení se připojí automaticky. K e-mailu můžete připojit snímky obrazovky nebo video. Některé části e-mailu budou v angličtině, aby je vývojář mohl snadno pochopit.</string>
+    <string name="support_contact_category_label">Kategorie</string>
+    <string name="support_contact_category_question_label">Dotaz</string>
+    <string name="support_contact_category_feature_label">Žádost o funkci</string>
+    <string name="support_contact_category_bug_label">Hlášení chyb</string>
+    <string name="support_contact_description_label">Popis</string>
+    <string name="support_contact_description_question_hint">Popište svůj dotaz podrobně. Buďte konkrétní.</string>
+    <string name="support_contact_description_feature_hint">Popište funkci, kterou byste chtěli vidět. Buďte konkrétní.</string>
+    <string name="support_contact_description_bug_hint">Popište, co se stalo a jak problém reprodukovat. Buďte konkrétní.</string>
+    <string name="support_contact_expected_label">Očekávané chování</string>
+    <string name="support_contact_expected_hint">Popište, co jste očekávali, že nastane.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d slov</item>
+        <item quantity="few">%1$d / %2$d slov</item>
+        <item quantity="many">%1$d / %2$d slov</item>
+        <item quantity="other">%1$d / %2$d slov</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log ladění</string>
+    <string name="support_contact_debuglog_picker_hint">Připojte existující log ladění, nebo nahrajte nový.</string>
+    <string name="support_contact_debuglog_picker_empty">Nebyly nalezeny žádné logy ladění. Nejdříve je zaznamenejte.</string>
+    <string name="support_contact_debuglog_zip_error">Nepodařilo se komprimovat log ladění</string>
+    <string name="support_contact_send_action">Otevřít e-mailovou aplikaci</string>
+    <string name="support_contact_no_email_app">V tomto zařízení nebyla nalezena žádná e-mailová aplikace.</string>
+    <string name="support_contact_debuglog_delete_title">Smazat log ladění?</string>
+    <string name="support_contact_debuglog_delete_message">Tento log ladění bude trvale smazán.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Log odeslán?</string>
+    <string name="support_debuglog_sent_message">Byl protokol ladění úspěšně odeslán? Protokol bude smazán.</string>
+    <string name="support_contact_sent_title">E-mail odeslán?</string>
+    <string name="support_contact_sent_message">Byl e-mail úspěšně odeslán? Přiložený protokol ladění bude smazán.</string>
 </resources>

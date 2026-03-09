@@ -6,6 +6,7 @@
     <string name="general_copy_action">प्रतिलिपि गर्नुहोस्</string>
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_upgrade_action">अपग्रेड गर्नुहोस्</string>
+    <string name="common_feature_requires_pro_msg">अनलक गर्न अपग्रेड गर्नुहोस्।</string>
     <string name="general_donate_action">दान दिनुहोस्</string>
     <string name="general_check_action">जाँच गर्नुहोस्</string>
     <string name="general_close_action">बन्द गर्नुहोस्</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">उदाहरण: %s</string>
     <string name="upgrade_capod_label">CAPod अपग्रेड गर्नुहोस्</string>
     <string name="upgrade_capod_description">थप सुविधाहरू पाउनुहोस् र विकासकर्तालाई समर्थन गर्नुहोस्।</string>
+    <string name="upgrade_preamble">CAPod एकल व्यक्तिद्वारा विकास गरिएको छ। अपग्रेड गर्दा थप सुविधाहरू अनलक हुन्छन् र एपलाई जीवित राख्न मद्दत गर्छ।</string>
+    <string name="upgrade_benefit_themes">थिम अनुकूलन</string>
+    <string name="upgrade_benefit_autoplay">स्वत: प्ले र स्वत: पज</string>
+    <string name="upgrade_benefit_autoconnect">स्वत: जडान</string>
+    <string name="upgrade_benefit_popups">केस खोल्दा र जडान हुँदा पपअप</string>
+    <string name="upgrade_benefit_widgets">होम स्क्रिन विजेटहरू</string>
+    <string name="upgrade_benefit_support">डेभलपरलाई सहयोग गर्नुहोस्</string>
+    <string name="upgrade_screen_options_description">समान सुविधाहरू, फरक मूल्य निर्धारण। सदस्यतामा निःशुल्क परीक्षण समावेश छ र जुनसुकै बेला रद्द गर्न सकिन्छ।</string>
+    <string name="upgrade_screen_subscription_trial_action">निःशुल्क परीक्षण सुरु गर्नुहोस्</string>
+    <string name="upgrade_screen_subscription_action">वार्षिक सदस्यता लिनुहोस्</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/वर्ष</string>
+    <string name="upgrade_screen_iap_action">एक पटक किन्नुहोस्</string>
+    <string name="upgrade_screen_iap_action_hint">एक-पटक खरिद: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">खरिद पुनर्स्थापना गर्नुहोस्</string>
+    <string name="upgrade_screen_restore_purchase_message">कुनै खरिदहरू फेला परेनन्। के तपाईंले सही खाता प्रयोग गरिरहनुभएको छ?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">यदि तपाईंले भर्खरै खरिद गर्नुभएको छ भने, Google Play लाई सिङ्क गर्न केही समय लाग्न सक्छ।</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">तपाईंको खरिद देखिएन भने केही मिनेटमा फेरि प्रयास गर्नुहोस्।</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">खरिदमा प्रयोग गरिएको Google खाताबाट साइन इन गर्नुभएको छ भनी निश्चित गर्नुहोस्।</string>
     <string name="settings_monitor_mode_label">मोनिटर मोड</string>
     <string name="settings_monitor_mode_description">यो एपले कुन परिस्थितिमा ब्लुटुथ डाटा निगरानी गर्छ।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">उपकरण पहिलो पटक जडान हुँदा पपअप देखाउनुहोस्।</string>
     <string name="notification_channel_device_status_label">उपकरण स्थिति</string>
     <string name="notification_channel_device_status_connected_label">जडान भएको उपकरण</string>
+    <string name="monitor_notification_extra_enabled_hint">तपाईं यो सूचना प्रणाली सेटिङमा अक्षम गर्न सक्नुहुन्छ।</string>
     <string name="support_debuglog_label">डिबग लग</string>
     <string name="support_debuglog_desc">एपले गर्ने सबै कुरालाई तपाईंले साझेदारी गर्न सक्ने टेक्स्ट फाइलमा रेकर्ड गर्नुहोस्।</string>
     <string name="debug_debuglog_size_label">आकार</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">स्वचालित त्रुटि रिपोर्टहरू गुमनाम छन्। यदि विकासकर्तालाई तपाईंको त्रुटि रिपोर्टहरू फेला पार्न आवश्यक छ भने आफ्नो स्थापना आईडी साझेदारी गर्नुहोस्।</string>
     <string name="settings_support_label">समर्थन</string>
     <string name="settings_support_description">यदि तपाईंलाई केही मद्दत चाहिन्छ भने।</string>
+    <string name="settings_wiki_label">विकि</string>
+    <string name="settings_wiki_description">FAQ र गाइडहरू</string>
     <string name="issue_tracker_label">समस्या ट्र्याकर</string>
     <string name="issue_tracker_description">बग रिपोर्टहरू र सुविधा अनुरोधहरूका लागि सार्वजनिक समस्या ट्र्याकर (अंग्रेजी मात्र)।</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">डाटालाई जिम्मेवारीपूर्वक ह्यान्डल गर्ने।</string>
     <string name="settings_licenses_label">इजाजतपत्रहरू</string>
     <string name="settings_category_other_label">अन्य</string>
+    <string name="settings_category_gethelp_label">सहायता लिनुहोस्</string>
+    <string name="settings_category_debug_label">डिबग</string>
     <string name="settings_general_label">सेटिङहरू</string>
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">अनुवादकहरू</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">उपकरणको अन्तिम ज्ञात स्थिति देखाउने विजेट।</string>
+    <string name="widget_config_screen_title">विजेट कन्फिगरेसन</string>
     <string name="widget_configuration_title">उपकरण छान्नुहोस्</string>
     <string name="widget_configuration_description">यो विजेटले कुन उपकरण प्रोफाइल देखाउनुपर्छ भनेर छान्नुहोस्।</string>
     <string name="widget_no_data_label">डाटा छैन</string>
+    <string name="widget_error_loading_label">विजेट लोड गर्दा त्रुटि</string>
     <string name="widget_config_appearance_label">उपस्थिति</string>
     <string name="widget_config_preset_label">प्रिसेट्स</string>
     <string name="widget_config_background_color_label">पृष्ठभूमि रङ्ग</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">प्रोफाइल थप्नुहोस्</string>
     <string name="profiles_create_title">प्रोफाइल सिर्जना गर्नुहोस्</string>
     <string name="profiles_name_label">प्रोफाइल नाम</string>
+    <string name="profiles_name_empty_error">नाम खाली हुन हुँदैन</string>
     <string name="profiles_name_default">मेरो हेडफोन</string>
     <string name="profiles_model_label">उपकरण मोडेल</string>
     <string name="profiles_paired_device_label">जोडा मिलाइएको उपकरण</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ले स्थिति सन्देश पठाउँछ, जसको एक भाग इन्क्रिप्टेड हुन्छ। इन्क्रिप्शन कुञ्जीले CAPod लाई पूर्ण सन्देश डिक्रिप्ट गर्न अनुमति दिन्छ। तपाईंलाई MacBook मा एक पटक पहुँच चाहिन्छ।</string>
     <string name="profiles_key_invalid_format">अमान्य कुञ्जी ढाँचा</string>
     <string name="profiles_key_expected_format">अपेक्षित ढाँचा: %1$s</string>
+    <string name="profiles_key_status_configured">कन्फिगर गरिएको</string>
+    <string name="profiles_key_status_not_set">सेट गरिएको छैन</string>
+    <string name="profiles_signal_quality_min_label">बन्द</string>
+    <string name="profiles_signal_quality_max_label">कडा</string>
     <string name="profiles_priority_hint">प्रोफाइल क्रमले प्राथमिकता निर्धारण गर्छ। प्रोफाइलहरूलाई पुन: क्रमबद्ध गर्न तान्नुहोस् — सूचीमा माथि रहेका प्रोफाइलहरूले बहु उपकरणहरू मेल खाँदा प्राथमिकता पाउँछन्।</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">थिम मोड</string>
+    <string name="ui_theme_mode_system_label">सिस्टम</string>
+    <string name="ui_theme_mode_dark_label">अँध्यारो</string>
+    <string name="ui_theme_mode_light_label">उज्यालो</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">थिम शैली</string>
+    <string name="ui_theme_style_default_label">पूर्वनिर्धारित</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">मध्यम कन्ट्रास्ट</string>
+    <string name="ui_theme_style_high_contrast_label">उच्च कन्ट्रास्ट</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">थिम रङ्ग</string>
+    <string name="ui_theme_color_blue_label">नीलो</string>
+    <string name="ui_theme_color_green_label">हरियो</string>
+    <string name="ui_theme_color_amber_label">एम्बर</string>
+    <string name="ui_theme_color_disabled_materialyou">वालपेपर रङ्गहरू प्रयोग गर्छ</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">निगरानी</string>
+    <string name="settings_category_appearance_label">देखावट</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">नसुरक्षित परिवर्तनहरू</string>
     <string name="general_unsaved_changes_message">तपाईंसँग नसुरक्षित परिवर्तनहरू छन्। तपाईं के गर्न चाहनुहुन्छ?</string>
     <string name="general_save_and_exit_action">सुरक्षित गर्नुहोस् &amp; बाहिर जानुहोस्</string>
     <string name="general_discard_action">खारेज गर्नुहोस्</string>
     <string name="general_keep_editing_action">सम्पादन जारी राख्नुहोस्</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">रेकर्डिङ धेरै छोटो छ</string>
+    <string name="debug_debuglog_short_recording_message">डिबग लगले समस्या हुँदाकै क्याप्चर गर्नु पर्दछ। रेकर्डिङ चालू राख्नुहोस्, समस्या पुनरुत्पादन गर्नुहोस्, त्यसपछि रेकर्डिङ बन्द गर्नुहोस्।</string>
+    <string name="debug_debuglog_short_recording_continue">रेकर्डिङ जारी राख्नुहोस्</string>
+    <string name="debug_debuglog_short_recording_stop">देखावथापि रोक्नुहोस्</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">डिबग लग</string>
+    <string name="debug_debuglog_screen_subtitle">समस्या निवारणको लागि डिबग जानकारी निर्यात गर्नुहोस्</string>
+    <string name="debug_debuglog_screen_sensitive_title">संवेदनशील जानकारी</string>
+    <string name="debug_debuglog_screen_session_path_label">सेसन पाथ</string>
+    <string name="debug_debuglog_screen_log_files_label">लग फाइलहरू</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d फाइल तयार (%2$s)</item>
+        <item quantity="other">%1$d फाइलहरू तयार (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">मेटाउनुहोस्</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d डिबग लग (%2$s)</item>
+        <item quantity="other">%1$d डिबग लगहरू (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">संचित डिबग लगहरू मेट्नुहोस्</string>
+    <string name="support_debuglog_sessions_label">डिबग सेसनहरू</string>
+    <string name="support_debuglog_sessions_desc">रेकर्ड गरिएका डिबग लग सेसनहरू प्रबन्धन गर्नुहोस्</string>
+    <string name="support_debuglog_sessions_empty">कुनै डिबग सेसन छैन</string>
+    <string name="support_debuglog_session_recording">रेकर्डिङ हुँदैछ…</string>
+    <string name="support_debuglog_session_compressing">सङ्कुचित हुँदैछ…</string>
+    <string name="support_debuglog_session_delete_title">सेसन मेट्ने?</string>
+    <string name="support_debuglog_session_delete_message">यो डिबग सेसन स्थायी रूपमा मेटिनेछ।</string>
+    <string name="support_debuglog_clear_all_message">सबै डिबग सेसनहरू स्थायी रूपमा मेटिनेछन्।</string>
+    <string name="support_debuglog_failed_empty_log">सफल भएन: लग फाइल खाली छ</string>
+    <string name="support_debuglog_failed_missing_log">सफल भएन: लग फाइल फेला पर्छैन</string>
+    <string name="support_debuglog_failed_corrupt_zip">सफल भएन: zip फाइल दूषित छ</string>
+    <string name="support_debuglog_failed_zip_failed">सफल भएन: सङ्कुचन सफल भएन</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">डेभलपरलाई सम्पर्क गर्नुहोस्</string>
+    <string name="support_contact_desc">डेभलपरलाई इमेल पठाउनको लागि फोरम भर्नुहोस्।</string>
+    <string name="support_contact_welcome">म प्रत्येक सन्देश आफैंले पढ्छु र जवाफ दिनको पूरा कोशिश गर्छु, तर म एकलै काम गर्ने हुनाले केही समय लाग्न सक्छ। धैर्यको लागि धन्यवाद।</string>
+    <string name="support_contact_footer">तपाईंको सन्देश इमेल मारफत पठाइनेछ। उपकरण र सेटअप जानकारी स्वचालित रूपमा संलग्न हुन्छ। तपाईंले इमेलमा स्क्रिनसेट वा विडियो संलग्न गर्न सक्नुहुन्छ। इमेलका कुनै भाग अंग्रेजीमा हुनेछन् ताकि डेभलपरले सजिलै बुझ्न सकुन्।</string>
+    <string name="support_contact_category_label">श्रेणी</string>
+    <string name="support_contact_category_question_label">प्रश्न</string>
+    <string name="support_contact_category_feature_label">फिचर अनुरोध</string>
+    <string name="support_contact_category_bug_label">बग रिपोर्ट</string>
+    <string name="support_contact_description_label">विवरण</string>
+    <string name="support_contact_description_question_hint">आफ्नो प्रश्न विस्तृत रूपमा वर्णन गर्नुहोस्। किरपा स्पष्ट हुनुहोस्।</string>
+    <string name="support_contact_description_feature_hint">तपाईंले देख्न चाहनुभएको फिचर वर्णन गर्नुहोस्। किरपा स्पष्ट हुनुहोस्।</string>
+    <string name="support_contact_description_bug_hint">के भयो र समस्या कसरी पुनरुत्पादन गर्ने वर्णन गर्नुहोस्। किरपा स्पष्ट हुनुहोस्।</string>
+    <string name="support_contact_expected_label">अपेक्षित व्यवहार</string>
+    <string name="support_contact_expected_hint">तपाईंले के हुने अपेक्षा गर्नुभएको थियो वर्णन गर्नुहोस्।</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d शब्द</item>
+        <item quantity="other">%1$d / %2$d शब्दहरू</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">डिबग लग</string>
+    <string name="support_contact_debuglog_picker_hint">मौजुदा डिबग लग संलग्न गर्नुहोस्, वा नयाँ रेकर्ड गर्नुहोस्।</string>
+    <string name="support_contact_debuglog_picker_empty">कुनै डिबग लग फेला परिएन। पहिले रेकर्ड गर्नुहोस्।</string>
+    <string name="support_contact_debuglog_zip_error">डिबग लग सङ्कुचन गर्न सफल भएन</string>
+    <string name="support_contact_send_action">इमेल एप खोल्नुहोस्</string>
+    <string name="support_contact_no_email_app">यो उपकरणमा कुनै इमेल एप फेला परिएन।</string>
+    <string name="support_contact_debuglog_delete_title">डिबग लग मेट्ने?</string>
+    <string name="support_contact_debuglog_delete_message">यो डिबग लग स्थायी रूपमा मेटिनेछ।</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">लग पठाइयो?</string>
+    <string name="support_debuglog_sent_message">डिबग लग सफलतापूर्वक पठाइयो? लग मेटिनेछ।</string>
+    <string name="support_contact_sent_title">इमेल पठाइयो?</string>
+    <string name="support_contact_sent_message">इमेल सफलतापूर्वक पठाइयो? संलग्न डिबग लग मेटिनेछ।</string>
 </resources>

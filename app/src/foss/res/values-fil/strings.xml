@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Mag-donate</string>
     <string name="foss_upgrade_alreadydonated_label">Nakapag-donate na ako</string>
     <string name="foss_upgrade_no_money_label">Ginagastos ko lahat ng pera ko sa AirPods</string>
+    <string name="upgrade_foss_preamble">Ang CAPod FOSS ay libre at open source. Kung nakita mong kapaki-pakinabang ito, isaalang-alang ang pag-sponsor ng development para mapanatiling aktibo ang proyekto.</string>
+    <string name="upgrade_foss_sponsor_action">Mag-sponsor ng development</string>
+    <string name="upgrade_foss_sponsor_subtitle">Walang ads. Walang tracking. Walang Google Play lock-in.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Bumalik na? Ang iyong suporta ay nagpapanatiling buhay ng CAPod.</string>
 </resources>

@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Google Play üzerinde bir hata oluştu. Lütfen daha sonra tekrar deneyin veya telefonunuzu yeniden başlatın.\n\nHata: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Google Play Faturalandırma Hatası</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Play üzerinden satın alma ayrıntılarınız istenirken bir hata oluştu. Google Play önbelleğini temizleyin ve telefonunuzu yeniden başlatın.\n\nHata %s</string>
+    <string name="upgrade_restore_action">Satın almayı geri yükle</string>
 </resources>

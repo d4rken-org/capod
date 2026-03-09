@@ -6,4 +6,5 @@
     <string name="upgrades_gplay_billing_error_description">Настана грешка во Google Play. Обидете се повторно подоцна или рестартирајте го телефонот.\n\nГрешка: %s</string>
     <string name="upgrades_gplay_billing_result_error_label">Грешка при наплата на Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Настана грешка при барање на деталите за вашата купувања од Google Play. Исчистете го кешот на Google Play и рестартирајте го телефонот.\n\nГрешка %s</string>
+    <string name="upgrade_restore_action">Обнови купувачка</string>
 </resources>

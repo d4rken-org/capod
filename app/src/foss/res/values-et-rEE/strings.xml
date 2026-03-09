@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">Anneta</string>
     <string name="foss_upgrade_alreadydonated_label">Juba annetasin</string>
     <string name="foss_upgrade_no_money_label">Kulutasin kogu raha AirPodsidele</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS on tasuta ja avatud lähtekoodiga. Kui sellest on sulle kasu, kaalu arenduse rahastamist, et aidata projekti arendada.</string>
+    <string name="upgrade_foss_sponsor_action">Rahasta arendamist</string>
+    <string name="upgrade_foss_sponsor_subtitle">Reklaami pole. Jälgimist pole. Google Play lukustust pole.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Juba tagasi? Sinu toetus hoiab CAPodi elus.</string>
 </resources>

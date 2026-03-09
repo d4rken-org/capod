@@ -6,6 +6,7 @@
     <string name="general_copy_action">ສຳເນົາ</string>
     <string name="general_thank_you_label">ຂອບໃຈ</string>
     <string name="general_upgrade_action">ອັບເກຣດ</string>
+    <string name="common_feature_requires_pro_msg">ອັບເກຣດເພື່ອປົດລັອກ.</string>
     <string name="general_donate_action">ບໍລິຈາກ</string>
     <string name="general_check_action">ກວດສອບ</string>
     <string name="general_close_action">ປິດ</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">ຕົວຢ່າງ: %s</string>
     <string name="upgrade_capod_label">ອັບເກຣດ CAPod</string>
     <string name="upgrade_capod_description">ຮັບຄຸນສົມບັດເພີ່ມເຕີມ ແລະ ສະໜັບສະໜູນຜູ້ພັດທະນາ.</string>
+    <string name="upgrade_preamble">CAPod ຖືກພັດທະນາໂດຍຄົນດຽວ. ການອັບເກຣດຈະປົດລັອກຟີເຈີເພີ່ມເຕີມ ແລະ ຊ່ວຍຮັກສາແອັບໃຫ້ດຳເນີນຕໍ່ໄປ.</string>
+    <string name="upgrade_benefit_themes">ປັບແຕ່ງຮູບແບບ</string>
+    <string name="upgrade_benefit_autoplay">ຫຼິ້ນອັດຕະໂນມັດ &amp; ຢຸດຊົ່ວຄາວອັດຕະໂນມັດ</string>
+    <string name="upgrade_benefit_autoconnect">ເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
+    <string name="upgrade_benefit_popups">ປັອບອັບເມື່ອເປີດກ່ອງ &amp; ເຊື່ອມຕໍ່</string>
+    <string name="upgrade_benefit_widgets">ວິດເຈັດໜ້າຈໍຫຼັກ</string>
+    <string name="upgrade_benefit_support">ສະໜັບສະໜູນຜູ້ພັດທະນາ</string>
+    <string name="upgrade_screen_options_description">ຟີເຈີດຽວກັນ, ລາຄາຕ່າງກັນ. ການສະໝັກສະມາຊິກລວມການທົດລອງໃຊ້ຟຣີ ແລະ ສາມາດຍົກເລີກໄດ້ທຸກເວລາ.</string>
+    <string name="upgrade_screen_subscription_trial_action">ເລີ່ມທົດລອງໃຊ້ຟຣີ</string>
+    <string name="upgrade_screen_subscription_action">ສະໝັກສະມາຊິກລາຍປີ</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ປີ</string>
+    <string name="upgrade_screen_iap_action">ຊື້ຄັ້ງດຽວ</string>
+    <string name="upgrade_screen_iap_action_hint">ການຊື້ຄັ້ງດຽວ: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">ກູ້ຄືນການຊື້</string>
+    <string name="upgrade_screen_restore_purchase_message">ບໍ່ພົບການຊື້. ທ່ານກຳລັງໃຊ້ບັນຊີທີ່ຖືກຕ້ອງບໍ?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">ຖ້າທ່ານຊື້ຜ່ານມາບໍ່ດົນ, ອາດໃຊ້ເວລາໜ້ອຍໜຶ່ງສຳລັບ Google Play ໃນການຊິ້ງຂໍ້ມູນ.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ລອງໃໝ່ຫຼັງຈາກສອງສາມນາທີ ຖ້າການຊື້ຂອງທ່ານຍັງບໍ່ສະແດງ.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ໃຫ້ແນ່ໃຈວ່າທ່ານໄດ້ລ໋ອກອິນດ້ວຍບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້.</string>
     <string name="settings_monitor_mode_label">ໂໝດຕິດຕາມ</string>
     <string name="settings_monitor_mode_description">ແອັບນີ້ຕິດຕາມຂໍ້ມູນ Bluetooth ພາຍໃຕ້ສະຖານະການໃດ.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
@@ -33,7 +52,7 @@
     <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string>
     <string name="settings_fake_data_label">ຂໍ້ມູນປອມ</string>
     <string name="settings_fake_data_description">ສະແດງຂໍ້ມູນປອມ, ເຊັ່ນ: ຈຳລອງອຸປະກອນທີ່ບໍ່ມີຢູ່.</string>
-    <string name="settings_debug_label">ການຕັ້ງຄ່າດີບັກ</string>
+    <string name="settings_debug_label">ການຕັ້ງຄ່າດີບัก</string>
     <string name="settings_debug_description">ການຕັ້ງຄ່າເພີ່ມເຕີມເພື່ອຊ່ວຍແກ້ໄຂບັນຫາກັບແອັບ.</string>
     <string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
     <string name="settings_signal_minimum_description">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າທີ່ອຸປະກອນຕ້ອງມີເພື່ອຖືວ່າເປັນຂອງທ່ານ.</string>
@@ -60,21 +79,24 @@
     <string name="settings_popup_connected_description">ສະແດງປັອບອັບເມື່ອອຸປະກອນເຊື່ອມຕໍ່ຄັ້ງທຳອິດ.</string>
     <string name="notification_channel_device_status_label">ສະຖານະອຸປະກອນ</string>
     <string name="notification_channel_device_status_connected_label">ອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ</string>
-    <string name="support_debuglog_label">ບັນທຶກດີບັກ</string>
+    <string name="monitor_notification_extra_enabled_hint">ທ່ານສາມາດປິດການແຈ້ງເຕືອນນີ້ໄດ້ໃນການຕັ້ງຄ່າລະບົບ.</string>
+    <string name="support_debuglog_label">ບັນທຶກດີບัก</string>
     <string name="support_debuglog_desc">ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ຂໍ້ຄວາມທີ່ທ່ານສາມາດແບ່ງປັນໄດ້.</string>
     <string name="debug_debuglog_size_label">ຂະໜາດ</string>
     <string name="debug_debuglog_size_compressed_label">ຂະໜາດທີ່ບີບອັດ</string>
-    <string name="debug_notification_channel_label">ການແຈ້ງເຕືອນດີບັກ</string>
+    <string name="debug_notification_channel_label">ການແຈ້ງເຕືອນດີບัก</string>
     <string name="debug_debuglog_file_label">ໄຟລ໌ບັນທຶກທີ່ບັນທຶກໄວ້</string>
-    <string name="debug_debuglog_recording_progress">ກຳລັງບັນທຶກບັນທຶກດີບັກ</string>
-    <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບັກ</string>
+    <string name="debug_debuglog_recording_progress">ກຳລັງບັນທຶກບັນທຶກດີບัก</string>
+    <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບัก</string>
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
     <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ຕົວຢ່າງ: ຜູ້ພັດທະນາທີ່ກຳລັງແກ້ໄຂບັນຫາ).</string>
     <string name="settings_support_installid_label">ID ການຕິດຕັ້ງ</string>
-    <string name="settings_support_installid_desc">ລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດແມ່ນບໍ່ລະບຸຊື່. ແບ່ງປັນ ID ການຕິດຕັ້ງຂອງທ່ານຖ້າຜູ້ພັດທະນາຕ້ອງການຄົ້ນຫາລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
+    <string name="settings_support_installid_desc">ລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດຈະບໍ່ລະບຸຊື່. ແບ່ງປັນ ID ການຕິດຕັ້ງຂອງທ່ານຖ້າຜູ້ພັດທະນາຕ້ອງການຊອກຫາລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
     <string name="settings_support_label">ການຊ່ວຍເຫຼືອ</string>
     <string name="settings_support_description">ຖ້າທ່ານຕ້ອງການການຊ່ວຍເຫຼືອ.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">FAQ &amp; ຄູ່ມື</string>
     <string name="issue_tracker_label">ຕົວຕິດຕາມບັນຫາ</string>
     <string name="issue_tracker_description">ຕົວຕິດຕາມບັນຫາສາທາລະນະສຳລັບລາຍງານຂໍ້ບົກພ່ອງ ແລະ ຄຳຮ້ອງຂໍຄຸນສົມບັດ (ພາສາອັງກິດເທົ່ານັ້ນ).</string>
     <string name="discord_label">Discord</string>
@@ -85,12 +107,14 @@
     <string name="settings_privacy_policy_desc">ການຈັດການຂໍ້ມູນຢ່າງມີຄວາມຮັບຜິດຊອບ.</string>
     <string name="settings_licenses_label">ໃບອະນຸຍາດ</string>
     <string name="settings_category_other_label">ອື່ນໆ</string>
+    <string name="settings_category_gethelp_label">ຂໍຄວາມຊ່ວຍເຫຼືອ</string>
+    <string name="settings_category_debug_label">ດີບັກ</string>
     <string name="settings_general_label">ການຕັ້ງຄ່າ</string>
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
     <string name="settings_debug_autoreports_label">ລາຍງານຂໍ້ບົກພ່ອງອັດຕະໂນມັດ</string>
     <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string>
-    <string name="settings_debug_mode_label">ໂໝດດີບັກ</string>
+    <string name="settings_debug_mode_label">ໂໝດດີບัก</string>
     <string name="settings_debug_mode_description">ສະແດງຂໍ້ມູນເພີ່ມເຕີມເພື່ອແກ້ໄຂບັນຫາ.</string>
     <string name="settings_blescanner_unfiltered_label">ຂໍ້ມູນ BLE ທີ່ບໍ່ໄດ້ກັ່ນຕອງ</string>
     <string name="settings_blescanner_unfiltered_description">ລຶບຕົວກັ່ນຕອງໃດໆອອກຈາກເຄື່ອງສະແກນ BLE ເພື່ອສະແດງຂໍ້ມູນ BLE ທີ່ອອກອາກາດທັງໝົດ. ມີປະໂຫຍດສຳລັບການເພີ່ມການຮອງຮັບປະເພດຫູຟັງໃໝ່.</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">ຜູ້ແປ</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ວິດເຈັດສະແດງສະຖານະອຸປະກອນທີ່ຮູ້ຈັກຫຼ້າສຸດ.</string>
+    <string name="widget_config_screen_title">ການຕັ້ງຄ່າວິດເຈັດ</string>
     <string name="widget_configuration_title">ເລືອກອຸປະກອນ</string>
     <string name="widget_configuration_description">ເລືອກໂປຣໄຟລ໌ອຸປະກອນທີ່ວິດເຈັດນີ້ຄວນສະແດງ.</string>
     <string name="widget_no_data_label">ບໍ່ມີຂໍ້ມູນ</string>
+    <string name="widget_error_loading_label">ເກີດຂໍ້ຜິດພາດໃນການໂຫຼດວິດເຈັດ</string>
     <string name="widget_config_appearance_label">ລັກສະການ</string>
     <string name="widget_config_preset_label">ຕັ້ງໂຫມດ</string>
     <string name="widget_config_background_color_label">ສີພື້ນຫຼັງ</string>
@@ -214,6 +240,7 @@
     <string name="profiles_add_action">ເພີ່ມໂປຣໄຟລ໌</string>
     <string name="profiles_create_title">ສ້າງໂປຣໄຟລ໌</string>
     <string name="profiles_name_label">ຊື່ໂປຣໄຟລ໌</string>
+    <string name="profiles_name_empty_error">ຊື່ຕ້ອງບໍ່ຫວ່າງ</string>
     <string name="profiles_name_default">ຫູຟັງຂອງຂ້ອຍ</string>
     <string name="profiles_model_label">ຮຸ່ນອຸປະກອນ</string>
     <string name="profiles_paired_device_label">ອຸປະກອນທີ່ຈັບຄູ່</string>
@@ -236,11 +263,98 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods ສົ່ງຂໍ້ຄວາມສະຖານະ, ບາງສ່ວນຂອງມັນຖືກເຂົ້າລະຫັດ. ກະແຈເຂົ້າລະຫັດອະນຸຍາດໃຫ້ CAPod ຖອດລະຫັດຂໍ້ຄວາມທັງໝົດ. ທ່ານຕ້ອງການການເຂົ້າເຖິງ MacBook ຄັ້ງດຽວ.</string>
     <string name="profiles_key_invalid_format">ຮູບແບບກະແຈບໍ່ຖືກຕ້ອງ</string>
     <string name="profiles_key_expected_format">ຮູບແບບທີ່ຄາດໄວ້: %1$s</string>
+    <string name="profiles_key_status_configured">ຕັ້ງຄ່າແລ້ວ</string>
+    <string name="profiles_key_status_not_set">ຍັງບໍ່ໄດ້ຕັ້ງ</string>
+    <string name="profiles_signal_quality_min_label">ປິດ</string>
+    <string name="profiles_signal_quality_max_label">ເຂັ້ມງວດ</string>
     <string name="profiles_priority_hint">ລຳດັບໂປຣໄຟລ໌ກຳນົດຄວາມສຳຄັນ. ລາກໂປຣໄຟລ໌ເພື່ອຈັດລຳດັບໃໝ່ - ໂປຣໄຟລ໌ທີ່ຢູ່ສູງກວ່າໃນລາຍການມີຄວາມສຳຄັນກວ່າເມື່ອມີຫຼາຍອຸປະກອນກົງກັນ.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">ໂຫມດຫົວຂໍ້</string>
+    <string name="ui_theme_mode_system_label">ລະບົບ</string>
+    <string name="ui_theme_mode_dark_label">ມືດ</string>
+    <string name="ui_theme_mode_light_label">ສະຫວ່າງ</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">ແບບຫົວຂໍ້</string>
+    <string name="ui_theme_style_default_label">ເລີ່ມຕົ້ນ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">ຄວາມໄປ່ຕ່ຽງລະດັບກາງ</string>
+    <string name="ui_theme_style_high_contrast_label">ຄວາມໄປ່ຕ່ຽງສູງ</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">ສີຮູບແບບ</string>
+    <string name="ui_theme_color_blue_label">ສີຟ້າ</string>
+    <string name="ui_theme_color_green_label">ສີຂຽວ</string>
+    <string name="ui_theme_color_amber_label">ສີເຫຼືອງອຳ</string>
+    <string name="ui_theme_color_disabled_materialyou">ໃຊ້ສີຮູບພາບພື້ນຫຼັງ</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">ການຕິດຕາມ</string>
+    <string name="settings_category_appearance_label">ຮູບລັກສະນະ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ການປ່ຽນແປງທີ່ບໍ່ໄດ້ບັນທຶກ</string>
     <string name="general_unsaved_changes_message">ທ່ານມີການປ່ຽນແປງທີ່ບໍ່ໄດ້ບັນທຶກ. ທ່ານຕ້ອງການເຮັດຫຍັງ?</string>
     <string name="general_save_and_exit_action">ບັນທຶກ &amp; ອອກ</string>
     <string name="general_discard_action">ຍົກເລີກ</string>
     <string name="general_keep_editing_action">ສືບຕໍ່ແກ້ໄຂ</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ການບັນທຶກສັ້ນເກີນໄປ</string>
+    <string name="debug_debuglog_short_recording_message">ບັນທຶກດີບັກຕ້ອງບັນທຶກບັນຫາໃນຂະນະທີ່ມັນເກີດຂຶ້ນ. ສືບຕໍ່ການບັນທຶກ, ຈາລອງບັນຫາ, ຈາກນັ້ນຊຸດການບັນທຶກ.</string>
+    <string name="debug_debuglog_short_recording_continue">ສືບຕໍ່ການບັນທຶກ</string>
+    <string name="debug_debuglog_short_recording_stop">ຊຸດຍ່າງໃດກໍຕາມ</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">ບັນທຶກດີບັກ</string>
+    <string name="debug_debuglog_screen_subtitle">ສົ່ງອອກຂໍ້ມູນດີບັກສຳລັບການແກ້ໄຂບັນຫາ</string>
+    <string name="debug_debuglog_screen_sensitive_title">ຂໍ້ມູນລະອຽດອ່ອນ</string>
+    <string name="debug_debuglog_screen_session_path_label">ທາງ Session</string>
+    <string name="debug_debuglog_screen_log_files_label">ໄຟລ່ Log</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ໄຟລ່ພ້ອມ (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">ລຶບ</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="other">%1$d ບັນທຶກດີບັກ (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">ລຶບບັນທຶກດີບັກທີ່ເກັບໄວ້</string>
+    <string name="support_debuglog_sessions_label">Session ດີບັກ</string>
+    <string name="support_debuglog_sessions_desc">ຈັດການ Session ບັນທຶກດີບັກທີ່ໄດ້ບັນທຶກ</string>
+    <string name="support_debuglog_sessions_empty">ບໍ່ມີ Session ດີບັກ</string>
+    <string name="support_debuglog_session_recording">ກຳລັງບັນທຶກ…</string>
+    <string name="support_debuglog_session_compressing">ກຳລັງບີບອັດ…</string>
+    <string name="support_debuglog_session_delete_title">ລຶບ Session?</string>
+    <string name="support_debuglog_session_delete_message">Session ດີບັກນີ້ຈະຖືກລຶບຖາວອນ.</string>
+    <string name="support_debuglog_clear_all_message">Session ດີບັກທັງໝ່ອຈະຖືກລຶບຖາວອນ.</string>
+    <string name="support_debuglog_failed_empty_log">ລົ້ມເຫຼວ: ໄຟລ່ log ຫວ່າງ</string>
+    <string name="support_debuglog_failed_missing_log">ລົ້ມເຫຼວ: ໄຟລ່ log ຫາຍໄປ</string>
+    <string name="support_debuglog_failed_corrupt_zip">ລົ້ມເຫຼວ: ໄຟລ່ zip ເສີຍຫາຍ</string>
+    <string name="support_debuglog_failed_zip_failed">ລົ້ມເຫຼວ: ການບີບອັດລົ້ມເຫຼວ</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">ຕິດຕໍ່ຜູ້ພັດທະນາ</string>
+    <string name="support_contact_desc">ຕື່ມແບບຟອມເພື່ອສົ່ງອີເມລໃຫ້ຜູ້ພັດທະນາ.</string>
+    <string name="support_contact_welcome">ຂ້ອຍອ່ານທຸກຂໍ້ຄວາມດ້ວຍຕົນເອງ ແລະ ພະຍາຍາມຕອບໃຫ້ດີທີ່ສຸດ, ແຕ່ເນື່ອງຈາກຂ້ອຍເຮັດວຽກຄົນດຽວ, ອາດໃຊ້ເວລາໜ້ອຍໜຶ່ງ. ຂໍຂອບໃຈສຳລັບຄວາມອດທົນຂອງທ່ານ.</string>
+    <string name="support_contact_footer">ຂໍ້ຄວາມຂອງທ່ານຈະຖືກສົ່ງທາງອີເມລ. ຂໍ້ມູນອຸປະກອນ ແລະ ການຕັ້ງຄ່າຈະຖືກຕິດມາອັດຕະໂນມັດ. ທ່ານສາມາດຕິດ screenshot ຫຼື ວິດີໂວໃສ່ອີເມລ. ບາງສ່ວນຂອງອີເມລຈະເປັນພາສາອັງກິດເພື່ອໃຫ້ຜູ້ພັດທະນາເຂົ້າໃຈງ່າຍ.</string>
+    <string name="support_contact_category_label">ໝວດໝູ່</string>
+    <string name="support_contact_category_question_label">ຄຳຖາມ</string>
+    <string name="support_contact_category_feature_label">ຄຳຂໍຟີເຈີ</string>
+    <string name="support_contact_category_bug_label">ລາຍງານບັກ</string>
+    <string name="support_contact_description_label">ຄຳອະທິບາຍ</string>
+    <string name="support_contact_description_question_hint">ອະທິບາຍຄຳຖາມຂອງທ່ານໃຫ້ລະອຽດ. ກະລຸນາລະບຸໃຫ້ຊັດເຈນ.</string>
+    <string name="support_contact_description_feature_hint">ອະທິບາຍຟີເຈີທີ່ທ່ານຍາກໃຫ້ມີ. ກະລຸນາລະບຸໃຫ້ຊັດເຈນ.</string>
+    <string name="support_contact_description_bug_hint">ອະທິບາຍສິ່ງທີ່ເກີດຂຶ້ນ ແລະ ວິທີຈຳລອງບັນຫາ. ກະລຸນາລະບຸໃຫ້ຊັດເຈນ.</string>
+    <string name="support_contact_expected_label">ພຶດຕິກຳທີ່ຄາດຫວັງ</string>
+    <string name="support_contact_expected_hint">ອະທິບາຍສິ່ງທີ່ທ່ານຄາດຫວັງວ່າຈະເກີດຂຶ້ນ.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d ຄຳ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ບັນທຶກດີບัก</string>
+    <string name="support_contact_debuglog_picker_hint">ຕິດບັນທຶກດີບັກທີ່ມີຍູ່, ຫຼື ບັນທຶກໃໝ່.</string>
+    <string name="support_contact_debuglog_picker_empty">ບໍ່ພົບບັນທຶກດີບັກ. ກະລຸນາບັນທຶກກ່ອນ.</string>
+    <string name="support_contact_debuglog_zip_error">ລົ້ມເຫຼວໃນການບີບອັດບັນທຶກດີບັກ</string>
+    <string name="support_contact_send_action">ເປີດແອັບອີເມລ</string>
+    <string name="support_contact_no_email_app">ບໍ່ພົບແອັບອີເມລໃນອຸປະກອນນີ້.</string>
+    <string name="support_contact_debuglog_delete_title">ລຶບບັນທຶກດີບັກ?</string>
+    <string name="support_contact_debuglog_delete_message">ບັນທຶກດີບັກນີ້ຈະຖືກລຶບຖາວອນ.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ສົ່ງລ໋ອກແລ້ວບໍ?</string>
+    <string name="support_debuglog_sent_message">ລ໋ອກດີບັກຖືກສົ່ງສຳເລັດບໍ? ລ໋ອກຈະຖືກລຶບອອກ.</string>
+    <string name="support_contact_sent_title">ສົ່ງອີເມວແລ້ວບໍ?</string>
+    <string name="support_contact_sent_message">ອີເມວຖືກສົ່ງສຳເລັດບໍ? ລ໋ອກດີບັກທີ່ຕິດຄັດໄວ້ຈະຖືກລຶບອອກ.</string>
 </resources>

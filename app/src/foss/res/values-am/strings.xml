@@ -3,4 +3,8 @@
     <string name="foss_upgrade_donate_label">ልገሳ</string>
     <string name="foss_upgrade_alreadydonated_label">አስቀድሜ ልገሳ ፈጽሜአለሁ</string>
     <string name="foss_upgrade_no_money_label">ገንዘቤን በሙሉ በAirPods ላይ አውጥቻለሁ</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS ነፃ እና ክፍት ምንጭ ነው። ግኾሚ ሆኖ ካግኝት፣ ፕሮጀክቱ ቀጥሎ እንደይይድ ለመርዳት ላማቱን ማስደገፏ ያስቡ።</string>
+    <string name="upgrade_foss_sponsor_action">ልማትን ይደግፉ</string>
+    <string name="upgrade_foss_sponsor_subtitle">ምንም ማስታወቂያ የሉም። ምንም ክትትል የሉም። ምንም Google Play ቆለፋ የሉም።</string>
+    <string name="upgrade_foss_sponsor_returned_early">ቀድሞ ተመለሱ፡ ድጋፏዎ CAPodን ህያው ያቆይላል።</string>
 </resources>

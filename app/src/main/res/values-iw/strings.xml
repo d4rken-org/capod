@@ -6,6 +6,7 @@
     <string name="general_copy_action">העתק</string>
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_upgrade_action">שידרוג</string>
+    <string name="common_feature_requires_pro_msg">שדרג כדי לפתח.</string>
     <string name="general_donate_action">תרומה</string>
     <string name="general_check_action">בדיקה</string>
     <string name="general_close_action">סגור</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">דוגמא: %s</string>
     <string name="upgrade_capod_label">שדרוג CAPod</string>
     <string name="upgrade_capod_description">קבל תכונות נוספות ותמיכה במפתח.</string>
+    <string name="upgrade_preamble">CAPod פותחה על ידי אדם אחד. שדרוג פותח תכונות נוספות ועוזר לשמור על האפליקציה בחיים.</string>
+    <string name="upgrade_benefit_themes">התאמה אישית של ערכת נושא</string>
+    <string name="upgrade_benefit_autoplay">השמעה אוטומטית והשהיה אוטומטית</string>
+    <string name="upgrade_benefit_autoconnect">חיבור אוטומטי</string>
+    <string name="upgrade_benefit_popups">חלון קופץ בפתיחת הנרתיק וחיבור</string>
+    <string name="upgrade_benefit_widgets">ווידג\'טים למסך הבית</string>
+    <string name="upgrade_benefit_support">תמוך במפתח</string>
+    <string name="upgrade_screen_options_description">אותן תכונות, מחיר שונה. המנוי כולל ניסיון חינם וניתן לביטול בכל עת.</string>
+    <string name="upgrade_screen_subscription_trial_action">התחל ניסיון חינם</string>
+    <string name="upgrade_screen_subscription_action">הירשם שנתי</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/שנה</string>
+    <string name="upgrade_screen_iap_action">קנה פעם אחת</string>
+    <string name="upgrade_screen_iap_action_hint">רכישה חד-פעמית: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">שחזור רכישה</string>
+    <string name="upgrade_screen_restore_purchase_message">לא נמצאו רכישות. האם אתה משתמש בחשבון הנכון?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">אם רכשת לאחרונה, ייתכן שיידרש זמן מה כדי ש-Google Play יסתנכרן.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">נסה שוב בעוד כמה דקות אם הרכישה שלך לא מופיעה.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ודא שאתה מחובר עם אותו חשבון Google שבו השתמשת לרכישה.</string>
     <string name="settings_monitor_mode_label">מצב מוניטור</string>
     <string name="settings_monitor_mode_description">באילו נסיבות אפליקציה זו עוקבת אחר נתוני Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">התראה נוספת</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">הצג חלון קופץ כאשר המכשיר מתחבר בפעם הראשונה.</string>
     <string name="notification_channel_device_status_label">מצב המכשיר</string>
     <string name="notification_channel_device_status_connected_label">מכשיר מחובר</string>
+    <string name="monitor_notification_extra_enabled_hint">ניתן להשבית התראה זו בהגדרות המערכת.</string>
     <string name="support_debuglog_label">יומן ניפוי באגים</string>
     <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה בקובץ טקסט שתוכל לשתף.</string>
     <string name="debug_debuglog_size_label">מידה</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">דוחות שגיאה אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאות שלך.</string>
     <string name="settings_support_label">תמיכה</string>
     <string name="settings_support_description">אם אתה צריך קצת עזרה.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">שאלות נפוצות ומדריכים</string>
     <string name="issue_tracker_label">מאתר בעיות</string>
     <string name="issue_tracker_description">מעקב אחר בעיות ציבוריות לדיווחי באגים ובקשות לתכונות (באנגלית בלבד).</string>
     <string name="discord_label">דיסקורד</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
     <string name="settings_licenses_label">רישיונות</string>
     <string name="settings_category_other_label">אחר</string>
+    <string name="settings_category_gethelp_label">קבל עזרה</string>
+    <string name="settings_category_debug_label">איתור באגים</string>
     <string name="settings_general_label">הגדרות</string>
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
     <string name="settings_acknowledgements_label">תודות</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">מתרגמים</string>
     <string name="translators_thanks_description">AL_Cool_T</string>
     <string name="widget_description">ווידג\'ט המציג את מצב האחרון הידוע של המכשיר.</string>
+    <string name="widget_config_screen_title">תצורת הווידג\'ט</string>
     <string name="widget_configuration_title">בחירת מכשיר</string>
     <string name="widget_configuration_description">בחר איזה פרופיל מכשיר הווידג\'ט צריך להציג.</string>
     <string name="widget_no_data_label">אין נתונים</string>
+    <string name="widget_error_loading_label">שגיאה בטעינת הווידג\'ט</string>
     <string name="widget_config_appearance_label">מראה</string>
     <string name="widget_config_preset_label">הגדרות מוגדרות מראש</string>
     <string name="widget_config_background_color_label">צבע רקע</string>
@@ -217,6 +243,7 @@
     <string name="profiles_add_action">הוסף פרופיל</string>
     <string name="profiles_create_title">יצירת פרופיל</string>
     <string name="profiles_name_label">שם פרופיל</string>
+    <string name="profiles_name_empty_error">השם לא יכול להיות ריק</string>
     <string name="profiles_name_default">האוזניות שלי</string>
     <string name="profiles_model_label">דגם מכשיר</string>
     <string name="profiles_paired_device_label">מכשיר מותאם</string>
@@ -239,11 +266,107 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods שולחים הודעת מצב, שחלקה מוצפן. מפתח ההצפנה מאפשר ל-CAPod לפענח את ההודעה המלאה. נדרשת גישה חד-פעמית ל-MacBook.</string>
     <string name="profiles_key_invalid_format">פורמט מפתח לא חוקי</string>
     <string name="profiles_key_expected_format">פורמט צפוי: %1$s</string>
+    <string name="profiles_key_status_configured">מוגדר</string>
+    <string name="profiles_key_status_not_set">לא נקבע</string>
+    <string name="profiles_signal_quality_min_label">כבוי</string>
+    <string name="profiles_signal_quality_max_label">קפדני</string>
     <string name="profiles_priority_hint">סדר הפרופילים קובע את העדיפות. גרור פרופילים כדי לסדר אותם מחדש - פרופילים גבוהים יותר ברשימה מקבלים עדיפות כאשר מספר מכשירים תואמים.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">עיצוב</string>
+    <string name="ui_theme_mode_system_label">מערכת</string>
+    <string name="ui_theme_mode_dark_label">כהה</string>
+    <string name="ui_theme_mode_light_label">בהיר</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">סגנון עיצוב</string>
+    <string name="ui_theme_style_default_label">ברירת מחדל</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">ניגודייות בינונית</string>
+    <string name="ui_theme_style_high_contrast_label">ניגודייות גבוהה</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">צבע ערכת נושא</string>
+    <string name="ui_theme_color_blue_label">כחול</string>
+    <string name="ui_theme_color_green_label">ירוק</string>
+    <string name="ui_theme_color_amber_label">ענבר</string>
+    <string name="ui_theme_color_disabled_materialyou">משתמש בצבעי טפט השולחן</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">ניטור</string>
+    <string name="settings_category_appearance_label">מראה</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">שינויים שלא נשמרו</string>
     <string name="general_unsaved_changes_message">יש לך שינויים שלא נשמרו. מה תרצה לעשות?</string>
     <string name="general_save_and_exit_action">שמור וצא</string>
     <string name="general_discard_action">בטל</string>
     <string name="general_keep_editing_action">המשך לערוך</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ההקלטה קצרה מדי</string>
+    <string name="debug_debuglog_short_recording_message">יומן איתור הבאגים צריך ללכוד את הבעיה בעת התרחשותה. המשך בהקלטה, שחזר על הבעיה, ולאחר מכן עצור את ההקלטה.</string>
+    <string name="debug_debuglog_short_recording_continue">המשך בהקלטה</string>
+    <string name="debug_debuglog_short_recording_stop">עצור בכל זאת</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">יומן ניפוי באגים</string>
+    <string name="debug_debuglog_screen_subtitle">ייצוא מידע ניפוי באגים לפתרון בעיות</string>
+    <string name="debug_debuglog_screen_sensitive_title">מידע רגיש</string>
+    <string name="debug_debuglog_screen_session_path_label">נתיב סשיה</string>
+    <string name="debug_debuglog_screen_log_files_label">קבצי לוג</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">קובץ %1$d מוכן (%2$s)</item>
+        <item quantity="two">%1$d קבצים מוכנים (%2$s)</item>
+        <item quantity="many">%1$d קבצים מוכנים (%2$s)</item>
+        <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">מחיקה</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">יומן ניפוי באגים %1$d (%2$s)</item>
+        <item quantity="two">%1$d יומני ניפוי באגים (%2$s)</item>
+        <item quantity="many">%1$d יומני ניפוי באגים (%2$s)</item>
+        <item quantity="other">%1$d יומני ניפוי באגים (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">נקה יומני ניפוי באגים השמורים</string>
+    <string name="support_debuglog_sessions_label">סשיות ניפוי באגים</string>
+    <string name="support_debuglog_sessions_desc">נהל סשיות יומן ניפוי באגים מוקלטות</string>
+    <string name="support_debuglog_sessions_empty">אין סשיות ניפוי באגים</string>
+    <string name="support_debuglog_session_recording">מקליט…</string>
+    <string name="support_debuglog_session_compressing">דוחס…</string>
+    <string name="support_debuglog_session_delete_title">למחוק סשיה?</string>
+    <string name="support_debuglog_session_delete_message">סשיית ניפוי באגים זו תימחק לצמיתות.</string>
+    <string name="support_debuglog_clear_all_message">כל סשיות ניפוי באגים ימחקו לצמיתות.</string>
+    <string name="support_debuglog_failed_empty_log">נכשל: קובץ הלוג ריק</string>
+    <string name="support_debuglog_failed_missing_log">נכשל: קובץ הלוג חסר</string>
+    <string name="support_debuglog_failed_corrupt_zip">נכשל: קובץ ה-zip פגום</string>
+    <string name="support_debuglog_failed_zip_failed">נכשל: הדחיסה נכשלה</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">צור קשר עם המפתח</string>
+    <string name="support_contact_desc">מלא טופס כדי לשלוח למפתח דואר אלקטרוני.</string>
+    <string name="support_contact_welcome">אני קורא כל הודעה בעצמי ועושה כמיטב להשיב, אך מכיוון שאני עובד על זה לבדי, ייתכן שייקח מעט זמן. תודה על הסבלנות.</string>
+    <string name="support_contact_footer">ההודעה שלך תישלח בדואר אלקטרוני. מידע התקן וההגדרות יצורף אוטומטית. אפשר לצרף צילומי מסך או סרטון לדואר. חלקים מהדואר יהיו באנגלית כדי שהמפתח יוכל להבין אותם בקלות.</string>
+    <string name="support_contact_category_label">קטגוריה</string>
+    <string name="support_contact_category_question_label">שאלה</string>
+    <string name="support_contact_category_feature_label">בקשת תכונה</string>
+    <string name="support_contact_category_bug_label">דיווח באג</string>
+    <string name="support_contact_description_label">תיאור</string>
+    <string name="support_contact_description_question_hint">תאר את שאלתך בפירוט. אנא היי מפורט.</string>
+    <string name="support_contact_description_feature_hint">תאר את התכונה שהיית רוצה לראות. אנא היי מפורט.</string>
+    <string name="support_contact_description_bug_hint">תאר מה קרה וכיצד לשחזר על הבעיה. אנא היי מפורט.</string>
+    <string name="support_contact_expected_label">התנהגות צפויה</string>
+    <string name="support_contact_expected_hint">תאר מה צפית שיקרה.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d מילה</item>
+        <item quantity="two">%1$d / %2$d מילים</item>
+        <item quantity="many">%1$d / %2$d מילים</item>
+        <item quantity="other">%1$d / %2$d מילים</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">יומן ניפוי באגים</string>
+    <string name="support_contact_debuglog_picker_hint">צרף יומן ניפוי באגים קיים, או הקלוט אחד חדש.</string>
+    <string name="support_contact_debuglog_picker_empty">לא נמצאו יומני ניפוי באגים. קלוט אחד תחילה.</string>
+    <string name="support_contact_debuglog_zip_error">הדחיסה של יומן ניפוי באגים נכשלה</string>
+    <string name="support_contact_send_action">פתח אפליקציית דואר</string>
+    <string name="support_contact_no_email_app">לא נמצאה אפליקציית דואר במכשיר זה.</string>
+    <string name="support_contact_debuglog_delete_title">למחוק יומן ניפוי באגים?</string>
+    <string name="support_contact_debuglog_delete_message">יומן ניפוי באגים זה יימחק לצמיתות.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">היומן נשלח?</string>
+    <string name="support_debuglog_sent_message">האם יומן הניפוי נשלח בהצלחה? היומן יימחק.</string>
+    <string name="support_contact_sent_title">האימייל נשלח?</string>
+    <string name="support_contact_sent_message">האם האימייל נשלח בהצלחה? יומן ניפוי הבאגים המצורף יימחק.</string>
 </resources>

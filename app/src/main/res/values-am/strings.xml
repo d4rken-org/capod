@@ -6,6 +6,7 @@
     <string name="general_copy_action">ቅዳ</string>
     <string name="general_thank_you_label">አመሰግናለሁ</string>
     <string name="general_upgrade_action">አሻሽል</string>
+    <string name="common_feature_requires_pro_msg">ለማስከፈቻ አሻሽል።</string>
     <string name="general_donate_action">ይለግሱ</string>
     <string name="general_check_action">ፈትሽ</string>
     <string name="general_close_action">ዝጋ</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">ለምሳሌ፦ %s</string>
     <string name="upgrade_capod_label">CAPodን አሻሽል</string>
     <string name="upgrade_capod_description">ተጨማሪ ባህሪያትን ያግኙ እና ገንቢውን ይደግፉ።</string>
+    <string name="upgrade_preamble">CAPod በአንድ ሰው ብቻ ተዘጋጅቷል። ማሻሻያ ተጨማሪ ባህሪያትን ያስከፍትና መተግበሪያውን ህያው ለማቆየት ይረዳል።</string>
+    <string name="upgrade_benefit_themes">ጭብጥ ብጁ አሰናዳ</string>
+    <string name="upgrade_benefit_autoplay">ራስ-ሰር አጫውት &amp; ራስ-ሰር አቁም</string>
+    <string name="upgrade_benefit_autoconnect">ራስ-ሰር ግንኙነት</string>
+    <string name="upgrade_benefit_popups">ቴሌ ሲከፈት &amp; ሲገናኝ ፖፕ-አፕ</string>
+    <string name="upgrade_benefit_widgets">የመነሻ ስክሪን ዊጀቶች</string>
+    <string name="upgrade_benefit_support">ገንቢውን ደግፍ</string>
+    <string name="upgrade_screen_options_description">ተመሳሳይ ባህሪያት፣ የተለያዩ ዋጋዎች። ደንበኝነቱ ነፃ ሙከራ ያካትታል እና በማንኛውም ጊዜ ሊሰረዝ ይችላል።</string>
+    <string name="upgrade_screen_subscription_trial_action">ነፃ ሙከራ ጀምር</string>
+    <string name="upgrade_screen_subscription_action">በዓመት ደንበኝ ሁን</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/ዓመት</string>
+    <string name="upgrade_screen_iap_action">አንድ ጊዜ ግዛ</string>
+    <string name="upgrade_screen_iap_action_hint">አንድ ጊዜ ግዢ፡ %s</string>
+    <string name="upgrade_screen_restore_purchase_action">ግዢን ወደነበረበት መልስ</string>
+    <string name="upgrade_screen_restore_purchase_message">ምንም ግዢዎች አልተገኙም። ትክክለኛውን መለያ እየተጠቀሙ ነው?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">በቅርቡ ካዘዙ፣ Google Play ለማመሳሰል ትንሽ ጊዜ ሊወስድ ይችላል።</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">ግዢዎ ካልታየ ከጥቂት ደቂቃዎች በኋላ እንደገና ሞክር።</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ለግዢው ጥቅም ላይ ከዋለው ጋር ተመሳሳይ Google መለያ ተጠቅመህ ገብተሃል ወይም ብለህ አረጋግጥ።</string>
     <string name="settings_monitor_mode_label">የክትትል ሁነታ</string>
     <string name="settings_monitor_mode_description">ይህ መተግበሪያ የብሉቱዝ መረጃን የሚከታተልበት ሁኔታዎች።</string>
     <string name="settings_monitor_connected_notification_label">ተጨማሪ ማሳወቂያ</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">መሳሪያው ለመጀመሪያ ጊዜ ሲገናኝ ብቅ-ባይ አሳይ።</string>
     <string name="notification_channel_device_status_label">የመሳሪያ ሁኔታ</string>
     <string name="notification_channel_device_status_connected_label">የተገናኘ መሣሪያ</string>
+    <string name="monitor_notification_extra_enabled_hint">ይህን ማሳወቂያ በስርዓት ቅንብሮች ውስጥ ማሰናከል ይቻላል።</string>
     <string name="support_debuglog_label">የማረሚያ ምዝግብ</string>
     <string name="support_debuglog_desc">መተግበሪያው የሚያደርገውን ሁሉ ሊያጋሩት በሚችሉት የጽሑፍ ፋይል ውስጥ ይመዝግቡ።</string>
     <string name="debug_debuglog_size_label">መጠን</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">ራስ-ሰር የስህተት ሪፖርቶች ስም-አልባ ናቸው። ገንቢው የእርስዎን የስህተት ሪፖርቶች ማግኘት ከፈለገ የመጫኛ መለያዎን ያጋሩ።</string>
     <string name="settings_support_label">ድጋፍ</string>
     <string name="settings_support_description">ጥቂት እርዳታ ከፈለጉ።</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">ተደጋጋሚ ጥያቄዎች &amp; መመሪያዎች</string>
     <string name="issue_tracker_label">የችግር መከታተያ</string>
     <string name="issue_tracker_description">ለሳንካ ሪፖርቶች እና ለባህሪ ጥያቄዎች ይፋዊ የችግር መከታተያ (እንግሊዝኛ ብቻ)።</string>
     <string name="discord_label">ዲስኮርድ</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">መረጃን በኃላፊነት ስሜት መያዝ።</string>
     <string name="settings_licenses_label">ፈቃዶች</string>
     <string name="settings_category_other_label">ሌላ</string>
+    <string name="settings_category_gethelp_label">እርዳታ ያግኙ</string>
+    <string name="settings_category_debug_label">ዲባግ</string>
     <string name="settings_general_label">ቅንብሮች</string>
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">ተርጓሚዎች</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">የመጨረሻውን የታወቀ የመሣሪያ ሁኔታ የሚያሳይ መግብር።</string>
+    <string name="widget_config_screen_title">ዊጀት ውቅር</string>
     <string name="widget_configuration_title">መሣሪያ ይምረጡ</string>
     <string name="widget_configuration_description">ይህ መግብር የትኛውን የመሣሪያ መገለጫ ማሳየት እንዳለበት ይምረጡ።</string>
     <string name="widget_no_data_label">ምንም መረጃ የለም</string>
+    <string name="widget_error_loading_label">ዊጀት ሲጫን ስህተት ተፈጠረ</string>
     <string name="widget_config_appearance_label">መልክ</string>
     <string name="widget_config_preset_label">ቅድመ ምረጫዎች</string>
     <string name="widget_config_background_color_label">የዳራ ቀለም</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">መገለጫ ጨምር</string>
     <string name="profiles_create_title">መገለጫ ፍጠር</string>
     <string name="profiles_name_label">የመገለጫ ስም</string>
+    <string name="profiles_name_empty_error">ስም ባዶ ሊሆን አይችልም</string>
     <string name="profiles_name_default">የጆሮ ማዳመጫዬ</string>
     <string name="profiles_model_label">የመሣሪያ ሞዴል</string>
     <string name="profiles_paired_device_label">የተጣመረ መሣሪያ</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods የሁኔታ መልዕክት ይልካሉ፣ ክፍሉ የተመሰጠረ ነው። የመመሰጫ ቁልፉ CAPod ሙሉ መልዕክቱን እንዲፈታ ያስችለዋል። አንድ ጊዜ MacBook ላይ ተደራሽነት ያስፈልግዎታል።</string>
     <string name="profiles_key_invalid_format">ልክ ያልሆነ የቁልፍ ቅርጸት</string>
     <string name="profiles_key_expected_format">የሚጠበቅ ቅርጸት: %1$s</string>
+    <string name="profiles_key_status_configured">ተዋቅሯል</string>
+    <string name="profiles_key_status_not_set">አልተቀናበረም</string>
+    <string name="profiles_signal_quality_min_label">ጠፍቷል</string>
+    <string name="profiles_signal_quality_max_label">ጥብቅ</string>
     <string name="profiles_priority_hint">የመገለጫ ቅደም ተከተል ቅድሚያ ይወስናል። መገለጫዎችን ለማስተካከል ይጎትቱ - በዝርዝሩ ውስጥ ከፍ ያሉ መገለጫዎች ብዙ መሣሪያዎች ሲዛመዱ ቅድሚያ ይሰጣቸዋል።</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">የወጭታ ሁነታ</string>
+    <string name="ui_theme_mode_system_label">ሲስተም</string>
+    <string name="ui_theme_mode_dark_label">ጥቁር</string>
+    <string name="ui_theme_mode_light_label">ብርሃን</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">የወጭታ ዘይቤ</string>
+    <string name="ui_theme_style_default_label">ነባሪ</string>
+    <string name="ui_theme_style_materialyou_label">ማቴሪያል ዩ</string>
+    <string name="ui_theme_style_medium_contrast_label">መካከለኛ ንፅፅር</string>
+    <string name="ui_theme_style_high_contrast_label">ከፍተኛ ንፅፅር</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">የጭብጥ ቀለም</string>
+    <string name="ui_theme_color_blue_label">ሰማያዊ</string>
+    <string name="ui_theme_color_green_label">አረንጓዴ</string>
+    <string name="ui_theme_color_amber_label">ህብረ-ቀለማዊ</string>
+    <string name="ui_theme_color_disabled_materialyou">የዳሰሳ ምስል ቀለሞችን ይጠቀማል</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">ክትትል</string>
+    <string name="settings_category_appearance_label">ገጽታ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ያልተቀመጡ ለውጦች</string>
     <string name="general_unsaved_changes_message">ያልተቀመጡ ለውጦች አሉዎት። ምን ማድረግ ይፈልጋሉ?</string>
     <string name="general_save_and_exit_action">አስቀምጥ እና ውጣ</string>
     <string name="general_discard_action">ጣል</string>
     <string name="general_keep_editing_action">ማረም ቀጥል</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">ቀረጻ በጣም አጭር ነው</string>
+    <string name="debug_debuglog_short_recording_message">የዲባግ ምዝግብ ማስታወሻ ችግሩ ሲከሰት ሊቀዳ ያስፈልጋል። ቀረጻ ቀጥሎ፣ ችግሩን እንደገና አስተውሎ፣ ቀረጻውን አቁም።</string>
+    <string name="debug_debuglog_short_recording_continue">ቀረጻ ቀጥሎ</string>
+    <string name="debug_debuglog_short_recording_stop">ቢሆንም አቁም</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">የዲባግ ምዝግብ</string>
+    <string name="debug_debuglog_screen_subtitle">ለችግር ፍቺ የዲባግ መረጃ ወደ ውጪ ላክ</string>
+    <string name="debug_debuglog_screen_sensitive_title">ሚስጥራዊ መረጃ</string>
+    <string name="debug_debuglog_screen_session_path_label">የክፍለ ጊዜ ዱካ</string>
+    <string name="debug_debuglog_screen_log_files_label">የምዝገባ ፋይሎች</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ፋይል ዝግጁ (%2$s)</item>
+        <item quantity="other">%1$d ፋይሎች ዝግጁ (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">ሰርዝ</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d የዲባግ ምዝግብ (%2$s)</item>
+        <item quantity="other">%1$d የዲባግ ምዝገቦች (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">የተቀመጡ የዲባግ ምዝገቦችን አጽዳ</string>
+    <string name="support_debuglog_sessions_label">የዲባግ ክፍለ-ጊዜወች</string>
+    <string name="support_debuglog_sessions_desc">የተቀዱ የዲባግ ምዝግብ ክፍለ-ጊዜወችን አስተዳድር</string>
+    <string name="support_debuglog_sessions_empty">ምንም የዲባግ ክፍለ-ጊዜወች የሉም</string>
+    <string name="support_debuglog_session_recording">በመቀዳ ላይ…</string>
+    <string name="support_debuglog_session_compressing">በማኳናደፍ ላይ…</string>
+    <string name="support_debuglog_session_delete_title">ክፍለ-ጊዜ ይሰረዝ?</string>
+    <string name="support_debuglog_session_delete_message">ይህ የዲባግ ክፍለ-ጊዜ ዘወተር ይሰረዛል።</string>
+    <string name="support_debuglog_clear_all_message">ሁሉም የዲባግ ክፍለ-ጊዜወች ዘወተር ይሰረዛሉ።</string>
+    <string name="support_debuglog_failed_empty_log">አልሆነም፡ የምዝግብ ፋይል ባዶ ነው</string>
+    <string name="support_debuglog_failed_missing_log">አልሆነም፡ የምዝግብ ፋይል ጀፍቷል</string>
+    <string name="support_debuglog_failed_corrupt_zip">አልሆነም፡ zip ፋይሉ ተበላሺቷል</string>
+    <string name="support_debuglog_failed_zip_failed">አልሆነም፡ ማኳናደፍ አልተሳካም</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">ገንቢውን አግኝ</string>
+    <string name="support_contact_desc">ለገንቢው ኢሜይል ለመላክ ቅጸ ይምሉ።</string>
+    <string name="support_contact_welcome">እያንዳንዱን መልዕክት በእኙ ራሰ አነባለሁ እና ምላሽ ለመስጀት ምሉ ጥረቱን አደርጋለሁ፣ ነገር ግን ብቻዩን ስሰራ ትንሽ ጊዜ ሊወስድ ይችላል። ትዕግስትዎ ስላሳዩ አመሰግናለሁ።</string>
+    <string name="support_contact_footer">መልዕክትዎ በኢሜይል ይላካል። የመሳሪያ እና የቅንብር መረጃ በራስ-ሰር ይያያዛል። ቅጸበታዊ ገጽ ዕይታወችን ወይም ቢዲዮ ወደ ኢሜይሉ ማያያዘት ይቻላል። የኢሜይሉ አንዳንድ ክፍለዎች ገንቢው በቀለሉ እንዲረዳ በእንግሊዝኛ ይሆናሉ።</string>
+    <string name="support_contact_category_label">ምድብ</string>
+    <string name="support_contact_category_question_label">ጥያቄ</string>
+    <string name="support_contact_category_feature_label">የባህሪ ጥያቄ</string>
+    <string name="support_contact_category_bug_label">ሳሕተት ሪፖርት</string>
+    <string name="support_contact_description_label">መግለጫ</string>
+    <string name="support_contact_description_question_hint">ጥያቀዎን በዘርዘር ይግለፀ። እባክዎ ዘርዘር ይሁኑ።</string>
+    <string name="support_contact_description_feature_hint">ማየት የሚፍሉጉትን ባህሪ ይግለፀ። እባክዎ ዘርዘር ይሁኑ።</string>
+    <string name="support_contact_description_bug_hint">ምን እንደ ሆነ እና ችግሩን ደግሞ እንዴት ማባያት እንደሚቻል ይግለፀ። እባክዎ ዘርዘር ይሁኑ።</string>
+    <string name="support_contact_expected_label">የሚጠበቅ ባህሪ</string>
+    <string name="support_contact_expected_hint">ምን እንደሚሆን ይጠበቅ እንደ ነበር ይግለፀ።</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ቃል</item>
+        <item quantity="other">%1$d / %2$d ቃላት</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">የማረሚያ ምዝግብ</string>
+    <string name="support_contact_debuglog_picker_hint">ነባር የዲባግ ምዝግብ ያያቱ፣ ወይም አዲስ ይቀዱ።</string>
+    <string name="support_contact_debuglog_picker_empty">ምንም የዲባግ ምዝገቦች አልተገኝሉም። መጀሜሪያ አንድ ይቀዱ።</string>
+    <string name="support_contact_debuglog_zip_error">የዲባግ ምዝግብ ማኳናደፍ አልተሳካም</string>
+    <string name="support_contact_send_action">የኢሜይል መተግበሪያ ክፈት</string>
+    <string name="support_contact_no_email_app">በዚህ መሳሪያ ላይ ምንም የኢሜይል መተግበሪያ አልተገኝም።</string>
+    <string name="support_contact_debuglog_delete_title">የዲባግ ምዝግብ ይሰረዝ?</string>
+    <string name="support_contact_debuglog_delete_message">ይህ የዲባግ ምዝግብ ዘወተር ይሰረዛል።</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">ምዝግብ ማስታወሻ ተልኳል?</string>
+    <string name="support_debuglog_sent_message">የዲባግ ምዝግብ ማስታወሻ በተሳካ ሁኔታ ተልኳል? ምዝግብ ማስታወሻው ይሰረዛል።</string>
+    <string name="support_contact_sent_title">ኢሜይል ተልኳል?</string>
+    <string name="support_contact_sent_message">ኢሜይሉ በተሳካ ሁኔታ ተልኳል? ተያይዞ የቀረበው የዲባግ ምዝግብ ማስታወሻ ይሰረዛል።</string>
 </resources>

@@ -6,6 +6,7 @@
     <string name="general_copy_action">복사</string>
     <string name="general_thank_you_label">감사합니다</string>
     <string name="general_upgrade_action">업그레이드</string>
+    <string name="common_feature_requires_pro_msg">잠금 해제하려면 업그레이드하세요.</string>
     <string name="general_donate_action">후원하기</string>
     <string name="general_check_action">확인</string>
     <string name="general_close_action">닫기</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">예: %s</string>
     <string name="upgrade_capod_label">CAPod 업그레이드</string>
     <string name="upgrade_capod_description">추가 기능을 받고 개발자를 지원하세요.</string>
+    <string name="upgrade_preamble">CAPod는 한 명이 개발합니다. 업그레이드하면 추가 기능이 잠금 해제되고 앱 유지에 도움이 됩니다.</string>
+    <string name="upgrade_benefit_themes">테마 사용자 지정</string>
+    <string name="upgrade_benefit_autoplay">자동 재생 &amp; 자동 일시정지</string>
+    <string name="upgrade_benefit_autoconnect">자동 연결</string>
+    <string name="upgrade_benefit_popups">케이스 열기 &amp; 연결 시 팝업</string>
+    <string name="upgrade_benefit_widgets">홈 화면 위젯</string>
+    <string name="upgrade_benefit_support">개발자 지원</string>
+    <string name="upgrade_screen_options_description">동일한 기능, 다른 가격. 구독에는 무료 체험이 포함되며 언제든지 취소할 수 있습니다.</string>
+    <string name="upgrade_screen_subscription_trial_action">무료 체험 시작</string>
+    <string name="upgrade_screen_subscription_action">연간 구독</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/년</string>
+    <string name="upgrade_screen_iap_action">한 번 구매</string>
+    <string name="upgrade_screen_iap_action_hint">일회성 구매: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">구매 복원</string>
+    <string name="upgrade_screen_restore_purchase_message">구매 내역을 찾지 못했습니다. 결제했던 계정이 맞나요?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">최근에 구매하셨다면 Google Play가 동기화하는 데 잠시 시간이 걸릴 수 있습니다.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">구매 내역이 표시되지 않으면 몇 분 후 다시 시도해 주세요.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">구매에 사용한 Google 계정으로 로그인되어 있는지 확인해 주세요.</string>
     <string name="settings_monitor_mode_label">모니터링 모드</string>
     <string name="settings_monitor_mode_description">이 앱이 Bluetooth 데이터를 모니터링하는 상황입니다.</string>
     <string name="settings_monitor_connected_notification_label">추가 알림</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">기기가 처음 연결될 때 팝업을 표시합니다.</string>
     <string name="notification_channel_device_status_label">기기 상태</string>
     <string name="notification_channel_device_status_connected_label">연결된 기기</string>
+    <string name="monitor_notification_extra_enabled_hint">시스템 설정에서 이 알림을 비활성화할 수 있습니다.</string>
     <string name="support_debuglog_label">디버그 로그</string>
     <string name="support_debuglog_desc">앱이 수행하는 모든 작업을 공유할 수 있는 텍스트 파일에 기록합니다.</string>
     <string name="debug_debuglog_size_label">크기</string>
@@ -75,9 +95,11 @@
     <string name="settings_support_installid_desc">자동 오류 보고서는 익명입니다. 개발자가 오류 보고서를 찾아야 하는 경우 설치 ID를 공유하십시오.</string>
     <string name="settings_support_label">지원</string>
     <string name="settings_support_description">도움이 필요한 경우.</string>
+    <string name="settings_wiki_label">위키</string>
+    <string name="settings_wiki_description">FAQ &amp; 가이드</string>
     <string name="issue_tracker_label">문제 추적기</string>
     <string name="issue_tracker_description">버그 보고서 및 기능 요청을 위한 공개 문제 추적기(영어만 해당).</string>
-    <string name="discord_label">Discord</string>
+    <string name="discord_label">디스코드</string>
     <string name="discord_description">이야기를 나누고 질문을 할 수 있는 곳.</string>
     <string name="changelog_label">변경 로그</string>
     <string name="settings_label">설정</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">책임감 있는 데이터 처리.</string>
     <string name="settings_licenses_label">라이선스</string>
     <string name="settings_category_other_label">기타</string>
+    <string name="settings_category_gethelp_label">도움 받기</string>
+    <string name="settings_category_debug_label">디버그</string>
     <string name="settings_general_label">설정</string>
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">번역가</string>
     <string name="translators_thanks_description">윤지호(annyeong1alt@gmail.com)</string>
     <string name="widget_description">마지막으로 알려진 기기 상태를 표시하는 위젯입니다.</string>
+    <string name="widget_config_screen_title">위젯 구성</string>
     <string name="widget_configuration_title">기기 선택</string>
     <string name="widget_configuration_description">이 위젯에 표시할 기기 프로필을 선택해 주세요.</string>
     <string name="widget_no_data_label">데이터 없음</string>
+    <string name="widget_error_loading_label">위젯 로드 오류</string>
     <string name="widget_config_appearance_label">외관</string>
     <string name="widget_config_preset_label">사전 설정</string>
     <string name="widget_config_background_color_label">배경색</string>
@@ -214,6 +240,7 @@
     <string name="profiles_add_action">프로필 추가</string>
     <string name="profiles_create_title">프로필 생성</string>
     <string name="profiles_name_label">프로필 이름</string>
+    <string name="profiles_name_empty_error">이름은 비워둘 수 없습니다</string>
     <string name="profiles_name_default">나의 헤드폰</string>
     <string name="profiles_model_label">기기 모델</string>
     <string name="profiles_paired_device_label">페어링 된 기기</string>
@@ -237,12 +264,99 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPods은 일부가 암호화된 상태 메시지를 보냅니다. 암호화 키는 앱이 완전한 메시지를 해독하도록 합니다. MacBook이 잠깐 필요합니다.</string>
     <string name="profiles_key_invalid_format">올바르지 않은 키 형식</string>
     <string name="profiles_key_expected_format">올바른 형식: %1$s</string>
+    <string name="profiles_key_status_configured">구성됨</string>
+    <string name="profiles_key_status_not_set">설정되지 않음</string>
+    <string name="profiles_signal_quality_min_label">끄기</string>
+    <string name="profiles_signal_quality_max_label">엄격</string>
     <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요.
 리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">테마 모드</string>
+    <string name="ui_theme_mode_system_label">기기 테마 사용</string>
+    <string name="ui_theme_mode_dark_label">어두운 테마</string>
+    <string name="ui_theme_mode_light_label">밝은 테마</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">테마 스타일</string>
+    <string name="ui_theme_style_default_label">기본</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">중간 대비</string>
+    <string name="ui_theme_style_high_contrast_label">높은 대비</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">테마 색상</string>
+    <string name="ui_theme_color_blue_label">파란색</string>
+    <string name="ui_theme_color_green_label">녹색</string>
+    <string name="ui_theme_color_amber_label">호주색</string>
+    <string name="ui_theme_color_disabled_materialyou">바탕화면 색상 사용</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">모니터링</string>
+    <string name="settings_category_appearance_label">외관</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">저장되지 않은 변경 사항</string>
     <string name="general_unsaved_changes_message">저장되지 않은 변경 사항이 있습니다. 어떻게 하시겠습니까?</string>
     <string name="general_save_and_exit_action">저장 &amp; 종료</string>
     <string name="general_discard_action">무시</string>
     <string name="general_keep_editing_action">계속 수정하기</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">녹음 너무 짧음</string>
+    <string name="debug_debuglog_short_recording_message">디버그 로그는 문제가 발생하는 동안 켜져 있어야 합니다. 녹음을 계속하고 문제를 재현한 다음 녹음을 중지하세요.</string>
+    <string name="debug_debuglog_short_recording_continue">녹음 계속</string>
+    <string name="debug_debuglog_short_recording_stop">Stop anyway</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">디버그 로그</string>
+    <string name="debug_debuglog_screen_subtitle">문제 해결을 위한 디버그 정보 내보내기</string>
+    <string name="debug_debuglog_screen_sensitive_title">민감한 정보</string>
+    <string name="debug_debuglog_screen_session_path_label">세션 경로</string>
+    <string name="debug_debuglog_screen_log_files_label">로그 파일</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">삭제</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="other">%1$d개 디버그 로그 (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">저장된 디버그 로그 지우기</string>
+    <string name="support_debuglog_sessions_label">디버그 세션</string>
+    <string name="support_debuglog_sessions_desc">록화된 디버그 로그 세션 관리</string>
+    <string name="support_debuglog_sessions_empty">디버그 세션 없음</string>
+    <string name="support_debuglog_session_recording">녹화 중…</string>
+    <string name="support_debuglog_session_compressing">압축 중…</string>
+    <string name="support_debuglog_session_delete_title">세션을 삭제하시겠습니까?</string>
+    <string name="support_debuglog_session_delete_message">이 디버그 세션은 영구적으로 삭제됩니다.</string>
+    <string name="support_debuglog_clear_all_message">모든 디버그 세션이 영구적으로 삭제됩니다.</string>
+    <string name="support_debuglog_failed_empty_log">실패: 로그 파일이 비어 있습니다</string>
+    <string name="support_debuglog_failed_missing_log">실패: 로그 파일이 없습니다</string>
+    <string name="support_debuglog_failed_corrupt_zip">실패: zip 파일이 손상되었습니다</string>
+    <string name="support_debuglog_failed_zip_failed">실패: 압축 실패</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">개발자에게 연락</string>
+    <string name="support_contact_desc">개발자에게 이메일을 보낼 양식을 작성하세요.</string>
+    <string name="support_contact_welcome">모든 메시지를 직접 확인하고 최선을 다해 답변드리지만, 혼자 작업하기 때문에 시간이 조금 걸릴 수 있습니다. 양해 부탁드립니다.</string>
+    <string name="support_contact_footer">메시지는 이메일로 전송됩니다. 기기 및 설정 정보가 자동으로 첨부됩니다. 이메일에 스크린샷이나 동영상을 첨부할 수 있습니다. 이메일의 일부는 개발자가 쉽게 이해할 수 있도록 영어로 작성됩니다.</string>
+    <string name="support_contact_category_label">카테고리</string>
+    <string name="support_contact_category_question_label">질문</string>
+    <string name="support_contact_category_feature_label">기능 요청</string>
+    <string name="support_contact_category_bug_label">버그 신고</string>
+    <string name="support_contact_description_label">설명</string>
+    <string name="support_contact_description_question_hint">질문을 자세히 설명해 주세요. 구체적으로 작성해 주세요.</string>
+    <string name="support_contact_description_feature_hint">원하시는 기능을 설명해 주세요. 구체적으로 작성해 주세요.</string>
+    <string name="support_contact_description_bug_hint">무슨 일이 일어났고 문제를 재현하는 방법을 설명해 주세요. 구체적으로 작성해 주세요.</string>
+    <string name="support_contact_expected_label">예상 동작</string>
+    <string name="support_contact_expected_hint">예상하는 동작을 설명해 주세요.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d 단어</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">디버그 로그</string>
+    <string name="support_contact_debuglog_picker_hint">기존 디버그 로그를 첨부하거나 새로 록화하세요.</string>
+    <string name="support_contact_debuglog_picker_empty">디버그 로그를 찾을 수 없습니다. 먼저 록화하세요.</string>
+    <string name="support_contact_debuglog_zip_error">디버그 로그 압축 실패</string>
+    <string name="support_contact_send_action">이메일 앱 열기</string>
+    <string name="support_contact_no_email_app">이 기기에서 이메일 앱을 찾을 수 없습니다.</string>
+    <string name="support_contact_debuglog_delete_title">디버그 로그를 삭제하시겠습니까?</string>
+    <string name="support_contact_debuglog_delete_message">이 디버그 로그는 영구적으로 삭제됩니다.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">로그가 전송되었나요?</string>
+    <string name="support_debuglog_sent_message">디버그 로그가 성공적으로 전송되었나요? 로그가 삭제됩니다.</string>
+    <string name="support_contact_sent_title">이메일이 전송되었나요?</string>
+    <string name="support_contact_sent_message">이메일이 성공적으로 전송되었나요? 첨부된 디버그 로그가 삭제됩니다.</string>
 </resources>

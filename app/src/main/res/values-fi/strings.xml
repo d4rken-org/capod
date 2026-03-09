@@ -6,6 +6,7 @@
     <string name="general_copy_action">Kopioi</string>
     <string name="general_thank_you_label">Kiitos</string>
     <string name="general_upgrade_action">Päivitä</string>
+    <string name="common_feature_requires_pro_msg">Päivitä avataksesi.</string>
     <string name="general_donate_action">Lahjoita</string>
     <string name="general_check_action">Tarkista</string>
     <string name="general_close_action">Sulje</string>
@@ -17,6 +18,24 @@
     <string name="general_example_label">Esim.: %s</string>
     <string name="upgrade_capod_label">Päivitä CAPod</string>
     <string name="upgrade_capod_description">Hanki lisäominaisuuksia ja tue kehittäjää.</string>
+    <string name="upgrade_preamble">CAPod on yhden henkilön kehittämä. Päivittäminen avaa lisäominaisuuksia ja auttaa pitämään sovelluksen hengissä.</string>
+    <string name="upgrade_benefit_themes">Teeman mukauttaminen</string>
+    <string name="upgrade_benefit_autoplay">Automaattinen toisto &amp; tauko</string>
+    <string name="upgrade_benefit_autoconnect">Automaattinen yhdistäminen</string>
+    <string name="upgrade_benefit_popups">Ponnahdusikkuna koteloa avattaessa &amp; yhdistettäessä</string>
+    <string name="upgrade_benefit_widgets">Aloitusnäytön widgetit</string>
+    <string name="upgrade_benefit_support">Tue kehittäjää</string>
+    <string name="upgrade_screen_options_description">Samat ominaisuudet, eri hinnoittelu. Tilaus sisältää ilmaisen kokeilujakson ja sen voi peruuttaa milloin tahansa.</string>
+    <string name="upgrade_screen_subscription_trial_action">Aloita ilmainen kokeilu</string>
+    <string name="upgrade_screen_subscription_action">Tilaa vuosittain</string>
+    <string name="upgrade_screen_subscription_action_hint">%s/vuosi</string>
+    <string name="upgrade_screen_iap_action">Osta kertamaksulla</string>
+    <string name="upgrade_screen_iap_action_hint">Kertaostos: %s</string>
+    <string name="upgrade_screen_restore_purchase_action">Palauta ostos</string>
+    <string name="upgrade_screen_restore_purchase_message">Ostoksia ei löytynyt. Käytätkö oikeaa tiliä?</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Jos olet hiljattain ostanut, Google Playn synkronointi saattaa kestää hetken.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Yritä uudelleen muutaman minuutin kuluttua, jos ostoksesi ei näy.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Varmista, että olet kirjautunut sisään samalla Google-tilillä, jolla teit ostoksen.</string>
     <string name="settings_monitor_mode_label">Valvontatila</string>
     <string name="settings_monitor_mode_description">Missä olosuhteissa tämä sovellus valvoo Bluetooth-tietoja.</string>
     <string name="settings_monitor_connected_notification_label">Lisäilmoitus</string>
@@ -60,6 +79,7 @@
     <string name="settings_popup_connected_description">Näytä ponnahdusikkuna, kun laite yhdistetään ensimmäisen kerran.</string>
     <string name="notification_channel_device_status_label">Laitteen tila</string>
     <string name="notification_channel_device_status_connected_label">Yhdistetty laite</string>
+    <string name="monitor_notification_extra_enabled_hint">Voit poistaa tämän ilmoituksen käytöstä järjestelmäasetuksissa.</string>
     <string name="support_debuglog_label">Virheenkorjausloki</string>
     <string name="support_debuglog_desc">Tallenna kaikki sovelluksen tekemiset tekstitiedostoon, jonka voit jakaa.</string>
     <string name="debug_debuglog_size_label">Koko</string>
@@ -75,6 +95,8 @@
     <string name="settings_support_installid_desc">Automaattiset virheraportit ovat anonyymejä. Jaa asennustunnuksesi, jos kehittäjän on löydettävä virheraporttisi.</string>
     <string name="settings_support_label">Tuki</string>
     <string name="settings_support_description">Jos tarvitset apua.</string>
+    <string name="settings_wiki_label">Wiki</string>
+    <string name="settings_wiki_description">UKK &amp; oppaat</string>
     <string name="issue_tracker_label">Ongelmien seuranta</string>
     <string name="issue_tracker_description">Julkinen ongelmien seurantajärjestelmä virheraporteille ja ominaisuuspyynnöille (vain englanniksi).</string>
     <string name="discord_label">Discord</string>
@@ -85,6 +107,8 @@
     <string name="settings_privacy_policy_desc">Tietojen vastuullinen käsittely.</string>
     <string name="settings_licenses_label">Lisenssit</string>
     <string name="settings_category_other_label">Muu</string>
+    <string name="settings_category_gethelp_label">Hanki apua</string>
+    <string name="settings_category_debug_label">Virheenjäljitys</string>
     <string name="settings_general_label">Asetukset</string>
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
@@ -101,9 +125,11 @@
     <string name="translators_thanks_title">Kääntäjät</string>
     <string name="translators_thanks_description">darken</string>
     <string name="widget_description">Widget, joka näyttää laitteen viimeisimmän tunnetun tilan.</string>
+    <string name="widget_config_screen_title">Widgetin määritys</string>
     <string name="widget_configuration_title">Valitse laite</string>
     <string name="widget_configuration_description">Valitse, minkä laiteprofiilin tämä widget näyttää.</string>
     <string name="widget_no_data_label">Ei tietoja</string>
+    <string name="widget_error_loading_label">Virhe widgetin lataamisessa</string>
     <string name="widget_config_appearance_label">Ulkoasu</string>
     <string name="widget_config_preset_label">Esiasetukset</string>
     <string name="widget_config_background_color_label">Taustaväri</string>
@@ -215,6 +241,7 @@
     <string name="profiles_add_action">Lisää profiili</string>
     <string name="profiles_create_title">Luo profiili</string>
     <string name="profiles_name_label">Profiilin nimi</string>
+    <string name="profiles_name_empty_error">Nimi ei voi olla tyhjä</string>
     <string name="profiles_name_default">Omat kuulokkeet</string>
     <string name="profiles_model_label">Laitteen malli</string>
     <string name="profiles_paired_device_label">Paritettu laite</string>
@@ -237,11 +264,101 @@
     <string name="profiles_maindevice_encryptionkey_explanation">AirPodit lähettävät tilaviestin, joka on osittain salattu. Salausavain mahdollistaa CAPod-sovelluksen purkaa koko viestin salauksen. Tarvitset kertaluonteisen pääsyn MacBookiin.</string>
     <string name="profiles_key_invalid_format">Virheellinen avainmuoto</string>
     <string name="profiles_key_expected_format">Odotettu muoto: %1$s</string>
+    <string name="profiles_key_status_configured">Määritetty</string>
+    <string name="profiles_key_status_not_set">Ei asetettu</string>
+    <string name="profiles_signal_quality_min_label">Pois</string>
+    <string name="profiles_signal_quality_max_label">Tarkka</string>
     <string name="profiles_priority_hint">Profiilien järjestys määrittää prioriteetin. Vedä profiileja järjestääksesi ne uudelleen - listassa ylempänä olevat profiilit ovat etusijalla, kun useita laitteita vastaa.</string>
+    <!-- Theme Mode -->
+    <string name="ui_theme_mode_label">Teematila</string>
+    <string name="ui_theme_mode_system_label">Järjestelmä</string>
+    <string name="ui_theme_mode_dark_label">Tumma</string>
+    <string name="ui_theme_mode_light_label">Vaalea</string>
+    <!-- Theme Style -->
+    <string name="ui_theme_style_label">Teematyyli</string>
+    <string name="ui_theme_style_default_label">Oletus</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_medium_contrast_label">Keskikorkea kontrasti</string>
+    <string name="ui_theme_style_high_contrast_label">Korkea kontrasti</string>
+    <!-- Theme Color -->
+    <string name="ui_theme_color_label">Teeman väri</string>
+    <string name="ui_theme_color_blue_label">Sininen</string>
+    <string name="ui_theme_color_green_label">Vihreä</string>
+    <string name="ui_theme_color_amber_label">Ambra</string>
+    <string name="ui_theme_color_disabled_materialyou">Käyttää taustakuvan värejä</string>
+    <!-- Settings categories -->
+    <string name="settings_category_monitoring_label">Valvonta</string>
+    <string name="settings_category_appearance_label">Ulkoasu</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Tallentamattomat muutokset</string>
     <string name="general_unsaved_changes_message">Sinulla on tallentamattomia muutoksia. Mitä haluat tehdä?</string>
     <string name="general_save_and_exit_action">Tallenna ja poistu</string>
     <string name="general_discard_action">Hylkää</string>
     <string name="general_keep_editing_action">Jatka muokkaamista</string>
+    <!-- Short recording warning -->
+    <string name="debug_debuglog_short_recording_title">Tallennus liian lyhyt</string>
+    <string name="debug_debuglog_short_recording_message">Virheenjäljitysloki tarvitsee siepata ongelman sen tapahtuessa. Jatka tallentamista, toista ongelma ja lopeta sitten tallennus.</string>
+    <string name="debug_debuglog_short_recording_continue">Jatka tallentamista</string>
+    <string name="debug_debuglog_short_recording_stop">Lopeta joka tapauksessa</string>
+    <!-- Recorder screen -->
+    <string name="debug_debuglog_screen_title">Virheenkorjausloki</string>
+    <string name="debug_debuglog_screen_subtitle">Vie virheenjäljitystiedot vianmääritystä varten</string>
+    <string name="debug_debuglog_screen_sensitive_title">Arkaluonteinen tieto</string>
+    <string name="debug_debuglog_screen_session_path_label">Istunnon Polku</string>
+    <string name="debug_debuglog_screen_log_files_label">Loki Tiedostot</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d tiedosto valmiina (%2$s)</item>
+        <item quantity="other">%1$d tiedostoa valmiina (%2$s)</item>
+    </plurals>
+    <string name="debug_debuglog_screen_discard_action">Poista</string>
+    <!-- Log management -->
+    <plurals name="support_debuglog_folder_summary">
+        <item quantity="one">%1$d virheenjäljitysloki (%2$s)</item>
+        <item quantity="other">%1$d virheenjäljityslokit (%2$s)</item>
+    </plurals>
+    <string name="support_debuglog_clear_action">Tyhjennä tallennetut virheenjäljityslokit</string>
+    <string name="support_debuglog_sessions_label">Virheenjäljitysistunnot</string>
+    <string name="support_debuglog_sessions_desc">Hallitse tallennettuja virheenjäljitysloki-istuntoja</string>
+    <string name="support_debuglog_sessions_empty">Ei virheenjäljitysistuntoja</string>
+    <string name="support_debuglog_session_recording">Tallennetaan…</string>
+    <string name="support_debuglog_session_compressing">Pakataan…</string>
+    <string name="support_debuglog_session_delete_title">Poistetaanko istunto?</string>
+    <string name="support_debuglog_session_delete_message">Tämä virheenjäljitysistunto poistetaan pysyvästi.</string>
+    <string name="support_debuglog_clear_all_message">Kaikki virheenjäljitysistunnot poistetaan pysyvästi.</string>
+    <string name="support_debuglog_failed_empty_log">Epäonnistui: lokitiedosto on tyhjä</string>
+    <string name="support_debuglog_failed_missing_log">Epäonnistui: lokitiedosto puuttuu</string>
+    <string name="support_debuglog_failed_corrupt_zip">Epäonnistui: zip-tiedosto on vioittunut</string>
+    <string name="support_debuglog_failed_zip_failed">Epäonnistui: pakkaaminen epäonnistui</string>
+    <!-- Contact form -->
+    <string name="support_contact_label">Ota yhteyttä kehittäjään</string>
+    <string name="support_contact_desc">Täytä lomake lähettääksesi kehittäjälle sähköpostia.</string>
+    <string name="support_contact_welcome">Luen jokaisen viestin itse ja teen parhaani vastatakseni, mutta koska työskentelen tämän parissa yksin, se voi viedä hieman aikaa. Kiitos kärsivällisyydestäsi.</string>
+    <string name="support_contact_footer">Viestisi lähetetään sähköpostitse. Laite- ja asetustiedot liitetään automaattisesti. Voit liittää kuvakaappauksia tai videon sähköpostiin. Osa sähköpostista on englanniksi, jotta kehittäjä ymmärtää sen helposti.</string>
+    <string name="support_contact_category_label">Luokka</string>
+    <string name="support_contact_category_question_label">Kysymys</string>
+    <string name="support_contact_category_feature_label">Ominaisuuspyyntö</string>
+    <string name="support_contact_category_bug_label">Virheraportti</string>
+    <string name="support_contact_description_label">Kuvaus</string>
+    <string name="support_contact_description_question_hint">Kuvaile kysymyksesi yksityiskohtaisesti. Ole täsmällinen.</string>
+    <string name="support_contact_description_feature_hint">Kuvaile haluamasi ominaisuus. Ole täsmällinen.</string>
+    <string name="support_contact_description_bug_hint">Kuvaile mitä tapahtui ja miten ongelma toistetaan. Ole täsmällinen.</string>
+    <string name="support_contact_expected_label">Odotettu käyttäytyminen</string>
+    <string name="support_contact_expected_hint">Kuvaile mitä odotit tapahtuvan.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d sana</item>
+        <item quantity="other">%1$d / %2$d sanaa</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Virheenkorjausloki</string>
+    <string name="support_contact_debuglog_picker_hint">Liitä olemassa oleva virheenjäljitysloki tai tallenna uusi.</string>
+    <string name="support_contact_debuglog_picker_empty">Virheenjäljityslokeja ei löydy. Tallenna ensin yksi.</string>
+    <string name="support_contact_debuglog_zip_error">Virheenjäljityslokin pakkaaminen epäonnistui</string>
+    <string name="support_contact_send_action">Avaa sähköpostiohjelma</string>
+    <string name="support_contact_no_email_app">Tällä laitteella ei ole sähköpostiohjelmaa.</string>
+    <string name="support_contact_debuglog_delete_title">Poistetaanko virheenjäljitysloki?</string>
+    <string name="support_contact_debuglog_delete_message">Tämä virheenjäljitysloki poistetaan pysyvästi.</string>
+    <!-- Post-share confirmation -->
+    <string name="support_debuglog_sent_title">Loki lähetetty?</string>
+    <string name="support_debuglog_sent_message">Lähetettiin virheenkorjausloki onnistuneesti? Loki poistetaan.</string>
+    <string name="support_contact_sent_title">Sähköposti lähetetty?</string>
+    <string name="support_contact_sent_message">Lähetettiin sähköposti onnistuneesti? Liitetty virheenkorjausloki poistetaan.</string>
 </resources>
