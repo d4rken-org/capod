@@ -3,6 +3,7 @@ package eu.darken.capod.common.debug.recording.core
 import android.content.Context
 import android.os.Build
 import android.os.Environment
+import androidx.annotation.VisibleForTesting
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.InstallId
@@ -48,7 +49,12 @@ class RecorderModule @Inject constructor(
 
     private val internalState = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
         val triggerFileExists = triggerFile.exists()
-        State(shouldRecord = triggerFileExists)
+        val persistedInfo = if (triggerFileExists) readTriggerFile() else null
+        State(
+            shouldRecord = triggerFileExists,
+            persistedLogDir = persistedInfo?.first,
+            recordingStartedAt = persistedInfo?.second ?: 0L,
+        )
     }
     val state: Flow<State> = internalState.flow
 
@@ -59,22 +65,44 @@ class RecorderModule @Inject constructor(
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
-                        val sessionDir = createSessionDir()
+                        val isResume = persistedLogDir != null && persistedLogDir.exists()
+                        val sessionDir = if (isResume) {
+                            log(TAG, INFO) { "Resuming recording into existing session: $persistedLogDir" }
+                            persistedLogDir
+                        } else {
+                            createSessionDir()
+                        }
                         val logFile = File(sessionDir, "core.log")
                         val newRecorder = Recorder()
                         newRecorder.start(logFile)
-                        triggerFile.createNewFile()
 
-                        log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
-                        log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
+                        if (!isResume) {
+                            val startTime = System.currentTimeMillis()
+                            writeTriggerFile(sessionDir, startTime)
+                            log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
+                            log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
 
-                        this@RecorderModule.currentLogDir = sessionDir
+                            this@RecorderModule.currentLogDir = sessionDir
 
-                        copy(
-                            recorder = newRecorder,
-                            currentLogDir = sessionDir,
-                            recordingStartedAt = System.currentTimeMillis(),
-                        )
+                            copy(
+                                recorder = newRecorder,
+                                currentLogDir = sessionDir,
+                                recordingStartedAt = startTime,
+                                persistedLogDir = null,
+                            )
+                        } else {
+                            log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
+                            log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
+
+                            this@RecorderModule.currentLogDir = sessionDir
+
+                            copy(
+                                recorder = newRecorder,
+                                currentLogDir = sessionDir,
+                                recordingStartedAt = if (recordingStartedAt > 0L) recordingStartedAt else System.currentTimeMillis(),
+                                persistedLogDir = null,
+                            )
+                        }
                     } else if (!shouldRecord && isRecording) {
                         requireNotNull(recorder) { "Recorder is null despite isRecording" }.stop()
 
@@ -170,6 +198,7 @@ class RecorderModule @Inject constructor(
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
         val recordingStartedAt: Long = 0L,
+        internal val persistedLogDir: File? = null,
     ) {
         val isRecording: Boolean
             get() = recorder != null
@@ -178,9 +207,59 @@ class RecorderModule @Inject constructor(
             get() = recorder?.path
     }
 
+    internal fun readTriggerFile(): Pair<File, Long>? = try {
+        parseTriggerContent(triggerFile.readText())
+    } catch (e: Exception) {
+        log(TAG, WARN) { "Failed to read trigger file: $e" }
+        null
+    }
+
+    private fun writeTriggerFile(sessionDir: File, startTime: Long) {
+        try {
+            triggerFile.writeText("${sessionDir.absolutePath}\n$startTime")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to write trigger file: $e" }
+            try {
+                triggerFile.createNewFile()
+            } catch (e2: Exception) {
+                log(TAG, ERROR) { "Failed to create trigger file fallback: $e2" }
+            }
+        }
+    }
+
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "capod_force_debug_run"
         private const val MIN_RECORDING_MS = 5_000L
+
+        @VisibleForTesting
+        internal fun parseTriggerContent(
+            content: String,
+            now: Long = System.currentTimeMillis(),
+        ): Pair<File, Long>? {
+            val trimmed = content.trim()
+            if (trimmed.isEmpty()) return null
+
+            val lines = trimmed.lines()
+            if (lines.size < 2) {
+                log(TAG, WARN) { "Trigger file has unexpected format: $trimmed" }
+                return null
+            }
+
+            val dir = File(lines[0])
+            val timestamp = lines[1].toLongOrNull()
+
+            if (timestamp == null || timestamp !in 1..(now + 60_000L)) {
+                log(TAG, WARN) { "Trigger file has invalid timestamp: ts=$timestamp" }
+                return null
+            }
+
+            if (!dir.exists()) {
+                log(TAG, WARN) { "Trigger file references non-existent dir: ${lines[0]}" }
+                return null
+            }
+
+            return dir to timestamp
+        }
     }
 }

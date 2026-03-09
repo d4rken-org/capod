@@ -33,5 +33,10 @@ class RecorderModuleStateTest : BaseTest() {
         fun `currentLogPath is null`() {
             RecorderModule.State().currentLogPath shouldBe null
         }
+
+        @Test
+        fun `persistedLogDir is null`() {
+            RecorderModule.State().persistedLogDir shouldBe null
+        }
     }
 }
