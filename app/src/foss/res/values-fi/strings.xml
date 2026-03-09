@@ -6,5 +6,5 @@
     <string name="upgrade_foss_preamble">CAPod FOSS on ilmainen ja avoimen lähdekoodin ohjelma. Jos löydät sen hyödylliseksi, harkitse kehityksen tukemista projektin elässä pitämiseksi.</string>
     <string name="upgrade_foss_sponsor_action">Sponsoroi kehitystä</string>
     <string name="upgrade_foss_sponsor_subtitle">Ei mainoksia. Ei seurantaa. Ei Google Play -riippuvuutta.</string>
-    <string name="upgrade_foss_sponsor_returned_early">Jo lähdossä? Tukesi pitää CAPod\’in elässä.</string>
+    <string name="upgrade_foss_sponsor_returned_early">Jo takaisin? Tukesi pitää CAPod-sovelluksen hengissä.</string>
 </resources>

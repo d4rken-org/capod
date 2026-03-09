@@ -233,7 +233,7 @@
     <string name="last_seen_x">最後出現：%s</string>
     <string name="first_seen_x">首次出現：%s</string>
     <string name="permission_post_notifications_label">顯示通知</string>
-    <string name="permission_post_notifications_description">"允許 CAPod 顯示有關您 AirPods 的通知，例如連線時的目前狀態。"</string>
+    <string name="permission_post_notifications_description">"允許 CAPod 顯示關於您 AirPods 的通知，例如在連線時顯示它們的目前狀態。"</string>
     <!-- Device profiles -->
     <string name="profiles_empty_title">尚未設定任何裝置設定檔</string>
     <string name="profiles_empty_description">建立裝置設定檔，以自訂設定和優先順序來管理多個裝置。</string>
@@ -329,7 +329,7 @@
     <!-- Contact form -->
     <string name="support_contact_label">聯絡開發者</string>
     <string name="support_contact_desc">填寫表格以向開發者發送電子郵件。</string>
-    <string name="support_contact_welcome">我个人閱讀每封訊息并盡力回覆，但因為我是獨自開發，可能需要一點時間。感謝您的耐心。</string>
+    <string name="support_contact_welcome">我個人閱讀每封訊息並盡力回覆，但因為我是獨自開發，可能需要一點時間。感謝您的耐心。</string>
     <string name="support_contact_footer">您的訊息將通過電子郵件發送。裝置和設定資訊將自動附加。您可以在電子郵件中附加截圖或影片。電子郵件的部分內容將使用英文，方便開發者理解。</string>
     <string name="support_contact_category_label">類別</string>
     <string name="support_contact_category_question_label">問題</string>

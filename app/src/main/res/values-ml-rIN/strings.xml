@@ -62,7 +62,7 @@
     <string name="settings_autoconnect_condition_description">എപ്പോഴാണ് ഞങ്ങൾ നിങ്ങളുടെ ഉപകരണത്തിലേക്ക് കണക്റ്റുചെയ്യാൻ ശ്രമിക്കേണ്ടത്?</string>
     <string name="settings_devices_label">ഉപകരണങ്ങൾ</string>
     <string name="settings_devices_description">നിങ്ങളുടെ ഉപകരണങ്ങൾ നിയന്ത്രിക്കുക.</string>
-    <string name="settings_reaction_label">പ്രതികകരണങ്ങൾ</string>
+    <string name="settings_reaction_label">പ്രতিকകരണങ്ങൾ</string>
     <string name="settings_reaction_description">സംഭവങ്ങളോടും പെരുമാറ്റങ്ങളോടും പ്രതികരിക്കുക.</string>
     <string name="settings_category_yourdevice_label">നിങ്ങളുടെ ഉപകരണം</string>
     <string name="settings_category_compatibility_options_title">അനുയോജ്യത ഓപ്ഷനുകൾ</string>
@@ -149,7 +149,7 @@
     <string name="troubleshooter_title">ട്രബിൾഷൂട്ടർ</string>
     <string name="troubleshooter_summary">Bluetooth കണക്റ്റിവിറ്റി പ്രശ്നങ്ങൾ കണ്ടെത്തി പരിഹരിക്കുക.</string>
     <string name="troubleshooter_ble_intro_title">ബ്ലൂടൂത്ത് ലോ എനർജി പ്രക്ഷേപണങ്ങൾ</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \"പരസ്യങ്ങൾ\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ ആരംഭിക്കുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (അതുപോലുള്ള ഹെഡ്‌ഫോണുകൾ) \"പരസ്യങ്ങൾ\" എന്ന് വിളിക്കുന്ന BLE സാങ്കേതികവിദ്യ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് വിവരങ്ങൾ പ്രക്ഷേപണം ചെയ്യുന്നു. ചില ഫോണുകൾ ഈ സാങ്കേതികവിദ്യ ശരിയായി നടപ്പിലാക്കുന്നില്ല. ഡാറ്റ ലഭിക്കുന്നതുവരെ വ്യത്യസ്ത അനുയോജ്യത ഓപ്ഷനുകൾ പരീക്ഷിച്ച് CAPod ഇത് പരിഹരിക്കാൻ ശ്രമിക്കാം. നിങ്ങളുടെ ഹെഡ്‌ഫോണുകളിൽ സംഗീതം പ്ലേ ചെയ്യാൻ തുടങ്ങുക, അവ നിങ്ങളുടെ ഫോണിന് സമീപം സ്ഥാപിക്കുക, തുടർന്ന് പ്രക്രിയ ആരംഭിക്കുക.</string>
     <string name="troubleshooter_ble_intro_start_action">ട്രബിൾഷൂട്ടിംഗ് ആരംഭിക്കുക</string>
     <string name="troubleshooter_ble_process_title">ട്രബിൾഷൂട്ടിംഗ് പുരോഗമിക്കുന്നു</string>
     <string name="troubleshooter_ble_process_subtile">ഓരോ ഘട്ടവും 5-10 സെക്കൻഡ് എടുക്കും</string>
@@ -163,7 +163,7 @@
     <string name="troubleshoot_action">ട്രബിൾഷൂട്ട് ചെയ്യുക</string>
     <string name="onboarding_body1">ഈ ആപ്പ് Android-ലേക്ക് AirPod-നിർദ്ദിഷ്ട സവിശേഷതകൾക്കുള്ള പിന്തുണ ചേർക്കുന്നു.</string>
     <string name="onboarding_body2">എല്ലാ Android ഉപകരണങ്ങളും അധിക AirPod സവിശേഷതകളെ പൂർണ്ണമായി പിന്തുണയ്ക്കുന്നില്ല. നിങ്ങളുടെ ഓപ്പറേറ്റിംഗ് സിസ്റ്റത്തിന് ശരിയായി പ്രവർത്തിക്കുന്ന ബ്ലൂടൂത്ത്-ലോ-എനർജി നടപ്പിലാക്കൽ ആവശ്യമാണ്.</string>
-    <string name="onboarding_body3">CAPod-ൽ പരസ്യങ്ങൊന്നുമില്ല, അത് നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല.</string>
+    <string name="onboarding_body3">CAPod-ൽ പരസ്യങ്ങളൊന്നുമില്ല, അത് നിങ്ങളുടെ ഡാറ്റ ശേഖരിക്കുന്നില്ല.</string>
     <string name="onboarding_body4">അധിക സവിശേഷതകൾ നേടാനും വികസനത്തെ പിന്തുണയ്ക്കാനും നിങ്ങൾക്ക് CAPod Pro-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യാം.</string>
     <!-- Strings from app-common -->
     <string name="app_name">CAPod</string>
@@ -297,7 +297,7 @@
     <string name="general_keep_editing_action">എഡിറ്റിംഗ് തുടരുക</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">റെക്കോർഡിംഗ് വളരെ ചെറുത്</string>
-    <string name="debug_debuglog_short_recording_message">ഒരു ഡീബഗ് ലോഗ് പ്രശ്നം നടക്കുമ്പോൾ അത് പകർത്തണം. റെക്കോർഡ് ചെയ്തുകൊണ്ടേ ഇരിക്കൂ, പ്രശ്നം പുനഃസൃഷ്ടിക്കൂ, പിന്നെ റെക്കോർഡിംഗ് നിർത്തൂ.</string>
+    <string name="debug_debuglog_short_recording_message">ഒരു ഡീബഗ് ലോഗ് പ്രശ്നം നടക്കുമ്പോൾ അത് പകർത്തണം. റെക്കോർഡ് ചെയ്തുകൊണ്ടേ ഇരിക്കൂ, പ്രശ്നം പുനඃസൃഷ്ടിക്കൂ, പിന്നെ റെക്കോർഡിംഗ് നിർത്തൂ.</string>
     <string name="debug_debuglog_short_recording_continue">റെക്കോർഡിംഗ് തുടരുക</string>
     <string name="debug_debuglog_short_recording_stop">എന്തായാലും നിർത്തുക</string>
     <!-- Recorder screen -->
@@ -341,7 +341,7 @@
     <string name="support_contact_description_label">വിവരണം</string>
     <string name="support_contact_description_question_hint">നിങ്ങളുടെ ചോദ്യം വിശദമായി വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
     <string name="support_contact_description_feature_hint">നിങ്ങൾ കാണാൻ ആഗ്രഹിക്കുന്ന ഫീച്ചർ വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
-    <string name="support_contact_description_bug_hint">എന്ത് സംഭവിച്ചുവെന്നും പ്രശ്നം പുനഃസൃഷ്ടിക്കാൻ എങ്ങനെ ചെയ്യണമെന്നും വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
+    <string name="support_contact_description_bug_hint">എന്ത് സംഭവിച്ചുവെന്നും പ്രശ്നം പുനඃസൃഷ്ടിക്കാൻ എങ്ങനെ ചെയ്യണമെന്നും വിവരിക്കുക. ദയവുചെയ്ത് കൃത്യമായി പറയുക.</string>
     <string name="support_contact_expected_label">പ്രതീക്ഷിക്കുന്ന പ്രവർത്തനം</string>
     <string name="support_contact_expected_hint">എന്ത് സംഭവിക്കുമെന്ന് നിങ്ങൾ പ്രതീക്ഷിച്ചിരുന്നുവെന്ന് വിവരിക്കുക.</string>
     <plurals name="support_contact_word_count">

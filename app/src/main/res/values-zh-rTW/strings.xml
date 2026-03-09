@@ -301,7 +301,7 @@
     <string name="debug_debuglog_short_recording_stop">仍然停止</string>
     <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">偵錯記錄</string>
-    <string name="debug_debuglog_screen_subtitle">匯出除錯資訊以協助排查問題</string>
+    <string name="debug_debuglog_screen_subtitle">匯出偵錯資訊以進行疑難排解</string>
     <string name="debug_debuglog_screen_sensitive_title">敏感資訊</string>
     <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
     <string name="debug_debuglog_screen_log_files_label">記錄檔案</string>
