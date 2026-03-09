@@ -76,7 +76,7 @@ class RecorderModule @Inject constructor(
                             recordingStartedAt = System.currentTimeMillis(),
                         )
                     } else if (!shouldRecord && isRecording) {
-                        recorder!!.stop()
+                        requireNotNull(recorder) { "Recorder is null despite isRecording" }.stop()
 
                         if (triggerFile.exists() && !triggerFile.delete()) {
                             log(TAG, ERROR) { "Failed to delete trigger file" }
@@ -133,7 +133,8 @@ class RecorderModule @Inject constructor(
         internalState.updateBlocking {
             copy(shouldRecord = true)
         }
-        return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
+        val state = internalState.flow.filter { it.isRecording }.first()
+        return requireNotNull(state.currentLogDir) { "Recording state has no logDir" }
     }
 
     suspend fun stopRecorder(): File? {

@@ -9,6 +9,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.debug.recording.core.DebugSession
@@ -132,8 +133,6 @@ class RecorderActivityVM @Inject constructor(
     }
 
     fun share() = launch {
-        val currentState = stater.flow.first()
-        val dir = currentState.logDir ?: return@launch
         val sid = sessionId ?: return@launch
 
         stater.updateBlocking { copy(isWorking = true) }
@@ -141,17 +140,21 @@ class RecorderActivityVM @Inject constructor(
         try {
             val uri = sessionManager.getZipUri(sid)
 
+            val displayName = stater.flow.first().logDir?.name ?: sid
+
             val intent = Intent(Intent.ACTION_SEND).apply {
                 putExtra(Intent.EXTRA_STREAM, uri)
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 type = "application/zip"
                 addCategory(Intent.CATEGORY_DEFAULT)
-                putExtra(Intent.EXTRA_SUBJECT, "CAPod DebugLog - ${dir.name}")
+                putExtra(Intent.EXTRA_SUBJECT, "CAPod DebugLog - $displayName")
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
 
             val chooserIntent = Intent.createChooser(intent, context.getString(R.string.support_debuglog_label))
             events.tryEmit(Event.ShareIntent(chooserIntent))
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to share session $sid: ${e.message}" }
         } finally {
             stater.updateBlocking { copy(isWorking = false) }
         }
