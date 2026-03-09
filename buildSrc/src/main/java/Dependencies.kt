@@ -60,11 +60,6 @@ fun DependencyHandlerScope.addDagger() {
     kspAndroidTest("com.google.dagger:hilt-android-compiler:${Versions.Dagger.core}")
 }
 
-fun DependencyHandlerScope.addMoshi() {
-    implementation("com.squareup.moshi:moshi:1.15.2")
-    implementation("com.squareup.moshi:moshi-adapters:1.15.2")
-    add("ksp", "com.squareup.moshi:moshi-kotlin-codegen:1.15.2")
-}
 
 fun DependencyHandlerScope.addOkio() {
     implementation("com.squareup.okio:okio:3.1.0")

@@ -177,8 +177,6 @@ dependencies {
 
     addDagger()
 
-    addMoshi()
-
     addOkio()
 
     addBaseAndroid()

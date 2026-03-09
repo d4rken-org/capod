@@ -1,7 +1,5 @@
 package eu.darken.capod.profiles.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.capod.common.serialization.ByteArrayBase64Serializer
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
@@ -14,14 +12,13 @@ import java.util.UUID
 @Parcelize
 @Serializable
 @SerialName("apple")
-@JsonClass(generateAdapter = true)
 data class AppleDeviceProfile(
-    @Json(name = "id") override val id: ProfileId = UUID.randomUUID().toString(),
-    @Json(name = "label") override val label: String,
-    @Json(name = "priority") override val priority: Int = 0,
-    @Json(name = "model") override val model: PodDevice.Model = PodDevice.Model.UNKNOWN,
-    @Json(name = "minimumSignalQuality") override val minimumSignalQuality: Float = DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY,
-    @Serializable(with = ByteArrayBase64Serializer::class) @Json(name = "identityKey") val identityKey: IdentityResolvingKey? = null,
-    @Serializable(with = ByteArrayBase64Serializer::class) @Json(name = "encryptionKey") val encryptionKey: ProximityEncryptionKey? = null,
-    @Json(name = "address") override val address: String? = null,
+    @SerialName("id") override val id: ProfileId = UUID.randomUUID().toString(),
+    @SerialName("label") override val label: String,
+    @SerialName("priority") override val priority: Int = 0,
+    @SerialName("model") override val model: PodDevice.Model = PodDevice.Model.UNKNOWN,
+    @SerialName("minimumSignalQuality") override val minimumSignalQuality: Float = DeviceProfile.DEFAULT_MINIMUM_SIGNAL_QUALITY,
+    @SerialName("identityKey") @Serializable(with = ByteArrayBase64Serializer::class) val identityKey: IdentityResolvingKey? = null,
+    @SerialName("encryptionKey") @Serializable(with = ByteArrayBase64Serializer::class) val encryptionKey: ProximityEncryptionKey? = null,
+    @SerialName("address") override val address: String? = null,
 ) : DeviceProfile

@@ -3,19 +3,21 @@ package eu.darken.capod.common.bluetooth
 import android.bluetooth.le.ScanResult
 import android.os.Parcelable
 import androidx.core.util.forEach
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import eu.darken.capod.common.serialization.InstantEpochMillisSerializer
+import eu.darken.capod.common.serialization.MapIntByteArrayBase64Serializer
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import java.time.Instant
 
 @Parcelize
-@JsonClass(generateAdapter = true)
+@Serializable
 data class BleScanResult(
-    @Json(name = "receivedAt") val receivedAt: Instant,
-    @Json(name = "address") val address: String,
-    @Json(name = "rssi") val rssi: Int,
-    @Json(name = "generatedAtNanos") val generatedAtNanos: Long,
-    @Json(name = "manufacturerSpecificData") val manufacturerSpecificData: Map<Int, ByteArray>
+    @SerialName("receivedAt") @Serializable(with = InstantEpochMillisSerializer::class) val receivedAt: Instant,
+    @SerialName("address") val address: String,
+    @SerialName("rssi") val rssi: Int,
+    @SerialName("generatedAtNanos") val generatedAtNanos: Long,
+    @SerialName("manufacturerSpecificData") @Serializable(with = MapIntByteArrayBase64Serializer::class) val manufacturerSpecificData: Map<Int, ByteArray>
 ) : Parcelable {
 
     fun getManufacturerSpecificData(id: Int): ByteArray? = manufacturerSpecificData[id]

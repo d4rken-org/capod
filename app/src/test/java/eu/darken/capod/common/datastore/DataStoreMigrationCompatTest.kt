@@ -1,6 +1,5 @@
 package eu.darken.capod.common.datastore
 
-import com.squareup.moshi.Json as MoshiJson
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
@@ -11,16 +10,15 @@ import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesContainer
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import io.kotest.matchers.shouldBe
-import kotlinx.serialization.SerialName
+import io.kotest.matchers.string.shouldContain
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 /**
- * Tests that verify @SerialName values match @Json(name=...) values,
- * ensuring Moshi-serialized SharedPreferences data can be read by kotlinx-serialization
- * after the DataStore migration.
+ * Tests that verify kotlinx-serialization produces the expected wire format
+ * and can decode legacy JSON strings (originally written by Moshi).
  */
 class DataStoreMigrationCompatTest : BaseTest() {
 
@@ -28,106 +26,132 @@ class DataStoreMigrationCompatTest : BaseTest() {
         ignoreUnknownKeys = true
         encodeDefaults = true
         explicitNulls = false
+        classDiscriminator = "type"
     }
 
-    /**
-     * For each enum with both @SerialName and @Json annotations,
-     * verify they produce the same string. This catches typos in @SerialName values.
-     */
-    private inline fun <reified T : Enum<T>> verifyEnumSerialNameParity() {
-        val enumClass = T::class.java
-        for (constant in enumClass.enumConstants!!) {
-            val field = enumClass.getField(constant.name)
-            val moshiAnnotation = field.getAnnotation(MoshiJson::class.java)
-            val serialNameAnnotation = field.getAnnotation(SerialName::class.java)
+    @Test
+    fun `ThemeMode encodes to canonical string`() {
+        json.encodeToString(serializer<ThemeMode>(), ThemeMode.DARK) shouldBe "\"theme.mode.dark\""
+    }
 
-            if (moshiAnnotation != null && serialNameAnnotation != null) {
-                serialNameAnnotation.value shouldBe moshiAnnotation.name
-            }
+    @Test
+    fun `ThemeMode legacy string decodes correctly`() {
+        val legacyOutput = "\"theme.mode.dark\""
+        json.decodeFromString(serializer<ThemeMode>(), legacyOutput) shouldBe ThemeMode.DARK
+    }
+
+    @Test
+    fun `ThemeMode round-trip`() {
+        ThemeMode.entries.forEach { mode ->
+            val encoded = json.encodeToString(serializer<ThemeMode>(), mode)
+            json.decodeFromString(serializer<ThemeMode>(), encoded) shouldBe mode
         }
     }
 
     @Test
-    fun `SerialName matches Json name - ThemeMode`() = verifyEnumSerialNameParity<ThemeMode>()
-
-    @Test
-    fun `SerialName matches Json name - ThemeStyle`() = verifyEnumSerialNameParity<ThemeStyle>()
-
-    @Test
-    fun `SerialName matches Json name - ThemeColor`() = verifyEnumSerialNameParity<ThemeColor>()
-
-    @Test
-    fun `SerialName matches Json name - MonitorMode`() = verifyEnumSerialNameParity<MonitorMode>()
-
-    @Test
-    fun `SerialName matches Json name - ScannerMode`() = verifyEnumSerialNameParity<ScannerMode>()
-
-    @Test
-    fun `SerialName matches Json name - AutoConnectCondition`() = verifyEnumSerialNameParity<AutoConnectCondition>()
-
-    @Test
-    fun `SerialName matches Json name - PodDevice Model`() = verifyEnumSerialNameParity<PodDevice.Model>()
-
-    @Test
-    fun `Moshi-serialized ThemeMode string is readable by kotlinx`() {
-        // Moshi stores enums as JSON strings like: "theme.mode.dark"
-        val moshiOutput = "\"theme.mode.dark\""
-        val result = json.decodeFromString(serializer<ThemeMode>(), moshiOutput)
-        result shouldBe ThemeMode.DARK
+    fun `ScannerMode encodes to canonical string`() {
+        json.encodeToString(serializer<ScannerMode>(), ScannerMode.BALANCED) shouldBe "\"scanner.mode.balanced\""
     }
 
     @Test
-    fun `Moshi-serialized ScannerMode string is readable by kotlinx`() {
-        val moshiOutput = "\"scanner.mode.balanced\""
-        val result = json.decodeFromString(serializer<ScannerMode>(), moshiOutput)
-        result shouldBe ScannerMode.BALANCED
+    fun `ScannerMode legacy string decodes correctly`() {
+        val legacyOutput = "\"scanner.mode.balanced\""
+        json.decodeFromString(serializer<ScannerMode>(), legacyOutput) shouldBe ScannerMode.BALANCED
     }
 
     @Test
-    fun `Moshi-serialized MonitorMode string is readable by kotlinx`() {
-        val moshiOutput = "\"monitor.mode.automatic\""
-        val result = json.decodeFromString(serializer<MonitorMode>(), moshiOutput)
-        result shouldBe MonitorMode.AUTOMATIC
+    fun `ScannerMode round-trip`() {
+        ScannerMode.entries.forEach { mode ->
+            val encoded = json.encodeToString(serializer<ScannerMode>(), mode)
+            json.decodeFromString(serializer<ScannerMode>(), encoded) shouldBe mode
+        }
     }
 
     @Test
-    fun `all PodDevice Model values can be decoded from Moshi format`() {
+    fun `MonitorMode encodes to canonical string`() {
+        json.encodeToString(serializer<MonitorMode>(), MonitorMode.AUTOMATIC) shouldBe "\"monitor.mode.automatic\""
+    }
+
+    @Test
+    fun `MonitorMode legacy string decodes correctly`() {
+        val legacyOutput = "\"monitor.mode.automatic\""
+        json.decodeFromString(serializer<MonitorMode>(), legacyOutput) shouldBe MonitorMode.AUTOMATIC
+    }
+
+    @Test
+    fun `MonitorMode round-trip`() {
+        MonitorMode.entries.forEach { mode ->
+            val encoded = json.encodeToString(serializer<MonitorMode>(), mode)
+            json.decodeFromString(serializer<MonitorMode>(), encoded) shouldBe mode
+        }
+    }
+
+    @Test
+    fun `ThemeStyle encodes to canonical string`() {
+        json.encodeToString(serializer<ThemeStyle>(), ThemeStyle.MATERIAL_YOU) shouldBe "\"theme.style.materialyou\""
+    }
+
+    @Test
+    fun `ThemeStyle legacy string decodes correctly`() {
+        val legacyOutput = "\"theme.style.materialyou\""
+        json.decodeFromString(serializer<ThemeStyle>(), legacyOutput) shouldBe ThemeStyle.MATERIAL_YOU
+    }
+
+    @Test
+    fun `ThemeStyle round-trip`() {
+        ThemeStyle.entries.forEach { style ->
+            val encoded = json.encodeToString(serializer<ThemeStyle>(), style)
+            json.decodeFromString(serializer<ThemeStyle>(), encoded) shouldBe style
+        }
+    }
+
+    @Test
+    fun `ThemeColor encodes to canonical string`() {
+        json.encodeToString(serializer<ThemeColor>(), ThemeColor.GREEN) shouldBe "\"theme.color.green\""
+    }
+
+    @Test
+    fun `ThemeColor legacy string decodes correctly`() {
+        val legacyOutput = "\"theme.color.green\""
+        json.decodeFromString(serializer<ThemeColor>(), legacyOutput) shouldBe ThemeColor.GREEN
+    }
+
+    @Test
+    fun `ThemeColor round-trip`() {
+        ThemeColor.entries.forEach { color ->
+            val encoded = json.encodeToString(serializer<ThemeColor>(), color)
+            json.decodeFromString(serializer<ThemeColor>(), encoded) shouldBe color
+        }
+    }
+
+    @Test
+    fun `AutoConnectCondition encodes to canonical string`() {
+        json.encodeToString(serializer<AutoConnectCondition>(), AutoConnectCondition.WHEN_SEEN) shouldBe "\"autoconnect.condition.seen\""
+    }
+
+    @Test
+    fun `AutoConnectCondition legacy string decodes correctly`() {
+        val legacyOutput = "\"autoconnect.condition.seen\""
+        json.decodeFromString(serializer<AutoConnectCondition>(), legacyOutput) shouldBe AutoConnectCondition.WHEN_SEEN
+    }
+
+    @Test
+    fun `all PodDevice Model values round-trip`() {
         for (model in PodDevice.Model.entries) {
-            val field = PodDevice.Model::class.java.getField(model.name)
-            val moshiAnnotation = field.getAnnotation(MoshiJson::class.java)
-            if (moshiAnnotation != null) {
-                val moshiOutput = "\"${moshiAnnotation.name}\""
-                val result = json.decodeFromString(serializer<PodDevice.Model>(), moshiOutput)
-                result shouldBe model
-            }
+            val encoded = json.encodeToString(serializer<PodDevice.Model>(), model)
+            json.decodeFromString(serializer<PodDevice.Model>(), encoded) shouldBe model
         }
     }
 
     @Test
-    fun `Moshi-serialized ThemeStyle string is readable by kotlinx`() {
-        val moshiOutput = "\"theme.style.materialyou\""
-        val result = json.decodeFromString(serializer<ThemeStyle>(), moshiOutput)
-        result shouldBe ThemeStyle.MATERIAL_YOU
+    fun `PodDevice Model legacy string decodes correctly`() {
+        val legacyOutput = "\"airpods.pro\""
+        json.decodeFromString(serializer<PodDevice.Model>(), legacyOutput) shouldBe PodDevice.Model.AIRPODS_PRO
     }
 
     @Test
-    fun `Moshi-serialized ThemeColor string is readable by kotlinx`() {
-        val moshiOutput = "\"theme.color.green\""
-        val result = json.decodeFromString(serializer<ThemeColor>(), moshiOutput)
-        result shouldBe ThemeColor.GREEN
-    }
-
-    @Test
-    fun `Moshi-serialized AutoConnectCondition string is readable by kotlinx`() {
-        val moshiOutput = "\"autoconnect.condition.seen\""
-        val result = json.decodeFromString(serializer<AutoConnectCondition>(), moshiOutput)
-        result shouldBe AutoConnectCondition.WHEN_SEEN
-    }
-
-    @Test
-    fun `Moshi-serialized DeviceProfilesContainer JSON is readable by kotlinx`() {
-        // This is what Moshi would produce for a container with one Apple profile
-        val moshiJson = """
+    fun `legacy DeviceProfilesContainer JSON decodes correctly`() {
+        val legacyJson = """
             {
                 "profiles": [
                     {
@@ -143,7 +167,7 @@ class DataStoreMigrationCompatTest : BaseTest() {
             }
         """.trimIndent()
 
-        val result = json.decodeFromString(serializer<DeviceProfilesContainer>(), moshiJson)
+        val result = json.decodeFromString(serializer<DeviceProfilesContainer>(), legacyJson)
         result.profiles.size shouldBe 1
 
         val profile = result.profiles[0] as AppleDeviceProfile
@@ -157,9 +181,43 @@ class DataStoreMigrationCompatTest : BaseTest() {
     }
 
     @Test
-    fun `Moshi-serialized DeviceProfile with ByteArray fields is readable by kotlinx`() {
+    fun `DeviceProfilesContainer round-trip`() {
+        val container = DeviceProfilesContainer(
+            profiles = listOf(
+                AppleDeviceProfile(
+                    id = "round-trip-id",
+                    label = "Test Profile",
+                    model = PodDevice.Model.AIRPODS_GEN2,
+                    address = "11:22:33:44:55:66",
+                )
+            )
+        )
+        val encoded = json.encodeToString(serializer<DeviceProfilesContainer>(), container)
+        val decoded = json.decodeFromString(serializer<DeviceProfilesContainer>(), encoded)
+
+        decoded.profiles.size shouldBe 1
+        val profile = decoded.profiles[0] as AppleDeviceProfile
+        profile.id shouldBe "round-trip-id"
+        profile.label shouldBe "Test Profile"
+        profile.model shouldBe PodDevice.Model.AIRPODS_GEN2
+        profile.address shouldBe "11:22:33:44:55:66"
+    }
+
+    @Test
+    fun `DeviceProfilesContainer includes type discriminator`() {
+        val container = DeviceProfilesContainer(
+            profiles = listOf(
+                AppleDeviceProfile(id = "disc-test", label = "Test")
+            )
+        )
+        val encoded = json.encodeToString(serializer<DeviceProfilesContainer>(), container)
+        encoded shouldContain "\"type\":\"apple\""
+    }
+
+    @Test
+    fun `legacy DeviceProfile with ByteArray fields decodes correctly`() {
         // Base64 encoded: [0x01, 0x02, 0x03] = "AQID"
-        val moshiJson = """
+        val legacyJson = """
             {
                 "profiles": [
                     {
@@ -176,7 +234,7 @@ class DataStoreMigrationCompatTest : BaseTest() {
             }
         """.trimIndent()
 
-        val result = json.decodeFromString(serializer<DeviceProfilesContainer>(), moshiJson)
+        val result = json.decodeFromString(serializer<DeviceProfilesContainer>(), legacyJson)
         val profile = result.profiles[0] as AppleDeviceProfile
         profile.identityKey!!.toList() shouldBe listOf<Byte>(0x01, 0x02, 0x03)
         profile.encryptionKey!!.toList() shouldBe listOf<Byte>(0x04, 0x05, 0x06)
