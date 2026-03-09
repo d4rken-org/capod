@@ -31,11 +31,10 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
     @Nested
     inner class ParseCreatedAt {
         @Test
-        fun `returns creation time from file attributes`() {
-            val file = File(externalLogsDir, "capod_1.2.3_1709810400000_abcd1234").also { it.mkdirs() }
+        fun `returns creation time parsed from filename`() {
+            val file = File(externalLogsDir, "capod_1.2.3_20240307T112000Z_abcd1234").also { it.mkdirs() }
             val result = DebugSessionManager.parseCreatedAt(file)
-            // Should return a valid Instant (either from file attributes or lastModified fallback)
-            result.shouldBeInstanceOf<Instant>()
+            result shouldBe Instant.parse("2024-03-07T11:20:00Z")
         }
 
         @Test
@@ -97,7 +96,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `dir with valid core log returns Ready`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("some log content")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
@@ -105,7 +104,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
             result shouldHaveSize 1
             val session = result.first()
             session.shouldBeInstanceOf<DebugSession.Ready>()
-            session.id shouldBe "ext:capod_1.0_1700000000000_abcd1234"
+            session.id shouldBe "ext:capod_1.0_20231114T221320Z_abcd1234"
             session.logDir shouldBe sessionDir
             session.zipFile shouldBe null
             session.compressedSize shouldBe 0L
@@ -113,7 +112,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `dir with empty core log returns Failed EMPTY_LOG`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").createNewFile()
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
@@ -126,7 +125,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `dir with no core log returns Failed MISSING_LOG`() {
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").mkdirs()
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").mkdirs()
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
@@ -138,7 +137,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `standalone non-empty zip returns Ready with null logDir`() {
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").writeText("zipdata")
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").writeText("zipdata")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
@@ -146,13 +145,13 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
             val session = result.first()
             session.shouldBeInstanceOf<DebugSession.Ready>()
             (session as DebugSession.Ready).logDir shouldBe null
-            session.zipFile shouldBe File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip")
-            session.compressedSize shouldBe File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").length()
+            session.zipFile shouldBe File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip")
+            session.compressedSize shouldBe File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").length()
         }
 
         @Test
         fun `standalone empty zip returns Failed CORRUPT_ZIP`() {
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").createNewFile()
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").createNewFile()
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
@@ -164,16 +163,16 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `dir plus sibling zip reports combined diskSize`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("log content here")
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").writeText("zipdata12345")
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").writeText("zipdata12345")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 1
             val session = result.first() as DebugSession.Ready
             val expectedDirSize = sessionDir.walkTopDown().filter { it.isFile }.sumOf { it.length() }
-            val zipFile = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip")
+            val zipFile = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip")
             val expectedZipSize = zipFile.length()
             session.diskSize shouldBe expectedDirSize + expectedZipSize
             session.zipFile shouldBe zipFile
@@ -182,8 +181,8 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `dir missing core log but valid sibling zip returns Ready with null logDir`() {
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").mkdirs()
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").writeText("zipdata")
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").mkdirs()
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").writeText("zipdata")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
@@ -191,12 +190,12 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
             val session = result.first()
             session.shouldBeInstanceOf<DebugSession.Ready>()
             (session as DebugSession.Ready).logDir shouldBe null
-            session.zipFile shouldBe File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip")
+            session.zipFile shouldBe File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip")
         }
 
         @Test
         fun `active recording dir returns Recording`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("recording in progress")
 
             val result = DebugSessionManager.scanSessions(
@@ -213,14 +212,14 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `ignores non-directory non-zip files`() {
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234/core.log").writeText("log")
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234/core.log").writeText("log")
             File(externalLogsDir, "random_notes.txt").writeText("not a session")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 1
-            result.first().id shouldBe "ext:capod_1.0_1700000000000_abcd1234"
+            result.first().id shouldBe "ext:capod_1.0_20231114T221320Z_abcd1234"
         }
 
         @Test
@@ -233,20 +232,20 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `cache directory gets cache prefix`() {
-            val sessionDir = File(cacheLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(cacheLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("cached log")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 1
-            result.first().id shouldBe "cache:capod_1.0_1700000000000_abcd1234"
+            result.first().id shouldBe "cache:capod_1.0_20231114T221320Z_abcd1234"
         }
 
         @Test
         fun `empty core log with valid sibling zip returns Ready`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").createNewFile()
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").writeText("valid zip data")
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").writeText("valid zip data")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
@@ -254,45 +253,45 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
             val session = result.first()
             session.shouldBeInstanceOf<DebugSession.Ready>()
             (session as DebugSession.Ready).logDir shouldBe null
-            session.zipFile shouldBe File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip")
+            session.zipFile shouldBe File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip")
         }
 
         @Test
         fun `multiple log directories are combined`() {
-            val extDir = File(externalLogsDir, "capod_1.0_1700000000000_aaaa1111").also { it.mkdirs() }
+            val extDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_aaaa1111").also { it.mkdirs() }
             File(extDir, "core.log").writeText("ext log")
 
-            val cacheDir = File(cacheLogsDir, "capod_1.0_1600000000000_bbbb2222").also { it.mkdirs() }
+            val cacheDir = File(cacheLogsDir, "capod_1.0_20200913T122640Z_bbbb2222").also { it.mkdirs() }
             File(cacheDir, "core.log").writeText("cache log")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 2
-            result.any { it.id == "ext:capod_1.0_1700000000000_aaaa1111" } shouldBe true
-            result.any { it.id == "cache:capod_1.0_1600000000000_bbbb2222" } shouldBe true
+            result.any { it.id == "ext:capod_1.0_20231114T221320Z_aaaa1111" } shouldBe true
+            result.any { it.id == "cache:capod_1.0_20200913T122640Z_bbbb2222" } shouldBe true
         }
 
         @Test
         fun `sessions with same createdAt sorted by id ascending`() {
-            val dirA = File(externalLogsDir, "capod_1.0_1700000000000_aaaa").also { it.mkdirs() }
+            val dirA = File(externalLogsDir, "capod_1.0_20231114T221320Z_aaaa").also { it.mkdirs() }
             File(dirA, "core.log").writeText("log a")
 
-            val dirB = File(externalLogsDir, "capod_1.0_1700000000000_zzzz").also { it.mkdirs() }
+            val dirB = File(externalLogsDir, "capod_1.0_20231114T221320Z_zzzz").also { it.mkdirs() }
             File(dirB, "core.log").writeText("log b")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
             result shouldHaveSize 2
-            result[0].id shouldBe "ext:capod_1.0_1700000000000_aaaa"
-            result[1].id shouldBe "ext:capod_1.0_1700000000000_zzzz"
+            result[0].id shouldBe "ext:capod_1.0_20231114T221320Z_aaaa"
+            result[1].id shouldBe "ext:capod_1.0_20231114T221320Z_zzzz"
         }
 
         @Test
         fun `multiple sessions sorted by createdAt descending then id ascending`() {
-            val dirA = File(externalLogsDir, "capod_1.0_1600000000000_aaaa").also { it.mkdirs() }
+            val dirA = File(externalLogsDir, "capod_1.0_20200913T122640Z_aaaa").also { it.mkdirs() }
             File(dirA, "core.log").writeText("log a")
 
-            val dirB = File(externalLogsDir, "capod_1.0_1700000000000_bbbb").also { it.mkdirs() }
+            val dirB = File(externalLogsDir, "capod_1.0_20231114T221320Z_bbbb").also { it.mkdirs() }
             File(dirB, "core.log").writeText("log b")
 
             val result = DebugSessionManager.scanSessions(logDirectories = logDirs())
@@ -311,7 +310,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
     inner class IdRoundTrip {
         @Test
         fun `deriveSessionId on ext dir matches scanSessions output`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("log content")
 
             val derived = DebugSessionManager.deriveSessionId(sessionDir)
@@ -323,7 +322,7 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `deriveSessionId on cache dir matches scanSessions output`() {
-            val sessionDir = File(cacheLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(cacheLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("log content")
 
             val derived = DebugSessionManager.deriveSessionId(sessionDir)
@@ -335,9 +334,9 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `deriveSessionId on zip file matches scanSessions output`() {
-            File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").writeText("zipdata")
+            File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").writeText("zipdata")
 
-            val zipFile = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip")
+            val zipFile = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip")
             val derived = DebugSessionManager.deriveSessionId(zipFile)
             val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
 
@@ -347,9 +346,9 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `deriveSessionId is consistent for dir and sibling zip`() {
-            val sessionDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val sessionDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(sessionDir, "core.log").writeText("log content")
-            val zipFile = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234.zip").also {
+            val zipFile = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234.zip").also {
                 it.writeText("zipdata")
             }
 
@@ -364,15 +363,15 @@ class DebugSessionManagerSessionLogicTest : BaseTest() {
 
         @Test
         fun `same basename in ext and cache produces distinct IDs in both deriveSessionId and scanSessions`() {
-            val extDir = File(externalLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val extDir = File(externalLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(extDir, "core.log").writeText("ext log")
-            val cacheDir = File(cacheLogsDir, "capod_1.0_1700000000000_abcd1234").also { it.mkdirs() }
+            val cacheDir = File(cacheLogsDir, "capod_1.0_20231114T221320Z_abcd1234").also { it.mkdirs() }
             File(cacheDir, "core.log").writeText("cache log")
 
             val extId = DebugSessionManager.deriveSessionId(extDir)
             val cacheId = DebugSessionManager.deriveSessionId(cacheDir)
-            extId shouldBe "ext:capod_1.0_1700000000000_abcd1234"
-            cacheId shouldBe "cache:capod_1.0_1700000000000_abcd1234"
+            extId shouldBe "ext:capod_1.0_20231114T221320Z_abcd1234"
+            cacheId shouldBe "cache:capod_1.0_20231114T221320Z_abcd1234"
 
             val scanned = DebugSessionManager.scanSessions(logDirectories = logDirs())
             scanned shouldHaveSize 2

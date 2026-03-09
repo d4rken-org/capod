@@ -256,13 +256,27 @@ class DebugSessionManager @Inject constructor(
             return prefix + file.name.removeSuffix(".zip")
         }
 
+        private val TIMESTAMP_FORMAT = java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'")
+            .withZone(java.time.ZoneOffset.UTC)
+
         @VisibleForTesting
-        internal fun parseCreatedAt(file: File): Instant = try {
-            val attrs = Files.readAttributes(file.toPath(), BasicFileAttributes::class.java)
-            attrs.creationTime().toInstant()
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to read creation time for ${file.name}: ${e.message}" }
-            Instant.ofEpochMilli(file.lastModified())
+        internal fun parseCreatedAt(file: File): Instant {
+            val name = file.name.removeSuffix(".zip")
+            val parts = name.split("_")
+            // Format: capod_{version}_{yyyyMMddTHHmmssZ}_{suffix}
+            if (parts.size >= 3) {
+                try {
+                    return TIMESTAMP_FORMAT.parse(parts[2], Instant::from)
+                } catch (_: Exception) {
+                }
+            }
+            return try {
+                val attrs = Files.readAttributes(file.toPath(), BasicFileAttributes::class.java)
+                attrs.creationTime().toInstant()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to read creation time for ${file.name}: ${e.message}" }
+                Instant.ofEpochMilli(file.lastModified())
+            }
         }
 
         private fun computeDiskSize(file: File): Long {
