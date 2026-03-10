@@ -34,7 +34,12 @@ class BluetoothEventReceiver : BroadcastReceiver() {
         } else {
             log { "Event related to $bluetoothDevice" }
         }
-        val supportedFeatures = ContinuityProtocol.BLE_FEATURE_UUIDS.filter { bluetoothDevice.hasFeature(it) }
+        val supportedFeatures = try {
+            ContinuityProtocol.BLE_FEATURE_UUIDS.filter { bluetoothDevice.hasFeature(it) }
+        } catch (e: SecurityException) {
+            log(TAG, WARN) { "Missing BLUETOOTH_CONNECT, can't check device features: ${e.message}" }
+            return
+        }
 
         if (supportedFeatures.isEmpty()) {
             log(TAG) { "Device has no features we support." }

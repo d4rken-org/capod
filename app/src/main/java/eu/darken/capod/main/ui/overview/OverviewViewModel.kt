@@ -53,18 +53,23 @@ class OverviewViewModel @Inject constructor(
 
     private val showUnmatchedDevices = MutableStateFlow(false)
 
-    val workerAutolaunch = permissionTool.missingPermissions
+    val workerAutolaunch = permissionTool.missingScanPermissions
         .onEach { permissions ->
             if (permissions.isNotEmpty()) {
-                log(TAG) { "Missing permissions: $permissions" }
+                log(TAG) { "Missing scan permissions: $permissions" }
                 return@onEach
             }
 
             val shouldStart = when (generalSettings.monitorMode.valueBlocking) {
                 MonitorMode.MANUAL -> false
                 MonitorMode.AUTOMATIC -> {
-                    val devices = withTimeoutOrNull(5_000) { bluetoothManager.connectedDevices.first() }
-                    devices?.isNotEmpty() == true
+                    try {
+                        val devices = withTimeoutOrNull(5_000) { bluetoothManager.connectedDevices.first() }
+                        devices?.isNotEmpty() == true
+                    } catch (e: SecurityException) {
+                        log(TAG) { "Can't check connected devices without BLUETOOTH_CONNECT: ${e.message}" }
+                        false
+                    }
                 }
                 MonitorMode.ALWAYS -> true
             }
@@ -82,7 +87,7 @@ class OverviewViewModel @Inject constructor(
         }
     }
 
-    private val pods = permissionTool.missingPermissions
+    private val pods = permissionTool.missingScanPermissions
         .flatMapLatest { permissions ->
             if (permissions.isNotEmpty()) {
                 return@flatMapLatest flowOf(emptyList())
@@ -124,6 +129,7 @@ class OverviewViewModel @Inject constructor(
         val upgradeInfo: UpgradeRepo.Info,
         val showUnmatchedDevices: Boolean,
     ) {
+        val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
         val profiledDevices: List<PodDevice> get() = devices.filter { it.meta.profile != null }
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.meta.profile == null }
     }

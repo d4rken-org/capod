@@ -162,9 +162,9 @@ class MonitorService : Service() {
     }
 
     private suspend fun doMonitor() {
-        val permissionsMissingOnStart = permissionTool.missingPermissions.first()
+        val permissionsMissingOnStart = permissionTool.missingScanPermissions.first()
         if (permissionsMissingOnStart.isNotEmpty()) {
-            log(TAG, WARN) { "Aborting, missing permissions: $permissionsMissingOnStart" }
+            log(TAG, WARN) { "Aborting, missing scan permissions: $permissionsMissingOnStart" }
             return
         }
 
@@ -190,10 +190,10 @@ class MonitorService : Service() {
             }
             .launchIn(monitorScope)
 
-        permissionTool.missingPermissions
+        permissionTool.missingScanPermissions
             .flatMapLatest { missingPermsFlow ->
                 if (missingPermsFlow.isNotEmpty()) {
-                    log(TAG, WARN) { "Aborting, permissions are missing: $missingPermsFlow" }
+                    log(TAG, WARN) { "Aborting, scan permissions are missing: $missingPermsFlow" }
                     monitorScope.coroutineContext.cancelChildren()
                     emptyFlow()
                 } else {

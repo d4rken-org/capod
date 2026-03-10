@@ -10,6 +10,7 @@ import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import java.util.UUID
 import javax.inject.Inject
@@ -41,6 +42,9 @@ class PermissionTool @Inject constructor(
             .toSet()
     }
         .onEach { log(TAG) { "Missing permission: $it" } }
+
+    val missingScanPermissions: Flow<Set<Permission>> = missingPermissions
+        .map { perms -> perms.filter { it.isScanBlocking }.toSet() }
 
     companion object {
         private val TAG = logTag("PermissionTool")
