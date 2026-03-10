@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">Is het foutopsporingslogboek succesvol verzonden? Het logboek wordt verwijderd.</string>
     <string name="support_contact_sent_title">E-mail verzonden?</string>
     <string name="support_contact_sent_message">Is de e-mail succesvol verzonden? Het bijgevoegde foutopsporingslogboek wordt verwijderd.</string>
+    <string name="debug_debuglog_screen_keep_action">Bewaren</string>
 </resources>

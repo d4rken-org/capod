@@ -309,6 +309,7 @@
         <item quantity="other">%1$d 文件已准备好(%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">删除</string>
+    <string name="debug_debuglog_screen_keep_action">保留</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d 条调试日志（%2$s）</item>

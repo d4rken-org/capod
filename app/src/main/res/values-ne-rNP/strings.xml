@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">डिबग लग सफलतापूर्वक पठाइयो? लग मेटिनेछ।</string>
     <string name="support_contact_sent_title">इमेल पठाइयो?</string>
     <string name="support_contact_sent_message">इमेल सफलतापूर्वक पठाइयो? संलग्न डिबग लग मेटिनेछ।</string>
+    <string name="debug_debuglog_screen_keep_action">राख्नुहोस्</string>
 </resources>

@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">Arazketa-loga behar bezala bidali al da? Loga ezabatuko da.</string>
     <string name="support_contact_sent_title">Mezu elektronikoa bidali da?</string>
     <string name="support_contact_sent_message">Mezu elektronikoa behar bezala bidali al da? Erantsitako arazketa-loga ezabatuko da.</string>
+    <string name="debug_debuglog_screen_keep_action">Gorde</string>
 </resources>

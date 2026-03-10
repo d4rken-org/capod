@@ -251,7 +251,7 @@
     <string name="profiles_drag_handle_description">Järjekorra muutmiseks lohista</string>
     <string name="profiles_delete_title">Eemalda Profiil</string>
     <string name="profiles_delete_message">Kas soovid kindlasti seda profiili kustutada? Seda toimingut ei saa tagasi võtta.</string>
-    <string name="profiles_delete_action">Delete</string>
+    <string name="profiles_delete_action">Kustuta</string>
     <string name="profiles_basic_info_title">Seadme teave</string>
     <string name="profiles_basic_info_description">Seadistage seadme nime, mudelit ja valikulist Bluetooth-sidumist.</string>
     <string name="profiles_signal_quality_title">Väikseim signaali kvaliteet</string>
@@ -310,7 +310,7 @@
         <item quantity="one">%1$d fail valmis (%2$s)</item>
         <item quantity="other">%1$d faili valmis (%2$s)</item>
     </plurals>
-    <string name="debug_debuglog_screen_discard_action">Delete</string>
+    <string name="debug_debuglog_screen_discard_action">Kustuta</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d silumislogi (%2$s)</item>
@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">Kas silumislogi saadeti edukalt? Logi kustutatakse.</string>
     <string name="support_contact_sent_title">E-kiri saadeti?</string>
     <string name="support_contact_sent_message">Kas e-kiri saadeti edukalt? Manustatud silumislogi kustutatakse.</string>
+    <string name="debug_debuglog_screen_keep_action">Hoia alles</string>
 </resources>

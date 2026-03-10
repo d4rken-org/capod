@@ -377,4 +377,5 @@
     <string name="support_debuglog_sent_message">هل تم إرسال سجل التصحيح بنجاح؟ سيتم حذف السجل.</string>
     <string name="support_contact_sent_title">هل تم إرسال البريد الإلكتروني؟</string>
     <string name="support_contact_sent_message">هل تم إرسال البريد الإلكتروني بنجاح؟ سيتم حذف سجل التصحيح المرفق.</string>
+    <string name="debug_debuglog_screen_keep_action">احتفظ</string>
 </resources>

@@ -311,6 +311,7 @@
         <item quantity="other">%1$d ఫైల్‌లు సిద్ధంగా ఉన్నాయి (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">తొలగించండి</string>
+    <string name="debug_debuglog_screen_keep_action">ఉంచు</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d డీబగ్ లాగ్ (%2$s)</item>

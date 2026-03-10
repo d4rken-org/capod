@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">Изпратен ли е успешно дневникът за отстраняване на грешки? Логът ще бъде изтрит.</string>
     <string name="support_contact_sent_title">Имейлът изпратен ли е?</string>
     <string name="support_contact_sent_message">Изпратен ли е успешно имейлът? Прикаченият дневник за отстраняване на грешки ще бъде изтрит.</string>
+    <string name="debug_debuglog_screen_keep_action">Запази</string>
 </resources>

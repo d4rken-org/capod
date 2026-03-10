@@ -311,6 +311,7 @@
         <item quantity="other">%1$d filer redo (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Radera</string>
+    <string name="debug_debuglog_screen_keep_action">Behåll</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d felsökningslogg (%2$s)</item>

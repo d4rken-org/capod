@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">آیا لاگ اشکال‌زدایی با موفقیت ارسال شد؟ لاگ حذف خواهد شد.</string>
     <string name="support_contact_sent_title">ایمیل ارسال شد؟</string>
     <string name="support_contact_sent_message">آیا ایمیل با موفقیت ارسال شد؟ لاگ اشکال‌زدایی پیوست‌شده حذف خواهد شد.</string>
+    <string name="debug_debuglog_screen_keep_action">نگه داشتن</string>
 </resources>

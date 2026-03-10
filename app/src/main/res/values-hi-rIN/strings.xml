@@ -311,6 +311,7 @@
         <item quantity="other">%1$d फ़ाइलें तैयार (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">मिटाएं</string>
+    <string name="debug_debuglog_screen_keep_action">रखें</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d डीबग लॉग (%2$s)</item>

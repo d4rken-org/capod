@@ -311,6 +311,7 @@
         <item quantity="other">%1$d ගොනු සූදානම් (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">මකන්න</string>
+    <string name="debug_debuglog_screen_keep_action">තබා ගන්න</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d දෝෂහරණ ලොගය (%2$s)</item>
