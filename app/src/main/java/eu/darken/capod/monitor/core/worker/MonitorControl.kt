@@ -22,7 +22,7 @@ class MonitorControl @Inject constructor(
         log(TAG, VERBOSE) { "startMonitor(forceStart=$forceStart)" }
 
         val hasBluetoothPermission =
-            Permission.BLUETOOTH.isGranted(context) || Permission.BLUETOOTH_CONNECT.isGranted(context)
+            Permission.BLUETOOTH.isGranted(context) || Permission.BLUETOOTH_SCAN.isGranted(context)
         if (!hasBluetoothPermission) {
             log(TAG, WARN) { "Missing Bluetooth permission, not starting monitor service." }
             return

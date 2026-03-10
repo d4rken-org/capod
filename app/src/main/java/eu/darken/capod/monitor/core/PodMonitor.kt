@@ -55,11 +55,11 @@ class PodMonitor @Inject constructor(
     private val cacheLock = Mutex()
 
     val devices: Flow<List<PodDevice>> = combine(
-        permissionTool.missingPermissions,
+        permissionTool.missingScanPermissions,
         bluetoothManager.isBluetoothEnabled
-    ) { missingPermissions, isBluetoothEnabled ->
-        log(TAG) { "devices: missingPermissions=$missingPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
-        missingPermissions.isEmpty() && isBluetoothEnabled
+    ) { missingScanPermissions, isBluetoothEnabled ->
+        log(TAG) { "devices: missingScanPermissions=$missingScanPermissions, isBluetoothEnabled=$isBluetoothEnabled" }
+        missingScanPermissions.isEmpty() && isBluetoothEnabled
     }
         .flatMapLatest { isReady ->
             if (!isReady) {

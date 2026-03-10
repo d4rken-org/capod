@@ -16,6 +16,7 @@ enum class Permission(
     @StringRes val labelRes: Int,
     @StringRes val descriptionRes: Int,
     val permissionId: String,
+    val isScanBlocking: Boolean = false,
     val isGranted: (Context) -> Boolean = {
         ContextCompat.checkSelfPermission(it, permissionId) == PackageManager.PERMISSION_GRANTED
     },
@@ -26,6 +27,7 @@ enum class Permission(
         labelRes = R.string.permission_bluetooth_label,
         descriptionRes = R.string.permission_bluetooth_description,
         permissionId = "android.permission.BLUETOOTH",
+        isScanBlocking = true,
     ),
     BLUETOOTH_CONNECT(
         minApiLevel = Build.VERSION_CODES.S,
@@ -38,6 +40,7 @@ enum class Permission(
         labelRes = R.string.permission_bluetooth_scan_label,
         descriptionRes = R.string.permission_bluetooth_scan_description,
         permissionId = "android.permission.BLUETOOTH_SCAN",
+        isScanBlocking = true,
     ),
     ACCESS_FINE_LOCATION(
         minApiLevel = Build.VERSION_CODES.BASE,
@@ -45,6 +48,7 @@ enum class Permission(
         labelRes = R.string.permission_access_fine_location_label,
         descriptionRes = R.string.permission_access_fine_location_description,
         permissionId = "android.permission.ACCESS_FINE_LOCATION",
+        isScanBlocking = true,
     ),
     ACCESS_BACKGROUND_LOCATION(
         minApiLevel = Build.VERSION_CODES.Q,
@@ -73,7 +77,7 @@ enum class Permission(
         },
     ),
     POST_NOTIFICATIONS(
-        minApiLevel = Build.VERSION_CODES.S,
+        minApiLevel = Build.VERSION_CODES.TIRAMISU,
         labelRes = R.string.permission_post_notifications_label,
         descriptionRes = R.string.permission_post_notifications_description,
         permissionId = "android.permission.POST_NOTIFICATIONS",

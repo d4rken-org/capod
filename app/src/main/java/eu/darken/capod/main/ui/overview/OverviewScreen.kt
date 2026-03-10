@@ -195,7 +195,7 @@ fun OverviewScreen(
         ) {
             // 1. Permission cards
             items(
-                items = state.permissions.toList(),
+                items = state.permissions.sortedByDescending { it.isScanBlocking },
                 key = { it.permissionId },
             ) { permission ->
                 PermissionCard(
@@ -205,21 +205,21 @@ fun OverviewScreen(
             }
 
             // 2. Bluetooth disabled card
-            if (!state.isBluetoothEnabled && state.permissions.isEmpty()) {
+            if (!state.isBluetoothEnabled && !state.isScanBlocked) {
                 item(key = "bluetooth_disabled") {
                     BluetoothDisabledCard()
                 }
             }
 
             // 3. No profiles card
-            if (state.profiles.isEmpty() && state.permissions.isEmpty() && state.isBluetoothEnabled) {
+            if (state.profiles.isEmpty() && !state.isScanBlocked && state.isBluetoothEnabled) {
                 item(key = "no_profiles") {
                     NoProfilesCard(onManageDevices = onManageDevices)
                 }
             }
 
             // 4. Profiled device cards
-            if (state.permissions.isEmpty() && state.isBluetoothEnabled) {
+            if (!state.isScanBlocked && state.isBluetoothEnabled) {
                 items(
                     items = state.profiledDevices,
                     key = { it.identifier.hashCode() },
