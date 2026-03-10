@@ -313,6 +313,7 @@
         <item quantity="other">%1$d faili gatavi (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Dzēst</string>
+    <string name="debug_debuglog_screen_keep_action">Paturēt</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="zero">%1$d atkļūdošanas žurnālu (%2$s)</item>

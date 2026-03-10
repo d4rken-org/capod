@@ -390,7 +390,7 @@ private fun BottomActionBar(
                     onClick = onKeep,
                     modifier = Modifier.weight(1f),
                 ) {
-                    Text(text = stringResource(R.string.general_close_action))
+                    Text(text = stringResource(R.string.debug_debuglog_screen_keep_action))
                 }
                 androidx.compose.material3.Button(
                     onClick = onShare,

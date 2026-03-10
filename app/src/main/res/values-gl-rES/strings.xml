@@ -311,6 +311,7 @@
         <item quantity="other">%1$d ficheiros listos (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Eliminar</string>
+    <string name="debug_debuglog_screen_keep_action">Gardar</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d rexistro de depuración (%2$s)</item>

@@ -311,6 +311,7 @@
         <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">삭제</string>
+    <string name="debug_debuglog_screen_keep_action">유지</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d개 디버그 로그 (%2$s)</item>

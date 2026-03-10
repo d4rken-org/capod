@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">Sazlama jurnalı uğurla göndərildi? Jurnal silinəcək.</string>
     <string name="support_contact_sent_title">E-poçt göndərildi?</string>
     <string name="support_contact_sent_message">E-poçt uğurla göndərildi? Əlavə edilmiş sazlama jurnalı silinəcək.</string>
+    <string name="debug_debuglog_screen_keep_action">Saxla</string>
 </resources>

@@ -361,4 +361,5 @@
     <string name="support_debuglog_sent_message">S\'ha enviat correctament el registre de depuració? El registre s\'eliminarà.</string>
     <string name="support_contact_sent_title">S\'ha enviat el correu electrònic?</string>
     <string name="support_contact_sent_message">S\'ha enviat correctament el correu electrònic? El registre de depuració adjunt s\'eliminarà.</string>
+    <string name="debug_debuglog_screen_keep_action">Conserva</string>
 </resources>

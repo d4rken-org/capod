@@ -311,6 +311,7 @@
         <item quantity="other">%1$d Ֆայլեր պատրաստուաց են (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Ջնջել</string>
+    <string name="debug_debuglog_screen_keep_action">Պահպանել</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d Կարգաբերման մատյան (%2$s)</item>

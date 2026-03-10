@@ -369,4 +369,5 @@
     <string name="support_debuglog_sent_message">Byl protokol ladění úspěšně odeslán? Protokol bude smazán.</string>
     <string name="support_contact_sent_title">E-mail odeslán?</string>
     <string name="support_contact_sent_message">Byl e-mail úspěšně odeslán? Přiložený protokol ladění bude smazán.</string>
+    <string name="debug_debuglog_screen_keep_action">Ponechat</string>
 </resources>
