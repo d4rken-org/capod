@@ -315,6 +315,7 @@
         <item quantity="other">%1$d souborů připraveno (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Smazat</string>
+    <string name="debug_debuglog_screen_keep_action">Ponechat</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d log ladění (%2$s)</item>
@@ -366,8 +367,7 @@
     <string name="support_contact_debuglog_delete_message">Tento log ladění bude trvale smazán.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Log odeslán?</string>
-    <string name="support_debuglog_sent_message">Byl protokol ladění úspěšně odeslán? Protokol bude smazán.</string>
+    <string name="support_debuglog_sent_message">Byl log ladění úspěšně odeslán? Log bude smazán.</string>
     <string name="support_contact_sent_title">E-mail odeslán?</string>
-    <string name="support_contact_sent_message">Byl e-mail úspěšně odeslán? Přiložený protokol ladění bude smazán.</string>
-    <string name="debug_debuglog_screen_keep_action">Ponechat</string>
+    <string name="support_contact_sent_message">Byl e-mail úspěšně odeslán? Přiložený log ladění bude smazán.</string>
 </resources>

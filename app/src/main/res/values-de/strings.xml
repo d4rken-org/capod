@@ -31,7 +31,7 @@
     <string name="upgrade_screen_subscription_action_hint">%s/Jahr</string>
     <string name="upgrade_screen_iap_action">Einmalig kaufen</string>
     <string name="upgrade_screen_iap_action_hint">Einmaliger Kauf: %s</string>
-    <string name="upgrade_screen_restore_purchase_action">Auswahl wiederherstellen</string>
+    <string name="upgrade_screen_restore_purchase_action">Kauf wiederherstellen</string>
     <string name="upgrade_screen_restore_purchase_message">Keine Käufe gefunden. Verwendest Du das richtige Konto?</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Wenn du kürzlich gekauft hast, kann es einen Moment dauern, bis Google Play synchronisiert.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Versuche es in wenigen Minuten erneut, falls dein Kauf nicht erscheint.</string>
