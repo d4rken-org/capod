@@ -24,9 +24,11 @@ class BillingDataRepo @Inject constructor(
 ) {
 
     private val connectionProvider = billingClientConnectionProvider.connection
-        .catch {
-            log(TAG, ERROR) { "Unable to provide client connection:\n${it.asLog()}" }
-            throw it
+        .retryWhen { cause, attempt ->
+            if (cause is CancellationException) return@retryWhen false
+            log(TAG, ERROR) { "Unable to provide client connection (attempt=$attempt):\n${cause.asLog()}" }
+            delay(60_000) // 60s between retries (upstream already did 5 quick retries)
+            true
         }
         .replayingShare(scope)
 
