@@ -86,7 +86,7 @@
     <string name="debug_debuglog_size_compressed_label">ຂະໜາດທີ່ບີບອັດ</string>
     <string name="debug_notification_channel_label">ການແຈ້ງເຕືອນດີບັກ</string>
     <string name="debug_debuglog_file_label">ໄຟລ໌ບັນທຶກທີ່ບັນທຶກໄວ້</string>
-    <string name="debug_debuglog_recording_progress">ກຳລັງບັນທຶກບັນທຶກດີບັກ</string>
+    <string name="debug_debuglog_recording_progress">ກໍາລັງບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>

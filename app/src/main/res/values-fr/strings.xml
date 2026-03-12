@@ -6,7 +6,7 @@
     <string name="general_copy_action">Copier</string>
     <string name="general_thank_you_label">Merci</string>
     <string name="general_upgrade_action">Passer Pro</string>
-    <string name="common_feature_requires_pro_msg">Mettez à niveau pour déverrouiller.</string>
+    <string name="common_feature_requires_pro_msg">Passez à la version Pro pour débloquer l’option.</string>
     <string name="general_donate_action">Faire un don</string>
     <string name="general_check_action">Vérifier</string>
     <string name="general_close_action">Fermer</string>
@@ -18,24 +18,24 @@
     <string name="general_example_label">Exemple : %s</string>
     <string name="upgrade_capod_label">Surclasser CAPod</string>
     <string name="upgrade_capod_description">Obtenez des fonctions supplémentaires et soutenez le développeur.</string>
-    <string name="upgrade_preamble">CAPod est développé par une seule personne. La mise à niveau déverrouille des fonctionnalités supplémentaires et aide à maintenir l\'appli en vie.</string>
+    <string name="upgrade_preamble">CAPod est développée par une seule personne. Passer à la version Pro déverrouille des fonctions supplémentaires et contribue à la pérennité de l’appli.</string>
     <string name="upgrade_benefit_themes">Personnalisation du thème</string>
-    <string name="upgrade_benefit_autoplay">Lecture automatique &amp; pause automatique</string>
+    <string name="upgrade_benefit_autoplay">Lecture et pause automatiques</string>
     <string name="upgrade_benefit_autoconnect">Connexion automatique</string>
-    <string name="upgrade_benefit_popups">Popup à l\'ouverture de l\'étui &amp; connexion</string>
-    <string name="upgrade_benefit_widgets">Widgets de l\'écran d\'accueil</string>
+    <string name="upgrade_benefit_popups">Fenêtre de notification à l\'ouverture de l\'étui et à la connexion</string>
+    <string name="upgrade_benefit_widgets">Widgets sur l’écran d’accueil</string>
     <string name="upgrade_benefit_support">Soutenir le développeur</string>
-    <string name="upgrade_screen_options_description">Mêmes fonctionnalités, tarification différente. L\'abonnement comprend un essai gratuit et peut être annulé à tout moment.</string>
-    <string name="upgrade_screen_subscription_trial_action">Commencez votre essai gratuit</string>
-    <string name="upgrade_screen_subscription_action">S\'abonner annuellement</string>
+    <string name="upgrade_screen_options_description">Mêmes fonctions, tarification différente. L’abonnement comprend un essai gratuit et peut être annulé n’importe quand.</string>
+    <string name="upgrade_screen_subscription_trial_action">Commencer l’essai gratuit</string>
+    <string name="upgrade_screen_subscription_action">Abonnement annuel</string>
     <string name="upgrade_screen_subscription_action_hint">%s/an</string>
     <string name="upgrade_screen_iap_action">Acheter une fois</string>
     <string name="upgrade_screen_iap_action_hint">Achat unique : %s</string>
     <string name="upgrade_screen_restore_purchase_action">Rétablir l’achat</string>
     <string name="upgrade_screen_restore_purchase_message">Aucun achat n’a été trouvé. Utilisez-vous le bon compte ?</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Si vous avez récemment effectué un achat, Google Play peut mettre quelques instants à synchroniser.</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Réessayez dans quelques minutes si votre achat n’apparaît pas.</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Assurez-vous d’être connecté avec le même compte Google utilisé pour l’achat.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Si l’achat est récent, Google Play peut mettre du temps à synchroniser.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Si votre achat n’apparaît pas, réessayez dans quelques minutes.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Le même compte Google doit être utilisé pour l’achat et la connexion.</string>
     <string name="settings_monitor_mode_label">Mode surveillance</string>
     <string name="settings_monitor_mode_description">Les circonstances de surveillance des données Bluetooth par l’appli.</string>
     <string name="settings_monitor_connected_notification_label">Notification supplémentaire</string>
@@ -96,7 +96,7 @@
     <string name="settings_support_label">Assistance</string>
     <string name="settings_support_description">Si vous avez besoin d’aide.</string>
     <string name="settings_wiki_label">Wiki</string>
-    <string name="settings_wiki_description">FAQ &amp; Guides</string>
+    <string name="settings_wiki_description">FAQ et guides</string>
     <string name="issue_tracker_label">Suivi des problèmes</string>
     <string name="issue_tracker_description">Un système public de suivi des problèmes et des demandes de fonctions (anglais seulement).</string>
     <string name="discord_label">Discord</string>
@@ -129,7 +129,7 @@
     <string name="widget_configuration_title">Choisir un appareil</string>
     <string name="widget_configuration_description">Choisissez le profil d’appareil que ce widget doit afficher.</string>
     <string name="widget_no_data_label">Aucune donnée</string>
-    <string name="widget_error_loading_label">Erreur lors du chargement du widget</string>
+    <string name="widget_error_loading_label">Erreur de chargement du widget</string>
     <string name="widget_config_appearance_label">Apparence</string>
     <string name="widget_config_preset_label">Préréglages</string>
     <string name="widget_config_background_color_label">Couleur d\'arrière-plan</string>
@@ -264,8 +264,8 @@
     <string name="profiles_maindevice_encryptionkey_explanation">Les AirPods envoient un message d’état, dont une partie est chiffrée. La clé de chiffrement permet à CAPod de déchiffrer l’intégralité du message. Un accès ponctuel à un MacBook est nécessaire.</string>
     <string name="profiles_key_invalid_format">Le format de la clé est invalide</string>
     <string name="profiles_key_expected_format">Format attendu : %1$s</string>
-    <string name="profiles_key_status_configured">Configuré</string>
-    <string name="profiles_key_status_not_set">Non défini</string>
+    <string name="profiles_key_status_configured">Configurée</string>
+    <string name="profiles_key_status_not_set">Non définie</string>
     <string name="profiles_signal_quality_min_label">Désactivé</string>
     <string name="profiles_signal_quality_max_label">Strict</string>
     <string name="profiles_priority_hint">L\'ordre de profil détermine la priorité. Faites glisser les profils pour les réorganiser - les profils plus élevés dans la liste ont la priorité lorsque plusieurs appareils correspondent.</string>
@@ -296,14 +296,14 @@
     <string name="general_discard_action">Abandonner</string>
     <string name="general_keep_editing_action">Continuer de modifier</string>
     <!-- Short recording warning -->
-    <string name="debug_debuglog_short_recording_title">Enregistrement trop court</string>
-    <string name="debug_debuglog_short_recording_message">Un journal de débogage doit capturer le problème au moment où il se produit. Continuez l’enregistrement, reproduisez le problème, puis arrêtez l’enregistrement.</string>
-    <string name="debug_debuglog_short_recording_continue">Continuer l’enregistrement</string>
+    <string name="debug_debuglog_short_recording_title">L’enregistrement est trop court</string>
+    <string name="debug_debuglog_short_recording_message">Un journal de débogage doit capturer le problème au moment où il se produit. Poursuivez l’enregistrement, reproduisez le problème, puis arrêtez l’enregistrement.</string>
+    <string name="debug_debuglog_short_recording_continue">Poursuivre l’enregistrement</string>
     <string name="debug_debuglog_short_recording_stop">Arrêter quand même</string>
     <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Journal de débogage</string>
-    <string name="debug_debuglog_screen_subtitle">Exporter les informations de débogage pour le dépannage</string>
-    <string name="debug_debuglog_screen_sensitive_title">Informations sensibles</string>
+    <string name="debug_debuglog_screen_subtitle">Exporter les renseignements de débogage pour le dépannage</string>
+    <string name="debug_debuglog_screen_sensitive_title">Information sensible</string>
     <string name="debug_debuglog_screen_session_path_label">Chemin de la session</string>
     <string name="debug_debuglog_screen_log_files_label">Fichiers journaux</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
@@ -311,40 +311,39 @@
         <item quantity="other">%1$d fichiers sont prêts (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Supprimer</string>
-    <string name="debug_debuglog_screen_keep_action">Conserver</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d journal de débogage (%2$s)</item>
         <item quantity="other">%1$d journaux de débogage (%2$s)</item>
     </plurals>
-    <string name="support_debuglog_clear_action">Effacer les journaux de débogage enregistrés</string>
+    <string name="support_debuglog_clear_action">Supprimer les journaux de débogage enregistrés</string>
     <string name="support_debuglog_sessions_label">Sessions de débogage</string>
     <string name="support_debuglog_sessions_desc">Gérer les sessions de journal de débogage enregistrées</string>
     <string name="support_debuglog_sessions_empty">Aucune session de débogage</string>
     <string name="support_debuglog_session_recording">Enregistrement…</string>
     <string name="support_debuglog_session_compressing">Compression…</string>
     <string name="support_debuglog_session_delete_title">Supprimer la session ?</string>
-    <string name="support_debuglog_session_delete_message">Cette session de débogage sera définitivement supprimée.</string>
-    <string name="support_debuglog_clear_all_message">Toutes les sessions de débogage seront définitivement supprimées.</string>
+    <string name="support_debuglog_session_delete_message">Cette session de débogage sera supprimée irrémédiablement.</string>
+    <string name="support_debuglog_clear_all_message">Les sessions de débogage seront supprimées irrémédiablement.</string>
     <string name="support_debuglog_failed_empty_log">Échec : le fichier journal est vide</string>
-    <string name="support_debuglog_failed_missing_log">Échec : le fichier journal est manquant</string>
+    <string name="support_debuglog_failed_missing_log">Échec : le fichier journal manque</string>
     <string name="support_debuglog_failed_corrupt_zip">Échec : le fichier zip est corrompu</string>
     <string name="support_debuglog_failed_zip_failed">Échec : la compression a échoué</string>
     <!-- Contact form -->
     <string name="support_contact_label">Contacter le développeur</string>
     <string name="support_contact_desc">Remplissez un formulaire pour envoyer un courriel au développeur.</string>
-    <string name="support_contact_welcome">Je lis chaque message moi-même et fais de mon mieux pour répondre, mais comme je travaille seul sur ce projet, cela peut prendre un peu de temps. Merci pour votre patience.</string>
+    <string name="support_contact_welcome">Je lis chaque message et fais de mon mieux pour répondre. Comme j’assure seul le développement, cela peut prendre un peu de temps. Merci pour votre patience.</string>
     <string name="support_contact_footer">Votre message sera envoyé par courriel. Les renseignements sur l’appareil et la configuration sont joints automatiquement. Vous pouvez joindre des captures d’écran ou une vidéo au courriel. Certaines parties du courriel seront en anglais afin que le développeur puisse facilement les comprendre.</string>
     <string name="support_contact_category_label">Catégorie</string>
     <string name="support_contact_category_question_label">Question</string>
     <string name="support_contact_category_feature_label">Demande de fonction</string>
     <string name="support_contact_category_bug_label">Relevé de bogue</string>
     <string name="support_contact_description_label">Description</string>
-    <string name="support_contact_description_question_hint">Décrivez votre question en détail. Veuillez être précis.</string>
-    <string name="support_contact_description_feature_hint">Décrivez la fonctionnalité que vous souhaitez voir ajoutée. Veuillez être précis.</string>
-    <string name="support_contact_description_bug_hint">Décrivez ce qui s’est passé et comment reproduire le problème. Veuillez être précis.</string>
+    <string name="support_contact_description_question_hint">Rédigez précisément votre question.</string>
+    <string name="support_contact_description_feature_hint">Décrivez précisément la fonction que vous souhaitez voir ajoutée .</string>
+    <string name="support_contact_description_bug_hint">Décrivez précisément ce qui s’est passé et comment reproduire le problème.</string>
     <string name="support_contact_expected_label">Comportement attendu</string>
-    <string name="support_contact_expected_hint">Décrivez ce que vous attendiez qu’il se passe.</string>
+    <string name="support_contact_expected_hint">Décrivez ce à quoi vous vous attendiez.</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d mot</item>
         <item quantity="other">%1$d / %2$d mots</item>
@@ -356,10 +355,10 @@
     <string name="support_contact_send_action">Ouvrir l’appli de courriel</string>
     <string name="support_contact_no_email_app">Aucune appli de courriel n’a été trouvée sur cet appareil.</string>
     <string name="support_contact_debuglog_delete_title">Supprimer le journal de débogage ?</string>
-    <string name="support_contact_debuglog_delete_message">Ce journal de débogage sera définitivement supprimé.</string>
+    <string name="support_contact_debuglog_delete_message">Ce journal de débogage sera supprimé irrémédiablement.</string>
     <!-- Post-share confirmation -->
-    <string name="support_debuglog_sent_title">Journal envoyé ?</string>
-    <string name="support_debuglog_sent_message">Le journal de débogage a-t-il été envoyé avec succès ? Le journal sera supprimé.</string>
-    <string name="support_contact_sent_title">E-mail envoyé ?</string>
-    <string name="support_contact_sent_message">L\'e-mail a-t-il été envoyé avec succès ? Le journal de débogage joint sera supprimé.</string>
+    <string name="support_debuglog_sent_title">Le journal a-t-il été envoyé ?</string>
+    <string name="support_debuglog_sent_message">Le journal de débogage a-t-il été envoyé ? Il sera supprimé.</string>
+    <string name="support_contact_sent_title">Le courriel a été envoyé ?</string>
+    <string name="support_contact_sent_message">Le courriel a-t-il été envoyé ? Le journal de débogage joint sera supprimé.</string>
 </resources>

@@ -311,6 +311,7 @@
         <item quantity="other">%1$d fitxers preparats (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Elimina</string>
+    <string name="debug_debuglog_screen_keep_action">Conserva</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d registre de depuració (%2$s)</item>
@@ -358,8 +359,7 @@
     <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimrirà permanentment.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">S\'ha enviat el registre?</string>
-    <string name="support_debuglog_sent_message">S\'ha enviat correctament el registre de depuració? El registre s\'eliminarà.</string>
+    <string name="support_debuglog_sent_message">El registre de depuració s\'ha enviat correctament? El registre s\'eliminarà.</string>
     <string name="support_contact_sent_title">S\'ha enviat el correu electrònic?</string>
-    <string name="support_contact_sent_message">S\'ha enviat correctament el correu electrònic? El registre de depuració adjunt s\'eliminarà.</string>
-    <string name="debug_debuglog_screen_keep_action">Conserva</string>
+    <string name="support_contact_sent_message">El correu electrònic s\'ha enviat correctament? El registre de depuració adjunt s\'eliminarà.</string>
 </resources>

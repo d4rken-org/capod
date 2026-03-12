@@ -357,9 +357,9 @@
     <string name="support_contact_debuglog_delete_title">Kustuta silumislogi?</string>
     <string name="support_contact_debuglog_delete_message">See silumislogi kustutatakse jäädavalt.</string>
     <!-- Post-share confirmation -->
-    <string name="support_debuglog_sent_title">Logi saadeti?</string>
+    <string name="support_debuglog_sent_title">Logi saadetud?</string>
     <string name="support_debuglog_sent_message">Kas silumislogi saadeti edukalt? Logi kustutatakse.</string>
-    <string name="support_contact_sent_title">E-kiri saadeti?</string>
-    <string name="support_contact_sent_message">Kas e-kiri saadeti edukalt? Manustatud silumislogi kustutatakse.</string>
+    <string name="support_contact_sent_title">Meil saadetud?</string>
+    <string name="support_contact_sent_message">Kas meil saadeti edukalt? Manustatud silumislogi kustutatakse.</string>
     <string name="debug_debuglog_screen_keep_action">Hoia alles</string>
 </resources>
