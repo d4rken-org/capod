@@ -14,7 +14,7 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.devicesWithProfiles
-import eu.darken.capod.monitor.core.worker.MonitorControl
+
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
@@ -27,7 +27,6 @@ import javax.inject.Inject
 open class App : Application() {
 
     @Inject lateinit var autoReporting: AutomaticBugReporter
-    @Inject lateinit var monitorControl: MonitorControl
     @Inject lateinit var podMonitor: PodMonitor
     @Inject lateinit var widgetManager: WidgetManager
     @Inject lateinit var upgradeRepo: UpgradeRepo
@@ -40,8 +39,6 @@ open class App : Application() {
         autoReporting.setup(this)
 
         log(TAG) { "onCreate() done! ${Exception().asLog()}" }
-
-        monitorControl.startMonitor(forceStart = true)
 
         appScope.launch { widgetManager.refreshWidgets() }
 
