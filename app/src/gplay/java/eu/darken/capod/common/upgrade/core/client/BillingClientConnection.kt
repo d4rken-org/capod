@@ -9,6 +9,9 @@ import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryPurchasesParams
+import com.android.billingclient.api.acknowledgePurchase
+import com.android.billingclient.api.queryProductDetails
+import com.android.billingclient.api.queryPurchasesAsync
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -21,8 +24,6 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
 data class BillingClientConnection(
     private val client: BillingClient,
@@ -67,22 +68,16 @@ data class BillingClientConnection(
             .setProductType(productType)
             .build()
 
-        val (result: BillingResult, purchases) = suspendCoroutine<Pair<BillingResult, Collection<Purchase>?>> { continuation ->
-            client.queryPurchasesAsync(params) { result, purchases ->
-                continuation.resume(result to purchases)
-            }
-        }
+        val queryResult = client.queryPurchasesAsync(params)
 
-        log(TAG) { "queryPurchases($productType): code=${result.responseCode}, message=${result.debugMessage}, purchases=$purchases" }
+        log(TAG) { "queryPurchases($productType): code=${queryResult.billingResult.responseCode}, message=${queryResult.billingResult.debugMessage}, purchases=${queryResult.purchasesList}" }
 
-        if (!result.isSuccess) {
+        if (!queryResult.billingResult.isSuccess) {
             log(TAG, WARN) { "queryPurchases($productType) failed" }
-            throw BillingResultException(result)
-        } else {
-            requireNotNull(purchases)
+            throw BillingResultException(queryResult.billingResult)
         }
 
-        return purchases
+        return queryResult.purchasesList
     }
 
     suspend fun acknowledgePurchase(purchase: Purchase) {
@@ -90,9 +85,7 @@ data class BillingClientConnection(
             setPurchaseToken(purchase.purchaseToken)
         }.build()
 
-        val result = suspendCoroutine<BillingResult> { continuation ->
-            client.acknowledgePurchase(ack) { continuation.resume(it) }
-        }
+        val result = client.acknowledgePurchase(ack)
 
         log(TAG, INFO) { "acknowledgePurchase($purchase): code=${result.responseCode} (${result.debugMessage})" }
 
@@ -118,17 +111,15 @@ data class BillingClientConnection(
 
             val params = QueryProductDetailsParams.newBuilder().setProductList(products).build()
 
-            val (result, details) = suspendCoroutine<Pair<BillingResult, List<ProductDetails>>> { continuation ->
-                client.queryProductDetailsAsync(params) { billingResult, queryResult ->
-                    continuation.resume(billingResult to queryResult.productDetailsList.orEmpty())
-                }
-            }
+            val queryResult = client.queryProductDetails(params)
+
+            val details = queryResult.productDetailsList.orEmpty()
 
             log(TAG) {
-                "querySkus(type=$type, skus=${typeSkus.map { it.id }}): code=${result.responseCode}, debug=${result.debugMessage}, details=$details"
+                "querySkus(type=$type, skus=${typeSkus.map { it.id }}): code=${queryResult.billingResult.responseCode}, debug=${queryResult.billingResult.debugMessage}, details=$details"
             }
 
-            if (!result.isSuccess) throw BillingResultException(result)
+            if (!queryResult.billingResult.isSuccess) throw BillingResultException(queryResult.billingResult)
 
             for (detail in details) {
                 val matchingSku = typeSkus.firstOrNull { it.id == detail.productId }
