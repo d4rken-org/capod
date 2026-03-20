@@ -26,6 +26,7 @@ import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import eu.darken.capod.R
 import eu.darken.capod.main.ui.MainActivity
+import eu.darken.capod.pods.core.toBatteryOrNull
 import kotlin.math.roundToInt
 
 @Composable
@@ -105,7 +106,7 @@ private fun GlanceSinglePod(
                 colorFilter = iconTint,
             )
             Text(
-                text = formatGlancePercent(state.percent),
+                text = formatGlancePercent(state.percent.toBatteryOrNull()),
                 style = textStyle,
                 modifier = GlanceModifier.padding(horizontal = 8.dp),
             )
@@ -203,7 +204,7 @@ private fun GlanceWidgetRoot(
 @Composable
 private fun GlancePodItem(
     icon: Int,
-    percent: Float?,
+    percent: Float,
     charging: Boolean,
     inEar: Boolean,
     textStyle: TextStyle,
@@ -222,7 +223,7 @@ private fun GlancePodItem(
             colorFilter = iconTint,
         )
         Text(
-            text = formatGlancePercent(percent),
+            text = formatGlancePercent(percent.toBatteryOrNull()),
             style = textStyle,
             modifier = GlanceModifier.padding(horizontal = 4.dp),
         )

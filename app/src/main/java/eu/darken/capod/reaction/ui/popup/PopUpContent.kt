@@ -40,6 +40,8 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.toBatteryFloat
+import eu.darken.capod.pods.core.toBatteryOrNull
 import eu.darken.capod.pods.core.getSignalQuality
 
 @Composable
@@ -127,7 +129,7 @@ private fun DualPodContent(device: DualPodDevice) {
         // Left pod
         BatteryColumn(
             iconRes = device.leftPodIcon,
-            batteryPercent = device.batteryLeftPodPercent,
+            batteryPercent = device.batteryLeftPodPercent.toBatteryFloat(),
             modifier = Modifier.weight(1f),
         )
 
@@ -135,7 +137,7 @@ private fun DualPodContent(device: DualPodDevice) {
         if (hasCase != null) {
             BatteryColumn(
                 iconRes = hasCase.caseIcon,
-                batteryPercent = hasCase.batteryCasePercent,
+                batteryPercent = hasCase.batteryCasePercent.toBatteryFloat(),
                 modifier = Modifier.weight(1f),
             )
         }
@@ -143,7 +145,7 @@ private fun DualPodContent(device: DualPodDevice) {
         // Right pod
         BatteryColumn(
             iconRes = device.rightPodIcon,
-            batteryPercent = device.batteryRightPodPercent,
+            batteryPercent = device.batteryRightPodPercent.toBatteryFloat(),
             modifier = Modifier.weight(1f),
         )
     }
@@ -153,17 +155,18 @@ private fun DualPodContent(device: DualPodDevice) {
 private fun SinglePodContent(device: SinglePodDevice) {
     BatteryColumn(
         iconRes = device.iconRes,
-        batteryPercent = device.batteryHeadsetPercent,
+        batteryPercent = device.batteryHeadsetPercent.toBatteryFloat(),
     )
 }
 
 @Composable
 private fun BatteryColumn(
     iconRes: Int,
-    batteryPercent: Float?,
+    batteryPercent: Float,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    val nullablePercent = batteryPercent.toBatteryOrNull()
 
     Column(
         modifier = modifier,
@@ -183,13 +186,13 @@ private fun BatteryColumn(
             horizontalArrangement = Arrangement.Center,
         ) {
             Icon(
-                painter = painterResource(getBatteryDrawable(batteryPercent)),
+                painter = painterResource(getBatteryDrawable(nullablePercent)),
                 contentDescription = null,
                 modifier = Modifier.size(16.dp),
             )
             Spacer(modifier = Modifier.width(2.dp))
             Text(
-                text = formatBatteryPercent(context, batteryPercent),
+                text = formatBatteryPercent(context, nullablePercent),
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
