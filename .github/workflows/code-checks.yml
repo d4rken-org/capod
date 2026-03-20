@@ -59,3 +59,12 @@ jobs:
 
       - name: Test modules
         run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
+
+  check-fastlane-metadata:
+    name: Fastlane metadata
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+      - name: Validate metadata lengths
+        run: bash fastlane/check_metadata_length.sh
