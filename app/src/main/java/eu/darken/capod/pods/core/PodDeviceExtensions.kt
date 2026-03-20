@@ -8,6 +8,12 @@ import java.time.Duration
 import java.time.Instant
 import kotlin.math.roundToInt
 
+const val BATTERY_UNKNOWN = -1f
+
+fun Float?.toBatteryFloat(): Float = this ?: BATTERY_UNKNOWN
+
+fun Float.toBatteryOrNull(): Float? = takeIf { it >= 0f }
+
 fun formatBatteryPercent(context: Context, percent: Float?): String =
     percent?.let { "${(it * 100).roundToInt()}%" }
         ?: context.getString(R.string.general_value_not_available_label)

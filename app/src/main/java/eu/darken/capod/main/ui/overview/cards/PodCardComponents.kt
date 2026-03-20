@@ -40,18 +40,18 @@ private val CapsuleShape = RoundedCornerShape(6.dp)
 
 @Composable
 fun BatteryCapsule(
-    percent: Float?,
+    percent: Float,
     modifier: Modifier = Modifier,
 ) {
-    val clamped = percent?.coerceIn(0f, 1f)
+    val clamped = if (percent >= 0f) percent.coerceIn(0f, 1f) else -1f
     val animatedFraction by animateFloatAsState(
-        targetValue = clamped ?: 0f,
+        targetValue = if (clamped >= 0f) clamped else 0f,
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "batteryFill",
     )
 
     val barColor = when {
-        clamped == null -> MaterialTheme.colorScheme.surfaceVariant
+        clamped < 0f -> MaterialTheme.colorScheme.surfaceVariant
         clamped > 0.30f -> MaterialTheme.colorScheme.primary
         clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
         else -> MaterialTheme.colorScheme.error
@@ -62,7 +62,7 @@ fun BatteryCapsule(
             .clip(CapsuleShape)
             .background(MaterialTheme.colorScheme.surfaceVariant),
     ) {
-        if (clamped != null) {
+        if (clamped >= 0f) {
             Box(
                 modifier = Modifier
                     .fillMaxHeight()

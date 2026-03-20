@@ -12,6 +12,7 @@ import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.toBatteryFloat
 
 object WidgetRenderStateMapper {
 
@@ -46,15 +47,15 @@ object WidgetRenderStateMapper {
                 isWide = isWide,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 leftIcon = device.leftPodIcon,
-                leftPercent = device.batteryLeftPodPercent,
+                leftPercent = device.batteryLeftPodPercent.toBatteryFloat(),
                 leftCharging = device is HasChargeDetectionDual && device.isLeftPodCharging,
                 leftInEar = device is HasEarDetectionDual && device.isLeftPodInEar,
                 rightIcon = device.rightPodIcon,
-                rightPercent = device.batteryRightPodPercent,
+                rightPercent = device.batteryRightPodPercent.toBatteryFloat(),
                 rightCharging = device is HasChargeDetectionDual && device.isRightPodCharging,
                 rightInEar = device is HasEarDetectionDual && device.isRightPodInEar,
                 caseIcon = (device as? HasCase)?.caseIcon ?: R.drawable.device_airpods_gen1_case,
-                casePercent = (device as? HasCase)?.batteryCasePercent,
+                casePercent = (device as? HasCase)?.batteryCasePercent.toBatteryFloat(),
                 caseCharging = device is HasCase && device.isCaseCharging,
             )
 
@@ -65,7 +66,7 @@ object WidgetRenderStateMapper {
                 resolvedIconColor = iconColor,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 headsetIcon = device.iconRes,
-                percent = device.batteryHeadsetPercent,
+                percent = device.batteryHeadsetPercent.toBatteryFloat(),
                 batteryIcon = getBatteryDrawable(device.batteryHeadsetPercent),
                 charging = device is HasChargeDetectionDual && device.isHeadsetBeingCharged,
                 worn = device is HasEarDetection && device.isBeingWorn,

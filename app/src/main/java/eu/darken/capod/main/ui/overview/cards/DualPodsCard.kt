@@ -56,6 +56,8 @@ import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
 import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.formatBatteryPercent
+import eu.darken.capod.pods.core.toBatteryFloat
+import eu.darken.capod.pods.core.toBatteryOrNull
 import eu.darken.capod.pods.core.getSignalQuality
 import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Duration
@@ -164,7 +166,7 @@ fun DualPodsCard(
                     ) {
                         PodGauge(
                             iconRes = device.leftPodIcon,
-                            batteryPercent = device.batteryLeftPodPercent,
+                            batteryPercent = device.batteryLeftPodPercent.toBatteryFloat(),
                             isCharging = (device as? HasChargeDetectionDual)?.isLeftPodCharging ?: false,
                             isInEar = (device as? HasEarDetectionDual)?.isLeftPodInEar ?: false,
                             showEarDetection = device is HasEarDetectionDual,
@@ -175,7 +177,7 @@ fun DualPodsCard(
 
                         PodGauge(
                             iconRes = device.rightPodIcon,
-                            batteryPercent = device.batteryRightPodPercent,
+                            batteryPercent = device.batteryRightPodPercent.toBatteryFloat(),
                             isCharging = (device as? HasChargeDetectionDual)?.isRightPodCharging ?: false,
                             isInEar = (device as? HasEarDetectionDual)?.isRightPodInEar ?: false,
                             showEarDetection = device is HasEarDetectionDual,
@@ -218,7 +220,7 @@ fun DualPodsCard(
 @Composable
 private fun PodGauge(
     iconRes: Int,
-    batteryPercent: Float?,
+    batteryPercent: Float,
     isCharging: Boolean,
     isInEar: Boolean,
     showEarDetection: Boolean,
@@ -227,15 +229,15 @@ private fun PodGauge(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val clamped = batteryPercent?.coerceIn(0f, 1f)
+    val clamped = if (batteryPercent >= 0f) batteryPercent.coerceIn(0f, 1f) else -1f
     val animatedProgress by animateFloatAsState(
-        targetValue = clamped ?: 0f,
+        targetValue = if (clamped >= 0f) clamped else 0f,
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "gaugeProgress",
     )
 
     val ringColor = when {
-        clamped == null -> MaterialTheme.colorScheme.surfaceVariant
+        clamped < 0f -> MaterialTheme.colorScheme.surfaceVariant
         clamped > 0.30f -> MaterialTheme.colorScheme.primary
         clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
         else -> MaterialTheme.colorScheme.error
@@ -261,7 +263,7 @@ private fun PodGauge(
             )
 
             // Progress ring
-            if (clamped != null) {
+            if (clamped >= 0f) {
                 CircularProgressIndicator(
                     progress = { animatedProgress },
                     modifier = Modifier.size(80.dp),
@@ -284,9 +286,9 @@ private fun PodGauge(
 
         // Battery percentage
         Text(
-            text = formatBatteryPercent(context, batteryPercent),
+            text = formatBatteryPercent(context, batteryPercent.toBatteryOrNull()),
             style = MaterialTheme.typography.titleMedium,
-            color = if (batteryPercent != null) {
+            color = if (batteryPercent >= 0f) {
                 MaterialTheme.colorScheme.onSurface
             } else {
                 MaterialTheme.colorScheme.onSurfaceVariant
@@ -335,7 +337,7 @@ private fun CaseRow(
         )
 
         BatteryCapsule(
-            percent = device.batteryCasePercent,
+            percent = device.batteryCasePercent.toBatteryFloat(),
             modifier = Modifier
                 .weight(1f)
                 .height(8.dp),

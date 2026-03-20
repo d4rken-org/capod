@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.pods.core.toBatteryOrNull
 import kotlin.math.roundToInt
 
 @Composable
@@ -191,7 +192,7 @@ private fun SinglePodPreview(
                 colorFilter = iconTint,
             )
             Text(
-                text = formatPercent(state.percent),
+                text = formatPercent(state.percent.toBatteryOrNull()),
                 fontSize = 12.sp,
                 color = textColor,
                 modifier = Modifier.padding(horizontal = 8.dp),
@@ -293,7 +294,7 @@ private fun WidgetContainer(
 @Composable
 private fun PodItemRow(
     icon: Int,
-    percent: Float?,
+    percent: Float,
     charging: Boolean,
     inEar: Boolean,
     textColor: Color,
@@ -313,7 +314,7 @@ private fun PodItemRow(
             colorFilter = iconTint,
         )
         Text(
-            text = formatPercent(percent),
+            text = formatPercent(percent.toBatteryOrNull()),
             fontSize = 12.sp,
             color = textColor,
             modifier = Modifier.padding(horizontal = 4.dp),
