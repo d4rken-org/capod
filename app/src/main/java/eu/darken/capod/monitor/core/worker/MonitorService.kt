@@ -114,7 +114,15 @@ class MonitorService : Service() {
             return
         }
 
-        super.onCreate()
+        try {
+            super.onCreate()
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Hilt DI failed in onCreate(), stopping service: ${e.asLog()}" }
+            Bugs.report(tag = TAG, "Hilt DI failed in onCreate()", exception = e)
+            foregroundStartFailed = true
+            stopSelf()
+            return
+        }
         log(TAG, VERBOSE) { "onCreate()" }
 
         // Replace early notification with the full one from injected MonitorNotifications.
