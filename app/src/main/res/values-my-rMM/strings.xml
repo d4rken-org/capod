@@ -357,5 +357,4 @@
     <string name="support_debuglog_sent_message">Debug log ကို အောင်မြင်စွာ ပို့ပြီးပြီလား? Log ကို ဖျက်ပစ်မည်။</string>
     <string name="support_contact_sent_title">အီးမေးလ် ပို့ပြီးပြီလား?</string>
     <string name="support_contact_sent_message">အီးမေးလ်ကို အောင်မြင်စွာ ပို့ပြီးပြီလား? ပူးတွဲပါသော debug log ကို ဖျက်ပစ်မည်။</string>
-    <string name="debug_debuglog_screen_keep_action">သိမ်းထားရန်</string>
 </resources>

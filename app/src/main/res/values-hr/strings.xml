@@ -285,7 +285,7 @@
     <string name="ui_theme_color_label">Boja teme</string>
     <string name="ui_theme_color_blue_label">Plava</string>
     <string name="ui_theme_color_green_label">Zelena</string>
-    <string name="ui_theme_color_amber_label">Jantąrna</string>
+    <string name="ui_theme_color_amber_label">Jantarna</string>
     <string name="ui_theme_color_disabled_materialyou">Koristi boje pozadine</string>
     <!-- Settings categories -->
     <string name="settings_category_monitoring_label">Praćenje</string>
@@ -313,7 +313,6 @@
         <item quantity="other">%1$d datoteka spremno (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Izbriši</string>
-    <string name="debug_debuglog_screen_keep_action">Zadrži</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d debug zapisnik (%2$s)</item>

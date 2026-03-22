@@ -312,8 +312,8 @@
     <string name="debug_debuglog_screen_log_files_label">ملفات السجلّ</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="zero">%1$d ملف جاهز (%2$s)</item>
-        <item quantity="one">ملف جاهز (%2$s)</item>
-        <item quantity="two">ملفان جاهزان (%2$s)</item>
+        <item quantity="one">%1$d ملف جاهز (%2$s)</item>
+        <item quantity="two">%1$d ملفان جاهزان (%2$s)</item>
         <item quantity="few">%1$d ملفات جاهزة (%2$s)</item>
         <item quantity="many">%1$d ملف جاهز (%2$s)</item>
         <item quantity="other">%1$d ملف جاهز (%2$s)</item>
@@ -377,5 +377,4 @@
     <string name="support_debuglog_sent_message">هل تم إرسال سجل التصحيح بنجاح؟ سيتم حذف السجل.</string>
     <string name="support_contact_sent_title">هل تم إرسال البريد الإلكتروني؟</string>
     <string name="support_contact_sent_message">هل تم إرسال البريد الإلكتروني بنجاح؟ سيتم حذف سجل التصحيح المرفق.</string>
-    <string name="debug_debuglog_screen_keep_action">احتفظ</string>
 </resources>

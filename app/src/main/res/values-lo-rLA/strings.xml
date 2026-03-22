@@ -309,7 +309,6 @@
         <item quantity="other">%1$d ໄຟລ່ພ້ອມ (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">ລຶບ</string>
-    <string name="debug_debuglog_screen_keep_action">ເກັບຮັກສາ</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d ບັນທຶກດີບັກ (%2$s)</item>

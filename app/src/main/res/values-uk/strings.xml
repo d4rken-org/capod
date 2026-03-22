@@ -315,7 +315,6 @@
         <item quantity="other">Файли %1$d готові (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Видалити</string>
-    <string name="debug_debuglog_screen_keep_action">Зберегти</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d журнал налагодження (%2$s)</item>

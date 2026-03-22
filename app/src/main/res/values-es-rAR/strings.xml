@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">¿Se envió el log de depuración correctamente? El log será eliminado.</string>
     <string name="support_contact_sent_title">¿Email enviado?</string>
     <string name="support_contact_sent_message">¿Se envió el email correctamente? El log de depuración adjunto será eliminado.</string>
-    <string name="debug_debuglog_screen_keep_action">Conservar</string>
 </resources>

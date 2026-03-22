@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">Is die ontfoutrekord suksesvol gestuur? Die rekord sal uitgevee word.</string>
     <string name="support_contact_sent_title">E-pos gestuur?</string>
     <string name="support_contact_sent_message">Is die e-pos suksesvol gestuur? Die aangehegte ontfoutrekord sal uitgevee word.</string>
-    <string name="debug_debuglog_screen_keep_action">Hou</string>
 </resources>

@@ -249,8 +249,7 @@
     <string name="profiles_save_action">프로필 저장</string>
     <string name="profiles_drag_handle_description">드래그하여 순서 변경</string>
     <string name="profiles_delete_title">프로필 삭제</string>
-    <string name="profiles_delete_message">프로필을 삭제하시겠습니까? 
-이 작업은 취소할 수 없습니다.</string>
+    <string name="profiles_delete_message">프로필을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.</string>
     <string name="profiles_delete_action">삭제</string>
     <string name="profiles_basic_info_title">기기 정보</string>
     <string name="profiles_basic_info_description">기기의 이름, 모델 및 선택적 블루투스 페어링을 설정하세요.</string>
@@ -268,8 +267,7 @@
     <string name="profiles_key_status_not_set">설정되지 않음</string>
     <string name="profiles_signal_quality_min_label">끄기</string>
     <string name="profiles_signal_quality_max_label">엄격</string>
-    <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요.
-리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
+    <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요. 리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
     <!-- Theme Mode -->
     <string name="ui_theme_mode_label">테마 모드</string>
     <string name="ui_theme_mode_system_label">기기 테마 사용</string>
@@ -311,7 +309,6 @@
         <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">삭제</string>
-    <string name="debug_debuglog_screen_keep_action">유지</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d개 디버그 로그 (%2$s)</item>

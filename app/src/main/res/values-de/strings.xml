@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">Wurde das Debug-Protokoll erfolgreich gesendet? Das Protokoll wird gelöscht.</string>
     <string name="support_contact_sent_title">E-Mail gesendet?</string>
     <string name="support_contact_sent_message">Wurde die E-Mail erfolgreich gesendet? Das angehängte Debug-Protokoll wird gelöscht.</string>
-    <string name="debug_debuglog_screen_keep_action">Behalten</string>
 </resources>

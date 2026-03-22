@@ -358,8 +358,7 @@
     <string name="support_contact_debuglog_delete_message">Este registro de depuración se eliminará permanentemente.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">¿Registro enviado?</string>
-    <string name="support_debuglog_sent_message">¿Se envió el registro de depuración correctamente? El registro se eliminará.</string>
-    <string name="support_contact_sent_title">¿Correo enviado?</string>
+    <string name="support_debuglog_sent_message">¿Se envió el registro de depuración con éxito? El registro será eliminado.</string>
+    <string name="support_contact_sent_title">¿El correo electrónico se envió?</string>
     <string name="support_contact_sent_message">¿Se envió el correo electrónico correctamente? El registro de depuración adjunto se eliminará.</string>
-    <string name="debug_debuglog_screen_keep_action">Conservar</string>
 </resources>

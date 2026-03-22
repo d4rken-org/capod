@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">ডিবাগ লগটি সফলভাবে পাঠানো হয়েছে? লগটি মুছে ফেলা হবে।</string>
     <string name="support_contact_sent_title">ইমেইল পাঠানো হয়েছে?</string>
     <string name="support_contact_sent_message">ইমেইলটি সফলভাবে পাঠানো হয়েছে? সংযুক্ত ডিবাগ লগটি মুছে ফেলা হবে।</string>
-    <string name="debug_debuglog_screen_keep_action">রাখুন</string>
 </resources>

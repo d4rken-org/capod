@@ -123,7 +123,7 @@
     <string name="help_translate_label">ترجمه</string>
     <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>
     <string name="translators_thanks_title">مترجمان</string>
-    <string name="translators_thanks_description">تیره کردن</string>
+    <string name="translators_thanks_description">darken</string>
     <string name="widget_description">ویجتی که آخرین وضعیت شناخته‌شده دستگاه را نشان می‌دهد.</string>
     <string name="widget_config_screen_title">پیکربندی ابزارک</string>
     <string name="widget_configuration_title">انتخاب دستگاه</string>
@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">آیا لاگ اشکال‌زدایی با موفقیت ارسال شد؟ لاگ حذف خواهد شد.</string>
     <string name="support_contact_sent_title">ایمیل ارسال شد؟</string>
     <string name="support_contact_sent_message">آیا ایمیل با موفقیت ارسال شد؟ لاگ اشکال‌زدایی پیوست‌شده حذف خواهد شد.</string>
-    <string name="debug_debuglog_screen_keep_action">نگه داشتن</string>
 </resources>

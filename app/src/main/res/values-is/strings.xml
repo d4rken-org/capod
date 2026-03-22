@@ -297,54 +297,53 @@
     <string name="general_keep_editing_action">Halda áfram að breyta</string>
     <!-- Short recording warning -->
     <string name="debug_debuglog_short_recording_title">Upptökun of stutt</string>
-    <string name="debug_debuglog_short_recording_message">Kembingarskrá þá að ná villunni þegar hana geisar. Haltu áfram með upptöku, endurskapa vandamalæ, og stoppau upptökuna.</string>
+    <string name="debug_debuglog_short_recording_message">A debug log needs to capture the issue while it happens. Keep recording, reproduce the problem, then stop the recording.</string>
     <string name="debug_debuglog_short_recording_continue">Halda áfram upptöku</string>
     <string name="debug_debuglog_short_recording_stop">Stoppa úvis</string>
     <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Kembingarskrá</string>
-    <string name="debug_debuglog_screen_subtitle">Flytja út kembingarupplýsingard til bilanagreininga</string>
-    <string name="debug_debuglog_screen_sensitive_title">Vikvæmar upplýsingarr</string>
+    <string name="debug_debuglog_screen_subtitle">Export debug information for troubleshooting</string>
+    <string name="debug_debuglog_screen_sensitive_title">Sensitive Information</string>
     <string name="debug_debuglog_screen_session_path_label">Slóð lotunnar</string>
-    <string name="debug_debuglog_screen_log_files_label">Skráarskrár</string>
+    <string name="debug_debuglog_screen_log_files_label">Log Files</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">%1$d skrá tilbúinn (%2$s)</item>
         <item quantity="other">%1$d skráar tilbúnar (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Eyða</string>
-    <string name="debug_debuglog_screen_keep_action">Geyma</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d kembingarskrá (%2$s)</item>
         <item quantity="other">%1$d kembingarskrár (%2$s)</item>
     </plurals>
     <string name="support_debuglog_clear_action">Hreinsa geymdar kembingarskrár</string>
-    <string name="support_debuglog_sessions_label">Kembingarltur</string>
+    <string name="support_debuglog_sessions_label">Debug sessions</string>
     <string name="support_debuglog_sessions_desc">Sjá um skráðar kembingarlotu-skrár</string>
-    <string name="support_debuglog_sessions_empty">Engar kembingarltur</string>
+    <string name="support_debuglog_sessions_empty">No debug sessions</string>
     <string name="support_debuglog_session_recording">Tekur upp…</string>
-    <string name="support_debuglog_session_compressing">Er að þjitta…</string>
+    <string name="support_debuglog_session_compressing">Compressing…</string>
     <string name="support_debuglog_session_delete_title">Eyða lotu?</string>
-    <string name="support_debuglog_session_delete_message">Þessari kembingarlotu verður varðlegt eyðt.</string>
-    <string name="support_debuglog_clear_all_message">Allar kembingarlotur verða varðlegt eyðar.</string>
+    <string name="support_debuglog_session_delete_message">This debug session will be permanently deleted.</string>
+    <string name="support_debuglog_clear_all_message">All debug sessions will be permanently deleted.</string>
     <string name="support_debuglog_failed_empty_log">Mistókst: skráarskrá er tóm</string>
     <string name="support_debuglog_failed_missing_log">Mistókst: skráarskrá vantar</string>
     <string name="support_debuglog_failed_corrupt_zip">Mistókst: zip-skrá er skemmd</string>
-    <string name="support_debuglog_failed_zip_failed">Mistókst: þjittaðning mistókst</string>
+    <string name="support_debuglog_failed_zip_failed">Failed: compression failed</string>
     <!-- Contact form -->
     <string name="support_contact_label">Hafa samband við þróunarmann</string>
     <string name="support_contact_desc">Fylltu út eyðublað til að senda þróunarmanni tölvupóst.</string>
-    <string name="support_contact_welcome">Ég les hvert skilaboð sjálfur og geri mitt besta til að svara, en þegar ég vinn á þessu einn kann það taka smá tíma. Pakk þér fyrir þólinmæðina.</string>
-    <string name="support_contact_footer">Skilaboðin þín verða send með tölvupósti. Tæki- og uppsetningarupplýsingarr eru héfðar sjálfkrafa. Hægt er að hæfa skýumyðnd eða mófundarmynd við tölvupóstinn. Sumir hlutar tölvupóstsins verða á ensku svo að þróunarmaðurinn geti að skilja hann.</string>
+    <string name="support_contact_welcome">I read every message myself and do my best to reply, but since I work on this alone, it can take a little time. Thanks for your patience.</string>
+    <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand it.</string>
     <string name="support_contact_category_label">Flokkur</string>
     <string name="support_contact_category_question_label">Spurning</string>
-    <string name="support_contact_category_feature_label">Bægi um eiginleika</string>
-    <string name="support_contact_category_bug_label">Villutilkyðning</string>
+    <string name="support_contact_category_feature_label">Feature request</string>
+    <string name="support_contact_category_bug_label">Bug report</string>
     <string name="support_contact_description_label">Lýsing</string>
-    <string name="support_contact_description_question_hint">Settu spurninguna þína ítarlega niður. Vinsamlegast verðu áhertni.</string>
-    <string name="support_contact_description_feature_hint">Lýstu þver eiginleikann sem þú vilt sjá. Vinsamlegast verðu áhertni.</string>
-    <string name="support_contact_description_bug_hint">Lýstu þver þvert sem gerst og hvernig hægt er að endurskapa vandamalæ. Vinsamlegast verðu áhertni.</string>
-    <string name="support_contact_expected_label">Vænt héguð</string>
-    <string name="support_contact_expected_hint">Lýstu þver þver sem þú bjóst við að geriðist.</string>
+    <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific.</string>
+    <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific.</string>
+    <string name="support_contact_description_bug_hint">Describe what happened and how to reproduce the issue. Please be specific.</string>
+    <string name="support_contact_expected_label">Expected behavior</string>
+    <string name="support_contact_expected_hint">Describe what you expected to happen.</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d orð</item>
         <item quantity="other">%1$d / %2$d orð</item>
@@ -352,11 +351,11 @@
     <string name="support_contact_debuglog_label">Villuleitarskrá</string>
     <string name="support_contact_debuglog_picker_hint">Hæfa fyrirliggjandi kembingarskrá, eða taka upp nýja.</string>
     <string name="support_contact_debuglog_picker_empty">Engar kembingarskrár fundust. Taktu upp eina fyrst.</string>
-    <string name="support_contact_debuglog_zip_error">Tókst ekki að þjitta kembingarskrá</string>
+    <string name="support_contact_debuglog_zip_error">Failed to compress debug log</string>
     <string name="support_contact_send_action">Opna tölvupóstforrit</string>
     <string name="support_contact_no_email_app">Ekkert tölvupóstforrit fundiðst á þessum tæki.</string>
     <string name="support_contact_debuglog_delete_title">Eyða kembingarskrá?</string>
-    <string name="support_contact_debuglog_delete_message">Þessari kembingarskrá verður varðlegt eyðt.</string>
+    <string name="support_contact_debuglog_delete_message">This debug log will be permanently deleted.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">Fannst skráin?</string>
     <string name="support_debuglog_sent_message">Var villuleitarskráin send? Skráin verður eytt.</string>

@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">ഡീബഗ് ലോഗ് വിജയകരമായി അയച്ചോ? ലോഗ് ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="support_contact_sent_title">ഇമെയിൽ അയച്ചോ?</string>
     <string name="support_contact_sent_message">ഇമെയിൽ വിജയകരമായി അയച്ചോ? അറ്റാച്ച് ചെയ്ത ഡീബഗ് ലോഗ് ഇല്ലാതാക്കപ്പെടും.</string>
-    <string name="debug_debuglog_screen_keep_action">സൂക്ഷിക്കുക</string>
 </resources>

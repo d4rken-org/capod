@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">Matagumpay bang naipadala ang debug log? Ang log ay matatanggal.</string>
     <string name="support_contact_sent_title">Naipadala na ang email?</string>
     <string name="support_contact_sent_message">Matagumpay bang naipadala ang email? Ang kalakip na debug log ay matatanggal.</string>
-    <string name="debug_debuglog_screen_keep_action">Itago</string>
 </resources>
