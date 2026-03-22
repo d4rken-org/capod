@@ -333,7 +333,7 @@
     <string name="support_contact_label">Kontakto zhvilluesin</string>
     <string name="support_contact_desc">Plotëso një formular për të dërguar zhvilluesit një email.</string>
     <string name="support_contact_welcome">I lexoj çdo mesazh vetë dhe bëj çmos të përgjigjem, por meqë punoj vetëm në këtë, mund të duhet pak kohë. Faleminderit për durim.</string>
-    <string name="support_contact_footer">Mesazhi juaj do të dërgohet me email. Informacioni i pajisjes dhe i konfigurimit bashkëngjitet automatikisht. Mund të bashkëngjitni pamje ekrani ose video në email. Disa pjesë të emailit do të jenë në anglisht që zhvilluesi ta kuptojë lehtë.</string>
+    <string name="support_contact_footer">Mesazhi juaj do të dërgohet me email. Informacioni i pajisjes dhe i konfigurimit bashkëngjitet automatikisht. Mund të bashkëngjitni pamje ekrani ose një video në email. Disa pjesë të emailit do të jenë në anglisht, në mënyrë që zhvilluesi ta kuptojë lehtë.</string>
     <string name="support_contact_category_label">Kategoria</string>
     <string name="support_contact_category_question_label">Pyetje</string>
     <string name="support_contact_category_feature_label">Kërkgesë për veçori</string>

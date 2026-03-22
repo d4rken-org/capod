@@ -315,7 +315,7 @@
         <item quantity="one">%1$d ملف جاهز (%2$s)</item>
         <item quantity="two">%1$d ملفان جاهزان (%2$s)</item>
         <item quantity="few">%1$d ملفات جاهزة (%2$s)</item>
-        <item quantity="many">%1$d ملف جاهز (%2$s)</item>
+        <item quantity="many">%1$d ملفًا جاهزًا (%2$s)</item>
         <item quantity="other">%1$d ملف جاهز (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">حذف</string>

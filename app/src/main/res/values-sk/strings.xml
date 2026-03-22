@@ -309,18 +309,18 @@
     <string name="debug_debuglog_screen_session_path_label">Cesta relácie</string>
     <string name="debug_debuglog_screen_log_files_label">Log súbory</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d súbor pripravený (%2$s)</item>
-        <item quantity="few">%1$d súbory pripravené (%2$s)</item>
-        <item quantity="many">%1$d súborov pripravených (%2$s)</item>
-        <item quantity="other">%1$d súborov pripravených (%2$s)</item>
+        <item quantity="one">%1$d súbor je pripravený (%2$s)</item>
+        <item quantity="few">%1$d súbory sú pripravené (%2$s)</item>
+        <item quantity="many">%1$d súborov je pripravených (%2$s)</item>
+        <item quantity="other">%1$d súborov je pripravených (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Vymazať</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
-        <item quantity="one">%1$d ladíaci záznam (%2$s)</item>
-        <item quantity="few">%1$d ladíace záznamy (%2$s)</item>
-        <item quantity="many">%1$d ladíacich záznamov (%2$s)</item>
-        <item quantity="other">%1$d ladíacich záznamov (%2$s)</item>
+        <item quantity="one">%1$d denník ladenia (%2$s)</item>
+        <item quantity="few">%1$d denníky ladenia (%2$s)</item>
+        <item quantity="many">%1$d denníkov ladenia (%2$s)</item>
+        <item quantity="other">%1$d denníkov ladenia (%2$s)</item>
     </plurals>
     <string name="support_debuglog_clear_action">Vymazať uložené ladíace záznamy</string>
     <string name="support_debuglog_sessions_label">Ladíace relacie</string>
@@ -350,6 +350,12 @@
     <string name="support_contact_description_bug_hint">Popíšte, čo sa stalo a ako replikovať problém. Prosím, buďte špecifický.</string>
     <string name="support_contact_expected_label">Očakávané správanie</string>
     <string name="support_contact_expected_hint">Popíšte, čo ste očakávali, že sa stane.</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d slovo</item>
+        <item quantity="few">%1$d / %2$d slová</item>
+        <item quantity="many">%1$d / %2$d slov</item>
+        <item quantity="other">%1$d / %2$d slov</item>
+    </plurals>
     <string name="support_contact_debuglog_label">Ladiaci log</string>
     <string name="support_contact_debuglog_picker_hint">Priložte existujúci ladíaci záznam alebo nahrajte nový.</string>
     <string name="support_contact_debuglog_picker_empty">Žiadne ladíace záznamy sa nenašli. Najskôr nahraje jeden.</string>
