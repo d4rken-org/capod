@@ -32,7 +32,7 @@
     <string name="upgrade_screen_iap_action">එකවර මිලදී ගන්න</string>
     <string name="upgrade_screen_iap_action_hint">එක් වරක් මිලදී ගැනීම: %s</string>
     <string name="upgrade_screen_restore_purchase_action">මිලදී ගැනීම ප්‍රතිසාධනය කරන්න</string>
-    <string name="upgrade_screen_restore_purchase_message">කිසිදු මිලදී ගැනීමක් හමු නොවීය. ඔබ ትክክለኛ ගිණුම භාවිතා කරනවාද?</string>
+    <string name="upgrade_screen_restore_purchase_message">කිසිදු මිලදී ගැනීමක් හමු නොවීය. ඔබ ትክකලල ගිණුම භාවිතා කරනවාද?</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">ඔබ මෑතකදී මිලදී ගත්නේ නම්, Google Play සමමුහුර්ත කිරීමට මොහොතක් ගත විය හැක.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ඔබේ මිලදී ගැනීම දිස් නොවේ නම් මිනිත්තු කිහිපයකින් නැවත උත්සාහ කරන්න.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">මිලදී ගැනීම සඳහා භාවිතා කළ එකම Google ගිණුමෙන් ඔබ පුරනය වී ඇති බවට සහතික වන්න.</string>
@@ -129,7 +129,7 @@
     <string name="widget_configuration_title">උපාංගය තෝරන්න</string>
     <string name="widget_configuration_description">මෙම විජට් එක කුමන උපාංග පැතිකඩ පෙන්විය යුතුද යන්න තෝරන්න.</string>
     <string name="widget_no_data_label">දත්ත නොමැත</string>
-    <string name="widget_error_loading_label">විජට් පළ්ක් ගැනීම෪ විපත්තියක්</string>
+    <string name="widget_error_loading_label">විජට් පළ්ක් ගැනීමේ විපත්තියක්</string>
     <string name="widget_config_appearance_label">පෙනුම</string>
     <string name="widget_config_preset_label">පෙර සැකසුම්</string>
     <string name="widget_config_background_color_label">පසුබිම් වර්ණ</string>
@@ -311,7 +311,6 @@
         <item quantity="other">%1$d ගොනු සූදානම් (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">මකන්න</string>
-    <string name="debug_debuglog_screen_keep_action">තබා ගන්න</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d දෝෂහරණ ලොගය (%2$s)</item>
@@ -331,30 +330,30 @@
     <string name="support_debuglog_failed_corrupt_zip">අසහය වී: zip ගොනුව විනාශ වී</string>
     <string name="support_debuglog_failed_zip_failed">අසහය වී: සංකලනය අසහය වී</string>
     <!-- Contact form -->
-    <string name="support_contact_label">සංවර්ධකයා සමග හය්ක්‍ළ ගන්න</string>
-    <string name="support_contact_desc">සංවර්ධකයාට ඉකිමෙල් දෙනුම් යළ්ලීමට ප්‍රශ්නාවලියක් පිරළන්න.</string>
-    <string name="support_contact_welcome">මම හට හට් ගිණුම් එකක්‍මක් බවට ප්‍රතික්‍‍ෂේප කරන අතර, මම එකක්‍ම් ගිණුම් කරනබින් පිලිතුරුයක් ගත හැක. ඉවත් එකක්‍මක් අවෛ එය්ක කරනබින් ඉවත් ගත හැකිය.</string>
-    <string name="support_contact_footer">ඔබ෪ය සදහන ඉකිමෙල් යන්නේ ඇති යළ්ලනු ලැබේ. උපකරණ සහ සූදානම් හය ස්වයංක්‍රීයව ගල කරයි. ඉකිමෙල්යට ස්ක්‍රීන්ෂොට් හො විඩියොයක් සංලග් කර ගත හැක. ඉකිමෙල්ය෪් කලක් කෝටස් ඉංග්‍රීසි යයින් විය හෙත් සංවර්ධකයාට සහලසින් ඇතික් ගත හැක.</string>
+    <string name="support_contact_label">Contact the developer</string>
+    <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
+    <string name="support_contact_welcome">I read every message myself and do my best to reply, but since I work on this alone, it may take a while. Thanks for your patience.</string>
+    <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand.</string>
     <string name="support_contact_category_label">කත්තාව</string>
     <string name="support_contact_category_question_label">ප්‍රශ්නය</string>
-    <string name="support_contact_category_feature_label">ළන් ඓදිරීමේ</string>
+    <string name="support_contact_category_feature_label">Feature request</string>
     <string name="support_contact_category_bug_label">දෝෂ වාර්තාව</string>
     <string name="support_contact_description_label">විවරණය</string>
-    <string name="support_contact_description_question_hint">ඔබ෪ය ප්‍රශ්නය විස්තරව විවරණ කරන්න. කරුණාකර වන්න.</string>
-    <string name="support_contact_description_feature_hint">ඔබ දකින් ගන්නා ළන් විශේෂාංගය විවරණ කරන්න. කරුණාකර වන්න.</string>
-    <string name="support_contact_description_bug_hint">සිදු වීයද සහ ගැටළුව නැවත ඇති කරන්නේ කෙසේද යන්න විවරණ කරන්න. කරුණාකර වන්න.</string>
-    <string name="support_contact_expected_label">ප෍දු කරනු ලැබීයක්</string>
-    <string name="support_contact_expected_hint">සිදු වේයේ කෙයි යන්න ඔබ යන්න ඇති කලා විවරණ කරන්න.</string>
+    <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific.</string>
+    <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific.</string>
+    <string name="support_contact_description_bug_hint">Describe what happened and how to reproduce the problem. Please be specific.</string>
+    <string name="support_contact_expected_label">Expected behavior</string>
+    <string name="support_contact_expected_hint">Describe what you expected to happen.</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d වට පදය</item>
         <item quantity="other">%1$d / %2$d වට් පද</item>
     </plurals>
     <string name="support_contact_debuglog_label">දෝෂහරණ ලොගය</string>
-    <string name="support_contact_debuglog_picker_hint">පළ්කාලිය දෝෂහරණ ලොගයක් සංලග් කරන්න, හො අලුත් කරනු ලදියක් රෙකර්ඩ් කරන්න.</string>
-    <string name="support_contact_debuglog_picker_empty">දෝෂහරණ ලොග් හිසි නේ. පළ්වේන් එකක් රෙකර්ඩ් කරන්න.</string>
+    <string name="support_contact_debuglog_picker_hint">Attach an existing debug log, or record a new one.</string>
+    <string name="support_contact_debuglog_picker_empty">No debug logs found. Record one first.</string>
     <string name="support_contact_debuglog_zip_error">දෝෂහරණ ලොගය සංකලනය අසහය වී</string>
-    <string name="support_contact_send_action">ඉකිමෙල් යෙදුම ඇහල්න්න</string>
-    <string name="support_contact_no_email_app">මෙම උපකරණයේ ඉකිමෙල් යෙදුමක් පළ්ක් නැත.</string>
+    <string name="support_contact_send_action">Open email app</string>
+    <string name="support_contact_no_email_app">No email app found on this device.</string>
     <string name="support_contact_debuglog_delete_title">දෝෂහරණ ලොගය දුරු කරන්නද?</string>
     <string name="support_contact_debuglog_delete_message">මෙම දෝෂහරණ ලොගය හෙළලා දුරු කරනු ලැබේ.</string>
     <!-- Post-share confirmation -->

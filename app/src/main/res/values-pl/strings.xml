@@ -371,5 +371,4 @@ K4r0lSz;</string>
     <string name="support_debuglog_sent_message">Czy dziennik debugowania został wysłany pomyślnie? Dziennik zostanie usunięty.</string>
     <string name="support_contact_sent_title">E-mail wysłany?</string>
     <string name="support_contact_sent_message">Czy e-mail został wysłany pomyślnie? Załączony dziennik debugowania zostanie usunięty.</string>
-    <string name="debug_debuglog_screen_keep_action">Zachowaj</string>
 </resources>

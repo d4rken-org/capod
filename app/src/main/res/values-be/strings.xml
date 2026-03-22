@@ -369,5 +369,4 @@
     <string name="support_debuglog_sent_message">Адладачны журнал быў паспяхова адпраўлены? Журнал будзе выдалены.</string>
     <string name="support_contact_sent_title">Электронны ліст адпраўлены?</string>
     <string name="support_contact_sent_message">Электронны ліст быў паспяхова адпраўлены? Прыкладзены адладачны журнал будзе выдалены.</string>
-    <string name="debug_debuglog_screen_keep_action">Захаваць</string>
 </resources>

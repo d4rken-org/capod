@@ -361,5 +361,4 @@
     <string name="support_debuglog_sent_message">የዲባግ ምዝግብ ማስታወሻ በተሳካ ሁኔታ ተልኳል? ምዝግብ ማስታወሻው ይሰረዛል።</string>
     <string name="support_contact_sent_title">ኢሜይል ተልኳል?</string>
     <string name="support_contact_sent_message">ኢሜይሉ በተሳካ ሁኔታ ተልኳል? ተያይዞ የቀረበው የዲባግ ምዝግብ ማስታወሻ ይሰረዛል።</string>
-    <string name="debug_debuglog_screen_keep_action">ያቆዩ</string>
 </resources>

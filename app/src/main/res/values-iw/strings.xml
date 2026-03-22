@@ -315,7 +315,6 @@
         <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">מחיקה</string>
-    <string name="debug_debuglog_screen_keep_action">שמור</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">יומן ניפוי באגים %1$d (%2$s)</item>
