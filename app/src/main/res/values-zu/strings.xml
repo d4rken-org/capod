@@ -325,7 +325,7 @@
     <string name="support_debuglog_session_delete_title">Susa iseshini?</string>
     <string name="support_debuglog_session_delete_message">Le seshini yokususa iziphazamiso izosuswwa ngokuphelele.</string>
     <string name="support_debuglog_clear_all_message">Zonke izinseshini zokususa iziphazamiso zizosuswwa ngokuphelele.</string>
-    <string name="support_debuglog_failed_empty_log">Kwehlulekile: ifayela lerekhodi likhona</string>
+    <string name="support_debuglog_failed_empty_log">Yehlulekile: ifayela le-log liyize</string>
     <string name="support_debuglog_failed_missing_log">Kwehlulekile: ifayela lerekhodi alikhona</string>
     <string name="support_debuglog_failed_corrupt_zip">Kwehlulekile: ifayela le-zip lonakele</string>
     <string name="support_debuglog_failed_zip_failed">Kwehlulekile: ukucindezela kwehlulekile</string>

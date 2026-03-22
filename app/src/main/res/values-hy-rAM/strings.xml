@@ -302,9 +302,9 @@
     <string name="debug_debuglog_short_recording_stop">Ամեն դեպքում դադարեցնել</string>
     <!-- Recorder screen -->
     <string name="debug_debuglog_screen_title">Կարգաբերման մատյան</string>
-    <string name="debug_debuglog_screen_subtitle">Export debug information for troubleshooting</string>
-    <string name="debug_debuglog_screen_sensitive_title">Sensitive Information</string>
-    <string name="debug_debuglog_screen_session_path_label">Session Path</string>
+    <string name="debug_debuglog_screen_subtitle">Արտահանել վրիպազերծման տեղեկություններ անսարքությունների հայտնաբերման համար</string>
+    <string name="debug_debuglog_screen_sensitive_title">Զգայուն տեղեկություն</string>
+    <string name="debug_debuglog_screen_session_path_label">Սեանսի ուղի</string>
     <string name="debug_debuglog_screen_log_files_label">Մատյանի Ֆայլեր</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">%1$d Ֆայլ պատրաստուաց ե (%2$s)</item>
@@ -321,10 +321,10 @@
     <string name="support_debuglog_sessions_desc">Կարավարել գրանցված Կարգաբերման մատյանի սեսիանները</string>
     <string name="support_debuglog_sessions_empty">Կարգաբերման սեսիաններ չկա</string>
     <string name="support_debuglog_session_recording">Գրանցություն…</string>
-    <string name="support_debuglog_session_compressing">Compressing…</string>
+    <string name="support_debuglog_session_compressing">Սեղմվում է…</string>
     <string name="support_debuglog_session_delete_title">Հեռացնել սեսիան?</string>
-    <string name="support_debuglog_session_delete_message">This debug session will be permanently deleted.</string>
-    <string name="support_debuglog_clear_all_message">All debug sessions will be permanently deleted.</string>
+    <string name="support_debuglog_session_delete_message">Այս վրիպազերծման սեանսը կջնջվի անդառնալիորեն։</string>
+    <string name="support_debuglog_clear_all_message">Բոլոր վրիպազերծման սեանսները կջնջվեն անդառնալիորեն։</string>
     <string name="support_debuglog_failed_empty_log">Սխալ: մատյանի հալը դատարկ է</string>
     <string name="support_debuglog_failed_missing_log">Սխալ: մատյանի հալը բացակայում է</string>
     <string name="support_debuglog_failed_corrupt_zip">Սխալ: zip հալը վնասվածված է</string>
@@ -332,15 +332,15 @@
     <!-- Contact form -->
     <string name="support_contact_label">Կապակցություն Մշակողի հետ</string>
     <string name="support_contact_desc">Լրացնել ձև մշակողին e-mail ուղարկելու համար:</string>
-    <string name="support_contact_welcome">I read every message myself and do my best to reply, but since I work on this alone, it can take a little time. Thanks for your patience.</string>
-    <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand it.</string>
+    <string name="support_contact_welcome">Ես ինքս կարդում եմ յուրաքանչյուր հաղորդագրություն և ամեն ինչ անում եմ պատասխանելու համար, բայց քանի որ մենակ եմ աշխատում, կարող է մի փոքր ժամանակ պահանջվել։ Շնորհակալություն ձեր համբերության համար։</string>
+    <string name="support_contact_footer">Ձեր հաղորդագրությունը կուղարկվի էլ. փոստով։ Սարքի և կարգաբերման տեղեկությունները կցվում են ավտոմատ կերպով։ Կարող եք նաև կցել սքրինշոթեր կամ տեսանյութ էլ. նամակին։ Էլ. նամակի որոշ մասեր կլինեն անգլերենով, որպեսզի մշակողը կարողանա հեշտությամբ հասկանալ։</string>
     <string name="support_contact_category_label">Կատեգորիա</string>
     <string name="support_contact_category_question_label">Հարցում</string>
-    <string name="support_contact_category_feature_label">Feature request</string>
+    <string name="support_contact_category_feature_label">Հնարավորության հայց</string>
     <string name="support_contact_category_bug_label">Սխալի զեկություն</string>
     <string name="support_contact_description_label">Նկարագրություն</string>
-    <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific.</string>
-    <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific.</string>
+    <string name="support_contact_description_question_hint">Մանրամասն նկարագրեք ձեր հարցը։ Խնդրում ենք կոնկրետ լինել։</string>
+    <string name="support_contact_description_feature_hint">Նկարագրեք հնարավորությունը, որը ցանկանում եք տեսնել։ Խնդրում ենք կոնկրետ լինել։</string>
     <string name="support_contact_description_bug_hint">Նկարագրեք ինչ կատարվել ե կերպես վերարտադրել խնդիրը. Խնդրում կոնկրետ կերկիսել:</string>
     <string name="support_contact_expected_label">Սպասվող վարքություն</string>
     <string name="support_contact_expected_hint">Նկարագրեք ինչ կարկանում էիք կատարվի:</string>

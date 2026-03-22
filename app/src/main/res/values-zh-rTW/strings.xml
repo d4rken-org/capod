@@ -336,9 +336,9 @@
     <string name="support_contact_category_feature_label">功能請求</string>
     <string name="support_contact_category_bug_label">錯誤回報</string>
     <string name="support_contact_description_label">說明</string>
-    <string name="support_contact_description_question_hint">詳細描述您的問題，請尽量具體說明。</string>
-    <string name="support_contact_description_feature_hint">描述您希望看到的功能，請尽量具體說明。</string>
-    <string name="support_contact_description_bug_hint">描述發生了什麼以及如何復現問題，請尽量具體說明。</string>
+    <string name="support_contact_description_question_hint">請詳細描述您的問題，請盡量具體說明。</string>
+    <string name="support_contact_description_feature_hint">請描述您希望看到的功能，請盡量具體說明。</string>
+    <string name="support_contact_description_bug_hint">請描述發生了什麼事以及如何重現此問題，請盡量具體說明。</string>
     <string name="support_contact_expected_label">預期行為</string>
     <string name="support_contact_expected_hint">描述您預期發生的事情。</string>
     <plurals name="support_contact_word_count">

@@ -309,10 +309,10 @@
     <string name="debug_debuglog_screen_session_path_label">Pot seje</string>
     <string name="debug_debuglog_screen_log_files_label">Dnevniške datoteke</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d datoteka je pripravljena (%2$s).</item>
-        <item quantity="two">%1$d datoteki sta pripravljeni (%2$s).</item>
-        <item quantity="few">%1$d datoteke so pripravljene (%2$s).</item>
-        <item quantity="other">%1$d datotek je pripravljenih (%2$s).</item>
+        <item quantity="one">%1$d datoteka je pripravljena (%2$s)</item>
+        <item quantity="two">%1$d datoteki sta pripravljeni (%2$s)</item>
+        <item quantity="few">%1$d datoteke so pripravljene (%2$s)</item>
+        <item quantity="other">%1$d datotek je pripravljenih (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Izbriši</string>
     <!-- Log management -->
