@@ -1,1 +1,1 @@
-CAPod - AirPods хань
+CAPod - Companion for AirPods

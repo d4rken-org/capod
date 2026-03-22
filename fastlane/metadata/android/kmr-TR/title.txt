@@ -1,1 +1,1 @@
-CAPod - Hevalê AirPods
+CAPod - Companion for AirPods

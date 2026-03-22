@@ -1,1 +1,1 @@
-CAPod - AirPods kompanionas
+CAPod - Companion for AirPods
