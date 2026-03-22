@@ -1,1 +1,1 @@
-CAPod - pratilac za AirPods
+CAPod - Companion for AirPods
