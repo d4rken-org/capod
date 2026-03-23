@@ -304,6 +304,9 @@ class BluetoothManager2 @Inject constructor(
         emit(wrappedDevices)
     }
 
+    private var _isNudgeAvailable: Boolean = true
+    val isNudgeAvailable: Boolean get() = _isNudgeAvailable
+
     suspend fun nudgeConnection(device: BluetoothDevice2): Boolean = getBluetoothProfile().map { bluetoothProfile ->
         try {
             log(TAG) { "Nudging Android connection to $device" }
@@ -317,6 +320,12 @@ class BluetoothManager2 @Inject constructor(
             log(TAG) { "Nudged connection to $device" }
             true
         } catch (e: Exception) {
+            val isSecurityException = e is SecurityException ||
+                (e is java.lang.reflect.InvocationTargetException && e.cause is SecurityException)
+            if (isSecurityException) {
+                log(TAG, ERROR) { "nudgeConnection is permanently unavailable: missing MODIFY_PHONE_STATE permission" }
+                _isNudgeAvailable = false
+            }
             Bugs.report(tag = TAG, "BluetoothHeadset.connect(device) is unavailable", exception = e)
             false
         }
