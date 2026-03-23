@@ -19,9 +19,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.Key
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -44,6 +47,7 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getSignalQuality
@@ -98,12 +102,23 @@ fun SinglePodsCard(
                 Spacer(modifier = Modifier.width(12.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = device.meta.profile?.label ?: "?",
-                        style = MaterialTheme.typography.titleMedium,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = device.meta.profile?.label ?: "?",
+                            style = MaterialTheme.typography.titleMedium,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        if (device is ApplePods && device.meta.isIRKMatch) {
+                            Spacer(modifier = Modifier.width(6.dp))
+                            Icon(
+                                imageVector = if (device.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
+                                contentDescription = null,
+                                modifier = Modifier.size(14.dp),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
                     Text(
                         text = device.getLabel(context),
                         style = MaterialTheme.typography.bodySmall,
