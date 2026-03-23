@@ -15,6 +15,8 @@ import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.unknown.UnknownDevice
 import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
 
@@ -114,11 +116,13 @@ object MockPodDataProvider {
         _isBeingWorn = true,
     )
 
-    fun airPodsMaxCharging(): SinglePodDevice = MockSinglePodDevice(
+    fun airPodsMaxCharging(): SinglePodDevice = MockSingleApplePodDevice(
         _model = PodDevice.Model.AIRPODS_MAX,
         _label = "AirPods Max",
         batteryHeadsetPercent = 0.40f,
         _isHeadsetBeingCharged = true,
+        _isIRKMatch = true,
+        _hasPrivatePayload = true,
     )
 
     fun beatsSolo3(): SinglePodDevice = MockSinglePodDevice(
@@ -264,6 +268,44 @@ private class MockSinglePodDevice(
     override val meta: PodDevice.Meta = object : PodDevice.Meta {
         override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model)
     }
+
+    override fun getLabel(context: Context): String = _model.label
+
+    // HasChargeDetection
+    override val isHeadsetBeingCharged: Boolean = _isHeadsetBeingCharged
+
+    // HasEarDetection
+    override val isBeingWorn: Boolean = _isBeingWorn
+}
+
+@Suppress("PropertyName")
+private class MockSingleApplePodDevice(
+    private val _model: PodDevice.Model,
+    private val _label: String,
+    override val batteryHeadsetPercent: Float?,
+    private val _isHeadsetBeingCharged: Boolean = false,
+    private val _isBeingWorn: Boolean = false,
+    private val _isIRKMatch: Boolean = false,
+    private val _hasPrivatePayload: Boolean = false,
+    rssi: Int = -50,
+) : SinglePodDevice, ApplePods, HasChargeDetection, HasEarDetection {
+    override val identifier: PodDevice.Id = PodDevice.Id()
+    override val model: PodDevice.Model = _model
+    override val seenLastAt: Instant = MOCK_NOW
+    override val seenFirstAt: Instant = MOCK_NOW
+    override val seenCounter: Int = 5
+    override val scanResult: BleScanResult = MockPodDataProvider.dummyScanResult(rssi)
+    override val reliability: Float = 1.0f
+    override val signalQuality: Float = 0.80f
+    override val iconRes: Int = _model.iconRes
+    override val meta: ApplePods.AppleMeta = ApplePods.AppleMeta(
+        isIRKMatch = _isIRKMatch,
+        profile = AppleDeviceProfile(label = _label, model = _model),
+    )
+    override val payload: ProximityPayload = ProximityPayload(
+        public = ProximityPayload.Public(UByteArray(9)),
+        private = if (_hasPrivatePayload) ProximityPayload.Private(UByteArray(8)) else null,
+    )
 
     override fun getLabel(context: Context): String = _model.label
 
