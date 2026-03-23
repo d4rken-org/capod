@@ -99,6 +99,12 @@ class AutoConnect @Inject constructor(
                 log(TAG) { "Auto connect condition ($condition) is not fullfilled: ${decision.reason}" }
                 return@map
             }
+
+            if (!bluetoothManager.isNudgeAvailable) {
+                log(TAG, WARN) { "nudgeConnection is not available on this device, skipping" }
+                return@map
+            }
+
             val result = bluetoothManager.nudgeConnection(bondedDevice)
             log(TAG) { "nudgeConnection($bondedDevice) returned $result" }
         }
