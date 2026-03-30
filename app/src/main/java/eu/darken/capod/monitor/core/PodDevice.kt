@@ -15,6 +15,7 @@ import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import java.time.Duration
 import java.time.Instant
 
 /**
@@ -45,8 +46,25 @@ data class PodDevice(
     // Signal / timing
     val seenLastAt: Instant? get() = ble?.seenLastAt
     val seenFirstAt: Instant? get() = ble?.seenFirstAt
-    val signalQuality: Float get() = ble?.signalQuality ?: 0f
+    val signalQuality: Float
+        get() {
+            val bleQuality = ble?.signalQuality ?: 0f
+            return (bleQuality + computeAapBoost(Instant.now())).coerceAtMost(1f)
+        }
     val rssi: Int get() = ble?.rssi ?: 0
+
+    internal fun computeAapBoost(now: Instant): Float {
+        val state = aap ?: return 0f
+        if (state.connectionState != AapPodState.ConnectionState.READY) return 0.05f
+        val lastMessage = state.lastMessageAt ?: return 0.05f
+        val ageSeconds = Duration.between(lastMessage, now).seconds
+        return when {
+            ageSeconds < 0 -> 0.05f   // future timestamp (defensive)
+            ageSeconds < 10 -> 0.15f  // fresh
+            ageSeconds < 30 -> 0.10f  // warm
+            else -> 0.05f             // stale
+        }
+    }
 
     // Battery — AAP preferred, BLE fallback
     val batteryLeft: Float?

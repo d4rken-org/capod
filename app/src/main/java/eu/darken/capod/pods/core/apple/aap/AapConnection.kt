@@ -13,6 +13,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
+import java.time.Instant
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -179,7 +180,7 @@ internal class AapConnection(
 
         // Try battery
         profile.decodeBattery(message)?.let { batteries ->
-            _state.value = _state.value.copy(batteries = batteries)
+            _state.value = _state.value.copy(batteries = batteries, lastMessageAt = Instant.now())
             log(TAG) { "Battery update: ${batteries.entries.map { "${it.key}=${(it.value.percent * 100).toInt()}% ${it.value.charging}" }}" }
             return
         }
@@ -187,20 +188,21 @@ internal class AapConnection(
         // Try private key response
         profile.decodePrivateKeyResponse(message)?.let { keys ->
             log(TAG) { "Private keys received: IRK=${keys.irk != null}, ENC=${keys.encKey != null}" }
+            _state.value = _state.value.copy(lastMessageAt = Instant.now())
             _keysReceived.tryEmit(keys)
             return
         }
 
         // Try device info
         profile.decodeDeviceInfo(message)?.let { info ->
-            _state.value = _state.value.copy(deviceInfo = info)
+            _state.value = _state.value.copy(deviceInfo = info, lastMessageAt = Instant.now())
             log(TAG) { "Device info: ${info.name} (${info.modelNumber})" }
             return
         }
 
         // Try setting update (merge into existing state)
         profile.decodeSetting(message)?.let { (key, value) ->
-            _state.value = _state.value.withSetting(key, value)
+            _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
             log(TAG) { "Setting: ${key.simpleName} = $value" }
             return
         }
