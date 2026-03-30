@@ -88,6 +88,13 @@ fun AcknowledgementsScreen(
             }
             item {
                 SettingsBaseItem(
+                    title = "LibrePods project",
+                    subtitle = "Thanks to Kavish Devar for all the reverse engineering work.",
+                    onClick = { onOpenUrl("https://github.com/kavishdevar/librepods") },
+                )
+            }
+            item {
+                SettingsBaseItem(
                     title = "FuriousMAC",
                     subtitle = "Research on the continuity protocol",
                     onClick = { onOpenUrl("https://github.com/furiousMAC/continuity") },
@@ -122,6 +129,20 @@ fun AcknowledgementsScreen(
                     title = "Zwicon Icon Set",
                     subtitle = "Creative Commons Attribution 4.0 International",
                     onClick = { onOpenUrl("https://iconduck.com/sets/zwicon-icon-set") },
+                )
+            }
+            item {
+                SettingsBaseItem(
+                    title = "MagicPodsCore",
+                    subtitle = "Backend service for managing AirPods on Linux. (GPL-3.0)",
+                    onClick = { onOpenUrl("https://github.com/steam3d/MagicPodsCore") },
+                )
+            }
+            item {
+                SettingsBaseItem(
+                    title = "LibrePods",
+                    subtitle = "Unlocking AirPods features on non-Apple devices. (GPL-3.0)",
+                    onClick = { onOpenUrl("https://github.com/kavishdevar/librepods") },
                 )
             }
             item {
