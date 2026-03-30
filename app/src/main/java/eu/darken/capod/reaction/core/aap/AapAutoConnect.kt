@@ -7,8 +7,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.monitor.core.BlePodMonitor
-import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionManager
-import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow

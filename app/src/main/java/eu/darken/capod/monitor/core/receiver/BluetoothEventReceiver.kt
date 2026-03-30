@@ -12,7 +12,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
+import eu.darken.capod.pods.core.apple.ble.protocol.ContinuityProtocol
 import javax.inject.Inject
 
 @AndroidEntryPoint

@@ -54,8 +54,8 @@ import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Instant
 
 @Composable

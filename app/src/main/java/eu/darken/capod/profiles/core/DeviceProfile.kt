@@ -1,7 +1,7 @@
 package eu.darken.capod.profiles.core
 
 import android.os.Parcelable
-import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.PodModel
 import kotlinx.serialization.Serializable
 
 @Serializable

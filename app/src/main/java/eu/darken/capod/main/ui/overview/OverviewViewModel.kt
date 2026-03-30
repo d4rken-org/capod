@@ -20,9 +20,9 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.apple.protocol.aap.AapCommand
-import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionManager
-import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
+import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay

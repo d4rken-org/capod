@@ -1,6 +1,6 @@
 package eu.darken.capod.monitor.core
 
-import eu.darken.capod.pods.core.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

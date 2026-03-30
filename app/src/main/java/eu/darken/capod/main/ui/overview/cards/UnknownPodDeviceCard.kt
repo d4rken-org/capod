@@ -27,7 +27,7 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import java.time.Instant
 
 @Composable

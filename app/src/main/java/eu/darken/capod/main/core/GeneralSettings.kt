@@ -16,9 +16,9 @@ import eu.darken.capod.common.serialization.SerializationCapod
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
-import eu.darken.capod.pods.core.apple.protocol.ble.ProximityEncryptionKey
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
+import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
 import kotlinx.serialization.builtins.nullable
 import kotlinx.serialization.json.Json
 import javax.inject.Inject

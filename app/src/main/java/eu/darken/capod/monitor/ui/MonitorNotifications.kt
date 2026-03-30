@@ -16,8 +16,8 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import javax.inject.Inject
 
 

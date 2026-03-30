@@ -27,7 +27,7 @@ import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
 import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
 import eu.darken.capod.main.ui.widget.WidgetRenderState
 import eu.darken.capod.main.ui.widget.WidgetTheme
-import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.ui.DeviceManagerScreen
 import eu.darken.capod.profiles.ui.DeviceManagerViewModel
 import eu.darken.capod.profiles.ui.creation.DeviceProfileCreationScreen

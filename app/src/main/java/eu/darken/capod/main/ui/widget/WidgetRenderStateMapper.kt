@@ -5,9 +5,9 @@ import androidx.annotation.ColorInt
 import androidx.appcompat.view.ContextThemeWrapper
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.getBatteryDrawable
-import eu.darken.capod.pods.core.toBatteryFloat
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
+import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
 
 object WidgetRenderStateMapper {
 

@@ -26,7 +26,7 @@ import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import eu.darken.capod.R
 import eu.darken.capod.main.ui.MainActivity
-import eu.darken.capod.pods.core.toBatteryOrNull
+import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
 import kotlin.math.roundToInt
 
 @Composable

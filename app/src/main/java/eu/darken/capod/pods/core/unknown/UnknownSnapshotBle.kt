@@ -4,8 +4,8 @@ import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.BlePodSnapshot
-import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
 

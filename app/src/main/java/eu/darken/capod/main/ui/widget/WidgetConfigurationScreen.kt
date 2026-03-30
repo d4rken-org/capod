@@ -77,7 +77,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.core.DeviceProfile
 
 @OptIn(ExperimentalLayoutApi::class)

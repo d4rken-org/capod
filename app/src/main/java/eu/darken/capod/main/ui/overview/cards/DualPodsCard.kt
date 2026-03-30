@@ -48,15 +48,15 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.pods.core.HasPodStyle
-import eu.darken.capod.pods.core.HasStateDetection
-import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.apple.DualApplePods.LidState
-import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
-import eu.darken.capod.pods.core.formatBatteryPercent
-import eu.darken.capod.pods.core.toBatteryFloat
-import eu.darken.capod.pods.core.toBatteryOrNull
+import eu.darken.capod.pods.core.apple.ble.devices.HasPodStyle
+import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods.LidState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
+import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
 import java.time.Duration
 import java.time.Instant
 
