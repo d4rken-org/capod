@@ -3,6 +3,7 @@ package eu.darken.capod.pods.core.apple.beats
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.SingleApplePods
@@ -25,7 +26,7 @@ data class BeatsStudio3(
     private val rssiAverage: Int? = null,
 ) : SingleApplePods {
 
-    override val model: PodDevice.Model = PodDevice.Model.BEATS_STUDIO_3
+    override val model: PodModel = PodModel.BEATS_STUDIO_3
 
     class Factory @Inject constructor(
         private val repo: PodHistoryRepo,

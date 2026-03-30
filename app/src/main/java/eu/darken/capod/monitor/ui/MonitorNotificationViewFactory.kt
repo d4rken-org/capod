@@ -6,7 +6,7 @@ import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.MonitoredDevice
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
 import javax.inject.Inject
@@ -19,7 +19,7 @@ class MonitorNotificationViewFactory @Inject constructor(
 
     fun createContentView(device: MonitoredDevice): RemoteViews = when {
         device.hasDualPods -> createDualPods(device)
-        device.model != PodDevice.Model.UNKNOWN -> createSinglePod(device)
+        device.model != PodModel.UNKNOWN -> createSinglePod(device)
         else -> createUnknownDevice(device)
     }
 
@@ -81,7 +81,7 @@ class MonitorNotificationViewFactory @Inject constructor(
 
     fun createBigContentView(device: MonitoredDevice): RemoteViews = when {
         device.hasDualPods -> createDualPodsBig(device)
-        device.model != PodDevice.Model.UNKNOWN -> createSinglePodBig(device)
+        device.model != PodModel.UNKNOWN -> createSinglePodBig(device)
         else -> createUnknownDeviceBig(device)
     }
 

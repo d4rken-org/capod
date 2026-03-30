@@ -5,7 +5,7 @@ import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.main.core.MonitorMode
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesContainer
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
@@ -145,21 +145,21 @@ class DataStoreMigrationCompatTest : BaseTest() {
 
     @Test
     fun `PodDevice Model encodes to canonical string`() {
-        json.encodeToString(serializer<PodDevice.Model>(), PodDevice.Model.AIRPODS_PRO) shouldBe "\"airpods.pro\""
+        json.encodeToString(serializer<PodModel>(), PodModel.AIRPODS_PRO) shouldBe "\"airpods.pro\""
     }
 
     @Test
     fun `all PodDevice Model values round-trip`() {
-        for (model in PodDevice.Model.entries) {
-            val encoded = json.encodeToString(serializer<PodDevice.Model>(), model)
-            json.decodeFromString(serializer<PodDevice.Model>(), encoded) shouldBe model
+        for (model in PodModel.entries) {
+            val encoded = json.encodeToString(serializer<PodModel>(), model)
+            json.decodeFromString(serializer<PodModel>(), encoded) shouldBe model
         }
     }
 
     @Test
     fun `PodDevice Model legacy string decodes correctly`() {
         val legacyOutput = "\"airpods.pro\""
-        json.decodeFromString(serializer<PodDevice.Model>(), legacyOutput) shouldBe PodDevice.Model.AIRPODS_PRO
+        json.decodeFromString(serializer<PodModel>(), legacyOutput) shouldBe PodModel.AIRPODS_PRO
     }
 
     @Test
@@ -186,7 +186,7 @@ class DataStoreMigrationCompatTest : BaseTest() {
         val profile = result.profiles[0] as AppleDeviceProfile
         profile.id shouldBe "test-uuid"
         profile.label shouldBe "My AirPods Pro"
-        profile.model shouldBe PodDevice.Model.AIRPODS_PRO
+        profile.model shouldBe PodModel.AIRPODS_PRO
         profile.minimumSignalQuality shouldBe 0.15f
         profile.address shouldBe "AA:BB:CC:DD:EE:FF"
         profile.identityKey shouldBe null
@@ -200,7 +200,7 @@ class DataStoreMigrationCompatTest : BaseTest() {
                 AppleDeviceProfile(
                     id = "round-trip-id",
                     label = "Test Profile",
-                    model = PodDevice.Model.AIRPODS_GEN2,
+                    model = PodModel.AIRPODS_GEN2,
                     address = "11:22:33:44:55:66",
                 )
             )
@@ -212,7 +212,7 @@ class DataStoreMigrationCompatTest : BaseTest() {
         val profile = decoded.profiles[0] as AppleDeviceProfile
         profile.id shouldBe "round-trip-id"
         profile.label shouldBe "Test Profile"
-        profile.model shouldBe PodDevice.Model.AIRPODS_GEN2
+        profile.model shouldBe PodModel.AIRPODS_GEN2
         profile.address shouldBe "11:22:33:44:55:66"
     }
 

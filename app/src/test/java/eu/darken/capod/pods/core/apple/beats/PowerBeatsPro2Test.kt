@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.beats
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
@@ -35,7 +35,7 @@ class PowerBeatsPro2Test : BaseAirPodsTest() {
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.RED.name
 
-            model shouldBe PodDevice.Model.POWERBEATS_PRO2
+            model shouldBe PodModel.POWERBEATS_PRO2
         }
     }
 
@@ -55,7 +55,7 @@ class PowerBeatsPro2Test : BaseAirPodsTest() {
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.RED.name
 
-            model shouldBe PodDevice.Model.POWERBEATS_PRO2
+            model shouldBe PodModel.POWERBEATS_PRO2
         }
     }
 }

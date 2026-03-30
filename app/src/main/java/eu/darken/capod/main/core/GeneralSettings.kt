@@ -16,7 +16,7 @@ import eu.darken.capod.common.serialization.SerializationCapod
 import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
 import kotlinx.serialization.builtins.nullable
@@ -54,7 +54,8 @@ class GeneralSettings @Inject constructor(
         writer = { value -> value },
     )
 
-    val oldMainDeviceModel = dataStore.createValue("core.maindevice.model", PodDevice.Model.UNKNOWN, json, onErrorFallbackToDefault = true)
+    val oldMainDeviceModel =
+        dataStore.createValue("core.maindevice.model", PodModel.UNKNOWN, json, onErrorFallbackToDefault = true)
 
     val oldMainDeviceIdentityKey = dataStore.createValue<IdentityResolvingKey?>(
         key = "core.maindevice.identitykey",

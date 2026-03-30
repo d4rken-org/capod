@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.airpods
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -26,7 +26,7 @@ class AirPodsMaxUsbcTest : BaseAirPodsTest() {
 
             isHeadsetBeingCharged shouldBe false
 
-            model shouldBe PodDevice.Model.AIRPODS_MAX_USBC
+            model shouldBe PodModel.AIRPODS_MAX_USBC
         }
     }
 }

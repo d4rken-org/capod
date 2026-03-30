@@ -3,6 +3,7 @@ package eu.darken.capod.pods.core.apple.airpods
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -27,7 +28,7 @@ data class AirPodsGen2(
     private val cachedCaseState: DualApplePods.LidState? = null
 ) : DualApplePods, HasStateDetectionAirPods {
 
-    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_GEN2
+    override val model: PodModel = PodModel.AIRPODS_GEN2
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage

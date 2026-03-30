@@ -8,14 +8,14 @@ import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.main.core.MonitorMode
-import kotlinx.serialization.builtins.nullable
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesContainer
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.serialization.builtins.nullable
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
@@ -23,7 +23,6 @@ import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
 import java.io.File
 import java.time.Instant
-import eu.darken.capod.common.datastore.value
 
 class DataStoreValueSerializationTest : BaseTest() {
 
@@ -59,9 +58,9 @@ class DataStoreValueSerializationTest : BaseTest() {
     @Test
     fun `enum round-trip - PodDevice Model`() = runTest2 {
         val ds = createDataStore()
-        val pref = ds.createValue("model", PodDevice.Model.UNKNOWN, json)
+        val pref = ds.createValue("model", PodModel.UNKNOWN, json)
 
-        PodDevice.Model.entries.forEach { model ->
+        PodModel.entries.forEach { model ->
             pref.value(model)
             pref.value() shouldBe model
         }
@@ -75,7 +74,7 @@ class DataStoreValueSerializationTest : BaseTest() {
                 AppleDeviceProfile(
                     id = "test-id-1",
                     label = "My AirPods",
-                    model = PodDevice.Model.AIRPODS_PRO,
+                    model = PodModel.AIRPODS_PRO,
                     address = "AA:BB:CC:DD:EE:FF",
                 )
             )
@@ -89,7 +88,7 @@ class DataStoreValueSerializationTest : BaseTest() {
         val profile = result.profiles[0] as AppleDeviceProfile
         profile.id shouldBe "test-id-1"
         profile.label shouldBe "My AirPods"
-        profile.model shouldBe PodDevice.Model.AIRPODS_PRO
+        profile.model shouldBe PodModel.AIRPODS_PRO
         profile.address shouldBe "AA:BB:CC:DD:EE:FF"
     }
 
@@ -229,7 +228,7 @@ class DataStoreValueSerializationTest : BaseTest() {
         val profile: DeviceProfile = AppleDeviceProfile(
             id = "poly-test",
             label = "Test Profile",
-            model = PodDevice.Model.AIRPODS_GEN2,
+            model = PodModel.AIRPODS_GEN2,
             identityKey = byteArrayOf(0x01, 0x02),
             encryptionKey = byteArrayOf(0x03, 0x04),
         )
@@ -243,7 +242,7 @@ class DataStoreValueSerializationTest : BaseTest() {
         val restored = result.profiles[0] as AppleDeviceProfile
         restored.id shouldBe "poly-test"
         restored.label shouldBe "Test Profile"
-        restored.model shouldBe PodDevice.Model.AIRPODS_GEN2
+        restored.model shouldBe PodModel.AIRPODS_GEN2
         restored.identityKey!!.toList() shouldBe listOf<Byte>(0x01, 0x02)
         restored.encryptionKey!!.toList() shouldBe listOf<Byte>(0x03, 0x04)
     }

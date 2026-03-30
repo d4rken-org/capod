@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.beats
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -24,7 +24,7 @@ class BeatsXTest : BaseAirPodsTest() {
 
             batteryHeadsetPercent shouldBe 0.5f
 
-            model shouldBe PodDevice.Model.BEATS_X
+            model shouldBe PodModel.BEATS_X
         }
     }
 }

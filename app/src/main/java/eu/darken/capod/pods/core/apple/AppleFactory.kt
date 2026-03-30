@@ -7,6 +7,7 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
@@ -98,7 +99,7 @@ class AppleFactory @Inject constructor(
                 meta = ApplePods.AppleMeta(),
             )
             profile = profiles
-                .filter { it.model == PodDevice.Model.UNKNOWN || it.model == tempDevice.model }
+                .filter { it.model == PodModel.UNKNOWN || it.model == tempDevice.model }
                 .firstOrNull { it.minimumSignalQuality <= tempDevice.signalQuality }
         }
 

@@ -4,7 +4,7 @@ import android.bluetooth.BluetoothDevice
 import android.util.Log
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -36,7 +36,7 @@ class AapConnectionManager @Inject constructor(
     suspend fun connect(
         address: BluetoothAddress,
         device: BluetoothDevice,
-        model: PodDevice.Model,
+        model: PodModel,
     ) {
         if (connections.containsKey(address)) {
             Log.d(TAG, "Already connected to $address")

@@ -4,8 +4,9 @@ import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
 
 data class UnknownDevice(
@@ -19,7 +20,7 @@ data class UnknownDevice(
     private val rssiAverage: Int? = null,
 ) : PodDevice {
 
-    override val model: PodDevice.Model = PodDevice.Model.UNKNOWN
+    override val model: PodModel = PodModel.UNKNOWN
 
     override fun getLabel(context: Context): String = context.getString(R.string.pods_unknown_label)
 

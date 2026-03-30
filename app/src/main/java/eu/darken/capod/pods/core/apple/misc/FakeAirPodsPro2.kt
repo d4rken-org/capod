@@ -9,6 +9,7 @@ import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -37,7 +38,7 @@ data class FakeAirPodsPro2(
     private val cachedCaseState: LidState? = null,
 ) : DualApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase {
 
-    override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO2
+    override val model: PodModel = PodModel.FAKE_AIRPODS_PRO2
 
     @get:DrawableRes
     override val iconRes: Int

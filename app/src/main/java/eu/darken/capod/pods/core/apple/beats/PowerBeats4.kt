@@ -3,6 +3,7 @@ package eu.darken.capod.pods.core.apple.beats
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.SingleApplePods
@@ -26,7 +27,7 @@ data class PowerBeats4(
     private val rssiAverage: Int? = null,
 ) : SingleApplePods, HasStateDetectionAirPods {
 
-    override val model: PodDevice.Model = PodDevice.Model.POWERBEATS_4
+    override val model: PodModel = PodModel.POWERBEATS_4
 
     override val rssi: Int
         get() = rssiAverage ?: super<SingleApplePods>.rssi

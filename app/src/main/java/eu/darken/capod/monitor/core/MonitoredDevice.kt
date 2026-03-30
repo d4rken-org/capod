@@ -11,6 +11,7 @@ import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
@@ -27,7 +28,7 @@ data class MonitoredDevice(
     internal val aap: AapPodState?,
 ) {
     // Identity
-    val model: PodDevice.Model get() = ble?.model ?: PodDevice.Model.UNKNOWN
+    val model: PodModel get() = ble?.model ?: PodModel.UNKNOWN
     val address: BluetoothAddress? get() = ble?.address
     val identifier: PodDevice.Id? get() = ble?.identifier
     val meta: PodDevice.Meta? get() = ble?.meta

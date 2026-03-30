@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.SignalCellularAlt
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -23,8 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.SignalCellularAlt
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -36,7 +36,7 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.monitor.core.getSignalQuality
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.toBatteryFloat
@@ -98,7 +98,7 @@ fun PopUpContent(
                 // Device-specific content
                 when {
                     device.hasDualPods -> DualPodContent(device)
-                    device.model != PodDevice.Model.UNKNOWN -> SinglePodContent(device)
+                    device.model != PodModel.UNKNOWN -> SinglePodContent(device)
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))

@@ -9,6 +9,7 @@ import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
@@ -65,7 +66,7 @@ class PodHistoryRepo @Inject constructor(
         val chargingLeft: Boolean,
         val chargingRight: Boolean,
         val color: UByte,
-        val model: PodDevice.Model,
+        val model: PodModel,
     )
 
     suspend fun search(current: ApplePods): KnownDevice? {

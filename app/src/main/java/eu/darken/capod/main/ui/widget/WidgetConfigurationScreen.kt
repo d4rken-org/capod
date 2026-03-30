@@ -24,10 +24,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
-import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBars
@@ -77,7 +77,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.profiles.core.DeviceProfile
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -413,7 +413,7 @@ private fun ProfileSelectionItem(
                     style = MaterialTheme.typography.bodyLarge,
                 )
                 val modelText = when (profile.model) {
-                    PodDevice.Model.UNKNOWN -> stringResource(R.string.pods_unknown_label)
+                    PodModel.UNKNOWN -> stringResource(R.string.pods_unknown_label)
                     else -> profile.model.label
                 }
                 Text(
@@ -456,7 +456,9 @@ private fun WidgetConfigPreview(
         tonalElevation = 2.dp,
     ) {
         Box(
-            modifier = Modifier.fillMaxWidth().padding(24.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp),
             contentAlignment = Alignment.Center,
         ) {
             if (hasTransparency) {
@@ -691,8 +693,8 @@ private fun HexColorInput(
 @Composable
 private fun WidgetConfigurationScreenPreview() = PreviewWrapper {
     val profiles = listOf(
-        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
-        MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+        MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
+        MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),
     )
     WidgetConfigurationScreen(
         state = WidgetConfigurationViewModel.State(
@@ -720,7 +722,7 @@ private fun WidgetConfigurationScreenPreview() = PreviewWrapper {
 @Composable
 private fun WidgetConfigurationScreenCustomPreview() = PreviewWrapper {
     val profiles = listOf(
-        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
+        MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
     )
     WidgetConfigurationScreen(
         state = WidgetConfigurationViewModel.State(
@@ -753,7 +755,7 @@ private fun WidgetConfigurationScreenCustomPreview() = PreviewWrapper {
 @Composable
 private fun WidgetConfigurationScreenNonProPreview() = PreviewWrapper {
     val profiles = listOf(
-        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
+        MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
     )
     WidgetConfigurationScreen(
         state = WidgetConfigurationViewModel.State(

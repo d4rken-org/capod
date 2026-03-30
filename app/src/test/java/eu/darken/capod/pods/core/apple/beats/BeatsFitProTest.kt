@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.beats
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
@@ -37,7 +37,7 @@ class BeatsFitProTest : BaseAirPodsTest() {
             batteryCasePercent shouldBe null
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.UNKNOWN.name
 
-            model shouldBe PodDevice.Model.BEATS_FIT_PRO
+            model shouldBe PodModel.BEATS_FIT_PRO
         }
     }
 
@@ -66,7 +66,7 @@ class BeatsFitProTest : BaseAirPodsTest() {
             batteryCasePercent shouldBe 0.2f
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.UNKNOWN.name
 
-            model shouldBe PodDevice.Model.BEATS_FIT_PRO
+            model shouldBe PodModel.BEATS_FIT_PRO
         }
     }
 }
