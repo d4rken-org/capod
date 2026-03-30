@@ -23,6 +23,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.KeyboardVoice
+import androidx.compose.material.icons.outlined.Key
+import androidx.compose.material.icons.twotone.Bluetooth
+import androidx.compose.material.icons.twotone.Key
 import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -42,6 +45,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.monitor.core.BleKeyState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 
 private val CapsuleShape = RoundedCornerShape(6.dp)
@@ -155,6 +161,8 @@ fun StatusChipRow(
 @Composable
 fun SignalBadge(
     signalText: String,
+    bleKeyState: BleKeyState = BleKeyState.NONE,
+    isAapConnected: Boolean = false,
     modifier: Modifier = Modifier,
 ) {
     Surface(
@@ -166,6 +174,27 @@ fun SignalBadge(
             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            if (bleKeyState != BleKeyState.NONE) {
+                Icon(
+                    imageVector = if (bleKeyState == BleKeyState.IRK_AND_ENCRYPTED) Icons.TwoTone.Key else Icons.Outlined.Key,
+                    contentDescription = stringResource(
+                        if (bleKeyState == BleKeyState.IRK_AND_ENCRYPTED) R.string.signal_badge_key_encrypted_cd
+                        else R.string.signal_badge_key_irk_cd
+                    ),
+                    modifier = Modifier.size(12.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(modifier = Modifier.width(3.dp))
+            }
+            if (isAapConnected) {
+                Icon(
+                    imageVector = Icons.TwoTone.Bluetooth,
+                    contentDescription = stringResource(R.string.signal_badge_aap_cd),
+                    modifier = Modifier.size(12.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(modifier = Modifier.width(3.dp))
+            }
             Icon(
                 imageVector = Icons.TwoTone.SettingsInputAntenna,
                 contentDescription = null,
@@ -250,4 +279,22 @@ fun ConversationAwarenessToggle(
             onCheckedChange = onToggle,
         )
     }
+}
+
+@Preview2
+@Composable
+private fun SignalBadgeDefaultPreview() = PreviewWrapper {
+    SignalBadge(signalText = "85%")
+}
+
+@Preview2
+@Composable
+private fun SignalBadgeIrkOnlyPreview() = PreviewWrapper {
+    SignalBadge(signalText = "85%", bleKeyState = BleKeyState.IRK_ONLY)
+}
+
+@Preview2
+@Composable
+private fun SignalBadgeAllIconsPreview() = PreviewWrapper {
+    SignalBadge(signalText = "85%", bleKeyState = BleKeyState.IRK_AND_ENCRYPTED, isAapConnected = true)
 }

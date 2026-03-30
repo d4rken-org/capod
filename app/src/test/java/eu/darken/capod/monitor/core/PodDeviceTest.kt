@@ -11,6 +11,7 @@ import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
+import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -354,5 +355,55 @@ class PodDeviceTest : BaseTest() {
         val now = Instant.parse("2026-01-01T12:00:00Z")
         val device = deviceWithBleQuality(0.50f, aap = null)
         device.computeAapBoost(now) shouldBe 0f
+    }
+
+    // --- bleKeyState tests ---
+
+    @Test
+    fun `bleKeyState - null BLE returns NONE`() {
+        val device = PodDevice(ble = null, aap = null)
+        device.bleKeyState shouldBe BleKeyState.NONE
+    }
+
+    @Test
+    fun `bleKeyState - non-Apple BLE returns NONE`() {
+        val device = PodDevice(ble = mockk(relaxed = true) { every { model } returns PodModel.UNKNOWN }, aap = null)
+        device.bleKeyState shouldBe BleKeyState.NONE
+    }
+
+    @Test
+    fun `bleKeyState - Apple BLE without IRK match returns NONE`() {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { meta } returns ApplePods.AppleMeta(isIRKMatch = false)
+            every { payload } returns ProximityPayload(public = ProximityPayload.Public(UByteArray(9)), private = null)
+        }
+        val device = PodDevice(ble = ble, aap = null)
+        device.bleKeyState shouldBe BleKeyState.NONE
+    }
+
+    @Test
+    fun `bleKeyState - IRK match without private payload returns IRK_ONLY`() {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { meta } returns ApplePods.AppleMeta(isIRKMatch = true)
+            every { payload } returns ProximityPayload(public = ProximityPayload.Public(UByteArray(9)), private = null)
+        }
+        val device = PodDevice(ble = ble, aap = null)
+        device.bleKeyState shouldBe BleKeyState.IRK_ONLY
+    }
+
+    @Test
+    fun `bleKeyState - IRK match with private payload returns IRK_AND_ENCRYPTED`() {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { meta } returns ApplePods.AppleMeta(isIRKMatch = true)
+            every { payload } returns ProximityPayload(
+                public = ProximityPayload.Public(UByteArray(9)),
+                private = ProximityPayload.Private(UByteArray(8)),
+            )
+        }
+        val device = PodDevice(ble = ble, aap = null)
+        device.bleKeyState shouldBe BleKeyState.IRK_AND_ENCRYPTED
     }
 }

@@ -5,6 +5,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
@@ -146,6 +147,21 @@ object MockPodDataProvider {
         model = model,
     )
 
+    // --- Dual pod with Apple keys ---
+
+    fun airPodsProWithKeys(): DualBlePodSnapshot = MockDualAppleBlePodSnapshot(
+        _model = PodModel.AIRPODS_PRO2,
+        _label = "My AirPods Pro",
+        batteryLeftPodPercent = 0.80f,
+        batteryRightPodPercent = 0.45f,
+        _batteryCasePercent = 0.60f,
+        _isIRKMatch = true,
+        _hasPrivatePayload = true,
+        leftPodIcon = R.drawable.device_airpods_pro2_left,
+        rightPodIcon = R.drawable.device_airpods_pro2_right,
+        _caseIcon = R.drawable.device_airpods_pro2_case,
+    )
+
     // --- PodDevice wrappers ---
 
     fun dualPodMonitored(): PodDevice = PodDevice(
@@ -156,6 +172,16 @@ object MockPodDataProvider {
     fun dualPodMonitoredMixed(): PodDevice = PodDevice(
         ble = airPodsProMixed(),
         aap = null,
+    )
+
+    fun dualPodMonitoredWithKeys(): PodDevice = PodDevice(
+        ble = airPodsProWithKeys(),
+        aap = null,
+    )
+
+    fun dualPodMonitoredWithAap(): PodDevice = PodDevice(
+        ble = airPodsProWithKeys(),
+        aap = AapPodState(connectionState = AapPodState.ConnectionState.READY),
     )
 
     fun singlePodMonitored(): PodDevice = PodDevice(
@@ -338,4 +364,63 @@ private class MockSingleAppleBlePodSnapshot(
 
     // HasEarDetection
     override val isBeingWorn: Boolean = _isBeingWorn
+}
+
+@Suppress("PropertyName")
+private class MockDualAppleBlePodSnapshot(
+    private val _model: PodModel,
+    private val _label: String,
+    override val batteryLeftPodPercent: Float?,
+    override val batteryRightPodPercent: Float?,
+    private val _batteryCasePercent: Float?,
+    private val _isCaseCharging: Boolean = false,
+    private val _isLeftPodCharging: Boolean = false,
+    private val _isRightPodCharging: Boolean = false,
+    private val _isLeftPodInEar: Boolean = false,
+    private val _isRightPodInEar: Boolean = false,
+    private val _isLeftPodMicrophone: Boolean = false,
+    private val _isRightPodMicrophone: Boolean = false,
+    private val _isIRKMatch: Boolean = false,
+    private val _hasPrivatePayload: Boolean = false,
+    override val leftPodIcon: Int = R.drawable.device_airpods_gen1_left,
+    override val rightPodIcon: Int = R.drawable.device_airpods_gen1_right,
+    private val _caseIcon: Int = R.drawable.device_airpods_gen1_case,
+    rssi: Int = -50,
+) : DualBlePodSnapshot, ApplePods, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
+    override val model: PodModel = _model
+    override val seenLastAt: Instant = MOCK_NOW
+    override val seenFirstAt: Instant = MOCK_NOW
+    override val seenCounter: Int = 5
+    override val scanResult: BleScanResult = MockPodDataProvider.dummyScanResult(rssi)
+    override val reliability: Float = 1.0f
+    override val signalQuality: Float = 0.75f
+    override val iconRes: Int = _model.iconRes
+    override val meta: ApplePods.AppleMeta = ApplePods.AppleMeta(
+        isIRKMatch = _isIRKMatch,
+        profile = AppleDeviceProfile(label = _label, model = _model),
+    )
+    override val payload: ProximityPayload = ProximityPayload(
+        public = ProximityPayload.Public(UByteArray(9)),
+        private = if (_hasPrivatePayload) ProximityPayload.Private(UByteArray(8)) else null,
+    )
+
+    override fun getLabel(context: Context): String = _model.label
+
+    // HasCase
+    override val batteryCasePercent: Float? = _batteryCasePercent
+    override val isCaseCharging: Boolean = _isCaseCharging
+    override val caseIcon: Int = _caseIcon
+
+    // HasChargeDetectionDual
+    override val isLeftPodCharging: Boolean = _isLeftPodCharging
+    override val isRightPodCharging: Boolean = _isRightPodCharging
+
+    // HasEarDetectionDual
+    override val isLeftPodInEar: Boolean = _isLeftPodInEar
+    override val isRightPodInEar: Boolean = _isRightPodInEar
+
+    // HasDualMicrophone
+    override val isLeftPodMicrophone: Boolean = _isLeftPodMicrophone
+    override val isRightPodMicrophone: Boolean = _isRightPodMicrophone
 }
