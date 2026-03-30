@@ -16,7 +16,7 @@ class PlayPauseLogicTest : BaseTest() {
     fun setup() {
         // Create PlayPause instance with mocked dependencies (relaxed so we don't need to stub everything)
         playPause = PlayPause(
-            podMonitor = mockk(relaxed = true),
+            deviceMonitor = mockk(relaxed = true),
             bluetoothManager = mockk(relaxed = true),
             reactionSettings = mockk(relaxed = true),
             mediaControl = mockk(relaxed = true)

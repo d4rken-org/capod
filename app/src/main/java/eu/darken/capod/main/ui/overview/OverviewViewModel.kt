@@ -17,9 +17,9 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
-import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import java.time.Instant
@@ -40,7 +40,7 @@ import eu.darken.capod.common.datastore.valueBlocking
 class OverviewViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val monitorControl: MonitorControl,
-    private val podMonitor: PodMonitor,
+    private val deviceMonitor: DeviceMonitor,
     private val permissionTool: PermissionTool,
     private val generalSettings: GeneralSettings,
     debugSettings: DebugSettings,
@@ -92,7 +92,7 @@ class OverviewViewModel @Inject constructor(
             if (permissions.isNotEmpty()) {
                 return@flatMapLatest flowOf(emptyList())
             }
-            podMonitor.devices
+            deviceMonitor.devices
         }
         .catch { errorEvents.emitBlocking(it) }
         .throttleLatest(1000)
@@ -122,7 +122,7 @@ class OverviewViewModel @Inject constructor(
     data class State(
         val now: Instant,
         val permissions: Set<Permission>,
-        val devices: List<PodDevice>,
+        val devices: List<MonitoredDevice>,
         val isDebugMode: Boolean,
         val isBluetoothEnabled: Boolean,
         val profiles: List<DeviceProfile>,
@@ -130,8 +130,8 @@ class OverviewViewModel @Inject constructor(
         val showUnmatchedDevices: Boolean,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
-        val profiledDevices: List<PodDevice> get() = devices.filter { it.meta.profile != null }
-        val unmatchedDevices: List<PodDevice> get() = devices.filter { it.meta.profile == null }
+        val profiledDevices: List<MonitoredDevice> get() = devices.filter { it.meta?.profile != null }
+        val unmatchedDevices: List<MonitoredDevice> get() = devices.filter { it.meta?.profile == null }
     }
 
     fun onPermissionResult(@Suppress("UNUSED_PARAMETER") granted: Boolean) {

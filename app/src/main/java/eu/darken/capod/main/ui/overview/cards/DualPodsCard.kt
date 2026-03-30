@@ -44,28 +44,24 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.HasChargeDetectionDual
-import eu.darken.capod.pods.core.HasDualMicrophone
-import eu.darken.capod.pods.core.HasEarDetectionDual
+import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.getSignalQuality
+import eu.darken.capod.monitor.core.lastSeenFormatted
+import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.pods.core.HasPodStyle
 import eu.darken.capod.pods.core.HasStateDetection
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
-import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.toBatteryFloat
 import eu.darken.capod.pods.core.toBatteryOrNull
-import eu.darken.capod.pods.core.getSignalQuality
-import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Duration
 import java.time.Instant
 
 @Composable
 fun DualPodsCard(
-    device: DualPodDevice,
+    device: MonitoredDevice,
     showDebug: Boolean,
     now: Instant,
 ) {
@@ -97,15 +93,16 @@ fun DualPodsCard(
                 Column(modifier = Modifier.weight(1f)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = device.meta.profile?.label ?: "?",
+                            text = device.meta?.profile?.label ?: "?",
                             style = MaterialTheme.typography.titleMedium,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
-                        if (device is ApplePods && device.meta.isIRKMatch) {
+                        val applePod = device.ble as? ApplePods
+                        if (applePod != null && applePod.meta.isIRKMatch) {
                             Spacer(modifier = Modifier.width(6.dp))
                             Icon(
-                                imageVector = if (device.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
+                                imageVector = if (applePod.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -114,11 +111,13 @@ fun DualPodsCard(
                     }
                     val deviceLabel = buildString {
                         append(device.getLabel(context))
-                        if (device is HasPodStyle && showDebug) {
-                            append(" (${device.podStyle.getColor(context)})")
+                        val podStyle = device.ble as? HasPodStyle
+                        if (podStyle != null && showDebug) {
+                            append(" (${podStyle.podStyle.getColor(context)})")
                         }
-                        if (device is DualApplePods && showDebug) {
-                            append(" [${device.primaryPod.name}]")
+                        val dualApple = device.ble as? DualApplePods
+                        if (dualApple != null && showDebug) {
+                            append(" [${dualApple.primaryPod.name}]")
                         }
                     }
                     Text(
@@ -141,7 +140,9 @@ fun DualPodsCard(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            if (Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() >= 1) {
+            val seenFirst = device.seenFirstAt
+            val seenLast = device.seenLastAt
+            if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast).toMinutes() >= 1) {
                 Text(
                     text = stringResource(R.string.first_seen_x, device.firstSeenFormatted(now)),
                     style = MaterialTheme.typography.bodySmall,
@@ -165,30 +166,30 @@ fun DualPodsCard(
                         horizontalArrangement = Arrangement.SpaceEvenly,
                     ) {
                         PodGauge(
-                            iconRes = device.leftPodIcon,
-                            batteryPercent = device.batteryLeftPodPercent.toBatteryFloat(),
-                            isCharging = (device as? HasChargeDetectionDual)?.isLeftPodCharging ?: false,
-                            isInEar = (device as? HasEarDetectionDual)?.isLeftPodInEar ?: false,
-                            showEarDetection = device is HasEarDetectionDual,
-                            isMicrophone = (device as? HasDualMicrophone)?.isLeftPodMicrophone ?: false,
-                            showMicrophone = device is HasDualMicrophone,
+                            iconRes = device.leftPodIcon ?: R.drawable.device_airpods_gen1_left,
+                            batteryPercent = device.batteryLeft.toBatteryFloat(),
+                            isCharging = device.isLeftPodCharging ?: false,
+                            isInEar = device.isLeftInEar ?: false,
+                            showEarDetection = device.hasEarDetection && device.hasDualPods,
+                            isMicrophone = device.isLeftPodMicrophone ?: false,
+                            showMicrophone = device.hasDualMicrophone,
                             modifier = Modifier.weight(1f),
                         )
 
                         PodGauge(
-                            iconRes = device.rightPodIcon,
-                            batteryPercent = device.batteryRightPodPercent.toBatteryFloat(),
-                            isCharging = (device as? HasChargeDetectionDual)?.isRightPodCharging ?: false,
-                            isInEar = (device as? HasEarDetectionDual)?.isRightPodInEar ?: false,
-                            showEarDetection = device is HasEarDetectionDual,
-                            isMicrophone = (device as? HasDualMicrophone)?.isRightPodMicrophone ?: false,
-                            showMicrophone = device is HasDualMicrophone,
+                            iconRes = device.rightPodIcon ?: R.drawable.device_airpods_gen1_right,
+                            batteryPercent = device.batteryRight.toBatteryFloat(),
+                            isCharging = device.isRightPodCharging ?: false,
+                            isInEar = device.isRightInEar ?: false,
+                            showEarDetection = device.hasEarDetection && device.hasDualPods,
+                            isMicrophone = device.isRightPodMicrophone ?: false,
+                            showMicrophone = device.hasDualMicrophone,
                             modifier = Modifier.weight(1f),
                         )
                     }
 
                     // Case row
-                    if (device is HasCase) {
+                    if (device.hasCase) {
                         HorizontalDivider(
                             modifier = Modifier.padding(vertical = 12.dp),
                             color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
@@ -200,10 +201,11 @@ fun DualPodsCard(
             }
 
             // Connection state
-            if (device is HasStateDetection) {
+            val stateDetection = device.ble as? HasStateDetection
+            if (stateDetection != null) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = device.state.getLabel(context),
+                    text = stateDetection.state.getLabel(context),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -314,7 +316,7 @@ private fun PodGauge(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CaseRow(
-    device: HasCase,
+    device: MonitoredDevice,
 ) {
     val context = LocalContext.current
 
@@ -323,7 +325,7 @@ private fun CaseRow(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Image(
-            painter = painterResource(device.caseIcon),
+            painter = painterResource(device.caseIcon ?: R.drawable.device_airpods_gen1_case),
             contentDescription = null,
             modifier = Modifier.size(28.dp),
         )
@@ -331,13 +333,13 @@ private fun CaseRow(
         Spacer(modifier = Modifier.width(8.dp))
 
         Text(
-            text = formatBatteryPercent(context, device.batteryCasePercent),
+            text = formatBatteryPercent(context, device.batteryCase),
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.padding(end = 8.dp),
         )
 
         BatteryCapsule(
-            percent = device.batteryCasePercent.toBatteryFloat(),
+            percent = device.batteryCase.toBatteryFloat(),
             modifier = Modifier
                 .weight(1f)
                 .height(8.dp),
@@ -349,25 +351,23 @@ private fun CaseRow(
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
-            if (device.isCaseCharging) {
+            if (device.isCaseCharging == true) {
                 StatusChip(
                     icon = Icons.TwoTone.BatteryChargingFull,
                     label = stringResource(R.string.pods_charging_label),
                 )
             }
 
-            if (device is DualApplePods) {
-                val lidState = device.caseLidState
-                if (lidState == LidState.OPEN || lidState == LidState.CLOSED) {
-                    StatusChip(
-                        icon = Icons.TwoTone.GridView,
-                        label = when (lidState) {
-                            LidState.OPEN -> stringResource(R.string.pods_case_status_open_label)
-                            LidState.CLOSED -> stringResource(R.string.pods_case_status_closed_label)
-                            else -> ""
-                        },
-                    )
-                }
+            val lidState = device.caseLidState
+            if (lidState == LidState.OPEN || lidState == LidState.CLOSED) {
+                StatusChip(
+                    icon = Icons.TwoTone.GridView,
+                    label = when (lidState) {
+                        LidState.OPEN -> stringResource(R.string.pods_case_status_open_label)
+                        LidState.CLOSED -> stringResource(R.string.pods_case_status_closed_label)
+                        else -> ""
+                    },
+                )
             }
         }
     }
@@ -376,41 +376,17 @@ private fun CaseRow(
 @Preview2
 @Composable
 private fun DualPodsCardFullChargePreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.airPodsProFullCharge(), showDebug = false, now = Instant.now())
+    DualPodsCard(device = MockPodDataProvider.dualPodMonitored(), showDebug = false, now = Instant.now())
 }
 
 @Preview2
 @Composable
 private fun DualPodsCardMixedBatteryPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.airPodsProMixed(), showDebug = false, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardLowBatteryPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.airPodsProLowBattery(), showDebug = false, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardInCasePreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.airPodsProInCase(), showDebug = false, now = Instant.now())
+    DualPodsCard(device = MockPodDataProvider.dualPodMonitoredMixed(), showDebug = false, now = Instant.now())
 }
 
 @Preview2
 @Composable
 private fun DualPodsCardDebugPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.airPodsProMixed(), showDebug = true, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardNoCasePreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.powerBeatsPro(), showDebug = false, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardMicrophonePreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.airPodsGen1Wearing(), showDebug = false, now = Instant.now())
+    DualPodsCard(device = MockPodDataProvider.dualPodMonitoredMixed(), showDebug = true, now = Instant.now())
 }

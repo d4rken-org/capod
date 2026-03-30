@@ -47,9 +47,9 @@ internal fun DashboardContent() = PreviewWrapper {
             now = MOCK_NOW,
             permissions = emptySet(),
             devices = listOf(
-                MockPodDataProvider.airPodsProMixed(),
-                MockPodDataProvider.airPodsMax(),
-                MockPodDataProvider.unknownDevice(),
+                MockPodDataProvider.dualPodMonitoredMixed(),
+                MockPodDataProvider.singlePodMonitored(),
+                MockPodDataProvider.unknownMonitored(),
             ),
             isDebugMode = false,
             isBluetoothEnabled = true,
@@ -201,7 +201,7 @@ internal fun CasePopUpContent() {
             contentAlignment = Alignment.Center,
         ) {
             PopUpCard(
-                device = MockPodDataProvider.airPodsProMixed(),
+                device = MockPodDataProvider.dualPodMonitoredMixed(),
                 onClose = {},
                 modifier = Modifier.padding(horizontal = 32.dp),
             )

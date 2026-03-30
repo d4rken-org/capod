@@ -21,10 +21,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.getSignalQuality
+import eu.darken.capod.monitor.core.lastSeenFormatted
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.getSignalQuality
-import eu.darken.capod.pods.core.lastSeenFormatted
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
@@ -32,7 +32,7 @@ import java.time.Instant
 
 @Composable
 fun UnknownPodDeviceCard(
-    device: PodDevice,
+    device: MonitoredDevice,
     showDebug: Boolean,
     now: Instant,
 ) {
@@ -82,9 +82,10 @@ fun UnknownPodDeviceCard(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = when (device) {
-                    is ApplePods -> stringResource(R.string.pods_unknown_contact_dev)
-                    else -> stringResource(R.string.pods_unknown_label)
+                text = if (device.ble is ApplePods) {
+                    stringResource(R.string.pods_unknown_contact_dev)
+                } else {
+                    stringResource(R.string.pods_unknown_label)
                 },
                 style = MaterialTheme.typography.bodyMedium,
             )
@@ -110,11 +111,11 @@ fun UnknownPodDeviceCard(
 @Preview2
 @Composable
 private fun UnknownPodDeviceCardPreview() = PreviewWrapper {
-    UnknownPodDeviceCard(device = MockPodDataProvider.unknownDevice(), showDebug = false, now = Instant.now())
+    UnknownPodDeviceCard(device = MockPodDataProvider.unknownMonitored(), showDebug = false, now = Instant.now())
 }
 
 @Preview2
 @Composable
 private fun UnknownPodDeviceCardDebugPreview() = PreviewWrapper {
-    UnknownPodDeviceCard(device = MockPodDataProvider.unknownDevice(), showDebug = true, now = Instant.now())
+    UnknownPodDeviceCard(device = MockPodDataProvider.unknownMonitored(), showDebug = true, now = Instant.now())
 }

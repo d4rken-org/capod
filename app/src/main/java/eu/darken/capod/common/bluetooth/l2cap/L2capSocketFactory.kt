@@ -5,6 +5,8 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import android.util.Log
 import java.io.IOException
+import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Creates BR/EDR L2CAP sockets for connecting to devices like AirPods.
@@ -12,11 +14,12 @@ import java.io.IOException
  * Tries the public [android.bluetooth.BluetoothSocketSettings] API first (API 37+).
  * Falls back to the hidden `createInsecureL2capSocket` method via [HiddenApiBypass].
  */
+@Singleton
 @SuppressLint("MissingPermission")
-object L2capSocketFactory {
+class L2capSocketFactory @Inject constructor() {
 
-    private const val TAG = "L2capSocketFactory"
-    private const val TYPE_L2CAP = 3
+    private val TAG = "L2capSocketFactory"
+    private val TYPE_L2CAP = 3
 
     /**
      * Creates an insecure BR/EDR L2CAP socket for the given [device] and [psm].

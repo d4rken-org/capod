@@ -8,7 +8,8 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
-import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.profiles.core.AppleDeviceProfile
@@ -44,7 +45,7 @@ class OverviewViewModelTest : BaseTest() {
     private val testDispatcher = UnconfinedTestDispatcher()
 
     private lateinit var monitorControl: MonitorControl
-    private lateinit var podMonitor: PodMonitor
+    private lateinit var deviceMonitor: DeviceMonitor
     private lateinit var permissionTool: PermissionTool
     private lateinit var generalSettings: GeneralSettings
     private lateinit var debugSettings: DebugSettings
@@ -53,7 +54,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var profilesRepo: DeviceProfilesRepo
 
     private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
-    private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
+    private lateinit var devicesFlow: MutableStateFlow<List<MonitoredDevice>>
     private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
     private lateinit var isBluetoothEnabledFlow: MutableStateFlow<Boolean>
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
@@ -76,7 +77,7 @@ class OverviewViewModelTest : BaseTest() {
 
         monitorControl = mockk(relaxed = true)
 
-        podMonitor = mockk<PodMonitor>().also {
+        deviceMonitor = mockk<DeviceMonitor>().also {
             every { it.devices } returns devicesFlow
         }
 
@@ -117,7 +118,7 @@ class OverviewViewModelTest : BaseTest() {
     private fun createViewModel() = OverviewViewModel(
         dispatcherProvider = TestDispatcherProvider(testDispatcher),
         monitorControl = monitorControl,
-        podMonitor = podMonitor,
+        deviceMonitor = deviceMonitor,
         permissionTool = permissionTool,
         generalSettings = generalSettings,
         debugSettings = debugSettings,
@@ -153,7 +154,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `devices passed through when permissions granted`() = runTest(testDispatcher) {
-            val device = mockk<PodDevice>(relaxed = true)
+            val device = MonitoredDevice(ble = mockk(relaxed = true), aap = null)
             devicesFlow.value = listOf(device)
 
             val vm = createViewModel()
@@ -170,8 +171,14 @@ class OverviewViewModelTest : BaseTest() {
             val withoutProfile = object : PodDevice.Meta {
                 override val profile: DeviceProfile? = null
             }
-            val profiled = mockk<PodDevice>(relaxed = true) { every { meta } returns withProfile }
-            val unmatched = mockk<PodDevice>(relaxed = true) { every { meta } returns withoutProfile }
+            val profiled = MonitoredDevice(
+                ble = mockk(relaxed = true) { every { meta } returns withProfile },
+                aap = null,
+            )
+            val unmatched = MonitoredDevice(
+                ble = mockk(relaxed = true) { every { meta } returns withoutProfile },
+                aap = null,
+            )
 
             val state = OverviewViewModel.State(
                 now = java.time.Instant.now(),
@@ -195,8 +202,14 @@ class OverviewViewModelTest : BaseTest() {
             val withoutProfile = object : PodDevice.Meta {
                 override val profile: DeviceProfile? = null
             }
-            val profiled = mockk<PodDevice>(relaxed = true) { every { meta } returns withProfile }
-            val unmatched = mockk<PodDevice>(relaxed = true) { every { meta } returns withoutProfile }
+            val profiled = MonitoredDevice(
+                ble = mockk(relaxed = true) { every { meta } returns withProfile },
+                aap = null,
+            )
+            val unmatched = MonitoredDevice(
+                ble = mockk(relaxed = true) { every { meta } returns withoutProfile },
+                aap = null,
+            )
 
             val state = OverviewViewModel.State(
                 now = java.time.Instant.now(),

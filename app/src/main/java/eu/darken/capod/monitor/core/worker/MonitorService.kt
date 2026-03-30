@@ -26,6 +26,7 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
@@ -64,6 +65,7 @@ class MonitorService : Service() {
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var permissionTool: PermissionTool
     @Inject lateinit var podMonitor: PodMonitor
+    @Inject lateinit var deviceMonitor: DeviceMonitor
     @Inject lateinit var bluetoothManager: BluetoothManager2
     @Inject lateinit var playPause: PlayPause
     @Inject lateinit var autoConnect: AutoConnect
@@ -176,7 +178,7 @@ class MonitorService : Service() {
             return
         }
 
-        val monitorJob = podMonitor.primaryDevice()
+        val monitorJob = deviceMonitor.primaryDevice()
             .setupCommonEventHandlers(TAG) { "PodMonitor" }
             .distinctUntilChanged()
             .throttleLatest(1000)

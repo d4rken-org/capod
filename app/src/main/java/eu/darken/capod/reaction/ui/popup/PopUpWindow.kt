@@ -23,7 +23,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.monitor.core.MonitoredDevice
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -50,9 +50,9 @@ class PopUpWindow @Inject constructor(
 
     private var composeView: ComposeView? = null
     private var lifecycleOwner: OverlayLifecycleOwner? = null
-    private var deviceState: MutableState<PodDevice?>? = null
+    private var deviceState: MutableState<MonitoredDevice?>? = null
 
-    fun show(device: PodDevice) {
+    fun show(device: MonitoredDevice) {
         try {
             log(TAG) { "open()" }
 
@@ -64,7 +64,7 @@ class PopUpWindow @Inject constructor(
 
             teardown()
 
-            val state = mutableStateOf<PodDevice?>(device)
+            val state = mutableStateOf<MonitoredDevice?>(device)
             deviceState = state
 
             val owner = OverlayLifecycleOwner()

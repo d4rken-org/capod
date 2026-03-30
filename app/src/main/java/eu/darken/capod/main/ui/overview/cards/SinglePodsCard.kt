@@ -44,27 +44,25 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.pods.core.HasChargeDetection
-import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.getSignalQuality
+import eu.darken.capod.monitor.core.lastSeenFormatted
+import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.firstSeenFormatted
 import eu.darken.capod.pods.core.formatBatteryPercent
-import eu.darken.capod.pods.core.getSignalQuality
-import eu.darken.capod.pods.core.lastSeenFormatted
 import java.time.Duration
 import java.time.Instant
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SinglePodsCard(
-    device: SinglePodDevice,
+    device: MonitoredDevice,
     showDebug: Boolean,
     now: Instant,
 ) {
     val context = LocalContext.current
 
-    val clamped = device.batteryHeadsetPercent?.coerceIn(0f, 1f)
+    val clamped = device.batteryHeadset?.coerceIn(0f, 1f)
     val animatedProgress by animateFloatAsState(
         targetValue = clamped ?: 0f,
         animationSpec = tween(600, easing = FastOutSlowInEasing),
@@ -104,15 +102,16 @@ fun SinglePodsCard(
                 Column(modifier = Modifier.weight(1f)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = device.meta.profile?.label ?: "?",
+                            text = device.meta?.profile?.label ?: "?",
                             style = MaterialTheme.typography.titleMedium,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                         )
-                        if (device is ApplePods && device.meta.isIRKMatch) {
+                        val applePod = device.ble as? ApplePods
+                        if (applePod != null && applePod.meta.isIRKMatch) {
                             Spacer(modifier = Modifier.width(6.dp))
                             Icon(
-                                imageVector = if (device.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
+                                imageVector = if (applePod.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
                                 contentDescription = null,
                                 modifier = Modifier.size(14.dp),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -139,7 +138,9 @@ fun SinglePodsCard(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            if (Duration.between(device.seenFirstAt, device.seenLastAt).toMinutes() >= 1) {
+            val seenFirst = device.seenFirstAt
+            val seenLast = device.seenLastAt
+            if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast).toMinutes() >= 1) {
                 Text(
                     text = stringResource(R.string.first_seen_x, device.firstSeenFormatted(now)),
                     style = MaterialTheme.typography.bodySmall,
@@ -189,9 +190,9 @@ fun SinglePodsCard(
 
                         // Battery text inside ring
                         Text(
-                            text = formatBatteryPercent(context, device.batteryHeadsetPercent),
+                            text = formatBatteryPercent(context, device.batteryHeadset),
                             style = MaterialTheme.typography.headlineMedium,
-                            color = if (device.batteryHeadsetPercent != null) {
+                            color = if (device.batteryHeadset != null) {
                                 MaterialTheme.colorScheme.onSurface
                             } else {
                                 MaterialTheme.colorScheme.onSurfaceVariant
@@ -207,13 +208,13 @@ fun SinglePodsCard(
                         horizontalArrangement = Arrangement.spacedBy(4.dp),
                         verticalArrangement = Arrangement.spacedBy(4.dp),
                     ) {
-                        if (device is HasChargeDetection && device.isHeadsetBeingCharged) {
+                        if (device.isHeadsetBeingCharged == true) {
                             StatusChip(
                                 icon = Icons.TwoTone.BatteryChargingFull,
                                 label = stringResource(R.string.pods_charging_label),
                             )
                         }
-                        if (device is HasEarDetection && device.isBeingWorn) {
+                        if (device.isBeingWorn == true) {
                             StatusChip(
                                 icon = Icons.TwoTone.Hearing,
                                 label = stringResource(R.string.pods_inear_label),
@@ -233,18 +234,12 @@ fun SinglePodsCard(
 
 @Preview2
 @Composable
-private fun SinglePodsCardWearingPreview() = PreviewWrapper {
-    SinglePodsCard(device = MockPodDataProvider.airPodsMax(), showDebug = false, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun SinglePodsCardChargingPreview() = PreviewWrapper {
-    SinglePodsCard(device = MockPodDataProvider.airPodsMaxCharging(), showDebug = false, now = Instant.now())
+private fun SinglePodsCardPreview() = PreviewWrapper {
+    SinglePodsCard(device = MockPodDataProvider.singlePodMonitored(), showDebug = false, now = Instant.now())
 }
 
 @Preview2
 @Composable
 private fun SinglePodsCardDebugPreview() = PreviewWrapper {
-    SinglePodsCard(device = MockPodDataProvider.beatsSolo3(), showDebug = true, now = Instant.now())
+    SinglePodsCard(device = MockPodDataProvider.singlePodMonitored(), showDebug = true, now = Instant.now())
 }

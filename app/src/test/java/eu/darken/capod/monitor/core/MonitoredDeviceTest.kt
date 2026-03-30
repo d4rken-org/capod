@@ -1,5 +1,10 @@
 package eu.darken.capod.monitor.core
 
+import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasChargeDetectionDual
+import eu.darken.capod.pods.core.HasDualMicrophone
+import eu.darken.capod.pods.core.HasEarDetection
+import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionState
@@ -13,6 +18,7 @@ import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Instant
 
 class MonitoredDeviceTest : BaseTest() {
 
@@ -87,5 +93,103 @@ class MonitoredDeviceTest : BaseTest() {
     fun `null BLE gives UNKNOWN model`() {
         val device = MonitoredDevice(ble = null, aap = null)
         device.model shouldBe PodDevice.Model.UNKNOWN
+    }
+
+    @Test
+    fun `identity properties delegate to BLE`() {
+        val id = PodDevice.Id()
+        val meta = mockk<PodDevice.Meta>(relaxed = true)
+        val device = MonitoredDevice(
+            ble = mockk(relaxed = true) {
+                every { identifier } returns id
+                every { this@mockk.meta } returns meta
+            },
+            aap = null,
+        )
+        device.identifier shouldBe id
+        device.meta shouldBe meta
+    }
+
+    @Test
+    fun `identity properties null when BLE null`() {
+        val device = MonitoredDevice(ble = null, aap = null)
+        device.identifier.shouldBeNull()
+        device.meta.shouldBeNull()
+    }
+
+    @Test
+    fun `signal timing properties delegate to BLE`() {
+        val now = Instant.now()
+        val earlier = now.minusSeconds(60)
+        val device = MonitoredDevice(
+            ble = mockk(relaxed = true) {
+                every { seenLastAt } returns now
+                every { seenFirstAt } returns earlier
+                every { signalQuality } returns 0.75f
+                every { rssi } returns -50
+            },
+            aap = null,
+        )
+        device.seenLastAt shouldBe now
+        device.seenFirstAt shouldBe earlier
+        device.signalQuality shouldBe 0.75f
+        device.rssi shouldBe -50
+    }
+
+    @Test
+    fun `signal timing defaults when BLE null`() {
+        val device = MonitoredDevice(ble = null, aap = null)
+        device.seenLastAt.shouldBeNull()
+        device.seenFirstAt.shouldBeNull()
+        device.signalQuality shouldBe 0f
+        device.rssi shouldBe 0
+    }
+
+    @Test
+    fun `charging properties delegate to BLE interfaces`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodDevice.Model.AIRPODS_PRO3
+            every { (this@mockk as HasChargeDetectionDual).isLeftPodCharging } returns true
+            every { (this@mockk as HasChargeDetectionDual).isRightPodCharging } returns false
+            every { (this@mockk as HasCase).isCaseCharging } returns true
+        }
+        val device = MonitoredDevice(ble = mock, aap = null)
+        device.isLeftPodCharging shouldBe true
+        device.isRightPodCharging shouldBe false
+        device.isCaseCharging shouldBe true
+    }
+
+    @Test
+    fun `ear detection properties delegate to BLE interfaces`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodDevice.Model.AIRPODS_PRO3
+            every { (this@mockk as HasEarDetectionDual).isLeftPodInEar } returns true
+            every { (this@mockk as HasEarDetectionDual).isRightPodInEar } returns false
+            every { (this@mockk as HasEarDetection).isBeingWorn } returns false
+            every { (this@mockk as HasEarDetectionDual).isEitherPodInEar } returns true
+        }
+        val device = MonitoredDevice(ble = mock, aap = null)
+        device.isLeftInEar shouldBe true
+        device.isRightInEar shouldBe false
+        device.isBeingWorn shouldBe false
+        device.isEitherPodInEar shouldBe true
+    }
+
+    @Test
+    fun `icon and label properties delegate to BLE`() {
+        val device = MonitoredDevice(
+            ble = mockk(relaxed = true) {
+                every { model } returns PodDevice.Model.AIRPODS_PRO3
+                every { iconRes } returns 42
+            },
+            aap = null,
+        )
+        device.iconRes shouldBe 42
+    }
+
+    @Test
+    fun `rawDataHex empty when BLE null`() {
+        val device = MonitoredDevice(ble = null, aap = null)
+        device.rawDataHex shouldBe emptyList()
     }
 }
