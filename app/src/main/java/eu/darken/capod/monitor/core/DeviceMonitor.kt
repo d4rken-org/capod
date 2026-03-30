@@ -7,19 +7,17 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Single merge point: combines BLE scan data ([PodMonitor]) with AAP connection data
+ * Single merge point: combines BLE scan data ([BlePodMonitor]) with AAP connection data
  * ([AapConnectionManager]) into unified [MonitoredDevice] objects.
  *
- * ViewModels should observe [devices] instead of accessing PodMonitor directly.
- *
- * TODO: Rename to PodMonitor once old PodMonitor is renamed to BlePodMonitor.
+ * ViewModels should observe [devices] instead of accessing BlePodMonitor directly.
  */
 @Singleton
 class DeviceMonitor @Inject constructor(
-    private val podMonitor: PodMonitor,
+    private val blePodMonitor: BlePodMonitor,
     private val aapManager: AapConnectionManager,
 ) {
-    val devices: Flow<List<MonitoredDevice>> = podMonitor.devices
+    val devices: Flow<List<MonitoredDevice>> = blePodMonitor.devices
         .combine(aapManager.allStates) { pods, aapStates ->
             pods.map { pod ->
                 MonitoredDevice(

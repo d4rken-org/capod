@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasEarDetectionDual
@@ -14,11 +15,9 @@ import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
  * Unified device facade combining BLE scan data and AAP connection data.
  * All properties are dynamically resolved from the best available source.
  * Consumers don't need to know whether data came from BLE or AAP.
- *
- * TODO: Rename to PodDevice once old PodDevice interface is renamed to BlePodSnapshot.
  */
 data class MonitoredDevice(
-    internal val ble: PodDevice?,
+    internal val ble: BlePodSnapshot?,
     internal val aap: AapPodState?,
 ) {
     // Identity
