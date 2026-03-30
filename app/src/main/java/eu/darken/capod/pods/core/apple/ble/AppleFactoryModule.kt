@@ -20,7 +20,13 @@ import eu.darken.capod.pods.core.apple.ble.devices.airpods.AirPodsPro3
 import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsFitPro
 import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsFlex
 import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsSolo3
+import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsSolo4
+import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsSoloBuds
+import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsSoloPro
 import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsStudio3
+import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsStudioBuds
+import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsStudioBudsPlus
+import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsStudioPro
 import eu.darken.capod.pods.core.apple.ble.devices.beats.BeatsX
 import eu.darken.capod.pods.core.apple.ble.devices.beats.PowerBeats3
 import eu.darken.capod.pods.core.apple.ble.devices.beats.PowerBeats4
@@ -58,6 +64,12 @@ abstract class AppleFactoryModule {
     @Binds @IntoSet abstract fun powerBeatsPro(factory: PowerBeatsPro.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun powerBeatsPro2(factory: PowerBeatsPro2.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun beatsFitPro(factory: BeatsFitPro.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun beatsSoloPro(factory: BeatsSoloPro.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun beatsSolo4(factory: BeatsSolo4.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun beatsSoloBuds(factory: BeatsSoloBuds.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun beatsStudioBuds(factory: BeatsStudioBuds.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun beatsStudioBudsPlus(factory: BeatsStudioBudsPlus.Factory): ApplePodsFactory
+    @Binds @IntoSet abstract fun beatsStudioPro(factory: BeatsStudioPro.Factory): ApplePodsFactory
 
     @Binds @IntoSet abstract fun fakeAirPodsGen1(factory: FakeAirPodsGen1.Factory): ApplePodsFactory
     @Binds @IntoSet abstract fun fakeAirPodsGen2(factory: FakeAirPodsGen2.Factory): ApplePodsFactory
