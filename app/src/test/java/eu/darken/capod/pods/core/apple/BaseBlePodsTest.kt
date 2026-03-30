@@ -48,7 +48,7 @@ abstract class BaseBlePodsTest : BaseTest() {
     fun cleanKey(key: String): ByteArray = hexToByteArray(key)
         .also { require(it.size == 16) { "Not a valid key: ${it.size} byte" } }
 
-    val factory: AppleFactory = DaggerBaseAirPodsTest_AppleFactoryTestComponent.factory().create(
+    val factory: AppleFactory = DaggerBaseBlePodsTest_AppleFactoryTestComponent.factory().create(
         profilesRepo = profileRepo
     ).appleFactory
 
