@@ -9,9 +9,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.DevicesOther
+import androidx.compose.material.icons.twotone.Settings
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -24,10 +27,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.DevicesOther
-import androidx.compose.material.icons.twotone.Settings
-import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -37,11 +36,11 @@ import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.permissions.Permission
@@ -55,7 +54,7 @@ import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
 import eu.darken.capod.monitor.core.MonitoredDevice
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import java.time.Instant
 
 @Composable
@@ -261,7 +260,7 @@ fun OverviewScreen(
 private fun PodDeviceCard(device: MonitoredDevice, showDebug: Boolean, now: Instant) {
     when {
         device.hasDualPods -> DualPodsCard(device = device, showDebug = showDebug, now = now)
-        device.model != PodDevice.Model.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now)
+        device.model != PodModel.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now)
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug, now = now)
     }
 }
@@ -281,8 +280,8 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             isDebugMode = false,
             isBluetoothEnabled = true,
             profiles = listOf(
-                MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
-                MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+                MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
+                MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),
             ),
             upgradeInfo = MockPodDataProvider.fossInfo(),
             showUnmatchedDevices = false,
@@ -305,7 +304,7 @@ private fun OverviewScreenEmptyPreview() = PreviewWrapper {
             devices = emptyList(),
             isDebugMode = false,
             isBluetoothEnabled = true,
-            profiles = listOf(MockPodDataProvider.profile("My AirPods", PodDevice.Model.AIRPODS_PRO2)),
+            profiles = listOf(MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2)),
             upgradeInfo = MockPodDataProvider.fossInfo(),
             showUnmatchedDevices = false,
         ),
@@ -349,7 +348,7 @@ private fun OverviewScreenBluetoothOffPreview() = PreviewWrapper {
             devices = emptyList(),
             isDebugMode = false,
             isBluetoothEnabled = false,
-            profiles = listOf(MockPodDataProvider.profile("My AirPods", PodDevice.Model.AIRPODS_PRO2)),
+            profiles = listOf(MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2)),
             upgradeInfo = MockPodDataProvider.fossInfo(isPro = true),
             showUnmatchedDevices = false,
         ),

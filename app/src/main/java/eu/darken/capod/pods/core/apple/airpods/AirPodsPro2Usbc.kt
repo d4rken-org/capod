@@ -5,6 +5,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -30,7 +31,7 @@ data class AirPodsPro2Usbc(
     private val cachedCaseState: LidState? = null
 ) : DualApplePods, HasStateDetectionAirPods {
 
-    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_PRO2_USBC
+    override val model: PodModel = PodModel.AIRPODS_PRO2_USBC
 
     @get:DrawableRes
     override val iconRes: Int

@@ -5,6 +5,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -29,7 +30,7 @@ data class BeatsFitPro(
     private val cachedCaseState: DualApplePods.LidState? = null
 ) : DualApplePods {
 
-    override val model: PodDevice.Model = PodDevice.Model.BEATS_FIT_PRO
+    override val model: PodModel = PodModel.BEATS_FIT_PRO
 
     @get:DrawableRes
     override val leftPodIcon: Int

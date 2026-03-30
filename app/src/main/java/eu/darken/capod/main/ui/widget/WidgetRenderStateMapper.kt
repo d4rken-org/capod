@@ -5,7 +5,7 @@ import androidx.annotation.ColorInt
 import androidx.appcompat.view.ContextThemeWrapper
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.MonitoredDevice
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.toBatteryFloat
 
@@ -54,7 +54,7 @@ object WidgetRenderStateMapper {
                 caseCharging = device.isCaseCharging == true,
             )
 
-            device != null && device.model != PodDevice.Model.UNKNOWN -> WidgetRenderState.SinglePod(
+            device != null && device.model != PodModel.UNKNOWN -> WidgetRenderState.SinglePod(
                 theme = theme,
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,

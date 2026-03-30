@@ -5,6 +5,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.history.PodHistoryRepo
@@ -25,7 +26,7 @@ data class UnknownAppleDevice(
     private val rssiAverage: Int? = null,
 ) : ApplePods {
 
-    override val model: PodDevice.Model = PodDevice.Model.UNKNOWN
+    override val model: PodModel = PodModel.UNKNOWN
 
     override fun getLabel(context: Context): String = context.getString(R.string.pods_unknown_label)
 

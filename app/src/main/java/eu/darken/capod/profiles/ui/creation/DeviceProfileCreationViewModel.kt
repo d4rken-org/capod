@@ -14,7 +14,7 @@ import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.toHex
 import eu.darken.capod.common.uix.ViewModel4
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
 import eu.darken.capod.profiles.core.AppleDeviceProfile
@@ -31,7 +31,7 @@ import javax.inject.Inject
 
 private data class ProfileEditorState(
     val name: String = "",
-    val selectedModel: PodDevice.Model? = null,
+    val selectedModel: PodModel? = null,
     val identityKeyHex: String? = null,
     val encryptionKeyHex: String? = null,
     val selectedDeviceAddress: String? = null,
@@ -109,7 +109,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
             name = editorState.name,
             nameError = nameErr,
             selectedModel = editorState.selectedModel,
-            availableModels = PodDevice.Model.entries,
+            availableModels = PodModel.entries,
             identityKey = editorState.identityKeyHex?.fromHex(),
             encryptionKey = editorState.encryptionKeyHex?.fromHex(),
             selectedDevice = selectedDevice,
@@ -123,8 +123,8 @@ class DeviceProfileCreationViewModel @Inject constructor(
         val isEditMode: Boolean,
         val name: String,
         val nameError: String?,
-        val selectedModel: PodDevice.Model?,
-        val availableModels: List<PodDevice.Model>,
+        val selectedModel: PodModel?,
+        val availableModels: List<PodModel>,
         val identityKey: IdentityResolvingKey?,
         val encryptionKey: ProximityEncryptionKey?,
         val selectedDevice: BluetoothDevice2?,
@@ -138,7 +138,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
         _nameError.value = if (name.isBlank()) context.getString(R.string.profiles_name_empty_error) else null
     }
 
-    fun updateModel(model: PodDevice.Model) {
+    fun updateModel(model: PodModel) {
         _currentState.value = _currentState.value.copy(selectedModel = model)
         log(TAG) { "Selected model: $model" }
     }

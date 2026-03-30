@@ -13,11 +13,12 @@ import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.SinglePodDevice
-import eu.darken.capod.pods.core.unknown.UnknownDevice
-import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.unknown.UnknownDevice
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
 
@@ -39,7 +40,7 @@ object MockPodDataProvider {
     // --- Dual pod scenarios ---
 
     fun airPodsProFullCharge(): DualPodDevice = MockDualPodDevice(
-        _model = PodDevice.Model.AIRPODS_PRO2,
+        _model = PodModel.AIRPODS_PRO2,
         _label = "Work AirPods",
         batteryLeftPodPercent = 1.0f,
         batteryRightPodPercent = 1.0f,
@@ -50,7 +51,7 @@ object MockPodDataProvider {
     )
 
     fun airPodsProMixed(): DualPodDevice = MockDualPodDevice(
-        _model = PodDevice.Model.AIRPODS_PRO2,
+        _model = PodModel.AIRPODS_PRO2,
         _label = "My AirPods Pro",
         batteryLeftPodPercent = 0.80f,
         batteryRightPodPercent = 0.45f,
@@ -62,7 +63,7 @@ object MockPodDataProvider {
     )
 
     fun airPodsProLowBattery(): DualPodDevice = MockDualPodDevice(
-        _model = PodDevice.Model.AIRPODS_PRO2,
+        _model = PodModel.AIRPODS_PRO2,
         _label = "My AirPods Pro",
         batteryLeftPodPercent = 0.10f,
         batteryRightPodPercent = 0.05f,
@@ -75,7 +76,7 @@ object MockPodDataProvider {
     )
 
     fun airPodsProInCase(): DualPodDevice = MockDualPodDevice(
-        _model = PodDevice.Model.AIRPODS_PRO2,
+        _model = PodModel.AIRPODS_PRO2,
         _label = "My AirPods Pro",
         batteryLeftPodPercent = null,
         batteryRightPodPercent = null,
@@ -86,7 +87,7 @@ object MockPodDataProvider {
     )
 
     fun airPodsGen1Wearing(): DualPodDevice = MockDualPodDevice(
-        _model = PodDevice.Model.AIRPODS_GEN1,
+        _model = PodModel.AIRPODS_GEN1,
         _label = "Old AirPods",
         batteryLeftPodPercent = 0.70f,
         batteryRightPodPercent = 0.65f,
@@ -100,7 +101,7 @@ object MockPodDataProvider {
     )
 
     fun powerBeatsPro(): DualPodDevice = MockDualPodDeviceNoCase(
-        _model = PodDevice.Model.POWERBEATS_PRO,
+        _model = PodModel.POWERBEATS_PRO,
         _label = "PowerBeats Pro",
         batteryLeftPodPercent = 0.55f,
         batteryRightPodPercent = 0.60f,
@@ -111,14 +112,14 @@ object MockPodDataProvider {
     // --- Single pod scenarios ---
 
     fun airPodsMax(): SinglePodDevice = MockSinglePodDevice(
-        _model = PodDevice.Model.AIRPODS_MAX,
+        _model = PodModel.AIRPODS_MAX,
         _label = "AirPods Max",
         batteryHeadsetPercent = 0.85f,
         _isBeingWorn = true,
     )
 
     fun airPodsMaxCharging(): SinglePodDevice = MockSingleApplePodDevice(
-        _model = PodDevice.Model.AIRPODS_MAX,
+        _model = PodModel.AIRPODS_MAX,
         _label = "AirPods Max",
         batteryHeadsetPercent = 0.40f,
         _isHeadsetBeingCharged = true,
@@ -127,7 +128,7 @@ object MockPodDataProvider {
     )
 
     fun beatsSolo3(): SinglePodDevice = MockSinglePodDevice(
-        _model = PodDevice.Model.BEATS_SOLO_3,
+        _model = PodModel.BEATS_SOLO_3,
         _label = "Beats Solo 3",
         batteryHeadsetPercent = 0.70f,
     )
@@ -140,7 +141,7 @@ object MockPodDataProvider {
 
     // --- Profile helpers ---
 
-    fun profile(label: String, model: PodDevice.Model): AppleDeviceProfile = AppleDeviceProfile(
+    fun profile(label: String, model: PodModel): AppleDeviceProfile = AppleDeviceProfile(
         label = label,
         model = model,
     )
@@ -188,7 +189,7 @@ private data class MockUpgradeInfo(
 ) : UpgradeRepo.Info
 
 private class MockDualPodDevice(
-    private val _model: PodDevice.Model,
+    private val _model: PodModel,
     private val _label: String,
     override val batteryLeftPodPercent: Float?,
     override val batteryRightPodPercent: Float?,
@@ -206,7 +207,7 @@ private class MockDualPodDevice(
     rssi: Int = -50,
 ) : DualPodDevice, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
     override val identifier: PodDevice.Id = PodDevice.Id()
-    override val model: PodDevice.Model = _model
+    override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5
@@ -239,7 +240,7 @@ private class MockDualPodDevice(
 }
 
 private class MockDualPodDeviceNoCase(
-    private val _model: PodDevice.Model,
+    private val _model: PodModel,
     private val _label: String,
     override val batteryLeftPodPercent: Float?,
     override val batteryRightPodPercent: Float?,
@@ -248,7 +249,7 @@ private class MockDualPodDeviceNoCase(
     rssi: Int = -50,
 ) : DualPodDevice, HasChargeDetectionDual, HasEarDetectionDual {
     override val identifier: PodDevice.Id = PodDevice.Id()
-    override val model: PodDevice.Model = _model
+    override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5
@@ -272,7 +273,7 @@ private class MockDualPodDeviceNoCase(
 }
 
 private class MockSinglePodDevice(
-    private val _model: PodDevice.Model,
+    private val _model: PodModel,
     private val _label: String,
     override val batteryHeadsetPercent: Float?,
     private val _isHeadsetBeingCharged: Boolean = false,
@@ -280,7 +281,7 @@ private class MockSinglePodDevice(
     rssi: Int = -50,
 ) : SinglePodDevice, HasChargeDetection, HasEarDetection {
     override val identifier: PodDevice.Id = PodDevice.Id()
-    override val model: PodDevice.Model = _model
+    override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5
@@ -303,7 +304,7 @@ private class MockSinglePodDevice(
 
 @Suppress("PropertyName")
 private class MockSingleApplePodDevice(
-    private val _model: PodDevice.Model,
+    private val _model: PodModel,
     private val _label: String,
     override val batteryHeadsetPercent: Float?,
     private val _isHeadsetBeingCharged: Boolean = false,
@@ -313,7 +314,7 @@ private class MockSingleApplePodDevice(
     rssi: Int = -50,
 ) : SinglePodDevice, ApplePods, HasChargeDetection, HasEarDetection {
     override val identifier: PodDevice.Id = PodDevice.Id()
-    override val model: PodDevice.Model = _model
+    override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
     override val seenCounter: Int = 5

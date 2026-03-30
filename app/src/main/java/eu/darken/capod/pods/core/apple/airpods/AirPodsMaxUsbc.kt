@@ -6,6 +6,7 @@ import eu.darken.capod.common.isBitSet
 import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.HasAppleColor
@@ -29,7 +30,7 @@ data class AirPodsMaxUsbc(
     private val rssiAverage: Int? = null,
 ) : SingleApplePods, HasEarDetection, HasChargeDetection, HasAppleColor {
 
-    override val model: PodDevice.Model = PodDevice.Model.AIRPODS_MAX_USBC
+    override val model: PodModel = PodModel.AIRPODS_MAX_USBC
 
     override val rssi: Int
         get() = rssiAverage ?: super<SingleApplePods>.rssi

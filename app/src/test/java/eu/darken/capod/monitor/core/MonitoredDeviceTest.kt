@@ -2,10 +2,10 @@ package eu.darken.capod.monitor.core
 
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
-import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionState
 import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
@@ -23,7 +23,7 @@ import java.time.Instant
 class MonitoredDeviceTest : BaseTest() {
 
     private fun mockDualPod(
-        model: PodDevice.Model = PodDevice.Model.AIRPODS_PRO3,
+        model: PodModel = PodModel.AIRPODS_PRO3,
         leftBattery: Float? = 0.8f,
         rightBattery: Float? = 0.9f,
         caseBattery: Float? = 0.5f,
@@ -47,7 +47,7 @@ class MonitoredDeviceTest : BaseTest() {
     @Test
     fun `capabilities come from model features`() {
         val device = MonitoredDevice(
-            ble = mockDualPod(model = PodDevice.Model.AIRPODS_PRO3),
+            ble = mockDualPod(model = PodModel.AIRPODS_PRO3),
             aap = null,
         )
         device.hasDualPods shouldBe true
@@ -59,7 +59,7 @@ class MonitoredDeviceTest : BaseTest() {
     @Test
     fun `Beats Solo 3 has no dual pods or case`() {
         val device = MonitoredDevice(
-            ble = mockk(relaxed = true) { every { model } returns PodDevice.Model.BEATS_SOLO_3 },
+            ble = mockk(relaxed = true) { every { model } returns PodModel.BEATS_SOLO_3 },
             aap = null,
         )
         device.hasDualPods shouldBe false
@@ -92,7 +92,7 @@ class MonitoredDeviceTest : BaseTest() {
     @Test
     fun `null BLE gives UNKNOWN model`() {
         val device = MonitoredDevice(ble = null, aap = null)
-        device.model shouldBe PodDevice.Model.UNKNOWN
+        device.model shouldBe PodModel.UNKNOWN
     }
 
     @Test
@@ -148,7 +148,7 @@ class MonitoredDeviceTest : BaseTest() {
     @Test
     fun `charging properties delegate to BLE interfaces`() {
         val mock = mockk<DualApplePods>(relaxed = true) {
-            every { model } returns PodDevice.Model.AIRPODS_PRO3
+            every { model } returns PodModel.AIRPODS_PRO3
             every { (this@mockk as HasChargeDetectionDual).isLeftPodCharging } returns true
             every { (this@mockk as HasChargeDetectionDual).isRightPodCharging } returns false
             every { (this@mockk as HasCase).isCaseCharging } returns true
@@ -162,7 +162,7 @@ class MonitoredDeviceTest : BaseTest() {
     @Test
     fun `ear detection properties delegate to BLE interfaces`() {
         val mock = mockk<DualApplePods>(relaxed = true) {
-            every { model } returns PodDevice.Model.AIRPODS_PRO3
+            every { model } returns PodModel.AIRPODS_PRO3
             every { (this@mockk as HasEarDetectionDual).isLeftPodInEar } returns true
             every { (this@mockk as HasEarDetectionDual).isRightPodInEar } returns false
             every { (this@mockk as HasEarDetection).isBeingWorn } returns false
@@ -179,7 +179,7 @@ class MonitoredDeviceTest : BaseTest() {
     fun `icon and label properties delegate to BLE`() {
         val device = MonitoredDevice(
             ble = mockk(relaxed = true) {
-                every { model } returns PodDevice.Model.AIRPODS_PRO3
+                every { model } returns PodModel.AIRPODS_PRO3
                 every { iconRes } returns 42
             },
             aap = null,

@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.protocol.aap
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import kotlin.reflect.KClass
 
 /**
@@ -36,6 +36,6 @@ interface AapDeviceProfile {
     fun encodeHandshake(): ByteArray
 
     companion object {
-        fun forModel(model: PodDevice.Model): AapDeviceProfile = DefaultAapDeviceProfile()
+        fun forModel(model: PodModel): AapDeviceProfile = DefaultAapDeviceProfile()
     }
 }

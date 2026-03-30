@@ -16,7 +16,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.monitor.core.MonitoredDevice
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.formatBatteryPercent
 import javax.inject.Inject
 
@@ -100,7 +100,7 @@ class MonitorNotifications @Inject constructor(
                     }
                 }
 
-                device.model != PodDevice.Model.UNKNOWN -> {
+                device.model != PodModel.UNKNOWN -> {
                     val headset = formatBatteryPercent(context, device.batteryHeadset)
                     if (device.hasCase) {
                         val case = formatBatteryPercent(context, device.batteryCase)

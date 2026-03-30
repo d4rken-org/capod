@@ -8,6 +8,7 @@ import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -35,7 +36,7 @@ data class FakeAirPodsPro(
     private val cachedBatteryPercentage: Float? = null,
 ) : DualApplePods, HasChargeDetectionDual, HasEarDetectionDual, HasCase {
 
-    override val model: PodDevice.Model = PodDevice.Model.FAKE_AIRPODS_PRO
+    override val model: PodModel = PodModel.FAKE_AIRPODS_PRO
 
     @get:DrawableRes
     override val iconRes: Int
@@ -54,7 +55,7 @@ data class FakeAirPodsPro(
         get() = R.drawable.device_airpods_pro2_right
 
     override val rssi: Int
-        get() = rssiAverage ?: super<DualApplePods>.rssi
+        get() = rssiAverage ?: super.rssi
 
     override val batteryCasePercent: Float?
         get() = super.batteryCasePercent ?: cachedBatteryPercentage

@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.airpods
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
@@ -45,7 +45,7 @@ class AirPodsPro3Test : BaseAirPodsTest() {
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
-            model shouldBe PodDevice.Model.AIRPODS_PRO3
+            model shouldBe PodModel.AIRPODS_PRO3
         }
     }
 
@@ -71,7 +71,7 @@ class AirPodsPro3Test : BaseAirPodsTest() {
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
-            model shouldBe PodDevice.Model.AIRPODS_PRO3
+            model shouldBe PodModel.AIRPODS_PRO3
         }
     }
 
@@ -88,7 +88,7 @@ class AirPodsPro3Test : BaseAirPodsTest() {
 
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
-            model shouldBe PodDevice.Model.AIRPODS_PRO3
+            model shouldBe PodModel.AIRPODS_PRO3
         }
     }
 }

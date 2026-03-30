@@ -11,17 +11,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.graphics.toArgb
-import eu.darken.capod.R
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.main.ui.widget.ComposeWidgetPreview
-import eu.darken.capod.main.ui.widget.WidgetRenderState
-import eu.darken.capod.reaction.ui.popup.PopUpContent as PopUpCard
-import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
-import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
-import eu.darken.capod.main.ui.widget.WidgetTheme
 import eu.darken.capod.common.compose.preview.MOCK_NOW
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.theming.CapodTheme
@@ -29,7 +22,12 @@ import eu.darken.capod.main.ui.overview.OverviewScreen
 import eu.darken.capod.main.ui.overview.OverviewViewModel
 import eu.darken.capod.main.ui.settings.SettingsScreen
 import eu.darken.capod.main.ui.settings.SettingsViewModel
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.main.ui.widget.ComposeWidgetPreview
+import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
+import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
+import eu.darken.capod.main.ui.widget.WidgetRenderState
+import eu.darken.capod.main.ui.widget.WidgetTheme
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.profiles.ui.DeviceManagerScreen
 import eu.darken.capod.profiles.ui.DeviceManagerViewModel
 import eu.darken.capod.profiles.ui.creation.DeviceProfileCreationScreen
@@ -37,6 +35,7 @@ import eu.darken.capod.profiles.ui.creation.DeviceProfileCreationViewModel
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import eu.darken.capod.reaction.ui.ReactionSettingsScreen
 import eu.darken.capod.reaction.ui.ReactionSettingsViewModel
+import eu.darken.capod.reaction.ui.popup.PopUpContent as PopUpCard
 
 internal const val DS = "spec:width=1080px,height=2400px,dpi=428"
 
@@ -54,8 +53,8 @@ internal fun DashboardContent() = PreviewWrapper {
             isDebugMode = false,
             isBluetoothEnabled = true,
             profiles = listOf(
-                MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
-                MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+                MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
+                MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),
             ),
             upgradeInfo = MockPodDataProvider.gplayInfo(isPro = true),
             showUnmatchedDevices = false,
@@ -73,9 +72,9 @@ internal fun DeviceProfilesContent() = PreviewWrapper {
     DeviceManagerScreen(
         state = DeviceManagerViewModel.State(
             profiles = listOf(
-                MockPodDataProvider.profile("Work AirPods", PodDevice.Model.AIRPODS_PRO2),
-                MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
-                MockPodDataProvider.profile("Gym Beats", PodDevice.Model.POWERBEATS_PRO),
+                MockPodDataProvider.profile("Work AirPods", PodModel.AIRPODS_PRO2),
+                MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),
+                MockPodDataProvider.profile("Gym Beats", PodModel.POWERBEATS_PRO),
             ),
         ),
         onBack = {},
@@ -92,7 +91,7 @@ internal fun AddProfileContent() = PreviewWrapper {
             name = "",
             nameError = null,
             selectedModel = null,
-            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            availableModels = PodModel.entries.filter { it != PodModel.UNKNOWN },
             identityKey = null,
             encryptionKey = null,
             selectedDevice = null,
@@ -158,8 +157,8 @@ internal fun ReactionSettingsContent() = PreviewWrapper {
 @Composable
 internal fun WidgetConfigurationContent() = PreviewWrapper {
     val profiles = listOf(
-        MockPodDataProvider.profile("My AirPods Pro", PodDevice.Model.AIRPODS_PRO2),
-        MockPodDataProvider.profile("AirPods Max", PodDevice.Model.AIRPODS_MAX),
+        MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
+        MockPodDataProvider.profile("AirPods Max", PodModel.AIRPODS_MAX),
     )
     WidgetConfigurationScreen(
         state = WidgetConfigurationViewModel.State(

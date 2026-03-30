@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core.apple.beats
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.BaseAirPodsTest
 import eu.darken.capod.pods.core.apple.airpods.HasStateDetectionAirPods
 import io.kotest.matchers.shouldBe
@@ -24,7 +24,7 @@ class PowerBeats4Test : BaseAirPodsTest() {
 
             batteryHeadsetPercent shouldBe 0.2f
 
-            model shouldBe PodDevice.Model.POWERBEATS_4
+            model shouldBe PodModel.POWERBEATS_4
 
             state shouldBe HasStateDetectionAirPods.ConnectionState.MUSIC
         }
@@ -45,7 +45,7 @@ class PowerBeats4Test : BaseAirPodsTest() {
 
             batteryHeadsetPercent shouldBe 0.2f
 
-            model shouldBe PodDevice.Model.POWERBEATS_4
+            model shouldBe PodModel.POWERBEATS_4
 
             state shouldBe HasStateDetectionAirPods.ConnectionState.IDLE
         }
@@ -67,7 +67,7 @@ class PowerBeats4Test : BaseAirPodsTest() {
 
             batteryHeadsetPercent shouldBe 0.2f
 
-            model shouldBe PodDevice.Model.POWERBEATS_4
+            model shouldBe PodModel.POWERBEATS_4
 
             state shouldBe HasStateDetectionAirPods.ConnectionState.DISCONNECTED
         }

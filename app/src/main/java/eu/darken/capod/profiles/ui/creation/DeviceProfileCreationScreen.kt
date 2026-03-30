@@ -24,13 +24,13 @@ import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
@@ -56,15 +56,15 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.toHex
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.PodModel
 
 @Composable
 fun DeviceProfileCreationScreenHost(
@@ -144,7 +144,7 @@ fun DeviceProfileCreationScreen(
     onSave: () -> Unit,
     onDelete: () -> Unit,
     onNameChange: (String) -> Unit,
-    onModelChange: (PodDevice.Model) -> Unit,
+    onModelChange: (PodModel) -> Unit,
     onDeviceChange: (BluetoothDevice2?) -> Unit,
     onIdentityKeyChange: (ByteArray?) -> Unit,
     onEncryptionKeyChange: (ByteArray?) -> Unit,
@@ -294,12 +294,12 @@ private fun ProfileSectionCard(
 private fun DeviceInfoCard(
     name: String,
     nameError: String?,
-    selectedModel: PodDevice.Model?,
-    availableModels: List<PodDevice.Model>,
+    selectedModel: PodModel?,
+    availableModels: List<PodModel>,
     selectedDevice: BluetoothDevice2?,
     bondedDevices: List<BluetoothDevice2>,
     onNameChange: (String) -> Unit,
-    onModelChange: (PodDevice.Model) -> Unit,
+    onModelChange: (PodModel) -> Unit,
     onDeviceChange: (BluetoothDevice2?) -> Unit,
 ) {
     ProfileSectionCard(
@@ -656,7 +656,7 @@ private fun DeviceProfileCreationScreenNewPreview() = PreviewWrapper {
             name = "",
             nameError = null,
             selectedModel = null,
-            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            availableModels = PodModel.entries.filter { it != PodModel.UNKNOWN },
             identityKey = null,
             encryptionKey = null,
             selectedDevice = null,
@@ -685,8 +685,8 @@ private fun DeviceProfileCreationScreenEditPreview() = PreviewWrapper {
             isEditMode = true,
             name = "My AirPods Pro",
             nameError = null,
-            selectedModel = PodDevice.Model.AIRPODS_PRO2,
-            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            selectedModel = PodModel.AIRPODS_PRO2,
+            availableModels = PodModel.entries.filter { it != PodModel.UNKNOWN },
             identityKey = null,
             encryptionKey = null,
             selectedDevice = null,
@@ -715,8 +715,8 @@ private fun DeviceProfileCreationScreenWithKeysPreview() = PreviewWrapper {
             isEditMode = true,
             name = "My AirPods Pro",
             nameError = null,
-            selectedModel = PodDevice.Model.AIRPODS_PRO2,
-            availableModels = PodDevice.Model.entries.filter { it != PodDevice.Model.UNKNOWN },
+            selectedModel = PodModel.AIRPODS_PRO2,
+            availableModels = PodModel.entries.filter { it != PodModel.UNKNOWN },
             identityKey = byteArrayOf(
                 0xFE.toByte(), 0xD0.toByte(), 0x1C.toByte(), 0x54.toByte(),
                 0x11.toByte(), 0x81.toByte(), 0xBC.toByte(), 0xBC.toByte(),
