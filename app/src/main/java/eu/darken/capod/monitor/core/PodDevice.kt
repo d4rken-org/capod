@@ -13,6 +13,7 @@ import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Duration
@@ -155,4 +156,13 @@ data class PodDevice(
         get() = aap?.setting()
 
     val isAapConnected: Boolean get() = aap != null
+
+    val bleKeyState: BleKeyState
+        get() {
+            val applePod = ble as? ApplePods ?: return BleKeyState.NONE
+            if (!applePod.meta.isIRKMatch) return BleKeyState.NONE
+            return if (applePod.payload.private != null) BleKeyState.IRK_AND_ENCRYPTED else BleKeyState.IRK_ONLY
+        }
 }
+
+enum class BleKeyState { NONE, IRK_ONLY, IRK_AND_ENCRYPTED }

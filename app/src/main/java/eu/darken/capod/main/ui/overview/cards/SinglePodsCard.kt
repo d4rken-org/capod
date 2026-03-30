@@ -19,14 +19,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
-import androidx.compose.material.icons.twotone.Key
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -48,7 +45,6 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import java.time.Duration
@@ -102,24 +98,12 @@ fun SinglePodsCard(
                 Spacer(modifier = Modifier.width(12.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text(
-                            text = device.meta?.profile?.label ?: "?",
-                            style = MaterialTheme.typography.titleMedium,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                        val applePod = device.ble as? ApplePods
-                        if (applePod != null && applePod.meta.isIRKMatch) {
-                            Spacer(modifier = Modifier.width(6.dp))
-                            Icon(
-                                imageVector = if (applePod.payload.private != null) Icons.TwoTone.Key else Icons.Outlined.Key,
-                                contentDescription = null,
-                                modifier = Modifier.size(14.dp),
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                            )
-                        }
-                    }
+                    Text(
+                        text = device.meta?.profile?.label ?: "?",
+                        style = MaterialTheme.typography.titleMedium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
                     Text(
                         text = device.getLabel(context),
                         style = MaterialTheme.typography.bodySmall,
@@ -129,7 +113,11 @@ fun SinglePodsCard(
                     )
                 }
 
-                SignalBadge(signalText = device.getSignalQuality(context))
+                SignalBadge(
+                    signalText = device.getSignalQuality(context),
+                    bleKeyState = device.bleKeyState,
+                    isAapConnected = device.isAapConnected,
+                )
             }
 
             Spacer(modifier = Modifier.height(4.dp))
