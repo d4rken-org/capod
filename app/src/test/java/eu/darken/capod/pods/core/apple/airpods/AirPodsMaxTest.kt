@@ -2,13 +2,13 @@ package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.BaseBlePodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class AirPodsMaxTest : BaseAirPodsTest() {
+class AirPodsMaxTest : BaseBlePodsTest() {
 
     // Test data from https://github.com/adolfintel/OpenPods/issues/124
     @Test

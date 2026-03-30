@@ -9,7 +9,7 @@ import io.kotest.matchers.types.instanceOf
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class AirPodsFactoryTest : BaseAirPodsTest() {
+class AirPodsFactoryTest : BaseBlePodsTest() {
 
     @Test
     fun `create AirPodsGen1`() = runTest {

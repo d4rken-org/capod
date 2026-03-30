@@ -20,7 +20,7 @@ import testhelpers.BaseTest
 import java.time.Instant
 import javax.inject.Singleton
 
-abstract class BaseAirPodsTest : BaseTest() {
+abstract class BaseBlePodsTest : BaseTest() {
     @Singleton
     @Component(modules = [AppleFactoryModule::class, SerializationModule::class])
     interface AppleFactoryTestComponent {

@@ -34,6 +34,8 @@ import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.reaction.core.aap.AapAutoConnect
+import eu.darken.capod.reaction.core.aap.AapKeyPersister
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction
@@ -72,6 +74,8 @@ class MonitorService : Service() {
     @Inject lateinit var popUpReaction: PopUpReaction
     @Inject lateinit var popUpWindow: PopUpWindow
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
+    @Inject lateinit var aapAutoConnect: AapAutoConnect
+    @Inject lateinit var aapKeyPersister: AapKeyPersister
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
@@ -285,6 +289,16 @@ class MonitorService : Service() {
         autoConnect.monitor()
             .setupCommonEventHandlers(TAG) { "autoConnect" }
             .catch { log(TAG, WARN) { "autoConnect failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
+        aapAutoConnect.monitor()
+            .setupCommonEventHandlers(TAG) { "aapAutoConnect" }
+            .catch { log(TAG, WARN) { "aapAutoConnect failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
+        aapKeyPersister.monitor()
+            .setupCommonEventHandlers(TAG) { "aapKeyPersister" }
+            .catch { log(TAG, WARN) { "aapKeyPersister failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
         log(TAG, VERBOSE) { "Monitor job is active" }

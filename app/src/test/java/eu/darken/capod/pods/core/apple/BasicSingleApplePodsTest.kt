@@ -4,7 +4,7 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class BasicSingleApplePodsTest : BaseAirPodsTest() {
+class BasicSingleApplePodsTest : BaseBlePodsTest() {
 
     @Test
     fun `test mapping`() = runTest {

@@ -29,31 +29,82 @@ enum class PodModel(
     ),
     @SerialName("airpods.gen4.anc") AIRPODS_GEN4_ANC(
         "AirPods (Gen 4 ANC)", R.drawable.device_airpods_gen4anc_both,
-        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+        Features(
+            hasDualPods = true, hasCase = true, hasEarDetection = true,
+            hasAncControl = true, hasAdaptiveAnc = true,
+            hasConversationAwareness = true, hasNcOneAirpod = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasVolumeSwipe = true, hasVolumeSwipeLength = true,
+            hasPersonalizedVolume = true, hasToneVolume = true,
+            hasEndCallMuteMic = true, hasAdaptiveAudioNoise = true,
+            needsInitExt = true,
+        ),
     ),
     @SerialName("airpods.pro") AIRPODS_PRO(
         "AirPods Pro", R.drawable.device_airpods_pro2_both,
-        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+        Features(
+            hasDualPods = true, hasCase = true, hasEarDetection = true,
+            hasAncControl = true,
+            hasNcOneAirpod = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasVolumeSwipe = true, hasVolumeSwipeLength = true,
+            hasToneVolume = true,
+        ),
     ),
     @SerialName("airpods.pro2") AIRPODS_PRO2(
         "AirPods Pro 2", R.drawable.device_airpods_pro2_both,
-        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+        Features(
+            hasDualPods = true, hasCase = true, hasEarDetection = true,
+            hasAncControl = true, hasAdaptiveAnc = true,
+            hasConversationAwareness = true, hasNcOneAirpod = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasVolumeSwipe = true, hasVolumeSwipeLength = true,
+            hasPersonalizedVolume = true, hasToneVolume = true,
+            hasEndCallMuteMic = true, hasAdaptiveAudioNoise = true,
+            needsInitExt = true,
+        ),
     ),
     @SerialName("airpods.pro2.usbc") AIRPODS_PRO2_USBC(
         "AirPods Pro 2 USB-C", R.drawable.device_airpods_pro2_both,
-        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+        Features(
+            hasDualPods = true, hasCase = true, hasEarDetection = true,
+            hasAncControl = true, hasAdaptiveAnc = true,
+            hasConversationAwareness = true, hasNcOneAirpod = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasVolumeSwipe = true, hasVolumeSwipeLength = true,
+            hasPersonalizedVolume = true, hasToneVolume = true,
+            hasEndCallMuteMic = true, hasAdaptiveAudioNoise = true,
+            needsInitExt = true,
+        ),
     ),
     @SerialName("airpods.pro3") AIRPODS_PRO3(
         "AirPods Pro 3", R.drawable.device_airpods_pro2_both,
-        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+        Features(
+            hasDualPods = true, hasCase = true, hasEarDetection = true,
+            hasAncControl = true, hasAdaptiveAnc = true,
+            hasConversationAwareness = true, hasNcOneAirpod = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasVolumeSwipe = true, hasVolumeSwipeLength = true,
+            hasPersonalizedVolume = true, hasToneVolume = true,
+            hasEndCallMuteMic = true, hasAdaptiveAudioNoise = true,
+            needsInitExt = true,
+        ),
     ),
     @SerialName("airpods.max") AIRPODS_MAX(
         "AirPods Max", R.drawable.device_airpods_max,
-        Features(hasAncControl = true),
+        Features(
+            hasAncControl = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasToneVolume = true,
+        ),
     ),
     @SerialName("airpods.max.usbc") AIRPODS_MAX_USBC(
         "AirPods Max USB-C", R.drawable.device_airpods_max,
-        Features(hasAncControl = true),
+        Features(
+            hasAncControl = true,
+            hasPressSpeed = true, hasPressHoldDuration = true,
+            hasToneVolume = true,
+        ),
     ),
     @SerialName("beats.flex") BEATS_FLEX(
         "Beats Flex", R.drawable.device_beats_earbuds,
@@ -61,8 +112,31 @@ enum class PodModel(
     @SerialName("beats.solo.3") BEATS_SOLO_3(
         "Beats Solo 3", R.drawable.device_beats_headphones,
     ),
+    @SerialName("beats.solo.pro") BEATS_SOLO_PRO(
+        "Beats Solo Pro", R.drawable.device_beats_headphones,
+        Features(hasAncControl = true),
+    ),
+    @SerialName("beats.solo.4") BEATS_SOLO_4(
+        "Beats Solo 4", R.drawable.device_beats_headphones,
+    ),
+    @SerialName("beats.solo.buds") BEATS_SOLO_BUDS(
+        "Beats Solo Buds", R.drawable.device_beats_earbuds,
+        Features(hasDualPods = true, hasCase = true),
+    ),
     @SerialName("beats.studio.3") BEATS_STUDIO_3(
         "Beats Studio 3", R.drawable.device_beats_studio3,
+        Features(hasAncControl = true),
+    ),
+    @SerialName("beats.studio.buds") BEATS_STUDIO_BUDS(
+        "Beats Studio Buds", R.drawable.device_beats_earbuds,
+        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+    ),
+    @SerialName("beats.studio.buds.plus") BEATS_STUDIO_BUDS_PLUS(
+        "Beats Studio Buds+", R.drawable.device_beats_earbuds,
+        Features(hasDualPods = true, hasCase = true, hasEarDetection = true, hasAncControl = true),
+    ),
+    @SerialName("beats.studio.pro") BEATS_STUDIO_PRO(
+        "Beats Studio Pro", R.drawable.device_beats_headphones,
         Features(hasAncControl = true),
     ),
     @SerialName("beats.x") BEATS_X(
@@ -111,9 +185,25 @@ enum class PodModel(
     );
 
     data class Features(
+        // Physical form
         val hasDualPods: Boolean = false,
         val hasCase: Boolean = false,
         val hasEarDetection: Boolean = false,
+        // ANC
         val hasAncControl: Boolean = false,
+        val hasAdaptiveAnc: Boolean = false,
+        // AAP settings
+        val hasConversationAwareness: Boolean = false,
+        val hasNcOneAirpod: Boolean = false,
+        val hasPressSpeed: Boolean = false,
+        val hasPressHoldDuration: Boolean = false,
+        val hasVolumeSwipe: Boolean = false,
+        val hasVolumeSwipeLength: Boolean = false,
+        val hasPersonalizedVolume: Boolean = false,
+        val hasToneVolume: Boolean = false,
+        val hasEndCallMuteMic: Boolean = false,
+        val hasAdaptiveAudioNoise: Boolean = false,
+        // Protocol
+        val needsInitExt: Boolean = false,
     )
 }

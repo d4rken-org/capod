@@ -7,10 +7,9 @@ import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionState
+
 import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
 import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
-import eu.darken.capod.pods.core.apple.protocol.aap.AncModeValue
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -69,18 +68,18 @@ class PodDeviceTest : BaseTest() {
     @Test
     fun `AAP settings are available when connected`() {
         val aap = AapPodState(
-            connectionState = AapConnectionState.READY,
+            connectionState = AapPodState.ConnectionState.READY,
             settings = mapOf(
                 AapSetting.AncMode::class to AapSetting.AncMode(
-                    AncModeValue.TRANSPARENCY,
-                    listOf(AncModeValue.ON, AncModeValue.TRANSPARENCY, AncModeValue.ADAPTIVE),
+                    AapSetting.AncMode.Value.TRANSPARENCY,
+                    listOf(AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY, AapSetting.AncMode.Value.ADAPTIVE),
                 ),
             ),
         )
         val device = PodDevice(ble = mockDualPod(), aap = aap)
         device.isAapConnected shouldBe true
         device.ancMode.shouldNotBeNull()
-        device.ancMode!!.current shouldBe AncModeValue.TRANSPARENCY
+        device.ancMode!!.current shouldBe AapSetting.AncMode.Value.TRANSPARENCY
     }
 
     @Test
@@ -191,5 +190,58 @@ class PodDeviceTest : BaseTest() {
     fun `rawDataHex empty when BLE null`() {
         val device = PodDevice(ble = null, aap = null)
         device.rawDataHex shouldBe emptyList()
+    }
+
+    @Test
+    fun `battery falls back to BLE when AAP battery is null`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = PodDevice(ble = mockDualPod(leftBattery = 0.8f), aap = aap)
+        device.batteryLeft shouldBe 0.8f
+        device.isAapConnected shouldBe true
+    }
+
+    @Test
+    fun `AAP battery preferred over BLE battery`() {
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            batteries = mapOf(
+                AapPodState.BatteryType.LEFT to AapPodState.Battery(AapPodState.BatteryType.LEFT, 0.79f, AapPodState.ChargingState.NOT_CHARGING),
+            ),
+        )
+        val device = PodDevice(ble = mockDualPod(leftBattery = 0.8f), aap = aap)
+        device.batteryLeft shouldBe 0.79f  // AAP 1% granularity wins over BLE 10%
+    }
+
+    @Test
+    fun `AAP charging preferred over BLE charging`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { (this@mockk as HasChargeDetectionDual).isLeftPodCharging } returns false
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            batteries = mapOf(
+                AapPodState.BatteryType.LEFT to AapPodState.Battery(AapPodState.BatteryType.LEFT, 0.8f, AapPodState.ChargingState.CHARGING_OPTIMIZED),
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftPodCharging shouldBe true  // AAP CHARGING_OPTIMIZED counts as charging
+    }
+
+    @Test
+    fun `address returns bonded address from profile, not BLE RPA`() {
+        val bondedAddress = "CC:22:FE:25:69:63"
+        val bleRpa = "5A:3B:1C:2D:4E:6F"
+        val profile = mockk<eu.darken.capod.profiles.core.AppleDeviceProfile>(relaxed = true) {
+            every { address } returns bondedAddress
+        }
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { this@mockk.address } returns bleRpa
+            every { meta } returns eu.darken.capod.pods.core.apple.ApplePods.AppleMeta(profile = profile)
+        }
+        val device = PodDevice(ble = ble, aap = null)
+        device.address shouldBe bondedAddress
+        device.bleAddress shouldBe bleRpa
     }
 }

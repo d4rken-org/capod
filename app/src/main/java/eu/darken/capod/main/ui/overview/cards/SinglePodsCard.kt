@@ -49,6 +49,7 @@ import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
 import eu.darken.capod.pods.core.apple.ApplePods
+import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
 import eu.darken.capod.pods.core.formatBatteryPercent
 import java.time.Duration
 import java.time.Instant
@@ -59,6 +60,7 @@ fun SinglePodsCard(
     device: PodDevice,
     showDebug: Boolean,
     now: Instant,
+    onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
 ) {
     val context = LocalContext.current
 
@@ -222,6 +224,17 @@ fun SinglePodsCard(
                         }
                     }
                 }
+            }
+
+            // ANC mode selector
+            val ancMode = device.ancMode
+            if (device.isAapConnected && device.hasAncControl && ancMode != null) {
+                Spacer(modifier = Modifier.height(12.dp))
+                AncModeSelector(
+                    currentMode = ancMode.current,
+                    supportedModes = ancMode.supported,
+                    onModeSelected = { onAncModeChange?.invoke(it) },
+                )
             }
 
             // Debug info

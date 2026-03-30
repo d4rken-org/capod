@@ -125,6 +125,7 @@ class OverviewViewModelTest : BaseTest() {
         upgradeRepo = upgradeRepo,
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
+        aapManager = mockk(relaxed = true),
     )
 
     @Nested

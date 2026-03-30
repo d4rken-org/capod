@@ -55,6 +55,7 @@ import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
 import java.time.Instant
 
 @Composable
@@ -127,6 +128,8 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onSettings = { vm.goToSettings() },
         onUpgrade = { vm.onUpgrade() },
         onToggleUnmatched = { vm.toggleUnmatchedDevices() },
+        onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
+        onConversationAwarenessChange = { device, enabled -> vm.setConversationalAwareness(device, enabled) },
     )
 }
 
@@ -138,6 +141,8 @@ fun OverviewScreen(
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
     onToggleUnmatched: () -> Unit,
+    onAncModeChange: (PodDevice, AapSetting.AncMode.Value) -> Unit = { _, _ -> },
+    onConversationAwarenessChange: (PodDevice, Boolean) -> Unit = { _, _ -> },
 ) {
     Scaffold(
         topBar = {
@@ -222,7 +227,13 @@ fun OverviewScreen(
                     items = state.profiledDevices,
                     key = { it.identifier.hashCode() },
                 ) { device ->
-                    PodDeviceCard(device = device, showDebug = state.isDebugMode, now = state.now)
+                    PodDeviceCard(
+                        device = device,
+                        showDebug = state.isDebugMode,
+                        now = state.now,
+                        onAncModeChange = { mode -> onAncModeChange(device, mode) },
+                        onConversationAwarenessChange = { enabled -> onConversationAwarenessChange(device, enabled) },
+                    )
                 }
 
                 // 5. Monitoring active card
@@ -247,7 +258,13 @@ fun OverviewScreen(
                             items = state.unmatchedDevices,
                             key = { "unmatched_${it.identifier.hashCode()}" },
                         ) { device ->
-                            PodDeviceCard(device = device, showDebug = state.isDebugMode, now = state.now)
+                            PodDeviceCard(
+                        device = device,
+                        showDebug = state.isDebugMode,
+                        now = state.now,
+                        onAncModeChange = { mode -> onAncModeChange(device, mode) },
+                        onConversationAwarenessChange = { enabled -> onConversationAwarenessChange(device, enabled) },
+                    )
                         }
                     }
                 }
@@ -257,10 +274,20 @@ fun OverviewScreen(
 }
 
 @Composable
-private fun PodDeviceCard(device: PodDevice, showDebug: Boolean, now: Instant) {
+private fun PodDeviceCard(
+    device: PodDevice,
+    showDebug: Boolean,
+    now: Instant,
+    onAncModeChange: (AapSetting.AncMode.Value) -> Unit,
+    onConversationAwarenessChange: (Boolean) -> Unit = {},
+) {
     when {
-        device.hasDualPods -> DualPodsCard(device = device, showDebug = showDebug, now = now)
-        device.model != PodModel.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now)
+        device.hasDualPods -> DualPodsCard(
+            device = device, showDebug = showDebug, now = now,
+            onAncModeChange = onAncModeChange,
+            onConversationAwarenessChange = onConversationAwarenessChange,
+        )
+        device.model != PodModel.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now, onAncModeChange = onAncModeChange)
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug, now = now)
     }
 }

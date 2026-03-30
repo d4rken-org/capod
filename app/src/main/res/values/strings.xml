@@ -258,6 +258,11 @@
     <string name="pods_charging_label">Charging</string>
     <string name="pods_inear_label">In ear</string>
     <string name="pods_microphone_label">Microphone</string>
+    <string name="anc_mode_off">Off</string>
+    <string name="anc_mode_on">ANC</string>
+    <string name="anc_mode_transparency">Transparency</string>
+    <string name="anc_mode_adaptive">Adaptive</string>
+    <string name="conversation_awareness_label">Conversation Awareness</string>
     <string name="pods_yours">Yours</string>
     <string name="headset_being_worn_label">Being worn</string>
     <string name="headset_not_being_worn_label">Not being worn</string>

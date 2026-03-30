@@ -23,9 +23,12 @@ class DeviceMonitor @Inject constructor(
     val devices: Flow<List<PodDevice>> = blePodMonitor.devices
         .combine(aapManager.allStates) { pods, aapStates ->
             pods.map { pod ->
+                // AAP connections are keyed by bonded BR/EDR address (from profile),
+                // BLE scans use rotating RPAs. Bridge via the profile's bonded address.
+                val bondedAddress = pod.meta?.profile?.address
                 PodDevice(
                     ble = pod,
-                    aap = aapStates[pod.address],
+                    aap = bondedAddress?.let { aapStates[it] },
                 )
             }
         }
@@ -33,7 +36,8 @@ class DeviceMonitor @Inject constructor(
     suspend fun getDeviceForProfile(profileId: String): PodDevice? {
         log(TAG) { "getDeviceForProfile(profileId=$profileId)" }
         val bleDevice = blePodMonitor.getDeviceForProfile(profileId) ?: return null
-        val aapState = aapManager.allStates.firstOrNull()?.get(bleDevice.address)
+        val bondedAddress = bleDevice.meta?.profile?.address
+        val aapState = bondedAddress?.let { aapManager.allStates.firstOrNull()?.get(it) }
         return PodDevice(ble = bleDevice, aap = aapState)
     }
 

@@ -1,14 +1,14 @@
 package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.BaseBlePodsTest
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class AirPodsGen4Test : BaseAirPodsTest() {
+class AirPodsGen4Test : BaseBlePodsTest() {
 
     @Test
     fun `AirPods Gen4 via log from #225`() = runTest {

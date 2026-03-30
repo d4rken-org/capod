@@ -3,7 +3,9 @@ package eu.darken.capod.common.bluetooth.l2cap
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
-import android.util.Log
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -18,7 +20,7 @@ import javax.inject.Singleton
 @SuppressLint("MissingPermission")
 class L2capSocketFactory @Inject constructor() {
 
-    private val TAG = "L2capSocketFactory"
+    private val TAG = logTag("L2capSocketFactory")
     private val TYPE_L2CAP = 3
 
     /**
@@ -36,12 +38,12 @@ class L2capSocketFactory @Inject constructor() {
 
         // Strategy 1: Public API via BluetoothSocketSettings (API 37+)
         tryPublicApi(device, psm)?.let { socket ->
-            Log.d(TAG, "Socket created via public BluetoothSocketSettings API")
+            log(TAG, VERBOSE) { "Socket created via public BluetoothSocketSettings API" }
             return socket
         }
 
         // Strategy 2: Hidden API via reflection + bypass
-        Log.d(TAG, "Public API unavailable, using hidden API bypass")
+        log(TAG, VERBOSE) { "Public API unavailable, using hidden API bypass" }
         return createViaHiddenApi(device, psm)
     }
 
@@ -60,18 +62,18 @@ class L2capSocketFactory @Inject constructor() {
             val createMethod = BluetoothDevice::class.java.getMethod("createUsingSocketSettings", settingsClass)
             createMethod.invoke(device, settings) as BluetoothSocket
         } catch (e: ClassNotFoundException) {
-            Log.d(TAG, "BluetoothSocketSettings not available (pre-API 37)")
+            log(TAG, VERBOSE) { "BluetoothSocketSettings not available (pre-API 37)" }
             null
         } catch (e: Exception) {
             val cause = if (e is java.lang.reflect.InvocationTargetException) e.cause ?: e else e
             when (cause) {
                 is IllegalArgumentException -> {
-                    Log.d(TAG, "BluetoothSocketSettings does not support TYPE_L2CAP: ${cause.message}")
+                    log(TAG, VERBOSE) { "BluetoothSocketSettings does not support TYPE_L2CAP: ${cause.message}" }
                     null
                 }
                 is SecurityException -> throw cause
                 else -> {
-                    Log.d(TAG, "BluetoothSocketSettings failed: ${cause::class.simpleName}: ${cause.message}")
+                    log(TAG, VERBOSE) { "BluetoothSocketSettings failed: ${cause::class.simpleName}: ${cause.message}" }
                     null
                 }
             }
