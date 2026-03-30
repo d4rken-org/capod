@@ -1,4 +1,4 @@
-package eu.darken.capod.pods.core.apple.protocol
+package eu.darken.capod.pods.core.apple.protocol.ble
 
 data class ProximityPayload(
     val public: Public,

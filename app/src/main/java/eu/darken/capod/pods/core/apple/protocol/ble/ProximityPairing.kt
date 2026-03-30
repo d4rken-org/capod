@@ -1,8 +1,9 @@
-package eu.darken.capod.pods.core.apple.protocol
+package eu.darken.capod.pods.core.apple.protocol.ble
 
 import android.bluetooth.le.ScanFilter
 import dagger.Reusable
 import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import javax.inject.Inject
 
 

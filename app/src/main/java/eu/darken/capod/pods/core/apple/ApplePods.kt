@@ -3,7 +3,7 @@ package eu.darken.capod.pods.core.apple
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.BlePodSnapshot
-import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPayload
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 
 interface ApplePods : BlePodSnapshot {

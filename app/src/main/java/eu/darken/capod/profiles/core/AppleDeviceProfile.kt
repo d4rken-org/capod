@@ -3,7 +3,7 @@ package eu.darken.capod.profiles.core
 import eu.darken.capod.common.serialization.ByteArrayBase64Serializer
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
-import eu.darken.capod.pods.core.apple.protocol.ProximityEncryptionKey
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityEncryptionKey
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
