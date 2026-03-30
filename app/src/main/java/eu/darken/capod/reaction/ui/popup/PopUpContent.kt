@@ -36,11 +36,11 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.getSignalQuality
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.formatBatteryPercent
-import eu.darken.capod.pods.core.getBatteryDrawable
-import eu.darken.capod.pods.core.toBatteryFloat
-import eu.darken.capod.pods.core.toBatteryOrNull
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
+import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
+import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
 
 @Composable
 fun PopUpContent(

@@ -42,7 +42,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
-import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 
 private val CapsuleShape = RoundedCornerShape(6.dp)
 

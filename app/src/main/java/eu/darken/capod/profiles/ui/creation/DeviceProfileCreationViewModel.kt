@@ -14,9 +14,9 @@ import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.toHex
 import eu.darken.capod.common.uix.ViewModel4
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.protocol.IdentityResolvingKey
-import eu.darken.capod.pods.core.apple.protocol.ble.ProximityEncryptionKey
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
+import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo

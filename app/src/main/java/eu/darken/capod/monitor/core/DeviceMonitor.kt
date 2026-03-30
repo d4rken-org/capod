@@ -2,7 +2,7 @@ package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.firstOrNull

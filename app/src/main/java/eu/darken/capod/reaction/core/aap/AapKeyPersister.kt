@@ -3,7 +3,7 @@ package eu.darken.capod.reaction.core.aap
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
-import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.flow.Flow

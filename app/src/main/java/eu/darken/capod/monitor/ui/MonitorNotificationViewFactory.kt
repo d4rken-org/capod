@@ -6,9 +6,9 @@ import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.formatBatteryPercent
-import eu.darken.capod.pods.core.getBatteryDrawable
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
 import javax.inject.Inject
 import kotlin.math.roundToInt
 

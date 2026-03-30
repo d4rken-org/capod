@@ -4,7 +4,7 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.time.Duration

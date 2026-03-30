@@ -10,7 +10,7 @@ import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.primaryDevice
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine

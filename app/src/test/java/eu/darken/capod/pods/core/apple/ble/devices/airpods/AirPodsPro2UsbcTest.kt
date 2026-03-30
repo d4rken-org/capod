@@ -1,0 +1,72 @@
+package eu.darken.capod.pods.core.apple.ble.devices.airpods
+
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.devices.BaseBlePodsTest
+import eu.darken.capod.pods.core.apple.ble.devices.HasAppleColor
+import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Test
+
+class AirPodsPro2UsbcTest : BaseBlePodsTest() {
+
+    /**
+     * https://github.com/d4rken-org/capod/issues/164
+     */
+    @Test
+    fun `AirPods Pro 2 with USB-C  - via #164`() = runTest {
+        create<AirPodsPro2Usbc>("07 19 01 24 20 0B 99 8F 11 00 04 BD A7 3B FF 2D 8A 3C AF 9B 1A 7C 74 B7 A9 D1 C3") {
+
+            pubPrefix shouldBe 0x01.toUByte()
+            pubDeviceModel shouldBe 0x2420.toUShort()
+            pubStatus shouldBe 0x0B.toUByte()
+            pubPodsBattery shouldBe 0x99.toUByte()
+            pubFlags shouldBe 0x8.toUShort()
+            pubCaseBattery shouldBe 0xF.toUShort()
+            pubCaseLidState shouldBe 0x11.toUByte()
+            pubDeviceColor shouldBe 0x0.toUByte()
+            pubSuffix shouldBe 0x04.toUByte()
+
+            isLeftPodMicrophone shouldBe false
+            isRightPodMicrophone shouldBe true
+
+            isLeftPodInEar shouldBe true
+            isRightPodInEar shouldBe true
+
+            batteryLeftPodPercent shouldBe 0.9f
+            batteryRightPodPercent shouldBe 0.9f
+
+            isCaseCharging shouldBe false
+            isRightPodCharging shouldBe false
+            isLeftPodCharging shouldBe false
+            batteryCasePercent shouldBe null
+
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+
+            model shouldBe PodModel.AIRPODS_PRO2_USBC
+        }
+    }
+
+    @Test
+    fun `AirPods Pro 2 with USB-C  - via #164 - in case`() = runTest {
+        create<AirPodsPro2Usbc>("07 19 01 24 20 53 AA 98 32 00 05 49 0A B8 BF 8E 29 D8 70 12 0D A7 0C CE 77 56 00") {
+
+            isLeftPodMicrophone shouldBe true
+            isRightPodMicrophone shouldBe false
+
+            isLeftPodInEar shouldBe true
+            isRightPodInEar shouldBe false
+
+            batteryLeftPodPercent shouldBe 1f
+            batteryRightPodPercent shouldBe 1f
+
+            isCaseCharging shouldBe false
+            isRightPodCharging shouldBe true
+            isLeftPodCharging shouldBe false
+            batteryCasePercent shouldBe 0.8f
+
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+
+            model shouldBe PodModel.AIRPODS_PRO2_USBC
+        }
+    }
+}

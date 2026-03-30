@@ -11,7 +11,7 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo

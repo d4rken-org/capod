@@ -1,0 +1,68 @@
+package eu.darken.capod.pods.core.apple.ble.devices.airpods
+
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.devices.BaseBlePodsTest
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.HasAppleColor
+import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Test
+
+class AirPodsGen3Test : BaseBlePodsTest() {
+
+    @Test
+    fun `AirPods Gen3`() = runTest {
+        create<AirPodsGen3>("07 19 01 13 20 75 AA B9 31 00 04 67 9A 57 DF BE F6 90 52 B0 04 1F 8D 89 DA F4 9E") {
+            pubPrefix shouldBe 0x01.toUByte()
+            pubDeviceModel shouldBe 0x1320.toUShort()
+            pubStatus shouldBe 0x75.toUByte()
+            pubPodsBattery shouldBe 0xAA.toUByte()
+            pubFlags shouldBe 0xB.toUShort()
+            pubCaseBattery shouldBe 0x9.toUShort()
+            pubCaseLidState shouldBe 0x31.toUByte()
+            pubDeviceColor shouldBe 0x00.toUByte()
+            pubSuffix shouldBe 0x04.toUByte()
+
+            batteryLeftPodPercent shouldBe 1.0f
+            batteryRightPodPercent shouldBe 1.0f
+
+            isCaseCharging shouldBe false
+            isLeftPodCharging shouldBe true
+            isRightPodCharging shouldBe true
+
+            isLeftPodInEar shouldBe false
+            isRightPodInEar shouldBe false
+            batteryCasePercent shouldBe 0.9f
+
+            caseLidState shouldBe DualApplePods.LidState.OPEN
+
+            state shouldBe HasStateDetectionAirPods.ConnectionState.IDLE
+
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+
+            model shouldBe PodModel.AIRPODS_GEN3
+        }
+    }
+
+    @Test
+    fun `random guy at bus stop`() = runTest {
+        create<AirPodsGen3>("07 19 01 13 20 2B 88 8F 01 00 08 E2 0E 84 37 C5 98 16 D4 B7 37 ED 23 8B 08 EA A1") {
+            batteryLeftPodPercent shouldBe 0.8f
+            batteryRightPodPercent shouldBe 0.8f
+
+            isCaseCharging shouldBe false
+            isLeftPodCharging shouldBe false
+            isRightPodCharging shouldBe false
+
+            isLeftPodInEar shouldBe true
+            isRightPodInEar shouldBe true
+            batteryCasePercent shouldBe null
+
+            caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
+
+            state shouldBe HasStateDetectionAirPods.ConnectionState.UNKNOWN
+
+            podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
+        }
+    }
+}

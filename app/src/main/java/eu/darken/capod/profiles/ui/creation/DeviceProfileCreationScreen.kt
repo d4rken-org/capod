@@ -64,7 +64,7 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.toHex
-import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.PodModel
 
 @Composable
 fun DeviceProfileCreationScreenHost(

@@ -16,9 +16,9 @@ import eu.darken.capod.common.flow.replayingShare
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
-import eu.darken.capod.pods.core.BlePodSnapshot
-import eu.darken.capod.pods.core.PodFactory
-import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPairing
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.PodFactory
+import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPairing
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.CoroutineScope

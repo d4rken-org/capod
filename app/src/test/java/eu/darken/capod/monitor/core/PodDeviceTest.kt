@@ -1,15 +1,16 @@
 package eu.darken.capod.monitor.core
 
-import eu.darken.capod.pods.core.BlePodSnapshot
-import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.HasChargeDetectionDual
-import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.pods.core.HasEarDetectionDual
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.HasCase
+import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
+import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetection
+import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 
-import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
-import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -238,7 +239,7 @@ class PodDeviceTest : BaseTest() {
         val ble = mockk<DualApplePods>(relaxed = true) {
             every { model } returns PodModel.AIRPODS_PRO3
             every { this@mockk.address } returns bleRpa
-            every { meta } returns eu.darken.capod.pods.core.apple.ApplePods.AppleMeta(profile = profile)
+            every { meta } returns ApplePods.AppleMeta(profile = profile)
         }
         val device = PodDevice(ble = ble, aap = null)
         device.address shouldBe bondedAddress

@@ -1,6 +1,6 @@
 package eu.darken.capod.reaction.core.popup
 
-import eu.darken.capod.pods.core.apple.DualApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach

@@ -5,7 +5,7 @@ import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.main.core.MonitorMode
-import eu.darken.capod.pods.core.PodModel
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesContainer
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition

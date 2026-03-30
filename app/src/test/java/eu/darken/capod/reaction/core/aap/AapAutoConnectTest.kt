@@ -3,16 +3,14 @@ package eu.darken.capod.reaction.core.aap
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.monitor.core.BlePodMonitor
-import eu.darken.capod.pods.core.BlePodSnapshot
-import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 
-import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import io.kotest.matchers.shouldBe
-import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
@@ -29,7 +27,6 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
-import java.io.IOException
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class AapAutoConnectTest : BaseTest() {

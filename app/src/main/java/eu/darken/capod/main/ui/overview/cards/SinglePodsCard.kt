@@ -48,9 +48,9 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
-import eu.darken.capod.pods.core.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import java.time.Duration
 import java.time.Instant
 
