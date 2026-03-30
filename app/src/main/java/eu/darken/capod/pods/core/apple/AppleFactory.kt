@@ -6,9 +6,9 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
+import eu.darken.capod.pods.core.apple.misc.UnknownAppleSnapshotBle
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
 import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
@@ -28,7 +28,7 @@ class AppleFactory @Inject constructor(
     private val proximityPairingDecoder: ProximityPairing.Decoder,
     private val proximityMessageDecrypter: ProximityMessage.Decrypter,
     private val podFactories: @JvmSuppressWildcards Set<ApplePodsFactory>,
-    private val unknownAppleFactory: UnknownAppleDevice.Factory,
+    private val unknownAppleFactory: UnknownAppleSnapshotBle.Factory,
     private val rpaChecker: RPAChecker,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
@@ -60,7 +60,7 @@ class AppleFactory @Inject constructor(
         return proximityMessage
     }
 
-    suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
+    suspend fun create(scanResult: BleScanResult): BlePodSnapshot? = lock.withLock {
         val proximityMessage = getMessage(scanResult) ?: return@withLock null
         val factory = podFactories.firstOrNull { it.isResponsible(proximityMessage) } ?: unknownAppleFactory
 

@@ -47,6 +47,6 @@ class RPAChecker @Inject constructor() {
     }
 
     companion object {
-        private val TAG = logTag("Monitor", "PodMonitor", "RPAChecker")
+        private val TAG = logTag("Monitor", "BlePodMonitor", "RPAChecker")
     }
 }

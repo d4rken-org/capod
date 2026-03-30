@@ -1,6 +1,6 @@
 package eu.darken.capod.pods.core
 
-interface SinglePodDevice : PodDevice {
+interface SingleBlePodSnapshot : BlePodSnapshot {
 
     val batteryHeadsetPercent: Float?
 }

@@ -4,11 +4,11 @@ import androidx.annotation.DrawableRes
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
+import eu.darken.capod.pods.core.DualBlePodSnapshot
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
 import eu.darken.capod.pods.core.HasEarDetectionDual
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
@@ -25,18 +25,18 @@ import javax.inject.Inject
  * https://discord.com/channels/548521543039189022/927235844127993866/1060911213539774504
  */
 data class FakeAirPodsPro2(
-    override val identifier: PodDevice.Id = PodDevice.Id(),
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,
     override val meta: ApplePods.AppleMeta,
-    override val reliability: Float = PodDevice.BASE_CONFIDENCE,
+    override val reliability: Float = BlePodSnapshot.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
     private val cachedBatteryPercentage: Float? = null,
     private val cachedCaseState: LidState? = null,
-) : DualApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase {
+) : DualApplePods, HasChargeDetectionDual, DualBlePodSnapshot, HasEarDetectionDual, HasCase {
 
     override val model: PodModel = PodModel.FAKE_AIRPODS_PRO2
 

@@ -44,10 +44,10 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.pods.core.HasPodStyle
 import eu.darken.capod.pods.core.HasStateDetection
 import eu.darken.capod.pods.core.apple.ApplePods
@@ -61,7 +61,7 @@ import java.time.Instant
 
 @Composable
 fun DualPodsCard(
-    device: MonitoredDevice,
+    device: PodDevice,
     showDebug: Boolean,
     now: Instant,
 ) {
@@ -316,7 +316,7 @@ private fun PodGauge(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun CaseRow(
-    device: MonitoredDevice,
+    device: PodDevice,
 ) {
     val context = LocalContext.current
 

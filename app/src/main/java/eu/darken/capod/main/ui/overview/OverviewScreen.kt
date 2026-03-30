@@ -53,7 +53,7 @@ import eu.darken.capod.main.ui.overview.cards.PermissionCard
 import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import java.time.Instant
 
@@ -257,7 +257,7 @@ fun OverviewScreen(
 }
 
 @Composable
-private fun PodDeviceCard(device: MonitoredDevice, showDebug: Boolean, now: Instant) {
+private fun PodDeviceCard(device: PodDevice, showDebug: Boolean, now: Instant) {
     when {
         device.hasDualPods -> DualPodsCard(device = device, showDebug = showDebug, now = now)
         device.model != PodModel.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now)

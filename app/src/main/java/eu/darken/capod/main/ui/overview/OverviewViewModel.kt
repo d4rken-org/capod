@@ -3,12 +3,12 @@ package eu.darken.capod.main.ui.overview
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.flow.combine
-
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.permissions.Permission
@@ -18,11 +18,10 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import java.time.Instant
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
@@ -33,8 +32,8 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeoutOrNull
+import java.time.Instant
 import javax.inject.Inject
-import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class OverviewViewModel @Inject constructor(
@@ -71,6 +70,7 @@ class OverviewViewModel @Inject constructor(
                         false
                     }
                 }
+
                 MonitorMode.ALWAYS -> true
             }
             if (shouldStart) {
@@ -122,7 +122,7 @@ class OverviewViewModel @Inject constructor(
     data class State(
         val now: Instant,
         val permissions: Set<Permission>,
-        val devices: List<MonitoredDevice>,
+        val devices: List<PodDevice>,
         val isDebugMode: Boolean,
         val isBluetoothEnabled: Boolean,
         val profiles: List<DeviceProfile>,
@@ -130,8 +130,8 @@ class OverviewViewModel @Inject constructor(
         val showUnmatchedDevices: Boolean,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
-        val profiledDevices: List<MonitoredDevice> get() = devices.filter { it.meta?.profile != null }
-        val unmatchedDevices: List<MonitoredDevice> get() = devices.filter { it.meta?.profile == null }
+        val profiledDevices: List<PodDevice> get() = devices.filter { it.meta?.profile != null }
+        val unmatchedDevices: List<PodDevice> get() = devices.filter { it.meta?.profile == null }
     }
 
     fun onPermissionResult(@Suppress("UNUSED_PARAMETER") granted: Boolean) {

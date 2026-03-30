@@ -24,9 +24,9 @@ import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.Key
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -44,10 +44,10 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.formatBatteryPercent
 import java.time.Duration
@@ -56,7 +56,7 @@ import java.time.Instant
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SinglePodsCard(
-    device: MonitoredDevice,
+    device: PodDevice,
     showDebug: Boolean,
     now: Instant,
 ) {

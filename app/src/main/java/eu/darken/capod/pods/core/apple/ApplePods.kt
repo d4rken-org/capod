@@ -2,11 +2,11 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.profiles.core.AppleDeviceProfile
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 
-interface ApplePods : PodDevice {
+interface ApplePods : BlePodSnapshot {
 
     val payload: ProximityPayload
 
@@ -59,7 +59,7 @@ interface ApplePods : PodDevice {
     data class AppleMeta(
         val isIRKMatch: Boolean = false,
         override val profile: AppleDeviceProfile? = null,
-    ) : PodDevice.Meta
+    ) : BlePodSnapshot.Meta
 
     override val meta: AppleMeta
 }

@@ -78,7 +78,7 @@ class PodDeviceCache @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Monitor", "PodMonitor", "Cache")
+        private val TAG = logTag("Monitor", "BlePodMonitor", "Cache")
     }
 }
 

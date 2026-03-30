@@ -34,7 +34,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.formatBatteryPercent
@@ -44,7 +44,7 @@ import eu.darken.capod.pods.core.toBatteryOrNull
 
 @Composable
 fun PopUpContent(
-    device: MonitoredDevice,
+    device: PodDevice,
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -117,7 +117,7 @@ fun PopUpContent(
 }
 
 @Composable
-private fun DualPodContent(device: MonitoredDevice) {
+private fun DualPodContent(device: PodDevice) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly,
@@ -148,7 +148,7 @@ private fun DualPodContent(device: MonitoredDevice) {
 }
 
 @Composable
-private fun SinglePodContent(device: MonitoredDevice) {
+private fun SinglePodContent(device: PodDevice) {
     BatteryColumn(
         iconRes = device.iconRes,
         batteryPercent = device.batteryHeadset.toBatteryFloat(),

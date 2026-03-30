@@ -18,7 +18,7 @@ fun formatBatteryPercent(context: Context, percent: Float?): String =
     percent?.let { "${(it * 100).roundToInt()}%" }
         ?: context.getString(R.string.general_value_not_available_label)
 
-fun PodDevice.getSignalQuality(context: Context): String {
+fun BlePodSnapshot.getSignalQuality(context: Context): String {
     val multiplier = 100 * signalQuality
     return "${multiplier.roundToInt()}%"
 }
@@ -36,7 +36,7 @@ fun getBatteryDrawable(percent: Float?): Int = when {
     else -> R.drawable.ic_baseline_battery_0_bar_24
 }
 
-fun PodDevice.lastSeenFormatted(now: Instant): String {
+fun BlePodSnapshot.lastSeenFormatted(now: Instant): String {
     val formatter = RelativeDateTimeFormatter.getInstance()
     val duration = Duration.between(seenLastAt, now)
     return if (duration > Duration.ofMinutes(1)) {
@@ -54,7 +54,7 @@ fun PodDevice.lastSeenFormatted(now: Instant): String {
     }
 }
 
-fun PodDevice.firstSeenFormatted(now: Instant): String {
+fun BlePodSnapshot.firstSeenFormatted(now: Instant): String {
     val formatter = RelativeDateTimeFormatter.getInstance()
     val duration = Duration.between(seenFirstAt, now)
     return formatter.format(

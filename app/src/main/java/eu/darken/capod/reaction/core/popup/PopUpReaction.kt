@@ -2,15 +2,13 @@ package eu.darken.capod.reaction.core.popup
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothManager2
-import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.core.ReactionSettings
@@ -55,7 +53,7 @@ class PopUpReaction @Inject constructor(
             log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
 
             val isSameDeviceOrProfile = previous?.identifier == current.identifier ||
-                (previous?.meta?.profile?.id != null && previous.meta?.profile?.id == current.meta?.profile?.id)
+                    (previous?.meta?.profile?.id != null && previous.meta?.profile?.id == current.meta?.profile?.id)
             val isSameDeviceWithCaseNowOpen = isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
             val isNewDeviceWithJustOpenedCase = !isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
 
@@ -67,7 +65,7 @@ class PopUpReaction @Inject constructor(
             throttleCasePopUps(current)
         }
 
-    private fun throttleCasePopUps(current: MonitoredDevice): Event? {
+    private fun throttleCasePopUps(current: PodDevice): Event? {
         val cooldownKey = current.meta?.profile?.id ?: current.identifier.toString()
         val now = Instant.now()
         val lastShown = caseCoolDowns[cooldownKey]
@@ -89,12 +87,14 @@ class PopUpReaction @Inject constructor(
                 caseCoolDowns[cooldownKey] = now
                 Event.PopupShow(device = current)
             }
+
             decision.shouldHide -> {
                 if (!decision.shouldResetCooldown) {
                     caseCoolDowns[cooldownKey] = now
                 }
                 Event.PopupHide()
             }
+
             else -> null
         }
     }
@@ -169,7 +169,7 @@ class PopUpReaction @Inject constructor(
     sealed class Event {
         data class PopupShow(
             val eventAt: Instant = Instant.now(),
-            val device: MonitoredDevice,
+            val device: PodDevice,
         ) : Event()
 
         data class PopupHide(
@@ -210,12 +210,14 @@ class PopUpReaction @Inject constructor(
                     )
                 }
             }
+
             DualApplePods.LidState.CLOSED -> CasePopUpDecision(
                 shouldShow = false,
                 shouldHide = true,
                 shouldResetCooldown = true,
                 reason = "Lid CLOSED, resetting cooldown",
             )
+
             else -> CasePopUpDecision(
                 shouldShow = false,
                 shouldHide = true,

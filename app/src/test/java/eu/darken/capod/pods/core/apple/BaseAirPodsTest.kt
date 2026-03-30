@@ -6,7 +6,7 @@ import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.serialization.SerializationModule
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -60,7 +60,7 @@ abstract class BaseAirPodsTest : BaseTest() {
         every { SystemClockWrap.elapsedRealtimeNanos } returns 1000L
     }
 
-    internal suspend inline fun <reified T : PodDevice?> create(
+    internal suspend inline fun <reified T : BlePodSnapshot?> create(
         hex: String,
         address: String = "77:49:4C:D8:25:0C",
         block: T.() -> Unit

@@ -2,6 +2,7 @@ package eu.darken.capod.reaction.core.playpause
 
 import eu.darken.capod.common.MediaControl
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -9,7 +10,6 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.combine
@@ -20,7 +20,6 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
-import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class PlayPause @Inject constructor(
@@ -63,7 +62,7 @@ class PlayPause @Inject constructor(
 
             when {
                 previous!!.hasEarDetection && previous.hasDualPods &&
-                    current!!.hasEarDetection && current.hasDualPods -> {
+                        current!!.hasEarDetection && current.hasDualPods -> {
                     // Dual pod devices (AirPods, AirPods Pro, etc.)
                     log(TAG, VERBOSE) {
                         "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}"

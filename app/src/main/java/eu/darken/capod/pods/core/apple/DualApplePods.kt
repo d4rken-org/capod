@@ -4,14 +4,14 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.isBitSet
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.DualPodDevice.Pod
+import eu.darken.capod.pods.core.DualBlePodSnapshot
+import eu.darken.capod.pods.core.DualBlePodSnapshot.Pod
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
 import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetectionDual
 
-interface DualApplePods : ApplePods, HasChargeDetectionDual, DualPodDevice, HasEarDetectionDual, HasCase,
+interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot, HasEarDetectionDual, HasCase,
     HasDualMicrophone, HasAppleColor {
 
     val primaryPod: Pod

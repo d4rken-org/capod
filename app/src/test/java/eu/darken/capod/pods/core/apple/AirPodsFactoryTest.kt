@@ -1,9 +1,9 @@
 package eu.darken.capod.pods.core.apple
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.airpods.AirPodsGen1
 import eu.darken.capod.pods.core.apple.airpods.AirPodsPro
-import eu.darken.capod.pods.core.apple.misc.UnknownAppleDevice
+import eu.darken.capod.pods.core.apple.misc.UnknownAppleSnapshotBle
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.instanceOf
 import kotlinx.coroutines.test.runTest
@@ -28,13 +28,13 @@ class AirPodsFactoryTest : BaseAirPodsTest() {
     @Test
     fun `unknown AppleDevice`() = runTest {
         create<ApplePods>("07 19 01 FF FF 2B 99 8F 01 00 >09< 10 30 EE F3 41 B5 D8 9F A3 B0 B4 17 9F 85 97 5F") {
-            this shouldBe instanceOf<UnknownAppleDevice>()
+            this shouldBe instanceOf<UnknownAppleSnapshotBle>()
         }
     }
 
     @Test
     fun `invalid data`() = runTest {
-        create<PodDevice?>("abcd") {
+        create<BlePodSnapshot?>("abcd") {
             this shouldBe null
         }
     }
