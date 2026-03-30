@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name="eu.darken.capod.debug.l2cap.L2capPocActivity"
+            android:exported="true"
+            android:label="L2CAP PoC">
+            <intent-filter>
+                <action android:name="eu.darken.capod.L2CAP_POC" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
