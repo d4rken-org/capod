@@ -76,6 +76,7 @@ class AapPodStateTest : BaseTest() {
         state.deviceInfo.shouldBeNull()
         state.settings shouldBe emptyMap()
         state.batteries shouldBe emptyMap()
+        state.lastMessageAt.shouldBeNull()
     }
 
     @Test

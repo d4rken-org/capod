@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple.aap
 
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import java.time.Instant
 import kotlin.reflect.KClass
 
 /**
@@ -12,6 +13,7 @@ data class AapPodState(
     val deviceInfo: AapDeviceInfo? = null,
     val settings: Map<KClass<out AapSetting>, AapSetting> = emptyMap(),
     val batteries: Map<BatteryType, Battery> = emptyMap(),
+    val lastMessageAt: Instant? = null,
 ) {
     inline fun <reified T : AapSetting> setting(): T? = settings[T::class] as? T
 

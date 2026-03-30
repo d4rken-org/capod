@@ -245,4 +245,114 @@ class PodDeviceTest : BaseTest() {
         device.address shouldBe bondedAddress
         device.bleAddress shouldBe bleRpa
     }
+
+    // --- AAP signal quality boost tests ---
+
+    private fun deviceWithBleQuality(bleQuality: Float, aap: AapPodState? = null): PodDevice {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { signalQuality } returns bleQuality
+        }
+        return PodDevice(ble = ble, aap = aap)
+    }
+
+    @Test
+    fun `AAP boost - READY with fresh message applies 0_15`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(5),
+        )
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.15f
+    }
+
+    @Test
+    fun `AAP boost - READY with warm message applies 0_10`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(20),
+        )
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.10f
+    }
+
+    @Test
+    fun `AAP boost - READY with stale message applies 0_05`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(60),
+        )
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.05f
+    }
+
+    @Test
+    fun `AAP boost - boundary at exactly 10s is warm tier`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(10),
+        )
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.10f
+    }
+
+    @Test
+    fun `AAP boost - boundary at exactly 30s is stale tier`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(30),
+        )
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.05f
+    }
+
+    @Test
+    fun `AAP boost - signalQuality clamps to 1_0`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(5),
+        )
+        val device = deviceWithBleQuality(0.95f, aap)
+        device.signalQuality shouldBe 1.0f
+    }
+
+    @Test
+    fun `AAP boost - CONNECTING state applies 0_05`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.CONNECTING)
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.05f
+    }
+
+    @Test
+    fun `AAP boost - future timestamp treated as stale`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.plusSeconds(60),
+        )
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.05f
+    }
+
+    @Test
+    fun `AAP boost - READY with null lastMessageAt returns 0_05`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = deviceWithBleQuality(0.50f, aap)
+        device.computeAapBoost(now) shouldBe 0.05f
+    }
+
+    @Test
+    fun `AAP boost - no AAP returns zero`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val device = deviceWithBleQuality(0.50f, aap = null)
+        device.computeAapBoost(now) shouldBe 0f
+    }
 }
