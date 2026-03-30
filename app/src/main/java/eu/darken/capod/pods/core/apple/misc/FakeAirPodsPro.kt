@@ -13,8 +13,8 @@ import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.history.PodHistoryRepo
-import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
-import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityMessage
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPayload
 import java.time.Instant
 import javax.inject.Inject
 

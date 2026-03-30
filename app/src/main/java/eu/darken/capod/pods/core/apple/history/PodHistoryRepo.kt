@@ -12,7 +12,7 @@ import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
-import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPayload
 import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo

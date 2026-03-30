@@ -4,7 +4,7 @@ import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.collections.median
 import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPayload
 import java.time.Duration
 import java.time.Instant
 import kotlin.math.max

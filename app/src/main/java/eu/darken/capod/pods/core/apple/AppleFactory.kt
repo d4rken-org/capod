@@ -10,9 +10,9 @@ import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.misc.UnknownAppleSnapshotBle
 import eu.darken.capod.pods.core.apple.protocol.ContinuityProtocol
-import eu.darken.capod.pods.core.apple.protocol.ProximityMessage
-import eu.darken.capod.pods.core.apple.protocol.ProximityPairing
-import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityMessage
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPairing
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPayload
 import eu.darken.capod.pods.core.apple.protocol.RPAChecker
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo

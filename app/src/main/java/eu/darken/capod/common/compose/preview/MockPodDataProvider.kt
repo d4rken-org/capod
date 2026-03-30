@@ -16,7 +16,7 @@ import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ApplePods
-import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
+import eu.darken.capod.pods.core.apple.protocol.ble.ProximityPayload
 import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
