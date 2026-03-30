@@ -7,8 +7,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
@@ -27,7 +27,7 @@ class PodHistoryRepo @Inject constructor(
     private val rpaChecker: RPAChecker,
 ) {
 
-    private val knownDevices = mutableMapOf<PodDevice.Id, KnownDevice>()
+    private val knownDevices = mutableMapOf<BlePodSnapshot.Id, KnownDevice>()
 
     data class Identifier(
         val device: UShort,

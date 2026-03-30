@@ -1,11 +1,10 @@
 package eu.darken.capod.monitor.core
 
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlin.collections.firstOrNull
 
-fun PodMonitor.devicesWithProfiles(): Flow<List<PodDevice>> = devices
+fun BlePodMonitor.devicesWithProfiles(): Flow<List<BlePodSnapshot>> = devices
     .map { devices -> devices.filter { it.meta.profile != null } }
 
-fun PodMonitor.primaryDevice(): Flow<PodDevice?> = devicesWithProfiles().map { it.firstOrNull() }
+fun BlePodMonitor.primaryDevice(): Flow<BlePodSnapshot?> = devicesWithProfiles().map { it.firstOrNull() }

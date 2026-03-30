@@ -2,6 +2,7 @@ package eu.darken.capod.main.ui.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
+import androidx.annotation.Keep
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.glance.GlanceId
@@ -10,7 +11,6 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
-import androidx.annotation.Keep
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
@@ -23,7 +23,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 
 class BatteryGlanceWidget : GlanceAppWidget() {
@@ -45,7 +45,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
         val appWidgetId: Int
         val initialIsPro: Boolean
         val initialProfileId: String?
-        val cachedDevice: MonitoredDevice?
+        val cachedDevice: PodDevice?
 
         try {
             ep = EntryPointAccessors.fromApplication(context, WidgetEntryPoint::class.java)
@@ -139,7 +139,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
         var n = 2
         while (70 * n - 30 < size) {
             ++n
-}
+        }
         return n - 1
     }
 

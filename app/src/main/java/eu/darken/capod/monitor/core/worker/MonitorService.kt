@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -26,9 +27,9 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
+import eu.darken.capod.monitor.core.BlePodMonitor
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
-import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -54,7 +55,6 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
-import eu.darken.capod.common.datastore.valueBlocking
 
 @AndroidEntryPoint
 class MonitorService : Service() {
@@ -64,7 +64,7 @@ class MonitorService : Service() {
     @Inject lateinit var notificationManager: NotificationManager
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var permissionTool: PermissionTool
-    @Inject lateinit var podMonitor: PodMonitor
+    @Inject lateinit var blePodMonitor: BlePodMonitor
     @Inject lateinit var deviceMonitor: DeviceMonitor
     @Inject lateinit var bluetoothManager: BluetoothManager2
     @Inject lateinit var playPause: PlayPause
@@ -179,7 +179,7 @@ class MonitorService : Service() {
         }
 
         val monitorJob = deviceMonitor.primaryDevice()
-            .setupCommonEventHandlers(TAG) { "PodMonitor" }
+            .setupCommonEventHandlers(TAG) { "BlePodMonitor" }
             .distinctUntilChanged()
             .throttleLatest(1000)
             .onEach { currentDevice ->
@@ -222,6 +222,7 @@ class MonitorService : Service() {
 
                 @Suppress("UNCHECKED_CAST")
                 val profiles = arguments[1] as List<DeviceProfile>
+
                 @Suppress("UNCHECKED_CAST")
                 val devices = arguments[2] as Collection<BluetoothDevice2>
 

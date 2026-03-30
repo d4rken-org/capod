@@ -4,20 +4,20 @@ import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.monitor.core.MonitoredDevice
-import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
+import eu.darken.capod.pods.core.DualBlePodSnapshot
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetection
 import eu.darken.capod.pods.core.HasChargeDetectionDual
 import eu.darken.capod.pods.core.HasDualMicrophone
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
-import eu.darken.capod.pods.core.unknown.UnknownDevice
+import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
@@ -39,7 +39,7 @@ object MockPodDataProvider {
 
     // --- Dual pod scenarios ---
 
-    fun airPodsProFullCharge(): DualPodDevice = MockDualPodDevice(
+    fun airPodsProFullCharge(): DualBlePodSnapshot = MockDualBlePodSnapshot(
         _model = PodModel.AIRPODS_PRO2,
         _label = "Work AirPods",
         batteryLeftPodPercent = 1.0f,
@@ -50,7 +50,7 @@ object MockPodDataProvider {
         _caseIcon = R.drawable.device_airpods_pro2_case,
     )
 
-    fun airPodsProMixed(): DualPodDevice = MockDualPodDevice(
+    fun airPodsProMixed(): DualBlePodSnapshot = MockDualBlePodSnapshot(
         _model = PodModel.AIRPODS_PRO2,
         _label = "My AirPods Pro",
         batteryLeftPodPercent = 0.80f,
@@ -62,7 +62,7 @@ object MockPodDataProvider {
         _caseIcon = R.drawable.device_airpods_pro2_case,
     )
 
-    fun airPodsProLowBattery(): DualPodDevice = MockDualPodDevice(
+    fun airPodsProLowBattery(): DualBlePodSnapshot = MockDualBlePodSnapshot(
         _model = PodModel.AIRPODS_PRO2,
         _label = "My AirPods Pro",
         batteryLeftPodPercent = 0.10f,
@@ -75,7 +75,7 @@ object MockPodDataProvider {
         _caseIcon = R.drawable.device_airpods_pro2_case,
     )
 
-    fun airPodsProInCase(): DualPodDevice = MockDualPodDevice(
+    fun airPodsProInCase(): DualBlePodSnapshot = MockDualBlePodSnapshot(
         _model = PodModel.AIRPODS_PRO2,
         _label = "My AirPods Pro",
         batteryLeftPodPercent = null,
@@ -86,7 +86,7 @@ object MockPodDataProvider {
         _caseIcon = R.drawable.device_airpods_pro2_case,
     )
 
-    fun airPodsGen1Wearing(): DualPodDevice = MockDualPodDevice(
+    fun airPodsGen1Wearing(): DualBlePodSnapshot = MockDualBlePodSnapshot(
         _model = PodModel.AIRPODS_GEN1,
         _label = "Old AirPods",
         batteryLeftPodPercent = 0.70f,
@@ -100,7 +100,7 @@ object MockPodDataProvider {
         _caseIcon = R.drawable.device_airpods_gen1_case,
     )
 
-    fun powerBeatsPro(): DualPodDevice = MockDualPodDeviceNoCase(
+    fun powerBeatsPro(): DualBlePodSnapshot = MockDualBlePodSnapshotNoCase(
         _model = PodModel.POWERBEATS_PRO,
         _label = "PowerBeats Pro",
         batteryLeftPodPercent = 0.55f,
@@ -111,14 +111,14 @@ object MockPodDataProvider {
 
     // --- Single pod scenarios ---
 
-    fun airPodsMax(): SinglePodDevice = MockSinglePodDevice(
+    fun airPodsMax(): SingleBlePodSnapshot = MockSingleBlePodSnapshot(
         _model = PodModel.AIRPODS_MAX,
         _label = "AirPods Max",
         batteryHeadsetPercent = 0.85f,
         _isBeingWorn = true,
     )
 
-    fun airPodsMaxCharging(): SinglePodDevice = MockSingleApplePodDevice(
+    fun airPodsMaxCharging(): SingleBlePodSnapshot = MockSingleAppleBlePodSnapshot(
         _model = PodModel.AIRPODS_MAX,
         _label = "AirPods Max",
         batteryHeadsetPercent = 0.40f,
@@ -127,7 +127,7 @@ object MockPodDataProvider {
         _hasPrivatePayload = true,
     )
 
-    fun beatsSolo3(): SinglePodDevice = MockSinglePodDevice(
+    fun beatsSolo3(): SingleBlePodSnapshot = MockSingleBlePodSnapshot(
         _model = PodModel.BEATS_SOLO_3,
         _label = "Beats Solo 3",
         batteryHeadsetPercent = 0.70f,
@@ -135,7 +135,7 @@ object MockPodDataProvider {
 
     // --- Unknown device ---
 
-    fun unknownDevice(): PodDevice = UnknownDevice(
+    fun unknownDevice(): BlePodSnapshot = UnknownSnapshotBle(
         scanResult = dummyScanResult(rssi = -70),
     )
 
@@ -146,24 +146,24 @@ object MockPodDataProvider {
         model = model,
     )
 
-    // --- MonitoredDevice wrappers ---
+    // --- PodDevice wrappers ---
 
-    fun dualPodMonitored(): MonitoredDevice = MonitoredDevice(
+    fun dualPodMonitored(): PodDevice = PodDevice(
         ble = airPodsProFullCharge(),
         aap = null,
     )
 
-    fun dualPodMonitoredMixed(): MonitoredDevice = MonitoredDevice(
+    fun dualPodMonitoredMixed(): PodDevice = PodDevice(
         ble = airPodsProMixed(),
         aap = null,
     )
 
-    fun singlePodMonitored(): MonitoredDevice = MonitoredDevice(
+    fun singlePodMonitored(): PodDevice = PodDevice(
         ble = airPodsMax(),
         aap = null,
     )
 
-    fun unknownMonitored(): MonitoredDevice = MonitoredDevice(
+    fun unknownMonitored(): PodDevice = PodDevice(
         ble = unknownDevice(),
         aap = null,
     )
@@ -188,7 +188,7 @@ private data class MockUpgradeInfo(
     override val error: Throwable? = null,
 ) : UpgradeRepo.Info
 
-private class MockDualPodDevice(
+private class MockDualBlePodSnapshot(
     private val _model: PodModel,
     private val _label: String,
     override val batteryLeftPodPercent: Float?,
@@ -205,8 +205,8 @@ private class MockDualPodDevice(
     override val rightPodIcon: Int = R.drawable.device_airpods_gen1_right,
     private val _caseIcon: Int = R.drawable.device_airpods_gen1_case,
     rssi: Int = -50,
-) : DualPodDevice, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
-    override val identifier: PodDevice.Id = PodDevice.Id()
+) : DualBlePodSnapshot, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
     override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
@@ -215,7 +215,7 @@ private class MockDualPodDevice(
     override val reliability: Float = 1.0f
     override val signalQuality: Float = 0.75f
     override val iconRes: Int = _model.iconRes
-    override val meta: PodDevice.Meta = object : PodDevice.Meta {
+    override val meta: BlePodSnapshot.Meta = object : BlePodSnapshot.Meta {
         override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model)
     }
 
@@ -239,7 +239,7 @@ private class MockDualPodDevice(
     override val isRightPodMicrophone: Boolean = _isRightPodMicrophone
 }
 
-private class MockDualPodDeviceNoCase(
+private class MockDualBlePodSnapshotNoCase(
     private val _model: PodModel,
     private val _label: String,
     override val batteryLeftPodPercent: Float?,
@@ -247,8 +247,8 @@ private class MockDualPodDeviceNoCase(
     override val leftPodIcon: Int = R.drawable.device_airpods_gen1_left,
     override val rightPodIcon: Int = R.drawable.device_airpods_gen1_right,
     rssi: Int = -50,
-) : DualPodDevice, HasChargeDetectionDual, HasEarDetectionDual {
-    override val identifier: PodDevice.Id = PodDevice.Id()
+) : DualBlePodSnapshot, HasChargeDetectionDual, HasEarDetectionDual {
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
     override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
@@ -257,7 +257,7 @@ private class MockDualPodDeviceNoCase(
     override val reliability: Float = 1.0f
     override val signalQuality: Float = 0.70f
     override val iconRes: Int = _model.iconRes
-    override val meta: PodDevice.Meta = object : PodDevice.Meta {
+    override val meta: BlePodSnapshot.Meta = object : BlePodSnapshot.Meta {
         override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model)
     }
 
@@ -272,15 +272,15 @@ private class MockDualPodDeviceNoCase(
     override val isRightPodInEar: Boolean = false
 }
 
-private class MockSinglePodDevice(
+private class MockSingleBlePodSnapshot(
     private val _model: PodModel,
     private val _label: String,
     override val batteryHeadsetPercent: Float?,
     private val _isHeadsetBeingCharged: Boolean = false,
     private val _isBeingWorn: Boolean = false,
     rssi: Int = -50,
-) : SinglePodDevice, HasChargeDetection, HasEarDetection {
-    override val identifier: PodDevice.Id = PodDevice.Id()
+) : SingleBlePodSnapshot, HasChargeDetection, HasEarDetection {
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
     override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW
@@ -289,7 +289,7 @@ private class MockSinglePodDevice(
     override val reliability: Float = 1.0f
     override val signalQuality: Float = 0.80f
     override val iconRes: Int = _model.iconRes
-    override val meta: PodDevice.Meta = object : PodDevice.Meta {
+    override val meta: BlePodSnapshot.Meta = object : BlePodSnapshot.Meta {
         override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model)
     }
 
@@ -303,7 +303,7 @@ private class MockSinglePodDevice(
 }
 
 @Suppress("PropertyName")
-private class MockSingleApplePodDevice(
+private class MockSingleAppleBlePodSnapshot(
     private val _model: PodModel,
     private val _label: String,
     override val batteryHeadsetPercent: Float?,
@@ -312,8 +312,8 @@ private class MockSingleApplePodDevice(
     private val _isIRKMatch: Boolean = false,
     private val _hasPrivatePayload: Boolean = false,
     rssi: Int = -50,
-) : SinglePodDevice, ApplePods, HasChargeDetection, HasEarDetection {
-    override val identifier: PodDevice.Id = PodDevice.Id()
+) : SingleBlePodSnapshot, ApplePods, HasChargeDetection, HasEarDetection {
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
     override val model: PodModel = _model
     override val seenLastAt: Instant = MOCK_NOW
     override val seenFirstAt: Instant = MOCK_NOW

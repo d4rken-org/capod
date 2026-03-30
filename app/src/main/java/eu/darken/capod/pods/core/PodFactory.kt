@@ -36,7 +36,7 @@ class PodFactory @Inject constructor(
 
     data class Result(
         val scanResult: BleScanResult,
-        val device: PodDevice
+        val device: BlePodSnapshot
     )
 
     companion object {

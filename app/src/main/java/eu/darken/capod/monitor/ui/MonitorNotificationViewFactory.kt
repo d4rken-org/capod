@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
@@ -17,13 +17,13 @@ class MonitorNotificationViewFactory @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
 
-    fun createContentView(device: MonitoredDevice): RemoteViews = when {
+    fun createContentView(device: PodDevice): RemoteViews = when {
         device.hasDualPods -> createDualPods(device)
         device.model != PodModel.UNKNOWN -> createSinglePod(device)
         else -> createUnknownDevice(device)
     }
 
-    private fun createDualPods(device: MonitoredDevice): RemoteViews = RemoteViews(
+    private fun createDualPods(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_small
     ).apply {
@@ -55,7 +55,7 @@ class MonitorNotificationViewFactory @Inject constructor(
         setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
     }
 
-    private fun createSinglePod(device: MonitoredDevice): RemoteViews = RemoteViews(
+    private fun createSinglePod(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_small
     ).apply {
@@ -68,24 +68,27 @@ class MonitorNotificationViewFactory @Inject constructor(
             setViewVisibility(R.id.headphones_worn, if (device.isBeingWorn == true) View.VISIBLE else View.GONE)
         }
         if (device.isHeadsetBeingCharged != null) {
-            setViewVisibility(R.id.headphones_charging, if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE)
+            setViewVisibility(
+                R.id.headphones_charging,
+                if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE
+            )
         }
     }
 
-    private fun createUnknownDevice(device: MonitoredDevice): RemoteViews = RemoteViews(
+    private fun createUnknownDevice(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_unknown_device_small
     ).apply {
         setTextViewText(R.id.device, device.getLabel(context))
     }
 
-    fun createBigContentView(device: MonitoredDevice): RemoteViews = when {
+    fun createBigContentView(device: PodDevice): RemoteViews = when {
         device.hasDualPods -> createDualPodsBig(device)
         device.model != PodModel.UNKNOWN -> createSinglePodBig(device)
         else -> createUnknownDeviceBig(device)
     }
 
-    private fun createDualPodsBig(device: MonitoredDevice): RemoteViews = RemoteViews(
+    private fun createDualPodsBig(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_big
     ).apply {
@@ -120,7 +123,7 @@ class MonitorNotificationViewFactory @Inject constructor(
         setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
     }
 
-    private fun createSinglePodBig(device: MonitoredDevice): RemoteViews = RemoteViews(
+    private fun createSinglePodBig(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_big
     ).apply {
@@ -133,11 +136,14 @@ class MonitorNotificationViewFactory @Inject constructor(
             setViewVisibility(R.id.headphones_worn, if (device.isBeingWorn == true) View.VISIBLE else View.GONE)
         }
         if (device.isHeadsetBeingCharged != null) {
-            setViewVisibility(R.id.headphones_charging, if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE)
+            setViewVisibility(
+                R.id.headphones_charging,
+                if (device.isHeadsetBeingCharged == true) View.VISIBLE else View.GONE
+            )
         }
     }
 
-    private fun createUnknownDeviceBig(device: MonitoredDevice): RemoteViews = RemoteViews(
+    private fun createUnknownDeviceBig(device: PodDevice): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_unknown_device_big
     ).apply {

@@ -9,9 +9,9 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -32,11 +32,11 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.datastore.FakeDataStoreValue
 import testhelpers.livedata.InstantExecutorExtension
-import org.junit.jupiter.api.extension.ExtendWith
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @ExtendWith(InstantExecutorExtension::class)
@@ -54,7 +54,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var profilesRepo: DeviceProfilesRepo
 
     private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
-    private lateinit var devicesFlow: MutableStateFlow<List<MonitoredDevice>>
+    private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
     private lateinit var isBluetoothEnabledFlow: MutableStateFlow<Boolean>
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
@@ -154,7 +154,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `devices passed through when permissions granted`() = runTest(testDispatcher) {
-            val device = MonitoredDevice(ble = mockk(relaxed = true), aap = null)
+            val device = PodDevice(ble = mockk(relaxed = true), aap = null)
             devicesFlow.value = listOf(device)
 
             val vm = createViewModel()
@@ -165,17 +165,17 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `profiledDevices returns only devices with non-null profile`() {
-            val withProfile = object : PodDevice.Meta {
+            val withProfile = object : BlePodSnapshot.Meta {
                 override val profile: DeviceProfile = AppleDeviceProfile(label = "Test")
             }
-            val withoutProfile = object : PodDevice.Meta {
+            val withoutProfile = object : BlePodSnapshot.Meta {
                 override val profile: DeviceProfile? = null
             }
-            val profiled = MonitoredDevice(
+            val profiled = PodDevice(
                 ble = mockk(relaxed = true) { every { meta } returns withProfile },
                 aap = null,
             )
-            val unmatched = MonitoredDevice(
+            val unmatched = PodDevice(
                 ble = mockk(relaxed = true) { every { meta } returns withoutProfile },
                 aap = null,
             )
@@ -196,17 +196,17 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `unmatchedDevices returns only devices with null profile`() {
-            val withProfile = object : PodDevice.Meta {
+            val withProfile = object : BlePodSnapshot.Meta {
                 override val profile: DeviceProfile = AppleDeviceProfile(label = "Test")
             }
-            val withoutProfile = object : PodDevice.Meta {
+            val withoutProfile = object : BlePodSnapshot.Meta {
                 override val profile: DeviceProfile? = null
             }
-            val profiled = MonitoredDevice(
+            val profiled = PodDevice(
                 ble = mockk(relaxed = true) { every { meta } returns withProfile },
                 aap = null,
             )
-            val unmatched = MonitoredDevice(
+            val unmatched = PodDevice(
                 ble = mockk(relaxed = true) { every { meta } returns withoutProfile },
                 aap = null,
             )

@@ -4,13 +4,13 @@ import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Instant
 
-data class UnknownDevice(
-    override val identifier: PodDevice.Id = PodDevice.Id(),
+data class UnknownSnapshotBle(
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
@@ -18,7 +18,7 @@ data class UnknownDevice(
     override val reliability: Float = 0f,
     override val meta: Meta = Meta(),
     private val rssiAverage: Int? = null,
-) : PodDevice {
+) : BlePodSnapshot {
 
     override val model: PodModel = PodModel.UNKNOWN
 
@@ -29,7 +29,7 @@ data class UnknownDevice(
 
     data class Meta(
         override val profile: DeviceProfile? = null
-    ) : PodDevice.Meta
+    ) : BlePodSnapshot.Meta
 
     companion object {
         private val TAG = logTag("PodDevice", "Unknown")

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.annotation.ColorInt
 import androidx.appcompat.view.ContextThemeWrapper
 import eu.darken.capod.R
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.toBatteryFloat
@@ -13,7 +13,7 @@ object WidgetRenderStateMapper {
 
     fun map(
         context: Context,
-        device: MonitoredDevice?,
+        device: PodDevice?,
         theme: WidgetTheme,
         isPro: Boolean,
         hasConfiguredProfile: Boolean,

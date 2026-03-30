@@ -2,7 +2,7 @@ package eu.darken.capod.pods.core.apple.history
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.collections.median
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Duration
@@ -10,7 +10,7 @@ import java.time.Instant
 import kotlin.math.max
 
 data class KnownDevice(
-    val id: PodDevice.Id,
+    val id: BlePodSnapshot.Id,
     val seenFirstAt: Instant,
     val seenCounter: Int,
     val history: List<ApplePods>,

@@ -15,7 +15,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
-import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.formatBatteryPercent
 import javax.inject.Inject
@@ -53,7 +53,11 @@ class MonitorNotifications @Inject constructor(
             setOngoing(true)
         }
 
-    private fun getBuilder(device: MonitoredDevice?, channelId: String, showHint: Boolean = false): NotificationCompat.Builder {
+    private fun getBuilder(
+        device: PodDevice?,
+        channelId: String,
+        showHint: Boolean = false
+    ): NotificationCompat.Builder {
         if (device == null) {
             return baseBuilder(channelId).apply {
                 if (showHint) {
@@ -122,10 +126,10 @@ class MonitorNotifications @Inject constructor(
         }
     }
 
-    fun getNotification(podDevice: MonitoredDevice?, showHint: Boolean = false): Notification =
+    fun getNotification(podDevice: PodDevice?, showHint: Boolean = false): Notification =
         getBuilder(podDevice, NOTIFICATION_CHANNEL_ID, showHint).build()
 
-    fun getNotificationConnected(podDevice: MonitoredDevice?): Notification =
+    fun getNotificationConnected(podDevice: PodDevice?): Notification =
         getBuilder(podDevice, NOTIFICATION_CHANNEL_ID_CONNECTED).build()
 
     fun getStartupNotification(): Notification =

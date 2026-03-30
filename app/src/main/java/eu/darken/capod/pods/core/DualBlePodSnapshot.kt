@@ -3,7 +3,7 @@ package eu.darken.capod.pods.core
 import androidx.annotation.DrawableRes
 import eu.darken.capod.R
 
-interface DualPodDevice : PodDevice {
+interface DualBlePodSnapshot : BlePodSnapshot {
 
     enum class Pod {
         LEFT,

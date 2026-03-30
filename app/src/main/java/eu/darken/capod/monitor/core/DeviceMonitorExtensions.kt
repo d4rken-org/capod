@@ -8,17 +8,17 @@ import java.time.Duration
 import java.time.Instant
 import kotlin.math.roundToInt
 
-fun DeviceMonitor.devicesWithProfiles(): Flow<List<MonitoredDevice>> = devices
+fun DeviceMonitor.devicesWithProfiles(): Flow<List<PodDevice>> = devices
     .map { devices -> devices.filter { it.meta?.profile != null } }
 
-fun DeviceMonitor.primaryDevice(): Flow<MonitoredDevice?> = devicesWithProfiles().map { it.firstOrNull() }
+fun DeviceMonitor.primaryDevice(): Flow<PodDevice?> = devicesWithProfiles().map { it.firstOrNull() }
 
-fun MonitoredDevice.getSignalQuality(context: Context): String {
+fun PodDevice.getSignalQuality(context: Context): String {
     val multiplier = 100 * signalQuality
     return "${multiplier.roundToInt()}%"
 }
 
-fun MonitoredDevice.lastSeenFormatted(now: Instant): String {
+fun PodDevice.lastSeenFormatted(now: Instant): String {
     val lastAt = seenLastAt ?: return ""
     val formatter = RelativeDateTimeFormatter.getInstance()
     val duration = Duration.between(lastAt, now)
@@ -37,7 +37,7 @@ fun MonitoredDevice.lastSeenFormatted(now: Instant): String {
     }
 }
 
-fun MonitoredDevice.firstSeenFormatted(now: Instant): String {
+fun PodDevice.firstSeenFormatted(now: Instant): String {
     val firstAt = seenFirstAt ?: return ""
     val formatter = RelativeDateTimeFormatter.getInstance()
     val duration = Duration.between(firstAt, now)

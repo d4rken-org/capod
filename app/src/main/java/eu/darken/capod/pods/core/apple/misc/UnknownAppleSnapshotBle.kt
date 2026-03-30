@@ -4,7 +4,7 @@ import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
@@ -14,8 +14,8 @@ import eu.darken.capod.pods.core.apple.protocol.ProximityPayload
 import java.time.Instant
 import javax.inject.Inject
 
-data class UnknownAppleDevice(
-    override val identifier: PodDevice.Id = PodDevice.Id(),
+data class UnknownAppleSnapshotBle(
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
@@ -43,7 +43,7 @@ data class UnknownAppleDevice(
             payload: ProximityPayload,
             meta: ApplePods.AppleMeta,
         ): ApplePods {
-            var basic = UnknownAppleDevice(scanResult = scanResult, payload = payload, meta = meta)
+            var basic = UnknownAppleSnapshotBle(scanResult = scanResult, payload = payload, meta = meta)
             val result = repo.search(basic)
 
             if (result != null) basic = basic.copy(identifier = result.id)

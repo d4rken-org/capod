@@ -1,10 +1,10 @@
 package eu.darken.capod.monitor.core
 
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetectionDual
 import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionState
@@ -20,15 +20,15 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.time.Instant
 
-class MonitoredDeviceTest : BaseTest() {
+class PodDeviceTest : BaseTest() {
 
     private fun mockDualPod(
         model: PodModel = PodModel.AIRPODS_PRO3,
         leftBattery: Float? = 0.8f,
         rightBattery: Float? = 0.9f,
         caseBattery: Float? = 0.5f,
-    ): PodDevice {
-        // DualApplePods implements DualPodDevice + HasCase + other interfaces
+    ): BlePodSnapshot {
+        // DualApplePods implements DualBlePodSnapshot + HasCase + other interfaces
         return mockk<DualApplePods>(relaxed = true) {
             every { this@mockk.model } returns model
             every { batteryLeftPodPercent } returns leftBattery
@@ -39,14 +39,14 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `BLE-only device exposes battery from BLE`() {
-        val device = MonitoredDevice(ble = mockDualPod(leftBattery = 0.8f), aap = null)
+        val device = PodDevice(ble = mockDualPod(leftBattery = 0.8f), aap = null)
         device.batteryLeft shouldBe 0.8f
         device.isAapConnected shouldBe false
     }
 
     @Test
     fun `capabilities come from model features`() {
-        val device = MonitoredDevice(
+        val device = PodDevice(
             ble = mockDualPod(model = PodModel.AIRPODS_PRO3),
             aap = null,
         )
@@ -58,7 +58,7 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `Beats Solo 3 has no dual pods or case`() {
-        val device = MonitoredDevice(
+        val device = PodDevice(
             ble = mockk(relaxed = true) { every { model } returns PodModel.BEATS_SOLO_3 },
             aap = null,
         )
@@ -77,7 +77,7 @@ class MonitoredDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = MonitoredDevice(ble = mockDualPod(), aap = aap)
+        val device = PodDevice(ble = mockDualPod(), aap = aap)
         device.isAapConnected shouldBe true
         device.ancMode.shouldNotBeNull()
         device.ancMode!!.current shouldBe AncModeValue.TRANSPARENCY
@@ -85,21 +85,21 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `ANC mode is null when not AAP connected`() {
-        val device = MonitoredDevice(ble = mockDualPod(), aap = null)
+        val device = PodDevice(ble = mockDualPod(), aap = null)
         device.ancMode.shouldBeNull()
     }
 
     @Test
     fun `null BLE gives UNKNOWN model`() {
-        val device = MonitoredDevice(ble = null, aap = null)
+        val device = PodDevice(ble = null, aap = null)
         device.model shouldBe PodModel.UNKNOWN
     }
 
     @Test
     fun `identity properties delegate to BLE`() {
-        val id = PodDevice.Id()
-        val meta = mockk<PodDevice.Meta>(relaxed = true)
-        val device = MonitoredDevice(
+        val id = BlePodSnapshot.Id()
+        val meta = mockk<BlePodSnapshot.Meta>(relaxed = true)
+        val device = PodDevice(
             ble = mockk(relaxed = true) {
                 every { identifier } returns id
                 every { this@mockk.meta } returns meta
@@ -112,7 +112,7 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `identity properties null when BLE null`() {
-        val device = MonitoredDevice(ble = null, aap = null)
+        val device = PodDevice(ble = null, aap = null)
         device.identifier.shouldBeNull()
         device.meta.shouldBeNull()
     }
@@ -121,7 +121,7 @@ class MonitoredDeviceTest : BaseTest() {
     fun `signal timing properties delegate to BLE`() {
         val now = Instant.now()
         val earlier = now.minusSeconds(60)
-        val device = MonitoredDevice(
+        val device = PodDevice(
             ble = mockk(relaxed = true) {
                 every { seenLastAt } returns now
                 every { seenFirstAt } returns earlier
@@ -138,7 +138,7 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `signal timing defaults when BLE null`() {
-        val device = MonitoredDevice(ble = null, aap = null)
+        val device = PodDevice(ble = null, aap = null)
         device.seenLastAt.shouldBeNull()
         device.seenFirstAt.shouldBeNull()
         device.signalQuality shouldBe 0f
@@ -153,7 +153,7 @@ class MonitoredDeviceTest : BaseTest() {
             every { (this@mockk as HasChargeDetectionDual).isRightPodCharging } returns false
             every { (this@mockk as HasCase).isCaseCharging } returns true
         }
-        val device = MonitoredDevice(ble = mock, aap = null)
+        val device = PodDevice(ble = mock, aap = null)
         device.isLeftPodCharging shouldBe true
         device.isRightPodCharging shouldBe false
         device.isCaseCharging shouldBe true
@@ -168,7 +168,7 @@ class MonitoredDeviceTest : BaseTest() {
             every { (this@mockk as HasEarDetection).isBeingWorn } returns false
             every { (this@mockk as HasEarDetectionDual).isEitherPodInEar } returns true
         }
-        val device = MonitoredDevice(ble = mock, aap = null)
+        val device = PodDevice(ble = mock, aap = null)
         device.isLeftInEar shouldBe true
         device.isRightInEar shouldBe false
         device.isBeingWorn shouldBe false
@@ -177,7 +177,7 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `icon and label properties delegate to BLE`() {
-        val device = MonitoredDevice(
+        val device = PodDevice(
             ble = mockk(relaxed = true) {
                 every { model } returns PodModel.AIRPODS_PRO3
                 every { iconRes } returns 42
@@ -189,7 +189,7 @@ class MonitoredDeviceTest : BaseTest() {
 
     @Test
     fun `rawDataHex empty when BLE null`() {
-        val device = MonitoredDevice(ble = null, aap = null)
+        val device = PodDevice(ble = null, aap = null)
         device.rawDataHex shouldBe emptyList()
     }
 }

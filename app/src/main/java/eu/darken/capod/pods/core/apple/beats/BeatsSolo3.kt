@@ -2,7 +2,7 @@ package eu.darken.capod.pods.core.apple.beats
 
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.PodModel
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.ApplePodsFactory
@@ -15,14 +15,14 @@ import java.time.Instant
 import javax.inject.Inject
 
 data class BeatsSolo3(
-    override val identifier: PodDevice.Id = PodDevice.Id(),
+    override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id(),
     override val seenLastAt: Instant = Instant.now(),
     override val seenFirstAt: Instant = Instant.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,
     override val meta: ApplePods.AppleMeta,
-    override val reliability: Float = PodDevice.BASE_CONFIDENCE,
+    override val reliability: Float = BlePodSnapshot.BASE_CONFIDENCE,
     private val rssiAverage: Int? = null,
 ) : SingleApplePods {
 

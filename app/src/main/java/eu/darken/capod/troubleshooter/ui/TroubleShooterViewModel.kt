@@ -6,18 +6,18 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.monitor.core.BlePodMonitor
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
-import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.unknown.UnknownDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
+import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +31,6 @@ import kotlinx.coroutines.flow.takeWhile
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
-import eu.darken.capod.common.datastore.valueBlocking
 
 @HiltViewModel
 class TroubleShooterViewModel @Inject constructor(
@@ -39,7 +38,7 @@ class TroubleShooterViewModel @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
     private val profilesRepo: DeviceProfilesRepo,
-    private val podMonitor: PodMonitor,
+    private val blePodMonitor: BlePodMonitor,
     private val deviceMonitor: DeviceMonitor,
     private val debugSettings: DebugSettings,
 ) : ViewModel4(dispatcherProvider) {
@@ -98,39 +97,40 @@ class TroubleShooterViewModel @Inject constructor(
             }
         }
 
-        val doScan: suspend (Boolean, Boolean, Boolean, Boolean) -> Collection<PodDevice> = { hardwareFilteringDisabled,
-                                                                                              hardwareBatchingDisabled,
-                                                                                              indirectCallback,
-                                                                                              unfiltered ->
-            val sb = StringBuilder("SCAN - Settings: ")
-            sb.append("hardwareFilteringDisabled=$hardwareFilteringDisabled, ")
-            sb.append("hardwareBatchingDisabled=$hardwareBatchingDisabled, ")
-            sb.append("indirectCallback=$indirectCallback, ")
-            sb.append("unfiltered=$unfiltered")
-            progress(sb.toString())
-            generalSettings.isOffloadedFilteringDisabled.valueBlocking = hardwareFilteringDisabled
-            generalSettings.isOffloadedBatchingDisabled.valueBlocking = hardwareBatchingDisabled
-            generalSettings.useIndirectScanResultCallback.valueBlocking = indirectCallback
-            debugSettings.showUnfiltered.valueBlocking = unfiltered
+        val doScan: suspend (Boolean, Boolean, Boolean, Boolean) -> Collection<BlePodSnapshot> =
+            { hardwareFilteringDisabled,
+              hardwareBatchingDisabled,
+              indirectCallback,
+              unfiltered ->
+                val sb = StringBuilder("SCAN - Settings: ")
+                sb.append("hardwareFilteringDisabled=$hardwareFilteringDisabled, ")
+                sb.append("hardwareBatchingDisabled=$hardwareBatchingDisabled, ")
+                sb.append("indirectCallback=$indirectCallback, ")
+                sb.append("unfiltered=$unfiltered")
+                progress(sb.toString())
+                generalSettings.isOffloadedFilteringDisabled.valueBlocking = hardwareFilteringDisabled
+                generalSettings.isOffloadedBatchingDisabled.valueBlocking = hardwareBatchingDisabled
+                generalSettings.useIndirectScanResultCallback.valueBlocking = indirectCallback
+                debugSettings.showUnfiltered.valueBlocking = unfiltered
 
-            val start = System.currentTimeMillis()
-            val devices = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.devices
-                    .take(10)
-                    .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
-                    .toList()
-                    .flatten()
-                    .distinctBy { it.address }
-            } ?: emptyList()
-            log(TAG) { "SCAN: BLE Devices: $devices" }
-            if (devices.isNotEmpty()) {
-                progress("SCAN: Received data from ${devices.size} BLE devices")
-                devices
-            } else {
-                progress("SCAN: No data received")
-                devices
+                val start = System.currentTimeMillis()
+                val devices = withTimeoutOrNull(STEP_TIME) {
+                    blePodMonitor.devices
+                        .take(10)
+                        .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
+                        .toList()
+                        .flatten()
+                        .distinctBy { it.address }
+                } ?: emptyList()
+                log(TAG) { "SCAN: BLE Devices: $devices" }
+                if (devices.isNotEmpty()) {
+                    progress("SCAN: Received data from ${devices.size} BLE devices")
+                    devices
+                } else {
+                    progress("SCAN: No data received")
+                    devices
+                }
             }
-        }
 
         run {
             progress("Checking if we can receive BLE data at all.")
@@ -158,14 +158,14 @@ class TroubleShooterViewModel @Inject constructor(
         run {
             progress("Checking for supported headphones.")
 
-            if (doScan(false, false, false, false).any { it !is UnknownDevice }) return@run
-            if (doScan(false, false, true, false).any { it !is UnknownDevice }) return@run
-            if (doScan(true, true, true, false).any { it !is UnknownDevice }) return@run
-            if (doScan(true, true, false, false).any { it !is UnknownDevice }) return@run
-            if (doScan(true, false, true, false).any { it !is UnknownDevice }) return@run
-            if (doScan(true, false, false, false).any { it !is UnknownDevice }) return@run
-            if (doScan(false, true, true, false).any { it !is UnknownDevice }) return@run
-            if (doScan(false, true, false, false).any { it !is UnknownDevice }) return@run
+            if (doScan(false, false, false, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(false, false, true, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(true, true, true, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(true, true, false, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(true, false, true, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(true, false, false, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(false, true, true, false).any { it !is UnknownSnapshotBle }) return@run
+            if (doScan(false, true, false, false).any { it !is UnknownSnapshotBle }) return@run
 
             failure("No compatible headphones found", BleState.Result.Failure.Type.HEADPHONES)
 
@@ -196,7 +196,7 @@ class TroubleShooterViewModel @Inject constructor(
 
             val otherDevices = withTimeoutOrNull(STEP_TIME) {
                 val start = System.currentTimeMillis()
-                podMonitor.devices
+                blePodMonitor.devices
                     .take(10)
                     .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
                     .toList()
@@ -215,7 +215,7 @@ class TroubleShooterViewModel @Inject constructor(
             progress("Creating profile for closest headphones.")
 
             val candidate = otherDevices
-                .filter { it !is UnknownDevice }
+                .filter { it !is UnknownSnapshotBle }
                 .maxBy { it.signalQuality }
 
             log(TAG, INFO) { "Candidate is $candidate" }

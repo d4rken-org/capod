@@ -2,12 +2,12 @@ package eu.darken.capod.pods.core.apple
 
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.lowerNibble
-import eu.darken.capod.pods.core.SinglePodDevice
+import eu.darken.capod.pods.core.SingleBlePodSnapshot
 
 /**
  * Devices that only present a single charge level, e.g. most Beats devices
  */
-interface SingleApplePods : ApplePods, SinglePodDevice, HasAppleColor {
+interface SingleApplePods : ApplePods, SingleBlePodSnapshot, HasAppleColor {
 
     override val batteryHeadsetPercent: Float?
         get() {

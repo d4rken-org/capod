@@ -4,7 +4,7 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.pods.core.BlePodSnapshot
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.time.Duration
@@ -17,9 +17,9 @@ class UnknownDeviceFactory @Inject constructor() {
 
     private val lock = Mutex()
 
-    suspend fun create(scanResult: BleScanResult): PodDevice? = lock.withLock {
-        var basic = UnknownDevice(
-            identifier = PodDevice.Id(),
+    suspend fun create(scanResult: BleScanResult): BlePodSnapshot = lock.withLock {
+        var basic = UnknownSnapshotBle(
+            identifier = BlePodSnapshot.Id(),
             scanResult = scanResult,
         )
         val result = searchHistory(basic)
@@ -40,10 +40,10 @@ class UnknownDeviceFactory @Inject constructor() {
     }
 
     data class KnownDevice(
-        val id: PodDevice.Id,
+        val id: BlePodSnapshot.Id,
         val seenFirstAt: Instant,
         val seenCounter: Int,
-        val history: List<PodDevice>
+        val history: List<BlePodSnapshot>
     ) {
 
         val lastAddress: String
@@ -74,9 +74,9 @@ class UnknownDeviceFactory @Inject constructor() {
         }
     }
 
-    private val knownDevices = mutableMapOf<PodDevice.Id, KnownDevice>()
+    private val knownDevices = mutableMapOf<BlePodSnapshot.Id, KnownDevice>()
 
-    private fun searchHistory(current: PodDevice): KnownDevice? {
+    private fun searchHistory(current: BlePodSnapshot): KnownDevice? {
         val scanResult = current.scanResult
 
         knownDevices.values.toList().forEach { knownDevice ->
@@ -104,7 +104,7 @@ class UnknownDeviceFactory @Inject constructor() {
         return recognizedDevice
     }
 
-    private fun updateHistory(device: PodDevice) {
+    private fun updateHistory(device: BlePodSnapshot) {
         val existing = knownDevices[device.identifier]
 
         knownDevices[device.identifier] = when {
@@ -114,6 +114,7 @@ class UnknownDeviceFactory @Inject constructor() {
                     history = existing.history.plus(device)
                 )
             }
+
             else -> {
                 log(TAG) { "searchHistory1: Creating new history for $device" }
                 KnownDevice(
