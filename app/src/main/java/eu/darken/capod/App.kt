@@ -12,7 +12,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
-import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.devicesWithProfiles
 
 import kotlinx.coroutines.CoroutineScope
@@ -27,7 +27,7 @@ import javax.inject.Inject
 open class App : Application() {
 
     @Inject lateinit var autoReporting: AutomaticBugReporter
-    @Inject lateinit var podMonitor: PodMonitor
+    @Inject lateinit var deviceMonitor: DeviceMonitor
     @Inject lateinit var widgetManager: WidgetManager
     @Inject lateinit var upgradeRepo: UpgradeRepo
     @Inject @AppScope lateinit var appScope: CoroutineScope
@@ -42,7 +42,7 @@ open class App : Application() {
 
         appScope.launch { widgetManager.refreshWidgets() }
 
-        podMonitor.devicesWithProfiles()
+        deviceMonitor.devicesWithProfiles()
             .distinctUntilChanged()
             .throttleLatest(1000)
             .onEach {

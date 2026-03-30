@@ -7,10 +7,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.primaryDevice
-import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.ReactionSettings
@@ -29,7 +27,7 @@ import eu.darken.capod.common.datastore.valueBlocking
 @Singleton
 class AutoConnect @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
-    private val podMonitor: PodMonitor,
+    private val deviceMonitor: DeviceMonitor,
     private val generalSettings: GeneralSettings,
     private val reactionSettings: ReactionSettings,
     private val deviceProfilesRepo: DeviceProfilesRepo,
@@ -40,7 +38,7 @@ class AutoConnect @Inject constructor(
             if (isAutoConnectEnabled) {
                 combine(
                     bluetoothManager.connectedDevices,
-                    podMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy { it.rawDataHex },
+                    deviceMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy { it.rawDataHex },
                 ) { connectedDevices, mainDevice ->
                     connectedDevices to mainDevice
                 }
@@ -51,7 +49,7 @@ class AutoConnect @Inject constructor(
         .map { (connectedDevices, mainDevice) ->
             log(TAG, VERBOSE) { "mainPodDevice is $mainDevice" }
 
-            val mainDeviceAddr = mainDevice.meta.profile?.address
+            val mainDeviceAddr = mainDevice.meta?.profile?.address
             if (mainDeviceAddr.isNullOrEmpty()) {
                 log(TAG, WARN) { "mainDeviceAddress is null" }
                 return@map
@@ -78,9 +76,9 @@ class AutoConnect @Inject constructor(
             val condition = reactionSettings.autoConnectCondition.valueBlocking
             log(TAG) { "Checking condition $condition" }
 
-            val lidState = (mainDevice as? DualApplePods)?.caseLidState
-            val isBeingWorn = (mainDevice as? HasEarDetection)?.isBeingWorn ?: false
-            val isEitherPodInEar = (mainDevice as? HasEarDetectionDual)?.isEitherPodInEar ?: false
+            val lidState = mainDevice.caseLidState
+            val isBeingWorn = mainDevice.isBeingWorn ?: false
+            val isEitherPodInEar = mainDevice.isEitherPodInEar ?: false
             val onePodMode = reactionSettings.onePodMode.valueBlocking
 
             val decision = evaluateAutoConnect(
@@ -92,7 +90,7 @@ class AutoConnect @Inject constructor(
                 isBeingWorn = isBeingWorn,
                 isEitherPodInEar = isEitherPodInEar,
                 onePodMode = onePodMode,
-                supportsEarDetection = mainDevice is HasEarDetection,
+                supportsEarDetection = mainDevice.hasEarDetection,
             )
 
             if (!decision.shouldConnect) {

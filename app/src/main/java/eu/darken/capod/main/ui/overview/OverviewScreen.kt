@@ -54,9 +54,8 @@ import eu.darken.capod.main.ui.overview.cards.PermissionCard
 import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
-import eu.darken.capod.pods.core.DualPodDevice
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.SinglePodDevice
 import java.time.Instant
 
 @Composable
@@ -259,10 +258,10 @@ fun OverviewScreen(
 }
 
 @Composable
-private fun PodDeviceCard(device: PodDevice, showDebug: Boolean, now: Instant) {
-    when (device) {
-        is DualPodDevice -> DualPodsCard(device = device, showDebug = showDebug, now = now)
-        is SinglePodDevice -> SinglePodsCard(device = device, showDebug = showDebug, now = now)
+private fun PodDeviceCard(device: MonitoredDevice, showDebug: Boolean, now: Instant) {
+    when {
+        device.hasDualPods -> DualPodsCard(device = device, showDebug = showDebug, now = now)
+        device.model != PodDevice.Model.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now)
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug, now = now)
     }
 }
@@ -275,9 +274,9 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             now = Instant.now(),
             permissions = emptySet(),
             devices = listOf(
-                MockPodDataProvider.airPodsProMixed(),
-                MockPodDataProvider.airPodsMax(),
-                MockPodDataProvider.unknownDevice(),
+                MockPodDataProvider.dualPodMonitoredMixed(),
+                MockPodDataProvider.singlePodMonitored(),
+                MockPodDataProvider.unknownMonitored(),
             ),
             isDebugMode = false,
             isBluetoothEnabled = true,

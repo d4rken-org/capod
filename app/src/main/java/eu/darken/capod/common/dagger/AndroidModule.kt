@@ -33,4 +33,5 @@ class AndroidModule {
     @Singleton
     fun audioManager(context: Context): AudioManager =
         context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+
 }

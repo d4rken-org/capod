@@ -187,7 +187,7 @@ class L2capPocActivity : ComponentActivity() {
                         log("=== Connecting to ${dev.address} ===")
                         scope.launch(Dispatchers.IO) {
                             try {
-                                val sock = L2capSocketFactory.createSocket(dev, PSM)
+                                val sock = L2capSocketFactory().createSocket(dev, PSM)
                                 withContext(Dispatchers.Main) { log("Socket created, connecting...") }
                                 sock.connect()
                                 withContext(Dispatchers.Main) {

@@ -9,9 +9,9 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
-import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.monitor.core.primaryDevice
-import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
@@ -28,7 +28,7 @@ import javax.inject.Singleton
 
 @Singleton
 class PopUpReaction @Inject constructor(
-    private val podMonitor: PodMonitor,
+    private val deviceMonitor: DeviceMonitor,
     private val reactionSettings: ReactionSettings,
     private val bluetoothManager: BluetoothManager2,
 ) {
@@ -38,7 +38,7 @@ class PopUpReaction @Inject constructor(
     private fun monitorCase(): Flow<Event> = reactionSettings.showPopUpOnCaseOpen.flow
         .flatMapLatest { isEnabled ->
             if (isEnabled) {
-                podMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex }
+                deviceMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex }
             } else {
                 emptyFlow()
             }
@@ -46,18 +46,16 @@ class PopUpReaction @Inject constructor(
         .withPrevious()
         .setupCommonEventHandlers(TAG) { "popUpCase" }
         .mapNotNull { (previous, current) ->
-            if (previous !is DualApplePods? || current !is DualApplePods) {
+            if (current?.caseLidState == null) {
                 return@mapNotNull null
             }
             log(TAG, VERBOSE) {
-                val prev = previous?.pubCaseLidState?.let { String.format("%02X", it.toByte()) }
-                val cur = current.pubCaseLidState.let { String.format("%02X", it.toByte()) }
-                "previous=$prev (${previous?.caseLidState}), current=$cur (${current.caseLidState})"
+                "previous=${previous?.caseLidState}, current=${current.caseLidState}"
             }
             log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
 
             val isSameDeviceOrProfile = previous?.identifier == current.identifier ||
-                (previous?.meta?.profile?.id != null && previous.meta.profile?.id == current.meta.profile?.id)
+                (previous?.meta?.profile?.id != null && previous.meta?.profile?.id == current.meta?.profile?.id)
             val isSameDeviceWithCaseNowOpen = isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
             val isNewDeviceWithJustOpenedCase = !isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
 
@@ -69,8 +67,8 @@ class PopUpReaction @Inject constructor(
             throttleCasePopUps(current)
         }
 
-    private fun throttleCasePopUps(current: DualApplePods): Event? {
-        val cooldownKey = current.meta.profile?.id ?: current.identifier.toString()
+    private fun throttleCasePopUps(current: MonitoredDevice): Event? {
+        val cooldownKey = current.meta?.profile?.id ?: current.identifier.toString()
         val now = Instant.now()
         val lastShown = caseCoolDowns[cooldownKey]
 
@@ -109,7 +107,7 @@ class PopUpReaction @Inject constructor(
 
             combine(
                 bluetoothManager.connectedDevices,
-                podMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
+                deviceMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
             ) { devices, broadcast ->
                 log(TAG) { "$broadcast $devices " }
                 val primaryAddr = broadcast?.meta?.profile?.address
@@ -143,7 +141,8 @@ class PopUpReaction @Inject constructor(
                 return@mapNotNull null
             }
 
-            val deviceAge = Duration.between(currentBroadcasted.seenFirstAt, Instant.now())
+            val deviceSeenFirst = currentBroadcasted.seenFirstAt ?: return@mapNotNull null
+            val deviceAge = Duration.between(deviceSeenFirst, Instant.now())
             val connectionAge = Duration.between(currentConnected.seenFirstAt, Instant.now())
 
             val decision = evaluateConnectionPopUp(
@@ -170,7 +169,7 @@ class PopUpReaction @Inject constructor(
     sealed class Event {
         data class PopupShow(
             val eventAt: Instant = Instant.now(),
-            val device: PodDevice,
+            val device: MonitoredDevice,
         ) : Event()
 
         data class PopupHide(

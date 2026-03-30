@@ -15,12 +15,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.HasChargeDetection
-import eu.darken.capod.pods.core.HasEarDetection
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.formatBatteryPercent
 import javax.inject.Inject
 
@@ -57,7 +53,7 @@ class MonitorNotifications @Inject constructor(
             setOngoing(true)
         }
 
-    private fun getBuilder(device: PodDevice?, channelId: String, showHint: Boolean = false): NotificationCompat.Builder {
+    private fun getBuilder(device: MonitoredDevice?, channelId: String, showHint: Boolean = false): NotificationCompat.Builder {
         if (device == null) {
             return baseBuilder(channelId).apply {
                 if (showHint) {
@@ -75,59 +71,42 @@ class MonitorNotifications @Inject constructor(
 
         return baseBuilder(channelId).apply {
 
-            // Options here should be mutually exclusive, and are prioritized by their order of importance
-            // Some options are omitted here, as they will conflict with other options
-            // TODO: Implement a settings pane to allow user to customize this
             val stateText = when {
-                // Pods charging state
-                // This goes first as pods should not be worn if it is still charging
-                device is HasChargeDetection && device.isHeadsetBeingCharged -> {
+                device.isHeadsetBeingCharged == true -> {
                     context.getString(R.string.pods_charging_label)
                 }
 
-                // Pods wear state
-                device is HasEarDetection -> {
-                    if (device.isBeingWorn) context.getString(R.string.headset_being_worn_label)
+                device.hasEarDetection -> {
+                    if (device.isBeingWorn == true) context.getString(R.string.headset_being_worn_label)
                     else context.getString(R.string.headset_not_being_worn_label)
                 }
 
-                // Case charge state
-                // This is under pods wear state as we don't want it conflicting with it
-                device is HasCase && device.isCaseCharging -> {
+                device.hasCase && device.isCaseCharging == true -> {
                     context.getString(R.string.pods_charging_label)
                 }
 
                 else -> context.getString(R.string.pods_case_unknown_state)
             }
 
-            val batteryText = when (device) {
-                is DualPodDevice -> {
-                    val leftPercent = device.batteryLeftPodPercent
-                    val rightPercent = device.batteryRightPodPercent
-                    val left = formatBatteryPercent(context, leftPercent)
-                    val right = formatBatteryPercent(context, rightPercent)
-                    when {
-                        device is HasCase -> {
-                            val casePercent = device.batteryCasePercent
-                            val case = formatBatteryPercent(context, casePercent)
-                            "$left $case $right"
-                        }
-
-                        else -> "$left $right"
+            val batteryText = when {
+                device.hasDualPods -> {
+                    val left = formatBatteryPercent(context, device.batteryLeft)
+                    val right = formatBatteryPercent(context, device.batteryRight)
+                    if (device.hasCase) {
+                        val case = formatBatteryPercent(context, device.batteryCase)
+                        "$left $case $right"
+                    } else {
+                        "$left $right"
                     }
                 }
 
-                is SinglePodDevice -> {
-                    val headsetPercent = device.batteryHeadsetPercent
-                    val headset = formatBatteryPercent(context, headsetPercent)
-                    when {
-                        device is HasCase -> {
-                            val casePercent = device.batteryCasePercent
-                            val case = formatBatteryPercent(context, casePercent)
-                            "$headset $case"
-                        }
-
-                        else -> headset
+                device.model != PodDevice.Model.UNKNOWN -> {
+                    val headset = formatBatteryPercent(context, device.batteryHeadset)
+                    if (device.hasCase) {
+                        val case = formatBatteryPercent(context, device.batteryCase)
+                        "$headset $case"
+                    } else {
+                        headset
                     }
                 }
 
@@ -143,10 +122,10 @@ class MonitorNotifications @Inject constructor(
         }
     }
 
-    fun getNotification(podDevice: PodDevice?, showHint: Boolean = false): Notification =
+    fun getNotification(podDevice: MonitoredDevice?, showHint: Boolean = false): Notification =
         getBuilder(podDevice, NOTIFICATION_CHANNEL_ID, showHint).build()
 
-    fun getNotificationConnected(podDevice: PodDevice?): Notification =
+    fun getNotificationConnected(podDevice: MonitoredDevice?): Notification =
         getBuilder(podDevice, NOTIFICATION_CHANNEL_ID_CONNECTED).build()
 
     fun getStartupNotification(): Notification =

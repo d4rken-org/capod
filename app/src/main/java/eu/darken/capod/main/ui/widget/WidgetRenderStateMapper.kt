@@ -4,13 +4,8 @@ import android.content.Context
 import androidx.annotation.ColorInt
 import androidx.appcompat.view.ContextThemeWrapper
 import eu.darken.capod.R
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.HasCase
-import eu.darken.capod.pods.core.HasChargeDetectionDual
-import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.pods.core.HasEarDetectionDual
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.toBatteryFloat
 
@@ -18,7 +13,7 @@ object WidgetRenderStateMapper {
 
     fun map(
         context: Context,
-        device: PodDevice?,
+        device: MonitoredDevice?,
         theme: WidgetTheme,
         isPro: Boolean,
         hasConfiguredProfile: Boolean,
@@ -39,40 +34,40 @@ object WidgetRenderStateMapper {
                 secondaryText = context.getString(R.string.upgrade_capod_description),
             )
 
-            device is DualPodDevice -> WidgetRenderState.DualPod(
+            device != null && device.hasDualPods -> WidgetRenderState.DualPod(
                 theme = theme,
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,
                 resolvedIconColor = iconColor,
                 isWide = isWide,
                 deviceLabel = profileLabel ?: device.getLabel(context),
-                leftIcon = device.leftPodIcon,
-                leftPercent = device.batteryLeftPodPercent.toBatteryFloat(),
-                leftCharging = device is HasChargeDetectionDual && device.isLeftPodCharging,
-                leftInEar = device is HasEarDetectionDual && device.isLeftPodInEar,
-                rightIcon = device.rightPodIcon,
-                rightPercent = device.batteryRightPodPercent.toBatteryFloat(),
-                rightCharging = device is HasChargeDetectionDual && device.isRightPodCharging,
-                rightInEar = device is HasEarDetectionDual && device.isRightPodInEar,
-                caseIcon = (device as? HasCase)?.caseIcon ?: R.drawable.device_airpods_gen1_case,
-                casePercent = (device as? HasCase)?.batteryCasePercent.toBatteryFloat(),
-                caseCharging = device is HasCase && device.isCaseCharging,
+                leftIcon = device.leftPodIcon ?: R.drawable.device_airpods_gen1_left,
+                leftPercent = device.batteryLeft.toBatteryFloat(),
+                leftCharging = device.isLeftPodCharging == true,
+                leftInEar = device.isLeftInEar == true,
+                rightIcon = device.rightPodIcon ?: R.drawable.device_airpods_gen1_right,
+                rightPercent = device.batteryRight.toBatteryFloat(),
+                rightCharging = device.isRightPodCharging == true,
+                rightInEar = device.isRightInEar == true,
+                caseIcon = device.caseIcon ?: R.drawable.device_airpods_gen1_case,
+                casePercent = device.batteryCase.toBatteryFloat(),
+                caseCharging = device.isCaseCharging == true,
             )
 
-            device is SinglePodDevice -> WidgetRenderState.SinglePod(
+            device != null && device.model != PodDevice.Model.UNKNOWN -> WidgetRenderState.SinglePod(
                 theme = theme,
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,
                 resolvedIconColor = iconColor,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 headsetIcon = device.iconRes,
-                percent = device.batteryHeadsetPercent.toBatteryFloat(),
-                batteryIcon = getBatteryDrawable(device.batteryHeadsetPercent),
-                charging = device is HasChargeDetectionDual && device.isHeadsetBeingCharged,
-                worn = device is HasEarDetection && device.isBeingWorn,
+                percent = device.batteryHeadset.toBatteryFloat(),
+                batteryIcon = getBatteryDrawable(device.batteryHeadset),
+                charging = device.isHeadsetBeingCharged == true,
+                worn = device.isBeingWorn == true,
             )
 
-            device is PodDevice -> WidgetRenderState.Message(
+            device != null -> WidgetRenderState.Message(
                 theme = theme,
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,

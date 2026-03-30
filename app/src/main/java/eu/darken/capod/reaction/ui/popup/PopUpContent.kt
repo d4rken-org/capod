@@ -34,19 +34,17 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.pods.core.DualPodDevice
-import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.monitor.core.MonitoredDevice
+import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.pods.core.PodDevice
-import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.getBatteryDrawable
 import eu.darken.capod.pods.core.toBatteryFloat
 import eu.darken.capod.pods.core.toBatteryOrNull
-import eu.darken.capod.pods.core.getSignalQuality
 
 @Composable
 fun PopUpContent(
-    device: PodDevice,
+    device: MonitoredDevice,
     onClose: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -98,9 +96,9 @@ fun PopUpContent(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 // Device-specific content
-                when (device) {
-                    is DualPodDevice -> DualPodContent(device)
-                    is SinglePodDevice -> SinglePodContent(device)
+                when {
+                    device.hasDualPods -> DualPodContent(device)
+                    device.model != PodDevice.Model.UNKNOWN -> SinglePodContent(device)
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -119,43 +117,41 @@ fun PopUpContent(
 }
 
 @Composable
-private fun DualPodContent(device: DualPodDevice) {
-    val hasCase = device as? HasCase
-
+private fun DualPodContent(device: MonitoredDevice) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         // Left pod
         BatteryColumn(
-            iconRes = device.leftPodIcon,
-            batteryPercent = device.batteryLeftPodPercent.toBatteryFloat(),
+            iconRes = device.leftPodIcon ?: R.drawable.device_airpods_gen1_left,
+            batteryPercent = device.batteryLeft.toBatteryFloat(),
             modifier = Modifier.weight(1f),
         )
 
         // Case (only if device has one)
-        if (hasCase != null) {
+        if (device.hasCase) {
             BatteryColumn(
-                iconRes = hasCase.caseIcon,
-                batteryPercent = hasCase.batteryCasePercent.toBatteryFloat(),
+                iconRes = device.caseIcon ?: R.drawable.device_airpods_gen1_case,
+                batteryPercent = device.batteryCase.toBatteryFloat(),
                 modifier = Modifier.weight(1f),
             )
         }
 
         // Right pod
         BatteryColumn(
-            iconRes = device.rightPodIcon,
-            batteryPercent = device.batteryRightPodPercent.toBatteryFloat(),
+            iconRes = device.rightPodIcon ?: R.drawable.device_airpods_gen1_right,
+            batteryPercent = device.batteryRight.toBatteryFloat(),
             modifier = Modifier.weight(1f),
         )
     }
 }
 
 @Composable
-private fun SinglePodContent(device: SinglePodDevice) {
+private fun SinglePodContent(device: MonitoredDevice) {
     BatteryColumn(
         iconRes = device.iconRes,
-        batteryPercent = device.batteryHeadsetPercent.toBatteryFloat(),
+        batteryPercent = device.batteryHeadset.toBatteryFloat(),
     )
 }
 
@@ -205,17 +201,11 @@ private fun BatteryColumn(
 @Preview2
 @Composable
 private fun PopUpContentDualPodPreview() = PreviewWrapper {
-    PopUpContent(device = MockPodDataProvider.airPodsProMixed(), onClose = {})
-}
-
-@Preview2
-@Composable
-private fun PopUpContentDualPodNoCasePreview() = PreviewWrapper {
-    PopUpContent(device = MockPodDataProvider.powerBeatsPro(), onClose = {})
+    PopUpContent(device = MockPodDataProvider.dualPodMonitoredMixed(), onClose = {})
 }
 
 @Preview2
 @Composable
 private fun PopUpContentSinglePodPreview() = PreviewWrapper {
-    PopUpContent(device = MockPodDataProvider.airPodsMax(), onClose = {})
+    PopUpContent(device = MockPodDataProvider.singlePodMonitored(), onClose = {})
 }

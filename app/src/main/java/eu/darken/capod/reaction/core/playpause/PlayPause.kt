@@ -8,10 +8,9 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
-import eu.darken.capod.monitor.core.PodMonitor
+import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.monitor.core.primaryDevice
-import eu.darken.capod.pods.core.HasEarDetection
-import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -25,7 +24,7 @@ import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class PlayPause @Inject constructor(
-    private val podMonitor: PodMonitor,
+    private val deviceMonitor: DeviceMonitor,
     private val bluetoothManager: BluetoothManager2,
     private val reactionSettings: ReactionSettings,
     private val mediaControl: MediaControl,
@@ -43,7 +42,7 @@ class PlayPause @Inject constructor(
                 emptyFlow()
             } else {
                 log(TAG) { "Known devices connected: $it" }
-                podMonitor.primaryDevice()
+                deviceMonitor.primaryDevice()
             }
         }
         .distinctUntilChanged()
@@ -63,20 +62,27 @@ class PlayPause @Inject constructor(
             val currState: EarDetectionState
 
             when {
-                previous is HasEarDetectionDual && current is HasEarDetectionDual -> {
+                previous!!.hasEarDetection && previous.hasDualPods &&
+                    current!!.hasEarDetection && current.hasDualPods -> {
                     // Dual pod devices (AirPods, AirPods Pro, etc.)
                     log(TAG, VERBOSE) {
-                        "Dual-pod device: left=${current.isLeftPodInEar}, right=${current.isRightPodInEar}"
+                        "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}"
                     }
-                    prevState = EarDetectionState.fromDualPod(previous)
-                    currState = EarDetectionState.fromDualPod(current)
+                    prevState = EarDetectionState.fromDualPod(
+                        left = previous.isLeftInEar ?: false,
+                        right = previous.isRightInEar ?: false,
+                    )
+                    currState = EarDetectionState.fromDualPod(
+                        left = current.isLeftInEar ?: false,
+                        right = current.isRightInEar ?: false,
+                    )
                 }
 
-                previous is HasEarDetection && current is HasEarDetection -> {
+                previous!!.hasEarDetection && current!!.hasEarDetection -> {
                     // Single pod devices (AirPods Max, etc.)
                     log(TAG, VERBOSE) { "Single-pod device: worn=${current.isBeingWorn}" }
-                    prevState = EarDetectionState.fromSinglePod(previous)
-                    currState = EarDetectionState.fromSinglePod(current)
+                    prevState = EarDetectionState.fromSinglePod(worn = previous.isBeingWorn ?: false)
+                    currState = EarDetectionState.fromSinglePod(worn = current.isBeingWorn ?: false)
                 }
 
                 else -> {
@@ -209,19 +215,12 @@ class PlayPause @Inject constructor(
             }
 
         companion object {
-            fun fromDualPod(device: HasEarDetectionDual) = fromDualPod(
-                left = device.isLeftPodInEar,
-                right = device.isRightPodInEar,
-            )
-
             fun fromDualPod(left: Boolean, right: Boolean) = EarDetectionState(
                 leftInEar = left,
                 rightInEar = right,
                 isWorn = left && right
             )
 
-            fun fromSinglePod(device: HasEarDetection) = fromSinglePod(worn = device.isBeingWorn)
-            
             fun fromSinglePod(worn: Boolean) = EarDetectionState(
                 leftInEar = null,
                 rightInEar = null,

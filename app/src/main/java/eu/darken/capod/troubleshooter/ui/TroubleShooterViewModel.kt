@@ -13,6 +13,7 @@ import eu.darken.capod.common.debug.logging.logTag
 
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.PodDevice
@@ -39,6 +40,7 @@ class TroubleShooterViewModel @Inject constructor(
     private val generalSettings: GeneralSettings,
     private val profilesRepo: DeviceProfilesRepo,
     private val podMonitor: PodMonitor,
+    private val deviceMonitor: DeviceMonitor,
     private val debugSettings: DebugSettings,
 ) : ViewModel4(dispatcherProvider) {
 
@@ -86,7 +88,7 @@ class TroubleShooterViewModel @Inject constructor(
         run {
             progress("Checking for headphones...")
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.primaryDevice().filterNotNull().firstOrNull()
+                deviceMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 success("Headphones found, nothing to troubleshoot.")
@@ -179,7 +181,7 @@ class TroubleShooterViewModel @Inject constructor(
         run {
             progress("Checking for your headphones with new BLE settings...")
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.primaryDevice().filterNotNull().firstOrNull()
+                deviceMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
             if (mainDevice != null) {
                 success("Found your headphones, new BLE settings worked :)!")
@@ -227,7 +229,7 @@ class TroubleShooterViewModel @Inject constructor(
             )
 
             val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                podMonitor.primaryDevice().filterNotNull().firstOrNull()
+                deviceMonitor.primaryDevice().filterNotNull().firstOrNull()
             }
 
             generalSettings.scannerMode.valueBlocking = ScannerMode.BALANCED

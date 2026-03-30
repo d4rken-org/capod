@@ -22,8 +22,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
-import eu.darken.capod.monitor.core.PodMonitor
-import eu.darken.capod.pods.core.PodDevice
+import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 
 class BatteryGlanceWidget : GlanceAppWidget() {
@@ -34,7 +34,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
     @EntryPoint
     @InstallIn(SingletonComponent::class)
     interface WidgetEntryPoint {
-        fun podMonitor(): PodMonitor
+        fun deviceMonitor(): DeviceMonitor
         fun upgradeRepo(): UpgradeRepo
         fun widgetSettings(): WidgetSettings
         fun deviceProfilesRepo(): DeviceProfilesRepo
@@ -45,7 +45,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
         val appWidgetId: Int
         val initialIsPro: Boolean
         val initialProfileId: String?
-        val cachedDevice: PodDevice?
+        val cachedDevice: MonitoredDevice?
 
         try {
             ep = EntryPointAccessors.fromApplication(context, WidgetEntryPoint::class.java)
@@ -53,7 +53,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
             log(TAG, VERBOSE) { "provideGlance(appWidgetId=$appWidgetId)" }
             initialIsPro = ep.upgradeRepo().isPro()
             initialProfileId = ep.widgetSettings().getWidgetProfile(appWidgetId)
-            cachedDevice = initialProfileId?.let { ep.podMonitor().getDeviceForProfile(it) }
+            cachedDevice = initialProfileId?.let { ep.deviceMonitor().getDeviceForProfile(it) }
         } catch (e: Exception) {
             log(TAG, ERROR) { "provideGlance setup failed: ${e.asLog()}" }
             provideContent {
@@ -73,7 +73,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
 
         provideContent {
             // Composable reads — must be outside try-catch
-            val devices by ep.podMonitor().devices.collectAsState(initial = emptyList())
+            val devices by ep.deviceMonitor().devices.collectAsState(initial = emptyList())
             val profiles by ep.deviceProfilesRepo().profiles.collectAsState(initial = emptyList())
             val upgradeInfo by ep.upgradeRepo().upgradeInfo.collectAsState(initial = null)
             val widthDp = LocalSize.current.width
@@ -86,8 +86,8 @@ class BatteryGlanceWidget : GlanceAppWidget() {
 
                 val isPro = upgradeInfo?.isPro ?: initialIsPro
 
-                val liveDevice = devices.firstOrNull { it.meta.profile?.id == profileId }
-                val device = liveDevice ?: cachedDevice?.takeIf { it.meta.profile?.id == profileId }
+                val liveDevice = devices.firstOrNull { it.meta?.profile?.id == profileId }
+                val device = liveDevice ?: cachedDevice?.takeIf { it.meta?.profile?.id == profileId }
 
                 val profileLabel = profileId?.let { pid ->
                     profiles.firstOrNull { it.id == pid }?.label

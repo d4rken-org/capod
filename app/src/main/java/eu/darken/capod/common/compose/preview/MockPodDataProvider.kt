@@ -4,6 +4,7 @@ import android.content.Context
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.monitor.core.MonitoredDevice
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.HasCase
 import eu.darken.capod.pods.core.HasChargeDetection
@@ -142,6 +143,28 @@ object MockPodDataProvider {
     fun profile(label: String, model: PodDevice.Model): AppleDeviceProfile = AppleDeviceProfile(
         label = label,
         model = model,
+    )
+
+    // --- MonitoredDevice wrappers ---
+
+    fun dualPodMonitored(): MonitoredDevice = MonitoredDevice(
+        ble = airPodsProFullCharge(),
+        aap = null,
+    )
+
+    fun dualPodMonitoredMixed(): MonitoredDevice = MonitoredDevice(
+        ble = airPodsProMixed(),
+        aap = null,
+    )
+
+    fun singlePodMonitored(): MonitoredDevice = MonitoredDevice(
+        ble = airPodsMax(),
+        aap = null,
+    )
+
+    fun unknownMonitored(): MonitoredDevice = MonitoredDevice(
+        ble = unknownDevice(),
+        aap = null,
     )
 
     // --- UpgradeInfo ---

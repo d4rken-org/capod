@@ -17,7 +17,7 @@ class PopUpReactionLogicTest : BaseTest() {
     @BeforeEach
     fun setup() {
         popUpReaction = PopUpReaction(
-            podMonitor = mockk(relaxed = true),
+            deviceMonitor = mockk(relaxed = true),
             reactionSettings = mockk(relaxed = true),
             bluetoothManager = mockk(relaxed = true),
         )

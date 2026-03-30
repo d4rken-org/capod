@@ -1,15 +1,21 @@
 package eu.darken.capod.monitor.core
 
+import android.content.Context
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.pods.core.BlePodSnapshot
 import eu.darken.capod.pods.core.DualPodDevice
 import eu.darken.capod.pods.core.HasCase
+import eu.darken.capod.pods.core.HasChargeDetection
+import eu.darken.capod.pods.core.HasChargeDetectionDual
+import eu.darken.capod.pods.core.HasDualMicrophone
+import eu.darken.capod.pods.core.HasEarDetection
 import eu.darken.capod.pods.core.HasEarDetectionDual
 import eu.darken.capod.pods.core.PodDevice
 import eu.darken.capod.pods.core.SinglePodDevice
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.protocol.aap.AapPodState
 import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
+import java.time.Instant
 
 /**
  * Unified device facade combining BLE scan data and AAP connection data.
@@ -23,12 +29,21 @@ data class MonitoredDevice(
     // Identity
     val model: PodDevice.Model get() = ble?.model ?: PodDevice.Model.UNKNOWN
     val address: BluetoothAddress? get() = ble?.address
+    val identifier: PodDevice.Id? get() = ble?.identifier
+    val meta: PodDevice.Meta? get() = ble?.meta
 
     // Capabilities from Model.Features
     val hasCase: Boolean get() = model.features.hasCase
     val hasDualPods: Boolean get() = model.features.hasDualPods
     val hasEarDetection: Boolean get() = model.features.hasEarDetection
     val hasAncControl: Boolean get() = model.features.hasAncControl
+    val hasDualMicrophone: Boolean get() = ble is HasDualMicrophone
+
+    // Signal / timing
+    val seenLastAt: Instant? get() = ble?.seenLastAt
+    val seenFirstAt: Instant? get() = ble?.seenFirstAt
+    val signalQuality: Float get() = ble?.signalQuality ?: 0f
+    val rssi: Int get() = ble?.rssi ?: 0
 
     // Battery — best available source
     val batteryLeft: Float?
@@ -43,15 +58,58 @@ data class MonitoredDevice(
     val batteryHeadset: Float?
         get() = (ble as? SinglePodDevice)?.batteryHeadsetPercent
 
-    // State
+    // Charging
+    val isLeftPodCharging: Boolean?
+        get() = (ble as? HasChargeDetectionDual)?.isLeftPodCharging
+
+    val isRightPodCharging: Boolean?
+        get() = (ble as? HasChargeDetectionDual)?.isRightPodCharging
+
+    val isCaseCharging: Boolean?
+        get() = (ble as? HasCase)?.isCaseCharging
+
+    val isHeadsetBeingCharged: Boolean?
+        get() = (ble as? HasChargeDetection)?.isHeadsetBeingCharged
+
+    // Ear detection
     val isLeftInEar: Boolean?
         get() = (ble as? HasEarDetectionDual)?.isLeftPodInEar
 
     val isRightInEar: Boolean?
         get() = (ble as? HasEarDetectionDual)?.isRightPodInEar
 
+    val isBeingWorn: Boolean?
+        get() = (ble as? HasEarDetection)?.isBeingWorn
+
+    val isEitherPodInEar: Boolean?
+        get() = (ble as? HasEarDetectionDual)?.isEitherPodInEar
+
     val caseLidState: DualApplePods.LidState?
         get() = (ble as? DualApplePods)?.caseLidState
+
+    // Microphone
+    val isLeftPodMicrophone: Boolean?
+        get() = (ble as? HasDualMicrophone)?.isLeftPodMicrophone
+
+    val isRightPodMicrophone: Boolean?
+        get() = (ble as? HasDualMicrophone)?.isRightPodMicrophone
+
+    // Icons / labels
+    val iconRes: Int get() = ble?.iconRes ?: model.iconRes
+
+    val leftPodIcon: Int?
+        get() = (ble as? DualPodDevice)?.leftPodIcon
+
+    val rightPodIcon: Int?
+        get() = (ble as? DualPodDevice)?.rightPodIcon
+
+    val caseIcon: Int?
+        get() = (ble as? HasCase)?.caseIcon
+
+    fun getLabel(context: Context): String = ble?.getLabel(context) ?: model.label
+
+    // Debug
+    val rawDataHex: List<String> get() = ble?.rawDataHex ?: emptyList()
 
     // AAP controls
     val ancMode: AapSetting.AncMode?
