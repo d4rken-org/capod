@@ -53,6 +53,7 @@ import eu.darken.capod.pods.core.HasStateDetection
 import eu.darken.capod.pods.core.apple.ApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods
 import eu.darken.capod.pods.core.apple.DualApplePods.LidState
+import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
 import eu.darken.capod.pods.core.formatBatteryPercent
 import eu.darken.capod.pods.core.toBatteryFloat
 import eu.darken.capod.pods.core.toBatteryOrNull
@@ -64,6 +65,8 @@ fun DualPodsCard(
     device: PodDevice,
     showDebug: Boolean,
     now: Instant,
+    onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
+    onConversationAwarenessChange: ((Boolean) -> Unit)? = null,
 ) {
     val context = LocalContext.current
 
@@ -208,6 +211,27 @@ fun DualPodsCard(
                     text = stateDetection.state.getLabel(context),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
+            // ANC mode selector
+            val ancMode = device.ancMode
+            if (device.isAapConnected && device.hasAncControl && ancMode != null) {
+                Spacer(modifier = Modifier.height(12.dp))
+                AncModeSelector(
+                    currentMode = ancMode.current,
+                    supportedModes = ancMode.supported,
+                    onModeSelected = { onAncModeChange?.invoke(it) },
+                )
+            }
+
+            // Conversation awareness toggle
+            val convAwareness = device.conversationalAwareness
+            if (device.isAapConnected && device.model.features.hasConversationAwareness && convAwareness != null) {
+                Spacer(modifier = Modifier.height(8.dp))
+                ConversationAwarenessToggle(
+                    enabled = convAwareness.enabled,
+                    onToggle = { onConversationAwarenessChange?.invoke(it) },
                 )
             }
 

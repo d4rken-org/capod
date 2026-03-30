@@ -28,7 +28,10 @@ data class PodDevice(
 ) {
     // Identity
     val model: PodModel get() = ble?.model ?: PodModel.UNKNOWN
-    val address: BluetoothAddress? get() = ble?.address
+    /** Bonded BR/EDR address (from profile). Used for AAP commands. */
+    val address: BluetoothAddress? get() = ble?.meta?.profile?.address
+    /** BLE scan address (RPA, rotates). */
+    val bleAddress: BluetoothAddress? get() = ble?.address
     val identifier: BlePodSnapshot.Id? get() = ble?.identifier
     val meta: BlePodSnapshot.Meta? get() = ble?.meta
 
@@ -45,31 +48,31 @@ data class PodDevice(
     val signalQuality: Float get() = ble?.signalQuality ?: 0f
     val rssi: Int get() = ble?.rssi ?: 0
 
-    // Battery — best available source
+    // Battery — AAP preferred, BLE fallback
     val batteryLeft: Float?
-        get() = (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
+        get() = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
 
     val batteryRight: Float?
-        get() = (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
+        get() = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
 
     val batteryCase: Float?
-        get() = (ble as? HasCase)?.batteryCasePercent
+        get() = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent
 
     val batteryHeadset: Float?
-        get() = (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
+        get() = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
 
-    // Charging
+    // Charging — AAP preferred, BLE fallback
     val isLeftPodCharging: Boolean?
-        get() = (ble as? HasChargeDetectionDual)?.isLeftPodCharging
+        get() = aap?.isLeftCharging ?: (ble as? HasChargeDetectionDual)?.isLeftPodCharging
 
     val isRightPodCharging: Boolean?
-        get() = (ble as? HasChargeDetectionDual)?.isRightPodCharging
+        get() = aap?.isRightCharging ?: (ble as? HasChargeDetectionDual)?.isRightPodCharging
 
     val isCaseCharging: Boolean?
-        get() = (ble as? HasCase)?.isCaseCharging
+        get() = aap?.isCaseCharging ?: (ble as? HasCase)?.isCaseCharging
 
     val isHeadsetBeingCharged: Boolean?
-        get() = (ble as? HasChargeDetection)?.isHeadsetBeingCharged
+        get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged
 
     // Ear detection
     val isLeftInEar: Boolean?
@@ -113,6 +116,24 @@ data class PodDevice(
 
     // AAP controls
     val ancMode: AapSetting.AncMode?
+        get() = aap?.setting()
+
+    val conversationalAwareness: AapSetting.ConversationalAwareness?
+        get() = aap?.setting()
+
+    val toneVolume: AapSetting.ToneVolume?
+        get() = aap?.setting()
+
+    val personalizedVolume: AapSetting.PersonalizedVolume?
+        get() = aap?.setting()
+
+    val volumeSwipe: AapSetting.VolumeSwipe?
+        get() = aap?.setting()
+
+    val ncWithOneAirPod: AapSetting.NcWithOneAirPod?
+        get() = aap?.setting()
+
+    val adaptiveAudioNoise: AapSetting.AdaptiveAudioNoise?
         get() = aap?.setting()
 
     val isAapConnected: Boolean get() = aap != null

@@ -3,13 +3,20 @@ package eu.darken.capod.pods.core.apple.protocol.aap
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
-import android.util.Log
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
+import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -30,63 +37,88 @@ internal class AapConnection(
     private val psm: Int = 0x1001,
 ) {
     companion object {
-        private const val TAG = "AapConnection"
+        private val TAG = logTag("AapConnection")
     }
 
     private val _state = MutableStateFlow(AapPodState())
     val state: StateFlow<AapPodState> = _state.asStateFlow()
+
+    private val _keysReceived = MutableSharedFlow<KeyExchangeResult>(extraBufferCapacity = 1)
+    val keysReceived: SharedFlow<KeyExchangeResult> = _keysReceived.asSharedFlow()
 
     private var socket: BluetoothSocket? = null
     private var readerJob: Job? = null
     private val writeMutex = Mutex()
     private val framer = AapFramer()
 
-    suspend fun connect() = withContext(Dispatchers.IO) {
-        if (_state.value.connectionState != AapConnectionState.DISCONNECTED) {
-            Log.w(TAG, "connect() called in state ${_state.value.connectionState}")
-            return@withContext
+    /**
+     * Opens the L2CAP socket, sends the handshake, and launches the read loop.
+     * Returns after the handshake is sent — the read loop runs in [scope] independently.
+     */
+    suspend fun connect(scope: CoroutineScope) = withContext(Dispatchers.IO) {
+        if (_state.value.connectionState != AapPodState.ConnectionState.DISCONNECTED) {
+            throw IllegalStateException("connect() called in state ${_state.value.connectionState}")
         }
 
-        _state.value = _state.value.copy(connectionState = AapConnectionState.CONNECTING)
+        _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.CONNECTING)
 
         try {
             val sock = socketFactory.createSocket(device, psm)
             sock.connect()
             socket = sock
-            Log.d(TAG, "Connected to ${device.address}")
+            log(TAG) { "Connected to ${device.address}" }
 
-            _state.value = _state.value.copy(connectionState = AapConnectionState.HANDSHAKING)
+            _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.HANDSHAKING)
 
             // Send handshake
             val handshake = profile.encodeHandshake()
             sock.outputStream.write(handshake)
             sock.outputStream.flush()
-            Log.d(TAG, "Handshake sent")
+            log(TAG) { "Handshake sent" }
 
-            // Start read loop
-            coroutineScope {
-                readerJob = launch { readLoop(sock) }
+            // Send notification enable packets — tells device to push battery/settings updates
+            for (packet in profile.encodeNotificationEnable()) {
+                sock.outputStream.write(packet)
+                sock.outputStream.flush()
             }
+            log(TAG) { "Notification enable sent" }
+
+            // Send InitExt for models that need it (Pro 2/3/USB-C, AP4 ANC)
+            profile.encodeInitExt()?.let { initExt ->
+                sock.outputStream.write(initExt)
+                sock.outputStream.flush()
+                log(TAG) { "InitExt sent" }
+            }
+
+            // Request private keys (IRK + ENC) for BLE encrypted battery
+            profile.encodePrivateKeyRequest()?.let { keyReq ->
+                sock.outputStream.write(keyReq)
+                sock.outputStream.flush()
+                log(TAG) { "Private key request sent" }
+            }
+
+            // Launch read loop in the provided scope — connect() returns immediately
+            readerJob = scope.launch(Dispatchers.IO) { readLoop(sock) }
         } catch (e: Exception) {
-            Log.e(TAG, "Connection failed", e)
+            log(TAG, ERROR) { "Connection failed: $e" }
             cleanupSocket()
-            _state.value = AapPodState(connectionState = AapConnectionState.DISCONNECTED)
+            _state.value = AapPodState(connectionState = AapPodState.ConnectionState.DISCONNECTED)
             throw e
         }
     }
 
     suspend fun disconnect() = withContext(Dispatchers.IO) {
-        Log.d(TAG, "Disconnecting")
+        log(TAG) { "Disconnecting" }
         readerJob?.cancel()
         readerJob = null
         cleanupSocket()
         framer.reset()
-        _state.value = AapPodState(connectionState = AapConnectionState.DISCONNECTED)
+        _state.value = AapPodState(connectionState = AapPodState.ConnectionState.DISCONNECTED)
     }
 
     suspend fun send(command: AapCommand) {
         val currentState = _state.value
-        if (currentState.connectionState != AapConnectionState.READY) {
+        if (currentState.connectionState != AapPodState.ConnectionState.READY) {
             throw IllegalStateException("Cannot send command in state ${currentState.connectionState}")
         }
 
@@ -96,7 +128,7 @@ internal class AapConnection(
                 val sock = socket ?: throw IOException("Socket is null")
                 sock.outputStream.write(bytes)
                 sock.outputStream.flush()
-                Log.d(TAG, "Sent command: $command (${bytes.size} bytes)")
+                log(TAG) { "Sent command: $command (${bytes.size} bytes)" }
             }
         }
     }
@@ -109,45 +141,67 @@ internal class AapConnection(
             while (isActive) {
                 val len = sock.inputStream.read(buf)
                 if (len == -1) {
-                    Log.d(TAG, "Stream closed by remote")
+                    log(TAG) { "Stream closed by remote" }
                     break
                 }
 
-                val messages = framer.consume(buf, 0, len)
-                for (message in messages) {
+                // L2CAP SEQPACKET: each read() returns exactly one complete message
+                val raw = buf.copyOfRange(0, len)
+                val message = AapMessage.parse(raw)
+                if (message != null) {
                     processMessage(message)
-
                     if (!handshakeResponseReceived && message.commandType != 0x0009) {
                         handshakeResponseReceived = true
                     }
                 }
 
                 // Transition to READY after processing first batch of messages
-                if (handshakeResponseReceived && _state.value.connectionState == AapConnectionState.HANDSHAKING) {
-                    _state.value = _state.value.copy(connectionState = AapConnectionState.READY)
-                    Log.d(TAG, "Connection READY")
+                if (handshakeResponseReceived && _state.value.connectionState == AapPodState.ConnectionState.HANDSHAKING) {
+                    _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.READY)
+                    log(TAG) { "Connection READY" }
                 }
             }
         } catch (e: IOException) {
-            if (isActive) Log.e(TAG, "Read error", e)
+            if (isActive) log(TAG, ERROR) { "Read error: $e" }
         } finally {
             cleanupSocket()
-            _state.value = _state.value.copy(connectionState = AapConnectionState.DISCONNECTED)
+            _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.DISCONNECTED)
         }
     }
 
     private fun processMessage(message: AapMessage) {
+        val hex = message.raw.joinToString(" ") { "%02X".format(it) }
+        log(TAG, VERBOSE) { "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex" }
+
+        // Try battery
+        profile.decodeBattery(message)?.let { batteries ->
+            _state.value = _state.value.copy(batteries = batteries)
+            log(TAG) { "Battery update: ${batteries.entries.map { "${it.key}=${(it.value.percent * 100).toInt()}% ${it.value.charging}" }}" }
+            return
+        }
+
+        // Try private key response
+        profile.decodePrivateKeyResponse(message)?.let { keys ->
+            log(TAG) { "Private keys received: IRK=${keys.irk != null}, ENC=${keys.encKey != null}" }
+            _keysReceived.tryEmit(keys)
+            return
+        }
+
         // Try device info
         profile.decodeDeviceInfo(message)?.let { info ->
             _state.value = _state.value.copy(deviceInfo = info)
-            Log.d(TAG, "Device info: ${info.name} (${info.modelNumber})")
+            log(TAG) { "Device info: ${info.name} (${info.modelNumber})" }
             return
         }
 
         // Try setting update (merge into existing state)
         profile.decodeSetting(message)?.let { (key, value) ->
             _state.value = _state.value.withSetting(key, value)
+            log(TAG) { "Setting: ${key.simpleName} = $value" }
+            return
         }
+
+        log(TAG) { "Unhandled message: cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B" }
     }
 
     private fun cleanupSocket() {

@@ -1,6 +1,8 @@
 package eu.darken.capod.common.bluetooth.l2cap
 
-import android.util.Log
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import java.lang.invoke.MethodHandles
 import java.lang.invoke.MethodType
 import java.lang.reflect.Method
@@ -20,7 +22,7 @@ import java.lang.reflect.Method
  */
 object HiddenApiBypass {
 
-    private const val TAG = "HiddenApiBypass"
+    private val TAG = logTag("HiddenApiBypass")
 
     private val exemptedPrefixes = mutableSetOf<String>()
 
@@ -114,7 +116,7 @@ object HiddenApiBypass {
                     }
                     stubMethod.invoke(runtime, allPrefixes as Any)
                     exemptionsSet = true
-                    Log.d(TAG, "setHiddenApiExemptions OK: ${allPrefixes.contentToString()}")
+                    log(TAG, VERBOSE) { "setHiddenApiExemptions OK: ${allPrefixes.contentToString()}" }
                 }
 
                 if (runtime != null && exemptionsSet) break

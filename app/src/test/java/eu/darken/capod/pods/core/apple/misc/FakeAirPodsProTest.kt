@@ -1,12 +1,12 @@
 package eu.darken.capod.pods.core.apple.misc
 
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.BaseBlePodsTest
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class FakeAirPodsProTest : BaseAirPodsTest() {
+class FakeAirPodsProTest : BaseBlePodsTest() {
 
     @Test
     fun `guessed data`() = runTest {

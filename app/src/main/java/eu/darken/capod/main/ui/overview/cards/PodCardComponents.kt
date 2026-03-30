@@ -26,7 +26,11 @@ import androidx.compose.material.icons.twotone.KeyboardVoice
 import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SegmentedButton
+import androidx.compose.material3.SegmentedButtonDefaults
+import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,7 +38,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import eu.darken.capod.R
+import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
 
 private val CapsuleShape = RoundedCornerShape(6.dp)
 
@@ -190,6 +198,56 @@ fun DebugSection(
             text = rawDataHex.joinToString("\n"),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+fun AncModeSelector(
+    currentMode: AapSetting.AncMode.Value,
+    supportedModes: List<AapSetting.AncMode.Value>,
+    onModeSelected: (AapSetting.AncMode.Value) -> Unit,
+) {
+    SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+        supportedModes.forEachIndexed { index, mode ->
+            SegmentedButton(
+                selected = mode == currentMode,
+                onClick = { onModeSelected(mode) },
+                shape = SegmentedButtonDefaults.itemShape(index, supportedModes.size),
+                label = {
+                    Text(
+                        text = when (mode) {
+                            AapSetting.AncMode.Value.OFF -> stringResource(R.string.anc_mode_off)
+                            AapSetting.AncMode.Value.ON -> stringResource(R.string.anc_mode_on)
+                            AapSetting.AncMode.Value.TRANSPARENCY -> stringResource(R.string.anc_mode_transparency)
+                            AapSetting.AncMode.Value.ADAPTIVE -> stringResource(R.string.anc_mode_adaptive)
+                        },
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                },
+            )
+        }
+    }
+}
+
+@Composable
+fun ConversationAwarenessToggle(
+    enabled: Boolean,
+    onToggle: (Boolean) -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(R.string.conversation_awareness_label),
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.weight(1f),
+        )
+        Switch(
+            checked = enabled,
+            onCheckedChange = onToggle,
         )
     }
 }

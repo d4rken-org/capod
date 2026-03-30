@@ -1,12 +1,12 @@
 package eu.darken.capod.pods.core.apple.beats
 
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.BaseBlePodsTest
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class BeatsStudio3Test : BaseAirPodsTest() {
+class BeatsStudio3Test : BaseBlePodsTest() {
 
     // TODO This is handcrafted data, get actual data for tests
     @Test

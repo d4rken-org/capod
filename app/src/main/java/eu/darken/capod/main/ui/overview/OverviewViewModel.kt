@@ -20,6 +20,9 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
+import eu.darken.capod.pods.core.apple.protocol.aap.AapCommand
+import eu.darken.capod.pods.core.apple.protocol.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.protocol.aap.AapSetting
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay
@@ -46,6 +49,7 @@ class OverviewViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
+    private val aapManager: AapConnectionManager,
 ) : ViewModel4(dispatcherProvider) {
 
     val requestPermissionEvent = SingleEventFlow<Permission>()
@@ -156,6 +160,30 @@ class OverviewViewModel @Inject constructor(
 
     fun requestPermission(permission: Permission) {
         requestPermissionEvent.tryEmit(permission)
+    }
+
+    fun setAncMode(device: PodDevice, mode: AapSetting.AncMode.Value) {
+        val address = device.address ?: return
+        launch {
+            try {
+                aapManager.sendCommand(address, AapCommand.SetAncMode(mode))
+                log(TAG) { "ANC mode set to $mode for $address" }
+            } catch (e: Exception) {
+                log(TAG) { "Failed to set ANC mode: ${e.message}" }
+            }
+        }
+    }
+
+    fun setConversationalAwareness(device: PodDevice, enabled: Boolean) {
+        val address = device.address ?: return
+        launch {
+            try {
+                aapManager.sendCommand(address, AapCommand.SetConversationalAwareness(enabled))
+                log(TAG) { "Conversation awareness set to $enabled for $address" }
+            } catch (e: Exception) {
+                log(TAG) { "Failed to set conversation awareness: ${e.message}" }
+            }
+        }
     }
 
     companion object {

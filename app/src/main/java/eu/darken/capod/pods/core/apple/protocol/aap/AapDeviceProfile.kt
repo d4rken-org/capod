@@ -20,6 +20,12 @@ interface AapDeviceProfile {
     fun decodeSetting(message: AapMessage): Pair<KClass<out AapSetting>, AapSetting>?
 
     /**
+     * Decode a battery notification (command 0x04).
+     * Returns null if the message is not a battery update.
+     */
+    fun decodeBattery(message: AapMessage): Map<AapPodState.BatteryType, AapPodState.Battery>?
+
+    /**
      * Decode a device info message (typically command type 0x001D).
      */
     fun decodeDeviceInfo(message: AapMessage): AapDeviceInfo?
@@ -35,7 +41,32 @@ interface AapDeviceProfile {
      */
     fun encodeHandshake(): ByteArray
 
+    /**
+     * Encode notification enable packets. These tell the device to push
+     * battery, settings, and other event notifications.
+     * Sent after the handshake, before the read loop starts.
+     */
+    fun encodeNotificationEnable(): List<ByteArray>
+
+    /**
+     * Encode the extended init packet (0x4D) for models that require it
+     * (e.g., Pro 2/3/USB-C, AirPods 4 ANC). Returns null if not needed.
+     */
+    fun encodeInitExt(): ByteArray?
+
+    /**
+     * Encode a private key request (command 0x30).
+     * Returns null if the model doesn't support key exchange.
+     */
+    fun encodePrivateKeyRequest(): ByteArray?
+
+    /**
+     * Decode a private key response (command 0x31).
+     * Returns null if the message is not a key response.
+     */
+    fun decodePrivateKeyResponse(message: AapMessage): KeyExchangeResult?
+
     companion object {
-        fun forModel(model: PodModel): AapDeviceProfile = DefaultAapDeviceProfile()
+        fun forModel(model: PodModel): AapDeviceProfile = DefaultAapDeviceProfile(model)
     }
 }

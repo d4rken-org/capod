@@ -4,7 +4,7 @@ import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class SingleApplePodsTest : BaseAirPodsTest() {
+class SingleApplePodsTest : BaseBlePodsTest() {
 
     @Test
     fun `default bit mapping Max`() = runTest {

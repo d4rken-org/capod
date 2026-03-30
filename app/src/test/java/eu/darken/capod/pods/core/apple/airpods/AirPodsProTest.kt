@@ -2,14 +2,14 @@ package eu.darken.capod.pods.core.apple.airpods
 
 import eu.darken.capod.common.toHex
 import eu.darken.capod.pods.core.PodModel
-import eu.darken.capod.pods.core.apple.BaseAirPodsTest
+import eu.darken.capod.pods.core.apple.BaseBlePodsTest
 import eu.darken.capod.pods.core.apple.HasAppleColor
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
-class AirPodsProTest : BaseAirPodsTest() {
+class AirPodsProTest : BaseBlePodsTest() {
 
     @Test
     fun `test AirPods Pro - default changed and in case`() = runTest {
