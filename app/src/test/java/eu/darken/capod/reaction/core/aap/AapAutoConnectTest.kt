@@ -39,6 +39,7 @@ class AapAutoConnectTest : BaseTest() {
     private lateinit var blePodMonitor: BlePodMonitor
 
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
+    private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
     private lateinit var disconnectEventsFlow: MutableSharedFlow<String>
     private lateinit var allStatesFlow: MutableStateFlow<Map<String, AapPodState>>
 
@@ -55,6 +56,7 @@ class AapAutoConnectTest : BaseTest() {
     @BeforeEach
     fun setup() {
         profilesFlow = MutableStateFlow(emptyList())
+        connectedDevicesFlow = MutableStateFlow(emptyList())
         disconnectEventsFlow = MutableSharedFlow(extraBufferCapacity = 16)
         allStatesFlow = MutableStateFlow(emptyMap())
 
@@ -69,11 +71,18 @@ class AapAutoConnectTest : BaseTest() {
 
         bluetoothManager = mockk {
             every { bondedDevices() } returns flowOf(setOf(testBondedDevice))
+            every { connectedDevices } returns connectedDevicesFlow
         }
 
+        val bleMeta = object : BlePodSnapshot.Meta {
+            override val profile = testProfile
+        }
         blePodMonitor = mockk {
             every { devices } returns flowOf(
-                listOf(mockk<BlePodSnapshot>(relaxed = true) { every { address } returns testAddress })
+                listOf(mockk<BlePodSnapshot>(relaxed = true) {
+                    every { address } returns "5A:3B:1C:2D:4E:6F"
+                    every { meta } returns bleMeta
+                })
             )
         }
     }
@@ -144,6 +153,28 @@ class AapAutoConnectTest : BaseTest() {
             advanceUntilIdle()
 
             coVerify(exactly = 0) { aapManager.connect(any(), any(), any()) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `connects when classic Bluetooth connects after service start`() = runTest(testDispatcher) {
+            val autoConnect = createAutoConnect()
+
+            // Profiles already set, but no classic BT connection yet
+            profilesFlow.value = listOf(testProfile)
+            val job = launch { autoConnect.monitor().toList() }
+            advanceUntilIdle()
+
+            // Initial connect fires but L2CAP may fail (or succeed — either way, verify connect is called)
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            // Simulate classic BT connecting later
+            connectedDevicesFlow.value = listOf(testBondedDevice)
+            advanceUntilIdle()
+
+            // Should attempt connect again
+            coVerify(exactly = 2) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
 
             job.cancel()
         }
