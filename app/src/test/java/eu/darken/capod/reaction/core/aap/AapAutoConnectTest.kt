@@ -6,11 +6,12 @@ import eu.darken.capod.monitor.core.BlePodMonitor
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
-
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -66,7 +67,7 @@ class AapAutoConnectTest : BaseTest() {
             every { disconnectEvents } returns disconnectEventsFlow
         }
 
-        profilesRepo = mockk {
+        profilesRepo = mockk(relaxUnitFun = true) {
             every { profiles } returns profilesFlow
         }
 
@@ -362,6 +363,173 @@ class AapAutoConnectTest : BaseTest() {
 
             // Should not attempt connect — already connected
             coVerify(exactly = 0) { aapManager.connect(testAddress, any(), any()) }
+
+            job.cancel()
+        }
+    }
+
+    @Nested
+    inner class ModelCorrection {
+
+        private val testDeviceInfo = AapDeviceInfo(
+            name = "AirPods Pro 3",
+            modelNumber = "A3064",
+            manufacturer = "Apple Inc.",
+            serialNumber = "XXXX",
+            firmwareVersion = "1.0",
+        )
+
+        @Test
+        fun `corrects model when deviceInfo reports different model`() = runTest(testDispatcher) {
+            val wrongModelProfile = AppleDeviceProfile(
+                label = "Test AirPods",
+                model = PodModel.UNKNOWN,
+                address = testAddress,
+            )
+            profilesFlow.value = listOf(wrongModelProfile)
+
+            var capturedProfile: AppleDeviceProfile? = null
+            coEvery { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) } coAnswers {
+                capturedProfile = firstArg()
+            }
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+            advanceUntilIdle()
+
+            // Simulate AAP connection with device info reporting AirPods Pro 3
+            allStatesFlow.value = mapOf(
+                testAddress to AapPodState(
+                    connectionState = AapPodState.ConnectionState.READY,
+                    deviceInfo = testDeviceInfo,
+                )
+            )
+            advanceUntilIdle()
+
+            capturedProfile!!.model shouldBe PodModel.AIRPODS_PRO3
+            coVerify(exactly = 1) { aapManager.disconnect(testAddress) }
+            coVerify { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `does not correct when model already matches`() = runTest(testDispatcher) {
+            // Profile already has correct model
+            profilesFlow.value = listOf(testProfile) // PodModel.AIRPODS_PRO3
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+            advanceUntilIdle()
+
+            allStatesFlow.value = mapOf(
+                testAddress to AapPodState(
+                    connectionState = AapPodState.ConnectionState.READY,
+                    deviceInfo = testDeviceInfo, // A3064 = AIRPODS_PRO3
+                )
+            )
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+            coVerify(exactly = 0) { aapManager.disconnect(testAddress) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `does not correct when modelNumber is unrecognized`() = runTest(testDispatcher) {
+            profilesFlow.value = listOf(testProfile)
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+            advanceUntilIdle()
+
+            allStatesFlow.value = mapOf(
+                testAddress to AapPodState(
+                    connectionState = AapPodState.ConnectionState.READY,
+                    deviceInfo = testDeviceInfo.copy(modelNumber = "ZZZZ"),
+                )
+            )
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `correction not re-triggered on subsequent state emissions`() = runTest(testDispatcher) {
+            val wrongModelProfile = AppleDeviceProfile(
+                label = "Test AirPods",
+                model = PodModel.UNKNOWN,
+                address = testAddress,
+            )
+            profilesFlow.value = listOf(wrongModelProfile)
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+            advanceUntilIdle()
+
+            val readyState = AapPodState(
+                connectionState = AapPodState.ConnectionState.READY,
+                deviceInfo = testDeviceInfo,
+            )
+
+            // First emission with deviceInfo
+            allStatesFlow.value = mapOf(testAddress to readyState)
+            advanceUntilIdle()
+
+            // Second emission — same modelNumber but different state (simulates battery/settings churn)
+            // StateFlow needs a structurally different value to emit; distinctUntilChanged on
+            // the modelNumber sub-map then suppresses re-processing
+            allStatesFlow.value = mapOf(testAddress to readyState.copy(lastMessageAt = java.time.Instant.now()))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `clears processed state on disconnect for future reconnects`() = runTest(testDispatcher) {
+            val wrongModelProfile = AppleDeviceProfile(
+                label = "Test AirPods",
+                model = PodModel.UNKNOWN,
+                address = testAddress,
+            )
+            profilesFlow.value = listOf(wrongModelProfile)
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+            advanceUntilIdle()
+
+            // First connection with deviceInfo
+            allStatesFlow.value = mapOf(
+                testAddress to AapPodState(
+                    connectionState = AapPodState.ConnectionState.READY,
+                    deviceInfo = testDeviceInfo,
+                )
+            )
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
+
+            // Simulate disconnect (address disappears)
+            allStatesFlow.value = emptyMap()
+            advanceUntilIdle()
+
+            // Second connection — profile is now corrected, so no second updateProfile
+            profilesFlow.value = listOf(wrongModelProfile.copy(model = PodModel.AIRPODS_PRO3))
+            allStatesFlow.value = mapOf(
+                testAddress to AapPodState(
+                    connectionState = AapPodState.ConnectionState.READY,
+                    deviceInfo = testDeviceInfo,
+                )
+            )
+            advanceUntilIdle()
+
+            // Still only 1 updateProfile — model now matches
+            coVerify(exactly = 1) { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) }
 
             job.cancel()
         }
