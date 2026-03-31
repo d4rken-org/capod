@@ -7,13 +7,17 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.monitor.core.BlePodMonitor
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
@@ -28,10 +32,12 @@ class AapAutoConnect @Inject constructor(
     private val blePodMonitor: BlePodMonitor,
 ) {
     private val activeReconnects = java.util.Collections.synchronizedSet(mutableSetOf<String>())
+    private val processedModelCorrections = java.util.Collections.synchronizedSet(mutableSetOf<String>())
 
     fun monitor(): Flow<Unit> = merge(
         initialConnect(),
         reconnectOnDisconnect(),
+        correctModelOnDeviceInfo(),
     )
 
     private fun initialConnect(): Flow<Unit> = combine(
@@ -135,6 +141,54 @@ class AapAutoConnect @Inject constructor(
         }
         .map { } // SharedFlow<BluetoothAddress> → Flow<Unit>
         .setupCommonEventHandlers(TAG) { "reconnect" }
+
+    private fun correctModelOnDeviceInfo(): Flow<Unit> = aapManager.allStates
+        .map { states -> states.mapValues { (_, state) -> state.deviceInfo?.modelNumber } }
+        .distinctUntilChanged()
+        .map { modelNumbers ->
+            // Clean up tracking for addresses that disconnected
+            processedModelCorrections.retainAll(modelNumbers.keys)
+
+            for ((address, modelNumber) in modelNumbers) {
+                if (modelNumber == null) continue
+                if (address in processedModelCorrections) continue
+                processedModelCorrections.add(address)
+
+                try {
+                    val detectedModel = PodModel.fromModelNumber(modelNumber) ?: continue
+
+                    val profile = profilesRepo.profiles.first()
+                        .filterIsInstance<AppleDeviceProfile>()
+                        .firstOrNull { it.address == address }
+                        ?: continue
+
+                    if (profile.model == detectedModel) {
+                        log(TAG, VERBOSE) { "AAP model confirmed for $address: $detectedModel" }
+                        continue
+                    }
+
+                    log(TAG) { "AAP model mismatch for $address: profile=${profile.model}, detected=$detectedModel" }
+
+                    // Allow key exchange (AapKeyPersister) to complete before disconnecting
+                    delay(2.seconds)
+
+                    aapManager.disconnect(address)
+                    profilesRepo.updateProfile(profile.copy(model = detectedModel))
+                    log(TAG) { "AAP model corrected for $address: ${profile.model} -> $detectedModel" }
+
+                    // Reconnect explicitly — initialConnect may be blocked by retry loops for other devices
+                    val bonded = bluetoothManager.bondedDevices().first()
+                        .firstOrNull { it.address == address }
+                    if (bonded != null) {
+                        aapManager.connect(address, bonded.internal, detectedModel)
+                        log(TAG) { "AAP reconnected $address with corrected model $detectedModel" }
+                    }
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "AAP model correction failed for $address: ${e.message}" }
+                }
+            }
+        }
+        .setupCommonEventHandlers(TAG) { "correctModel" }
 
     companion object {
         private val TAG = logTag("Reaction", "AapAutoConnect")

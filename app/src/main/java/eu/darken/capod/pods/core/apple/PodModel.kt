@@ -10,6 +10,7 @@ enum class PodModel(
     val label: String,
     @DrawableRes val iconRes: Int = R.drawable.device_earbuds_generic_both,
     val features: Features = Features(),
+    val modelNumbers: Set<String> = emptySet(),
 ) {
     @SerialName("airpods.gen1")
     AIRPODS_GEN1(
@@ -19,6 +20,7 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        modelNumbers = setOf("A1523", "A1722"), // L/R earphones
     ),
 
     @SerialName("airpods.gen2")
@@ -29,6 +31,7 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        modelNumbers = setOf("A2031", "A2032"), // L/R earphones
     ),
 
     @SerialName("airpods.gen3")
@@ -39,6 +42,7 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        modelNumbers = setOf("A2564", "A2565"), // L/R earphones
     ),
 
     @SerialName("airpods.gen4")
@@ -49,6 +53,7 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
     ),
 
     @SerialName("airpods.gen4.anc")
@@ -73,6 +78,7 @@ enum class PodModel(
             hasAdaptiveAudioNoise = true,
             needsInitExt = true,
         ),
+        modelNumbers = setOf("A3055", "A3056", "A3057"), // earphones
     ),
 
     @SerialName("airpods.pro")
@@ -91,6 +97,7 @@ enum class PodModel(
             hasVolumeSwipeLength = true,
             hasToneVolume = true,
         ),
+        modelNumbers = setOf("A2083", "A2084"), // L/R earphones
     ),
 
     @SerialName("airpods.pro2")
@@ -115,6 +122,7 @@ enum class PodModel(
             hasAdaptiveAudioNoise = true,
             needsInitExt = true,
         ),
+        modelNumbers = setOf("A2698", "A2699", "A2931"), // earphones
     ),
 
     @SerialName("airpods.pro2.usbc")
@@ -139,6 +147,7 @@ enum class PodModel(
             hasAdaptiveAudioNoise = true,
             needsInitExt = true,
         ),
+        modelNumbers = setOf("A3047", "A3048", "A3049"), // earphones
     ),
 
     @SerialName("airpods.pro3")
@@ -163,6 +172,7 @@ enum class PodModel(
             hasAdaptiveAudioNoise = true,
             needsInitExt = true,
         ),
+        modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
     ),
 
     @SerialName("airpods.max")
@@ -175,6 +185,7 @@ enum class PodModel(
             hasPressHoldDuration = true,
             hasToneVolume = true,
         ),
+        modelNumbers = setOf("A2096"), // headphones
     ),
 
     @SerialName("airpods.max.usbc")
@@ -187,23 +198,37 @@ enum class PodModel(
             hasPressHoldDuration = true,
             hasToneVolume = true,
         ),
+        modelNumbers = setOf("A3184"), // headphones
     ),
 
     @SerialName("beats.flex")
-    BEATS_FLEX("Beats Flex", R.drawable.device_beats_earbuds),
+    BEATS_FLEX(
+        "Beats Flex",
+        R.drawable.device_beats_earbuds,
+        modelNumbers = setOf("A2295"),
+    ),
 
     @SerialName("beats.solo.3")
-    BEATS_SOLO_3("Beats Solo 3", R.drawable.device_beats_headphones),
+    BEATS_SOLO_3(
+        "Beats Solo 3",
+        R.drawable.device_beats_headphones,
+        modelNumbers = setOf("A1796"), // headphones
+    ),
 
     @SerialName("beats.solo.pro")
     BEATS_SOLO_PRO(
         "Beats Solo Pro",
         R.drawable.device_beats_headphones,
         Features(hasAncControl = true),
+        modelNumbers = setOf("A1881"), // headphones
     ),
 
     @SerialName("beats.solo.4")
-    BEATS_SOLO_4("Beats Solo 4", R.drawable.device_beats_headphones),
+    BEATS_SOLO_4(
+        "Beats Solo 4",
+        R.drawable.device_beats_headphones,
+        modelNumbers = setOf("A3140"), // headphones
+    ),
 
     @SerialName("beats.solo.buds")
     BEATS_SOLO_BUDS(
@@ -213,6 +238,7 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        modelNumbers = setOf("A3150", "A3151", "A3153"), // L/R earbuds + case
     ),
 
     @SerialName("beats.studio.3")
@@ -220,6 +246,7 @@ enum class PodModel(
         "Beats Studio 3",
         R.drawable.device_beats_studio3,
         Features(hasAncControl = true),
+        modelNumbers = setOf("A1914"), // headphones
     ),
 
     @SerialName("beats.studio.buds")
@@ -232,6 +259,7 @@ enum class PodModel(
             hasEarDetection = true,
             hasAncControl = true,
         ),
+        modelNumbers = setOf("A2512", "A2513", "A2514"), // L/R earbuds + case
     ),
 
     @SerialName("beats.studio.buds.plus")
@@ -244,6 +272,7 @@ enum class PodModel(
             hasEarDetection = true,
             hasAncControl = true,
         ),
+        modelNumbers = setOf("A2871", "A2872", "A2952"), // L/R earbuds + case
     ),
 
     @SerialName("beats.studio.pro")
@@ -251,16 +280,29 @@ enum class PodModel(
         "Beats Studio Pro",
         R.drawable.device_beats_headphones,
         Features(hasAncControl = true),
+        modelNumbers = setOf("A2924"), // headphones
     ),
 
     @SerialName("beats.x")
-    BEATS_X("Beats X", R.drawable.device_beats_x),
+    BEATS_X(
+        "Beats X",
+        R.drawable.device_beats_x,
+        modelNumbers = setOf("A1763"),
+    ),
 
     @SerialName("beats.powerbeats.3")
-    POWERBEATS_3("Power Beats 3", R.drawable.device_powerbeats_3),
+    POWERBEATS_3(
+        "Power Beats 3",
+        R.drawable.device_powerbeats_3,
+        modelNumbers = setOf("A1747"),
+    ),
 
     @SerialName("beats.powerbeats.4")
-    POWERBEATS_4("Power Beats 4", R.drawable.device_powerbeats_4),
+    POWERBEATS_4(
+        "Power Beats 4",
+        R.drawable.device_powerbeats_4,
+        modelNumbers = setOf("A2015"),
+    ),
 
     @SerialName("beats.powerbeats.pro")
     POWERBEATS_PRO(
@@ -271,6 +313,7 @@ enum class PodModel(
             hasCase = true,
             hasEarDetection = true,
         ),
+        modelNumbers = setOf("A2047", "A2048", "A2453", "A2454"), // L/R earbuds, 2019 + 2020 revisions
     ),
 
     @SerialName("beats.powerbeats.pro2")
@@ -283,6 +326,7 @@ enum class PodModel(
             hasEarDetection = true,
             hasAncControl = true,
         ),
+        modelNumbers = setOf("A3157", "A3158", "A3159"), // L/R earbuds + case
     ),
 
     @SerialName("beats.fit.pro")
@@ -295,6 +339,7 @@ enum class PodModel(
             hasEarDetection = true,
             hasAncControl = true,
         ),
+        modelNumbers = setOf("A2576", "A2577", "A2578"), // L/R earbuds + case
     ),
 
     @SerialName("fakes.tws.i99999")
@@ -354,6 +399,16 @@ enum class PodModel(
     @SerialName("unknown")
     UNKNOWN("Unknown"),
     ;
+
+    companion object {
+        fun fromModelNumber(modelNumber: String): PodModel? {
+            val normalized = modelNumber.trim().uppercase()
+            if (normalized.isBlank()) return null
+            return entries.firstOrNull { entry ->
+                entry != UNKNOWN && !entry.name.startsWith("FAKE_") && normalized in entry.modelNumbers
+            }
+        }
+    }
 
     data class Features(
         // Physical form
