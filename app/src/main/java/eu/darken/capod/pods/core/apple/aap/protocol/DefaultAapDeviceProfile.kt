@@ -21,6 +21,7 @@ class DefaultAapDeviceProfile(
         const val CMD_BATTERY = 0x0004
         const val CMD_DEVICE_INFO = 0x001D
         const val CMD_PRIVATE_KEYS_RESPONSE = 0x0031
+        const val CMD_EAR_DETECTION = 0x0006
         const val CMD_CONVERSATION_AWARENESS_STATE = 0x004B
 
         // Setting IDs (first byte of settings command payload)
@@ -85,6 +86,15 @@ class DefaultAapDeviceProfile(
     }
 
     override fun decodeSetting(message: AapMessage): Pair<KClass<out AapSetting>, AapSetting>? {
+        // Ear detection is a separate command type (push-only from device)
+        if (message.commandType == CMD_EAR_DETECTION) {
+            if (message.payload.size < 2) return null
+            return AapSetting.EarDetection::class to AapSetting.EarDetection(
+                primaryPod = decodePodPlacement(message.payload[0].toInt() and 0xFF),
+                secondaryPod = decodePodPlacement(message.payload[1].toInt() and 0xFF),
+            )
+        }
+
         // Conversation Awareness State is a separate command type (push-only)
         if (message.commandType == CMD_CONVERSATION_AWARENESS_STATE) {
             if (message.payload.isEmpty()) return null
@@ -235,6 +245,13 @@ class DefaultAapDeviceProfile(
             serialNumber = strings.getOrElse(3) { "" },
             firmwareVersion = strings.getOrElse(4) { "" },
         )
+    }
+
+    private fun decodePodPlacement(wireValue: Int): AapSetting.EarDetection.PodPlacement = when (wireValue) {
+        0x00 -> AapSetting.EarDetection.PodPlacement.IN_EAR
+        0x01 -> AapSetting.EarDetection.PodPlacement.NOT_IN_EAR
+        0x02 -> AapSetting.EarDetection.PodPlacement.IN_CASE
+        else -> AapSetting.EarDetection.PodPlacement.DISCONNECTED
     }
 
     protected fun encodeAncMode(mode: AapSetting.AncMode.Value): Int = when (mode) {

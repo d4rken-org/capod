@@ -210,6 +210,7 @@ fun DualPodsCard(
                     currentMode = ancMode.current,
                     supportedModes = ancMode.supported,
                     onModeSelected = { onAncModeChange?.invoke(it) },
+                    pendingMode = device.pendingAncMode,
                 )
             }
 

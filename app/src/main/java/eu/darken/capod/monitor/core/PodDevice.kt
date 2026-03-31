@@ -93,18 +93,48 @@ data class PodDevice(
     val isHeadsetBeingCharged: Boolean?
         get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged
 
-    // Ear detection
+    // Ear detection — AAP preferred (lower latency), BLE fallback.
+    // AAP reports primary/secondary; BLE bit 5 tells us which physical pod is primary.
     val isLeftInEar: Boolean?
-        get() = (ble as? HasEarDetectionDual)?.isLeftPodInEar
+        get() {
+            val earDetection = aap?.aapEarDetection
+            val primary = (ble as? DualApplePods)?.primaryPod
+            if (earDetection != null && primary != null) {
+                return if (primary == DualBlePodSnapshot.Pod.LEFT) {
+                    earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+                } else {
+                    earDetection.secondaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+                }
+            }
+            return (ble as? HasEarDetectionDual)?.isLeftPodInEar
+        }
 
     val isRightInEar: Boolean?
-        get() = (ble as? HasEarDetectionDual)?.isRightPodInEar
+        get() {
+            val earDetection = aap?.aapEarDetection
+            val primary = (ble as? DualApplePods)?.primaryPod
+            if (earDetection != null && primary != null) {
+                return if (primary == DualBlePodSnapshot.Pod.RIGHT) {
+                    earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+                } else {
+                    earDetection.secondaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+                }
+            }
+            return (ble as? HasEarDetectionDual)?.isRightPodInEar
+        }
 
     val isBeingWorn: Boolean?
-        get() = (ble as? HasEarDetection)?.isBeingWorn
+        get() {
+            val earDetection = aap?.aapEarDetection
+            if (earDetection != null) {
+                return earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+                    && earDetection.secondaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+            }
+            return (ble as? HasEarDetection)?.isBeingWorn
+        }
 
     val isEitherPodInEar: Boolean?
-        get() = (ble as? HasEarDetectionDual)?.isEitherPodInEar
+        get() = aap?.isEitherPodInEar ?: (ble as? HasEarDetectionDual)?.isEitherPodInEar
 
     val caseLidState: DualApplePods.LidState?
         get() = (ble as? DualApplePods)?.caseLidState
@@ -136,6 +166,9 @@ data class PodDevice(
     // AAP controls
     val ancMode: AapSetting.AncMode?
         get() = aap?.setting()
+
+    val pendingAncMode: AapSetting.AncMode.Value?
+        get() = aap?.pendingAncMode
 
     val conversationalAwareness: AapSetting.ConversationalAwareness?
         get() = aap?.setting()

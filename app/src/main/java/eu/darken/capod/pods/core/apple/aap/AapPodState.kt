@@ -14,11 +14,19 @@ data class AapPodState(
     val settings: Map<KClass<out AapSetting>, AapSetting> = emptyMap(),
     val batteries: Map<BatteryType, Battery> = emptyMap(),
     val lastMessageAt: Instant? = null,
+    val pendingAncMode: AapSetting.AncMode.Value? = null,
 ) {
     inline fun <reified T : AapSetting> setting(): T? = settings[T::class] as? T
 
     fun withSetting(key: KClass<out AapSetting>, value: AapSetting): AapPodState =
         copy(settings = settings + (key to value))
+
+    // Ear detection — from AAP command 0x06
+    val aapEarDetection: AapSetting.EarDetection?
+        get() = setting<AapSetting.EarDetection>()
+
+    val isEitherPodInEar: Boolean?
+        get() = aapEarDetection?.isEitherPodInEar
 
     // Battery — from AAP command 0x04, 1% granularity
     val batteryLeft: Float? get() = batteries[BatteryType.LEFT]?.percent

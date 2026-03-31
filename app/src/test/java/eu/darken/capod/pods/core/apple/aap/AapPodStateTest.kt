@@ -180,4 +180,84 @@ class AapPodStateTest : BaseTest() {
         state.isCaseCharging.shouldBeNull()
         state.isHeadsetCharging.shouldBeNull()
     }
+
+    // ── Ear Detection ───────────────────────────────────────
+
+    @Test
+    fun `ear detection accessor returns typed setting`() {
+        val state = AapPodState(
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    AapSetting.EarDetection.PodPlacement.IN_CASE,
+                ),
+            ),
+        )
+        state.aapEarDetection.shouldNotBeNull()
+        state.aapEarDetection!!.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_EAR
+    }
+
+    @Test
+    fun `ear detection accessor null when missing`() {
+        val state = AapPodState()
+        state.aapEarDetection.shouldBeNull()
+    }
+
+    @Test
+    fun `isEitherPodInEar true when primary in ear`() {
+        val state = AapPodState(
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    AapSetting.EarDetection.PodPlacement.IN_CASE,
+                ),
+            ),
+        )
+        state.isEitherPodInEar shouldBe true
+    }
+
+    @Test
+    fun `isEitherPodInEar true when secondary in ear`() {
+        val state = AapPodState(
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+            ),
+        )
+        state.isEitherPodInEar shouldBe true
+    }
+
+    @Test
+    fun `isEitherPodInEar false when neither in ear`() {
+        val state = AapPodState(
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    AapSetting.EarDetection.PodPlacement.IN_CASE,
+                    AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+            ),
+        )
+        state.isEitherPodInEar shouldBe false
+    }
+
+    @Test
+    fun `isEitherPodInEar null when no ear detection`() {
+        val state = AapPodState()
+        state.isEitherPodInEar.shouldBeNull()
+    }
+
+    // ── Pending ANC Mode ────────────────────────────────────
+
+    @Test
+    fun `pendingAncMode defaults to null`() {
+        AapPodState().pendingAncMode.shouldBeNull()
+    }
+
+    @Test
+    fun `pendingAncMode preserved in copy`() {
+        val state = AapPodState().copy(pendingAncMode = AapSetting.AncMode.Value.ADAPTIVE)
+        state.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
+    }
 }

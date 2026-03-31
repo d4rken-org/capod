@@ -12,11 +12,13 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import java.time.Instant
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -56,6 +58,11 @@ internal class AapConnection(
     private val writeMutex = Mutex()
     private val framer = AapFramer()
 
+    private var pendingAncMode: AapSetting.AncMode.Value? = null
+    private var ancDebounceJob: Job? = null
+    private var connectionScope: CoroutineScope? = null
+    private var lastAncCommandSentAt: Long = 0L
+
     /**
      * Opens the L2CAP socket, sends the handshake, and launches the read loop.
      * Returns after the handshake is sent — the read loop runs in [scope] independently.
@@ -65,6 +72,7 @@ internal class AapConnection(
             throw IllegalStateException("connect() called in state ${_state.value.connectionState}")
         }
 
+        connectionScope = scope
         _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.CONNECTING)
 
         try {
@@ -116,6 +124,10 @@ internal class AapConnection(
         log(TAG) { "Disconnecting" }
         readerJob?.cancel()
         readerJob = null
+        ancDebounceJob?.cancel()
+        ancDebounceJob = null
+        pendingAncMode = null
+        connectionScope = null
         cleanupSocket()
         framer.reset()
         _state.value = AapPodState(connectionState = AapPodState.ConnectionState.DISCONNECTED)
@@ -127,12 +139,37 @@ internal class AapConnection(
             throw IllegalStateException("Cannot send command in state ${currentState.connectionState}")
         }
 
+        if (command is AapCommand.SetAncMode) {
+            val earDetection = currentState.setting<AapSetting.EarDetection>()
+            if (earDetection != null && !earDetection.isEitherPodInEar) {
+                log(TAG) { "No pod in ear, queuing ANC mode: ${command.mode}" }
+                pendingAncMode = command.mode
+                _state.value = currentState.copy(pendingAncMode = command.mode)
+                return
+            }
+            pendingAncMode = null
+            // Optimistically update UI — don't wait for device echo
+            val currentAnc = currentState.setting<AapSetting.AncMode>()
+            if (currentAnc != null) {
+                _state.value = currentState
+                    .withSetting(AapSetting.AncMode::class, currentAnc.copy(current = command.mode))
+                    .copy(pendingAncMode = null, lastMessageAt = Instant.now())
+            } else {
+                _state.value = currentState.copy(pendingAncMode = null)
+            }
+        }
+
+        sendRaw(command)
+    }
+
+    private suspend fun sendRaw(command: AapCommand) {
         val bytes = profile.encodeCommand(command)
         writeMutex.withLock {
             withContext(Dispatchers.IO) {
                 val sock = socket ?: throw IOException("Socket is null")
                 sock.outputStream.write(bytes)
                 sock.outputStream.flush()
+                if (command is AapCommand.SetAncMode) lastAncCommandSentAt = System.currentTimeMillis()
                 log(TAG) { "Sent command: $command (${bytes.size} bytes)" }
             }
         }
@@ -169,8 +206,13 @@ internal class AapConnection(
         } catch (e: IOException) {
             if (isActive) log(TAG, ERROR) { "Read error: $e" }
         } finally {
+            ancDebounceJob?.cancel()
+            pendingAncMode = null
             cleanupSocket()
-            _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.DISCONNECTED)
+            _state.value = _state.value.copy(
+                connectionState = AapPodState.ConnectionState.DISCONNECTED,
+                pendingAncMode = null,
+            )
         }
     }
 
@@ -202,8 +244,46 @@ internal class AapConnection(
 
         // Try setting update (merge into existing state)
         profile.decodeSetting(message)?.let { (key, value) ->
+            // Debounce device-initiated ANC mode changes (firmware cycles modes on ear transitions).
+            // Skip debounce for: first ANC mode (initial setup), echoes after our own command.
+            if (value is AapSetting.AncMode) {
+                val isFirstAncMode = _state.value.setting<AapSetting.AncMode>() == null
+                val sinceLastCommand = System.currentTimeMillis() - lastAncCommandSentAt
+                if (isFirstAncMode || sinceLastCommand <= 3000L) {
+                    ancDebounceJob?.cancel()
+                    _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
+                    log(TAG) { "Setting: ${key.simpleName} = $value" }
+                } else {
+                    ancDebounceJob?.cancel()
+                    ancDebounceJob = connectionScope?.launch {
+                        delay(1500L)
+                        _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
+                        log(TAG) { "Setting (debounced): ${key.simpleName} = $value" }
+                    }
+                }
+                return
+            }
+
             _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
             log(TAG) { "Setting: ${key.simpleName} = $value" }
+
+            // Flush queued ANC command when a pod goes in ear
+            if (value is AapSetting.EarDetection && value.isEitherPodInEar) {
+                pendingAncMode?.let { mode ->
+                    pendingAncMode = null
+                    // Optimistic update — show target mode immediately, don't wait for device echo
+                    val currentAnc = _state.value.setting<AapSetting.AncMode>()
+                    if (currentAnc != null) {
+                        _state.value = _state.value
+                            .withSetting(AapSetting.AncMode::class, currentAnc.copy(current = mode))
+                            .copy(pendingAncMode = null, lastMessageAt = Instant.now())
+                    } else {
+                        _state.value = _state.value.copy(pendingAncMode = null)
+                    }
+                    log(TAG) { "Pod in ear, sending queued ANC mode: $mode" }
+                    connectionScope?.launch { sendRaw(AapCommand.SetAncMode(mode)) }
+                }
+            }
             return
         }
 

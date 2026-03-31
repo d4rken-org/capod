@@ -101,4 +101,17 @@ sealed class AapSetting {
     data class ConversationalAwarenessState(
         val speaking: Boolean,
     ) : AapSetting()
+
+    /** Per-pod placement reported by the device (command 0x06). */
+    data class EarDetection(
+        val primaryPod: PodPlacement,
+        val secondaryPod: PodPlacement,
+    ) : AapSetting() {
+        enum class PodPlacement {
+            IN_EAR, NOT_IN_EAR, IN_CASE, DISCONNECTED,
+        }
+
+        val isEitherPodInEar: Boolean
+            get() = primaryPod == PodPlacement.IN_EAR || secondaryPod == PodPlacement.IN_EAR
+    }
 }
