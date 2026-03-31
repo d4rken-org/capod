@@ -100,9 +100,10 @@ class AapAutoConnectTest : BaseTest() {
     inner class InitialConnect {
 
         @Test
-        fun `connects when profiled device is bonded`() = runTest(testDispatcher) {
+        fun `connects when profiled device is classically connected`() = runTest(testDispatcher) {
             val autoConnect = createAutoConnect()
 
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
             profilesFlow.value = listOf(testProfile)
             advanceUntilIdle()
@@ -113,11 +114,26 @@ class AapAutoConnectTest : BaseTest() {
         }
 
         @Test
+        fun `skips profiles not classically connected`() = runTest(testDispatcher) {
+            val autoConnect = createAutoConnect()
+
+            // No classic BT connection
+            val job = launch { autoConnect.monitor().toList() }
+            profilesFlow.value = listOf(testProfile)
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { aapManager.connect(any(), any(), any()) }
+
+            job.cancel()
+        }
+
+        @Test
         fun `skips profiles without address`() = runTest(testDispatcher) {
             val autoConnect = createAutoConnect()
 
             val noAddressProfile = AppleDeviceProfile(label = "No Address", model = PodModel.AIRPODS_PRO3)
 
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
             profilesFlow.value = listOf(noAddressProfile)
             advanceUntilIdle()
@@ -133,6 +149,7 @@ class AapAutoConnectTest : BaseTest() {
 
             val autoConnect = createAutoConnect()
 
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
             profilesFlow.value = listOf(testProfile)
             advanceUntilIdle()
@@ -150,6 +167,7 @@ class AapAutoConnectTest : BaseTest() {
 
             val autoConnect = createAutoConnect()
 
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
             profilesFlow.value = listOf(testProfile)
             advanceUntilIdle()
@@ -168,15 +186,15 @@ class AapAutoConnectTest : BaseTest() {
             val job = launch { autoConnect.monitor().toList() }
             advanceUntilIdle()
 
-            // Initial connect fires but L2CAP may fail (or succeed — either way, verify connect is called)
-            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+            // Should NOT connect — device not classically connected
+            coVerify(exactly = 0) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
 
             // Simulate classic BT connecting later
             connectedDevicesFlow.value = listOf(testBondedDevice)
             advanceUntilIdle()
 
-            // Should attempt connect again
-            coVerify(exactly = 2) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+            // Now should attempt connect
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
 
             job.cancel()
         }
@@ -189,6 +207,7 @@ class AapAutoConnectTest : BaseTest() {
 
             val autoConnect = createAutoConnect()
 
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
             profilesFlow.value = listOf(testProfile)
             advanceUntilIdle()
@@ -207,6 +226,7 @@ class AapAutoConnectTest : BaseTest() {
             coEvery { aapManager.connect(any(), any(), any()) } throws RuntimeException("ACL connection failed")
 
             val autoConnect = createAutoConnect()
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
 
             profilesFlow.value = listOf(testProfile)
@@ -227,6 +247,7 @@ class AapAutoConnectTest : BaseTest() {
             }
 
             val autoConnect = createAutoConnect()
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
 
             profilesFlow.value = listOf(testProfile)
@@ -253,6 +274,7 @@ class AapAutoConnectTest : BaseTest() {
             }
 
             val autoConnect = createAutoConnect()
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
 
             profilesFlow.value = listOf(testProfile)
@@ -265,8 +287,34 @@ class AapAutoConnectTest : BaseTest() {
         }
 
         @Test
+        fun `stops retry when classic BT disconnects`() = runTest(testDispatcher) {
+            var callCount = 0
+            coEvery { aapManager.connect(any(), any(), any()) } coAnswers {
+                callCount++
+                if (callCount == 1) {
+                    // Simulate classic BT disconnecting during the retry delay
+                    connectedDevicesFlow.value = emptyList()
+                    throw RuntimeException("ACL connection failed")
+                }
+            }
+
+            val autoConnect = createAutoConnect()
+            connectedDevicesFlow.value = listOf(testBondedDevice)
+            val job = launch { autoConnect.monitor().toList() }
+
+            profilesFlow.value = listOf(testProfile)
+            advanceUntilIdle()
+
+            // 1 initial attempt, retries bail out because classic BT disconnected
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            job.cancel()
+        }
+
+        @Test
         fun `does not retry when initial connect succeeds`() = runTest(testDispatcher) {
             val autoConnect = createAutoConnect()
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             val job = launch { autoConnect.monitor().toList() }
 
             profilesFlow.value = listOf(testProfile)
@@ -291,6 +339,7 @@ class AapAutoConnectTest : BaseTest() {
             allStatesFlow.value = mapOf(
                 testAddress to AapPodState(connectionState = AapPodState.ConnectionState.READY)
             )
+            connectedDevicesFlow.value = listOf(testBondedDevice)
             profilesFlow.value = listOf(testProfile)
             return launch { autoConnect.monitor().toList() }
         }
@@ -307,7 +356,6 @@ class AapAutoConnectTest : BaseTest() {
             disconnectEventsFlow.tryEmit(testAddress)
             advanceUntilIdle()
 
-            // connect should only have been called by the profile change trigger (which also finds no profiles)
             // The reconnect loop should not call connect since profile is gone
             coVerify(exactly = 0) { aapManager.connect(testAddress, any(), any()) }
 
@@ -327,6 +375,24 @@ class AapAutoConnectTest : BaseTest() {
             advanceUntilIdle()
 
             // Reconnect should not call connect since not bonded
+            coVerify(exactly = 0) { aapManager.connect(testAddress, any(), any()) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `reconnect stops when device no longer classically connected`() = runTest(testDispatcher) {
+            val autoConnect = createAutoConnect()
+            val job = setupForReconnect(autoConnect)
+            advanceUntilIdle()
+
+            // Remove classic BT connection, then disconnect
+            connectedDevicesFlow.value = emptyList()
+            allStatesFlow.value = emptyMap()
+            disconnectEventsFlow.tryEmit(testAddress)
+            advanceUntilIdle()
+
+            // Reconnect should not call connect since not classically connected
             coVerify(exactly = 0) { aapManager.connect(testAddress, any(), any()) }
 
             job.cancel()
@@ -387,6 +453,7 @@ class AapAutoConnectTest : BaseTest() {
                 address = testAddress,
             )
             profilesFlow.value = listOf(wrongModelProfile)
+            connectedDevicesFlow.value = listOf(testBondedDevice)
 
             var capturedProfile: AppleDeviceProfile? = null
             coEvery { profilesRepo.updateProfile(ofType<AppleDeviceProfile>()) } coAnswers {
@@ -417,6 +484,7 @@ class AapAutoConnectTest : BaseTest() {
         fun `does not correct when model already matches`() = runTest(testDispatcher) {
             // Profile already has correct model
             profilesFlow.value = listOf(testProfile) // PodModel.AIRPODS_PRO3
+            connectedDevicesFlow.value = listOf(testBondedDevice)
 
             val autoConnect = createAutoConnect()
             val job = launch { autoConnect.monitor().toList() }
@@ -439,6 +507,7 @@ class AapAutoConnectTest : BaseTest() {
         @Test
         fun `does not correct when modelNumber is unrecognized`() = runTest(testDispatcher) {
             profilesFlow.value = listOf(testProfile)
+            connectedDevicesFlow.value = listOf(testBondedDevice)
 
             val autoConnect = createAutoConnect()
             val job = launch { autoConnect.monitor().toList() }
@@ -465,6 +534,7 @@ class AapAutoConnectTest : BaseTest() {
                 address = testAddress,
             )
             profilesFlow.value = listOf(wrongModelProfile)
+            connectedDevicesFlow.value = listOf(testBondedDevice)
 
             val autoConnect = createAutoConnect()
             val job = launch { autoConnect.monitor().toList() }
@@ -498,6 +568,7 @@ class AapAutoConnectTest : BaseTest() {
                 address = testAddress,
             )
             profilesFlow.value = listOf(wrongModelProfile)
+            connectedDevicesFlow.value = listOf(testBondedDevice)
 
             val autoConnect = createAutoConnect()
             val job = launch { autoConnect.monitor().toList() }

@@ -34,6 +34,7 @@ import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.reaction.core.aap.AapAutoConnect
 import eu.darken.capod.reaction.core.aap.AapKeyPersister
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
@@ -76,6 +77,7 @@ class MonitorService : Service() {
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject lateinit var aapAutoConnect: AapAutoConnect
     @Inject lateinit var aapKeyPersister: AapKeyPersister
+    @Inject lateinit var aapConnectionManager: AapConnectionManager
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
@@ -215,8 +217,9 @@ class MonitorService : Service() {
                         generalSettings.monitorMode.flow,
                         profilesRepo.profiles,
                         bluetoothManager.connectedDevices,
-                    ) { monitorMode, profiles, connectedDevices ->
-                        listOf(monitorMode, profiles, connectedDevices)
+                        aapConnectionManager.allStates,
+                    ) { monitorMode, profiles, connectedDevices, aapStates ->
+                        listOf(monitorMode, profiles, connectedDevices, aapStates)
                     }
                 }
             }
@@ -229,6 +232,9 @@ class MonitorService : Service() {
 
                 @Suppress("UNCHECKED_CAST")
                 val devices = arguments[2] as Collection<BluetoothDevice2>
+
+                @Suppress("UNCHECKED_CAST")
+                val aapStates = arguments[3] as Map<*, *>
 
                 val connectedAddresses = devices.map { it.address }.toSet()
                 val knownAddresses = profiles.mapNotNull { it.address }.toSet()
@@ -248,7 +254,7 @@ class MonitorService : Service() {
                                 log(TAG, WARN) { "Main device address not set, staying alive while any is connected" }
                             }
 
-                            knownAddresses.any { it in connectedAddresses } -> {
+                            knownAddresses.any { it in connectedAddresses } || aapStates.isNotEmpty() -> {
                                 log(TAG) { "A device is connected, aborting any timeout." }
                             }
 
