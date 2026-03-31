@@ -22,6 +22,7 @@ class DefaultAapDeviceProfile(
         const val CMD_DEVICE_INFO = 0x001D
         const val CMD_PRIVATE_KEYS_RESPONSE = 0x0031
         const val CMD_EAR_DETECTION = 0x0006
+        const val CMD_PRIMARY_POD = 0x0008
         const val CMD_CONVERSATION_AWARENESS_STATE = 0x004B
 
         // Setting IDs (first byte of settings command payload)
@@ -86,6 +87,21 @@ class DefaultAapDeviceProfile(
     }
 
     override fun decodeSetting(message: AapMessage): Pair<KClass<out AapSetting>, AapSetting>? {
+        // Primary pod identity (push-only, fires on mic/primary swap)
+        if (message.commandType == CMD_PRIMARY_POD) {
+            if (message.payload.size < 4) return null
+            val podId = message.payload[0].toInt() and 0xFF
+            // Validate known fixed bytes: [podId] 00 01 [01|00]
+            if ((message.payload[1].toInt() and 0xFF) != 0x00) return null
+            if ((message.payload[2].toInt() and 0xFF) != 0x01) return null
+            val pod = when (podId) {
+                0x01 -> AapSetting.PrimaryPod.Pod.LEFT
+                0x02 -> AapSetting.PrimaryPod.Pod.RIGHT
+                else -> return null
+            }
+            return AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(pod)
+        }
+
         // Ear detection is a separate command type (push-only from device)
         if (message.commandType == CMD_EAR_DETECTION) {
             if (message.payload.size < 2) return null

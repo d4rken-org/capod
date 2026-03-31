@@ -114,4 +114,11 @@ sealed class AapSetting {
         val isEitherPodInEar: Boolean
             get() = primaryPod == PodPlacement.IN_EAR || secondaryPod == PodPlacement.IN_EAR
     }
+
+    /** Which physical pod currently holds the microphone (command 0x08). */
+    data class PrimaryPod(
+        val pod: Pod,
+    ) : AapSetting() {
+        enum class Pod { LEFT, RIGHT }
+    }
 }
