@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test
  * Each test uses exact bytes observed on a live device via L2CAP SEQPACKET reads.
  *
  * Device: AirPods Pro 3 (model A3064, product ID 0x2720)
- * Phone: Pixel 8 (Android 17)
+ * Phone: Pixel 8 (Android 17 Beta)
  * Captured: 2026-03-30
  */
 class AirPodsPro3AapSessionTest : BaseAapSessionTest() {

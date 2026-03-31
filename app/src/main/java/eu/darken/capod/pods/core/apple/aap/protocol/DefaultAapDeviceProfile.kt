@@ -91,9 +91,11 @@ class DefaultAapDeviceProfile(
         if (message.commandType == CMD_PRIMARY_POD) {
             if (message.payload.size < 4) return null
             val podId = message.payload[0].toInt() and 0xFF
-            // Validate known fixed bytes: [podId] 00 01 [01|00]
+            // Validate known fixed bytes: [podId] 00 [00|01] [00|01]
+            // Pro 3: byte[2]=0x01 always. Pro 1: byte[2]=0x00 on initial, 0x01 on swap.
             if ((message.payload[1].toInt() and 0xFF) != 0x00) return null
-            if ((message.payload[2].toInt() and 0xFF) != 0x01) return null
+            val byte2 = message.payload[2].toInt() and 0xFF
+            if (byte2 != 0x00 && byte2 != 0x01) return null
             val pod = when (podId) {
                 0x01 -> AapSetting.PrimaryPod.Pod.LEFT
                 0x02 -> AapSetting.PrimaryPod.Pod.RIGHT

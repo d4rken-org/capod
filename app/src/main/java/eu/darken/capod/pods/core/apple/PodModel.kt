@@ -93,9 +93,8 @@ enum class PodModel(
             hasNcOneAirpod = true,
             hasPressSpeed = true,
             hasPressHoldDuration = true,
-            hasVolumeSwipe = true,
-            hasVolumeSwipeLength = true,
             hasToneVolume = true,
+            hasEndCallMuteMic = true,
         ),
         modelNumbers = setOf("A2083", "A2084"), // L/R earphones
     ),
