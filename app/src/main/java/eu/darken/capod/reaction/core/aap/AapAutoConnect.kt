@@ -12,6 +12,7 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.merge
@@ -33,7 +34,10 @@ class AapAutoConnect @Inject constructor(
         reconnectOnDisconnect(),
     )
 
-    private fun initialConnect(): Flow<Unit> = profilesRepo.profiles
+    private fun initialConnect(): Flow<Unit> = combine(
+        profilesRepo.profiles,
+        bluetoothManager.connectedDevices,
+    ) { profiles, _ -> profiles }
         .map { profiles ->
             val bondedDevices = bluetoothManager.bondedDevices().first()
 
@@ -88,7 +92,7 @@ class AapAutoConnect @Inject constructor(
 
                 // Check if still visible in BLE
                 val bleDevices = blePodMonitor.devices.first()
-                if (bleDevices.none { it.address == address }) {
+                if (bleDevices.none { it.meta?.profile?.address == address }) {
                     log(TAG) { "AAP reconnect: $address no longer visible in BLE, stopping" }
                     break
                 }
