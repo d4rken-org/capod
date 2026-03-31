@@ -51,12 +51,31 @@ class AapAutoConnect @Inject constructor(
                     continue
                 }
 
+                log(TAG) { "AAP connecting to $address (${profile.label})" }
                 try {
-                    log(TAG) { "AAP connecting to $address (${profile.label})" }
                     aapManager.connect(address, bonded.internal, profile.model)
                     log(TAG) { "AAP connected to $address" }
                 } catch (e: Exception) {
-                    log(TAG, WARN) { "AAP connect failed for $address: ${e.message}" }
+                    log(TAG, WARN) { "AAP initial connect failed for $address: ${e.message}" }
+
+                    for ((attempt, delayMs) in RETRY_DELAYS.withIndex()) {
+                        delay(delayMs)
+
+                        val retryState = aapManager.allStates.value[address]
+                        if (retryState != null && retryState.connectionState != AapPodState.ConnectionState.DISCONNECTED) {
+                            log(TAG) { "AAP initial retry: $address already reconnected, stopping" }
+                            break
+                        }
+
+                        try {
+                            log(TAG) { "AAP initial retry ${attempt + 1} for $address after ${delayMs}ms" }
+                            aapManager.connect(address, bonded.internal, profile.model)
+                            log(TAG) { "AAP connected to $address on retry ${attempt + 1}" }
+                            break
+                        } catch (retryException: Exception) {
+                            log(TAG, WARN) { "AAP initial retry ${attempt + 1} failed for $address: ${retryException.message}" }
+                        }
+                    }
                 }
             }
         }
@@ -69,9 +88,7 @@ class AapAutoConnect @Inject constructor(
                 return@onEach
             }
 
-            val backoffDelays = longArrayOf(5_000, 10_000, 30_000, 60_000)
-
-            for ((attempt, delayMs) in backoffDelays.withIndex()) {
+            for ((attempt, delayMs) in RETRY_DELAYS.withIndex()) {
                 delay(delayMs)
 
                 // Check if still profiled
@@ -121,5 +138,6 @@ class AapAutoConnect @Inject constructor(
 
     companion object {
         private val TAG = logTag("Reaction", "AapAutoConnect")
+        internal val RETRY_DELAYS = longArrayOf(3_000, 3_000, 3_000, 5_000, 5_000, 10_000, 10_000)
     }
 }

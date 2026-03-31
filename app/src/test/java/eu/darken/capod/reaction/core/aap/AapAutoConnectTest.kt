@@ -11,6 +11,7 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
@@ -191,6 +192,86 @@ class AapAutoConnectTest : BaseTest() {
             profilesFlow.value = listOf(testProfile)
             advanceUntilIdle()
 
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            job.cancel()
+        }
+    }
+
+    @Nested
+    inner class InitialConnectRetry {
+
+        @Test
+        fun `retries on initial connect failure then stops`() = runTest(testDispatcher) {
+            coEvery { aapManager.connect(any(), any(), any()) } throws RuntimeException("ACL connection failed")
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+
+            profilesFlow.value = listOf(testProfile)
+            advanceUntilIdle()
+
+            // 1 initial + 7 retries = 8 total
+            coVerify(exactly = 8) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `succeeds on second retry`() = runTest(testDispatcher) {
+            var callCount = 0
+            coEvery { aapManager.connect(any(), any(), any()) } coAnswers {
+                callCount++
+                if (callCount <= 2) throw RuntimeException("ACL connection failed")
+            }
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+
+            profilesFlow.value = listOf(testProfile)
+            advanceUntilIdle()
+
+            // 1 initial fail + 1 retry fail + 1 retry success = 3
+            coVerify(exactly = 3) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `stops retry when already reconnected by another path`() = runTest(testDispatcher) {
+            var callCount = 0
+            coEvery { aapManager.connect(any(), any(), any()) } coAnswers {
+                callCount++
+                if (callCount == 1) {
+                    // Simulate another path reconnecting during the delay
+                    allStatesFlow.value = mapOf(
+                        testAddress to AapPodState(connectionState = AapPodState.ConnectionState.READY)
+                    )
+                    throw RuntimeException("ACL connection failed")
+                }
+            }
+
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+
+            profilesFlow.value = listOf(testProfile)
+            advanceUntilIdle()
+
+            // 1 initial attempt, retries bail out because allStates shows READY
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `does not retry when initial connect succeeds`() = runTest(testDispatcher) {
+            val autoConnect = createAutoConnect()
+            val job = launch { autoConnect.monitor().toList() }
+
+            profilesFlow.value = listOf(testProfile)
+            advanceUntilIdle()
+
+            // Only 1 call, no retries needed
             coVerify(exactly = 1) { aapManager.connect(testAddress, any(), PodModel.AIRPODS_PRO3) }
 
             job.cancel()
