@@ -264,8 +264,18 @@ internal class AapConnection(
                 return
             }
 
-            _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
-            log(TAG) { "Setting: ${key.simpleName} = $value" }
+            // Detect ear detection role swap — clear stale PrimaryPod until 0x0008 refreshes it
+            val clearPrimaryPod = value is AapSetting.EarDetection && run {
+                val prev = _state.value.setting<AapSetting.EarDetection>()
+                prev != null && prev.primaryPod == value.secondaryPod && prev.secondaryPod == value.primaryPod
+            }
+
+            var newState = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
+            if (clearPrimaryPod) {
+                newState = newState.copy(settings = newState.settings - AapSetting.PrimaryPod::class)
+            }
+            _state.value = newState
+            log(TAG) { "Setting: ${key.simpleName} = $value${if (clearPrimaryPod) " (swap, PrimaryPod cleared)" else ""}" }
 
             // Flush queued ANC command when a pod goes in ear
             if (value is AapSetting.EarDetection && value.isEitherPodInEar) {

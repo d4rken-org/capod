@@ -93,12 +93,21 @@ data class PodDevice(
     val isHeadsetBeingCharged: Boolean?
         get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged
 
+    // Resolved primary pod: AAP cmd 0x08 preferred, BLE bit 5 fallback.
+    private val resolvedPrimaryPod: DualBlePodSnapshot.Pod?
+        get() = aap?.aapPrimaryPod?.pod?.let { aapPod ->
+            when (aapPod) {
+                AapSetting.PrimaryPod.Pod.LEFT -> DualBlePodSnapshot.Pod.LEFT
+                AapSetting.PrimaryPod.Pod.RIGHT -> DualBlePodSnapshot.Pod.RIGHT
+            }
+        } ?: (ble as? DualApplePods)?.primaryPod
+
     // Ear detection — AAP preferred (lower latency), BLE fallback.
-    // AAP reports primary/secondary; BLE bit 5 tells us which physical pod is primary.
+    // AAP reports primary/secondary; resolvedPrimaryPod tells us which physical pod is primary.
     val isLeftInEar: Boolean?
         get() {
             val earDetection = aap?.aapEarDetection
-            val primary = (ble as? DualApplePods)?.primaryPod
+            val primary = resolvedPrimaryPod
             if (earDetection != null && primary != null) {
                 return if (primary == DualBlePodSnapshot.Pod.LEFT) {
                     earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
@@ -112,7 +121,7 @@ data class PodDevice(
     val isRightInEar: Boolean?
         get() {
             val earDetection = aap?.aapEarDetection
-            val primary = (ble as? DualApplePods)?.primaryPod
+            val primary = resolvedPrimaryPod
             if (earDetection != null && primary != null) {
                 return if (primary == DualBlePodSnapshot.Pod.RIGHT) {
                     earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
@@ -139,12 +148,18 @@ data class PodDevice(
     val caseLidState: DualApplePods.LidState?
         get() = (ble as? DualApplePods)?.caseLidState
 
-    // Microphone
+    // Microphone — AAP preferred (from primary pod identity), BLE fallback
     val isLeftPodMicrophone: Boolean?
-        get() = (ble as? HasDualMicrophone)?.isLeftPodMicrophone
+        get() {
+            aap?.aapPrimaryPod?.let { return it.pod == AapSetting.PrimaryPod.Pod.LEFT }
+            return (ble as? HasDualMicrophone)?.isLeftPodMicrophone
+        }
 
     val isRightPodMicrophone: Boolean?
-        get() = (ble as? HasDualMicrophone)?.isRightPodMicrophone
+        get() {
+            aap?.aapPrimaryPod?.let { return it.pod == AapSetting.PrimaryPod.Pod.RIGHT }
+            return (ble as? HasDualMicrophone)?.isRightPodMicrophone
+        }
 
     // Icons / labels
     val iconRes: Int get() = ble?.iconRes ?: model.iconRes

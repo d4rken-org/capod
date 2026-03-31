@@ -177,6 +177,27 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
         decodeSetting<AapSetting.ConversationalAwarenessState>("04 00 04 00 4B 00 00").speaking shouldBe false
     }
 
+    // ── Primary Pod (0x08) — real captures ─────────────────────
+
+    @Nested
+    inner class PrimaryPodSessionTests {
+        @Test fun `primary pod LEFT - swap started`() {
+            decodeSetting<AapSetting.PrimaryPod>("04 00 04 00 08 00 01 00 01 01").pod shouldBe AapSetting.PrimaryPod.Pod.LEFT
+        }
+
+        @Test fun `primary pod RIGHT - swap started`() {
+            decodeSetting<AapSetting.PrimaryPod>("04 00 04 00 08 00 02 00 01 01").pod shouldBe AapSetting.PrimaryPod.Pod.RIGHT
+        }
+
+        @Test fun `primary pod LEFT - swap completed`() {
+            decodeSetting<AapSetting.PrimaryPod>("04 00 04 00 08 00 01 00 01 00").pod shouldBe AapSetting.PrimaryPod.Pod.LEFT
+        }
+
+        @Test fun `primary pod RIGHT - swap completed`() {
+            decodeSetting<AapSetting.PrimaryPod>("04 00 04 00 08 00 02 00 01 00").pod shouldBe AapSetting.PrimaryPod.Pod.RIGHT
+        }
+    }
+
     // ── Unhandled Messages ───────────────────────────────────
 
     // ── Ear Detection (0x06) — real captures ──────────────────

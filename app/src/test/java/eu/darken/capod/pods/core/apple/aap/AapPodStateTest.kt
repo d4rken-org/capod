@@ -248,6 +248,25 @@ class AapPodStateTest : BaseTest() {
         state.isEitherPodInEar.shouldBeNull()
     }
 
+    // ── Primary Pod ───────────────────────────────────────────
+
+    @Test
+    fun `primary pod accessor returns stored PrimaryPod setting`() {
+        val state = AapPodState(
+            settings = mapOf(
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
+            ),
+        )
+        state.aapPrimaryPod.shouldNotBeNull()
+        state.aapPrimaryPod!!.pod shouldBe AapSetting.PrimaryPod.Pod.LEFT
+    }
+
+    @Test
+    fun `primary pod accessor null when missing`() {
+        val state = AapPodState()
+        state.aapPrimaryPod.shouldBeNull()
+    }
+
     // ── Pending ANC Mode ────────────────────────────────────
 
     @Test

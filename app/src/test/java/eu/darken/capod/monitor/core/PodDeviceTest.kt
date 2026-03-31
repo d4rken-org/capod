@@ -283,6 +283,142 @@ class PodDeviceTest : BaseTest() {
         device.isBeingWorn shouldBe false
     }
 
+    // --- AAP Primary Pod ear detection + microphone tests ---
+
+    @Test
+    fun `AAP ear detection maps via AAP primaryPod - no BLE primaryPod needed`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            // BLE primaryPod not set (relaxed mock returns default)
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftInEar shouldBe true
+        device.isRightInEar shouldBe false
+    }
+
+    @Test
+    fun `AAP primaryPod preferred over BLE primaryPod for ear mapping`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { primaryPod } returns DualBlePodSnapshot.Pod.RIGHT // BLE says RIGHT
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT), // AAP says LEFT
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftInEar shouldBe true  // AAP wins
+        device.isRightInEar shouldBe false
+    }
+
+    @Test
+    fun `ear detection falls back to BLE when AAP primaryPod missing`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { primaryPod } returns DualBlePodSnapshot.Pod.RIGHT
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+                // No PrimaryPod setting — falls back to BLE
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftInEar shouldBe false
+        device.isRightInEar shouldBe true  // BLE says RIGHT is primary
+    }
+
+    @Test
+    fun `AAP microphone from primaryPod preferred over BLE`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { isLeftPodMicrophone } returns false
+            every { isRightPodMicrophone } returns true
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftPodMicrophone shouldBe true   // AAP says LEFT
+        device.isRightPodMicrophone shouldBe false
+    }
+
+    @Test
+    fun `microphone falls back to BLE when no AAP primaryPod`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { isLeftPodMicrophone } returns false
+            every { isRightPodMicrophone } returns true
+        }
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftPodMicrophone shouldBe false
+        device.isRightPodMicrophone shouldBe true  // BLE fallback
+    }
+
+    @Test
+    fun `both pods out - microphone still shows last primary`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.RIGHT),
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftPodMicrophone shouldBe false
+        device.isRightPodMicrophone shouldBe true
+    }
+
+    @Test
+    fun `both pods in case - microphone still shows last primary`() {
+        val mock = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
+                ),
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
+            ),
+        )
+        val device = PodDevice(ble = mock, aap = aap)
+        device.isLeftPodMicrophone shouldBe true
+        device.isRightPodMicrophone shouldBe false
+    }
+
     @Test
     fun `pendingAncMode exposed from AAP state`() {
         val aap = AapPodState(

@@ -25,6 +25,10 @@ data class AapPodState(
     val aapEarDetection: AapSetting.EarDetection?
         get() = setting<AapSetting.EarDetection>()
 
+    // Primary pod identity — from AAP command 0x08
+    val aapPrimaryPod: AapSetting.PrimaryPod?
+        get() = setting<AapSetting.PrimaryPod>()
+
     val isEitherPodInEar: Boolean?
         get() = aapEarDetection?.isEitherPodInEar
 

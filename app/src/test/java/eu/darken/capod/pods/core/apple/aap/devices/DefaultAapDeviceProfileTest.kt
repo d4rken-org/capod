@@ -474,6 +474,39 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         }
     }
 
+    // ── Primary Pod (0x08) ──────────────────────────────────
+
+    @Nested
+    inner class PrimaryPodTests {
+        @Test fun `decode LEFT`() {
+            decodeSetting<AapSetting.PrimaryPod>(aapMessage("04 00 04 00 08 00 01 00 01 01")).pod shouldBe AapSetting.PrimaryPod.Pod.LEFT
+        }
+
+        @Test fun `decode RIGHT`() {
+            decodeSetting<AapSetting.PrimaryPod>(aapMessage("04 00 04 00 08 00 02 00 01 00")).pod shouldBe AapSetting.PrimaryPod.Pod.RIGHT
+        }
+
+        @Test fun `truncated payload returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 08 00 01 00 01")).shouldBeNull()
+        }
+
+        @Test fun `empty payload returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 08 00")).shouldBeNull()
+        }
+
+        @Test fun `unknown podId returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 08 00 03 00 01 01")).shouldBeNull()
+        }
+
+        @Test fun `wrong fixed byte 1 returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 08 00 01 01 01 01")).shouldBeNull()
+        }
+
+        @Test fun `wrong fixed byte 2 returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 08 00 01 00 02 01")).shouldBeNull()
+        }
+    }
+
     // ── Edge Cases ───────────────────────────────────────────
 
     @Test fun `unknown setting ID returns null`() { profile.decodeSetting(settingsMessage(0x7F, 0x01)).shouldBeNull() }
