@@ -420,6 +420,60 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         @Test fun `non-key message returns null`() { profile.decodePrivateKeyResponse(settingsMessage(0x0D, 0x02)).shouldBeNull() }
     }
 
+    // ── Ear Detection (0x06) ───────────────────────────────────
+
+    @Nested
+    inner class EarDetectionTests {
+        @Test fun `decode both pods in ear`() {
+            val ed = decodeSetting<AapSetting.EarDetection>(aapMessage("04 00 04 00 06 00 00 00"))
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_EAR
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_EAR
+            ed.isEitherPodInEar shouldBe true
+        }
+
+        @Test fun `decode both pods not in ear`() {
+            val ed = decodeSetting<AapSetting.EarDetection>(aapMessage("04 00 04 00 06 00 01 01"))
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.NOT_IN_EAR
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.NOT_IN_EAR
+            ed.isEitherPodInEar shouldBe false
+        }
+
+        @Test fun `decode both pods in case`() {
+            val ed = decodeSetting<AapSetting.EarDetection>(aapMessage("04 00 04 00 06 00 02 02"))
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.isEitherPodInEar shouldBe false
+        }
+
+        @Test fun `decode primary in ear, secondary in case`() {
+            val ed = decodeSetting<AapSetting.EarDetection>(aapMessage("04 00 04 00 06 00 00 02"))
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_EAR
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.isEitherPodInEar shouldBe true
+        }
+
+        @Test fun `decode primary not in ear, secondary in case`() {
+            val ed = decodeSetting<AapSetting.EarDetection>(aapMessage("04 00 04 00 06 00 01 02"))
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.NOT_IN_EAR
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.isEitherPodInEar shouldBe false
+        }
+
+        @Test fun `decode unknown wire value maps to DISCONNECTED`() {
+            val ed = decodeSetting<AapSetting.EarDetection>(aapMessage("04 00 04 00 06 00 FF 03"))
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.DISCONNECTED
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.DISCONNECTED
+        }
+
+        @Test fun `payload too short returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 06 00 00")).shouldBeNull()
+        }
+
+        @Test fun `does not interfere with settings decode`() {
+            decodeSetting<AapSetting.AncMode>(settingsMessage(0x0D, 0x02)).current shouldBe AapSetting.AncMode.Value.ON
+        }
+    }
+
     // ── Edge Cases ───────────────────────────────────────────
 
     @Test fun `unknown setting ID returns null`() { profile.decodeSetting(settingsMessage(0x7F, 0x01)).shouldBeNull() }

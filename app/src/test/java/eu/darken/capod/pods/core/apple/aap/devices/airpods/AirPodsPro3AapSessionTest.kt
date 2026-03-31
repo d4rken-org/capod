@@ -179,14 +179,38 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
 
     // ── Unhandled Messages ───────────────────────────────────
 
+    // ── Ear Detection (0x06) — real captures ──────────────────
+
+    @Nested
+    inner class EarDetectionSessionTests {
+        @Test fun `both pods in case`() {
+            val ed = decodeSetting<AapSetting.EarDetection>("04 00 04 00 06 00 02 02")
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.isEitherPodInEar shouldBe false
+        }
+
+        @Test fun `pod taken from case`() {
+            val ed = decodeSetting<AapSetting.EarDetection>("04 00 04 00 06 00 01 02")
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.NOT_IN_EAR
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.isEitherPodInEar shouldBe false
+        }
+
+        @Test fun `pod in ear`() {
+            val ed = decodeSetting<AapSetting.EarDetection>("04 00 04 00 06 00 00 02")
+            ed.primaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_EAR
+            ed.secondaryPod shouldBe AapSetting.EarDetection.PodPlacement.IN_CASE
+            ed.isEitherPodInEar shouldBe true
+        }
+    }
+
+    // ── Unhandled Messages ───────────────────────────────────
+
     @Nested
     inner class UnhandledMessageTests {
         @Test fun `cmd 0x002B init exchange`() {
             profile.decodeSetting(aapMessage("04 00 04 00 2B 00 01 22 00 E9 B4 03")).shouldBeNull()
-        }
-
-        @Test fun `cmd 0x0006 ear detection`() {
-            profile.decodeSetting(aapMessage("04 00 04 00 06 00 02 02")).shouldBeNull()
         }
 
         @Test

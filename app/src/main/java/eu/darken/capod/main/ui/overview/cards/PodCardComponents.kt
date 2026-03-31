@@ -236,13 +236,23 @@ fun AncModeSelector(
     currentMode: AapSetting.AncMode.Value,
     supportedModes: List<AapSetting.AncMode.Value>,
     onModeSelected: (AapSetting.AncMode.Value) -> Unit,
+    pendingMode: AapSetting.AncMode.Value? = null,
 ) {
+    val displayMode = pendingMode ?: currentMode
     SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
         supportedModes.forEachIndexed { index, mode ->
             SegmentedButton(
-                selected = mode == currentMode,
+                selected = mode == displayMode,
                 onClick = { onModeSelected(mode) },
                 shape = SegmentedButtonDefaults.itemShape(index, supportedModes.size),
+                colors = if (pendingMode != null && mode == displayMode) {
+                    SegmentedButtonDefaults.colors(
+                        activeContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+                        activeContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                } else {
+                    SegmentedButtonDefaults.colors()
+                },
                 label = {
                     Text(
                         text = when (mode) {
