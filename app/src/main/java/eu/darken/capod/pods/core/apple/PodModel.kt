@@ -52,6 +52,7 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
         ),
         modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
     ),
@@ -70,8 +71,6 @@ enum class PodModel(
             hasNcOneAirpod = true,
             hasPressSpeed = true,
             hasPressHoldDuration = true,
-            hasVolumeSwipe = true,
-            hasVolumeSwipeLength = true,
             hasPersonalizedVolume = true,
             hasToneVolume = true,
             hasEndCallMuteMic = true,
@@ -179,6 +178,7 @@ enum class PodModel(
         "AirPods Max",
         R.drawable.device_airpods_max,
         Features(
+            hasEarDetection = true,
             hasAncControl = true,
             hasPressSpeed = true,
             hasPressHoldDuration = true,
@@ -192,6 +192,7 @@ enum class PodModel(
         "AirPods Max USB-C",
         R.drawable.device_airpods_max,
         Features(
+            hasEarDetection = true,
             hasAncControl = true,
             hasPressSpeed = true,
             hasPressHoldDuration = true,
@@ -218,7 +219,10 @@ enum class PodModel(
     BEATS_SOLO_PRO(
         "Beats Solo Pro",
         R.drawable.device_beats_headphones,
-        Features(hasAncControl = true),
+        Features(
+            hasEarDetection = true,
+            hasAncControl = true,
+        ),
         modelNumbers = setOf("A1881"), // headphones
     ),
 
@@ -244,7 +248,10 @@ enum class PodModel(
     BEATS_STUDIO_3(
         "Beats Studio 3",
         R.drawable.device_beats_studio3,
-        Features(hasAncControl = true),
+        Features(
+            hasEarDetection = true,
+            hasAncControl = true,
+        ),
         modelNumbers = setOf("A1914"), // headphones
     ),
 
@@ -255,7 +262,6 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
-            hasEarDetection = true,
             hasAncControl = true,
         ),
         modelNumbers = setOf("A2512", "A2513", "A2514"), // L/R earbuds + case
@@ -268,7 +274,6 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
-            hasEarDetection = true,
             hasAncControl = true,
         ),
         modelNumbers = setOf("A2871", "A2872", "A2952"), // L/R earbuds + case

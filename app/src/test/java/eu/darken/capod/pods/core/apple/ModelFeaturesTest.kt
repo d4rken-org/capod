@@ -29,7 +29,7 @@ class ModelFeaturesTest : BaseTest() {
         val f = PodModel.AIRPODS_MAX.features
         f.hasDualPods shouldBe false
         f.hasCase shouldBe false
-        f.hasEarDetection shouldBe false
+        f.hasEarDetection shouldBe true
         f.hasAncControl shouldBe true
     }
 
@@ -61,9 +61,14 @@ class ModelFeaturesTest : BaseTest() {
     }
 
     @Test
-    fun `all ANC-capable models also have ear detection or are headphones`() {
+    fun `all ANC-capable dual-pod models have ear detection except Studio Buds`() {
+        val noEarDetectionAncModels = setOf(
+            PodModel.BEATS_STUDIO_BUDS,
+            PodModel.BEATS_STUDIO_BUDS_PLUS,
+        )
         PodModel.entries
             .filter { it.features.hasAncControl && it.features.hasDualPods }
+            .filter { it !in noEarDetectionAncModels }
             .forEach { model ->
                 model.features.hasEarDetection shouldBe true
             }
