@@ -36,6 +36,7 @@ import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.reaction.core.aap.AapAutoConnect
+import eu.darken.capod.reaction.core.DeviceStatePersister
 import eu.darken.capod.reaction.core.aap.AapKeyPersister
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
@@ -77,6 +78,7 @@ class MonitorService : Service() {
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject lateinit var aapAutoConnect: AapAutoConnect
     @Inject lateinit var aapKeyPersister: AapKeyPersister
+    @Inject lateinit var deviceStatePersister: DeviceStatePersister
     @Inject lateinit var aapConnectionManager: AapConnectionManager
 
     private val monitorScope = MonitorCoroutineScope()
@@ -305,6 +307,11 @@ class MonitorService : Service() {
         aapKeyPersister.monitor()
             .setupCommonEventHandlers(TAG) { "aapKeyPersister" }
             .catch { log(TAG, WARN) { "aapKeyPersister failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
+        deviceStatePersister.monitor()
+            .setupCommonEventHandlers(TAG) { "deviceStatePersister" }
+            .catch { log(TAG, WARN) { "deviceStatePersister failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
         log(TAG, VERBOSE) { "Monitor job is active" }

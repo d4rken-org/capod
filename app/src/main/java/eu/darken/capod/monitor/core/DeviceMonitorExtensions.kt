@@ -9,7 +9,7 @@ import java.time.Instant
 import kotlin.math.roundToInt
 
 fun DeviceMonitor.devicesWithProfiles(): Flow<List<PodDevice>> = devices
-    .map { devices -> devices.filter { it.meta?.profile != null } }
+    .map { devices -> devices.filter { it.profileId != null } }
 
 fun DeviceMonitor.primaryDevice(): Flow<PodDevice?> = devicesWithProfiles().map { it.firstOrNull() }
 
@@ -46,4 +46,27 @@ fun PodDevice.firstSeenFormatted(now: Instant): String {
         RelativeDateTimeFormatter.Direction.LAST,
         RelativeDateTimeFormatter.RelativeUnit.MINUTES
     )
+}
+
+fun PodDevice.cachedBatteryFormatted(now: Instant): String {
+    val cachedAt = cachedBatteryAt ?: return ""
+    val formatter = RelativeDateTimeFormatter.getInstance()
+    val duration = Duration.between(cachedAt, now)
+    return when {
+        duration > Duration.ofHours(1) -> formatter.format(
+            duration.toHours().toDouble(),
+            RelativeDateTimeFormatter.Direction.LAST,
+            RelativeDateTimeFormatter.RelativeUnit.HOURS
+        )
+        duration > Duration.ofMinutes(1) -> formatter.format(
+            duration.toMinutes().toDouble(),
+            RelativeDateTimeFormatter.Direction.LAST,
+            RelativeDateTimeFormatter.RelativeUnit.MINUTES
+        )
+        else -> formatter.format(
+            duration.seconds.toDouble(),
+            RelativeDateTimeFormatter.Direction.LAST,
+            RelativeDateTimeFormatter.RelativeUnit.SECONDS
+        )
+    }
 }

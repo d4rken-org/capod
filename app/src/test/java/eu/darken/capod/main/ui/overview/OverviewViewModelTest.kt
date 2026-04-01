@@ -155,7 +155,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `devices passed through when permissions granted`() = runTest(testDispatcher) {
-            val device = PodDevice(ble = mockk(relaxed = true), aap = null)
+            val device = PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null)
             devicesFlow.value = listOf(device)
 
             val vm = createViewModel()
@@ -166,18 +166,14 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `profiledDevices returns only devices with non-null profile`() {
-            val withProfile = object : BlePodSnapshot.Meta {
-                override val profile: DeviceProfile = AppleDeviceProfile(label = "Test")
-            }
-            val withoutProfile = object : BlePodSnapshot.Meta {
-                override val profile: DeviceProfile? = null
-            }
             val profiled = PodDevice(
-                ble = mockk(relaxed = true) { every { meta } returns withProfile },
+                profileId = "test-id",
+                ble = mockk(relaxed = true),
                 aap = null,
             )
             val unmatched = PodDevice(
-                ble = mockk(relaxed = true) { every { meta } returns withoutProfile },
+                profileId = null,
+                ble = mockk(relaxed = true),
                 aap = null,
             )
 
@@ -197,18 +193,14 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `unmatchedDevices returns only devices with null profile`() {
-            val withProfile = object : BlePodSnapshot.Meta {
-                override val profile: DeviceProfile = AppleDeviceProfile(label = "Test")
-            }
-            val withoutProfile = object : BlePodSnapshot.Meta {
-                override val profile: DeviceProfile? = null
-            }
             val profiled = PodDevice(
-                ble = mockk(relaxed = true) { every { meta } returns withProfile },
+                profileId = "test-id",
+                ble = mockk(relaxed = true),
                 aap = null,
             )
             val unmatched = PodDevice(
-                ble = mockk(relaxed = true) { every { meta } returns withoutProfile },
+                profileId = null,
+                ble = mockk(relaxed = true),
                 aap = null,
             )
 

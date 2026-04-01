@@ -41,7 +41,7 @@ class PodDeviceTest : BaseTest() {
 
     @Test
     fun `BLE-only device exposes battery from BLE`() {
-        val device = PodDevice(ble = mockDualPod(leftBattery = 0.8f), aap = null)
+        val device = PodDevice(profileId = null, ble = mockDualPod(leftBattery = 0.8f), aap = null)
         device.batteryLeft shouldBe 0.8f
         device.isAapConnected shouldBe false
     }
@@ -49,7 +49,7 @@ class PodDeviceTest : BaseTest() {
     @Test
     fun `capabilities come from model features`() {
         val device = PodDevice(
-            ble = mockDualPod(model = PodModel.AIRPODS_PRO3),
+            profileId = null, ble = mockDualPod(model = PodModel.AIRPODS_PRO3),
             aap = null,
         )
         device.hasDualPods shouldBe true
@@ -61,7 +61,7 @@ class PodDeviceTest : BaseTest() {
     @Test
     fun `Beats Solo 3 has no dual pods or case`() {
         val device = PodDevice(
-            ble = mockk(relaxed = true) { every { model } returns PodModel.BEATS_SOLO_3 },
+            profileId = null, ble = mockk(relaxed = true) { every { model } returns PodModel.BEATS_SOLO_3 },
             aap = null,
         )
         device.hasDualPods shouldBe false
@@ -79,7 +79,7 @@ class PodDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = PodDevice(ble = mockDualPod(), aap = aap)
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = aap)
         device.isAapConnected shouldBe true
         device.ancMode.shouldNotBeNull()
         device.ancMode!!.current shouldBe AapSetting.AncMode.Value.TRANSPARENCY
@@ -87,13 +87,13 @@ class PodDeviceTest : BaseTest() {
 
     @Test
     fun `ANC mode is null when not AAP connected`() {
-        val device = PodDevice(ble = mockDualPod(), aap = null)
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = null)
         device.ancMode.shouldBeNull()
     }
 
     @Test
     fun `null BLE gives UNKNOWN model`() {
-        val device = PodDevice(ble = null, aap = null)
+        val device = PodDevice(profileId = null, ble = null, aap = null)
         device.model shouldBe PodModel.UNKNOWN
     }
 
@@ -102,7 +102,7 @@ class PodDeviceTest : BaseTest() {
         val id = BlePodSnapshot.Id()
         val meta = mockk<BlePodSnapshot.Meta>(relaxed = true)
         val device = PodDevice(
-            ble = mockk(relaxed = true) {
+            profileId = null, ble = mockk(relaxed = true) {
                 every { identifier } returns id
                 every { this@mockk.meta } returns meta
             },
@@ -114,7 +114,7 @@ class PodDeviceTest : BaseTest() {
 
     @Test
     fun `identity properties null when BLE null`() {
-        val device = PodDevice(ble = null, aap = null)
+        val device = PodDevice(profileId = null, ble = null, aap = null)
         device.identifier.shouldBeNull()
         device.meta.shouldBeNull()
     }
@@ -124,7 +124,7 @@ class PodDeviceTest : BaseTest() {
         val now = Instant.now()
         val earlier = now.minusSeconds(60)
         val device = PodDevice(
-            ble = mockk(relaxed = true) {
+            profileId = null, ble = mockk(relaxed = true) {
                 every { seenLastAt } returns now
                 every { seenFirstAt } returns earlier
                 every { signalQuality } returns 0.75f
@@ -140,7 +140,7 @@ class PodDeviceTest : BaseTest() {
 
     @Test
     fun `signal timing defaults when BLE null`() {
-        val device = PodDevice(ble = null, aap = null)
+        val device = PodDevice(profileId = null, ble = null, aap = null)
         device.seenLastAt.shouldBeNull()
         device.seenFirstAt.shouldBeNull()
         device.signalQuality shouldBe 0f
@@ -155,7 +155,7 @@ class PodDeviceTest : BaseTest() {
             every { (this@mockk as HasChargeDetectionDual).isRightPodCharging } returns false
             every { (this@mockk as HasCase).isCaseCharging } returns true
         }
-        val device = PodDevice(ble = mock, aap = null)
+        val device = PodDevice(profileId = null, ble = mock, aap = null)
         device.isLeftPodCharging shouldBe true
         device.isRightPodCharging shouldBe false
         device.isCaseCharging shouldBe true
@@ -170,7 +170,7 @@ class PodDeviceTest : BaseTest() {
             every { (this@mockk as HasEarDetection).isBeingWorn } returns false
             every { (this@mockk as HasEarDetectionDual).isEitherPodInEar } returns true
         }
-        val device = PodDevice(ble = mock, aap = null)
+        val device = PodDevice(profileId = null, ble = mock, aap = null)
         device.isLeftInEar shouldBe true
         device.isRightInEar shouldBe false
         device.isBeingWorn shouldBe false
@@ -192,7 +192,7 @@ class PodDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isEitherPodInEar shouldBe true
     }
 
@@ -203,7 +203,7 @@ class PodDeviceTest : BaseTest() {
             every { (this@mockk as HasEarDetectionDual).isEitherPodInEar } returns true
         }
         val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isEitherPodInEar shouldBe true
     }
 
@@ -222,7 +222,7 @@ class PodDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftInEar shouldBe true
         device.isRightInEar shouldBe false
     }
@@ -242,7 +242,7 @@ class PodDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftInEar shouldBe false
         device.isRightInEar shouldBe true
     }
@@ -261,7 +261,7 @@ class PodDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isBeingWorn shouldBe true
     }
 
@@ -279,7 +279,7 @@ class PodDeviceTest : BaseTest() {
                 ),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isBeingWorn shouldBe false
     }
 
@@ -301,7 +301,7 @@ class PodDeviceTest : BaseTest() {
                 AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftInEar shouldBe true
         device.isRightInEar shouldBe false
     }
@@ -322,7 +322,7 @@ class PodDeviceTest : BaseTest() {
                 AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT), // AAP says LEFT
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftInEar shouldBe true  // AAP wins
         device.isRightInEar shouldBe false
     }
@@ -343,7 +343,7 @@ class PodDeviceTest : BaseTest() {
                 // No PrimaryPod setting — falls back to BLE
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftInEar shouldBe false
         device.isRightInEar shouldBe true  // BLE says RIGHT is primary
     }
@@ -361,7 +361,7 @@ class PodDeviceTest : BaseTest() {
                 AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftPodMicrophone shouldBe true   // AAP says LEFT
         device.isRightPodMicrophone shouldBe false
     }
@@ -374,7 +374,7 @@ class PodDeviceTest : BaseTest() {
             every { isRightPodMicrophone } returns true
         }
         val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftPodMicrophone shouldBe false
         device.isRightPodMicrophone shouldBe true  // BLE fallback
     }
@@ -394,7 +394,7 @@ class PodDeviceTest : BaseTest() {
                 AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.RIGHT),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftPodMicrophone shouldBe false
         device.isRightPodMicrophone shouldBe true
     }
@@ -414,7 +414,7 @@ class PodDeviceTest : BaseTest() {
                 AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(AapSetting.PrimaryPod.Pod.LEFT),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftPodMicrophone shouldBe true
         device.isRightPodMicrophone shouldBe false
     }
@@ -425,27 +425,27 @@ class PodDeviceTest : BaseTest() {
             connectionState = AapPodState.ConnectionState.READY,
             pendingAncMode = AapSetting.AncMode.Value.ADAPTIVE,
         )
-        val device = PodDevice(ble = mockDualPod(), aap = aap)
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = aap)
         device.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
     }
 
     @Test
     fun `pendingAncMode null when no AAP`() {
-        val device = PodDevice(ble = mockDualPod(), aap = null)
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = null)
         device.pendingAncMode.shouldBeNull()
     }
 
     @Test
     fun `pendingAncMode null when not set`() {
         val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
-        val device = PodDevice(ble = mockDualPod(), aap = aap)
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = aap)
         device.pendingAncMode.shouldBeNull()
     }
 
     @Test
     fun `icon and label properties delegate to BLE`() {
         val device = PodDevice(
-            ble = mockk(relaxed = true) {
+            profileId = null, ble = mockk(relaxed = true) {
                 every { model } returns PodModel.AIRPODS_PRO3
                 every { iconRes } returns 42
             },
@@ -456,14 +456,14 @@ class PodDeviceTest : BaseTest() {
 
     @Test
     fun `rawDataHex empty when BLE null`() {
-        val device = PodDevice(ble = null, aap = null)
+        val device = PodDevice(profileId = null, ble = null, aap = null)
         device.rawDataHex shouldBe emptyList()
     }
 
     @Test
     fun `battery falls back to BLE when AAP battery is null`() {
         val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
-        val device = PodDevice(ble = mockDualPod(leftBattery = 0.8f), aap = aap)
+        val device = PodDevice(profileId = null, ble = mockDualPod(leftBattery = 0.8f), aap = aap)
         device.batteryLeft shouldBe 0.8f
         device.isAapConnected shouldBe true
     }
@@ -476,7 +476,7 @@ class PodDeviceTest : BaseTest() {
                 AapPodState.BatteryType.LEFT to AapPodState.Battery(AapPodState.BatteryType.LEFT, 0.79f, AapPodState.ChargingState.NOT_CHARGING),
             ),
         )
-        val device = PodDevice(ble = mockDualPod(leftBattery = 0.8f), aap = aap)
+        val device = PodDevice(profileId = null, ble = mockDualPod(leftBattery = 0.8f), aap = aap)
         device.batteryLeft shouldBe 0.79f  // AAP 1% granularity wins over BLE 10%
     }
 
@@ -492,7 +492,7 @@ class PodDeviceTest : BaseTest() {
                 AapPodState.BatteryType.LEFT to AapPodState.Battery(AapPodState.BatteryType.LEFT, 0.8f, AapPodState.ChargingState.CHARGING_OPTIMIZED),
             ),
         )
-        val device = PodDevice(ble = mock, aap = aap)
+        val device = PodDevice(profileId = null, ble = mock, aap = aap)
         device.isLeftPodCharging shouldBe true  // AAP CHARGING_OPTIMIZED counts as charging
     }
 
@@ -508,7 +508,7 @@ class PodDeviceTest : BaseTest() {
             every { this@mockk.address } returns bleRpa
             every { meta } returns ApplePods.AppleMeta(profile = profile)
         }
-        val device = PodDevice(ble = ble, aap = null)
+        val device = PodDevice(profileId = null, ble = ble, aap = null)
         device.address shouldBe bondedAddress
         device.bleAddress shouldBe bleRpa
     }
@@ -520,7 +520,7 @@ class PodDeviceTest : BaseTest() {
             every { model } returns PodModel.AIRPODS_PRO3
             every { signalQuality } returns bleQuality
         }
-        return PodDevice(ble = ble, aap = aap)
+        return PodDevice(profileId = null, ble = ble, aap = aap)
     }
 
     @Test
@@ -627,13 +627,13 @@ class PodDeviceTest : BaseTest() {
 
     @Test
     fun `bleKeyState - null BLE returns NONE`() {
-        val device = PodDevice(ble = null, aap = null)
+        val device = PodDevice(profileId = null, ble = null, aap = null)
         device.bleKeyState shouldBe BleKeyState.NONE
     }
 
     @Test
     fun `bleKeyState - non-Apple BLE returns NONE`() {
-        val device = PodDevice(ble = mockk(relaxed = true) { every { model } returns PodModel.UNKNOWN }, aap = null)
+        val device = PodDevice(profileId = null, ble = mockk(relaxed = true) { every { model } returns PodModel.UNKNOWN }, aap = null)
         device.bleKeyState shouldBe BleKeyState.NONE
     }
 
@@ -644,7 +644,7 @@ class PodDeviceTest : BaseTest() {
             every { meta } returns ApplePods.AppleMeta(isIRKMatch = false)
             every { payload } returns ProximityPayload(public = ProximityPayload.Public(UByteArray(9)), private = null)
         }
-        val device = PodDevice(ble = ble, aap = null)
+        val device = PodDevice(profileId = null, ble = ble, aap = null)
         device.bleKeyState shouldBe BleKeyState.NONE
     }
 
@@ -655,7 +655,7 @@ class PodDeviceTest : BaseTest() {
             every { meta } returns ApplePods.AppleMeta(isIRKMatch = true)
             every { payload } returns ProximityPayload(public = ProximityPayload.Public(UByteArray(9)), private = null)
         }
-        val device = PodDevice(ble = ble, aap = null)
+        val device = PodDevice(profileId = null, ble = ble, aap = null)
         device.bleKeyState shouldBe BleKeyState.IRK_ONLY
     }
 
@@ -669,7 +669,7 @@ class PodDeviceTest : BaseTest() {
                 private = ProximityPayload.Private(UByteArray(8)),
             )
         }
-        val device = PodDevice(ble = ble, aap = null)
+        val device = PodDevice(profileId = null, ble = ble, aap = null)
         device.bleKeyState shouldBe BleKeyState.IRK_AND_ENCRYPTED
     }
 }

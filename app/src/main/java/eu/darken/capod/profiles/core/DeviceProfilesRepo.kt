@@ -8,7 +8,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.monitor.core.PodDeviceCache
+import eu.darken.capod.monitor.core.DeviceStateCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -25,7 +25,7 @@ class DeviceProfilesRepo @Inject constructor(
     @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
     private val settings: DeviceProfilesSettings,
-    private val podDeviceCache: PodDeviceCache,
+    private val deviceStateCache: DeviceStateCache,
 ) {
 
     private val mutex = Mutex()
@@ -85,7 +85,7 @@ class DeviceProfilesRepo @Inject constructor(
         val updatedProfiles = currentContainer.profiles.filter { it.id != profileId }
         settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Removed device profile with ID: $profileId" }
-        podDeviceCache.delete(profileId)
+        deviceStateCache.delete(profileId)
     }
 
     suspend fun reorderProfiles(profiles: List<DeviceProfile>) = mutex.withLock {
@@ -95,6 +95,7 @@ class DeviceProfilesRepo @Inject constructor(
 
     suspend fun clear() {
         settings.profiles.valueBlocking = DeviceProfilesContainer(emptyList())
+        deviceStateCache.deleteAll()
     }
 
     private fun checkAddressUniqueness(profile: DeviceProfile, existingProfiles: List<DeviceProfile>) {

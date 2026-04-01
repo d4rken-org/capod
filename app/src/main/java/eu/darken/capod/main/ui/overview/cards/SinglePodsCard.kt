@@ -31,6 +31,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -42,6 +43,7 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.cachedBatteryFormatted
 import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.monitor.core.lastSeenFormatted
@@ -82,7 +84,9 @@ fun SinglePodsCard(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .padding(16.dp)
+                .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
         ) {
             // Header
             Row(
@@ -117,6 +121,7 @@ fun SinglePodsCard(
                     signalText = device.getSignalQuality(context),
                     bleKeyState = device.bleKeyState,
                     isAapConnected = device.isAapConnected,
+                    isLive = device.isLive,
                 )
             }
 
@@ -214,6 +219,16 @@ fun SinglePodsCard(
                 }
             }
 
+            // Cached battery indicator
+            if (device.isBatteryCached) {
+                Spacer(modifier = Modifier.height(4.dp))
+                Text(
+                    text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
             // ANC mode selector
             val ancMode = device.ancMode
             if (device.isAapConnected && device.hasAncControl && ancMode != null) {
@@ -244,4 +259,10 @@ private fun SinglePodsCardPreview() = PreviewWrapper {
 @Composable
 private fun SinglePodsCardDebugPreview() = PreviewWrapper {
     SinglePodsCard(device = MockPodDataProvider.singlePodMonitored(), showDebug = true, now = Instant.now())
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardCachedOnlyPreview() = PreviewWrapper {
+    SinglePodsCard(device = MockPodDataProvider.singlePodCachedOnly(), showDebug = false, now = Instant.now())
 }

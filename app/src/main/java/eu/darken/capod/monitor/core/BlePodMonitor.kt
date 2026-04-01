@@ -46,7 +46,6 @@ class BlePodMonitor @Inject constructor(
     private val generalSettings: GeneralSettings,
     bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
-    private val podDeviceCache: PodDeviceCache,
     permissionTool: PermissionTool,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
@@ -183,32 +182,7 @@ class BlePodMonitor @Inject constructor(
             pods[it.identifier] = it
         }
 
-        newPods
-            .mapNotNull {
-                val profileId = it.device.meta.profile?.id ?: return@mapNotNull null
-                profileId to it.device.scanResult
-            }
-            .toMap()
-            .run { podDeviceCache.saveAll(this) }
         return pods
-    }
-
-    suspend fun getDeviceForProfile(profileId: String): BlePodSnapshot? {
-        log(TAG) { "getDeviceForProfile(profileId=$profileId)" }
-
-        val liveDevice = devices.firstOrNull()?.firstOrNull { device ->
-            device.meta.profile?.id == profileId
-        }
-        if (liveDevice != null) {
-            log(TAG) { "Found live device for profile $profileId: $liveDevice" }
-            return liveDevice
-        }
-
-        val cachedDevice = podDeviceCache.load(profileId)?.let {
-            podFactory.createPod(it)?.device
-        }
-        log(TAG) { "Cached device for profile $profileId: $cachedDevice" }
-        return cachedDevice
     }
 
     companion object {
