@@ -135,6 +135,9 @@ class OverviewViewModel @Inject constructor(
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
         val profiledDevices: List<PodDevice> get() = devices.filter { it.profileId != null }
+        val visibleProfiledDevices: List<PodDevice>
+            get() = if (upgradeInfo.isPro) profiledDevices else profiledDevices.take(FREE_DEVICE_LIMIT)
+        val hiddenProfiledDeviceCount: Int get() = profiledDevices.size - visibleProfiledDevices.size
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
     }
 
@@ -187,6 +190,7 @@ class OverviewViewModel @Inject constructor(
     }
 
     companion object {
+        private const val FREE_DEVICE_LIMIT = 1
         private val TAG = logTag("Overview", "VM")
     }
 }

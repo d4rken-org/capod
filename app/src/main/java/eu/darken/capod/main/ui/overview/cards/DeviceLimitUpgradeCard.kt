@@ -1,0 +1,94 @@
+package eu.darken.capod.main.ui.overview.cards
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Stars
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.upgrade.UpgradeRepo
+
+@Composable
+fun DeviceLimitUpgradeCard(
+    hiddenCount: Int,
+    upgradeType: UpgradeRepo.Type,
+    onUpgrade: () -> Unit,
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+        ) {
+            Text(
+                text = pluralStringResource(R.plurals.overview_more_devices_upgrade, hiddenCount, hiddenCount),
+                style = MaterialTheme.typography.titleMedium,
+            )
+
+            Spacer(modifier = Modifier.height(4.dp))
+
+            Text(
+                text = stringResource(R.string.upgrade_capod_description),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(
+                onClick = onUpgrade,
+                modifier = Modifier.align(Alignment.End),
+            ) {
+                Icon(
+                    imageVector = Icons.TwoTone.Stars,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 8.dp),
+                )
+                Text(
+                    text = stringResource(
+                        when (upgradeType) {
+                            UpgradeRepo.Type.FOSS -> R.string.general_donate_action
+                            UpgradeRepo.Type.GPLAY -> R.string.general_upgrade_action
+                        }
+                    ),
+                )
+            }
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun DeviceLimitUpgradeCardGplayPreview() = PreviewWrapper {
+    DeviceLimitUpgradeCard(
+        hiddenCount = 2,
+        upgradeType = UpgradeRepo.Type.GPLAY,
+        onUpgrade = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceLimitUpgradeCardFossPreview() = PreviewWrapper {
+    DeviceLimitUpgradeCard(
+        hiddenCount = 1,
+        upgradeType = UpgradeRepo.Type.FOSS,
+        onUpgrade = {},
+    )
+}

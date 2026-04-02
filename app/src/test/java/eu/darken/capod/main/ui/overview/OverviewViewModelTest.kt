@@ -217,6 +217,122 @@ class OverviewViewModelTest : BaseTest() {
 
             state.unmatchedDevices shouldBe listOf(unmatched)
         }
+
+        @Test
+        fun `free user with no profiled devices - visible empty, hidden 0`() {
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns false
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = emptyList(),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.visibleProfiledDevices shouldBe emptyList()
+            state.hiddenProfiledDeviceCount shouldBe 0
+        }
+
+        @Test
+        fun `free user with 1 profiled device - visible 1, hidden 0`() {
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns false
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val profiled = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(profiled),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(profiled)
+            state.hiddenProfiledDeviceCount shouldBe 0
+        }
+
+        @Test
+        fun `free user with 3 profiled devices - visible 1, hidden 2`() {
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns false
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val device1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
+            val device2 = PodDevice(profileId = "id-2", ble = mockk(relaxed = true), aap = null)
+            val device3 = PodDevice(profileId = "id-3", ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(device1, device2, device3),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(device1)
+            state.hiddenProfiledDeviceCount shouldBe 2
+        }
+
+        @Test
+        fun `pro user with multiple profiled devices - all visible, hidden 0`() {
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns true
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val device1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
+            val device2 = PodDevice(profileId = "id-2", ble = mockk(relaxed = true), aap = null)
+            val device3 = PodDevice(profileId = "id-3", ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(device1, device2, device3),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.visibleProfiledDevices shouldBe listOf(device1, device2, device3)
+            state.hiddenProfiledDeviceCount shouldBe 0
+        }
+
+        @Test
+        fun `unmatched devices unchanged regardless of pro status`() {
+            val upgradeInfo = mockk<UpgradeRepo.Info> {
+                every { isPro } returns false
+                every { type } returns UpgradeRepo.Type.GPLAY
+            }
+            val profiled1 = PodDevice(profileId = "id-1", ble = mockk(relaxed = true), aap = null)
+            val profiled2 = PodDevice(profileId = "id-2", ble = mockk(relaxed = true), aap = null)
+            val unmatched = PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(profiled1, profiled2, unmatched),
+                isDebugMode = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = upgradeInfo,
+                showUnmatchedDevices = false,
+            )
+
+            state.unmatchedDevices shouldBe listOf(unmatched)
+            state.visibleProfiledDevices shouldBe listOf(profiled1)
+            state.hiddenProfiledDeviceCount shouldBe 1
+        }
     }
 
     @Nested
