@@ -95,7 +95,7 @@ fun DualPodsCard(
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = device.meta?.profile?.label ?: "?",
+                        text = device.label ?: "?",
                         style = MaterialTheme.typography.titleMedium,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,

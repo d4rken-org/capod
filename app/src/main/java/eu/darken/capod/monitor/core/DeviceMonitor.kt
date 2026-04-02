@@ -33,12 +33,13 @@ class DeviceMonitor @Inject constructor(
         // Live devices — BLE + AAP + cached fallback for missing fields
         val liveDevices = pods.map { pod ->
             val bondedAddress = pod.meta?.profile?.address
-            val profileId = pod.meta?.profile?.id
+            val profile = pod.meta?.profile
             PodDevice(
-                profileId = profileId,
+                profileId = profile?.id,
+                label = profile?.label,
                 ble = pod,
                 aap = bondedAddress?.let { aapStates[it] },
-                cached = profileId?.let { cachedStates[it] },
+                cached = profile?.id?.let { cachedStates[it] },
             )
         }
 
@@ -48,7 +49,7 @@ class DeviceMonitor @Inject constructor(
             .filter { it.id !in liveProfileIds }
             .mapNotNull { profile ->
                 cachedStates[profile.id]?.let {
-                    PodDevice(profileId = profile.id, ble = null, aap = null, cached = it)
+                    PodDevice(profileId = profile.id, label = profile.label, ble = null, aap = null, cached = it)
                 }
             }
 
@@ -67,7 +68,8 @@ class DeviceMonitor @Inject constructor(
         val cached = deviceStateCache.load(profileId)
         if (cached != null) {
             log(TAG) { "Found cached state for profile $profileId" }
-            return PodDevice(profileId = profileId, ble = null, aap = null, cached = cached)
+            val profileLabel = profilesRepo.profiles.firstOrNull()?.firstOrNull { it.id == profileId }?.label
+            return PodDevice(profileId = profileId, label = profileLabel, ble = null, aap = null, cached = cached)
         }
 
         log(TAG) { "No device found for profile $profileId" }

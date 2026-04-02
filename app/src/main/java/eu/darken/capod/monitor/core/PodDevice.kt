@@ -29,6 +29,7 @@ import java.time.Instant
 @Stable
 data class PodDevice(
     val profileId: String?,
+    val label: String? = null,
     internal val ble: BlePodSnapshot?,
     internal val aap: AapPodState?,
     internal val cached: CachedDeviceState? = null,
