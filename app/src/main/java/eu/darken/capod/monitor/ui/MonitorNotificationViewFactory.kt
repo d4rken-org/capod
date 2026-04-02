@@ -29,7 +29,7 @@ class MonitorNotificationViewFactory @Inject constructor(
     ).apply {
         // Left
         val leftPercent = device.batteryLeft
-        setImageViewResource(R.id.pod_left_icon, device.leftPodIcon ?: R.drawable.device_airpods_gen1_left)
+        setImageViewResource(R.id.pod_left_icon, device.leftPodIcon)
         setTextViewText(R.id.pod_left_label, formatBatteryPercent(context, leftPercent))
         val isLeftPodCharging = device.isLeftPodCharging ?: false
         setViewVisibility(R.id.pod_left_charging, if (isLeftPodCharging) View.VISIBLE else View.GONE)
@@ -39,7 +39,7 @@ class MonitorNotificationViewFactory @Inject constructor(
         // Case
         setViewVisibility(R.id.pod_case_charging, if (device.hasCase) View.VISIBLE else View.GONE)
         if (device.hasCase) {
-            setImageViewResource(R.id.pod_case_icon, device.caseIcon ?: R.drawable.device_airpods_gen1_case)
+            setImageViewResource(R.id.pod_case_icon, device.caseIcon)
             val casePercent = device.batteryCase
             setTextViewText(R.id.pod_case_label, formatBatteryPercent(context, casePercent))
             setViewVisibility(R.id.pod_case_charging, if (device.isCaseCharging == true) View.VISIBLE else View.GONE)
@@ -47,7 +47,7 @@ class MonitorNotificationViewFactory @Inject constructor(
 
         // Right
         val rightPercent = device.batteryRight
-        setImageViewResource(R.id.pod_right_icon, device.rightPodIcon ?: R.drawable.device_airpods_gen1_right)
+        setImageViewResource(R.id.pod_right_icon, device.rightPodIcon)
         setTextViewText(R.id.pod_right_label, formatBatteryPercent(context, rightPercent))
         val isRightPodCharging = device.isRightPodCharging ?: false
         setViewVisibility(R.id.pod_right_charging, if (isRightPodCharging) View.VISIBLE else View.GONE)
@@ -94,7 +94,7 @@ class MonitorNotificationViewFactory @Inject constructor(
     ).apply {
         // Left
         val leftPercent = device.batteryLeft
-        setImageViewResource(R.id.pod_left_icon, device.leftPodIcon ?: R.drawable.device_airpods_gen1_left)
+        setImageViewResource(R.id.pod_left_icon, device.leftPodIcon)
         setProgressBar(R.id.pod_left_progress, 100, percentToInt(leftPercent), false)
         setTextViewText(R.id.pod_left_label, formatBatteryPercent(context, leftPercent))
         val isLeftPodCharging = device.isLeftPodCharging ?: false
@@ -105,7 +105,7 @@ class MonitorNotificationViewFactory @Inject constructor(
         // Case
         setViewVisibility(R.id.pod_case_container, if (device.hasCase) View.VISIBLE else View.GONE)
         if (device.hasCase) {
-            setImageViewResource(R.id.pod_case_icon, device.caseIcon ?: R.drawable.device_airpods_gen1_case)
+            setImageViewResource(R.id.pod_case_icon, device.caseIcon)
             val casePercent = device.batteryCase
             setProgressBar(R.id.pod_case_progress, 100, percentToInt(casePercent), false)
             setTextViewText(R.id.pod_case_label, formatBatteryPercent(context, casePercent))
@@ -114,7 +114,7 @@ class MonitorNotificationViewFactory @Inject constructor(
 
         // Right
         val rightPercent = device.batteryRight
-        setImageViewResource(R.id.pod_right_icon, device.rightPodIcon ?: R.drawable.device_airpods_gen1_right)
+        setImageViewResource(R.id.pod_right_icon, device.rightPodIcon)
         setProgressBar(R.id.pod_right_progress, 100, percentToInt(rightPercent), false)
         setTextViewText(R.id.pod_right_label, formatBatteryPercent(context, rightPercent))
         val isRightPodCharging = device.isRightPodCharging ?: false

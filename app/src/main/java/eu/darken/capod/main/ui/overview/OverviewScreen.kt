@@ -225,7 +225,7 @@ fun OverviewScreen(
             if (!state.isScanBlocked && state.isBluetoothEnabled) {
                 items(
                     items = state.profiledDevices,
-                    key = { it.identifier.hashCode() },
+                    key = { it.identifier?.toString() ?: it.hashCode() },
                 ) { device ->
                     PodDeviceCard(
                         device = device,
@@ -256,7 +256,7 @@ fun OverviewScreen(
                     if (state.showUnmatchedDevices) {
                         items(
                             items = state.unmatchedDevices,
-                            key = { "unmatched_${it.identifier.hashCode()}" },
+                            key = { "unmatched_${it.identifier?.toString() ?: it.hashCode()}" },
                         ) { device ->
                             PodDeviceCard(
                         device = device,
