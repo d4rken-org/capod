@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core
 
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods

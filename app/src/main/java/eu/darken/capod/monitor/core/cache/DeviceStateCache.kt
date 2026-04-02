@@ -1,11 +1,10 @@
-package eu.darken.capod.monitor.core
+package eu.darken.capod.monitor.core.cache
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
-import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -54,11 +53,14 @@ class DeviceStateCache @Inject constructor(
                     val state = json.decodeFromString<CachedDeviceState>(file.readText())
                     loaded[profileId] = state
                 } catch (e: Exception) {
-                    log(TAG, ERROR) { "Failed to load cached state from ${file.name}: ${e.asLog()}, deleting" }
+                    log(
+                        TAG,
+                        Logging.Priority.ERROR
+                    ) { "Failed to load cached state from ${file.name}: ${e.asLog()}, deleting" }
                     file.delete()
                 }
             }
-            log(TAG, VERBOSE) { "loadAll(): loaded ${loaded.size} entries" }
+            log(TAG, Logging.Priority.VERBOSE) { "loadAll(): loaded ${loaded.size} entries" }
             _cachedStates.value = loaded
         }
     }
@@ -67,13 +69,13 @@ class DeviceStateCache @Inject constructor(
 
     suspend fun save(id: ProfileId, state: CachedDeviceState) = withContext(dispatcherProvider.IO) {
         lock.withLock {
-            log(TAG, VERBOSE) { "save(id=$id)" }
+            log(TAG, Logging.Priority.VERBOSE) { "save(id=$id)" }
             val file = id.toCacheFile()
             try {
                 file.writeText(json.encodeToString(CachedDeviceState.serializer(), state))
                 _cachedStates.value += (id to state)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to save state for $id: ${e.asLog()}" }
+                log(TAG, Logging.Priority.ERROR) { "Failed to save state for $id: ${e.asLog()}" }
                 file.delete()
             }
         }
@@ -89,7 +91,7 @@ class DeviceStateCache @Inject constructor(
             try {
                 json.decodeFromString<CachedDeviceState>(file.readText())
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to load state for $id: ${e.asLog()}, deleting" }
+                log(TAG, Logging.Priority.ERROR) { "Failed to load state for $id: ${e.asLog()}, deleting" }
                 file.delete()
                 null
             }
@@ -98,7 +100,7 @@ class DeviceStateCache @Inject constructor(
 
     suspend fun delete(id: ProfileId) = withContext(dispatcherProvider.IO) {
         lock.withLock {
-            log(TAG, VERBOSE) { "delete(id=$id)" }
+            log(TAG, Logging.Priority.VERBOSE) { "delete(id=$id)" }
             id.toCacheFile().delete()
             _cachedStates.value -= id
         }
@@ -106,7 +108,7 @@ class DeviceStateCache @Inject constructor(
 
     suspend fun deleteAll() = withContext(dispatcherProvider.IO) {
         lock.withLock {
-            log(TAG, VERBOSE) { "deleteAll()" }
+            log(TAG, Logging.Priority.VERBOSE) { "deleteAll()" }
             cacheDir.listFiles()?.forEach { it.delete() }
             _cachedStates.value = emptyMap()
         }

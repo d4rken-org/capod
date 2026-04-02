@@ -1,4 +1,4 @@
-package eu.darken.capod.monitor.core
+package eu.darken.capod.monitor.core.cache
 
 import eu.darken.capod.common.serialization.InstantEpochMillisSerializer
 import eu.darken.capod.pods.core.apple.PodModel

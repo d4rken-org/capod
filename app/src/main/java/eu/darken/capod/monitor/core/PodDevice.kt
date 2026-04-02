@@ -4,20 +4,21 @@ import android.content.Context
 import androidx.compose.runtime.Stable
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
 import eu.darken.capod.pods.core.apple.ble.devices.HasDualMicrophone
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
-import eu.darken.capod.pods.core.apple.PodModel
-import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
-import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
-import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
-import eu.darken.capod.pods.core.apple.aap.AapPodState
-import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Duration
 import java.time.Instant
 

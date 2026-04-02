@@ -1,4 +1,4 @@
-package eu.darken.capod.monitor.core
+package eu.darken.capod.monitor.core.ble
 
 import android.bluetooth.le.ScanFilter
 import eu.darken.capod.common.bluetooth.BleScanResult
@@ -8,8 +8,7 @@ import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.bluetooth.onlyNewAndUnique
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.DebugSettings
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -26,7 +25,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
@@ -65,7 +63,7 @@ class BlePodMonitor @Inject constructor(
     }
         .flatMapLatest { isReady ->
             if (!isReady) {
-                log(TAG, WARN) { "Bluetooth is not ready" }
+                log(TAG, Logging.Priority.WARN) { "Bluetooth is not ready" }
                 flowOf(null)
             } else {
                 val staleEvictionTicker: Flow<Collection<BleScanResult>> = flow {
@@ -84,10 +82,13 @@ class BlePodMonitor @Inject constructor(
         }
         .retryWhen { cause, attempt ->
             if (cause is SecurityException) {
-                log(TAG, WARN) { "PodMonitor failed due to missing permission, not retrying: ${cause.asLog()}" }
+                log(
+                    TAG,
+                    Logging.Priority.WARN
+                ) { "PodMonitor failed due to missing permission, not retrying: ${cause.asLog()}" }
                 false
             } else {
-                log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
+                log(TAG, Logging.Priority.WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
                 delay(3000)
                 true
             }
@@ -148,7 +149,7 @@ class BlePodMonitor @Inject constructor(
         .flatMapLatest { options ->
             val filters = when {
                 options.showUnfiltered -> {
-                    log(TAG, WARN) { "Using unfiltered scan mode" }
+                    log(TAG, Logging.Priority.WARN) { "Using unfiltered scan mode" }
                     setOf(ScanFilter.Builder().build())
                 }
 
@@ -177,7 +178,7 @@ class BlePodMonitor @Inject constructor(
         val now = Instant.now()
         deviceCache.toList().forEach { (key, value) ->
             if (Duration.between(value.seenLastAt, now) > STALE_DEVICE_TIMEOUT) {
-                log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
+                log(TAG, Logging.Priority.VERBOSE) { "Removing stale device from cache: $value" }
                 deviceCache.remove(key)
             }
         }

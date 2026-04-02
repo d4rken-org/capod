@@ -5,7 +5,10 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
-import eu.darken.capod.monitor.core.CachedDeviceState.CachedBatterySlot
+import eu.darken.capod.monitor.core.ble.BlePodMonitor
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
+import eu.darken.capod.monitor.core.cache.CachedDeviceState.CachedBatterySlot
+import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
@@ -22,11 +25,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Single merge point: combines BLE scan data ([BlePodMonitor]) with AAP connection data
- * ([AapConnectionManager]) and cached device state ([DeviceStateCache]) into unified [PodDevice] objects.
+ * Single merge point: combines BLE scan data ([eu.darken.capod.monitor.core.ble.BlePodMonitor]) with AAP connection data
+ * ([AapConnectionManager]) and cached device state ([eu.darken.capod.monitor.core.cache.DeviceStateCache]) into unified [PodDevice] objects.
  *
  * Includes cached-only devices for profiles that have cached state but no live BLE data.
- * Persists live device state to [DeviceStateCache] as a side effect.
+ * Persists live device state to [eu.darken.capod.monitor.core.cache.DeviceStateCache] as a side effect.
  * ViewModels should observe [devices] instead of accessing BlePodMonitor directly.
  */
 @Singleton

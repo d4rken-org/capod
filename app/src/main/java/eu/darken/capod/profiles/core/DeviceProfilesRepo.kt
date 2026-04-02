@@ -4,11 +4,12 @@ import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.common.coroutine.AppScope
+import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.monitor.core.DeviceStateCache
+import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -17,7 +18,6 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 import javax.inject.Singleton
-import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class DeviceProfilesRepo @Inject constructor(
