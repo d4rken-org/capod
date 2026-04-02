@@ -210,6 +210,10 @@
         <item quantity="one">%d device without matching profile</item>
         <item quantity="other">%d devices without matching profile</item>
     </plurals>
+    <plurals name="overview_more_devices_upgrade">
+        <item quantity="one">%d more device</item>
+        <item quantity="other">%d more devices</item>
+    </plurals>
 
     <string name="permission_bluetooth_connect_label">Bluetooth connect</string>
     <string name="permission_bluetooth_connect_description">This app requires the \"Bluetooth connect\" permission to interact with paired devices and initiate connections.</string>

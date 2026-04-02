@@ -46,6 +46,7 @@ import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.overview.cards.BluetoothDisabledCard
+import eu.darken.capod.main.ui.overview.cards.DeviceLimitUpgradeCard
 import eu.darken.capod.main.ui.overview.cards.DualPodsCard
 import eu.darken.capod.main.ui.overview.cards.MonitoringActiveCard
 import eu.darken.capod.main.ui.overview.cards.NoProfilesCard
@@ -221,10 +222,10 @@ fun OverviewScreen(
                 }
             }
 
-            // 4. Profiled device cards
+            // 4. Profiled device cards (limited to 1 for free users)
             if (!state.isScanBlocked && state.isBluetoothEnabled) {
                 items(
-                    items = state.profiledDevices,
+                    items = state.visibleProfiledDevices,
                     key = { it.identifier?.toString() ?: it.hashCode() },
                 ) { device ->
                     PodDeviceCard(
@@ -234,6 +235,17 @@ fun OverviewScreen(
                         onAncModeChange = { mode -> onAncModeChange(device, mode) },
                         onConversationAwarenessChange = { enabled -> onConversationAwarenessChange(device, enabled) },
                     )
+                }
+
+                // 4b. Upgrade card when additional devices are hidden
+                if (state.hiddenProfiledDeviceCount > 0) {
+                    item(key = "device_limit_upgrade") {
+                        DeviceLimitUpgradeCard(
+                            hiddenCount = state.hiddenProfiledDeviceCount,
+                            upgradeType = state.upgradeInfo.type,
+                            onUpgrade = onUpgrade,
+                        )
+                    }
                 }
 
                 // 5. Monitoring active card
