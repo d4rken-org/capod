@@ -75,12 +75,14 @@ data class AapPodState(
     }
 
     enum class ChargingState(val wireValue: Int) {
+        // Pro 1 sends 0x00 transiently when a pod is first removed from the case (reverts to NOT_CHARGING within seconds).
+        // Pro 2 USB-C skips this and reports NOT_CHARGING immediately. Likely a firmware timing difference.
         UNDEFINED(0x00),
         CHARGING(0x01),
         NOT_CHARGING(0x02),
         DISCONNECTED(0x04),
-        // TODO: Observed on AirPods Pro 3 in charging case. Possibly Apple's "Optimized Battery Charging" limit.
-        //  Verify behavior with Pro 2 and Pro 1 to confirm whether this is model-specific or firmware-specific.
+        // Observed on Pro 3 and Pro 2 USB-C in charging case. Apple's "Optimized Battery Charging" feature.
+        // Not observed on Pro 1 (firmware 51.9.6) — may require newer firmware or hardware.
         CHARGING_OPTIMIZED(0x05),
         ;
 

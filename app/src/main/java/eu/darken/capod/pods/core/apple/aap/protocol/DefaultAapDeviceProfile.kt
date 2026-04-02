@@ -324,7 +324,9 @@ class DefaultAapDeviceProfile(
                 AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(muteMic, endCall)
             }
             0x00, 0x20 -> {
-                // Alternate/compact response format: byte 2 is a combined mode value
+                // Compact response format: byte 2 is a combined mode value.
+                // 0x00: observed on Pro 1 (fw 51.9.6, 2026-04-02) and Pro 2 USB-C (fw 81.x, 2026-04-02) and Pro 3.
+                // 0x20: observed on Pro 1 (fw 51.9.6, 2026-03-31). Same device can send either subtype across sessions.
                 val combined = payload[2].toInt() and 0xFF
                 val (muteMic, endCall) = when (combined) {
                     0x02 -> AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
