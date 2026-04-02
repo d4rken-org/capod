@@ -4,16 +4,10 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
-import eu.darken.capod.monitor.core.CachedDeviceState
 import eu.darken.capod.monitor.core.CachedDeviceState.CachedBatterySlot
-import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.DeviceStateCache
-import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
-import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetection
-import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
 import kotlinx.coroutines.flow.Flow
 import java.time.Duration
 import kotlinx.coroutines.flow.map
@@ -56,10 +50,10 @@ class DeviceStatePersister @Inject constructor(
                     right = liveRight?.let { CachedBatterySlot(it, now) } ?: existing?.right,
                     case = liveCase?.let { CachedBatterySlot(it, now) } ?: existing?.case,
                     headset = liveHeadset?.let { CachedBatterySlot(it, now) } ?: existing?.headset,
-                    isLeftCharging = device.aap?.isLeftCharging ?: (device.ble as? HasChargeDetectionDual)?.isLeftPodCharging ?: existing?.isLeftCharging,
-                    isRightCharging = device.aap?.isRightCharging ?: (device.ble as? HasChargeDetectionDual)?.isRightPodCharging ?: existing?.isRightCharging,
-                    isCaseCharging = device.aap?.isCaseCharging ?: (device.ble as? HasCase)?.isCaseCharging ?: existing?.isCaseCharging,
-                    isHeadsetCharging = device.aap?.isHeadsetCharging ?: (device.ble as? HasChargeDetection)?.isHeadsetBeingCharged ?: existing?.isHeadsetCharging,
+                    isLeftCharging = device.isLeftPodCharging,
+                    isRightCharging = device.isRightPodCharging,
+                    isCaseCharging = device.isCaseCharging,
+                    isHeadsetCharging = device.isHeadsetBeingCharged,
                     lastSeenAt = device.seenLastAt ?: now,
                 )
 
