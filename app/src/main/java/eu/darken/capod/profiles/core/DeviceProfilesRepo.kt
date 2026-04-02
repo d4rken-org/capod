@@ -88,12 +88,18 @@ class DeviceProfilesRepo @Inject constructor(
         deviceStateCache.delete(profileId)
     }
 
-    suspend fun reorderProfiles(profiles: List<DeviceProfile>) = mutex.withLock {
-        settings.profiles.valueBlocking = DeviceProfilesContainer(profiles.toList())
-        log(VERBOSE) { "Reordered ${profiles.size} device profiles" }
+    suspend fun reorderProfilesById(orderedIds: List<ProfileId>) = mutex.withLock {
+        val current = settings.profiles.valueBlocking.profiles
+        require(orderedIds.size == current.size && orderedIds.toSet() == current.map { it.id }.toSet()) {
+            "Reorder IDs must match current profile IDs exactly"
+        }
+        val byId = current.associateBy { it.id }
+        val reordered = orderedIds.map { byId.getValue(it) }
+        settings.profiles.valueBlocking = DeviceProfilesContainer(reordered)
+        log(VERBOSE) { "Reordered ${reordered.size} device profiles by ID" }
     }
 
-    suspend fun clear() {
+    suspend fun clear() = mutex.withLock {
         settings.profiles.valueBlocking = DeviceProfilesContainer(emptyList())
         deviceStateCache.deleteAll()
     }
