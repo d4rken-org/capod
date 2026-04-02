@@ -95,7 +95,7 @@ internal fun AddProfileContent() = PreviewWrapper {
             identityKey = null,
             encryptionKey = null,
             selectedDevice = null,
-            bondedDevices = emptyList(),
+            bondedDeviceItems = emptyList(),
             minimumSignalQuality = 0.15f,
             canSave = false,
         ),

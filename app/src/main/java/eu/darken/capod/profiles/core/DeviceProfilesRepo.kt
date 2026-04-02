@@ -61,6 +61,7 @@ class DeviceProfilesRepo @Inject constructor(
 
     suspend fun addProfile(profile: DeviceProfile, addFirst: Boolean = false) = mutex.withLock {
         val currentContainer = settings.profiles.valueBlocking
+        checkAddressUniqueness(profile, currentContainer.profiles)
         val updatedProfiles = currentContainer.profiles.toMutableList().apply {
             if (addFirst) add(0, profile) else add(profile)
         }.toList()
@@ -70,6 +71,8 @@ class DeviceProfilesRepo @Inject constructor(
 
     suspend fun updateProfile(profile: DeviceProfile) = mutex.withLock {
         val currentContainer = settings.profiles.valueBlocking
+        val otherProfiles = currentContainer.profiles.filter { it.id != profile.id }
+        checkAddressUniqueness(profile, otherProfiles)
         val updatedProfiles = currentContainer.profiles.map {
             if (it.id == profile.id) profile else it
         }
@@ -92,6 +95,14 @@ class DeviceProfilesRepo @Inject constructor(
 
     suspend fun clear() {
         settings.profiles.valueBlocking = DeviceProfilesContainer(emptyList())
+    }
+
+    private fun checkAddressUniqueness(profile: DeviceProfile, existingProfiles: List<DeviceProfile>) {
+        val address = profile.address ?: return
+        val conflict = existingProfiles.find { it.address?.equals(address, ignoreCase = true) == true }
+        if (conflict != null) {
+            throw AddressAlreadyClaimedException(address, conflict.label)
+        }
     }
 
     companion object {

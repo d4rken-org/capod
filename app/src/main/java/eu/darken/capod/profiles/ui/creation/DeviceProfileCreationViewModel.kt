@@ -17,6 +17,7 @@ import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
+import eu.darken.capod.profiles.core.AddressAlreadyClaimedException
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -25,7 +26,6 @@ import eu.darken.capod.profiles.core.currentProfiles
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.map
 import java.util.UUID
 import javax.inject.Inject
 
@@ -54,6 +54,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
     private val _currentState = MutableStateFlow(ProfileEditorState())
     private val _initialState = MutableStateFlow(ProfileEditorState())
     private val _nameError = MutableStateFlow<String?>(null)
+    private val _profileIdFlow = MutableStateFlow<ProfileId?>(null)
 
     val showUnsavedChangesEvent = SingleEventFlow<Unit>()
     val showDeleteConfirmationEvent = SingleEventFlow<Unit>()
@@ -63,6 +64,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
         initialized = true
 
         this.profileId = profileId
+        this._profileIdFlow.value = profileId
         this.isEditMode = profileId != null
 
         if (isEditMode && profileId != null) {
@@ -75,9 +77,30 @@ class DeviceProfileCreationViewModel @Inject constructor(
         }
     }
 
-    private val bondedDevicesFlow = bluetoothManager.bondedDevices()
-        .catch { emit(emptySet()) }
-        .map { it.toList() }
+    data class BondedDeviceItem(
+        val device: BluetoothDevice2,
+        val claimedByProfile: String?,
+    )
+
+    private val bondedDeviceItemsFlow = combine(
+        bluetoothManager.bondedDevices().catch { emit(emptySet()) },
+        deviceProfilesRepo.profiles,
+        _profileIdFlow,
+    ) { bonded, profiles, currentProfileId ->
+        val claimedAddresses = profiles
+            .filter { it.id != currentProfileId }
+            .mapNotNull { profile -> profile.address?.let { it.uppercase() to profile.label } }
+            .toMap()
+
+        bonded
+            .map { device ->
+                BondedDeviceItem(
+                    device = device,
+                    claimedByProfile = claimedAddresses[device.address.uppercase()],
+                )
+            }
+            .sortedWith(compareBy({ it.claimedByProfile != null }, { it.device.name ?: "" }, { it.device.address }))
+    }
 
     private val hasUnsavedChangesFlow = combine(
         _currentState, _initialState
@@ -97,12 +120,12 @@ class DeviceProfileCreationViewModel @Inject constructor(
     val state = combine(
         _currentState,
         _nameError,
-        bondedDevicesFlow,
+        bondedDeviceItemsFlow,
         hasUnsavedChangesFlow,
         isFormValid,
-    ) { editorState, nameErr, bonded, hasChanges, formValid ->
+    ) { editorState, nameErr, bondedItems, hasChanges, formValid ->
         val selectedDevice = editorState.selectedDeviceAddress?.let { address ->
-            bonded.find { it.address == address }
+            bondedItems.find { it.device.address.equals(address, ignoreCase = true) }?.device
         }
         State(
             isEditMode = isEditMode,
@@ -113,7 +136,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
             identityKey = editorState.identityKeyHex?.fromHex(),
             encryptionKey = editorState.encryptionKeyHex?.fromHex(),
             selectedDevice = selectedDevice,
-            bondedDevices = bonded,
+            bondedDeviceItems = bondedItems,
             minimumSignalQuality = editorState.minimumSignalQuality,
             canSave = formValid && hasChanges,
         )
@@ -128,7 +151,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
         val identityKey: IdentityResolvingKey?,
         val encryptionKey: ProximityEncryptionKey?,
         val selectedDevice: BluetoothDevice2?,
-        val bondedDevices: List<BluetoothDevice2>,
+        val bondedDeviceItems: List<BondedDeviceItem>,
         val minimumSignalQuality: Float,
         val canSave: Boolean,
     )

@@ -288,6 +288,7 @@
     <string name="profiles_paired_device_label">Paired device</string>
     <string name="profiles_paired_device_none">None</string>
     <string name="profiles_paired_device_none_description">No device selected</string>
+    <string name="profiles_paired_device_used_by">Used by %s</string>
     <string name="profiles_save_action">Save profile</string>
     <string name="profiles_drag_handle_description">Drag to reorder</string>
     <string name="profiles_delete_title">Delete Profile</string>

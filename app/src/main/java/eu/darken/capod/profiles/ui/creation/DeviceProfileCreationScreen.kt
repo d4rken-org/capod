@@ -209,7 +209,7 @@ fun DeviceProfileCreationScreen(
                 selectedModel = state.selectedModel,
                 availableModels = state.availableModels,
                 selectedDevice = state.selectedDevice,
-                bondedDevices = state.bondedDevices,
+                bondedDeviceItems = state.bondedDeviceItems,
                 onNameChange = onNameChange,
                 onModelChange = onModelChange,
                 onDeviceChange = onDeviceChange,
@@ -297,7 +297,7 @@ private fun DeviceInfoCard(
     selectedModel: PodModel?,
     availableModels: List<PodModel>,
     selectedDevice: BluetoothDevice2?,
-    bondedDevices: List<BluetoothDevice2>,
+    bondedDeviceItems: List<DeviceProfileCreationViewModel.BondedDeviceItem>,
     onNameChange: (String) -> Unit,
     onModelChange: (PodModel) -> Unit,
     onDeviceChange: (BluetoothDevice2?) -> Unit,
@@ -418,20 +418,37 @@ private fun DeviceInfoCard(
                         deviceExpanded = false
                     },
                 )
-                bondedDevices.forEach { device ->
+                bondedDeviceItems.forEach { item ->
+                    val isClaimed = item.claimedByProfile != null
                     DropdownMenuItem(
                         text = {
                             Column {
-                                Text(text = device.name ?: unknownLabel)
                                 Text(
-                                    text = device.address,
+                                    text = item.device.name ?: unknownLabel,
+                                    color = if (isClaimed) {
+                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+                                    } else {
+                                        MaterialTheme.colorScheme.onSurface
+                                    },
+                                )
+                                Text(
+                                    text = if (isClaimed) {
+                                        stringResource(R.string.profiles_paired_device_used_by, item.claimedByProfile!!)
+                                    } else {
+                                        item.device.address
+                                    },
                                     style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    color = if (isClaimed) {
+                                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+                                    } else {
+                                        MaterialTheme.colorScheme.onSurfaceVariant
+                                    },
                                 )
                             }
                         },
+                        enabled = !isClaimed,
                         onClick = {
-                            onDeviceChange(device)
+                            onDeviceChange(item.device)
                             deviceExpanded = false
                         },
                     )
@@ -660,7 +677,7 @@ private fun DeviceProfileCreationScreenNewPreview() = PreviewWrapper {
             identityKey = null,
             encryptionKey = null,
             selectedDevice = null,
-            bondedDevices = emptyList(),
+            bondedDeviceItems = emptyList(),
             minimumSignalQuality = 0.15f,
             canSave = false,
         ),
@@ -690,7 +707,7 @@ private fun DeviceProfileCreationScreenEditPreview() = PreviewWrapper {
             identityKey = null,
             encryptionKey = null,
             selectedDevice = null,
-            bondedDevices = emptyList(),
+            bondedDeviceItems = emptyList(),
             minimumSignalQuality = 0.25f,
             canSave = true,
         ),
@@ -730,7 +747,7 @@ private fun DeviceProfileCreationScreenWithKeysPreview() = PreviewWrapper {
                 0x23.toByte(), 0x45.toByte(), 0x67.toByte(), 0x89.toByte(),
             ),
             selectedDevice = null,
-            bondedDevices = emptyList(),
+            bondedDeviceItems = emptyList(),
             minimumSignalQuality = 0.35f,
             canSave = true,
         ),
