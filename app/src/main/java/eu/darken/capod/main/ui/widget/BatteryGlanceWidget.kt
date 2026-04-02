@@ -86,8 +86,8 @@ class BatteryGlanceWidget : GlanceAppWidget() {
 
                 val isPro = upgradeInfo?.isPro ?: initialIsPro
 
-                val liveDevice = devices.firstOrNull { it.meta?.profile?.id == profileId }
-                val device = liveDevice ?: cachedDevice?.takeIf { it.meta?.profile?.id == profileId }
+                val liveDevice = devices.firstOrNull { it.profileId == profileId }
+                val device = liveDevice ?: cachedDevice?.takeIf { it.profileId == profileId }
 
                 val profileLabel = profileId?.let { pid ->
                     profiles.firstOrNull { it.id == pid }?.label
