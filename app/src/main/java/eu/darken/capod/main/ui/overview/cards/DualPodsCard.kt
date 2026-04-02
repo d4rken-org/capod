@@ -157,7 +157,7 @@ fun DualPodsCard(
                         horizontalArrangement = Arrangement.SpaceEvenly,
                     ) {
                         PodGauge(
-                            iconRes = device.leftPodIcon ?: R.drawable.device_airpods_gen1_left,
+                            iconRes = device.leftPodIcon,
                             batteryPercent = device.batteryLeft.toBatteryFloat(),
                             isCharging = device.isLeftPodCharging ?: false,
                             isInEar = device.isLeftInEar ?: false,
@@ -168,7 +168,7 @@ fun DualPodsCard(
                         )
 
                         PodGauge(
-                            iconRes = device.rightPodIcon ?: R.drawable.device_airpods_gen1_right,
+                            iconRes = device.rightPodIcon,
                             batteryPercent = device.batteryRight.toBatteryFloat(),
                             isCharging = device.isRightPodCharging ?: false,
                             isInEar = device.isRightInEar ?: false,
@@ -338,7 +338,7 @@ private fun CaseRow(
         modifier = Modifier.fillMaxWidth(),
     ) {
         Image(
-            painter = painterResource(device.caseIcon ?: R.drawable.device_airpods_gen1_case),
+            painter = painterResource(device.caseIcon),
             contentDescription = null,
             modifier = Modifier.size(28.dp),
         )

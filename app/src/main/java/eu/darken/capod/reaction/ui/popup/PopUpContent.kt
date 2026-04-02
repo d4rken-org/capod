@@ -124,7 +124,7 @@ private fun DualPodContent(device: PodDevice) {
     ) {
         // Left pod
         BatteryColumn(
-            iconRes = device.leftPodIcon ?: R.drawable.device_airpods_gen1_left,
+            iconRes = device.leftPodIcon,
             batteryPercent = device.batteryLeft.toBatteryFloat(),
             modifier = Modifier.weight(1f),
         )
@@ -132,7 +132,7 @@ private fun DualPodContent(device: PodDevice) {
         // Case (only if device has one)
         if (device.hasCase) {
             BatteryColumn(
-                iconRes = device.caseIcon ?: R.drawable.device_airpods_gen1_case,
+                iconRes = device.caseIcon,
                 batteryPercent = device.batteryCase.toBatteryFloat(),
                 modifier = Modifier.weight(1f),
             )
@@ -140,7 +140,7 @@ private fun DualPodContent(device: PodDevice) {
 
         // Right pod
         BatteryColumn(
-            iconRes = device.rightPodIcon ?: R.drawable.device_airpods_gen1_right,
+            iconRes = device.rightPodIcon,
             batteryPercent = device.batteryRight.toBatteryFloat(),
             modifier = Modifier.weight(1f),
         )

@@ -1,6 +1,8 @@
 package eu.darken.capod.monitor.core
 
 import android.content.Context
+import androidx.compose.runtime.Stable
+import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
@@ -24,6 +26,7 @@ import java.time.Instant
  * All properties are dynamically resolved from the best available source.
  * Consumers don't need to know whether data came from BLE or AAP.
  */
+@Stable
 data class PodDevice(
     internal val ble: BlePodSnapshot?,
     internal val aap: AapPodState?,
@@ -164,14 +167,14 @@ data class PodDevice(
     // Icons / labels
     val iconRes: Int get() = ble?.iconRes ?: model.iconRes
 
-    val leftPodIcon: Int?
-        get() = (ble as? DualBlePodSnapshot)?.leftPodIcon
+    val leftPodIcon: Int
+        get() = (ble as? DualBlePodSnapshot)?.leftPodIcon ?: R.drawable.device_airpods_gen1_left
 
-    val rightPodIcon: Int?
-        get() = (ble as? DualBlePodSnapshot)?.rightPodIcon
+    val rightPodIcon: Int
+        get() = (ble as? DualBlePodSnapshot)?.rightPodIcon ?: R.drawable.device_airpods_gen1_right
 
-    val caseIcon: Int?
-        get() = (ble as? HasCase)?.caseIcon
+    val caseIcon: Int
+        get() = (ble as? HasCase)?.caseIcon ?: R.drawable.device_airpods_gen1_case
 
     fun getLabel(context: Context): String = ble?.getLabel(context) ?: model.label
 
