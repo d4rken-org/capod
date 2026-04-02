@@ -98,25 +98,21 @@ class PodDeviceTest : BaseTest() {
     }
 
     @Test
-    fun `identity properties delegate to BLE`() {
+    fun `identifier delegates to BLE`() {
         val id = BlePodSnapshot.Id()
-        val meta = mockk<BlePodSnapshot.Meta>(relaxed = true)
         val device = PodDevice(
             profileId = null, ble = mockk(relaxed = true) {
                 every { identifier } returns id
-                every { this@mockk.meta } returns meta
             },
             aap = null,
         )
         device.identifier shouldBe id
-        device.meta shouldBe meta
     }
 
     @Test
-    fun `identity properties null when BLE null`() {
+    fun `identifier null when BLE null`() {
         val device = PodDevice(profileId = null, ble = null, aap = null)
         device.identifier.shouldBeNull()
-        device.meta.shouldBeNull()
     }
 
     @Test

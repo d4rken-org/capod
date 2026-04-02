@@ -40,7 +40,6 @@ data class PodDevice(
     /** BLE scan address (RPA, rotates). */
     val bleAddress: BluetoothAddress? get() = ble?.address
     val identifier: BlePodSnapshot.Id? get() = ble?.identifier
-    val meta: BlePodSnapshot.Meta? get() = ble?.meta
 
     /** True when at least one live data source (BLE or AAP) is present. */
     val isLive: Boolean get() = ble != null || aap != null

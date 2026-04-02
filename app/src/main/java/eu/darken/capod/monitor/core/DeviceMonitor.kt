@@ -32,8 +32,8 @@ class DeviceMonitor @Inject constructor(
     ) { pods, aapStates, cachedStates, profiles ->
         // Live devices — BLE + AAP + cached fallback for missing fields
         val liveDevices = pods.map { pod ->
-            val bondedAddress = pod.meta?.profile?.address
-            val profile = pod.meta?.profile
+            val bondedAddress = pod.meta.profile?.address
+            val profile = pod.meta.profile
             PodDevice(
                 profileId = profile?.id,
                 label = profile?.label,
