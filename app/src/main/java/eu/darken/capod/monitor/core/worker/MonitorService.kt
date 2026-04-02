@@ -36,8 +36,8 @@ import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.reaction.core.aap.AapAutoConnect
-import eu.darken.capod.reaction.core.DeviceStatePersister
-import eu.darken.capod.reaction.core.aap.AapKeyPersister
+import eu.darken.capod.monitor.core.DeviceStatePersister
+import eu.darken.capod.monitor.core.aap.AapKeyPersister
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction

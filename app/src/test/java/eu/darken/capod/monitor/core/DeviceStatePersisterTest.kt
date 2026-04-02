@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core
+package eu.darken.capod.monitor.core
 
 import eu.darken.capod.monitor.core.CachedDeviceState
 import eu.darken.capod.monitor.core.DeviceMonitor

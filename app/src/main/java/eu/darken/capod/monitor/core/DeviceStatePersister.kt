@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core
+package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -87,6 +87,6 @@ class DeviceStatePersister @Inject constructor(
     }
 
     companion object {
-        private val TAG = logTag("Reaction", "DeviceStatePersister")
+        private val TAG = logTag("Monitor", "DeviceStatePersister")
     }
 }

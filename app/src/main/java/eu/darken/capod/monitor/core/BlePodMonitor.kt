@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core
 
 import android.bluetooth.le.ScanFilter
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.ScannerMode
@@ -27,8 +28,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.sync.Mutex
@@ -65,7 +68,13 @@ class BlePodMonitor @Inject constructor(
                 log(TAG, WARN) { "Bluetooth is not ready" }
                 flowOf(null)
             } else {
-                createBleScanner()
+                val staleEvictionTicker: Flow<Collection<BleScanResult>> = flow {
+                    while (true) {
+                        delay(STALE_EVICTION_INTERVAL.toMillis())
+                        emit(emptyList())
+                    }
+                }
+                merge(createBleScanner(), staleEvictionTicker)
             }
         }
         .map { results -> results?.mapNotNull { podFactory.createPod(it) } }
@@ -167,7 +176,7 @@ class BlePodMonitor @Inject constructor(
 
         val now = Instant.now()
         deviceCache.toList().forEach { (key, value) ->
-            if (Duration.between(value.seenLastAt, now) > Duration.ofSeconds(20)) {
+            if (Duration.between(value.seenLastAt, now) > STALE_DEVICE_TIMEOUT) {
                 log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
                 deviceCache.remove(key)
             }
@@ -187,5 +196,7 @@ class BlePodMonitor @Inject constructor(
 
     companion object {
         private val TAG = logTag("Monitor", "PodMonitor")
+        private val STALE_DEVICE_TIMEOUT = Duration.ofSeconds(20)
+        private val STALE_EVICTION_INTERVAL = Duration.ofSeconds(10)
     }
 }
