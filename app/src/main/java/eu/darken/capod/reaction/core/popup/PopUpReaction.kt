@@ -53,7 +53,7 @@ class PopUpReaction @Inject constructor(
             log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
 
             val isSameDeviceOrProfile = previous?.identifier == current.identifier ||
-                    (previous?.meta?.profile?.id != null && previous.meta?.profile?.id == current.meta?.profile?.id)
+                    (previous?.profileId != null && previous.profileId == current.profileId)
             val isSameDeviceWithCaseNowOpen = isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
             val isNewDeviceWithJustOpenedCase = !isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
 
@@ -66,7 +66,7 @@ class PopUpReaction @Inject constructor(
         }
 
     private fun throttleCasePopUps(current: PodDevice): Event? {
-        val cooldownKey = current.meta?.profile?.id ?: current.identifier.toString()
+        val cooldownKey = current.profileId ?: current.identifier.toString()
         val now = Instant.now()
         val lastShown = caseCoolDowns[cooldownKey]
 
@@ -110,7 +110,7 @@ class PopUpReaction @Inject constructor(
                 deviceMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
             ) { devices, broadcast ->
                 log(TAG) { "$broadcast $devices " }
-                val primaryAddr = broadcast?.meta?.profile?.address
+                val primaryAddr = broadcast?.address
                 val direct = devices.singleOrNull { it.address == primaryAddr }.also {
                     log(TAG, VERBOSE) { "Connected main device is $it" }
                 }

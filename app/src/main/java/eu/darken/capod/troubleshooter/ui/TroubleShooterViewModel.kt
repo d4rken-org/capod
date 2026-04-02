@@ -13,8 +13,8 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.monitor.core.BlePodMonitor
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle

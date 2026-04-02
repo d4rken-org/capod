@@ -1,14 +1,14 @@
-package eu.darken.capod.monitor.core
+package eu.darken.capod.monitor.core.ble
 
 import android.bluetooth.le.ScanFilter
+import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.bluetooth.onlyNewAndUnique
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.DebugSettings
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
+import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -25,10 +25,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.sync.Mutex
@@ -46,7 +47,6 @@ class BlePodMonitor @Inject constructor(
     private val generalSettings: GeneralSettings,
     bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
-    private val podDeviceCache: PodDeviceCache,
     permissionTool: PermissionTool,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
@@ -63,10 +63,16 @@ class BlePodMonitor @Inject constructor(
     }
         .flatMapLatest { isReady ->
             if (!isReady) {
-                log(TAG, WARN) { "Bluetooth is not ready" }
+                log(TAG, Logging.Priority.WARN) { "Bluetooth is not ready" }
                 flowOf(null)
             } else {
-                createBleScanner()
+                val staleEvictionTicker: Flow<Collection<BleScanResult>> = flow {
+                    while (true) {
+                        delay(STALE_EVICTION_INTERVAL.toMillis())
+                        emit(emptyList())
+                    }
+                }
+                merge(createBleScanner(), staleEvictionTicker)
             }
         }
         .map { results -> results?.mapNotNull { podFactory.createPod(it) } }
@@ -76,10 +82,13 @@ class BlePodMonitor @Inject constructor(
         }
         .retryWhen { cause, attempt ->
             if (cause is SecurityException) {
-                log(TAG, WARN) { "PodMonitor failed due to missing permission, not retrying: ${cause.asLog()}" }
+                log(
+                    TAG,
+                    Logging.Priority.WARN
+                ) { "PodMonitor failed due to missing permission, not retrying: ${cause.asLog()}" }
                 false
             } else {
-                log(TAG, WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
+                log(TAG, Logging.Priority.WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
                 delay(3000)
                 true
             }
@@ -140,7 +149,7 @@ class BlePodMonitor @Inject constructor(
         .flatMapLatest { options ->
             val filters = when {
                 options.showUnfiltered -> {
-                    log(TAG, WARN) { "Using unfiltered scan mode" }
+                    log(TAG, Logging.Priority.WARN) { "Using unfiltered scan mode" }
                     setOf(ScanFilter.Builder().build())
                 }
 
@@ -168,8 +177,8 @@ class BlePodMonitor @Inject constructor(
 
         val now = Instant.now()
         deviceCache.toList().forEach { (key, value) ->
-            if (Duration.between(value.seenLastAt, now) > Duration.ofSeconds(20)) {
-                log(TAG, VERBOSE) { "Removing stale device from cache: $value" }
+            if (Duration.between(value.seenLastAt, now) > STALE_DEVICE_TIMEOUT) {
+                log(TAG, Logging.Priority.VERBOSE) { "Removing stale device from cache: $value" }
                 deviceCache.remove(key)
             }
         }
@@ -183,35 +192,12 @@ class BlePodMonitor @Inject constructor(
             pods[it.identifier] = it
         }
 
-        newPods
-            .mapNotNull {
-                val profileId = it.device.meta.profile?.id ?: return@mapNotNull null
-                profileId to it.device.scanResult
-            }
-            .toMap()
-            .run { podDeviceCache.saveAll(this) }
         return pods
-    }
-
-    suspend fun getDeviceForProfile(profileId: String): BlePodSnapshot? {
-        log(TAG) { "getDeviceForProfile(profileId=$profileId)" }
-
-        val liveDevice = devices.firstOrNull()?.firstOrNull { device ->
-            device.meta.profile?.id == profileId
-        }
-        if (liveDevice != null) {
-            log(TAG) { "Found live device for profile $profileId: $liveDevice" }
-            return liveDevice
-        }
-
-        val cachedDevice = podDeviceCache.load(profileId)?.let {
-            podFactory.createPod(it)?.device
-        }
-        log(TAG) { "Cached device for profile $profileId: $cachedDevice" }
-        return cachedDevice
     }
 
     companion object {
         private val TAG = logTag("Monitor", "PodMonitor")
+        private val STALE_DEVICE_TIMEOUT = Duration.ofSeconds(20)
+        private val STALE_EVICTION_INTERVAL = Duration.ofSeconds(10)
     }
 }

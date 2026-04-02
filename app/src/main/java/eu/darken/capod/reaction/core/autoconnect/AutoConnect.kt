@@ -49,7 +49,7 @@ class AutoConnect @Inject constructor(
         .map { (connectedDevices, mainDevice) ->
             log(TAG, VERBOSE) { "mainPodDevice is $mainDevice" }
 
-            val mainDeviceAddr = mainDevice.meta?.profile?.address
+            val mainDeviceAddr = mainDevice.address
             if (mainDeviceAddr.isNullOrEmpty()) {
                 log(TAG, WARN) { "mainDeviceAddress is null" }
                 return@map

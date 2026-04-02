@@ -134,8 +134,8 @@ class OverviewViewModel @Inject constructor(
         val showUnmatchedDevices: Boolean,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
-        val profiledDevices: List<PodDevice> get() = devices.filter { it.meta?.profile != null }
-        val unmatchedDevices: List<PodDevice> get() = devices.filter { it.meta?.profile == null }
+        val profiledDevices: List<PodDevice> get() = devices.filter { it.profileId != null }
+        val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
     }
 
     fun onPermissionResult(@Suppress("UNUSED_PARAMETER") granted: Boolean) {

@@ -5,18 +5,19 @@ import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
 import eu.darken.capod.pods.core.apple.ble.devices.HasDualMicrophone
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
-import eu.darken.capod.pods.core.apple.PodModel
-import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
-import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle
 import eu.darken.capod.profiles.core.AppleDeviceProfile
@@ -165,33 +166,71 @@ object MockPodDataProvider {
     // --- PodDevice wrappers ---
 
     fun dualPodMonitored(): PodDevice = PodDevice(
+        profileId = "preview-dual",
         ble = airPodsProFullCharge(),
         aap = null,
     )
 
     fun dualPodMonitoredMixed(): PodDevice = PodDevice(
+        profileId = "preview-dual-mixed",
         ble = airPodsProMixed(),
         aap = null,
     )
 
     fun dualPodMonitoredWithKeys(): PodDevice = PodDevice(
+        profileId = "preview-dual-keys",
         ble = airPodsProWithKeys(),
         aap = null,
     )
 
     fun dualPodMonitoredWithAap(): PodDevice = PodDevice(
+        profileId = "preview-dual-aap",
         ble = airPodsProWithKeys(),
         aap = AapPodState(connectionState = AapPodState.ConnectionState.READY),
     )
 
     fun singlePodMonitored(): PodDevice = PodDevice(
+        profileId = "preview-single",
         ble = airPodsMax(),
         aap = null,
     )
 
     fun unknownMonitored(): PodDevice = PodDevice(
+        profileId = null,
         ble = unknownDevice(),
         aap = null,
+    )
+
+    /** Cached-only dual pod — device fully offline, showing last known state. */
+    fun dualPodCachedOnly(): PodDevice = PodDevice(
+        profileId = "preview-cached",
+        ble = null,
+        aap = null,
+        cached = CachedDeviceState(
+            profileId = "preview-cached",
+            model = PodModel.AIRPODS_PRO2,
+            address = "AA:BB:CC:DD:EE:FF",
+            left = CachedDeviceState.CachedBatterySlot(0.65f, MOCK_NOW.minusSeconds(3600)),
+            right = CachedDeviceState.CachedBatterySlot(0.50f, MOCK_NOW.minusSeconds(3600)),
+            case = CachedDeviceState.CachedBatterySlot(0.80f, MOCK_NOW.minusSeconds(3600)),
+            isLeftCharging = false,
+            isRightCharging = false,
+            isCaseCharging = false,
+            lastSeenAt = MOCK_NOW.minusSeconds(3600),
+        ),
+    )
+
+    /** Cached-only single pod — device fully offline, showing last known state. */
+    fun singlePodCachedOnly(): PodDevice = PodDevice(
+        profileId = "preview-cached-single",
+        ble = null,
+        aap = null,
+        cached = CachedDeviceState(
+            profileId = "preview-cached-single",
+            model = PodModel.AIRPODS_MAX,
+            headset = CachedDeviceState.CachedBatterySlot(0.40f, MOCK_NOW.minusSeconds(7200)),
+            lastSeenAt = MOCK_NOW.minusSeconds(7200),
+        ),
     )
 
     // --- UpgradeInfo ---

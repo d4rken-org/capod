@@ -4,20 +4,21 @@ import android.content.Context
 import androidx.compose.runtime.Stable
 import eu.darken.capod.R
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.monitor.core.cache.CachedDeviceState
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
 import eu.darken.capod.pods.core.apple.ble.devices.HasDualMicrophone
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
-import eu.darken.capod.pods.core.apple.PodModel
-import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
-import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
-import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
-import eu.darken.capod.pods.core.apple.aap.AapPodState
-import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Duration
 import java.time.Instant
 
@@ -28,17 +29,21 @@ import java.time.Instant
  */
 @Stable
 data class PodDevice(
+    val profileId: String?,
+    val label: String? = null,
     internal val ble: BlePodSnapshot?,
     internal val aap: AapPodState?,
+    internal val cached: CachedDeviceState? = null,
 ) {
-    // Identity
-    val model: PodModel get() = ble?.model ?: PodModel.UNKNOWN
+    val model: PodModel get() = ble?.model ?: cached?.model ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */
-    val address: BluetoothAddress? get() = ble?.meta?.profile?.address
+    val address: BluetoothAddress? get() = ble?.meta?.profile?.address ?: cached?.address
     /** BLE scan address (RPA, rotates). */
     val bleAddress: BluetoothAddress? get() = ble?.address
     val identifier: BlePodSnapshot.Id? get() = ble?.identifier
-    val meta: BlePodSnapshot.Meta? get() = ble?.meta
+
+    /** True when at least one live data source (BLE or AAP) is present. */
+    val isLive: Boolean get() = ble != null || aap != null
 
     // Capabilities from Model.Features
     val hasCase: Boolean get() = model.features.hasCase
@@ -48,7 +53,7 @@ data class PodDevice(
     val hasDualMicrophone: Boolean get() = ble is HasDualMicrophone
 
     // Signal / timing
-    val seenLastAt: Instant? get() = ble?.seenLastAt
+    val seenLastAt: Instant? get() = ble?.seenLastAt ?: cached?.lastSeenAt
     val seenFirstAt: Instant? get() = ble?.seenFirstAt
     val signalQuality: Float
         get() {
@@ -70,31 +75,54 @@ data class PodDevice(
         }
     }
 
-    // Battery — AAP preferred, BLE fallback
+    // Battery — AAP preferred, BLE fallback, then cached
     val batteryLeft: Float?
-        get() = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
+        get() = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent ?: cached?.left?.percent
 
     val batteryRight: Float?
-        get() = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
+        get() = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent ?: cached?.right?.percent
 
     val batteryCase: Float?
-        get() = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent
+        get() = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent ?: cached?.case?.percent
 
     val batteryHeadset: Float?
-        get() = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
+        get() = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent ?: cached?.headset?.percent
 
-    // Charging — AAP preferred, BLE fallback
+    /** True when at least one displayed battery value was filled from cache (not live). */
+    val isBatteryCached: Boolean
+        get() {
+            if (cached == null) return false
+            val usedLeft = aap?.batteryLeft == null && (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent == null && cached.left != null
+            val usedRight = aap?.batteryRight == null && (ble as? DualBlePodSnapshot)?.batteryRightPodPercent == null && cached.right != null
+            val usedCase = aap?.batteryCase == null && (ble as? HasCase)?.batteryCasePercent == null && cached.case != null
+            val usedHeadset = aap?.batteryHeadset == null && (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent == null && cached.headset != null
+            return usedLeft || usedRight || usedCase || usedHeadset
+        }
+
+    /** Oldest per-slot timestamp among battery values that fell through to cache. Null if all live. */
+    val cachedBatteryAt: Instant?
+        get() {
+            if (cached == null) return null
+            return listOfNotNull(
+                cached.left?.updatedAt.takeIf { aap?.batteryLeft == null && (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent == null },
+                cached.right?.updatedAt.takeIf { aap?.batteryRight == null && (ble as? DualBlePodSnapshot)?.batteryRightPodPercent == null },
+                cached.case?.updatedAt.takeIf { aap?.batteryCase == null && (ble as? HasCase)?.batteryCasePercent == null },
+                cached.headset?.updatedAt.takeIf { aap?.batteryHeadset == null && (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent == null },
+            ).minOrNull()
+        }
+
+    // Charging — AAP preferred, BLE fallback, then cached
     val isLeftPodCharging: Boolean?
-        get() = aap?.isLeftCharging ?: (ble as? HasChargeDetectionDual)?.isLeftPodCharging
+        get() = aap?.isLeftCharging ?: (ble as? HasChargeDetectionDual)?.isLeftPodCharging ?: cached?.isLeftCharging
 
     val isRightPodCharging: Boolean?
-        get() = aap?.isRightCharging ?: (ble as? HasChargeDetectionDual)?.isRightPodCharging
+        get() = aap?.isRightCharging ?: (ble as? HasChargeDetectionDual)?.isRightPodCharging ?: cached?.isRightCharging
 
     val isCaseCharging: Boolean?
-        get() = aap?.isCaseCharging ?: (ble as? HasCase)?.isCaseCharging
+        get() = aap?.isCaseCharging ?: (ble as? HasCase)?.isCaseCharging ?: cached?.isCaseCharging
 
     val isHeadsetBeingCharged: Boolean?
-        get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged
+        get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged ?: cached?.isHeadsetCharging
 
     // Resolved primary pod: AAP cmd 0x08 preferred, BLE bit 5 fallback.
     private val resolvedPrimaryPod: DualBlePodSnapshot.Pod?

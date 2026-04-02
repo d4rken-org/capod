@@ -2,12 +2,12 @@ package eu.darken.capod.reaction.core.aap
 
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
-import eu.darken.capod.monitor.core.BlePodMonitor
-import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo

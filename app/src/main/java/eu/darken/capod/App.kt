@@ -13,6 +13,7 @@ import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.DeviceMonitor
+
 import eu.darken.capod.monitor.core.devicesWithProfiles
 
 import kotlinx.coroutines.CoroutineScope

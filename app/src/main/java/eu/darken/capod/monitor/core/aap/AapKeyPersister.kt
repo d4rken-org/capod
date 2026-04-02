@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core.aap
+package eu.darken.capod.monitor.core.aap
 
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -47,6 +47,6 @@ class AapKeyPersister @Inject constructor(
         .setupCommonEventHandlers(TAG) { "keyPersister" }
 
     companion object {
-        private val TAG = logTag("Reaction", "AapKeyPersister")
+        private val TAG = logTag("Monitor", "AapKeyPersister")
     }
 }

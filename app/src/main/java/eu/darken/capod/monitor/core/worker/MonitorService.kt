@@ -27,16 +27,16 @@ import eu.darken.capod.common.hasApiLevel
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
-import eu.darken.capod.monitor.core.BlePodMonitor
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.aap.AapKeyPersister
+import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
+import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.reaction.core.aap.AapAutoConnect
-import eu.darken.capod.reaction.core.aap.AapKeyPersister
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction
@@ -77,6 +77,7 @@ class MonitorService : Service() {
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject lateinit var aapAutoConnect: AapAutoConnect
     @Inject lateinit var aapKeyPersister: AapKeyPersister
+
     @Inject lateinit var aapConnectionManager: AapConnectionManager
 
     private val monitorScope = MonitorCoroutineScope()

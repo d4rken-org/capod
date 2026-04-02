@@ -26,6 +26,7 @@ import androidx.compose.material.icons.twotone.KeyboardVoice
 import androidx.compose.material.icons.outlined.Key
 import androidx.compose.material.icons.twotone.Bluetooth
 import androidx.compose.material.icons.twotone.Key
+import androidx.compose.material.icons.twotone.LinkOff
 import androidx.compose.material.icons.twotone.SettingsInputAntenna
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -163,6 +164,7 @@ fun SignalBadge(
     signalText: String,
     bleKeyState: BleKeyState = BleKeyState.NONE,
     isAapConnected: Boolean = false,
+    isLive: Boolean = true,
     modifier: Modifier = Modifier,
 ) {
     Surface(
@@ -174,39 +176,48 @@ fun SignalBadge(
             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            if (bleKeyState != BleKeyState.NONE) {
+            if (!isLive) {
                 Icon(
-                    imageVector = if (bleKeyState == BleKeyState.IRK_AND_ENCRYPTED) Icons.TwoTone.Key else Icons.Outlined.Key,
-                    contentDescription = stringResource(
-                        if (bleKeyState == BleKeyState.IRK_AND_ENCRYPTED) R.string.signal_badge_key_encrypted_cd
-                        else R.string.signal_badge_key_irk_cd
-                    ),
+                    imageVector = Icons.TwoTone.LinkOff,
+                    contentDescription = null,
+                    modifier = Modifier.size(12.dp),
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            } else {
+                if (bleKeyState != BleKeyState.NONE) {
+                    Icon(
+                        imageVector = if (bleKeyState == BleKeyState.IRK_AND_ENCRYPTED) Icons.TwoTone.Key else Icons.Outlined.Key,
+                        contentDescription = stringResource(
+                            if (bleKeyState == BleKeyState.IRK_AND_ENCRYPTED) R.string.signal_badge_key_encrypted_cd
+                            else R.string.signal_badge_key_irk_cd
+                        ),
+                        modifier = Modifier.size(12.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(modifier = Modifier.width(3.dp))
+                }
+                if (isAapConnected) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Bluetooth,
+                        contentDescription = stringResource(R.string.signal_badge_aap_cd),
+                        modifier = Modifier.size(12.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Spacer(modifier = Modifier.width(3.dp))
+                }
+                Icon(
+                    imageVector = Icons.TwoTone.SettingsInputAntenna,
+                    contentDescription = null,
                     modifier = Modifier.size(12.dp),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Spacer(modifier = Modifier.width(3.dp))
-            }
-            if (isAapConnected) {
-                Icon(
-                    imageVector = Icons.TwoTone.Bluetooth,
-                    contentDescription = stringResource(R.string.signal_badge_aap_cd),
-                    modifier = Modifier.size(12.dp),
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                Text(
+                    text = signalText,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-                Spacer(modifier = Modifier.width(3.dp))
             }
-            Icon(
-                imageVector = Icons.TwoTone.SettingsInputAntenna,
-                contentDescription = null,
-                modifier = Modifier.size(12.dp),
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(modifier = Modifier.width(3.dp))
-            Text(
-                text = signalText,
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
         }
     }
 }
