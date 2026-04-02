@@ -9,6 +9,7 @@ import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.ProfileId
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
@@ -36,9 +37,9 @@ class DeviceManagerViewModel @Inject constructor(
         navTo(Nav.Main.DeviceProfileCreation(profileId = profile.id))
     }
 
-    fun onReorder(profiles: List<DeviceProfile>) = launch {
-        log(TAG) { "onReorder(): ${profiles.size} profiles" }
-        deviceProfilesRepo.reorderProfiles(profiles)
+    fun onReorder(profileIds: List<ProfileId>) = launch {
+        log(TAG) { "onReorder(): ${profileIds.size} profiles" }
+        deviceProfilesRepo.reorderProfilesById(profileIds)
     }
 
     companion object {

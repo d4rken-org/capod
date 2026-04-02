@@ -12,11 +12,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
+import androidx.compose.material.icons.twotone.DragHandle
 import androidx.compose.material3.Card
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -27,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,11 +41,15 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.ReorderableAutoScroll
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
+import eu.darken.capod.common.compose.reorderableItemModifier
+import eu.darken.capod.common.compose.rememberReorderableState
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.ProfileId
 
 @Composable
 fun DeviceManagerScreenHost(vm: DeviceManagerViewModel = hiltViewModel()) {
@@ -56,6 +63,7 @@ fun DeviceManagerScreenHost(vm: DeviceManagerViewModel = hiltViewModel()) {
             onBack = { vm.navUp() },
             onAddDevice = { vm.onAddDevice() },
             onEditProfile = { profile -> vm.onEditProfile(profile) },
+            onReorder = { ids -> vm.onReorder(ids) },
         )
     }
 }
@@ -66,7 +74,17 @@ fun DeviceManagerScreen(
     onBack: () -> Unit,
     onAddDevice: () -> Unit,
     onEditProfile: (DeviceProfile) -> Unit,
+    onReorder: (List<ProfileId>) -> Unit = {},
 ) {
+    val lazyListState = rememberLazyListState()
+    val reorderableState = rememberReorderableState(lazyListState, state.profiles) { it.id }
+
+    LaunchedEffect(state.profiles) {
+        reorderableState.syncItems(state.profiles)
+    }
+
+    ReorderableAutoScroll(reorderableState)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -98,18 +116,33 @@ fun DeviceManagerScreen(
                 onAddDevice = onAddDevice,
             )
         } else {
+            val showDragHandles = reorderableState.items.size >= 2
             LazyColumn(
+                state = lazyListState,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding),
             ) {
-                items(
-                    items = state.profiles,
-                    key = { it.id },
-                ) { profile ->
+                itemsIndexed(
+                    items = reorderableState.items,
+                    key = { _, profile -> profile.id },
+                ) { index, profile ->
+                    val isDraggingThis = reorderableState.draggedIndex == index
                     ProfileRow(
+                        modifier = Modifier
+                            .then(if (!isDraggingThis) Modifier.animateItem() else Modifier)
+                            .then(
+                                reorderableItemModifier(
+                                    state = reorderableState,
+                                    index = index,
+                                    item = profile,
+                                    enabled = showDragHandles,
+                                    onReorder = { reordered -> onReorder(reordered.map { it.id }) },
+                                )
+                            ),
                         profile = profile,
-                        onClick = { onEditProfile(profile) },
+                        onClick = { if (!reorderableState.isDragging) onEditProfile(profile) },
+                        showDragHandle = showDragHandles,
                     )
                 }
 
@@ -194,11 +227,13 @@ private fun EmptyState(
 
 @Composable
 private fun ProfileRow(
+    modifier: Modifier = Modifier,
     profile: DeviceProfile,
     onClick: () -> Unit,
+    showDragHandle: Boolean = false,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
             .padding(horizontal = 16.dp, vertical = 12.dp),
@@ -219,6 +254,16 @@ private fun ProfileRow(
                 text = profile.model.label,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        if (showDragHandle) {
+            Icon(
+                imageVector = Icons.TwoTone.DragHandle,
+                contentDescription = stringResource(R.string.profiles_drag_handle_description),
+                modifier = Modifier
+                    .size(48.dp)
+                    .padding(12.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }
