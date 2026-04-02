@@ -70,3 +70,4 @@ fun PodDevice.cachedBatteryFormatted(now: Instant): String {
         )
     }
 }
+
