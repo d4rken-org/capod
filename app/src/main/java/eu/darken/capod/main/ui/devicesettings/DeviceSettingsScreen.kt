@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
@@ -41,6 +40,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -48,15 +48,24 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
+import eu.darken.capod.common.compose.Preview2
+import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
+import eu.darken.capod.common.compose.preview.MOCK_NOW
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsCategoryHeader
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.overview.cards.AncModeSelector
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.firstSeenFormatted
+import eu.darken.capod.monitor.core.lastSeenFormatted
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
+import java.time.Duration
 
 @Composable
 fun DeviceSettingsScreenHost(
@@ -113,11 +122,23 @@ fun DeviceSettingsScreen(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = stringResource(R.string.device_settings_title),
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                    Column {
+                        Text(
+                            text = stringResource(R.string.device_settings_title),
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        val profileName = device?.label
+                        if (profileName != null) {
+                            Text(
+                                text = profileName,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        }
+                    }
                 },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
@@ -134,10 +155,21 @@ fun DeviceSettingsScreen(
             modifier = Modifier.padding(paddingValues),
         ) {
             // Device Info
-            val deviceInfo = device?.deviceInfo
-            if (deviceInfo != null) {
+            if (device != null) {
                 item("device_info") {
-                    DeviceInfoCard(deviceInfo = deviceInfo)
+                    val context = LocalContext.current
+                    val stateDetection = device.ble as? HasStateDetection
+                    val seenFirst = device.seenFirstAt
+                    val seenLast = device.seenLastAt
+                    val firstSeen = if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast).toMinutes() >= 1) {
+                        device.firstSeenFormatted(state.now)
+                    } else null
+                    DeviceInfoCard(
+                        deviceInfo = device.deviceInfo,
+                        connectionStateLabel = stateDetection?.state?.getLabel(context),
+                        lastSeen = device.lastSeenFormatted(state.now),
+                        firstSeen = firstSeen,
+                    )
                 }
             }
 
@@ -322,7 +354,12 @@ fun DeviceSettingsScreen(
 }
 
 @Composable
-private fun DeviceInfoCard(deviceInfo: AapDeviceInfo) {
+private fun DeviceInfoCard(
+    deviceInfo: AapDeviceInfo?,
+    connectionStateLabel: String?,
+    lastSeen: String?,
+    firstSeen: String?,
+) {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -330,22 +367,42 @@ private fun DeviceInfoCard(deviceInfo: AapDeviceInfo) {
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            if (deviceInfo.name.isNotBlank()) {
+            if (deviceInfo != null) {
+                if (deviceInfo.name.isNotBlank()) {
+                    InfoRow(
+                        label = stringResource(R.string.device_settings_info_name_label),
+                        value = deviceInfo.name,
+                    )
+                }
+                if (deviceInfo.serialNumber.isNotBlank()) {
+                    InfoRow(
+                        label = stringResource(R.string.device_settings_info_serial_label),
+                        value = deviceInfo.serialNumber,
+                    )
+                }
+                if (deviceInfo.firmwareVersion.isNotBlank()) {
+                    InfoRow(
+                        label = stringResource(R.string.device_settings_info_firmware_label),
+                        value = deviceInfo.firmwareVersion,
+                    )
+                }
+            }
+            if (connectionStateLabel != null) {
                 InfoRow(
-                    label = stringResource(R.string.device_settings_info_name_label),
-                    value = deviceInfo.name,
+                    label = stringResource(R.string.device_settings_info_status_label),
+                    value = connectionStateLabel,
                 )
             }
-            if (deviceInfo.serialNumber.isNotBlank()) {
+            if (lastSeen != null) {
                 InfoRow(
-                    label = stringResource(R.string.device_settings_info_serial_label),
-                    value = deviceInfo.serialNumber,
+                    label = stringResource(R.string.device_settings_info_last_seen_label),
+                    value = lastSeen,
                 )
             }
-            if (deviceInfo.firmwareVersion.isNotBlank()) {
+            if (firstSeen != null) {
                 InfoRow(
-                    label = stringResource(R.string.device_settings_info_firmware_label),
-                    value = deviceInfo.firmwareVersion,
+                    label = stringResource(R.string.device_settings_info_first_seen_label),
+                    value = firstSeen,
                 )
             }
         }
@@ -354,16 +411,15 @@ private fun DeviceInfoCard(deviceInfo: AapDeviceInfo) {
 
 @Composable
 private fun InfoRow(label: String, value: String) {
-    Row(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 4.dp),
+            .padding(vertical = 2.dp),
     ) {
         Text(
             text = label,
-            style = MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.width(120.dp),
         )
         Text(
             text = value,
@@ -562,4 +618,83 @@ private fun CallControlOption(
             )
         }
     }
+}
+
+@Preview2
+@Composable
+private fun DeviceSettingsFullPreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = DeviceSettingsViewModel.State(
+            device = PodDevice(
+                profileId = "preview",
+                label = "My AirPods Pro",
+                ble = MockPodDataProvider.airPodsProWithKeys(),
+                aap = AapPodState(
+                    connectionState = AapPodState.ConnectionState.READY,
+                    deviceInfo = AapDeviceInfo(
+                        name = "AirPods Pro",
+                        modelNumber = "A2699",
+                        manufacturer = "Apple Inc.",
+                        serialNumber = "W5J7KV0N04",
+                        firmwareVersion = "7A305",
+                    ),
+                    settings = mapOf(
+                        AapSetting.AncMode::class to AapSetting.AncMode(
+                            current = AapSetting.AncMode.Value.ADAPTIVE,
+                            supported = listOf(
+                                AapSetting.AncMode.Value.OFF,
+                                AapSetting.AncMode.Value.ON,
+                                AapSetting.AncMode.Value.TRANSPARENCY,
+                                AapSetting.AncMode.Value.ADAPTIVE,
+                            ),
+                        ),
+                        AapSetting.ConversationalAwareness::class to AapSetting.ConversationalAwareness(enabled = true),
+                        AapSetting.NcWithOneAirPod::class to AapSetting.NcWithOneAirPod(enabled = true),
+                        AapSetting.PersonalizedVolume::class to AapSetting.PersonalizedVolume(enabled = false),
+                        AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 75),
+                        AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 50),
+                        AapSetting.PressSpeed::class to AapSetting.PressSpeed(value = AapSetting.PressSpeed.Value.DEFAULT),
+                        AapSetting.PressHoldDuration::class to AapSetting.PressHoldDuration(value = AapSetting.PressHoldDuration.Value.DEFAULT),
+                        AapSetting.VolumeSwipe::class to AapSetting.VolumeSwipe(enabled = true),
+                        AapSetting.VolumeSwipeLength::class to AapSetting.VolumeSwipeLength(value = AapSetting.VolumeSwipeLength.Value.DEFAULT),
+                        AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(
+                            muteMic = AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
+                            endCall = AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+                        ),
+                    ),
+                ),
+            ),
+            now = MOCK_NOW,
+        ),
+        onNavigateUp = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceSettingsInfoOnlyPreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = DeviceSettingsViewModel.State(
+            device = PodDevice(
+                profileId = "preview-info",
+                label = "My AirPods Pro",
+                ble = MockPodDataProvider.airPodsProMixed(),
+                aap = null,
+            ),
+            now = MOCK_NOW,
+        ),
+        onNavigateUp = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceSettingsCachedOnlyPreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = DeviceSettingsViewModel.State(
+            device = MockPodDataProvider.dualPodCachedOnly(),
+            now = MOCK_NOW,
+        ),
+        onNavigateUp = {},
+    )
 }

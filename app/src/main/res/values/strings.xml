@@ -425,6 +425,9 @@
     <string name="device_settings_info_name_label">Name</string>
     <string name="device_settings_info_serial_label">Serial Number</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_status_label">Status</string>
+    <string name="device_settings_info_last_seen_label">Last Seen</string>
+    <string name="device_settings_info_first_seen_label">First Seen</string>
     <string name="device_settings_category_sound_label">Sound</string>
     <string name="device_settings_category_controls_label">Controls</string>
     <string name="device_settings_nc_one_airpod_label">Noise Cancellation with One AirPod</string>

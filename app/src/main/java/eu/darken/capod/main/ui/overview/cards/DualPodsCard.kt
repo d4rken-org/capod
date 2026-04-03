@@ -47,18 +47,14 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
-import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
-import eu.darken.capod.monitor.core.lastSeenFormatted
-import eu.darken.capod.pods.core.apple.ble.devices.HasPodStyle
-import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods.LidState
-import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.devices.HasPodStyle
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
 import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
-import java.time.Duration
 import java.time.Instant
 
 @Composable
@@ -67,7 +63,6 @@ fun DualPodsCard(
     showDebug: Boolean,
     now: Instant,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
-    onConversationAwarenessChange: ((Boolean) -> Unit)? = null,
     onDeviceSettings: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
@@ -80,9 +75,7 @@ fun DualPodsCard(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
+            modifier = Modifier.padding(16.dp),
         ) {
             // Header
             Row(
@@ -92,10 +85,10 @@ fun DualPodsCard(
                 Image(
                     painter = painterResource(device.iconRes),
                     contentDescription = null,
-                    modifier = Modifier.size(48.dp),
+                    modifier = Modifier.size(44.dp),
                 )
 
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(8.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
@@ -115,21 +108,26 @@ fun DualPodsCard(
                             append(" [${dualApple.primaryPod.name}]")
                         }
                     }
-                    Text(
-                        text = deviceLabel,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = deviceLabel,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        SignalBadge(
+                            signalText = device.getSignalQuality(context),
+                            bleKeyState = device.bleKeyState,
+                            isAapConnected = device.isAapConnected,
+                            isLive = device.isLive,
+                        )
+                    }
                 }
-
-                SignalBadge(
-                    signalText = device.getSignalQuality(context),
-                    bleKeyState = device.bleKeyState,
-                    isAapConnected = device.isAapConnected,
-                    isLive = device.isLive,
-                )
 
                 if (device.address != null && onDeviceSettings != null) {
                     IconButton(onClick = onDeviceSettings) {
@@ -142,31 +140,15 @@ fun DualPodsCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(4.dp))
-
-            // Timestamps
-            Text(
-                text = stringResource(R.string.last_seen_x, device.lastSeenFormatted(now)),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            val seenFirst = device.seenFirstAt
-            val seenLast = device.seenLastAt
-            if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast).toMinutes() >= 1) {
-                Text(
-                    text = stringResource(R.string.first_seen_x, device.firstSeenFormatted(now)),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-
             Spacer(modifier = Modifier.height(16.dp))
 
             // Circular battery gauges side by side
             Surface(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
                 shape = RoundedCornerShape(12.dp),
-                tonalElevation = 1.dp,
+                tonalElevation = 4.dp,
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -201,7 +183,7 @@ fun DualPodsCard(
                     // Case row
                     if (device.hasCase) {
                         HorizontalDivider(
-                            modifier = Modifier.padding(vertical = 12.dp),
+                            modifier = Modifier.padding(vertical = 8.dp),
                             color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
                         )
 
@@ -217,39 +199,19 @@ fun DualPodsCard(
                     text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-
-            // Connection state
-            val stateDetection = device.ble as? HasStateDetection
-            if (stateDetection != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = stateDetection.state.getLabel(context),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.align(Alignment.End),
                 )
             }
 
             // ANC mode selector
             val ancMode = device.ancMode
             if (device.isAapConnected && device.hasAncControl && ancMode != null) {
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 AncModeSelector(
                     currentMode = ancMode.current,
                     supportedModes = ancMode.supported,
                     onModeSelected = { onAncModeChange?.invoke(it) },
                     pendingMode = device.pendingAncMode,
-                )
-            }
-
-            // Conversation awareness toggle
-            val convAwareness = device.conversationalAwareness
-            if (device.isAapConnected && device.model.features.hasConversationAwareness && convAwareness != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-                ConversationAwarenessToggle(
-                    enabled = convAwareness.enabled,
-                    onToggle = { onConversationAwarenessChange?.invoke(it) },
                 )
             }
 
@@ -294,12 +256,12 @@ private fun PodGauge(
         // Ring with icon inside
         Box(
             contentAlignment = Alignment.Center,
-            modifier = Modifier.size(80.dp),
+            modifier = Modifier.size(68.dp),
         ) {
             // Track ring
             CircularProgressIndicator(
                 progress = { 1f },
-                modifier = Modifier.size(80.dp),
+                modifier = Modifier.size(68.dp),
                 color = MaterialTheme.colorScheme.surfaceVariant,
                 strokeWidth = 6.dp,
                 trackColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -310,7 +272,7 @@ private fun PodGauge(
             if (clamped >= 0f) {
                 CircularProgressIndicator(
                     progress = { animatedProgress },
-                    modifier = Modifier.size(80.dp),
+                    modifier = Modifier.size(68.dp),
                     color = ringColor,
                     strokeWidth = 6.dp,
                     trackColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -417,36 +379,31 @@ private fun CaseRow(
 
 @Preview2
 @Composable
-private fun DualPodsCardFullChargePreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.dualPodMonitored(), showDebug = false, now = Instant.now())
+private fun DualPodsCardFullPreview() = PreviewWrapper {
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodMonitoredWithAap(),
+        showDebug = false,
+        now = Instant.now(),
+        onDeviceSettings = {},
+    )
 }
 
 @Preview2
 @Composable
-private fun DualPodsCardMixedBatteryPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.dualPodMonitoredMixed(), showDebug = false, now = Instant.now())
+private fun DualPodsCardMinimalPreview() = PreviewWrapper {
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodMonitored(),
+        showDebug = false,
+        now = Instant.now(),
+    )
 }
 
 @Preview2
 @Composable
-private fun DualPodsCardDebugPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.dualPodMonitoredMixed(), showDebug = true, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardWithKeysPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.dualPodMonitoredWithKeys(), showDebug = false, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardWithAapPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.dualPodMonitoredWithAap(), showDebug = false, now = Instant.now())
-}
-
-@Preview2
-@Composable
-private fun DualPodsCardCachedOnlyPreview() = PreviewWrapper {
-    DualPodsCard(device = MockPodDataProvider.dualPodCachedOnly(), showDebug = false, now = Instant.now())
+private fun DualPodsCardCachedPreview() = PreviewWrapper {
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodCachedOnly(),
+        showDebug = false,
+        now = Instant.now(),
+    )
 }

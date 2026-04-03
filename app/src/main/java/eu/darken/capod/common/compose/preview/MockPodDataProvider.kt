@@ -8,6 +8,7 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
@@ -50,6 +51,7 @@ object MockPodDataProvider {
         leftPodIcon = R.drawable.device_airpods_pro2_left,
         rightPodIcon = R.drawable.device_airpods_pro2_right,
         _caseIcon = R.drawable.device_airpods_pro2_case,
+        _address = "AA:BB:CC:DD:EE:FF",
     )
 
     fun airPodsProMixed(): DualBlePodSnapshot = MockDualBlePodSnapshot(
@@ -127,6 +129,7 @@ object MockPodDataProvider {
         _isHeadsetBeingCharged = true,
         _isIRKMatch = true,
         _hasPrivatePayload = true,
+        _address = "11:22:33:44:55:66",
     )
 
     fun beatsSolo3(): SingleBlePodSnapshot = MockSingleBlePodSnapshot(
@@ -161,6 +164,7 @@ object MockPodDataProvider {
         leftPodIcon = R.drawable.device_airpods_pro2_left,
         rightPodIcon = R.drawable.device_airpods_pro2_right,
         _caseIcon = R.drawable.device_airpods_pro2_case,
+        _address = "AA:BB:CC:DD:EE:FF",
     )
 
     // --- PodDevice wrappers ---
@@ -186,13 +190,44 @@ object MockPodDataProvider {
     fun dualPodMonitoredWithAap(): PodDevice = PodDevice(
         profileId = "preview-dual-aap",
         ble = airPodsProWithKeys(),
-        aap = AapPodState(connectionState = AapPodState.ConnectionState.READY),
+        aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.AncMode::class to AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ADAPTIVE,
+                    supported = listOf(
+                        AapSetting.AncMode.Value.OFF,
+                        AapSetting.AncMode.Value.ON,
+                        AapSetting.AncMode.Value.TRANSPARENCY,
+                        AapSetting.AncMode.Value.ADAPTIVE,
+                    ),
+                ),
+            ),
+        ),
     )
 
     fun singlePodMonitored(): PodDevice = PodDevice(
         profileId = "preview-single",
         ble = airPodsMax(),
         aap = null,
+    )
+
+    fun singlePodMonitoredWithAap(): PodDevice = PodDevice(
+        profileId = "preview-single-aap",
+        ble = airPodsMaxCharging(),
+        aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.AncMode::class to AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ON,
+                    supported = listOf(
+                        AapSetting.AncMode.Value.OFF,
+                        AapSetting.AncMode.Value.ON,
+                        AapSetting.AncMode.Value.TRANSPARENCY,
+                    ),
+                ),
+            ),
+        ),
     )
 
     fun unknownMonitored(): PodDevice = PodDevice(
@@ -269,6 +304,7 @@ private class MockDualBlePodSnapshot(
     override val leftPodIcon: Int = R.drawable.device_airpods_gen1_left,
     override val rightPodIcon: Int = R.drawable.device_airpods_gen1_right,
     private val _caseIcon: Int = R.drawable.device_airpods_gen1_case,
+    private val _address: String? = null,
     rssi: Int = -50,
 ) : DualBlePodSnapshot, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
     override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
@@ -281,7 +317,7 @@ private class MockDualBlePodSnapshot(
     override val signalQuality: Float = 0.75f
     override val iconRes: Int = _model.iconRes
     override val meta: BlePodSnapshot.Meta = object : BlePodSnapshot.Meta {
-        override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model)
+        override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model, address = _address)
     }
 
     override fun getLabel(context: Context): String = _model.label
@@ -376,6 +412,7 @@ private class MockSingleAppleBlePodSnapshot(
     private val _isBeingWorn: Boolean = false,
     private val _isIRKMatch: Boolean = false,
     private val _hasPrivatePayload: Boolean = false,
+    private val _address: String? = null,
     rssi: Int = -50,
 ) : SingleBlePodSnapshot, ApplePods, HasChargeDetection, HasEarDetection {
     override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
@@ -389,7 +426,7 @@ private class MockSingleAppleBlePodSnapshot(
     override val iconRes: Int = _model.iconRes
     override val meta: ApplePods.AppleMeta = ApplePods.AppleMeta(
         isIRKMatch = _isIRKMatch,
-        profile = AppleDeviceProfile(label = _label, model = _model),
+        profile = AppleDeviceProfile(label = _label, model = _model, address = _address),
     )
     override val payload: ProximityPayload = ProximityPayload(
         public = ProximityPayload.Public(UByteArray(9)),
@@ -424,6 +461,7 @@ private class MockDualAppleBlePodSnapshot(
     override val leftPodIcon: Int = R.drawable.device_airpods_gen1_left,
     override val rightPodIcon: Int = R.drawable.device_airpods_gen1_right,
     private val _caseIcon: Int = R.drawable.device_airpods_gen1_case,
+    private val _address: String? = null,
     rssi: Int = -50,
 ) : DualBlePodSnapshot, ApplePods, HasCase, HasChargeDetectionDual, HasEarDetectionDual, HasDualMicrophone {
     override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
@@ -437,7 +475,7 @@ private class MockDualAppleBlePodSnapshot(
     override val iconRes: Int = _model.iconRes
     override val meta: ApplePods.AppleMeta = ApplePods.AppleMeta(
         isIRKMatch = _isIRKMatch,
-        profile = AppleDeviceProfile(label = _label, model = _model),
+        profile = AppleDeviceProfile(label = _label, model = _model, address = _address),
     )
     override val payload: ProximityPayload = ProximityPayload(
         public = ProximityPayload.Public(UByteArray(9)),
