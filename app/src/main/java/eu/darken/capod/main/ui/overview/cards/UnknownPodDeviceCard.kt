@@ -26,15 +26,12 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.getSignalQuality
-import eu.darken.capod.monitor.core.lastSeenFormatted
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
-import java.time.Instant
 
 @Composable
 fun UnknownPodDeviceCard(
     device: PodDevice,
     showDebug: Boolean,
-    now: Instant,
 ) {
     val context = LocalContext.current
 
@@ -71,14 +68,6 @@ fun UnknownPodDeviceCard(
                 )
             }
 
-            Spacer(modifier = Modifier.height(4.dp))
-
-            Text(
-                text = stringResource(R.string.last_seen_x, device.lastSeenFormatted(now)),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
@@ -111,11 +100,11 @@ fun UnknownPodDeviceCard(
 @Preview2
 @Composable
 private fun UnknownPodDeviceCardPreview() = PreviewWrapper {
-    UnknownPodDeviceCard(device = MockPodDataProvider.unknownMonitored(), showDebug = false, now = Instant.now())
+    UnknownPodDeviceCard(device = MockPodDataProvider.unknownMonitored(), showDebug = false)
 }
 
 @Preview2
 @Composable
 private fun UnknownPodDeviceCardDebugPreview() = PreviewWrapper {
-    UnknownPodDeviceCard(device = MockPodDataProvider.unknownMonitored(), showDebug = true, now = Instant.now())
+    UnknownPodDeviceCard(device = MockPodDataProvider.unknownMonitored(), showDebug = true)
 }

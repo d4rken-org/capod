@@ -47,12 +47,9 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
-import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.getSignalQuality
-import eu.darken.capod.monitor.core.lastSeenFormatted
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
-import java.time.Duration
 import java.time.Instant
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -88,9 +85,7 @@ fun SinglePodsCard(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(
-            modifier = Modifier
-                .padding(16.dp)
-                .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
+            modifier = Modifier.padding(16.dp),
         ) {
             // Header
             Row(
@@ -100,10 +95,10 @@ fun SinglePodsCard(
                 Image(
                     painter = painterResource(device.iconRes),
                     contentDescription = null,
-                    modifier = Modifier.size(48.dp),
+                    modifier = Modifier.size(44.dp),
                 )
 
-                Spacer(modifier = Modifier.width(12.dp))
+                Spacer(modifier = Modifier.width(8.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
@@ -112,21 +107,26 @@ fun SinglePodsCard(
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                     )
-                    Text(
-                        text = device.getLabel(context),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = device.getLabel(context),
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        SignalBadge(
+                            signalText = device.getSignalQuality(context),
+                            bleKeyState = device.bleKeyState,
+                            isAapConnected = device.isAapConnected,
+                            isLive = device.isLive,
+                        )
+                    }
                 }
-
-                SignalBadge(
-                    signalText = device.getSignalQuality(context),
-                    bleKeyState = device.bleKeyState,
-                    isAapConnected = device.isAapConnected,
-                    isLive = device.isLive,
-                )
 
                 if (device.address != null && onDeviceSettings != null) {
                     IconButton(onClick = onDeviceSettings) {
@@ -139,31 +139,15 @@ fun SinglePodsCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(4.dp))
-
-            // Timestamps
-            Text(
-                text = stringResource(R.string.last_seen_x, device.lastSeenFormatted(now)),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            val seenFirst = device.seenFirstAt
-            val seenLast = device.seenLastAt
-            if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast).toMinutes() >= 1) {
-                Text(
-                    text = stringResource(R.string.first_seen_x, device.firstSeenFormatted(now)),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
             // Central gauge
             Surface(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
                 shape = RoundedCornerShape(12.dp),
-                tonalElevation = 1.dp,
+                tonalElevation = 4.dp,
             ) {
                 Column(
                     modifier = Modifier
@@ -173,12 +157,12 @@ fun SinglePodsCard(
                 ) {
                     Box(
                         contentAlignment = Alignment.Center,
-                        modifier = Modifier.size(100.dp),
+                        modifier = Modifier.size(88.dp),
                     ) {
                         // Track ring
                         CircularProgressIndicator(
                             progress = { 1f },
-                            modifier = Modifier.size(100.dp),
+                            modifier = Modifier.size(88.dp),
                             color = MaterialTheme.colorScheme.surfaceVariant,
                             strokeWidth = 8.dp,
                             trackColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -189,7 +173,7 @@ fun SinglePodsCard(
                         if (clamped != null) {
                             CircularProgressIndicator(
                                 progress = { animatedProgress },
-                                modifier = Modifier.size(100.dp),
+                                modifier = Modifier.size(88.dp),
                                 color = ringColor,
                                 strokeWidth = 8.dp,
                                 trackColor = MaterialTheme.colorScheme.surfaceVariant,
@@ -200,7 +184,7 @@ fun SinglePodsCard(
                         // Battery text inside ring
                         Text(
                             text = formatBatteryPercent(context, device.batteryHeadset),
-                            style = MaterialTheme.typography.headlineMedium,
+                            style = MaterialTheme.typography.headlineSmall,
                             color = if (device.batteryHeadset != null) {
                                 MaterialTheme.colorScheme.onSurface
                             } else {
@@ -240,6 +224,7 @@ fun SinglePodsCard(
                     text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.align(Alignment.End),
                 )
             }
 
@@ -265,18 +250,31 @@ fun SinglePodsCard(
 
 @Preview2
 @Composable
-private fun SinglePodsCardPreview() = PreviewWrapper {
-    SinglePodsCard(device = MockPodDataProvider.singlePodMonitored(), showDebug = false, now = Instant.now())
+private fun SinglePodsCardFullPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodMonitoredWithAap(),
+        showDebug = false,
+        now = Instant.now(),
+        onDeviceSettings = {},
+    )
 }
 
 @Preview2
 @Composable
-private fun SinglePodsCardDebugPreview() = PreviewWrapper {
-    SinglePodsCard(device = MockPodDataProvider.singlePodMonitored(), showDebug = true, now = Instant.now())
+private fun SinglePodsCardMinimalPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodMonitored(),
+        showDebug = false,
+        now = Instant.now(),
+    )
 }
 
 @Preview2
 @Composable
-private fun SinglePodsCardCachedOnlyPreview() = PreviewWrapper {
-    SinglePodsCard(device = MockPodDataProvider.singlePodCachedOnly(), showDebug = false, now = Instant.now())
+private fun SinglePodsCardCachedPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodCachedOnly(),
+        showDebug = false,
+        now = Instant.now(),
+    )
 }

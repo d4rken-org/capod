@@ -182,18 +182,6 @@ class OverviewViewModel @Inject constructor(
         }
     }
 
-    fun setConversationalAwareness(device: PodDevice, enabled: Boolean) {
-        val address = device.address ?: return
-        launch {
-            try {
-                aapManager.sendCommand(address, AapCommand.SetConversationalAwareness(enabled))
-                log(TAG) { "Conversation awareness set to $enabled for $address" }
-            } catch (e: Exception) {
-                log(TAG) { "Failed to set conversation awareness: ${e.message}" }
-            }
-        }
-    }
-
     companion object {
         private const val FREE_DEVICE_LIMIT = 1
         private val TAG = logTag("Overview", "VM")

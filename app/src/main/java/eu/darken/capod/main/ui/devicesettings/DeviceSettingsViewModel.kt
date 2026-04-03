@@ -11,10 +11,14 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.isActive
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,15 +37,26 @@ class DeviceSettingsViewModel @Inject constructor(
         targetAddress.value = address
     }
 
+    private val updateTicker = channelFlow<Unit> {
+        while (isActive) {
+            trySend(Unit)
+            delay(3000)
+        }
+    }
+
     val state = targetAddress.flatMapLatest { address ->
         if (address == null) return@flatMapLatest flowOf(State(device = null))
-        deviceMonitor.devices.map { devices ->
-            State(device = devices.firstOrNull { it.address == address })
+        combine(updateTicker, deviceMonitor.devices) { _, devices ->
+            State(
+                device = devices.firstOrNull { it.address == address },
+                now = Instant.now(),
+            )
         }
     }.asLiveState()
 
     data class State(
         val device: PodDevice?,
+        val now: Instant = Instant.now(),
     )
 
     private fun send(command: AapCommand) {

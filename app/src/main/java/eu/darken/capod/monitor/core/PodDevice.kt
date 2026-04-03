@@ -197,13 +197,19 @@ data class PodDevice(
     val iconRes: Int get() = ble?.iconRes ?: model.iconRes
 
     val leftPodIcon: Int
-        get() = (ble as? DualBlePodSnapshot)?.leftPodIcon ?: R.drawable.device_airpods_gen1_left
+        get() = (ble as? DualBlePodSnapshot)?.leftPodIcon
+            ?: model.leftPodIconRes
+            ?: R.drawable.device_airpods_gen1_left
 
     val rightPodIcon: Int
-        get() = (ble as? DualBlePodSnapshot)?.rightPodIcon ?: R.drawable.device_airpods_gen1_right
+        get() = (ble as? DualBlePodSnapshot)?.rightPodIcon
+            ?: model.rightPodIconRes
+            ?: R.drawable.device_airpods_gen1_right
 
     val caseIcon: Int
-        get() = (ble as? HasCase)?.caseIcon ?: R.drawable.device_airpods_gen1_case
+        get() = (ble as? HasCase)?.caseIcon
+            ?: model.caseIconRes
+            ?: R.drawable.device_airpods_gen1_case
 
     fun getLabel(context: Context): String = ble?.getLabel(context) ?: model.label
 

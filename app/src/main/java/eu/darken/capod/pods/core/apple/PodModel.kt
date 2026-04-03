@@ -11,6 +11,9 @@ enum class PodModel(
     @DrawableRes val iconRes: Int = R.drawable.device_earbuds_generic_both,
     val features: Features = Features(),
     val modelNumbers: Set<String> = emptySet(),
+    @DrawableRes val leftPodIconRes: Int? = null,
+    @DrawableRes val rightPodIconRes: Int? = null,
+    @DrawableRes val caseIconRes: Int? = null,
 ) {
     @SerialName("airpods.gen1")
     AIRPODS_GEN1(
@@ -21,6 +24,9 @@ enum class PodModel(
             hasCase = true,
         ),
         modelNumbers = setOf("A1523", "A1722"), // L/R earphones
+        leftPodIconRes = R.drawable.device_airpods_gen1_left,
+        rightPodIconRes = R.drawable.device_airpods_gen1_right,
+        caseIconRes = R.drawable.device_airpods_gen1_case,
     ),
 
     @SerialName("airpods.gen2")
@@ -32,6 +38,9 @@ enum class PodModel(
             hasCase = true,
         ),
         modelNumbers = setOf("A2031", "A2032"), // L/R earphones
+        leftPodIconRes = R.drawable.device_airpods_gen1_left,
+        rightPodIconRes = R.drawable.device_airpods_gen1_right,
+        caseIconRes = R.drawable.device_airpods_gen1_case,
     ),
 
     @SerialName("airpods.gen3")
@@ -43,6 +52,9 @@ enum class PodModel(
             hasCase = true,
         ),
         modelNumbers = setOf("A2564", "A2565"), // L/R earphones
+        leftPodIconRes = R.drawable.device_airpods_gen3_left,
+        rightPodIconRes = R.drawable.device_airpods_gen3_right,
+        caseIconRes = R.drawable.device_airpods_gen3_case,
     ),
 
     @SerialName("airpods.gen4")
@@ -55,6 +67,9 @@ enum class PodModel(
             hasEarDetection = true,
         ),
         modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
+        leftPodIconRes = R.drawable.device_airpods_gen3_left,
+        rightPodIconRes = R.drawable.device_airpods_gen3_right,
+        caseIconRes = R.drawable.device_airpods_gen3_case,
     ),
 
     @SerialName("airpods.gen4.anc")
@@ -78,6 +93,9 @@ enum class PodModel(
             needsInitExt = true,
         ),
         modelNumbers = setOf("A3055", "A3056", "A3057"), // earphones
+        leftPodIconRes = R.drawable.device_airpods_gen4anc_left,
+        rightPodIconRes = R.drawable.device_airpods_gen4anc_right,
+        caseIconRes = R.drawable.device_airpods_gen4anc_case,
     ),
 
     @SerialName("airpods.pro")
@@ -96,6 +114,9 @@ enum class PodModel(
             hasEndCallMuteMic = true,
         ),
         modelNumbers = setOf("A2083", "A2084"), // L/R earphones
+        leftPodIconRes = R.drawable.device_airpods_pro2_left,
+        rightPodIconRes = R.drawable.device_airpods_pro2_right,
+        caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
     @SerialName("airpods.pro2")
@@ -121,6 +142,9 @@ enum class PodModel(
             needsInitExt = true,
         ),
         modelNumbers = setOf("A2698", "A2699", "A2931"), // earphones
+        leftPodIconRes = R.drawable.device_airpods_pro2_left,
+        rightPodIconRes = R.drawable.device_airpods_pro2_right,
+        caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
     @SerialName("airpods.pro2.usbc")
@@ -146,6 +170,9 @@ enum class PodModel(
             needsInitExt = true,
         ),
         modelNumbers = setOf("A3047", "A3048", "A3049"), // earphones
+        leftPodIconRes = R.drawable.device_airpods_pro2_left,
+        rightPodIconRes = R.drawable.device_airpods_pro2_right,
+        caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
     @SerialName("airpods.pro3")
@@ -171,6 +198,9 @@ enum class PodModel(
             needsInitExt = true,
         ),
         modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
+        leftPodIconRes = R.drawable.device_airpods_pro2_left,
+        rightPodIconRes = R.drawable.device_airpods_pro2_right,
+        caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
     @SerialName("airpods.max")
@@ -318,6 +348,9 @@ enum class PodModel(
             hasEarDetection = true,
         ),
         modelNumbers = setOf("A2047", "A2048", "A2453", "A2454"), // L/R earbuds, 2019 + 2020 revisions
+        leftPodIconRes = R.drawable.device_powerbeats_pro_left,
+        rightPodIconRes = R.drawable.device_powerbeats_pro_right,
+        caseIconRes = R.drawable.device_powerbeats_pro_case,
     ),
 
     @SerialName("beats.powerbeats.pro2")
@@ -331,6 +364,9 @@ enum class PodModel(
             hasAncControl = true,
         ),
         modelNumbers = setOf("A3157", "A3158", "A3159"), // L/R earbuds + case
+        leftPodIconRes = R.drawable.device_powerbeats_pro2_left,
+        rightPodIconRes = R.drawable.device_powerbeats_pro2_right,
+        caseIconRes = R.drawable.device_powerbeats_pro2_case,
     ),
 
     @SerialName("beats.fit.pro")
@@ -344,6 +380,9 @@ enum class PodModel(
             hasAncControl = true,
         ),
         modelNumbers = setOf("A2576", "A2577", "A2578"), // L/R earbuds + case
+        leftPodIconRes = R.drawable.device_beats_fitpro_left,
+        rightPodIconRes = R.drawable.device_beats_fitpro_right,
+        caseIconRes = R.drawable.device_beats_fitpro_case,
     ),
 
     @SerialName("fakes.tws.i99999")
@@ -354,6 +393,9 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        leftPodIconRes = R.drawable.device_airpods_gen1_left,
+        rightPodIconRes = R.drawable.device_airpods_gen1_right,
+        caseIconRes = R.drawable.device_airpods_gen1_case,
     ),
 
     @SerialName("fakes.generic.airpods.gen2")
@@ -364,6 +406,9 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        leftPodIconRes = R.drawable.device_airpods_gen1_left,
+        rightPodIconRes = R.drawable.device_airpods_gen1_right,
+        caseIconRes = R.drawable.device_airpods_gen1_case,
     ),
 
     @SerialName("fakes.generic.airpods.gen3")
@@ -374,6 +419,9 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
         ),
+        leftPodIconRes = R.drawable.device_airpods_gen3_left,
+        rightPodIconRes = R.drawable.device_airpods_gen3_right,
+        caseIconRes = R.drawable.device_airpods_gen3_case,
     ),
 
     @SerialName("fakes.varunr.airpodspro")
@@ -386,6 +434,9 @@ enum class PodModel(
             hasEarDetection = true,
             hasAncControl = true,
         ),
+        leftPodIconRes = R.drawable.device_airpods_pro2_left,
+        rightPodIconRes = R.drawable.device_airpods_pro2_right,
+        caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
     @SerialName("fakes.generic.airpods.pro2")
@@ -398,6 +449,9 @@ enum class PodModel(
             hasEarDetection = true,
             hasAncControl = true,
         ),
+        leftPodIconRes = R.drawable.device_airpods_pro2_left,
+        rightPodIconRes = R.drawable.device_airpods_pro2_right,
+        caseIconRes = R.drawable.device_airpods_pro2_case,
     ),
 
     @SerialName("unknown")
