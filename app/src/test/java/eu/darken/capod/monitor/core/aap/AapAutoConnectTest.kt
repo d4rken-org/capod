@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core.aap
+package eu.darken.capod.monitor.core.aap
 
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
