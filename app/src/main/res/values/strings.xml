@@ -464,4 +464,53 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double press to end call</string>
     <string name="device_settings_open_cd">Open device settings</string>
 
+    <!-- New device settings -->
+    <string name="device_settings_category_additional_label">Additional</string>
+    <string name="device_settings_microphone_mode_label">Microphone</string>
+    <string name="device_settings_microphone_mode_description">Which AirPod is used as the microphone</string>
+    <string name="device_settings_microphone_mode_auto">Auto</string>
+    <string name="device_settings_microphone_mode_right">Right</string>
+    <string name="device_settings_microphone_mode_left">Left</string>
+    <string name="device_settings_ear_detection_label">Automatic Ear Detection</string>
+    <string name="device_settings_ear_detection_description">Pause audio when AirPods are removed from ears</string>
+    <string name="device_settings_listening_mode_cycle_label">Noise Control Cycle</string>
+    <string name="device_settings_listening_mode_cycle_description">Select which modes cycle when pressing and holding the stem</string>
+    <string name="device_settings_listening_mode_cycle_off">Off</string>
+    <string name="device_settings_listening_mode_cycle_anc">Noise Cancellation</string>
+    <string name="device_settings_listening_mode_cycle_transparency">Transparency</string>
+    <string name="device_settings_listening_mode_cycle_adaptive">Adaptive</string>
+    <string name="device_settings_allow_off_label">Include Off in Noise Control</string>
+    <string name="device_settings_allow_off_description">Show Off as an option when cycling noise control modes</string>
+    <string name="device_settings_sleep_detection_label">Sleep Detection</string>
+    <string name="device_settings_sleep_detection_description">Automatically pause audio when you fall asleep</string>
+    <string name="device_settings_in_case_tone_label">Charging Sounds</string>
+    <string name="device_settings_in_case_tone_description">Play a sound when connected to a charger</string>
+    <string name="device_settings_rename_label">Rename</string>
+    <string name="device_settings_rename_hint">Device name</string>
+    <string name="device_settings_rename_confirm">Rename</string>
+    <string name="device_settings_category_connections_label">Connected Devices</string>
+    <string name="device_settings_connected_devices_description">Other devices currently connected to these AirPods</string>
+    <string name="device_settings_connected_device_label">Device %d</string>
+    <string name="device_settings_connected_device_call">In a call</string>
+    <string name="device_settings_connected_device_media">Playing media</string>
+
+    <string name="device_settings_eq_label">Equalizer</string>
+
+    <!-- Stem Actions -->
+    <string name="stem_actions_title">Stem Actions</string>
+    <string name="stem_actions_nav_description">Map stem presses to Android actions</string>
+    <string name="stem_actions_description">Choose what happens when you press the stem on each AirPod. When an action is assigned, the app intercepts the press instead of the AirPods handling it natively.</string>
+    <string name="stem_actions_single_press">Single Press</string>
+    <string name="stem_actions_double_press">Double Press</string>
+    <string name="stem_actions_triple_press">Triple Press</string>
+    <string name="stem_actions_long_press">Long Press</string>
+    <string name="stem_actions_left">Left</string>
+    <string name="stem_actions_right">Right</string>
+    <string name="stem_action_none">None</string>
+    <string name="stem_action_play_pause">Play/Pause</string>
+    <string name="stem_action_next_track">Next Track</string>
+    <string name="stem_action_previous_track">Previous Track</string>
+    <string name="stem_action_volume_up">Volume Up</string>
+    <string name="stem_action_volume_down">Volume Down</string>
+
 </resources>

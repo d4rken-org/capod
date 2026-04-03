@@ -113,6 +113,7 @@ class AirPodsPro2UsbcAapSessionTest : BaseAapSessionTest() {
             val anc = decodeSetting<AapSetting.AncMode>("04 00 04 00 09 00 0D 02 00 00 00")
             anc.current shouldBe AapSetting.AncMode.Value.ON
             anc.supported shouldContainExactly listOf(
+                AapSetting.AncMode.Value.OFF,
                 AapSetting.AncMode.Value.ON,
                 AapSetting.AncMode.Value.TRANSPARENCY,
                 AapSetting.AncMode.Value.ADAPTIVE
@@ -242,7 +243,7 @@ class AirPodsPro2UsbcAapSessionTest : BaseAapSessionTest() {
 
         @Test
         fun `unknown settings IDs return null`() {
-            val unknownIds = listOf(0x29, 0x2C, 0x2F, 0x33, 0x35, 0x3E)
+            val unknownIds = listOf(0x29, 0x2C, 0x2F, 0x33, 0x3E)
             for (id in unknownIds) {
                 profile.decodeSetting(settingsMessage(id, 0x02)).shouldBeNull()
             }

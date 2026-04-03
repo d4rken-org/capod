@@ -8,6 +8,9 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.common.navigation.Nav
+import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
@@ -26,6 +29,7 @@ class DeviceSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val deviceMonitor: DeviceMonitor,
     private val aapManager: AapConnectionManager,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel4(dispatcherProvider) {
 
     private val targetAddress = MutableStateFlow<BluetoothAddress?>(null)
@@ -46,10 +50,11 @@ class DeviceSettingsViewModel @Inject constructor(
 
     val state = targetAddress.flatMapLatest { address ->
         if (address == null) return@flatMapLatest flowOf(State(device = null))
-        combine(updateTicker, deviceMonitor.devices) { _, devices ->
+        combine(updateTicker, deviceMonitor.devices, upgradeRepo.upgradeInfo) { _, devices, upgrade ->
             State(
                 device = devices.firstOrNull { it.address == address },
                 now = Instant.now(),
+                isPro = upgrade.isPro,
             )
         }
     }.asLiveState()
@@ -57,6 +62,7 @@ class DeviceSettingsViewModel @Inject constructor(
     data class State(
         val device: PodDevice?,
         val now: Instant = Instant.now(),
+        val isPro: Boolean = false,
     )
 
     private fun send(command: AapCommand) {
@@ -68,6 +74,20 @@ class DeviceSettingsViewModel @Inject constructor(
             } catch (e: Exception) {
                 log(TAG) { "Failed to send $command: ${e.message}" }
             }
+        }
+    }
+
+    private fun sendProGated(command: AapCommand) = launch {
+        if (upgradeRepo.isPro()) {
+            val address = targetAddress.value ?: return@launch
+            try {
+                aapManager.sendCommand(address, command)
+                log(TAG) { "Sent $command to $address" }
+            } catch (e: Exception) {
+                log(TAG) { "Failed to send $command: ${e.message}" }
+            }
+        } else {
+            navTo(Nav.Main.Upgrade)
         }
     }
 
@@ -95,6 +115,28 @@ class DeviceSettingsViewModel @Inject constructor(
         muteMic: AapSetting.EndCallMuteMic.MuteMicMode,
         endCall: AapSetting.EndCallMuteMic.EndCallMode,
     ) = send(AapCommand.SetEndCallMuteMic(muteMic, endCall))
+
+    fun setMicrophoneMode(mode: AapSetting.MicrophoneMode.Mode) = send(AapCommand.SetMicrophoneMode(mode))
+
+    fun setEarDetectionEnabled(enabled: Boolean) = send(AapCommand.SetEarDetectionEnabled(enabled))
+
+    fun setListeningModeCycle(modeMask: Int) = sendProGated(AapCommand.SetListeningModeCycle(modeMask))
+
+    fun setAllowOffOption(enabled: Boolean) = sendProGated(AapCommand.SetAllowOffOption(enabled))
+
+    fun setSleepDetection(enabled: Boolean) = sendProGated(AapCommand.SetSleepDetection(enabled))
+
+    fun setInCaseTone(enabled: Boolean) = sendProGated(AapCommand.SetInCaseTone(enabled))
+
+    fun setDeviceName(name: String) = send(AapCommand.SetDeviceName(name))
+
+    fun navToStemConfig() = launch {
+        if (upgradeRepo.isPro()) {
+            navTo(Nav.Main.StemActionConfig)
+        } else {
+            navTo(Nav.Main.Upgrade)
+        }
+    }
 
     companion object {
         private val TAG = logTag("DeviceSettings", "VM")

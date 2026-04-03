@@ -24,12 +24,16 @@ class AapLifecycleManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val aapAutoConnect: AapAutoConnect,
     private val aapKeyPersister: AapKeyPersister,
+    private val stemConfigSender: StemConfigSender,
+    private val stemPressReaction: StemPressReaction,
 ) {
     fun start() {
         log(TAG) { "start()" }
         merge(
             aapAutoConnect.monitor(),
             aapKeyPersister.monitor(),
+            stemConfigSender.monitor(),
+            stemPressReaction.monitor(),
         )
             .catch { e -> log(TAG, WARN) { "AAP lifecycle error: ${e.asLog()}" } }
             .setupCommonEventHandlers(TAG) { "aapActive" }

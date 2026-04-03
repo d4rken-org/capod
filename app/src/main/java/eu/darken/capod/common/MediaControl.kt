@@ -45,7 +45,7 @@ class MediaControl @Inject constructor(
         }
     }
 
-    private suspend fun sendKey(keyCode: Int) {
+    internal suspend fun sendKey(keyCode: Int) {
         log(TAG) { "Sending up+down KeyEvent: $keyCode" }
         val eventTime = SystemClock.uptimeMillis()
         audioManager.dispatchMediaKeyEvent(KeyEvent(eventTime, eventTime, KeyEvent.ACTION_DOWN, keyCode, 0))

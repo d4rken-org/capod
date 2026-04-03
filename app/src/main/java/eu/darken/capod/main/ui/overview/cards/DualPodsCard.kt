@@ -207,9 +207,20 @@ fun DualPodsCard(
             val ancMode = device.ancMode
             if (device.isAapConnected && device.hasAncControl && ancMode != null) {
                 Spacer(modifier = Modifier.height(8.dp))
+                val cycleMask = (device.listeningModeCycle?.modeMask ?: 0x0E)
+                val cycleBits = mapOf(
+                    AapSetting.AncMode.Value.OFF to 0x01,
+                    AapSetting.AncMode.Value.ON to 0x02,
+                    AapSetting.AncMode.Value.TRANSPARENCY to 0x04,
+                    AapSetting.AncMode.Value.ADAPTIVE to 0x08,
+                )
+                val visibleModes = ancMode.supported.filter { mode ->
+                    val bit = cycleBits[mode] ?: return@filter true
+                    (cycleMask and bit) != 0
+                }
                 AncModeSelector(
                     currentMode = ancMode.current,
-                    supportedModes = ancMode.supported,
+                    supportedModes = visibleModes,
                     onModeSelected = { onAncModeChange?.invoke(it) },
                     pendingMode = device.pendingAncMode,
                 )

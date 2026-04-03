@@ -15,6 +15,8 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
+import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
+import kotlinx.coroutines.channels.BufferOverflow
 import java.time.Instant
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -44,15 +46,15 @@ internal class AapConnection(
     private val socketFactory: L2capSocketFactory,
     private val psm: Int = 0x1001,
 ) {
-    companion object {
-        private val TAG = logTag("AapConnection")
-    }
 
     private val _state = MutableStateFlow(AapPodState())
     val state: StateFlow<AapPodState> = _state.asStateFlow()
 
     private val _keysReceived = MutableSharedFlow<KeyExchangeResult>(extraBufferCapacity = 1)
     val keysReceived: SharedFlow<KeyExchangeResult> = _keysReceived.asSharedFlow()
+
+    private val _stemPressEvents = MutableSharedFlow<StemPressEvent>(extraBufferCapacity = 8, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    val stemPressEvents: SharedFlow<StemPressEvent> = _stemPressEvents.asSharedFlow()
 
     private var socket: BluetoothSocket? = null
     private var readerJob: Job? = null
@@ -218,6 +220,28 @@ internal class AapConnection(
                 baseState.setting<AapSetting.EndCallMuteMic>() ?: return
                 AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(muteMic = command.muteMic, endCall = command.endCall)
             }
+            is AapCommand.SetMicrophoneMode -> {
+                AapSetting.MicrophoneMode::class to AapSetting.MicrophoneMode(mode = command.mode)
+            }
+            is AapCommand.SetEarDetectionEnabled -> {
+                AapSetting.EarDetectionEnabled::class to AapSetting.EarDetectionEnabled(enabled = command.enabled)
+            }
+            is AapCommand.SetListeningModeCycle -> {
+                AapSetting.ListeningModeCycle::class to AapSetting.ListeningModeCycle(modeMask = command.modeMask)
+            }
+            is AapCommand.SetAllowOffOption -> {
+                AapSetting.AllowOffOption::class to AapSetting.AllowOffOption(enabled = command.enabled)
+            }
+            is AapCommand.SetStemConfig -> {
+                AapSetting.StemConfig::class to AapSetting.StemConfig(claimedPressMask = command.claimedPressMask)
+            }
+            is AapCommand.SetSleepDetection -> {
+                AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled = command.enabled)
+            }
+            is AapCommand.SetInCaseTone -> {
+                AapSetting.InCaseTone::class to AapSetting.InCaseTone(enabled = command.enabled)
+            }
+            is AapCommand.SetDeviceName -> return // No optimistic state — name comes from deviceInfo
         }
         _state.value = baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = Instant.now())
     }
@@ -282,9 +306,22 @@ internal class AapConnection(
         val hex = message.raw.joinToString(" ") { "%02X".format(it) }
         log(TAG, VERBOSE) { "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex" }
 
+        // Try stem press event (transient — emitted via SharedFlow, not stored in state)
+        profile.decodeStemPress(message)?.let { event ->
+            _stemPressEvents.tryEmit(event)
+            log(TAG) { "Stem press: ${event.pressType} ${event.bud}" }
+            return
+        }
+
         // Try battery
         profile.decodeBattery(message)?.let { batteries ->
-            _state.value = _state.value.copy(batteries = batteries, lastMessageAt = Instant.now())
+            // Filter DISCONNECTED entries (e.g. case reports 0% DISCONNECTED when pods are removed).
+            // Merge with existing state so previously-known values are preserved for absent slots.
+            val valid = batteries.filterValues { it.charging != AapPodState.ChargingState.DISCONNECTED }
+            _state.value = _state.value.copy(
+                batteries = _state.value.batteries + valid,
+                lastMessageAt = Instant.now(),
+            )
             log(TAG) { "Battery update: ${batteries.entries.map { "${it.key}=${(it.value.percent * 100).toInt()}% ${it.value.charging}" }}" }
             return
         }
@@ -385,5 +422,9 @@ internal class AapConnection(
         } catch (_: Exception) {
         }
         socket = null
+    }
+
+    companion object {
+        private val TAG = logTag("AapConnection")
     }
 }

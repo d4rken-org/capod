@@ -37,6 +37,20 @@ class DefaultAapDeviceProfile(
         const val SETTING_PERSONALIZED_VOLUME = 0x26
         const val SETTING_CONVERSATIONAL_AWARENESS = 0x28
         const val SETTING_ADAPTIVE_AUDIO_NOISE = 0x2E
+        const val SETTING_MICROPHONE_MODE = 0x01
+        const val SETTING_EAR_DETECTION_ENABLED = 0x0A
+        const val SETTING_LISTENING_MODE_CYCLE = 0x1A
+        const val SETTING_IN_CASE_TONE = 0x31
+        const val SETTING_ALLOW_OFF_OPTION = 0x34
+        const val SETTING_SLEEP_DETECTION = 0x35
+        const val SETTING_STEM_CONFIG = 0x39
+
+        // Command types for non-settings messages
+        const val CMD_RENAME = 0x001E
+        const val CMD_STEM_PRESS = 0x0019
+        const val CMD_CONNECTED_DEVICES = 0x002E
+        const val CMD_AUDIO_SOURCE = 0x000E
+        const val CMD_EQ_DATA = 0x0053
 
         // ANC mode wire values
         const val ANC_WIRE_OFF = 0x01
@@ -49,8 +63,8 @@ class DefaultAapDeviceProfile(
         val features = model.features
         when {
             !features.hasAncControl -> emptyList()
-            features.hasAdaptiveAnc -> listOf(AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY, AapSetting.AncMode.Value.ADAPTIVE)
-            else -> listOf(AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY)
+            features.hasAdaptiveAnc -> listOf(AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY, AapSetting.AncMode.Value.ADAPTIVE)
+            else -> listOf(AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY)
         }
     }
 
@@ -84,6 +98,14 @@ class DefaultAapDeviceProfile(
         is AapCommand.SetPersonalizedVolume -> buildSettingsMessage(SETTING_PERSONALIZED_VOLUME, encodeAppleBool(command.enabled))
         is AapCommand.SetAdaptiveAudioNoise -> buildSettingsMessage(SETTING_ADAPTIVE_AUDIO_NOISE, command.level.coerceIn(0, 100))
         is AapCommand.SetEndCallMuteMic -> buildEndCallMuteMicMessage(command.muteMic, command.endCall)
+        is AapCommand.SetMicrophoneMode -> buildSettingsMessage(SETTING_MICROPHONE_MODE, command.mode.wireValue)
+        is AapCommand.SetEarDetectionEnabled -> buildSettingsMessage(SETTING_EAR_DETECTION_ENABLED, encodeAppleBool(command.enabled))
+        is AapCommand.SetListeningModeCycle -> buildSettingsMessage(SETTING_LISTENING_MODE_CYCLE, command.modeMask and 0x0F)
+        is AapCommand.SetAllowOffOption -> buildSettingsMessage(SETTING_ALLOW_OFF_OPTION, encodeAppleBool(command.enabled))
+        is AapCommand.SetStemConfig -> buildSettingsMessage(SETTING_STEM_CONFIG, command.claimedPressMask and 0x0F)
+        is AapCommand.SetSleepDetection -> buildSettingsMessage(SETTING_SLEEP_DETECTION, encodeAppleBool(command.enabled))
+        is AapCommand.SetInCaseTone -> buildSettingsMessage(SETTING_IN_CASE_TONE, encodeAppleBool(command.enabled))
+        is AapCommand.SetDeviceName -> buildRenameMessage(command.name)
     }
 
     override fun decodeSetting(message: AapMessage): Pair<KClass<out AapSetting>, AapSetting>? {
@@ -111,6 +133,55 @@ class DefaultAapDeviceProfile(
                 primaryPod = decodePodPlacement(message.payload[0].toInt() and 0xFF),
                 secondaryPod = decodePodPlacement(message.payload[1].toInt() and 0xFF),
             )
+        }
+
+        // Connected devices list (push-only from device)
+        if (message.commandType == CMD_CONNECTED_DEVICES) {
+            if (message.payload.size < 3) return null
+            val count = message.payload[2].toInt() and 0xFF
+            val devices = mutableListOf<AapSetting.ConnectedDevices.ConnectedDevice>()
+            var offset = 3
+            for (i in 0 until count) {
+                if (offset + 8 > message.payload.size) break
+                val mac = (0 until 6).map { "%02X".format(message.payload[offset + 5 - it]) }.joinToString(":")
+                val type = message.payload[offset + 6].toInt() and 0xFF
+                devices.add(AapSetting.ConnectedDevices.ConnectedDevice(mac, type))
+                offset += 8
+            }
+            return AapSetting.ConnectedDevices::class to AapSetting.ConnectedDevices(devices)
+        }
+
+        // Audio source tracking (push-only from device)
+        if (message.commandType == CMD_AUDIO_SOURCE) {
+            if (message.payload.size < 7) return null
+            val mac = (0 until 6).map { "%02X".format(message.payload[5 - it]) }.joinToString(":")
+            val typeValue = message.payload[6].toInt() and 0xFF
+            val type = when (typeValue) {
+                0x01 -> AapSetting.AudioSource.AudioSourceType.CALL
+                0x02 -> AapSetting.AudioSource.AudioSourceType.MEDIA
+                else -> AapSetting.AudioSource.AudioSourceType.NONE
+            }
+            return AapSetting.AudioSource::class to AapSetting.AudioSource(mac, type)
+        }
+
+        // EQ data (push-only from device)
+        if (message.commandType == CMD_EQ_DATA) {
+            if (message.payload.size < 6 + 128) return null
+            val sets = mutableListOf<List<Float>>()
+            var offset = 6 // skip header
+            for (s in 0 until 4) {
+                val bands = mutableListOf<Float>()
+                for (b in 0 until 8) {
+                    val bits = (message.payload[offset].toInt() and 0xFF) or
+                        ((message.payload[offset + 1].toInt() and 0xFF) shl 8) or
+                        ((message.payload[offset + 2].toInt() and 0xFF) shl 16) or
+                        ((message.payload[offset + 3].toInt() and 0xFF) shl 24)
+                    bands.add(Float.fromBits(bits))
+                    offset += 4
+                }
+                sets.add(bands)
+            }
+            return AapSetting.EqBands::class to AapSetting.EqBands(sets)
         }
 
         // Conversation Awareness State is a separate command type (push-only)
@@ -168,6 +239,32 @@ class DefaultAapDeviceProfile(
             }
             SETTING_ADAPTIVE_AUDIO_NOISE -> {
                 AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = value)
+            }
+            SETTING_MICROPHONE_MODE -> {
+                val mode = AapSetting.MicrophoneMode.Mode.fromWire(value) ?: return null
+                AapSetting.MicrophoneMode::class to AapSetting.MicrophoneMode(mode)
+            }
+            SETTING_EAR_DETECTION_ENABLED -> {
+                val enabled = decodeAppleBool(value) ?: return null
+                AapSetting.EarDetectionEnabled::class to AapSetting.EarDetectionEnabled(enabled)
+            }
+            SETTING_LISTENING_MODE_CYCLE -> {
+                AapSetting.ListeningModeCycle::class to AapSetting.ListeningModeCycle(modeMask = value)
+            }
+            SETTING_ALLOW_OFF_OPTION -> {
+                val enabled = decodeAppleBool(value) ?: return null
+                AapSetting.AllowOffOption::class to AapSetting.AllowOffOption(enabled)
+            }
+            SETTING_STEM_CONFIG -> {
+                AapSetting.StemConfig::class to AapSetting.StemConfig(claimedPressMask = value)
+            }
+            SETTING_SLEEP_DETECTION -> {
+                val enabled = decodeAppleBool(value) ?: return null
+                AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled)
+            }
+            SETTING_IN_CASE_TONE -> {
+                val enabled = decodeAppleBool(value) ?: return null
+                AapSetting.InCaseTone::class to AapSetting.InCaseTone(enabled)
             }
             else -> null
         }
@@ -337,6 +434,24 @@ class DefaultAapDeviceProfile(
             }
             else -> null
         }
+    }
+
+    override fun decodeStemPress(message: AapMessage): StemPressEvent? {
+        if (message.commandType != CMD_STEM_PRESS) return null
+        if (message.payload.size < 2) return null
+        val pressType = StemPressEvent.PressType.fromWire(message.payload[0].toInt() and 0xFF) ?: return null
+        val bud = StemPressEvent.Bud.fromWire(message.payload[1].toInt() and 0xFF) ?: return null
+        return StemPressEvent(pressType, bud)
+    }
+
+    private fun buildRenameMessage(name: String): ByteArray {
+        val nameBytes = name.toByteArray(Charsets.UTF_8)
+        require(nameBytes.size <= 127) { "Device name too long: ${nameBytes.size} bytes (max 127)" }
+        return byteArrayOf(
+            0x04, 0x00, 0x04, 0x00,
+            0x1E, 0x00,
+            nameBytes.size.toByte(), 0x00,
+        ) + nameBytes
     }
 
     private fun parseNullTerminatedStrings(data: ByteArray): List<String> {
