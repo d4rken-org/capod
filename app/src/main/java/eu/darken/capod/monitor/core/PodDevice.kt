@@ -253,6 +253,36 @@ data class PodDevice(
     val endCallMuteMic: AapSetting.EndCallMuteMic?
         get() = aap?.setting()
 
+    val microphoneMode: AapSetting.MicrophoneMode?
+        get() = aap?.setting()
+
+    val earDetectionEnabled: AapSetting.EarDetectionEnabled?
+        get() = aap?.setting()
+
+    val listeningModeCycle: AapSetting.ListeningModeCycle?
+        get() = aap?.setting()
+
+    val allowOffOption: AapSetting.AllowOffOption?
+        get() = aap?.setting()
+
+    val stemConfig: AapSetting.StemConfig?
+        get() = aap?.setting()
+
+    val sleepDetection: AapSetting.SleepDetection?
+        get() = aap?.setting()
+
+    val inCaseTone: AapSetting.InCaseTone?
+        get() = aap?.setting()
+
+    val connectedDevices: AapSetting.ConnectedDevices?
+        get() = aap?.setting()
+
+    val audioSource: AapSetting.AudioSource?
+        get() = aap?.setting()
+
+    val eqBands: AapSetting.EqBands?
+        get() = aap?.setting()
+
     val deviceInfo: AapDeviceInfo?
         get() = aap?.deviceInfo ?: cached?.deviceInfo
 

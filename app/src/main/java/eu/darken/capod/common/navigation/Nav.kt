@@ -24,6 +24,9 @@ object Nav {
 
         @Serializable
         data class DeviceSettings(val address: String) : Main
+
+        @Serializable
+        data object StemActionConfig : Main
     }
 
     sealed interface Settings : NavigationDestination {

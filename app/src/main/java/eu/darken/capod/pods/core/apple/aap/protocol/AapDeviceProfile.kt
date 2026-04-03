@@ -67,6 +67,12 @@ interface AapDeviceProfile {
      */
     fun decodePrivateKeyResponse(message: AapMessage): KeyExchangeResult?
 
+    /**
+     * Decode a stem press event (command 0x19).
+     * Returns null if the message is not a stem press event.
+     */
+    fun decodeStemPress(message: AapMessage): StemPressEvent?
+
     companion object {
         fun forModel(model: PodModel): AapDeviceProfile = DefaultAapDeviceProfile(model)
     }

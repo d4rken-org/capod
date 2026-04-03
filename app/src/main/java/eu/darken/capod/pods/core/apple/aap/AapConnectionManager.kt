@@ -10,6 +10,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
+import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
@@ -56,6 +57,10 @@ class AapConnectionManager @Inject constructor(
     private val _keysReceived = MutableSharedFlow<Pair<BluetoothAddress, KeyExchangeResult>>(extraBufferCapacity = 16)
     val keysReceived: SharedFlow<Pair<BluetoothAddress, KeyExchangeResult>> = _keysReceived.asSharedFlow()
 
+    /** Emits transient stem press events from any connected device. */
+    private val _stemPressEvents = MutableSharedFlow<Pair<BluetoothAddress, StemPressEvent>>(extraBufferCapacity = 32)
+    val stemPressEvents: SharedFlow<Pair<BluetoothAddress, StemPressEvent>> = _stemPressEvents.asSharedFlow()
+
     fun deviceState(address: BluetoothAddress) = _allStates.map { it[address] }
 
     suspend fun connect(
@@ -90,6 +95,13 @@ class AapConnectionManager @Inject constructor(
             launch {
                 connection.keysReceived.collect { keys ->
                     _keysReceived.tryEmit(address to keys)
+                }
+            }
+
+            // Forward stem press events from this connection (child coroutine)
+            launch {
+                connection.stemPressEvents.collect { event ->
+                    _stemPressEvents.tryEmit(address to event)
                 }
             }
 

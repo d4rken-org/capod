@@ -2,6 +2,7 @@ package eu.darken.capod.main.ui.devicesettings
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,7 +19,18 @@ import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.Speed
 import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.twotone.Timer
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.twotone.Check
+import androidx.compose.material.icons.twotone.DevicesOther
+import androidx.compose.material.icons.twotone.Edit
+import androidx.compose.material.icons.twotone.Mic
+import androidx.compose.material.icons.twotone.Nightlight
+import androidx.compose.material.icons.twotone.NotificationsActive
 import androidx.compose.material.icons.twotone.TouchApp
+import androidx.compose.material.icons.twotone.Stars
+import androidx.compose.material.icons.twotone.Visibility
+import androidx.compose.material.icons.twotone.VisibilityOff
+import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -36,6 +48,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -54,7 +67,9 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.compose.preview.MOCK_NOW
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
+import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.settings.SettingsPreferenceItem
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.overview.cards.AncModeSelector
@@ -94,6 +109,14 @@ fun DeviceSettingsScreenHost(
         onVolumeSwipeChange = { vm.setVolumeSwipe(it) },
         onVolumeSwipeLengthChange = { vm.setVolumeSwipeLength(it) },
         onEndCallMuteMicChange = { muteMic, endCall -> vm.setEndCallMuteMic(muteMic, endCall) },
+        onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
+        onEarDetectionEnabledChange = { vm.setEarDetectionEnabled(it) },
+        onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
+        onAllowOffOptionChange = { vm.setAllowOffOption(it) },
+        onSleepDetectionChange = { vm.setSleepDetection(it) },
+        onInCaseToneChange = { vm.setInCaseTone(it) },
+        onDeviceNameChange = { vm.setDeviceName(it) },
+        onStemActionsClick = { vm.navToStemConfig() },
     )
 }
 
@@ -113,10 +136,19 @@ fun DeviceSettingsScreen(
     onVolumeSwipeChange: (Boolean) -> Unit = {},
     onVolumeSwipeLengthChange: (AapSetting.VolumeSwipeLength.Value) -> Unit = {},
     onEndCallMuteMicChange: (AapSetting.EndCallMuteMic.MuteMicMode, AapSetting.EndCallMuteMic.EndCallMode) -> Unit = { _, _ -> },
+    onMicrophoneModeChange: (AapSetting.MicrophoneMode.Mode) -> Unit = {},
+    onEarDetectionEnabledChange: (Boolean) -> Unit = {},
+    onListeningModeCycleChange: (Int) -> Unit = {},
+    onAllowOffOptionChange: (Boolean) -> Unit = {},
+    onSleepDetectionChange: (Boolean) -> Unit = {},
+    onInCaseToneChange: (Boolean) -> Unit = {},
+    onDeviceNameChange: (String) -> Unit = {},
+    onStemActionsClick: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
     val enabled = device?.isAapReady == true
+    val isPro = state.isPro
 
     Scaffold(
         topBar = {
@@ -169,6 +201,8 @@ fun DeviceSettingsScreen(
                         connectionStateLabel = stateDetection?.state?.getLabel(context),
                         lastSeen = device.lastSeenFormatted(state.now),
                         firstSeen = firstSeen,
+                        canRename = device.isAapConnected,
+                        onRename = onDeviceNameChange,
                     )
                 }
             }
@@ -181,16 +215,20 @@ fun DeviceSettingsScreen(
 
                 val ancMode = device.ancMode
                 if (features.hasAncControl && ancMode != null) {
-                    item("anc_mode") {
-                        AncModeSelector(
+                    val cycleMask = if (features.hasListeningModeCycle) {
+                        (device.listeningModeCycle ?: AapSetting.ListeningModeCycle(modeMask = 0x0E)).modeMask
+                    } else null
+
+                    item("noise_control") {
+                        NoiseControlCombined(
                             currentMode = ancMode.current,
+                            pendingMode = device.pendingAncMode,
                             supportedModes = ancMode.supported,
                             onModeSelected = onAncModeChange,
-                            pendingMode = device.pendingAncMode,
-                            modifier = Modifier.padding(horizontal = 16.dp),
+                            cycleMask = cycleMask,
+                            onCycleMaskChange = onListeningModeCycleChange,
                             enabled = enabled,
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
                     }
                 }
 
@@ -344,6 +382,118 @@ fun DeviceSettingsScreen(
                         )
                     }
                 }
+
+                if (features.hasStemConfig) {
+                    item("stem_actions") {
+                        SettingsPreferenceItem(
+                            icon = Icons.TwoTone.TouchApp,
+                            title = stringResource(R.string.stem_actions_title),
+                            subtitle = stringResource(R.string.stem_actions_nav_description),
+                            onClick = onStemActionsClick,
+                            enabled = enabled,
+                        )
+                    }
+                }
+
+                // Additional settings section
+                item("additional_header") {
+                    SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_additional_label))
+                }
+
+                if (features.hasMicrophoneMode) {
+                    val micMode = device.microphoneMode
+                        ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)
+                    item("microphone_mode") {
+                        SegmentedSettingRow(
+                            icon = Icons.TwoTone.Mic,
+                            title = stringResource(R.string.device_settings_microphone_mode_label),
+                            subtitle = stringResource(R.string.device_settings_microphone_mode_description),
+                            options = listOf(
+                                stringResource(R.string.device_settings_microphone_mode_auto) to AapSetting.MicrophoneMode.Mode.AUTO,
+                                stringResource(R.string.device_settings_microphone_mode_left) to AapSetting.MicrophoneMode.Mode.ALWAYS_LEFT,
+                                stringResource(R.string.device_settings_microphone_mode_right) to AapSetting.MicrophoneMode.Mode.ALWAYS_RIGHT,
+                            ),
+                            selected = micMode.mode,
+                            onSelected = onMicrophoneModeChange,
+                            enabled = enabled,
+                        )
+                    }
+                }
+
+                if (features.hasEarDetectionToggle) {
+                    val earDetection = device.earDetectionEnabled
+                        ?: AapSetting.EarDetectionEnabled(enabled = true)
+                    item("ear_detection_toggle") {
+                        SettingsSwitchItem(
+                            icon = Icons.TwoTone.Hearing,
+                            title = stringResource(R.string.device_settings_ear_detection_label),
+                            subtitle = stringResource(R.string.device_settings_ear_detection_description),
+                            checked = earDetection.enabled,
+                            onCheckedChange = onEarDetectionEnabledChange,
+                            enabled = enabled,
+                        )
+                    }
+                }
+
+                if (features.hasSleepDetection) {
+                    val sleepDet = device.sleepDetection
+                        ?: AapSetting.SleepDetection(enabled = true)
+                    item("sleep_detection") {
+                        ProGatedSwitchItem(
+                            icon = Icons.TwoTone.Nightlight,
+                            title = stringResource(R.string.device_settings_sleep_detection_label),
+                            subtitle = stringResource(R.string.device_settings_sleep_detection_description),
+                            checked = sleepDet.enabled,
+                            onCheckedChange = onSleepDetectionChange,
+                            enabled = enabled,
+                            isPro = isPro,
+                        )
+                    }
+                }
+
+                if (features.hasInCaseTone) {
+                    val inCaseTone = device.inCaseTone
+                        ?: AapSetting.InCaseTone(enabled = true)
+                    item("in_case_tone") {
+                        ProGatedSwitchItem(
+                            icon = Icons.TwoTone.NotificationsActive,
+                            title = stringResource(R.string.device_settings_in_case_tone_label),
+                            subtitle = stringResource(R.string.device_settings_in_case_tone_description),
+                            checked = inCaseTone.enabled,
+                            onCheckedChange = onInCaseToneChange,
+                            enabled = enabled,
+                            isPro = isPro,
+                        )
+                    }
+                }
+
+                // Connections section
+                val connectedDevices = device.connectedDevices
+                if (connectedDevices != null && connectedDevices.devices.isNotEmpty()) {
+                    item("connections_header") {
+                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_connections_label))
+                    }
+                    item("connected_devices") {
+                        ConnectedDevicesList(
+                            devices = connectedDevices.devices,
+                            audioSource = device.audioSource,
+                        )
+                    }
+                }
+
+                // EQ visualization (debug only — internal adaptive calibration data, not user-actionable)
+                val eqBands = device.eqBands
+                if (eu.darken.capod.BuildConfig.DEBUG && eqBands != null && eqBands.sets.isNotEmpty()) {
+                    item("eq_header") {
+                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_eq_label))
+                    }
+                    item("eq_bars") {
+                        EqBarsChart(
+                            sets = eqBands.sets,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        )
+                    }
+                }
             }
 
             item("bottom_spacer") {
@@ -359,7 +509,22 @@ private fun DeviceInfoCard(
     connectionStateLabel: String?,
     lastSeen: String?,
     firstSeen: String?,
+    canRename: Boolean = false,
+    onRename: (String) -> Unit = {},
 ) {
+    var showRenameDialog by remember { mutableStateOf(false) }
+
+    if (showRenameDialog && deviceInfo != null) {
+        RenameDialog(
+            currentName = deviceInfo.name,
+            onConfirm = { newName ->
+                onRename(newName)
+                showRenameDialog = false
+            },
+            onDismiss = { showRenameDialog = false },
+        )
+    }
+
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -369,10 +534,26 @@ private fun DeviceInfoCard(
         Column(modifier = Modifier.padding(16.dp)) {
             if (deviceInfo != null) {
                 if (deviceInfo.name.isNotBlank()) {
-                    InfoRow(
-                        label = stringResource(R.string.device_settings_info_name_label),
-                        value = deviceInfo.name,
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        InfoRow(
+                            label = stringResource(R.string.device_settings_info_name_label),
+                            value = deviceInfo.name,
+                            modifier = Modifier.weight(1f),
+                        )
+                        if (canRename) {
+                            IconButton(onClick = { showRenameDialog = true }) {
+                                Icon(
+                                    imageVector = Icons.TwoTone.Edit,
+                                    contentDescription = stringResource(R.string.device_settings_rename_label),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                )
+                            }
+                        }
+                    }
                 }
                 if (deviceInfo.serialNumber.isNotBlank()) {
                     InfoRow(
@@ -410,11 +591,9 @@ private fun DeviceInfoCard(
 }
 
 @Composable
-private fun InfoRow(label: String, value: String) {
+private fun InfoRow(label: String, value: String, modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 2.dp),
+        modifier = modifier.padding(vertical = 2.dp),
     ) {
         Text(
             text = label,
@@ -618,6 +797,268 @@ private fun CallControlOption(
             )
         }
     }
+}
+
+@Composable
+private fun EqBarsChart(
+    sets: List<List<Float>>,
+    modifier: Modifier = Modifier,
+) {
+    val primary = MaterialTheme.colorScheme.primary
+    val outline = MaterialTheme.colorScheme.outlineVariant
+
+    // Use the first EQ set (main)
+    val bands = sets.firstOrNull() ?: return
+    if (bands.size != 8) return
+
+    Canvas(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(80.dp),
+    ) {
+        val barCount = bands.size
+        val spacing = 4.dp.toPx()
+        val cornerRadius = 4.dp.toPx()
+        val barWidth = (size.width - spacing * (barCount - 1)) / barCount
+
+        for (i in bands.indices) {
+            val x = i * (barWidth + spacing)
+            // Fixed 0-100 scale — values are typically 0-100 from the device
+            val normalized = (bands[i] / 100f).coerceIn(0f, 1f)
+            val barHeight = (normalized * size.height).coerceAtLeast(2.dp.toPx())
+
+            // Background bar (rounded rect)
+            drawRoundRect(
+                color = outline,
+                topLeft = androidx.compose.ui.geometry.Offset(x, 0f),
+                size = androidx.compose.ui.geometry.Size(barWidth, size.height),
+                cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadius),
+            )
+
+            // Filled bar from bottom (rounded rect)
+            drawRoundRect(
+                color = primary,
+                topLeft = androidx.compose.ui.geometry.Offset(x, size.height - barHeight),
+                size = androidx.compose.ui.geometry.Size(barWidth, barHeight),
+                cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadius),
+            )
+        }
+    }
+}
+
+@Composable
+private fun ConnectedDevicesList(
+    devices: List<AapSetting.ConnectedDevices.ConnectedDevice>,
+    audioSource: AapSetting.AudioSource?,
+) {
+    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
+        Text(
+            text = stringResource(R.string.device_settings_connected_devices_description),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(bottom = 8.dp),
+        )
+
+        for ((index, device) in devices.withIndex()) {
+            val isSource = audioSource?.sourceMac == device.mac
+            val statusLabel = if (isSource) {
+                when (audioSource?.type) {
+                    AapSetting.AudioSource.AudioSourceType.CALL -> stringResource(R.string.device_settings_connected_device_call)
+                    AapSetting.AudioSource.AudioSourceType.MEDIA -> stringResource(R.string.device_settings_connected_device_media)
+                    else -> ""
+                }
+            } else ""
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Icon(
+                    imageVector = Icons.TwoTone.DevicesOther,
+                    contentDescription = null,
+                    tint = if (isSource) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(end = 16.dp),
+                )
+                Column {
+                    Text(
+                        text = stringResource(R.string.device_settings_connected_device_label, index + 1),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = if (isSource) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
+                    )
+                    Text(
+                        text = if (statusLabel.isNotEmpty()) statusLabel else device.mac,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ProGatedSwitchItem(
+    icon: ImageVector,
+    title: String,
+    subtitle: String?,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+    enabled: Boolean,
+    isPro: Boolean,
+) {
+    if (isPro) {
+        SettingsSwitchItem(
+            icon = icon,
+            title = title,
+            subtitle = subtitle,
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+            enabled = enabled,
+        )
+    } else {
+        SettingsBaseItem(
+            icon = icon,
+            title = title,
+            subtitle = subtitle,
+            onClick = { onCheckedChange(!checked) },
+            enabled = enabled,
+            trailingContent = {
+                Icon(
+                    imageVector = Icons.TwoTone.Stars,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(start = 16.dp),
+                )
+            },
+        )
+    }
+}
+
+@Composable
+private fun RenameDialog(
+    currentName: String,
+    onConfirm: (String) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var textValue by remember { mutableStateOf(currentName) }
+
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.device_settings_rename_label)) },
+        text = {
+            androidx.compose.material3.OutlinedTextField(
+                value = textValue,
+                onValueChange = { if (it.length <= 32) textValue = it },
+                singleLine = true,
+                label = { Text(stringResource(R.string.device_settings_rename_hint)) },
+                modifier = Modifier.fillMaxWidth(),
+            )
+        },
+        confirmButton = {
+            androidx.compose.material3.TextButton(
+                onClick = { if (textValue.isNotBlank()) onConfirm(textValue) },
+                enabled = textValue.isNotBlank() && textValue != currentName,
+            ) {
+                Text(stringResource(R.string.device_settings_rename_confirm))
+            }
+        },
+        dismissButton = {
+            androidx.compose.material3.TextButton(onClick = onDismiss) {
+                Text(stringResource(android.R.string.cancel))
+            }
+        },
+    )
+}
+
+@Composable
+private fun NoiseControlCombined(
+    currentMode: AapSetting.AncMode.Value,
+    pendingMode: AapSetting.AncMode.Value?,
+    supportedModes: List<AapSetting.AncMode.Value>,
+    onModeSelected: (AapSetting.AncMode.Value) -> Unit,
+    cycleMask: Int?,
+    onCycleMaskChange: (Int) -> Unit,
+    enabled: Boolean,
+) {
+    val displayMode = pendingMode ?: currentMode
+    val cycleBits = mapOf(
+        AapSetting.AncMode.Value.OFF to 0x01,
+        AapSetting.AncMode.Value.ON to 0x02,
+        AapSetting.AncMode.Value.TRANSPARENCY to 0x04,
+        AapSetting.AncMode.Value.ADAPTIVE to 0x08,
+    )
+
+    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
+        for (mode in supportedModes) {
+            val isSelected = mode == displayMode
+            val bit = cycleBits[mode] ?: continue
+            val inCycle = cycleMask?.let { (it and bit) != 0 }
+            val cycleCount = cycleMask?.let { Integer.bitCount(it and 0x0F) } ?: 0
+            val canRemoveFromCycle = inCycle != true || cycleCount > 2
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable(enabled = enabled) { onModeSelected(mode) }
+                    .padding(vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                // Visibility toggle for cycle (only if device supports listening mode cycle)
+                if (cycleMask != null) {
+                    IconButton(
+                        onClick = {
+                            if (inCycle == true && canRemoveFromCycle) {
+                                onCycleMaskChange(cycleMask xor bit)
+                            } else if (inCycle != true) {
+                                onCycleMaskChange((cycleMask ?: 0) or bit)
+                            }
+                        },
+                        enabled = enabled && (inCycle != true || canRemoveFromCycle),
+                    ) {
+                        Icon(
+                            imageVector = if (inCycle == true) Icons.TwoTone.Visibility else Icons.TwoTone.VisibilityOff,
+                            contentDescription = null,
+                            tint = if (inCycle == true) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
+                            },
+                        )
+                    }
+                }
+
+                // Mode label
+                Text(
+                    text = mode.label(),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = if (isSelected) {
+                        MaterialTheme.colorScheme.primary
+                    } else {
+                        MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f)
+                    },
+                    fontWeight = if (isSelected) androidx.compose.ui.text.font.FontWeight.Bold else null,
+                    modifier = Modifier.weight(1f),
+                )
+
+                // Selection indicator
+                RadioButton(
+                    selected = isSelected,
+                    onClick = { onModeSelected(mode) },
+                    enabled = enabled,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun AapSetting.AncMode.Value.label(): String = when (this) {
+    AapSetting.AncMode.Value.OFF -> stringResource(R.string.device_settings_listening_mode_cycle_off)
+    AapSetting.AncMode.Value.ON -> stringResource(R.string.device_settings_listening_mode_cycle_anc)
+    AapSetting.AncMode.Value.TRANSPARENCY -> stringResource(R.string.device_settings_listening_mode_cycle_transparency)
+    AapSetting.AncMode.Value.ADAPTIVE -> stringResource(R.string.device_settings_listening_mode_cycle_adaptive)
 }
 
 @Preview2

@@ -113,6 +113,7 @@ class AirPodsProAapSessionTest : BaseAapSessionTest() {
             val anc = decodeSetting<AapSetting.AncMode>("04 00 04 00 09 00 0D 01 00 00 00")
             anc.current shouldBe AapSetting.AncMode.Value.OFF
             anc.supported shouldContainExactly listOf(
+                AapSetting.AncMode.Value.OFF,
                 AapSetting.AncMode.Value.ON,
                 AapSetting.AncMode.Value.TRANSPARENCY,
             )

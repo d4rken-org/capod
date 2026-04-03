@@ -84,16 +84,16 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         }
 
         @Test
-        fun `Pro 2 supports ON, TRANSPARENCY, ADAPTIVE`() {
+        fun `Pro 2 supports OFF, ON, TRANSPARENCY, ADAPTIVE`() {
             ancModesFor(PodModel.AIRPODS_PRO2) shouldContainExactly listOf(
-                AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY, AapSetting.AncMode.Value.ADAPTIVE,
+                AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY, AapSetting.AncMode.Value.ADAPTIVE,
             )
         }
 
         @Test
-        fun `Pro 1 supports ON, TRANSPARENCY only`() {
+        fun `Pro 1 supports OFF, ON, TRANSPARENCY`() {
             ancModesFor(PodModel.AIRPODS_PRO) shouldContainExactly listOf(
-                AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY,
+                AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY,
             )
         }
 
@@ -103,9 +103,9 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         }
 
         @Test
-        fun `Max supports ON, TRANSPARENCY only`() {
+        fun `Max supports OFF, ON, TRANSPARENCY`() {
             ancModesFor(PodModel.AIRPODS_MAX) shouldContainExactly listOf(
-                AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY,
+                AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY,
             )
         }
     }

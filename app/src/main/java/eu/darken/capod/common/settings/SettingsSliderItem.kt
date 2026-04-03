@@ -1,8 +1,11 @@
 package eu.darken.capod.common.settings
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
@@ -36,29 +39,33 @@ fun SettingsSliderItem(
             subtitle = subtitle,
             onClick = {},
             enabled = enabled,
-            trailingContent = if (valueLabel != null) {
-                {
-                    Text(
-                        text = valueLabel(value),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f),
-                        modifier = Modifier.padding(start = 16.dp)
-                    )
-                }
-            } else null,
         )
-        Slider(
-            value = value,
-            onValueChange = onValueChange,
-            onValueChangeFinished = onValueChangeFinished,
-            valueRange = valueRange,
-            steps = steps,
-            enabled = enabled,
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 56.dp)
                 .padding(bottom = 8.dp),
-        )
+            verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Slider(
+                value = value,
+                onValueChange = onValueChange,
+                onValueChangeFinished = onValueChangeFinished,
+                valueRange = valueRange,
+                steps = steps,
+                enabled = enabled,
+                modifier = Modifier.weight(1f),
+            )
+            if (valueLabel != null) {
+                Text(
+                    text = valueLabel(value),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 0.6f else 0.3f),
+                    modifier = Modifier.width(42.dp),
+                )
+            }
+        }
     }
 }
 

@@ -102,6 +102,69 @@ sealed class AapSetting {
         val speaking: Boolean,
     ) : AapSetting()
 
+    data class MicrophoneMode(
+        val mode: Mode,
+    ) : AapSetting() {
+        enum class Mode(val wireValue: Int) {
+            AUTO(0x00), ALWAYS_RIGHT(0x01), ALWAYS_LEFT(0x02);
+
+            companion object {
+                fun fromWire(value: Int): Mode? = entries.firstOrNull { it.wireValue == value }
+            }
+        }
+    }
+
+    data class EarDetectionEnabled(
+        val enabled: Boolean,
+    ) : AapSetting()
+
+    data class ListeningModeCycle(
+        val modeMask: Int,
+    ) : AapSetting() {
+        val includesOff: Boolean get() = (modeMask and 0x01) != 0
+        val includesAnc: Boolean get() = (modeMask and 0x02) != 0
+        val includesTransparency: Boolean get() = (modeMask and 0x04) != 0
+        val includesAdaptive: Boolean get() = (modeMask and 0x08) != 0
+    }
+
+    data class AllowOffOption(
+        val enabled: Boolean,
+    ) : AapSetting()
+
+    data class StemConfig(
+        val claimedPressMask: Int,
+    ) : AapSetting() {
+        val claimsSinglePress: Boolean get() = (claimedPressMask and 0x01) != 0
+        val claimsDoublePress: Boolean get() = (claimedPressMask and 0x02) != 0
+        val claimsTriplePress: Boolean get() = (claimedPressMask and 0x04) != 0
+        val claimsLongPress: Boolean get() = (claimedPressMask and 0x08) != 0
+    }
+
+    data class SleepDetection(
+        val enabled: Boolean,
+    ) : AapSetting()
+
+    data class InCaseTone(
+        val enabled: Boolean,
+    ) : AapSetting()
+
+    data class ConnectedDevices(
+        val devices: List<ConnectedDevice>,
+    ) : AapSetting() {
+        data class ConnectedDevice(val mac: String, val type: Int)
+    }
+
+    data class AudioSource(
+        val sourceMac: String?,
+        val type: AudioSourceType,
+    ) : AapSetting() {
+        enum class AudioSourceType { NONE, CALL, MEDIA }
+    }
+
+    data class EqBands(
+        val sets: List<List<Float>>,
+    ) : AapSetting()
+
     /** Per-pod placement reported by the device (command 0x06). */
     data class EarDetection(
         val primaryPod: PodPlacement,
