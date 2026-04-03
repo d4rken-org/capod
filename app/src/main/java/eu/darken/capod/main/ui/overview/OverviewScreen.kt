@@ -131,6 +131,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onToggleUnmatched = { vm.toggleUnmatchedDevices() },
         onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
         onConversationAwarenessChange = { device, enabled -> vm.setConversationalAwareness(device, enabled) },
+        onDeviceSettings = { device -> vm.goToDeviceSettings(device) },
     )
 }
 
@@ -144,6 +145,7 @@ fun OverviewScreen(
     onToggleUnmatched: () -> Unit,
     onAncModeChange: (PodDevice, AapSetting.AncMode.Value) -> Unit = { _, _ -> },
     onConversationAwarenessChange: (PodDevice, Boolean) -> Unit = { _, _ -> },
+    onDeviceSettings: (PodDevice) -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -234,6 +236,7 @@ fun OverviewScreen(
                         now = state.now,
                         onAncModeChange = { mode -> onAncModeChange(device, mode) },
                         onConversationAwarenessChange = { enabled -> onConversationAwarenessChange(device, enabled) },
+                        onDeviceSettings = { onDeviceSettings(device) },
                     )
                 }
 
@@ -271,12 +274,13 @@ fun OverviewScreen(
                             key = { "unmatched_${it.identifier?.toString() ?: it.hashCode()}" },
                         ) { device ->
                             PodDeviceCard(
-                        device = device,
-                        showDebug = state.isDebugMode,
-                        now = state.now,
-                        onAncModeChange = { mode -> onAncModeChange(device, mode) },
-                        onConversationAwarenessChange = { enabled -> onConversationAwarenessChange(device, enabled) },
-                    )
+                                device = device,
+                                showDebug = state.isDebugMode,
+                                now = state.now,
+                                onAncModeChange = { mode -> onAncModeChange(device, mode) },
+                                onConversationAwarenessChange = { enabled -> onConversationAwarenessChange(device, enabled) },
+                                onDeviceSettings = { onDeviceSettings(device) },
+                            )
                         }
                     }
                 }
@@ -292,14 +296,20 @@ private fun PodDeviceCard(
     now: Instant,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit,
     onConversationAwarenessChange: (Boolean) -> Unit = {},
+    onDeviceSettings: (() -> Unit)? = null,
 ) {
     when {
         device.hasDualPods -> DualPodsCard(
             device = device, showDebug = showDebug, now = now,
             onAncModeChange = onAncModeChange,
             onConversationAwarenessChange = onConversationAwarenessChange,
+            onDeviceSettings = onDeviceSettings,
         )
-        device.model != PodModel.UNKNOWN -> SinglePodsCard(device = device, showDebug = showDebug, now = now, onAncModeChange = onAncModeChange)
+        device.model != PodModel.UNKNOWN -> SinglePodsCard(
+            device = device, showDebug = showDebug, now = now,
+            onAncModeChange = onAncModeChange,
+            onDeviceSettings = onDeviceSettings,
+        )
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug, now = now)
     }
 }

@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core.cache
 
 import eu.darken.capod.common.serialization.InstantEpochMillisSerializer
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import java.time.Instant
@@ -19,9 +20,24 @@ data class CachedDeviceState(
     @SerialName("isRightCharging") val isRightCharging: Boolean? = null,
     @SerialName("isCaseCharging") val isCaseCharging: Boolean? = null,
     @SerialName("isHeadsetCharging") val isHeadsetCharging: Boolean? = null,
+    @SerialName("deviceName") val deviceName: String? = null,
+    @SerialName("serialNumber") val serialNumber: String? = null,
+    @SerialName("firmwareVersion") val firmwareVersion: String? = null,
     @Serializable(with = InstantEpochMillisSerializer::class)
     @SerialName("lastSeenAt") val lastSeenAt: Instant,
 ) {
+    val deviceInfo: AapDeviceInfo?
+        get() {
+            if (deviceName == null && serialNumber == null && firmwareVersion == null) return null
+            return AapDeviceInfo(
+                name = deviceName ?: "",
+                modelNumber = "",
+                manufacturer = "",
+                serialNumber = serialNumber ?: "",
+                firmwareVersion = firmwareVersion ?: "",
+            )
+        }
+
     @Serializable
     data class CachedBatterySlot(
         @SerialName("percent") val percent: Float,

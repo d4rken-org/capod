@@ -420,4 +420,45 @@
     <string name="support_contact_sent_title">Email sent?</string>
     <string name="support_contact_sent_message">Was the email sent successfully? The attached debug log will be deleted.</string>
 
+    <!-- Device Settings -->
+    <string name="device_settings_title">Device Settings</string>
+    <string name="device_settings_info_name_label">Name</string>
+    <string name="device_settings_info_serial_label">Serial Number</string>
+    <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_category_sound_label">Sound</string>
+    <string name="device_settings_category_controls_label">Controls</string>
+    <string name="device_settings_nc_one_airpod_label">Noise Cancellation with One AirPod</string>
+    <string name="device_settings_nc_one_airpod_description">Keep noise cancellation active with only one AirPod</string>
+    <string name="device_settings_personalized_volume_label">Personalized Volume</string>
+    <string name="device_settings_personalized_volume_description">Adjust media volume based on environment</string>
+    <string name="device_settings_conversation_awareness_description">Lower media volume and reduce noise when someone speaks to you</string>
+    <string name="device_settings_tone_volume_label">Chime Volume</string>
+    <string name="device_settings_tone_volume_description">Volume of confirmation sounds and ringtones</string>
+    <string name="device_settings_adaptive_noise_label">Adaptive Audio Noise</string>
+    <string name="device_settings_adaptive_noise_description">How much environmental noise is allowed through</string>
+    <string name="device_settings_press_speed_label">Press Speed</string>
+    <string name="device_settings_press_speed_description">How quickly you need to press for multi-press gestures</string>
+    <string name="device_settings_press_speed_default">Default</string>
+    <string name="device_settings_press_speed_slower">Slower</string>
+    <string name="device_settings_press_speed_slowest">Slowest</string>
+    <string name="device_settings_press_hold_label">Press and Hold Duration</string>
+    <string name="device_settings_press_hold_description">How long to press and hold to switch noise control modes</string>
+    <string name="device_settings_press_hold_default">Default</string>
+    <string name="device_settings_press_hold_shorter">Shorter</string>
+    <string name="device_settings_press_hold_shortest">Shortest</string>
+    <string name="device_settings_volume_swipe_label">Volume Swipe</string>
+    <string name="device_settings_volume_swipe_description">Swipe to adjust volume</string>
+    <string name="device_settings_volume_swipe_length_label">Volume Swipe Length</string>
+    <string name="device_settings_volume_swipe_length_description">How far to swipe on the stem to change volume</string>
+    <string name="device_settings_volume_swipe_length_default">Default</string>
+    <string name="device_settings_volume_swipe_length_longer">Longer</string>
+    <string name="device_settings_volume_swipe_length_longest">Longest</string>
+    <string name="device_settings_end_call_mute_mic_label">Call Controls</string>
+    <string name="device_settings_end_call_mute_mic_description">Choose what pressing the stem does during calls</string>
+    <string name="device_settings_end_call_mute_mic_option_a_title">Single press to end call</string>
+    <string name="device_settings_end_call_mute_mic_option_a_subtitle">Double press to mute microphone</string>
+    <string name="device_settings_end_call_mute_mic_option_b_title">Single press to mute microphone</string>
+    <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double press to end call</string>
+    <string name="device_settings_open_cd">Open device settings</string>
+
 </resources>
