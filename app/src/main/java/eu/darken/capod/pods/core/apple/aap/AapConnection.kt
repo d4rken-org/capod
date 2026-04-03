@@ -63,6 +63,8 @@ internal class AapConnection(
     private var ancDebounceJob: Job? = null
     private var connectionScope: CoroutineScope? = null
     private var lastAncCommandSentAt: Long = 0L
+    private var lastCommandedAncMode: AapSetting.AncMode.Value? = null
+    private var ancResendJob: Job? = null
 
     /**
      * Opens the L2CAP socket, sends the handshake, and launches the read loop.
@@ -127,7 +129,10 @@ internal class AapConnection(
         readerJob = null
         ancDebounceJob?.cancel()
         ancDebounceJob = null
+        ancResendJob?.cancel()
+        ancResendJob = null
         pendingAncMode = null
+        lastCommandedAncMode = null
         connectionScope = null
         cleanupSocket()
         framer.reset()
@@ -141,6 +146,7 @@ internal class AapConnection(
         }
 
         if (command is AapCommand.SetAncMode) {
+            lastCommandedAncMode = command.mode
             val earDetection = currentState.setting<AapSetting.EarDetection>()
             if (earDetection != null && !earDetection.isEitherPodInEar) {
                 log(TAG) { "No pod in ear, queuing ANC mode: ${command.mode}" }
@@ -261,7 +267,9 @@ internal class AapConnection(
             if (isActive) log(TAG, ERROR) { "Read error: $e" }
         } finally {
             ancDebounceJob?.cancel()
+            ancResendJob?.cancel()
             pendingAncMode = null
+            lastCommandedAncMode = null
             cleanupSocket()
             _state.value = _state.value.copy(
                 connectionState = AapPodState.ConnectionState.DISCONNECTED,
@@ -307,6 +315,23 @@ internal class AapConnection(
                     ancDebounceJob?.cancel()
                     _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
                     log(TAG) { "Setting: ${key.simpleName} = $value" }
+
+                    // After our command, firmware may cycle through modes before settling.
+                    // Schedule a verification: if settled mode != commanded mode, re-send once.
+                    lastCommandedAncMode?.let { commanded ->
+                        ancResendJob?.cancel()
+                        ancResendJob = connectionScope?.launch {
+                            delay(1000L)
+                            val current = _state.value.setting<AapSetting.AncMode>()?.current
+                            if (current != null && current != commanded) {
+                                log(TAG) { "ANC mode diverged: commanded=$commanded settled=$current, re-sending" }
+                                lastCommandedAncMode = null
+                                sendRaw(AapCommand.SetAncMode(commanded))
+                            } else {
+                                lastCommandedAncMode = null
+                            }
+                        }
+                    }
                 } else {
                     ancDebounceJob?.cancel()
                     ancDebounceJob = connectionScope?.launch {
