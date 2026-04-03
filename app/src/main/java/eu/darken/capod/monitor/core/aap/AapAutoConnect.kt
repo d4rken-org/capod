@@ -1,4 +1,4 @@
-package eu.darken.capod.reaction.core.aap
+package eu.darken.capod.monitor.core.aap
 
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -121,59 +121,61 @@ class AapAutoConnect @Inject constructor(
                 return@onEach
             }
 
-            for ((attempt, delayMs) in RETRY_DELAYS.withIndex()) {
-                delay(delayMs)
+            try {
+                for ((attempt, delayMs) in RETRY_DELAYS.withIndex()) {
+                    delay(delayMs)
 
-                // Check if still profiled
-                val profile = profilesRepo.profiles.first()
-                    .firstOrNull { it.address == address }
-                if (profile == null) {
-                    log(TAG) { "AAP reconnect: $address no longer profiled, stopping" }
-                    break
-                }
-
-                // Check if still bonded
-                val bonded = bluetoothManager.bondedDevices().first()
-                    .firstOrNull { it.address == address }
-                if (bonded == null) {
-                    log(TAG) { "AAP reconnect: $address no longer bonded, stopping" }
-                    break
-                }
-
-                // Check if still classically connected
-                val currentConnected = bluetoothManager.connectedDevices.first().map { it.address }.toSet()
-                if (address !in currentConnected) {
-                    log(TAG) { "AAP reconnect: $address no longer classically connected, stopping" }
-                    break
-                }
-
-                // Check if still visible in BLE
-                val bleDevices = blePodMonitor.devices.first()
-                if (bleDevices.none { it.meta?.profile?.address == address }) {
-                    log(TAG) { "AAP reconnect: $address no longer visible in BLE, stopping" }
-                    break
-                }
-
-                // Check if already reconnected (e.g., by initialConnect)
-                val currentState = aapManager.allStates.value[address]
-                if (currentState != null && currentState.connectionState != AapPodState.ConnectionState.DISCONNECTED) {
-                    log(TAG) { "AAP reconnect: $address already reconnected" }
-                    break
-                }
-
-                try {
-                    log(TAG) { "AAP reconnect attempt ${attempt + 1} for $address in ${delayMs}ms" }
-                    withTimeout(CONNECT_TIMEOUT) {
-                        aapManager.connect(address, bonded.internal, profile.model)
+                    // Check if still profiled
+                    val profile = profilesRepo.profiles.first()
+                        .firstOrNull { it.address == address }
+                    if (profile == null) {
+                        log(TAG) { "AAP reconnect: $address no longer profiled, stopping" }
+                        break
                     }
-                    log(TAG) { "AAP reconnected to $address" }
-                    break
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "AAP reconnect attempt ${attempt + 1} failed for $address: ${e.message}" }
-                }
-            }
 
-            activeReconnects.remove(address)
+                    // Check if still bonded
+                    val bonded = bluetoothManager.bondedDevices().first()
+                        .firstOrNull { it.address == address }
+                    if (bonded == null) {
+                        log(TAG) { "AAP reconnect: $address no longer bonded, stopping" }
+                        break
+                    }
+
+                    // Check if still classically connected
+                    val currentConnected = bluetoothManager.connectedDevices.first().map { it.address }.toSet()
+                    if (address !in currentConnected) {
+                        log(TAG) { "AAP reconnect: $address no longer classically connected, stopping" }
+                        break
+                    }
+
+                    // Check if still visible in BLE
+                    val bleDevices = blePodMonitor.devices.first()
+                    if (bleDevices.none { it.meta?.profile?.address == address }) {
+                        log(TAG) { "AAP reconnect: $address no longer visible in BLE, stopping" }
+                        break
+                    }
+
+                    // Check if already reconnected (e.g., by initialConnect)
+                    val currentState = aapManager.allStates.value[address]
+                    if (currentState != null && currentState.connectionState != AapPodState.ConnectionState.DISCONNECTED) {
+                        log(TAG) { "AAP reconnect: $address already reconnected" }
+                        break
+                    }
+
+                    try {
+                        log(TAG) { "AAP reconnect attempt ${attempt + 1} for $address in ${delayMs}ms" }
+                        withTimeout(CONNECT_TIMEOUT) {
+                            aapManager.connect(address, bonded.internal, profile.model)
+                        }
+                        log(TAG) { "AAP reconnected to $address" }
+                        break
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "AAP reconnect attempt ${attempt + 1} failed for $address: ${e.message}" }
+                    }
+                }
+            } finally {
+                activeReconnects.remove(address)
+            }
         }
         .map { } // SharedFlow<BluetoothAddress> → Flow<Unit>
         .setupCommonEventHandlers(TAG) { "reconnect" }
@@ -227,7 +229,7 @@ class AapAutoConnect @Inject constructor(
         .setupCommonEventHandlers(TAG) { "correctModel" }
 
     companion object {
-        private val TAG = logTag("Reaction", "AapAutoConnect")
+        private val TAG = logTag("Monitor", "AapAutoConnect")
         internal val RETRY_DELAYS = longArrayOf(3_000, 3_000, 3_000, 5_000, 5_000, 10_000, 10_000)
         private val CONNECT_TIMEOUT = 5.seconds
     }

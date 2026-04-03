@@ -5,6 +5,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
+import eu.darken.capod.monitor.core.aap.AapLifecycleManager
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import eu.darken.capod.monitor.core.cache.toCachedState
@@ -33,7 +34,12 @@ class DeviceMonitor @Inject constructor(
     private val aapManager: AapConnectionManager,
     private val deviceStateCache: DeviceStateCache,
     private val profilesRepo: DeviceProfilesRepo,
+    private val aapLifecycleManager: AapLifecycleManager,
 ) {
+    init {
+        aapLifecycleManager.start()
+    }
+
     val devices: Flow<List<PodDevice>> = combine(
         blePodMonitor.devices,
         aapManager.allStates,
