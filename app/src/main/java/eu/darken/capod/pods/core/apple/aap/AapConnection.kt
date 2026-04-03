@@ -8,6 +8,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import kotlin.reflect.KClass
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
@@ -159,7 +160,60 @@ internal class AapConnection(
             }
         }
 
+        applyOptimisticUpdate(currentState, command)
         sendRaw(command)
+    }
+
+    /**
+     * Optimistically update state for non-ANC settings so the UI reflects the change immediately.
+     * ANC is handled separately in [send] due to ear-detection gating.
+     * If the setting hasn't been reported by the device yet, skip (UI wouldn't show the toggle).
+     */
+    private fun applyOptimisticUpdate(baseState: AapPodState, command: AapCommand) {
+        val updated: Pair<KClass<out AapSetting>, AapSetting> = when (command) {
+            is AapCommand.SetAncMode -> return // Handled in send()
+            is AapCommand.SetConversationalAwareness -> {
+                val cur = baseState.setting<AapSetting.ConversationalAwareness>() ?: return
+                AapSetting.ConversationalAwareness::class to cur.copy(enabled = command.enabled)
+            }
+            is AapCommand.SetNcWithOneAirPod -> {
+                val cur = baseState.setting<AapSetting.NcWithOneAirPod>() ?: return
+                AapSetting.NcWithOneAirPod::class to cur.copy(enabled = command.enabled)
+            }
+            is AapCommand.SetVolumeSwipe -> {
+                val cur = baseState.setting<AapSetting.VolumeSwipe>() ?: return
+                AapSetting.VolumeSwipe::class to cur.copy(enabled = command.enabled)
+            }
+            is AapCommand.SetPersonalizedVolume -> {
+                val cur = baseState.setting<AapSetting.PersonalizedVolume>() ?: return
+                AapSetting.PersonalizedVolume::class to cur.copy(enabled = command.enabled)
+            }
+            is AapCommand.SetToneVolume -> {
+                baseState.setting<AapSetting.ToneVolume>() ?: return
+                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = command.level)
+            }
+            is AapCommand.SetAdaptiveAudioNoise -> {
+                baseState.setting<AapSetting.AdaptiveAudioNoise>() ?: return
+                AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = command.level)
+            }
+            is AapCommand.SetPressSpeed -> {
+                baseState.setting<AapSetting.PressSpeed>() ?: return
+                AapSetting.PressSpeed::class to AapSetting.PressSpeed(value = command.value)
+            }
+            is AapCommand.SetPressHoldDuration -> {
+                baseState.setting<AapSetting.PressHoldDuration>() ?: return
+                AapSetting.PressHoldDuration::class to AapSetting.PressHoldDuration(value = command.value)
+            }
+            is AapCommand.SetVolumeSwipeLength -> {
+                baseState.setting<AapSetting.VolumeSwipeLength>() ?: return
+                AapSetting.VolumeSwipeLength::class to AapSetting.VolumeSwipeLength(value = command.value)
+            }
+            is AapCommand.SetEndCallMuteMic -> {
+                baseState.setting<AapSetting.EndCallMuteMic>() ?: return
+                AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(muteMic = command.muteMic, endCall = command.endCall)
+            }
+        }
+        _state.value = baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = Instant.now())
     }
 
     private suspend fun sendRaw(command: AapCommand) {

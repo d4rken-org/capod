@@ -21,6 +21,9 @@ object Nav {
 
         @Serializable
         data object Upgrade : Main
+
+        @Serializable
+        data class DeviceSettings(val address: String) : Main
     }
 
     sealed interface Settings : NavigationDestination {

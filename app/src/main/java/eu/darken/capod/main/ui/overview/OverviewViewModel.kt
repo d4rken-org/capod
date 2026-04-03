@@ -153,6 +153,11 @@ class OverviewViewModel @Inject constructor(
         navTo(Nav.Main.DeviceManager)
     }
 
+    fun goToDeviceSettings(device: PodDevice) {
+        val address = device.address ?: return
+        navTo(Nav.Main.DeviceSettings(address))
+    }
+
     fun onUpgrade() {
         navTo(Nav.Main.Upgrade)
     }

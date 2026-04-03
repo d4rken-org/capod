@@ -21,9 +21,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -59,6 +62,7 @@ fun SinglePodsCard(
     showDebug: Boolean,
     now: Instant,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
+    onDeviceSettings: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
 
@@ -123,6 +127,16 @@ fun SinglePodsCard(
                     isAapConnected = device.isAapConnected,
                     isLive = device.isLive,
                 )
+
+                if (device.address != null && onDeviceSettings != null) {
+                    IconButton(onClick = onDeviceSettings) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Tune,
+                            contentDescription = stringResource(R.string.device_settings_open_cd),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.height(4.dp))

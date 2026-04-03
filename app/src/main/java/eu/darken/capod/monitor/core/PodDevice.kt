@@ -7,6 +7,7 @@ import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
@@ -234,7 +235,24 @@ data class PodDevice(
     val adaptiveAudioNoise: AapSetting.AdaptiveAudioNoise?
         get() = aap?.setting()
 
+    val pressSpeed: AapSetting.PressSpeed?
+        get() = aap?.setting()
+
+    val pressHoldDuration: AapSetting.PressHoldDuration?
+        get() = aap?.setting()
+
+    val volumeSwipeLength: AapSetting.VolumeSwipeLength?
+        get() = aap?.setting()
+
+    val endCallMuteMic: AapSetting.EndCallMuteMic?
+        get() = aap?.setting()
+
+    val deviceInfo: AapDeviceInfo?
+        get() = aap?.deviceInfo ?: cached?.deviceInfo
+
     val isAapConnected: Boolean get() = aap != null
+
+    val isAapReady: Boolean get() = aap?.connectionState == AapPodState.ConnectionState.READY
 
     val bleKeyState: BleKeyState
         get() {

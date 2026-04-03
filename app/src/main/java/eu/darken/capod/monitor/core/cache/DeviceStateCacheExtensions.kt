@@ -30,6 +30,8 @@ fun PodDevice.toCachedState(
 
     if (liveLeft == null && liveRight == null && liveCase == null && liveHeadset == null) return null
 
+    val liveDeviceInfo = aap?.deviceInfo
+
     val newState = CachedDeviceState(
         profileId = pid,
         model = model,
@@ -42,6 +44,9 @@ fun PodDevice.toCachedState(
         isRightCharging = isRightPodCharging,
         isCaseCharging = isCaseCharging,
         isHeadsetCharging = isHeadsetBeingCharged,
+        deviceName = liveDeviceInfo?.name ?: existing?.deviceName,
+        serialNumber = liveDeviceInfo?.serialNumber ?: existing?.serialNumber,
+        firmwareVersion = liveDeviceInfo?.firmwareVersion ?: existing?.firmwareVersion,
         lastSeenAt = seenLastAt ?: now,
     )
 
@@ -60,4 +65,7 @@ private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boo
         || old.isRightCharging != new.isRightCharging
         || old.isCaseCharging != new.isCaseCharging
         || old.isHeadsetCharging != new.isHeadsetCharging
+        || old.deviceName != new.deviceName
+        || old.serialNumber != new.serialNumber
+        || old.firmwareVersion != new.firmwareVersion
 }

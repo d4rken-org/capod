@@ -26,6 +26,7 @@ fun SettingsSliderItem(
     valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
     steps: Int = 0,
     enabled: Boolean = true,
+    onValueChangeFinished: (() -> Unit)? = null,
     valueLabel: ((Float) -> String)? = null,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
@@ -49,6 +50,7 @@ fun SettingsSliderItem(
         Slider(
             value = value,
             onValueChange = onValueChange,
+            onValueChangeFinished = onValueChangeFinished,
             valueRange = valueRange,
             steps = steps,
             enabled = enabled,
