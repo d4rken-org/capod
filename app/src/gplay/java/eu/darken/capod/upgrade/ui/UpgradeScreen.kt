@@ -24,6 +24,8 @@ import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Palette
 import androidx.compose.material.icons.twotone.PlayCircle
 import androidx.compose.material.icons.twotone.Stars
+import androidx.compose.material.icons.twotone.Headphones
+import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material.icons.twotone.Widgets
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -124,6 +126,8 @@ fun UpgradeScreen(
         Benefit(Icons.TwoTone.BluetoothConnected, R.string.upgrade_benefit_autoconnect),
         Benefit(Icons.AutoMirrored.TwoTone.Message, R.string.upgrade_benefit_popups),
         Benefit(Icons.TwoTone.Widgets, R.string.upgrade_benefit_widgets),
+        Benefit(Icons.TwoTone.Tune, R.string.upgrade_benefit_device_settings),
+        Benefit(Icons.TwoTone.Headphones, R.string.upgrade_benefit_device_controls),
         Benefit(Icons.TwoTone.Favorite, R.string.upgrade_benefit_support),
     )
 
@@ -227,6 +231,14 @@ fun UpgradeScreen(
                     }
                 }
             }
+
+            Text(
+                text = stringResource(R.string.upgrade_benefit_disclaimer),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(top = 8.dp),
+            )
 
             Spacer(modifier = Modifier.height(24.dp))
 
