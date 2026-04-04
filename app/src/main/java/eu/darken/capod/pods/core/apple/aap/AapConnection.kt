@@ -149,6 +149,8 @@ internal class AapConnection(
 
         if (command is AapCommand.SetAncMode) {
             lastCommandedAncMode = command.mode
+            ancResendJob?.cancel()
+            ancResendJob = null
             val earDetection = currentState.setting<AapSetting.EarDetection>()
             if (earDetection != null && !earDetection.isEitherPodInEar) {
                 log(TAG) { "No pod in ear, queuing ANC mode: ${command.mode}" }
