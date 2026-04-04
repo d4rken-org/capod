@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.RestartAlt
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -21,6 +23,7 @@ import androidx.compose.material3.ExposedDropdownMenuAnchorType
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -49,6 +52,7 @@ fun StemActionConfigScreenHost(
     StemActionConfigScreen(
         state = currentState,
         onNavigateUp = { vm.navUp() },
+        onReset = { vm.resetAll() },
         onLeftSingle = { vm.setLeftSingle(it) },
         onLeftDouble = { vm.setLeftDouble(it) },
         onLeftTriple = { vm.setLeftTriple(it) },
@@ -65,6 +69,7 @@ fun StemActionConfigScreenHost(
 fun StemActionConfigScreen(
     state: StemActionConfigViewModel.State,
     onNavigateUp: () -> Unit,
+    onReset: () -> Unit = {},
     onLeftSingle: (StemAction) -> Unit = {},
     onLeftDouble: (StemAction) -> Unit = {},
     onLeftTriple: (StemAction) -> Unit = {},
@@ -74,6 +79,28 @@ fun StemActionConfigScreen(
     onRightTriple: (StemAction) -> Unit = {},
     onRightLong: (StemAction) -> Unit = {},
 ) {
+    var showResetDialog by remember { mutableStateOf(false) }
+
+    if (showResetDialog) {
+        AlertDialog(
+            onDismissRequest = { showResetDialog = false },
+            confirmButton = {
+                TextButton(onClick = {
+                    onReset()
+                    showResetDialog = false
+                }) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showResetDialog = false }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+            text = { Text(stringResource(R.string.stem_actions_reset_confirm_message)) },
+        )
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -81,6 +108,14 @@ fun StemActionConfigScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(Icons.AutoMirrored.TwoTone.ArrowBack, contentDescription = null)
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { showResetDialog = true }) {
+                        Icon(
+                            imageVector = Icons.TwoTone.RestartAlt,
+                            contentDescription = stringResource(R.string.stem_actions_reset_label),
+                        )
                     }
                 },
             )
@@ -159,10 +194,6 @@ private fun StemActionRow(
     onLeftChange: (StemAction) -> Unit,
     onRightChange: (StemAction) -> Unit,
 ) {
-    // Enforce: if one side is non-NONE, the other can't be NONE
-    val leftIsLocked = rightAction != StemAction.NONE
-    val rightIsLocked = leftAction != StemAction.NONE
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -177,7 +208,7 @@ private fun StemActionRow(
             StemActionDropdown(
                 selected = leftAction,
                 onSelected = onLeftChange,
-                disableNone = leftIsLocked,
+                otherSideAction = rightAction,
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -191,7 +222,7 @@ private fun StemActionRow(
             StemActionDropdown(
                 selected = rightAction,
                 onSelected = onRightChange,
-                disableNone = rightIsLocked,
+                otherSideAction = leftAction,
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -203,10 +234,16 @@ private fun StemActionRow(
 private fun StemActionDropdown(
     selected: StemAction,
     onSelected: (StemAction) -> Unit,
-    disableNone: Boolean,
+    otherSideAction: StemAction,
     modifier: Modifier = Modifier,
 ) {
     var expanded by remember { mutableStateOf(false) }
+
+    val options = if (otherSideAction == StemAction.NONE) {
+        StemAction.entries.filter { it != StemAction.NO_ACTION }
+    } else {
+        StemAction.entries.toList()
+    }
 
     ExposedDropdownMenuBox(
         expanded = expanded,
@@ -227,23 +264,13 @@ private fun StemActionDropdown(
             expanded = expanded,
             onDismissRequest = { expanded = false },
         ) {
-            for (action in StemAction.entries) {
-                val enabled = !(action == StemAction.NONE && disableNone)
+            for (action in options) {
                 DropdownMenuItem(
-                    text = {
-                        Text(
-                            text = action.label(),
-                            color = if (enabled) MaterialTheme.colorScheme.onSurface
-                            else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
-                        )
-                    },
+                    text = { Text(action.label()) },
                     onClick = {
-                        if (enabled) {
-                            onSelected(action)
-                            expanded = false
-                        }
+                        onSelected(action)
+                        expanded = false
                     },
-                    enabled = enabled,
                 )
             }
         }
@@ -253,6 +280,7 @@ private fun StemActionDropdown(
 @Composable
 private fun StemAction.label(): String = when (this) {
     StemAction.NONE -> stringResource(R.string.stem_action_none)
+    StemAction.NO_ACTION -> stringResource(R.string.stem_action_no_action)
     StemAction.PLAY_PAUSE -> stringResource(R.string.stem_action_play_pause)
     StemAction.NEXT_TRACK -> stringResource(R.string.stem_action_next_track)
     StemAction.PREVIOUS_TRACK -> stringResource(R.string.stem_action_previous_track)

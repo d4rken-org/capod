@@ -3,6 +3,7 @@ package eu.darken.capod.reaction.core.stem
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.datastore.createValue
@@ -29,4 +30,8 @@ class StemActionSettings @Inject constructor(
     val rightDouble = dataStore.createValue("stem.right.double", StemAction.NONE, json, onErrorFallbackToDefault = true)
     val rightTriple = dataStore.createValue("stem.right.triple", StemAction.NONE, json, onErrorFallbackToDefault = true)
     val rightLong = dataStore.createValue("stem.right.long", StemAction.NONE, json, onErrorFallbackToDefault = true)
+
+    suspend fun resetAll() {
+        context.dataStore.edit { it.clear() }
+    }
 }

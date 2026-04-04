@@ -510,11 +510,14 @@
     <string name="stem_actions_long_press">Long Press</string>
     <string name="stem_actions_left">Left</string>
     <string name="stem_actions_right">Right</string>
-    <string name="stem_action_none">None</string>
+    <string name="stem_action_none">Default</string>
+    <string name="stem_action_no_action">No Action</string>
     <string name="stem_action_play_pause">Play/Pause</string>
     <string name="stem_action_next_track">Next Track</string>
     <string name="stem_action_previous_track">Previous Track</string>
     <string name="stem_action_volume_up">Volume Up</string>
     <string name="stem_action_volume_down">Volume Down</string>
+    <string name="stem_actions_reset_label">Reset to defaults</string>
+    <string name="stem_actions_reset_confirm_message">Reset all stem actions to defaults?</string>
 
 </resources>
