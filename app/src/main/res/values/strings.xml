@@ -25,7 +25,10 @@
     <string name="upgrade_benefit_autoconnect">Auto-connect</string>
     <string name="upgrade_benefit_popups">Popup on case open &amp; connection</string>
     <string name="upgrade_benefit_widgets">Home screen widgets</string>
+    <string name="upgrade_benefit_device_settings">Advanced device settings</string>
+    <string name="upgrade_benefit_device_controls">Device controls &#8212; noise, stems &amp; more</string>
     <string name="upgrade_benefit_support">Support the developer</string>
+    <string name="upgrade_benefit_disclaimer">Feature availability depends on your headphones and device.</string>
 
     <string name="upgrade_screen_options_description">Same features, different pricing. The subscription includes a free trial and can be cancelled at any time.</string>
 
