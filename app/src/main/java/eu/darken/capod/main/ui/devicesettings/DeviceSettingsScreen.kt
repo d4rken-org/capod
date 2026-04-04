@@ -1,11 +1,12 @@
 package eu.darken.capod.main.ui.devicesettings
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,24 +14,21 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.VolumeUp
+import androidx.compose.material.icons.twotone.DevicesOther
+import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.Headphones
 import androidx.compose.material.icons.twotone.Hearing
-import androidx.compose.material.icons.twotone.Speed
-import androidx.compose.material.icons.twotone.Swipe
-import androidx.compose.material.icons.twotone.Timer
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.icons.twotone.Check
-import androidx.compose.material.icons.twotone.DevicesOther
-import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.Mic
 import androidx.compose.material.icons.twotone.Nightlight
 import androidx.compose.material.icons.twotone.NotificationsActive
-import androidx.compose.material.icons.twotone.TouchApp
+import androidx.compose.material.icons.twotone.Speed
 import androidx.compose.material.icons.twotone.Stars
+import androidx.compose.material.icons.twotone.Swipe
+import androidx.compose.material.icons.twotone.Timer
+import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material.icons.twotone.VisibilityOff
-import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -51,10 +49,10 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -63,8 +61,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.compose.preview.MOCK_NOW
+import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
@@ -72,11 +70,10 @@ import eu.darken.capod.common.settings.SettingsCategoryHeader
 import eu.darken.capod.common.settings.SettingsPreferenceItem
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
-import eu.darken.capod.main.ui.overview.cards.AncModeSelector
-import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.lastSeenFormatted
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
@@ -193,7 +190,9 @@ fun DeviceSettingsScreen(
                     val stateDetection = device.ble as? HasStateDetection
                     val seenFirst = device.seenFirstAt
                     val seenLast = device.seenLastAt
-                    val firstSeen = if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast).toMinutes() >= 1) {
+                    val firstSeen = if (seenFirst != null && seenLast != null && Duration.between(seenFirst, seenLast)
+                            .toMinutes() >= 1
+                    ) {
                         device.firstSeenFormatted(state.now)
                     } else null
                     DeviceInfoCard(
@@ -207,14 +206,16 @@ fun DeviceSettingsScreen(
                 }
             }
 
-            // Sound section — only show when AAP is connected (settings come from AAP)
+            // Settings — only show when AAP is connected
             if (features != null && device.isAapConnected) {
-                item("sound_header") {
-                    SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_sound_label))
-                }
 
+                // ── Noise Control ────────────────────────────
                 val ancMode = device.ancMode
                 if (features.hasAncControl && ancMode != null) {
+                    item("noise_control_header") {
+                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_noise_control_label))
+                    }
+
                     val cycleMask = if (features.hasListeningModeCycle) {
                         (device.listeningModeCycle ?: AapSetting.ListeningModeCycle(modeMask = 0x0E)).modeMask
                     } else null
@@ -227,40 +228,60 @@ fun DeviceSettingsScreen(
                             onModeSelected = onAncModeChange,
                             cycleMask = cycleMask,
                             onCycleMaskChange = onListeningModeCycleChange,
+                            onAllowOffChange = onAllowOffOptionChange,
                             enabled = enabled,
                         )
                     }
-                }
 
-                val convAwareness = device.conversationalAwareness
-                if (features.hasConversationAwareness && convAwareness != null) {
-                    item("conversation_awareness") {
-                        SettingsSwitchItem(
-                            icon = Icons.TwoTone.Hearing,
-                            title = stringResource(R.string.conversation_awareness_label),
-                            subtitle = stringResource(R.string.device_settings_conversation_awareness_description),
-                            checked = convAwareness.enabled,
-                            onCheckedChange = onConversationalAwarenessChange,
-                            enabled = enabled,
-                        )
+                    val convAwareness = device.conversationalAwareness
+                    if (features.hasConversationAwareness && convAwareness != null) {
+                        item("conversation_awareness") {
+                            SettingsSwitchItem(
+                                icon = Icons.TwoTone.Hearing,
+                                title = stringResource(R.string.conversation_awareness_label),
+                                subtitle = stringResource(R.string.device_settings_conversation_awareness_description),
+                                checked = convAwareness.enabled,
+                                onCheckedChange = onConversationalAwarenessChange,
+                                enabled = enabled,
+                            )
+                        }
+                    }
+
+                    val ncOneAirpod = device.ncWithOneAirPod
+                    if (features.hasNcOneAirpod && ncOneAirpod != null) {
+                        item("nc_one_airpod") {
+                            SettingsSwitchItem(
+                                icon = Icons.TwoTone.Headphones,
+                                title = stringResource(R.string.device_settings_nc_one_airpod_label),
+                                subtitle = stringResource(R.string.device_settings_nc_one_airpod_description),
+                                checked = ncOneAirpod.enabled,
+                                onCheckedChange = onNcWithOneAirPodChange,
+                                enabled = enabled,
+                            )
+                        }
+                    }
+
+                    val adaptiveNoise = device.adaptiveAudioNoise
+                    if (features.hasAdaptiveAudioNoise && adaptiveNoise != null) {
+                        item("adaptive_noise") {
+                            AdaptiveNoiseSlider(
+                                level = adaptiveNoise.level,
+                                onLevelChange = onAdaptiveAudioNoiseChange,
+                                enabled = enabled,
+                            )
+                        }
                     }
                 }
 
-                val ncOneAirpod = device.ncWithOneAirPod
-                if (features.hasNcOneAirpod && ncOneAirpod != null) {
-                    item("nc_one_airpod") {
-                        SettingsSwitchItem(
-                            icon = Icons.TwoTone.Headphones,
-                            title = stringResource(R.string.device_settings_nc_one_airpod_label),
-                            subtitle = stringResource(R.string.device_settings_nc_one_airpod_description),
-                            checked = ncOneAirpod.enabled,
-                            onCheckedChange = onNcWithOneAirPodChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
+                // ── Sound ────────────────────────────────────
                 val personalizedVol = device.personalizedVolume
+                val toneVol = device.toneVolume
+                if ((features.hasPersonalizedVolume && personalizedVol != null) || (features.hasToneVolume && toneVol != null)) {
+                    item("sound_header") {
+                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_sound_label))
+                    }
+                }
+
                 if (features.hasPersonalizedVolume && personalizedVol != null) {
                     item("personalized_volume") {
                         SettingsSwitchItem(
@@ -274,7 +295,6 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                val toneVol = device.toneVolume
                 if (features.hasToneVolume && toneVol != null) {
                     item("tone_volume") {
                         ToneVolumeSlider(
@@ -285,18 +305,7 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                val adaptiveNoise = device.adaptiveAudioNoise
-                if (features.hasAdaptiveAudioNoise && adaptiveNoise != null) {
-                    item("adaptive_noise") {
-                        AdaptiveNoiseSlider(
-                            level = adaptiveNoise.level,
-                            onLevelChange = onAdaptiveAudioNoiseChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
-                // Controls section
+                // ── Controls ─────────────────────────────────
                 item("controls_header") {
                     SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_controls_label))
                 }
@@ -383,23 +392,6 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                if (features.hasStemConfig) {
-                    item("stem_actions") {
-                        SettingsPreferenceItem(
-                            icon = Icons.TwoTone.TouchApp,
-                            title = stringResource(R.string.stem_actions_title),
-                            subtitle = stringResource(R.string.stem_actions_nav_description),
-                            onClick = onStemActionsClick,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
-                // Additional settings section
-                item("additional_header") {
-                    SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_additional_label))
-                }
-
                 if (features.hasMicrophoneMode) {
                     val micMode = device.microphoneMode
                         ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)
@@ -418,6 +410,23 @@ fun DeviceSettingsScreen(
                             enabled = enabled,
                         )
                     }
+                }
+
+                if (features.hasStemConfig) {
+                    item("stem_actions") {
+                        SettingsPreferenceItem(
+                            icon = Icons.TwoTone.TouchApp,
+                            title = stringResource(R.string.stem_actions_title),
+                            subtitle = stringResource(R.string.stem_actions_nav_description),
+                            onClick = onStemActionsClick,
+                            enabled = enabled,
+                        )
+                    }
+                }
+
+                // ── General ──────────────────────────────────
+                item("general_header") {
+                    SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_general_label))
                 }
 
                 if (features.hasEarDetectionToggle) {
@@ -467,7 +476,7 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                // Connections section
+                // ── Connections ───────────────────────────────
                 val connectedDevices = device.connectedDevices
                 if (connectedDevices != null && connectedDevices.devices.isNotEmpty()) {
                     item("connections_header") {
@@ -481,7 +490,7 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                // EQ visualization (debug only — internal adaptive calibration data, not user-actionable)
+                // EQ visualization (debug only)
                 val eqBands = device.eqBands
                 if (eu.darken.capod.BuildConfig.DEBUG && eqBands != null && eqBands.sets.isNotEmpty()) {
                     item("eq_header") {
@@ -980,6 +989,7 @@ private fun NoiseControlCombined(
     onModeSelected: (AapSetting.AncMode.Value) -> Unit,
     cycleMask: Int?,
     onCycleMaskChange: (Int) -> Unit,
+    onAllowOffChange: (Boolean) -> Unit = {},
     enabled: Boolean,
 ) {
     val displayMode = pendingMode ?: currentMode
@@ -990,64 +1000,87 @@ private fun NoiseControlCombined(
         AapSetting.AncMode.Value.ADAPTIVE to 0x08,
     )
 
-    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
-        for (mode in supportedModes) {
-            val isSelected = mode == displayMode
-            val bit = cycleBits[mode] ?: continue
-            val inCycle = cycleMask?.let { (it and bit) != 0 }
-            val cycleCount = cycleMask?.let { Integer.bitCount(it and 0x0F) } ?: 0
-            val canRemoveFromCycle = inCycle != true || cycleCount > 2
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
+    ) {
+        Column(modifier = Modifier.padding(vertical = 4.dp)) {
+            Text(
+                text = stringResource(R.string.device_settings_noise_control_label),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 4.dp),
+            )
+            for (mode in supportedModes) {
+                val isSelected = mode == displayMode
+                val bit = cycleBits[mode] ?: continue
+                val inCycle = cycleMask?.let { (it and bit) != 0 }
+                val cycleCount = cycleMask?.let { Integer.bitCount(it and 0x0F) } ?: 0
+                val canRemoveFromCycle = inCycle != true || cycleCount > 2
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable(enabled = enabled) { onModeSelected(mode) }
-                    .padding(vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                // Visibility toggle for cycle (only if device supports listening mode cycle)
-                if (cycleMask != null) {
-                    IconButton(
-                        onClick = {
-                            if (inCycle == true && canRemoveFromCycle) {
-                                onCycleMaskChange(cycleMask xor bit)
-                            } else if (inCycle != true) {
-                                onCycleMaskChange((cycleMask ?: 0) or bit)
-                            }
-                        },
-                        enabled = enabled && (inCycle != true || canRemoveFromCycle),
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    // Visibility toggle — independent click target
+                    if (cycleMask != null) {
+                        IconButton(
+                            onClick = {
+                                val isOff = mode == AapSetting.AncMode.Value.OFF
+                                if (inCycle == true && canRemoveFromCycle) {
+                                    onCycleMaskChange(cycleMask xor bit)
+                                    if (isOff) onAllowOffChange(false)
+                                } else if (inCycle != true) {
+                                    onCycleMaskChange((cycleMask ?: 0) or bit)
+                                    if (isOff) onAllowOffChange(true)
+                                }
+                            },
+                            enabled = enabled && (inCycle != true || canRemoveFromCycle),
+                        ) {
+                            Icon(
+                                imageVector = if (inCycle == true) Icons.TwoTone.Visibility else Icons.TwoTone.VisibilityOff,
+                                contentDescription = null,
+                                tint = if (inCycle == true) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
+                                },
+                            )
+                        }
+                    }
+
+                    // Mode selection — label + radio as one click target
+                    Row(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxHeight()
+                            .clickable(enabled = enabled) { onModeSelected(mode) }
+                            .padding(start = if (cycleMask == null) 16.dp else 0.dp, end = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
                     ) {
-                        Icon(
-                            imageVector = if (inCycle == true) Icons.TwoTone.Visibility else Icons.TwoTone.VisibilityOff,
-                            contentDescription = null,
-                            tint = if (inCycle == true) {
+                        Text(
+                            text = mode.label(),
+                            style = MaterialTheme.typography.bodyLarge,
+                            color = if (isSelected) {
                                 MaterialTheme.colorScheme.primary
                             } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.4f)
+                                MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f)
                             },
+                            fontWeight = if (isSelected) androidx.compose.ui.text.font.FontWeight.Bold else null,
+                            modifier = Modifier.weight(1f),
+                        )
+                        RadioButton(
+                            selected = isSelected,
+                            onClick = null,
+                            enabled = enabled,
+                            modifier = Modifier.padding(16.dp),
                         )
                     }
                 }
-
-                // Mode label
-                Text(
-                    text = mode.label(),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = if (isSelected) {
-                        MaterialTheme.colorScheme.primary
-                    } else {
-                        MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f)
-                    },
-                    fontWeight = if (isSelected) androidx.compose.ui.text.font.FontWeight.Bold else null,
-                    modifier = Modifier.weight(1f),
-                )
-
-                // Selection indicator
-                RadioButton(
-                    selected = isSelected,
-                    onClick = { onModeSelected(mode) },
-                    enabled = enabled,
-                )
             }
         }
     }

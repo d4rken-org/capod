@@ -465,7 +465,7 @@
     <string name="device_settings_open_cd">Open device settings</string>
 
     <!-- New device settings -->
-    <string name="device_settings_category_additional_label">Additional</string>
+    <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>
     <string name="device_settings_microphone_mode_description">Which AirPod is used as the microphone</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
@@ -494,6 +494,7 @@
     <string name="device_settings_connected_device_call">In a call</string>
     <string name="device_settings_connected_device_media">Playing media</string>
 
+    <string name="device_settings_noise_control_label">Noise Control</string>
     <string name="device_settings_eq_label">Equalizer</string>
 
     <!-- Stem Actions -->
