@@ -50,12 +50,12 @@ class StemPressReaction @Inject constructor(
     }
 
     private suspend fun executeAction(action: StemAction) = when (action) {
-        StemAction.NONE -> Unit
+        StemAction.NONE, StemAction.NO_ACTION -> Unit
         StemAction.PLAY_PAUSE -> mediaControl.sendPlayPause()
         StemAction.NEXT_TRACK -> mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_NEXT)
         StemAction.PREVIOUS_TRACK -> mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_PREVIOUS)
-        StemAction.VOLUME_UP -> mediaControl.sendKey(KeyEvent.KEYCODE_VOLUME_UP)
-        StemAction.VOLUME_DOWN -> mediaControl.sendKey(KeyEvent.KEYCODE_VOLUME_DOWN)
+        StemAction.VOLUME_UP -> mediaControl.adjustVolumeUp()
+        StemAction.VOLUME_DOWN -> mediaControl.adjustVolumeDown()
     }
 
     companion object {

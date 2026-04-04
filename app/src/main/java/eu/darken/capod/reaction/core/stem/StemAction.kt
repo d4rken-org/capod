@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 enum class StemAction {
     NONE,
+    NO_ACTION,
     PLAY_PAUSE,
     NEXT_TRACK,
     PREVIOUS_TRACK,

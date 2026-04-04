@@ -53,6 +53,24 @@ class MediaControl @Inject constructor(
         audioManager.dispatchMediaKeyEvent(KeyEvent(eventTime + 200, eventTime + 200, KeyEvent.ACTION_UP, keyCode, 0))
     }
 
+    fun adjustVolumeUp() {
+        log(TAG, INFO) { "adjustVolumeUp()" }
+        audioManager.adjustSuggestedStreamVolume(
+            AudioManager.ADJUST_RAISE,
+            AudioManager.USE_DEFAULT_STREAM_TYPE,
+            AudioManager.FLAG_SHOW_UI,
+        )
+    }
+
+    fun adjustVolumeDown() {
+        log(TAG, INFO) { "adjustVolumeDown()" }
+        audioManager.adjustSuggestedStreamVolume(
+            AudioManager.ADJUST_LOWER,
+            AudioManager.USE_DEFAULT_STREAM_TYPE,
+            AudioManager.FLAG_SHOW_UI,
+        )
+    }
+
     companion object {
         private val TAG = logTag("MediaControl")
     }
