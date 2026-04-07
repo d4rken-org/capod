@@ -22,6 +22,5 @@ sealed class AapCommand {
     data class SetAllowOffOption(val enabled: Boolean) : AapCommand()
     data class SetStemConfig(val claimedPressMask: Int) : AapCommand()
     data class SetSleepDetection(val enabled: Boolean) : AapCommand()
-    data class SetInCaseTone(val enabled: Boolean) : AapCommand()
     data class SetDeviceName(val name: String) : AapCommand()
 }

@@ -275,9 +275,6 @@ data class PodDevice(
     val sleepDetection: AapSetting.SleepDetection?
         get() = aap?.setting()
 
-    val inCaseTone: AapSetting.InCaseTone?
-        get() = aap?.setting()
-
     val connectedDevices: AapSetting.ConnectedDevices?
         get() = aap?.setting()
 

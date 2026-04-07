@@ -126,8 +126,6 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setSleepDetection(enabled: Boolean) = sendProGated(AapCommand.SetSleepDetection(enabled))
 
-    fun setInCaseTone(enabled: Boolean) = sendProGated(AapCommand.SetInCaseTone(enabled))
-
     fun setDeviceName(name: String) = send(AapCommand.SetDeviceName(name))
 
     fun navToStemConfig() = launch {

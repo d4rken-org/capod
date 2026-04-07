@@ -2,6 +2,8 @@ package eu.darken.capod.main.ui.devicesettings
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,7 +23,6 @@ import androidx.compose.material.icons.twotone.Headphones
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.Mic
 import androidx.compose.material.icons.twotone.Nightlight
-import androidx.compose.material.icons.twotone.NotificationsActive
 import androidx.compose.material.icons.twotone.Speed
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.Swipe
@@ -54,6 +55,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -111,7 +113,6 @@ fun DeviceSettingsScreenHost(
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
-        onInCaseToneChange = { vm.setInCaseTone(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
         onStemActionsClick = { vm.navToStemConfig() },
     )
@@ -138,7 +139,6 @@ fun DeviceSettingsScreen(
     onListeningModeCycleChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
-    onInCaseToneChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
     onStemActionsClick: () -> Unit = {},
 ) {
@@ -460,22 +460,6 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                if (features.hasInCaseTone) {
-                    val inCaseTone = device.inCaseTone
-                        ?: AapSetting.InCaseTone(enabled = true)
-                    item("in_case_tone") {
-                        ProGatedSwitchItem(
-                            icon = Icons.TwoTone.NotificationsActive,
-                            title = stringResource(R.string.device_settings_in_case_tone_label),
-                            subtitle = stringResource(R.string.device_settings_in_case_tone_description),
-                            checked = inCaseTone.enabled,
-                            onCheckedChange = onInCaseToneChange,
-                            enabled = enabled,
-                            isPro = isPro,
-                        )
-                    }
-                }
-
                 // ── Connections ───────────────────────────────
                 val connectedDevices = device.connectedDevices
                 if (connectedDevices != null && connectedDevices.devices.isNotEmpty()) {
@@ -745,31 +729,33 @@ private fun EndCallMuteMicControl(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        CallControlOption(
-            title = stringResource(R.string.device_settings_end_call_mute_mic_option_a_title),
-            subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_a_subtitle),
-            selected = optionASelected,
-            enabled = enabled,
-            onClick = {
-                onChange(
-                    AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
-                    AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
-                )
-            },
-        )
+        Column(modifier = Modifier.selectableGroup()) {
+            CallControlOption(
+                title = stringResource(R.string.device_settings_end_call_mute_mic_option_a_title),
+                subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_a_subtitle),
+                selected = optionASelected,
+                enabled = enabled,
+                onClick = {
+                    onChange(
+                        AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
+                        AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+                    )
+                },
+            )
 
-        CallControlOption(
-            title = stringResource(R.string.device_settings_end_call_mute_mic_option_b_title),
-            subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_b_subtitle),
-            selected = !optionASelected,
-            enabled = enabled,
-            onClick = {
-                onChange(
-                    AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
-                    AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
-                )
-            },
-        )
+            CallControlOption(
+                title = stringResource(R.string.device_settings_end_call_mute_mic_option_b_title),
+                subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_b_subtitle),
+                selected = !optionASelected,
+                enabled = enabled,
+                onClick = {
+                    onChange(
+                        AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
+                        AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
+                    )
+                },
+            )
+        }
     }
 }
 
@@ -785,12 +771,17 @@ private fun CallControlOption(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(enabled = enabled, onClick = onClick)
+            .selectable(
+                selected = selected,
+                enabled = enabled,
+                role = Role.RadioButton,
+                onClick = { if (!selected) onClick() },
+            )
             .padding(vertical = 4.dp),
     ) {
         RadioButton(
             selected = selected,
-            onClick = onClick,
+            onClick = null,
             enabled = enabled,
         )
         Column(modifier = Modifier.padding(start = 4.dp)) {

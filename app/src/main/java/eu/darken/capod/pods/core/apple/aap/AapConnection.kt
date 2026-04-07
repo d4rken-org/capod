@@ -240,9 +240,6 @@ internal class AapConnection(
             is AapCommand.SetSleepDetection -> {
                 AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled = command.enabled)
             }
-            is AapCommand.SetInCaseTone -> {
-                AapSetting.InCaseTone::class to AapSetting.InCaseTone(enabled = command.enabled)
-            }
             is AapCommand.SetDeviceName -> return // No optimistic state — name comes from deviceInfo
         }
         _state.value = baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = Instant.now())

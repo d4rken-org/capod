@@ -68,7 +68,6 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
             hasSleepDetection = true,
-            hasInCaseTone = true,
         ),
         modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
@@ -100,7 +99,6 @@ enum class PodModel(
             hasAllowOffOption = true,
             hasStemConfig = true,
             hasSleepDetection = true,
-            hasInCaseTone = true,
             needsInitExt = true,
         ),
         modelNumbers = setOf("A3055", "A3056", "A3057"), // earphones
@@ -160,7 +158,6 @@ enum class PodModel(
             hasAllowOffOption = true,
             hasStemConfig = true,
             hasSleepDetection = true,
-            hasInCaseTone = true,
             needsInitExt = true,
         ),
         modelNumbers = setOf("A2698", "A2699", "A2931"), // earphones
@@ -195,7 +192,6 @@ enum class PodModel(
             hasAllowOffOption = true,
             hasStemConfig = true,
             hasSleepDetection = true,
-            hasInCaseTone = true,
             needsInitExt = true,
         ),
         modelNumbers = setOf("A3047", "A3048", "A3049"), // earphones
@@ -230,7 +226,6 @@ enum class PodModel(
             hasAllowOffOption = true,
             hasStemConfig = true,
             hasSleepDetection = true,
-            hasInCaseTone = true,
             needsInitExt = true,
         ),
         modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
@@ -531,7 +526,6 @@ enum class PodModel(
         val hasAllowOffOption: Boolean = false,
         val hasStemConfig: Boolean = false,
         val hasSleepDetection: Boolean = false,
-        val hasInCaseTone: Boolean = false,
         // Protocol
         val needsInitExt: Boolean = false,
     )

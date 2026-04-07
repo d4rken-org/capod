@@ -40,6 +40,11 @@ class DefaultAapDeviceProfile(
         const val SETTING_MICROPHONE_MODE = 0x01
         const val SETTING_EAR_DETECTION_ENABLED = 0x0A
         const val SETTING_LISTENING_MODE_CYCLE = 0x1A
+        // Kept decoded internally (never exposed in UI): the device pushes 0x31 frames and dropping the
+        // decode would fall through to "Unhandled message" logging and prevent lastMessageAt refresh,
+        // which AAP freshness / boost logic in PodDevice.computeAapBoost depends on.
+        // Originally labeled "Charging Sounds" but the real case tones are controlled over ATT, not here;
+        // the actual effect of this setting is unknown, so we don't expose or write it.
         const val SETTING_IN_CASE_TONE = 0x31
         const val SETTING_ALLOW_OFF_OPTION = 0x34
         const val SETTING_SLEEP_DETECTION = 0x35
@@ -104,7 +109,6 @@ class DefaultAapDeviceProfile(
         is AapCommand.SetAllowOffOption -> buildSettingsMessage(SETTING_ALLOW_OFF_OPTION, encodeAppleBool(command.enabled))
         is AapCommand.SetStemConfig -> buildSettingsMessage(SETTING_STEM_CONFIG, command.claimedPressMask and 0x0F)
         is AapCommand.SetSleepDetection -> buildSettingsMessage(SETTING_SLEEP_DETECTION, encodeAppleBool(command.enabled))
-        is AapCommand.SetInCaseTone -> buildSettingsMessage(SETTING_IN_CASE_TONE, encodeAppleBool(command.enabled))
         is AapCommand.SetDeviceName -> buildRenameMessage(command.name)
     }
 
@@ -143,7 +147,7 @@ class DefaultAapDeviceProfile(
             var offset = 3
             for (i in 0 until count) {
                 if (offset + 8 > message.payload.size) break
-                val mac = (0 until 6).map { "%02X".format(message.payload[offset + 5 - it]) }.joinToString(":")
+                val mac = (0 until 6).map { "%02X".format(message.payload[offset + it]) }.joinToString(":")
                 val type = message.payload[offset + 6].toInt() and 0xFF
                 devices.add(AapSetting.ConnectedDevices.ConnectedDevice(mac, type))
                 offset += 8
@@ -154,7 +158,7 @@ class DefaultAapDeviceProfile(
         // Audio source tracking (push-only from device)
         if (message.commandType == CMD_AUDIO_SOURCE) {
             if (message.payload.size < 7) return null
-            val mac = (0 until 6).map { "%02X".format(message.payload[5 - it]) }.joinToString(":")
+            val mac = (0 until 6).map { "%02X".format(message.payload[it]) }.joinToString(":")
             val typeValue = message.payload[6].toInt() and 0xFF
             val type = when (typeValue) {
                 0x01 -> AapSetting.AudioSource.AudioSourceType.CALL
