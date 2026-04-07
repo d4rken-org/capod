@@ -456,8 +456,8 @@
     <string name="device_settings_press_hold_shortest">Shortest</string>
     <string name="device_settings_volume_swipe_label">Volume Swipe</string>
     <string name="device_settings_volume_swipe_description">Swipe to adjust volume</string>
-    <string name="device_settings_volume_swipe_length_label">Volume Swipe Length</string>
-    <string name="device_settings_volume_swipe_length_description">How far to swipe on the stem to change volume</string>
+    <string name="device_settings_volume_swipe_length_label">Volume Swipe Wait Time</string>
+    <string name="device_settings_volume_swipe_length_description">To prevent unintended volume adjustments, choose how long to wait between swipes.</string>
     <string name="device_settings_volume_swipe_length_default">Default</string>
     <string name="device_settings_volume_swipe_length_longer">Longer</string>
     <string name="device_settings_volume_swipe_length_longest">Longest</string>
@@ -488,8 +488,6 @@
     <string name="device_settings_allow_off_description">Show Off as an option when cycling noise control modes</string>
     <string name="device_settings_sleep_detection_label">Sleep Detection</string>
     <string name="device_settings_sleep_detection_description">Automatically pause audio when you fall asleep</string>
-    <string name="device_settings_in_case_tone_label">Charging Sounds</string>
-    <string name="device_settings_in_case_tone_description">Play a sound when connected to a charger</string>
     <string name="device_settings_rename_label">Rename</string>
     <string name="device_settings_rename_hint">Device name</string>
     <string name="device_settings_rename_confirm">Rename</string>

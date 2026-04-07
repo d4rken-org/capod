@@ -118,11 +118,11 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
     }
 
     // ── In-Case Tone (0x31) ─────────────────────────────────
+    // Decode path is kept internally even though the setting is no longer exposed in the UI.
+    // See DefaultAapDeviceProfile.SETTING_IN_CASE_TONE for rationale.
 
     @Nested
     inner class InCaseToneTests {
-        @Test fun `encode enabled`() { profile.encodeCommand(AapCommand.SetInCaseTone(true))[7] shouldBe 0x01.toByte() }
-        @Test fun `encode disabled`() { profile.encodeCommand(AapCommand.SetInCaseTone(false))[7] shouldBe 0x02.toByte() }
         @Test fun `decode enabled`() { decodeSetting<AapSetting.InCaseTone>(settingsMessage(0x31, 0x01)).enabled shouldBe true }
         @Test fun `decode disabled`() { decodeSetting<AapSetting.InCaseTone>(settingsMessage(0x31, 0x02)).enabled shouldBe false }
         @Test fun `decode unknown returns null`() { profile.decodeSetting(settingsMessage(0x31, 0x00)).shouldBeNull() }
@@ -213,11 +213,18 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
     @Nested
     inner class ConnectedDevicesTests {
         @Test fun `decode single device`() {
-            // payload: 2 unknown bytes, count=1, then 6-byte MAC reversed + 2 flags
-            val msg = aapMessage("04 00 04 00 2E 00 00 00 01 06 05 04 03 02 01 00 00")
+            // payload: 2 unknown bytes, count=1, then 6-byte MAC + 2 flags
+            val msg = aapMessage("04 00 04 00 2E 00 00 00 01 01 02 03 04 05 06 00 00")
             val cd = decodeSetting<AapSetting.ConnectedDevices>(msg)
             cd.devices.size shouldBe 1
             cd.devices[0].mac shouldBe "01:02:03:04:05:06"
+        }
+
+        @Test fun `decode high bytes formats as upper-case hex`() {
+            // Use MAC with high bytes (>=0x80) to lock in %02X formatting and catch sign-extension regressions.
+            val msg = aapMessage("04 00 04 00 2E 00 00 00 01 AA BB CC DD EE FF 00 00")
+            val cd = decodeSetting<AapSetting.ConnectedDevices>(msg)
+            cd.devices[0].mac shouldBe "AA:BB:CC:DD:EE:FF"
         }
 
         @Test fun `decode empty list`() {
@@ -236,26 +243,43 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
     @Nested
     inner class AudioSourceTests {
         @Test fun `decode media source`() {
-            val msg = aapMessage("04 00 04 00 0E 00 06 05 04 03 02 01 02")
+            val msg = aapMessage("04 00 04 00 0E 00 01 02 03 04 05 06 02")
             val as_ = decodeSetting<AapSetting.AudioSource>(msg)
             as_.sourceMac shouldBe "01:02:03:04:05:06"
             as_.type shouldBe AapSetting.AudioSource.AudioSourceType.MEDIA
         }
 
         @Test fun `decode call source`() {
-            val msg = aapMessage("04 00 04 00 0E 00 06 05 04 03 02 01 01")
+            val msg = aapMessage("04 00 04 00 0E 00 01 02 03 04 05 06 01")
             val as_ = decodeSetting<AapSetting.AudioSource>(msg)
+            as_.sourceMac shouldBe "01:02:03:04:05:06"
             as_.type shouldBe AapSetting.AudioSource.AudioSourceType.CALL
         }
 
         @Test fun `decode unknown type maps to NONE`() {
-            val msg = aapMessage("04 00 04 00 0E 00 06 05 04 03 02 01 00")
+            val msg = aapMessage("04 00 04 00 0E 00 01 02 03 04 05 06 00")
             val as_ = decodeSetting<AapSetting.AudioSource>(msg)
+            as_.sourceMac shouldBe "01:02:03:04:05:06"
             as_.type shouldBe AapSetting.AudioSource.AudioSourceType.NONE
         }
 
         @Test fun `payload too short returns null`() {
-            profile.decodeSetting(aapMessage("04 00 04 00 0E 00 06 05 04 03 02 01")).shouldBeNull()
+            profile.decodeSetting(aapMessage("04 00 04 00 0E 00 01 02 03 04 05 06")).shouldBeNull()
+        }
+
+        @Test fun `decode high bytes formats as upper-case hex`() {
+            val msg = aapMessage("04 00 04 00 0E 00 AA BB CC DD EE FF 02")
+            val as_ = decodeSetting<AapSetting.AudioSource>(msg)
+            as_.sourceMac shouldBe "AA:BB:CC:DD:EE:FF"
+        }
+
+        @Test fun `ConnectedDevices and AudioSource decode MAC identically`() {
+            // DeviceSettingsScreen matches audioSource.sourceMac == device.mac, so both paths must canonicalize the same way.
+            val connectedMsg = aapMessage("04 00 04 00 2E 00 00 00 01 11 22 33 44 55 66 00 00")
+            val audioMsg = aapMessage("04 00 04 00 0E 00 11 22 33 44 55 66 02")
+            val connected = decodeSetting<AapSetting.ConnectedDevices>(connectedMsg)
+            val audio = decodeSetting<AapSetting.AudioSource>(audioMsg)
+            connected.devices[0].mac shouldBe audio.sourceMac
         }
     }
 
@@ -271,7 +295,6 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasAllowOffOption shouldBe true
             f.hasStemConfig shouldBe true
             f.hasSleepDetection shouldBe true
-            f.hasInCaseTone shouldBe true
         }
 
         @Test fun `Pro 1 has mic and ear detection but no stem config`() {
@@ -282,17 +305,15 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasAllowOffOption shouldBe true
             f.hasStemConfig shouldBe false
             f.hasSleepDetection shouldBe false
-            f.hasInCaseTone shouldBe false
         }
 
-        @Test fun `Gen 4 has mic, ear detection, sleep, in-case but no stem config`() {
+        @Test fun `Gen 4 has mic, ear detection, sleep but no stem config`() {
             val f = PodModel.AIRPODS_GEN4.features
             f.hasMicrophoneMode shouldBe true
             f.hasEarDetectionToggle shouldBe true
             f.hasListeningModeCycle shouldBe false
             f.hasStemConfig shouldBe false
             f.hasSleepDetection shouldBe true
-            f.hasInCaseTone shouldBe true
         }
 
         @Test fun `Max has ear detection toggle only`() {
