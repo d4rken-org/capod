@@ -10,6 +10,7 @@ import eu.darken.capod.monitor.core.aap.AapLifecycleManager
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import eu.darken.capod.monitor.core.cache.toCachedState
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -58,28 +59,60 @@ class DeviceMonitor @Inject constructor(
                 ble = pod,
                 aap = aapStates.forProfile(profile),
                 cached = profile?.id?.let { cachedStates[it] },
+                profileAddress = profile?.address,
+                profileModel = profile?.model,
             )
         }
 
-        // Cached-only devices — profiles with cache but no live BLE.
-        // AAP may still be connected even when BLE scan is stale in a crowded RF environment,
-        // so re-attach AAP state via the same helper — see #483.
+        // Non-live devices — profiles with no live BLE detection. Synthesize from cache
+        // and/or AAP, whichever is available:
+        //   - cache only           → "cached-only" case (PR #484 fixed AAP attach here)
+        //   - AAP only             → cold-start case: AAP connected but no battery message
+        //                            received yet, so no cache write has happened
+        //   - cache + AAP          → mid-session BLE staleness with AAP still alive
         val liveProfileIds = liveDevices.mapNotNull { it.profileId }.toSet()
-        val cachedOnlyDevices = profiles
+        val nonLiveDevices = profiles
             .filter { it.id !in liveProfileIds }
             .mapNotNull { profile ->
-                cachedStates[profile.id]?.let { cached ->
-                    PodDevice(
-                        profileId = profile.id,
-                        label = profile.label,
-                        ble = null,
-                        aap = aapStates.forProfile(profile),
-                        cached = cached,
-                    )
-                }
+                val cached = cachedStates[profile.id]
+                val aap = aapStates.forProfile(profile)
+                if (cached == null && aap == null) return@mapNotNull null
+                PodDevice(
+                    profileId = profile.id,
+                    label = profile.label,
+                    ble = null,
+                    aap = aap,
+                    cached = cached,
+                    profileAddress = profile.address,
+                    profileModel = profile.model,
+                )
             }
 
-        liveDevices + cachedOnlyDevices
+        // De-dupe: if a synthesized non-live device with active AAP shares its model with
+        // an anonymous (profileId == null) BLE pod, the anonymous pod is most likely the
+        // same physical AirPods — the IRK match failed (e.g. wrong identity key, or keys
+        // haven't propagated yet). Hide the anonymous BLE pod to avoid two cards for the
+        // same device. Best-effort: model match only — BLE addresses are RPAs and can't
+        // be matched directly.
+        val nonLiveAapModels = nonLiveDevices
+            .filter { it.aap != null }
+            .map { it.model }
+            .filter { it != PodModel.UNKNOWN }
+            .toSet()
+        val dedupedLiveDevices = if (nonLiveAapModels.isEmpty()) {
+            liveDevices
+        } else {
+            val seenAnonymousModels = mutableSetOf<PodModel>()
+            liveDevices.filter { device ->
+                val isAnonymous = device.profileId == null
+                val matchesNonLive = device.model in nonLiveAapModels
+                // Hide at most one anonymous BLE pod per non-live AAP model so a second
+                // physical device of the same model isn't accidentally hidden.
+                !(isAnonymous && matchesNonLive && seenAnonymousModels.add(device.model))
+            }
+        }
+
+        dedupedLiveDevices + nonLiveDevices
     }
         .onEach { devices -> persistLiveDevices(devices) }
         .replayingShare(appScope)
@@ -104,15 +137,25 @@ class DeviceMonitor @Inject constructor(
             return liveDevice
         }
 
+        val profile = profilesRepo.profiles.firstOrNull()?.firstOrNull { it.id == profileId }
         val cached = deviceStateCache.load(profileId)
-        if (cached != null) {
-            log(TAG) { "Found cached state for profile $profileId" }
-            val profileLabel = profilesRepo.profiles.firstOrNull()?.firstOrNull { it.id == profileId }?.label
-            return PodDevice(profileId = profileId, label = profileLabel, ble = null, aap = null, cached = cached)
+        val aap = profile?.let { aapManager.allStates.value.forProfile(it) }
+
+        if (cached == null && aap == null) {
+            log(TAG) { "No device found for profile $profileId" }
+            return null
         }
 
-        log(TAG) { "No device found for profile $profileId" }
-        return null
+        log(TAG) { "Found fallback device for profile $profileId (cached=${cached != null}, aap=${aap != null})" }
+        return PodDevice(
+            profileId = profileId,
+            label = profile?.label,
+            ble = null,
+            aap = aap,
+            cached = cached,
+            profileAddress = profile?.address,
+            profileModel = profile?.model,
+        )
     }
 
     /**

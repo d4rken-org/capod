@@ -13,6 +13,8 @@ import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
@@ -60,6 +62,17 @@ class DeviceMonitorTest : BaseTest() {
         }
         return mockk(relaxed = true) {
             every { meta } returns bleMeta
+            every { this@mockk.model } returns profile.model
+        }
+    }
+
+    private fun mockAnonymousBlePod(model: PodModel): BlePodSnapshot {
+        val anonymousMeta = object : BlePodSnapshot.Meta {
+            override val profile: DeviceProfile? = null
+        }
+        return mockk(relaxed = true) {
+            every { meta } returns anonymousMeta
+            every { this@mockk.model } returns model
         }
     }
 
@@ -78,6 +91,9 @@ class DeviceMonitorTest : BaseTest() {
         }
         val deviceStateCache: DeviceStateCache = mockk(relaxed = true) {
             every { cachedStates } returns MutableStateFlow(cache)
+            // Relaxed mocks return a mocked child for unstubbed nullable returns,
+            // so explicitly delegate load() to the test's cache map.
+            coEvery { load(any()) } answers { cache[firstArg<String>()] }
         }
         val profilesRepo: DeviceProfilesRepo = mockk {
             every { this@mockk.profiles } returns MutableStateFlow(profiles)
@@ -180,5 +196,198 @@ class DeviceMonitorTest : BaseTest() {
         val device = devices.single()
         device.profileId shouldBe noAddressProfile.id
         device.isAapConnected shouldBe false
+    }
+
+    /**
+     * Cold-start AAP-only synthesis: AAP socket is alive (CONNECTING) but no BLE
+     * detection has happened yet and the cache hasn't been written. The merge must
+     * still emit a PodDevice for the profile so DeviceSettingsScreen can render.
+     */
+    @Test
+    fun `AAP-only synthesis CONNECTING - no BLE no cache`() = runTest(testDispatcher) {
+        val connectingAap = AapPodState(
+            connectionState = AapPodState.ConnectionState.CONNECTING,
+            lastMessageAt = null,
+        )
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = mapOf(testAddress to connectingAap),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 1
+        val device = devices.single()
+        device.profileId shouldBe testProfile.id
+        device.address shouldBe testProfile.address
+        device.model shouldBe testProfile.model
+        device.isAapConnected shouldBe true
+        device.isAapReady shouldBe false
+    }
+
+    @Test
+    fun `AAP-only synthesis READY - no BLE no cache`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = mapOf(testAddress to testAapState),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 1
+        val device = devices.single()
+        device.profileId shouldBe testProfile.id
+        device.address shouldBe testProfile.address
+        device.model shouldBe testProfile.model
+        device.isAapConnected shouldBe true
+        device.isAapReady shouldBe true
+    }
+
+    @Test
+    fun `profile in repo with no BLE no cache no AAP - no device emitted`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = emptyMap(),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 0
+    }
+
+    @Test
+    fun `getDeviceForProfile AAP-only fallback - returns synthesized device`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = mapOf(testAddress to testAapState),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val device = monitor.getDeviceForProfile(testProfile.id)
+
+        device shouldNotBe null
+        device!!.profileId shouldBe testProfile.id
+        device.address shouldBe testProfile.address
+        device.model shouldBe testProfile.model
+        device.isAapConnected shouldBe true
+    }
+
+    @Test
+    fun `getDeviceForProfile no BLE no cache no AAP - returns null`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = emptyMap(),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val device = monitor.getDeviceForProfile(testProfile.id)
+
+        device shouldBe null
+    }
+
+    /**
+     * Stale-cache regression: after a model correction
+     * (`AapAutoConnect.correctModelOnDeviceInfo`) the profile's model is updated, but the
+     * cache still holds the old model from before correction. The PodDevice must reflect
+     * the profile (current truth), not the cache (stale snapshot).
+     */
+    @Test
+    fun `stale cache vs updated profile model - profile wins`() = runTest(testDispatcher) {
+        val staleCache = CachedDeviceState(
+            profileId = testProfile.id,
+            model = PodModel.AIRPODS_PRO2,           // old model in cache
+            address = testAddress,
+            lastSeenAt = Instant.parse("2026-04-05T17:52:09.182Z"),
+        )
+        // testProfile.model = AIRPODS_PRO2_USBC (the correction)
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = emptyMap(),
+            cache = mapOf(testProfile.id to staleCache),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 1
+        devices.single().model shouldBe PodModel.AIRPODS_PRO2_USBC
+    }
+
+    @Test
+    fun `stale cache vs updated profile address - profile wins`() = runTest(testDispatcher) {
+        val staleCache = CachedDeviceState(
+            profileId = testProfile.id,
+            model = PodModel.AIRPODS_PRO2_USBC,
+            address = "00:00:00:00:00:00",            // old address in cache
+            lastSeenAt = Instant.parse("2026-04-05T17:52:09.182Z"),
+        )
+        // testProfile.address = "AA:BB:CC:DD:EE:FF"
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = emptyMap(),
+            cache = mapOf(testProfile.id to staleCache),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 1
+        devices.single().address shouldBe testAddress
+    }
+
+    /**
+     * De-dupe: an anonymous BLE pod (no IRK match) of the same model as a synthesized
+     * AAP-only profile is most likely the same physical device with broken/missing keys.
+     * Hide the anonymous pod to avoid showing two cards.
+     */
+    @Test
+    fun `de-dupe - anonymous BLE pod with matching model is hidden`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = listOf(mockAnonymousBlePod(PodModel.AIRPODS_PRO2_USBC)),
+            aap = mapOf(testAddress to testAapState),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 1
+        val device = devices.single()
+        device.profileId shouldBe testProfile.id
+        device.isAapConnected shouldBe true
+    }
+
+    @Test
+    fun `de-dupe - anonymous BLE pod with different model is kept`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = listOf(mockAnonymousBlePod(PodModel.AIRPODS_PRO)),   // different model
+            aap = mapOf(testAddress to testAapState),
+            cache = emptyMap(),
+            profiles = listOf(testProfile),                              // model = PRO2_USBC
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 2
+        // One anonymous BLE pod (no profile), one synthesized AAP-only profile
+        devices.count { it.profileId == null } shouldBe 1
+        devices.count { it.profileId == testProfile.id } shouldBe 1
     }
 }
