@@ -12,8 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.SignalCellularAlt
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -34,8 +32,8 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
+import eu.darken.capod.main.ui.overview.cards.SignalIndicator
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
@@ -63,7 +61,7 @@ fun PopUpContent(
                     .padding(top = 20.dp, bottom = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                // Header: label + signal quality
+                // Header: label + signal indicator (sits right after the text)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -76,21 +74,11 @@ fun PopUpContent(
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.weight(1f, fill = false),
                     )
-
-                    val signalText = device.getSignalQuality(context)
-                    if (signalText.isNotBlank()) {
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Icon(
-                            imageVector = Icons.TwoTone.SignalCellularAlt,
-                            contentDescription = null,
-                            modifier = Modifier.size(12.dp),
-                        )
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Text(
-                            text = signalText,
-                            style = MaterialTheme.typography.labelSmall,
-                        )
-                    }
+                    SignalIndicator(
+                        signalQuality = device.signalQuality,
+                        isLive = device.isLive,
+                        modifier = Modifier.padding(start = 6.dp),
+                    )
                 }
 
                 Spacer(modifier = Modifier.height(16.dp))

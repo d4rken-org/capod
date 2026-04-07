@@ -47,7 +47,6 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
-import eu.darken.capod.monitor.core.getSignalQuality
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import java.time.Instant
@@ -101,13 +100,25 @@ fun SinglePodsCard(
                 Spacer(modifier = Modifier.width(8.dp))
 
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = device.label ?: "?",
-                        style = MaterialTheme.typography.titleMedium,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
                     Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = device.label ?: "?",
+                            style = MaterialTheme.typography.titleMedium,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                        SignalIndicator(
+                            signalQuality = device.signalQuality,
+                            isLive = device.isLive,
+                            modifier = Modifier.padding(start = 6.dp),
+                        )
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Text(
@@ -118,12 +129,10 @@ fun SinglePodsCard(
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.weight(1f, fill = false),
                         )
-                        Spacer(modifier = Modifier.width(6.dp))
-                        SignalBadge(
-                            signalText = device.getSignalQuality(context),
+                        DeviceConnectionBadge(
                             bleKeyState = device.bleKeyState,
                             isAapConnected = device.isAapConnected,
-                            isLive = device.isLive,
+                            modifier = Modifier.padding(start = 6.dp),
                         )
                     }
                 }
