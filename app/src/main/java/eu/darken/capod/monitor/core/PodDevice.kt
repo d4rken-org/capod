@@ -35,10 +35,14 @@ data class PodDevice(
     internal val ble: BlePodSnapshot?,
     internal val aap: AapPodState?,
     internal val cached: CachedDeviceState? = null,
+    /** Bonded BR/EDR address from the profile — current source of truth, preferred over cache snapshot. */
+    internal val profileAddress: BluetoothAddress? = null,
+    /** Pod model from the profile — current source of truth, preferred over cache snapshot. */
+    internal val profileModel: PodModel? = null,
 ) {
-    val model: PodModel get() = ble?.model ?: cached?.model ?: PodModel.UNKNOWN
+    val model: PodModel get() = ble?.model ?: profileModel ?: cached?.model ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */
-    val address: BluetoothAddress? get() = ble?.meta?.profile?.address ?: cached?.address
+    val address: BluetoothAddress? get() = ble?.meta?.profile?.address ?: profileAddress ?: cached?.address
     /** BLE scan address (RPA, rotates). */
     val bleAddress: BluetoothAddress? get() = ble?.address
     val identifier: BlePodSnapshot.Id? get() = ble?.identifier
