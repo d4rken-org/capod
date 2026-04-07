@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core
 
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -10,6 +11,8 @@ import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import eu.darken.capod.monitor.core.cache.toCachedState
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -48,24 +51,31 @@ class DeviceMonitor @Inject constructor(
     ) { pods, aapStates, cachedStates, profiles ->
         // Live devices — BLE + AAP + cached fallback for missing fields
         val liveDevices = pods.map { pod ->
-            val bondedAddress = pod.meta.profile?.address
             val profile = pod.meta.profile
             PodDevice(
                 profileId = profile?.id,
                 label = profile?.label,
                 ble = pod,
-                aap = bondedAddress?.let { aapStates[it] },
+                aap = aapStates.forProfile(profile),
                 cached = profile?.id?.let { cachedStates[it] },
             )
         }
 
-        // Cached-only devices — profiles with cache but no live BLE
+        // Cached-only devices — profiles with cache but no live BLE.
+        // AAP may still be connected even when BLE scan is stale in a crowded RF environment,
+        // so re-attach AAP state via the same helper — see #483.
         val liveProfileIds = liveDevices.mapNotNull { it.profileId }.toSet()
         val cachedOnlyDevices = profiles
             .filter { it.id !in liveProfileIds }
             .mapNotNull { profile ->
-                cachedStates[profile.id]?.let {
-                    PodDevice(profileId = profile.id, label = profile.label, ble = null, aap = null, cached = it)
+                cachedStates[profile.id]?.let { cached ->
+                    PodDevice(
+                        profileId = profile.id,
+                        label = profile.label,
+                        ble = null,
+                        aap = aapStates.forProfile(profile),
+                        cached = cached,
+                    )
                 }
             }
 
@@ -104,6 +114,14 @@ class DeviceMonitor @Inject constructor(
         log(TAG) { "No device found for profile $profileId" }
         return null
     }
+
+    /**
+     * Single source of truth for "find the AAP state that belongs to this profile".
+     * AAP is keyed by the bonded BR/EDR address, which lives on [DeviceProfile.address].
+     * Used by both the live and cached-only branches of [devices] so they cannot drift apart.
+     */
+    private fun Map<BluetoothAddress, AapPodState>.forProfile(profile: DeviceProfile?): AapPodState? =
+        profile?.address?.let { this[it] }
 
     companion object {
         private val TAG = logTag("DeviceMonitor")
