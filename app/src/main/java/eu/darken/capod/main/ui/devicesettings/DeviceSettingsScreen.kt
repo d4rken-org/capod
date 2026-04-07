@@ -1007,12 +1007,6 @@ private fun NoiseControlCombined(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
     ) {
         Column(modifier = Modifier.padding(vertical = 4.dp)) {
-            Text(
-                text = stringResource(R.string.device_settings_noise_control_label),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 4.dp),
-            )
             for (mode in supportedModes) {
                 val isSelected = mode == displayMode
                 val bit = cycleBits[mode] ?: continue
