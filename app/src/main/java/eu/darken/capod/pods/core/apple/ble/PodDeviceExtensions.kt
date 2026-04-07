@@ -18,11 +18,6 @@ fun formatBatteryPercent(context: Context, percent: Float?): String =
     percent?.let { "${(it * 100).roundToInt()}%" }
         ?: context.getString(R.string.general_value_not_available_label)
 
-fun BlePodSnapshot.getSignalQuality(context: Context): String {
-    val multiplier = 100 * signalQuality
-    return "${multiplier.roundToInt()}%"
-}
-
 @DrawableRes
 fun getBatteryDrawable(percent: Float?): Int = when {
     percent == null -> R.drawable.ic_baseline_battery_unknown_24

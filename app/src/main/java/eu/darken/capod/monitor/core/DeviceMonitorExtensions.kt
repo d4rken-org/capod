@@ -1,22 +1,15 @@
 package eu.darken.capod.monitor.core
 
-import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.time.Duration
 import java.time.Instant
-import kotlin.math.roundToInt
 
 fun DeviceMonitor.devicesWithProfiles(): Flow<List<PodDevice>> = devices
     .map { devices -> devices.filter { it.profileId != null } }
 
 fun DeviceMonitor.primaryDevice(): Flow<PodDevice?> = devicesWithProfiles().map { it.firstOrNull() }
-
-fun PodDevice.getSignalQuality(context: Context): String {
-    val multiplier = 100 * signalQuality
-    return "${multiplier.roundToInt()}%"
-}
 
 fun PodDevice.lastSeenFormatted(now: Instant): String {
     val lastAt = seenLastAt ?: return ""
