@@ -11,7 +11,6 @@ import eu.darken.capod.profiles.core.DeviceProfile
 import java.time.Duration
 import java.time.Instant
 import java.util.UUID
-import kotlin.math.abs
 import kotlin.math.max
 
 interface BlePodSnapshot {
@@ -36,13 +35,23 @@ interface BlePodSnapshot {
 
     val reliability: Float
 
+    /**
+     * Pure RSSI quality for display bars — linear map of -100..-30 dBm → 0..1.
+     * Does not include reliability/age. Use for SignalIndicator only, not for
+     * device matching or sorting (that's signalQuality's job).
+     */
+    val rssiQuality: Float
+        get() = ((rssi + 100) / 70f).coerceIn(0f, 1f)
+
+    /**
+     * Composite quality for profile matching and sorting. Weighted blend of
+     * RSSI strength, detection reliability, and observation age.
+     * Used by AppleFactory (minimumSignalQuality filter) and TroubleShooter
+     * (closest-device selection). Not used for display bars.
+     */
     val signalQuality: Float
         get() {
-            /**
-             * This is not correct but it works ¯\_(ツ)_/¯
-             * The range of the RSSI is device specific (ROMs).
-             */
-            val sqRssi = ((100 - abs(rssi)) / 100f)
+            val sqRssi = ((rssi + 100) / 70f).coerceIn(0f, 1f)
             val sqReliability = max(BASE_CONFIDENCE, reliability)
             val sqAge = (Duration.between(seenFirstAt, Instant.now()).toMinutes().coerceAtMost(60) / 60f) * 0.25f
             log(VERBOSE) { "Signal Quality ($address): rssi=$sqRssi, reliability=$reliability, age=$sqAge" }

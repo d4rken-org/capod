@@ -51,7 +51,7 @@ fun UnknownPodDeviceCard(
                     modifier = Modifier.weight(1f, fill = false),
                 )
                 SignalIndicator(
-                    signalQuality = device.signalQuality,
+                    signalQuality = device.rssiQuality,
                     isLive = device.isLive,
                     modifier = Modifier.padding(start = 6.dp),
                 )

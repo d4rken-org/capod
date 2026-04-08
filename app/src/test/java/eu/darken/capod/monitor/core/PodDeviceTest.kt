@@ -668,4 +668,129 @@ class PodDeviceTest : BaseTest() {
         val device = PodDevice(profileId = null, ble = ble, aap = null)
         device.bleKeyState shouldBe BleKeyState.IRK_AND_ENCRYPTED
     }
+
+    @Test
+    fun `bleKeyState - profile IRK_AND_ENCRYPTED wins while AAP is live with no BLE`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = PodDevice(
+            profileId = "p1",
+            ble = null,
+            aap = aap,
+            profileKeyState = BleKeyState.IRK_AND_ENCRYPTED,
+        )
+        device.bleKeyState shouldBe BleKeyState.IRK_AND_ENCRYPTED
+    }
+
+    @Test
+    fun `bleKeyState - profile IRK_ONLY shown while AAP is live with no BLE`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = PodDevice(
+            profileId = "p1",
+            ble = null,
+            aap = aap,
+            profileKeyState = BleKeyState.IRK_ONLY,
+        )
+        device.bleKeyState shouldBe BleKeyState.IRK_ONLY
+    }
+
+    @Test
+    fun `bleKeyState - profile keys ignored when device is not live`() {
+        val device = PodDevice(
+            profileId = "p1",
+            ble = null,
+            aap = null,
+            profileKeyState = BleKeyState.IRK_AND_ENCRYPTED,
+        )
+        device.bleKeyState shouldBe BleKeyState.NONE
+    }
+
+    @Test
+    fun `bleKeyState - profile keys override unmatched live BLE`() {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { meta } returns ApplePods.AppleMeta(isIRKMatch = false)
+            every { payload } returns ProximityPayload(public = ProximityPayload.Public(UByteArray(9)), private = null)
+        }
+        val device = PodDevice(
+            profileId = "p1",
+            ble = ble,
+            aap = null,
+            profileKeyState = BleKeyState.IRK_AND_ENCRYPTED,
+        )
+        device.bleKeyState shouldBe BleKeyState.IRK_AND_ENCRYPTED
+    }
+
+    // --- rssiQuality tests ---
+
+    @Test
+    fun `rssiQuality - uses BLE value when BLE present`() {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { rssiQuality } returns 0.42f
+        }
+        val device = PodDevice(profileId = null, ble = ble, aap = null)
+        device.rssiQuality shouldBe 0.42f
+    }
+
+    @Test
+    fun `rssiQuality - zero when no BLE and no AAP`() {
+        val device = PodDevice(profileId = null, ble = null, aap = null)
+        device.rssiQuality shouldBe 0f
+    }
+
+    @Test
+    fun `rssiQuality - zero when AAP CONNECTING`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.CONNECTING)
+        val device = PodDevice(profileId = "p1", ble = null, aap = aap)
+        device.rssiQuality shouldBe 0f
+    }
+
+    @Test
+    fun `rssiQuality - zero when AAP HANDSHAKING`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.HANDSHAKING)
+        val device = PodDevice(profileId = "p1", ble = null, aap = aap)
+        device.rssiQuality shouldBe 0f
+    }
+
+    @Test
+    fun `rssiQuality - full when AAP READY regardless of lastMessageAt null`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY, lastMessageAt = null)
+        val device = PodDevice(profileId = "p1", ble = null, aap = aap)
+        device.rssiQuality shouldBe 1.0f
+    }
+
+    @Test
+    fun `rssiQuality - full when AAP READY with fresh message`() {
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(5),
+        )
+        val device = PodDevice(profileId = "p1", ble = null, aap = aap)
+        device.rssiQuality shouldBe 1.0f
+    }
+
+    @Test
+    fun `rssiQuality - full when AAP READY with very old message (quiet channel)`() {
+        // AirPods don't send periodic AAP messages — a user listening to music with no UI
+        // interaction for 10 minutes is still a healthy connection, not a degraded one.
+        val now = Instant.parse("2026-01-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = now.minusSeconds(600),
+        )
+        val device = PodDevice(profileId = "p1", ble = null, aap = aap)
+        device.rssiQuality shouldBe 1.0f
+    }
+
+    @Test
+    fun `rssiQuality - BLE value wins over AAP READY`() {
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { rssiQuality } returns 0.3f
+        }
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = PodDevice(profileId = "p1", ble = ble, aap = aap)
+        device.rssiQuality shouldBe 0.3f
+    }
 }
