@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -34,6 +35,9 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import java.io.IOException
+import java.nio.ByteBuffer
+import java.nio.charset.CharacterCodingException
+import java.nio.charset.CodingErrorAction
 
 /**
  * Manages a single AAP L2CAP connection to a device.
@@ -305,6 +309,27 @@ internal class AapConnection(
         val hex = message.raw.joinToString(" ") { "%02X".format(it) }
         log(TAG, VERBOSE) { "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex" }
 
+        // Issue #173: diagnostic dump of the 0x1D INFORMATION packet so testers with engraved AirPods
+        // can share a debug recording that reveals where (or whether) the engraving message lives.
+        // Runs unconditionally for 0x1D — not gated on decodeDeviceInfo success, since an engraving-
+        // shaped packet may not match the strict production decoder's expectations.
+        if (message.commandType == 0x001D) {
+            val segments = describeDeviceInfoSegments(message.payload)
+            log(TAG, INFO) { "DeviceInfoDump #173: payload=${message.payload.size} bytes, segments=${segments.size}" }
+            segments.forEach { seg ->
+                val label = when (seg.index) {
+                    0 -> "name"
+                    1 -> "modelNumber"
+                    2 -> "manufacturer"
+                    3 -> "serialNumber"
+                    4 -> "firmwareVersion"
+                    else -> "unknown"
+                }
+                val rendered = seg.utf8?.let { "\"$it\"" } ?: "<non-utf8>"
+                log(TAG, INFO) { "DeviceInfoDump #173: [${seg.index}] off=${seg.offset} len=${seg.length} ($label) $rendered hex=${seg.hex}" }
+            }
+        }
+
         // Try stem press event (transient — emitted via SharedFlow, not stored in state)
         profile.decodeStemPress(message)?.let { event ->
             _stemPressEvents.tryEmit(event)
@@ -425,5 +450,74 @@ internal class AapConnection(
 
     companion object {
         private val TAG = logTag("AapConnection")
+
+        /**
+         * Diagnostic-only NUL-delimited segmentation of a 0x1D INFORMATION payload, used for the
+         * issue #173 engraving discovery logging. Not part of the production decode path — the
+         * production parser [eu.darken.capod.pods.core.apple.aap.protocol.DefaultAapDeviceProfile]
+         * intentionally stays ASCII-only to preserve existing wire-format assumptions.
+         *
+         * Skips binary header bytes until the first printable ASCII byte (mirroring the production
+         * decoder's start condition — all known captures begin the real data with the device name,
+         * which is always ASCII like "AirPods Pro"), then splits on NUL bytes. Each non-empty chunk
+         * becomes one [DeviceInfoSegment]. UTF-8 decode is attempted strictly; if a chunk contains
+         * invalid UTF-8 (e.g. the post-serials encrypted blob), [DeviceInfoSegment.utf8] is null
+         * and the caller falls back to [DeviceInfoSegment.hex].
+         *
+         * Offsets are relative to the supplied payload (post message-header), matching what the
+         * caller holds in [AapMessage.payload].
+         */
+        internal fun describeDeviceInfoSegments(payload: ByteArray): List<DeviceInfoSegment> {
+            var start = 0
+            while (start < payload.size) {
+                val b = payload[start].toInt() and 0xFF
+                if (b in 0x20..0x7E) break
+                start++
+            }
+            if (start >= payload.size) return emptyList()
+
+            val segments = mutableListOf<DeviceInfoSegment>()
+            var segIndex = 0
+            var i = start
+            while (i < payload.size) {
+                while (i < payload.size && payload[i] == 0x00.toByte()) i++
+                if (i >= payload.size) break
+
+                val segStart = i
+                while (i < payload.size && payload[i] != 0x00.toByte()) i++
+                val segBytes = payload.copyOfRange(segStart, i)
+
+                val utf8: String? = try {
+                    Charsets.UTF_8.newDecoder()
+                        .onMalformedInput(CodingErrorAction.REPORT)
+                        .onUnmappableCharacter(CodingErrorAction.REPORT)
+                        .decode(ByteBuffer.wrap(segBytes))
+                        .toString()
+                } catch (_: CharacterCodingException) {
+                    null
+                }
+                val hex = segBytes.joinToString("") { "%02X".format(it) }
+
+                segments.add(
+                    DeviceInfoSegment(
+                        index = segIndex,
+                        offset = segStart,
+                        length = segBytes.size,
+                        utf8 = utf8,
+                        hex = hex,
+                    )
+                )
+                segIndex++
+            }
+            return segments
+        }
+
+        internal data class DeviceInfoSegment(
+            val index: Int,
+            val offset: Int,
+            val length: Int,
+            val utf8: String?,
+            val hex: String,
+        )
     }
 }
