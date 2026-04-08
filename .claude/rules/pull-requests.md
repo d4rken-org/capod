@@ -40,6 +40,18 @@ PR titles appear in auto-generated changelogs and are read by users. Use **ELI5,
 
 ## PR Description Format
 
+PRs are reviewed in **GitHub's web UI**, which already shows the file tree, the diff, and the tests. Don't duplicate any
+of it. The description should answer questions the diff can't — not restate it.
+
+Only these sections, in this order:
+
+1. `## What changed`
+2. `## Technical Context`
+3. `## Review checklist` *(optional)*
+
+No `Scope`, `Files changed`, `Tests`, or `Review guidance` sub-sections — GitHub shows the files and tests, and review
+notes belong in the checklist. Fold anything critical into a Technical Context bullet.
+
 ### What changed
 
 User-friendly explanation of what this PR does. Describe the problem that was fixed or the feature that was added from the user's perspective. No internal class or method names.
@@ -53,9 +65,18 @@ Explain what's hard to extract from the diff alone. Focus on:
 - **Why** this approach was chosen (and alternatives considered/rejected)
 - **Root cause** for bug fixes (the diff shows the fix, not what caused it)
 - **Non-obvious side effects** or behavioral changes not apparent from reading the code
-- **Review guidance** — what's tricky or deserves close attention
 
-Keep it scannable with bullet points. Don't restate what's visible in the diff (file names, class renames, line-level changes).
+Format rules:
+
+- **One bullet per point.** No prose paragraphs, no nested sub-headers like `**Bug 1** / **Bug 2**` — if a PR fixes
+  multiple bugs, one bullet per bug is enough.
+- **Don't restate the diff.** File paths, class renames, test names, and line-level changes are all visible in the web
+  UI.
+
+### Review checklist (optional)
+
+For PRs with multiple non-trivial review points, add a `## Review checklist` section with `- [ ]` tasks the reviewer can
+tick off as they verify. Skip it for small PRs — a single tricky thing can stay as a Technical Context bullet.
 
 ### Example
 
