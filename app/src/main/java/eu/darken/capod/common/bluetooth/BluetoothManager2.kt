@@ -307,6 +307,37 @@ class BluetoothManager2 @Inject constructor(
     private var _isNudgeAvailable: Boolean = true
     val isNudgeAvailable: Boolean get() = _isNudgeAvailable
 
+    /**
+     * Set the Android-local alias for a bonded [device]. Updates what Android's system Bluetooth
+     * settings display without touching the AirPods firmware itself. Uses reflection on the hidden
+     * `setAlias(String)` method because the public API 30+ variant requires `BLUETOOTH_PRIVILEGED`,
+     * which third-party apps cannot hold.
+     *
+     * Returns `true` on success, `false` if the call threw, was rejected, or returned `false`.
+     *
+     * Known failure mode on Android 12+: `SecurityException: does not have a CDM association with
+     * the Bluetooth Device`. The hidden method was moved behind a Companion Device Manager (CDM)
+     * permission check at the service layer — only apps that have explicitly requested and been
+     * granted a CDM association for this specific device can rename it. CAPod does not currently
+     * pursue a CDM association (that's a user-visible pairing flow), so setAlias is effectively
+     * unavailable on modern Android and callers should be prepared to surface a user-facing
+     * fallback when it returns false. See DeviceSettingsViewModel.setDeviceName.
+     */
+    @android.annotation.SuppressLint("MissingPermission")
+    fun setDeviceAlias(device: BluetoothDevice2, alias: String): Boolean {
+        return try {
+            val method = BluetoothDevice::class.java.getDeclaredMethod("setAlias", String::class.java)
+                .apply { isAccessible = true }
+            val result = method.invoke(device.internal, alias) as? Boolean ?: false
+            log(TAG) { "setDeviceAlias(${device.address}, $alias) -> $result" }
+            result
+        } catch (e: Exception) {
+            val cause = (e as? java.lang.reflect.InvocationTargetException)?.cause ?: e
+            log(TAG, WARN) { "setDeviceAlias(${device.address}, $alias) failed: $cause" }
+            false
+        }
+    }
+
     suspend fun nudgeConnection(device: BluetoothDevice2): Boolean = getBluetoothProfile().map { bluetoothProfile ->
         try {
             log(TAG) { "Nudging Android connection to $device" }
