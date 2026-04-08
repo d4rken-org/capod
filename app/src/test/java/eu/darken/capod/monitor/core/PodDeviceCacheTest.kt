@@ -109,6 +109,21 @@ class PodDeviceCacheTest : BaseTest() {
         }
 
         @Test
+        fun `seenLastAt prefers live AAP message over stale cache`() {
+            // Reproduces the reported bug: while AAP is connected, iOS throttles BLE advertising.
+            // After BlePodMonitor evicts the BLE snapshot, the merged device had ble=null and the
+            // getter fell through to the stale cache, showing "hours ago" even though AAP traffic
+            // was still flowing. Live AAP messages must win over any cached timestamp.
+            val freshAapMessage = Instant.parse("2026-03-31T11:59:55Z") // 5s ago, newer than cache
+            val aap = AapPodState(
+                connectionState = AapPodState.ConnectionState.READY,
+                lastMessageAt = freshAapMessage,
+            )
+            val device = PodDevice(profileId = "test-profile", ble = null, aap = aap, cached = cachedState)
+            device.seenLastAt shouldBe freshAapMessage
+        }
+
+        @Test
         fun `profileId falls back to cache`() {
             val device = PodDevice(profileId = "test-profile", ble = null, aap = null, cached = cachedState)
             device.profileId shouldBe "test-profile"
