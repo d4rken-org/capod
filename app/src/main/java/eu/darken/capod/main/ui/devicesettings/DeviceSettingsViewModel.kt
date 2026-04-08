@@ -2,9 +2,12 @@ package eu.darken.capod.main.ui.devicesettings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
@@ -18,6 +21,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.isActive
@@ -30,6 +34,7 @@ class DeviceSettingsViewModel @Inject constructor(
     private val deviceMonitor: DeviceMonitor,
     private val aapManager: AapConnectionManager,
     private val upgradeRepo: UpgradeRepo,
+    private val bluetoothManager: BluetoothManager2,
 ) : ViewModel4(dispatcherProvider) {
 
     private val targetAddress = MutableStateFlow<BluetoothAddress?>(null)
@@ -48,13 +53,28 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }
 
+    private val isForceConnecting = MutableStateFlow(false)
+
+    sealed interface Event {
+        data object OpenBluetoothSettings : Event
+    }
+
+    val events = SingleEventFlow<Event>()
+
     val state = targetAddress.flatMapLatest { address ->
         if (address == null) return@flatMapLatest flowOf(State(device = null))
-        combine(updateTicker, deviceMonitor.devices, upgradeRepo.upgradeInfo) { _, devices, upgrade ->
+        combine(
+            updateTicker,
+            deviceMonitor.devices,
+            upgradeRepo.upgradeInfo,
+            isForceConnecting,
+        ) { _, devices, upgrade, forcing ->
             State(
                 device = devices.firstOrNull { it.address == address },
                 now = Instant.now(),
                 isPro = upgrade.isPro,
+                isNudgeAvailable = bluetoothManager.isNudgeAvailable,
+                isForceConnecting = forcing,
             )
         }
     }.asLiveState()
@@ -63,7 +83,52 @@ class DeviceSettingsViewModel @Inject constructor(
         val device: PodDevice?,
         val now: Instant = Instant.now(),
         val isPro: Boolean = false,
+        val isNudgeAvailable: Boolean = true,
+        val isForceConnecting: Boolean = false,
     )
+
+    fun forceConnect() = launch {
+        if (!isForceConnecting.compareAndSet(expect = false, update = true)) {
+            log(TAG) { "forceConnect already in progress" }
+            return@launch
+        }
+        try {
+            val address = targetAddress.value ?: run {
+                events.tryEmit(Event.OpenBluetoothSettings)
+                return@launch
+            }
+            val bonded = try {
+                bluetoothManager.bondedDevices().first().firstOrNull { it.address == address }
+            } catch (e: Exception) {
+                log(TAG, WARN) { "bondedDevices() failed: ${e.message}" }
+                null
+            }
+            if (bonded == null) {
+                log(TAG, WARN) { "No bonded device for $address — opening Bluetooth settings" }
+                events.tryEmit(Event.OpenBluetoothSettings)
+                return@launch
+            }
+            if (!bluetoothManager.isNudgeAvailable) {
+                events.tryEmit(Event.OpenBluetoothSettings)
+                return@launch
+            }
+            val accepted = try {
+                bluetoothManager.nudgeConnection(bonded)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "nudgeConnection threw: ${e.message}" }
+                false
+            }
+            log(TAG) { "nudgeConnection($bonded) accepted=$accepted" }
+            if (!accepted) {
+                events.tryEmit(Event.OpenBluetoothSettings)
+            }
+            // On accepted=true, AapAutoConnect.initialConnect() will pick up the new
+            // connectedDevices entry and trigger the AAP handshake. The card disappears
+            // when device.isAapConnected becomes true.
+        } finally {
+            isForceConnecting.value = false
+        }
+    }
 
     private fun send(command: AapCommand) {
         val address = targetAddress.value ?: return

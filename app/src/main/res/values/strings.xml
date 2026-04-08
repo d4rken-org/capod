@@ -433,6 +433,10 @@
     <string name="device_settings_info_status_label">Status</string>
     <string name="device_settings_info_last_seen_label">Last Seen</string>
     <string name="device_settings_info_first_seen_label">First Seen</string>
+    <string name="device_settings_not_connected_label">Not connected</string>
+    <string name="device_settings_not_connected_description">This device is nearby but not connected to this phone. Connect to access settings and controls.</string>
+    <string name="device_settings_not_connected_connect_action">Connect</string>
+    <string name="device_settings_not_connected_open_settings_action">Open Bluetooth Settings</string>
     <string name="device_settings_category_sound_label">Sound</string>
     <string name="device_settings_category_controls_label">Controls</string>
     <string name="device_settings_nc_one_airpod_label">Noise Cancellation with One AirPod</string>
