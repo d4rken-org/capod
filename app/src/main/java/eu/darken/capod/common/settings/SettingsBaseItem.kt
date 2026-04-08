@@ -58,18 +58,26 @@ fun SettingsBaseItem(
             Color.Unspecified
         }
 
+        val iconModifier = if (subtitle != null) {
+            Modifier
+                .align(Alignment.Top)
+                .padding(top = 2.dp)
+                .size(iconSize)
+        } else {
+            Modifier.size(iconSize)
+        }
         if (icon != null) {
             Icon(
                 imageVector = icon,
                 contentDescription = null,
-                modifier = Modifier.size(iconSize),
+                modifier = iconModifier,
                 tint = tint,
             )
         } else if (iconPainter != null) {
             Icon(
                 painter = iconPainter,
                 contentDescription = null,
-                modifier = Modifier.size(iconSize),
+                modifier = iconModifier,
                 tint = tint,
             )
         }
