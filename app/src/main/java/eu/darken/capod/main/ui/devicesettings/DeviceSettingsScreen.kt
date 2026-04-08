@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.VolumeUp
@@ -46,6 +47,7 @@ import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -726,6 +728,37 @@ private fun AdaptiveNoiseSlider(
 }
 
 @Composable
+private fun SettingsCompoundHeader(
+    icon: ImageVector,
+    title: String,
+    subtitle: String?,
+    enabled: Boolean,
+) {
+    Row(modifier = Modifier.fillMaxWidth()) {
+        Icon(
+            imageVector = icon,
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 0.6f else 0.3f),
+            modifier = Modifier.padding(end = 16.dp, top = 4.dp),
+        )
+        Column {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f),
+            )
+            if (subtitle != null) {
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (enabled) 1f else 0.5f),
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun <T> SegmentedSettingRow(
     icon: ImageVector,
     title: String,
@@ -736,45 +769,35 @@ private fun <T> SegmentedSettingRow(
     modifier: Modifier = Modifier,
     subtitle: String? = null,
 ) {
-    Column(modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-            Icon(
-                imageVector = icon,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 0.6f else 0.3f),
-                modifier = Modifier.padding(end = 16.dp, top = 4.dp),
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = RoundedCornerShape(16.dp),
+        modifier = modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp)) {
+            SettingsCompoundHeader(
+                icon = icon,
+                title = title,
+                subtitle = subtitle,
+                enabled = enabled,
             )
-            Column {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f),
-                )
-                if (subtitle != null) {
-                    Text(
-                        text = subtitle,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (enabled) 1f else 0.5f),
+            Spacer(modifier = Modifier.height(12.dp))
+            SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+                options.forEachIndexed { index, (label, value) ->
+                    SegmentedButton(
+                        selected = value == selected,
+                        onClick = { if (enabled) onSelected(value) },
+                        enabled = enabled,
+                        shape = SegmentedButtonDefaults.itemShape(index, options.size),
+                        label = {
+                            Text(
+                                text = label,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        },
                     )
                 }
-            }
-        }
-        Spacer(modifier = Modifier.height(8.dp))
-        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
-            options.forEachIndexed { index, (label, value) ->
-                SegmentedButton(
-                    selected = value == selected,
-                    onClick = { if (enabled) onSelected(value) },
-                    enabled = enabled,
-                    shape = SegmentedButtonDefaults.itemShape(index, options.size),
-                    label = {
-                        Text(
-                            text = label,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    },
-                )
             }
         }
     }
@@ -788,56 +811,48 @@ private fun EndCallMuteMicControl(
 ) {
     val optionASelected = current.endCall == AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
 
-    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)) {
-        Row(modifier = Modifier.fillMaxWidth()) {
-            Icon(
-                imageVector = Icons.TwoTone.TouchApp,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 0.6f else 0.3f),
-                modifier = Modifier.padding(end = 16.dp, top = 4.dp),
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = RoundedCornerShape(16.dp),
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp)) {
+            SettingsCompoundHeader(
+                icon = Icons.TwoTone.TouchApp,
+                title = stringResource(R.string.device_settings_end_call_mute_mic_label),
+                subtitle = stringResource(R.string.device_settings_end_call_mute_mic_description),
+                enabled = enabled,
             )
-            Column {
-                Text(
-                    text = stringResource(R.string.device_settings_end_call_mute_mic_label),
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f),
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Column(modifier = Modifier.selectableGroup()) {
+                CallControlOption(
+                    title = stringResource(R.string.device_settings_end_call_mute_mic_option_a_title),
+                    subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_a_subtitle),
+                    selected = optionASelected,
+                    enabled = enabled,
+                    onClick = {
+                        onChange(
+                            AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
+                            AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+                        )
+                    },
                 )
-                Text(
-                    text = stringResource(R.string.device_settings_end_call_mute_mic_description),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (enabled) 1f else 0.5f),
+
+                CallControlOption(
+                    title = stringResource(R.string.device_settings_end_call_mute_mic_option_b_title),
+                    subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_b_subtitle),
+                    selected = !optionASelected,
+                    enabled = enabled,
+                    onClick = {
+                        onChange(
+                            AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
+                            AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
+                        )
+                    },
                 )
             }
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        Column(modifier = Modifier.selectableGroup()) {
-            CallControlOption(
-                title = stringResource(R.string.device_settings_end_call_mute_mic_option_a_title),
-                subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_a_subtitle),
-                selected = optionASelected,
-                enabled = enabled,
-                onClick = {
-                    onChange(
-                        AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
-                        AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
-                    )
-                },
-            )
-
-            CallControlOption(
-                title = stringResource(R.string.device_settings_end_call_mute_mic_option_b_title),
-                subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_b_subtitle),
-                selected = !optionASelected,
-                enabled = enabled,
-                onClick = {
-                    onChange(
-                        AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
-                        AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
-                    )
-                },
-            )
         }
     }
 }
