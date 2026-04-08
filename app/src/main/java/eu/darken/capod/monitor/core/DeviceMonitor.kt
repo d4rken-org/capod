@@ -13,6 +13,7 @@ import eu.darken.capod.monitor.core.cache.toCachedState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.CoroutineScope
@@ -61,6 +62,7 @@ class DeviceMonitor @Inject constructor(
                 cached = profile?.id?.let { cachedStates[it] },
                 profileAddress = profile?.address,
                 profileModel = profile?.model,
+                profileKeyState = profile.toBleKeyState(),
             )
         }
 
@@ -85,6 +87,7 @@ class DeviceMonitor @Inject constructor(
                     cached = cached,
                     profileAddress = profile.address,
                     profileModel = profile.model,
+                    profileKeyState = profile.toBleKeyState(),
                 )
             }
 
@@ -155,6 +158,7 @@ class DeviceMonitor @Inject constructor(
             cached = cached,
             profileAddress = profile?.address,
             profileModel = profile?.model,
+            profileKeyState = profile.toBleKeyState(),
         )
     }
 
@@ -165,6 +169,16 @@ class DeviceMonitor @Inject constructor(
      */
     private fun Map<BluetoothAddress, AapPodState>.forProfile(profile: DeviceProfile?): AapPodState? =
         profile?.address?.let { this[it] }
+
+    /**
+     * Derives the stable badge key state from the profile's stored IRK/ENC. Used so the badge
+     * icons don't evaporate every time the BLE scanner misses a scan batch.
+     */
+    private fun DeviceProfile?.toBleKeyState(): BleKeyState {
+        val apple = this as? AppleDeviceProfile ?: return BleKeyState.NONE
+        if (apple.identityKey == null) return BleKeyState.NONE
+        return if (apple.encryptionKey != null) BleKeyState.IRK_AND_ENCRYPTED else BleKeyState.IRK_ONLY
+    }
 
     companion object {
         private val TAG = logTag("DeviceMonitor")

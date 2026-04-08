@@ -39,6 +39,12 @@ data class PodDevice(
     internal val profileAddress: BluetoothAddress? = null,
     /** Pod model from the profile — current source of truth, preferred over cache snapshot. */
     internal val profileModel: PodModel? = null,
+    /**
+     * Key state derived from the profile's stored IRK/ENC. Used as the source of truth for the
+     * badge icons when the device is live — per-scan IRK matching would otherwise evaporate
+     * every time the BLE scanner misses the next advertisement batch.
+     */
+    internal val profileKeyState: BleKeyState = BleKeyState.NONE,
 ) {
     val model: PodModel get() = ble?.model ?: profileModel ?: cached?.model ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */
@@ -65,7 +71,34 @@ data class PodDevice(
             val bleQuality = ble?.signalQuality ?: 0f
             return (bleQuality + computeAapBoost(Instant.now())).coerceAtMost(1f)
         }
+
+    /**
+     * Quality value for the signal bar display. Prefers live BLE RSSI; when BLE is absent
+     * (common for a device that's actively connected to us via classic BT — we stop receiving
+     * its BLE advertisements), falls back to a full-bars constant as long as AAP is READY.
+     *
+     * Note: we don't try to graduate this off AAP message age. The AirPods only push messages
+     * on state changes (battery %, ear detection, setting toggles, user taps). A user quietly
+     * listening to music can go minutes without any AAP traffic, which is still a perfectly
+     * healthy connection. A quiet channel is not a weak channel.
+     */
+    val rssiQuality: Float
+        get() {
+            ble?.rssiQuality?.let { return it }
+            val state = aap ?: return 0f
+            return if (state.connectionState == AapPodState.ConnectionState.READY) 1.0f else 0f
+        }
+
     val rssi: Int get() = ble?.rssi ?: 0
+
+    /** Snapshot of connection-related state for badges and bars. */
+    val connectionState: ConnectionState
+        get() = ConnectionState(
+            hasBleData = ble != null,
+            bleKeyState = bleKeyState,
+            isAapConnected = isAapConnected,
+            rssiQuality = rssiQuality,
+        )
 
     internal fun computeAapBoost(now: Instant): Float {
         val state = aap ?: return 0f
@@ -291,8 +324,16 @@ data class PodDevice(
 
     val isAapReady: Boolean get() = aap?.connectionState == AapPodState.ConnectionState.READY
 
+    /**
+     * Badge key state for the overview card. Profile-stored keys are the source of truth while
+     * the device is live: a profile that has an IRK (and optionally ENC) keeps showing those
+     * icons whether the current scan happens to include a fresh BLE advertisement or not. For
+     * anonymous BLE pods (no profile), we still derive the state from the live scan result.
+     */
     val bleKeyState: BleKeyState
         get() {
+            if (!isLive) return BleKeyState.NONE
+            if (profileKeyState != BleKeyState.NONE) return profileKeyState
             val applePod = ble as? ApplePods ?: return BleKeyState.NONE
             if (!applePod.meta.isIRKMatch) return BleKeyState.NONE
             return if (applePod.payload.private != null) BleKeyState.IRK_AND_ENCRYPTED else BleKeyState.IRK_ONLY
@@ -300,3 +341,10 @@ data class PodDevice(
 }
 
 enum class BleKeyState { NONE, IRK_ONLY, IRK_AND_ENCRYPTED }
+
+data class ConnectionState(
+    val hasBleData: Boolean,
+    val bleKeyState: BleKeyState,
+    val isAapConnected: Boolean,
+    val rssiQuality: Float,
+)

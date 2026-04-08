@@ -270,6 +270,7 @@
     <string name="anc_mode_transparency">Transparency</string>
     <string name="anc_mode_adaptive">Adaptive</string>
     <string name="conversation_awareness_label">Conversation Awareness</string>
+    <string name="signal_badge_ble_cd">BLE scan active</string>
     <string name="signal_badge_key_irk_cd">Identity verified</string>
     <string name="signal_badge_key_encrypted_cd">Encrypted connection</string>
     <string name="signal_badge_aap_cd">Direct connection active</string>
