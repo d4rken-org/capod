@@ -495,6 +495,8 @@
     <string name="device_settings_rename_label">Rename</string>
     <string name="device_settings_rename_hint">Device name</string>
     <string name="device_settings_rename_confirm">Rename</string>
+    <string name="device_settings_rename_invalid_ascii">Only ASCII characters are supported</string>
+    <string name="device_settings_send_failed">Could not apply setting: %1$s</string>
     <string name="device_settings_category_connections_label">Connected Devices</string>
     <string name="device_settings_connected_devices_description">Other devices currently connected to these AirPods</string>
     <string name="device_settings_connected_device_label">Device %d</string>

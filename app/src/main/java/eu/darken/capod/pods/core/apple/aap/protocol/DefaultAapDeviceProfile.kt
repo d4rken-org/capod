@@ -449,11 +449,24 @@ class DefaultAapDeviceProfile(
     }
 
     private fun buildRenameMessage(name: String): ByteArray {
+        // Uses the opcode 0x1A format from the LibrePods AAP docs + Linux implementation.
+        // Verified end-to-end on AirPods Pro 2 USB-C (firmware 81.2675...): the device accepts
+        // the rename, persists it, and echoes the new name back via the next 0x001D device info
+        // message on reconnect.
+        //
+        // Note: the LibrePods Android code (AACPManager.createRenamePacket) uses a DIFFERENT
+        // format with opcode 0x1E and a trailing NUL, but on-device testing shows the device
+        // silently ignores that variant. The Linux / documented format is the one that works.
+        //
+        // Scope: this only changes the AirPods firmware's self-reported name (what 0x001D
+        // returns). It does NOT update the phone's Bluetooth alias — Android's system Bluetooth
+        // settings read from the bond database, which is separate and would require
+        // BluetoothDevice.setAlias(). That's intentionally out of scope here.
         val nameBytes = name.toByteArray(Charsets.UTF_8)
         require(nameBytes.size <= 127) { "Device name too long: ${nameBytes.size} bytes (max 127)" }
         return byteArrayOf(
             0x04, 0x00, 0x04, 0x00,
-            0x1E, 0x00,
+            0x1A, 0x00, 0x01,
             nameBytes.size.toByte(), 0x00,
         ) + nameBytes
     }

@@ -128,16 +128,23 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
         @Test fun `decode unknown returns null`() { profile.decodeSetting(settingsMessage(0x31, 0x00)).shouldBeNull() }
     }
 
-    // ── Device Rename (0x1E) ────────────────────────────────
+    // ── Device Rename (0x1A) ────────────────────────────────
+    // The working opcode is 0x1A (not the 0x1E variant in LibrePods Android); see the rationale
+    // comment in DefaultAapDeviceProfile.buildRenameMessage for the on-device test details.
 
     @Nested
     inner class DeviceRenameTests {
         @Test
-        fun `encode simple ASCII name`() {
+        fun `encode simple ASCII name full frame`() {
+            // Locks in the full wire format: header + opcode prefix (1A 00 01) + length (LE u16) + name.
             val bytes = profile.encodeCommand(AapCommand.SetDeviceName("MyPods"))
-            bytes[4] shouldBe 0x1E.toByte()
-            bytes[6] shouldBe 6.toByte() // length
-            String(bytes, 8, 6, Charsets.UTF_8) shouldBe "MyPods"
+            val expected = byteArrayOf(
+                0x04, 0x00, 0x04, 0x00,
+                0x1A, 0x00, 0x01,
+                0x06, 0x00,
+                0x4D, 0x79, 0x50, 0x6F, 0x64, 0x73,
+            )
+            bytes shouldBe expected
         }
 
         @Test
@@ -145,8 +152,9 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             val name = "AirPods \uD83C\uDFA7" // headphone emoji
             val nameBytes = name.toByteArray(Charsets.UTF_8)
             val bytes = profile.encodeCommand(AapCommand.SetDeviceName(name))
-            bytes[6] shouldBe nameBytes.size.toByte()
-            String(bytes, 8, nameBytes.size, Charsets.UTF_8) shouldBe name
+            bytes.size shouldBe 9 + nameBytes.size
+            bytes[7] shouldBe nameBytes.size.toByte()
+            String(bytes, 9, nameBytes.size, Charsets.UTF_8) shouldBe name
         }
 
         @Test
@@ -159,7 +167,8 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
         fun `encode accepts 127 byte name`() {
             val name = "A".repeat(127)
             val bytes = profile.encodeCommand(AapCommand.SetDeviceName(name))
-            bytes[6] shouldBe 127.toByte()
+            bytes.size shouldBe 9 + 127
+            bytes[7] shouldBe 127.toByte()
         }
     }
 
