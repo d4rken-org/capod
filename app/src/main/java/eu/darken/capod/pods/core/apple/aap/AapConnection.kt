@@ -174,8 +174,19 @@ internal class AapConnection(
             }
         }
 
+        val preSendDeviceInfo = currentState.deviceInfo
         applyOptimisticUpdate(currentState, command)
-        sendRaw(command)
+        try {
+            sendRaw(command)
+        } catch (e: Exception) {
+            // Rollback is scoped to rename — the name is the one user-visible writable field
+            // that has no device echo to correct an incorrect optimistic update, so a failed
+            // send would otherwise leave the UI permanently lying about the device name.
+            if (command is AapCommand.SetDeviceName && preSendDeviceInfo != null) {
+                _state.value = _state.value.copy(deviceInfo = preSendDeviceInfo)
+            }
+            throw e
+        }
     }
 
     /**
@@ -244,7 +255,12 @@ internal class AapConnection(
             is AapCommand.SetSleepDetection -> {
                 AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled = command.enabled)
             }
-            is AapCommand.SetDeviceName -> return // No optimistic state — name comes from deviceInfo
+            is AapCommand.SetDeviceName -> {
+                val currentInfo = baseState.deviceInfo ?: return
+                _state.value = baseState
+                    .copy(deviceInfo = currentInfo.copy(name = command.name), lastMessageAt = Instant.now())
+                return
+            }
         }
         _state.value = baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = Instant.now())
     }

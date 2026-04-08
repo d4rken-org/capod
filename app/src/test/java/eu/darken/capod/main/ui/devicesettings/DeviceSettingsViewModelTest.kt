@@ -7,11 +7,15 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.Called
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -215,4 +219,46 @@ class DeviceSettingsViewModelTest : BaseTest() {
             coVerify(exactly = 1) { bluetoothManager.nudgeConnection(bonded) }
             vm.state.first().isForceConnecting shouldBe false
         }
+
+    @Test
+    fun `setDeviceName forwards SetDeviceName command to aapManager`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setDeviceName("NewName")
+
+        coVerify { aapManager.sendCommand(testAddress, AapCommand.SetDeviceName("NewName")) }
+    }
+
+    @Test
+    fun `setDeviceName when no target address is a no-op`() = runTest(testDispatcher) {
+        val vm = createViewModel()
+        // Intentionally skip initialize — targetAddress stays null.
+
+        vm.setDeviceName("NewName")
+
+        // `any<AapCommand>()` can't be used here (AapCommand is sealed, mockk can't stub it),
+        // so verify the entire manager was not called instead.
+        verify { aapManager wasNot Called }
+    }
+
+    @Test
+    fun `setDeviceName failure emits SendFailed event`() = runTest(testDispatcher) {
+        val failure = IllegalStateException("socket closed")
+        coEvery {
+            aapManager.sendCommand(testAddress, AapCommand.SetDeviceName("NewName"))
+        } throws failure
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setDeviceName("NewName")
+
+        val event = vm.events.first()
+        val sendFailed = event.shouldBeInstanceOf<DeviceSettingsViewModel.Event.SendFailed>()
+        sendFailed.command shouldBe AapCommand.SetDeviceName("NewName")
+        sendFailed.message shouldBe "socket closed"
+    }
 }

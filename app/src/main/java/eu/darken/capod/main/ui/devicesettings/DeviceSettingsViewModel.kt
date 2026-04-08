@@ -57,6 +57,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     sealed interface Event {
         data object OpenBluetoothSettings : Event
+        data class SendFailed(val command: AapCommand, val message: String?) : Event
     }
 
     val events = SingleEventFlow<Event>()
@@ -130,27 +131,26 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }
 
-    private fun send(command: AapCommand) {
+    private suspend fun sendInternal(command: AapCommand) {
         val address = targetAddress.value ?: return
-        launch {
-            try {
-                aapManager.sendCommand(address, command)
-                log(TAG) { "Sent $command to $address" }
-            } catch (e: Exception) {
-                log(TAG) { "Failed to send $command: ${e.message}" }
-            }
+        try {
+            aapManager.sendCommand(address, command)
+            log(TAG) { "Sent $command to $address" }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to send $command: ${e.message}" }
+            // SingleEventFlow is backed by a BUFFERED Channel — use the suspending emit to avoid
+            // dropping the event under momentary backpressure.
+            events.emit(Event.SendFailed(command, e.message))
         }
+    }
+
+    private fun send(command: AapCommand) {
+        launch { sendInternal(command) }
     }
 
     private fun sendProGated(command: AapCommand) = launch {
         if (upgradeRepo.isPro()) {
-            val address = targetAddress.value ?: return@launch
-            try {
-                aapManager.sendCommand(address, command)
-                log(TAG) { "Sent $command to $address" }
-            } catch (e: Exception) {
-                log(TAG) { "Failed to send $command: ${e.message}" }
-            }
+            sendInternal(command)
         } else {
             navTo(Nav.Main.Upgrade)
         }

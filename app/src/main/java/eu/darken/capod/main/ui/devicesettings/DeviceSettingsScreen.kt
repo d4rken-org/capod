@@ -44,6 +44,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -95,11 +97,17 @@ fun DeviceSettingsScreenHost(
     LaunchedEffect(address) { vm.initialize(address) }
 
     val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
             when (event) {
                 DeviceSettingsViewModel.Event.OpenBluetoothSettings -> {
                     context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
+                }
+                is DeviceSettingsViewModel.Event.SendFailed -> {
+                    snackbarHostState.showSnackbar(
+                        context.getString(R.string.device_settings_send_failed, event.message ?: ""),
+                    )
                 }
             }
         }
@@ -110,6 +118,7 @@ fun DeviceSettingsScreenHost(
 
     DeviceSettingsScreen(
         state = currentState,
+        snackbarHostState = snackbarHostState,
         onNavigateUp = { vm.navUp() },
         onAncModeChange = { vm.setAncMode(it) },
         onConversationalAwarenessChange = { vm.setConversationalAwareness(it) },
@@ -137,6 +146,7 @@ fun DeviceSettingsScreenHost(
 @Composable
 fun DeviceSettingsScreen(
     state: DeviceSettingsViewModel.State,
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onNavigateUp: () -> Unit,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit = {},
     onConversationalAwarenessChange: (Boolean) -> Unit = {},
@@ -195,6 +205,7 @@ fun DeviceSettingsScreen(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier.padding(paddingValues),
@@ -216,7 +227,7 @@ fun DeviceSettingsScreen(
                         connectionStateLabel = stateDetection?.state?.getLabel(context),
                         lastSeen = device.lastSeenFormatted(state.now),
                         firstSeen = firstSeen,
-                        canRename = device.isAapConnected,
+                        canRename = device.isAapReady,
                         onRename = onDeviceNameChange,
                     )
                 }
@@ -1010,22 +1021,38 @@ private fun RenameDialog(
 ) {
     var textValue by remember { mutableStateOf(currentName) }
 
+    // The decoder in DefaultAapDeviceProfile only round-trips printable ASCII (0x20..0x7E),
+    // so even if the device accepts a UTF-8 name we can't display it back correctly. Accept any
+    // input up to the 32-byte UX cap, but flag non-ASCII with an inline error so the user
+    // understands why Rename is disabled.
+    val hasInvalidAscii = textValue.any { it.code !in 0x20..0x7E }
+    val isValid = textValue.isNotBlank() && !hasInvalidAscii
+
     androidx.compose.material3.AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.device_settings_rename_label)) },
         text = {
             androidx.compose.material3.OutlinedTextField(
                 value = textValue,
-                onValueChange = { if (it.length <= 32) textValue = it },
+                onValueChange = { newValue ->
+                    // US_ASCII encoding maps non-ASCII chars to '?' (1 byte each), giving a
+                    // stable upper bound equal to the UTF-16 char count. Keeps the cap the user
+                    // sees consistent regardless of character content.
+                    if (newValue.toByteArray(Charsets.US_ASCII).size <= 32) textValue = newValue
+                },
                 singleLine = true,
                 label = { Text(stringResource(R.string.device_settings_rename_hint)) },
+                isError = hasInvalidAscii,
+                supportingText = if (hasInvalidAscii) {
+                    { Text(stringResource(R.string.device_settings_rename_invalid_ascii)) }
+                } else null,
                 modifier = Modifier.fillMaxWidth(),
             )
         },
         confirmButton = {
             androidx.compose.material3.TextButton(
-                onClick = { if (textValue.isNotBlank()) onConfirm(textValue) },
-                enabled = textValue.isNotBlank() && textValue != currentName,
+                onClick = { if (isValid) onConfirm(textValue) },
+                enabled = isValid && textValue != currentName,
             ) {
                 Text(stringResource(R.string.device_settings_rename_confirm))
             }
