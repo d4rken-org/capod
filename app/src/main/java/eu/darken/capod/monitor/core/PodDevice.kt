@@ -64,7 +64,8 @@ data class PodDevice(
     val hasDualMicrophone: Boolean get() = ble is HasDualMicrophone
 
     // Signal / timing
-    val seenLastAt: Instant? get() = ble?.seenLastAt ?: cached?.lastSeenAt
+    val seenLastAt: Instant?
+        get() = listOfNotNull(ble?.seenLastAt, aap?.lastMessageAt, cached?.lastSeenAt).maxOrNull()
     val seenFirstAt: Instant? get() = ble?.seenFirstAt
     val signalQuality: Float
         get() {

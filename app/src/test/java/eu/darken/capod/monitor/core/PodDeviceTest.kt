@@ -144,6 +144,33 @@ class PodDeviceTest : BaseTest() {
     }
 
     @Test
+    fun `seenLastAt uses AAP lastMessageAt when BLE is null`() {
+        val aapMessageAt = Instant.parse("2026-04-01T12:00:00Z")
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = aapMessageAt,
+        )
+        val device = PodDevice(profileId = null, ble = null, aap = aap)
+        device.seenLastAt shouldBe aapMessageAt
+    }
+
+    @Test
+    fun `seenLastAt picks max of BLE and AAP timestamps`() {
+        val bleSeenAt = Instant.parse("2026-04-01T12:00:00Z")
+        val aapMessageAt = bleSeenAt.plusSeconds(25) // AAP is more recent
+        val ble = mockk<DualApplePods>(relaxed = true) {
+            every { model } returns PodModel.AIRPODS_PRO3
+            every { seenLastAt } returns bleSeenAt
+        }
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            lastMessageAt = aapMessageAt,
+        )
+        val device = PodDevice(profileId = null, ble = ble, aap = aap)
+        device.seenLastAt shouldBe aapMessageAt
+    }
+
+    @Test
     fun `charging properties delegate to BLE interfaces`() {
         val mock = mockk<DualApplePods>(relaxed = true) {
             every { model } returns PodModel.AIRPODS_PRO3
