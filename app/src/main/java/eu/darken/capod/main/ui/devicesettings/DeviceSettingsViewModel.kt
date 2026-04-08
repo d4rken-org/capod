@@ -58,6 +58,7 @@ class DeviceSettingsViewModel @Inject constructor(
     sealed interface Event {
         data object OpenBluetoothSettings : Event
         data class SendFailed(val command: AapCommand, val message: String?) : Event
+        data object SystemRenameUnavailable : Event
     }
 
     val events = SingleEventFlow<Event>()
@@ -191,7 +192,25 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setSleepDetection(enabled: Boolean) = sendProGated(AapCommand.SetSleepDetection(enabled))
 
-    fun setDeviceName(name: String) = send(AapCommand.SetDeviceName(name))
+    fun setDeviceName(name: String) = launch {
+        val address = targetAddress.value ?: return@launch
+        sendInternal(AapCommand.SetDeviceName(name))
+
+        // Also try to update the Android-local bond alias so the new name shows in Android's
+        // Bluetooth settings too. The AAP rename only changes what the AirPods themselves report;
+        // Android's system display reads from the bond database and needs a separate update.
+        val bonded = try {
+            bluetoothManager.bondedDevices().first().firstOrNull { it.address == address }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "bondedDevices() failed while renaming: ${e.message}" }
+            null
+        }
+        val aliasOk = bonded?.let { bluetoothManager.setDeviceAlias(it, name) } ?: false
+        if (!aliasOk) {
+            log(TAG, WARN) { "System bond alias rename failed for $address — user must rename in system settings or re-pair" }
+            events.emit(Event.SystemRenameUnavailable)
+        }
+    }
 
     fun navToStemConfig() = launch {
         if (upgradeRepo.isPro()) {

@@ -109,6 +109,12 @@ fun DeviceSettingsScreenHost(
                         context.getString(R.string.device_settings_send_failed, event.message ?: ""),
                     )
                 }
+                DeviceSettingsViewModel.Event.SystemRenameUnavailable -> {
+                    snackbarHostState.showSnackbar(
+                        context.getString(R.string.device_settings_rename_system_unavailable),
+                        duration = androidx.compose.material3.SnackbarDuration.Long,
+                    )
+                }
             }
         }
     }
