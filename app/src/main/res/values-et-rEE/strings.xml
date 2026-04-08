@@ -24,7 +24,10 @@
     <string name="upgrade_benefit_autoconnect">Automaatne ühendamine</string>
     <string name="upgrade_benefit_popups">Hüpikaken korpuse avamisel ja ühendamisel</string>
     <string name="upgrade_benefit_widgets">Avakuva vidinad</string>
+    <string name="upgrade_benefit_device_settings">Täpsemad seadme sätted</string>
+    <string name="upgrade_benefit_device_controls">Seadme juhtnupud &#8212; müra, varred ja muud</string>
     <string name="upgrade_benefit_support">Toeta arendajat</string>
+    <string name="upgrade_benefit_disclaimer">Funktsioonide saadavus sõltub sinu kõrvaklappidest ja seadmest.</string>
     <string name="upgrade_screen_options_description">Samad võimalused, erinev hind. Tellimus sisaldab tasuta katseaega ja selle saab igal ajal tühistada.</string>
     <string name="upgrade_screen_subscription_trial_action">Proovi</string>
     <string name="upgrade_screen_subscription_action">Telli aastaks</string>
@@ -57,7 +60,7 @@
     <string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
     <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
-    <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda taotleda. See lülitab jälgimisrežiimi sisse alatiseks.</string>
+    <string name="settings_autoconnect_description">Kui Android ei ühendu automaatselt, saame seda taotleda. See seab jälgimisrežiimi sätteks \'Alati\'. Uuemates Androidi versioonides ei pruugi toimida.</string>
     <string name="settings_autoconnect_condition_label">Automaatse ühendamise tingimus</string>
     <string name="settings_autoconnect_condition_description">Millal võime üritada ühendada teie seadet?</string>
     <string name="settings_devices_label">Seadmed</string>
@@ -184,6 +187,10 @@
         <item quantity="one">%d seade ei kattu profiiliga</item>
         <item quantity="other">%d seadet ei kattu profiiliga</item>
     </plurals>
+    <plurals name="overview_more_devices_upgrade">
+        <item quantity="one">%d seade veel</item>
+        <item quantity="other">%d seadet veel</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth ühendus</string>
     <string name="permission_bluetooth_connect_description">See rakendus nõuab luba kasutada Bluetooh ühendust, et suhelda seotud seadmetega ja käivitada ühendamist.</string>
     <string name="permission_bluetooth_scan_label">Bluetoothi skannimine</string>
@@ -227,12 +234,24 @@
     <string name="pods_charging_label">Laeb</string>
     <string name="pods_inear_label">Kõrvas</string>
     <string name="pods_microphone_label">Mikrofon</string>
+    <string name="anc_mode_off">Väljas</string>
+    <string name="anc_mode_on">ANC</string>
+    <string name="anc_mode_transparency">Läbipaistvus</string>
+    <string name="anc_mode_adaptive">Kohanduv</string>
+    <string name="conversation_awareness_label">Vestluse tuvastamine</string>
+    <string name="signal_badge_ble_cd">BLE skannimine aktiivne</string>
+    <string name="signal_badge_key_irk_cd">Identiteet kinnitatud</string>
+    <string name="signal_badge_key_encrypted_cd">Krüpteeritud ühendus</string>
+    <string name="signal_badge_aap_cd">Otseühendus aktiivne</string>
+    <string name="signal_indicator_bars_cd">Signaali tugevus: %1$d 4 ribast</string>
+    <string name="signal_indicator_disconnected_cd">Signaal: ühendus puudub</string>
     <string name="pods_yours">Sinu</string>
     <string name="headset_being_worn_label">Kasutusel</string>
     <string name="headset_not_being_worn_label">Ei kasuta</string>
     <string name="pods_case_unknown_state">Tundmatu olek</string>
     <string name="last_seen_x">Viimati kasutusel: %s</string>
     <string name="first_seen_x">Esimesena kasutusel: %s</string>
+    <string name="battery_cached_label">Viimati teadaolev · %s</string>
     <string name="permission_post_notifications_label">Näita teateid</string>
     <string name="permission_post_notifications_description">"Luba CAPodil näidata AirPodsi teateid, nt praegust olekut ühendatud olles."</string>
     <!-- Device profiles -->
@@ -247,6 +266,7 @@
     <string name="profiles_paired_device_label">Seotud seade</string>
     <string name="profiles_paired_device_none">Mitte ükski</string>
     <string name="profiles_paired_device_none_description">Ükski seade pole valitud</string>
+    <string name="profiles_paired_device_used_by">Kasutab %s</string>
     <string name="profiles_save_action">Salvesta profiil</string>
     <string name="profiles_drag_handle_description">Järjekorra muutmiseks lohista</string>
     <string name="profiles_delete_title">Eemalda Profiil</string>
@@ -267,7 +287,7 @@
     <string name="profiles_key_status_configured">Seadistatud</string>
     <string name="profiles_key_status_not_set">Määramata</string>
     <string name="profiles_signal_quality_min_label">Väljas</string>
-    <string name="profiles_signal_quality_max_label">Strict</string>
+    <string name="profiles_signal_quality_max_label">Range</string>
     <string name="profiles_priority_hint">Profiili asukoht määrab olulisuse. Profiilide asukoha muutmiseks lohistage neid. Nimekirja eesosas olevad profiilid on eelisjärjekorras mitme samasuguse seadme puhul.</string>
     <!-- Theme Mode -->
     <string name="ui_theme_mode_label">Teema režiim</string>
@@ -311,6 +331,7 @@
         <item quantity="other">%1$d faili valmis (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Delete</string>
+    <string name="debug_debuglog_screen_keep_action">Säilita</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d silumislogi (%2$s)</item>
@@ -361,4 +382,102 @@
     <string name="support_debuglog_sent_message">Kas silumislogi saadeti edukalt? Logi kustutatakse.</string>
     <string name="support_contact_sent_title">Meil saadetud?</string>
     <string name="support_contact_sent_message">Kas meil saadeti edukalt? Manustatud silumislogi kustutatakse.</string>
+    <!-- Device Settings -->
+    <string name="device_settings_title">Seadme sätted</string>
+    <string name="device_settings_info_name_label">Nimi</string>
+    <string name="device_settings_info_serial_label">Seerianumber</string>
+    <string name="device_settings_info_firmware_label">Püsivara</string>
+    <string name="device_settings_info_status_label">Olek</string>
+    <string name="device_settings_info_last_seen_label">Viimati nähtud</string>
+    <string name="device_settings_info_first_seen_label">Esimest korda nähtud</string>
+    <string name="device_settings_not_connected_label">Ühendus puudub</string>
+    <string name="device_settings_not_connected_description">See seade on lähedal, kuid pole selle telefoniga ühendatud. Seadete ja juhtelementide kasutamiseks ühendage seade.</string>
+    <string name="device_settings_not_connected_connect_action">Ühenda</string>
+    <string name="device_settings_not_connected_open_settings_action">Ava Bluetoothi sätted</string>
+    <string name="device_settings_category_sound_label">Heli</string>
+    <string name="device_settings_category_controls_label">Juhtnupud</string>
+    <string name="device_settings_nc_one_airpod_label">Mürasummutus ühe AirPodiga</string>
+    <string name="device_settings_nc_one_airpod_description">Hoia mürasummutus aktiivsena ainult ühe AirPodiga</string>
+    <string name="device_settings_personalized_volume_label">Isikupärastatud helitugevus</string>
+    <string name="device_settings_personalized_volume_description">Kohanda meediumihelitugevust keskkonna põhjal</string>
+    <string name="device_settings_conversation_awareness_description">Vähenda meediumihelitugevust ja müra, kui keegi sinuga räägib</string>
+    <string name="device_settings_tone_volume_label">Helide helitugevus</string>
+    <string name="device_settings_tone_volume_description">Kinnitushelide ja helinate helitugevus</string>
+    <string name="device_settings_adaptive_noise_label">Kohanduva heli müra</string>
+    <string name="device_settings_adaptive_noise_description">Kui palju keskkonna müra läbi lastakse</string>
+    <string name="device_settings_press_speed_label">Vajutuse kiirus</string>
+    <string name="device_settings_press_speed_description">Kui kiiresti pead vajutama mitme vajutuse žestide jaoks</string>
+    <string name="device_settings_press_speed_default">Tavaline</string>
+    <string name="device_settings_press_speed_slower">Aeglasem</string>
+    <string name="device_settings_press_speed_slowest">Kõige aeglasem</string>
+    <string name="device_settings_press_hold_label">Pikalt vajutuse kestus</string>
+    <string name="device_settings_press_hold_description">Kui kaua vajutada ja hoida mürakontrolli režiimide vahetamiseks</string>
+    <string name="device_settings_press_hold_default">Tavaline</string>
+    <string name="device_settings_press_hold_shorter">Lühem</string>
+    <string name="device_settings_press_hold_shortest">Kõige lühem</string>
+    <string name="device_settings_volume_swipe_label">Helitugevuse libistamine</string>
+    <string name="device_settings_volume_swipe_description">Libista helitugevuse muutmiseks</string>
+    <string name="device_settings_volume_swipe_length_label">Helitugevuse libistamise ooteaeg</string>
+    <string name="device_settings_volume_swipe_length_description">Tahtmatute helitugevuse muutuste vältimiseks valige, kui kaua oodata libistamiste vahel.</string>
+    <string name="device_settings_volume_swipe_length_default">Tavaline</string>
+    <string name="device_settings_volume_swipe_length_longer">Pikem</string>
+    <string name="device_settings_volume_swipe_length_longest">Kõige pikem</string>
+    <string name="device_settings_end_call_mute_mic_label">Kõne juhtnupud</string>
+    <string name="device_settings_end_call_mute_mic_description">Vali, mida varre vajutamine kõne ajal teeb</string>
+    <string name="device_settings_end_call_mute_mic_option_a_title">Ühe vajutusega lõpeta kõne</string>
+    <string name="device_settings_end_call_mute_mic_option_a_subtitle">Kahe vajutusega vaigista mikrofon</string>
+    <string name="device_settings_end_call_mute_mic_option_b_title">Ühe vajutusega vaigista mikrofon</string>
+    <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kahe vajutusega lõpeta kõne</string>
+    <string name="device_settings_open_cd">Ava seadme sätted</string>
+    <!-- New device settings -->
+    <string name="device_settings_category_general_label">Üldine</string>
+    <string name="device_settings_microphone_mode_label">Mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Millist AirPodi kasutatakse mikrofonina</string>
+    <string name="device_settings_microphone_mode_auto">Automaatne</string>
+    <string name="device_settings_microphone_mode_right">Parem</string>
+    <string name="device_settings_microphone_mode_left">Vasak</string>
+    <string name="device_settings_ear_detection_label">Automaatne kõrvastamine</string>
+    <string name="device_settings_ear_detection_description">Peata heli, kui AirPodid kõrvadest eemaldatakse</string>
+    <string name="device_settings_listening_mode_cycle_label">Mürakontrolli tsükkel</string>
+    <string name="device_settings_listening_mode_cycle_description">Vali, millised režiimid vahelduvad, kui hoiad vart all</string>
+    <string name="device_settings_listening_mode_cycle_off">Väljas</string>
+    <string name="device_settings_listening_mode_cycle_anc">Mürasummutus</string>
+    <string name="device_settings_listening_mode_cycle_transparency">Läbipaistvus</string>
+    <string name="device_settings_listening_mode_cycle_adaptive">Kohanduv</string>
+    <string name="device_settings_allow_off_label">Lisa Välja mürakontrolli</string>
+    <string name="device_settings_allow_off_description">Näita Väljas mürakontrolli režiimide vahetamisel valikuna</string>
+    <string name="device_settings_sleep_detection_label">Une tuvastamine</string>
+    <string name="device_settings_sleep_detection_description">Peata heli automaatselt, kui jääd magama</string>
+    <string name="device_settings_rename_label">Nimeta ümber</string>
+    <string name="device_settings_rename_hint">Seadme nimi</string>
+    <string name="device_settings_rename_confirm">Nimeta ümber</string>
+    <string name="device_settings_rename_invalid_ascii">Toetatakse ainult ASCII märke</string>
+    <string name="device_settings_rename_system_unavailable">Android ei lubanud meil seadet siin ümber nimetada. Bluetoothi sätetes nime uuendamiseks nimetage see seal ümber või paarige seade uuesti.</string>
+    <string name="device_settings_send_failed">Sätet ei saanud rakendada: %1$s</string>
+    <string name="device_settings_category_connections_label">Ühendatud seadmed</string>
+    <string name="device_settings_connected_devices_description">Muud seadmed, mis on hetkel nende AirPodidega ühendatud</string>
+    <string name="device_settings_connected_device_label">Seade %d</string>
+    <string name="device_settings_connected_device_call">Kõnes</string>
+    <string name="device_settings_connected_device_media">Esitab meediat</string>
+    <string name="device_settings_noise_control_label">Mürakontroll</string>
+    <string name="device_settings_eq_label">Ekvalaiser</string>
+    <!-- Stem Actions -->
+    <string name="stem_actions_title">Varre toimingud</string>
+    <string name="stem_actions_nav_description">Kaardista varre vajutused Androidi toiminguteks</string>
+    <string name="stem_actions_description">Vali, mis juhtub, kui vajutad iga AirPodi varrt. Kui toiming on määratud, peatab rakendus vajutuse ja käsitleb seda ise, mitte AirPodid.</string>
+    <string name="stem_actions_single_press">Üks vajutus</string>
+    <string name="stem_actions_double_press">Kaks vajutust</string>
+    <string name="stem_actions_triple_press">Kolm vajutust</string>
+    <string name="stem_actions_long_press">Pikk vajutus</string>
+    <string name="stem_actions_left">Vasak</string>
+    <string name="stem_actions_right">Parem</string>
+    <string name="stem_action_none">Tavaline</string>
+    <string name="stem_action_no_action">Toiming puudub</string>
+    <string name="stem_action_play_pause">Esita/Peata</string>
+    <string name="stem_action_next_track">Järgmine lugu</string>
+    <string name="stem_action_previous_track">Eelmine lugu</string>
+    <string name="stem_action_volume_up">Helitugevus üles</string>
+    <string name="stem_action_volume_down">Helitugevus alla</string>
+    <string name="stem_actions_reset_label">Lähtesta vaikeseadistused</string>
+    <string name="stem_actions_reset_confirm_message">Lähtesta kõik varre toimingud vaikeväärtustele?</string>
 </resources>

@@ -24,7 +24,10 @@
     <string name="upgrade_benefit_autoconnect">자동 연결</string>
     <string name="upgrade_benefit_popups">케이스 열기 &amp; 연결 시 팝업</string>
     <string name="upgrade_benefit_widgets">홈 화면 위젯</string>
+    <string name="upgrade_benefit_device_settings">고급 기기 설정</string>
+    <string name="upgrade_benefit_device_controls">기기 제어 &#8212; 소음, 스템 &amp; 기타</string>
     <string name="upgrade_benefit_support">개발자 지원</string>
+    <string name="upgrade_benefit_disclaimer">기능 사용 가능 여부는 헤드폰 및 기기에 따라 다릅니다.</string>
     <string name="upgrade_screen_options_description">동일한 기능, 다른 가격. 구독에는 무료 체험이 포함되며 언제든지 취소할 수 있습니다.</string>
     <string name="upgrade_screen_subscription_trial_action">무료 체험 시작</string>
     <string name="upgrade_screen_subscription_action">연간 구독</string>
@@ -57,7 +60,7 @@
     <string name="settings_signal_minimum_label">최소 신호 품질</string>
     <string name="settings_signal_minimum_description">기기가 사용자의 것으로 간주되기 위해 필요한 최소 신호 품질입니다.</string>
     <string name="settings_autoconnect_label">자동 연결</string>
-    <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터링 모드 설정이 \"항상\"으로 설정됩니다.</string>
+    <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터 모드 설정이 \'항상\'으로 설정됩니다. 최신 Android 버전에서는 작동하지 않을 수 있습니다.</string>
     <string name="settings_autoconnect_condition_label">자동 연결 조건</string>
     <string name="settings_autoconnect_condition_description">언제 기기에 연결을 시도해야 할까요?</string>
     <string name="settings_devices_label">장치</string>
@@ -183,6 +186,9 @@
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d프로필과 일치하지 않는 기기</item>
     </plurals>
+    <plurals name="overview_more_devices_upgrade">
+        <item quantity="other">%d개 기기 더</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">블루투스 연결</string>
     <string name="permission_bluetooth_connect_description">이 앱은 페어링 된 기기와 상호작용하고 연결을 시작하기 위해 \"Bluetooth 연결\"권한을 필요로 합니다.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth 검색</string>
@@ -226,12 +232,24 @@
     <string name="pods_charging_label">충전 중</string>
     <string name="pods_inear_label">착용 중</string>
     <string name="pods_microphone_label">마이크</string>
+    <string name="anc_mode_off">끄기</string>
+    <string name="anc_mode_on">ANC</string>
+    <string name="anc_mode_transparency">투명도</string>
+    <string name="anc_mode_adaptive">적응형</string>
+    <string name="conversation_awareness_label">대화 인식</string>
+    <string name="signal_badge_ble_cd">BLE 스캔 활성</string>
+    <string name="signal_badge_key_irk_cd">신원 확인됨</string>
+    <string name="signal_badge_key_encrypted_cd">암호화된 연결</string>
+    <string name="signal_badge_aap_cd">직접 연결 활성화</string>
+    <string name="signal_indicator_bars_cd">신호 강도: 4칸 중 %1$d칸</string>
+    <string name="signal_indicator_disconnected_cd">신호: 연결 끊김</string>
     <string name="pods_yours">내 기기</string>
     <string name="headset_being_worn_label">착용 중</string>
     <string name="headset_not_being_worn_label">착용하지 않음</string>
     <string name="pods_case_unknown_state">알 수 없는 상태</string>
     <string name="last_seen_x">마지막 업데이트: %s</string>
     <string name="first_seen_x">처음 업데이트: %s</string>
+    <string name="battery_cached_label">마지막으로 확인 · %s</string>
     <string name="permission_post_notifications_label">알림 표시</string>
     <string name="permission_post_notifications_description">"CAPod이 현재 연결 상태 등 AirPods에 대한 알림을 표시할 수 있도록 허용합니다."</string>
     <!-- Device profiles -->
@@ -246,10 +264,12 @@
     <string name="profiles_paired_device_label">페어링 된 기기</string>
     <string name="profiles_paired_device_none">없음</string>
     <string name="profiles_paired_device_none_description">선택된 기기가 없습니다.</string>
+    <string name="profiles_paired_device_used_by">%s에서 사용 중</string>
     <string name="profiles_save_action">프로필 저장</string>
     <string name="profiles_drag_handle_description">드래그하여 순서 변경</string>
     <string name="profiles_delete_title">프로필 삭제</string>
-    <string name="profiles_delete_message">프로필을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.</string>
+    <string name="profiles_delete_message">프로필을 삭제하시겠습니까? 
+이 작업은 취소할 수 없습니다.</string>
     <string name="profiles_delete_action">삭제</string>
     <string name="profiles_basic_info_title">기기 정보</string>
     <string name="profiles_basic_info_description">기기의 이름, 모델 및 선택적 블루투스 페어링을 설정하세요.</string>
@@ -267,7 +287,8 @@
     <string name="profiles_key_status_not_set">설정되지 않음</string>
     <string name="profiles_signal_quality_min_label">끄기</string>
     <string name="profiles_signal_quality_max_label">엄격</string>
-    <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요. 리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
+    <string name="profiles_priority_hint">프로필 순서는 우선순위를 결정합니다. 프로필을 드래그하여 순서를 변경하세요.
+리스트의 위에 있을수록 여러 장치가 일치할때 우선순위가 높습니다.</string>
     <!-- Theme Mode -->
     <string name="ui_theme_mode_label">테마 모드</string>
     <string name="ui_theme_mode_system_label">기기 테마 사용</string>
@@ -309,6 +330,7 @@
         <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">삭제</string>
+    <string name="debug_debuglog_screen_keep_action">유지</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="other">%1$d개 디버그 로그 (%2$s)</item>
@@ -357,4 +379,102 @@
     <string name="support_debuglog_sent_message">디버그 로그가 성공적으로 전송되었나요? 로그가 삭제됩니다.</string>
     <string name="support_contact_sent_title">이메일이 전송되었나요?</string>
     <string name="support_contact_sent_message">이메일이 성공적으로 전송되었나요? 첨부된 디버그 로그가 삭제됩니다.</string>
+    <!-- Device Settings -->
+    <string name="device_settings_title">기기 설정</string>
+    <string name="device_settings_info_name_label">이름</string>
+    <string name="device_settings_info_serial_label">시리얼 번호</string>
+    <string name="device_settings_info_firmware_label">펌웨어</string>
+    <string name="device_settings_info_status_label">상태</string>
+    <string name="device_settings_info_last_seen_label">마지막 확인</string>
+    <string name="device_settings_info_first_seen_label">처음 확인</string>
+    <string name="device_settings_not_connected_label">연결되지 않음</string>
+    <string name="device_settings_not_connected_description">이 기기가 근처에 있지만 이 휴대폰에 연결되어 있지 않습니다. 설정과 제어에 접근하려면 연결하세요.</string>
+    <string name="device_settings_not_connected_connect_action">연결</string>
+    <string name="device_settings_not_connected_open_settings_action">블루투스 설정 열기</string>
+    <string name="device_settings_category_sound_label">사운드</string>
+    <string name="device_settings_category_controls_label">제어</string>
+    <string name="device_settings_nc_one_airpod_label">AirPod 하나로 노이즈 캐슬링</string>
+    <string name="device_settings_nc_one_airpod_description">AirPod 한 쪽만 착용 시 노이즈 캐슬링 유지</string>
+    <string name="device_settings_personalized_volume_label">개인화된 음량</string>
+    <string name="device_settings_personalized_volume_description">환경에 따라 미디어 볼륨 조정</string>
+    <string name="device_settings_conversation_awareness_description">누군가 말할 때 미디어 볼륨 낙추고 소음 줄이기</string>
+    <string name="device_settings_tone_volume_label">차임 볼륨</string>
+    <string name="device_settings_tone_volume_description">확인음 및 벨소리 볼륨</string>
+    <string name="device_settings_adaptive_noise_label">적응형 오디오 소음</string>
+    <string name="device_settings_adaptive_noise_description">환경 소음이 얼마나 유입되는지 조절</string>
+    <string name="device_settings_press_speed_label">누르기 속도</string>
+    <string name="device_settings_press_speed_description">연속 누르기 제스처를 위해 얼마나 빠르게 눌러야 하는지</string>
+    <string name="device_settings_press_speed_default">기본</string>
+    <string name="device_settings_press_speed_slower">더 느리게</string>
+    <string name="device_settings_press_speed_slowest">가장 느리게</string>
+    <string name="device_settings_press_hold_label">길게 누르기 시간</string>
+    <string name="device_settings_press_hold_description">소음 제어 모드 전환을 위한 길게 누르기 지속 시간</string>
+    <string name="device_settings_press_hold_default">기본</string>
+    <string name="device_settings_press_hold_shorter">더 짧게</string>
+    <string name="device_settings_press_hold_shortest">가장 짧게</string>
+    <string name="device_settings_volume_swipe_label">볼륨 스와이프</string>
+    <string name="device_settings_volume_swipe_description">스와이프하여 볼륨 조정</string>
+    <string name="device_settings_volume_swipe_length_label">볼륨 스와이프 대기 시간</string>
+    <string name="device_settings_volume_swipe_length_description">의도하지 않은 볼륨 조절을 방지하려면 스와이프 사이의 대기 시간을 선택하세요.</string>
+    <string name="device_settings_volume_swipe_length_default">기본</string>
+    <string name="device_settings_volume_swipe_length_longer">더 길게</string>
+    <string name="device_settings_volume_swipe_length_longest">가장 길게</string>
+    <string name="device_settings_end_call_mute_mic_label">통화 제어</string>
+    <string name="device_settings_end_call_mute_mic_description">통화 중 스템 누르기 동작 선택</string>
+    <string name="device_settings_end_call_mute_mic_option_a_title">한 번 눌러 통화 종료</string>
+    <string name="device_settings_end_call_mute_mic_option_a_subtitle">두 번 눌러 마이크 음소거</string>
+    <string name="device_settings_end_call_mute_mic_option_b_title">한 번 눌러 마이크 음소거</string>
+    <string name="device_settings_end_call_mute_mic_option_b_subtitle">두 번 눌러 통화 종료</string>
+    <string name="device_settings_open_cd">기기 설정 열기</string>
+    <!-- New device settings -->
+    <string name="device_settings_category_general_label">일반</string>
+    <string name="device_settings_microphone_mode_label">마이크</string>
+    <string name="device_settings_microphone_mode_description">어느 AirPod이 마이크로 사용되는지</string>
+    <string name="device_settings_microphone_mode_auto">자동</string>
+    <string name="device_settings_microphone_mode_right">오른쪽</string>
+    <string name="device_settings_microphone_mode_left">왼쪽</string>
+    <string name="device_settings_ear_detection_label">자동 귀 감지</string>
+    <string name="device_settings_ear_detection_description">AirPods를 귀에서 뺄으면 오디오 일시 정지</string>
+    <string name="device_settings_listening_mode_cycle_label">소음 제어 순환</string>
+    <string name="device_settings_listening_mode_cycle_description">스템을 길게 누를 때 순환할 모드 선택</string>
+    <string name="device_settings_listening_mode_cycle_off">끄기</string>
+    <string name="device_settings_listening_mode_cycle_anc">노이즈 캐슬링</string>
+    <string name="device_settings_listening_mode_cycle_transparency">투명도</string>
+    <string name="device_settings_listening_mode_cycle_adaptive">적응형</string>
+    <string name="device_settings_allow_off_label">소음 제어에 끄기 포함</string>
+    <string name="device_settings_allow_off_description">소음 제어 모드 순환 시 끄기 옵션 표시</string>
+    <string name="device_settings_sleep_detection_label">수면 감지</string>
+    <string name="device_settings_sleep_detection_description">잠들면 자동으로 오디오 일시 정지</string>
+    <string name="device_settings_rename_label">이름 바꾸기</string>
+    <string name="device_settings_rename_hint">기기 이름</string>
+    <string name="device_settings_rename_confirm">이름 바꾸기</string>
+    <string name="device_settings_rename_invalid_ascii">ASCII 문자만 지원됩니다</string>
+    <string name="device_settings_rename_system_unavailable">Android에서 여기서 기기 이름 바꾸기를 허용하지 않습니다. 블루투스 설정에서 이름을 업데이트하려면 거기서 이름을 변경하거나 기기를 다시 페어링하세요.</string>
+    <string name="device_settings_send_failed">설정을 적용할 수 없습니다: %1$s</string>
+    <string name="device_settings_category_connections_label">연결된 기기</string>
+    <string name="device_settings_connected_devices_description">현재 이 AirPods에 연결된 다른 기기</string>
+    <string name="device_settings_connected_device_label">기기 %d</string>
+    <string name="device_settings_connected_device_call">통화 중</string>
+    <string name="device_settings_connected_device_media">미디어 재생 중</string>
+    <string name="device_settings_noise_control_label">소음 제어</string>
+    <string name="device_settings_eq_label">이켈라이저</string>
+    <!-- Stem Actions -->
+    <string name="stem_actions_title">스템 동작</string>
+    <string name="stem_actions_nav_description">스템 누르기를 Android 동작에 매핑</string>
+    <string name="stem_actions_description">각 AirPod의 스템을 누를 때 어떤 일이 발생하는지 선택하세요. 동작이 할당되면 앱이 AirPods가 기본적으로 처리하는 대신 누르기를 가로챡니다.</string>
+    <string name="stem_actions_single_press">한 번 누르기</string>
+    <string name="stem_actions_double_press">두 번 누르기</string>
+    <string name="stem_actions_triple_press">세 번 누르기</string>
+    <string name="stem_actions_long_press">길게 누르기</string>
+    <string name="stem_actions_left">왼쪽</string>
+    <string name="stem_actions_right">오른쪽</string>
+    <string name="stem_action_none">기본</string>
+    <string name="stem_action_no_action">동작 없음</string>
+    <string name="stem_action_play_pause">재생/일시 정지</string>
+    <string name="stem_action_next_track">다음 트랙</string>
+    <string name="stem_action_previous_track">이전 트랙</string>
+    <string name="stem_action_volume_up">볼륨 높이기</string>
+    <string name="stem_action_volume_down">볼륨 낙추기</string>
+    <string name="stem_actions_reset_label">기본값으로 재설정</string>
+    <string name="stem_actions_reset_confirm_message">모든 스템 동작을 기본값으로 재설정할까요?</string>
 </resources>

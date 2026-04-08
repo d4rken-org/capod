@@ -24,7 +24,10 @@
     <string name="upgrade_benefit_autoconnect">Automatsko povezivanje</string>
     <string name="upgrade_benefit_popups">Skočni prozor pri otvaranju kutije i spajanju</string>
     <string name="upgrade_benefit_widgets">Widgeti početnog zaslona</string>
+    <string name="upgrade_benefit_device_settings">Napredne postavke uređaja</string>
+    <string name="upgrade_benefit_device_controls">Kontrole uređaja &#8212; buka, stabla i još mnogo toga</string>
     <string name="upgrade_benefit_support">Podržite razvijatelja</string>
+    <string name="upgrade_benefit_disclaimer">Dostupnost značajki ovisi o vašim slušalicama i uređaju.</string>
     <string name="upgrade_screen_options_description">Iste značajke, drugačije cijene. Pretplata uključuje besplatno probno razdoblje i može se otkazati u bilo kojem trenutku.</string>
     <string name="upgrade_screen_subscription_trial_action">Započnite besplatnu probu</string>
     <string name="upgrade_screen_subscription_action">Pretplatite se godišnje</string>
@@ -57,7 +60,7 @@
     <string name="settings_signal_minimum_label">Minimalna kvaliteta signala</string>
     <string name="settings_signal_minimum_description">Minimalna kvaliteta signala koju uređaj mora imati da bi se smatrao vašim.</string>
     <string name="settings_autoconnect_label">Automatsko povezivanje</string>
-    <string name="settings_autoconnect_description">Ako se Android ne poveže automatski, možemo ga i mi zatražiti. Ovo će postaviti način praćenja na \'Uvijek\'.</string>
+    <string name="settings_autoconnect_description">Ako se Android ne poveže automatski, možemo ga i mi zatražiti. Ovo će postaviti način praćenja na \'Uvijek\'. Možda ne radi na novijim verzijama Androida.</string>
     <string name="settings_autoconnect_condition_label">Uvjet automatskog povezivanja</string>
     <string name="settings_autoconnect_condition_description">Kada bismo se trebali pokušati povezati s vašim uređajem?</string>
     <string name="settings_devices_label">Uređaji</string>
@@ -185,6 +188,11 @@
         <item quantity="few">%d uređaja bez odgovarajućeg profila</item>
         <item quantity="other">%d uređaja bez odgovarajućeg profila</item>
     </plurals>
+    <plurals name="overview_more_devices_upgrade">
+        <item quantity="one">%d još uređaj</item>
+        <item quantity="few">%d još uređaja</item>
+        <item quantity="other">%d još uređaja</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">Bluetooth povezivanje</string>
     <string name="permission_bluetooth_connect_description">Ova aplikacija zahtijeva dozvolu \"Bluetooth povezivanje\" za interakciju s uparenim uređajima i pokretanje veza.</string>
     <string name="permission_bluetooth_scan_label">Bluetooth skeniranje</string>
@@ -228,12 +236,24 @@
     <string name="pods_charging_label">Punjenje</string>
     <string name="pods_inear_label">U uhu</string>
     <string name="pods_microphone_label">Mikrofon</string>
+    <string name="anc_mode_off">Isključeno</string>
+    <string name="anc_mode_on">ANC</string>
+    <string name="anc_mode_transparency">Transparentnost</string>
+    <string name="anc_mode_adaptive">Prilagodljivo</string>
+    <string name="conversation_awareness_label">Svjesnost razgovora</string>
+    <string name="signal_badge_ble_cd">BLE skeniranje aktivno</string>
+    <string name="signal_badge_key_irk_cd">Identitet potvrđen</string>
+    <string name="signal_badge_key_encrypted_cd">Šifrirana veza</string>
+    <string name="signal_badge_aap_cd">Izravna veza aktivna</string>
+    <string name="signal_indicator_bars_cd">Jačina signala: %1$d od 4 crte</string>
+    <string name="signal_indicator_disconnected_cd">Signal: nije povezano</string>
     <string name="pods_yours">Vaš</string>
     <string name="headset_being_worn_label">Nosi se</string>
     <string name="headset_not_being_worn_label">Ne nosi se</string>
     <string name="pods_case_unknown_state">Nepoznato stanje</string>
     <string name="last_seen_x">Zadnji put viđeno: %s</string>
     <string name="first_seen_x">Prvi put viđeno: %s</string>
+    <string name="battery_cached_label">Zadnje poznato · %s</string>
     <string name="permission_post_notifications_label">Prikaži obavijesti</string>
     <string name="permission_post_notifications_description">"Dopustite CAPod-u prikazivanje obavijesti o vašim AirPods, npr. njihov trenutni status dok su povezane."</string>
     <!-- Device profiles -->
@@ -248,6 +268,7 @@
     <string name="profiles_paired_device_label">Upareni uređaj</string>
     <string name="profiles_paired_device_none">Ništa</string>
     <string name="profiles_paired_device_none_description">Nijedan uređaj nije odabran</string>
+    <string name="profiles_paired_device_used_by">Koristi %s</string>
     <string name="profiles_save_action">Spremi profil</string>
     <string name="profiles_drag_handle_description">Povucite za promjenu redoslijeda</string>
     <string name="profiles_delete_title">Izbriši profil</string>
@@ -285,7 +306,7 @@
     <string name="ui_theme_color_label">Boja teme</string>
     <string name="ui_theme_color_blue_label">Plava</string>
     <string name="ui_theme_color_green_label">Zelena</string>
-    <string name="ui_theme_color_amber_label">Jantarna</string>
+    <string name="ui_theme_color_amber_label">Jantar</string>
     <string name="ui_theme_color_disabled_materialyou">Koristi boje pozadine</string>
     <!-- Settings categories -->
     <string name="settings_category_monitoring_label">Praćenje</string>
@@ -313,6 +334,7 @@
         <item quantity="other">%1$d datoteka spremno (%2$s)</item>
     </plurals>
     <string name="debug_debuglog_screen_discard_action">Izbriši</string>
+    <string name="debug_debuglog_screen_keep_action">Zadrži</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
         <item quantity="one">%1$d debug zapisnik (%2$s)</item>
@@ -365,4 +387,102 @@
     <string name="support_debuglog_sent_message">Je li dnevnik otklanjanja pogrešaka uspješno poslan? Dnevnik će biti izbrisan.</string>
     <string name="support_contact_sent_title">E-pošta poslana?</string>
     <string name="support_contact_sent_message">Je li e-pošta uspješno poslana? Priloženi dnevnik otklanjanja pogrešaka bit će izbrisan.</string>
+    <!-- Device Settings -->
+    <string name="device_settings_title">Postavke uređaja</string>
+    <string name="device_settings_info_name_label">Naziv</string>
+    <string name="device_settings_info_serial_label">Serijski broj</string>
+    <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_status_label">Stanje</string>
+    <string name="device_settings_info_last_seen_label">Zadnji put viđeno</string>
+    <string name="device_settings_info_first_seen_label">Prvo viđeno</string>
+    <string name="device_settings_not_connected_label">Nije povezano</string>
+    <string name="device_settings_not_connected_description">Ovaj uređaj je u blizini, ali nije povezan s ovim telefonom. Povežite se za pristup postavkama i upravljačkim elementima.</string>
+    <string name="device_settings_not_connected_connect_action">Poveži</string>
+    <string name="device_settings_not_connected_open_settings_action">Otvori Bluetooth postavke</string>
+    <string name="device_settings_category_sound_label">Zvuk</string>
+    <string name="device_settings_category_controls_label">Kontrole</string>
+    <string name="device_settings_nc_one_airpod_label">Poništavanje buke s jednim AirPodom</string>
+    <string name="device_settings_nc_one_airpod_description">Zadrži aktivno poništavanje buke s jednim AirPodom</string>
+    <string name="device_settings_personalized_volume_label">Personalizirani glasnoća</string>
+    <string name="device_settings_personalized_volume_description">Prilagodi glasnoću medija prema okruženju</string>
+    <string name="device_settings_conversation_awareness_description">Smanji glasnoću medija i buku kad vam netko govori</string>
+    <string name="device_settings_tone_volume_label">Glasnoća zvona</string>
+    <string name="device_settings_tone_volume_description">Glasnoća potvrdnih zvukova i melodija zvona</string>
+    <string name="device_settings_adaptive_noise_label">Prilagodljivi audiobuke</string>
+    <string name="device_settings_adaptive_noise_description">Koliko se ambijentalne buke propusta</string>
+    <string name="device_settings_press_speed_label">Brzina pritiska</string>
+    <string name="device_settings_press_speed_description">Koliko brzo trebate pritisnuti za geste višestrukog pritiska</string>
+    <string name="device_settings_press_speed_default">Zadano</string>
+    <string name="device_settings_press_speed_slower">Sporije</string>
+    <string name="device_settings_press_speed_slowest">Najsporije</string>
+    <string name="device_settings_press_hold_label">Trajanje držanja</string>
+    <string name="device_settings_press_hold_description">Koliko dugo pritisnuti i držati za promjenu načina kontrole buke</string>
+    <string name="device_settings_press_hold_default">Zadano</string>
+    <string name="device_settings_press_hold_shorter">Kraće</string>
+    <string name="device_settings_press_hold_shortest">Najkraće</string>
+    <string name="device_settings_volume_swipe_label">Klizanje za glasnoću</string>
+    <string name="device_settings_volume_swipe_description">Klizajte za podesičavanje glasnoće</string>
+    <string name="device_settings_volume_swipe_length_label">Vrijeme čekanja povlačenja glasnoće</string>
+    <string name="device_settings_volume_swipe_length_description">Kako biste spriječili nenamjerne promjene glasnoće, odaberite koliko dugo čekati između povlačenja.</string>
+    <string name="device_settings_volume_swipe_length_default">Zadano</string>
+    <string name="device_settings_volume_swipe_length_longer">Duže</string>
+    <string name="device_settings_volume_swipe_length_longest">Najduže</string>
+    <string name="device_settings_end_call_mute_mic_label">Kontrole poziva</string>
+    <string name="device_settings_end_call_mute_mic_description">Odaberite što pritisak stabla radi tijekom poziva</string>
+    <string name="device_settings_end_call_mute_mic_option_a_title">Jedan pritisak za završetak poziva</string>
+    <string name="device_settings_end_call_mute_mic_option_a_subtitle">Dvostruki pritisak za isključivanje mikrofona</string>
+    <string name="device_settings_end_call_mute_mic_option_b_title">Jedan pritisak za isključivanje mikrofona</string>
+    <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvostruki pritisak za završetak poziva</string>
+    <string name="device_settings_open_cd">Otvori postavke uređaja</string>
+    <!-- New device settings -->
+    <string name="device_settings_category_general_label">Općenito</string>
+    <string name="device_settings_microphone_mode_label">Mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Koji se AirPod koristi kao mikrofon</string>
+    <string name="device_settings_microphone_mode_auto">Automatski</string>
+    <string name="device_settings_microphone_mode_right">Desni</string>
+    <string name="device_settings_microphone_mode_left">Lijevi</string>
+    <string name="device_settings_ear_detection_label">Automatsko prepoznavanje ušiju</string>
+    <string name="device_settings_ear_detection_description">Pauzira zvuk kad se AirPodovi izvade iz ušiju</string>
+    <string name="device_settings_listening_mode_cycle_label">Ciklus kontrole buke</string>
+    <string name="device_settings_listening_mode_cycle_description">Odaberite koji se načini izmjenjuju pri pritisku i držanju stabla</string>
+    <string name="device_settings_listening_mode_cycle_off">Isključeno</string>
+    <string name="device_settings_listening_mode_cycle_anc">Poništavanje buke</string>
+    <string name="device_settings_listening_mode_cycle_transparency">Transparentnost</string>
+    <string name="device_settings_listening_mode_cycle_adaptive">Prilagodljivo</string>
+    <string name="device_settings_allow_off_label">Uključi isključeno u kontroli buke</string>
+    <string name="device_settings_allow_off_description">Prikaži isključeno kao opciju pri izmjeni načina kontrole buke</string>
+    <string name="device_settings_sleep_detection_label">Detekcija sna</string>
+    <string name="device_settings_sleep_detection_description">Automatski pauziraj zvuk kad zaspite</string>
+    <string name="device_settings_rename_label">Preimenuj</string>
+    <string name="device_settings_rename_hint">Naziv uređaja</string>
+    <string name="device_settings_rename_confirm">Preimenuj</string>
+    <string name="device_settings_rename_invalid_ascii">Podržani su samo ASCII znakovi</string>
+    <string name="device_settings_rename_system_unavailable">Android nam nije dopustio preimenovanje uređaja ovdje. Da biste ažurirali naziv u Bluetooth postavkama, preimenujte ga tamo ili ponovo uparite uređaj.</string>
+    <string name="device_settings_send_failed">Nije moguće primijeniti postavku: %1$s</string>
+    <string name="device_settings_category_connections_label">Povezani uređaji</string>
+    <string name="device_settings_connected_devices_description">Drugi uređaji koji su trenutno spojeni na ove AirPodove</string>
+    <string name="device_settings_connected_device_label">Uređaj %d</string>
+    <string name="device_settings_connected_device_call">U pozivu</string>
+    <string name="device_settings_connected_device_media">Reprodukcija medija</string>
+    <string name="device_settings_noise_control_label">Kontrola buke</string>
+    <string name="device_settings_eq_label">Ekvilajzer</string>
+    <!-- Stem Actions -->
+    <string name="stem_actions_title">Akcije stabla</string>
+    <string name="stem_actions_nav_description">Mapiranje pritisaka stabla na Android radnje</string>
+    <string name="stem_actions_description">Odaberite što se događa kada pritisnete stablo svakog AirPoda. Kada se dodijeli radnja, aplikacija presreće pritisak umjesto da ga AirPodovi obrađuju izvorno.</string>
+    <string name="stem_actions_single_press">Jedan pritisak</string>
+    <string name="stem_actions_double_press">Dvostruki pritisak</string>
+    <string name="stem_actions_triple_press">Trostruki pritisak</string>
+    <string name="stem_actions_long_press">Dugi pritisak</string>
+    <string name="stem_actions_left">Lijevo</string>
+    <string name="stem_actions_right">Desno</string>
+    <string name="stem_action_none">Zadano</string>
+    <string name="stem_action_no_action">Bez radnje</string>
+    <string name="stem_action_play_pause">Reprodukcija/pauza</string>
+    <string name="stem_action_next_track">Sljedeća skladba</string>
+    <string name="stem_action_previous_track">Prethodna skladba</string>
+    <string name="stem_action_volume_up">Povećanje glasnoće</string>
+    <string name="stem_action_volume_down">Smanjenje glasnoće</string>
+    <string name="stem_actions_reset_label">Vrati na zadane vrijednosti</string>
+    <string name="stem_actions_reset_confirm_message">Resetirati sve akcije stabla na zadane vrijednosti?</string>
 </resources>
