@@ -1,5 +1,7 @@
 package eu.darken.capod.main.ui.devicesettings
 
+import android.content.Intent
+import android.provider.Settings
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.selection.selectable
@@ -30,6 +32,7 @@ import androidx.compose.material.icons.twotone.Timer
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material.icons.twotone.VisibilityOff
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -91,6 +94,17 @@ fun DeviceSettingsScreenHost(
 
     LaunchedEffect(address) { vm.initialize(address) }
 
+    val context = LocalContext.current
+    LaunchedEffect(Unit) {
+        vm.events.collect { event ->
+            when (event) {
+                DeviceSettingsViewModel.Event.OpenBluetoothSettings -> {
+                    context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
+                }
+            }
+        }
+    }
+
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val currentState = state ?: return
 
@@ -115,6 +129,7 @@ fun DeviceSettingsScreenHost(
         onSleepDetectionChange = { vm.setSleepDetection(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
         onStemActionsClick = { vm.navToStemConfig() },
+        onForceConnect = { vm.forceConnect() },
     )
 }
 
@@ -141,6 +156,7 @@ fun DeviceSettingsScreen(
     onSleepDetectionChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
     onStemActionsClick: () -> Unit = {},
+    onForceConnect: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -202,6 +218,17 @@ fun DeviceSettingsScreen(
                         firstSeen = firstSeen,
                         canRename = device.isAapConnected,
                         onRename = onDeviceNameChange,
+                    )
+                }
+            }
+
+            // Not connected info — BLE live but no AAP connection
+            if (device != null && device.ble != null && !device.isAapConnected && device.address != null) {
+                item("not_connected_info") {
+                    NotConnectedCard(
+                        isNudgeAvailable = state.isNudgeAvailable,
+                        isForceConnecting = state.isForceConnecting,
+                        onConnect = onForceConnect,
                     )
                 }
             }
@@ -577,6 +604,45 @@ private fun DeviceInfoCard(
                 InfoRow(
                     label = stringResource(R.string.device_settings_info_first_seen_label),
                     value = firstSeen,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun NotConnectedCard(
+    isNudgeAvailable: Boolean,
+    isForceConnecting: Boolean,
+    onConnect: () -> Unit,
+) {
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.device_settings_not_connected_label),
+                style = MaterialTheme.typography.titleMedium,
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.device_settings_not_connected_description),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = onConnect,
+                enabled = !isForceConnecting,
+                modifier = Modifier.align(Alignment.End),
+            ) {
+                Text(
+                    text = stringResource(
+                        if (isNudgeAvailable) R.string.device_settings_not_connected_connect_action
+                        else R.string.device_settings_not_connected_open_settings_action
+                    ),
                 )
             }
         }
@@ -1155,5 +1221,35 @@ private fun DeviceSettingsCachedOnlyPreview() = PreviewWrapper {
             now = MOCK_NOW,
         ),
         onNavigateUp = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun NotConnectedCardNudgeAvailablePreview() = PreviewWrapper {
+    NotConnectedCard(
+        isNudgeAvailable = true,
+        isForceConnecting = false,
+        onConnect = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun NotConnectedCardNudgeUnavailablePreview() = PreviewWrapper {
+    NotConnectedCard(
+        isNudgeAvailable = false,
+        isForceConnecting = false,
+        onConnect = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun NotConnectedCardForceConnectingPreview() = PreviewWrapper {
+    NotConnectedCard(
+        isNudgeAvailable = true,
+        isForceConnecting = true,
+        onConnect = {},
     )
 }

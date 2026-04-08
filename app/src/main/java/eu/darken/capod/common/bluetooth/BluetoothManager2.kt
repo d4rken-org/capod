@@ -315,10 +315,9 @@ class BluetoothManager2 @Inject constructor(
                 "connect", BluetoothDevice::class.java
             ).apply { isAccessible = true }
 
-            connectMethod.invoke(bluetoothProfile.proxy, device.internal)
-
-            log(TAG) { "Nudged connection to $device" }
-            true
+            val accepted = connectMethod.invoke(bluetoothProfile.proxy, device.internal) as? Boolean ?: false
+            log(TAG) { "Nudged connection to $device — accepted=$accepted" }
+            accepted
         } catch (e: Exception) {
             val isSecurityException = e is SecurityException ||
                 (e is java.lang.reflect.InvocationTargetException && e.cause is SecurityException)
