@@ -1,4 +1,4 @@
-<img src="https://github.com/d4rken-org/capod/raw/main/.assets/banner.png" width="400">
+<img src="https://github.com/d4rken-org/capod/raw/main/.assets/banner.png" width="400" alt="CAPod banner">
 
 # Companion App for AirPods (CAPod)
 
@@ -87,6 +87,7 @@ Currently supported models:
   check it out.
 * [@kavishdevar](https://github.com/kavishdevar/librepods) and
   his [LibrePods project](https://github.com/kavishdevar/librepods) for sharing a lot of cool stuff.
+* [Crowdin](https://crowdin.com/) for supporting open-source projects.
 
 ## License
 
