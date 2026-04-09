@@ -264,6 +264,21 @@ enum class PodModel(
         modelNumbers = setOf("A3184"), // headphones
     ),
 
+    @SerialName("airpods.max2")
+    AIRPODS_MAX2(
+        "AirPods Max 2",
+        R.drawable.device_airpods_max,
+        Features(
+            hasEarDetection = true,
+            hasAncControl = true,
+            hasPressSpeed = true,
+            hasPressHoldDuration = true,
+            hasToneVolume = true,
+            hasEarDetectionToggle = true,
+        ),
+        modelNumbers = setOf("A3454"), // headphones
+    ),
+
     @SerialName("beats.flex")
     BEATS_FLEX(
         "Beats Flex",
