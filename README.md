@@ -34,11 +34,20 @@ Currently supported models:
 * AirPods Pro 2. Generation (USB-C)
 * AirPods Pro 3. Generation
 * AirPods Max
+* AirPods Max (USB-C)
+* AirPods Max 2. Generation
 * Power Beats Pro
+* Power Beats Pro 2
 * Power Beats 3
 * Power Beats 4
 * Beats Solo 3
+* Beats Solo Pro
+* Beats Solo 4
+* Beats Solo Buds
 * Beats Studio 3
+* Beats Studio Buds
+* Beats Studio Buds+
+* Beats Studio Pro
 * Beats X
 * Beats Flex
 * Beats Fit Pro
