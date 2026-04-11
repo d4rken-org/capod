@@ -3,7 +3,6 @@ package eu.darken.capod.main.ui.settings.general
 import android.os.Build
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -148,43 +147,47 @@ fun GeneralSettingsScreen(
                 )
             }
             item {
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
-                    if (!state.isPro) {
-                        Spacer(modifier = Modifier.weight(1f))
-                        TextButton(
-                            onClick = onUpgrade,
-                            modifier = Modifier.padding(end = 4.dp),
-                        ) {
-                            Text(
-                                text = stringResource(R.string.common_feature_requires_pro_msg),
-                                style = MaterialTheme.typography.labelSmall,
-                            )
-                        }
-                    }
+                SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
+            }
+            item {
+                if (state.isPro) {
+                    SettingsListPreferenceItem(
+                        icon = Icons.TwoTone.DarkMode,
+                        title = stringResource(R.string.ui_theme_mode_label),
+                        entries = ThemeMode.entries,
+                        selectedEntry = state.themeState.mode,
+                        onEntrySelected = onThemeModeSelected,
+                        entryLabel = { stringResource(it.labelRes) },
+                    )
+                } else {
+                    SettingsBaseItem(
+                        icon = Icons.TwoTone.DarkMode,
+                        title = stringResource(R.string.ui_theme_mode_label),
+                        subtitle = stringResource(state.themeState.mode.labelRes),
+                        onClick = onUpgrade,
+                        proLocked = true,
+                    )
                 }
             }
             item {
-                SettingsListPreferenceItem(
-                    icon = Icons.TwoTone.DarkMode,
-                    title = stringResource(R.string.ui_theme_mode_label),
-                    entries = ThemeMode.entries,
-                    selectedEntry = state.themeState.mode,
-                    onEntrySelected = onThemeModeSelected,
-                    entryLabel = { stringResource(it.labelRes) },
-                    enabled = state.isPro,
-                )
-            }
-            item {
-                SettingsListPreferenceItem(
-                    icon = Icons.TwoTone.Contrast,
-                    title = stringResource(R.string.ui_theme_style_label),
-                    entries = ThemeStyle.entries,
-                    selectedEntry = state.themeState.style,
-                    onEntrySelected = onThemeStyleSelected,
-                    entryLabel = { stringResource(it.labelRes) },
-                    enabled = state.isPro,
-                )
+                if (state.isPro) {
+                    SettingsListPreferenceItem(
+                        icon = Icons.TwoTone.Contrast,
+                        title = stringResource(R.string.ui_theme_style_label),
+                        entries = ThemeStyle.entries,
+                        selectedEntry = state.themeState.style,
+                        onEntrySelected = onThemeStyleSelected,
+                        entryLabel = { stringResource(it.labelRes) },
+                    )
+                } else {
+                    SettingsBaseItem(
+                        icon = Icons.TwoTone.Contrast,
+                        title = stringResource(R.string.ui_theme_style_label),
+                        subtitle = stringResource(state.themeState.style.labelRes),
+                        onClick = onUpgrade,
+                        proLocked = true,
+                    )
+                }
             }
             item {
                 SettingsBaseItem(
@@ -195,8 +198,11 @@ fun GeneralSettingsScreen(
                         stringResource(state.themeState.color.labelRes)
                     },
                     icon = Icons.TwoTone.Palette,
-                    onClick = { showColorDialog = true },
-                    enabled = state.isPro && !isMaterialYouActive,
+                    onClick = {
+                        if (!state.isPro) onUpgrade() else showColorDialog = true
+                    },
+                    enabled = !isMaterialYouActive,
+                    proLocked = !state.isPro && !isMaterialYouActive,
                 )
             }
             item {
@@ -333,21 +339,40 @@ fun GeneralSettingsScreen(
     }
 }
 
+private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State(
+    isPro = isPro,
+    monitorMode = MonitorMode.AUTOMATIC,
+    scannerMode = ScannerMode.BALANCED,
+    showConnectedNotification = true,
+    keepNotificationAfterDisconnect = false,
+    isOffloadedFilteringDisabled = false,
+    isOffloadedBatchingDisabled = false,
+    useIndirectScanResultCallback = false,
+    themeState = ThemeState(),
+)
+
 @Preview2
 @Composable
-private fun GeneralSettingsScreenPreview() = PreviewWrapper {
+private fun GeneralSettingsScreenProPreview() = PreviewWrapper {
     GeneralSettingsScreen(
-        state = GeneralSettingsViewModel.State(
-            isPro = true,
-            monitorMode = MonitorMode.AUTOMATIC,
-            scannerMode = ScannerMode.BALANCED,
-            showConnectedNotification = true,
-            keepNotificationAfterDisconnect = false,
-            isOffloadedFilteringDisabled = false,
-            isOffloadedBatchingDisabled = false,
-            useIndirectScanResultCallback = false,
-            themeState = ThemeState(),
-        ),
+        state = previewGeneralState(isPro = true),
+        onNavigateUp = {},
+        onMonitorModeSelected = {},
+        onScannerModeSelected = {},
+        onShowConnectedNotificationChanged = {},
+        onKeepNotificationAfterDisconnectChanged = {},
+        onDebugSettings = {},
+        onOffloadedFilteringDisabledChanged = {},
+        onOffloadedBatchingDisabledChanged = {},
+        onUseIndirectScanResultCallbackChanged = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun GeneralSettingsScreenNonProPreview() = PreviewWrapper {
+    GeneralSettingsScreen(
+        state = previewGeneralState(isPro = false),
         onNavigateUp = {},
         onMonitorModeSelected = {},
         onScannerModeSelected = {},
