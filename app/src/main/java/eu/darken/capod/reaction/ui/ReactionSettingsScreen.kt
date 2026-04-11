@@ -127,7 +127,7 @@ fun ReactionSettingsScreen(
                     subtitle = stringResource(R.string.settings_autoplay_description),
                     checked = state.autoPlay,
                     onCheckedChange = onAutoPlayChanged,
-                    proLocked = !state.isPro,
+                    requiresUpgrade = !state.isPro,
                 )
             }
             item {
@@ -137,7 +137,7 @@ fun ReactionSettingsScreen(
                     subtitle = stringResource(R.string.settings_autopause_description),
                     checked = state.autoPause,
                     onCheckedChange = onAutoPauseChanged,
-                    proLocked = !state.isPro,
+                    requiresUpgrade = !state.isPro,
                 )
             }
             item {
@@ -159,7 +159,7 @@ fun ReactionSettingsScreen(
                     subtitle = stringResource(R.string.settings_autoconnect_description),
                     checked = state.autoConnect,
                     onCheckedChange = onAutoConnectChanged,
-                    proLocked = !state.isPro,
+                    requiresUpgrade = !state.isPro,
                 )
             }
             item {
@@ -181,7 +181,7 @@ fun ReactionSettingsScreen(
                     subtitle = stringResource(R.string.settings_popup_caseopen_description),
                     checked = state.showPopUpOnCaseOpen,
                     onCheckedChange = onShowPopUpOnCaseOpenChanged,
-                    proLocked = !state.isPro,
+                    requiresUpgrade = !state.isPro,
                 )
             }
             item {
@@ -191,7 +191,7 @@ fun ReactionSettingsScreen(
                     subtitle = stringResource(R.string.settings_popup_connected_description),
                     checked = state.showPopUpOnConnection,
                     onCheckedChange = onShowPopUpOnConnectionChanged,
-                    proLocked = !state.isPro,
+                    requiresUpgrade = !state.isPro,
                 )
             }
         }

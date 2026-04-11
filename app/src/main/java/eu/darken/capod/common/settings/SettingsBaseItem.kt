@@ -38,7 +38,7 @@ fun SettingsBaseItem(
     iconSize: Dp = 24.dp,
     subtitle: String? = null,
     enabled: Boolean = true,
-    proLocked: Boolean = false,
+    requiresUpgrade: Boolean = false,
     onLongClick: (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
@@ -97,9 +97,9 @@ fun SettingsBaseItem(
                     fontWeight = FontWeight.Normal,
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = contentAlpha)
                 )
-                if (proLocked) {
+                if (requiresUpgrade) {
                     Spacer(modifier = Modifier.width(6.dp))
-                    ProBadge()
+                    UpgradeBadge()
                 }
             }
             if (subtitle != null) {

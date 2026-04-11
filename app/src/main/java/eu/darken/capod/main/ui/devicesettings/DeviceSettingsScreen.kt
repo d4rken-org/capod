@@ -288,7 +288,7 @@ fun DeviceSettingsScreen(
                                 title = stringResource(R.string.device_settings_listening_mode_cycle_label),
                                 subtitle = stringResource(R.string.device_settings_listening_mode_cycle_description),
                                 onClick = onUpgrade,
-                                proLocked = true,
+                                requiresUpgrade = true,
                             )
                         }
                     }
@@ -480,7 +480,7 @@ fun DeviceSettingsScreen(
                             subtitle = stringResource(R.string.stem_actions_nav_description),
                             onClick = onStemActionsClick,
                             enabled = enabled,
-                            proLocked = !isPro,
+                            requiresUpgrade = !isPro,
                         )
                     }
                 }
@@ -516,7 +516,7 @@ fun DeviceSettingsScreen(
                             checked = sleepDet.enabled,
                             onCheckedChange = onSleepDetectionChange,
                             enabled = enabled,
-                            proLocked = !isPro,
+                            requiresUpgrade = !isPro,
                         )
                     }
                 }
