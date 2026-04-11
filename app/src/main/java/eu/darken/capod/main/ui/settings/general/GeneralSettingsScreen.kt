@@ -165,7 +165,7 @@ fun GeneralSettingsScreen(
                         title = stringResource(R.string.ui_theme_mode_label),
                         subtitle = stringResource(state.themeState.mode.labelRes),
                         onClick = onUpgrade,
-                        proLocked = true,
+                        requiresUpgrade = true,
                     )
                 }
             }
@@ -185,7 +185,7 @@ fun GeneralSettingsScreen(
                         title = stringResource(R.string.ui_theme_style_label),
                         subtitle = stringResource(state.themeState.style.labelRes),
                         onClick = onUpgrade,
-                        proLocked = true,
+                        requiresUpgrade = true,
                     )
                 }
             }
@@ -202,7 +202,7 @@ fun GeneralSettingsScreen(
                         if (!state.isPro) onUpgrade() else showColorDialog = true
                     },
                     enabled = !isMaterialYouActive,
-                    proLocked = !state.isPro && !isMaterialYouActive,
+                    requiresUpgrade = !state.isPro && !isMaterialYouActive,
                 )
             }
             item {

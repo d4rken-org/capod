@@ -14,10 +14,10 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
-fun ProBadge(modifier: Modifier = Modifier) {
+fun UpgradeBadge(modifier: Modifier = Modifier) {
     Icon(
         imageVector = Icons.TwoTone.Stars,
-        contentDescription = stringResource(R.string.overview_anc_mode_requires_upgrade),
+        contentDescription = stringResource(R.string.common_upgrade_required_label),
         tint = MaterialTheme.colorScheme.primary,
         modifier = modifier.size(16.dp),
     )
@@ -25,6 +25,6 @@ fun ProBadge(modifier: Modifier = Modifier) {
 
 @Preview2
 @Composable
-private fun ProBadgePreview() = PreviewWrapper {
-    ProBadge()
+private fun UpgradeBadgePreview() = PreviewWrapper {
+    UpgradeBadge()
 }

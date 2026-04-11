@@ -6,6 +6,7 @@
     <string name="general_thank_you_label">Thank you</string>
     <string name="general_upgrade_action">Upgrade</string>
     <string name="common_feature_requires_pro_msg">Upgrade to unlock.</string>
+    <string name="common_upgrade_required_label">Requires upgrade</string>
     <string name="general_donate_action">Donate</string>
     <string name="general_check_action">Check</string>
     <string name="general_close_action">Close</string>

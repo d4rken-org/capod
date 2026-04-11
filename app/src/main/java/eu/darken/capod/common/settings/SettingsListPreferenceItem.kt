@@ -38,7 +38,7 @@ fun <T> SettingsListPreferenceItem(
     modifier: Modifier = Modifier,
     subtitle: String? = null,
     enabled: Boolean = true,
-    proLocked: Boolean = false,
+    requiresUpgrade: Boolean = false,
 ) {
     var showDialog by remember { mutableStateOf(false) }
 
@@ -49,7 +49,7 @@ fun <T> SettingsListPreferenceItem(
         onClick = { if (enabled) showDialog = true },
         modifier = modifier,
         enabled = enabled,
-        proLocked = proLocked,
+        requiresUpgrade = requiresUpgrade,
     )
 
     if (showDialog) {
