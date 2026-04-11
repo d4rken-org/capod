@@ -220,6 +220,10 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }
 
+    fun launchUpgrade() {
+        navTo(Nav.Main.Upgrade)
+    }
+
     companion object {
         private val TAG = logTag("DeviceSettings", "VM")
     }

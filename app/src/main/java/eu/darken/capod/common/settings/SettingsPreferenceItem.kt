@@ -17,6 +17,7 @@ fun SettingsPreferenceItem(
     subtitle: String? = null,
     value: String? = null,
     enabled: Boolean = true,
+    proLocked: Boolean = false,
 ) {
     val contentAlpha = if (enabled) 1f else 0.5f
 
@@ -27,6 +28,7 @@ fun SettingsPreferenceItem(
         modifier = modifier,
         subtitle = subtitle,
         enabled = enabled,
+        proLocked = proLocked,
         trailingContent = if (value != null) {
             {
                 Text(

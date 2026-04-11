@@ -24,10 +24,10 @@ import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.Headphones
 import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.Loop
 import androidx.compose.material.icons.twotone.Mic
 import androidx.compose.material.icons.twotone.Nightlight
 import androidx.compose.material.icons.twotone.Speed
-import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.twotone.Timer
 import androidx.compose.material.icons.twotone.TouchApp
@@ -147,6 +147,7 @@ fun DeviceSettingsScreenHost(
         onDeviceNameChange = { vm.setDeviceName(it) },
         onStemActionsClick = { vm.navToStemConfig() },
         onForceConnect = { vm.forceConnect() },
+        onUpgrade = { vm.launchUpgrade() },
     )
 }
 
@@ -175,6 +176,7 @@ fun DeviceSettingsScreen(
     onDeviceNameChange: (String) -> Unit = {},
     onStemActionsClick: () -> Unit = {},
     onForceConnect: () -> Unit = {},
+    onUpgrade: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -272,11 +274,23 @@ fun DeviceSettingsScreen(
                             pendingMode = device.pendingAncMode,
                             supportedModes = ancMode.supported,
                             onModeSelected = onAncModeChange,
-                            cycleMask = cycleMask,
+                            cycleMask = if (isPro) cycleMask else null,
                             onCycleMaskChange = onListeningModeCycleChange,
                             onAllowOffChange = onAllowOffOptionChange,
                             enabled = enabled,
                         )
+                    }
+
+                    if (!isPro && features.hasListeningModeCycle) {
+                        item("noise_control_cycle_pro") {
+                            SettingsBaseItem(
+                                icon = Icons.TwoTone.Loop,
+                                title = stringResource(R.string.device_settings_listening_mode_cycle_label),
+                                subtitle = stringResource(R.string.device_settings_listening_mode_cycle_description),
+                                onClick = onUpgrade,
+                                proLocked = true,
+                            )
+                        }
                     }
 
                     val convAwareness = device.conversationalAwareness
@@ -466,6 +480,7 @@ fun DeviceSettingsScreen(
                             subtitle = stringResource(R.string.stem_actions_nav_description),
                             onClick = onStemActionsClick,
                             enabled = enabled,
+                            proLocked = !isPro,
                         )
                     }
                 }
@@ -494,14 +509,14 @@ fun DeviceSettingsScreen(
                     val sleepDet = device.sleepDetection
                         ?: AapSetting.SleepDetection(enabled = true)
                     item("sleep_detection") {
-                        ProGatedSwitchItem(
+                        SettingsSwitchItem(
                             icon = Icons.TwoTone.Nightlight,
                             title = stringResource(R.string.device_settings_sleep_detection_label),
                             subtitle = stringResource(R.string.device_settings_sleep_detection_description),
                             checked = sleepDet.enabled,
                             onCheckedChange = onSleepDetectionChange,
                             enabled = enabled,
-                            isPro = isPro,
+                            proLocked = !isPro,
                         )
                     }
                 }
@@ -997,44 +1012,6 @@ private fun ConnectedDevicesList(
 }
 
 @Composable
-private fun ProGatedSwitchItem(
-    icon: ImageVector,
-    title: String,
-    subtitle: String?,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit,
-    enabled: Boolean,
-    isPro: Boolean,
-) {
-    if (isPro) {
-        SettingsSwitchItem(
-            icon = icon,
-            title = title,
-            subtitle = subtitle,
-            checked = checked,
-            onCheckedChange = onCheckedChange,
-            enabled = enabled,
-        )
-    } else {
-        SettingsBaseItem(
-            icon = icon,
-            title = title,
-            subtitle = subtitle,
-            onClick = { onCheckedChange(!checked) },
-            enabled = enabled,
-            trailingContent = {
-                Icon(
-                    imageVector = Icons.TwoTone.Stars,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(start = 16.dp),
-                )
-            },
-        )
-    }
-}
-
-@Composable
 private fun RenameDialog(
     currentName: String,
     onConfirm: (String) -> Unit,
@@ -1193,52 +1170,64 @@ private fun AapSetting.AncMode.Value.label(): String = when (this) {
     AapSetting.AncMode.Value.ADAPTIVE -> stringResource(R.string.device_settings_listening_mode_cycle_adaptive)
 }
 
-@Preview2
-@Composable
-private fun DeviceSettingsFullPreview() = PreviewWrapper {
-    DeviceSettingsScreen(
-        state = DeviceSettingsViewModel.State(
-            device = PodDevice(
-                profileId = "preview",
-                label = "My AirPods Pro",
-                ble = MockPodDataProvider.airPodsProWithKeys(),
-                aap = AapPodState(
-                    connectionState = AapPodState.ConnectionState.READY,
-                    deviceInfo = AapDeviceInfo(
-                        name = "AirPods Pro",
-                        modelNumber = "A2699",
-                        manufacturer = "Apple Inc.",
-                        serialNumber = "W5J7KV0N04",
-                        firmwareVersion = "7A305",
-                    ),
-                    settings = mapOf(
-                        AapSetting.AncMode::class to AapSetting.AncMode(
-                            current = AapSetting.AncMode.Value.ADAPTIVE,
-                            supported = listOf(
-                                AapSetting.AncMode.Value.OFF,
-                                AapSetting.AncMode.Value.ON,
-                                AapSetting.AncMode.Value.TRANSPARENCY,
-                                AapSetting.AncMode.Value.ADAPTIVE,
-                            ),
-                        ),
-                        AapSetting.ConversationalAwareness::class to AapSetting.ConversationalAwareness(enabled = true),
-                        AapSetting.NcWithOneAirPod::class to AapSetting.NcWithOneAirPod(enabled = true),
-                        AapSetting.PersonalizedVolume::class to AapSetting.PersonalizedVolume(enabled = false),
-                        AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 75),
-                        AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 50),
-                        AapSetting.PressSpeed::class to AapSetting.PressSpeed(value = AapSetting.PressSpeed.Value.DEFAULT),
-                        AapSetting.PressHoldDuration::class to AapSetting.PressHoldDuration(value = AapSetting.PressHoldDuration.Value.DEFAULT),
-                        AapSetting.VolumeSwipe::class to AapSetting.VolumeSwipe(enabled = true),
-                        AapSetting.VolumeSwipeLength::class to AapSetting.VolumeSwipeLength(value = AapSetting.VolumeSwipeLength.Value.DEFAULT),
-                        AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(
-                            muteMic = AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
-                            endCall = AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
-                        ),
+private fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
+    device = PodDevice(
+        profileId = "preview",
+        label = "My AirPods Pro",
+        ble = MockPodDataProvider.airPodsProWithKeys(),
+        aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            deviceInfo = AapDeviceInfo(
+                name = "AirPods Pro",
+                modelNumber = "A2699",
+                manufacturer = "Apple Inc.",
+                serialNumber = "W5J7KV0N04",
+                firmwareVersion = "7A305",
+            ),
+            settings = mapOf(
+                AapSetting.AncMode::class to AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ADAPTIVE,
+                    supported = listOf(
+                        AapSetting.AncMode.Value.OFF,
+                        AapSetting.AncMode.Value.ON,
+                        AapSetting.AncMode.Value.TRANSPARENCY,
+                        AapSetting.AncMode.Value.ADAPTIVE,
                     ),
                 ),
+                AapSetting.ConversationalAwareness::class to AapSetting.ConversationalAwareness(enabled = true),
+                AapSetting.NcWithOneAirPod::class to AapSetting.NcWithOneAirPod(enabled = true),
+                AapSetting.PersonalizedVolume::class to AapSetting.PersonalizedVolume(enabled = false),
+                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 75),
+                AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 50),
+                AapSetting.PressSpeed::class to AapSetting.PressSpeed(value = AapSetting.PressSpeed.Value.DEFAULT),
+                AapSetting.PressHoldDuration::class to AapSetting.PressHoldDuration(value = AapSetting.PressHoldDuration.Value.DEFAULT),
+                AapSetting.VolumeSwipe::class to AapSetting.VolumeSwipe(enabled = true),
+                AapSetting.VolumeSwipeLength::class to AapSetting.VolumeSwipeLength(value = AapSetting.VolumeSwipeLength.Value.DEFAULT),
+                AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(
+                    muteMic = AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
+                    endCall = AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+                ),
             ),
-            now = MOCK_NOW,
         ),
+    ),
+    now = MOCK_NOW,
+    isPro = isPro,
+)
+
+@Preview2
+@Composable
+private fun DeviceSettingsFullProPreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = previewFullState(isPro = true),
+        onNavigateUp = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceSettingsFullNonProPreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = previewFullState(isPro = false),
         onNavigateUp = {},
     )
 }

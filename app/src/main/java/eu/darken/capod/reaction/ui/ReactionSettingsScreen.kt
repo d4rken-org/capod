@@ -15,8 +15,6 @@ import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.PauseCircle
 import androidx.compose.material.icons.twotone.PlayCircle
 import androidx.compose.material.icons.twotone.QuestionMark
-import androidx.compose.material.icons.twotone.Stars
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.twotone.Workspaces
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
@@ -47,6 +45,7 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 
 @Composable
@@ -122,25 +121,23 @@ fun ReactionSettingsScreen(
                 )
             }
             item {
-                SettingsBaseItem(
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.PlayCircle,
                     title = stringResource(R.string.settings_autopplay_label),
                     subtitle = stringResource(R.string.settings_autoplay_description),
-                    icon = Icons.TwoTone.PlayCircle,
-                    onClick = { onAutoPlayChanged(!state.autoPlay) },
-                    trailingContent = {
-                        ProGatedToggle(isPro = state.isPro, checked = state.autoPlay, onCheckedChange = onAutoPlayChanged)
-                    },
+                    checked = state.autoPlay,
+                    onCheckedChange = onAutoPlayChanged,
+                    proLocked = !state.isPro,
                 )
             }
             item {
-                SettingsBaseItem(
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.PauseCircle,
                     title = stringResource(R.string.settings_autopause_label),
                     subtitle = stringResource(R.string.settings_autopause_description),
-                    icon = Icons.TwoTone.PauseCircle,
-                    onClick = { onAutoPauseChanged(!state.autoPause) },
-                    trailingContent = {
-                        ProGatedToggle(isPro = state.isPro, checked = state.autoPause, onCheckedChange = onAutoPauseChanged)
-                    },
+                    checked = state.autoPause,
+                    onCheckedChange = onAutoPauseChanged,
+                    proLocked = !state.isPro,
                 )
             }
             item {
@@ -156,14 +153,13 @@ fun ReactionSettingsScreen(
                 SettingsCategoryHeader(text = stringResource(R.string.settings_autoconnect_label))
             }
             item {
-                SettingsBaseItem(
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.BluetoothConnected,
                     title = stringResource(R.string.settings_autoconnect_label),
                     subtitle = stringResource(R.string.settings_autoconnect_description),
-                    icon = Icons.TwoTone.BluetoothConnected,
-                    onClick = { onAutoConnectChanged(!state.autoConnect) },
-                    trailingContent = {
-                        ProGatedToggle(isPro = state.isPro, checked = state.autoConnect, onCheckedChange = onAutoConnectChanged)
-                    },
+                    checked = state.autoConnect,
+                    onCheckedChange = onAutoConnectChanged,
+                    proLocked = !state.isPro,
                 )
             }
             item {
@@ -179,25 +175,23 @@ fun ReactionSettingsScreen(
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label))
             }
             item {
-                SettingsBaseItem(
+                SettingsSwitchItem(
+                    icon = Icons.AutoMirrored.TwoTone.Message,
                     title = stringResource(R.string.settings_popup_caseopen_label),
                     subtitle = stringResource(R.string.settings_popup_caseopen_description),
-                    icon = Icons.AutoMirrored.TwoTone.Message,
-                    onClick = { onShowPopUpOnCaseOpenChanged(!state.showPopUpOnCaseOpen) },
-                    trailingContent = {
-                        ProGatedToggle(isPro = state.isPro, checked = state.showPopUpOnCaseOpen, onCheckedChange = onShowPopUpOnCaseOpenChanged)
-                    },
+                    checked = state.showPopUpOnCaseOpen,
+                    onCheckedChange = onShowPopUpOnCaseOpenChanged,
+                    proLocked = !state.isPro,
                 )
             }
             item {
-                SettingsBaseItem(
+                SettingsSwitchItem(
+                    icon = Icons.AutoMirrored.TwoTone.Message,
                     title = stringResource(R.string.settings_popup_connected_label),
                     subtitle = stringResource(R.string.settings_popup_connected_description),
-                    icon = Icons.AutoMirrored.TwoTone.Message,
-                    onClick = { onShowPopUpOnConnectionChanged(!state.showPopUpOnConnection) },
-                    trailingContent = {
-                        ProGatedToggle(isPro = state.isPro, checked = state.showPopUpOnConnection, onCheckedChange = onShowPopUpOnConnectionChanged)
-                    },
+                    checked = state.showPopUpOnConnection,
+                    onCheckedChange = onShowPopUpOnConnectionChanged,
+                    proLocked = !state.isPro,
                 )
             }
         }
@@ -247,28 +241,6 @@ fun ReactionSettingsScreen(
     }
 }
 
-@Composable
-private fun ProGatedToggle(
-    isPro: Boolean,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit,
-) {
-    if (isPro) {
-        Switch(
-            checked = checked,
-            onCheckedChange = onCheckedChange,
-            modifier = Modifier.padding(start = 16.dp),
-        )
-    } else {
-        Icon(
-            imageVector = Icons.TwoTone.Stars,
-            contentDescription = null,
-            tint = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(start = 16.dp).size(24.dp),
-        )
-    }
-}
-
 @Preview2
 @Composable
 private fun ReactionSettingsScreenPreview() = PreviewWrapper {
@@ -281,6 +253,31 @@ private fun ReactionSettingsScreenPreview() = PreviewWrapper {
             autoConnect = false,
             autoConnectCondition = AutoConnectCondition.WHEN_SEEN,
             showPopUpOnCaseOpen = true,
+            showPopUpOnConnection = false,
+        ),
+        onNavigateUp = {},
+        onOnePodModeChanged = {},
+        onAutoPlayChanged = {},
+        onAutoPauseChanged = {},
+        onAutoConnectChanged = {},
+        onAutoConnectConditionSelected = {},
+        onShowPopUpOnCaseOpenChanged = {},
+        onShowPopUpOnConnectionChanged = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun ReactionSettingsScreenNonProPreview() = PreviewWrapper {
+    ReactionSettingsScreen(
+        state = ReactionSettingsViewModel.State(
+            isPro = false,
+            onePodMode = false,
+            autoPlay = false,
+            autoPause = false,
+            autoConnect = false,
+            autoConnectCondition = AutoConnectCondition.WHEN_SEEN,
+            showPopUpOnCaseOpen = false,
             showPopUpOnConnection = false,
         ),
         onNavigateUp = {},
