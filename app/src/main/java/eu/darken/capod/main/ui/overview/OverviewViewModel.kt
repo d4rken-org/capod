@@ -158,6 +158,11 @@ class OverviewViewModel @Inject constructor(
         navTo(Nav.Main.DeviceSettings(address))
     }
 
+    fun goToEditProfile(device: PodDevice) {
+        val profileId = device.profileId ?: return
+        navTo(Nav.Main.DeviceProfileCreation(profileId = profileId))
+    }
+
     fun onUpgrade() {
         navTo(Nav.Main.Upgrade)
     }

@@ -22,6 +22,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.Tune
+import androidx.compose.material.icons.twotone.Warning
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
@@ -61,6 +62,7 @@ fun SinglePodsCard(
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
     onUpgrade: (() -> Unit)? = null,
     onDeviceSettings: (() -> Unit)? = null,
+    onEditProfile: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
 
@@ -144,6 +146,14 @@ fun SinglePodsCard(
                             imageVector = Icons.TwoTone.Tune,
                             contentDescription = stringResource(R.string.device_settings_open_cd),
                             tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                } else if (device.profileId != null && device.address == null && onEditProfile != null) {
+                    IconButton(onClick = onEditProfile) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Warning,
+                            contentDescription = stringResource(R.string.overview_card_missing_paired_device_cd),
+                            tint = MaterialTheme.colorScheme.error,
                         )
                     }
                 }
@@ -297,5 +307,16 @@ private fun SinglePodsCardCachedPreview() = PreviewWrapper {
         device = MockPodDataProvider.singlePodCachedOnly(),
         showDebug = false,
         now = Instant.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardMissingAddressPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodMonitored(),
+        showDebug = false,
+        now = Instant.now(),
+        onEditProfile = {},
     )
 }
