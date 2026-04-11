@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play Billing Error</string>
     <string name="upgrades_gplay_billing_result_error_description">There was an error when asking Google Play for your purchase details. Clear Google Play cache and reboot your phone.\n\nError %s</string>
     <string name="upgrade_restore_action">Restore purchase</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>
