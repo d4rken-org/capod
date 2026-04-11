@@ -59,9 +59,11 @@ import java.time.Instant
 @Composable
 fun DualPodsCard(
     device: PodDevice,
+    isPro: Boolean = true,
     showDebug: Boolean,
     now: Instant,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
+    onUpgrade: (() -> Unit)? = null,
     onDeviceSettings: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
@@ -403,6 +405,7 @@ private fun DualPodsCardFullPreview() = PreviewWrapper {
         device = MockPodDataProvider.dualPodMonitoredWithAap(),
         showDebug = false,
         now = Instant.now(),
+        isPro = false,
         onDeviceSettings = {},
     )
 }
