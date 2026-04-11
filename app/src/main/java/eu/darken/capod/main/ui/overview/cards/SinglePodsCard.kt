@@ -55,9 +55,11 @@ import java.time.Instant
 @Composable
 fun SinglePodsCard(
     device: PodDevice,
+    isPro: Boolean = true,
     showDebug: Boolean,
     now: Instant,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
+    onUpgrade: (() -> Unit)? = null,
     onDeviceSettings: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current

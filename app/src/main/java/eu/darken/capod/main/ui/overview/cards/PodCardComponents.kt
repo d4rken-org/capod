@@ -7,6 +7,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -30,6 +32,7 @@ import androidx.compose.material.icons.twotone.KeyboardVoice
 import androidx.compose.material.icons.twotone.LinkOff
 import androidx.compose.material.icons.twotone.Lock
 import androidx.compose.material.icons.twotone.SettingsInputAntenna
+import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
@@ -318,42 +321,44 @@ fun DebugSection(
 
 @Composable
 fun AncModeSelector(
+    modifier: Modifier = Modifier,
     currentMode: AapSetting.AncMode.Value,
     supportedModes: List<AapSetting.AncMode.Value>,
     onModeSelected: (AapSetting.AncMode.Value) -> Unit,
     pendingMode: AapSetting.AncMode.Value? = null,
-    modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
     val displayMode = pendingMode ?: currentMode
-    SingleChoiceSegmentedButtonRow(modifier = modifier.fillMaxWidth()) {
-        supportedModes.forEachIndexed { index, mode ->
-            SegmentedButton(
-                selected = mode == displayMode,
-                onClick = { onModeSelected(mode) },
-                enabled = enabled,
-                shape = SegmentedButtonDefaults.itemShape(index, supportedModes.size),
-                colors = if (pendingMode != null && mode == displayMode) {
-                    SegmentedButtonDefaults.colors(
-                        activeContainerColor = MaterialTheme.colorScheme.secondaryContainer,
-                        activeContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-                    )
-                } else {
-                    SegmentedButtonDefaults.colors()
-                },
-                label = {
-                    Text(
-                        text = when (mode) {
-                            AapSetting.AncMode.Value.OFF -> stringResource(R.string.anc_mode_off)
-                            AapSetting.AncMode.Value.ON -> stringResource(R.string.anc_mode_on)
-                            AapSetting.AncMode.Value.TRANSPARENCY -> stringResource(R.string.anc_mode_transparency)
-                            AapSetting.AncMode.Value.ADAPTIVE -> stringResource(R.string.anc_mode_adaptive)
-                        },
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                },
-            )
+    Box(modifier = modifier.fillMaxWidth()) {
+        SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+            supportedModes.forEachIndexed { index, mode ->
+                SegmentedButton(
+                    selected = mode == displayMode,
+                    onClick = { onModeSelected(mode) },
+                    enabled = enabled,
+                    shape = SegmentedButtonDefaults.itemShape(index, supportedModes.size),
+                    colors = if (pendingMode != null && mode == displayMode) {
+                        SegmentedButtonDefaults.colors(
+                            activeContainerColor = MaterialTheme.colorScheme.secondaryContainer,
+                            activeContentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                        )
+                    } else {
+                        SegmentedButtonDefaults.colors()
+                    },
+                    label = {
+                        Text(
+                            text = when (mode) {
+                                AapSetting.AncMode.Value.OFF -> stringResource(R.string.anc_mode_off)
+                                AapSetting.AncMode.Value.ON -> stringResource(R.string.anc_mode_on)
+                                AapSetting.AncMode.Value.TRANSPARENCY -> stringResource(R.string.anc_mode_transparency)
+                                AapSetting.AncMode.Value.ADAPTIVE -> stringResource(R.string.anc_mode_adaptive)
+                            },
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                )
+            }
         }
     }
 }

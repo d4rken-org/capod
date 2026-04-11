@@ -230,9 +230,11 @@ fun OverviewScreen(
                 ) { device ->
                     PodDeviceCard(
                         device = device,
+                        isPro = state.upgradeInfo.isPro,
                         showDebug = state.isDebugMode,
                         now = state.now,
                         onAncModeChange = { mode -> onAncModeChange(device, mode) },
+                        onUpgrade = onUpgrade,
                         onDeviceSettings = { onDeviceSettings(device) },
                     )
                 }
@@ -272,9 +274,11 @@ fun OverviewScreen(
                         ) { device ->
                             PodDeviceCard(
                                 device = device,
+                                isPro = state.upgradeInfo.isPro,
                                 showDebug = state.isDebugMode,
                                 now = state.now,
                                 onAncModeChange = { mode -> onAncModeChange(device, mode) },
+                                onUpgrade = onUpgrade,
                                 onDeviceSettings = { onDeviceSettings(device) },
                             )
                         }
@@ -288,20 +292,24 @@ fun OverviewScreen(
 @Composable
 private fun PodDeviceCard(
     device: PodDevice,
+    isPro: Boolean,
     showDebug: Boolean,
     now: Instant,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit,
+    onUpgrade: () -> Unit,
     onDeviceSettings: (() -> Unit)? = null,
 ) {
     when {
         device.hasDualPods -> DualPodsCard(
-            device = device, showDebug = showDebug, now = now,
+            device = device, isPro = isPro, showDebug = showDebug, now = now,
             onAncModeChange = onAncModeChange,
+            onUpgrade = onUpgrade,
             onDeviceSettings = onDeviceSettings,
         )
         device.model != PodModel.UNKNOWN -> SinglePodsCard(
-            device = device, showDebug = showDebug, now = now,
+            device = device, isPro = isPro, showDebug = showDebug, now = now,
             onAncModeChange = onAncModeChange,
+            onUpgrade = onUpgrade,
             onDeviceSettings = onDeviceSettings,
         )
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug)
