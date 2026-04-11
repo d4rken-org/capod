@@ -131,6 +131,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onToggleUnmatched = { vm.toggleUnmatchedDevices() },
         onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
         onDeviceSettings = { device -> vm.goToDeviceSettings(device) },
+        onEditProfile = { device -> vm.goToEditProfile(device) },
     )
 }
 
@@ -144,6 +145,7 @@ fun OverviewScreen(
     onToggleUnmatched: () -> Unit,
     onAncModeChange: (PodDevice, AapSetting.AncMode.Value) -> Unit = { _, _ -> },
     onDeviceSettings: (PodDevice) -> Unit = {},
+    onEditProfile: (PodDevice) -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -236,6 +238,7 @@ fun OverviewScreen(
                         onAncModeChange = { mode -> onAncModeChange(device, mode) },
                         onUpgrade = onUpgrade,
                         onDeviceSettings = { onDeviceSettings(device) },
+                        onEditProfile = { onEditProfile(device) },
                     )
                 }
 
@@ -298,6 +301,7 @@ private fun PodDeviceCard(
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit,
     onUpgrade: () -> Unit,
     onDeviceSettings: (() -> Unit)? = null,
+    onEditProfile: (() -> Unit)? = null,
 ) {
     when {
         device.hasDualPods -> DualPodsCard(
@@ -305,12 +309,14 @@ private fun PodDeviceCard(
             onAncModeChange = onAncModeChange,
             onUpgrade = onUpgrade,
             onDeviceSettings = onDeviceSettings,
+            onEditProfile = onEditProfile,
         )
         device.model != PodModel.UNKNOWN -> SinglePodsCard(
             device = device, isPro = isPro, showDebug = showDebug, now = now,
             onAncModeChange = onAncModeChange,
             onUpgrade = onUpgrade,
             onDeviceSettings = onDeviceSettings,
+            onEditProfile = onEditProfile,
         )
         else -> UnknownPodDeviceCard(device = device, showDebug = showDebug)
     }
