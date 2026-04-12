@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod on yhden henkilön kehittämä. Päivittäminen avaa lisäominaisuuksia ja auttaa pitämään sovelluksen hengissä.</string>
     <string name="upgrade_benefit_themes">Teeman mukauttaminen</string>
     <string name="upgrade_benefit_autoplay">Automaattinen toisto &amp; tauko</string>
-    <string name="upgrade_benefit_autoconnect">Automaattinen yhdistäminen</string>
     <string name="upgrade_benefit_popups">Ponnahdusikkuna koteloa avattaessa &amp; yhdistettäessä</string>
     <string name="upgrade_benefit_widgets">Aloitusnäytön widgetit</string>
     <string name="upgrade_benefit_device_settings">Laitteiden lisäasetukset</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Laitteet</string>
     <string name="settings_devices_description">Hallitse laitteitasi.</string>
     <string name="settings_reaction_label">Reaktiot</string>
-    <string name="settings_reaction_description">Reagoi tapahtumiin ja käyttäytymiseen.</string>
     <string name="settings_category_yourdevice_label">Laitteesi</string>
     <string name="settings_category_compatibility_options_title">Yhteensopivuusasetukset</string>
     <string name="settings_category_compatibility_options_description">Älä koske, jos kaikki toimii ;)</string>

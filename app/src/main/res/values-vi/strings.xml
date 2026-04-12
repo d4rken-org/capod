@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod được phát triển bởi một người duy nhất. Việc nâng cấp sẽ mở khóa các tính năng bổ sung và giúp duy trì ứng dụng.</string>
     <string name="upgrade_benefit_themes">Tùy chỉnh giao diện</string>
     <string name="upgrade_benefit_autoplay">Tự động phát &amp; tự động tạm dừng</string>
-    <string name="upgrade_benefit_autoconnect">Tự động kết nối</string>
     <string name="upgrade_benefit_popups">Cửa sổ bật lên khi mở hộp &amp; kết nối</string>
     <string name="upgrade_benefit_widgets">Widget màn hình chính</string>
     <string name="upgrade_benefit_device_settings">Cài đặt thiết bị nâng cao</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Thiết bị</string>
     <string name="settings_devices_description">Quản lý thiết bị của bạn.</string>
     <string name="settings_reaction_label">Phản ứng</string>
-    <string name="settings_reaction_description">Phản ứng với các sự kiện và hành vi.</string>
     <string name="settings_category_yourdevice_label">Thiết bị của bạn</string>
     <string name="settings_category_compatibility_options_title">Tùy chọn tương thích</string>
     <string name="settings_category_compatibility_options_description">Đừng chạm vào nếu mọi thứ hoạt động ;)</string>

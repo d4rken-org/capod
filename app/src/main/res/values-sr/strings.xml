@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod је развила једна особа. Надоградњом откључавате додатне функције и помажете да апликација опстане.</string>
     <string name="upgrade_benefit_themes">Прилагођавање теме</string>
     <string name="upgrade_benefit_autoplay">Аутоматско репродуковање и паузирање</string>
-    <string name="upgrade_benefit_autoconnect">Аутоматско повезивање</string>
     <string name="upgrade_benefit_popups">Искачући прозор при отварању кућишта и повезивању</string>
     <string name="upgrade_benefit_widgets">Виџети почетног екрана</string>
     <string name="upgrade_benefit_device_settings">Напредна подешавања уређаја</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Уређаји</string>
     <string name="settings_devices_description">Управљајте својим уређајима.</string>
     <string name="settings_reaction_label">Реакције</string>
-    <string name="settings_reaction_description">Реагујте на догађаје и понашања.</string>
     <string name="settings_category_yourdevice_label">Ваш уређај</string>
     <string name="settings_category_compatibility_options_title">Опције компатибилности</string>
     <string name="settings_category_compatibility_options_description">Не дирајте ако све ради ;)</string>

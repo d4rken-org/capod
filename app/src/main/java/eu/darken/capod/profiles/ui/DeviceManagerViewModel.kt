@@ -37,6 +37,11 @@ class DeviceManagerViewModel @Inject constructor(
         navTo(Nav.Main.DeviceProfileCreation(profileId = profile.id))
     }
 
+    fun onDeviceSettings(profile: DeviceProfile) {
+        log(TAG) { "onDeviceSettings(): $profile" }
+        navTo(Nav.Main.DeviceSettings(profileId = profile.id))
+    }
+
     fun onReorder(profileIds: List<ProfileId>) = launch {
         log(TAG) { "onReorder(): ${profileIds.size} profiles" }
         deviceProfilesRepo.reorderProfilesById(profileIds)

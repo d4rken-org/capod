@@ -140,7 +140,7 @@ fun SinglePodsCard(
                     }
                 }
 
-                if (device.address != null && onDeviceSettings != null) {
+                if (device.profileId != null && onDeviceSettings != null) {
                     IconButton(onClick = onDeviceSettings) {
                         Icon(
                             imageVector = Icons.TwoTone.Tune,
@@ -148,7 +148,8 @@ fun SinglePodsCard(
                             tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
-                } else if (device.profileId != null && device.address == null && onEditProfile != null) {
+                }
+                if (device.profileId != null && device.address == null && onEditProfile != null) {
                     IconButton(onClick = onEditProfile) {
                         Icon(
                             imageVector = Icons.TwoTone.Warning,

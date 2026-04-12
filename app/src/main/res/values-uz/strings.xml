@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod bitta shaxs tomonidan ishlab chiqilgan. Yangilash qo\'shimcha funksiyalarni ochadi va ilovani tirik saqlashga yordam beradi.</string>
     <string name="upgrade_benefit_themes">Mavzu sozlamalari</string>
     <string name="upgrade_benefit_autoplay">Avtomatik ijro &amp; avtomatik to\'xtatish</string>
-    <string name="upgrade_benefit_autoconnect">Avtomatik ulanish</string>
     <string name="upgrade_benefit_popups">Quti ochilganda &amp; ulanishda qalqib chiquvchi oyna</string>
     <string name="upgrade_benefit_widgets">Asosiy ekran vidjetlari</string>
     <string name="upgrade_benefit_device_settings">Qurilmaning kengaytirilgan sozlamalari</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Qurilmalar</string>
     <string name="settings_devices_description">Qurilmalaringizni boshqaring.</string>
     <string name="settings_reaction_label">Reaksiyalar</string>
-    <string name="settings_reaction_description">Voqealar va xatti-harakatlarga munosabat bildiring.</string>
     <string name="settings_category_yourdevice_label">Sizning qurilmangiz</string>
     <string name="settings_category_compatibility_options_title">Moslik parametrlari</string>
     <string name="settings_category_compatibility_options_description">Agar hamma narsa ishlayotgan bo\'lsa, tegmang ;)</string>

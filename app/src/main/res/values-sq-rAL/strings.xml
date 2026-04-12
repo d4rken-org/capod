@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod është zhvilluar nga një person i vetëm. Përmirësimi zhbllokon veçori shtesë dhe ndihmon të mbajë aplikacionin gjallë.</string>
     <string name="upgrade_benefit_themes">Personalizimi i temës</string>
     <string name="upgrade_benefit_autoplay">Auto-luaj &amp; auto-pauzë</string>
-    <string name="upgrade_benefit_autoconnect">Lidhje automatike</string>
     <string name="upgrade_benefit_popups">Dritare kërcyese kur hapet kuti &amp; lidhja</string>
     <string name="upgrade_benefit_widgets">Miniaplikacionet e ekranit kryesor</string>
     <string name="upgrade_benefit_device_settings">Cilësimet e avancuara të pajisjes</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Pajisjet</string>
     <string name="settings_devices_description">Menaxhoni pajisjet tuaja.</string>
     <string name="settings_reaction_label">Reagimet</string>
-    <string name="settings_reaction_description">Reago ndaj ngjarjeve dhe sjelljeve.</string>
     <string name="settings_category_yourdevice_label">Pajisja juaj</string>
     <string name="settings_category_compatibility_options_title">Opsionet e përputhshmërisë</string>
     <string name="settings_category_compatibility_options_description">Mos i prekni nëse gjithçka funksionon ;)</string>

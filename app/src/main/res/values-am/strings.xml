@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod በአንድ ሰው ብቻ ተዘጋጅቷል። ማሻሻያ ተጨማሪ ባህሪያትን ያስከፍትና መተግበሪያውን ህያው ለማቆየት ይረዳል።</string>
     <string name="upgrade_benefit_themes">ጭብጥ ብጁ አሰናዳ</string>
     <string name="upgrade_benefit_autoplay">ራስ-ሰር አጫውት &amp; ራስ-ሰር አቁም</string>
-    <string name="upgrade_benefit_autoconnect">ራስ-ሰር ግንኙነት</string>
     <string name="upgrade_benefit_popups">ቴሌ ሲከፈት &amp; ሲገናኝ ፖፕ-አፕ</string>
     <string name="upgrade_benefit_widgets">የመነሻ ስክሪን ዊጀቶች</string>
     <string name="upgrade_benefit_device_settings">የተሻሻሉ የመሣሪያ ቅንብሮች</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">መሳሪያዎች</string>
     <string name="settings_devices_description">መሳሪያዎችዎን ያስተዳድሩ።</string>
     <string name="settings_reaction_label">ግብረመልሶች</string>
-    <string name="settings_reaction_description">ለክስተቶች እና ባህሪዎች ምላሽ ይስጡ።</string>
     <string name="settings_category_yourdevice_label">የእርስዎ መሣሪያ</string>
     <string name="settings_category_compatibility_options_title">የተኳኋኝነት አማራጮች</string>
     <string name="settings_category_compatibility_options_description">ሁሉም ነገር የሚሰራ ከሆነ አይንኩ ;)</string>

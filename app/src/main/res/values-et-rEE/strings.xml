@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPodi arendab üks inimene. Uuendamine avab lisavõimalused ja aitab rakendust arendada.</string>
     <string name="upgrade_benefit_themes">Teema kohandamine</string>
     <string name="upgrade_benefit_autoplay">Automaatesitus ja automaatne paus</string>
-    <string name="upgrade_benefit_autoconnect">Automaatne ühendamine</string>
     <string name="upgrade_benefit_popups">Hüpikaken korpuse avamisel ja ühendamisel</string>
     <string name="upgrade_benefit_widgets">Avakuva vidinad</string>
     <string name="upgrade_benefit_device_settings">Täpsemad seadme sätted</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Seadmed</string>
     <string name="settings_devices_description">Seadmete haldamine.</string>
     <string name="settings_reaction_label">Reaktsioonid</string>
-    <string name="settings_reaction_description">Reageerige sündmustele ja tegevustele.</string>
     <string name="settings_category_yourdevice_label">Teie seade</string>
     <string name="settings_category_compatibility_options_title">Ühilduvuse valikud</string>
     <string name="settings_category_compatibility_options_description">Las jääda, kui kõik toimib ;)</string>

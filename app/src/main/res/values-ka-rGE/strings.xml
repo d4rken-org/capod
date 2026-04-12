@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod შემუშავებულია ერთი ადამიანის მიერ. განახლება ხსნის დამატებით ფუნქციებს და ეხმარება აპს გადარჩენაში.</string>
     <string name="upgrade_benefit_themes">თემის მორგება</string>
     <string name="upgrade_benefit_autoplay">ავტო-დაკვრა და ავტო-პაუზა</string>
-    <string name="upgrade_benefit_autoconnect">ავტომატური დაკავშირება</string>
     <string name="upgrade_benefit_popups">Popup ქეისის გახსნისა და დაკავშირებისას</string>
     <string name="upgrade_benefit_widgets">მთავარი ეკრანის ვიჯეტები</string>
     <string name="upgrade_benefit_device_settings">მოწყობილობის გაფართოებული პარამეტრები</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">მოწყობილობები</string>
     <string name="settings_devices_description">მართეთ თქვენი მოწყობილობები.</string>
     <string name="settings_reaction_label">რეაქციები</string>
-    <string name="settings_reaction_description">რეაგირება მოვლენებსა და ქცევებზე.</string>
     <string name="settings_category_yourdevice_label">თქვენი მოწყობილობა</string>
     <string name="settings_category_compatibility_options_title">თავსებადობის პარამეტრები</string>
     <string name="settings_category_compatibility_options_description">არ შეეხოთ, თუ ყველაფერი მუშაობს ;)</string>

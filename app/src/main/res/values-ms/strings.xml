@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod dibangunkan oleh seorang individu. Menaik taraf membuka kunci ciri-ciri tambahan dan membantu mengekalkan aplikasi ini.</string>
     <string name="upgrade_benefit_themes">Penyesuaian tema</string>
     <string name="upgrade_benefit_autoplay">Main automatik &amp; jeda automatik</string>
-    <string name="upgrade_benefit_autoconnect">Sambung automatik</string>
     <string name="upgrade_benefit_popups">Popup semasa buka kotak &amp; sambungan</string>
     <string name="upgrade_benefit_widgets">Widget skrin utama</string>
     <string name="upgrade_benefit_device_settings">Tetapan peranti lanjutan</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Peranti</string>
     <string name="settings_devices_description">Urus peranti anda.</string>
     <string name="settings_reaction_label">Reaksi</string>
-    <string name="settings_reaction_description">Bertindak balas terhadap peristiwa dan tingkah laku.</string>
     <string name="settings_category_yourdevice_label">Peranti anda</string>
     <string name="settings_category_compatibility_options_title">Pilihan keserasian</string>
     <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>

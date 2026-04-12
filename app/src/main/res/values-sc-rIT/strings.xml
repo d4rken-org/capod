@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod est isvilupadu dae una sola persona. Aggiornar isbloca funtzionalidades in prus e agiudat a mantènnere s\'app in vita.</string>
     <string name="upgrade_benefit_themes">Personalizzatzione de su tema</string>
     <string name="upgrade_benefit_autoplay">Reprodutzione autom. e pausa autom.</string>
-    <string name="upgrade_benefit_autoconnect">Cullegamentu automàticu</string>
     <string name="upgrade_benefit_popups">Popup a s\'apertùra de sa custodia e cullegamentu</string>
     <string name="upgrade_benefit_widgets">Widget de sa pantalla printzipale</string>
     <string name="upgrade_benefit_device_settings">Impostatziones avanzadas de su dispositivo</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Dispositivos</string>
     <string name="settings_devices_description">Gestisci is dispositivos tuos.</string>
     <string name="settings_reaction_label">Reatziones</string>
-    <string name="settings_reaction_description">Reaghit a eventos e cumportamentos.</string>
     <string name="settings_category_yourdevice_label">Su dispositivu tuo</string>
     <string name="settings_category_compatibility_options_title">Opsiones de cumpatibilidade</string>
     <string name="settings_category_compatibility_options_description">Non toches si totu funtzionat ;)</string>

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod распрацаваны адным чалавекам. Абнаўленне разблакоўвае дадатковыя функцыі і дапамагае трымаць праграму ў жывых.</string>
     <string name="upgrade_benefit_themes">Наладка тэм</string>
     <string name="upgrade_benefit_autoplay">Аўтаматычнае прайграванне і паўза</string>
-    <string name="upgrade_benefit_autoconnect">Аўтаматычнае падключэнне</string>
     <string name="upgrade_benefit_popups">Усплывальнае акно пры адкрыцці скрынкі і падключэнні</string>
     <string name="upgrade_benefit_widgets">Віджэты галоўнага экрана</string>
     <string name="upgrade_benefit_device_settings">Пашыраныя налады прылады</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Прылады</string>
     <string name="settings_devices_description">Кіруйце вашымі прыладамі.</string>
     <string name="settings_reaction_label">Рэакцыі</string>
-    <string name="settings_reaction_description">Рэагаваць на падзеі і паводзіны.</string>
     <string name="settings_category_yourdevice_label">Ваша прылада</string>
     <string name="settings_category_compatibility_options_title">Параметры сумяшчальнасці</string>
     <string name="settings_category_compatibility_options_description">Не чапайце, калі ўсё працуе ;)</string>

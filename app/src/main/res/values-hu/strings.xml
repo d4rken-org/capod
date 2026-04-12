@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">A CAPod-ot egyetlen fejlesztő készíti. A frissítéssel extra funkciókat érhetsz el, és segíted az alkalmazás életben tartását.</string>
     <string name="upgrade_benefit_themes">Téma testreszabás</string>
     <string name="upgrade_benefit_autoplay">Automatikus lejátszás és szüneteltetés</string>
-    <string name="upgrade_benefit_autoconnect">Automatikus csatlakozás</string>
     <string name="upgrade_benefit_popups">Felugró ablak tok megnyitásakor és csatlakozáskor</string>
     <string name="upgrade_benefit_widgets">Kezdőképernyő-widgetek</string>
     <string name="upgrade_benefit_device_settings">Speciális eszközbeállítások</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Eszközök</string>
     <string name="settings_devices_description">Eszközök kezelése.</string>
     <string name="settings_reaction_label">Reakciók</string>
-    <string name="settings_reaction_description">Reagáljon az eseményekre és viselkedésekre.</string>
     <string name="settings_category_yourdevice_label">Eszközei</string>
     <string name="settings_category_compatibility_options_title">Kompatibilitási opciók</string>
     <string name="settings_category_compatibility_options_description">Ezekhez ne nyúljon, ha minden jól műkődik ;)</string>

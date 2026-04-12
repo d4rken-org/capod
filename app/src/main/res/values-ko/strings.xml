@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod는 한 명이 개발합니다. 업그레이드하면 추가 기능이 잠금 해제되고 앱 유지에 도움이 됩니다.</string>
     <string name="upgrade_benefit_themes">테마 사용자 지정</string>
     <string name="upgrade_benefit_autoplay">자동 재생 &amp; 자동 일시정지</string>
-    <string name="upgrade_benefit_autoconnect">자동 연결</string>
     <string name="upgrade_benefit_popups">케이스 열기 &amp; 연결 시 팝업</string>
     <string name="upgrade_benefit_widgets">홈 화면 위젯</string>
     <string name="upgrade_benefit_device_settings">고급 기기 설정</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">장치</string>
     <string name="settings_devices_description">당신의 장치를 관리하세요.</string>
     <string name="settings_reaction_label">반응</string>
-    <string name="settings_reaction_description">이벤트 및 행동에 반응합니다.</string>
     <string name="settings_category_yourdevice_label">내 기기</string>
     <string name="settings_category_compatibility_options_title">호환성 옵션</string>
     <string name="settings_category_compatibility_options_description">모든 것이 작동하면 건드리지 마세요 ;)</string>

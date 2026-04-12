@@ -14,7 +14,7 @@ import javax.inject.Inject
 class DeviceSettingsNavigation @Inject constructor() : NavigationEntry {
     override fun EntryProviderScope<NavKey>.setup() {
         entry<Nav.Main.DeviceSettings> { key ->
-            DeviceSettingsScreenHost(address = key.address)
+            DeviceSettingsScreenHost(profileId = key.profileId)
         }
     }
 

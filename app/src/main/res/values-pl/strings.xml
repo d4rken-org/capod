@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod jest rozwijany przez jedną osobę. Uaktualnienie odblokowuje dodatkowe funkcje i pomaga utrzymać aplikację przy życiu.</string>
     <string name="upgrade_benefit_themes">Personalizacja motywu</string>
     <string name="upgrade_benefit_autoplay">Automatyczne odtwarzanie i automatyczna pauza</string>
-    <string name="upgrade_benefit_autoconnect">Automatyczne połączenie</string>
     <string name="upgrade_benefit_popups">Wyskakujące okienko po otwarciu etui i połączeniu</string>
     <string name="upgrade_benefit_widgets">Widżety ekranu głównego</string>
     <string name="upgrade_benefit_device_settings">Zaawansowane ustawienia urządzenia</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Urządzenia</string>
     <string name="settings_devices_description">Zarządzaj swoimi urządzeniami.</string>
     <string name="settings_reaction_label">Reakcje</string>
-    <string name="settings_reaction_description">Reakcje na wydarzenia lub zachowania.</string>
     <string name="settings_category_yourdevice_label">Twoje urządzenie</string>
     <string name="settings_category_compatibility_options_title">Opcje kompatybilności</string>
     <string name="settings_category_compatibility_options_description">Nie dotykaj, jeżeli wszystko działa ;)</string>

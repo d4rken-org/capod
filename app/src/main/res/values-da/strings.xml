@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod er udviklet af én person. Opgradering låser ekstra funktioner op og hjælper med at holde appen i live.</string>
     <string name="upgrade_benefit_themes">Tema-tilpasning</string>
     <string name="upgrade_benefit_autoplay">Auto-afspilning &amp; auto-pause</string>
-    <string name="upgrade_benefit_autoconnect">Auto-tilslut</string>
     <string name="upgrade_benefit_popups">Popup ved åbning af etui &amp; tilslutning</string>
     <string name="upgrade_benefit_widgets">Startskærm-widgets</string>
     <string name="upgrade_benefit_device_settings">Avancerede enhedsindstillinger</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Enheder</string>
     <string name="settings_devices_description">Administrer dine enheder.</string>
     <string name="settings_reaction_label">Reaktioner</string>
-    <string name="settings_reaction_description">Reager på begivenheder og adfærd.</string>
     <string name="settings_category_yourdevice_label">Din enhed</string>
     <string name="settings_category_compatibility_options_title">Kompatibilitetsindstillinger</string>
     <string name="settings_category_compatibility_options_description">Rør ikke, hvis alt virker ;)</string>

@@ -4,10 +4,12 @@ import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.Called
@@ -46,6 +48,8 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var aapManager: AapConnectionManager
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var bluetoothManager: BluetoothManager2
+    private lateinit var profilesRepo: DeviceProfilesRepo
+    private lateinit var generalSettings: GeneralSettings
 
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
@@ -63,8 +67,14 @@ class DeviceSettingsViewModelTest : BaseTest() {
             every { it.isPro } returns false
         })
 
+        // Synthesize a PodDevice for forceConnect/sendInternal lookups (currentAddress()).
+        val syntheticDevice = mockk<PodDevice>().also {
+            every { it.profileId } returns testAddress
+            every { it.address } returns testAddress
+        }
         deviceMonitor = mockk<DeviceMonitor>().also {
             every { it.devices } returns devicesFlow
+            coEvery { it.getDeviceForProfile(testAddress) } returns syntheticDevice
         }
         aapManager = mockk(relaxed = true)
         upgradeRepo = mockk<UpgradeRepo>().also {
@@ -74,6 +84,8 @@ class DeviceSettingsViewModelTest : BaseTest() {
             every { isNudgeAvailable } returns true
             every { bondedDevices() } returns flowOf(emptySet())
         }
+        profilesRepo = mockk(relaxed = true)
+        generalSettings = mockk(relaxed = true)
     }
 
     @AfterEach
@@ -87,6 +99,8 @@ class DeviceSettingsViewModelTest : BaseTest() {
         aapManager = aapManager,
         upgradeRepo = upgradeRepo,
         bluetoothManager = bluetoothManager,
+        profilesRepo = profilesRepo,
+        generalSettings = generalSettings,
     )
 
     @Test

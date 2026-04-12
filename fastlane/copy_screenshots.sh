@@ -27,8 +27,7 @@ declare -A SCREEN_MAP=(
     [WidgetConfiguration]="4_widget_configuration"
     [DeviceProfiles]="5_device_profiles"
     [AddProfile]="6_add_profile"
-    [SettingsIndex]="7_settings"
-    [ReactionSettings]="8_reaction_settings"
+    [DeviceSettingsReactions]="7_device_settings_reactions"
 )
 
 if [[ ! -d "$REF_DIR" ]]; then

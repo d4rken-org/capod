@@ -219,20 +219,30 @@ class DeviceProfileCreationViewModel @Inject constructor(
 
         launch {
             try {
-                val profile = AppleDeviceProfile(
-                    id = if (isEditMode) profileId!! else UUID.randomUUID().toString(),
-                    label = name,
-                    model = editorState.selectedModel,
-                    minimumSignalQuality = editorState.minimumSignalQuality,
-                    identityKey = editorState.identityKeyHex?.fromHex(),
-                    encryptionKey = editorState.encryptionKeyHex?.fromHex(),
-                    address = editorState.selectedDeviceAddress,
-                )
-
                 if (isEditMode) {
-                    deviceProfilesRepo.updateProfile(profile)
-                    log(TAG) { "Profile updated: $profile" }
+                    // Read-modify-write so reaction toggles (and any other fields this editor
+                    // doesn't know about) survive a rename or key-refresh.
+                    deviceProfilesRepo.updateAppleProfile(profileId!!) { existing ->
+                        existing.copy(
+                            label = name,
+                            model = editorState.selectedModel,
+                            minimumSignalQuality = editorState.minimumSignalQuality,
+                            identityKey = editorState.identityKeyHex?.fromHex(),
+                            encryptionKey = editorState.encryptionKeyHex?.fromHex(),
+                            address = editorState.selectedDeviceAddress,
+                        )
+                    }
+                    log(TAG) { "Profile updated: $profileId" }
                 } else {
+                    val profile = AppleDeviceProfile(
+                        id = UUID.randomUUID().toString(),
+                        label = name,
+                        model = editorState.selectedModel,
+                        minimumSignalQuality = editorState.minimumSignalQuality,
+                        identityKey = editorState.identityKeyHex?.fromHex(),
+                        encryptionKey = editorState.encryptionKeyHex?.fromHex(),
+                        address = editorState.selectedDeviceAddress,
+                    )
                     deviceProfilesRepo.addProfile(profile)
                     log(TAG) { "Profile created: $profile" }
                 }

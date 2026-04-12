@@ -20,6 +20,7 @@ import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
 import eu.darken.capod.pods.core.apple.ble.devices.HasDualMicrophone
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasEarDetectionDual
+import eu.darken.capod.profiles.core.ReactionConfig
 import java.time.Duration
 import java.time.Instant
 
@@ -45,6 +46,8 @@ data class PodDevice(
      * every time the BLE scanner misses the next advertisement batch.
      */
     internal val profileKeyState: BleKeyState = BleKeyState.NONE,
+    /** Reaction toggle snapshot from the profile. Defaults to all-off when no profile is matched. */
+    val reactions: ReactionConfig = ReactionConfig(),
 ) {
     val model: PodModel get() = ble?.model ?: profileModel ?: cached?.model ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */

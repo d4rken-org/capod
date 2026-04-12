@@ -10,10 +10,9 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
-import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -22,23 +21,23 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
-import eu.darken.capod.common.datastore.valueBlocking
 
 @Singleton
 class AutoConnect @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val deviceMonitor: DeviceMonitor,
-    private val generalSettings: GeneralSettings,
-    private val reactionSettings: ReactionSettings,
-    private val deviceProfilesRepo: DeviceProfilesRepo,
 ) {
 
-    fun monitor(): Flow<Unit> = reactionSettings.autoConnect.flow
+    fun monitor(): Flow<Unit> = deviceMonitor.primaryDevice()
+        .map { it?.reactions?.autoConnect == true }
+        .distinctUntilChanged()
         .flatMapLatest { isAutoConnectEnabled ->
             if (isAutoConnectEnabled) {
                 combine(
                     bluetoothManager.connectedDevices,
-                    deviceMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy { it.rawDataHex },
+                    deviceMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy {
+                        Triple(it.rawDataHex, it.reactions.autoConnectCondition, it.reactions.onePodMode)
+                    },
                 ) { connectedDevices, mainDevice ->
                     connectedDevices to mainDevice
                 }
@@ -73,13 +72,14 @@ class AutoConnect @Inject constructor(
                 return@map
             }
 
-            val condition = reactionSettings.autoConnectCondition.valueBlocking
+            val reactions = mainDevice.reactions
+            val condition = reactions.autoConnectCondition
             log(TAG) { "Checking condition $condition" }
 
             val lidState = mainDevice.caseLidState
             val isBeingWorn = mainDevice.isBeingWorn ?: false
             val isEitherPodInEar = mainDevice.isEitherPodInEar ?: false
-            val onePodMode = reactionSettings.onePodMode.valueBlocking
+            val onePodMode = reactions.onePodMode
 
             val decision = evaluateAutoConnect(
                 mainDeviceAddr = mainDeviceAddr,

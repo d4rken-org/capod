@@ -23,6 +23,7 @@ import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
+import eu.darken.capod.profiles.core.ReactionConfig
 import java.time.Instant
 
 /** Fixed timestamp for deterministic preview/screenshot rendering. */
@@ -64,6 +65,7 @@ object MockPodDataProvider {
         leftPodIcon = R.drawable.device_airpods_pro2_left,
         rightPodIcon = R.drawable.device_airpods_pro2_right,
         _caseIcon = R.drawable.device_airpods_pro2_case,
+        _address = "AA:BB:CC:DD:EE:FF",
     )
 
     fun airPodsProLowBattery(): DualBlePodSnapshot = MockDualBlePodSnapshot(
@@ -120,6 +122,7 @@ object MockPodDataProvider {
         _label = "AirPods Max",
         batteryHeadsetPercent = 0.85f,
         _isBeingWorn = true,
+        _address = "AA:BB:CC:DD:EE:FF",
     )
 
     fun airPodsMaxCharging(): SingleBlePodSnapshot = MockSingleAppleBlePodSnapshot(
@@ -203,6 +206,22 @@ object MockPodDataProvider {
                     ),
                 ),
             ),
+        ),
+    )
+
+    /** Dual pods with a profile that has reaction toggles set — used for the Reactions screenshot. */
+    fun dualPodMonitoredWithReactions(): PodDevice = PodDevice(
+        profileId = "preview-dual-reactions",
+        label = "My AirPods Pro",
+        ble = airPodsProWithKeys(),
+        aap = null,
+        reactions = ReactionConfig(
+            autoPause = true,
+            autoPlay = true,
+            onePodMode = false,
+            autoConnect = true,
+            showPopUpOnCaseOpen = true,
+            showPopUpOnConnection = false,
         ),
     )
 
@@ -379,6 +398,7 @@ private class MockSingleBlePodSnapshot(
     override val batteryHeadsetPercent: Float?,
     private val _isHeadsetBeingCharged: Boolean = false,
     private val _isBeingWorn: Boolean = false,
+    private val _address: String? = null,
     rssi: Int = -50,
 ) : SingleBlePodSnapshot, HasChargeDetection, HasEarDetection {
     override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id()
@@ -391,7 +411,7 @@ private class MockSingleBlePodSnapshot(
     override val signalQuality: Float = 0.80f
     override val iconRes: Int = _model.iconRes
     override val meta: BlePodSnapshot.Meta = object : BlePodSnapshot.Meta {
-        override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model)
+        override val profile: DeviceProfile = AppleDeviceProfile(label = _label, model = _model, address = _address)
     }
 
     override fun getLabel(context: Context): String = _model.label

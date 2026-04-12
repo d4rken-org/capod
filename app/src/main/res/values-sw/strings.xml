@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod inaendelezwa na mtu mmoja. Kuboresha kunafungua vipengele vya ziada na husaidia kuweka programu iwe hai.</string>
     <string name="upgrade_benefit_themes">Ubinafsishaji wa mandhari</string>
     <string name="upgrade_benefit_autoplay">Cheza kiotomatiki &amp; simama kiotomatiki</string>
-    <string name="upgrade_benefit_autoconnect">Unganisha kiotomatiki</string>
     <string name="upgrade_benefit_popups">Dirisha la kuibuka wakati wa kufungua kifuniko &amp; muunganiko</string>
     <string name="upgrade_benefit_widgets">Wijeti za skrini ya nyumbani</string>
     <string name="upgrade_benefit_device_settings">Mipangilio ya kifaa ya hali ya juu</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Vifaa</string>
     <string name="settings_devices_description">Simamia vifaa vyako.</string>
     <string name="settings_reaction_label">Matendo</string>
-    <string name="settings_reaction_description">Jibu kwa matukio na tabia.</string>
     <string name="settings_category_yourdevice_label">Kifaa chako</string>
     <string name="settings_category_compatibility_options_title">Chaguo za uoanifu</string>
     <string name="settings_category_compatibility_options_description">Usiguse ikiwa kila kitu kinafanya kazi ;)</string>

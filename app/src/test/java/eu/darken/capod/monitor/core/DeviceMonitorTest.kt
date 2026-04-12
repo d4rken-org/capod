@@ -312,7 +312,7 @@ class DeviceMonitorTest : BaseTest() {
     }
 
     @Test
-    fun `getDeviceForProfile no BLE no cache no AAP - returns null`() = runTest(testDispatcher) {
+    fun `getDeviceForProfile no BLE no cache no AAP - returns synthesized bare device`() = runTest(testDispatcher) {
         val monitor = createMonitor(
             ble = emptyList(),
             aap = emptyMap(),
@@ -322,6 +322,27 @@ class DeviceMonitorTest : BaseTest() {
         )
 
         val device = monitor.getDeviceForProfile(testProfile.id)
+
+        // Pristine profile must still be reachable so the Reactions section in
+        // DeviceSettings can be edited even before the device has ever been observed.
+        device shouldNotBe null
+        device!!.profileId shouldBe testProfile.id
+        device.reactions shouldBe testProfile.reactionConfig
+        device.ble shouldBe null
+        device.isLive shouldBe false
+    }
+
+    @Test
+    fun `getDeviceForProfile profile not in repo - returns null`() = runTest(testDispatcher) {
+        val monitor = createMonitor(
+            ble = emptyList(),
+            aap = emptyMap(),
+            cache = emptyMap(),
+            profiles = emptyList(),
+            scope = backgroundScope,
+        )
+
+        val device = monitor.getDeviceForProfile("nonexistent-profile-id")
 
         device shouldBe null
     }

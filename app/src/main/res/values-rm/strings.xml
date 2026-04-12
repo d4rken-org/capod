@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod è sviluppà da ina singula persuna. Actualisar sblucca funcziuns supplementaras ed agida a mantegnair l\'app viva.</string>
     <string name="upgrade_benefit_themes">Persunalisaziun dal tema</string>
     <string name="upgrade_benefit_autoplay">Start automatic &amp; pausa automatica</string>
-    <string name="upgrade_benefit_autoconnect">Connectar automaticamain</string>
     <string name="upgrade_benefit_popups">Popup sin avrir il cais &amp; connexiun</string>
     <string name="upgrade_benefit_widgets">Widgets sin l\'ècran principal</string>
     <string name="upgrade_benefit_device_settings">Parameters avanzads da l\'apparat</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Apparats</string>
     <string name="settings_devices_description">Administrar Voss apparats.</string>
     <string name="settings_reaction_label">Reacziuns</string>
-    <string name="settings_reaction_description">Reagir sin eveniments e cumportaments.</string>
     <string name="settings_category_yourdevice_label">Voss apparat</string>
     <string name="settings_category_compatibility_options_title">Opziuns da cumpatibilitad</string>
     <string name="settings_category_compatibility_options_description">Betg tuccar sche tut funcziuna ;)</string>

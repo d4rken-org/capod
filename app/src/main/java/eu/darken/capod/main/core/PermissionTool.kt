@@ -6,10 +6,12 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isRequired
-import eu.darken.capod.reaction.core.ReactionSettings
+import eu.darken.capod.profiles.core.toReactionConfig
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import java.util.UUID
@@ -20,7 +22,7 @@ import javax.inject.Singleton
 class PermissionTool @Inject constructor(
     @ApplicationContext private val context: Context,
     private val generalSettings: GeneralSettings,
-    private val reactionSettings: ReactionSettings,
+    private val profilesRepo: DeviceProfilesRepo,
 ) {
     private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
 
@@ -29,12 +31,20 @@ class PermissionTool @Inject constructor(
         permissionCheckTrigger.value = UUID.randomUUID()
     }
 
+    private val anyPopupEnabled: Flow<Boolean> = profilesRepo.profiles
+        .map { profiles ->
+            profiles.any { profile ->
+                profile.toReactionConfig().let { it.showPopUpOnCaseOpen || it.showPopUpOnConnection }
+            }
+        }
+        .distinctUntilChanged()
+
     val missingPermissions: Flow<Set<Permission>> = combine(
         permissionCheckTrigger,
         generalSettings.monitorMode.flow,
-        reactionSettings.showPopUpOnCaseOpen.flow
+        anyPopupEnabled,
     ) { _, monitorMode, showPopUp ->
-        Permission.values()
+        Permission.entries
             .filter { it != Permission.IGNORE_BATTERY_OPTIMIZATION || monitorMode == MonitorMode.ALWAYS }
             .filter { it != Permission.ACCESS_BACKGROUND_LOCATION || monitorMode == MonitorMode.ALWAYS }
             .filter { it != Permission.SYSTEM_ALERT_WINDOW || showPopUp }

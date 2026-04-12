@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod ត្រូវបានអភិវឌ្ឍដោយបុគ្គលម្នាក់។ ការតម្លើងកំណែថ្មីដោះសោមុខងារបន្ថែម ហើយជួយឱ្យកម្មវិធីនៅតែដំណើរការ។</string>
     <string name="upgrade_benefit_themes">ការប្ដូរទ្រង់ទ្រាយតាមបំណង</string>
     <string name="upgrade_benefit_autoplay">ចាក់ដោយស្វ័យប្រវត្តិ &amp; ផ្អាកដោយស្វ័យប្រវត្តិ</string>
-    <string name="upgrade_benefit_autoconnect">ភ្ជាប់ដោយស្វ័យប្រវត្តិ</string>
     <string name="upgrade_benefit_popups">Popup នៅពេលបើកប្រអប់ &amp; ការភ្ជាប់</string>
     <string name="upgrade_benefit_widgets">វិជេតអេក្រង់ដើម</string>
     <string name="upgrade_benefit_device_settings">ការកំណត់ឧបករណ៍កម្រិតខ្ពស់</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">ឧបករណ៍</string>
     <string name="settings_devices_description">គ្រប់គ្រងឧបករណ៍របស់អ្នក។</string>
     <string name="settings_reaction_label">ប្រតិកម្ម</string>
-    <string name="settings_reaction_description">ប្រតិកម្មចំពោះព្រឹត្តិការណ៍ និងអាកប្បកិរិយា។</string>
     <string name="settings_category_yourdevice_label">ឧបករណ៍របស់អ្នក</string>
     <string name="settings_category_compatibility_options_title">ជម្រើសភាពឆបគ្នា</string>
     <string name="settings_category_compatibility_options_description">កុំប៉ះប្រសិនបើអ្វីៗដំណើរការបានល្អ ;)</string>

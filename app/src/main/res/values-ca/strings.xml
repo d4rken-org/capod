@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">El CAPod està desenvolupat per una sola persona. La millora desbloqueja funcions addicionals i ajuda a mantenir l\'aplicació activa.</string>
     <string name="upgrade_benefit_themes">Personalització de temes</string>
     <string name="upgrade_benefit_autoplay">Reproducció i pausa automàtica</string>
-    <string name="upgrade_benefit_autoconnect">Connexió automàtica</string>
     <string name="upgrade_benefit_popups">Finestra emergent en obrir la funda i en connectar</string>
     <string name="upgrade_benefit_widgets">Ginys de la pantalla d\'inici</string>
     <string name="upgrade_benefit_device_settings">Configuració avançada del dispositiu</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Dispositius</string>
     <string name="settings_devices_description">Gestioneu els dispositius.</string>
     <string name="settings_reaction_label">Reaccions</string>
-    <string name="settings_reaction_description">Reacció davant esdeveniments i comportaments.</string>
     <string name="settings_category_yourdevice_label">El vostre dispositiu</string>
     <string name="settings_category_compatibility_options_title">Opcions de compatibilitat</string>
     <string name="settings_category_compatibility_options_description">No ho toqueu si tot funciona ;)</string>

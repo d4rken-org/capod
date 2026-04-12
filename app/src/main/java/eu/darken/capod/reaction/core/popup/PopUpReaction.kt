@@ -1,6 +1,7 @@
 package eu.darken.capod.reaction.core.popup
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -11,12 +12,9 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
-import eu.darken.capod.reaction.core.ReactionSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChangedBy
-import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.merge
 import java.time.Duration
@@ -27,35 +25,41 @@ import javax.inject.Singleton
 @Singleton
 class PopUpReaction @Inject constructor(
     private val deviceMonitor: DeviceMonitor,
-    private val reactionSettings: ReactionSettings,
     private val bluetoothManager: BluetoothManager2,
 ) {
 
-    private val caseCoolDowns = mutableMapOf<String, Instant>()
+    private val caseCoolDowns = java.util.concurrent.ConcurrentHashMap<String, Instant>()
 
-    private fun monitorCase(): Flow<Event> = reactionSettings.showPopUpOnCaseOpen.flow
-        .flatMapLatest { isEnabled ->
-            if (isEnabled) {
-                deviceMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex }
-            } else {
-                emptyFlow()
-            }
+    private fun monitorCase(): Flow<Event> = deviceMonitor.primaryDevice()
+        .distinctUntilChangedBy {
+            // Re-emit on profile changes (eligibility) AND on raw BLE state changes (lid).
+            Triple(it?.profileId, it?.reactions?.showPopUpOnCaseOpen, it?.rawDataHex)
         }
         .withPrevious()
         .setupCommonEventHandlers(TAG) { "popUpCase" }
         .mapNotNull { (previous, current) ->
-            if (current?.caseLidState == null) {
-                return@mapNotNull null
+            val wasEligible = previous?.reactions?.showPopUpOnCaseOpen == true
+            val isEligible = current?.reactions?.showPopUpOnCaseOpen == true
+
+            // Eligibility transition: just lost it (toggled off, or switched to a profile
+            // with the toggle off). Dismiss any visible overlay immediately.
+            if (wasEligible && !isEligible) {
+                log(TAG) { "Case popup eligibility lost, emitting Hide" }
+                return@mapNotNull Event.PopupHide()
             }
+
+            if (!isEligible) return@mapNotNull null
+            if (current.caseLidState == null) return@mapNotNull null
+
             log(TAG, VERBOSE) {
                 "previous=${previous?.caseLidState}, current=${current.caseLidState}"
             }
-            log(TAG, VERBOSE) { "previous-id=${previous?.identifier}, current-id=${current.identifier}" }
-
-            val isSameDeviceOrProfile = previous?.identifier == current.identifier ||
-                    (previous?.profileId != null && previous.profileId == current.profileId)
+            val isSameDeviceOrProfile = previous?.profileId != null && previous.profileId == current.profileId
             val isSameDeviceWithCaseNowOpen = isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
-            val isNewDeviceWithJustOpenedCase = !isSameDeviceOrProfile && previous?.caseLidState != current.caseLidState
+            val isNewDeviceWithJustOpenedCase = !isSameDeviceOrProfile
+                && previous != null
+                && previous.caseLidState != null
+                && previous.caseLidState != current.caseLidState
 
             if (!isSameDeviceWithCaseNowOpen && !isNewDeviceWithJustOpenedCase) {
                 return@mapNotNull null
@@ -66,7 +70,7 @@ class PopUpReaction @Inject constructor(
         }
 
     private fun throttleCasePopUps(current: PodDevice): Event? {
-        val cooldownKey = current.profileId ?: current.identifier.toString()
+        val cooldownKey = current.profileId ?: current.identifier?.toString() ?: return null
         val now = Instant.now()
         val lastShown = caseCoolDowns[cooldownKey]
 
@@ -99,38 +103,57 @@ class PopUpReaction @Inject constructor(
         }
     }
 
-    private val connectionCoolDowns = mutableMapOf<BluetoothAddress, Instant>()
+    private val connectionCoolDowns = java.util.concurrent.ConcurrentHashMap<BluetoothAddress, Instant>()
 
-    private fun monitorConnection(): Flow<Event> = reactionSettings.showPopUpOnConnection.flow
-        .flatMapLatest { isEnabled ->
-            if (!isEnabled) return@flatMapLatest emptyFlow()
+    private data class ConnectionWindow(
+        val direct: BluetoothDevice2?,
+        val broadcast: PodDevice?,
+        val eligible: Boolean,
+    )
 
-            combine(
-                bluetoothManager.connectedDevices,
-                deviceMonitor.primaryDevice().distinctUntilChangedBy { it?.rawDataHex },
-            ) { devices, broadcast ->
-                log(TAG) { "$broadcast $devices " }
-                val primaryAddr = broadcast?.address
-                val direct = devices.singleOrNull { it.address == primaryAddr }.also {
-                    log(TAG, VERBOSE) { "Connected main device is $it" }
-                }
-                if (direct == null) {
-                    connectionCoolDowns.remove(primaryAddr).also {
-                        if (it != null) log(TAG) { "Cleared connection cooldown for $primaryAddr due to disconect" }
-                    }
-                }
-                if (direct != null && broadcast != null) direct to broadcast else null
+    private fun monitorConnection(): Flow<Event> = combine(
+        bluetoothManager.connectedDevices,
+        deviceMonitor.primaryDevice().distinctUntilChangedBy {
+            Triple(it?.profileId, it?.reactions?.showPopUpOnConnection, it?.rawDataHex)
+        },
+    ) { devices, broadcast ->
+        val eligible = broadcast?.reactions?.showPopUpOnConnection == true
+        if (!eligible) {
+            ConnectionWindow(direct = null, broadcast = null, eligible = false)
+        } else {
+            val primaryAddr = broadcast.address
+                ?: return@combine ConnectionWindow(direct = null, broadcast = null, eligible = false)
+            val direct = devices.singleOrNull { it.address == primaryAddr }.also {
+                log(TAG, VERBOSE) { "Connected main device is $it" }
             }
+            if (direct == null) {
+                connectionCoolDowns.remove(primaryAddr).also {
+                    if (it != null) log(TAG) { "Cleared connection cooldown for $primaryAddr due to disconnect" }
+                }
+            }
+            ConnectionWindow(direct = direct, broadcast = broadcast, eligible = true)
         }
+    }
         .withPrevious()
-        .mapNotNull { (previouss, currents) ->
-            val previousConnected = previouss?.first
+        .mapNotNull { (previous, current) ->
+            val wasEligible = previous?.eligible == true
+            val isEligible = current.eligible
+
+            // Eligibility transition: dismiss any visible overlay immediately.
+            if (wasEligible && !isEligible) {
+                log(TAG) { "Connection popup eligibility lost, emitting Hide" }
+                return@mapNotNull Event.PopupHide()
+            }
+
+            if (!isEligible) return@mapNotNull null
+
+            val previousConnected = previous?.direct
             log(TAG, VERBOSE) { "previousConnected: $previousConnected" }
-            val previousBroadcasted = previouss?.second
+            val previousBroadcasted = previous?.broadcast
             log(TAG, VERBOSE) { "previousBroadcasted: $previousBroadcasted" }
-            val currentConnected = currents?.first
+            val currentConnected = current.direct
             log(TAG, VERBOSE) { "currentConnected: $currentConnected" }
-            val currentBroadcasted = currents?.second
+            val currentBroadcasted = current.broadcast
             log(TAG, VERBOSE) { "currentBroadcasted: $currentBroadcasted" }
 
             if (previousConnected != null && previousBroadcasted != null && currentConnected == null) {

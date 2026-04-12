@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod dikembangkan oleh satu orang. Meningkatkan versi membuka fitur tambahan dan membantu menjaga aplikasi tetap berjalan.</string>
     <string name="upgrade_benefit_themes">Kustomisasi tema</string>
     <string name="upgrade_benefit_autoplay">Putar otomatis &amp; jeda otomatis</string>
-    <string name="upgrade_benefit_autoconnect">Sambungkan otomatis</string>
     <string name="upgrade_benefit_popups">Popup saat kotak dibuka &amp; dihubungkan</string>
     <string name="upgrade_benefit_widgets">Widget layar beranda</string>
     <string name="upgrade_benefit_device_settings">Pengaturan perangkat lanjutan</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Perangkat</string>
     <string name="settings_devices_description">Kelola perangkat Anda.</string>
     <string name="settings_reaction_label">Reaksi</string>
-    <string name="settings_reaction_description">Bereaksi terhadap peristiwa dan perilaku.</string>
     <string name="settings_category_yourdevice_label">Perangkat Anda</string>
     <string name="settings_category_compatibility_options_title">Opsi kompatibilitas</string>
     <string name="settings_category_compatibility_options_description">Jangan sentuh jika semuanya berfungsi ;)</string>

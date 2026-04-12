@@ -32,12 +32,7 @@ fun AddProfile() = AddProfileContent()
 @PreviewTest
 @PlayStoreLocales
 @Composable
-fun SettingsIndex() = SettingsIndexContent()
-
-@PreviewTest
-@PlayStoreLocales
-@Composable
-fun ReactionSettings() = ReactionSettingsContent()
+fun DeviceSettingsReactions() = DeviceSettingsReactionsContent()
 
 @PreviewTest
 @PlayStoreLocales

@@ -23,7 +23,6 @@
     <string name="upgrade_preamble">CAPod is developed by a single person. Upgrading unlocks extra features and helps keep the app alive.</string>
     <string name="upgrade_benefit_themes">Theme customization</string>
     <string name="upgrade_benefit_autoplay">Auto-play &amp; auto-pause</string>
-    <string name="upgrade_benefit_autoconnect">Auto-connect</string>
     <string name="upgrade_benefit_popups">Popup on case open &amp; connection</string>
     <string name="upgrade_benefit_widgets">Home screen widgets</string>
     <string name="upgrade_benefit_device_settings">Advanced device settings</string>
@@ -71,7 +70,6 @@
     <string name="settings_devices_label">Devices</string>
     <string name="settings_devices_description">Manage your devices.</string>
     <string name="settings_reaction_label">Reactions</string>
-    <string name="settings_reaction_description">React to events and behaviors.</string>
     <string name="settings_category_yourdevice_label">Your device</string>
 
     <string name="settings_category_compatibility_options_title">Compatibility options</string>
@@ -483,8 +481,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Right</string>
     <string name="device_settings_microphone_mode_left">Left</string>
-    <string name="device_settings_ear_detection_label">Automatic Ear Detection</string>
-    <string name="device_settings_ear_detection_description">Pause audio when AirPods are removed from ears</string>
     <string name="device_settings_listening_mode_cycle_label">Noise Control Cycle</string>
     <string name="device_settings_listening_mode_cycle_description">Select which modes cycle when pressing and holding the stem</string>
     <string name="device_settings_listening_mode_cycle_off">Off</string>

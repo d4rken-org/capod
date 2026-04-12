@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod-ը մշակվում է մեկ անձի կողմից: Բարելավելը բացում է լրացուցիչ հնարավորություններ եւ օգնում է հավելվածը կենդանի պահել:</string>
     <string name="upgrade_benefit_themes">Թեմայի հարմարեցում</string>
     <string name="upgrade_benefit_autoplay">Ավտոնվագում &amp; ավտոդադար</string>
-    <string name="upgrade_benefit_autoconnect">Ինքնամիացում</string>
     <string name="upgrade_benefit_popups">Թռուցիկ՝ պատյան բացելիս &amp; կապվելիս</string>
     <string name="upgrade_benefit_widgets">Գլխավոր էկրանի վիջեթներ</string>
     <string name="upgrade_benefit_device_settings">Սառքի լրացկին կառավարումներ</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Սարքեր</string>
     <string name="settings_devices_description">Կառավարեք ձեր սարքերը։</string>
     <string name="settings_reaction_label">Արձագանքներ</string>
-    <string name="settings_reaction_description">Արձագանքեք իրադարձություններին և վարքագծերին։</string>
     <string name="settings_category_yourdevice_label">Ձեր սարքը</string>
     <string name="settings_category_compatibility_options_title">Համատեղելիության ընտրանքներ</string>
     <string name="settings_category_compatibility_options_description">Մի դիպչեք, եթե ամեն ինչ աշխատում է ;)</string>

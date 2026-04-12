@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod พัฒนาโดยบุคคลเพียงคนเดียว การอัปเกรดจะปลดล็อกฟีเจอร์เพิ่มเติมและช่วยให้แอปนี้ดำเนินต่อไปได้</string>
     <string name="upgrade_benefit_themes">การปรับแต่งธีม</string>
     <string name="upgrade_benefit_autoplay">เล่นอัตโนมัติและหยุดชั่วคราวอัตโนมัติ</string>
-    <string name="upgrade_benefit_autoconnect">เชื่อมต่ออัตโนมัติ</string>
     <string name="upgrade_benefit_popups">ป๊อปอัปเมื่อเปิดเคสและเชื่อมต่อ</string>
     <string name="upgrade_benefit_widgets">วิดเจ็ตหน้าจอหลัก</string>
     <string name="upgrade_benefit_device_settings">การตั้งค่าอุปกรณ์ขั้นสูง</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">อุปกรณ์</string>
     <string name="settings_devices_description">จัดการอุปกรณ์ของคุณ</string>
     <string name="settings_reaction_label">ปฏิกิริยา</string>
-    <string name="settings_reaction_description">ตอบสนองต่อเหตุการณ์และพฤติกรรม</string>
     <string name="settings_category_yourdevice_label">อุปกรณ์ของคุณ</string>
     <string name="settings_category_compatibility_options_title">ตัวเลือกความเข้ากันได้</string>
     <string name="settings_category_compatibility_options_description">อย่าแตะต้องหากทุกอย่างทำงานได้ดี ;)</string>

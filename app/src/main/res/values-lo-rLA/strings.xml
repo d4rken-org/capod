@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod ຖືກພັດທະນາໂດຍຄົນດຽວ. ການອັບເກຣດຈະປົດລັອກຟີເຈີເພີ່ມເຕີມ ແລະ ຊ່ວຍຮັກສາແອັບໃຫ້ດຳເນີນຕໍ່ໄປ.</string>
     <string name="upgrade_benefit_themes">ປັບແຕ່ງຮູບແບບ</string>
     <string name="upgrade_benefit_autoplay">ຫຼິ້ນອັດຕະໂນມັດ &amp; ຢຸດຊົ່ວຄາວອັດຕະໂນມັດ</string>
-    <string name="upgrade_benefit_autoconnect">ເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
     <string name="upgrade_benefit_popups">ປັອບອັບເມື່ອເປີດກ່ອງ &amp; ເຊື່ອມຕໍ່</string>
     <string name="upgrade_benefit_widgets">ວິດເຈັດໜ້າຈໍຫຼັກ</string>
     <string name="upgrade_benefit_device_settings">ການຕັ້ງຄ່າອຸປະກອນຂັ້ນສູງ</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">ອຸປະກອນ</string>
     <string name="settings_devices_description">ຈັດການອຸປະກອນຂອງທ່ານ.</string>
     <string name="settings_reaction_label">ປະຕິກິລິຍາ</string>
-    <string name="settings_reaction_description">ປະຕິກິລິຍາຕໍ່ເຫດການ ແລະ ພຶດຕິກຳ.</string>
     <string name="settings_category_yourdevice_label">ອຸປະກອນຂອງທ່ານ</string>
     <string name="settings_category_compatibility_options_title">ຕົວເລືອກຄວາມເຂົ້າກັນໄດ້</string>
     <string name="settings_category_compatibility_options_description">ຢ່າແຕະຕ້ອງຖ້າທຸກຢ່າງເຮັດວຽກ ;)</string>

@@ -20,8 +20,6 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.main.ui.overview.OverviewScreen
 import eu.darken.capod.main.ui.overview.OverviewViewModel
-import eu.darken.capod.main.ui.settings.SettingsScreen
-import eu.darken.capod.main.ui.settings.SettingsViewModel
 import eu.darken.capod.main.ui.widget.ComposeWidgetPreview
 import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
 import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
@@ -32,9 +30,8 @@ import eu.darken.capod.profiles.ui.DeviceManagerScreen
 import eu.darken.capod.profiles.ui.DeviceManagerViewModel
 import eu.darken.capod.profiles.ui.creation.DeviceProfileCreationScreen
 import eu.darken.capod.profiles.ui.creation.DeviceProfileCreationViewModel
-import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
-import eu.darken.capod.reaction.ui.ReactionSettingsScreen
-import eu.darken.capod.reaction.ui.ReactionSettingsViewModel
+import eu.darken.capod.main.ui.devicesettings.DeviceSettingsScreen
+import eu.darken.capod.main.ui.devicesettings.DeviceSettingsViewModel
 import eu.darken.capod.reaction.ui.popup.PopUpContent as PopUpCard
 
 internal const val DS = "spec:width=1080px,height=2400px,dpi=428"
@@ -113,44 +110,15 @@ internal fun AddProfileContent() = PreviewWrapper {
 }
 
 @Composable
-internal fun SettingsIndexContent() = PreviewWrapper {
-    SettingsScreen(
-        state = SettingsViewModel.State(isPro = true, sponsorUrl = "https://example.com"),
-        onNavigateUp = {},
-        onGeneralSettings = {},
-        onDeviceManager = {},
-        onReactions = {},
-        onSupport = {},
-        onWiki = {},
-        onChangelog = {},
-        onHelpTranslate = {},
-        onAcknowledgements = {},
-        onPrivacyPolicy = {},
-        onSponsor = {},
-    )
-}
-
-@Composable
-internal fun ReactionSettingsContent() = PreviewWrapper {
-    ReactionSettingsScreen(
-        state = ReactionSettingsViewModel.State(
+internal fun DeviceSettingsReactionsContent() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = DeviceSettingsViewModel.State(
+            device = MockPodDataProvider.dualPodMonitoredWithReactions(),
+            now = MOCK_NOW,
             isPro = true,
-            onePodMode = false,
-            autoPlay = true,
-            autoPause = true,
-            autoConnect = false,
-            autoConnectCondition = AutoConnectCondition.WHEN_SEEN,
-            showPopUpOnCaseOpen = true,
-            showPopUpOnConnection = false,
+            isNudgeAvailable = true,
         ),
         onNavigateUp = {},
-        onOnePodModeChanged = {},
-        onAutoPlayChanged = {},
-        onAutoPauseChanged = {},
-        onAutoConnectChanged = {},
-        onAutoConnectConditionSelected = {},
-        onShowPopUpOnCaseOpenChanged = {},
-        onShowPopUpOnConnectionChanged = {},
     )
 }
 
@@ -260,14 +228,10 @@ private fun PreviewDeviceProfiles() = DeviceProfilesContent()
 @Composable
 private fun PreviewAddProfile() = AddProfileContent()
 
-@Preview(name = "7 - Settings", locale = "en", device = DS, showSystemUi = true)
+@Preview(name = "7 - Device Settings Reactions", locale = "en", device = DS, showSystemUi = true)
 @Composable
-private fun PreviewSettingsIndex() = SettingsIndexContent()
+private fun PreviewDeviceSettingsReactions() = DeviceSettingsReactionsContent()
 
-@Preview(name = "8 - Reaction Settings", locale = "en", device = DS, showSystemUi = true)
-@Composable
-private fun PreviewReactionSettings() = ReactionSettingsContent()
-
-@Preview(name = "9 - Homescreen Widget", device = DS, showSystemUi = true)
+@Preview(name = "8 - Homescreen Widget", device = DS, showSystemUi = true)
 @Composable
 private fun PreviewHomescreenWidget() = HomescreenWidgetContent()

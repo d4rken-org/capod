@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod සකසා ඇත්තේ එක් කෙනෙකු විසිනි. යාවත්කාලීන කිරීම අමතර විශේෂාංග විවෘත කරන අතර යෙදුම ක්‍රියාත්මකව තබා ගැනීමට උපකාරී වේ.</string>
     <string name="upgrade_benefit_themes">තේමා අභිරුචිකරණය</string>
     <string name="upgrade_benefit_autoplay">ස්වයංක්‍රීය ධාවනය සහ ස්වයංක්‍රීය විරාමය</string>
-    <string name="upgrade_benefit_autoconnect">ස්වයංක්‍රීයව සම්බන්ධ වන්න</string>
     <string name="upgrade_benefit_popups">කේස් විවෘත කිරීමේ සහ සම්බන්ධතාවයේ පොප්අප්</string>
     <string name="upgrade_benefit_widgets">මුල් පිටු තිර විජට්</string>
     <string name="upgrade_benefit_device_settings">උසස් උපාංග සැකසුම්</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">උපාංග</string>
     <string name="settings_devices_description">ඔබගේ උපාංග කළමනාකරණය කරන්න.</string>
     <string name="settings_reaction_label">ප්‍රතික්‍රියා</string>
-    <string name="settings_reaction_description">සිදුවීම් සහ හැසිරීම් වලට ප්‍රතිචාර දක්වන්න.</string>
     <string name="settings_category_yourdevice_label">ඔබගේ උපාංගය</string>
     <string name="settings_category_compatibility_options_title">ගැළපුම් විකල්ප</string>
     <string name="settings_category_compatibility_options_description">සියල්ල ක්‍රියාත්මක නම් අත නොගසන්න ;)</string>

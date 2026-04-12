@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">I-CAPod yenziwa umuntu oyedwa. Ukuthuthuka kuvula izici ezithe thula futhi kusiza ukugcina uhlelo lokusebenza luphila.</string>
     <string name="upgrade_benefit_themes">Ukuhlelwa kwetheme</string>
     <string name="upgrade_benefit_autoplay">Ukudlala ngokwezinhlelo &amp; ukumisa ngokwezinhlelo</string>
-    <string name="upgrade_benefit_autoconnect">Xhuma ngokuzenzakalela</string>
     <string name="upgrade_benefit_popups">Ividiyo yokuvula indwangu &amp; ukuxhuma</string>
     <string name="upgrade_benefit_widgets">Amawijethi esikrini sasekhaya</string>
     <string name="upgrade_benefit_device_settings">Izilungiselelo ezithuthukisiwe zedivayisi</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Amadivayisi</string>
     <string name="settings_devices_description">Phatha amadivayisi akho.</string>
     <string name="settings_reaction_label">Ukusabela</string>
-    <string name="settings_reaction_description">Sabela ezenzakalweni nasekuziphatheni.</string>
     <string name="settings_category_yourdevice_label">Idivayisi yakho</string>
     <string name="settings_category_compatibility_options_title">Izinketho zokuhambisana</string>
     <string name="settings_category_compatibility_options_description">Ungathinti uma konke kusebenza ;)</string>
