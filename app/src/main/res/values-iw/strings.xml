@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod פותחה על ידי אדם אחד. שדרוג פותח תכונות נוספות ועוזר לשמור על האפליקציה בחיים.</string>
     <string name="upgrade_benefit_themes">התאמה אישית של ערכת נושא</string>
     <string name="upgrade_benefit_autoplay">השמעה אוטומטית והשהיה אוטומטית</string>
-    <string name="upgrade_benefit_autoconnect">חיבור אוטומטי</string>
     <string name="upgrade_benefit_popups">חלון קופץ בפתיחת הנרתיק וחיבור</string>
     <string name="upgrade_benefit_widgets">ווידג\'טים למסך הבית</string>
     <string name="upgrade_benefit_device_settings">הגדרות מכשיר מתקדמות</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">מכשירים</string>
     <string name="settings_devices_description">ניהול המכשירים שלך.</string>
     <string name="settings_reaction_label">תגובות</string>
-    <string name="settings_reaction_description">להגיב לאירועים והתנהגויות.</string>
     <string name="settings_category_yourdevice_label">המכשיר שלך</string>
     <string name="settings_category_compatibility_options_title">מצב תאימות</string>
     <string name="settings_category_compatibility_options_description">אל תיגע אם הכל עובד ;)</string>

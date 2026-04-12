@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod pertsona bakar batek garatzen du. Berrituz gero, funtzio gehigarriak desblokeatzen dira eta aplikazioa bizirik mantentzen laguntzen duzu.</string>
     <string name="upgrade_benefit_themes">Gai pertsonalizazioa</string>
     <string name="upgrade_benefit_autoplay">Erreprodukzio automatikoa eta eten automatikoa</string>
-    <string name="upgrade_benefit_autoconnect">Automatikoki konektatu</string>
     <string name="upgrade_benefit_popups">Leiho gainerakorra kutxako irekieran eta konexioan</string>
     <string name="upgrade_benefit_widgets">Hasierako pantailako widgetak</string>
     <string name="upgrade_benefit_device_settings">Gailuaren ezarpen aurreratuak</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Gailuak</string>
     <string name="settings_devices_description">Kudeatu zure gailuak.</string>
     <string name="settings_reaction_label">Erreakzioak</string>
-    <string name="settings_reaction_description">Erreakzionatu gertaera eta portaerei.</string>
     <string name="settings_category_yourdevice_label">Zure gailua</string>
     <string name="settings_category_compatibility_options_title">Bateragarritasun aukerak</string>
     <string name="settings_category_compatibility_options_description">Ez ukitu dena ondo badabil ;)</string>

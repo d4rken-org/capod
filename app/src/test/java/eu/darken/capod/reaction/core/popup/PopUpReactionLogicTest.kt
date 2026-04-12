@@ -18,7 +18,6 @@ class PopUpReactionLogicTest : BaseTest() {
     fun setup() {
         popUpReaction = PopUpReaction(
             deviceMonitor = mockk(relaxed = true),
-            reactionSettings = mockk(relaxed = true),
             bluetoothManager = mockk(relaxed = true),
         )
     }

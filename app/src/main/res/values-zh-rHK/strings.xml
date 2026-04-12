@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod 由單人開發。升級可解鎖額外功能，並協助維持應用程式的運作。</string>
     <string name="upgrade_benefit_themes">佈景主題自訂</string>
     <string name="upgrade_benefit_autoplay">自動播放及自動暫停</string>
-    <string name="upgrade_benefit_autoconnect">自動連線</string>
     <string name="upgrade_benefit_popups">開啟充電盒及連線時顯示彈出視窗</string>
     <string name="upgrade_benefit_widgets">主畫面小工具</string>
     <string name="upgrade_benefit_device_settings">進階裝置設定</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">裝置</string>
     <string name="settings_devices_description">管理您的裝置。</string>
     <string name="settings_reaction_label">反應</string>
-    <string name="settings_reaction_description">對事件和行為作出反應。</string>
     <string name="settings_category_yourdevice_label">您的裝置</string>
     <string name="settings_category_compatibility_options_title">相容性選項</string>
     <string name="settings_category_compatibility_options_description">若一切如常，就不要觸碰 ;)</string>

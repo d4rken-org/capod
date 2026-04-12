@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod एकल व्यक्तिद्वारा विकास गरिएको छ। अपग्रेड गर्दा थप सुविधाहरू अनलक हुन्छन् र एपलाई जीवित राख्न मद्दत गर्छ।</string>
     <string name="upgrade_benefit_themes">थिम अनुकूलन</string>
     <string name="upgrade_benefit_autoplay">स्वत: प्ले र स्वत: पज</string>
-    <string name="upgrade_benefit_autoconnect">स्वत: जडान</string>
     <string name="upgrade_benefit_popups">केस खोल्दा र जडान हुँदा पपअप</string>
     <string name="upgrade_benefit_widgets">होम स्क्रिन विजेटहरू</string>
     <string name="upgrade_benefit_device_settings">उन्नत उपकरण सेटिङहरू</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">उपकरणहरू</string>
     <string name="settings_devices_description">आफ्ना उपकरणहरू व्यवस्थापन गर्नुहोस्।</string>
     <string name="settings_reaction_label">प्रतिक्रियाहरू</string>
-    <string name="settings_reaction_description">घटनाहरू र व्यवहारहरूमा प्रतिक्रिया दिनुहोस्।</string>
     <string name="settings_category_yourdevice_label">तपाईंको उपकरण</string>
     <string name="settings_category_compatibility_options_title">अनुकूलता विकल्पहरू</string>
     <string name="settings_category_compatibility_options_description">सबै कुरा ठीकठाक चलिरहेको छ भने नचलाउनुहोस् ;)</string>

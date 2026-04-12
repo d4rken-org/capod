@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod 由一个人开发。升级可解锁额外功能，并帮助应用持续运营。</string>
     <string name="upgrade_benefit_themes">主题定制</string>
     <string name="upgrade_benefit_autoplay">自动播放 &amp; 自动暂停</string>
-    <string name="upgrade_benefit_autoconnect">自动连接</string>
     <string name="upgrade_benefit_popups">打开耳机盒 &amp; 连接时弹出提示</string>
     <string name="upgrade_benefit_widgets">主屏幕小组件</string>
     <string name="upgrade_benefit_device_settings">高级设备设置</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">设备</string>
     <string name="settings_devices_description">管理您的设备。</string>
     <string name="settings_reaction_label">动作</string>
-    <string name="settings_reaction_description">响应事件和行为的动作。</string>
     <string name="settings_category_yourdevice_label">您的设备</string>
     <string name="settings_category_compatibility_options_title">兼容性选项</string>
     <string name="settings_category_compatibility_options_description">如果一切正常，请不要修改 ;)</string>

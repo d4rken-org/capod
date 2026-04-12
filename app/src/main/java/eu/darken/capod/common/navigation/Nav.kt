@@ -23,7 +23,7 @@ object Nav {
         data object Upgrade : Main
 
         @Serializable
-        data class DeviceSettings(val address: String) : Main
+        data class DeviceSettings(val profileId: String) : Main
 
         @Serializable
         data object StemActionConfig : Main
@@ -35,9 +35,6 @@ object Nav {
 
         @Serializable
         data object General : Settings
-
-        @Serializable
-        data object Reactions : Settings
 
         @Serializable
         data object Debug : Settings

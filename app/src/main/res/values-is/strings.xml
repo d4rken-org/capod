@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod er þróað af einum einstaklingi. Uppfærsla opnar aukaeiginleika og hjálpar til við að halda forritinu lifandi.</string>
     <string name="upgrade_benefit_themes">Sérsniðið þema</string>
     <string name="upgrade_benefit_autoplay">Sjálfvirk spilun og hlé</string>
-    <string name="upgrade_benefit_autoconnect">Sjálfvirk tenging</string>
     <string name="upgrade_benefit_popups">Sprettigluggi við opnun hulsins og tengingu</string>
     <string name="upgrade_benefit_widgets">Heimaskjáviðbætur</string>
     <string name="upgrade_benefit_device_settings">Tæki stillingar (avanó)</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Tæki</string>
     <string name="settings_devices_description">Hafa umsjón með tækjunum þínum.</string>
     <string name="settings_reaction_label">Viðbrögð</string>
-    <string name="settings_reaction_description">Bregðast við atburðum og hegðun.</string>
     <string name="settings_category_yourdevice_label">Tækið þitt</string>
     <string name="settings_category_compatibility_options_title">Samhæfisvalkostir</string>
     <string name="settings_category_compatibility_options_description">Ekki snerta ef allt virkar ;)</string>

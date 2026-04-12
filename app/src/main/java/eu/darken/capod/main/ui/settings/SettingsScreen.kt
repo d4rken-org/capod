@@ -11,7 +11,6 @@ import androidx.compose.material.icons.twotone.Favorite
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.SupportAgent
 import androidx.compose.material.icons.twotone.Translate
-import androidx.compose.material.icons.twotone.Widgets
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -47,7 +46,6 @@ fun SettingsScreenHost(vm: SettingsViewModel = hiltViewModel()) {
             onNavigateUp = { vm.navUp() },
             onGeneralSettings = { vm.navTo(Nav.Settings.General) },
             onDeviceManager = { vm.navTo(Nav.Main.DeviceManager) },
-            onReactions = { vm.navTo(Nav.Settings.Reactions) },
             onSupport = { vm.navTo(Nav.Settings.Support) },
             onWiki = { vm.openUrl("https://github.com/d4rken-org/capod/wiki") },
             onChangelog = { vm.openUrl("https://capod.darken.eu/changelog") },
@@ -65,7 +63,6 @@ fun SettingsScreen(
     onNavigateUp: () -> Unit,
     onGeneralSettings: () -> Unit,
     onDeviceManager: () -> Unit,
-    onReactions: () -> Unit,
     onSupport: () -> Unit,
     onWiki: () -> Unit,
     onChangelog: () -> Unit,
@@ -119,14 +116,6 @@ fun SettingsScreen(
                     subtitle = stringResource(R.string.settings_devices_description),
                     icon = Icons.TwoTone.DevicesOther,
                     onClick = onDeviceManager,
-                )
-            }
-            item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_reaction_label),
-                    subtitle = stringResource(R.string.settings_reaction_description),
-                    icon = Icons.TwoTone.Widgets,
-                    onClick = onReactions,
                 )
             }
             item {
@@ -192,7 +181,6 @@ private fun SettingsScreenPreview() = PreviewWrapper {
         onNavigateUp = {},
         onGeneralSettings = {},
         onDeviceManager = {},
-        onReactions = {},
         onSupport = {},
         onWiki = {},
         onChangelog = {},

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod розробляється однією людиною. Оновлення розблоковує додаткові функції та допомагає підтримувати застосунок.</string>
     <string name="upgrade_benefit_themes">Налаштування теми</string>
     <string name="upgrade_benefit_autoplay">Автовідтворення та автопауза</string>
-    <string name="upgrade_benefit_autoconnect">Автопід\'єднання</string>
     <string name="upgrade_benefit_popups">Спливаюче вікно при відкритті футляра та підключенні</string>
     <string name="upgrade_benefit_widgets">Віджети головного екрана</string>
     <string name="upgrade_benefit_device_settings">Розширені налаштування пристрою</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Пристрої</string>
     <string name="settings_devices_description">Керування вашими пристроями.</string>
     <string name="settings_reaction_label">Реакції</string>
-    <string name="settings_reaction_description">Реагування на події та дії.</string>
     <string name="settings_category_yourdevice_label">Ваш пристрій</string>
     <string name="settings_category_compatibility_options_title">Опції сумісності</string>
     <string name="settings_category_compatibility_options_description">Не чіпай, якщо все працює ;)</string>

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod-ийг нэг хүн боловсруулсан. Шинэчлэх нь нэмэлт функцуудыг нээж, аппликейшнийг амьд байлгахад тусалдаг.</string>
     <string name="upgrade_benefit_themes">Загварын тохиргоо</string>
     <string name="upgrade_benefit_autoplay">Автомат тоглуулах &amp; автомат зогсоох</string>
-    <string name="upgrade_benefit_autoconnect">Автомат холболт</string>
     <string name="upgrade_benefit_popups">Тохиолдол нээх &amp; холбогдох үед popup</string>
     <string name="upgrade_benefit_widgets">Нүүр дэлгэцийн виджетүүд</string>
     <string name="upgrade_benefit_device_settings">Төхөөрөмжийн нарийнчилсан тохиргоо</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Төхөөрөмжүүд</string>
     <string name="settings_devices_description">Төхөөрөмжүүдээ удирдах.</string>
     <string name="settings_reaction_label">Урвалууд</string>
-    <string name="settings_reaction_description">Үйл явдал, зан үйлд хариу үйлдэл үзүүлнэ.</string>
     <string name="settings_category_yourdevice_label">Таны төхөөрөмж</string>
     <string name="settings_category_compatibility_options_title">Тохиромжтой байдлын сонголтууд</string>
     <string name="settings_category_compatibility_options_description">Хэрэв бүх зүйл ажиллаж байвал бүү хүр ;)</string>

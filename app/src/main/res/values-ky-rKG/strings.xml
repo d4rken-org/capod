@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod бир адам тарабынан иштелип чыгат. Жаңыртуу кошумча функцияларды ачып, колдонмонун тирүү калуусуна жардам берет.</string>
     <string name="upgrade_benefit_themes">Темаларды ыңгайлаштыруу</string>
     <string name="upgrade_benefit_autoplay">Авто-ойнотуу &amp; авто-токтотуу</string>
-    <string name="upgrade_benefit_autoconnect">Авто туташуу</string>
     <string name="upgrade_benefit_popups">Кутуча ачылганда &amp; туташканда калкыма терезе</string>
     <string name="upgrade_benefit_widgets">Башкы экран виджеттери</string>
     <string name="upgrade_benefit_device_settings">Өнүккөн түзмөк жөндөөлөрү</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Түзмөктөр</string>
     <string name="settings_devices_description">Түзмөктөрүңүздү башкаруу.</string>
     <string name="settings_reaction_label">Реакциялар</string>
-    <string name="settings_reaction_description">Окуяларга жана жүрүм-турумдарга реакция кылыңыз.</string>
     <string name="settings_category_yourdevice_label">Сиздин түзмөгүңүз</string>
     <string name="settings_category_compatibility_options_title">Шайкештик опциялары</string>
     <string name="settings_category_compatibility_options_description">Эгер баары иштесе тийбеңиз ;)</string>

@@ -1,14 +1,16 @@
 package eu.darken.capod.main.ui.devicesettings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.datastore.value
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.uix.ViewModel4
+import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.common.navigation.Nav
@@ -17,12 +19,18 @@ import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.ReactionConfig
+import eu.darken.capod.profiles.core.ProfileId
+import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.isActive
 import java.time.Instant
@@ -35,15 +43,17 @@ class DeviceSettingsViewModel @Inject constructor(
     private val aapManager: AapConnectionManager,
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
+    private val profilesRepo: DeviceProfilesRepo,
+    private val generalSettings: GeneralSettings,
 ) : ViewModel4(dispatcherProvider) {
 
-    private val targetAddress = MutableStateFlow<BluetoothAddress?>(null)
+    private val targetProfileId = MutableStateFlow<ProfileId?>(null)
     private var initialized = false
 
-    fun initialize(address: BluetoothAddress) {
-        if (initialized && targetAddress.value == address) return
+    fun initialize(profileId: ProfileId) {
+        if (initialized && targetProfileId.value == profileId) return
         initialized = true
-        targetAddress.value = address
+        targetProfileId.value = profileId
     }
 
     private val updateTicker = channelFlow<Unit> {
@@ -63,16 +73,16 @@ class DeviceSettingsViewModel @Inject constructor(
 
     val events = SingleEventFlow<Event>()
 
-    val state = targetAddress.flatMapLatest { address ->
-        if (address == null) return@flatMapLatest flowOf(State(device = null))
+    val state = targetProfileId.flatMapLatest { profileId ->
+        if (profileId == null) return@flatMapLatest flowOf(State(device = null))
         combine(
             updateTicker,
-            deviceMonitor.devices,
+            deviceForProfile(profileId),
             upgradeRepo.upgradeInfo,
             isForceConnecting,
-        ) { _, devices, upgrade, forcing ->
+        ) { _, device, upgrade, forcing ->
             State(
-                device = devices.firstOrNull { it.address == address },
+                device = device,
                 now = Instant.now(),
                 isPro = upgrade.isPro,
                 isNudgeAvailable = bluetoothManager.isNudgeAvailable,
@@ -81,13 +91,31 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }.asLiveState()
 
+    /**
+     * Returns the [PodDevice] for [profileId] reactively. Falls back to a synthesized bare
+     * device when the profile exists but isn't currently visible (no BLE / cache / AAP),
+     * so the Reactions section can still be edited for pristine profiles.
+     */
+    private fun deviceForProfile(profileId: ProfileId): kotlinx.coroutines.flow.Flow<PodDevice?> =
+        deviceMonitor.devices.flatMapLatest { devices ->
+            val live = devices.firstOrNull { it.profileId == profileId }
+            flow<PodDevice?> { emit(live ?: deviceMonitor.getDeviceForProfile(profileId)) }
+        }
+
     data class State(
         val device: PodDevice?,
         val now: Instant = Instant.now(),
         val isPro: Boolean = false,
         val isNudgeAvailable: Boolean = true,
         val isForceConnecting: Boolean = false,
-    )
+    ) {
+        val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
+    }
+
+    private suspend fun currentAddress(): String? {
+        val profileId = targetProfileId.value ?: return null
+        return deviceMonitor.getDeviceForProfile(profileId)?.address
+    }
 
     fun forceConnect() = launch {
         if (!isForceConnecting.compareAndSet(expect = false, update = true)) {
@@ -95,7 +123,7 @@ class DeviceSettingsViewModel @Inject constructor(
             return@launch
         }
         try {
-            val address = targetAddress.value ?: run {
+            val address = currentAddress() ?: run {
                 events.tryEmit(Event.OpenBluetoothSettings)
                 return@launch
             }
@@ -124,23 +152,18 @@ class DeviceSettingsViewModel @Inject constructor(
             if (!accepted) {
                 events.tryEmit(Event.OpenBluetoothSettings)
             }
-            // On accepted=true, AapAutoConnect.initialConnect() will pick up the new
-            // connectedDevices entry and trigger the AAP handshake. The card disappears
-            // when device.isAapConnected becomes true.
         } finally {
             isForceConnecting.value = false
         }
     }
 
     private suspend fun sendInternal(command: AapCommand) {
-        val address = targetAddress.value ?: return
+        val address = currentAddress() ?: return
         try {
             aapManager.sendCommand(address, command)
             log(TAG) { "Sent $command to $address" }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to send $command: ${e.message}" }
-            // SingleEventFlow is backed by a BUFFERED Channel — use the suspending emit to avoid
-            // dropping the event under momentary backpressure.
             events.emit(Event.SendFailed(command, e.message))
         }
     }
@@ -193,12 +216,15 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setSleepDetection(enabled: Boolean) = sendProGated(AapCommand.SetSleepDetection(enabled))
 
     fun setDeviceName(name: String) = launch {
-        val address = targetAddress.value ?: return@launch
-        sendInternal(AapCommand.SetDeviceName(name))
+        val address = currentAddress() ?: return@launch
+        try {
+            aapManager.sendCommand(address, AapCommand.SetDeviceName(name))
+            log(TAG) { "Sent SetDeviceName to $address" }
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to send SetDeviceName: ${e.message}" }
+            events.emit(Event.SendFailed(AapCommand.SetDeviceName(name), e.message))
+        }
 
-        // Also try to update the Android-local bond alias so the new name shows in Android's
-        // Bluetooth settings too. The AAP rename only changes what the AirPods themselves report;
-        // Android's system display reads from the bond database and needs a separate update.
         val bonded = try {
             bluetoothManager.bondedDevices().first().firstOrNull { it.address == address }
         } catch (e: Exception) {
@@ -211,6 +237,59 @@ class DeviceSettingsViewModel @Inject constructor(
             events.emit(Event.SystemRenameUnavailable)
         }
     }
+
+    // ── Reaction toggles (per-profile) ───────────────────────────────────────
+
+    private suspend fun updateProfileNow(transform: (AppleDeviceProfile) -> AppleDeviceProfile) {
+        val profileId = targetProfileId.value ?: return
+        try {
+            profilesRepo.updateAppleProfile(profileId, transform)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to update profile $profileId: ${e.message}" }
+            errorEvents.emit(e)
+        }
+    }
+
+    private fun proGatedReaction(
+        enabled: Boolean,
+        transform: (AppleDeviceProfile) -> AppleDeviceProfile,
+    ) = launch {
+        // Disabling never requires pro; enabling does.
+        if (enabled && !upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        updateProfileNow(transform)
+    }
+
+    fun setOnePodMode(enabled: Boolean) = launch { updateProfileNow { it.copy(onePodMode = enabled) } }
+
+    fun setAutoPlay(enabled: Boolean) = proGatedReaction(enabled) { it.copy(autoPlay = enabled) }
+
+    fun setAutoPause(enabled: Boolean) = proGatedReaction(enabled) { it.copy(autoPause = enabled) }
+
+    fun setAutoConnect(enabled: Boolean) = launch {
+        updateProfileNow { it.copy(autoConnect = enabled) }
+        if (enabled) {
+            // Auto-connect requires ALWAYS mode to react to BLE/case/ear events when
+            // nothing is connected. We intentionally do NOT revert on disable — the user
+            // may have set ALWAYS manually, or another profile may still need it.
+            if (generalSettings.monitorMode.value() != MonitorMode.ALWAYS) {
+                log(TAG) { "Forcing monitorMode to ALWAYS because autoConnect was enabled" }
+                generalSettings.monitorMode.value(MonitorMode.ALWAYS)
+            }
+        }
+    }
+
+    fun setAutoConnectCondition(condition: AutoConnectCondition) = launch {
+        updateProfileNow { it.copy(autoConnectCondition = condition) }
+    }
+
+    fun setShowPopUpOnCaseOpen(enabled: Boolean) =
+        proGatedReaction(enabled) { it.copy(showPopUpOnCaseOpen = enabled) }
+
+    fun setShowPopUpOnConnection(enabled: Boolean) =
+        proGatedReaction(enabled) { it.copy(showPopUpOnConnection = enabled) }
 
     fun navToStemConfig() = launch {
         if (upgradeRepo.isPro()) {

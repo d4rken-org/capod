@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod ஒரு நபரால் உருவாக்கப்பட்டது. மேம்படுத்துவது கூடுதல் அம்சங்களை திறக்கிறது மற்றும் பயன்பாட்டை உயிருடன் வைத்திருக்க உதவுகிறது.</string>
     <string name="upgrade_benefit_themes">தீம் தனிப்பயனாக்கம்</string>
     <string name="upgrade_benefit_autoplay">தானியங்கு இயக்கம் மற்றும் தானியங்கு இடைநிறுத்தம்</string>
-    <string name="upgrade_benefit_autoconnect">தானியங்கு இணைப்பு</string>
     <string name="upgrade_benefit_popups">கேஸ் திறக்கும்போது மற்றும் இணைப்பின்போது பாப்அப்</string>
     <string name="upgrade_benefit_widgets">முகப்புத் திரை விட்ஜெட்கள்</string>
     <string name="upgrade_benefit_device_settings">மேம்பட்ட சாதன அமைப்புகள்</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">சாதனங்கள்</string>
     <string name="settings_devices_description">உங்கள் சாதனங்களை நிர்வகிக்கவும்.</string>
     <string name="settings_reaction_label">எதிர்வினைகள்</string>
-    <string name="settings_reaction_description">நிகழ்வுகள் மற்றும் நடத்தைகளுக்கு எதிர்வினையாற்று.</string>
     <string name="settings_category_yourdevice_label">உங்கள் சாதனம்</string>
     <string name="settings_category_compatibility_options_title">இணக்கத்தன்மை விருப்பங்கள்</string>
     <string name="settings_category_compatibility_options_description">எல்லாம் வேலை செய்தால் தொடாதே ;)</string>

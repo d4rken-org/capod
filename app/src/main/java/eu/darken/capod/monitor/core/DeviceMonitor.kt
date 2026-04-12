@@ -15,6 +15,7 @@ import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.toReactionConfig
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.CoroutineScope
@@ -64,6 +65,7 @@ class DeviceMonitor @Inject constructor(
                 profileAddress = profile?.address,
                 profileModel = profile?.model,
                 profileKeyState = profile.toBleKeyState(),
+                reactions = profile.toReactionConfig(),
             )
         }
 
@@ -114,6 +116,7 @@ class DeviceMonitor @Inject constructor(
                     profileAddress = profile.address,
                     profileModel = profile.model,
                     profileKeyState = profile.toBleKeyState(),
+                    reactions = profile.toReactionConfig(),
                 )
             }
 
@@ -167,24 +170,26 @@ class DeviceMonitor @Inject constructor(
         }
 
         val profile = profilesRepo.profiles.firstOrNull()?.firstOrNull { it.id == profileId }
-        val cached = deviceStateCache.load(profileId)
-        val aap = profile?.let { aapManager.allStates.value.forProfile(it) }
-
-        if (cached == null && aap == null) {
-            log(TAG) { "No device found for profile $profileId" }
+        if (profile == null) {
+            log(TAG) { "No profile with id $profileId" }
             return null
         }
+        val cached = deviceStateCache.load(profileId)
+        val aap = aapManager.allStates.value.forProfile(profile)
 
-        log(TAG) { "Found fallback device for profile $profileId (cached=${cached != null}, aap=${aap != null})" }
+        log(TAG) {
+            "Synthesizing device for profile $profileId (cached=${cached != null}, aap=${aap != null})"
+        }
         return PodDevice(
             profileId = profileId,
-            label = profile?.label,
+            label = profile.label,
             ble = null,
             aap = aap,
             cached = cached,
-            profileAddress = profile?.address,
-            profileModel = profile?.model,
+            profileAddress = profile.address,
+            profileModel = profile.model,
             profileKeyState = profile.toBleKeyState(),
+            reactions = profile.toReactionConfig(),
         )
     }
 

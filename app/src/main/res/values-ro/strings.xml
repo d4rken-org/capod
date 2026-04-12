@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod este dezvoltat de o singură persoană. Actualizarea deblochează funcții extra și ajută la menținerea aplicației în viață.</string>
     <string name="upgrade_benefit_themes">Personalizare temă</string>
     <string name="upgrade_benefit_autoplay">Redare automată și pauză automată</string>
-    <string name="upgrade_benefit_autoconnect">Conectare automată</string>
     <string name="upgrade_benefit_popups">Fereastră pop-up la deschiderea husă și conectare</string>
     <string name="upgrade_benefit_widgets">Widgeturi ecran principal</string>
     <string name="upgrade_benefit_device_settings">Setări avansate dispozitiv</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Dispozitive</string>
     <string name="settings_devices_description">Gestionați dispozitivele dvs.</string>
     <string name="settings_reaction_label">Reacții</string>
-    <string name="settings_reaction_description">Reacționați la evenimente și comportamente.</string>
     <string name="settings_category_yourdevice_label">Dispozitivul tău</string>
     <string name="settings_category_compatibility_options_title">Opțiuni de compatibilitate</string>
     <string name="settings_category_compatibility_options_description">Nu atingeți dacă totul funcționează ;)</string>

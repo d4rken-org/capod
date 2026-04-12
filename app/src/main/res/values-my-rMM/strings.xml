@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod ကို တစ်ဦးတည်းသောသူက တည်ဆောက်ထားသည်။ အဆင့်မြှင့်ခြင်းဖြင့် အပိုဝန်ဆောင်မှုများကို ရယူနိုင်ပြီး အက်ပ်ကို ဆက်လက်ရှင်သန်စေရန် ကူညီပေးသည်။</string>
     <string name="upgrade_benefit_themes">အပြင်အဆင် စိတ်ကြိုက်ပြင်ဆင်မှု</string>
     <string name="upgrade_benefit_autoplay">အလိုအလျောက် ဖွင့်ခြင်း &amp; ခေတ္တရပ်ခြင်း</string>
-    <string name="upgrade_benefit_autoconnect">အလိုအလျောက် ချိတ်ဆက်ခြင်း</string>
     <string name="upgrade_benefit_popups">ဖွင့်သောအခါ &amp; ချိတ်ဆက်သောအခါ Popup ပေါ်လာခြင်း</string>
     <string name="upgrade_benefit_widgets">ပင်မစခရင် Widget များ</string>
     <string name="upgrade_benefit_device_settings">အဆင့်မြင့့်် ကိရိယာ ဆက်တင်များ</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">စက်ပစ္စည်းများ</string>
     <string name="settings_devices_description">သင့်စက်ပစ္စည်းများကို စီမံခန့်ခွဲပါ။</string>
     <string name="settings_reaction_label">တုံ့ပြန်မှုများ</string>
-    <string name="settings_reaction_description">ဖြစ်ရပ်များနှင့် အပြုအမူများအပေါ် တုံ့ပြန်ပါ။</string>
     <string name="settings_category_yourdevice_label">သင့်စက်ပစ္စည်း</string>
     <string name="settings_category_compatibility_options_title">လိုက်ဖက်ညီမှုရွေးချယ်စရာများ</string>
     <string name="settings_category_compatibility_options_description">အရာအားလုံးအဆင်ပြေနေပါက မထိပါနှင့် ;)</string>

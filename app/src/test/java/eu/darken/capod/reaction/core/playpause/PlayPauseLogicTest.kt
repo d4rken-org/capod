@@ -18,7 +18,6 @@ class PlayPauseLogicTest : BaseTest() {
         playPause = PlayPause(
             deviceMonitor = mockk(relaxed = true),
             bluetoothManager = mockk(relaxed = true),
-            reactionSettings = mockk(relaxed = true),
             mediaControl = mockk(relaxed = true)
         )
     }

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod ഒരൊറ്റ വ്യക്തി വികസിപ്പിച്ചതാണ്. അപ്‌ഗ്രേഡ് ചെയ്യുന്നത് അധിക സവിശേഷതകൾ അൺലോക്ക് ചെയ്യുകയും ആപ്പ് നിലനിർത്താൻ സഹായിക്കുകയും ചെയ്യുന്നു.</string>
     <string name="upgrade_benefit_themes">തീം ഇഷ്ടാനുസൃതമാക്കൽ</string>
     <string name="upgrade_benefit_autoplay">ഓട്ടോ-പ്ലേ &amp; ഓട്ടോ-പോസ്</string>
-    <string name="upgrade_benefit_autoconnect">ഓട്ടോ-കണക്റ്റ്</string>
     <string name="upgrade_benefit_popups">കേസ് തുറക്കുമ്പോഴും കണക്ഷൻ സമയത്തും പോപ്പ്അപ്പ്</string>
     <string name="upgrade_benefit_widgets">ഹോം സ്ക്രീൻ വിജറ്റുകൾ</string>
     <string name="upgrade_benefit_device_settings">വിപുലമായ ഉപകരണ ക്രമീകരണങ്ങൾ</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">ഉപകരണങ്ങൾ</string>
     <string name="settings_devices_description">നിങ്ങളുടെ ഉപകരണങ്ങൾ നിയന്ത്രിക്കുക.</string>
     <string name="settings_reaction_label">പ്രতিকകരണങ്ങൾ</string>
-    <string name="settings_reaction_description">സംഭവങ്ങളോടും പെരുമാറ്റങ്ങളോടും പ്രതികരിക്കുക.</string>
     <string name="settings_category_yourdevice_label">നിങ്ങളുടെ ഉപകരണം</string>
     <string name="settings_category_compatibility_options_title">അനുയോജ്യത ഓപ്ഷനുകൾ</string>
     <string name="settings_category_compatibility_options_description">എല്ലാം ശരിയായി പ്രവർത്തിക്കുന്നുണ്ടെങ്കിൽ തൊടരുത് ;)</string>

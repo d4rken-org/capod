@@ -19,6 +19,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Add
 import androidx.compose.material.icons.twotone.DragHandle
+import androidx.compose.material.icons.twotone.Tune
 import androidx.compose.material3.Card
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -63,6 +64,7 @@ fun DeviceManagerScreenHost(vm: DeviceManagerViewModel = hiltViewModel()) {
             onBack = { vm.navUp() },
             onAddDevice = { vm.onAddDevice() },
             onEditProfile = { profile -> vm.onEditProfile(profile) },
+            onDeviceSettings = { profile -> vm.onDeviceSettings(profile) },
             onReorder = { ids -> vm.onReorder(ids) },
         )
     }
@@ -74,6 +76,7 @@ fun DeviceManagerScreen(
     onBack: () -> Unit,
     onAddDevice: () -> Unit,
     onEditProfile: (DeviceProfile) -> Unit,
+    onDeviceSettings: (DeviceProfile) -> Unit = {},
     onReorder: (List<ProfileId>) -> Unit = {},
 ) {
     val lazyListState = rememberLazyListState()
@@ -142,6 +145,7 @@ fun DeviceManagerScreen(
                             ),
                         profile = profile,
                         onClick = { if (!reorderableState.isDragging) onEditProfile(profile) },
+                        onDeviceSettings = { onDeviceSettings(profile) },
                         showDragHandle = showDragHandles,
                     )
                 }
@@ -230,13 +234,14 @@ private fun ProfileRow(
     modifier: Modifier = Modifier,
     profile: DeviceProfile,
     onClick: () -> Unit,
+    onDeviceSettings: () -> Unit = {},
     showDragHandle: Boolean = false,
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
             .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp, vertical = 12.dp),
+            .padding(start = 16.dp, end = 4.dp, top = 12.dp, bottom = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Image(
@@ -254,6 +259,13 @@ private fun ProfileRow(
                 text = profile.model.label,
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        IconButton(onClick = onDeviceSettings) {
+            Icon(
+                imageVector = Icons.TwoTone.Tune,
+                contentDescription = stringResource(R.string.device_settings_open_cd),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
         if (showDragHandle) {

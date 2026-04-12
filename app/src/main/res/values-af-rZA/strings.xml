@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod word deur een persoon ontwikkel. Opgradering ontsluit ekstra funksies en help om die app aan die lewe te hou.</string>
     <string name="upgrade_benefit_themes">Tema-aanpassing</string>
     <string name="upgrade_benefit_autoplay">Outo-speel &amp; outo-pouseer</string>
-    <string name="upgrade_benefit_autoconnect">Outo-koppel</string>
     <string name="upgrade_benefit_popups">Opspringvenster by kas oop &amp; verbinding</string>
     <string name="upgrade_benefit_widgets">Tuisskerm-widgets</string>
     <string name="upgrade_benefit_device_settings">Gevorderde toestel-instellings</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Toestelle</string>
     <string name="settings_devices_description">Bestuur jou toestelle.</string>
     <string name="settings_reaction_label">Reaksies</string>
-    <string name="settings_reaction_description">Reageer op gebeure en gedrag.</string>
     <string name="settings_category_yourdevice_label">Jou toestel</string>
     <string name="settings_category_compatibility_options_title">Verenigbaarheidsopsies</string>
     <string name="settings_category_compatibility_options_description">Moenie aanraak as alles werk nie ;)</string>

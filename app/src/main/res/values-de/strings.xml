@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod wird von einer einzelnen Person entwickelt. Ein Upgrade schaltet zusätzliche Funktionen frei und hilft, die App am Leben zu erhalten.</string>
     <string name="upgrade_benefit_themes">Design-Anpassung</string>
     <string name="upgrade_benefit_autoplay">Automatische Wiedergabe &amp; automatisches Pausieren</string>
-    <string name="upgrade_benefit_autoconnect">Automatisch verbinden</string>
     <string name="upgrade_benefit_popups">Popup beim Öffnen des Cases &amp; bei Verbindung</string>
     <string name="upgrade_benefit_widgets">Startbildschirm-Widgets</string>
     <string name="upgrade_benefit_device_settings">Erweiterte Geräteeinstellungen</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Geräte</string>
     <string name="settings_devices_description">Verwalte Deine Geräte.</string>
     <string name="settings_reaction_label">Reaktionen</string>
-    <string name="settings_reaction_description">Reagier auf Ereignisse und Verhaltensweisen.</string>
     <string name="settings_category_yourdevice_label">Dein Gerät</string>
     <string name="settings_category_compatibility_options_title">Kompatibilitätsoptionen</string>
     <string name="settings_category_compatibility_options_description">Nicht anfassen, wenn alles funktioniert ;)</string>

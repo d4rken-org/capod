@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod sukūrė vienas žmogus. Atnaujinimas atrakins papildomas funkcijas ir padės išlaikyti programėlę gyvą.</string>
     <string name="upgrade_benefit_themes">Temos pritaikymas</string>
     <string name="upgrade_benefit_autoplay">Automatinis grojimas ir pauzė</string>
-    <string name="upgrade_benefit_autoconnect">Automatinis prisijungimas</string>
     <string name="upgrade_benefit_popups">Iššokantis langas atidarius dėklą ir prisijungus</string>
     <string name="upgrade_benefit_widgets">Pradinio ekrano valdikliai</string>
     <string name="upgrade_benefit_device_settings">Išplėstiniai įrenginio nustatymai</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Įrenginiai</string>
     <string name="settings_devices_description">Tvarkykite savo įrenginius.</string>
     <string name="settings_reaction_label">Reakcijos</string>
-    <string name="settings_reaction_description">Reaguoti į įvykius ir elgseną.</string>
     <string name="settings_category_yourdevice_label">Jūsų įrenginys</string>
     <string name="settings_category_compatibility_options_title">Suderinamumo parinktys</string>
     <string name="settings_category_compatibility_options_description">Nelieskite, jei viskas veikia ;)</string>

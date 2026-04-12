@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">تم تطوير CAPod من قِبل شخص واحد. الترقية تفتح ميزات إضافية وتساعد في إبقاء التطبيق حياً.</string>
     <string name="upgrade_benefit_themes">تخصيص السمة</string>
     <string name="upgrade_benefit_autoplay">تشغيل تلقائي وإيقاف مؤقت تلقائي</string>
-    <string name="upgrade_benefit_autoconnect">اتصال تلقائي</string>
     <string name="upgrade_benefit_popups">نافذة منبثقة عند فتح الغطاء والاتصال</string>
     <string name="upgrade_benefit_widgets">عناصر واجهة الشاشة الرئيسية</string>
     <string name="upgrade_benefit_device_settings">إعدادات الجهاز المتقدمة</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">الأجهزة</string>
     <string name="settings_devices_description">إدارة أجهزتك.</string>
     <string name="settings_reaction_label">ردود الفعل</string>
-    <string name="settings_reaction_description">التفاعل مع الأحداث والسلوكيات.</string>
     <string name="settings_category_yourdevice_label">جهازك</string>
     <string name="settings_category_compatibility_options_title">خيارات التوافق</string>
     <string name="settings_category_compatibility_options_description">لا تلمس إذا كان كل شيء يعمل ؛)</string>

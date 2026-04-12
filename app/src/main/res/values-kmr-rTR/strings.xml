@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod ji aliyê kesekî yekane ve tê pêşxistin. Nûvekirina sepanê taybetmendiyên zêde vedike û dibe alîkar ku sepan sax bimîne.</string>
     <string name="upgrade_benefit_themes">Xweşandina temayê</string>
     <string name="upgrade_benefit_autoplay">Otomatîk lêdan &amp; otomatîk rawestin</string>
-    <string name="upgrade_benefit_autoconnect">Girêdana otomatîk</string>
     <string name="upgrade_benefit_popups">Popup dema vekirina qutiyê &amp; girêdanê</string>
     <string name="upgrade_benefit_widgets">Widgetên ekrana malê</string>
     <string name="upgrade_benefit_device_settings">Mîhengen pêşkertî yên cîhazê</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Amûr</string>
     <string name="settings_devices_description">Amûrên xwe birêve bibin.</string>
     <string name="settings_reaction_label">Bertek</string>
-    <string name="settings_reaction_description">Bertek nîşanî bûyer û tevgeran bide.</string>
     <string name="settings_category_yourdevice_label">Amûra we</string>
     <string name="settings_category_compatibility_options_title">Vebijarkên lihevhatinê</string>
     <string name="settings_category_compatibility_options_description">Heke her tişt baş dixebite dest nedin ;)</string>

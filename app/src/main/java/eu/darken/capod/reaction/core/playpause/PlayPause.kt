@@ -2,7 +2,6 @@ package eu.darken.capod.reaction.core.playpause
 
 import eu.darken.capod.common.MediaControl
 import eu.darken.capod.common.bluetooth.BluetoothManager2
-import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -11,12 +10,11 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.primaryDevice
-import eu.darken.capod.reaction.core.ReactionSettings
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -25,22 +23,21 @@ import javax.inject.Singleton
 class PlayPause @Inject constructor(
     private val deviceMonitor: DeviceMonitor,
     private val bluetoothManager: BluetoothManager2,
-    private val reactionSettings: ReactionSettings,
     private val mediaControl: MediaControl,
 ) {
 
-    fun monitor() = combine(
-        reactionSettings.autoPlay.flow,
-        reactionSettings.autoPause.flow,
-        reactionSettings.onePodMode.flow, // Included to restart pipeline when toggled; value read at decision time
-    ) { play, pause, _ -> play || pause }
-        .flatMapLatest { if (it) bluetoothManager.connectedDevices else emptyFlow() }
-        .flatMapLatest {
-            if (it.isEmpty()) {
+    fun monitor() = deviceMonitor.primaryDevice()
+        .map { device -> device?.reactions?.let { it.autoPlay || it.autoPause } == true }
+        .distinctUntilChanged()
+        .flatMapLatest { shouldMonitor ->
+            if (shouldMonitor) bluetoothManager.connectedDevices else emptyFlow()
+        }
+        .flatMapLatest { connected ->
+            if (connected.isEmpty()) {
                 log(TAG) { "No known devices connected." }
                 emptyFlow()
             } else {
-                log(TAG) { "Known devices connected: $it" }
+                log(TAG) { "Known devices connected: $connected" }
                 deviceMonitor.primaryDevice()
             }
         }
@@ -48,13 +45,20 @@ class PlayPause @Inject constructor(
         .withPrevious()
         .filter { (previous, current) ->
             if (previous == null || current == null) return@filter false
-            log(TAG, VERBOSE) { "previous-id=${previous.identifier}, current-id=${current.identifier}" }
-            val match = previous.identifier == current.identifier
+            // Use profileId (stable across BLE address rotations) rather than BLE identifier.
+            // Only profiled devices reach this point (outer gate requires profile.autoPlay/autoPause).
+            val match = previous.profileId != null && previous.profileId == current.profileId
             if (!match) log(TAG, WARN) { "Main device switched, skipping reaction." }
             match
         }
         .onEach { (previous, current) ->
             log(TAG, VERBOSE) { "Checking\nprevious=$previous\ncurrent=$current" }
+
+            val reactions = current?.reactions
+            if (reactions == null) {
+                log(TAG, VERBOSE) { "No reactions on current device, skipping reaction" }
+                return@onEach
+            }
 
             // Convert to EarDetectionState based on device capabilities
             val prevState: EarDetectionState
@@ -62,7 +66,7 @@ class PlayPause @Inject constructor(
 
             when {
                 previous!!.hasEarDetection && previous.hasDualPods &&
-                        current!!.hasEarDetection && current.hasDualPods -> {
+                        current.hasEarDetection && current.hasDualPods -> {
                     // Dual pod devices (AirPods, AirPods Pro, etc.)
                     log(TAG, VERBOSE) {
                         "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}"
@@ -77,7 +81,7 @@ class PlayPause @Inject constructor(
                     )
                 }
 
-                previous!!.hasEarDetection && current!!.hasEarDetection -> {
+                previous.hasEarDetection && current.hasEarDetection -> {
                     // Single pod devices (AirPods Max, etc.)
                     log(TAG, VERBOSE) { "Single-pod device: worn=${current.isBeingWorn}" }
                     prevState = EarDetectionState.fromSinglePod(worn = previous.isBeingWorn ?: false)
@@ -94,7 +98,7 @@ class PlayPause @Inject constructor(
             val decision = evaluatePlayPauseAction(
                 previous = prevState,
                 current = currState,
-                onePodMode = reactionSettings.onePodMode.valueBlocking,
+                onePodMode = reactions.onePodMode,
                 isCurrentlyPlaying = mediaControl.isPlaying
             )
 
@@ -102,21 +106,21 @@ class PlayPause @Inject constructor(
 
             // Execute the decision
             when {
-                decision.shouldPlay && reactionSettings.autoPlay.valueBlocking -> {
+                decision.shouldPlay && reactions.autoPlay -> {
                     log(TAG) { "autoPlay is triggered, sendPlay() - ${decision.reason}" }
                     mediaControl.sendPlay()
                 }
 
-                decision.shouldPlay && !reactionSettings.autoPlay.valueBlocking -> {
+                decision.shouldPlay && !reactions.autoPlay -> {
                     log(TAG, VERBOSE) { "autoPlay is disabled" }
                 }
 
-                decision.shouldPause && reactionSettings.autoPause.valueBlocking -> {
+                decision.shouldPause && reactions.autoPause -> {
                     log(TAG) { "autoPause is triggered, sendPause() - ${decision.reason}" }
                     mediaControl.sendPause()
                 }
 
-                decision.shouldPause && !reactionSettings.autoPause.valueBlocking -> {
+                decision.shouldPause && !reactions.autoPause -> {
                     log(TAG, VERBOSE) { "autoPause is disabled" }
                 }
             }

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod est développée par une seule personne. Passer à la version Pro déverrouille des fonctions supplémentaires et contribue à la pérennité de l’appli.</string>
     <string name="upgrade_benefit_themes">Personnalisation du thème</string>
     <string name="upgrade_benefit_autoplay">Lecture et pause automatiques</string>
-    <string name="upgrade_benefit_autoconnect">Connexion automatique</string>
     <string name="upgrade_benefit_popups">Fenêtre de notification à l\'ouverture de l\'étui et à la connexion</string>
     <string name="upgrade_benefit_widgets">Widgets sur l’écran d’accueil</string>
     <string name="upgrade_benefit_device_settings">Paramètres avancés de l’appareil</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Appareils</string>
     <string name="settings_devices_description">Gérez vos appareils.</string>
     <string name="settings_reaction_label">Réactions</string>
-    <string name="settings_reaction_description">Réagir à des événements et à des comportements.</string>
     <string name="settings_category_yourdevice_label">Votre appareil</string>
     <string name="settings_category_compatibility_options_title">Options de compatibilité</string>
     <string name="settings_category_compatibility_options_description">Ne rien changer rien si tout fonctionne ;)</string>

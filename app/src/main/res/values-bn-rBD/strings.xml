@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod একজন একক ব্যক্তি দ্বারা তৈরি। আপগ্রেড করলে অতিরিক্ত বৈশিষ্ট্য আনলক হয় এবং অ্যাপটি বাঁচিয়ে রাখতে সহায়তা করে।</string>
     <string name="upgrade_benefit_themes">থিম কাস্টমাইজেশন</string>
     <string name="upgrade_benefit_autoplay">স্বয়ংক্রিয় প্লে এবং স্বয়ংক্রিয় পজ</string>
-    <string name="upgrade_benefit_autoconnect">স্বয়ংক্রিয় সংযোগ</string>
     <string name="upgrade_benefit_popups">কেস খোলা ও সংযোগের সময় পপআপ</string>
     <string name="upgrade_benefit_widgets">হোম স্ক্রিন উইজেট</string>
     <string name="upgrade_benefit_device_settings">উন্নত ডিভাইস সেটিংস</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">ডিভাইস</string>
     <string name="settings_devices_description">আপনার ডিভাইসগুলি পরিচালনা করুন।</string>
     <string name="settings_reaction_label">প্রতিক্রিয়া</string>
-    <string name="settings_reaction_description">ঘটনা এবং আচরণের প্রতি প্রতিক্রিয়া জানান।</string>
     <string name="settings_category_yourdevice_label">আপনার ডিভাইস</string>
     <string name="settings_category_compatibility_options_title">সামঞ্জস্যতার বিকল্প</string>
     <string name="settings_category_compatibility_options_description">সবকিছু কাজ করলে স্পর্শ করবেন না ;)</string>

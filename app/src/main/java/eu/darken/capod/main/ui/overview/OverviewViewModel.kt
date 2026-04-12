@@ -154,8 +154,8 @@ class OverviewViewModel @Inject constructor(
     }
 
     fun goToDeviceSettings(device: PodDevice) {
-        val address = device.address ?: return
-        navTo(Nav.Main.DeviceSettings(address))
+        val profileId = device.profileId ?: return
+        navTo(Nav.Main.DeviceSettings(profileId))
     }
 
     fun goToEditProfile(device: PodDevice) {

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">Το CAPod αναπτύσσεται από ένα μόνο άτομο. Η αναβάθμιση ξεκλειδώνει επιπλέον λειτουργίες και βοηθά στη συνέχεια της εφαρμογής.</string>
     <string name="upgrade_benefit_themes">Προσαρμογή θέματος</string>
     <string name="upgrade_benefit_autoplay">Αυτόματη αναπαραγωγή &amp; αυτόματη παύση</string>
-    <string name="upgrade_benefit_autoconnect">Αυτόματη σύνδεση</string>
     <string name="upgrade_benefit_popups">Αναδυόμενο παράθυρο κατά το άνοιγμα θήκης &amp; σύνδεση</string>
     <string name="upgrade_benefit_widgets">Γραφικά στοιχεία αρχικής οθόνης</string>
     <string name="upgrade_benefit_device_settings">Προηγμένες ρυθμίσεις συσκευής</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Συσκευές</string>
     <string name="settings_devices_description">Διαχειριστείτε τις συσκευές σας.</string>
     <string name="settings_reaction_label">Αντιδράσεις</string>
-    <string name="settings_reaction_description">Αντίδραση σε συμβάντα και συμπεριφορές.</string>
     <string name="settings_category_yourdevice_label">Η συσκευή σας</string>
     <string name="settings_category_compatibility_options_title">Επιλογές συμβατότητας</string>
     <string name="settings_category_compatibility_options_description">Μην αγγίζετε αν όλα λειτουργούν ;)</string>

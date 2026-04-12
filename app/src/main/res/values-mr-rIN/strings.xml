@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod एका व्यक्तीने विकसित केला आहे. अपग्रेड केल्यास अतिरिक्त वैशिष्ट्ये मिळतात आणि अॅप सुरू ठेवण्यास मदत होते.</string>
     <string name="upgrade_benefit_themes">थीम सानुकूलन</string>
     <string name="upgrade_benefit_autoplay">ऑटो-प्ले आणि ऑटो-पॉज</string>
-    <string name="upgrade_benefit_autoconnect">ऑटो-कनेक्ट</string>
     <string name="upgrade_benefit_popups">केस उघडताना आणि कनेक्शनवर पॉपअप</string>
     <string name="upgrade_benefit_widgets">होम स्क्रीन विजेट</string>
     <string name="upgrade_benefit_device_settings">प्रगत डिव्हाइस सेटिंग्ज</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">डिव्हाइस</string>
     <string name="settings_devices_description">आपल्या डिव्हाइसचे व्यवस्थापन करा.</string>
     <string name="settings_reaction_label">प्रतिक्रिया</string>
-    <string name="settings_reaction_description">घटना आणि वर्तनांवर प्रतिक्रिया द्या.</string>
     <string name="settings_category_yourdevice_label">तुमचे डिव्हाइस</string>
     <string name="settings_category_compatibility_options_title">सुसंगतता पर्याय</string>
     <string name="settings_category_compatibility_options_description">सर्व काही ठीक चालत असल्यास स्पर्श करू नका ;)</string>

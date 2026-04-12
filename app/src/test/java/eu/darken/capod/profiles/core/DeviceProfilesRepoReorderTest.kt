@@ -21,6 +21,7 @@ class DeviceProfilesRepoReorderTest : BaseTest() {
         val settings = mockk<DeviceProfilesSettings> {
             every { profiles } returns fakeProfiles.mock
             every { defaultProfileCreated } returns FakeDataStoreValue(true).mock
+            every { reactionMigrationDone } returns FakeDataStoreValue(true).mock
         }
 
         val repo = DeviceProfilesRepo(
@@ -29,6 +30,7 @@ class DeviceProfilesRepoReorderTest : BaseTest() {
             generalSettings = mockk(relaxed = true),
             settings = settings,
             deviceStateCache = mockk(relaxed = true),
+            json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true },
         )
 
         return repo to fakeProfiles

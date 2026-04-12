@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">Ang CAPod ay ginawa ng isang tao. Ang pag-upgrade ay nagbubukas ng mga karagdagang feature at tumutulong na mapanatiling buhay ang app.</string>
     <string name="upgrade_benefit_themes">Pag-customize ng tema</string>
     <string name="upgrade_benefit_autoplay">Auto-play &amp; auto-pause</string>
-    <string name="upgrade_benefit_autoconnect">Auto-connect</string>
     <string name="upgrade_benefit_popups">Popup sa pagbubukas ng case &amp; koneksyon</string>
     <string name="upgrade_benefit_widgets">Mga widget ng home screen</string>
     <string name="upgrade_benefit_device_settings">Mga advanced na setting ng device</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Mga Device</string>
     <string name="settings_devices_description">Pamahalaan ang iyong mga device.</string>
     <string name="settings_reaction_label">Mga Reaksyon</string>
-    <string name="settings_reaction_description">Mag-react sa mga kaganapan at pag-uugali.</string>
     <string name="settings_category_yourdevice_label">Iyong device</string>
     <string name="settings_category_compatibility_options_title">Mga opsyon sa compatibility</string>
     <string name="settings_category_compatibility_options_description">Huwag galawin kung gumagana ang lahat ;)</string>

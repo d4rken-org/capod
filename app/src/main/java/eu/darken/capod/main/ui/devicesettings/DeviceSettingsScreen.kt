@@ -18,21 +18,29 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.automirrored.twotone.VolumeUp
+import androidx.compose.material.icons.twotone.BluetoothConnected
 import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.Headphones
 import androidx.compose.material.icons.twotone.Hearing
+import androidx.compose.material.icons.twotone.LooksOne
 import androidx.compose.material.icons.twotone.Loop
 import androidx.compose.material.icons.twotone.Mic
 import androidx.compose.material.icons.twotone.Nightlight
+import androidx.compose.material.icons.twotone.PauseCircle
+import androidx.compose.material.icons.twotone.PlayCircle
+import androidx.compose.material.icons.twotone.QuestionMark
 import androidx.compose.material.icons.twotone.Speed
 import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.twotone.Timer
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.Visibility
 import androidx.compose.material.icons.twotone.VisibilityOff
+import androidx.compose.material.icons.twotone.Workspaces
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -48,7 +56,9 @@ import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -86,17 +96,18 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
+import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import java.time.Duration
 
 @Composable
 fun DeviceSettingsScreenHost(
-    address: String,
+    profileId: String,
     vm: DeviceSettingsViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    LaunchedEffect(address) { vm.initialize(address) }
+    LaunchedEffect(profileId) { vm.initialize(profileId) }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
@@ -140,7 +151,6 @@ fun DeviceSettingsScreenHost(
         onVolumeSwipeLengthChange = { vm.setVolumeSwipeLength(it) },
         onEndCallMuteMicChange = { muteMic, endCall -> vm.setEndCallMuteMic(muteMic, endCall) },
         onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
-        onEarDetectionEnabledChange = { vm.setEarDetectionEnabled(it) },
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
@@ -148,6 +158,13 @@ fun DeviceSettingsScreenHost(
         onStemActionsClick = { vm.navToStemConfig() },
         onForceConnect = { vm.forceConnect() },
         onUpgrade = { vm.launchUpgrade() },
+        onOnePodModeChange = { vm.setOnePodMode(it) },
+        onAutoPlayChange = { vm.setAutoPlay(it) },
+        onAutoPauseChange = { vm.setAutoPause(it) },
+        onAutoConnectChange = { vm.setAutoConnect(it) },
+        onAutoConnectConditionChange = { vm.setAutoConnectCondition(it) },
+        onShowPopUpOnCaseOpenChange = { vm.setShowPopUpOnCaseOpen(it) },
+        onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
     )
 }
 
@@ -169,7 +186,6 @@ fun DeviceSettingsScreen(
     onVolumeSwipeLengthChange: (AapSetting.VolumeSwipeLength.Value) -> Unit = {},
     onEndCallMuteMicChange: (AapSetting.EndCallMuteMic.MuteMicMode, AapSetting.EndCallMuteMic.EndCallMode) -> Unit = { _, _ -> },
     onMicrophoneModeChange: (AapSetting.MicrophoneMode.Mode) -> Unit = {},
-    onEarDetectionEnabledChange: (Boolean) -> Unit = {},
     onListeningModeCycleChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
@@ -177,11 +193,21 @@ fun DeviceSettingsScreen(
     onStemActionsClick: () -> Unit = {},
     onForceConnect: () -> Unit = {},
     onUpgrade: () -> Unit = {},
+    onOnePodModeChange: (Boolean) -> Unit = {},
+    onAutoPlayChange: (Boolean) -> Unit = {},
+    onAutoPauseChange: (Boolean) -> Unit = {},
+    onAutoConnectChange: (Boolean) -> Unit = {},
+    onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
+    onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
+    onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
     val enabled = device?.isAapReady == true
     val isPro = state.isPro
+    val reactions = state.reactions
+
+    var showAutoConnectConditionDialog by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -250,6 +276,105 @@ fun DeviceSettingsScreen(
                         isNudgeAvailable = state.isNudgeAvailable,
                         isForceConnecting = state.isForceConnecting,
                         onConnect = onForceConnect,
+                    )
+                }
+            }
+
+            // ── Reactions (per-profile, not gated on AAP) ─────────────────
+            if (device != null && features != null) {
+                item("reactions_header") {
+                    SettingsCategoryHeader(text = stringResource(R.string.settings_reaction_label))
+                }
+
+                if (features.hasEarDetection) {
+                    item("reaction_auto_play") {
+                        SettingsSwitchItem(
+                            icon = Icons.TwoTone.PlayCircle,
+                            title = stringResource(R.string.settings_autopplay_label),
+                            subtitle = stringResource(R.string.settings_autoplay_description),
+                            checked = reactions.autoPlay,
+                            onCheckedChange = onAutoPlayChange,
+                            requiresUpgrade = !isPro,
+                        )
+                    }
+                    item("reaction_auto_pause") {
+                        SettingsSwitchItem(
+                            icon = Icons.TwoTone.PauseCircle,
+                            title = stringResource(R.string.settings_autopause_label),
+                            subtitle = stringResource(R.string.settings_autopause_description),
+                            checked = reactions.autoPause,
+                            onCheckedChange = onAutoPauseChange,
+                            requiresUpgrade = !isPro,
+                        )
+                    }
+                    if (features.hasDualPods) {
+                        val earDetectionActive = reactions.autoPlay || reactions.autoPause
+                        item("reaction_one_pod_mode") {
+                            SettingsBaseItem(
+                                title = stringResource(R.string.settings_onepod_mode_label),
+                                subtitle = stringResource(R.string.settings_onepod_mode_description),
+                                icon = Icons.TwoTone.LooksOne,
+                                onClick = { if (earDetectionActive) onOnePodModeChange(!reactions.onePodMode) },
+                                enabled = earDetectionActive,
+                                trailingContent = {
+                                    Switch(
+                                        checked = reactions.onePodMode,
+                                        onCheckedChange = onOnePodModeChange,
+                                        enabled = earDetectionActive,
+                                        modifier = Modifier.padding(start = 16.dp),
+                                    )
+                                },
+                            )
+                        }
+                    }
+                    item("reaction_ear_detection_info") {
+                        SettingsBaseItem(
+                            title = stringResource(R.string.settings_eardetection_info_label),
+                            subtitle = stringResource(R.string.settings_eardetection_info_description),
+                            icon = Icons.TwoTone.QuestionMark,
+                            onClick = {},
+                            enabled = false,
+                        )
+                    }
+                }
+                item("reaction_auto_connect") {
+                    SettingsSwitchItem(
+                        icon = Icons.TwoTone.BluetoothConnected,
+                        title = stringResource(R.string.settings_autoconnect_label),
+                        subtitle = stringResource(R.string.settings_autoconnect_description),
+                        checked = reactions.autoConnect,
+                        onCheckedChange = onAutoConnectChange,
+                    )
+                }
+                item("reaction_auto_connect_condition") {
+                    SettingsBaseItem(
+                        title = stringResource(R.string.settings_autoconnect_condition_label),
+                        subtitle = stringResource(reactions.autoConnectCondition.labelRes),
+                        icon = Icons.TwoTone.Workspaces,
+                        onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
+                        enabled = reactions.autoConnect,
+                    )
+                }
+                if (features.hasCase) {
+                    item("reaction_popup_caseopen") {
+                        SettingsSwitchItem(
+                            icon = Icons.AutoMirrored.TwoTone.Message,
+                            title = stringResource(R.string.settings_popup_caseopen_label),
+                            subtitle = stringResource(R.string.settings_popup_caseopen_description),
+                            checked = reactions.showPopUpOnCaseOpen,
+                            onCheckedChange = onShowPopUpOnCaseOpenChange,
+                            requiresUpgrade = !isPro,
+                        )
+                    }
+                }
+                item("reaction_popup_connection") {
+                    SettingsSwitchItem(
+                        icon = Icons.AutoMirrored.TwoTone.Message,
+                        title = stringResource(R.string.settings_popup_connected_label),
+                        subtitle = stringResource(R.string.settings_popup_connected_description),
+                        checked = reactions.showPopUpOnConnection,
+                        onCheckedChange = onShowPopUpOnConnectionChange,
+                        requiresUpgrade = !isPro,
                     )
                 }
             }
@@ -490,21 +615,6 @@ fun DeviceSettingsScreen(
                     SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_general_label))
                 }
 
-                if (features.hasEarDetectionToggle) {
-                    val earDetection = device.earDetectionEnabled
-                        ?: AapSetting.EarDetectionEnabled(enabled = true)
-                    item("ear_detection_toggle") {
-                        SettingsSwitchItem(
-                            icon = Icons.TwoTone.Hearing,
-                            title = stringResource(R.string.device_settings_ear_detection_label),
-                            subtitle = stringResource(R.string.device_settings_ear_detection_description),
-                            checked = earDetection.enabled,
-                            onCheckedChange = onEarDetectionEnabledChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
                 if (features.hasSleepDetection) {
                     val sleepDet = device.sleepDetection
                         ?: AapSetting.SleepDetection(enabled = true)
@@ -554,7 +664,71 @@ fun DeviceSettingsScreen(
                 Spacer(modifier = Modifier.height(16.dp))
             }
         }
+
+        if (showAutoConnectConditionDialog && device != null) {
+            AutoConnectConditionDialog(
+                current = reactions.autoConnectCondition,
+                hasEarDetection = features?.hasEarDetection == true,
+                hasCase = features?.hasCase == true,
+                onSelect = {
+                    onAutoConnectConditionChange(it)
+                    showAutoConnectConditionDialog = false
+                },
+                onDismiss = { showAutoConnectConditionDialog = false },
+            )
+        }
     }
+}
+
+@Composable
+private fun AutoConnectConditionDialog(
+    current: AutoConnectCondition,
+    hasEarDetection: Boolean,
+    hasCase: Boolean,
+    onSelect: (AutoConnectCondition) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val options = AutoConnectCondition.entries.filter { condition ->
+        when (condition) {
+            AutoConnectCondition.IN_EAR -> hasEarDetection
+            AutoConnectCondition.CASE_OPEN -> hasCase
+            AutoConnectCondition.WHEN_SEEN -> true
+        }
+    }
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(text = stringResource(R.string.settings_autoconnect_condition_label)) },
+        text = {
+            Column(Modifier.selectableGroup()) {
+                options.forEach { condition ->
+                    val isSelected = condition == current
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .selectable(
+                                selected = isSelected,
+                                onClick = { onSelect(condition) },
+                                role = Role.RadioButton,
+                            )
+                            .padding(vertical = 12.dp, horizontal = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        RadioButton(selected = isSelected, onClick = null)
+                        Text(
+                            text = stringResource(condition.labelRes),
+                            style = MaterialTheme.typography.bodyLarge,
+                            modifier = Modifier.padding(start = 16.dp),
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = stringResource(android.R.string.cancel))
+            }
+        },
+    )
 }
 
 @Composable

@@ -21,7 +21,6 @@
     <string name="upgrade_preamble">CAPod bir kişi tarafından geliştirilmiştir. Yükseltme ekstra özelliklerin kilidini açar ve uygulamanın canlı kalabilmesine yardımcı olur.</string>
     <string name="upgrade_benefit_themes">Tema özelleştirmesi</string>
     <string name="upgrade_benefit_autoplay">Oto-oynatma &amp; oto-duraklatma</string>
-    <string name="upgrade_benefit_autoconnect">Oto-bağlanma</string>
     <string name="upgrade_benefit_popups">Kutu açıldığında &amp; bağlandığında popup</string>
     <string name="upgrade_benefit_widgets">Ana ekran widgetleri</string>
     <string name="upgrade_benefit_device_settings">Gelişmiş cihaz ayarları</string>
@@ -66,7 +65,6 @@
     <string name="settings_devices_label">Cihazlar</string>
     <string name="settings_devices_description">Cihazlarınızı yönetin.</string>
     <string name="settings_reaction_label">Tepkiler</string>
-    <string name="settings_reaction_description">Olaylar ve etkileşimlere verilen tepkiler.</string>
     <string name="settings_category_yourdevice_label">Aygıtınız</string>
     <string name="settings_category_compatibility_options_title">Uyumluluk seçenekleri</string>
     <string name="settings_category_compatibility_options_description">Eğer her şey düzgün çalışıyorsa lütfen dokunma ;)</string>
