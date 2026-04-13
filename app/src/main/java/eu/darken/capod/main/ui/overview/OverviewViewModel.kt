@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.overview
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.valueBlocking
@@ -12,7 +13,6 @@ import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.permissions.Permission
-import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -21,8 +21,8 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -143,8 +143,17 @@ class OverviewViewModel @Inject constructor(
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
     }
 
-    fun onPermissionResult(@Suppress("UNUSED_PARAMETER") granted: Boolean) {
+    fun onPermissionResult() {
         permissionTool.recheck()
+    }
+
+    fun onSettingsPermissionResult() {
+        permissionTool.recheck()
+
+        launch {
+            delay(1000L)
+            permissionTool.recheck()
+        }
     }
 
     fun goToSettings() {
