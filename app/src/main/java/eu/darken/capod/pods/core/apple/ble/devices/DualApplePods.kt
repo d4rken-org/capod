@@ -144,11 +144,11 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
             return pubFlags.isBitSet(2)
         }
 
+    val hasCaseContext: Boolean
+        get() = isThisPodInThecase || isOnePodInCase || areBothPodsInCase
+
     val caseLidState: LidState
-        get() {
-            val rawstate = pubCaseLidState
-            return LidState.entries.firstOrNull { it.rawRange.contains(rawstate.toInt()) } ?: LidState.UNKNOWN
-        }
+        get() = LidState.fromRaw(pubCaseLidState, hasCaseContext)
 
     /**
      * TODO this is glitchy
@@ -158,11 +158,23 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
      * They reset after some time to their start values.
      * The upper limits are not the maximums but are only reached if playing with the case.
      */
-    enum class LidState(val rawRange: IntRange) {
-        OPEN(0x30..0x37),
-        CLOSED(0x38..0x3F),
-        NOT_IN_CASE(0x00..0x03),
-        UNKNOWN(0xFF..0xFF);
+    enum class LidState {
+        OPEN,
+        CLOSED,
+        NOT_IN_CASE,
+        UNKNOWN;
+
+        companion object {
+            fun fromRaw(raw: UByte, hasCaseContext: Boolean): LidState {
+                if (!hasCaseContext) return NOT_IN_CASE
+
+                return when ((raw.toInt() shr 3) and 0x01) {
+                    0 -> OPEN
+                    1 -> CLOSED
+                    else -> UNKNOWN
+                }
+            }
+        }
     }
 
 }
