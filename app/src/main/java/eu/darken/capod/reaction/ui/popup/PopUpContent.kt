@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -114,6 +116,7 @@ private fun DualPodContent(device: PodDevice) {
         BatteryColumn(
             iconRes = device.leftPodIcon,
             batteryPercent = device.batteryLeft.toBatteryFloat(),
+            isCharging = device.isLeftPodCharging ?: false,
             modifier = Modifier.weight(1f),
         )
 
@@ -122,6 +125,7 @@ private fun DualPodContent(device: PodDevice) {
             BatteryColumn(
                 iconRes = device.caseIcon,
                 batteryPercent = device.batteryCase.toBatteryFloat(),
+                isCharging = device.isCaseCharging ?: false,
                 modifier = Modifier.weight(1f),
             )
         }
@@ -130,6 +134,7 @@ private fun DualPodContent(device: PodDevice) {
         BatteryColumn(
             iconRes = device.rightPodIcon,
             batteryPercent = device.batteryRight.toBatteryFloat(),
+            isCharging = device.isRightPodCharging ?: false,
             modifier = Modifier.weight(1f),
         )
     }
@@ -140,6 +145,7 @@ private fun SinglePodContent(device: PodDevice) {
     BatteryColumn(
         iconRes = device.iconRes,
         batteryPercent = device.batteryHeadset.toBatteryFloat(),
+        isCharging = device.isHeadsetBeingCharged ?: false,
     )
 }
 
@@ -147,6 +153,7 @@ private fun SinglePodContent(device: PodDevice) {
 private fun BatteryColumn(
     iconRes: Int,
     batteryPercent: Float,
+    isCharging: Boolean = false,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -169,11 +176,19 @@ private fun BatteryColumn(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center,
         ) {
-            Icon(
-                painter = painterResource(getBatteryDrawable(nullablePercent)),
-                contentDescription = null,
-                modifier = Modifier.size(16.dp),
-            )
+            if (isCharging) {
+                Icon(
+                    imageVector = Icons.TwoTone.BatteryChargingFull,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp),
+                )
+            } else {
+                Icon(
+                    painter = painterResource(getBatteryDrawable(nullablePercent)),
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp),
+                )
+            }
             Spacer(modifier = Modifier.width(2.dp))
             Text(
                 text = formatBatteryPercent(context, nullablePercent),
