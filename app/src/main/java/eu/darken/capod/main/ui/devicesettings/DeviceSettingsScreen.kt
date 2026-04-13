@@ -86,6 +86,8 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.main.core.MonitorMode
+import eu.darken.capod.common.settings.InfoBoxType
 import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsPreferenceItem
 import eu.darken.capod.common.settings.SettingsSection
@@ -168,6 +170,7 @@ fun DeviceSettingsScreenHost(
         onAutoConnectConditionChange = { vm.setAutoConnectCondition(it) },
         onShowPopUpOnCaseOpenChange = { vm.setShowPopUpOnCaseOpen(it) },
         onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
+        onFixMonitorMode = { vm.setMonitorModeAutomatic() },
     )
 }
 
@@ -204,6 +207,7 @@ fun DeviceSettingsScreen(
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
+    onFixMonitorMode: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -377,6 +381,22 @@ fun DeviceSettingsScreen(
                             onCheckedChange = onShowPopUpOnConnectionChange,
                             requiresUpgrade = !isPro,
                         )
+                        val anyPopupEnabled = reactions.showPopUpOnCaseOpen || reactions.showPopUpOnConnection
+                        if (anyPopupEnabled && state.monitorMode == MonitorMode.MANUAL) {
+                            SettingsInfoBox(
+                                text = stringResource(R.string.settings_popup_warning_manual_mode),
+                                type = InfoBoxType.WARNING,
+                                action = {
+                                    TextButton(onClick = onFixMonitorMode) {
+                                        Text(stringResource(R.string.general_fix_it_action))
+                                    }
+                                },
+                            )
+                        } else if (anyPopupEnabled) {
+                            SettingsInfoBox(
+                                text = stringResource(R.string.settings_popup_info_not_in_app),
+                            )
+                        }
                     }
                 }
             }

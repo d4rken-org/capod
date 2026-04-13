@@ -52,7 +52,13 @@ class PopUpWindow @Inject constructor(
     private var lifecycleOwner: OverlayLifecycleOwner? = null
     private var deviceState: MutableState<PodDevice?>? = null
 
+    @Volatile var isMainActivityVisible: Boolean = false
+
     fun show(device: PodDevice) {
+        if (isMainActivityVisible) {
+            log(TAG) { "Suppressing popup, MainActivity is visible" }
+            return
+        }
         try {
             log(TAG) { "open()" }
 

@@ -32,6 +32,7 @@ import eu.darken.capod.common.uix.Activity2
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.main.core.themeState
+import eu.darken.capod.reaction.ui.popup.PopUpWindow
 import javax.inject.Inject
 import eu.darken.capod.common.datastore.valueBlocking
 
@@ -41,6 +42,7 @@ class MainActivity : Activity2() {
     @Inject lateinit var navCtrl: NavigationController
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
     @Inject lateinit var generalSettings: GeneralSettings
+    @Inject lateinit var popUpWindow: PopUpWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +98,17 @@ class MainActivity : Activity2() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        popUpWindow.isMainActivityVisible = true
+        popUpWindow.close()
+    }
+
+    override fun onPause() {
+        popUpWindow.isMainActivityVisible = false
+        super.onPause()
     }
 
     override fun onNewIntent(intent: Intent) {
