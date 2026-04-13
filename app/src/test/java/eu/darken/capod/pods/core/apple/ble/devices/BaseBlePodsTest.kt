@@ -16,6 +16,8 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
+import io.mockk.unmockkObject
+import org.junit.jupiter.api.AfterEach
 import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
@@ -60,6 +62,11 @@ abstract class BaseBlePodsTest : BaseTest() {
 
         mockkObject(SystemClockWrap)
         every { SystemClockWrap.elapsedRealtimeNanos } returns 1000L
+    }
+
+    @AfterEach
+    fun teardown() {
+        unmockkObject(SystemClockWrap)
     }
 
     internal suspend inline fun <reified T : BlePodSnapshot?> create(

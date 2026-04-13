@@ -90,6 +90,24 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
+        fun `one in to both in - should play if recently paused by cap`() {
+            val previous = EarDetectionState.fromDualPod(left = true, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = true,
+                wasRecentlyPausedByUs = true,
+            )
+
+            decision.shouldPlay shouldBe true
+            decision.shouldPause shouldBe false
+            decision.usedRecentCapPauseOverride shouldBe true
+        }
+
+        @Test
         fun `none in to one in - no action (need both)`() {
             val previous = EarDetectionState.fromDualPod(left = false, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = false)
@@ -286,6 +304,24 @@ class PlayPauseLogicTest : BaseTest() {
             // If already playing, inserting another pod shouldn't do anything
             decision.shouldPlay shouldBe false
             decision.shouldPause shouldBe false
+        }
+
+        @Test
+        fun `one in to both in - should play if recently paused by cap`() {
+            val previous = EarDetectionState.fromDualPod(left = true, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = true,
+                isCurrentlyPlaying = true,
+                wasRecentlyPausedByUs = true,
+            )
+
+            decision.shouldPlay shouldBe true
+            decision.shouldPause shouldBe false
+            decision.usedRecentCapPauseOverride shouldBe true
         }
 
         @Test

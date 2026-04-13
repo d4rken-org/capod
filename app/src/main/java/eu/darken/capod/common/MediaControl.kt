@@ -14,17 +14,22 @@ import javax.inject.Singleton
 class MediaControl @Inject constructor(
     private val audioManager: AudioManager,
 ) {
+    private var capPauseExpiryElapsedRealtime: Long = 0L
 
     val isPlaying: Boolean
         get() = audioManager.isMusicActive
 
+    val wasRecentlyPausedByCap: Boolean
+        get() = capPauseExpiryElapsedRealtime > SystemClock.elapsedRealtime()
+
     suspend fun sendPlay() {
         log(TAG, INFO) { "sendPlay()" }
-        if (audioManager.isMusicActive) {
+        if (audioManager.isMusicActive && !wasRecentlyPausedByCap) {
             log(TAG, INFO) { "Music is already playing, not sending play" }
             return
         }
         sendKey(KeyEvent.KEYCODE_MEDIA_PLAY)
+        clearRecentCapPause()
     }
 
     suspend fun sendPause() {
@@ -34,10 +39,15 @@ class MediaControl @Inject constructor(
             return
         }
         sendKey(KeyEvent.KEYCODE_MEDIA_PAUSE)
+        markRecentCapPause()
     }
 
     suspend fun sendPlayPause() {
         log(TAG) { "sendPlayPause()" }
+        if (wasRecentlyPausedByCap) {
+            sendPlay()
+            return
+        }
         if (audioManager.isMusicActive) {
             sendPause()
         } else {
@@ -71,7 +81,16 @@ class MediaControl @Inject constructor(
         )
     }
 
+    private fun markRecentCapPause() {
+        capPauseExpiryElapsedRealtime = SystemClock.elapsedRealtime() + RECENT_CAP_PAUSE_WINDOW_MS
+    }
+
+    private fun clearRecentCapPause() {
+        capPauseExpiryElapsedRealtime = 0L
+    }
+
     companion object {
         private val TAG = logTag("MediaControl")
+        private const val RECENT_CAP_PAUSE_WINDOW_MS = 15_000L
     }
 }
