@@ -53,9 +53,11 @@ class DeviceMonitor @Inject constructor(
         deviceStateCache.cachedStates,
         profilesRepo.profiles,
     ) { pods, aapStates, cachedStates, profiles ->
+        val profilesById = profiles.associateBy { it.id }
+
         // Live devices — BLE + AAP + cached fallback for missing fields
         val liveDevices = pods.map { pod ->
-            val profile = pod.meta.profile
+            val profile = pod.meta.profile?.id?.let(profilesById::get)
             PodDevice(
                 profileId = profile?.id,
                 label = profile?.label,
