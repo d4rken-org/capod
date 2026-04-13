@@ -4,6 +4,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.PrivacyPolicy
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
@@ -19,10 +21,12 @@ class OnboardingViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider) {
 
     fun openPrivacyPolicy() {
+        log(TAG, INFO) { "openPrivacyPolicy()" }
         webpageTool.open(PrivacyPolicy.URL)
     }
 
     fun finishOnboarding() = launch {
+        log(TAG, INFO) { "finishOnboarding()" }
         generalSettings.isOnboardingDone.valueBlocking = true
         navTo(Nav.Main.Overview, popUpTo = Nav.Main.Onboarding, inclusive = true)
     }

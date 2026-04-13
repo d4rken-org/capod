@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.combine
@@ -83,12 +84,12 @@ class WidgetConfigurationViewModel @Inject constructor(
     }
 
     fun selectProfile(profileId: ProfileId) {
-        log(TAG) { "selectProfile(profileId=$profileId)" }
+        log(TAG, INFO) { "selectProfile(profileId=$profileId)" }
         selectedProfile.value = profileId
     }
 
     fun selectPreset(preset: WidgetTheme.Preset) {
-        log(TAG) { "selectPreset(preset=$preset)" }
+        log(TAG, INFO) { "selectPreset(preset=$preset)" }
         forceCustomMode.value = false
         currentTheme.value = WidgetTheme(
             backgroundColor = preset.presetBg,
@@ -99,7 +100,7 @@ class WidgetConfigurationViewModel @Inject constructor(
     }
 
     fun enterCustomMode(resolvedBg: Int, resolvedFg: Int) {
-        log(TAG) { "enterCustomMode(resolvedBg=${String.format("#%06X", 0xFFFFFF and resolvedBg)}, resolvedFg=${String.format("#%06X", 0xFFFFFF and resolvedFg)})" }
+        log(TAG, INFO) { "enterCustomMode(resolvedBg=${String.format("#%06X", 0xFFFFFF and resolvedBg)}, resolvedFg=${String.format("#%06X", 0xFFFFFF and resolvedFg)})" }
         forceCustomMode.value = true
         // Populate null colors with the currently displayed values so the user has a starting point
         val theme = currentTheme.value
@@ -110,33 +111,33 @@ class WidgetConfigurationViewModel @Inject constructor(
     }
 
     fun setBackgroundColor(color: Int) {
-        log(TAG) { "setBackgroundColor(color=${String.format("#%06X", 0xFFFFFF and color)})" }
+        log(TAG, INFO) { "setBackgroundColor(color=${String.format("#%06X", 0xFFFFFF and color)})" }
         currentTheme.value = currentTheme.value.copy(backgroundColor = color or 0xFF000000.toInt())
     }
 
     fun setForegroundColor(color: Int) {
-        log(TAG) { "setForegroundColor(color=${String.format("#%06X", 0xFFFFFF and color)})" }
+        log(TAG, INFO) { "setForegroundColor(color=${String.format("#%06X", 0xFFFFFF and color)})" }
         currentTheme.value = currentTheme.value.copy(foregroundColor = color or 0xFF000000.toInt())
     }
 
     fun setBackgroundAlpha(alpha: Int) {
-        log(TAG) { "setBackgroundAlpha(alpha=$alpha)" }
+        log(TAG, INFO) { "setBackgroundAlpha(alpha=$alpha)" }
         currentTheme.value = currentTheme.value.copy(backgroundAlpha = alpha.coerceIn(0, 255))
     }
 
     fun toggleDeviceLabel() {
         val newValue = !currentTheme.value.showDeviceLabel
-        log(TAG) { "toggleDeviceLabel(showDeviceLabel=$newValue)" }
+        log(TAG, INFO) { "toggleDeviceLabel(showDeviceLabel=$newValue)" }
         currentTheme.value = currentTheme.value.copy(showDeviceLabel = newValue)
     }
 
     fun setShowDeviceLabel(show: Boolean) {
-        log(TAG) { "setShowDeviceLabel(show=$show)" }
+        log(TAG, INFO) { "setShowDeviceLabel(show=$show)" }
         currentTheme.value = currentTheme.value.copy(showDeviceLabel = show)
     }
 
     fun resetToDefaults() {
-        log(TAG) { "resetToDefaults()" }
+        log(TAG, INFO) { "resetToDefaults()" }
         forceCustomMode.value = false
         currentTheme.value = WidgetTheme.DEFAULT
     }
@@ -144,13 +145,13 @@ class WidgetConfigurationViewModel @Inject constructor(
     fun confirmSelection() {
         val selectedProfile = selectedProfile.value
         if (selectedProfile != null) {
-            log(TAG) { "confirmSelection(widgetId=$widgetId, selectedProfile=$selectedProfile)" }
+            log(TAG, INFO) { "confirmSelection(widgetId=$widgetId, selectedProfile=$selectedProfile)" }
             widgetSettings.saveWidgetProfile(widgetId, selectedProfile)
         }
 
         // Save theme to AppWidgetOptions bundle
         val theme = currentTheme.value
-        log(TAG) { "confirmSelection: saving theme=$theme" }
+        log(TAG, INFO) { "confirmSelection: saving theme=$theme" }
         val options = appWidgetManager.getAppWidgetOptions(widgetId)
         theme.toBundle(options)
         appWidgetManager.updateAppWidgetOptions(widgetId, options)

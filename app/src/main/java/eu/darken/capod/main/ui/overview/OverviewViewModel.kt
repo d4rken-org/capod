@@ -6,6 +6,8 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
@@ -157,32 +159,39 @@ class OverviewViewModel @Inject constructor(
     }
 
     fun goToSettings() {
+        log(TAG, INFO) { "goToSettings()" }
         navTo(Nav.Settings.Index)
     }
 
     fun goToDeviceManager() {
+        log(TAG, INFO) { "goToDeviceManager()" }
         navTo(Nav.Main.DeviceManager)
     }
 
     fun goToDeviceSettings(device: PodDevice) {
         val profileId = device.profileId ?: return
+        log(TAG, INFO) { "goToDeviceSettings(profileId=$profileId)" }
         navTo(Nav.Main.DeviceSettings(profileId))
     }
 
     fun goToEditProfile(device: PodDevice) {
         val profileId = device.profileId ?: return
+        log(TAG, INFO) { "goToEditProfile(profileId=$profileId)" }
         navTo(Nav.Main.DeviceProfileCreation(profileId = profileId))
     }
 
     fun onUpgrade() {
+        log(TAG, INFO) { "onUpgrade()" }
         navTo(Nav.Main.Upgrade)
     }
 
     fun toggleUnmatchedDevices() {
+        log(TAG, INFO) { "toggleUnmatchedDevices()" }
         showUnmatchedDevices.value = !showUnmatchedDevices.value
     }
 
     fun requestPermission(permission: Permission) {
+        log(TAG, INFO) { "requestPermission($permission)" }
         requestPermissionEvent.tryEmit(permission)
     }
 
@@ -191,9 +200,9 @@ class OverviewViewModel @Inject constructor(
         launch {
             try {
                 aapManager.sendCommand(address, AapCommand.SetAncMode(mode))
-                log(TAG) { "ANC mode set to $mode for $address" }
+                log(TAG, INFO) { "ANC mode set to $mode for $address" }
             } catch (e: Exception) {
-                log(TAG) { "Failed to set ANC mode: ${e.message}" }
+                log(TAG, WARN) { "Failed to set ANC mode: ${e.message}" }
             }
         }
     }

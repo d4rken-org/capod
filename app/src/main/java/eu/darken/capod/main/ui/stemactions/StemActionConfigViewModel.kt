@@ -2,6 +2,9 @@ package eu.darken.capod.main.ui.stemactions
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.reaction.core.stem.StemAction
 import eu.darken.capod.reaction.core.stem.StemActionSettings
@@ -49,41 +52,49 @@ class StemActionConfigViewModel @Inject constructor(
     )
 
     fun setLeftSingle(action: StemAction) = launch {
+        log(TAG, INFO) { "setLeftSingle($action)" }
         stemActionSettings.leftSingle.update { action }
         applyCrossSideEffect(action, stemActionSettings.rightSingle)
     }
 
     fun setLeftDouble(action: StemAction) = launch {
+        log(TAG, INFO) { "setLeftDouble($action)" }
         stemActionSettings.leftDouble.update { action }
         applyCrossSideEffect(action, stemActionSettings.rightDouble)
     }
 
     fun setLeftTriple(action: StemAction) = launch {
+        log(TAG, INFO) { "setLeftTriple($action)" }
         stemActionSettings.leftTriple.update { action }
         applyCrossSideEffect(action, stemActionSettings.rightTriple)
     }
 
     fun setLeftLong(action: StemAction) = launch {
+        log(TAG, INFO) { "setLeftLong($action)" }
         stemActionSettings.leftLong.update { action }
         applyCrossSideEffect(action, stemActionSettings.rightLong)
     }
 
     fun setRightSingle(action: StemAction) = launch {
+        log(TAG, INFO) { "setRightSingle($action)" }
         stemActionSettings.rightSingle.update { action }
         applyCrossSideEffect(action, stemActionSettings.leftSingle)
     }
 
     fun setRightDouble(action: StemAction) = launch {
+        log(TAG, INFO) { "setRightDouble($action)" }
         stemActionSettings.rightDouble.update { action }
         applyCrossSideEffect(action, stemActionSettings.leftDouble)
     }
 
     fun setRightTriple(action: StemAction) = launch {
+        log(TAG, INFO) { "setRightTriple($action)" }
         stemActionSettings.rightTriple.update { action }
         applyCrossSideEffect(action, stemActionSettings.leftTriple)
     }
 
     fun setRightLong(action: StemAction) = launch {
+        log(TAG, INFO) { "setRightLong($action)" }
         stemActionSettings.rightLong.update { action }
         applyCrossSideEffect(action, stemActionSettings.leftLong)
     }
@@ -103,5 +114,12 @@ class StemActionConfigViewModel @Inject constructor(
         }
     }
 
-    fun resetAll() = launch { stemActionSettings.resetAll() }
+    fun resetAll() = launch {
+        log(TAG, INFO) { "resetAll()" }
+        stemActionSettings.resetAll()
+    }
+
+    companion object {
+        private val TAG = logTag("StemAction", "Config", "VM")
+    }
 }

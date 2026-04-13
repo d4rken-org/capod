@@ -8,6 +8,8 @@ import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
@@ -163,27 +165,27 @@ class DeviceProfileCreationViewModel @Inject constructor(
 
     fun updateModel(model: PodModel) {
         _currentState.value = _currentState.value.copy(selectedModel = model)
-        log(TAG) { "Selected model: $model" }
+        log(TAG, INFO) { "Selected model: $model" }
     }
 
     fun updateIdentityKey(key: IdentityResolvingKey?) {
         _currentState.value = _currentState.value.copy(identityKeyHex = key?.toHex())
-        log(TAG) { "Identity key updated: ${key != null}" }
+        log(TAG, INFO) { "Identity key updated: ${key != null}" }
     }
 
     fun updateEncryptionKey(key: ProximityEncryptionKey?) {
         _currentState.value = _currentState.value.copy(encryptionKeyHex = key?.toHex())
-        log(TAG) { "Encryption key updated: ${key != null}" }
+        log(TAG, INFO) { "Encryption key updated: ${key != null}" }
     }
 
     fun updateSelectedDevice(device: BluetoothDevice2?) {
         _currentState.value = _currentState.value.copy(selectedDeviceAddress = device?.address)
-        log(TAG) { "Selected device updated: ${device?.name} (${device?.address})" }
+        log(TAG, INFO) { "Selected device updated: ${device?.name} (${device?.address})" }
     }
 
     fun updateMinimumSignalQuality(quality: Float) {
         _currentState.value = _currentState.value.copy(minimumSignalQuality = quality)
-        log(TAG) { "Minimum signal quality updated: $quality" }
+        log(TAG, INFO) { "Minimum signal quality updated: $quality" }
     }
 
     fun hasUnsavedChanges(): Boolean = _currentState.value != _initialState.value
@@ -194,7 +196,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
     }
 
     fun onBackPressed() {
-        log(TAG) { "onBackPressed()" }
+        log(TAG, INFO) { "onBackPressed()" }
         if (hasUnsavedChanges()) {
             showUnsavedChangesEvent.tryEmit(Unit)
         } else {
@@ -203,7 +205,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
     }
 
     fun saveProfile() {
-        log(TAG) { "saveProfile()" }
+        log(TAG, INFO) { "saveProfile()" }
         val editorState = _currentState.value
         val name = editorState.name.trim()
 
@@ -213,7 +215,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
         }
 
         if (editorState.selectedModel == null) {
-            log(TAG) { "No model selected" }
+            log(TAG, INFO) { "No model selected" }
             return
         }
 
@@ -232,7 +234,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
                             address = editorState.selectedDeviceAddress,
                         )
                     }
-                    log(TAG) { "Profile updated: $profileId" }
+                    log(TAG, INFO) { "Profile updated: $profileId" }
                 } else {
                     val profile = AppleDeviceProfile(
                         id = UUID.randomUUID().toString(),
@@ -244,18 +246,18 @@ class DeviceProfileCreationViewModel @Inject constructor(
                         address = editorState.selectedDeviceAddress,
                     )
                     deviceProfilesRepo.addProfile(profile)
-                    log(TAG) { "Profile created: $profile" }
+                    log(TAG, INFO) { "Profile created: $profile" }
                 }
                 exitScreen()
             } catch (e: Exception) {
-                log(TAG) { "Failed to save profile: $e" }
+                log(TAG, WARN) { "Failed to save profile: $e" }
                 errorEvents.emitBlocking(e)
             }
         }
     }
 
     fun requestDeleteProfile() {
-        log(TAG) { "requestDeleteProfile()" }
+        log(TAG, INFO) { "requestDeleteProfile()" }
         showDeleteConfirmationEvent.tryEmit(Unit)
     }
 
@@ -265,10 +267,10 @@ class DeviceProfileCreationViewModel @Inject constructor(
             launch {
                 try {
                     deviceProfilesRepo.removeProfile(id)
-                    log(TAG) { "Profile deleted: $id" }
+                    log(TAG, INFO) { "Profile deleted: $id" }
                     exitScreen()
                 } catch (e: Exception) {
-                    log(TAG) { "Failed to delete profile: $e" }
+                    log(TAG, WARN) { "Failed to delete profile: $e" }
                     errorEvents.emitBlocking(e)
                 }
             }
@@ -276,7 +278,7 @@ class DeviceProfileCreationViewModel @Inject constructor(
     }
 
     fun discardChanges() {
-        log(TAG) { "discardChanges()" }
+        log(TAG, INFO) { "discardChanges()" }
         exitScreen()
     }
 
@@ -300,13 +302,13 @@ class DeviceProfileCreationViewModel @Inject constructor(
                     )
                     _initialState.value = loadedState
                     _currentState.value = loadedState
-                    log(TAG) { "Profile loaded: ${profile.label}" }
+                    log(TAG, INFO) { "Profile loaded: ${profile.label}" }
                 } else {
-                    log(TAG) { "Profile not found: $profileId" }
+                    log(TAG, WARN) { "Profile not found: $profileId" }
                     errorEvents.emitBlocking(IllegalArgumentException("Profile not found"))
                 }
             } catch (e: Exception) {
-                log(TAG) { "Failed to load profile: $e" }
+                log(TAG, WARN) { "Failed to load profile: $e" }
                 errorEvents.emitBlocking(e)
             }
         }

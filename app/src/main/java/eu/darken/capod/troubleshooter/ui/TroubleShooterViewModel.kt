@@ -82,7 +82,7 @@ class TroubleShooterViewModel @Inject constructor(
     }
 
     fun troubleShootBle() = launch(context = dispatcherProvider.IO) {
-        log(TAG) { "troubleShootBle()" }
+        log(TAG, INFO) { "troubleShootBle()" }
 
         generalSettings.scannerMode.valueBlocking = ScannerMode.LOW_LATENCY
 

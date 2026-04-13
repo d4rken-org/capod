@@ -4,6 +4,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.value
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -167,7 +168,7 @@ class DeviceSettingsViewModel @Inject constructor(
                 log(TAG, WARN) { "nudgeConnection threw: ${e.message}" }
                 false
             }
-            log(TAG) { "nudgeConnection($bonded) accepted=$accepted" }
+            log(TAG, INFO) { "nudgeConnection($bonded) accepted=$accepted" }
             if (!accepted) {
                 events.tryEmit(Event.OpenBluetoothSettings)
             }
@@ -180,7 +181,7 @@ class DeviceSettingsViewModel @Inject constructor(
         val address = currentAddress() ?: return false
         return try {
             aapManager.sendCommand(address, command)
-            log(TAG) { "Sent $command to $address" }
+            log(TAG, INFO) { "Sent $command to $address" }
             true
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to send $command: ${e.message}" }
@@ -253,7 +254,7 @@ class DeviceSettingsViewModel @Inject constructor(
         val address = currentAddress() ?: return@launch
         try {
             aapManager.sendCommand(address, AapCommand.SetDeviceName(name))
-            log(TAG) { "Sent SetDeviceName to $address" }
+            log(TAG, INFO) { "Sent SetDeviceName to $address" }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to send SetDeviceName: ${e.message}" }
             events.emit(Event.SendFailed(AapCommand.SetDeviceName(name), e.message))
@@ -296,40 +297,57 @@ class DeviceSettingsViewModel @Inject constructor(
         updateProfileNow(transform)
     }
 
-    fun setOnePodMode(enabled: Boolean) = launch { updateProfileNow { it.copy(onePodMode = enabled) } }
+    fun setOnePodMode(enabled: Boolean) {
+        log(TAG, INFO) { "setOnePodMode($enabled)" }
+        launch { updateProfileNow { it.copy(onePodMode = enabled) } }
+    }
 
-    fun setAutoPlay(enabled: Boolean) = proGatedReaction(enabled) { it.copy(autoPlay = enabled) }
+    fun setAutoPlay(enabled: Boolean) {
+        log(TAG, INFO) { "setAutoPlay($enabled)" }
+        proGatedReaction(enabled) { it.copy(autoPlay = enabled) }
+    }
 
-    fun setAutoPause(enabled: Boolean) = proGatedReaction(enabled) { it.copy(autoPause = enabled) }
+    fun setAutoPause(enabled: Boolean) {
+        log(TAG, INFO) { "setAutoPause($enabled)" }
+        proGatedReaction(enabled) { it.copy(autoPause = enabled) }
+    }
 
     fun setAutoConnect(enabled: Boolean) = launch {
+        log(TAG, INFO) { "setAutoConnect($enabled)" }
         updateProfileNow { it.copy(autoConnect = enabled) }
         if (enabled) {
             // Auto-connect requires ALWAYS mode to react to BLE/case/ear events when
             // nothing is connected. We intentionally do NOT revert on disable — the user
             // may have set ALWAYS manually, or another profile may still need it.
             if (generalSettings.monitorMode.value() != MonitorMode.ALWAYS) {
-                log(TAG) { "Forcing monitorMode to ALWAYS because autoConnect was enabled" }
+                log(TAG, INFO) { "Forcing monitorMode to ALWAYS because autoConnect was enabled" }
                 generalSettings.monitorMode.value(MonitorMode.ALWAYS)
             }
         }
     }
 
     fun setAutoConnectCondition(condition: AutoConnectCondition) = launch {
+        log(TAG, INFO) { "setAutoConnectCondition($condition)" }
         updateProfileNow { it.copy(autoConnectCondition = condition) }
     }
 
-    fun setShowPopUpOnCaseOpen(enabled: Boolean) =
+    fun setShowPopUpOnCaseOpen(enabled: Boolean) {
+        log(TAG, INFO) { "setShowPopUpOnCaseOpen($enabled)" }
         proGatedReaction(enabled) { it.copy(showPopUpOnCaseOpen = enabled) }
+    }
 
-    fun setShowPopUpOnConnection(enabled: Boolean) =
+    fun setShowPopUpOnConnection(enabled: Boolean) {
+        log(TAG, INFO) { "setShowPopUpOnConnection($enabled)" }
         proGatedReaction(enabled) { it.copy(showPopUpOnConnection = enabled) }
+    }
 
     fun setMonitorModeAutomatic() = launch {
+        log(TAG, INFO) { "setMonitorModeAutomatic()" }
         generalSettings.monitorMode.value(MonitorMode.AUTOMATIC)
     }
 
     fun navToStemConfig() = launch {
+        log(TAG, INFO) { "navToStemConfig()" }
         if (upgradeRepo.isPro()) {
             navTo(Nav.Main.StemActionConfig)
         } else {
@@ -338,6 +356,7 @@ class DeviceSettingsViewModel @Inject constructor(
     }
 
     fun launchUpgrade() {
+        log(TAG, INFO) { "launchUpgrade()" }
         navTo(Nav.Main.Upgrade)
     }
 
