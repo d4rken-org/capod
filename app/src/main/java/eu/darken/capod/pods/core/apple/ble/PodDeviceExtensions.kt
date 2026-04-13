@@ -3,6 +3,17 @@ package eu.darken.capod.pods.core.apple.ble
 import android.content.Context
 import android.icu.text.RelativeDateTimeFormatter
 import androidx.annotation.DrawableRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Battery0Bar
+import androidx.compose.material.icons.twotone.Battery1Bar
+import androidx.compose.material.icons.twotone.Battery2Bar
+import androidx.compose.material.icons.twotone.Battery3Bar
+import androidx.compose.material.icons.twotone.Battery4Bar
+import androidx.compose.material.icons.twotone.Battery5Bar
+import androidx.compose.material.icons.twotone.Battery6Bar
+import androidx.compose.material.icons.twotone.BatteryFull
+import androidx.compose.material.icons.automirrored.twotone.BatteryUnknown
+import androidx.compose.ui.graphics.vector.ImageVector
 import eu.darken.capod.R
 import java.time.Duration
 import java.time.Instant
@@ -29,6 +40,18 @@ fun getBatteryDrawable(percent: Float?): Int = when {
     percent > 0.20f -> R.drawable.ic_baseline_battery_2_bar_24
     percent > 0.05f -> R.drawable.ic_baseline_battery_1_bar_24
     else -> R.drawable.ic_baseline_battery_0_bar_24
+}
+
+fun getBatteryIcon(percent: Float?): ImageVector = when {
+    percent == null -> Icons.AutoMirrored.TwoTone.BatteryUnknown
+    percent > 0.95f -> Icons.TwoTone.BatteryFull
+    percent > 0.80f -> Icons.TwoTone.Battery6Bar
+    percent > 0.65f -> Icons.TwoTone.Battery5Bar
+    percent > 0.50f -> Icons.TwoTone.Battery4Bar
+    percent > 0.35f -> Icons.TwoTone.Battery3Bar
+    percent > 0.20f -> Icons.TwoTone.Battery2Bar
+    percent > 0.05f -> Icons.TwoTone.Battery1Bar
+    else -> Icons.TwoTone.Battery0Bar
 }
 
 fun BlePodSnapshot.lastSeenFormatted(now: Instant): String {

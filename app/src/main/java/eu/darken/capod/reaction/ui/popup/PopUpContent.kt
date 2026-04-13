@@ -34,11 +34,11 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
-import eu.darken.capod.main.ui.overview.cards.SignalIndicator
+import eu.darken.capod.main.ui.overview.cards.components.SignalIndicator
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
-import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
+import eu.darken.capod.pods.core.apple.ble.getBatteryIcon
 import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
 import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
 
@@ -184,7 +184,7 @@ private fun BatteryColumn(
                 )
             } else {
                 Icon(
-                    painter = painterResource(getBatteryDrawable(nullablePercent)),
+                    imageVector = getBatteryIcon(nullablePercent),
                     contentDescription = null,
                     modifier = Modifier.size(16.dp),
                 )
