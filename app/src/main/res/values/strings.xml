@@ -85,6 +85,9 @@
     <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
     <string name="settings_popup_connected_label">Show connection popup</string>
     <string name="settings_popup_connected_description">Show a popup when the device connects for the first time.</string>
+    <string name="settings_popup_info_not_in_app">Popups are only shown when you are not in the app.</string>
+    <string name="settings_popup_warning_manual_mode">Popups require the monitor to be running. Your monitor mode is set to \"When app is open\", which stops the monitor when you leave the app.</string>
+    <string name="general_fix_it_action">Fix it</string>
 
     <string name="notification_channel_device_status_label">Device status</string>
     <string name="notification_channel_device_status_connected_label">Connected device</string>

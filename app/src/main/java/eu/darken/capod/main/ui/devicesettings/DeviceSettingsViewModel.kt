@@ -87,7 +87,14 @@ class DeviceSettingsViewModel @Inject constructor(
             // The Bluetooth HEADSET profile lookup can be slow to produce its first value.
             // Seed this branch so the screen can render immediately after navigation.
             bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
-        ) { _, device, upgrade, forcing, connectedDevices ->
+            generalSettings.monitorMode.flow,
+        ) { args ->
+            val device = args[1] as PodDevice?
+            val upgrade = args[2] as eu.darken.capod.common.upgrade.UpgradeRepo.Info
+            val forcing = args[3] as Boolean
+            @Suppress("UNCHECKED_CAST")
+            val connectedDevices = args[4] as Collection<eu.darken.capod.common.bluetooth.BluetoothDevice2>
+            val monitorMode = args[5] as MonitorMode
             val connectedAddresses = connectedDevices.map { it.address }.toSet()
             State(
                 device = device,
@@ -96,6 +103,7 @@ class DeviceSettingsViewModel @Inject constructor(
                 isNudgeAvailable = bluetoothManager.isNudgeAvailable,
                 isForceConnecting = forcing,
                 isClassicallyConnected = device?.address?.let { it in connectedAddresses } == true,
+                monitorMode = monitorMode,
             )
         }
     }.asLiveState()
@@ -118,6 +126,7 @@ class DeviceSettingsViewModel @Inject constructor(
         val isNudgeAvailable: Boolean = true,
         val isForceConnecting: Boolean = false,
         val isClassicallyConnected: Boolean = false,
+        val monitorMode: MonitorMode = MonitorMode.AUTOMATIC,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
     }
@@ -315,6 +324,10 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setShowPopUpOnConnection(enabled: Boolean) =
         proGatedReaction(enabled) { it.copy(showPopUpOnConnection = enabled) }
+
+    fun setMonitorModeAutomatic() = launch {
+        generalSettings.monitorMode.value(MonitorMode.AUTOMATIC)
+    }
 
     fun navToStemConfig() = launch {
         if (upgradeRepo.isPro()) {
