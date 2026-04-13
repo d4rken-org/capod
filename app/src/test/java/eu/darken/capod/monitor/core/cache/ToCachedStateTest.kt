@@ -134,5 +134,25 @@ class ToCachedStateTest : BaseTest() {
             )
             liveDevice().toCachedState(existing, now).shouldNotBeNull()
         }
+
+        @Test
+        fun `returns new state when a live slot refreshes an old cached timestamp`() {
+            val existing = CachedDeviceState(
+                profileId = "test-profile",
+                model = PodModel.AIRPODS_PRO3,
+                left = CachedDeviceState.CachedBatterySlot(0.8f, now.minusSeconds(10)),
+                right = CachedDeviceState.CachedBatterySlot(0.7f, now.minusSeconds(10)),
+                case = CachedDeviceState.CachedBatterySlot(0.5f, now.minusSeconds(177 * 60 * 60)),
+                isLeftCharging = false,
+                isRightCharging = false,
+                isCaseCharging = false,
+                isHeadsetCharging = false,
+                lastSeenAt = now.minusSeconds(10),
+            )
+
+            liveDevice(leftBattery = 0.8f, rightBattery = 0.7f, caseBattery = 0.5f)
+                .toCachedState(existing, now)
+                .shouldNotBeNull()
+        }
     }
 }
