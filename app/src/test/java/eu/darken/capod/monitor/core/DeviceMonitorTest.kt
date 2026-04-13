@@ -10,6 +10,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -17,12 +18,17 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -104,6 +110,24 @@ class DeviceMonitorTest : BaseTest() {
             every { meta } returns appleMeta
             every { this@mockk.model } returns profile.model
             every { this@mockk.signalQuality } returns signalQuality
+        }
+    }
+
+    private fun mockLiveDualBlePodWithProfile(
+        profile: DeviceProfile,
+        batteryLeft: Float = 0.9f,
+        batteryRight: Float = 1.0f,
+    ): BlePodSnapshot {
+        val bleMeta = object : BlePodSnapshot.Meta {
+            override val profile: DeviceProfile? = profile
+        }
+        return mockk<DualBlePodSnapshot>(relaxed = true) {
+            every { meta } returns bleMeta
+            every { this@mockk.model } returns profile.model
+            every { seenFirstAt } returns Instant.parse("2026-04-05T17:50:00Z")
+            every { seenLastAt } returns Instant.parse("2026-04-05T18:00:00Z")
+            every { batteryLeftPodPercent } returns batteryLeft
+            every { batteryRightPodPercent } returns batteryRight
         }
     }
 
@@ -507,5 +531,63 @@ class DeviceMonitorTest : BaseTest() {
         val devices = monitor.devices.first()
 
         devices.size shouldBe 2
+    }
+
+    @Test
+    fun `cache-only refresh does not trigger another persist cycle`() = runTest(testDispatcher) {
+        val bleFlow = MutableStateFlow(listOf(mockLiveDualBlePodWithProfile(testProfile)))
+        val aapFlow = MutableStateFlow(emptyMap<BluetoothAddress, AapPodState>())
+        val cacheFlow = MutableStateFlow<Map<String, CachedDeviceState>>(emptyMap())
+        val profilesFlow = MutableStateFlow<List<DeviceProfile>>(listOf(testProfile))
+
+        val blePodMonitor: BlePodMonitor = mockk {
+            every { devices } returns bleFlow
+        }
+        val aapManager: AapConnectionManager = mockk {
+            every { allStates } returns aapFlow
+        }
+        val deviceStateCache: DeviceStateCache = mockk(relaxed = true) {
+            every { cachedStates } returns cacheFlow
+            coEvery { load(any()) } answers { cacheFlow.value[firstArg<String>()] }
+            coEvery { save(any(), any()) } answers {
+                val profileId = firstArg<String>()
+                val state = secondArg<CachedDeviceState>()
+                cacheFlow.value += (profileId to state)
+                Unit
+            }
+        }
+        val profilesRepo: DeviceProfilesRepo = mockk {
+            every { profiles } returns profilesFlow
+        }
+        val aapLifecycleManager: AapLifecycleManager = mockk(relaxed = true)
+
+        val monitor = DeviceMonitor(
+            appScope = backgroundScope,
+            blePodMonitor = blePodMonitor,
+            aapManager = aapManager,
+            deviceStateCache = deviceStateCache,
+            profilesRepo = profilesRepo,
+            aapLifecycleManager = aapLifecycleManager,
+            timeSource = timeSource,
+        )
+
+        val collector: Job = backgroundScope.launch {
+            monitor.devices.collect { }
+        }
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { deviceStateCache.save(testProfile.id, any()) }
+
+        val persisted = cacheFlow.value.getValue(testProfile.id)
+        cacheFlow.value += testProfile.id to persisted.copy(
+            left = CachedDeviceState.CachedBatterySlot(
+                percent = 0.1f,
+                updatedAt = persisted.left?.updatedAt ?: Instant.parse("2026-04-05T18:00:00Z"),
+            ),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { deviceStateCache.save(testProfile.id, any()) }
+        collector.cancel()
     }
 }

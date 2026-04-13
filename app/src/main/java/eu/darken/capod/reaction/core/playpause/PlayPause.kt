@@ -9,8 +9,10 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.primaryDevice
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
@@ -50,7 +52,8 @@ class PlayPause @Inject constructor(
                     deviceMonitor.primaryDevice()
                 }
             }
-            .distinctUntilChanged()
+            // Cache persistence can update battery timestamps without changing any reaction-relevant state.
+            .distinctUntilChangedBy { it?.toPlayPauseMonitorKey() }
             .withPrevious()
             .filter { (previous, current) ->
                 if (previous == null || current == null) return@filter false
@@ -362,6 +365,35 @@ class PlayPause @Inject constructor(
         val confirmedPendingPlay: Boolean,
         val stagedConfirmation: Boolean,
     )
+
+    internal data class PlayPauseMonitorKey(
+        val profileId: String?,
+        val autoPlay: Boolean,
+        val autoPause: Boolean,
+        val onePodMode: Boolean,
+        val hasEarDetection: Boolean,
+        val hasDualPods: Boolean,
+        val leftInEar: Boolean?,
+        val rightInEar: Boolean?,
+        val isBeingWorn: Boolean?,
+        val hasAapEarDetection: Boolean,
+        val hasBleSnapshot: Boolean,
+    )
+
+    internal fun PodDevice.toPlayPauseMonitorKey(): PlayPauseMonitorKey =
+        PlayPauseMonitorKey(
+            profileId = profileId,
+            autoPlay = reactions.autoPlay,
+            autoPause = reactions.autoPause,
+            onePodMode = reactions.onePodMode,
+            hasEarDetection = hasEarDetection,
+            hasDualPods = hasDualPods,
+            leftInEar = isLeftInEar,
+            rightInEar = isRightInEar,
+            isBeingWorn = isBeingWorn,
+            hasAapEarDetection = aap?.aapEarDetection != null,
+            hasBleSnapshot = ble != null,
+        )
 
     companion object {
         private val TAG = logTag("Reaction", "PlayPause")

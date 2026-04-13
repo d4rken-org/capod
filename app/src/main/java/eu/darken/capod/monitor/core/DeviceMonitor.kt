@@ -49,15 +49,14 @@ class DeviceMonitor @Inject constructor(
         aapLifecycleManager.start()
     }
 
-    val devices: Flow<List<PodDevice>> = combine(
+    private val liveState: Flow<LiveMergeState> = combine(
         blePodMonitor.devices,
         aapManager.allStates,
-        deviceStateCache.cachedStates,
         profilesRepo.profiles,
-    ) { pods, aapStates, cachedStates, profiles ->
+    ) { pods, aapStates, profiles ->
         val profilesById = profiles.associateBy { it.id }
 
-        // Live devices — BLE + AAP + cached fallback for missing fields
+        // Live devices — BLE + AAP. Cache is merged later so cache writes don't feed back here.
         val liveDevices = pods.map { pod ->
             val profile = pod.meta.profile?.id?.let(profilesById::get)
             PodDevice(
@@ -65,13 +64,31 @@ class DeviceMonitor @Inject constructor(
                 label = profile?.label,
                 ble = pod,
                 aap = aapStates.forProfile(profile),
-                cached = profile?.id?.let { cachedStates[it] },
                 profileAddress = profile?.address,
                 profileModel = profile?.model,
                 profileKeyState = profile.toBleKeyState(),
                 reactions = profile.toReactionConfig(),
             )
         }
+
+        LiveMergeState(
+            liveDevices = liveDevices,
+            profiles = profiles,
+            aapStates = aapStates,
+        )
+    }.onEach { liveState ->
+        persistLiveDevices(liveState.liveDevices)
+    }
+
+    val devices: Flow<List<PodDevice>> = combine(
+        liveState,
+        deviceStateCache.cachedStates,
+    ) { liveState, cachedStates ->
+        val liveDevices = liveState.liveDevices.map { device ->
+            device.copy(cached = device.profileId?.let { cachedStates[it] })
+        }
+        val profiles = liveState.profiles
+        val aapStates = liveState.aapStates
 
         // Collapse live duplicates sharing an identity-backed profile — e.g. when the legacy
         // signal-quality fallback misattributed ambient strangers to our profile.
@@ -149,20 +166,24 @@ class DeviceMonitor @Inject constructor(
         }
 
         dedupedLiveDevices + nonLiveDevices
-    }
-        .onEach { devices -> persistLiveDevices(devices) }
-        .replayingShare(appScope)
+    }.replayingShare(appScope)
 
     private suspend fun persistLiveDevices(devices: List<PodDevice>) {
         for (device in devices) {
             val profileId = device.profileId ?: continue
             val existing = deviceStateCache.cachedStates.value[profileId]
-            val newState = device.toCachedState(existing, timeSource.now()) ?: continue
+            val newState = device.copy(cached = existing).toCachedState(existing, timeSource.now()) ?: continue
 
             log(TAG, VERBOSE) { "Persisting state for $profileId" }
             deviceStateCache.save(profileId, newState)
         }
     }
+
+    private data class LiveMergeState(
+        val liveDevices: List<PodDevice>,
+        val profiles: List<DeviceProfile>,
+        val aapStates: Map<BluetoothAddress, AapPodState>,
+    )
 
     suspend fun getDeviceForProfile(profileId: String): PodDevice? {
         log(TAG) { "getDeviceForProfile(profileId=$profileId)" }
