@@ -1,9 +1,13 @@
 package eu.darken.capod.pods.core.apple.ble.devices
 
+import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.pods.core.apple.ble.devices.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.ble.devices.airpods.HasStateDetectionAirPods
+import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import java.time.Instant
 
 class DualApplePodsTest : BaseBlePodsTest() {
 
@@ -208,6 +212,45 @@ class DualApplePodsTest : BaseBlePodsTest() {
             // 38 0011 1000
             caseLidState shouldBe DualApplePods.LidState.CLOSED
         }
+    }
+
+    private fun directAirPodsPro(
+        status: Int,
+        rawCaseLidState: Int,
+    ) = AirPodsPro(
+        scanResult = BleScanResult(
+            receivedAt = Instant.parse("2026-01-01T00:00:00Z"),
+            address = "77:49:4C:D8:25:0C",
+            rssi = -66,
+            generatedAtNanos = 136136027721826,
+            manufacturerSpecificData = mutableMapOf(),
+        ),
+        payload = ProximityPayload(
+            public = ProximityPayload.Public(
+                ubyteArrayOf(
+                    0x01u,
+                    0x0Eu,
+                    0x20u,
+                    status.toUByte(),
+                    0x89u,
+                    0xB3u,
+                    rawCaseLidState.toUByte(),
+                    0x00u,
+                    0x00u,
+                )
+            ),
+            private = null,
+        ),
+        meta = ApplePods.AppleMeta(),
+    )
+
+    @Test
+    fun `test AirPodDevice - case lid uses status derived case context`() {
+        directAirPodsPro(status = 0x10, rawCaseLidState = 0x51).caseLidState shouldBe DualApplePods.LidState.OPEN
+        directAirPodsPro(status = 0x04, rawCaseLidState = 0x5A).caseLidState shouldBe DualApplePods.LidState.CLOSED
+        directAirPodsPro(status = 0x40, rawCaseLidState = 0x51).caseLidState shouldBe DualApplePods.LidState.OPEN
+        directAirPodsPro(status = 0x2B, rawCaseLidState = 0x11).caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
+        directAirPodsPro(status = 0x20, rawCaseLidState = 0x5A).caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
     }
 
     @Test
