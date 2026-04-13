@@ -35,7 +35,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -109,7 +108,7 @@ fun UpgradeScreen(
     val benefits = listOf(
         Benefit(Icons.TwoTone.Palette, R.string.upgrade_benefit_themes),
         Benefit(Icons.TwoTone.PlayCircle, R.string.upgrade_benefit_autoplay),
-        Benefit(Icons.TwoTone.BluetoothConnected, R.string.upgrade_benefit_autoconnect),
+
         Benefit(Icons.AutoMirrored.TwoTone.Message, R.string.upgrade_benefit_popups),
         Benefit(Icons.TwoTone.Widgets, R.string.upgrade_benefit_widgets),
         Benefit(Icons.TwoTone.Tune, R.string.upgrade_benefit_device_settings),
@@ -120,143 +119,144 @@ fun UpgradeScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         containerColor = MaterialTheme.colorScheme.surface,
-        topBar = {
-            TopAppBar(
-                title = {},
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                            contentDescription = null,
-                        )
-                    }
-                },
-            )
-        },
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(paddingValues)
-                .padding(horizontal = 24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-
-            Box(contentAlignment = Alignment.Center) {
-                Surface(
-                    modifier = Modifier.size(120.dp),
-                    shape = CircleShape,
-                    color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f),
-                ) {}
-                Image(
-                    painter = painterResource(R.drawable.splash_graphic2),
-                    contentDescription = null,
-                    modifier = Modifier.size(80.dp),
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = buildAnnotatedString {
-                    append("CAPod ")
-                    withStyle(SpanStyle(color = colorResource(R.color.brand_secondary), fontWeight = FontWeight.Bold)) {
-                        append("FOSS")
-                    }
-                },
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                ),
-                modifier = Modifier.fillMaxWidth(),
+        Box(modifier = Modifier.padding(paddingValues)) {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                Spacer(modifier = Modifier.height(48.dp))
+
+                Box(contentAlignment = Alignment.Center) {
+                    Surface(
+                        modifier = Modifier.size(120.dp),
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.5f),
+                    ) {}
+                    Image(
+                        painter = painterResource(R.drawable.splash_graphic2),
+                        contentDescription = null,
+                        modifier = Modifier.size(80.dp),
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
                 Text(
-                    text = stringResource(R.string.upgrade_foss_preamble),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(16.dp),
+                    text = buildAnnotatedString {
+                        append("CAPod ")
+                        withStyle(SpanStyle(color = colorResource(R.color.brand_secondary), fontWeight = FontWeight.Bold)) {
+                            append("FOSS")
+                        }
+                    },
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
-            }
 
-            Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Column(modifier = Modifier.padding(vertical = 4.dp)) {
-                    benefits.forEach { benefit ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 12.dp, vertical = 4.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Surface(
-                                shape = RoundedCornerShape(8.dp),
-                                color = MaterialTheme.colorScheme.secondaryContainer,
-                                modifier = Modifier.size(28.dp),
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(
+                        text = stringResource(R.string.upgrade_foss_preamble),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(16.dp),
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Column(modifier = Modifier.padding(vertical = 4.dp)) {
+                        benefits.forEach { benefit ->
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 12.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Icon(
-                                        imageVector = benefit.icon,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.onSecondaryContainer,
-                                        modifier = Modifier.size(16.dp),
-                                    )
+                                Surface(
+                                    shape = RoundedCornerShape(8.dp),
+                                    color = MaterialTheme.colorScheme.secondaryContainer,
+                                    modifier = Modifier.size(28.dp),
+                                ) {
+                                    Box(contentAlignment = Alignment.Center) {
+                                        Icon(
+                                            imageVector = benefit.icon,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.onSecondaryContainer,
+                                            modifier = Modifier.size(16.dp),
+                                        )
+                                    }
                                 }
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(
+                                    text = stringResource(benefit.textRes),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                )
                             }
-                            Spacer(modifier = Modifier.width(12.dp))
-                            Text(
-                                text = stringResource(benefit.textRes),
-                                style = MaterialTheme.typography.bodyLarge,
-                            )
                         }
                     }
                 }
+
+                Text(
+                    text = stringResource(R.string.upgrade_benefit_disclaimer),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(top = 8.dp),
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Button(
+                    onClick = onSponsor,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(52.dp),
+                    shape = RoundedCornerShape(12.dp),
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Favorite,
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp),
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = stringResource(R.string.upgrade_foss_sponsor_action),
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                }
+
+                Text(
+                    text = stringResource(R.string.upgrade_foss_sponsor_subtitle),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 8.dp),
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
             }
 
-            Text(
-                text = stringResource(R.string.upgrade_benefit_disclaimer),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 8.dp),
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Button(
-                onClick = onSponsor,
+            IconButton(
+                onClick = onNavigateUp,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(52.dp),
-                shape = RoundedCornerShape(12.dp),
+                    .align(Alignment.TopStart)
+                    .padding(4.dp),
             ) {
                 Icon(
-                    imageVector = Icons.TwoTone.Favorite,
+                    imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
                     contentDescription = null,
-                    modifier = Modifier.size(20.dp),
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = stringResource(R.string.upgrade_foss_sponsor_action),
-                    style = MaterialTheme.typography.titleMedium,
                 )
             }
-
-            Text(
-                text = stringResource(R.string.upgrade_foss_sponsor_subtitle),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.padding(top = 8.dp),
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }

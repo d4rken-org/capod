@@ -39,7 +39,6 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -123,7 +122,7 @@ fun UpgradeScreen(
     val benefits = listOf(
         Benefit(Icons.TwoTone.Palette, R.string.upgrade_benefit_themes),
         Benefit(Icons.TwoTone.PlayCircle, R.string.upgrade_benefit_autoplay),
-        Benefit(Icons.TwoTone.BluetoothConnected, R.string.upgrade_benefit_autoconnect),
+
         Benefit(Icons.AutoMirrored.TwoTone.Message, R.string.upgrade_benefit_popups),
         Benefit(Icons.TwoTone.Widgets, R.string.upgrade_benefit_widgets),
         Benefit(Icons.TwoTone.Tune, R.string.upgrade_benefit_device_settings),
@@ -132,129 +131,131 @@ fun UpgradeScreen(
     )
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {},
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
-                            contentDescription = null,
-                        )
-                    }
-                },
-            )
-        },
+        containerColor = MaterialTheme.colorScheme.surface,
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(paddingValues)
-                .padding(horizontal = 24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-
-            Box(contentAlignment = Alignment.Center) {
-                Surface(
-                    modifier = Modifier.size(120.dp),
-                    shape = CircleShape,
-                    color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
-                ) {}
-                Image(
-                    painter = painterResource(R.drawable.splash_graphic2),
-                    contentDescription = null,
-                    modifier = Modifier.size(80.dp),
-                )
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = buildAnnotatedString {
-                    append("CAPod ")
-                    withStyle(SpanStyle(color = colorResource(R.color.brand_tertiary), fontWeight = FontWeight.Bold)) {
-                        append("Pro")
-                    }
-                },
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
-                ),
-                modifier = Modifier.fillMaxWidth(),
+        Box(modifier = Modifier.padding(paddingValues)) {
+            Column(
+                modifier = Modifier
+                    .verticalScroll(rememberScrollState())
+                    .padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                Spacer(modifier = Modifier.height(48.dp))
+
+                Box(contentAlignment = Alignment.Center) {
+                    Surface(
+                        modifier = Modifier.size(120.dp),
+                        shape = CircleShape,
+                        color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
+                    ) {}
+                    Image(
+                        painter = painterResource(R.drawable.splash_graphic2),
+                        contentDescription = null,
+                        modifier = Modifier.size(80.dp),
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
                 Text(
-                    text = stringResource(R.string.upgrade_preamble),
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(16.dp),
+                    text = buildAnnotatedString {
+                        append("CAPod ")
+                        withStyle(SpanStyle(color = colorResource(R.color.brand_tertiary), fontWeight = FontWeight.Bold)) {
+                            append("Pro")
+                        }
+                    },
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
-            }
 
-            Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Column(modifier = Modifier.padding(vertical = 4.dp)) {
-                    benefits.forEach { benefit ->
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 12.dp, vertical = 4.dp),
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Surface(
-                                shape = RoundedCornerShape(8.dp),
-                                color = MaterialTheme.colorScheme.primaryContainer,
-                                modifier = Modifier.size(28.dp),
+                Card(
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(
+                        text = stringResource(R.string.upgrade_preamble),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(16.dp),
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Column(modifier = Modifier.padding(vertical = 4.dp)) {
+                        benefits.forEach { benefit ->
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 12.dp, vertical = 4.dp),
+                                verticalAlignment = Alignment.CenterVertically,
                             ) {
-                                Box(contentAlignment = Alignment.Center) {
-                                    Icon(
-                                        imageVector = benefit.icon,
-                                        contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                                        modifier = Modifier.size(16.dp),
-                                    )
+                                Surface(
+                                    shape = RoundedCornerShape(8.dp),
+                                    color = MaterialTheme.colorScheme.primaryContainer,
+                                    modifier = Modifier.size(28.dp),
+                                ) {
+                                    Box(contentAlignment = Alignment.Center) {
+                                        Icon(
+                                            imageVector = benefit.icon,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                                            modifier = Modifier.size(16.dp),
+                                        )
+                                    }
                                 }
+                                Spacer(modifier = Modifier.width(12.dp))
+                                Text(
+                                    text = stringResource(benefit.textRes),
+                                    style = MaterialTheme.typography.bodyLarge,
+                                )
                             }
-                            Spacer(modifier = Modifier.width(12.dp))
-                            Text(
-                                text = stringResource(benefit.textRes),
-                                style = MaterialTheme.typography.bodyLarge,
-                            )
                         }
                     }
                 }
+
+                Text(
+                    text = stringResource(R.string.upgrade_benefit_disclaimer),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(top = 8.dp),
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                if (state == null) {
+                    CircularProgressIndicator(modifier = Modifier.padding(16.dp))
+                } else {
+                    PricingContent(
+                        state = state,
+                        onSubscription = onSubscription,
+                        onSubscriptionTrial = onSubscriptionTrial,
+                        onIap = onIap,
+                        onRestore = onRestore,
+                    )
+                }
+
+                Spacer(modifier = Modifier.height(24.dp))
             }
 
-            Text(
-                text = stringResource(R.string.upgrade_benefit_disclaimer),
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(top = 8.dp),
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            if (state == null) {
-                CircularProgressIndicator(modifier = Modifier.padding(16.dp))
-            } else {
-                PricingContent(
-                    state = state,
-                    onSubscription = onSubscription,
-                    onSubscriptionTrial = onSubscriptionTrial,
-                    onIap = onIap,
-                    onRestore = onRestore,
+            IconButton(
+                onClick = onNavigateUp,
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(4.dp),
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.TwoTone.ArrowBack,
+                    contentDescription = null,
                 )
             }
-
-            Spacer(modifier = Modifier.height(24.dp))
         }
     }
 }
