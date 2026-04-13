@@ -21,13 +21,16 @@ import io.mockk.verify
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -297,5 +300,18 @@ class DeviceSettingsViewModelTest : BaseTest() {
         vm.initialize(testAddress)
 
         vm.state.first().isClassicallyConnected shouldBe false
+    }
+
+    @Test
+    fun `state emits even when connected devices flow has not emitted yet`() = runTest(testDispatcher) {
+        every { bluetoothManager.connectedDevices } returns flow { awaitCancellation() }
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        val state = withTimeout(1_000) { vm.state.first() }
+
+        state.device?.address shouldBe testAddress
+        state.isClassicallyConnected shouldBe false
     }
 }
