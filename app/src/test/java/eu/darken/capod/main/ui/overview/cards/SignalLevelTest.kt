@@ -1,5 +1,8 @@
 package eu.darken.capod.main.ui.overview.cards
 
+import eu.darken.capod.main.ui.overview.cards.components.SignalLevel
+import eu.darken.capod.main.ui.overview.cards.components.signalLevelOf
+
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
