@@ -80,13 +80,16 @@ class DeviceSettingsViewModel @Inject constructor(
             deviceForProfile(profileId),
             upgradeRepo.upgradeInfo,
             isForceConnecting,
-        ) { _, device, upgrade, forcing ->
+            bluetoothManager.connectedDevices,
+        ) { _, device, upgrade, forcing, connectedDevices ->
+            val connectedAddresses = connectedDevices.map { it.address }.toSet()
             State(
                 device = device,
                 now = Instant.now(),
                 isPro = upgrade.isPro,
                 isNudgeAvailable = bluetoothManager.isNudgeAvailable,
                 isForceConnecting = forcing,
+                isClassicallyConnected = device?.address?.let { it in connectedAddresses } == true,
             )
         }
     }.asLiveState()
@@ -108,6 +111,7 @@ class DeviceSettingsViewModel @Inject constructor(
         val isPro: Boolean = false,
         val isNudgeAvailable: Boolean = true,
         val isForceConnecting: Boolean = false,
+        val isClassicallyConnected: Boolean = false,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
     }
