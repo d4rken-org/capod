@@ -3,6 +3,7 @@ package eu.darken.capod.upgrade.ui
 import android.app.Activity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
@@ -116,18 +117,22 @@ class UpgradeViewModel @Inject constructor(
     }
 
     fun onGoIap() {
+        log(TAG, INFO) { "onGoIap()" }
         billingEvents.tryEmit(BillingEvent.LaunchIap)
     }
 
     fun onGoSubscription() {
+        log(TAG, INFO) { "onGoSubscription()" }
         billingEvents.tryEmit(BillingEvent.LaunchSubscription)
     }
 
     fun onGoSubscriptionTrial() {
+        log(TAG, INFO) { "onGoSubscriptionTrial()" }
         billingEvents.tryEmit(BillingEvent.LaunchSubscriptionTrial)
     }
 
     fun launchBillingIap(activity: Activity) = launch {
+        log(TAG, INFO) { "launchBillingIap()" }
         try {
             withContext(dispatcherProvider.Main) {
                 upgradeRepo.launchBillingFlow(activity, CapodSku.Iap.PRO_UPGRADE)
@@ -139,6 +144,7 @@ class UpgradeViewModel @Inject constructor(
     }
 
     fun launchBillingSubscription(activity: Activity) = launch {
+        log(TAG, INFO) { "launchBillingSubscription()" }
         try {
             withContext(dispatcherProvider.Main) {
                 upgradeRepo.launchBillingFlow(
@@ -154,6 +160,7 @@ class UpgradeViewModel @Inject constructor(
     }
 
     fun launchBillingSubscriptionTrial(activity: Activity) = launch {
+        log(TAG, INFO) { "launchBillingSubscriptionTrial()" }
         try {
             withContext(dispatcherProvider.Main) {
                 upgradeRepo.launchBillingFlow(
@@ -169,9 +176,10 @@ class UpgradeViewModel @Inject constructor(
     }
 
     fun restorePurchase() = launch {
+        log(TAG, INFO) { "restorePurchase()" }
         try {
             val data = upgradeRepo.refresh()
-            log(TAG) { "Restore check: $data" }
+            log(TAG, INFO) { "Restore check: $data" }
             val info = upgradeRepo.upgradeInfo.first()
             if (info.isPro) {
                 log(TAG) { "Pro purchase found" }

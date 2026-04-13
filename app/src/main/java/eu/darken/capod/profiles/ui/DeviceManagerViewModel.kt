@@ -2,6 +2,7 @@ package eu.darken.capod.profiles.ui
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 
@@ -28,22 +29,22 @@ class DeviceManagerViewModel @Inject constructor(
     )
 
     fun onAddDevice() {
-        log(TAG) { "onAddDevice()" }
+        log(TAG, INFO) { "onAddDevice()" }
         navTo(Nav.Main.DeviceProfileCreation())
     }
 
     fun onEditProfile(profile: DeviceProfile) {
-        log(TAG) { "onEditProfile(): $profile" }
+        log(TAG, INFO) { "onEditProfile(): $profile" }
         navTo(Nav.Main.DeviceProfileCreation(profileId = profile.id))
     }
 
     fun onDeviceSettings(profile: DeviceProfile) {
-        log(TAG) { "onDeviceSettings(): $profile" }
+        log(TAG, INFO) { "onDeviceSettings(): $profile" }
         navTo(Nav.Main.DeviceSettings(profileId = profile.id))
     }
 
     fun onReorder(profileIds: List<ProfileId>) = launch {
-        log(TAG) { "onReorder(): ${profileIds.size} profiles" }
+        log(TAG, INFO) { "onReorder(): ${profileIds.size} profiles" }
         deviceProfilesRepo.reorderProfilesById(profileIds)
     }
 

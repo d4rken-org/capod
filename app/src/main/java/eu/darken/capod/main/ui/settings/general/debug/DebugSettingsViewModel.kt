@@ -3,6 +3,8 @@ package eu.darken.capod.main.ui.settings.general.debug
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 
 import eu.darken.capod.common.uix.ViewModel4
@@ -35,14 +37,17 @@ class DebugSettingsViewModel @Inject constructor(
     }.asLiveState()
 
     fun setDebugModeEnabled(enabled: Boolean) {
+        log(TAG, INFO) { "setDebugModeEnabled($enabled)" }
         debugSettings.isDebugModeEnabled.valueBlocking = enabled
     }
 
     fun setShowFakeData(enabled: Boolean) {
+        log(TAG, INFO) { "setShowFakeData($enabled)" }
         debugSettings.showFakeData.valueBlocking = enabled
     }
 
     fun setShowUnfiltered(enabled: Boolean) {
+        log(TAG, INFO) { "setShowUnfiltered($enabled)" }
         debugSettings.showUnfiltered.valueBlocking = enabled
     }
 

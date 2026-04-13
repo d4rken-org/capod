@@ -3,6 +3,8 @@ package eu.darken.capod.main.ui.settings.general
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.theming.ThemeColor
@@ -76,34 +78,42 @@ class GeneralSettingsViewModel @Inject constructor(
     }.asLiveState()
 
     fun setMonitorMode(mode: MonitorMode) {
+        log(TAG, INFO) { "setMonitorMode($mode)" }
         generalSettings.monitorMode.valueBlocking = mode
     }
 
     fun setScannerMode(mode: ScannerMode) {
+        log(TAG, INFO) { "setScannerMode($mode)" }
         generalSettings.scannerMode.valueBlocking = mode
     }
 
     fun setShowConnectedNotification(enabled: Boolean) {
+        log(TAG, INFO) { "setShowConnectedNotification($enabled)" }
         generalSettings.useExtraMonitorNotification.valueBlocking = enabled
     }
 
     fun setKeepNotificationAfterDisconnect(enabled: Boolean) {
+        log(TAG, INFO) { "setKeepNotificationAfterDisconnect($enabled)" }
         generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking = enabled
     }
 
     fun setOffloadedFilteringDisabled(disabled: Boolean) {
+        log(TAG, INFO) { "setOffloadedFilteringDisabled($disabled)" }
         generalSettings.isOffloadedFilteringDisabled.valueBlocking = disabled
     }
 
     fun setOffloadedBatchingDisabled(disabled: Boolean) {
+        log(TAG, INFO) { "setOffloadedBatchingDisabled($disabled)" }
         generalSettings.isOffloadedBatchingDisabled.valueBlocking = disabled
     }
 
     fun setUseIndirectScanResultCallback(enabled: Boolean) {
+        log(TAG, INFO) { "setUseIndirectScanResultCallback($enabled)" }
         generalSettings.useIndirectScanResultCallback.valueBlocking = enabled
     }
 
     fun setThemeMode(mode: ThemeMode) = launch {
+        log(TAG, INFO) { "setThemeMode($mode)" }
         if (isPro.first()) {
             generalSettings.themeMode.valueBlocking = mode
         } else {
@@ -112,6 +122,7 @@ class GeneralSettingsViewModel @Inject constructor(
     }
 
     fun setThemeStyle(style: ThemeStyle) = launch {
+        log(TAG, INFO) { "setThemeStyle($style)" }
         if (isPro.first()) {
             generalSettings.themeStyle.valueBlocking = style
         } else {
@@ -120,6 +131,7 @@ class GeneralSettingsViewModel @Inject constructor(
     }
 
     fun setThemeColor(color: ThemeColor) = launch {
+        log(TAG, INFO) { "setThemeColor($color)" }
         if (isPro.first()) {
             generalSettings.themeColor.valueBlocking = color
         } else {
@@ -128,10 +140,12 @@ class GeneralSettingsViewModel @Inject constructor(
     }
 
     fun launchUpgrade() {
+        log(TAG, INFO) { "launchUpgrade()" }
         navTo(Nav.Main.Upgrade)
     }
 
     fun goToDebugSettings() {
+        log(TAG, INFO) { "goToDebugSettings()" }
         navTo(Nav.Settings.Debug)
     }
 

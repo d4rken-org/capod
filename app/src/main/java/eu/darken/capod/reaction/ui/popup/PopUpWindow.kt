@@ -17,6 +17,7 @@ import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -60,7 +61,7 @@ class PopUpWindow @Inject constructor(
             return
         }
         try {
-            log(TAG) { "open()" }
+            log(TAG, INFO) { "open()" }
 
             if (composeView?.parent != null && deviceState != null) {
                 log(TAG) { "Popup already visible, updating device." }
@@ -101,7 +102,7 @@ class PopUpWindow @Inject constructor(
     }
 
     fun close() = try {
-        log(TAG) { "close()" }
+        log(TAG, INFO) { "close()" }
         if (composeView?.parent != null) {
             teardown()
         } else {
