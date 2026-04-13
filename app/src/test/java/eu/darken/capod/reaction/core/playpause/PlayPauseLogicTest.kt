@@ -478,6 +478,139 @@ class PlayPauseLogicTest : BaseTest() {
     }
 
     @Nested
+    inner class BleConfirmationTests {
+
+        @Test
+        fun `ble-only normal mode autoplay waits for confirmation`() {
+            val rawDecision = playPause.evaluatePlayPauseAction(
+                previous = EarDetectionState.fromDualPod(left = true, right = false),
+                current = EarDetectionState.fromDualPod(left = true, right = true),
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+            )
+
+            val result = playPause.applyBleOnlyPlayConfirmation(
+                pending = null,
+                profileId = "profile",
+                onePodMode = false,
+                autoPlayEnabled = true,
+                rawDecision = rawDecision,
+                currentState = EarDetectionState.fromDualPod(left = true, right = true),
+                shouldStageBleOnlyPlay = true,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+            )
+
+            result.decision.shouldPlay shouldBe false
+            result.decision.reason shouldBe "Normal mode: both pods in ear (waiting for BLE confirmation)"
+            result.pending shouldBe PlayPause.PendingPlayConfirmation(
+                profileId = "profile",
+                onePodMode = false,
+                targetState = EarDetectionState.fromDualPod(left = true, right = true),
+                reason = "Normal mode: both pods in ear",
+            )
+            result.stagedConfirmation shouldBe true
+            result.confirmedPendingPlay shouldBe false
+        }
+
+        @Test
+        fun `ble-only normal mode autoplay confirms on stable follow-up state`() {
+            val pending = PlayPause.PendingPlayConfirmation(
+                profileId = "profile",
+                onePodMode = false,
+                targetState = EarDetectionState.fromDualPod(left = true, right = true),
+                reason = "Normal mode: both pods in ear",
+            )
+
+            val rawDecision = playPause.evaluatePlayPauseAction(
+                previous = EarDetectionState.fromDualPod(left = true, right = true),
+                current = EarDetectionState.fromDualPod(left = true, right = true),
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+            )
+
+            val result = playPause.applyBleOnlyPlayConfirmation(
+                pending = pending,
+                profileId = "profile",
+                onePodMode = false,
+                autoPlayEnabled = true,
+                rawDecision = rawDecision,
+                currentState = EarDetectionState.fromDualPod(left = true, right = true),
+                shouldStageBleOnlyPlay = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+            )
+
+            result.decision.shouldPlay shouldBe true
+            result.decision.reason shouldBe "Normal mode: both pods in ear (confirmed by a second state update)"
+            result.pending shouldBe null
+            result.stagedConfirmation shouldBe false
+            result.confirmedPendingPlay shouldBe true
+        }
+
+        @Test
+        fun `aap-backed autoplay bypasses confirmation`() {
+            val rawDecision = playPause.evaluatePlayPauseAction(
+                previous = EarDetectionState.fromDualPod(left = true, right = false),
+                current = EarDetectionState.fromDualPod(left = true, right = true),
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+            )
+
+            val result = playPause.applyBleOnlyPlayConfirmation(
+                pending = null,
+                profileId = "profile",
+                onePodMode = false,
+                autoPlayEnabled = true,
+                rawDecision = rawDecision,
+                currentState = EarDetectionState.fromDualPod(left = true, right = true),
+                shouldStageBleOnlyPlay = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+            )
+
+            result.decision.shouldPlay shouldBe true
+            result.pending shouldBe null
+            result.stagedConfirmation shouldBe false
+            result.confirmedPendingPlay shouldBe false
+        }
+
+        @Test
+        fun `pending ble-only autoplay is dropped when state reverts`() {
+            val pending = PlayPause.PendingPlayConfirmation(
+                profileId = "profile",
+                onePodMode = false,
+                targetState = EarDetectionState.fromDualPod(left = true, right = true),
+                reason = "Normal mode: both pods in ear",
+            )
+
+            val rawDecision = playPause.evaluatePlayPauseAction(
+                previous = EarDetectionState.fromDualPod(left = true, right = true),
+                current = EarDetectionState.fromDualPod(left = true, right = false),
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+            )
+
+            val result = playPause.applyBleOnlyPlayConfirmation(
+                pending = pending,
+                profileId = "profile",
+                onePodMode = false,
+                autoPlayEnabled = true,
+                rawDecision = rawDecision,
+                currentState = EarDetectionState.fromDualPod(left = true, right = false),
+                shouldStageBleOnlyPlay = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+            )
+
+            result.decision.shouldPlay shouldBe false
+            result.pending shouldBe null
+            result.stagedConfirmation shouldBe false
+            result.confirmedPendingPlay shouldBe false
+        }
+    }
+
+    @Nested
     inner class EarDetectionStateTests {
 
         @Test
