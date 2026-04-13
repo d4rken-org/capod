@@ -3,6 +3,7 @@ package eu.darken.capod.main.ui.widget
 import android.content.Context
 import androidx.glance.appwidget.updateAll
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import javax.inject.Inject
@@ -15,7 +16,7 @@ class WidgetManager @Inject constructor(
 ) {
 
     suspend fun refreshWidgets() {
-        log(TAG) { "refreshWidgets()" }
+        log(TAG, VERBOSE) { "refreshWidgets()" }
         BatteryGlanceWidget().updateAll(context)
     }
 

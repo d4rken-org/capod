@@ -22,9 +22,9 @@ class BleScanResultForwarder @Inject constructor() {
     val results: Flow<Collection<ScanResult>> = forwarder
 
     fun forward(scanResults: Collection<ScanResult>) {
-        log(TAG, VERBOSE) { "forward($scanResults)" }
+        log(TAG, VERBOSE) { "forward(${scanResults.logSummary()})" }
         val success = forwarder.tryEmit(scanResults)
-        if (!success) log(TAG, WARN) { "Failed to forward (overflow?) $scanResults" }
+        if (!success) log(TAG, WARN) { "Failed to forward (overflow?) ${scanResults.logSummary()}" }
     }
 
     companion object {

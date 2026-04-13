@@ -10,7 +10,7 @@ suspend fun Collection<BleScanResult>.onlyNewAndUnique(): List<BleScanResult> = 
         // For each address we only want the newest result, upstream may batch data
         val newest = sameAdrDevs.maxByOrNull { it.generatedAtNanos }!!
         sameAdrDevs.minus(newest).let {
-            if (it.isNotEmpty()) log( VERBOSE) { "Discarding stale results: $it" }
+            if (it.isNotEmpty()) log(VERBOSE) { "Discarding stale results: ${it.logSummary()}" }
         }
         newest
     }

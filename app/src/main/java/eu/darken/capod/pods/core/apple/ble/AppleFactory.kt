@@ -1,9 +1,9 @@
 package eu.darken.capod.pods.core.apple.ble
 
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.bluetooth.logSummary
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
-import eu.darken.capod.common.debug.logging.asLog
+import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
@@ -40,21 +40,23 @@ class AppleFactory @Inject constructor(
         val messages = try {
             continuityProtocolDecoder.decode(scanResult)
         } catch (e: Exception) {
-            log(TAG, WARN) { "Data wasn't continuity protocol conform:\n${e.asLog()}" }
+            log(TAG, VERBOSE) { "Not a continuity payload: ${scanResult.logSummary()} (${e.javaClass.simpleName})" }
             return null
         }
         if (messages.isEmpty()) {
-            log(TAG, WARN) { "Data contained no continuity messages: $scanResult" }
+            log(TAG, VERBOSE) { "No continuity messages in ${scanResult.logSummary()}" }
             return null
         }
 
         if (messages.size > 1) {
-            log(TAG, WARN) { "Decoded multiple continuity messages, picking first: $messages" }
+            log(TAG, DEBUG) {
+                "Decoded ${messages.size} continuity messages, picking first for ${scanResult.logSummary()}"
+            }
         }
 
         val proximityMessage = proximityPairingDecoder.decode(messages.first())
         if (proximityMessage == null) {
-            log(TAG) { "Not a proximity pairing message: $messages" }
+            log(TAG, VERBOSE) { "Not a proximity pairing message for ${scanResult.logSummary()}" }
             return null
         }
 
@@ -71,7 +73,9 @@ class AppleFactory @Inject constructor(
         }
 
         val isIrkMatch = profile != null
-        if (isIrkMatch) log(TAG, VERBOSE) { "IRK match for $scanResult -> $profile" }
+        if (isIrkMatch) {
+            log(TAG, VERBOSE) { "IRK match for ${scanResult.logSummary()} -> ${profile?.logSummary()}" }
+        }
 
         var payload = ProximityPayload(
             public = ProximityPayload.Public(

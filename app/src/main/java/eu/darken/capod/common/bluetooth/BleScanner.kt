@@ -44,7 +44,9 @@ class BleScanner @Inject constructor(
         disableOffloadBatching: Boolean = false,
         disableDirectScanCallback: Boolean = false,
     ): Flow<Collection<BleScanResult>> = callbackFlow {
-        log(TAG) { "scan(filters=$filters, scannerMode=$scannerMode)" }
+        log(TAG) {
+            "scan(filterCount=${filters.size}, scannerMode=$scannerMode, directCallback=${!disableDirectScanCallback})"
+        }
 
         val adapter = bluetoothManager.adapter ?: throw IllegalStateException("Bluetooth adapter unavailable")
 
@@ -70,7 +72,7 @@ class BleScanner @Inject constructor(
                         filters.isEmpty() -> true
                         else -> filters.any { it.matches(result) }
                     }
-                    if (!passed) log(TAG, VERBOSE) { "Manually filtered $result" }
+                    if (!passed) log(TAG, VERBOSE) { "Manually filtered ${result.logSummary()}" }
                     passed
                 }
                 .map { BleScanResult.fromScanResult(it, timeSource) }
@@ -82,7 +84,7 @@ class BleScanner @Inject constructor(
                 log(TAG, VERBOSE) {
                     val delay = timeSource.currentTimeMillis() - lastScanAt
                     lastScanAt = timeSource.currentTimeMillis()
-                    "onScanResult(delay=${delay}ms, callbackType=$callbackType, result=$result)"
+                    "onScanResult(delay=${delay}ms, callbackType=$callbackType, ${result.logSummary()})"
                 }
 
                 trySend(filterResults(setOf(result)))
@@ -92,7 +94,7 @@ class BleScanner @Inject constructor(
                 log(TAG, VERBOSE) {
                     val delay = timeSource.currentTimeMillis() - lastScanAt
                     lastScanAt = timeSource.currentTimeMillis()
-                    "onBatchScanResults(delay=${delay}ms, results=$results)"
+                    "onBatchScanResults(delay=${delay}ms, ${results.logSummary()})"
                 }
 
                 trySend(filterResults(results))
@@ -115,7 +117,6 @@ class BleScanner @Inject constructor(
             launch {
                 log(TAG) { "Flush job launched" }
                 while (isActive) {
-                    log(TAG, VERBOSE) { "Flushing scan results." }
                     // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
                     adapter.bluetoothLeScanner.flushPendingScanResults(callback)
                     when (scannerMode) {
@@ -168,10 +169,14 @@ class BleScanner @Inject constructor(
 
         if (disableDirectScanCallback) {
             val callbackIntent = createStartIntent()
-            log(TAG) { "Intent callback: startScan(filters=$filters, settings=$scanSettings, callbackIntent=$callbackIntent)" }
+            log(TAG) {
+                "startScan(mode=$scannerMode, filterCount=${filterList.size}, batching=$useOffloadedBatching, filtering=$useOffloadedFiltering, callback=intent)"
+            }
             scanner.startScan(filterList, scanSettings, callbackIntent)
         } else {
-            log(TAG) { "Direct callback: startScan(filters=$filters, settings=$scanSettings, callback=$callback)" }
+            log(TAG) {
+                "startScan(mode=$scannerMode, filterCount=${filterList.size}, batching=$useOffloadedBatching, filtering=$useOffloadedFiltering, callback=direct)"
+            }
             scanner.startScan(filterList, scanSettings, callback)
         }
 
