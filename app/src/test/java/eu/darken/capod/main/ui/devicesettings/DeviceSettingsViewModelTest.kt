@@ -53,6 +53,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
+    private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
 
     private fun mockBondedDevice(address: BluetoothAddress): BluetoothDevice2 = mockk {
         every { this@mockk.address } returns address
@@ -80,9 +81,11 @@ class DeviceSettingsViewModelTest : BaseTest() {
         upgradeRepo = mockk<UpgradeRepo>().also {
             every { it.upgradeInfo } returns upgradeInfoFlow
         }
+        connectedDevicesFlow = MutableStateFlow(emptyList())
         bluetoothManager = mockk(relaxed = true) {
             every { isNudgeAvailable } returns true
             every { bondedDevices() } returns flowOf(emptySet())
+            every { connectedDevices } returns connectedDevicesFlow
         }
         profilesRepo = mockk(relaxed = true)
         generalSettings = mockk(relaxed = true)
@@ -274,5 +277,25 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val sendFailed = event.shouldBeInstanceOf<DeviceSettingsViewModel.Event.SendFailed>()
         sendFailed.command shouldBe AapCommand.SetDeviceName("NewName")
         sendFailed.message shouldBe "socket closed"
+    }
+
+    @Test
+    fun `isClassicallyConnected is true when device address is in connected devices`() = runTest(testDispatcher) {
+        connectedDevicesFlow.value = listOf(mockBondedDevice(testAddress))
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().isClassicallyConnected shouldBe true
+    }
+
+    @Test
+    fun `isClassicallyConnected is false when device address is not in connected devices`() = runTest(testDispatcher) {
+        connectedDevicesFlow.value = listOf(mockBondedDevice("XX:XX:XX:XX:XX:XX"))
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().isClassicallyConnected shouldBe false
     }
 }

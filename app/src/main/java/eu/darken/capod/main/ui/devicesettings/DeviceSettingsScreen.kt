@@ -273,12 +273,20 @@ fun DeviceSettingsScreen(
 
             // Not connected info — BLE live but no AAP connection
             if (device != null && device.ble != null && !device.isAapConnected && device.address != null) {
-                item("not_connected_info") {
-                    NotConnectedCard(
-                        isNudgeAvailable = state.isNudgeAvailable,
-                        isForceConnecting = state.isForceConnecting,
-                        onConnect = onForceConnect,
-                    )
+                if (state.isClassicallyConnected) {
+                    // Device is connected for audio but AAP isn't available — show passive info
+                    item("aap_unavailable_info") {
+                        AapUnavailableCard()
+                    }
+                } else {
+                    // Device is nearby but not connected — prompt user to connect
+                    item("not_connected_info") {
+                        NotConnectedCard(
+                            isNudgeAvailable = state.isNudgeAvailable,
+                            isForceConnecting = state.isForceConnecting,
+                            onConnect = onForceConnect,
+                        )
+                    }
                 }
             }
 
@@ -823,6 +831,29 @@ private fun NotConnectedCard(
                     ),
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun AapUnavailableCard() {
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.device_settings_aap_unavailable_label),
+                style = MaterialTheme.typography.titleMedium,
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.device_settings_aap_unavailable_description),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
         }
     }
 }
