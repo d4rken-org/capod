@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview
 
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.DebugSettings
@@ -34,6 +35,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import testhelpers.BaseTest
+import testhelpers.TestTimeSource
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.datastore.FakeDataStoreValue
 import testhelpers.livedata.InstantExecutorExtension
@@ -52,6 +54,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
+    private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
@@ -126,6 +129,7 @@ class OverviewViewModelTest : BaseTest() {
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
         aapManager = mockk(relaxed = true),
+        timeSource = timeSource,
     )
 
     @Nested

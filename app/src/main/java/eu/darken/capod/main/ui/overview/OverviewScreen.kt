@@ -38,6 +38,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
@@ -327,7 +328,7 @@ private fun PodDeviceCard(
 private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
     OverviewScreen(
         state = OverviewViewModel.State(
-            now = Instant.now(),
+            now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = listOf(
                 MockPodDataProvider.dualPodMonitoredMixed(),
@@ -356,7 +357,7 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
 private fun OverviewScreenEmptyPreview() = PreviewWrapper {
     OverviewScreen(
         state = OverviewViewModel.State(
-            now = Instant.now(),
+            now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = emptyList(),
             isDebugMode = false,
@@ -378,7 +379,7 @@ private fun OverviewScreenEmptyPreview() = PreviewWrapper {
 private fun OverviewScreenNoProfilesPreview() = PreviewWrapper {
     OverviewScreen(
         state = OverviewViewModel.State(
-            now = Instant.now(),
+            now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = emptyList(),
             isDebugMode = false,
@@ -400,7 +401,7 @@ private fun OverviewScreenNoProfilesPreview() = PreviewWrapper {
 private fun OverviewScreenBluetoothOffPreview() = PreviewWrapper {
     OverviewScreen(
         state = OverviewViewModel.State(
-            now = Instant.now(),
+            now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = emptyList(),
             isDebugMode = false,

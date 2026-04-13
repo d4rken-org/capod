@@ -1,6 +1,7 @@
 package eu.darken.capod.pods.core.apple.aap
 
 import android.bluetooth.BluetoothDevice
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -37,6 +38,7 @@ import javax.inject.Singleton
 class AapConnectionManager @Inject constructor(
     private val socketFactory: L2capSocketFactory,
     @AppScope private val scope: CoroutineScope,
+    private val timeSource: TimeSource,
 ) {
     companion object {
         private val TAG = logTag("AapConnectionMgr")
@@ -77,7 +79,7 @@ class AapConnectionManager @Inject constructor(
         intentionalDisconnects.remove(address)
 
         val profile = AapDeviceProfile.Companion.forModel(model)
-        val connection = AapConnection(device, profile, socketFactory)
+        val connection = AapConnection(device, profile, socketFactory, timeSource = timeSource)
         connections[address] = connection
 
         try {

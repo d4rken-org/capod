@@ -1,5 +1,6 @@
 package eu.darken.capod.common.debug.recording.core
 
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.debug.logging.FileLogger
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
@@ -10,7 +11,9 @@ import kotlinx.coroutines.sync.withLock
 import java.io.File
 import javax.inject.Inject
 
-class Recorder @Inject constructor() {
+class Recorder @Inject constructor(
+    private val timeSource: TimeSource,
+) {
     private val mutex = Mutex()
     private var fileLogger: FileLogger? = null
 
@@ -23,7 +26,7 @@ class Recorder @Inject constructor() {
     suspend fun start(path: File) = mutex.withLock {
         if (fileLogger != null) return@withLock
         this.path = path
-        fileLogger = FileLogger(path)
+        fileLogger = FileLogger(path, timeSource)
         fileLogger?.let {
             it.start()
             Logging.install(it)

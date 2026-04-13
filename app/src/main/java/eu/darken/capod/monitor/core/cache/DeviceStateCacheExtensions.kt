@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core.cache
 
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cache.CachedDeviceState.CachedBatterySlot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
@@ -18,7 +19,7 @@ import java.time.Instant
  */
 fun PodDevice.toCachedState(
     existing: CachedDeviceState?,
-    now: Instant = Instant.now(),
+    now: Instant = SystemTimeSource.now(),
 ): CachedDeviceState? {
     if (!isLive) return null
     val pid = profileId ?: return null

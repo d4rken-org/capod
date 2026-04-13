@@ -43,6 +43,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
@@ -415,7 +416,7 @@ private fun DualPodsCardFullPreview() = PreviewWrapper {
     DualPodsCard(
         device = MockPodDataProvider.dualPodMonitoredWithAap(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
         isPro = false,
         onDeviceSettings = {},
     )
@@ -427,7 +428,7 @@ private fun DualPodsCardMinimalPreview() = PreviewWrapper {
     DualPodsCard(
         device = MockPodDataProvider.dualPodMonitored(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
     )
 }
 
@@ -437,7 +438,7 @@ private fun DualPodsCardCachedPreview() = PreviewWrapper {
     DualPodsCard(
         device = MockPodDataProvider.dualPodCachedOnly(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
     )
 }
 
@@ -447,7 +448,7 @@ private fun DualPodsCardMissingAddressPreview() = PreviewWrapper {
     DualPodsCard(
         device = MockPodDataProvider.dualPodMonitoredMixed(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
         onEditProfile = {},
     )
 }

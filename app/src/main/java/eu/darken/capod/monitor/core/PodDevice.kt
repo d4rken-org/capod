@@ -3,6 +3,7 @@ package eu.darken.capod.monitor.core
 import android.content.Context
 import androidx.compose.runtime.Stable
 import eu.darken.capod.R
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
@@ -73,7 +74,7 @@ data class PodDevice(
     val signalQuality: Float
         get() {
             val bleQuality = ble?.signalQuality ?: 0f
-            return (bleQuality + computeAapBoost(Instant.now())).coerceAtMost(1f)
+            return (bleQuality + computeAapBoost(SystemTimeSource.now())).coerceAtMost(1f)
         }
 
     /**

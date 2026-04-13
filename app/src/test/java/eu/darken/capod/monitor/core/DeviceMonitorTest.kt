@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core
 
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.monitor.core.aap.AapLifecycleManager
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
@@ -26,12 +27,14 @@ import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.TestTimeSource
 import java.time.Instant
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class DeviceMonitorTest : BaseTest() {
 
     private val testDispatcher = UnconfinedTestDispatcher()
+    private val timeSource: TimeSource = TestTimeSource(wallNow = Instant.parse("2026-04-05T18:00:00Z"))
 
     private val testAddress: BluetoothAddress = "AA:BB:CC:DD:EE:FF"
     private val testProfile = AppleDeviceProfile(
@@ -135,6 +138,7 @@ class DeviceMonitorTest : BaseTest() {
             deviceStateCache = deviceStateCache,
             profilesRepo = profilesRepo,
             aapLifecycleManager = aapLifecycleManager,
+            timeSource = timeSource,
         )
     }
 

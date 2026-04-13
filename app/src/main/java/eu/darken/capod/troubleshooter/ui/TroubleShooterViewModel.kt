@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.valueBlocking
@@ -41,6 +42,7 @@ class TroubleShooterViewModel @Inject constructor(
     private val blePodMonitor: BlePodMonitor,
     private val deviceMonitor: DeviceMonitor,
     private val debugSettings: DebugSettings,
+    private val timeSource: TimeSource,
 ) : ViewModel4(dispatcherProvider) {
 
     private val _bleState = MutableStateFlow<BleState>(BleState.Intro())
@@ -113,11 +115,11 @@ class TroubleShooterViewModel @Inject constructor(
                 generalSettings.useIndirectScanResultCallback.valueBlocking = indirectCallback
                 debugSettings.showUnfiltered.valueBlocking = unfiltered
 
-                val start = System.currentTimeMillis()
+                val start = timeSource.elapsedRealtime()
                 val devices = withTimeoutOrNull(STEP_TIME) {
                     blePodMonitor.devices
                         .take(10)
-                        .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
+                        .takeWhile { timeSource.elapsedRealtime() - start < STEP_TIME - 1000 }
                         .toList()
                         .flatten()
                         .distinctBy { it.address }
@@ -195,10 +197,10 @@ class TroubleShooterViewModel @Inject constructor(
             progress("Checking all closeby headphones.")
 
             val otherDevices = withTimeoutOrNull(STEP_TIME) {
-                val start = System.currentTimeMillis()
+                val start = timeSource.elapsedRealtime()
                 blePodMonitor.devices
                     .take(10)
-                    .takeWhile { System.currentTimeMillis() - start < STEP_TIME - 1000 }
+                    .takeWhile { timeSource.elapsedRealtime() - start < STEP_TIME - 1000 }
                     .toList()
                     .flatten()
                     .distinctBy { it.address }

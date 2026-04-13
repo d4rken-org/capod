@@ -8,6 +8,8 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
+import eu.darken.capod.common.SystemTimeSource
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
@@ -46,6 +48,7 @@ class DeviceSettingsViewModel @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
     private val generalSettings: GeneralSettings,
+    private val timeSource: TimeSource,
 ) : ViewModel4(dispatcherProvider) {
 
     private val targetProfileId = MutableStateFlow<ProfileId?>(null)
@@ -88,7 +91,7 @@ class DeviceSettingsViewModel @Inject constructor(
             val connectedAddresses = connectedDevices.map { it.address }.toSet()
             State(
                 device = device,
-                now = Instant.now(),
+                now = timeSource.now(),
                 isPro = upgrade.isPro,
                 isNudgeAvailable = bluetoothManager.isNudgeAvailable,
                 isForceConnecting = forcing,
@@ -110,7 +113,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     data class State(
         val device: PodDevice?,
-        val now: Instant = Instant.now(),
+        val now: Instant = SystemTimeSource.now(),
         val isPro: Boolean = false,
         val isNudgeAvailable: Boolean = true,
         val isForceConnecting: Boolean = false,

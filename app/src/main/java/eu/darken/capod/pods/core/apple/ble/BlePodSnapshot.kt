@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple.ble
 
 import android.content.Context
 import androidx.annotation.DrawableRes
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -53,7 +54,7 @@ interface BlePodSnapshot {
         get() {
             val sqRssi = ((rssi + 100) / 70f).coerceIn(0f, 1f)
             val sqReliability = max(BASE_CONFIDENCE, reliability)
-            val sqAge = (Duration.between(seenFirstAt, Instant.now()).toMinutes().coerceAtMost(60) / 60f) * 0.25f
+            val sqAge = (Duration.between(seenFirstAt, SystemTimeSource.now()).toMinutes().coerceAtMost(60) / 60f) * 0.25f
             log(VERBOSE) { "Signal Quality ($address): rssi=$sqRssi, reliability=$reliability, age=$sqAge" }
             return (sqRssi + sqReliability + sqAge) / 2f
         }

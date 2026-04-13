@@ -13,6 +13,7 @@ import android.content.IntentFilter
 import android.os.Handler
 import android.os.HandlerThread
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.Bugs
@@ -53,6 +54,7 @@ class BluetoothManager2 @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val manager: BluetoothManager,
+    private val timeSource: TimeSource,
 ) {
 
     val adapter: BluetoothAdapter?
@@ -255,8 +257,10 @@ class BluetoothManager2 @Inject constructor(
                     BluetoothDevice2(
                         internal = device,
                         seenFirstAt = seenDevicesLock.withLock {
-                            seenDevicesCache[device.address] ?: Instant.now().also {
-                                seenDevicesCache[device.address] = it
+                            seenDevicesCache[device.address] ?: run {
+                                val now = timeSource.now()
+                                seenDevicesCache[device.address] = now
+                                now
                             }
                         }
                     )
@@ -294,8 +298,10 @@ class BluetoothManager2 @Inject constructor(
             BluetoothDevice2(
                 internal = device,
                 seenFirstAt = seenDevicesLock.withLock {
-                    seenDevicesCache[device.address] ?: Instant.now().also {
-                        seenDevicesCache[device.address] = it
+                    seenDevicesCache[device.address] ?: run {
+                        val now = timeSource.now()
+                        seenDevicesCache[device.address] = now
+                        now
                     }
                 }
             )

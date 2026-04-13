@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple.ble.history
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.collections.median
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
@@ -26,7 +27,7 @@ data class KnownDevice(
         get() {
             if (history.size < 2) return 0f
 
-            val now = Instant.now()
+            val now = SystemTimeSource.now()
 
             val pingInterval = List(history.dropLast(1).size) { index ->
                 Duration.between(history[index].seenLastAt, history[index + 1].seenLastAt).toMillis()
@@ -45,7 +46,7 @@ data class KnownDevice(
         }
 
     fun rssiSmoothed(latest: Int): Int {
-        val now = Instant.now()
+        val now = SystemTimeSource.now()
         return history
             .filter { Duration.between(it.seenLastAt, now) < LOOKBACK }
             .map { it.rssi }
@@ -54,7 +55,7 @@ data class KnownDevice(
     }
 
     fun isOlderThan(age: Duration): Boolean {
-        val now = Instant.now()
+        val now = SystemTimeSource.now()
         return Duration.between(history.last().seenLastAt, now) > age
     }
 

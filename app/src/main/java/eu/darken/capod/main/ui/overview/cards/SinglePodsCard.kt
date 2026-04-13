@@ -43,6 +43,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
@@ -286,7 +287,7 @@ private fun SinglePodsCardFullPreview() = PreviewWrapper {
     SinglePodsCard(
         device = MockPodDataProvider.singlePodMonitoredWithAap(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
         onDeviceSettings = {},
     )
 }
@@ -297,7 +298,7 @@ private fun SinglePodsCardMinimalPreview() = PreviewWrapper {
     SinglePodsCard(
         device = MockPodDataProvider.singlePodMonitored(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
     )
 }
 
@@ -307,7 +308,7 @@ private fun SinglePodsCardCachedPreview() = PreviewWrapper {
     SinglePodsCard(
         device = MockPodDataProvider.singlePodCachedOnly(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
     )
 }
 
@@ -317,7 +318,7 @@ private fun SinglePodsCardMissingAddressPreview() = PreviewWrapper {
     SinglePodsCard(
         device = MockPodDataProvider.singlePodMonitored(),
         showDebug = false,
-        now = Instant.now(),
+        now = SystemTimeSource.now(),
         onEditProfile = {},
     )
 }
