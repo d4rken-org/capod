@@ -22,7 +22,7 @@ class BleScanResultReceiver : BroadcastReceiver() {
     @Inject lateinit var scanResultForwarder: BleScanResultForwarder
 
     override fun onReceive(context: Context, intent: Intent) {
-        log(TAG, VERBOSE) { "onReceive($context, $intent)" }
+        log(TAG, VERBOSE) { "onReceive(action=${intent.action})" }
         if (intent.action != ACTION) {
             log(TAG, WARN) { "Unknown action: ${intent.action}" }
             return
@@ -43,7 +43,7 @@ class BleScanResultReceiver : BroadcastReceiver() {
         log(TAG, VERBOSE) { "callbackType=$callbackType" }
 
         val scanResults = intent.getParcelableArrayListExtra<ScanResult>(BluetoothLeScanner.EXTRA_LIST_SCAN_RESULT)
-        log(TAG, VERBOSE) { "scanResults=$scanResults" }
+        log(TAG, VERBOSE) { "scanResults=${scanResults?.logSummary() ?: "count=0"}" }
 
         if (scanResults == null) {
             log(TAG) { "Scan results were empty!" }

@@ -51,7 +51,10 @@ class PermissionTool @Inject constructor(
             .filter { it.isRequired(context) }
             .toSet()
     }
-        .onEach { log(TAG) { "Missing permission: $it" } }
+        .distinctUntilChanged()
+        .onEach { missing ->
+            if (missing.isNotEmpty()) log(TAG) { "Missing permissions: $missing" }
+        }
 
     val missingScanPermissions: Flow<Set<Permission>> = missingPermissions
         .map { perms -> perms.filter { it.isScanBlocking }.toSet() }

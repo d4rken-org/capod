@@ -8,6 +8,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.lowerNibble
 import eu.darken.capod.common.upperNibble
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.logSummary
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
@@ -81,17 +82,21 @@ class PodHistoryRepo @Inject constructor(
             emptySet()
         }
 
-        log(TAG, DEBUG) { "search2: Case ignored matches(${caseIgnored.size}): $caseIgnored" }
+        if (caseIgnored.isNotEmpty()) {
+            log(TAG, VERBOSE) {
+                "search2: caseIgnoredMatches=${caseIgnored.joinToString { it.logSummary() }}"
+            }
+        }
 
         return when (caseIgnored.size) {
             0 -> basicResult
             1 -> caseIgnored.single()
             else -> {
-                log(TAG) { "search2:  More than one result when ignoring case markers." }
+                log(TAG, WARN) { "search2: More than one result when ignoring case markers." }
                 val oldest = caseIgnored.maxByOrNull { it.history.size } ?: return null
 
                 caseIgnored.minus(oldest).forEach {
-                    log(TAG) { "search2: Removing outlier: $it" }
+                    log(TAG, WARN) { "search2: Removing outlier ${it.logSummary()}" }
                     knownDevices.remove(it.id)
                 }
 
@@ -108,7 +113,7 @@ class PodHistoryRepo @Inject constructor(
         knownDevices.values.toList()
             .filter { it.isOlderThan(Duration.ofSeconds(30)) }
             .forEach { knownDevice ->
-                log(TAG, VERBOSE) { "search1: Removing stale known device: $knownDevice" }
+                log(TAG, VERBOSE) { "search1: Removing stale ${knownDevice.logSummary()}" }
                 knownDevices.remove(knownDevice.id)
             }
 
@@ -120,7 +125,7 @@ class PodHistoryRepo @Inject constructor(
 
         var recognizedDevice: KnownDevice? = knownDevices.values
             .firstOrNull { it.lastAddress == scanResult.address }
-            ?.also { log(TAG, VERBOSE) { "search1: Recovered previous ID via address: $it" } }
+            ?.also { log(TAG, VERBOSE) { "search1: Recovered via address: ${it.logSummary()}" } }
 
         if (recognizedDevice == null) {
             val profile = profilesRepo.currentProfiles()
@@ -131,7 +136,7 @@ class PodHistoryRepo @Inject constructor(
             if (profile != null) {
                 recognizedDevice = knownDevices.values
                     .firstOrNull { rpaChecker.verify(it.lastAddress, profile.identityKey!!) }
-                    .also { log(TAG, VERBOSE) { "search1: Recovered previous ID via IRK: $it" } }
+                    .also { log(TAG, VERBOSE) { "search1: Recovered via IRK: ${it?.logSummary()}" } }
             }
         }
 
@@ -139,10 +144,12 @@ class PodHistoryRepo @Inject constructor(
             val currentMarkers = payload.getFuzzyIdentifier()
             recognizedDevice = knownDevices.values
                 .firstOrNull { it.lastPayload.getFuzzyIdentifier() == currentMarkers }
-                ?.also { log(TAG) { "search1: Close match based on similarity: $currentMarkers" } }
+                ?.also { log(TAG, DEBUG) { "search1: Similarity match for device=${current.model}" } }
         }
 
-        if (recognizedDevice == null) log(TAG, WARN) { "search1: Didn't recognize: $current" }
+        if (recognizedDevice == null) {
+            log(TAG, DEBUG) { "search1: No history match for ${current.logSummary()}" }
+        }
 
         return recognizedDevice
     }
@@ -163,7 +170,7 @@ class PodHistoryRepo @Inject constructor(
                 lastCaseBattery = history.determineLatestCaseBattery() ?: existing.lastCaseBattery
             )
         } else {
-            log(TAG) { "Creating new history for $device" }
+            log(TAG, DEBUG) { "Creating new history for ${device.logSummary()}" }
             val history = listOf(device)
             KnownDevice(
                 id = device.identifier,

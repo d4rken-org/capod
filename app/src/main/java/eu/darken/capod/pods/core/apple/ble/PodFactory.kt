@@ -2,7 +2,8 @@ package eu.darken.capod.pods.core.apple.ble
 
 import dagger.Reusable
 import eu.darken.capod.common.bluetooth.BleScanResult
-import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.bluetooth.logSummary
+import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -16,9 +17,7 @@ class PodFactory @Inject constructor(
 ) {
 
     suspend fun createPod(scanResult: BleScanResult): Result? {
-        log(TAG, VERBOSE) { "Trying to create Pod for $scanResult" }
-
-        log(TAG, INFO) { "Decoding $scanResult" }
+        log(TAG, VERBOSE) { "Decoding ${scanResult.logSummary()}" }
 
         var device = appleFactory.create(scanResult)
 
@@ -27,10 +26,8 @@ class PodFactory @Inject constructor(
             device = unknownFactory.create(scanResult)
         }
 
-        log(TAG, INFO) { "Pod created: $device" }
-        return device?.let {
-            Result(scanResult = scanResult, device = it)
-        }
+        log(TAG, DEBUG) { "Pod created: ${device.logSummary()}" }
+        return Result(scanResult = scanResult, device = device)
     }
 
     data class Result(
