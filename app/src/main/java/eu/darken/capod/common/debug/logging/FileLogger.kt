@@ -2,6 +2,7 @@ package eu.darken.capod.common.debug.logging
 
 import android.annotation.SuppressLint
 import android.util.Log
+import eu.darken.capod.common.TimeSource
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -10,7 +11,10 @@ import java.time.Instant
 
 
 @SuppressLint("LogNotTimber")
-class FileLogger(private val logFile: File) : Logging.Logger {
+class FileLogger(
+    private val logFile: File,
+    private val timeSource: TimeSource,
+) : Logging.Logger {
     private var logWriter: OutputStreamWriter? = null
 
     @SuppressLint("SetWorldReadable")
@@ -57,7 +61,7 @@ class FileLogger(private val logFile: File) : Logging.Logger {
     override fun log(priority: Logging.Priority, tag: String, message: String, metaData: Map<String, Any>?) {
         logWriter?.let {
             try {
-                it.write("${Instant.ofEpochMilli(System.currentTimeMillis())}  ${priority.shortLabel}/$tag: $message\n")
+                it.write("${timeSource.now()}  ${priority.shortLabel}/$tag: $message\n")
                 it.flush()
             } catch (e: IOException) {
                 Log.e(TAG, "Failed to write log line.", e)
@@ -76,4 +80,3 @@ class FileLogger(private val logFile: File) : Logging.Logger {
         private val TAG = logTag("Debug", "FileLogger")
     }
 }
-

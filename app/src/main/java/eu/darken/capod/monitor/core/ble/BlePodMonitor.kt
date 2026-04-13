@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core.ble
 
 import android.bluetooth.le.ScanFilter
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
@@ -44,6 +45,7 @@ class BlePodMonitor @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val bleScanner: BleScanner,
     private val podFactory: PodFactory,
+    private val timeSource: TimeSource,
     private val generalSettings: GeneralSettings,
     bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
@@ -97,7 +99,7 @@ class BlePodMonitor @Inject constructor(
         .replayingShare(appScope)
 
     private suspend fun sortPodsToInterest(devices: Collection<BlePodSnapshot>): List<BlePodSnapshot> {
-        val now = Instant.now()
+        val now = timeSource.now()
         val profiles = profilesRepo.currentProfiles() ?: emptyList()
 
         return devices.sortedWith(
@@ -175,7 +177,7 @@ class BlePodMonitor @Inject constructor(
             return emptyMap()
         }
 
-        val now = Instant.now()
+        val now = timeSource.now()
         deviceCache.toList().forEach { (key, value) ->
             if (Duration.between(value.seenLastAt, now) > STALE_DEVICE_TIMEOUT) {
                 log(TAG, Logging.Priority.VERBOSE) { "Removing stale device from cache: $value" }

@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.devicesettings
 
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
@@ -36,6 +37,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import testhelpers.BaseTest
+import testhelpers.TestTimeSource
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.livedata.InstantExecutorExtension
 
@@ -53,6 +55,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
     private lateinit var generalSettings: GeneralSettings
+    private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
@@ -107,6 +110,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
         generalSettings = generalSettings,
+        timeSource = timeSource,
     )
 
     @Test

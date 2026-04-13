@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple.aap
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
@@ -20,6 +21,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.TestTimeSource
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -32,6 +34,7 @@ class AapConnectionManagerTest : BaseTest() {
 
     private lateinit var socketFactory: L2capSocketFactory
     private lateinit var manager: AapConnectionManager
+    private val timeSource: TimeSource = TestTimeSource()
 
     private val testAddress = "AA:BB:CC:DD:EE:FF"
     private val testDevice: BluetoothDevice = mockk(relaxed = true) {
@@ -44,6 +47,7 @@ class AapConnectionManagerTest : BaseTest() {
         manager = AapConnectionManager(
             socketFactory = socketFactory,
             scope = testScope,
+            timeSource = timeSource,
         )
     }
 

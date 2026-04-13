@@ -53,6 +53,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
 import eu.darken.capod.common.PrivacyPolicy
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.compose.ConfirmationDialog
 import eu.darken.capod.common.compose.Preview2
@@ -452,7 +453,7 @@ private fun SessionRow(
             )
             val agoText = DateUtils.getRelativeTimeSpanString(
                 session.createdAt.toEpochMilli(),
-                System.currentTimeMillis(),
+                SystemTimeSource.currentTimeMillis(),
                 DateUtils.SECOND_IN_MILLIS,
                 DateUtils.FORMAT_ABBREV_RELATIVE,
             )

@@ -3,6 +3,7 @@ package eu.darken.capod.pods.core.apple.aap
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
@@ -48,6 +49,7 @@ internal class AapConnection(
     private val device: BluetoothDevice,
     private val profile: AapDeviceProfile,
     private val socketFactory: L2capSocketFactory,
+    private val timeSource: TimeSource,
     private val psm: Int = 0x1001,
 ) {
 
@@ -168,7 +170,7 @@ internal class AapConnection(
             if (currentAnc != null) {
                 _state.value = currentState
                     .withSetting(AapSetting.AncMode::class, currentAnc.copy(current = command.mode))
-                    .copy(pendingAncMode = null, lastMessageAt = Instant.now())
+                    .copy(pendingAncMode = null, lastMessageAt = timeSource.now())
             } else {
                 _state.value = currentState.copy(pendingAncMode = null)
             }
@@ -258,11 +260,11 @@ internal class AapConnection(
             is AapCommand.SetDeviceName -> {
                 val currentInfo = baseState.deviceInfo ?: return
                 _state.value = baseState
-                    .copy(deviceInfo = currentInfo.copy(name = command.name), lastMessageAt = Instant.now())
+                    .copy(deviceInfo = currentInfo.copy(name = command.name), lastMessageAt = timeSource.now())
                 return
             }
         }
-        _state.value = baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = Instant.now())
+        _state.value = baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = timeSource.now())
     }
 
     private suspend fun sendRaw(command: AapCommand) {
@@ -272,7 +274,7 @@ internal class AapConnection(
                 val sock = socket ?: throw IOException("Socket is null")
                 sock.outputStream.write(bytes)
                 sock.outputStream.flush()
-                if (command is AapCommand.SetAncMode) lastAncCommandSentAt = System.currentTimeMillis()
+                if (command is AapCommand.SetAncMode) lastAncCommandSentAt = timeSource.currentTimeMillis()
                 log(TAG) { "Sent command: $command (${bytes.size} bytes)" }
             }
         }
@@ -360,7 +362,7 @@ internal class AapConnection(
             val valid = batteries.filterValues { it.charging != AapPodState.ChargingState.DISCONNECTED }
             _state.value = _state.value.copy(
                 batteries = _state.value.batteries + valid,
-                lastMessageAt = Instant.now(),
+                lastMessageAt = timeSource.now(),
             )
             log(TAG) { "Battery update: ${batteries.entries.map { "${it.key}=${(it.value.percent * 100).toInt()}% ${it.value.charging}" }}" }
             return
@@ -369,14 +371,14 @@ internal class AapConnection(
         // Try private key response
         profile.decodePrivateKeyResponse(message)?.let { keys ->
             log(TAG) { "Private keys received: IRK=${keys.irk != null}, ENC=${keys.encKey != null}" }
-            _state.value = _state.value.copy(lastMessageAt = Instant.now())
+            _state.value = _state.value.copy(lastMessageAt = timeSource.now())
             _keysReceived.tryEmit(keys)
             return
         }
 
         // Try device info
         profile.decodeDeviceInfo(message)?.let { info ->
-            _state.value = _state.value.copy(deviceInfo = info, lastMessageAt = Instant.now())
+            _state.value = _state.value.copy(deviceInfo = info, lastMessageAt = timeSource.now())
             log(TAG) { "Device info: ${info.name} (${info.modelNumber})" }
             return
         }
@@ -387,10 +389,10 @@ internal class AapConnection(
             // Skip debounce for: first ANC mode (initial setup), echoes after our own command.
             if (value is AapSetting.AncMode) {
                 val isFirstAncMode = _state.value.setting<AapSetting.AncMode>() == null
-                val sinceLastCommand = System.currentTimeMillis() - lastAncCommandSentAt
+                val sinceLastCommand = timeSource.currentTimeMillis() - lastAncCommandSentAt
                 if (isFirstAncMode || sinceLastCommand <= 3000L) {
                     ancDebounceJob?.cancel()
-                    _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
+                    _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
                     log(TAG) { "Setting: ${key.simpleName} = $value" }
 
                     // After our command, firmware may cycle through modes before settling.
@@ -413,7 +415,7 @@ internal class AapConnection(
                     ancDebounceJob?.cancel()
                     ancDebounceJob = connectionScope?.launch {
                         delay(1500L)
-                        _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
+                        _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
                         log(TAG) { "Setting (debounced): ${key.simpleName} = $value" }
                     }
                 }
@@ -426,7 +428,7 @@ internal class AapConnection(
                 prev != null && prev.primaryPod == value.secondaryPod && prev.secondaryPod == value.primaryPod
             }
 
-            var newState = _state.value.withSetting(key, value).copy(lastMessageAt = Instant.now())
+            var newState = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
             if (clearPrimaryPod) {
                 newState = newState.copy(settings = newState.settings - AapSetting.PrimaryPod::class)
             }
@@ -442,7 +444,7 @@ internal class AapConnection(
                     if (currentAnc != null) {
                         _state.value = _state.value
                             .withSetting(AapSetting.AncMode::class, currentAnc.copy(current = mode))
-                            .copy(pendingAncMode = null, lastMessageAt = Instant.now())
+                            .copy(pendingAncMode = null, lastMessageAt = timeSource.now())
                     } else {
                         _state.value = _state.value.copy(pendingAncMode = null)
                     }

@@ -1,41 +1,35 @@
 package eu.darken.capod.common
 
 import android.media.AudioManager
-import android.os.SystemClock
 import io.mockk.Runs
 import io.mockk.clearMocks
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
-import io.mockk.mockkStatic
-import io.mockk.unmockkStatic
 import io.mockk.verify
-import org.junit.jupiter.api.AfterEach
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.TestTimeSource
 
 class MediaControlTest : BaseTest() {
 
     private lateinit var audioManager: AudioManager
     private lateinit var mediaControl: MediaControl
+    private lateinit var timeSource: TestTimeSource
 
     @BeforeEach
     fun setup() {
-        mockkStatic(SystemClock::class)
-        every { SystemClock.elapsedRealtime() } returns 1_000L
-        every { SystemClock.uptimeMillis() } returns 1_000L
+        timeSource = TestTimeSource(
+            elapsedRealtimeMs = 1_000L,
+            uptimeMillisValue = 1_000L,
+        )
         audioManager = mockk(relaxed = true)
         every { audioManager.dispatchMediaKeyEvent(any()) } just Runs
-        mediaControl = MediaControl(audioManager)
-    }
-
-    @AfterEach
-    fun teardown() {
-        unmockkStatic(SystemClock::class)
+        mediaControl = MediaControl(audioManager, timeSource)
     }
 
     @Test

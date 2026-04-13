@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple.ble.devices.airpods
 
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.isBitSet
@@ -20,8 +21,8 @@ import javax.inject.Inject
 
 data class AirPodsMaxUsbc(
     override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id(),
-    override val seenLastAt: Instant = Instant.now(),
-    override val seenFirstAt: Instant = Instant.now(),
+    override val seenLastAt: Instant = SystemTimeSource.now(),
+    override val seenFirstAt: Instant = SystemTimeSource.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val payload: ProximityPayload,

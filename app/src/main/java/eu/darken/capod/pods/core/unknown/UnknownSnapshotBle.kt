@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.unknown
 
 import android.content.Context
 import eu.darken.capod.R
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
@@ -11,8 +12,8 @@ import java.time.Instant
 
 data class UnknownSnapshotBle(
     override val identifier: BlePodSnapshot.Id = BlePodSnapshot.Id(),
-    override val seenLastAt: Instant = Instant.now(),
-    override val seenFirstAt: Instant = Instant.now(),
+    override val seenLastAt: Instant = SystemTimeSource.now(),
+    override val seenFirstAt: Instant = SystemTimeSource.now(),
     override val seenCounter: Int = 1,
     override val scanResult: BleScanResult,
     override val reliability: Float = 0f,

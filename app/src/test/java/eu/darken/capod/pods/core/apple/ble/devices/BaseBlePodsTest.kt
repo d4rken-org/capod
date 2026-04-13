@@ -2,7 +2,6 @@ package eu.darken.capod.pods.core.apple.ble.devices
 
 import dagger.BindsInstance
 import dagger.Component
-import eu.darken.capod.common.SystemClockWrap
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.fromHex
 import eu.darken.capod.common.serialization.SerializationModule
@@ -15,9 +14,6 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.mockkObject
-import io.mockk.unmockkObject
-import org.junit.jupiter.api.AfterEach
 import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
@@ -59,14 +55,6 @@ abstract class BaseBlePodsTest : BaseTest() {
     @BeforeEach
     fun setup() {
         MockKAnnotations.init(this)
-
-        mockkObject(SystemClockWrap)
-        every { SystemClockWrap.elapsedRealtimeNanos } returns 1000L
-    }
-
-    @AfterEach
-    fun teardown() {
-        unmockkObject(SystemClockWrap)
     }
 
     internal suspend inline fun <reified T : BlePodSnapshot?> create(
@@ -75,7 +63,7 @@ abstract class BaseBlePodsTest : BaseTest() {
         block: T.() -> Unit
     ) {
         val result = BleScanResult(
-            receivedAt = Instant.now(),
+            receivedAt = Instant.parse("2026-01-01T00:00:00Z"),
             address = address,
             rssi = -66,
             generatedAtNanos = 136136027721826,

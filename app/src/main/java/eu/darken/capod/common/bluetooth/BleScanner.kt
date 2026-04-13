@@ -9,6 +9,7 @@ import android.bluetooth.le.ScanSettings
 import android.content.Context
 import android.content.Intent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -33,6 +34,7 @@ class BleScanner @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val fakeBleData: FakeBleData,
     private val scanResultForwarder: BleScanResultForwarder,
+    private val timeSource: TimeSource,
 ) {
 
     @SuppressLint("MissingPermission") fun scan(
@@ -71,15 +73,15 @@ class BleScanner @Inject constructor(
                     if (!passed) log(TAG, VERBOSE) { "Manually filtered $result" }
                     passed
                 }
-                .map { BleScanResult.fromScanResult(it) }
+                .map { BleScanResult.fromScanResult(it, timeSource) }
         }
 
         val callback = object : ScanCallback() {
-            var lastScanAt = System.currentTimeMillis()
+            var lastScanAt = timeSource.currentTimeMillis()
             override fun onScanResult(callbackType: Int, result: ScanResult) {
                 log(TAG, VERBOSE) {
-                    val delay = System.currentTimeMillis() - lastScanAt
-                    lastScanAt = System.currentTimeMillis()
+                    val delay = timeSource.currentTimeMillis() - lastScanAt
+                    lastScanAt = timeSource.currentTimeMillis()
                     "onScanResult(delay=${delay}ms, callbackType=$callbackType, result=$result)"
                 }
 
@@ -88,8 +90,8 @@ class BleScanner @Inject constructor(
 
             override fun onBatchScanResults(results: MutableList<ScanResult>) {
                 log(TAG, VERBOSE) {
-                    val delay = System.currentTimeMillis() - lastScanAt
-                    lastScanAt = System.currentTimeMillis()
+                    val delay = timeSource.currentTimeMillis() - lastScanAt
+                    lastScanAt = timeSource.currentTimeMillis()
                     "onBatchScanResults(delay=${delay}ms, results=$results)"
                 }
 

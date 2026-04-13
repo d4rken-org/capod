@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.TestTimeSource
 import java.time.Duration
 import java.time.Instant
 
@@ -19,6 +20,7 @@ class PopUpReactionLogicTest : BaseTest() {
         popUpReaction = PopUpReaction(
             deviceMonitor = mockk(relaxed = true),
             bluetoothManager = mockk(relaxed = true),
+            timeSource = TestTimeSource(),
         )
     }
 

@@ -12,6 +12,7 @@ import eu.darken.capod.common.flow.combine
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.permissions.Permission
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -50,6 +51,7 @@ class OverviewViewModel @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
     private val aapManager: AapConnectionManager,
+    private val timeSource: TimeSource,
 ) : ViewModel4(dispatcherProvider) {
 
     val requestPermissionEvent = SingleEventFlow<Permission>()
@@ -112,7 +114,7 @@ class OverviewViewModel @Inject constructor(
         showUnmatchedDevices,
     ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched ->
         State(
-            now = Instant.now(),
+            now = timeSource.now(),
             permissions = permissions,
             devices = devices,
             isDebugMode = isDebugMode,

@@ -1,5 +1,6 @@
 package eu.darken.capod.reaction.core.popup
 
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
@@ -26,6 +27,7 @@ import javax.inject.Singleton
 class PopUpReaction @Inject constructor(
     private val deviceMonitor: DeviceMonitor,
     private val bluetoothManager: BluetoothManager2,
+    private val timeSource: TimeSource,
 ) {
 
     private val caseCoolDowns = java.util.concurrent.ConcurrentHashMap<String, Instant>()
@@ -45,7 +47,7 @@ class PopUpReaction @Inject constructor(
             // with the toggle off). Dismiss any visible overlay immediately.
             if (wasEligible && !isEligible) {
                 log(TAG) { "Case popup eligibility lost, emitting Hide" }
-                return@mapNotNull Event.PopupHide()
+                return@mapNotNull Event.PopupHide(timeSource.now())
             }
 
             if (!isEligible) return@mapNotNull null
@@ -71,7 +73,7 @@ class PopUpReaction @Inject constructor(
 
     private fun throttleCasePopUps(current: PodDevice): Event? {
         val cooldownKey = current.profileId ?: current.identifier?.toString() ?: return null
-        val now = Instant.now()
+        val now = timeSource.now()
         val lastShown = caseCoolDowns[cooldownKey]
 
         val decision = evaluateCasePopUp(
@@ -89,14 +91,14 @@ class PopUpReaction @Inject constructor(
         return when {
             decision.shouldShow -> {
                 caseCoolDowns[cooldownKey] = now
-                Event.PopupShow(device = current)
+                Event.PopupShow(eventAt = now, device = current)
             }
 
             decision.shouldHide -> {
                 if (!decision.shouldResetCooldown) {
                     caseCoolDowns[cooldownKey] = now
                 }
-                Event.PopupHide()
+                Event.PopupHide(now)
             }
 
             else -> null
@@ -142,7 +144,7 @@ class PopUpReaction @Inject constructor(
             // Eligibility transition: dismiss any visible overlay immediately.
             if (wasEligible && !isEligible) {
                 log(TAG) { "Connection popup eligibility lost, emitting Hide" }
-                return@mapNotNull Event.PopupHide()
+                return@mapNotNull Event.PopupHide(timeSource.now())
             }
 
             if (!isEligible) return@mapNotNull null
@@ -157,7 +159,7 @@ class PopUpReaction @Inject constructor(
             log(TAG, VERBOSE) { "currentBroadcasted: $currentBroadcasted" }
 
             if (previousConnected != null && previousBroadcasted != null && currentConnected == null) {
-                return@mapNotNull Event.PopupHide()
+                return@mapNotNull Event.PopupHide(timeSource.now())
             }
 
             if (currentConnected == null || currentBroadcasted == null) {
@@ -165,8 +167,9 @@ class PopUpReaction @Inject constructor(
             }
 
             val deviceSeenFirst = currentBroadcasted.seenFirstAt ?: return@mapNotNull null
-            val deviceAge = Duration.between(deviceSeenFirst, Instant.now())
-            val connectionAge = Duration.between(currentConnected.seenFirstAt, Instant.now())
+            val now = timeSource.now()
+            val deviceAge = Duration.between(deviceSeenFirst, now)
+            val connectionAge = Duration.between(currentConnected.seenFirstAt, now)
 
             val decision = evaluateConnectionPopUp(
                 hasConnectedDevice = true,
@@ -179,8 +182,8 @@ class PopUpReaction @Inject constructor(
             log(TAG) { "Connection popup decision: ${decision.reason}" }
 
             if (decision.shouldShow) {
-                connectionCoolDowns[currentConnected.address] = Instant.now()
-                Event.PopupShow(device = currentBroadcasted)
+                connectionCoolDowns[currentConnected.address] = now
+                Event.PopupShow(eventAt = now, device = currentBroadcasted)
             } else {
                 null
             }
@@ -191,12 +194,12 @@ class PopUpReaction @Inject constructor(
 
     sealed class Event {
         data class PopupShow(
-            val eventAt: Instant = Instant.now(),
+            val eventAt: Instant,
             val device: PodDevice,
         ) : Event()
 
         data class PopupHide(
-            val eventAt: Instant = Instant.now(),
+            val eventAt: Instant,
         ) : Event()
     }
 

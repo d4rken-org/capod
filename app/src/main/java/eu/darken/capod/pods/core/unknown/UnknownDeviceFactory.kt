@@ -1,6 +1,7 @@
 package eu.darken.capod.pods.core.unknown
 
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -56,7 +57,7 @@ class UnknownDeviceFactory @Inject constructor() {
             history.map { it.rssi }.plus(latest).takeLast(10).median()
 
         fun isOlderThan(age: Duration): Boolean {
-            val now = Instant.now()
+            val now = SystemTimeSource.now()
             return Duration.between(history.last().seenLastAt, now) > age
         }
 

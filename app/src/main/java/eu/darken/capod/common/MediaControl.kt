@@ -1,7 +1,6 @@
 package eu.darken.capod.common
 
 import android.media.AudioManager
-import android.os.SystemClock
 import android.view.KeyEvent
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
@@ -13,6 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class MediaControl @Inject constructor(
     private val audioManager: AudioManager,
+    private val timeSource: TimeSource,
 ) {
     private var capPauseExpiryElapsedRealtime: Long = 0L
 
@@ -20,7 +20,7 @@ class MediaControl @Inject constructor(
         get() = audioManager.isMusicActive
 
     val wasRecentlyPausedByCap: Boolean
-        get() = capPauseExpiryElapsedRealtime > SystemClock.elapsedRealtime()
+        get() = capPauseExpiryElapsedRealtime > timeSource.elapsedRealtime()
 
     suspend fun sendPlay() {
         log(TAG, INFO) { "sendPlay()" }
@@ -57,7 +57,7 @@ class MediaControl @Inject constructor(
 
     internal suspend fun sendKey(keyCode: Int) {
         log(TAG) { "Sending up+down KeyEvent: $keyCode" }
-        val eventTime = SystemClock.uptimeMillis()
+        val eventTime = timeSource.uptimeMillis()
         audioManager.dispatchMediaKeyEvent(KeyEvent(eventTime, eventTime, KeyEvent.ACTION_DOWN, keyCode, 0))
         delay(100)
         audioManager.dispatchMediaKeyEvent(KeyEvent(eventTime + 200, eventTime + 200, KeyEvent.ACTION_UP, keyCode, 0))
@@ -82,7 +82,7 @@ class MediaControl @Inject constructor(
     }
 
     private fun markRecentCapPause() {
-        capPauseExpiryElapsedRealtime = SystemClock.elapsedRealtime() + RECENT_CAP_PAUSE_WINDOW_MS
+        capPauseExpiryElapsedRealtime = timeSource.elapsedRealtime() + RECENT_CAP_PAUSE_WINDOW_MS
     }
 
     private fun clearRecentCapPause() {

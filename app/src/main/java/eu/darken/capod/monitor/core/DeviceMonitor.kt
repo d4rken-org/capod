@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -42,6 +43,7 @@ class DeviceMonitor @Inject constructor(
     private val deviceStateCache: DeviceStateCache,
     private val profilesRepo: DeviceProfilesRepo,
     private val aapLifecycleManager: AapLifecycleManager,
+    private val timeSource: TimeSource,
 ) {
     init {
         aapLifecycleManager.start()
@@ -155,7 +157,7 @@ class DeviceMonitor @Inject constructor(
         for (device in devices) {
             val profileId = device.profileId ?: continue
             val existing = deviceStateCache.cachedStates.value[profileId]
-            val newState = device.toCachedState(existing) ?: continue
+            val newState = device.toCachedState(existing, timeSource.now()) ?: continue
 
             log(TAG, VERBOSE) { "Persisting state for $profileId" }
             deviceStateCache.save(profileId, newState)

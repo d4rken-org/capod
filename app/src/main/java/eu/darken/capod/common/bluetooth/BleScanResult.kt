@@ -3,6 +3,8 @@ package eu.darken.capod.common.bluetooth
 import android.bluetooth.le.ScanResult
 import android.os.Parcelable
 import androidx.core.util.forEach
+import eu.darken.capod.common.SystemTimeSource
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.serialization.InstantEpochMillisSerializer
 import eu.darken.capod.common.serialization.MapIntByteArrayBase64Serializer
 import kotlinx.parcelize.Parcelize
@@ -31,8 +33,11 @@ data class BleScanResult(
     }
 
     companion object {
-        fun fromScanResult(scanResult: ScanResult) = BleScanResult(
-            receivedAt = Instant.now(),
+        fun fromScanResult(
+            scanResult: ScanResult,
+            timeSource: TimeSource = SystemTimeSource,
+        ) = BleScanResult(
+            receivedAt = timeSource.now(),
             address = scanResult.device.address,
             rssi = scanResult.rssi,
             generatedAtNanos = scanResult.timestampNanos,

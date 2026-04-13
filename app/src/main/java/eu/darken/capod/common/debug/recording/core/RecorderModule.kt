@@ -7,6 +7,8 @@ import androidx.annotation.VisibleForTesting
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.InstallId
+import eu.darken.capod.common.SystemTimeSource
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
@@ -32,6 +34,7 @@ class RecorderModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val installId: InstallId,
+    private val timeSource: TimeSource,
 ) {
 
     @Volatile
@@ -73,11 +76,11 @@ class RecorderModule @Inject constructor(
                             createSessionDir()
                         }
                         val logFile = File(sessionDir, "core.log")
-                        val newRecorder = Recorder()
+                        val newRecorder = Recorder(timeSource)
                         newRecorder.start(logFile)
 
                         if (!isResume) {
-                            val startTime = System.currentTimeMillis()
+                            val startTime = timeSource.currentTimeMillis()
                             writeTriggerFile(sessionDir, startTime)
                             log(TAG, INFO) { "Build.Fingerprint: ${Build.FINGERPRINT}" }
                             log(TAG, INFO) { "BuildConfig.Versions: ${BuildConfigWrap.VERSION_DESCRIPTION}" }
@@ -99,7 +102,7 @@ class RecorderModule @Inject constructor(
                             copy(
                                 recorder = newRecorder,
                                 currentLogDir = sessionDir,
-                                recordingStartedAt = if (recordingStartedAt > 0L) recordingStartedAt else System.currentTimeMillis(),
+                                recordingStartedAt = if (recordingStartedAt > 0L) recordingStartedAt else timeSource.currentTimeMillis(),
                                 persistedLogDir = null,
                             )
                         }
@@ -126,7 +129,7 @@ class RecorderModule @Inject constructor(
     }
 
     private fun createSessionDir(): File {
-        val timestamp = java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
+        val timestamp = timeSource.now().atZone(java.time.ZoneOffset.UTC)
             .format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'"))
         val installIdPrefix = installId.id.take(8)
         val dirName = "capod_${BuildConfigWrap.VERSION_NAME}_${timestamp}_$installIdPrefix"
@@ -179,7 +182,7 @@ class RecorderModule @Inject constructor(
         if (!currentState.isRecording) return StopResult.NotRecording
 
         val logDir = currentState.currentLogDir ?: return StopResult.NotRecording
-        val elapsed = System.currentTimeMillis() - currentState.recordingStartedAt
+        val elapsed = timeSource.currentTimeMillis() - currentState.recordingStartedAt
         if (elapsed < MIN_RECORDING_MS) return StopResult.TooShort
 
         stopRecorder()
@@ -235,7 +238,7 @@ class RecorderModule @Inject constructor(
         @VisibleForTesting
         internal fun parseTriggerContent(
             content: String,
-            now: Long = System.currentTimeMillis(),
+            now: Long = SystemTimeSource.currentTimeMillis(),
         ): Pair<File, Long>? {
             val trimmed = content.trim()
             if (trimmed.isEmpty()) return null
