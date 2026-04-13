@@ -12,6 +12,7 @@ import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import eu.darken.capod.monitor.core.cache.toCachedState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -66,13 +67,38 @@ class DeviceMonitor @Inject constructor(
             )
         }
 
+        // Collapse live duplicates sharing an identity-backed profile — e.g. when the legacy
+        // signal-quality fallback misattributed ambient strangers to our profile.
+        // Only applied when the group has at least one IRK-verified candidate; for no-IRK
+        // profiles, multiple hits are genuinely different devices and must all remain visible.
+        val profileDedupedLive = run {
+            val anonymous = liveDevices.filter { it.profileId == null }
+            val byProfile = liveDevices
+                .filter { it.profileId != null }
+                .groupBy { it.profileId!! }
+                .flatMap { (_, group) ->
+                    val hasIrkMatch = group.any { (it.ble as? ApplePods)?.meta?.isIRKMatch == true }
+                    if (!hasIrkMatch || group.size == 1) {
+                        group
+                    } else {
+                        listOf(
+                            group.sortedWith(
+                                compareByDescending<PodDevice> { (it.ble as? ApplePods)?.meta?.isIRKMatch == true }
+                                    .thenByDescending { it.signalQuality }
+                            ).first()
+                        )
+                    }
+                }
+            byProfile + anonymous
+        }
+
         // Non-live devices — profiles with no live BLE detection. Synthesize from cache
         // and/or AAP, whichever is available:
         //   - cache only           → "cached-only" case (PR #484 fixed AAP attach here)
         //   - AAP only             → cold-start case: AAP connected but no battery message
         //                            received yet, so no cache write has happened
         //   - cache + AAP          → mid-session BLE staleness with AAP still alive
-        val liveProfileIds = liveDevices.mapNotNull { it.profileId }.toSet()
+        val liveProfileIds = profileDedupedLive.mapNotNull { it.profileId }.toSet()
         val nonLiveDevices = profiles
             .filter { it.id !in liveProfileIds }
             .mapNotNull { profile ->
@@ -103,10 +129,10 @@ class DeviceMonitor @Inject constructor(
             .filter { it != PodModel.UNKNOWN }
             .toSet()
         val dedupedLiveDevices = if (nonLiveAapModels.isEmpty()) {
-            liveDevices
+            profileDedupedLive
         } else {
             val seenAnonymousModels = mutableSetOf<PodModel>()
-            liveDevices.filter { device ->
+            profileDedupedLive.filter { device ->
                 val isAnonymous = device.profileId == null
                 val matchesNonLive = device.model in nonLiveAapModels
                 // Hide at most one anonymous BLE pod per non-live AAP model so a second

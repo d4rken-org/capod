@@ -100,8 +100,18 @@ class AppleFactory @Inject constructor(
                 meta = ApplePods.AppleMeta(),
             )
             profile = profiles
+                .filter { it.identityKey == null }
                 .filter { it.model == PodModel.UNKNOWN || it.model == tempDevice.model }
                 .firstOrNull { it.minimumSignalQuality <= tempDevice.signalQuality }
+
+            if (profile == null) {
+                val legacyCandidate = profiles
+                    .filter { it.identityKey != null && (it.model == PodModel.UNKNOWN || it.model == tempDevice.model) }
+                    .firstOrNull { it.minimumSignalQuality <= tempDevice.signalQuality }
+                if (legacyCandidate != null) {
+                    log(TAG, WARN) { "Keyed profile ${legacyCandidate.id} would match via old fallback (IRK failed) — stale key?" }
+                }
+            }
         }
 
         factory.create(
