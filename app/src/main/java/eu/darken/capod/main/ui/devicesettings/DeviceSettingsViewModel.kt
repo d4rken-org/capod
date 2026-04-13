@@ -33,6 +33,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.flow.onStart
 import java.time.Instant
 import javax.inject.Inject
 
@@ -80,7 +81,9 @@ class DeviceSettingsViewModel @Inject constructor(
             deviceForProfile(profileId),
             upgradeRepo.upgradeInfo,
             isForceConnecting,
-            bluetoothManager.connectedDevices,
+            // The Bluetooth HEADSET profile lookup can be slow to produce its first value.
+            // Seed this branch so the screen can render immediately after navigation.
+            bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
         ) { _, device, upgrade, forcing, connectedDevices ->
             val connectedAddresses = connectedDevices.map { it.address }.toSet()
             State(
