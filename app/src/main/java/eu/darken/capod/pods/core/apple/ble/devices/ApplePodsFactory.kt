@@ -22,13 +22,29 @@ interface ApplePodsFactory {
     fun KnownDevice.getLatestCaseBattery(): Float? = this.lastCaseBattery
 
     fun KnownDevice.getLatestCaseLidState(basic: DualApplePods): DualApplePods.LidState? {
-        val definitive = setOf(
-            DualApplePods.LidState.OPEN,
-            DualApplePods.LidState.CLOSED,
-            DualApplePods.LidState.NOT_IN_CASE,
-        )
-        if (definitive.contains(basic.caseLidState)) return basic.caseLidState
+        // A pod broadcasting from inside the case has authoritative case state
+        if (basic.hasCaseContext && basic.caseLidState in setOf(
+                DualApplePods.LidState.OPEN,
+                DualApplePods.LidState.CLOSED,
+            )
+        ) {
+            return basic.caseLidState
+        }
 
+        // Current pod lacks case context (e.g. pod on desk) or reports UNKNOWN.
+        // Check recent history for a sibling broadcast that has case context.
+        val fromCaseContext = history
+            .takeLast(4)
+            .filterIsInstance<DualApplePods>()
+            .lastOrNull { it.hasCaseContext && it.caseLidState != DualApplePods.LidState.UNKNOWN }
+            ?.caseLidState
+
+        if (fromCaseContext != null) return fromCaseContext
+
+        // No case-context broadcast in recent history — current value is best we have
+        if (basic.caseLidState != DualApplePods.LidState.UNKNOWN) return basic.caseLidState
+
+        // Last resort: any non-UNKNOWN from history
         return history
             .takeLast(2)
             .filterIsInstance<DualApplePods>()
