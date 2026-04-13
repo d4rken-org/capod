@@ -99,9 +99,15 @@ class PlayPause @Inject constructor(
                 previous = prevState,
                 current = currState,
                 onePodMode = reactions.onePodMode,
-                isCurrentlyPlaying = mediaControl.isPlaying
+                isCurrentlyPlaying = mediaControl.isPlaying,
+                wasRecentlyPausedByUs = mediaControl.wasRecentlyPausedByCap,
             )
 
+            if (decision.usedRecentCapPauseOverride) {
+                log(TAG, VERBOSE) {
+                    "Resume override: recent CAP pause window is active, allowing play despite playing=true"
+                }
+            }
             log(TAG, VERBOSE) { "Decision: ${decision.reason}" }
 
             // Execute the decision
@@ -131,17 +137,19 @@ class PlayPause @Inject constructor(
         previous: EarDetectionState,
         current: EarDetectionState,
         onePodMode: Boolean,
-        isCurrentlyPlaying: Boolean
+        isCurrentlyPlaying: Boolean,
+        wasRecentlyPausedByUs: Boolean = false,
     ): PlayPauseDecision = if (onePodMode) {
-        evaluateOnePodMode(previous, current, isCurrentlyPlaying)
+        evaluateOnePodMode(previous, current, isCurrentlyPlaying, wasRecentlyPausedByUs)
     } else {
-        evaluateNormalMode(previous, current, isCurrentlyPlaying)
+        evaluateNormalMode(previous, current, isCurrentlyPlaying, wasRecentlyPausedByUs)
     }
 
     private fun evaluateOnePodMode(
         previous: EarDetectionState,
         current: EarDetectionState,
-        isCurrentlyPlaying: Boolean
+        isCurrentlyPlaying: Boolean,
+        wasRecentlyPausedByUs: Boolean,
     ): PlayPauseDecision {
         val netChange = current.podCount - previous.podCount
 
@@ -154,10 +162,11 @@ class PlayPause @Inject constructor(
             )
 
             // Net increase: pod(s) inserted → play
-            netChange > 0 && !isCurrentlyPlaying -> PlayPauseDecision(
+            netChange > 0 && (!isCurrentlyPlaying || wasRecentlyPausedByUs) -> PlayPauseDecision(
                 shouldPlay = true,
                 shouldPause = false,
-                reason = "One-pod mode: pod(s) inserted (net change: +$netChange)"
+                reason = "One-pod mode: pod(s) inserted (net change: +$netChange)",
+                usedRecentCapPauseOverride = isCurrentlyPlaying && wasRecentlyPausedByUs,
             )
 
             // No net change, or action not appropriate for current playing state
@@ -172,17 +181,19 @@ class PlayPause @Inject constructor(
     private fun evaluateNormalMode(
         previous: EarDetectionState,
         current: EarDetectionState,
-        isCurrentlyPlaying: Boolean
+        isCurrentlyPlaying: Boolean,
+        wasRecentlyPausedByCap: Boolean,
     ): PlayPauseDecision {
         val wasWorn = previous.bothInEar
         val isWorn = current.bothInEar
 
         return when {
             // Transition: not worn → worn, and not playing → play
-            !wasWorn && isWorn && !isCurrentlyPlaying -> PlayPauseDecision(
+            !wasWorn && isWorn && (!isCurrentlyPlaying || wasRecentlyPausedByCap) -> PlayPauseDecision(
                 shouldPlay = true,
                 shouldPause = false,
-                reason = "Normal mode: both pods in ear"
+                reason = "Normal mode: both pods in ear",
+                usedRecentCapPauseOverride = isCurrentlyPlaying && wasRecentlyPausedByCap,
             )
 
             // Transition: worn → not worn, and playing → pause
@@ -235,7 +246,8 @@ class PlayPause @Inject constructor(
     data class PlayPauseDecision(
         val shouldPlay: Boolean,
         val shouldPause: Boolean,
-        val reason: String
+        val reason: String,
+        val usedRecentCapPauseOverride: Boolean = false,
     )
 
     companion object {
