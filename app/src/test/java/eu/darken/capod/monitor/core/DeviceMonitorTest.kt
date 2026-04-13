@@ -9,6 +9,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -43,6 +44,17 @@ class DeviceMonitorTest : BaseTest() {
         model = PodModel.AIRPODS_PRO2_USBC,
         address = null,
     )
+    private val keyedProfile = AppleDeviceProfile(
+        label = "Keyed AirPods",
+        model = PodModel.AIRPODS_PRO2_USBC,
+        address = testAddress,
+        identityKey = ByteArray(16) { 0x42 },
+    )
+    private val noKeyProfile = AppleDeviceProfile(
+        label = "No Key AirPods",
+        model = PodModel.AIRPODS_PRO2_USBC,
+        address = "11:22:33:44:55:66",
+    )
 
     private val testCachedState = CachedDeviceState(
         profileId = testProfile.id,
@@ -73,6 +85,22 @@ class DeviceMonitorTest : BaseTest() {
         return mockk(relaxed = true) {
             every { meta } returns anonymousMeta
             every { this@mockk.model } returns model
+        }
+    }
+
+    private fun mockAppleBlePod(
+        profile: DeviceProfile,
+        isIRKMatch: Boolean,
+        signalQuality: Float = 0.5f,
+    ): ApplePods {
+        val appleMeta = ApplePods.AppleMeta(
+            isIRKMatch = isIRKMatch,
+            profile = profile as? AppleDeviceProfile,
+        )
+        return mockk(relaxed = true) {
+            every { meta } returns appleMeta
+            every { this@mockk.model } returns profile.model
+            every { this@mockk.signalQuality } returns signalQuality
         }
     }
 
@@ -389,5 +417,70 @@ class DeviceMonitorTest : BaseTest() {
         // One anonymous BLE pod (no profile), one synthesized AAP-only profile
         devices.count { it.profileId == null } shouldBe 1
         devices.count { it.profileId == testProfile.id } shouldBe 1
+    }
+
+    @Test
+    fun `profile dedup - two live pods with same IRK-backed profileId collapsed to IRK winner`() =
+        runTest(testDispatcher) {
+            val irkPod = mockAppleBlePod(keyedProfile, isIRKMatch = true, signalQuality = 0.6f)
+            val strangerPod = mockAppleBlePod(keyedProfile, isIRKMatch = false, signalQuality = 0.8f)
+            val monitor = createMonitor(
+                ble = listOf(irkPod, strangerPod),
+                profiles = listOf(keyedProfile),
+                scope = backgroundScope,
+            )
+
+            val devices = monitor.devices.first()
+
+            devices.size shouldBe 1
+            devices.single().ble shouldBe irkPod
+        }
+
+    @Test
+    fun `profile dedup - two IRK-matched pods for same profile keeps higher signal quality`() =
+        runTest(testDispatcher) {
+            val weakPod = mockAppleBlePod(keyedProfile, isIRKMatch = true, signalQuality = 0.3f)
+            val strongPod = mockAppleBlePod(keyedProfile, isIRKMatch = true, signalQuality = 0.9f)
+            val monitor = createMonitor(
+                ble = listOf(weakPod, strongPod),
+                profiles = listOf(keyedProfile),
+                scope = backgroundScope,
+            )
+
+            val devices = monitor.devices.first()
+
+            devices.size shouldBe 1
+            devices.single().ble shouldBe strongPod
+        }
+
+    @Test
+    fun `profile dedup - two pods with same no-IRK profileId are NOT collapsed`() =
+        runTest(testDispatcher) {
+            val pod1 = mockAppleBlePod(noKeyProfile, isIRKMatch = false, signalQuality = 0.6f)
+            val pod2 = mockAppleBlePod(noKeyProfile, isIRKMatch = false, signalQuality = 0.8f)
+            val monitor = createMonitor(
+                ble = listOf(pod1, pod2),
+                profiles = listOf(noKeyProfile),
+                scope = backgroundScope,
+            )
+
+            val devices = monitor.devices.first()
+
+            devices.size shouldBe 2
+        }
+
+    @Test
+    fun `profile dedup - anonymous pods always pass through`() = runTest(testDispatcher) {
+        val anon1 = mockAnonymousBlePod(PodModel.AIRPODS_PRO2_USBC)
+        val anon2 = mockAnonymousBlePod(PodModel.AIRPODS_PRO2_USBC)
+        val monitor = createMonitor(
+            ble = listOf(anon1, anon2),
+            profiles = emptyList(),
+            scope = backgroundScope,
+        )
+
+        val devices = monitor.devices.first()
+
+        devices.size shouldBe 2
     }
 }
