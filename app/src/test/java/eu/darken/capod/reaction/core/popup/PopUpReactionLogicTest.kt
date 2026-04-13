@@ -117,13 +117,13 @@ class PopUpReactionLogicTest : BaseTest() {
             hasConnectedDevice: Boolean = true,
             hasPodDevice: Boolean = true,
             hasAlreadyShown: Boolean = false,
-            deviceAge: Duration = Duration.ofSeconds(5),
+            broadcastAge: Duration = Duration.ofSeconds(5),
             connectionAge: Duration = Duration.ofSeconds(5),
         ) = popUpReaction.evaluateConnectionPopUp(
             hasConnectedDevice = hasConnectedDevice,
             hasPodDevice = hasPodDevice,
             hasAlreadyShown = hasAlreadyShown,
-            deviceAge = deviceAge,
+            broadcastAge = broadcastAge,
             connectionAge = connectionAge,
         )
 
@@ -143,6 +143,14 @@ class PopUpReactionLogicTest : BaseTest() {
         }
 
         @Test
+        fun `connected long ago - should NOT show`() {
+            evaluate(
+                broadcastAge = Duration.ofSeconds(5),
+                connectionAge = Duration.ofSeconds(60),
+            ).shouldShow shouldBe false
+        }
+
+        @Test
         fun `already shown for this connection - should NOT show`() {
             evaluate(hasAlreadyShown = true).shouldShow shouldBe false
         }
@@ -150,7 +158,7 @@ class PopUpReactionLogicTest : BaseTest() {
         @Test
         fun `broadcast device age much older than connection (false positive) - should NOT show`() {
             evaluate(
-                deviceAge = Duration.ofSeconds(60),
+                broadcastAge = Duration.ofSeconds(60),
                 connectionAge = Duration.ofSeconds(5),
             ).shouldShow shouldBe false
         }
@@ -158,7 +166,7 @@ class PopUpReactionLogicTest : BaseTest() {
         @Test
         fun `broadcast device age within threshold of connection - should show`() {
             evaluate(
-                deviceAge = Duration.ofSeconds(20),
+                broadcastAge = Duration.ofSeconds(20),
                 connectionAge = Duration.ofSeconds(5),
             ).shouldShow shouldBe true
         }
@@ -166,7 +174,7 @@ class PopUpReactionLogicTest : BaseTest() {
         @Test
         fun `broadcast device age exactly at threshold - should NOT show`() {
             evaluate(
-                deviceAge = Duration.ofSeconds(36),
+                broadcastAge = Duration.ofSeconds(36),
                 connectionAge = Duration.ofSeconds(5),
             ).shouldShow shouldBe false
         }
@@ -176,7 +184,7 @@ class PopUpReactionLogicTest : BaseTest() {
             // Duration.between(now, pastTimestamp) produces negative durations.
             // The false-positive filter must work regardless of sign.
             evaluate(
-                deviceAge = Duration.ofSeconds(-60),
+                broadcastAge = Duration.ofSeconds(-60),
                 connectionAge = Duration.ofSeconds(-5),
             ).shouldShow shouldBe false
         }
