@@ -37,10 +37,10 @@ fun PodDevice.toCachedState(
         profileId = pid,
         model = model,
         address = address,
-        left = liveLeft?.let { CachedBatterySlot(it, now) } ?: existing?.left,
-        right = liveRight?.let { CachedBatterySlot(it, now) } ?: existing?.right,
-        case = liveCase?.let { CachedBatterySlot(it, now) } ?: existing?.case,
-        headset = liveHeadset?.let { CachedBatterySlot(it, now) } ?: existing?.headset,
+        left = mergeBatterySlot(liveLeft, existing?.left, now),
+        right = mergeBatterySlot(liveRight, existing?.right, now),
+        case = mergeBatterySlot(liveCase, existing?.case, now),
+        headset = mergeBatterySlot(liveHeadset, existing?.headset, now),
         isLeftCharging = isLeftPodCharging,
         isRightCharging = isRightPodCharging,
         isCaseCharging = isCaseCharging,
@@ -54,6 +54,18 @@ fun PodDevice.toCachedState(
     if (existing != null && !hasStateChanged(existing, newState)) return null
 
     return newState
+}
+
+private fun mergeBatterySlot(
+    livePercent: Float?,
+    existing: CachedBatterySlot?,
+    now: Instant,
+): CachedBatterySlot? {
+    if (livePercent == null) return existing
+    if (existing == null) return CachedBatterySlot(livePercent, now)
+
+    val isStale = Duration.between(existing.updatedAt, now).abs() > Duration.ofMinutes(1)
+    return if (existing.percent == livePercent && !isStale) existing else CachedBatterySlot(livePercent, now)
 }
 
 private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boolean {

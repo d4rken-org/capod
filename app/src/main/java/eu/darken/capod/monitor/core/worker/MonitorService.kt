@@ -29,9 +29,11 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
@@ -46,7 +48,7 @@ import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -182,7 +184,7 @@ class MonitorService : Service() {
 
         val monitorJob = deviceMonitor.primaryDevice()
             .setupCommonEventHandlers(TAG) { "BlePodMonitor" }
-            .distinctUntilChanged()
+            .distinctUntilChangedBy { it?.toNotificationKey() }
             .throttleLatest(1000)
             .onEach { currentDevice ->
                 val useExtraNotification = generalSettings.useExtraMonitorNotification.valueBlocking
@@ -326,3 +328,51 @@ class MonitorService : Service() {
         }
     }
 }
+
+private data class NotificationDeviceKey(
+    val profileId: String?,
+    val label: String?,
+    val model: PodModel,
+    val hasDualPods: Boolean,
+    val hasCase: Boolean,
+    val hasEarDetection: Boolean,
+    val batteryLeft: Float?,
+    val batteryRight: Float?,
+    val batteryCase: Float?,
+    val batteryHeadset: Float?,
+    val isLeftPodCharging: Boolean?,
+    val isRightPodCharging: Boolean?,
+    val isCaseCharging: Boolean?,
+    val isHeadsetBeingCharged: Boolean?,
+    val isLeftInEar: Boolean?,
+    val isRightInEar: Boolean?,
+    val isBeingWorn: Boolean?,
+    val iconRes: Int,
+    val leftPodIcon: Int,
+    val rightPodIcon: Int,
+    val caseIcon: Int,
+)
+
+private fun PodDevice.toNotificationKey(): NotificationDeviceKey = NotificationDeviceKey(
+    profileId = profileId,
+    label = label,
+    model = model,
+    hasDualPods = hasDualPods,
+    hasCase = hasCase,
+    hasEarDetection = hasEarDetection,
+    batteryLeft = batteryLeft,
+    batteryRight = batteryRight,
+    batteryCase = batteryCase,
+    batteryHeadset = batteryHeadset,
+    isLeftPodCharging = isLeftPodCharging,
+    isRightPodCharging = isRightPodCharging,
+    isCaseCharging = isCaseCharging,
+    isHeadsetBeingCharged = isHeadsetBeingCharged,
+    isLeftInEar = isLeftInEar,
+    isRightInEar = isRightInEar,
+    isBeingWorn = isBeingWorn,
+    iconRes = iconRes,
+    leftPodIcon = leftPodIcon,
+    rightPodIcon = rightPodIcon,
+    caseIcon = caseIcon,
+)
