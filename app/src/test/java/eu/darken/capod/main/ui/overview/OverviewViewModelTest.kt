@@ -12,8 +12,6 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
-import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
-import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
@@ -26,6 +24,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -416,9 +415,19 @@ class OverviewViewModelTest : BaseTest() {
         fun `onPermissionResult calls permissionTool recheck`() = runTest(testDispatcher) {
             val vm = createViewModel()
 
-            vm.onPermissionResult(true)
+            vm.onPermissionResult()
 
             verify(exactly = 1) { permissionTool.recheck() }
+        }
+
+        @Test
+        fun `onSettingsPermissionResult retries permission recheck`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+
+            vm.onSettingsPermissionResult()
+            advanceUntilIdle()
+
+            verify(exactly = 2) { permissionTool.recheck() }
         }
 
         @Test

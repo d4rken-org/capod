@@ -77,15 +77,15 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
 
     val permissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
-    ) { granted ->
-        vm.onPermissionResult(granted)
+    ) {
+        vm.onPermissionResult()
     }
 
     // When returning from settings-based permissions
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
         if (awaitingPermission) {
             awaitingPermission = false
-            vm.onPermissionResult(true)
+            vm.onSettingsPermissionResult()
         }
     }
 
