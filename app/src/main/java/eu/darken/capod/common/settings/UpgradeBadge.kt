@@ -35,6 +35,7 @@ fun UpgradeBadge(modifier: Modifier = Modifier) {
             text = stringResource(R.string.upgrade_badge_label),
             color = MaterialTheme.colorScheme.primary,
             style = MaterialTheme.typography.labelSmall,
+            maxLines = 1,
         )
     }
 }
