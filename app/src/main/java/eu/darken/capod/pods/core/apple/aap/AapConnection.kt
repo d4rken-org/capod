@@ -65,6 +65,7 @@ internal class AapConnection(
     private var socket: BluetoothSocket? = null
     private var readerJob: Job? = null
     private val writeMutex = Mutex()
+    private val sendMutex = Mutex()
     private val framer = AapFramer()
 
     private var pendingAncMode: AapSetting.AncMode.Value? = null
@@ -147,7 +148,7 @@ internal class AapConnection(
         _state.value = AapPodState(connectionState = AapPodState.ConnectionState.DISCONNECTED)
     }
 
-    suspend fun send(command: AapCommand) {
+    suspend fun send(command: AapCommand) = sendMutex.withLock {
         val currentState = _state.value
         if (currentState.connectionState != AapPodState.ConnectionState.READY) {
             throw IllegalStateException("Cannot send command in state ${currentState.connectionState}")
@@ -162,7 +163,7 @@ internal class AapConnection(
                 log(TAG) { "No pod in ear, queuing ANC mode: ${command.mode}" }
                 pendingAncMode = command.mode
                 _state.value = currentState.copy(pendingAncMode = command.mode)
-                return
+                return@withLock
             }
             pendingAncMode = null
             // Optimistically update UI — don't wait for device echo
