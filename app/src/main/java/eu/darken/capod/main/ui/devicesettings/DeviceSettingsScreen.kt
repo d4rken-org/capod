@@ -86,7 +86,9 @@ import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsPreferenceItem
+import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.monitor.core.PodDevice
@@ -282,100 +284,84 @@ fun DeviceSettingsScreen(
 
             // ── Reactions (per-profile, not gated on AAP) ─────────────────
             if (device != null && features != null) {
-                item("reactions_header") {
-                    SettingsCategoryHeader(text = stringResource(R.string.settings_reaction_label))
-                }
-
-                if (features.hasEarDetection) {
-                    item("reaction_auto_play") {
+                item("reactions_section") {
+                    SettingsSection(title = stringResource(R.string.settings_reaction_label)) {
+                        if (features.hasEarDetection) {
+                            SettingsSwitchItem(
+                                icon = Icons.TwoTone.PlayCircle,
+                                title = stringResource(R.string.settings_autopplay_label),
+                                subtitle = stringResource(R.string.settings_autoplay_description),
+                                checked = reactions.autoPlay,
+                                onCheckedChange = onAutoPlayChange,
+                                requiresUpgrade = !isPro,
+                            )
+                            SettingsSwitchItem(
+                                icon = Icons.TwoTone.PauseCircle,
+                                title = stringResource(R.string.settings_autopause_label),
+                                subtitle = stringResource(R.string.settings_autopause_description),
+                                checked = reactions.autoPause,
+                                onCheckedChange = onAutoPauseChange,
+                                requiresUpgrade = !isPro,
+                            )
+                            if (features.hasDualPods) {
+                                val earDetectionActive = reactions.autoPlay || reactions.autoPause
+                                SettingsBaseItem(
+                                    title = stringResource(R.string.settings_onepod_mode_label),
+                                    subtitle = stringResource(R.string.settings_onepod_mode_description),
+                                    icon = Icons.TwoTone.LooksOne,
+                                    onClick = { if (earDetectionActive) onOnePodModeChange(!reactions.onePodMode) },
+                                    enabled = earDetectionActive,
+                                    trailingContent = {
+                                        Switch(
+                                            checked = reactions.onePodMode,
+                                            onCheckedChange = onOnePodModeChange,
+                                            enabled = earDetectionActive,
+                                            modifier = Modifier.padding(start = 16.dp),
+                                        )
+                                    },
+                                )
+                            }
+                            val earDetectionWarningVisible =
+                                (reactions.autoPlay || reactions.autoPause) && !device.isAapConnected
+                            if (earDetectionWarningVisible) {
+                                SettingsInfoBox(
+                                    text = stringResource(R.string.settings_eardetection_info_description),
+                                )
+                            }
+                        }
                         SettingsSwitchItem(
-                            icon = Icons.TwoTone.PlayCircle,
-                            title = stringResource(R.string.settings_autopplay_label),
-                            subtitle = stringResource(R.string.settings_autoplay_description),
-                            checked = reactions.autoPlay,
-                            onCheckedChange = onAutoPlayChange,
-                            requiresUpgrade = !isPro,
+                            icon = Icons.TwoTone.BluetoothConnected,
+                            title = stringResource(R.string.settings_autoconnect_label),
+                            subtitle = stringResource(R.string.settings_autoconnect_description),
+                            checked = reactions.autoConnect,
+                            onCheckedChange = onAutoConnectChange,
                         )
-                    }
-                    item("reaction_auto_pause") {
-                        SettingsSwitchItem(
-                            icon = Icons.TwoTone.PauseCircle,
-                            title = stringResource(R.string.settings_autopause_label),
-                            subtitle = stringResource(R.string.settings_autopause_description),
-                            checked = reactions.autoPause,
-                            onCheckedChange = onAutoPauseChange,
-                            requiresUpgrade = !isPro,
+                        SettingsBaseItem(
+                            title = stringResource(R.string.settings_autoconnect_condition_label),
+                            subtitle = stringResource(reactions.autoConnectCondition.labelRes),
+                            icon = Icons.TwoTone.Workspaces,
+                            onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
+                            enabled = reactions.autoConnect,
                         )
-                    }
-                    if (features.hasDualPods) {
-                        val earDetectionActive = reactions.autoPlay || reactions.autoPause
-                        item("reaction_one_pod_mode") {
-                            SettingsBaseItem(
-                                title = stringResource(R.string.settings_onepod_mode_label),
-                                subtitle = stringResource(R.string.settings_onepod_mode_description),
-                                icon = Icons.TwoTone.LooksOne,
-                                onClick = { if (earDetectionActive) onOnePodModeChange(!reactions.onePodMode) },
-                                enabled = earDetectionActive,
-                                trailingContent = {
-                                    Switch(
-                                        checked = reactions.onePodMode,
-                                        onCheckedChange = onOnePodModeChange,
-                                        enabled = earDetectionActive,
-                                        modifier = Modifier.padding(start = 16.dp),
-                                    )
-                                },
+                        if (features.hasCase) {
+                            SettingsSwitchItem(
+                                icon = Icons.AutoMirrored.TwoTone.Message,
+                                title = stringResource(R.string.settings_popup_caseopen_label),
+                                subtitle = stringResource(R.string.settings_popup_caseopen_description),
+                                checked = reactions.showPopUpOnCaseOpen,
+                                onCheckedChange = onShowPopUpOnCaseOpenChange,
+                                requiresUpgrade = !isPro,
                             )
                         }
-                    }
-                    item("reaction_ear_detection_info") {
-                        SettingsBaseItem(
-                            title = stringResource(R.string.settings_eardetection_info_label),
-                            subtitle = stringResource(R.string.settings_eardetection_info_description),
-                            icon = Icons.TwoTone.QuestionMark,
-                            onClick = {},
-                            enabled = false,
-                        )
-                    }
-                }
-                item("reaction_auto_connect") {
-                    SettingsSwitchItem(
-                        icon = Icons.TwoTone.BluetoothConnected,
-                        title = stringResource(R.string.settings_autoconnect_label),
-                        subtitle = stringResource(R.string.settings_autoconnect_description),
-                        checked = reactions.autoConnect,
-                        onCheckedChange = onAutoConnectChange,
-                    )
-                }
-                item("reaction_auto_connect_condition") {
-                    SettingsBaseItem(
-                        title = stringResource(R.string.settings_autoconnect_condition_label),
-                        subtitle = stringResource(reactions.autoConnectCondition.labelRes),
-                        icon = Icons.TwoTone.Workspaces,
-                        onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
-                        enabled = reactions.autoConnect,
-                    )
-                }
-                if (features.hasCase) {
-                    item("reaction_popup_caseopen") {
                         SettingsSwitchItem(
                             icon = Icons.AutoMirrored.TwoTone.Message,
-                            title = stringResource(R.string.settings_popup_caseopen_label),
-                            subtitle = stringResource(R.string.settings_popup_caseopen_description),
-                            checked = reactions.showPopUpOnCaseOpen,
-                            onCheckedChange = onShowPopUpOnCaseOpenChange,
+                            title = stringResource(R.string.settings_popup_connected_label),
+                            subtitle = stringResource(R.string.settings_popup_connected_description),
+                            checked = reactions.showPopUpOnConnection,
+                            onCheckedChange = onShowPopUpOnConnectionChange,
                             requiresUpgrade = !isPro,
                         )
                     }
-                }
-                item("reaction_popup_connection") {
-                    SettingsSwitchItem(
-                        icon = Icons.AutoMirrored.TwoTone.Message,
-                        title = stringResource(R.string.settings_popup_connected_label),
-                        subtitle = stringResource(R.string.settings_popup_connected_description),
-                        checked = reactions.showPopUpOnConnection,
-                        onCheckedChange = onShowPopUpOnConnectionChange,
-                        requiresUpgrade = !isPro,
-                    )
                 }
             }
 
@@ -461,201 +447,185 @@ fun DeviceSettingsScreen(
                 // ── Sound ────────────────────────────────────
                 val personalizedVol = device.personalizedVolume
                 val toneVol = device.toneVolume
-                if ((features.hasPersonalizedVolume && personalizedVol != null) || (features.hasToneVolume && toneVol != null)) {
-                    item("sound_header") {
-                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_sound_label))
-                    }
-                }
-
-                if (features.hasPersonalizedVolume && personalizedVol != null) {
-                    item("personalized_volume") {
-                        SettingsSwitchItem(
-                            icon = Icons.AutoMirrored.TwoTone.VolumeUp,
-                            title = stringResource(R.string.device_settings_personalized_volume_label),
-                            subtitle = stringResource(R.string.device_settings_personalized_volume_description),
-                            checked = personalizedVol.enabled,
-                            onCheckedChange = onPersonalizedVolumeChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
-                if (features.hasToneVolume && toneVol != null) {
-                    item("tone_volume") {
-                        ToneVolumeSlider(
-                            level = toneVol.level,
-                            onLevelChange = onToneVolumeChange,
-                            enabled = enabled,
-                        )
+                val showSoundSection =
+                    (features.hasPersonalizedVolume && personalizedVol != null) || (features.hasToneVolume && toneVol != null)
+                if (showSoundSection) {
+                    item("sound_section") {
+                        SettingsSection(title = stringResource(R.string.device_settings_category_sound_label)) {
+                            if (features.hasPersonalizedVolume && personalizedVol != null) {
+                                SettingsSwitchItem(
+                                    icon = Icons.AutoMirrored.TwoTone.VolumeUp,
+                                    title = stringResource(R.string.device_settings_personalized_volume_label),
+                                    subtitle = stringResource(R.string.device_settings_personalized_volume_description),
+                                    checked = personalizedVol.enabled,
+                                    onCheckedChange = onPersonalizedVolumeChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasToneVolume && toneVol != null) {
+                                ToneVolumeSlider(
+                                    level = toneVol.level,
+                                    onLevelChange = onToneVolumeChange,
+                                    enabled = enabled,
+                                )
+                            }
+                        }
                     }
                 }
 
                 // ── Controls ─────────────────────────────────
-                item("controls_header") {
-                    SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_controls_label))
-                }
-
                 val pressSpd = device.pressSpeed
-                if (features.hasPressSpeed && pressSpd != null) {
-                    item("press_speed") {
-                        SegmentedSettingRow(
-                            icon = Icons.TwoTone.Speed,
-                            title = stringResource(R.string.device_settings_press_speed_label),
-                            subtitle = stringResource(R.string.device_settings_press_speed_description),
-                            options = listOf(
-                                stringResource(R.string.device_settings_press_speed_default) to AapSetting.PressSpeed.Value.DEFAULT,
-                                stringResource(R.string.device_settings_press_speed_slower) to AapSetting.PressSpeed.Value.SLOWER,
-                                stringResource(R.string.device_settings_press_speed_slowest) to AapSetting.PressSpeed.Value.SLOWEST,
-                            ),
-                            selected = pressSpd.value,
-                            onSelected = onPressSpeedChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
                 val pressHold = device.pressHoldDuration
-                if (features.hasPressHoldDuration && pressHold != null) {
-                    item("press_hold") {
-                        SegmentedSettingRow(
-                            icon = Icons.TwoTone.Timer,
-                            title = stringResource(R.string.device_settings_press_hold_label),
-                            subtitle = stringResource(R.string.device_settings_press_hold_description),
-                            options = listOf(
-                                stringResource(R.string.device_settings_press_hold_default) to AapSetting.PressHoldDuration.Value.DEFAULT,
-                                stringResource(R.string.device_settings_press_hold_shorter) to AapSetting.PressHoldDuration.Value.SHORTER,
-                                stringResource(R.string.device_settings_press_hold_shortest) to AapSetting.PressHoldDuration.Value.SHORTEST,
-                            ),
-                            selected = pressHold.value,
-                            onSelected = onPressHoldDurationChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
                 val volSwipe = device.volumeSwipe
-                if (features.hasVolumeSwipe && volSwipe != null) {
-                    item("volume_swipe") {
-                        SettingsSwitchItem(
-                            icon = Icons.TwoTone.Swipe,
-                            title = stringResource(R.string.device_settings_volume_swipe_label),
-                            subtitle = stringResource(R.string.device_settings_volume_swipe_description),
-                            checked = volSwipe.enabled,
-                            onCheckedChange = onVolumeSwipeChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
                 val volSwipeLen = device.volumeSwipeLength
-                if (features.hasVolumeSwipeLength && volSwipeLen != null) {
-                    item("volume_swipe_length") {
-                        SegmentedSettingRow(
-                            icon = Icons.TwoTone.Swipe,
-                            title = stringResource(R.string.device_settings_volume_swipe_length_label),
-                            subtitle = stringResource(R.string.device_settings_volume_swipe_length_description),
-                            options = listOf(
-                                stringResource(R.string.device_settings_volume_swipe_length_default) to AapSetting.VolumeSwipeLength.Value.DEFAULT,
-                                stringResource(R.string.device_settings_volume_swipe_length_longer) to AapSetting.VolumeSwipeLength.Value.LONGER,
-                                stringResource(R.string.device_settings_volume_swipe_length_longest) to AapSetting.VolumeSwipeLength.Value.LONGEST,
-                            ),
-                            selected = volSwipeLen.value,
-                            onSelected = onVolumeSwipeLengthChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
                 val endCallMuteMic = device.endCallMuteMic
-                if (features.hasEndCallMuteMic && endCallMuteMic != null) {
-                    item("end_call_mute_mic") {
-                        EndCallMuteMicControl(
-                            current = endCallMuteMic,
-                            onChange = onEndCallMuteMicChange,
-                            enabled = enabled,
-                        )
+                val showControlsSection = features.hasStemConfig ||
+                        (features.hasEndCallMuteMic && endCallMuteMic != null) ||
+                        (features.hasPressSpeed && pressSpd != null) ||
+                        (features.hasPressHoldDuration && pressHold != null) ||
+                        (features.hasVolumeSwipe && volSwipe != null) ||
+                        (features.hasVolumeSwipeLength && volSwipeLen != null)
+                if (showControlsSection) {
+                    item("controls_section") {
+                        SettingsSection(title = stringResource(R.string.device_settings_category_controls_label)) {
+                            if (features.hasStemConfig) {
+                                SettingsPreferenceItem(
+                                    icon = Icons.TwoTone.TouchApp,
+                                    title = stringResource(R.string.stem_actions_title),
+                                    subtitle = stringResource(R.string.stem_actions_nav_description),
+                                    onClick = onStemActionsClick,
+                                    enabled = enabled,
+                                    requiresUpgrade = !isPro,
+                                )
+                            }
+                            if (features.hasEndCallMuteMic && endCallMuteMic != null) {
+                                EndCallMuteMicControl(
+                                    current = endCallMuteMic,
+                                    onChange = onEndCallMuteMicChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasPressSpeed && pressSpd != null) {
+                                SegmentedSettingRow(
+                                    icon = Icons.TwoTone.Speed,
+                                    title = stringResource(R.string.device_settings_press_speed_label),
+                                    subtitle = stringResource(R.string.device_settings_press_speed_description),
+                                    options = listOf(
+                                        stringResource(R.string.device_settings_press_speed_default) to AapSetting.PressSpeed.Value.DEFAULT,
+                                        stringResource(R.string.device_settings_press_speed_slower) to AapSetting.PressSpeed.Value.SLOWER,
+                                        stringResource(R.string.device_settings_press_speed_slowest) to AapSetting.PressSpeed.Value.SLOWEST,
+                                    ),
+                                    selected = pressSpd.value,
+                                    onSelected = onPressSpeedChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasPressHoldDuration && pressHold != null) {
+                                SegmentedSettingRow(
+                                    icon = Icons.TwoTone.Timer,
+                                    title = stringResource(R.string.device_settings_press_hold_label),
+                                    subtitle = stringResource(R.string.device_settings_press_hold_description),
+                                    options = listOf(
+                                        stringResource(R.string.device_settings_press_hold_default) to AapSetting.PressHoldDuration.Value.DEFAULT,
+                                        stringResource(R.string.device_settings_press_hold_shorter) to AapSetting.PressHoldDuration.Value.SHORTER,
+                                        stringResource(R.string.device_settings_press_hold_shortest) to AapSetting.PressHoldDuration.Value.SHORTEST,
+                                    ),
+                                    selected = pressHold.value,
+                                    onSelected = onPressHoldDurationChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasVolumeSwipe && volSwipe != null) {
+                                SettingsSwitchItem(
+                                    icon = Icons.TwoTone.Swipe,
+                                    title = stringResource(R.string.device_settings_volume_swipe_label),
+                                    subtitle = stringResource(R.string.device_settings_volume_swipe_description),
+                                    checked = volSwipe.enabled,
+                                    onCheckedChange = onVolumeSwipeChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasVolumeSwipeLength && volSwipeLen != null) {
+                                SegmentedSettingRow(
+                                    icon = Icons.TwoTone.Swipe,
+                                    title = stringResource(R.string.device_settings_volume_swipe_length_label),
+                                    subtitle = stringResource(R.string.device_settings_volume_swipe_length_description),
+                                    options = listOf(
+                                        stringResource(R.string.device_settings_volume_swipe_length_default) to AapSetting.VolumeSwipeLength.Value.DEFAULT,
+                                        stringResource(R.string.device_settings_volume_swipe_length_longer) to AapSetting.VolumeSwipeLength.Value.LONGER,
+                                        stringResource(R.string.device_settings_volume_swipe_length_longest) to AapSetting.VolumeSwipeLength.Value.LONGEST,
+                                    ),
+                                    selected = volSwipeLen.value,
+                                    onSelected = onVolumeSwipeLengthChange,
+                                    enabled = enabled,
+                                )
+                            }
+                        }
                     }
                 }
 
-                if (features.hasMicrophoneMode) {
-                    val micMode = device.microphoneMode
-                        ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)
-                    item("microphone_mode") {
-                        SegmentedSettingRow(
-                            icon = Icons.TwoTone.Mic,
-                            title = stringResource(R.string.device_settings_microphone_mode_label),
-                            subtitle = stringResource(R.string.device_settings_microphone_mode_description),
-                            options = listOf(
-                                stringResource(R.string.device_settings_microphone_mode_auto) to AapSetting.MicrophoneMode.Mode.AUTO,
-                                stringResource(R.string.device_settings_microphone_mode_left) to AapSetting.MicrophoneMode.Mode.ALWAYS_LEFT,
-                                stringResource(R.string.device_settings_microphone_mode_right) to AapSetting.MicrophoneMode.Mode.ALWAYS_RIGHT,
-                            ),
-                            selected = micMode.mode,
-                            onSelected = onMicrophoneModeChange,
-                            enabled = enabled,
-                        )
-                    }
-                }
-
-                if (features.hasStemConfig) {
-                    item("stem_actions") {
-                        SettingsPreferenceItem(
-                            icon = Icons.TwoTone.TouchApp,
-                            title = stringResource(R.string.stem_actions_title),
-                            subtitle = stringResource(R.string.stem_actions_nav_description),
-                            onClick = onStemActionsClick,
-                            enabled = enabled,
-                            requiresUpgrade = !isPro,
-                        )
-                    }
-                }
-
-                // ── General ──────────────────────────────────
-                item("general_header") {
-                    SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_general_label))
-                }
-
-                if (features.hasSleepDetection) {
-                    val sleepDet = device.sleepDetection
-                        ?: AapSetting.SleepDetection(enabled = true)
-                    item("sleep_detection") {
-                        SettingsSwitchItem(
-                            icon = Icons.TwoTone.Nightlight,
-                            title = stringResource(R.string.device_settings_sleep_detection_label),
-                            subtitle = stringResource(R.string.device_settings_sleep_detection_description),
-                            checked = sleepDet.enabled,
-                            onCheckedChange = onSleepDetectionChange,
-                            enabled = enabled,
-                            requiresUpgrade = !isPro,
-                        )
+                // ── Other ───────────────────────────────────
+                val showOtherSection = features.hasMicrophoneMode || features.hasSleepDetection
+                if (showOtherSection) {
+                    item("other_section") {
+                        SettingsSection(title = stringResource(R.string.settings_category_other_label)) {
+                            if (features.hasMicrophoneMode) {
+                                val micMode = device.microphoneMode
+                                    ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)
+                                SegmentedSettingRow(
+                                    icon = Icons.TwoTone.Mic,
+                                    title = stringResource(R.string.device_settings_microphone_mode_label),
+                                    subtitle = stringResource(R.string.device_settings_microphone_mode_description),
+                                    options = listOf(
+                                        stringResource(R.string.device_settings_microphone_mode_auto) to AapSetting.MicrophoneMode.Mode.AUTO,
+                                        stringResource(R.string.device_settings_microphone_mode_left) to AapSetting.MicrophoneMode.Mode.ALWAYS_LEFT,
+                                        stringResource(R.string.device_settings_microphone_mode_right) to AapSetting.MicrophoneMode.Mode.ALWAYS_RIGHT,
+                                    ),
+                                    selected = micMode.mode,
+                                    onSelected = onMicrophoneModeChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasSleepDetection) {
+                                val sleepDet = device.sleepDetection
+                                    ?: AapSetting.SleepDetection(enabled = true)
+                                SettingsSwitchItem(
+                                    icon = Icons.TwoTone.Nightlight,
+                                    title = stringResource(R.string.device_settings_sleep_detection_label),
+                                    subtitle = stringResource(R.string.device_settings_sleep_detection_description),
+                                    checked = sleepDet.enabled,
+                                    onCheckedChange = onSleepDetectionChange,
+                                    enabled = enabled,
+                                    requiresUpgrade = !isPro,
+                                )
+                            }
+                        }
                     }
                 }
 
                 // ── Connections ───────────────────────────────
                 val connectedDevices = device.connectedDevices
                 if (connectedDevices != null && connectedDevices.devices.isNotEmpty()) {
-                    item("connections_header") {
-                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_category_connections_label))
-                    }
-                    item("connected_devices") {
-                        ConnectedDevicesList(
-                            devices = connectedDevices.devices,
-                            audioSource = device.audioSource,
-                        )
+                    item("connections_section") {
+                        SettingsSection(title = stringResource(R.string.device_settings_category_connections_label)) {
+                            ConnectedDevicesList(
+                                devices = connectedDevices.devices,
+                                audioSource = device.audioSource,
+                            )
+                        }
                     }
                 }
 
                 // EQ visualization (debug only)
                 val eqBands = device.eqBands
                 if (eu.darken.capod.BuildConfig.DEBUG && eqBands != null && eqBands.sets.isNotEmpty()) {
-                    item("eq_header") {
-                        SettingsCategoryHeader(text = stringResource(R.string.device_settings_eq_label))
-                    }
-                    item("eq_bars") {
-                        EqBarsChart(
-                            sets = eqBands.sets,
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        )
+                    item("eq_section") {
+                        SettingsSection(title = stringResource(R.string.device_settings_eq_label)) {
+                            EqBarsChart(
+                                sets = eqBands.sets,
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                            )
+                        }
                     }
                 }
             }
@@ -1415,6 +1385,23 @@ private fun DeviceSettingsInfoOnlyPreview() = PreviewWrapper {
                 profileId = "preview-info",
                 label = "My AirPods Pro",
                 ble = MockPodDataProvider.airPodsProMixed(),
+                aap = null,
+            ),
+            now = MOCK_NOW,
+        ),
+        onNavigateUp = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceSettingsLowFeaturePreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = DeviceSettingsViewModel.State(
+            device = PodDevice(
+                profileId = "preview-low-feature",
+                label = "Beats Solo 3",
+                ble = MockPodDataProvider.beatsSolo3(),
                 aap = null,
             ),
             now = MOCK_NOW,
