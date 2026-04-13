@@ -58,6 +58,10 @@ fun PodDevice.toCachedState(
 
 private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boolean {
     if (Duration.between(old.lastSeenAt, new.lastSeenAt).abs() > Duration.ofMinutes(1)) return true
+    if (hasSlotTimestampChanged(old.left, new.left)) return true
+    if (hasSlotTimestampChanged(old.right, new.right)) return true
+    if (hasSlotTimestampChanged(old.case, new.case)) return true
+    if (hasSlotTimestampChanged(old.headset, new.headset)) return true
     return old.left?.percent != new.left?.percent
         || old.right?.percent != new.right?.percent
         || old.case?.percent != new.case?.percent
@@ -69,4 +73,12 @@ private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boo
         || old.deviceName != new.deviceName
         || old.serialNumber != new.serialNumber
         || old.firmwareVersion != new.firmwareVersion
+}
+
+private fun hasSlotTimestampChanged(
+    old: CachedBatterySlot?,
+    new: CachedBatterySlot?,
+): Boolean {
+    if (old == null || new == null) return false
+    return Duration.between(old.updatedAt, new.updatedAt).abs() > Duration.ofMinutes(1)
 }

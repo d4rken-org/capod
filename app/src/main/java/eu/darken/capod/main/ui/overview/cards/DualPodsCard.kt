@@ -215,7 +215,7 @@ fun DualPodsCard(
             }
 
             // Cached battery indicator
-            if (device.isBatteryCached && !device.isAapReady) {
+            if (device.isBatteryCached && !device.isLive) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
