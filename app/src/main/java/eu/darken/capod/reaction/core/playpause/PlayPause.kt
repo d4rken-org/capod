@@ -26,112 +26,154 @@ class PlayPause @Inject constructor(
     private val mediaControl: MediaControl,
 ) {
 
-    fun monitor() = deviceMonitor.primaryDevice()
-        .map { device -> device?.reactions?.let { it.autoPlay || it.autoPause } == true }
-        .distinctUntilChanged()
-        .flatMapLatest { shouldMonitor ->
-            if (shouldMonitor) bluetoothManager.connectedDevices else emptyFlow()
-        }
-        .flatMapLatest { connected ->
-            if (connected.isEmpty()) {
-                log(TAG) { "No known devices connected." }
-                emptyFlow()
-            } else {
-                log(TAG) { "Known devices connected: $connected" }
-                deviceMonitor.primaryDevice()
-            }
-        }
-        .distinctUntilChanged()
-        .withPrevious()
-        .filter { (previous, current) ->
-            if (previous == null || current == null) return@filter false
-            // Use profileId (stable across BLE address rotations) rather than BLE identifier.
-            // Only profiled devices reach this point (outer gate requires profile.autoPlay/autoPause).
-            val match = previous.profileId != null && previous.profileId == current.profileId
-            if (!match) log(TAG, WARN) { "Main device switched, skipping reaction." }
-            match
-        }
-        .onEach { (previous, current) ->
-            log(TAG, VERBOSE) { "Checking\nprevious=$previous\ncurrent=$current" }
+    fun monitor() = run {
+        var pendingPlayConfirmation: PendingPlayConfirmation? = null
 
-            val reactions = current?.reactions
-            if (reactions == null) {
-                log(TAG, VERBOSE) { "No reactions on current device, skipping reaction" }
-                return@onEach
-            }
-
-            // Convert to EarDetectionState based on device capabilities
-            val prevState: EarDetectionState
-            val currState: EarDetectionState
-
-            when {
-                previous!!.hasEarDetection && previous.hasDualPods &&
-                        current.hasEarDetection && current.hasDualPods -> {
-                    // Dual pod devices (AirPods, AirPods Pro, etc.)
-                    log(TAG, VERBOSE) {
-                        "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}"
-                    }
-                    prevState = EarDetectionState.fromDualPod(
-                        left = previous.isLeftInEar ?: false,
-                        right = previous.isRightInEar ?: false,
-                    )
-                    currState = EarDetectionState.fromDualPod(
-                        left = current.isLeftInEar ?: false,
-                        right = current.isRightInEar ?: false,
-                    )
+        deviceMonitor.primaryDevice()
+            .map { device -> device?.reactions?.let { it.autoPlay || it.autoPause } == true }
+            .distinctUntilChanged()
+            .flatMapLatest { shouldMonitor ->
+                if (shouldMonitor) {
+                    bluetoothManager.connectedDevices
+                } else {
+                    pendingPlayConfirmation = null
+                    emptyFlow()
                 }
-
-                previous.hasEarDetection && current.hasEarDetection -> {
-                    // Single pod devices (AirPods Max, etc.)
-                    log(TAG, VERBOSE) { "Single-pod device: worn=${current.isBeingWorn}" }
-                    prevState = EarDetectionState.fromSinglePod(worn = previous.isBeingWorn ?: false)
-                    currState = EarDetectionState.fromSinglePod(worn = current.isBeingWorn ?: false)
+            }
+            .flatMapLatest { connected ->
+                if (connected.isEmpty()) {
+                    pendingPlayConfirmation = null
+                    log(TAG) { "No known devices connected." }
+                    emptyFlow()
+                } else {
+                    log(TAG) { "Known devices connected: $connected" }
+                    deviceMonitor.primaryDevice()
                 }
+            }
+            .distinctUntilChanged()
+            .withPrevious()
+            .filter { (previous, current) ->
+                if (previous == null || current == null) return@filter false
+                // Use profileId (stable across BLE address rotations) rather than BLE identifier.
+                // Only profiled devices reach this point (outer gate requires profile.autoPlay/autoPause).
+                val match = previous.profileId != null && previous.profileId == current.profileId
+                if (!match) log(TAG, WARN) { "Main device switched, skipping reaction." }
+                match
+            }
+            .onEach { (previous, current) ->
+                log(TAG, VERBOSE) { "Checking\nprevious=$previous\ncurrent=$current" }
 
-                else -> {
-                    log(TAG, VERBOSE) { "Device doesn't support ear detection: $current" }
+                val reactions = current?.reactions
+                if (reactions == null) {
+                    log(TAG, VERBOSE) { "No reactions on current device, skipping reaction" }
+                    pendingPlayConfirmation = null
                     return@onEach
                 }
-            }
 
-            // Evaluate what action to take
-            val decision = evaluatePlayPauseAction(
-                previous = prevState,
-                current = currState,
-                onePodMode = reactions.onePodMode,
-                isCurrentlyPlaying = mediaControl.isPlaying,
-                wasRecentlyPausedByUs = mediaControl.wasRecentlyPausedByCap,
-            )
+                // Convert to EarDetectionState based on device capabilities
+                val prevState: EarDetectionState
+                val currState: EarDetectionState
 
-            if (decision.usedRecentCapPauseOverride) {
-                log(TAG, VERBOSE) {
-                    "Resume override: recent CAP pause window is active, allowing play despite playing=true"
+                when {
+                    previous!!.hasEarDetection && previous.hasDualPods &&
+                        current.hasEarDetection && current.hasDualPods -> {
+                        // Dual pod devices (AirPods, AirPods Pro, etc.)
+                        log(TAG, VERBOSE) {
+                            "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}"
+                        }
+                        prevState = EarDetectionState.fromDualPod(
+                            left = previous.isLeftInEar ?: false,
+                            right = previous.isRightInEar ?: false,
+                        )
+                        currState = EarDetectionState.fromDualPod(
+                            left = current.isLeftInEar ?: false,
+                            right = current.isRightInEar ?: false,
+                        )
+                    }
+
+                    previous.hasEarDetection && current.hasEarDetection -> {
+                        // Single pod devices (AirPods Max, etc.)
+                        log(TAG, VERBOSE) { "Single-pod device: worn=${current.isBeingWorn}" }
+                        prevState = EarDetectionState.fromSinglePod(worn = previous.isBeingWorn ?: false)
+                        currState = EarDetectionState.fromSinglePod(worn = current.isBeingWorn ?: false)
+                    }
+
+                    else -> {
+                        log(TAG, VERBOSE) { "Device doesn't support ear detection: $current" }
+                        pendingPlayConfirmation = null
+                        return@onEach
+                    }
+                }
+
+                val isCurrentlyPlaying = mediaControl.isPlaying
+                val wasRecentlyPausedByUs = mediaControl.wasRecentlyPausedByCap
+
+                // Evaluate what action to take
+                val rawDecision = evaluatePlayPauseAction(
+                    previous = prevState,
+                    current = currState,
+                    onePodMode = reactions.onePodMode,
+                    isCurrentlyPlaying = isCurrentlyPlaying,
+                    wasRecentlyPausedByUs = wasRecentlyPausedByUs,
+                )
+
+                val shouldStageBleOnlyPlay = rawDecision.shouldPlay &&
+                    reactions.autoPlay &&
+                    !reactions.onePodMode &&
+                    current.hasDualPods &&
+                    current.aap?.aapEarDetection == null
+
+                val confirmation = applyBleOnlyPlayConfirmation(
+                    pending = pendingPlayConfirmation,
+                    profileId = current.profileId,
+                    onePodMode = reactions.onePodMode,
+                    autoPlayEnabled = reactions.autoPlay,
+                    rawDecision = rawDecision,
+                    currentState = currState,
+                    shouldStageBleOnlyPlay = shouldStageBleOnlyPlay,
+                    isCurrentlyPlaying = isCurrentlyPlaying,
+                    wasRecentlyPausedByUs = wasRecentlyPausedByUs,
+                )
+                pendingPlayConfirmation = confirmation.pending
+
+                if (confirmation.stagedConfirmation) {
+                    log(TAG, VERBOSE) { "Staging BLE-only autoplay confirmation for ${current.profileId}" }
+                }
+                if (confirmation.confirmedPendingPlay) {
+                    log(TAG, VERBOSE) { "BLE-only autoplay confirmed by a follow-up state update" }
+                }
+
+                val decision = confirmation.decision
+                if (decision.usedRecentCapPauseOverride) {
+                    log(TAG, VERBOSE) {
+                        "Resume override: recent CAP pause window is active, allowing play despite playing=true"
+                    }
+                }
+                log(TAG, VERBOSE) { "Decision: ${decision.reason}" }
+
+                // Execute the decision
+                when {
+                    decision.shouldPlay && reactions.autoPlay -> {
+                        log(TAG) { "autoPlay is triggered, sendPlay() - ${decision.reason}" }
+                        mediaControl.sendPlay()
+                    }
+
+                    decision.shouldPlay && !reactions.autoPlay -> {
+                        log(TAG, VERBOSE) { "autoPlay is disabled" }
+                    }
+
+                    decision.shouldPause && reactions.autoPause -> {
+                        log(TAG) { "autoPause is triggered, sendPause() - ${decision.reason}" }
+                        mediaControl.sendPause()
+                    }
+
+                    decision.shouldPause && !reactions.autoPause -> {
+                        log(TAG, VERBOSE) { "autoPause is disabled" }
+                    }
                 }
             }
-            log(TAG, VERBOSE) { "Decision: ${decision.reason}" }
-
-            // Execute the decision
-            when {
-                decision.shouldPlay && reactions.autoPlay -> {
-                    log(TAG) { "autoPlay is triggered, sendPlay() - ${decision.reason}" }
-                    mediaControl.sendPlay()
-                }
-
-                decision.shouldPlay && !reactions.autoPlay -> {
-                    log(TAG, VERBOSE) { "autoPlay is disabled" }
-                }
-
-                decision.shouldPause && reactions.autoPause -> {
-                    log(TAG) { "autoPause is triggered, sendPause() - ${decision.reason}" }
-                    mediaControl.sendPause()
-                }
-
-                decision.shouldPause && !reactions.autoPause -> {
-                    log(TAG, VERBOSE) { "autoPause is disabled" }
-                }
-            }
-        }
-        .setupCommonEventHandlers(TAG) { "monitor" }
+            .setupCommonEventHandlers(TAG) { "monitor" }
+    }
 
     internal fun evaluatePlayPauseAction(
         previous: EarDetectionState,
@@ -212,6 +254,63 @@ class PlayPause @Inject constructor(
         }
     }
 
+    internal fun applyBleOnlyPlayConfirmation(
+        pending: PendingPlayConfirmation?,
+        profileId: String?,
+        onePodMode: Boolean,
+        autoPlayEnabled: Boolean,
+        rawDecision: PlayPauseDecision,
+        currentState: EarDetectionState,
+        shouldStageBleOnlyPlay: Boolean,
+        isCurrentlyPlaying: Boolean,
+        wasRecentlyPausedByUs: Boolean,
+    ): PlayConfirmationResult {
+        val activePending = pending?.takeIf {
+            it.profileId == profileId && it.onePodMode == onePodMode && autoPlayEnabled
+        }
+
+        if (activePending != null &&
+            currentState == activePending.targetState &&
+            (!isCurrentlyPlaying || wasRecentlyPausedByUs)
+        ) {
+            return PlayConfirmationResult(
+                decision = PlayPauseDecision(
+                    shouldPlay = true,
+                    shouldPause = false,
+                    reason = "${activePending.reason} (confirmed by a second state update)",
+                    usedRecentCapPauseOverride = isCurrentlyPlaying && wasRecentlyPausedByUs,
+                ),
+                pending = null,
+                confirmedPendingPlay = true,
+                stagedConfirmation = false,
+            )
+        }
+
+        if (shouldStageBleOnlyPlay && profileId != null) {
+            return PlayConfirmationResult(
+                decision = rawDecision.copy(
+                    shouldPlay = false,
+                    reason = "${rawDecision.reason} (waiting for BLE confirmation)",
+                ),
+                pending = PendingPlayConfirmation(
+                    profileId = profileId,
+                    onePodMode = onePodMode,
+                    targetState = currentState,
+                    reason = rawDecision.reason,
+                ),
+                confirmedPendingPlay = false,
+                stagedConfirmation = true,
+            )
+        }
+
+        return PlayConfirmationResult(
+            decision = rawDecision,
+            pending = null,
+            confirmedPendingPlay = false,
+            stagedConfirmation = false,
+        )
+    }
+
     data class EarDetectionState(
         val leftInEar: Boolean?,    // null for single pod devices
         val rightInEar: Boolean?,   // null for single pod devices
@@ -248,6 +347,20 @@ class PlayPause @Inject constructor(
         val shouldPause: Boolean,
         val reason: String,
         val usedRecentCapPauseOverride: Boolean = false,
+    )
+
+    data class PendingPlayConfirmation(
+        val profileId: String,
+        val onePodMode: Boolean,
+        val targetState: EarDetectionState,
+        val reason: String,
+    )
+
+    data class PlayConfirmationResult(
+        val decision: PlayPauseDecision,
+        val pending: PendingPlayConfirmation?,
+        val confirmedPendingPlay: Boolean,
+        val stagedConfirmation: Boolean,
     )
 
     companion object {

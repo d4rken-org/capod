@@ -312,25 +312,31 @@ fun DeviceSettingsScreen(
                                 requiresUpgrade = !isPro,
                             )
                             if (features.hasDualPods) {
-                                val earDetectionActive = reactions.autoPlay || reactions.autoPause
+                                val onePodModeActive = reactions.autoPlay ||
+                                    reactions.autoPause ||
+                                    (reactions.autoConnect && reactions.autoConnectCondition == AutoConnectCondition.IN_EAR)
                                 SettingsBaseItem(
                                     title = stringResource(R.string.settings_onepod_mode_label),
                                     subtitle = stringResource(R.string.settings_onepod_mode_description),
                                     icon = Icons.TwoTone.LooksOne,
-                                    onClick = { if (earDetectionActive) onOnePodModeChange(!reactions.onePodMode) },
-                                    enabled = earDetectionActive,
+                                    onClick = { if (onePodModeActive) onOnePodModeChange(!reactions.onePodMode) },
+                                    enabled = onePodModeActive,
                                     trailingContent = {
                                         Switch(
                                             checked = reactions.onePodMode,
                                             onCheckedChange = onOnePodModeChange,
-                                            enabled = earDetectionActive,
+                                            enabled = onePodModeActive,
                                             modifier = Modifier.padding(start = 16.dp),
                                         )
                                     },
                                 )
                             }
                             val earDetectionWarningVisible =
-                                (reactions.autoPlay || reactions.autoPause) && !device.isAapConnected
+                                (
+                                    reactions.autoPlay ||
+                                        reactions.autoPause ||
+                                        (reactions.autoConnect && reactions.autoConnectCondition == AutoConnectCondition.IN_EAR)
+                                    ) && !device.isAapConnected
                             if (earDetectionWarningVisible) {
                                 SettingsInfoBox(
                                     text = stringResource(R.string.settings_eardetection_info_description),
