@@ -19,6 +19,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.PodFactory
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPairing
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.currentProfiles
@@ -189,12 +190,38 @@ class BlePodMonitor @Inject constructor(
 
         pods.putAll(deviceCache)
 
-        newPods.map { it.device }.forEach {
-            deviceCache[it.identifier] = it
-            pods[it.identifier] = it
+        newPods.map { it.device }.forEach { newPod ->
+            val existing = pods[newPod.identifier]
+            val preferred = if (existing != null) {
+                preferCaseContextPod(existing, newPod)
+            } else {
+                newPod
+            }
+            deviceCache[preferred.identifier] = preferred
+            pods[preferred.identifier] = preferred
         }
 
         return pods
+    }
+
+    /**
+     * When two scan results in the same batch map to the same device identity,
+     * prefer the one broadcasting from inside the case (has case context bits set).
+     * It carries authoritative case state and battery data.
+     */
+    private fun preferCaseContextPod(
+        existing: BlePodSnapshot,
+        incoming: BlePodSnapshot,
+    ): BlePodSnapshot {
+        val existingDual = existing as? DualApplePods
+        val incomingDual = incoming as? DualApplePods
+        if (existingDual == null || incomingDual == null) return incoming
+
+        return when {
+            existingDual.hasCaseContext && !incomingDual.hasCaseContext -> existing
+            !existingDual.hasCaseContext && incomingDual.hasCaseContext -> incoming
+            else -> incoming
+        }
     }
 
     companion object {

@@ -1,8 +1,10 @@
 package eu.darken.capod.pods.core.apple.ble.devices
 
 import eu.darken.capod.common.bluetooth.BleScanResult
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.airpods.AirPodsPro
 import eu.darken.capod.pods.core.apple.ble.devices.airpods.HasStateDetectionAirPods
+import eu.darken.capod.pods.core.apple.ble.history.KnownDevice
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -214,6 +216,8 @@ class DualApplePodsTest : BaseBlePodsTest() {
         }
     }
 
+    private fun directAirPodsPro(status: Int) = directAirPodsPro(status, 0x31)
+
     private fun directAirPodsPro(
         status: Int,
         rawCaseLidState: Int,
@@ -251,6 +255,64 @@ class DualApplePodsTest : BaseBlePodsTest() {
         directAirPodsPro(status = 0x40, rawCaseLidState = 0x51).caseLidState shouldBe DualApplePods.LidState.OPEN
         directAirPodsPro(status = 0x2B, rawCaseLidState = 0x11).caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
         directAirPodsPro(status = 0x20, rawCaseLidState = 0x5A).caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
+    }
+
+    private fun knownDeviceOf(vararg pods: AirPodsPro): KnownDevice {
+        val id = pods.first().identifier
+        return KnownDevice(
+            id = id,
+            seenFirstAt = pods.first().seenFirstAt,
+            seenCounter = pods.size,
+            history = pods.toList(),
+            lastCaseBattery = null,
+        )
+    }
+
+    private val testFactory = object : ApplePodsFactory {
+        override fun isResponsible(message: eu.darken.capod.pods.core.apple.ble.protocol.ProximityMessage) = false
+        override suspend fun create(
+            scanResult: BleScanResult,
+            payload: ProximityPayload,
+            meta: ApplePods.AppleMeta,
+        ): ApplePods = throw UnsupportedOperationException()
+    }
+
+    @Test
+    fun `getLatestCaseLidState - desk pod defers to case-context history`() {
+        val sharedId = BlePodSnapshot.Id()
+        // Pod in case: status=0x55 has bits 2,4,6 set → hasCaseContext=true, lid=OPEN
+        val casePod = directAirPodsPro(status = 0x55, rawCaseLidState = 0x31).copy(identifier = sharedId)
+        // Pod on desk: status=0x20 has no case bits → hasCaseContext=false → NOT_IN_CASE
+        val deskPod = directAirPodsPro(status = 0x20, rawCaseLidState = 0x31).copy(identifier = sharedId)
+
+        val known = knownDeviceOf(casePod, deskPod)
+        val result = with(testFactory) { known.getLatestCaseLidState(deskPod) }
+
+        result shouldBe DualApplePods.LidState.OPEN
+    }
+
+    @Test
+    fun `getLatestCaseLidState - case pod is authoritative`() {
+        val sharedId = BlePodSnapshot.Id()
+        val deskPod = directAirPodsPro(status = 0x20, rawCaseLidState = 0x31).copy(identifier = sharedId)
+        val casePod = directAirPodsPro(status = 0x55, rawCaseLidState = 0x39).copy(identifier = sharedId)
+
+        val known = knownDeviceOf(deskPod, casePod)
+        val result = with(testFactory) { known.getLatestCaseLidState(casePod) }
+
+        result shouldBe DualApplePods.LidState.CLOSED
+    }
+
+    @Test
+    fun `getLatestCaseLidState - no case context in history returns NOT_IN_CASE`() {
+        val sharedId = BlePodSnapshot.Id()
+        val deskPod1 = directAirPodsPro(status = 0x20, rawCaseLidState = 0x31).copy(identifier = sharedId)
+        val deskPod2 = directAirPodsPro(status = 0x20, rawCaseLidState = 0x31).copy(identifier = sharedId)
+
+        val known = knownDeviceOf(deskPod1, deskPod2)
+        val result = with(testFactory) { known.getLatestCaseLidState(deskPod2) }
+
+        result shouldBe DualApplePods.LidState.NOT_IN_CASE
     }
 
     @Test
