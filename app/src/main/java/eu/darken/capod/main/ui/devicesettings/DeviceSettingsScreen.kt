@@ -155,6 +155,7 @@ fun DeviceSettingsScreenHost(
         onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
+        onOffVisibilityChange = { enabled, mask -> vm.setListeningModeOffVisibility(enabled, mask) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
         onStemActionsClick = { vm.navToStemConfig() },
@@ -190,6 +191,7 @@ fun DeviceSettingsScreen(
     onMicrophoneModeChange: (AapSetting.MicrophoneMode.Mode) -> Unit = {},
     onListeningModeCycleChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
+    onOffVisibilityChange: (enabled: Boolean, currentCycleMask: Int) -> Unit = { _, _ -> },
     onSleepDetectionChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
     onStemActionsClick: () -> Unit = {},
@@ -402,6 +404,7 @@ fun DeviceSettingsScreen(
                             cycleMask = if (isPro) cycleMask else null,
                             onCycleMaskChange = onListeningModeCycleChange,
                             onAllowOffChange = onAllowOffOptionChange,
+                            onOffVisibilityChange = onOffVisibilityChange,
                             enabled = enabled,
                         )
                     }
@@ -1253,6 +1256,7 @@ private fun NoiseControlCombined(
     cycleMask: Int?,
     onCycleMaskChange: (Int) -> Unit,
     onAllowOffChange: (Boolean) -> Unit = {},
+    onOffVisibilityChange: (enabled: Boolean, currentCycleMask: Int) -> Unit = { _, _ -> },
     enabled: Boolean,
 ) {
     val displayMode = pendingMode ?: currentMode
@@ -1288,12 +1292,12 @@ private fun NoiseControlCombined(
                         IconButton(
                             onClick = {
                                 val isOff = mode == AapSetting.AncMode.Value.OFF
-                                if (inCycle == true && canRemoveFromCycle) {
+                                if (isOff) {
+                                    onOffVisibilityChange(inCycle != true, cycleMask ?: 0)
+                                } else if (inCycle == true && canRemoveFromCycle) {
                                     onCycleMaskChange(cycleMask xor bit)
-                                    if (isOff) onAllowOffChange(false)
                                 } else if (inCycle != true) {
                                     onCycleMaskChange((cycleMask ?: 0) or bit)
-                                    if (isOff) onAllowOffChange(true)
                                 }
                             },
                             enabled = enabled && (inCycle != true || canRemoveFromCycle),

@@ -167,14 +167,16 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }
 
-    private suspend fun sendInternal(command: AapCommand) {
-        val address = currentAddress() ?: return
-        try {
+    private suspend fun sendInternal(command: AapCommand): Boolean {
+        val address = currentAddress() ?: return false
+        return try {
             aapManager.sendCommand(address, command)
             log(TAG) { "Sent $command to $address" }
+            true
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to send $command: ${e.message}" }
             events.emit(Event.SendFailed(command, e.message))
+            false
         }
     }
 
@@ -222,6 +224,19 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setListeningModeCycle(modeMask: Int) = sendProGated(AapCommand.SetListeningModeCycle(modeMask))
 
     fun setAllowOffOption(enabled: Boolean) = sendProGated(AapCommand.SetAllowOffOption(enabled))
+
+    fun setListeningModeOffVisibility(enabled: Boolean, currentCycleMask: Int) = launch {
+        if (!upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        // Keep in sync with cycleBits[OFF] in DeviceSettingsScreen.NoiseControlCombined
+        val offBit = 0x01
+        val newMask = if (enabled) currentCycleMask or offBit else currentCycleMask and offBit.inv()
+        if (sendInternal(AapCommand.SetListeningModeCycle(newMask))) {
+            sendInternal(AapCommand.SetAllowOffOption(enabled))
+        }
+    }
 
     fun setSleepDetection(enabled: Boolean) = sendProGated(AapCommand.SetSleepDetection(enabled))
 
