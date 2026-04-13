@@ -166,16 +166,18 @@ class PopUpReaction @Inject constructor(
                 return@mapNotNull null
             }
 
-            val deviceSeenFirst = currentBroadcasted.seenFirstAt ?: return@mapNotNull null
+            // Use the most recent BLE advertisement, not the first time this device was ever seen.
+            // Connection popups are meant to verify that a connection coincides with a fresh broadcast.
+            val broadcastSeenLast = currentBroadcasted.ble?.seenLastAt ?: return@mapNotNull null
             val now = timeSource.now()
-            val deviceAge = Duration.between(deviceSeenFirst, now)
+            val broadcastAge = Duration.between(broadcastSeenLast, now)
             val connectionAge = Duration.between(currentConnected.seenFirstAt, now)
 
             val decision = evaluateConnectionPopUp(
                 hasConnectedDevice = true,
                 hasPodDevice = true,
                 hasAlreadyShown = connectionCoolDowns.containsKey(currentConnected.address),
-                deviceAge = deviceAge,
+                broadcastAge = broadcastAge,
                 connectionAge = connectionAge,
             )
 
@@ -264,8 +266,9 @@ class PopUpReaction @Inject constructor(
         hasConnectedDevice: Boolean,
         hasPodDevice: Boolean,
         hasAlreadyShown: Boolean,
-        deviceAge: Duration,
+        broadcastAge: Duration,
         connectionAge: Duration,
+        maxConnectionAge: Duration = Duration.ofSeconds(30),
         maxAgeDiff: Duration = Duration.ofSeconds(30),
     ): ConnectionPopUpDecision {
         if (!hasConnectedDevice) {
@@ -274,7 +277,10 @@ class PopUpReaction @Inject constructor(
         if (!hasPodDevice) {
             return ConnectionPopUpDecision(false, "No pod device found")
         }
-        if (deviceAge.abs() > (connectionAge.abs() + maxAgeDiff)) {
+        if (connectionAge.abs() > maxConnectionAge) {
+            return ConnectionPopUpDecision(false, "Connection is no longer new")
+        }
+        if (broadcastAge.abs() > (connectionAge.abs() + maxAgeDiff)) {
             return ConnectionPopUpDecision(false, "Broadcast too old, likely false positive")
         }
         if (hasAlreadyShown) {
