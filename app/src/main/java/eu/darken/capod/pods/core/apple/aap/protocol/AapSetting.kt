@@ -93,9 +93,8 @@ sealed class AapSetting {
         val enabled: Boolean,
     ) : AapSetting()
 
-    // Wire format matches librepods spec (tested on AirPods Pro 2). On AirPods Pro 3 the device
-    // accepts and echoes the value but no audible effect has been observed — may need additional
-    // enable packet or different handling. Requires more investigation.
+    // UI-space 0..100 (100 = max noise reduction). Wire value is inverted — conversion lives in
+    // the device profile. Pro 3 silently accepts writes (no echo) but the value persists.
     data class AdaptiveAudioNoise(
         val level: Int,
     ) : AapSetting()

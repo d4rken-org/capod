@@ -86,7 +86,7 @@ class DefaultAapDeviceProfile(
     override fun encodeInitExt(): ByteArray? {
         if (!model.features.needsInitExt) return null
         return byteArrayOf(
-            0x04, 0x00, 0x04, 0x00, 0x4d, 0x00, 0x0e, 0x00,
+            0x04, 0x00, 0x04, 0x00, 0x4d, 0x00, 0xd7.toByte(), 0x00,
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         )
     }
@@ -101,7 +101,9 @@ class DefaultAapDeviceProfile(
         is AapCommand.SetVolumeSwipeLength -> buildSettingsMessage(SETTING_VOLUME_SWIPE_LENGTH, command.value.wireValue)
         is AapCommand.SetVolumeSwipe -> buildSettingsMessage(SETTING_VOLUME_SWIPE, encodeAppleBool(command.enabled))
         is AapCommand.SetPersonalizedVolume -> buildSettingsMessage(SETTING_PERSONALIZED_VOLUME, encodeAppleBool(command.enabled))
-        is AapCommand.SetAdaptiveAudioNoise -> buildSettingsMessage(SETTING_ADAPTIVE_AUDIO_NOISE, command.level.coerceIn(0, 100))
+        // Wire semantics are inverted: wire 0 = max noise reduction, wire 100 = min (transparency-like).
+        // UI value 0..100 follows user intuition (100 = max NC), so flip on write/read.
+        is AapCommand.SetAdaptiveAudioNoise -> buildSettingsMessage(SETTING_ADAPTIVE_AUDIO_NOISE, 100 - command.level.coerceIn(0, 100))
         is AapCommand.SetEndCallMuteMic -> buildEndCallMuteMicMessage(command.muteMic, command.endCall)
         is AapCommand.SetMicrophoneMode -> buildSettingsMessage(SETTING_MICROPHONE_MODE, command.mode.wireValue)
         is AapCommand.SetEarDetectionEnabled -> buildSettingsMessage(SETTING_EAR_DETECTION_ENABLED, encodeAppleBool(command.enabled))
@@ -242,7 +244,7 @@ class DefaultAapDeviceProfile(
                 AapSetting.PersonalizedVolume::class to AapSetting.PersonalizedVolume(enabled)
             }
             SETTING_ADAPTIVE_AUDIO_NOISE -> {
-                AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = value)
+                AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 100 - value.coerceIn(0, 100))
             }
             SETTING_MICROPHONE_MODE -> {
                 val mode = AapSetting.MicrophoneMode.Mode.fromWire(value) ?: return null
