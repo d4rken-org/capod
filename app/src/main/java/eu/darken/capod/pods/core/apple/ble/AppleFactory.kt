@@ -2,8 +2,9 @@ package eu.darken.capod.pods.core.apple.ble
 
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.logSummary
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
