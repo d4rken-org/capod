@@ -7,6 +7,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.BaseAapSessionTest
 import eu.darken.capod.pods.core.apple.aap.protocol.DefaultAapDeviceProfile
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -270,12 +271,67 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
     @Nested
     inner class EndCallMuteMicTests {
         @Test
-        fun `encode single press mute, double press end call`() {
-            val bytes = profile.encodeCommand(AapCommand.SetEndCallMuteMic(AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS, AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS))
-            bytes[6] shouldBe 0x24.toByte()
-            bytes[7] shouldBe 0x21.toByte()
-            bytes[8] shouldBe 0x23.toByte()
-            bytes[9] shouldBe 0x02.toByte()
+        fun `encode single press mute, double press end call (compact 0x20)`() {
+            val bytes = profile.encodeCommand(
+                AapCommand.SetEndCallMuteMic(
+                    AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
+                    AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
+                )
+            )
+            bytes shouldBe byteArrayOf(
+                0x04, 0x00, 0x04, 0x00,
+                0x09, 0x00,
+                0x24, 0x20,
+                0x02,
+                0x00, 0x00,
+            )
+        }
+
+        @Test
+        fun `encode double press mute, single press end call (compact 0x20)`() {
+            val bytes = profile.encodeCommand(
+                AapCommand.SetEndCallMuteMic(
+                    AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
+                    AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+                )
+            )
+            bytes shouldBe byteArrayOf(
+                0x04, 0x00, 0x04, 0x00,
+                0x09, 0x00,
+                0x24, 0x20,
+                0x03,
+                0x00, 0x00,
+            )
+        }
+
+        @Test
+        fun `encoded bytes round-trip through decoder`() {
+            listOf(
+                AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
+                AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+            ).forEach { (mute, end) ->
+                val encoded = profile.encodeCommand(AapCommand.SetEndCallMuteMic(mute, end))
+                val message = AapMessage.parse(encoded) ?: error("Failed to parse encoded bytes")
+                val decoded = decodeSetting<AapSetting.EndCallMuteMic>(message)
+                decoded.muteMic shouldBe mute
+                decoded.endCall shouldBe end
+            }
+        }
+
+        @Test
+        fun `SetEndCallMuteMic rejects non-complementary combination`() {
+            shouldThrow<IllegalArgumentException> {
+                AapCommand.SetEndCallMuteMic(
+                    AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
+                    AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
+                )
+            }
+            shouldThrow<IllegalArgumentException> {
+                AapCommand.SetEndCallMuteMic(
+                    AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
+                    AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
+                )
+            }
         }
 
         @Test

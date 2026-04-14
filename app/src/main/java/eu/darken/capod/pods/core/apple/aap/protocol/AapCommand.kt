@@ -12,7 +12,19 @@ sealed class AapCommand {
     data class SetNcWithOneAirPod(val enabled: Boolean) : AapCommand()
     data class SetToneVolume(val level: Int) : AapCommand()
     data class SetVolumeSwipeLength(val value: AapSetting.VolumeSwipeLength.Value) : AapCommand()
-    data class SetEndCallMuteMic(val muteMic: AapSetting.EndCallMuteMic.MuteMicMode, val endCall: AapSetting.EndCallMuteMic.EndCallMode) : AapCommand()
+    data class SetEndCallMuteMic(
+        val muteMic: AapSetting.EndCallMuteMic.MuteMicMode,
+        val endCall: AapSetting.EndCallMuteMic.EndCallMode,
+    ) : AapCommand() {
+        init {
+            require(
+                (muteMic == AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS &&
+                    endCall == AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS) ||
+                    (muteMic == AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS &&
+                        endCall == AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS)
+            ) { "muteMic and endCall must be complementary press actions" }
+        }
+    }
     data class SetVolumeSwipe(val enabled: Boolean) : AapCommand()
     data class SetPersonalizedVolume(val enabled: Boolean) : AapCommand()
     data class SetAdaptiveAudioNoise(val level: Int) : AapCommand()
