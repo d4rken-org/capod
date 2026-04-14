@@ -407,21 +407,41 @@ class DefaultAapDeviceProfile(
         0x00, 0x00, 0x00,
     )
 
-    /** EndCallMuteMic uses a special 2-byte format: [0x24] [0x21] [muteMic] [endCall] [0x00] */
-    private fun buildEndCallMuteMicMessage(muteMic: AapSetting.EndCallMuteMic.MuteMicMode, endCall: AapSetting.EndCallMuteMic.EndCallMode): ByteArray = byteArrayOf(
-        0x04, 0x00, 0x04, 0x00,
-        0x09, 0x00,
-        SETTING_END_CALL_MUTE_MIC.toByte(), 0x21,
-        muteMic.wireValue.toByte(), endCall.wireValue.toByte(),
-        0x00,
-    )
+    /**
+     * EndCallMuteMic write uses compact format [0x24] [0x20] [combined] [0x00] [0x00].
+     * The LibrePods-documented 0x21 "standard" format is silently ignored by real firmware
+     * — no captured session (Pro 1, Pro 2 USB-C, Pro 3) has ever emitted it. Real devices
+     * emit subtype 0x20 or 0x00; writes using 0x20 are accepted and persisted.
+     * Combined-byte mapping mirrors decodeEndCallMuteMic's compact branch.
+     */
+    private fun buildEndCallMuteMicMessage(
+        muteMic: AapSetting.EndCallMuteMic.MuteMicMode,
+        endCall: AapSetting.EndCallMuteMic.EndCallMode,
+    ): ByteArray {
+        val combined = when {
+            muteMic == AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS &&
+                endCall == AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS -> 0x02
+            muteMic == AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS &&
+                endCall == AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS -> 0x03
+            else -> error("SetEndCallMuteMic invariant violated (validated by AapCommand.init)")
+        }
+        return byteArrayOf(
+            0x04, 0x00, 0x04, 0x00,
+            0x09, 0x00,
+            SETTING_END_CALL_MUTE_MIC.toByte(), 0x20,
+            combined.toByte(),
+            0x00, 0x00,
+        )
+    }
 
     private fun decodeEndCallMuteMic(payload: ByteArray): Pair<KClass<out AapSetting>, AapSetting>? {
         if (payload.size < 4) return null
         val subType = payload[1].toInt() and 0xFF
         return when (subType) {
             0x21 -> {
-                // Standard format: byte 2 = muteMic, byte 3 = endCall
+                // Legacy doc-sourced format (LibrePods/MagicPodsCore). Never observed in real captures.
+                // Kept for forward-compat: if any unknown firmware emits this, decode still works.
+                // NOTE: writes must use compact 0x20 format — real devices silently ignore 0x21.
                 val muteMic = AapSetting.EndCallMuteMic.MuteMicMode.fromWire(payload[2].toInt() and 0xFF) ?: return null
                 val endCall = AapSetting.EndCallMuteMic.EndCallMode.fromWire(payload[3].toInt() and 0xFF) ?: return null
                 AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(muteMic, endCall)
