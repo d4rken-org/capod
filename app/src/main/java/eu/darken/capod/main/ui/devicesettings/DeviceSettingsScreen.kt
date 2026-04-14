@@ -6,6 +6,8 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -66,13 +68,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -115,6 +121,7 @@ fun DeviceSettingsScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
+    var showRenameUnavailableDialog by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
             when (event) {
@@ -127,13 +134,20 @@ fun DeviceSettingsScreenHost(
                     )
                 }
                 DeviceSettingsViewModel.Event.SystemRenameUnavailable -> {
-                    snackbarHostState.showSnackbar(
-                        context.getString(R.string.device_settings_rename_system_unavailable),
-                        duration = androidx.compose.material3.SnackbarDuration.Long,
-                    )
+                    showRenameUnavailableDialog = true
                 }
             }
         }
+    }
+
+    if (showRenameUnavailableDialog) {
+        SystemRenameUnavailableDialog(
+            onOpenBluetoothSettings = {
+                showRenameUnavailableDialog = false
+                context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
+            },
+            onDismiss = { showRenameUnavailableDialog = false },
+        )
     }
 
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
@@ -1222,6 +1236,7 @@ private fun RenameDialog(
     onDismiss: () -> Unit,
 ) {
     var textValue by remember { mutableStateOf(currentName) }
+    val focusRequester = remember { FocusRequester() }
 
     // The decoder in DefaultAapDeviceProfile only round-trips printable ASCII (0x20..0x7E),
     // so even if the device accepts a UTF-8 name we can't display it back correctly. Accept any
@@ -1229,6 +1244,9 @@ private fun RenameDialog(
     // understands why Rename is disabled.
     val hasInvalidAscii = textValue.any { it.code !in 0x20..0x7E }
     val isValid = textValue.isNotBlank() && !hasInvalidAscii
+    val canConfirm = isValid && textValue != currentName
+
+    LaunchedEffect(Unit) { focusRequester.requestFocus() }
 
     androidx.compose.material3.AlertDialog(
         onDismissRequest = onDismiss,
@@ -1248,13 +1266,15 @@ private fun RenameDialog(
                 supportingText = if (hasInvalidAscii) {
                     { Text(stringResource(R.string.device_settings_rename_invalid_ascii)) }
                 } else null,
-                modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                keyboardActions = KeyboardActions(onDone = { if (canConfirm) onConfirm(textValue) }),
+                modifier = Modifier.fillMaxWidth().focusRequester(focusRequester),
             )
         },
         confirmButton = {
             androidx.compose.material3.TextButton(
-                onClick = { if (isValid) onConfirm(textValue) },
-                enabled = isValid && textValue != currentName,
+                onClick = { if (canConfirm) onConfirm(textValue) },
+                enabled = canConfirm,
             ) {
                 Text(stringResource(R.string.device_settings_rename_confirm))
             }
@@ -1262,6 +1282,28 @@ private fun RenameDialog(
         dismissButton = {
             androidx.compose.material3.TextButton(onClick = onDismiss) {
                 Text(stringResource(android.R.string.cancel))
+            }
+        },
+    )
+}
+
+@Composable
+private fun SystemRenameUnavailableDialog(
+    onOpenBluetoothSettings: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.device_settings_rename_system_unavailable_title)) },
+        text = { Text(stringResource(R.string.device_settings_rename_system_unavailable)) },
+        confirmButton = {
+            TextButton(onClick = onOpenBluetoothSettings) {
+                Text(stringResource(R.string.device_settings_rename_system_unavailable_bt_settings_action))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(android.R.string.ok))
             }
         },
     )
