@@ -53,12 +53,6 @@ class PlayPause @Inject constructor(
                 }
             }
             // Cache persistence can update battery timestamps without changing any reaction-relevant state.
-            .onEach { device ->
-                log(TAG, VERBOSE) {
-                    val key = device?.toPlayPauseMonitorKey()
-                    "Pre-distinct: key=$key"
-                }
-            }
             .distinctUntilChangedBy { it?.toPlayPauseMonitorKey() }
             .onEach { device ->
                 log(TAG, VERBOSE) { "Post-distinct: profileId=${device?.profileId}" }
@@ -73,7 +67,10 @@ class PlayPause @Inject constructor(
                 match
             }
             .onEach { (previous, current) ->
-                log(TAG, VERBOSE) { "Checking\nprevious=$previous\ncurrent=$current" }
+                log(TAG, VERBOSE) {
+                    "Checking: prev(left=${previous?.isLeftInEar}, right=${previous?.isRightInEar}, worn=${previous?.isBeingWorn}) " +
+                        "-> cur(left=${current?.isLeftInEar}, right=${current?.isRightInEar}, worn=${current?.isBeingWorn})"
+                }
 
                 val reactions = current?.reactions
                 if (reactions == null) {
