@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Höger</string>
     <string name="device_settings_microphone_mode_left">Vänster</string>
-    <string name="device_settings_ear_detection_label">Automatisk örondetektering</string>
-    <string name="device_settings_ear_detection_description">Pausa ljud när AirPods tas ut ur öronen</string>
     <string name="device_settings_listening_mode_cycle_label">Brusstärningscykel</string>
     <string name="device_settings_listening_mode_cycle_description">Välj vilka lägen som växlar när du håller in stammen</string>
     <string name="device_settings_listening_mode_cycle_off">Av</string>

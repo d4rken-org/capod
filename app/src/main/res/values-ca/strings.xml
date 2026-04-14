@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automàtic</string>
     <string name="device_settings_microphone_mode_right">Dreta</string>
     <string name="device_settings_microphone_mode_left">Esquerre</string>
-    <string name="device_settings_ear_detection_label">Detecció automàtica de l\'orella</string>
-    <string name="device_settings_ear_detection_description">Pausa l\'àudio quan es retiren els AirPods de les orelles</string>
     <string name="device_settings_listening_mode_cycle_label">Cicle de control de soroll</string>
     <string name="device_settings_listening_mode_cycle_description">Seleccioneu quins modes s\'alternaran en prémer i mantenir la tija</string>
     <string name="device_settings_listening_mode_cycle_off">Desactivat</string>

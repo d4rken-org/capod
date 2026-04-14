@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">Otomatis</string>
     <string name="device_settings_microphone_mode_right">Kanan</string>
     <string name="device_settings_microphone_mode_left">Kiri</string>
-    <string name="device_settings_ear_detection_label">Deteksi Telinga Otomatis</string>
-    <string name="device_settings_ear_detection_description">Jeda audio saat AirPods dilepas dari telinga</string>
     <string name="device_settings_listening_mode_cycle_label">Siklus Kontrol Kebisingan</string>
     <string name="device_settings_listening_mode_cycle_description">Pilih mode yang bergilir saat menekan dan menahan tangkai</string>
     <string name="device_settings_listening_mode_cycle_off">Nonaktif</string>

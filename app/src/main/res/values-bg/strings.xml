@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Автом.</string>
     <string name="device_settings_microphone_mode_right">Десен</string>
     <string name="device_settings_microphone_mode_left">Ляв</string>
-    <string name="device_settings_ear_detection_label">Автоматично разпознаване на ухото</string>
-    <string name="device_settings_ear_detection_description">Пауза на звука, когато AirPods се извадят от ушите</string>
     <string name="device_settings_listening_mode_cycle_label">Цикъл за контрол на шума</string>
     <string name="device_settings_listening_mode_cycle_description">Изберете кои режими се включват при натискане и задържане на стеблото</string>
     <string name="device_settings_listening_mode_cycle_off">Изкл.</string>

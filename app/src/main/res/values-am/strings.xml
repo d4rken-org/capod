@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">ራስ-ሰር</string>
     <string name="device_settings_microphone_mode_right">ቀኝ</string>
     <string name="device_settings_microphone_mode_left">ግራ</string>
-    <string name="device_settings_ear_detection_label">ራስ-ሰር ጀሮ ማወቃያ</string>
-    <string name="device_settings_ear_detection_description">AirPods ከጀሮ ሲወጣ ድምጹን አቁም</string>
     <string name="device_settings_listening_mode_cycle_label">የጳጳታ ቅጥጥር ዓደት</string>
     <string name="device_settings_listening_mode_cycle_description">ምሉ ጀን ሲጀምር የሚሾጋገሩ ሁነታዎችን ምረጥ</string>
     <string name="device_settings_listening_mode_cycle_off">ጠፍቷል</string>

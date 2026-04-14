@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automatisch</string>
     <string name="device_settings_microphone_mode_right">Rechts</string>
     <string name="device_settings_microphone_mode_left">Links</string>
-    <string name="device_settings_ear_detection_label">Automatische Ohrerkennnung</string>
-    <string name="device_settings_ear_detection_description">Audio pausieren, wenn AirPods aus den Ohren genommen werden</string>
     <string name="device_settings_listening_mode_cycle_label">Geräuschkontroll-Zyklus</string>
     <string name="device_settings_listening_mode_cycle_description">Modi auswählen, die beim langen Drücken des Stifts durchlaufen werden</string>
     <string name="device_settings_listening_mode_cycle_off">Aus</string>

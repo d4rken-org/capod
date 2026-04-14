@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Kanan</string>
     <string name="device_settings_microphone_mode_left">Kiri</string>
-    <string name="device_settings_ear_detection_label">Pengesanan Telinga Automatik</string>
-    <string name="device_settings_ear_detection_description">Jeda audio apabila AirPods dikeluarkan dari telinga</string>
     <string name="device_settings_listening_mode_cycle_label">Kitaran Kawalan Hingar</string>
     <string name="device_settings_listening_mode_cycle_description">Pilih mod mana yang dikitar apabila menekan dan menahan batang</string>
     <string name="device_settings_listening_mode_cycle_off">Mati</string>

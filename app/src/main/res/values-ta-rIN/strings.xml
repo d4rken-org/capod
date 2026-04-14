@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">தானியங்கி</string>
     <string name="device_settings_microphone_mode_right">வலது</string>
     <string name="device_settings_microphone_mode_left">இடது</string>
-    <string name="device_settings_ear_detection_label">தானியங்கி காது கண்டறிதல்</string>
-    <string name="device_settings_ear_detection_description">AirPods காதிலிருந்து அகற்றப்படும்போது ஆடியோவை இடைநிறுத்தவும்</string>
     <string name="device_settings_listening_mode_cycle_label">இரைச்சல் கட்டுப்பாட்டு சுழற்சி</string>
     <string name="device_settings_listening_mode_cycle_description">ஸ்டெமை அழுத்திப் பிடிக்கும்போது எந்த முறைகள் சுழல்கின்றன என்பதை தேர்வு செய்யவும்</string>
     <string name="device_settings_listening_mode_cycle_off">ஆஃப்</string>

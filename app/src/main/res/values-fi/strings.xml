@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automaattinen</string>
     <string name="device_settings_microphone_mode_right">Oikea</string>
     <string name="device_settings_microphone_mode_left">Vasen</string>
-    <string name="device_settings_ear_detection_label">Automaattinen korvantunnistus</string>
-    <string name="device_settings_ear_detection_description">Pysäytä ääni, kun AirPodit poistetaan korvista</string>
     <string name="device_settings_listening_mode_cycle_label">Melunhallintakierto</string>
     <string name="device_settings_listening_mode_cycle_description">Valitse tilat, jotka kiertyvät, kun paina ja pidä varta</string>
     <string name="device_settings_listening_mode_cycle_off">Pois</string>

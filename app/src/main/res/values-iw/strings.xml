@@ -438,8 +438,6 @@
     <string name="device_settings_microphone_mode_auto">אוטומטי</string>
     <string name="device_settings_microphone_mode_right">ימין</string>
     <string name="device_settings_microphone_mode_left">שמאל</string>
-    <string name="device_settings_ear_detection_label">זיהוי אוזן אוטומטי</string>
-    <string name="device_settings_ear_detection_description">השהית שמע כשה-AirPods מוסרים מהאוזניים</string>
     <string name="device_settings_listening_mode_cycle_label">מחזור בקרת רעש</string>
     <string name="device_settings_listening_mode_cycle_description">בחר אילו מצבים מתחלפים בלחיצה והחזקת הזרוע</string>
     <string name="device_settings_listening_mode_cycle_off">כבוי</string>

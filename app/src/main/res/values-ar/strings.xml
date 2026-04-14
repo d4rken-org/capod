@@ -454,8 +454,6 @@
     <string name="device_settings_microphone_mode_auto">تلقائي</string>
     <string name="device_settings_microphone_mode_right">يمين</string>
     <string name="device_settings_microphone_mode_left">يسار</string>
-    <string name="device_settings_ear_detection_label">الكشف التلقائي عن الأذن</string>
-    <string name="device_settings_ear_detection_description">إيقاف الصوت مؤقتًا عند إخراج AirPods من الأذنين</string>
     <string name="device_settings_listening_mode_cycle_label">دورة التحكم بالضوضاء</string>
     <string name="device_settings_listening_mode_cycle_description">حدد الأوضاع التي تدور عند الضغط والتثبيت على العصا</string>
     <string name="device_settings_listening_mode_cycle_off">إيقاف</string>

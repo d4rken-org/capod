@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">Tự động</string>
     <string name="device_settings_microphone_mode_right">Phải</string>
     <string name="device_settings_microphone_mode_left">Trái</string>
-    <string name="device_settings_ear_detection_label">Phát hiện tai tự động</string>
-    <string name="device_settings_ear_detection_description">Tạm dừng âm thanh khi AirPods được lấy ra khỏi tai</string>
     <string name="device_settings_listening_mode_cycle_label">Chu kỳ kiểm soát tiếng ồn</string>
     <string name="device_settings_listening_mode_cycle_description">Chọn các chế độ luân phiên khi nhấn và giữ thân tai nghe</string>
     <string name="device_settings_listening_mode_cycle_off">Tắt</string>

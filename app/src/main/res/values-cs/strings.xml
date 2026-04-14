@@ -444,8 +444,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Pravý</string>
     <string name="device_settings_microphone_mode_left">Levý</string>
-    <string name="device_settings_ear_detection_label">Automatická detekce v uchu</string>
-    <string name="device_settings_ear_detection_description">Pozastavit zvuk, když jsou AirPods vyjmuty z uší</string>
     <string name="device_settings_listening_mode_cycle_label">Cyklus ovládání zvuku</string>
     <string name="device_settings_listening_mode_cycle_description">Vyberte, které režimy se cyklují při stisknutí a podržení stopky</string>
     <string name="device_settings_listening_mode_cycle_off">Vypnuto</string>

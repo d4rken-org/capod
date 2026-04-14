@@ -439,8 +439,6 @@
     <string name="device_settings_microphone_mode_auto">Automat</string>
     <string name="device_settings_microphone_mode_right">Dreapta</string>
     <string name="device_settings_microphone_mode_left">Stânga</string>
-    <string name="device_settings_ear_detection_label">Detectare automată ureche</string>
-    <string name="device_settings_ear_detection_description">Pauzează audio când AirPods sunt scoși din urechi</string>
     <string name="device_settings_listening_mode_cycle_label">Ciclu control zgomot</string>
     <string name="device_settings_listening_mode_cycle_description">Selectați ce moduri ciclulează când apăsați și țineți tija</string>
     <string name="device_settings_listening_mode_cycle_off">Oprit</string>

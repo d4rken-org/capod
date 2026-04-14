@@ -444,8 +444,6 @@
     <string name="device_settings_microphone_mode_auto">Automatinis</string>
     <string name="device_settings_microphone_mode_right">Dešinė</string>
     <string name="device_settings_microphone_mode_left">Kairė</string>
-    <string name="device_settings_ear_detection_label">Automatinis ausų aptikimas</string>
-    <string name="device_settings_ear_detection_description">Pristabdyti garsą, kai AirPods išimami iš ausų</string>
     <string name="device_settings_listening_mode_cycle_label">Triukšmo valdymo ciklas</string>
     <string name="device_settings_listening_mode_cycle_description">Pasirinkite, kurie režimai sukasi laikant nuspaudus kotelį</string>
     <string name="device_settings_listening_mode_cycle_off">Išjungta</string>

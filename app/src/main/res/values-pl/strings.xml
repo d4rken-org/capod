@@ -446,8 +446,6 @@ K4r0lSz;</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Prawy</string>
     <string name="device_settings_microphone_mode_left">Lewy</string>
-    <string name="device_settings_ear_detection_label">Automatyczne wykrywanie ucha</string>
-    <string name="device_settings_ear_detection_description">Wstrzymaj audio po wyjęciu AirPodsów z uszu</string>
     <string name="device_settings_listening_mode_cycle_label">Cykl sterowania hałasem</string>
     <string name="device_settings_listening_mode_cycle_description">Wybierz, które tryby są cyklicznie przełączane przy przytrzymaniu trzonu</string>
     <string name="device_settings_listening_mode_cycle_off">Wyłączony</string>

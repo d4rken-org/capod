@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">خودکار</string>
     <string name="device_settings_microphone_mode_right">راست</string>
     <string name="device_settings_microphone_mode_left">چپ</string>
-    <string name="device_settings_ear_detection_label">تشخیص خودکار گوش</string>
-    <string name="device_settings_ear_detection_description">مکث صدا هنگامی که AirPods از گوش خارج می‌شوند</string>
     <string name="device_settings_listening_mode_cycle_label">چرخه کنترل نویز</string>
     <string name="device_settings_listening_mode_cycle_description">انتخاب کنید کدام حالت‌ها هنگام فشار و نگه‌داشتن ساقه چرخش کنند</string>
     <string name="device_settings_listening_mode_cycle_off">خاموش</string>

@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Kanan</string>
     <string name="device_settings_microphone_mode_left">Kaliwa</string>
-    <string name="device_settings_ear_detection_label">Automatic na Pagtukoy ng Tainga</string>
-    <string name="device_settings_ear_detection_description">I-pause ang audio kapag inalis ang AirPods mula sa mga tainga</string>
     <string name="device_settings_listening_mode_cycle_label">Noise Control Cycle</string>
     <string name="device_settings_listening_mode_cycle_description">Piliin kung aling mga mode ang umiikot kapag pinindot at hinawakan ang stem</string>
     <string name="device_settings_listening_mode_cycle_off">Naka-off</string>

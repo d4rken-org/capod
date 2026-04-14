@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Ngokuzenzakalela</string>
     <string name="device_settings_microphone_mode_right">Kwesokudla</string>
     <string name="device_settings_microphone_mode_left">Kwesobunxele</string>
-    <string name="device_settings_ear_detection_label">Ukubonwa Kwendlebe Ngokuzenzakalela</string>
-    <string name="device_settings_ear_detection_description">Misa umsindo lapho i-AirPods isikhishwa ezindlebeni</string>
     <string name="device_settings_listening_mode_cycle_label">Umjikelezo Wolawulo Lomsindo</string>
     <string name="device_settings_listening_mode_cycle_description">Khetha ukuthi yimiphi imikhakha ejikilelayo lapho ucindezela ubambe isipini</string>
     <string name="device_settings_listening_mode_cycle_off">Vala</string>

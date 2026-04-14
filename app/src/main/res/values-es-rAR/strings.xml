@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Derecho</string>
     <string name="device_settings_microphone_mode_left">Izquierdo</string>
-    <string name="device_settings_ear_detection_label">Detección automática de auriculares</string>
-    <string name="device_settings_ear_detection_description">Pausar el audio cuando los AirPods se retiran de los oídos</string>
     <string name="device_settings_listening_mode_cycle_label">Ciclo de control de ruido</string>
     <string name="device_settings_listening_mode_cycle_description">Seleccionar qué modos se alternan al mantener presionado el vástago</string>
     <string name="device_settings_listening_mode_cycle_off">Desactivado</string>

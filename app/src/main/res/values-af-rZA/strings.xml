@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Outomaties</string>
     <string name="device_settings_microphone_mode_right">Regs</string>
     <string name="device_settings_microphone_mode_left">Links</string>
-    <string name="device_settings_ear_detection_label">Outomatiese ooropsporing</string>
-    <string name="device_settings_ear_detection_description">Pauses oudio wanneer AirPods uit ore verwyder word</string>
     <string name="device_settings_listening_mode_cycle_label">Geraasbeheer-siklus</string>
     <string name="device_settings_listening_mode_cycle_description">Kies watter modusse wissel wanneer die stam gedruk en gehou word</string>
     <string name="device_settings_listening_mode_cycle_off">Af</string>

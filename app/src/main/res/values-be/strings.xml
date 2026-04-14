@@ -444,8 +444,6 @@
     <string name="device_settings_microphone_mode_auto">Аўта</string>
     <string name="device_settings_microphone_mode_right">Правы</string>
     <string name="device_settings_microphone_mode_left">Левы</string>
-    <string name="device_settings_ear_detection_label">Аўтаматычнае выяўленне ношання</string>
-    <string name="device_settings_ear_detection_description">Паставіць аўдыё на паўзу пры выняцці AirPods з вушэй</string>
     <string name="device_settings_listening_mode_cycle_label">Цыкл кіравання шумам</string>
     <string name="device_settings_listening_mode_cycle_description">Выберыце, якія рэжымы цыклічна мяняюцца пры ўтрымліванні ножкі</string>
     <string name="device_settings_listening_mode_cycle_off">Выкл</string>

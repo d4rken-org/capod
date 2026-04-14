@@ -444,8 +444,6 @@
     <string name="device_settings_microphone_mode_auto">Samodejno</string>
     <string name="device_settings_microphone_mode_right">Desni</string>
     <string name="device_settings_microphone_mode_left">Levi</string>
-    <string name="device_settings_ear_detection_label">Samodejno zaznavanje ušes</string>
-    <string name="device_settings_ear_detection_description">Ustavi zvok, ko odstranite AirPode iz ušes</string>
     <string name="device_settings_listening_mode_cycle_label">Cikel nadzora hrupa</string>
     <string name="device_settings_listening_mode_cycle_description">Izberite, kateri načini se izmenjujejo pri dolgo pritisnjenem steblu</string>
     <string name="device_settings_listening_mode_cycle_off">Izklopljeno</string>

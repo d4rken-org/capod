@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Ավտոմատ</string>
     <string name="device_settings_microphone_mode_right">Աջ</string>
     <string name="device_settings_microphone_mode_left">Ձախ</string>
-    <string name="device_settings_ear_detection_label">Ականջի ավտոմատ հայտնաբերում</string>
-    <string name="device_settings_ear_detection_description">Դադարեցնել ձայնը, երբ AirPods-ը հանվում են ականջներից</string>
     <string name="device_settings_listening_mode_cycle_label">Աղմուկի կառավարման ցիկլ</string>
     <string name="device_settings_listening_mode_cycle_description">Ընտրեք, թե որ ռեժիմները ցիկլվեն, երբ սեղմում ու պահում եք կոթը</string>
     <string name="device_settings_listening_mode_cycle_off">Անջատ</string>

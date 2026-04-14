@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Rechts</string>
     <string name="device_settings_microphone_mode_left">Links</string>
-    <string name="device_settings_ear_detection_label">Automatische oordetectie</string>
-    <string name="device_settings_ear_detection_description">Audio pauzeren wanneer AirPods uit de oren worden gehaald</string>
     <string name="device_settings_listening_mode_cycle_label">Ruisbeheer cyclus</string>
     <string name="device_settings_listening_mode_cycle_description">Selecteer welke modi wisselen bij lang indrukken van de steel</string>
     <string name="device_settings_listening_mode_cycle_off">Uit</string>

@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">自動</string>
     <string name="device_settings_microphone_mode_right">右</string>
     <string name="device_settings_microphone_mode_left">左</string>
-    <string name="device_settings_ear_detection_label">自動耳検知</string>
-    <string name="device_settings_ear_detection_description">AirPodを耳から外したときにオーディオを一時停止</string>
     <string name="device_settings_listening_mode_cycle_label">ノイズコントロールサイクル</string>
     <string name="device_settings_listening_mode_cycle_description">ステムを長押ししたときに切り替わるモードを選択</string>
     <string name="device_settings_listening_mode_cycle_off">オフ</string>

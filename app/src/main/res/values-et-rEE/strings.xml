@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automaatne</string>
     <string name="device_settings_microphone_mode_right">Parem</string>
     <string name="device_settings_microphone_mode_left">Vasak</string>
-    <string name="device_settings_ear_detection_label">Automaatne kõrvastamine</string>
-    <string name="device_settings_ear_detection_description">Peata heli, kui AirPodid kõrvadest eemaldatakse</string>
     <string name="device_settings_listening_mode_cycle_label">Mürakontrolli tsükkel</string>
     <string name="device_settings_listening_mode_cycle_description">Vali, millised režiimid vahelduvad, kui hoiad vart all</string>
     <string name="device_settings_listening_mode_cycle_off">Väljas</string>

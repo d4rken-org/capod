@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Otomatiki</string>
     <string name="device_settings_microphone_mode_right">Kulia</string>
     <string name="device_settings_microphone_mode_left">Kushoto</string>
-    <string name="device_settings_ear_detection_label">Ugunduzi wa Masikio Otomatiki</string>
-    <string name="device_settings_ear_detection_description">Simamisha sauti wakati AirPods zinaondolewa masikioni</string>
     <string name="device_settings_listening_mode_cycle_label">Mzunguko wa Udhibiti wa Kelele</string>
     <string name="device_settings_listening_mode_cycle_description">Chagua hali zipi zinazozunguka ukibonyeza na kushikilia shina</string>
     <string name="device_settings_listening_mode_cycle_off">Zima</string>

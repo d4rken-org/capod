@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Авто</string>
     <string name="device_settings_microphone_mode_right">Оң</string>
     <string name="device_settings_microphone_mode_left">Сол</string>
-    <string name="device_settings_ear_detection_label">Автоматтык кулак аныктоо</string>
-    <string name="device_settings_ear_detection_description">AirPods кулактан алынганда аудиону токтотуу</string>
     <string name="device_settings_listening_mode_cycle_label">Ызы-чуу башкаруу циклы</string>
     <string name="device_settings_listening_mode_cycle_description">Таяныч баскычын кармаганда кайсы режимдер которулаарын тандаңыз</string>
     <string name="device_settings_listening_mode_cycle_off">Өчүк</string>

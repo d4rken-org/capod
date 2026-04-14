@@ -445,8 +445,6 @@ AL_Cool_T</string>
     <string name="device_settings_microphone_mode_auto">Авто</string>
     <string name="device_settings_microphone_mode_right">Правый</string>
     <string name="device_settings_microphone_mode_left">Левый</string>
-    <string name="device_settings_ear_detection_label">Автоматическое определение надевания</string>
-    <string name="device_settings_ear_detection_description">Пауза звука при извлечении AirPods из ушей</string>
     <string name="device_settings_listening_mode_cycle_label">Цикл шумоподавления</string>
     <string name="device_settings_listening_mode_cycle_description">Выберите, какие режимы переключаются при удержании штока</string>
     <string name="device_settings_listening_mode_cycle_off">Выкл.</string>

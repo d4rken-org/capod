@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automatik</string>
     <string name="device_settings_microphone_mode_right">Djathtas</string>
     <string name="device_settings_microphone_mode_left">Majtas</string>
-    <string name="device_settings_ear_detection_label">Zbulimi automatik i veshit</string>
-    <string name="device_settings_ear_detection_description">Ndal audion kur AirPods hiqen nga vëshët</string>
     <string name="device_settings_listening_mode_cycle_label">Cikli i kontrollit të zhurmës</string>
     <string name="device_settings_listening_mode_cycle_description">Zgjidhni cilat mënyra alternëzojnë kur mbani shtypur bishtin</string>
     <string name="device_settings_listening_mode_cycle_off">Fikur</string>

@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Sjálfvirkt</string>
     <string name="device_settings_microphone_mode_right">Hægri</string>
     <string name="device_settings_microphone_mode_left">Vinstri</string>
-    <string name="device_settings_ear_detection_label">Sjálfvirk eyrnagreiðing</string>
-    <string name="device_settings_ear_detection_description">Gera hljóð hlé þá sem AirPods eru tekin úr eyrum</string>
     <string name="device_settings_listening_mode_cycle_label">Hávaðastjórnarhringrás</string>
     <string name="device_settings_listening_mode_cycle_description">Veldu hvaða hama er hringt þá sem haldað er niðri á stikunni</string>
     <string name="device_settings_listening_mode_cycle_off">Slökkt</string>
