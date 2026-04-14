@@ -79,6 +79,7 @@ class MonitorService : Service() {
     private var monitoringJob: Job? = null
     @Volatile private var monitorGeneration = 0
     private var foregroundStartFailed = false
+    private var injectionComplete = false
 
     @SuppressLint("InlinedApi")
     private fun promoteToForeground(notification: Notification): Boolean {
@@ -114,7 +115,12 @@ class MonitorService : Service() {
         if (!promoteToForeground(MonitorNotifications.createEarlyNotification(this))) {
             foregroundStartFailed = true
             stopSelf()
-            super.onCreate()
+            try {
+                super.onCreate()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Hilt DI failed in onCreate() (foreground denied): ${e.asLog()}" }
+                Bugs.report(tag = TAG, "Hilt DI failed in onCreate() (foreground denied)", exception = e)
+            }
             return
         }
 
@@ -127,6 +133,7 @@ class MonitorService : Service() {
             stopSelf()
             return
         }
+        injectionComplete = true
         log(TAG, VERBOSE) { "onCreate()" }
 
         // Replace early notification with the full one from injected MonitorNotifications.
@@ -302,12 +309,16 @@ class MonitorService : Service() {
         log(TAG, VERBOSE) { "onDestroy()" }
         monitorScope.cancel("Service destroyed")
 
-        if (generalSettings.useExtraMonitorNotification.valueBlocking && !generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking) {
-            try {
-                notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID_CONNECTED)
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to cancel connected notification: ${e.message}" }
+        if (injectionComplete) {
+            if (generalSettings.useExtraMonitorNotification.valueBlocking && !generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking) {
+                try {
+                    notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID_CONNECTED)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to cancel connected notification: ${e.message}" }
+                }
             }
+        } else {
+            log(TAG, WARN) { "onDestroy: Skipping notification cleanup, injection was incomplete." }
         }
 
         super.onDestroy()
