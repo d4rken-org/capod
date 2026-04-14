@@ -53,7 +53,16 @@ class PlayPause @Inject constructor(
                 }
             }
             // Cache persistence can update battery timestamps without changing any reaction-relevant state.
+            .onEach { device ->
+                log(TAG, VERBOSE) {
+                    val key = device?.toPlayPauseMonitorKey()
+                    "Pre-distinct: key=$key"
+                }
+            }
             .distinctUntilChangedBy { it?.toPlayPauseMonitorKey() }
+            .onEach { device ->
+                log(TAG, VERBOSE) { "Post-distinct: profileId=${device?.profileId}" }
+            }
             .withPrevious()
             .filter { (previous, current) ->
                 if (previous == null || current == null) return@filter false
@@ -81,17 +90,16 @@ class PlayPause @Inject constructor(
                     previous!!.hasEarDetection && previous.hasDualPods &&
                         current.hasEarDetection && current.hasDualPods -> {
                         // Dual pod devices (AirPods, AirPods Pro, etc.)
+                        // Per-side values may be null when AAP ear detection is present but
+                        // resolvedPrimaryPod is unknown (cmd 0x0008 not received or cleared
+                        // by role swap). Fall back to aggregate AAP state in that case.
+                        prevState = previous.toEarDetectionState()
+                        currState = current.toEarDetectionState()
                         log(TAG, VERBOSE) {
-                            "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}"
+                            "Dual-pod device: left=${current.isLeftInEar}, right=${current.isRightInEar}, " +
+                                "worn=${current.isBeingWorn}, either=${current.isEitherPodInEar}, " +
+                                "aapEar=${current.aap?.aapEarDetection != null}, state=$currState"
                         }
-                        prevState = EarDetectionState.fromDualPod(
-                            left = previous.isLeftInEar ?: false,
-                            right = previous.isRightInEar ?: false,
-                        )
-                        currState = EarDetectionState.fromDualPod(
-                            left = current.isLeftInEar ?: false,
-                            right = current.isRightInEar ?: false,
-                        )
                     }
 
                     previous.hasEarDetection && current.hasEarDetection -> {
@@ -342,6 +350,24 @@ class PlayPause @Inject constructor(
                 rightInEar = null,
                 isWorn = worn
             )
+
+            /**
+             * Derives ear detection state from AAP aggregate values when per-side
+             * (left/right) mapping is unavailable (e.g. resolvedPrimaryPod is null).
+             *
+             * Uses [isBeingWorn] (both pods in ear) and [isEitherPodInEar] (at least
+             * one pod in ear) to reconstruct a pod count suitable for both normal mode
+             * (bothInEar triggers play) and one-pod mode (podCount delta triggers play/pause).
+             *
+             * The left/right assignment is synthetic but deterministic — transitions are
+             * always detected. UI-facing code should use [PodDevice.isLeftInEar] /
+             * [PodDevice.isRightInEar] which stay null when side mapping is unknown.
+             */
+            fun fromAapAggregate(isBeingWorn: Boolean, isEitherPodInEar: Boolean) = when {
+                isBeingWorn -> EarDetectionState(leftInEar = true, rightInEar = true, isWorn = true)
+                isEitherPodInEar -> EarDetectionState(leftInEar = true, rightInEar = false, isWorn = false)
+                else -> EarDetectionState(leftInEar = false, rightInEar = false, isWorn = false)
+            }
         }
     }
 
@@ -376,6 +402,7 @@ class PlayPause @Inject constructor(
         val leftInEar: Boolean?,
         val rightInEar: Boolean?,
         val isBeingWorn: Boolean?,
+        val isEitherPodInEar: Boolean?,
         val hasAapEarDetection: Boolean,
         val hasBleSnapshot: Boolean,
     )
@@ -391,9 +418,28 @@ class PlayPause @Inject constructor(
             leftInEar = isLeftInEar,
             rightInEar = isRightInEar,
             isBeingWorn = isBeingWorn,
+            isEitherPodInEar = isEitherPodInEar,
             hasAapEarDetection = aap?.aapEarDetection != null,
             hasBleSnapshot = ble != null,
         )
+
+    /**
+     * Converts a dual-pod [PodDevice] to [EarDetectionState] for reaction evaluation.
+     * Prefers per-side values (left/right) when available, falls back to AAP aggregate
+     * state (isBeingWorn/isEitherPodInEar) when per-side mapping is unknown.
+     */
+    private fun PodDevice.toEarDetectionState(): EarDetectionState {
+        val left = isLeftInEar
+        val right = isRightInEar
+        if (left != null && right != null) {
+            return EarDetectionState.fromDualPod(left = left, right = right)
+        }
+        // Per-side unavailable (resolvedPrimaryPod is null) — use aggregate AAP state.
+        return EarDetectionState.fromAapAggregate(
+            isBeingWorn = isBeingWorn ?: false,
+            isEitherPodInEar = isEitherPodInEar ?: false,
+        )
+    }
 
     companion object {
         private val TAG = logTag("Reaction", "PlayPause")

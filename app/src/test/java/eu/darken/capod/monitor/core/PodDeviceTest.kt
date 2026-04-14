@@ -810,6 +810,79 @@ class PodDeviceTest : BaseTest() {
         device.rssiQuality shouldBe 1.0f
     }
 
+    // --- AAP aggregate ear detection (null per-side) tests ---
+
+    @Test
+    fun `isLeftInEar null when AAP ear detection present but no primaryPod and no BLE`() {
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+            ),
+        )
+        val device = PodDevice(profileId = "p1", ble = null, aap = aap, profileModel = PodModel.AIRPODS_PRO3)
+        // Per-side is null because resolvedPrimaryPod is null (no AAP PrimaryPod, no BLE)
+        device.isLeftInEar.shouldBeNull()
+        device.isRightInEar.shouldBeNull()
+    }
+
+    @Test
+    fun `isBeingWorn works without resolvedPrimaryPod`() {
+        val aapBothIn = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+            ),
+        )
+        val deviceBothIn = PodDevice(profileId = "p1", ble = null, aap = aapBothIn, profileModel = PodModel.AIRPODS_PRO3)
+        deviceBothIn.isBeingWorn shouldBe true
+
+        val aapOneOut = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+            ),
+        )
+        val deviceOneOut = PodDevice(profileId = "p1", ble = null, aap = aapOneOut, profileModel = PodModel.AIRPODS_PRO3)
+        deviceOneOut.isBeingWorn shouldBe false
+    }
+
+    @Test
+    fun `isEitherPodInEar works without resolvedPrimaryPod`() {
+        val aapOneIn = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+            ),
+        )
+        val device = PodDevice(profileId = "p1", ble = null, aap = aapOneIn, profileModel = PodModel.AIRPODS_PRO3)
+        device.isEitherPodInEar shouldBe true
+
+        val aapNoneIn = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+            ),
+        )
+        val deviceNone = PodDevice(profileId = "p1", ble = null, aap = aapNoneIn, profileModel = PodModel.AIRPODS_PRO3)
+        deviceNone.isEitherPodInEar shouldBe false
+    }
+
     @Test
     fun `rssiQuality - BLE value wins over AAP READY`() {
         val ble = mockk<DualApplePods>(relaxed = true) {

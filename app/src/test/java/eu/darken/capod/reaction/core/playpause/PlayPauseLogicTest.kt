@@ -611,6 +611,118 @@ class PlayPauseLogicTest : BaseTest() {
     }
 
     @Nested
+    inner class AapAggregateTests {
+
+        @Test
+        fun `fromAapAggregate - both in ear`() {
+            val state = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
+            state.bothInEar shouldBe true
+            state.eitherInEar shouldBe true
+            state.podCount shouldBe 2
+        }
+
+        @Test
+        fun `fromAapAggregate - one in ear`() {
+            val state = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
+            state.bothInEar shouldBe false
+            state.eitherInEar shouldBe true
+            state.podCount shouldBe 1
+        }
+
+        @Test
+        fun `fromAapAggregate - none in ear`() {
+            val state = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
+            state.bothInEar shouldBe false
+            state.eitherInEar shouldBe false
+            state.podCount shouldBe 0
+        }
+
+        @Test
+        fun `aggregate normal mode - both to none - should pause`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = false, isCurrentlyPlaying = true,
+            )
+            decision.shouldPause shouldBe true
+        }
+
+        @Test
+        fun `aggregate normal mode - none to both - should play`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = false, isCurrentlyPlaying = false,
+            )
+            decision.shouldPlay shouldBe true
+        }
+
+        @Test
+        fun `aggregate normal mode - both to one - should pause`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = false, isCurrentlyPlaying = true,
+            )
+            decision.shouldPause shouldBe true
+        }
+
+        @Test
+        fun `aggregate one-pod mode - none to one - should play`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = true, isCurrentlyPlaying = false,
+            )
+            decision.shouldPlay shouldBe true
+        }
+
+        @Test
+        fun `aggregate one-pod mode - one to none - should pause`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = true, isCurrentlyPlaying = true,
+            )
+            decision.shouldPause shouldBe true
+        }
+
+        @Test
+        fun `aggregate one-pod mode - one to both - should play`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = true, isCurrentlyPlaying = false,
+            )
+            decision.shouldPlay shouldBe true
+        }
+
+        @Test
+        fun `aggregate one-pod mode - both to one - should pause`() {
+            val previous = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
+            val current = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous, current = current,
+                onePodMode = true, isCurrentlyPlaying = true,
+            )
+            decision.shouldPause shouldBe true
+        }
+    }
+
+    @Nested
     inner class EarDetectionStateTests {
 
         @Test
