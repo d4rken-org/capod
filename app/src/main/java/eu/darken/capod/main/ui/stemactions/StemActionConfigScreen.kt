@@ -37,7 +37,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.R
 import eu.darken.capod.common.navigation.NavigationEventHandler
+import eu.darken.capod.common.settings.InfoBoxType
 import eu.darken.capod.common.settings.SettingsCategoryHeader
+import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.reaction.core.stem.StemAction
 
 @Composable
@@ -178,6 +180,15 @@ fun StemActionConfigScreen(
                     onLeftChange = onLeftLong,
                     onRightChange = onRightLong,
                 )
+            }
+
+            if (state.leftLong != StemAction.NONE || state.rightLong != StemAction.NONE) {
+                item("long_anc_cycle_info") {
+                    SettingsInfoBox(
+                        text = stringResource(R.string.stem_actions_long_press_anc_cycle_info),
+                        type = InfoBoxType.INFO,
+                    )
+                }
             }
 
             item("bottom_spacer") {
