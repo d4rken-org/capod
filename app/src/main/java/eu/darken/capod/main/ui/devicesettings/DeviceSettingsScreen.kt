@@ -477,6 +477,7 @@ fun DeviceSettingsScreen(
                                     level = adaptiveNoise.level,
                                     onLevelChange = onAdaptiveAudioNoiseChange,
                                     enabled = enabled,
+                                    isAdaptiveMode = ancMode.current == AapSetting.AncMode.Value.ADAPTIVE,
                                 )
                             }
                             if (features.hasNcOneAirpod && ncOneAirpod != null) {
@@ -722,18 +723,24 @@ private fun AdaptiveNoiseSlider(
     level: Int,
     onLevelChange: (Int) -> Unit,
     enabled: Boolean,
+    isAdaptiveMode: Boolean,
 ) {
     var sliderValue by remember(level) { mutableIntStateOf(level) }
+    val subtitleRes = if (isAdaptiveMode) {
+        R.string.device_settings_adaptive_noise_description
+    } else {
+        R.string.device_settings_adaptive_noise_requires_adaptive
+    }
     SettingsSliderItem(
         icon = Icons.TwoTone.GraphicEq,
         title = stringResource(R.string.device_settings_adaptive_noise_label),
-        subtitle = stringResource(R.string.device_settings_adaptive_noise_description),
+        subtitle = stringResource(subtitleRes),
         value = sliderValue.toFloat(),
         onValueChange = { sliderValue = it.toInt() },
         onValueChangeFinished = { onLevelChange(sliderValue) },
         valueRange = 0f..100f,
         steps = 99,
-        enabled = enabled,
+        enabled = enabled && isAdaptiveMode,
         valueLabel = { "${it.toInt()}%" },
     )
 }
