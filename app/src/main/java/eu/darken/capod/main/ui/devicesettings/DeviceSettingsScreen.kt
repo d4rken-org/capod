@@ -352,9 +352,12 @@ fun DeviceSettingsScreen(
                                     text = stringResource(R.string.settings_eardetection_info_description),
                                 )
                             }
+                            ReactionsDivider()
                         }
                         if (device.isAapConnected) {
                             val convAwareness = device.conversationalAwareness
+                            val hasAnyAapReaction =
+                                (features.hasConversationAwareness && convAwareness != null) || features.hasSleepDetection
                             if (features.hasConversationAwareness && convAwareness != null) {
                                 SettingsSwitchItem(
                                     icon = Icons.TwoTone.Hearing,
@@ -378,6 +381,9 @@ fun DeviceSettingsScreen(
                                     requiresUpgrade = !isPro,
                                 )
                             }
+                            if (hasAnyAapReaction) {
+                                ReactionsDivider()
+                            }
                         }
                         SettingsSwitchItem(
                             icon = Icons.TwoTone.BluetoothConnected,
@@ -393,6 +399,7 @@ fun DeviceSettingsScreen(
                             onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
                             enabled = reactions.autoConnect,
                         )
+                        ReactionsDivider()
                         if (features.hasCase) {
                             SettingsSwitchItem(
                                 icon = Icons.AutoMirrored.TwoTone.Message,
@@ -679,6 +686,14 @@ fun DeviceSettingsScreen(
             )
         }
     }
+}
+
+@Composable
+private fun ReactionsDivider() {
+    HorizontalDivider(
+        modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+        color = MaterialTheme.colorScheme.outlineVariant,
+    )
 }
 
 @Composable
