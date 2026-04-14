@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.devicesettings
 
 import android.content.Intent
+import android.os.Build
 import android.provider.Settings
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.selection.selectable
@@ -399,6 +400,11 @@ fun DeviceSettingsScreen(
                             onClick = { if (reactions.autoConnect) showAutoConnectConditionDialog = true },
                             enabled = reactions.autoConnect,
                         )
+                        if (reactions.autoConnect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                            SettingsInfoBox(
+                                text = stringResource(R.string.settings_autoconnect_info_android12),
+                            )
+                        }
                         ReactionsDivider()
                         if (features.hasCase) {
                             SettingsSwitchItem(
