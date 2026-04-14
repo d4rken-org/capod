@@ -29,7 +29,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runTest
+import testhelpers.coroutine.runTest2
 import kotlinx.coroutines.test.setMain
 import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
@@ -114,7 +114,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     )
 
     @Test
-    fun `forceConnect happy path - bonded exists, nudge accepted, no event emitted`() = runTest(testDispatcher) {
+    fun `forceConnect happy path - bonded exists, nudge accepted, no event emitted`() = runTest2(autoCancel = true, context = testDispatcher) {
         val bonded = mockBondedDevice(testAddress)
         every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
         coEvery { bluetoothManager.nudgeConnection(bonded) } returns true
@@ -131,7 +131,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `forceConnect when nudge not accepted - emits OpenBluetoothSettings`() = runTest(testDispatcher) {
+    fun `forceConnect when nudge not accepted - emits OpenBluetoothSettings`() = runTest2(autoCancel = true, context = testDispatcher) {
         val bonded = mockBondedDevice(testAddress)
         every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
         coEvery { bluetoothManager.nudgeConnection(bonded) } returns false
@@ -149,7 +149,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
     @Test
     fun `forceConnect when nudge unavailable - emits OpenBluetoothSettings without calling nudge`() =
-        runTest(testDispatcher) {
+        runTest2(autoCancel = true, context = testDispatcher) {
             val bonded = mockBondedDevice(testAddress)
             every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
             every { bluetoothManager.isNudgeAvailable } returns false
@@ -167,7 +167,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         }
 
     @Test
-    fun `forceConnect when no bonded device - emits OpenBluetoothSettings`() = runTest(testDispatcher) {
+    fun `forceConnect when no bonded device - emits OpenBluetoothSettings`() = runTest2(autoCancel = true, context = testDispatcher) {
         every { bluetoothManager.bondedDevices() } returns flowOf(emptySet())
 
         val vm = createViewModel()
@@ -184,7 +184,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
     @Test
     fun `forceConnect when bondedDevices throws SecurityException - emits OpenBluetoothSettings`() =
-        runTest(testDispatcher) {
+        runTest2(autoCancel = true, context = testDispatcher) {
             every { bluetoothManager.bondedDevices() } throws SecurityException("BLUETOOTH_CONNECT denied")
 
             val vm = createViewModel()
@@ -201,7 +201,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
     @Test
     fun `forceConnect when nudgeConnection throws - emits OpenBluetoothSettings and resets in-flight`() =
-        runTest(testDispatcher) {
+        runTest2(autoCancel = true, context = testDispatcher) {
             val bonded = mockBondedDevice(testAddress)
             every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
             coEvery { bluetoothManager.nudgeConnection(bonded) } throws RuntimeException("oops")
@@ -219,7 +219,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
     @Test
     fun `forceConnect concurrent calls - second call is a no-op while first in flight`() =
-        runTest(testDispatcher) {
+        runTest2(autoCancel = true, context = testDispatcher) {
             val bonded = mockBondedDevice(testAddress)
             every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
 
@@ -245,7 +245,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         }
 
     @Test
-    fun `setDeviceName forwards SetDeviceName command to aapManager`() = runTest(testDispatcher) {
+    fun `setDeviceName forwards SetDeviceName command to aapManager`() = runTest2(autoCancel = true, context = testDispatcher) {
         val vm = createViewModel()
         vm.initialize(testAddress)
         vm.state.first()
@@ -256,7 +256,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `setDeviceName when no target address is a no-op`() = runTest(testDispatcher) {
+    fun `setDeviceName when no target address is a no-op`() = runTest2(autoCancel = true, context = testDispatcher) {
         val vm = createViewModel()
         // Intentionally skip initialize — targetAddress stays null.
 
@@ -268,7 +268,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `setDeviceName failure emits SendFailed event`() = runTest(testDispatcher) {
+    fun `setDeviceName failure emits SendFailed event`() = runTest2(autoCancel = true, context = testDispatcher) {
         val failure = IllegalStateException("socket closed")
         coEvery {
             aapManager.sendCommand(testAddress, AapCommand.SetDeviceName("NewName"))
@@ -287,7 +287,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `isClassicallyConnected is true when device address is in connected devices`() = runTest(testDispatcher) {
+    fun `isClassicallyConnected is true when device address is in connected devices`() = runTest2(autoCancel = true, context = testDispatcher) {
         connectedDevicesFlow.value = listOf(mockBondedDevice(testAddress))
 
         val vm = createViewModel()
@@ -297,7 +297,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `isClassicallyConnected is false when device address is not in connected devices`() = runTest(testDispatcher) {
+    fun `isClassicallyConnected is false when device address is not in connected devices`() = runTest2(autoCancel = true, context = testDispatcher) {
         connectedDevicesFlow.value = listOf(mockBondedDevice("XX:XX:XX:XX:XX:XX"))
 
         val vm = createViewModel()
@@ -307,7 +307,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `state emits even when connected devices flow has not emitted yet`() = runTest(testDispatcher) {
+    fun `state emits even when connected devices flow has not emitted yet`() = runTest2(autoCancel = true, context = testDispatcher) {
         every { bluetoothManager.connectedDevices } returns flow { awaitCancellation() }
 
         val vm = createViewModel()
