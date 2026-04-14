@@ -1,12 +1,16 @@
 package eu.darken.capod
 
 import android.app.Application
+import android.os.Looper
 import dagger.hilt.android.HiltAndroidApp
 import eu.darken.capod.common.coroutine.AppScope
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.common.debug.logging.LogCatLogger
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.asLog
+import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.throttleLatest
@@ -23,6 +27,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.system.exitProcess
 
 @HiltAndroidApp
 open class App : Application() {
@@ -36,6 +41,20 @@ open class App : Application() {
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Logging.install(LogCatLogger())
+
+        var foregroundExceptionHandled = false
+        val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            if (throwable.isForegroundServiceTimingException() && !foregroundExceptionHandled) {
+                foregroundExceptionHandled = true
+                log(TAG, WARN) { "Suppressed foreground service timing exception: ${throwable.asLog()}" }
+                Bugs.report(tag = TAG, "Foreground service timing exception suppressed", exception = throwable)
+                Looper.loop()
+                return@setDefaultUncaughtExceptionHandler
+            }
+            log(TAG, ERROR) { "UNCAUGHT EXCEPTION: ${throwable.asLog()}" }
+            if (oldHandler != null) oldHandler.uncaughtException(thread, throwable) else exitProcess(1)
+        }
 
         autoReporting.setup(this)
 
@@ -64,5 +83,14 @@ open class App : Application() {
 
     companion object {
         internal val TAG = logTag("CAP")
+
+        private fun Throwable.isForegroundServiceTimingException(): Boolean {
+            var current: Throwable? = this
+            while (current != null) {
+                if (current.javaClass.simpleName == "ForegroundServiceDidNotStartInTimeException") return true
+                current = current.cause
+            }
+            return false
+        }
     }
 }
