@@ -127,6 +127,8 @@ class OverviewViewModel @Inject constructor(
         )
     }.asLiveState()
 
+    enum class BluetoothIconState { HIDDEN, DISABLED, NEARBY, CONNECTED }
+
     data class State(
         val now: Instant,
         val permissions: Set<Permission>,
@@ -143,6 +145,16 @@ class OverviewViewModel @Inject constructor(
             get() = if (upgradeInfo.isPro) profiledDevices else profiledDevices.take(FREE_DEVICE_LIMIT)
         val hiddenProfiledDeviceCount: Int get() = profiledDevices.size - visibleProfiledDevices.size
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
+
+        val bluetoothIconState: BluetoothIconState
+            get() = when {
+                isScanBlocked -> BluetoothIconState.HIDDEN
+                profiles.isEmpty() -> BluetoothIconState.HIDDEN
+                !isBluetoothEnabled -> BluetoothIconState.DISABLED
+                profiledDevices.any { it.isSystemConnected } -> BluetoothIconState.CONNECTED
+                profiledDevices.any { it.isLive } -> BluetoothIconState.NEARBY
+                else -> BluetoothIconState.HIDDEN
+            }
     }
 
     fun onPermissionResult() {

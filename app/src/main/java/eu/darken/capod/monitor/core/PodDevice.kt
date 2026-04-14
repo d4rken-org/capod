@@ -49,6 +49,8 @@ data class PodDevice(
     internal val profileKeyState: BleKeyState = BleKeyState.NONE,
     /** Reaction toggle snapshot from the profile. Defaults to all-off when no profile is matched. */
     val reactions: ReactionConfig = ReactionConfig(),
+    /** True when the profile's BR/EDR address is in the system's connected Bluetooth devices. */
+    val isSystemConnected: Boolean = false,
 ) {
     val model: PodModel get() = ble?.model ?: profileModel ?: cached?.model ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */

@@ -1,6 +1,7 @@
 package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
@@ -24,6 +25,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -40,6 +42,7 @@ class DeviceMonitor @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val blePodMonitor: BlePodMonitor,
     private val aapManager: AapConnectionManager,
+    private val bluetoothManager: BluetoothManager2,
     private val deviceStateCache: DeviceStateCache,
     private val profilesRepo: DeviceProfilesRepo,
     private val aapLifecycleManager: AapLifecycleManager,
@@ -52,9 +55,11 @@ class DeviceMonitor @Inject constructor(
     private val liveState: Flow<LiveMergeState> = combine(
         blePodMonitor.devices,
         aapManager.allStates,
+        bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
         profilesRepo.profiles,
-    ) { pods, aapStates, profiles ->
+    ) { pods, aapStates, connectedBtDevices, profiles ->
         val profilesById = profiles.associateBy { it.id }
+        val connectedAddresses = connectedBtDevices.mapTo(mutableSetOf()) { it.address }
 
         // Live devices — BLE + AAP. Cache is merged later so cache writes don't feed back here.
         val liveDevices = pods.map { pod ->
@@ -68,6 +73,7 @@ class DeviceMonitor @Inject constructor(
                 profileModel = profile?.model,
                 profileKeyState = profile.toBleKeyState(),
                 reactions = profile.toReactionConfig(),
+                isSystemConnected = profile?.address in connectedAddresses,
             )
         }
 
@@ -75,6 +81,7 @@ class DeviceMonitor @Inject constructor(
             liveDevices = liveDevices,
             profiles = profiles,
             aapStates = aapStates,
+            connectedAddresses = connectedAddresses,
         )
     }.onEach { liveState ->
         persistLiveDevices(liveState.liveDevices)
@@ -89,6 +96,7 @@ class DeviceMonitor @Inject constructor(
         }
         val profiles = liveState.profiles
         val aapStates = liveState.aapStates
+        val connectedAddresses = liveState.connectedAddresses
 
         // Collapse live duplicates sharing an identity-backed profile — e.g. when the legacy
         // signal-quality fallback misattributed ambient strangers to our profile.
@@ -138,6 +146,7 @@ class DeviceMonitor @Inject constructor(
                     profileModel = profile.model,
                     profileKeyState = profile.toBleKeyState(),
                     reactions = profile.toReactionConfig(),
+                    isSystemConnected = profile.address in connectedAddresses,
                 )
             }
 
@@ -183,6 +192,7 @@ class DeviceMonitor @Inject constructor(
         val liveDevices: List<PodDevice>,
         val profiles: List<DeviceProfile>,
         val aapStates: Map<BluetoothAddress, AapPodState>,
+        val connectedAddresses: Set<BluetoothAddress>,
     )
 
     suspend fun getDeviceForProfile(profileId: String): PodDevice? {

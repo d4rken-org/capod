@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.monitor.core.aap.AapLifecycleManager
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
@@ -154,11 +155,15 @@ class DeviceMonitorTest : BaseTest() {
             every { this@mockk.profiles } returns MutableStateFlow(profiles)
         }
         val aapLifecycleManager: AapLifecycleManager = mockk(relaxed = true)
+        val bluetoothManager: BluetoothManager2 = mockk {
+            every { connectedDevices } returns MutableStateFlow(emptyList())
+        }
 
         return DeviceMonitor(
             appScope = scope,
             blePodMonitor = blePodMonitor,
             aapManager = aapManager,
+            bluetoothManager = bluetoothManager,
             deviceStateCache = deviceStateCache,
             profilesRepo = profilesRepo,
             aapLifecycleManager = aapLifecycleManager,
@@ -560,11 +565,15 @@ class DeviceMonitorTest : BaseTest() {
             every { profiles } returns profilesFlow
         }
         val aapLifecycleManager: AapLifecycleManager = mockk(relaxed = true)
+        val bluetoothManager: BluetoothManager2 = mockk {
+            every { connectedDevices } returns MutableStateFlow(emptyList())
+        }
 
         val monitor = DeviceMonitor(
             appScope = backgroundScope,
             blePodMonitor = blePodMonitor,
             aapManager = aapManager,
+            bluetoothManager = bluetoothManager,
             deviceStateCache = deviceStateCache,
             profilesRepo = profilesRepo,
             aapLifecycleManager = aapLifecycleManager,

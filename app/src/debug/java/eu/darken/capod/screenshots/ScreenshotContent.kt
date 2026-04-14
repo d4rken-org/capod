@@ -57,6 +57,7 @@ internal fun DashboardContent() = PreviewWrapper {
             showUnmatchedDevices = false,
         ),
         onRequestPermission = {},
+        onBluetoothSettings = {},
         onManageDevices = {},
         onSettings = {},
         onUpgrade = {},

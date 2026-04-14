@@ -10,11 +10,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Bluetooth
+import androidx.compose.material.icons.twotone.BluetoothConnected
 import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -126,6 +129,13 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
     OverviewScreen(
         state = currentState,
         onRequestPermission = { vm.requestPermission(it) },
+        onBluetoothSettings = {
+            try {
+                context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
+            } catch (_: SecurityException) {
+                // Some devices require BT permission to open BT settings
+            }
+        },
         onManageDevices = { vm.goToDeviceManager() },
         onSettings = { vm.goToSettings() },
         onUpgrade = { vm.onUpgrade() },
@@ -140,6 +150,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
 fun OverviewScreen(
     state: OverviewViewModel.State,
     onRequestPermission: (Permission) -> Unit,
+    onBluetoothSettings: () -> Unit,
     onManageDevices: () -> Unit,
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
@@ -155,6 +166,31 @@ fun OverviewScreen(
                     ToolbarTitle(upgradeInfo = state.upgradeInfo)
                 },
                 actions = {
+                    // Bluetooth status icon
+                    val btState = state.bluetoothIconState
+                    if (btState != OverviewViewModel.BluetoothIconState.HIDDEN) {
+                        IconButton(onClick = onBluetoothSettings) {
+                            Icon(
+                                imageVector = when (btState) {
+                                    OverviewViewModel.BluetoothIconState.CONNECTED -> Icons.TwoTone.BluetoothConnected
+                                    else -> Icons.TwoTone.Bluetooth
+                                },
+                                contentDescription = stringResource(
+                                    when (btState) {
+                                        OverviewViewModel.BluetoothIconState.DISABLED -> R.string.overview_bluetooth_disabled_icon_cd
+                                        OverviewViewModel.BluetoothIconState.CONNECTED -> R.string.overview_bluetooth_connected_icon_cd
+                                        else -> R.string.overview_bluetooth_nearby_icon_cd
+                                    }
+                                ),
+                                tint = when (btState) {
+                                    OverviewViewModel.BluetoothIconState.DISABLED -> MaterialTheme.colorScheme.error
+                                    OverviewViewModel.BluetoothIconState.CONNECTED -> MaterialTheme.colorScheme.primary
+                                    else -> MaterialTheme.colorScheme.onSurface
+                                },
+                            )
+                        }
+                    }
+
                     // Upgrade/donate button based on type and pro status
                     val info = state.upgradeInfo
                     when {
@@ -345,6 +381,7 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             showUnmatchedDevices = false,
         ),
         onRequestPermission = {},
+        onBluetoothSettings = {},
         onManageDevices = {},
         onSettings = {},
         onUpgrade = {},
@@ -367,6 +404,7 @@ private fun OverviewScreenEmptyPreview() = PreviewWrapper {
             showUnmatchedDevices = false,
         ),
         onRequestPermission = {},
+        onBluetoothSettings = {},
         onManageDevices = {},
         onSettings = {},
         onUpgrade = {},
@@ -389,6 +427,7 @@ private fun OverviewScreenNoProfilesPreview() = PreviewWrapper {
             showUnmatchedDevices = false,
         ),
         onRequestPermission = {},
+        onBluetoothSettings = {},
         onManageDevices = {},
         onSettings = {},
         onUpgrade = {},
@@ -411,6 +450,7 @@ private fun OverviewScreenBluetoothOffPreview() = PreviewWrapper {
             showUnmatchedDevices = false,
         ),
         onRequestPermission = {},
+        onBluetoothSettings = {},
         onManageDevices = {},
         onSettings = {},
         onUpgrade = {},
