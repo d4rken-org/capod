@@ -252,10 +252,17 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
 
     @Nested
     inner class AdaptiveAudioNoiseTests {
+        // UI level is inverted on the wire: UI 0 = max NC → wire 100, UI 100 = min NC → wire 0.
         @Test fun `encode level 50`() { profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(50))[7] shouldBe 50.toByte() }
-        @Test fun `encode clamps to 0`() { profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(-5))[7] shouldBe 0x00.toByte() }
-        @Test fun `encode clamps to 100`() { profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(150))[7] shouldBe 0x64.toByte() }
-        @Test fun `decode level`() { decodeSetting<AapSetting.AdaptiveAudioNoise>(settingsMessage(0x2E, 64)).level shouldBe 64 }
+        @Test fun `encode clamps to 0`() { profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(-5))[7] shouldBe 0x64.toByte() }
+        @Test fun `encode clamps to 100`() { profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(150))[7] shouldBe 0x00.toByte() }
+        @Test fun `decode level`() { decodeSetting<AapSetting.AdaptiveAudioNoise>(settingsMessage(0x2E, 64)).level shouldBe 36 }
+        @Test fun `encode decode round-trip`() {
+            for (ui in listOf(0, 25, 50, 75, 100)) {
+                val encoded = profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(ui))
+                decodeSetting<AapSetting.AdaptiveAudioNoise>(AapMessage.Companion.parse(encoded)!!).level shouldBe ui
+            }
+        }
     }
 
     // ── EndCall / MuteMic ────────────────────────────────────
