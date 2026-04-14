@@ -276,7 +276,8 @@ internal class AapConnection(
                 sock.outputStream.write(bytes)
                 sock.outputStream.flush()
                 if (command is AapCommand.SetAncMode) lastAncCommandSentAt = timeSource.currentTimeMillis()
-                log(TAG) { "Sent command: $command (${bytes.size} bytes)" }
+                val hex = bytes.joinToString(" ") { "%02X".format(it) }
+                log(TAG, VERBOSE) { "SEND cmd=$command len=${bytes.size} raw=$hex" }
             }
         }
     }
