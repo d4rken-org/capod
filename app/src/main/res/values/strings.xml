@@ -442,7 +442,7 @@
     <string name="device_settings_not_connected_connect_action">Connect</string>
     <string name="device_settings_not_connected_open_settings_action">Open Bluetooth Settings</string>
     <string name="device_settings_aap_unavailable_label">Advanced settings unavailable</string>
-    <string name="device_settings_aap_unavailable_description">This phone\'s Bluetooth does not support the connection required for advanced AirPods settings.</string>
+    <string name="device_settings_aap_unavailable_description">Advanced AirPods settings require a Bluetooth feature that is not available on this phone. This may be resolved by a future Android update from your device manufacturer.</string>
     <string name="device_settings_category_sound_label">Sound</string>
     <string name="device_settings_category_controls_label">Controls</string>
     <string name="device_settings_nc_one_airpod_label">Noise Cancellation with One AirPod</string>
