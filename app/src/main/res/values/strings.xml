@@ -207,6 +207,9 @@
 
     <string name="overview_nomaindevice_label">No device configured</string>
     <string name="overview_nomaindevice_description">Configure your device to start monitoring battery levels and enable additional features.</string>
+    <string name="overview_bluetooth_disabled_icon_cd">Bluetooth disabled, open settings</string>
+    <string name="overview_bluetooth_nearby_icon_cd">Device nearby, open Bluetooth settings</string>
+    <string name="overview_bluetooth_connected_icon_cd">Device connected, open Bluetooth settings</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth is disabled</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
     <string name="overview_monitoring_active_label">Monitoring for devices</string>
