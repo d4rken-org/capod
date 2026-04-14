@@ -74,6 +74,8 @@ internal class AapConnection(
     private var lastAncCommandSentAt: Long = 0L
     private var lastCommandedAncMode: AapSetting.AncMode.Value? = null
     private var ancResendJob: Job? = null
+    private var lastSentCommand: AapCommand? = null
+    private var lastSentAt: Long = 0L
 
     /**
      * Opens the L2CAP socket, sends the handshake, and launches the read loop.
@@ -275,7 +277,10 @@ internal class AapConnection(
                 val sock = socket ?: throw IOException("Socket is null")
                 sock.outputStream.write(bytes)
                 sock.outputStream.flush()
-                if (command is AapCommand.SetAncMode) lastAncCommandSentAt = timeSource.currentTimeMillis()
+                val now = timeSource.currentTimeMillis()
+                if (command is AapCommand.SetAncMode) lastAncCommandSentAt = now
+                lastSentCommand = command
+                lastSentAt = now
                 val hex = bytes.joinToString(" ") { "%02X".format(it) }
                 log(TAG, VERBOSE) { "SEND cmd=$command len=${bytes.size} raw=$hex" }
             }
@@ -457,7 +462,12 @@ internal class AapConnection(
             return
         }
 
-        log(TAG) { "Unhandled message: cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B" }
+        val payloadHex = message.payload.joinToString(" ") { "%02X".format(it) }
+        val sinceSend = if (lastSentAt == 0L) -1L else timeSource.currentTimeMillis() - lastSentAt
+        val lastSend = lastSentCommand?.let { it::class.simpleName } ?: "none"
+        log(TAG, INFO) {
+            "Unhandled cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sinceSend}ms lastSend=$lastSend"
+        }
     }
 
     private fun cleanupSocket() {
