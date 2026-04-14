@@ -353,6 +353,32 @@ fun DeviceSettingsScreen(
                                 )
                             }
                         }
+                        if (device.isAapConnected) {
+                            val convAwareness = device.conversationalAwareness
+                            if (features.hasConversationAwareness && convAwareness != null) {
+                                SettingsSwitchItem(
+                                    icon = Icons.TwoTone.Hearing,
+                                    title = stringResource(R.string.conversation_awareness_label),
+                                    subtitle = stringResource(R.string.device_settings_conversation_awareness_description),
+                                    checked = convAwareness.enabled,
+                                    onCheckedChange = onConversationalAwarenessChange,
+                                    enabled = enabled,
+                                )
+                            }
+                            if (features.hasSleepDetection) {
+                                val sleepDet = device.sleepDetection
+                                    ?: AapSetting.SleepDetection(enabled = true)
+                                SettingsSwitchItem(
+                                    icon = Icons.TwoTone.Nightlight,
+                                    title = stringResource(R.string.device_settings_sleep_detection_label),
+                                    subtitle = stringResource(R.string.device_settings_sleep_detection_description),
+                                    checked = sleepDet.enabled,
+                                    onCheckedChange = onSleepDetectionChange,
+                                    enabled = enabled,
+                                    requiresUpgrade = !isPro,
+                                )
+                            }
+                        }
                         SettingsSwitchItem(
                             icon = Icons.TwoTone.BluetoothConnected,
                             title = stringResource(R.string.settings_autoconnect_label),
@@ -511,40 +537,6 @@ fun DeviceSettingsScreen(
                                     selected = micMode.mode,
                                     onSelected = onMicrophoneModeChange,
                                     enabled = enabled,
-                                )
-                            }
-                        }
-                    }
-                }
-
-                // ── Smart Features ───────────────────────────
-                val convAwareness = device.conversationalAwareness
-                val showSmartFeaturesSection =
-                    (features.hasConversationAwareness && convAwareness != null) || features.hasSleepDetection
-                if (showSmartFeaturesSection) {
-                    item("smart_features_section") {
-                        SettingsSection(title = stringResource(R.string.device_settings_category_smart_features_label)) {
-                            if (features.hasConversationAwareness && convAwareness != null) {
-                                SettingsSwitchItem(
-                                    icon = Icons.TwoTone.Hearing,
-                                    title = stringResource(R.string.conversation_awareness_label),
-                                    subtitle = stringResource(R.string.device_settings_conversation_awareness_description),
-                                    checked = convAwareness.enabled,
-                                    onCheckedChange = onConversationalAwarenessChange,
-                                    enabled = enabled,
-                                )
-                            }
-                            if (features.hasSleepDetection) {
-                                val sleepDet = device.sleepDetection
-                                    ?: AapSetting.SleepDetection(enabled = true)
-                                SettingsSwitchItem(
-                                    icon = Icons.TwoTone.Nightlight,
-                                    title = stringResource(R.string.device_settings_sleep_detection_label),
-                                    subtitle = stringResource(R.string.device_settings_sleep_detection_description),
-                                    checked = sleepDet.enabled,
-                                    onCheckedChange = onSleepDetectionChange,
-                                    enabled = enabled,
-                                    requiresUpgrade = !isPro,
                                 )
                             }
                         }
