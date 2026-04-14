@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">ស្វ័យប្រវត្តិ</string>
     <string name="device_settings_microphone_mode_right">ស្តាំ</string>
     <string name="device_settings_microphone_mode_left">ឃ្វេង</string>
-    <string name="device_settings_ear_detection_label">ការរកៃើញត្រចូយកដោយស្វ័យប្រវត្តិ</string>
-    <string name="device_settings_ear_detection_description">ផ្អាកអូឌីយ័ឡពេលដក AirPods ចេញពីត្រចូយក</string>
     <string name="device_settings_listening_mode_cycle_label">វត្តគ្រប់គ្រងសំឡេងរំខាន</string>
     <string name="device_settings_listening_mode_cycle_description">ជ្រើសរើសរបៀបដែត្រូវវិលវែនពេលចុចអ្វយ់ជាប់ដង</string>
     <string name="device_settings_listening_mode_cycle_off">បិទ</string>

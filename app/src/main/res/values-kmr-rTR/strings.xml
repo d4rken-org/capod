@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Xweber</string>
     <string name="device_settings_microphone_mode_right">Rastê</string>
     <string name="device_settings_microphone_mode_left">Çepê</string>
-    <string name="device_settings_ear_detection_label">Tespîtkirina Xweber a Guh</string>
-    <string name="device_settings_ear_detection_description">Dema ku AirPod ji guhan tên derxistin, dengê medyayê rawes têne</string>
     <string name="device_settings_listening_mode_cycle_label">Çerxa Kontrolê Dengê</string>
     <string name="device_settings_listening_mode_cycle_description">Hilbijêre kîjan mod diçerxin dema stûn tê girtin û ragirtin</string>
     <string name="device_settings_listening_mode_cycle_off">Vemirandî</string>

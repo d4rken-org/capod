@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">อัตโนมัติ</string>
     <string name="device_settings_microphone_mode_right">ขวา</string>
     <string name="device_settings_microphone_mode_left">ซ้าย</string>
-    <string name="device_settings_ear_detection_label">การตรวจจับในหูอัตโนมัติ</string>
-    <string name="device_settings_ear_detection_description">หยุดเสียงเมื่อถอด AirPods ออกจากหู</string>
     <string name="device_settings_listening_mode_cycle_label">วงรอบการควบคุมเสียงรบกวน</string>
     <string name="device_settings_listening_mode_cycle_description">เลือกโหมดที่เวียนเมื่อกดค้างค้าง</string>
     <string name="device_settings_listening_mode_cycle_off">ปิด</string>

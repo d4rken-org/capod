@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">ಆಟೋ</string>
     <string name="device_settings_microphone_mode_right">ಬಲಗಡೆ</string>
     <string name="device_settings_microphone_mode_left">ೆಡಗಡೆ</string>
-    <string name="device_settings_ear_detection_label">ಸ್ವಯಂಚಾಲಿತ ಕಿವಿ ಪತ್ತೆ</string>
-    <string name="device_settings_ear_detection_description">AirPods ಕಿವಿಯಿಂದ ತೆಗೆದುಕೊಂಡಾಗ ಆಡಿಯೋ ನಿಲ್ಲಿಸಿ</string>
     <string name="device_settings_listening_mode_cycle_label">ನಿಶ್ಶಬ್ದ ನಿಯಂತ್ರಣ ಚಕ್ರ</string>
     <string name="device_settings_listening_mode_cycle_description">ಸ್ಟೆಮ್ ಪ್ರೆಸ್ ಮತ್ತು ಹೋಲ್ಡ್ ಮಾಡಿದಾಗ ಯಾವ ಮೋಡಗಳು ಚಕ್ರಿಸುತ್ತವೆ ಎಂದು ಆಯ್ಕೆ ಮಾಡಿ</string>
     <string name="device_settings_listening_mode_cycle_off">ಆಫ್</string>

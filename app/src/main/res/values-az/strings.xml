@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Avtomatik</string>
     <string name="device_settings_microphone_mode_right">Sağ</string>
     <string name="device_settings_microphone_mode_left">Sol</string>
-    <string name="device_settings_ear_detection_label">Avtomatik Quşaq Aşkarlama</string>
-    <string name="device_settings_ear_detection_description">AirPodlar qulaqdan çıxarıldıqda audiou dayandırın</string>
     <string name="device_settings_listening_mode_cycle_label">Səs Nəzarət Dövrü</string>
     <string name="device_settings_listening_mode_cycle_description">Gövdəni basmaqla saxlayarkən dəvr edən rejimler seçin</string>
     <string name="device_settings_listening_mode_cycle_off">Söndür</string>

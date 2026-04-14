@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">स्वतः</string>
     <string name="device_settings_microphone_mode_right">दायाँ</string>
     <string name="device_settings_microphone_mode_left">बायाँ</string>
-    <string name="device_settings_ear_detection_label">स्वचालित कान पहचान</string>
-    <string name="device_settings_ear_detection_description">AirPods कानों से निकालने पर ऑडियो रोकें</string>
     <string name="device_settings_listening_mode_cycle_label">शोर नियंत्रण चक्र</string>
     <string name="device_settings_listening_mode_cycle_description">स्टेम दबाकर रखने पर कौन से मोड चक्र में आएंगे चुनें</string>
     <string name="device_settings_listening_mode_cycle_off">बंद</string>

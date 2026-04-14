@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">স্বয়ংক্রিয়</string>
     <string name="device_settings_microphone_mode_right">ডান</string>
     <string name="device_settings_microphone_mode_left">বাঁ</string>
-    <string name="device_settings_ear_detection_label">স্বয়ংক্রিয় কান শনাক্তি</string>
-    <string name="device_settings_ear_detection_description">AirPods কান থেকে বের করলে অডিও বিরত করুন</string>
     <string name="device_settings_listening_mode_cycle_label">নয়েজ কন্ট্রোল সাইকেল</string>
     <string name="device_settings_listening_mode_cycle_description">স্টেম চেপে ধরলে কোন মোডগুলো সাইকেল করবে তা বেছে নিন</string>
     <string name="device_settings_listening_mode_cycle_off">বন্ধ</string>

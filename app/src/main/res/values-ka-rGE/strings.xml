@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">ავტო</string>
     <string name="device_settings_microphone_mode_right">მარჯვენა</string>
     <string name="device_settings_microphone_mode_left">მარცხენა</string>
-    <string name="device_settings_ear_detection_label">ყურის ავტომატური დეტექცია</string>
-    <string name="device_settings_ear_detection_description">შეაჩერე აუდიო, როდესაც AirPods-ები ყურიდან ამოღებულია</string>
     <string name="device_settings_listening_mode_cycle_label">ხმაურის კონტროლის ციკლი</string>
     <string name="device_settings_listening_mode_cycle_description">აირჩიეთ, რომელი რეჟიმები ცვლება ღეროს დაჭერისა და გეჭირებისას</string>
     <string name="device_settings_listening_mode_cycle_off">გამორთული</string>

@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">ອັດຕະໂນມັດ</string>
     <string name="device_settings_microphone_mode_right">ຂວາ</string>
     <string name="device_settings_microphone_mode_left">຋້າຍ</string>
-    <string name="device_settings_ear_detection_label">ການຕຣວຈຈັບຫູອັດຕະໂນມັດ</string>
-    <string name="device_settings_ear_detection_description">ພ଱ກເສີງເມື່ອ AirPods ຖືກຖອດອອກຈາກຫູ</string>
     <string name="device_settings_listening_mode_cycle_label">ວັງຂອງການຄວບຄຸມເສີງຣົບກວນ</string>
     <string name="device_settings_listening_mode_cycle_description">ເລືອກໂໝດໃດທີ່ວັງເມື່ອກດຄ້າງກ້ານ</string>
     <string name="device_settings_listening_mode_cycle_off">ປິດ</string>

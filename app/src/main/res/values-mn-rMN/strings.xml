@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Автомат</string>
     <string name="device_settings_microphone_mode_right">Баруун</string>
     <string name="device_settings_microphone_mode_left">Зүүн</string>
-    <string name="device_settings_ear_detection_label">Чихэнд автоматаар илрүүлэх</string>
-    <string name="device_settings_ear_detection_description">AirPods чихнээс авахад аудио зогсох</string>
     <string name="device_settings_listening_mode_cycle_label">Чимээ хяналтын мөчлөг</string>
     <string name="device_settings_listening_mode_cycle_description">Ишийг дарж барихад аль горимуудыг мөчлөглөхийг сонгох</string>
     <string name="device_settings_listening_mode_cycle_off">Унтраалттай</string>

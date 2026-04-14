@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">ස්වයංක්‍රීය</string>
     <string name="device_settings_microphone_mode_right">දකුණ</string>
     <string name="device_settings_microphone_mode_left">වම</string>
-    <string name="device_settings_ear_detection_label">ස්වයංක්‍රීය කන් හොදුනාගෙඳීම</string>
-    <string name="device_settings_ear_detection_description">AirPods කන් වලින් ඉවත් කල විට ශ්‍රව්‍ය විරාම කරන්න</string>
     <string name="device_settings_listening_mode_cycle_label">ශබ්ද පාලන චක්‍රය</string>
     <string name="device_settings_listening_mode_cycle_description">කද එබා ධාරණය කිරීමේදී අවර්තනය වන ප්‍රකාර තෝරන්න</string>
     <string name="device_settings_listening_mode_cycle_off">ක්‍රියා විරහිත</string>

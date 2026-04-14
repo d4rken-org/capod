@@ -431,8 +431,6 @@
     <string name="device_settings_microphone_mode_auto">자동</string>
     <string name="device_settings_microphone_mode_right">오른쪽</string>
     <string name="device_settings_microphone_mode_left">왼쪽</string>
-    <string name="device_settings_ear_detection_label">자동 귀 감지</string>
-    <string name="device_settings_ear_detection_description">AirPods를 귀에서 뺄으면 오디오 일시 정지</string>
     <string name="device_settings_listening_mode_cycle_label">소음 제어 순환</string>
     <string name="device_settings_listening_mode_cycle_description">스템을 길게 누를 때 순환할 모드 선택</string>
     <string name="device_settings_listening_mode_cycle_off">끄기</string>

@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Αυτόματο</string>
     <string name="device_settings_microphone_mode_right">Δεξί</string>
     <string name="device_settings_microphone_mode_left">Αριστερό</string>
-    <string name="device_settings_ear_detection_label">Αυτόματη Ανίχνευση Αυτιού</string>
-    <string name="device_settings_ear_detection_description">Παύση ήχου όταν αφαιρούνται τα AirPods από τα αυτιά</string>
     <string name="device_settings_listening_mode_cycle_label">Κύκλος Ελέγχου Θορύβου</string>
     <string name="device_settings_listening_mode_cycle_description">Επιλέξτε ποιες λειτουργίες εναλλάσσονται με πίεση και κράτηση του στελέχους</string>
     <string name="device_settings_listening_mode_cycle_off">Απενεργοποιημένο</string>

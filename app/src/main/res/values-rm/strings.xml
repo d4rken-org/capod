@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automatic</string>
     <string name="device_settings_microphone_mode_right">Dretg</string>
     <string name="device_settings_microphone_mode_left">Sanester</string>
-    <string name="device_settings_ear_detection_label">Detecziun automatica da las ureglias</string>
-    <string name="device_settings_ear_detection_description">Pausa audio sche ils AirPods vegnan tirads or da las ureglias</string>
     <string name="device_settings_listening_mode_cycle_label">Ciclu da controlla dal bumbac</string>
     <string name="device_settings_listening_mode_cycle_description">Tscherner tge modus che circulegia cun tegnair premì la tija</string>
     <string name="device_settings_listening_mode_cycle_off">Inactiv</string>

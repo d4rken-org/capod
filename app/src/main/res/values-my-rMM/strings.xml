@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">အလိုအလျောက်</string>
     <string name="device_settings_microphone_mode_right">ညာ</string>
     <string name="device_settings_microphone_mode_left">ဘယ်</string>
-    <string name="device_settings_ear_detection_label">နား အလိုအလျောက် ရှာဖွေမှု</string>
-    <string name="device_settings_ear_detection_description">AirPods ကို နားမှ ထုတ်လိုက်သည့်အချား အသံ ခညေရပ်ပါ</string>
     <string name="device_settings_listening_mode_cycle_label">ဆူညည်သံ ထိန်းချုပ်မှု လည်ပွတ်မှု</string>
     <string name="device_settings_listening_mode_cycle_description">သောမ်ပော် နှိပ်ဆွဲဆျဲကိုင်သည့်အချား မည်သည့်မုဒ်များ လည်ပွတ်မည်ကို ရွေးချယ်ပါ</string>
     <string name="device_settings_listening_mode_cycle_off">ပိတ်</string>

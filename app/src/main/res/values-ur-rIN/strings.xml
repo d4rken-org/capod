@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">خودکار</string>
     <string name="device_settings_microphone_mode_right">دائیں</string>
     <string name="device_settings_microphone_mode_left">بائیں</string>
-    <string name="device_settings_ear_detection_label">خودکار کان کا پتہ لگانا</string>
-    <string name="device_settings_ear_detection_description">جب AirPods کانوں سے نکالے جائیں تو آڈیو روکیں</string>
     <string name="device_settings_listening_mode_cycle_label">شور کنٹرول سائیکل</string>
     <string name="device_settings_listening_mode_cycle_description">اسٹیم کو دبا کر پکڑنے پر کون سے موڈ سائیکل ہوتے ہیں منتخب کریں</string>
     <string name="device_settings_listening_mode_cycle_off">بند</string>

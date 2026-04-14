@@ -439,8 +439,6 @@
     <string name="device_settings_microphone_mode_auto">Automātiski</string>
     <string name="device_settings_microphone_mode_right">Labais</string>
     <string name="device_settings_microphone_mode_left">Kreisais</string>
-    <string name="device_settings_ear_detection_label">Automātiskā auss atklāšana</string>
-    <string name="device_settings_ear_detection_description">Apturēt audio, kad AirPods tiek izņemti no ausīm</string>
     <string name="device_settings_listening_mode_cycle_label">Troksnis vadības cikls</string>
     <string name="device_settings_listening_mode_cycle_description">Izvēlieties, kuri režīmi tiek ciklēti, nospiežot un turot kātienu</string>
     <string name="device_settings_listening_mode_cycle_off">Izslēgts</string>

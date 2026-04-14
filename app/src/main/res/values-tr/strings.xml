@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Otomatik</string>
     <string name="device_settings_microphone_mode_right">Sağ</string>
     <string name="device_settings_microphone_mode_left">Sol</string>
-    <string name="device_settings_ear_detection_label">Otomatik Kulak Algılama</string>
-    <string name="device_settings_ear_detection_description">AirPod’lar kulaktan çıkarıldığında sesi duraklat</string>
     <string name="device_settings_listening_mode_cycle_label">Gürültü Kontrol Döngüsü</string>
     <string name="device_settings_listening_mode_cycle_description">Sapı basılı tutarken hangi modların döngü yapacağını seçin</string>
     <string name="device_settings_listening_mode_cycle_off">Kapalı</string>

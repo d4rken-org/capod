@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">ఆటో</string>
     <string name="device_settings_microphone_mode_right">కుడి</string>
     <string name="device_settings_microphone_mode_left">ఎడమ</string>
-    <string name="device_settings_ear_detection_label">స్వయంచాలక చెవి గుర్తింపు</string>
-    <string name="device_settings_ear_detection_description">AirPods చెవుల నుండి తీసివేసినప్పుడు ఆడియో పాజ్ చేయండి</string>
     <string name="device_settings_listening_mode_cycle_label">నాయిస్ కంట్రోల్ సైకిల్</string>
     <string name="device_settings_listening_mode_cycle_description">స్టెమ్ నొక్కి పట్టుకున్నప్పుడు ఏ మోడ్‌లు సైకిల్ అవుతాయో ఎంచుకోండి</string>
     <string name="device_settings_listening_mode_cycle_off">ఆఫ్</string>

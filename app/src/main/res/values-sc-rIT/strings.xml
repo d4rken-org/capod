@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automàticu</string>
     <string name="device_settings_microphone_mode_right">Dèxtera</string>
     <string name="device_settings_microphone_mode_left">Manca</string>
-    <string name="device_settings_ear_detection_label">Detzetzione automàtica de s\'orija</string>
-    <string name="device_settings_ear_detection_description">Pausa s\'àudiu cando sos AirPods sunt bortados dae sas orijas</string>
     <string name="device_settings_listening_mode_cycle_label">Tziclu de controlos de su rumoriu</string>
     <string name="device_settings_listening_mode_cycle_description">Sèbera cales modalidades si tziculant premende e tenende su fustu</string>
     <string name="device_settings_listening_mode_cycle_off">Ispentadu</string>

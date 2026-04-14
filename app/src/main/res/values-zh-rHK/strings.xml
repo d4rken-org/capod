@@ -429,8 +429,6 @@
     <string name="device_settings_microphone_mode_auto">自動</string>
     <string name="device_settings_microphone_mode_right">右</string>
     <string name="device_settings_microphone_mode_left">左</string>
-    <string name="device_settings_ear_detection_label">自動耳測偵測</string>
-    <string name="device_settings_ear_detection_description">移除 AirPods 時暫停播放</string>
     <string name="device_settings_listening_mode_cycle_label">噪音控制循環</string>
     <string name="device_settings_listening_mode_cycle_description">選擇長按桌時循環的模式</string>
     <string name="device_settings_listening_mode_cycle_off">關閉</string>

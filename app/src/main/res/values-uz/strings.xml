@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Avtomatik</string>
     <string name="device_settings_microphone_mode_right">O\'ng</string>
     <string name="device_settings_microphone_mode_left">Chap</string>
-    <string name="device_settings_ear_detection_label">Quloqda borligini avtomatik aniqlash</string>
-    <string name="device_settings_ear_detection_description">AirPods quloqdan olinganda audioni to\'xtatib turish</string>
     <string name="device_settings_listening_mode_cycle_label">Shovqin nazorat sikli</string>
     <string name="device_settings_listening_mode_cycle_description">Sopni bosib ushlab turganda qaysi rejimlar almashishini tanlang</string>
     <string name="device_settings_listening_mode_cycle_off">O\'chiq</string>

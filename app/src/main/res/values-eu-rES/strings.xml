@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automatikoa</string>
     <string name="device_settings_microphone_mode_right">Eskuinekoa</string>
     <string name="device_settings_microphone_mode_left">Ezkerrekoa</string>
-    <string name="device_settings_ear_detection_label">Belarri-detekzio automatikoa</string>
-    <string name="device_settings_ear_detection_description">Pausatu audioa AirPodak belarritik kentzen direnean</string>
     <string name="device_settings_listening_mode_cycle_label">Zarata-kontrolaren zikloa</string>
     <string name="device_settings_listening_mode_cycle_description">Hautatu zein modu txandakatzen diren kaxa-ardatza luze sakatzean</string>
     <string name="device_settings_listening_mode_cycle_off">Itzalita</string>

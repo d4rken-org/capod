@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">ഓട്ടോ</string>
     <string name="device_settings_microphone_mode_right">വലത്</string>
     <string name="device_settings_microphone_mode_left">ഇടത്</string>
-    <string name="device_settings_ear_detection_label">ഓട്ടോമാറ്റിക് ഇയർ ഡിറ്റക്ഷൻ</string>
-    <string name="device_settings_ear_detection_description">AirPods കാതുകളിൽ നിന്ന് നീക്കുമ്പോൾ ഓഡിയോ താൽക്കാലികമായി നിർത്തുക</string>
     <string name="device_settings_listening_mode_cycle_label">നോയ്‌സ് കണ്ട്രോൾ സൈക്കിൾ</string>
     <string name="device_settings_listening_mode_cycle_description">സ്റ്റെം അമർത്തിപ്പിടിക്കുമ്പോൾ ഏത് മോഡുകൾ സൈക്കിൾ ചെയ്യുമെന്ന് തിരഞ്ഞെടുക്കുക</string>
     <string name="device_settings_listening_mode_cycle_off">ഓഫ്</string>

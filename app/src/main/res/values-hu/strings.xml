@@ -434,8 +434,6 @@
     <string name="device_settings_microphone_mode_auto">Automatikus</string>
     <string name="device_settings_microphone_mode_right">Jobb</string>
     <string name="device_settings_microphone_mode_left">Bal</string>
-    <string name="device_settings_ear_detection_label">Automatikus füldetektálás</string>
-    <string name="device_settings_ear_detection_description">Audió szüneteltetése az AirPodok kivételekor</string>
     <string name="device_settings_listening_mode_cycle_label">Zajszabályozás ciklus</string>
     <string name="device_settings_listening_mode_cycle_description">Válassza ki, melyik módok ciklikusak a szár nyomva tartásakor</string>
     <string name="device_settings_listening_mode_cycle_off">Ki</string>
