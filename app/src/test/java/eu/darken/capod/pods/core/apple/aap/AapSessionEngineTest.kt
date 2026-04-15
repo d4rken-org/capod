@@ -445,4 +445,85 @@ class AapSessionEngineTest : BaseTest() {
             engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe AapSetting.AncMode.Value.TRANSPARENCY
         }
     }
+
+    // ── HID descriptor handling ─────────────────────────────
+
+    @Nested
+    inner class HidDescriptorTests {
+
+        private fun hidMessage(payload: ByteArray): AapMessage {
+            val header = byteArrayOf(0x04, 0x00, (payload.size and 0xFF).toByte(), ((payload.size shr 8) and 0xFF).toByte())
+            val cmdBytes = byteArrayOf(0x17, 0x00)
+            val raw = header + cmdBytes + payload
+            return AapMessage(raw = raw, commandType = 0x0017, payload = payload)
+        }
+
+        private fun hexToBytes(hex: String): ByteArray =
+            hex.split(" ").filter { it.isNotBlank() }.map { it.toInt(16).toByte() }.toByteArray()
+
+        @Test
+        fun `0x0017 during HANDSHAKING triggers READY transition`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+
+            engine.start(scope)
+            engine.onHandshakeSent()
+            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.HANDSHAKING
+
+            engine.processMessage(hidMessage(hexToBytes("00 04 00 00 01 00 FF")))
+
+            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.READY
+        }
+
+        @Test
+        fun `0x0017 refreshes lastMessageAt`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+            engine.startReady(scope)
+
+            engine.state.value.lastMessageAt.shouldNotBeNull()
+            val before = engine.state.value.lastMessageAt
+
+            every { timeSource.now() } returns Instant.ofEpochMilli(5000L)
+
+            val fill = ByteArray(65) { 0xFF.toByte() }
+            val descriptor = hexToBytes("00 04 00 00 44 00 01 A1 81") + fill
+            engine.processMessage(hidMessage(descriptor))
+
+            engine.state.value.lastMessageAt shouldBe Instant.ofEpochMilli(5000L)
+        }
+
+        @Test
+        fun `malformed 0x0017 payload does not throw`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+            engine.startReady(scope)
+
+            engine.processMessage(hidMessage(ByteArray(0)))
+            engine.processMessage(hidMessage(hexToBytes("AB CD")))
+            engine.processMessage(hidMessage(hexToBytes("00 04 00 00 44 00")))
+        }
+
+        @Test
+        fun `0x0017 does not run through decode pipeline`() = runTest(UnconfinedTestDispatcher()) {
+            val profile = mockProfile {
+                every { decodeStemPress(any()) } returns StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT)
+            }
+            val engine = createEngine(profile)
+            engine.startReady(this as TestScope)
+
+            val collected = mutableListOf<StemPressEvent>()
+            val collector = launch { engine.stemPressEvents.collect { collected.add(it) } }
+
+            val fill = ByteArray(65) { 0xFF.toByte() }
+            val descriptor = hexToBytes("00 04 00 00 44 00 01 A1 81") + fill
+            engine.processMessage(hidMessage(descriptor))
+            runCurrent()
+
+            // If 0x0017 went through the decode pipeline, decodeStemPress would fire
+            // and emit a StemPressEvent. The fast-path should bypass all decode calls.
+            collected.shouldBeEmpty()
+            collector.cancel()
+        }
+    }
 }
