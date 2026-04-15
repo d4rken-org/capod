@@ -346,6 +346,14 @@ internal class AapConnection(
                     2 -> "manufacturer"
                     3 -> "serialNumber"
                     4 -> "firmwareVersion"
+                    5 -> "firmwareVersionDup"
+                    6 -> "protocolVersion"
+                    7 -> "updaterAppId"
+                    8 -> "leftEarbudSerial"
+                    9 -> "rightEarbudSerial"
+                    10 -> "buildNumber"
+                    11 -> "encryptedBlob"
+                    12 -> "timestamp"
                     else -> "unknown"
                 }
                 val rendered = seg.utf8?.let { "\"$it\"" } ?: "<non-utf8>"
@@ -390,6 +398,8 @@ internal class AapConnection(
 
         // Try setting update (merge into existing state)
         profile.decodeSetting(message)?.let { (key, value) ->
+            val previous = _state.value.settings[key]
+
             // Debounce device-initiated ANC mode changes (firmware cycles modes on ear transitions).
             // Skip debounce for: first ANC mode (initial setup), echoes after our own command.
             if (value is AapSetting.AncMode) {
@@ -398,7 +408,7 @@ internal class AapConnection(
                 if (isFirstAncMode || sinceLastCommand <= 3000L) {
                     ancDebounceJob?.cancel()
                     _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
-                    log(TAG) { "Setting: ${key.simpleName} = $value" }
+                    log(TAG) { "Setting: ${key.simpleName} = $value [was: $previous]" }
 
                     // After our command, firmware may cycle through modes before settling.
                     // Schedule a verification: if settled mode != commanded mode, re-send once.
@@ -421,7 +431,7 @@ internal class AapConnection(
                     ancDebounceJob = connectionScope?.launch {
                         delay(1500L)
                         _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
-                        log(TAG) { "Setting (debounced): ${key.simpleName} = $value" }
+                        log(TAG) { "Setting (debounced): ${key.simpleName} = $value [was: $previous]" }
                     }
                 }
                 return
@@ -438,7 +448,7 @@ internal class AapConnection(
                 newState = newState.copy(settings = newState.settings - AapSetting.PrimaryPod::class)
             }
             _state.value = newState
-            log(TAG) { "Setting: ${key.simpleName} = $value${if (clearPrimaryPod) " (swap, PrimaryPod cleared)" else ""}" }
+            log(TAG) { "Setting: ${key.simpleName} = $value${if (clearPrimaryPod) " (swap, PrimaryPod cleared)" else ""} [was: $previous]" }
 
             // Flush queued ANC command when a pod goes in ear
             if (value is AapSetting.EarDetection && value.isEitherPodInEar) {
@@ -463,6 +473,59 @@ internal class AapConnection(
         val payloadHex = message.payload.joinToString(" ") { "%02X".format(it) }
         val sinceSend = if (lastSentAt == 0L) -1L else timeSource.currentTimeMillis() - lastSentAt
         val lastSend = lastSentCommand?.let { it::class.simpleName } ?: "none"
+
+        if (message.commandType == 0x0009 && message.payload.size >= 2) {
+            val settingId = message.payload[0].toInt() and 0xFF
+            val value = message.payload[1].toInt() and 0xFF
+            val boolHint = appleBoolHint(value)
+            val tailHex = if (message.payload.size > 2) {
+                message.payload.copyOfRange(2, message.payload.size).joinToString(" ") { "%02X".format(it) }
+            } else {
+                ""
+            }
+            log(TAG, INFO) {
+                buildString {
+                    append("Unhandled setting id=0x${"%02X".format(settingId)} ")
+                    append("value=0x${"%02X".format(value)}")
+                    boolHint?.let { append(" appleBool=$it") }
+                    append(" payload=${message.payload.size}B")
+                    if (tailHex.isNotEmpty()) append(" tail=[$tailHex]")
+                    append(" sinceLastSend=${sinceSend}ms lastSend=$lastSend")
+                }
+            }
+            return
+        }
+
+        if (message.commandType == 0x000C && message.payload.size >= 6) {
+            val macRaw = formatMac(message.payload, reverse = false)
+            val macReversed = formatMac(message.payload, reverse = true)
+            val tailHex = if (message.payload.size > 6) {
+                message.payload.copyOfRange(6, message.payload.size).joinToString(" ") { "%02X".format(it) }
+            } else {
+                ""
+            }
+            _state.value = _state.value.copy(lastMessageAt = timeSource.now())
+            log(TAG, VERBOSE) {
+                buildString {
+                    append("Known cmd=0x000C")
+                    append(" payload=${message.payload.size}B")
+                    append(" macRaw=$macRaw macReversed=$macReversed")
+                    if (tailHex.isNotEmpty()) append(" tail=[$tailHex]")
+                    append(" sinceLastSend=${sinceSend}ms lastSend=$lastSend")
+                }
+            }
+            return
+        }
+
+        // Known non-settings commands: log at VERBOSE, refresh lastMessageAt
+        if (message.commandType in KNOWN_NON_SETTINGS_COMMANDS) {
+            _state.value = _state.value.copy(lastMessageAt = timeSource.now())
+            log(TAG, VERBOSE) {
+                "Known cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sinceSend}ms lastSend=$lastSend"
+            }
+            return
+        }
+
         log(TAG, INFO) {
             "Unhandled cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sinceSend}ms lastSend=$lastSend"
         }
@@ -478,6 +541,29 @@ internal class AapConnection(
 
     companion object {
         private val TAG = logTag("AapConnection")
+
+        // Non-settings commands observed in real sessions. Logged at VERBOSE instead of INFO
+        // to reduce noise, but still fully logged with payload hex for debug log analysis.
+        private val KNOWN_NON_SETTINGS_COMMANDS = setOf(
+            0x0000, // Handshake acknowledgment
+            0x0002, // Capability/feature table (H2+ only)
+            0x0017, // HID/service descriptors
+            0x002B, // Session metadata / event history
+            0x004E, // Unknown (all-zero payload)
+            0x0055, // Audio/session state
+            0x0057, // Connection lifecycle
+        )
+
+        private fun appleBoolHint(wireValue: Int): Boolean? = when (wireValue) {
+            0x01 -> true
+            0x02 -> false
+            else -> null
+        }
+
+        private fun formatMac(bytes: ByteArray, reverse: Boolean): String {
+            val indices = if (reverse) (5 downTo 0) else (0..5)
+            return indices.joinToString(":") { "%02X".format(bytes[it]) }
+        }
 
         /**
          * Diagnostic-only NUL-delimited segmentation of a 0x1D INFORMATION payload, used for the

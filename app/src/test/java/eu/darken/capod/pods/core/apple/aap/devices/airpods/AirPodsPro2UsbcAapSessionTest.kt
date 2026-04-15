@@ -56,6 +56,9 @@ class AirPodsPro2UsbcAapSessionTest : BaseAapSessionTest() {
         info.name shouldBe "AirPods Pro"
         info.modelNumber shouldBe "A3048"
         info.manufacturer shouldBe "Apple Inc."
+        info.leftEarbudSerial shouldBe "H3KL7HR926JY"
+        info.rightEarbudSerial shouldBe "H3KL2AYL26K0"
+        info.buildNumber shouldBe "8454480"
     }
 
     // ── Battery ──────────────────────────────────────────────
@@ -242,11 +245,18 @@ class AirPodsPro2UsbcAapSessionTest : BaseAapSessionTest() {
         }
 
         @Test
-        fun `unknown settings IDs return null`() {
-            val unknownIds = listOf(0x29, 0x2C, 0x2F, 0x33)
-            for (id in unknownIds) {
-                profile.decodeSetting(settingsMessage(id, 0x02)).shouldBeNull()
+        fun `unconfirmed settings IDs decode as UnknownSetting`() {
+            val unconfirmedIds = listOf(0x29, 0x2C, 0x2F, 0x33)
+            for (id in unconfirmedIds) {
+                val setting = decodeSetting<AapSetting.UnknownSetting>(settingsMessage(id, 0x02))
+                setting.settingId shouldBe id
+                setting.rawValue shouldBe 0x02
             }
+        }
+
+        @Test
+        fun `truly unknown setting ID returns null`() {
+            profile.decodeSetting(settingsMessage(0x7F, 0x01)).shouldBeNull()
         }
     }
 }

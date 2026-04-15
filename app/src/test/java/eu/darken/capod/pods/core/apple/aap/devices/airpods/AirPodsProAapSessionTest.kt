@@ -56,6 +56,9 @@ class AirPodsProAapSessionTest : BaseAapSessionTest() {
         info.name shouldBe "AirPods Pro"
         info.modelNumber shouldBe "A2084"
         info.manufacturer shouldBe "Apple Inc."
+        info.leftEarbudSerial shouldBe "GXDDRFNW0C6K"
+        info.rightEarbudSerial shouldBe "H6RHL0HF0C6J"
+        info.buildNumber shouldBe "3344646"
     }
 
     // ── Battery ──────────────────────────────────────────────

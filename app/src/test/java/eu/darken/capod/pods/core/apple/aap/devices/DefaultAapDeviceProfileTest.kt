@@ -572,4 +572,32 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
     @Test fun `unknown setting ID returns null`() { profile.decodeSetting(settingsMessage(0x7F, 0x01)).shouldBeNull() }
     @Test fun `non-settings command returns null`() { profile.decodeSetting(aapMessage("04 00 04 00 1D 00 01 02 03 04")).shouldBeNull() }
     @Test fun `payload too short returns null`() { profile.decodeSetting(aapMessage("04 00 04 00 09 00 0D")).shouldBeNull() }
+
+    // ── DeviceInfo UTF-8 ────────────────────────────────────
+
+    @Test
+    fun `decodeDeviceInfo handles curly quote in device name`() {
+        // "Matthias\u2019s AirPods Pro" — curly right single quote is UTF-8 E2 80 99.
+        // The old ASCII-only parser would split at these bytes, breaking all segment indices.
+        // Header bytes must all be < 0x20 to avoid being mistaken for string content.
+        val msg = aapMessage(
+            "04 00 04 00 1D 00 02 0F 00 04 00",
+            // [0] name: "Matthias\u2019s AirPods Pro" (UTF-8)
+            "4D 61 74 74 68 69 61 73 E2 80 99 73 20 41 69 72 50 6F 64 73 20 50 72 6F 00",
+            // [1] model
+            "41 33 30 34 38 00",
+            // [2] manufacturer
+            "41 70 70 6C 65 20 49 6E 63 2E 00",
+            // [3] serial
+            "57 35 4A 37 4B 56 30 4E 30 34 00",
+            // [4] firmware
+            "37 41 33 30 35 00",
+        )
+        val info = profile.decodeDeviceInfo(msg)!!
+        info.name shouldBe "Matthias\u2019s AirPods Pro"
+        info.modelNumber shouldBe "A3048"
+        info.manufacturer shouldBe "Apple Inc."
+        info.serialNumber shouldBe "W5J7KV0N04"
+        info.firmwareVersion shouldBe "7A305"
+    }
 }

@@ -9,4 +9,7 @@ data class AapDeviceInfo(
     val manufacturer: String,
     val serialNumber: String,
     val firmwareVersion: String,
+    val leftEarbudSerial: String? = null,
+    val rightEarbudSerial: String? = null,
+    val buildNumber: String? = null,
 )
