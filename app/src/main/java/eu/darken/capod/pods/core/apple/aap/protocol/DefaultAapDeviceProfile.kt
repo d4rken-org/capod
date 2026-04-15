@@ -50,6 +50,12 @@ class DefaultAapDeviceProfile(
         const val SETTING_SLEEP_DETECTION = 0x35
         const val SETTING_STEM_CONFIG = 0x39
 
+        // Known-but-unconfirmed setting IDs (H2+ exclusive). Decoded as UnknownSetting
+        // to keep lastMessageAt fresh. Observed on Pro 2 USB-C and/or Pro 3.
+        val UNCONFIRMED_SETTING_IDS = setOf(
+            0x29, 0x2C, 0x2F, 0x30, 0x33, 0x37, 0x38, 0x3B, 0x3E,
+        )
+
         // Command types for non-settings messages
         const val CMD_RENAME = 0x001E
         const val CMD_STEM_PRESS = 0x0019
@@ -269,6 +275,12 @@ class DefaultAapDeviceProfile(
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.InCaseTone::class to AapSetting.InCaseTone(enabled)
             }
+            in UNCONFIRMED_SETTING_IDS -> {
+                AapSetting.UnknownSetting::class to AapSetting.UnknownSetting(
+                    settingId = settingId,
+                    rawValue = value,
+                )
+            }
             else -> null
         }
     }
@@ -362,6 +374,12 @@ class DefaultAapDeviceProfile(
             manufacturer = strings.getOrElse(2) { "" },
             serialNumber = strings.getOrElse(3) { "" },
             firmwareVersion = strings.getOrElse(4) { "" },
+            // Segments [5]=firmware dup, [6]=protocol version, [7]=updater app ID — skipped
+            // Segments [8] and [9] are individual earbud serials (observed on Pro 1, Pro 2, Pro 3)
+            leftEarbudSerial = strings.getOrNull(8)?.takeIf { it.isNotBlank() },
+            rightEarbudSerial = strings.getOrNull(9)?.takeIf { it.isNotBlank() },
+            // Segment [10] is the build number (e.g. "8454624")
+            buildNumber = strings.getOrNull(10)?.takeIf { it.isNotBlank() },
         )
     }
 
@@ -493,20 +511,29 @@ class DefaultAapDeviceProfile(
     }
 
     private fun parseNullTerminatedStrings(data: ByteArray): List<String> {
-        val strings = mutableListOf<String>()
-        var start = 0
+        // Skip binary header until the first printable byte (device name always starts
+        // with a printable character). This skips the length/type prefix bytes.
+        var headerEnd = 0
+        while (headerEnd < data.size) {
+            val b = data[headerEnd].toInt() and 0xFF
+            if (b in 0x20..0x7E) break
+            headerEnd++
+        }
+        if (headerEnd >= data.size) return emptyList()
 
-        // Find runs of printable ASCII (0x20..0x7E) separated by null bytes.
-        // Header bytes and non-ASCII bytes are skipped.
-        var i = 0
+        // Split on NUL bytes and decode each segment as UTF-8.
+        // This handles device names with non-ASCII characters (e.g. curly quotes
+        // in "Matthias\u2019s AirPods Pro") that the old ASCII-only scanner would break on.
+        val strings = mutableListOf<String>()
+        var i = headerEnd
         while (i < data.size) {
-            val b = data[i].toInt() and 0xFF
-            if (b in 0x20..0x7E) {
-                start = i
-                while (i < data.size && data[i] != 0x00.toByte()) i++
-                strings.add(String(data, start, i - start, Charsets.US_ASCII))
-            }
-            i++
+            // Skip NUL separators
+            while (i < data.size && data[i] == 0x00.toByte()) i++
+            if (i >= data.size) break
+
+            val segStart = i
+            while (i < data.size && data[i] != 0x00.toByte()) i++
+            strings.add(String(data, segStart, i - segStart, Charsets.UTF_8))
         }
         return strings
     }

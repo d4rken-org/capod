@@ -186,4 +186,17 @@ sealed class AapSetting {
     ) : AapSetting() {
         enum class Pod { LEFT, RIGHT }
     }
+
+    /**
+     * Catch-all for setting IDs whose semantics are unconfirmed.
+     * Decoded to keep lastMessageAt fresh and log via the normal "Setting:" path.
+     * Not exposed in UI. When a setting's purpose is confirmed, promote it to
+     * its own named subclass.
+     */
+    data class UnknownSetting(
+        val settingId: Int,
+        val rawValue: Int,
+    ) : AapSetting() {
+        override fun toString(): String = "UnknownSetting(settingId=0x%02X, rawValue=0x%02X)".format(settingId, rawValue)
+    }
 }

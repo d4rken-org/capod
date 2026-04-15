@@ -10,6 +10,7 @@
     <string name="general_donate_action">Donate</string>
     <string name="general_check_action">Check</string>
     <string name="general_close_action">Close</string>
+    <string name="general_edit_action">Edit</string>
     <string name="general_save_action">Save</string>
     <string name="general_guide_action">Guide</string>
     <string name="general_continue_action">Continue</string>
@@ -438,9 +439,15 @@
 
     <!-- Device Settings -->
     <string name="device_settings_title">Device Settings</string>
+    <string name="device_settings_subtitle_profile_prefix">Profile: %s</string>
     <string name="device_settings_info_name_label">Name</string>
+    <string name="device_settings_info_bt_name_label">Bluetooth Device Label</string>
+    <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_serial_label">Serial Number</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_build_label">Build</string>
+    <string name="device_settings_info_left_serial_label">Left Serial</string>
+    <string name="device_settings_info_right_serial_label">Right Serial</string>
     <string name="device_settings_info_status_label">Status</string>
     <string name="device_settings_info_last_seen_label">Last Seen</string>
     <string name="device_settings_info_first_seen_label">First Seen</string>
@@ -495,13 +502,18 @@
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Right</string>
     <string name="device_settings_microphone_mode_left">Left</string>
-    <string name="device_settings_listening_mode_cycle_label">Noise Control Cycle</string>
-    <string name="device_settings_listening_mode_cycle_description">Select which modes cycle when pressing and holding the stem</string>
+    <string name="device_settings_noise_control_current_mode_label">Current mode</string>
+    <string name="device_settings_listening_mode_cycle_label">Long-press cycle</string>
+    <string name="device_settings_listening_mode_cycle_description">Choose which modes are available when holding the stem and in the quick switcher.</string>
+    <string name="device_settings_listening_mode_cycle_dialog_title">Customize Long-Press Cycle</string>
+    <string name="device_settings_listening_mode_cycle_summary_helper">Used when holding the stem and in the quick switcher</string>
+    <string name="device_settings_listening_mode_cycle_summary_helper_override">Used in the quick switcher. A custom stem long-press action overrides AirPods cycling.</string>
+    <string name="device_settings_listening_mode_cycle_minimum">At least 2 modes must stay enabled.</string>
     <string name="device_settings_listening_mode_cycle_off">Off</string>
     <string name="device_settings_listening_mode_cycle_anc">Noise Cancellation</string>
     <string name="device_settings_listening_mode_cycle_transparency">Transparency</string>
     <string name="device_settings_listening_mode_cycle_adaptive">Adaptive</string>
-    <string name="device_settings_allow_off_label">Include Off in Noise Control</string>
+    <string name="device_settings_allow_off_label">Include Off</string>
     <string name="device_settings_allow_off_description">Show Off as an option when cycling noise control modes</string>
     <string name="device_settings_sleep_detection_label">Sleep Detection</string>
     <string name="device_settings_sleep_detection_description">Automatically pause audio when you fall asleep</string>
@@ -542,5 +554,6 @@
     <string name="stem_action_volume_down">Volume Down</string>
     <string name="stem_actions_reset_label">Reset to defaults</string>
     <string name="stem_actions_reset_confirm_message">Reset all stem actions to defaults?</string>
+    <string name="device_settings_noise_control_open_stem_actions_action">Open Stem Actions</string>
 
 </resources>

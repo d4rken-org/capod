@@ -23,6 +23,9 @@ data class CachedDeviceState(
     @SerialName("deviceName") val deviceName: String? = null,
     @SerialName("serialNumber") val serialNumber: String? = null,
     @SerialName("firmwareVersion") val firmwareVersion: String? = null,
+    @SerialName("leftEarbudSerial") val leftEarbudSerial: String? = null,
+    @SerialName("rightEarbudSerial") val rightEarbudSerial: String? = null,
+    @SerialName("buildNumber") val buildNumber: String? = null,
     @Serializable(with = InstantEpochMillisSerializer::class)
     @SerialName("lastSeenAt") val lastSeenAt: Instant,
 ) {
@@ -35,6 +38,9 @@ data class CachedDeviceState(
                 manufacturer = "",
                 serialNumber = serialNumber ?: "",
                 firmwareVersion = firmwareVersion ?: "",
+                leftEarbudSerial = leftEarbudSerial,
+                rightEarbudSerial = rightEarbudSerial,
+                buildNumber = buildNumber,
             )
         }
 
