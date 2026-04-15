@@ -155,6 +155,25 @@ class AapSettingsCoordinatorTest : BaseTest() {
         }
 
         @Test
+        fun `flush sorts AllowOffOption before AncMode before others`() {
+            val coord = createCoordinator()
+            val state = stateWithSetting(
+                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
+            )
+
+            coord.enqueue(AapCommand.SetToneVolume(80), state)
+            coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF), state)
+            coord.enqueue(AapCommand.SetAllowOffOption(true), state)
+
+            val (commands, _) = coord.flush()
+
+            commands shouldHaveSize 3
+            commands[0].shouldBeInstanceOf<AapCommand.SetAllowOffOption>()
+            commands[1].shouldBeInstanceOf<AapCommand.SetAncMode>()
+            commands[2].shouldBeInstanceOf<AapCommand.SetToneVolume>()
+        }
+
+        @Test
         fun `flush clears queue`() {
             val coord = createCoordinator()
             val state = stateWithSetting()

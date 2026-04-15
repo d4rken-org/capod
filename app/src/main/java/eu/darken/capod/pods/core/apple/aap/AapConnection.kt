@@ -38,8 +38,7 @@ internal class AapConnection(
     private val device: BluetoothDevice,
     private val profile: AapDeviceProfile,
     private val socketFactory: L2capSocketFactory,
-    private val timeSource: TimeSource,
-    private val psm: Int = 0x1001,
+    timeSource: TimeSource,
 ) {
 
     private val engine = AapSessionEngine(profile, timeSource)
@@ -65,7 +64,7 @@ internal class AapConnection(
         engine.start(scope)
 
         try {
-            val sock = socketFactory.createSocket(device, psm)
+            val sock = socketFactory.createSocket(device, PSM)
             sock.connect()
             socket = sock
             log(TAG, INFO) { "Connected to ${device.address}" }
@@ -168,6 +167,7 @@ internal class AapConnection(
     }
 
     companion object {
+        private const val PSM = 0x1001
         private val TAG = logTag("AAP", "Connection")
     }
 }

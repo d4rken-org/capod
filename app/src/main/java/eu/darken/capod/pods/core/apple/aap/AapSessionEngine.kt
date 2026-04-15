@@ -55,6 +55,8 @@ internal class AapSessionEngine(
     private var ancDebounceJob: Job? = null
     private var lastSentCommand: AapCommand? = null
     private var lastSentAt: Long = 0L
+    /** Separate tracking for ANC sends — not overwritten by non-ANC commands during flush. */
+    private var lastAncSentAt: Long = 0L
     private var handshakeResponseReceived: Boolean = false
 
     /** Stored reference to the socket write callback — set on each [send] / flush call. */
@@ -82,6 +84,7 @@ internal class AapSessionEngine(
         scope = null
         lastSentCommand = null
         lastSentAt = 0L
+        lastAncSentAt = 0L
         activeSendRaw = null
         handshakeResponseReceived = false
         _state.value = AapPodState(connectionState = AapPodState.ConnectionState.DISCONNECTED)
@@ -148,7 +151,9 @@ internal class AapSessionEngine(
     private suspend fun wrappedSend(sendRaw: suspend (AapCommand) -> Unit, command: AapCommand) {
         sendRaw(command)
         lastSentCommand = command
-        lastSentAt = timeSource.currentTimeMillis()
+        val now = timeSource.currentTimeMillis()
+        lastSentAt = now
+        if (command is AapCommand.SetAncMode) lastAncSentAt = now
     }
 
     private fun onVerificationOutcome(outcome: AapSettingsCoordinator.VerificationOutcome) {
@@ -172,6 +177,16 @@ internal class AapSessionEngine(
     fun processMessage(message: AapMessage) {
         val hex = message.raw.joinToString(" ") { "%02X".format(it) }
         log(TAG, VERBOSE) { "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex" }
+
+        // HANDSHAKING → READY: first non-settings-echo message means the device is talking.
+        // Must happen before any early returns so decoded messages (battery, stem, etc.) also trigger it.
+        if (!handshakeResponseReceived && message.commandType != 0x0009
+            && _state.value.connectionState == AapPodState.ConnectionState.HANDSHAKING
+        ) {
+            handshakeResponseReceived = true
+            _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.READY)
+            log(TAG) { "Connection READY" }
+        }
 
         // Issue #173 diagnostic dump
         if (message.commandType == 0x001D) {
@@ -241,8 +256,7 @@ internal class AapSessionEngine(
             // ANC debounce
             if (value is AapSetting.AncMode) {
                 val isFirstAncMode = _state.value.setting<AapSetting.AncMode>() == null
-                val recentAncSend =
-                    lastSentCommand is AapCommand.SetAncMode && (timeSource.currentTimeMillis() - lastSentAt) <= 3000L
+                val recentAncSend = lastAncSentAt > 0L && (timeSource.currentTimeMillis() - lastAncSentAt) <= 3000L
                 if (isFirstAncMode || recentAncSend) {
                     ancDebounceJob?.cancel()
                     _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
@@ -309,7 +323,10 @@ internal class AapSessionEngine(
                                 break
                             }
                         }
-                        commands.lastOrNull()?.let {
+                        // Verify ANC mode if it was in the batch (most important for divergence detection).
+                        // Fall back to verifying the last command if no ANC was flushed.
+                        val toVerify = commands.firstOrNull { it is AapCommand.SetAncMode } ?: commands.lastOrNull()
+                        toVerify?.let {
                             coordinator.startVerification(
                                 it,
                                 this,
@@ -322,20 +339,7 @@ internal class AapSessionEngine(
                 }
             }
 
-            // HANDSHAKING → READY transition
-            if (!handshakeResponseReceived && _state.value.connectionState == AapPodState.ConnectionState.HANDSHAKING) {
-                handshakeResponseReceived = true
-                _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.READY)
-                log(TAG) { "Connection READY" }
-            }
             return
-        }
-
-        // Track handshake response for non-setting messages too
-        if (!handshakeResponseReceived && message.commandType != 0x0009 && _state.value.connectionState == AapPodState.ConnectionState.HANDSHAKING) {
-            handshakeResponseReceived = true
-            _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.READY)
-            log(TAG) { "Connection READY" }
         }
 
         val payloadHex = message.payload.joinToString(" ") { "%02X".format(it) }

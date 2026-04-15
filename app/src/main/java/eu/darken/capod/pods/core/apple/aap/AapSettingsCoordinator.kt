@@ -73,7 +73,16 @@ internal class AapSettingsCoordinator(
             commands = pendingCommands.values.toList()
             pendingCommands.clear()
         }
-        val sorted = commands.sortedBy { if (it is AapCommand.SetAncMode) 0 else 1 }
+        // Dependency-aware ordering:
+        // AllowOffOption must precede AncMode (device rejects OFF without it)
+        // AncMode must precede mode-dependent settings (e.g. AdaptiveAudioNoise)
+        val sorted = commands.sortedBy {
+            when (it) {
+                is AapCommand.SetAllowOffOption -> 0
+                is AapCommand.SetAncMode -> 1
+                else -> 2
+            }
+        }
         return sorted to snapshot()
     }
 
