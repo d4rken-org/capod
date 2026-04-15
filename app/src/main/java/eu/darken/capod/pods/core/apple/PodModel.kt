@@ -271,10 +271,17 @@ enum class PodModel(
         Features(
             hasEarDetection = true,
             hasAncControl = true,
+            hasAdaptiveAnc = true,
+            hasConversationAwareness = true,
             hasPressSpeed = true,
             hasPressHoldDuration = true,
+            hasPersonalizedVolume = true,
             hasToneVolume = true,
+            hasAdaptiveAudioNoise = true,
             hasEarDetectionToggle = true,
+            hasListeningModeCycle = true,
+            hasAllowOffOption = true,
+            needsInitExt = true,
         ),
         modelNumbers = setOf("A3454"), // headphones
     ),
@@ -410,6 +417,8 @@ enum class PodModel(
             hasCase = true,
             hasEarDetection = true,
             hasAncControl = true,
+            hasEarDetectionToggle = true,
+            hasSleepDetection = true,
         ),
         modelNumbers = setOf("A3157", "A3158", "A3159"), // L/R earbuds + case
         leftPodIconRes = R.drawable.device_powerbeats_pro2_left,

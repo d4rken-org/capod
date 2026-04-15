@@ -65,6 +65,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `null for basic AirPods`() { DefaultAapDeviceProfile(PodModel.AIRPODS_GEN3).encodeInitExt().shouldBeNull() }
         @Test fun `null for Pro 1`() { DefaultAapDeviceProfile(PodModel.AIRPODS_PRO).encodeInitExt().shouldBeNull() }
         @Test fun `null for Max`() { DefaultAapDeviceProfile(PodModel.AIRPODS_MAX).encodeInitExt().shouldBeNull() }
+        @Test fun `returned for Max 2`() { DefaultAapDeviceProfile(PodModel.AIRPODS_MAX2).encodeInitExt().shouldNotBeNull() }
 
         @Test
         fun `has correct command byte`() {
@@ -107,6 +108,13 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `Max supports OFF, ON, TRANSPARENCY`() {
             ancModesFor(PodModel.AIRPODS_MAX) shouldContainExactly listOf(
                 AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY,
+            )
+        }
+
+        @Test
+        fun `Max 2 supports OFF, ON, TRANSPARENCY, ADAPTIVE`() {
+            ancModesFor(PodModel.AIRPODS_MAX2) shouldContainExactly listOf(
+                AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY, AapSetting.AncMode.Value.ADAPTIVE,
             )
         }
     }

@@ -358,7 +358,8 @@ fun DeviceSettingsScreen(
                         if (device.isAapConnected) {
                             val convAwareness = device.conversationalAwareness
                             val hasAnyAapReaction =
-                                (features.hasConversationAwareness && convAwareness != null) || features.hasSleepDetection
+                                (features.hasConversationAwareness && convAwareness != null) ||
+                                    features.hasSleepDetection
                             if (features.hasConversationAwareness && convAwareness != null) {
                                 SettingsSwitchItem(
                                     icon = Icons.TwoTone.Hearing,
