@@ -10,7 +10,6 @@ import eu.darken.capod.pods.core.apple.aap.protocol.DefaultAapDeviceProfile
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.nulls.shouldBeNull
-import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -132,7 +131,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `round-trip all modes`() {
             for (mode in AapSetting.AncMode.Value.entries) {
                 val encoded = profile.encodeCommand(AapCommand.SetAncMode(mode))
-                val decoded = decodeSetting<AapSetting.AncMode>(AapMessage.Companion.parse(encoded)!!)
+                val decoded = decodeSetting<AapSetting.AncMode>(AapMessage.parse(encoded)!!)
                 decoded.current shouldBe mode
             }
         }
@@ -166,7 +165,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `round-trip all values`() {
             for (v in AapSetting.PressSpeed.Value.entries) {
                 val encoded = profile.encodeCommand(AapCommand.SetPressSpeed(v))
-                decodeSetting<AapSetting.PressSpeed>(AapMessage.Companion.parse(encoded)!!).value shouldBe v
+                decodeSetting<AapSetting.PressSpeed>(AapMessage.parse(encoded)!!).value shouldBe v
             }
         }
     }
@@ -184,7 +183,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `round-trip all values`() {
             for (v in AapSetting.PressHoldDuration.Value.entries) {
                 val encoded = profile.encodeCommand(AapCommand.SetPressHoldDuration(v))
-                decodeSetting<AapSetting.PressHoldDuration>(AapMessage.Companion.parse(encoded)!!).value shouldBe v
+                decodeSetting<AapSetting.PressHoldDuration>(AapMessage.parse(encoded)!!).value shouldBe v
             }
         }
     }
@@ -224,7 +223,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `round-trip all values`() {
             for (v in AapSetting.VolumeSwipeLength.Value.entries) {
                 val encoded = profile.encodeCommand(AapCommand.SetVolumeSwipeLength(v))
-                decodeSetting<AapSetting.VolumeSwipeLength>(AapMessage.Companion.parse(encoded)!!).value shouldBe v
+                decodeSetting<AapSetting.VolumeSwipeLength>(AapMessage.parse(encoded)!!).value shouldBe v
             }
         }
     }
@@ -259,7 +258,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         @Test fun `encode decode round-trip`() {
             for (ui in listOf(0, 25, 50, 75, 100)) {
                 val encoded = profile.encodeCommand(AapCommand.SetAdaptiveAudioNoise(ui))
-                decodeSetting<AapSetting.AdaptiveAudioNoise>(AapMessage.Companion.parse(encoded)!!).level shouldBe ui
+                decodeSetting<AapSetting.AdaptiveAudioNoise>(AapMessage.parse(encoded)!!).level shouldBe ui
             }
         }
     }
@@ -280,7 +279,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
                 0x04, 0x00, 0x04, 0x00,
                 0x09, 0x00,
                 0x24, 0x20,
-                0x02,
+                0x03,
                 0x00, 0x00,
             )
         }
@@ -297,7 +296,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
                 0x04, 0x00, 0x04, 0x00,
                 0x09, 0x00,
                 0x24, 0x20,
-                0x03,
+                0x02,
                 0x00, 0x00,
             )
         }
@@ -342,22 +341,22 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         @Test
         fun `decode compact format 0x20 combined 0x02`() {
             val ecm = decodeSetting<AapSetting.EndCallMuteMic>(aapMessage("04 00 04 00 09 00 24 20 02 00 00"))
-            ecm.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS
-            ecm.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
+            ecm.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS
+            ecm.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
         }
 
         @Test
         fun `decode compact format 0x20 combined 0x03`() {
             val ecm = decodeSetting<AapSetting.EndCallMuteMic>(aapMessage("04 00 04 00 09 00 24 20 03 00 00"))
-            ecm.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS
-            ecm.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
+            ecm.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS
+            ecm.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
         }
 
         @Test
         fun `decode compact format subtype 0x00 from real Pro 3`() {
             val ecm = decodeSetting<AapSetting.EndCallMuteMic>(aapMessage("04 00 04 00 09 00 24 00 03 00 00"))
-            ecm.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS
-            ecm.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
+            ecm.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS
+            ecm.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
         }
 
         @Test
@@ -462,7 +461,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
             val enc = ByteArray(16) { 0x22.toByte() }
             val payload = byteArrayOf(0x02, 0x01, 0x00, 16, 0x00, *irk, 0x04, 0x00, 16, 0x00, *enc)
             val raw = byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x31, 0x00) + payload
-            val result = profile.decodePrivateKeyResponse(AapMessage.Companion.parse(raw)!!)!!
+            val result = profile.decodePrivateKeyResponse(AapMessage.parse(raw)!!)!!
             result.irk shouldBe irk
             result.encKey shouldBe enc
         }
@@ -471,7 +470,7 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         fun `decode response with only IRK`() {
             val irk = ByteArray(16) { 0xAA.toByte() }
             val raw = byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x31, 0x00, 0x01, 0x01, 0x00, 16, 0x00, *irk)
-            val result = profile.decodePrivateKeyResponse(AapMessage.Companion.parse(raw)!!)!!
+            val result = profile.decodePrivateKeyResponse(AapMessage.parse(raw)!!)!!
             result.irk shouldBe irk
             result.encKey.shouldBeNull()
         }

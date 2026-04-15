@@ -409,7 +409,9 @@ class DefaultAapDeviceProfile(
      * The LibrePods-documented 0x21 "standard" format is silently ignored by real firmware
      * — no captured session (Pro 1, Pro 2 USB-C, Pro 3) has ever emitted it. Real devices
      * emit subtype 0x20 or 0x00; writes using 0x20 are accepted and persisted.
-     * Combined-byte mapping mirrors decodeEndCallMuteMic's compact branch.
+     * Combined-byte mapping is based on real-device correlation, not the older third-party docs:
+     * on AirPods Pro 2 USB-C, compact value 0x03 matched the macOS UI state
+     * "Single press to mute microphone / Double press to end call" (2026-04-15 capture).
      */
     private fun buildEndCallMuteMicMessage(
         muteMic: AapSetting.EndCallMuteMic.MuteMicMode,
@@ -417,9 +419,9 @@ class DefaultAapDeviceProfile(
     ): ByteArray {
         val combined = when {
             muteMic == AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS &&
-                endCall == AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS -> 0x02
+                    endCall == AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS -> 0x03
             muteMic == AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS &&
-                endCall == AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS -> 0x03
+                    endCall == AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS -> 0x02
             else -> error("SetEndCallMuteMic invariant violated (validated by AapCommand.init)")
         }
         return byteArrayOf(
@@ -449,8 +451,8 @@ class DefaultAapDeviceProfile(
                 // 0x20: observed on Pro 1 (fw 51.9.6, 2026-03-31). Same device can send either subtype across sessions.
                 val combined = payload[2].toInt() and 0xFF
                 val (muteMic, endCall) = when (combined) {
-                    0x02 -> AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
-                    0x03 -> AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
+                    0x02 -> AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
+                    0x03 -> AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS to AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
                     else -> return null
                 }
                 AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(muteMic, endCall)

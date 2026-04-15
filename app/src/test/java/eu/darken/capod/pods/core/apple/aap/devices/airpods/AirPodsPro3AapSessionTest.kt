@@ -134,7 +134,7 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
         }
 
         @Test fun `end call mute mic - subtype 0x00`() {
-            decodeSetting<AapSetting.EndCallMuteMic>("04 00 04 00 09 00 24 00 03 00 00").let { it.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS; it.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS }
+            decodeSetting<AapSetting.EndCallMuteMic>("04 00 04 00 09 00 24 00 03 00 00").let { it.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS; it.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS }
         }
 
         @Test fun `conversational awareness OFF`() {
@@ -237,7 +237,7 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
 
         @Test
         fun `unknown settings IDs return null`() {
-            val unknownIds = listOf(0x29, 0x2C, 0x2F, 0x33, 0x30, 0x3E, 0x37, 0x38, 0x3B)
+            val unknownIds = listOf(0x29, 0x2C, 0x2F, 0x33, 0x30, 0x37, 0x38, 0x3B)
             for (id in unknownIds) {
                 profile.decodeSetting(settingsMessage(id, 0x01)).shouldBeNull()
             }
