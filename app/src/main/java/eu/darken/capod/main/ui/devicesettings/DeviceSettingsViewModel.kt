@@ -28,6 +28,8 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.profiles.core.ProfileId
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.stem.StemAction
+import eu.darken.capod.reaction.core.stem.StemActionSettings
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.channelFlow
@@ -50,6 +52,7 @@ class DeviceSettingsViewModel @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
     private val generalSettings: GeneralSettings,
+    private val stemActionSettings: StemActionSettings,
     private val timeSource: TimeSource,
     private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider) {
@@ -91,6 +94,8 @@ class DeviceSettingsViewModel @Inject constructor(
             // Seed this branch so the screen can render immediately after navigation.
             bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
             generalSettings.monitorMode.flow,
+            stemActionSettings.leftLong.flow,
+            stemActionSettings.rightLong.flow,
         ) { args ->
             val device = args[1] as PodDevice?
             val upgrade = args[2] as eu.darken.capod.common.upgrade.UpgradeRepo.Info
@@ -98,7 +103,16 @@ class DeviceSettingsViewModel @Inject constructor(
             @Suppress("UNCHECKED_CAST")
             val connectedDevices = args[4] as Collection<eu.darken.capod.common.bluetooth.BluetoothDevice2>
             val monitorMode = args[5] as MonitorMode
+            val leftLong = args[6] as StemAction
+            val rightLong = args[7] as StemAction
             val connectedAddresses = connectedDevices.map { it.address }.toSet()
+            val systemBtName = device?.address?.let { addr ->
+                try {
+                    bluetoothManager.bondedDevices().first().firstOrNull { it.address == addr }?.name
+                } catch (_: Exception) {
+                    null
+                }
+            }
             State(
                 device = device,
                 now = timeSource.now(),
@@ -107,6 +121,8 @@ class DeviceSettingsViewModel @Inject constructor(
                 isForceConnecting = forcing,
                 isClassicallyConnected = device?.address?.let { it in connectedAddresses } == true,
                 monitorMode = monitorMode,
+                systemBluetoothName = systemBtName,
+                hasCustomLongPressStemAction = leftLong != StemAction.NONE || rightLong != StemAction.NONE,
             )
         }
     }.asLiveState()
@@ -130,6 +146,8 @@ class DeviceSettingsViewModel @Inject constructor(
         val isForceConnecting: Boolean = false,
         val isClassicallyConnected: Boolean = false,
         val monitorMode: MonitorMode = MonitorMode.AUTOMATIC,
+        val systemBluetoothName: String? = null,
+        val hasCustomLongPressStemAction: Boolean = false,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
     }
@@ -233,14 +251,12 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setListeningModeCycle(modeMask: Int) = sendProGated(AapCommand.SetListeningModeCycle(modeMask))
 
-    fun setAllowOffOption(enabled: Boolean) = sendProGated(AapCommand.SetAllowOffOption(enabled))
-
     fun setListeningModeOffVisibility(enabled: Boolean, currentCycleMask: Int) = launch {
         if (!upgradeRepo.isPro()) {
             navTo(Nav.Main.Upgrade)
             return@launch
         }
-        // Keep in sync with cycleBits[OFF] in DeviceSettingsScreen.NoiseControlCombined
+        // Keep in sync with cycleBit(OFF) in DeviceSettingsScreen.
         val offBit = 0x01
         val newMask = if (enabled) currentCycleMask or offBit else currentCycleMask and offBit.inv()
         if (sendInternal(AapCommand.SetListeningModeCycle(newMask))) {

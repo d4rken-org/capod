@@ -363,8 +363,8 @@ class DefaultAapDeviceProfile(
         if (message.commandType != CMD_DEVICE_INFO) return null
         if (message.payload.size < 10) return null
 
-        // Device info payload contains null-terminated ASCII strings
-        // Format: [length prefix] [strings...]
+        // Device info payload contains null-terminated UTF-8 strings
+        // Format: [binary header] [NUL-delimited strings...]
         val strings = parseNullTerminatedStrings(message.payload)
         if (strings.size < 4) return null
 

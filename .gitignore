@@ -18,3 +18,4 @@
 # Screenshot test reference images (ephemeral, regenerated on demand)
 app/src/screenshotTest*/reference/
 .codex
+protocol-research/

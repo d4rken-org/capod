@@ -12,6 +12,8 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.reaction.core.stem.StemAction
+import eu.darken.capod.reaction.core.stem.StemActionSettings
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.Called
@@ -60,6 +62,9 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var profilesRepo: DeviceProfilesRepo
     private lateinit var generalSettings: GeneralSettings
     private lateinit var fakeMonitorMode: FakeDataStoreValue<MonitorMode>
+    private lateinit var stemActionSettings: StemActionSettings
+    private lateinit var fakeLeftLongStemAction: FakeDataStoreValue<StemAction>
+    private lateinit var fakeRightLongStemAction: FakeDataStoreValue<StemAction>
     private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
@@ -102,6 +107,12 @@ class DeviceSettingsViewModelTest : BaseTest() {
         generalSettings = mockk<GeneralSettings>().also {
             every { it.monitorMode } returns fakeMonitorMode.mock
         }
+        fakeLeftLongStemAction = FakeDataStoreValue(StemAction.NONE)
+        fakeRightLongStemAction = FakeDataStoreValue(StemAction.NONE)
+        stemActionSettings = mockk<StemActionSettings>().also {
+            every { it.leftLong } returns fakeLeftLongStemAction.mock
+            every { it.rightLong } returns fakeRightLongStemAction.mock
+        }
     }
 
     @AfterEach
@@ -119,6 +130,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
         generalSettings = generalSettings,
+        stemActionSettings = stemActionSettings,
         timeSource = timeSource,
         webpageTool = mockk(relaxed = true),
     ).also { vm = it }
@@ -323,5 +335,15 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
         state.device?.address shouldBe testAddress
         state.isClassicallyConnected shouldBe false
+    }
+
+    @Test
+    fun `hasCustomLongPressStemAction is true when either long-press action is assigned`() = runVmTest {
+        fakeLeftLongStemAction.value = StemAction.PLAY_PAUSE
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().hasCustomLongPressStemAction shouldBe true
     }
 }
