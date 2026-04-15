@@ -302,14 +302,44 @@ class DeviceSettingsViewModel @Inject constructor(
         launch { updateProfileNow { it.copy(onePodMode = enabled) } }
     }
 
-    fun setAutoPlay(enabled: Boolean) {
+    fun setAutoPlay(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoPlay($enabled)" }
-        proGatedReaction(enabled) { it.copy(autoPlay = enabled) }
+        if (enabled && !upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        updateProfileNow { it.copy(autoPlay = enabled) }
+        syncEarDetection(autoPlay = enabled)
     }
 
-    fun setAutoPause(enabled: Boolean) {
+    fun setAutoPause(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoPause($enabled)" }
-        proGatedReaction(enabled) { it.copy(autoPause = enabled) }
+        if (enabled && !upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        updateProfileNow { it.copy(autoPause = enabled) }
+        syncEarDetection(autoPause = enabled)
+    }
+
+    /**
+     * Keeps the device-side Automatic Ear Detection setting in sync with the
+     * auto-play / auto-pause reaction toggles.  When either reaction is active
+     * the device must report ear-in / ear-out events; when both are off the
+     * setting is disabled to match the user's intent.
+     *
+     * Only sends when the model supports the setting and AAP is ready —
+     * silent no-op otherwise (reactions are per-profile and work offline).
+     */
+    private suspend fun syncEarDetection(autoPlay: Boolean? = null, autoPause: Boolean? = null) {
+        val profileId = targetProfileId.value ?: return
+        val device = deviceMonitor.getDeviceForProfile(profileId) ?: return
+        if (device.model?.features?.hasEarDetectionToggle != true) return
+        if (!device.isAapReady) return
+        val reactions = device.reactions
+        val effectiveAutoPlay = autoPlay ?: reactions.autoPlay
+        val effectiveAutoPause = autoPause ?: reactions.autoPause
+        sendInternal(AapCommand.SetEarDetectionEnabled(effectiveAutoPlay || effectiveAutoPause))
     }
 
     fun setAutoConnect(enabled: Boolean) = launch {

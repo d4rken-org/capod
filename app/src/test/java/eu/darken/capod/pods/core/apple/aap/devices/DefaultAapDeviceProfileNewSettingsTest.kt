@@ -339,5 +339,76 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasListeningModeCycle shouldBe false
             f.hasStemConfig shouldBe false
         }
+
+        @Test fun `Max 2 has H2 features`() {
+            val f = PodModel.AIRPODS_MAX2.features
+            f.hasAdaptiveAnc shouldBe true
+            f.hasConversationAwareness shouldBe true
+            f.hasPersonalizedVolume shouldBe true
+            f.hasAdaptiveAudioNoise shouldBe true
+            f.hasListeningModeCycle shouldBe true
+            f.hasAllowOffOption shouldBe true
+            f.hasEarDetectionToggle shouldBe true
+            f.needsInitExt shouldBe true
+            // Headphone — no stem/swipe/dual-pod/case features
+            f.hasDualPods shouldBe false
+            f.hasCase shouldBe false
+            f.hasStemConfig shouldBe false
+            f.hasVolumeSwipe shouldBe false
+            f.hasSleepDetection shouldBe false
+        }
+
+        @Test fun `Powerbeats Pro 2 has sleep detection and ear detection toggle`() {
+            val f = PodModel.POWERBEATS_PRO2.features
+            f.hasSleepDetection shouldBe true
+            f.hasEarDetectionToggle shouldBe true
+            f.hasAncControl shouldBe true
+            f.hasEarDetection shouldBe true
+        }
+    }
+
+    // ── Feature Flag Invariants ─────────────────────────────
+
+    @Nested
+    inner class FeatureFlagInvariants {
+        @Test fun `adaptiveAnc implies ancControl`() {
+            for (model in PodModel.entries) {
+                if (model.features.hasAdaptiveAnc) {
+                    model.features.hasAncControl shouldBe true
+                }
+            }
+        }
+
+        @Test fun `listeningModeCycle implies ancControl`() {
+            for (model in PodModel.entries) {
+                if (model.features.hasListeningModeCycle) {
+                    model.features.hasAncControl shouldBe true
+                }
+            }
+        }
+
+        @Test fun `sleepDetection implies earDetection`() {
+            for (model in PodModel.entries) {
+                if (model.features.hasSleepDetection) {
+                    model.features.hasEarDetection shouldBe true
+                }
+            }
+        }
+
+        @Test fun `adaptiveAudioNoise implies adaptiveAnc`() {
+            for (model in PodModel.entries) {
+                if (model.features.hasAdaptiveAudioNoise) {
+                    model.features.hasAdaptiveAnc shouldBe true
+                }
+            }
+        }
+
+        @Test fun `allowOffOption implies listeningModeCycle`() {
+            for (model in PodModel.entries) {
+                if (model.features.hasAllowOffOption) {
+                    model.features.hasListeningModeCycle shouldBe true
+                }
+            }
+        }
     }
 }
