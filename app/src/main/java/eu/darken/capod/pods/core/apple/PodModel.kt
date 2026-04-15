@@ -22,6 +22,7 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasMicrophoneMode = true,
         ),
         modelNumbers = setOf("A1523", "A1722"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
@@ -36,6 +37,7 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasMicrophoneMode = true,
         ),
         modelNumbers = setOf("A2031", "A2032"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
@@ -50,6 +52,10 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasPressSpeed = true,
+            hasPressHoldDuration = true,
+            hasToneVolume = true,
+            hasMicrophoneMode = true,
         ),
         modelNumbers = setOf("A2564", "A2565"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
@@ -65,6 +71,9 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
             hasEarDetection = true,
+            hasPressSpeed = true,
+            hasPressHoldDuration = true,
+            hasToneVolume = true,
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
             hasSleepDetection = true,
@@ -241,6 +250,8 @@ enum class PodModel(
             hasPressHoldDuration = true,
             hasToneVolume = true,
             hasEarDetectionToggle = true,
+            hasListeningModeCycle = true,
+            hasAllowOffOption = true,
         ),
         modelNumbers = setOf("A2096"), // headphones
     ),
@@ -256,6 +267,8 @@ enum class PodModel(
             hasPressHoldDuration = true,
             hasToneVolume = true,
             hasEarDetectionToggle = true,
+            hasListeningModeCycle = true,
+            hasAllowOffOption = true,
         ),
         modelNumbers = setOf("A3184"), // headphones
     ),

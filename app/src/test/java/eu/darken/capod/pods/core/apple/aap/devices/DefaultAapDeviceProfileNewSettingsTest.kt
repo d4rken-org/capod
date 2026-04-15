@@ -316,25 +316,30 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasSleepDetection shouldBe false
         }
 
-        @Test fun `Gen 4 has mic, ear detection, sleep but no stem config`() {
+        @Test fun `Gen 4 has mic, ear detection, sleep, press and tone but no stem config`() {
             val f = PodModel.AIRPODS_GEN4.features
             f.hasMicrophoneMode shouldBe true
             f.hasEarDetectionToggle shouldBe true
+            f.hasPressSpeed shouldBe true
+            f.hasPressHoldDuration shouldBe true
+            f.hasToneVolume shouldBe true
             f.hasListeningModeCycle shouldBe false
             f.hasStemConfig shouldBe false
             f.hasSleepDetection shouldBe true
         }
 
-        @Test fun `Max has ear detection toggle only`() {
+        @Test fun `Max has ear detection toggle and listening mode cycle`() {
             val f = PodModel.AIRPODS_MAX.features
             f.hasMicrophoneMode shouldBe false
             f.hasEarDetectionToggle shouldBe true
+            f.hasListeningModeCycle shouldBe true
+            f.hasAllowOffOption shouldBe true
             f.hasStemConfig shouldBe false
         }
 
-        @Test fun `Gen 1 has no new flags`() {
+        @Test fun `Gen 1 has mic mode only`() {
             val f = PodModel.AIRPODS_GEN1.features
-            f.hasMicrophoneMode shouldBe false
+            f.hasMicrophoneMode shouldBe true
             f.hasEarDetectionToggle shouldBe false
             f.hasListeningModeCycle shouldBe false
             f.hasStemConfig shouldBe false
