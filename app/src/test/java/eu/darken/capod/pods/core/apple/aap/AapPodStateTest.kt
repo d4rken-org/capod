@@ -279,4 +279,28 @@ class AapPodStateTest : BaseTest() {
         val state = AapPodState().copy(pendingAncMode = AapSetting.AncMode.Value.ADAPTIVE)
         state.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
     }
+
+    // ── Pending Settings Count ──────────────────────────────
+
+    @Test
+    fun `pendingSettingsCount defaults to 0`() {
+        AapPodState().pendingSettingsCount shouldBe 0
+    }
+
+    @Test
+    fun `pendingSettingsCount preserved in copy`() {
+        val state = AapPodState().copy(pendingSettingsCount = 3)
+        state.pendingSettingsCount shouldBe 3
+    }
+
+    @Test
+    fun `hasPendingSettings false when count is 0`() {
+        AapPodState().hasPendingSettings shouldBe false
+    }
+
+    @Test
+    fun `hasPendingSettings true when pendingSettingsCount greater than 0`() {
+        val state = AapPodState().copy(pendingSettingsCount = 2)
+        state.hasPendingSettings shouldBe true
+    }
 }

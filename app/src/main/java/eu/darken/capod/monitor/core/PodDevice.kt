@@ -267,6 +267,9 @@ data class PodDevice(
     val pendingAncMode: AapSetting.AncMode.Value?
         get() = aap?.pendingAncMode
 
+    val hasPendingSettings: Boolean?
+        get() = aap?.hasPendingSettings
+
     val conversationalAwareness: AapSetting.ConversationalAwareness?
         get() = aap?.setting()
 

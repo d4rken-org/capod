@@ -465,6 +465,31 @@ class PodDeviceTest : BaseTest() {
         device.pendingAncMode.shouldBeNull()
     }
 
+    // ── Pending Settings ────────────────────────────────────
+
+    @Test
+    fun `hasPendingSettings exposed from AAP state`() {
+        val aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            pendingSettingsCount = 2,
+        )
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = aap)
+        device.hasPendingSettings shouldBe true
+    }
+
+    @Test
+    fun `hasPendingSettings null when no AAP`() {
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = null)
+        device.hasPendingSettings.shouldBeNull()
+    }
+
+    @Test
+    fun `hasPendingSettings false when no pending`() {
+        val aap = AapPodState(connectionState = AapPodState.ConnectionState.READY)
+        val device = PodDevice(profileId = null, ble = mockDualPod(), aap = aap)
+        device.hasPendingSettings shouldBe false
+    }
+
     @Test
     fun `icon and label properties delegate to BLE`() {
         val device = PodDevice(
