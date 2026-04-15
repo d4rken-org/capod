@@ -15,6 +15,7 @@ data class AapPodState(
     val batteries: Map<BatteryType, Battery> = emptyMap(),
     val lastMessageAt: Instant? = null,
     val pendingAncMode: AapSetting.AncMode.Value? = null,
+    val pendingSettingsCount: Int = 0,
 ) {
     inline fun <reified T : AapSetting> setting(): T? = settings[T::class] as? T
 
@@ -31,6 +32,9 @@ data class AapPodState(
 
     val isEitherPodInEar: Boolean?
         get() = aapEarDetection?.isEitherPodInEar
+
+    val hasPendingSettings: Boolean
+        get() = pendingSettingsCount > 0
 
     // Battery — from AAP command 0x04, 1% granularity
     val batteryLeft: Float? get() = batteries[BatteryType.LEFT]?.percent

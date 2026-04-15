@@ -504,6 +504,14 @@ fun DeviceSettingsScreen(
             // Settings — only show when AAP is connected
             if (features != null && device.isAapConnected) {
 
+                if (device.hasPendingSettings == true) {
+                    item("pending_info") {
+                        SettingsInfoBox(
+                            text = stringResource(R.string.device_settings_pending_info),
+                        )
+                    }
+                }
+
                 // ── Noise Control ────────────────────────────
                 val ancMode = device.ancMode
                 val adaptiveNoise = device.adaptiveAudioNoise
@@ -586,7 +594,8 @@ fun DeviceSettingsScreen(
                                     level = adaptiveNoise.level,
                                     onLevelChange = onAdaptiveAudioNoiseChange,
                                     enabled = enabled,
-                                    isAdaptiveMode = ancMode.current == AapSetting.AncMode.Value.ADAPTIVE,
+                                    isAdaptiveMode = ancMode.current == AapSetting.AncMode.Value.ADAPTIVE
+                                            || device.pendingAncMode == AapSetting.AncMode.Value.ADAPTIVE,
                                 )
                             }
                         }

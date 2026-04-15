@@ -472,6 +472,7 @@
     <string name="device_settings_adaptive_noise_label">Adaptive Audio Noise</string>
     <string name="device_settings_adaptive_noise_description">How much environmental noise is allowed through</string>
     <string name="device_settings_adaptive_noise_requires_adaptive">Requires Adaptive noise control</string>
+    <string name="device_settings_pending_info">Changes take effect when AirPods are in ear</string>
     <string name="device_settings_press_speed_label">Press Speed</string>
     <string name="device_settings_press_speed_description">How quickly you need to press for multi-press gestures</string>
     <string name="device_settings_press_speed_default">Default</string>

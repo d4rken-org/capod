@@ -41,7 +41,7 @@ class AapConnectionManager @Inject constructor(
     private val timeSource: TimeSource,
 ) {
     companion object {
-        private val TAG = logTag("AapConnectionMgr")
+        private val TAG = logTag("AAP", "Manager")
     }
 
     private val mutex = Mutex()
