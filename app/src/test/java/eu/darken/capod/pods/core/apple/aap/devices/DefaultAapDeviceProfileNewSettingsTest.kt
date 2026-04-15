@@ -349,7 +349,6 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasListeningModeCycle shouldBe true
             f.hasAllowOffOption shouldBe true
             f.hasEarDetectionToggle shouldBe true
-            f.needsInitExt shouldBe true
             // Headphone — no stem/swipe/dual-pod/case features
             f.hasDualPods shouldBe false
             f.hasCase shouldBe false
