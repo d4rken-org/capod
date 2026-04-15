@@ -83,13 +83,10 @@ class DefaultAapDeviceProfile(
         byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x0f, 0x00, 0xff.toByte(), 0xff.toByte(), 0xff.toByte(), 0xff.toByte()),
     )
 
-    override fun encodeInitExt(): ByteArray? {
-        if (!model.features.needsInitExt) return null
-        return byteArrayOf(
-            0x04, 0x00, 0x04, 0x00, 0x4d, 0x00, 0xd7.toByte(), 0x00,
-            0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-        )
-    }
+    override fun encodeInitExt(): ByteArray = byteArrayOf(
+        0x04, 0x00, 0x04, 0x00, 0x4d, 0x00, 0xd7.toByte(), 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    )
 
     override fun encodeCommand(command: AapCommand): ByteArray = when (command) {
         is AapCommand.SetAncMode -> buildSettingsMessage(SETTING_ANC_MODE, encodeAncMode(command.mode))

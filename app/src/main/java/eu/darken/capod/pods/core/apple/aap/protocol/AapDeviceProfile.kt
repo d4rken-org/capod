@@ -50,10 +50,11 @@ interface AapDeviceProfile {
     fun encodeNotificationEnable(): List<ByteArray>
 
     /**
-     * Encode the extended init packet (0x4D) for models that require it
-     * (e.g., Pro 2/3/USB-C, AirPods 4 ANC). Returns null if not needed.
+     * Encode the extended init packet (0x4D).
+     * Enables advanced features (Adaptive Transparency, Conversational Awareness during playback)
+     * on H2+ devices; silently ignored by older models.
      */
-    fun encodeInitExt(): ByteArray?
+    fun encodeInitExt(): ByteArray
 
     /**
      * Encode a private key request (command 0x30).

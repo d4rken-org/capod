@@ -110,12 +110,10 @@ internal class AapConnection(
             }
             log(TAG) { "Notification enable sent" }
 
-            // Send InitExt for models that need it (Pro 2/3/USB-C, AP4 ANC)
-            profile.encodeInitExt()?.let { initExt ->
-                sock.outputStream.write(initExt)
-                sock.outputStream.flush()
-                log(TAG) { "InitExt sent" }
-            }
+            // Send InitExt — enables advanced features on H2+ devices, ignored by older models
+            sock.outputStream.write(profile.encodeInitExt())
+            sock.outputStream.flush()
+            log(TAG) { "InitExt sent" }
 
             // Request private keys (IRK + ENC) for BLE encrypted battery
             profile.encodePrivateKeyRequest()?.let { keyReq ->

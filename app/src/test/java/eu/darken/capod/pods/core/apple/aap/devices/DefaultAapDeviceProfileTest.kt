@@ -58,18 +58,8 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
     @Nested
     inner class InitExtTests {
         @Test
-        fun `returned for Pro 2`() { DefaultAapDeviceProfile(PodModel.AIRPODS_PRO2).encodeInitExt().shouldNotBeNull() }
-        @Test fun `returned for Pro 3`() { DefaultAapDeviceProfile(PodModel.AIRPODS_PRO3).encodeInitExt().shouldNotBeNull() }
-        @Test fun `returned for AP4 ANC`() { DefaultAapDeviceProfile(PodModel.AIRPODS_GEN4_ANC).encodeInitExt().shouldNotBeNull() }
-        @Test
-        fun `null for basic AirPods`() { DefaultAapDeviceProfile(PodModel.AIRPODS_GEN3).encodeInitExt().shouldBeNull() }
-        @Test fun `null for Pro 1`() { DefaultAapDeviceProfile(PodModel.AIRPODS_PRO).encodeInitExt().shouldBeNull() }
-        @Test fun `null for Max`() { DefaultAapDeviceProfile(PodModel.AIRPODS_MAX).encodeInitExt().shouldBeNull() }
-        @Test fun `returned for Max 2`() { DefaultAapDeviceProfile(PodModel.AIRPODS_MAX2).encodeInitExt().shouldNotBeNull() }
-
-        @Test
         fun `has correct command byte`() {
-            profile.encodeInitExt()!![4] shouldBe 0x4d.toByte()
+            profile.encodeInitExt()[4] shouldBe 0x4d.toByte()
         }
     }
 
