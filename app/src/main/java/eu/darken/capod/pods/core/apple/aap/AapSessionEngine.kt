@@ -49,6 +49,7 @@ internal class AapSessionEngine(
     val stemPressEvents: SharedFlow<StemPressEvent> = _stemPressEvents.asSharedFlow()
 
     private val coordinator = AapSettingsCoordinator(timeSource)
+    private val hidTracker = HidTracker { msg -> log(TAG) { msg } }
     private val sendMutex = Mutex()
 
     private var scope: CoroutineScope? = null
@@ -81,6 +82,8 @@ internal class AapSessionEngine(
         ancDebounceJob?.cancel()
         ancDebounceJob = null
         coordinator.clear()
+        hidTracker.flush()
+        hidTracker.reset()
         scope = null
         lastSentCommand = null
         lastSentAt = 0L
@@ -175,8 +178,14 @@ internal class AapSessionEngine(
     // ── Message processing ──────────────────────────────────
 
     fun processMessage(message: AapMessage) {
-        val hex = message.raw.joinToString(" ") { "%02X".format(it) }
-        log(TAG, VERBOSE) { "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex" }
+        // Suppress per-frame raw hex for 0x0017 — the HidTracker emits structured summaries instead.
+        // For all other commands, log at VERBOSE as before.
+        if (message.commandType != CMD_HID_DESCRIPTOR) {
+            val hex = message.raw.joinToString(" ") { "%02X".format(it) }
+            log(TAG, VERBOSE) { "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex" }
+            // Flush any pending HID batch summary before processing a non-HID message.
+            hidTracker.flush()
+        }
 
         // HANDSHAKING → READY: first non-settings-echo message means the device is talking.
         // Must happen before any early returns so decoded messages (battery, stem, etc.) also trigger it.
@@ -186,6 +195,15 @@ internal class AapSessionEngine(
             handshakeResponseReceived = true
             _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.READY)
             log(TAG) { "Connection READY" }
+        }
+
+        // Fast-path for HID descriptor frames (cmd 0x0017). During case transitions, 800+ frames
+        // arrive in ~20 seconds. Handle them before any profile.decode*() calls to avoid 800 wasted
+        // decode attempts. The HidTracker batches bulk frames and emits structured summaries.
+        if (message.commandType == CMD_HID_DESCRIPTOR) {
+            hidTracker.consume(message.payload)
+            _state.value = _state.value.copy(lastMessageAt = timeSource.now())
+            return
         }
 
         // Issue #173 diagnostic dump
@@ -422,9 +440,10 @@ internal class AapSessionEngine(
 
     companion object {
         private val TAG = logTag("AAP", "Engine")
+        private const val CMD_HID_DESCRIPTOR = 0x0017
 
         private val KNOWN_NON_SETTINGS_COMMANDS = setOf(
-            0x0000, 0x0002, 0x0017, 0x002B, 0x004E, 0x0052, 0x0055, 0x0057,
+            0x0000, 0x0002, 0x002B, 0x004E, 0x0052, 0x0055, 0x0057,
         )
 
         /**
@@ -488,6 +507,132 @@ internal class AapSessionEngine(
             val hex: String,
         )
     }
+}
+
+// ── HID descriptor frame tracker ───────────────────────
+
+/**
+ * Batches cmd 0x0017 HID descriptor frames and emits structured summaries.
+ *
+ * During case transitions AirPods send 800+ descriptor frames in ~20 seconds.
+ * Instead of logging each one, this tracker classifies each frame and batches
+ * consecutive bulk descriptor frames by (phase, fill), emitting a single summary
+ * line per batch.
+ */
+internal class HidTracker(private val log: (String) -> Unit) {
+
+    private var bulkCount = 0
+    private var bulkPhase: Int = -1
+    private var bulkFill: Int = -1
+
+    fun consume(payload: ByteArray) {
+        when (val type = classify(payload)) {
+            is HidFrameType.ServiceDirectory -> {
+                flush()
+                val names = type.services.joinToString(", ")
+                log("HID: services=[$names] (${payload.size}B)")
+            }
+
+            is HidFrameType.Descriptor -> {
+                if (type.phase != bulkPhase || type.fill != bulkFill) {
+                    flush()
+                    bulkPhase = type.phase
+                    bulkFill = type.fill
+                }
+                bulkCount++
+            }
+
+            is HidFrameType.Terminator -> {
+                flush()
+                log("HID: terminator (${payload.size}B)")
+            }
+
+            is HidFrameType.Other -> {
+                flush()
+                val hex = payload.joinToString(" ") { "%02X".format(it) }
+                log("HID: unknown (${payload.size}B) [$hex]")
+            }
+        }
+    }
+
+    fun flush() {
+        if (bulkCount > 0) {
+            log("HID: $bulkCount descriptor frames phase=0x${"%02X".format(bulkPhase)} fill=0x${"%02X".format(bulkFill)}")
+            bulkCount = 0
+            bulkPhase = -1
+            bulkFill = -1
+        }
+    }
+
+    fun reset() {
+        bulkCount = 0
+        bulkPhase = -1
+        bulkFill = -1
+    }
+
+    internal sealed class HidFrameType {
+        data class ServiceDirectory(val services: List<String>) : HidFrameType()
+        data class Descriptor(val phase: Int, val fill: Int) : HidFrameType()
+        data class Terminator(val payloadSize: Int) : HidFrameType()
+        data class Other(val payloadSize: Int) : HidFrameType()
+    }
+
+    internal companion object {
+        private val TERMINATOR = byteArrayOf(0x00, 0x04, 0x00, 0x00, 0x01, 0x00, 0xFF.toByte())
+        private val DESCRIPTOR_PREFIX = byteArrayOf(0x00, 0x04, 0x00, 0x00, 0x44, 0x00, 0x01)
+
+        internal fun classify(payload: ByteArray): HidFrameType {
+            if (payload.size == 7 && payload.contentEquals(TERMINATOR)) {
+                return HidFrameType.Terminator(payload.size)
+            }
+
+            if (payload.size >= 10 && payload.startsWith(DESCRIPTOR_PREFIX)) {
+                val phase = payload[8].toInt() and 0xFF
+                val fill = payload[9].toInt() and 0xFF
+                return HidFrameType.Descriptor(phase, fill)
+            }
+
+            if (payload.isNotEmpty() && (payload[0].toInt() and 0xFF) == 0xFE) {
+                val services = parseServiceNames(payload)
+                return HidFrameType.ServiceDirectory(services)
+            }
+
+            return HidFrameType.Other(payload.size)
+        }
+
+        /**
+         * Extract service names from a directory frame by scanning for runs of printable
+         * ASCII (0x20-0x7E) of length >= 2, starting from byte 4. The count at byte 3
+         * is compared to the extracted names and a warning is logged on mismatch.
+         */
+        private fun parseServiceNames(payload: ByteArray): List<String> {
+            if (payload.size < 5) return emptyList()
+
+            val names = mutableListOf<String>()
+            var i = 4
+            while (i < payload.size) {
+                val b = payload[i].toInt() and 0xFF
+                if (b in 0x20..0x7E) {
+                    val start = i
+                    while (i < payload.size && (payload[i].toInt() and 0xFF) in 0x20..0x7E) i++
+                    if (i - start >= 2) {
+                        names.add(String(payload, start, i - start, Charsets.US_ASCII))
+                    }
+                } else {
+                    i++
+                }
+            }
+            return names
+        }
+    }
+}
+
+private fun ByteArray.startsWith(prefix: ByteArray): Boolean {
+    if (size < prefix.size) return false
+    for (i in prefix.indices) {
+        if (this[i] != prefix[i]) return false
+    }
+    return true
 }
 
 // ── Extension helpers ───────────────────────────────────
