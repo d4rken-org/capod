@@ -2,7 +2,9 @@ package eu.darken.capod.common.settings
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,6 +19,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
@@ -28,6 +31,7 @@ fun SettingsInfoBox(
     text: String,
     modifier: Modifier = Modifier,
     type: InfoBoxType = InfoBoxType.INFO,
+    title: String? = null,
     action: @Composable (() -> Unit)? = null,
 ) {
     val containerColor = when (type) {
@@ -66,6 +70,16 @@ fun SettingsInfoBox(
                 modifier = Modifier.weight(1f),
                 horizontalAlignment = if (action != null) Alignment.End else Alignment.Start,
             ) {
+                if (title != null) {
+                    Text(
+                        text = title,
+                        modifier = Modifier.fillMaxWidth(),
+                        style = MaterialTheme.typography.labelLarge,
+                        fontWeight = FontWeight.Medium,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.9f),
+                    )
+                    Spacer(modifier = Modifier.height(2.dp))
+                }
                 Text(
                     text = text,
                     modifier = Modifier.fillMaxWidth(),
@@ -106,6 +120,21 @@ private fun SettingsInfoBoxWarningWithActionPreview() = PreviewWrapper {
         action = {
             TextButton(onClick = {}) {
                 Text("Fix it")
+            }
+        },
+    )
+}
+
+@Preview2
+@Composable
+private fun SettingsInfoBoxWarningWithTitlePreview() = PreviewWrapper {
+    SettingsInfoBox(
+        title = "Experimental feature",
+        text = "This feature hasn't been tested on all AirPods devices yet. If something isn't working correctly, please open an issue on GitHub with a debug log.",
+        type = InfoBoxType.WARNING,
+        action = {
+            TextButton(onClick = {}) {
+                Text("Open Issue Tracker")
             }
         },
     )
