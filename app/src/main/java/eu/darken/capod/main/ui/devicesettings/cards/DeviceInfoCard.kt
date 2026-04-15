@@ -1,10 +1,12 @@
 package eu.darken.capod.main.ui.devicesettings.cards
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.Info
@@ -83,21 +85,24 @@ internal fun DeviceInfoCard(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 1.dp),
     ) {
+        val hasName = deviceInfo != null && deviceInfo.name.isNotBlank()
+        val showInfoIconInModelRow = modelLabel != null && detailItems.isNotEmpty()
+        val showInfoIconInNameRow = modelLabel == null && detailItems.isNotEmpty() && hasName
+        val showInfoIconStandalone = modelLabel == null && detailItems.isNotEmpty() && !hasName
+
         Column(modifier = Modifier.padding(16.dp)) {
-            if (modelLabel != null || detailItems.isNotEmpty()) {
+            if (modelLabel != null) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
-                    if (modelLabel != null) {
-                        InfoRow(
-                            label = stringResource(R.string.device_settings_info_model_label),
-                            value = modelLabel,
-                            modifier = Modifier.weight(1f),
-                        )
-                    }
-                    if (detailItems.isNotEmpty()) {
+                    InfoRow(
+                        label = stringResource(R.string.device_settings_info_model_label),
+                        value = modelLabel,
+                        modifier = Modifier.weight(1f),
+                    )
+                    if (showInfoIconInModelRow) {
                         IconButton(onClick = { showBottomSheet = true }) {
                             Icon(
                                 imageVector = Icons.TwoTone.Info,
@@ -108,8 +113,8 @@ internal fun DeviceInfoCard(
                     }
                 }
             }
-            if (deviceInfo != null && deviceInfo.name.isNotBlank()) {
-                val nameMismatch = systemBluetoothName != null && systemBluetoothName != deviceInfo.name
+            if (hasName) {
+                val nameMismatch = systemBluetoothName != null && systemBluetoothName != deviceInfo!!.name
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -118,17 +123,48 @@ internal fun DeviceInfoCard(
                     InfoRow(
                         label = stringResource(R.string.device_settings_info_bt_name_label),
                         value = deviceInfo.name,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(1f)
+                            .then(
+                                if (canRename) Modifier.clickable { showRenameDialog = true }
+                                else Modifier
+                            ),
                         valueFontFamily = if (nameMismatch) FontFamily.Cursive else null,
+                        trailingIcon = if (canRename) {
+                            {
+                                Icon(
+                                    imageVector = Icons.TwoTone.Edit,
+                                    contentDescription = stringResource(R.string.device_settings_rename_label),
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier
+                                        .padding(start = 4.dp)
+                                        .size(16.dp),
+                                )
+                            }
+                        } else null,
                     )
-                    if (canRename) {
-                        IconButton(onClick = { showRenameDialog = true }) {
+                    if (showInfoIconInNameRow) {
+                        IconButton(onClick = { showBottomSheet = true }) {
                             Icon(
-                                imageVector = Icons.TwoTone.Edit,
-                                contentDescription = stringResource(R.string.device_settings_rename_label),
+                                imageVector = Icons.TwoTone.Info,
+                                contentDescription = stringResource(R.string.device_settings_info_details_action),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
                         }
+                    }
+                }
+            }
+            if (showInfoIconStandalone) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End,
+                ) {
+                    IconButton(onClick = { showBottomSheet = true }) {
+                        Icon(
+                            imageVector = Icons.TwoTone.Info,
+                            contentDescription = stringResource(R.string.device_settings_info_details_action),
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
                     }
                 }
             }
@@ -169,6 +205,7 @@ internal fun InfoRow(
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Start,
     valueFontFamily: FontFamily? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
 ) {
     Column(
         modifier = modifier.padding(vertical = 2.dp),
@@ -180,13 +217,26 @@ internal fun InfoRow(
             textAlign = textAlign,
             modifier = Modifier.fillMaxWidth(),
         )
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = textAlign,
-            fontFamily = valueFontFamily,
-            modifier = Modifier.fillMaxWidth(),
-        )
+        if (trailingIcon != null) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = value,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontFamily = valueFontFamily,
+                )
+                trailingIcon()
+            }
+        } else {
+            Text(
+                text = value,
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = textAlign,
+                fontFamily = valueFontFamily,
+                modifier = Modifier.fillMaxWidth(),
+            )
+        }
     }
 }
 
