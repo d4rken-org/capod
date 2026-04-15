@@ -19,7 +19,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -39,7 +38,6 @@ import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.datastore.FakeDataStoreValue
 import testhelpers.livedata.InstantExecutorExtension
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @ExtendWith(InstantExecutorExtension::class)
 class OverviewViewModelTest : BaseTest() {
 
