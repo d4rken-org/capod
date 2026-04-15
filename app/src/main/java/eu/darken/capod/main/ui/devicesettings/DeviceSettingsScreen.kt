@@ -34,6 +34,8 @@ import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.twotone.Timer
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.Workspaces
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -86,8 +88,11 @@ import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
+import eu.darken.capod.main.ui.devicesettings.cards.buildModelLabel
 import eu.darken.capod.main.ui.devicesettings.cards.NotConnectedCard
-import eu.darken.capod.main.ui.devicesettings.components.NoiseControlCombined
+import eu.darken.capod.main.ui.components.icon
+import eu.darken.capod.main.ui.components.shortLabel
+import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.main.ui.devicesettings.dialogs.AutoConnectConditionDialog
 import eu.darken.capod.main.ui.devicesettings.dialogs.SystemRenameUnavailableDialog
 import eu.darken.capod.monitor.core.PodDevice
@@ -160,7 +165,6 @@ fun DeviceSettingsScreenHost(
         onEndCallMuteMicChange = { muteMic, endCall -> vm.setEndCallMuteMic(muteMic, endCall) },
         onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
-        onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onOffVisibilityChange = { enabled, mask -> vm.setListeningModeOffVisibility(enabled, mask) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
@@ -197,7 +201,6 @@ fun DeviceSettingsScreen(
     onEndCallMuteMicChange: (AapSetting.EndCallMuteMic.MuteMicMode, AapSetting.EndCallMuteMic.EndCallMode) -> Unit = { _, _ -> },
     onMicrophoneModeChange: (AapSetting.MicrophoneMode.Mode) -> Unit = {},
     onListeningModeCycleChange: (Int) -> Unit = {},
-    onAllowOffOptionChange: (Boolean) -> Unit = {},
     onOffVisibilityChange: (enabled: Boolean, currentCycleMask: Int) -> Unit = { _, _ -> },
     onSleepDetectionChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
@@ -214,6 +217,7 @@ fun DeviceSettingsScreen(
     onFixMonitorMode: () -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
 ) {
+    val context = LocalContext.current
     val device = state.device
     val features = device?.model?.features
     val enabled = device?.isAapReady == true
@@ -221,6 +225,7 @@ fun DeviceSettingsScreen(
     val reactions = state.reactions
 
     var showAutoConnectConditionDialog by remember { mutableStateOf(false) }
+    var showListeningModeCycleDialog by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -235,7 +240,7 @@ fun DeviceSettingsScreen(
                         val profileName = device?.label
                         if (profileName != null) {
                             Text(
-                                text = profileName,
+                                text = stringResource(R.string.device_settings_subtitle_profile_prefix, profileName),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 maxLines = 1,
@@ -273,6 +278,8 @@ fun DeviceSettingsScreen(
                     } else null
                     DeviceInfoCard(
                         deviceInfo = device.deviceInfo,
+                        modelLabel = buildModelLabel(device),
+                        systemBluetoothName = state.systemBluetoothName,
                         connectionStateLabel = stateDetection?.state?.getLabel(context),
                         lastSeen = device.lastSeenFormatted(state.now),
                         firstSeen = firstSeen,
@@ -467,27 +474,75 @@ fun DeviceSettingsScreen(
                     val cycleMask = if (features.hasListeningModeCycle) {
                         (device.listeningModeCycle ?: AapSetting.ListeningModeCycle(modeMask = 0x0E)).modeMask
                     } else null
+                    val cycleSummary = if (cycleMask != null) listeningModeCycleSummary(context, ancMode.supported, cycleMask) else null
+                    val cycleSubtitle = if (cycleSummary != null) {
+                        buildString {
+                            append(cycleSummary)
+                            append('\n')
+                            append(
+                                context.getString(
+                                    if (state.hasCustomLongPressStemAction) {
+                                        R.string.device_settings_listening_mode_cycle_summary_helper_override
+                                    } else {
+                                        R.string.device_settings_listening_mode_cycle_summary_helper
+                                    }
+                                ),
+                            )
+                        }
+                    } else {
+                        null
+                    }
 
                     item("noise_control_section") {
                         SettingsSection(title = stringResource(R.string.device_settings_noise_control_label)) {
-                            NoiseControlCombined(
+                            NoiseControlCurrentModeControl(
                                 currentMode = ancMode.current,
                                 pendingMode = device.pendingAncMode,
                                 supportedModes = ancMode.supported,
                                 onModeSelected = onAncModeChange,
-                                cycleMask = if (isPro) cycleMask else null,
-                                onCycleMaskChange = onListeningModeCycleChange,
-                                onAllowOffChange = onAllowOffOptionChange,
-                                onOffVisibilityChange = onOffVisibilityChange,
                                 enabled = enabled,
                             )
                             val hasNoiseExtras = (features.hasAdaptiveAudioNoise && adaptiveNoise != null) ||
-                                    (!isPro && features.hasListeningModeCycle)
+                                features.hasListeningModeCycle
                             if (hasNoiseExtras) {
                                 HorizontalDivider(
                                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
                                     color = MaterialTheme.colorScheme.outlineVariant,
                                 )
+                            }
+                            if (features.hasListeningModeCycle && cycleMask != null && cycleSubtitle != null) {
+                                SettingsPreferenceItem(
+                                    icon = Icons.TwoTone.Loop,
+                                    title = stringResource(R.string.device_settings_listening_mode_cycle_label),
+                                    subtitle = cycleSubtitle,
+                                    value = stringResource(
+                                        if (isPro) {
+                                            R.string.general_edit_action
+                                        } else {
+                                            R.string.general_upgrade_action
+                                        },
+                                    ),
+                                    onClick = {
+                                        if (isPro) {
+                                            showListeningModeCycleDialog = true
+                                        } else {
+                                            onUpgrade()
+                                        }
+                                    },
+                                    enabled = if (isPro) enabled else true,
+                                    requiresUpgrade = !isPro,
+                                )
+                                if (state.hasCustomLongPressStemAction) {
+                                    SettingsInfoBox(
+                                        text = stringResource(R.string.stem_actions_long_press_anc_cycle_info),
+                                        type = InfoBoxType.INFO,
+                                        action = {
+                                            TextButton(onClick = onStemActionsClick) {
+                                                Text(stringResource(R.string.device_settings_noise_control_open_stem_actions_action))
+                                            }
+                                        },
+                                    )
+                                }
                             }
                             if (features.hasAdaptiveAudioNoise && adaptiveNoise != null) {
                                 AdaptiveNoiseSlider(
@@ -495,15 +550,6 @@ fun DeviceSettingsScreen(
                                     onLevelChange = onAdaptiveAudioNoiseChange,
                                     enabled = enabled,
                                     isAdaptiveMode = ancMode.current == AapSetting.AncMode.Value.ADAPTIVE,
-                                )
-                            }
-                            if (!isPro && features.hasListeningModeCycle) {
-                                SettingsBaseItem(
-                                    icon = Icons.TwoTone.Loop,
-                                    title = stringResource(R.string.device_settings_listening_mode_cycle_label),
-                                    subtitle = stringResource(R.string.device_settings_listening_mode_cycle_description),
-                                    onClick = onUpgrade,
-                                    requiresUpgrade = true,
                                 )
                             }
                         }
@@ -713,6 +759,32 @@ fun DeviceSettingsScreen(
             }
         }
 
+        if (
+            showListeningModeCycleDialog &&
+            device != null &&
+            features?.hasListeningModeCycle == true &&
+            device.isAapConnected
+        ) {
+            val ancMode = device.ancMode
+            val currentCycleMask = (device.listeningModeCycle ?: AapSetting.ListeningModeCycle(modeMask = 0x0E)).modeMask
+            if (ancMode != null) {
+                ListeningModeCycleDialog(
+                    supportedModes = ancMode.supported,
+                    currentCycleMask = currentCycleMask,
+                    onSave = { newMask ->
+                        val supportsOff = ancMode.supported.contains(AapSetting.AncMode.Value.OFF)
+                        if (supportsOff) {
+                            val offBit = cycleBit(AapSetting.AncMode.Value.OFF)
+                            onOffVisibilityChange((newMask and offBit) != 0, newMask and offBit.inv())
+                        } else {
+                            onListeningModeCycleChange(newMask)
+                        }
+                    },
+                    onDismiss = { showListeningModeCycleDialog = false },
+                )
+            }
+        }
+
         if (showAutoConnectConditionDialog && device != null) {
             AutoConnectConditionDialog(
                 current = reactions.autoConnectCondition,
@@ -733,6 +805,135 @@ private fun ReactionsDivider() {
     HorizontalDivider(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
         color = MaterialTheme.colorScheme.outlineVariant,
+    )
+}
+
+@Composable
+private fun NoiseControlCurrentModeControl(
+    currentMode: AapSetting.AncMode.Value,
+    pendingMode: AapSetting.AncMode.Value?,
+    supportedModes: List<AapSetting.AncMode.Value>,
+    onModeSelected: (AapSetting.AncMode.Value) -> Unit,
+    enabled: Boolean,
+) {
+    Surface(
+        color = MaterialTheme.colorScheme.surfaceContainerLow,
+        shape = RoundedCornerShape(16.dp),
+        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+    ) {
+        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp)) {
+            SettingsCompoundHeader(
+                icon = Icons.TwoTone.Headphones,
+                title = stringResource(R.string.device_settings_noise_control_current_mode_label),
+                subtitle = null,
+                enabled = enabled,
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+            AncModeSelector(
+                currentMode = currentMode,
+                supportedModes = supportedModes,
+                onModeSelected = onModeSelected,
+                pendingMode = pendingMode,
+                enabled = enabled,
+            )
+        }
+    }
+}
+
+@Composable
+private fun ListeningModeCycleDialog(
+    supportedModes: List<AapSetting.AncMode.Value>,
+    currentCycleMask: Int,
+    onSave: (Int) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val context = LocalContext.current
+    val supportedMask = supportedModes.fold(0) { mask, mode -> mask or cycleBit(mode) }
+    var draftMask by remember(currentCycleMask, supportedMask) {
+        mutableIntStateOf(currentCycleMask and supportedMask)
+    }
+    val selectedCount = Integer.bitCount(draftMask and supportedMask)
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(text = stringResource(R.string.device_settings_listening_mode_cycle_dialog_title)) },
+        text = {
+            Column {
+                Text(
+                    text = stringResource(R.string.device_settings_listening_mode_cycle_description),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Column(modifier = Modifier.selectableGroup()) {
+                    supportedModes.forEach { mode ->
+                        val bit = cycleBit(mode)
+                        val isSelected = (draftMask and bit) != 0
+                        val canToggle = !isSelected || selectedCount > 2
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(
+                                    selected = isSelected,
+                                    enabled = canToggle,
+                                    role = Role.Checkbox,
+                                    onClick = {
+                                        draftMask = if (isSelected) {
+                                            draftMask and bit.inv()
+                                        } else {
+                                            draftMask or bit
+                                        }
+                                    },
+                                )
+                                .padding(vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            Checkbox(
+                                checked = isSelected,
+                                onCheckedChange = null,
+                                enabled = canToggle,
+                            )
+                            Icon(
+                                imageVector = mode.icon(),
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (canToggle) 1f else 0.5f),
+                                modifier = Modifier
+                                    .padding(start = 12.dp)
+                                    .align(Alignment.CenterVertically),
+                            )
+                            Text(
+                                text = mode.listeningModeCycleDialogLabel(context),
+                                style = MaterialTheme.typography.bodyLarge,
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (canToggle) 1f else 0.5f),
+                                modifier = Modifier.padding(start = 12.dp),
+                            )
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.device_settings_listening_mode_cycle_minimum),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onSave(draftMask)
+                    onDismiss()
+                },
+                enabled = selectedCount >= 2,
+            ) {
+                Text(text = stringResource(R.string.general_save_action))
+            }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = stringResource(R.string.general_cancel_action))
+            }
+        },
     )
 }
 
@@ -1053,6 +1254,30 @@ private fun ConnectedDevicesList(
     }
 }
 
+private fun cycleBit(mode: AapSetting.AncMode.Value): Int = when (mode) {
+    AapSetting.AncMode.Value.OFF -> 0x01
+    AapSetting.AncMode.Value.ON -> 0x02
+    AapSetting.AncMode.Value.TRANSPARENCY -> 0x04
+    AapSetting.AncMode.Value.ADAPTIVE -> 0x08
+}
+
+private fun listeningModeCycleSummary(
+    context: android.content.Context,
+    supportedModes: List<AapSetting.AncMode.Value>,
+    cycleMask: Int,
+): String = supportedModes
+    .filter { mode -> (cycleMask and cycleBit(mode)) != 0 }
+    .joinToString(separator = " • ") { it.shortLabel(context) }
+
+private fun AapSetting.AncMode.Value.listeningModeCycleDialogLabel(
+    context: android.content.Context,
+): String = when (this) {
+    AapSetting.AncMode.Value.OFF -> context.getString(R.string.device_settings_allow_off_label)
+    AapSetting.AncMode.Value.ON -> context.getString(R.string.device_settings_listening_mode_cycle_anc)
+    AapSetting.AncMode.Value.TRANSPARENCY -> context.getString(R.string.device_settings_listening_mode_cycle_transparency)
+    AapSetting.AncMode.Value.ADAPTIVE -> context.getString(R.string.device_settings_listening_mode_cycle_adaptive)
+}
+
 private fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
     device = PodDevice(
         profileId = "preview",
@@ -1160,4 +1385,3 @@ private fun DeviceSettingsCachedOnlyPreview() = PreviewWrapper {
         onNavigateUp = {},
     )
 }
-

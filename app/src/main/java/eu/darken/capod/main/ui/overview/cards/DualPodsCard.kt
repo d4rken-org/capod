@@ -43,6 +43,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
+import eu.darken.capod.main.ui.components.visibleAncModes
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.main.ui.overview.cards.components.BatteryCapsule
 import eu.darken.capod.main.ui.overview.cards.components.DebugSection
@@ -236,17 +237,12 @@ fun DualPodsCard(
             val ancMode = device.ancMode
             if (device.isAapConnected && device.hasAncControl && ancMode != null) {
                 Spacer(modifier = Modifier.height(8.dp))
-                val cycleMask = (device.listeningModeCycle?.modeMask ?: 0x0E)
-                val cycleBits = mapOf(
-                    AapSetting.AncMode.Value.OFF to 0x01,
-                    AapSetting.AncMode.Value.ON to 0x02,
-                    AapSetting.AncMode.Value.TRANSPARENCY to 0x04,
-                    AapSetting.AncMode.Value.ADAPTIVE to 0x08,
+                val visibleModes = visibleAncModes(
+                    supportedModes = ancMode.supported,
+                    currentMode = ancMode.current,
+                    cycleMask = device.listeningModeCycle?.modeMask ?: 0x0E,
+                    allowOffEnabled = device.allowOffOption?.enabled == true,
                 )
-                val visibleModes = ancMode.supported.filter { mode ->
-                    val bit = cycleBits[mode] ?: return@filter true
-                    (cycleMask and bit) != 0
-                }
                 AncModeSelector(
                     currentMode = ancMode.current,
                     supportedModes = visibleModes,

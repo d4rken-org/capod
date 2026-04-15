@@ -550,6 +550,7 @@ internal class AapConnection(
             0x0017, // HID/service descriptors
             0x002B, // Session metadata / event history
             0x004E, // Unknown (all-zero payload)
+            0x0052, // ANC mode change status/rejection
             0x0055, // Audio/session state
             0x0057, // Connection lifecycle
         )
