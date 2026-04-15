@@ -137,8 +137,8 @@ class AirPodsProAapSessionTest : BaseAapSessionTest() {
 
         @Test fun `end call mute mic - subtype 0x20`() {
             decodeSetting<AapSetting.EndCallMuteMic>("04 00 04 00 09 00 24 20 03 00 00").let {
-                it.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS
-                it.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
+                it.muteMic shouldBe AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS
+                it.endCall shouldBe AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS
             }
         }
     }
