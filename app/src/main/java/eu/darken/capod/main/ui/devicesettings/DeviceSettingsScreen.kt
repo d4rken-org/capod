@@ -175,6 +175,7 @@ fun DeviceSettingsScreenHost(
         onShowPopUpOnCaseOpenChange = { vm.setShowPopUpOnCaseOpen(it) },
         onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
         onFixMonitorMode = { vm.setMonitorModeAutomatic() },
+        onOpenIssueTracker = { vm.openIssueTracker() },
     )
 }
 
@@ -211,6 +212,7 @@ fun DeviceSettingsScreen(
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
     onFixMonitorMode: () -> Unit = {},
+    onOpenIssueTracker: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -379,8 +381,19 @@ fun DeviceSettingsScreen(
                                     checked = sleepDet.enabled,
                                     onCheckedChange = onSleepDetectionChange,
                                     enabled = enabled,
-                                    requiresUpgrade = !isPro,
                                 )
+                                if (sleepDet.enabled) {
+                                    SettingsInfoBox(
+                                        title = stringResource(R.string.device_settings_experimental_title),
+                                        text = stringResource(R.string.device_settings_experimental_description),
+                                        type = InfoBoxType.WARNING,
+                                        action = {
+                                            TextButton(onClick = onOpenIssueTracker) {
+                                                Text(stringResource(R.string.device_settings_experimental_action))
+                                            }
+                                        },
+                                    )
+                                }
                             }
                             if (hasAnyAapReaction) {
                                 ReactionsDivider()
@@ -516,30 +529,62 @@ fun DeviceSettingsScreen(
                                     onCheckedChange = onPersonalizedVolumeChange,
                                     enabled = enabled,
                                 )
+                                if (personalizedVol.enabled) {
+                                    SettingsInfoBox(
+                                        title = stringResource(R.string.device_settings_experimental_title),
+                                        text = stringResource(R.string.device_settings_experimental_description),
+                                        type = InfoBoxType.WARNING,
+                                        action = {
+                                            TextButton(onClick = onOpenIssueTracker) {
+                                                Text(stringResource(R.string.device_settings_experimental_action))
+                                            }
+                                        },
+                                    )
+                                }
                             }
                             if (features.hasToneVolume && toneVol != null) {
-                                ToneVolumeSlider(
-                                    level = toneVol.level,
-                                    onLevelChange = onToneVolumeChange,
-                                    enabled = enabled,
-                                )
+                                if (isPro) {
+                                    ToneVolumeSlider(
+                                        level = toneVol.level,
+                                        onLevelChange = onToneVolumeChange,
+                                        enabled = enabled,
+                                    )
+                                } else {
+                                    SettingsBaseItem(
+                                        icon = Icons.AutoMirrored.TwoTone.VolumeUp,
+                                        title = stringResource(R.string.device_settings_tone_volume_label),
+                                        subtitle = stringResource(R.string.device_settings_tone_volume_description),
+                                        onClick = onUpgrade,
+                                        requiresUpgrade = true,
+                                    )
+                                }
                             }
                             if (features.hasMicrophoneMode) {
-                                val micMode = device.microphoneMode
-                                    ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)
-                                SegmentedSettingRow(
-                                    icon = Icons.TwoTone.Mic,
-                                    title = stringResource(R.string.device_settings_microphone_mode_label),
-                                    subtitle = stringResource(R.string.device_settings_microphone_mode_description),
-                                    options = listOf(
-                                        stringResource(R.string.device_settings_microphone_mode_auto) to AapSetting.MicrophoneMode.Mode.AUTO,
-                                        stringResource(R.string.device_settings_microphone_mode_left) to AapSetting.MicrophoneMode.Mode.ALWAYS_LEFT,
-                                        stringResource(R.string.device_settings_microphone_mode_right) to AapSetting.MicrophoneMode.Mode.ALWAYS_RIGHT,
-                                    ),
-                                    selected = micMode.mode,
-                                    onSelected = onMicrophoneModeChange,
-                                    enabled = enabled,
-                                )
+                                if (isPro) {
+                                    val micMode = device.microphoneMode
+                                        ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)
+                                    SegmentedSettingRow(
+                                        icon = Icons.TwoTone.Mic,
+                                        title = stringResource(R.string.device_settings_microphone_mode_label),
+                                        subtitle = stringResource(R.string.device_settings_microphone_mode_description),
+                                        options = listOf(
+                                            stringResource(R.string.device_settings_microphone_mode_auto) to AapSetting.MicrophoneMode.Mode.AUTO,
+                                            stringResource(R.string.device_settings_microphone_mode_left) to AapSetting.MicrophoneMode.Mode.ALWAYS_LEFT,
+                                            stringResource(R.string.device_settings_microphone_mode_right) to AapSetting.MicrophoneMode.Mode.ALWAYS_RIGHT,
+                                        ),
+                                        selected = micMode.mode,
+                                        onSelected = onMicrophoneModeChange,
+                                        enabled = enabled,
+                                    )
+                                } else {
+                                    SettingsBaseItem(
+                                        icon = Icons.TwoTone.Mic,
+                                        title = stringResource(R.string.device_settings_microphone_mode_label),
+                                        subtitle = stringResource(R.string.device_settings_microphone_mode_description),
+                                        onClick = onUpgrade,
+                                        requiresUpgrade = true,
+                                    )
+                                }
                             }
                         }
                     }

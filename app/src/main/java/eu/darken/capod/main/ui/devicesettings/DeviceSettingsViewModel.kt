@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.devicesettings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.value
@@ -50,6 +51,7 @@ class DeviceSettingsViewModel @Inject constructor(
     private val profilesRepo: DeviceProfilesRepo,
     private val generalSettings: GeneralSettings,
     private val timeSource: TimeSource,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider) {
 
     private val targetProfileId = MutableStateFlow<ProfileId?>(null)
@@ -208,7 +210,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setPersonalizedVolume(enabled: Boolean) = send(AapCommand.SetPersonalizedVolume(enabled))
 
-    fun setToneVolume(level: Int) = send(AapCommand.SetToneVolume(level))
+    fun setToneVolume(level: Int) = sendProGated(AapCommand.SetToneVolume(level))
 
     fun setAdaptiveAudioNoise(level: Int) = send(AapCommand.SetAdaptiveAudioNoise(level))
 
@@ -225,7 +227,7 @@ class DeviceSettingsViewModel @Inject constructor(
         endCall: AapSetting.EndCallMuteMic.EndCallMode,
     ) = send(AapCommand.SetEndCallMuteMic(muteMic, endCall))
 
-    fun setMicrophoneMode(mode: AapSetting.MicrophoneMode.Mode) = send(AapCommand.SetMicrophoneMode(mode))
+    fun setMicrophoneMode(mode: AapSetting.MicrophoneMode.Mode) = sendProGated(AapCommand.SetMicrophoneMode(mode))
 
     fun setEarDetectionEnabled(enabled: Boolean) = send(AapCommand.SetEarDetectionEnabled(enabled))
 
@@ -246,7 +248,7 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }
 
-    fun setSleepDetection(enabled: Boolean) = sendProGated(AapCommand.SetSleepDetection(enabled))
+    fun setSleepDetection(enabled: Boolean) = send(AapCommand.SetSleepDetection(enabled))
 
     fun setDeviceName(name: String) = launch {
         val address = currentAddress() ?: return@launch
@@ -393,6 +395,10 @@ class DeviceSettingsViewModel @Inject constructor(
     fun launchUpgrade() {
         log(TAG, INFO) { "launchUpgrade()" }
         navTo(Nav.Main.Upgrade)
+    }
+
+    fun openIssueTracker() {
+        webpageTool.open("https://github.com/d4rken-org/capod/issues")
     }
 
     companion object {

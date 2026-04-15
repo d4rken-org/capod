@@ -33,7 +33,7 @@ fun SettingsSwitchItem(
         trailingContent = {
             Switch(
                 checked = checked,
-                onCheckedChange = onCheckedChange,
+                onCheckedChange = if (requiresUpgrade) null else onCheckedChange,
                 enabled = enabled,
                 modifier = Modifier.padding(start = 16.dp)
             )

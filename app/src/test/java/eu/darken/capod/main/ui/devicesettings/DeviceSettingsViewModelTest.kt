@@ -120,6 +120,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         profilesRepo = profilesRepo,
         generalSettings = generalSettings,
         timeSource = timeSource,
+        webpageTool = mockk(relaxed = true),
     ).also { vm = it }
 
     private fun runVmTest(testBody: suspend TestScope.() -> Unit) = runTest(testDispatcher) {
