@@ -16,7 +16,6 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
@@ -30,7 +29,6 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class AapAutoConnectTest : BaseTest() {
 
     private val testDispatcher = UnconfinedTestDispatcher()

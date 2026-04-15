@@ -22,7 +22,6 @@ import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -45,7 +44,6 @@ import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.datastore.FakeDataStoreValue
 import testhelpers.livedata.InstantExecutorExtension
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @ExtendWith(InstantExecutorExtension::class)
 class DeviceSettingsViewModelTest : BaseTest() {
 

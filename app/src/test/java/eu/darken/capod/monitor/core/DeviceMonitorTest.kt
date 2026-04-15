@@ -23,7 +23,6 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,7 +36,6 @@ import testhelpers.BaseTest
 import testhelpers.TestTimeSource
 import java.time.Instant
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class DeviceMonitorTest : BaseTest() {
 
     private val testDispatcher = UnconfinedTestDispatcher()

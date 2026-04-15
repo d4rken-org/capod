@@ -81,7 +81,7 @@
     <string name="settings_compat_offloaded_batching_disabled_summary">Don\'t let the system group collected BLE data before forwarding it to us.</string>
 
     <string name="settings_onepod_mode_label">One pod mode</string>
-    <string name="settings_onepod_mode_description">Treat a single in-ear pod as worn. Auto play/pause and &quot;In ear&quot; auto-connect react to either pod instead of requiring both.</string>
+    <string name="settings_onepod_mode_description">Auto play/pause, auto-connect, and on supported models noise cancellation, react to a single pod instead of requiring both.</string>
     <string name="settings_popup_caseopen_label">Show case popup</string>
     <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
     <string name="settings_popup_connected_label">Show connection popup</string>
