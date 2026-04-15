@@ -25,7 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
@@ -129,7 +129,7 @@ internal fun DeviceInfoCard(
                                 if (canRename) Modifier.clickable { showRenameDialog = true }
                                 else Modifier
                             ),
-                        valueFontFamily = if (nameMismatch) FontFamily.Cursive else null,
+                        valueFontStyle = if (nameMismatch) FontStyle.Italic else null,
                         trailingIcon = if (canRename) {
                             {
                                 Icon(
@@ -204,7 +204,7 @@ internal fun InfoRow(
     value: String,
     modifier: Modifier = Modifier,
     textAlign: TextAlign = TextAlign.Start,
-    valueFontFamily: FontFamily? = null,
+    valueFontStyle: FontStyle? = null,
     trailingIcon: (@Composable () -> Unit)? = null,
 ) {
     Column(
@@ -224,7 +224,7 @@ internal fun InfoRow(
                 Text(
                     text = value,
                     style = MaterialTheme.typography.bodyMedium,
-                    fontFamily = valueFontFamily,
+                    fontStyle = valueFontStyle,
                 )
                 trailingIcon()
             }
@@ -233,7 +233,7 @@ internal fun InfoRow(
                 text = value,
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = textAlign,
-                fontFamily = valueFontFamily,
+                fontStyle = valueFontStyle,
                 modifier = Modifier.fillMaxWidth(),
             )
         }
