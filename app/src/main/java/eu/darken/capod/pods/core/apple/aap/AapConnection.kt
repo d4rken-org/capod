@@ -74,6 +74,8 @@ internal class AapConnection(
     private var lastAncCommandSentAt: Long = 0L
     private var lastCommandedAncMode: AapSetting.AncMode.Value? = null
     private var ancResendJob: Job? = null
+    /** True after one automatic resend — prevents further retries for the same user action. */
+    private var ancResendAttempted: Boolean = false
     private var lastSentCommand: AapCommand? = null
     private var lastSentAt: Long = 0L
 
@@ -140,6 +142,7 @@ internal class AapConnection(
         ancDebounceJob = null
         ancResendJob?.cancel()
         ancResendJob = null
+        ancResendAttempted = false
         pendingAncMode = null
         lastCommandedAncMode = null
         connectionScope = null
@@ -158,6 +161,7 @@ internal class AapConnection(
             lastCommandedAncMode = command.mode
             ancResendJob?.cancel()
             ancResendJob = null
+            ancResendAttempted = false
             val earDetection = currentState.setting<AapSetting.EarDetection>()
             if (earDetection != null && !earDetection.isEitherPodInEar) {
                 log(TAG) { "No pod in ear, queuing ANC mode: ${command.mode}" }
@@ -318,6 +322,7 @@ internal class AapConnection(
         } finally {
             ancDebounceJob?.cancel()
             ancResendJob?.cancel()
+            ancResendAttempted = false
             pendingAncMode = null
             lastCommandedAncMode = null
             cleanupSocket()
@@ -409,20 +414,50 @@ internal class AapConnection(
                     ancDebounceJob?.cancel()
                     _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
                     log(TAG) { "Setting: ${key.simpleName} = $value [was: $previous]" }
+                    applyInferences(value)
 
                     // After our command, firmware may cycle through modes before settling.
                     // Schedule a verification: if settled mode != commanded mode, re-send once.
+                    // Capped at one retry per user action — if the device rejects the mode
+                    // (e.g. OFF without AllowOffOption), stop instead of looping.
                     lastCommandedAncMode?.let { commanded ->
                         ancResendJob?.cancel()
-                        ancResendJob = connectionScope?.launch {
-                            delay(1000L)
-                            val current = _state.value.setting<AapSetting.AncMode>()?.current
-                            if (current != null && current != commanded) {
-                                log(TAG) { "ANC mode diverged: commanded=$commanded settled=$current, re-sending" }
-                                lastCommandedAncMode = null
-                                sendRaw(AapCommand.SetAncMode(commanded))
-                            } else {
-                                lastCommandedAncMode = null
+                        if (ancResendAttempted) {
+                            // Already retried once — accept the device's answer as final.
+                            val current = (value as AapSetting.AncMode).current
+                            if (current != commanded) {
+                                log(TAG) { "ANC mode rejected: commanded=$commanded settled=$current, giving up after retry" }
+                                // OFF specifically requires AllowOffOption — rejection means it's disabled
+                                if (commanded == AapSetting.AncMode.Value.OFF) {
+                                    val prev = _state.value.setting<AapSetting.AllowOffOption>()
+                                    if (prev == null || prev.enabled) {
+                                        _state.value = _state.value.withSetting(
+                                            AapSetting.AllowOffOption::class,
+                                            AapSetting.AllowOffOption(enabled = false),
+                                        )
+                                        log(TAG) { "Inferred: AllowOffOption = false (OFF mode rejected by device)" }
+                                    }
+                                }
+                            }
+                            lastCommandedAncMode = null
+                        } else {
+                            ancResendJob = connectionScope?.launch {
+                                delay(1000L)
+                                val current = _state.value.setting<AapSetting.AncMode>()?.current
+                                val ear = _state.value.setting<AapSetting.EarDetection>()
+                                // Abort if pods moved to case/disconnected — firmware is doing its own thing
+                                if (ear != null && !ear.isEitherPodInEar) {
+                                    log(TAG) { "ANC resend aborted: no pod in ear (ear=$ear)" }
+                                    lastCommandedAncMode = null
+                                    return@launch
+                                }
+                                if (current != null && current != commanded) {
+                                    log(TAG) { "ANC mode diverged: commanded=$commanded settled=$current, re-sending" }
+                                    ancResendAttempted = true
+                                    sendRaw(AapCommand.SetAncMode(commanded))
+                                } else {
+                                    lastCommandedAncMode = null
+                                }
                             }
                         }
                     }
@@ -432,6 +467,7 @@ internal class AapConnection(
                         delay(1500L)
                         _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
                         log(TAG) { "Setting (debounced): ${key.simpleName} = $value [was: $previous]" }
+                        applyInferences(value)
                     }
                 }
                 return
@@ -449,6 +485,7 @@ internal class AapConnection(
             }
             _state.value = newState
             log(TAG) { "Setting: ${key.simpleName} = $value${if (clearPrimaryPod) " (swap, PrimaryPod cleared)" else ""} [was: $previous]" }
+            applyInferences(value)
 
             // Flush queued ANC command when a pod goes in ear
             if (value is AapSetting.EarDetection && value.isEitherPodInEar) {
@@ -528,6 +565,29 @@ internal class AapConnection(
 
         log(TAG, INFO) {
             "Unhandled cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sinceSend}ms lastSend=$lastSend"
+        }
+    }
+
+    /**
+     * Infer settings that the device never pushes but whose state can be deduced from other signals.
+     * Called after every setting update. Only SETS inferred values — never clears them based on absence.
+     */
+    private fun applyInferences(trigger: AapSetting) {
+        val inferred = mutableListOf<Pair<KClass<out AapSetting>, AapSetting>>()
+
+        // AncMode=OFF is only possible when AllowOffOption is enabled — the device rejects
+        // SetAncMode(OFF) otherwise. If we see OFF in the burst or after a mode change,
+        // AllowOffOption must be true.
+        if (trigger is AapSetting.AncMode && trigger.current == AapSetting.AncMode.Value.OFF) {
+            val current = _state.value.setting<AapSetting.AllowOffOption>()
+            if (current == null || !current.enabled) {
+                inferred += AapSetting.AllowOffOption::class to AapSetting.AllowOffOption(enabled = true)
+            }
+        }
+
+        for ((key, value) in inferred) {
+            _state.value = _state.value.withSetting(key, value)
+            log(TAG) { "Inferred: ${key.simpleName} = $value (from ${trigger::class.simpleName})" }
         }
     }
 

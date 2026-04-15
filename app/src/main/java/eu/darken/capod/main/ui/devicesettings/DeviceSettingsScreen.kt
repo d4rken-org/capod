@@ -87,6 +87,7 @@ import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
+import eu.darken.capod.main.ui.devicesettings.cards.DeviceDetailItem
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.buildModelLabel
 import eu.darken.capod.main.ui.devicesettings.cards.NotConnectedCard
@@ -276,6 +277,41 @@ fun DeviceSettingsScreen(
                     ) {
                         device.firstSeenFormatted(state.now)
                     } else null
+                    val info = device.deviceInfo
+                    val detailItems = buildList<DeviceDetailItem> {
+                        if (info != null) {
+                            if (info.manufacturer.isNotBlank()) {
+                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_manufacturer_label), info.manufacturer))
+                            }
+                            if (info.serialNumber.isNotBlank()) {
+                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_serial_label), info.serialNumber))
+                            }
+                            val hasFirmware = info.firmwareVersion.isNotBlank()
+                            val hasBuild = !info.buildNumber.isNullOrBlank()
+                            if (hasFirmware && hasBuild) {
+                                add(DeviceDetailItem.Paired(
+                                    start = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_firmware_label), info.firmwareVersion),
+                                    end = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_build_label), info.buildNumber!!),
+                                ))
+                            } else if (hasFirmware) {
+                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_firmware_label), info.firmwareVersion))
+                            } else if (hasBuild) {
+                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_build_label), info.buildNumber!!))
+                            }
+                            val hasLeft = !info.leftEarbudSerial.isNullOrBlank()
+                            val hasRight = !info.rightEarbudSerial.isNullOrBlank()
+                            if (hasLeft && hasRight) {
+                                add(DeviceDetailItem.Paired(
+                                    start = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_left_serial_label), info.leftEarbudSerial!!),
+                                    end = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_right_serial_label), info.rightEarbudSerial!!),
+                                ))
+                            } else if (hasLeft) {
+                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_left_serial_label), info.leftEarbudSerial!!))
+                            } else if (hasRight) {
+                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_right_serial_label), info.rightEarbudSerial!!))
+                            }
+                        }
+                    }
                     DeviceInfoCard(
                         deviceInfo = device.deviceInfo,
                         modelLabel = buildModelLabel(device),
@@ -283,6 +319,7 @@ fun DeviceSettingsScreen(
                         connectionStateLabel = stateDetection?.state?.getLabel(context),
                         lastSeen = device.lastSeenFormatted(state.now),
                         firstSeen = firstSeen,
+                        detailItems = detailItems,
                         canRename = device.isAapReady,
                         onRename = onDeviceNameChange,
                     )
