@@ -59,6 +59,7 @@ class OverviewViewModel @Inject constructor(
     val requestPermissionEvent = SingleEventFlow<Permission>()
 
     private val showUnmatchedDevices = MutableStateFlow(false)
+    private val userExpansionOverrides = MutableStateFlow<Set<String>>(emptySet())
 
     val workerAutolaunch = permissionTool.missingScanPermissions
         .onEach { permissions ->
@@ -114,7 +115,12 @@ class OverviewViewModel @Inject constructor(
         profilesRepo.profiles,
         upgradeRepo.upgradeInfo,
         showUnmatchedDevices,
-    ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched ->
+        userExpansionOverrides,
+    ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds ->
+        // Prune stale overrides (profiles that no longer exist)
+        val currentProfileIds = profiles.map { it.id }.toSet()
+        val prunedExpandedIds = expandedIds.filter { it in currentProfileIds }.toSet()
+
         State(
             now = timeSource.now(),
             permissions = permissions,
@@ -124,6 +130,7 @@ class OverviewViewModel @Inject constructor(
             profiles = profiles,
             upgradeInfo = upgradeInfo,
             showUnmatchedDevices = showUnmatched,
+            userExpandedIds = prunedExpandedIds,
         )
     }.asLiveState()
 
@@ -138,9 +145,22 @@ class OverviewViewModel @Inject constructor(
         val profiles: List<DeviceProfile>,
         val upgradeInfo: UpgradeRepo.Info,
         val showUnmatchedDevices: Boolean,
+        val userExpandedIds: Set<String> = emptySet(),
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
-        val profiledDevices: List<PodDevice> get() = devices.filter { it.profileId != null }
+
+        /** Profile list order used as tiebreaker within each connection tier. */
+        private val profileOrder: Map<String, Int> by lazy {
+            profiles.mapIndexed { index, profile -> profile.id to index }.toMap()
+        }
+
+        val profiledDevices: List<PodDevice> by lazy {
+            devices.filter { it.profileId != null }.sortedWith(
+                compareBy<PodDevice> { deviceTierRank(it) }
+                    .thenBy { profileOrder[it.profileId] ?: Int.MAX_VALUE }
+            )
+        }
+
         val visibleProfiledDevices: List<PodDevice>
             get() = if (upgradeInfo.isPro) profiledDevices else profiledDevices.take(FREE_DEVICE_LIMIT)
         val hiddenProfiledDeviceCount: Int get() = profiledDevices.size - visibleProfiledDevices.size
@@ -155,6 +175,15 @@ class OverviewViewModel @Inject constructor(
                 profiledDevices.any { it.isLive } -> BluetoothIconState.NEARBY
                 else -> BluetoothIconState.HIDDEN
             }
+
+        fun isPinned(device: PodDevice, index: Int): Boolean =
+            device.isSystemConnected || index == 0
+
+        fun isExpanded(device: PodDevice, index: Int): Boolean =
+            isPinned(device, index) || device.profileId in userExpandedIds
+
+        fun isToggleable(device: PodDevice, index: Int): Boolean =
+            !isPinned(device, index)
     }
 
     fun onPermissionResult() {
@@ -202,6 +231,13 @@ class OverviewViewModel @Inject constructor(
         showUnmatchedDevices.value = !showUnmatchedDevices.value
     }
 
+    fun toggleDeviceExpansion(profileId: String) {
+        log(TAG, INFO) { "toggleDeviceExpansion(profileId=$profileId)" }
+        userExpansionOverrides.value = userExpansionOverrides.value.let { current ->
+            if (profileId in current) current - profileId else current + profileId
+        }
+    }
+
     fun requestPermission(permission: Permission) {
         log(TAG, INFO) { "requestPermission($permission)" }
         requestPermissionEvent.tryEmit(permission)
@@ -222,5 +258,12 @@ class OverviewViewModel @Inject constructor(
     companion object {
         private const val FREE_DEVICE_LIMIT = 1
         private val TAG = logTag("Overview", "VM")
+
+        /** Connection tier rank for sorting: lower = higher priority. */
+        internal fun deviceTierRank(device: PodDevice): Int = when {
+            device.isSystemConnected -> 0
+            device.isLive -> 1
+            else -> 2
+        }
     }
 }

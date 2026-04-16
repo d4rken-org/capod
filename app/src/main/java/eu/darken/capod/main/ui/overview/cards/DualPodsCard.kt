@@ -1,12 +1,15 @@
 package eu.darken.capod.main.ui.overview.cards
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -46,6 +49,7 @@ import eu.darken.capod.R
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.main.ui.overview.cards.components.BatteryCapsule
+import eu.darken.capod.main.ui.overview.cards.components.CompactBatterySummary
 import eu.darken.capod.main.ui.overview.cards.components.DebugSection
 import eu.darken.capod.main.ui.overview.cards.components.DeviceConnectionBadge
 import eu.darken.capod.main.ui.overview.cards.components.SignalIndicator
@@ -72,6 +76,8 @@ fun DualPodsCard(
     isPro: Boolean = true,
     showDebug: Boolean,
     now: Instant,
+    isCollapsed: Boolean = false,
+    onToggleCollapse: (() -> Unit)? = null,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
     onUpgrade: (() -> Unit)? = null,
     onDeviceSettings: (() -> Unit)? = null,
@@ -87,12 +93,22 @@ fun DualPodsCard(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .padding(16.dp)
+                .animateContentSize(),
         ) {
             // Header
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .then(
+                        if (onToggleCollapse != null) {
+                            Modifier.clickable(onClick = onToggleCollapse)
+                        } else {
+                            Modifier
+                        }
+                    ),
             ) {
                 Image(
                     painter = painterResource(device.iconRes),
@@ -170,86 +186,105 @@ fun DualPodsCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Circular battery gauges side by side
-            Surface(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
-                shape = RoundedCornerShape(12.dp),
-                tonalElevation = 4.dp,
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                    ) {
-                        PodGauge(
-                            iconRes = device.leftPodIcon,
-                            batteryPercent = device.batteryLeft.toBatteryFloat(),
-                            isCharging = device.isLeftPodCharging ?: false,
-                            isInEar = device.isLeftInEar ?: false,
-                            showEarDetection = device.hasEarDetection && device.hasDualPods,
-                            isMicrophone = device.isLeftPodMicrophone ?: false,
-                            showMicrophone = device.hasDualMicrophone,
-                            modifier = Modifier.weight(1f),
-                        )
-
-                        PodGauge(
-                            iconRes = device.rightPodIcon,
-                            batteryPercent = device.batteryRight.toBatteryFloat(),
-                            isCharging = device.isRightPodCharging ?: false,
-                            isInEar = device.isRightInEar ?: false,
-                            showEarDetection = device.hasEarDetection && device.hasDualPods,
-                            isMicrophone = device.isRightPodMicrophone ?: false,
-                            showMicrophone = device.hasDualMicrophone,
-                            modifier = Modifier.weight(1f),
-                        )
-                    }
-
-                    // Case row
-                    if (device.hasCase) {
-                        HorizontalDivider(
-                            modifier = Modifier.padding(vertical = 8.dp),
-                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
-                        )
-
-                        CaseRow(device = device)
-                    }
-                }
-            }
-
-            // Cached battery indicator
-            if (device.isBatteryCached && !device.isLive) {
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.align(Alignment.End),
+            if (isCollapsed) {
+                CompactBatterySummary(device = device)
+            } else {
+                DualPodsCardExpanded(
+                    device = device,
+                    showDebug = showDebug,
+                    now = now,
+                    onAncModeChange = onAncModeChange,
                 )
-            }
-
-            // ANC mode selector
-            val ancMode = device.ancMode
-            if (device.isAapConnected && device.hasAncControl && ancMode != null) {
-                Spacer(modifier = Modifier.height(8.dp))
-                AncModeSelector(
-                    currentMode = ancMode.current,
-                    supportedModes = device.visibleAncModes,
-                    onModeSelected = { onAncModeChange?.invoke(it) },
-                    pendingMode = device.pendingAncMode,
-                )
-            }
-
-            // Debug info
-            if (showDebug) {
-                DebugSection(rawDataHex = device.rawDataHex)
             }
         }
+    }
+}
+
+@Composable
+private fun ColumnScope.DualPodsCardExpanded(
+    device: PodDevice,
+    showDebug: Boolean,
+    now: Instant,
+    onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)?,
+) {
+    Spacer(modifier = Modifier.height(16.dp))
+
+    // Circular battery gauges side by side
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
+        shape = RoundedCornerShape(12.dp),
+        tonalElevation = 4.dp,
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+            ) {
+                PodGauge(
+                    iconRes = device.leftPodIcon,
+                    batteryPercent = device.batteryLeft.toBatteryFloat(),
+                    isCharging = device.isLeftPodCharging ?: false,
+                    isInEar = device.isLeftInEar ?: false,
+                    showEarDetection = device.hasEarDetection && device.hasDualPods,
+                    isMicrophone = device.isLeftPodMicrophone ?: false,
+                    showMicrophone = device.hasDualMicrophone,
+                    modifier = Modifier.weight(1f),
+                )
+
+                PodGauge(
+                    iconRes = device.rightPodIcon,
+                    batteryPercent = device.batteryRight.toBatteryFloat(),
+                    isCharging = device.isRightPodCharging ?: false,
+                    isInEar = device.isRightInEar ?: false,
+                    showEarDetection = device.hasEarDetection && device.hasDualPods,
+                    isMicrophone = device.isRightPodMicrophone ?: false,
+                    showMicrophone = device.hasDualMicrophone,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+
+            // Case row
+            if (device.hasCase) {
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+                )
+
+                CaseRow(device = device)
+            }
+        }
+    }
+
+    // Cached battery indicator
+    if (device.isBatteryCached && !device.isLive) {
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.align(Alignment.End),
+        )
+    }
+
+    // ANC mode selector
+    val ancMode = device.ancMode
+    if (device.isAapConnected && device.hasAncControl && ancMode != null) {
+        Spacer(modifier = Modifier.height(8.dp))
+        AncModeSelector(
+            currentMode = ancMode.current,
+                    supportedModes = device.visibleAncModes,
+            onModeSelected = { onAncModeChange?.invoke(it) },
+            pendingMode = device.pendingAncMode,
+        )
+    }
+
+    // Debug info
+    if (showDebug) {
+        DebugSection(rawDataHex = device.rawDataHex)
     }
 }
 
@@ -436,6 +471,18 @@ private fun DualPodsCardCachedPreview() = PreviewWrapper {
         device = MockPodDataProvider.dualPodCachedOnly(),
         showDebug = false,
         now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardCollapsedPreview() = PreviewWrapper {
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodMonitored(),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+        isCollapsed = true,
+        onToggleCollapse = {},
     )
 }
 

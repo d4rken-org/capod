@@ -5,9 +5,11 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
@@ -45,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
+import eu.darken.capod.main.ui.overview.cards.components.CompactBatterySummary
 import eu.darken.capod.main.ui.overview.cards.components.DebugSection
 import eu.darken.capod.main.ui.overview.cards.components.DeviceConnectionBadge
 import eu.darken.capod.main.ui.overview.cards.components.SignalIndicator
@@ -66,26 +69,14 @@ fun SinglePodsCard(
     isPro: Boolean = true,
     showDebug: Boolean,
     now: Instant,
+    isCollapsed: Boolean = false,
+    onToggleCollapse: (() -> Unit)? = null,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
     onUpgrade: (() -> Unit)? = null,
     onDeviceSettings: (() -> Unit)? = null,
     onEditProfile: (() -> Unit)? = null,
 ) {
     val context = LocalContext.current
-
-    val clamped = device.batteryHeadset?.coerceIn(0f, 1f)
-    val animatedProgress by animateFloatAsState(
-        targetValue = clamped ?: 0f,
-        animationSpec = tween(600, easing = FastOutSlowInEasing),
-        label = "gaugeProgress",
-    )
-
-    val ringColor = when {
-        clamped == null -> MaterialTheme.colorScheme.surfaceVariant
-        clamped > 0.30f -> MaterialTheme.colorScheme.primary
-        clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
-        else -> MaterialTheme.colorScheme.error
-    }
 
     ElevatedCard(
         modifier = Modifier
@@ -95,12 +86,22 @@ fun SinglePodsCard(
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .padding(16.dp)
+                .animateContentSize(),
         ) {
             // Header
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .then(
+                        if (onToggleCollapse != null) {
+                            Modifier.clickable(onClick = onToggleCollapse)
+                        } else {
+                            Modifier
+                        }
+                    ),
             ) {
                 Image(
                     painter = painterResource(device.iconRes),
@@ -167,112 +168,147 @@ fun SinglePodsCard(
                 }
             }
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // Central gauge
-            Surface(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
-                shape = RoundedCornerShape(12.dp),
-                tonalElevation = 4.dp,
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier.size(88.dp),
-                    ) {
-                        // Track ring
-                        CircularProgressIndicator(
-                            progress = { 1f },
-                            modifier = Modifier.size(88.dp),
-                            color = MaterialTheme.colorScheme.surfaceVariant,
-                            strokeWidth = 8.dp,
-                            trackColor = MaterialTheme.colorScheme.surfaceVariant,
-                            strokeCap = StrokeCap.Round,
-                        )
-
-                        // Progress ring
-                        if (clamped != null) {
-                            CircularProgressIndicator(
-                                progress = { animatedProgress },
-                                modifier = Modifier.size(88.dp),
-                                color = ringColor,
-                                strokeWidth = 8.dp,
-                                trackColor = MaterialTheme.colorScheme.surfaceVariant,
-                                strokeCap = StrokeCap.Round,
-                            )
-                        }
-
-                        // Battery text inside ring
-                        Text(
-                            text = formatBatteryPercent(context, device.batteryHeadset),
-                            style = MaterialTheme.typography.headlineSmall,
-                            color = if (device.batteryHeadset != null) {
-                                MaterialTheme.colorScheme.onSurface
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    // Status chips
-                    FlowRow(
-                        modifier = Modifier.animateContentSize(),
-                        horizontalArrangement = Arrangement.spacedBy(4.dp),
-                        verticalArrangement = Arrangement.spacedBy(4.dp),
-                    ) {
-                        if (device.isHeadsetBeingCharged == true) {
-                            StatusChip(
-                                icon = Icons.TwoTone.BatteryChargingFull,
-                                label = stringResource(R.string.pods_charging_label),
-                            )
-                        }
-                        if (device.isBeingWorn == true) {
-                            StatusChip(
-                                icon = Icons.TwoTone.Hearing,
-                                label = stringResource(R.string.pods_inear_label),
-                            )
-                        }
-                    }
-                }
-            }
-
-            // Cached battery indicator
-            if (device.isBatteryCached && !device.isLive) {
-                Spacer(modifier = Modifier.height(4.dp))
-                Text(
-                    text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.align(Alignment.End),
+            if (isCollapsed) {
+                CompactBatterySummary(device = device)
+            } else {
+                SinglePodsCardExpanded(
+                    device = device,
+                    showDebug = showDebug,
+                    now = now,
+                    onAncModeChange = onAncModeChange,
                 )
-            }
-
-            // ANC mode selector
-            val ancMode = device.ancMode
-            if (device.isAapConnected && device.hasAncControl && ancMode != null) {
-                Spacer(modifier = Modifier.height(12.dp))
-                AncModeSelector(
-                    currentMode = ancMode.current,
-                    supportedModes = device.visibleAncModes,
-                    onModeSelected = { onAncModeChange?.invoke(it) },
-                    pendingMode = device.pendingAncMode,
-                )
-            }
-
-            // Debug info
-            if (showDebug) {
-                DebugSection(rawDataHex = device.rawDataHex)
             }
         }
+    }
+}
+
+@Composable
+private fun ColumnScope.SinglePodsCardExpanded(
+    device: PodDevice,
+    showDebug: Boolean,
+    now: Instant,
+    onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)?,
+) {
+    val context = LocalContext.current
+
+    val clamped = device.batteryHeadset?.coerceIn(0f, 1f)
+    val animatedProgress by animateFloatAsState(
+        targetValue = clamped ?: 0f,
+        animationSpec = tween(600, easing = FastOutSlowInEasing),
+        label = "gaugeProgress",
+    )
+
+    val ringColor = when {
+        clamped == null -> MaterialTheme.colorScheme.surfaceVariant
+        clamped > 0.30f -> MaterialTheme.colorScheme.primary
+        clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
+        else -> MaterialTheme.colorScheme.error
+    }
+
+    Spacer(modifier = Modifier.height(12.dp))
+
+    // Central gauge
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .then(if (!device.isLive) Modifier.alpha(0.7f) else Modifier),
+        shape = RoundedCornerShape(12.dp),
+        tonalElevation = 4.dp,
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier.size(88.dp),
+            ) {
+                // Track ring
+                CircularProgressIndicator(
+                    progress = { 1f },
+                    modifier = Modifier.size(88.dp),
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    strokeWidth = 8.dp,
+                    trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                    strokeCap = StrokeCap.Round,
+                )
+
+                // Progress ring
+                if (clamped != null) {
+                    CircularProgressIndicator(
+                        progress = { animatedProgress },
+                        modifier = Modifier.size(88.dp),
+                        color = ringColor,
+                        strokeWidth = 8.dp,
+                        trackColor = MaterialTheme.colorScheme.surfaceVariant,
+                        strokeCap = StrokeCap.Round,
+                    )
+                }
+
+                // Battery text inside ring
+                Text(
+                    text = formatBatteryPercent(context, device.batteryHeadset),
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = if (device.batteryHeadset != null) {
+                        MaterialTheme.colorScheme.onSurface
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    },
+                )
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Status chips
+            FlowRow(
+                modifier = Modifier.animateContentSize(),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                if (device.isHeadsetBeingCharged == true) {
+                    StatusChip(
+                        icon = Icons.TwoTone.BatteryChargingFull,
+                        label = stringResource(R.string.pods_charging_label),
+                    )
+                }
+                if (device.isBeingWorn == true) {
+                    StatusChip(
+                        icon = Icons.TwoTone.Hearing,
+                        label = stringResource(R.string.pods_inear_label),
+                    )
+                }
+            }
+        }
+    }
+
+    // Cached battery indicator
+    if (device.isBatteryCached && !device.isLive) {
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = stringResource(R.string.battery_cached_label, device.cachedBatteryFormatted(now)),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.align(Alignment.End),
+        )
+    }
+
+    // ANC mode selector
+    val ancMode = device.ancMode
+    if (device.isAapConnected && device.hasAncControl && ancMode != null) {
+        Spacer(modifier = Modifier.height(12.dp))
+        AncModeSelector(
+            currentMode = ancMode.current,
+                    supportedModes = device.visibleAncModes,
+            onModeSelected = { onAncModeChange?.invoke(it) },
+            pendingMode = device.pendingAncMode,
+        )
+    }
+
+    // Debug info
+    if (showDebug) {
+        DebugSection(rawDataHex = device.rawDataHex)
     }
 }
 
@@ -304,6 +340,18 @@ private fun SinglePodsCardCachedPreview() = PreviewWrapper {
         device = MockPodDataProvider.singlePodCachedOnly(),
         showDebug = false,
         now = SystemTimeSource.now(),
+    )
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardCollapsedPreview() = PreviewWrapper {
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodMonitored(),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+        isCollapsed = true,
+        onToggleCollapse = {},
     )
 }
 

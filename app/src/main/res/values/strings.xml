@@ -259,7 +259,10 @@
 
     <string name="pods_dual_left_label">Left pod</string>
     <string name="pods_dual_right_label">Right pod</string>
+    <string name="pods_dual_left_short_label">L</string>
+    <string name="pods_dual_right_short_label">R</string>
     <string name="pods_case_label">Case</string>
+    <string name="battery_unavailable_label">Battery unavailable</string>
     <string name="pods_case_status_open_label">Open</string>
     <string name="pods_case_status_closed_label">Closed</string>
     <string name="pods_connection_state_disconnected_label">Not connected to a device</string>
