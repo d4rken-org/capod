@@ -1,15 +1,14 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
 import android.annotation.SuppressLint
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
-import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
-import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
@@ -31,7 +30,7 @@ import java.io.IOException
 /**
  * Manages a single AAP L2CAP connection to a device.
  * Thin socket wrapper — all session logic lives in [AapSessionEngine].
- * Internal — not exposed outside [AapConnectionManager].
+ * Internal — not exposed outside [eu.darken.capod.pods.core.apple.aap.AapConnectionManager].
  */
 @SuppressLint("MissingPermission")
 internal class AapConnection(
@@ -67,7 +66,7 @@ internal class AapConnection(
             val sock = socketFactory.createSocket(device, PSM)
             sock.connect()
             socket = sock
-            log(TAG, INFO) { "Connected to ${device.address}" }
+            log(TAG, Logging.Priority.INFO) { "Connected to ${device.address}" }
 
             engine.onHandshakeSent()
 
@@ -99,7 +98,7 @@ internal class AapConnection(
             // Launch read loop in the provided scope — connect() returns immediately
             readerJob = scope.launch(Dispatchers.IO) { readLoop(sock) }
         } catch (e: Exception) {
-            log(TAG, ERROR) { "Connection failed: $e" }
+            log(TAG, Logging.Priority.ERROR) { "Connection failed: $e" }
             cleanupSocket()
             engine.reset()
             throw e
@@ -107,7 +106,7 @@ internal class AapConnection(
     }
 
     suspend fun disconnect() = withContext(Dispatchers.IO) {
-        log(TAG, INFO) { "Disconnecting" }
+        log(TAG, Logging.Priority.INFO) { "Disconnecting" }
         readerJob?.cancel()
         readerJob = null
         engine.reset()
@@ -127,7 +126,7 @@ internal class AapConnection(
                 sock.outputStream.write(bytes)
                 sock.outputStream.flush()
                 val hex = bytes.joinToString(" ") { "%02X".format(it) }
-                log(TAG, VERBOSE) { "SEND cmd=$command len=${bytes.size} raw=$hex" }
+                log(TAG, Logging.Priority.VERBOSE) { "SEND cmd=$command len=${bytes.size} raw=$hex" }
             }
         }
     }
@@ -145,13 +144,13 @@ internal class AapConnection(
 
                 // L2CAP SEQPACKET: each read() returns exactly one complete message
                 val raw = buf.copyOfRange(0, len)
-                val message = AapMessage.Companion.parse(raw)
+                val message = AapMessage.parse(raw)
                 if (message != null) {
                     engine.processMessage(message)
                 }
             }
         } catch (e: IOException) {
-            if (isActive) log(TAG, ERROR) { "Read error: $e" }
+            if (isActive) log(TAG, Logging.Priority.ERROR) { "Read error: $e" }
         } finally {
             engine.reset()
             cleanupSocket()

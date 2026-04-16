@@ -1,5 +1,6 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Instant
 import kotlin.reflect.KClass
@@ -35,11 +36,11 @@ internal class AapAncController {
         val previous = podState.settings[key]
         val updatedRuntime = runtimeState.copy(latestObservedAncMode = value)
         val timerActions = mutableListOf<EngineTimerAction>()
-        timerActions += planAllowOffInferenceTimer(podState, updatedRuntime)
+        timerActions.plusAssign(planAllowOffInferenceTimer(podState, updatedRuntime))
 
         val isFirstAncMode = podState.setting<AapSetting.AncMode>() == null
         return if (isFirstAncMode || isRecentAncSend) {
-            timerActions += EngineTimerAction.Cancel(EngineTimerKey.AncDebounce)
+            timerActions.plusAssign(EngineTimerAction.Cancel(EngineTimerKey.AncDebounce))
             AncDecision(
                 podState = applyAncSetting(podState, key, value, now, isRecentAncSend),
                 runtimeState = updatedRuntime.copy(pendingDebouncedAnc = null),
@@ -47,7 +48,7 @@ internal class AapAncController {
                 logs = listOf("Setting: ${key.simpleName} = $value [was: $previous]"),
             )
         } else {
-            timerActions += EngineTimerAction.Start(EngineTimerKey.AncDebounce, 1500L)
+            timerActions.plusAssign(EngineTimerAction.Start(EngineTimerKey.AncDebounce, 1500L))
             AncDecision(
                 podState = podState,
                 runtimeState = updatedRuntime.copy(

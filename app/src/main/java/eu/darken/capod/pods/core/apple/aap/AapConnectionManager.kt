@@ -3,11 +3,12 @@ package eu.darken.capod.pods.core.apple.aap
 import android.bluetooth.BluetoothDevice
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
-import eu.darken.capod.common.debug.logging.log
-import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
 import eu.darken.capod.common.coroutine.AppScope
+import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.engine.AapConnection
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
@@ -78,7 +79,7 @@ class AapConnectionManager @Inject constructor(
         // Clear stale intentional-disconnect flag from previous connection lifecycle
         intentionalDisconnects.remove(address)
 
-        val profile = AapDeviceProfile.Companion.forModel(model)
+        val profile = AapDeviceProfile.forModel(model)
         val connection = AapConnection(device, profile, socketFactory, timeSource = timeSource)
         connections[address] = connection
 

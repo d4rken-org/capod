@@ -1,6 +1,7 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
 import eu.darken.capod.common.TimeSource
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 

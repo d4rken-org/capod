@@ -1,6 +1,5 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
-import eu.darken.capod.pods.core.apple.aap.HidTracker.HidFrameType
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
@@ -23,11 +22,11 @@ class HidTrackerTest : BaseTest() {
         fun `service directory frame from Pro 3 capture`() {
             val payload = hexToBytes(
                 "FE 00 00 06 41 50 00 00 00 80 00 00 41 4F 50 00 00 80 00 00 " +
-                "52 54 50 00 00 80 00 00 42 54 4D 00 00 80 00 00 " +
-                "44 53 50 31 00 80 00 00 44 53 50 32 00 80 00 00"
+                        "52 54 50 00 00 80 00 00 42 54 4D 00 00 80 00 00 " +
+                        "44 53 50 31 00 80 00 00 44 53 50 32 00 80 00 00"
             )
             val result = HidTracker.classify(payload)
-            result.shouldBeInstanceOf<HidFrameType.ServiceDirectory>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.ServiceDirectory>()
             result.services.shouldContainExactly("AP", "AOP", "RTP", "BTM", "DSP1", "DSP2")
         }
 
@@ -36,7 +35,7 @@ class HidTrackerTest : BaseTest() {
             val fill = ByteArray(65) { 0xFF.toByte() }
             val payload = hexToBytes("00 04 00 00 44 00 01 A1 81") + fill
             val result = HidTracker.classify(payload)
-            result.shouldBeInstanceOf<HidFrameType.Descriptor>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.Descriptor>()
             result.phase shouldBe 0x81
             result.fill shouldBe 0xFF
         }
@@ -46,7 +45,7 @@ class HidTrackerTest : BaseTest() {
             val fill = ByteArray(65) { 0xEF.toByte() }
             val payload = hexToBytes("00 04 00 00 44 00 01 C3 02") + fill
             val result = HidTracker.classify(payload)
-            result.shouldBeInstanceOf<HidFrameType.Descriptor>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.Descriptor>()
             result.phase shouldBe 0x02
             result.fill shouldBe 0xEF
         }
@@ -55,7 +54,7 @@ class HidTrackerTest : BaseTest() {
         fun `terminator frame`() {
             val payload = hexToBytes("00 04 00 00 01 00 FF")
             val result = HidTracker.classify(payload)
-            result.shouldBeInstanceOf<HidFrameType.Terminator>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.Terminator>()
             result.payloadSize shouldBe 7
         }
 
@@ -63,20 +62,20 @@ class HidTrackerTest : BaseTest() {
         fun `short frame ending in FF but not 7 bytes is Other`() {
             val payload = hexToBytes("00 04 00 FF")
             val result = HidTracker.classify(payload)
-            result.shouldBeInstanceOf<HidFrameType.Other>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.Other>()
         }
 
         @Test
         fun `empty payload is Other`() {
             val result = HidTracker.classify(ByteArray(0))
-            result.shouldBeInstanceOf<HidFrameType.Other>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.Other>()
         }
 
         @Test
         fun `random payload is Other`() {
             val payload = hexToBytes("AB CD EF 01 02 03 04 05 06 07 08")
             val result = HidTracker.classify(payload)
-            result.shouldBeInstanceOf<HidFrameType.Other>()
+            result.shouldBeInstanceOf<HidTracker.HidFrameType.Other>()
         }
     }
 

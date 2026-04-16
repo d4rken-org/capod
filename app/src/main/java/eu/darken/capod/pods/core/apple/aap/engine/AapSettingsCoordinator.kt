@@ -1,6 +1,7 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
 import eu.darken.capod.common.TimeSource
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import kotlin.reflect.KClass
@@ -95,38 +96,47 @@ internal class AapSettingsCoordinator(
                 val cur = baseState.setting<AapSetting.ConversationalAwareness>() ?: return null
                 AapSetting.ConversationalAwareness::class to cur.copy(enabled = command.enabled)
             }
+
             is AapCommand.SetNcWithOneAirPod -> {
                 val cur = baseState.setting<AapSetting.NcWithOneAirPod>() ?: return null
                 AapSetting.NcWithOneAirPod::class to cur.copy(enabled = command.enabled)
             }
+
             is AapCommand.SetVolumeSwipe -> {
                 val cur = baseState.setting<AapSetting.VolumeSwipe>() ?: return null
                 AapSetting.VolumeSwipe::class to cur.copy(enabled = command.enabled)
             }
+
             is AapCommand.SetPersonalizedVolume -> {
                 val cur = baseState.setting<AapSetting.PersonalizedVolume>() ?: return null
                 AapSetting.PersonalizedVolume::class to cur.copy(enabled = command.enabled)
             }
+
             is AapCommand.SetToneVolume -> {
                 baseState.setting<AapSetting.ToneVolume>() ?: return null
                 AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = command.level)
             }
+
             is AapCommand.SetAdaptiveAudioNoise -> {
                 baseState.setting<AapSetting.AdaptiveAudioNoise>() ?: return null
                 AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = command.level)
             }
+
             is AapCommand.SetPressSpeed -> {
                 baseState.setting<AapSetting.PressSpeed>() ?: return null
                 AapSetting.PressSpeed::class to AapSetting.PressSpeed(value = command.value)
             }
+
             is AapCommand.SetPressHoldDuration -> {
                 baseState.setting<AapSetting.PressHoldDuration>() ?: return null
                 AapSetting.PressHoldDuration::class to AapSetting.PressHoldDuration(value = command.value)
             }
+
             is AapCommand.SetVolumeSwipeLength -> {
                 baseState.setting<AapSetting.VolumeSwipeLength>() ?: return null
                 AapSetting.VolumeSwipeLength::class to AapSetting.VolumeSwipeLength(value = command.value)
             }
+
             is AapCommand.SetEndCallMuteMic -> {
                 baseState.setting<AapSetting.EndCallMuteMic>() ?: return null
                 AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(
@@ -134,24 +144,31 @@ internal class AapSettingsCoordinator(
                     endCall = command.endCall,
                 )
             }
+
             is AapCommand.SetMicrophoneMode -> {
                 AapSetting.MicrophoneMode::class to AapSetting.MicrophoneMode(mode = command.mode)
             }
+
             is AapCommand.SetEarDetectionEnabled -> {
                 AapSetting.EarDetectionEnabled::class to AapSetting.EarDetectionEnabled(enabled = command.enabled)
             }
+
             is AapCommand.SetListeningModeCycle -> {
                 AapSetting.ListeningModeCycle::class to AapSetting.ListeningModeCycle(modeMask = command.modeMask)
             }
+
             is AapCommand.SetAllowOffOption -> {
                 AapSetting.AllowOffOption::class to AapSetting.AllowOffOption(enabled = command.enabled)
             }
+
             is AapCommand.SetStemConfig -> {
                 AapSetting.StemConfig::class to AapSetting.StemConfig(claimedPressMask = command.claimedPressMask)
             }
+
             is AapCommand.SetSleepDetection -> {
                 AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled = command.enabled)
             }
+
             is AapCommand.SetDeviceName -> {
                 val currentInfo = baseState.deviceInfo ?: return null
                 return baseState.copy(
@@ -178,6 +195,7 @@ internal class AapSettingsCoordinator(
             val cur = s.setting<AapSetting.EndCallMuteMic>()
             cur != null && cur.muteMic == command.muteMic && cur.endCall == command.endCall
         }
+
         is AapCommand.SetMicrophoneMode -> { s -> s.setting<AapSetting.MicrophoneMode>()?.mode == command.mode }
         is AapCommand.SetEarDetectionEnabled -> { s -> s.setting<AapSetting.EarDetectionEnabled>()?.enabled == command.enabled }
         is AapCommand.SetListeningModeCycle -> { s -> s.setting<AapSetting.ListeningModeCycle>()?.modeMask == command.modeMask }

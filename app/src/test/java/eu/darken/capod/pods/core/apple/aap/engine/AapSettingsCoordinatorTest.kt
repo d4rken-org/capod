@@ -1,6 +1,7 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
 import eu.darken.capod.common.TimeSource
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
@@ -52,7 +53,8 @@ class AapSettingsCoordinatorTest : BaseTest() {
         fun `enqueue ANC returns pendingAncMode in snapshot`() {
             val coord = createCoordinator()
 
-            val result = coord.enqueue(emptyList(), AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), stateWithSetting())
+            val result =
+                coord.enqueue(emptyList(), AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), stateWithSetting())
 
             result.optimisticState.shouldBeNull()
             result.snapshot.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
@@ -96,7 +98,8 @@ class AapSettingsCoordinatorTest : BaseTest() {
             )
 
             val first = coord.enqueue(emptyList(), AapCommand.SetAdaptiveAudioNoise(70), state)
-            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
+            val second =
+                coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
 
             second.snapshot.count shouldBe 2
         }
@@ -133,7 +136,8 @@ class AapSettingsCoordinatorTest : BaseTest() {
             )
 
             val first = coord.enqueue(emptyList(), AapCommand.SetToneVolume(80), state)
-            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
+            val second =
+                coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
             val result = coord.flush(second.pendingCommands)
 
             result.commands shouldHaveSize 2
@@ -150,7 +154,8 @@ class AapSettingsCoordinatorTest : BaseTest() {
             )
 
             val first = coord.enqueue(emptyList(), AapCommand.SetToneVolume(80), state)
-            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF), state)
+            val second =
+                coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF), state)
             val third = coord.enqueue(second.pendingCommands, AapCommand.SetAllowOffOption(true), state)
             val result = coord.flush(third.pendingCommands)
 
