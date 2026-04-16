@@ -1,4 +1,7 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
+
+import java.nio.ByteBuffer
+import java.nio.charset.CodingErrorAction
 
 /**
  * Diagnostic-only NUL-delimited segmentation of a 0x1D INFORMATION payload, used for
@@ -28,11 +31,11 @@ internal object AapDeviceInfoDiagnostics {
 
             val utf8: String? = try {
                 Charsets.UTF_8.newDecoder()
-                    .onMalformedInput(java.nio.charset.CodingErrorAction.REPORT)
-                    .onUnmappableCharacter(java.nio.charset.CodingErrorAction.REPORT)
-                    .decode(java.nio.ByteBuffer.wrap(segBytes))
+                    .onMalformedInput(CodingErrorAction.REPORT)
+                    .onUnmappableCharacter(CodingErrorAction.REPORT)
+                    .decode(ByteBuffer.wrap(segBytes))
                     .toString()
-            } catch (_: java.nio.charset.CharacterCodingException) {
+            } catch (_: CharacterCodingException) {
                 null
             }
             val hex = segBytes.joinToString("") { "%02X".format(it) }

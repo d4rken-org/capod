@@ -1,4 +1,4 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
@@ -15,7 +15,7 @@ import testhelpers.BaseTest
  * The helper must:
  * - Work on real captured 0x1D payloads (matches production decoder on ASCII slots).
  * - Decode non-ASCII UTF-8 (emoji, non-Latin script) — the production parser drops these.
- * - Always emit segments for any payload shape, even when [DefaultAapDeviceProfile.decodeDeviceInfo]
+ * - Always emit segments for any payload shape, even when [eu.darken.capod.pods.core.apple.aap.protocol.DefaultAapDeviceProfile.decodeDeviceInfo]
  *   would return null (malformed / unknown-shaped packets).
  */
 class AapDeviceInfoDiagnosticsTest : BaseTest() {
@@ -78,8 +78,8 @@ class AapDeviceInfoDiagnosticsTest : BaseTest() {
         // so any emoji / non-Latin engraving is silently skipped. The diagnostic helper must not.
         val engraving = "My AirPods 🌈"
         val payload = hex("02 DF 00 04 00") +
-            engraving.toByteArray(Charsets.UTF_8) + byteArrayOf(0x00) +
-            "A3048".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00)
+                engraving.toByteArray(Charsets.UTF_8) + byteArrayOf(0x00) +
+                "A3048".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00)
 
         val segments = AapDeviceInfoDiagnostics.describeSegments(payload)
 
@@ -94,8 +94,8 @@ class AapDeviceInfoDiagnosticsTest : BaseTest() {
         // diagnostic dump must still surface whatever segments it finds so maintainers can inspect
         // unexpected-shape packets from an engraved device.
         val payload = hex("02 DF 00 04 00") +
-            "Name".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00) +
-            "Model".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00)
+                "Name".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00) +
+                "Model".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00)
         val fullMessageBytes = hex("04 00 04 00 1D 00") + payload
         val message = AapMessage.parse(fullMessageBytes)!!
 

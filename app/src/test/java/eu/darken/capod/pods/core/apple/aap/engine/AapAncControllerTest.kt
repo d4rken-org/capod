@@ -1,11 +1,13 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.time.Instant
+import kotlin.reflect.KClass
 
 class AapAncControllerTest : BaseTest() {
 
@@ -17,7 +19,7 @@ class AapAncControllerTest : BaseTest() {
         AapSetting.AncMode.Value.ADAPTIVE,
     )
 
-    private fun podStateWith(vararg settings: Pair<kotlin.reflect.KClass<out AapSetting>, AapSetting>): AapPodState =
+    private fun podStateWith(vararg settings: Pair<KClass<out AapSetting>, AapSetting>): AapPodState =
         AapPodState(
             connectionState = AapPodState.ConnectionState.READY,
             settings = settings.toMap(),

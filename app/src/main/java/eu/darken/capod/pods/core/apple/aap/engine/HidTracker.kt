@@ -1,4 +1,4 @@
-package eu.darken.capod.pods.core.apple.aap
+package eu.darken.capod.pods.core.apple.aap.engine
 
 /**
  * Batches cmd 0x0017 HID descriptor frames and emits structured summaries.
@@ -21,6 +21,7 @@ internal class HidTracker(private val log: (String) -> Unit) {
                 val names = type.services.joinToString(", ")
                 log("HID: services=[$names] (${payload.size}B)")
             }
+
             is HidFrameType.Descriptor -> {
                 if (bulkCount == 0) {
                     bulkPhase = type.phase
@@ -35,10 +36,12 @@ internal class HidTracker(private val log: (String) -> Unit) {
                     bulkCount = 1
                 }
             }
+
             is HidFrameType.Terminator -> {
                 flush()
                 log("HID: terminator (${type.payloadSize}B)")
             }
+
             is HidFrameType.Other -> {
                 flush()
                 val hex = payload.joinToString(" ") { "%02X".format(it) }

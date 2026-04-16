@@ -19,7 +19,7 @@ data class AapMessage(
     companion object {
         /**
          * Parse a complete AAP message from raw bytes.
-         * AAP messages have the format: [4-byte header] [2-byte command type] [payload...]
+         * AAP messages have the format: [4-byte header] [2-byte command type] [payload…]
          * Minimum message size is 6 bytes (header + command type with no payload).
          */
         fun parse(raw: ByteArray): AapMessage? {
