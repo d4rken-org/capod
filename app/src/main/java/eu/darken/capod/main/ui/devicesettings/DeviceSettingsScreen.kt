@@ -3,7 +3,6 @@ package eu.darken.capod.main.ui.devicesettings
 import android.content.Intent
 import android.os.Build
 import android.provider.Settings
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.foundation.layout.Column
@@ -19,7 +18,6 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.automirrored.twotone.VolumeUp
 import androidx.compose.material.icons.twotone.BluetoothConnected
-import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.Headphones
 import androidx.compose.material.icons.twotone.Hearing
@@ -29,9 +27,7 @@ import androidx.compose.material.icons.twotone.Mic
 import androidx.compose.material.icons.twotone.Nightlight
 import androidx.compose.material.icons.twotone.PauseCircle
 import androidx.compose.material.icons.twotone.PlayCircle
-import androidx.compose.material.icons.twotone.Speed
 import androidx.compose.material.icons.twotone.Swipe
-import androidx.compose.material.icons.twotone.Timer
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.Workspaces
 import androidx.compose.material3.AlertDialog
@@ -41,13 +37,13 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -91,6 +87,12 @@ import eu.darken.capod.main.ui.devicesettings.cards.DeviceDetailItem
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.buildModelLabel
 import eu.darken.capod.main.ui.devicesettings.cards.NotConnectedCard
+import eu.darken.capod.main.ui.devicesettings.components.CallControlSettings
+import eu.darken.capod.main.ui.devicesettings.components.ConnectedDevicesList
+import eu.darken.capod.main.ui.devicesettings.components.EqBarsChart
+import eu.darken.capod.main.ui.devicesettings.components.PressHoldDurationSetting
+import eu.darken.capod.main.ui.devicesettings.components.PressSpeedSetting
+import eu.darken.capod.main.ui.devicesettings.components.VolumeSwipeLengthSetting
 import eu.darken.capod.main.ui.components.icon
 import eu.darken.capod.main.ui.components.shortLabel
 import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
@@ -121,6 +123,11 @@ fun DeviceSettingsScreenHost(
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     var showRenameUnavailableDialog by rememberSaveable { mutableStateOf(false) }
+    var showListeningModeCycleDialog by rememberSaveable { mutableStateOf(false) }
+    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
+    val offRejectedMessage = stringResource(R.string.device_settings_anc_off_rejected_message)
+    val offRejectedAction = stringResource(R.string.device_settings_anc_off_rejected_action)
+
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
             when (event) {
@@ -134,6 +141,17 @@ fun DeviceSettingsScreenHost(
                 }
                 DeviceSettingsViewModel.Event.SystemRenameUnavailable -> {
                     showRenameUnavailableDialog = true
+                }
+                DeviceSettingsViewModel.Event.OffModeRejectedByDevice -> {
+                    val isPro = state?.isPro == true
+                    val result = snackbarHostState.showSnackbar(
+                        message = offRejectedMessage,
+                        actionLabel = if (isPro) offRejectedAction else null,
+                        withDismissAction = true,
+                    )
+                    if (result == SnackbarResult.ActionPerformed && isPro) {
+                        showListeningModeCycleDialog = true
+                    }
                 }
             }
         }
@@ -149,12 +167,13 @@ fun DeviceSettingsScreenHost(
         )
     }
 
-    val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val currentState = state ?: return
 
     DeviceSettingsScreen(
         state = currentState,
         snackbarHostState = snackbarHostState,
+        showListeningModeCycleDialog = showListeningModeCycleDialog,
+        onShowListeningModeCycleDialogChange = { showListeningModeCycleDialog = it },
         onNavigateUp = { vm.navUp() },
         onAncModeChange = { vm.setAncMode(it) },
         onConversationalAwarenessChange = { vm.setConversationalAwareness(it) },
@@ -192,6 +211,8 @@ fun DeviceSettingsScreenHost(
 fun DeviceSettingsScreen(
     state: DeviceSettingsViewModel.State,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    showListeningModeCycleDialog: Boolean = false,
+    onShowListeningModeCycleDialogChange: (Boolean) -> Unit = {},
     onNavigateUp: () -> Unit,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit = {},
     onConversationalAwarenessChange: (Boolean) -> Unit = {},
@@ -230,7 +251,6 @@ fun DeviceSettingsScreen(
     val reactions = state.reactions
 
     var showAutoConnectConditionDialog by remember { mutableStateOf(false) }
-    var showListeningModeCycleDialog by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -584,7 +604,7 @@ fun DeviceSettingsScreen(
                                     ),
                                     onClick = {
                                         if (isPro) {
-                                            showListeningModeCycleDialog = true
+                                            onShowListeningModeCycleDialogChange(true)
                                         } else {
                                             onUpgrade()
                                         }
@@ -723,37 +743,21 @@ fun DeviceSettingsScreen(
                                 )
                             }
                             if (features.hasEndCallMuteMic && endCallMuteMic != null) {
-                                EndCallMuteMicControl(
+                                CallControlSettings(
                                     current = endCallMuteMic,
                                     onChange = onEndCallMuteMicChange,
                                     enabled = enabled,
                                 )
                             }
                             if (features.hasPressSpeed && pressSpd != null) {
-                                SegmentedSettingRow(
-                                    icon = Icons.TwoTone.Speed,
-                                    title = stringResource(R.string.device_settings_press_speed_label),
-                                    subtitle = stringResource(R.string.device_settings_press_speed_description),
-                                    options = listOf(
-                                        stringResource(R.string.device_settings_press_speed_default) to AapSetting.PressSpeed.Value.DEFAULT,
-                                        stringResource(R.string.device_settings_press_speed_slower) to AapSetting.PressSpeed.Value.SLOWER,
-                                        stringResource(R.string.device_settings_press_speed_slowest) to AapSetting.PressSpeed.Value.SLOWEST,
-                                    ),
+                                PressSpeedSetting(
                                     selected = pressSpd.value,
                                     onSelected = onPressSpeedChange,
                                     enabled = enabled,
                                 )
                             }
                             if (features.hasPressHoldDuration && pressHold != null) {
-                                SegmentedSettingRow(
-                                    icon = Icons.TwoTone.Timer,
-                                    title = stringResource(R.string.device_settings_press_hold_label),
-                                    subtitle = stringResource(R.string.device_settings_press_hold_description),
-                                    options = listOf(
-                                        stringResource(R.string.device_settings_press_hold_default) to AapSetting.PressHoldDuration.Value.DEFAULT,
-                                        stringResource(R.string.device_settings_press_hold_shorter) to AapSetting.PressHoldDuration.Value.SHORTER,
-                                        stringResource(R.string.device_settings_press_hold_shortest) to AapSetting.PressHoldDuration.Value.SHORTEST,
-                                    ),
+                                PressHoldDurationSetting(
                                     selected = pressHold.value,
                                     onSelected = onPressHoldDurationChange,
                                     enabled = enabled,
@@ -770,15 +774,7 @@ fun DeviceSettingsScreen(
                                 )
                             }
                             if (features.hasVolumeSwipeLength && volSwipeLen != null) {
-                                SegmentedSettingRow(
-                                    icon = Icons.TwoTone.Swipe,
-                                    title = stringResource(R.string.device_settings_volume_swipe_length_label),
-                                    subtitle = stringResource(R.string.device_settings_volume_swipe_length_description),
-                                    options = listOf(
-                                        stringResource(R.string.device_settings_volume_swipe_length_default) to AapSetting.VolumeSwipeLength.Value.DEFAULT,
-                                        stringResource(R.string.device_settings_volume_swipe_length_longer) to AapSetting.VolumeSwipeLength.Value.LONGER,
-                                        stringResource(R.string.device_settings_volume_swipe_length_longest) to AapSetting.VolumeSwipeLength.Value.LONGEST,
-                                    ),
+                                VolumeSwipeLengthSetting(
                                     selected = volSwipeLen.value,
                                     onSelected = onVolumeSwipeLengthChange,
                                     enabled = enabled,
@@ -841,7 +837,7 @@ fun DeviceSettingsScreen(
                             onListeningModeCycleChange(newMask)
                         }
                     },
-                    onDismiss = { showListeningModeCycleDialog = false },
+                    onDismiss = { onShowListeningModeCycleDialogChange(false) },
                 )
             }
         }
@@ -1047,7 +1043,7 @@ private fun AdaptiveNoiseSlider(
 }
 
 @Composable
-private fun SettingsCompoundHeader(
+internal fun SettingsCompoundHeader(
     icon: ImageVector,
     title: String,
     subtitle: String?,
@@ -1078,7 +1074,7 @@ private fun SettingsCompoundHeader(
 }
 
 @Composable
-private fun <T> SegmentedSettingRow(
+internal fun <T> SegmentedSettingRow(
     icon: ImageVector,
     title: String,
     options: List<Pair<String, T>>,
@@ -1115,199 +1111,6 @@ private fun <T> SegmentedSettingRow(
                                 overflow = TextOverflow.Ellipsis,
                             )
                         },
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun EndCallMuteMicControl(
-    current: AapSetting.EndCallMuteMic,
-    onChange: (AapSetting.EndCallMuteMic.MuteMicMode, AapSetting.EndCallMuteMic.EndCallMode) -> Unit,
-    enabled: Boolean,
-) {
-    val optionASelected = current.endCall == AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS
-
-    Surface(
-        color = MaterialTheme.colorScheme.surfaceContainerLow,
-        shape = RoundedCornerShape(16.dp),
-        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
-    ) {
-        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp)) {
-            SettingsCompoundHeader(
-                icon = Icons.TwoTone.TouchApp,
-                title = stringResource(R.string.device_settings_end_call_mute_mic_label),
-                subtitle = stringResource(R.string.device_settings_end_call_mute_mic_description),
-                enabled = enabled,
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
-            Column(modifier = Modifier.selectableGroup()) {
-                CallControlOption(
-                    title = stringResource(R.string.device_settings_end_call_mute_mic_option_a_title),
-                    subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_a_subtitle),
-                    selected = optionASelected,
-                    enabled = enabled,
-                    onClick = {
-                        onChange(
-                            AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
-                            AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
-                        )
-                    },
-                )
-
-                CallControlOption(
-                    title = stringResource(R.string.device_settings_end_call_mute_mic_option_b_title),
-                    subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_b_subtitle),
-                    selected = !optionASelected,
-                    enabled = enabled,
-                    onClick = {
-                        onChange(
-                            AapSetting.EndCallMuteMic.MuteMicMode.SINGLE_PRESS,
-                            AapSetting.EndCallMuteMic.EndCallMode.DOUBLE_PRESS,
-                        )
-                    },
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun CallControlOption(
-    title: String,
-    subtitle: String,
-    selected: Boolean,
-    enabled: Boolean,
-    onClick: () -> Unit,
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .selectable(
-                selected = selected,
-                enabled = enabled,
-                role = Role.RadioButton,
-                onClick = { if (!selected) onClick() },
-            )
-            .padding(vertical = 4.dp),
-    ) {
-        RadioButton(
-            selected = selected,
-            onClick = null,
-            enabled = enabled,
-        )
-        Column(modifier = Modifier.padding(start = 4.dp)) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface.copy(alpha = if (enabled) 1f else 0.5f),
-            )
-            Text(
-                text = subtitle,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = if (enabled) 1f else 0.5f),
-            )
-        }
-    }
-}
-
-@Composable
-private fun EqBarsChart(
-    sets: List<List<Float>>,
-    modifier: Modifier = Modifier,
-) {
-    val primary = MaterialTheme.colorScheme.primary
-    val outline = MaterialTheme.colorScheme.outlineVariant
-
-    // Use the first EQ set (main)
-    val bands = sets.firstOrNull() ?: return
-    if (bands.size != 8) return
-
-    Canvas(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(80.dp),
-    ) {
-        val barCount = bands.size
-        val spacing = 4.dp.toPx()
-        val cornerRadius = 4.dp.toPx()
-        val barWidth = (size.width - spacing * (barCount - 1)) / barCount
-
-        for (i in bands.indices) {
-            val x = i * (barWidth + spacing)
-            // Fixed 0-100 scale — values are typically 0-100 from the device
-            val normalized = (bands[i] / 100f).coerceIn(0f, 1f)
-            val barHeight = (normalized * size.height).coerceAtLeast(2.dp.toPx())
-
-            // Background bar (rounded rect)
-            drawRoundRect(
-                color = outline,
-                topLeft = androidx.compose.ui.geometry.Offset(x, 0f),
-                size = androidx.compose.ui.geometry.Size(barWidth, size.height),
-                cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadius),
-            )
-
-            // Filled bar from bottom (rounded rect)
-            drawRoundRect(
-                color = primary,
-                topLeft = androidx.compose.ui.geometry.Offset(x, size.height - barHeight),
-                size = androidx.compose.ui.geometry.Size(barWidth, barHeight),
-                cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerRadius),
-            )
-        }
-    }
-}
-
-@Composable
-private fun ConnectedDevicesList(
-    devices: List<AapSetting.ConnectedDevices.ConnectedDevice>,
-    audioSource: AapSetting.AudioSource?,
-) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)) {
-        Text(
-            text = stringResource(R.string.device_settings_connected_devices_description),
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(bottom = 8.dp),
-        )
-
-        for ((index, device) in devices.withIndex()) {
-            val isSource = audioSource?.sourceMac == device.mac
-            val statusLabel = if (isSource) {
-                when (audioSource?.type) {
-                    AapSetting.AudioSource.AudioSourceType.CALL -> stringResource(R.string.device_settings_connected_device_call)
-                    AapSetting.AudioSource.AudioSourceType.MEDIA -> stringResource(R.string.device_settings_connected_device_media)
-                    else -> ""
-                }
-            } else ""
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    imageVector = Icons.TwoTone.DevicesOther,
-                    contentDescription = null,
-                    tint = if (isSource) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.padding(end = 16.dp),
-                )
-                Column {
-                    Text(
-                        text = stringResource(R.string.device_settings_connected_device_label, index + 1),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = if (isSource) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
-                    )
-                    Text(
-                        text = if (statusLabel.isNotEmpty()) statusLabel else device.mac,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
                 }
             }
