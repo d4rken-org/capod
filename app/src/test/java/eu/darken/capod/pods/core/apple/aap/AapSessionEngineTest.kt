@@ -40,6 +40,10 @@ class AapSessionEngineTest : BaseTest() {
         return AapMessage(raw = raw, commandType = commandType, payload = ByteArray(0))
     }
 
+    @Suppress("UNCHECKED_CAST")
+    private fun settingPair(setting: AapSetting): Pair<KClass<out AapSetting>, AapSetting> =
+        setting::class as KClass<out AapSetting> to setting
+
     /** Build a profile mock with all decode methods stubbed. Does NOT mock encodeCommand (sealed class). */
     private fun mockProfile(block: AapDeviceProfile.() -> Unit = {}): AapDeviceProfile = mockk {
         every { decodeStemPress(any()) } returns null
@@ -356,26 +360,159 @@ class AapSessionEngineTest : BaseTest() {
     inner class InferenceTests {
 
         @Test
-        fun `AncMode OFF infers AllowOffOption true`() {
+        fun `startup OFF while no pod is in ear does not infer AllowOffOption true`() = runTest(UnconfinedTestDispatcher()) {
+            val supportedModes = listOf(
+                AapSetting.AncMode.Value.OFF,
+                AapSetting.AncMode.Value.ON,
+                AapSetting.AncMode.Value.ADAPTIVE,
+            )
+            var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
             val profile = mockProfile {
-                every { decodeStemPress(any()) } returns null
-                every { decodeBattery(any()) } returns null
-                every { decodePrivateKeyResponse(any()) } returns null
-                every { decodeDeviceInfo(any()) } returns null
-                every { decodeSetting(any()) } returns (AapSetting.AncMode::class to AapSetting.AncMode(
-                    current = AapSetting.AncMode.Value.OFF,
-                    supported = listOf(AapSetting.AncMode.Value.OFF, AapSetting.AncMode.Value.ON),
-                ))
+                every { decodeSetting(any()) } answers { nextSetting }
             }
             val engine = AapSessionEngine(profile, timeSource)
-            val scope = TestScope(UnconfinedTestDispatcher())
-            engine.start(scope)
+            engine.start(this as TestScope)
             engine.onHandshakeSent()
 
-            // First ANC mode = no debounce, applied immediately
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.OFF,
+                supported = supportedModes,
+            ))
+            engine.processMessage(dummyMessage(commandType = 0x0002))
+            engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+
+            nextSetting = settingPair(AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
+            ))
+            engine.processMessage(dummyMessage())
+            advanceTimeBy(1600L)
+            engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.ADAPTIVE,
+                supported = supportedModes,
+            ))
+            engine.processMessage(dummyMessage())
+            advanceTimeBy(1600L)
+            engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+        }
+
+        @Test
+        fun `stable in-ear OFF infers AllowOffOption true after delay`() = runTest(UnconfinedTestDispatcher()) {
+            val supportedModes = listOf(
+                AapSetting.AncMode.Value.OFF,
+                AapSetting.AncMode.Value.ON,
+                AapSetting.AncMode.Value.ADAPTIVE,
+            )
+            var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+            val profile = mockProfile {
+                every { decodeSetting(any()) } answers { nextSetting }
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.start(this as TestScope)
+            engine.onHandshakeSent()
+
+            nextSetting = settingPair(AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+            ))
+            engine.processMessage(dummyMessage(commandType = 0x0002))
+
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.OFF,
+                supported = supportedModes,
+            ))
+            engine.processMessage(dummyMessage())
+            engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+
+            advanceTimeBy(1600L)
+            engine.state.value.setting<AapSetting.AllowOffOption>()?.enabled shouldBe true
+        }
+
+        @Test
+        fun `later non-OFF ANC update cancels pending AllowOffOption true inference`() = runTest(UnconfinedTestDispatcher()) {
+            val supportedModes = listOf(
+                AapSetting.AncMode.Value.OFF,
+                AapSetting.AncMode.Value.ON,
+                AapSetting.AncMode.Value.ADAPTIVE,
+            )
+            var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+            val profile = mockProfile {
+                every { decodeSetting(any()) } answers { nextSetting }
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.start(this as TestScope)
+            engine.onHandshakeSent()
+
+            nextSetting = settingPair(AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+            ))
+            engine.processMessage(dummyMessage(commandType = 0x0002))
+
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.OFF,
+                supported = supportedModes,
+            ))
             engine.processMessage(dummyMessage())
 
-            engine.state.value.setting<AapSetting.AllowOffOption>()?.enabled shouldBe true
+            advanceTimeBy(500L)
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.ADAPTIVE,
+                supported = supportedModes,
+            ))
+            engine.processMessage(dummyMessage())
+
+            advanceTimeBy(1600L)
+            engine.state.value.setting<AapSetting.AllowOffOption>().shouldBeNull()
+            engine.state.value.setting<AapSetting.AncMode>()!!.current shouldBe AapSetting.AncMode.Value.ADAPTIVE
+        }
+
+        @Test
+        fun `rejected OFF command infers AllowOffOption false`() = runTest(UnconfinedTestDispatcher()) {
+            val supportedModes = listOf(
+                AapSetting.AncMode.Value.OFF,
+                AapSetting.AncMode.Value.ON,
+                AapSetting.AncMode.Value.ADAPTIVE,
+            )
+            var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+            val profile = mockProfile {
+                every { decodeSetting(any()) } answers { nextSetting }
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.startReady(this as TestScope)
+
+            nextSetting = settingPair(AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+            ))
+            engine.processMessage(dummyMessage())
+
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.ADAPTIVE,
+                supported = supportedModes,
+            ))
+            engine.processMessage(dummyMessage())
+
+            nextSetting = settingPair(AapSetting.AllowOffOption(enabled = true))
+            engine.processMessage(dummyMessage())
+
+            val sentCommands = mutableListOf<AapCommand>()
+            engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF)) { sentCommands += it }
+
+            nextSetting = settingPair(AapSetting.AncMode(
+                current = AapSetting.AncMode.Value.ADAPTIVE,
+                supported = supportedModes,
+            ))
+            engine.processMessage(dummyMessage())
+
+            advanceTimeBy(2100L)
+            engine.state.value.setting<AapSetting.AllowOffOption>()?.enabled shouldBe false
+            sentCommands shouldBe listOf(
+                AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF),
+                AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF),
+            )
         }
     }
 

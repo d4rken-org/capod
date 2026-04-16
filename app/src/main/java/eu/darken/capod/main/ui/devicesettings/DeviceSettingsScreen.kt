@@ -99,6 +99,8 @@ import eu.darken.capod.main.ui.devicesettings.dialogs.SystemRenameUnavailableDia
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.firstSeenFormatted
 import eu.darken.capod.monitor.core.lastSeenFormatted
+import eu.darken.capod.monitor.core.resolvedAncCycleMask
+import eu.darken.capod.monitor.core.visibleAncModes
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
@@ -516,9 +518,7 @@ fun DeviceSettingsScreen(
                 val ancMode = device.ancMode
                 val adaptiveNoise = device.adaptiveAudioNoise
                 if (features.hasAncControl && ancMode != null) {
-                    val cycleMask = if (features.hasListeningModeCycle) {
-                        (device.listeningModeCycle ?: AapSetting.ListeningModeCycle(modeMask = 0x0E)).modeMask
-                    } else null
+                    val cycleMask = device.resolvedAncCycleMask
                     val cycleSummary = if (cycleMask != null) listeningModeCycleSummary(context, ancMode.supported, cycleMask) else null
                     val cycleSubtitle = if (cycleSummary != null) {
                         buildString {
@@ -543,7 +543,7 @@ fun DeviceSettingsScreen(
                             NoiseControlCurrentModeControl(
                                 currentMode = ancMode.current,
                                 pendingMode = device.pendingAncMode,
-                                supportedModes = ancMode.supported,
+                                supportedModes = device.visibleAncModes,
                                 onModeSelected = onAncModeChange,
                                 enabled = enabled,
                             )

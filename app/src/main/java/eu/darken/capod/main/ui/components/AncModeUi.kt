@@ -28,19 +28,3 @@ fun AapSetting.AncMode.Value.icon(): ImageVector = when (this) {
     AapSetting.AncMode.Value.ADAPTIVE -> Icons.TwoTone.AutoAwesome
 }
 
-fun AapSetting.AncMode.Value.cycleBit(): Int = when (this) {
-    AapSetting.AncMode.Value.OFF -> 0x01
-    AapSetting.AncMode.Value.ON -> 0x02
-    AapSetting.AncMode.Value.TRANSPARENCY -> 0x04
-    AapSetting.AncMode.Value.ADAPTIVE -> 0x08
-}
-
-fun visibleAncModes(
-    supportedModes: List<AapSetting.AncMode.Value>,
-    currentMode: AapSetting.AncMode.Value,
-    cycleMask: Int?,
-    allowOffEnabled: Boolean,
-): List<AapSetting.AncMode.Value> = supportedModes.filter { mode ->
-    val inCycle = cycleMask?.let { (it and mode.cycleBit()) != 0 } ?: mode != AapSetting.AncMode.Value.OFF
-    inCycle || (mode == AapSetting.AncMode.Value.OFF && allowOffEnabled) || mode == currentMode
-}
