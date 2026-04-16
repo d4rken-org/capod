@@ -226,6 +226,8 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setConversationalAwareness(enabled: Boolean) = send(AapCommand.SetConversationalAwareness(enabled))
 
+    fun setNcWithOneAirPod(enabled: Boolean) = send(AapCommand.SetNcWithOneAirPod(enabled))
+
     fun setPersonalizedVolume(enabled: Boolean) = send(AapCommand.SetPersonalizedVolume(enabled))
 
     fun setToneVolume(level: Int) = sendProGated(AapCommand.SetToneVolume(level))
@@ -317,11 +319,6 @@ class DeviceSettingsViewModel @Inject constructor(
         log(TAG, INFO) { "setOnePodMode($enabled)" }
         launch {
             updateProfileNow { it.copy(onePodMode = enabled) }
-            // Opportunistic immediate sync — NcOnePodSender handles deferred/reconnect
-            val device = deviceMonitor.getDeviceForProfile(targetProfileId.value ?: return@launch)
-            if (device != null && device.isAapConnected && device.model.features.hasNcOneAirpod) {
-                sendInternal(AapCommand.SetNcWithOneAirPod(enabled))
-            }
         }
     }
 

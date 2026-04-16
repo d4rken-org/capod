@@ -26,7 +26,6 @@ class AapLifecycleManager @Inject constructor(
     private val aapKeyPersister: AapKeyPersister,
     private val stemConfigSender: StemConfigSender,
     private val stemPressReaction: StemPressReaction,
-    private val ncOnePodSender: NcOnePodSender,
 ) {
     fun start() {
         log(TAG) { "start()" }
@@ -35,7 +34,6 @@ class AapLifecycleManager @Inject constructor(
             aapKeyPersister.monitor(),
             stemConfigSender.monitor(),
             stemPressReaction.monitor(),
-            ncOnePodSender.monitor(),
         )
             .catch { e -> log(TAG, WARN) { "AAP lifecycle error: ${e.asLog()}" } }
             .setupCommonEventHandlers(TAG) { "aapActive" }

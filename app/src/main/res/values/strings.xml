@@ -82,7 +82,7 @@
     <string name="settings_compat_offloaded_batching_disabled_summary">Don\'t let the system group collected BLE data before forwarding it to us.</string>
 
     <string name="settings_onepod_mode_label">One pod mode</string>
-    <string name="settings_onepod_mode_description">Auto play/pause, auto-connect, and on supported models noise cancellation, react to a single pod instead of requiring both.</string>
+    <string name="settings_onepod_mode_description">Auto play/pause and auto-connect react to a single pod instead of requiring both.</string>
     <string name="settings_popup_caseopen_label">Show case popup</string>
     <string name="settings_popup_caseopen_description">Show a popup when the device case is opened (experimental).</string>
     <string name="settings_popup_connected_label">Show connection popup</string>
@@ -465,7 +465,7 @@
     <string name="device_settings_aap_unavailable_description">Advanced AirPods settings require a Bluetooth feature that is not available on this phone. This may be resolved by a future Android update from your device manufacturer.</string>
     <string name="device_settings_category_sound_label">Sound</string>
     <string name="device_settings_category_controls_label">Controls</string>
-    <string name="device_settings_nc_one_airpod_label">Noise Cancellation with One AirPod</string>
+    <string name="device_settings_nc_one_airpod_label">ANC with one pod</string>
     <string name="device_settings_nc_one_airpod_description">Keep noise cancellation active with only one AirPod</string>
     <string name="device_settings_personalized_volume_label">Personalized Volume</string>
     <string name="device_settings_personalized_volume_description">Adjust media volume based on environment</string>
