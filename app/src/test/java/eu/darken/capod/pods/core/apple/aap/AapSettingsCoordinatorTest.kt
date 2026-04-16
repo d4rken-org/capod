@@ -12,14 +12,11 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.test.TestScope
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.advanceTimeBy
-import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.time.Instant
+import kotlin.reflect.KClass
 
 class AapSettingsCoordinatorTest : BaseTest() {
 
@@ -30,15 +27,13 @@ class AapSettingsCoordinatorTest : BaseTest() {
 
     private fun createCoordinator() = AapSettingsCoordinator(timeSource)
 
-    private fun stateWithSetting(vararg settings: Pair<kotlin.reflect.KClass<out AapSetting>, AapSetting>): AapPodState {
+    private fun stateWithSetting(vararg settings: Pair<KClass<out AapSetting>, AapSetting>): AapPodState {
         val map = settings.toMap()
         return AapPodState(connectionState = AapPodState.ConnectionState.READY, settings = map)
     }
 
-    // ── Enqueue ─────────────────────────────────────────────
-
     @Nested
-    inner class EnqueueTests {
+    inner class QueueTests {
 
         @Test
         fun `enqueue returns snapshot with correct count`() {
@@ -47,22 +42,21 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.ConversationalAwareness::class to AapSetting.ConversationalAwareness(enabled = false),
             )
 
-            val (_, snapshot) = coord.enqueue(AapCommand.SetConversationalAwareness(true), state)
+            val result = coord.enqueue(emptyList(), AapCommand.SetConversationalAwareness(true), state)
 
-            snapshot.count shouldBe 1
-            snapshot.pendingAncMode.shouldBeNull()
+            result.snapshot.count shouldBe 1
+            result.snapshot.pendingAncMode.shouldBeNull()
         }
 
         @Test
         fun `enqueue ANC returns pendingAncMode in snapshot`() {
             val coord = createCoordinator()
-            val state = stateWithSetting()
 
-            val (optimistic, snapshot) = coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
+            val result = coord.enqueue(emptyList(), AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), stateWithSetting())
 
-            optimistic.shouldBeNull() // ANC uses pendingAncMode, not optimistic update
-            snapshot.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
-            snapshot.count shouldBe 1
+            result.optimisticState.shouldBeNull()
+            result.snapshot.pendingAncMode shouldBe AapSetting.AncMode.Value.ADAPTIVE
+            result.snapshot.count shouldBe 1
         }
 
         @Test
@@ -72,12 +66,12 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
             )
 
-            coord.enqueue(AapCommand.SetToneVolume(60), state)
-            val (optimistic, snapshot) = coord.enqueue(AapCommand.SetToneVolume(80), state)
+            val first = coord.enqueue(emptyList(), AapCommand.SetToneVolume(60), state)
+            val second = coord.enqueue(first.pendingCommands, AapCommand.SetToneVolume(80), state)
 
-            snapshot.count shouldBe 1 // Not 2
-            optimistic.shouldNotBeNull()
-            optimistic.setting<AapSetting.ToneVolume>()!!.level shouldBe 80
+            second.snapshot.count shouldBe 1
+            second.optimisticState.shouldNotBeNull()
+            second.optimisticState!!.setting<AapSetting.ToneVolume>()!!.level shouldBe 80
         }
 
         @Test
@@ -87,11 +81,11 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 50),
             )
 
-            coord.enqueue(AapCommand.SetAdaptiveAudioNoise(70), state)
-            val (_, snapshot) = coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ON), state)
+            val first = coord.enqueue(emptyList(), AapCommand.SetAdaptiveAudioNoise(70), state)
+            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ON), state)
 
-            snapshot.count shouldBe 1 // Only ANC, noise removed
-            snapshot.pendingAncMode shouldBe AapSetting.AncMode.Value.ON
+            second.snapshot.count shouldBe 1
+            second.snapshot.pendingAncMode shouldBe AapSetting.AncMode.Value.ON
         }
 
         @Test
@@ -101,10 +95,10 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 50),
             )
 
-            coord.enqueue(AapCommand.SetAdaptiveAudioNoise(70), state)
-            val (_, snapshot) = coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
+            val first = coord.enqueue(emptyList(), AapCommand.SetAdaptiveAudioNoise(70), state)
+            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
 
-            snapshot.count shouldBe 2
+            second.snapshot.count shouldBe 2
         }
 
         @Test
@@ -114,27 +108,21 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.VolumeSwipe::class to AapSetting.VolumeSwipe(enabled = false),
             )
 
-            val (optimistic, _) = coord.enqueue(AapCommand.SetVolumeSwipe(true), state)
+            val result = coord.enqueue(emptyList(), AapCommand.SetVolumeSwipe(true), state)
 
-            optimistic.shouldNotBeNull()
-            optimistic.setting<AapSetting.VolumeSwipe>()!!.enabled shouldBe true
+            result.optimisticState.shouldNotBeNull()
+            result.optimisticState!!.setting<AapSetting.VolumeSwipe>()!!.enabled shouldBe true
         }
-    }
-
-    // ── Flush ───────────────────────────────────────────────
-
-    @Nested
-    inner class FlushTests {
 
         @Test
         fun `flush empty queue returns empty list and zero snapshot`() {
             val coord = createCoordinator()
 
-            val (commands, snapshot) = coord.flush()
+            val result = coord.flush(emptyList())
 
-            commands.shouldBeEmpty()
-            snapshot.count shouldBe 0
-            snapshot.pendingAncMode.shouldBeNull()
+            result.commands.shouldBeEmpty()
+            result.snapshot.count shouldBe 0
+            result.snapshot.pendingAncMode.shouldBeNull()
         }
 
         @Test
@@ -144,14 +132,14 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
             )
 
-            coord.enqueue(AapCommand.SetToneVolume(80), state)
-            coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
+            val first = coord.enqueue(emptyList(), AapCommand.SetToneVolume(80), state)
+            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.ADAPTIVE), state)
+            val result = coord.flush(second.pendingCommands)
 
-            val (commands, _) = coord.flush()
-
-            commands shouldHaveSize 2
-            commands[0].shouldBeInstanceOf<AapCommand.SetAncMode>()
-            commands[1].shouldBeInstanceOf<AapCommand.SetToneVolume>()
+            result.commands shouldHaveSize 2
+            result.commands[0].shouldBeInstanceOf<AapCommand.SetAncMode>()
+            result.commands[1].shouldBeInstanceOf<AapCommand.SetToneVolume>()
+            result.pendingCommands.shouldBeEmpty()
         }
 
         @Test
@@ -161,33 +149,43 @@ class AapSettingsCoordinatorTest : BaseTest() {
                 AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
             )
 
-            coord.enqueue(AapCommand.SetToneVolume(80), state)
-            coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF), state)
-            coord.enqueue(AapCommand.SetAllowOffOption(true), state)
+            val first = coord.enqueue(emptyList(), AapCommand.SetToneVolume(80), state)
+            val second = coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF), state)
+            val third = coord.enqueue(second.pendingCommands, AapCommand.SetAllowOffOption(true), state)
+            val result = coord.flush(third.pendingCommands)
 
-            val (commands, _) = coord.flush()
-
-            commands shouldHaveSize 3
-            commands[0].shouldBeInstanceOf<AapCommand.SetAllowOffOption>()
-            commands[1].shouldBeInstanceOf<AapCommand.SetAncMode>()
-            commands[2].shouldBeInstanceOf<AapCommand.SetToneVolume>()
+            result.commands shouldHaveSize 3
+            result.commands[0].shouldBeInstanceOf<AapCommand.SetAllowOffOption>()
+            result.commands[1].shouldBeInstanceOf<AapCommand.SetAncMode>()
+            result.commands[2].shouldBeInstanceOf<AapCommand.SetToneVolume>()
         }
 
         @Test
-        fun `flush clears queue`() {
+        fun `removeFromQueue returns updated snapshot`() {
             val coord = createCoordinator()
-            val state = stateWithSetting()
+            val state = stateWithSetting(
+                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
+            )
 
-            coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ON), state)
-            coord.flush()
+            val first = coord.enqueue(emptyList(), AapCommand.SetAncMode(AapSetting.AncMode.Value.ON), state)
+            val second = coord.enqueue(first.pendingCommands, AapCommand.SetToneVolume(80), state)
+            val result = coord.removeFromQueue(second.pendingCommands, AapCommand.SetAncMode::class)
 
-            val (commands, snapshot) = coord.flush()
-            commands.shouldBeEmpty()
-            snapshot.count shouldBe 0
+            result.snapshot.count shouldBe 1
+            result.snapshot.pendingAncMode.shouldBeNull()
+        }
+
+        @Test
+        fun `clear returns empty snapshot`() {
+            val coord = createCoordinator()
+
+            val result = coord.clear()
+
+            result.snapshot.count shouldBe 0
+            result.snapshot.pendingAncMode.shouldBeNull()
+            result.pendingCommands.shouldBeEmpty()
         }
     }
-
-    // ── Optimistic Update ───────────────────────────────────
 
     @Nested
     inner class OptimisticUpdateTests {
@@ -203,7 +201,7 @@ class AapSettingsCoordinatorTest : BaseTest() {
         @Test
         fun `returns null when setting not yet in state`() {
             val coord = createCoordinator()
-            val state = stateWithSetting() // No ToneVolume in state
+            val state = stateWithSetting()
 
             coord.optimisticUpdate(state, AapCommand.SetToneVolume(80)).shouldBeNull()
         }
@@ -267,10 +265,8 @@ class AapSettingsCoordinatorTest : BaseTest() {
         }
     }
 
-    // ── Verification ────────────────────────────────────────
-
     @Nested
-    inner class VerificationTests {
+    inner class VerificationPredicateTests {
 
         @Test
         fun `verificationFor returns null for SetDeviceName`() {
@@ -298,194 +294,6 @@ class AapSettingsCoordinatorTest : BaseTest() {
 
             check(matching) shouldBe true
             check(mismatched) shouldBe false
-        }
-
-        @Test
-        fun `confirmed when state matches after delay`() = runTest(UnconfinedTestDispatcher()) {
-            val coord = createCoordinator()
-            var outcome: AapSettingsCoordinator.VerificationOutcome? = null
-            val state = stateWithSetting(
-                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 80),
-            )
-
-            coord.startVerification(
-                command = AapCommand.SetToneVolume(80),
-                scope = this,
-                stateProvider = { state },
-                sendRaw = { },
-                onOutcome = { outcome = it },
-            )
-
-            advanceTimeBy(1100L)
-            outcome.shouldBeInstanceOf<AapSettingsCoordinator.VerificationOutcome.Confirmed>()
-        }
-
-        @Test
-        fun `resends on mismatch then confirms if retry succeeds`() = runTest(UnconfinedTestDispatcher()) {
-            val coord = createCoordinator()
-            var outcome: AapSettingsCoordinator.VerificationOutcome? = null
-            var sendCount = 0
-            var currentLevel = 50 // Initially wrong
-
-            coord.startVerification(
-                command = AapCommand.SetToneVolume(80),
-                scope = this,
-                stateProvider = {
-                    stateWithSetting(AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = currentLevel))
-                },
-                sendRaw = {
-                    sendCount++
-                    currentLevel = 80 // Simulate device accepting on retry
-                },
-                onOutcome = { outcome = it },
-            )
-
-            advanceTimeBy(1100L) // First check — mismatch, triggers resend
-            sendCount shouldBe 1
-            advanceTimeBy(1100L) // Second check — matches now
-            outcome.shouldBeInstanceOf<AapSettingsCoordinator.VerificationOutcome.Confirmed>()
-        }
-
-        @Test
-        fun `rejected after failed retry`() = runTest(UnconfinedTestDispatcher()) {
-            val coord = createCoordinator()
-            var outcome: AapSettingsCoordinator.VerificationOutcome? = null
-
-            coord.startVerification(
-                command = AapCommand.SetToneVolume(80),
-                scope = this,
-                stateProvider = {
-                    stateWithSetting(AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50)) // Always wrong
-                },
-                sendRaw = { },
-                onOutcome = { outcome = it },
-            )
-
-            advanceTimeBy(2200L) // Both checks fail
-            outcome.shouldBeInstanceOf<AapSettingsCoordinator.VerificationOutcome.Rejected>()
-        }
-
-        @Test
-        fun `aborts when no pod in ear`() = runTest(UnconfinedTestDispatcher()) {
-            val coord = createCoordinator()
-            var outcome: AapSettingsCoordinator.VerificationOutcome? = null
-            var sendCount = 0
-
-            val state = AapPodState(
-                connectionState = AapPodState.ConnectionState.READY,
-                settings = mapOf(
-                    AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
-                    AapSetting.EarDetection::class to AapSetting.EarDetection(
-                        primaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
-                        secondaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
-                    ),
-                ),
-            )
-
-            coord.startVerification(
-                command = AapCommand.SetToneVolume(80),
-                scope = this,
-                stateProvider = { state },
-                sendRaw = { sendCount++ },
-                onOutcome = { outcome = it },
-            )
-
-            advanceTimeBy(2200L)
-            sendCount shouldBe 0 // No resend attempt
-            outcome.shouldBeNull() // No outcome — aborted silently
-        }
-
-        @Test
-        fun `new startVerification cancels previous`() = runTest(UnconfinedTestDispatcher()) {
-            val coord = createCoordinator()
-            var firstOutcome: AapSettingsCoordinator.VerificationOutcome? = null
-            var secondOutcome: AapSettingsCoordinator.VerificationOutcome? = null
-
-            val state = stateWithSetting(
-                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 80),
-                AapSetting.PressSpeed::class to AapSetting.PressSpeed(value = AapSetting.PressSpeed.Value.DEFAULT),
-            )
-
-            coord.startVerification(
-                command = AapCommand.SetToneVolume(80),
-                scope = this,
-                stateProvider = { state },
-                sendRaw = { },
-                onOutcome = { firstOutcome = it },
-            )
-
-            // Start second verification before first completes
-            coord.startVerification(
-                command = AapCommand.SetPressSpeed(AapSetting.PressSpeed.Value.DEFAULT),
-                scope = this,
-                stateProvider = { state },
-                sendRaw = { },
-                onOutcome = { secondOutcome = it },
-            )
-
-            advanceTimeBy(1100L)
-            firstOutcome.shouldBeNull() // Cancelled, never completed
-            secondOutcome.shouldBeInstanceOf<AapSettingsCoordinator.VerificationOutcome.Confirmed>()
-        }
-    }
-
-    // ── Clear ───────────────────────────────────────────────
-
-    @Nested
-    inner class ClearTests {
-
-        @Test
-        fun `clear empties queue and returns zero snapshot`() {
-            val coord = createCoordinator()
-            val state = stateWithSetting()
-
-            coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ON), state)
-            val snapshot = coord.clear()
-
-            snapshot.count shouldBe 0
-            snapshot.pendingAncMode.shouldBeNull()
-        }
-
-        @Test
-        fun `clear cancels verification`() = runTest(UnconfinedTestDispatcher()) {
-            val coord = createCoordinator()
-            var outcome: AapSettingsCoordinator.VerificationOutcome? = null
-
-            coord.startVerification(
-                command = AapCommand.SetToneVolume(80),
-                scope = this,
-                stateProvider = {
-                    stateWithSetting(AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 80))
-                },
-                sendRaw = { },
-                onOutcome = { outcome = it },
-            )
-
-            coord.clear()
-            advanceTimeBy(2000L)
-            outcome.shouldBeNull() // Cancelled, no outcome
-        }
-    }
-
-    // ── Pending State ───────────────────────────────────────
-
-    @Nested
-    inner class PendingStateTests {
-
-        @Test
-        fun `removeFromQueue returns updated snapshot`() {
-            val coord = createCoordinator()
-            val state = stateWithSetting(
-                AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
-            )
-
-            coord.enqueue(AapCommand.SetAncMode(AapSetting.AncMode.Value.ON), state)
-            coord.enqueue(AapCommand.SetToneVolume(80), state)
-
-            val snapshot = coord.removeFromQueue(AapCommand.SetAncMode::class)
-
-            snapshot.count shouldBe 1
-            snapshot.pendingAncMode.shouldBeNull()
         }
     }
 }
