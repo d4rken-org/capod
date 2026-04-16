@@ -158,6 +158,7 @@ fun DeviceSettingsScreenHost(
         onNavigateUp = { vm.navUp() },
         onAncModeChange = { vm.setAncMode(it) },
         onConversationalAwarenessChange = { vm.setConversationalAwareness(it) },
+        onNcWithOneAirPodChange = { vm.setNcWithOneAirPod(it) },
         onPersonalizedVolumeChange = { vm.setPersonalizedVolume(it) },
         onToneVolumeChange = { vm.setToneVolume(it) },
         onAdaptiveAudioNoiseChange = { vm.setAdaptiveAudioNoise(it) },
@@ -194,6 +195,7 @@ fun DeviceSettingsScreen(
     onNavigateUp: () -> Unit,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit = {},
     onConversationalAwarenessChange: (Boolean) -> Unit = {},
+    onNcWithOneAirPodChange: (Boolean) -> Unit = {},
     onPersonalizedVolumeChange: (Boolean) -> Unit = {},
     onToneVolumeChange: (Int) -> Unit = {},
     onAdaptiveAudioNoiseChange: (Int) -> Unit = {},
@@ -369,10 +371,10 @@ fun DeviceSettingsScreen(
                                 requiresUpgrade = !isPro,
                             )
                             if (features.hasDualPods) {
-                                val onePodModeActive = reactions.autoPlay ||
+                                val onePodModeActive = reactions.onePodMode ||
+                                    reactions.autoPlay ||
                                     reactions.autoPause ||
-                                    (reactions.autoConnect && reactions.autoConnectCondition == AutoConnectCondition.IN_EAR) ||
-                                    features.hasNcOneAirpod
+                                    (reactions.autoConnect && reactions.autoConnectCondition == AutoConnectCondition.IN_EAR)
                                 SettingsBaseItem(
                                     title = stringResource(R.string.settings_onepod_mode_label),
                                     subtitle = stringResource(R.string.settings_onepod_mode_description),
@@ -547,12 +549,25 @@ fun DeviceSettingsScreen(
                                 onModeSelected = onAncModeChange,
                                 enabled = enabled,
                             )
+                            val ncWithOneAirPod = device.ncWithOneAirPod
+                            val showNcWithOneAirPod = features.hasNcOneAirpod && ncWithOneAirPod != null
                             val hasNoiseExtras = (features.hasAdaptiveAudioNoise && adaptiveNoise != null) ||
-                                features.hasListeningModeCycle
+                                features.hasListeningModeCycle ||
+                                showNcWithOneAirPod
                             if (hasNoiseExtras) {
                                 HorizontalDivider(
                                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
                                     color = MaterialTheme.colorScheme.outlineVariant,
+                                )
+                            }
+                            if (showNcWithOneAirPod) {
+                                SettingsSwitchItem(
+                                    icon = Icons.TwoTone.LooksOne,
+                                    title = stringResource(R.string.device_settings_nc_one_airpod_label),
+                                    subtitle = stringResource(R.string.device_settings_nc_one_airpod_description),
+                                    checked = ncWithOneAirPod!!.enabled,
+                                    onCheckedChange = onNcWithOneAirPodChange,
+                                    enabled = enabled,
                                 )
                             }
                             if (features.hasListeningModeCycle && cycleMask != null && cycleSubtitle != null) {

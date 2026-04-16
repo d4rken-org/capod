@@ -346,4 +346,49 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
         vm.state.first().hasCustomLongPressStemAction shouldBe true
     }
+
+    @Test
+    fun `setOnePodMode updates profile and does not send SetNcWithOneAirPod`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setOnePodMode(true)
+
+        coVerify { profilesRepo.updateAppleProfile(testAddress, any()) }
+        coVerify(exactly = 0) {
+            aapManager.sendCommand(any(), any<AapCommand.SetNcWithOneAirPod>())
+        }
+    }
+
+    @Test
+    fun `setNcWithOneAirPod sends command and does not touch profile`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setNcWithOneAirPod(true)
+
+        coVerify { aapManager.sendCommand(testAddress, AapCommand.SetNcWithOneAirPod(true)) }
+        coVerify(exactly = 0) { profilesRepo.updateAppleProfile(any(), any()) }
+    }
+
+    @Test
+    fun `setNcWithOneAirPod failure emits SendFailed event`() = runVmTest {
+        val failure = IllegalStateException("socket closed")
+        coEvery {
+            aapManager.sendCommand(testAddress, AapCommand.SetNcWithOneAirPod(true))
+        } throws failure
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setNcWithOneAirPod(true)
+
+        val event = vm.events.first()
+        val sendFailed = event.shouldBeInstanceOf<DeviceSettingsViewModel.Event.SendFailed>()
+        sendFailed.command shouldBe AapCommand.SetNcWithOneAirPod(true)
+        sendFailed.message shouldBe "socket closed"
+    }
 }
