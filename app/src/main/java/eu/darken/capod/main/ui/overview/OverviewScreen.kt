@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Bluetooth
 import androidx.compose.material.icons.twotone.BluetoothConnected
@@ -143,6 +144,9 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
         onDeviceSettings = { device -> vm.goToDeviceSettings(device) },
         onEditProfile = { device -> vm.goToEditProfile(device) },
+        onToggleDeviceExpansion = { device ->
+            device.profileId?.let { vm.toggleDeviceExpansion(it) }
+        },
     )
 }
 
@@ -158,6 +162,7 @@ fun OverviewScreen(
     onAncModeChange: (PodDevice, AapSetting.AncMode.Value) -> Unit = { _, _ -> },
     onDeviceSettings: (PodDevice) -> Unit = {},
     onEditProfile: (PodDevice) -> Unit = {},
+    onToggleDeviceExpansion: (PodDevice) -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -263,15 +268,21 @@ fun OverviewScreen(
 
             // 4. Profiled device cards (limited to 1 for free users)
             if (!state.isScanBlocked && state.isBluetoothEnabled) {
-                items(
+                itemsIndexed(
                     items = state.visibleProfiledDevices,
-                    key = { it.identifier?.toString() ?: it.hashCode() },
-                ) { device ->
+                    key = { _, device -> requireNotNull(device.profileId) },
+                ) { index, device ->
+                    val isCollapsed = !state.isExpanded(device, index)
+                    val isToggleable = state.isToggleable(device, index)
                     PodDeviceCard(
                         device = device,
                         isPro = state.upgradeInfo.isPro,
                         showDebug = state.isDebugMode,
                         now = state.now,
+                        isCollapsed = isCollapsed,
+                        onToggleCollapse = if (isToggleable) {
+                            { onToggleDeviceExpansion(device) }
+                        } else null,
                         onAncModeChange = { mode -> onAncModeChange(device, mode) },
                         onUpgrade = onUpgrade,
                         onDeviceSettings = { onDeviceSettings(device) },
@@ -335,6 +346,8 @@ private fun PodDeviceCard(
     isPro: Boolean,
     showDebug: Boolean,
     now: Instant,
+    isCollapsed: Boolean = false,
+    onToggleCollapse: (() -> Unit)? = null,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit,
     onUpgrade: () -> Unit,
     onDeviceSettings: (() -> Unit)? = null,
@@ -343,6 +356,8 @@ private fun PodDeviceCard(
     when {
         device.hasDualPods -> DualPodsCard(
             device = device, isPro = isPro, showDebug = showDebug, now = now,
+            isCollapsed = isCollapsed,
+            onToggleCollapse = onToggleCollapse,
             onAncModeChange = onAncModeChange,
             onUpgrade = onUpgrade,
             onDeviceSettings = onDeviceSettings,
@@ -350,6 +365,8 @@ private fun PodDeviceCard(
         )
         device.model != PodModel.UNKNOWN -> SinglePodsCard(
             device = device, isPro = isPro, showDebug = showDebug, now = now,
+            isCollapsed = isCollapsed,
+            onToggleCollapse = onToggleCollapse,
             onAncModeChange = onAncModeChange,
             onUpgrade = onUpgrade,
             onDeviceSettings = onDeviceSettings,
