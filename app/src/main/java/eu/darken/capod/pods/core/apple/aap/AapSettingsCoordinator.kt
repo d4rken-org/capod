@@ -1,111 +1,93 @@
 package eu.darken.capod.pods.core.apple.aap
 
 import eu.darken.capod.common.TimeSource
-import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.capod.common.debug.logging.log
-import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import kotlin.reflect.KClass
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 /**
- * Coordinates deferred outbound settings and post-send verification.
- * Does not own transport — [AapConnection] keeps socket and state mutation responsibility.
- *
- * All setting commands (except [AapCommand.SetDeviceName]) can be deferred here when no pod
- * is in ear, then flushed as a batch when a pod goes in.
+ * Pure helper for queue ordering, optimistic state updates, and verification predicates.
+ * Runtime ownership (timers, retries, pending queue state) lives in [AapSessionEngine].
  */
 internal class AapSettingsCoordinator(
     private val timeSource: TimeSource,
 ) {
 
-    /** Snapshot of pending state — returned from every mutating method. */
     data class PendingSnapshot(
         val pendingAncMode: AapSetting.AncMode.Value?,
         val count: Int,
     )
 
-    /** Verification result — caller handles domain inference (e.g. AllowOffOption). */
-    sealed class VerificationOutcome {
-        data object Confirmed : VerificationOutcome()
-        data class Rejected(val command: AapCommand) : VerificationOutcome()
-    }
+    data class QueueResult(
+        val pendingCommands: List<AapCommand>,
+        val optimisticState: AapPodState?,
+        val snapshot: PendingSnapshot,
+    )
 
-    // Keyed by command class — newer commands of the same type overwrite.
-    private val pendingCommands = linkedMapOf<KClass<out AapCommand>, AapCommand>()
-    private var verificationJob: Job? = null
+    data class FlushResult(
+        val commands: List<AapCommand>,
+        val pendingCommands: List<AapCommand>,
+        val snapshot: PendingSnapshot,
+    )
 
-    // ── Queue operations ────────────────────────────────────
-
-    /**
-     * Queue a command. Returns (optimistic state update or null, pending snapshot).
-     * ANC uses [PendingSnapshot.pendingAncMode] for display, so no optimistic setting update.
-     * Handles stale dependency: removes [AapCommand.SetAdaptiveAudioNoise] when ANC leaves ADAPTIVE.
-     */
-    fun enqueue(command: AapCommand, currentState: AapPodState): Pair<AapPodState?, PendingSnapshot> {
+    fun enqueue(
+        pendingCommands: List<AapCommand>,
+        command: AapCommand,
+        currentState: AapPodState,
+    ): QueueResult {
+        var updated = pendingCommands
         if (command is AapCommand.SetAncMode && command.mode != AapSetting.AncMode.Value.ADAPTIVE) {
-            synchronized(pendingCommands) { pendingCommands.remove(AapCommand.SetAdaptiveAudioNoise::class) }
+            updated = updated.filterNot { it is AapCommand.SetAdaptiveAudioNoise }
         }
-        synchronized(pendingCommands) { pendingCommands[command::class] = command }
+        updated = updated.filterNot { it::class == command::class } + command
 
-        val optimistic = if (command !is AapCommand.SetAncMode) {
-            optimisticUpdate(currentState, command)
-        } else {
-            null
-        }
-        return optimistic to snapshot()
+        val optimistic = if (command !is AapCommand.SetAncMode) optimisticUpdate(currentState, command) else null
+        return QueueResult(
+            pendingCommands = updated,
+            optimisticState = optimistic,
+            snapshot = snapshot(updated),
+        )
     }
 
-    /** Remove a specific command class from the queue. */
-    fun removeFromQueue(commandClass: KClass<out AapCommand>): PendingSnapshot {
-        synchronized(pendingCommands) { pendingCommands.remove(commandClass) }
-        return snapshot()
+    fun removeFromQueue(
+        pendingCommands: List<AapCommand>,
+        commandClass: KClass<out AapCommand>,
+    ): QueueResult {
+        val updated = pendingCommands.filterNot { it::class == commandClass }
+        return QueueResult(
+            pendingCommands = updated,
+            optimisticState = null,
+            snapshot = snapshot(updated),
+        )
     }
 
-    /** Return sorted pending commands (ANC first) and clear queue. */
-    fun flush(): Pair<List<AapCommand>, PendingSnapshot> {
-        val commands: List<AapCommand>
-        synchronized(pendingCommands) {
-            commands = pendingCommands.values.toList()
-            pendingCommands.clear()
-        }
-        // Dependency-aware ordering:
-        // AllowOffOption must precede AncMode (device rejects OFF without it)
-        // AncMode must precede mode-dependent settings (e.g. AdaptiveAudioNoise)
-        val sorted = commands.sortedBy {
+    fun flush(pendingCommands: List<AapCommand>): FlushResult {
+        val sorted = pendingCommands.sortedBy {
             when (it) {
                 is AapCommand.SetAllowOffOption -> 0
                 is AapCommand.SetAncMode -> 1
                 else -> 2
             }
         }
-        return sorted to snapshot()
+        return FlushResult(
+            commands = sorted,
+            pendingCommands = emptyList(),
+            snapshot = snapshot(emptyList()),
+        )
     }
 
-    /** Cancel verification, clear queue. */
-    fun clear(): PendingSnapshot {
-        verificationJob?.cancel()
-        verificationJob = null
-        synchronized(pendingCommands) { pendingCommands.clear() }
-        return snapshot()
+    fun clear(): QueueResult = QueueResult(
+        pendingCommands = emptyList(),
+        optimisticState = null,
+        snapshot = snapshot(emptyList()),
+    )
+
+    fun snapshot(pendingCommands: List<AapCommand>): PendingSnapshot {
+        val ancPending = pendingCommands.firstOrNull { it is AapCommand.SetAncMode }
+            ?.let { (it as AapCommand.SetAncMode).mode }
+        return PendingSnapshot(pendingAncMode = ancPending, count = pendingCommands.size)
     }
 
-    private fun snapshot(): PendingSnapshot {
-        val map = synchronized(pendingCommands) { pendingCommands.toMap() }
-        val ancPending = (map[AapCommand.SetAncMode::class] as? AapCommand.SetAncMode)?.mode
-        return PendingSnapshot(pendingAncMode = ancPending, count = map.size)
-    }
-
-    // ── Optimistic update ───────────────────────────────────
-
-    /**
-     * Pure: compute the optimistic state for a command.
-     * Returns null when no update applies (ANC mode — uses pendingAncMode, or setting not yet reported).
-     */
     fun optimisticUpdate(baseState: AapPodState, command: AapCommand): AapPodState? {
         val updated: Pair<KClass<out AapSetting>, AapSetting> = when (command) {
             is AapCommand.SetAncMode -> return null
@@ -147,7 +129,10 @@ internal class AapSettingsCoordinator(
             }
             is AapCommand.SetEndCallMuteMic -> {
                 baseState.setting<AapSetting.EndCallMuteMic>() ?: return null
-                AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(muteMic = command.muteMic, endCall = command.endCall)
+                AapSetting.EndCallMuteMic::class to AapSetting.EndCallMuteMic(
+                    muteMic = command.muteMic,
+                    endCall = command.endCall,
+                )
             }
             is AapCommand.SetMicrophoneMode -> {
                 AapSetting.MicrophoneMode::class to AapSetting.MicrophoneMode(mode = command.mode)
@@ -169,17 +154,15 @@ internal class AapSettingsCoordinator(
             }
             is AapCommand.SetDeviceName -> {
                 val currentInfo = baseState.deviceInfo ?: return null
-                return baseState.copy(deviceInfo = currentInfo.copy(name = command.name), lastMessageAt = timeSource.now())
+                return baseState.copy(
+                    deviceInfo = currentInfo.copy(name = command.name),
+                    lastMessageAt = timeSource.now(),
+                )
             }
         }
         return baseState.withSetting(updated.first, updated.second).copy(lastMessageAt = timeSource.now())
     }
 
-    // ── Verification ────────────────────────────────────────
-
-    /**
-     * Pure: return an echo-verification check lambda for a command, or null if no verification.
-     */
     fun verificationFor(command: AapCommand): ((AapPodState) -> Boolean)? = when (command) {
         is AapCommand.SetAncMode -> { s -> s.setting<AapSetting.AncMode>()?.current == command.mode }
         is AapCommand.SetAdaptiveAudioNoise -> { s -> s.setting<AapSetting.AdaptiveAudioNoise>()?.level == command.level }
@@ -202,57 +185,5 @@ internal class AapSettingsCoordinator(
         is AapCommand.SetStemConfig -> { s -> s.setting<AapSetting.StemConfig>()?.claimedPressMask == command.claimedPressMask }
         is AapCommand.SetSleepDetection -> { s -> s.setting<AapSetting.SleepDetection>()?.enabled == command.enabled }
         is AapCommand.SetDeviceName -> null
-    }
-
-    /**
-     * Start a delayed verification for a sent command.
-     * After 1s, checks if the device echoed the expected state.
-     * On mismatch: resend once, then report [VerificationOutcome.Rejected].
-     * Cancels any previous verification (single-flight).
-     */
-    fun startVerification(
-        command: AapCommand,
-        scope: CoroutineScope,
-        stateProvider: () -> AapPodState,
-        sendRaw: suspend (AapCommand) -> Unit,
-        onOutcome: (VerificationOutcome) -> Unit,
-    ) {
-        val check = verificationFor(command) ?: return
-        verificationJob?.cancel()
-        verificationJob = scope.launch {
-            delay(1000L)
-            if (check(stateProvider())) {
-                onOutcome(VerificationOutcome.Confirmed)
-                return@launch
-            }
-
-            // Abort if pods left ear — firmware is doing its own thing
-            val ear = stateProvider().setting<AapSetting.EarDetection>()
-            if (ear != null && !ear.isEitherPodInEar) {
-                log(TAG) { "Verification aborted for ${command::class.simpleName}: no pod in ear" }
-                return@launch
-            }
-
-            log(TAG) { "Divergence detected for ${command::class.simpleName}, re-sending" }
-            try {
-                sendRaw(command)
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Verification resend failed: $e" }
-                return@launch
-            }
-
-            // Second check after retry
-            delay(1000L)
-            if (check(stateProvider())) {
-                onOutcome(VerificationOutcome.Confirmed)
-            } else {
-                log(TAG) { "Rejected after retry: ${command::class.simpleName}" }
-                onOutcome(VerificationOutcome.Rejected(command))
-            }
-        }
-    }
-
-    companion object {
-        private val TAG = logTag("AAP", "Coordinator")
     }
 }

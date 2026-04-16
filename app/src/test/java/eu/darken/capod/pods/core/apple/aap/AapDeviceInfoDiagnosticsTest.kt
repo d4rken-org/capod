@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 /**
- * Tests for the issue #173 diagnostic helper [AapSessionEngine.describeDeviceInfoSegments].
+ * Tests for the issue #173 diagnostic helper [AapDeviceInfoDiagnostics.describeSegments].
  *
  * The helper must:
  * - Work on real captured 0x1D payloads (matches production decoder on ASCII slots).
@@ -18,7 +18,7 @@ import testhelpers.BaseTest
  * - Always emit segments for any payload shape, even when [DefaultAapDeviceProfile.decodeDeviceInfo]
  *   would return null (malformed / unknown-shaped packets).
  */
-class AapConnectionTest : BaseTest() {
+class AapDeviceInfoDiagnosticsTest : BaseTest() {
 
     private fun hex(s: String): ByteArray = s
         .replace("\n", " ")
@@ -50,7 +50,7 @@ class AapConnectionTest : BaseTest() {
             """
         )
 
-        val segments = AapSessionEngine.describeDeviceInfoSegments(payload)
+        val segments = AapDeviceInfoDiagnostics.describeSegments(payload)
 
         // The first five segments mirror the production decoder's name/modelNumber/manufacturer/
         // serialNumber/firmwareVersion slots.
@@ -81,7 +81,7 @@ class AapConnectionTest : BaseTest() {
             engraving.toByteArray(Charsets.UTF_8) + byteArrayOf(0x00) +
             "A3048".toByteArray(Charsets.UTF_8) + byteArrayOf(0x00)
 
-        val segments = AapSessionEngine.describeDeviceInfoSegments(payload)
+        val segments = AapDeviceInfoDiagnostics.describeSegments(payload)
 
         segments.size shouldBe 2
         segments[0].utf8 shouldBe engraving
@@ -101,7 +101,7 @@ class AapConnectionTest : BaseTest() {
 
         DefaultAapDeviceProfile(PodModel.AIRPODS_PRO2_USBC).decodeDeviceInfo(message).shouldBeNull()
 
-        val segments = AapSessionEngine.describeDeviceInfoSegments(payload)
+        val segments = AapDeviceInfoDiagnostics.describeSegments(payload)
         segments.size shouldBe 2
         segments[0].utf8 shouldBe "Name"
         segments[1].utf8 shouldBe "Model"
