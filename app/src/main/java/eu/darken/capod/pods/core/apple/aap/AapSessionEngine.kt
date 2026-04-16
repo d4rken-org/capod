@@ -54,11 +54,13 @@ internal class AapSessionEngine(
 
     private var scope: CoroutineScope? = null
     private var ancDebounceJob: Job? = null
+    private var allowOffInferenceJob: Job? = null
     private var lastSentCommand: AapCommand? = null
     private var lastSentAt: Long = 0L
     /** Separate tracking for ANC sends — not overwritten by non-ANC commands during flush. */
     private var lastAncSentAt: Long = 0L
     private var handshakeResponseReceived: Boolean = false
+    private var latestObservedAncMode: AapSetting.AncMode? = null
 
     /** Stored reference to the socket write callback — set on each [send] / flush call. */
     private var activeSendRaw: (suspend (AapCommand) -> Unit)? = null
@@ -81,6 +83,7 @@ internal class AapSessionEngine(
     fun reset() {
         ancDebounceJob?.cancel()
         ancDebounceJob = null
+        cancelAllowOffOptionInference()
         coordinator.clear()
         hidTracker.flush()
         hidTracker.reset()
@@ -88,6 +91,7 @@ internal class AapSessionEngine(
         lastSentCommand = null
         lastSentAt = 0L
         lastAncSentAt = 0L
+        latestObservedAncMode = null
         activeSendRaw = null
         handshakeResponseReceived = false
         _state.value = AapPodState(connectionState = AapPodState.ConnectionState.DISCONNECTED)
@@ -163,6 +167,7 @@ internal class AapSessionEngine(
         if (outcome is AapSettingsCoordinator.VerificationOutcome.Rejected) {
             val command = outcome.command
             if (command is AapCommand.SetAncMode && command.mode == AapSetting.AncMode.Value.OFF) {
+                cancelAllowOffOptionInference()
                 val prev = _state.value.setting<AapSetting.AllowOffOption>()
                 if (prev == null || prev.enabled) {
                     _state.value = _state.value.withSetting(
@@ -273,20 +278,20 @@ internal class AapSessionEngine(
 
             // ANC debounce
             if (value is AapSetting.AncMode) {
+                latestObservedAncMode = value
+                syncAllowOffOptionInference()
                 val isFirstAncMode = _state.value.setting<AapSetting.AncMode>() == null
                 val recentAncSend = lastAncSentAt > 0L && (timeSource.currentTimeMillis() - lastAncSentAt) <= 3000L
                 if (isFirstAncMode || recentAncSend) {
                     ancDebounceJob?.cancel()
                     _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
                     log(TAG) { "Setting: ${key.simpleName} = $value [was: $previous]" }
-                    applyInferences(value)
                 } else {
                     ancDebounceJob?.cancel()
                     ancDebounceJob = scope?.launch {
                         delay(1500L)
                         _state.value = _state.value.withSetting(key, value).copy(lastMessageAt = timeSource.now())
                         log(TAG) { "Setting (debounced): ${key.simpleName} = $value [was: $previous]" }
-                        applyInferences(value)
                     }
                 }
                 return
@@ -304,7 +309,7 @@ internal class AapSessionEngine(
             }
             _state.value = newState
             log(TAG) { "Setting: ${key.simpleName} = $value${if (clearPrimaryPod) " (swap, PrimaryPod cleared)" else ""} [was: $previous]" }
-            applyInferences(value)
+            if (value is AapSetting.EarDetection) syncAllowOffOptionInference()
 
             // Flush queued commands when pod goes in ear
             if (value is AapSetting.EarDetection && value.isEitherPodInEar) {
@@ -422,20 +427,42 @@ internal class AapSessionEngine(
 
     // ── Inference ───────────────────────────────────────────
 
-    private fun applyInferences(trigger: AapSetting) {
-        val inferred = mutableListOf<Pair<KClass<out AapSetting>, AapSetting>>()
+    private fun syncAllowOffOptionInference() {
+        cancelAllowOffOptionInference()
 
-        if (trigger is AapSetting.AncMode && trigger.current == AapSetting.AncMode.Value.OFF) {
-            val current = _state.value.setting<AapSetting.AllowOffOption>()
-            if (current == null || !current.enabled) {
-                inferred += AapSetting.AllowOffOption::class to AapSetting.AllowOffOption(enabled = true)
+        val observedAncMode = latestObservedAncMode ?: _state.value.setting<AapSetting.AncMode>() ?: return
+        val earDetection = _state.value.setting<AapSetting.EarDetection>() ?: return
+        val allowOffOption = _state.value.setting<AapSetting.AllowOffOption>()
+        if (observedAncMode.current != AapSetting.AncMode.Value.OFF) return
+        if (!earDetection.isEitherPodInEar) return
+        if (allowOffOption?.enabled == true) return
+
+        val inferenceScope = scope ?: return
+        allowOffInferenceJob = inferenceScope.launch {
+            delay(1500L)
+
+            val latestAncMode = latestObservedAncMode ?: _state.value.setting<AapSetting.AncMode>()
+            val latestEarDetection = _state.value.setting<AapSetting.EarDetection>()
+            val latestAllowOffOption = _state.value.setting<AapSetting.AllowOffOption>()
+            if (latestAncMode?.current == AapSetting.AncMode.Value.OFF &&
+                latestEarDetection?.isEitherPodInEar == true &&
+                latestAllowOffOption?.enabled != true
+            ) {
+                _state.value = _state.value.withSetting(
+                    AapSetting.AllowOffOption::class,
+                    AapSetting.AllowOffOption(enabled = true),
+                )
+                log(TAG) {
+                    "Inferred: AllowOffOption = AllowOffOption(enabled=true) (from stable in-ear AncMode=OFF)"
+                }
             }
+            allowOffInferenceJob = null
         }
+    }
 
-        for ((key, value) in inferred) {
-            _state.value = _state.value.withSetting(key, value)
-            log(TAG) { "Inferred: ${key.simpleName} = $value (from ${trigger::class.simpleName})" }
-        }
+    private fun cancelAllowOffOptionInference() {
+        allowOffInferenceJob?.cancel()
+        allowOffInferenceJob = null
     }
 
     companion object {
