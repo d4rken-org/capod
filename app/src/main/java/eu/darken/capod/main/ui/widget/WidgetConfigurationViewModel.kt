@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.widget
 
 import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +17,7 @@ import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ProfileId
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
@@ -33,8 +35,15 @@ class WidgetConfigurationViewModel @Inject constructor(
     val widgetId: Int
         get() = savedStateHandle.get<Int>(AppWidgetManager.EXTRA_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
 
+    private val isAncWidget: Boolean = run {
+        if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) return@run false
+        val info = appWidgetManager.getAppWidgetInfo(widgetId) ?: return@run false
+        val ancProvider = ComponentName(context, AncWidgetProvider::class.java)
+        info.provider == ancProvider
+    }
+
     init {
-        log(TAG) { "ViewModel init(widgetId=$widgetId)" }
+        log(TAG) { "ViewModel init(widgetId=$widgetId, isAncWidget=$isAncWidget)" }
 
         if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             log(TAG) { "Invalid widget ID" }
@@ -52,14 +61,18 @@ class WidgetConfigurationViewModel @Inject constructor(
 
     private val currentTheme = MutableStateFlow(initialTheme)
 
+    private val visibleProfiles = deviceProfilesRepo.profiles.map { profiles ->
+        if (isAncWidget) profiles.filter { it.model.features.hasAncControl } else profiles
+    }
+
     val state = combine(
         selectedProfile,
         currentTheme,
         forceCustomMode,
-        deviceProfilesRepo.profiles,
+        visibleProfiles,
         upgradeRepo.upgradeInfo,
     ) { selected, theme, forceCustom, profiles, upgradeInfo ->
-        log(TAG) { "state update: profile=$selected, theme=$theme, forceCustom=$forceCustom" }
+        log(TAG) { "state update: profile=$selected, theme=$theme, forceCustom=$forceCustom, profiles=${profiles.size}" }
 
         val activePreset = if (forceCustom) null else WidgetTheme.matchPreset(theme)
         State(
@@ -69,6 +82,7 @@ class WidgetConfigurationViewModel @Inject constructor(
             theme = theme,
             activePreset = activePreset,
             isCustomMode = activePreset == null,
+            isAncWidget = isAncWidget,
         )
     }.asLiveState()
 
@@ -79,8 +93,9 @@ class WidgetConfigurationViewModel @Inject constructor(
         val theme: WidgetTheme = WidgetTheme.DEFAULT,
         val activePreset: WidgetTheme.Preset? = WidgetTheme.Preset.MATERIAL_YOU,
         val isCustomMode: Boolean = false,
+        val isAncWidget: Boolean = false,
     ) {
-        val canConfirm: Boolean = selectedProfile != null
+        val canConfirm: Boolean = selectedProfile != null && profiles.any { it.id == selectedProfile }
     }
 
     fun selectProfile(profileId: ProfileId) {
@@ -123,12 +138,6 @@ class WidgetConfigurationViewModel @Inject constructor(
     fun setBackgroundAlpha(alpha: Int) {
         log(TAG, INFO) { "setBackgroundAlpha(alpha=$alpha)" }
         currentTheme.value = currentTheme.value.copy(backgroundAlpha = alpha.coerceIn(0, 255))
-    }
-
-    fun toggleDeviceLabel() {
-        val newValue = !currentTheme.value.showDeviceLabel
-        log(TAG, INFO) { "toggleDeviceLabel(showDeviceLabel=$newValue)" }
-        currentTheme.value = currentTheme.value.copy(showDeviceLabel = newValue)
     }
 
     fun setShowDeviceLabel(show: Boolean) {
