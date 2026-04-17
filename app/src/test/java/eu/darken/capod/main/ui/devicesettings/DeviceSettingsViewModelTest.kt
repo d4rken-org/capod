@@ -346,7 +346,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
                 id = testAddress,
                 label = "Test",
                 address = testAddress,
-                stemActions = StemActionsConfig(leftLong = StemAction.PLAY_PAUSE),
+                stemActions = StemActionsConfig(leftLong = StemAction.PlayPause),
             )
         )
 

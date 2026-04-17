@@ -53,10 +53,10 @@ class StemConfigSender @Inject constructor(
 
     private fun StemActionsConfig.toMask(): Int {
         var mask = 0
-        if (leftSingle != StemAction.NONE || rightSingle != StemAction.NONE) mask = mask or 0x01
-        if (leftDouble != StemAction.NONE || rightDouble != StemAction.NONE) mask = mask or 0x02
-        if (leftTriple != StemAction.NONE || rightTriple != StemAction.NONE) mask = mask or 0x04
-        if (leftLong != StemAction.NONE || rightLong != StemAction.NONE) mask = mask or 0x08
+        if (leftSingle != StemAction.None || rightSingle != StemAction.None) mask = mask or 0x01
+        if (leftDouble != StemAction.None || rightDouble != StemAction.None) mask = mask or 0x02
+        if (leftTriple != StemAction.None || rightTriple != StemAction.None) mask = mask or 0x04
+        if (leftLong != StemAction.None || rightLong != StemAction.None) mask = mask or 0x08
         return mask
     }
 

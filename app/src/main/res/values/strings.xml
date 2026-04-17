@@ -155,6 +155,11 @@
     <string name="translators_thanks_description">darken</string>
 
     <string name="widget_description">A widget showing the last known device status.</string>
+    <string name="anc_widget_description">Control ANC modes directly from your home screen.</string>
+    <string name="anc_widget_config_aap_required_hint">This widget requires a direct connection (AAP) to your device. Make sure your device is paired and connected in the app before using this widget.</string>
+    <string name="anc_widget_no_anc_support_label">This device does not support noise control</string>
+    <string name="anc_widget_aap_not_connected_label">Not connected</string>
+    <string name="anc_widget_aap_connecting_label">Connecting…</string>
     <string name="widget_config_screen_title">Widget Configuration</string>
     <string name="widget_configuration_title">Select Device</string>
     <string name="widget_configuration_description">Choose which device profile this widget should display.</string>
@@ -561,6 +566,12 @@
     <string name="press_action_previous_track">Previous Track</string>
     <string name="press_action_volume_up">Volume Up</string>
     <string name="press_action_volume_down">Volume Down</string>
+    <string name="press_action_mute_toggle">Mute Music</string>
+    <string name="press_action_stop">Stop</string>
+    <string name="press_action_fast_forward">Fast Forward</string>
+    <string name="press_action_rewind">Rewind</string>
+    <string name="press_action_cycle_anc">Cycle Noise Control</string>
+    <string name="press_action_toggle_anc_transparency">Toggle Transparency</string>
     <string name="press_controls_reset_label">Reset to defaults</string>
     <string name="press_controls_reset_confirm_message">Reset all press mappings to defaults?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Open Press Controls</string>

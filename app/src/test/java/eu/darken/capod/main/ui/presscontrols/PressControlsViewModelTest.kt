@@ -123,45 +123,45 @@ class PressControlsViewModelTest : BaseTest() {
         vm.initialize(testProfileId)
         vm.state.first()
 
-        vm.setLeftSingle(StemAction.PLAY_PAUSE)
+        vm.setLeftSingle(StemAction.PlayPause)
 
         coVerify { profilesRepo.updateAppleProfile(testProfileId, any()) }
         profilesFlow.value
             .filterIsInstance<AppleDeviceProfile>()
-            .first().stemActions.leftSingle shouldBe StemAction.PLAY_PAUSE
+            .first().stemActions.leftSingle shouldBe StemAction.PlayPause
     }
 
     @Test
-    fun `setLeftSingle to non-NONE as free user navigates to Upgrade and does not mutate`() = runVmTest {
+    fun `setLeftSingle to non-None as free user navigates to Upgrade and does not mutate`() = runVmTest {
         every { upgradeInfoFlow.value.isPro } returns false
 
         val vm = createViewModel()
         vm.initialize(testProfileId)
         vm.state.first()
 
-        vm.setLeftSingle(StemAction.PLAY_PAUSE)
+        vm.setLeftSingle(StemAction.PlayPause)
 
         coVerify(exactly = 0) { profilesRepo.updateAppleProfile(testProfileId, any()) }
         profilesFlow.value
             .filterIsInstance<AppleDeviceProfile>()
-            .first().stemActions.leftSingle shouldBe StemAction.NONE
+            .first().stemActions.leftSingle shouldBe StemAction.None
     }
 
     @Test
-    fun `setLeftSingle to NONE as free user is allowed and clears existing mapping`() = runVmTest {
+    fun `setLeftSingle to None as free user is allowed and clears existing mapping`() = runVmTest {
         every { upgradeInfoFlow.value.isPro } returns false
-        profilesFlow.value = listOf(makeProfile(StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE)))
+        profilesFlow.value = listOf(makeProfile(StemActionsConfig(leftSingle = StemAction.PlayPause)))
 
         val vm = createViewModel()
         vm.initialize(testProfileId)
         vm.state.first()
 
-        vm.setLeftSingle(StemAction.NONE)
+        vm.setLeftSingle(StemAction.None)
 
         coVerify { profilesRepo.updateAppleProfile(testProfileId, any()) }
         profilesFlow.value
             .filterIsInstance<AppleDeviceProfile>()
-            .first().stemActions.leftSingle shouldBe StemAction.NONE
+            .first().stemActions.leftSingle shouldBe StemAction.None
     }
 
     @Test
@@ -172,52 +172,52 @@ class PressControlsViewModelTest : BaseTest() {
         vm.initialize(testProfileId)
         vm.state.first()
 
-        vm.setLeftSingle(StemAction.NONE) // already NONE
+        vm.setLeftSingle(StemAction.None) // already None
 
         coVerify(exactly = 0) { profilesRepo.updateAppleProfile(testProfileId, any()) }
     }
 
     @Test
-    fun `setLeftSingle assigns NO_ACTION to right side when right was NONE`() = runVmTest {
+    fun `setLeftSingle assigns NoAction to right side when right was None`() = runVmTest {
         every { upgradeInfoFlow.value.isPro } returns true
 
         val vm = createViewModel()
         vm.initialize(testProfileId)
         vm.state.first()
 
-        vm.setLeftSingle(StemAction.PLAY_PAUSE)
+        vm.setLeftSingle(StemAction.PlayPause)
 
         val updated = profilesFlow.value
             .filterIsInstance<AppleDeviceProfile>()
             .first().stemActions
-        updated.leftSingle shouldBe StemAction.PLAY_PAUSE
-        updated.rightSingle shouldBe StemAction.NO_ACTION
+        updated.leftSingle shouldBe StemAction.PlayPause
+        updated.rightSingle shouldBe StemAction.NoAction
     }
 
     @Test
-    fun `setLeftSingle to NONE clears the opposite side too`() = runVmTest {
+    fun `setLeftSingle to None clears the opposite side too`() = runVmTest {
         every { upgradeInfoFlow.value.isPro } returns true
         profilesFlow.value = listOf(
-            makeProfile(StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE, rightSingle = StemAction.NO_ACTION))
+            makeProfile(StemActionsConfig(leftSingle = StemAction.PlayPause, rightSingle = StemAction.NoAction))
         )
 
         val vm = createViewModel()
         vm.initialize(testProfileId)
         vm.state.first()
 
-        vm.setLeftSingle(StemAction.NONE)
+        vm.setLeftSingle(StemAction.None)
 
         val updated = profilesFlow.value
             .filterIsInstance<AppleDeviceProfile>()
             .first().stemActions
-        updated.leftSingle shouldBe StemAction.NONE
-        updated.rightSingle shouldBe StemAction.NONE
+        updated.leftSingle shouldBe StemAction.None
+        updated.rightSingle shouldBe StemAction.None
     }
 
     @Test
     fun `resetAll wipes stemActions on the profile`() = runVmTest {
         profilesFlow.value = listOf(
-            makeProfile(StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE, rightLong = StemAction.VOLUME_UP))
+            makeProfile(StemActionsConfig(leftSingle = StemAction.PlayPause, rightLong = StemAction.VolumeUp))
         )
 
         val vm = createViewModel()

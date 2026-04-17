@@ -63,12 +63,15 @@ class PressControlsViewModel @Inject constructor(
         ) { device, profiles, upgrade ->
             val profile = profiles.filterIsInstance<AppleDeviceProfile>().firstOrNull { it.id == profileId }
             val stemActions = profile?.stemActions ?: StemActionsConfig()
+            val model = device?.model ?: profile?.model
             State(
                 device = device,
                 profile = profile,
                 stemActions = stemActions,
                 isPro = upgrade.isPro,
                 isAapReady = device?.isAapReady == true,
+                supportsAncCycle = model?.features?.hasListeningModeCycle == true,
+                supportsAncToggle = model?.features?.hasAncControl == true,
             )
         }
     }.asLiveState()
@@ -85,6 +88,8 @@ class PressControlsViewModel @Inject constructor(
         val stemActions: StemActionsConfig = StemActionsConfig(),
         val isPro: Boolean = false,
         val isAapReady: Boolean = false,
+        val supportsAncCycle: Boolean = false,
+        val supportsAncToggle: Boolean = false,
     )
 
     // ── Stem-action mapping setters (profile-scoped, Pro-gated on non-NONE assignment) ───────
@@ -136,9 +141,9 @@ class PressControlsViewModel @Inject constructor(
         val current = currentProfile.stemActions.getSide(bud)
         // 1. No-op short-circuit.
         if (action == current) return@launch
-        // 2. Free-clear allowance — always allow clearing to NONE.
+        // 2. Free-clear allowance — always allow clearing to None.
         // 3. Otherwise Pro is required.
-        if (action != StemAction.NONE && !upgradeRepo.isPro()) {
+        if (action != StemAction.None && !upgradeRepo.isPro()) {
             navTo(Nav.Main.Upgrade)
             return@launch
         }
@@ -158,9 +163,9 @@ class PressControlsViewModel @Inject constructor(
         otherBud: Side,
         otherCurrent: StemAction,
     ): StemActionsConfig = when (selected) {
-        StemAction.NONE -> withSide(otherBud, StemAction.NONE)
-        StemAction.NO_ACTION -> this
-        else -> if (otherCurrent == StemAction.NONE) withSide(otherBud, StemAction.NO_ACTION) else this
+        is StemAction.None -> withSide(otherBud, StemAction.None)
+        is StemAction.NoAction -> this
+        else -> if (otherCurrent is StemAction.None) withSide(otherBud, StemAction.NoAction) else this
     }
 
     fun setLeftSingle(action: StemAction) = setSide(Side.LEFT_SINGLE, action)

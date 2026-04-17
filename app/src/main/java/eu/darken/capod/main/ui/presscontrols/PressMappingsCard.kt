@@ -46,6 +46,8 @@ import eu.darken.capod.reaction.core.stem.StemActionsConfig
 fun PressMappingsCard(
     stemActions: StemActionsConfig,
     isPro: Boolean,
+    supportsAncCycle: Boolean = false,
+    supportsAncToggle: Boolean = false,
     onLeftSingle: (StemAction) -> Unit = {},
     onLeftDouble: (StemAction) -> Unit = {},
     onLeftTriple: (StemAction) -> Unit = {},
@@ -64,6 +66,8 @@ fun PressMappingsCard(
         StemActionRow(
             leftAction = stemActions.leftSingle,
             rightAction = stemActions.rightSingle,
+            supportsAncCycle = supportsAncCycle,
+            supportsAncToggle = supportsAncToggle,
             onLeftChange = onLeftSingle,
             onRightChange = onRightSingle,
         )
@@ -74,6 +78,8 @@ fun PressMappingsCard(
         StemActionRow(
             leftAction = stemActions.leftDouble,
             rightAction = stemActions.rightDouble,
+            supportsAncCycle = supportsAncCycle,
+            supportsAncToggle = supportsAncToggle,
             onLeftChange = onLeftDouble,
             onRightChange = onRightDouble,
         )
@@ -84,6 +90,8 @@ fun PressMappingsCard(
         StemActionRow(
             leftAction = stemActions.leftTriple,
             rightAction = stemActions.rightTriple,
+            supportsAncCycle = supportsAncCycle,
+            supportsAncToggle = supportsAncToggle,
             onLeftChange = onLeftTriple,
             onRightChange = onRightTriple,
         )
@@ -94,16 +102,26 @@ fun PressMappingsCard(
         StemActionRow(
             leftAction = stemActions.leftLong,
             rightAction = stemActions.rightLong,
+            supportsAncCycle = supportsAncCycle,
+            supportsAncToggle = supportsAncToggle,
             onLeftChange = onLeftLong,
             onRightChange = onRightLong,
         )
-        if (stemActions.leftLong != StemAction.NONE || stemActions.rightLong != StemAction.NONE) {
+        if (longPressOverridesAncCycle(stemActions)) {
             SettingsInfoBox(
                 text = stringResource(R.string.press_controls_long_press_anc_cycle_info),
                 type = InfoBoxType.INFO,
             )
         }
     }
+}
+
+private fun longPressOverridesAncCycle(stemActions: StemActionsConfig): Boolean {
+    val left = stemActions.leftLong
+    val right = stemActions.rightLong
+    val leftOverrides = left !is StemAction.None && left !is StemAction.CycleAnc
+    val rightOverrides = right !is StemAction.None && right !is StemAction.CycleAnc
+    return leftOverrides || rightOverrides
 }
 
 @Composable
@@ -155,6 +173,8 @@ private fun PressTypeHeader(icon: ImageVector, text: String) {
 private fun StemActionRow(
     leftAction: StemAction,
     rightAction: StemAction,
+    supportsAncCycle: Boolean,
+    supportsAncToggle: Boolean,
     onLeftChange: (StemAction) -> Unit,
     onRightChange: (StemAction) -> Unit,
 ) {
@@ -173,6 +193,8 @@ private fun StemActionRow(
                 selected = leftAction,
                 onSelected = onLeftChange,
                 otherSideAction = rightAction,
+                supportsAncCycle = supportsAncCycle,
+                supportsAncToggle = supportsAncToggle,
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -190,6 +212,8 @@ private fun StemActionRow(
                 selected = rightAction,
                 onSelected = onRightChange,
                 otherSideAction = leftAction,
+                supportsAncCycle = supportsAncCycle,
+                supportsAncToggle = supportsAncToggle,
                 modifier = Modifier.fillMaxWidth(),
             )
         }
@@ -202,14 +226,20 @@ private fun StemActionDropdown(
     selected: StemAction,
     onSelected: (StemAction) -> Unit,
     otherSideAction: StemAction,
+    supportsAncCycle: Boolean,
+    supportsAncToggle: Boolean,
     modifier: Modifier = Modifier,
 ) {
     var expanded by remember { mutableStateOf(false) }
 
-    val options = if (otherSideAction == StemAction.NONE) {
-        StemAction.entries.filter { it != StemAction.NO_ACTION }
-    } else {
-        StemAction.entries.toList()
+    val options = StemAction.all.filter { candidate ->
+        when {
+            candidate === selected -> true
+            candidate is StemAction.NoAction && otherSideAction is StemAction.None -> false
+            candidate is StemAction.CycleAnc && !supportsAncCycle -> false
+            candidate is StemAction.ToggleAncTransparency && !supportsAncToggle -> false
+            else -> true
+        }
     }
 
     ExposedDropdownMenuBox(
@@ -246,13 +276,19 @@ private fun StemActionDropdown(
 
 @Composable
 private fun StemAction.label(): String = when (this) {
-    StemAction.NONE -> stringResource(R.string.press_action_none)
-    StemAction.NO_ACTION -> stringResource(R.string.press_action_no_action)
-    StemAction.PLAY_PAUSE -> stringResource(R.string.press_action_play_pause)
-    StemAction.NEXT_TRACK -> stringResource(R.string.press_action_next_track)
-    StemAction.PREVIOUS_TRACK -> stringResource(R.string.press_action_previous_track)
-    StemAction.VOLUME_UP -> stringResource(R.string.press_action_volume_up)
-    StemAction.VOLUME_DOWN -> stringResource(R.string.press_action_volume_down)
+    is StemAction.None -> stringResource(R.string.press_action_none)
+    is StemAction.NoAction -> stringResource(R.string.press_action_no_action)
+    is StemAction.PlayPause -> stringResource(R.string.press_action_play_pause)
+    is StemAction.NextTrack -> stringResource(R.string.press_action_next_track)
+    is StemAction.PreviousTrack -> stringResource(R.string.press_action_previous_track)
+    is StemAction.VolumeUp -> stringResource(R.string.press_action_volume_up)
+    is StemAction.VolumeDown -> stringResource(R.string.press_action_volume_down)
+    is StemAction.Stop -> stringResource(R.string.press_action_stop)
+    is StemAction.FastForward -> stringResource(R.string.press_action_fast_forward)
+    is StemAction.Rewind -> stringResource(R.string.press_action_rewind)
+    is StemAction.MuteToggle -> stringResource(R.string.press_action_mute_toggle)
+    is StemAction.CycleAnc -> stringResource(R.string.press_action_cycle_anc)
+    is StemAction.ToggleAncTransparency -> stringResource(R.string.press_action_toggle_anc_transparency)
 }
 
 @Preview2
@@ -260,11 +296,13 @@ private fun StemAction.label(): String = when (this) {
 private fun PressMappingsCardProPreview() = PreviewWrapper {
     PressMappingsCard(
         stemActions = StemActionsConfig(
-            leftSingle = StemAction.PLAY_PAUSE,
-            rightSingle = StemAction.NO_ACTION,
-            leftLong = StemAction.NEXT_TRACK,
+            leftSingle = StemAction.PlayPause,
+            rightSingle = StemAction.NoAction,
+            leftLong = StemAction.NextTrack,
         ),
         isPro = true,
+        supportsAncCycle = true,
+        supportsAncToggle = true,
     )
 }
 
@@ -274,5 +312,7 @@ private fun PressMappingsCardNonProPreview() = PreviewWrapper {
     PressMappingsCard(
         stemActions = StemActionsConfig(),
         isPro = false,
+        supportsAncCycle = true,
+        supportsAncToggle = true,
     )
 }
