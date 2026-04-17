@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play makse viga</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Playl ilmnes teie ostuandmete pärimisel viga. Tühjendage Google Play vahemälu ja taaskäivitage oma telefon.\n\nViga %s</string>
     <string name="upgrade_restore_action">Taasta ost</string>
+    <string name="upgrade_badge_label">Tasuline</string>
 </resources>

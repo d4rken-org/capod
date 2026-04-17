@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Lỗi thanh toán Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Đã xảy ra lỗi khi yêu cầu Google Play cung cấp chi tiết giao dịch mua của bạn. Hãy xóa bộ nhớ đệm của Google Play và khởi động lại điện thoại của bạn.\n\nLỗi %s</string>
     <string name="upgrade_restore_action">Khôi phục thanh toán</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

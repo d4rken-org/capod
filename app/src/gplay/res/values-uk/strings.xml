@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Помилка платіжної системи Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Сталася помилка під час отримання даних про покупки з Google Play. Очистіть кеш Google Play та перезавантажте телефон.\n\nПомилка %s</string>
     <string name="upgrade_restore_action">Відновити покупку</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

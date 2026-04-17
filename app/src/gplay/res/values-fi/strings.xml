@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play -laskutusvirhe</string>
     <string name="upgrades_gplay_billing_result_error_description">Ostotietojen hakemisessa Google Playsta tapahtui virhe. Tyhjennä Google Playn välimuisti ja käynnistä puhelimesi uudelleen.\n\nVirhe %s</string>
     <string name="upgrade_restore_action">Palauta ostos</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

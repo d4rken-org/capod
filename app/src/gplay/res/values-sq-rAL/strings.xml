@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Gabim i faturimit të Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Kishte një gabim kur u kërkuan detajet e blerjes suaj nga Google Play. Pastroni memorien e përkohshme të Google Play dhe rinisni telefonin tuaj.\n\nGabim %s</string>
     <string name="upgrade_restore_action">Rivendos blerjen</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

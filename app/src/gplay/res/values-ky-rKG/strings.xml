@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play төлөм катасы</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Play\'ден сатып алуу маалыматын сурап жатканда ката кетти. Google Play кэшин тазалаңыз жана телефонуңузду өчүрүп күйгүзүңүз.\n\nКата %s</string>
     <string name="upgrade_restore_action">Сатып алууну калыбына келтирүү</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

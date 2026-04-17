@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play faktureringsfel</string>
     <string name="upgrades_gplay_billing_result_error_description">Det uppstod ett fel vid hämtning av dina köpuppgifter från Google Play. Rensa Google Play-cachen och starta om din telefon.\n\nFel %s</string>
     <string name="upgrade_restore_action">Återställ köp</string>
+    <string name="upgrade_badge_label">Expert</string>
 </resources>

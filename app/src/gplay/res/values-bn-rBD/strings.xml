@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play বিলিং ত্রুটি</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Play-তে আপনার কেনাকাটার বিবরণ জানতে চাইলে একটি ত্রুটি হয়েছে। Google Play ক্যাশে সাফ করুন এবং আপনার ফোন রিবুট করুন।\n\nত্রুটি %s</string>
     <string name="upgrade_restore_action">ক্রয় পুনরুদ্ধার</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

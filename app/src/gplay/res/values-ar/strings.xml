@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">خطأ في فوترة Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">حدث خطأ عند طلب تفاصيل الشراء من Google Play. امسح ذاكرة التخزين المؤقت لـ Google Play وأعد تشغيل هاتفك.\n\nخطأ %s</string>
     <string name="upgrade_restore_action">استعادة المُشتَرَى</string>
+    <string name="upgrade_badge_label">احترافي</string>
 </resources>

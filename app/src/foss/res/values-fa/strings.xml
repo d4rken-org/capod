@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">حامی توسعه دهنده</string>
     <string name="upgrade_foss_sponsor_subtitle">بدون تبلیغ. بدون ردیابی. بدون وابستگی به Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">زود برگشتیدی؟ حمایت شما CAPod را زنده نگه می‌دارد.</string>
+    <string name="upgrade_badge_label">منبع‌آزاد</string>
 </resources>

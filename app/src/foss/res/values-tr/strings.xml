@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">Geliştirmeyi destekleyin</string>
     <string name="upgrade_foss_sponsor_subtitle">Reklam yok. Takip yok. Google Play sınırlaması yok.</string>
     <string name="upgrade_foss_sponsor_returned_early">Şimdiden döndün mü? Desteğin CAPod\'u ayakta tutuyor.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

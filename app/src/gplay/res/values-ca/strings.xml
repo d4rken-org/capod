@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Error de facturació del Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">S\'ha produït un error en demanar al Google Play els detalls de la vostra compra. Netegeu la memòria cau del Google Play i reinicieu el telèfon.\n\nError %s</string>
     <string name="upgrade_restore_action">Restaura la compra</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

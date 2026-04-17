@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">மேம்பாட்டை ஸ்பான்சர் செய்யுங்கள்</string>
     <string name="upgrade_foss_sponsor_subtitle">ஐவிளம்பரம் இல்லை. கண்காணிப்பு இல்லை. Google Play கட்டுப்பாட்டு இல்லை.</string>
     <string name="upgrade_foss_sponsor_returned_early">இத்தனை இருக்கிறீரகளா? உங்கள் ஆதரவு CAPodஐ உயிருடன் வைத்திருக்கிறது.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

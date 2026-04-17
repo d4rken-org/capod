@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">Sponsurisar il sviluppament</string>
     <string name="upgrade_foss_sponsor_subtitle">Nagins annunzis. Nagin tracking. Nagin blocadi da Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Gia enavos? Tes sustegn mantegn CAPod viv.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

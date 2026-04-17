@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Ошибка оплаты Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Произошла ошибка при запросе Google Play о деталях Вашей покупки. Очистите кэш Google Play и перезагрузите телефон.\n\nОшибка %s</string>
     <string name="upgrade_restore_action">Восстановить покупку</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

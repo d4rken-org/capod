@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play Abrechnungsfehler</string>
     <string name="upgrades_gplay_billing_result_error_description">Es trat ein Fehler auf, als Google Play nach Kaufdetails gefragt wurde. Lösch deinen Google Play-Cache und starte dein Gerät neu.\n\nFehler %s</string>
     <string name="upgrade_restore_action">Auswahl wiederherstellen</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

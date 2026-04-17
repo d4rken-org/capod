@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">İnkişafı sponsor edin</string>
     <string name="upgrade_foss_sponsor_subtitle">Reklam yoxdur. İzləmə yoxdur. Google Play bağlılığı yoxdur.</string>
     <string name="upgrade_foss_sponsor_returned_early">Artıq geri qayıtdınız? Dəstəyiniz CAPod-u yaşadır.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Hitilafu ya malipo ya Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Kulikuwa na hitilafu wakati wa kuomba maelezo ya ununuzi wako kutoka Google Play. Futa kashe ya Google Play na uzime na uwashe simu yako.\n\nHitilafu %s</string>
     <string name="upgrade_restore_action">Rejesha ununuzi</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

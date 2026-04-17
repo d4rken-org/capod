@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Erro de facturación de Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Houbo un erro ao solicitar os detalles da túa compra a Google Play. Limpa a caché de Google Play e reinicia o teu teléfono.\n\nErro %s</string>
     <string name="upgrade_restore_action">Restaurar compra</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

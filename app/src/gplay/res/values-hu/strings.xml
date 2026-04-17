@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play számlázási hiba</string>
     <string name="upgrades_gplay_billing_result_error_description">Hiba történt a vásárlási adatok lekérésekor a Google Playből. Törölje a Google Play gyorsítótárát, és indítsa újra a telefonját.\n\nHiba %s</string>
     <string name="upgrade_restore_action">Vásárlás visszaállítása</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

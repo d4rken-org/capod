@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">開発支援者</string>
     <string name="upgrade_foss_sponsor_subtitle">広告なし。追跡なし。Google Play依存なし。</string>
     <string name="upgrade_foss_sponsor_returned_early">もう戻りますか？あなたのサポートがCAPodを支えています。</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

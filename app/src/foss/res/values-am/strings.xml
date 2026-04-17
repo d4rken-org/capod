@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">ልማትን ይደግፉ</string>
     <string name="upgrade_foss_sponsor_subtitle">ምንም ማስታወቂያ የሉም። ምንም ክትትል የሉም። ምንም Google Play ቆለፋ የሉም።</string>
     <string name="upgrade_foss_sponsor_returned_early">ቀድሞ ተመለሱ፡ ድጋፏዎ CAPodን ህያው ያቆይላል።</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

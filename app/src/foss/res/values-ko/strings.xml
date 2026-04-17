@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">개발 후원하기</string>
     <string name="upgrade_foss_sponsor_subtitle">광고 없음. 추적 없음. Google Play 의존 없음.</string>
     <string name="upgrade_foss_sponsor_returned_early">벌써 돌아가세요? 여러분의 지원이 CAPod를 유지합니다.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

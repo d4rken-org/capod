@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">ဖွံ့ဖြိုးတိုးတက်မှုကို ကမကထပံ့ပိုးရန်</string>
     <string name="upgrade_foss_sponsor_subtitle">ကြောင်ညာမရှိ။ ခြေရာမခံ။ Google Play ချုပ်ချယ်မြုမရှိ။</string>
     <string name="upgrade_foss_sponsor_returned_early">ပြန်သွားပြီးလါ? သင်၏ ပံ့ပိုးမှု CAPod ကို ရှင်သန်ဆက်လက်ကေစေသည်။</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>
