@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">Styrkja þróun</string>
     <string name="upgrade_foss_sponsor_subtitle">Engar auglysíngar. Engin rakning. Ekkert Google Play-lás.</string>
     <string name="upgrade_foss_sponsor_returned_early">Aftur þegar? Styðjað þít heldur CAPod lifandi.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play請求エラー</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Playに購入情報を問い合わせる際にエラーが発生しました。Google Playのキャッシュをクリアし、スマートフォンを再起動してください。\n\nエラー %s</string>
     <string name="upgrade_restore_action">購入を復元</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

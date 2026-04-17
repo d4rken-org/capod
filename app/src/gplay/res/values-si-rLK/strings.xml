@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play බිල්පත් දෝෂය</string>
     <string name="upgrades_gplay_billing_result_error_description">ඔබේ මිලදී ගැනීමේ විස්තර සඳහා Google Play වෙත ඉල්ලීමේදී දෝෂයක් ඇති විය. Google Play හැඹිලිය හිස් කර ඔබේ දුරකථනය නැවත ආරම්භ කරන්න.\n\nදෝෂය %s</string>
     <string name="upgrade_restore_action">මිලදී ගැනීම ප්‍රතිසාධනය කරන්න</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

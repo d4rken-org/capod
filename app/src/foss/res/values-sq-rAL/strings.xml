@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">Zhvillimi i sponsorëve</string>
     <string name="upgrade_foss_sponsor_subtitle">Pa reklama. Pa gjurmim. Pa varësi nga Google Play.</string>
     <string name="upgrade_foss_sponsor_returned_early">Ktheheni tashmjë? Mbështjetja juaj e mban CAPod gjallë.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

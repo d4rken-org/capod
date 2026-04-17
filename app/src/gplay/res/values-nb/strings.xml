@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play-faktureringsfeil</string>
     <string name="upgrades_gplay_billing_result_error_description">Det oppstod en feil da Google Play ble spurt om kjøpsdetaljene dine. Tøm Google Play-hurtigbufferen og start telefonen på nytt.\n\nFeil %s</string>
     <string name="upgrade_restore_action">Gjenopprett kjøp</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

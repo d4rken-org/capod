@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play innheimtuvilla</string>
     <string name="upgrades_gplay_billing_result_error_description">Villa kom upp við að sækja upplýsingar um kaupin þín frá Google Play. Hreinsaðu skyndiminni Google Play og endurræstu símann þinn.\n\nVilla %s</string>
     <string name="upgrade_restore_action">Endurheimta kaup</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

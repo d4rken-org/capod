@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Error en el cobro en la Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Se ha producido un error al solicitar a Google Play los detalles de tu compra. Borra la caché de Google Play y reinicia tu teléfono.\n\nError %s</string>
     <string name="upgrade_restore_action">Restaurar compra</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

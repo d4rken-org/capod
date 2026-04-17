@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">שגיאת חיוב Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">אירעה שגיאה בעת בקשת פרטי הרכישה מ-Google Play. נקה את המטמון של Google Play והפעל מחדש את הטלפון.\n\nשגיאה %s</string>
     <string name="upgrade_restore_action">שחזור רכישה</string>
+    <string name="upgrade_badge_label">פרו</string>
 </resources>

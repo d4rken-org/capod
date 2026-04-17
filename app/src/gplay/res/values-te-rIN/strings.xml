@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play Billing లోపం</string>
     <string name="upgrades_gplay_billing_result_error_description">మీ కొనుగోలు వివరాల కోసం Google Play ను అడిగేటప్పుడు ఒక లోపం జరిగింది. Google Play క్యాష్‌ను క్లియర్ చేసి మీ ఫోన్‌ను రీబూట్ చేయండి.\n\nలోపం %s</string>
     <string name="upgrade_restore_action">కొనుగోలును పునరుద్ధరించండి</string>
+    <string name="upgrade_badge_label">ప్రొ</string>
 </resources>

@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">خطای صورت‌حساب Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">هنگام درخواست جزئیات خرید از Google Play خطایی رخ داد. حافظه پنهان Google Play را پاک کنید و گوشی خود را مجدداً راه‌اندازی کنید.\n\nخطا %s</string>
     <string name="upgrade_restore_action">بازیابی خرید</string>
+    <string name="upgrade_badge_label">حرفه‌ای</string>
 </resources>

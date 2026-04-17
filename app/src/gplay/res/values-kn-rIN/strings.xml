@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play ಬಿಲ್ಲಿಂಗ್ ದೋಷ</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Play ನಿಂದ ನಿಮ್ಮ ಖರೀದಿ ವಿವರಗಳನ್ನು ಕೇಳುವಾಗ ದೋಷ ಸಂಭವಿಸಿದೆ. Google Play ಕ್ಯಾಶ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ.\n\nದೋಷ %s</string>
     <string name="upgrade_restore_action">ಖರೀದಿ ಮರುಸ್ಥಾಪಿಸಿ</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

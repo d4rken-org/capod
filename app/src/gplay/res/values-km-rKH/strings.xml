@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">កំហុសការចេញវិក្កយបត្រ Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">មានកំហុសពេលស្នើសុំព័ត៌មានការទិញពី Google Play។ សូមសម្អាតឃ្លាំងសម្ងាត់ Google Play និងចាប់ផ្តើមទូរសព្ទឡើងវិញ។\n\nកំហុស %s</string>
     <string name="upgrade_restore_action">ស្តារការជាវមកវិញ</string>
+    <string name="upgrade_badge_label">ប្រូ</string>
 </resources>

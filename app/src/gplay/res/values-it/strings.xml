@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Errore di fatturazione Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Si è verificato un errore durante la richiesta dei dettagli di acquisto a Google Play. Svuota la cache di Google Play e riavvia il telefono.\n\nErrore %s</string>
     <string name="upgrade_restore_action">Ripristina acquisto</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

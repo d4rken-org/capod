@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play-faktureringsfout</string>
     <string name="upgrades_gplay_billing_result_error_description">Daar was \'n fout toe Google Play om jou aankoopbesonderhede gevra is. Maak die Google Play-kas skoon en herbegin jou foon.\n\nFout %s</string>
     <string name="upgrade_restore_action">Herstel aankoop</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play बिलिङ त्रुटि</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Play बाट तपाईंको खरिद विवरणहरू माग्दा त्रुटि भयो। Google Play क्यास खाली गर्नुहोस् र आफ्नो फोन रिबुट गर्नुहोस्।\n\nत्रुटि %s</string>
     <string name="upgrade_restore_action">खरिद पुनर्स्थापना गर्नुहोस्</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

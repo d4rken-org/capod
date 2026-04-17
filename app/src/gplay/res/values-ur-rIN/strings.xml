@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play بلنگ خرابی</string>
     <string name="upgrades_gplay_billing_result_error_description">آپ کی خریداری کی تفصیلات کے لیے Google Play سے پوچھتے وقت ایک خرابی پیش آئی۔ Google Play کیش صاف کریں اور اپنا فون ری بوٹ کریں۔\n\nخرابی %s</string>
     <string name="upgrade_restore_action">خریداری بحال کریں</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

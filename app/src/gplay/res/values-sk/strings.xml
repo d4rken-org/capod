@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Chyba fakturácie Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Pri získavaní podrobností o vašom nákupe z Google Play sa vyskytla chyba. Vymažte vyrovnávaciu pamäť Google Play a reštartujte telefón.\n\nChyba %s</string>
     <string name="upgrade_restore_action">Obnoviť nákup</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

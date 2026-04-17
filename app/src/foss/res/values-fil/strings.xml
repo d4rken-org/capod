@@ -7,4 +7,5 @@
     <string name="upgrade_foss_sponsor_action">Mag-sponsor ng development</string>
     <string name="upgrade_foss_sponsor_subtitle">Walang ads. Walang tracking. Walang Google Play lock-in.</string>
     <string name="upgrade_foss_sponsor_returned_early">Bumalik na? Ang iyong suporta ay nagpapanatiling buhay ng CAPod.</string>
+    <string name="upgrade_badge_label">FOSS</string>
 </resources>

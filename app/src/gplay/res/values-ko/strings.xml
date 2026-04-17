@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">구글 플레이 결제 오류</string>
     <string name="upgrades_gplay_billing_result_error_description">구글 플레이에서 귀하의 구매 세부 사항을 불러오는데 문제가 발생했습니다. 구글 플레이 캐시를 지우고 휴대전화를 재시작해주세요.\n\n오류%s</string>
     <string name="upgrade_restore_action">구매 복원</string>
+    <string name="upgrade_badge_label">프로</string>
 </resources>

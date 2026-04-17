@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Google Play ငွေတောင်းခံမှု အမှား</string>
     <string name="upgrades_gplay_billing_result_error_description">Google Play မှ သင့်ဝယ်ယူမှု အသေးစိတ်အချက်အလက်များကို တောင်းဆိုရာတွင် အမှားတစ်ခု ဖြစ်ပေါ်ခဲ့သည်။ Google Play ကက်ရှ်ကို ရှင်းလင်းပြီး သင့်ဖုန်းကို ပြန်လည်စတင်ပါ။\n\nအမှား %s</string>
     <string name="upgrade_restore_action">ဝယ်ယူမှုကို ပြန်လည်ရယူမည်</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

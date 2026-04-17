@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Kesalahan Penagihan Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Terjadi kesalahan saat meminta detail pembelian Anda dari Google Play. Hapus cache Google Play dan mulai ulang ponsel Anda.\n\nKesalahan %s</string>
     <string name="upgrade_restore_action">Pulihkan pembelian</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>

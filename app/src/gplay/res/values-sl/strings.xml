@@ -7,4 +7,5 @@
     <string name="upgrades_gplay_billing_result_error_label">Napaka pri obračunavanju Google Play</string>
     <string name="upgrades_gplay_billing_result_error_description">Prišlo je do napake pri pridobivanju podrobnosti o vašem nakupu iz Google Play. Počistite predpomnilnik Google Play in znova zaženite telefon.\n\nNapaka %s</string>
     <string name="upgrade_restore_action">Obnovi nakup</string>
+    <string name="upgrade_badge_label">Pro</string>
 </resources>
