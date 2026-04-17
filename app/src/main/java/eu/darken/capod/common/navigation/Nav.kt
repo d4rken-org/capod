@@ -26,7 +26,7 @@ object Nav {
         data class DeviceSettings(val profileId: String) : Main
 
         @Serializable
-        data object StemActionConfig : Main
+        data class PressControls(val profileId: String) : Main
     }
 
     sealed interface Settings : NavigationDestination {

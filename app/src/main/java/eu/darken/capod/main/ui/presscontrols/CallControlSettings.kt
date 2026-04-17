@@ -1,4 +1,6 @@
-package eu.darken.capod.main.ui.devicesettings.components
+package eu.darken.capod.main.ui.presscontrols
+
+import eu.darken.capod.main.ui.devicesettings.components.SettingsCompoundHeader
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -49,7 +51,9 @@ fun CallControlSettings(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Column(modifier = Modifier.selectableGroup()) {
+            Column(modifier = Modifier
+                .padding(horizontal = 12.dp,)
+                .selectableGroup()) {
                 CallControlOption(
                     title = stringResource(R.string.device_settings_end_call_mute_mic_option_a_title),
                     subtitle = stringResource(R.string.device_settings_end_call_mute_mic_option_a_subtitle),

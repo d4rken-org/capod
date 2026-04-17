@@ -1,4 +1,6 @@
-package eu.darken.capod.main.ui.devicesettings.components
+package eu.darken.capod.main.ui.presscontrols
+
+import eu.darken.capod.main.ui.devicesettings.components.SegmentedSettingRow
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Timer

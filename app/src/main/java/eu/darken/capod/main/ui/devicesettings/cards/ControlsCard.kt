@@ -11,9 +11,6 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.settings.SettingsPreferenceItem
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSwitchItem
-import eu.darken.capod.main.ui.devicesettings.components.CallControlSettings
-import eu.darken.capod.main.ui.devicesettings.components.PressHoldDurationSetting
-import eu.darken.capod.main.ui.devicesettings.components.PressSpeedSetting
 import eu.darken.capod.main.ui.devicesettings.components.VolumeSwipeLengthSetting
 import eu.darken.capod.main.ui.devicesettings.previewFullState
 import eu.darken.capod.monitor.core.PodDevice
@@ -24,50 +21,26 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 internal fun ControlsCard(
     device: PodDevice,
     features: PodModel.Features,
-    isPro: Boolean,
     enabled: Boolean,
-    onStemActionsClick: () -> Unit = {},
-    onEndCallMuteMicChange: (AapSetting.EndCallMuteMic.MuteMicMode, AapSetting.EndCallMuteMic.EndCallMode) -> Unit = { _, _ -> },
-    onPressSpeedChange: (AapSetting.PressSpeed.Value) -> Unit = {},
-    onPressHoldDurationChange: (AapSetting.PressHoldDuration.Value) -> Unit = {},
+    onPressControlsClick: () -> Unit = {},
     onVolumeSwipeChange: (Boolean) -> Unit = {},
     onVolumeSwipeLengthChange: (AapSetting.VolumeSwipeLength.Value) -> Unit = {},
 ) {
-    val pressSpd = device.pressSpeed
-    val pressHold = device.pressHoldDuration
     val volSwipe = device.volumeSwipe
     val volSwipeLen = device.volumeSwipeLength
-    val endCallMuteMic = device.endCallMuteMic
+
+    val showPressControlsNav = features.hasStemConfig ||
+            features.hasPressSpeed ||
+            features.hasPressHoldDuration ||
+            features.hasEndCallMuteMic
 
     SettingsSection(title = stringResource(R.string.device_settings_category_controls_label)) {
-        if (features.hasStemConfig) {
+        if (showPressControlsNav) {
             SettingsPreferenceItem(
                 icon = Icons.TwoTone.TouchApp,
-                title = stringResource(R.string.stem_actions_title),
-                subtitle = stringResource(R.string.stem_actions_nav_description),
-                onClick = onStemActionsClick,
-                enabled = enabled,
-                requiresUpgrade = !isPro,
-            )
-        }
-        if (features.hasEndCallMuteMic && endCallMuteMic != null) {
-            CallControlSettings(
-                current = endCallMuteMic,
-                onChange = onEndCallMuteMicChange,
-                enabled = enabled,
-            )
-        }
-        if (features.hasPressSpeed && pressSpd != null) {
-            PressSpeedSetting(
-                selected = pressSpd.value,
-                onSelected = onPressSpeedChange,
-                enabled = enabled,
-            )
-        }
-        if (features.hasPressHoldDuration && pressHold != null) {
-            PressHoldDurationSetting(
-                selected = pressHold.value,
-                onSelected = onPressHoldDurationChange,
+                title = stringResource(R.string.press_controls_title),
+                subtitle = stringResource(R.string.press_controls_nav_description),
+                onClick = onPressControlsClick,
                 enabled = enabled,
             )
         }
@@ -99,7 +72,6 @@ private fun ControlsCardPreview() = PreviewWrapper {
     ControlsCard(
         device = device,
         features = device.model.features,
-        isPro = state.isPro,
         enabled = device.isAapReady,
     )
 }
@@ -112,7 +84,6 @@ private fun ControlsCardNonProPreview() = PreviewWrapper {
     ControlsCard(
         device = device,
         features = device.model.features,
-        isPro = state.isPro,
         enabled = device.isAapReady,
     )
 }

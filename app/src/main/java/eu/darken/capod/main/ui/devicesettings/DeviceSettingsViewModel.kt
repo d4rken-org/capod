@@ -1,6 +1,8 @@
 package eu.darken.capod.main.ui.devicesettings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.capod.common.SystemTimeSource
+import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -10,27 +12,24 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.SingleEventFlow
-import eu.darken.capod.common.SystemTimeSource
-import eu.darken.capod.common.TimeSource
+import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
+import eu.darken.capod.common.upgrade.UpgradeRepo
+import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.resolvedAncCycleMask
-import eu.darken.capod.common.navigation.Nav
-import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
-import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.profiles.core.ProfileId
+import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import eu.darken.capod.reaction.core.stem.StemAction
-import eu.darken.capod.reaction.core.stem.StemActionSettings
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.channelFlow
@@ -39,8 +38,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.isActive
 import java.time.Instant
 import javax.inject.Inject
 
@@ -53,7 +52,6 @@ class DeviceSettingsViewModel @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
     private val generalSettings: GeneralSettings,
-    private val stemActionSettings: StemActionSettings,
     private val timeSource: TimeSource,
     private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider) {
@@ -106,17 +104,21 @@ class DeviceSettingsViewModel @Inject constructor(
             // Seed this branch so the screen can render immediately after navigation.
             bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
             generalSettings.monitorMode.flow,
-            stemActionSettings.leftLong.flow,
-            stemActionSettings.rightLong.flow,
+            profilesRepo.profiles,
         ) { args ->
             val device = args[1] as PodDevice?
-            val upgrade = args[2] as eu.darken.capod.common.upgrade.UpgradeRepo.Info
+            val upgrade = args[2] as UpgradeRepo.Info
             val forcing = args[3] as Boolean
+
             @Suppress("UNCHECKED_CAST")
             val connectedDevices = args[4] as Collection<eu.darken.capod.common.bluetooth.BluetoothDevice2>
             val monitorMode = args[5] as MonitorMode
-            val leftLong = args[6] as StemAction
-            val rightLong = args[7] as StemAction
+
+            @Suppress("UNCHECKED_CAST")
+            val profiles = args[6] as List<eu.darken.capod.profiles.core.DeviceProfile>
+            val stemActions = profiles.filterIsInstance<AppleDeviceProfile>()
+                .firstOrNull { it.id == profileId }
+                ?.stemActions
             val connectedAddresses = connectedDevices.map { it.address }.toSet()
             val systemBtName = device?.address?.let { addr ->
                 try {
@@ -134,7 +136,9 @@ class DeviceSettingsViewModel @Inject constructor(
                 isClassicallyConnected = device?.address?.let { it in connectedAddresses } == true,
                 monitorMode = monitorMode,
                 systemBluetoothName = systemBtName,
-                hasCustomLongPressStemAction = leftLong != StemAction.NONE || rightLong != StemAction.NONE,
+                hasCustomLongPressStemAction = stemActions?.let {
+                    it.leftLong != StemAction.NONE || it.rightLong != StemAction.NONE
+                } == true,
             )
         }
     }.asLiveState()
@@ -246,18 +250,9 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setAdaptiveAudioNoise(level: Int) = send(AapCommand.SetAdaptiveAudioNoise(level))
 
-    fun setPressSpeed(value: AapSetting.PressSpeed.Value) = send(AapCommand.SetPressSpeed(value))
-
-    fun setPressHoldDuration(value: AapSetting.PressHoldDuration.Value) = send(AapCommand.SetPressHoldDuration(value))
-
     fun setVolumeSwipe(enabled: Boolean) = send(AapCommand.SetVolumeSwipe(enabled))
 
     fun setVolumeSwipeLength(value: AapSetting.VolumeSwipeLength.Value) = send(AapCommand.SetVolumeSwipeLength(value))
-
-    fun setEndCallMuteMic(
-        muteMic: AapSetting.EndCallMuteMic.MuteMicMode,
-        endCall: AapSetting.EndCallMuteMic.EndCallMode,
-    ) = send(AapCommand.SetEndCallMuteMic(muteMic, endCall))
 
     fun setMicrophoneMode(mode: AapSetting.MicrophoneMode.Mode) = sendProGated(AapCommand.SetMicrophoneMode(mode))
 
@@ -307,7 +302,10 @@ class DeviceSettingsViewModel @Inject constructor(
         }
         val aliasOk = bonded?.let { bluetoothManager.setDeviceAlias(it, name) } ?: false
         if (!aliasOk) {
-            log(TAG, WARN) { "System bond alias rename failed for $address — user must rename in system settings or re-pair" }
+            log(
+                TAG,
+                WARN
+            ) { "System bond alias rename failed for $address — user must rename in system settings or re-pair" }
             events.emit(Event.SystemRenameUnavailable)
         }
     }
@@ -417,13 +415,10 @@ class DeviceSettingsViewModel @Inject constructor(
         generalSettings.monitorMode.value(MonitorMode.AUTOMATIC)
     }
 
-    fun navToStemConfig() = launch {
-        log(TAG, INFO) { "navToStemConfig()" }
-        if (upgradeRepo.isPro()) {
-            navTo(Nav.Main.StemActionConfig)
-        } else {
-            navTo(Nav.Main.Upgrade)
-        }
+    fun navToPressControls() = launch {
+        log(TAG, INFO) { "navToPressControls()" }
+        val profileId = targetProfileId.value ?: return@launch
+        navTo(Nav.Main.PressControls(profileId = profileId))
     }
 
     fun launchUpgrade() {
@@ -438,6 +433,7 @@ class DeviceSettingsViewModel @Inject constructor(
     companion object {
         private val TAG = logTag("DeviceSettings", "VM")
         private const val OFF_BIT = 0x01
+
         // Apple's factory-default listening-mode cycle mask: ON | TRANSPARENCY | ADAPTIVE.
         // Used as a conservative fallback when disabling Allow Off and we don't have a
         // live/persisted mask to mutate.
