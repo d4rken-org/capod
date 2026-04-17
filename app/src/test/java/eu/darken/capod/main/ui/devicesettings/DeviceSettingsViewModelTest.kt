@@ -11,9 +11,11 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.stem.StemAction
-import eu.darken.capod.reaction.core.stem.StemActionSettings
+import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -60,14 +62,12 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var profilesRepo: DeviceProfilesRepo
     private lateinit var generalSettings: GeneralSettings
     private lateinit var fakeMonitorMode: FakeDataStoreValue<MonitorMode>
-    private lateinit var stemActionSettings: StemActionSettings
-    private lateinit var fakeLeftLongStemAction: FakeDataStoreValue<StemAction>
-    private lateinit var fakeRightLongStemAction: FakeDataStoreValue<StemAction>
     private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
     private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
+    private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
     private lateinit var offRejectedFlow: kotlinx.coroutines.flow.MutableSharedFlow<BluetoothAddress>
 
     private fun mockBondedDevice(address: BluetoothAddress): BluetoothDevice2 = mockk {
@@ -104,16 +104,17 @@ class DeviceSettingsViewModelTest : BaseTest() {
             every { bondedDevices() } returns flowOf(emptySet())
             every { connectedDevices } returns connectedDevicesFlow
         }
-        profilesRepo = mockk(relaxed = true)
+        profilesFlow = MutableStateFlow(
+            listOf(
+                AppleDeviceProfile(id = testAddress, label = "Test", address = testAddress)
+            )
+        )
+        profilesRepo = mockk(relaxed = true) {
+            every { profiles } returns profilesFlow
+        }
         fakeMonitorMode = FakeDataStoreValue(MonitorMode.AUTOMATIC)
         generalSettings = mockk<GeneralSettings>().also {
             every { it.monitorMode } returns fakeMonitorMode.mock
-        }
-        fakeLeftLongStemAction = FakeDataStoreValue(StemAction.NONE)
-        fakeRightLongStemAction = FakeDataStoreValue(StemAction.NONE)
-        stemActionSettings = mockk<StemActionSettings>().also {
-            every { it.leftLong } returns fakeLeftLongStemAction.mock
-            every { it.rightLong } returns fakeRightLongStemAction.mock
         }
     }
 
@@ -132,7 +133,6 @@ class DeviceSettingsViewModelTest : BaseTest() {
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
         generalSettings = generalSettings,
-        stemActionSettings = stemActionSettings,
         timeSource = timeSource,
         webpageTool = mockk(relaxed = true),
     ).also { vm = it }
@@ -341,7 +341,14 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
     @Test
     fun `hasCustomLongPressStemAction is true when either long-press action is assigned`() = runVmTest {
-        fakeLeftLongStemAction.value = StemAction.PLAY_PAUSE
+        profilesFlow.value = listOf(
+            AppleDeviceProfile(
+                id = testAddress,
+                label = "Test",
+                address = testAddress,
+                stemActions = StemActionsConfig(leftLong = StemAction.PLAY_PAUSE),
+            )
+        )
 
         val vm = createViewModel()
         vm.initialize(testAddress)
@@ -439,21 +446,22 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `setAllowOffOption(false) as Pro always sends SetListeningModeCycle + SetAllowOffOption(false) in order`() = runVmTest {
-        every { upgradeInfoFlow.value.isPro } returns true
+    fun `setAllowOffOption(false) as Pro always sends SetListeningModeCycle + SetAllowOffOption(false) in order`() =
+        runVmTest {
+            every { upgradeInfoFlow.value.isPro } returns true
 
-        val vm = createViewModel()
-        vm.initialize(testAddress)
-        vm.state.first()
+            val vm = createViewModel()
+            vm.initialize(testAddress)
+            vm.state.first()
 
-        vm.setAllowOffOption(false)
+            vm.setAllowOffOption(false)
 
-        // Fallback cycle mask (0x0F) with OFF bit stripped = 0x0E.
-        coVerify(ordering = io.mockk.Ordering.ORDERED) {
-            aapManager.sendCommand(testAddress, AapCommand.SetListeningModeCycle(0x0E))
-            aapManager.sendCommand(testAddress, AapCommand.SetAllowOffOption(false))
+            // Fallback cycle mask (0x0F) with OFF bit stripped = 0x0E.
+            coVerify(ordering = io.mockk.Ordering.ORDERED) {
+                aapManager.sendCommand(testAddress, AapCommand.SetListeningModeCycle(0x0E))
+                aapManager.sendCommand(testAddress, AapCommand.SetAllowOffOption(false))
+            }
         }
-    }
 
     @Test
     fun `setAllowOffOption as non-Pro sends no commands`() = runVmTest {

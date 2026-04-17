@@ -10,11 +10,10 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.stem.StemAction
-import eu.darken.capod.reaction.core.stem.StemActionSettings
+import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -23,25 +22,20 @@ import javax.inject.Singleton
 @Singleton
 class StemConfigSender @Inject constructor(
     private val aapManager: AapConnectionManager,
-    private val stemActionSettings: StemActionSettings,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
     fun monitor(): Flow<Unit> = combine(
         aapManager.allStates,
-        stemActionMask(),
-    ) { states, mask ->
-        states.entries
+        profilesRepo.profiles,
+    ) { states, profiles ->
+        val readyAddresses = states.entries
             .filter { (_, s) -> s.connectionState == AapPodState.ConnectionState.READY }
-            .mapNotNull { (address, _) ->
-                val profile = profilesRepo.profiles.first()
-                    .filterIsInstance<AppleDeviceProfile>()
-                    .firstOrNull { it.address == address }
-                if (profile != null && profile.model.features.hasStemConfig) {
-                    address to mask
-                } else {
-                    null
-                }
-            }
+            .map { (address, _) -> address }
+            .toSet()
+        profiles
+            .filterIsInstance<AppleDeviceProfile>()
+            .filter { it.address != null && it.address in readyAddresses && it.model.features.hasStemConfig }
+            .map { profile -> profile.address!! to profile.stemActions.toMask() }
     }
         .distinctUntilChanged()
         .onEach { commands ->
@@ -57,22 +51,13 @@ class StemConfigSender @Inject constructor(
         .map { }
         .setupCommonEventHandlers(TAG) { "stemConfig" }
 
-    private fun stemActionMask(): Flow<Int> = combine(
-        stemActionSettings.leftSingle.flow,
-        stemActionSettings.leftDouble.flow,
-        stemActionSettings.leftTriple.flow,
-        stemActionSettings.leftLong.flow,
-        stemActionSettings.rightSingle.flow,
-        stemActionSettings.rightDouble.flow,
-        stemActionSettings.rightTriple.flow,
-        stemActionSettings.rightLong.flow,
-    ) { values ->
+    private fun StemActionsConfig.toMask(): Int {
         var mask = 0
-        if (values[0] != StemAction.NONE || values[4] != StemAction.NONE) mask = mask or 0x01 // single
-        if (values[1] != StemAction.NONE || values[5] != StemAction.NONE) mask = mask or 0x02 // double
-        if (values[2] != StemAction.NONE || values[6] != StemAction.NONE) mask = mask or 0x04 // triple
-        if (values[3] != StemAction.NONE || values[7] != StemAction.NONE) mask = mask or 0x08 // long
-        mask
+        if (leftSingle != StemAction.NONE || rightSingle != StemAction.NONE) mask = mask or 0x01
+        if (leftDouble != StemAction.NONE || rightDouble != StemAction.NONE) mask = mask or 0x02
+        if (leftTriple != StemAction.NONE || rightTriple != StemAction.NONE) mask = mask or 0x04
+        if (leftLong != StemAction.NONE || rightLong != StemAction.NONE) mask = mask or 0x08
+        return mask
     }
 
     companion object {

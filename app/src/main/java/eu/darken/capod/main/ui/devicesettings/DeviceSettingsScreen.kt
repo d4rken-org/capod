@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -86,14 +85,17 @@ fun DeviceSettingsScreenHost(
                 DeviceSettingsViewModel.Event.OpenBluetoothSettings -> {
                     context.startActivity(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
                 }
+
                 is DeviceSettingsViewModel.Event.SendFailed -> {
                     snackbarHostState.showSnackbar(
                         context.getString(R.string.device_settings_send_failed, event.message ?: ""),
                     )
                 }
+
                 DeviceSettingsViewModel.Event.SystemRenameUnavailable -> {
                     showRenameUnavailableDialog = true
                 }
+
                 DeviceSettingsViewModel.Event.OffModeRejectedByDevice -> {
                     snackbarHostState.showSnackbar(offRejectedMessage)
                 }
@@ -125,17 +127,14 @@ fun DeviceSettingsScreenHost(
         onPersonalizedVolumeChange = { vm.setPersonalizedVolume(it) },
         onToneVolumeChange = { vm.setToneVolume(it) },
         onAdaptiveAudioNoiseChange = { vm.setAdaptiveAudioNoise(it) },
-        onPressSpeedChange = { vm.setPressSpeed(it) },
-        onPressHoldDurationChange = { vm.setPressHoldDuration(it) },
         onVolumeSwipeChange = { vm.setVolumeSwipe(it) },
         onVolumeSwipeLengthChange = { vm.setVolumeSwipeLength(it) },
-        onEndCallMuteMicChange = { muteMic, endCall -> vm.setEndCallMuteMic(muteMic, endCall) },
         onMicrophoneModeChange = { vm.setMicrophoneMode(it) },
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
-        onStemActionsClick = { vm.navToStemConfig() },
+        onPressControlsClick = { vm.navToPressControls() },
         onForceConnect = { vm.forceConnect() },
         onUpgrade = { vm.launchUpgrade() },
         onOnePodModeChange = { vm.setOnePodMode(it) },
@@ -150,7 +149,6 @@ fun DeviceSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DeviceSettingsScreen(
     state: DeviceSettingsViewModel.State,
@@ -164,17 +162,14 @@ fun DeviceSettingsScreen(
     onPersonalizedVolumeChange: (Boolean) -> Unit = {},
     onToneVolumeChange: (Int) -> Unit = {},
     onAdaptiveAudioNoiseChange: (Int) -> Unit = {},
-    onPressSpeedChange: (AapSetting.PressSpeed.Value) -> Unit = {},
-    onPressHoldDurationChange: (AapSetting.PressHoldDuration.Value) -> Unit = {},
     onVolumeSwipeChange: (Boolean) -> Unit = {},
     onVolumeSwipeLengthChange: (AapSetting.VolumeSwipeLength.Value) -> Unit = {},
-    onEndCallMuteMicChange: (AapSetting.EndCallMuteMic.MuteMicMode, AapSetting.EndCallMuteMic.EndCallMode) -> Unit = { _, _ -> },
     onMicrophoneModeChange: (AapSetting.MicrophoneMode.Mode) -> Unit = {},
     onListeningModeCycleChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
-    onStemActionsClick: () -> Unit = {},
+    onPressControlsClick: () -> Unit = {},
     onForceConnect: () -> Unit = {},
     onUpgrade: () -> Unit = {},
     onOnePodModeChange: (Boolean) -> Unit = {},
@@ -245,34 +240,80 @@ fun DeviceSettingsScreen(
                     val detailItems = buildList<DeviceDetailItem> {
                         if (info != null) {
                             if (info.manufacturer.isNotBlank()) {
-                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_manufacturer_label), info.manufacturer))
+                                add(
+                                    DeviceDetailItem.Single(
+                                        stringResource(R.string.device_settings_info_manufacturer_label),
+                                        info.manufacturer
+                                    )
+                                )
                             }
                             if (info.serialNumber.isNotBlank()) {
-                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_serial_label), info.serialNumber))
+                                add(
+                                    DeviceDetailItem.Single(
+                                        stringResource(R.string.device_settings_info_serial_label),
+                                        info.serialNumber
+                                    )
+                                )
                             }
                             val hasFirmware = info.firmwareVersion.isNotBlank()
                             val hasBuild = !info.buildNumber.isNullOrBlank()
                             if (hasFirmware && hasBuild) {
-                                add(DeviceDetailItem.Paired(
-                                    start = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_firmware_label), info.firmwareVersion),
-                                    end = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_build_label), info.buildNumber!!),
-                                ))
+                                add(
+                                    DeviceDetailItem.Paired(
+                                        start = DeviceDetailItem.Single(
+                                            stringResource(R.string.device_settings_info_firmware_label),
+                                            info.firmwareVersion
+                                        ),
+                                        end = DeviceDetailItem.Single(
+                                            stringResource(R.string.device_settings_info_build_label),
+                                            info.buildNumber!!
+                                        ),
+                                    )
+                                )
                             } else if (hasFirmware) {
-                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_firmware_label), info.firmwareVersion))
+                                add(
+                                    DeviceDetailItem.Single(
+                                        stringResource(R.string.device_settings_info_firmware_label),
+                                        info.firmwareVersion
+                                    )
+                                )
                             } else if (hasBuild) {
-                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_build_label), info.buildNumber!!))
+                                add(
+                                    DeviceDetailItem.Single(
+                                        stringResource(R.string.device_settings_info_build_label),
+                                        info.buildNumber!!
+                                    )
+                                )
                             }
                             val hasLeft = !info.leftEarbudSerial.isNullOrBlank()
                             val hasRight = !info.rightEarbudSerial.isNullOrBlank()
                             if (hasLeft && hasRight) {
-                                add(DeviceDetailItem.Paired(
-                                    start = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_left_serial_label), info.leftEarbudSerial!!),
-                                    end = DeviceDetailItem.Single(stringResource(R.string.device_settings_info_right_serial_label), info.rightEarbudSerial!!),
-                                ))
+                                add(
+                                    DeviceDetailItem.Paired(
+                                        start = DeviceDetailItem.Single(
+                                            stringResource(R.string.device_settings_info_left_serial_label),
+                                            info.leftEarbudSerial!!
+                                        ),
+                                        end = DeviceDetailItem.Single(
+                                            stringResource(R.string.device_settings_info_right_serial_label),
+                                            info.rightEarbudSerial!!
+                                        ),
+                                    )
+                                )
                             } else if (hasLeft) {
-                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_left_serial_label), info.leftEarbudSerial!!))
+                                add(
+                                    DeviceDetailItem.Single(
+                                        stringResource(R.string.device_settings_info_left_serial_label),
+                                        info.leftEarbudSerial!!
+                                    )
+                                )
                             } else if (hasRight) {
-                                add(DeviceDetailItem.Single(stringResource(R.string.device_settings_info_right_serial_label), info.rightEarbudSerial!!))
+                                add(
+                                    DeviceDetailItem.Single(
+                                        stringResource(R.string.device_settings_info_right_serial_label),
+                                        info.rightEarbudSerial!!
+                                    )
+                                )
                             }
                         }
                     }
@@ -359,7 +400,7 @@ fun DeviceSettingsScreen(
                             onAdaptiveAudioNoiseChange = onAdaptiveAudioNoiseChange,
                             onAllowOffOptionChange = onAllowOffOptionChange,
                             onListeningModeCycleChange = onListeningModeCycleChange,
-                            onStemActionsClick = onStemActionsClick,
+                            onPressControlsClick = onPressControlsClick,
                             onUpgrade = onUpgrade,
                         )
                     }
@@ -400,12 +441,8 @@ fun DeviceSettingsScreen(
                         ControlsCard(
                             device = device,
                             features = features,
-                            isPro = isPro,
                             enabled = enabled,
-                            onStemActionsClick = onStemActionsClick,
-                            onEndCallMuteMicChange = onEndCallMuteMicChange,
-                            onPressSpeedChange = onPressSpeedChange,
-                            onPressHoldDurationChange = onPressHoldDurationChange,
+                            onPressControlsClick = onPressControlsClick,
                             onVolumeSwipeChange = onVolumeSwipeChange,
                             onVolumeSwipeLengthChange = onVolumeSwipeLengthChange,
                         )

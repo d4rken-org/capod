@@ -68,7 +68,7 @@ internal fun NoiseControlCard(
     onAdaptiveAudioNoiseChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
     onListeningModeCycleChange: (Int) -> Unit = {},
-    onStemActionsClick: () -> Unit = {},
+    onPressControlsClick: () -> Unit = {},
     onUpgrade: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -130,11 +130,11 @@ internal fun NoiseControlCard(
             )
             if (hasCustomLongPressStemAction) {
                 SettingsInfoBox(
-                    text = stringResource(R.string.stem_actions_long_press_anc_cycle_info),
+                    text = stringResource(R.string.press_controls_long_press_anc_cycle_info),
                     type = InfoBoxType.INFO,
                     action = {
-                        TextButton(onClick = onStemActionsClick) {
-                            Text(stringResource(R.string.device_settings_noise_control_open_stem_actions_action))
+                        TextButton(onClick = onPressControlsClick) {
+                            Text(stringResource(R.string.device_settings_noise_control_open_press_controls_action))
                         }
                     },
                 )

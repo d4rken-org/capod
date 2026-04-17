@@ -5,6 +5,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -41,6 +42,7 @@ data class AppleDeviceProfile(
      * UI to the default 0x0E (no OFF bit) even if the real cycle on-device includes OFF.
      */
     @SerialName("learnedListeningModeCycleMask") val lastRequestedListeningModeCycleMask: Int? = null,
+    @SerialName("stemActions") val stemActions: StemActionsConfig = StemActionsConfig(),
 ) : DeviceProfile, HasReactionConfig {
 
     override val reactionConfig: ReactionConfig

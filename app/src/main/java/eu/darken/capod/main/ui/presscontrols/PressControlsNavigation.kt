@@ -1,4 +1,4 @@
-package eu.darken.capod.main.ui.stemactions
+package eu.darken.capod.main.ui.presscontrols
 
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
@@ -11,10 +11,10 @@ import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavigationEntry
 import javax.inject.Inject
 
-class StemActionConfigNavigation @Inject constructor() : NavigationEntry {
+class PressControlsNavigation @Inject constructor() : NavigationEntry {
     override fun EntryProviderScope<NavKey>.setup() {
-        entry<Nav.Main.StemActionConfig> {
-            StemActionConfigScreenHost()
+        entry<Nav.Main.PressControls> { key ->
+            PressControlsScreenHost(profileId = key.profileId)
         }
     }
 
@@ -23,6 +23,6 @@ class StemActionConfigNavigation @Inject constructor() : NavigationEntry {
     abstract class Mod {
         @Binds
         @IntoSet
-        abstract fun bind(entry: StemActionConfigNavigation): NavigationEntry
+        abstract fun bind(entry: PressControlsNavigation): NavigationEntry
     }
 }

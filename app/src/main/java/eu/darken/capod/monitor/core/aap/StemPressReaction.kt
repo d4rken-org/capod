@@ -7,8 +7,10 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
+import eu.darken.capod.profiles.core.AppleDeviceProfile
+import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.stem.StemAction
-import eu.darken.capod.reaction.core.stem.StemActionSettings
+import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -19,35 +21,42 @@ import javax.inject.Singleton
 @Singleton
 class StemPressReaction @Inject constructor(
     private val aapManager: AapConnectionManager,
-    private val stemActionSettings: StemActionSettings,
+    private val profilesRepo: DeviceProfilesRepo,
     private val mediaControl: MediaControl,
 ) {
     fun monitor(): Flow<Unit> = aapManager.stemPressEvents
-        .onEach { (_, event) ->
-            val action = resolveAction(event)
-            log(TAG) { "Stem ${event.bud} ${event.pressType} -> $action" }
+        .onEach { (address, event) ->
+            val action = resolveAction(address, event)
+            log(TAG) { "Stem ${event.bud} ${event.pressType} @ $address -> $action" }
             executeAction(action)
         }
         .map { }
         .setupCommonEventHandlers(TAG) { "stemReaction" }
 
-    private suspend fun resolveAction(event: StemPressEvent): StemAction {
-        val setting = when (event.bud) {
-            StemPressEvent.Bud.LEFT -> when (event.pressType) {
-                StemPressEvent.PressType.SINGLE -> stemActionSettings.leftSingle
-                StemPressEvent.PressType.DOUBLE -> stemActionSettings.leftDouble
-                StemPressEvent.PressType.TRIPLE -> stemActionSettings.leftTriple
-                StemPressEvent.PressType.LONG -> stemActionSettings.leftLong
+    private suspend fun resolveAction(address: String, event: StemPressEvent): StemAction {
+        val profile = profilesRepo.profiles.first()
+            .filterIsInstance<AppleDeviceProfile>()
+            .firstOrNull { it.address == address }
+            ?: return StemAction.NONE
+        return profile.stemActions.actionFor(event.bud, event.pressType)
+    }
+
+    private fun StemActionsConfig.actionFor(bud: StemPressEvent.Bud, pressType: StemPressEvent.PressType): StemAction =
+        when (bud) {
+            StemPressEvent.Bud.LEFT -> when (pressType) {
+                StemPressEvent.PressType.SINGLE -> leftSingle
+                StemPressEvent.PressType.DOUBLE -> leftDouble
+                StemPressEvent.PressType.TRIPLE -> leftTriple
+                StemPressEvent.PressType.LONG -> leftLong
             }
-            StemPressEvent.Bud.RIGHT -> when (event.pressType) {
-                StemPressEvent.PressType.SINGLE -> stemActionSettings.rightSingle
-                StemPressEvent.PressType.DOUBLE -> stemActionSettings.rightDouble
-                StemPressEvent.PressType.TRIPLE -> stemActionSettings.rightTriple
-                StemPressEvent.PressType.LONG -> stemActionSettings.rightLong
+
+            StemPressEvent.Bud.RIGHT -> when (pressType) {
+                StemPressEvent.PressType.SINGLE -> rightSingle
+                StemPressEvent.PressType.DOUBLE -> rightDouble
+                StemPressEvent.PressType.TRIPLE -> rightTriple
+                StemPressEvent.PressType.LONG -> rightLong
             }
         }
-        return setting.flow.first()
-    }
 
     private suspend fun executeAction(action: StemAction) = when (action) {
         StemAction.NONE, StemAction.NO_ACTION -> Unit

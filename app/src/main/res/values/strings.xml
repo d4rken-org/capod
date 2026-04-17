@@ -542,26 +542,27 @@
     <string name="device_settings_noise_control_label">Noise Control</string>
     <string name="device_settings_eq_label">Equalizer</string>
 
-    <!-- Stem Actions -->
-    <string name="stem_actions_title">Stem Actions</string>
-    <string name="stem_actions_nav_description">Map stem presses to Android actions</string>
-    <string name="stem_actions_description">Choose what happens when you press the stem on each AirPod. When an action is assigned, the app intercepts the press instead of the AirPods handling it natively.</string>
-    <string name="stem_actions_single_press">Single Press</string>
-    <string name="stem_actions_double_press">Double Press</string>
-    <string name="stem_actions_triple_press">Triple Press</string>
-    <string name="stem_actions_long_press">Long Press</string>
-    <string name="stem_actions_long_press_anc_cycle_info">Assigning a long-press action also disables cycling Noise Control modes (e.g. Noise Cancellation, Transparency) by holding the stem on the AirPods.</string>
-    <string name="stem_actions_left">Left</string>
-    <string name="stem_actions_right">Right</string>
-    <string name="stem_action_none">Default</string>
-    <string name="stem_action_no_action">No Action</string>
-    <string name="stem_action_play_pause">Play/Pause</string>
-    <string name="stem_action_next_track">Next Track</string>
-    <string name="stem_action_previous_track">Previous Track</string>
-    <string name="stem_action_volume_up">Volume Up</string>
-    <string name="stem_action_volume_down">Volume Down</string>
-    <string name="stem_actions_reset_label">Reset to defaults</string>
-    <string name="stem_actions_reset_confirm_message">Reset all stem actions to defaults?</string>
-    <string name="device_settings_noise_control_open_stem_actions_action">Open Stem Actions</string>
+    <!-- Press Controls -->
+    <string name="press_controls_title">Press Controls</string>
+    <string name="press_controls_nav_description">Tune press behaviour and map presses to actions</string>
+    <string name="press_controls_description">Tune how presses are detected, choose call-button behaviour, and map presses to actions. Mapped actions apply to this device only and let the app intercept the press instead of the AirPods handling it natively.</string>
+    <string name="press_controls_single_press">Single Press</string>
+    <string name="press_controls_double_press">Double Press</string>
+    <string name="press_controls_triple_press">Triple Press</string>
+    <string name="press_controls_long_press">Long Press</string>
+    <string name="press_controls_long_press_anc_cycle_info">Assigning a long-press action also disables cycling Noise Control modes (e.g. Noise Cancellation, Transparency) by pressing and holding on the AirPods.</string>
+    <string name="press_controls_mappings_section_title">Press Mappings</string>
+    <string name="press_controls_left">Left</string>
+    <string name="press_controls_right">Right</string>
+    <string name="press_action_none">Default</string>
+    <string name="press_action_no_action">No Action</string>
+    <string name="press_action_play_pause">Play/Pause</string>
+    <string name="press_action_next_track">Next Track</string>
+    <string name="press_action_previous_track">Previous Track</string>
+    <string name="press_action_volume_up">Volume Up</string>
+    <string name="press_action_volume_down">Volume Down</string>
+    <string name="press_controls_reset_label">Reset to defaults</string>
+    <string name="press_controls_reset_confirm_message">Reset all press mappings to defaults?</string>
+    <string name="device_settings_noise_control_open_press_controls_action">Open Press Controls</string>
 
 </resources>
