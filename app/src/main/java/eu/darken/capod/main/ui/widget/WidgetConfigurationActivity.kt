@@ -74,6 +74,7 @@ class WidgetConfigurationActivity : Activity2() {
                 state?.let { currentState ->
                     WidgetConfigurationScreen(
                         state = currentState,
+                        showAapRequiredHint = currentState.isAncWidget,
                         onSelectProfile = { profile -> vm.selectProfile(profile.id) },
                         onSelectPreset = { preset -> vm.selectPreset(preset) },
                         onEnterCustomMode = { bg, fg -> vm.enterCustomMode(bg, fg) },
@@ -84,7 +85,7 @@ class WidgetConfigurationActivity : Activity2() {
                         onReset = { vm.resetToDefaults() },
                         onConfirm = {
                             if (currentState.isPro) {
-                                confirmSelection()
+                                confirmSelection(currentState.isAncWidget)
                             } else {
                                 startActivity(
                                     Intent(this@WidgetConfigurationActivity, MainActivity::class.java).apply {
@@ -100,7 +101,7 @@ class WidgetConfigurationActivity : Activity2() {
         }
     }
 
-    private fun confirmSelection() {
+    private fun confirmSelection(isAncWidget: Boolean) {
         vm.confirmSelection()
 
         val resultValue = Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId)
@@ -109,7 +110,11 @@ class WidgetConfigurationActivity : Activity2() {
         lifecycleScope.launch {
             val manager = GlanceAppWidgetManager(appContext)
             val glanceId = manager.getGlanceIdBy(widgetId)
-            BatteryGlanceWidget().update(appContext, glanceId)
+            if (isAncWidget) {
+                AncGlanceWidget().update(appContext, glanceId)
+            } else {
+                BatteryGlanceWidget().update(appContext, glanceId)
+            }
             finish()
         }
     }

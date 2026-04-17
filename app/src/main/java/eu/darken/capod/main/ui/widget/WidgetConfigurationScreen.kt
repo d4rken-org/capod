@@ -84,6 +84,7 @@ import eu.darken.capod.profiles.core.DeviceProfile
 @Composable
 fun WidgetConfigurationScreen(
     state: WidgetConfigurationViewModel.State,
+    showAapRequiredHint: Boolean = false,
     onSelectProfile: (DeviceProfile) -> Unit,
     onSelectPreset: (WidgetTheme.Preset) -> Unit,
     onEnterCustomMode: (defaultBg: Int, defaultFg: Int) -> Unit,
@@ -117,6 +118,26 @@ fun WidgetConfigurationScreen(
                     .fillMaxWidth()
                     .padding(start = screenHPad, end = screenHPad, bottom = 16.dp),
             )
+
+            if (showAapRequiredHint) {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = screenHPad),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                    ),
+                    shape = RoundedCornerShape(12.dp),
+                ) {
+                    Text(
+                        text = stringResource(R.string.anc_widget_config_aap_required_hint),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
+                        modifier = Modifier.padding(16.dp),
+                    )
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+            }
 
             // Card A — Select Device
             Card(
@@ -186,6 +207,17 @@ fun WidgetConfigurationScreen(
                     WidgetConfigPreview(
                         theme = state.theme,
                         deviceLabel = state.profiles.firstOrNull { it.id == state.selectedProfile }?.label,
+                        isAncWidget = state.isAncWidget,
+                    )
+
+                    Text(
+                        text = stringResource(R.string.widget_config_preview_resize_hint),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 8.dp),
                     )
 
                     Spacer(modifier = Modifier.height(16.dp))
@@ -435,19 +467,11 @@ private fun ProfileSelectionItem(
 private fun WidgetConfigPreview(
     theme: WidgetTheme,
     deviceLabel: String?,
+    isAncWidget: Boolean,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
     val hasTransparency = theme.backgroundColor != null && theme.backgroundAlpha < 255
-
-    val previewState = remember(theme, deviceLabel) {
-        WidgetRenderState.previewDualPod(
-            theme = theme,
-            bgColor = WidgetRenderStateMapper.resolvedBgColor(context, theme),
-            textColor = WidgetRenderStateMapper.resolvedTextColor(context, theme),
-            iconColor = WidgetRenderStateMapper.resolvedIconColor(context, theme),
-        ).copy(deviceLabel = deviceLabel)
-    }
 
     Surface(
         modifier = modifier.fillMaxWidth(),
@@ -461,15 +485,39 @@ private fun WidgetConfigPreview(
                 .padding(24.dp),
             contentAlignment = Alignment.Center,
         ) {
+            val previewContent: @Composable (Modifier) -> Unit = { innerModifier ->
+                if (isAncWidget) {
+                    val ancState = remember(theme, deviceLabel, context) {
+                        AncWidgetRenderState.previewActive(
+                            context = context,
+                            theme = theme,
+                            bgColor = WidgetRenderStateMapper.resolvedBgColor(context, theme),
+                            textColor = WidgetRenderStateMapper.resolvedTextColor(context, theme),
+                            iconColor = WidgetRenderStateMapper.resolvedIconColor(context, theme),
+                            activeColor = WidgetRenderStateMapper.resolveThemeColor(context, com.google.android.material.R.attr.colorSecondaryContainer),
+                            onActiveColor = WidgetRenderStateMapper.resolveThemeColor(context, com.google.android.material.R.attr.colorOnSecondaryContainer),
+                            deviceLabel = deviceLabel,
+                        )
+                    }
+                    ComposeAncWidgetPreview(state = ancState, modifier = innerModifier)
+                } else {
+                    val batteryState = remember(theme, deviceLabel) {
+                        WidgetRenderState.previewDualPod(
+                            theme = theme,
+                            bgColor = WidgetRenderStateMapper.resolvedBgColor(context, theme),
+                            textColor = WidgetRenderStateMapper.resolvedTextColor(context, theme),
+                            iconColor = WidgetRenderStateMapper.resolvedIconColor(context, theme),
+                        ).copy(deviceLabel = deviceLabel)
+                    }
+                    ComposeWidgetPreview(state = batteryState, modifier = innerModifier)
+                }
+            }
             if (hasTransparency) {
                 CheckerboardBackground {
-                    ComposeWidgetPreview(
-                        state = previewState,
-                        modifier = Modifier.padding(6.dp),
-                    )
+                    previewContent(Modifier.padding(6.dp))
                 }
             } else {
-                ComposeWidgetPreview(state = previewState)
+                previewContent(Modifier)
             }
         }
     }

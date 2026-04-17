@@ -18,6 +18,7 @@ class WidgetManager @Inject constructor(
     suspend fun refreshWidgets() {
         log(TAG, VERBOSE) { "refreshWidgets()" }
         BatteryGlanceWidget().updateAll(context)
+        AncGlanceWidget().updateAll(context)
     }
 
     companion object {
