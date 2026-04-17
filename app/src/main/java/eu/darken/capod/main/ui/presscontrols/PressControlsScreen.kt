@@ -208,6 +208,8 @@ fun PressControlsScreen(
                     PressMappingsCard(
                         stemActions = state.stemActions,
                         isPro = state.isPro,
+                        supportsAncCycle = state.supportsAncCycle,
+                        supportsAncToggle = state.supportsAncToggle,
                         onLeftSingle = onLeftSingle,
                         onLeftDouble = onLeftDouble,
                         onLeftTriple = onLeftTriple,
@@ -262,6 +264,8 @@ internal fun previewPressControlsState(
         stemActions = stemActions,
         isPro = isPro,
         isAapReady = true,
+        supportsAncCycle = model.features.hasListeningModeCycle,
+        supportsAncToggle = model.features.hasAncControl,
     )
 }
 
@@ -272,9 +276,9 @@ private fun PressControlsScreenProPreview() = PreviewWrapper {
         state = previewPressControlsState(
             isPro = true,
             stemActions = StemActionsConfig(
-                leftSingle = StemAction.PLAY_PAUSE,
-                rightSingle = StemAction.NO_ACTION,
-                leftLong = StemAction.NEXT_TRACK,
+                leftSingle = StemAction.PlayPause,
+                rightSingle = StemAction.NoAction,
+                leftLong = StemAction.NextTrack,
             ),
         ),
         onNavigateUp = {},

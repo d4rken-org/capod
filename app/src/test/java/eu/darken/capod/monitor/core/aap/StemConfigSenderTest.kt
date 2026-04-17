@@ -46,8 +46,8 @@ class StemConfigSenderTest : BaseTest() {
         // A has SINGLE only → mask 0x01. B has LONG only → mask 0x08.
         val profilesFlow = MutableStateFlow<List<DeviceProfile>>(
             listOf(
-                profile(addressA, StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE)),
-                profile(addressB, StemActionsConfig(rightLong = StemAction.VOLUME_UP)),
+                profile(addressA, StemActionsConfig(leftSingle = StemAction.PlayPause)),
+                profile(addressB, StemActionsConfig(rightLong = StemAction.VolumeUp)),
             )
         )
         val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
@@ -77,8 +77,8 @@ class StemConfigSenderTest : BaseTest() {
         }
         val profilesFlow = MutableStateFlow<List<DeviceProfile>>(
             listOf(
-                profile(addressA, StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE)),
-                profile(addressB, StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE)),
+                profile(addressA, StemActionsConfig(leftSingle = StemAction.PlayPause)),
+                profile(addressB, StemActionsConfig(leftSingle = StemAction.PlayPause)),
             )
         )
         val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
@@ -132,10 +132,10 @@ class StemConfigSenderTest : BaseTest() {
                     profile(
                         addressA,
                         StemActionsConfig(
-                            leftSingle = StemAction.PLAY_PAUSE,
-                            rightDouble = StemAction.NEXT_TRACK,
-                            leftTriple = StemAction.VOLUME_UP,
-                            rightLong = StemAction.VOLUME_DOWN,
+                            leftSingle = StemAction.PlayPause,
+                            rightDouble = StemAction.NextTrack,
+                            leftTriple = StemAction.VolumeUp,
+                            rightLong = StemAction.VolumeDown,
                         ),
                     )
                 )

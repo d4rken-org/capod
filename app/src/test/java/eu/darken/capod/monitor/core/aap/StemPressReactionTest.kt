@@ -4,6 +4,9 @@ import android.view.KeyEvent
 import eu.darken.capod.common.MediaControl
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -14,6 +17,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -41,8 +45,8 @@ class StemPressReactionTest : BaseTest() {
             every { stemPressEvents } returns events
         }
         val profiles = listOf<DeviceProfile>(
-            profile(addressA, StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE)),
-            profile(addressB, StemActionsConfig(leftSingle = StemAction.NEXT_TRACK)),
+            profile(addressA, StemActionsConfig(leftSingle = StemAction.PlayPause)),
+            profile(addressB, StemActionsConfig(leftSingle = StemAction.NextTrack)),
         )
         val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
             every { this@mockk.profiles } returns flowOf(profiles)
@@ -71,7 +75,7 @@ class StemPressReactionTest : BaseTest() {
         }
         val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
             every { this@mockk.profiles } returns flowOf(
-                listOf<DeviceProfile>(profile(addressA, StemActionsConfig(leftSingle = StemAction.PLAY_PAUSE)))
+                listOf<DeviceProfile>(profile(addressA, StemActionsConfig(leftSingle = StemAction.PlayPause)))
             )
         }
         val mediaControl = mockk<MediaControl>(relaxed = true)
@@ -88,7 +92,7 @@ class StemPressReactionTest : BaseTest() {
     }
 
     @Test
-    fun `NO_ACTION and NONE do not execute anything`() = runTest(UnconfinedTestDispatcher()) {
+    fun `NoAction and None do not execute anything`() = runTest(UnconfinedTestDispatcher()) {
         val events = MutableSharedFlow<Pair<String, StemPressEvent>>(extraBufferCapacity = 8)
         val aapManager = mockk<AapConnectionManager>(relaxed = true) {
             every { stemPressEvents } returns events
@@ -99,8 +103,8 @@ class StemPressReactionTest : BaseTest() {
                     profile(
                         addressA,
                         StemActionsConfig(
-                            leftSingle = StemAction.NONE,
-                            rightSingle = StemAction.NO_ACTION,
+                            leftSingle = StemAction.None,
+                            rightSingle = StemAction.NoAction,
                         ),
                     )
                 )
@@ -117,6 +121,153 @@ class StemPressReactionTest : BaseTest() {
 
         coVerify(exactly = 0) { mediaControl.sendPlayPause() }
         coVerify(exactly = 0) { mediaControl.sendKey(any()) }
+
+        job.cancel()
+    }
+
+    @Test
+    fun `new media-key actions dispatch correct keycodes`() = runTest(UnconfinedTestDispatcher()) {
+        val events = MutableSharedFlow<Pair<String, StemPressEvent>>(extraBufferCapacity = 8)
+        val aapManager = mockk<AapConnectionManager>(relaxed = true) {
+            every { stemPressEvents } returns events
+        }
+        val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
+            every { this@mockk.profiles } returns flowOf(
+                listOf<DeviceProfile>(
+                    profile(
+                        addressA,
+                        StemActionsConfig(
+                            leftSingle = StemAction.Stop,
+                            leftDouble = StemAction.FastForward,
+                            leftTriple = StemAction.Rewind,
+                            leftLong = StemAction.MuteToggle,
+                        ),
+                    )
+                )
+            )
+        }
+        val mediaControl = mockk<MediaControl>(relaxed = true)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val job = launch { reaction.monitor().collect {} }
+
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.DOUBLE, StemPressEvent.Bud.LEFT))
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.TRIPLE, StemPressEvent.Bud.LEFT))
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.LONG, StemPressEvent.Bud.LEFT))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_STOP) }
+        coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD) }
+        coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_REWIND) }
+        coVerify(exactly = 1) { mediaControl.toggleMuteMusic() }
+
+        job.cancel()
+    }
+
+    @Test
+    fun `CycleAnc sends SetAncMode with the next cycle mode`() = runTest(UnconfinedTestDispatcher()) {
+        val events = MutableSharedFlow<Pair<String, StemPressEvent>>(extraBufferCapacity = 8)
+        val aapState = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.AncMode::class to AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ON,
+                    supported = listOf(
+                        AapSetting.AncMode.Value.OFF,
+                        AapSetting.AncMode.Value.ON,
+                        AapSetting.AncMode.Value.TRANSPARENCY,
+                        AapSetting.AncMode.Value.ADAPTIVE,
+                    ),
+                ),
+                AapSetting.ListeningModeCycle::class to AapSetting.ListeningModeCycle(modeMask = 0x0E),
+            ),
+        )
+        val aapManager = mockk<AapConnectionManager>(relaxed = true) {
+            every { stemPressEvents } returns events
+            every { allStates } returns MutableStateFlow(mapOf(addressA to aapState))
+        }
+        val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
+            every { this@mockk.profiles } returns flowOf(
+                listOf<DeviceProfile>(
+                    profile(addressA, StemActionsConfig(leftSingle = StemAction.CycleAnc))
+                )
+            )
+        }
+        val mediaControl = mockk<MediaControl>(relaxed = true)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val job = launch { reaction.monitor().collect {} }
+
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            aapManager.sendCommand(addressA, AapCommand.SetAncMode(AapSetting.AncMode.Value.TRANSPARENCY))
+        }
+
+        job.cancel()
+    }
+
+    @Test
+    fun `ToggleAncTransparency flips to ON when leaving TRANSPARENCY`() = runTest(UnconfinedTestDispatcher()) {
+        val events = MutableSharedFlow<Pair<String, StemPressEvent>>(extraBufferCapacity = 8)
+        val aapState = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.AncMode::class to AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.TRANSPARENCY,
+                    supported = listOf(AapSetting.AncMode.Value.ON, AapSetting.AncMode.Value.TRANSPARENCY),
+                ),
+            ),
+        )
+        val aapManager = mockk<AapConnectionManager>(relaxed = true) {
+            every { stemPressEvents } returns events
+            every { allStates } returns MutableStateFlow(mapOf(addressA to aapState))
+        }
+        val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
+            every { this@mockk.profiles } returns flowOf(
+                listOf<DeviceProfile>(
+                    profile(addressA, StemActionsConfig(leftSingle = StemAction.ToggleAncTransparency))
+                )
+            )
+        }
+        val mediaControl = mockk<MediaControl>(relaxed = true)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val job = launch { reaction.monitor().collect {} }
+
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            aapManager.sendCommand(addressA, AapCommand.SetAncMode(AapSetting.AncMode.Value.ON))
+        }
+
+        job.cancel()
+    }
+
+    @Test
+    fun `CycleAnc is a no-op when model lacks listening-mode-cycle`() = runTest(UnconfinedTestDispatcher()) {
+        val events = MutableSharedFlow<Pair<String, StemPressEvent>>(extraBufferCapacity = 8)
+        val aapManager = mockk<AapConnectionManager>(relaxed = true) {
+            every { stemPressEvents } returns events
+            every { allStates } returns MutableStateFlow(emptyMap())
+        }
+        val noCycleProfile = AppleDeviceProfile(
+            label = "Test",
+            model = PodModel.AIRPODS_GEN3,
+            address = addressA,
+            stemActions = StemActionsConfig(leftSingle = StemAction.CycleAnc),
+        )
+        val profilesRepo = mockk<DeviceProfilesRepo>(relaxed = true) {
+            every { this@mockk.profiles } returns flowOf(listOf<DeviceProfile>(noCycleProfile))
+        }
+        val mediaControl = mockk<MediaControl>(relaxed = true)
+        val reaction = StemPressReaction(aapManager, profilesRepo, mediaControl)
+        val job = launch { reaction.monitor().collect {} }
+
+        events.emit(addressA to StemPressEvent(StemPressEvent.PressType.SINGLE, StemPressEvent.Bud.LEFT))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), any<AapCommand.SetAncMode>()) }
 
         job.cancel()
     }

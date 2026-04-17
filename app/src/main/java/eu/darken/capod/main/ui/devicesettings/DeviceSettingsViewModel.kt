@@ -137,7 +137,8 @@ class DeviceSettingsViewModel @Inject constructor(
                 monitorMode = monitorMode,
                 systemBluetoothName = systemBtName,
                 hasCustomLongPressStemAction = stemActions?.let {
-                    it.leftLong != StemAction.NONE || it.rightLong != StemAction.NONE
+                    (it.leftLong !is StemAction.None && it.leftLong !is StemAction.CycleAnc) ||
+                        (it.rightLong !is StemAction.None && it.rightLong !is StemAction.CycleAnc)
                 } == true,
             )
         }

@@ -81,6 +81,15 @@ class MediaControl @Inject constructor(
         )
     }
 
+    fun toggleMuteMusic() {
+        log(TAG, INFO) { "toggleMuteMusic()" }
+        audioManager.adjustStreamVolume(
+            AudioManager.STREAM_MUSIC,
+            AudioManager.ADJUST_TOGGLE_MUTE,
+            AudioManager.FLAG_SHOW_UI,
+        )
+    }
+
     private fun markRecentCapPause() {
         capPauseExpiryElapsedRealtime = timeSource.elapsedRealtime() + RECENT_CAP_PAUSE_WINDOW_MS
     }

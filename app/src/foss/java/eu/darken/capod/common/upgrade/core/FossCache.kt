@@ -26,7 +26,7 @@ class FossCache @Inject constructor(
     private val dataStore: DataStore<Preferences> = context.dataStore
 
     val upgrade = dataStore.createValue<FossUpgrade?>(
-        key = "foss.upgrade1",
+        key = "foss.upgrade",
         defaultValue = null,
         json = json,
         onErrorFallbackToDefault = true,
