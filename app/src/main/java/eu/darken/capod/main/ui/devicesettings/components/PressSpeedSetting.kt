@@ -7,7 +7,6 @@ import androidx.compose.ui.res.stringResource
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.main.ui.devicesettings.SegmentedSettingRow
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 
 @Composable

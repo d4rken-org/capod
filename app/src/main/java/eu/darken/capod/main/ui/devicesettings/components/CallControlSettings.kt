@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.main.ui.devicesettings.SettingsCompoundHeader
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 
 @Composable
