@@ -4,15 +4,15 @@ Functies:
 
 * Batterijniveau voor pods & cases.
 * Oplaadstatus voor pods & case.
-* Extra info over aansluiting, microfoon & case.
+* Aanvullende informatie over de aansluiting, microfoon en case.
 * Kan alle apparaten in de buurt ontvangen en weergeven.
-* Oordetectie met automatisch afspelen/pauzeren.
-* Automatisch verbinding maken met telefoon en AirPods.
-* Toont pop-up wanneer case wordt geopend.
+* Oordetectie met automatische afspeel-/pauzefunctie.
+* Verbind het apparaat en de AirPods automatisch.
+* Toon een pop-upvenster wanneer een case wordt geopend.
 
 CAPod is advertentievrij. Sommige extra functies vereisen een in-app aankoop.
 
 De meeste populaire AirPods- en Beats-apparaten worden ondersteund.
-Als uw apparaat vergelijkbaar is met AirPods maar nog niet wordt ondersteund, stuur me dan een korte e-mail.
+Als je apparaat vergelijkbaar is met AirPods maar nog niet wordt ondersteund, stuur me dan een korte e-mail.
 
-Hebt u een leuk idee voor een nieuwe functie? Kom op!
+Heb je een leuk idee voor een nieuwe functie? Neem contact op!
