@@ -35,7 +35,9 @@ fun DeviceLimitUpgradeCard(
             .padding(8.dp),
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
         ) {
             Text(
                 text = pluralStringResource(R.plurals.overview_more_devices_upgrade, hiddenCount, hiddenCount),
