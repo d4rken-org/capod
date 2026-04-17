@@ -20,6 +20,7 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
+import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -29,10 +30,14 @@ import eu.darken.capod.common.navigation.NavigationController
 import eu.darken.capod.common.navigation.NavigationEntry
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.common.uix.Activity2
+import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.main.core.themeState
 import eu.darken.capod.reaction.ui.popup.PopUpWindow
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import eu.darken.capod.common.datastore.valueBlocking
 
@@ -43,11 +48,25 @@ class MainActivity : Activity2() {
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var popUpWindow: PopUpWindow
+    @Inject lateinit var upgradeRepo: UpgradeRepo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         enableEdgeToEdge()
+
+        if (intent?.getBooleanExtra(EXTRA_UPGRADE_FOR_RESULT, false) == true) {
+            lifecycleScope.launch {
+                upgradeRepo.upgradeInfo
+                    .filter { it.isPro }
+                    .take(1)
+                    .collect {
+                        log(TAG) { "Upgrade completed, finishing with RESULT_OK" }
+                        setResult(RESULT_OK)
+                        finish()
+                    }
+            }
+        }
 
         val startDestination: NavKey = if (generalSettings.isOnboardingDone.valueBlocking) {
             Nav.Main.Overview
@@ -127,6 +146,7 @@ class MainActivity : Activity2() {
 
     companion object {
         const val EXTRA_NAVIGATE_TO_UPGRADE = "navigate_to_upgrade"
+        const val EXTRA_UPGRADE_FOR_RESULT = "upgrade_for_result"
         private val TAG = logTag("MainActivity")
     }
 }
