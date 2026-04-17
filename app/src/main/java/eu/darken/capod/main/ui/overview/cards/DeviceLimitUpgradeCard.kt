@@ -1,11 +1,13 @@
 package eu.darken.capod.main.ui.overview.cards
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.DevicesOther
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -39,10 +41,17 @@ fun DeviceLimitUpgradeCard(
                 .fillMaxWidth()
                 .padding(16.dp),
         ) {
-            Text(
-                text = pluralStringResource(R.plurals.overview_more_devices_upgrade, hiddenCount, hiddenCount),
-                style = MaterialTheme.typography.titleMedium,
-            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = Icons.TwoTone.DevicesOther,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 12.dp),
+                )
+                Text(
+                    text = pluralStringResource(R.plurals.overview_more_devices_upgrade, hiddenCount, hiddenCount),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+            }
 
             Spacer(modifier = Modifier.height(4.dp))
 
