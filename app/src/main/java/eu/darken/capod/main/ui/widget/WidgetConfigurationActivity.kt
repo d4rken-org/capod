@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.SideEffect
@@ -26,6 +27,7 @@ import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.currentThemeState
 import eu.darken.capod.main.core.themeState
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -38,6 +40,24 @@ class WidgetConfigurationActivity : Activity2() {
     @ApplicationContext @Inject lateinit var appContext: Context
 
     private var widgetId: Int = AppWidgetManager.INVALID_APPWIDGET_ID
+
+    private val upgradeLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode != RESULT_OK) {
+            log(TAG) { "Upgrade flow canceled or incomplete (resultCode=${result.resultCode})" }
+            return@registerForActivityResult
+        }
+        lifecycleScope.launch {
+            val currentState = vm.state.first()
+            if (!currentState.canConfirm) {
+                log(TAG) { "Upgrade completed, but widget config is not valid, staying in config" }
+                return@launch
+            }
+            log(TAG) { "Upgrade completed, auto-confirming widget selection" }
+            confirmSelection(currentState.isAncWidget)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,9 +107,10 @@ class WidgetConfigurationActivity : Activity2() {
                             if (currentState.isPro) {
                                 confirmSelection(currentState.isAncWidget)
                             } else {
-                                startActivity(
+                                upgradeLauncher.launch(
                                     Intent(this@WidgetConfigurationActivity, MainActivity::class.java).apply {
                                         putExtra(MainActivity.EXTRA_NAVIGATE_TO_UPGRADE, true)
+                                        putExtra(MainActivity.EXTRA_UPGRADE_FOR_RESULT, true)
                                     }
                                 )
                             }
