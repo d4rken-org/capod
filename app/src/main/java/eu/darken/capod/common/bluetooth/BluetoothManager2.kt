@@ -268,11 +268,19 @@ class BluetoothManager2 @Inject constructor(
         }
         .retryWhen { cause, attempt ->
             log(TAG, WARN) { "connectedDevices Flow failed (attempt ${attempt + 1}): $cause" }
-            if (attempt < 3) {
-                delay(1000 * (attempt + 1))  // 1s, 2s, 3s exponential backoff
-                true  // Retry
-            } else {
-                false  // Give up after 3 attempts
+            when {
+                // BLUETOOTH_CONNECT not granted (or revoked). Keep retrying — the next
+                // attempt will succeed as soon as the user grants it. Terminating here
+                // would leave the stateIn StateFlow serving a stale emptyList() forever.
+                cause is SecurityException -> {
+                    delay(3_000L)
+                    true
+                }
+                attempt < 3 -> {
+                    delay(1000 * (attempt + 1))
+                    true
+                }
+                else -> false
             }
         }
         .catch { e ->
