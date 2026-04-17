@@ -64,6 +64,10 @@ class AapConnectionManager @Inject constructor(
     private val _stemPressEvents = MutableSharedFlow<Pair<BluetoothAddress, StemPressEvent>>(extraBufferCapacity = 32)
     val stemPressEvents: SharedFlow<Pair<BluetoothAddress, StemPressEvent>> = _stemPressEvents.asSharedFlow()
 
+    /** Emits when a SetAncMode(OFF) command was rejected by the device (inferred by the engine). */
+    private val _offRejectedEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
+    val offRejectedEvents: SharedFlow<BluetoothAddress> = _offRejectedEvents.asSharedFlow()
+
     fun deviceState(address: BluetoothAddress) = _allStates.map { it[address] }
 
     suspend fun connect(
@@ -105,6 +109,13 @@ class AapConnectionManager @Inject constructor(
             launch {
                 connection.stemPressEvents.collect { event ->
                     _stemPressEvents.tryEmit(address to event)
+                }
+            }
+
+            // Forward OFF-rejection events from this connection (child coroutine)
+            launch {
+                connection.offRejected.collect {
+                    _offRejectedEvents.tryEmit(address)
                 }
             }
 

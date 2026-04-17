@@ -147,7 +147,7 @@ class AapSettingsCoordinatorTest : BaseTest() {
         }
 
         @Test
-        fun `flush sorts AllowOffOption before AncMode before others`() {
+        fun `flush sorts ListeningModeCycle before AllowOffOption before AncMode before others`() {
             val coord = createCoordinator()
             val state = stateWithSetting(
                 AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = 50),
@@ -157,12 +157,14 @@ class AapSettingsCoordinatorTest : BaseTest() {
             val second =
                 coord.enqueue(first.pendingCommands, AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF), state)
             val third = coord.enqueue(second.pendingCommands, AapCommand.SetAllowOffOption(true), state)
-            val result = coord.flush(third.pendingCommands)
+            val fourth = coord.enqueue(third.pendingCommands, AapCommand.SetListeningModeCycle(0x0F), state)
+            val result = coord.flush(fourth.pendingCommands)
 
-            result.commands shouldHaveSize 3
-            result.commands[0].shouldBeInstanceOf<AapCommand.SetAllowOffOption>()
-            result.commands[1].shouldBeInstanceOf<AapCommand.SetAncMode>()
-            result.commands[2].shouldBeInstanceOf<AapCommand.SetToneVolume>()
+            result.commands shouldHaveSize 4
+            result.commands[0].shouldBeInstanceOf<AapCommand.SetListeningModeCycle>()
+            result.commands[1].shouldBeInstanceOf<AapCommand.SetAllowOffOption>()
+            result.commands[2].shouldBeInstanceOf<AapCommand.SetAncMode>()
+            result.commands[3].shouldBeInstanceOf<AapCommand.SetToneVolume>()
         }
 
         @Test

@@ -47,6 +47,10 @@ internal class AapSessionEngine(
         MutableSharedFlow<StemPressEvent>(extraBufferCapacity = 8, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val stemPressEvents: SharedFlow<StemPressEvent> = _stemPressEvents.asSharedFlow()
 
+    private val _offRejected =
+        MutableSharedFlow<Unit>(extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    val offRejected: SharedFlow<Unit> = _offRejected.asSharedFlow()
+
     private val hidTracker = HidTracker { msg -> log(TAG) { msg } }
     private val inboundInterpreter = AapInboundInterpreter(profile)
     private val ancController = AapAncController()
@@ -359,6 +363,7 @@ internal class AapSessionEngine(
     private fun handleRejectedCommand(command: AapCommand?) {
         if (command is AapCommand.SetAncMode && command.mode == AapSetting.AncMode.Value.OFF) {
             applyAncDecision(ancController.onOffRejected(_state.value, runtimeState.anc))
+            _offRejected.tryEmit(Unit)
         }
     }
 

@@ -16,12 +16,10 @@ import eu.darken.capod.reaction.core.stem.StemAction
 import eu.darken.capod.reaction.core.stem.StemActionSettings
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
-import io.mockk.Called
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.awaitCancellation
@@ -70,6 +68,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
     private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
+    private lateinit var offRejectedFlow: kotlinx.coroutines.flow.MutableSharedFlow<BluetoothAddress>
 
     private fun mockBondedDevice(address: BluetoothAddress): BluetoothDevice2 = mockk {
         every { this@mockk.address } returns address
@@ -84,7 +83,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
             every { it.isPro } returns false
         })
 
-        val syntheticDevice = mockk<PodDevice>().also {
+        val syntheticDevice = mockk<PodDevice>(relaxed = true).also {
             every { it.profileId } returns testAddress
             every { it.address } returns testAddress
         }
@@ -92,7 +91,10 @@ class DeviceSettingsViewModelTest : BaseTest() {
             every { it.devices } returns devicesFlow
             coEvery { it.getDeviceForProfile(testAddress) } returns syntheticDevice
         }
-        aapManager = mockk(relaxed = true)
+        offRejectedFlow = kotlinx.coroutines.flow.MutableSharedFlow(extraBufferCapacity = 16)
+        aapManager = mockk(relaxed = true) {
+            every { offRejectedEvents } returns offRejectedFlow
+        }
         upgradeRepo = mockk<UpgradeRepo>().also {
             every { it.upgradeInfo } returns upgradeInfoFlow
         }
@@ -282,7 +284,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
 
         vm.setDeviceName("NewName")
 
-        verify { aapManager wasNot Called }
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetDeviceName("NewName")) }
     }
 
     @Test
@@ -390,5 +392,82 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val sendFailed = event.shouldBeInstanceOf<DeviceSettingsViewModel.Event.SendFailed>()
         sendFailed.command shouldBe AapCommand.SetNcWithOneAirPod(true)
         sendFailed.message shouldBe "socket closed"
+    }
+
+    @Test
+    fun `offRejectedEvents for current address emits OffModeRejectedByDevice`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        offRejectedFlow.emit(testAddress)
+
+        val event = vm.events.first()
+        event shouldBe DeviceSettingsViewModel.Event.OffModeRejectedByDevice
+    }
+
+    @Test
+    fun `offRejectedEvents for other address is ignored`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        offRejectedFlow.emit("11:22:33:44:55:66")
+        // No event should have been emitted — send another recognized event afterward
+        // so we can assert that the first emission from vm.events is the later one.
+        coEvery {
+            aapManager.sendCommand(testAddress, AapCommand.SetNcWithOneAirPod(true))
+        } throws IllegalStateException("socket closed")
+        vm.setNcWithOneAirPod(true)
+
+        val event = vm.events.first()
+        event.shouldBeInstanceOf<DeviceSettingsViewModel.Event.SendFailed>()
+    }
+
+    @Test
+    fun `setAllowOffOption(true) as Pro sends only SetAllowOffOption`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns true
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setAllowOffOption(true)
+
+        coVerify(exactly = 1) { aapManager.sendCommand(testAddress, AapCommand.SetAllowOffOption(true)) }
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetListeningModeCycle(0x0E)) }
+    }
+
+    @Test
+    fun `setAllowOffOption(false) as Pro always sends SetListeningModeCycle + SetAllowOffOption(false) in order`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns true
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setAllowOffOption(false)
+
+        // Fallback cycle mask (0x0F) with OFF bit stripped = 0x0E.
+        coVerify(ordering = io.mockk.Ordering.ORDERED) {
+            aapManager.sendCommand(testAddress, AapCommand.SetListeningModeCycle(0x0E))
+            aapManager.sendCommand(testAddress, AapCommand.SetAllowOffOption(false))
+        }
+    }
+
+    @Test
+    fun `setAllowOffOption as non-Pro sends no commands`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns false
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setAllowOffOption(true)
+        vm.setAllowOffOption(false)
+
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetAllowOffOption(true)) }
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetAllowOffOption(false)) }
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetListeningModeCycle(0x0E)) }
     }
 }

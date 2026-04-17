@@ -588,6 +588,86 @@ class AapSessionEngineTest : BaseTest() {
                 AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF),
             )
         }
+
+        @Test
+        fun `rejected OFF command emits offRejected event`() = runTest(UnconfinedTestDispatcher()) {
+            val supportedModes = listOf(
+                AapSetting.AncMode.Value.OFF,
+                AapSetting.AncMode.Value.ON,
+                AapSetting.AncMode.Value.ADAPTIVE,
+            )
+            var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+            val profile = mockProfile {
+                every { decodeSetting(any()) } answers { nextSetting }
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.startReady(this as TestScope)
+
+            val rejected = mutableListOf<Unit>()
+            val collectJob = launch { engine.offRejected.collect { rejected += it } }
+
+            nextSetting = settingPair(
+                AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ADAPTIVE,
+                    supported = supportedModes,
+                )
+            )
+            engine.processMessage(dummyMessage())
+
+            engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.OFF)) { }
+
+            nextSetting = settingPair(
+                AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ADAPTIVE,
+                    supported = supportedModes,
+                )
+            )
+            engine.processMessage(dummyMessage())
+
+            advanceTimeBy(2100L)
+            rejected.size shouldBe 1
+            collectJob.cancel()
+        }
+
+        @Test
+        fun `rejected non-OFF command does not emit offRejected`() = runTest(UnconfinedTestDispatcher()) {
+            val supportedModes = listOf(
+                AapSetting.AncMode.Value.OFF,
+                AapSetting.AncMode.Value.ON,
+                AapSetting.AncMode.Value.ADAPTIVE,
+            )
+            var nextSetting: Pair<KClass<out AapSetting>, AapSetting>? = null
+            val profile = mockProfile {
+                every { decodeSetting(any()) } answers { nextSetting }
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.startReady(this as TestScope)
+
+            val rejected = mutableListOf<Unit>()
+            val collectJob = launch { engine.offRejected.collect { rejected += it } }
+
+            nextSetting = settingPair(
+                AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ADAPTIVE,
+                    supported = supportedModes,
+                )
+            )
+            engine.processMessage(dummyMessage())
+
+            engine.send(AapCommand.SetAncMode(AapSetting.AncMode.Value.ON)) { }
+
+            nextSetting = settingPair(
+                AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ADAPTIVE,
+                    supported = supportedModes,
+                )
+            )
+            engine.processMessage(dummyMessage())
+
+            advanceTimeBy(2100L)
+            rejected shouldBe emptyList()
+            collectJob.cancel()
+        }
     }
 
 

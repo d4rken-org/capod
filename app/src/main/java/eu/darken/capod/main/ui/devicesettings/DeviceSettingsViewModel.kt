@@ -17,6 +17,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.resolvedAncCycleMask
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
@@ -79,9 +80,20 @@ class DeviceSettingsViewModel @Inject constructor(
         data object OpenBluetoothSettings : Event
         data class SendFailed(val command: AapCommand, val message: String?) : Event
         data object SystemRenameUnavailable : Event
+        data object OffModeRejectedByDevice : Event
     }
 
     val events = SingleEventFlow<Event>()
+
+    init {
+        launch {
+            aapManager.offRejectedEvents.collect { address ->
+                if (address == currentAddress()) {
+                    events.tryEmit(Event.OffModeRejectedByDevice)
+                }
+            }
+        }
+    }
 
     val state = targetProfileId.flatMapLatest { profileId ->
         if (profileId == null) return@flatMapLatest flowOf(State(device = null))
@@ -253,16 +265,25 @@ class DeviceSettingsViewModel @Inject constructor(
 
     fun setListeningModeCycle(modeMask: Int) = sendProGated(AapCommand.SetListeningModeCycle(modeMask))
 
-    fun setListeningModeOffVisibility(enabled: Boolean, currentCycleMask: Int) = launch {
+    fun setAllowOffOption(enabled: Boolean) = launch {
         if (!upgradeRepo.isPro()) {
             navTo(Nav.Main.Upgrade)
             return@launch
         }
-        // Keep in sync with cycleBit(OFF) in DeviceSettingsScreen.
-        val offBit = 0x01
-        val newMask = if (enabled) currentCycleMask or offBit else currentCycleMask and offBit.inv()
-        if (sendInternal(AapCommand.SetListeningModeCycle(newMask))) {
-            sendInternal(AapCommand.SetAllowOffOption(enabled))
+        if (enabled) {
+            sendInternal(AapCommand.SetAllowOffOption(enabled = true))
+        } else {
+            val profileId = targetProfileId.value
+            val currentMask = profileId
+                ?.let { deviceMonitor.getDeviceForProfile(it) }
+                ?.resolvedAncCycleMask
+                ?: DEFAULT_CYCLE_MASK_WITH_OFF
+            // Always send the cycle-mask update first — local state can diverge from the
+            // device's actual mask since 0x1A is never echoed. Stripping OFF unconditionally
+            // keeps the stem cycle consistent with the disabled capability.
+            val newMask = currentMask and OFF_BIT.inv()
+            sendInternal(AapCommand.SetListeningModeCycle(newMask))
+            sendInternal(AapCommand.SetAllowOffOption(enabled = false))
         }
     }
 
@@ -416,5 +437,10 @@ class DeviceSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("DeviceSettings", "VM")
+        private const val OFF_BIT = 0x01
+        // Apple's factory-default listening-mode cycle mask: ON | TRANSPARENCY | ADAPTIVE.
+        // Used as a conservative fallback when disabling Allow Off and we don't have a
+        // live/persisted mask to mutate.
+        private const val DEFAULT_CYCLE_MASK_WITH_OFF = 0x0F
     }
 }
