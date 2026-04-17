@@ -65,9 +65,12 @@ internal class AapSettingsCoordinator(
     fun flush(pendingCommands: List<AapCommand>): FlushResult {
         val sorted = pendingCommands.sortedBy {
             when (it) {
-                is AapCommand.SetAllowOffOption -> 0
-                is AapCommand.SetAncMode -> 1
-                else -> 2
+                // Cycle mask must go before AllowOffOption(false) so we don't leave the device
+                // with OFF still in the stem cycle but no longer permitted as a mode.
+                is AapCommand.SetListeningModeCycle -> 0
+                is AapCommand.SetAllowOffOption -> 1
+                is AapCommand.SetAncMode -> 2
+                else -> 3
             }
         }
         return FlushResult(

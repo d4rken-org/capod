@@ -58,6 +58,20 @@ class OverviewViewModel @Inject constructor(
 
     val requestPermissionEvent = SingleEventFlow<Permission>()
 
+    sealed interface Event {
+        data object OffModeRejectedByDevice : Event
+    }
+
+    val events = SingleEventFlow<Event>()
+
+    init {
+        launch {
+            aapManager.offRejectedEvents.collect {
+                events.tryEmit(Event.OffModeRejectedByDevice)
+            }
+        }
+    }
+
     private val showUnmatchedDevices = MutableStateFlow(false)
     private val userExpansionOverrides = MutableStateFlow<Set<String>>(emptySet())
 

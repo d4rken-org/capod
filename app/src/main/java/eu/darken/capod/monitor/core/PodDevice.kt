@@ -47,6 +47,16 @@ data class PodDevice(
      * every time the BLE scanner misses the next advertisement batch.
      */
     internal val profileKeyState: BleKeyState = BleKeyState.NONE,
+    /**
+     * Last-known AllowOffOption value persisted on the profile. Used as a fallback when the
+     * live AAP state has no AllowOffOption setting (fresh session, device not pushing 0x34).
+     */
+    internal val profileLearnedAllowOffEnabled: Boolean? = null,
+    /**
+     * Last-known ListeningModeCycle mask persisted on the profile. Used as a fallback when
+     * the live AAP state has no ListeningModeCycle setting (device never echoes 0x1A back).
+     */
+    internal val profileLastRequestedListeningModeCycleMask: Int? = null,
     /** Reaction toggle snapshot from the profile. Defaults to all-off when no profile is matched. */
     val reactions: ReactionConfig = ReactionConfig(),
     /** True when the profile's BR/EDR address is in the system's connected Bluetooth devices. */
@@ -308,9 +318,11 @@ data class PodDevice(
 
     val listeningModeCycle: AapSetting.ListeningModeCycle?
         get() = aap?.setting()
+            ?: profileLastRequestedListeningModeCycleMask?.let { AapSetting.ListeningModeCycle(modeMask = it) }
 
     val allowOffOption: AapSetting.AllowOffOption?
         get() = aap?.setting()
+            ?: profileLearnedAllowOffEnabled?.let { AapSetting.AllowOffOption(enabled = it) }
 
     val stemConfig: AapSetting.StemConfig?
         get() = aap?.setting()

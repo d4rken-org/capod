@@ -72,6 +72,8 @@ class DeviceMonitor @Inject constructor(
                 profileAddress = profile?.address,
                 profileModel = profile?.model,
                 profileKeyState = profile.toBleKeyState(),
+                profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
+                profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
                 reactions = profile.toReactionConfig(),
                 isSystemConnected = profile?.address in connectedAddresses,
             )
@@ -145,6 +147,8 @@ class DeviceMonitor @Inject constructor(
                     profileAddress = profile.address,
                     profileModel = profile.model,
                     profileKeyState = profile.toBleKeyState(),
+                    profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
+                    profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
                     reactions = profile.toReactionConfig(),
                     isSystemConnected = profile.address in connectedAddresses,
                 )
@@ -224,6 +228,8 @@ class DeviceMonitor @Inject constructor(
             profileAddress = profile.address,
             profileModel = profile.model,
             profileKeyState = profile.toBleKeyState(),
+            profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
+            profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
             reactions = profile.toReactionConfig(),
         )
     }

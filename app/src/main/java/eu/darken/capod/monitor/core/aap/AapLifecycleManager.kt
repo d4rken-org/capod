@@ -24,6 +24,7 @@ class AapLifecycleManager @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val aapAutoConnect: AapAutoConnect,
     private val aapKeyPersister: AapKeyPersister,
+    private val aapLearnedSettingsPersister: AapLearnedSettingsPersister,
     private val stemConfigSender: StemConfigSender,
     private val stemPressReaction: StemPressReaction,
 ) {
@@ -32,6 +33,7 @@ class AapLifecycleManager @Inject constructor(
         merge(
             aapAutoConnect.monitor(),
             aapKeyPersister.monitor(),
+            aapLearnedSettingsPersister.monitor(),
             stemConfigSender.monitor(),
             stemPressReaction.monitor(),
         )

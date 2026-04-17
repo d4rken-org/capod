@@ -520,8 +520,8 @@
     <string name="device_settings_listening_mode_cycle_anc">Noise Cancellation</string>
     <string name="device_settings_listening_mode_cycle_transparency">Transparency</string>
     <string name="device_settings_listening_mode_cycle_adaptive">Adaptive</string>
-    <string name="device_settings_allow_off_label">Include Off</string>
-    <string name="device_settings_allow_off_description">Show Off as an option when cycling noise control modes</string>
+    <string name="device_settings_allow_off_label">Allow Off mode</string>
+    <string name="device_settings_allow_off_description">Allow Off as a selectable noise control mode. When disabled, stems skip Off while cycling.</string>
     <string name="device_settings_sleep_detection_label">Sleep Detection</string>
     <string name="device_settings_sleep_detection_description">Automatically pause audio when you fall asleep</string>
     <string name="device_settings_rename_label">Rename</string>
@@ -532,6 +532,7 @@
     <string name="device_settings_rename_system_unavailable">Android didn\'t let us rename the device here. To update the name in Bluetooth settings, rename it there or re-pair the device.</string>
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Settings</string>
     <string name="device_settings_send_failed">Could not apply setting: %1$s</string>
+    <string name="device_settings_anc_off_rejected_message">Off mode isn\'t enabled on this device. Enable \"Allow Off mode\" under Noise Control.</string>
     <string name="device_settings_category_connections_label">Connected Devices</string>
     <string name="device_settings_connected_devices_description">Other devices currently connected to these AirPods</string>
     <string name="device_settings_connected_device_label">Device %d</string>

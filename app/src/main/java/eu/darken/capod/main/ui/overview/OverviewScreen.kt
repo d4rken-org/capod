@@ -20,12 +20,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -70,10 +73,22 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
     NavigationEventHandler(vm)
 
     val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
+    val offRejectedMessage = stringResource(R.string.device_settings_anc_off_rejected_message)
 
     // Collect workerAutolaunch passively to keep it active
     LaunchedEffect(Unit) {
         vm.workerAutolaunch.collect {}
+    }
+
+    LaunchedEffect(Unit) {
+        vm.events.collect { event ->
+            when (event) {
+                OverviewViewModel.Event.OffModeRejectedByDevice -> {
+                    snackbarHostState.showSnackbar(offRejectedMessage)
+                }
+            }
+        }
     }
 
     // Permission handling
@@ -129,6 +144,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
 
     OverviewScreen(
         state = currentState,
+        snackbarHostState = snackbarHostState,
         onRequestPermission = { vm.requestPermission(it) },
         onBluetoothSettings = {
             try {
@@ -153,6 +169,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
 @Composable
 fun OverviewScreen(
     state: OverviewViewModel.State,
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onRequestPermission: (Permission) -> Unit,
     onBluetoothSettings: () -> Unit,
     onManageDevices: () -> Unit,
@@ -234,6 +251,7 @@ fun OverviewScreen(
                 },
             )
         },
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier

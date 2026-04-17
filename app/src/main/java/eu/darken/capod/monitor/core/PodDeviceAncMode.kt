@@ -45,6 +45,8 @@ val PodDevice.visibleAncModes: List<AapSetting.AncMode.Value>
             supportedModes = ancMode.supported,
             currentMode = ancMode.current,
             cycleMask = resolvedAncCycleMask,
-            allowOffEnabled = allowOffOption?.enabled == true,
+            // Unknown (null) is treated as allowed so OFF is visible optimistically. Only a
+            // confirmed enabled=false (direct device report or inferred rejection) hides OFF.
+            allowOffEnabled = allowOffOption?.enabled != false,
         )
     }

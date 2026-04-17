@@ -29,6 +29,18 @@ data class AppleDeviceProfile(
     @SerialName("reactionAutoConnectCondition") val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
     @SerialName("reactionShowPopUpOnCaseOpen") val showPopUpOnCaseOpen: Boolean = false,
     @SerialName("reactionShowPopUpOnConnection") val showPopUpOnConnection: Boolean = false,
+    /**
+     * Last-known device-side AllowOffOption (AAP setting 0x34). Persisted so the UI can honor
+     * the learned value across sessions — AAP state is dropped on disconnect, but whether OFF
+     * mode is allowed on the device is effectively sticky until the owner toggles it.
+     */
+    @SerialName("learnedAllowOffEnabled") val learnedAllowOffEnabled: Boolean? = null,
+    /**
+     * Last-known device-side ListeningModeCycle mask (AAP setting 0x1A). The device never
+     * echoes this back as a push setting, so without persistence every reconnect resets the
+     * UI to the default 0x0E (no OFF bit) even if the real cycle on-device includes OFF.
+     */
+    @SerialName("learnedListeningModeCycleMask") val lastRequestedListeningModeCycleMask: Int? = null,
 ) : DeviceProfile, HasReactionConfig {
 
     override val reactionConfig: ReactionConfig
