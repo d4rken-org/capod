@@ -118,13 +118,6 @@ internal fun NoiseControlCard(
                 icon = Icons.TwoTone.Loop,
                 title = stringResource(R.string.device_settings_listening_mode_cycle_label),
                 subtitle = cycleSubtitle,
-                value = stringResource(
-                    if (isPro) {
-                        R.string.general_edit_action
-                    } else {
-                        R.string.general_upgrade_action
-                    },
-                ),
                 onClick = {
                     if (isPro) {
                         onShowListeningModeCycleDialogChange(true)
