@@ -4,10 +4,7 @@ Android app that detects and monitors AirPods via Bluetooth LE. Displays battery
 
 ## Project Structure
 
-| Module | Description |
-|--------|-------------|
-| `app/` | Main Android app (FOSS and Google Play flavors) |
-| `app-common/` | Shared code between phone and Wear OS apps |
+Single Gradle module `app/` with multiple source sets (`main`, `foss`, `gplay`, `debug`, `test`, `testFoss`, `testGplay`, `screenshotTest`). A previous `app-common/` module was merged into `app/`.
 
 ## Build Flavors
 
@@ -20,10 +17,10 @@ Quick build check: `./gradlew assembleFossDebug`
 
 | Path | Contains |
 |------|----------|
-| `app/src/main/java/` | Main app source (activities, fragments, services) |
-| `app-common/src/main/java/` | Shared logic (monitor, bluetooth, models) |
+| `app/src/main/java/` | Main app source (Compose screens, services, receivers, monitor, bluetooth, models) |
+| `app/src/foss/java/`, `app/src/gplay/java/` | Flavor-specific code (e.g. upgrade/billing) |
 | `app/src/main/res/` | Layouts, drawables, strings |
-| `app-common/src/test/` | Unit tests |
+| `app/src/test/`, `app/src/testFoss/`, `app/src/testGplay/` | Unit tests (shared + flavor-specific) |
 | `app/build.gradle.kts` | App build config, dependencies, flavors |
 | `app/src/debug/java/.../screenshots/` | Play Store screenshot content composables |
 | `fastlane/` | Screenshot generation scripts, Play Store metadata |
@@ -31,7 +28,6 @@ Quick build check: `./gradlew assembleFossDebug`
 ## Development Tips
 
 - Use `assembleFossDebug` as the fastest build variant for iteration
-- Shared code goes in `app-common/`, app-specific code in `app/`
 - Follow existing patterns — the codebase uses MVVM + Hilt + Coroutines
 - Always use string resources for user-facing text (see localization rules)
 - Check `git log --oneline -20` for commit message style before committing

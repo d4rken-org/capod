@@ -21,6 +21,7 @@ Use the existing commit history as reference. Common prefixes:
 - **fix**: Bug fixes (e.g., `fix: Handle display cutouts in landscape mode`)
 - **feat**: New features
 - **refactor**: Code restructuring without behavior change
+- **ui**: Visual/layout-only tweaks that aren't a full feature or refactor (e.g., `ui(overview): ...`)
 - **chore**: Maintenance, dependency updates, build config
 - **docs**: Documentation changes
 
