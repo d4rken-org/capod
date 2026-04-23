@@ -431,6 +431,10 @@ class DeviceSettingsViewModel @Inject constructor(
         webpageTool.open("https://github.com/d4rken-org/capod/issues")
     }
 
+    fun openAapCompatibilityTracker() {
+        webpageTool.open("https://github.com/d4rken-org/capod/issues/538")
+    }
+
     companion object {
         private val TAG = logTag("DeviceSettings", "VM")
         private const val OFF_BIT = 0x01

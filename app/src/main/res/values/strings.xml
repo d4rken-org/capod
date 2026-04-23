@@ -469,6 +469,7 @@
     <string name="device_settings_not_connected_open_settings_action">Open Bluetooth Settings</string>
     <string name="device_settings_aap_unavailable_label">Advanced settings unavailable</string>
     <string name="device_settings_aap_unavailable_description">Advanced AirPods settings require a Bluetooth feature that is not available on this phone. This may be resolved by a future Android update from your device manufacturer.</string>
+    <string name="device_settings_aap_unavailable_action">View compatibility tracker</string>
     <string name="device_settings_category_sound_label">Sound</string>
     <string name="device_settings_category_controls_label">Controls</string>
     <string name="device_settings_nc_one_airpod_label">ANC with one pod</string>
