@@ -18,7 +18,7 @@ object WidgetRenderStateMapper {
         isPro: Boolean,
         hasConfiguredProfile: Boolean,
         profileLabel: String?,
-        isWide: Boolean = false,
+        layout: BatteryLayout = BatteryLayout.NARROW,
     ): WidgetRenderState {
         val bgColor = resolvedBgColor(context, theme)
         val textColor = resolvedTextColor(context, theme)
@@ -30,6 +30,7 @@ object WidgetRenderStateMapper {
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,
                 resolvedIconColor = iconColor,
+                layout = layout,
                 primaryText = context.getString(R.string.upgrade_capod_label),
                 secondaryText = context.getString(R.string.upgrade_capod_description),
             )
@@ -39,7 +40,7 @@ object WidgetRenderStateMapper {
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,
                 resolvedIconColor = iconColor,
-                isWide = isWide,
+                layout = layout,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 leftIcon = device.leftPodIcon,
                 leftPercent = device.batteryLeft.toBatteryFloat(),
@@ -59,6 +60,7 @@ object WidgetRenderStateMapper {
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,
                 resolvedIconColor = iconColor,
+                layout = layout,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 headsetIcon = device.iconRes,
                 percent = device.batteryHeadset.toBatteryFloat(),
@@ -72,6 +74,7 @@ object WidgetRenderStateMapper {
                 resolvedBgColor = bgColor,
                 resolvedTextColor = textColor,
                 resolvedIconColor = iconColor,
+                layout = layout,
                 primaryText = context.getString(R.string.pods_unknown_label),
             )
 
@@ -86,6 +89,7 @@ object WidgetRenderStateMapper {
                     resolvedBgColor = bgColor,
                     resolvedTextColor = textColor,
                     resolvedIconColor = iconColor,
+                    layout = layout,
                     primaryText = context.getString(messageRes),
                 )
             }

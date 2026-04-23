@@ -57,12 +57,14 @@ class BatteryGlanceWidget : GlanceAppWidget() {
         } catch (e: Exception) {
             log(TAG, ERROR) { "provideGlance setup failed: ${e.asLog()}" }
             provideContent {
+                val layout = BatteryLayout.forCells(getCellsForSize(LocalSize.current.width.value.toInt()))
                 GlanceWidgetContent(
                     state = WidgetRenderState.Message(
                         theme = WidgetTheme.DEFAULT,
                         resolvedBgColor = WidgetRenderStateMapper.resolvedBgColor(context, WidgetTheme.DEFAULT),
                         resolvedTextColor = WidgetRenderStateMapper.resolvedTextColor(context, WidgetTheme.DEFAULT),
                         resolvedIconColor = WidgetRenderStateMapper.resolvedIconColor(context, WidgetTheme.DEFAULT),
+                        layout = layout,
                         primaryText = context.getString(eu.darken.capod.R.string.widget_error_loading_label),
                     ),
                     context = context,
@@ -77,6 +79,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
             val profiles by ep.deviceProfilesRepo().profiles.collectAsState(initial = emptyList())
             val upgradeInfo by ep.upgradeRepo().upgradeInfo.collectAsState(initial = null)
             val widthDp = LocalSize.current.width
+            val layout = BatteryLayout.forCells(getCellsForSize(widthDp.value.toInt()))
 
             val state = try {
                 val profileId = ep.widgetSettings().getWidgetProfile(appWidgetId)
@@ -93,8 +96,6 @@ class BatteryGlanceWidget : GlanceAppWidget() {
                     profiles.firstOrNull { it.id == pid }?.label
                 }
 
-                val isWide = getCellsForSize(widthDp.value.toInt()) >= 5
-
                 WidgetRenderStateMapper.map(
                     context = context,
                     device = device,
@@ -102,7 +103,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
                     isPro = isPro,
                     hasConfiguredProfile = profileId != null,
                     profileLabel = profileLabel,
-                    isWide = isWide,
+                    layout = layout,
                 )
             } catch (e: Exception) {
                 log(TAG, ERROR) { "provideGlance failed: ${e.asLog()}" }
@@ -111,6 +112,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
                     resolvedBgColor = WidgetRenderStateMapper.resolvedBgColor(context, WidgetTheme.DEFAULT),
                     resolvedTextColor = WidgetRenderStateMapper.resolvedTextColor(context, WidgetTheme.DEFAULT),
                     resolvedIconColor = WidgetRenderStateMapper.resolvedIconColor(context, WidgetTheme.DEFAULT),
+                    layout = layout,
                     primaryText = context.getString(eu.darken.capod.R.string.widget_error_loading_label),
                 )
             }
@@ -137,7 +139,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
      */
     private fun getCellsForSize(size: Int): Int {
         var n = 2
-        while (70 * n - 30 < size) {
+        while (70 * n - 30 <= size) {
             ++n
         }
         return n - 1
