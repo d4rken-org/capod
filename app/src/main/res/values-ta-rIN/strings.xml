@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">மைக்ரோஃபோனை முடக்க ஒரே ஒரு அழுத்தம்</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">அழைப்பை முடிக்க இரண்டு முறை அழுத்தவும்</string>
     <string name="device_settings_open_cd">சாதன அமைப்புகளைத் திறக்கவும்</string>
-    <string name="overview_card_missing_paired_device_cd">சுயவிவரத்தில் இணைக்கப்பட்ட Bluetooth சாதனம் இல்லை — சுயவிவரத்தை திருத்த தட்டவும்</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">பொது</string>
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>

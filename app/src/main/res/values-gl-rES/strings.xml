@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Prema unha vez para silenciar o micrófono</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Prema dúas veces para finalizar a chamada</string>
     <string name="device_settings_open_cd">Abrir a configuración do dispositivo</string>
-    <string name="overview_card_missing_paired_device_cd">O perfil non ten ningún dispositivo Bluetooth emparellado: toca para editar o perfil</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Xeral</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>

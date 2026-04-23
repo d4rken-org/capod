@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">मायक्रोफोन म्यूट करण्यासाठी एकदा दाबा</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">कॉल संपवण्यासाठी दोनदा दाबा</string>
     <string name="device_settings_open_cd">डिव्हाइस सेटिंग्ज उघडा</string>
-    <string name="overview_card_missing_paired_device_cd">प्रोफाइलमध्ये कोणतेही जोडलेले Bluetooth डिव्हाइस नाही — प्रोफाइल संपादित करण्यासाठी टॅप करा</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">मायक्रोफोन</string>

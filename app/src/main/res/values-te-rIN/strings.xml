@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">మైక్రోఫోన్ మ్యూట్ చేయడానికి ఒకసారి నొక్కండి</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">కాల్ ముగించడానికి రెండుసార్లు నొక్కండి</string>
     <string name="device_settings_open_cd">పరికర సెట్టింగ్‌లు తెరవండి</string>
-    <string name="overview_card_missing_paired_device_cd">ప్రొఫైల్‌కు పేర్డ్ బ్లూటూత్ పరికరం లేదు — ప్రొఫైల్ సవరించడానికి నొక్కండి</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">సాధారణ</string>
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>

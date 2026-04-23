@@ -471,7 +471,6 @@ AL_Cool_T</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Одинарное нажатие для отключения микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двойное нажатие для завершения звонка</string>
     <string name="device_settings_open_cd">Открыть настройки устройства</string>
-    <string name="overview_card_missing_paired_device_cd">У профиля нет сопряжённого устройства Bluetooth — нажмите, чтобы изменить профиль</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общее</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

@@ -470,7 +470,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">En pritisk za izklop mikrofona</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojni pritisk za končanje klica</string>
     <string name="device_settings_open_cd">Odpri nastavitve naprave</string>
-    <string name="overview_card_missing_paired_device_cd">Profil nima sparene naprave Bluetooth – tapnite za urejanje profila</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Splošno</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

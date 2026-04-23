@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">单按静音麦克风</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">双按结束通话</string>
     <string name="device_settings_open_cd">打开设备设置</string>
-    <string name="overview_card_missing_paired_device_cd">配置文件没有已配对的蓝牙设备 — 点击以编辑配置文件</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">常规</string>
     <string name="device_settings_microphone_mode_label">麦克风</string>

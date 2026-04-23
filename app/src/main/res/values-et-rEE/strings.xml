@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Ühe vajutusega vaigista mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kahe vajutusega lõpeta kõne</string>
     <string name="device_settings_open_cd">Ava seadme seaded</string>
-    <string name="overview_card_missing_paired_device_cd">Profiilil pole seotud Bluetooth-seadet — profiili muutmiseks puuduta</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Üldine</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

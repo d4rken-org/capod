@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Едно натискане за заглушаване на микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двойно натискане за прекратяване на разговора</string>
     <string name="device_settings_open_cd">Отворете настройките на устройството</string>
-    <string name="overview_card_missing_paired_device_cd">Профилът няма свързано Bluetooth устройство — докоснете, за да редактирате профила</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общи</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

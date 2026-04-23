@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Premere una volta per disattivare il microfono</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Premere due volte per terminare la chiamata</string>
     <string name="device_settings_open_cd">Apri impostazioni dispositivo</string>
-    <string name="overview_card_missing_paired_device_cd">Il profilo non ha un dispositivo Bluetooth associato — tocca per modificare il profilo</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfono</string>

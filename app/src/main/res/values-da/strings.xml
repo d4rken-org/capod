@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkelt tryk for at slå mikrofon fra</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dobbelt tryk for at afslutte opkald</string>
     <string name="device_settings_open_cd">Åbn enhedsindstillinger</string>
-    <string name="overview_card_missing_paired_device_cd">Profilen har ingen parret Bluetooth-enhed — tryk for at redigere profilen</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

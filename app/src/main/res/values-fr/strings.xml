@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Appui simple pour couper le microphone</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double appui pour terminer l’appel</string>
     <string name="device_settings_open_cd">Ouvrir les paramètres de l’appareil</string>
-    <string name="overview_card_missing_paired_device_cd">Le profil n\'a pas d\'appareil Bluetooth associé — appuyez pour modifier le profil</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Général</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>

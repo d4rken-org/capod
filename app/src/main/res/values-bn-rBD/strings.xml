@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">মাইক্রোফোন মিউট করতে একবার চাপুন</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">কল শেষ করতে দুবার চাপুন</string>
     <string name="device_settings_open_cd">ডিভাইস সেটিংস খুলুন</string>
-    <string name="overview_card_missing_paired_device_cd">প্রোফাইলে কোনো পেয়ার করা ব্লুটুথ ডিভাইস নেই — প্রোফাইল সম্পাদনা করতে ট্যাপ করুন</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">সাধারণ</string>
     <string name="device_settings_microphone_mode_label">মাইক্রোফোন</string>

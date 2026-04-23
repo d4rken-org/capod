@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Pulsación simple para silenciar el micrófono</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Doble pulsación para finalizar llamada</string>
     <string name="device_settings_open_cd">Abrir configuración del dispositivo</string>
-    <string name="overview_card_missing_paired_device_cd">El perfil no tiene ningún dispositivo Bluetooth emparejado — toca para editar el perfil</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>

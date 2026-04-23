@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Shtypje e vetme për të hështur mikrofonin</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Shtypje e dyfishtë për të mbyllur thirrjen</string>
     <string name="device_settings_open_cd">Hap cilësimet e pajisjes</string>
-    <string name="overview_card_missing_paired_device_cd">Profili nuk ka asnjë pajisje Bluetooth të çiftëzuar — prekni për të redaktuar profilin</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gjenerik</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>

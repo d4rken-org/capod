@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Մեկ սեղմում խոսափոնը անձայնեցնելու համար</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Կրկնակի սեղմում զանգը ավարտելու համար</string>
     <string name="device_settings_open_cd">Բացել սառքի կառավարումները</string>
-    <string name="overview_card_missing_paired_device_cd">Պրոֆիլն կցված Bluetooth-սարք չունի — հպեք պրոֆիլը խմբագրելու համար</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ընդհանուր</string>
     <string name="device_settings_microphone_mode_label">Խոսափող</string>

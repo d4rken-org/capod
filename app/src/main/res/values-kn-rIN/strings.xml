@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ಮೈಕ್ ಮ್ಯೂಟ್ ಮಾಡಲು ಒಂದು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ಕರೆ ಮುಗಿಸಲು ಎರಡು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_open_cd">ಸಾಧನ ಸೆಟ್ಟಿಂಗ್ಸ್ ತೆರೆಯಿರಿ</string>
-    <string name="overview_card_missing_paired_device_cd">ಪ್ರೊಫೈಲ್‌ಗೆ ಯಾವುದೇ ಜೋಡಿಸಲಾದ ಬ್ಲೂಟೂತ್ ಸಾಧನವಿಲ್ಲ — ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ಸಾಮಾನ್ಯ</string>
     <string name="device_settings_microphone_mode_label">ಮೈಕ್ರೊಫೋನ್</string>

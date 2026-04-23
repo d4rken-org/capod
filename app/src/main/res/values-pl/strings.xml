@@ -472,7 +472,6 @@ K4r0lSz;</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Pojedyncze naciśnięcie wycisza mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Naciśnij dwukrotnie, aby zakończyć połączenie</string>
     <string name="device_settings_open_cd">Otwórz ustawienia urządzenia</string>
-    <string name="overview_card_missing_paired_device_cd">Profil nie ma sparowanego urządzenia Bluetooth. Naciśnij, aby edytować profil</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ogólne</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
