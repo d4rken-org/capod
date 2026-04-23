@@ -146,6 +146,7 @@ fun DeviceSettingsScreenHost(
         onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
         onFixMonitorMode = { vm.setMonitorModeAutomatic() },
         onOpenIssueTracker = { vm.openIssueTracker() },
+        onOpenAapTracker = { vm.openAapCompatibilityTracker() },
     )
 }
 
@@ -181,6 +182,7 @@ fun DeviceSettingsScreen(
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
     onFixMonitorMode: () -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
+    onOpenAapTracker: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -336,7 +338,7 @@ fun DeviceSettingsScreen(
                 if (state.isClassicallyConnected) {
                     // Device is connected for audio but AAP isn't available — show passive info
                     item("aap_unavailable_info") {
-                        AapUnavailableCard()
+                        AapUnavailableCard(onOpenTracker = onOpenAapTracker)
                     }
                 } else {
                     // Device is nearby but not connected — prompt user to connect

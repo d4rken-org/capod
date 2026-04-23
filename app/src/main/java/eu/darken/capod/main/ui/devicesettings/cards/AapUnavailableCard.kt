@@ -9,7 +9,9 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -18,7 +20,9 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 
 @Composable
-internal fun AapUnavailableCard() {
+internal fun AapUnavailableCard(
+    onOpenTracker: () -> Unit = {},
+) {
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
@@ -36,6 +40,13 @@ internal fun AapUnavailableCard() {
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            Spacer(modifier = Modifier.height(8.dp))
+            TextButton(
+                onClick = onOpenTracker,
+                modifier = Modifier.align(Alignment.End),
+            ) {
+                Text(stringResource(R.string.device_settings_aap_unavailable_action))
+            }
         }
     }
 }
