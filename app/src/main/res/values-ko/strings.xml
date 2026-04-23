@@ -457,7 +457,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">한 번 눌러 마이크 음소거</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">두 번 눌러 통화 종료</string>
     <string name="device_settings_open_cd">기기 설정 열기</string>
-    <string name="overview_card_missing_paired_device_cd">프로필에 연결된 블루투스 기기가 없습니다 — 탭하여 프로필 편집</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">일반</string>
     <string name="device_settings_microphone_mode_label">마이크</string>

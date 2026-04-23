@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Микрофоныг хаахын тулд нэг дарна уу</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Дуудлага дуусгахын тулд хоёр дарна уу</string>
     <string name="device_settings_open_cd">Төхөөрөмжийн тохиргоо нээх</string>
-    <string name="overview_card_missing_paired_device_cd">Профайлд хосолсон Bluetooth төхөөрөмж байхгүй — профайл засахын тулд дарна уу</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ерөнхий</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

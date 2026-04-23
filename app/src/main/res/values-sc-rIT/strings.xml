@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Premida sola pro mutar su micròfonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dòpia premida pro terminare sa chiamada</string>
     <string name="device_settings_open_cd">Abri sas impostatziones de su dispositivo</string>
-    <string name="overview_card_missing_paired_device_cd">Su profilu non tenet unu dispositivu Bluetooth colligadu — toca pro modificare su profilu</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>

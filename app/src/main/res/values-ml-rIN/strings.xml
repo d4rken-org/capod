@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">മൈക്രോഫോൻ മ്യൂട്ട് ചെയ്യാൻ ഒറ്റ അമർത്തൽ</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">കോൾ അവസാനിപ്പിക്കാൻ ഇരട്ട അമർത്തൽ</string>
     <string name="device_settings_open_cd">ഉപകരണ ക്രമീകരണങ്ങൾ തുറക്കുക</string>
-    <string name="overview_card_missing_paired_device_cd">പ്രൊഫൈലിൽ പെയർ ചെയ്ത ബ്ലൂടൂത്ത് ഉപകരണം ഇല്ല — പ്രൊഫൈൽ എഡിറ്റ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">പൊതുവായ</string>
     <string name="device_settings_microphone_mode_label">മൈക്രോഫോൺ</string>

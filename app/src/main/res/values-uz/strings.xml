@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonni o\'chirish uchun bir marta bosing</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Qo\'ng\'iroqni tugatish uchun ikki marta bosing</string>
     <string name="device_settings_open_cd">Qurilma sozlamalarini ochish</string>
-    <string name="overview_card_missing_paired_device_cd">Profilda juftlashtirilgan Bluetooth qurilmasi yo\'q — profilni tahrirlash uchun bosing</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umumiy</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkelttrykk for å dempe mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dobbelttrykk for å avslutte samtale</string>
     <string name="device_settings_open_cd">Åpne enhetsinnstillinger</string>
-    <string name="overview_card_missing_paired_device_cd">Profilen har ingen paret Bluetooth-enhet – trykk for å redigere profil</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generelt</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

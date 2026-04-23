@@ -465,7 +465,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Vienu reizi nospiežot, islēdz mikrofonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Divas reizes nospiežot, beidz zvanu</string>
     <string name="device_settings_open_cd">Atvērt ierīces iestatījumus</string>
-    <string name="overview_card_missing_paired_device_cd">Profilam nav savienota Bluetooth ierīce — pieskarieties, lai rediģētu profilu</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Vispārīgi</string>
     <string name="device_settings_microphone_mode_label">Mikrofons</string>

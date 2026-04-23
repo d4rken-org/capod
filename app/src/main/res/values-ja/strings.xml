@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">シングルプレスでマイクをミュート</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ダブルプレスで通話を終了</string>
     <string name="device_settings_open_cd">デバイス設定を開く</string>
-    <string name="overview_card_missing_paired_device_cd">プロファイルにペアリング済みBluetoothデバイスがありません — タップしてプロファイルを編集</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">マイク</string>

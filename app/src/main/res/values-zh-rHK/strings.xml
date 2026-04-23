@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">單擊靜音麥克風</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">雙擊結束通話</string>
     <string name="device_settings_open_cd">開啟裝置設定</string>
-    <string name="overview_card_missing_paired_device_cd">配置檔案沒有配對的藍牙裝置——點按以編輯配置檔案</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">麥克風</string>

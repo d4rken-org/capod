@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">මයික්‍රොෆෝනය නිශ්ශබ්ද කිරීමට එක් වරක් එබන්න</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ඇමතුම අවසන් කිරීමට දෙවරක් එබන්න</string>
     <string name="device_settings_open_cd">උපාංග සැකසීම් විවර්ත කරන්න</string>
-    <string name="overview_card_missing_paired_device_cd">පැතිකඩෙහි ගැලපෙන බ්ලූටූත් උපාංගයක් නැත — පැතිකඩ සංස්කරණය කිරීමට තට්ටු කරන්න</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">සාමාන්‍ය</string>
     <string name="device_settings_microphone_mode_label">ශබ්දවාහිනිය</string>

@@ -480,7 +480,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ضغطة واحدة لكتم صوت الميكروفون</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ضغطة مزدوجة لإنهاء المكالمة</string>
     <string name="device_settings_open_cd">فتح إعدادات الجهاز</string>
-    <string name="overview_card_missing_paired_device_cd">الملف الشخصي لا يحتوي على جهاز بلوتوث مقترن — انقر للتعديل</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عام</string>
     <string name="device_settings_microphone_mode_label">ميكروفون</string>

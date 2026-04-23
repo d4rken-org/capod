@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">مائیکروفون خاموش کرنے کے لیے ایک بار دبائیں</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">کال ختم کرنے کے لیے دو بار دبائیں</string>
     <string name="device_settings_open_cd">ڈیوائس کی ترتیبات کھولیں</string>
-    <string name="overview_card_missing_paired_device_cd">پروفائل میں کوئی جوڑا ہوا بلوٹوتھ ڈیوائس نہیں — پروفائل ترمیم کرنے کے لیے ٹیپ کریں</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>

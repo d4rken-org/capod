@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Bonyeza mara moja kuzima kipaza sauti</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Bonyeza mara mbili kumaliza simu</string>
     <string name="device_settings_open_cd">Fungua mipangilio ya kifaa</string>
-    <string name="overview_card_missing_paired_device_cd">Wasifu hauna kifaa cha Bluetooth kilichounganishwa — gonga ili kuhariri wasifu</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Jumla</string>
     <string name="device_settings_microphone_mode_label">Maikrofoni</string>

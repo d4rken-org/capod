@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Микрофонду өчүрүү үчүн бир жолу басыңыз</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Чалууну аяктоо үчүн эки жолу басыңыз</string>
     <string name="device_settings_open_cd">Түзмөк жөндөөлөрүн ачуу</string>
-    <string name="overview_card_missing_paired_device_cd">Профилде жупташтырылган Bluetooth түзмөгү жок — профилди өзгөртүү үчүн таптап коюңуз</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Жалпы</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

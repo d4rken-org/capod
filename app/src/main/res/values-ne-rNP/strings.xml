@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">माइक्रोफोन म्युट गर्न एकपटक थिच्नुहोस्</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">कल समाप्त गर्न दुईपटक थिच्नुहोस्</string>
     <string name="device_settings_open_cd">उपकरण सेटिङहरू खोल्नुहोस्</string>
-    <string name="overview_card_missing_paired_device_cd">प्रोफाइलमा कुनै जोडिएको ब्लुटुथ उपकरण छैन — प्रोफाइल सम्पादन गर्न ट्याप गर्नुहोस्</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">माइक्रोफोन</string>

@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Nhấn một lần để tắt tiếng micro</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Nhấn hai lần để kết thúc cuộc gọi</string>
     <string name="device_settings_open_cd">Mở cài đặt thiết bị</string>
-    <string name="overview_card_missing_paired_device_cd">Hồ sơ không có thiết bị Bluetooth được ghép nối — nhấn để chỉnh sửa hồ sơ</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Chung</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>

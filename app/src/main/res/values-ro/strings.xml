@@ -465,7 +465,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Apăsare simplă pentru a dezactiva microfonul</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dublă apăsare pentru a încheia apelul</string>
     <string name="device_settings_open_cd">Deschide setările dispozitivului</string>
-    <string name="overview_card_missing_paired_device_cd">Profilul nu are niciun dispozitiv Bluetooth asociat — atinge pentru a edita profilul</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>

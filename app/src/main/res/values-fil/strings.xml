@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Isang pindutin para i-mute ang mikropono</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dalawang pindutin para tapusin ang tawag</string>
     <string name="device_settings_open_cd">Buksan ang mga setting ng device</string>
-    <string name="overview_card_missing_paired_device_cd">Walang naka-pair na Bluetooth device ang profile — i-tap para i-edit ang profile</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Pangkalahatan</string>
     <string name="device_settings_microphone_mode_label">Mikropono</string>

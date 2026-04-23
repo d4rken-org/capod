@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Eitt þrýsting til að þagga hátalara</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Tvöföld þrýsting til að ljúka simátali</string>
     <string name="device_settings_open_cd">Opna tæki stillingar</string>
-    <string name="overview_card_missing_paired_device_cd">Prófíll á engan tengdan Bluetooth-tæki — ýttu til að breyta prófíl</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Álmennt</string>
     <string name="device_settings_microphone_mode_label">Hljóðnemi</string>

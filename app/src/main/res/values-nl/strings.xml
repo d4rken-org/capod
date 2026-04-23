@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Druk één keer om de microfoon te dempen</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dubbelklik om het gesprek te beëindigen</string>
     <string name="device_settings_open_cd">Apparaatinstellingen openen</string>
-    <string name="overview_card_missing_paired_device_cd">Er is geen Bluetooth-apparaat gekoppeld aan dit profiel — tik om het profiel te bewerken</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Algemeen</string>
     <string name="device_settings_microphone_mode_label">Microfoon</string>

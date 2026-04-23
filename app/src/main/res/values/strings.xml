@@ -507,7 +507,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Single press to mute microphone</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double press to end call</string>
     <string name="device_settings_open_cd">Open device settings</string>
-    <string name="overview_card_missing_paired_device_cd">Profile has no paired Bluetooth device — tap to edit profile</string>
+    <string name="overview_card_missing_paired_device">This profile has no paired Bluetooth device.</string>
 
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>

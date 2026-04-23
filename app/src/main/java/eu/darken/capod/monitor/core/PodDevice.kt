@@ -65,6 +65,13 @@ data class PodDevice(
     val model: PodModel get() = ble?.model ?: profileModel ?: cached?.model ?: PodModel.UNKNOWN
     /** Bonded BR/EDR address (from profile). Used for AAP commands. */
     val address: BluetoothAddress? get() = ble?.meta?.profile?.address ?: profileAddress ?: cached?.address
+    /**
+     * True when the matched profile has a selected paired Bluetooth device. Unlike [address],
+     * this never falls back to the cache, so a profile whose paired device was removed still
+     * reports `false` even while a stale cached address lingers.
+     */
+    val hasSelectedPairedDevice: Boolean
+        get() = (ble?.meta?.profile?.address ?: profileAddress) != null
     /** BLE scan address (RPA, rotates). */
     val bleAddress: BluetoothAddress? get() = ble?.address
     val identifier: BlePodSnapshot.Id? get() = ble?.identifier

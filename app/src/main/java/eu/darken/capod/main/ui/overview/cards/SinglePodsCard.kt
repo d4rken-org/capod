@@ -24,7 +24,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.Tune
-import androidx.compose.material.icons.twotone.Warning
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
@@ -50,6 +49,7 @@ import eu.darken.capod.main.ui.overview.cards.components.AncModeSelector
 import eu.darken.capod.main.ui.overview.cards.components.CompactBatterySummary
 import eu.darken.capod.main.ui.overview.cards.components.DebugSection
 import eu.darken.capod.main.ui.overview.cards.components.DeviceConnectionBadge
+import eu.darken.capod.main.ui.overview.cards.components.MissingPairedDeviceBanner
 import eu.darken.capod.main.ui.overview.cards.components.SignalIndicator
 import eu.darken.capod.main.ui.overview.cards.components.StatusChip
 import eu.darken.capod.common.SystemTimeSource
@@ -157,15 +157,15 @@ fun SinglePodsCard(
                         )
                     }
                 }
-                if (device.profileId != null && device.address == null && onEditProfile != null) {
-                    IconButton(onClick = onEditProfile) {
-                        Icon(
-                            imageVector = Icons.TwoTone.Warning,
-                            contentDescription = stringResource(R.string.overview_card_missing_paired_device_cd),
-                            tint = MaterialTheme.colorScheme.error,
-                        )
-                    }
-                }
+            }
+
+            if (!isCollapsed
+                && device.profileId != null
+                && !device.hasSelectedPairedDevice
+                && onEditProfile != null
+            ) {
+                Spacer(modifier = Modifier.height(12.dp))
+                MissingPairedDeviceBanner(onClick = onEditProfile)
             }
 
             if (isCollapsed) {
@@ -359,7 +359,7 @@ private fun SinglePodsCardCollapsedPreview() = PreviewWrapper {
 @Composable
 private fun SinglePodsCardMissingAddressPreview() = PreviewWrapper {
     SinglePodsCard(
-        device = MockPodDataProvider.singlePodMonitored(),
+        device = MockPodDataProvider.singlePodMissingPairedDevice(),
         showDebug = false,
         now = SystemTimeSource.now(),
         onEditProfile = {},

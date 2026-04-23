@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ចុចម្តងដើម្បិបិតមីក្រូហ្វូន</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ចុចពីរដងដើម្បិបញ្ចប់ការហឹល</string>
     <string name="device_settings_open_cd">បើកការកំណត់ឧបករណ៍</string>
-    <string name="overview_card_missing_paired_device_cd">គម្រោងមិនមានឧបករណ៍ Bluetooth ដែលបានភ្ជាប់គូរទេ — ចុចដើម្បីកែប្រែគម្រោង</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ជាទូទៅ</string>
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>

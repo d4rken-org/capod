@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">กดครั้งเดียวเพื่อปิดเสียงไมโครโฟน</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">กดสองครั้งเพื่อวางสาย</string>
     <string name="device_settings_open_cd">เปิดการตั้งค่าอุปกรณ์</string>
-    <string name="overview_card_missing_paired_device_cd">โปรไฟล์ไม่มีอุปกรณ์ Bluetooth ที่จับคู่ไว้ — แตะเพื่อแก้ไขโปรไฟล์</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ทั่วไป</string>
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>

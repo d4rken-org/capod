@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Едно притискање за исклучување на микрофонот</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двојно притискање за прекинување на повикот</string>
     <string name="device_settings_open_cd">Отворете ги поставките на уредот</string>
-    <string name="overview_card_missing_paired_device_cd">Профилот нема спарен Bluetooth уред — допрете за уредување на профилот</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Генерално</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

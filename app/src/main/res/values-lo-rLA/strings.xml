@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ກດໄວໝິ່ວໝິ່ວເພື່ອປິດເສີງໄມຂອບພາກ</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ກດສອງຄັ້ງເພື່ອວາງສາຍການເຈຮາ</string>
     <string name="device_settings_open_cd">ເປີດການຕັ້ງຄ່າອຸປະກອນ</string>
-    <string name="overview_card_missing_paired_device_cd">ໂປຣໄຟລ໌ບໍ່ມີອຸປະກອນ Bluetooth ທີ່ຈັບຄູ່ — ແຕະເພື່ອແກ້ໄຂໂປຣໄຟລ໌</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ທົ່ວໄປ</string>
     <string name="device_settings_microphone_mode_label">ໄມໂຄຣໂຟນ</string>

@@ -465,7 +465,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Једноструко притисак за искључивање микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двоструко притисак за завршавање позива</string>
     <string name="device_settings_open_cd">Отворите подешавања уређаја</string>
-    <string name="overview_card_missing_paired_device_cd">Профил нема упарен Bluetooth уређај — додирните да бисте уредили профил</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Oпште</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

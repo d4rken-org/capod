@@ -455,7 +455,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Tekan sekali untuk redam mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Tekan dua kali untuk tamatkan panggilan</string>
     <string name="device_settings_open_cd">Buka tetapan peranti</string>
-    <string name="overview_card_missing_paired_device_cd">Profil tiada peranti Bluetooth yang dipasangkan — ketik untuk edit profil</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umum</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

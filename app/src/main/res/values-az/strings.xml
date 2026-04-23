@@ -460,7 +460,6 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonu susdurmağ üçün bir dəfə basın</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Zəngi bitirmək üçün iki dəfə basın</string>
     <string name="device_settings_open_cd">Cihaz parametrlərini açın</string>
-    <string name="overview_card_missing_paired_device_cd">Profilin cütləşdirilmiş Bluetooth cihazı yoxdur — profili redaktə etmək üçün toxunun</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ümumi</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

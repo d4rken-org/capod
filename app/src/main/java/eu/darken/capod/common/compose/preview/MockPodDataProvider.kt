@@ -255,6 +255,35 @@ object MockPodDataProvider {
         aap = null,
     )
 
+    /** Dual pods matched to a profile that has no paired Bluetooth device selected. */
+    fun dualPodMissingPairedDevice(): PodDevice = PodDevice(
+        profileId = "preview-dual-missing-paired",
+        ble = MockDualBlePodSnapshot(
+            _model = PodModel.AIRPODS_PRO2,
+            _label = "My AirPods Pro",
+            batteryLeftPodPercent = 0.80f,
+            batteryRightPodPercent = 0.45f,
+            _batteryCasePercent = 0.60f,
+            _isLeftPodCharging = true,
+            leftPodIcon = R.drawable.device_airpods_pro2_left,
+            rightPodIcon = R.drawable.device_airpods_pro2_right,
+            _caseIcon = R.drawable.device_airpods_pro2_case,
+        ),
+        aap = null,
+    )
+
+    /** Single pod matched to a profile that has no paired Bluetooth device selected. */
+    fun singlePodMissingPairedDevice(): PodDevice = PodDevice(
+        profileId = "preview-single-missing-paired",
+        ble = MockSingleBlePodSnapshot(
+            _model = PodModel.AIRPODS_MAX,
+            _label = "AirPods Max",
+            batteryHeadsetPercent = 0.85f,
+            _isBeingWorn = true,
+        ),
+        aap = null,
+    )
+
     /** Cached-only dual pod — device fully offline, showing last known state. */
     fun dualPodCachedOnly(): PodDevice = PodDevice(
         profileId = "preview-cached",
