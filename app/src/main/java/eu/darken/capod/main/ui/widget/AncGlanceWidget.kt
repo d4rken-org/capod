@@ -158,7 +158,7 @@ class AncGlanceWidget : GlanceAppWidget() {
 
     private fun getCellsForSize(size: Int): Int {
         var n = 2
-        while (70 * n - 30 < size) {
+        while (70 * n - 30 <= size) {
             ++n
         }
         return n - 1

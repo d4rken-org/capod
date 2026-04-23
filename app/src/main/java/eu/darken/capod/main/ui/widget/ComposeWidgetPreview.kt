@@ -25,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import eu.darken.capod.R
@@ -87,86 +88,51 @@ private fun DualPodPreview(
     val iconColor = Color(state.resolvedIconColor)
     val iconTint = ColorFilter.tint(iconColor)
 
-    if (state.isWide) {
-        // Wide layout: left | case | right in a horizontal row
-        WidgetContainer(bgColor = bgColor, modifier = modifier) {
-            Row(
-                modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                // Left pod
-                PodItemRow(
-                    icon = state.leftIcon,
-                    percent = state.leftPercent,
-                    charging = state.leftCharging,
-                    inEar = state.leftInEar,
+    when (state.layout) {
+        BatteryLayout.WIDE -> {
+            WidgetContainer(bgColor = bgColor, modifier = modifier) {
+                Row(
+                    modifier = Modifier.padding(top = 8.dp, bottom = 4.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    PodItemRow(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textColor, iconTint, iconSize = 40, modifier = Modifier.padding(end = 12.dp))
+                    PodItemRow(state.caseIcon, state.casePercent, state.caseCharging, false, textColor, iconTint, iconSize = 40, modifier = Modifier.padding(end = 12.dp))
+                    PodItemRow(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textColor, iconTint, iconSize = 40)
+                }
+                DeviceLabel(
+                    label = state.deviceLabel,
+                    visible = state.theme.showDeviceLabel,
                     textColor = textColor,
-                    iconTint = iconTint,
-                    iconSize = 40,
-                    modifier = Modifier.padding(end = 12.dp),
-                )
-                // Case
-                PodItemRow(
-                    icon = state.caseIcon,
-                    percent = state.casePercent,
-                    charging = state.caseCharging,
-                    inEar = false,
-                    textColor = textColor,
-                    iconTint = iconTint,
-                    iconSize = 40,
-                    modifier = Modifier.padding(end = 12.dp),
-                )
-                // Right pod
-                PodItemRow(
-                    icon = state.rightIcon,
-                    percent = state.rightPercent,
-                    charging = state.rightCharging,
-                    inEar = state.rightInEar,
-                    textColor = textColor,
-                    iconTint = iconTint,
-                    iconSize = 40,
+                    modifier = Modifier.padding(top = 4.dp, bottom = 8.dp),
                 )
             }
-            DeviceLabel(
-                label = state.deviceLabel,
-                visible = state.theme.showDeviceLabel,
-                textColor = textColor,
-                modifier = Modifier.padding(top = 4.dp, bottom = 8.dp),
-            )
         }
-    } else {
-        // Compact layout: vertical stack
-        WidgetContainer(bgColor = bgColor, modifier = modifier) {
-            PodItemRow(
-                icon = state.leftIcon,
-                percent = state.leftPercent,
-                charging = state.leftCharging,
-                inEar = state.leftInEar,
-                textColor = textColor,
-                iconTint = iconTint,
-            )
-            PodItemRow(
-                icon = state.rightIcon,
-                percent = state.rightPercent,
-                charging = state.rightCharging,
-                inEar = state.rightInEar,
-                textColor = textColor,
-                iconTint = iconTint,
-            )
-            PodItemRow(
-                icon = state.caseIcon,
-                percent = state.casePercent,
-                charging = state.caseCharging,
-                inEar = false,
-                textColor = textColor,
-                iconTint = iconTint,
-            )
-            DeviceLabel(
-                label = state.deviceLabel,
-                visible = state.theme.showDeviceLabel,
-                textColor = textColor,
-            )
+
+        BatteryLayout.NARROW -> {
+            WidgetContainer(bgColor = bgColor, modifier = modifier) {
+                PodItemRow(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textColor, iconTint)
+                PodItemRow(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textColor, iconTint)
+                PodItemRow(state.caseIcon, state.casePercent, state.caseCharging, false, textColor, iconTint)
+                DeviceLabel(
+                    label = state.deviceLabel,
+                    visible = state.theme.showDeviceLabel,
+                    textColor = textColor,
+                )
+            }
+        }
+
+        BatteryLayout.TINY_COLUMN -> {
+            WidgetContainer(
+                bgColor = bgColor,
+                modifier = modifier,
+                horizontalPadding = 4.dp,
+                verticalPadding = 0.dp,
+            ) {
+                TinyPodItem(state.leftIcon, state.leftPercent, textColor, iconTint)
+                TinyPodItem(state.rightIcon, state.rightPercent, textColor, iconTint)
+                TinyPodItem(state.caseIcon, state.casePercent, textColor, iconTint)
+            }
         }
     }
 }
@@ -180,45 +146,60 @@ private fun SinglePodPreview(
     val textColor = Color(state.resolvedTextColor)
     val iconTint = ColorFilter.tint(Color(state.resolvedIconColor))
 
-    WidgetContainer(bgColor = bgColor, modifier = modifier) {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Image(
-                painter = painterResource(state.batteryIcon),
-                contentDescription = null,
-                modifier = Modifier.size(20.dp),
-                colorFilter = iconTint,
-            )
-            Text(
-                text = formatPercent(state.percent.toBatteryOrNull()),
-                fontSize = 12.sp,
-                color = textColor,
-                modifier = Modifier.padding(horizontal = 8.dp),
-            )
-            if (state.charging) {
-                Image(
-                    painter = painterResource(R.drawable.ic_baseline_power_24),
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp),
-                    colorFilter = iconTint,
-                )
-            }
-            if (state.worn) {
-                Image(
-                    painter = painterResource(R.drawable.ic_baseline_hearing_24),
-                    contentDescription = null,
-                    modifier = Modifier.size(20.dp),
-                    colorFilter = iconTint,
+    when (state.layout) {
+        BatteryLayout.WIDE, BatteryLayout.NARROW -> {
+            WidgetContainer(bgColor = bgColor, modifier = modifier) {
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Image(
+                        painter = painterResource(state.batteryIcon),
+                        contentDescription = null,
+                        modifier = Modifier.size(20.dp),
+                        colorFilter = iconTint,
+                    )
+                    Text(
+                        text = formatPercent(state.percent.toBatteryOrNull()),
+                        fontSize = 12.sp,
+                        color = textColor,
+                        modifier = Modifier.padding(horizontal = 8.dp),
+                    )
+                    if (state.charging) {
+                        Image(
+                            painter = painterResource(R.drawable.ic_baseline_power_24),
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp),
+                            colorFilter = iconTint,
+                        )
+                    }
+                    if (state.worn) {
+                        Image(
+                            painter = painterResource(R.drawable.ic_baseline_hearing_24),
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp),
+                            colorFilter = iconTint,
+                        )
+                    }
+                }
+                DeviceLabel(
+                    label = state.deviceLabel,
+                    visible = state.theme.showDeviceLabel,
+                    textColor = textColor,
                 )
             }
         }
-        DeviceLabel(
-            label = state.deviceLabel,
-            visible = state.theme.showDeviceLabel,
-            textColor = textColor,
-        )
+
+        BatteryLayout.TINY_COLUMN -> {
+            WidgetContainer(
+                bgColor = bgColor,
+                modifier = modifier,
+                horizontalPadding = 4.dp,
+                verticalPadding = 0.dp,
+            ) {
+                TinyPodItem(state.batteryIcon, state.percent, textColor, iconTint)
+            }
+        }
     }
 }
 
@@ -229,17 +210,25 @@ private fun MessagePreview(
 ) {
     val bgColor = Color(state.resolvedBgColor)
     val textColor = Color(state.resolvedTextColor)
+    val isCompact = state.layout == BatteryLayout.TINY_COLUMN
 
-    WidgetContainer(bgColor = bgColor, modifier = modifier) {
+    WidgetContainer(
+        bgColor = bgColor,
+        modifier = modifier,
+        horizontalPadding = if (isCompact) 4.dp else 16.dp,
+        verticalPadding = if (isCompact) 0.dp else 4.dp,
+    ) {
         Text(
             text = state.primaryText,
-            fontSize = 12.sp,
+            fontSize = if (isCompact) 10.sp else 12.sp,
             fontWeight = FontWeight.Bold,
             color = textColor,
             textAlign = TextAlign.Center,
+            maxLines = if (isCompact) 2 else Int.MAX_VALUE,
+            overflow = TextOverflow.Ellipsis,
             modifier = Modifier.fillMaxWidth(),
         )
-        if (state.secondaryText != null) {
+        if (!isCompact && state.secondaryText != null) {
             Text(
                 text = state.secondaryText,
                 fontSize = 12.sp,
@@ -260,11 +249,17 @@ private fun LoadingPreview(
 ) {
     val bgColor = Color(state.resolvedBgColor)
     val textColor = Color(state.resolvedTextColor)
+    val isCompact = state.layout == BatteryLayout.TINY_COLUMN
 
-    WidgetContainer(bgColor = bgColor, modifier = modifier) {
+    WidgetContainer(
+        bgColor = bgColor,
+        modifier = modifier,
+        horizontalPadding = if (isCompact) 4.dp else 16.dp,
+        verticalPadding = if (isCompact) 0.dp else 4.dp,
+    ) {
         Text(
             text = "…",
-            fontSize = 12.sp,
+            fontSize = if (isCompact) 10.sp else 12.sp,
             fontWeight = FontWeight.Bold,
             color = textColor,
             textAlign = TextAlign.Center,
@@ -277,13 +272,15 @@ private fun LoadingPreview(
 private fun WidgetContainer(
     bgColor: Color,
     modifier: Modifier = Modifier,
+    horizontalPadding: Dp = 16.dp,
+    verticalPadding: Dp = 4.dp,
     content: @Composable () -> Unit,
 ) {
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(16.dp))
             .background(bgColor)
-            .padding(horizontal = 16.dp, vertical = 4.dp),
+            .padding(horizontal = horizontalPadding, vertical = verticalPadding),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -339,6 +336,34 @@ private fun PodItemRow(
 }
 
 @Composable
+private fun TinyPodItem(
+    icon: Int,
+    percent: Float,
+    textColor: Color,
+    iconTint: ColorFilter,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Image(
+            painter = painterResource(icon),
+            contentDescription = null,
+            modifier = Modifier.size(14.dp),
+            colorFilter = iconTint,
+        )
+        Text(
+            text = formatPercent(percent.toBatteryOrNull()),
+            fontSize = 12.sp,
+            color = textColor,
+            maxLines = 1,
+            modifier = Modifier.padding(start = 2.dp),
+        )
+    }
+}
+
+@Composable
 private fun DeviceLabel(
     label: String?,
     visible: Boolean,
@@ -363,12 +388,30 @@ private fun formatPercent(percent: Float?): String {
 
 @Preview2
 @Composable
-private fun PreviewDualCompact() = PreviewWrapper {
-    ComposeWidgetPreview(state = WidgetRenderState.previewDualPod())
+private fun PreviewDualTiny11() = PreviewWrapper {
+    ComposeWidgetPreview(
+        state = WidgetRenderState.previewDualPod(layout = BatteryLayout.TINY_COLUMN),
+        modifier = Modifier.size(40.dp),
+    )
+}
+
+@Preview2
+@Composable
+private fun PreviewDualTinyTall() = PreviewWrapper {
+    ComposeWidgetPreview(
+        state = WidgetRenderState.previewDualPod(layout = BatteryLayout.TINY_COLUMN),
+        modifier = Modifier.size(width = 40.dp, height = 110.dp),
+    )
+}
+
+@Preview2
+@Composable
+private fun PreviewDualNarrow() = PreviewWrapper {
+    ComposeWidgetPreview(state = WidgetRenderState.previewDualPod(layout = BatteryLayout.NARROW))
 }
 
 @Preview2
 @Composable
 private fun PreviewDualWide() = PreviewWrapper {
-    ComposeWidgetPreview(state = WidgetRenderState.previewDualPod(isWide = true))
+    ComposeWidgetPreview(state = WidgetRenderState.previewDualPod(layout = BatteryLayout.WIDE))
 }
