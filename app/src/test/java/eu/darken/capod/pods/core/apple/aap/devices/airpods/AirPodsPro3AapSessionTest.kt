@@ -25,11 +25,15 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
     // ── Handshake ────────────────────────────────────────────
 
     @Test
-    fun `handshake response - 18 bytes`() {
-        val msg = aapMessage("01 00 04 00 00 00 01 00 03 00 00 00 00 00 00 00 00 00")
-        msg.commandType shouldBe 0x0000
-        msg.raw.size shouldBe 18
-        msg.payload.size shouldBe 12
+    fun `handshake response - 18 bytes parses as ConnectResponse status=0 major=1 minor=3`() {
+        val packet = aapPacket("01 00 04 00 00 00 01 00 03 00 00 00 00 00 00 00 00 00")
+        check(packet is eu.darken.capod.pods.core.apple.aap.protocol.AapPacket.ConnectResponse)
+        packet.service shouldBe 0x0004
+        packet.status shouldBe 0x0000
+        packet.major shouldBe 0x0001
+        packet.minor shouldBe 0x0003
+        packet.features shouldBe 0UL
+        packet.raw.size shouldBe 18
     }
 
     // ── Device Info ──────────────────────────────────────────
@@ -58,7 +62,15 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
         info.manufacturer shouldBe "Apple Inc."
         info.leftEarbudSerial shouldBe "GMPHNZ16P5Z0000UHZ"
         info.rightEarbudSerial shouldBe "GMVHNX15UED0000UHY"
-        info.buildNumber shouldBe "8454624"
+        info.marketingVersion shouldBe "8454624"
+        info.hardwareVersion shouldBe "1.0.0"
+        info.eaProtocolName shouldBe "com.apple.accessory.updater.app.71"
+        info.firmwareVersion shouldBe "81.2675000075000000.6503"
+        info.firmwareVersionPending shouldBe null
+        info.leftEarbudUuid!!.size shouldBe 17
+        info.rightEarbudUuid!!.size shouldBe 17
+        info.leftEarbudFirstPaired shouldBe java.time.Instant.ofEpochSecond(1767364074L)
+        info.rightEarbudFirstPaired shouldBe java.time.Instant.ofEpochSecond(1767364074L)
     }
 
     // ── Battery ──────────────────────────────────────────────

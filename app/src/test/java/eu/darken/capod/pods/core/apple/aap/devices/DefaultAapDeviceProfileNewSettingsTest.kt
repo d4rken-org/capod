@@ -119,7 +119,7 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
 
     // ── In-Case Tone (0x31) ─────────────────────────────────
     // Decode path is kept internally even though the setting is no longer exposed in the UI.
-    // See DefaultAapDeviceProfile.SETTING_IN_CASE_TONE for rationale.
+    // See the IN_CASE_TONE branch in DefaultAapDeviceProfile.decodeSetting for rationale.
 
     @Nested
     inner class InCaseToneTests {

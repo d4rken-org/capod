@@ -74,6 +74,33 @@ interface AapDeviceProfile {
      */
     fun decodeStemPress(message: AapMessage): StemPressEvent?
 
+    /**
+     * Encode a Case Info request (command 0x22). Returns null when this profile
+     * shouldn't probe the case — older models may not respond, or the payload
+     * schema is unconfirmed for that model. Fire-and-forget: if the device
+     * doesn't reply, nothing happens.
+     */
+    fun encodeCaseInfoRequest(): ByteArray? = null
+
+    /**
+     * Decode a Case Info response (command 0x23). Returns null if the message
+     * is not a Case Info response or the payload cannot be recognised.
+     */
+    fun decodeCaseInfo(message: AapMessage): AapCaseInfo? = null
+
+    /**
+     * Decode a Sleep Detection Update event (command 0x57). Returns null for
+     * any other message type. Payload schema is not fully documented — the
+     * default implementation returns the raw bytes verbatim.
+     */
+    fun decodeSleepEvent(message: AapMessage): AapSleepEvent? = null
+
+    /**
+     * Decode a Dynamic End-of-Charge event (command 0x59). Returns null for
+     * any other message type.
+     */
+    fun decodeDynamicEndOfChargeEvent(message: AapMessage): AapDynamicEndOfChargeEvent? = null
+
     companion object {
         fun forModel(model: PodModel): AapDeviceProfile = DefaultAapDeviceProfile(model)
     }

@@ -50,7 +50,7 @@ fun PodDevice.toCachedState(
         firmwareVersion = liveDeviceInfo?.firmwareVersion ?: existing?.firmwareVersion,
         leftEarbudSerial = liveDeviceInfo?.leftEarbudSerial ?: existing?.leftEarbudSerial,
         rightEarbudSerial = liveDeviceInfo?.rightEarbudSerial ?: existing?.rightEarbudSerial,
-        buildNumber = liveDeviceInfo?.buildNumber ?: existing?.buildNumber,
+        marketingVersion = liveDeviceInfo?.marketingVersion ?: existing?.marketingVersion,
         lastSeenAt = seenLastAt ?: now,
     )
 

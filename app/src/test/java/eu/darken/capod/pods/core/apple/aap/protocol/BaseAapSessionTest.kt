@@ -18,14 +18,29 @@ abstract class BaseAapSessionTest : BaseTest() {
 
     // ── Hex parsing ──────────────────────────────────────────
 
-    /** Parse hex string(s) into an [AapMessage]. Multiple args are concatenated. */
-    protected fun aapMessage(vararg hexParts: String): AapMessage {
-        val bytes = hexParts.joinToString(" ")
+    /** Concatenate hex string parts into a byte array. */
+    protected fun parseHex(vararg hexParts: String): ByteArray =
+        hexParts.joinToString(" ")
             .split(" ")
             .filter { it.isNotBlank() }
             .map { it.toInt(16).toByte() }
             .toByteArray()
-        return AapMessage.parse(bytes) ?: error("Failed to parse AapMessage from: ${hexParts.joinToString(" ")}")
+
+    /** Parse hex string(s) into an [AapMessage]. Fails if the bytes aren't a Message-type packet. */
+    protected fun aapMessage(vararg hexParts: String): AapMessage {
+        val bytes = parseHex(*hexParts)
+        return AapMessage.parse(bytes)
+            ?: error("Failed to parse AapMessage from: ${hexParts.joinToString(" ")}")
+    }
+
+    /**
+     * Parse hex string(s) into an [AapPacket] — use this for Connect / Connect Response
+     * / Disconnect frames where [aapMessage] would return null.
+     */
+    protected fun aapPacket(vararg hexParts: String): AapPacket {
+        val bytes = parseHex(*hexParts)
+        return AapPacket.parse(bytes)
+            ?: error("Failed to parse AapPacket from: ${hexParts.joinToString(" ")}")
     }
 
     // ── Message builders (hide protocol header bytes) ────────

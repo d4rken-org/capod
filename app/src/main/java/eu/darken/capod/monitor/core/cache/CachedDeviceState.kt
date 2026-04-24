@@ -25,7 +25,12 @@ data class CachedDeviceState(
     @SerialName("firmwareVersion") val firmwareVersion: String? = null,
     @SerialName("leftEarbudSerial") val leftEarbudSerial: String? = null,
     @SerialName("rightEarbudSerial") val rightEarbudSerial: String? = null,
-    @SerialName("buildNumber") val buildNumber: String? = null,
+    /**
+     * Formerly known as `buildNumber` — the Wireshark AAP dissector calls this
+     * "Marketing Version". The `@SerialName("buildNumber")` preserves the wire
+     * key so cache entries from older CAPod versions keep deserializing.
+     */
+    @SerialName("buildNumber") val marketingVersion: String? = null,
     @Serializable(with = InstantEpochMillisSerializer::class)
     @SerialName("lastSeenAt") val lastSeenAt: Instant,
 ) {
@@ -40,7 +45,7 @@ data class CachedDeviceState(
                 firmwareVersion = firmwareVersion ?: "",
                 leftEarbudSerial = leftEarbudSerial,
                 rightEarbudSerial = rightEarbudSerial,
-                buildNumber = buildNumber,
+                marketingVersion = marketingVersion,
             )
         }
 

@@ -10,6 +10,8 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
+import eu.darken.capod.pods.core.apple.aap.protocol.AapMessageType
+import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
@@ -88,6 +90,21 @@ internal class AapSessionEngine(
         dispatch(AapEngineEvent.MessageReceived(message))
     }
 
+    /**
+     * Handle a Connect Response (packet type 0x0001) from the peer. Stores
+     * the 64-bit features bitmask in [AapPodState.negotiatedFeatures] for
+     * future correlation work, but does NOT drive state transitions itself —
+     * the first subsequent Message packet triggers HANDSHAKING → READY via
+     * the existing logic.
+     *
+     * On non-zero status we log an error and skip the features update; the
+     * engine stays in HANDSHAKING (no probes should fire until the session
+     * succeeds).
+     */
+    fun processConnectResponse(packet: AapPacket.ConnectResponse) {
+        dispatch(AapEngineEvent.ConnectResponseReceived(packet))
+    }
+
     private fun dispatch(event: AapEngineEvent) {
         when (event) {
             is AapEngineEvent.SessionStarted -> {
@@ -112,13 +129,36 @@ internal class AapSessionEngine(
             }
 
             is AapEngineEvent.MessageReceived -> handleMessageReceived(event.message)
+            is AapEngineEvent.ConnectResponseReceived -> handleConnectResponse(event.packet)
             is AapEngineEvent.InboundUpdateDecoded -> handleInboundUpdate(event.update)
             is AapEngineEvent.TimerFired -> handleTimerFired(event.key)
         }
     }
 
+    private fun handleConnectResponse(packet: AapPacket.ConnectResponse) {
+        if (packet.status != 0) {
+            log(TAG, ERROR) {
+                "ConnectResponse failed: status=0x${"%04X".format(packet.status)} " +
+                        "major=${packet.major} minor=${packet.minor} " +
+                        "features=0x${"%016X".format(packet.features.toLong())}"
+            }
+            _state.value = _state.value.copy(connectResponseStatus = packet.status)
+            return
+        }
+
+        log(TAG, INFO) {
+            "ConnectResponse OK: major=${packet.major} minor=${packet.minor} " +
+                    "features=0x${"%016X".format(packet.features.toLong())}"
+        }
+        _state.value = _state.value.copy(
+            negotiatedFeatures = packet.features,
+            connectResponseStatus = packet.status,
+            lastMessageAt = timeSource.now(),
+        )
+    }
+
     private fun handleMessageReceived(message: AapMessage) {
-        if (message.commandType != CMD_HID_DESCRIPTOR) {
+        if (message.commandType != AapMessageType.BUDDY_COMMAND.value) {
             val hex = message.raw.joinToString(" ") { "%02X".format(it) }
             log(TAG, VERBOSE) {
                 "MSG cmd=0x${"%04X".format(message.commandType)} len=${message.raw.size} raw=$hex"
@@ -127,7 +167,7 @@ internal class AapSessionEngine(
         }
 
         if (!runtimeState.handshakeResponseReceived &&
-            message.commandType != CMD_SETTING &&
+            message.commandType != AapMessageType.CONTROL.value &&
             _state.value.connectionState == AapPodState.ConnectionState.HANDSHAKING
         ) {
             runtimeState = runtimeState.copy(handshakeResponseReceived = true)
@@ -135,13 +175,13 @@ internal class AapSessionEngine(
             log(TAG) { "Connection READY" }
         }
 
-        if (message.commandType == CMD_HID_DESCRIPTOR) {
+        if (message.commandType == AapMessageType.BUDDY_COMMAND.value) {
             hidTracker.consume(message.payload)
             _state.value = _state.value.copy(lastMessageAt = timeSource.now())
             return
         }
 
-        if (message.commandType == CMD_DEVICE_INFO) {
+        if (message.commandType == AapMessageType.INFORMATION.value) {
             logDeviceInfoDiagnostics(message.payload)
         }
 
@@ -184,6 +224,24 @@ internal class AapSessionEngine(
             is AapInboundUpdate.DeviceInfo -> {
                 _state.value = _state.value.copy(deviceInfo = update.info, lastMessageAt = timeSource.now())
                 log(TAG) { "Device info: ${update.info.name} (${update.info.modelNumber})" }
+            }
+
+            is AapInboundUpdate.CaseInfo -> {
+                _state.value = _state.value.copy(caseInfo = update.info, lastMessageAt = timeSource.now())
+                val hex = update.info.rawPayload.joinToString(" ") { "%02X".format(it) }
+                log(TAG, INFO) { "Case info: ${update.info.rawPayload.size}B payload=[$hex]" }
+            }
+
+            is AapInboundUpdate.SleepEvent -> {
+                _state.value = _state.value.copy(lastMessageAt = timeSource.now())
+                val hex = update.event.rawPayload.joinToString(" ") { "%02X".format(it) }
+                log(TAG, INFO) { "Sleep event: ${update.event.rawPayload.size}B payload=[$hex]" }
+            }
+
+            is AapInboundUpdate.DynamicEndOfChargeEvent -> {
+                _state.value = _state.value.copy(lastMessageAt = timeSource.now())
+                val hex = update.event.rawPayload.joinToString(" ") { "%02X".format(it) }
+                log(TAG, INFO) { "Dynamic EoC event: ${update.event.rawPayload.size}B payload=[$hex]" }
             }
 
             is AapInboundUpdate.Setting -> handleSettingUpdate(update.key, update.value)
@@ -411,20 +469,24 @@ internal class AapSessionEngine(
             "DeviceInfoDump #173: payload=${payload.size} bytes, segments=${segments.size}"
         }
         segments.forEach { seg ->
+            // Labels per the Wireshark AAP dissector. The segmenter knows the schema —
+            // segments 11 and 12 are fixed 17-byte UUIDs.
             val label = when (seg.index) {
                 0 -> "name"
                 1 -> "modelNumber"
                 2 -> "manufacturer"
                 3 -> "serialNumber"
                 4 -> "firmwareVersion"
-                5 -> "firmwareVersionDup"
-                6 -> "protocolVersion"
-                7 -> "updaterAppId"
+                5 -> "firmwareVersionPending"
+                6 -> "hardwareVersion"
+                7 -> "eaProtocolName"
                 8 -> "leftEarbudSerial"
                 9 -> "rightEarbudSerial"
-                10 -> "buildNumber"
-                11 -> "encryptedBlob"
-                12 -> "timestamp"
+                10 -> "marketingVersion"
+                11 -> "leftEarbudUuid (17 bytes fixed)"
+                12 -> "rightEarbudUuid (17 bytes fixed)"
+                13 -> "leftEarbudFirstPaired"
+                14 -> "rightEarbudFirstPaired"
                 else -> "unknown"
             }
             val rendered = seg.utf8?.let { "\"$it\"" } ?: "<non-utf8>"
@@ -438,7 +500,7 @@ internal class AapSessionEngine(
         val payloadHex = message.payload.joinToString(" ") { "%02X".format(it) }
         val sendInfo = currentSendDebugInfo()
 
-        if (message.commandType == CMD_SETTING && message.payload.size >= 2) {
+        if (message.commandType == AapMessageType.CONTROL.value && message.payload.size >= 2) {
             val settingId = message.payload[0].toInt() and 0xFF
             val value = message.payload[1].toInt() and 0xFF
             val boolHint = value.appleBoolHint()
@@ -461,7 +523,7 @@ internal class AapSessionEngine(
             return
         }
 
-        if (message.commandType == CMD_CONNECTED_DEVICE && message.payload.size >= 6) {
+        if (message.commandType == AapMessageType.MAC_ADDRESS.value && message.payload.size >= 6) {
             val macRaw = message.payload.formatMac(reverse = false)
             val macReversed = message.payload.formatMac(reverse = true)
             val tailHex = if (message.payload.size > 6) {
@@ -472,7 +534,7 @@ internal class AapSessionEngine(
             _state.value = _state.value.copy(lastMessageAt = timeSource.now())
             log(TAG, VERBOSE) {
                 buildString {
-                    append("Known cmd=0x000C")
+                    append("Known cmd=0x000C (${AapMessageType.MAC_ADDRESS.wiresharkName})")
                     append(" payload=${message.payload.size}B")
                     append(" macRaw=$macRaw macReversed=$macReversed")
                     if (tailHex.isNotEmpty()) append(" tail=[$tailHex]")
@@ -484,26 +546,56 @@ internal class AapSessionEngine(
 
         if (message.commandType in KNOWN_NON_SETTINGS_COMMANDS) {
             _state.value = _state.value.copy(lastMessageAt = timeSource.now())
+            val namedType = AapMessageType.byValue(message.commandType)
+            val nameLabel = namedType?.let { " (${it.wiresharkName})" } ?: ""
             log(TAG, VERBOSE) {
-                "Known cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sendInfo.sinceLastSend}ms lastSend=${sendInfo.lastSend}"
+                "Known cmd=0x${"%04X".format(message.commandType)}$nameLabel payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sendInfo.sinceLastSend}ms lastSend=${sendInfo.lastSend}"
             }
             return
         }
 
+        val namedType = AapMessageType.byValue(message.commandType)
+        val nameLabel = namedType?.let { " (${it.wiresharkName})" } ?: " (unknown)"
         log(TAG, INFO) {
-            "Unhandled cmd=0x${"%04X".format(message.commandType)} payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sendInfo.sinceLastSend}ms lastSend=${sendInfo.lastSend}"
+            "Unhandled cmd=0x${"%04X".format(message.commandType)}$nameLabel payload=${message.payload.size}B [$payloadHex] sinceLastSend=${sendInfo.sinceLastSend}ms lastSend=${sendInfo.lastSend}"
         }
     }
 
     companion object {
         private val TAG = logTag("AAP", "Engine")
-        private const val CMD_SETTING = 0x0009
-        private const val CMD_CONNECTED_DEVICE = 0x000C
-        private const val CMD_DEVICE_INFO = 0x001D
-        private const val CMD_HID_DESCRIPTOR = 0x0017
 
-        private val KNOWN_NON_SETTINGS_COMMANDS = setOf(
-            0x0000, 0x0002, 0x002B, 0x004E, 0x0052, 0x0055, 0x0057,
+        /**
+         * Opcodes we see on-wire but don't model as a domain update. Decoded only
+         * enough to refresh `lastMessageAt` (freshness feeds the AAP quality boost
+         * in PodDevice.computeAapBoost). Add newly-catalogued push-only opcodes here
+         * when they appear in captures so logs get a named label AND freshness stays
+         * intact.
+         */
+        private val KNOWN_NON_SETTINGS_COMMANDS: Set<Int> = setOf(
+            0x0000,                                             // Connect (shouldn't reach here but historically observed)
+            AapMessageType.CAPABILITIES.value,                  // 0x0002
+            AapMessageType.DEVICE_LIST.value,                   // 0x000B
+            AapMessageType.TRIANGLE_STATUS_REQUEST.value,       // 0x0015
+            AapMessageType.MAGNET_LINK.value,                   // 0x0016
+            AapMessageType.TIMESTAMP.value,                     // 0x001B
+            AapMessageType.UNKNOWN_0X21.value,                  // 0x0021
+            AapMessageType.CASE_INFO.value,                     // 0x0023 (handled via decoder later; still refresh)
+            AapMessageType.GYRO_INFO.value,                     // 0x0028
+            AapMessageType.STREAM_STATE_INFO.value,             // 0x002B
+            AapMessageType.GAPA_CHALLENGE.value,                // 0x002C
+            AapMessageType.UNKNOWN_0X40.value,                  // 0x0040
+            AapMessageType.ADAPTIVE_VOLUME_MESSAGE.value,       // 0x004C
+            AapMessageType.SOURCE_FEATURE_CAPABILITIES.value,   // 0x004D
+            AapMessageType.FEATURE_PROX_CARD_STATUS_UPDATE.value, // 0x004E
+            AapMessageType.UARP_DATA.value,                     // 0x004F
+            AapMessageType.UNKNOWN_0X50.value,                  // 0x0050
+            AapMessageType.SOURCE_CONTEXT.value,                // 0x0052
+            AapMessageType.SET_BAND_EDGES.value,                // 0x0054 (real EQ; distinct from 0x53 PmeConfig which CAPod decodes)
+            AapMessageType.UNKNOWN_0X55.value,                  // 0x0055
+            AapMessageType.SLEEP_DETECTION_UPDATE.value,        // 0x0057
+            AapMessageType.UNKNOWN_0X58.value,                  // 0x0058
+            AapMessageType.DYNAMIC_END_OF_CHARGE.value,         // 0x0059
+            AapMessageType.PERSONAL_TRANSLATION.value,          // 0x0060
         )
     }
 }
@@ -517,6 +609,7 @@ internal sealed interface AapEngineEvent {
     data object HandshakeSent : AapEngineEvent
     data object ResetRequested : AapEngineEvent
     data class MessageReceived(val message: AapMessage) : AapEngineEvent
+    data class ConnectResponseReceived(val packet: AapPacket.ConnectResponse) : AapEngineEvent
     data class InboundUpdateDecoded(val update: AapInboundUpdate) : AapEngineEvent
     data class TimerFired(val key: EngineTimerKey) : AapEngineEvent
 }

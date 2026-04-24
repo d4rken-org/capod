@@ -42,6 +42,12 @@ internal class HidTracker(private val log: (String) -> Unit) {
                 log("HID: terminator (${type.payloadSize}B)")
             }
 
+            is HidFrameType.ServiceInfo -> {
+                flush()
+                val tokens = type.asciiTokens.joinToString(", ")
+                log("HID: service info tokens=[$tokens] (${type.payloadSize}B)")
+            }
+
             is HidFrameType.Other -> {
                 flush()
                 val hex = payload.joinToString(" ") { "%02X".format(it) }
@@ -70,10 +76,25 @@ internal class HidTracker(private val log: (String) -> Unit) {
         data class ServiceDirectory(val services: List<String>) : HidFrameType()
         data class Descriptor(val phase: Int, val fill: Int) : HidFrameType()
         data class Terminator(val payloadSize: Int) : HidFrameType()
+
+        /**
+         * 0x0017 "service info" frames — a TLV-ish metadata dump that carries
+         * ASCII key/value pairs like `VendorID`, `SerialNumber`, `CFG`,
+         * `ReportDescriptor`, etc.
+         *
+         * We don't decode the TLV structure yet (the framing is not fully
+         * documented). Instead we extract all printable ASCII runs of length
+         * ≥ 3 so the log tells you which keys/values the frame contains.
+         */
+        data class ServiceInfo(val asciiTokens: List<String>, val payloadSize: Int) : HidFrameType()
+
         data object Other : HidFrameType()
     }
 
     companion object {
+        /** Minimum length for an ASCII run to count as a token in a ServiceInfo frame. */
+        private const val MIN_ASCII_TOKEN_LEN = 3
+
         internal fun classify(payload: ByteArray): HidFrameType {
             // Service directory frame — starts with FE 00 00 and contains repeated
             // [len=4? ascii service name + 4B flags] blocks. For logging, extract names.
@@ -111,7 +132,40 @@ internal class HidTracker(private val log: (String) -> Unit) {
                 return HidFrameType.Terminator(payload.size)
             }
 
+            // "Service info" frame — 4-byte magic 00 00 10 00 followed by a TLV-ish
+            // payload with ASCII keys and mixed binary values. Observed on AirPods Pro 2
+            // USB-C after the descriptor batch.
+            if (payload.size >= 8 &&
+                payload[0] == 0x00.toByte() &&
+                payload[1] == 0x00.toByte() &&
+                payload[2] == 0x10.toByte() &&
+                payload[3] == 0x00.toByte()
+            ) {
+                return HidFrameType.ServiceInfo(
+                    asciiTokens = extractAsciiTokens(payload),
+                    payloadSize = payload.size,
+                )
+            }
+
             return HidFrameType.Other
+        }
+
+        /** Extract printable ASCII runs ≥ 3 chars. Skips all non-printable bytes. */
+        private fun extractAsciiTokens(payload: ByteArray): List<String> {
+            val tokens = mutableListOf<String>()
+            var i = 0
+            while (i < payload.size) {
+                val startByte = payload[i].toInt() and 0xFF
+                if (startByte in 0x20..0x7E) {
+                    val start = i
+                    while (i < payload.size && (payload[i].toInt() and 0xFF) in 0x20..0x7E) i++
+                    val run = String(payload, start, i - start, Charsets.US_ASCII)
+                    if (run.length >= MIN_ASCII_TOKEN_LEN) tokens += run
+                } else {
+                    i++
+                }
+            }
+            return tokens
         }
     }
 }

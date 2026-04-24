@@ -252,7 +252,7 @@ private fun DeviceInfoCardFullPreview() = PreviewWrapper {
             firmwareVersion = "7A305",
             leftEarbudSerial = "H3KL7HR926JY",
             rightEarbudSerial = "H3KL2AYL26K0",
-            buildNumber = "8454624",
+            marketingVersion = "8454624",
         ),
         modelLabel = "AirPods Pro 2 (A2699)",
         systemBluetoothName = "AirPods Pro",

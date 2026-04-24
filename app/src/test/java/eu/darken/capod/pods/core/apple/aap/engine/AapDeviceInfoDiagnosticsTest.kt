@@ -4,7 +4,6 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.DefaultAapDeviceProfile
 import io.kotest.matchers.nulls.shouldBeNull
-import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -63,13 +62,28 @@ class AapDeviceInfoDiagnosticsTest : BaseTest() {
         // Every well-formed text segment retains a hex rendering too.
         segments[0].hex shouldBe "416972506F64732050726F"
 
-        // The encrypted blob immediately follows "8454480" without a NUL separator, so it merges
-        // with the subsequent manufacturing-date string into a single non-UTF-8 chunk. The helper
-        // surfaces it as a segment with utf8 == null and a hex rendering that still contains the
-        // original blob bytes so maintainers can spot it in a debug recording.
-        val nonUtf8 = segments.firstOrNull { it.utf8 == null }
-        nonUtf8.shouldNotBeNull()
-        nonUtf8.hex.contains("1F3FB4B7E98148") shouldBe true
+        // Segments 11 and 12 are fixed 17-byte UUIDs per the dissector schema, not
+        // NUL-delimited. Verify the segmenter knows this and keeps the right offsets
+        // for everything that follows (timestamps at 13 and 14).
+        segments[5].utf8 shouldBe "81.2675000075000000.6082" // firmwareVersionPending
+        segments[6].utf8 shouldBe "1.0.0"                     // hardwareVersion
+        segments[7].utf8 shouldBe "com.apple.accessory.updater.app.71"
+        segments[8].utf8 shouldBe "H3KL7HR926JY"
+        segments[9].utf8 shouldBe "H3KL2AYL26K0"
+        segments[10].utf8 shouldBe "8454480"
+
+        segments[11].length shouldBe 17
+        segments[11].hex shouldBe "1F3FB4B7E9814811946BC26F3C5F5A340B"
+        segments[11].utf8.shouldBeNull() // binary UUID — not decodable as UTF-8
+
+        segments[12].length shouldBe 17
+        segments[12].hex shouldBe "AB7E42AABDF149E3A898E781D604F5681F"
+        segments[12].utf8.shouldBeNull()
+
+        segments[13].utf8 shouldBe "1697480211"
+        segments[14].utf8 shouldBe "1697480211"
+
+        segments.size shouldBe 15
     }
 
     @Test

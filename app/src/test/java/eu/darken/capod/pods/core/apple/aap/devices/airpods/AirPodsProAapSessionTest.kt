@@ -25,11 +25,19 @@ class AirPodsProAapSessionTest : BaseAapSessionTest() {
     // ── Handshake ────────────────────────────────────────────
 
     @Test
-    fun `handshake response - 18 bytes`() {
-        val msg = aapMessage("01 00 04 00 00 00 01 00 03 00 04 00 B1 E1 04 00 51 E2")
-        msg.commandType shouldBe 0x0000
-        msg.raw.size shouldBe 18
-        msg.payload.size shouldBe 12
+    fun `handshake response - 18 bytes parses as ConnectResponse with non-zero features bitmask`() {
+        // Pro 1 (firmware 51.9.6) reports actual bits in the 64-bit features field.
+        // Pro 2 USB-C and Pro 3 both report all zeroes. Useful for future
+        // bit-to-feature correlation work.
+        val packet = aapPacket("01 00 04 00 00 00 01 00 03 00 04 00 B1 E1 04 00 51 E2")
+        check(packet is eu.darken.capod.pods.core.apple.aap.protocol.AapPacket.ConnectResponse)
+        packet.service shouldBe 0x0004
+        packet.status shouldBe 0x0000
+        packet.major shouldBe 0x0001
+        packet.minor shouldBe 0x0003
+        // Little-endian 8-byte features: 04 00 B1 E1 04 00 51 E2
+        packet.features shouldBe 0xE251_0004_E1B1_0004UL
+        packet.raw.size shouldBe 18
     }
 
     // ── Device Info ──────────────────────────────────────────
@@ -58,7 +66,16 @@ class AirPodsProAapSessionTest : BaseAapSessionTest() {
         info.manufacturer shouldBe "Apple Inc."
         info.leftEarbudSerial shouldBe "GXDDRFNW0C6K"
         info.rightEarbudSerial shouldBe "H6RHL0HF0C6J"
-        info.buildNumber shouldBe "3344646"
+        info.marketingVersion shouldBe "3344646"
+        info.hardwareVersion shouldBe "1.0.0"
+        info.eaProtocolName shouldBe "com.apple.accessory.updater.app.60-ANC"
+        info.firmwareVersion shouldBe "51.9.6"
+        // Active firmware matches pending firmware verbatim → pending should be null
+        info.firmwareVersionPending shouldBe null
+        info.leftEarbudUuid!!.size shouldBe 17
+        info.rightEarbudUuid!!.size shouldBe 17
+        info.leftEarbudFirstPaired shouldBe java.time.Instant.ofEpochSecond(1637166475L)
+        info.rightEarbudFirstPaired shouldBe java.time.Instant.ofEpochSecond(1651135834L)
     }
 
     // ── Battery ──────────────────────────────────────────────

@@ -21,14 +21,16 @@ class AapMessageTest : BaseTest() {
     }
 
     @Test
-    fun `parse handshake response`() {
+    fun `handshake response parses via AapMessage-parse as null (not a Message packet)`() {
+        // Packet type 0x0001 = Connect Response. AapMessage.parse now only returns
+        // Message-type packets; the full packet lives in AapPacket.parse.
+        // Historically this test asserted it decoded as a Message with commandType=0 —
+        // that was treating the Connect Response's `status` field as a command ID.
         val raw = byteArrayOf(
             0x01, 0x00, 0x04, 0x00, 0x00, 0x00, 0x01, 0x00,
             0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         )
-        val msg = AapMessage.parse(raw)
-        msg.shouldNotBeNull()
-        msg.commandType shouldBe 0x0000
+        AapMessage.parse(raw).shouldBeNull()
     }
 
     @Test

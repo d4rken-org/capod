@@ -1,37 +1,6 @@
 package eu.darken.capod.pods.core.apple.aap.protocol
 
 /**
- * A parsed AAP protocol message.
- */
-data class AapMessage(
-    val raw: ByteArray,
-    val commandType: Int,
-    val payload: ByteArray,
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is AapMessage) return false
-        return raw.contentEquals(other.raw)
-    }
-
-    override fun hashCode(): Int = raw.contentHashCode()
-
-    companion object {
-        /**
-         * Parse a complete AAP message from raw bytes.
-         * AAP messages have the format: [4-byte header] [2-byte command type] [payload…]
-         * Minimum message size is 6 bytes (header + command type with no payload).
-         */
-        fun parse(raw: ByteArray): AapMessage? {
-            if (raw.size < 6) return null
-            val commandType = (raw[4].toInt() and 0xFF) or ((raw[5].toInt() and 0xFF) shl 8)
-            val payload = if (raw.size > 6) raw.copyOfRange(6, raw.size) else ByteArray(0)
-            return AapMessage(raw = raw.copyOf(), commandType = commandType, payload = payload)
-        }
-    }
-}
-
-/**
  * Accumulates bytes from a stream and emits complete [AapMessage] objects.
  *
  * Raw L2CAP reads can return partial or multiple messages in a single read.
@@ -39,6 +8,12 @@ data class AapMessage(
  *
  * AAP message framing: first 4 bytes are header, bytes 2-3 (little-endian)
  * indicate total message length (excluding the first 4 header bytes).
+ *
+ * Note: production code bypasses this framer — [AapConnection.readLoop]
+ * parses whole reads directly because L2CAP SEQPACKET already delivers
+ * per-frame boundaries. The framer is retained for future stream-mode
+ * paths but its splitting rule doesn't match every real capture
+ * (see `AapFramerTest` for the shape it expects).
  */
 class AapFramer {
 
