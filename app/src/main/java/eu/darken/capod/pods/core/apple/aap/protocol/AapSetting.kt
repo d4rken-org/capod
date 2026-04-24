@@ -163,9 +163,21 @@ sealed class AapSetting {
         enum class AudioSourceType { NONE, CALL, MEDIA }
     }
 
-    data class EqBands(
+    /**
+     * Payload of message type 0x0053. The Wireshark AAP dissector calls this
+     * "PME Config" (Personal Mixing Engine). CAPod used to label it as EQ
+     * bands, but captures so far show this data is all zeros on in-production
+     * firmware — the real equalizer path is likely 0x0054 "Set Band Edges".
+     *
+     * The payload is decoded as 4 sets × 8 Float32 values until the true schema
+     * is confirmed. Callers should treat all-zero [sets] as "no config reported".
+     */
+    data class PmeConfig(
         val sets: List<List<Float>>,
-    ) : AapSetting()
+    ) : AapSetting() {
+        val isAllZero: Boolean
+            get() = sets.all { set -> set.all { it == 0f } }
+    }
 
     /** Per-pod placement reported by the device (command 0x06). */
     data class EarDetection(

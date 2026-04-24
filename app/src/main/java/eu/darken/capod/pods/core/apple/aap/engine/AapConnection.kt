@@ -12,7 +12,7 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
-import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
+import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import kotlinx.coroutines.CoroutineScope
@@ -143,11 +143,36 @@ internal class AapConnection(
                     break
                 }
 
-                // L2CAP SEQPACKET: each read() returns exactly one complete message
+                // L2CAP SEQPACKET: each read() returns exactly one complete frame
                 val raw = buf.copyOfRange(0, len)
-                val message = AapMessage.parse(raw)
-                if (message != null) {
-                    engine.processMessage(message)
+                val packet = AapPacket.parse(raw) ?: continue
+
+                when (packet) {
+                    is AapPacket.Message -> engine.processMessage(packet)
+                    is AapPacket.ConnectResponse -> {
+                        engine.processConnectResponse(packet)
+                        if (packet.status == 0) dispatchCaseInfoProbe()
+                    }
+                    is AapPacket.Disconnect -> {
+                        log(TAG, Logging.Priority.INFO) {
+                            "Disconnect received: service=0x${"%04X".format(packet.service)} status=0x${"%04X".format(packet.status)}"
+                        }
+                    }
+                    is AapPacket.DisconnectResponse -> {
+                        log(TAG) { "DisconnectResponse received: service=0x${"%04X".format(packet.service)}" }
+                    }
+                    is AapPacket.Connect -> {
+                        // Unexpected — we're the source, not the peer. Log and ignore.
+                        log(TAG, Logging.Priority.WARN) {
+                            "Unexpected Connect packet from peer: service=0x${"%04X".format(packet.service)}"
+                        }
+                    }
+                    is AapPacket.Unknown -> {
+                        val hex = packet.raw.joinToString(" ") { "%02X".format(it) }
+                        log(TAG, Logging.Priority.INFO) {
+                            "Unknown AAP packet type=0x${"%04X".format(packet.packetType)} len=${packet.raw.size} raw=$hex"
+                        }
+                    }
                 }
             }
         } catch (e: IOException) {
@@ -155,6 +180,31 @@ internal class AapConnection(
         } finally {
             engine.reset()
             cleanupSocket()
+        }
+    }
+
+    /**
+     * Fire-and-forget Case Info request (message type 0x22). Sent after a
+     * successful Connect Response. Not an AapCommand — bypasses the outbound
+     * queue, ear-gating, and pending-settings counter. If the device doesn't
+     * reply, nothing happens; the next connect attempt re-probes.
+     */
+    private suspend fun dispatchCaseInfoProbe() {
+        val bytes = profile.encodeCaseInfoRequest() ?: return
+        try {
+            writeMutex.withLock {
+                withContext(Dispatchers.IO) {
+                    val sock = socket ?: return@withContext
+                    sock.outputStream.write(bytes)
+                    sock.outputStream.flush()
+                    val hex = bytes.joinToString(" ") { "%02X".format(it) }
+                    log(TAG, Logging.Priority.VERBOSE) { "SEND CaseInfoProbe len=${bytes.size} raw=$hex" }
+                }
+            }
+        } catch (e: Exception) {
+            // Non-critical: the probe is fire-and-forget; a send failure just means
+            // we don't get Case Info this session. No retry, no state change.
+            log(TAG, Logging.Priority.WARN) { "CaseInfoProbe send failed: $e" }
         }
     }
 

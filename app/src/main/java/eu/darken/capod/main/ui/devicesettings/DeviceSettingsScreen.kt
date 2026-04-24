@@ -258,7 +258,7 @@ fun DeviceSettingsScreen(
                                 )
                             }
                             val hasFirmware = info.firmwareVersion.isNotBlank()
-                            val hasBuild = !info.buildNumber.isNullOrBlank()
+                            val hasBuild = !info.marketingVersion.isNullOrBlank()
                             if (hasFirmware && hasBuild) {
                                 add(
                                     DeviceDetailItem.Paired(
@@ -268,7 +268,7 @@ fun DeviceSettingsScreen(
                                         ),
                                         end = DeviceDetailItem.Single(
                                             stringResource(R.string.device_settings_info_build_label),
-                                            info.buildNumber!!
+                                            info.marketingVersion!!
                                         ),
                                     )
                                 )
@@ -283,7 +283,7 @@ fun DeviceSettingsScreen(
                                 add(
                                     DeviceDetailItem.Single(
                                         stringResource(R.string.device_settings_info_build_label),
-                                        info.buildNumber!!
+                                        info.marketingVersion!!
                                     )
                                 )
                             }
@@ -464,13 +464,21 @@ fun DeviceSettingsScreen(
                     }
                 }
 
-                // EQ visualization (debug only)
-                val eqBands = device.eqBands
-                if (eu.darken.capod.BuildConfig.DEBUG && eqBands != null && eqBands.sets.isNotEmpty()) {
+                // PME Config visualization (debug only, opcode 0x53).
+                // The Wireshark dissector calls this "PME Config"; captures so far are
+                // all-zero on in-production firmware, so the bar chart stays hidden in
+                // that case — showing empty bars would imply the device has a flat EQ,
+                // which we don't actually know.
+                val pmeConfig = device.pmeConfig
+                if (eu.darken.capod.BuildConfig.DEBUG &&
+                    pmeConfig != null &&
+                    pmeConfig.sets.isNotEmpty() &&
+                    !pmeConfig.isAllZero
+                ) {
                     item("eq_section") {
                         SettingsSection(title = stringResource(R.string.device_settings_eq_label)) {
                             EqBarsChart(
-                                sets = eqBands.sets,
+                                sets = pmeConfig.sets,
                                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                             )
                         }

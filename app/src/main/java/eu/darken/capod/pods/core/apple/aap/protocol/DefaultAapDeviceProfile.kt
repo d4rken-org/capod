@@ -16,58 +16,43 @@ class DefaultAapDeviceProfile(
 ) : AapDeviceProfile {
 
     companion object {
-        // AAP command types (bytes 4-5 of the message, little-endian)
-        const val CMD_SETTINGS = 0x0009
-        const val CMD_BATTERY = 0x0004
-        const val CMD_DEVICE_INFO = 0x001D
-        const val CMD_PRIVATE_KEYS_RESPONSE = 0x0031
-        const val CMD_EAR_DETECTION = 0x0006
-        const val CMD_PRIMARY_POD = 0x0008
-        const val CMD_CONVERSATION_AWARENESS_STATE = 0x004B
-
-        // Setting IDs (first byte of settings command payload)
-        const val SETTING_ANC_MODE = 0x0D
-        const val SETTING_PRESS_SPEED = 0x17
-        const val SETTING_PRESS_HOLD_DURATION = 0x18
-        const val SETTING_NC_ONE_AIRPOD = 0x1B
-        const val SETTING_TONE_VOLUME = 0x1F
-        const val SETTING_VOLUME_SWIPE_LENGTH = 0x23
-        const val SETTING_END_CALL_MUTE_MIC = 0x24
-        const val SETTING_VOLUME_SWIPE = 0x25
-        const val SETTING_PERSONALIZED_VOLUME = 0x26
-        const val SETTING_CONVERSATIONAL_AWARENESS = 0x28
-        const val SETTING_ADAPTIVE_AUDIO_NOISE = 0x2E
-        const val SETTING_MICROPHONE_MODE = 0x01
-        const val SETTING_EAR_DETECTION_ENABLED = 0x0A
-        const val SETTING_LISTENING_MODE_CYCLE = 0x1A
-        // Kept decoded internally (never exposed in UI): the device pushes 0x31 frames and dropping the
-        // decode would fall through to "Unhandled message" logging and prevent lastMessageAt refresh,
-        // which AAP freshness / boost logic in PodDevice.computeAapBoost depends on.
-        // Originally labeled "Charging Sounds" but the real case tones are controlled over ATT, not here;
-        // the actual effect of this setting is unknown, so we don't expose or write it.
-        const val SETTING_IN_CASE_TONE = 0x31
-        const val SETTING_ALLOW_OFF_OPTION = 0x34
-        const val SETTING_SLEEP_DETECTION = 0x35
-        const val SETTING_STEM_CONFIG = 0x39
-
-        // Known-but-unconfirmed setting IDs (H2+ exclusive). Decoded as UnknownSetting
-        // to keep lastMessageAt fresh. Observed on Pro 2 USB-C and/or Pro 3.
-        val UNCONFIRMED_SETTING_IDS = setOf(
-            0x29, 0x2C, 0x2F, 0x30, 0x33, 0x37, 0x38, 0x3B, 0x3E,
+        /**
+         * Catalogued control IDs we see on-wire but don't yet model as a named
+         * [AapSetting] subclass. Decoded as [AapSetting.UnknownSetting] so
+         * `lastMessageAt` still refreshes (freshness feeds AAP quality boost).
+         * Promote an entry to a dedicated subclass when its semantics are
+         * confirmed from captures.
+         *
+         * Observed on Pro 2 USB-C and/or Pro 3.
+         */
+        val UNMAPPED_SETTING_IDS = setOf(
+            AapControlId.SELECTIVE_SPEECH_LISTENING.value, // 0x29
+            AapControlId.HEARING_AID.value,                 // 0x2C
+            AapControlId.HEARING_AID_GAIN_SWIPE.value,      // 0x2F
+            AapControlId.HEART_RATE_MONITOR_3.value,        // 0x30
+            AapControlId.HEARING_ASSIST.value,              // 0x33
+            AapControlId.HEARING_PROTECTION_PPE.value,      // 0x37
+            AapControlId.PPE_CAP_LEVEL_CONFIG.value,        // 0x38
+            AapControlId.DYNAMIC_END_OF_CHARGE.value,       // 0x3B
+            AapControlId.UPLINK_EQ_BUD.value,               // 0x3E
         )
-
-        // Command types for non-settings messages
-        const val CMD_RENAME = 0x001E
-        const val CMD_STEM_PRESS = 0x0019
-        const val CMD_CONNECTED_DEVICES = 0x002E
-        const val CMD_AUDIO_SOURCE = 0x000E
-        const val CMD_EQ_DATA = 0x0053
 
         // ANC mode wire values
         const val ANC_WIRE_OFF = 0x01
         const val ANC_WIRE_ON = 0x02
         const val ANC_WIRE_TRANSPARENCY = 0x03
         const val ANC_WIRE_ADAPTIVE = 0x04
+
+        /** Fixed length of each earbud UUID segment in the Information payload (segments 11 & 12). */
+        private const val UUID_LEN = 17
+
+        /**
+         * Models where sending a 0x22 CASE_INFO_REQUEST yields a 0x23 response.
+         * Grow this list as captures confirm other models respond correctly.
+         */
+        private val CASE_INFO_ALLOWLIST = setOf(
+            PodModel.AIRPODS_PRO3,
+        )
     }
 
     private val supportedAncModes: List<AapSetting.AncMode.Value> by lazy {
@@ -95,31 +80,31 @@ class DefaultAapDeviceProfile(
     )
 
     override fun encodeCommand(command: AapCommand): ByteArray = when (command) {
-        is AapCommand.SetAncMode -> buildSettingsMessage(SETTING_ANC_MODE, encodeAncMode(command.mode))
-        is AapCommand.SetConversationalAwareness -> buildSettingsMessage(SETTING_CONVERSATIONAL_AWARENESS, encodeAppleBool(command.enabled))
-        is AapCommand.SetPressSpeed -> buildSettingsMessage(SETTING_PRESS_SPEED, command.value.wireValue)
-        is AapCommand.SetPressHoldDuration -> buildSettingsMessage(SETTING_PRESS_HOLD_DURATION, command.value.wireValue)
-        is AapCommand.SetNcWithOneAirPod -> buildSettingsMessage(SETTING_NC_ONE_AIRPOD, encodeAppleBool(command.enabled))
-        is AapCommand.SetToneVolume -> buildSettingsMessage(SETTING_TONE_VOLUME, command.level.coerceIn(0x0F, 0x64))
-        is AapCommand.SetVolumeSwipeLength -> buildSettingsMessage(SETTING_VOLUME_SWIPE_LENGTH, command.value.wireValue)
-        is AapCommand.SetVolumeSwipe -> buildSettingsMessage(SETTING_VOLUME_SWIPE, encodeAppleBool(command.enabled))
-        is AapCommand.SetPersonalizedVolume -> buildSettingsMessage(SETTING_PERSONALIZED_VOLUME, encodeAppleBool(command.enabled))
+        is AapCommand.SetAncMode -> buildSettingsMessage(AapControlId.LISTEN_MODE.value, encodeAncMode(command.mode))
+        is AapCommand.SetConversationalAwareness -> buildSettingsMessage(AapControlId.CONVERSATION_DETECT.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetPressSpeed -> buildSettingsMessage(AapControlId.DOUBLE_CLICK_INTERVAL.value, command.value.wireValue)
+        is AapCommand.SetPressHoldDuration -> buildSettingsMessage(AapControlId.CLICK_AND_HOLD_INTERVAL.value, command.value.wireValue)
+        is AapCommand.SetNcWithOneAirPod -> buildSettingsMessage(AapControlId.ONE_BUD_ANC_MODE.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetToneVolume -> buildSettingsMessage(AapControlId.CHIME_VOLUME.value, command.level.coerceIn(0x0F, 0x64))
+        is AapCommand.SetVolumeSwipeLength -> buildSettingsMessage(AapControlId.VOLUME_SWIPE_INTERVAL.value, command.value.wireValue)
+        is AapCommand.SetVolumeSwipe -> buildSettingsMessage(AapControlId.VOLUME_SWIPE_MODE.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetPersonalizedVolume -> buildSettingsMessage(AapControlId.ADAPTIVE_VOLUME.value, encodeAppleBool(command.enabled))
         // Wire semantics are inverted: wire 0 = max noise reduction, wire 100 = min (transparency-like).
         // UI value 0..100 follows user intuition (100 = max NC), so flip on write/read.
-        is AapCommand.SetAdaptiveAudioNoise -> buildSettingsMessage(SETTING_ADAPTIVE_AUDIO_NOISE, 100 - command.level.coerceIn(0, 100))
+        is AapCommand.SetAdaptiveAudioNoise -> buildSettingsMessage(AapControlId.AUTO_ANC_STRENGTH.value, 100 - command.level.coerceIn(0, 100))
         is AapCommand.SetEndCallMuteMic -> buildEndCallMuteMicMessage(command.muteMic, command.endCall)
-        is AapCommand.SetMicrophoneMode -> buildSettingsMessage(SETTING_MICROPHONE_MODE, command.mode.wireValue)
-        is AapCommand.SetEarDetectionEnabled -> buildSettingsMessage(SETTING_EAR_DETECTION_ENABLED, encodeAppleBool(command.enabled))
-        is AapCommand.SetListeningModeCycle -> buildSettingsMessage(SETTING_LISTENING_MODE_CYCLE, command.modeMask and 0x0F)
-        is AapCommand.SetAllowOffOption -> buildSettingsMessage(SETTING_ALLOW_OFF_OPTION, encodeAppleBool(command.enabled))
-        is AapCommand.SetStemConfig -> buildSettingsMessage(SETTING_STEM_CONFIG, command.claimedPressMask and 0x0F)
-        is AapCommand.SetSleepDetection -> buildSettingsMessage(SETTING_SLEEP_DETECTION, encodeAppleBool(command.enabled))
+        is AapCommand.SetMicrophoneMode -> buildSettingsMessage(AapControlId.MIC_MODE.value, command.mode.wireValue)
+        is AapCommand.SetEarDetectionEnabled -> buildSettingsMessage(AapControlId.IN_EAR_DETECTION.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetListeningModeCycle -> buildSettingsMessage(AapControlId.LISTENING_MODE_CONFIGS.value, command.modeMask and 0x0F)
+        is AapCommand.SetAllowOffOption -> buildSettingsMessage(AapControlId.ALLOW_OFF_OPTION.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetStemConfig -> buildSettingsMessage(AapControlId.RAW_GESTURES_CONFIG.value, command.claimedPressMask and 0x0F)
+        is AapCommand.SetSleepDetection -> buildSettingsMessage(AapControlId.SLEEP_DETECTION.value, encodeAppleBool(command.enabled))
         is AapCommand.SetDeviceName -> buildRenameMessage(command.name)
     }
 
     override fun decodeSetting(message: AapMessage): Pair<KClass<out AapSetting>, AapSetting>? {
         // Primary pod identity (push-only, fires on mic/primary swap)
-        if (message.commandType == CMD_PRIMARY_POD) {
+        if (message.commandType == AapMessageType.BUD_ROLE.value) {
             if (message.payload.size < 4) return null
             val podId = message.payload[0].toInt() and 0xFF
             // Validate known fixed bytes: [podId] 00 [00|01] [00|01]
@@ -136,7 +121,7 @@ class DefaultAapDeviceProfile(
         }
 
         // Ear detection is a separate command type (push-only from device)
-        if (message.commandType == CMD_EAR_DETECTION) {
+        if (message.commandType == AapMessageType.EAR_DETECTION.value) {
             if (message.payload.size < 2) return null
             return AapSetting.EarDetection::class to AapSetting.EarDetection(
                 primaryPod = decodePodPlacement(message.payload[0].toInt() and 0xFF),
@@ -145,7 +130,7 @@ class DefaultAapDeviceProfile(
         }
 
         // Connected devices list (push-only from device)
-        if (message.commandType == CMD_CONNECTED_DEVICES) {
+        if (message.commandType == AapMessageType.CONNECTED_DEVICES.value) {
             if (message.payload.size < 3) return null
             val count = message.payload[2].toInt() and 0xFF
             val devices = mutableListOf<AapSetting.ConnectedDevices.ConnectedDevice>()
@@ -161,7 +146,7 @@ class DefaultAapDeviceProfile(
         }
 
         // Audio source tracking (push-only from device)
-        if (message.commandType == CMD_AUDIO_SOURCE) {
+        if (message.commandType == AapMessageType.AUDIO_SOURCE.value) {
             if (message.payload.size < 7) return null
             val mac = (0 until 6).map { "%02X".format(message.payload[it]) }.joinToString(":")
             val typeValue = message.payload[6].toInt() and 0xFF
@@ -173,8 +158,11 @@ class DefaultAapDeviceProfile(
             return AapSetting.AudioSource::class to AapSetting.AudioSource(mac, type)
         }
 
-        // EQ data (push-only from device)
-        if (message.commandType == CMD_EQ_DATA) {
+        // 0x53 is "PME Config" per the Wireshark AAP dissector. CAPod decodes the
+        // 4-set × 8-band Float32 payload verbatim; captures so far have all-zero
+        // payloads so the schema is unconfirmed. Real EQ likely lives on 0x54
+        // "Set Band Edges" with a different byte layout.
+        if (message.commandType == AapMessageType.PME_CONFIG.value) {
             if (message.payload.size < 6 + 128) return null
             val sets = mutableListOf<List<Float>>()
             var offset = 6 // skip header
@@ -190,92 +178,97 @@ class DefaultAapDeviceProfile(
                 }
                 sets.add(bands)
             }
-            return AapSetting.EqBands::class to AapSetting.EqBands(sets)
+            return AapSetting.PmeConfig::class to AapSetting.PmeConfig(sets)
         }
 
         // Conversation Awareness State is a separate command type (push-only)
-        if (message.commandType == CMD_CONVERSATION_AWARENESS_STATE) {
+        if (message.commandType == AapMessageType.CONVERSATIONAL_AWARENESS.value) {
             if (message.payload.isEmpty()) return null
             val value = message.payload[0].toInt() and 0xFF
             val speaking = value == 0x01
             return AapSetting.ConversationalAwarenessState::class to AapSetting.ConversationalAwarenessState(speaking)
         }
 
-        if (message.commandType != CMD_SETTINGS) return null
+        if (message.commandType != AapMessageType.CONTROL.value) return null
         if (message.payload.size < 2) return null
 
         val settingId = message.payload[0].toInt() and 0xFF
         val value = message.payload[1].toInt() and 0xFF
 
         return when (settingId) {
-            SETTING_ANC_MODE -> {
+            AapControlId.LISTEN_MODE.value -> {
                 val mode = decodeAncMode(value) ?: return null
                 AapSetting.AncMode::class to AapSetting.AncMode(current = mode, supported = supportedAncModes)
             }
-            SETTING_CONVERSATIONAL_AWARENESS -> {
+            AapControlId.CONVERSATION_DETECT.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.ConversationalAwareness::class to AapSetting.ConversationalAwareness(enabled)
             }
-            SETTING_PRESS_SPEED -> {
+            AapControlId.DOUBLE_CLICK_INTERVAL.value -> {
                 val speed = AapSetting.PressSpeed.Value.fromWire(value) ?: return null
                 AapSetting.PressSpeed::class to AapSetting.PressSpeed(speed)
             }
-            SETTING_PRESS_HOLD_DURATION -> {
+            AapControlId.CLICK_AND_HOLD_INTERVAL.value -> {
                 val duration = AapSetting.PressHoldDuration.Value.fromWire(value) ?: return null
                 AapSetting.PressHoldDuration::class to AapSetting.PressHoldDuration(duration)
             }
-            SETTING_NC_ONE_AIRPOD -> {
+            AapControlId.ONE_BUD_ANC_MODE.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.NcWithOneAirPod::class to AapSetting.NcWithOneAirPod(enabled)
             }
-            SETTING_TONE_VOLUME -> {
+            AapControlId.CHIME_VOLUME.value -> {
                 AapSetting.ToneVolume::class to AapSetting.ToneVolume(level = value)
             }
-            SETTING_VOLUME_SWIPE_LENGTH -> {
+            AapControlId.VOLUME_SWIPE_INTERVAL.value -> {
                 val length = AapSetting.VolumeSwipeLength.Value.fromWire(value) ?: return null
                 AapSetting.VolumeSwipeLength::class to AapSetting.VolumeSwipeLength(length)
             }
-            SETTING_END_CALL_MUTE_MIC -> {
+            AapControlId.CALL_MANAGEMENT_CONFIG.value -> {
                 decodeEndCallMuteMic(message.payload)
             }
-            SETTING_VOLUME_SWIPE -> {
+            AapControlId.VOLUME_SWIPE_MODE.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.VolumeSwipe::class to AapSetting.VolumeSwipe(enabled)
             }
-            SETTING_PERSONALIZED_VOLUME -> {
+            AapControlId.ADAPTIVE_VOLUME.value -> {
+                // Wireshark calls 0x26 "Adaptive Volume"; CAPod ships the user-facing name
+                // "Personalized Volume" because that matches the iOS Settings.app label.
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.PersonalizedVolume::class to AapSetting.PersonalizedVolume(enabled)
             }
-            SETTING_ADAPTIVE_AUDIO_NOISE -> {
+            AapControlId.AUTO_ANC_STRENGTH.value -> {
                 AapSetting.AdaptiveAudioNoise::class to AapSetting.AdaptiveAudioNoise(level = 100 - value.coerceIn(0, 100))
             }
-            SETTING_MICROPHONE_MODE -> {
+            AapControlId.MIC_MODE.value -> {
                 val mode = AapSetting.MicrophoneMode.Mode.fromWire(value) ?: return null
                 AapSetting.MicrophoneMode::class to AapSetting.MicrophoneMode(mode)
             }
-            SETTING_EAR_DETECTION_ENABLED -> {
+            AapControlId.IN_EAR_DETECTION.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.EarDetectionEnabled::class to AapSetting.EarDetectionEnabled(enabled)
             }
-            SETTING_LISTENING_MODE_CYCLE -> {
+            AapControlId.LISTENING_MODE_CONFIGS.value -> {
                 AapSetting.ListeningModeCycle::class to AapSetting.ListeningModeCycle(modeMask = value)
             }
-            SETTING_ALLOW_OFF_OPTION -> {
+            AapControlId.ALLOW_OFF_OPTION.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.AllowOffOption::class to AapSetting.AllowOffOption(enabled)
             }
-            SETTING_STEM_CONFIG -> {
+            AapControlId.RAW_GESTURES_CONFIG.value -> {
                 AapSetting.StemConfig::class to AapSetting.StemConfig(claimedPressMask = value)
             }
-            SETTING_SLEEP_DETECTION -> {
+            AapControlId.SLEEP_DETECTION.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled)
             }
-            SETTING_IN_CASE_TONE -> {
+            AapControlId.IN_CASE_TONE.value -> {
+                // Decoded internally (never exposed in UI) to keep lastMessageAt fresh.
+                // Originally labeled "Charging Sounds" — the real case tones are controlled
+                // over ATT, not here; the actual effect of this setting is unknown.
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.InCaseTone::class to AapSetting.InCaseTone(enabled)
             }
-            in UNCONFIRMED_SETTING_IDS -> {
+            in UNMAPPED_SETTING_IDS -> {
                 AapSetting.UnknownSetting::class to AapSetting.UnknownSetting(
                     settingId = settingId,
                     rawValue = value,
@@ -286,7 +279,7 @@ class DefaultAapDeviceProfile(
     }
 
     override fun decodeBattery(message: AapMessage): Map<AapPodState.BatteryType, AapPodState.Battery>? {
-        if (message.commandType != CMD_BATTERY) return null
+        if (message.commandType != AapMessageType.BATTERY_INFO.value) return null
         val payload = message.payload
         if (payload.isEmpty()) return null
 
@@ -328,7 +321,7 @@ class DefaultAapDeviceProfile(
     )
 
     override fun decodePrivateKeyResponse(message: AapMessage): KeyExchangeResult? {
-        if (message.commandType != CMD_PRIVATE_KEYS_RESPONSE) return null
+        if (message.commandType != AapMessageType.MAGIC_KEYS.value) return null
         val payload = message.payload
         if (payload.isEmpty()) return null
 
@@ -360,26 +353,31 @@ class DefaultAapDeviceProfile(
     }
 
     override fun decodeDeviceInfo(message: AapMessage): AapDeviceInfo? {
-        if (message.commandType != CMD_DEVICE_INFO) return null
+        if (message.commandType != AapMessageType.INFORMATION.value) return null
         if (message.payload.size < 10) return null
 
-        // Device info payload contains null-terminated UTF-8 strings
-        // Format: [binary header] [NUL-delimited strings...]
-        val strings = parseNullTerminatedStrings(message.payload)
-        if (strings.size < 4) return null
+        val parsed = parseDeviceInfoPayload(message.payload) ?: return null
+        if (parsed.strings.size < 4) return null
+
+        val activeFirmware = parsed.strings.getOrElse(4) { "" }
+        val pendingFirmware = parsed.strings.getOrNull(5)?.takeIf { it.isNotBlank() && it != activeFirmware }
 
         return AapDeviceInfo(
-            name = strings.getOrElse(0) { "" },
-            modelNumber = strings.getOrElse(1) { "" },
-            manufacturer = strings.getOrElse(2) { "" },
-            serialNumber = strings.getOrElse(3) { "" },
-            firmwareVersion = strings.getOrElse(4) { "" },
-            // Segments [5]=firmware dup, [6]=protocol version, [7]=updater app ID — skipped
-            // Segments [8] and [9] are individual earbud serials (observed on Pro 1, Pro 2, Pro 3)
-            leftEarbudSerial = strings.getOrNull(8)?.takeIf { it.isNotBlank() },
-            rightEarbudSerial = strings.getOrNull(9)?.takeIf { it.isNotBlank() },
-            // Segment [10] is the build number (e.g. "8454624")
-            buildNumber = strings.getOrNull(10)?.takeIf { it.isNotBlank() },
+            name = parsed.strings.getOrElse(0) { "" },
+            modelNumber = parsed.strings.getOrElse(1) { "" },
+            manufacturer = parsed.strings.getOrElse(2) { "" },
+            serialNumber = parsed.strings.getOrElse(3) { "" },
+            firmwareVersion = activeFirmware,
+            firmwareVersionPending = pendingFirmware,
+            hardwareVersion = parsed.strings.getOrNull(6)?.takeIf { it.isNotBlank() },
+            eaProtocolName = parsed.strings.getOrNull(7)?.takeIf { it.isNotBlank() },
+            leftEarbudSerial = parsed.strings.getOrNull(8)?.takeIf { it.isNotBlank() },
+            rightEarbudSerial = parsed.strings.getOrNull(9)?.takeIf { it.isNotBlank() },
+            marketingVersion = parsed.strings.getOrNull(10)?.takeIf { it.isNotBlank() },
+            leftEarbudUuid = parsed.leftEarbudUuid,
+            rightEarbudUuid = parsed.rightEarbudUuid,
+            leftEarbudFirstPaired = parsed.leftEarbudFirstPaired,
+            rightEarbudFirstPaired = parsed.rightEarbudFirstPaired,
         )
     }
 
@@ -445,7 +443,7 @@ class DefaultAapDeviceProfile(
         return byteArrayOf(
             0x04, 0x00, 0x04, 0x00,
             0x09, 0x00,
-            SETTING_END_CALL_MUTE_MIC.toByte(), 0x20,
+            AapControlId.CALL_MANAGEMENT_CONFIG.value.toByte(), 0x20,
             combined.toByte(),
             0x00, 0x00,
         )
@@ -480,11 +478,47 @@ class DefaultAapDeviceProfile(
     }
 
     override fun decodeStemPress(message: AapMessage): StemPressEvent? {
-        if (message.commandType != CMD_STEM_PRESS) return null
+        if (message.commandType != AapMessageType.STEM_PRESS.value) return null
         if (message.payload.size < 2) return null
         val pressType = StemPressEvent.PressType.fromWire(message.payload[0].toInt() and 0xFF) ?: return null
         val bud = StemPressEvent.Bud.fromWire(message.payload[1].toInt() and 0xFF) ?: return null
         return StemPressEvent(pressType, bud)
+    }
+
+    /**
+     * Case Info probing is allowlisted to models observed to respond. Pro 3 is the
+     * confirmed first entry; other models can be added once captures verify they
+     * reply to 0x22 with a 0x23 payload.
+     */
+    override fun encodeCaseInfoRequest(): ByteArray? {
+        if (model !in CASE_INFO_ALLOWLIST) return null
+        // Fire-and-forget 6-byte template, matching the private key request shape
+        // (header + command type with no payload).
+        return byteArrayOf(
+            0x04, 0x00, 0x04, 0x00,
+            AapMessageType.CASE_INFO_REQUEST.value.toByte(), 0x00,
+        )
+    }
+
+    /**
+     * Best-effort decoder. Per the dissector, the payload contains a mix of
+     * binary VID/PID/color bytes plus a NUL-delimited name string. Without
+     * more captures we preserve the raw payload and leave individual fields
+     * null — future iteration can map specific offsets.
+     */
+    override fun decodeCaseInfo(message: AapMessage): AapCaseInfo? {
+        if (message.commandType != AapMessageType.CASE_INFO.value) return null
+        return AapCaseInfo(rawPayload = message.payload.copyOf())
+    }
+
+    override fun decodeSleepEvent(message: AapMessage): AapSleepEvent? {
+        if (message.commandType != AapMessageType.SLEEP_DETECTION_UPDATE.value) return null
+        return AapSleepEvent(rawPayload = message.payload.copyOf())
+    }
+
+    override fun decodeDynamicEndOfChargeEvent(message: AapMessage): AapDynamicEndOfChargeEvent? {
+        if (message.commandType != AapMessageType.DYNAMIC_END_OF_CHARGE.value) return null
+        return AapDynamicEndOfChargeEvent(rawPayload = message.payload.copyOf())
     }
 
     private fun buildRenameMessage(name: String): ByteArray {
@@ -510,31 +544,89 @@ class DefaultAapDeviceProfile(
         ) + nameBytes
     }
 
-    private fun parseNullTerminatedStrings(data: ByteArray): List<String> {
-        // Skip binary header until the first printable byte (device name always starts
-        // with a printable character). This skips the length/type prefix bytes.
-        var headerEnd = 0
-        while (headerEnd < data.size) {
-            val b = data[headerEnd].toInt() and 0xFF
-            if (b in 0x20..0x7E) break
-            headerEnd++
+    /**
+     * Heuristic binary-prefix skip: walk forward until we hit a printable byte.
+     * The real header schema is `[02 XX 00 04 00]` in every capture to date, but
+     * documenting that without an authoritative source would be guessing. The
+     * heuristic breaks only for device names that start with a non-printable
+     * byte \u2014 theoretically emoji names (UTF-8 first byte 0xF0-0xF4, outside the
+     * printable range) could misalign here. None observed in real captures so far.
+     */
+    private fun skipBinaryHeader(data: ByteArray): Int {
+        var offset = 0
+        while (offset < data.size) {
+            val b = data[offset].toInt() and 0xFF
+            if (b in 0x20..0x7E) return offset
+            offset++
         }
-        if (headerEnd >= data.size) return emptyList()
-
-        // Split on NUL bytes and decode each segment as UTF-8.
-        // This handles device names with non-ASCII characters (e.g. curly quotes
-        // in "Matthias\u2019s AirPods Pro") that the old ASCII-only scanner would break on.
-        val strings = mutableListOf<String>()
-        var i = headerEnd
-        while (i < data.size) {
-            // Skip NUL separators
-            while (i < data.size && data[i] == 0x00.toByte()) i++
-            if (i >= data.size) break
-
-            val segStart = i
-            while (i < data.size && data[i] != 0x00.toByte()) i++
-            strings.add(String(data, segStart, i - segStart, Charsets.UTF_8))
-        }
-        return strings
+        return data.size
     }
+
+    private fun parseDeviceInfoPayload(data: ByteArray): DeviceInfoSegments? {
+        var offset = skipBinaryHeader(data)
+        if (offset >= data.size) return null
+
+        // Segments 0..10: NUL-delimited UTF-8 strings. UTF-8 means non-ASCII (e.g.
+        // curly quotes in "Matthias's AirPods Pro") decodes correctly.
+        val strings = mutableListOf<String>()
+        while (strings.size < 11 && offset < data.size) {
+            while (offset < data.size && data[offset] == 0x00.toByte()) offset++
+            if (offset >= data.size) break
+            val segStart = offset
+            while (offset < data.size && data[offset] != 0x00.toByte()) offset++
+            strings.add(String(data, segStart, offset - segStart, Charsets.UTF_8))
+        }
+
+        // Skip the NUL that terminated segment 10 (if present) before the UUID blob.
+        while (offset < data.size && data[offset] == 0x00.toByte()) offset++
+
+        // Segments 11 and 12: fixed 17-byte UUIDs (NOT NUL-terminated, may contain 0x00).
+        // Best-effort: if payload is shorter, both UUIDs are null.
+        val leftUuid: ByteArray? = if (offset + UUID_LEN <= data.size) {
+            val slice = data.copyOfRange(offset, offset + UUID_LEN)
+            offset += UUID_LEN
+            slice
+        } else null
+
+        val rightUuid: ByteArray? = if (offset + UUID_LEN <= data.size) {
+            val slice = data.copyOfRange(offset, offset + UUID_LEN)
+            offset += UUID_LEN
+            slice
+        } else null
+
+        // Segments 13 and 14: NUL-delimited ASCII-decimal epoch seconds (e.g. "1697480211").
+        val trailingStrings = mutableListOf<String>()
+        while (trailingStrings.size < 2 && offset < data.size) {
+            while (offset < data.size && data[offset] == 0x00.toByte()) offset++
+            if (offset >= data.size) break
+            val segStart = offset
+            while (offset < data.size && data[offset] != 0x00.toByte()) offset++
+            trailingStrings.add(String(data, segStart, offset - segStart, Charsets.UTF_8))
+        }
+
+        val leftPaired = trailingStrings.getOrNull(0).parseEpochSecondsOrNull()
+        val rightPaired = trailingStrings.getOrNull(1).parseEpochSecondsOrNull()
+
+        return DeviceInfoSegments(
+            strings = strings,
+            leftEarbudUuid = leftUuid,
+            rightEarbudUuid = rightUuid,
+            leftEarbudFirstPaired = leftPaired,
+            rightEarbudFirstPaired = rightPaired,
+        )
+    }
+
+    private fun String?.parseEpochSecondsOrNull(): java.time.Instant? {
+        if (this.isNullOrBlank()) return null
+        val seconds = this.toLongOrNull() ?: return null
+        return runCatching { java.time.Instant.ofEpochSecond(seconds) }.getOrNull()
+    }
+
+    private data class DeviceInfoSegments(
+        val strings: List<String>,
+        val leftEarbudUuid: ByteArray?,
+        val rightEarbudUuid: ByteArray?,
+        val leftEarbudFirstPaired: java.time.Instant?,
+        val rightEarbudFirstPaired: java.time.Instant?,
+    )
 }

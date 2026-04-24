@@ -5,6 +5,7 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
+import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import io.kotest.matchers.collections.shouldBeEmpty
@@ -50,11 +51,15 @@ class AapSessionEngineTest : BaseTest() {
         every { decodeBattery(any()) } returns null
         every { decodePrivateKeyResponse(any()) } returns null
         every { decodeDeviceInfo(any()) } returns null
+        every { decodeCaseInfo(any()) } returns null
+        every { decodeSleepEvent(any()) } returns null
+        every { decodeDynamicEndOfChargeEvent(any()) } returns null
         every { decodeSetting(any()) } returns null
         every { encodeHandshake() } returns ByteArray(10)
         every { encodeNotificationEnable() } returns emptyList()
         every { encodeInitExt() } returns ByteArray(10)
         every { encodePrivateKeyRequest() } returns null
+        every { encodeCaseInfoRequest() } returns null
         block()
     }
 
@@ -186,6 +191,52 @@ class AapSessionEngineTest : BaseTest() {
 
             engine.processMessage(dummyMessage(commandType = 0x0009))
 
+            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.HANDSHAKING
+        }
+
+        @Test
+        fun `Connect Response with status=0 stores features bitmask`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+
+            engine.start(scope)
+            engine.onHandshakeSent()
+
+            val packet = AapPacket.ConnectResponse(
+                raw = ByteArray(18),
+                service = 0x0004,
+                status = 0x0000,
+                major = 0x0001,
+                minor = 0x0003,
+                features = 0xE251_0004_E1B1_0004UL,
+            )
+            engine.processConnectResponse(packet)
+
+            engine.state.value.negotiatedFeatures shouldBe 0xE251_0004_E1B1_0004UL
+            engine.state.value.connectResponseStatus shouldBe 0
+            engine.state.value.lastMessageAt.shouldNotBeNull()
+        }
+
+        @Test
+        fun `Connect Response with non-zero status does not store features`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+
+            engine.start(scope)
+            engine.onHandshakeSent()
+
+            val packet = AapPacket.ConnectResponse(
+                raw = ByteArray(18),
+                service = 0x0004,
+                status = 0x0001,
+                major = 0x0001,
+                minor = 0x0003,
+                features = 0xFFFFFFFFFFFFFFFFUL,
+            )
+            engine.processConnectResponse(packet)
+
+            engine.state.value.connectResponseStatus shouldBe 0x0001
+            engine.state.value.negotiatedFeatures.shouldBeNull()
             engine.state.value.connectionState shouldBe AapPodState.ConnectionState.HANDSHAKING
         }
     }

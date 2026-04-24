@@ -102,6 +102,13 @@ fun AcknowledgementsScreen(
             }
             item {
                 SettingsBaseItem(
+                    title = "apple-wireshark",
+                    subtitle = "Thanks to Pablo Aul for the Wireshark dissector catalog of the AAP/AACP protocol.",
+                    onClick = { onOpenUrl("https://github.com/pabloaul/apple-wireshark") },
+                )
+            }
+            item {
+                SettingsBaseItem(
                     title = "crowdin.com",
                     subtitle = "For supporting translation of open-source projects",
                     onClick = { onOpenUrl("https://crowdin.com/") },
@@ -109,13 +116,6 @@ fun AcknowledgementsScreen(
             }
             item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_licenses_label))
-            }
-            item {
-                SettingsBaseItem(
-                    title = "Glide",
-                    subtitle = "An image loading and caching library for Android focused on smooth scrolling. (Multiple licenses)",
-                    onClick = { onOpenUrl("https://github.com/bumptech/glide") },
-                )
             }
             item {
                 SettingsBaseItem(
@@ -147,6 +147,13 @@ fun AcknowledgementsScreen(
             }
             item {
                 SettingsBaseItem(
+                    title = "apple-wireshark",
+                    subtitle = "Wireshark dissector plugins for Apple protocols. (GPL-3.0)",
+                    onClick = { onOpenUrl("https://github.com/pabloaul/apple-wireshark") },
+                )
+            }
+            item {
+                SettingsBaseItem(
                     title = "Kotlin",
                     subtitle = "The Kotlin Programming Language. (APACHE 2.0)",
                     onClick = { onOpenUrl("https://github.com/JetBrains/kotlin") },
@@ -164,13 +171,6 @@ fun AcknowledgementsScreen(
                     title = "Android",
                     subtitle = "Android Open Source Project (APACHE 2.0)",
                     onClick = { onOpenUrl("https://source.android.com/source/licenses.html") },
-                )
-            }
-            item {
-                SettingsBaseItem(
-                    title = "Android",
-                    subtitle = "The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.",
-                    onClick = { onOpenUrl("https://developer.android.com/distribute/tools/promote/brand.html") },
                 )
             }
         }

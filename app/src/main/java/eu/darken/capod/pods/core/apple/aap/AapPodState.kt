@@ -1,5 +1,6 @@
 package eu.darken.capod.pods.core.apple.aap
 
+import eu.darken.capod.pods.core.apple.aap.protocol.AapCaseInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Instant
@@ -16,6 +17,16 @@ data class AapPodState(
     val lastMessageAt: Instant? = null,
     val pendingAncMode: AapSetting.AncMode.Value? = null,
     val pendingSettingsCount: Int = 0,
+    /**
+     * 64-bit features bitmask from the Connect Response (packet type 0x0001).
+     * Opaque — we don't yet know the bit-to-feature mapping. Logged for future
+     * correlation work. Null until a Connect Response is seen.
+     */
+    val negotiatedFeatures: ULong? = null,
+    /** Status field from the Connect Response. 0 = success. Null before Connect Response. */
+    val connectResponseStatus: Int? = null,
+    /** Parsed Case Info (message type 0x23), if the device responded to a 0x22 probe. */
+    val caseInfo: AapCaseInfo? = null,
 ) {
     inline fun <reified T : AapSetting> setting(): T? = settings[T::class] as? T
 

@@ -343,7 +343,7 @@ data class PodDevice(
     val audioSource: AapSetting.AudioSource?
         get() = aap?.setting()
 
-    val eqBands: AapSetting.EqBands?
+    val pmeConfig: AapSetting.PmeConfig?
         get() = aap?.setting()
 
     val deviceInfo: AapDeviceInfo?
