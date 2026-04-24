@@ -536,7 +536,7 @@
     <string name="device_settings_allow_off_description">Allow Off as a selectable noise control mode. When disabled, stems skip Off while cycling.</string>
     <string name="device_settings_sleep_detection_label">Sleep Detection</string>
     <string name="device_settings_sleep_detection_description">Automatically pause audio when you fall asleep</string>
-    <string name="reaction_sleep_channel_label">Sleep Detection Auto-Pause</string>
+    <string name="reaction_sleep_channel_label">Sleep Detection</string>
     <string name="reaction_sleep_notification_title">Paused by Sleep Detection</string>
     <string name="reaction_sleep_notification_text">%1$s reported you fell asleep, so your music was paused. You can disable this in the device settings.</string>
     <string name="device_settings_rename_label">Rename</string>
