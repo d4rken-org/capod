@@ -98,6 +98,16 @@ enum class AapMessageType(val value: Int, val wiresharkName: String) {
      */
     PME_CONFIG(0x0053, "PME Config"),
 
+    /**
+     * Configures the AirPods radio's allowed RF bands. AirPods Pro 2 USB-C
+     * and newer can transmit on 5 GHz / 6 GHz U-NII bands in addition to
+     * 2.4 GHz ISM — Apple uses this for the proprietary lossless audio mode
+     * with Apple Vision Pro. The "type" field is a band code from Apple's
+     * `BSM_BAND_CODE_*` enum (0x0 = ISM24, 0x1/0x2/0x3 = U-NII-1/3/4,
+     * 0x4–0x7 = U-NII-5A/B/C/D, 0x8 = INVALID; identified via FCC firmware
+     * analysis). "Set Band Edges" is the label the Wireshark AAP dissector
+     * uses for this opcode. CAPod observes but does not decode the payload.
+     */
     SET_BAND_EDGES(0x0054, "Set Band Edges"),
     UNKNOWN_0X55(0x0055, "Unknown"),
     USB_SPATIAL_SENSOR_DATA_REQUEST(0x0056, "USB Spatial Sensor Data Request"),
