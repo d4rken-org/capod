@@ -85,6 +85,7 @@ data class PodDevice(
     val hasEarDetection: Boolean get() = model.features.hasEarDetection
     val hasAncControl: Boolean get() = model.features.hasAncControl
     val hasDualMicrophone: Boolean get() = ble is HasDualMicrophone
+    val hasDynamicEndOfCharge: Boolean get() = model.features.hasDynamicEndOfCharge
 
     // Signal / timing
     val seenLastAt: Instant?
@@ -185,6 +186,15 @@ data class PodDevice(
 
     val isHeadsetBeingCharged: Boolean?
         get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged ?: cached?.isHeadsetCharging
+
+    // Full per-slot charging state — AAP only (BLE + cache don't carry CHARGING_OPTIMIZED).
+    // Null means "no live AAP reading", which lets callers avoid showing a stale Optimized chip
+    // after the device went out of range. Existing isLeftCharging/etc. remain the Boolean
+    // collapse of CHARGING + CHARGING_OPTIMIZED for everyone who just cares "is it charging".
+    val leftPodChargingState: AapPodState.ChargingState? get() = aap?.leftChargingState
+    val rightPodChargingState: AapPodState.ChargingState? get() = aap?.rightChargingState
+    val caseChargingState: AapPodState.ChargingState? get() = aap?.caseChargingState
+    val headsetChargingState: AapPodState.ChargingState? get() = aap?.headsetChargingState
 
     // Resolved primary pod: AAP cmd 0x08 preferred, BLE bit 5 fallback.
     private val resolvedPrimaryPod: DualBlePodSnapshot.Pod?
@@ -335,6 +345,9 @@ data class PodDevice(
         get() = aap?.setting()
 
     val sleepDetection: AapSetting.SleepDetection?
+        get() = aap?.setting()
+
+    val dynamicEndOfCharge: AapSetting.DynamicEndOfCharge?
         get() = aap?.setting()
 
     val connectedDevices: AapSetting.ConnectedDevices?

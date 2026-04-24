@@ -68,6 +68,17 @@ class AapConnectionManager @Inject constructor(
     private val _offRejectedEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
     val offRejectedEvents: SharedFlow<BluetoothAddress> = _offRejectedEvents.asSharedFlow()
 
+    /**
+     * Emits when any setting command failed verification on the device side. Unlike
+     * [offRejectedEvents] this covers every rejected write (including the ANC-OFF case); UI
+     * consumers filter by the command type they care about — e.g. the charge-cap toggle shows
+     * a snackbar only for [AapCommand.SetDynamicEndOfCharge].
+     */
+    private val _settingRejectedEvents =
+        MutableSharedFlow<Pair<BluetoothAddress, AapCommand>>(extraBufferCapacity = 16)
+    val settingRejectedEvents: SharedFlow<Pair<BluetoothAddress, AapCommand>> =
+        _settingRejectedEvents.asSharedFlow()
+
     fun deviceState(address: BluetoothAddress) = _allStates.map { it[address] }
 
     suspend fun connect(
@@ -116,6 +127,14 @@ class AapConnectionManager @Inject constructor(
             launch {
                 connection.offRejected.collect {
                     _offRejectedEvents.tryEmit(address)
+                }
+            }
+
+            // Forward generic setting-rejection events from this connection (child coroutine).
+            // Covers every rejected write — consumers filter by the command they care about.
+            launch {
+                connection.settingRejected.collect { command ->
+                    _settingRejectedEvents.tryEmit(address to command)
                 }
             }
 

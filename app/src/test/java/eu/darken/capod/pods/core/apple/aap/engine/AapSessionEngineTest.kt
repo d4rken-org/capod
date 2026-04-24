@@ -281,6 +281,27 @@ class AapSessionEngineTest : BaseTest() {
         }
 
         @Test
+        fun `send bypasses ear gate for SetDynamicEndOfCharge`() = runTest(UnconfinedTestDispatcher()) {
+            // Unlike most settings, the charge-cap toggle is used while pods sit in the
+            // closed case. Queueing it until worn would make the toggle look broken.
+            val profile = mockProfile {
+                every { decodeSetting(any()) } returns (AapSetting.EarDetection::class as KClass<out AapSetting> to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_CASE,
+                ))
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.startReady(this as TestScope)
+            engine.processMessage(dummyMessage()) // Set ear detection to IN_CASE
+
+            val sentCommands = mutableListOf<AapCommand>()
+            engine.send(AapCommand.SetDynamicEndOfCharge(false)) { sentCommands.add(it) }
+
+            sentCommands shouldBe listOf(AapCommand.SetDynamicEndOfCharge(false))
+            engine.state.value.pendingSettingsCount shouldBe 0
+        }
+
+        @Test
         fun `send immediate when pod in ear`() = runTest(UnconfinedTestDispatcher()) {
             val profile = mockProfile {
                 every { decodeSetting(any()) } returns (AapSetting.EarDetection::class as KClass<out AapSetting> to AapSetting.EarDetection(

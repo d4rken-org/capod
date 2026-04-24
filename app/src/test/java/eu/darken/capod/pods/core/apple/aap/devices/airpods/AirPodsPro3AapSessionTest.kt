@@ -171,6 +171,28 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
         @Test fun `NC one airpod OFF`() {
             decodeSetting<AapSetting.NcWithOneAirPod>("04 00 04 00 09 00 1B 02 00 00 00").enabled shouldBe false
         }
+
+        // DynamicEndOfCharge — Apple's "Optimized Charge Limit", setting 0x3B. Real capture
+        // from a Pro 3 after handshake showed rawValue=0x01 (enabled). Apple-bool semantics
+        // are our current assumption; decodeAppleBool rejects values that aren't 0x01/0x02.
+        @Test fun `dynamic end of charge ON - observed on connect`() {
+            decodeSetting<AapSetting.DynamicEndOfCharge>("04 00 04 00 09 00 3B 01 00 00 00").enabled shouldBe true
+        }
+
+        @Test fun `dynamic end of charge OFF`() {
+            decodeSetting<AapSetting.DynamicEndOfCharge>("04 00 04 00 09 00 3B 02 00 00 00").enabled shouldBe false
+        }
+
+        @Test fun `dynamic end of charge - unknown raw value is not decoded as bool`() {
+            // 0x00 isn't Apple-bool — decoder must fall through (return null) instead of
+            // silently coercing to false. This keeps us honest about the wire format and
+            // lets the unhandled-setting path log the raw bytes for follow-up.
+            profile.decodeSetting(
+                eu.darken.capod.pods.core.apple.aap.protocol.AapPacket.Message.parse(
+                    byteArrayOf(0x04, 0x00, 0x04, 0x00, 0x09, 0x00, 0x3B, 0x00, 0x00, 0x00, 0x00)
+                )!!
+            ).shouldBeNull()
+        }
     }
 
     // ── ANC Mode Switching (verified audible) ────────────────
@@ -252,7 +274,9 @@ class AirPodsPro3AapSessionTest : BaseAapSessionTest() {
 
         @Test
         fun `unconfirmed settings IDs decode as UnknownSetting`() {
-            val unconfirmedIds = listOf(0x29, 0x2C, 0x2F, 0x33, 0x30, 0x37, 0x38, 0x3B)
+            // 0x3B (DYNAMIC_END_OF_CHARGE) was previously on this list but has since been
+            // promoted to the DynamicEndOfCharge decoder — see DynamicEndOfCharge tests above.
+            val unconfirmedIds = listOf(0x29, 0x2C, 0x2F, 0x33, 0x30, 0x37, 0x38)
             for (id in unconfirmedIds) {
                 val setting = decodeSetting<AapSetting.UnknownSetting>(settingsMessage(id, 0x01))
                 setting.settingId shouldBe id

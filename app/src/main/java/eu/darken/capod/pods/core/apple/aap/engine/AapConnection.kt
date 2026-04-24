@@ -46,6 +46,7 @@ internal class AapConnection(
     val keysReceived: SharedFlow<KeyExchangeResult> get() = engine.keysReceived
     val stemPressEvents: SharedFlow<StemPressEvent> get() = engine.stemPressEvents
     val offRejected: SharedFlow<Unit> get() = engine.offRejected
+    val settingRejected: SharedFlow<AapCommand> get() = engine.settingRejected
 
     private var socket: BluetoothSocket? = null
     private var readerJob: Job? = null

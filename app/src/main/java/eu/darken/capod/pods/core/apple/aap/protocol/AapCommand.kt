@@ -34,5 +34,6 @@ sealed class AapCommand {
     data class SetAllowOffOption(val enabled: Boolean) : AapCommand()
     data class SetStemConfig(val claimedPressMask: Int) : AapCommand()
     data class SetSleepDetection(val enabled: Boolean) : AapCommand()
+    data class SetDynamicEndOfCharge(val enabled: Boolean) : AapCommand()
     data class SetDeviceName(val name: String) : AapCommand()
 }

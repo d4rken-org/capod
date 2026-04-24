@@ -33,7 +33,6 @@ class DefaultAapDeviceProfile(
             AapControlId.HEARING_ASSIST.value,              // 0x33
             AapControlId.HEARING_PROTECTION_PPE.value,      // 0x37
             AapControlId.PPE_CAP_LEVEL_CONFIG.value,        // 0x38
-            AapControlId.DYNAMIC_END_OF_CHARGE.value,       // 0x3B
             AapControlId.UPLINK_EQ_BUD.value,               // 0x3E
         )
 
@@ -99,6 +98,7 @@ class DefaultAapDeviceProfile(
         is AapCommand.SetAllowOffOption -> buildSettingsMessage(AapControlId.ALLOW_OFF_OPTION.value, encodeAppleBool(command.enabled))
         is AapCommand.SetStemConfig -> buildSettingsMessage(AapControlId.RAW_GESTURES_CONFIG.value, command.claimedPressMask and 0x0F)
         is AapCommand.SetSleepDetection -> buildSettingsMessage(AapControlId.SLEEP_DETECTION.value, encodeAppleBool(command.enabled))
+        is AapCommand.SetDynamicEndOfCharge -> buildSettingsMessage(AapControlId.DYNAMIC_END_OF_CHARGE.value, encodeAppleBool(command.enabled))
         is AapCommand.SetDeviceName -> buildRenameMessage(command.name)
     }
 
@@ -262,6 +262,14 @@ class DefaultAapDeviceProfile(
             AapControlId.SLEEP_DETECTION.value -> {
                 val enabled = decodeAppleBool(value) ?: return null
                 AapSetting.SleepDetection::class to AapSetting.SleepDetection(enabled)
+            }
+            AapControlId.DYNAMIC_END_OF_CHARGE.value -> {
+                // Apple's "Optimized Charge Limit" — Pro 3 pushes this on connect as value 0x01
+                // (enabled). decodeAppleBool rejects anything that isn't a confirmed bool so
+                // unknown encodings fall through to UnknownSetting logging rather than being
+                // coerced to false.
+                val enabled = decodeAppleBool(value) ?: return null
+                AapSetting.DynamicEndOfCharge::class to AapSetting.DynamicEndOfCharge(enabled)
             }
             AapControlId.IN_CASE_TONE.value -> {
                 // Decoded internally (never exposed in UI) to keep lastMessageAt fresh.
