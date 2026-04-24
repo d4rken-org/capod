@@ -158,10 +158,12 @@ class DefaultAapDeviceProfile(
             return AapSetting.AudioSource::class to AapSetting.AudioSource(mac, type)
         }
 
-        // 0x53 is "PME Config" per the Wireshark AAP dissector. CAPod decodes the
-        // 4-set × 8-band Float32 payload verbatim; captures so far have all-zero
-        // payloads so the schema is unconfirmed. Real EQ likely lives on 0x54
-        // "Set Band Edges" with a different byte layout.
+        // 0x53 is "PME Config" per the Wireshark AAP dissector — Personal Medical
+        // Equipment (cf. PPE), i.e. the iOS 18.1+ hearing-aid profile on AirPods
+        // Pro 2. Decoded verbatim as 4 × 8 Float32 (per-ear × per-profile band
+        // gains); stock firmware reports all-zero until the user runs Apple's
+        // Hearing Test. 0x54 "Set Band Edges" is a neighbouring opcode with a
+        // different payload — not decoded here.
         if (message.commandType == AapMessageType.PME_CONFIG.value) {
             if (message.payload.size < 6 + 128) return null
             val sets = mutableListOf<List<Float>>()

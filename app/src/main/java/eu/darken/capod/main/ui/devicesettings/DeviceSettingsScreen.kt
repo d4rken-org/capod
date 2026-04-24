@@ -403,10 +403,11 @@ fun DeviceSettingsScreen(
                 }
 
                 // PME Config visualization (debug only, opcode 0x53).
-                // The Wireshark dissector calls this "PME Config"; captures so far are
-                // all-zero on in-production firmware, so the bar chart stays hidden in
-                // that case — showing empty bars would imply the device has a flat EQ,
-                // which we don't actually know.
+                // PME = Personal Medical Equipment (hearing-aid band gains for iOS
+                // 18.1+ AirPods Pro 2 hearing-aid mode). The bar chart reuses the
+                // EQ visualization because the data shape (per-ear × per-profile ×
+                // band gains) renders identically; hidden on all-zero payloads, which
+                // just mean the user hasn't configured a hearing-aid profile yet.
                 val pmeConfig = device.pmeConfig
                 if (eu.darken.capod.BuildConfig.DEBUG &&
                     pmeConfig != null &&

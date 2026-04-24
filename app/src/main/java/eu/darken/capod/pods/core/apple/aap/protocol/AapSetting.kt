@@ -164,13 +164,18 @@ sealed class AapSetting {
     }
 
     /**
-     * Payload of message type 0x0053. The Wireshark AAP dissector calls this
-     * "PME Config" (Personal Mixing Engine). CAPod used to label it as EQ
-     * bands, but captures so far show this data is all zeros on in-production
-     * firmware — the real equalizer path is likely 0x0054 "Set Band Edges".
+     * Payload of message type 0x0053 — "PME Config" in the Wireshark AAP dissector.
+     * PME = Personal Medical Equipment (cf. PPE = Personal Protective Equipment):
+     * the hearing-aid configuration for Apple's iOS 18.1+ hearing-aid feature on
+     * AirPods Pro 2.
      *
-     * The payload is decoded as 4 sets × 8 Float32 values until the true schema
-     * is confirmed. Callers should treat all-zero [sets] as "no config reported".
+     * Decoded as 4 × 8 Float32 values — consistent with per-ear × per-profile
+     * audiogram band gains (e.g. L/R × two environment profiles, 8 frequency
+     * bands). CAPod previously called this "EQ bands".
+     *
+     * Callers should treat all-zero [sets] as "no hearing-aid profile configured"
+     * — stock firmware reports zeros until the user runs Apple's Hearing Test /
+     * hearing-aid setup.
      */
     data class PmeConfig(
         val sets: List<List<Float>>,

@@ -590,7 +590,7 @@ internal class AapSessionEngine(
             AapMessageType.UARP_DATA.value,                     // 0x004F
             AapMessageType.UNKNOWN_0X50.value,                  // 0x0050
             AapMessageType.SOURCE_CONTEXT.value,                // 0x0052
-            AapMessageType.SET_BAND_EDGES.value,                // 0x0054 (real EQ; distinct from 0x53 PmeConfig which CAPod decodes)
+            AapMessageType.SET_BAND_EDGES.value,                // 0x0054 (neighbouring opcode; distinct from 0x53 PmeConfig/hearing-aid which CAPod decodes)
             AapMessageType.UNKNOWN_0X55.value,                  // 0x0055
             AapMessageType.SLEEP_DETECTION_UPDATE.value,        // 0x0057
             AapMessageType.UNKNOWN_0X58.value,                  // 0x0058
