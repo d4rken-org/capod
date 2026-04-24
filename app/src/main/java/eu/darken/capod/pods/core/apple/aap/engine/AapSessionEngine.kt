@@ -13,6 +13,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessageType
 import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSleepEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import kotlinx.coroutines.CoroutineScope
@@ -48,6 +49,10 @@ internal class AapSessionEngine(
     private val _stemPressEvents =
         MutableSharedFlow<StemPressEvent>(extraBufferCapacity = 8, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val stemPressEvents: SharedFlow<StemPressEvent> = _stemPressEvents.asSharedFlow()
+
+    private val _sleepEvents =
+        MutableSharedFlow<AapSleepEvent>(extraBufferCapacity = 4, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    val sleepEvents: SharedFlow<AapSleepEvent> = _sleepEvents.asSharedFlow()
 
     private val _offRejected =
         MutableSharedFlow<Unit>(extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
@@ -246,6 +251,7 @@ internal class AapSessionEngine(
                 _state.value = _state.value.copy(lastMessageAt = timeSource.now())
                 val hex = update.event.rawPayload.joinToString(" ") { "%02X".format(it) }
                 log(TAG, INFO) { "Sleep event: ${update.event.rawPayload.size}B payload=[$hex]" }
+                _sleepEvents.tryEmit(update.event)
             }
 
             is AapInboundUpdate.DynamicEndOfChargeEvent -> {

@@ -294,7 +294,14 @@ class DeviceSettingsViewModel @Inject constructor(
         }
     }
 
-    fun setSleepDetection(enabled: Boolean) = send(AapCommand.SetSleepDetection(enabled))
+    fun setSleepDetection(enabled: Boolean) = launch {
+        log(TAG, INFO) { "setSleepDetection($enabled)" }
+        if (enabled && !upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        sendInternal(AapCommand.SetSleepDetection(enabled))
+    }
 
     fun setDynamicEndOfCharge(enabled: Boolean) = send(AapCommand.SetDynamicEndOfCharge(enabled))
 

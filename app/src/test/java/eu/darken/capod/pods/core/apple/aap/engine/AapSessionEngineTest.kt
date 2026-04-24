@@ -7,6 +7,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSleepEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull
@@ -472,6 +473,27 @@ class AapSessionEngineTest : BaseTest() {
 
             emitted.shouldNotBeNull()
             emitted!!.pressType shouldBe StemPressEvent.PressType.SINGLE
+        }
+
+        @Test
+        fun `sleep event emits event alongside hex log`() = runTest(UnconfinedTestDispatcher()) {
+            val payload = byteArrayOf(0x01, 0x02, 0x03, 0x04)
+            val profile = mockProfile {
+                every { decodeSleepEvent(any()) } returns AapSleepEvent(rawPayload = payload)
+            }
+            val engine = AapSessionEngine(profile, timeSource)
+            engine.start(this as TestScope)
+
+            var emitted: AapSleepEvent? = null
+            val job = launch {
+                emitted = engine.sleepEvents.first()
+            }
+
+            engine.processMessage(dummyMessage(commandType = 0x0057))
+            job.join()
+
+            emitted.shouldNotBeNull()
+            emitted!!.rawPayload shouldBe payload
         }
     }
 

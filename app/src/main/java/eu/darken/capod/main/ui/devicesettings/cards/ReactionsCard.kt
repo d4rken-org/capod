@@ -140,6 +140,7 @@ internal fun ReactionsCard(
                     checked = sleepDet.enabled,
                     onCheckedChange = onSleepDetectionChange,
                     enabled = enabled,
+                    requiresUpgrade = !isPro,
                 )
                 if (sleepDet.enabled) {
                     SettingsInfoBox(

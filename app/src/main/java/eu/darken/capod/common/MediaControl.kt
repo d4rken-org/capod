@@ -32,14 +32,25 @@ class MediaControl @Inject constructor(
         clearRecentCapPause()
     }
 
-    suspend fun sendPause() {
+    /**
+     * Dispatches a MEDIA_PAUSE key event if music is currently playing.
+     *
+     * Returns `true` when a key event was actually dispatched (and the 15-second
+     * [wasRecentlyPausedByCap] window was set), `false` when the call was a no-op because
+     * nothing was playing. Callers that need to distinguish "we actually paused" from "there
+     * was nothing to pause" — e.g. the sleep reaction, which gates its notification and
+     * cooldown on a real pause — should branch on the return value rather than checking
+     * [isPlaying] themselves to avoid a check-then-act race with the audio system.
+     */
+    suspend fun sendPause(): Boolean {
         log(TAG, INFO) { "sendPause()" }
         if (!audioManager.isMusicActive) {
             log(TAG, INFO) { "Music is not playing, not sending pause" }
-            return
+            return false
         }
         sendKey(KeyEvent.KEYCODE_MEDIA_PAUSE)
         markRecentCapPause()
+        return true
     }
 
     suspend fun sendPlayPause() {

@@ -478,4 +478,45 @@ class DeviceSettingsViewModelTest : BaseTest() {
         coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetAllowOffOption(false)) }
         coVerify(exactly = 0) { aapManager.sendCommand(any(), AapCommand.SetListeningModeCycle(0x0E)) }
     }
+
+    @Test
+    fun `setSleepDetection(true) as Pro sends command`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns true
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setSleepDetection(true)
+
+        coVerify(exactly = 1) { aapManager.sendCommand(testAddress, AapCommand.SetSleepDetection(true)) }
+    }
+
+    @Test
+    fun `setSleepDetection(true) as non-Pro sends no command`() = runVmTest {
+        every { upgradeInfoFlow.value.isPro } returns false
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setSleepDetection(true)
+
+        coVerify(exactly = 0) { aapManager.sendCommand(any(), any<AapCommand.SetSleepDetection>()) }
+    }
+
+    @Test
+    fun `setSleepDetection(false) as non-Pro still sends command`() = runVmTest {
+        // Disabling must work regardless of pro status so users who enabled it
+        // before a subscription expired can still turn it off.
+        every { upgradeInfoFlow.value.isPro } returns false
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setSleepDetection(false)
+
+        coVerify(exactly = 1) { aapManager.sendCommand(testAddress, AapCommand.SetSleepDetection(false)) }
+    }
 }

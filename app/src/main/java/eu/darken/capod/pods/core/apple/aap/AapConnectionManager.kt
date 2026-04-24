@@ -64,6 +64,15 @@ class AapConnectionManager @Inject constructor(
     private val _stemPressEvents = MutableSharedFlow<Pair<BluetoothAddress, StemPressEvent>>(extraBufferCapacity = 32)
     val stemPressEvents: SharedFlow<Pair<BluetoothAddress, StemPressEvent>> = _stemPressEvents.asSharedFlow()
 
+    /**
+     * Emits when a connected device fires a Sleep Detection update (AAP opcode 0x57).
+     * Address-only — the opaque payload stays logged at engine level per the "never suppress
+     * protocol logging" convention; downstream consumers (SleepReaction) only need the origin
+     * address to decide whether to act.
+     */
+    private val _sleepEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
+    val sleepEvents: SharedFlow<BluetoothAddress> = _sleepEvents.asSharedFlow()
+
     /** Emits when a SetAncMode(OFF) command was rejected by the device (inferred by the engine). */
     private val _offRejectedEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
     val offRejectedEvents: SharedFlow<BluetoothAddress> = _offRejectedEvents.asSharedFlow()
@@ -120,6 +129,14 @@ class AapConnectionManager @Inject constructor(
             launch {
                 connection.stemPressEvents.collect { event ->
                     _stemPressEvents.tryEmit(address to event)
+                }
+            }
+
+            // Forward sleep events from this connection (child coroutine). Address-only —
+            // the opaque payload stays logged at the engine layer.
+            launch {
+                connection.sleepEvents.collect {
+                    _sleepEvents.tryEmit(address)
                 }
             }
 
