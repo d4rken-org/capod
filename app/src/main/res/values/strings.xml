@@ -453,11 +453,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth Device Label</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Manufacturer</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Serial Number</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Pending Firmware</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Left Pod Serial</string>
     <string name="device_settings_info_right_serial_label">Right Pod Serial</string>
+    <string name="device_settings_info_left_bonded_label">Left Bonded</string>
+    <string name="device_settings_info_right_bonded_label">Right Bonded</string>
     <string name="device_settings_info_details_label">Device Details</string>
     <string name="device_settings_info_details_action">Show device details</string>
     <string name="device_settings_info_status_label">Status</string>
