@@ -405,7 +405,6 @@ fun DeviceSettingsScreen(
                             features = features,
                             enabled = enabled,
                             onDynamicEndOfChargeChange = onDynamicEndOfChargeChange,
-                            onOpenIssueTracker = onOpenIssueTracker,
                         )
                     }
                 }
