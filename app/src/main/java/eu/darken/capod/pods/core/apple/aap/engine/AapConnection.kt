@@ -13,6 +13,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapFramer
 import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSleepEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import kotlinx.coroutines.CoroutineScope
@@ -45,6 +46,7 @@ internal class AapConnection(
     val state: StateFlow<AapPodState> get() = engine.state
     val keysReceived: SharedFlow<KeyExchangeResult> get() = engine.keysReceived
     val stemPressEvents: SharedFlow<StemPressEvent> get() = engine.stemPressEvents
+    val sleepEvents: SharedFlow<AapSleepEvent> get() = engine.sleepEvents
     val offRejected: SharedFlow<Unit> get() = engine.offRejected
     val settingRejected: SharedFlow<AapCommand> get() = engine.settingRejected
 

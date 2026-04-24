@@ -59,4 +59,28 @@ class MediaControlTest : BaseTest() {
 
         verify(exactly = 2) { audioManager.dispatchMediaKeyEvent(any()) }
     }
+
+    @Test
+    fun `sendPause returns true and dispatches when music is active`() = runTest {
+        every { audioManager.isMusicActive } returns true
+
+        val dispatched = mediaControl.sendPause()
+
+        assertTrue(dispatched)
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+        verify(exactly = 2) { audioManager.dispatchMediaKeyEvent(any()) }
+    }
+
+    @Test
+    fun `sendPause returns false and is a no-op when no music is active`() = runTest {
+        every { audioManager.isMusicActive } returns false
+
+        val dispatched = mediaControl.sendPause()
+
+        assertFalse(dispatched)
+        // Critical: the 15-second cap-pause window must NOT open for a no-op pause, otherwise
+        // an unrelated sendPlay would treat it as "we just paused, resume from it".
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
+        verify(exactly = 0) { audioManager.dispatchMediaKeyEvent(any()) }
+    }
 }
