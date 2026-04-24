@@ -2,15 +2,11 @@ package eu.darken.capod.main.ui.devicesettings.cards
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.BatteryChargingFull
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.common.settings.InfoBoxType
-import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.devicesettings.previewFullState
@@ -21,9 +17,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 /**
  * Apple's "Optimized Charge Limit" toggle (AAP setting 0x3B), shown for models that advertise
  * [PodModel.Features.hasDynamicEndOfCharge]. The wire format follows the Apple-bool convention
- * used by every other boolean setting. The experimental warning renders below the toggle and
- * only when enabled — consistent with Sleep Detection and Personalized Volume in the rest of
- * the app.
+ * used by every other boolean setting.
  */
 @Composable
 internal fun BatteryCard(
@@ -31,7 +25,6 @@ internal fun BatteryCard(
     features: PodModel.Features,
     enabled: Boolean,
     onDynamicEndOfChargeChange: (Boolean) -> Unit = {},
-    onOpenIssueTracker: () -> Unit = {},
 ) {
     if (!features.hasDynamicEndOfCharge) return
     val cap = device.dynamicEndOfCharge ?: return
@@ -45,18 +38,6 @@ internal fun BatteryCard(
             onCheckedChange = onDynamicEndOfChargeChange,
             enabled = enabled,
         )
-        if (cap.enabled) {
-            SettingsInfoBox(
-                title = stringResource(R.string.device_settings_experimental_title),
-                text = stringResource(R.string.device_settings_experimental_description),
-                type = InfoBoxType.WARNING,
-                action = {
-                    TextButton(onClick = onOpenIssueTracker) {
-                        Text(stringResource(R.string.device_settings_experimental_action))
-                    }
-                },
-            )
-        }
     }
 }
 
