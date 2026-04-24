@@ -25,6 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -42,13 +43,14 @@ import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
 import eu.darken.capod.main.ui.devicesettings.cards.ControlsCard
-import eu.darken.capod.main.ui.devicesettings.cards.DeviceDetailItem
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.NoiseControlCard
 import eu.darken.capod.main.ui.devicesettings.cards.NotConnectedCard
 import eu.darken.capod.main.ui.devicesettings.cards.ReactionsCard
 import eu.darken.capod.main.ui.devicesettings.cards.SoundCard
+import eu.darken.capod.main.ui.devicesettings.cards.buildDeviceInfoDetailItems
 import eu.darken.capod.main.ui.devicesettings.cards.buildModelLabel
+import eu.darken.capod.main.ui.devicesettings.cards.rememberDeviceInfoDetailLabels
 import eu.darken.capod.main.ui.devicesettings.components.ConnectedDevicesList
 import eu.darken.capod.main.ui.devicesettings.components.EqBarsChart
 import eu.darken.capod.main.ui.devicesettings.dialogs.SystemRenameUnavailableDialog
@@ -61,6 +63,10 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import java.time.Duration
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 @Composable
 fun DeviceSettingsScreenHost(
@@ -239,86 +245,18 @@ fun DeviceSettingsScreen(
                         device.firstSeenFormatted(state.now)
                     } else null
                     val info = device.deviceInfo
-                    val detailItems = buildList<DeviceDetailItem> {
-                        if (info != null) {
-                            if (info.manufacturer.isNotBlank()) {
-                                add(
-                                    DeviceDetailItem.Single(
-                                        stringResource(R.string.device_settings_info_manufacturer_label),
-                                        info.manufacturer
-                                    )
-                                )
-                            }
-                            if (info.serialNumber.isNotBlank()) {
-                                add(
-                                    DeviceDetailItem.Single(
-                                        stringResource(R.string.device_settings_info_serial_label),
-                                        info.serialNumber
-                                    )
-                                )
-                            }
-                            val hasFirmware = info.firmwareVersion.isNotBlank()
-                            val hasBuild = !info.marketingVersion.isNullOrBlank()
-                            if (hasFirmware && hasBuild) {
-                                add(
-                                    DeviceDetailItem.Paired(
-                                        start = DeviceDetailItem.Single(
-                                            stringResource(R.string.device_settings_info_firmware_label),
-                                            info.firmwareVersion
-                                        ),
-                                        end = DeviceDetailItem.Single(
-                                            stringResource(R.string.device_settings_info_build_label),
-                                            info.marketingVersion!!
-                                        ),
-                                    )
-                                )
-                            } else if (hasFirmware) {
-                                add(
-                                    DeviceDetailItem.Single(
-                                        stringResource(R.string.device_settings_info_firmware_label),
-                                        info.firmwareVersion
-                                    )
-                                )
-                            } else if (hasBuild) {
-                                add(
-                                    DeviceDetailItem.Single(
-                                        stringResource(R.string.device_settings_info_build_label),
-                                        info.marketingVersion!!
-                                    )
-                                )
-                            }
-                            val hasLeft = !info.leftEarbudSerial.isNullOrBlank()
-                            val hasRight = !info.rightEarbudSerial.isNullOrBlank()
-                            if (hasLeft && hasRight) {
-                                add(
-                                    DeviceDetailItem.Paired(
-                                        start = DeviceDetailItem.Single(
-                                            stringResource(R.string.device_settings_info_left_serial_label),
-                                            info.leftEarbudSerial!!
-                                        ),
-                                        end = DeviceDetailItem.Single(
-                                            stringResource(R.string.device_settings_info_right_serial_label),
-                                            info.rightEarbudSerial!!
-                                        ),
-                                    )
-                                )
-                            } else if (hasLeft) {
-                                add(
-                                    DeviceDetailItem.Single(
-                                        stringResource(R.string.device_settings_info_left_serial_label),
-                                        info.leftEarbudSerial!!
-                                    )
-                                )
-                            } else if (hasRight) {
-                                add(
-                                    DeviceDetailItem.Single(
-                                        stringResource(R.string.device_settings_info_right_serial_label),
-                                        info.rightEarbudSerial!!
-                                    )
-                                )
-                            }
-                        }
+                    val locale = LocalConfiguration.current.locales[0]
+                    val zoneId = ZoneId.systemDefault()
+                    val dateFormatter = remember(locale, zoneId) {
+                        DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
+                            .withLocale(locale)
+                            .withZone(zoneId)
                     }
+                    val detailItems = buildDeviceInfoDetailItems(
+                        info = info,
+                        labels = rememberDeviceInfoDetailLabels(),
+                        formatDate = { instant -> dateFormatter.format(instant) },
+                    )
                     DeviceInfoCard(
                         deviceInfo = device.deviceInfo,
                         modelLabel = buildModelLabel(device),
@@ -506,6 +444,12 @@ internal fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
                 manufacturer = "Apple Inc.",
                 serialNumber = "W5J7KV0N04",
                 firmwareVersion = "7A305",
+                hardwareVersion = "1.0.0",
+                leftEarbudSerial = "H3KL7HR926JY",
+                rightEarbudSerial = "H3KL2AYL26K0",
+                marketingVersion = "8454624",
+                leftEarbudFirstPaired = Instant.ofEpochSecond(1697480211L),
+                rightEarbudFirstPaired = Instant.ofEpochSecond(1697480211L),
             ),
             settings = mapOf(
                 AapSetting.AncMode::class to AapSetting.AncMode(
