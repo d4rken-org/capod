@@ -117,6 +117,20 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
         @Test fun `decode unknown returns null`() { profile.decodeSetting(settingsMessage(0x35, 0x00)).shouldBeNull() }
     }
 
+    // ── Dynamic End of Charge / "Optimized Charge Limit" (0x3B) ─
+    // Apple-bool wire semantics matching every other boolean setting we've decoded. Real
+    // capture on a Pro 3 after handshake showed rawValue 0x01 (enabled).
+
+    @Nested
+    inner class DynamicEndOfChargeTests {
+        @Test fun `encode enabled`() { profile.encodeCommand(AapCommand.SetDynamicEndOfCharge(true))[7] shouldBe 0x01.toByte() }
+        @Test fun `encode disabled`() { profile.encodeCommand(AapCommand.SetDynamicEndOfCharge(false))[7] shouldBe 0x02.toByte() }
+        @Test fun `encode carries the right setting id`() { profile.encodeCommand(AapCommand.SetDynamicEndOfCharge(true))[6] shouldBe 0x3B.toByte() }
+        @Test fun `decode enabled`() { decodeSetting<AapSetting.DynamicEndOfCharge>(settingsMessage(0x3B, 0x01)).enabled shouldBe true }
+        @Test fun `decode disabled`() { decodeSetting<AapSetting.DynamicEndOfCharge>(settingsMessage(0x3B, 0x02)).enabled shouldBe false }
+        @Test fun `decode unknown returns null`() { profile.decodeSetting(settingsMessage(0x3B, 0x00)).shouldBeNull() }
+    }
+
     // ── In-Case Tone (0x31) ─────────────────────────────────
     // Decode path is kept internally even though the setting is no longer exposed in the UI.
     // See the IN_CASE_TONE branch in DefaultAapDeviceProfile.decodeSetting for rationale.

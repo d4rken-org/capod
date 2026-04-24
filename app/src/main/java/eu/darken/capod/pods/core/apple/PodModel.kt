@@ -232,6 +232,7 @@ enum class PodModel(
             hasAllowOffOption = true,
             hasStemConfig = true,
             hasSleepDetection = true,
+            hasDynamicEndOfCharge = true,
         ),
         modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
@@ -558,5 +559,12 @@ enum class PodModel(
         val hasAllowOffOption: Boolean = false,
         val hasStemConfig: Boolean = false,
         val hasSleepDetection: Boolean = false,
+        /**
+         * Apple's "Optimized Charge Limit" (AAP setting 0x3B). Distinct from the older
+         * "Optimized Battery Charging" — that earlier feature isn't exposed as a toggleable
+         * AAP setting. Enable on any model that's been confirmed (via capture) to push 0x3B
+         * on connect and accept writes to it.
+         */
+        val hasDynamicEndOfCharge: Boolean = false,
     )
 }

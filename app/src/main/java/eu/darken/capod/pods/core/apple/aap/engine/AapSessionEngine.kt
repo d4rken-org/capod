@@ -53,6 +53,16 @@ internal class AapSessionEngine(
         MutableSharedFlow<Unit>(extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val offRejected: SharedFlow<Unit> = _offRejected.asSharedFlow()
 
+    /**
+     * Fires whenever a write command fails verification after the coordinator's single retry —
+     * i.e. the device neither echoed the expected state nor retried into a matching one.
+     * Separate from [offRejected] which is specialised for the ANC-OFF UX path. Consumers filter
+     * by the command type they care about (e.g. the charge-cap toggle shows a snackbar).
+     */
+    private val _settingRejected =
+        MutableSharedFlow<AapCommand>(extraBufferCapacity = 4, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    val settingRejected: SharedFlow<AapCommand> = _settingRejected.asSharedFlow()
+
     private val hidTracker = HidTracker { msg -> log(TAG) { msg } }
     private val inboundInterpreter = AapInboundInterpreter(profile)
     private val ancController = AapAncController()
@@ -419,10 +429,12 @@ internal class AapSessionEngine(
     }
 
     private fun handleRejectedCommand(command: AapCommand?) {
+        if (command == null) return
         if (command is AapCommand.SetAncMode && command.mode == AapSetting.AncMode.Value.OFF) {
             applyAncDecision(ancController.onOffRejected(_state.value, runtimeState.anc))
             _offRejected.tryEmit(Unit)
         }
+        _settingRejected.tryEmit(command)
     }
 
     private fun scheduleTimer(key: EngineTimerKey, delayMs: Long) {

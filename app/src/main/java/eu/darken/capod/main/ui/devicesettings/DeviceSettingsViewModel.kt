@@ -79,6 +79,7 @@ class DeviceSettingsViewModel @Inject constructor(
         data class SendFailed(val command: AapCommand, val message: String?) : Event
         data object SystemRenameUnavailable : Event
         data object OffModeRejectedByDevice : Event
+        data object DynamicEndOfChargeRejectedByDevice : Event
     }
 
     val events = SingleEventFlow<Event>()
@@ -88,6 +89,16 @@ class DeviceSettingsViewModel @Inject constructor(
             aapManager.offRejectedEvents.collect { address ->
                 if (address == currentAddress()) {
                     events.tryEmit(Event.OffModeRejectedByDevice)
+                }
+            }
+        }
+        launch {
+            aapManager.settingRejectedEvents.collect { (address, command) ->
+                if (address != currentAddress()) return@collect
+                when (command) {
+                    is AapCommand.SetDynamicEndOfCharge ->
+                        events.tryEmit(Event.DynamicEndOfChargeRejectedByDevice)
+                    else -> Unit // Other rejected commands handled elsewhere (e.g. ANC OFF)
                 }
             }
         }
@@ -284,6 +295,8 @@ class DeviceSettingsViewModel @Inject constructor(
     }
 
     fun setSleepDetection(enabled: Boolean) = send(AapCommand.SetSleepDetection(enabled))
+
+    fun setDynamicEndOfCharge(enabled: Boolean) = send(AapCommand.SetDynamicEndOfCharge(enabled))
 
     fun setDeviceName(name: String) = launch {
         val address = currentAddress() ?: return@launch

@@ -61,6 +61,7 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods.LidState
@@ -227,7 +228,8 @@ private fun ColumnScope.DualPodsCardExpanded(
                 PodGauge(
                     iconRes = device.leftPodIcon,
                     batteryPercent = device.batteryLeft.toBatteryFloat(),
-                    isCharging = device.isLeftPodCharging ?: false,
+                    chargingState = device.leftPodChargingState
+                        ?: device.isLeftPodCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null },
                     isInEar = device.isLeftInEar ?: false,
                     showEarDetection = device.hasEarDetection && device.hasDualPods,
                     isMicrophone = device.isLeftPodMicrophone ?: false,
@@ -238,7 +240,8 @@ private fun ColumnScope.DualPodsCardExpanded(
                 PodGauge(
                     iconRes = device.rightPodIcon,
                     batteryPercent = device.batteryRight.toBatteryFloat(),
-                    isCharging = device.isRightPodCharging ?: false,
+                    chargingState = device.rightPodChargingState
+                        ?: device.isRightPodCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null },
                     isInEar = device.isRightInEar ?: false,
                     showEarDetection = device.hasEarDetection && device.hasDualPods,
                     isMicrophone = device.isRightPodMicrophone ?: false,
@@ -292,7 +295,7 @@ private fun ColumnScope.DualPodsCardExpanded(
 private fun PodGauge(
     iconRes: Int,
     batteryPercent: Float,
-    isCharging: Boolean,
+    chargingState: AapPodState.ChargingState?,
     isInEar: Boolean,
     showEarDetection: Boolean,
     isMicrophone: Boolean,
@@ -370,12 +373,13 @@ private fun PodGauge(
 
         // Status chips
         StatusChipRow(
-            isCharging = isCharging,
+            chargingState = chargingState,
             isInEar = isInEar,
             showEarDetection = showEarDetection,
             isMicrophone = isMicrophone,
             showMicrophone = showMicrophone,
             chargingLabel = stringResource(R.string.pods_charging_label),
+            chargingOptimizedLabel = stringResource(R.string.pods_charging_optimized_label),
             inEarLabel = stringResource(R.string.pods_inear_label),
             microphoneLabel = stringResource(R.string.pods_microphone_label),
         )
@@ -420,11 +424,17 @@ private fun CaseRow(
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
-            if (device.isCaseCharging == true) {
-                StatusChip(
+            when (val caseState = device.caseChargingState
+                ?: device.isCaseCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null }) {
+                AapPodState.ChargingState.CHARGING_OPTIMIZED -> StatusChip(
+                    icon = Icons.TwoTone.BatteryChargingFull,
+                    label = stringResource(R.string.pods_charging_optimized_label),
+                )
+                AapPodState.ChargingState.CHARGING -> StatusChip(
                     icon = Icons.TwoTone.BatteryChargingFull,
                     label = stringResource(R.string.pods_charging_label),
                 )
+                else -> Unit
             }
 
             val lidState = device.caseLidState

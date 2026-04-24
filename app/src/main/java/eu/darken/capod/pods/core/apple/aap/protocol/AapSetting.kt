@@ -146,6 +146,15 @@ sealed class AapSetting {
         val enabled: Boolean,
     ) : AapSetting()
 
+    /**
+     * Apple's "Optimized Charge Limit" — AAP setting 0x3B, Apple-bool encoding. Distinct
+     * from the older "Optimized Battery Charging" which Apple doesn't expose as a
+     * user-controllable AAP setting. Supported models push this value on connect.
+     */
+    data class DynamicEndOfCharge(
+        val enabled: Boolean,
+    ) : AapSetting()
+
     data class InCaseTone(
         val enabled: Boolean,
     ) : AapSetting()

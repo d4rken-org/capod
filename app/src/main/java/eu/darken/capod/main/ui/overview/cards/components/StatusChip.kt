@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 
 @Composable
 fun StatusChip(
@@ -60,12 +61,13 @@ fun StatusChip(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun StatusChipRow(
-    isCharging: Boolean,
+    chargingState: AapPodState.ChargingState?,
     isInEar: Boolean,
     showEarDetection: Boolean,
     isMicrophone: Boolean,
     showMicrophone: Boolean,
     chargingLabel: String,
+    chargingOptimizedLabel: String,
     inEarLabel: String,
     microphoneLabel: String,
     modifier: Modifier = Modifier,
@@ -75,11 +77,16 @@ fun StatusChipRow(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        if (isCharging) {
-            StatusChip(
+        when (chargingState) {
+            AapPodState.ChargingState.CHARGING_OPTIMIZED -> StatusChip(
+                icon = Icons.TwoTone.BatteryChargingFull,
+                label = chargingOptimizedLabel,
+            )
+            AapPodState.ChargingState.CHARGING -> StatusChip(
                 icon = Icons.TwoTone.BatteryChargingFull,
                 label = chargingLabel,
             )
+            else -> Unit
         }
         if (showMicrophone && isMicrophone) {
             StatusChip(
@@ -106,12 +113,29 @@ private fun StatusChipChargingPreview() = PreviewWrapper {
 @Composable
 private fun StatusChipRowAllPreview() = PreviewWrapper {
     StatusChipRow(
-        isCharging = true,
+        chargingState = AapPodState.ChargingState.CHARGING,
         isInEar = true,
         showEarDetection = true,
         isMicrophone = true,
         showMicrophone = true,
         chargingLabel = "Charging",
+        chargingOptimizedLabel = "Optimized",
+        inEarLabel = "In Ear",
+        microphoneLabel = "Mic",
+    )
+}
+
+@Preview2
+@Composable
+private fun StatusChipRowOptimizedPreview() = PreviewWrapper {
+    StatusChipRow(
+        chargingState = AapPodState.ChargingState.CHARGING_OPTIMIZED,
+        isInEar = false,
+        showEarDetection = true,
+        isMicrophone = true,
+        showMicrophone = true,
+        chargingLabel = "Charging",
+        chargingOptimizedLabel = "Optimized",
         inEarLabel = "In Ear",
         microphoneLabel = "Mic",
     )

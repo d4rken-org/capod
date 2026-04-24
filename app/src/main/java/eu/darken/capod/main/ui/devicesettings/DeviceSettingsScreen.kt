@@ -42,6 +42,7 @@ import eu.darken.capod.common.navigation.NavigationEventHandler
 import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
+import eu.darken.capod.main.ui.devicesettings.cards.BatteryCard
 import eu.darken.capod.main.ui.devicesettings.cards.ControlsCard
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.NoiseControlCard
@@ -84,6 +85,7 @@ fun DeviceSettingsScreenHost(
     var showListeningModeCycleDialog by rememberSaveable { mutableStateOf(false) }
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val offRejectedMessage = stringResource(R.string.device_settings_anc_off_rejected_message)
+    val chargeCapRejectedMessage = stringResource(R.string.device_settings_charge_cap_rejected_message)
 
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
@@ -104,6 +106,10 @@ fun DeviceSettingsScreenHost(
 
                 DeviceSettingsViewModel.Event.OffModeRejectedByDevice -> {
                     snackbarHostState.showSnackbar(offRejectedMessage)
+                }
+
+                DeviceSettingsViewModel.Event.DynamicEndOfChargeRejectedByDevice -> {
+                    snackbarHostState.showSnackbar(chargeCapRejectedMessage)
                 }
             }
         }
@@ -139,6 +145,7 @@ fun DeviceSettingsScreenHost(
         onListeningModeCycleChange = { vm.setListeningModeCycle(it) },
         onAllowOffOptionChange = { vm.setAllowOffOption(it) },
         onSleepDetectionChange = { vm.setSleepDetection(it) },
+        onDynamicEndOfChargeChange = { vm.setDynamicEndOfCharge(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
         onPressControlsClick = { vm.navToPressControls() },
         onForceConnect = { vm.forceConnect() },
@@ -175,6 +182,7 @@ fun DeviceSettingsScreen(
     onListeningModeCycleChange: (Int) -> Unit = {},
     onAllowOffOptionChange: (Boolean) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
+    onDynamicEndOfChargeChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
     onPressControlsClick: () -> Unit = {},
     onForceConnect: () -> Unit = {},
@@ -389,6 +397,19 @@ fun DeviceSettingsScreen(
                     }
                 }
 
+                // ── Battery ──────────────────────────────────
+                if (features.hasDynamicEndOfCharge && device.dynamicEndOfCharge != null) {
+                    item("battery_section") {
+                        BatteryCard(
+                            device = device,
+                            features = features,
+                            enabled = enabled,
+                            onDynamicEndOfChargeChange = onDynamicEndOfChargeChange,
+                            onOpenIssueTracker = onOpenIssueTracker,
+                        )
+                    }
+                }
+
                 // ── Connections ───────────────────────────────
                 val connectedDevices = device.connectedDevices
                 if (connectedDevices != null && connectedDevices.devices.isNotEmpty()) {
@@ -475,6 +496,7 @@ internal fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
                     muteMic = AapSetting.EndCallMuteMic.MuteMicMode.DOUBLE_PRESS,
                     endCall = AapSetting.EndCallMuteMic.EndCallMode.SINGLE_PRESS,
                 ),
+                AapSetting.DynamicEndOfCharge::class to AapSetting.DynamicEndOfCharge(enabled = true),
             ),
         ),
     ),

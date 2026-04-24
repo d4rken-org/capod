@@ -53,6 +53,13 @@ data class AapPodState(
     val batteryCase: Float? get() = batteries[BatteryType.CASE]?.percent
     val batteryHeadset: Float? get() = batteries[BatteryType.SINGLE]?.percent
 
+    // Raw charging state per slot — the full enum, not collapsed to a Boolean. Lets the UI
+    // distinguish CHARGING_OPTIMIZED ("Optimized Charge Limit in effect") from plain CHARGING.
+    val leftChargingState: ChargingState? get() = batteries[BatteryType.LEFT]?.charging
+    val rightChargingState: ChargingState? get() = batteries[BatteryType.RIGHT]?.charging
+    val caseChargingState: ChargingState? get() = batteries[BatteryType.CASE]?.charging
+    val headsetChargingState: ChargingState? get() = batteries[BatteryType.SINGLE]?.charging
+
     // Charging state from AAP battery
     val isLeftCharging: Boolean?
         get() = batteries[BatteryType.LEFT]?.let { it.charging == ChargingState.CHARGING || it.charging == ChargingState.CHARGING_OPTIMIZED }

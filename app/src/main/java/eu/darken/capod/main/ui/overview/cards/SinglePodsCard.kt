@@ -58,6 +58,7 @@ import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import java.time.Instant
@@ -267,11 +268,17 @@ private fun ColumnScope.SinglePodsCardExpanded(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
             ) {
-                if (device.isHeadsetBeingCharged == true) {
-                    StatusChip(
+                when (val headsetState = device.headsetChargingState
+                    ?: device.isHeadsetBeingCharged?.let { if (it) AapPodState.ChargingState.CHARGING else null }) {
+                    AapPodState.ChargingState.CHARGING_OPTIMIZED -> StatusChip(
+                        icon = Icons.TwoTone.BatteryChargingFull,
+                        label = stringResource(R.string.pods_charging_optimized_label),
+                    )
+                    AapPodState.ChargingState.CHARGING -> StatusChip(
                         icon = Icons.TwoTone.BatteryChargingFull,
                         label = stringResource(R.string.pods_charging_label),
                     )
+                    else -> Unit
                 }
                 if (device.isBeingWorn == true) {
                     StatusChip(

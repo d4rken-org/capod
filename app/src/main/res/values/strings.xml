@@ -283,6 +283,7 @@
     <string name="pods_unknown_contact_dev">This is an unknown device, but it is using similar message format. Let\'s add support for it, contact me :)</string>
     <string name="pods_none_label_short">No device</string>
     <string name="pods_charging_label">Charging</string>
+    <string name="pods_charging_optimized_label">Optimized</string>
     <string name="pods_inear_label">In ear</string>
     <string name="pods_microphone_label">Microphone</string>
     <string name="anc_mode_off">Off</string>
@@ -544,6 +545,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Settings</string>
     <string name="device_settings_send_failed">Could not apply setting: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off mode isn\'t enabled on this device. Enable \"Allow Off mode\" under Noise Control.</string>
+    <string name="device_settings_category_battery_label">Battery</string>
+    <string name="device_settings_charge_cap_label">Optimized Charge Limit</string>
+    <string name="device_settings_charge_cap_description">Learn your routine and pause charging around 80%% to extend battery life, topping the pods off before you\'re likely to use them.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimized Charge Limit couldn\'t be changed. This is an experimental feature — please report if it keeps failing.</string>
     <string name="device_settings_category_connections_label">Connected Devices</string>
     <string name="device_settings_connected_devices_description">Other devices currently connected to these AirPods</string>
     <string name="device_settings_connected_device_label">Device %d</string>
