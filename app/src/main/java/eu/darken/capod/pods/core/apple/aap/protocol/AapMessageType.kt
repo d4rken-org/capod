@@ -90,9 +90,11 @@ enum class AapMessageType(val value: Int, val wiresharkName: String) {
     SOURCE_CONTEXT(0x0052, "Source Context"),
 
     /**
-     * PME (Personal Mixing Engine?) config per Wireshark. CAPod decodes this as
-     * 4 × 8 Float32 values (see [AapSetting.PmeConfig]). Real EQ likely lives
-     * at [SET_BAND_EDGES].
+     * PME = Personal Medical Equipment (cf. PPE = Personal Protective Equipment) —
+     * hearing-aid configuration for the iOS 18.1+ hearing-aid feature on AirPods
+     * Pro 2. Decoded as 4 × 8 Float32 values (see [AapSetting.PmeConfig]); see
+     * that data class for the layout rationale. "PME Config" is the label the
+     * Wireshark AAP dissector uses for this opcode.
      */
     PME_CONFIG(0x0053, "PME Config"),
 
