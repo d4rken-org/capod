@@ -472,6 +472,8 @@
     <string name="device_settings_not_connected_description">This device is nearby but not connected to this phone. Connect to access settings and controls.</string>
     <string name="device_settings_not_connected_connect_action">Connect</string>
     <string name="device_settings_not_connected_open_settings_action">Open Bluetooth Settings</string>
+    <string name="device_settings_not_nearby_label">Device not nearby</string>
+    <string name="device_settings_not_nearby_description">Settings are only available when this device is nearby and connected to your phone.</string>
     <string name="device_settings_aap_unavailable_label">Advanced settings unavailable</string>
     <string name="device_settings_aap_unavailable_description">Advanced AirPods settings require a Bluetooth feature that is not available on this phone. This may be resolved by a future Android update from your device manufacturer.</string>
     <string name="device_settings_aap_unavailable_action">View compatibility tracker</string>

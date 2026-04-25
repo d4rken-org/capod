@@ -118,6 +118,7 @@ internal fun DeviceSettingsReactionsContent() = PreviewWrapper {
             now = MOCK_NOW,
             isPro = true,
             isNudgeAvailable = true,
+            isClassicallyConnected = true,
         ),
         onNavigateUp = {},
     )
