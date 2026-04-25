@@ -10,6 +10,7 @@ import eu.darken.capod.common.debug.logging.LogCatLogger
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -17,14 +18,18 @@ import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.PodDevice
 
 import eu.darken.capod.monitor.core.devicesWithProfiles
 
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.system.exitProcess
@@ -63,10 +68,10 @@ open class App : Application() {
         appScope.launch { widgetManager.refreshWidgets() }
 
         deviceMonitor.devicesWithProfiles()
-            .distinctUntilChanged()
+            .distinctUntilChangedBy { devices -> devices.map { it.toWidgetKey() } }
             .throttleLatest(1000)
             .onEach {
-                log(TAG) { "Main device changed, refreshing widgets." }
+                log(TAG, VERBOSE) { "Devices changed, refreshing widgets." }
                 widgetManager.refreshWidgets()
             }
             .launchIn(appScope)
@@ -94,3 +99,33 @@ open class App : Application() {
         }
     }
 }
+
+private data class WidgetDeviceKey(
+    val profileId: String?,
+    val model: PodModel,
+    val batteryLeft: Float?,
+    val batteryRight: Float?,
+    val batteryCase: Float?,
+    val batteryHeadset: Float?,
+    val isLeftPodCharging: Boolean?,
+    val isRightPodCharging: Boolean?,
+    val isCaseCharging: Boolean?,
+    val isHeadsetBeingCharged: Boolean?,
+    val ancMode: AapSetting.AncMode.Value?,
+    val pendingAncMode: AapSetting.AncMode.Value?,
+)
+
+private fun PodDevice.toWidgetKey(): WidgetDeviceKey = WidgetDeviceKey(
+    profileId = profileId,
+    model = model,
+    batteryLeft = batteryLeft,
+    batteryRight = batteryRight,
+    batteryCase = batteryCase,
+    batteryHeadset = batteryHeadset,
+    isLeftPodCharging = isLeftPodCharging,
+    isRightPodCharging = isRightPodCharging,
+    isCaseCharging = isCaseCharging,
+    isHeadsetBeingCharged = isHeadsetBeingCharged,
+    ancMode = ancMode?.current,
+    pendingAncMode = pendingAncMode,
+)
