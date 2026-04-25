@@ -3,7 +3,6 @@ package eu.darken.capod.pods.core.apple.ble
 import dagger.Reusable
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.logSummary
-import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -26,7 +25,7 @@ class PodFactory @Inject constructor(
             device = unknownFactory.create(scanResult)
         }
 
-        log(TAG, DEBUG) { "Pod created: ${device.logSummary()}" }
+        log(TAG, VERBOSE) { "Pod created: ${device.logSummary()}" }
         return Result(scanResult = scanResult, device = device)
     }
 
