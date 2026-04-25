@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Ukucatshulwa kwemuva</string>
     <string name="widget_config_show_device_label">Bonisa igama ledivayisi</string>
     <string name="widget_config_reset_label">Zinzele kuzilungiselelo ezisetshenziswayo</string>
+    <string name="widget_config_preview_resize_hint">Ungashintsha usayizi we-widget ngemuva kokuyibeka esikrini sakho sasekhaya.</string>
     <string name="widget_config_custom_label">Okwenziwe ngezinga</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Mnyama</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Lena yidivayisi engaziwa, kodwa isebenzisa ifomathi yomlayezo efanayo. Ake sengeze ukusekelwa kwayo, xhumana nami :)</string>
     <string name="pods_none_label_short">Ayikho idivayisi</string>
     <string name="pods_charging_label">Iyashaja</string>
+    <string name="pods_charging_optimized_label">Ilungisiwe</string>
     <string name="pods_inear_label">Endlebeni</string>
     <string name="pods_microphone_label">Imakrofoni</string>
     <string name="anc_mode_off">Vala</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Ilebuli Ledivayisi ye-Bluetooth</string>
     <string name="device_settings_info_model_label">Imodeli</string>
     <string name="device_settings_info_manufacturer_label">Umdali</string>
+    <string name="device_settings_info_hardware_label">Izinto zekhompyutha</string>
     <string name="device_settings_info_serial_label">Inombolo Yesiri</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Isofthiwe Elindile</string>
     <string name="device_settings_info_build_label">Ukwakhiwa</string>
     <string name="device_settings_info_left_serial_label">Inombolo Yesitho Sasekhohlo</string>
     <string name="device_settings_info_right_serial_label">Inombolo Yesitho Sesokudla</string>
+    <string name="device_settings_info_left_bonded_label">Okuxhunyiwe Kwesokunxele</string>
+    <string name="device_settings_info_right_bonded_label">Okuxhunyiwe Kwesokudla</string>
     <string name="device_settings_info_details_label">Imininingwane Yedivayisi</string>
     <string name="device_settings_info_details_action">Bonisa imininingwane yedivayisi</string>
     <string name="device_settings_info_status_label">Isimo</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Le divayisi iseduzane kodwa ayixhunyiwe kulefoni. Xhuma ukuze ufinyelele izilungiselelo nezilawuli.</string>
     <string name="device_settings_not_connected_connect_action">Xhuma</string>
     <string name="device_settings_not_connected_open_settings_action">Vula Izilungiselelo ze-Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Idivayisi ayikho eduze</string>
+    <string name="device_settings_not_nearby_description">Izilungiselelo zitholakala kuphela lapho le divayisi iseduzane futhi ixhunywe kumakhala akho.</string>
     <string name="device_settings_aap_unavailable_label">Izilungiselelo ezithuthukisiwe azitholakali</string>
     <string name="device_settings_aap_unavailable_description">Izilungiselelo ze-AirPods ezikhethekile zidinga isici se-Bluetooth esingekho kuleli foni. Lokhu kungaxazululwa ukubuyekeza kwe-Android okuzayo kumkhiqizi wedivayisi yakho.</string>
+    <string name="device_settings_aap_unavailable_action">Buka umlandi wobufaneleko</string>
     <string name="device_settings_category_sound_label">Umsindo</string>
     <string name="device_settings_category_controls_label">Izilawuli</string>
     <string name="device_settings_nc_one_airpod_label">I-ANC nge-pod eyodwa</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Cindezela kanye ukuvimba umsindo wekhadi</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Cindezela kabili ukuqeda ikholi</string>
     <string name="device_settings_open_cd">Vula izilungiselelo zedivayisi</string>
+    <string name="overview_card_missing_paired_device">Leli profile alinayo idivayisi ye-Bluetooth ehlanganisiwe.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Okujwayelekile</string>
     <string name="device_settings_microphone_mode_label">Imakrofoni</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Vumela imodi evaliwe njengemodi yokukhethwa yokulawula umsindo. Uma ivaliwe, imisuka yeqa imodi evaliwe ngesikhathi ijikele.</string>
     <string name="device_settings_sleep_detection_label">Ukubona Ukulala</string>
     <string name="device_settings_sleep_detection_description">Misa umsindo ngokuzenzakalela lapho ulele</string>
+    <string name="reaction_sleep_channel_label">Ukuhlola Ukulala</string>
+    <string name="reaction_sleep_notification_title">Imisiwe yi-Sleep Detection</string>
+    <string name="reaction_sleep_notification_text">%1$s wabika ukuthi ulele, ngakho umculo wakho wamiswa. Ungakuvula lokhu ezilungiselelo zedivayisi.</string>
     <string name="device_settings_rename_label">Qamba kabusha</string>
     <string name="device_settings_rename_hint">Igama ledivayisi</string>
     <string name="device_settings_rename_confirm">Qamba kabusha</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Izilungiselelo ze-Bluetooth</string>
     <string name="device_settings_send_failed">Akunakwenzeka ukusebenzisa ilungiselelo: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Imodi evaliwe ayisebenziswanga kule divayisi. Vula \"Vumela imodi evaliwe\" ngaphansi kwe-Noise Control.</string>
+    <string name="device_settings_category_battery_label">IBhethri</string>
+    <string name="device_settings_charge_cap_label">Umkhawulo Wokushaja Olungisiwe</string>
+    <string name="device_settings_charge_cap_description">Funda imikhuba yakho futhi misa ukushaja mayelana no-80%% ukuze ukhulise impilo yebhethri, ugcwalise amapodi ngaphambi kokuba uwasetshenzise.</string>
+    <string name="device_settings_charge_cap_rejected_message">Umkhawulo Wokushaja Olungisiwe awukwazanga ukushintshwa. Lena isici esiphenyiwe — sicela ubike uma ihluleka njalo.</string>
     <string name="device_settings_category_connections_label">Amadivayisi Axhunyiwe</string>
     <string name="device_settings_connected_devices_description">Ezinye izidivayisi ezixhunywe manje kule-AirPods</string>
     <string name="device_settings_connected_device_label">Idivayisi %d</string>

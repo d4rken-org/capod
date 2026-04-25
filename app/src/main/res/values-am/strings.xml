@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">የዳራ ግልጽነት</string>
     <string name="widget_config_show_device_label">የመሳሪያ ስም አሳይ</string>
     <string name="widget_config_reset_label">ወደ ነባሪ መመለስ</string>
+    <string name="widget_config_preview_resize_hint">ዊጄቱን በዋናው ስክሪን ላይ ካስቀመጡት በኋላ መጠኑን መቀየር ይችላሉ።</string>
     <string name="widget_config_custom_label">ብጁ</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ጨለማ</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">ይህ ያልታወቀ መሣሪያ ነው ግን ተመሳሳይ የመልዕክት ቅርጸት ይጠቀማል። ድጋፍ እንጨምርለት፣ ያግኙኝ :)</string>
     <string name="pods_none_label_short">ምንም መሣሪያ የለም</string>
     <string name="pods_charging_label">በመሙላት ላይ</string>
+    <string name="pods_charging_optimized_label">ተመቻችቷል</string>
     <string name="pods_inear_label">በጆሮ ውስጥ</string>
     <string name="pods_microphone_label">ማይክሮፎን</string>
     <string name="anc_mode_off">ጠፍቷል</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">የብሉቱዝ መሳሪያ ስያሜ</string>
     <string name="device_settings_info_model_label">ሞዴል</string>
     <string name="device_settings_info_manufacturer_label">አምራች</string>
+    <string name="device_settings_info_hardware_label">ሃርድዌር</string>
     <string name="device_settings_info_serial_label">ተከታታይ ቁጥር</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">ወደ ላይ ለሚጫን ፈርምዌር</string>
     <string name="device_settings_info_build_label">ግንባታ</string>
     <string name="device_settings_info_left_serial_label">የግራ ፖድ ተከታታይ ቅጥር</string>
     <string name="device_settings_info_right_serial_label">የቀኝ ፖድ ተከታታይ ቅጥር</string>
+    <string name="device_settings_info_left_bonded_label">ግራ ተያይዟል</string>
+    <string name="device_settings_info_right_bonded_label">ቀኝ ተያይዟል</string>
     <string name="device_settings_info_details_label">የመሳሪያ ዝርዝሮች</string>
     <string name="device_settings_info_details_action">የመሳሪያ ዝርዝሮችን አሳይ</string>
     <string name="device_settings_info_status_label">ሁኔታ</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">ይህ መሣሪያ አቅራቢያ አለ ነገር ግን ከዚህ ስልክ ጋር አልተገናኘም። ቅንብሮችን እና መቆጣጠሪያዎችን ለማግኘት ያገናኙ።</string>
     <string name="device_settings_not_connected_connect_action">ያገናኙ</string>
     <string name="device_settings_not_connected_open_settings_action">የብሉቱዝ ቅንብሮችን ይክፈቱ</string>
+    <string name="device_settings_not_nearby_label">መሣሪያው ቅርብ አይደለም</string>
+    <string name="device_settings_not_nearby_description">ቅንብሮቹ የሚገኙት ይህ መሣሪያ ቅርብ ሆኖ ከስልክዎ ጋር ሲገናኝ ብቻ ነው።</string>
     <string name="device_settings_aap_unavailable_label">የላቁ ቅንብሮች አይገኙም</string>
     <string name="device_settings_aap_unavailable_description">የላቀ AirPods ቅንብሮች በዚህ ስለክ ላይ የማይገኝ የብሉቱዝ ባህሪ ይፈልጋሉ። ይህ ከወደፊቱ ከመሳሪያ አምራችዎ የሚመጣ የAndroid ዝማኔ ሊፈታ ይችላል።</string>
+    <string name="device_settings_aap_unavailable_action">የተኳሃኝነት ተከታይ ይመልከቱ</string>
     <string name="device_settings_category_sound_label">ድምፅ</string>
     <string name="device_settings_category_controls_label">መቀጣጣሪያዎች</string>
     <string name="device_settings_nc_one_airpod_label">ANC በአንድ ፖድ</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ማይክሮፎኑን ለማጥፈት አንድ ጊዜ ጀን</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ጥሪን ለመጨረስ ሁለት ጊዜ ጀን</string>
     <string name="device_settings_open_cd">የመሣሪያ ቅንብሮችን ክፈት</string>
+    <string name="overview_card_missing_paired_device">ይህ መገለጫ የጋራ ብሉቱዝ መሳሪያ የለውም።</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">አጠቃላይ</string>
     <string name="device_settings_microphone_mode_label">ማይክሮፎን</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">ጠፍን እንደ ሊመረጥ የሚችል የጫጫታ ቁጥጥር ሁኔታ ፍቀድ። ሲሰናከል፣ ቀንዶቹ ዑደት ሲያደርጉ ጠፍን ይዝለሉ።</string>
     <string name="device_settings_sleep_detection_label">እንቅልፍ ማወቃያ</string>
     <string name="device_settings_sleep_detection_description">ሲተኝ ድምጹን ራስ-ሰር አቁም</string>
+    <string name="reaction_sleep_channel_label">የእንቅልፍ ማወቂያ</string>
+    <string name="reaction_sleep_notification_title">በእንቅልፍ ማወቂያ ምክንያት ታግዷል</string>
+    <string name="reaction_sleep_notification_text">%1$s እርስዎ ተኝተዋል ብሎ ዘገበ፣ ስለዚህ ሙዚቃዎ ተቋርጧል። ይህን በመሣሪያ ቅንብሮች ውስጥ ማሰናከል ይችላሉ።</string>
     <string name="device_settings_rename_label">ስም ቀይር</string>
     <string name="device_settings_rename_hint">የመሣሪያ ስም</string>
     <string name="device_settings_rename_confirm">ስም ቀይር</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">የ Bluetooth ቅንብሮች</string>
     <string name="device_settings_send_failed">ቅንብሩን መተግበር አልተቻለም: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ጠፍ ሁኔታ በዚህ መሳሪያ ላይ አልነቃም። \"ጠፍ ሁኔታን ፍቀድ\" በጫጫታ ቁጥጥር ስር አንቃ።</string>
+    <string name="device_settings_category_battery_label">ባትሪ</string>
+    <string name="device_settings_charge_cap_label">ተመቻችቶ የሚቆጠር የኃይል ወሰን</string>
+    <string name="device_settings_charge_cap_description">የእርስዎን ልምድ ተምሮ የባትሪ ሕይወት ለማሳደግ ወደ 80%% ሲደርስ ኤሌክትሪኩን ያቆማል፣ ሊጠቀሟቸው ከመሆናቸው በፊት ድብዳቤ ኮዳቹን ሙሉ ይሞላቸዋል።</string>
+    <string name="device_settings_charge_cap_rejected_message">ተመቻችቶ የሚቆጠር የኃይል ወሰን ሊቀየር አልቻለም። ይህ የሙከራ ባህሪ ነው — አሁንም ቢሆን ካልሰራ እባክዎ ሪፖርት ያድርጉ።</string>
     <string name="device_settings_category_connections_label">የተገናኙ መሣሪያዎች</string>
     <string name="device_settings_connected_devices_description">አሁን ለእነዚህ AirPods የተገናኙ ሌሎች መሣሪያዎች</string>
     <string name="device_settings_connected_device_label">መሣሪያ %d</string>

@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Arka plan saydamlığı</string>
     <string name="widget_config_show_device_label">Cihaz adını göster</string>
     <string name="widget_config_reset_label">Varsayılan ayarlara sıfırla</string>
+    <string name="widget_config_preview_resize_hint">Ana ekranına widget\'ı koyduktan sonra yeniden boyutlandırabilirsin.</string>
     <string name="widget_config_custom_label">Özel</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Koyu</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Bu bilinmeyen bir cihaz, ancak benzer mesaj biçimi kullanıyor. Destek ekleyelim, benimle iletişime geçin :)</string>
     <string name="pods_none_label_short">Cihaz yok</string>
     <string name="pods_charging_label">Şarj oluyor</string>
+    <string name="pods_charging_optimized_label">Optimize Edildi</string>
     <string name="pods_inear_label">Kulakta</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Kapalı</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth Cihaz Adı</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Üretici</string>
+    <string name="device_settings_info_hardware_label">Donanım</string>
     <string name="device_settings_info_serial_label">Seri Numarası</string>
     <string name="device_settings_info_firmware_label">Yazılım</string>
+    <string name="device_settings_info_firmware_pending_label">Bekleyen Yazılım</string>
     <string name="device_settings_info_build_label">Yapı</string>
     <string name="device_settings_info_left_serial_label">Sol Kulaklık Seri Numarası</string>
     <string name="device_settings_info_right_serial_label">Sağ Kulaklık Seri Numarası</string>
+    <string name="device_settings_info_left_bonded_label">Sol Eşleştirildi</string>
+    <string name="device_settings_info_right_bonded_label">Sağ Eşleştirildi</string>
     <string name="device_settings_info_details_label">Cihaz Detayları</string>
     <string name="device_settings_info_details_action">Cihaz detaylarını göster</string>
     <string name="device_settings_info_status_label">Durum</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Bu cihaz yakında ama bu telefona bağlı değil. Ayarlara ve kontrollere erişmek için bağlan.</string>
     <string name="device_settings_not_connected_connect_action">Bağlan</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth Ayarlarını Aç</string>
+    <string name="device_settings_not_nearby_label">Cihaz yakında değil</string>
+    <string name="device_settings_not_nearby_description">Ayarlar yalnızca bu cihaz yakınınızda ve telefonunuza bağlı olduğunda kullanılabilir.</string>
     <string name="device_settings_aap_unavailable_label">Gelişmiş ayarlar kullanılamıyor</string>
     <string name="device_settings_aap_unavailable_description">Gelişmiş AirPods ayarları, bu telefonda bulunmayan bir Bluetooth özelliği gerektiriyor. Bu durum, cihaz üreticinizin gelecekteki bir Android güncellemesiyle çözülebilir.</string>
+    <string name="device_settings_aap_unavailable_action">Uyumluluk izleyicisini görüntüle</string>
     <string name="device_settings_category_sound_label">Ses</string>
     <string name="device_settings_category_controls_label">Kontroller</string>
     <string name="device_settings_nc_one_airpod_label">Tek kulaklıkla ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonu kapatıp açmak için tek basım</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Aramayı bitirmek için çift basım</string>
     <string name="device_settings_open_cd">Cihaz ayarlarını aç</string>
+    <string name="overview_card_missing_paired_device">Bu profilde eşlenmiş bir Bluetooth cihazı yok.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Genel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Kapalı modun seçilebilir bir gürültü kontrol modu olarak kullanılmasına izin verir. Devre dışı bırakıldığında, saplar döngü yaparken Kapalı modunu atlar.</string>
     <string name="device_settings_sleep_detection_label">Uyku Algılama</string>
     <string name="device_settings_sleep_detection_description">Uyuyakaldığınızda sesi otomatik olarak duraklat</string>
+    <string name="reaction_sleep_channel_label">Uyku Algılama</string>
+    <string name="reaction_sleep_notification_title">Uyku Algılama ile Duraklatıldı</string>
+    <string name="reaction_sleep_notification_text">%1$s uyuduğunuzu bildirdi, bu nedenle müziğiniz duraklatıldı. Bunu cihaz ayarlarından devre dışı bırakabilirsiniz.</string>
     <string name="device_settings_rename_label">Yeniden Adlandır</string>
     <string name="device_settings_rename_hint">Cihaz adı</string>
     <string name="device_settings_rename_confirm">Yeniden Adlandır</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Ayarları</string>
     <string name="device_settings_send_failed">Ayar uygulanamadı: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Bu cihazda Kapalı modu etkin değil. Gürültü Kontrolü altında \"Kapalı moda izin ver\" seçeneğini etkinleştirin.</string>
+    <string name="device_settings_category_battery_label">Pil</string>
+    <string name="device_settings_charge_cap_label">Optimize Edilmiş Şarj Limiti</string>
+    <string name="device_settings_charge_cap_description">Rutininizi öğrenin ve pil ömrünü uzatmak için şarjı %80 civarında duraklatın; kullanmadan önce kulaklıkları tamamen şarj eder.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimize Edilmiş Şarj Limiti değiştirilemedi. Bu deneysel bir özellik — başarısız olmaya devam ederse lütfen bildirin.</string>
     <string name="device_settings_category_connections_label">Bağlı Cihazlar</string>
     <string name="device_settings_connected_devices_description">Bu AirPod’lara şu anda bağlı diğer cihazlar</string>
     <string name="device_settings_connected_device_label">Cihaz %d</string>

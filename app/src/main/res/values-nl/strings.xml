@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Achtergrondtransparantie</string>
     <string name="widget_config_show_device_label">Toon apparaatnaam</string>
     <string name="widget_config_reset_label">Standaardinstellingen herstellen</string>
+    <string name="widget_config_preview_resize_hint">U kan de widgetgrootte aanpassen nadat u het op het beginscherm hebt geplaatst.</string>
     <string name="widget_config_custom_label">Aangepast</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Donker</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Dit is een onbekend apparaat, maar het gebruikt hetzelfde berichtformaat</string>
     <string name="pods_none_label_short">Geen apparaat</string>
     <string name="pods_charging_label">Opladen</string>
+    <string name="pods_charging_optimized_label">Geoptimaliseerd</string>
     <string name="pods_inear_label">In oor</string>
     <string name="pods_microphone_label">Microfoon</string>
     <string name="anc_mode_off">Uit</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth-apparaatlabel</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Fabrikant</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Serienummer</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware in behandeling</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Serienummer linker oordopje</string>
     <string name="device_settings_info_right_serial_label">Serienummer rechter oordopje</string>
+    <string name="device_settings_info_left_bonded_label">Links gekoppeld</string>
+    <string name="device_settings_info_right_bonded_label">Rechts gekoppeld</string>
     <string name="device_settings_info_details_label">Apparaatdetails</string>
     <string name="device_settings_info_details_action">Apparaatdetails weergeven</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Dit apparaat bevindt zich in de buurt, maar is niet verbonden met deze telefoon. Maak verbinding om toegang te krijgen tot de instellingen en bedieningsopties.</string>
     <string name="device_settings_not_connected_connect_action">Verbinden</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth-instellingen Openen</string>
+    <string name="device_settings_not_nearby_label">Apparaat is niet in de buurt</string>
+    <string name="device_settings_not_nearby_description">Instellingen zijn alleen beschikbaar wanneer dit apparaat in de buurt is en verbonden is met uw telefoon.</string>
     <string name="device_settings_aap_unavailable_label">Geavanceerde instellingen niet beschikbaar</string>
     <string name="device_settings_aap_unavailable_description">Geavanceerde AirPods-instellingen vereisen een Bluetooth-functie die niet beschikbaar is op deze telefoon. Dit kan worden opgelost door een toekomstige Android-update van uw apparaatfabrikant.</string>
+    <string name="device_settings_aap_unavailable_action">Laat de compatibele tracker zien</string>
     <string name="device_settings_category_sound_label">Geluid</string>
     <string name="device_settings_category_controls_label">Bediening</string>
     <string name="device_settings_nc_one_airpod_label">ANC met één oordopje</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Druk één keer om de microfoon te dempen</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dubbelklik om het gesprek te beëindigen</string>
     <string name="device_settings_open_cd">Apparaatinstellingen openen</string>
+    <string name="overview_card_missing_paired_device">Dit profiel heeft geen verbonden bluetooth-apparaat.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Algemeen</string>
     <string name="device_settings_microphone_mode_label">Microfoon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Uit als selecteerbare ruisonderdrukkingsmodus toestaan. Wanneer uitgeschakeld, slaan stems Uit over tijdens het cycleren.</string>
     <string name="device_settings_sleep_detection_label">Slaapdetectie</string>
     <string name="device_settings_sleep_detection_description">Audio automatisch pauzeren wanneer je in slaap valt</string>
+    <string name="reaction_sleep_channel_label">Slaapdetectie</string>
+    <string name="reaction_sleep_notification_title">Gepauzeerd door slaapdetectie</string>
+    <string name="reaction_sleep_notification_text">%1$s heeft gedetecteerd dat u in slaap bent gevallen, dus uw muziek is gepauzeerd. U kunt dit uitschakelen in de apparaatinstellingen.</string>
     <string name="device_settings_rename_label">Hernoemen</string>
     <string name="device_settings_rename_hint">Apparaatnaam</string>
     <string name="device_settings_rename_confirm">Hernoemen</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-instellingen</string>
     <string name="device_settings_send_failed">Instelling kon niet worden toegepast: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Uit-modus is niet ingeschakeld op dit apparaat. Schakel \"Uit-modus toestaan\" in onder Ruisonderdrukking.</string>
+    <string name="device_settings_category_battery_label">Batterij</string>
+    <string name="device_settings_charge_cap_label">Geoptimaliseerde oplaadlimiet</string>
+    <string name="device_settings_charge_cap_description">Leert uw routine en pauzeert het opladen rond 80%% om de batterijlevensduur te verlengen, waarna de pods worden bijgeladen voordat u ze waarschijnlijk gebruikt.</string>
+    <string name="device_settings_charge_cap_rejected_message">Geoptimaliseerde oplaadlimiet kon niet worden gewijzigd. Dit is een experimentele functie — meld het als dit blijft mislukken.</string>
     <string name="device_settings_category_connections_label">Verbonden apparaten</string>
     <string name="device_settings_connected_devices_description">Andere apparaten die momenteel verbonden zijn met deze AirPods</string>
     <string name="device_settings_connected_device_label">Apparaat %d</string>

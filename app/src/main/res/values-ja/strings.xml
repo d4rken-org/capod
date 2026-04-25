@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">背景の透明度</string>
     <string name="widget_config_show_device_label">デバイス名を表示</string>
     <string name="widget_config_reset_label">デフォルトにリセット</string>
+    <string name="widget_config_preview_resize_hint">ホーム画面に配置した後、ウィジェットのサイズを変更できます。</string>
     <string name="widget_config_custom_label">カスタム</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ダーク</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">これは不明なデバイスですが、似たメッセージ形式を使用しています。サポートを追加しましょう。連絡してください :)</string>
     <string name="pods_none_label_short">デバイスなし</string>
     <string name="pods_charging_label">充電中</string>
+    <string name="pods_charging_optimized_label">最適化済み</string>
     <string name="pods_inear_label">装着中</string>
     <string name="pods_microphone_label">マイク</string>
     <string name="anc_mode_off">オフ</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">Bluetoothデバイスラベル</string>
     <string name="device_settings_info_model_label">モデル</string>
     <string name="device_settings_info_manufacturer_label">メーカー</string>
+    <string name="device_settings_info_hardware_label">ハードウェア</string>
     <string name="device_settings_info_serial_label">シリアル番号</string>
     <string name="device_settings_info_firmware_label">ファームウェア</string>
+    <string name="device_settings_info_firmware_pending_label">保留中のファームウェア</string>
     <string name="device_settings_info_build_label">ビルド</string>
     <string name="device_settings_info_left_serial_label">左ポッドのシリアル</string>
     <string name="device_settings_info_right_serial_label">右ポッドのシリアル</string>
+    <string name="device_settings_info_left_bonded_label">左ボンド済み</string>
+    <string name="device_settings_info_right_bonded_label">右ボンド済み</string>
     <string name="device_settings_info_details_label">デバイス詳細</string>
     <string name="device_settings_info_details_action">デバイス詳細を表示</string>
     <string name="device_settings_info_status_label">状態</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">このデバイスは近くにありますが、このスマートフォンに接続されていません。設定と操作にアクセスするには接続してください。</string>
     <string name="device_settings_not_connected_connect_action">接続</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth設定を開く</string>
+    <string name="device_settings_not_nearby_label">デバイスが近くにありません</string>
+    <string name="device_settings_not_nearby_description">設定は、このデバイスが近くにあり、スマートフォンに接続されている場合にのみ利用可能です。</string>
     <string name="device_settings_aap_unavailable_label">詳細設定を利用できません</string>
     <string name="device_settings_aap_unavailable_description">高度なAirPods設定には、このスマートフォンで利用できないBluetooth機能が必要です。デバイスメーカーからの将来のAndroidアップデートで解決される可能性があります。</string>
+    <string name="device_settings_aap_unavailable_action">互換性トラッカーを表示</string>
     <string name="device_settings_category_sound_label">サウンド</string>
     <string name="device_settings_category_controls_label">コントロール</string>
     <string name="device_settings_nc_one_airpod_label">1つのポッドでANC</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">シングルプレスでマイクをミュート</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ダブルプレスで通話を終了</string>
     <string name="device_settings_open_cd">デバイス設定を開く</string>
+    <string name="overview_card_missing_paired_device">このプロファイルにはペアリングされたBluetoothデバイスがありません。</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">マイク</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">ノイズコントロールの選択能なモードとしてオフを許可します。無効の場合、ステムのサイクル中にオフがスキップされます。</string>
     <string name="device_settings_sleep_detection_label">睡眠検知</string>
     <string name="device_settings_sleep_detection_description">眠りに就いたときに自動的にオーディオを一時停止</string>
+    <string name="reaction_sleep_channel_label">睡眠検出</string>
+    <string name="reaction_sleep_notification_title">睡眠検出によって一時停止されました</string>
+    <string name="reaction_sleep_notification_text">%1$s が眠りについたことを検出したため、音楽が一時停止されました。デバイス設定で無効にできます。</string>
     <string name="device_settings_rename_label">名前を変更</string>
     <string name="device_settings_rename_hint">デバイス名</string>
     <string name="device_settings_rename_confirm">名前を変更</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth設定</string>
     <string name="device_settings_send_failed">設定を適用できませんでした: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">オフモードはこのデバイスで有効になっていません。「ノイズコントロール」で「オフモードを許可」を有効にしてください。</string>
+    <string name="device_settings_category_battery_label">バッテリー</string>
+    <string name="device_settings_charge_cap_label">最適化された充電上限</string>
+    <string name="device_settings_charge_cap_description">あなたのルーティンを学習し、バッテリー寿命を延ばすために80%%前後で充電を一時停止し、使用する直前にイヤポッドを満充電にします。</string>
+    <string name="device_settings_charge_cap_rejected_message">最適化された充電上限を変更できませんでした。これは実験的な機能です。引き続き失敗する場合は報告してください。</string>
     <string name="device_settings_category_connections_label">接続済みデバイス</string>
     <string name="device_settings_connected_devices_description">このAirPodsに現在接続中のその他のデバイス</string>
     <string name="device_settings_connected_device_label">デバイス %d</string>

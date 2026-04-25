@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">背景透明度</string>
     <string name="widget_config_show_device_label">顯示裝置名稱</string>
     <string name="widget_config_reset_label">重設為預設值</string>
+    <string name="widget_config_preview_resize_hint">您可以在將小工具放置到主畫面後調整其大小。</string>
     <string name="widget_config_custom_label">自訂</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">深色</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">這是未知裝置，但使用了類似的訊息格式。讓我們為它加入支援，請聯絡我 :)</string>
     <string name="pods_none_label_short">無裝置</string>
     <string name="pods_charging_label">充電中</string>
+    <string name="pods_charging_optimized_label">已優化</string>
     <string name="pods_inear_label">已入耳</string>
     <string name="pods_microphone_label">麥克風</string>
     <string name="anc_mode_off">關閉</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">藍牙裝置標籤</string>
     <string name="device_settings_info_model_label">型號</string>
     <string name="device_settings_info_manufacturer_label">製造商</string>
+    <string name="device_settings_info_hardware_label">硬件</string>
     <string name="device_settings_info_serial_label">序列號</string>
     <string name="device_settings_info_firmware_label">軟體</string>
+    <string name="device_settings_info_firmware_pending_label">待安裝韌體</string>
     <string name="device_settings_info_build_label">版本</string>
     <string name="device_settings_info_left_serial_label">左耳機序列號</string>
     <string name="device_settings_info_right_serial_label">右耳機序列號</string>
+    <string name="device_settings_info_left_bonded_label">左耳已配對</string>
+    <string name="device_settings_info_right_bonded_label">右耳已配對</string>
     <string name="device_settings_info_details_label">裝置詳情</string>
     <string name="device_settings_info_details_action">顯示裝置詳情</string>
     <string name="device_settings_info_status_label">狀態</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">此裝置在附近，但未連接到此手機。請連接以存取設定及控制項。</string>
     <string name="device_settings_not_connected_connect_action">連接</string>
     <string name="device_settings_not_connected_open_settings_action">開啟藍牙設定</string>
+    <string name="device_settings_not_nearby_label">裝置不在附近</string>
+    <string name="device_settings_not_nearby_description">設定只在此裝置在附近並已連接至您的手機時才可使用。</string>
     <string name="device_settings_aap_unavailable_label">進階設定不可用</string>
     <string name="device_settings_aap_unavailable_description">進階 AirPods 設定需要此手機不支援的藍牙功能。您的裝置製造商發布的未來 Android 更新可能解決此問題。</string>
+    <string name="device_settings_aap_unavailable_action">查看相容性追蹤器</string>
     <string name="device_settings_category_sound_label">音效</string>
     <string name="device_settings_category_controls_label">控制</string>
     <string name="device_settings_nc_one_airpod_label">單個耳機的 ANC</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">單擊靜音麥克風</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">雙擊結束通話</string>
     <string name="device_settings_open_cd">開啟裝置設定</string>
+    <string name="overview_card_missing_paired_device">此設定檔沒有已配對的藍牙裝置。</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">麥克風</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">將關閉作為可選噪音控制模式。當停用時，提頓在循環時會跳過關閉。</string>
     <string name="device_settings_sleep_detection_label">睡眠偵測</string>
     <string name="device_settings_sleep_detection_description">入睡時自動暫停播放</string>
+    <string name="reaction_sleep_channel_label">睡眠偵測</string>
+    <string name="reaction_sleep_notification_title">已被睡眠偵測暫停</string>
+    <string name="reaction_sleep_notification_text">%1$s 偵測到您已入睡，因此音樂已暫停。您可在裝置設定中停用此功能。</string>
     <string name="device_settings_rename_label">重新命名</string>
     <string name="device_settings_rename_hint">裝置名稱</string>
     <string name="device_settings_rename_confirm">重新命名</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">藍牙設定</string>
     <string name="device_settings_send_failed">無法套用設定：%1$s</string>
     <string name="device_settings_anc_off_rejected_message">此裝置未啟用關閉模式。請在「噪音控制」下啟用「允許關閉模式」。</string>
+    <string name="device_settings_category_battery_label">電池</string>
+    <string name="device_settings_charge_cap_label">優化充電上限</string>
+    <string name="device_settings_charge_cap_description">學習您的使用習慣，在充電達 80%% 左右時暫停充電以延長電池壽命，並在您可能使用前將耳機充滿。</string>
+    <string name="device_settings_charge_cap_rejected_message">優化充電上限無法更改。這是一項實驗性功能——如果持續失敗，請回報。</string>
     <string name="device_settings_category_connections_label">已連接裝置</string>
     <string name="device_settings_connected_devices_description">目前連接至此 AirPods 的其他裝置</string>
     <string name="device_settings_connected_device_label">裝置 %d</string>

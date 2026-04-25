@@ -62,7 +62,7 @@
     <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
     <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda taotleda. See lülitab jälgimisrežiimi sisse alatiseks.</string>
-    <string name="settings_autoconnect_info_android12">Automaatne ühendus tugineb süsteemifunktsioonile, mida Android 12 ja uuemad versioonid piiravad. See ei pruugi teie seadmel toimida.</string>
+    <string name="settings_autoconnect_info_android12">Iseühenduvus tugineb süsteemivõimalusele, mida Android 12 ja uuemad versioonid piiravad. See ei pruugi teie seadmel toimida.</string>
     <string name="settings_autoconnect_condition_label">Automaatse ühendamise tingimus</string>
     <string name="settings_autoconnect_condition_description">Millal võime üritada ühendada teie seadet?</string>
     <string name="settings_devices_label">Seadmed</string>
@@ -76,7 +76,7 @@
     <string name="settings_compat_offloaded_batching_disabled_title">Keela riistvara rühmitamine</string>
     <string name="settings_compat_offloaded_batching_disabled_summary">Keelake süsteemil rühmitada kogutud andmeid madalama energiatarbimisega Bluetoothi kohta enne meile saatmist.</string>
     <string name="settings_onepod_mode_label">Ühe klapi režiim</string>
-    <string name="settings_onepod_mode_description">Automaatne esitus/paus ja automaatühendus reageerivad ühele kõrvaklapile, mitte ei nõua mõlemat.</string>
+    <string name="settings_onepod_mode_description">Automaatne esitus/paus ja iseühenduvus reageerivad ühele kõrvaklapile, mitte ei nõua mõlemat.</string>
     <string name="settings_popup_caseopen_label">Näita kaane hüpikakent</string>
     <string name="settings_popup_caseopen_description">Seadme kaane avamisel näita hüpikakent (katsetamisel).</string>
     <string name="settings_popup_connected_label">Näita ühenduse hüpikakent</string>
@@ -84,8 +84,8 @@
     <string name="settings_popup_info_not_in_app">Hüpikaknad kuvatakse ainult siis, kui sa pole rakenduses.</string>
     <string name="settings_popup_warning_manual_mode">Hüpikaknad nõuavad monitori töötamist. Monitori režiim on seatud „Kui rakendus on avatud“, mis peatab monitori, kui rakendusest lahkud.</string>
     <string name="general_fix_it_action">Paranda</string>
-    <string name="device_settings_experimental_title">Eksperimentaalne funktsioon</string>
-    <string name="device_settings_experimental_description">Seda funktsiooni ei ole kõigil seadmetel veel testitud. Kui midagi ei tööta korrektselt, avage probleem koos silumislogi failiga.</string>
+    <string name="device_settings_experimental_title">Katsetamisel</string>
+    <string name="device_settings_experimental_description">Seda pole kõigil seadmetel veel katsetatud. Kui midagi ei toimi õigesti, avage probleem koos silumislogi failiga.</string>
     <string name="device_settings_experimental_action">Ava probleemide jälgija</string>
     <string name="notification_channel_device_status_label">Seadme olek</string>
     <string name="notification_channel_device_status_connected_label">Ühendatud seade</string>
@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Tausta läbipaistvus</string>
     <string name="widget_config_show_device_label">Kuva seadme nimi</string>
     <string name="widget_config_reset_label">Lähtesta vaikeseadistused</string>
+    <string name="widget_config_preview_resize_hint">Pärast vidina asetamist avaekraanile saate muuta selle suurust.</string>
     <string name="widget_config_custom_label">Kohandatud</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tume</string>
@@ -190,9 +191,9 @@
     <string name="general_manage_devices_action">Halda seadmeid</string>
     <string name="overview_nomaindevice_label">Seadistatud seadmed puuduvad</string>
     <string name="overview_nomaindevice_description">Aku taseme jälgimiseks ja lisavõimaluste lubamiseks seadistage oma seade.</string>
-    <string name="overview_bluetooth_disabled_icon_cd">Bluetooth on keelatud, ava seaded</string>
-    <string name="overview_bluetooth_nearby_icon_cd">Seade on lähedal, ava Bluetoothi seaded</string>
-    <string name="overview_bluetooth_connected_icon_cd">Seade on ühendatud, ava Bluetoothi seaded</string>
+    <string name="overview_bluetooth_disabled_icon_cd">Bluetooth on keelatud, avage seaded</string>
+    <string name="overview_bluetooth_nearby_icon_cd">Seade on lähedal, avage Bluetoothi seaded</string>
+    <string name="overview_bluetooth_connected_icon_cd">Seade on ühendatud, avage Bluetoothi seaded</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth on välja lülitatud</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth on keelatud, lubage see ;)</string>
     <string name="overview_monitoring_active_label">Seadmete jälgimine</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">See on tundmatu seade, mis kasutab sarnast teatevormingut. Las ma muudan selle ühilduvaks, selleks võta minuga ühendust :)</string>
     <string name="pods_none_label_short">Puudub seade</string>
     <string name="pods_charging_label">Laeb</string>
+    <string name="pods_charging_optimized_label">Optimeeritud</string>
     <string name="pods_inear_label">Kõrvas</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Väljas</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetoothi seadme silt</string>
     <string name="device_settings_info_model_label">Mudel</string>
     <string name="device_settings_info_manufacturer_label">Tootja</string>
+    <string name="device_settings_info_hardware_label">Riistvara</string>
     <string name="device_settings_info_serial_label">Seerianumber</string>
     <string name="device_settings_info_firmware_label">Püsivara</string>
+    <string name="device_settings_info_firmware_pending_label">Ootel püsivara</string>
     <string name="device_settings_info_build_label">Versioon</string>
     <string name="device_settings_info_left_serial_label">Vasaku kõrvaklapiosa seerianumber</string>
     <string name="device_settings_info_right_serial_label">Parema kõrvaklapiosa seerianumber</string>
+    <string name="device_settings_info_left_bonded_label">Vasak seotud</string>
+    <string name="device_settings_info_right_bonded_label">Parem seotud</string>
     <string name="device_settings_info_details_label">Seadme andmed</string>
     <string name="device_settings_info_details_action">Kuva seadme andmed</string>
     <string name="device_settings_info_status_label">Olek</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">See seade on lähedal, kuid pole selle telefoniga ühendatud. Seadete ja juhtelementide kasutamiseks ühendage seade.</string>
     <string name="device_settings_not_connected_connect_action">Ühenda</string>
     <string name="device_settings_not_connected_open_settings_action">Ava Bluetoothi seaded</string>
+    <string name="device_settings_not_nearby_label">Seade on kaugel</string>
+    <string name="device_settings_not_nearby_description">Seaded on saadaval ainult siis, kui see seade on lähedal ja teie telefoniga ühendatud.</string>
     <string name="device_settings_aap_unavailable_label">Täpsemad seaded pole saadaval</string>
-    <string name="device_settings_aap_unavailable_description">Täpsemad AirPodsi seaded nõuavad Bluetoothi funktsiooni, mis pole sellel telefonis saadaval. See võib laheneda teie seadme tootja tulevase Androidi värskendusega.</string>
+    <string name="device_settings_aap_unavailable_description">Täpsemad AirPodsi seaded nõuavad Bluetoothi, mis pole selles telefonis saadaval. See võib laheneda teie seadme tootja tulevase Androidi värskendusega.</string>
+    <string name="device_settings_aap_unavailable_action">Kuva ühilduvuse jälgija</string>
     <string name="device_settings_category_sound_label">Heli</string>
     <string name="device_settings_category_controls_label">Juhtnupud</string>
     <string name="device_settings_nc_one_airpod_label">ANC ühe kõrvaklapiosaga</string>
@@ -434,7 +443,7 @@
     <string name="device_settings_tone_volume_description">Kinnitushelide ja helinate helitugevus</string>
     <string name="device_settings_adaptive_noise_label">Kohanduva heli müra</string>
     <string name="device_settings_adaptive_noise_description">Kui palju keskkonna müra läbi lastakse</string>
-    <string name="device_settings_adaptive_noise_requires_adaptive">Nõuab kohanduva mürakontrolli</string>
+    <string name="device_settings_adaptive_noise_requires_adaptive">Nõuab kohanduvat mürakontrolli</string>
     <string name="device_settings_pending_info">Muudatused jõustuvad, kui AirPodsid on kõrvades</string>
     <string name="device_settings_press_speed_label">Vajutuse kiirus</string>
     <string name="device_settings_press_speed_description">Kui kiiresti pead vajutama mitme vajutuse žestide jaoks</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Ühe vajutusega vaigista mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kahe vajutusega lõpeta kõne</string>
     <string name="device_settings_open_cd">Ava seadme seaded</string>
+    <string name="overview_card_missing_paired_device">Sellel profiilil puudub seotud Bluetoothi seade.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Üldine</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -473,15 +483,18 @@
     <string name="device_settings_listening_mode_cycle_dialog_title">Kohandage pikalt vajutamise tsüklit</string>
     <string name="device_settings_listening_mode_cycle_summary_helper">Kasutatakse varretikku hoides ja kiirvalijas</string>
     <string name="device_settings_listening_mode_cycle_summary_helper_override">Kasutatakse kiirvalijas. Kohandatud varretiku pika vajutuse toiming asendab AirPodside tsüklimise.</string>
-    <string name="device_settings_listening_mode_cycle_minimum">Vähemalt 2 režiimi peab jääma lubatust.</string>
+    <string name="device_settings_listening_mode_cycle_minimum">Vähemalt 2 režiimi peab jääma lubatuks.</string>
     <string name="device_settings_listening_mode_cycle_off">Väljas</string>
     <string name="device_settings_listening_mode_cycle_anc">Mürasummutus</string>
     <string name="device_settings_listening_mode_cycle_transparency">Läbipaistvus</string>
     <string name="device_settings_listening_mode_cycle_adaptive">Kohanduv</string>
     <string name="device_settings_allow_off_label">Luba väljalülitatuse režiim</string>
-    <string name="device_settings_allow_off_description">Luba Välja valikuna mürakontrolli režiimis. Kui keelatud, jätavad varretikud tsüklimise ajal Välja vahele.</string>
+    <string name="device_settings_allow_off_description">Luba „Väljas“ valik mürakontrolli režiimis. Kui keelatud, jätavad varretikud tsüklimise ajal „Väljas“ vahele.</string>
     <string name="device_settings_sleep_detection_label">Une tuvastamine</string>
     <string name="device_settings_sleep_detection_description">Heli vaigistub, kui jääd magama</string>
+    <string name="reaction_sleep_channel_label">Une tuvastamine</string>
+    <string name="reaction_sleep_notification_title">Uinumise tõttu peatatud</string>
+    <string name="reaction_sleep_notification_text">%1$s teatas, et uinusite, seega muusika vaikis. Saate selle seadme seadetes keelata.</string>
     <string name="device_settings_rename_label">Nimeta ümber</string>
     <string name="device_settings_rename_hint">Seadme nimi</string>
     <string name="device_settings_rename_confirm">Nimeta ümber</string>
@@ -490,7 +503,11 @@
     <string name="device_settings_rename_system_unavailable">Android ei lubanud meil seadet siin ümber nimetada. Bluetoothi seadetes nime uuendamiseks nimetage see seal ümber või siduge seade uuesti.</string>
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetoothi seaded</string>
     <string name="device_settings_send_failed">Seadet ei saanud rakendada: %1$s</string>
-    <string name="device_settings_anc_off_rejected_message">Väljas režiim ei ole sellel seadmel lubatud. Lubage \"Luba väljalülitatuse režiim\" mürakontrolli all.</string>
+    <string name="device_settings_anc_off_rejected_message">Väljas-režiim pole sellel seadmel lubatud. Lubage „Luba väljalülitatuse režiim“ mürakontrolli all.</string>
+    <string name="device_settings_category_battery_label">Aku</string>
+    <string name="device_settings_charge_cap_label">Optimeeritud laadimispiirang</string>
+    <string name="device_settings_charge_cap_description">Õpib kasutamisharjumusest ja peatab laadimise umbes 80%% juures, et pikendada aku kasutusiga, laadides kuularid täis enne, kui neid tõenäoliselt kasutate.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimeeritud laadimispiirangut ei saanud muuta. Seda katsetatakse — teavitage, kui see ikka nurjub.</string>
     <string name="device_settings_category_connections_label">Ühendatud seadmed</string>
     <string name="device_settings_connected_devices_description">Muud seadmed, mis on hetkel nende AirPodidega ühendatud</string>
     <string name="device_settings_connected_device_label">Seade %d</string>
@@ -501,7 +518,7 @@
     <!-- Press Controls -->
     <string name="press_controls_title">Vajutuse juhtelemendid</string>
     <string name="press_controls_nav_description">Häälesta vajutuskäitumist ja mäaarake vajutustele toimingud</string>
-    <string name="press_controls_description">Häälesta, kuidas vajutused tuvastatakse, valige kõnenuppu käitumine ja määrake vajutustele toimingud. Määratud toimingud kehtivad ainult sellele seadmele ja lasevad rakendusel vajutuse vahele võtta, mitte AirPodsidel seda looduslikult käsitseda.</string>
+    <string name="press_controls_description">Häälestage, kuidas vajutused tuvastatakse, valige kõnenuppu käitumine ja määrake vajutustele toimingud. Määratud toimingud kehtivad ainult sellele seadmele ja lasevad rakendusel vajutust mõjutada, mitte AirPodsidel seda käsitseda.</string>
     <string name="press_controls_single_press">Üks vajutus</string>
     <string name="press_controls_double_press">Kaks vajutust</string>
     <string name="press_controls_triple_press">Kolm vajutust</string>
@@ -512,18 +529,18 @@
     <string name="press_controls_right">Parem</string>
     <string name="press_action_none">Tavaline</string>
     <string name="press_action_no_action">Toiming puudub</string>
-    <string name="press_action_play_pause">Esita/Peata</string>
+    <string name="press_action_play_pause">Esita/peata</string>
     <string name="press_action_next_track">Järgmine lugu</string>
     <string name="press_action_previous_track">Eelmine lugu</string>
     <string name="press_action_volume_up">Valjemaks</string>
     <string name="press_action_volume_down">Vaiksemaks</string>
     <string name="press_action_mute_toggle">Vaigista muusika</string>
     <string name="press_action_stop">Peata</string>
-    <string name="press_action_fast_forward">Kiirkelleramine</string>
+    <string name="press_action_fast_forward">Kiirkerimine</string>
     <string name="press_action_rewind">Tagasikerimine</string>
     <string name="press_action_cycle_anc">Mürakontrolli tsükkel</string>
     <string name="press_action_toggle_anc_transparency">Vaheta läbipaistvust</string>
     <string name="press_controls_reset_label">Taasta tavaseadistused</string>
-    <string name="press_controls_reset_confirm_message">Lähestada kõik vajutuse vastendused vaikeväärtustele?</string>
+    <string name="press_controls_reset_confirm_message">Lähestada kõik vajutuse vastendused tavaväärtustele?</string>
     <string name="device_settings_noise_control_open_press_controls_action">Ava vajutuse juhtelemendid</string>
 </resources>

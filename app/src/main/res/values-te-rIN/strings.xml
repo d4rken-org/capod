@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">నేపథ్య నిజ్జీవనత</string>
     <string name="widget_config_show_device_label">పరికర పేరు చూపించు</string>
     <string name="widget_config_reset_label">డిఫాల్ట్‌లకు రీసెట్ చేయండి</string>
+    <string name="widget_config_preview_resize_hint">మీరు హోమ్ స్క్రీన్‌పై విడ్జెట్‌ను ఉంచిన తర్వాత దాన్ని పరిమాణం మార్చవచ్చు.</string>
     <string name="widget_config_custom_label">కస్టమ్</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">చీకటి</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">ఇది తెలియని పరికరం, కానీ ఇది సారూప్య సందేశ ఆకృతిని ఉపయోగిస్తోంది. దీనికి మద్దతు జోడిద్దాం, నన్ను సంప్రదించండి :)</string>
     <string name="pods_none_label_short">పరికరం లేదు</string>
     <string name="pods_charging_label">ఛార్జ్ అవుతోంది</string>
+    <string name="pods_charging_optimized_label">ఆప్టిమైజ్ చేయబడింది</string>
     <string name="pods_inear_label">చెవిలో</string>
     <string name="pods_microphone_label">మైక్రోఫోన్</string>
     <string name="anc_mode_off">ఆఫ్</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">బ్లూటూత్ పరికరం లేబుల్</string>
     <string name="device_settings_info_model_label">మోడల్</string>
     <string name="device_settings_info_manufacturer_label">తయారీదారు</string>
+    <string name="device_settings_info_hardware_label">హార్డ్‌వేర్</string>
     <string name="device_settings_info_serial_label">సీరియల్ నంబర్</string>
     <string name="device_settings_info_firmware_label">ఫర్మ్‌వేర్</string>
+    <string name="device_settings_info_firmware_pending_label">పెండింగ్ ఫర్మ్‌వేర్</string>
     <string name="device_settings_info_build_label">బిల్డ్</string>
     <string name="device_settings_info_left_serial_label">ఎడమ పాడ్ సీరియల్</string>
     <string name="device_settings_info_right_serial_label">కుడి పాడ్ సీరియల్</string>
+    <string name="device_settings_info_left_bonded_label">ఎడమ బంధించబడింది</string>
+    <string name="device_settings_info_right_bonded_label">కుడి బంధించబడింది</string>
     <string name="device_settings_info_details_label">పరికరం వివరాలు</string>
     <string name="device_settings_info_details_action">పరికరం వివరాలు చూపించు</string>
     <string name="device_settings_info_status_label">స్థితి</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">ఈ పరికరం దగ్గరలో ఉంది కానీ ఈ ఫోన్‌కు కనెక్ట్ కాలేదు. సెట్టింగ్‌లు మరియు నియంత్రణలను యాక్సెస్ చేయడానికి కనెక్ట్ చేయండి.</string>
     <string name="device_settings_not_connected_connect_action">కనెక్ట్ చేయండి</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth సెట్టింగ్‌లు తెరవండి</string>
+    <string name="device_settings_not_nearby_label">పరికరం సమీపంలో లేదు</string>
+    <string name="device_settings_not_nearby_description">ఈ పరికరం మీ ఫోన్‌కు సమీపంలో మరియు కనెక్ట్ చేయబడినప్పుడు మాత్రమే సెట్టింగ్‌లు అందుబాటులో ఉంటాయి.</string>
     <string name="device_settings_aap_unavailable_label">అధునాతన సెట్టింగ్‌లు అందుబాటులో లేవు</string>
     <string name="device_settings_aap_unavailable_description">అడ్వాన్స్డ్ AirPods సెట్టింగ్‌లకు ఈ ఫోన్‌లో అందుబాటు లేని బ్లూటూత్ ఫీచర్ అవసరం. మీ పరికరం తయారీదారు నుంచి భవిష్యత్ Android అప్డేట్‌ద్వారా ఇది పరిహరించబడవచ్చు.</string>
+    <string name="device_settings_aap_unavailable_action">అనుకూలత ట్రాకర్‌ను చూడండి</string>
     <string name="device_settings_category_sound_label">శబ్దం</string>
     <string name="device_settings_category_controls_label">నియంత్రణలు</string>
     <string name="device_settings_nc_one_airpod_label">ఒకే పాడ్‌తో ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">మైక్రోఫోన్ మ్యూట్ చేయడానికి ఒకసారి నొక్కండి</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">కాల్ ముగించడానికి రెండుసార్లు నొక్కండి</string>
     <string name="device_settings_open_cd">పరికర సెట్టింగ్‌లు తెరవండి</string>
+    <string name="overview_card_missing_paired_device">ఈ ప్రొఫైల్‌కు పెయిర్ చేయబడిన Bluetooth పరికరం లేదు.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">సాధారణ</string>
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">ఎంచుకోదగిన నాయిస్ కంట్రోల్ మోడ్‌గా Offను అనుమతించండి. నిష్క్రియం చేసినప్పుడు, సైకలింగ్ చేసే సమయంలో స్టెమ్ Offను దాటుతాయి.</string>
     <string name="device_settings_sleep_detection_label">నిద్ర గుర్తింపు</string>
     <string name="device_settings_sleep_detection_description">మీరు నిద్రపోయినప్పుడు స్వయంచాలకంగా ఆడియో పాజ్ చేయండి</string>
+    <string name="reaction_sleep_channel_label">నిద్ర గుర్తింపు</string>
+    <string name="reaction_sleep_notification_title">నిద్ర గుర్తింపు ద్వారా నిలిపివేయబడింది</string>
+    <string name="reaction_sleep_notification_text">%1$s మీరు నిద్రపోయారని నివేదించింది, కాబట్టి మీ సంగీతం నిలిపివేయబడింది. మీరు దీన్ని పరికర సెట్టింగ్‌లలో నిలిపివేయవచ్చు.</string>
     <string name="device_settings_rename_label">పేరు మార్చండి</string>
     <string name="device_settings_rename_hint">పరికర పేరు</string>
     <string name="device_settings_rename_confirm">పేరు మార్చండి</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">బ్లూటూత్ సెట్టింగ్‌లు</string>
     <string name="device_settings_send_failed">సెట్టింగ్ వర్తింపజేయడం సాధ్యపడలేదు: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off మోడ్ ఈ పరికరంలో సక్రియం కాదు. నాయిస్ కంట్రోల్ కింద \"Off మోడ్ అనుమతించు\"ను సక్రియం చేయండి.</string>
+    <string name="device_settings_category_battery_label">బ్యాటరీ</string>
+    <string name="device_settings_charge_cap_label">ఆప్టిమైజ్ చేయబడిన చార్జ్ పరిమితి</string>
+    <string name="device_settings_charge_cap_description">మీ దినచర్యను నేర్చుకుని బ్యాటరీ జీవితాన్ని పొడిగించడానికి 80%% వద్ద చార్జింగ్‌ను నిలిపి, మీరు వాటిని ఉపయోగించే ముందు పాడ్‌లను పూర్తిగా చార్జ్ చేస్తుంది.</string>
+    <string name="device_settings_charge_cap_rejected_message">ఆప్టిమైజ్ చేయబడిన చార్జ్ పరిమితిని మార్చడం సాధ్యపడలేదు. ఇది ఒక ప్రయోగాత్మక ఫీచర్ — ఇది పదే పదే విఫలమవుతుంటే దయచేసి నివేదించండి.</string>
     <string name="device_settings_category_connections_label">కనెక్ట్ అయిన పరికరాలు</string>
     <string name="device_settings_connected_devices_description">ఈ AirPodsకు ప్రస్తుతం కనెక్ట్ అయిన ఇతర పరికరాలు</string>
     <string name="device_settings_connected_device_label">పరికరం %d</string>

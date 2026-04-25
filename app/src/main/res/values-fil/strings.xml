@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparency ng background</string>
     <string name="widget_config_show_device_label">Ipakita ang pangalan ng device</string>
     <string name="widget_config_reset_label">I-reset sa mga default</string>
+    <string name="widget_config_preview_resize_hint">Maaari mong baguhin ang laki ng widget pagkatapos ilagay ito sa iyong home screen.</string>
     <string name="widget_config_custom_label">Pasadyang</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Madilim</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Ito ay isang hindi kilalang device, ngunit gumagamit ito ng katulad na format ng mensahe. Magdagdag tayo ng suporta para dito, kontakin mo ako :)</string>
     <string name="pods_none_label_short">Walang device</string>
     <string name="pods_charging_label">Nagcha-charge</string>
+    <string name="pods_charging_optimized_label">Na-optimize</string>
     <string name="pods_inear_label">Nasa tainga</string>
     <string name="pods_microphone_label">Mikropono</string>
     <string name="anc_mode_off">Naka-off</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Label ng Bluetooth Device</string>
     <string name="device_settings_info_model_label">Modelo</string>
     <string name="device_settings_info_manufacturer_label">Tagagawa</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Serial Number</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Nakabinbing Firmware</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Serial ng Kaliwang Pod</string>
     <string name="device_settings_info_right_serial_label">Serial ng Kanang Pod</string>
+    <string name="device_settings_info_left_bonded_label">Kaliwang Naka-bond</string>
+    <string name="device_settings_info_right_bonded_label">Kanang Naka-bond</string>
     <string name="device_settings_info_details_label">Mga Detalye ng Device</string>
     <string name="device_settings_info_details_action">Ipakita ang mga detalye ng device</string>
     <string name="device_settings_info_status_label">Katayuan</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Ang device na ito ay malapit ngunit hindi nakakonekta sa teleponong ito. Kumonekta para ma-access ang mga setting at kontrol.</string>
     <string name="device_settings_not_connected_connect_action">Kumonekta</string>
     <string name="device_settings_not_connected_open_settings_action">Buksan ang Mga Setting ng Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Hindi malapit ang device</string>
+    <string name="device_settings_not_nearby_description">Ang mga setting ay available lamang kapag ang device na ito ay malapit at nakakonekta sa iyong telepono.</string>
     <string name="device_settings_aap_unavailable_label">Hindi available ang mga advanced na setting</string>
     <string name="device_settings_aap_unavailable_description">Ang mga advanced na setting ng AirPods ay nangangailangan ng Bluetooth na tampok na hindi available sa teleponong ito. Maaaring malutas ito ng isang hinaharap na Android update mula sa tagagawa ng iyong device.</string>
+    <string name="device_settings_aap_unavailable_action">Tingnan ang compatibility tracker</string>
     <string name="device_settings_category_sound_label">Tunog</string>
     <string name="device_settings_category_controls_label">Mga Kontrol</string>
     <string name="device_settings_nc_one_airpod_label">ANC na may isang pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Isang pindutin para i-mute ang mikropono</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dalawang pindutin para tapusin ang tawag</string>
     <string name="device_settings_open_cd">Buksan ang mga setting ng device</string>
+    <string name="overview_card_missing_paired_device">Ang profile na ito ay walang naipares na Bluetooth device.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Pangkalahatan</string>
     <string name="device_settings_microphone_mode_label">Mikropono</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Payagan ang Off bilang mapipiling noise control mode. Kapag naka-disable, nilalaktawan ng mga stem ang Off habang nagcy-cycle.</string>
     <string name="device_settings_sleep_detection_label">Sleep Detection</string>
     <string name="device_settings_sleep_detection_description">Awtomatikong i-pause ang audio kapag nakatulog ka</string>
+    <string name="reaction_sleep_channel_label">Pagtuklas ng Pagtulog</string>
+    <string name="reaction_sleep_notification_title">Naka-pause ng Pagtuklas ng Pagtulog</string>
+    <string name="reaction_sleep_notification_text">Naiulat ng %1$s na nakatulog ka, kaya na-pause ang iyong musika. Maaari mong i-disable ito sa mga setting ng device.</string>
     <string name="device_settings_rename_label">Palitan ang Pangalan</string>
     <string name="device_settings_rename_hint">Pangalan ng device</string>
     <string name="device_settings_rename_confirm">Palitan ang Pangalan</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Mga Setting ng Bluetooth</string>
     <string name="device_settings_send_failed">Hindi ma-apply ang setting: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Hindi naka-enable ang Off mode sa device na ito. I-enable ang \"Payagan ang Off mode\" sa ilalim ng Noise Control.</string>
+    <string name="device_settings_category_battery_label">Baterya</string>
+    <string name="device_settings_charge_cap_label">Na-optimize na Limitasyon ng Pagsisingilin</string>
+    <string name="device_settings_charge_cap_description">Matuto ng iyong gawain at i-pause ang pagsisingilin sa paligid ng 80%% upang mapahaba ang buhay ng baterya, sinisisingilin ang mga pods bago mo pa malamang gamitin ang mga ito.</string>
+    <string name="device_settings_charge_cap_rejected_message">Hindi mabago ang Na-optimize na Limitasyon ng Pagsisingilin. Ito ay isang eksperimental na feature — mangyaring iulat kung patuloy itong nabibigo.</string>
     <string name="device_settings_category_connections_label">Mga Nakakonektang Device</string>
     <string name="device_settings_connected_devices_description">Iba pang mga device na kasalukuyang nakakonekta sa mga AirPods na ito</string>
     <string name="device_settings_connected_device_label">Device %d</string>

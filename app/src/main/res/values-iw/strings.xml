@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">שקיפות רקע</string>
     <string name="widget_config_show_device_label">הצג שם התקן</string>
     <string name="widget_config_reset_label">אפס לברירות המחדל</string>
+    <string name="widget_config_preview_resize_hint">ניתן לשנות את גודל הווידג\'ט לאחר הצבתו על מסך הבית שלך.</string>
     <string name="widget_config_custom_label">מותאם אישית</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">כהה</string>
@@ -204,6 +205,12 @@
         <item quantity="many">%d מכשירים ללא פרופיל תואם</item>
         <item quantity="other">%d מכשירים ללא פרופיל תואם</item>
     </plurals>
+    <plurals name="overview_more_devices_upgrade">
+        <item quantity="one">התקן %d נוסף</item>
+        <item quantity="two">%d התקנים נוספים</item>
+        <item quantity="many">%d התקנים נוספים</item>
+        <item quantity="other">%d התקנים נוספים</item>
+    </plurals>
     <string name="permission_bluetooth_connect_label">חיבור Bluetooth</string>
     <string name="permission_bluetooth_connect_description">אפליקציה זו דורשת הרשאת \"חיבור Bluetooth\" כדי לתקשר עם מכשירים מותאמים וליזום חיבורים.</string>
     <string name="permission_bluetooth_scan_label">סריקת Bluetooth</string>
@@ -248,6 +255,7 @@
     <string name="pods_unknown_contact_dev">זהו מכשיר לא ידוע, אך הוא משתמש בפורמט הודעות דומה. בואו נוסיף תמיכה בו, צרו איתי קשר :)</string>
     <string name="pods_none_label_short">אין מכשיר</string>
     <string name="pods_charging_label">טעינה</string>
+    <string name="pods_charging_optimized_label">מותאם</string>
     <string name="pods_inear_label">באוזן</string>
     <string name="pods_microphone_label">מיקרופון</string>
     <string name="anc_mode_off">כבוי</string>
@@ -411,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">תווית התקן בלוטות\'</string>
     <string name="device_settings_info_model_label">דגם</string>
     <string name="device_settings_info_manufacturer_label">יצרן</string>
+    <string name="device_settings_info_hardware_label">חומרה</string>
     <string name="device_settings_info_serial_label">מספר סריאלי</string>
     <string name="device_settings_info_firmware_label">קושחאר</string>
+    <string name="device_settings_info_firmware_pending_label">קושחה ממתינה</string>
     <string name="device_settings_info_build_label">גרסה</string>
     <string name="device_settings_info_left_serial_label">מספר סידורי שמאל</string>
     <string name="device_settings_info_right_serial_label">מספר סידורי ימין</string>
+    <string name="device_settings_info_left_bonded_label">שמאל מחובר</string>
+    <string name="device_settings_info_right_bonded_label">ימין מחובר</string>
     <string name="device_settings_info_details_label">פרטי התקן</string>
     <string name="device_settings_info_details_action">הצג פרטי התקן</string>
     <string name="device_settings_info_status_label">מצב</string>
@@ -425,8 +437,11 @@
     <string name="device_settings_not_connected_description">המכשיר בקרבת מקום אך אינו מחובר לטלפון זה. התחבר כדי לגשת להגדרות ופקדים.</string>
     <string name="device_settings_not_connected_connect_action">התחבר</string>
     <string name="device_settings_not_connected_open_settings_action">פתח הגדרות Bluetooth</string>
+    <string name="device_settings_not_nearby_label">המכשיר אינו בקרבת מקום</string>
+    <string name="device_settings_not_nearby_description">ההגדרות זמינות רק כאשר המכשיר נמצא בקרבת מקום ומחובר לטלפון שלך.</string>
     <string name="device_settings_aap_unavailable_label">הגדרות מתקדמות אינן זמינות</string>
     <string name="device_settings_aap_unavailable_description">הגדרות AirPods מתקדמות דורשות תכונת בלוטות\' שאינה זמינה בטלפון זה. ייתכן שיש לכך פתרון בעדכון אנדרואיד עתידי מיצרן המכשיר.</string>
+    <string name="device_settings_aap_unavailable_action">צפה במעקב תאימות</string>
     <string name="device_settings_category_sound_label">צליל</string>
     <string name="device_settings_category_controls_label">בקרות</string>
     <string name="device_settings_nc_one_airpod_label">ANC עם אוזנייה אחת</string>
@@ -464,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">לחיצה אחת להשתקת מיקרופון</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">לחיצה כפולה לסיום שיחה</string>
     <string name="device_settings_open_cd">פתח הגדרות מכשיר</string>
+    <string name="overview_card_missing_paired_device">לפרופיל זה אין התקן Bluetooth מקושר.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">כללי</string>
     <string name="device_settings_microphone_mode_label">מיקרופון</string>
@@ -486,6 +502,9 @@
     <string name="device_settings_allow_off_description">אפשר כבוי כמצב בקרת רעש ניתן לבחירה. כאשר מבוטל, הגבעולים דולגים על כבוי במהלך המחזור.</string>
     <string name="device_settings_sleep_detection_label">זיהוי שינה</string>
     <string name="device_settings_sleep_detection_description">השהית שמע אוטומטית כשאתה נרדם</string>
+    <string name="reaction_sleep_channel_label">זיהוי שינה</string>
+    <string name="reaction_sleep_notification_title">הושהה על ידי זיהוי שינה</string>
+    <string name="reaction_sleep_notification_text">%1$s דיווח שנרדמת, לכן המוזיקה הושהתה. ניתן להשבית זאת בהגדרות המכשיר.</string>
     <string name="device_settings_rename_label">שנה שם</string>
     <string name="device_settings_rename_hint">שם המכשיר</string>
     <string name="device_settings_rename_confirm">שנה שם</string>
@@ -495,6 +514,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">הגדרות Bluetooth</string>
     <string name="device_settings_send_failed">לא ניתן היה להחיל את ההגדרה: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">מצב כבוי אינו מופעל במכשיר זה. הפעל את \"אפשר מצב כבוי\" תחת בקרת רעש.</string>
+    <string name="device_settings_category_battery_label">סוללה</string>
+    <string name="device_settings_charge_cap_label">מגבלת טעינה מותאמת</string>
+    <string name="device_settings_charge_cap_description">לומד את השגרה שלך ומשהה את הטעינה סביב 80%% כדי להאריך את חיי הסוללה, ומשלים את הטעינה לפני שסביר שתשתמש בהם.</string>
+    <string name="device_settings_charge_cap_rejected_message">לא ניתן לשנות את מגבלת הטעינה המותאמת. זוהי תכונה ניסיונית — אנא דווח אם היא ממשיכה להיכשל.</string>
     <string name="device_settings_category_connections_label">מכשירים מחוברים</string>
     <string name="device_settings_connected_devices_description">מכשירים אחרים המחוברים כעת ל-AirPods אלו</string>
     <string name="device_settings_connected_device_label">מכשיר %d</string>

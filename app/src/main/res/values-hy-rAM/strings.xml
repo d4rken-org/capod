@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Ֆոնի թափանցիկություն</string>
     <string name="widget_config_show_device_label">Ցուցադրել սարքի անունը</string>
     <string name="widget_config_reset_label">Վերականգնել լռելյալը</string>
+    <string name="widget_config_preview_resize_hint">Դուք կարող եք փոխել վիջեթի չափը այն ձեր գլխավոր էկրանին տեղադրելուց հետո:</string>
     <string name="widget_config_custom_label">Հատուկ</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Մութ</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Սա անհայտ սարք է, բայց այն օգտագործում է նմանատիպ հաղորդագրության ձևաչափ։ Եկեք ավելացնենք աջակցություն դրա համար, կապվեք ինձ հետ :)</string>
     <string name="pods_none_label_short">Սարք չկա</string>
     <string name="pods_charging_label">Լիցքավորվում է</string>
+    <string name="pods_charging_optimized_label">Օպտիմիզացված</string>
     <string name="pods_inear_label">Ականջում է</string>
     <string name="pods_microphone_label">Բարձրախոս</string>
     <string name="anc_mode_off">Անջատ</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth սարքի անուն</string>
     <string name="device_settings_info_model_label">Մոդել</string>
     <string name="device_settings_info_manufacturer_label">Արտադրող</string>
+    <string name="device_settings_info_hardware_label">Ապարատ</string>
     <string name="device_settings_info_serial_label">Սերիական համար</string>
     <string name="device_settings_info_firmware_label">Ծրագրաշար</string>
+    <string name="device_settings_info_firmware_pending_label">Սպասվող որոնվածային ծրագիր</string>
     <string name="device_settings_info_build_label">Կառուցվածք</string>
     <string name="device_settings_info_left_serial_label">Ձախ ականջակալի սերիա</string>
     <string name="device_settings_info_right_serial_label">Աջ ականջակալի սերիա</string>
+    <string name="device_settings_info_left_bonded_label">Ձախ կապակցված</string>
+    <string name="device_settings_info_right_bonded_label">Աջ կապակցված</string>
     <string name="device_settings_info_details_label">Սարքի մանրամասները</string>
     <string name="device_settings_info_details_action">Ցուցադրել սարքի մանրամասները</string>
     <string name="device_settings_info_status_label">Կարգավիճակ</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Սարքը մոտ է, սակայն կապված չէ այս հեռախոսին։ Կապվեք՝ կարգավորումներն ու կառավարումները մուտք գործելու համար։</string>
     <string name="device_settings_not_connected_connect_action">Կապվել</string>
     <string name="device_settings_not_connected_open_settings_action">Բացել Bluetooth-ի կարգավորումները</string>
+    <string name="device_settings_not_nearby_label">Սարքը մոտակայքում չէ</string>
+    <string name="device_settings_not_nearby_description">Կարգավորումները հասանելի են միայն այն դեպքում, երբ այս սարքը մոտակայքում է և միացած ձեր հեռախոսին։</string>
     <string name="device_settings_aap_unavailable_label">Ընդլայնված կարգաբերումներն անհասանելի են</string>
     <string name="device_settings_aap_unavailable_description">AirPods-ի առաջադեմ կարգավորումները պահանջում են Bluetooth հատկություն, որը հասանելի չէ այս հեռախոսին: Այս կարգը կարող է լուծվել ձեր սարքի արտադրողի Android-ի ապագա թարմացմամբ:</string>
+    <string name="device_settings_aap_unavailable_action">Դիտել համատեղելիության հետագծիչը</string>
     <string name="device_settings_category_sound_label">Ձայն</string>
     <string name="device_settings_category_controls_label">Կառավարում</string>
     <string name="device_settings_nc_one_airpod_label">ANC մեկ ականջակալով</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Մեկ սեղմում խոսափոնը անձայնեցնելու համար</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Կրկնակի սեղմում զանգը ավարտելու համար</string>
     <string name="device_settings_open_cd">Բացել սառքի կառավարումները</string>
+    <string name="overview_card_missing_paired_device">Այս պրոֆիլը չունի զուգակցված Bluetooth սարք:</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ընդհանուր</string>
     <string name="device_settings_microphone_mode_label">Խոսափող</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Թույլատրել Անջատ-ը որպես ընտրովի աղմուկի կառավարման ռեժիմ: Անջատելու դեպքում կառուները շրջանի ժամանակ բաց են թողնում Անջատ-ը:</string>
     <string name="device_settings_sleep_detection_label">Քնի հայտնաբերում</string>
     <string name="device_settings_sleep_detection_description">Ավտոմատ կասեցնել ձայնը, երբ քնում եք</string>
+    <string name="reaction_sleep_channel_label">Քնի հայտնաբերում</string>
+    <string name="reaction_sleep_notification_title">Դադարեցված Քնի հայտնաբերման կողմից</string>
+    <string name="reaction_sleep_notification_text">%1$s-ը հայտնել է, որ դուք քնեցիք, ուստի ձեր երաժշտությունը դադարեցվեց։ Դուք կարող եք անջատել սա սարքի կարգավորումներում։</string>
     <string name="device_settings_rename_label">Փոխել անունը</string>
     <string name="device_settings_rename_hint">Սառքի անուն</string>
     <string name="device_settings_rename_confirm">Փոխել անունը</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth կարգաբերումներ</string>
     <string name="device_settings_send_failed">Չհաջողվեց կիրառել կարգավորումը՝ %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Անջատ ռեժիմը հասանելի չէ այս սարքին: Միացրեք «Թույլատրել Անջատ ռեժիմը» Աղմուկի կառավարման բաժնում:</string>
+    <string name="device_settings_category_battery_label">Մարտկոց</string>
+    <string name="device_settings_charge_cap_label">Լիցքի օպտիմիզացված սահման</string>
+    <string name="device_settings_charge_cap_description">Սովորեք ձեր ռեժիմը և դադարեցրեք լիցքավորումը մոտ 80%%-ի դեպքում՝ մարտկոցի ծառայության ժամկետը երկարացնելու համար՝ pods-երը լիցքավորելով նախքան դրանք օգտագործելը։</string>
+    <string name="device_settings_charge_cap_rejected_message">Լիցքի օպտիմիզացված սահմանը հնարավոր չեղավ փոխել։ Սա փորձարարական հատկություն է — խնդրում ենք հայտնել, եթե այն շարունակի ձախողվել։</string>
     <string name="device_settings_category_connections_label">Կապլված սառքեր</string>
     <string name="device_settings_connected_devices_description">Այլ սառքերը, որոնք կապլված են խի AirPods-ին</string>
     <string name="device_settings_connected_device_label">Սառք %d</string>

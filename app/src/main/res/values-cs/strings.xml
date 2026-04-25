@@ -26,7 +26,7 @@
     <string name="upgrade_benefit_popups">Vyskakovací okno při otevření a připojení</string>
     <string name="upgrade_benefit_widgets">Widgety domovské obrazovky</string>
     <string name="upgrade_benefit_device_settings">Pokročilá nastavení zařízení</string>
-    <string name="upgrade_benefit_device_controls">Ovládání zařízení &#8212; hluk, stonky &amp; více</string>
+    <string name="upgrade_benefit_device_controls">Ovládací prvky zařízení &#8212; šum, okolní hluk a další</string>
     <string name="upgrade_benefit_support">Podpořit vývojáře</string>
     <string name="upgrade_benefit_disclaimer">Dostupnost funkcí závisí na vašich sluchátkách a zařízení.</string>
     <string name="upgrade_screen_options_description">Stejné funkce, různé ceny. Předplatné zahrnuje bezplatnou zkušební dobu a lze jej kdykoli zrušit.</string>
@@ -82,10 +82,10 @@
     <string name="settings_popup_connected_label">Zobrazit vyskakovací okno při připojení</string>
     <string name="settings_popup_connected_description">Zobrazit vyskakovací okno při prvním připojení zařízení.</string>
     <string name="settings_popup_info_not_in_app">Vyskakovací okna jsou zobrazována pouze tehdy, když nejste v aplikaci.</string>
-    <string name="settings_popup_warning_manual_mode">Vyskakovací okna vyžadují, aby monitor běžel. Váš režim monitoru je nastaven na „Když je aplikace otevřena“, což zastaví monitor, když aplikaci opustíte.</string>
+    <string name="settings_popup_warning_manual_mode">Vyskakovací okna vyžadují, aby monitor běžel. Váš režim monitoru je nastaven na \"Když je aplikace otevřena\", což zastaví monitor, když aplikaci opustíte.</string>
     <string name="general_fix_it_action">Opravit</string>
     <string name="device_settings_experimental_title">Experimentální funkce</string>
-    <string name="device_settings_experimental_description">Tato funkce ještě nebyla testována na všech zařízeních. Pokud něco nefunguje správně, otevřete prosím problém s protokolem ladění.</string>
+    <string name="device_settings_experimental_description">Tato funkce ještě nebyla testována na všech zařízeních. Pokud něco nefunguje správně, nahlaste problém s logem ladění.</string>
     <string name="device_settings_experimental_action">Otevřít sledovač problémů</string>
     <string name="notification_channel_device_status_label">Stav zařízení</string>
     <string name="notification_channel_device_status_connected_label">Připojené zařízení</string>
@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Průhlednost pozadí</string>
     <string name="widget_config_show_device_label">Zobrazit název zařízení</string>
     <string name="widget_config_reset_label">Obnovit výchozí nastavení</string>
+    <string name="widget_config_preview_resize_hint">Velikost widgetu můžete změnit po jeho umístění na domovskou obrazovku.</string>
     <string name="widget_config_custom_label">Vlastní</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tmavá</string>
@@ -191,7 +192,7 @@
     <string name="overview_nomaindevice_label">Není nakonfigurováno žádné zařízení</string>
     <string name="overview_nomaindevice_description">Nakonfigurujte zařízení tak, aby začalo sledovat stav baterie a aktivujte další funkce.</string>
     <string name="overview_bluetooth_disabled_icon_cd">Bluetooth vypnuto, otevřít nastavení</string>
-    <string name="overview_bluetooth_nearby_icon_cd">Zařízení v blízkosti, otevřít nastavení Bluetooth</string>
+    <string name="overview_bluetooth_nearby_icon_cd">Zařízení v blízkösti, otevřít nastavení Bluetooth</string>
     <string name="overview_bluetooth_connected_icon_cd">Zařízení připojeno, otevřít nastavení Bluetooth</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth je vypnuto</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth je vypnuto, zapněte jej ;)</string>
@@ -205,10 +206,10 @@
         <item quantity="other">%d zařízení bez odpovídajícího profilu</item>
     </plurals>
     <plurals name="overview_more_devices_upgrade">
-        <item quantity="one">o %d zařízení více</item>
-        <item quantity="few">o %d zařízení více</item>
-        <item quantity="many">o %d zařízení více</item>
-        <item quantity="other">o %d zařízení více</item>
+        <item quantity="one">%d další zařízení</item>
+        <item quantity="few">%d další zařízení</item>
+        <item quantity="many">%d dalších zařízení</item>
+        <item quantity="other">%d dalších zařízení</item>
     </plurals>
     <string name="permission_bluetooth_connect_label">Připojení Bluetooth</string>
     <string name="permission_bluetooth_connect_description">Tato aplikace vyžaduje oprávnění \"připojení Bluetooth\" pro interakci se spárovanými zařízeními a zahájení připojení.</string>
@@ -254,6 +255,7 @@
     <string name="pods_unknown_contact_dev">Jedná se o neznámé zařízení, ale používá podobný formát zprávy. Přidejme pro něj podporu. Kontaktujte mě :)</string>
     <string name="pods_none_label_short">Žádné zařízení</string>
     <string name="pods_charging_label">Nabíjení</string>
+    <string name="pods_charging_optimized_label">Optimalizováno</string>
     <string name="pods_inear_label">V uchu</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Vypnuto</string>
@@ -266,7 +268,7 @@
     <string name="signal_badge_key_encrypted_cd">Šifrované připojení</string>
     <string name="signal_badge_aap_cd">Přímé připojení aktivní</string>
     <string name="signal_indicator_bars_cd">Síla signálu: %1$d ze 4 dílků</string>
-    <string name="signal_indicator_disconnected_cd">Signál: odpojen</string>
+    <string name="signal_indicator_disconnected_cd">Signál: odpojeno</string>
     <string name="pods_yours">Vaše</string>
     <string name="headset_being_worn_label">Používá se</string>
     <string name="headset_not_being_worn_label">Nepoužíváno</string>
@@ -417,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">Název zařízení Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Výrobce</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Sériové číslo</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Čekající firmware</string>
     <string name="device_settings_info_build_label">Sestavení</string>
     <string name="device_settings_info_left_serial_label">Sériové číslo levého sluchátka</string>
     <string name="device_settings_info_right_serial_label">Sériové číslo pravého sluchátka</string>
+    <string name="device_settings_info_left_bonded_label">Levá spárována</string>
+    <string name="device_settings_info_right_bonded_label">Pravá spárována</string>
     <string name="device_settings_info_details_label">Detaily zařízení</string>
     <string name="device_settings_info_details_action">Zobrazit detaily zařízení</string>
     <string name="device_settings_info_status_label">Stav</string>
@@ -431,8 +437,11 @@
     <string name="device_settings_not_connected_description">Toto zařízení je v dosahu, ale není připojeno k tomuto telefonu. Připojte se pro přístup k nastavení a ovládacím prvkům.</string>
     <string name="device_settings_not_connected_connect_action">Připojit</string>
     <string name="device_settings_not_connected_open_settings_action">Otevřít nastavení Bluetooth</string>
-    <string name="device_settings_aap_unavailable_label">Rozšířená nastavení nedostupná</string>
+    <string name="device_settings_not_nearby_label">Zařízení není v blízkosti</string>
+    <string name="device_settings_not_nearby_description">Nastavení jsou dostupná pouze tehdy, když je toto zařízení v blízkosti a připojeno k vašemu telefonu.</string>
+    <string name="device_settings_aap_unavailable_label">Pokročilá nastavení nedostupná</string>
     <string name="device_settings_aap_unavailable_description">Pokročilá nastavení AirPods vyžadují funkci Bluetooth, která není na tomto telefonu dostupná. To může být vyřešeno budoucí aktualizací Androidu od výrobce vašeho zařízení.</string>
+    <string name="device_settings_aap_unavailable_action">Zobrazit sledování kompatibility</string>
     <string name="device_settings_category_sound_label">Zvuk</string>
     <string name="device_settings_category_controls_label">Ovládání</string>
     <string name="device_settings_nc_one_airpod_label">ANC s jedním sluchátkem</string>
@@ -440,7 +449,7 @@
     <string name="device_settings_personalized_volume_label">Personalizovaná hlasitost</string>
     <string name="device_settings_personalized_volume_description">Upravit hlasitost médií na základě prostředí</string>
     <string name="device_settings_conversation_awareness_description">Snížit hlasitost médií a utlumit hluk, když k vám někdo mluví</string>
-    <string name="device_settings_tone_volume_label">Hlasitost zvěnkě</string>
+    <string name="device_settings_tone_volume_label">Hlasitost zvonění</string>
     <string name="device_settings_tone_volume_description">Hlasitost potvrzení a vyzvánění</string>
     <string name="device_settings_adaptive_noise_label">Adaptivní potlačení hluku</string>
     <string name="device_settings_adaptive_noise_description">Kolik okolního hluku je propouštěno</string>
@@ -470,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Jednorázový stisk pro ztlumení mikrofonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojitý stisk pro ukončení hovoru</string>
     <string name="device_settings_open_cd">Otevřít nastavení zařízení</string>
+    <string name="overview_card_missing_paired_device">Tento profil nemá spárované zařízení Bluetooth.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Obecné</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -492,6 +502,9 @@
     <string name="device_settings_allow_off_description">Povolit Vypnuto jako volitelný režim kontroly hluku. Pokud je zakázáno, stopky při cyklování přeskočí Vypnuto.</string>
     <string name="device_settings_sleep_detection_label">Detekce spánku</string>
     <string name="device_settings_sleep_detection_description">Automaticky pozastavit zvuk, když usnete</string>
+    <string name="reaction_sleep_channel_label">Detekce spánku</string>
+    <string name="reaction_sleep_notification_title">Pozastaveno detekcí spánku</string>
+    <string name="reaction_sleep_notification_text">%1$s oznámil, že jste usnuli, takže vaše hudba byla pozastavena. Toto můžete vypnout v nastavení zařízení.</string>
     <string name="device_settings_rename_label">Přejmenovat</string>
     <string name="device_settings_rename_hint">Název zařízení</string>
     <string name="device_settings_rename_confirm">Přejmenovat</string>
@@ -501,13 +514,17 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Nastavení Bluetooth</string>
     <string name="device_settings_send_failed">Nastavení nelze použít: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Režim Vypnuto není na tomto zařízení povolen. Povolte „Povolit režim Vypnuto“ v části Kontrola hluku.</string>
+    <string name="device_settings_category_battery_label">Baterie</string>
+    <string name="device_settings_charge_cap_label">Optimalizovaný limit nabíjení</string>
+    <string name="device_settings_charge_cap_description">Naučí se vaše návyky a pozastaví nabíjení přibližně na 80 %%, aby prodloužilo životnost baterie, a dobíjí sluchátka těsně před jejich použitím.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimalizovaný limit nabíjení nepšel změnit. Jde o experimentalní funkci — prosím nahláste, pokud to nefunguje opakovaně.</string>
     <string name="device_settings_category_connections_label">Připojená zařízení</string>
     <string name="device_settings_connected_devices_description">Další zařízení aktuálně připojená k těmto AirPods</string>
     <string name="device_settings_connected_device_label">Zařízení %d</string>
     <string name="device_settings_connected_device_call">Probíhá hovor</string>
     <string name="device_settings_connected_device_media">Přehrává média</string>
     <string name="device_settings_noise_control_label">Ovládání zvuku</string>
-    <string name="device_settings_eq_label">Ekvualizér</string>
+    <string name="device_settings_eq_label">Ekvalizér</string>
     <!-- Press Controls -->
     <string name="press_controls_title">Ovládání stisku</string>
     <string name="press_controls_nav_description">Nastavte chování stisku a přiřaďte stisky k akcím</string>
@@ -518,13 +535,13 @@
     <string name="press_controls_long_press">Dlouhý stisk</string>
     <string name="press_controls_long_press_anc_cycle_info">Přiřazení akce dlouhého stisku také zakáže cyklování režimů Kontroly hluku (např. Potlačení hluku, Transparentnost) stisknutím a podržením AirPods.</string>
     <string name="press_controls_mappings_section_title">Mapování stisku</string>
-    <string name="press_controls_left">Levý</string>
-    <string name="press_controls_right">Pravý</string>
+    <string name="press_controls_left">Levé</string>
+    <string name="press_controls_right">Pravé</string>
     <string name="press_action_none">Výchozí</string>
     <string name="press_action_no_action">Žádná akce</string>
     <string name="press_action_play_pause">Přehrát/Pozastavit</string>
-    <string name="press_action_next_track">Další stopa</string>
-    <string name="press_action_previous_track">Předchozí stopa</string>
+    <string name="press_action_next_track">Další skladba</string>
+    <string name="press_action_previous_track">Předchozí skladba</string>
     <string name="press_action_volume_up">Hlasitost nahoru</string>
     <string name="press_action_volume_down">Hlasitost dolů</string>
     <string name="press_action_mute_toggle">Ztlumit hudbu</string>

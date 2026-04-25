@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Taustan läpinäkyvyys</string>
     <string name="widget_config_show_device_label">Näytä laitteen nimi</string>
     <string name="widget_config_reset_label">Palauta oletusasetukset</string>
+    <string name="widget_config_preview_resize_hint">Voit muuttaa widgetin kokoa sen asettamisen jälkeen aloitusnäytöllä.</string>
     <string name="widget_config_custom_label">Mukautettu</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tumma</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Tämä on tuntematon laite, mutta se käyttää samanlaista viestimuotoa. Lisätään sille tuki, ota yhteyttä :)</string>
     <string name="pods_none_label_short">Ei laitetta</string>
     <string name="pods_charging_label">Latautuu</string>
+    <string name="pods_charging_optimized_label">Optimoitu</string>
     <string name="pods_inear_label">Korvassa</string>
     <string name="pods_microphone_label">Mikrofoni</string>
     <string name="anc_mode_off">Pois</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth-laitteen nimi</string>
     <string name="device_settings_info_model_label">Malli</string>
     <string name="device_settings_info_manufacturer_label">Valmistaja</string>
+    <string name="device_settings_info_hardware_label">Laitteisto</string>
     <string name="device_settings_info_serial_label">Sarjanumero</string>
     <string name="device_settings_info_firmware_label">Laiteohjelmisto</string>
+    <string name="device_settings_info_firmware_pending_label">Odottava laiteohjelmisto</string>
     <string name="device_settings_info_build_label">Versio</string>
     <string name="device_settings_info_left_serial_label">Vasemman kuulokkeen sarjanumero</string>
     <string name="device_settings_info_right_serial_label">Oikean kuulokkeen sarjanumero</string>
+    <string name="device_settings_info_left_bonded_label">Vasen yhdistetty</string>
+    <string name="device_settings_info_right_bonded_label">Oikea yhdistetty</string>
     <string name="device_settings_info_details_label">Laitteen tiedot</string>
     <string name="device_settings_info_details_action">Näytä laitteen tiedot</string>
     <string name="device_settings_info_status_label">Tila</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Tämä laite on lähellä, mutta ei yhdistettynä tähän puhelimeen. Yhdistä päästäksesi asetuksiin ja säätimiin.</string>
     <string name="device_settings_not_connected_connect_action">Yhdistä</string>
     <string name="device_settings_not_connected_open_settings_action">Avaa Bluetooth-asetukset</string>
+    <string name="device_settings_not_nearby_label">Laite ei ole lähellä</string>
+    <string name="device_settings_not_nearby_description">Asetukset ovat käytettävissä vain, kun tämä laite on lähellä ja yhdistettynä puhelimeesi.</string>
     <string name="device_settings_aap_unavailable_label">Lisäasetukset eivät ole käytettävissä</string>
     <string name="device_settings_aap_unavailable_description">AirPods-lisäasetukset vaativat Bluetooth-ominaisuuden, joka ei ole saatavilla tässä puhelimessa. Laitteen valmistajan tuleva Android-päivitys saattaa ratkaista tämän.</string>
+    <string name="device_settings_aap_unavailable_action">Katso yhteensopivuusseuranta</string>
     <string name="device_settings_category_sound_label">Ääni</string>
     <string name="device_settings_category_controls_label">Säätimet</string>
     <string name="device_settings_nc_one_airpod_label">ANC yhdellä kuulokkeella</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Yksinkertainen painallus mykistää mikrofonin</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kaksoispainallus lopettaa puhelun</string>
     <string name="device_settings_open_cd">Avaa laiteasetukset</string>
+    <string name="overview_card_missing_paired_device">Tällä profiililla ei ole yhdistettyä Bluetooth-laitetta.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Yleiset</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Salli Pois valittavaksi melunhallintatilaksi. Kun poistettu käytöstä, varret ohittavat Pois-tilan kierrossa.</string>
     <string name="device_settings_sleep_detection_label">Unitunnistus</string>
     <string name="device_settings_sleep_detection_description">Pysäytä ääni automaattisesti, kun nukahdat</string>
+    <string name="reaction_sleep_channel_label">Unitunnistus</string>
+    <string name="reaction_sleep_notification_title">Unitunnistus keskeytti toiston</string>
+    <string name="reaction_sleep_notification_text">%1$s havaitsi sinun nukahtaneen, joten musiikkisi keskeytettiin. Voit poistaa tämän käytöstä laiteasetuksista.</string>
     <string name="device_settings_rename_label">Nimeä uudelleen</string>
     <string name="device_settings_rename_hint">Laitteen nimi</string>
     <string name="device_settings_rename_confirm">Nimeä uudelleen</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-asetukset</string>
     <string name="device_settings_send_failed">Asetusta ei voitu ottaa käyttöön: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Pois-tila ei ole käytössä tässä laitteessa. Ota käyttöön \"Salli Pois-tila\" Melunhallinnassa.</string>
+    <string name="device_settings_category_battery_label">Akku</string>
+    <string name="device_settings_charge_cap_label">Optimoitu latausraja</string>
+    <string name="device_settings_charge_cap_description">Oppii rutiinisi ja keskeyttää lataamisen noin 80 %%:iin akkukeston pidentämiseksi, täydentäen kuulokkeet ennen todennäköistä käyttöä.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimoitua latausrajaa ei voitu muuttaa. Tämä on kokeellinen ominaisuus – ilmoita asiasta, jos ongelma toistuu.</string>
     <string name="device_settings_category_connections_label">Yhdistetyt laitteet</string>
     <string name="device_settings_connected_devices_description">Muut laitteet, jotka ovat tällä hetkellä yhdistetty näihin AirPodeihin</string>
     <string name="device_settings_connected_device_label">Laite %d</string>

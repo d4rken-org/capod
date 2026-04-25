@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparència del fons</string>
     <string name="widget_config_show_device_label">Mostra el nom del dispositiu</string>
     <string name="widget_config_reset_label">Restaura els valors per defecte</string>
+    <string name="widget_config_preview_resize_hint">Podeu canviar la mida del giny després de col·locar-lo a la pantalla d\'inici.</string>
     <string name="widget_config_custom_label">Personalitzat</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Fosc</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Aquest és un dispositiu desconegut, però utilitza un format de missatge similar. Anem a fer-lo compatible, contacteu amb mi :)</string>
     <string name="pods_none_label_short">Cap dispositiu</string>
     <string name="pods_charging_label">Carregant</string>
+    <string name="pods_charging_optimized_label">Optimitzada</string>
     <string name="pods_inear_label">A l\'orella</string>
     <string name="pods_microphone_label">Micròfon</string>
     <string name="anc_mode_off">Desactivat</string>
@@ -292,7 +294,7 @@
     <string name="profiles_delete_action">Elimina</string>
     <string name="profiles_basic_info_title">Informació del dispositiu</string>
     <string name="profiles_basic_info_description">Configureu el nom del dispositiu, el model i l\'emparellament Bluetooth opcional.</string>
-    <string name="profiles_signal_quality_title">Qualitat de senyal mínima</string>
+    <string name="profiles_signal_quality_title">Qualitat de senyal màxima</string>
     <string name="profiles_signal_quality_description">Només es detecten dispositius amb una intensitat de senyal superior a aquest llindar. Els valors més baixos augmenten el rang de detecció, però poden causar falsos positius. No configureu aquest valor massa alt: la recepció Bluetooth generalment és deficient i varia segons la distància i els obstacles.</string>
     <string name="profiles_identitykey_label">Clau d\'identitat</string>
     <string name="profilessettings_maindevice_identitykey_description">La clau de resolució d\'identitat (IRK) del dispositiu ajuda al CAPod a identificar-lo entre els dispositius propers.</string>
@@ -394,7 +396,7 @@
     <string name="support_contact_send_action">Obre l\'aplicació de correu</string>
     <string name="support_contact_no_email_app">No s\'ha trobat cap aplicació de correu en aquest dispositiu.</string>
     <string name="support_contact_debuglog_delete_title">Voleu suprimir el registre de depuració?</string>
-    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimirà permanentment.</string>
+    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimrirà permanentment.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">S\'ha enviat el registre?</string>
     <string name="support_debuglog_sent_message">El registre de depuració s\'ha enviat correctament? El registre s\'eliminarà.</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Etiqueta del dispositiu Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Fabricant</string>
+    <string name="device_settings_info_hardware_label">Maquinari</string>
     <string name="device_settings_info_serial_label">Número de sèrie</string>
     <string name="device_settings_info_firmware_label">Microprogramari</string>
+    <string name="device_settings_info_firmware_pending_label">Microprogramari pendent</string>
     <string name="device_settings_info_build_label">Compilació</string>
     <string name="device_settings_info_left_serial_label">Número de sèrie de l\'auricular esquerre</string>
     <string name="device_settings_info_right_serial_label">Número de sèrie de l\'auricular dret</string>
+    <string name="device_settings_info_left_bonded_label">Esquerre vinculat</string>
+    <string name="device_settings_info_right_bonded_label">Dret vinculat</string>
     <string name="device_settings_info_details_label">Detalls del dispositiu</string>
     <string name="device_settings_info_details_action">Mostra els detalls del dispositiu</string>
     <string name="device_settings_info_status_label">Estat</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Aquest dispositiu és a prop però no està connectat a aquest telèfon. Connecteu-lo per accedir a la configuració i als controls.</string>
     <string name="device_settings_not_connected_connect_action">Connecta</string>
     <string name="device_settings_not_connected_open_settings_action">Obre la configuració del Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Dispositiu no proper</string>
+    <string name="device_settings_not_nearby_description">La configuració només està disponible quan aquest dispositiu està a prop i connectat al telèfon.</string>
     <string name="device_settings_aap_unavailable_label">Configuració avançada no disponible</string>
     <string name="device_settings_aap_unavailable_description">La configuració avançada dels AirPods requereix una funció de Bluetooth que no està disponible en aquest telèfon. Pot ser que una actualització futura d\'Android del fabricant del dispositiu ho resolgui.</string>
+    <string name="device_settings_aap_unavailable_action">Mostra el rastrejador de compatibilitat</string>
     <string name="device_settings_category_sound_label">So</string>
     <string name="device_settings_category_controls_label">Controls</string>
     <string name="device_settings_nc_one_airpod_label">ANC amb un sol auricular</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Un sol toc per silenciar el micròfon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Doble toc per acabar la trucada</string>
     <string name="device_settings_open_cd">Obre la configuració del dispositiu</string>
+    <string name="overview_card_missing_paired_device">Aquest perfil no té cap dispositiu Bluetooth emparellat.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micròfon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Permet l\'opció Desactivat com a mode de control de soroll seleccionable. Quan està desactivat, les pliques ometen l\'opció Desactivat durant el cicle.</string>
     <string name="device_settings_sleep_detection_label">Detecció del son</string>
     <string name="device_settings_sleep_detection_description">Pausa automàticament l\'àudio quan us adormiu</string>
+    <string name="reaction_sleep_channel_label">Detecció del son</string>
+    <string name="reaction_sleep_notification_title">Pausat per la detecció del son</string>
+    <string name="reaction_sleep_notification_text">%1$s ha informat que us heu adormit, de manera que la vostra música s\'ha posat en pausa. Podeu desactivar-ho a la configuració del dispositiu.</string>
     <string name="device_settings_rename_label">Canvia el nom</string>
     <string name="device_settings_rename_hint">Nom del dispositiu</string>
     <string name="device_settings_rename_confirm">Canvia el nom</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Configuració del Bluetooth</string>
     <string name="device_settings_send_failed">No s\'ha pogut aplicar la configuració: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">El mode Desactivat no esta habilitat en aquest dispositiu. Activeu l\'opció «Permet el mode desactivat» al Control de soroll.</string>
+    <string name="device_settings_category_battery_label">Bateria</string>
+    <string name="device_settings_charge_cap_label">Límit de càrrega optimitzat</string>
+    <string name="device_settings_charge_cap_description">Aprèn la vostra rutina i pausa la càrrega al voltant del 80%% per allargar la vida de la bateria i completa la càrrega dels auriculars abans que els necessiteu.</string>
+    <string name="device_settings_charge_cap_rejected_message">No s\'ha pogut canviar el límit de càrrega optimitzat. Aquesta és una funció experimental; informeu si continua fallant.</string>
     <string name="device_settings_category_connections_label">Dispositius connectats</string>
     <string name="device_settings_connected_devices_description">Altres dispositius connectats ara a aquests AirPods</string>
     <string name="device_settings_connected_device_label">Dispositiu %d</string>

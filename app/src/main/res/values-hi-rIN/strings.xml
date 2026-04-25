@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">पृष्ठभूमि पारदर्शिता</string>
     <string name="widget_config_show_device_label">डिवाइस का नाम दिखाएं</string>
     <string name="widget_config_reset_label">डिफ़ॉल्ट पर रीसेट करें</string>
+    <string name="widget_config_preview_resize_hint">आप होम स्क्रीन पर रखने के बाद विजेट का आकार बदल सकते हैं।</string>
     <string name="widget_config_custom_label">कस्टम</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">गहरा</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">यह एक अज्ञात डिवाइस है, लेकिन यह समान संदेश प्रारूप का उपयोग कर रहा है। इसके लिए समर्थन जोड़ते हैं, मुझसे संपर्क करें :)</string>
     <string name="pods_none_label_short">कोई डिवाइस नहीं</string>
     <string name="pods_charging_label">चार्ज हो रहा है</string>
+    <string name="pods_charging_optimized_label">अनुकूलित</string>
     <string name="pods_inear_label">कान में</string>
     <string name="pods_microphone_label">माइक्रोफ़ोन</string>
     <string name="anc_mode_off">बंद</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth डिवाइस लेबल</string>
     <string name="device_settings_info_model_label">मॉडल</string>
     <string name="device_settings_info_manufacturer_label">निर्माता</string>
+    <string name="device_settings_info_hardware_label">हार्डवेयर</string>
     <string name="device_settings_info_serial_label">सीरियल नंबर</string>
     <string name="device_settings_info_firmware_label">फर्मवेयर</string>
+    <string name="device_settings_info_firmware_pending_label">लंबित फर्मवेयर</string>
     <string name="device_settings_info_build_label">बिल्ड</string>
     <string name="device_settings_info_left_serial_label">बाएं पॉड का सीरियल नंबर</string>
     <string name="device_settings_info_right_serial_label">दाएं पॉड का सीरियल नंबर</string>
+    <string name="device_settings_info_left_bonded_label">बायाँ युग्मित</string>
+    <string name="device_settings_info_right_bonded_label">दायाँ युग्मित</string>
     <string name="device_settings_info_details_label">डिवाइस विवरण</string>
     <string name="device_settings_info_details_action">डिवाइस विवरण दिखाएं</string>
     <string name="device_settings_info_status_label">स्थिति</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">यह डिवाइस पास में है लेकिन इस फ़ोन से कनेक्ट नहीं है। सेटिंग्स और नियंत्रण तक पहुंचने के लिए कनेक्ट करें।</string>
     <string name="device_settings_not_connected_connect_action">कनेक्ट करें</string>
     <string name="device_settings_not_connected_open_settings_action">ब्लूटूथ सेटिंग्स खोलें</string>
+    <string name="device_settings_not_nearby_label">डिवाइस पास में नहीं है</string>
+    <string name="device_settings_not_nearby_description">सेटिंग्स केवल तभी उपलब्ध होती हैं जब यह डिवाइस आपके फ़ोन के पास और उससे कनेक्ट हो।</string>
     <string name="device_settings_aap_unavailable_label">उन्नत सेटिंग्स अनुपलब्ध</string>
     <string name="device_settings_aap_unavailable_description">उन्नत AirPods सेटिंग के लिए Bluetooth फ़ीचर की आवश्यकता है जो इस फ़ोन पर उपलब्ध नहीं है। आपके डिवाइस निर्माता के भविष्य के Android अपडेट से यह समस्या हल हो सकती है।</string>
+    <string name="device_settings_aap_unavailable_action">संगतता ट्रैकर देखें</string>
     <string name="device_settings_category_sound_label">ध्वनि</string>
     <string name="device_settings_category_controls_label">नियंत्रण</string>
     <string name="device_settings_nc_one_airpod_label">एक पॉड के साथ ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">माइक्रोफ़ोन म्यूट करने के लिए एक बार दबाएं</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">कॉल समाप्त करने के लिए दो बार दबाएं</string>
     <string name="device_settings_open_cd">डिवाइस सेटिंग्स खोलें</string>
+    <string name="overview_card_missing_paired_device">इस प्रोफ़ाइल में कोई पेयर किया गया Bluetooth डिवाइस नहीं है।</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">माइक्रोफ़ोन</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Off को चयनयोग्य शोर नियंत्रण मोड के रूप में अनुमति दें। अक्षम होने पर, स्टेम साइकिल करते समय Off को छोड़ देते हैं।</string>
     <string name="device_settings_sleep_detection_label">नींद पहचान</string>
     <string name="device_settings_sleep_detection_description">सोने पर स्वचालित रूप से ऑडियो रोकें</string>
+    <string name="reaction_sleep_channel_label">नींद का पता लगाना</string>
+    <string name="reaction_sleep_notification_title">नींद का पता लगाने से रोका गया</string>
+    <string name="reaction_sleep_notification_text">%1$s ने बताया कि आप सो गए, इसलिए आपका संगीत रोक दिया गया। आप इसे डिवाइस सेटिंग्स में बंद कर सकते हैं।</string>
     <string name="device_settings_rename_label">नाम बदलें</string>
     <string name="device_settings_rename_hint">डिवाइस का नाम</string>
     <string name="device_settings_rename_confirm">नाम बदलें</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ब्लूटूथ सेटिंग्स</string>
     <string name="device_settings_send_failed">सेटिंग लागू नहीं हो सकी: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">इस डिवाइस पर Off मोड सक्षम नहीं है। शोर नियंत्रण के अंतर्गत \"ऑफ मोड अनुमति दें\" सक्षम करें।</string>
+    <string name="device_settings_category_battery_label">बैटरी</string>
+    <string name="device_settings_charge_cap_label">अनुकूलित चार्ज सीमा</string>
+    <string name="device_settings_charge_cap_description">आपकी दिनचर्या सीखें और बैटरी जीवन बढ़ाने के लिए लगभग 80%% पर चार्जिंग रोकें, इस्तेमाल से पहले पॉड्स को पूरी तरह चार्ज करें।</string>
+    <string name="device_settings_charge_cap_rejected_message">अनुकूलित चार्ज सीमा नहीं बदली जा सकी। यह एक प्रायोगिक सुविधा है — अगर यह बार-बार विफल होती रहे तो कृपया रिपोर्ट करें।</string>
     <string name="device_settings_category_connections_label">कनेक्टेड डिवाइस</string>
     <string name="device_settings_connected_devices_description">इन AirPods से वर्तमान में कनेक्टेड अन्य डिवाइस</string>
     <string name="device_settings_connected_device_label">डिवाइस %d</string>

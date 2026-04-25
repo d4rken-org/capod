@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">ಹಿನ್ನೆಲೆ ಪಾರದರ್ಶಕತೆ</string>
     <string name="widget_config_show_device_label">ಸಾಧನ ಹೆಸರು ತೋರಿಸಿ</string>
     <string name="widget_config_reset_label">ಪೂರ್ವನಿರ್ಧಾರಿತಕ್ಕೆ ಮರುಹೊಂದಿಸಿ</string>
+    <string name="widget_config_preview_resize_hint">ನಿಮ್ಮ ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ವಿಜೆಟ್ ಇಟ್ಟ ನಂತರ ನೀವು ಅದನ್ನು ಮರುಗಾತ್ರಗೊಳಿಸಬಹುದು.</string>
     <string name="widget_config_custom_label">ಕಸ್ಟಮ್</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ಗಾಢ</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">ಇದು ಅಜ್ಞಾತ ಸಾಧನವಾಗಿದೆ, ಆದರೆ ಇದು ಇದೇ ರೀತಿಯ ಸಂದೇಶ ಸ್ವರೂಪವನ್ನು ಬಳಸುತ್ತಿದೆ. ಇದಕ್ಕೆ ಬೆಂಬಲವನ್ನು ಸೇರಿಸೋಣ, ನನ್ನನ್ನು ಸಂಪರ್ಕಿಸಿ :)</string>
     <string name="pods_none_label_short">ಸಾಧನವಿಲ್ಲ</string>
     <string name="pods_charging_label">ಚಾರ್ಜ್ ಆಗುತ್ತಿದೆ</string>
+    <string name="pods_charging_optimized_label">ಆಪ್ಟಿಮೈಸ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="pods_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
     <string name="pods_microphone_label">ಮೈಕ್ರೋಫೋನ್</string>
     <string name="anc_mode_off">ಆಫ್</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">ಬ್ಲೂಟೂತ್ ಸಾಧನ ಲೇಬಲ್</string>
     <string name="device_settings_info_model_label">ಮಾದರಿ</string>
     <string name="device_settings_info_manufacturer_label">ತಯಾರಕ</string>
+    <string name="device_settings_info_hardware_label">ಹಾರ್ಡ್‌ವೇರ್</string>
     <string name="device_settings_info_serial_label">ಸಿರಿಯಲ್ ಸಂಖ್ಯೆ</string>
     <string name="device_settings_info_firmware_label">ಫರ್ಮ್ವೆಯರ್</string>
+    <string name="device_settings_info_firmware_pending_label">ಬಾಕಿ ಇರುವ ಫರ್ಮ್‌ವೇರ್</string>
     <string name="device_settings_info_build_label">ಬಿಲ್ಡ್</string>
     <string name="device_settings_info_left_serial_label">ಎಡ ಪಾಡ್ ಸೀರಿಯಲ್</string>
     <string name="device_settings_info_right_serial_label">ಬಲ ಪಾಡ್ ಸೀರಿಯಲ್</string>
+    <string name="device_settings_info_left_bonded_label">ಎಡ ಬಂಧಿತ</string>
+    <string name="device_settings_info_right_bonded_label">ಬಲ ಬಂಧಿತ</string>
     <string name="device_settings_info_details_label">ಸಾಧನ ವಿವರಗಳು</string>
     <string name="device_settings_info_details_action">ಸಾಧನ ವಿವರಗಳನ್ನು ತೋರಿಸಿ</string>
     <string name="device_settings_info_status_label">ಸ್ಥಿತಿ</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">ಈ ಸಾಧನವು ಹತ್ತಿರದಲ್ಲಿದೆ ಆದರೆ ಈ ಫೋನ್‌ಗೆ ಸಂಪರ್ಕಿಸಲಾಗಿಲ್ಲ. ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ನಿಯಂತ್ರಣಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ಸಂಪರ್ಕಿಸಿ.</string>
     <string name="device_settings_not_connected_connect_action">ಸಂಪರ್ಕಿಸಿ</string>
     <string name="device_settings_not_connected_open_settings_action">ಬ್ಲೂಟೂತ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
+    <string name="device_settings_not_nearby_label">ಸಾಧನ ಹತ್ತಿರದಲ್ಲಿಲ್ಲ</string>
+    <string name="device_settings_not_nearby_description">ಈ ಸಾಧನ ಹತ್ತಿರದಲ್ಲಿದ್ದು ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಸಂಪರ್ಕಿತವಾಗಿರುವಾಗ ಮಾತ್ರ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಲಭ್ಯವಿರುತ್ತವೆ.</string>
     <string name="device_settings_aap_unavailable_label">ಸುಧಾರಿತ ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="device_settings_aap_unavailable_description">ಸುಧಾರಿತ AirPods ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಈ ಫೋನ್‌ನಲ್ಲಿ ಲಭ್ಯವಿಲ್ಲದ ಬ್ಲೂಟೂತ್ ವೈಶಿಷ್ಟ್ಯ ಅಗತ್ಯವಿದೆ. ನಿಮ್ಮ ಸಾಧನ ತಯಾರಕರ ಮುಂದಿನ Android ನವೀಕರಣದಿಂದ ಇದನ್ನು ಪರಿಹರಿಸಬಹುದು.</string>
+    <string name="device_settings_aap_unavailable_action">ಹೊಂದಾಣಿಕೆ ಟ್ರ್ಯಾಕರ್ ವೀಕ್ಷಿಸಿ</string>
     <string name="device_settings_category_sound_label">ಶಬ್ದ</string>
     <string name="device_settings_category_controls_label">ನಿಯಂತ್ರಣಗಳು</string>
     <string name="device_settings_nc_one_airpod_label">ಒಂದು ಪಾಡ್‌ನೊಂದಿಗೆ ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ಮೈಕ್ ಮ್ಯೂಟ್ ಮಾಡಲು ಒಂದು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ಕರೆ ಮುಗಿಸಲು ಎರಡು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_open_cd">ಸಾಧನ ಸೆಟ್ಟಿಂಗ್ಸ್ ತೆರೆಯಿರಿ</string>
+    <string name="overview_card_missing_paired_device">ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಯಾವುದೇ ಜೋಡಿಸಲಾದ ಬ್ಲೂಟೂತ್ ಸಾಧನವಿಲ್ಲ.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ಸಾಮಾನ್ಯ</string>
     <string name="device_settings_microphone_mode_label">ಮೈಕ್ರೊಫೋನ್</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">ಆಫ್ ಅನ್ನು ಆಯ್ಕೆ ಮಾಡಬಹುದಾದ ಶಬ್ದ ನಿಯಂತ್ರಣ ಮೋಡ್ ಆಗಿ ಅನುಮತಿಸಿ. ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ಸೈಕ್ಲಿಂಗ್ ಮಾಡುವಾಗ ಸ್ಟೆಮ್‌ಗಳು ಆಫ್ ಅನ್ನು ಬಿಟ್ಟುಬಿಡುತ್ತವೆ.</string>
     <string name="device_settings_sleep_detection_label">ನಿದ್ದೆ ಪತ್ತೆ</string>
     <string name="device_settings_sleep_detection_description">ನಿಮ್ಮಗೆ ನಿದ್ದೆ ಬಂದಾಗ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆಡಿಯೋ ನಿಲ್ಲಿಸಿ</string>
+    <string name="reaction_sleep_channel_label">ನಿದ್ರೆ ಪತ್ತೆ</string>
+    <string name="reaction_sleep_notification_title">ನಿದ್ರೆ ಪತ್ತೆಯಿಂದ ವಿರಾಮಗೊಂಡಿದೆ</string>
+    <string name="reaction_sleep_notification_text">%1$s ನೀವು ನಿದ್ರಿಸಿದಿರಿ ಎಂದು ತಿಳಿಸಿದೆ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ಸಂಗೀತವನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ. ಸಾಧನ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಇದನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು.</string>
     <string name="device_settings_rename_label">ಮರುಹೆಸರಿಸಿ</string>
     <string name="device_settings_rename_hint">ಸಾಧನ ಹೆಸರು</string>
     <string name="device_settings_rename_confirm">ಮರುಹೆಸರಿಸಿ</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ಬ್ಲೂಟೂತ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="device_settings_send_failed">ಸೆಟ್ಟಿಂಗ್ ಅನ್ವಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ಈ ಸಾಧನದಲ್ಲಿ ಆಫ್ ಮೋಡ್ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿಲ್ಲ. ಶಬ್ದ ನಿಯಂತ್ರಣ ಅಡಿಯಲ್ಲಿ \"ಆಫ್ ಮೋಡ್ ಅನುಮತಿಸಿ\" ಸಕ್ರಿಯಗೊಳಿಸಿ.</string>
+    <string name="device_settings_category_battery_label">ಬ್ಯಾಟರಿ</string>
+    <string name="device_settings_charge_cap_label">ಆಪ್ಟಿಮೈಸ್ಡ್ ಚಾರ್ಜ್ ಮಿತಿ</string>
+    <string name="device_settings_charge_cap_description">ನಿಮ್ಮ ದಿನಚರಿಯನ್ನು ಕಲಿತು 80%% ಸಮೀಪ ಚಾರ್ಜಿಂಗ್ ವಿರಾಮಗೊಳಿಸಿ ಬ್ಯಾಟರಿ ಆಯಸ್ಸು ವಿಸ್ತರಿಸುತ್ತದೆ, ನೀವು ಬಳಸುವ ಮೊದಲು ಪಾಡ್‌ಗಳನ್ನು ತುಂಬಿಸುತ್ತದೆ.</string>
+    <string name="device_settings_charge_cap_rejected_message">ಆಪ್ಟಿಮೈಸ್ಡ್ ಚಾರ್ಜ್ ಮಿತಿಯನ್ನು ಬದಲಾಯಿಸಲಾಗಲಿಲ್ಲ. ಇದು ಪ್ರಾಯೋಗಿಕ ವೈಶಿಷ್ಟ್ಯ — ಇದು ವಿಫಲವಾಗುತ್ತಲೇ ಇದ್ದರೆ ದಯವಿಟ್ಟು ವರದಿ ಮಾಡಿ.</string>
     <string name="device_settings_category_connections_label">ಸಂಪರ್ಕಿತ ಸಾಧನಗಳು</string>
     <string name="device_settings_connected_devices_description">ಈ AirPods ಗೆ ಪ್ರಸ್ತುತ ಸಂಪರ್ಕಿತ ಇತರ ಸಾಧನಗಳು</string>
     <string name="device_settings_connected_device_label">ಸಾಧನ %d</string>

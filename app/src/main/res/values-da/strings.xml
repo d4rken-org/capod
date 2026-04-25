@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Baggrundsgennemsigtighed</string>
     <string name="widget_config_show_device_label">Vis enhedsnavn</string>
     <string name="widget_config_reset_label">Nulstil til standard</string>
+    <string name="widget_config_preview_resize_hint">Du kan ændre størrelsen på widgetten, efter du har placeret den på din startskærm.</string>
     <string name="widget_config_custom_label">Brugerdefineret</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Mørk</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Dette er en ukendt enhed, men den bruger et lignende meddelelsesformat. Lad os tilføje understøttelse for den, kontakt mig :)</string>
     <string name="pods_none_label_short">Ingen enhed</string>
     <string name="pods_charging_label">Oplader</string>
+    <string name="pods_charging_optimized_label">Optimeret</string>
     <string name="pods_inear_label">I øret</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Fra</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth-enhedsnavn</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Producent</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Serienummer</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Afventende firmware</string>
     <string name="device_settings_info_build_label">Version</string>
     <string name="device_settings_info_left_serial_label">Venstre pod-serienummer</string>
     <string name="device_settings_info_right_serial_label">Højre pod-serienummer</string>
+    <string name="device_settings_info_left_bonded_label">Venstre parret</string>
+    <string name="device_settings_info_right_bonded_label">Højre parret</string>
     <string name="device_settings_info_details_label">Enhedsdetaljer</string>
     <string name="device_settings_info_details_action">Vis enhedsdetaljer</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Denne enhed er i nærheden, men ikke forbundet til denne telefon. Opret forbindelse for at få adgang til indstillinger og kontrolfunktioner.</string>
     <string name="device_settings_not_connected_connect_action">Opret forbindelse</string>
     <string name="device_settings_not_connected_open_settings_action">Åbn Bluetooth-indstillinger</string>
+    <string name="device_settings_not_nearby_label">Enhed ikke i nærheden</string>
+    <string name="device_settings_not_nearby_description">Indstillinger er kun tilgængelige, når denne enhed er i nærheden og tilsluttet din telefon.</string>
     <string name="device_settings_aap_unavailable_label">Avancerede indstillinger er ikke tilgængelige</string>
     <string name="device_settings_aap_unavailable_description">Avancerede AirPods-indstillinger kræver en Bluetooth-funktion, der ikke er tilgængelig på denne telefon. Dette kan muligvis løses af en fremtidig Android-opdatering fra din enhedsproducent.</string>
+    <string name="device_settings_aap_unavailable_action">Se kompatibilitetssporing</string>
     <string name="device_settings_category_sound_label">Lyd</string>
     <string name="device_settings_category_controls_label">Betjeninger</string>
     <string name="device_settings_nc_one_airpod_label">ANC med én pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Enkelt tryk for at slå mikrofon fra</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dobbelt tryk for at afslutte opkald</string>
     <string name="device_settings_open_cd">Åbn enhedsindstillinger</string>
+    <string name="overview_card_missing_paired_device">Denne profil har ingen parret Bluetooth-enhed.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Tillad Slukket som en valgbar støjkontrol-tilstand. Når deaktiveret, springer stammer Slukket over under cyklus.</string>
     <string name="device_settings_sleep_detection_label">Søvnregistrering</string>
     <string name="device_settings_sleep_detection_description">Sæt automatisk lyd på pause når du falder i søvn</string>
+    <string name="reaction_sleep_channel_label">Søvnregistrering</string>
+    <string name="reaction_sleep_notification_title">Sat på pause af søvnregistrering</string>
+    <string name="reaction_sleep_notification_text">%1$s registrerede, at du faldt i søvn, så din musik blev sat på pause. Du kan deaktivere dette i enhedsindstillingerne.</string>
     <string name="device_settings_rename_label">Omdøb</string>
     <string name="device_settings_rename_hint">Enhedsnavn</string>
     <string name="device_settings_rename_confirm">Omdøb</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-indstillinger</string>
     <string name="device_settings_send_failed">Kunne ikke anvende indstilling: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Slukket-tilstand er ikke aktiveret på denne enhed. Aktivér \"Tillad Slukket-tilstand\" under Støjkontrol.</string>
+    <string name="device_settings_category_battery_label">Batteri</string>
+    <string name="device_settings_charge_cap_label">Optimeret opladningsgrænse</string>
+    <string name="device_settings_charge_cap_description">Lær din rutine og sæt opladningen på pause ved ca. 80%% for at forlænge batterilevetiden, og top pods op, inden du sandsynligvis skal bruge dem.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimeret opladningsgrænse kunne ikke ændres. Dette er en eksperimentel funktion — rapporter venligst, hvis det bliver ved med at fejle.</string>
     <string name="device_settings_category_connections_label">Tilsluttede enheder</string>
     <string name="device_settings_connected_devices_description">Andre enheder der i øjeblikket er tilsluttet disse AirPods</string>
     <string name="device_settings_connected_device_label">Enhed %d</string>

@@ -62,7 +62,7 @@
     <string name="settings_signal_minimum_description">Минимальное качество сигнала, необходимое устройству, чтобы оно опознавалось как Ваше.</string>
     <string name="settings_autoconnect_label">Автоподключение</string>
     <string name="settings_autoconnect_description">Если Android не подключается автоматически, мы можем послать ему запрос. Это установит режим мониторинга на \'Всегда\'.</string>
-    <string name="settings_autoconnect_info_android12">Автоподключение использует системную функцию, ограниченную в Android 12 и новее. Может не работать на вашем устройстве.</string>
+    <string name="settings_autoconnect_info_android12">Автоподключение использует системную функцию, ограниченную в Android 12 и новее. Может не работать на Вашем устройстве.</string>
     <string name="settings_autoconnect_condition_label">Условия автоподключения</string>
     <string name="settings_autoconnect_condition_description">Когда мы должны пытаться подключить Ваше устройство?</string>
     <string name="settings_devices_label">Устройства</string>
@@ -86,7 +86,7 @@
     <string name="general_fix_it_action">Исправить</string>
     <string name="device_settings_experimental_title">Экспериментальная функция</string>
     <string name="device_settings_experimental_description">Эта функция ещё не протестирована на всех устройствах. Если что-то работает неправильно, пожалуйста, создайте обращение с журналом отладки.</string>
-    <string name="device_settings_experimental_action">Открыть трекер задач</string>
+    <string name="device_settings_experimental_action">Открыть трекер проблем</string>
     <string name="notification_channel_device_status_label">Статус устройства</string>
     <string name="notification_channel_device_status_connected_label">Подключенное устройство</string>
     <string name="monitor_notification_extra_enabled_hint">Вы можете отключить это уведомление в системных настройках.</string>
@@ -153,6 +153,7 @@ AL_Cool_T</string>
     <string name="widget_config_transparency_label">Прозрачность фона</string>
     <string name="widget_config_show_device_label">Показывать имя устройства</string>
     <string name="widget_config_reset_label">Сброс к умолчаниям</string>
+    <string name="widget_config_preview_resize_hint">Вы можете изменить размер виджета после его размещения на Вашем экране.</string>
     <string name="widget_config_custom_label">Пользовательский</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Тёмный</string>
@@ -255,6 +256,7 @@ AL_Cool_T</string>
     <string name="pods_unknown_contact_dev">Это неизвестное устройство, но оно использует аналогичный формат сообщения. Давайте добавим поддержку, свяжитесь со мной :)</string>
     <string name="pods_none_label_short">Нет устройства</string>
     <string name="pods_charging_label">Зарядка</string>
+    <string name="pods_charging_optimized_label">Оптимизировано</string>
     <string name="pods_inear_label">В ухе</string>
     <string name="pods_microphone_label">Микрофон</string>
     <string name="anc_mode_off">Выкл.</string>
@@ -418,11 +420,15 @@ AL_Cool_T</string>
     <string name="device_settings_info_bt_name_label">Название Bluetooth-устройства</string>
     <string name="device_settings_info_model_label">Модель</string>
     <string name="device_settings_info_manufacturer_label">Производитель</string>
+    <string name="device_settings_info_hardware_label">Аппаратная часть</string>
     <string name="device_settings_info_serial_label">Серийный номер</string>
     <string name="device_settings_info_firmware_label">Прошивка</string>
+    <string name="device_settings_info_firmware_pending_label">Ожидание прошивки</string>
     <string name="device_settings_info_build_label">Сборка</string>
     <string name="device_settings_info_left_serial_label">Серийный номер левого наушника</string>
     <string name="device_settings_info_right_serial_label">Серийный номер правого наушника</string>
+    <string name="device_settings_info_left_bonded_label">Левый сопряжён</string>
+    <string name="device_settings_info_right_bonded_label">Правый сопряжён</string>
     <string name="device_settings_info_details_label">Подробности устройства</string>
     <string name="device_settings_info_details_action">Показать подробности устройства</string>
     <string name="device_settings_info_status_label">Состояние</string>
@@ -432,8 +438,11 @@ AL_Cool_T</string>
     <string name="device_settings_not_connected_description">Это устройство находится рядом, но не подключено к этому телефону. Подключитесь для доступа к настройкам и элементам управления.</string>
     <string name="device_settings_not_connected_connect_action">Подключить</string>
     <string name="device_settings_not_connected_open_settings_action">Открыть настройки Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Устройство не рядом</string>
+    <string name="device_settings_not_nearby_description">Настройки доступны только когда это устройство находится рядом и подключено к вашему телефону.</string>
     <string name="device_settings_aap_unavailable_label">Расширенные настройки недоступны</string>
     <string name="device_settings_aap_unavailable_description">Расширенные настройки AirPods требуют функцию Bluetooth, недоступную на этом телефоне. Это может быть исправлено в будущем обновлении Android от производителя устройства.</string>
+    <string name="device_settings_aap_unavailable_action">Просмотр трекера совместимости</string>
     <string name="device_settings_category_sound_label">Звук</string>
     <string name="device_settings_category_controls_label">Управление</string>
     <string name="device_settings_nc_one_airpod_label">ANC с одним наушником</string>
@@ -471,6 +480,7 @@ AL_Cool_T</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Одинарное нажатие для отключения микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двойное нажатие для завершения звонка</string>
     <string name="device_settings_open_cd">Открыть настройки устройства</string>
+    <string name="overview_card_missing_paired_device">В этом профиле нет сопряженных устройств Bluetooth.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общее</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
@@ -480,10 +490,10 @@ AL_Cool_T</string>
     <string name="device_settings_microphone_mode_left">Левый</string>
     <string name="device_settings_noise_control_current_mode_label">Текущий режим</string>
     <string name="device_settings_listening_mode_cycle_label">Цикл по долгому нажатию</string>
-    <string name="device_settings_listening_mode_cycle_description">Выберите, какие режимы доступны при удержании штокера и в быстром переключателе.</string>
+    <string name="device_settings_listening_mode_cycle_description">Выберите, какие режимы доступны при удержании штока и в быстром переключателе.</string>
     <string name="device_settings_listening_mode_cycle_dialog_title">Настроить цикл долгого нажатия</string>
-    <string name="device_settings_listening_mode_cycle_summary_helper">Используется при удержании штокера и в быстром переключателе</string>
-    <string name="device_settings_listening_mode_cycle_summary_helper_override">Используется в быстром переключателе. Установленное действие долгого нажатия штокера переопределяет циклическое переключение AirPods.</string>
+    <string name="device_settings_listening_mode_cycle_summary_helper">Используется при удержании штока и в быстром переключателе</string>
+    <string name="device_settings_listening_mode_cycle_summary_helper_override">Используется в быстром переключателе. Установленное действие долгого нажатия штока переопределяет циклическое переключение AirPods.</string>
     <string name="device_settings_listening_mode_cycle_minimum">Должно оставаться включенными не менее 2 режимов.</string>
     <string name="device_settings_listening_mode_cycle_off">Выкл.</string>
     <string name="device_settings_listening_mode_cycle_anc">Шумоподавление</string>
@@ -493,6 +503,9 @@ AL_Cool_T</string>
     <string name="device_settings_allow_off_description">Разрешить режим «Отключено» как выбираемый режим управления шумом. При отключении штокер пропускает «Отключено» при циклическом переключении.</string>
     <string name="device_settings_sleep_detection_label">Определение сна</string>
     <string name="device_settings_sleep_detection_description">Автоматическая пауза звука, когда Вы засыпаете</string>
+    <string name="reaction_sleep_channel_label">Определение сна</string>
+    <string name="reaction_sleep_notification_title">Приостановлено функцией обнаружения сна</string>
+    <string name="reaction_sleep_notification_text">%1$s обнаружил, что вы уснули, поэтому музыка была приостановлена. Вы можете отключить это в настройках устройства.</string>
     <string name="device_settings_rename_label">Переименовать</string>
     <string name="device_settings_rename_hint">Имя устройства</string>
     <string name="device_settings_rename_confirm">Переименовать</string>
@@ -502,6 +515,10 @@ AL_Cool_T</string>
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Настройки Bluetooth</string>
     <string name="device_settings_send_failed">Не удалось применить настройку: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Режим «Отключено» не включён на этом устройстве. Включите «Разрешить режим Отключено» в разделе Управление шумом.</string>
+    <string name="device_settings_category_battery_label">Батарея</string>
+    <string name="device_settings_charge_cap_label">Оптимизированный лимит заряда</string>
+    <string name="device_settings_charge_cap_description">Изучает ваш распорядок и приостанавливает зарядку около 80%%, чтобы продлить срок службы аккумулятора, дозаряжая наушники перед тем, как вы будете ими пользоваться.</string>
+    <string name="device_settings_charge_cap_rejected_message">Не удалось изменить оптимизированный лимит заряда. Это экспериментальная функция — пожалуйста, сообщите об ошибке, если это повторится.</string>
     <string name="device_settings_category_connections_label">Подключённые устройства</string>
     <string name="device_settings_connected_devices_description">Другие устройства, подключённые к этим AirPods</string>
     <string name="device_settings_connected_device_label">Устройство %d</string>
@@ -528,7 +545,7 @@ AL_Cool_T</string>
     <string name="press_action_previous_track">Предыдущий трек</string>
     <string name="press_action_volume_up">Громче</string>
     <string name="press_action_volume_down">Тише</string>
-    <string name="press_action_mute_toggle">Автозатухание музыки</string>
+    <string name="press_action_mute_toggle">Заглушить музыку</string>
     <string name="press_action_stop">Стоп</string>
     <string name="press_action_fast_forward">Перемотка вперёд</string>
     <string name="press_action_rewind">Перемотка назад</string>

@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">பின்னணி வெளிப்படையாக்கம்</string>
     <string name="widget_config_show_device_label">சாதன பெயரைக் காட்டு</string>
     <string name="widget_config_reset_label">இயல்பிற்கு மீட்டமை</string>
+    <string name="widget_config_preview_resize_hint">உங்கள் முகப்புத் திரையில் வைத்த பிறகு விட்ஜெட்டை மறுஅளவிடலாம்.</string>
     <string name="widget_config_custom_label">தனிப்பயன்</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">இருண்ட</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">இது அறியப்படாத சாதனம், ஆனால் இது ஒத்த செய்தி வடிவமைப்பைப் பயன்படுத்துகிறது. இதற்கான ஆதரவைச் சேர்ப்போம், என்னைத் தொடர்பு கொள்ளுங்கள் :)</string>
     <string name="pods_none_label_short">சாதனம் இல்லை</string>
     <string name="pods_charging_label">சார்ஜ் ஆகிறது</string>
+    <string name="pods_charging_optimized_label">உகந்தமயமாக்கப்பட்டது</string>
     <string name="pods_inear_label">காதில்</string>
     <string name="pods_microphone_label">ஒலிபெருக்கி</string>
     <string name="anc_mode_off">ஆஃப்</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth சாதன பெயர்</string>
     <string name="device_settings_info_model_label">மாடல்</string>
     <string name="device_settings_info_manufacturer_label">உற்பத்தியாளர்</string>
+    <string name="device_settings_info_hardware_label">வன்பொருள்</string>
     <string name="device_settings_info_serial_label">தொடர் எண்</string>
     <string name="device_settings_info_firmware_label">நிலைப்பொருள்</string>
+    <string name="device_settings_info_firmware_pending_label">நிலுவையில் உள்ள firmware</string>
     <string name="device_settings_info_build_label">உருவாக்கம்</string>
     <string name="device_settings_info_left_serial_label">இடது பாட் தொடர் எண்</string>
     <string name="device_settings_info_right_serial_label">வலது பாட் தொடர் எண்</string>
+    <string name="device_settings_info_left_bonded_label">இடது இணைக்கப்பட்டது</string>
+    <string name="device_settings_info_right_bonded_label">வலது இணைக்கப்பட்டது</string>
     <string name="device_settings_info_details_label">சாதன விவரங்கள்</string>
     <string name="device_settings_info_details_action">சாதன விவரங்களைக் காட்டு</string>
     <string name="device_settings_info_status_label">நிலை</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">இந்த சாதனம் அருகில் உள்ளது ஆனால் இந்த தொலைபேசியுடன் இணைக்கப்படவில்லை. அமைப்புகள் மற்றும் கட்டுப்பாடுகளை அணுக இணைக்கவும்.</string>
     <string name="device_settings_not_connected_connect_action">இணை</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth அமைப்புகளை திற</string>
+    <string name="device_settings_not_nearby_label">சாதனம் அருகில் இல்லை</string>
+    <string name="device_settings_not_nearby_description">இந்த சாதனம் அருகில் இருக்கும் போதும் உங்கள் தொலைபேசியுடன் இணைக்கப்பட்டிருக்கும் போதும் மட்டுமே அமைப்புகள் கிடைக்கும்.</string>
     <string name="device_settings_aap_unavailable_label">மேம்பட்ட அமைப்புகள் கிடைக்கவில்லை</string>
     <string name="device_settings_aap_unavailable_description">மேம்பட்ட AirPods அமைப்புகளுக்கு இந்த தொலைபேசியில் கிடைக்காத Bluetooth அம்சம் தேவை. இது உங்கள் சாதன உற்பத்தியாளரிடமிருந்து வரும் எதிர்கால Android புதுப்பிப்பால் தீர்க்கப்படலாம்.</string>
+    <string name="device_settings_aap_unavailable_action">இணக்கத்தன்மை கண்காணிப்பியை பார்க்க</string>
     <string name="device_settings_category_sound_label">ஒலி</string>
     <string name="device_settings_category_controls_label">கட்டுப்பாடுகள்</string>
     <string name="device_settings_nc_one_airpod_label">ஒரு பாட்டுடன் ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">மைக்ரோஃபோனை முடக்க ஒரே ஒரு அழுத்தம்</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">அழைப்பை முடிக்க இரண்டு முறை அழுத்தவும்</string>
     <string name="device_settings_open_cd">சாதன அமைப்புகளைத் திறக்கவும்</string>
+    <string name="overview_card_missing_paired_device">இந்த சுயவிவரத்தில் இணைக்கப்பட்ட Bluetooth சாதனம் இல்லை.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">பொது</string>
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">ஆஃஃப்-ஐ தேர்வுசெய்யக்கூடிய சத்தக் கட்டுப்பாட்டு முறையாக அனுமதிக்கவும். முடக்கப்படும்போது, சுழற்சியின் போது ஸ்டெம்கள் ஆஃஃப்-ஐ தவிர்க்கும்.</string>
     <string name="device_settings_sleep_detection_label">தூக்க கண்டறிதல்</string>
     <string name="device_settings_sleep_detection_description">நீங்கள் தூங்கும்போது ஆடியோவை தானாக இடைநிறுத்தவும்</string>
+    <string name="reaction_sleep_channel_label">தூக்க கண்டறிதல்</string>
+    <string name="reaction_sleep_notification_title">தூக்க கண்டறிதலால் இடைநிறுத்தப்பட்டது</string>
+    <string name="reaction_sleep_notification_text">%1$s நீங்கள் தூங்கிவிட்டீர்கள் என்று தெரிவித்தது, எனவே உங்கள் இசை இடைநிறுத்தப்பட்டது. சாதன அமைப்புகளில் இதை முடக்கலாம்.</string>
     <string name="device_settings_rename_label">மறுபெயரிடு</string>
     <string name="device_settings_rename_hint">சாதன பெயர்</string>
     <string name="device_settings_rename_confirm">மறுபெயரிடு</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth அமைப்புகள்</string>
     <string name="device_settings_send_failed">அமைப்பை பயன்படுத்த முடியவில்லை: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">இந்த சாதனத்தில் ஆஃஃப் முறை இயக்கப்படவில்லை. சத்தக் கட்டுப்பாட்டின் கீழ் \"ஆஃஃப் முறையை அனுமதி\" என்பதை இயக்கவும்.</string>
+    <string name="device_settings_category_battery_label">பேட்டரி</string>
+    <string name="device_settings_charge_cap_label">உகந்த சார்ஜ் வரம்பு</string>
+    <string name="device_settings_charge_cap_description">உங்கள் அன்றாட வழக்கத்தை கற்று 80%% அளவில் சார்ஜிங்கை இடைநிறுத்தி பேட்டரி ஆயுளை நீட்டிக்கும், நீங்கள் பயன்படுத்தும் முன் pods-ஐ முழுவதும் சார்ஜ் செய்யும்.</string>
+    <string name="device_settings_charge_cap_rejected_message">உகந்த சார்ஜ் வரம்பை மாற்ற முடியவில்லை. இது ஒரு சோதனை அம்சம் — தொடர்ந்து தோல்வியுற்றால் தயவுசெய்து தெரிவிக்கவும்.</string>
     <string name="device_settings_category_connections_label">இணைக்கப்பட்ட சாதனங்கள்</string>
     <string name="device_settings_connected_devices_description">தற்போது இந்த AirPods உடன் இணைக்கப்பட்ட மற்ற சாதனங்கள்</string>
     <string name="device_settings_connected_device_label">சாதனம் %d</string>

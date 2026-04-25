@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">പശ്ചാത്തല സ്വച്ഛത</string>
     <string name="widget_config_show_device_label">ഉപകരണത്തിന്റെ പേര് കാണിക്കുക</string>
     <string name="widget_config_reset_label">ഡിഫോള്‍ട്ടിലേക്ക് പുനഃസജ്ജമാക്കുക</string>
+    <string name="widget_config_preview_resize_hint">ഹോം സ്ക്രീനിൽ വിജറ്റ് വെച്ചതിനുശേഷം നിങ്ങൾക്ക് അതിന്റെ വലുപ്പം മാറ്റാൻ കഴിയും.</string>
     <string name="widget_config_custom_label">കസ്റ്റം</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ഗാഢം</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">ഇത് ഒരു അജ്ഞാത ഉപകരണമാണ്, പക്ഷേ ഇത് സമാനമായ സന്ദേശ ഫോർമാറ്റ് ഉപയോഗിക്കുന്നു. ഇതിനുള്ള പിന്തുണ ചേർക്കാം, എന്നെ ബന്ധപ്പെടുക :)</string>
     <string name="pods_none_label_short">ഉപകരണമില്ല</string>
     <string name="pods_charging_label">ചാർജ് ചെയ്യുന്നു</string>
+    <string name="pods_charging_optimized_label">ഒപ്റ്റിമൈസ് ചെയ്തത്</string>
     <string name="pods_inear_label">ചെവിയിൽ</string>
     <string name="pods_microphone_label">മൈക്രോഫോൺ</string>
     <string name="anc_mode_off">ഓഫ്</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">ബ്ലൂടൂത്ത് ഡിവൈസ് ലേബൽ</string>
     <string name="device_settings_info_model_label">മോഡൽ</string>
     <string name="device_settings_info_manufacturer_label">നിർമ്മാതാവ്</string>
+    <string name="device_settings_info_hardware_label">ഹാർഡ്‌വെയർ</string>
     <string name="device_settings_info_serial_label">സീരിയൽ നമ്പർ</string>
     <string name="device_settings_info_firmware_label">ഫേംവെയർ</string>
+    <string name="device_settings_info_firmware_pending_label">തീർച്ചയാകാത്ത ഫേംവെയർ</string>
     <string name="device_settings_info_build_label">ബിൽഡ്</string>
     <string name="device_settings_info_left_serial_label">ഇടതു പോഡ് സീരിയൽ</string>
     <string name="device_settings_info_right_serial_label">വലതു പോഡ് സീരിയൽ</string>
+    <string name="device_settings_info_left_bonded_label">ഇടത് ബോണ്ട് ചെയ്തത്</string>
+    <string name="device_settings_info_right_bonded_label">വലത് ബോണ്ട് ചെയ്തത്</string>
     <string name="device_settings_info_details_label">ഡിവൈസ് വിവരങ്ങൾ</string>
     <string name="device_settings_info_details_action">ഡിവൈസ് വിവരങ്ങൾ കാണിക്കുക</string>
     <string name="device_settings_info_status_label">നില</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">ഈ ഉപകരണം സമീപത്താണ്, പക്ഷേ ഈ ഫോണുമായി കണക്റ്റ് ചെയ്തിട്ടില്ല. ക്രമീകരണങ്ങളും നിയന്ത്രണങ്ങളും ആക്‌സസ് ചെയ്യാൻ കണക്റ്റ് ചെയ്യുക.</string>
     <string name="device_settings_not_connected_connect_action">കണക്റ്റ് ചെയ്യുക</string>
     <string name="device_settings_not_connected_open_settings_action">ബ്ലൂടൂത്ത് ക്രമീകരണങ്ങൾ തുറക്കുക</string>
+    <string name="device_settings_not_nearby_label">ഉപകരണം അടുത്തില്ല</string>
+    <string name="device_settings_not_nearby_description">ഈ ഉപകരണം അടുത്തും നിങ്ങളുടെ ഫോണുമായി ബന്ധിപ്പിച്ചിരിക്കുമ്പോൾ മാത്രമേ ക്രമീകരണങ്ങൾ ലഭ്യമാകൂ.</string>
     <string name="device_settings_aap_unavailable_label">വിപുലമായ ക്രമീകരണങ്ങൾ ലഭ്യമല്ല</string>
     <string name="device_settings_aap_unavailable_description">വിന്ന്യാസപ്പെട്ട എയർപോഡ്സ് ക്രമീകരണങ്ങൾക്ക് ഈ ഫോണിൽ ലഭ്യമല്ലാത്ത ഒരു ബ്ലൂടൂത്ത് സവിശേഷത ആവശ്യമാണ്. നിങ്ങളുടെ ഡിവൈസ് നിർമാതാവിൽ നിന്നുള്ള ഭാവി ആന്ഡ്രോയ്ഡ് അപ്ടൊഡേറ്റ് വഴി ഇത് പരിഹരിക്കുന്ന സാധ്യതയുണ്ട്.</string>
+    <string name="device_settings_aap_unavailable_action">അനുയോജ്യതാ ട്രാക്കർ കാണുക</string>
     <string name="device_settings_category_sound_label">ശബ്ദം</string>
     <string name="device_settings_category_controls_label">നിയന്ത്രണങ്ങൾ</string>
     <string name="device_settings_nc_one_airpod_label">ഒരു പോഡ് ഉപയോഗിച്ചുള്ള ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">മൈക്രോഫോൻ മ്യൂട്ട് ചെയ്യാൻ ഒറ്റ അമർത്തൽ</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">കോൾ അവസാനിപ്പിക്കാൻ ഇരട്ട അമർത്തൽ</string>
     <string name="device_settings_open_cd">ഉപകരണ ക്രമീകരണങ്ങൾ തുറക്കുക</string>
+    <string name="overview_card_missing_paired_device">ഈ പ്രൊഫൈലിൽ ജോടിയാക്കിയ ബ്ലൂടൂത്ത് ഉപകരണം ഇല്ല.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">പൊതുവായ</string>
     <string name="device_settings_microphone_mode_label">മൈക്രോഫോൺ</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Off-നെ തിരഞ്ഞെടുക്കാവുന്ന ശബ്ദ നിയന്ത്രണ മോഡായി അനുവദിക്കുക. പ്രപ്തമാക്കിയില്ലെങ്കിൽ, സൈക്കിൾ ചെയ്യുമ്പോൾ സ്റ്റെംകൾ Off അവിടെയ് കടന്നു പോകും.</string>
     <string name="device_settings_sleep_detection_label">ഉറക്ക ഡിറ്റക്ഷൻ</string>
     <string name="device_settings_sleep_detection_description">നിങ്ങൾ ഉറങ്ങുമ്പോൾ ഓഡിയോ ഓട്ടോമാറ്റിക്കായി താൽക്കാലികമായി നിർത്തുക</string>
+    <string name="reaction_sleep_channel_label">ഉറക്ക കണ്ടെത്തൽ</string>
+    <string name="reaction_sleep_notification_title">ഉറക്ക കണ്ടെത്തൽ മൂലം താൽക്കാലികമായി നിർത്തി</string>
+    <string name="reaction_sleep_notification_text">%1$s നിങ്ങൾ ഉറങ്ങിപ്പോയതായി റിപ്പോർട്ട് ചെയ്തതിനാൽ സംഗീതം താൽക്കാലികമായി നിർത്തി. ഉപകരണ ക്രമീകരണങ്ങളിൽ ഇത് പ്രവർത്തനരഹിതമാക്കാം.</string>
     <string name="device_settings_rename_label">പുനർനാമകരണം ചെയ്യുക</string>
     <string name="device_settings_rename_hint">ഉപകരണ നാമം</string>
     <string name="device_settings_rename_confirm">പുനർനാമകരണം ചെയ്യുക</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ബ്ലൂടൂത്ത് ക്രമീകരണങ്ങൾ</string>
     <string name="device_settings_send_failed">ക്രമീകരണം പ്രയോഗിക്കാൻ കഴിഞ്ഞില്ല: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">ഈ ഡിവൈസിൽ Off മോഡ് പ്രപ്തമാക്കിയിട്ടില്ല. ശബ്ദ നിയന്ത്രണത്തിനു കീഴിലുള്ള \"ഇസ്ലാമിക Off മോഡ്\" പ്രപ്തമാക്കുക.</string>
+    <string name="device_settings_category_battery_label">ബാറ്ററി</string>
+    <string name="device_settings_charge_cap_label">ഒപ്റ്റിമൈസ്ഡ് ചാർജ് പരിധി</string>
+    <string name="device_settings_charge_cap_description">നിങ്ങളുടെ ദിനചര്യ പഠിച്ച് ബാറ്ററി ആയുസ്സ് വർദ്ധിപ്പിക്കാൻ 80%% ഓളം ചാർജ്ജിംഗ് താൽക്കാലികമായി നിർത്തി, ഉപയോഗിക്കാൻ സാധ്യതയുള്ളതിന് മുമ്പ് പോഡ്‌സ് ടോപ്പ് ഓഫ് ചെയ്യും.</string>
+    <string name="device_settings_charge_cap_rejected_message">ഒപ്റ്റിമൈസ്ഡ് ചാർജ് പരിധി മാറ്റാൻ കഴിഞ്ഞില്ല. ഇത് ഒരു പരീക്ഷണാത്മക സവിശേഷതയാണ് — തുടർച്ചയായി പരാജയപ്പെടുകയാണെങ്കിൽ ദയവായി റിപ്പോർട്ട് ചെയ്യുക.</string>
     <string name="device_settings_category_connections_label">ബന്ധിപ്പിച്ച ഉപകരണങ്ങൾ</string>
     <string name="device_settings_connected_devices_description">നിലവിൽ ഈ AirPods-മായി ബന്ധിപ്പിച്ചിരിക്കുന്ന മറ്റ് ഉപകരണങ്ങൾ</string>
     <string name="device_settings_connected_device_label">ഉപകരണം %d</string>

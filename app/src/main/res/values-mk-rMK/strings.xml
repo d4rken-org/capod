@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Транспарентност на позадина</string>
     <string name="widget_config_show_device_label">Прикажи име на уред</string>
     <string name="widget_config_reset_label">Врати на стандардни</string>
+    <string name="widget_config_preview_resize_hint">Можете да го промените големината на виџетот откако ќе го поставите на почетниот екран.</string>
     <string name="widget_config_custom_label">Прилагодено</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Темно</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Ова е непознат уред, но користи сличен формат на пораки. Ајде да додадеме поддршка за него, контактирајте ме :)</string>
     <string name="pods_none_label_short">Нема уред</string>
     <string name="pods_charging_label">Се полни</string>
+    <string name="pods_charging_optimized_label">Оптимизирано</string>
     <string name="pods_inear_label">Во уво</string>
     <string name="pods_microphone_label">Микрофон</string>
     <string name="anc_mode_off">Исклучено</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Назив на Блуетут уред</string>
     <string name="device_settings_info_model_label">Модел</string>
     <string name="device_settings_info_manufacturer_label">Производител</string>
+    <string name="device_settings_info_hardware_label">Хардвер</string>
     <string name="device_settings_info_serial_label">Сериски број</string>
     <string name="device_settings_info_firmware_label">Фирмвер</string>
+    <string name="device_settings_info_firmware_pending_label">Фирмвер на чекање</string>
     <string name="device_settings_info_build_label">Изградба</string>
     <string name="device_settings_info_left_serial_label">Сериски број на левиот слушалец</string>
     <string name="device_settings_info_right_serial_label">Сериски број на десниот слушалец</string>
+    <string name="device_settings_info_left_bonded_label">Лево поврзано</string>
+    <string name="device_settings_info_right_bonded_label">Десно поврзано</string>
     <string name="device_settings_info_details_label">Детали за уредот</string>
     <string name="device_settings_info_details_action">Покажи детали за уредот</string>
     <string name="device_settings_info_status_label">Статус</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Овој уред е во близина, но не е поврзан со овој телефон. Поврзете се за да пристапите до поставките и контролите.</string>
     <string name="device_settings_not_connected_connect_action">Поврзи се</string>
     <string name="device_settings_not_connected_open_settings_action">Отвори Bluetooth поставки</string>
+    <string name="device_settings_not_nearby_label">Уредот не е во близина</string>
+    <string name="device_settings_not_nearby_description">Поставките се достапни само кога овој уред е во близина и поврзан со вашиот телефон.</string>
     <string name="device_settings_aap_unavailable_label">Напредните поставки се недостапни</string>
     <string name="device_settings_aap_unavailable_description">Напредните поставки за AirPods бараат функција на Блуетут која не е достапна на овој телефон. Ова може да се реши со идно будно ажурирање на Android од производителот на вашиот уред.</string>
+    <string name="device_settings_aap_unavailable_action">Прегледај тракер за компатибилност</string>
     <string name="device_settings_category_sound_label">Звук</string>
     <string name="device_settings_category_controls_label">Контроли</string>
     <string name="device_settings_nc_one_airpod_label">ANC со еден слушалец</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Едно притискање за исклучување на микрофонот</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двојно притискање за прекинување на повикот</string>
     <string name="device_settings_open_cd">Отворете ги поставките на уредот</string>
+    <string name="overview_card_missing_paired_device">Овој профил нема спарен Bluetooth уред.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Генерално</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
@@ -479,9 +489,12 @@
     <string name="device_settings_listening_mode_cycle_transparency">Транспарентност</string>
     <string name="device_settings_listening_mode_cycle_adaptive">Адаптивно</string>
     <string name="device_settings_allow_off_label">Дозволете режим Исклучено</string>
-    <string name="device_settings_allow_off_description">Дозволете Исклучено како изборлив режим на контрола на бучава. Кога е исклучено, дршките го прескочуваат Исклучено додека преминуваат.</string>
+    <string name="device_settings_allow_off_description">Дозволете Исклучено како изборлив режим на контрола на бучава. Кога е исклучено, дршките го прескочуваат ܿсклучено додека преминуваат.</string>
     <string name="device_settings_sleep_detection_label">Откривање сон</string>
     <string name="device_settings_sleep_detection_description">Автоматски паузирање на звукот кога заспиете</string>
+    <string name="reaction_sleep_channel_label">Детекција на спиење</string>
+    <string name="reaction_sleep_notification_title">Паузирано од Детекција на спиење</string>
+    <string name="reaction_sleep_notification_text">%1$s пријави дека заспавте, па вашата музика беше паузирана. Ова можете да го оневозможите во поставките за уредот.</string>
     <string name="device_settings_rename_label">Преименување</string>
     <string name="device_settings_rename_hint">Име на уредот</string>
     <string name="device_settings_rename_confirm">Преименување</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth поставки</string>
     <string name="device_settings_send_failed">Не може да се примени поставката: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Режимот Исклучено не е вклучен на овој уред. Вклучете \"Дозволете режим Исклучено\" под Контрола на бучава.</string>
+    <string name="device_settings_category_battery_label">Батерија</string>
+    <string name="device_settings_charge_cap_label">Оптимизирана граница на полнење</string>
+    <string name="device_settings_charge_cap_description">Учи ја вашата рутина и паузира полнење околу 80%% за да го продолжи животниот век на батеријата, доливајќи ги слушалките пред да ги користите.</string>
+    <string name="device_settings_charge_cap_rejected_message">Оптимизираната граница на полнење не можеше да се промени. Ова е експериментална функција — ве молиме пријавете ако продолжи да не работи.</string>
     <string name="device_settings_category_connections_label">Поврзани уреди</string>
     <string name="device_settings_connected_devices_description">Други уреди што во моментов се поврзани на овие AirPods</string>
     <string name="device_settings_connected_device_label">Уред %d</string>

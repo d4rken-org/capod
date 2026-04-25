@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparenca e sfondit</string>
     <string name="widget_config_show_device_label">Shfaq emrin e pajisjes</string>
     <string name="widget_config_reset_label">Rivendos në paracaktimet</string>
+    <string name="widget_config_preview_resize_hint">Mund ta ndryshoni madhësinë e miniaplikacionit pasi ta vendosni në ekranin tuaj kryesor.</string>
     <string name="widget_config_custom_label">Vetjak</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">E errët</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Kjo është një pajisje e panjohur, por përdor format të ngjashëm mesazhi. Le të shtojmë mbështetje për të, më kontaktoni :)</string>
     <string name="pods_none_label_short">Asnjë pajisje</string>
     <string name="pods_charging_label">Po karikohet</string>
+    <string name="pods_charging_optimized_label">E optimizuar</string>
     <string name="pods_inear_label">Në vesh</string>
     <string name="pods_microphone_label">Mikrofoni</string>
     <string name="anc_mode_off">Joaktive</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Etiketa e pajisjes Bluetooth</string>
     <string name="device_settings_info_model_label">Modeli</string>
     <string name="device_settings_info_manufacturer_label">Prodhuesi</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Numri serial</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware në pritje</string>
     <string name="device_settings_info_build_label">Versioni</string>
     <string name="device_settings_info_left_serial_label">Numri serial i kapsulit të majtë</string>
     <string name="device_settings_info_right_serial_label">Numri serial i kapsulit të djathtë</string>
+    <string name="device_settings_info_left_bonded_label">E lidhur majtas</string>
+    <string name="device_settings_info_right_bonded_label">E lidhur djathtas</string>
     <string name="device_settings_info_details_label">Detajet e pajisjes</string>
     <string name="device_settings_info_details_action">Shfaq detajet e pajisjes</string>
     <string name="device_settings_info_status_label">Statusi</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Ky pajisje është afër, por nuk është i lidhur me këtë telefon. Lidhuni për të hyrë në cilësimet dhe kontrollet.</string>
     <string name="device_settings_not_connected_connect_action">Lidhu</string>
     <string name="device_settings_not_connected_open_settings_action">Hap Cilësimet Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Pajisja nuk është afër</string>
+    <string name="device_settings_not_nearby_description">Cilësimet janë të disponueshme vetëm kur kjo pajisje është afër dhe e lidhur me telefonin tuaj.</string>
     <string name="device_settings_aap_unavailable_label">Cilësimet e avancuara të padisponueshme</string>
     <string name="device_settings_aap_unavailable_description">Cilësimet e avancuara të AirPods kërkojnë një funksion Bluetooth që nuk disponohet në këtë telefon. Kjo mund të zgjidhet nga një përditësim i ardhshëm i Android nga prodhuesi i pajisjes tuaj.</string>
+    <string name="device_settings_aap_unavailable_action">Shiko gjurmuesin e përputhshmërisë</string>
     <string name="device_settings_category_sound_label">Zëri</string>
     <string name="device_settings_category_controls_label">Kontrollet</string>
     <string name="device_settings_nc_one_airpod_label">ANC me një kapsulë</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Shtypje e vetme për të hështur mikrofonin</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Shtypje e dyfishtë për të mbyllur thirrjen</string>
     <string name="device_settings_open_cd">Hap cilësimet e pajisjes</string>
+    <string name="overview_card_missing_paired_device">Ky profil nuk ka asnjë pajisje Bluetooth të çiftuar.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gjenerik</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Lejo modalitetin Joaktiv si modalitet i zgjedhshëm i kontrollit të zhurmës. Kur çaktivizohet, kërcellet kalojnë Joaktiv gjatë ciklimit.</string>
     <string name="device_settings_sleep_detection_label">Zbulimi i gjumit</string>
     <string name="device_settings_sleep_detection_description">Ndal automatikisht audion kur bini në gjumë</string>
+    <string name="reaction_sleep_channel_label">Zbulimi i gjumit</string>
+    <string name="reaction_sleep_notification_title">Pauzuar nga Zbulimi i gjumit</string>
+    <string name="reaction_sleep_notification_text">%1$s raportoi se keni rënë në gjumë, kështu që muzika juaj u pauzua. Mund ta çaktivizoni këtë në cilësimet e pajisjes.</string>
     <string name="device_settings_rename_label">Riemrëro</string>
     <string name="device_settings_rename_hint">Emri i pajisjes</string>
     <string name="device_settings_rename_confirm">Riemrëro</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Cilësimet e Bluetooth</string>
     <string name="device_settings_send_failed">Nuk mund të aplikohet cilësimi: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Modaliteti Joaktiv nuk është i aktivizuar në këtë pajisje. Aktivizoni \"Lejo modalitetin Joaktiv\" nën Kontrollin e Zhurmës.</string>
+    <string name="device_settings_category_battery_label">Bateria</string>
+    <string name="device_settings_charge_cap_label">Kufiri i ngarkimit të optimizuar</string>
+    <string name="device_settings_charge_cap_description">Mëson rutinën tuaj dhe pauzues ngarkimin rreth 80%% për të zgjatur jetën e baterisë, duke plotësuar pods-at para se t\'i përdorni.</string>
+    <string name="device_settings_charge_cap_rejected_message">Kufiri i ngarkimit të optimizuar nuk mund të ndryshohej. Kjo është një funksion eksperimental — ju lutemi raportoni nëse vazhdon të dështojë.</string>
     <string name="device_settings_category_connections_label">Pajisjet e lidhura</string>
     <string name="device_settings_connected_devices_description">Pajisjet e tjera aktualisht të lidhura me këta AirPods</string>
     <string name="device_settings_connected_device_label">Pajisja %d</string>

@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Hintergrundtransparenz</string>
     <string name="widget_config_show_device_label">Gerätenamen anzeigen</string>
     <string name="widget_config_reset_label">Auf Standardwerte zurücksetzen</string>
+    <string name="widget_config_preview_resize_hint">Du kannst die Widget-Größe anpassen, nachdem du es auf deinem Startbildschirm platziert hast.</string>
     <string name="widget_config_custom_label">Benutzerdefiniert</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Dunkel</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Dies ist ein unbekanntes Gerät, aber es verwendet ein ähnliches Nachrichtenformat. Lass uns Unterstützung dafür hinzufügen, kontaktiere mich :)</string>
     <string name="pods_none_label_short">Kein Gerät</string>
     <string name="pods_charging_label">Laden</string>
+    <string name="pods_charging_optimized_label">Optimiert</string>
     <string name="pods_inear_label">Im Ohr</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Aus</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth-Gerätebezeichnung</string>
     <string name="device_settings_info_model_label">Modell</string>
     <string name="device_settings_info_manufacturer_label">Hersteller</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Seriennummer</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Ausstehende Firmware</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Seriennummer linker Pod</string>
     <string name="device_settings_info_right_serial_label">Seriennummer rechter Pod</string>
+    <string name="device_settings_info_left_bonded_label">Links gekoppelt</string>
+    <string name="device_settings_info_right_bonded_label">Rechts gekoppelt</string>
     <string name="device_settings_info_details_label">Gerätedetails</string>
     <string name="device_settings_info_details_action">Gerätedetails anzeigen</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Dieses Gerät ist in der Nähe, aber nicht mit diesem Telefon verbunden. Verbinden, um auf Einstellungen und Steuerungen zuzugreifen.</string>
     <string name="device_settings_not_connected_connect_action">Verbinden</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth-Einstellungen öffnen</string>
+    <string name="device_settings_not_nearby_label">Gerät nicht in der Nähe</string>
+    <string name="device_settings_not_nearby_description">Einstellungen sind nur verfügbar, wenn dieses Gerät in der Nähe und mit deinem Telefon verbunden ist.</string>
     <string name="device_settings_aap_unavailable_label">Erweiterte Einstellungen nicht verfügbar</string>
     <string name="device_settings_aap_unavailable_description">Erweiterte AirPods-Einstellungen erfordern eine Bluetooth-Funktion, die auf diesem Telefon nicht verfügbar ist. Dies könnte durch ein zukünftiges Android-Update deines Geräteherstellers behoben werden.</string>
+    <string name="device_settings_aap_unavailable_action">Kompatibilitätsliste anzeigen</string>
     <string name="device_settings_category_sound_label">Ton</string>
     <string name="device_settings_category_controls_label">Steuerung</string>
     <string name="device_settings_nc_one_airpod_label">ANC mit einem Pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Einmaliges Drücken zum Stummschalten des Mikrofons</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Zweimaliges Drücken zum Beenden des Anrufs</string>
     <string name="device_settings_open_cd">Geräteeinstellungen öffnen</string>
+    <string name="overview_card_missing_paired_device">Dieses Profil hat kein gekoppeltes Bluetooth-Gerät.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allgemein</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Aus als auswählbaren Geräuschsteuerungsmodus erlauben. Wenn deaktiviert, überspringen die Stiele den Aus-Modus beim Durchschalten.</string>
     <string name="device_settings_sleep_detection_label">Schlaferkennung</string>
     <string name="device_settings_sleep_detection_description">Audio automatisch pausieren, wenn du einschläfst</string>
+    <string name="reaction_sleep_channel_label">Schlaferkennung</string>
+    <string name="reaction_sleep_notification_title">Pausiert durch Schlafmodus-Erkennung</string>
+    <string name="reaction_sleep_notification_text">%1$s hat erkannt, dass du eingeschlafen bist, daher wurde deine Musik pausiert. Du kannst dies in den Geräteeinstellungen deaktivieren.</string>
     <string name="device_settings_rename_label">Umbenennen</string>
     <string name="device_settings_rename_hint">Gerätename</string>
     <string name="device_settings_rename_confirm">Umbenennen</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-Einstellungen</string>
     <string name="device_settings_send_failed">Einstellung konnte nicht angewendet werden: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Der Aus-Modus ist auf diesem Gerät nicht aktiviert. Aktiviere „Aus-Modus erlauben“ unter Geräuschsteuerung.</string>
+    <string name="device_settings_category_battery_label">Akku</string>
+    <string name="device_settings_charge_cap_label">Optimiertes Ladelimit</string>
+    <string name="device_settings_charge_cap_description">Lernt deine Routine und pausiert das Laden bei ca. 80%%, um die Akkulebensdauer zu verlängern, und lädt die Pods vor der wahrscheinlichen Nutzung voll auf.</string>
+    <string name="device_settings_charge_cap_rejected_message">Das optimierte Ladelimit konnte nicht geändert werden. Dies ist eine experimentelle Funktion – bitte melde es, wenn es weiterhin fehlschlägt.</string>
     <string name="device_settings_category_connections_label">Verbundene Geräte</string>
     <string name="device_settings_connected_devices_description">Andere Geräte, die derzeit mit diesen AirPods verbunden sind</string>
     <string name="device_settings_connected_device_label">Gerät %d</string>

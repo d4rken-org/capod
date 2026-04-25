@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Độ trong suốt nền</string>
     <string name="widget_config_show_device_label">Hiển thị tên thiết bị</string>
     <string name="widget_config_reset_label">Đặt lại về mặc định</string>
+    <string name="widget_config_preview_resize_hint">Bạn có thể thay đổi kích thước widget sau khi đặt nó trên màn hình chính.</string>
     <string name="widget_config_custom_label">Tùy chỉnh</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tối</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">Đây là một thiết bị chưa được nhận diện nhưng đang dùng định dạng tin nhắn tương tự. Hãy thêm hỗ trợ cho nó, liên hệ với tôi :)</string>
     <string name="pods_none_label_short">Không có thiết bị</string>
     <string name="pods_charging_label">Đang sạc</string>
+    <string name="pods_charging_optimized_label">Đã tối ưu hóa</string>
     <string name="pods_inear_label">Trong tai</string>
     <string name="pods_microphone_label">Micrô</string>
     <string name="anc_mode_off">Tắt</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">Nhãn thiết bị Bluetooth</string>
     <string name="device_settings_info_model_label">Mẫu máy</string>
     <string name="device_settings_info_manufacturer_label">Nhà sản xuất</string>
+    <string name="device_settings_info_hardware_label">Phần cứng</string>
     <string name="device_settings_info_serial_label">Số Serial</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware đang chờ</string>
     <string name="device_settings_info_build_label">Phiên bản</string>
     <string name="device_settings_info_left_serial_label">Số sên tai nghe trái</string>
     <string name="device_settings_info_right_serial_label">Số sên tai nghe phải</string>
+    <string name="device_settings_info_left_bonded_label">Trái đã ghép</string>
+    <string name="device_settings_info_right_bonded_label">Phải đã ghép</string>
     <string name="device_settings_info_details_label">Chi tiết thiết bị</string>
     <string name="device_settings_info_details_action">Hiển thị chi tiết thiết bị</string>
     <string name="device_settings_info_status_label">Trạng thái</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">Thiết bị này ở gần nhưng chưa được kết nối với điện thoại này. Hãy kết nối để truy cập cài đặt và điều khiển.</string>
     <string name="device_settings_not_connected_connect_action">Kết nối</string>
     <string name="device_settings_not_connected_open_settings_action">Mở Cài đặt Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Thiết bị không ở gần</string>
+    <string name="device_settings_not_nearby_description">Cài đặt chỉ khả dụng khi thiết bị này ở gần và được kết nối với điện thoại của bạn.</string>
     <string name="device_settings_aap_unavailable_label">Cài đặt nâng cao không khả dụng</string>
     <string name="device_settings_aap_unavailable_description">Cài đặt AirPods nâng cao yêu cầu tính năng Bluetooth không có trên điện thoại này. Vấn đề này có thể được giải quyết bằng bản cập nhật Android trong tương lai từ nhà sản xuất thiết bị của bạn.</string>
+    <string name="device_settings_aap_unavailable_action">Xem trình theo dõi tương thích</string>
     <string name="device_settings_category_sound_label">Âm thanh</string>
     <string name="device_settings_category_controls_label">Điều khiển</string>
     <string name="device_settings_nc_one_airpod_label">Chống ồn ANC với một tai nghe</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Nhấn một lần để tắt tiếng micro</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Nhấn hai lần để kết thúc cuộc gọi</string>
     <string name="device_settings_open_cd">Mở cài đặt thiết bị</string>
+    <string name="overview_card_missing_paired_device">Hồ sơ này không có thiết bị Bluetooth nào được ghép nối.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Chung</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">Cho phép Tắt là chế độ kiểm soát tiếng ồn có thể chọn. Khi tắt, thân tai nghe sẽ bỏ qua Tắt trong khi chu kỳ.</string>
     <string name="device_settings_sleep_detection_label">Phát hiện ngủ</string>
     <string name="device_settings_sleep_detection_description">Tự động tạm dừng âm thanh khi bạn ngủ thiết đi</string>
+    <string name="reaction_sleep_channel_label">Phát hiện ngủ</string>
+    <string name="reaction_sleep_notification_title">Đã tạm dừng bởi Phát hiện ngủ</string>
+    <string name="reaction_sleep_notification_text">%1$s phát hiện bạn đã ngủ quên, vì vậy nhạc của bạn đã được tạm dừng. Bạn có thể tắt tính năng này trong cài đặt thiết bị.</string>
     <string name="device_settings_rename_label">Đổi tên</string>
     <string name="device_settings_rename_hint">Tên thiết bị</string>
     <string name="device_settings_rename_confirm">Đổi tên</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Cài đặt Bluetooth</string>
     <string name="device_settings_send_failed">Không thể áp dụng cài đặt: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Chế độ Tắt chưa được bật trên thiết bị này. Bật “Cho phép chế độ Tắt” trong Kiểm soát tiếng ồn.</string>
+    <string name="device_settings_category_battery_label">Pin</string>
+    <string name="device_settings_charge_cap_label">Giới hạn sạc tối ưu</string>
+    <string name="device_settings_charge_cap_description">Học thói quen của bạn và tạm dừng sạc ở khoảng 80%% để kéo dài tuổi thọ pin, sạc đầy pods trước khi bạn có khả năng sử dụng chúng.</string>
+    <string name="device_settings_charge_cap_rejected_message">Không thể thay đổi Giới hạn sạc tối ưu. Đây là tính năng thử nghiệm — vui lòng báo cáo nếu tiếp tục xảy ra lỗi.</string>
     <string name="device_settings_category_connections_label">Thiết bị đã kết nối</string>
     <string name="device_settings_connected_devices_description">Các thiết bị khác hiện đang kết nối với AirPods này</string>
     <string name="device_settings_connected_device_label">Thiết bị %d</string>

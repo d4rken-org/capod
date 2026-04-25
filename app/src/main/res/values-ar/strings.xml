@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">شفافية الخلفية</string>
     <string name="widget_config_show_device_label">إظهار اسم الجهاز</string>
     <string name="widget_config_reset_label">إعادة تعيين إلى الإعدادات الافتراضية</string>
+    <string name="widget_config_preview_resize_hint">يمكنك تغيير حجم الأداة بعد وضعها على شاشتك الرئيسية.</string>
     <string name="widget_config_custom_label">مخصص</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">مظلم</string>
@@ -258,6 +259,7 @@
     <string name="pods_unknown_contact_dev">هذا جهاز غير معروف، لكنه يستخدم تنسيق رسائل مشابهًا. دعونا نضيف دعمًا له، تواصل معي :)</string>
     <string name="pods_none_label_short">لا يوجد جهاز</string>
     <string name="pods_charging_label">جارٍ الشحن</string>
+    <string name="pods_charging_optimized_label">محسَّن</string>
     <string name="pods_inear_label">في الأذن</string>
     <string name="pods_microphone_label">الميكروفون</string>
     <string name="anc_mode_off">إيقاف</string>
@@ -427,11 +429,15 @@
     <string name="device_settings_info_bt_name_label">تسمية جهاز البلوتوث</string>
     <string name="device_settings_info_model_label">الطراز</string>
     <string name="device_settings_info_manufacturer_label">الشركة المصنّعة</string>
+    <string name="device_settings_info_hardware_label">الجهاز</string>
     <string name="device_settings_info_serial_label">الرقم التسلسلي</string>
     <string name="device_settings_info_firmware_label">البرنامج الثابت</string>
+    <string name="device_settings_info_firmware_pending_label">البرنامج الثابت المعلق</string>
     <string name="device_settings_info_build_label">الإصدار</string>
     <string name="device_settings_info_left_serial_label">الرقم التسلسلي للسماعة اليسرى</string>
     <string name="device_settings_info_right_serial_label">الرقم التسلسلي للسماعة اليمنى</string>
+    <string name="device_settings_info_left_bonded_label">اليسار مقترن</string>
+    <string name="device_settings_info_right_bonded_label">اليمين مقترن</string>
     <string name="device_settings_info_details_label">تفاصيل الجهاز</string>
     <string name="device_settings_info_details_action">عرض تفاصيل الجهاز</string>
     <string name="device_settings_info_status_label">الحالة</string>
@@ -441,8 +447,11 @@
     <string name="device_settings_not_connected_description">هذا الجهاز قريب لكنه غير متصل بهذا الهاتف. اتصل للوصول إلى الإعدادات والعناصر.</string>
     <string name="device_settings_not_connected_connect_action">اتصال</string>
     <string name="device_settings_not_connected_open_settings_action">فتح إعدادات البلوتوث</string>
+    <string name="device_settings_not_nearby_label">الجهاز غير قريب</string>
+    <string name="device_settings_not_nearby_description">الإعدادات متاحة فقط عندما يكون هذا الجهاز قريبًا ومتصلًا بهاتفك.</string>
     <string name="device_settings_aap_unavailable_label">الإعدادات المتقدمة غير متاحة</string>
     <string name="device_settings_aap_unavailable_description">تتطلب إعدادات AirPods المتقدمة ميزة بلوتوث غير متاحة على هذا الهاتف. قد يتم حل هذا بتحديث Android مستقبلي من الشركة المصنّعة لجهازك.</string>
+    <string name="device_settings_aap_unavailable_action">عرض متتبع التوافق</string>
     <string name="device_settings_category_sound_label">الصوت</string>
     <string name="device_settings_category_controls_label">عناصر التحكم</string>
     <string name="device_settings_nc_one_airpod_label">إلغاء ضوضاء نشط مع سماعة واحدة</string>
@@ -480,6 +489,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ضغطة واحدة لكتم صوت الميكروفون</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ضغطة مزدوجة لإنهاء المكالمة</string>
     <string name="device_settings_open_cd">فتح إعدادات الجهاز</string>
+    <string name="overview_card_missing_paired_device">هذا الملف الشخصي لا يحتوي على جهاز بلوتوث مقترن.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عام</string>
     <string name="device_settings_microphone_mode_label">ميكروفون</string>
@@ -502,6 +512,9 @@
     <string name="device_settings_allow_off_description">السماح بوضع إيقاف كوضع تحكم قابل للتحديد في الضوضاء. عند التعطيل، تتجاوز الذراعان وضع إيقاف أثناء الدوران.</string>
     <string name="device_settings_sleep_detection_label">اكتشاف النوم</string>
     <string name="device_settings_sleep_detection_description">إيقاف الصوت تلقائيًا عند النوم</string>
+    <string name="reaction_sleep_channel_label">اكتشاف النوم</string>
+    <string name="reaction_sleep_notification_title">تم الإيقاف المؤقت بواسطة اكتشاف النوم</string>
+    <string name="reaction_sleep_notification_text">%1$s أفاد بأنك نمت، لذا تم إيقاف موسيقاك مؤقتًا. يمكنك تعطيل هذا في إعدادات الجهاز.</string>
     <string name="device_settings_rename_label">إعادة تسمية</string>
     <string name="device_settings_rename_hint">اسم الجهاز</string>
     <string name="device_settings_rename_confirm">إعادة تسمية</string>
@@ -511,6 +524,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">إعدادات البلوتوث</string>
     <string name="device_settings_send_failed">تعذّر تطبيق الإعداد: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">وضع إيقاف غير مفعّل على هذا الجهاز. فعّل \"السماح بوضع إيقاف\" ضمن التحكم في الضوضاء.</string>
+    <string name="device_settings_category_battery_label">البطارية</string>
+    <string name="device_settings_charge_cap_label">حد الشحن المحسَّن</string>
+    <string name="device_settings_charge_cap_description">يتعلم روتينك ويوقف الشحن مؤقتًا عند حوالي 80%% لإطالة عمر البطارية، مع شحن السماعات بالكامل قبل استخدامك المتوقع لها.</string>
+    <string name="device_settings_charge_cap_rejected_message">تعذّر تغيير حد الشحن المحسَّن. هذه ميزة تجريبية — يرجى الإبلاغ إذا استمر الفشل.</string>
     <string name="device_settings_category_connections_label">الأجهزة المتصلة</string>
     <string name="device_settings_connected_devices_description">الأجهزة الأخرى المتصلة حاليًا بهذه AirPods</string>
     <string name="device_settings_connected_device_label">الجهاز %d</string>

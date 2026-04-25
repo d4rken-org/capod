@@ -26,7 +26,7 @@
     <string name="upgrade_benefit_popups">Popup dema vekirina qutiyê &amp; girêdanê</string>
     <string name="upgrade_benefit_widgets">Widgetên ekrana malê</string>
     <string name="upgrade_benefit_device_settings">Mîhengen pêşkertî yên cîhazê</string>
-    <string name="upgrade_benefit_device_controls">Kontrolên cîhazê &#8212; deng, stûn &amp; zêdetir</string>
+    <string name="upgrade_benefit_device_controls">Kontrolên cîhazê &#8212; deng, stûn &amp; zªtir</string>
     <string name="upgrade_benefit_support">Pêşdebir piştgirî bike</string>
     <string name="upgrade_benefit_disclaimer">Hebûna taybet mendêyê bi kulaklîkên we û amûrê ve girêdayî ye.</string>
     <string name="upgrade_screen_options_description">Heman taybetmendî, bihayên cûda. Abonê ceribandineke belaş vedihewîne û her dem dikare were betal kirin.</string>
@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Zelabûna paşxistê</string>
     <string name="widget_config_show_device_label">Navê cihazê nîşan bide</string>
     <string name="widget_config_reset_label">Vegere bergûzariyên niyşê</string>
+    <string name="widget_config_preview_resize_hint">Tu dikarî pêvekê piştî danîna wê li ser ekrana xwe ya malê guhêrbikî.</string>
     <string name="widget_config_custom_label">Xweser</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tarî</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Ev amûrek nenas e, lê formata peyamên wekhev bikar tîne. Ka em piştgiriyê lê zêde bikin, bi min re têkilî daynin :)</string>
     <string name="pods_none_label_short">Tu amûr tune</string>
     <string name="pods_charging_label">Tê şarjkirin</string>
+    <string name="pods_charging_optimized_label">Xweşkirî</string>
     <string name="pods_inear_label">Di guhê de</string>
     <string name="pods_microphone_label">Mîkrofon</string>
     <string name="anc_mode_off">Vemirandî</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Navê Amûra Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Çêker</string>
+    <string name="device_settings_info_hardware_label">Donanî</string>
     <string name="device_settings_info_serial_label">Jimara Rêzî</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Nermalava Benda</string>
     <string name="device_settings_info_build_label">Avakirin</string>
     <string name="device_settings_info_left_serial_label">Serî ya Pod Çep</string>
     <string name="device_settings_info_right_serial_label">Serî ya Pod Rast</string>
+    <string name="device_settings_info_left_bonded_label">Çepê Girêdayî</string>
+    <string name="device_settings_info_right_bonded_label">Rastê Girêdayî</string>
     <string name="device_settings_info_details_label">Hûrguliyîn Amûrê</string>
     <string name="device_settings_info_details_action">Hûrguliyîn amûrê nîşan bide</string>
     <string name="device_settings_info_status_label">Rewş</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Ev cîhaz li nêzîkê ye lê bi vê têlefonê ve girêdayî nine. Girêde da bigihîjî mîheng û kontrolan.</string>
     <string name="device_settings_not_connected_connect_action">Girêde</string>
     <string name="device_settings_not_connected_open_settings_action">Mîhengên Bluetooth veke</string>
+    <string name="device_settings_not_nearby_label">Amûr li nêzîkê nîne</string>
+    <string name="device_settings_not_nearby_description">Mîheng tenê dema ku ev amûr li nêzîkê be û bi têlefona we ve girêdayî be tê peyda kirin.</string>
     <string name="device_settings_aap_unavailable_label">Mîhengên pêşkeftî nepeyda ne</string>
     <string name="device_settings_aap_unavailable_description">Mêhengîn pêşkeftî yîn AirPods taybetmendiyek Bluetooth hewce dike ku li ser vê têlefonê berdest nêne. Ev dibe ku bi nûvekirina pêşerojê ya Android ji çêkerê amûra we were çareserkirin.</string>
+    <string name="device_settings_aap_unavailable_action">Şopnerê lihevhatinê bibîne</string>
     <string name="device_settings_category_sound_label">Deng</string>
     <string name="device_settings_category_controls_label">Kontrol</string>
     <string name="device_settings_nc_one_airpod_label">ANC bi yek pod</string>
@@ -451,15 +460,16 @@
     <string name="device_settings_volume_swipe_length_label">Dema Rawestana Kaşkirina Dengê</string>
     <string name="device_settings_volume_swipe_length_description">Ji bo pêşîlêgirtina guherandina dengê ya bê mebest, hilbijêre çiqas li bendê bimînî di navbera kaşkirinan de.</string>
     <string name="device_settings_volume_swipe_length_default">Xwerû</string>
-    <string name="device_settings_volume_swipe_length_longer">Dirêjtir</string>
+    <string name="device_settings_volume_swipe_length_longer">Dirªjtir</string>
     <string name="device_settings_volume_swipe_length_longest">Herî Dirêj</string>
     <string name="device_settings_end_call_mute_mic_label">Kontrolên Bangê</string>
-    <string name="device_settings_end_call_mute_mic_description">Hilbijêre ku pêtina stûnê di dema bangên çi dike</string>
+    <string name="device_settings_end_call_mute_mic_description">Hilbijêre ku pªtina stûnê di dema bangên çi dike</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Yek pêtin ji bo bidawîkirina bangê</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Du pêtin ji bo bîdengkirina mîkrofonê</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Yek pêtin ji bo bîdengkirina mîkrofonê</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Du pêtin ji bo bidawîkirina bangê</string>
     <string name="device_settings_open_cd">Mîhengên cîhazê veke</string>
+    <string name="overview_card_missing_paired_device">Ev profîl ti amûrek Bluetooth-ê ya hevgirtî tune.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Giştî</string>
     <string name="device_settings_microphone_mode_label">Mîkrofon</string>
@@ -481,7 +491,10 @@
     <string name="device_settings_allow_off_label">Destûrê bide Moda Venebûnê</string>
     <string name="device_settings_allow_off_description">Destûrê bide Venebûn wekî moda kontrola dengê ya bijartbar. Dema neçalak e, stem dema çerxkirinê Venebûn derbas dike.</string>
     <string name="device_settings_sleep_detection_label">Tespîtkirina Xewê</string>
-    <string name="device_settings_sleep_detection_description">Dema ku dikevî xewê, dengê medyayê bixweber rawes têne</string>
+    <string name="device_settings_sleep_detection_description">Dema ku dikªvî xewê, dengê medyayê bixweber rawes têne</string>
+    <string name="reaction_sleep_channel_label">Tespîtkirina Xewê</string>
+    <string name="reaction_sleep_notification_title">Ji hêla Tespîtkirina Xewê ve hate rawestandin</string>
+    <string name="reaction_sleep_notification_text">%1$s ragihand ku hûn xew çûn, ji ber vê yekê muzîka we hate rawestandin. Hûn dikarin vê di mîhengên amûrê de neçalak bikin.</string>
     <string name="device_settings_rename_label">Navnivisîn</string>
     <string name="device_settings_rename_hint">Navê cîhazê</string>
     <string name="device_settings_rename_confirm">Navnivisîn</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Mîhengên Bluetooth</string>
     <string name="device_settings_send_failed">Mîheng nehate sepandin: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Moda Venebûn li ser vê amûrê neçalak e. \"Destûrê bide Moda Venebûnê\" di bin Kontrola Dengê de çalak bike.</string>
+    <string name="device_settings_category_battery_label">Batarya</string>
+    <string name="device_settings_charge_cap_label">Sînorê Şandina Xweşkirî</string>
+    <string name="device_settings_charge_cap_description">Rutîna we hîn bike û şandina bataryayê li dora 80%% rawestîne da ku heyama bataryayê dirêj bike, podên we berî ku hûn wan bikar bînin tijî bike.</string>
+    <string name="device_settings_charge_cap_rejected_message">Sînorê Şandina Xweşkirî nehat guhêrtin. Ev taybetmendiyek ceribandinê ye — ji kerema xwe raporte bikin eger ew têk diçe.</string>
     <string name="device_settings_category_connections_label">Amûrên Girêdayî</string>
     <string name="device_settings_connected_devices_description">Amûrên din ên niha bi van AirPods girêdayî</string>
     <string name="device_settings_connected_device_label">Amûr %d</string>

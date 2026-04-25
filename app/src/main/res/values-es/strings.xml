@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparencia del fondo</string>
     <string name="widget_config_show_device_label">Mostrar el nombre del dispositivo</string>
     <string name="widget_config_reset_label">Restaurar los valores predeterminados</string>
+    <string name="widget_config_preview_resize_hint">Puedes cambiar el tamaño del widget después de colocarlo en la pantalla de inicio.</string>
     <string name="widget_config_custom_label">Personalizado</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Oscuro</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Es un dispositivo desconocido, pero está utilizando un formato similar. Añadamos soporte para ello, contáctame :)</string>
     <string name="pods_none_label_short">Sin dispositivo</string>
     <string name="pods_charging_label">Cargando</string>
+    <string name="pods_charging_optimized_label">Optimizado</string>
     <string name="pods_inear_label">En el oído</string>
     <string name="pods_microphone_label">Micrófono</string>
     <string name="anc_mode_off">Desactivado</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Etiqueta del dispositivo Bluetooth</string>
     <string name="device_settings_info_model_label">Modelo</string>
     <string name="device_settings_info_manufacturer_label">Fabricante</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Número de serie</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware pendiente</string>
     <string name="device_settings_info_build_label">Versión</string>
     <string name="device_settings_info_left_serial_label">Número de serie del auricular izquierdo</string>
     <string name="device_settings_info_right_serial_label">Número de serie del auricular derecho</string>
+    <string name="device_settings_info_left_bonded_label">Izquierdo vinculado</string>
+    <string name="device_settings_info_right_bonded_label">Derecho vinculado</string>
     <string name="device_settings_info_details_label">Detalles del dispositivo</string>
     <string name="device_settings_info_details_action">Mostrar detalles del dispositivo</string>
     <string name="device_settings_info_status_label">Estado</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Este dispositivo está cerca pero no conectado a este teléfono. Conéctalo para acceder a los ajustes y controles.</string>
     <string name="device_settings_not_connected_connect_action">Conectar</string>
     <string name="device_settings_not_connected_open_settings_action">Abrir ajustes de Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Dispositivo no cercano</string>
+    <string name="device_settings_not_nearby_description">La configuración solo está disponible cuando este dispositivo está cerca y conectado a tu teléfono.</string>
     <string name="device_settings_aap_unavailable_label">Ajustes avanzados no disponibles</string>
     <string name="device_settings_aap_unavailable_description">La configuración avanzada de AirPods requiere una función Bluetooth que no está disponible en este teléfono. Esto podría resolverse con una futura actualización de Android del fabricante de tu dispositivo.</string>
+    <string name="device_settings_aap_unavailable_action">Ver rastreador de compatibilidad</string>
     <string name="device_settings_category_sound_label">Sonido</string>
     <string name="device_settings_category_controls_label">Controles</string>
     <string name="device_settings_nc_one_airpod_label">ANC con un solo auricular</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Pulsación simple para silenciar el micrófono</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Doble pulsación para finalizar llamada</string>
     <string name="device_settings_open_cd">Abrir configuración del dispositivo</string>
+    <string name="overview_card_missing_paired_device">Este perfil no tiene ningún dispositivo Bluetooth emparejado.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Permite el modo Desactivado como modo de control de ruido seleccionable. Cuando está deshabilitado, el tallo omite Desactivado al ciclar.</string>
     <string name="device_settings_sleep_detection_label">Detección de sueño</string>
     <string name="device_settings_sleep_detection_description">Pausar el audio automáticamente cuando te quedes dormido</string>
+    <string name="reaction_sleep_channel_label">Detección de sueño</string>
+    <string name="reaction_sleep_notification_title">Pausado por detección de sueño</string>
+    <string name="reaction_sleep_notification_text">%1$s informó que te quedaste dormido, por lo que tu música fue pausada. Puedes desactivar esto en la configuración del dispositivo.</string>
     <string name="device_settings_rename_label">Renombrar</string>
     <string name="device_settings_rename_hint">Nombre del dispositivo</string>
     <string name="device_settings_rename_confirm">Renombrar</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Ajustes de Bluetooth</string>
     <string name="device_settings_send_failed">No se pudo aplicar el ajuste: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">El modo Desactivado no está habilitado en este dispositivo. Activa \"Permitir modo Desactivado\" en Control de ruido.</string>
+    <string name="device_settings_category_battery_label">Batería</string>
+    <string name="device_settings_charge_cap_label">Límite de carga optimizado</string>
+    <string name="device_settings_charge_cap_description">Aprende tu rutina y pausa la carga alrededor del 80%% para alargar la vida de la batería, completando la carga de los auriculares antes de que vayas a usarlos.</string>
+    <string name="device_settings_charge_cap_rejected_message">No se pudo cambiar el límite de carga optimizado. Es una función experimental; informe si sigue fallando.</string>
     <string name="device_settings_category_connections_label">Dispositivos conectados</string>
     <string name="device_settings_connected_devices_description">Otros dispositivos conectados actualmente a estos AirPods</string>
     <string name="device_settings_connected_device_label">Dispositivo %d</string>

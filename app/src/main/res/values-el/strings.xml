@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Διαφάνεια φόντου</string>
     <string name="widget_config_show_device_label">Εμφάνιση ονόματος συσκευής</string>
     <string name="widget_config_reset_label">Επαναφορά στις προεπιλογές</string>
+    <string name="widget_config_preview_resize_hint">Μπορείτε να αλλάξετε το μέγεθος του widget αφού το τοποθετήσετε στην αρχική οθόνη σας.</string>
     <string name="widget_config_custom_label">Προσαρμοσμένη</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Σκοτεινό</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Αυτή είναι μια άγνωστη συσκευή, αλλά χρησιμοποιεί παρόμοια μορφή μηνύματος. Ας προσθέσουμε υποστήριξη γι\' αυτήν, επικοινωνήστε μαζί μου :)</string>
     <string name="pods_none_label_short">Καμία συσκευή</string>
     <string name="pods_charging_label">Φόρτιση</string>
+    <string name="pods_charging_optimized_label">Βελτιστοποιημένη</string>
     <string name="pods_inear_label">Στο αυτί</string>
     <string name="pods_microphone_label">Μικρόφωνο</string>
     <string name="anc_mode_off">Απενεργοποιημένο</string>
@@ -304,7 +306,7 @@
     <string name="profiles_key_expected_format">Αναμενόμενη μορφή: %1$s</string>
     <string name="profiles_key_status_configured">Διαμορφωμένο</string>
     <string name="profiles_key_status_not_set">Μη ορισμένο</string>
-    <string name="profiles_signal_quality_min_label">Απενεργοποιημένο</string>
+    <string name="profiles_signal_quality_min_label">Απενεργο</string>
     <string name="profiles_signal_quality_max_label">Αυστηρό</string>
     <string name="profiles_priority_hint">Η σειρά των προφίλ καθορίζει την προτεραιότητα. Σύρετε τα προφίλ για αναδιάταξη - τα προφίλ υψηλότερα στη λίστα έχουν προτεραιότητα όταν ταιριάζουν πολλαπλές συσκευές.</string>
     <!-- Theme Mode -->
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Ετικέτα Συσκευής Bluetooth</string>
     <string name="device_settings_info_model_label">Μοντέλο</string>
     <string name="device_settings_info_manufacturer_label">Κατασκευαστής</string>
+    <string name="device_settings_info_hardware_label">Υλικό</string>
     <string name="device_settings_info_serial_label">Σειριακός Αριθμός</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Εκκρεμές Firmware</string>
     <string name="device_settings_info_build_label">Έκδοση</string>
     <string name="device_settings_info_left_serial_label">Σειριακός Αριθμός Αριστερού Pod</string>
     <string name="device_settings_info_right_serial_label">Σειριακός Αριθμός Δεξιού Pod</string>
+    <string name="device_settings_info_left_bonded_label">Αριστερό Συζευγμένο</string>
+    <string name="device_settings_info_right_bonded_label">Δεξί Συζευγμένο</string>
     <string name="device_settings_info_details_label">Λεπτομέρειες Συσκευής</string>
     <string name="device_settings_info_details_action">Εμφάνιση λεπτομερειών συσκευής</string>
     <string name="device_settings_info_status_label">Κατάσταση</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Αυτή η συσκευή είναι κοντά αλλά δεν είναι συνδεδεμένη σε αυτό το τηλέφωνο. Συνδεθείτε για πρόσβαση στις ρυθμίσεις και τις επιλογές ελέγχου.</string>
     <string name="device_settings_not_connected_connect_action">Σύνδεση</string>
     <string name="device_settings_not_connected_open_settings_action">Άνοιγμα Ρυθμίσεων Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Η συσκευή δεν βρίσκεται κοντά</string>
+    <string name="device_settings_not_nearby_description">Οι ρυθμίσεις είναι διαθέσιμες μόνο όταν αυτή η συσκευή βρίσκεται κοντά και είναι συνδεδεμένη στο τηλέφωνό σας.</string>
     <string name="device_settings_aap_unavailable_label">Οι προηγμένες ρυθμίσεις δεν είναι διαθέσιμες</string>
     <string name="device_settings_aap_unavailable_description">Οι προηγμένες ρυθμίσεις AirPods απαιτούν λειτουργία Bluetooth που δεν είναι διαθέσιμη σε αυτό το τηλέφωνο. Αυτό μπορεί να επιλυθεί με μελλοντική ενημέρωση Android από τον κατασκευαστή της συσκευής σας.</string>
+    <string name="device_settings_aap_unavailable_action">Προβολή εργαλείου παρακολούθησης συμβατότητας</string>
     <string name="device_settings_category_sound_label">Ήχος</string>
     <string name="device_settings_category_controls_label">Χειριστήρια</string>
     <string name="device_settings_nc_one_airpod_label">ANC με ένα pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Μία πίεση για σίγαση μικροφώνου</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Διπλή πίεση για τερματισμό κλήσης</string>
     <string name="device_settings_open_cd">Άνοιγμα ρυθμίσεων συσκευής</string>
+    <string name="overview_card_missing_paired_device">Αυτό το προφίλ δεν έχει συζευγμένη συσκευή Bluetooth.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Γενικά</string>
     <string name="device_settings_microphone_mode_label">Μικρόφωνο</string>
@@ -480,8 +490,11 @@
     <string name="device_settings_listening_mode_cycle_adaptive">Προσαρμοστικό</string>
     <string name="device_settings_allow_off_label">Να επιτρέπεται η λειτουργία Απενεργοποίησης</string>
     <string name="device_settings_allow_off_description">Να επιτρέπεται η Απενεργοποίηση ως επιλέξιμη λειτουργία ελέγχου θορύβου. Όταν είναι απενεργοποιημένη, τα στελέχη παραλείπουν την Απενεργοποίηση κατά τον κύκλο.</string>
-    <string name="device_settings_sleep_detection_label">Ανίχνευση ύπνου</string>
+    <string name="device_settings_sleep_detection_label">Ανίχνευση ΍πνου</string>
     <string name="device_settings_sleep_detection_description">Αυτόματη παύση ήχου όταν αποκοιμηθείτε</string>
+    <string name="reaction_sleep_channel_label">Ανίχνευση Ύπνου</string>
+    <string name="reaction_sleep_notification_title">Σε παύση από την Ανίχνευση Ύπνου</string>
+    <string name="reaction_sleep_notification_text">%1$s ανέφερε ότι αποκοιμηθήκατε, οπότε η μουσική σας τέθηκε σε παύση. Μπορείτε να το απενεργοποιήσετε στις ρυθμίσεις συσκευής.</string>
     <string name="device_settings_rename_label">Μετονομασία</string>
     <string name="device_settings_rename_hint">Όνομα συσκευής</string>
     <string name="device_settings_rename_confirm">Μετονομασία</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Ρυθμίσεις Bluetooth</string>
     <string name="device_settings_send_failed">Δεν ήταν δυνατή η εφαρμογή ρύθμισης: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Η λειτουργία Απενεργοποίησης δεν είναι ενεργοποιημένη σε αυτή τη συσκευή. Ενεργοποιήστε «Να επιτρέπεται η λειτουργία Απενεργοποίησης» στον Έλεγχο Θορύβου.</string>
+    <string name="device_settings_category_battery_label">Μπαταρία</string>
+    <string name="device_settings_charge_cap_label">Βελτιστοποιημένο Όριο Φόρτισης</string>
+    <string name="device_settings_charge_cap_description">Μαθαίνει τη ρουτίνα σας και διακόπτει τη φόρτιση γύρω στο 80%% για να παρατείνει τη διάρκεια ζωής της μπαταρίας, φορτίζοντας πλήρως τα pods πριν τα χρησιμοποιήσετε.</string>
+    <string name="device_settings_charge_cap_rejected_message">Δεν ήταν δυνατή η αλλαγή του Βελτιστοποιημένου Ορίου Φόρτισης. Αυτό είναι πειραματικό χαρακτηριστικό — παρακαλώ αναφέρετε αν συνεχίσει να αποτυγχάνει.</string>
     <string name="device_settings_category_connections_label">Συνδεδεμένες Συσκευές</string>
     <string name="device_settings_connected_devices_description">Άλλες συσκευές που είναι συνδεδεμένες στα AirPods αυτή τη στιγμή</string>
     <string name="device_settings_connected_device_label">Συσκευή %d</string>
