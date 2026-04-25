@@ -36,12 +36,8 @@ class WidgetSettings @Inject constructor(
         }
     }
 
-    fun getWidgetProfile(widgetId: Int): ProfileId? {
-        val profileId = runBlocking {
-            dataStore.data.first()[stringPreferencesKey(getWidgetProfileKey(widgetId))]
-        }
-        log(TAG, VERBOSE) { "getWidgetProfile(widgetId=$widgetId) = $profileId" }
-        return profileId
+    fun getWidgetProfile(widgetId: Int): ProfileId? = runBlocking {
+        dataStore.data.first()[stringPreferencesKey(getWidgetProfileKey(widgetId))]
     }
 
     fun removeWidget(widgetId: Int) {
