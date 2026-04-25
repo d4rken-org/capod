@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Fona caursspīdīgums</string>
     <string name="widget_config_show_device_label">Rādīt ierīces nosaukumu</string>
     <string name="widget_config_reset_label">Atiestatīt noklusējumos</string>
+    <string name="widget_config_preview_resize_hint">Varat mainīt logrīka izmēru pēc tā novietošanas sākumekrānā.</string>
     <string name="widget_config_custom_label">Pielāgots</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tumšs</string>
@@ -252,6 +253,7 @@
     <string name="pods_unknown_contact_dev">Šī ir nezināma ierīce, bet tā izmanto līdzīgu ziņojumu formātu. Pievienosim tai atbalstu, sazinieties ar mani :)</string>
     <string name="pods_none_label_short">Nav ierīces</string>
     <string name="pods_charging_label">Uzlāde</string>
+    <string name="pods_charging_optimized_label">Optimizēts</string>
     <string name="pods_inear_label">Ausī</string>
     <string name="pods_microphone_label">Mikrofons</string>
     <string name="anc_mode_off">Izslēgts</string>
@@ -412,11 +414,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth ierīces nosaukums</string>
     <string name="device_settings_info_model_label">Modelis</string>
     <string name="device_settings_info_manufacturer_label">Ražotājs</string>
+    <string name="device_settings_info_hardware_label">Aparatūra</string>
     <string name="device_settings_info_serial_label">Sērijas numurs</string>
     <string name="device_settings_info_firmware_label">Programmatūra</string>
+    <string name="device_settings_info_firmware_pending_label">Gaidošā programmaparatūra</string>
     <string name="device_settings_info_build_label">Versija</string>
     <string name="device_settings_info_left_serial_label">Kreisās austiņas sērijas numurs</string>
     <string name="device_settings_info_right_serial_label">Labās austiņas sērijas numurs</string>
+    <string name="device_settings_info_left_bonded_label">Kreisais savienots</string>
+    <string name="device_settings_info_right_bonded_label">Labais savienots</string>
     <string name="device_settings_info_details_label">Ierīces informācija</string>
     <string name="device_settings_info_details_action">Rādīt ierīces informāciju</string>
     <string name="device_settings_info_status_label">Stāvoklis</string>
@@ -426,8 +432,11 @@
     <string name="device_settings_not_connected_description">Šī ierīce ir tuvumā, bet nav savienota ar šo tālruni. Savienojieties, lai piekļūtu iestatījumiem un vadīklām.</string>
     <string name="device_settings_not_connected_connect_action">Savienot</string>
     <string name="device_settings_not_connected_open_settings_action">Atvērt Bluetooth iestatījumus</string>
+    <string name="device_settings_not_nearby_label">Ierīce nav tuvumā</string>
+    <string name="device_settings_not_nearby_description">Iestatījumi ir pieejami tikai tad, kad šī ierīce ir tuvumā un savienota ar jūsu tālruni.</string>
     <string name="device_settings_aap_unavailable_label">Papildu iestatījumi nav pieejami</string>
     <string name="device_settings_aap_unavailable_description">Papildu AirPods iestatījumi prasa Bluetooth funkciju, kas nav pieejama šajā tālrunī. To var novērst nākamais Android atjauninājums no jūsu ierīces ražotāja.</string>
+    <string name="device_settings_aap_unavailable_action">Skatīt saderības izsekotāju</string>
     <string name="device_settings_category_sound_label">Skaņa</string>
     <string name="device_settings_category_controls_label">Vadīklēšana</string>
     <string name="device_settings_nc_one_airpod_label">ANC ar vienu austiņu</string>
@@ -465,6 +474,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Vienu reizi nospiežot, islēdz mikrofonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Divas reizes nospiežot, beidz zvanu</string>
     <string name="device_settings_open_cd">Atvērt ierīces iestatījumus</string>
+    <string name="overview_card_missing_paired_device">Šim profilam nav savienota Bluetooth ierīce.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Vispārīgi</string>
     <string name="device_settings_microphone_mode_label">Mikrofons</string>
@@ -487,6 +497,9 @@
     <string name="device_settings_allow_off_description">Atļaut Izslēgts kā izvēlamu trokšņu kontroles režīmu. Ja atspējots, kāti izslēgšanas režīmu izlaiž ciklā.</string>
     <string name="device_settings_sleep_detection_label">Miega noteikšana</string>
     <string name="device_settings_sleep_detection_description">Automātiski apturēt audio, kad aizmiegat</string>
+    <string name="reaction_sleep_channel_label">Miega noteikšana</string>
+    <string name="reaction_sleep_notification_title">Apturēts ar miega noteikšanu</string>
+    <string name="reaction_sleep_notification_text">%1$s ziņoja, ka jūs aizmigsāt, tāpēc mūzika tika pauzēta. To var atspējot ierīces iestatījumos.</string>
     <string name="device_settings_rename_label">Pārdēvēt</string>
     <string name="device_settings_rename_hint">Ierīces nosaukums</string>
     <string name="device_settings_rename_confirm">Pārdēvēt</string>
@@ -496,6 +509,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth iestatījumi</string>
     <string name="device_settings_send_failed">Nevarēja piemērot iestatījumu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Izslēgšanas režīms nav iespējots šajā ierīcē. Iespējojiet „Atļaut izslēgšanas režīmu“ sadalā Trokšņu kontrole.</string>
+    <string name="device_settings_category_battery_label">Akumulators</string>
+    <string name="device_settings_charge_cap_label">Optimizēts uzņēmšanas limits</string>
+    <string name="device_settings_charge_cap_description">Iemacās jūsu ikdienas rutbu un aptur uzņēmšanu ap 80%%, lai pagarinātu akumulatora kalpošanas laiku, uzņemot aussāgļus pilnbīdi, pirms jūs tos drīzāk izmantosīt.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimizēto uzņēmšanas limitu nevarēja mainīt. Šī ir ekspeimentāla funkcija — lūdzu ziņojiet, ja tā turpinās neizdeveties.</string>
     <string name="device_settings_category_connections_label">Pievienotās ierīces</string>
     <string name="device_settings_connected_devices_description">Citas ierīces, kas pašlaik ir savienotas ar šiem AirPods</string>
     <string name="device_settings_connected_device_label">Ierīce %d</string>

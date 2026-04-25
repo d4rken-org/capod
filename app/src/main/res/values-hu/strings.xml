@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Háttér átlátszósága</string>
     <string name="widget_config_show_device_label">Eszköznév megjelenítése</string>
     <string name="widget_config_reset_label">Alapértékek visszaállítása</string>
+    <string name="widget_config_preview_resize_hint">A widgetet átméretezheted, miután elhelyezted a kezdőképernyőn.</string>
     <string name="widget_config_custom_label">Egyéni</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Sötét</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Ez egy ismeretlen eszköz, de hasonló üzenetformátumot használ. Adjunk hozzá támogatást, lépjen kapcsolatba velem :)</string>
     <string name="pods_none_label_short">Nincs eszköz</string>
     <string name="pods_charging_label">Töltés</string>
+    <string name="pods_charging_optimized_label">Optimalizált</string>
     <string name="pods_inear_label">Fülben</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Ki</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth-eszköz neve</string>
     <string name="device_settings_info_model_label">Modell</string>
     <string name="device_settings_info_manufacturer_label">Gyártó</string>
+    <string name="device_settings_info_hardware_label">Hardver</string>
     <string name="device_settings_info_serial_label">Sorozatszám</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Függőben lévő firmware</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Bal fülhallgató sorozatszáma</string>
     <string name="device_settings_info_right_serial_label">Jobb fülhallgató sorozatszáma</string>
+    <string name="device_settings_info_left_bonded_label">Bal fülhallgató párosítva</string>
+    <string name="device_settings_info_right_bonded_label">Jobb fülhallgató párosítva</string>
     <string name="device_settings_info_details_label">Eszköz részletei</string>
     <string name="device_settings_info_details_action">Eszköz részleteinek megjelenítése</string>
     <string name="device_settings_info_status_label">Állapot</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Ez az eszköz a közelben van, de nincs csatlakoztatva ehhez a telefonhoz. Csatlakozzon a beállítások és vezérlők eléréséhez.</string>
     <string name="device_settings_not_connected_connect_action">Csatlakozás</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth beállítások megnyitása</string>
+    <string name="device_settings_not_nearby_label">Az eszköz nincs a közelben</string>
+    <string name="device_settings_not_nearby_description">A beállítások csak akkor érhetők el, ha az eszköz a közelben van és csatlakoztatva van a telefonodhoz.</string>
     <string name="device_settings_aap_unavailable_label">Speciális beállítások nem elérhetők</string>
     <string name="device_settings_aap_unavailable_description">A speciális AirPods beállításokhoz olyan Bluetooth-funkció szükséges, amely nem érhető el ezen a telefonon. Ez megoldódhat a készülékgyártó jövőbeli Android-frissítésével.</string>
+    <string name="device_settings_aap_unavailable_action">Kompatibilitási lista megtekintése</string>
     <string name="device_settings_category_sound_label">Hang</string>
     <string name="device_settings_category_controls_label">Vezérlők</string>
     <string name="device_settings_nc_one_airpod_label">ANC egyetlen fülhallgatóval</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Egyszeri nyomás a mikrofon némításához</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dupla nyomás a hívás befejezéséhez</string>
     <string name="device_settings_open_cd">Eszközbeállítások megnyitása</string>
+    <string name="overview_card_missing_paired_device">Ehhez a profilhoz nincs párosított Bluetooth-eszköz.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Általános</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">A Ki mód engedélyezése választható zajvezérlési módként. Ha le van tiltva, a szárak kihagyják a Ki módot a ciklizálás során.</string>
     <string name="device_settings_sleep_detection_label">Alvásérzékelés</string>
     <string name="device_settings_sleep_detection_description">Audíó automatikus szüneteltetéseelalváskor</string>
+    <string name="reaction_sleep_channel_label">Alvásérzékelés</string>
+    <string name="reaction_sleep_notification_title">Az alvásérzékelés által szüneteltetve</string>
+    <string name="reaction_sleep_notification_text">%1$s jelezte, hogy elaludtál, ezért a zene szünetelt. Ezt a készülék beállításaiban kapcsolhatod ki.</string>
     <string name="device_settings_rename_label">Átnevézés</string>
     <string name="device_settings_rename_hint">Eszköz neve</string>
     <string name="device_settings_rename_confirm">Átnevézés</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-beállítások</string>
     <string name="device_settings_send_failed">Nem sikerült alkalmazni a beállítást: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">A Ki mód nincs engedélyezve ezen az eszközön. Engedélyezd a \"Ki mód engedélyezése\" opciót a Zajvezérlés alatt.</string>
+    <string name="device_settings_category_battery_label">Akkumulátor</string>
+    <string name="device_settings_charge_cap_label">Optimalizált töltési limit</string>
+    <string name="device_settings_charge_cap_description">Megtanulja a szokásaidat, és kb. 80%%-nál szünetelteti a töltést az akkumulátor élettartalmának megnyújtásához, majd befejezi a töltést, mielőtt valószínűleg használni szeretnéd.</string>
+    <string name="device_settings_charge_cap_rejected_message">Az optimalizált töltési limit módosítása nem sikerült. Ez egy kísérleti funkció — kérjük, jelezd, ha továbbra is hibás marad.</string>
     <string name="device_settings_category_connections_label">Csatlakoztatott eszközök</string>
     <string name="device_settings_connected_devices_description">Más eszközök, amelyek jelenleg csatlakoznak ezekhez az AirPodokhoz</string>
     <string name="device_settings_connected_device_label">%d. eszköz</string>

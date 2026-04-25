@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">ភាពថ្លាផ្ទៃខាងក្រោយ</string>
     <string name="widget_config_show_device_label">បង្ហាញឈ្មោះឧបករណ៍</string>
     <string name="widget_config_reset_label">កំណត់ឡើងវិញទៅលម្អិតដើម</string>
+    <string name="widget_config_preview_resize_hint">អ្នកអាចប្តូរទំហំ widget បន្ទាប់ពីដាក់វានៅលើអេក្រង់ដើមរបស់អ្នក។</string>
     <string name="widget_config_custom_label">ផ្ទាល់ខ្លួន</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">ងងឹត</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">នេះជាឧបករណ៍មិនស្គាល់ ប៉ុន្តែវាកំពុងប្រើទម្រង់សារស្រដៀងគ្នា។ សូមបន្ថែមការគាំទ្រសម្រាប់វា ទាក់ទងមកខ្ញុំ :)</string>
     <string name="pods_none_label_short">គ្មានឧបករណ៍</string>
     <string name="pods_charging_label">កំពុងសាក</string>
+    <string name="pods_charging_optimized_label">បានបង្កើនប្រសិទ្ធភាព</string>
     <string name="pods_inear_label">ក្នុងត្រចៀក</string>
     <string name="pods_microphone_label">មីក្រូហ្វូន</string>
     <string name="anc_mode_off">បិទ</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">ស្លាកឧបករណ៍ Bluetooth</string>
     <string name="device_settings_info_model_label">គំរូ</string>
     <string name="device_settings_info_manufacturer_label">ក្រុមហ៊ុនផលិត</string>
+    <string name="device_settings_info_hardware_label">ផ្នែករឹង</string>
     <string name="device_settings_info_serial_label">លើខស្អីរី</string>
     <string name="device_settings_info_firmware_label">កំណែ Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">កម្មវិធីបង្កប់រង់ចាំ</string>
     <string name="device_settings_info_build_label">កំណែ</string>
     <string name="device_settings_info_left_serial_label">លើខស៊ើរី Pod ខាងឆ្វេង</string>
     <string name="device_settings_info_right_serial_label">លើខស៊ើរី Pod ខាងស្តាំ</string>
+    <string name="device_settings_info_left_bonded_label">ខាងឆ្វេងបានភ្ជាប់</string>
+    <string name="device_settings_info_right_bonded_label">ខាងស្តាំបានភ្ជាប់</string>
     <string name="device_settings_info_details_label">ព័ត៌មានលម័អិតឧបករណ៍</string>
     <string name="device_settings_info_details_action">បង់ហាញព័ត៌មានលម័អិតឧបករណ៍</string>
     <string name="device_settings_info_status_label">ស្ថានភាព</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">ឧបករណ៍នេះនៅជិតប៉ុន្តែមិនបានតភ្ជាប់ទៅទូរស័ព្ទនេះទេ។ ភ្ជាប់ដើម្បីចូលប្រើការកំណត់និងការគ្រប់គ្រង។</string>
     <string name="device_settings_not_connected_connect_action">ភ្ជាប់</string>
     <string name="device_settings_not_connected_open_settings_action">បើកការកំណត់ Bluetooth</string>
+    <string name="device_settings_not_nearby_label">ឧបករណ៍មិននៅជិតទេ</string>
+    <string name="device_settings_not_nearby_description">ការកំណត់មានតែនៅពេលឧបករណ៍នេះនៅជិត ហើយបានភ្ជាប់ទៅទូរស័ព្ទរបស់អ្នក។</string>
     <string name="device_settings_aap_unavailable_label">ការកំណត់កម្រិតខ្ពស់មិនអាចប្រើបាន</string>
     <string name="device_settings_aap_unavailable_description">ការកំណត់ AirPods កម្រិតខ្ពស់តម្រូវឱ្យមានមុខងារ Bluetooth ដែលមិនអាចប្រើបានលើទូរស័ភ្ទនេះ។ ករណីនេះប្រហែលជាត្រូវបានដោះស្រួលដោយការអាប់ដើត Android នាពេលអនាគតពីក្រុមហ៊ុនផលិតឧបករណ៍របស់អ្នក។</string>
+    <string name="device_settings_aap_unavailable_action">មើលឧបករណ៍តាមដានភាពឆបគ្នា</string>
     <string name="device_settings_category_sound_label">សំឡេង</string>
     <string name="device_settings_category_controls_label">ការគ្រប់គ្រង</string>
     <string name="device_settings_nc_one_airpod_label">ANC ជាមួយ pod មួយ</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ចុចម្តងដើម្បិបិតមីក្រូហ្វូន</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ចុចពីរដងដើម្បិបញ្ចប់ការហឹល</string>
     <string name="device_settings_open_cd">បើកការកំណត់ឧបករណ៍</string>
+    <string name="overview_card_missing_paired_device">គម្រោងនេះមិនមានឧបករណ៍ Bluetooth ដែលបានផ្គូផ្គងទេ។</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ជាទូទៅ</string>
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">អនុញ្ញាត Off ជារបឰបគ្រប់គ្រងសំឡេងរំខានដែលអាចជ្រើររើសបាន។ នៅពេលបិទ stems នឹងរំលង Off ខណែពេលកំពុងប្តូរ។</string>
     <string name="device_settings_sleep_detection_label">ការរកៃើញការដេក</string>
     <string name="device_settings_sleep_detection_description">ផ្អាកអូឌីយ័ឡដោយស្វ័យប្រវត្តិពេលអ្នកដេកលក់</string>
+    <string name="reaction_sleep_channel_label">ការរកឃើញការគេង</string>
+    <string name="reaction_sleep_notification_title">ផ្អាកដោយការរកឃើញការគេង</string>
+    <string name="reaction_sleep_notification_text">%1$s រាយការណ៍ថាអ្នកគេងលក់ ដូច្នេះតន្ត្រីរបស់អ្នកត្រូវបានផ្អាក។ អ្នកអាចបិទមុខងារនេះបានក្នុងការកំណត់ឧបករណ៍។</string>
     <string name="device_settings_rename_label">ប្តូរៀម្អោះ</string>
     <string name="device_settings_rename_hint">ៀម្អោះឧបករណ៍</string>
     <string name="device_settings_rename_confirm">ប្តូរៀម្អោះ</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">ការកំណត់ Bluetooth</string>
     <string name="device_settings_send_failed">មិនអាចអនុវត្តការកំណត់: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">របឰប Off មិនបានបើកនៅលើឧបករណ៍នេះ។ បើក \"អនុញ្ញាតរបឰប Off\" ក្របម Noise Control។</string>
+    <string name="device_settings_category_battery_label">ថ្មី</string>
+    <string name="device_settings_charge_cap_label">កំណត់ការសាកថ្មប្រសិទ្ធភាព</string>
+    <string name="device_settings_charge_cap_description">រៀនទម្លាប់របស់អ្នក ហើយផ្អាកការសាកប្រហែល 80%% ដើម្បីពន្យារអាយុថ្ម ដោយបំពេញ pods មុនពេលអ្នកទំនងនឹងប្រើពួកវា។</string>
+    <string name="device_settings_charge_cap_rejected_message">មិនអាចផ្លាស់ប្តូរ​កំណត់ការសាកថ្មប្រសិទ្ធភាពបានទេ។ នេះជាមុខងារពិសោធន៍ — សូមរាយការណ៍ប្រសិនបើវានៅតែបរាជ័យ។</string>
     <string name="device_settings_category_connections_label">ឧបករណ៍ភ្ជាប់</string>
     <string name="device_settings_connected_devices_description">ឧបករណ៍ផ្សេទៀតដែលបានភ្ជាប់ទៅ AirPods តាំនេះ</string>
     <string name="device_settings_connected_device_label">ឧបករណ៍ %d</string>

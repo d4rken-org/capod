@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">پس منظر کی شفافیت</string>
     <string name="widget_config_show_device_label">ڈیوائس کا نام دکھائیں</string>
     <string name="widget_config_reset_label">ڈیفالٹ پر دوبارہ سیٹ کریں</string>
+    <string name="widget_config_preview_resize_hint">آپ ویجٹ کو اپنی ہوم اسکرین پر رکھنے کے بعد اس کا سائز تبدیل کر سکتے ہیں۔</string>
     <string name="widget_config_custom_label">حسب ضرورت</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">گہرا</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">یہ ایک نامعلوم آلہ ہے، لیکن یہ ملتے جلتے پیغام کے فارمیٹ کا استعمال کر رہا ہے۔ آئیے اس کے لئے سپورٹ شامل کریں، مجھ سے رابطہ کریں :)</string>
     <string name="pods_none_label_short">کوئی آلہ نہیں</string>
     <string name="pods_charging_label">چارج ہو رہا ہے</string>
+    <string name="pods_charging_optimized_label">بہتر بنایا گیا</string>
     <string name="pods_inear_label">کان میں</string>
     <string name="pods_microphone_label">مائیکروفون</string>
     <string name="anc_mode_off">بند</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">بلوٹوتھ ڈیوائس لیبل</string>
     <string name="device_settings_info_model_label">ماڈل</string>
     <string name="device_settings_info_manufacturer_label">مینوفیکچرر</string>
+    <string name="device_settings_info_hardware_label">ہارڈ ویئر</string>
     <string name="device_settings_info_serial_label">سیریل نمبر</string>
     <string name="device_settings_info_firmware_label">فرم ویئر</string>
+    <string name="device_settings_info_firmware_pending_label">زیر التواء فرم ویئر</string>
     <string name="device_settings_info_build_label">بلڈ</string>
     <string name="device_settings_info_left_serial_label">بائیں پوڈ سیریل</string>
     <string name="device_settings_info_right_serial_label">دائیں پوڈ سیریل</string>
+    <string name="device_settings_info_left_bonded_label">بائیں بونڈڈ</string>
+    <string name="device_settings_info_right_bonded_label">دائیں بونڈڈ</string>
     <string name="device_settings_info_details_label">ڈیوائس کی تفصیلات</string>
     <string name="device_settings_info_details_action">ڈیوائس کی تفصیلات دیکھائیں</string>
     <string name="device_settings_info_status_label">حیثیت</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">یہ ڈیوائس قریب ہے لیکن اس فون سے منسلک نہیں ہے۔ ترتیبات اور کنٹرولز تک رسائی کے لیے منسلک کریں۔</string>
     <string name="device_settings_not_connected_connect_action">منسلک کریں</string>
     <string name="device_settings_not_connected_open_settings_action">بلوٹوتھ ترتیبات کھولیں</string>
+    <string name="device_settings_not_nearby_label">ڈیوائس قریب نہیں ہے</string>
+    <string name="device_settings_not_nearby_description">ترتیبات صرف اس وقت دستیاب ہیں جب یہ ڈیوائس قریب ہو اور آپ کے فون سے منسلک ہو۔</string>
     <string name="device_settings_aap_unavailable_label">جدید ترتیبات دستیاب نہیں</string>
     <string name="device_settings_aap_unavailable_description">ایڈوانسڈ AirPods سیٹنگز کے لیے بلوٹوتھ فیچر کی ضرورت ہے جو اس فون پر دستیاب نہیں ہے۔ یہ آپ کے ڈیوائس مینوفیکچرر کی طرف سے آئندہ Android اپڈیٹ سے حل ہو سکتا ہے۔</string>
+    <string name="device_settings_aap_unavailable_action">مطابقت ٹریکر دیکھیں</string>
     <string name="device_settings_category_sound_label">آواز</string>
     <string name="device_settings_category_controls_label">کنٹرولز</string>
     <string name="device_settings_nc_one_airpod_label">ایک پوڈ کے ساتھ ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">مائیکروفون خاموش کرنے کے لیے ایک بار دبائیں</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">کال ختم کرنے کے لیے دو بار دبائیں</string>
     <string name="device_settings_open_cd">ڈیوائس کی ترتیبات کھولیں</string>
+    <string name="overview_card_missing_paired_device">اس پروفائل میں کوئی جوڑا بلوٹوتھ ڈیوائس نہیں ہے۔</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">آف کو قابل انتخاب شور کنٹرول موڈ کے طور پر اجازت دیں۔ بند ہونے پر، سٹیمز سائکلنگ کے دوران آف کو چھوڑ دیتے ہیں۔</string>
     <string name="device_settings_sleep_detection_label">نیند کا پتہ لگانا</string>
     <string name="device_settings_sleep_detection_description">جب آپ سو جائیں تو خودبخود آڈیو روکیں</string>
+    <string name="reaction_sleep_channel_label">نیند کا پتہ لگانا</string>
+    <string name="reaction_sleep_notification_title">نیند کا پتہ لگانے سے روکا گیا</string>
+    <string name="reaction_sleep_notification_text">%1$s نے اطلاع دی کہ آپ سو گئے، اس لیے آپ کی موسیقی روک دی گئی۔ آپ اسے ڈیوائس سیٹنگز میں غیر فعال کر سکتے ہیں۔</string>
     <string name="device_settings_rename_label">نام تبدیل کریں</string>
     <string name="device_settings_rename_hint">ڈیوائس کا نام</string>
     <string name="device_settings_rename_confirm">نام تبدیل کریں</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">بلوٹوتھ ترتیبات</string>
     <string name="device_settings_send_failed">ترتیب لاگو نہیں ہو سکی: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">آف موڈ اس ڈیوائس پر فعال نہیں ہے۔ شور کنٹرول کے تحت \"آف موڈ کی اجازت دیں\" فعال کریں۔</string>
+    <string name="device_settings_category_battery_label">بیٹری</string>
+    <string name="device_settings_charge_cap_label">بہتر بنایا گیا چارج لمٹ</string>
+    <string name="device_settings_charge_cap_description">اپنا معمول سیکھیں اور بیٹری کی زندگی بڑھانے کے لیے 80%% کے آس پاس چارجنگ روکیں، پوڈز کو اس سے پہلے مکمل چارج کریں جب آپ انہیں استعمال کرنے کا امکان ہو۔</string>
+    <string name="device_settings_charge_cap_rejected_message">بہتر بنایا گیا چارج لمٹ تبدیل نہیں ہو سکا۔ یہ ایک تجرباتی فیچر ہے — اگر یہ ناکام ہوتا رہے تو براہ کرم رپورٹ کریں۔</string>
     <string name="device_settings_category_connections_label">منسلک ڈیوائسز</string>
     <string name="device_settings_connected_devices_description">دیگر ڈیوائسز جو ابھی ان AirPods سے منسلک ہیں</string>
     <string name="device_settings_connected_device_label">ڈیوائس %d</string>

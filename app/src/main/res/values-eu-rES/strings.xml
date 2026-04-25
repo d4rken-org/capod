@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Atzeko planoaren gardentasuna</string>
     <string name="widget_config_show_device_label">Gailuaren izena erakutsi</string>
     <string name="widget_config_reset_label">Berriro lehenespenera berrezarri</string>
+    <string name="widget_config_preview_resize_hint">Widgeta tamainaz alda dezakezu hasierako pantailan jarri ondoren.</string>
     <string name="widget_config_custom_label">Pertsonalizatua</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Iluna</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Gailu ezezagun bat da, baina mezu-formatu berdina erabiltzen du. Gehitu dezagun euskarria, jarri nirekin harremanetan :)</string>
     <string name="pods_none_label_short">Gailurik ez</string>
     <string name="pods_charging_label">Kargatzen</string>
+    <string name="pods_charging_optimized_label">Optimizatua</string>
     <string name="pods_inear_label">Belarrian</string>
     <string name="pods_microphone_label">Mikrofonoa</string>
     <string name="anc_mode_off">Itzalita</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth gailuaren etiketa</string>
     <string name="device_settings_info_model_label">Modeloa</string>
     <string name="device_settings_info_manufacturer_label">Fabrikatzailea</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Serie-zenbakia</string>
     <string name="device_settings_info_firmware_label">Firmware-a</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware Zain</string>
     <string name="device_settings_info_build_label">Eraikuntza</string>
     <string name="device_settings_info_left_serial_label">Ezkerreko pod-aren seriea</string>
     <string name="device_settings_info_right_serial_label">Eskuineko pod-aren seriea</string>
+    <string name="device_settings_info_left_bonded_label">Ezkerra Lotuta</string>
+    <string name="device_settings_info_right_bonded_label">Eskuina Lotuta</string>
     <string name="device_settings_info_details_label">Gailuaren xehetasunak</string>
     <string name="device_settings_info_details_action">Erakutsi gailuaren xehetasunak</string>
     <string name="device_settings_info_status_label">Egoera</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Gailu hau gertu dago baina ez dago telefono honetara konektatuta. Konektatu ezarpenak eta kontrolak atzitzeko.</string>
     <string name="device_settings_not_connected_connect_action">Konektatu</string>
     <string name="device_settings_not_connected_open_settings_action">Ireki Bluetooth Ezarpenak</string>
+    <string name="device_settings_not_nearby_label">Gailua ez dago inguruan</string>
+    <string name="device_settings_not_nearby_description">Ezarpenak eskuragarri daude soilik gailu hau inguruan dagoenean eta zure telefonora konektatuta dagoenean.</string>
     <string name="device_settings_aap_unavailable_label">Ezarpen aurreratuak ez daude erabilgarri</string>
     <string name="device_settings_aap_unavailable_description">AirPods ezarpen aurreratuek telefono honetan erabilgarri ez dagoen Bluetooth funtzio bat behar dute. Baliteke etorkizuneko Android eguneraketa batek konpontzea, zure gailuaren fabrikatzailearen eskutik.</string>
+    <string name="device_settings_aap_unavailable_action">Ikusi bateragarritasun jarraipena</string>
     <string name="device_settings_category_sound_label">Soinua</string>
     <string name="device_settings_category_controls_label">Kontrolak</string>
     <string name="device_settings_nc_one_airpod_label">ANC pod batekin</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Sakapen bakar bat mikrofonoa mututzeko</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Bikoitz sakatu deia amaitzeko</string>
     <string name="device_settings_open_cd">Ireki gailuaren ezarpenak</string>
+    <string name="overview_card_missing_paired_device">Profil honek ez du Bluetooth gailurik parekaturik.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Orokorra</string>
     <string name="device_settings_microphone_mode_label">Mikrofonoa</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Onartu Itzali zarata-kontrolaren modu aukeragarri gisa. Desgaitutakoan, zuztarrak Itzali saltatzen du zikloaren bitartean.</string>
     <string name="device_settings_sleep_detection_label">Lo-detekzioa</string>
     <string name="device_settings_sleep_detection_description">Pausatu audioa automatikoki lo geratzen zarenean</string>
+    <string name="reaction_sleep_channel_label">Lo Detekzioa</string>
+    <string name="reaction_sleep_notification_title">Lo Detekzioak Pausatuta</string>
+    <string name="reaction_sleep_notification_text">%1$s-ek jakinarazi du lo geratu zarela, eta musikak pausatu egin zen. Gailu-ezarpenetan desgaitu dezakezu.</string>
     <string name="device_settings_rename_label">Berrizendatu</string>
     <string name="device_settings_rename_hint">Gailuaren izena</string>
     <string name="device_settings_rename_confirm">Berrizendatu</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth ezarpenak</string>
     <string name="device_settings_send_failed">Ezin izan da ezarpena aplikatu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Itzali modua ez dago aktibatuta gailu honetan. Gaitu \"Baimendu Itzali modua\" Zarata Kontrolen atalean.</string>
+    <string name="device_settings_category_battery_label">Bateria</string>
+    <string name="device_settings_charge_cap_label">Karga Muga Optimizatua</string>
+    <string name="device_settings_charge_cap_description">Zure errutina ikasi eta karga %% 80 inguruan pausatu bateriaren bizitza luzatzeko, podak erabiltzeko prest utziz.</string>
+    <string name="device_settings_charge_cap_rejected_message">Karga Muga Optimizatua ezin izan da aldatu. Funtzio esperimentala da — jakinarazi huts egiten jarraitzen badu.</string>
     <string name="device_settings_category_connections_label">Konektatutako gailuak</string>
     <string name="device_settings_connected_devices_description">AirPod hauetara konektatuta dauden beste gailuak</string>
     <string name="device_settings_connected_device_label">%d. gailua</string>

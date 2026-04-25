@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Uwazi wa msingi</string>
     <string name="widget_config_show_device_label">Onyesha jina la kifaa</string>
     <string name="widget_config_reset_label">Rejesha kwenye chaguo-mtindo</string>
+    <string name="widget_config_preview_resize_hint">Unaweza kubadilisha ukubwa wa widget baada ya kuiweka kwenye skrini yako ya nyumbani.</string>
     <string name="widget_config_custom_label">Kabidhia</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Giza</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Hiki ni kifaa kisichojulikana, lakini kinatumia muundo sawa wa ujumbe. Tuongeze usaidizi wake, wasiliana nami :)</string>
     <string name="pods_none_label_short">Hakuna kifaa</string>
     <string name="pods_charging_label">Inachaji</string>
+    <string name="pods_charging_optimized_label">Ilioboreshwa</string>
     <string name="pods_inear_label">Ndani ya sikio</string>
     <string name="pods_microphone_label">Kipaza sauti</string>
     <string name="anc_mode_off">Zima</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Lebo ya Kifaa cha Bluetooth</string>
     <string name="device_settings_info_model_label">Mfano</string>
     <string name="device_settings_info_manufacturer_label">Mtengenezaji</string>
+    <string name="device_settings_info_hardware_label">Maunzi</string>
     <string name="device_settings_info_serial_label">Nambari ya Mfululizo</string>
     <string name="device_settings_info_firmware_label">Programu Dhibiti</string>
+    <string name="device_settings_info_firmware_pending_label">Programu Dhibiti Inayosubiri</string>
     <string name="device_settings_info_build_label">Toleo</string>
     <string name="device_settings_info_left_serial_label">Nambari ya Mfululizo ya Pod ya Kushoto</string>
     <string name="device_settings_info_right_serial_label">Nambari ya Mfululizo ya Pod ya Kulia</string>
+    <string name="device_settings_info_left_bonded_label">Imefungwa Kushoto</string>
+    <string name="device_settings_info_right_bonded_label">Imefungwa Kulia</string>
     <string name="device_settings_info_details_label">Maelezo ya Kifaa</string>
     <string name="device_settings_info_details_action">Onyesha maelezo ya kifaa</string>
     <string name="device_settings_info_status_label">Hali</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Kifaa hiki kipo karibu lakini hakijaunganishwa na simu hii. Unganisha ili kufikia mipangilio na vidhibiti.</string>
     <string name="device_settings_not_connected_connect_action">Unganisha</string>
     <string name="device_settings_not_connected_open_settings_action">Fungua Mipangilio ya Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Kifaa kiko mbali</string>
+    <string name="device_settings_not_nearby_description">Mipangilio inapatikana tu wakati kifaa hiki kiko karibu na kimeunganishwa na simu yako.</string>
     <string name="device_settings_aap_unavailable_label">Mipangilio ya hali ya juu haipatikani</string>
     <string name="device_settings_aap_unavailable_description">Mipangilio ya AirPods ya hali ya juu inahitaji kipengele cha Bluetooth ambacho hakipatikani kwenye simu hii. Hii inaweza kutatuliwa na sasisho la baadaye la Android kutoka kwa mtengenezaji wa kifaa chako.</string>
+    <string name="device_settings_aap_unavailable_action">Angalia kifuatiliaji cha uoanifu</string>
     <string name="device_settings_category_sound_label">Sauti</string>
     <string name="device_settings_category_controls_label">Vidhibiti</string>
     <string name="device_settings_nc_one_airpod_label">ANC na pod moja</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Bonyeza mara moja kuzima kipaza sauti</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Bonyeza mara mbili kumaliza simu</string>
     <string name="device_settings_open_cd">Fungua mipangilio ya kifaa</string>
+    <string name="overview_card_missing_paired_device">Wasifu huu hauna kifaa cha Bluetooth kilichounganishwa.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Jumla</string>
     <string name="device_settings_microphone_mode_label">Maikrofoni</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Ruhusu Kuzima kama hali ya udhibiti wa kelele inayoweza kuchaguliwa. Ikiwa imezimwa, vishikio hupita Kuzima wakati wa mzunguko.</string>
     <string name="device_settings_sleep_detection_label">Ugunduzi wa Usingizi</string>
     <string name="device_settings_sleep_detection_description">Simamisha sauti otomatiki unapolala</string>
+    <string name="reaction_sleep_channel_label">Ugunduzi wa Usingizi</string>
+    <string name="reaction_sleep_notification_title">Imesimamishwa na Ugunduzi wa Usingizi</string>
+    <string name="reaction_sleep_notification_text">%1$s iliripoti kuwa umelala, hivyo muziki wako ulisimamishwa. Unaweza kuzima hili katika mipangilio ya kifaa.</string>
     <string name="device_settings_rename_label">Badilisha Jina</string>
     <string name="device_settings_rename_hint">Jina la kifaa</string>
     <string name="device_settings_rename_confirm">Badilisha Jina</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Mipangilio ya Bluetooth</string>
     <string name="device_settings_send_failed">Haikuweza kutumia mipangilio: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Hali ya Kuzima haijawashwa kwenye kifaa hiki. Washa \"Ruhusu hali ya Kuzima\" chini ya Udhibiti wa Kelele.</string>
+    <string name="device_settings_category_battery_label">Betri</string>
+    <string name="device_settings_charge_cap_label">Kikomo cha Kuchaji kilichoboreshwa</string>
+    <string name="device_settings_charge_cap_description">Jifunza ratiba yako na usimamishe kuchaji karibu na 80%% ili kupanua maisha ya betri, ukijaza vipande kabla ya uwezekano wa kuvitumia.</string>
+    <string name="device_settings_charge_cap_rejected_message">Kikomo cha Kuchaji kilichoboreshwa hakikuweza kubadilishwa. Hii ni kipengele cha majaribio — tafadhali ripoti ikiwa itaendelea kushindwa.</string>
     <string name="device_settings_category_connections_label">Vifaa Vilivyounganishwa</string>
     <string name="device_settings_connected_devices_description">Vifaa vingine vilivyounganishwa sasa hivi na AirPods hizi</string>
     <string name="device_settings_connected_device_label">Kifaa %d</string>

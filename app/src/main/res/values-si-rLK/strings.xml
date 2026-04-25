@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">පසුබිම් පාරදෘශ්‍යතාවය</string>
     <string name="widget_config_show_device_label">උපාංග නම පෙන්වන්න</string>
     <string name="widget_config_reset_label">පෙරනිමි බිම් කරන්න</string>
+    <string name="widget_config_preview_resize_hint">ඔබේ මුල් තිරය මත එය තැබීමෙන් පසු ඔබට විජටය ප්‍රතිප්‍රමාණ කළ හැක.</string>
     <string name="widget_config_custom_label">රුචිකර</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">අඳුරු</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">මෙය නොදන්නා උපාංගයකි, නමුත් එය සමාන පණිවිඩ ආකෘතියක් භාවිතා කරයි. අපි එයට සහාය එක් කරමු, මට සම්බන්ධ වන්න :)</string>
     <string name="pods_none_label_short">උපාංග නොමැත</string>
     <string name="pods_charging_label">ආරෝපණය වෙමින්</string>
+    <string name="pods_charging_optimized_label">ප්‍රශස්ත කළා</string>
     <string name="pods_inear_label">කනේ</string>
     <string name="pods_microphone_label">මයික්‍රෆෝනය</string>
     <string name="anc_mode_off">ක්‍රියා විරහිත</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth උපකරණ ලේබලය</string>
     <string name="device_settings_info_model_label">ආකෘතිය</string>
     <string name="device_settings_info_manufacturer_label">නිෂ්පාදකයා</string>
+    <string name="device_settings_info_hardware_label">දෘඪාංග</string>
     <string name="device_settings_info_serial_label">අනුක්‍රමික අංකය</string>
     <string name="device_settings_info_firmware_label">ෆර්ම්වෙයාර්</string>
+    <string name="device_settings_info_firmware_pending_label">බලාපොරොත්තුවෙන් සිටින ෆාම්වෙයාර්</string>
     <string name="device_settings_info_build_label">සංස්කරණය</string>
     <string name="device_settings_info_left_serial_label">වම් Pod අනුක්‍රමික අංකය</string>
     <string name="device_settings_info_right_serial_label">දකුණු Pod අනුක්‍රමික අංකය</string>
+    <string name="device_settings_info_left_bonded_label">වම් බැඳුණා</string>
+    <string name="device_settings_info_right_bonded_label">දකුණු බැඳුණා</string>
     <string name="device_settings_info_details_label">උපකරණ විස්තර</string>
     <string name="device_settings_info_details_action">උපකරණ විස්තර පේන්වන්න</string>
     <string name="device_settings_info_status_label">තත්වය</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">මෙම උපකරණය ආසන්නයේ ඇත, නමුත් මෙම දුරකථනයට සම්බන්ධ නොවී ඇත. සැකසුම් සහ පාලකයන් ලබා ගැනීමට සම්බන්ධ කරන්න.</string>
     <string name="device_settings_not_connected_connect_action">සම්බන්ධ කරන්න</string>
     <string name="device_settings_not_connected_open_settings_action">බ්ලූටූත් සැකසුම් විවෘත කරන්න</string>
+    <string name="device_settings_not_nearby_label">උපාංගය ආසන්නයේ නැත</string>
+    <string name="device_settings_not_nearby_description">මෙම උපාංගය ආසන්නයේ සහ ඔබේ දුරකථනයට සම්බන්ධ වූ විට පමණක් සැකසුම් ලබා ගත හැකිය.</string>
     <string name="device_settings_aap_unavailable_label">උසස් සැකසුම් නොතිබේ</string>
     <string name="device_settings_aap_unavailable_description">උසස් AirPods සැකසුම් සඟහා මෙම දුරකතහනේනොමැති Bluetooth ලක්ෂණයක් අවශ්‍ය වේ. ඔබේ උපකරණ නිෂ්පාදකයාගෙන් ලැබේන Android යාවත්කාලීනයකින් මෙය විසණිය හැක.</string>
+    <string name="device_settings_aap_unavailable_action">අනුකූලතා ට්‍රැකර් බලන්න</string>
     <string name="device_settings_category_sound_label">ශබ්දය</string>
     <string name="device_settings_category_controls_label">පාලන</string>
     <string name="device_settings_nc_one_airpod_label">pod එකකින් ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">මයික්‍රොෆෝනය නිශ්ශබ්ද කිරීමට එක් වරක් එබන්න</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ඇමතුම අවසන් කිරීමට දෙවරක් එබන්න</string>
     <string name="device_settings_open_cd">උපාංග සැකසීම් විවර්ත කරන්න</string>
+    <string name="overview_card_missing_paired_device">මෙම පැතිකඩට යුගල කළ Bluetooth උපකරණයක් නොමැත.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">සාමාන්‍ය</string>
     <string name="device_settings_microphone_mode_label">ශබ්දවාහිනිය</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Off ශබ්ද පාලන මාතයක් ලේස තෝරාගත හැකි ලේස ඉඩ දෙන්න. අක්‍රිය වූ විට, දණ්ඩු චක්‍රගත කිරීමේදී Off මාතය මග් හරී.</string>
     <string name="device_settings_sleep_detection_label">නිදි හොදුනාගෙඳීම</string>
     <string name="device_settings_sleep_detection_description">ඔබ නිදා වැටෙන විට ස්වයංක්‍රීයව ශ්‍රව්‍ය විරාම කරන්න</string>
+    <string name="reaction_sleep_channel_label">නිදිමත හඳුනාගැනීම</string>
+    <string name="reaction_sleep_notification_title">නිදිමත හඳුනාගැනීම මගින් විරාම කළා</string>
+    <string name="reaction_sleep_notification_text">%1$s ඔබ නිදා ගැනීම වාර්තා කළා, එබැවින් ඔබේ සංගීතය විරාම කළා. ඔබට උපාංග සැකසුම් තුළ මෙය අක්‍රිය කළ හැකිය.</string>
     <string name="device_settings_rename_label">නැවත් නම් කරන්න</string>
     <string name="device_settings_rename_hint">උපාංගයේ නම</string>
     <string name="device_settings_rename_confirm">නැවත් නම් කරන්න</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">බ්ලූටූත් සැකසුම්</string>
     <string name="device_settings_send_failed">සැකසුම යෙදිය නොහැකි විය: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off මාතය මෙම උපකරණයේ සක්‍රිය නැත. ශබ්ද පාලනය යටතේ \"Off මාතය ඉඩ දෙන්න\" සක්‍රිය කරන්න.</string>
+    <string name="device_settings_category_battery_label">බැටරිය</string>
+    <string name="device_settings_charge_cap_label">ප්‍රශස්ත ආරොපණ සීමාව</string>
+    <string name="device_settings_charge_cap_description">ඔබේ දිනඩරිය ඉගෙන ගෙන බැටරි ජීවිතය දීර්ඝ කිරීමට 80%% ආසන්නයේ ආරොපණය ළිරාම කරයි, ඔබ බහුතා කිරීමට ඉරින් පැන pod ආරොපණය කරයි.</string>
+    <string name="device_settings_charge_cap_rejected_message">ප්‍රශස්ත ආරොපණ සීමාව වේනස් කළ නොහැකි ළිය. මෙය පරීක්ශණාත්මක ළිශේෂාංගයකිස් — දිගටම අසාර්තක වුවහොත් කරුණාකර වාර්තා කරන්න.</string>
     <string name="device_settings_category_connections_label">සම්බන්ධිත උපාංග</string>
     <string name="device_settings_connected_devices_description">දැනට මෙම AirPods හා සම්බන්ධිත අනේකුත් උපාංග</string>
     <string name="device_settings_connected_device_label">උපාංගය %d</string>

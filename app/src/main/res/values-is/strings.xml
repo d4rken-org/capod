@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Gagnsæi bakgrunns</string>
     <string name="widget_config_show_device_label">Sýna heiti tækis</string>
     <string name="widget_config_reset_label">Endurstilla sjálfgildi</string>
+    <string name="widget_config_preview_resize_hint">Þú getur breytt stærð græjunnar eftir að þú hefur sett hana á heimaskjáinn þinn.</string>
     <string name="widget_config_custom_label">Sérsniðið</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Dökkt</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Þetta er óþekkt tæki, en það notar svipað skilaboðasnið. Bætum við stuðningi fyrir það, hafðu samband :)</string>
     <string name="pods_none_label_short">Ekkert tæki</string>
     <string name="pods_charging_label">Hleður</string>
+    <string name="pods_charging_optimized_label">Fínstillt</string>
     <string name="pods_inear_label">Í eyra</string>
     <string name="pods_microphone_label">Hljóðnemi</string>
     <string name="anc_mode_off">Slökkt</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth-tækjaheiti</string>
     <string name="device_settings_info_model_label">Líkan</string>
     <string name="device_settings_info_manufacturer_label">Framleiðandi</string>
+    <string name="device_settings_info_hardware_label">Vélbúnaður</string>
     <string name="device_settings_info_serial_label">Raðnúmer</string>
     <string name="device_settings_info_firmware_label">Hugbúnnaður</string>
+    <string name="device_settings_info_firmware_pending_label">Hugbúnaðaruppfærsla í bið</string>
     <string name="device_settings_info_build_label">Útgáfa</string>
     <string name="device_settings_info_left_serial_label">Raðnúmer vinstri hlustunarpípu</string>
     <string name="device_settings_info_right_serial_label">Raðnúmer hægri hlustunarpípu</string>
+    <string name="device_settings_info_left_bonded_label">Vinstri tengd</string>
+    <string name="device_settings_info_right_bonded_label">Hægri tengd</string>
     <string name="device_settings_info_details_label">Tækjaupplýsingar</string>
     <string name="device_settings_info_details_action">Sýna tækjaupplýsingar</string>
     <string name="device_settings_info_status_label">Staða</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Þetta tæki er í nágrenninu en er ekki tengt þessum síma. Tengdu til að fá aðgang að stillingum og stjórnun.</string>
     <string name="device_settings_not_connected_connect_action">Tengja</string>
     <string name="device_settings_not_connected_open_settings_action">Opna Bluetooth stillingar</string>
+    <string name="device_settings_not_nearby_label">Tækið ekki í nágrenninu</string>
+    <string name="device_settings_not_nearby_description">Stillingar eru aðeins tiltækar þegar þetta tæki er í nágrenninu og tengt við símann þinn.</string>
     <string name="device_settings_aap_unavailable_label">Ítarlegar stillingar ekki tiltækar</string>
     <string name="device_settings_aap_unavailable_description">Ítarlegar AirPods-stillingar krefjast Bluetooth-eiginleika sem er ekki tiltækur á þessum síma. Þetta gæti lagast með framtiðaruppfærslu Android frá framleiðanda tækisins þíns.</string>
+    <string name="device_settings_aap_unavailable_action">Skoða samhæfnirakara</string>
     <string name="device_settings_category_sound_label">Hljóð</string>
     <string name="device_settings_category_controls_label">Stýring</string>
     <string name="device_settings_nc_one_airpod_label">ANC með einni hlustunarpípu</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Eitt þrýsting til að þagga hátalara</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Tvöföld þrýsting til að ljúka simátali</string>
     <string name="device_settings_open_cd">Opna tæki stillingar</string>
+    <string name="overview_card_missing_paired_device">Þetta snið á sér ekkert tengt Bluetooth-tæki.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Álmennt</string>
     <string name="device_settings_microphone_mode_label">Hljóðnemi</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Leyfa Af sem valanlega hljóðstýringunarstillingu. Þegar slökt er á þessu sleppir stillingarpinninn Af í hringrás.</string>
     <string name="device_settings_sleep_detection_label">Svefngreining</string>
     <string name="device_settings_sleep_detection_description">Gera hljóð hljóðlegt sjálfvirkt þá sem þu sofnar</string>
+    <string name="reaction_sleep_channel_label">Svefngreining</string>
+    <string name="reaction_sleep_notification_title">Gert hlé af svefngreiningu</string>
+    <string name="reaction_sleep_notification_text">%1$s greindi að þú sefur, þannig var tónlistin sett í hlé. Þú getur slökkt á þessu í tækjastillingum.</string>
     <string name="device_settings_rename_label">Endurskíra</string>
     <string name="device_settings_rename_hint">Nafn tækis</string>
     <string name="device_settings_rename_confirm">Endurskíra</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth-stillingar</string>
     <string name="device_settings_send_failed">Gat ekki beitt stillingu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Af-stilling er ekki virk á þessu tæki. Virkjaðu „Af-stilling leyfist“ undir Hljóðstýring.</string>
+    <string name="device_settings_category_battery_label">Rafhlaða</string>
+    <string name="device_settings_charge_cap_label">Fínstillt hleðslutakmark</string>
+    <string name="device_settings_charge_cap_description">Lærir venjur þínar og hleyðir að 80%% til að lengja líftíma rafhlöðunnar, og lokar hleðslunni áður en þú notar þær.</string>
+    <string name="device_settings_charge_cap_rejected_message">Fínstilltu hleðslutakmarkið gat ekki verið breytt. Þetta er tilraunaeiginleiki — vinsamlegast tilkynntu ef hann heldur áfram að mistakast.</string>
     <string name="device_settings_category_connections_label">Tengd tæki</string>
     <string name="device_settings_connected_devices_description">Onnur tæki sem eru tengd við þessa AirPods</string>
     <string name="device_settings_connected_device_label">Tæki %d</string>

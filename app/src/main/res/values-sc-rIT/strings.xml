@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Trasparentia de fundus</string>
     <string name="widget_config_show_device_label">Ammustra nòmene de su dispositivu</string>
     <string name="widget_config_reset_label">Reabilita a defaults</string>
+    <string name="widget_config_preview_resize_hint">Podes redimensionare su widget a pustis de lu ponner in sa pantalla printzipale.</string>
     <string name="widget_config_custom_label">Personalizau</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Preu</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Custu est unu dispositivu disconnotu, ma imperat unu formadu de messàgios sìmile. Agiunghemus su suportu, cuntata·mi :)</string>
     <string name="pods_none_label_short">Perunu dispositivu</string>
     <string name="pods_charging_label">Carrighende</string>
+    <string name="pods_charging_optimized_label">Optimizadu</string>
     <string name="pods_inear_label">In s\'origra</string>
     <string name="pods_microphone_label">Micròfonu</string>
     <string name="anc_mode_off">Ispentadu</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Eticheta de su Dispositivu Bluetooth</string>
     <string name="device_settings_info_model_label">Modello</string>
     <string name="device_settings_info_manufacturer_label">Fabricante</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Númeru de sèria</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware in Atesa</string>
     <string name="device_settings_info_build_label">Versione</string>
     <string name="device_settings_info_left_serial_label">Númeru de serie de su pod mancinu</string>
     <string name="device_settings_info_right_serial_label">Númeru de serie de su pod drittu</string>
+    <string name="device_settings_info_left_bonded_label">Manca Ligadu</string>
+    <string name="device_settings_info_right_bonded_label">Dereta Ligada</string>
     <string name="device_settings_info_details_label">Detàllios de su Dispositivu</string>
     <string name="device_settings_info_details_action">Mustra sos detàllios de su dispositivu</string>
     <string name="device_settings_info_status_label">Istadu</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Custu dispositivu est in sa zona ma non est connètidu a custu telèfonu. Connete·ti pro atzeder a sos impostamentos e sos controlos.</string>
     <string name="device_settings_not_connected_connect_action">Connete</string>
     <string name="device_settings_not_connected_open_settings_action">Aberi sos impostamentos Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Dispositivu non a curtzu</string>
+    <string name="device_settings_not_nearby_description">Sas impostatziones sun disponìbiles petzi cando custu dispositivu est a curtzu e connètidu a su telefuninu tuo.</string>
     <string name="device_settings_aap_unavailable_label">Impostatziones avanzadas non disponìbiles</string>
     <string name="device_settings_aap_unavailable_description">Sos impostamentos avanzados de AirPods rechercant una funzionalidade Bluetooth chi non est disponibile in custu telefoninu. Custu podet essere resolvidu cun un\'aggiornamentu futuru de Android de su fabricante de su dispositivu tuo.</string>
+    <string name="device_settings_aap_unavailable_action">Bide su registru de compatibilidade</string>
     <string name="device_settings_category_sound_label">Sonu</string>
     <string name="device_settings_category_controls_label">Controlos</string>
     <string name="device_settings_nc_one_airpod_label">ANC cun unu solu pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Premida sola pro mutar su micròfonu</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dòpia premida pro terminare sa chiamada</string>
     <string name="device_settings_open_cd">Abri sas impostatziones de su dispositivo</string>
+    <string name="overview_card_missing_paired_device">Custu profilu non tenet perunu dispositibu Bluetooth abbinadu.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Permiti Ispento comente modu de controllo de su rumore seletzionabile. Cando est disabilitadu, sos stems saltant Ispento durante su ciclo.</string>
     <string name="device_settings_sleep_detection_label">Detzetzione de su sonnu</string>
     <string name="device_settings_sleep_detection_description">Pausa automàticamente s\'àudiu cando t\'addurmistas</string>
+    <string name="reaction_sleep_channel_label">Detecada de su Sonnu</string>
+    <string name="reaction_sleep_notification_title">Pausada dae sa Detecada de su Sonnu</string>
+    <string name="reaction_sleep_notification_text">%1$s at reportadu ca t\'as dormidu, gasi sa musica tua est istada pausada. Podes disabilitare custu in sas impostatziones de su dispositivu.</string>
     <string name="device_settings_rename_label">Torrare a numenare</string>
     <string name="device_settings_rename_hint">Nùmene de su dispositivo</string>
     <string name="device_settings_rename_confirm">Torrare a numenare</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Impostatziones Bluetooth</string>
     <string name="device_settings_send_failed">Non si podet aplicare s\'impostamentu: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Su modu Ispento non est abilitadu in custu dispositivu. Abilita \"Permiti su modu Ispento\" in su Controllo de su Rumore.</string>
+    <string name="device_settings_category_battery_label">Bateria</string>
+    <string name="device_settings_charge_cap_label">Limite de Carica Optimizadu</string>
+    <string name="device_settings_charge_cap_description">Imparas sa tua rutina e pausas sa carica a curtzu de su 80%% pro allongheddare sa vida de sa bateria, torrende a carrigare sas cuffietas prima chi siat probabile de las impreare.</string>
+    <string name="device_settings_charge_cap_rejected_message">Su Limite de Carica Optimizadu no at pòdidu èssere cambiadu. Custu est una funtzionalidade experimentale — segnala si sighit a fallire.</string>
     <string name="device_settings_category_connections_label">Dispositivos cullegados</string>
     <string name="device_settings_connected_devices_description">Àteros dispositivos cullegados a custos AirPods</string>
     <string name="device_settings_connected_device_label">Dispositivo %d</string>

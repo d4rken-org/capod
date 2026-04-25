@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">နောက်ခံ ခွဲခြားမှု</string>
     <string name="widget_config_show_device_label">စက်ပစ္စည်း အမည် ပြသရန်</string>
     <string name="widget_config_reset_label">ပုံမှန်သို့ ပြန်လည်ချိန်ညှိသည်</string>
+    <string name="widget_config_preview_resize_hint">သင့် ပင်မစခရင်တွင် widget ချထားပြီးနောက် ၎င်းကို အရွယ်အစား ပြောင်းလဲနိုင်သည်။</string>
     <string name="widget_config_custom_label">အလိုအလျောက်</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">အမှောင်</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">ဤသည်မှာ မသိသောစက်ပစ္စည်းဖြစ်သော်လည်း ၎င်းသည် အလားတူမက်ဆေ့ချ်ပုံစံကိုအသုံးပြုနေသည်။ ၎င်းအတွက် ပံ့ပိုးမှုထည့်သွင်းကြပါစို့၊ ကျွန်ုပ်ကို ဆက်သွယ်ပါ :)</string>
     <string name="pods_none_label_short">စက်ပစ္စည်းမရှိပါ</string>
     <string name="pods_charging_label">အားသွင်းနေသည်</string>
+    <string name="pods_charging_optimized_label">အကောင်းဆုံးဖြစ်အောင်ပြုလုပ်ထားသည်</string>
     <string name="pods_inear_label">နားထဲတွင်</string>
     <string name="pods_microphone_label">မိုက်ခရိုဖုန်း</string>
     <string name="anc_mode_off">ပိတ်</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth ကိရိယာ အညွှန်း</string>
     <string name="device_settings_info_model_label">မော်ဒယ်</string>
     <string name="device_settings_info_manufacturer_label">ထုတ်လုပ်သူ</string>
+    <string name="device_settings_info_hardware_label">ဟာ့ဒ်ဝဲ</string>
     <string name="device_settings_info_serial_label">စီရီရယ်နံပါတ်</string>
     <string name="device_settings_info_firmware_label">ဖာမ်ဝဲ</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware လာမည်</string>
     <string name="device_settings_info_build_label">တည်ဆောက်မှု</string>
     <string name="device_settings_info_left_serial_label">ဘေးဘက် Pod စီရီရယ်နံပါတ်</string>
     <string name="device_settings_info_right_serial_label">ညာဘက် Pod စီရီရယ်နံပါတ်</string>
+    <string name="device_settings_info_left_bonded_label">ဘယ်ဘက် ချိတ်ဆက်ထားသည်</string>
+    <string name="device_settings_info_right_bonded_label">ညာဘက် ချိတ်ဆက်ထားသည်</string>
     <string name="device_settings_info_details_label">ကိရိယာ အသေးစိတ်</string>
     <string name="device_settings_info_details_action">ကိရိယာ အသေးစိတ်ကို ပြသပါ</string>
     <string name="device_settings_info_status_label">အခြေအနေ</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">ဤစက်ပစ္စည်းသည် နီးကပ်ရာတွင် ရှိသော်လည်း ဤဖုန်းနှင့် ချိတ်ဆက်မထားပါ။ ဆက်တင်နှင့် ထိန်းချုပ်မှုများကို ဝင်ရောက်ရန် ချိတ်ဆက်ပါ။</string>
     <string name="device_settings_not_connected_connect_action">ချိတ်ဆက်ပါ</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth ဆက်တင်ဖွင့်ပါ</string>
+    <string name="device_settings_not_nearby_label">စက်ပစ္စည်း မနီးစပ်ဘူး</string>
+    <string name="device_settings_not_nearby_description">ဤစက်ပစ္စည်း နီးစပ်ပြီး သင့်ဖုန်းနှင့် ချိတ်ဆက်ထားသောအခါမှသာ ဆက်တင်များကို ရနိုင်သည်။</string>
     <string name="device_settings_aap_unavailable_label">အဆင့်မြင့်ဆက်တင်များ မရရှိနိုင်ပါ</string>
     <string name="device_settings_aap_unavailable_description">အဆင့်မြင့် AirPods ဆက်တင်များသည် ဤဖုန်းတွင် မရနိုင်သော Bluetooth လုပ်ဆောင်ချက်ကို လိုအပ်သည်။ ၎င်းကို သင့်ကိရိယာ ထုတ်လုပ်သူ၏ Android အပ်ဒိတ်မှ ဖြေရှင်းနိုင်သည်။</string>
+    <string name="device_settings_aap_unavailable_action">လိုက်ဖက်ညီမှု ခြေရာခံကိရိယာကို ကြည့်ရှုရန်</string>
     <string name="device_settings_category_sound_label">အသံ</string>
     <string name="device_settings_category_controls_label">ထိန်းချုပ်မှုများ</string>
     <string name="device_settings_nc_one_airpod_label">Pod တစ်ခုနှင့် ANC</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">မိုက်ခဖိသိမ်းရန် တစ်ကြိမ်နှိပ်ပါ</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ဖုန်းပြတ်ရန် နှစ်ကြိမ်နှိပ်ပါ</string>
     <string name="device_settings_open_cd">ကိရိယာ ဆက်တင်များ ဖွင့်ထားပါ</string>
+    <string name="overview_card_missing_paired_device">ဤပရိုဖိုင်တွင် တွဲချိတ်ထားသော Bluetooth စက်ပစ္စည်း မရှိပါ။</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ယေဘူယျ</string>
     <string name="device_settings_microphone_mode_label">မိုက်ခရိုဖုန်း</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">Off ကို စတ်လှောကး ဆူညံသံထိန်းချုပ် မုဒ်တစ်ခုအဖြစ်အသုံး ခွင့်ပြုနိုင်သည်။ ပိတ်ထားသည်အခါ၊ stem များသည် စက်ပြေးစေအခါ Off ကို ကြားသောမည်။</string>
     <string name="device_settings_sleep_detection_label">အိပ်ငိုက်မှု ရှာဖွေမှု</string>
     <string name="device_settings_sleep_detection_description">အိပ်ပျားသည့်အချား အသံ အလိုအလျောက် ခညေရပ်ပါ</string>
+    <string name="reaction_sleep_channel_label">အိပ်ငိုက်ခြင်း ထောက်လှမ်းခြင်း</string>
+    <string name="reaction_sleep_notification_title">အိပ်ငိုက်ခြင်း ထောက်လှမ်းခြင်းဖြင့် ခေတ္တရပ်ထားသည်</string>
+    <string name="reaction_sleep_notification_text">%1$s က သင်အိပ်ငိုက်သွားသည်ဟု သတင်းပို့သောကြောင့် သင့်သီချင်းကို ခေတ္တရပ်ထားသည်။ ဤဆက်တင်ကို စက်ပစ္စည်းဆက်တင်များတွင် ပိတ်နိုင်သည်။</string>
     <string name="device_settings_rename_label">အမည်ပြောင်းပါ</string>
     <string name="device_settings_rename_hint">ကိရိယာ အမည်</string>
     <string name="device_settings_rename_confirm">အမည်ပြောင်းပါ</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth ဆက်တင်များ</string>
     <string name="device_settings_send_failed">ဆက်တင် မသက်ဆိုင်နိုင်ပါ: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off မုဒ်ကို ဤကိရိယာတွင် ဖွင့်ထားမခီမယန်။ ဆူညံသံ ထိန်းချုပ် အအောက \"Allow Off mode\" ကို ဖွင့်ပါ။</string>
+    <string name="device_settings_category_battery_label">ဘက်ထရီ</string>
+    <string name="device_settings_charge_cap_label">အကောင်းဆုံး အားသွင်းမှု အဆုံးအမှတ်</string>
+    <string name="device_settings_charge_cap_description">သင့်ပုံမှန်ကျင့်ထုံးကို လေ့လာပြီး ဘက်ထရီသက်တမ်း တိုးရှည်စေရန် 80%% ဝန်းကျင်တွင် အားသွင်းခြင်းကို ခေတ္တရပ်ကာ သင်အသုံးပြုဖွယ်ရှိမီ pods များကို ပြည့်အောင် ပြုလုပ်ပေးသည်။</string>
+    <string name="device_settings_charge_cap_rejected_message">အကောင်းဆုံး အားသွင်းမှု အဆုံးအမှတ်ကို ပြောင်းလဲ၍ မရဘူး။ ၎င်းသည် စမ်းသပ်ဆဲ အင်္ဂါရပ်တစ်ခုဖြစ်သည် — ဆက်လက်မအောင်မြင်ပါက ကျေးဇူးပြု၍ အစီရင်ခံပါ။</string>
     <string name="device_settings_category_connections_label">ချိတ်ဆက်ထားသည် ကိရိယာများ</string>
     <string name="device_settings_connected_devices_description">အပီ AirPods နှင့် လက်ရှိချိတ်ဆက်ထားသည် အခြားကိရိယာများ</string>
     <string name="device_settings_connected_device_label">ကိရိယာ %d</string>

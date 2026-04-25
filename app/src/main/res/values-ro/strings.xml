@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparența fundalului</string>
     <string name="widget_config_show_device_label">Afișează numele dispozitivului</string>
     <string name="widget_config_reset_label">Resetează la setări implicite</string>
+    <string name="widget_config_preview_resize_hint">Puteți redimensiona widgetul după ce îl plasați pe ecranul de pornire.</string>
     <string name="widget_config_custom_label">Personalizat</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Întunecat</string>
@@ -252,6 +253,7 @@
     <string name="pods_unknown_contact_dev">Acesta este un dispozitiv necunoscut, dar folosește un format de mesaj similar. Să adăugăm suport pentru el, contactați-mă :)</string>
     <string name="pods_none_label_short">Niciun dispozitiv</string>
     <string name="pods_charging_label">Se încarcă</string>
+    <string name="pods_charging_optimized_label">Optimizat</string>
     <string name="pods_inear_label">În ureche</string>
     <string name="pods_microphone_label">Microfon</string>
     <string name="anc_mode_off">Oprit</string>
@@ -412,11 +414,15 @@
     <string name="device_settings_info_bt_name_label">Etichetă dispozitiv Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Producător</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Număr de serie</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware în așteptare</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Serial pod stâng</string>
     <string name="device_settings_info_right_serial_label">Serial pod drept</string>
+    <string name="device_settings_info_left_bonded_label">Stânga asociată</string>
+    <string name="device_settings_info_right_bonded_label">Dreapta asociată</string>
     <string name="device_settings_info_details_label">Detalii dispozitiv</string>
     <string name="device_settings_info_details_action">Arată detalii dispozitiv</string>
     <string name="device_settings_info_status_label">Stare</string>
@@ -426,8 +432,11 @@
     <string name="device_settings_not_connected_description">Acest dispozitiv este în apropiere, dar nu este conectat la acest telefon. Conectați-vă pentru a accesa setările și comenzile.</string>
     <string name="device_settings_not_connected_connect_action">Conectare</string>
     <string name="device_settings_not_connected_open_settings_action">Deschide Setările Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Dispozitiv în afara razei</string>
+    <string name="device_settings_not_nearby_description">Setările sunt disponibile numai când acest dispozitiv este în apropiere și conectat la telefonul tău.</string>
     <string name="device_settings_aap_unavailable_label">Setări avansate indisponibile</string>
     <string name="device_settings_aap_unavailable_description">Setările avansate pentru AirPods necesită o funcție Bluetooth care nu este disponibilă pe acest telefon. Aceasta ar putea fi rezolvată printr-o actualizare viitoare Android de la producătorul dispozitivului tău.</string>
+    <string name="device_settings_aap_unavailable_action">Vizualizați tracker-ul de compatibilitate</string>
     <string name="device_settings_category_sound_label">Sunet</string>
     <string name="device_settings_category_controls_label">Controale</string>
     <string name="device_settings_nc_one_airpod_label">ANC cu un singur pod</string>
@@ -465,6 +474,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Apăsare simplă pentru a dezactiva microfonul</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dublă apăsare pentru a încheia apelul</string>
     <string name="device_settings_open_cd">Deschide setările dispozitivului</string>
+    <string name="overview_card_missing_paired_device">Acest profil nu are niciun dispozitiv Bluetooth asociat.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
@@ -487,6 +497,9 @@
     <string name="device_settings_allow_off_description">Permite selectarea modului Off ca mod de control al zgomotului. Când este dezactivat, tijele sărită modul Off la ciclare.</string>
     <string name="device_settings_sleep_detection_label">Detectare somn</string>
     <string name="device_settings_sleep_detection_description">Pauzează automat audio când adormi</string>
+    <string name="reaction_sleep_channel_label">Detectare somn</string>
+    <string name="reaction_sleep_notification_title">Pauză prin Detectare somn</string>
+    <string name="reaction_sleep_notification_text">%1$s a detectat că ai adormit, astfel că muzica a fost oprită. Poți dezactiva aceasta din setările dispozitivului.</string>
     <string name="device_settings_rename_label">Redenumește</string>
     <string name="device_settings_rename_hint">Numele dispozitivului</string>
     <string name="device_settings_rename_confirm">Redenumește</string>
@@ -496,6 +509,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Setări Bluetooth</string>
     <string name="device_settings_send_failed">Nu s-a putut aplica setarea: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Modul Off nu este activat pe acest dispozitiv. Activând \"Permite modul Off\" la Controlul zgomotului.</string>
+    <string name="device_settings_category_battery_label">Baterie</string>
+    <string name="device_settings_charge_cap_label">Limită de încărcare optimizată</string>
+    <string name="device_settings_charge_cap_description">Îvăță rutina ta și întrerupe încărcarea la aproximativ 80%% pentru a prelungi durata de viață a bateriei, reîncărcând căștile înainte să fie necesare.</string>
+    <string name="device_settings_charge_cap_rejected_message">Limita de încărcare optimizată nu a putut fi modificată. Aceasta este o funcție experimentală — raportează dacă continuă să eșueze.</string>
     <string name="device_settings_category_connections_label">Dispozitive conectate</string>
     <string name="device_settings_connected_devices_description">Alte dispozitive conectate în prezent la aceste AirPods</string>
     <string name="device_settings_connected_device_label">Dispozitiv %d</string>

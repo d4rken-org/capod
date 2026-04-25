@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Прозрачност на фона</string>
     <string name="widget_config_show_device_label">Показване на името на устройството</string>
     <string name="widget_config_reset_label">Възстановяване на стандартните настройки</string>
+    <string name="widget_config_preview_resize_hint">Можете да преоразмерите джаджата, след като я поставите на началния си екран.</string>
     <string name="widget_config_custom_label">Персонализирано</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Тъмно</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Това е неизвестно устройство, но използва подобен формат на съобщения. Нека добавим поддръжка за него, свържете се с мен :)</string>
     <string name="pods_none_label_short">Няма устройство</string>
     <string name="pods_charging_label">Зареждане</string>
+    <string name="pods_charging_optimized_label">Оптимизирано</string>
     <string name="pods_inear_label">В ухото</string>
     <string name="pods_microphone_label">Микрофон</string>
     <string name="anc_mode_off">Изкл.</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth етикет на устройство</string>
     <string name="device_settings_info_model_label">Модел</string>
     <string name="device_settings_info_manufacturer_label">Производител</string>
+    <string name="device_settings_info_hardware_label">Хардуер</string>
     <string name="device_settings_info_serial_label">Сериен номер</string>
     <string name="device_settings_info_firmware_label">Фърмуер</string>
+    <string name="device_settings_info_firmware_pending_label">Изчакващ фърмуер</string>
     <string name="device_settings_info_build_label">Версия</string>
     <string name="device_settings_info_left_serial_label">Сериен номер на левия под</string>
     <string name="device_settings_info_right_serial_label">Сериен номер на десния под</string>
+    <string name="device_settings_info_left_bonded_label">Ляво сдвоено</string>
+    <string name="device_settings_info_right_bonded_label">Дясно сдвоено</string>
     <string name="device_settings_info_details_label">Подробности за устройството</string>
     <string name="device_settings_info_details_action">Покажи подробности за устройството</string>
     <string name="device_settings_info_status_label">Статус</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Устройството е наблизо, но не е свързано с този телефон. Свържете се, за да получите достъп до настройките и управлението.</string>
     <string name="device_settings_not_connected_connect_action">Свържи се</string>
     <string name="device_settings_not_connected_open_settings_action">Отвори настройките на Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Устройството не е наблизо</string>
+    <string name="device_settings_not_nearby_description">Настройките са налични само когато устройството е наблизо и свързано с телефона ви.</string>
     <string name="device_settings_aap_unavailable_label">Разширените настройки не са налични</string>
     <string name="device_settings_aap_unavailable_description">Разширените настройки на AirPods изискват Bluetooth функция, която не е налична на този телефон. Това може да бъде разрешено от бъдеща актуализация на Android от производителя на вашето устройство.</string>
+    <string name="device_settings_aap_unavailable_action">Вижте проследяването на съвместимостта</string>
     <string name="device_settings_category_sound_label">Звук</string>
     <string name="device_settings_category_controls_label">Управление</string>
     <string name="device_settings_nc_one_airpod_label">ANC с един под</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Едно натискане за заглушаване на микрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двойно натискане за прекратяване на разговора</string>
     <string name="device_settings_open_cd">Отворете настройките на устройството</string>
+    <string name="overview_card_missing_paired_device">Този профил няма сдвоено Bluetooth устройство.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общи</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Разрешава Изключено като избираем режим за контрол на шума. Когато е деактивирано, стъблата пропускат Изключено при циклиране.</string>
     <string name="device_settings_sleep_detection_label">Разпознаване на сън</string>
     <string name="device_settings_sleep_detection_description">Автоматично поставя звука на пауза, когато заспите</string>
+    <string name="reaction_sleep_channel_label">Откриване на сън</string>
+    <string name="reaction_sleep_notification_title">Поставено на пауза от Откриване на сън</string>
+    <string name="reaction_sleep_notification_text">%1$s откри, че сте заспали, затова музиката ви беше поставена на пауза. Можете да деактивирате това в настройките на устройството.</string>
     <string name="device_settings_rename_label">Преименуване</string>
     <string name="device_settings_rename_hint">Наименование на устройството</string>
     <string name="device_settings_rename_confirm">Преименуване</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth настройки</string>
     <string name="device_settings_send_failed">Неуспешно прилагане на настройката: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Режимът Изключено не е активиран на това устройство. Активирайте \"Разрешаване на режим Изключено\" в Контрол на шума.</string>
+    <string name="device_settings_category_battery_label">Батерия</string>
+    <string name="device_settings_charge_cap_label">Оптимизиран лимит за зареждане</string>
+    <string name="device_settings_charge_cap_description">Научава ежедневието ви и спира зареждането около 80%%, за да удължи живота на батерията, като напълно зарежда слушалките преди да е вероятно да ги използвате.</string>
+    <string name="device_settings_charge_cap_rejected_message">Оптимизираният лимит за зареждане не можа да бъде променен. Това е експериментална функция — моля, докладвайте ако продължава да се проваля.</string>
     <string name="device_settings_category_connections_label">Свързани устройства</string>
     <string name="device_settings_connected_devices_description">Другите устройства, свързани в момента към тези AirPods</string>
     <string name="device_settings_connected_device_label">Устройство %d</string>

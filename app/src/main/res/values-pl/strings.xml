@@ -154,6 +154,7 @@ K4r0lSz;</string>
     <string name="widget_config_transparency_label">Przezroczystość tła</string>
     <string name="widget_config_show_device_label">Pokaż nazwę urządzenia</string>
     <string name="widget_config_reset_label">Przywróć ustawienia domyślne</string>
+    <string name="widget_config_preview_resize_hint">Możesz zmienić rozmiar widżetu po umieszczeniu go na ekranie głównym.</string>
     <string name="widget_config_custom_label">Niestandardowy</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Ciemny</string>
@@ -256,6 +257,7 @@ K4r0lSz;</string>
     <string name="pods_unknown_contact_dev">Urządzenie nie zostało rozpoznane, ale korzysta z podobnego formatu danych. Możemy dodać jego obsługę - skontaktuj się ze mną :)</string>
     <string name="pods_none_label_short">Brak urządzenia</string>
     <string name="pods_charging_label">Ładowanie</string>
+    <string name="pods_charging_optimized_label">Zoptymalizowane</string>
     <string name="pods_inear_label">W uszach</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Wyłączony</string>
@@ -419,11 +421,15 @@ K4r0lSz;</string>
     <string name="device_settings_info_bt_name_label">Etykieta urządzenia Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Producent</string>
+    <string name="device_settings_info_hardware_label">Sprzęt</string>
     <string name="device_settings_info_serial_label">Numer seryjny</string>
     <string name="device_settings_info_firmware_label">Oprogramowanie</string>
+    <string name="device_settings_info_firmware_pending_label">Oczekujące oprogramowanie</string>
     <string name="device_settings_info_build_label">Kompilacja</string>
     <string name="device_settings_info_left_serial_label">Numer seryjny lewej słuchawki</string>
     <string name="device_settings_info_right_serial_label">Numer seryjny prawej słuchawki</string>
+    <string name="device_settings_info_left_bonded_label">Lewy sparowany</string>
+    <string name="device_settings_info_right_bonded_label">Prawy sparowany</string>
     <string name="device_settings_info_details_label">Szczegóły urządzenia</string>
     <string name="device_settings_info_details_action">Pokaż szczegóły urządzenia</string>
     <string name="device_settings_info_status_label">Stan</string>
@@ -433,8 +439,11 @@ K4r0lSz;</string>
     <string name="device_settings_not_connected_description">To urządzenie jest w pobliżu, ale nie jest połączone z tym telefonem. Połącz się, aby uzyskać dostęp do ustawień i elementów sterowania.</string>
     <string name="device_settings_not_connected_connect_action">Połącz</string>
     <string name="device_settings_not_connected_open_settings_action">Otwórz ustawienia Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Urządzenie nie jest w pobliżu</string>
+    <string name="device_settings_not_nearby_description">Ustawienia są dostępne tylko wtedy, gdy to urządzenie jest w pobliżu i połączone z telefonem.</string>
     <string name="device_settings_aap_unavailable_label">Zaawansowane ustawienia są niedostępne</string>
     <string name="device_settings_aap_unavailable_description">Zaawansowane ustawienia AirPods wymagają funkcji Bluetooth, która nie jest dostępna w tym telefonie. Może to zostać rozwiązane przez przyszłą aktualizację Androida od producenta urządzenia.</string>
+    <string name="device_settings_aap_unavailable_action">Wyświetl śledzenie zgodności</string>
     <string name="device_settings_category_sound_label">Dźwięk</string>
     <string name="device_settings_category_controls_label">Sterowanie</string>
     <string name="device_settings_nc_one_airpod_label">ANC z jedną słuchawką</string>
@@ -472,6 +481,7 @@ K4r0lSz;</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Pojedyncze naciśnięcie wycisza mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Naciśnij dwukrotnie, aby zakończyć połączenie</string>
     <string name="device_settings_open_cd">Otwórz ustawienia urządzenia</string>
+    <string name="overview_card_missing_paired_device">Ten profil nie ma sparowanego urządzenia Bluetooth.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ogólne</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -494,6 +504,9 @@ K4r0lSz;</string>
     <string name="device_settings_allow_off_description">Zezwól na tryb wyłączony jako wybieralny tryb kontroli hałasu. Gdy wyłączony, trzony pomijają tryb wyłączony podczas cyklu.</string>
     <string name="device_settings_sleep_detection_label">Wykrywanie snu</string>
     <string name="device_settings_sleep_detection_description">Automatycznie wstrzymaj audio, gdy zasypiasz</string>
+    <string name="reaction_sleep_channel_label">Wykrywanie snu</string>
+    <string name="reaction_sleep_notification_title">Wstrzymano przez wykrywanie snu</string>
+    <string name="reaction_sleep_notification_text">%1$s wykrył, że zasnąłeś, więc muzyka została wstrzymana. Możesz to wyłączyć w ustawieniach urządzenia.</string>
     <string name="device_settings_rename_label">Zmień nazwę</string>
     <string name="device_settings_rename_hint">Nazwa urządzenia</string>
     <string name="device_settings_rename_confirm">Zmień nazwę</string>
@@ -503,6 +516,10 @@ K4r0lSz;</string>
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Ustawienia Bluetooth</string>
     <string name="device_settings_send_failed">Nie można zastosować ustawienia: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Tryb wyłączony nie jest włączony na tym urządzeniu. Włącz „Zezwól na tryb wyłączony” w sekcji Kontrola hałasu.</string>
+    <string name="device_settings_category_battery_label">Bateria</string>
+    <string name="device_settings_charge_cap_label">Zoptymalizowany limit ładowania</string>
+    <string name="device_settings_charge_cap_description">Uczy się Twojego harmonogramu i wstrzymuje ładowanie około 80%%, aby wydłużyć żywotność baterii, doładowując słuchawki przed prawdopodobnym ich użyciem.</string>
+    <string name="device_settings_charge_cap_rejected_message">Nie udało się zmienić zoptymalizowanego limitu ładowania. To funkcja eksperymentalna — prosimy o zgłoszenie, jeśli problem będzie się powtarzał.</string>
     <string name="device_settings_category_connections_label">Połączone urządzenia</string>
     <string name="device_settings_connected_devices_description">Inne urządzenia aktualnie podłączone do tych AirPodsów </string>
     <string name="device_settings_connected_device_label">Urządzenie %d</string>

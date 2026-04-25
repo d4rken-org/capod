@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Priehľadnosť pozadia</string>
     <string name="widget_config_show_device_label">Zobraziť meno zariadenia</string>
     <string name="widget_config_reset_label">Obnoviť na predvolené</string>
+    <string name="widget_config_preview_resize_hint">Veľkosť widgetu môžete zmeniť po jeho umiestnení na domovskú obrazovku.</string>
     <string name="widget_config_custom_label">Vlastný</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tmavý</string>
@@ -254,6 +255,7 @@
     <string name="pods_unknown_contact_dev">Toto je neznáme zariadenie, ale používa podobný formát správ. Pridajme preň podporu, kontaktujte ma :)</string>
     <string name="pods_none_label_short">Žiadne zariadenie</string>
     <string name="pods_charging_label">Nabíjanie</string>
+    <string name="pods_charging_optimized_label">Optimalizovaný</string>
     <string name="pods_inear_label">V uchu</string>
     <string name="pods_microphone_label">Mikrofón</string>
     <string name="anc_mode_off">Vypnuté</string>
@@ -400,7 +402,7 @@
     <string name="support_contact_debuglog_label">Ladiaci log</string>
     <string name="support_contact_debuglog_picker_hint">Priložte existujúci ladíaci záznam alebo nahrajte nový.</string>
     <string name="support_contact_debuglog_picker_empty">Žiadne ladíace záznamy sa nenašli. Najskôr nahraje jeden.</string>
-    <string name="support_contact_debuglog_zip_error">Komprimovanie ladiaceho záznamu zlyhalo</string>
+    <string name="support_contact_debuglog_zip_error">Komprimovanie ladÚciaho záznamu zlyhalo</string>
     <string name="support_contact_send_action">Otvoriť e-mailovú aplikáciu</string>
     <string name="support_contact_no_email_app">Na tomto zariadení sa nenašla žiadna e-mailová aplikácia.</string>
     <string name="support_contact_debuglog_delete_title">Odstrániť ladíaci záznam?</string>
@@ -417,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">Označenie Bluetooth zariadenia</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Výrobca</string>
+    <string name="device_settings_info_hardware_label">Hardvér</string>
     <string name="device_settings_info_serial_label">Sériové číslo</string>
     <string name="device_settings_info_firmware_label">Firmvér</string>
+    <string name="device_settings_info_firmware_pending_label">Čakajúci firmvér</string>
     <string name="device_settings_info_build_label">Zostava</string>
     <string name="device_settings_info_left_serial_label">Sériové číslo ľavého slúchadla</string>
     <string name="device_settings_info_right_serial_label">Sériové číslo pravého slúchadla</string>
+    <string name="device_settings_info_left_bonded_label">Ľavé spárované</string>
+    <string name="device_settings_info_right_bonded_label">Pravé spárované</string>
     <string name="device_settings_info_details_label">Detaily zariadenia</string>
     <string name="device_settings_info_details_action">Zobraziť detaily zariadenia</string>
     <string name="device_settings_info_status_label">Stav</string>
@@ -431,8 +437,11 @@
     <string name="device_settings_not_connected_description">Toto zariadenie je nablízku, ale nie je pripojené k tomuto telefónu. Pripojte sa pre prístup k nastaveniam a ovládacím prvkom.</string>
     <string name="device_settings_not_connected_connect_action">Pripojiť</string>
     <string name="device_settings_not_connected_open_settings_action">Otvoriť nastavenia Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Zariadenie nie je nablízku</string>
+    <string name="device_settings_not_nearby_description">Nastavenia sú dostupné iba vtedy, keď je toto zariadenie nablízku a pripojené k vášmu telefónu.</string>
     <string name="device_settings_aap_unavailable_label">Rozšírené nastavenia nie sú dostupné</string>
     <string name="device_settings_aap_unavailable_description">Rozšírené nastavenia AirPods vyžadujú funkciu Bluetooth, ktorá nie je dostupná v tomto telefóne. Tento problém môže vyriešiť budúca aktualizácia Androidu od výrobcu vašho zariadenia.</string>
+    <string name="device_settings_aap_unavailable_action">Zobraziť sledovač kompatibility</string>
     <string name="device_settings_category_sound_label">Zvuk</string>
     <string name="device_settings_category_controls_label">Ovládanie</string>
     <string name="device_settings_nc_one_airpod_label">ANC s jedným slúchadlom</string>
@@ -470,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Jedno stlačenie na stlmenie mikrofónu</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojité stlačenie na ukončenie hovoru</string>
     <string name="device_settings_open_cd">Otvoriť nastavenia zariadenia</string>
+    <string name="overview_card_missing_paired_device">Tento profil nemá spárované Bluetooth zariadenie.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Všeobecné</string>
     <string name="device_settings_microphone_mode_label">Mikrofón</string>
@@ -492,6 +502,9 @@
     <string name="device_settings_allow_off_description">Povoliť Vypnuté ako vyberatelý režim ovládania hluku. Keď je vypnuté, stonky preskakujú režim Vypnuté pri cyklovaní.</string>
     <string name="device_settings_sleep_detection_label">Detekcia spánku</string>
     <string name="device_settings_sleep_detection_description">Automaticky pozastaviť zvuk, keď zaspíte</string>
+    <string name="reaction_sleep_channel_label">Detekcia spánku</string>
+    <string name="reaction_sleep_notification_title">Pozastavené detekciou spánku</string>
+    <string name="reaction_sleep_notification_text">%1$s zistilo, že ste zaspali, preto bola vaša hudba pozastavená. Toto môžete vypnúť v nastaveniach zariadenia.</string>
     <string name="device_settings_rename_label">Premenovať</string>
     <string name="device_settings_rename_hint">Názov zariadenia</string>
     <string name="device_settings_rename_confirm">Premenovať</string>
@@ -501,6 +514,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Nastavenia Bluetooth</string>
     <string name="device_settings_send_failed">Nepodarilo sa použiť nastavenie: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Režim Vypnuté nie je na tomto zariadení povolený. Povolte „Povoliť režim Vypnuté“ v časti Ovládanie hluku.</string>
+    <string name="device_settings_category_battery_label">Batéria</string>
+    <string name="device_settings_charge_cap_label">Optimalizovaný limit nabíjania</string>
+    <string name="device_settings_charge_cap_description">Naučí sa vašu rutinu a okolo 80 %% pozastaví nabíjanie, aby predĺžilo životnosť batérie, a doplňí slúchadlá pred ich pravdepodobným použitím.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimalizovaný limit nabíjania sa nedal zmeniť. Toto je experimentálna funkcia — prosím, nahlaste to, ak to stále zlyhanéva.</string>
     <string name="device_settings_category_connections_label">Pripojené zariadenia</string>
     <string name="device_settings_connected_devices_description">Iné zariadenia aktuálne pripojené k týmto AirPods</string>
     <string name="device_settings_connected_device_label">Zariadenie %d</string>

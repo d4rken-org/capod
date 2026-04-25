@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Prosojnost ozadja</string>
     <string name="widget_config_show_device_label">Prikaži ime naprave</string>
     <string name="widget_config_reset_label">Ponastavi na privzete vrednosti</string>
+    <string name="widget_config_preview_resize_hint">Pripomoček lahko spremenite po namestitvi na začetni zaslon.</string>
     <string name="widget_config_custom_label">Prilagojeno</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Temno</string>
@@ -254,6 +255,7 @@
     <string name="pods_unknown_contact_dev">To je neznana naprava, vendar uporablja podoben format sporočil. Dodajmo podporo zanjo, kontaktirajte me :)</string>
     <string name="pods_none_label_short">Ni naprave</string>
     <string name="pods_charging_label">Polnjenje</string>
+    <string name="pods_charging_optimized_label">Optimizirano</string>
     <string name="pods_inear_label">V ušesu</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Izklopljeno</string>
@@ -417,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">Oznaka naprave Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Proizvajalec</string>
+    <string name="device_settings_info_hardware_label">Strojna oprema</string>
     <string name="device_settings_info_serial_label">Serijska številka</string>
     <string name="device_settings_info_firmware_label">Vdelana programska oprema</string>
+    <string name="device_settings_info_firmware_pending_label">Čakajoča strojna programska oprema</string>
     <string name="device_settings_info_build_label">Različica</string>
     <string name="device_settings_info_left_serial_label">Serijska številka levega slušalnika</string>
     <string name="device_settings_info_right_serial_label">Serijska številka desnega slušalnika</string>
+    <string name="device_settings_info_left_bonded_label">Levo sparjeno</string>
+    <string name="device_settings_info_right_bonded_label">Desno sparjeno</string>
     <string name="device_settings_info_details_label">Podrobnosti naprave</string>
     <string name="device_settings_info_details_action">Prikaži podrobnosti naprave</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -431,8 +437,11 @@
     <string name="device_settings_not_connected_description">Ta naprava je v bližini, a ni povezana s tem telefonom. Povežite se za dostop do nastavitev in upravljanja.</string>
     <string name="device_settings_not_connected_connect_action">Poveži</string>
     <string name="device_settings_not_connected_open_settings_action">Odpri nastavitve Bluetootha</string>
+    <string name="device_settings_not_nearby_label">Naprava ni v bližini</string>
+    <string name="device_settings_not_nearby_description">Nastavitve so na voljo samo, ko je ta naprava v bližini in povezana z vašim telefonom.</string>
     <string name="device_settings_aap_unavailable_label">Napredne nastavitve niso na voljo</string>
     <string name="device_settings_aap_unavailable_description">Napredne nastavitve AirPods zahtevajo funkcijo Bluetooth, ki ni na voljo na tem telefonu. To se lahko reši s prihodnjimi posodobitvami Androida od vašega proizvajalca naprave.</string>
+    <string name="device_settings_aap_unavailable_action">Oglejte si sledilnik združljivosti</string>
     <string name="device_settings_category_sound_label">Zvok</string>
     <string name="device_settings_category_controls_label">Upravljanje</string>
     <string name="device_settings_nc_one_airpod_label">ANC z enim slušalnikom</string>
@@ -470,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">En pritisk za izklop mikrofona</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojni pritisk za končanje klica</string>
     <string name="device_settings_open_cd">Odpri nastavitve naprave</string>
+    <string name="overview_card_missing_paired_device">Ta profil nima sparene naprave Bluetooth.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Splošno</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -492,6 +502,9 @@
     <string name="device_settings_allow_off_description">Dovoli Izklop kot izbiročeni način nadzora hrupa. Ko je onemogočeno, stebla preskakujejo Izklop med menjavo.</string>
     <string name="device_settings_sleep_detection_label">Zaznavanje spanja</string>
     <string name="device_settings_sleep_detection_description">Samodejno ustavi zvok, ko zaspite</string>
+    <string name="reaction_sleep_channel_label">Zaznavanje spanja</string>
+    <string name="reaction_sleep_notification_title">Zaustavljeno z zaznavanjem spanja</string>
+    <string name="reaction_sleep_notification_text">%1$s je zaznal, da ste zaspali, zato je bila glasba zaustavljena. To lahko onemogočite v nastavitvah naprave.</string>
     <string name="device_settings_rename_label">Preimenuj</string>
     <string name="device_settings_rename_hint">Ime naprave</string>
     <string name="device_settings_rename_confirm">Preimenuj</string>
@@ -501,6 +514,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Nastavitve Bluetooth</string>
     <string name="device_settings_send_failed">Nastavitve ni bilo mogoče uporabiti: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Način Izklop ni omogočen na tej napravi. Omogočite „Dovoli način Izklop“ v razdelku Nadzor hrupa.</string>
+    <string name="device_settings_category_battery_label">Baterija</string>
+    <string name="device_settings_charge_cap_label">Optimizirana omejitev polnjenja</string>
+    <string name="device_settings_charge_cap_description">Nauči se vaše rutine in med polnjenjem zaustavi pri okoli 80%%, da podaljša življenjsko dobo baterije ter napolni slušalke, preden jih verjetno uporabite.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimizirane omejitve polnjenja ni bilo mogoče spremeniti. To je eksperimentalna funkcija — prosimo, prijavite težavo, če se napaka ponavlja.</string>
     <string name="device_settings_category_connections_label">Povezane naprave</string>
     <string name="device_settings_connected_devices_description">Druge naprave, ki so trenutno povezane s temi AirPodi</string>
     <string name="device_settings_connected_device_label">Naprava %d</string>

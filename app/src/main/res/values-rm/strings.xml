@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparenza dal fonds</string>
     <string name="widget_config_show_device_label">Mussar nom dal dispositiv</string>
     <string name="widget_config_reset_label">Reinizialischar als standardis</string>
+    <string name="widget_config_preview_resize_hint">Ti pos midiar la dimensiun dal widget suenter haver collocat il sin tia pantschina da chasa.</string>
     <string name="widget_config_custom_label">Persunalisà</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Stgir</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Quai è in apparat nunenconuschent, ma el dovra in format da messadi sumegliont. Agiuntin il support, contactai me :)</string>
     <string name="pods_none_label_short">Nagin apparat</string>
     <string name="pods_charging_label">Chargiar</string>
+    <string name="pods_charging_optimized_label">Optimisà</string>
     <string name="pods_inear_label">En l\'ureglia</string>
     <string name="pods_microphone_label">Microfon</string>
     <string name="anc_mode_off">Inactiv</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Designaziun da l\'apparat Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Producent</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Numer serial</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware Pendant</string>
     <string name="device_settings_info_build_label">Versiun da construcziun</string>
     <string name="device_settings_info_left_serial_label">Numer serial da l\'AirPod sanester</string>
     <string name="device_settings_info_right_serial_label">Numer serial da l\'AirPod dretg</string>
+    <string name="device_settings_info_left_bonded_label">Sanglà Seniester</string>
+    <string name="device_settings_info_right_bonded_label">Sanglà Dretg</string>
     <string name="device_settings_info_details_label">Detagls da l\'apparat</string>
     <string name="device_settings_info_details_action">Mussar detagls da l\'apparat</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Quest apparat è nas ma betg connectà cun quest telefon. Connecta per acceder als parameters ed als controls.</string>
     <string name="device_settings_not_connected_connect_action">Connectar</string>
     <string name="device_settings_not_connected_open_settings_action">Avrir parameters Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Apparat betg proximità</string>
+    <string name="device_settings_not_nearby_description">Las configurazions èn mo accessiblas sche quest apparat è proximità ed connectà cun Voss telefon.</string>
     <string name="device_settings_aap_unavailable_label">Parameters avanzads betg disponibels</string>
     <string name="device_settings_aap_unavailable_description">Las preferenzas avanzadas per AirPods pretendeschan ina funcziun Bluetooth che n\'è betg disponibla sin quest telefon. Quai po vegnir resolvì cun ina futura actualisaziun d\'Android dal producent da voss apparat.</string>
+    <string name="device_settings_aap_unavailable_action">Mussar il tracker da compatibilitad</string>
     <string name="device_settings_category_sound_label">Sun</string>
     <string name="device_settings_category_controls_label">Controlla</string>
     <string name="device_settings_nc_one_airpod_label">ANC cun in singul pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">In presser per tasar il microfon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dupel presser per terminar il clom</string>
     <string name="device_settings_open_cd">Avrir ils parameters da l\'apparat</string>
+    <string name="overview_card_missing_paired_device">Quest profil na ha nagin apparat Bluetooth copulà.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Permetter il modus Deactivà sco modus selectabel da controlla dal rumur. Cur che deactivà, ils stems survolan Deactivà durant la cicla.</string>
     <string name="device_settings_sleep_detection_label">Detecziun dal durmir</string>
     <string name="device_settings_sleep_detection_description">Pausa automatica dal audio sche ti t\'endormas</string>
+    <string name="reaction_sleep_channel_label">Detecziun dal Somen</string>
+    <string name="reaction_sleep_notification_title">Stoppà da la Detecziun dal Somen</string>
+    <string name="reaction_sleep_notification_text">%1$s ha rapportà ch\'Vus avais endormì, uschia è Vossa musica vegnida stoppada. Vus pudais deactivar quai en las configurazions dal apparat.</string>
     <string name="device_settings_rename_label">Renumerar</string>
     <string name="device_settings_rename_hint">Num da l\'apparat</string>
     <string name="device_settings_rename_confirm">Renumerar</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Parameters Bluetooth</string>
     <string name="device_settings_send_failed">Betg pussibel d\'applitgar il parameter: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Il modus Deactivà n\'è betg activà sin quest apparat. Activa «Permetter il modus Deactivà» sut Controlla dal rumur.</string>
+    <string name="device_settings_category_battery_label">Batteria</string>
+    <string name="device_settings_charge_cap_label">Limit Optimisà da Chargia</string>
+    <string name="device_settings_charge_cap_description">Emprenda Vossa rutina e metta en pausa la chargia tar environ 80%% per prolungar la vita da la batteria, cargond ils pods avant ch\'Vus ils utilisais probablamain.</string>
+    <string name="device_settings_charge_cap_rejected_message">Il Limit Optimisà da Chargia n\'ha betg pudì vegnir midà. Quai è ina funcziun experimentala — per plaschair rapportai sch\'ella cuntinuescha a fallar.</string>
     <string name="device_settings_category_connections_label">Apparats connectads</string>
     <string name="device_settings_connected_devices_description">Auters apparats actualmain connectads a quests AirPods</string>
     <string name="device_settings_connected_device_label">Apparat %d</string>

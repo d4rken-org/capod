@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">ความโปร่งใสของพื้นหลัง</string>
     <string name="widget_config_show_device_label">แสดงชื่ออุปกรณ์</string>
     <string name="widget_config_reset_label">รีเซ็ตเป็นค่าเริ่มต้น</string>
+    <string name="widget_config_preview_resize_hint">คุณสามารถปรับขนาดวิดเจ็ตได้หลังจากวางไว้บนหน้าจอหลักของคุณ</string>
     <string name="widget_config_custom_label">กำหนดเอง</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">มืด</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">นี่คืออุปกรณ์ที่ไม่รู้จัก แต่ใช้รูปแบบข้อความที่คล้ายกัน มาเพิ่มการรองรับกันเถอะ ติดต่อฉัน :)</string>
     <string name="pods_none_label_short">ไม่มีอุปกรณ์</string>
     <string name="pods_charging_label">กำลังชาร์จ</string>
+    <string name="pods_charging_optimized_label">ปรับให้เหมาะสม</string>
     <string name="pods_inear_label">อยู่ในหู</string>
     <string name="pods_microphone_label">ไมโครโฟน</string>
     <string name="anc_mode_off">ปิด</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">ชื่ออุปกรณ์บลูทูธ</string>
     <string name="device_settings_info_model_label">รุ่น</string>
     <string name="device_settings_info_manufacturer_label">ผู้ผลิต</string>
+    <string name="device_settings_info_hardware_label">ฮาร์ดแวร์</string>
     <string name="device_settings_info_serial_label">หมายเลขซีเรียล</string>
     <string name="device_settings_info_firmware_label">เฟิร์มแวร์</string>
+    <string name="device_settings_info_firmware_pending_label">เฟิร์มแวร์ที่รอดำเนินการ</string>
     <string name="device_settings_info_build_label">บิลด์</string>
     <string name="device_settings_info_left_serial_label">ซีเรียลหูฟังซ้าย</string>
     <string name="device_settings_info_right_serial_label">ซีเรียลหูฟังขวา</string>
+    <string name="device_settings_info_left_bonded_label">จับคู่ซ้าย</string>
+    <string name="device_settings_info_right_bonded_label">จับคู่ขวา</string>
     <string name="device_settings_info_details_label">รายละเอียดอุปกรณ์</string>
     <string name="device_settings_info_details_action">แสดงรายละเอียดอุปกรณ์</string>
     <string name="device_settings_info_status_label">สถานะ</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">อุปกรณ์นี้อยู่ใกล้เคียงแต่ไม่ได้เชื่อมต่อกับโทรศัพท์เครื่องนี้ เชื่อมต่อเพื่อเข้าถึงการตั้งค่าและตัวควบคุม</string>
     <string name="device_settings_not_connected_connect_action">เชื่อมต่อ</string>
     <string name="device_settings_not_connected_open_settings_action">เปิดการตั้งค่า Bluetooth</string>
+    <string name="device_settings_not_nearby_label">ไม่พบอุปกรณ์ในบริเวณใกล้เคียง</string>
+    <string name="device_settings_not_nearby_description">การตั้งค่าจะใช้งานได้เฉพาะเมื่ออุปกรณ์นี้อยู่ใกล้เคียงและเชื่อมต่อกับโทรศัพท์ของคุณแล้วเท่านั้น</string>
     <string name="device_settings_aap_unavailable_label">ไม่สามารถใช้การตั้งค่าขั้นสูงได้</string>
     <string name="device_settings_aap_unavailable_description">การตั้งค่า AirPods ขั้นสูงต้องใช้ฟีเจอร์บลูทูธที่ไม่มีในโทรศัพท์นี้ อาจบรรเทาได้ด้วยการอัปเดต Android ในอนาคตจากผู้ผลิตอุปกรณ์ของคุณ</string>
+    <string name="device_settings_aap_unavailable_action">ดูตัวติดตามความเข้ากันได้</string>
     <string name="device_settings_category_sound_label">เสียง</string>
     <string name="device_settings_category_controls_label">การควบคุม</string>
     <string name="device_settings_nc_one_airpod_label">ANC ด้วย pod เดียว</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">กดครั้งเดียวเพื่อปิดเสียงไมโครโฟน</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">กดสองครั้งเพื่อวางสาย</string>
     <string name="device_settings_open_cd">เปิดการตั้งค่าอุปกรณ์</string>
+    <string name="overview_card_missing_paired_device">โปรไฟล์นี้ไม่มีอุปกรณ์ Bluetooth ที่จับคู่แล้ว</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ทั่วไป</string>
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">อนุญาต ปิด เป็นโหมดควบคุมเสียงรบกวนที่เลือกได้ เมื่อปิดใช้งาน ก้านหูฟังจะข้ามโหมด ปิด ขณะสลับ</string>
     <string name="device_settings_sleep_detection_label">การตรวจจับการหลับ</string>
     <string name="device_settings_sleep_detection_description">หยุดเสียงโดยอัตโนมัติเมื่อคุณหลับไป</string>
+    <string name="reaction_sleep_channel_label">การตรวจจับการนอนหลับ</string>
+    <string name="reaction_sleep_notification_title">หยุดชั่วคราวโดยการตรวจจับการนอนหลับ</string>
+    <string name="reaction_sleep_notification_text">%1$s รายงานว่าคุณหลับไป ดังนั้นเพลงของคุณจึงถูกหยุดชั่วคราว คุณสามารถปิดใช้งานได้ในการตั้งค่าอุปกรณ์</string>
     <string name="device_settings_rename_label">เปลี่ยนชื่อ</string>
     <string name="device_settings_rename_hint">ชื่ออุปกรณ์</string>
     <string name="device_settings_rename_confirm">เปลี่ยนชื่อ</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">การตั้งค่า Bluetooth</string>
     <string name="device_settings_send_failed">ไม่สามารถใช้การตั้งค่าได้: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">โหมด ปิด ไม่ถูกเปิดใช้งานบนอุปกรณ์นี้ เปิดใช้งาน ยอมให้โหมด ปิด ภายใต้การควบคุมเสียงรบกวน</string>
+    <string name="device_settings_category_battery_label">แบตเตอรี่</string>
+    <string name="device_settings_charge_cap_label">ขีดจำกัดการชาร์จที่ปรับให้เหมาะสม</string>
+    <string name="device_settings_charge_cap_description">เรียนรู้กิจวัตรของคุณและหยุดการชาร์จที่ประมาณ 80%% เพื่อยืดอายุแบตเตอรี่ และชาร์จให้เต็มก่อนที่คุณจะใช้งาน</string>
+    <string name="device_settings_charge_cap_rejected_message">ไม่สามารถเปลี่ยนขีดจำกัดการชาร์จที่ปรับให้เหมาะสมได้ นี่เป็นฟีเจอร์ทดลอง — โปรดรายงานหากยังคงล้มเหลวต่อไป</string>
     <string name="device_settings_category_connections_label">อุปกรณ์ที่เชื่อมต่อ</string>
     <string name="device_settings_connected_devices_description">อุปกรณ์อื่นที่เชื่อมต่อกับ AirPods เหล่านี้อยู่ในขณะนี้</string>
     <string name="device_settings_connected_device_label">อุปกรณ์ %d</string>

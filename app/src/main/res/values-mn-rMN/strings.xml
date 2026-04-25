@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Фоны тунгалаг байдал</string>
     <string name="widget_config_show_device_label">Төхөөрөмжийн нэрийг харуулах</string>
     <string name="widget_config_reset_label">Анхны утга руу сэргээх</string>
+    <string name="widget_config_preview_resize_hint">Та виджетийг нүүр дэлгэцэндээ байрлуулсны дараа хэмжээг нь өөрчилж болно.</string>
     <string name="widget_config_custom_label">Нэмэлт</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Сүүдэр</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Энэ нь тодорхойгүй төхөөрөмж боловч ижил төстэй мессежийн формат ашиглаж байна. Дэмжлэг нэмье, надтай холбоо барина уу :)</string>
     <string name="pods_none_label_short">Төхөөрөмж алга</string>
     <string name="pods_charging_label">Цэнэглэж байна</string>
+    <string name="pods_charging_optimized_label">Оновсон</string>
     <string name="pods_inear_label">Чихэнд</string>
     <string name="pods_microphone_label">Микрофон</string>
     <string name="anc_mode_off">Унтраалттай</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth төхөөрөмжийн нэр</string>
     <string name="device_settings_info_model_label">Загвар</string>
     <string name="device_settings_info_manufacturer_label">Үйлдвэрлэгч</string>
+    <string name="device_settings_info_hardware_label">Техник хангамж</string>
     <string name="device_settings_info_serial_label">Серийн дугаар</string>
     <string name="device_settings_info_firmware_label">Програм хангамж</string>
+    <string name="device_settings_info_firmware_pending_label">Хүлээгдэж буй програм хангамж</string>
     <string name="device_settings_info_build_label">Бүтээц</string>
     <string name="device_settings_info_left_serial_label">Зүүн чихэвчийн серийн дугаар</string>
     <string name="device_settings_info_right_serial_label">Баруун чихэвчийн серийн дугаар</string>
+    <string name="device_settings_info_left_bonded_label">Зүүн холбосон</string>
+    <string name="device_settings_info_right_bonded_label">Баруун холбосон</string>
     <string name="device_settings_info_details_label">Төхөөрөмжийн дэлгэрэнгүй мэдээлэл</string>
     <string name="device_settings_info_details_action">Төхөөрөмжийн дэлгэрэнгүй мэдээлэл үзэх</string>
     <string name="device_settings_info_status_label">Төлөв</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Энэ төхөөрөмж ойролцоо байгаа боловч энэ утастай холбогдоогүй байна. Тохиргоо болон удирдлагад хандахын тулд холбогдоно уу.</string>
     <string name="device_settings_not_connected_connect_action">Холбогдох</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth тохиргоог нээх</string>
+    <string name="device_settings_not_nearby_label">Төхөөрөмж ойролцоо байхгүй</string>
+    <string name="device_settings_not_nearby_description">Тохиргоо нь энэ төхөөрөмж ойролцоо байж, таны утастай холбогдсон үед л боломжтой.</string>
     <string name="device_settings_aap_unavailable_label">Нарийвчилсан тохиргоо боломжгүй</string>
     <string name="device_settings_aap_unavailable_description">Өннө AirPods тохиргоо энэ утасны утасны Bluetooth функций шаардаг. Таны утасны Android шинэчлэлтийн шинэчлэлт ирээдэнд энэ асуудал шийдвэрлэгдэж боломж тайлбыр.</string>
+    <string name="device_settings_aap_unavailable_action">Нийцтэй байдлын хянагчийг үзэх</string>
     <string name="device_settings_category_sound_label">Дуу</string>
     <string name="device_settings_category_controls_label">Удирдлага</string>
     <string name="device_settings_nc_one_airpod_label">Нэг чихэвчтэй ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Микрофоныг хаахын тулд нэг дарна уу</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Дуудлага дуусгахын тулд хоёр дарна уу</string>
     <string name="device_settings_open_cd">Төхөөрөмжийн тохиргоо нээх</string>
+    <string name="overview_card_missing_paired_device">Энэ профайл нь хосолсон Bluetooth төхөөрөмжгүй байна.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ерөнхий</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Унтарсаныг сонгох шуугайн хяналтын горим болгохыг зөвшөөрө. Идэвхгүй бол, ширхүүд циклэх үед унтарсаныг алгасана.</string>
     <string name="device_settings_sleep_detection_label">Нойр илрүүлэх</string>
     <string name="device_settings_sleep_detection_description">Унтахад аудиог автоматаар зогсох</string>
+    <string name="reaction_sleep_channel_label">Нойрны мэдрэгч</string>
+    <string name="reaction_sleep_notification_title">Нойрны мэдрэгчээр түр зогссон</string>
+    <string name="reaction_sleep_notification_text">%1$s таныг унтаж байна гэж мэдээллэсэн тул хөгжим нь түр зогссон. Үүнийг төхөөрөмжийн тохиргооноос идэвхгүй болгож болно.</string>
     <string name="device_settings_rename_label">Нэр өөрчлөх</string>
     <string name="device_settings_rename_hint">Төхөөрөмжийн нэр</string>
     <string name="device_settings_rename_confirm">Нэр өөрчлөх</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth тохиргоо</string>
     <string name="device_settings_send_failed">Тохиргоог хэрэгжүүлэх боломжгүй: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Энэ төхөөрөмж дээр унтарсан горим идэвхгүй байна. Шуугайн Хяналт хэсэгт \"Allow Off mode\" гэснээсийг идэвхүүлээ.</string>
+    <string name="device_settings_category_battery_label">Батарей</string>
+    <string name="device_settings_charge_cap_label">Оновсон цэнэглэлтийн хязгаар</string>
+    <string name="device_settings_charge_cap_description">Таны дутмийг судлаж, батарейны ашиглалтын хугацааг уртасгахын тулд цэнэглэлтийг 80%%-ийн үед түр зогсоож, ашиглах магадлалтай үеэс өмнө дуусгана.</string>
+    <string name="device_settings_charge_cap_rejected_message">Оновсон цэнэглэлтийн хязгаарыг өөрчлөх боломжгүй байна. Энэ бол туршилтын функц — байнга алдаа гарвал мэдэгдэнэ үү.</string>
     <string name="device_settings_category_connections_label">Холбогдсон төхөөрөмжүүд</string>
     <string name="device_settings_connected_devices_description">Одоогоор эдгээр AirPods-д холбогдсон бусад төхөөрөмжүүд</string>
     <string name="device_settings_connected_device_label">Төхөөрөмж %d</string>

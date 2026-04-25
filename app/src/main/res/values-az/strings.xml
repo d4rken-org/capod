@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Fon şəffaflığı</string>
     <string name="widget_config_show_device_label">Cihaz adını göstər</string>
     <string name="widget_config_reset_label">Varsayılan ayarlara sıfırla</string>
+    <string name="widget_config_preview_resize_hint">Vidceti ana ekranınıza yerləşdirdikdən sonra ölçüsünü dəyişə bilərsiniz.</string>
     <string name="widget_config_custom_label">Fərdi</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tünd</string>
@@ -233,7 +234,7 @@
     <string name="pods_dual_left_label">Sol qulaqlıq</string>
     <string name="pods_dual_right_label">Sağ qulaqlıq</string>
     <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">S</string>
+    <string name="pods_dual_right_short_label">SĚ</string>
     <string name="pods_case_label">Qutu</string>
     <string name="battery_unavailable_label">Batareya məlumatı yoxdur</string>
     <string name="pods_case_status_open_label">Açıq</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Bu naməlum bir cihazdır, lakin oxşar mesaj formatından istifadə edir. Onun üçün dəstək əlavə edək, mənimlə əlaqə saxlayın :)</string>
     <string name="pods_none_label_short">Cihaz yoxdur</string>
     <string name="pods_charging_label">Şarj olunur</string>
+    <string name="pods_charging_optimized_label">Optimallaşdırılmış</string>
     <string name="pods_inear_label">Qulaqda</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Söndür</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth Cihaz Etiketə</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">İstehsalcı</string>
+    <string name="device_settings_info_hardware_label">Aparat</string>
     <string name="device_settings_info_serial_label">Seriya Nömrəsi</string>
     <string name="device_settings_info_firmware_label">Proqram təminı</string>
+    <string name="device_settings_info_firmware_pending_label">Gözləmədə olan proqram təminatı</string>
     <string name="device_settings_info_build_label">Yazılım versiyası</string>
     <string name="device_settings_info_left_serial_label">Sol Qulaqcıq Seriya Nömrəsi</string>
     <string name="device_settings_info_right_serial_label">Sağ Qulaqcıq Seriya Nömrəsi</string>
+    <string name="device_settings_info_left_bonded_label">Sol cütləşdirilmiş</string>
+    <string name="device_settings_info_right_bonded_label">Sağ cütləşdirilmiş</string>
     <string name="device_settings_info_details_label">Cihaz Ǝtraflı Məlumatları</string>
     <string name="device_settings_info_details_action">Cihaz təfsilatlarını göstər</string>
     <string name="device_settings_info_status_label">Vəziyyət</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Bu cihaz yaxında yerləşir, lakin bu telefona bağlı deyil. Parametrlərə və idarəetməyə daxil olmaq üçün qoşulun.</string>
     <string name="device_settings_not_connected_connect_action">Qoşul</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth Parametrlərini Aç</string>
+    <string name="device_settings_not_nearby_label">Cihaz yaxında deyil</string>
+    <string name="device_settings_not_nearby_description">Parametrlər yalnız bu cihaz yaxında olduqda və telefonunuza qoşulduqda mövcuddur.</string>
     <string name="device_settings_aap_unavailable_label">Ətraflı parametrlər əlçatmazdır</string>
     <string name="device_settings_aap_unavailable_description">Qabaqcıl AirPods parametrləri bu telefondan əldati olunan Bluetooth funksiyasını tələb edir. Bu problem cihaz istehsalcınızdan gələcək Android yenilməsi ilə həll oluna bilər.</string>
+    <string name="device_settings_aap_unavailable_action">Uyğunluq izləyicisinə baxın</string>
     <string name="device_settings_category_sound_label">Səs</string>
     <string name="device_settings_category_controls_label">İdarəetmələr</string>
     <string name="device_settings_nc_one_airpod_label">Tək qulaqcıqla ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonu susdurmağ üçün bir dəfə basın</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Zəngi bitirmək üçün iki dəfə basın</string>
     <string name="device_settings_open_cd">Cihaz parametrlərini açın</string>
+    <string name="overview_card_missing_paired_device">Bu profilin cütləşdirilmiş Bluetooth cihazı yoxdur.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ümumi</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Söndürmə rejiminin səs-küy nəzarətində seçilə bilməsinə icazə ver. Deaktiv edildçə, gövə dövr kəsindi Söndürməni atlayar.</string>
     <string name="device_settings_sleep_detection_label">Yuxu Aşkarlama</string>
     <string name="device_settings_sleep_detection_description">Yuxuya getdikdə audionu avtomatik dayandırın</string>
+    <string name="reaction_sleep_channel_label">Yuxu Aşkarlaması</string>
+    <string name="reaction_sleep_notification_title">Yuxu Aşkarlaması ilə dayandırıldı</string>
+    <string name="reaction_sleep_notification_text">%1$s sizin yuxuya getdiyinizi bildirdi, buna görə musiqiniz dayandırıldı. Bunu cihaz parametrlərindən söndürə bilərsiniz.</string>
     <string name="device_settings_rename_label">Adı dəyişdirin</string>
     <string name="device_settings_rename_hint">Cihaz adı</string>
     <string name="device_settings_rename_confirm">Adı dəyişdirin</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Parametrləri</string>
     <string name="device_settings_send_failed">Parametr tətbiq edilə bilmədi: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Söndürmə rejimi bu cihazda aktiv deyil. Səs-Küy Nəzarəti altında \"Söndürmə rejiminə icazə ver\" seçimini aktiv edin.</string>
+    <string name="device_settings_category_battery_label">Batareya</string>
+    <string name="device_settings_charge_cap_label">Optimallaşdırılmış Şarj Həddi</string>
+    <string name="device_settings_charge_cap_description">Batareya ömrünü uzatmaq üçün rutininizi öyrənir və şarjı təxminən 80%%-də dayandırır, qulluqlardan istifadə etməzdən əvvəl onları şarj edir.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimallaşdırılmış Şarj Həddini dəyişdirmək mümkün olmadı. Bu eksperimental bir xüsusiyyətdir — davam edərsə xahiş edirik bildirin.</string>
     <string name="device_settings_category_connections_label">Bağlı Cihazlar</string>
     <string name="device_settings_connected_devices_description">Bu AirPodlara hal-hazırda bağlı olan digər cihazlar</string>
     <string name="device_settings_connected_device_label">Cihaz %d</string>

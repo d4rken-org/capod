@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">ფონის გამჭვირვალობა</string>
     <string name="widget_config_show_device_label">მოწყობილობის სახელის ჩვენება</string>
     <string name="widget_config_reset_label">დაბრუნება ნაგულისხმებ პარამეტრებზე</string>
+    <string name="widget_config_preview_resize_hint">ვიჯეტის ზომის შეცვლა შესაძლებელია მთავარ ეკრანზე განთავსების შემდეგ.</string>
     <string name="widget_config_custom_label">მორგებული</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">მუქი</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">ეს უცნობი მოწყობილობაა, მაგრამ იყენებს მსგავს შეტყობინების ფორმატს. მოდით, მხარდაჭერა დავამატოთ, დამიკავშირდით :)</string>
     <string name="pods_none_label_short">მოწყობილობა არ არის</string>
     <string name="pods_charging_label">იტენება</string>
+    <string name="pods_charging_optimized_label">ოპტიმიზებული</string>
     <string name="pods_inear_label">ყურშია</string>
     <string name="pods_microphone_label">მიკროფონი</string>
     <string name="anc_mode_off">გამორთული</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth მოწყობილობის სახელი</string>
     <string name="device_settings_info_model_label">მოდელი</string>
     <string name="device_settings_info_manufacturer_label">მწარმოებელი</string>
+    <string name="device_settings_info_hardware_label">აპარატურა</string>
     <string name="device_settings_info_serial_label">სერიული ნომერი</string>
     <string name="device_settings_info_firmware_label">პროგრამული უზრუნველყოფა</string>
+    <string name="device_settings_info_firmware_pending_label">მომლოდინე პროგრამული უზრუნველყოფა</string>
     <string name="device_settings_info_build_label">ბილდი</string>
     <string name="device_settings_info_left_serial_label">მარცხენა Pod-ის სერიალური</string>
     <string name="device_settings_info_right_serial_label">მარჯვენა Pod-ის სერიალური</string>
+    <string name="device_settings_info_left_bonded_label">მარცხენა დაწყვილებული</string>
+    <string name="device_settings_info_right_bonded_label">მარჯვენა დაწყვილებული</string>
     <string name="device_settings_info_details_label">მოწყობილობის დეტალურები</string>
     <string name="device_settings_info_details_action">მოწყობილობის დეტალურების ჩვენება</string>
     <string name="device_settings_info_status_label">სტატუსი</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">ეს მოწყობილობა ახლოსაა, მაგრამ ამ ტელეფონთან არ არის დაკავშირებული. დაუკავშირდით პარამეტრებსა და კონტროლებზე წვდომისათვის.</string>
     <string name="device_settings_not_connected_connect_action">დაკავშირება</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth პარამეტრების გახსნა</string>
+    <string name="device_settings_not_nearby_label">მოწყობილობა ახლოს არ არის</string>
+    <string name="device_settings_not_nearby_description">პარამეტრები მხოლოდ მაშინ არის ხელმისაწვდომი, როდესაც ეს მოწყობილობა ახლოსაა და დაკავშირებულია თქვენს ტელეფონთან.</string>
     <string name="device_settings_aap_unavailable_label">გაფართოებული პარამეტრები მიუწვდომელია</string>
     <string name="device_settings_aap_unavailable_description">AirPods-ის გაფართოებული პარამეტრები საჭიროებს Bluetooth-ის ფუნქციას, რომელიც არ არის ხელმისაყოფლო ამ ტელეფონზე. შესაძლოა ეს აღმოიფხვეს თქვენი მოწყობილობის Android-ის მომავალი განახლებით.</string>
+    <string name="device_settings_aap_unavailable_action">თავსებადობის ტრეკერის ნახვა</string>
     <string name="device_settings_category_sound_label">ხმა</string>
     <string name="device_settings_category_controls_label">კონტროლები</string>
     <string name="device_settings_nc_one_airpod_label">ANC ერთი pod-ისაან</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">ერთხელ დაჭერით მიკროფონის დადუმება</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ორჯერ დაჭერით ზარის დასრულება</string>
     <string name="device_settings_open_cd">მოწყობილობის პარამეტრების გახსნა</string>
+    <string name="overview_card_missing_paired_device">ამ პროფილს არ აქვს დაწყვილებული Bluetooth მოწყობილობა.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ზოგადი</string>
     <string name="device_settings_microphone_mode_label">მიკროფონი</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">დაშვას Off საირჩიე ხმაურის კონტროლის რეჟიმად. გათიშვისას, stems გადაინაცვლებს Off-ს ციკლურისას.</string>
     <string name="device_settings_sleep_detection_label">ძილის დეტექცია</string>
     <string name="device_settings_sleep_detection_description">ავტომატურად შეაჩერე აუდიო, როდესაც ჩაიძინებ</string>
+    <string name="reaction_sleep_channel_label">ძილის გამოვლენა</string>
+    <string name="reaction_sleep_notification_title">შეჩერებულია ძილის გამოვლენის მიერ</string>
+    <string name="reaction_sleep_notification_text">%1$s-მ დააფიქსირა, რომ ჩაეძინათ, ამიტომ მუსიკა შეჩერდა. ამის გათიშვა შეგიძლიათ მოწყობილობის პარამეტრებში.</string>
     <string name="device_settings_rename_label">გადარქმევა</string>
     <string name="device_settings_rename_hint">მოწყობილობის სახელი</string>
     <string name="device_settings_rename_confirm">გადარქმევა</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth პარამეტრები</string>
     <string name="device_settings_send_failed">პარამეტრის გამოყენება ვერ მოხერხდა: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Off რეჟიმი არ არის აქტიური ამ მოწყობილობაზე. აღვისეთ \"Off რეჟიმის დაშვება\" Noise Control-ში.</string>
+    <string name="device_settings_category_battery_label">ბატარეა</string>
+    <string name="device_settings_charge_cap_label">ოპტიმიზებული დამუხტვის ლიმიტი</string>
+    <string name="device_settings_charge_cap_description">ისწავლის თქვენს რუტინას და შეაჩერებს დამუხტვას დაახლოებით 80%%-ზე ბატარეის სიცოცხლის გასახანგრძლივებლად, პოდებს დამუხტავს სრულად სავარაუდო გამოყენებამდე.</string>
+    <string name="device_settings_charge_cap_rejected_message">ოპტიმიზებული დამუხტვის ლიმიტის შეცვლა ვერ მოხერხდა. ეს ექსპერიმენტული ფუნქციაა — გთხოვთ, შეგვატყობინოთ, თუ პრობლემა გრძელდება.</string>
     <string name="device_settings_category_connections_label">დაკავშირებული მოწყობილობები</string>
     <string name="device_settings_connected_devices_description">სხვა მოწყობილობები, რომლებიც ამჟამად ამ აირპოდს-თან არის დაკავშირებული</string>
     <string name="device_settings_connected_device_label">მოწყობილობა %d</string>

@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Прозрачнасць фона</string>
     <string name="widget_config_show_device_label">Паказаць назву прылады</string>
     <string name="widget_config_reset_label">Скінуць да змаўчання</string>
+    <string name="widget_config_preview_resize_hint">Вы можаце змяніць памер віджэта пасля размяшчэння яго на галоўным экране.</string>
     <string name="widget_config_custom_label">Адвольны</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Цёмны</string>
@@ -254,6 +255,7 @@
     <string name="pods_unknown_contact_dev">Гэта невядомая прылада, але яна выкарыстоўвае падобны фармат паведамленняў. Давайце дадамо яе падтрымку, звяжыцеся са мной :)</string>
     <string name="pods_none_label_short">Няма прылады</string>
     <string name="pods_charging_label">Зарадка</string>
+    <string name="pods_charging_optimized_label">Аптымізавана</string>
     <string name="pods_inear_label">У вуху</string>
     <string name="pods_microphone_label">Мікрафон</string>
     <string name="anc_mode_off">Выкл</string>
@@ -417,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">Назва Bluetooth-прылады</string>
     <string name="device_settings_info_model_label">Мадэль</string>
     <string name="device_settings_info_manufacturer_label">Вытворца</string>
+    <string name="device_settings_info_hardware_label">Абсталяванне</string>
     <string name="device_settings_info_serial_label">Серыйны нумар</string>
     <string name="device_settings_info_firmware_label">Прашыўка</string>
+    <string name="device_settings_info_firmware_pending_label">Прашыўка ў чарзе</string>
     <string name="device_settings_info_build_label">Зборка</string>
     <string name="device_settings_info_left_serial_label">Сэрыйны нумар левага навушніка</string>
     <string name="device_settings_info_right_serial_label">Сэрыйны нумар правага навушніка</string>
+    <string name="device_settings_info_left_bonded_label">Левы спалучаны</string>
+    <string name="device_settings_info_right_bonded_label">Правы спалучаны</string>
     <string name="device_settings_info_details_label">Дэталі прылады</string>
     <string name="device_settings_info_details_action">Паказаць дэталі прылады</string>
     <string name="device_settings_info_status_label">Стан</string>
@@ -431,8 +437,11 @@
     <string name="device_settings_not_connected_description">Гэта прылада знаходзіцца побач, але не падключана да гэтага тэлефона. Падключыцеся, каб атрымаць доступ да налад і кіравання.</string>
     <string name="device_settings_not_connected_connect_action">Падключыцца</string>
     <string name="device_settings_not_connected_open_settings_action">Адкрыць налады Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Прылада не паблізу</string>
+    <string name="device_settings_not_nearby_description">Налады даступныя толькі тады, калі гэтая прылада знаходзіцца паблізу і падключана да вашага тэлефона.</string>
     <string name="device_settings_aap_unavailable_label">Пашыраныя налады недаступныя</string>
     <string name="device_settings_aap_unavailable_description">Пашыраныя налады AirPods патрабуюць функцыі Bluetooth, якая недаступная на гэтым тэлефоне. Гэта можа быць вырашана будучым абнаўленнем Android ад вытворцы вашай прылады.</string>
+    <string name="device_settings_aap_unavailable_action">Праглядзець трэкер сумяшчальнасці</string>
     <string name="device_settings_category_sound_label">Гук</string>
     <string name="device_settings_category_controls_label">Кіраванне</string>
     <string name="device_settings_nc_one_airpod_label">ANC з адным навушнікам</string>
@@ -470,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Аднаразовы націск для адключэння мікрафона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двайны націск для завяршэння выкліку</string>
     <string name="device_settings_open_cd">Адкрыць налады прылады</string>
+    <string name="overview_card_missing_paired_device">З гэтым профілем не сапалучана прылада Bluetooth.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Агульныя</string>
     <string name="device_settings_microphone_mode_label">Мікрафон</string>
@@ -492,6 +502,9 @@
     <string name="device_settings_allow_off_description">Дазволіць рэжым «Выкл» як выбіральны рэжым кіравання шумам. Калі адключана, ножкі прапускаюць «Выкл» пры цыкле.</string>
     <string name="device_settings_sleep_detection_label">Выяўленне сну</string>
     <string name="device_settings_sleep_detection_description">Аўтаматычна ставіць аўдыё на паўзу, калі вы засынаеце</string>
+    <string name="reaction_sleep_channel_label">Выяўленне сну</string>
+    <string name="reaction_sleep_notification_title">Прыпынена функцыяй выяўлення сну</string>
+    <string name="reaction_sleep_notification_text">%1$s паведаміла, што вы заснулі, таму музыка была прыпынена. Вы можаце адключыць гэта ў наладах прылады.</string>
     <string name="device_settings_rename_label">Перайменаваць</string>
     <string name="device_settings_rename_hint">Назва прылады</string>
     <string name="device_settings_rename_confirm">Перайменаваць</string>
@@ -501,6 +514,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Налады Bluetooth</string>
     <string name="device_settings_send_failed">Не ўдалося прымяніць налады: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Рэжым «Выкл» не ўключаны на гэтай прыладзе. Уключыце «Дазволіць рэжым Выкл» ў раздзеле «Кіраванне шумам».</string>
+    <string name="device_settings_category_battery_label">Акумулятар</string>
+    <string name="device_settings_charge_cap_label">Аптымізаваная мяжа зарадкі</string>
+    <string name="device_settings_charge_cap_description">Вывучае ваш распарадак і прыпыняе зарадку каля 80%%, каб падоўжыць тэрмін службы акумулятара, дазараджаючы наўшпількі перад тым, як вы, верагодна, скарыстаецеся імі.</string>
+    <string name="device_settings_charge_cap_rejected_message">Аптымізаваную мяжу зарадкі не ўдалося змяніць. Гэта эксперыментальная функцыя — калі ласка, паведамляйце, калі яна ўвесь час не спрацоўвае.</string>
     <string name="device_settings_category_connections_label">Падключаныя прылады</string>
     <string name="device_settings_connected_devices_description">Іншыя прылады, якія цяпер падключаны да гэтых AirPods</string>
     <string name="device_settings_connected_device_label">Прылада %d</string>

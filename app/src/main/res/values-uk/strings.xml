@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Прозорість фону</string>
     <string name="widget_config_show_device_label">Показувати назву пристрою</string>
     <string name="widget_config_reset_label">Скинути на стандартні значення</string>
+    <string name="widget_config_preview_resize_hint">Ви можете змінити розмір віджета після розміщення його на головному екрані.</string>
     <string name="widget_config_custom_label">Користувацьке</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Темна</string>
@@ -254,6 +255,7 @@
     <string name="pods_unknown_contact_dev">Це невідомий пристрій, але він використовує схожий формат повідомлень. Давайте додамо підтримку для нього, зв\'яжіться зі мною :)</string>
     <string name="pods_none_label_short">Немає пристрою</string>
     <string name="pods_charging_label">Заряджається</string>
+    <string name="pods_charging_optimized_label">Оптимізовано</string>
     <string name="pods_inear_label">У вусі</string>
     <string name="pods_microphone_label">Мікрофон</string>
     <string name="anc_mode_off">Вимкнено</string>
@@ -417,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">Мітка пристрою Bluetooth</string>
     <string name="device_settings_info_model_label">Модель</string>
     <string name="device_settings_info_manufacturer_label">Виробник</string>
+    <string name="device_settings_info_hardware_label">Залізо</string>
     <string name="device_settings_info_serial_label">Серійний номер</string>
     <string name="device_settings_info_firmware_label">Прошивка</string>
+    <string name="device_settings_info_firmware_pending_label">Очікуване мікропрограмне забезпечення</string>
     <string name="device_settings_info_build_label">Збірка</string>
     <string name="device_settings_info_left_serial_label">Серійний номер лівого навушника</string>
     <string name="device_settings_info_right_serial_label">Серійний номер правого навушника</string>
+    <string name="device_settings_info_left_bonded_label">Ліве з\'єднано</string>
+    <string name="device_settings_info_right_bonded_label">Праве з\'єднано</string>
     <string name="device_settings_info_details_label">Деталі пристрою</string>
     <string name="device_settings_info_details_action">Показати деталі пристрою</string>
     <string name="device_settings_info_status_label">Стан</string>
@@ -431,8 +437,11 @@
     <string name="device_settings_not_connected_description">Цей пристрій поблизу, але не підключений до цього телефону. Підключіться для доступу до налаштувань та елементів керування.</string>
     <string name="device_settings_not_connected_connect_action">Підключити</string>
     <string name="device_settings_not_connected_open_settings_action">Відкрити налаштування Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Пристрій не поруч</string>
+    <string name="device_settings_not_nearby_description">Налаштування доступні лише тоді, коли цей пристрій знаходиться поруч і підключений до вашого телефону.</string>
     <string name="device_settings_aap_unavailable_label">Розширені налаштування недоступні</string>
     <string name="device_settings_aap_unavailable_description">Розширені налаштування AirPods потребують функції Bluetooth, недоступної на цьому телефоні. Це може бути вирішено майбутнім оновленням Android від виробника вашого пристрою.</string>
+    <string name="device_settings_aap_unavailable_action">Переглянути трекер сумісності</string>
     <string name="device_settings_category_sound_label">Звук</string>
     <string name="device_settings_category_controls_label">Управління</string>
     <string name="device_settings_nc_one_airpod_label">ANC з одним навушником</string>
@@ -470,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Одне натискання для вимкнення мікрофона</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Подвійне натискання для завершення дзвінка</string>
     <string name="device_settings_open_cd">Відкрити налаштування пристрою</string>
+    <string name="overview_card_missing_paired_device">До цього профілю не підключено жодного Bluetooth-пристрою.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Загальні</string>
     <string name="device_settings_microphone_mode_label">Мікрофон</string>
@@ -492,6 +502,9 @@
     <string name="device_settings_allow_off_description">Дозволити «Вимкнено» як вибираний режим контролю шуму. Якщо вимкнено, ніжки пропускають режим «Вимкнено» при циклічному перемиканні.</string>
     <string name="device_settings_sleep_detection_label">Визначення сну</string>
     <string name="device_settings_sleep_detection_description">Автоматично призупиняти аудіо, коли ви засинаєте</string>
+    <string name="reaction_sleep_channel_label">Виявлення сну</string>
+    <string name="reaction_sleep_notification_title">Призупинено виявленням сну</string>
+    <string name="reaction_sleep_notification_text">%1$s визначив, що ви заснули, тому музику було призупинено. Ви можете вимкнути це в налаштуваннях пристрою.</string>
     <string name="device_settings_rename_label">Перейменувати</string>
     <string name="device_settings_rename_hint">Назва пристрою</string>
     <string name="device_settings_rename_confirm">Перейменувати</string>
@@ -501,6 +514,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Налаштування Bluetooth</string>
     <string name="device_settings_send_failed">Не вдалося застосувати налаштування: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Режим «Вимкнено» не увімкнено на цьому пристрої. Увімкніть «Дозволити режим Вимкнено» у розділі Контроль шуму.</string>
+    <string name="device_settings_category_battery_label">Батарея</string>
+    <string name="device_settings_charge_cap_label">Оптимізований ліміт заряду</string>
+    <string name="device_settings_charge_cap_description">Вивчає ваш режим і призупиняє зарядку приблизно на 80%%, щоб продовжити термін служби батареї, заряджаючи навушники перед тим, як ви, ймовірно, скористаєтеся ними.</string>
+    <string name="device_settings_charge_cap_rejected_message">Не вдалося змінити оптимізований ліміт заряду. Це експериментальна функція — будь ласка, повідомте, якщо вона продовжує не працювати.</string>
     <string name="device_settings_category_connections_label">Підключені пристрої</string>
     <string name="device_settings_connected_devices_description">Інші пристрої, зараз підключені до цих AirPods</string>
     <string name="device_settings_connected_device_label">Пристрій %d</string>

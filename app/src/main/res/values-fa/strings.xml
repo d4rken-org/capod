@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">شفافیت پس‌زمینه</string>
     <string name="widget_config_show_device_label">نمایش نام دستگاه</string>
     <string name="widget_config_reset_label">بازنشانی به مقادیر پیش‌فرض</string>
+    <string name="widget_config_preview_resize_hint">می‌توانید پس از قرار دادن ویجت روی صفحه اصلی، اندازه آن را تغییر دهید.</string>
     <string name="widget_config_custom_label">سفارشی</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">تیره</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">این یک دستگاه ناشناخته است، اما از فرمت پیام مشابهی استفاده می‌کند. بیایید پشتیبانی از آن را اضافه کنیم، با من تماس بگیرید :)</string>
     <string name="pods_none_label_short">بدون دستگاه</string>
     <string name="pods_charging_label">در حال شارژ</string>
+    <string name="pods_charging_optimized_label">بهینه‌شده</string>
     <string name="pods_inear_label">در گوش</string>
     <string name="pods_microphone_label">میکروفون</string>
     <string name="anc_mode_off">خاموش</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">برچسب دستگاه بلوتوث</string>
     <string name="device_settings_info_model_label">مدل</string>
     <string name="device_settings_info_manufacturer_label">سازنده</string>
+    <string name="device_settings_info_hardware_label">سخت‌افزار</string>
     <string name="device_settings_info_serial_label">شماره سریال</string>
     <string name="device_settings_info_firmware_label">سیستم‌افزار</string>
+    <string name="device_settings_info_firmware_pending_label">فریمور در انتظار</string>
     <string name="device_settings_info_build_label">بیلد</string>
     <string name="device_settings_info_left_serial_label">شماره سریال پاد چپ</string>
     <string name="device_settings_info_right_serial_label">شماره سریال پاد راست</string>
+    <string name="device_settings_info_left_bonded_label">چپ متصل</string>
+    <string name="device_settings_info_right_bonded_label">راست متصل</string>
     <string name="device_settings_info_details_label">جزئیات دستگاه</string>
     <string name="device_settings_info_details_action">نمایش جزئیات دستگاه</string>
     <string name="device_settings_info_status_label">وضعیت</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">این دستگاه در نزدیکی است اما به این گوشی متصل نیست. برای دسترسی به تنظیمات و کنترل‌ها، متصل شوید.</string>
     <string name="device_settings_not_connected_connect_action">اتصال</string>
     <string name="device_settings_not_connected_open_settings_action">باز کردن تنظیمات بلوتوث</string>
+    <string name="device_settings_not_nearby_label">دستگاه در نزدیکی نیست</string>
+    <string name="device_settings_not_nearby_description">تنظیمات فقط زمانی در دسترس هستند که این دستگاه در نزدیکی باشد و به تلفن شما متصل باشد.</string>
     <string name="device_settings_aap_unavailable_label">تنظیمات پیشرفته در دسترس نیست</string>
     <string name="device_settings_aap_unavailable_description">تنظیمات پیشرفته AirPods به یک ویژگی بلوتوثی نیاز دارند که در این تلفن در دسترس نیست. ممکن است با یک بروزرسانی آینده اندروید از سازنده دستگاه شما این مشکل حل شود.</string>
+    <string name="device_settings_aap_unavailable_action">مشاهده ردیاب سازگاری</string>
     <string name="device_settings_category_sound_label">صدا</string>
     <string name="device_settings_category_controls_label">کنترل‌ها</string>
     <string name="device_settings_nc_one_airpod_label">ANC با یک پاد</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">یک‌بار فشار برای بی‌صدا کردن میکروفون</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">دوبار فشار برای پایان دادن تماس</string>
     <string name="device_settings_open_cd">باز کردن تنظیمات دستگاه</string>
+    <string name="overview_card_missing_paired_device">این پروفایل هیچ دستگاه بلوتوثی جفت‌شده‌ای ندارد.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">میکروفون</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">اجازه دادن به حالت خاموش به عنوان یک حالت قابل انتخاب کنترل نویز. وقتی غیرفعال است، ساقه‌ها هنگام چرخش از حالت خاموش رد می‌شوند.</string>
     <string name="device_settings_sleep_detection_label">تشخیص خواب</string>
     <string name="device_settings_sleep_detection_description">به‌طور خودکار صدا را مکث کن هنگامی که به خواب می‌روید</string>
+    <string name="reaction_sleep_channel_label">تشخیص خواب</string>
+    <string name="reaction_sleep_notification_title">توسط تشخیص خواب متوقف شد</string>
+    <string name="reaction_sleep_notification_text">%1$s گزارش داد که به خواب رفتید، بنابراین موسیقی شما متوقف شد. می‌توانید این را در تنظیمات دستگاه غیرفعال کنید.</string>
     <string name="device_settings_rename_label">تغییر نام</string>
     <string name="device_settings_rename_hint">نام دستگاه</string>
     <string name="device_settings_rename_confirm">تغییر نام</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">تنظیمات بلوتوث</string>
     <string name="device_settings_send_failed">نمی‌توان تنظیمات را اعمال کرد: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">حالت خاموش روی این دستگاه فعال نیست. «اجازه دادن به حالت خاموش» را در کنترل نویز فعال کنید.</string>
+    <string name="device_settings_category_battery_label">باتری</string>
+    <string name="device_settings_charge_cap_label">محدودیت شارژ بهینه</string>
+    <string name="device_settings_charge_cap_description">روتین شما را یاد می‌گیرد و شارژ را در حدود ۸۰%% متوقف می‌کند تا عمر باتری افزایش یابد و پادها را قبل از زمانی که احتمالاً از آن‌ها استفاده می‌کنید شارژ کامل می‌کند.</string>
+    <string name="device_settings_charge_cap_rejected_message">محدودیت شارژ بهینه قابل تغییر نبود. این یک ویژگی آزمایشی است — لطفاً در صورت ادامه خرابی گزارش دهید.</string>
     <string name="device_settings_category_connections_label">دستگاه‌های متصل</string>
     <string name="device_settings_connected_devices_description">دستگاه‌های دیگری که در حال حاضر به این AirPods متصل هستند</string>
     <string name="device_settings_connected_device_label">دستگاه %d</string>

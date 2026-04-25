@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparansi latar belakang</string>
     <string name="widget_config_show_device_label">Tampilkan nama perangkat</string>
     <string name="widget_config_reset_label">Atur ulang ke default</string>
+    <string name="widget_config_preview_resize_hint">Anda dapat mengubah ukuran widget setelah menempatkannya di layar beranda.</string>
     <string name="widget_config_custom_label">Kustom</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Gelap</string>
@@ -248,6 +249,7 @@
     <string name="pods_unknown_contact_dev">Ini adalah perangkat yang tidak dikenal, tetapi menggunakan format pesan yang serupa. Mari tambahkan dukungannya, hubungi saya :)</string>
     <string name="pods_none_label_short">Tidak ada perangkat</string>
     <string name="pods_charging_label">Mengisi daya</string>
+    <string name="pods_charging_optimized_label">Dioptimalkan</string>
     <string name="pods_inear_label">Di telinga</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">Nonaktif</string>
@@ -402,11 +404,15 @@
     <string name="device_settings_info_bt_name_label">Label Perangkat Bluetooth</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Produsen</string>
+    <string name="device_settings_info_hardware_label">Perangkat Keras</string>
     <string name="device_settings_info_serial_label">Nomor Seri</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware Tertunda</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Nomor Seri Pod Kiri</string>
     <string name="device_settings_info_right_serial_label">Nomor Seri Pod Kanan</string>
+    <string name="device_settings_info_left_bonded_label">Kiri Terhubung</string>
+    <string name="device_settings_info_right_bonded_label">Kanan Terhubung</string>
     <string name="device_settings_info_details_label">Detail Perangkat</string>
     <string name="device_settings_info_details_action">Tampilkan detail perangkat</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -416,8 +422,11 @@
     <string name="device_settings_not_connected_description">Perangkat ini ada di dekat sini tetapi tidak terhubung ke ponsel ini. Hubungkan untuk mengakses pengaturan dan kontrol.</string>
     <string name="device_settings_not_connected_connect_action">Hubungkan</string>
     <string name="device_settings_not_connected_open_settings_action">Buka Pengaturan Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Perangkat tidak di dekatnya</string>
+    <string name="device_settings_not_nearby_description">Pengaturan hanya tersedia saat perangkat ini berada di dekatnya dan terhubung ke ponsel Anda.</string>
     <string name="device_settings_aap_unavailable_label">Pengaturan lanjutan tidak tersedia</string>
     <string name="device_settings_aap_unavailable_description">Pengaturan AirPods lanjutan memerlukan fitur Bluetooth yang tidak tersedia di ponsel ini. Masalah ini mungkin akan diselesaikan oleh pembaruan Android dari produsen perangkat Anda di masa mendatang.</string>
+    <string name="device_settings_aap_unavailable_action">Lihat pelacak kompatibilitas</string>
     <string name="device_settings_category_sound_label">Suara</string>
     <string name="device_settings_category_controls_label">Kontrol</string>
     <string name="device_settings_nc_one_airpod_label">ANC dengan satu pod</string>
@@ -455,6 +464,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Tekan sekali untuk membisukan mikrofon</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Tekan dua kali untuk mengakhiri panggilan</string>
     <string name="device_settings_open_cd">Buka pengaturan perangkat</string>
+    <string name="overview_card_missing_paired_device">Profil ini tidak memiliki Perangkat Bluetooth yang dipasangkan.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umum</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -477,6 +487,9 @@
     <string name="device_settings_allow_off_description">Izinkan Mati sebagai mode kontrol kebisingan yang dapat dipilih. Jika dinonaktifkan, stem melewati Mati saat bersiklus.</string>
     <string name="device_settings_sleep_detection_label">Deteksi Tidur</string>
     <string name="device_settings_sleep_detection_description">Otomatis jeda audio saat Anda tertidur</string>
+    <string name="reaction_sleep_channel_label">Deteksi Tidur</string>
+    <string name="reaction_sleep_notification_title">Dijeda oleh Deteksi Tidur</string>
+    <string name="reaction_sleep_notification_text">%1$s mendeteksi Anda tertidur, sehingga musik Anda dijeda. Anda dapat menonaktifkan ini di pengaturan perangkat.</string>
     <string name="device_settings_rename_label">Ganti Nama</string>
     <string name="device_settings_rename_hint">Nama perangkat</string>
     <string name="device_settings_rename_confirm">Ganti Nama</string>
@@ -486,6 +499,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Pengaturan Bluetooth</string>
     <string name="device_settings_send_failed">Tidak dapat menerapkan pengaturan: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Mode Mati tidak diaktifkan di perangkat ini. Aktifkan \"Izinkan mode Mati\" di bawah Kontrol Kebisingan.</string>
+    <string name="device_settings_category_battery_label">Baterai</string>
+    <string name="device_settings_charge_cap_label">Batas Pengisian Teroptimasi</string>
+    <string name="device_settings_charge_cap_description">Mempelajari rutinitas Anda dan menjeda pengisian sekitar 80%% untuk memperpanjang masa pakai baterai, mengisi pod sebelum Anda kemungkinan menggunakannya.</string>
+    <string name="device_settings_charge_cap_rejected_message">Batas Pengisian Teroptimasi tidak dapat diubah. Ini adalah fitur eksperimental — laporkan jika terus gagal.</string>
     <string name="device_settings_category_connections_label">Perangkat Terhubung</string>
     <string name="device_settings_connected_devices_description">Perangkat lain yang saat ini terhubung ke AirPods ini</string>
     <string name="device_settings_connected_device_label">Perangkat %d</string>

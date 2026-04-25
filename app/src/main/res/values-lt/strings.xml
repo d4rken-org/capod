@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Fono permatomumas</string>
     <string name="widget_config_show_device_label">Rodyti įrenginio pavadinimą</string>
     <string name="widget_config_reset_label">Atstatyti į numatytuosius nustatymus</string>
+    <string name="widget_config_preview_resize_hint">Galite keisti valdiklio dydį po to, kai jį įdėsite į pagrindinį ekraną.</string>
     <string name="widget_config_custom_label">Pasirinktinis</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Tamsi</string>
@@ -254,6 +255,7 @@
     <string name="pods_unknown_contact_dev">Tai nežinomas įrenginys, bet jis naudoja panašų žinučių formatą. Pridėkime jo palaikymą, susisiekite su manimi :)</string>
     <string name="pods_none_label_short">Nėra įrenginio</string>
     <string name="pods_charging_label">Kraunama</string>
+    <string name="pods_charging_optimized_label">Optimizuota</string>
     <string name="pods_inear_label">Ausyje</string>
     <string name="pods_microphone_label">Mikrofonas</string>
     <string name="anc_mode_off">Išjungta</string>
@@ -417,11 +419,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth įrenginio žnyma</string>
     <string name="device_settings_info_model_label">Modelis</string>
     <string name="device_settings_info_manufacturer_label">Gamintojas</string>
+    <string name="device_settings_info_hardware_label">Aparatinė įranga</string>
     <string name="device_settings_info_serial_label">Serijos numeris</string>
     <string name="device_settings_info_firmware_label">Programinė įranga</string>
+    <string name="device_settings_info_firmware_pending_label">Laukiama programinė įranga</string>
     <string name="device_settings_info_build_label">Versija</string>
     <string name="device_settings_info_left_serial_label">Kairės ausinuko serijos numeris</string>
     <string name="device_settings_info_right_serial_label">Dešiniojo ausinuko serijos numeris</string>
+    <string name="device_settings_info_left_bonded_label">Kairė susieta</string>
+    <string name="device_settings_info_right_bonded_label">Dešinė susieta</string>
     <string name="device_settings_info_details_label">Įrenginio informacija</string>
     <string name="device_settings_info_details_action">Rodyti įrenginio informaciją</string>
     <string name="device_settings_info_status_label">Būsena</string>
@@ -431,8 +437,11 @@
     <string name="device_settings_not_connected_description">Šis įrenginys yra netoliese, bet neprisijungęs prie šio telefono. Prisijunkite, kad pasiektumėte nustatymus ir valdiklius.</string>
     <string name="device_settings_not_connected_connect_action">Prisijungti</string>
     <string name="device_settings_not_connected_open_settings_action">Atidaryti Bluetooth nustatymus</string>
+    <string name="device_settings_not_nearby_label">Įrenginys netoliese</string>
+    <string name="device_settings_not_nearby_description">Nustatymai pasiekiami tik tada, kai šis įrenginys yra netoliese ir prijungtas prie jūsų telefono.</string>
     <string name="device_settings_aap_unavailable_label">Isplestiniai nustatymai nepasiekiami</string>
     <string name="device_settings_aap_unavailable_description">Išplėstinės AirPods nuostatos reikalauja Bluetooth funkcijos, kuri šiame telefone neprieinama. Tai gali būti išspręsta būsimo Android atnaujinimo, kuriam jūsų įrenginio gamintojas pateiks.</string>
+    <string name="device_settings_aap_unavailable_action">Peržiūrėti suderinamumo stebyklą</string>
     <string name="device_settings_category_sound_label">Garsas</string>
     <string name="device_settings_category_controls_label">Valdikliai</string>
     <string name="device_settings_nc_one_airpod_label">ANC su vienu ausinuku</string>
@@ -470,6 +479,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Vienas paspaudimas nutildyti mikrofoną</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvigubas paspaudimas baigia skambučį</string>
     <string name="device_settings_open_cd">Atidaryti įrenginio nustatymus</string>
+    <string name="overview_card_missing_paired_device">Šis profilis neturi susieto „Bluetooth“ įrenginio.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Bendrieji</string>
     <string name="device_settings_microphone_mode_label">Mikrofonas</string>
@@ -492,6 +502,9 @@
     <string name="device_settings_allow_off_description">Leisti išjungimo režimą kaip pasirinktamą triukšmo valdymo režimą. Kai išjungta, kąteliai praleidžia išjungimo režimą cikluodami.</string>
     <string name="device_settings_sleep_detection_label">Miego aptikimas</string>
     <string name="device_settings_sleep_detection_description">Automatiškai pristabdyti garsą, kai užmiegat</string>
+    <string name="reaction_sleep_channel_label">Miego aptikimas</string>
+    <string name="reaction_sleep_notification_title">Pristabdyta miego aptikimo</string>
+    <string name="reaction_sleep_notification_text">%1$s pranešė, kad užmigote, todėl jūsų muzika buvo pristabdyta. Tai galite išjungti įrenginio nustatymuose.</string>
     <string name="device_settings_rename_label">Pervadinti</string>
     <string name="device_settings_rename_hint">Ĭrenginio pavadinimas</string>
     <string name="device_settings_rename_confirm">Pervadinti</string>
@@ -501,6 +514,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth nustatymai</string>
     <string name="device_settings_send_failed">Nepavyko pritaikyti nustatymo: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Išjungimo režimas nėra įjungtas šiame įrenginyje. Įjunkite \"Leisti išjungimo režimą\" skiltyje Triukšmo valdymas.</string>
+    <string name="device_settings_category_battery_label">Baterija</string>
+    <string name="device_settings_charge_cap_label">Optimizuotas įkrovimo limitas</string>
+    <string name="device_settings_charge_cap_description">Išmokite savo rutiną ir stabdykite įkrovimą ties 80%%, kad prailgintumėte baterijos tarnavimo laiką – ausinukai bus viškai įkrauti prieš tai, kai tikėtinai juos naudosite.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimizuoto įkrovimo limito nepavyko pakeisti. Tai eksperimentinė funkcija – praneškite, jei ji toliau neveikia.</string>
     <string name="device_settings_category_connections_label">Prijungti įrenginiai</string>
     <string name="device_settings_connected_devices_description">Kiti šiuo metu prijungti prie šių AirPods įrenginiai</string>
     <string name="device_settings_connected_device_label">Ĭrenginys %d</string>

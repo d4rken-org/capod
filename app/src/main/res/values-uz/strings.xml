@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Fon shaffoflik</string>
     <string name="widget_config_show_device_label">Qurilma nomini ko‘rsatish</string>
     <string name="widget_config_reset_label">Standartga qaytarish</string>
+    <string name="widget_config_preview_resize_hint">Vidjetni bosh ekraningizga joylashtirganingizdan so\'ng uning o\'lchamini o\'zgartirishingiz mumkin.</string>
     <string name="widget_config_custom_label">Boshqacha</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Qora</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Bu noma\'lum qurilma, lekin u shunga o\'xshash xabar formatidan foydalanmoqda. Keling, uni qo\'llab-quvvatlashni qo\'shaylik, men bilan bog\'laning :)</string>
     <string name="pods_none_label_short">Qurilma yo\'q</string>
     <string name="pods_charging_label">Quvvat olmoqda</string>
+    <string name="pods_charging_optimized_label">Optimallashtirilgan</string>
     <string name="pods_inear_label">Quloqda</string>
     <string name="pods_microphone_label">Mikrofon</string>
     <string name="anc_mode_off">O\'chiq</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth qurilma yorlig\'i</string>
     <string name="device_settings_info_model_label">Model</string>
     <string name="device_settings_info_manufacturer_label">Ishlab chiqaruvchi</string>
+    <string name="device_settings_info_hardware_label">Apparat ta\'minoti</string>
     <string name="device_settings_info_serial_label">Seriya raqami</string>
     <string name="device_settings_info_firmware_label">Dasturiy ta\'minot</string>
+    <string name="device_settings_info_firmware_pending_label">Kutilayotgan Proshivka</string>
     <string name="device_settings_info_build_label">Versiya</string>
     <string name="device_settings_info_left_serial_label">Chap naushnik seriya raqami</string>
     <string name="device_settings_info_right_serial_label">O\'ng naushnik seriya raqami</string>
+    <string name="device_settings_info_left_bonded_label">Chap Bog\'langan</string>
+    <string name="device_settings_info_right_bonded_label">O\'ng Bog\'langan</string>
     <string name="device_settings_info_details_label">Qurilma tafsilotlari</string>
     <string name="device_settings_info_details_action">Qurilma tafsilotlarini ko\'rsatish</string>
     <string name="device_settings_info_status_label">Holat</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Bu qurilma yaqin atrofda, lekin ushbu telefonga ulanmagan. Sozlamalar va boshqaruvlarga kirish uchun ulaning.</string>
     <string name="device_settings_not_connected_connect_action">Ulash</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth sozlamalarini ochish</string>
+    <string name="device_settings_not_nearby_label">Qurilma yaqin atrofda emas</string>
+    <string name="device_settings_not_nearby_description">Sozlamalar faqat bu qurilma yaqin atrofda bo\'lgan va telefoningizga ulangan paytda mavjud.</string>
     <string name="device_settings_aap_unavailable_label">Kengaytirilgan sozlamalar mavjud emas</string>
     <string name="device_settings_aap_unavailable_description">Kengaytirilgan AirPods sozlamalari ushbu telefonda mavjud bo\'lmagan Bluetooth xususiyatini talab qiladi. Bu qurilma ishlab chiqaruvchingizning kelajakdagi Android yangilanishi bilan hal qilinishi mumkin.</string>
+    <string name="device_settings_aap_unavailable_action">Moslik kuzatuvchisini ko\'rish</string>
     <string name="device_settings_category_sound_label">Tovush</string>
     <string name="device_settings_category_controls_label">Boshqaruvlar</string>
     <string name="device_settings_nc_one_airpod_label">Bitta naushnik bilan ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Mikrofonni o\'chirish uchun bir marta bosing</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Qo\'ng\'iroqni tugatish uchun ikki marta bosing</string>
     <string name="device_settings_open_cd">Qurilma sozlamalarini ochish</string>
+    <string name="overview_card_missing_paired_device">Bu profilga ulangan Bluetooth qurilmasi yo\'q.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umumiy</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">O\'chirishni tanlash mumkin bo\'lgan shovqin boshqaruvi rejimi sifatida ruxsat bering. O\'chirilganda, stvol aylanishida O\'chirishni o\'tkazib ketadi.</string>
     <string name="device_settings_sleep_detection_label">Uyqu aniqlash</string>
     <string name="device_settings_sleep_detection_description">Uxlab qolganingizda audioni avtomatik to\'xtatib turish</string>
+    <string name="reaction_sleep_channel_label">Uyqu Aniqlash</string>
+    <string name="reaction_sleep_notification_title">Uyqu Aniqlash tomonidan to\'xtatildi</string>
+    <string name="reaction_sleep_notification_text">%1$s siz uxlab qolganingizni aniqladi, shuning uchun musiqangiz to\'xtatildi. Buni qurilma sozlamalarida o\'chirib qo\'yishingiz mumkin.</string>
     <string name="device_settings_rename_label">Qayta nomlash</string>
     <string name="device_settings_rename_hint">Qurilma nomi</string>
     <string name="device_settings_rename_confirm">Qayta nomlash</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth sozlamalari</string>
     <string name="device_settings_send_failed">Sozlamani qo\'llab bo\'lmadi: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">O\'chirish rejimi bu qurilmada yoqilmagan. Shovqin boshqaruvi bo\'limida \"O\'chirish rejimiga ruxsat berish\" ni yoqing.</string>
+    <string name="device_settings_category_battery_label">Batareya</string>
+    <string name="device_settings_charge_cap_label">Optimallashtirilgan Zaryad Chegarasi</string>
+    <string name="device_settings_charge_cap_description">Odatlaringizni o\'rganib, batareya muddatini uzaytirish uchun zaryad berish 80%% atrofida to\'xtatiladi va qurilmalarni ishlatishdan oldin to\'liq zaryadlanadi.</string>
+    <string name="device_settings_charge_cap_rejected_message">Optimallashtirilgan Zaryad Chegarasini o\'zgartirib bo\'lmadi. Bu tajriba xususiyati — agar muammo davom etsa, xabar bering.</string>
     <string name="device_settings_category_connections_label">Ulangan qurilmalar</string>
     <string name="device_settings_connected_devices_description">Hozirda ushbu AirPods ga ulangan boshqa qurilmalar</string>
     <string name="device_settings_connected_device_label">Qurilma %d</string>

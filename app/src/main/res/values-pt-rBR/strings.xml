@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Transparência do fundo</string>
     <string name="widget_config_show_device_label">Mostrar nome do dispositivo</string>
     <string name="widget_config_reset_label">Restaurar padrões</string>
+    <string name="widget_config_preview_resize_hint">Você pode redimensionar o widget após colocá-lo na tela inicial.</string>
     <string name="widget_config_custom_label">Personalizado</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Escuro</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Este é um dispositivo desconhecido, mas está usando um formato de mensagem similar. Vamos adicionar suporte para ele, entre em contato comigo :)</string>
     <string name="pods_none_label_short">Nenhum dispositivo</string>
     <string name="pods_charging_label">Carregando</string>
+    <string name="pods_charging_optimized_label">Otimizado</string>
     <string name="pods_inear_label">No ouvido</string>
     <string name="pods_microphone_label">Microfone</string>
     <string name="anc_mode_off">Desligado</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Rótulo do dispositivo Bluetooth</string>
     <string name="device_settings_info_model_label">Modelo</string>
     <string name="device_settings_info_manufacturer_label">Fabricante</string>
+    <string name="device_settings_info_hardware_label">Hardware</string>
     <string name="device_settings_info_serial_label">Número de série</string>
     <string name="device_settings_info_firmware_label">Firmware</string>
+    <string name="device_settings_info_firmware_pending_label">Firmware Pendente</string>
     <string name="device_settings_info_build_label">Build</string>
     <string name="device_settings_info_left_serial_label">Serial do pod esquerdo</string>
     <string name="device_settings_info_right_serial_label">Serial do pod direito</string>
+    <string name="device_settings_info_left_bonded_label">Esquerdo Vinculado</string>
+    <string name="device_settings_info_right_bonded_label">Direito Vinculado</string>
     <string name="device_settings_info_details_label">Detalhes do dispositivo</string>
     <string name="device_settings_info_details_action">Mostrar detalhes do dispositivo</string>
     <string name="device_settings_info_status_label">Status</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Este dispositivo está próximo, mas não está conectado a este telefone. Conecte-se para acessar configurações e controles.</string>
     <string name="device_settings_not_connected_connect_action">Conectar</string>
     <string name="device_settings_not_connected_open_settings_action">Abrir Configurações de Bluetooth</string>
+    <string name="device_settings_not_nearby_label">Dispositivo não está próximo</string>
+    <string name="device_settings_not_nearby_description">As configurações só estão disponíveis quando este dispositivo está próximo e conectado ao seu telefone.</string>
     <string name="device_settings_aap_unavailable_label">Configurações avançadas indisponíveis</string>
     <string name="device_settings_aap_unavailable_description">As configurações avançadas de AirPods requerem um recurso Bluetooth que não está disponível neste telefone. Isso pode ser resolvido por uma atualização futura do Android pelo fabricante do seu dispositivo.</string>
+    <string name="device_settings_aap_unavailable_action">Ver rastreador de compatibilidade</string>
     <string name="device_settings_category_sound_label">Som</string>
     <string name="device_settings_category_controls_label">Controles</string>
     <string name="device_settings_nc_one_airpod_label">ANC com um pod</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Pressionar uma vez para silenciar o microfone</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Pressionar duas vezes para encerrar a chamada</string>
     <string name="device_settings_open_cd">Abrir configurações do dispositivo</string>
+    <string name="overview_card_missing_paired_device">Este perfil não tem nenhum dispositivo Bluetooth pareado.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gerais</string>
     <string name="device_settings_microphone_mode_label">Microfone</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Permitir Desligado como um modo de controle de ruído selecionável. Quando desativado, os cabos ignoram o Desligado ao ciclar.</string>
     <string name="device_settings_sleep_detection_label">Detecção de sono</string>
     <string name="device_settings_sleep_detection_description">Pausar áudio automaticamente quando você adormecer</string>
+    <string name="reaction_sleep_channel_label">Detecção de Sono</string>
+    <string name="reaction_sleep_notification_title">Pausado pela Detecção de Sono</string>
+    <string name="reaction_sleep_notification_text">%1$s informou que você adormeceu, então sua música foi pausada. Você pode desativar isso nas configurações do dispositivo.</string>
     <string name="device_settings_rename_label">Renomear</string>
     <string name="device_settings_rename_hint">Nome do dispositivo</string>
     <string name="device_settings_rename_confirm">Renomear</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Configurações do Bluetooth</string>
     <string name="device_settings_send_failed">Não foi possível aplicar a configuração: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">O modo Desligado não está ativado neste dispositivo. Ative \"Permitir modo Desligado\" em Controle de Ruído.</string>
+    <string name="device_settings_category_battery_label">Bateria</string>
+    <string name="device_settings_charge_cap_label">Limite de Carga Otimizado</string>
+    <string name="device_settings_charge_cap_description">Aprende sua rotina e pausa o carregamento em torno de 80%% para prolongar a vida útil da bateria, completando a carga dos pods antes de você provavelmente usá-los.</string>
+    <string name="device_settings_charge_cap_rejected_message">O Limite de Carga Otimizado não pôde ser alterado. Este é um recurso experimental — por favor, reporte se continuar falhando.</string>
     <string name="device_settings_category_connections_label">Dispositivos conectados</string>
     <string name="device_settings_connected_devices_description">Outros dispositivos atualmente conectados a estes AirPods</string>
     <string name="device_settings_connected_device_label">Dispositivo %d</string>

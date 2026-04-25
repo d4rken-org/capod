@@ -152,6 +152,7 @@
     <string name="widget_config_transparency_label">Фондун тунуктугу</string>
     <string name="widget_config_show_device_label">Түзүлмөнүн атын көрсөтүү</string>
     <string name="widget_config_reset_label">Демейки параметрлерге өндөрүү</string>
+    <string name="widget_config_preview_resize_hint">Виджетти башкы экранга жайгаштыргандан кийин, анын өлчөмүн өзгөртө аласыз.</string>
     <string name="widget_config_custom_label">Ыңгайлаштырылган</string>
     <string name="widget_config_preset_material_you">Material You</string>
     <string name="widget_config_preset_dark">Караңгы</string>
@@ -250,6 +251,7 @@
     <string name="pods_unknown_contact_dev">Бул белгисиз түзмөк, бирок окшош билдирүү форматын колдонот. Аны колдоого кошолу, мени менен байланышыңыз :)</string>
     <string name="pods_none_label_short">Түзмөк жок</string>
     <string name="pods_charging_label">Кубатталууда</string>
+    <string name="pods_charging_optimized_label">Оптималдаштырылган</string>
     <string name="pods_inear_label">Кулакта</string>
     <string name="pods_microphone_label">Микрофон</string>
     <string name="anc_mode_off">Өчүк</string>
@@ -407,11 +409,15 @@
     <string name="device_settings_info_bt_name_label">Bluetooth түзмөгүнүн аталышы</string>
     <string name="device_settings_info_model_label">Модель</string>
     <string name="device_settings_info_manufacturer_label">Өнүмчү</string>
+    <string name="device_settings_info_hardware_label">Аппараттык камсыздоо</string>
     <string name="device_settings_info_serial_label">Сериялык номер</string>
     <string name="device_settings_info_firmware_label">Микробагдарлама</string>
+    <string name="device_settings_info_firmware_pending_label">Күтүүдөгү микропрограмма</string>
     <string name="device_settings_info_build_label">Версия</string>
     <string name="device_settings_info_left_serial_label">Сол гарнитуранын сериал номери</string>
     <string name="device_settings_info_right_serial_label">Оң гарнитуранын сериал номери</string>
+    <string name="device_settings_info_left_bonded_label">Сол жакка байланган</string>
+    <string name="device_settings_info_right_bonded_label">Оң жакка байланган</string>
     <string name="device_settings_info_details_label">Түзмөк деталдары</string>
     <string name="device_settings_info_details_action">Түзмөк деталдарын көрсөтүү</string>
     <string name="device_settings_info_status_label">Абалы</string>
@@ -421,8 +427,11 @@
     <string name="device_settings_not_connected_description">Бул түзмөк жакын жерде, бирок бул телефонго туташпаган. Орнотууларга жана башкарууга кирүү үчүн туташыңыз.</string>
     <string name="device_settings_not_connected_connect_action">Туташуу</string>
     <string name="device_settings_not_connected_open_settings_action">Bluetooth орнотууларын ачуу</string>
+    <string name="device_settings_not_nearby_label">Түзмөк жакын жерде эмес</string>
+    <string name="device_settings_not_nearby_description">Жөндөөлөр бул түзмөк жакын жерде жана телефонуңузга туташканда гана жеткиликтүү.</string>
     <string name="device_settings_aap_unavailable_label">Өнүккөн жөндөөлөр жеткиликсиз</string>
     <string name="device_settings_aap_unavailable_description">AirPodsтын кеңейтилген жөндөөлөрү Bluetooth функциясын талап кылат, бул телефондо жетишсиз. Бул түзмөгүңүздүн Android жаңыртылуусу аркылуу менен чечилиши мүмкүн.</string>
+    <string name="device_settings_aap_unavailable_action">Шайкештик трекерин көрүү</string>
     <string name="device_settings_category_sound_label">Үн</string>
     <string name="device_settings_category_controls_label">Башкаруу</string>
     <string name="device_settings_nc_one_airpod_label">Бир гарнитура менен ANC</string>
@@ -460,6 +469,7 @@
     <string name="device_settings_end_call_mute_mic_option_b_title">Микрофонду өчүрүү үчүн бир жолу басыңыз</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Чалууну аяктоо үчүн эки жолу басыңыз</string>
     <string name="device_settings_open_cd">Түзмөк жөндөөлөрүн ачуу</string>
+    <string name="overview_card_missing_paired_device">Бул профилде жупталган Bluetooth түзмөгү жок.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Жалпы</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
@@ -482,6 +492,9 @@
     <string name="device_settings_allow_off_description">Өчүрүктү шуум башкаруу режими ретинде тандалууга жол беріңиз. Өчүрүлгөндө, стержендер цикл жүрүшүндө Өчүрүкты өткөрүп өтөшөт.</string>
     <string name="device_settings_sleep_detection_label">Уйку аныктоо</string>
     <string name="device_settings_sleep_detection_description">Уйкуга кеткенде аудиону автоматтык түрдө токтотуу</string>
+    <string name="reaction_sleep_channel_label">Уйку аныктоо</string>
+    <string name="reaction_sleep_notification_title">Уйку аныктоо аркылуу токтотулду</string>
+    <string name="reaction_sleep_notification_text">%1$s сиздин уктап калганыңызды аныктады, ошондуктан музыкаңыз токтотулду. Муну түзмөк жөндөөлөрүнөн өчүрсөңүз болот.</string>
     <string name="device_settings_rename_label">Ат өзгөртүү</string>
     <string name="device_settings_rename_hint">Түзмөк аты</string>
     <string name="device_settings_rename_confirm">Ат өзгөртүү</string>
@@ -491,6 +504,10 @@
     <string name="device_settings_rename_system_unavailable_bt_settings_action">Bluetooth Жөндөөлөрү</string>
     <string name="device_settings_send_failed">Орнотууну колдонуу мүмкүн болгон жок: %1$s</string>
     <string name="device_settings_anc_off_rejected_message">Өчүрүк режими бул түзмөктө косулган жок. Шуум Башкаруунун астында \"Өчүрүк режиміне жол берүү\"дү косуңуз.</string>
+    <string name="device_settings_category_battery_label">Батарея</string>
+    <string name="device_settings_charge_cap_label">Оптималдаштырылган кубаттоо чеги</string>
+    <string name="device_settings_charge_cap_description">Батарея өмүрүн узартуу үчүн адатыңызды үйрөнүп, кубаттоону болжол менен 80%% деңгээлинде токтотот жана аларды колдонуудан мурун кайра кубаттайт.</string>
+    <string name="device_settings_charge_cap_rejected_message">Оптималдаштырылган кубаттоо чегин өзгөртүү мүмкүн болгон жок. Бул эксперименттик функция — эгер ал иштебей жатса, кабарлаңыз.</string>
     <string name="device_settings_category_connections_label">Туташкан түзмөктөр</string>
     <string name="device_settings_connected_devices_description">Учурда бул AirPods туташкан башка түзмөктөр</string>
     <string name="device_settings_connected_device_label">%d-түзмөк</string>
