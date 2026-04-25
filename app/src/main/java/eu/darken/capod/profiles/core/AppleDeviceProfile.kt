@@ -55,4 +55,19 @@ data class AppleDeviceProfile(
             showPopUpOnCaseOpen = showPopUpOnCaseOpen,
             showPopUpOnConnection = showPopUpOnConnection,
         )
+
+    override fun toString(): String = "AppleDeviceProfile(" +
+        "id=$id, label=$label, priority=$priority, model=$model, " +
+        "minimumSignalQuality=$minimumSignalQuality, " +
+        "identityKey=${if (identityKey == null) "null" else "<redacted>"}, " +
+        "encryptionKey=${if (encryptionKey == null) "null" else "<redacted>"}, " +
+        "address=$address, autoPause=$autoPause, autoPlay=$autoPlay, " +
+        "onePodMode=$onePodMode, autoConnect=$autoConnect, " +
+        "autoConnectCondition=$autoConnectCondition, " +
+        "showPopUpOnCaseOpen=$showPopUpOnCaseOpen, " +
+        "showPopUpOnConnection=$showPopUpOnConnection, " +
+        "learnedAllowOffEnabled=$learnedAllowOffEnabled, " +
+        "lastRequestedListeningModeCycleMask=$lastRequestedListeningModeCycleMask, " +
+        "stemActions=$stemActions" +
+        ")"
 }
