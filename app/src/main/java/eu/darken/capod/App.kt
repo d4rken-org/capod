@@ -29,6 +29,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import kotlin.system.exitProcess
 
@@ -45,17 +46,20 @@ open class App : Application() {
         super.onCreate()
         if (BuildConfig.DEBUG) Logging.install(LogCatLogger())
 
-        var foregroundExceptionHandled = false
+        val foregroundExceptionHandled = AtomicBoolean(false)
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
-            if (throwable.isForegroundServiceTimingException() && !foregroundExceptionHandled) {
-                foregroundExceptionHandled = true
-                log(TAG, WARN) { "Suppressed foreground service timing exception: ${throwable.asLog()}" }
-                Bugs.report(tag = TAG, "Foreground service timing exception suppressed", exception = throwable)
+            val isTimingExc = throwable.isForegroundServiceTimingException()
+            val isMain = thread === Looper.getMainLooper().thread
+            if (isTimingExc && isMain && foregroundExceptionHandled.compareAndSet(false, true)) {
+                runCatching {
+                    log(TAG, WARN) { "Suppressed foreground service timing exception: ${throwable.asLog()}" }
+                    Bugs.report(tag = TAG, "Foreground service timing exception suppressed", exception = throwable)
+                }
                 Looper.loop()
                 return@setDefaultUncaughtExceptionHandler
             }
-            log(TAG, ERROR) { "UNCAUGHT EXCEPTION: ${throwable.asLog()}" }
+            runCatching { log(TAG, ERROR) { "UNCAUGHT EXCEPTION: ${throwable.asLog()}" } }
             if (oldHandler != null) oldHandler.uncaughtException(thread, throwable) else exitProcess(1)
         }
 
