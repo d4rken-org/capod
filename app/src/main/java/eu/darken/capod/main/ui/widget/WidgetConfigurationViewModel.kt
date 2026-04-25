@@ -47,19 +47,21 @@ class WidgetConfigurationViewModel @Inject constructor(
 
         if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             log(TAG) { "Invalid widget ID" }
+        } else {
+            widgetSettings.migrateLegacyConfigIfNeeded(widgetId, appWidgetManager.getAppWidgetOptions(widgetId))
         }
     }
 
-    private val selectedProfile = MutableStateFlow(widgetSettings.getWidgetProfile(widgetId))
-
-    private val initialTheme: WidgetTheme = run {
-        if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) return@run WidgetTheme.DEFAULT
-        WidgetTheme.fromBundle(appWidgetManager.getAppWidgetOptions(widgetId))
+    private val initialConfig: WidgetConfig = run {
+        if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) return@run WidgetConfig()
+        widgetSettings.getWidgetConfig(widgetId)
     }
 
-    private val forceCustomMode = MutableStateFlow(WidgetTheme.matchPreset(initialTheme) == null)
+    private val selectedProfile = MutableStateFlow(initialConfig.profileId)
 
-    private val currentTheme = MutableStateFlow(initialTheme)
+    private val forceCustomMode = MutableStateFlow(WidgetTheme.matchPreset(initialConfig.theme) == null)
+
+    private val currentTheme = MutableStateFlow(initialConfig.theme)
 
     private val visibleProfiles = deviceProfilesRepo.profiles.map { profiles ->
         if (isAncWidget) profiles.filter { it.model.features.hasAncControl } else profiles
@@ -152,18 +154,16 @@ class WidgetConfigurationViewModel @Inject constructor(
     }
 
     fun confirmSelection() {
-        val selectedProfile = selectedProfile.value
-        if (selectedProfile != null) {
-            log(TAG, INFO) { "confirmSelection(widgetId=$widgetId, selectedProfile=$selectedProfile)" }
-            widgetSettings.saveWidgetProfile(widgetId, selectedProfile)
+        if (widgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
+            log(TAG, INFO) { "confirmSelection: invalid widget ID, skipping save" }
+            return
         }
-
-        // Save theme to AppWidgetOptions bundle
-        val theme = currentTheme.value
-        log(TAG, INFO) { "confirmSelection: saving theme=$theme" }
-        val options = appWidgetManager.getAppWidgetOptions(widgetId)
-        theme.toBundle(options)
-        appWidgetManager.updateAppWidgetOptions(widgetId, options)
+        val config = WidgetConfig(
+            profileId = selectedProfile.value,
+            theme = currentTheme.value,
+        )
+        log(TAG, INFO) { "confirmSelection(widgetId=$widgetId, config=$config)" }
+        widgetSettings.saveWidgetConfig(widgetId, config)
     }
 
     companion object {

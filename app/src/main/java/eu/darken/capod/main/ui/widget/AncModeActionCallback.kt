@@ -53,7 +53,7 @@ class AncModeActionCallback : ActionCallback {
 
         val ep = EntryPointAccessors.fromApplication(context, AncModeCallbackEntryPoint::class.java)
 
-        val profileId = ep.widgetSettings().getWidgetProfile(widgetId)
+        val profileId = ep.widgetSettings().getWidgetConfig(widgetId).profileId
         if (profileId == null) {
             log(TAG, ERROR) { "onAction: no profile for widgetId=$widgetId" }
             return

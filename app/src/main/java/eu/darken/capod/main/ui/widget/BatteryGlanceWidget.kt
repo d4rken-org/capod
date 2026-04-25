@@ -52,7 +52,11 @@ class BatteryGlanceWidget : GlanceAppWidget() {
             appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
             log(TAG, VERBOSE) { "provideGlance(appWidgetId=$appWidgetId)" }
             initialIsPro = ep.upgradeRepo().isPro()
-            initialProfileId = ep.widgetSettings().getWidgetProfile(appWidgetId)
+            ep.widgetSettings().migrateLegacyConfigIfNeeded(
+                appWidgetId,
+                AppWidgetManager.getInstance(context).getAppWidgetOptions(appWidgetId),
+            )
+            initialProfileId = ep.widgetSettings().getWidgetConfig(appWidgetId).profileId
             cachedDevice = initialProfileId?.let { ep.deviceMonitor().getDeviceForProfile(it) }
         } catch (e: Exception) {
             log(TAG, ERROR) { "provideGlance setup failed: ${e.asLog()}" }
@@ -82,10 +86,9 @@ class BatteryGlanceWidget : GlanceAppWidget() {
             val layout = BatteryLayout.forCells(getCellsForSize(widthDp.value.toInt()))
 
             val state = try {
-                val profileId = ep.widgetSettings().getWidgetProfile(appWidgetId)
-                val theme = WidgetTheme.fromBundle(
-                    AppWidgetManager.getInstance(context).getAppWidgetOptions(appWidgetId)
-                )
+                val config = ep.widgetSettings().getWidgetConfig(appWidgetId)
+                val profileId = config.profileId
+                val theme = config.theme
 
                 val isPro = upgradeInfo?.isPro ?: initialIsPro
 
