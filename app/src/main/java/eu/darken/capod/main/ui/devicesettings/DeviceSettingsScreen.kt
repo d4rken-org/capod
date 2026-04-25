@@ -48,6 +48,7 @@ import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.NoiseControlCard
 import eu.darken.capod.main.ui.devicesettings.cards.NotConnectedCard
 import eu.darken.capod.main.ui.devicesettings.cards.ReactionsCard
+import eu.darken.capod.main.ui.overview.cards.components.MissingPairedDeviceBanner
 import eu.darken.capod.main.ui.devicesettings.cards.SoundCard
 import eu.darken.capod.main.ui.devicesettings.cards.buildDeviceInfoDetailItems
 import eu.darken.capod.main.ui.devicesettings.cards.buildModelLabel
@@ -86,6 +87,18 @@ fun DeviceSettingsScreenHost(
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val offRejectedMessage = stringResource(R.string.device_settings_anc_off_rejected_message)
     val chargeCapRejectedMessage = stringResource(R.string.device_settings_charge_cap_rejected_message)
+    val pendingInfoMessage = stringResource(R.string.device_settings_pending_info)
+
+    val hasPendingSettings = state?.device?.hasPendingSettings
+    var lastPendingState by remember { mutableStateOf<Boolean?>(null) }
+    LaunchedEffect(hasPendingSettings) {
+        val current = hasPendingSettings ?: return@LaunchedEffect
+        val previous = lastPendingState
+        lastPendingState = current
+        if (previous == false && current) {
+            snackbarHostState.showSnackbar(pendingInfoMessage)
+        }
+    }
 
     LaunchedEffect(Unit) {
         vm.events.collect { event ->
@@ -148,6 +161,7 @@ fun DeviceSettingsScreenHost(
         onDynamicEndOfChargeChange = { vm.setDynamicEndOfCharge(it) },
         onDeviceNameChange = { vm.setDeviceName(it) },
         onPressControlsClick = { vm.navToPressControls() },
+        onEditProfile = { vm.navToEditProfile() },
         onForceConnect = { vm.forceConnect() },
         onUpgrade = { vm.launchUpgrade() },
         onOnePodModeChange = { vm.setOnePodMode(it) },
@@ -185,6 +199,7 @@ fun DeviceSettingsScreen(
     onDynamicEndOfChargeChange: (Boolean) -> Unit = {},
     onDeviceNameChange: (String) -> Unit = {},
     onPressControlsClick: () -> Unit = {},
+    onEditProfile: () -> Unit = {},
     onForceConnect: () -> Unit = {},
     onUpgrade: () -> Unit = {},
     onOnePodModeChange: (Boolean) -> Unit = {},
@@ -279,27 +294,46 @@ fun DeviceSettingsScreen(
                 }
             }
 
-            // Not connected info — BLE live but no AAP connection
-            if (device != null && device.ble != null && !device.isAapConnected && device.address != null) {
-                if (state.isClassicallyConnected) {
-                    // Device is connected for audio but AAP isn't available — show passive info
-                    item("aap_unavailable_info") {
-                        AapUnavailableCard(onOpenTracker = onOpenAapTracker)
-                    }
-                } else {
-                    // Device is nearby but not connected — prompt user to connect
-                    item("not_connected_info") {
-                        NotConnectedCard(
-                            isNudgeAvailable = state.isNudgeAvailable,
-                            isForceConnecting = state.isForceConnecting,
-                            onConnect = onForceConnect,
-                        )
-                    }
+            // Profile has no paired Bluetooth device — supersedes all other state cards
+            if (device != null && !device.hasSelectedPairedDevice) {
+                item("missing_paired_device") {
+                    MissingPairedDeviceBanner(
+                        onClick = onEditProfile,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                    )
                 }
             }
 
-            // ── Reactions (per-profile, not gated on AAP) ─────────────────
-            if (device != null && features != null) {
+            // Not nearby — no live BLE; settings require the device to be present
+            if (device != null && device.hasSelectedPairedDevice &&
+                device.ble == null && !state.isClassicallyConnected
+            ) {
+                item("not_nearby_info") {
+                    SettingsInfoBox(
+                        title = stringResource(R.string.device_settings_not_nearby_label),
+                        text = stringResource(R.string.device_settings_not_nearby_description),
+                    )
+                }
+            }
+
+            // Not connected info — device is nearby but not connected; prompt user to connect
+            if (device != null && device.hasSelectedPairedDevice &&
+                device.ble != null && !device.isAapConnected && device.address != null &&
+                !state.isClassicallyConnected
+            ) {
+                item("not_connected_info") {
+                    NotConnectedCard(
+                        isNudgeAvailable = state.isNudgeAvailable,
+                        isForceConnecting = state.isForceConnecting,
+                        onConnect = onForceConnect,
+                    )
+                }
+            }
+
+            // ── Reactions (gated on classic connection — needs phone to be the audio target) ──
+            if (device != null && device.hasSelectedPairedDevice &&
+                features != null && state.isClassicallyConnected
+            ) {
                 item("reactions_section") {
                     ReactionsCard(
                         device = device,
@@ -322,15 +356,7 @@ fun DeviceSettingsScreen(
             }
 
             // Settings — only show when AAP is connected
-            if (features != null && device.isAapConnected) {
-
-                if (device.hasPendingSettings == true) {
-                    item("pending_info") {
-                        SettingsInfoBox(
-                            text = stringResource(R.string.device_settings_pending_info),
-                        )
-                    }
-                }
+            if (features != null && device.isAapConnected && device.hasSelectedPairedDevice) {
 
                 // ── Noise Control ────────────────────────────
                 if (features.hasAncControl && device.ancMode != null) {
@@ -445,6 +471,16 @@ fun DeviceSettingsScreen(
                 }
             }
 
+            // Advanced settings unavailable — phone's Bluetooth lacks AAP support; passive info, shown last
+            if (device != null && device.hasSelectedPairedDevice &&
+                device.ble != null && !device.isAapConnected && device.address != null &&
+                state.isClassicallyConnected
+            ) {
+                item("aap_unavailable_info") {
+                    AapUnavailableCard(onOpenTracker = onOpenAapTracker)
+                }
+            }
+
             item("bottom_spacer") {
                 Spacer(modifier = Modifier.height(16.dp))
             }
@@ -501,6 +537,7 @@ internal fun previewFullState(isPro: Boolean) = DeviceSettingsViewModel.State(
     ),
     now = MOCK_NOW,
     isPro = isPro,
+    isClassicallyConnected = true,
 )
 
 @Preview2
@@ -561,6 +598,18 @@ private fun DeviceSettingsCachedOnlyPreview() = PreviewWrapper {
     DeviceSettingsScreen(
         state = DeviceSettingsViewModel.State(
             device = MockPodDataProvider.dualPodCachedOnly(),
+            now = MOCK_NOW,
+        ),
+        onNavigateUp = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DeviceSettingsMissingPairedDevicePreview() = PreviewWrapper {
+    DeviceSettingsScreen(
+        state = DeviceSettingsViewModel.State(
+            device = MockPodDataProvider.dualPodMissingPairedDevice(),
             now = MOCK_NOW,
         ),
         onNavigateUp = {},

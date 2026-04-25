@@ -289,6 +289,8 @@ object MockPodDataProvider {
         profileId = "preview-cached",
         ble = null,
         aap = null,
+        profileAddress = "AA:BB:CC:DD:EE:FF",
+        profileModel = PodModel.AIRPODS_PRO2,
         cached = CachedDeviceState(
             profileId = "preview-cached",
             model = PodModel.AIRPODS_PRO2,

@@ -442,6 +442,12 @@ class DeviceSettingsViewModel @Inject constructor(
         navTo(Nav.Main.PressControls(profileId = profileId))
     }
 
+    fun navToEditProfile() = launch {
+        log(TAG, INFO) { "navToEditProfile()" }
+        val profileId = targetProfileId.value ?: return@launch
+        navTo(Nav.Main.DeviceProfileCreation(profileId = profileId))
+    }
+
     fun launchUpgrade() {
         log(TAG, INFO) { "launchUpgrade()" }
         navTo(Nav.Main.Upgrade)
