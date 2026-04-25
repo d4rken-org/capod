@@ -4,7 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.annotation.ColorInt
 import androidx.core.graphics.ColorUtils
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class WidgetTheme(
     @ColorInt val backgroundColor: Int? = null,
     @ColorInt val foregroundColor: Int? = null,
@@ -36,7 +38,18 @@ data class WidgetTheme(
 
         val DEFAULT = WidgetTheme()
 
-        fun fromBundle(bundle: Bundle): WidgetTheme {
+        /**
+         * Reads a [WidgetTheme] from the legacy `AppWidgetManager.getAppWidgetOptions()` Bundle.
+         * Returns `null` if the Bundle holds none of the legacy keys — distinguishing "system reset
+         * the Bundle to system-only keys" from "user picked Material You + 255".
+         */
+        fun fromLegacyBundleOrNull(bundle: Bundle): WidgetTheme? {
+            val hasLegacyKey = bundle.containsKey(KEY_THEME_MODE)
+                    || bundle.containsKey(KEY_BG_ALPHA)
+                    || bundle.containsKey(KEY_SHOW_LABEL)
+                    || bundle.containsKey(KEY_CUSTOM_BG)
+                    || bundle.containsKey(KEY_CUSTOM_FG)
+            if (!hasLegacyKey) return null
             val mode = bundle.getString(KEY_THEME_MODE, MODE_MATERIAL_YOU)
             val showLabel = bundle.getBoolean(KEY_SHOW_LABEL, true)
             val alpha = bundle.getInt(KEY_BG_ALPHA, 255).coerceIn(0, 255)
@@ -71,25 +84,4 @@ data class WidgetTheme(
         }
     }
 
-    fun toBundle(bundle: Bundle) {
-        if (backgroundColor == null && foregroundColor == null) {
-            bundle.putString(KEY_THEME_MODE, MODE_MATERIAL_YOU)
-            bundle.remove(KEY_CUSTOM_BG)
-            bundle.remove(KEY_CUSTOM_FG)
-        } else {
-            bundle.putString(KEY_THEME_MODE, MODE_CUSTOM)
-            if (backgroundColor != null) {
-                bundle.putInt(KEY_CUSTOM_BG, backgroundColor)
-            } else {
-                bundle.remove(KEY_CUSTOM_BG)
-            }
-            if (foregroundColor != null) {
-                bundle.putInt(KEY_CUSTOM_FG, foregroundColor)
-            } else {
-                bundle.remove(KEY_CUSTOM_FG)
-            }
-        }
-        bundle.putInt(KEY_BG_ALPHA, backgroundAlpha.coerceIn(0, 255))
-        bundle.putBoolean(KEY_SHOW_LABEL, showDeviceLabel)
-    }
 }
