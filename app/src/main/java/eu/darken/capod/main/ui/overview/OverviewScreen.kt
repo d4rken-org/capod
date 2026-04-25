@@ -67,6 +67,22 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Instant
 
+internal fun profiledDeviceKey(
+    device: PodDevice,
+    index: Int,
+    duplicateProfileIds: Set<String>,
+): String {
+    val pid = requireNotNull(device.profileId)
+    return if (pid !in duplicateProfileIds) {
+        "profiled:$pid"
+    } else {
+        "profiled:$pid:${device.identifier ?: "idx:$index"}"
+    }
+}
+
+internal fun unmatchedDeviceKey(device: PodDevice, index: Int): String =
+    "unmatched:${device.identifier ?: "idx:$index"}"
+
 @Composable
 fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
     ErrorEventHandler(vm)
@@ -286,9 +302,15 @@ fun OverviewScreen(
 
             // 4. Profiled device cards (limited to 1 for free users)
             if (!state.isScanBlocked && state.isBluetoothEnabled) {
+                val duplicateProfileIds = state.visibleProfiledDevices
+                    .mapNotNull { it.profileId }
+                    .groupingBy { it }
+                    .eachCount()
+                    .filterValues { it > 1 }
+                    .keys
                 itemsIndexed(
                     items = state.visibleProfiledDevices,
-                    key = { _, device -> requireNotNull(device.profileId) },
+                    key = { index, device -> profiledDeviceKey(device, index, duplicateProfileIds) },
                 ) { index, device ->
                     val isCollapsed = !state.isExpanded(device, index)
                     val isToggleable = state.isToggleable(device, index)
@@ -337,10 +359,10 @@ fun OverviewScreen(
                     }
 
                     if (state.showUnmatchedDevices) {
-                        items(
+                        itemsIndexed(
                             items = state.unmatchedDevices,
-                            key = { "unmatched_${it.identifier?.toString() ?: it.hashCode()}" },
-                        ) { device ->
+                            key = { index, device -> unmatchedDeviceKey(device, index) },
+                        ) { _, device ->
                             PodDeviceCard(
                                 device = device,
                                 isPro = state.upgradeInfo.isPro,
