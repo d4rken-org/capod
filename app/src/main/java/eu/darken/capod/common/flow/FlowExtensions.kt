@@ -16,7 +16,6 @@ import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.flow.shareIn
@@ -54,7 +53,6 @@ fun <T> Flow<T>.takeUntilAfter(predicate: suspend (T) -> Boolean) = transformWhi
 
 fun <T> Flow<T>.setupCommonEventHandlers(tag: String, identifier: () -> String) = this
     .onStart { log(tag, VERBOSE) { "${identifier()}.onStart()" } }
-    .onEach { log(tag, VERBOSE) { "${identifier()}.onEach(): $it" } }
     .onCompletion { log(tag, VERBOSE) { "${identifier()}.onCompletion()" } }
     .catch {
         if (it.hasCause(CancellationException::class)) {
