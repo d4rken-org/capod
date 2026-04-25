@@ -11,6 +11,7 @@ import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.IBinder
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
@@ -35,6 +36,7 @@ import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
@@ -49,6 +51,7 @@ import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
@@ -225,31 +228,19 @@ class MonitorService : Service() {
                         profilesRepo.profiles,
                         bluetoothManager.connectedDevices,
                         aapConnectionManager.allStates,
-                    ) { monitorMode, profiles, connectedDevices, aapStates ->
-                        listOf(monitorMode, profiles, connectedDevices, aapStates)
+                    ) { mode, profiles, devices, aapStates ->
+                        buildMonitorModeState(mode, profiles, devices, aapStates)
                     }
                 }
             }
+            .distinctUntilChanged()
             .setupCommonEventHandlers(TAG) { "MonitorMode" }
-            .flatMapLatest { arguments ->
-                val monitorMode = arguments[0] as MonitorMode
+            .flatMapLatest { state ->
+                log(TAG) { "Monitor mode: ${state.mode}" }
+                log(TAG) { "connectedAddresses: ${state.connectedAddresses}" }
+                log(TAG) { "knownAddresses: ${state.knownAddresses}" }
 
-                @Suppress("UNCHECKED_CAST")
-                val profiles = arguments[1] as List<DeviceProfile>
-
-                @Suppress("UNCHECKED_CAST")
-                val devices = arguments[2] as Collection<BluetoothDevice2>
-
-                @Suppress("UNCHECKED_CAST")
-                val aapStates = arguments[3] as Map<*, *>
-
-                val connectedAddresses = devices.map { it.address }.toSet()
-                val knownAddresses = profiles.mapNotNull { it.address }.toSet()
-                log(TAG) { "Monitor mode: $monitorMode" }
-                log(TAG) { "connectedAddresses: $connectedAddresses" }
-                log(TAG) { "knownAddresses: $knownAddresses" }
-
-                when (monitorMode) {
+                when (state.mode) {
                     MonitorMode.MANUAL -> flow<Unit> {
                         monitorScope.coroutineContext.cancelChildren()
                     }
@@ -257,11 +248,11 @@ class MonitorService : Service() {
                     MonitorMode.ALWAYS -> emptyFlow()
                     MonitorMode.AUTOMATIC -> flow {
                         when {
-                            profiles.isEmpty() && devices.isNotEmpty() -> {
+                            !state.hasProfiles && state.connectedAddresses.isNotEmpty() -> {
                                 log(TAG, WARN) { "Main device address not set, staying alive while any is connected" }
                             }
 
-                            knownAddresses.any { it in connectedAddresses } || aapStates.isNotEmpty() -> {
+                            state.knownAddresses.any { it in state.connectedAddresses } || state.hasAapSession -> {
                                 log(TAG) { "A device is connected, aborting any timeout." }
                             }
 
@@ -346,6 +337,27 @@ class MonitorService : Service() {
         }
     }
 }
+
+internal data class MonitorModeState(
+    val mode: MonitorMode,
+    val hasProfiles: Boolean,
+    val knownAddresses: Set<BluetoothAddress>,
+    val connectedAddresses: Set<BluetoothAddress>,
+    val hasAapSession: Boolean,
+)
+
+internal fun buildMonitorModeState(
+    mode: MonitorMode,
+    profiles: List<DeviceProfile>,
+    devices: Collection<BluetoothDevice2>,
+    aapStates: Map<BluetoothAddress, AapPodState>,
+): MonitorModeState = MonitorModeState(
+    mode = mode,
+    hasProfiles = profiles.isNotEmpty(),
+    knownAddresses = profiles.mapNotNull { it.address }.toSet(),
+    connectedAddresses = devices.map { it.address }.toSet(),
+    hasAapSession = aapStates.isNotEmpty(),
+)
 
 private data class NotificationDeviceKey(
     val profileId: String?,
