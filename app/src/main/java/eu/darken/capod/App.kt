@@ -17,13 +17,11 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.throttleLatest
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
+import eu.darken.capod.main.ui.widget.toWidgetKey
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.PodDevice
 
 import eu.darken.capod.monitor.core.devicesWithProfiles
 
-import eu.darken.capod.pods.core.apple.PodModel
-import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.launchIn
@@ -99,33 +97,3 @@ open class App : Application() {
         }
     }
 }
-
-private data class WidgetDeviceKey(
-    val profileId: String?,
-    val model: PodModel,
-    val batteryLeft: Float?,
-    val batteryRight: Float?,
-    val batteryCase: Float?,
-    val batteryHeadset: Float?,
-    val isLeftPodCharging: Boolean?,
-    val isRightPodCharging: Boolean?,
-    val isCaseCharging: Boolean?,
-    val isHeadsetBeingCharged: Boolean?,
-    val ancMode: AapSetting.AncMode.Value?,
-    val pendingAncMode: AapSetting.AncMode.Value?,
-)
-
-private fun PodDevice.toWidgetKey(): WidgetDeviceKey = WidgetDeviceKey(
-    profileId = profileId,
-    model = model,
-    batteryLeft = batteryLeft,
-    batteryRight = batteryRight,
-    batteryCase = batteryCase,
-    batteryHeadset = batteryHeadset,
-    isLeftPodCharging = isLeftPodCharging,
-    isRightPodCharging = isRightPodCharging,
-    isCaseCharging = isCaseCharging,
-    isHeadsetBeingCharged = isHeadsetBeingCharged,
-    ancMode = ancMode?.current,
-    pendingAncMode = pendingAncMode,
-)
