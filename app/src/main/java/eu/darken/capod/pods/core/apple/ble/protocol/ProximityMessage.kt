@@ -37,14 +37,14 @@ data class ProximityMessage(
                 log(
                     TAG,
                     Logging.Priority.ERROR
-                ) { "Failed to decrypt $message with ${key.toByteString()}\n${e.asLog()}" }
+                ) { "Failed to decrypt $message\n${e.asLog()}" }
                 null
             }
 
             log(
                 TAG,
                 Logging.Priority.VERBOSE
-            ) { "Decrypted $message with ${key.toByteString()} to ${decryptedData?.toByteString()}" }
+            ) { "Decrypted $message to ${decryptedData?.toByteString()}" }
 
             if (decryptedData == null || decryptedData.size != 16) return null
 
