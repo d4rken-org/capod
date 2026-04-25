@@ -2,6 +2,7 @@ package eu.darken.capod.pods.core.apple.ble
 
 import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.logSummary
+import eu.darken.capod.common.bluetooth.redactedForLogs
 import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -119,7 +120,7 @@ class AppleFactory @Inject constructor(
             }
         }
 
-        factory.create(
+        val device = factory.create(
             scanResult = scanResult,
             payload = payload,
             meta = ApplePods.AppleMeta(
@@ -127,6 +128,18 @@ class AppleFactory @Inject constructor(
                 profile = profile,
             ),
         )
+
+        log(TAG, DEBUG) {
+            val rawHex = scanResult.manufacturerSpecificData.entries.joinToString("; ") { (id, bytes) ->
+                "$id:${bytes.joinToString(" ") { "%02X".format(it.toInt() and 0xFF) }}"
+            }
+            val publicHex = payload.public.data.joinToString(" ") { "%02X".format(it.toInt()) }
+            val privateHex = payload.private?.data?.joinToString(" ") { "%02X".format(it.toInt()) } ?: "-"
+            "Apple decoded: model=${device.model}, addr=${scanResult.address.redactedForLogs()}, " +
+                "irkMatch=$isIrkMatch, raw=[$rawHex], public=[$publicHex], private=[$privateHex]"
+        }
+
+        device
     }
 
     companion object {
