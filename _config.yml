@@ -20,8 +20,6 @@ exclude:
   - buildSrc
   - gradle/wrapper
   - fastlane
-  - Gemfile
-  - Gemfile.lock
   - crowdin*
   - app
   - app-common

@@ -19,3 +19,6 @@
 app/src/screenshotTest*/reference/
 .codex
 protocol-research/
+_site/
+.jekyll-cache/
+vendor/bundle/
