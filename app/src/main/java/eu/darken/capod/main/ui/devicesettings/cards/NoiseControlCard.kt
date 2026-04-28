@@ -133,7 +133,10 @@ internal fun NoiseControlCard(
                     text = stringResource(R.string.press_controls_long_press_anc_cycle_info),
                     type = InfoBoxType.INFO,
                     action = {
-                        TextButton(onClick = onPressControlsClick) {
+                        TextButton(
+                            onClick = onPressControlsClick,
+                            enabled = enabled,
+                        ) {
                             Text(stringResource(R.string.device_settings_noise_control_open_press_controls_action))
                         }
                     },

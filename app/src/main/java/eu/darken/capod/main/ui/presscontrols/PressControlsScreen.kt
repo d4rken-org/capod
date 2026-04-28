@@ -23,6 +23,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -69,6 +70,18 @@ fun PressControlsScreenHost(
 
     val state by vm.state.collectAsStateWithLifecycle(initialValue = null)
     val currentState = state ?: return
+
+    val isAapConnected = currentState.device?.isAapConnected == true
+    var hasSeenAapConnected by rememberSaveable(profileId) { mutableStateOf(false) }
+    var didAutoNavigate by rememberSaveable(profileId) { mutableStateOf(false) }
+    LaunchedEffect(profileId, isAapConnected) {
+        if (isAapConnected) {
+            hasSeenAapConnected = true
+        } else if (hasSeenAapConnected && !didAutoNavigate) {
+            didAutoNavigate = true
+            vm.navUp()
+        }
+    }
 
     PressControlsScreen(
         state = currentState,
