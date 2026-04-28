@@ -439,6 +439,11 @@ class DeviceSettingsViewModel @Inject constructor(
     fun navToPressControls() = launch {
         log(TAG, INFO) { "navToPressControls()" }
         val profileId = targetProfileId.value ?: return@launch
+        val device = deviceMonitor.getDeviceForProfile(profileId)
+        if (device?.isAapReady != true) {
+            log(TAG, INFO) { "navToPressControls(): aborted, device not AAP-ready" }
+            return@launch
+        }
         navTo(Nav.Main.PressControls(profileId = profileId))
     }
 
