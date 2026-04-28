@@ -22,5 +22,4 @@ exclude:
   - fastlane
   - crowdin*
   - app
-  - app-common
   - CONTRIBUTING.md
