@@ -228,7 +228,6 @@ class PlayPause @Inject constructor(
                             "autoPause triggered: source=$source, " +
                                 "wasWorn=${prevState.bothInEar}, isWorn=${currState.bothInEar}, " +
                                 "podCount=${prevState.podCount}->${currState.podCount}, " +
-                                "bleKeyState=${current.bleKeyState}, " +
                                 "aapEar=${current.aap?.aapEarDetection != null}, " +
                                 "aapConn=${current.aap?.connectionState}, " +
                                 "pauseSent=$pauseSent, reason=${decision.reason}"
@@ -427,8 +426,25 @@ class PlayPause @Inject constructor(
         }
 
         // Non-debounce-eligible trusted sources (AAP / BLE_IRK_MATCH) and disabled debounce:
-        // pass raw decision through and clear any active pending.
+        // pass raw decision through and clear any active pending. Special case: if a
+        // pending was active and the trusted source still shows the not-worn condition
+        // (currentState.podCount <= initialPodCount and no play decision), commit the
+        // pause now — the trusted source corroborates what BLE-debounce was waiting on.
         if (!needsDebounce || !autoPauseEnabled || profileId == null) {
+            if (activePending != null && autoPauseEnabled &&
+                currentState.podCount <= activePending.initialPodCount &&
+                !rawDecision.shouldPlay
+            ) {
+                return PauseDebounceResult(
+                    decision = PlayPauseDecision(
+                        shouldPlay = false,
+                        shouldPause = true,
+                        reason = "Pause confirmed by trusted source ($source) after BLE-debounce",
+                    ),
+                    pending = null,
+                    event = PauseDebounceEvent.COMMITTED,
+                )
+            }
             val event = if (activePending != null) PauseDebounceEvent.RESET else PauseDebounceEvent.NONE
             return PauseDebounceResult(decision = rawDecision, pending = null, event = event)
         }
@@ -456,8 +472,24 @@ class PlayPause @Inject constructor(
         }
 
         // Confirmation phase: pending exists.
-        // Reset cases: pod returned (count went up) or raw decision wants to play.
-        if (currentState.podCount > activePending.initialPodCount || rawDecision.shouldPlay) {
+        // Reset cases — checked in order of authority:
+        //   1. Raw decision wants to play → genuine play signal, reset immediately.
+        //   2. Pod count went up → tolerate one rebound sample (corrupt count-up
+        //      protection), reset only on the second consecutive count-up.
+        if (rawDecision.shouldPlay) {
+            return PauseDebounceResult(decision = rawDecision, pending = null, event = PauseDebounceEvent.RESET)
+        }
+        if (currentState.podCount > activePending.initialPodCount) {
+            if (activePending.resetTolerance > 0) {
+                return PauseDebounceResult(
+                    decision = rawDecision.copy(
+                        shouldPause = false,
+                        reason = "Debouncing pause (rebound tolerated)",
+                    ),
+                    pending = activePending.copy(resetTolerance = activePending.resetTolerance - 1),
+                    event = PauseDebounceEvent.ADVANCED,
+                )
+            }
             return PauseDebounceResult(decision = rawDecision, pending = null, event = PauseDebounceEvent.RESET)
         }
 
@@ -563,7 +595,11 @@ class PlayPause @Inject constructor(
      *   identity key. Identity-authenticated; debounce skipped.
      * - [BLE_PROFILE_FALLBACK]: BLE advertisement assigned to a profile via signal-quality
      *   fallback (no IRK match). Could be a stray advert from a nearby pair. Debounced.
-     * - [BLE_ANONYMOUS]: BLE advertisement with no profile match. Debounced.
+     * - [BLE_ANONYMOUS]: BLE advertisement with no profile match. Filtered out by
+     *   [primaryDevice] in production (devices without profileId are dropped before
+     *   reaching the reaction layer); kept here defensively in case the upstream filter
+     *   changes. Note: [PendingPauseDebounce] is profile-keyed, so a null profileId can
+     *   never sustain pending state even if this branch is hit.
      * - [NO_LIVE_BLE]: No live BLE snapshot at all (cache-only or empty). Not debounced —
      *   the cached state is not "fresh evidence" so it must not advance the debounce counter.
      *   Any active pending is cleared.
@@ -574,6 +610,11 @@ class PlayPause @Inject constructor(
         val profileId: String,
         val initialPodCount: Int,
         val confirmationsRemaining: Int,
+        // Tolerates one count-up rebound sample before the pending is reset. Mirrors the
+        // count-down debounce on the pause side: a single corrupt advert that briefly
+        // shows a pod returning shouldn't kill the pending, since the next sample may
+        // confirm the pods are still out.
+        val resetTolerance: Int = 1,
     )
 
     /** Discrete event produced by [applyPauseDebounce] for diagnostic logging. */
@@ -623,8 +664,13 @@ class PlayPause @Inject constructor(
 
     internal fun PodDevice.toPlayPauseMonitorKey(): PlayPauseMonitorKey {
         val source = earDetectionSource()
-        val needsFreshness = source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
-            source == EarDetectionSource.BLE_ANONYMOUS
+        // Freshness is needed only on debounce-eligible NOT-WORN samples. Including
+        // worn samples would also break distinctUntilChangedBy for identical both-in
+        // samples, accidentally enabling BLE-only auto-play confirmation to fire on
+        // repeated unauthenticated adverts.
+        val needsFreshness = (source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
+            source == EarDetectionSource.BLE_ANONYMOUS) &&
+            isBeingWorn != true
         return PlayPauseMonitorKey(
             profileId = profileId,
             autoPlay = reactions.autoPlay,

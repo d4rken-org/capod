@@ -1,19 +1,33 @@
 package eu.darken.capod.reaction.core.playpause
 
+import eu.darken.capod.common.MediaControl
+import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
+import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.playpause.PlayPause.EarDetectionState
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Instant
 
 class PlayPauseLogicTest : BaseTest() {
 
@@ -1132,14 +1146,43 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `BLE_PROFILE_FALLBACK pod returns mid-debounce - pending cleared`() {
-            // First detection: both pods removed
+        fun `BLE_PROFILE_FALLBACK first count-up is tolerated as a rebound`() {
+            // First detection: both pods removed (initialPodCount=0). A single corrupt
+            // count-up sample (pod=1) should be tolerated — the helper holds pending
+            // and decrements resetTolerance.
             val pending = PlayPause.PendingPauseDebounce(
                 profileId = "profile",
                 initialPodCount = 0,
                 confirmationsRemaining = 1,
+                resetTolerance = 1,
             )
-            // Pod returned: count went from 0 -> 1 (worn back)
+            val current = EarDetectionState.fromDualPod(true, false)
+
+            val result = playPause.applyPauseDebounce(
+                pending = pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+
+            result.decision.shouldPause shouldBe false
+            result.pending shouldNotBe null
+            result.pending!!.resetTolerance shouldBe 0
+            result.event shouldBe PlayPause.PauseDebounceEvent.ADVANCED
+        }
+
+        @Test
+        fun `BLE_PROFILE_FALLBACK second count-up resets pending (tolerance exhausted)`() {
+            // After the first rebound was tolerated, resetTolerance=0. A second count-up
+            // sample resets pending — this is a genuine pod-return signal.
+            val pending = PlayPause.PendingPauseDebounce(
+                profileId = "profile",
+                initialPodCount = 0,
+                confirmationsRemaining = 1,
+                resetTolerance = 0,
+            )
             val current = EarDetectionState.fromDualPod(true, false)
 
             val result = playPause.applyPauseDebounce(
@@ -1153,6 +1196,7 @@ class PlayPauseLogicTest : BaseTest() {
 
             result.decision.shouldPause shouldBe false
             result.pending shouldBe null
+            result.event shouldBe PlayPause.PauseDebounceEvent.RESET
         }
 
         @Test
@@ -1327,6 +1371,43 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
+        fun `AAP says worn while BLE per-side falsely says not-worn - returns worn (#557 scenario)`() {
+            // The motivating bug for the per-side gap fix: AAP authoritative state says
+            // pods worn, but BLE fallback bits say not-worn. AAP must win — this is the
+            // scenario users hit in #557 when high-RF interference flipped BLE bits.
+            val ble = mockk<DualApplePods>(relaxed = true) {
+                every { isLeftPodInEar } returns false   // BLE corrupt: says not-worn
+                every { isRightPodInEar } returns false
+                every { isBeingWorn } returns false
+                every { isEitherPodInEar } returns false
+                every { primaryPod } returns DualBlePodSnapshot.Pod.LEFT
+            }
+            val aapEarDetection = AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+            )
+            val aapPrimary = AapSetting.PrimaryPod(pod = AapSetting.PrimaryPod.Pod.LEFT)
+            val aap = AapPodState(
+                connectionState = AapPodState.ConnectionState.READY,
+                settings = mapOf(
+                    AapSetting.EarDetection::class to aapEarDetection,
+                    AapSetting.PrimaryPod::class to aapPrimary,
+                ),
+            )
+            val device = PodDevice(
+                profileId = "test",
+                ble = ble,
+                aap = aap,
+            )
+
+            val state = with(playPause) { device.toEarDetectionState() }
+
+            // AAP says worn → aggregate must reflect worn even though BLE bits say not-worn.
+            state.bothInEar shouldBe true
+            state.podCount shouldBe 2
+        }
+
+        @Test
         fun `AAP absent - falls back to BLE per-side`() {
             val ble = mockk<DualApplePods>(relaxed = true) {
                 every { isLeftPodInEar } returns true
@@ -1448,6 +1529,73 @@ class PlayPauseLogicTest : BaseTest() {
 
             state.bothInEar shouldBe true
             state.podCount shouldBe 2
+        }
+    }
+
+    @Nested
+    inner class MonitorFlowTests {
+
+        private fun buildBle(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
+            mockk<DualApplePods>(relaxed = true) {
+                every { meta } returns ApplePods.AppleMeta(
+                    isIRKMatch = false,
+                    profile = mockk(relaxed = true),
+                )
+                every { seenLastAt } returns seenAt
+                every { isLeftPodInEar } returns leftWorn
+                every { isRightPodInEar } returns rightWorn
+                every { isBeingWorn } returns (leftWorn && rightWorn)
+                every { isEitherPodInEar } returns (leftWorn || rightWorn)
+                every { primaryPod } returns DualBlePodSnapshot.Pod.LEFT
+                every { model } returns PodModel.AIRPODS_PRO3
+            }
+
+        private fun buildDevice(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
+            PodDevice(
+                profileId = "test-profile",
+                ble = buildBle(seenAt, leftWorn, rightWorn),
+                aap = null,
+                profileModel = PodModel.AIRPODS_PRO3,
+                reactions = ReactionConfig(autoPlay = true, autoPause = true),
+            )
+
+        @Test
+        fun `flow - 3 consecutive not-worn unauthenticated samples fire pause exactly once`() = runTest {
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns true
+                every { wasRecentlyPausedByCap } returns false
+                coEvery { sendPause() } returns true
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: worn baseline
+            deviceFlow.value = listOf(buildDevice(now, leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            // T1, T2, T3: identical not-worn samples with incrementing seenLastAt.
+            // Without the freshness fix, distinctUntilChangedBy would collapse T2 and T3
+            // and the debounce counter could never advance. With it, the helper sees
+            // 3 samples and commits the pause on the third.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(1000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(2000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(3000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { mediaControl.sendPause() }
+
+            job.cancel()
         }
     }
 }
