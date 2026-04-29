@@ -16,7 +16,6 @@ import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
 import eu.darken.capod.reaction.core.playpause.PlayPause.Companion.PAUSE_DEBOUNCE_SAMPLES
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
@@ -36,6 +35,8 @@ class PlayPause @Inject constructor(
     fun monitor() = run {
         var pendingPlayConfirmation: PendingPlayConfirmation? = null
         var pendingPauseDebounce: PendingPauseDebounce? = null
+        var hasLastMonitorKey = false
+        var lastMonitorKey: PlayPauseMonitorKey? = null
 
         deviceMonitor.primaryDevice()
             .map { device -> device?.reactions?.let { it.autoPlay || it.autoPause } == true }
@@ -46,6 +47,8 @@ class PlayPause @Inject constructor(
                 } else {
                     pendingPlayConfirmation = null
                     pendingPauseDebounce = null
+                    hasLastMonitorKey = false
+                    lastMonitorKey = null
                     emptyFlow()
                 }
             }
@@ -53,6 +56,8 @@ class PlayPause @Inject constructor(
                 if (connected.isEmpty()) {
                     pendingPlayConfirmation = null
                     pendingPauseDebounce = null
+                    hasLastMonitorKey = false
+                    lastMonitorKey = null
                     log(TAG) { "No known devices connected." }
                     emptyFlow()
                 } else {
@@ -61,9 +66,20 @@ class PlayPause @Inject constructor(
                 }
             }
             // Cache persistence can update battery timestamps without changing any reaction-relevant state.
-            .distinctUntilChangedBy { it?.toPlayPauseMonitorKey() }
+            .filter { device ->
+                val key = device?.toPlayPauseMonitorKey()
+                val shouldEmit = !hasLastMonitorKey ||
+                    key != lastMonitorKey ||
+                    device?.isPauseDebounceResetCandidate(pendingPauseDebounce) == true
+
+                if (shouldEmit) {
+                    hasLastMonitorKey = true
+                    lastMonitorKey = key
+                }
+                shouldEmit
+            }
             .onEach { device ->
-                log(TAG, VERBOSE) { "Post-distinct: profileId=${device?.profileId}" }
+                log(TAG, VERBOSE) { "Post-monitor-filter: profileId=${device?.profileId}" }
             }
             .withPrevious()
             .filter { (previous, current) ->
@@ -92,6 +108,22 @@ class PlayPause @Inject constructor(
                     pendingPlayConfirmation = null
                     if (pendingPauseDebounce != null) {
                         log(TAG, DEBUG) { "Pause debounce reset: no reactions on device" }
+                        pendingPauseDebounce = null
+                    }
+                    return@onEach
+                }
+
+                // Skip the reaction when previous was a no-live-evidence emission (cache-only
+                // baseline emitted at process start, or after a >20s BLE gap that evicted the
+                // device from the live cache). PodDevice.isBeingWorn returns null for those,
+                // and toEarDetectionState() coerces null -> false, which would produce a
+                // fake "not-worn -> worn" transition the moment live BLE arrives — firing
+                // an unwanted autoPlay on app start while the user is wearing the pods.
+                if (previous?.earDetectionSource() == EarDetectionSource.NO_LIVE_BLE) {
+                    log(TAG, VERBOSE) { "Previous emission has no live evidence; skipping reaction." }
+                    pendingPlayConfirmation = null
+                    if (pendingPauseDebounce != null) {
+                        log(TAG, DEBUG) { "Pause debounce reset: previous emission lacked live evidence" }
                         pendingPauseDebounce = null
                     }
                     return@onEach
@@ -138,6 +170,8 @@ class PlayPause @Inject constructor(
                 val isCurrentlyPlaying = mediaControl.isPlaying
                 val wasRecentlyPausedByUs = mediaControl.wasRecentlyPausedByCap
 
+                val source = current.earDetectionSource()
+
                 // Evaluate what action to take
                 val rawDecision = evaluatePlayPauseAction(
                     previous = prevState,
@@ -147,11 +181,18 @@ class PlayPause @Inject constructor(
                     wasRecentlyPausedByUs = wasRecentlyPausedByUs,
                 )
 
+                // BLE-only autoplay confirmation only applies to UNAUTHENTICATED sources.
+                // Trusted sources (AAP, BLE_IRK_MATCH) skip staging — symmetric to the
+                // pause debounce, which also skips for these sources. Without this gate,
+                // an IRK-matched device with no live AAP would stage a BLE-only confirmation
+                // that never confirms (the second worn sample has no freshness on the
+                // monitor key for IRK_MATCH so it gets collapsed).
                 val shouldStageBleOnlyPlay = rawDecision.shouldPlay &&
                     reactions.autoPlay &&
                     !reactions.onePodMode &&
                     current.hasDualPods &&
-                    current.aap?.aapEarDetection == null
+                    (source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
+                        source == EarDetectionSource.BLE_ANONYMOUS)
 
                 val confirmation = applyBleOnlyPlayConfirmation(
                     pending = pendingPlayConfirmation,
@@ -173,7 +214,6 @@ class PlayPause @Inject constructor(
                     log(TAG, VERBOSE) { "BLE-only autoplay confirmed by a follow-up state update" }
                 }
 
-                val source = current.earDetectionSource()
                 val debounceResult = applyPauseDebounce(
                     pending = pendingPauseDebounce,
                     profileId = current.profileId,
@@ -641,7 +681,7 @@ class PlayPause @Inject constructor(
         val hasBleSnapshot: Boolean,
         val source: EarDetectionSource,
         // Set only for debounce-eligible sources (BLE_PROFILE_FALLBACK / BLE_ANONYMOUS) so
-        // that distinctUntilChangedBy doesn't collapse repeated identical not-worn samples
+        // that monitor distinct filtering doesn't collapse repeated identical not-worn samples
         // and the debounce counter can advance.
         //
         // Caveat: BlePodMonitor.preferCaseContextPod can keep an existing case-context
@@ -664,13 +704,18 @@ class PlayPause @Inject constructor(
 
     internal fun PodDevice.toPlayPauseMonitorKey(): PlayPauseMonitorKey {
         val source = earDetectionSource()
-        // Freshness is needed only on debounce-eligible NOT-WORN samples. Including
-        // worn samples would also break distinctUntilChangedBy for identical both-in
-        // samples, accidentally enabling BLE-only auto-play confirmation to fire on
-        // repeated unauthenticated adverts.
-        val needsFreshness = (source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
-            source == EarDetectionSource.BLE_ANONYMOUS) &&
-            isBeingWorn != true
+        // Freshness applies to all unauthenticated samples (both worn and not-worn) so
+        // that monitor distinct filtering doesn't collapse repeated identical samples:
+        //   - not-worn samples must pass through to advance the pause debounce counter
+        //   - worn samples must pass through to satisfy applyBleOnlyPlayConfirmation,
+        //     which requires a 2nd identical worn sample to confirm a staged play
+        //     (see commit 6825abaa "Guard BLE-only autoplay")
+        // The 2-sample autoplay confirmation IS the debounce on the play side, mirroring
+        // the pause debounce. isPauseDebounceResetCandidate() remains as a defense-in-depth
+        // backstop for the rare case where seenLastAt doesn't advance between samples
+        // (e.g. BlePodMonitor.preferCaseContextPod preserves the prior snapshot).
+        val needsFreshness = source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
+            source == EarDetectionSource.BLE_ANONYMOUS
         return PlayPauseMonitorKey(
             profileId = profileId,
             autoPlay = reactions.autoPlay,
@@ -687,6 +732,17 @@ class PlayPause @Inject constructor(
             source = source,
             debounceFreshness = if (needsFreshness) ble?.seenLastAt else null,
         )
+    }
+
+    private fun PodDevice.isPauseDebounceResetCandidate(pending: PendingPauseDebounce?): Boolean {
+        val activePending = pending?.takeIf { it.profileId == profileId } ?: return false
+        val source = earDetectionSource()
+        val needsDebounce = source == EarDetectionSource.BLE_PROFILE_FALLBACK ||
+            source == EarDetectionSource.BLE_ANONYMOUS
+
+        if (!needsDebounce || !hasEarDetection) return false
+
+        return toEarDetectionState().podCount > activePending.initialPodCount
     }
 
     /**

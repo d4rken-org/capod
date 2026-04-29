@@ -1433,7 +1433,7 @@ class PlayPauseLogicTest : BaseTest() {
         @Test
         fun `monitor key freshness field differs across BLE scans for unauthenticated source`() {
             // Repeated identical not-worn samples must produce distinct monitor keys when
-            // bleKeyState is NONE / profile-fallback, so distinctUntilChangedBy doesn't
+            // bleKeyState is NONE / profile-fallback, so monitor distinct filtering doesn't
             // collapse them and the debounce counter can advance.
             val now = java.time.Instant.parse("2026-01-01T00:00:00Z")
             val ble1 = mockk<DualApplePods>(relaxed = true) {
@@ -1473,7 +1473,7 @@ class PlayPauseLogicTest : BaseTest() {
         @Test
         fun `monitor key freshness field is null for IRK-authenticated source`() {
             // For IRK_MATCH source, debounceFreshness should be null so that battery-only
-            // updates with identical wear state still collapse via distinctUntilChangedBy.
+            // updates with identical wear state still collapse via monitor distinct filtering.
             val now = java.time.Instant.parse("2026-01-01T00:00:00Z")
             val profile = mockk<eu.darken.capod.profiles.core.AppleDeviceProfile>(relaxed = true)
             val ble = mockk<DualApplePods>(relaxed = true) {
@@ -1583,7 +1583,7 @@ class PlayPauseLogicTest : BaseTest() {
             advanceUntilIdle()
 
             // T1, T2, T3: identical not-worn samples with incrementing seenLastAt.
-            // Without the freshness fix, distinctUntilChangedBy would collapse T2 and T3
+            // Without the freshness fix, monitor distinct filtering would collapse T2 and T3
             // and the debounce counter could never advance. With it, the helper sees
             // 3 samples and commits the pause on the third.
             deviceFlow.value = listOf(buildDevice(now.plusMillis(1000), leftWorn = false, rightWorn = false))
@@ -1594,6 +1594,296 @@ class PlayPauseLogicTest : BaseTest() {
             advanceUntilIdle()
 
             coVerify(exactly = 1) { mediaControl.sendPause() }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - stable worn rebound resets stale pause debounce before a new removal sequence`() = runTest {
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns true
+                every { wasRecentlyPausedByCap } returns false
+                coEvery { sendPause() } returns true
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: worn baseline
+            deviceFlow.value = listOf(buildDevice(now, leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            // T1: corrupt not-worn sample starts pause debounce.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(1000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            // T2/T3: the pods are stably worn again. T2 consumes resetTolerance, and T3
+            // must still reach applyPauseDebounce so the stale pending state is cleared.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(3000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            // T4/T5: a later real removal has only two not-worn samples so far. If T3 was
+            // collapsed, stale pending from T1 would incorrectly commit a pause here.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(4000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(5000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPause() }
+
+            // T6: the new removal sequence reaches three consecutive not-worn samples.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(6000), leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { mediaControl.sendPause() }
+
+            job.cancel()
+        }
+
+        private fun buildIrkMatchedBle(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
+            mockk<DualApplePods>(relaxed = true) {
+                every { meta } returns ApplePods.AppleMeta(
+                    isIRKMatch = true,
+                    profile = mockk(relaxed = true),
+                )
+                every { seenLastAt } returns seenAt
+                every { isLeftPodInEar } returns leftWorn
+                every { isRightPodInEar } returns rightWorn
+                every { isBeingWorn } returns (leftWorn && rightWorn)
+                every { isEitherPodInEar } returns (leftWorn || rightWorn)
+                every { primaryPod } returns DualBlePodSnapshot.Pod.LEFT
+                every { model } returns PodModel.AIRPODS_PRO3
+            }
+
+        private fun buildIrkMatchedDevice(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
+            PodDevice(
+                profileId = "test-profile",
+                ble = buildIrkMatchedBle(seenAt, leftWorn, rightWorn),
+                aap = null,
+                profileModel = PodModel.AIRPODS_PRO3,
+                reactions = ReactionConfig(autoPlay = true, autoPause = true),
+            )
+
+        private fun buildNoLiveBleDevice() =
+            PodDevice(
+                profileId = "test-profile",
+                ble = null,
+                aap = null,
+                profileModel = PodModel.AIRPODS_PRO3,
+                reactions = ReactionConfig(autoPlay = true, autoPause = true),
+            )
+
+        @Test
+        fun `flow - process start with pods worn does not fire autoplay`() = runTest {
+            // App process starts while user is already wearing pods. The first emission has
+            // no live BLE/AAP yet (cache-only). When live BLE arrives showing both worn,
+            // the synthetic null -> false coercion in toEarDetectionState would otherwise
+            // produce a fake not-worn -> worn transition and fire autoplay. With the
+            // NO_LIVE_BLE-previous guard, the reaction must be suppressed.
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns false
+                every { wasRecentlyPausedByCap } returns false
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: process-start emission — no live BLE, only cached profile state.
+            deviceFlow.value = listOf(buildNoLiveBleDevice())
+            advanceUntilIdle()
+
+            // T1: live IRK-matched BLE arrives showing both pods worn. Previous emission
+            // had no live evidence, so the transition must NOT fire autoplay.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now, leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            // T2: another live worn sample. Previous is now live worn — same wear state,
+            // no transition, no action. autoplay still must not fire.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(1500), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - genuine pod insertion after process start fires autoplay normally`() = runTest {
+            // After the no-live-evidence baseline is replaced by a stable live not-worn
+            // state, a real not-worn -> worn transition must still fire autoplay.
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns false
+                every { wasRecentlyPausedByCap } returns false
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: cache-only baseline.
+            deviceFlow.value = listOf(buildNoLiveBleDevice())
+            advanceUntilIdle()
+
+            // T1: live IRK-matched BLE arrives, pods NOT worn.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now, leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            // T2: user inserts pods. Genuine not-worn -> worn transition with both
+            // previous and current carrying live evidence. autoplay fires.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(1500), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - mid-session BLE gap does not fire false reactions on resume`() = runTest {
+            // Existing live evidence -> BLE drops out (NO_LIVE_BLE) -> BLE comes back.
+            // The recovery sample's previous is NO_LIVE_BLE, so no reaction must fire
+            // even if the wear state happens to differ from the synthetic baseline.
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns true
+                every { wasRecentlyPausedByCap } returns false
+                coEvery { sendPause() } returns true
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: stable live worn baseline.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now, leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            // T1: BLE gap — device evicted from live cache, only profile state remains.
+            deviceFlow.value = listOf(buildNoLiveBleDevice())
+            advanceUntilIdle()
+
+            // T2: BLE resumes with worn=true. Previous is NO_LIVE_BLE, so the recovery
+            // sample must not be treated as a fresh transition.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPause() }
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - IRK-matched source fires autoplay on first worn sample without confirmation`() = runTest {
+            // For BLE_IRK_MATCH source, BLE-only autoplay confirmation should be skipped
+            // (mirroring the pause-debounce skip). Otherwise an IRK-matched device with no
+            // live AAP would stage a confirmation that never fires — the 2nd worn sample
+            // has no freshness on the monitor key for IRK_MATCH and gets collapsed.
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns false
+                every { wasRecentlyPausedByCap } returns false
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: not-worn baseline
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now, leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            // T1: pods inserted. With IRK_MATCH source, autoplay must fire immediately
+            // (no waiting for a 2nd sample).
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(1000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - BLE-only autoplay confirmation fires after second worn sample`() = runTest {
+            // Verifies that the freshness field passes a 2nd identical worn sample through
+            // monitor distinct filtering, so applyBleOnlyPlayConfirmation can confirm a
+            // staged play. This is the inverse of the pause-debounce flow test: the same
+            // mechanism that lets repeated not-worn samples advance the pause counter must
+            // also let repeated worn samples confirm a staged BLE-only autoplay.
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns false
+                every { wasRecentlyPausedByCap } returns false
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: not-worn baseline
+            deviceFlow.value = listOf(buildDevice(now, leftWorn = false, rightWorn = false))
+            advanceUntilIdle()
+
+            // T1: pods inserted (transition not-worn -> worn). BLE-only path stages an
+            // autoplay confirmation; sendPlay is suppressed pending a second worn sample.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(1000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            // T2: identical worn sample with a fresher seenLastAt. The freshness field
+            // must let it through monitor distinct filtering so the staged play confirms.
+            deviceFlow.value = listOf(buildDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
 
             job.cancel()
         }
