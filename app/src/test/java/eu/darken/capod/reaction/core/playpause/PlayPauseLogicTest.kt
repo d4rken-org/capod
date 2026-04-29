@@ -1,7 +1,14 @@
 package eu.darken.capod.reaction.core.playpause
 
+import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
+import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.reaction.core.playpause.PlayPause.EarDetectionState
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -967,6 +974,480 @@ class PlayPauseLogicTest : BaseTest() {
             val state = EarDetectionState.fromSinglePod(worn = true)
             state.leftInEar shouldBe null
             state.rightInEar shouldBe null
+        }
+    }
+
+    @Nested
+    inner class PauseDebounceTests {
+
+        private val pauseDecision = PlayPause.PlayPauseDecision(
+            shouldPlay = false,
+            shouldPause = true,
+            reason = "test pause",
+        )
+
+        private val playDecision = PlayPause.PlayPauseDecision(
+            shouldPlay = true,
+            shouldPause = false,
+            reason = "test play",
+        )
+
+        private val noopDecision = PlayPause.PlayPauseDecision(
+            shouldPlay = false,
+            shouldPause = false,
+            reason = "test no-op",
+        )
+
+        @Test
+        fun `AAP source - debounce is skipped`() {
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.AAP,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+            )
+
+            result.decision shouldBe pauseDecision
+            result.pending shouldBe null
+        }
+
+        @Test
+        fun `BLE_IRK_MATCH source - debounce is skipped`() {
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_IRK_MATCH,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+            )
+
+            result.decision shouldBe pauseDecision
+            result.pending shouldBe null
+        }
+
+        @Test
+        fun `NO_LIVE_BLE source - clears existing pending without advancing it`() {
+            // Stale-cache scenario: pending was started by a prior fresh BLE sample, then BLE
+            // dropped (ble == null). The cached state must NOT count as a confirmation.
+            val pending = PlayPause.PendingPauseDebounce(
+                profileId = "profile",
+                initialPodCount = 0,
+                confirmationsRemaining = 1,
+            )
+            val result = playPause.applyPauseDebounce(
+                pending = pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.NO_LIVE_BLE,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+            )
+
+            result.pending shouldBe null
+            result.decision.shouldPause shouldBe false
+            result.event shouldBe PlayPause.PauseDebounceEvent.RESET
+        }
+
+        @Test
+        fun `NO_LIVE_BLE source - suppresses raw shouldPause to prevent stale-cache pause`() {
+            // Without live BLE evidence, a cached worn → not-worn transition could otherwise
+            // fire shouldPause. Verify the helper suppresses that to zero.
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.NO_LIVE_BLE,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+            )
+
+            result.decision.shouldPause shouldBe false
+            result.decision.reason shouldBe "test pause (suppressed: no live BLE evidence)"
+            result.pending shouldBe null
+            result.event shouldBe PlayPause.PauseDebounceEvent.NONE
+        }
+
+        @Test
+        fun `BLE_PROFILE_FALLBACK first not-worn sample is suppressed and pending created`() {
+            val current = EarDetectionState.fromDualPod(false, false)
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+
+            result.decision.shouldPause shouldBe false
+            result.pending shouldNotBe null
+            result.pending!!.profileId shouldBe "profile"
+            result.pending!!.initialPodCount shouldBe 0
+            result.pending!!.confirmationsRemaining shouldBe PlayPause.PAUSE_DEBOUNCE_SAMPLES
+        }
+
+        @Test
+        fun `BLE_PROFILE_FALLBACK three consecutive not-worn samples fires pause on third`() {
+            val current = EarDetectionState.fromDualPod(false, false)
+
+            // Sample 1 — first detection, suppressed, pending created
+            val result1 = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+            result1.decision.shouldPause shouldBe false
+            result1.pending shouldNotBe null
+
+            // Sample 2 — confirmation 1/2, still suppressed (raw is now no-op since not-worn -> not-worn)
+            val result2 = playPause.applyPauseDebounce(
+                pending = result1.pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+            result2.decision.shouldPause shouldBe false
+            result2.pending shouldNotBe null
+            result2.pending!!.confirmationsRemaining shouldBe (PlayPause.PAUSE_DEBOUNCE_SAMPLES - 1)
+
+            // Sample 3 — confirmation 2/2, pause fires
+            val result3 = playPause.applyPauseDebounce(
+                pending = result2.pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+            result3.decision.shouldPause shouldBe true
+            result3.pending shouldBe null
+        }
+
+        @Test
+        fun `BLE_PROFILE_FALLBACK pod returns mid-debounce - pending cleared`() {
+            // First detection: both pods removed
+            val pending = PlayPause.PendingPauseDebounce(
+                profileId = "profile",
+                initialPodCount = 0,
+                confirmationsRemaining = 1,
+            )
+            // Pod returned: count went from 0 -> 1 (worn back)
+            val current = EarDetectionState.fromDualPod(true, false)
+
+            val result = playPause.applyPauseDebounce(
+                pending = pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+
+            result.decision.shouldPause shouldBe false
+            result.pending shouldBe null
+        }
+
+        @Test
+        fun `BLE_PROFILE_FALLBACK raw shouldPlay clears pending`() {
+            val pending = PlayPause.PendingPauseDebounce(
+                profileId = "profile",
+                initialPodCount = 0,
+                confirmationsRemaining = 1,
+            )
+            val current = EarDetectionState.fromDualPod(true, true)
+
+            val result = playPause.applyPauseDebounce(
+                pending = pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = playDecision,
+                currentState = current,
+                autoPauseEnabled = true,
+            )
+
+            result.decision shouldBe playDecision
+            result.pending shouldBe null
+        }
+
+        @Test
+        fun `BLE_ANONYMOUS one-pod mode - both to one to none confirms across decreasing counts`() {
+            // Sample 1: both -> one (initial pause request, podCount=1)
+            val sample1Current = EarDetectionState.fromDualPod(true, false)
+            val result1 = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_ANONYMOUS,
+                rawDecision = pauseDecision,
+                currentState = sample1Current,
+                autoPauseEnabled = true,
+            )
+            result1.decision.shouldPause shouldBe false
+            result1.pending shouldNotBe null
+            result1.pending!!.initialPodCount shouldBe 1
+
+            // Sample 2: one -> none (count=0, still <= initial 1, confirms)
+            val sample2Current = EarDetectionState.fromDualPod(false, false)
+            val result2 = playPause.applyPauseDebounce(
+                pending = result1.pending,
+                profileId = "profile",
+                // In one-pod mode with prev=1 curr=0, evaluateOnePodMode returns shouldPause=true
+                // again — but the helper should still treat this as a confirmation, not restart.
+                source = PlayPause.EarDetectionSource.BLE_ANONYMOUS,
+                rawDecision = pauseDecision,
+                currentState = sample2Current,
+                autoPauseEnabled = true,
+            )
+            result2.decision.shouldPause shouldBe false
+            result2.pending shouldNotBe null
+            result2.pending!!.confirmationsRemaining shouldBe (PlayPause.PAUSE_DEBOUNCE_SAMPLES - 1)
+
+            // Sample 3: still none, final confirmation
+            val result3 = playPause.applyPauseDebounce(
+                pending = result2.pending,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_ANONYMOUS,
+                rawDecision = noopDecision,
+                currentState = sample2Current,
+                autoPauseEnabled = true,
+            )
+            result3.decision.shouldPause shouldBe true
+            result3.pending shouldBe null
+        }
+
+        @Test
+        fun `profile change - pending from different profile is ignored`() {
+            val pending = PlayPause.PendingPauseDebounce(
+                profileId = "old-profile",
+                initialPodCount = 0,
+                confirmationsRemaining = 1,
+            )
+
+            val result = playPause.applyPauseDebounce(
+                pending = pending,
+                profileId = "new-profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+            )
+
+            // Old pending is dropped (different profileId), new pending is started for new profile
+            result.decision.shouldPause shouldBe false
+            result.pending shouldNotBe null
+            result.pending!!.profileId shouldBe "new-profile"
+            result.pending!!.confirmationsRemaining shouldBe PlayPause.PAUSE_DEBOUNCE_SAMPLES
+        }
+
+        @Test
+        fun `autoPause disabled - debounce skipped, raw decision passes through`() {
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = false,
+            )
+
+            result.decision shouldBe pauseDecision
+            result.pending shouldBe null
+        }
+
+        @Test
+        fun `null profileId - debounce skipped`() {
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = null,
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = pauseDecision,
+                currentState = EarDetectionState.fromDualPod(false, false),
+                autoPauseEnabled = true,
+            )
+
+            result.decision shouldBe pauseDecision
+            result.pending shouldBe null
+        }
+
+        @Test
+        fun `no pause request - raw decision passes through unchanged`() {
+            val result = playPause.applyPauseDebounce(
+                pending = null,
+                profileId = "profile",
+                source = PlayPause.EarDetectionSource.BLE_PROFILE_FALLBACK,
+                rawDecision = noopDecision,
+                currentState = EarDetectionState.fromDualPod(true, true),
+                autoPauseEnabled = true,
+            )
+
+            result.decision shouldBe noopDecision
+            result.pending shouldBe null
+        }
+    }
+
+    @Nested
+    inner class ToEarDetectionStateTests {
+
+        @Test
+        fun `AAP EarDetection present - returns aggregate state`() {
+            // With AAP EarDetection saying NOT_IN_EAR for both, the helper should return
+            // not-worn aggregate regardless of any conflicting BLE per-side bits.
+            val ble = mockk<DualApplePods>(relaxed = true) {
+                every { isLeftPodInEar } returns true   // BLE says worn (potentially corrupt)
+                every { isRightPodInEar } returns true
+                every { isBeingWorn } returns true
+                every { isEitherPodInEar } returns true
+            }
+            val aapEarDetection = AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+            )
+            val aap = AapPodState(
+                connectionState = AapPodState.ConnectionState.READY,
+                settings = mapOf(AapSetting.EarDetection::class to aapEarDetection),
+            )
+            val device = PodDevice(
+                profileId = "test",
+                ble = ble,
+                aap = aap,
+            )
+
+            val state = with(playPause) { device.toEarDetectionState() }
+
+            // AAP says not worn → aggregate should be not-worn.
+            state.bothInEar shouldBe false
+            state.podCount shouldBe 0
+        }
+
+        @Test
+        fun `AAP absent - falls back to BLE per-side`() {
+            val ble = mockk<DualApplePods>(relaxed = true) {
+                every { isLeftPodInEar } returns true
+                every { isRightPodInEar } returns false
+                every { isBeingWorn } returns false
+                every { isEitherPodInEar } returns true
+                every { primaryPod } returns DualBlePodSnapshot.Pod.LEFT
+            }
+            val device = PodDevice(
+                profileId = "test",
+                ble = ble,
+                aap = null,
+            )
+
+            val state = with(playPause) { device.toEarDetectionState() }
+
+            // BLE per-side: left=true, right=false → podCount=1
+            state.leftInEar shouldBe true
+            state.rightInEar shouldBe false
+            state.podCount shouldBe 1
+        }
+
+        @Test
+        fun `monitor key freshness field differs across BLE scans for unauthenticated source`() {
+            // Repeated identical not-worn samples must produce distinct monitor keys when
+            // bleKeyState is NONE / profile-fallback, so distinctUntilChangedBy doesn't
+            // collapse them and the debounce counter can advance.
+            val now = java.time.Instant.parse("2026-01-01T00:00:00Z")
+            val ble1 = mockk<DualApplePods>(relaxed = true) {
+                every { meta } returns eu.darken.capod.pods.core.apple.ble.devices.ApplePods.AppleMeta(
+                    isIRKMatch = false,
+                    profile = null,
+                )
+                every { seenLastAt } returns now
+                every { isLeftPodInEar } returns false
+                every { isRightPodInEar } returns false
+                every { isBeingWorn } returns false
+                every { isEitherPodInEar } returns false
+            }
+            val ble2 = mockk<DualApplePods>(relaxed = true) {
+                every { meta } returns eu.darken.capod.pods.core.apple.ble.devices.ApplePods.AppleMeta(
+                    isIRKMatch = false,
+                    profile = null,
+                )
+                every { seenLastAt } returns now.plusMillis(1000)  // 1 second later, identical state
+                every { isLeftPodInEar } returns false
+                every { isRightPodInEar } returns false
+                every { isBeingWorn } returns false
+                every { isEitherPodInEar } returns false
+            }
+            val device1 = PodDevice(profileId = "test", ble = ble1, aap = null)
+            val device2 = PodDevice(profileId = "test", ble = ble2, aap = null)
+
+            val key1 = with(playPause) { device1.toPlayPauseMonitorKey() }
+            val key2 = with(playPause) { device2.toPlayPauseMonitorKey() }
+
+            // Same wear state but different seenLastAt → distinct keys (debounce can advance)
+            (key1 == key2) shouldBe false
+            key1.source shouldBe PlayPause.EarDetectionSource.BLE_ANONYMOUS
+            key2.source shouldBe PlayPause.EarDetectionSource.BLE_ANONYMOUS
+        }
+
+        @Test
+        fun `monitor key freshness field is null for IRK-authenticated source`() {
+            // For IRK_MATCH source, debounceFreshness should be null so that battery-only
+            // updates with identical wear state still collapse via distinctUntilChangedBy.
+            val now = java.time.Instant.parse("2026-01-01T00:00:00Z")
+            val profile = mockk<eu.darken.capod.profiles.core.AppleDeviceProfile>(relaxed = true)
+            val ble = mockk<DualApplePods>(relaxed = true) {
+                every { meta } returns eu.darken.capod.pods.core.apple.ble.devices.ApplePods.AppleMeta(
+                    isIRKMatch = true,
+                    profile = profile,
+                )
+                every { seenLastAt } returns now
+                every { isLeftPodInEar } returns false
+                every { isRightPodInEar } returns false
+                every { isBeingWorn } returns false
+                every { isEitherPodInEar } returns false
+            }
+            val device = PodDevice(profileId = "test", ble = ble, aap = null)
+
+            val key = with(playPause) { device.toPlayPauseMonitorKey() }
+
+            key.source shouldBe PlayPause.EarDetectionSource.BLE_IRK_MATCH
+            key.debounceFreshness shouldBe null
+        }
+
+        @Test
+        fun `AAP EarDetection present and primary pod resolved - aggregate matches per-side`() {
+            // When AAP has both EarDetection AND primary pod resolved, aggregate and per-side
+            // should agree. Verify the helper still returns aggregate (not per-side) since
+            // both are equivalent.
+            val aapEarDetection = AapSetting.EarDetection(
+                primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+            )
+            val aapPrimary = AapSetting.PrimaryPod(pod = AapSetting.PrimaryPod.Pod.LEFT)
+            val aap = AapPodState(
+                connectionState = AapPodState.ConnectionState.READY,
+                settings = mapOf(
+                    AapSetting.EarDetection::class to aapEarDetection,
+                    AapSetting.PrimaryPod::class to aapPrimary,
+                ),
+            )
+            val ble = mockk<DualApplePods>(relaxed = true) {
+                every { isLeftPodInEar } returns true
+                every { isRightPodInEar } returns true
+                every { isBeingWorn } returns true
+                every { isEitherPodInEar } returns true
+                every { primaryPod } returns DualBlePodSnapshot.Pod.LEFT
+            }
+            val device = PodDevice(
+                profileId = "test",
+                ble = ble,
+                aap = aap,
+            )
+
+            val state = with(playPause) { device.toEarDetectionState() }
+
+            state.bothInEar shouldBe true
+            state.podCount shouldBe 2
         }
     }
 }
