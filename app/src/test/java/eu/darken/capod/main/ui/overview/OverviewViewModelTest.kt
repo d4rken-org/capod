@@ -58,9 +58,11 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
     private lateinit var isBluetoothEnabledFlow: MutableStateFlow<Boolean>
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
+    private lateinit var hadLegacyReactionDataFlow: MutableStateFlow<Boolean>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
     private lateinit var fakeMonitorMode: FakeDataStoreValue<MonitorMode>
     private lateinit var fakeDebugMode: FakeDataStoreValue<Boolean>
+    private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
 
     @BeforeEach
     fun setup() {
@@ -71,9 +73,11 @@ class OverviewViewModelTest : BaseTest() {
         connectedDevicesFlow = MutableStateFlow(emptyList())
         isBluetoothEnabledFlow = MutableStateFlow(true)
         profilesFlow = MutableStateFlow(emptyList())
+        hadLegacyReactionDataFlow = MutableStateFlow(false)
         upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true))
         fakeMonitorMode = FakeDataStoreValue(MonitorMode.AUTOMATIC)
         fakeDebugMode = FakeDataStoreValue(false)
+        fakeReactionsHintDismissed = FakeDataStoreValue(false)
 
         monitorControl = mockk(relaxed = true)
 
@@ -90,6 +94,7 @@ class OverviewViewModelTest : BaseTest() {
 
         generalSettings = mockk<GeneralSettings>().also {
             every { it.monitorMode } returns fakeMonitorMode.mock
+            every { it.reactionsHintDismissed } returns fakeReactionsHintDismissed.mock
         }
 
         debugSettings = mockk<DebugSettings>().also {
@@ -107,6 +112,7 @@ class OverviewViewModelTest : BaseTest() {
 
         profilesRepo = mockk<DeviceProfilesRepo>().also {
             every { it.profiles } returns profilesFlow
+            every { it.hadLegacyReactionData } returns hadLegacyReactionDataFlow
         }
     }
 

@@ -59,6 +59,7 @@ import eu.darken.capod.main.ui.overview.cards.DualPodsCard
 import eu.darken.capod.main.ui.overview.cards.MonitoringActiveCard
 import eu.darken.capod.main.ui.overview.cards.NoProfilesCard
 import eu.darken.capod.main.ui.overview.cards.PermissionCard
+import eu.darken.capod.main.ui.overview.cards.ReactionsMovedHintCard
 import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
@@ -174,7 +175,10 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         onUpgrade = { vm.onUpgrade() },
         onToggleUnmatched = { vm.toggleUnmatchedDevices() },
         onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
-        onDeviceSettings = { device -> vm.goToDeviceSettings(device) },
+        onDeviceSettings = { device ->
+            if (currentState.showReactionsHint) vm.dismissReactionsHint()
+            vm.goToDeviceSettings(device)
+        },
         onEditProfile = { device -> vm.goToEditProfile(device) },
         onToggleDeviceExpansion = { device ->
             device.profileId?.let { vm.toggleDeviceExpansion(it) }
@@ -302,6 +306,12 @@ fun OverviewScreen(
 
             // 4. Profiled device cards (limited to 1 for free users)
             if (!state.isScanBlocked && state.isBluetoothEnabled) {
+                if (state.showReactionsHint && state.visibleProfiledDevices.isNotEmpty()) {
+                    item(key = "reactions_hint") {
+                        ReactionsMovedHintCard()
+                    }
+                }
+
                 val duplicateProfileIds = state.visibleProfiledDevices
                     .mapNotNull { it.profileId }
                     .groupingBy { it }
@@ -436,6 +446,7 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             ),
             upgradeInfo = MockPodDataProvider.fossInfo(),
             showUnmatchedDevices = false,
+            showReactionsHint = true,
         ),
         onRequestPermission = {},
         onBluetoothSettings = {},

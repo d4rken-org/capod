@@ -29,8 +29,8 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -168,7 +168,7 @@ fun DualPodsCard(
                 }
 
                 if (device.profileId != null && onDeviceSettings != null) {
-                    IconButton(onClick = onDeviceSettings) {
+                    OutlinedIconButton(onClick = onDeviceSettings) {
                         Icon(
                             imageVector = Icons.TwoTone.Tune,
                             contentDescription = stringResource(R.string.device_settings_open_cd),

@@ -4,6 +4,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
+import eu.darken.capod.common.datastore.value
 import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
@@ -130,7 +131,9 @@ class OverviewViewModel @Inject constructor(
         upgradeRepo.upgradeInfo,
         showUnmatchedDevices,
         userExpansionOverrides,
-    ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds ->
+        generalSettings.reactionsHintDismissed.flow,
+        profilesRepo.hadLegacyReactionData,
+    ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds, reactionsHintDismissed, hadLegacyReactionData ->
         // Prune stale overrides (profiles that no longer exist)
         val currentProfileIds = profiles.map { it.id }.toSet()
         val prunedExpandedIds = expandedIds.filter { it in currentProfileIds }.toSet()
@@ -145,6 +148,7 @@ class OverviewViewModel @Inject constructor(
             upgradeInfo = upgradeInfo,
             showUnmatchedDevices = showUnmatched,
             userExpandedIds = prunedExpandedIds,
+            showReactionsHint = hadLegacyReactionData && !reactionsHintDismissed,
         )
     }.asLiveState()
 
@@ -160,6 +164,7 @@ class OverviewViewModel @Inject constructor(
         val upgradeInfo: UpgradeRepo.Info,
         val showUnmatchedDevices: Boolean,
         val userExpandedIds: Set<String> = emptySet(),
+        val showReactionsHint: Boolean = false,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
 
@@ -249,6 +254,13 @@ class OverviewViewModel @Inject constructor(
         log(TAG, INFO) { "toggleDeviceExpansion(profileId=$profileId)" }
         userExpansionOverrides.value = userExpansionOverrides.value.let { current ->
             if (profileId in current) current - profileId else current + profileId
+        }
+    }
+
+    fun dismissReactionsHint() {
+        log(TAG, INFO) { "dismissReactionsHint()" }
+        launch {
+            generalSettings.reactionsHintDismissed.value(true)
         }
     }
 

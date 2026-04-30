@@ -65,6 +65,30 @@ class DeviceProfilesRepo @Inject constructor(
             if (!settings.reactionMigrationDone.valueBlocking) {
                 migrateLegacyReactions()
             }
+
+            detectLegacyReactionData()
+        }
+    }
+
+    /**
+     * Detects whether this install ever wrote to the pre-migration global reaction DataStore.
+     * The legacy reader is a read-only probe; the legacy keys persist on old installs even
+     * after [migrateLegacyReactions] has run, so this check works retroactively for users who
+     * already migrated. Used by the Overview hint to target only existing users who actually
+     * configured reactions before the per-device move.
+     */
+    private suspend fun detectLegacyReactionData() {
+        val hadData = try {
+            val legacy = LegacyReactionSettingsReader(context, json).read()
+            legacy.autoPause || legacy.autoPlay || legacy.autoConnect ||
+                legacy.showPopUpOnCaseOpen || legacy.showPopUpOnConnection ||
+                legacy.onePodMode
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to detect legacy reaction data: ${e.message}" }
+            false
+        }
+        if (hadData != settings.hadLegacyReactionData.valueBlocking) {
+            settings.hadLegacyReactionData.valueBlocking = hadData
         }
     }
 
@@ -105,6 +129,8 @@ class DeviceProfilesRepo @Inject constructor(
     }
 
     val profiles: Flow<List<DeviceProfile>> = settings.profiles.flow.map { it.profiles }
+
+    val hadLegacyReactionData: Flow<Boolean> = settings.hadLegacyReactionData.flow
 
     suspend fun addProfile(profile: DeviceProfile, addFirst: Boolean = false) = mutex.withLock {
         val currentContainer = settings.profiles.valueBlocking
