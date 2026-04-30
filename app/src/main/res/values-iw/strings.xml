@@ -475,6 +475,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">לחיצה כפולה לסיום שיחה</string>
     <string name="device_settings_open_cd">פתח הגדרות מכשיר</string>
     <string name="overview_card_missing_paired_device">לפרופיל זה אין התקן Bluetooth מקושר.</string>
+    <string name="overview_reactions_hint_title">התגובות הן לפי מכשיר</string>
+    <string name="overview_reactions_hint_body">הפעלה אוטומטית, השהייה אוטומטית וחלונות קופצים מוגדרים כעת לפי מכשיר. הקש על סמל ההגדרות בכרטיס כאשר האוזניות שלך מחוברות.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">כללי</string>
     <string name="device_settings_microphone_mode_label">מיקרופון</string>

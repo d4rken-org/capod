@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Premere due volte per terminare la chiamata</string>
     <string name="device_settings_open_cd">Apri impostazioni dispositivo</string>
     <string name="overview_card_missing_paired_device">Questo profilo non ha nessun dispositivo Bluetooth associato.</string>
+    <string name="overview_reactions_hint_title">Le reazioni sono per dispositivo</string>
+    <string name="overview_reactions_hint_body">Riproduzione automatica, pausa automatica e pop-up sono ora configurati per dispositivo. Tocca l\'icona delle impostazioni su una scheda mentre le cuffie sono collegate.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfono</string>

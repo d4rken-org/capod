@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Prema dúas veces para finalizar a chamada</string>
     <string name="device_settings_open_cd">Abrir a configuración do dispositivo</string>
     <string name="overview_card_missing_paired_device">Este perfil non ten ningún dispositivo Bluetooth emparellado.</string>
+    <string name="overview_reactions_hint_title">As reaccións son por dispositivo</string>
+    <string name="overview_reactions_hint_body">A reprodución automática, a pausa automática e as ventás emerxentes agora configúranse por dispositivo. Toca a icona de axustes nunha tarxeta mentres os teus auriculares estean conectados.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Xeral</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>

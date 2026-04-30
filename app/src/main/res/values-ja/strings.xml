@@ -460,6 +460,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ダブルプレスで通話を終了</string>
     <string name="device_settings_open_cd">デバイス設定を開く</string>
     <string name="overview_card_missing_paired_device">このプロファイルにはペアリングされたBluetoothデバイスがありません。</string>
+    <string name="overview_reactions_hint_title">リアクションはデバイスごとに設定されます</string>
+    <string name="overview_reactions_hint_body">自動再生、自動一時停止、ポップアップはデバイスごとに設定できるようになりました。ヘッドフォンを接続した状態でカードの設定アイコンをタップしてください。</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">マイク</string>

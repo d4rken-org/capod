@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Qo\'ng\'iroqni tugatish uchun ikki marta bosing</string>
     <string name="device_settings_open_cd">Qurilma sozlamalarini ochish</string>
     <string name="overview_card_missing_paired_device">Bu profilga ulangan Bluetooth qurilmasi yo\'q.</string>
+    <string name="overview_reactions_hint_title">Reaktsiyalar har bir qurilma uchun</string>
+    <string name="overview_reactions_hint_body">Avtomatik ijro, avtomatik to\'xtatish va qalqib chiquvchi oynalar endi har bir qurilma uchun alohida sozlanadi. Quloqchinlaringiz ulanganda kartadagi sozlamalar belgisiga bosing.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umumiy</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

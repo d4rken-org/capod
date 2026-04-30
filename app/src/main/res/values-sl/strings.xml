@@ -475,6 +475,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojni pritisk za končanje klica</string>
     <string name="device_settings_open_cd">Odpri nastavitve naprave</string>
     <string name="overview_card_missing_paired_device">Ta profil nima sparene naprave Bluetooth.</string>
+    <string name="overview_reactions_hint_title">Reakcije so nastavljene po napravi</string>
+    <string name="overview_reactions_hint_body">Samodejno predvajanje, samodejni premor in pojavna okna so zdaj nastavljena za vsako napravo posebej. Tapnite ikono nastavitev na kartici, medtem ko so slušalke povezane.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Splošno</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

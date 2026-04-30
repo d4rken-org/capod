@@ -475,6 +475,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Подвійне натискання для завершення дзвінка</string>
     <string name="device_settings_open_cd">Відкрити налаштування пристрою</string>
     <string name="overview_card_missing_paired_device">До цього профілю не підключено жодного Bluetooth-пристрою.</string>
+    <string name="overview_reactions_hint_title">Реакції налаштовуються окремо для кожного пристрою</string>
+    <string name="overview_reactions_hint_body">Автовідтворення, автопауза та спливаючі вікна тепер налаштовуються окремо для кожного пристрою. Торкніться значка налаштувань на картці, поки підключені навушники.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Загальні</string>
     <string name="device_settings_microphone_mode_label">Мікрофон</string>

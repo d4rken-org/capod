@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">کال ختم کرنے کے لیے دو بار دبائیں</string>
     <string name="device_settings_open_cd">ڈیوائس کی ترتیبات کھولیں</string>
     <string name="overview_card_missing_paired_device">اس پروفائل میں کوئی جوڑا بلوٹوتھ ڈیوائس نہیں ہے۔</string>
+    <string name="overview_reactions_hint_title">ردعمل فی آلہ ہیں</string>
+    <string name="overview_reactions_hint_body">آٹو پلے، آٹو پاز اور پاپ اپس کو اب ہر آلے کے لیے الگ سے ترتیب دیا گیا ہے۔ اپنے ہیڈفون کو منسلک رکھتے ہوئے کسی کارڈ پر سیٹنگز کا آئیکن تھپتھپائیں۔</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>

@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">కాల్ ముగించడానికి రెండుసార్లు నొక్కండి</string>
     <string name="device_settings_open_cd">పరికర సెట్టింగ్‌లు తెరవండి</string>
     <string name="overview_card_missing_paired_device">ఈ ప్రొఫైల్‌కు పెయిర్ చేయబడిన Bluetooth పరికరం లేదు.</string>
+    <string name="overview_reactions_hint_title">రియాక్షన్లు పరికరానికి నిర్దిష్టంగా ఉంటాయి</string>
+    <string name="overview_reactions_hint_body">ఆటో-ప్లే, ఆటో-పాజ్ మరియు పాప్-అప్‌లు ఇప్పుడు పరికరానికి నిర్దిష్టంగా కాన్ఫిగర్ చేయబడ్డాయి. మీ హెడ్‌ఫోన్‌లు కనెక్ట్ అయి ఉన్నప్పుడు కార్డ్‌పై సెట్టింగ్‌ల చిహ్నాన్ని నొక్కండి.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">సాధారణ</string>
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>

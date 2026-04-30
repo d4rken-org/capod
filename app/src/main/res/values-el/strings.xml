@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Διπλή πίεση για τερματισμό κλήσης</string>
     <string name="device_settings_open_cd">Άνοιγμα ρυθμίσεων συσκευής</string>
     <string name="overview_card_missing_paired_device">Αυτό το προφίλ δεν έχει συζευγμένη συσκευή Bluetooth.</string>
+    <string name="overview_reactions_hint_title">Οι αντιδράσεις είναι ανά συσκευή</string>
+    <string name="overview_reactions_hint_body">Η αυτόματη αναπαραγωγή, η αυτόματη παύση και τα αναδυόμενα παράθυρα διαμορφώνονται πλέον ανά συσκευή. Πατήστε το εικονίδιο ρυθμίσεων σε μια κάρτα ενώ τα ακουστικά σας είναι συνδεδεμένα.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Γενικά</string>
     <string name="device_settings_microphone_mode_label">Μικρόφωνο</string>

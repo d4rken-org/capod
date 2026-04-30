@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Zweimaliges Drücken zum Beenden des Anrufs</string>
     <string name="device_settings_open_cd">Geräteeinstellungen öffnen</string>
     <string name="overview_card_missing_paired_device">Dieses Profil hat kein gekoppeltes Bluetooth-Gerät.</string>
+    <string name="overview_reactions_hint_title">Reaktionen sind gerätespezifisch</string>
+    <string name="overview_reactions_hint_body">Auto-Play, Auto-Pause und Pop-ups werden jetzt pro Gerät konfiguriert. Tippe auf das Einstellungssymbol einer Karte, während deine Kopfhörer verbunden sind.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allgemein</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

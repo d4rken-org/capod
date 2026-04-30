@@ -434,7 +434,7 @@ AL_Cool_T</string>
     <string name="device_settings_not_connected_connect_action">Подключить</string>
     <string name="device_settings_not_connected_open_settings_action">Открыть настройки Bluetooth</string>
     <string name="device_settings_not_nearby_label">Устройство не рядом</string>
-    <string name="device_settings_not_nearby_description">Настройки доступны только когда это устройство находится рядом и подключено к вашему телефону.</string>
+    <string name="device_settings_not_nearby_description">Настройки доступны только когда это устройство находится рядом и подключено к Вашему телефону.</string>
     <string name="device_settings_aap_unavailable_label">Расширенные настройки недоступны</string>
     <string name="device_settings_aap_unavailable_description">Расширенные настройки AirPods требуют функцию Bluetooth, недоступную на этом телефоне. Это может быть исправлено в будущем обновлении Android от производителя устройства.</string>
     <string name="device_settings_aap_unavailable_action">Просмотр трекера совместимости</string>
@@ -476,6 +476,8 @@ AL_Cool_T</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двойное нажатие для завершения звонка</string>
     <string name="device_settings_open_cd">Открыть настройки устройства</string>
     <string name="overview_card_missing_paired_device">В этом профиле нет сопряженных устройств Bluetooth.</string>
+    <string name="overview_reactions_hint_title">Реакции настраиваются для каждого устройства</string>
+    <string name="overview_reactions_hint_body">Автовоспроизведение, автопауза и всплывающие окна теперь настраиваются для каждого устройства. Нажмите значок настроек на карточке, пока наушники подключены.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общее</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
@@ -500,7 +502,7 @@ AL_Cool_T</string>
     <string name="device_settings_sleep_detection_description">Автоматическая пауза звука, когда Вы засыпаете</string>
     <string name="reaction_sleep_channel_label">Определение сна</string>
     <string name="reaction_sleep_notification_title">Приостановлено функцией обнаружения сна</string>
-    <string name="reaction_sleep_notification_text">%1$s обнаружил, что вы уснули, поэтому музыка была приостановлена. Вы можете отключить это в настройках устройства.</string>
+    <string name="reaction_sleep_notification_text">%1$s сообщает, что Вы уснули, поэтому музыка была приостановлена. Вы можете отключить это в настройках устройства.</string>
     <string name="device_settings_rename_label">Переименовать</string>
     <string name="device_settings_rename_hint">Имя устройства</string>
     <string name="device_settings_rename_confirm">Переименовать</string>
@@ -512,7 +514,7 @@ AL_Cool_T</string>
     <string name="device_settings_anc_off_rejected_message">Режим «Отключено» не включён на этом устройстве. Включите «Разрешить режим Отключено» в разделе Управление шумом.</string>
     <string name="device_settings_category_battery_label">Батарея</string>
     <string name="device_settings_charge_cap_label">Оптимизированный лимит заряда</string>
-    <string name="device_settings_charge_cap_description">Изучает ваш распорядок и приостанавливает зарядку около 80%%, чтобы продлить срок службы аккумулятора, дозаряжая наушники перед тем, как вы будете ими пользоваться.</string>
+    <string name="device_settings_charge_cap_description">Изучает Ваш распорядок и приостанавливает зарядку около 80%%, чтобы продлить срок службы аккумулятора, дозаряжая наушники перед тем, как Вы будете ими пользоваться.</string>
     <string name="device_settings_charge_cap_rejected_message">Не удалось изменить оптимизированный лимит заряда. Это экспериментальная функция — пожалуйста, сообщите об ошибке, если это повторится.</string>
     <string name="device_settings_category_connections_label">Подключённые устройства</string>
     <string name="device_settings_connected_devices_description">Другие устройства, подключённые к этим AirPods</string>

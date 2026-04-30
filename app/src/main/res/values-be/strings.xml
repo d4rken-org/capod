@@ -475,6 +475,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двайны націск для завяршэння выкліку</string>
     <string name="device_settings_open_cd">Адкрыць налады прылады</string>
     <string name="overview_card_missing_paired_device">З гэтым профілем не сапалучана прылада Bluetooth.</string>
+    <string name="overview_reactions_hint_title">Рэакцыі ўстаноўлены для кожнай прылады</string>
+    <string name="overview_reactions_hint_body">Аўтаўзнаўленне, аўтапаўза і ўсплывальныя вокны цяпер наладжваюцца для кожнай прылады. Націсніце значок налад на картцы, пакуль вашы навушнікі падключаны.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Агульныя</string>
     <string name="device_settings_microphone_mode_label">Мікрафон</string>

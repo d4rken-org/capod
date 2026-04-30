@@ -470,6 +470,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двоструко притисак за завршавање позива</string>
     <string name="device_settings_open_cd">Отворите подешавања уређаја</string>
     <string name="overview_card_missing_paired_device">Овај профил нема упарен Bluetooth уређај.</string>
+    <string name="overview_reactions_hint_title">Реакције су по уређају</string>
+    <string name="overview_reactions_hint_body">Аутоматско пуштање, аутоматска пауза и искачући прозори сада се подешавају по уређају. Додирните икону подешавања на картици док су ваше слушалице повезане.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Oпште</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Pressionar duas vezes para encerrar a chamada</string>
     <string name="device_settings_open_cd">Abrir configurações do dispositivo</string>
     <string name="overview_card_missing_paired_device">Este perfil não tem nenhum dispositivo Bluetooth pareado.</string>
+    <string name="overview_reactions_hint_title">As reações são por dispositivo</string>
+    <string name="overview_reactions_hint_body">Reprodução automática, pausa automática e pop-ups agora são configurados por dispositivo. Toque no ícone de configurações em um cartão enquanto seus fones de ouvido estiverem conectados.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gerais</string>
     <string name="device_settings_microphone_mode_label">Microfone</string>

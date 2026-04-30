@@ -475,6 +475,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvojité stlačenie na ukončenie hovoru</string>
     <string name="device_settings_open_cd">Otvoriť nastavenia zariadenia</string>
     <string name="overview_card_missing_paired_device">Tento profil nemá spárované Bluetooth zariadenie.</string>
+    <string name="overview_reactions_hint_title">Reakcie sú nastavené pre každé zariadenie</string>
+    <string name="overview_reactions_hint_body">Automatické prehrávanie, automatické pozastavenie a kontextové okná sú teraz nakonfigurované pre každé zariadenie. Klepnite na ikonu nastavení na karte, keď sú vaše slúchadlá pripojené.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Všeobecné</string>
     <string name="device_settings_microphone_mode_label">Mikrofón</string>

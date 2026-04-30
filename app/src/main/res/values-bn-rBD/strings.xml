@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">কল শেষ করতে দুবার চাপুন</string>
     <string name="device_settings_open_cd">ডিভাইস সেটিংস খুলুন</string>
     <string name="overview_card_missing_paired_device">এই প্রোফাইলে কোনো পেয়ার করা ব্লুটুথ ডিভাইস নেই।</string>
+    <string name="overview_reactions_hint_title">প্রতিক্রিয়াগুলি প্রতিটি ডিভাইসের জন্য আলাদা</string>
+    <string name="overview_reactions_hint_body">অটো-প্লে, অটো-পজ এবং পপ-আপগুলি এখন প্রতিটি ডিভাইসের জন্য আলাদাভাবে কনফিগার করা হয়েছে। আপনার হেডফোন সংযুক্ত থাকাকালীন একটি কার্ডে সেটিংস আইকনে ট্যাপ করুন।</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">সাধারণ</string>
     <string name="device_settings_microphone_mode_label">মাইক্রোফোন</string>

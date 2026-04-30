@@ -460,6 +460,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ກດສອງຄັ້ງເພື່ອວາງສາຍການເຈຮາ</string>
     <string name="device_settings_open_cd">ເປີດການຕັ້ງຄ່າອຸປະກອນ</string>
     <string name="overview_card_missing_paired_device">ໂປຣໄຟລ໌ນີ້ບໍ່ມີອຸປະກອນ Bluetooth ທີ່ຈັບຄູ່ໄວ້.</string>
+    <string name="overview_reactions_hint_title">ການຕອບສະໜອງແມ່ນຕໍ່ອຸປະກອນ</string>
+    <string name="overview_reactions_hint_body">ການຫຼິ້ນອັດຕະໂນມັດ, ການຢຸດອັດຕະໂນມັດ ແລະປ໊ອບອັບໄດ້ຖືກຕັ້ງຄ່າຕໍ່ອຸປະກອນແລ້ວ. ແຕະໄອຄອນການຕັ້ງຄ່າໃນບັດຂະນະທີ່ຫູຟັງຂອງທ່ານເຊື່ອມຕໍ່ຢູ່.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ທົ່ວໄປ</string>
     <string name="device_settings_microphone_mode_label">ໄມໂຄຣໂຟນ</string>

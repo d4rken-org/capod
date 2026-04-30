@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kahe vajutusega lõpeta kõne</string>
     <string name="device_settings_open_cd">Ava seadme seaded</string>
     <string name="overview_card_missing_paired_device">Sellel profiilil puudub seotud Bluetoothi seade.</string>
+    <string name="overview_reactions_hint_title">Reaktsioonid on seadmepõhised</string>
+    <string name="overview_reactions_hint_body">Automaatne esitus, automaatne paus ja hüpikaknad on nüüd seadmepõhiselt seadistatud. Puudutage kaardi seadete ikooni, kui kõrvaklapid on ühendatud.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Üldine</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

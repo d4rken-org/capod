@@ -460,6 +460,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">雙擊結束通話</string>
     <string name="device_settings_open_cd">開啟裝置設定</string>
     <string name="overview_card_missing_paired_device">此設定檔沒有已配對的藍牙裝置。</string>
+    <string name="overview_reactions_hint_title">反應功能因裝置而異</string>
+    <string name="overview_reactions_hint_body">自動播放、自動暫停及彈出視窗現在可以為每部裝置分別設定。在耳機連接時，輕按卡片上的設定圖示即可。</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">麥克風</string>

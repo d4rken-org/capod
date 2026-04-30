@@ -470,6 +470,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dublă apăsare pentru a încheia apelul</string>
     <string name="device_settings_open_cd">Deschide setările dispozitivului</string>
     <string name="overview_card_missing_paired_device">Acest profil nu are niciun dispozitiv Bluetooth asociat.</string>
+    <string name="overview_reactions_hint_title">Reacțiile sunt per dispozitiv</string>
+    <string name="overview_reactions_hint_body">Redarea automată, pauza automată și ferestrele pop-up sunt acum configurate per dispozitiv. Apasă pictograma de setări de pe un card în timp ce căștile tale sunt conectate.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>

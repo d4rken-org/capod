@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Чалууну аяктоо үчүн эки жолу басыңыз</string>
     <string name="device_settings_open_cd">Түзмөк жөндөөлөрүн ачуу</string>
     <string name="overview_card_missing_paired_device">Бул профилде жупталган Bluetooth түзмөгү жок.</string>
+    <string name="overview_reactions_hint_title">Реакциялар ар бир түзмөк үчүн жеке</string>
+    <string name="overview_reactions_hint_body">Авто-ойноо, авто-тындыруу жана калкып чыгуучу терезелер азыр ар бир түзмөк үчүн жеке конфигурацияланган. Каргоочуларыңыз туташып турганда картадагы жөндөөлөр сүрөтчөсүнө тийиңиз.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Жалпы</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
