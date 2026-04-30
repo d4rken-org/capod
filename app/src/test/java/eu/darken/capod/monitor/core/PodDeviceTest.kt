@@ -835,10 +835,10 @@ class PodDeviceTest : BaseTest() {
         device.rssiQuality shouldBe 1.0f
     }
 
-    // --- AAP aggregate ear detection (null per-side) tests ---
+    // --- AAP aggregate ear detection tests ---
 
     @Test
-    fun `isLeftInEar null when AAP ear detection present but no primaryPod and no BLE`() {
+    fun `per-side in-ear null when AAP ear detection is mixed but no primaryPod and no BLE`() {
         val aap = AapPodState(
             connectionState = AapPodState.ConnectionState.READY,
             settings = mapOf(
@@ -852,6 +852,35 @@ class PodDeviceTest : BaseTest() {
         // Per-side is null because resolvedPrimaryPod is null (no AAP PrimaryPod, no BLE)
         device.isLeftInEar.shouldBeNull()
         device.isRightInEar.shouldBeNull()
+    }
+
+    @Test
+    fun `per-side in-ear resolves when AAP placements match but no primaryPod and no BLE`() {
+        val aapBothIn = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+            ),
+        )
+        val deviceBothIn = PodDevice(profileId = "p1", ble = null, aap = aapBothIn, profileModel = PodModel.AIRPODS_PRO3)
+        deviceBothIn.isLeftInEar shouldBe true
+        deviceBothIn.isRightInEar shouldBe true
+
+        val aapBothOut = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR,
+                ),
+            ),
+        )
+        val deviceBothOut = PodDevice(profileId = "p1", ble = null, aap = aapBothOut, profileModel = PodModel.AIRPODS_PRO3)
+        deviceBothOut.isLeftInEar shouldBe false
+        deviceBothOut.isRightInEar shouldBe false
     }
 
     @Test

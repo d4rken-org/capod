@@ -5,7 +5,6 @@ import androidx.annotation.Keep
 import androidx.glance.GlanceId
 import androidx.glance.action.ActionParameters
 import androidx.glance.appwidget.action.ActionCallback
-import androidx.glance.appwidget.updateAll
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
@@ -30,6 +29,7 @@ class AncModeActionCallback : ActionCallback {
         fun aapConnectionManager(): AapConnectionManager
         fun widgetSettings(): WidgetSettings
         fun deviceMonitor(): DeviceMonitor
+        fun widgetManager(): WidgetManager
     }
 
     override suspend fun onAction(context: Context, glanceId: GlanceId, parameters: ActionParameters) {
@@ -62,14 +62,14 @@ class AncModeActionCallback : ActionCallback {
         val device = ep.deviceMonitor().getDeviceForProfile(profileId)
         if (device == null) {
             log(TAG, ERROR) { "onAction: no device for profileId=$profileId" }
-            AncGlanceWidget().updateAll(context)
+            ep.widgetManager().refreshWidgets()
             return
         }
 
         val address = device.address
         if (address == null) {
             log(TAG, ERROR) { "onAction: device has no address" }
-            AncGlanceWidget().updateAll(context)
+            ep.widgetManager().refreshWidgets()
             return
         }
 
@@ -80,7 +80,7 @@ class AncModeActionCallback : ActionCallback {
             log(TAG, ERROR) { "onAction: sendCommand failed: ${e.asLog()}" }
         }
 
-        AncGlanceWidget().updateAll(context)
+        ep.widgetManager().refreshWidgets()
     }
 
     companion object {

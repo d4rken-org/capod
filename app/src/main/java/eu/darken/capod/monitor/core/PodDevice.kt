@@ -205,18 +205,27 @@ data class PodDevice(
             }
         } ?: (ble as? DualApplePods)?.primaryPod
 
+    private fun AapSetting.EarDetection.PodPlacement.isInEar(): Boolean =
+        this == AapSetting.EarDetection.PodPlacement.IN_EAR
+
+    private fun AapSetting.EarDetection.samePlacementInEarOrNull(): Boolean? =
+        if (primaryPod == secondaryPod) primaryPod.isInEar() else null
+
     // Ear detection — AAP preferred (lower latency), BLE fallback.
     // AAP reports primary/secondary; resolvedPrimaryPod tells us which physical pod is primary.
     val isLeftInEar: Boolean?
         get() {
             val earDetection = aap?.aapEarDetection
             val primary = resolvedPrimaryPod
-            if (earDetection != null && primary != null) {
-                return if (primary == DualBlePodSnapshot.Pod.LEFT) {
-                    earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
-                } else {
-                    earDetection.secondaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+            if (earDetection != null) {
+                if (primary != null) {
+                    return if (primary == DualBlePodSnapshot.Pod.LEFT) {
+                        earDetection.primaryPod.isInEar()
+                    } else {
+                        earDetection.secondaryPod.isInEar()
+                    }
                 }
+                earDetection.samePlacementInEarOrNull()?.let { return it }
             }
             return (ble as? HasEarDetectionDual)?.isLeftPodInEar
         }
@@ -225,12 +234,15 @@ data class PodDevice(
         get() {
             val earDetection = aap?.aapEarDetection
             val primary = resolvedPrimaryPod
-            if (earDetection != null && primary != null) {
-                return if (primary == DualBlePodSnapshot.Pod.RIGHT) {
-                    earDetection.primaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
-                } else {
-                    earDetection.secondaryPod == AapSetting.EarDetection.PodPlacement.IN_EAR
+            if (earDetection != null) {
+                if (primary != null) {
+                    return if (primary == DualBlePodSnapshot.Pod.RIGHT) {
+                        earDetection.primaryPod.isInEar()
+                    } else {
+                        earDetection.secondaryPod.isInEar()
+                    }
                 }
+                earDetection.samePlacementInEarOrNull()?.let { return it }
             }
             return (ble as? HasEarDetectionDual)?.isRightPodInEar
         }

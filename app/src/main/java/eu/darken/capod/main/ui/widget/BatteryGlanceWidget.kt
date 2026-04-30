@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.annotation.Keep
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.glance.GlanceId
 import androidx.glance.LocalSize
 import androidx.glance.appwidget.GlanceAppWidget
@@ -23,8 +24,9 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.monitor.core.DeviceMonitor
-import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 
 class BatteryGlanceWidget : GlanceAppWidget() {
 
@@ -43,21 +45,15 @@ class BatteryGlanceWidget : GlanceAppWidget() {
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val ep: WidgetEntryPoint
         val appWidgetId: Int
-        val initialIsPro: Boolean
-        val initialProfileId: String?
-        val cachedDevice: PodDevice?
 
         try {
             ep = EntryPointAccessors.fromApplication(context, WidgetEntryPoint::class.java)
             appWidgetId = GlanceAppWidgetManager(context).getAppWidgetId(id)
             log(TAG, VERBOSE) { "provideGlance(appWidgetId=$appWidgetId)" }
-            initialIsPro = ep.upgradeRepo().isPro()
             ep.widgetSettings().migrateLegacyConfigIfNeeded(
                 appWidgetId,
                 AppWidgetManager.getInstance(context).getAppWidgetOptions(appWidgetId),
             )
-            initialProfileId = ep.widgetSettings().getWidgetConfig(appWidgetId).profileId
-            cachedDevice = initialProfileId?.let { ep.deviceMonitor().getDeviceForProfile(it) }
         } catch (e: Exception) {
             log(TAG, ERROR) { "provideGlance setup failed: ${e.asLog()}" }
             provideContent {
@@ -78,38 +74,51 @@ class BatteryGlanceWidget : GlanceAppWidget() {
         }
 
         provideContent {
-            // Composable reads — must be outside try-catch
-            val devices by ep.deviceMonitor().devices.collectAsState(initial = emptyList())
-            val profiles by ep.deviceProfilesRepo().profiles.collectAsState(initial = emptyList())
-            val upgradeInfo by ep.upgradeRepo().upgradeInfo.collectAsState(initial = null)
             val widthDp = LocalSize.current.width
             val layout = BatteryLayout.forCells(getCellsForSize(widthDp.value.toInt()))
 
-            val state = try {
-                val config = ep.widgetSettings().getWidgetConfig(appWidgetId)
-                val profileId = config.profileId
-                val theme = config.theme
+            // Glance keeps the content session alive and does not restart provideGlance()
+            // for every update(). Observe a widget-key-deduped device flow so visible state
+            // changes update active sessions without recomposing on every BLE advertisement.
+            val config = runCatching { ep.widgetSettings().getWidgetConfig(appWidgetId) }
+                .onFailure { e -> log(TAG, ERROR) { "getWidgetConfig failed: ${e.asLog()}" } }
+                .getOrNull()
 
-                val isPro = upgradeInfo?.isPro ?: initialIsPro
-
-                val liveDevice = devices.firstOrNull { it.profileId == profileId }
-                val device = liveDevice ?: cachedDevice?.takeIf { it.profileId == profileId }
-
-                val profileLabel = profileId?.let { pid ->
-                    profiles.firstOrNull { it.id == pid }?.label
+            val state = if (config != null) {
+                val isPro = runCatching { runBlocking { ep.upgradeRepo().isPro() } }
+                    .onFailure { e -> log(TAG, ERROR) { "isPro failed: ${e.asLog()}" } }
+                    .getOrDefault(false)
+                val initialDevice = remember(config.profileId) {
+                    config.profileId?.let { pid ->
+                        runCatching { runBlocking { ep.deviceMonitor().getDeviceForProfile(pid) } }
+                            .onFailure { e -> log(TAG, ERROR) { "initial device lookup failed: ${e.asLog()}" } }
+                            .getOrNull()
+                    }
                 }
+                val device by config.profileId
+                    ?.let { pid -> remember(pid) { ep.deviceMonitor().widgetDeviceFlow(pid) } }
+                    ?.collectAsState(initial = initialDevice)
+                    ?: remember(initialDevice) { androidx.compose.runtime.mutableStateOf(initialDevice) }
+                val profileLabel = config.profileId?.let { pid ->
+                    runCatching {
+                        runBlocking { ep.deviceProfilesRepo().profiles.first().firstOrNull { it.id == pid }?.label }
+                    }
+                        .onFailure { e -> log(TAG, ERROR) { "profile label lookup failed: ${e.asLog()}" } }
+                        .getOrNull()
+                }
+
+                log(TAG, VERBOSE) { "render(appWidgetId=$appWidgetId, deviceKey=${device?.toWidgetKey()})" }
 
                 WidgetRenderStateMapper.map(
                     context = context,
                     device = device,
-                    theme = theme,
+                    theme = config.theme,
                     isPro = isPro,
-                    hasConfiguredProfile = profileId != null,
+                    hasConfiguredProfile = config.profileId != null,
                     profileLabel = profileLabel,
                     layout = layout,
                 )
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "provideGlance failed: ${e.asLog()}" }
+            } else {
                 WidgetRenderState.Message(
                     theme = WidgetTheme.DEFAULT,
                     resolvedBgColor = WidgetRenderStateMapper.resolvedBgColor(context, WidgetTheme.DEFAULT),
