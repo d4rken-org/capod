@@ -19,7 +19,6 @@ import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Notifications
 import androidx.compose.material.icons.twotone.Palette
-import androidx.compose.material.icons.twotone.SettingsBluetooth
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
@@ -45,7 +44,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.common.bluetooth.ScannerMode
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.capod.common.error.ErrorEventHandler
 import eu.darken.capod.common.navigation.NavigationEventHandler
@@ -70,7 +68,6 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             state = it,
             onNavigateUp = { vm.navUp() },
             onMonitorModeSelected = { mode -> vm.setMonitorMode(mode) },
-            onScannerModeSelected = { mode -> vm.setScannerMode(mode) },
             onShowConnectedNotificationChanged = { enabled -> vm.setShowConnectedNotification(enabled) },
             onKeepNotificationAfterDisconnectChanged = { enabled -> vm.setKeepNotificationAfterDisconnect(enabled) },
             onDebugSettings = { vm.goToDebugSettings() },
@@ -90,7 +87,6 @@ fun GeneralSettingsScreen(
     state: GeneralSettingsViewModel.State,
     onNavigateUp: () -> Unit,
     onMonitorModeSelected: (MonitorMode) -> Unit,
-    onScannerModeSelected: (ScannerMode) -> Unit,
     onShowConnectedNotificationChanged: (Boolean) -> Unit,
     onKeepNotificationAfterDisconnectChanged: (Boolean) -> Unit,
     onDebugSettings: () -> Unit,
@@ -104,7 +100,6 @@ fun GeneralSettingsScreen(
     modifier: Modifier = Modifier,
 ) {
     var showMonitorModeDialog by remember { mutableStateOf(false) }
-    var showScannerModeDialog by remember { mutableStateOf(false) }
     var showColorDialog by remember { mutableStateOf(false) }
 
     val isMaterialYouActive = state.themeState.style == ThemeStyle.MATERIAL_YOU &&
@@ -136,14 +131,6 @@ fun GeneralSettingsScreen(
                     subtitle = stringResource(state.monitorMode.labelRes),
                     icon = Icons.TwoTone.DisabledVisible,
                     onClick = { showMonitorModeDialog = true },
-                )
-            }
-            item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_scanner_mode_label),
-                    subtitle = stringResource(state.scannerMode.labelRes),
-                    icon = Icons.TwoTone.SettingsBluetooth,
-                    onClick = { showScannerModeDialog = true },
                 )
             }
             item {
@@ -313,20 +300,6 @@ fun GeneralSettingsScreen(
         )
     }
 
-    if (showScannerModeDialog) {
-        ListPreferenceDialog(
-            title = stringResource(R.string.settings_scanner_mode_label),
-            entries = ScannerMode.entries,
-            selectedEntry = state.scannerMode,
-            onEntrySelected = {
-                onScannerModeSelected(it)
-                showScannerModeDialog = false
-            },
-            entryLabel = { stringResource(it.labelRes) },
-            onDismiss = { showScannerModeDialog = false },
-        )
-    }
-
     if (showColorDialog) {
         ThemeColorSelectorDialog(
             selectedColor = state.themeState.color,
@@ -342,7 +315,6 @@ fun GeneralSettingsScreen(
 private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State(
     isPro = isPro,
     monitorMode = MonitorMode.AUTOMATIC,
-    scannerMode = ScannerMode.BALANCED,
     showConnectedNotification = true,
     keepNotificationAfterDisconnect = false,
     isOffloadedFilteringDisabled = false,
@@ -358,7 +330,6 @@ private fun GeneralSettingsScreenProPreview() = PreviewWrapper {
         state = previewGeneralState(isPro = true),
         onNavigateUp = {},
         onMonitorModeSelected = {},
-        onScannerModeSelected = {},
         onShowConnectedNotificationChanged = {},
         onKeepNotificationAfterDisconnectChanged = {},
         onDebugSettings = {},
@@ -375,7 +346,6 @@ private fun GeneralSettingsScreenNonProPreview() = PreviewWrapper {
         state = previewGeneralState(isPro = false),
         onNavigateUp = {},
         onMonitorModeSelected = {},
-        onScannerModeSelected = {},
         onShowConnectedNotificationChanged = {},
         onKeepNotificationAfterDisconnectChanged = {},
         onDebugSettings = {},

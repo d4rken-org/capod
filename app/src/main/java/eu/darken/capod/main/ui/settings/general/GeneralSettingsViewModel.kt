@@ -1,7 +1,6 @@
 package eu.darken.capod.main.ui.settings.general
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
@@ -32,7 +31,6 @@ class GeneralSettingsViewModel @Inject constructor(
     data class State(
         val isPro: Boolean,
         val monitorMode: MonitorMode,
-        val scannerMode: ScannerMode,
         val showConnectedNotification: Boolean,
         val keepNotificationAfterDisconnect: Boolean,
         val isOffloadedFilteringDisabled: Boolean,
@@ -46,12 +44,11 @@ class GeneralSettingsViewModel @Inject constructor(
     val state = combine(
         combine(
             generalSettings.monitorMode.flow,
-            generalSettings.scannerMode.flow,
             generalSettings.useExtraMonitorNotification.flow,
             generalSettings.keepConnectedNotificationAfterDisconnect.flow,
-        ) { monitorMode, scannerMode, showNotif, keepNotif ->
+        ) { monitorMode, showNotif, keepNotif ->
             @Suppress("USELESS_CAST")
-            arrayOf<Any>(monitorMode as Any, scannerMode as Any, showNotif as Any, keepNotif as Any)
+            arrayOf<Any>(monitorMode as Any, showNotif as Any, keepNotif as Any)
         },
         combine(
             generalSettings.isOffloadedFilteringDisabled.flow,
@@ -67,9 +64,8 @@ class GeneralSettingsViewModel @Inject constructor(
         State(
             isPro = isPro,
             monitorMode = general[0] as MonitorMode,
-            scannerMode = general[1] as ScannerMode,
-            showConnectedNotification = general[2] as Boolean,
-            keepNotificationAfterDisconnect = general[3] as Boolean,
+            showConnectedNotification = general[1] as Boolean,
+            keepNotificationAfterDisconnect = general[2] as Boolean,
             isOffloadedFilteringDisabled = compat[0] as Boolean,
             isOffloadedBatchingDisabled = compat[1] as Boolean,
             useIndirectScanResultCallback = compat[2] as Boolean,
@@ -80,11 +76,6 @@ class GeneralSettingsViewModel @Inject constructor(
     fun setMonitorMode(mode: MonitorMode) {
         log(TAG, INFO) { "setMonitorMode($mode)" }
         generalSettings.monitorMode.valueBlocking = mode
-    }
-
-    fun setScannerMode(mode: ScannerMode) {
-        log(TAG, INFO) { "setScannerMode($mode)" }
-        generalSettings.scannerMode.valueBlocking = mode
     }
 
     fun setShowConnectedNotification(enabled: Boolean) {

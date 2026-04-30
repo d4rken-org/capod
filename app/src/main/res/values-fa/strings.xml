@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \"بدون دستگاه\" را با غیرفعال کردن کانال \"وضعیت دستگاه\" پنهان کنید.</string>
     <string name="settings_keep_notification_after_disconnect_label">حفظ اعلان پس از قطع اتصال</string>
     <string name="settings_keep_notification_after_disconnect_description">نمایش آخرین سطوح شارژ شناخته‌شده حتی پس از قطع اتصال AirPods شما</string>
-    <string name="settings_scanner_mode_label">حالت اسکنر</string>
-    <string name="settings_scanner_mode_description">آیا اسکنر داده بلوتوث کم‌مصرف باید عملکرد را در اولویت قرار دهد یا انرژی را ذخیره کند؟</string>
     <string name="settings_autopause_label">مکث خودکار</string>
     <string name="settings_autopause_description">هنگام برداشتن دستگاه از گوش، صدا را متوقف کنید.</string>
     <string name="settings_autopplay_label">پخش خودکار</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">مجوز زیر مورد نیاز است:</string>
     <string name="permission_system_alert_window_label">پنجره هشدار سیستم</string>
     <string name="permission_system_alert_window_description">به CAPod اجازه دهید روی سایر برنامه‌ها نمایش دهد تا ویژگی \"نمایش پاپ‌آپ\" ممکن شود.</string>
-    <string name="settings_scanner_mode_lowpower_label">کم‌مصرف</string>
-    <string name="settings_scanner_mode_balanced_label">متعادل</string>
-    <string name="settings_scanner_mode_lowlatency_label">تأخیر کم</string>
     <string name="settings_monitor_mode_manual_label">وقتی برنامه باز است</string>
     <string name="settings_monitor_mode_automatic_label">وقتی دستگاه متصل است</string>
     <string name="settings_monitor_mode_always_label">همیشه</string>

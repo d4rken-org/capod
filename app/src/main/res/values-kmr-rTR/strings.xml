@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \"Amûr tune\" bi neçalakkirina kanala \"Rewşa amûrê\" veşêrin.</string>
     <string name="settings_keep_notification_after_disconnect_label">Piştî qutbûnê agahdariyê biparêze</string>
     <string name="settings_keep_notification_after_disconnect_description">Piştî ku AirPods-ên te qut dibin jî asta dawîn a naskirî ya bataryayê nîşan bide</string>
-    <string name="settings_scanner_mode_label">Moda skanerê</string>
-    <string name="settings_scanner_mode_description">Gelo divê skanera daneyên Bluetooth Kêm Enerjiyê pêşî li performansê bigire an enerjiyê biparêze?</string>
     <string name="settings_autopause_label">Rawestandina otomatîk</string>
     <string name="settings_autopause_description">Dema ku amûrê ji guhê xwe derdixin, deng rawestînin.</string>
     <string name="settings_autopplay_label">Lîstina otomatîk</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Destûra jêrîn hewce ye:</string>
     <string name="permission_system_alert_window_label">Pencereya Hişyariya Pergalê</string>
     <string name="permission_system_alert_window_description">Destûrê bidin CAPod ku li ser sepanên din xêz bike da ku taybetmendiya \"Pop-Up Nîşan Bide\" gengaz bike.</string>
-    <string name="settings_scanner_mode_lowpower_label">Hêza kêm</string>
-    <string name="settings_scanner_mode_balanced_label">Hevseng</string>
-    <string name="settings_scanner_mode_lowlatency_label">Derengiya kêm</string>
     <string name="settings_monitor_mode_manual_label">Dema sepan vekirî ye</string>
     <string name="settings_monitor_mode_automatic_label">Dema amûr girêdayî ye</string>
     <string name="settings_monitor_mode_always_label">Herdem</string>

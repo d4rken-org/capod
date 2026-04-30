@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Shfaq një njoftim shtesë kur një pajisje lidhet. Kjo ju lejon të fshihni njoftimin e përhershëm \"Asnjë pajisje\" duke çaktivizuar kanalin \"Statusi i pajisjes\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mbaj njoftimin pas shkëputjes</string>
     <string name="settings_keep_notification_after_disconnect_description">Vazhdo të shfaqësh nivelet e fundit të njohura të baterisë edhe pasi AirPods tuaja shkëputen</string>
-    <string name="settings_scanner_mode_label">Modaliteti i skanerit</string>
-    <string name="settings_scanner_mode_description">A duhet skaneri i të dhënave Bluetooth Low Energy të prioritizojë performancën apo të kursejë energji?</string>
     <string name="settings_autopause_label">Pauzë automatike</string>
     <string name="settings_autopause_description">Vendos në pauzë audion kur hiqni pajisjen nga veshi.</string>
     <string name="settings_autopplay_label">Luaj automatikisht</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Leja e mëposhtme kërkohet:</string>
     <string name="permission_system_alert_window_label">Dritare Alarmi Sistemi</string>
     <string name="permission_system_alert_window_description">Lejoni CAPod të vizatojë mbi aplikacionet e tjera për të mundësuar veçorinë \"Shfaq PopUp\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Energji e ulët</string>
-    <string name="settings_scanner_mode_balanced_label">I balancuar</string>
-    <string name="settings_scanner_mode_lowlatency_label">Vonesë e ulët</string>
     <string name="settings_monitor_mode_manual_label">Kur aplikacioni është i hapur</string>
     <string name="settings_monitor_mode_automatic_label">Kur pajisja është e lidhur</string>
     <string name="settings_monitor_mode_always_label">Gjithmonë</string>

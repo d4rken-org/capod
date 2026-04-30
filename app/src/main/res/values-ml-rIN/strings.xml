@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ ഒരു അധിക അറിയിപ്പ് കാണിക്കുന്നു. \"ഉപകരണ നില\" ചാനൽ പ്രവർത്തനരഹിതമാക്കി സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് മറയ്ക്കാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു.</string>
     <string name="settings_keep_notification_after_disconnect_label">വിച്ഛേദിച്ച ശേഷം അറിയിപ്പ് നിലനിർത്തുക</string>
     <string name="settings_keep_notification_after_disconnect_description">നിങ്ങളുടെ AirPods വിച്ഛേദിച്ചാലും അവസാനമായി അറിയപ്പെടുന്ന ബാറ്ററി ലെവലുകൾ കാണിക്കുന്നത് തുടരുക</string>
-    <string name="settings_scanner_mode_label">സ്കാനർ മോഡ്</string>
-    <string name="settings_scanner_mode_description">ബ്ലൂടൂത്ത് ലോ എനർജി ഡാറ്റ സ്കാനർ പ്രകടനത്തിന് മുൻഗണന നൽകണോ അതോ ഊർജ്ജം ലാഭിക്കണോ?</string>
     <string name="settings_autopause_label">യാന്ത്രികമായി താൽക്കാലികമായി നിർത്തുക</string>
     <string name="settings_autopause_description">നിങ്ങളുടെ ചെവിയിൽ നിന്ന് ഉപകരണം നീക്കം ചെയ്യുമ്പോൾ ഓഡിയോ താൽക്കാലികമായി നിർത്തുക.</string>
     <string name="settings_autopplay_label">യാന്ത്രികമായി പ്ലേ ചെയ്യുക</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">ഇനിപ്പറയുന്ന അനുമതി ആവശ്യമാണ്:</string>
     <string name="permission_system_alert_window_label">സിസ്റ്റം അലേർട്ട് വിൻഡോ</string>
     <string name="permission_system_alert_window_description">\"പോപ്പ്അപ്പ് കാണിക്കുക\" സവിശേഷത സാധ്യമാക്കാൻ മറ്റ് ആപ്പുകളുടെ മുകളിൽ വരയ്ക്കാൻ CAPod-നെ അനുവദിക്കുക.</string>
-    <string name="settings_scanner_mode_lowpower_label">കുറഞ്ഞ പവർ</string>
-    <string name="settings_scanner_mode_balanced_label">സന്തുലിതം</string>
-    <string name="settings_scanner_mode_lowlatency_label">കുറഞ്ഞ ലേറ്റൻസി</string>
     <string name="settings_monitor_mode_manual_label">ആപ്പ് തുറന്നിരിക്കുമ്പോൾ</string>
     <string name="settings_monitor_mode_automatic_label">ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ</string>
     <string name="settings_monitor_mode_always_label">എപ്പോഴും</string>

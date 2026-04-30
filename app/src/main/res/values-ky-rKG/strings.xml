@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Түзмөк туташканда кошумча билдирүү көрсөтүлөт. Бул \"Түзмөктүн абалы\" каналын өчүрүү менен туруктуу \"Түзмөктөр жок\" билдирүүсүн жашырууга мүмкүндүк берет.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ажыратылгандан кийин билдирүүнү сактоо</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ажыратылгандан кийин да акыркы белгилүү батарея деңгээлдерин көрсөтүүнү улантуу</string>
-    <string name="settings_scanner_mode_label">Сканер режими</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy маалымат сканери өндүрүмдүүлүктү биринчи орунга коюшу керекпи же энергияны үнөмдөшү керекпи?</string>
     <string name="settings_autopause_label">Авто тыным</string>
     <string name="settings_autopause_description">Түзмөктү кулагыңыздан чыгарганда аудиону тындырыңыз.</string>
     <string name="settings_autopplay_label">Авто ойнотуу</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Төмөнкү уруксат талап кылынат:</string>
     <string name="permission_system_alert_window_label">Тутум эскертүү терезеси</string>
     <string name="permission_system_alert_window_description">\"Калкыма терезе көрсөтүү\" функциясын мүмкүн кылуу үчүн CAPod\'го башка колдонмолордун үстүнөн тартууга уруксат бериңиз.</string>
-    <string name="settings_scanner_mode_lowpower_label">Аз кубаттуулук</string>
-    <string name="settings_scanner_mode_balanced_label">Тең салмактуу</string>
-    <string name="settings_scanner_mode_lowlatency_label">Аз кечигүү</string>
     <string name="settings_monitor_mode_manual_label">Колдонмо ачык болгондо</string>
     <string name="settings_monitor_mode_automatic_label">Түзмөк туташканда</string>
     <string name="settings_monitor_mode_always_label">Ар дайым</string>

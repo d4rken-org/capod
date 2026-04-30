@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">උපාංගයක් සම්බන්ධ වූ විට අමතර දැනුම්දීමක් පෙන්වයි. \"උපාංග තත්ත්වය\" නාලිකාව අක්‍රීය කිරීමෙන් \"උපාංග නොමැත\" ස්ථිර දැනුම්දීම සැඟවීමට මෙය ඔබට ඉඩ සලසයි.</string>
     <string name="settings_keep_notification_after_disconnect_label">විසන්ධි වූ පසු දැනුම්දීම තබන්න</string>
     <string name="settings_keep_notification_after_disconnect_description">ඔබගේ AirPods විසන්ධි වූ පසුවද අවසාන වරට දන්නා බැටරි මට්ටම් පෙන්වීම දිගටම කරන්න</string>
-    <string name="settings_scanner_mode_label">ස්කෑනර් ප්‍රකාරය</string>
-    <string name="settings_scanner_mode_description">බ්ලූටූත් අඩු ශක්ති දත්ත ස්කෑනරය කාර්ය සාධනයට ප්‍රමුඛත්වය දිය යුතුද නැතහොත් ශක්තිය සංරක්ෂණය කළ යුතුද?</string>
     <string name="settings_autopause_label">ස්වයංක්‍රීයව විරාම කරන්න</string>
     <string name="settings_autopause_description">ඔබේ කනෙන් උපාංගය ඉවත් කරන විට ශ්‍රව්‍ය විරාම කරන්න.</string>
     <string name="settings_autopplay_label">ස්වයංක්‍රීයව වාදනය කරන්න</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">පහත අවසරය අවශ්‍ය වේ:</string>
     <string name="permission_system_alert_window_label">පද්ධති ඇඟවුම් කවුළුව</string>
     <string name="permission_system_alert_window_description">\"පොප්-අප් පෙන්වන්න\" විශේෂාංගය හැකි කිරීමට CAPod හට වෙනත් යෙදුම් මත අඳින්නට ඉඩ දෙන්න.</string>
-    <string name="settings_scanner_mode_lowpower_label">අඩු ශක්තිය</string>
-    <string name="settings_scanner_mode_balanced_label">සමතුලිත</string>
-    <string name="settings_scanner_mode_lowlatency_label">අඩු ප්‍රමාදය</string>
     <string name="settings_monitor_mode_manual_label">යෙදුම විවෘතව ඇති විට</string>
     <string name="settings_monitor_mode_automatic_label">උපාංගය සම්බන්ධ වූ විට</string>
     <string name="settings_monitor_mode_always_label">සෑමවිටම</string>

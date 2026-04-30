@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Zobrazí dodatečné oznámení, když je zařízení připojeno. To umožňuje skrýt trvalé oznámení \"Žádné zařízení\" vypnutím kanálu \"Stav zařízení\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Uchovat oznámení po odpojení</string>
     <string name="settings_keep_notification_after_disconnect_description">Pokračovat v zobrazování poslední známé úrovně nabití baterie i po odpojení AirPods</string>
-    <string name="settings_scanner_mode_label">Režim skenování</string>
-    <string name="settings_scanner_mode_description">Má skenování Bluetooth Low Energy upřednostnit výkon, nebo úsporu energie?</string>
     <string name="settings_autopause_label">Autom. pozastavení</string>
     <string name="settings_autopause_description">Pozastavení zvuku při vyjmutí zařízení z ucha.</string>
     <string name="settings_autopplay_label">Autom. přehrávání</string>
@@ -226,9 +224,6 @@
     <string name="permission_required_title">Je vyžadováno následující oprávnění:</string>
     <string name="permission_system_alert_window_label">Okno systémových upozornění</string>
     <string name="permission_system_alert_window_description">Aby bylo možné použít unkci \"Zobrazit vyskakovací okno\", je nutné umožnit aplikaci CAPod vykreslení přes jiné aplikace.</string>
-    <string name="settings_scanner_mode_lowpower_label">Nízký výkon</string>
-    <string name="settings_scanner_mode_balanced_label">Vyvážený</string>
-    <string name="settings_scanner_mode_lowlatency_label">Nízká latence</string>
     <string name="settings_monitor_mode_manual_label">Při otevření aplikace</string>
     <string name="settings_monitor_mode_automatic_label">Při připojení zařízení</string>
     <string name="settings_monitor_mode_always_label">Vždy</string>

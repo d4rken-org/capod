@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Kuvab seadme ühendumisel lisateavituse. See peidab pidevalt nähtava „Seadmed puuduvad“ teate, selleks keelates „Seadme olek“ kanali.</string>
     <string name="settings_keep_notification_after_disconnect_label">Kuva teadet ka pärast eemaldamist</string>
     <string name="settings_keep_notification_after_disconnect_description">Jätkake viimase teadaoleva akutaseme kuvamist isegi pärast AirPodside eemaldamist</string>
-    <string name="settings_scanner_mode_label">Skannimisrežiim</string>
-    <string name="settings_scanner_mode_description">Kas Bluetooth madalama energiatarbimisega andmete skanner eelistab jõudlust või mõõdukat energiahaldust?</string>
     <string name="settings_autopause_label">Automaatne peatamine</string>
     <string name="settings_autopause_description">Seadme kõrvast eemaldamisel peata esitamine.</string>
     <string name="settings_autopplay_label">Automaatne esitamine</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Vaja on järgmist luba:</string>
     <string name="permission_system_alert_window_label">Süsteemi teate aken</string>
     <string name="permission_system_alert_window_description">Luba CAPodil toimetada teiste rakenduste kohal, et näha hüpikaknaid.</string>
-    <string name="settings_scanner_mode_lowpower_label">Madal võimsus</string>
-    <string name="settings_scanner_mode_balanced_label">Tasakaalustatud</string>
-    <string name="settings_scanner_mode_lowlatency_label">Madal latents</string>
     <string name="settings_monitor_mode_manual_label">Kui rakendus on avatud</string>
     <string name="settings_monitor_mode_automatic_label">Kui seade on ühendatud</string>
     <string name="settings_monitor_mode_always_label">Alati</string>

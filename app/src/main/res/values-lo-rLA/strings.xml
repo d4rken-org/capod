@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \"ບໍ່ມີອຸປະກອນ\" ໂດຍການປິດຊ່ອງ \"ສະຖານະອຸປະກອນ\" .</string>
     <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
     <string name="settings_keep_notification_after_disconnect_description">ສືບຕໍ່ສະແດງລະດັບແບັດເຕີລີ້ທີ່ຮູ້ຈັກຫຼ້າສຸດແມ້ຫຼັງຈາກ AirPods ຕັດການເຊື່ອມຕໍ່</string>
-    <string name="settings_scanner_mode_label">ໂໝດສະແກນ</string>
-    <string name="settings_scanner_mode_description">ເຄື່ອງສະແກນຂໍ້ມູນ Bluetooth Low Energy ຄວນໃຫ້ຄວາມສຳຄັນກັບປະສິດທິພາບ ຫຼື ປະຢັດພະລັງງານ?</string>
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
     <string name="settings_autopause_description">ຢຸດສຽງຊົ່ວຄາວເມື່ອຖອດອຸປະກອນອອກຈາກຫູຂອງທ່ານ.</string>
     <string name="settings_autopplay_label">ຫຼິ້ນອັດຕະໂນມັດ</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">ຕ້ອງການການອະນຸຍາດຕໍ່ໄປນີ້:</string>
     <string name="permission_system_alert_window_label">ໜ້າຕ່າງການແຈ້ງເຕືອນລະບົບ</string>
     <string name="permission_system_alert_window_description">ອະນຸຍາດໃຫ້ CAPod ແຕ້ມທັບແອັບອື່ນເພື່ອໃຫ້ຄຸນສົມບັດ \"ສະແດງປັອບອັບ\" ເປັນໄປໄດ້.</string>
-    <string name="settings_scanner_mode_lowpower_label">ພະລັງງານຕໍ່າ</string>
-    <string name="settings_scanner_mode_balanced_label">ສົມດູນ</string>
-    <string name="settings_scanner_mode_lowlatency_label">ຄວາມຊັກຊ້າຕໍ່າ</string>
     <string name="settings_monitor_mode_manual_label">ເມື່ອແອັບເປີດ</string>
     <string name="settings_monitor_mode_automatic_label">ເມື່ອອຸປະກອນເຊື່ອມຕໍ່</string>
     <string name="settings_monitor_mode_always_label">ສະເໝີ</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">አንድ መሣሪያ ሲገናኝ ተጨማሪ ማሳወቂያ ያሳያል። ይህ የ \"የመሣሪያ ሁኔታ\" ቻናልን በማሰናከል ቋሚውን \"ምንም መሣሪያዎች የሉም\" የሚለውን ማሳወቂያ እንዲደብቁ ያስችልዎታል።</string>
     <string name="settings_keep_notification_after_disconnect_label">ከተነተቀ በኋላ ማሳወቂያውን ይያዙ</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ከተነተቁ በኋላም የመጨረሻውን የታወቀ የባትሪ ደረጃ ማሳየቱን ይቀጥሉ</string>
-    <string name="settings_scanner_mode_label">የቃኚ ሁነታ</string>
-    <string name="settings_scanner_mode_description">የብሉቱዝ ዝቅተኛ ኃይል ዳታ ቃኚው አፈጻጸምን ቅድሚያ መስጠት አለበት ወይስ ኃይል መቆጠብ አለበት?</string>
     <string name="settings_autopause_label">ራስ-ሰር ለአፍታ ማቆም</string>
     <string name="settings_autopause_description">መሳሪያውን ከጆሮዎ ሲያወጡ ድምጽን ለአፍታ ያቁሙ።</string>
     <string name="settings_autopplay_label">ራስ-ሰር አጫውት</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">የሚከተለው ፈቃድ ያስፈልጋል:</string>
     <string name="permission_system_alert_window_label">የስርዓት ማስጠንቀቂያ መስኮት</string>
     <string name="permission_system_alert_window_description">\"ብቅ-ባይ አሳይ\" ባህሪውን ለማስቻል CAPod በሌሎች መተግበሪያዎች ላይ እንዲሳል ፍቀድ።</string>
-    <string name="settings_scanner_mode_lowpower_label">ዝቅተኛ ኃይል</string>
-    <string name="settings_scanner_mode_balanced_label">ሚዛናዊ</string>
-    <string name="settings_scanner_mode_lowlatency_label">ዝቅተኛ መዘግየት</string>
     <string name="settings_monitor_mode_manual_label">መተግበሪያው ሲከፈት</string>
     <string name="settings_monitor_mode_automatic_label">መሣሪያ ሲገናኝ</string>
     <string name="settings_monitor_mode_always_label">ሁልጊዜ</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Hiển thị thông báo bổ sung khi một thiết bị được kết nối. Điều này cho phép bạn ẩn thông báo cố định \"Không có thiết bị\" bằng cách tắt kênh \"Trạng thái thiết bị\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Giữ thông báo sau khi ngắt kết nối</string>
     <string name="settings_keep_notification_after_disconnect_description">Tiếp tục hiển thị mức pin đã biết gần nhất ngay cả sau khi AirPods của bạn ngắt kết nối</string>
-    <string name="settings_scanner_mode_label">Chế độ quét</string>
-    <string name="settings_scanner_mode_description">Máy quét dữ liệu Bluetooth Low Energy nên ưu tiên hiệu suất hay tiết kiệm năng lượng?</string>
     <string name="settings_autopause_label">Tự động tạm dừng</string>
     <string name="settings_autopause_description">Tạm dừng âm thanh khi tháo thiết bị khỏi tai bạn.</string>
     <string name="settings_autopplay_label">Tự động phát</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">Cần quyền sau:</string>
     <string name="permission_system_alert_window_label">Cửa sổ cảnh báo hệ thống</string>
     <string name="permission_system_alert_window_description">Cho phép CAPod hiển thị đè lên các ứng dụng khác để tính năng Show PopUp hoạt động.</string>
-    <string name="settings_scanner_mode_lowpower_label">Tiết kiệm pin</string>
-    <string name="settings_scanner_mode_balanced_label">Cân bằng</string>
-    <string name="settings_scanner_mode_lowlatency_label">Độ trễ thấp</string>
     <string name="settings_monitor_mode_manual_label">Khi ứng dụng đang mở</string>
     <string name="settings_monitor_mode_automatic_label">Khi thiết bị được kết nối</string>
     <string name="settings_monitor_mode_always_label">Luôn luôn</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Ibonisa isaziso esengeziwe lapho idivayisi ixhunyiwe. Lokhu kukuvumela ukuthi ufihle isaziso esihlala njalo esithi \"Awekho amadivayisi\" ngokukhubaza isiteshi \"Isimo sedivayisi\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Gcina isaziso ngemva kokunqamuka</string>
     <string name="settings_keep_notification_after_disconnect_description">Qhubeka ubonise amazinga ebhethri okugcina aziwayo nangemva kokuthi ama-AirPods akho anqamuke</string>
-    <string name="settings_scanner_mode_label">Imodi yesithwebuli</string>
-    <string name="settings_scanner_mode_description">Ingabe isithwebuli sedatha ye-Bluetooth Low Energy kufanele sibeke phambili ukusebenza noma ukonga amandla?</string>
     <string name="settings_autopause_label">Misa kancane ngokuzenzakalela</string>
     <string name="settings_autopause_description">Misa kancane umsindo lapho ukhipha idivayisi endlebeni yakho.</string>
     <string name="settings_autopplay_label">Dlala ngokuzenzakalela</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Imvume elandelayo iyadingeka:</string>
     <string name="permission_system_alert_window_label">Iwindi Lesexwayiso Sohlelo</string>
     <string name="permission_system_alert_window_description">Vumela i-CAPod ukuthi idwebe phezu kwezinye izinhlelo zokusebenza ukwenza isici \"Bonisa isigelekeqe\" sikwazi ukusebenza.</string>
-    <string name="settings_scanner_mode_lowpower_label">Amandla aphansi</string>
-    <string name="settings_scanner_mode_balanced_label">Okulinganiswe</string>
-    <string name="settings_scanner_mode_lowlatency_label">Ukulibaziseka okuncane</string>
     <string name="settings_monitor_mode_manual_label">Uma uhlelo lokusebenza luvuliwe</string>
     <string name="settings_monitor_mode_automatic_label">Uma idivayisi ixhunyiwe</string>
     <string name="settings_monitor_mode_always_label">Njalo</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Memaparkan pemberitahuan tambahan apabila peranti disambungkan. Ini membolehkan anda menyembunyikan pemberitahuan kekal \"Tiada peranti\" dengan melumpuhkan saluran \"Status peranti\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Kekalkan pemberitahuan selepas nyahsambung</string>
     <string name="settings_keep_notification_after_disconnect_description">Terus menunjukkan tahap bateri terakhir yang diketahui walaupun selepas AirPods anda nyahsambung</string>
-    <string name="settings_scanner_mode_label">Mod pengimbas</string>
-    <string name="settings_scanner_mode_description">Patutkah pengimbas data Bluetooth Tenaga Rendah mengutamakan prestasi atau menjimatkan tenaga?</string>
     <string name="settings_autopause_label">Jeda automatik</string>
     <string name="settings_autopause_description">Jeda audio apabila peranti dikeluarkan dari telinga anda.</string>
     <string name="settings_autopplay_label">Main automatik</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">Kebenaran berikut diperlukan:</string>
     <string name="permission_system_alert_window_label">Tetingkap Amaran Sistem</string>
     <string name="permission_system_alert_window_description">Benarkan CAPod melukis di atas apl lain untuk membolehkan ciri \"Tunjukkan pop timbul\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Kuasa rendah</string>
-    <string name="settings_scanner_mode_balanced_label">Seimbang</string>
-    <string name="settings_scanner_mode_lowlatency_label">Kependaman rendah</string>
     <string name="settings_monitor_mode_manual_label">Apabila apl dibuka</string>
     <string name="settings_monitor_mode_automatic_label">Apabila peranti disambungkan</string>
     <string name="settings_monitor_mode_always_label">Sentiasa</string>

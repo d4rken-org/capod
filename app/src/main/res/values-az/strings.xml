@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Cihaz qoşulduqda əlavə bildiriş göstərir. Bu, \"Cihaz statusu\" kanalını deaktiv etməklə daimi \"Cihaz yoxdur\" bildirişini gizlətməyə imkan verir.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ayrıldıqdan sonra bildirişi saxla</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods ayrıldıqdan sonra belə sonuncu bilinən batareya səviyyələrini göstərməyə davam et</string>
-    <string name="settings_scanner_mode_label">Skaner rejimi</string>
-    <string name="settings_scanner_mode_description">Bluetooth Aşağı Enerji məlumat skaneri performansa üstünlük verməli, yoxsa enerjiyə qənaət etməlidir?</string>
     <string name="settings_autopause_label">Avtomatik fasilə</string>
     <string name="settings_autopause_description">Cihazı qulağınızdan çıxardıqda səsi dayandırın.</string>
     <string name="settings_autopplay_label">Avtomatik oxutma</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Aşağıdakı icazə tələb olunur:</string>
     <string name="permission_system_alert_window_label">Sistem xəbərdarlıq pəncərəsi</string>
     <string name="permission_system_alert_window_description">\"Pop-up göstər\" xüsusiyyətini mümkün etmək üçün CAPod-a digər tətbiqlərin üzərində çəkməyə icazə verin.</string>
-    <string name="settings_scanner_mode_lowpower_label">Aşağı güc</string>
-    <string name="settings_scanner_mode_balanced_label">Balanslaşdırılmış</string>
-    <string name="settings_scanner_mode_lowlatency_label">Aşağı gecikmə</string>
     <string name="settings_monitor_mode_manual_label">Tətbiq açıq olduqda</string>
     <string name="settings_monitor_mode_automatic_label">Cihaz qoşulduqda</string>
     <string name="settings_monitor_mode_always_label">Həmişə</string>

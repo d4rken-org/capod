@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Gailu bat konektatuta dagoenean jakinarazpen gehigarri bat erakusten du. Honek \"Gailurik ez\" jakinarazpen iraunkorra ezkutatzeko aukera ematen dizu \"Gailuaren egoera\" kanala desgaituz.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantendu jakinarazpena deskonektatu ondoren</string>
     <string name="settings_keep_notification_after_disconnect_description">Jarraitu azken bateria-maila ezagunak erakusten zure AirPods-ak deskonektatu ondoren ere</string>
-    <string name="settings_scanner_mode_label">Eskaner modua</string>
-    <string name="settings_scanner_mode_description">Bluetooth Energia Baxuko datuen eskanerrak errendimendua lehenetsi behar al du ala energia aurreztu?</string>
     <string name="settings_autopause_label">Pausatze automatikoa</string>
     <string name="settings_autopause_description">Pausatu audioa gailua belarritik kentzean.</string>
     <string name="settings_autopplay_label">Erreprodukzio automatikoa</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Hurrengo baimena beharrezkoa da:</string>
     <string name="permission_system_alert_window_label">Sistemaren alerta-leihoa</string>
     <string name="permission_system_alert_window_description">Baimendu CAPod-i beste aplikazioen gainean marraztea \"Erakutsi pop-up-a\" ezaugarria posible egiteko.</string>
-    <string name="settings_scanner_mode_lowpower_label">Potentzia baxua</string>
-    <string name="settings_scanner_mode_balanced_label">Orekatua</string>
-    <string name="settings_scanner_mode_lowlatency_label">Latentzia baxua</string>
     <string name="settings_monitor_mode_manual_label">Aplikazioa irekita dagoenean</string>
     <string name="settings_monitor_mode_automatic_label">Gailua konektatuta dagoenean</string>
     <string name="settings_monitor_mode_always_label">Beti</string>

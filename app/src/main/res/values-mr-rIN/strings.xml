@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">जेव्हा एखादे डिव्हाइस कनेक्ट केलेले असते तेव्हा अतिरिक्त सूचना दर्शविते. हे आपल्याला \"डिव्हाइस स्थिती\" चॅनेल अक्षम करून कायमस्वरूपी \"कोणतेही डिव्हाइस नाही\" सूचना लपविण्यास अनुमती देते.</string>
     <string name="settings_keep_notification_after_disconnect_label">डिस्कनेक्ट झाल्यानंतर सूचना ठेवा</string>
     <string name="settings_keep_notification_after_disconnect_description">तुमचे AirPods डिस्कनेक्ट झाल्यानंतरही शेवटचे ज्ञात बॅटरी स्तर दर्शवणे सुरू ठेवा</string>
-    <string name="settings_scanner_mode_label">स्कॅनर मोड</string>
-    <string name="settings_scanner_mode_description">ब्लूटूथ लो एनर्जी डेटा स्कॅनरने कार्यक्षमतेला प्राधान्य द्यावे की ऊर्जा वाचवावी?</string>
     <string name="settings_autopause_label">ऑटो-पॉज</string>
     <string name="settings_autopause_description">आपल्या कानातून डिव्हाइस काढताना ऑडिओ थांबवा.</string>
     <string name="settings_autopplay_label">ऑटो-प्ले</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">खालील परवानगी आवश्यक आहे:</string>
     <string name="permission_system_alert_window_label">सिस्टम अलर्ट विंडो</string>
     <string name="permission_system_alert_window_description">\"पॉपअप दर्शवा\" वैशिष्ट्य शक्य करण्यासाठी CAPod ला इतर अॅप्सवर चित्रे काढण्याची अनुमती द्या.</string>
-    <string name="settings_scanner_mode_lowpower_label">कमी ऊर्जा</string>
-    <string name="settings_scanner_mode_balanced_label">संतुलित</string>
-    <string name="settings_scanner_mode_lowlatency_label">कमी विलंब</string>
     <string name="settings_monitor_mode_manual_label">अॅप उघडे असताना</string>
     <string name="settings_monitor_mode_automatic_label">डिव्हाइस कनेक्ट असताना</string>
     <string name="settings_monitor_mode_always_label">नेहमी</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Näyttää lisäilmoituksen, kun laite on yhdistetty. Tämä antaa sinun piilottaa pysyvän \"Ei laitteita\" -ilmoituksen poistamalla \"Laitteen tila\" -kanavan käytöstä.</string>
     <string name="settings_keep_notification_after_disconnect_label">Säilytä ilmoitus yhteyden katkaisun jälkeen</string>
     <string name="settings_keep_notification_after_disconnect_description">Jatka viimeisten tunnettujen akkutasojen näyttämistä senkin jälkeen, kun AirPodit katkaisevat yhteyden</string>
-    <string name="settings_scanner_mode_label">Skanneritila</string>
-    <string name="settings_scanner_mode_description">Pitäisikö Bluetooth Low Energy -dataskannerin priorisoida suorituskykyä vai säästää energiaa?</string>
     <string name="settings_autopause_label">Automaattinen tauko</string>
     <string name="settings_autopause_description">Keskeytä ääni, kun poistat laitteen korvastasi.</string>
     <string name="settings_autopplay_label">Automaattinen toisto</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Seuraava lupa vaaditaan:</string>
     <string name="permission_system_alert_window_label">Järjestelmän hälytysikkuna</string>
     <string name="permission_system_alert_window_description">Salli CAPod-sovelluksen piirtää muiden sovellusten päälle mahdollistaakseen \"Näytä ponnahdusikkuna\" -ominaisuuden.</string>
-    <string name="settings_scanner_mode_lowpower_label">Virransäästö</string>
-    <string name="settings_scanner_mode_balanced_label">Tasapainoinen</string>
-    <string name="settings_scanner_mode_lowlatency_label">Matala viive</string>
     <string name="settings_monitor_mode_manual_label">Kun sovellus on auki</string>
     <string name="settings_monitor_mode_automatic_label">Kun laite on yhdistetty</string>
     <string name="settings_monitor_mode_always_label">Aina</string>

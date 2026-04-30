@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">جب کوئی آلہ منسلک ہوتا ہے تو ایک اضافی اطلاع دکھاتا ہے۔ اس سے آپ \"آلہ کی حیثیت\" چینل کو غیر فعال کر کے مستقل \"کوئی آلہ نہیں\" اطلاع کو چھپا سکتے ہیں۔</string>
     <string name="settings_keep_notification_after_disconnect_label">منقطع ہونے کے بعد اطلاع رکھیں</string>
     <string name="settings_keep_notification_after_disconnect_description">آپ کے AirPods منقطع ہونے کے بعد بھی آخری معلوم بیٹری کی سطح دکھاتے رہیں</string>
-    <string name="settings_scanner_mode_label">اسکینر موڈ</string>
-    <string name="settings_scanner_mode_description">کیا بلوٹوتھ لو انرجی ڈیٹا اسکینر کو کارکردگی کو ترجیح دینی چاہئے یا توانائی بچانی چاہئے؟</string>
     <string name="settings_autopause_label">خودکار توقف</string>
     <string name="settings_autopause_description">آلہ کو کان سے ہٹاتے وقت آڈیو کو روکیں۔</string>
     <string name="settings_autopplay_label">خودکار پلے</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">درج ذیل اجازت درکار ہے:</string>
     <string name="permission_system_alert_window_label">سسٹم الرٹ ونڈو</string>
     <string name="permission_system_alert_window_description">\"پاپ اپ دکھائیں\" خصوصیت ممکن بنانے کے لئے CAPod کو دوسری ایپس کے اوپر ڈرا کرنے کی اجازت دیں۔</string>
-    <string name="settings_scanner_mode_lowpower_label">کم توانائی</string>
-    <string name="settings_scanner_mode_balanced_label">متوازن</string>
-    <string name="settings_scanner_mode_lowlatency_label">کم تاخیر</string>
     <string name="settings_monitor_mode_manual_label">جب ایپ کھلی ہو</string>
     <string name="settings_monitor_mode_automatic_label">جب آلہ منسلک ہو</string>
     <string name="settings_monitor_mode_always_label">ہمیشہ</string>

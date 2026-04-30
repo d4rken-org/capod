@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದು \"ಸಾಧನ ಸ್ಥಿತಿ\" ಚಾನಲ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವ ಮೂಲಕ ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
     <string name="settings_keep_notification_after_disconnect_label">ಸಂಪರ್ಕ ಕಡಿತದ ನಂತರ ಅಧಿಸೂಚನೆ ಇರಿಸಿ</string>
     <string name="settings_keep_notification_after_disconnect_description">ನಿಮ್ಮ AirPods ಸಂಪರ್ಕ ಕಡಿತವಾದ ನಂತರವೂ ಕೊನೆಯ ತಿಳಿದಿರುವ ಬ್ಯಾಟರಿ ಮಟ್ಟವನ್ನು ತೋರಿಸುವುದನ್ನು ಮುಂದುವರಿಸಿ</string>
-    <string name="settings_scanner_mode_label">ಸ್ಕ್ಯಾನರ್ ಮೋಡ್</string>
-    <string name="settings_scanner_mode_description">ಬ್ಲೂಟೂತ್ ಕಡಿಮೆ ಶಕ್ತಿಯ ಡೇಟಾ ಸ್ಕ್ಯಾನರ್ ಕಾರ್ಯಕ್ಷಮತೆಗೆ ಆದ್ಯತೆ ನೀಡಬೇಕೇ ಅಥವಾ ಶಕ್ತಿಯನ್ನು ಉಳಿಸಬೇಕೇ?</string>
     <string name="settings_autopause_label">ಸ್ವಯಂ-ವಿರಾಮ</string>
     <string name="settings_autopause_description">ನಿಮ್ಮ ಕಿವಿಯಿಂದ ಸಾಧನವನ್ನು ತೆಗೆದುಹಾಕಿದಾಗ ಆಡಿಯೊವನ್ನು ವಿರಾಮಗೊಳಿಸಿ.</string>
     <string name="settings_autopplay_label">ಸ್ವಯಂ-ಪ್ಲೇ</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">ಕೆಳಗಿನ ಅನುಮತಿ ಅಗತ್ಯವಿದೆ:</string>
     <string name="permission_system_alert_window_label">ಸಿಸ್ಟಮ್ ಅಲರ್ಟ್ ವಿಂಡೋ</string>
     <string name="permission_system_alert_window_description">\"ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ\" ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಾಧ್ಯವಾಗಿಸಲು CAPod ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಮೇಲೆ ಚಿತ್ರಿಸಲು ಅನುಮತಿಸಿ.</string>
-    <string name="settings_scanner_mode_lowpower_label">ಕಡಿಮೆ ಶಕ್ತಿ</string>
-    <string name="settings_scanner_mode_balanced_label">ಸಮತೋಲಿತ</string>
-    <string name="settings_scanner_mode_lowlatency_label">ಕಡಿಮೆ ವಿಳಂಬ</string>
     <string name="settings_monitor_mode_manual_label">ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದಿರುವಾಗ</string>
     <string name="settings_monitor_mode_automatic_label">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ</string>
     <string name="settings_monitor_mode_always_label">ಯಾವಾಗಲೂ</string>

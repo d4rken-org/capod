@@ -9,7 +9,6 @@ import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.common.bluetooth.BluetoothAddress
-import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.datastore.createValue
 import eu.darken.capod.common.serialization.ByteArrayBase64Serializer
 import eu.darken.capod.common.serialization.SerializationCapod
@@ -43,8 +42,6 @@ class GeneralSettings @Inject constructor(
 
     val keepConnectedNotificationAfterDisconnect =
         dataStore.createValue("core.monitor.notification.connected.keepafterdisconnected", false)
-
-    val scannerMode = dataStore.createValue("core.scanner.mode", ScannerMode.BALANCED, json, onErrorFallbackToDefault = true)
 
     val oldMinimumSignalQuality = dataStore.createValue("core.signal.minimum", 0.20f)
 

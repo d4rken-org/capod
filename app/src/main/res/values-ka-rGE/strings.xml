@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">აჩვენებს დამატებით შეტყობინებას, როდესაც მოწყობილობა დაკავშირებულია. ეს საშუალებას გაძლევთ დამალოთ მუდმივი \"მოწყობილობები არ არის\" შეტყობინება \"მოწყობილობის სტატუსის\" არხის გამორთვით.</string>
     <string name="settings_keep_notification_after_disconnect_label">შეტყობინების შენარჩუნება გათიშვის შემდეგ</string>
     <string name="settings_keep_notification_after_disconnect_description">განაგრძეთ ბოლო ცნობილი ბატარეის დონეების ჩვენება მაშინაც კი, როცა თქვენი AirPods გაითიშება</string>
-    <string name="settings_scanner_mode_label">სკანერის რეჟიმი</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy მონაცემთა სკანერმა პრიორიტეტი უნდა მიანიჭოს შესრულებას თუ ენერგიის დაზოგვას?</string>
     <string name="settings_autopause_label">ავტომატური პაუზა</string>
     <string name="settings_autopause_description">აუდიოს დაპაუზება მოწყობილობის ყურიდან ამოღებისას.</string>
     <string name="settings_autopplay_label">ავტომატური დაკვრა</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">საჭიროა შემდეგი ნებართვა:</string>
     <string name="permission_system_alert_window_label">სისტემური გამაფრთხილებელი ფანჯარა</string>
     <string name="permission_system_alert_window_description">დაუშვით, რომ CAPod სხვა აპებზე ზემოდან გამოჩნდეს, რათა \"Show PopUp\" ფუნქცია შესაძლებელი გახდეს.</string>
-    <string name="settings_scanner_mode_lowpower_label">დაბალი ენერგომოხმარება</string>
-    <string name="settings_scanner_mode_balanced_label">ბალანსირებული</string>
-    <string name="settings_scanner_mode_lowlatency_label">დაბალი დაყოვნება</string>
     <string name="settings_monitor_mode_manual_label">როცა აპი ღიაა</string>
     <string name="settings_monitor_mode_automatic_label">როცა მოწყობილობა დაკავშირებულია</string>
     <string name="settings_monitor_mode_always_label">ყოველთვის</string>

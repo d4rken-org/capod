@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">기기가 연결되면 추가 알림을 표시합니다. 이렇게 하면 \"기기 상태\" 채널을 비활성화하여 영구적인 \"기기 없음\" 알림을 숨길 수 있습니다.</string>
     <string name="settings_keep_notification_after_disconnect_label">연결 해제 후에도 알림 유지하기</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods이 연결 해제된 후에도 마지막으로 알려진 배터리 잔량 계속 표시하기</string>
-    <string name="settings_scanner_mode_label">스캐너 모드</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy 데이터 스캐너가 성능을 우선시해야 할까요, 아니면 에너지를 절약해야 할까요?</string>
     <string name="settings_autopause_label">자동 일시 중지</string>
     <string name="settings_autopause_description">기기를 귀에서 빼면 오디오를 일시 중지합니다.</string>
     <string name="settings_autopplay_label">자동 재생</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">다음과 같은 권한이 필요합니다:</string>
     <string name="permission_system_alert_window_label">시스템 알림창</string>
     <string name="permission_system_alert_window_description">\"팝업 표시\" 기능을 사용하려면 다른 앱 위에 그리기를 허용해야 합니다.</string>
-    <string name="settings_scanner_mode_lowpower_label">저전력</string>
-    <string name="settings_scanner_mode_balanced_label">균형잡힌</string>
-    <string name="settings_scanner_mode_lowlatency_label">저지연</string>
     <string name="settings_monitor_mode_manual_label">앱이 열려있을때</string>
     <string name="settings_monitor_mode_automatic_label">장치가 연결되었을때</string>
     <string name="settings_monitor_mode_always_label">항상</string>

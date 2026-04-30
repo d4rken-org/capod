@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Показує додаткове сповіщення, коли пристрій підключено. Це дозволяє приховати постійне сповіщення \"Немає пристроїв\", вимкнувши канал \"Стан пристрою\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Залишати сповіщення після відключення</string>
     <string name="settings_keep_notification_after_disconnect_description">Продовжувати показувати останні відомі рівні заряду навіть після відключення AirPods</string>
-    <string name="settings_scanner_mode_label">Режим сканера</string>
-    <string name="settings_scanner_mode_description">Сканер даних Bluetooth Low Energy має зосередитися на продуктивності чи збереженні заряду батареї?</string>
     <string name="settings_autopause_label">Автопауза</string>
     <string name="settings_autopause_description">Зупинка відтворення аудіо, коли навушник прибрано з Вашого вуха.</string>
     <string name="settings_autopplay_label">Автовідтворення</string>
@@ -226,9 +224,6 @@
     <string name="permission_required_title">Потрібен наступний дозвіл:</string>
     <string name="permission_system_alert_window_label">Відображення поверх інших програм</string>
     <string name="permission_system_alert_window_description">Дозвольте CAPod відображатися поверх інших програм, щоб уможливити функцію \"Показувати спливаюче вікно\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Енергозбереження</string>
-    <string name="settings_scanner_mode_balanced_label">Збалансований</string>
-    <string name="settings_scanner_mode_lowlatency_label">Низька затримка</string>
     <string name="settings_monitor_mode_manual_label">Коли програму відкрито</string>
     <string name="settings_monitor_mode_automatic_label">Коли пристрій підключено</string>
     <string name="settings_monitor_mode_always_label">Завжди</string>

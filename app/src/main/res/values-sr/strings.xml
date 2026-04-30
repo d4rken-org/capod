@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Приказује додатно обавештење када је уређај повезан. Ово вам омогућава да сакријете трајно обавештење „Нема уређаја” онемогућавањем канала „Статус уређаја”.</string>
     <string name="settings_keep_notification_after_disconnect_label">Задржи обавештење након прекида везе</string>
     <string name="settings_keep_notification_after_disconnect_description">Настави да приказује последње познате нивое батерије чак и након што се AirPods искључе</string>
-    <string name="settings_scanner_mode_label">Режим скенера</string>
-    <string name="settings_scanner_mode_description">Да ли би скенер података Bluetooth Low Energy требало да да приоритет перформансама или да штеди енергију?</string>
     <string name="settings_autopause_label">Аутоматска пауза</string>
     <string name="settings_autopause_description">Паузирајте звук када уклоните уређај из ува.</string>
     <string name="settings_autopplay_label">Аутоматска репродукција</string>
@@ -224,9 +222,6 @@
     <string name="permission_required_title">Потребна је следећа дозвола:</string>
     <string name="permission_system_alert_window_label">Приказ преко других апликација</string>
     <string name="permission_system_alert_window_description">Дозволите CAPod-у да се приказује преко других апликација да би функција \"Прикажи искачући прозор\" била могућа.</string>
-    <string name="settings_scanner_mode_lowpower_label">Ниска потрошња</string>
-    <string name="settings_scanner_mode_balanced_label">Уравнотежено</string>
-    <string name="settings_scanner_mode_lowlatency_label">Ниска латенција</string>
     <string name="settings_monitor_mode_manual_label">Када је апликација отворена</string>
     <string name="settings_monitor_mode_automatic_label">Када је уређај повезан</string>
     <string name="settings_monitor_mode_always_label">Увек</string>

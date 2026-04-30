@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">يعرض إشعارًا إضافيًا عند توصيل جهاز. يتيح لك هذا إخفاء الإشعار الدائم \"لا توجد أجهزة\" عن طريق تعطيل قناة \"حالة الجهاز\".</string>
     <string name="settings_keep_notification_after_disconnect_label">الاحتفاظ بالإشعار بعد قطع الاتصال</string>
     <string name="settings_keep_notification_after_disconnect_description">الاستمرار في عرض مستويات البطارية المعروفة الأخيرة حتى بعد قطع اتصال AirPods</string>
-    <string name="settings_scanner_mode_label">وضع الماسح الضوئي</string>
-    <string name="settings_scanner_mode_description">هل يجب أن يعطي ماسح بيانات البلوتوث منخفض الطاقة الأولوية للأداء أم يحافظ على الطاقة؟</string>
     <string name="settings_autopause_label">إيقاف مؤقت تلقائي</string>
     <string name="settings_autopause_description">إيقاف الصوت مؤقتًا عند إزالة الجهاز من أذنك.</string>
     <string name="settings_autopplay_label">تشغيل تلقائي</string>
@@ -230,9 +228,6 @@
     <string name="permission_required_title">الإذن التالي مطلوب:</string>
     <string name="permission_system_alert_window_label">نافذة تنبيه النظام</string>
     <string name="permission_system_alert_window_description">السماح لـ CAPod بالرسم فوق التطبيقات الأخرى لتمكين ميزة \"إظهار النافذة المنبثقة\".</string>
-    <string name="settings_scanner_mode_lowpower_label">طاقة منخفضة</string>
-    <string name="settings_scanner_mode_balanced_label">متوازن</string>
-    <string name="settings_scanner_mode_lowlatency_label">تأخير منخفض</string>
     <string name="settings_monitor_mode_manual_label">عند فتح التطبيق</string>
     <string name="settings_monitor_mode_automatic_label">عند اتصال الجهاز</string>
     <string name="settings_monitor_mode_always_label">دائمًا</string>
