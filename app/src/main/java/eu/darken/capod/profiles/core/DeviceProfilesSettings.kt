@@ -34,5 +34,6 @@ class DeviceProfilesSettings @Inject constructor(
     val singleToMultiMigrationDone = dataStore.createValue("profiles.migration.v2.done", false)
     val defaultProfileCreated = dataStore.createValue("profiles.default.v2.created", false)
     val reactionMigrationDone = dataStore.createValue("profiles.reactions.migration.done", false)
+    val hadLegacyReactionData = dataStore.createValue("profiles.reactions.had_legacy_data", false)
 
 }

@@ -22,6 +22,7 @@ class DeviceProfilesRepoReorderTest : BaseTest() {
             every { profiles } returns fakeProfiles.mock
             every { defaultProfileCreated } returns FakeDataStoreValue(true).mock
             every { reactionMigrationDone } returns FakeDataStoreValue(true).mock
+            every { hadLegacyReactionData } returns FakeDataStoreValue(false).mock
         }
 
         val repo = DeviceProfilesRepo(

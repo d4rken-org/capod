@@ -24,6 +24,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -261,7 +262,7 @@ private fun ProfileRow(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
-        IconButton(onClick = onDeviceSettings) {
+        OutlinedIconButton(onClick = onDeviceSettings) {
             Icon(
                 imageVector = Icons.TwoTone.Tune,
                 contentDescription = stringResource(R.string.device_settings_open_cd),
