@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ಕರೆ ಮುಗಿಸಲು ಎರಡು ಬಾರಿ ಬಗೆ ದಲ್ಲಿಸಿ</string>
     <string name="device_settings_open_cd">ಸಾಧನ ಸೆಟ್ಟಿಂಗ್ಸ್ ತೆರೆಯಿರಿ</string>
     <string name="overview_card_missing_paired_device">ಈ ಪ್ರೊಫೈಲ್‌ಗೆ ಯಾವುದೇ ಜೋಡಿಸಲಾದ ಬ್ಲೂಟೂತ್ ಸಾಧನವಿಲ್ಲ.</string>
+    <string name="overview_reactions_hint_title">ಪ್ರತಿಕ್ರಿಯೆಗಳು ಪ್ರತಿ ಸಾಧನಕ್ಕೆ ಅನ್ವಯಿಸುತ್ತವೆ</string>
+    <string name="overview_reactions_hint_body">ಆಟೋ-ಪ್ಲೇ, ಆಟೋ-ಪಾಸ್ ಮತ್ತು ಪಾಪ್-ಅಪ್‌ಗಳನ್ನು ಈಗ ಪ್ರತಿ ಸಾಧನಕ್ಕೆ ಪ್ರತ್ಯೇಕವಾಗಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿದೆ. ನಿಮ್ಮ ಹೆಡ್‌ಫೋನ್‌ಗಳು ಸಂಪರ್ಕಗೊಂಡಿರುವಾಗ ಕಾರ್ಡ್‌ನಲ್ಲಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳ ಐಕಾನ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ಸಾಮಾನ್ಯ</string>
     <string name="device_settings_microphone_mode_label">ಮೈಕ್ರೊಫೋನ್</string>

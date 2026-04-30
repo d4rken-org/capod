@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">அழைப்பை முடிக்க இரண்டு முறை அழுத்தவும்</string>
     <string name="device_settings_open_cd">சாதன அமைப்புகளைத் திறக்கவும்</string>
     <string name="overview_card_missing_paired_device">இந்த சுயவிவரத்தில் இணைக்கப்பட்ட Bluetooth சாதனம் இல்லை.</string>
+    <string name="overview_reactions_hint_title">எதிர்வினைகள் சாதனத்திற்கு தனித்தனியாக உள்ளன</string>
+    <string name="overview_reactions_hint_body">தானியங்கி இயக்கம், தானியங்கி இடைநிறுத்தம் மற்றும் பாப்-அப்கள் இப்போது சாதனத்திற்கு தனித்தனியாக அமைக்கப்படுகின்றன. உங்கள் ஹெட்ஃபோன்கள் இணைக்கப்பட்டிருக்கும்போது ஒரு கார்டில் உள்ள அமைப்புகள் ஐகானை தட்டவும்.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">பொது</string>
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>

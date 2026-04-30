@@ -460,6 +460,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ဖုန်းပြတ်ရန် နှစ်ကြိမ်နှိပ်ပါ</string>
     <string name="device_settings_open_cd">ကိရိယာ ဆက်တင်များ ဖွင့်ထားပါ</string>
     <string name="overview_card_missing_paired_device">ဤပရိုဖိုင်တွင် တွဲချိတ်ထားသော Bluetooth စက်ပစ္စည်း မရှိပါ။</string>
+    <string name="overview_reactions_hint_title">Reactions များသည် စက်ပစ္စည်းတစ်ခုချင်းစီအတွက် ဖြစ်သည်</string>
+    <string name="overview_reactions_hint_body">အလိုအလျောက် ဖွင့်ခြင်း၊ အလိုအလျောက် ရပ်ခြင်းနှင့် pop-up များကို ယခု စက်ပစ္စည်းတစ်ခုချင်းစီအတွက် သတ်မှတ်ထားသည်။ သင့် headphones ချိတ်ဆက်နေစဉ် ကတ်တစ်ခုပေါ်ရှိ settings အိုင်ကွန်ကို နှိပ်ပါ။</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ယေဘူယျ</string>
     <string name="device_settings_microphone_mode_label">မိုက်ခရိုဖုန်း</string>

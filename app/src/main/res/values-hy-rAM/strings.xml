@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Կրկնակի սեղմում զանգը ավարտելու համար</string>
     <string name="device_settings_open_cd">Բացել սառքի կառավարումները</string>
     <string name="overview_card_missing_paired_device">Այս պրոֆիլը չունի զուգակցված Bluetooth սարք:</string>
+    <string name="overview_reactions_hint_title">Ռեակցիաները կարգավորվում են ըստ սարքի</string>
+    <string name="overview_reactions_hint_body">Ավտոնվագարկումը, ավտոդադարը և բացվող պատուհանները այժմ կարգավորվում են ըստ սարքի: Կտտացրեք կարգավորումների պատկերակին քարտի վրա, մինչ ձեր ականջակալները միացված են:</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ընդհանուր</string>
     <string name="device_settings_microphone_mode_label">Խոսափող</string>

@@ -475,6 +475,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvigubas paspaudimas baigia skambučį</string>
     <string name="device_settings_open_cd">Atidaryti įrenginio nustatymus</string>
     <string name="overview_card_missing_paired_device">Šis profilis neturi susieto „Bluetooth“ įrenginio.</string>
+    <string name="overview_reactions_hint_title">Reakcijos nustatomos kiekvienam įrenginiui</string>
+    <string name="overview_reactions_hint_body">Automatinis paleidimas, automatinis pristabdymas ir iššokantys langai dabar konfigūruojami kiekvienam įrenginiui. Bakstelėkite nustatymų piktogramą kortelėje, kol jūsų ausinės yra prijungtos.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Bendrieji</string>
     <string name="device_settings_microphone_mode_label">Mikrofonas</string>

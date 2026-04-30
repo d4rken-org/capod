@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Shtypje e dyfishtë për të mbyllur thirrjen</string>
     <string name="device_settings_open_cd">Hap cilësimet e pajisjes</string>
     <string name="overview_card_missing_paired_device">Ky profil nuk ka asnjë pajisje Bluetooth të çiftuar.</string>
+    <string name="overview_reactions_hint_title">Reagimet janë për çdo pajisje</string>
+    <string name="overview_reactions_hint_body">Luajtja automatike, pauzimi automatik dhe dritaret kërcyese tani konfigurohen për çdo pajisje. Trokitni ikonën e cilësimeve në një kartë ndërkohë që kufjet tuaja janë të lidhura.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gjenerik</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>

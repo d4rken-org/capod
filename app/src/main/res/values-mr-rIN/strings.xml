@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">कॉल संपवण्यासाठी दोनदा दाबा</string>
     <string name="device_settings_open_cd">डिव्हाइस सेटिंग्ज उघडा</string>
     <string name="overview_card_missing_paired_device">या प्रोफाइलशी कोणतेही Bluetooth डिव्हाइस जोडलेले नाही.</string>
+    <string name="overview_reactions_hint_title">प्रतिक्रिया प्रत्येक डिव्हाइससाठी आहेत</string>
+    <string name="overview_reactions_hint_body">ऑटो-प्ले, ऑटो-पॉज आणि पॉप-अप आता प्रत्येक डिव्हाइससाठी कॉन्फिगर केले आहेत. तुमचे हेडफोन कनेक्ट असताना कार्डवरील सेटिंग्ज आयकॉनवर टॅप करा.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">मायक्रोफोन</string>

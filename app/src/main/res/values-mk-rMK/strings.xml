@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двојно притискање за прекинување на повикот</string>
     <string name="device_settings_open_cd">Отворете ги поставките на уредот</string>
     <string name="overview_card_missing_paired_device">Овој профил нема спарен Bluetooth уред.</string>
+    <string name="overview_reactions_hint_title">Реакциите се по уред</string>
+    <string name="overview_reactions_hint_body">Автоматското пуштање, паузирање и скокачките прозорци сега се конфигурирани по уред. Допрете ја иконата за поставки на картичката додека слушалките се поврзани.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Генерално</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

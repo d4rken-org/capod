@@ -470,6 +470,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dvostruki pritisak za završetak poziva</string>
     <string name="device_settings_open_cd">Otvori postavke uređaja</string>
     <string name="overview_card_missing_paired_device">Ovaj profil nema uparenog Bluetooth uređaja.</string>
+    <string name="overview_reactions_hint_title">Reakcije su po uređaju</string>
+    <string name="overview_reactions_hint_body">Automatska reprodukcija, automatska pauza i skočni prozori sada se konfiguriraju po uređaju. Dodirnite ikonu postavki na kartici dok su vaše slušalice spojene.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Općenito</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

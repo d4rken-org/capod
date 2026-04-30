@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Aramayı bitirmek için çift basım</string>
     <string name="device_settings_open_cd">Cihaz ayarlarını aç</string>
     <string name="overview_card_missing_paired_device">Bu profilde eşlenmiş bir Bluetooth cihazı yok.</string>
+    <string name="overview_reactions_hint_title">Tepkiler cihaz başına ayarlanır</string>
+    <string name="overview_reactions_hint_body">Otomatik oynatma, otomatik duraklatma ve açılır pencereler artık cihaz başına yapılandırılmaktadır. Kulaklıklarınız bağlıyken karttaki ayarlar simgesine dokunun.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Genel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dobbelt tryk for at afslutte opkald</string>
     <string name="device_settings_open_cd">Åbn enhedsindstillinger</string>
     <string name="overview_card_missing_paired_device">Denne profil har ingen parret Bluetooth-enhed.</string>
+    <string name="overview_reactions_hint_title">Reaktioner er per enhed</string>
+    <string name="overview_reactions_hint_body">Automatisk afspilning, automatisk pause og pop-ups er nu konfigureret per enhed. Tryk på indstillingsikonet på et kort, mens dine hovedtelefoner er tilsluttet.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generel</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

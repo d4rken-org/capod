@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dalawang pindutin para tapusin ang tawag</string>
     <string name="device_settings_open_cd">Buksan ang mga setting ng device</string>
     <string name="overview_card_missing_paired_device">Ang profile na ito ay walang naipares na Bluetooth device.</string>
+    <string name="overview_reactions_hint_title">Ang mga reaksyon ay bawat device</string>
+    <string name="overview_reactions_hint_body">Ang auto-play, auto-pause at mga pop-up ay naka-configure na ngayon bawat device. I-tap ang icon ng mga setting sa isang card habang nakakonekta ang iyong mga headphone.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Pangkalahatan</string>
     <string name="device_settings_microphone_mode_label">Mikropono</string>

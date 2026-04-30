@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dupla nyomás a hívás befejezéséhez</string>
     <string name="device_settings_open_cd">Eszközbeállítások megnyitása</string>
     <string name="overview_card_missing_paired_device">Ehhez a profilhoz nincs párosított Bluetooth-eszköz.</string>
+    <string name="overview_reactions_hint_title">A reakciók eszközönként vannak beállítva</string>
+    <string name="overview_reactions_hint_body">Az automatikus lejátszás, automatikus szünet és felugró ablakok mostantól eszközönként konfigurálhatók. Koppints a beállítások ikonra egy kártyán, miközben a fejhallgatód csatlakoztatva van.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Általános</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

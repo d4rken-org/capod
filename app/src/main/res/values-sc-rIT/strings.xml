@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dòpia premida pro terminare sa chiamada</string>
     <string name="device_settings_open_cd">Abri sas impostatziones de su dispositivo</string>
     <string name="overview_card_missing_paired_device">Custu profilu non tenet perunu dispositibu Bluetooth abbinadu.</string>
+    <string name="overview_reactions_hint_title">Is reatziones sunt po cada dispositibu</string>
+    <string name="overview_reactions_hint_body">Su reprodutzione automàtica, sa pausa automàtica e is pop-up sunt impostados instare po ogni dispositibu. Tocca s\'ìcona de sa cunfiguratziones subra \'e una tàtula mentres is tùas cuffietas sunt connétidas.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>

@@ -477,6 +477,8 @@ K4r0lSz;</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Naciśnij dwukrotnie, aby zakończyć połączenie</string>
     <string name="device_settings_open_cd">Otwórz ustawienia urządzenia</string>
     <string name="overview_card_missing_paired_device">Ten profil nie ma sparowanego urządzenia Bluetooth.</string>
+    <string name="overview_reactions_hint_title">Reakcje są przypisane do urządzenia</string>
+    <string name="overview_reactions_hint_body">Automatyczne odtwarzanie, automatyczna pauza i wyskakujące okienka są teraz konfigurowane osobno dla każdego urządzenia. Dotknij ikony ustawień na karcie, gdy słuchawki są podłączone.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ogólne</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
@@ -513,7 +515,7 @@ K4r0lSz;</string>
     <string name="device_settings_anc_off_rejected_message">Tryb wyłączony nie jest włączony na tym urządzeniu. Włącz „Zezwól na tryb wyłączony” w sekcji Kontrola hałasu.</string>
     <string name="device_settings_category_battery_label">Bateria</string>
     <string name="device_settings_charge_cap_label">Zoptymalizowany limit ładowania</string>
-    <string name="device_settings_charge_cap_description">Uczy się Twojego harmonogramu i wstrzymuje ładowanie około 80%%, aby wydłużyć żywotność baterii, doładowując słuchawki przed prawdopodobnym ich użyciem.</string>
+    <string name="device_settings_charge_cap_description">Uczy się twojego harmonogramu i wstrzymuje ładowanie około 80%%, aby wydłużyć żywotność baterii, doładowując słuchawki przed prawdopodobnym ich użyciem.</string>
     <string name="device_settings_charge_cap_rejected_message">Nie udało się zmienić zoptymalizowanego limitu ładowania. To funkcja eksperymentalna — prosimy o zgłoszenie, jeśli problem będzie się powtarzał.</string>
     <string name="device_settings_category_connections_label">Połączone urządzenia</string>
     <string name="device_settings_connected_devices_description">Inne urządzenia aktualnie podłączone do tych AirPodsów </string>

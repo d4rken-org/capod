@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Dobbelttrykk for å avslutte samtale</string>
     <string name="device_settings_open_cd">Åpne enhetsinnstillinger</string>
     <string name="overview_card_missing_paired_device">Denne profilen har ingen sammenkoblet Bluetooth-enhet.</string>
+    <string name="overview_reactions_hint_title">Reaksjoner er per enhet</string>
+    <string name="overview_reactions_hint_body">Automatisk avspilling, automatisk pause og hurtigvisninger konfigureres nå per enhet. Trykk på innstillingsikonet på et kort mens hodetelefonene er tilkoblet.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generelt</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ඇමතුම අවසන් කිරීමට දෙවරක් එබන්න</string>
     <string name="device_settings_open_cd">උපාංග සැකසීම් විවර්ත කරන්න</string>
     <string name="overview_card_missing_paired_device">මෙම පැතිකඩට යුගල කළ Bluetooth උපකරණයක් නොමැත.</string>
+    <string name="overview_reactions_hint_title">ප්‍රතික්‍රියා උපාංගය අනුව වෙනස් වේ</string>
+    <string name="overview_reactions_hint_body">ස්වයංක්‍රීය වාදනය, ස්වයංක්‍රීය විරාමය සහ පොප්-අප් දැන් සෑම උපාංගයක් සඳහාම වින්‍යාස කර ඇත. ඔබගේ ශිරස්ත්‍රාණ සම්බන්ධිත අතරතුර කාඩ්පතක් මත සැකසුම් නිරූපකය තට්ටු කරන්න.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">සාමාන්‍ය</string>
     <string name="device_settings_microphone_mode_label">ශබ්දවාහිනිය</string>

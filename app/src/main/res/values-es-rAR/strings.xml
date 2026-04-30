@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Doble pulsación para finalizar la llamada</string>
     <string name="device_settings_open_cd">Abrir configuración del dispositivo</string>
     <string name="overview_card_missing_paired_device">Este perfil no tiene ningún dispositivo Bluetooth emparejado.</string>
+    <string name="overview_reactions_hint_title">Las reacciones son por dispositivo</string>
+    <string name="overview_reactions_hint_body">La reproducción automática, la pausa automática y las ventanas emergentes ahora se configuran por dispositivo. Tocá el ícono de configuración en una tarjeta mientras tus auriculares estén conectados.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>

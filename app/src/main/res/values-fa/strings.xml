@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">دوبار فشار برای پایان دادن تماس</string>
     <string name="device_settings_open_cd">باز کردن تنظیمات دستگاه</string>
     <string name="overview_card_missing_paired_device">این پروفایل هیچ دستگاه بلوتوثی جفت‌شده‌ای ندارد.</string>
+    <string name="overview_reactions_hint_title">واکنش‌ها برای هر دستگاه جداگانه هستند</string>
+    <string name="overview_reactions_hint_body">پخش خودکار، توقف خودکار و پنجره‌های بازشو اکنون برای هر دستگاه پیکربندی می‌شوند. در حالی که هدفون‌های شما متصل هستند، روی آیکون تنظیمات روی یک کارت ضربه بزنید.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">میکروفون</string>

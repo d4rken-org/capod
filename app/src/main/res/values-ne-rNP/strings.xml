@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">कल समाप्त गर्न दुईपटक थिच्नुहोस्</string>
     <string name="device_settings_open_cd">उपकरण सेटिङहरू खोल्नुहोस्</string>
     <string name="overview_card_missing_paired_device">यस प्रोफाइलमा कुनै जोडिएको Bluetooth उपकरण छैन।</string>
+    <string name="overview_reactions_hint_title">प्रतिक्रियाहरू प्रति यन्त्र छन्</string>
+    <string name="overview_reactions_hint_body">अटो-प्ले, अटो-पज र पप-अपहरू अब प्रति यन्त्र कन्फिगर गरिएका छन्। आफ्नो हेडफोन जडान भएको बेला कार्डमा सेटिङ आइकनमा ट्याप गर्नुहोस्।</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">माइक्रोफोन</string>

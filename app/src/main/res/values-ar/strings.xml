@@ -485,6 +485,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">ضغطة مزدوجة لإنهاء المكالمة</string>
     <string name="device_settings_open_cd">فتح إعدادات الجهاز</string>
     <string name="overview_card_missing_paired_device">هذا الملف الشخصي لا يحتوي على جهاز بلوتوث مقترن.</string>
+    <string name="overview_reactions_hint_title">ردود الفعل خاصة بكل جهاز</string>
+    <string name="overview_reactions_hint_body">يتم الآن تهيئة التشغيل التلقائي والإيقاف التلقائي والنوافذ المنبثقة لكل جهاز على حدة. انقر على أيقونة الإعدادات على البطاقة أثناء توصيل سماعاتك.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عام</string>
     <string name="device_settings_microphone_mode_label">ميكروفون</string>

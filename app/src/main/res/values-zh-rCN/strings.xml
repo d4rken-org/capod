@@ -460,6 +460,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">双按结束通话</string>
     <string name="device_settings_open_cd">打开设备设置</string>
     <string name="overview_card_missing_paired_device">此配置文件没有已配对的蓝牙设备。</string>
+    <string name="overview_reactions_hint_title">反应设置按设备分别配置</string>
+    <string name="overview_reactions_hint_body">自动播放、自动暂停和弹窗现在按设备分别配置。在耳机连接时，点击卡片上的设置图标。</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">常规</string>
     <string name="device_settings_microphone_mode_label">麦克风</string>

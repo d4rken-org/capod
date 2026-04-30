@@ -460,6 +460,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">กดสองครั้งเพื่อวางสาย</string>
     <string name="device_settings_open_cd">เปิดการตั้งค่าอุปกรณ์</string>
     <string name="overview_card_missing_paired_device">โปรไฟล์นี้ไม่มีอุปกรณ์ Bluetooth ที่จับคู่แล้ว</string>
+    <string name="overview_reactions_hint_title">การตอบสนองแยกตามอุปกรณ์</string>
+    <string name="overview_reactions_hint_body">การเล่นอัตโนมัติ การหยุดอัตโนมัติ และป๊อปอัปตั้งค่าแยกตามอุปกรณ์แล้ว แตะไอคอนการตั้งค่าบนการ์ดขณะที่หูฟังของคุณเชื่อมต่ออยู่</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ทั่วไป</string>
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>

@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Двойно натискане за прекратяване на разговора</string>
     <string name="device_settings_open_cd">Отворете настройките на устройството</string>
     <string name="overview_card_missing_paired_device">Този профил няма сдвоено Bluetooth устройство.</string>
+    <string name="overview_reactions_hint_title">Реакциите са за всяко устройство поотделно</string>
+    <string name="overview_reactions_hint_body">Автоматичното възпроизвеждане, паузирането и изскачащите прозорци вече се конфигурират за всяко устройство поотделно. Натиснете иконата с настройки на картата, докато слушалките ви са свързани.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Общи</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>

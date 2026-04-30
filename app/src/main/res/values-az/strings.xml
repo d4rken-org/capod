@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Zəngi bitirmək üçün iki dəfə basın</string>
     <string name="device_settings_open_cd">Cihaz parametrlərini açın</string>
     <string name="overview_card_missing_paired_device">Bu profilin cütləşdirilmiş Bluetooth cihazı yoxdur.</string>
+    <string name="overview_reactions_hint_title">Reaksiyalar hər cihaz üçün ayrıdır</string>
+    <string name="overview_reactions_hint_body">Avtomatik oxutma, avtomatik dayandırma və açılan pəncərələr artıq hər cihaz üçün ayrıca konfiqurasiya edilir. Qulaqlıqlarınız qoşulu olarkən kartdakı parametrlər ikonasına toxunun.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ümumi</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>

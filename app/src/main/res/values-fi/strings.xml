@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Kaksoispainallus lopettaa puhelun</string>
     <string name="device_settings_open_cd">Avaa laiteasetukset</string>
     <string name="overview_card_missing_paired_device">Tällä profiililla ei ole yhdistettyä Bluetooth-laitetta.</string>
+    <string name="overview_reactions_hint_title">Reaktiot ovat laitekohtaisia</string>
+    <string name="overview_reactions_hint_body">Automaattinen toisto, automaattinen tauko ja ponnahdusikkunat on nyt määritetty laitekohtaisesti. Napauta kortissa olevaa asetuskuvaketta, kun kuulokkeet ovat yhdistettynä.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Yleiset</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>

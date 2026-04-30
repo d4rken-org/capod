@@ -465,6 +465,8 @@
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">Double appui pour terminer l’appel</string>
     <string name="device_settings_open_cd">Ouvrir les paramètres de l’appareil</string>
     <string name="overview_card_missing_paired_device">Ce profil n\'a aucun appareil Bluetooth associé.</string>
+    <string name="overview_reactions_hint_title">Les réactions sont par appareil</string>
+    <string name="overview_reactions_hint_body">La lecture automatique, la pause automatique et les fenêtres contextuelles sont désormais configurées par appareil. Appuyez sur l’icône des paramètres d’une carte lorsque vos écouteurs sont connectés.</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Général</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>
