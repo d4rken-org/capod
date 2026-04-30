@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдсон үед нэмэлт мэдэгдэл харуулна. Энэ нь \"Төхөөрөмжийн төлөв\" сувгийг идэвхгүй болгосноор \"Төхөөрөмж алга\" гэсэн байнгын мэдэгдлийг нуух боломжийг олгоно.</string>
     <string name="settings_keep_notification_after_disconnect_label">Салсны дараа мэдэгдлийг хадгалах</string>
     <string name="settings_keep_notification_after_disconnect_description">Таны AirPods салсан ч хамгийн сүүлд мэдэгдэж буй батарейн түвшинг үргэлжлүүлэн харуулна</string>
-    <string name="settings_scanner_mode_label">Сканнерын горим</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy өгөгдлийн сканнер нь гүйцэтгэлийг эсвэл эрчим хүчийг хэмнэхийг урьтал болгох ёстой юу?</string>
     <string name="settings_autopause_label">Автомат түр зогсоох</string>
     <string name="settings_autopause_description">Төхөөрөмжийг чихнээсээ салгахад дууг түр зогсооно.</string>
     <string name="settings_autopplay_label">Автомат тоглуулах</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Дараах зөвшөөрөл шаардлагатай:</string>
     <string name="permission_system_alert_window_label">Системийн анхааруулгын цонх</string>
     <string name="permission_system_alert_window_description">CAPod-д \"Попап харуулах\" боломжийг ажиллуулахын тулд бусад апп-уудын дээр зурах зөвшөөрөл олгоно уу.</string>
-    <string name="settings_scanner_mode_lowpower_label">Бага эрчим хүч</string>
-    <string name="settings_scanner_mode_balanced_label">Тэнцвэртэй</string>
-    <string name="settings_scanner_mode_lowlatency_label">Бага хоцрогдол</string>
     <string name="settings_monitor_mode_manual_label">Апп нээлттэй үед</string>
     <string name="settings_monitor_mode_automatic_label">Төхөөрөмж холбогдсон үед</string>
     <string name="settings_monitor_mode_always_label">Үргэлж</string>

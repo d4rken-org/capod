@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \"Սարքեր չկան\" ծանուցումը՝ անջատելով \"Սարքի կարգավիճակը\" ալիքը։</string>
     <string name="settings_keep_notification_after_disconnect_label">Պահել ծանուցումը անջատումից հետո</string>
     <string name="settings_keep_notification_after_disconnect_description">Շարունակել ցուցադրել վերջին հայտնի մարտկոցի մակարդակները նույնիսկ ձեր AirPods-ների անջատումից հետո</string>
-    <string name="settings_scanner_mode_label">Սկաների ռեժիմ</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy տվյալների սկաները պետք է առաջնահերթություն տա արդյունավետությանը, թե՞ խնայի էներգիան։</string>
     <string name="settings_autopause_label">Ինքնադադար</string>
     <string name="settings_autopause_description">Դադարեցրեք ձայնը, երբ սարքը հանում եք ականջից։</string>
     <string name="settings_autopplay_label">Ինքնանվագարկում</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Հետևյալ թույլտվությունն անհրաժեշտ է՝</string>
     <string name="permission_system_alert_window_label">Համակարգային զգուշացման պատուհան</string>
     <string name="permission_system_alert_window_description">Թույլ տվեք CAPod-ին նկարել այլ հավելվածների վերևում՝ \"Ցուցադրել բացվող պատուհան\" գործառույթը հնարավոր դարձնելու համար։</string>
-    <string name="settings_scanner_mode_lowpower_label">Ցածր էներգիա</string>
-    <string name="settings_scanner_mode_balanced_label">Հավասարակշռված</string>
-    <string name="settings_scanner_mode_lowlatency_label">Ցածր ուշացում</string>
     <string name="settings_monitor_mode_manual_label">Երբ հավելվածը բաց է</string>
     <string name="settings_monitor_mode_automatic_label">Երբ սարքը միացված է</string>
     <string name="settings_monitor_mode_always_label">Միշտ</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Mostra una notifica aggiuntiva quando un dispositivo è connesso. Ciò consente di nascondere la notifica permanente \"Nessun dispositivo\" disabilitando il canale \"Stato del dispositivo\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantieni notifica dopo la disconnessione</string>
     <string name="settings_keep_notification_after_disconnect_description">Continua a mostrare gli ultimi livelli di batteria noti anche dopo la disconnessione dei tuoi AirPods</string>
-    <string name="settings_scanner_mode_label">Modalità scanner</string>
-    <string name="settings_scanner_mode_description">Lo scanner di dati Bluetooth Low Energy deve dare priorità alle prestazioni o risparmiare energia?</string>
     <string name="settings_autopause_label">Pausa automatica</string>
     <string name="settings_autopause_description">Metti in pausa l\'audio quando rimuovi il dispositivo dall\'orecchio.</string>
     <string name="settings_autopplay_label">Riproduzione automatica</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">È richiesto il seguente permesso:</string>
     <string name="permission_system_alert_window_label">Finestra di avviso di sistema</string>
     <string name="permission_system_alert_window_description">Consenti a CAPod di disegnare sopra altre app per rendere possibile la funzionalità \"Mostra pop-up\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Basso consumo</string>
-    <string name="settings_scanner_mode_balanced_label">Bilanciato</string>
-    <string name="settings_scanner_mode_lowlatency_label">Bassa latenza</string>
     <string name="settings_monitor_mode_manual_label">Quando l\'app è aperta</string>
     <string name="settings_monitor_mode_automatic_label">Quando il dispositivo è connesso</string>
     <string name="settings_monitor_mode_always_label">Sempre</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခုချိတ်ဆက်သောအခါ အပိုအသိပေးချက်တစ်ခုပြသသည်။ ၎င်းသည် \"စက်ပစ္စည်းအခြေအနေ\" ချန်နယ်ကို ပိတ်ခြင်းဖြင့် အမြဲတမ်း \"စက်ပစ္စည်းမရှိပါ\" အသိပေးချက်ကို ဝှက်ထားနိုင်စေသည်။</string>
     <string name="settings_keep_notification_after_disconnect_label">ချိတ်ဆက်မှုပြတ်ပြီးနောက် အသိပေးချက်ကိုထားရှိပါ</string>
     <string name="settings_keep_notification_after_disconnect_description">သင့် AirPods ချိတ်ဆက်မှုပြတ်ပြီးနောက်ပင် နောက်ဆုံးသိရှိထားသော ဘက်ထရီအဆင့်များကို ဆက်လက်ပြသပါ</string>
-    <string name="settings_scanner_mode_label">စကင်နာမုဒ်</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy ဒေတာစကင်နာသည် စွမ်းဆောင်ရည်ကို ဦးစားပေးသင့်သလား သို့မဟုတ် စွမ်းအင်ချွေတာသင့်သလား။</string>
     <string name="settings_autopause_label">အလိုအလြှောက်ရပ်တန့်ခြင်း</string>
     <string name="settings_autopause_description">သင့်နားကြပ်ကို နားမှဖယ်ရှားသည့်အခါ အသံကိုခေတ္တရပ်ပါ။</string>
     <string name="settings_autopplay_label">အလိုအလြှောက်ဖွင့်ခြင်း</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">အောက်ပါခွင့်ပြုချက်လိုအပ်သည်:</string>
     <string name="permission_system_alert_window_label">စနစ်သတိပေးချက်ပြတင်းပေါက်</string>
     <string name="permission_system_alert_window_description">\"ပြတင်းပေါက်ပြသခြင်း\" အင်္ဂါရပ်ကိုဖြစ်နိုင်စေရန် CAPod အား အခြားအက်ပ်များပေါ်တွင် ပုံဆွဲခွင့်ပြုပါ။</string>
-    <string name="settings_scanner_mode_lowpower_label">စွမ်းအင်နည်း</string>
-    <string name="settings_scanner_mode_balanced_label">ချိန်ညှိထားသော</string>
-    <string name="settings_scanner_mode_lowlatency_label">နှောင့်နှေးမှုနည်း</string>
     <string name="settings_monitor_mode_manual_label">အက်ပ်ဖွင့်ထားသောအခါ</string>
     <string name="settings_monitor_mode_automatic_label">စက်ပစ္စည်းချိတ်ဆက်ထားသောအခါ</string>
     <string name="settings_monitor_mode_always_label">အမြဲတမ်း</string>

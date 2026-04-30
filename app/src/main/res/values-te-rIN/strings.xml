@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \"పరికర స్థితి\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \"పరికరం లేదు\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
     <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
     <string name="settings_keep_notification_after_disconnect_description">మీ AirPods డిస్‌కనెక్ట్ అయిన తర్వాత కూడా చివరిగా తెలిసిన బ్యాటరీ స్థాయిలను చూపించడం కొనసాగించు</string>
-    <string name="settings_scanner_mode_label">స్కానర్ మోడ్</string>
-    <string name="settings_scanner_mode_description">బ్లూటూత్ తక్కువ శక్తి డేటా స్కానర్ పనితీరుకు ప్రాధాన్యత ఇవ్వాలా లేదా శక్తిని ఆదా చేయాలా?</string>
     <string name="settings_autopause_label">ఆటో పాజ్</string>
     <string name="settings_autopause_description">మీ చెవి నుండి పరికరాన్ని తీసివేసినప్పుడు ఆడియోను పాజ్ చేయండి.</string>
     <string name="settings_autopplay_label">ఆటో ప్లే</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">కింది అనుమతి అవసరం:</string>
     <string name="permission_system_alert_window_label">సిస్టమ్ అలర్ట్ విండో</string>
     <string name="permission_system_alert_window_description">\"పాపప్ చూపించు\" ఫీచర్‌ను సాధ్యం చేయడానికి ఇతర యాప్‌ల మీద గీయడానికి CAPodను అనుమతించండి.</string>
-    <string name="settings_scanner_mode_lowpower_label">తక్కువ శక్తి</string>
-    <string name="settings_scanner_mode_balanced_label">సమతుల్యం</string>
-    <string name="settings_scanner_mode_lowlatency_label">తక్కువ జాప్యం</string>
     <string name="settings_monitor_mode_manual_label">యాప్ తెరిచి ఉన్నప్పుడు</string>
     <string name="settings_monitor_mode_automatic_label">పరికరం కనెక్ట్ అయినప్పుడు</string>
     <string name="settings_monitor_mode_always_label">ఎల్లప్పుడూ</string>

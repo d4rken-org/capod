@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \"Nincs eszköz\" értesítés elrejtését az \"Eszköz állapota\" csatorna letiltásával.</string>
     <string name="settings_keep_notification_after_disconnect_label">Értesítés megőrzése lecsatlakozás után</string>
     <string name="settings_keep_notification_after_disconnect_description">Az utolsó ismert akkumulátorszintek megjelenítésének folytatása az AirPods lecsatlakozása után is</string>
-    <string name="settings_scanner_mode_label">Szkenner mód</string>
-    <string name="settings_scanner_mode_description">A Bluetooth Low Energy szkenner a teljesítményt vagy az energiatakarékosságot részesítse előnyben?</string>
     <string name="settings_autopause_label">Automatikus szünet</string>
     <string name="settings_autopause_description">Zene leállítása, amikor kiveszi a füléből az eszközt.</string>
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">A következő engedély szükséges:</string>
     <string name="permission_system_alert_window_label">Rendszer figyelmeztető ablak</string>
     <string name="permission_system_alert_window_description">Engedélyezze a CAPod-nak, hogy más alkalmazások fölé rajzoljon az \"Előugró ablak megjelenítése\" funkció lehetővé tételéhez.</string>
-    <string name="settings_scanner_mode_lowpower_label">Alacsony fogyasztás</string>
-    <string name="settings_scanner_mode_balanced_label">Kiegyensúlyozott</string>
-    <string name="settings_scanner_mode_lowlatency_label">Alacsony késleltetés</string>
     <string name="settings_monitor_mode_manual_label">Amikor az alkalmazás nyitva van</string>
     <string name="settings_monitor_mode_automatic_label">Amikor az eszköz csatlakozik</string>
     <string name="settings_monitor_mode_always_label">Mindig</string>

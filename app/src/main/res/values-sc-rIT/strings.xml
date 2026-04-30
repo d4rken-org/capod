@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Mustrat una notìfica extra cando unu dispositivu est cullegadu. Custu ti permitit de cuare sa notìfica permanente \"Perunu dispositivu\" disativende su canale \"Istadu de su dispositivu\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantene sa notìfica a pustis de sa disconnexione</string>
     <string name="settings_keep_notification_after_disconnect_description">Sighi a mustrare is ùrtimos livelos de bateria connotos fintzas a pustis chi is AirPods si disconnetint</string>
-    <string name="settings_scanner_mode_label">Modalidade scanner</string>
-    <string name="settings_scanner_mode_description">S\'iscaner de datos Bluetooth Low Energy depet dare prioridade a is prestatziones o aforrare energia?</string>
     <string name="settings_autopause_label">Pàusa automàtica</string>
     <string name="settings_autopause_description">Pone in pàusa s\'àudio cando bogas su dispositivu dae s\'origra.</string>
     <string name="settings_autopplay_label">Riprodutzione automàtica</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Su permissu in fata est netzessàriu:</string>
     <string name="permission_system_alert_window_label">Ventana de alerta de su sistema</string>
     <string name="permission_system_alert_window_description">Permiti a CAPod de disegnare subra àteras apps pro rèndere possìbile sa funtzione \"Mustra PopUp\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Consumu bàsciu</string>
-    <string name="settings_scanner_mode_balanced_label">Ecuilibradu</string>
-    <string name="settings_scanner_mode_lowlatency_label">Latèntzia bàscia</string>
     <string name="settings_monitor_mode_manual_label">Cando s\'app est aberta</string>
     <string name="settings_monitor_mode_automatic_label">Cando su dispositivu est cullegadu</string>
     <string name="settings_monitor_mode_always_label">Sèmper</string>

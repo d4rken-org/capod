@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">ஒரு சாதனம் இணைக்கப்படும்போது கூடுதல் அறிவிப்பைக் காட்டுகிறது. \"சாதன நிலை\" சேனலை முடக்குவதன் மூலம் நிரந்தர \"சாதனங்கள் இல்லை\" அறிவிப்பை மறைக்க இது உங்களை அனுமதிக்கிறது.</string>
     <string name="settings_keep_notification_after_disconnect_label">துண்டிக்கப்பட்ட பிறகு அறிவிப்பை வைத்திரு</string>
     <string name="settings_keep_notification_after_disconnect_description">உங்கள் AirPods துண்டிக்கப்பட்ட பிறகும் கடைசியாக அறியப்பட்ட பேட்டரி நிலைகளைக் காட்டவும்</string>
-    <string name="settings_scanner_mode_label">ஸ்கேனர் முறை</string>
-    <string name="settings_scanner_mode_description">புளூடூத் குறைந்த ஆற்றல் தரவு ஸ்கேனர் செயல்திறனுக்கு முன்னுரிமை அளிக்க வேண்டுமா அல்லது ஆற்றலைச் சேமிக்க வேண்டுமா?</string>
     <string name="settings_autopause_label">தானியங்கு இடைநிறுத்தம்</string>
     <string name="settings_autopause_description">உங்கள் காதில் இருந்து சாதனத்தை அகற்றும்போது ஆடியோவை இடைநிறுத்தவும்.</string>
     <string name="settings_autopplay_label">தானியங்கு இயக்கம்</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">பின்வரும் அனுமதி தேவை:</string>
     <string name="permission_system_alert_window_label">கணினி எச்சரிக்கை சாளரம்</string>
     <string name="permission_system_alert_window_description">\"பாப்அப் காட்டு\" அம்சத்தை சாத்தியமாக்க CAPod-ஐ பிற ஆப்ஸ்களின் மேல் வரைய அனுமதிக்கவும்.</string>
-    <string name="settings_scanner_mode_lowpower_label">குறைந்த ஆற்றல்</string>
-    <string name="settings_scanner_mode_balanced_label">சமநிலை</string>
-    <string name="settings_scanner_mode_lowlatency_label">குறைந்த தாமதம்</string>
     <string name="settings_monitor_mode_manual_label">ஆப்ஸ் திறந்திருக்கும்போது</string>
     <string name="settings_monitor_mode_automatic_label">சாதனம் இணைக்கப்பட்டிருக்கும்போது</string>
     <string name="settings_monitor_mode_always_label">எப்போதும்</string>

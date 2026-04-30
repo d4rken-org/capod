@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Toont een extra melding wanneer een apparaat is verbonden. Hiermee kun je de permanente melding \"Geen apparaten\" verbergen door het kanaal \"Apparaatstatus\" uit te schakelen.</string>
     <string name="settings_keep_notification_after_disconnect_label">Melding behouden na verbreken verbinding</string>
     <string name="settings_keep_notification_after_disconnect_description">Blijf de laatst bekende batterijniveaus weergeven, zelfs nadat je AirPods zijn losgekoppeld</string>
-    <string name="settings_scanner_mode_label">Scannermodus</string>
-    <string name="settings_scanner_mode_description">Moet de \'Bluetooth Low Energy\'-datascanner prioriteit geven aan prestaties of aan energiebesparing?</string>
     <string name="settings_autopause_label">Auto pauze</string>
     <string name="settings_autopause_description">Pauzeer de audio wanneer je het apparaat van je oor haalt.</string>
     <string name="settings_autopplay_label">Automatisch afspelen</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">De volgende toestemming is vereist:</string>
     <string name="permission_system_alert_window_label">Systeemwaarschuwingsvenster</string>
     <string name="permission_system_alert_window_description">Geef CAPod de mogelijkheid om over andere apps heen te tekenen, zodat de functie \"Pop-up weergeven\" mogelijk is.</string>
-    <string name="settings_scanner_mode_lowpower_label">Laag vermogen</string>
-    <string name="settings_scanner_mode_balanced_label">Evenwichtig</string>
-    <string name="settings_scanner_mode_lowlatency_label">Lage latentie</string>
     <string name="settings_monitor_mode_manual_label">Wanneer de app geopend is</string>
     <string name="settings_monitor_mode_automatic_label">Wanneer het apparaat is aangesloten</string>
     <string name="settings_monitor_mode_always_label">Altijd</string>

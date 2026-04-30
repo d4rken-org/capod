@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \"Nav ierīču\", atspējojot kanālu \"Ierīces statuss\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
     <string name="settings_keep_notification_after_disconnect_description">Turpināt rādīt pēdējos zināmos baterijas līmeņus arī pēc AirPods atvienošanas</string>
-    <string name="settings_scanner_mode_label">Skenēšanas režīms</string>
-    <string name="settings_scanner_mode_description">Vai Bluetooth Low Energy datu skenerim vajadzētu prioritizēt veiktspēju vai taupīt enerģiju?</string>
     <string name="settings_autopause_label">Automātiska pauze</string>
     <string name="settings_autopause_description">Pauzēt audio, noņemot ierīci no auss.</string>
     <string name="settings_autopplay_label">Automātiska atskaņošana</string>
@@ -224,9 +222,6 @@
     <string name="permission_required_title">Nepieciešama šāda atļauja:</string>
     <string name="permission_system_alert_window_label">Sistēmas brīdinājuma logs</string>
     <string name="permission_system_alert_window_description">Atļaujiet CAPod zīmēt virs citām lietotnēm, lai iespējotu funkciju \"Rādīt uznirstošo logu\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Zema jauda</string>
-    <string name="settings_scanner_mode_balanced_label">Līdzsvarots</string>
-    <string name="settings_scanner_mode_lowlatency_label">Zema latence</string>
     <string name="settings_monitor_mode_manual_label">Kad lietotne ir atvērta</string>
     <string name="settings_monitor_mode_automatic_label">Kad ierīce ir savienota</string>
     <string name="settings_monitor_mode_always_label">Vienmēr</string>

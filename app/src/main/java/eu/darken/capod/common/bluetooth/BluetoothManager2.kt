@@ -318,6 +318,74 @@ class BluetoothManager2 @Inject constructor(
         emit(wrappedDevices)
     }
 
+    @android.annotation.SuppressLint("MissingPermission")
+    private fun queryBondedAddresses(): Set<BluetoothAddress> =
+        adapter?.bondedDevices?.map { it.address }?.toSet() ?: emptySet()
+
+    val bondedDeviceAddresses: Flow<Set<BluetoothAddress>> = callbackFlow {
+        fun sendBondedAddresses(): Boolean = try {
+            trySend(queryBondedAddresses())
+            true
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Error querying bonded device addresses: $e" }
+            trySend(emptySet())
+            close(e)
+            false
+        }
+
+        if (!sendBondedAddresses()) return@callbackFlow
+
+        val receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                if (intent.action != BluetoothDevice.ACTION_BOND_STATE_CHANGED) return
+                sendBondedAddresses()
+            }
+        }
+        try {
+            context.registerReceiver(receiver, IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED))
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to register bond-state receiver: $e" }
+            close(e)
+            return@callbackFlow
+        }
+
+        awaitClose {
+            try {
+                context.unregisterReceiver(receiver)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Error unregistering bond-state receiver: $e" }
+            }
+        }
+    }
+        .retryWhen { cause, attempt ->
+            log(TAG, WARN) { "bondedDeviceAddresses Flow failed (attempt ${attempt + 1}): $cause" }
+            when {
+                cause is SecurityException -> {
+                    delay(3_000L)
+                    true
+                }
+                attempt < 3 -> {
+                    delay(1000 * (attempt + 1))
+                    true
+                }
+                else -> false
+            }
+        }
+        .catch { e ->
+            log(TAG, ERROR) { "bondedDeviceAddresses Flow failed after retries: $e" }
+            emit(emptySet())
+        }
+        .distinctUntilChanged()
+        .setupCommonEventHandlers(TAG) { "bondedDeviceAddresses" }
+        .stateIn(
+            scope = appScope + dispatcherProvider.IO,
+            started = SharingStarted.WhileSubscribed(
+                stopTimeoutMillis = 5_000L,
+                replayExpirationMillis = 0L,
+            ),
+            initialValue = emptySet(),
+        )
+
     private var _isNudgeAvailable: Boolean = true
     val isNudgeAvailable: Boolean get() = _isNudgeAvailable
 

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">在设备连接时显示一条额外通知。这使您可以禁用“设备状态”通道来隐藏永久性的“无设备”通知。</string>
     <string name="settings_keep_notification_after_disconnect_label">断开连接后保持通知</string>
     <string name="settings_keep_notification_after_disconnect_description">即使您的 AirPods 断开连接，继续显示上次已知的电池电量水平</string>
-    <string name="settings_scanner_mode_label">扫描模式</string>
-    <string name="settings_scanner_mode_description">低功耗蓝牙数据扫描器应着重性能还是省电？</string>
     <string name="settings_autopause_label">自动暂停</string>
     <string name="settings_autopause_description">从耳中取出时自动暂停音频播放</string>
     <string name="settings_autopplay_label">自动播放</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">需要以下权限：</string>
     <string name="permission_system_alert_window_label">系统警告窗口</string>
     <string name="permission_system_alert_window_description">允许 CAPod 在其他应用的界面上方显示，以允许如“显示弹窗”功能。</string>
-    <string name="settings_scanner_mode_lowpower_label">低耗电</string>
-    <string name="settings_scanner_mode_balanced_label">平衡</string>
-    <string name="settings_scanner_mode_lowlatency_label">低延迟</string>
     <string name="settings_monitor_mode_manual_label">当应用程序打开时</string>
     <string name="settings_monitor_mode_automatic_label">设备连接时</string>
     <string name="settings_monitor_mode_always_label">总是</string>

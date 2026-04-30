@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Prikaže dodatno obvestilo, ko je naprava povezana. To vam omogoča, da skrijete trajno obvestilo \"Ni naprav\" tako, da onemogočite kanal \"Stanje naprave\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Ohrani obvestilo po prekinitvi povezave</string>
     <string name="settings_keep_notification_after_disconnect_description">Nadaljuj s prikazovanjem zadnjih znanih ravni baterije tudi po prekinitvi povezave z vašimi AirPods</string>
-    <string name="settings_scanner_mode_label">Način optičnega bralnika</string>
-    <string name="settings_scanner_mode_description">Ali naj optični bralnik podatkov Bluetooth Low Energy daje prednost zmogljivosti ali varčuje z energijo?</string>
     <string name="settings_autopause_label">Samodejna prekinitev</string>
     <string name="settings_autopause_description">Začasno ustavi zvok, ko napravo odstranite iz ušesa.</string>
     <string name="settings_autopplay_label">Samodejno predvajanje</string>
@@ -226,9 +224,6 @@
     <string name="permission_required_title">Zahtevano je naslednje dovoljenje:</string>
     <string name="permission_system_alert_window_label">Sistemsko opozorilno okno</string>
     <string name="permission_system_alert_window_description">Dovolite CAPod risanje čez druge aplikacije, da omogočite funkcijo \"Pokaži pojavno okno\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Nizka poraba</string>
-    <string name="settings_scanner_mode_balanced_label">Uravnoteženo</string>
-    <string name="settings_scanner_mode_lowlatency_label">Nizka zakasnitev</string>
     <string name="settings_monitor_mode_manual_label">Ko je aplikacija odprta</string>
     <string name="settings_monitor_mode_automatic_label">Ko je naprava povezana</string>
     <string name="settings_monitor_mode_always_label">Vedno</string>

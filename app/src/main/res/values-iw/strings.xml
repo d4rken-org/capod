@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">מציג התראה נוספת כאשר מכשיר מחובר. זה מאפשר לך להסתיר את ההתראה הקבועה \"אין מכשירים\" על ידי השבתת הערוץ \"סטטוס מכשיר\".</string>
     <string name="settings_keep_notification_after_disconnect_label">שמור התראה לאחר ניתוק</string>
     <string name="settings_keep_notification_after_disconnect_description">המשך להציג את רמות הסוללה האחרונות הידועות גם לאחר ניתוק ה-AirPods</string>
-    <string name="settings_scanner_mode_label">מצב סורק</string>
-    <string name="settings_scanner_mode_description">האם סורק ה-Bluetooth Low Energy צריך לתת עדיפות לביצועים או לחסוך באנרגיה?</string>
     <string name="settings_autopause_label">השהייה אוטומטית</string>
     <string name="settings_autopause_description">עצירת אודיו בהסרת המכשיר מהאוזן.</string>
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
@@ -226,9 +224,6 @@
     <string name="permission_required_title">ההרשאה הבאה נדרשת:</string>
     <string name="permission_system_alert_window_label">חלון התראת מערכת</string>
     <string name="permission_system_alert_window_description">אפשר ל-CAPod לצייר מעל אפליקציות אחרות כדי לאפשר את תכונת \"הצג חלון קופץ\".</string>
-    <string name="settings_scanner_mode_lowpower_label">חיסכון באנרגיה</string>
-    <string name="settings_scanner_mode_balanced_label">מאוזן</string>
-    <string name="settings_scanner_mode_lowlatency_label">השהייה נמוכה</string>
     <string name="settings_monitor_mode_manual_label">כשהאפליקציה פתוחה</string>
     <string name="settings_monitor_mode_automatic_label">כשמכשיר מחובר</string>
     <string name="settings_monitor_mode_always_label">תמיד</string>

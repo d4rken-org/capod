@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya ziada wakati kifaa kimeunganishwa. Hii inakuwezesha kuficha arifa ya kudumu ya \"Hakuna vifaa\" kwa kuzima kituo cha \"Hali ya kifaa\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
     <string name="settings_keep_notification_after_disconnect_description">Endelea kuonyesha viwango vya mwisho vya betri hata baada ya AirPods yako kukatika muunganisho</string>
-    <string name="settings_scanner_mode_label">Hali ya skana</string>
-    <string name="settings_scanner_mode_description">Je, skana ya data ya Bluetooth Low Energy itangulize utendakazi au ihifadhi nishati?</string>
     <string name="settings_autopause_label">Sitisha kiotomatiki</string>
     <string name="settings_autopause_description">Sitisha sauti unapotoa kifaa sikioni.</string>
     <string name="settings_autopplay_label">Cheza kiotomatiki</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Ruhusa ifuatayo inahitajika:</string>
     <string name="permission_system_alert_window_label">Dirisha la Arifa ya Mfumo</string>
     <string name="permission_system_alert_window_description">Ruhusu CAPod kuchora juu ya programu nyingine ili kuwezesha kipengele cha \"Onyesha Kidirisha\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Nishati ya chini</string>
-    <string name="settings_scanner_mode_balanced_label">Uwiano</string>
-    <string name="settings_scanner_mode_lowlatency_label">Ucheleweshaji mdogo</string>
     <string name="settings_monitor_mode_manual_label">Programu inapofunguliwa</string>
     <string name="settings_monitor_mode_automatic_label">Kifaa kinapounganishwa</string>
     <string name="settings_monitor_mode_always_label">Kila mara</string>

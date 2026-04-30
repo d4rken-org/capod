@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Bir cihaz bağlandığında ek bir bildirim gösterir. Bu, \"Cihaz durumu\" kanalını devre dışı bırakarak kalıcı \"Cihaz yok\" bildirimini gizlemenizi sağlar.</string>
     <string name="settings_keep_notification_after_disconnect_label">Bağlantı kesildikten sonra bildirimi koru</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods bağlantısı kesildikten sonra bile bilinen son pil seviyelerini göstermeye devam et</string>
-    <string name="settings_scanner_mode_label">Tarama modu</string>
-    <string name="settings_scanner_mode_description">Bluetooth Düşük Enerji veri tarayıcısının performansa mı yoksa enerji tasarrufuna mı öncelik versin?</string>
     <string name="settings_autopause_label">Otomatik duraklat</string>
     <string name="settings_autopause_description">Aygıtı kulağınızdan çıkarınca sesi duraklatır.</string>
     <string name="settings_autopplay_label">Otomatik oynat</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Aşağıdaki izin gereklidir:</string>
     <string name="permission_system_alert_window_label">Sistem Uyarı Penceresi</string>
     <string name="permission_system_alert_window_description">\"Açılır Pencere Göster\" özelliğini mümkün kılmak için CAPod\'un diğer uygulamaların üzerine çizmesine izin verin.</string>
-    <string name="settings_scanner_mode_lowpower_label">Düşük güç</string>
-    <string name="settings_scanner_mode_balanced_label">Dengeli</string>
-    <string name="settings_scanner_mode_lowlatency_label">Düşük gecikme</string>
     <string name="settings_monitor_mode_manual_label">Uygulama açıkken</string>
     <string name="settings_monitor_mode_automatic_label">Cihaz bağlıyken</string>
     <string name="settings_monitor_mode_always_label">Her zaman</string>

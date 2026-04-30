@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Mostra una notificació addicional quan hi ha un dispositiu connectat. Això permet ocultar la notificació permanent «Sense dispositius» desactivant el canal «Estat del dispositiu».</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantén les notificacions després de la desconnexió</string>
     <string name="settings_keep_notification_after_disconnect_description">Continua mostrant els últims nivells de bateria coneguts fins i tot després que els AirPods es desconnectin</string>
-    <string name="settings_scanner_mode_label">Mode escàner</string>
-    <string name="settings_scanner_mode_description">L\'escàner de dades Bluetooth de baix consum hauria de prioritzar el rendiment o estalviar energia?</string>
     <string name="settings_autopause_label">Pausa automàtica</string>
     <string name="settings_autopause_description">Pausa l\'àudio quan ús tragueu el dispositiu de l\'orella.</string>
     <string name="settings_autopplay_label">Reproducció automàtica</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Cal el permís següent:</string>
     <string name="permission_system_alert_window_label">Finestra d\'alerta del sistema</string>
     <string name="permission_system_alert_window_description">Permet que el CAPod dibuixi sobre altres aplicacions per fer possible la característica «Mostra emergent».</string>
-    <string name="settings_scanner_mode_lowpower_label">Baixa potència</string>
-    <string name="settings_scanner_mode_balanced_label">Equilibrat</string>
-    <string name="settings_scanner_mode_lowlatency_label">Baixa latència</string>
     <string name="settings_monitor_mode_manual_label">Quan l\'aplicació està oberta</string>
     <string name="settings_monitor_mode_automatic_label">Quan el dispositiu està connectat</string>
     <string name="settings_monitor_mode_always_label">Sempre</string>

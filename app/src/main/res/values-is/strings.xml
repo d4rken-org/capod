@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Sýnir auka tilkynningu þegar tæki er tengt. Þetta gerir þér kleift að fela varanlega \"Engin tæki\" tilkynninguna með því að slökkva á \"Staða tækis\" rásinni.</string>
     <string name="settings_keep_notification_after_disconnect_label">Halda tilkynningu eftir aftengi</string>
     <string name="settings_keep_notification_after_disconnect_description">Halda áfram að sýna síðustu þekktu rafhlöðustöðu jafnvel eftir að AirPods tengjast af</string>
-    <string name="settings_scanner_mode_label">Skannastilling</string>
-    <string name="settings_scanner_mode_description">Ætti Bluetooth Low Energy gagnaskanninn að forgangsraða afköstum eða spara orku?</string>
     <string name="settings_autopause_label">Sjálfvirk hlé</string>
     <string name="settings_autopause_description">Gera hlé á hljóði þegar tækið er tekið úr eyranu.</string>
     <string name="settings_autopplay_label">Sjálfvirk spilun</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Eftirfarandi heimild er nauðsynleg:</string>
     <string name="permission_system_alert_window_label">Kerfisviðvörunargluggi</string>
     <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit til að gera eiginleikann \"Sýna upplýsingaglugga\" mögulegan.</string>
-    <string name="settings_scanner_mode_lowpower_label">Lágt afl</string>
-    <string name="settings_scanner_mode_balanced_label">Jafnvægi</string>
-    <string name="settings_scanner_mode_lowlatency_label">Lítil töf</string>
     <string name="settings_monitor_mode_manual_label">Þegar forrit er opið</string>
     <string name="settings_monitor_mode_automatic_label">Þegar tæki er tengt</string>
     <string name="settings_monitor_mode_always_label">Alltaf</string>

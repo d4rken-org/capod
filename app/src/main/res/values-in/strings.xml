@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Menampilkan notifikasi tambahan ketika perangkat terhubung. Ini memungkinkan Anda menyembunyikan notifikasi permanen \"Tidak ada perangkat\" dengan menonaktifkan saluran \"Status perangkat\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Pertahankan notifikasi setelah terputus</string>
     <string name="settings_keep_notification_after_disconnect_description">Terus menampilkan level baterai terakhir yang diketahui bahkan setelah AirPods terputus</string>
-    <string name="settings_scanner_mode_label">Mode pemindai</string>
-    <string name="settings_scanner_mode_description">Haruskah pemindai data Bluetooth Hemat Energi memprioritaskan kinerja atau menghemat energi?</string>
     <string name="settings_autopause_label">Jeda otomatis</string>
     <string name="settings_autopause_description">Jeda audio saat melepas perangkat dari telinga Anda.</string>
     <string name="settings_autopplay_label">Putar otomatis</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">Izin berikut diperlukan:</string>
     <string name="permission_system_alert_window_label">Jendela Peringatan Sistem</string>
     <string name="permission_system_alert_window_description">Izinkan CAPod menggambar di atas aplikasi lain untuk memungkinkan fitur \"Tampilkan PopUp\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Hemat daya</string>
-    <string name="settings_scanner_mode_balanced_label">Seimbang</string>
-    <string name="settings_scanner_mode_lowlatency_label">Latensi rendah</string>
     <string name="settings_monitor_mode_manual_label">Saat aplikasi terbuka</string>
     <string name="settings_monitor_mode_automatic_label">Saat perangkat terhubung</string>
     <string name="settings_monitor_mode_always_label">Selalu</string>

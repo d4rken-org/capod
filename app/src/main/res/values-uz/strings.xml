@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Qurilma ulanganda qo\'shimcha bildirishnoma ko\'rsatadi. Bu sizga \"Qurilma holati\" kanalini o\'chirib qo\'yish orqali doimiy \"Qurilmalar yo\'q\" bildirishnomasini yashirishga imkon beradi.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uzilgandan keyin bildirishnomani saqlash</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPods uzilgandan keyin ham oxirgi ma\'lum batareya darajalarini ko\'rsatishni davom ettiring</string>
-    <string name="settings_scanner_mode_label">Skaner rejimi</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energy ma\'lumotlar skaneri samaradorlikni birinchi o\'ringa qo\'yishi kerakmi yoki energiyani tejashi kerakmi?</string>
     <string name="settings_autopause_label">Avtomatik pauza</string>
     <string name="settings_autopause_description">Qurilmani qulog\'ingizdan olib tashlaganingizda audioni pauza qiling.</string>
     <string name="settings_autopplay_label">Avtomatik ijro etish</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Quyidagi ruxsat talab qilinadi:</string>
     <string name="permission_system_alert_window_label">Tizim ogohlantirish oynasi</string>
     <string name="permission_system_alert_window_description">\"Qalqib chiquvchi oynani ko\'rsatish\" funksiyasini mumkin qilish uchun CAPod\'ga boshqa ilovalar ustida chizish ruxsatini bering.</string>
-    <string name="settings_scanner_mode_lowpower_label">Kam quvvat</string>
-    <string name="settings_scanner_mode_balanced_label">Muvozanatli</string>
-    <string name="settings_scanner_mode_lowlatency_label">Kam kechikish</string>
     <string name="settings_monitor_mode_manual_label">Ilova ochiq bo\'lganda</string>
     <string name="settings_monitor_mode_automatic_label">Qurilma ulanganda</string>
     <string name="settings_monitor_mode_always_label">Har doim</string>

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">デバイスが接続されると追加の通知を表示します。これにより、「デバイスステータス」チャネルを無効にすることで、永続的な「デバイスなし」通知を非表示にできます。</string>
     <string name="settings_keep_notification_after_disconnect_label">切断後も通知を維持</string>
     <string name="settings_keep_notification_after_disconnect_description">AirPodsが切断された後も、最後に確認されたバッテリー残量を表示し続けます</string>
-    <string name="settings_scanner_mode_label">スキャナーモード</string>
-    <string name="settings_scanner_mode_description">Bluetooth Low Energyデータスキャナーはパフォーマンスを優先すべきか、エネルギーを節約すべきか？</string>
     <string name="settings_autopause_label">自動一時停止</string>
     <string name="settings_autopause_description">デバイスを耳から外すとオーディオを一時停止します。</string>
     <string name="settings_autopplay_label">自動再生</string>
@@ -220,9 +218,6 @@
     <string name="permission_required_title">次の権限が必要です:</string>
     <string name="permission_system_alert_window_label">システムアラートウィンドウ</string>
     <string name="permission_system_alert_window_description">「ポップアップを表示」機能を有効にするため、CAPodが他のアプリの上に表示できるようにします。</string>
-    <string name="settings_scanner_mode_lowpower_label">低消費電力</string>
-    <string name="settings_scanner_mode_balanced_label">バランス</string>
-    <string name="settings_scanner_mode_lowlatency_label">低遅延</string>
     <string name="settings_monitor_mode_manual_label">アプリを開いているとき</string>
     <string name="settings_monitor_mode_automatic_label">デバイス接続時</string>
     <string name="settings_monitor_mode_always_label">常に</string>

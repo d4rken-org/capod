@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Mussa ina notificaziun supplementara cura ch\'in apparat è connectà. Quai permetta da zoppar la notificaziun permanenta \"Nagins apparats\" cun deactivar il chanal \"Stadi da l\'apparat\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantegnair la notificaziun suenter la deconnexiun</string>
     <string name="settings_keep_notification_after_disconnect_description">Cuntinuar da mussar ils davos nivels da battaria enconuschents er suenter che Voss AirPods sa deconnectan</string>
-    <string name="settings_scanner_mode_label">Modus da scanner</string>
-    <string name="settings_scanner_mode_description">Duai il scanner da datas da Bluetooth Low Energy priorisar la prestaziun u spargnar energia?</string>
     <string name="settings_autopause_label">Pausa automata</string>
     <string name="settings_autopause_description">Interrumper l\'audio cura che l\'apparat vegn allontanà da l\'ureglia.</string>
     <string name="settings_autopplay_label">Play automatic</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">La suandanta permissiun è necessaria:</string>
     <string name="permission_system_alert_window_label">Fanestra d\'avis dal sistem</string>
     <string name="permission_system_alert_window_description">Permetter a CAPod da dessegnar sur autras apps per render pussaivla la funcziun \"Mussar PopUp\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Bassa energia</string>
-    <string name="settings_scanner_mode_balanced_label">Equilibrà</string>
-    <string name="settings_scanner_mode_lowlatency_label">Bassa latenza</string>
     <string name="settings_monitor_mode_manual_label">Cura che l\'app è averta</string>
     <string name="settings_monitor_mode_automatic_label">Cura che l\'apparat è connectà</string>
     <string name="settings_monitor_mode_always_label">Adina</string>

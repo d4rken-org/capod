@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Wys \'n ekstra kennisgewing wanneer \'n toestel gekoppel is. Dit laat jou toe om die permanente \"Geen toestelle\" kennisgewing te versteek deur die \"Toestelstatus\" kanaal te deaktiveer.</string>
     <string name="settings_keep_notification_after_disconnect_label">Hou kennisgewing ná ontkoppeling</string>
     <string name="settings_keep_notification_after_disconnect_description">Hou aan om die laaste bekende batteryvlakke te wys selfs nadat jou AirPods ontkoppel.</string>
-    <string name="settings_scanner_mode_label">Skandeerdermodus</string>
-    <string name="settings_scanner_mode_description">Moet die Bluetooth Lae Energie-dataskandeerder werkverrigting prioritiseer of energie bespaar?</string>
     <string name="settings_autopause_label">Outo-pouse</string>
     <string name="settings_autopause_description">Pouseer oudio wanneer die toestel uit jou oor verwyder word.</string>
     <string name="settings_autopplay_label">Outo-speel</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Die volgende toestemming is vereis:</string>
     <string name="permission_system_alert_window_label">Stelselwaarskuwingsvenster</string>
     <string name="permission_system_alert_window_description">Laat CAPod toe om oor ander toepassings te teken om die kenmerk Wys opspringer moontlik te maak.</string>
-    <string name="settings_scanner_mode_lowpower_label">Lae krag</string>
-    <string name="settings_scanner_mode_balanced_label">Gebalanseer</string>
-    <string name="settings_scanner_mode_lowlatency_label">Lae latensie</string>
     <string name="settings_monitor_mode_manual_label">Wanneer toepassing oop is</string>
     <string name="settings_monitor_mode_automatic_label">Wanneer toestel gekoppel is</string>
     <string name="settings_monitor_mode_always_label">Altyd</string>

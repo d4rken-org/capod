@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Viser en ekstra notifikation, når en enhed er tilsluttet. Dette lader dig skjule den permanente \"Ingen enheder\"-notifikation ved at deaktivere \"Enhedsstatus\"-kanalen.</string>
     <string name="settings_keep_notification_after_disconnect_label">Behold notifikation efter afbrydelse</string>
     <string name="settings_keep_notification_after_disconnect_description">Fortsæt med at vise de sidst kendte batteriniveauer, selv efter dine AirPods afbrydes</string>
-    <string name="settings_scanner_mode_label">Scannertilstand</string>
-    <string name="settings_scanner_mode_description">Skal Bluetooth Low Energy-datascanneren prioritere ydeevne eller spare på energien?</string>
     <string name="settings_autopause_label">Auto-pause</string>
     <string name="settings_autopause_description">Sæt lyd på pause, når du fjerner enheden fra dit øre.</string>
     <string name="settings_autopplay_label">Auto-afspilning</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Følgende tilladelse er påkrævet:</string>
     <string name="permission_system_alert_window_label">Systemalarmvindue</string>
     <string name="permission_system_alert_window_description">Tillad CAPod at tegne over andre apps for at gøre funktionen \"Vis pop op\" mulig.</string>
-    <string name="settings_scanner_mode_lowpower_label">Lavt strømforbrug</string>
-    <string name="settings_scanner_mode_balanced_label">Balanceret</string>
-    <string name="settings_scanner_mode_lowlatency_label">Lav latens</string>
     <string name="settings_monitor_mode_manual_label">Når appen er åben</string>
     <string name="settings_monitor_mode_automatic_label">Når enheden er tilsluttet</string>
     <string name="settings_monitor_mode_always_label">Altid</string>

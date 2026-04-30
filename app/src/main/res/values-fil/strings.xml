@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \"Walang mga device\" na notipikasyon sa pamamagitan ng pag-disable sa \"Katayuan ng device\" na channel.</string>
     <string name="settings_keep_notification_after_disconnect_label">Panatilihin ang notipikasyon pagkatapos mag-disconnect</string>
     <string name="settings_keep_notification_after_disconnect_description">Ipagpatuloy ang pagpapakita ng huling kilalang mga antas ng baterya kahit pagkatapos mag-disconnect ang iyong AirPods</string>
-    <string name="settings_scanner_mode_label">Mode ng scanner</string>
-    <string name="settings_scanner_mode_description">Dapat bang unahin ng Bluetooth Low Energy data scanner ang performance o magtipid ng enerhiya?</string>
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">I-pause ang audio kapag inaalis ang device sa iyong tainga.</string>
     <string name="settings_autopplay_label">Auto play</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Kailangan ang sumusunod na pahintulot:</string>
     <string name="permission_system_alert_window_label">System Alert Window</string>
     <string name="permission_system_alert_window_description">Payagan ang CAPod na mag-draw sa ibabaw ng ibang mga app para maging posible ang feature na \"Ipakita ang PopUp\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Mababang enerhiya</string>
-    <string name="settings_scanner_mode_balanced_label">Balanse</string>
-    <string name="settings_scanner_mode_lowlatency_label">Mababang latency</string>
     <string name="settings_monitor_mode_manual_label">Kapag bukas ang app</string>
     <string name="settings_monitor_mode_automatic_label">Kapag konektado ang device</string>
     <string name="settings_monitor_mode_always_label">Palagi</string>

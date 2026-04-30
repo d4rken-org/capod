@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Afișează o notificare suplimentară atunci când un dispozitiv este conectat. Acest lucru vă permite să ascundeți notificarea permanentă \"Niciun dispozitiv\" prin dezactivarea canalului \"Stare dispozitiv\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Păstrează notificarea după deconectare</string>
     <string name="settings_keep_notification_after_disconnect_description">Continuă să afișeze ultimele niveluri cunoscute ale bateriei chiar și după deconectarea AirPods</string>
-    <string name="settings_scanner_mode_label">Modul scanare</string>
-    <string name="settings_scanner_mode_description">Scanerul de date Bluetooth Energie Scăzută (BLE) ar trebui să acorde prioritate performanței sau economiei de energie?</string>
     <string name="settings_autopause_label">Pauză automată</string>
     <string name="settings_autopause_description">Întrerupeți sunetul când scoateți dispozitivul din ureche.</string>
     <string name="settings_autopplay_label">Redare automată</string>
@@ -224,9 +222,6 @@
     <string name="permission_required_title">Următoarea permisiune este necesară:</string>
     <string name="permission_system_alert_window_label">Fereastră alertă sistem</string>
     <string name="permission_system_alert_window_description">Permiteți CAPod să deseneze peste alte aplicații pentru a face posibilă funcția \"Afișare PopUp\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Consum redus</string>
-    <string name="settings_scanner_mode_balanced_label">Echilibrat</string>
-    <string name="settings_scanner_mode_lowlatency_label">Latență redusă</string>
     <string name="settings_monitor_mode_manual_label">Când aplicația este deschisă</string>
     <string name="settings_monitor_mode_automatic_label">Când dispozitivul este conectat</string>
     <string name="settings_monitor_mode_always_label">Întotdeauna</string>

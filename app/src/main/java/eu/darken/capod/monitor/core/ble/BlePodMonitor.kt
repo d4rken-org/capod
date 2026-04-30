@@ -45,6 +45,7 @@ import javax.inject.Singleton
 class BlePodMonitor @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
     private val bleScanner: BleScanner,
+    private val bleScanModeController: BleScanModeController,
     private val podFactory: PodFactory,
     private val timeSource: TimeSource,
     private val generalSettings: GeneralSettings,
@@ -128,7 +129,7 @@ class BlePodMonitor @Inject constructor(
     )
 
     private fun createBleScanner() = combine(
-        generalSettings.scannerMode.flow,
+        bleScanModeController.scannerMode,
         debugSettings.showUnfiltered.flow,
         generalSettings.isOffloadedBatchingDisabled.flow,
         generalSettings.isOffloadedFilteringDisabled.flow,

@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Zeigt eine zusätzliche Benachrichtigung an, wenn ein Gerät verbunden ist. Dadurch kannst du die permanente Benachrichtigung „Keine Geräte“ ausblenden, indem du den Kanal „Gerätestatus“ deaktivierst.</string>
     <string name="settings_keep_notification_after_disconnect_label">Benachrichtigung nach Trennung beibehalten</string>
     <string name="settings_keep_notification_after_disconnect_description">Zeigt weiterhin den letzten bekannten Akkustand an, auch wenn die Verbindung zu deinen AirPods getrennt wurde</string>
-    <string name="settings_scanner_mode_label">Scan-Modus</string>
-    <string name="settings_scanner_mode_description">Soll die Bluetooth Low Energy Überwachung Leistung priorisieren oder Energie sparen?</string>
     <string name="settings_autopause_label">Automatische Pause</string>
     <string name="settings_autopause_description">Musik pausieren, wenn der Kopfhörer vom Ohr entfernt wird.</string>
     <string name="settings_autopplay_label">Automatisches abspielen</string>
@@ -222,9 +220,6 @@
     <string name="permission_required_title">Die folgende Genehmigung ist erforderlich:</string>
     <string name="permission_system_alert_window_label">Systemwarnungsfenster</string>
     <string name="permission_system_alert_window_description">Erlaube CAPod, PopUp Benachrichtigungen über anderen Apps anzuzeigen.</string>
-    <string name="settings_scanner_mode_lowpower_label">Geringer Strom</string>
-    <string name="settings_scanner_mode_balanced_label">Ausgewogen</string>
-    <string name="settings_scanner_mode_lowlatency_label">Geringe Latenz</string>
     <string name="settings_monitor_mode_manual_label">Wenn die App geöffnet ist</string>
     <string name="settings_monitor_mode_automatic_label">Wenn das Gerät verbunden ist</string>
     <string name="settings_monitor_mode_always_label">Immer</string>

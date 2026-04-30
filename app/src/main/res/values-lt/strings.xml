@@ -46,8 +46,6 @@
     <string name="settings_monitor_connected_notification_description">Rodo papildomą pranešimą, kai prijungiamas įrenginys. Tai leidžia paslėpti nuolatinį pranešimą \"Nėra įrenginių\" išjungiant kanalą \"Įrenginio būsena\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Palikti pranešimą atjungus</string>
     <string name="settings_keep_notification_after_disconnect_description">Toliau rodyti paskutinį žinomą baterijos lygį net ir atjungus „AirPods\"</string>
-    <string name="settings_scanner_mode_label">Skenavimo režimas</string>
-    <string name="settings_scanner_mode_description">Ar „Bluetooth Low Energy\" duomenų skaitytuvas turėtų teikti pirmenybę našumui ar taupyti energiją?</string>
     <string name="settings_autopause_label">Automatinė pauzė</string>
     <string name="settings_autopause_description">Pristabdyti garsą išėmus įrenginį iš ausies.</string>
     <string name="settings_autopplay_label">Automatinis grojimas</string>
@@ -226,9 +224,6 @@
     <string name="permission_required_title">Reikalingas šis leidimas:</string>
     <string name="permission_system_alert_window_label">Sistemos perspėjimo langas</string>
     <string name="permission_system_alert_window_description">Leiskite CAPod piešti virš kitų programų, kad būtų galima naudoti funkciją „Rodyti iškylantįjį langą\".</string>
-    <string name="settings_scanner_mode_lowpower_label">Mažos galios</string>
-    <string name="settings_scanner_mode_balanced_label">Subalansuotas</string>
-    <string name="settings_scanner_mode_lowlatency_label">Mažas delsimas</string>
     <string name="settings_monitor_mode_manual_label">Kai programa atidaryta</string>
     <string name="settings_monitor_mode_automatic_label">Kai įrenginys prijungtas</string>
     <string name="settings_monitor_mode_always_label">Visada</string>
