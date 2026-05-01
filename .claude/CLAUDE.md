@@ -43,3 +43,4 @@ Detailed guidelines are in `.claude/rules/`:
 - `pull-requests.md` — PR title and description conventions
 - `agent-instructions.md` — Sub-agent delegation and critical thinking
 - `screenshots.md` — Play Store screenshot pipeline, commands, adding new screens
+- `release.md` — Release workflow (`Release prepare` dispatch), inputs, channel mapping, rollback
