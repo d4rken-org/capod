@@ -337,6 +337,7 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasPressSpeed shouldBe true
             f.hasPressHoldDuration shouldBe true
             f.hasToneVolume shouldBe true
+            f.hasEndCallMuteMic shouldBe true
             f.hasListeningModeCycle shouldBe false
             f.hasStemConfig shouldBe false
             f.hasSleepDetection shouldBe true
@@ -351,12 +352,29 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasStemConfig shouldBe false
         }
 
-        @Test fun `Gen 1 has mic mode only`() {
+        @Test fun `Gen 1 has mic mode and ear detection toggle`() {
             val f = PodModel.AIRPODS_GEN1.features
             f.hasMicrophoneMode shouldBe true
-            f.hasEarDetectionToggle shouldBe false
+            f.hasEarDetection shouldBe true
+            f.hasEarDetectionToggle shouldBe true
             f.hasListeningModeCycle shouldBe false
             f.hasStemConfig shouldBe false
+        }
+
+        @Test fun `Gen 2 and Gen 3 expose ear detection toggle`() {
+            val gen2 = PodModel.AIRPODS_GEN2.features
+            gen2.hasMicrophoneMode shouldBe true
+            gen2.hasEarDetection shouldBe true
+            gen2.hasEarDetectionToggle shouldBe true
+
+            val gen3 = PodModel.AIRPODS_GEN3.features
+            gen3.hasMicrophoneMode shouldBe true
+            gen3.hasEarDetection shouldBe true
+            gen3.hasEarDetectionToggle shouldBe true
+            gen3.hasPressSpeed shouldBe true
+            gen3.hasPressHoldDuration shouldBe true
+            gen3.hasToneVolume shouldBe true
+            gen3.hasEndCallMuteMic shouldBe true
         }
 
         @Test fun `Max 2 has H2 features`() {
@@ -382,6 +400,18 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
             f.hasEarDetectionToggle shouldBe true
             f.hasAncControl shouldBe true
             f.hasEarDetection shouldBe true
+            f.hasMicrophoneMode shouldBe true
+        }
+
+        @Test fun `Powerbeats Pro and Beats Fit Pro expose ear detection toggle`() {
+            val powerbeatsPro = PodModel.POWERBEATS_PRO.features
+            powerbeatsPro.hasEarDetection shouldBe true
+            powerbeatsPro.hasEarDetectionToggle shouldBe true
+
+            val beatsFitPro = PodModel.BEATS_FIT_PRO.features
+            beatsFitPro.hasEarDetection shouldBe true
+            beatsFitPro.hasEarDetectionToggle shouldBe true
+            beatsFitPro.hasMicrophoneMode shouldBe true
         }
     }
 
@@ -408,6 +438,14 @@ class DefaultAapDeviceProfileNewSettingsTest : BaseAapSessionTest() {
         @Test fun `sleepDetection implies earDetection`() {
             for (model in PodModel.entries) {
                 if (model.features.hasSleepDetection) {
+                    model.features.hasEarDetection shouldBe true
+                }
+            }
+        }
+
+        @Test fun `earDetectionToggle implies earDetection`() {
+            for (model in PodModel.entries) {
+                if (model.features.hasEarDetectionToggle) {
                     model.features.hasEarDetection shouldBe true
                 }
             }
