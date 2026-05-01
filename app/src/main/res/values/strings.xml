@@ -515,7 +515,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>
-    <string name="device_settings_microphone_mode_description">Which AirPod is used as the microphone</string>
+    <string name="device_settings_microphone_mode_description">Which earbud is used as the microphone</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Right</string>
     <string name="device_settings_microphone_mode_left">Left</string>

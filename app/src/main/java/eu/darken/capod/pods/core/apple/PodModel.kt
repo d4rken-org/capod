@@ -22,7 +22,9 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
             hasMicrophoneMode = true,
+            hasEarDetectionToggle = true,
         ),
         modelNumbers = setOf("A1523", "A1722"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
@@ -37,7 +39,9 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
             hasMicrophoneMode = true,
+            hasEarDetectionToggle = true,
         ),
         modelNumbers = setOf("A2031", "A2032"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
@@ -52,10 +56,13 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
             hasPressSpeed = true,
             hasPressHoldDuration = true,
             hasToneVolume = true,
+            hasEndCallMuteMic = true,
             hasMicrophoneMode = true,
+            hasEarDetectionToggle = true,
         ),
         modelNumbers = setOf("A2564", "A2565"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
@@ -74,6 +81,7 @@ enum class PodModel(
             hasPressSpeed = true,
             hasPressHoldDuration = true,
             hasToneVolume = true,
+            hasEndCallMuteMic = true,
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
             hasSleepDetection = true,
@@ -314,7 +322,6 @@ enum class PodModel(
         "Beats Solo Pro",
         R.drawable.device_beats_headphones,
         Features(
-            hasEarDetection = true,
             hasAncControl = true,
         ),
         modelNumbers = setOf("A1881"), // headphones
@@ -343,7 +350,6 @@ enum class PodModel(
         "Beats Studio 3",
         R.drawable.device_beats_studio3,
         Features(
-            hasEarDetection = true,
             hasAncControl = true,
         ),
         modelNumbers = setOf("A1914"), // headphones
@@ -410,6 +416,7 @@ enum class PodModel(
             hasDualPods = true,
             hasCase = true,
             hasEarDetection = true,
+            hasEarDetectionToggle = true,
         ),
         modelNumbers = setOf("A2047", "A2048", "A2453", "A2454"), // L/R earbuds, 2019 + 2020 revisions
         leftPodIconRes = R.drawable.device_powerbeats_pro_left,
@@ -426,6 +433,7 @@ enum class PodModel(
             hasCase = true,
             hasEarDetection = true,
             hasAncControl = true,
+            hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
             hasSleepDetection = true,
         ),
@@ -444,6 +452,8 @@ enum class PodModel(
             hasCase = true,
             hasEarDetection = true,
             hasAncControl = true,
+            hasMicrophoneMode = true,
+            hasEarDetectionToggle = true,
         ),
         modelNumbers = setOf("A2576", "A2577", "A2578"), // L/R earbuds + case
         leftPodIconRes = R.drawable.device_beats_fitpro_left,
@@ -458,6 +468,7 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
         ),
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
@@ -471,6 +482,7 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
         ),
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
@@ -484,6 +496,7 @@ enum class PodModel(
         Features(
             hasDualPods = true,
             hasCase = true,
+            hasEarDetection = true,
         ),
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
