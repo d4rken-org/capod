@@ -142,7 +142,7 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 #v3.1.1
         with:
-          app-id: ${{ secrets.RELEASE_APP_ID }}
+          client-id: ${{ secrets.RELEASE_APP_CLIENT_ID }}
           private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
 
       - name: Resolve bot identity
@@ -164,12 +164,12 @@ jobs:
           persist-credentials: true
           token: ${{ steps.app-token.outputs.token }}
 
-      - name: Re-validate after approval wait
+      - name: Verify state still matches plan from Job 1
         run: |
           set -euo pipefail
           ./tools/release/bump.sh --mode=check --expected-current="${CURRENT_NAME_AT_PLAN}"
 
-      - name: Re-check tag collision (state may have moved during approval)
+      - name: Re-check tag collision (state may have moved between jobs)
         run: |
           set -euo pipefail
           if git rev-parse --verify "refs/tags/v${NEW_NAME}" >/dev/null 2>&1; then
