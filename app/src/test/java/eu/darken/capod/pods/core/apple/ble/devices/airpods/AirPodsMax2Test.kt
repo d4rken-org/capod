@@ -24,6 +24,7 @@ class AirPodsMax2Test : BaseBlePodsTest() {
             batteryHeadsetPercent shouldBe 0.6f
 
             isHeadsetBeingCharged shouldBe false
+            isBeingWorn shouldBe true
 
             model shouldBe PodModel.AIRPODS_MAX2
         }
@@ -35,6 +36,7 @@ class AirPodsMax2Test : BaseBlePodsTest() {
             pubStatus shouldBe 0x20.toUByte()
             batteryHeadsetPercent shouldBe 0.6f
             isHeadsetBeingCharged shouldBe false
+            isBeingWorn shouldBe false
             model shouldBe PodModel.AIRPODS_MAX2
         }
 
@@ -42,6 +44,7 @@ class AirPodsMax2Test : BaseBlePodsTest() {
             pubStatus shouldBe 0x21.toUByte()
             batteryHeadsetPercent shouldBe 0.6f
             isHeadsetBeingCharged shouldBe false
+            isBeingWorn shouldBe false
             model shouldBe PodModel.AIRPODS_MAX2
         }
 
@@ -49,6 +52,17 @@ class AirPodsMax2Test : BaseBlePodsTest() {
             pubStatus shouldBe 0x23.toUByte()
             batteryHeadsetPercent shouldBe 0.6f
             isHeadsetBeingCharged shouldBe false
+            isBeingWorn shouldBe true
+            model shouldBe PodModel.AIRPODS_MAX2
+        }
+
+        // Synthetic: one earcup off, the other on (issue #548 sees 0x29 in this state on
+        // both macOS and Android; we don't claim left vs right side semantics here).
+        create<AirPodsMax2>("07 19 01 2D 20 29 F6 8F 03 14 04 E1 8B 99 98 20 0B C3 C1 12 2D B0 43 98 94 D6 A0") {
+            pubStatus shouldBe 0x29.toUByte()
+            batteryHeadsetPercent shouldBe 0.6f
+            isHeadsetBeingCharged shouldBe false
+            isBeingWorn shouldBe true
             model shouldBe PodModel.AIRPODS_MAX2
         }
     }

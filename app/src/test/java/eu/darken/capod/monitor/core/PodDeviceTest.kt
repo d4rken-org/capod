@@ -12,6 +12,7 @@ import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.ApplePods
+import eu.darken.capod.pods.core.apple.ble.devices.SingleApplePods
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -198,6 +199,23 @@ class PodDeviceTest : BaseTest() {
         device.isRightInEar shouldBe false
         device.isBeingWorn shouldBe false
         device.isEitherPodInEar shouldBe true
+    }
+
+    @Test
+    fun `BLE isBeingWorn delegates to HasEarDetection on single-pod devices`() {
+        val mock = mockk<SingleApplePods>(relaxed = true, moreInterfaces = arrayOf(HasEarDetection::class)) {
+            every { model } returns PodModel.AIRPODS_MAX2
+            every { (this@mockk as HasEarDetection).isBeingWorn } returns true
+        }
+        val device = PodDevice(profileId = null, ble = mock, aap = null)
+        device.isBeingWorn shouldBe true
+
+        val mockNotWorn = mockk<SingleApplePods>(relaxed = true, moreInterfaces = arrayOf(HasEarDetection::class)) {
+            every { model } returns PodModel.AIRPODS_MAX2
+            every { (this@mockk as HasEarDetection).isBeingWorn } returns false
+        }
+        val deviceNotWorn = PodDevice(profileId = null, ble = mockNotWorn, aap = null)
+        deviceNotWorn.isBeingWorn shouldBe false
     }
 
     @Test

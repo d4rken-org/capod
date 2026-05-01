@@ -44,8 +44,18 @@ data class AirPodsMax2(
             return pubFlags.isBitSet(0)
         }
 
+    // Aggregate "any wear sensor active" — NOT "both earcups worn".
+    // Observed on A3454: bit 5 of pubStatus is always set while advertising and
+    // no longer carries the wear flag (unlike Max gen 1). Bits 1 and 3 of
+    // pubStatus reflect the two earcup sensors (same byte positions used by
+    // DualApplePods, but without the primary/flip semantics).
+    //
+    // We OR them because some Android pairings only see one of the two bits
+    // reliably (issue #548: "both worn" advertises as 0x23 — bit 1 only —
+    // while macOS sees 0x2B with both bits set). AND-ing would falsely report
+    // "not worn" during normal use on those phones.
     override val isBeingWorn: Boolean
-        get() = pubStatus.isBitSet(5)
+        get() = pubStatus.isBitSet(1) || pubStatus.isBitSet(3)
 
     class Factory @Inject constructor(
         private val repo: PodHistoryRepo,
