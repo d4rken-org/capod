@@ -134,10 +134,8 @@ jobs:
     if: ${{ !inputs.dry_run }}
     runs-on: ubuntu-22.04
     permissions:
-      contents: write
-      actions: write
+      contents: read
     env:
-      GH_TOKEN: ${{ github.token }}
       INPUT_BUMP_KIND: ${{ inputs.bump_kind }}
       INPUT_VERSION_TYPE: ${{ inputs.version_type }}
       INPUT_VERSION_OVERRIDE: ${{ inputs.version_override }}
@@ -145,13 +143,31 @@ jobs:
       NEW_CODE: ${{ needs.compute-and-validate.outputs.new_code }}
       CURRENT_NAME_AT_PLAN: ${{ needs.compute-and-validate.outputs.current_name }}
     steps:
+      - name: Mint App token
+        id: app-token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 #v3.1.1
+        with:
+          app-id: ${{ secrets.RELEASE_APP_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+
+      - name: Resolve bot identity
+        id: bot
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          set -euo pipefail
+          slug=$(gh api /app --jq .slug)
+          user_id=$(gh api "/users/${slug}%5Bbot%5D" --jq .id)
+          echo "user_name=${slug}[bot]" >> "$GITHUB_OUTPUT"
+          echo "user_email=${user_id}+${slug}[bot]@users.noreply.github.com" >> "$GITHUB_OUTPUT"
+
       - name: Checkout main with credentials
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
         with:
           ref: main
           fetch-depth: 0
           persist-credentials: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Re-validate after approval wait
         run: |
@@ -188,9 +204,12 @@ jobs:
           ./tools/release/bump.sh --mode=check --expected-current="${NEW_NAME}"
 
       - name: Configure git identity
+        env:
+          BOT_USER_NAME: ${{ steps.bot.outputs.user_name }}
+          BOT_USER_EMAIL: ${{ steps.bot.outputs.user_email }}
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name "${BOT_USER_NAME}"
+          git config user.email "${BOT_USER_EMAIL}"
 
       - name: Commit and tag
         run: |
@@ -205,6 +224,8 @@ jobs:
           git push --atomic origin "HEAD:refs/heads/main" "refs/tags/v${NEW_NAME}"
 
       - name: Dispatch release-tag.yml
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           set -euo pipefail
           gh workflow run release-tag.yml --ref "v${NEW_NAME}" -f dry_run=false
