@@ -486,7 +486,6 @@
     <string name="device_settings_listening_mode_cycle_transparency">Транспарентност</string>
     <string name="device_settings_listening_mode_cycle_adaptive">Адаптивно</string>
     <string name="device_settings_allow_off_label">Дозволете режим Исклучено</string>
-    <string name="device_settings_allow_off_description">Дозволете Исклучено како изборлив режим на контрола на бучава. Кога е исклучено, дршките го прескочуваат ܿсклучено додека преминуваат.</string>
     <string name="device_settings_sleep_detection_label">Откривање сон</string>
     <string name="device_settings_sleep_detection_description">Автоматски паузирање на звукот кога заспиете</string>
     <string name="reaction_sleep_channel_label">Детекција на спиење</string>

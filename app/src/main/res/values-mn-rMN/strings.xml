@@ -425,7 +425,6 @@
     <string name="device_settings_not_nearby_label">Төхөөрөмж ойролцоо байхгүй</string>
     <string name="device_settings_not_nearby_description">Тохиргоо нь энэ төхөөрөмж ойролцоо байж, таны утастай холбогдсон үед л боломжтой.</string>
     <string name="device_settings_aap_unavailable_label">Нарийвчилсан тохиргоо боломжгүй</string>
-    <string name="device_settings_aap_unavailable_description">Өннө AirPods тохиргоо энэ утасны утасны Bluetooth функций шаардаг. Таны утасны Android шинэчлэлтийн шинэчлэлт ирээдэнд энэ асуудал шийдвэрлэгдэж боломж тайлбыр.</string>
     <string name="device_settings_aap_unavailable_action">Нийцтэй байдлын хянагчийг үзэх</string>
     <string name="device_settings_category_sound_label">Дуу</string>
     <string name="device_settings_category_controls_label">Удирдлага</string>
@@ -480,7 +479,6 @@
     <string name="device_settings_listening_mode_cycle_dialog_title">Урт даруулах мөчлөгийг тохиргоолах</string>
     <string name="device_settings_listening_mode_cycle_summary_helper">Иш даруулах болон быстран шилжих цэснэг ашиглахад ашиглагдагдана</string>
     <string name="device_settings_listening_mode_cycle_summary_helper_override">Быстран шилжих цэснэг ашиглахад ашиглагдагдана. Төхөөрөмжийн ишийн AirPods цикл эелэхийг орлана.</string>
-    <string name="device_settings_listening_mode_cycle_minimum">Өороос 2 горим идэвхийлэер байх еес тай.</string>
     <string name="device_settings_listening_mode_cycle_off">Унтраалттай</string>
     <string name="device_settings_listening_mode_cycle_anc">Чимээ хаах</string>
     <string name="device_settings_listening_mode_cycle_transparency">Тунгалаг горим</string>

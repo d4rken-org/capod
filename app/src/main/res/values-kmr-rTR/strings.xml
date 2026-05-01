@@ -26,7 +26,7 @@
     <string name="upgrade_benefit_popups">Popup dema vekirina qutiyê &amp; girêdanê</string>
     <string name="upgrade_benefit_widgets">Widgetên ekrana malê</string>
     <string name="upgrade_benefit_device_settings">Mîhengen pêşkertî yên cîhazê</string>
-    <string name="upgrade_benefit_device_controls">Kontrolên cîhazê &#8212; deng, stûn &amp; zªtir</string>
+    <string name="upgrade_benefit_device_controls">Kontrolên cîhazê &#8212; deng, stûn &amp; zêdetir</string>
     <string name="upgrade_benefit_support">Pêşdebir piştgirî bike</string>
     <string name="upgrade_benefit_disclaimer">Hebûna taybet mendêyê bi kulaklîkên we û amûrê ve girêdayî ye.</string>
     <string name="upgrade_screen_options_description">Heman taybetmendî, bihayên cûda. Abonê ceribandineke belaş vedihewîne û her dem dikare were betal kirin.</string>
@@ -455,10 +455,10 @@
     <string name="device_settings_volume_swipe_length_label">Dema Rawestana Kaşkirina Dengê</string>
     <string name="device_settings_volume_swipe_length_description">Ji bo pêşîlêgirtina guherandina dengê ya bê mebest, hilbijêre çiqas li bendê bimînî di navbera kaşkirinan de.</string>
     <string name="device_settings_volume_swipe_length_default">Xwerû</string>
-    <string name="device_settings_volume_swipe_length_longer">Dirªjtir</string>
+    <string name="device_settings_volume_swipe_length_longer">Dirêjtir</string>
     <string name="device_settings_volume_swipe_length_longest">Herî Dirêj</string>
     <string name="device_settings_end_call_mute_mic_label">Kontrolên Bangê</string>
-    <string name="device_settings_end_call_mute_mic_description">Hilbijêre ku pªtina stûnê di dema bangên çi dike</string>
+    <string name="device_settings_end_call_mute_mic_description">Hilbijêre ku pêtina stûnê di dema bangên çi dike</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Yek pêtin ji bo bidawîkirina bangê</string>
     <string name="device_settings_end_call_mute_mic_option_a_subtitle">Du pêtin ji bo bîdengkirina mîkrofonê</string>
     <string name="device_settings_end_call_mute_mic_option_b_title">Yek pêtin ji bo bîdengkirina mîkrofonê</string>
@@ -488,7 +488,7 @@
     <string name="device_settings_allow_off_label">Destûrê bide Moda Venebûnê</string>
     <string name="device_settings_allow_off_description">Destûrê bide Venebûn wekî moda kontrola dengê ya bijartbar. Dema neçalak e, stem dema çerxkirinê Venebûn derbas dike.</string>
     <string name="device_settings_sleep_detection_label">Tespîtkirina Xewê</string>
-    <string name="device_settings_sleep_detection_description">Dema ku dikªvî xewê, dengê medyayê bixweber rawes têne</string>
+    <string name="device_settings_sleep_detection_description">Dema ku diketî xewê, dengê medyayê bixweber rawes têne</string>
     <string name="reaction_sleep_channel_label">Tespîtkirina Xewê</string>
     <string name="reaction_sleep_notification_title">Ji hêla Tespîtkirina Xewê ve hate rawestandin</string>
     <string name="reaction_sleep_notification_text">%1$s ragihand ku hûn xew çûn, ji ber vê yekê muzîka we hate rawestandin. Hûn dikarin vê di mîhengên amûrê de neçalak bikin.</string>

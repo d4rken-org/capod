@@ -455,8 +455,8 @@
     <string name="device_settings_end_call_mute_mic_label">通話控制</string>
     <string name="device_settings_end_call_mute_mic_description">選擇通話時按下筆管的動作</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">單擊結束通話</string>
-    <string name="device_settings_end_call_mute_mic_option_a_subtitle">雙擊靖音麥克風</string>
-    <string name="device_settings_end_call_mute_mic_option_b_title">單擊靖音麥克風</string>
+    <string name="device_settings_end_call_mute_mic_option_a_subtitle">雙擊靜音麥克風</string>
+    <string name="device_settings_end_call_mute_mic_option_b_title">單擊靜音麥克風</string>
     <string name="device_settings_end_call_mute_mic_option_b_subtitle">雙擊結束通話</string>
     <string name="device_settings_open_cd">開啟裝置設定</string>
     <string name="overview_card_missing_paired_device">此設定檔沒有已配對的藍牙裝置。</string>
@@ -532,7 +532,7 @@
     <string name="press_action_rewind">倒帶</string>
     <string name="press_action_cycle_anc">循環噪音控制</string>
     <string name="press_action_toggle_anc_transparency">切換透明度</string>
-    <string name="press_controls_reset_label">重置為預設値</string>
-    <string name="press_controls_reset_confirm_message">將所有按偵映射重置為預設値？</string>
+    <string name="press_controls_reset_label">重置為預設值</string>
+    <string name="press_controls_reset_confirm_message">將所有按偵映射重置為預設值？</string>
     <string name="device_settings_noise_control_open_press_controls_action">開啟按偵控制</string>
 </resources>

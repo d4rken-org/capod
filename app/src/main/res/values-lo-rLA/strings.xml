@@ -252,7 +252,6 @@
     <string name="anc_mode_transparency">ການໂປ່ງໃສ</string>
     <string name="anc_mode_adaptive">ການປັບຕົວ</string>
     <string name="conversation_awareness_label">ການຮັບຮູ້ການສົນທະນາ</string>
-    <string name="signal_badge_ble_cd">BLE scan active</string>
     <string name="signal_badge_key_irk_cd">ຢືນຢັນຕົວຕົນແລ້ວ</string>
     <string name="signal_badge_key_encrypted_cd">ການເຊື່ອມຕໍ່ທີ່ເຂົ້າລະຫັດ</string>
     <string name="signal_badge_aap_cd">ການເຊື່ອມຕໍ່ໂດຍກົງທີ່ເຄື່ອນໄຫວ</string>

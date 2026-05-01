@@ -107,7 +107,7 @@
     <string name="settings_wiki_description">Soalan Lazim &amp; Panduan</string>
     <string name="issue_tracker_label">Penjejak isu</string>
     <string name="issue_tracker_description">Penjejak isu awam untuk laporan pepijat dan permintaan ciri (bahasa Inggeris sahaja).</string>
-    <string name="discord_label">Perselisihan</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat untuk melepak dan bertanya soalan.</string>
     <string name="changelog_label">Log perubahan</string>
     <string name="settings_label">Tetapan</string>

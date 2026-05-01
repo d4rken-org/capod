@@ -289,7 +289,7 @@
     <string name="profiles_delete_action">Elimina</string>
     <string name="profiles_basic_info_title">Informació del dispositiu</string>
     <string name="profiles_basic_info_description">Configureu el nom del dispositiu, el model i l\'emparellament Bluetooth opcional.</string>
-    <string name="profiles_signal_quality_title">Qualitat de senyal màxima</string>
+    <string name="profiles_signal_quality_title">Qualitat de senyal mínima</string>
     <string name="profiles_signal_quality_description">Només es detecten dispositius amb una intensitat de senyal superior a aquest llindar. Els valors més baixos augmenten el rang de detecció, però poden causar falsos positius. No configureu aquest valor massa alt: la recepció Bluetooth generalment és deficient i varia segons la distància i els obstacles.</string>
     <string name="profiles_identitykey_label">Clau d\'identitat</string>
     <string name="profilessettings_maindevice_identitykey_description">La clau de resolució d\'identitat (IRK) del dispositiu ajuda al CAPod a identificar-lo entre els dispositius propers.</string>
@@ -391,7 +391,7 @@
     <string name="support_contact_send_action">Obre l\'aplicació de correu</string>
     <string name="support_contact_no_email_app">No s\'ha trobat cap aplicació de correu en aquest dispositiu.</string>
     <string name="support_contact_debuglog_delete_title">Voleu suprimir el registre de depuració?</string>
-    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimrirà permanentment.</string>
+    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimirà permanentment.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">S\'ha enviat el registre?</string>
     <string name="support_debuglog_sent_message">El registre de depuració s\'ha enviat correctament? El registre s\'eliminarà.</string>

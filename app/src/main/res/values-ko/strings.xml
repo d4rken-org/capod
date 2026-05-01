@@ -430,7 +430,7 @@
     <string name="device_settings_nc_one_airpod_description">AirPod 한 쪽만 착용 시 노이즈 캐슬링 유지</string>
     <string name="device_settings_personalized_volume_label">개인화된 음량</string>
     <string name="device_settings_personalized_volume_description">환경에 따라 미디어 볼륨 조정</string>
-    <string name="device_settings_conversation_awareness_description">누군가 말할 때 미디어 볼륨 낙추고 소음 줄이기</string>
+    <string name="device_settings_conversation_awareness_description">누군가 말할 때 미디어 볼륨 낮추고 소음 줄이기</string>
     <string name="device_settings_tone_volume_label">차임 볼륨</string>
     <string name="device_settings_tone_volume_description">확인음 및 벨소리 볼륨</string>
     <string name="device_settings_adaptive_noise_label">적응형 오디오 소음</string>
@@ -483,7 +483,7 @@
     <string name="device_settings_listening_mode_cycle_transparency">투명도</string>
     <string name="device_settings_listening_mode_cycle_adaptive">적응형</string>
     <string name="device_settings_allow_off_label">Off 모드 허용</string>
-    <string name="device_settings_allow_off_description">Off를 선택 가능한 소음 제어 모드로 허용합니다. 비활성화되면 스템이 순환 중 Off를 건너마앙니다.</string>
+    <string name="device_settings_allow_off_description">Off를 선택 가능한 소음 제어 모드로 허용합니다. 비활성화되면 스템이 순환 중 Off를 건너뜁니다.</string>
     <string name="device_settings_sleep_detection_label">수면 감지</string>
     <string name="device_settings_sleep_detection_description">잠들면 자동으로 오디오 일시 정지</string>
     <string name="reaction_sleep_channel_label">수면 감지</string>
