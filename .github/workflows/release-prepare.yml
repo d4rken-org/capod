@@ -154,12 +154,12 @@ jobs:
         id: bot
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          APP_SLUG: ${{ steps.app-token.outputs.app-slug }}
         run: |
           set -euo pipefail
-          slug=$(gh api /app --jq .slug)
-          user_id=$(gh api "/users/${slug}%5Bbot%5D" --jq .id)
-          echo "user_name=${slug}[bot]" >> "$GITHUB_OUTPUT"
-          echo "user_email=${user_id}+${slug}[bot]@users.noreply.github.com" >> "$GITHUB_OUTPUT"
+          user_id=$(gh api "/users/${APP_SLUG}%5Bbot%5D" --jq .id)
+          echo "user_name=${APP_SLUG}[bot]" >> "$GITHUB_OUTPUT"
+          echo "user_email=${user_id}+${APP_SLUG}[bot]@users.noreply.github.com" >> "$GITHUB_OUTPUT"
 
       - name: Checkout main with credentials
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
