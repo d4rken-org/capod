@@ -60,7 +60,7 @@ bats tools/release/bump.bats
 
 Required org secrets (set on the d4rken-org organization, accessible to `capod`):
 
-- `RELEASE_APP_ID` — numeric ID of the `d4rken-org-releaser` GitHub App
+- `RELEASE_APP_CLIENT_ID` — Client ID of the `d4rken-org-releaser` GitHub App (visible on the App's settings page, format `Iv1.<hex>` or similar)
 - `RELEASE_APP_PRIVATE_KEY` — full `.pem` contents (including BEGIN/END lines)
 
 The App is installed on this repo and added as a bypass actor to:
