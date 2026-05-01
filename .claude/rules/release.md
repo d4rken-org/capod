@@ -12,7 +12,7 @@ gh workflow run release-prepare.yml -f bump_kind=build -f dry_run=true
 gh workflow run release-prepare.yml -f bump_kind=build -f dry_run=false
 ```
 
-After `dry_run=false`: Job 1 computes + writes the summary, then Job 2 immediately commits/tags/pushes/dispatches (no env gate — cancel the run between Job 1 and Job 2 if the summary looks wrong; you have ~seconds). `release-tag.yml` then runs `validate-tag` and the existing `release-github` (`foss-production` approval) + `release-gplay` (`gplay-production` approval) jobs — those are the two human checkpoints, matching the pre-migration UX.
+After `dry_run=false`: Job 1 computes + writes the summary, then Job 2 immediately commits/tags/pushes (no env gate — cancel the run between Job 1 and Job 2 if the summary looks wrong; you have ~seconds). The tag push naturally triggers `release-tag.yml` (the App-token push fires `on: push:` workflows; only `GITHUB_TOKEN`-pushes are suppressed). `release-tag.yml` then runs `validate-tag` and the existing `release-github` (`foss-production` approval) + `release-gplay` (`gplay-production` approval) jobs — those are the two human checkpoints, matching the pre-migration UX.
 
 ## Inputs
 
@@ -75,4 +75,4 @@ Other apps in the org can reuse the same App + secrets — just install the App 
 
 ## Stuck-dispatch recovery
 
-If Job 2's atomic push lands but `gh workflow run release-tag.yml` fails (rare — Job 1's auth precheck should prevent it), the tag is public but no pipeline runs. Re-dispatch: `gh workflow run release-tag.yml --ref v<new> -f dry_run=false`.
+If Job 2's atomic push lands but the natural `on: push:` trigger doesn't fire `release-tag.yml` (rare — would mean GitHub dropped the event), the tag is public but no pipeline runs. Re-dispatch manually: `gh workflow run release-tag.yml --ref v<new> -f dry_run=false`.
