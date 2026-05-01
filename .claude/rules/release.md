@@ -54,6 +54,21 @@ bats tools/release/bump.bats
 
 `bump.sh` enforces strict `versionCode` monotonicity, so re-using a code is impossible without manually editing `version.properties`.
 
+## Auth setup
+
+`release-prepare.yml` Job 2 uses a GitHub App token (not `GITHUB_TOKEN`) to push the bump commit and tag. The App identity is in the rulesets' bypass list, which is what allows the push to bypass branch protection + tag-creation restrictions.
+
+Required org secrets (set on the d4rken-org organization, accessible to `capod`):
+
+- `RELEASE_APP_ID` — numeric ID of the `d4rken-org-releaser` GitHub App
+- `RELEASE_APP_PRIVATE_KEY` — full `.pem` contents (including BEGIN/END lines)
+
+The App is installed on this repo and added as a bypass actor to:
+- The main-branch ruleset (PR + status check requirements)
+- The tag ruleset (creation restriction on `v*`)
+
+Other apps in the org can reuse the same App + secrets — just install the App on each repo and add it to that repo's rulesets' bypass lists.
+
 ## Defense in depth
 
 `release-tag.yml` includes `validate-tag` which: (1) regex-checks `github.ref_name`, (2) runs `bump.sh --mode=check`, (3) asserts the parsed name matches the tag. Manual `gh workflow run release-tag.yml --ref vfoo` or hand-pushed tags fail before any build.
