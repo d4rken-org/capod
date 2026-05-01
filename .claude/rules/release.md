@@ -12,7 +12,7 @@ gh workflow run release-prepare.yml -f bump_kind=build -f dry_run=true
 gh workflow run release-prepare.yml -f bump_kind=build -f dry_run=false
 ```
 
-After `dry_run=false`: Job 1 computes + writes the summary, Job 2 pauses for `foss-production` environment approval, then commits/tags/pushes/dispatches. `release-tag.yml` then runs `validate-tag` and the existing `release-github` + `release-gplay` jobs (both with their own environment approvals).
+After `dry_run=false`: Job 1 computes + writes the summary, then Job 2 immediately commits/tags/pushes/dispatches (no env gate — cancel the run between Job 1 and Job 2 if the summary looks wrong; you have ~seconds). `release-tag.yml` then runs `validate-tag` and the existing `release-github` (`foss-production` approval) + `release-gplay` (`gplay-production` approval) jobs — those are the two human checkpoints, matching the pre-migration UX.
 
 ## Inputs
 

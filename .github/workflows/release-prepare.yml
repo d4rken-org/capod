@@ -133,7 +133,6 @@ jobs:
     needs: compute-and-validate
     if: ${{ !inputs.dry_run }}
     runs-on: ubuntu-22.04
-    environment: foss-production
     permissions:
       contents: write
       actions: write
