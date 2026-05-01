@@ -189,9 +189,9 @@
     <string name="general_manage_devices_action">Pārvaldīt ierīces</string>
     <string name="overview_nomaindevice_label">Neviena ierīce nav konfigurēta</string>
     <string name="overview_nomaindevice_description">Konfigurējiet savu ierīci, lai sāktu uzraudzīt baterijas līmeņus un iespējotu papildu funkcijas.</string>
-    <string name="overview_bluetooth_disabled_icon_cd">Bluetooth atspējots, atvērt iestaţījumus</string>
-    <string name="overview_bluetooth_nearby_icon_cd">Ierīce tuvā, atvērt Bluetooth iestaţījumus</string>
-    <string name="overview_bluetooth_connected_icon_cd">Ierīce pievienota, atvērt Bluetooth iestaţījumus</string>
+    <string name="overview_bluetooth_disabled_icon_cd">Bluetooth atspējots, atvērt iestatījumus</string>
+    <string name="overview_bluetooth_nearby_icon_cd">Ierīce tuvā, atvērt Bluetooth iestatījumus</string>
+    <string name="overview_bluetooth_connected_icon_cd">Ierīce pievienota, atvērt Bluetooth iestatījumus</string>
     <string name="overview_bluetooth_disabled_label">Bluetooth ir atspējots</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth ir atspējots, iespējojiet to ;)</string>
     <string name="overview_monitoring_active_label">Ierīču uzraudzība</string>

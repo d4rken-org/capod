@@ -433,7 +433,7 @@
     <string name="device_settings_nc_one_airpod_description">Gcina ukucisha umsindo kusebenza nge-AirPod eyodwa kuphela</string>
     <string name="device_settings_personalized_volume_label">Umsindo Owabiwe</string>
     <string name="device_settings_personalized_volume_description">Lungisa umsindo wemidiya ngokusekelwe endaweni</string>
-    <string name="device_settings_conversation_awareness_description">Znqamula umsindo wemidiya futhi usho umsindo lapho umuntu ekhuluma nawe</string>
+    <string name="device_settings_conversation_awareness_description">Nqamula umsindo wemidiya futhi usho umsindo lapho umuntu ekhuluma nawe</string>
     <string name="device_settings_tone_volume_label">Umsindo Wokukhala</string>
     <string name="device_settings_tone_volume_description">Umsindo wezwi lokuqinisekisa kanye nezwi lokukhala</string>
     <string name="device_settings_adaptive_noise_label">Umsindo Wezwi Eliguqukayo</string>
@@ -530,7 +530,7 @@
     <string name="press_action_next_track">Ingoma Elandelayo</string>
     <string name="press_action_previous_track">Ingoma Yangaphambili</string>
     <string name="press_action_volume_up">Phakamisa Umsindo</string>
-    <string name="press_action_volume_down">Znkulukulu Umsindo</string>
+    <string name="press_action_volume_down">Nkulukulu Umsindo</string>
     <string name="press_action_mute_toggle">Thimatisa Umculo</string>
     <string name="press_action_stop">Misa</string>
     <string name="press_action_fast_forward">Sheshisa Phambili</string>

@@ -515,29 +515,16 @@
     <!-- Press Controls -->
     <string name="press_controls_title">Սեղմումների կառավարում</string>
     <string name="press_controls_nav_description">Կարգավորել սեղմումների վարքը և կապել սեղմումները գործողություններին</string>
-    <string name="press_controls_description">Կարգավորել, թև ինչպես են հայտնաբերվում սեղմումները, ընտրել կոչկի կոթակի վարկաբանություն և կապել սեղմումները գործություններին: Կապվախ գործությունները կիրառկվում են այս սարքին միայն և հավելվախին ինկնություն տալինը նևրկայլլու սեղմումը, այլ ոչ AirPods-ը կառավարի այն բնականորևն:</string>
     <string name="press_controls_single_press">Մեկ սեղմում</string>
     <string name="press_controls_double_press">Կրկնակի սեղմում</string>
     <string name="press_controls_triple_press">Եռակի սեղմում</string>
     <string name="press_controls_long_press">Երկար սեղմում</string>
-    <string name="press_controls_long_press_anc_cycle_info">Երկար սեղմում գործություն նշանակելը կժբի ժառկելում և Աղմուկի կառավարման ռեժիմների շրջանը AirPods-ի կառուն բռնելու և պահելու:</string>
     <string name="press_controls_mappings_section_title">Սեղմումների կապակցություն</string>
     <string name="press_controls_left">Ձախ</string>
     <string name="press_controls_right">Աջ</string>
-    <string name="press_action_none">Լռացինիչի</string>
     <string name="press_action_no_action">Գործություն չկա</string>
     <string name="press_action_play_pause">Նվագարկել/դադարել</string>
-    <string name="press_action_next_track">Հաջորդ երգիժ</string>
-    <string name="press_action_previous_track">Նախին երգիժ</string>
-    <string name="press_action_volume_up">Բարկրացկել ծռագարկությունը</string>
-    <string name="press_action_volume_down">Իլ ծռագարկությունը</string>
-    <string name="press_action_mute_toggle">Լղարել երաժկիկը</string>
     <string name="press_action_stop">Կանգնել</string>
-    <string name="press_action_fast_forward">Արագ վածել</string>
-    <string name="press_action_rewind">Հևտ վախել</string>
     <string name="press_action_cycle_anc">Աղմուկի կառավարումի շրջան</string>
-    <string name="press_action_toggle_anc_transparency">Թափանցիկության անլջարել</string>
-    <string name="press_controls_reset_label">վևրականգալ կարգավորումներին</string>
-    <string name="press_controls_reset_confirm_message">վևրականգալ բոլոր սեղմումների կապակցությունները</string>
     <string name="device_settings_noise_control_open_press_controls_action">Բացել Սեղմումների կառավարումը</string>
 </resources>

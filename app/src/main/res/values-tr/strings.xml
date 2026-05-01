@@ -503,7 +503,7 @@
     <string name="device_settings_anc_off_rejected_message">Bu cihazda Kapalı modu etkin değil. Gürültü Kontrolü altında \"Kapalı moda izin ver\" seçeneğini etkinleştirin.</string>
     <string name="device_settings_category_battery_label">Pil</string>
     <string name="device_settings_charge_cap_label">Optimize Edilmiş Şarj Limiti</string>
-    <string name="device_settings_charge_cap_description">Rutininizi öğrenin ve pil ömrünü uzatmak için şarjı %80 civarında duraklatın; kullanmadan önce kulaklıkları tamamen şarj eder.</string>
+    <string name="device_settings_charge_cap_description">Rutininizi öğrenin ve pil ömrünü uzatmak için şarjı 80%% civarında duraklatın; kullanmadan önce kulaklıkları tamamen şarj eder.</string>
     <string name="device_settings_charge_cap_rejected_message">Optimize Edilmiş Şarj Limiti değiştirilemedi. Bu deneysel bir özellik — başarısız olmaya devam ederse lütfen bildirin.</string>
     <string name="device_settings_category_connections_label">Bağlı Cihazlar</string>
     <string name="device_settings_connected_devices_description">Bu AirPod’lara şu anda bağlı diğer cihazlar</string>

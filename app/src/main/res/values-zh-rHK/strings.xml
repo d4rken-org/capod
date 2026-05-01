@@ -528,7 +528,7 @@
     <string name="press_action_volume_down">調低音量</string>
     <string name="press_action_mute_toggle">靜音音樂</string>
     <string name="press_action_stop">停止</string>
-    <string name="press_action_fast_forward">快进</string>
+    <string name="press_action_fast_forward">快進</string>
     <string name="press_action_rewind">後退</string>
     <string name="press_action_cycle_anc">循環噪音控制</string>
     <string name="press_action_toggle_anc_transparency">切換透明模式</string>

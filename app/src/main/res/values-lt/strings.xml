@@ -80,7 +80,6 @@
     <string name="settings_popup_connected_label">Rodyti prisijungimo iškylantįjį langą</string>
     <string name="settings_popup_connected_description">Rodyti iškylantįjį langą, kai įrenginys prisijungia pirmą kartą.</string>
     <string name="settings_popup_info_not_in_app">Iskylantieji langai rodomi tik tada, kai nesate programoje.</string>
-    <string name="settings_popup_warning_manual_mode">Iskylantieji langai reikalauja, kad monitorius veiktu. Jusu monitoriaus rezimas nustatytas i \"Kai programa atidaryta\", kas stabdo monitoiriu, kai paliekate programa.</string>
     <string name="general_fix_it_action">Sutaisyti</string>
     <string name="device_settings_experimental_title">Eksperimentinė funkcija</string>
     <string name="device_settings_experimental_description">Ši funkcija dar neišbandyta visuose įrenginiuose. Jei kažkas neveikia tinkamai, atidarykite problemų sąrašą su derinimo žurnalu.</string>

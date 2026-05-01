@@ -397,7 +397,7 @@
     <string name="support_contact_debuglog_label">Ladiaci log</string>
     <string name="support_contact_debuglog_picker_hint">Priložte existujúci ladíaci záznam alebo nahrajte nový.</string>
     <string name="support_contact_debuglog_picker_empty">Žiadne ladíace záznamy sa nenašli. Najskôr nahraje jeden.</string>
-    <string name="support_contact_debuglog_zip_error">Komprimovanie ladÚciaho záznamu zlyhalo</string>
+    <string name="support_contact_debuglog_zip_error">Komprimovanie ladiaceho záznamu zlyhalo</string>
     <string name="support_contact_send_action">Otvoriť e-mailovú aplikáciu</string>
     <string name="support_contact_no_email_app">Na tomto zariadení sa nenašla žiadna e-mailová aplikácia.</string>
     <string name="support_contact_debuglog_delete_title">Odstrániť ladíaci záznam?</string>
