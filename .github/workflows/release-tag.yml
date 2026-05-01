@@ -14,8 +14,50 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: false
+
 jobs:
+  validate-tag:
+    name: Validate tag
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check tag-name format
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          if [[ ! "${REF_NAME}" =~ ^v[0-9]{1,2}\.[0-9]{1,2}\.[0-9]{1,2}-(rc|beta)[0-9]{1,2}$ ]]; then
+            echo "Tag '${REF_NAME}' does not match v<M.m.p-(rc|beta)n>" >&2
+            echo "Releases must be cut via the 'Release prepare' workflow." >&2
+            exit 1
+          fi
+
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Verify version.properties matches tag
+        env:
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          # Strip leading 'v' to get the bare version name.
+          tag_name="${REF_NAME#v}"
+          # bump.sh in check mode emits current_name=...
+          parsed=$(./tools/release/bump.sh --mode=check)
+          current_name=$(echo "$parsed" | grep -E '^current_name=' | cut -d= -f2)
+          if [[ "$current_name" != "$tag_name" ]]; then
+            echo "Tag '${REF_NAME}' does not match version.properties name '$current_name'" >&2
+            echo "version.properties + VERSION must equal the tag — releases must be cut via 'Release prepare'." >&2
+            exit 1
+          fi
+
   release-github:
+    needs: validate-tag
     name: Create GitHub release
     permissions:
       contents: write
@@ -91,6 +133,7 @@ jobs:
         run: gh workflow run pages.yml --ref main
 
   release-gplay:
+    needs: validate-tag
     name: Create Google Play release
     runs-on: ubuntu-22.04
     environment: gplay-production
