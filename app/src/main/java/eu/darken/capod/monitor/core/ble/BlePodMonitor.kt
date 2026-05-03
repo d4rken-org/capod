@@ -27,6 +27,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
@@ -51,7 +53,7 @@ class BlePodMonitor @Inject constructor(
     private val generalSettings: GeneralSettings,
     bluetoothManager: BluetoothManager2,
     private val debugSettings: DebugSettings,
-    permissionTool: PermissionTool,
+    private val permissionTool: PermissionTool,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
 
@@ -89,8 +91,10 @@ class BlePodMonitor @Inject constructor(
                 log(
                     TAG,
                     Logging.Priority.WARN
-                ) { "PodMonitor failed due to missing permission, not retrying: ${cause.asLog()}" }
-                false
+                ) { "PodMonitor failed due to missing permission, rechecking and retrying: ${cause.asLog()}" }
+                permissionTool.recheck()
+                delay(3000)
+                true
             } else {
                 log(TAG, Logging.Priority.WARN) { "PodMonitor failed (attempt=$attempt), will retry: ${cause.asLog()}" }
                 delay(3000)
@@ -160,13 +164,27 @@ class BlePodMonitor @Inject constructor(
                 else -> ProximityPairing.getBleScanFilter()
             }
 
-            bleScanner.scan(
-                filters = filters,
-                scannerMode = options.scannerMode,
-                disableOffloadFiltering = options.offloadedFilteringDisabled,
-                disableOffloadBatching = options.offloadedBatchingDisabled,
-                disableDirectScanCallback = options.disableDirectCallback,
-            )
+            flow {
+                emitAll(
+                    bleScanner.scan(
+                        filters = filters,
+                        scannerMode = options.scannerMode,
+                        disableOffloadFiltering = options.offloadedFilteringDisabled,
+                        disableOffloadBatching = options.offloadedBatchingDisabled,
+                        disableDirectScanCallback = options.disableDirectCallback,
+                    )
+                )
+            }.catch { cause ->
+                if (cause is SecurityException) {
+                    log(TAG, Logging.Priority.WARN) {
+                        "BLE scanner failed due to missing permission, rechecking permissions: ${cause.asLog()}"
+                    }
+                    permissionTool.recheck()
+                    emit(emptyList())
+                } else {
+                    throw cause
+                }
+            }
         }
         .map { it.onlyNewAndUnique() }
 

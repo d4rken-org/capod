@@ -16,6 +16,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -113,22 +114,7 @@ class BleScanner @Inject constructor(
             null
         }
 
-        val flushJob = if (!disableDirectScanCallback) {
-            launch {
-                log(TAG) { "Flush job launched" }
-                while (isActive) {
-                    // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
-                    adapter.bluetoothLeScanner.flushPendingScanResults(callback)
-                    when (scannerMode) {
-                        ScannerMode.LOW_POWER -> break
-                        ScannerMode.BALANCED -> delay(2000)
-                        ScannerMode.LOW_LATENCY -> delay(500)
-                    }
-                }
-            }
-        } else {
-            null
-        }
+        var flushJob: Job? = null
 
         val filterList = when {
             useOffloadedFiltering -> filters.toList()
@@ -167,26 +153,55 @@ class BleScanner @Inject constructor(
             setReportDelay(delay)
         }.build()
 
-        if (disableDirectScanCallback) {
-            val callbackIntent = createStartIntent()
-            log(TAG) {
-                "startScan(mode=$scannerMode, filterCount=${filterList.size}, batching=$useOffloadedBatching, filtering=$useOffloadedFiltering, callback=intent)"
+        try {
+            if (disableDirectScanCallback) {
+                val callbackIntent = createStartIntent()
+                log(TAG) {
+                    "startScan(mode=$scannerMode, filterCount=${filterList.size}, batching=$useOffloadedBatching, filtering=$useOffloadedFiltering, callback=intent)"
+                }
+                scanner.startScan(filterList, scanSettings, callbackIntent)
+            } else {
+                log(TAG) {
+                    "startScan(mode=$scannerMode, filterCount=${filterList.size}, batching=$useOffloadedBatching, filtering=$useOffloadedFiltering, callback=direct)"
+                }
+                scanner.startScan(filterList, scanSettings, callback)
+                flushJob = launch {
+                    log(TAG) { "Flush job launched" }
+                    while (isActive) {
+                        try {
+                            // Can undercut the minimum setReportDelay(), e.g. 5000ms on a Pixel5@12
+                            scanner.flushPendingScanResults(callback)
+                        } catch (e: SecurityException) {
+                            log(TAG, WARN) { "flushPendingScanResults() denied: ${e.message}" }
+                            close(e)
+                            break
+                        }
+                        when (scannerMode) {
+                            ScannerMode.LOW_POWER -> break
+                            ScannerMode.BALANCED -> delay(2000)
+                            ScannerMode.LOW_LATENCY -> delay(500)
+                        }
+                    }
+                }
             }
-            scanner.startScan(filterList, scanSettings, callbackIntent)
-        } else {
-            log(TAG) {
-                "startScan(mode=$scannerMode, filterCount=${filterList.size}, batching=$useOffloadedBatching, filtering=$useOffloadedFiltering, callback=direct)"
-            }
-            scanner.startScan(filterList, scanSettings, callback)
+        } catch (e: SecurityException) {
+            log(TAG, WARN) { "startScan() denied: ${e.message}" }
+            forwarderConsumer?.cancel()
+            close(e)
+            return@callbackFlow
         }
 
         awaitClose {
             forwarderConsumer?.cancel()
             flushJob?.cancel()
-            if (disableDirectScanCallback) {
-                scanner.stopScan(createStopIntent())
-            } else {
-                scanner.stopScan(callback)
+            try {
+                if (disableDirectScanCallback) {
+                    scanner.stopScan(createStopIntent())
+                } else {
+                    scanner.stopScan(callback)
+                }
+            } catch (e: SecurityException) {
+                log(TAG, WARN) { "stopScan() denied: ${e.message}" }
             }
             log(TAG) { "BleScanner stopped" }
         }
