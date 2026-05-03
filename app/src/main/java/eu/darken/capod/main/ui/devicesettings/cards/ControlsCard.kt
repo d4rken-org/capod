@@ -29,10 +29,10 @@ internal fun ControlsCard(
     val volSwipe = device.volumeSwipe
     val volSwipeLen = device.volumeSwipeLength
 
-    val showPressControlsNav = features.hasStemConfig ||
-            features.hasPressSpeed ||
-            features.hasPressHoldDuration ||
-            features.hasEndCallMuteMic
+    val showPressControlsNav = (features.hasStemConfig && device.stemConfig != null) ||
+            (features.hasPressSpeed && device.pressSpeed != null) ||
+            (features.hasPressHoldDuration && device.pressHoldDuration != null) ||
+            (features.hasEndCallMuteMic && device.endCallMuteMic != null)
 
     SettingsSection(title = stringResource(R.string.device_settings_category_controls_label)) {
         if (showPressControlsNav) {
