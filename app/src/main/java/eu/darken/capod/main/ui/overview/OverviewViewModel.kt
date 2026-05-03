@@ -23,6 +23,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.tierRank
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
@@ -175,7 +176,7 @@ class OverviewViewModel @Inject constructor(
 
         val profiledDevices: List<PodDevice> by lazy {
             devices.filter { it.profileId != null }.sortedWith(
-                compareBy<PodDevice> { deviceTierRank(it) }
+                compareBy<PodDevice> { it.tierRank() }
                     .thenBy { profileOrder[it.profileId] ?: Int.MAX_VALUE }
             )
         }
@@ -284,12 +285,5 @@ class OverviewViewModel @Inject constructor(
     companion object {
         private const val FREE_DEVICE_LIMIT = 1
         private val TAG = logTag("Overview", "VM")
-
-        /** Connection tier rank for sorting: lower = higher priority. */
-        internal fun deviceTierRank(device: PodDevice): Int = when {
-            device.isSystemConnected -> 0
-            device.isLive -> 1
-            else -> 2
-        }
     }
 }

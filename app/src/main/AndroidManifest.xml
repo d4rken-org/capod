@@ -141,6 +141,20 @@
             android:name=".monitor.core.worker.MonitorService"
             android:foregroundServiceType="connectedDevice"
             android:exported="false" />
+
+        <service
+            android:name=".main.ui.tile.AncTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_anc_on"
+            android:label="@string/tile_anc_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+        </service>
     </application>
 
 </manifest>
