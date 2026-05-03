@@ -2,6 +2,8 @@ package eu.darken.capod.monitor.core.cache
 
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -154,5 +156,119 @@ class ToCachedStateTest : BaseTest() {
                 .toCachedState(existing, now)
                 .shouldNotBeNull()
         }
+
+        @Test
+        fun `returns new state when only earbud serial changes`() {
+            val existing = CachedDeviceState(
+                profileId = "test-profile",
+                model = PodModel.AIRPODS_PRO3,
+                left = CachedDeviceState.CachedBatterySlot(0.8f, now),
+                right = CachedDeviceState.CachedBatterySlot(0.7f, now),
+                case = CachedDeviceState.CachedBatterySlot(0.5f, now),
+                isLeftCharging = false,
+                isRightCharging = false,
+                isCaseCharging = false,
+                isHeadsetCharging = false,
+                deviceName = "AirPods",
+                serialNumber = "",
+                firmwareVersion = "",
+                leftEarbudSerial = "OLD-LEFT",
+                rightEarbudSerial = "R-1",
+                marketingVersion = "1234",
+                lastSeenAt = now,
+            )
+            val device = PodDevice(
+                profileId = "test-profile",
+                ble = mockDualPod(leftBattery = 0.8f, rightBattery = 0.7f, caseBattery = 0.5f),
+                aap = AapPodState(
+                    deviceInfo = deviceInfo(
+                        leftEarbudSerial = "NEW-LEFT",
+                        rightEarbudSerial = "R-1",
+                        marketingVersion = "1234",
+                    ),
+                ),
+            )
+
+            val result = device.toCachedState(existing, now).shouldNotBeNull()
+            result.leftEarbudSerial shouldBe "NEW-LEFT"
+            result.rightEarbudSerial shouldBe "R-1"
+            result.marketingVersion shouldBe "1234"
+        }
+
+        @Test
+        fun `returns new state when only marketing version changes`() {
+            val existing = CachedDeviceState(
+                profileId = "test-profile",
+                model = PodModel.AIRPODS_PRO3,
+                left = CachedDeviceState.CachedBatterySlot(0.8f, now),
+                isLeftCharging = false,
+                isRightCharging = false,
+                isCaseCharging = false,
+                isHeadsetCharging = false,
+                deviceName = "AirPods",
+                serialNumber = "",
+                firmwareVersion = "",
+                marketingVersion = "1234",
+                lastSeenAt = now,
+            )
+            val device = PodDevice(
+                profileId = "test-profile",
+                ble = mockDualPod(leftBattery = 0.8f),
+                aap = AapPodState(deviceInfo = deviceInfo(marketingVersion = "5678")),
+            )
+
+            val result = device.toCachedState(existing, now).shouldNotBeNull()
+            result.marketingVersion shouldBe "5678"
+        }
     }
+
+    @Nested
+    inner class DeviceInfoOnly {
+
+        @Test
+        fun `persists DeviceInfo when no live battery is available`() {
+            // Mirror how DeviceMonitor.aapOnlyForPersistence builds an AAP-only PodDevice:
+            // profileModel and profileAddress carry the model/address since `ble` is null.
+            val device = PodDevice(
+                profileId = "test-profile",
+                ble = null,
+                aap = AapPodState(
+                    deviceInfo = deviceInfo(
+                        name = "Pro 3",
+                        leftEarbudSerial = "L-1",
+                        rightEarbudSerial = "R-1",
+                        marketingVersion = "9999",
+                    ),
+                ),
+                profileModel = PodModel.AIRPODS_PRO3,
+                profileAddress = "AA:BB:CC:DD:EE:FF",
+            )
+
+            val result = device.toCachedState(existing = null, now = now).shouldNotBeNull()
+            result.model shouldBe PodModel.AIRPODS_PRO3
+            result.address shouldBe "AA:BB:CC:DD:EE:FF"
+            result.deviceName shouldBe "Pro 3"
+            result.leftEarbudSerial shouldBe "L-1"
+            result.rightEarbudSerial shouldBe "R-1"
+            result.marketingVersion shouldBe "9999"
+        }
+    }
+
+    private fun deviceInfo(
+        name: String = "AirPods",
+        serialNumber: String = "",
+        firmwareVersion: String = "",
+        leftEarbudSerial: String? = null,
+        rightEarbudSerial: String? = null,
+        marketingVersion: String? = null,
+    ) = AapDeviceInfo(
+        name = name,
+        modelNumber = "",
+        manufacturer = "",
+        serialNumber = serialNumber,
+        firmwareVersion = firmwareVersion,
+        leftEarbudSerial = leftEarbudSerial,
+        rightEarbudSerial = rightEarbudSerial,
+        marketingVersion = marketingVersion,
+    )
 }

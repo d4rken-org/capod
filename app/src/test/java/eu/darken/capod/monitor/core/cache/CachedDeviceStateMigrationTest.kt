@@ -71,4 +71,22 @@ class CachedDeviceStateMigrationTest : BaseTest() {
         val state = json.decodeFromString(CachedDeviceState.serializer(), legacy)
         state.deviceInfo!!.marketingVersion shouldBe "8454480"
     }
+
+    @Test
+    fun `deviceInfo is non-null when only new earbud-serial fields are present`() {
+        val state = CachedDeviceState(
+            profileId = "earbud-only",
+            model = PodModel.AIRPODS_PRO3,
+            leftEarbudSerial = "L-9",
+            rightEarbudSerial = "R-9",
+            marketingVersion = "8888",
+            lastSeenAt = java.time.Instant.ofEpochMilli(1767364074000L),
+        )
+
+        val info = state.deviceInfo!!
+        info.leftEarbudSerial shouldBe "L-9"
+        info.rightEarbudSerial shouldBe "R-9"
+        info.marketingVersion shouldBe "8888"
+        info.name shouldBe ""
+    }
 }

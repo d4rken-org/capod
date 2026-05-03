@@ -3,6 +3,8 @@ package eu.darken.capod.monitor.core
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.debug.Bugs
+import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
 import eu.darken.capod.monitor.core.aap.AapLifecycleManager
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
@@ -22,6 +24,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
@@ -31,6 +34,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.TestTimeSource
@@ -534,6 +538,96 @@ class DeviceMonitorTest : BaseTest() {
         val devices = monitor.devices.first()
 
         devices.size shouldBe 2
+    }
+
+    @AfterEach
+    fun resetBugsReporter() {
+        Bugs.reporter = null
+    }
+
+    /**
+     * Regression: a NPE in the cache merge path used to throw out of `onEach { persistLiveDevices }`,
+     * cancelling the upstream `combine` and freezing every downstream observer (overview, widgets,
+     * etc.) for the rest of the process lifetime. The persist loop now catches and reports.
+     *
+     * Throws from inside `toCachedState` (via a BLE getter) rather than from `save()` so the test
+     * locks in that the catch covers the actual NPE boundary, not just the cache I/O boundary.
+     */
+    @Test
+    fun `flow keeps emitting after persist failure and only reports the bug once per profile`() =
+        runTest(testDispatcher) {
+            val reporter = mockk<AutomaticBugReporter>(relaxed = true)
+            Bugs.reporter = reporter
+
+            val bleFlow = MutableStateFlow(listOf(mockThrowingDualBlePodWithProfile(testProfile)))
+            val aapFlow = MutableStateFlow(emptyMap<BluetoothAddress, AapPodState>())
+            val cacheFlow = MutableStateFlow<Map<String, CachedDeviceState>>(emptyMap())
+            val profilesFlow = MutableStateFlow<List<DeviceProfile>>(listOf(testProfile))
+
+            val blePodMonitor: BlePodMonitor = mockk { every { devices } returns bleFlow }
+            val aapManager: AapConnectionManager = mockk { every { allStates } returns aapFlow }
+            val deviceStateCache: DeviceStateCache = mockk(relaxed = true) {
+                every { cachedStates } returns cacheFlow
+                coEvery { load(any()) } answers { cacheFlow.value[firstArg<String>()] }
+            }
+            val profilesRepo: DeviceProfilesRepo = mockk { every { profiles } returns profilesFlow }
+            val aapLifecycleManager: AapLifecycleManager = mockk(relaxed = true)
+            val bluetoothManager: BluetoothManager2 = mockk {
+                every { connectedDevices } returns MutableStateFlow(emptyList())
+            }
+
+            val monitor = DeviceMonitor(
+                appScope = backgroundScope,
+                blePodMonitor = blePodMonitor,
+                aapManager = aapManager,
+                bluetoothManager = bluetoothManager,
+                deviceStateCache = deviceStateCache,
+                profilesRepo = profilesRepo,
+                aapLifecycleManager = aapLifecycleManager,
+                timeSource = timeSource,
+            )
+
+            val received = mutableListOf<List<PodDevice>>()
+            val collector = backgroundScope.launch {
+                monitor.devices.collect { received += it }
+            }
+            advanceUntilIdle()
+            val initialEmissionCount = received.size
+            initialEmissionCount shouldNotBe 0
+
+            // Trigger more emissions; toCachedState keeps throwing inside the persist loop, but
+            // the flow must survive instead of cancelling its upstream combine.
+            bleFlow.value = listOf(mockThrowingDualBlePodWithProfile(testProfile))
+            advanceUntilIdle()
+            bleFlow.value = listOf(mockThrowingDualBlePodWithProfile(testProfile))
+            advanceUntilIdle()
+
+            // The flow survived: at least two more emissions arrived after the failing merge.
+            (received.size - initialEmissionCount) shouldBe 2
+            // The cache write must NOT have been attempted — the failure was upstream of save().
+            coVerify(exactly = 0) { deviceStateCache.save(any(), any()) }
+            // Dedup: even though merge failed on every emission for the same profile, only one report.
+            verify(exactly = 1) { reporter.notify(any()) }
+
+            collector.cancel()
+        }
+
+    /**
+     * A live BLE pod whose battery getter throws on read. Used to simulate the NPE that R8/JIT
+     * was producing inside the cache merge path — the throw originates inside `toCachedState`,
+     * before `save()` is called.
+     */
+    private fun mockThrowingDualBlePodWithProfile(profile: DeviceProfile): BlePodSnapshot {
+        val bleMeta = object : BlePodSnapshot.Meta {
+            override val profile: DeviceProfile? = profile
+        }
+        return mockk<DualBlePodSnapshot>(relaxed = true) {
+            every { meta } returns bleMeta
+            every { this@mockk.model } returns profile.model
+            every { seenFirstAt } returns Instant.parse("2026-04-05T17:50:00Z")
+            every { seenLastAt } returns Instant.parse("2026-04-05T18:00:00Z")
+            every { batteryLeftPodPercent } throws NullPointerException("synthetic merge failure")
+        }
     }
 
     @Test
