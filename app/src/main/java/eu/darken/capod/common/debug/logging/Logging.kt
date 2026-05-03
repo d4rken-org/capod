@@ -61,16 +61,19 @@ object Logging {
         message: String
     ) {
         val snapshot = synchronized(internalLoggers) { internalLoggers.toList() }
-        snapshot
-            .filter { it.isLoggable(priority) }
-            .forEach {
-                it.log(
-                    priority = priority,
-                    tag = tag,
-                    metaData = metaData,
-                    message = message
-                )
+        snapshot.forEach {
+            val isLoggable = runCatching { it.isLoggable(priority) }.getOrDefault(false)
+            if (isLoggable) {
+                runCatching {
+                    it.log(
+                        priority = priority,
+                        tag = tag,
+                        metaData = metaData,
+                        message = message
+                    )
+                }
             }
+        }
     }
 
     fun clearAll() {
@@ -110,13 +113,27 @@ inline fun log(
     }
 }
 
-fun Throwable.asLog(): String {
+fun Throwable.asLog(): String = runCatching {
     val stringWriter = StringWriter(256)
     val printWriter = PrintWriter(stringWriter, false)
     printStackTrace(printWriter)
     printWriter.flush()
-    return stringWriter.toString()
+    stringWriter.toString()
+}.getOrElse { renderFailure ->
+    "${asLogSummary()}\n<stacktrace unavailable: ${renderFailure.asLogSummary()}>"
 }
+
+fun Throwable.asLogSummary(): String {
+    val throwableClass = javaClass.name
+    val throwableMessage = safeMessage()
+    return if (throwableMessage.isNullOrBlank()) {
+        throwableClass
+    } else {
+        "$throwableClass: $throwableMessage"
+    }
+}
+
+private fun Throwable.safeMessage(): String? = runCatching { message }.getOrNull()
 
 @PublishedApi
 internal fun Any.logTagViaCallSite(): String {
