@@ -5,7 +5,9 @@ import android.bluetooth.BluetoothSocket
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.l2cap.L2capSocketFactory
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.aap.engine.AapConnection
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
+import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.maps.shouldBeEmpty
@@ -13,6 +15,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
@@ -24,6 +27,10 @@ import testhelpers.TestTimeSource
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicInteger
+import kotlin.time.Duration.Companion.milliseconds
 
 class AapConnectionManagerTest : BaseTest() {
 
@@ -87,6 +94,45 @@ class AapConnectionManagerTest : BaseTest() {
             }
 
             manager.allStates.value.shouldBeEmpty()
+        }
+
+        @Test
+        fun `connect timeout closes in-flight socket and allows reconnect`() = testScope.runTest {
+            val closeCalled = CountDownLatch(1)
+            val closeCalls = AtomicInteger(0)
+            val blockingSocket = mockk<BluetoothSocket>(relaxed = true) {
+                every { connect() } answers {
+                    closeCalled.await(1, TimeUnit.SECONDS)
+                    throw IOException("closed")
+                }
+                every { close() } answers {
+                    closeCalls.incrementAndGet()
+                    closeCalled.countDown()
+                }
+            }
+            val reconnectSocket = mockk<BluetoothSocket>(relaxed = true) {
+                every { outputStream } returns ByteArrayOutputStream()
+                every { inputStream } returns ByteArrayInputStream(byteArrayOf())
+            }
+            every { socketFactory.createSocket(any(), any()) } returnsMany listOf(blockingSocket, reconnectSocket)
+            val connection = AapConnection(
+                device = testDevice,
+                profile = AapDeviceProfile.forModel(PodModel.AIRPODS_PRO3),
+                socketFactory = socketFactory,
+                timeSource = timeSource,
+                connectTimeout = 50.milliseconds,
+            )
+
+            shouldThrow<TimeoutCancellationException> {
+                connection.connect(testScope)
+            }
+
+            closeCalled.await(1, TimeUnit.SECONDS) shouldBe true
+            closeCalls.get() shouldBe 1
+            connection.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
+
+            connection.connect(testScope)
+            advanceUntilIdle()
         }
 
         @Test

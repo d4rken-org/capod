@@ -23,7 +23,6 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.time.Duration.Companion.seconds
@@ -77,9 +76,7 @@ class AapAutoConnect @Inject constructor(
 
         log(TAG) { "AAP connecting to $address (${profile.label})" }
         try {
-            withTimeout(CONNECT_TIMEOUT) {
-                aapManager.connect(address, bonded.internal, profile.model)
-            }
+            aapManager.connect(address, bonded.internal, profile.model)
             log(TAG) { "AAP connected to $address" }
         } catch (e: Exception) {
             log(TAG, WARN) { "AAP initial connect failed for $address: ${e.message}" }
@@ -102,9 +99,7 @@ class AapAutoConnect @Inject constructor(
 
                 try {
                     log(TAG) { "AAP initial retry ${attempt + 1} for $address after ${delayMs}ms" }
-                    withTimeout(CONNECT_TIMEOUT) {
-                        aapManager.connect(address, bonded.internal, profile.model)
-                    }
+                    aapManager.connect(address, bonded.internal, profile.model)
                     log(TAG) { "AAP connected to $address on retry ${attempt + 1}" }
                     break
                 } catch (retryException: Exception) {
@@ -164,9 +159,7 @@ class AapAutoConnect @Inject constructor(
 
                     try {
                         log(TAG) { "AAP reconnect attempt ${attempt + 1} for $address in ${delayMs}ms" }
-                        withTimeout(CONNECT_TIMEOUT) {
-                            aapManager.connect(address, bonded.internal, profile.model)
-                        }
+                        aapManager.connect(address, bonded.internal, profile.model)
                         log(TAG) { "AAP reconnected to $address" }
                         break
                     } catch (e: Exception) {
@@ -231,6 +224,5 @@ class AapAutoConnect @Inject constructor(
     companion object {
         private val TAG = logTag("Monitor", "AapAutoConnect")
         internal val RETRY_DELAYS = longArrayOf(3_000, 3_000, 3_000, 5_000, 5_000, 10_000, 10_000)
-        private val CONNECT_TIMEOUT = 5.seconds
     }
 }

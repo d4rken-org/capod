@@ -18,7 +18,9 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 
 import eu.darken.capod.monitor.core.devicesWithProfiles
 
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -41,7 +43,18 @@ open class App : Application() {
         if (BuildConfig.DEBUG) Logging.install(LogCatLogger())
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
-        Thread.setDefaultUncaughtExceptionHandler(CapodUncaughtExceptionHandler(oldHandler))
+        Thread.setDefaultUncaughtExceptionHandler(
+            CapodUncaughtExceptionHandler(
+                previousHandler = oldHandler,
+                cancelBeforeDelegate = { throwable ->
+                    // Best-effort shutdown: the system handler may terminate the process immediately,
+                    // but cancellation can still close sockets if it gets a scheduling window.
+                    if (::appScope.isInitialized) {
+                        appScope.cancel(CancellationException("Uncaught exception", throwable))
+                    }
+                },
+            )
+        )
 
         autoReporting.setup(this)
 

@@ -90,6 +90,30 @@ class CapodUncaughtExceptionHandlerTest : BaseTest() {
     }
 
     @Test
+    fun `cancels before delegating fatal exception`() {
+        val mainThread = Thread.currentThread()
+        val events = mutableListOf<String>()
+        val previousHandler = object : Thread.UncaughtExceptionHandler {
+            override fun uncaughtException(thread: Thread, throwable: Throwable) {
+                events += "delegate"
+            }
+        }
+        val throwable = IllegalStateException("boom")
+        val handler = CapodUncaughtExceptionHandler(
+            previousHandler = previousHandler,
+            mainThreadProvider = { mainThread },
+            loopMainThread = { throw AssertionError("loopMainThread should not run") },
+            reportForegroundServiceTimingException = { throw AssertionError("report should not run") },
+            cancelBeforeDelegate = { events += "cancel" },
+            exit = { throw AssertionError("exitProcess($it)") },
+        )
+
+        handler.uncaughtException(mainThread, throwable)
+
+        events shouldBe listOf("cancel", "delegate")
+    }
+
+    @Test
     fun `delegates loop failure after suppression`() {
         val mainThread = Thread.currentThread()
         val previousHandler = RecordingHandler()
