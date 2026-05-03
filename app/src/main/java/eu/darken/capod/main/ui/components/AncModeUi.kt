@@ -1,6 +1,7 @@
 package eu.darken.capod.main.ui.components
 
 import android.content.Context
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
@@ -26,5 +27,13 @@ fun AapSetting.AncMode.Value.icon(): ImageVector = when (this) {
     AapSetting.AncMode.Value.ON -> Icons.TwoTone.Headphones
     AapSetting.AncMode.Value.TRANSPARENCY -> Icons.TwoTone.Hearing
     AapSetting.AncMode.Value.ADAPTIVE -> Icons.TwoTone.AutoAwesome
+}
+
+@DrawableRes
+fun AapSetting.AncMode.Value.iconDrawableRes(): Int = when (this) {
+    AapSetting.AncMode.Value.OFF -> R.drawable.ic_anc_off
+    AapSetting.AncMode.Value.ON -> R.drawable.ic_anc_on
+    AapSetting.AncMode.Value.TRANSPARENCY -> R.drawable.ic_anc_transparency
+    AapSetting.AncMode.Value.ADAPTIVE -> R.drawable.ic_anc_adaptive
 }
 

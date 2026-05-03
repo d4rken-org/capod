@@ -158,6 +158,11 @@
     <string name="anc_widget_no_anc_support_label">This device does not support noise control</string>
     <string name="anc_widget_aap_not_connected_label">Not connected</string>
     <string name="anc_widget_aap_connecting_label">Connecting…</string>
+    <string name="tile_anc_label">Noise Control</string>
+    <string name="tile_anc_subtitle_permission_required">Permission required</string>
+    <string name="tile_anc_subtitle_no_device">No device</string>
+    <string name="tile_anc_subtitle_no_anc_support">No noise control</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth off</string>
     <string name="widget_config_screen_title">Widget Configuration</string>
     <string name="widget_configuration_title">Select Device</string>
     <string name="widget_configuration_description">Choose which device profile this widget should display.</string>

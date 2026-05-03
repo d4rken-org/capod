@@ -2,6 +2,7 @@ package eu.darken.capod.main.ui.widget
 
 import android.content.Context
 import eu.darken.capod.R
+import eu.darken.capod.main.ui.components.iconDrawableRes
 import eu.darken.capod.main.ui.components.shortLabel
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.visibleAncModes
@@ -120,11 +121,4 @@ object AncWidgetRenderStateMapper {
             }
         }
     }
-}
-
-private fun AapSetting.AncMode.Value.iconDrawableRes(): Int = when (this) {
-    AapSetting.AncMode.Value.OFF -> R.drawable.ic_anc_off
-    AapSetting.AncMode.Value.ON -> R.drawable.ic_anc_on
-    AapSetting.AncMode.Value.TRANSPARENCY -> R.drawable.ic_anc_transparency
-    AapSetting.AncMode.Value.ADAPTIVE -> R.drawable.ic_anc_adaptive
 }
