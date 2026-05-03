@@ -1,11 +1,10 @@
 package eu.darken.capod.common.permissions
 
 import android.content.Context
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.PowerManager
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
+import androidx.core.content.PermissionChecker
 import eu.darken.capod.common.BuildConfigWrap
 import eu.darken.capod.R
 import eu.darken.capod.common.withinApiLevel
@@ -18,7 +17,7 @@ enum class Permission(
     val permissionId: String,
     val isScanBlocking: Boolean = false,
     val isGranted: (Context) -> Boolean = {
-        ContextCompat.checkSelfPermission(it, permissionId) == PackageManager.PERMISSION_GRANTED
+        PermissionChecker.checkSelfPermission(it, permissionId) == PermissionChecker.PERMISSION_GRANTED
     },
 ) {
     BLUETOOTH(
