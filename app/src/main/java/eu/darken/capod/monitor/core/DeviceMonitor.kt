@@ -4,7 +4,10 @@ import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.coroutine.AppScope
+import eu.darken.capod.common.debug.Bugs
+import eu.darken.capod.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.replayingShare
@@ -20,6 +23,7 @@ import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.toReactionConfig
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -86,7 +90,34 @@ class DeviceMonitor @Inject constructor(
             connectedAddresses = connectedAddresses,
         )
     }.onEach { liveState ->
-        persistLiveDevices(liveState.liveDevices)
+        persistLiveDevices(liveState.liveDevices + aapOnlyForPersistence(liveState))
+    }
+
+    /**
+     * AAP-only profiles whose state didn't make it into [LiveMergeState.liveDevices] (no BLE pod
+     * in the current scan). Without this, [persistLiveDevices] would only ever see BLE-backed
+     * devices, and AAP-delivered DeviceInfo (earbud serials, marketing version) for an out-of-BLE
+     * pod would never reach the cache even though the AAP socket is alive.
+     */
+    private fun aapOnlyForPersistence(state: LiveMergeState): List<PodDevice> {
+        val coveredProfileIds = state.liveDevices.mapNotNull { it.profileId }.toSet()
+        return state.profiles.mapNotNull { profile ->
+            if (profile.id in coveredProfileIds) return@mapNotNull null
+            val aap = state.aapStates.forProfile(profile) ?: return@mapNotNull null
+            PodDevice(
+                profileId = profile.id,
+                label = profile.label,
+                ble = null,
+                aap = aap,
+                profileAddress = profile.address,
+                profileModel = profile.model,
+                profileKeyState = profile.toBleKeyState(),
+                profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
+                profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
+                reactions = profile.toReactionConfig(),
+                isSystemConnected = profile.address in state.connectedAddresses,
+            )
+        }
     }
 
     val devices: Flow<List<PodDevice>> = combine(
@@ -181,14 +212,25 @@ class DeviceMonitor @Inject constructor(
         dedupedLiveDevices + nonLiveDevices
     }.replayingShare(appScope)
 
+    private val reportedPersistFailures = mutableSetOf<String>()
+
     private suspend fun persistLiveDevices(devices: List<PodDevice>) {
         for (device in devices) {
             val profileId = device.profileId ?: continue
-            val existing = deviceStateCache.cachedStates.value[profileId]
-            val newState = device.copy(cached = existing).toCachedState(existing, timeSource.now()) ?: continue
+            try {
+                val existing = deviceStateCache.cachedStates.value[profileId]
+                val newState = device.copy(cached = existing).toCachedState(existing, timeSource.now()) ?: continue
 
-            log(TAG, VERBOSE) { "Persisting state for $profileId" }
-            deviceStateCache.save(profileId, newState)
+                log(TAG, VERBOSE) { "Persisting state for $profileId" }
+                deviceStateCache.save(profileId, newState)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Failed to persist state for $profileId: ${e.asLog()}" }
+                if (reportedPersistFailures.add(profileId)) {
+                    runCatching { Bugs.report(tag = TAG, message = "persistLiveDevices failed for $profileId", exception = e) }
+                }
+            }
         }
     }
 

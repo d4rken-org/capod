@@ -36,7 +36,9 @@ data class CachedDeviceState(
 ) {
     val deviceInfo: AapDeviceInfo?
         get() {
-            if (deviceName == null && serialNumber == null && firmwareVersion == null) return null
+            if (deviceName == null && serialNumber == null && firmwareVersion == null
+                && leftEarbudSerial == null && rightEarbudSerial == null && marketingVersion == null
+            ) return null
             return AapDeviceInfo(
                 name = deviceName ?: "",
                 modelNumber = "",

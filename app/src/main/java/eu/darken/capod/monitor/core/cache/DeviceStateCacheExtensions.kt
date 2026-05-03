@@ -14,7 +14,7 @@ import java.time.Instant
  * Returns null if:
  * - The device is not live (cached-only)
  * - The device has no profile
- * - All live battery values are null
+ * - All live battery values AND live DeviceInfo are null (nothing fresh to persist)
  * - The state hasn't changed from [existing] (dedup)
  */
 fun PodDevice.toCachedState(
@@ -28,10 +28,11 @@ fun PodDevice.toCachedState(
     val liveRight = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
     val liveCase = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent
     val liveHeadset = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
-
-    if (liveLeft == null && liveRight == null && liveCase == null && liveHeadset == null) return null
-
     val liveDeviceInfo = aap?.deviceInfo
+
+    if (liveLeft == null && liveRight == null && liveCase == null && liveHeadset == null && liveDeviceInfo == null) {
+        return null
+    }
 
     val newState = CachedDeviceState(
         profileId = pid,
@@ -64,36 +65,34 @@ private fun mergeBatterySlot(
     existing: CachedBatterySlot?,
     now: Instant,
 ): CachedBatterySlot? {
-    if (livePercent == null) return existing
-    if (existing == null) return CachedBatterySlot(livePercent, now)
+    val live: Float = livePercent ?: return existing
+    val current: CachedBatterySlot = existing ?: return CachedBatterySlot(live, now)
 
-    val isStale = Duration.between(existing.updatedAt, now).abs() > Duration.ofMinutes(1)
-    return if (existing.percent == livePercent && !isStale) existing else CachedBatterySlot(livePercent, now)
+    val isStale = Duration.between(current.updatedAt, now).abs() > Duration.ofMinutes(1)
+    return if (current.percent == live && !isStale) current else CachedBatterySlot(live, now)
 }
 
 private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boolean {
     if (Duration.between(old.lastSeenAt, new.lastSeenAt).abs() > Duration.ofMinutes(1)) return true
-    if (hasSlotTimestampChanged(old.left, new.left)) return true
-    if (hasSlotTimestampChanged(old.right, new.right)) return true
-    if (hasSlotTimestampChanged(old.case, new.case)) return true
-    if (hasSlotTimestampChanged(old.headset, new.headset)) return true
-    return old.left?.percent != new.left?.percent
-        || old.right?.percent != new.right?.percent
-        || old.case?.percent != new.case?.percent
-        || old.headset?.percent != new.headset?.percent
-        || old.isLeftCharging != new.isLeftCharging
+    if (hasSlotChanged(old.left, new.left)) return true
+    if (hasSlotChanged(old.right, new.right)) return true
+    if (hasSlotChanged(old.case, new.case)) return true
+    if (hasSlotChanged(old.headset, new.headset)) return true
+    return old.isLeftCharging != new.isLeftCharging
         || old.isRightCharging != new.isRightCharging
         || old.isCaseCharging != new.isCaseCharging
         || old.isHeadsetCharging != new.isHeadsetCharging
         || old.deviceName != new.deviceName
         || old.serialNumber != new.serialNumber
         || old.firmwareVersion != new.firmwareVersion
+        || old.leftEarbudSerial != new.leftEarbudSerial
+        || old.rightEarbudSerial != new.rightEarbudSerial
+        || old.marketingVersion != new.marketingVersion
 }
 
-private fun hasSlotTimestampChanged(
-    old: CachedBatterySlot?,
-    new: CachedBatterySlot?,
-): Boolean {
-    if (old == null || new == null) return false
+private fun hasSlotChanged(old: CachedBatterySlot?, new: CachedBatterySlot?): Boolean {
+    if (old == null && new == null) return false
+    if (old == null || new == null) return true
+    if (old.percent != new.percent) return true
     return Duration.between(old.updatedAt, new.updatedAt).abs() > Duration.ofMinutes(1)
 }
