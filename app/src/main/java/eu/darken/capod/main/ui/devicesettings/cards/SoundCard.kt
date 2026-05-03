@@ -81,7 +81,7 @@ internal fun SoundCard(
                 )
             }
         }
-        if (features.hasMicrophoneMode) {
+        if (features.hasMicrophoneMode && device.microphoneMode != null) {
             if (isPro) {
                 val micMode = device.microphoneMode
                     ?: AapSetting.MicrophoneMode(AapSetting.MicrophoneMode.Mode.AUTO)

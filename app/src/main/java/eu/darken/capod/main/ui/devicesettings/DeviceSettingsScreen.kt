@@ -386,7 +386,7 @@ fun DeviceSettingsScreen(
                 val showSoundSection =
                     (features.hasPersonalizedVolume && personalizedVol != null) ||
                             (features.hasToneVolume && toneVol != null) ||
-                            features.hasMicrophoneMode
+                            (features.hasMicrophoneMode && device.microphoneMode != null)
                 if (showSoundSection) {
                     item("sound_section") {
                         SoundCard(
@@ -404,7 +404,7 @@ fun DeviceSettingsScreen(
                 }
 
                 // ── Controls ─────────────────────────────────
-                val showControlsSection = features.hasStemConfig ||
+                val showControlsSection = (features.hasStemConfig && device.stemConfig != null) ||
                         (features.hasEndCallMuteMic && device.endCallMuteMic != null) ||
                         (features.hasPressSpeed && device.pressSpeed != null) ||
                         (features.hasPressHoldDuration && device.pressHoldDuration != null) ||
