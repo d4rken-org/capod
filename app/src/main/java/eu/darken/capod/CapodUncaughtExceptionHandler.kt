@@ -20,6 +20,7 @@ internal class CapodUncaughtExceptionHandler(
             exception = throwable,
         )
     },
+    private val cancelBeforeDelegate: (Throwable) -> Unit = {},
     private val exit: (Int) -> Unit = { exitProcess(it) },
 ) : Thread.UncaughtExceptionHandler {
 
@@ -57,6 +58,7 @@ internal class CapodUncaughtExceptionHandler(
     }
 
     private fun delegate(thread: Thread, throwable: Throwable) {
+        runCatching { cancelBeforeDelegate(throwable) }
         previousHandler?.uncaughtException(thread, throwable) ?: exit(1)
     }
 }

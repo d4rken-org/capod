@@ -16,6 +16,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSleepEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -26,7 +27,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import java.io.IOException
+import java.util.concurrent.atomic.AtomicBoolean
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Manages a single AAP L2CAP connection to a device.
@@ -39,6 +44,7 @@ internal class AapConnection(
     private val profile: AapDeviceProfile,
     private val socketFactory: L2capSocketFactory,
     timeSource: TimeSource,
+    private val connectTimeout: Duration = DEFAULT_CONNECT_TIMEOUT,
 ) {
 
     private val engine = AapSessionEngine(profile, timeSource)
@@ -68,7 +74,7 @@ internal class AapConnection(
 
         try {
             val sock = socketFactory.createSocket(device, PSM)
-            sock.connect()
+            sock.connectCancellable()
             socket = sock
             log(TAG, Logging.Priority.INFO) { "Connected to ${device.address}" }
 
@@ -212,15 +218,47 @@ internal class AapConnection(
     }
 
     private fun cleanupSocket() {
+        socket?.closeQuietly()
+        socket = null
+    }
+
+    private suspend fun BluetoothSocket.connectCancellable() {
+        val result = CompletableDeferred<Result<Unit>>()
+        val cancelled = AtomicBoolean(false)
+        val connectThread = Thread(
+            {
+                val outcome = runCatching { connect() }
+                result.complete(outcome)
+                if (cancelled.get() && outcome.isSuccess) closeQuietly()
+            },
+            "AAP-L2CAP-connect-${device.address}",
+        ).apply {
+            isDaemon = true
+            start()
+        }
+
         try {
-            socket?.close()
+            withTimeout(connectTimeout) {
+                result.await().getOrThrow()
+            }
+        } catch (e: Exception) {
+            cancelled.set(true)
+            closeQuietly()
+            connectThread.interrupt()
+            throw e
+        }
+    }
+
+    private fun BluetoothSocket.closeQuietly() {
+        try {
+            close()
         } catch (_: Exception) {
         }
-        socket = null
     }
 
     companion object {
         private const val PSM = 0x1001
+        internal val DEFAULT_CONNECT_TIMEOUT = 5.seconds
         private val TAG = logTag("AAP", "Connection")
     }
 }
