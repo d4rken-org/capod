@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MOCK_NOW
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
@@ -37,16 +38,25 @@ import eu.darken.capod.reaction.ui.popup.PopUpContent as PopUpCard
 internal const val DS = "spec:width=1080px,height=2400px,dpi=428"
 
 @Composable
-internal fun DashboardContent() = PreviewWrapper {
+internal fun DashboardContent(showAap: Boolean = false) = PreviewWrapper {
+    val devices = if (showAap) {
+        listOf(
+            MockPodDataProvider.dualPodMonitoredWithAap(),
+            MockPodDataProvider.singlePodMonitoredWithAap(),
+            MockPodDataProvider.unknownMonitored(),
+        )
+    } else {
+        listOf(
+            MockPodDataProvider.dualPodMonitoredMixed(),
+            MockPodDataProvider.singlePodMonitored(),
+            MockPodDataProvider.unknownMonitored(),
+        )
+    }
     OverviewScreen(
         state = OverviewViewModel.State(
             now = MOCK_NOW,
             permissions = emptySet(),
-            devices = listOf(
-                MockPodDataProvider.dualPodMonitoredMixed(),
-                MockPodDataProvider.singlePodMonitored(),
-                MockPodDataProvider.unknownMonitored(),
-            ),
+            devices = devices,
             isDebugMode = false,
             isBluetoothEnabled = true,
             profiles = listOf(
@@ -83,19 +93,38 @@ internal fun DeviceProfilesContent() = PreviewWrapper {
 
 @Composable
 internal fun AddProfileContent() = PreviewWrapper {
+    val pairedAirPods = BluetoothDevice2(
+        address = "AA:BB:CC:DD:EE:FF",
+        name = "AirPods Pro",
+        seenFirstAt = MOCK_NOW,
+    )
+    val bondedItems = listOf(
+        DeviceProfileCreationViewModel.BondedDeviceItem(
+            device = pairedAirPods,
+            claimedByProfile = null,
+        ),
+        DeviceProfileCreationViewModel.BondedDeviceItem(
+            device = BluetoothDevice2(
+                address = "11:22:33:44:55:66",
+                name = "Living Room TV",
+                seenFirstAt = MOCK_NOW,
+            ),
+            claimedByProfile = null,
+        ),
+    )
     DeviceProfileCreationScreen(
         state = DeviceProfileCreationViewModel.State(
             isEditMode = false,
-            name = "",
+            name = "My AirPods Pro",
             nameError = null,
-            selectedModel = null,
+            selectedModel = PodModel.AIRPODS_PRO2,
             availableModels = PodModel.entries.filter { it != PodModel.UNKNOWN },
             identityKey = null,
             encryptionKey = null,
-            selectedDevice = null,
-            bondedDeviceItems = emptyList(),
+            selectedDevice = pairedAirPods,
+            bondedDeviceItems = bondedItems,
             minimumSignalQuality = 0.15f,
-            canSave = false,
+            canSave = true,
         ),
         onBack = {},
         onSave = {},
@@ -212,7 +241,7 @@ private fun PreviewDashboardLight() = DashboardContent()
 
 @Preview(name = "2 - Dashboard Dark", locale = "en", device = DS, uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
 @Composable
-private fun PreviewDashboardDark() = DashboardContent()
+private fun PreviewDashboardDark() = DashboardContent(showAap = true)
 
 @Preview(name = "3 - Case Pop-up", device = DS, showSystemUi = true)
 @Composable

@@ -76,7 +76,7 @@ class AapAutoConnect @Inject constructor(
 
         log(TAG) { "AAP connecting to $address (${profile.label})" }
         try {
-            aapManager.connect(address, bonded.internal, profile.model)
+            aapManager.connect(address, bonded.internal!!, profile.model)
             log(TAG) { "AAP connected to $address" }
         } catch (e: Exception) {
             log(TAG, WARN) { "AAP initial connect failed for $address: ${e.message}" }
@@ -99,7 +99,7 @@ class AapAutoConnect @Inject constructor(
 
                 try {
                     log(TAG) { "AAP initial retry ${attempt + 1} for $address after ${delayMs}ms" }
-                    aapManager.connect(address, bonded.internal, profile.model)
+                    aapManager.connect(address, bonded.internal!!, profile.model)
                     log(TAG) { "AAP connected to $address on retry ${attempt + 1}" }
                     break
                 } catch (retryException: Exception) {
@@ -159,7 +159,7 @@ class AapAutoConnect @Inject constructor(
 
                     try {
                         log(TAG) { "AAP reconnect attempt ${attempt + 1} for $address in ${delayMs}ms" }
-                        aapManager.connect(address, bonded.internal, profile.model)
+                        aapManager.connect(address, bonded.internal!!, profile.model)
                         log(TAG) { "AAP reconnected to $address" }
                         break
                     } catch (e: Exception) {
@@ -211,7 +211,7 @@ class AapAutoConnect @Inject constructor(
                     val bonded = bluetoothManager.bondedDevices().first()
                         .firstOrNull { it.address == address }
                     if (bonded != null) {
-                        aapManager.connect(address, bonded.internal, detectedModel)
+                        aapManager.connect(address, bonded.internal!!, detectedModel)
                         log(TAG) { "AAP reconnected $address with corrected model $detectedModel" }
                     }
                 } catch (e: Exception) {

@@ -255,6 +255,8 @@ class BluetoothManager2 @Inject constructor(
                 }
                 .map { device ->
                     BluetoothDevice2(
+                        address = device.address,
+                        name = device.name,
                         internal = device,
                         seenFirstAt = seenDevicesLock.withLock {
                             seenDevicesCache[device.address] ?: run {
@@ -304,6 +306,8 @@ class BluetoothManager2 @Inject constructor(
         val wrappedDevices = rawDevices.map { device ->
 
             BluetoothDevice2(
+                address = device.address,
+                name = device.name,
                 internal = device,
                 seenFirstAt = seenDevicesLock.withLock {
                     seenDevicesCache[device.address] ?: run {
@@ -408,9 +412,10 @@ class BluetoothManager2 @Inject constructor(
     @android.annotation.SuppressLint("MissingPermission")
     fun setDeviceAlias(device: BluetoothDevice2, alias: String): Boolean {
         return try {
+            val target = device.internal ?: return false
             val method = BluetoothDevice::class.java.getDeclaredMethod("setAlias", String::class.java)
                 .apply { isAccessible = true }
-            val result = method.invoke(device.internal, alias) as? Boolean ?: false
+            val result = method.invoke(target, alias) as? Boolean ?: false
             log(TAG) { "setDeviceAlias(${device.address}, $alias) -> $result" }
             result
         } catch (e: Exception) {
@@ -424,11 +429,12 @@ class BluetoothManager2 @Inject constructor(
         try {
             log(TAG) { "Nudging Android connection to $device" }
 
+            val target = device.internal ?: return@map false
             val connectMethod = BluetoothHeadset::class.java.getDeclaredMethod(
                 "connect", BluetoothDevice::class.java
             ).apply { isAccessible = true }
 
-            val accepted = connectMethod.invoke(bluetoothProfile.proxy, device.internal) as? Boolean ?: false
+            val accepted = connectMethod.invoke(bluetoothProfile.proxy, target) as? Boolean ?: false
             log(TAG) { "Nudged connection to $device — accepted=$accepted" }
             accepted
         } catch (e: Exception) {
