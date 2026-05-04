@@ -58,13 +58,21 @@ object AncWidgetRenderStateMapper {
                 primaryText = context.getString(R.string.anc_widget_no_anc_support_label),
             )
 
-            !device.isAapConnected -> AncWidgetRenderState.Message(
-                theme = theme,
-                resolvedBgColor = bgColor,
-                resolvedTextColor = textColor,
-                resolvedIconColor = iconColor,
-                primaryText = context.getString(R.string.anc_widget_aap_not_connected_label),
-            )
+            !device.isAapConnected -> {
+                val secondaryRes = if (device.ble != null) {
+                    R.string.anc_widget_aap_not_connected_nearby_description
+                } else {
+                    R.string.anc_widget_aap_not_connected_not_nearby_description
+                }
+                AncWidgetRenderState.Message(
+                    theme = theme,
+                    resolvedBgColor = bgColor,
+                    resolvedTextColor = textColor,
+                    resolvedIconColor = iconColor,
+                    primaryText = profileLabel ?: device.getLabel(context),
+                    secondaryText = context.getString(secondaryRes),
+                )
+            }
 
             !device.isAapReady -> AncWidgetRenderState.Message(
                 theme = theme,
