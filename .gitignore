@@ -17,6 +17,16 @@
 .kotlin
 # Screenshot test reference images (ephemeral, regenerated on demand)
 app/src/screenshotTest*/reference/
+# Play Store phone screenshots: commit only the 6 smoke locales (mirrors permission-pilot).
+# Full localization is uploaded by occasional manual regen + screenshots_only;
+# Play Store retains previously-uploaded screenshots for locales not pushed.
+fastlane/metadata/android/*/images/phoneScreenshots/*.png
+!fastlane/metadata/android/en-US/images/phoneScreenshots/*.png
+!fastlane/metadata/android/de-DE/images/phoneScreenshots/*.png
+!fastlane/metadata/android/ja-JP/images/phoneScreenshots/*.png
+!fastlane/metadata/android/ar/images/phoneScreenshots/*.png
+!fastlane/metadata/android/zh-CN/images/phoneScreenshots/*.png
+!fastlane/metadata/android/pt-BR/images/phoneScreenshots/*.png
 .codex
 protocol-research/
 _site/
