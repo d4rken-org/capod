@@ -180,18 +180,21 @@ object MockPodDataProvider {
 
     fun dualPodMonitoredMixed(): PodDevice = PodDevice(
         profileId = "preview-dual-mixed",
+        label = "My AirPods Pro",
         ble = airPodsProMixed(),
         aap = null,
     )
 
     fun dualPodMonitoredWithKeys(): PodDevice = PodDevice(
         profileId = "preview-dual-keys",
+        label = "My AirPods Pro",
         ble = airPodsProWithKeys(),
         aap = null,
     )
 
     fun dualPodMonitoredWithAap(): PodDevice = PodDevice(
         profileId = "preview-dual-aap",
+        label = "My AirPods Pro",
         ble = airPodsProWithKeys(),
         aap = AapPodState(
             connectionState = AapPodState.ConnectionState.READY,
@@ -227,12 +230,14 @@ object MockPodDataProvider {
 
     fun singlePodMonitored(): PodDevice = PodDevice(
         profileId = "preview-single",
+        label = "AirPods Max",
         ble = airPodsMax(),
         aap = null,
     )
 
     fun singlePodMonitoredWithAap(): PodDevice = PodDevice(
         profileId = "preview-single-aap",
+        label = "AirPods Max",
         ble = airPodsMaxCharging(),
         aap = AapPodState(
             connectionState = AapPodState.ConnectionState.READY,

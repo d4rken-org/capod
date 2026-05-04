@@ -12,7 +12,7 @@ fun DashboardLight() = DashboardContent()
 @PreviewTest
 @PlayStoreLocalesDark
 @Composable
-fun DashboardDark() = DashboardContent()
+fun DashboardDark() = DashboardContent(showAap = true)
 
 @PreviewTest
 @PlayStoreLocales

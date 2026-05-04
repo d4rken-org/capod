@@ -130,6 +130,7 @@ android {
         //noinspection WrongGradleMethod
         tasks.withType<Test> {
             useJUnitPlatform()
+            maxHeapSize = "4g"
         }
     }
 }
