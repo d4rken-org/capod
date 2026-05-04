@@ -24,6 +24,7 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.common.flow.SingleEventFlow
 import eu.darken.capod.common.navigation.LocalNavigationController
 import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.navigation.NavigationController
@@ -49,6 +50,11 @@ class MainActivity : Activity2() {
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var popUpWindow: PopUpWindow
     @Inject lateinit var upgradeRepo: UpgradeRepo
+
+    // Buffers warm-start intents (onNewIntent) so they are consumed from inside the Compose tree,
+    // after navCtrl.setup(backStack) has run. Calling navCtrl directly from onNewIntent races with
+    // the asynchronous Compose lambda and crashes if the back stack is not yet registered.
+    private val warmIntents = SingleEventFlow<Intent>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,7 +86,11 @@ class MainActivity : Activity2() {
             navCtrl.setup(backStack)
 
             LaunchedEffect(Unit) {
+                // Cold-start intent (the activity's launching intent).
                 consumeUpgradeExtra(intent)
+                // Warm-start intents delivered via onNewIntent. Consuming them here (instead of
+                // directly from onNewIntent) guarantees navCtrl.setup() has run.
+                warmIntents.collect { newIntent -> consumeUpgradeExtra(newIntent) }
             }
 
             CapodTheme(state = themeState) {
@@ -132,7 +142,9 @@ class MainActivity : Activity2() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        consumeUpgradeExtra(intent)
+        setIntent(intent)
+        // Defer to the Compose-side collector — navCtrl may not yet be set up here.
+        warmIntents.tryEmit(intent)
     }
 
     private fun consumeUpgradeExtra(intent: Intent?) {
