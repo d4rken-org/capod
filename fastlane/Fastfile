@@ -62,6 +62,20 @@ platform :android do
     )
   end
 
+  lane :screenshots_only do
+    sh "bash ./remove_unsupported_languages.sh"
+    supply(
+        track: 'production',
+        package_name: 'eu.darken.capod',
+        skip_upload_apk: 'true',
+        skip_upload_aab: 'true',
+        skip_upload_metadata: 'true',
+        skip_upload_changelogs: 'true',
+        skip_upload_images: 'true',
+        skip_upload_screenshots: 'false',
+    )
+  end
+
   after_all do |lane|
     # This block is called, only if the executed lane was successful
 
