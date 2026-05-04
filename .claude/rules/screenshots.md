@@ -25,15 +25,22 @@ ScreenshotContent.kt (mock data + composables)
 | `fastlane/generate_screenshots.sh` | Batched generation; locale list (`ALL_LOCALES`) and `BATCH_SIZE` are defined inside the script |
 | `fastlane/copy_screenshots.sh` | Copies rendered PNGs into fastlane structure |
 
+## Commit policy
+
+Only the 6 smoke locales (en-US, de-DE, ja-JP, ar, zh-CN, pt-BR) have `phoneScreenshots/*.png` checked into the repo. Non-smoke locales are excluded by `.gitignore`. This mirrors permission-pilot and keeps repo size small (~7 MB vs ~67 MB for the full 68 locales).
+
+Play Store's `supply` only uploads what's present in `fastlane/metadata/android/<locale>/images/phoneScreenshots/`. For locales not in the upload, Play Store retains whatever was last pushed. So full localization on Play Store is maintained by an **occasional manual** full regen + `:screenshots_only` upload — not by every PR.
+
 ## Commands
 
 ```bash
-# Full run — iterates over ALL_LOCALES in batches of BATCH_SIZE.
-# The script prints "Locales: N | Batch size: B | Batches: ceil(N/B)" at startup.
-./fastlane/generate_screenshots.sh
-
-# Smoke test — 6 locales (en, de, ja, ar, zh-CN, pt-BR), single batch
+# Default — smoke set (6 locales × 7 screens, ~42 PNGs, single batch).
+# Use this for local iteration and PRs that touch screenshot content.
 ./fastlane/generate_screenshots.sh --smoke
+
+# Full run — all 68 locales. Use only when intending to upload to Play Store
+# (the non-smoke output is .gitignored and should not be committed).
+./fastlane/generate_screenshots.sh
 
 # Copy into fastlane directories (run after generate)
 ./fastlane/copy_screenshots.sh
@@ -48,22 +55,35 @@ ScreenshotContent.kt (mock data + composables)
 2. Add a `@PreviewTest` function in `PlayStoreScreenshots.kt` that calls it
 3. Add the function name → filename mapping in `copy_screenshots.sh` `SCREEN_MAP`
 4. Update the expected count in `generate_screenshots.sh` (composables per locale)
-5. Run the full pipeline: `generate_screenshots.sh` then `copy_screenshots.sh`
+5. Run the smoke pipeline: `generate_screenshots.sh --smoke` then `copy_screenshots.sh --clean`
 
 ## Removing or Renaming a Screenshot
 
 1. Remove the `@PreviewTest` entry and its `SCREEN_MAP` mapping
-2. Run `generate_screenshots.sh`
-3. Run `copy_screenshots.sh --clean` — **`--clean` is required** here; without it, old files (e.g. a renamed `8_reaction_settings.png`) stay in `fastlane/metadata/android/*/images/phoneScreenshots/` and get uploaded to Play Store
+2. Run `generate_screenshots.sh --smoke`
+3. Run `copy_screenshots.sh --clean` — **`--clean` is required** here; without it, old files (e.g. a renamed `8_reaction_settings.png`) stay in `fastlane/metadata/android/<smoke locale>/images/phoneScreenshots/` and get uploaded to Play Store
 
 ## After UI Changes
 
-When modifying a screen that appears in screenshots (check `ScreenshotContent.kt`), regenerate:
+When modifying a screen that appears in screenshots (check `ScreenshotContent.kt`), regenerate the smoke set:
 
 ```bash
-./fastlane/generate_screenshots.sh
+./fastlane/generate_screenshots.sh --smoke
 ./fastlane/copy_screenshots.sh --clean
 ```
+
+## Refreshing all locales on Play Store
+
+Periodic, manual operation — not per-PR:
+
+```bash
+./fastlane/generate_screenshots.sh           # full, ~30 min, 477 PNGs
+./fastlane/copy_screenshots.sh --clean
+bundle exec fastlane screenshots_only        # uploads all 68 locales to Play Store
+git checkout -- fastlane/metadata/android/   # discard non-smoke changes (gitignored anyway)
+```
+
+The `.gitignore` rule keeps non-smoke output unstaged automatically, so only the smoke locales' refreshed PNGs would show up as modifications and can be committed.
 
 ## Technical Notes
 
