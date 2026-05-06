@@ -21,17 +21,18 @@ import kotlin.math.roundToInt
 
 const val BATTERY_UNKNOWN = -1f
 
-fun Float?.toBatteryFloat(): Float = this ?: BATTERY_UNKNOWN
+fun isKnownBattery(percent: Float): Boolean = percent.isFinite() && percent >= 0f
 
-fun Float.toBatteryOrNull(): Float? = takeIf { it >= 0f }
+fun batteryProgress(percent: Float): Float =
+    if (isKnownBattery(percent)) percent.coerceIn(0f, 1f) else 0f
 
-fun formatBatteryPercent(context: Context, percent: Float?): String =
-    percent?.let { "${(it * 100).roundToInt()}%" }
-        ?: context.getString(R.string.general_value_not_available_label)
+fun formatBatteryPercent(context: Context, percent: Float): String =
+    if (isKnownBattery(percent)) "${(percent * 100).roundToInt()}%"
+    else context.getString(R.string.general_value_not_available_label)
 
 @DrawableRes
-fun getBatteryDrawable(percent: Float?): Int = when {
-    percent == null -> R.drawable.ic_baseline_battery_unknown_24
+fun getBatteryDrawable(percent: Float): Int = when {
+    !isKnownBattery(percent) -> R.drawable.ic_baseline_battery_unknown_24
     percent > 0.95f -> R.drawable.ic_baseline_battery_full_24
     percent > 0.80f -> R.drawable.ic_baseline_battery_6_bar_24
     percent > 0.65f -> R.drawable.ic_baseline_battery_5_bar_24
@@ -42,8 +43,8 @@ fun getBatteryDrawable(percent: Float?): Int = when {
     else -> R.drawable.ic_baseline_battery_0_bar_24
 }
 
-fun getBatteryIcon(percent: Float?): ImageVector = when {
-    percent == null -> Icons.AutoMirrored.TwoTone.BatteryUnknown
+fun getBatteryIcon(percent: Float): ImageVector = when {
+    !isKnownBattery(percent) -> Icons.AutoMirrored.TwoTone.BatteryUnknown
     percent > 0.95f -> Icons.TwoTone.BatteryFull
     percent > 0.80f -> Icons.TwoTone.Battery6Bar
     percent > 0.65f -> Icons.TwoTone.Battery5Bar

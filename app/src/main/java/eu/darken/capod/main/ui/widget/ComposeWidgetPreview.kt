@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.sp
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
-import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
+import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 import kotlin.math.roundToInt
 
 @Composable
@@ -160,7 +160,7 @@ private fun SinglePodPreview(
                         colorFilter = iconTint,
                     )
                     Text(
-                        text = formatPercent(state.percent.toBatteryOrNull()),
+                        text = formatPercent(state.percent),
                         fontSize = 12.sp,
                         color = textColor,
                         modifier = Modifier.padding(horizontal = 8.dp),
@@ -311,7 +311,7 @@ private fun PodItemRow(
             colorFilter = iconTint,
         )
         Text(
-            text = formatPercent(percent.toBatteryOrNull()),
+            text = formatPercent(percent),
             fontSize = 12.sp,
             color = textColor,
             modifier = Modifier.padding(horizontal = 4.dp),
@@ -354,7 +354,7 @@ private fun TinyPodItem(
             colorFilter = iconTint,
         )
         Text(
-            text = formatPercent(percent.toBatteryOrNull()),
+            text = formatPercent(percent),
             fontSize = 12.sp,
             color = textColor,
             maxLines = 1,
@@ -382,9 +382,8 @@ private fun DeviceLabel(
     }
 }
 
-private fun formatPercent(percent: Float?): String {
-    return percent?.let { "${(it * 100).roundToInt()}%" } ?: "—"
-}
+private fun formatPercent(percent: Float): String =
+    if (isKnownBattery(percent)) "${(percent * 100).roundToInt()}%" else "—"
 
 @Preview2
 @Composable

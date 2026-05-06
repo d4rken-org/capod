@@ -39,8 +39,6 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.getBatteryIcon
-import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
-import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
 
 @Composable
 fun PopUpContent(
@@ -115,7 +113,7 @@ private fun DualPodContent(device: PodDevice) {
         // Left pod
         BatteryColumn(
             iconRes = device.leftPodIcon,
-            batteryPercent = device.batteryLeft.toBatteryFloat(),
+            batteryPercent = device.batteryLeft,
             isCharging = device.isLeftPodCharging ?: false,
             modifier = Modifier.weight(1f),
         )
@@ -124,7 +122,7 @@ private fun DualPodContent(device: PodDevice) {
         if (device.hasCase) {
             BatteryColumn(
                 iconRes = device.caseIcon,
-                batteryPercent = device.batteryCase.toBatteryFloat(),
+                batteryPercent = device.batteryCase,
                 isCharging = device.isCaseCharging ?: false,
                 modifier = Modifier.weight(1f),
             )
@@ -133,7 +131,7 @@ private fun DualPodContent(device: PodDevice) {
         // Right pod
         BatteryColumn(
             iconRes = device.rightPodIcon,
-            batteryPercent = device.batteryRight.toBatteryFloat(),
+            batteryPercent = device.batteryRight,
             isCharging = device.isRightPodCharging ?: false,
             modifier = Modifier.weight(1f),
         )
@@ -144,7 +142,7 @@ private fun DualPodContent(device: PodDevice) {
 private fun SinglePodContent(device: PodDevice) {
     BatteryColumn(
         iconRes = device.iconRes,
-        batteryPercent = device.batteryHeadset.toBatteryFloat(),
+        batteryPercent = device.batteryHeadset,
         isCharging = device.isHeadsetBeingCharged ?: false,
     )
 }
@@ -157,7 +155,6 @@ private fun BatteryColumn(
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val nullablePercent = batteryPercent.toBatteryOrNull()
 
     Column(
         modifier = modifier,
@@ -184,14 +181,14 @@ private fun BatteryColumn(
                 )
             } else {
                 Icon(
-                    imageVector = getBatteryIcon(nullablePercent),
+                    imageVector = getBatteryIcon(batteryPercent),
                     contentDescription = null,
                     modifier = Modifier.size(16.dp),
                 )
             }
             Spacer(modifier = Modifier.width(2.dp))
             Text(
-                text = formatBatteryPercent(context, nullablePercent),
+                text = formatBatteryPercent(context, batteryPercent),
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,

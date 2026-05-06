@@ -27,7 +27,7 @@ import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
 import eu.darken.capod.R
 import eu.darken.capod.main.ui.MainActivity
-import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
+import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 import kotlin.math.roundToInt
 
 @Composable
@@ -122,7 +122,7 @@ private fun GlanceSinglePod(
                         colorFilter = iconTint,
                     )
                     Text(
-                        text = formatGlancePercent(state.percent.toBatteryOrNull()),
+                        text = formatGlancePercent(state.percent),
                         style = textStyle,
                         modifier = GlanceModifier.padding(horizontal = 8.dp),
                     )
@@ -270,7 +270,7 @@ private fun GlancePodItem(
             colorFilter = iconTint,
         )
         Text(
-            text = formatGlancePercent(percent.toBatteryOrNull()),
+            text = formatGlancePercent(percent),
             style = textStyle,
             modifier = GlanceModifier.padding(horizontal = 4.dp),
         )
@@ -312,7 +312,7 @@ private fun GlanceTinyPodItem(
             colorFilter = iconTint,
         )
         Text(
-            text = formatGlancePercent(percent.toBatteryOrNull()),
+            text = formatGlancePercent(percent),
             style = textStyle,
             maxLines = 1,
             modifier = GlanceModifier.padding(start = 4.dp),
@@ -341,6 +341,5 @@ private fun GlanceDeviceLabel(
 
 private fun fixedColor(argb: Int): ColorProvider = ColorProvider(Color(argb))
 
-private fun formatGlancePercent(percent: Float?): String {
-    return percent?.let { "${(it * 100).roundToInt()}%" } ?: "—"
-}
+private fun formatGlancePercent(percent: Float): String =
+    if (isKnownBattery(percent)) "${(percent * 100).roundToInt()}%" else "—"

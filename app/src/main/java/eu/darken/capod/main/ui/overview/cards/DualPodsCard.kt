@@ -67,8 +67,6 @@ import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods.LidState
 import eu.darken.capod.pods.core.apple.ble.devices.HasPodStyle
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
-import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
-import eu.darken.capod.pods.core.apple.ble.toBatteryOrNull
 import java.time.Instant
 
 @Composable
@@ -227,7 +225,7 @@ private fun ColumnScope.DualPodsCardExpanded(
             ) {
                 PodGauge(
                     iconRes = device.leftPodIcon,
-                    batteryPercent = device.batteryLeft.toBatteryFloat(),
+                    batteryPercent = device.batteryLeft,
                     chargingState = device.leftPodChargingState
                         ?: device.isLeftPodCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null },
                     isInEar = device.isLeftInEar ?: false,
@@ -239,7 +237,7 @@ private fun ColumnScope.DualPodsCardExpanded(
 
                 PodGauge(
                     iconRes = device.rightPodIcon,
-                    batteryPercent = device.batteryRight.toBatteryFloat(),
+                    batteryPercent = device.batteryRight,
                     chargingState = device.rightPodChargingState
                         ?: device.isRightPodCharging?.let { if (it) AapPodState.ChargingState.CHARGING else null },
                     isInEar = device.isRightInEar ?: false,
@@ -360,7 +358,7 @@ private fun PodGauge(
 
         // Battery percentage
         Text(
-            text = formatBatteryPercent(context, batteryPercent.toBatteryOrNull()),
+            text = formatBatteryPercent(context, batteryPercent),
             style = MaterialTheme.typography.titleMedium,
             color = if (batteryPercent >= 0f) {
                 MaterialTheme.colorScheme.onSurface
@@ -412,7 +410,7 @@ private fun CaseRow(
         )
 
         BatteryCapsule(
-            percent = device.batteryCase.toBatteryFloat(),
+            percent = device.batteryCase,
             modifier = Modifier
                 .weight(1f)
                 .height(8.dp),

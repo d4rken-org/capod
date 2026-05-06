@@ -33,17 +33,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.ble.batteryProgress
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 
 @Composable
 fun CompactBatterySummary(
     device: PodDevice,
     modifier: Modifier = Modifier,
 ) {
-    val hasAnyBattery = device.batteryLeft != null
-            || device.batteryRight != null
-            || device.batteryHeadset != null
-            || device.batteryCase != null
+    val hasAnyBattery = isKnownBattery(device.batteryLeft)
+            || isKnownBattery(device.batteryRight)
+            || isKnownBattery(device.batteryHeadset)
+            || isKnownBattery(device.batteryCase)
 
     Surface(
         modifier = modifier
@@ -80,7 +82,7 @@ private fun RowScope.DualPodsRow(device: PodDevice) {
         percent = device.batteryRight,
     )
 
-    if (device.hasCase && device.batteryCase != null) {
+    if (device.hasCase && isKnownBattery(device.batteryCase)) {
         Spacer(modifier = Modifier.weight(1f))
         MiniCaseCluster(device = device)
     }
@@ -93,7 +95,7 @@ private fun RowScope.SinglePodRow(device: PodDevice) {
         iconRes = null,
         percent = device.batteryHeadset,
     )
-    if (device.hasCase && device.batteryCase != null) {
+    if (device.hasCase && isKnownBattery(device.batteryCase)) {
         Spacer(modifier = Modifier.weight(1f))
         MiniCaseCluster(device = device)
     }
@@ -121,21 +123,21 @@ private fun RowScope.EmptyBatteryRow() {
 @Composable
 private fun MiniPodRing(
     iconRes: Int?,
-    percent: Float?,
+    percent: Float,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
-    val clamped = percent?.coerceIn(0f, 1f)
+    val isKnown = isKnownBattery(percent)
     val animatedProgress by animateFloatAsState(
-        targetValue = clamped ?: 0f,
+        targetValue = batteryProgress(percent),
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "miniGaugeProgress",
     )
 
     val ringColor = when {
-        clamped == null -> MaterialTheme.colorScheme.surfaceVariant
-        clamped > 0.30f -> MaterialTheme.colorScheme.primary
-        clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
+        !isKnown -> MaterialTheme.colorScheme.surfaceVariant
+        percent > 0.30f -> MaterialTheme.colorScheme.primary
+        percent >= 0.15f -> MaterialTheme.colorScheme.tertiary
         else -> MaterialTheme.colorScheme.error
     }
 
@@ -155,7 +157,7 @@ private fun MiniPodRing(
                 trackColor = MaterialTheme.colorScheme.surfaceVariant,
                 strokeCap = StrokeCap.Round,
             )
-            if (clamped != null) {
+            if (isKnown) {
                 CircularProgressIndicator(
                     progress = { animatedProgress },
                     modifier = Modifier.size(28.dp),
@@ -177,7 +179,7 @@ private fun MiniPodRing(
         Text(
             text = formatBatteryPercent(context, percent),
             style = MaterialTheme.typography.titleSmall,
-            color = if (percent != null) {
+            color = if (isKnown) {
                 MaterialTheme.colorScheme.onSurface
             } else {
                 MaterialTheme.colorScheme.onSurfaceVariant
@@ -204,7 +206,7 @@ private fun MiniCaseCluster(
         )
         Spacer(modifier = Modifier.width(6.dp))
         BatteryCapsule(
-            percent = device.batteryCase ?: -1f,
+            percent = device.batteryCase,
             modifier = Modifier
                 .width(36.dp)
                 .height(6.dp),
