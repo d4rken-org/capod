@@ -60,7 +60,9 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.batteryProgress
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
+import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 import java.time.Instant
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -192,17 +194,18 @@ private fun ColumnScope.SinglePodsCardExpanded(
 ) {
     val context = LocalContext.current
 
-    val clamped = device.batteryHeadset?.coerceIn(0f, 1f)
+    val percent = device.batteryHeadset
+    val isKnown = isKnownBattery(percent)
     val animatedProgress by animateFloatAsState(
-        targetValue = clamped ?: 0f,
+        targetValue = batteryProgress(percent),
         animationSpec = tween(600, easing = FastOutSlowInEasing),
         label = "gaugeProgress",
     )
 
     val ringColor = when {
-        clamped == null -> MaterialTheme.colorScheme.surfaceVariant
-        clamped > 0.30f -> MaterialTheme.colorScheme.primary
-        clamped >= 0.15f -> MaterialTheme.colorScheme.tertiary
+        !isKnown -> MaterialTheme.colorScheme.surfaceVariant
+        percent > 0.30f -> MaterialTheme.colorScheme.primary
+        percent >= 0.15f -> MaterialTheme.colorScheme.tertiary
         else -> MaterialTheme.colorScheme.error
     }
 
@@ -237,7 +240,7 @@ private fun ColumnScope.SinglePodsCardExpanded(
                 )
 
                 // Progress ring
-                if (clamped != null) {
+                if (isKnown) {
                     CircularProgressIndicator(
                         progress = { animatedProgress },
                         modifier = Modifier.size(88.dp),
@@ -250,9 +253,9 @@ private fun ColumnScope.SinglePodsCardExpanded(
 
                 // Battery text inside ring
                 Text(
-                    text = formatBatteryPercent(context, device.batteryHeadset),
+                    text = formatBatteryPercent(context, percent),
                     style = MaterialTheme.typography.headlineSmall,
-                    color = if (device.batteryHeadset != null) {
+                    color = if (isKnown) {
                         MaterialTheme.colorScheme.onSurface
                     } else {
                         MaterialTheme.colorScheme.onSurfaceVariant

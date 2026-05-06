@@ -3,9 +3,11 @@ package eu.darken.capod.monitor.core.cache
 import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.cache.CachedDeviceState.CachedBatterySlot
+import eu.darken.capod.pods.core.apple.ble.BATTERY_UNKNOWN
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.HasCase
+import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 import java.time.Duration
 import java.time.Instant
 
@@ -24,15 +26,17 @@ fun PodDevice.toCachedState(
     if (!isLive) return null
     val pid = profileId ?: return null
 
-    val liveLeft = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
-    val liveRight = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
-    val liveCase = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent
-    val liveHeadset = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
+    // RAW LIVE EXTRACTION — must NOT use device.batteryLeft etc. (which fall back to cache).
+    // Reading the unified getter would re-stamp stale cached readings as fresh live data.
+    val liveLeft = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent ?: BATTERY_UNKNOWN
+    val liveRight = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent ?: BATTERY_UNKNOWN
+    val liveCase = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent ?: BATTERY_UNKNOWN
+    val liveHeadset = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent ?: BATTERY_UNKNOWN
     val liveDeviceInfo = aap?.deviceInfo
 
-    if (liveLeft == null && liveRight == null && liveCase == null && liveHeadset == null && liveDeviceInfo == null) {
-        return null
-    }
+    if (!isKnownBattery(liveLeft) && !isKnownBattery(liveRight) &&
+        !isKnownBattery(liveCase) && !isKnownBattery(liveHeadset) && liveDeviceInfo == null
+    ) return null
 
     val newState = CachedDeviceState(
         profileId = pid,
@@ -61,15 +65,14 @@ fun PodDevice.toCachedState(
 }
 
 private fun mergeBatterySlot(
-    livePercent: Float?,
+    livePercent: Float,
     existing: CachedBatterySlot?,
     now: Instant,
 ): CachedBatterySlot? {
-    val live: Float = livePercent ?: return existing
-    val current: CachedBatterySlot = existing ?: return CachedBatterySlot(live, now)
-
+    if (!isKnownBattery(livePercent)) return existing
+    val current = existing ?: return CachedBatterySlot(livePercent, now)
     val isStale = Duration.between(current.updatedAt, now).abs() > Duration.ofMinutes(1)
-    return if (current.percent == live && !isStale) current else CachedBatterySlot(live, now)
+    return if (current.percent == livePercent && !isStale) current else CachedBatterySlot(livePercent, now)
 }
 
 private fun hasStateChanged(old: CachedDeviceState, new: CachedDeviceState): Boolean {

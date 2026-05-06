@@ -10,6 +10,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.pods.core.apple.ble.BATTERY_UNKNOWN
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
@@ -138,18 +139,24 @@ data class PodDevice(
         }
     }
 
-    // Battery — AAP preferred, BLE fallback, then cached
-    val batteryLeft: Float?
-        get() = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent ?: cached?.left?.percent
+    // Battery — AAP preferred, BLE fallback, then cached. Returns BATTERY_UNKNOWN (-1f)
+    // for unknown to keep the type primitive; this is the boundary that previously emitted
+    // Float? and triggered Android 10 ART JIT crashes via R8-merged unbox call sites.
+    val batteryLeft: Float
+        get() = aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
+            ?: cached?.left?.percent ?: BATTERY_UNKNOWN
 
-    val batteryRight: Float?
-        get() = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent ?: cached?.right?.percent
+    val batteryRight: Float
+        get() = aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
+            ?: cached?.right?.percent ?: BATTERY_UNKNOWN
 
-    val batteryCase: Float?
-        get() = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent ?: cached?.case?.percent
+    val batteryCase: Float
+        get() = aap?.batteryCase ?: (ble as? HasCase)?.batteryCasePercent
+            ?: cached?.case?.percent ?: BATTERY_UNKNOWN
 
-    val batteryHeadset: Float?
-        get() = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent ?: cached?.headset?.percent
+    val batteryHeadset: Float
+        get() = aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
+            ?: cached?.headset?.percent ?: BATTERY_UNKNOWN
 
     /** True when at least one displayed battery value was filled from cache (not live). */
     val isBatteryCached: Boolean

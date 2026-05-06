@@ -3,6 +3,7 @@ package eu.darken.capod.monitor.core
 import eu.darken.capod.monitor.core.cache.CachedDeviceState
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.ble.BATTERY_UNKNOWN
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -57,7 +58,7 @@ class PodDeviceCacheTest : BaseTest() {
             device.batteryLeft shouldBe 0.8f
             device.batteryRight shouldBe 0.7f
             device.batteryCase shouldBe 0.5f
-            device.batteryHeadset.shouldBeNull()
+            device.batteryHeadset shouldBe BATTERY_UNKNOWN
         }
 
         @Test

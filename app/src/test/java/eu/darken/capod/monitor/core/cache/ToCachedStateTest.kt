@@ -252,6 +252,37 @@ class ToCachedStateTest : BaseTest() {
             result.rightEarbudSerial shouldBe "R-1"
             result.marketingVersion shouldBe "9999"
         }
+
+        @Test
+        fun `DeviceInfo-only update preserves existing slot timestamps (no live refresh)`() {
+            // Regression: if toCachedState consults the unified PodDevice.batteryX getter (which
+            // falls back to cache), an AAP-only DeviceInfo update would re-stamp every slot with
+            // `now`, refreshing stale cached readings indefinitely. Raw live extraction prevents
+            // that.
+            val oldStamp = now.minusSeconds(3600)
+            val existing = CachedDeviceState(
+                profileId = "test-profile",
+                model = PodModel.AIRPODS_PRO3,
+                left = CachedDeviceState.CachedBatterySlot(0.8f, oldStamp),
+                right = CachedDeviceState.CachedBatterySlot(0.7f, oldStamp),
+                case = CachedDeviceState.CachedBatterySlot(0.5f, oldStamp),
+                marketingVersion = "OLD",
+                lastSeenAt = oldStamp,
+            )
+            val device = PodDevice(
+                profileId = "test-profile",
+                ble = null,
+                aap = AapPodState(deviceInfo = deviceInfo(marketingVersion = "NEW")),
+                profileModel = PodModel.AIRPODS_PRO3,
+            )
+
+            val result = device.toCachedState(existing, now).shouldNotBeNull()
+            result.marketingVersion shouldBe "NEW"
+            result.left?.updatedAt shouldBe oldStamp
+            result.right?.updatedAt shouldBe oldStamp
+            result.case?.updatedAt shouldBe oldStamp
+            result.left?.percent shouldBe 0.8f
+        }
     }
 
     private fun deviceInfo(

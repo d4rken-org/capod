@@ -7,7 +7,6 @@ import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
-import eu.darken.capod.pods.core.apple.ble.toBatteryFloat
 
 object WidgetRenderStateMapper {
 
@@ -43,15 +42,15 @@ object WidgetRenderStateMapper {
                 layout = layout,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 leftIcon = device.leftPodIcon,
-                leftPercent = device.batteryLeft.toBatteryFloat(),
+                leftPercent = device.batteryLeft,
                 leftCharging = device.isLeftPodCharging == true,
                 leftInEar = device.isLeftInEar == true,
                 rightIcon = device.rightPodIcon,
-                rightPercent = device.batteryRight.toBatteryFloat(),
+                rightPercent = device.batteryRight,
                 rightCharging = device.isRightPodCharging == true,
                 rightInEar = device.isRightInEar == true,
                 caseIcon = device.caseIcon,
-                casePercent = device.batteryCase.toBatteryFloat(),
+                casePercent = device.batteryCase,
                 caseCharging = device.isCaseCharging == true,
             )
 
@@ -63,7 +62,7 @@ object WidgetRenderStateMapper {
                 layout = layout,
                 deviceLabel = profileLabel ?: device.getLabel(context),
                 headsetIcon = device.iconRes,
-                percent = device.batteryHeadset.toBatteryFloat(),
+                percent = device.batteryHeadset,
                 batteryIcon = getBatteryDrawable(device.batteryHeadset),
                 charging = device.isHeadsetBeingCharged == true,
                 worn = device.isBeingWorn == true,

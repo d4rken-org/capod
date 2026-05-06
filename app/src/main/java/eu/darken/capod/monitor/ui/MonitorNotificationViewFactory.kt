@@ -9,6 +9,7 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
+import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 import javax.inject.Inject
 import kotlin.math.roundToInt
 
@@ -150,9 +151,7 @@ class MonitorNotificationViewFactory @Inject constructor(
         setTextViewText(R.id.device, device.getLabel(context))
     }
 
-    private fun percentToInt(percent: Float?): Int {
-        if (percent == null) return 0
-        return (percent * 100).roundToInt().coerceIn(0, 100)
-    }
+    private fun percentToInt(percent: Float): Int =
+        if (isKnownBattery(percent)) (percent * 100).roundToInt().coerceIn(0, 100) else 0
 
 }
