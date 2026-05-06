@@ -169,6 +169,7 @@ class PlayPause @Inject constructor(
 
                 val isCurrentlyPlaying = mediaControl.isPlaying
                 val wasRecentlyPausedByUs = mediaControl.wasRecentlyPausedByCap
+                val wasMusicExternallyStoppedRecently = mediaControl.wasMusicExternallyStoppedRecently
 
                 val source = current.earDetectionSource()
 
@@ -179,6 +180,7 @@ class PlayPause @Inject constructor(
                     onePodMode = reactions.onePodMode,
                     isCurrentlyPlaying = isCurrentlyPlaying,
                     wasRecentlyPausedByUs = wasRecentlyPausedByUs,
+                    wasMusicExternallyStoppedRecently = wasMusicExternallyStoppedRecently,
                 )
 
                 // BLE-only autoplay confirmation only applies to UNAUTHENTICATED sources.
@@ -204,6 +206,7 @@ class PlayPause @Inject constructor(
                     shouldStageBleOnlyPlay = shouldStageBleOnlyPlay,
                     isCurrentlyPlaying = isCurrentlyPlaying,
                     wasRecentlyPausedByUs = wasRecentlyPausedByUs,
+                    wasMusicExternallyStoppedRecently = wasMusicExternallyStoppedRecently,
                 )
                 pendingPlayConfirmation = confirmation.pending
 
@@ -288,10 +291,11 @@ class PlayPause @Inject constructor(
         onePodMode: Boolean,
         isCurrentlyPlaying: Boolean,
         wasRecentlyPausedByUs: Boolean = false,
+        wasMusicExternallyStoppedRecently: Boolean = false,
     ): PlayPauseDecision = if (onePodMode) {
-        evaluateOnePodMode(previous, current, isCurrentlyPlaying, wasRecentlyPausedByUs)
+        evaluateOnePodMode(previous, current, isCurrentlyPlaying, wasRecentlyPausedByUs, wasMusicExternallyStoppedRecently)
     } else {
-        evaluateNormalMode(previous, current, isCurrentlyPlaying, wasRecentlyPausedByUs)
+        evaluateNormalMode(previous, current, isCurrentlyPlaying, wasRecentlyPausedByUs, wasMusicExternallyStoppedRecently)
     }
 
     private fun evaluateOnePodMode(
@@ -299,6 +303,7 @@ class PlayPause @Inject constructor(
         current: EarDetectionState,
         isCurrentlyPlaying: Boolean,
         wasRecentlyPausedByUs: Boolean,
+        wasMusicExternallyStoppedRecently: Boolean,
     ): PlayPauseDecision {
         val netChange = current.podCount - previous.podCount
 
@@ -310,8 +315,14 @@ class PlayPause @Inject constructor(
                 reason = "One-pod mode: pod(s) removed (net change: $netChange)"
             )
 
-            // Net increase: pod(s) inserted → play
-            netChange > 0 && (!isCurrentlyPlaying || wasRecentlyPausedByUs) -> PlayPauseDecision(
+            // Net increase: pod(s) inserted → play, but only when either we paused recently
+            // (resume our pause / handle the AudioManager.isMusicActive race) or there is no
+            // sign of a recent external stop (cold start). Suppress autoplay otherwise so
+            // CAP doesn't override a user-initiated pause.
+            netChange > 0 && (
+                wasRecentlyPausedByUs ||
+                    (!isCurrentlyPlaying && !wasMusicExternallyStoppedRecently)
+                ) -> PlayPauseDecision(
                 shouldPlay = true,
                 shouldPause = false,
                 reason = "One-pod mode: pod(s) inserted (net change: +$netChange)",
@@ -332,13 +343,20 @@ class PlayPause @Inject constructor(
         current: EarDetectionState,
         isCurrentlyPlaying: Boolean,
         wasRecentlyPausedByCap: Boolean,
+        wasMusicExternallyStoppedRecently: Boolean,
     ): PlayPauseDecision {
         val wasWorn = previous.bothInEar
         val isWorn = current.bothInEar
 
         return when {
-            // Transition: not worn → worn, and not playing → play
-            !wasWorn && isWorn && (!isCurrentlyPlaying || wasRecentlyPausedByCap) -> PlayPauseDecision(
+            // Transition: not worn → worn → play, but only when either we paused recently
+            // (resume our pause / handle the AudioManager.isMusicActive race) or there is no
+            // sign of a recent external stop (cold start). Suppress autoplay otherwise so
+            // CAP doesn't override a user-initiated pause.
+            !wasWorn && isWorn && (
+                wasRecentlyPausedByCap ||
+                    (!isCurrentlyPlaying && !wasMusicExternallyStoppedRecently)
+                ) -> PlayPauseDecision(
                 shouldPlay = true,
                 shouldPause = false,
                 reason = "Normal mode: both pods in ear",
@@ -371,6 +389,7 @@ class PlayPause @Inject constructor(
         shouldStageBleOnlyPlay: Boolean,
         isCurrentlyPlaying: Boolean,
         wasRecentlyPausedByUs: Boolean,
+        wasMusicExternallyStoppedRecently: Boolean = false,
     ): PlayConfirmationResult {
         val activePending = pending?.takeIf {
             it.profileId == profileId && it.onePodMode == onePodMode && autoPlayEnabled
@@ -378,7 +397,10 @@ class PlayPause @Inject constructor(
 
         if (activePending != null &&
             currentState == activePending.targetState &&
-            (!isCurrentlyPlaying || wasRecentlyPausedByUs)
+            (
+                wasRecentlyPausedByUs ||
+                    (!isCurrentlyPlaying && !wasMusicExternallyStoppedRecently)
+                )
         ) {
             return PlayConfirmationResult(
                 decision = PlayPauseDecision(
