@@ -223,6 +223,69 @@ class PlayPauseLogicTest : BaseTest() {
             decision.shouldPlay shouldBe false
             decision.shouldPause shouldBe false
         }
+
+        @Test
+        fun `one in to both in - user paused externally, do not auto-play`() {
+            // Bug repro: user manually paused, then took one pod out and put it back.
+            // Music isn't playing and we didn't pause it — but it was stopped recently
+            // by something external (user). Suppress autoplay.
+            val previous = EarDetectionState.fromDualPod(left = true, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+                wasMusicExternallyStoppedRecently = true,
+            )
+
+            decision.shouldPlay shouldBe false
+            decision.shouldPause shouldBe false
+        }
+
+        @Test
+        fun `one in to both in - cap-paused wins over external-stop suppression`() {
+            // Even if `wasMusicExternallyStoppedRecently` is also true (e.g. CAP attribution
+            // window expired and another non-CAP stop happened), `wasRecentlyPausedByUs`
+            // must still take precedence and resume.
+            val previous = EarDetectionState.fromDualPod(left = true, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = true,
+                wasMusicExternallyStoppedRecently = true,
+            )
+
+            decision.shouldPlay shouldBe true
+            decision.shouldPause shouldBe false
+        }
+
+        @Test
+        fun `none in to both in - cold start with no history fires play`() {
+            // No external stop recorded, music not playing, we didn't pause — pure
+            // cold start. Auto-play should still fire so the existing "put pods on
+            // to wake the media app" behavior is preserved.
+            val previous = EarDetectionState.fromDualPod(left = false, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+                wasMusicExternallyStoppedRecently = false,
+            )
+
+            decision.shouldPlay shouldBe true
+            decision.shouldPause shouldBe false
+        }
     }
 
     @Nested
@@ -496,6 +559,43 @@ class PlayPauseLogicTest : BaseTest() {
             decision2to3.shouldPlay shouldBe false
             decision2to3.shouldPause shouldBe true
         }
+
+        @Test
+        fun `one-pod mode pod insertion - external stop suppresses autoplay`() {
+            // Bug repro in one-pod mode: user manually paused, removed one pod, put it back.
+            val previous = EarDetectionState.fromDualPod(left = true, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = true,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+                wasMusicExternallyStoppedRecently = true,
+            )
+
+            decision.shouldPlay shouldBe false
+            decision.shouldPause shouldBe false
+        }
+
+        @Test
+        fun `one-pod mode pod insertion - cap-paused still resumes despite external stop flag`() {
+            val previous = EarDetectionState.fromDualPod(left = true, right = false)
+            val current = EarDetectionState.fromDualPod(left = true, right = true)
+
+            val decision = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = true,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = true,
+                wasMusicExternallyStoppedRecently = true,
+            )
+
+            decision.shouldPlay shouldBe true
+            decision.shouldPause shouldBe false
+        }
     }
 
     @Nested
@@ -627,6 +727,43 @@ class PlayPauseLogicTest : BaseTest() {
             result.decision.shouldPlay shouldBe false
             result.pending shouldBe null
             result.stagedConfirmation shouldBe false
+            result.confirmedPendingPlay shouldBe false
+        }
+
+        @Test
+        fun `ble-only confirmation suppressed when music was externally stopped recently`() {
+            // A staged BLE-only autoplay must not confirm if an external stop happened in
+            // the meantime — even if the second worn sample matches.
+            val pending = PlayPause.PendingPlayConfirmation(
+                profileId = "profile",
+                onePodMode = false,
+                targetState = EarDetectionState.fromDualPod(left = true, right = true),
+                reason = "Normal mode: both pods in ear",
+            )
+
+            val rawDecision = playPause.evaluatePlayPauseAction(
+                previous = EarDetectionState.fromDualPod(left = true, right = true),
+                current = EarDetectionState.fromDualPod(left = true, right = true),
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+                wasMusicExternallyStoppedRecently = true,
+            )
+
+            val result = playPause.applyBleOnlyPlayConfirmation(
+                pending = pending,
+                profileId = "profile",
+                onePodMode = false,
+                autoPlayEnabled = true,
+                rawDecision = rawDecision,
+                currentState = EarDetectionState.fromDualPod(left = true, right = true),
+                shouldStageBleOnlyPlay = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+                wasMusicExternallyStoppedRecently = true,
+            )
+
+            result.decision.shouldPlay shouldBe false
             result.confirmedPendingPlay shouldBe false
         }
     }
@@ -1884,6 +2021,49 @@ class PlayPauseLogicTest : BaseTest() {
             advanceUntilIdle()
 
             coVerify(exactly = 1) { mediaControl.sendPlay() }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `flow - user-paused before pod cycle does not auto-resume`() = runTest {
+            // Bug repro: while wearing pods, user manually pauses music via the phone, then
+            // takes one pod out and puts it back. Auto-play must NOT fire because the user
+            // (not CAP) is the one who stopped playback. Uses the IRK-matched source so the
+            // BLE-only autoplay confirmation step is bypassed and the decision lands on
+            // a single transition.
+            val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
+            val deviceMonitor: DeviceMonitor = mockk(relaxed = true) {
+                every { devices } returns deviceFlow
+            }
+            val bluetoothManager: BluetoothManager2 = mockk(relaxed = true) {
+                every { connectedDevices } returns flowOf(listOf(mockk(relaxed = true)))
+            }
+            val mediaControl: MediaControl = mockk(relaxed = true) {
+                every { isPlaying } returns false
+                every { wasRecentlyPausedByCap } returns false
+                every { wasMusicExternallyStoppedRecently } returns true
+            }
+            val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
+
+            val now = Instant.parse("2026-01-01T00:00:00Z")
+            val job = launch { flowPlayPause.monitor().collect {} }
+
+            // T0: worn baseline.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now, leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            // T1: one pod removed. Music is already paused, so no autoPause fires.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(1000), leftWorn = true, rightWorn = false))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPause() }
+
+            // T2: pod reinserted. Auto-play must NOT fire — the user paused, not CAP.
+            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true))
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
 
             job.cancel()
         }
