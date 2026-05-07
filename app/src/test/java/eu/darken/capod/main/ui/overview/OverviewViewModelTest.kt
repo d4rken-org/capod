@@ -21,6 +21,7 @@ import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -403,6 +404,51 @@ class OverviewViewModelTest : BaseTest() {
             vm.workerAutolaunch.first()
 
             verify(exactly = 0) { monitorControl.startMonitor(any()) }
+        }
+
+        @Test
+        fun `mode transition AUTOMATIC to ALWAYS triggers startMonitor`() = runTest(testDispatcher) {
+            // Regression guard: the old impl only re-evaluated on missingScanPermissions emissions,
+            // so toggling auto-connect (which flips effective mode AUTOMATIC -> ALWAYS) wouldn't
+            // actually start the monitor. The combine() over effectiveMode must keep it reactive.
+            effectiveModeFlow.value = MonitorMode.AUTOMATIC
+            connectedDevicesFlow.value = emptyList()
+            val vm = createViewModel()
+
+            // Subscribe so the workerAutolaunch onEach actually runs.
+            val collectJob = launch { vm.workerAutolaunch.collect {} }
+            advanceUntilIdle()
+
+            verify(exactly = 0) { monitorControl.startMonitor(any()) }
+
+            // Flip to ALWAYS — should start the monitor without any other input changing.
+            effectiveModeFlow.value = MonitorMode.ALWAYS
+            advanceUntilIdle()
+
+            verify(exactly = 1) { monitorControl.startMonitor(any()) }
+
+            collectJob.cancel()
+        }
+
+        @Test
+        fun `connected device appearing in AUTOMATIC triggers startMonitor`() = runTest(testDispatcher) {
+            // Symmetric to the mode-transition test: flipping connectedDevices from empty
+            // to non-empty under AUTOMATIC must also trigger autolaunch.
+            effectiveModeFlow.value = MonitorMode.AUTOMATIC
+            connectedDevicesFlow.value = emptyList()
+            val vm = createViewModel()
+
+            val collectJob = launch { vm.workerAutolaunch.collect {} }
+            advanceUntilIdle()
+
+            verify(exactly = 0) { monitorControl.startMonitor(any()) }
+
+            connectedDevicesFlow.value = listOf(mockk(relaxed = true))
+            advanceUntilIdle()
+
+            verify(exactly = 1) { monitorControl.startMonitor(any()) }
+
+            collectJob.cancel()
         }
     }
 
