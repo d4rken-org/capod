@@ -34,9 +34,12 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.isActive
 import java.time.Instant
 import javax.inject.Inject
@@ -79,16 +82,23 @@ class OverviewViewModel @Inject constructor(
     val workerAutolaunch = combine(
         permissionTool.missingScanPermissions,
         monitorModeResolver.effectiveMode,
-        bluetoothManager.connectedDevices,
-    ) { missing, mode, connected -> Triple(missing, mode, connected) }
-        .onEach { (missing, mode, connected) ->
+        // BluetoothManager2.connectedDevices is gated by a slow HEADSET-profile lookup. Without
+        // an onStart seed the combine wouldn't fire until that profile is bound, so ALWAYS mode
+        // would silently delay autolaunch until the first connected-device emission.
+        bluetoothManager.connectedDevices
+            .onStart { emit(emptyList()) }
+            .map { it.isNotEmpty() }
+            .distinctUntilChanged(),
+    ) { missing, mode, anyConnected -> Triple(missing, mode, anyConnected) }
+        .distinctUntilChanged()
+        .onEach { (missing, mode, anyConnected) ->
             if (missing.isNotEmpty()) {
                 log(TAG) { "Missing scan permissions: $missing" }
                 return@onEach
             }
             val shouldStart = when (mode) {
                 MonitorMode.MANUAL -> false
-                MonitorMode.AUTOMATIC -> connected.isNotEmpty()
+                MonitorMode.AUTOMATIC -> anyConnected
                 MonitorMode.ALWAYS -> true
             }
             if (shouldStart) {

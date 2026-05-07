@@ -119,6 +119,7 @@ class DeviceSettingsViewModel @Inject constructor(
             bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
             monitorModeResolver.effectiveMode,
             profilesRepo.profiles,
+            nudgeCapabilityStore.availability,
         ) { args ->
             val device = args[1] as PodDevice?
             val upgrade = args[2] as UpgradeRepo.Info
@@ -130,6 +131,7 @@ class DeviceSettingsViewModel @Inject constructor(
 
             @Suppress("UNCHECKED_CAST")
             val profiles = args[6] as List<eu.darken.capod.profiles.core.DeviceProfile>
+            val nudgeAvailability = args[7] as NudgeAvailability
             val stemActions = profiles.filterIsInstance<AppleDeviceProfile>()
                 .firstOrNull { it.id == profileId }
                 ?.stemActions
@@ -145,7 +147,7 @@ class DeviceSettingsViewModel @Inject constructor(
                 device = device,
                 now = timeSource.now(),
                 isPro = upgrade.isPro,
-                isNudgeAvailable = nudgeCapabilityStore.availability.value != NudgeAvailability.BROKEN,
+                isNudgeAvailable = nudgeAvailability != NudgeAvailability.BROKEN,
                 isForceConnecting = forcing,
                 isClassicallyConnected = device?.address?.let { it in connectedAddresses } == true,
                 monitorMode = monitorMode,

@@ -10,6 +10,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -443,7 +444,13 @@ class BluetoothManager2 @Inject constructor(
                     Bugs.report(tag = TAG, "BluetoothHeadset.connect(device) is unavailable", exception = e)
                     return@map NudgeAttemptResult.Rejected
                 }
-                if (!Permission.BLUETOOTH_CONNECT.isGranted(context)) {
+                // BLUETOOTH_CONNECT is only a runtime permission on Android 12+. On older
+                // versions a SecurityException can't be a missing-permission failure for that
+                // permission — it's hidden-API enforcement (e.g. MODIFY_PHONE_STATE) and we
+                // should persist BROKEN.
+                val missingBtConnect = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
+                    !Permission.BLUETOOTH_CONNECT.isGranted(context)
+                if (missingBtConnect) {
                     log(TAG, WARN) { "nudgeConnection failed because BLUETOOTH_CONNECT is not granted" }
                     NudgeAttemptResult.UnavailableMissingPermission
                 } else {
