@@ -2,12 +2,12 @@ package eu.darken.capod.common.bluetooth
 
 import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
-import eu.darken.capod.common.datastore.DataStoreValue
 import eu.darken.capod.common.datastore.value
 import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import eu.darken.capod.main.core.GeneralSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -19,10 +19,12 @@ import javax.inject.Singleton
 
 @Singleton
 class NudgeCapabilityStore @Inject constructor(
-    private val persistedValue: DataStoreValue<NudgeAvailability>,
+    generalSettings: GeneralSettings,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
 ) {
+
+    private val persistedValue = generalSettings.nudgeAvailability
 
     // Resolve the persisted value synchronously at construction so consumers that read
     // `availability.value` (resolver, AutoConnect precondition, UI state) never see the

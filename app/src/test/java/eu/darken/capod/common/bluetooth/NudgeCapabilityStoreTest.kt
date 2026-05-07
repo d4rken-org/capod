@@ -1,6 +1,9 @@
 package eu.darken.capod.common.bluetooth
 
+import eu.darken.capod.main.core.GeneralSettings
 import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -18,11 +21,15 @@ class NudgeCapabilityStoreTest : BaseTest() {
     private val testDispatcher = UnconfinedTestDispatcher()
 
     private lateinit var fakePersisted: FakeDataStoreValue<NudgeAvailability>
+    private lateinit var generalSettings: GeneralSettings
 
     @BeforeEach
     fun setup() {
         Dispatchers.setMain(testDispatcher)
         fakePersisted = FakeDataStoreValue(NudgeAvailability.UNKNOWN)
+        generalSettings = mockk<GeneralSettings>().also {
+            every { it.nudgeAvailability } returns fakePersisted.mock
+        }
     }
 
     @AfterEach
@@ -31,7 +38,7 @@ class NudgeCapabilityStoreTest : BaseTest() {
     }
 
     private fun createStore() = NudgeCapabilityStore(
-        persistedValue = fakePersisted.mock,
+        generalSettings = generalSettings,
         appScope = kotlinx.coroutines.CoroutineScope(testDispatcher),
         dispatcherProvider = TestDispatcherProvider(testDispatcher),
     )
