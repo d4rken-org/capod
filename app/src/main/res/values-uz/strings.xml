@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Agar yaqinda xarid qilgan bo\'lsangiz, Google Play sinxronlashishi uchun bir oz vaqt ketishi mumkin.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Xaridingiz ko\'rinmasa, bir necha daqiqadan so\'ng qayta urinib ko\'ring.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Xarid uchun ishlatiladigan Google hisobingizga kirganingizni tekshiring.</string>
-    <string name="settings_monitor_mode_label">Monitoring rejimi</string>
-    <string name="settings_monitor_mode_description">Ushbu ilova qaysi sharoitlarda Bluetooth ma\'lumotlarini kuzatadi.</string>
     <string name="settings_monitor_connected_notification_label">Qo\'shimcha bildirishnoma</string>
     <string name="settings_monitor_connected_notification_description">Qurilma ulanganda qo\'shimcha bildirishnoma ko\'rsatadi. Bu sizga \"Qurilma holati\" kanalini o\'chirib qo\'yish orqali doimiy \"Qurilmalar yo\'q\" bildirishnomasini yashirishga imkon beradi.</string>
     <string name="settings_keep_notification_after_disconnect_label">Uzilgandan keyin bildirishnomani saqlash</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Ulanishda qalqib chiquvchi oynani ko\'rsatish</string>
     <string name="settings_popup_connected_description">Qurilma birinchi marta ulanganda qalqib chiquvchi oynani ko\'rsatish.</string>
     <string name="settings_popup_info_not_in_app">Qalqib chiquvchi oynalar faqat ilovada bo\'lmaganingizda ko\'rsatiladi.</string>
-    <string name="settings_popup_warning_manual_mode">Qalqib chiquvchi oynalar monitorning ishlashini talab qiladi. Monitor rejimingiz \"Ilova ochiq bo\'lganda\" deb o\'rnatilgan, bu ilovadan chiqqaningizda monitorni to\'xtatadi.</string>
-    <string name="general_fix_it_action">Tuzatish</string>
     <string name="device_settings_experimental_title">Eksperimental xususiyat</string>
     <string name="device_settings_experimental_description">Bu xususiyat hali barcha qurilmalarda sinovdan o\'tkazilmagan. Agar nimadir to\'g\'ri ishlamayotgan bo\'lsa, iltimos debug logi bilan muammo oching.</string>
     <string name="device_settings_experimental_action">Muammo kuzatuvchisini ochish</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Quyidagi ruxsat talab qilinadi:</string>
     <string name="permission_system_alert_window_label">Tizim ogohlantirish oynasi</string>
     <string name="permission_system_alert_window_description">\"Qalqib chiquvchi oynani ko\'rsatish\" funksiyasini mumkin qilish uchun CAPod\'ga boshqa ilovalar ustida chizish ruxsatini bering.</string>
-    <string name="settings_monitor_mode_manual_label">Ilova ochiq bo\'lganda</string>
-    <string name="settings_monitor_mode_automatic_label">Qurilma ulanganda</string>
-    <string name="settings_monitor_mode_always_label">Har doim</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Ko\'rilganda</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Keys ochiq</string>
     <string name="settings_reaction_autoconnect_inear_label">Quloqda</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Sariq-to\'q</string>
     <string name="ui_theme_color_disabled_materialyou">Fon rasmi ranglarini ishlatadi</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitoring</string>
     <string name="settings_category_appearance_label">Ko\'rinish</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Saqlanmagan o\'zgarishlar</string>

@@ -5,7 +5,6 @@ import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.value
-import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -22,6 +21,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.tierRank
 import eu.darken.capod.monitor.core.worker.MonitorControl
@@ -34,12 +34,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.channelFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
-import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Instant
 import javax.inject.Inject
 
@@ -55,6 +53,7 @@ class OverviewViewModel @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
     private val aapManager: AapConnectionManager,
+    private val monitorModeResolver: MonitorModeResolver,
     private val timeSource: TimeSource,
 ) : ViewModel4(dispatcherProvider) {
 
@@ -77,29 +76,23 @@ class OverviewViewModel @Inject constructor(
     private val showUnmatchedDevices = MutableStateFlow(false)
     private val userExpansionOverrides = MutableStateFlow<Set<String>>(emptySet())
 
-    val workerAutolaunch = permissionTool.missingScanPermissions
-        .onEach { permissions ->
-            if (permissions.isNotEmpty()) {
-                log(TAG) { "Missing scan permissions: $permissions" }
+    val workerAutolaunch = combine(
+        permissionTool.missingScanPermissions,
+        monitorModeResolver.effectiveMode,
+        bluetoothManager.connectedDevices,
+    ) { missing, mode, connected -> Triple(missing, mode, connected) }
+        .onEach { (missing, mode, connected) ->
+            if (missing.isNotEmpty()) {
+                log(TAG) { "Missing scan permissions: $missing" }
                 return@onEach
             }
-
-            val shouldStart = when (generalSettings.monitorMode.valueBlocking) {
+            val shouldStart = when (mode) {
                 MonitorMode.MANUAL -> false
-                MonitorMode.AUTOMATIC -> {
-                    try {
-                        val devices = withTimeoutOrNull(5_000) { bluetoothManager.connectedDevices.first() }
-                        devices?.isNotEmpty() == true
-                    } catch (e: SecurityException) {
-                        log(TAG) { "Can't check connected devices without BLUETOOTH_CONNECT: ${e.message}" }
-                        false
-                    }
-                }
-
+                MonitorMode.AUTOMATIC -> connected.isNotEmpty()
                 MonitorMode.ALWAYS -> true
             }
             if (shouldStart) {
-                log(TAG) { "Starting monitor" }
+                log(TAG) { "Starting monitor (mode=$mode)" }
                 monitorControl.startMonitor()
             }
         }

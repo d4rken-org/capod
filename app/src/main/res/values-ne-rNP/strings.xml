@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">यदि तपाईंले भर्खरै खरिद गर्नुभएको छ भने, Google Play लाई सिङ्क गर्न केही समय लाग्न सक्छ।</string>
     <string name="upgrade_screen_restore_sync_patience_hint">तपाईंको खरिद देखिएन भने केही मिनेटमा फेरि प्रयास गर्नुहोस्।</string>
     <string name="upgrade_screen_restore_multiaccount_hint">खरिदमा प्रयोग गरिएको Google खाताबाट साइन इन गर्नुभएको छ भनी निश्चित गर्नुहोस्।</string>
-    <string name="settings_monitor_mode_label">मोनिटर मोड</string>
-    <string name="settings_monitor_mode_description">यो एपले कुन परिस्थितिमा ब्लुटुथ डाटा निगरानी गर्छ।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
     <string name="settings_monitor_connected_notification_description">उपकरण जडान हुँदा अतिरिक्त सूचना देखाउँछ। यसले तपाईंलाई \"उपकरण स्थिति\" च्यानल असक्षम गरेर स्थायी \"कुनै उपकरण छैन\" सूचना लुकाउन अनुमति दिन्छ।</string>
     <string name="settings_keep_notification_after_disconnect_label">विच्छेद पछि सूचना राख्नुहोस्</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">कनेक्सन पपअप देखाउनुहोस्</string>
     <string name="settings_popup_connected_description">उपकरण पहिलो पटक जडान हुँदा पपअप देखाउनुहोस्।</string>
     <string name="settings_popup_info_not_in_app">पप-अपहरू केवल तब देखाइन्छन् जब तपाईं एप्लिकेसनमा हुनुहुन्न।</string>
-    <string name="settings_popup_warning_manual_mode">पप-अपहरूका लागि मनिटर चलिरहेको हुनुपर्छ। तपाईंको मनिटर मोड \"एप खुला हुँदा\" मा सेट गरिएको छ, जसले एप बाहिर जाँदा मनिटर बन्द गर्छ।</string>
-    <string name="general_fix_it_action">ठीक गर्नुहोस्</string>
     <string name="device_settings_experimental_title">प्रयोगात्मक सुविधा</string>
     <string name="device_settings_experimental_description">यो सुविधा अझै सबै उपकरणहरूमा परीक्षण गरिएको छैन। यदि केही सही काम गरिरहेको छैन भने, कृपया डिबग लगसहित एउटा समस्या खोल्नुहोस्।</string>
     <string name="device_settings_experimental_action">समस्या ट्र्याकर खोल्नुहोस्</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">निम्न अनुमति आवश्यक छ:</string>
     <string name="permission_system_alert_window_label">प्रणाली अलर्ट विन्डो</string>
     <string name="permission_system_alert_window_description">\"पपअप देखाउनुहोस्\" सुविधा सम्भव बनाउन CAPod लाई अन्य एपहरूमाथि कोर्न अनुमति दिनुहोस्।</string>
-    <string name="settings_monitor_mode_manual_label">एप खुला हुँदा</string>
-    <string name="settings_monitor_mode_automatic_label">उपकरण जडान हुँदा</string>
-    <string name="settings_monitor_mode_always_label">सधैं</string>
     <string name="settings_reaction_autoconnect_whenseen_label">देखिएमा</string>
     <string name="settings_reaction_autoconnect_caseopen_label">केस खुला छ</string>
     <string name="settings_reaction_autoconnect_inear_label">कानमा</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">एम्बर</string>
     <string name="ui_theme_color_disabled_materialyou">वालपेपर रङ्गहरू प्रयोग गर्छ</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">निगरानी</string>
     <string name="settings_category_appearance_label">देखावट</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">नसुरक्षित परिवर्तनहरू</string>

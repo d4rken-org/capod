@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">በቅርቡ ካዘዙ፣ Google Play ለማመሳሰል ትንሽ ጊዜ ሊወስድ ይችላል።</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ግዢዎ ካልታየ ከጥቂት ደቂቃዎች በኋላ እንደገና ሞክር።</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ለግዢው ጥቅም ላይ ከዋለው ጋር ተመሳሳይ Google መለያ ተጠቅመህ ገብተሃል ወይም ብለህ አረጋግጥ።</string>
-    <string name="settings_monitor_mode_label">የክትትል ሁነታ</string>
-    <string name="settings_monitor_mode_description">ይህ መተግበሪያ የብሉቱዝ መረጃን የሚከታተልበት ሁኔታዎች።</string>
     <string name="settings_monitor_connected_notification_label">ተጨማሪ ማሳወቂያ</string>
     <string name="settings_monitor_connected_notification_description">አንድ መሣሪያ ሲገናኝ ተጨማሪ ማሳወቂያ ያሳያል። ይህ የ \"የመሣሪያ ሁኔታ\" ቻናልን በማሰናከል ቋሚውን \"ምንም መሣሪያዎች የሉም\" የሚለውን ማሳወቂያ እንዲደብቁ ያስችልዎታል።</string>
     <string name="settings_keep_notification_after_disconnect_label">ከተነተቀ በኋላ ማሳወቂያውን ይያዙ</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">የግንኙነት ብቅ-ባይ አሳይ</string>
     <string name="settings_popup_connected_description">መሳሪያው ለመጀመሪያ ጊዜ ሲገናኝ ብቅ-ባይ አሳይ።</string>
     <string name="settings_popup_info_not_in_app">ፖፕ-አፕ መልዕክቶች በፕሮግራሙ ውስጥ ሳታሉ ብቻ ይታያሉ።</string>
-    <string name="settings_popup_warning_manual_mode">ፖፕ-አፕ መልዕክቶች ሞኒተሩ እየሮጠ እንዲሆን ይፈልጋሉ። የሞኒተር ሁነታዎ \"ፕሮግራሙ ሲከፈት\" ተዘጋጅቷል፣ ይህም ፕሮግራሙን ሲለቁ ሞኒተሩን ያቆማል።</string>
-    <string name="general_fix_it_action">አስተካክለው</string>
     <string name="device_settings_experimental_title">ሙከራዊ ባህሪ</string>
     <string name="device_settings_experimental_description">ይህ ባህሪ በሁሉም መሳሪያዎች ላይ ገና አልተሞከረም። ሆኖም ካልሰራ፣ እባክዎ የዲበግ ምዝግብ ማስታወሻ ጨምረው ጉዳዩን ይክፈቱ።</string>
     <string name="device_settings_experimental_action">የጉዳይ መከታተያ ክፈት</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">የሚከተለው ፈቃድ ያስፈልጋል:</string>
     <string name="permission_system_alert_window_label">የስርዓት ማስጠንቀቂያ መስኮት</string>
     <string name="permission_system_alert_window_description">\"ብቅ-ባይ አሳይ\" ባህሪውን ለማስቻል CAPod በሌሎች መተግበሪያዎች ላይ እንዲሳል ፍቀድ።</string>
-    <string name="settings_monitor_mode_manual_label">መተግበሪያው ሲከፈት</string>
-    <string name="settings_monitor_mode_automatic_label">መሣሪያ ሲገናኝ</string>
-    <string name="settings_monitor_mode_always_label">ሁልጊዜ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ሲታይ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ኬዝ ክፍት ነው</string>
     <string name="settings_reaction_autoconnect_inear_label">በጆሮ ውስጥ</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">ህብረ-ቀለማዊ</string>
     <string name="ui_theme_color_disabled_materialyou">የዳሰሳ ምስል ቀለሞችን ይጠቀማል</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">ክትትል</string>
     <string name="settings_category_appearance_label">ገጽታ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ያልተቀመጡ ለውጦች</string>

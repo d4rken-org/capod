@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Եթե վերջերս գնել եք, Google Play-ի համաժամացմանը կարող է մի փոքր ժամանակ պահանջվել:</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Մի քանի րոպե հետո կրկին փորձեք, եթե ձեր գնումը չի երևում:</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Համոզվեք, որ մուտք եք գործել գնման համար օգտագործված Google հաշվով:</string>
-    <string name="settings_monitor_mode_label">Մոնիթորինգի ռեժիմ</string>
-    <string name="settings_monitor_mode_description">Ինչ պայմաններում է այս հավելվածը վերահսկում Bluetooth-ի տվյալները։</string>
     <string name="settings_monitor_connected_notification_label">Լրացուցիչ ծանուցում</string>
     <string name="settings_monitor_connected_notification_description">Ցուցադրում է լրացուցիչ ծանուցում, երբ սարքը միացված է։ Սա թույլ է տալիս թաքցնել մշտական \"Սարքեր չկան\" ծանուցումը՝ անջատելով \"Սարքի կարգավիճակը\" ալիքը։</string>
     <string name="settings_keep_notification_after_disconnect_label">Պահել ծանուցումը անջատումից հետո</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Ցուցադրել միացման բացվող պատուհանը</string>
     <string name="settings_popup_connected_description">Ցուցադրել բացվող պատուհան, երբ սարքն առաջին անգամ է միանում։</string>
     <string name="settings_popup_info_not_in_app">Ելնող պատուհանները ցուցադրվում են միայն այն ժամանակ, երբ դուք հավելվածում չեք:</string>
-    <string name="settings_popup_warning_manual_mode">Ելնող պատուհանները պահանջում են, որ մոնիտորը աշխատի: Մոնիտորի ռեժիմն սահմանված է «Հավելվածը բաց է», ինչը կանգնեցնում է մոնիտորը, երբ դուք լքում եք հավելվածը:</string>
-    <string name="general_fix_it_action">Շտկել</string>
     <string name="device_settings_experimental_title">Փորձնական հատկություն</string>
     <string name="device_settings_experimental_description">Այս հատկությունը դեռ չի փորձարկվել բոլոր սարքերում: Եթե ինչ-որ բան ճիշտ չի աշխատում, խնդրում ենք բացել հարց՝ կազմաբերման մատյանով:</string>
     <string name="device_settings_experimental_action">Բացել հարցերի հետևիչը</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Հետևյալ թույլտվությունն անհրաժեշտ է՝</string>
     <string name="permission_system_alert_window_label">Համակարգային զգուշացման պատուհան</string>
     <string name="permission_system_alert_window_description">Թույլ տվեք CAPod-ին նկարել այլ հավելվածների վերևում՝ \"Ցուցադրել բացվող պատուհան\" գործառույթը հնարավոր դարձնելու համար։</string>
-    <string name="settings_monitor_mode_manual_label">Երբ հավելվածը բաց է</string>
-    <string name="settings_monitor_mode_automatic_label">Երբ սարքը միացված է</string>
-    <string name="settings_monitor_mode_always_label">Միշտ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Երբ տեսնվում է</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Պատյանը բաց է</string>
     <string name="settings_reaction_autoconnect_inear_label">Ականջում է</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Ծիրանագույն</string>
     <string name="ui_theme_color_disabled_materialyou">Պատկերի գույները</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Մոնիտորինգ</string>
     <string name="settings_category_appearance_label">Արտաքին տեսք</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Չպահպանված փոփոխություններ</string>

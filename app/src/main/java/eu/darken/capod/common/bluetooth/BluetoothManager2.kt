@@ -23,6 +23,7 @@ import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
+import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.pods.core.apple.ble.protocol.ContinuityProtocol
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
@@ -390,9 +391,6 @@ class BluetoothManager2 @Inject constructor(
             initialValue = emptySet(),
         )
 
-    private var _isNudgeAvailable: Boolean = true
-    val isNudgeAvailable: Boolean get() = _isNudgeAvailable
-
     /**
      * Set the Android-local alias for a bonded [device]. Updates what Android's system Bluetooth
      * settings display without touching the AirPods firmware itself. Uses reflection on the hidden
@@ -425,29 +423,36 @@ class BluetoothManager2 @Inject constructor(
         }
     }
 
-    suspend fun nudgeConnection(device: BluetoothDevice2): Boolean = getBluetoothProfile().map { bluetoothProfile ->
-        try {
-            log(TAG) { "Nudging Android connection to $device" }
+    suspend fun nudgeConnection(device: BluetoothDevice2): NudgeAttemptResult =
+        getBluetoothProfile().map { bluetoothProfile ->
+            try {
+                log(TAG) { "Nudging Android connection to $device" }
 
-            val target = device.internal ?: return@map false
-            val connectMethod = BluetoothHeadset::class.java.getDeclaredMethod(
-                "connect", BluetoothDevice::class.java
-            ).apply { isAccessible = true }
+                val target = device.internal ?: return@map NudgeAttemptResult.Rejected
+                val connectMethod = BluetoothHeadset::class.java.getDeclaredMethod(
+                    "connect", BluetoothDevice::class.java
+                ).apply { isAccessible = true }
 
-            val accepted = connectMethod.invoke(bluetoothProfile.proxy, target) as? Boolean ?: false
-            log(TAG) { "Nudged connection to $device — accepted=$accepted" }
-            accepted
-        } catch (e: Exception) {
-            val isSecurityException = e is SecurityException ||
-                (e is java.lang.reflect.InvocationTargetException && e.cause is SecurityException)
-            if (isSecurityException) {
-                log(TAG, ERROR) { "nudgeConnection is permanently unavailable: missing MODIFY_PHONE_STATE permission" }
-                _isNudgeAvailable = false
+                val accepted = connectMethod.invoke(bluetoothProfile.proxy, target) as? Boolean ?: false
+                log(TAG) { "Nudged connection to $device — accepted=$accepted" }
+                if (accepted) NudgeAttemptResult.Accepted else NudgeAttemptResult.Rejected
+            } catch (e: Exception) {
+                val isSecurityException = e is SecurityException ||
+                    (e is java.lang.reflect.InvocationTargetException && e.cause is SecurityException)
+                if (!isSecurityException) {
+                    Bugs.report(tag = TAG, "BluetoothHeadset.connect(device) is unavailable", exception = e)
+                    return@map NudgeAttemptResult.Rejected
+                }
+                if (!Permission.BLUETOOTH_CONNECT.isGranted(context)) {
+                    log(TAG, WARN) { "nudgeConnection failed because BLUETOOTH_CONNECT is not granted" }
+                    NudgeAttemptResult.UnavailableMissingPermission
+                } else {
+                    log(TAG, ERROR) { "nudgeConnection is permanently unavailable on this device: $e" }
+                    Bugs.report(tag = TAG, "BluetoothHeadset.connect(device) is unavailable", exception = e)
+                    NudgeAttemptResult.UnavailableHiddenApi
+                }
             }
-            Bugs.report(tag = TAG, "BluetoothHeadset.connect(device) is unavailable", exception = e)
-            false
-        }
-    }.first()
+        }.first()
 
     companion object {
         private val TAG = logTag("Bluetooth", "Manager2")

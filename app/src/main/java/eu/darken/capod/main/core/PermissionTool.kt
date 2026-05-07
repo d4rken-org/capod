@@ -6,6 +6,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.permissions.isRequired
+import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.profiles.core.toReactionConfig
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.flow.Flow
@@ -21,7 +22,7 @@ import javax.inject.Singleton
 @Singleton
 class PermissionTool @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val generalSettings: GeneralSettings,
+    private val monitorModeResolver: MonitorModeResolver,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
     private val permissionCheckTrigger = MutableStateFlow(UUID.randomUUID())
@@ -41,7 +42,7 @@ class PermissionTool @Inject constructor(
 
     val missingPermissions: Flow<Set<Permission>> = combine(
         permissionCheckTrigger,
-        generalSettings.monitorMode.flow,
+        monitorModeResolver.effectiveMode,
         anyPopupEnabled,
     ) { _, monitorMode, showPopUp ->
         Permission.entries

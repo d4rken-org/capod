@@ -32,7 +32,6 @@ import eu.darken.capod.common.settings.SettingsBaseItem
 import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSwitchItem
-import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.ui.devicesettings.dialogs.AutoConnectConditionDialog
 import eu.darken.capod.main.ui.devicesettings.previewFullState
 import eu.darken.capod.monitor.core.PodDevice
@@ -45,7 +44,6 @@ internal fun ReactionsCard(
     device: PodDevice,
     features: PodModel.Features,
     isPro: Boolean,
-    monitorMode: MonitorMode,
     onAutoPlayChange: (Boolean) -> Unit = {},
     onAutoPauseChange: (Boolean) -> Unit = {},
     onOnePodModeChange: (Boolean) -> Unit = {},
@@ -55,7 +53,6 @@ internal fun ReactionsCard(
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
-    onFixMonitorMode: () -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
 ) {
     val reactions = device.reactions
@@ -198,17 +195,7 @@ internal fun ReactionsCard(
             requiresUpgrade = !isPro,
         )
         val anyPopupEnabled = reactions.showPopUpOnCaseOpen || reactions.showPopUpOnConnection
-        if (anyPopupEnabled && monitorMode == MonitorMode.MANUAL) {
-            SettingsInfoBox(
-                text = stringResource(R.string.settings_popup_warning_manual_mode),
-                type = InfoBoxType.WARNING,
-                action = {
-                    TextButton(onClick = onFixMonitorMode) {
-                        Text(stringResource(R.string.general_fix_it_action))
-                    }
-                },
-            )
-        } else if (anyPopupEnabled) {
+        if (anyPopupEnabled) {
             SettingsInfoBox(
                 text = stringResource(R.string.settings_popup_info_not_in_app),
             )
@@ -246,7 +233,6 @@ private fun ReactionsCardPreview() = PreviewWrapper {
         device = device,
         features = device.model.features,
         isPro = state.isPro,
-        monitorMode = state.monitorMode,
     )
 }
 
@@ -259,6 +245,5 @@ private fun ReactionsCardNonProPreview() = PreviewWrapper {
         device = device,
         features = device.model.features,
         isPro = state.isPro,
-        monitorMode = state.monitorMode,
     )
 }

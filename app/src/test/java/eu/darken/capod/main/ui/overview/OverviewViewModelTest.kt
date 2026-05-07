@@ -10,6 +10,7 @@ import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.profiles.core.DeviceProfile
@@ -51,6 +52,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
+    private lateinit var monitorModeResolver: MonitorModeResolver
     private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
@@ -60,7 +62,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
     private lateinit var hadLegacyReactionDataFlow: MutableStateFlow<Boolean>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
-    private lateinit var fakeMonitorMode: FakeDataStoreValue<MonitorMode>
+    private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
     private lateinit var fakeDebugMode: FakeDataStoreValue<Boolean>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
 
@@ -75,7 +77,7 @@ class OverviewViewModelTest : BaseTest() {
         profilesFlow = MutableStateFlow(emptyList())
         hadLegacyReactionDataFlow = MutableStateFlow(false)
         upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true))
-        fakeMonitorMode = FakeDataStoreValue(MonitorMode.AUTOMATIC)
+        effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         fakeDebugMode = FakeDataStoreValue(false)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
 
@@ -93,8 +95,11 @@ class OverviewViewModelTest : BaseTest() {
         }
 
         generalSettings = mockk<GeneralSettings>().also {
-            every { it.monitorMode } returns fakeMonitorMode.mock
             every { it.reactionsHintDismissed } returns fakeReactionsHintDismissed.mock
+        }
+
+        monitorModeResolver = mockk<MonitorModeResolver>().also {
+            every { it.effectiveMode } returns effectiveModeFlow
         }
 
         debugSettings = mockk<DebugSettings>().also {
@@ -132,6 +137,7 @@ class OverviewViewModelTest : BaseTest() {
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
         aapManager = mockk(relaxed = true),
+        monitorModeResolver = monitorModeResolver,
         timeSource = timeSource,
     )
 
@@ -347,7 +353,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `MANUAL mode - never starts monitor`() = runTest(testDispatcher) {
-            fakeMonitorMode.value = MonitorMode.MANUAL
+            effectiveModeFlow.value = MonitorMode.MANUAL
             val vm = createViewModel()
 
             // Collect workerAutolaunch to trigger the side effect
@@ -358,7 +364,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `ALWAYS mode - starts monitor when permissions OK`() = runTest(testDispatcher) {
-            fakeMonitorMode.value = MonitorMode.ALWAYS
+            effectiveModeFlow.value = MonitorMode.ALWAYS
             val vm = createViewModel()
 
             vm.workerAutolaunch.first()
@@ -368,7 +374,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `ALWAYS mode - does NOT start monitor when permissions missing`() = runTest(testDispatcher) {
-            fakeMonitorMode.value = MonitorMode.ALWAYS
+            effectiveModeFlow.value = MonitorMode.ALWAYS
             missingPermissionsFlow.value = setOf(Permission.BLUETOOTH)
             val vm = createViewModel()
 
@@ -379,7 +385,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `AUTOMATIC mode - starts monitor when connected devices exist`() = runTest(testDispatcher) {
-            fakeMonitorMode.value = MonitorMode.AUTOMATIC
+            effectiveModeFlow.value = MonitorMode.AUTOMATIC
             connectedDevicesFlow.value = listOf(mockk(relaxed = true))
             val vm = createViewModel()
 
@@ -390,7 +396,7 @@ class OverviewViewModelTest : BaseTest() {
 
         @Test
         fun `AUTOMATIC mode - does NOT start monitor when no connected devices`() = runTest(testDispatcher) {
-            fakeMonitorMode.value = MonitorMode.AUTOMATIC
+            effectiveModeFlow.value = MonitorMode.AUTOMATIC
             connectedDevicesFlow.value = emptyList()
             val vm = createViewModel()
 

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Om du nyligen gjort ett köp kan det ta en stund för Google Play att synkronisera.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Försök igen om några minuter om ditt köp inte visas.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Se till att du är inloggad med samma Google-konto som användes vid köpet.</string>
-    <string name="settings_monitor_mode_label">Övervakningsläge</string>
-    <string name="settings_monitor_mode_description">Under vilka omständigheter denna app övervakar Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Extra avisering</string>
     <string name="settings_monitor_connected_notification_description">Visar en extra avisering när en enhet är ansluten. Detta låter dig dölja den permanenta aviseringen \"Inga enheter\" genom att inaktivera kanalen \"Enhetsstatus\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Behåll avisering efter frånkoppling</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Visa anslutningspopup</string>
     <string name="settings_popup_connected_description">Visa en popup när enheten ansluter för första gången.</string>
     <string name="settings_popup_info_not_in_app">Popups visas endast när du inte är i appen.</string>
-    <string name="settings_popup_warning_manual_mode">Popups kräver att monitorn körs. Ditt monitorläge är inställt på \"När appen är öppen\", vilket stoppar monitorn när du lämnar appen.</string>
-    <string name="general_fix_it_action">Åtgärda</string>
     <string name="device_settings_experimental_title">Experimentell funktion</string>
     <string name="device_settings_experimental_description">Den här funktionen har inte testats på alla enheter än. Om något inte fungerar korrekt, vänligen öppna ett ärende med en felsökningslogg.</string>
     <string name="device_settings_experimental_action">Öppna ärendehanteraren</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Följande behörighet krävs:</string>
     <string name="permission_system_alert_window_label">Visa över andra appar</string>
     <string name="permission_system_alert_window_description">Tillåt CAPod att rita över andra appar för att möjliggöra funktionen \"Visa popup\".</string>
-    <string name="settings_monitor_mode_manual_label">När appen är öppen</string>
-    <string name="settings_monitor_mode_automatic_label">När enheten är ansluten</string>
-    <string name="settings_monitor_mode_always_label">Alltid</string>
     <string name="settings_reaction_autoconnect_whenseen_label">När den ses</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Fodralet är öppet</string>
     <string name="settings_reaction_autoconnect_inear_label">I örat</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Brons</string>
     <string name="ui_theme_color_disabled_materialyou">Använder tapetfärger</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Övervakning</string>
     <string name="settings_category_appearance_label">Utseende</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Osparade ändringar</string>

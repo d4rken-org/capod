@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">اگر اخیراً خرید کرده‌اید، ممکن است چند لحظه طول بکشد تا Google Play همگام‌سازی شود.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">اگر خرید شما نمایش داده نشد، چند دقیقه دیگر دوباره امتحان کنید.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">مطمئن شوید با همان حساب Google که برای خرید استفاده کردید وارد شده‌اید.</string>
-    <string name="settings_monitor_mode_label">حالت نظارت</string>
-    <string name="settings_monitor_mode_description">این برنامه تحت چه شرایطی داده‌های بلوتوث را نظارت می‌کند.</string>
     <string name="settings_monitor_connected_notification_label">اعلان اضافی</string>
     <string name="settings_monitor_connected_notification_description">هنگامی که یک دستگاه متصل است، یک اعلان اضافی نشان می‌دهد. این به شما امکان می‌دهد اعلان دائمی \"بدون دستگاه\" را با غیرفعال کردن کانال \"وضعیت دستگاه\" پنهان کنید.</string>
     <string name="settings_keep_notification_after_disconnect_label">حفظ اعلان پس از قطع اتصال</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">نمایش پاپ‌آپ اتصال</string>
     <string name="settings_popup_connected_description">هنگام اتصال دستگاه برای اولین بار، یک پاپ‌آپ نشان داده شود.</string>
     <string name="settings_popup_info_not_in_app">پنجره‌های بازشو فقط زمانی نشان داده می‌شوند که در برنامه نباشید.</string>
-    <string name="settings_popup_warning_manual_mode">پنجره‌های بازشو نیاز دارند که مانیتور در حال اجرا باشد. حالت مانیتور شما روی «وقتی برنامه باز است» تنظیم شده که هنگام خروج از برنامه، مانیتور را متوقف می‌کند.</string>
-    <string name="general_fix_it_action">رفع مشکل</string>
     <string name="device_settings_experimental_title">ویژگی آزمایشی</string>
     <string name="device_settings_experimental_description">این ویژگی هنوز روی همه دستگاه‌ها آزمایش نشده است. اگر چیزی درست کار نمی‌کند، لطفاً یک گزارش خطا با لاگ دیباگ باز کنید.</string>
     <string name="device_settings_experimental_action">باز کردن ردیاب مشکلات</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">مجوز زیر مورد نیاز است:</string>
     <string name="permission_system_alert_window_label">پنجره هشدار سیستم</string>
     <string name="permission_system_alert_window_description">به CAPod اجازه دهید روی سایر برنامه‌ها نمایش دهد تا ویژگی \"نمایش پاپ‌آپ\" ممکن شود.</string>
-    <string name="settings_monitor_mode_manual_label">وقتی برنامه باز است</string>
-    <string name="settings_monitor_mode_automatic_label">وقتی دستگاه متصل است</string>
-    <string name="settings_monitor_mode_always_label">همیشه</string>
     <string name="settings_reaction_autoconnect_whenseen_label">وقتی دیده شود</string>
     <string name="settings_reaction_autoconnect_caseopen_label">کیس باز است</string>
     <string name="settings_reaction_autoconnect_inear_label">در گوش</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">کهربی</string>
     <string name="ui_theme_color_disabled_materialyou">از رنگ‌های تصویر پس‌زمینه استفاده می‌کند</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">پایش</string>
     <string name="settings_category_appearance_label">ظاهر</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">تغییرات ذخیره‌نشده</string>

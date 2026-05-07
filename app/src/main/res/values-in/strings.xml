@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Jika Anda baru saja melakukan pembelian, mungkin butuh beberapa saat agar Google Play dapat menyinkronkan.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Coba lagi dalam beberapa menit jika pembelian Anda belum muncul.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Pastikan Anda masuk dengan akun Google yang sama yang digunakan untuk pembelian.</string>
-    <string name="settings_monitor_mode_label">Mode pantau</string>
-    <string name="settings_monitor_mode_description">Dalam kondisi apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notifikasi tambahan</string>
     <string name="settings_monitor_connected_notification_description">Menampilkan notifikasi tambahan ketika perangkat terhubung. Ini memungkinkan Anda menyembunyikan notifikasi permanen \"Tidak ada perangkat\" dengan menonaktifkan saluran \"Status perangkat\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Pertahankan notifikasi setelah terputus</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Tampilkan pop-up koneksi</string>
     <string name="settings_popup_connected_description">Tampilkan pop-up saat perangkat pertama kali terhubung.</string>
     <string name="settings_popup_info_not_in_app">Popup hanya ditampilkan saat Anda tidak berada di aplikasi.</string>
-    <string name="settings_popup_warning_manual_mode">Popup memerlukan monitor yang sedang berjalan. Mode monitor Anda diatur ke \"Saat aplikasi terbuka\", yang menghentikan monitor saat Anda meninggalkan aplikasi.</string>
-    <string name="general_fix_it_action">Perbaiki</string>
     <string name="device_settings_experimental_title">Fitur eksperimental</string>
     <string name="device_settings_experimental_description">Fitur ini belum diuji di semua perangkat. Jika ada yang tidak berfungsi dengan benar, silakan buka laporan masalah beserta log debug.</string>
     <string name="device_settings_experimental_action">Buka Pelacak Masalah</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">Izin berikut diperlukan:</string>
     <string name="permission_system_alert_window_label">Jendela Peringatan Sistem</string>
     <string name="permission_system_alert_window_description">Izinkan CAPod menggambar di atas aplikasi lain untuk memungkinkan fitur \"Tampilkan PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Saat aplikasi terbuka</string>
-    <string name="settings_monitor_mode_automatic_label">Saat perangkat terhubung</string>
-    <string name="settings_monitor_mode_always_label">Selalu</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Saat terlihat</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Casing terbuka</string>
     <string name="settings_reaction_autoconnect_inear_label">Di telinga</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">Kuning keemasan</string>
     <string name="ui_theme_color_disabled_materialyou">Menggunakan warna wallpaper</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Pemantauan</string>
     <string name="settings_category_appearance_label">Tampilan</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Perubahan Belum Disimpan</string>

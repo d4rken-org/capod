@@ -1,6 +1,8 @@
 package eu.darken.capod.reaction.core.autoconnect
 
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.NudgeAvailability
+import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -26,6 +28,7 @@ import javax.inject.Singleton
 class AutoConnect @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val deviceMonitor: DeviceMonitor,
+    private val nudgeCapabilityStore: NudgeCapabilityStore,
 ) {
 
     fun monitor(): Flow<Unit> = deviceMonitor.primaryDevice()
@@ -98,13 +101,14 @@ class AutoConnect @Inject constructor(
                 return@map
             }
 
-            if (!bluetoothManager.isNudgeAvailable) {
-                log(TAG, WARN) { "nudgeConnection is not available on this device, skipping" }
+            if (nudgeCapabilityStore.availability.value == NudgeAvailability.BROKEN) {
+                log(TAG, WARN) { "nudgeConnection is known broken on this device, skipping" }
                 return@map
             }
 
             val result = bluetoothManager.nudgeConnection(bondedDevice)
             log(TAG) { "nudgeConnection($bondedDevice) returned $result" }
+            nudgeCapabilityStore.record(result)
         }
         .setupCommonEventHandlers(TAG) { "monitor" }
 

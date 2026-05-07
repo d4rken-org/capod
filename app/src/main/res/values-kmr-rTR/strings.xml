@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Heke hûn vê dawiyê kirînek kirin, dibe ku hinek dem bigire ku Google Play hevdem bibe.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Heke kirîna we xuya nebe, çend xulekan şûnda dîsa biceribîne.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Pê ewle be ku hûn bi heman hesabê Google yê ku ji bo kirînê hatiye bikaranîn ketine hundur.</string>
-    <string name="settings_monitor_mode_label">Moda çavdêriyê</string>
-    <string name="settings_monitor_mode_description">Di kîjan şert û mercan de ev sepan daneyên Bluetooth dişopîne.</string>
     <string name="settings_monitor_connected_notification_label">Agahdariya zêde</string>
     <string name="settings_monitor_connected_notification_description">Dema ku amûrek girêdayî ye agahdariyek zêde nîşan dide. Ev dihêle hûn agahdariya daîmî ya \"Amûr tune\" bi neçalakkirina kanala \"Rewşa amûrê\" veşêrin.</string>
     <string name="settings_keep_notification_after_disconnect_label">Piştî qutbûnê agahdariyê biparêze</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Pop-upa girêdanê nîşan bide</string>
     <string name="settings_popup_connected_description">Dema ku amûr cara yekem girêdide pop-upek nîşan bide.</string>
     <string name="settings_popup_info_not_in_app">Pencereyên daqurtandinê tenê dema tu di serîlêdanê de nî nîn in tên nîşandan.</string>
-    <string name="settings_popup_warning_manual_mode">Pencereyên daqurtandinê hewce ne ku çavdêr bixebite. Moda çavdêriya te li ser \"Dema serîlêdan vekirî ye\" hatiye danîn, ku çavdêr dema tu serîlêdanê dihêlî radiweste.</string>
-    <string name="general_fix_it_action">Rast bike</string>
     <string name="device_settings_experimental_title">Taybetmendiya ezmûnî</string>
     <string name="device_settings_experimental_description">Ev taybetmendî hê li ser hemî amûran nehatiye ceribandin. Eger tiştek rast nexebite, ji kerema xwe pirsgirêkek bi têkelbûnek debug vekin.</string>
     <string name="device_settings_experimental_action">Şopînerê Pirsgirêkê Veke</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Destûra jêrîn hewce ye:</string>
     <string name="permission_system_alert_window_label">Pencereya Hişyariya Pergalê</string>
     <string name="permission_system_alert_window_description">Destûrê bidin CAPod ku li ser sepanên din xêz bike da ku taybetmendiya \"Pop-Up Nîşan Bide\" gengaz bike.</string>
-    <string name="settings_monitor_mode_manual_label">Dema sepan vekirî ye</string>
-    <string name="settings_monitor_mode_automatic_label">Dema amûr girêdayî ye</string>
-    <string name="settings_monitor_mode_always_label">Herdem</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Dema tê dîtin</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Qapax vekirî ye</string>
     <string name="settings_reaction_autoconnect_inear_label">Di guhê de</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Rengên dîwarê bikartîne</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Çavdêrî</string>
     <string name="settings_category_appearance_label">Xuyang</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Guhertinên netomarkirî</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Jika anda baru membeli, Google Play mungkin mengambil sedikit masa untuk menyegerakkan.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Cuba semula dalam beberapa minit jika pembelian anda tidak muncul.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Pastikan anda log masuk dengan akaun Google yang sama yang digunakan untuk pembelian.</string>
-    <string name="settings_monitor_mode_label">Mod monitor</string>
-    <string name="settings_monitor_mode_description">Dalam keadaan apa aplikasi ini memantau data Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Pemberitahuan tambahan</string>
     <string name="settings_monitor_connected_notification_description">Memaparkan pemberitahuan tambahan apabila peranti disambungkan. Ini membolehkan anda menyembunyikan pemberitahuan kekal \"Tiada peranti\" dengan melumpuhkan saluran \"Status peranti\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Kekalkan pemberitahuan selepas nyahsambung</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Tunjukkan pop timbul sambungan</string>
     <string name="settings_popup_connected_description">Tunjukkan pop timbul apabila peranti disambungkan buat kali pertama.</string>
     <string name="settings_popup_info_not_in_app">Pop timbul hanya ditunjukkan apabila anda tidak berada dalam aplikasi.</string>
-    <string name="settings_popup_warning_manual_mode">Pop timbul memerlukan monitor sedang berjalan. Mod monitor anda ditetapkan kepada \"Apabila aplikasi dibuka\", yang menghentikan monitor apabila anda meninggalkan aplikasi.</string>
-    <string name="general_fix_it_action">Betulkan</string>
     <string name="device_settings_experimental_title">Ciri eksperimental</string>
     <string name="device_settings_experimental_description">Ciri ini belum diuji pada semua peranti lagi. Jika sesuatu tidak berfungsi dengan betul, sila buka isu dengan log nyahpepijat.</string>
     <string name="device_settings_experimental_action">Buka Penjejak Isu</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">Kebenaran berikut diperlukan:</string>
     <string name="permission_system_alert_window_label">Tetingkap Amaran Sistem</string>
     <string name="permission_system_alert_window_description">Benarkan CAPod melukis di atas apl lain untuk membolehkan ciri \"Tunjukkan pop timbul\".</string>
-    <string name="settings_monitor_mode_manual_label">Apabila apl dibuka</string>
-    <string name="settings_monitor_mode_automatic_label">Apabila peranti disambungkan</string>
-    <string name="settings_monitor_mode_always_label">Sentiasa</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Apabila dilihat</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Bekas dibuka</string>
     <string name="settings_reaction_autoconnect_inear_label">Dalam telinga</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Menggunakan warna kertas dinding</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Pemantauan</string>
     <string name="settings_category_appearance_label">Penampilan</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Perubahan Tidak Disimpan</string>

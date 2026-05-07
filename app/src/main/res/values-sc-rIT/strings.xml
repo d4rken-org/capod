@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Si as cumporadu recentemente, podet tocare un momentu pro Google Play a sincronizare.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Proa a torrare in pagas minutos si sa compora tua no cumparit.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Asegurade-bos de èssere intradu cun su matessi contu Google usadu pro sa compora.</string>
-    <string name="settings_monitor_mode_label">Modalidade de monitoràgiu</string>
-    <string name="settings_monitor_mode_description">In cales tzircustàntzias custa app monitorat datos Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notìfica extra</string>
     <string name="settings_monitor_connected_notification_description">Mustrat una notìfica extra cando unu dispositivu est cullegadu. Custu ti permitit de cuare sa notìfica permanente \"Perunu dispositivu\" disativende su canale \"Istadu de su dispositivu\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantene sa notìfica a pustis de sa disconnexione</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Mustra popup de cullegamentu</string>
     <string name="settings_popup_connected_description">Mustra unu popup cando su dispositivu si cullegat sa prima borta.</string>
     <string name="settings_popup_info_not_in_app">Sos popup si morant solu cando non ses in s\'app.</string>
-    <string name="settings_popup_warning_manual_mode">Sos popup rechiren chi su monitor siat in esecuziione. Sa modalidade monitor est impostada a \"Cando s\'app est aberta\", chi bloccat su monitor cando baddas dae s\'app.</string>
-    <string name="general_fix_it_action">Corrègelo</string>
     <string name="device_settings_experimental_title">Funzionalidade esperimentale</string>
     <string name="device_settings_experimental_description">Custa funzionalidade non est ancora istada testada in totu sos dispositivos. Si calicosa non funtzionat bene, abre un\'issue cun unu log de debug.</string>
     <string name="device_settings_experimental_action">Abri su Segugi de Issues</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Su permissu in fata est netzessàriu:</string>
     <string name="permission_system_alert_window_label">Ventana de alerta de su sistema</string>
     <string name="permission_system_alert_window_description">Permiti a CAPod de disegnare subra àteras apps pro rèndere possìbile sa funtzione \"Mustra PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Cando s\'app est aberta</string>
-    <string name="settings_monitor_mode_automatic_label">Cando su dispositivu est cullegadu</string>
-    <string name="settings_monitor_mode_always_label">Sèmper</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cando est bidu</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Sa càscia est aberta</string>
     <string name="settings_reaction_autoconnect_inear_label">In s\'origra</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Ambra</string>
     <string name="ui_theme_color_disabled_materialyou">Usat is colores de su sfundu</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitoraduru</string>
     <string name="settings_category_appearance_label">Aparentzia</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Modìficas non sarvadas</string>

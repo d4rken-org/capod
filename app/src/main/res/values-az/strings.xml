@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Əgər bu yaxınlarda satın almısınızsa, Google Play-in sinxronlaşması bir az vaxt ala bilər.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Alışınız görünmürsə bir neçə dəqiqədən sonra yenidən cəhd edin.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Alış üçün istifadə edilmiş eyni Google hesabı ilə daxil olduğunuzu yoxlayın.</string>
-    <string name="settings_monitor_mode_label">İzləmə rejimi</string>
-    <string name="settings_monitor_mode_description">Bu tətbiqin Bluetooth məlumatlarını hansı şəraitdə izlədiyi.</string>
     <string name="settings_monitor_connected_notification_label">Əlavə bildiriş</string>
     <string name="settings_monitor_connected_notification_description">Cihaz qoşulduqda əlavə bildiriş göstərir. Bu, \"Cihaz statusu\" kanalını deaktiv etməklə daimi \"Cihaz yoxdur\" bildirişini gizlətməyə imkan verir.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ayrıldıqdan sonra bildirişi saxla</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Qoşulma pop-up-ını göstər</string>
     <string name="settings_popup_connected_description">Cihaz ilk dəfə qoşulduqda pop-up göstər.</string>
     <string name="settings_popup_info_not_in_app">Açılan pəncərələr yalnız tətbiqdə olmadığınız zaman göstərilir.</string>
-    <string name="settings_popup_warning_manual_mode">Açılan pəncərələr monitorun işləməsini tələb edir. Monitor rejiminizdə \"Tətbiq açıq olduqda\" seçilmişdir — bu, tətbiqdən çıxdığınız zaman monitoru dayandırır.</string>
-    <string name="general_fix_it_action">Düzəlt</string>
     <string name="device_settings_experimental_title">Eksperimental funksiya</string>
     <string name="device_settings_experimental_description">Bu funksiya hələ bütün cihazlarda sınaqdan keçirilməyib. Bir şey düzgün işləmirsə, debug loqu ilə problem bildirin.</string>
     <string name="device_settings_experimental_action">Problem İzləyicisini Aç</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Aşağıdakı icazə tələb olunur:</string>
     <string name="permission_system_alert_window_label">Sistem xəbərdarlıq pəncərəsi</string>
     <string name="permission_system_alert_window_description">\"Pop-up göstər\" xüsusiyyətini mümkün etmək üçün CAPod-a digər tətbiqlərin üzərində çəkməyə icazə verin.</string>
-    <string name="settings_monitor_mode_manual_label">Tətbiq açıq olduqda</string>
-    <string name="settings_monitor_mode_automatic_label">Cihaz qoşulduqda</string>
-    <string name="settings_monitor_mode_always_label">Həmişə</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Görüldüyündə</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Qutu açıqdır</string>
     <string name="settings_reaction_autoconnect_inear_label">Qulaqda</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Kəhrəba</string>
     <string name="ui_theme_color_disabled_materialyou">Divar kăğizi rənglərini istifadə edir</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorinq</string>
     <string name="settings_category_appearance_label">Görünüş</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Saxlanmamış dəyişikliklər</string>

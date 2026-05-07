@@ -4,10 +4,13 @@ import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.NudgeAttemptResult
+import eu.darken.capod.common.bluetooth.NudgeAvailability
+import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
 import eu.darken.capod.common.upgrade.UpgradeRepo
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
@@ -43,7 +46,6 @@ import org.junit.jupiter.api.extension.ExtendWith
 import testhelpers.BaseTest
 import testhelpers.TestTimeSource
 import testhelpers.coroutine.TestDispatcherProvider
-import testhelpers.datastore.FakeDataStoreValue
 import testhelpers.livedata.InstantExecutorExtension
 
 @ExtendWith(InstantExecutorExtension::class)
@@ -60,8 +62,10 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
-    private lateinit var generalSettings: GeneralSettings
-    private lateinit var fakeMonitorMode: FakeDataStoreValue<MonitorMode>
+    private lateinit var monitorModeResolver: MonitorModeResolver
+    private lateinit var nudgeCapabilityStore: NudgeCapabilityStore
+    private lateinit var nudgeAvailabilityFlow: MutableStateFlow<NudgeAvailability>
+    private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
     private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var devicesFlow: MutableStateFlow<List<PodDevice>>
@@ -100,9 +104,9 @@ class DeviceSettingsViewModelTest : BaseTest() {
         }
         connectedDevicesFlow = MutableStateFlow(emptyList())
         bluetoothManager = mockk(relaxed = true) {
-            every { isNudgeAvailable } returns true
             every { bondedDevices() } returns flowOf(emptySet())
             every { connectedDevices } returns connectedDevicesFlow
+            coEvery { nudgeConnection(any()) } returns NudgeAttemptResult.Rejected
         }
         profilesFlow = MutableStateFlow(
             listOf(
@@ -112,9 +116,13 @@ class DeviceSettingsViewModelTest : BaseTest() {
         profilesRepo = mockk(relaxed = true) {
             every { profiles } returns profilesFlow
         }
-        fakeMonitorMode = FakeDataStoreValue(MonitorMode.AUTOMATIC)
-        generalSettings = mockk<GeneralSettings>().also {
-            every { it.monitorMode } returns fakeMonitorMode.mock
+        effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
+        monitorModeResolver = mockk<MonitorModeResolver>().also {
+            every { it.effectiveMode } returns effectiveModeFlow
+        }
+        nudgeAvailabilityFlow = MutableStateFlow(NudgeAvailability.UNKNOWN)
+        nudgeCapabilityStore = mockk<NudgeCapabilityStore>(relaxed = true).also {
+            every { it.availability } returns nudgeAvailabilityFlow
         }
     }
 
@@ -132,7 +140,8 @@ class DeviceSettingsViewModelTest : BaseTest() {
         upgradeRepo = upgradeRepo,
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
-        generalSettings = generalSettings,
+        monitorModeResolver = monitorModeResolver,
+        nudgeCapabilityStore = nudgeCapabilityStore,
         timeSource = timeSource,
         webpageTool = mockk(relaxed = true),
     ).also { vm = it }
@@ -150,7 +159,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     fun `forceConnect happy path - bonded exists, nudge accepted, no event emitted`() = runVmTest {
         val bonded = mockBondedDevice(testAddress)
         every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        coEvery { bluetoothManager.nudgeConnection(bonded) } returns true
+        coEvery { bluetoothManager.nudgeConnection(bonded) } returns NudgeAttemptResult.Accepted
 
         val vm = createViewModel()
         vm.initialize(testAddress)
@@ -166,7 +175,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     fun `forceConnect when nudge not accepted - emits OpenBluetoothSettings`() = runVmTest {
         val bonded = mockBondedDevice(testAddress)
         every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        coEvery { bluetoothManager.nudgeConnection(bonded) } returns false
+        coEvery { bluetoothManager.nudgeConnection(bonded) } returns NudgeAttemptResult.Rejected
 
         val vm = createViewModel()
         vm.initialize(testAddress)
@@ -183,7 +192,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     fun `forceConnect when nudge unavailable - emits OpenBluetoothSettings without calling nudge`() = runVmTest {
         val bonded = mockBondedDevice(testAddress)
         every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
-        every { bluetoothManager.isNudgeAvailable } returns false
+        nudgeAvailabilityFlow.value = NudgeAvailability.BROKEN
 
         val vm = createViewModel()
         vm.initialize(testAddress)
@@ -251,7 +260,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val bonded = mockBondedDevice(testAddress)
         every { bluetoothManager.bondedDevices() } returns flowOf(setOf(bonded))
 
-        val gate = CompletableDeferred<Boolean>()
+        val gate = CompletableDeferred<NudgeAttemptResult>()
         coEvery { bluetoothManager.nudgeConnection(bonded) } coAnswers { gate.await() }
 
         val vm = createViewModel()
@@ -261,7 +270,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         vm.forceConnect()
         vm.forceConnect()
 
-        gate.complete(true)
+        gate.complete(NudgeAttemptResult.Accepted)
 
         coVerify(exactly = 1) { bluetoothManager.nudgeConnection(bonded) }
         vm.state.first().isForceConnecting shouldBe false

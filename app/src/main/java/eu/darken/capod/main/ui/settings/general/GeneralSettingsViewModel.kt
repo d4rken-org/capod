@@ -13,7 +13,6 @@ import eu.darken.capod.common.theming.ThemeStyle
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
-import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.themeState
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
@@ -30,7 +29,6 @@ class GeneralSettingsViewModel @Inject constructor(
 
     data class State(
         val isPro: Boolean,
-        val monitorMode: MonitorMode,
         val showConnectedNotification: Boolean,
         val keepNotificationAfterDisconnect: Boolean,
         val isOffloadedFilteringDisabled: Boolean,
@@ -43,12 +41,11 @@ class GeneralSettingsViewModel @Inject constructor(
 
     val state = combine(
         combine(
-            generalSettings.monitorMode.flow,
             generalSettings.useExtraMonitorNotification.flow,
             generalSettings.keepConnectedNotificationAfterDisconnect.flow,
-        ) { monitorMode, showNotif, keepNotif ->
+        ) { showNotif, keepNotif ->
             @Suppress("USELESS_CAST")
-            arrayOf<Any>(monitorMode as Any, showNotif as Any, keepNotif as Any)
+            arrayOf<Any>(showNotif as Any, keepNotif as Any)
         },
         combine(
             generalSettings.isOffloadedFilteringDisabled.flow,
@@ -63,20 +60,14 @@ class GeneralSettingsViewModel @Inject constructor(
     ) { general, compat, themeState, isPro ->
         State(
             isPro = isPro,
-            monitorMode = general[0] as MonitorMode,
-            showConnectedNotification = general[1] as Boolean,
-            keepNotificationAfterDisconnect = general[2] as Boolean,
+            showConnectedNotification = general[0] as Boolean,
+            keepNotificationAfterDisconnect = general[1] as Boolean,
             isOffloadedFilteringDisabled = compat[0] as Boolean,
             isOffloadedBatchingDisabled = compat[1] as Boolean,
             useIndirectScanResultCallback = compat[2] as Boolean,
             themeState = themeState,
         )
     }.asLiveState()
-
-    fun setMonitorMode(mode: MonitorMode) {
-        log(TAG, INFO) { "setMonitorMode($mode)" }
-        generalSettings.monitorMode.valueBlocking = mode
-    }
 
     fun setShowConnectedNotification(enabled: Boolean) {
         log(TAG, INFO) { "setShowConnectedNotification($enabled)" }

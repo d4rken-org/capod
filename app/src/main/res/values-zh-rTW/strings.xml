@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">若您最近才購買，Google Play 可能需要一點時間同步。</string>
     <string name="upgrade_screen_restore_sync_patience_hint">若購買未顯示，請幾分鐘後再試。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">請確認您使用購買時所用的相同 Google 帳戶登入。</string>
-    <string name="settings_monitor_mode_label">監視模式</string>
-    <string name="settings_monitor_mode_description">在這種情況下應用程式會監視藍牙資料。</string>
     <string name="settings_monitor_connected_notification_label">額外通知</string>
     <string name="settings_monitor_connected_notification_description">裝置連接時顯示額外通知。這讓您可以停用「裝置狀態」頻道來隱藏永久的「沒有裝置」通知。</string>
     <string name="settings_keep_notification_after_disconnect_label">斷線後保留通知</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">顯示連線彈出式視窗</string>
     <string name="settings_popup_connected_description">在裝置首次連線時顯示彈出式視窗。</string>
     <string name="settings_popup_info_not_in_app">彈出視窗僅在您不在應用程式內時顯示。</string>
-    <string name="settings_popup_warning_manual_mode">彈出視窗需要監控程式運行中。您的監控模式設定為「當應用程式開啟時」，這會在您離開應用程式時停止監控程式。</string>
-    <string name="general_fix_it_action">修正</string>
     <string name="device_settings_experimental_title">實驗性功能</string>
     <string name="device_settings_experimental_description">此功能尚未在所有裝置上測試。如果某些功能無法正常運作，請開啟一個包含除錯日誌的問題回報。</string>
     <string name="device_settings_experimental_action">開啟問題追蹤器</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">可能要求下列權限：</string>
     <string name="permission_system_alert_window_label">系統警報視窗</string>
     <string name="permission_system_alert_window_description">允許 CAPod 在其他應用程式上繪圖，使「顯示彈出式視窗」功能成為可能。</string>
-    <string name="settings_monitor_mode_manual_label">應用程式開啟時</string>
-    <string name="settings_monitor_mode_automatic_label">裝置連線時</string>
-    <string name="settings_monitor_mode_always_label">一律</string>
     <string name="settings_reaction_autoconnect_whenseen_label">看到時</string>
     <string name="settings_reaction_autoconnect_caseopen_label">充電盒開啟</string>
     <string name="settings_reaction_autoconnect_inear_label">在耳中</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">琥珀色</string>
     <string name="ui_theme_color_disabled_materialyou">使用已設壁紙色彩</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">監控</string>
     <string name="settings_category_appearance_label">外觀</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">修改未儲存</string>

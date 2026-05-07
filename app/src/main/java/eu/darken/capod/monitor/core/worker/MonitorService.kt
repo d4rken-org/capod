@@ -30,6 +30,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.monitor.core.primaryDevice
@@ -81,6 +82,7 @@ class MonitorService : Service() {
     @Inject lateinit var popUpWindow: PopUpWindow
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject lateinit var aapConnectionManager: AapConnectionManager
+    @Inject lateinit var monitorModeResolver: MonitorModeResolver
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
@@ -224,7 +226,7 @@ class MonitorService : Service() {
                     emptyFlow()
                 } else {
                     combine(
-                        generalSettings.monitorMode.flow,
+                        monitorModeResolver.effectiveMode,
                         profilesRepo.profiles,
                         bluetoothManager.connectedDevices,
                         aapConnectionManager.allStates,

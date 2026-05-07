@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Jeśli niedawno dokonałeś zakupu, synchronizacja z Google Play może chwilę potrwać.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Spróbuj ponownie za kilka minut, jeśli twój zakup się nie pojawi.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Upewnij się, że jesteś zalogowany na to samo konto Google, które zostało użyte do zakupu.</string>
-    <string name="settings_monitor_mode_label">Tryb monitorowania</string>
-    <string name="settings_monitor_mode_description">W pewnych okolicznościach aplikacja może monitorować dane Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Dodatkowe powiadomienie</string>
     <string name="settings_monitor_connected_notification_description">Wyświetl dodatkowe powiadomienie, gdy urządzenie jest podłączone. Pozwala to ukryć stałe powiadomienie \"Brak urządzeń\", wyłączając kanał \"Status urządzenia\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Zachowaj powiadomienie po rozłączeniu</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Wyświetl okienko połączenia</string>
     <string name="settings_popup_connected_description">Wyświetla okienko, gdy urządzenie łączy się po raz pierwszy.</string>
     <string name="settings_popup_info_not_in_app">Wyskakujące okienka są wyświetlane tylko wtedy, gdy nie jesteś w aplikacji.</string>
-    <string name="settings_popup_warning_manual_mode">Wyskakujące okienka wymagają uruchomionego monitora. Tryb monitora jest ustawiony na „Gdy aplikacja jest otwarta”, co zatrzymuje monitor po opuszczeniu aplikacji.</string>
-    <string name="general_fix_it_action">Napraw to</string>
     <string name="device_settings_experimental_title">Funkcja eksperymentalna</string>
     <string name="device_settings_experimental_description">Ta funkcja nie została jeszcze przetestowana na wszystkich urządzeniach. Jeśli coś nie działa poprawnie, otwórz zgłoszenie z dziennikiem debugowania.</string>
     <string name="device_settings_experimental_action">Otwórz śledzenie problemów</string>
@@ -226,9 +222,6 @@ K4r0lSz;</string>
     <string name="permission_required_title">Następujące uprawnienie jest wymagane:</string>
     <string name="permission_system_alert_window_label">Okna alertów systemowych</string>
     <string name="permission_system_alert_window_description">Zezwól na wyświetlanie CAPod nad innymi aplikacjami, aby aktywować funkcję \"Wyświetlanie informacji\".</string>
-    <string name="settings_monitor_mode_manual_label">Gdy aplikacja jest uruchomiona</string>
-    <string name="settings_monitor_mode_automatic_label">Gdy urządzenie jest podłączone</string>
-    <string name="settings_monitor_mode_always_label">Zawsze</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kiedy widoczne</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Etui jest otwarte</string>
     <string name="settings_reaction_autoconnect_inear_label">W uszach</string>
@@ -328,7 +321,6 @@ K4r0lSz;</string>
     <string name="ui_theme_color_amber_label">Bursztynowy</string>
     <string name="ui_theme_color_disabled_materialyou">Używaj kolorów tapety</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorowanie</string>
     <string name="settings_category_appearance_label">Wygląd</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Niezapisane zmiany</string>

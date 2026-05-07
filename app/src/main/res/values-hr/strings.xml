@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ako ste nedavno kupili, može potrajati trenutak dok Google Play sinkronizira.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Pokušajte ponovo za nekoliko minuta ako vaša kupnja nije prikazana.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Provjerite jeste li prijavljeni s istim Google računom koji ste koristili za kupnju.</string>
-    <string name="settings_monitor_mode_label">Način praćenja</string>
-    <string name="settings_monitor_mode_description">Pod kojim okolnostima ova aplikacija prati Bluetooth podatke.</string>
     <string name="settings_monitor_connected_notification_label">Dodatna obavijest</string>
     <string name="settings_monitor_connected_notification_description">Prikazuje dodatnu obavijest kada je uređaj povezan. To vam omogućuje da sakrijete trajnu obavijest \"Nema uređaja\" onemogućavanjem kanala \"Status uređaja\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Zadrži obavijest nakon prekida veze</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Prikaži skočni prozor veze</string>
     <string name="settings_popup_connected_description">Prikaži skočni prozor kada se uređaj prvi put poveže.</string>
     <string name="settings_popup_info_not_in_app">Skočni prozori prikazuju se samo kada niste u aplikaciji.</string>
-    <string name="settings_popup_warning_manual_mode">Skočni prozori zahtijevaju pokrenuti monitor. Vaš način rada monitora postavljen je na \"Kada je aplikacija otvorena\", što zaustavlja monitor kada napustite aplikaciju.</string>
-    <string name="general_fix_it_action">Popravi</string>
     <string name="device_settings_experimental_title">Eksperimentalna značajka</string>
     <string name="device_settings_experimental_description">Ova značajka još nije testirana na svim uređajima. Ako nešto ne radi ispravno, molimo otvorite prijavu s debug zapisnikom.</string>
     <string name="device_settings_experimental_action">Otvori praćenje problema</string>
@@ -222,9 +218,6 @@
     <string name="permission_required_title">Sljedeća dozvola je potrebna:</string>
     <string name="permission_system_alert_window_label">Prozor sistemskog upozorenja</string>
     <string name="permission_system_alert_window_description">Dopustite CAPod-u crtanje preko drugih aplikacija kako bi omogućili značajku \"Prikaži skočni prozor\".</string>
-    <string name="settings_monitor_mode_manual_label">Kada je aplikacija otvorena</string>
-    <string name="settings_monitor_mode_automatic_label">Kada je uređaj povezan</string>
-    <string name="settings_monitor_mode_always_label">Uvijek</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kada je viđen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kućište je otvoreno</string>
     <string name="settings_reaction_autoconnect_inear_label">U uhu</string>
@@ -324,7 +317,6 @@
     <string name="ui_theme_color_amber_label">Jantar</string>
     <string name="ui_theme_color_disabled_materialyou">Koristi boje pozadine</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Praćenje</string>
     <string name="settings_category_appearance_label">Izgled</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nespremljene promjene</string>

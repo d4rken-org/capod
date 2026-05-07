@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">మీరు ఇటీవల కొనుగోలు చేసి ఉంటే, Google Play సమకాలీకరించడానికి కొంత సమయం పట్టవచ్చు.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">మీ కొనుగోలు కనిపించకపోతే కొన్ని నిమిషాల తర్వాత మళ్ళీ ప్రయత్నించండి.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">కొనుగోలు కోసం ఉపయోగించిన అదే Google ఖాతాతో సైన్ ఇన్ అయ్యారని నిర్ధారించుకోండి.</string>
-    <string name="settings_monitor_mode_label">పర్యవేక్షణ మోడ్</string>
-    <string name="settings_monitor_mode_description">ఈ యాప్ ఏ పరిస్థితులలో బ్లూటూత్ డేటాను పర్యవేక్షిస్తుంది.</string>
     <string name="settings_monitor_connected_notification_label">అదనపు నోటిఫికేషన్</string>
     <string name="settings_monitor_connected_notification_description">పరికరం కనెక్ట్ అయినప్పుడు అదనపు నోటిఫికేషన్‌ను చూపుతుంది. ఇది \"పరికర స్థితి\" ఛానెల్‌ను నిలిపివేయడం ద్వారా శాశ్వత \"పరికరం లేదు\" నోటిఫికేషన్‌ను దాచడానికి మిమ్మల్ని అనుమతిస్తుంది.</string>
     <string name="settings_keep_notification_after_disconnect_label">డిస్‌కనెక్ట్ తర్వాత నోటిఫికేషన్ ఉంచు</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">కనెక్షన్ పాపప్ చూపించు</string>
     <string name="settings_popup_connected_description">పరికరం మొదటిసారి కనెక్ట్ అయినప్పుడు పాపప్ చూపించు.</string>
     <string name="settings_popup_info_not_in_app">మీరు యాప్‌లో లేనప్పుడు మాత్రమే పాప్‌అప్‌లు చూపబడతాయి.</string>
-    <string name="settings_popup_warning_manual_mode">పాప్‌అప్‌లకు మానిటర్ నడుస్తూ ఉండాలి. మీ మానిటర్ మోడ్ \"యాప్ తెరిచినప్పుడు\" అని సెట్ చేయబడింది, ఇది మీరు యాప్ వదిలినప్పుడు మానిటర్‌ను ఆపుతుంది.</string>
-    <string name="general_fix_it_action">దాన్ని సరిచేయి</string>
     <string name="device_settings_experimental_title">ప్రయోగాత్మక ఫీచర్</string>
     <string name="device_settings_experimental_description">ఈ ఫీచర్ ఇంకా అన్ని పరికరాలలో పరీక్షించబడలేదు. ఏదైనా సరిగా పని చేయకపోతే, దయచేసి డీబగ్ లాగ్‌తో ఒక సమస్యను తెరవండి.</string>
     <string name="device_settings_experimental_action">సమస్య ట్రాకర్ తెరవండి</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">కింది అనుమతి అవసరం:</string>
     <string name="permission_system_alert_window_label">సిస్టమ్ అలర్ట్ విండో</string>
     <string name="permission_system_alert_window_description">\"పాపప్ చూపించు\" ఫీచర్‌ను సాధ్యం చేయడానికి ఇతర యాప్‌ల మీద గీయడానికి CAPodను అనుమతించండి.</string>
-    <string name="settings_monitor_mode_manual_label">యాప్ తెరిచి ఉన్నప్పుడు</string>
-    <string name="settings_monitor_mode_automatic_label">పరికరం కనెక్ట్ అయినప్పుడు</string>
-    <string name="settings_monitor_mode_always_label">ఎల్లప్పుడూ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">కనిపించినప్పుడు</string>
     <string name="settings_reaction_autoconnect_caseopen_label">కేస్ తెరిచి ఉంది</string>
     <string name="settings_reaction_autoconnect_inear_label">చెవిలో</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">అంబర్</string>
     <string name="ui_theme_color_disabled_materialyou">వాల్‌పేపర్ రంగులను ఉపయోగిస్తుంది</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">పరివీక్షణ</string>
     <string name="settings_category_appearance_label">రూపం</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">సేవ్ చేయని మార్పులు</string>

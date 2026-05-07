@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Si l’achat est récent, Google Play peut mettre du temps à synchroniser.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Si votre achat n’apparaît pas, réessayez dans quelques minutes.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Le même compte Google doit être utilisé pour l’achat et la connexion.</string>
-    <string name="settings_monitor_mode_label">Mode surveillance</string>
-    <string name="settings_monitor_mode_description">Les circonstances de surveillance des données Bluetooth par l’appli.</string>
     <string name="settings_monitor_connected_notification_label">Notification supplémentaire</string>
     <string name="settings_monitor_connected_notification_description">Affiche une notification supplémentaire si un appareil est connecté. Cela vous permet de masquer la notification permanente « Aucun appareil » en désactivant le canal « État de l’appareil ».</string>
     <string name="settings_keep_notification_after_disconnect_label">Garder la notification après déconnexion</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Afficher une fenêtre de connection</string>
     <string name="settings_popup_connected_description">Afficher une fenêtre contextuelle quand l’appareil se connecte pour la première fois.</string>
     <string name="settings_popup_info_not_in_app">Les popups ne sont affichées que lorsque vous n\'êtes pas dans l\'application.</string>
-    <string name="settings_popup_warning_manual_mode">Les popups nécessitent que le moniteur soit en cours d\'exécution. Votre mode moniteur est réglé sur « Quand l\'application est ouverte », ce qui arrête le moniteur lorsque vous quittez l\'application.</string>
-    <string name="general_fix_it_action">Corriger</string>
     <string name="device_settings_experimental_title">Fonctionnalité expérimentale</string>
     <string name="device_settings_experimental_description">Cette fonctionnalité n\'a pas encore été testée sur tous les appareils. Si quelque chose ne fonctionne pas correctement, veuillez ouvrir un ticket avec un journal de débogage.</string>
     <string name="device_settings_experimental_action">Ouvrir le suivi des problèmes</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">L’autorisation suivante est nécessaire :</string>
     <string name="permission_system_alert_window_label">Fenêtre d’alerte système</string>
     <string name="permission_system_alert_window_description">Permettre à CAPod d’apparaître par-dessus les autres applis pour rendre la fonction « Afficher une fenêtre contextuelle » possible.</string>
-    <string name="settings_monitor_mode_manual_label">Si l’appli est ouverte</string>
-    <string name="settings_monitor_mode_automatic_label">Si l’appareil est connecté</string>
-    <string name="settings_monitor_mode_always_label">Toujours</string>
     <string name="settings_reaction_autoconnect_whenseen_label">S’il est visible</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Si l’étui est ouvert</string>
     <string name="settings_reaction_autoconnect_inear_label">S’il est porté</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Ambre</string>
     <string name="ui_theme_color_disabled_materialyou">Utilise les couleurs du fond d’écran</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Surveillance</string>
     <string name="settings_category_appearance_label">Apparence</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Des changements ne sont pas enregistrés</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Kui olete hiljuti ostnud, võib Google Playl kuluda ajakohastamiseks hetk.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Proovige mõne minuti pärast uuesti, kui teie ost ei ilmu.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Veenduge, et olete sisse logitud sama Google\'i kontoga, mida kasutasite ostu sooritamiseks.</string>
-    <string name="settings_monitor_mode_label">Jälgimisrežiim</string>
-    <string name="settings_monitor_mode_description">Mis olukordades jälgib see rakendus Bluetooth andmeid.</string>
     <string name="settings_monitor_connected_notification_label">Lisateavitus</string>
     <string name="settings_monitor_connected_notification_description">Kuvab seadme ühendumisel lisateavituse. See peidab pidevalt nähtava „Seadmed puuduvad“ teate, selleks keelates „Seadme olek“ kanali.</string>
     <string name="settings_keep_notification_after_disconnect_label">Kuva teadet ka pärast eemaldamist</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Näita ühenduse hüpikakent</string>
     <string name="settings_popup_connected_description">Näita seadme esmaühendumisel hüpikakent.</string>
     <string name="settings_popup_info_not_in_app">Hüpikaknad kuvatakse ainult siis, kui sa pole rakenduses.</string>
-    <string name="settings_popup_warning_manual_mode">Hüpikaknad nõuavad monitori töötamist. Monitori režiim on seatud „Kui rakendus on avatud“, mis peatab monitori, kui rakendusest lahkud.</string>
-    <string name="general_fix_it_action">Paranda</string>
     <string name="device_settings_experimental_title">Katsetamisel</string>
     <string name="device_settings_experimental_description">Seda pole kõigil seadmetel veel katsetatud. Kui midagi ei toimi õigesti, avage probleem koos silumislogi failiga.</string>
     <string name="device_settings_experimental_action">Ava probleemide jälgija</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Vaja on järgmist luba:</string>
     <string name="permission_system_alert_window_label">Süsteemi teate aken</string>
     <string name="permission_system_alert_window_description">Luba CAPodil toimetada teiste rakenduste kohal, et näha hüpikaknaid.</string>
-    <string name="settings_monitor_mode_manual_label">Kui rakendus on avatud</string>
-    <string name="settings_monitor_mode_automatic_label">Kui seade on ühendatud</string>
-    <string name="settings_monitor_mode_always_label">Alati</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kui nähtaval</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kaas on avatud</string>
     <string name="settings_reaction_autoconnect_inear_label">Kõrvas</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Merevaik</string>
     <string name="ui_theme_color_disabled_materialyou">Kasutab taustapildi värve</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Jälgimine</string>
     <string name="settings_category_appearance_label">Välimus</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Salvestamata muudatused</string>

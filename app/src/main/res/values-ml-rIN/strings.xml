@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">നിങ്ങൾ അടുത്തിടെ വാങ്ങിയിട്ടുണ്ടെങ്കിൽ, Google Play സമന്വയിക്കാൻ കുറച്ച് സമയമെടുക്കാം.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">നിങ്ങളുടെ വാങ്ങൽ ദൃശ്യമാകുന്നില്ലെങ്കിൽ കുറച്ച് മിനിറ്റുകൾക്ക് ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">വാങ്ങലിനായി ഉപയോഗിച്ച അതേ Google അക്കൗണ്ടിൽ സൈൻ ഇൻ ചെയ്തിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.</string>
-    <string name="settings_monitor_mode_label">മോണിറ്റർ മോഡ്</string>
-    <string name="settings_monitor_mode_description">ഈ ആപ്പ് ഏത് സാഹചര്യത്തിലാണ് ബ്ലൂടൂത്ത് ഡാറ്റ നിരീക്ഷിക്കുന്നത്.</string>
     <string name="settings_monitor_connected_notification_label">അധിക അറിയിപ്പ്</string>
     <string name="settings_monitor_connected_notification_description">ഒരു ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ ഒരു അധിക അറിയിപ്പ് കാണിക്കുന്നു. \"ഉപകരണ നില\" ചാനൽ പ്രവർത്തനരഹിതമാക്കി സ്ഥിരമായ \"ഉപകരണങ്ങളൊന്നുമില്ല\" അറിയിപ്പ് മറയ്ക്കാൻ ഇത് നിങ്ങളെ അനുവദിക്കുന്നു.</string>
     <string name="settings_keep_notification_after_disconnect_label">വിച്ഛേദിച്ച ശേഷം അറിയിപ്പ് നിലനിർത്തുക</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">കണക്ഷൻ പോപ്പ്അപ്പ് കാണിക്കുക</string>
     <string name="settings_popup_connected_description">ഉപകരണം ആദ്യമായി കണക്റ്റുചെയ്യുമ്പോൾ ഒരു പോപ്പ്അപ്പ് കാണിക്കുക.</string>
     <string name="settings_popup_info_not_in_app">നിങ്ങൾ ആപ്പിൽ ഇല്ലാത്തപ്പോൾ മാത്രം പോപ്പപ്പുകൾ കാണിക്കും.</string>
-    <string name="settings_popup_warning_manual_mode">പോപ്പപ്പുകൾക്ക് മോണിറ്റർ പ്രവർത്തിക്കേണ്ടതുണ്ട്. നിങ്ങളുടെ മോണിറ്റർ മോഡ് \"ആപ്പ് തുറന്നിരിക്കുമ്പോൾ\" എന്നതിലേക്ക് സജ്ജീകരിച്ചിരിക്കുന്നു, ഇത് നിങ്ങൾ ആപ്പ് വിടുമ്പോൾ മോണിറ്റർ നിർത്തും.</string>
-    <string name="general_fix_it_action">ശരിയാക്കുക</string>
     <string name="device_settings_experimental_title">പരീക്ഷണ സവിശേഷത</string>
     <string name="device_settings_experimental_description">ഈ സവിശേഷത ഇതുവരെ എല്ലാ ഡിവൈസുകളിലും പരീക്ഷിച്ചിട്ടില്ല. എന്തെങ്കിലും ശരിയായി പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, ദയവായി ഒരു ഡീബഗ് ലോഗ് സഹിതം ഒരു ഇഷ്യൂ തുറക്കുക.</string>
     <string name="device_settings_experimental_action">ഇഷ്യൂ ട്രാക്കർ തുറക്കുക</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">ഇനിപ്പറയുന്ന അനുമതി ആവശ്യമാണ്:</string>
     <string name="permission_system_alert_window_label">സിസ്റ്റം അലേർട്ട് വിൻഡോ</string>
     <string name="permission_system_alert_window_description">\"പോപ്പ്അപ്പ് കാണിക്കുക\" സവിശേഷത സാധ്യമാക്കാൻ മറ്റ് ആപ്പുകളുടെ മുകളിൽ വരയ്ക്കാൻ CAPod-നെ അനുവദിക്കുക.</string>
-    <string name="settings_monitor_mode_manual_label">ആപ്പ് തുറന്നിരിക്കുമ്പോൾ</string>
-    <string name="settings_monitor_mode_automatic_label">ഉപകരണം കണക്റ്റുചെയ്യുമ്പോൾ</string>
-    <string name="settings_monitor_mode_always_label">എപ്പോഴും</string>
     <string name="settings_reaction_autoconnect_whenseen_label">കാണുമ്പോൾ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">കേസ് തുറന്നിരിക്കുന്നു</string>
     <string name="settings_reaction_autoconnect_inear_label">ചെവിയിൽ</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">ആംബർ</string>
     <string name="ui_theme_color_disabled_materialyou">വാൾപ്പേപർ നിറങ്ങൾ ഉപയോഗിക്കുന്നു</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">നിരീക്ഷണം</string>
     <string name="settings_category_appearance_label">രൂപഭാവം</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">நீங்கள் சமீபத்தில் வாங்கியிருந்தால், Google Play ஒத்திசைக்க சிறிது நேரம் ஆகலாம்.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">உங்கள் கொள்முதல் தோன்றவில்லை என்றால் சில நிமிடங்களில் மீண்டும் முயற்சிக்கவும்.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">கொள்முதலுக்கு பயன்படுத்திய அதே Google கணக்கில் நீங்கள் உள்நுழைந்திருக்கிறீர்கள் என்பதை உறுதிசெய்யவும்.</string>
-    <string name="settings_monitor_mode_label">கண்காணிப்பு முறை</string>
-    <string name="settings_monitor_mode_description">இந்த ஆப்ஸ் எந்தச் சூழ்நிலைகளில் புளூடூத் தரவைக் கண்காணிக்கிறது.</string>
     <string name="settings_monitor_connected_notification_label">கூடுதல் அறிவிப்பு</string>
     <string name="settings_monitor_connected_notification_description">ஒரு சாதனம் இணைக்கப்படும்போது கூடுதல் அறிவிப்பைக் காட்டுகிறது. \"சாதன நிலை\" சேனலை முடக்குவதன் மூலம் நிரந்தர \"சாதனங்கள் இல்லை\" அறிவிப்பை மறைக்க இது உங்களை அனுமதிக்கிறது.</string>
     <string name="settings_keep_notification_after_disconnect_label">துண்டிக்கப்பட்ட பிறகு அறிவிப்பை வைத்திரு</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">இணைப்பு பாப்அப்பைக் காட்டு</string>
     <string name="settings_popup_connected_description">சாதனம் முதல் முறையாக இணைக்கப்படும்போது ஒரு பாப்அப்பைக் காட்டு.</string>
     <string name="settings_popup_info_not_in_app">நீங்கள் செயலியில் இல்லாதபோது மட்டுமே பாப்அப்கள் காட்டப்படும்.</string>
-    <string name="settings_popup_warning_manual_mode">பாப்அப்களுக்கு கண்காணிப்பான் இயங்கிக்கொண்டிருக்க வேண்டும். உங்கள் கண்காணிப்பு பயன்முறை \"செயலி திறந்திருக்கும்போது\" என அமைக்கப்பட்டுள்ளது, இது செயலியை விட்டு வெளியேறும்போது கண்காணிப்பானை நிறுத்துகிறது.</string>
-    <string name="general_fix_it_action">சரிசெய்</string>
     <string name="device_settings_experimental_title">சோதனை அம்சம்</string>
     <string name="device_settings_experimental_description">இந்த அம்சம் இன்னும் அனைத்து சாதனங்களிலும் சோதிக்கப்படவில்லை. ஏதாவது சரியாக வேலை செய்யாவிட்டால், debug log உடன் ஒரு பிரச்சினையை தாக்கல் செய்யவும்.</string>
     <string name="device_settings_experimental_action">பிரச்சினை ட்ராக்கரை திறக்கவும்</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">பின்வரும் அனுமதி தேவை:</string>
     <string name="permission_system_alert_window_label">கணினி எச்சரிக்கை சாளரம்</string>
     <string name="permission_system_alert_window_description">\"பாப்அப் காட்டு\" அம்சத்தை சாத்தியமாக்க CAPod-ஐ பிற ஆப்ஸ்களின் மேல் வரைய அனுமதிக்கவும்.</string>
-    <string name="settings_monitor_mode_manual_label">ஆப்ஸ் திறந்திருக்கும்போது</string>
-    <string name="settings_monitor_mode_automatic_label">சாதனம் இணைக்கப்பட்டிருக்கும்போது</string>
-    <string name="settings_monitor_mode_always_label">எப்போதும்</string>
     <string name="settings_reaction_autoconnect_whenseen_label">கண்டறியும்போது</string>
     <string name="settings_reaction_autoconnect_caseopen_label">கேஸ் திறந்திருக்கிறது</string>
     <string name="settings_reaction_autoconnect_inear_label">காதில்</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">அம்பர்</string>
     <string name="ui_theme_color_disabled_materialyou">வோல்பேப்பர் நிறங்களை பயன்படுத்துகிறது</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">கண்காணிப்பு</string>
     <string name="settings_category_appearance_label">தோற்றம்</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">சேமிக்கப்படாத மாற்றங்கள்</string>

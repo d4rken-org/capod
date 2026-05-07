@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">最近購入した場合、Google Playが同期するまで少し時間がかかる場合があります。</string>
     <string name="upgrade_screen_restore_sync_patience_hint">購入が表示されない場合は、数分後に再度お試しください。</string>
     <string name="upgrade_screen_restore_multiaccount_hint">購入に使用したGoogleアカウントでサインインしていることを確認してください。</string>
-    <string name="settings_monitor_mode_label">モニターモード</string>
-    <string name="settings_monitor_mode_description">このアプリがBluetoothデータを監視する状況。</string>
     <string name="settings_monitor_connected_notification_label">追加通知</string>
     <string name="settings_monitor_connected_notification_description">デバイスが接続されると追加の通知を表示します。これにより、「デバイスステータス」チャネルを無効にすることで、永続的な「デバイスなし」通知を非表示にできます。</string>
     <string name="settings_keep_notification_after_disconnect_label">切断後も通知を維持</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">接続ポップアップを表示</string>
     <string name="settings_popup_connected_description">デバイスが初めて接続されたときにポップアップを表示します。</string>
     <string name="settings_popup_info_not_in_app">ポップアップはアプリを使用していない時のみ表示されます。</string>
-    <string name="settings_popup_warning_manual_mode">ポップアップにはモニターが実行中である必要があります。モニターモードが「アプリが開いている時」に設定されており、アプリを離れるとモニターが停止します。</string>
-    <string name="general_fix_it_action">修正する</string>
     <string name="device_settings_experimental_title">実験的機能</string>
     <string name="device_settings_experimental_description">この機能はまだすべてのデバイスでテストされていません。正しく動作しない場合は、デバッグログを添えてイシューを開いてください。</string>
     <string name="device_settings_experimental_action">イシュートラッカーを開く</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">次の権限が必要です:</string>
     <string name="permission_system_alert_window_label">システムアラートウィンドウ</string>
     <string name="permission_system_alert_window_description">「ポップアップを表示」機能を有効にするため、CAPodが他のアプリの上に表示できるようにします。</string>
-    <string name="settings_monitor_mode_manual_label">アプリを開いているとき</string>
-    <string name="settings_monitor_mode_automatic_label">デバイス接続時</string>
-    <string name="settings_monitor_mode_always_label">常に</string>
     <string name="settings_reaction_autoconnect_whenseen_label">検出時</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ケースが開いているとき</string>
     <string name="settings_reaction_autoconnect_inear_label">装着時</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">アンバー</string>
     <string name="ui_theme_color_disabled_materialyou">壁紙の色を使用</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">モニタリング</string>
     <string name="settings_category_appearance_label">外観</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">未保存の変更</string>

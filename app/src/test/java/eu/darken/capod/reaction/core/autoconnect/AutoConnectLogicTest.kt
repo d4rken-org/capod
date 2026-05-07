@@ -17,6 +17,7 @@ class AutoConnectLogicTest : BaseTest() {
         autoConnect = AutoConnect(
             bluetoothManager = mockk(relaxed = true),
             deviceMonitor = mockk(relaxed = true),
+            nudgeCapabilityStore = mockk(relaxed = true),
         )
     }
 

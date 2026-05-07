@@ -36,8 +36,6 @@ class GeneralSettings @Inject constructor(
 
     private val dataStore: DataStore<Preferences> get() = context.dataStore
 
-    val monitorMode = dataStore.createValue("core.monitor.mode", MonitorMode.AUTOMATIC, json, onErrorFallbackToDefault = true)
-
     val useExtraMonitorNotification = dataStore.createValue("core.monitor.notification.connected", false)
 
     val keepConnectedNotificationAfterDisconnect =

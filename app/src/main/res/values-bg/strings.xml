@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ако наскоро сте направили покупка, може да отнеме малко, докато Google Play синхронизира.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Опитайте отново след няколко минути, ако покупката ви не се появи.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Уверете се, че сте влезли с акаунта в Google, използван за покупката.</string>
-    <string name="settings_monitor_mode_label">Режим на наблюдение</string>
-    <string name="settings_monitor_mode_description">При какви обстоятелства това приложение следи Bluetooth данните.</string>
     <string name="settings_monitor_connected_notification_label">Допълнително известие</string>
     <string name="settings_monitor_connected_notification_description">Показва допълнително известие, когато устройство е свързано. Това ви позволява да скриете постоянното известие \"Няма устройства\" чрез деактивиране на канала \"Състояние на устройството\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Запази известието след прекъсване</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Показване на изскачащ прозорец за връзка</string>
     <string name="settings_popup_connected_description">Показване на изскачащ прозорец, когато устройството се свърже за първи път.</string>
     <string name="settings_popup_info_not_in_app">Изскачащите прозорци се показват само когато не сте в приложението.</string>
-    <string name="settings_popup_warning_manual_mode">Изскачащите прозорци изискват мониторът да работи. Режимът на монитора е зададен на „Когато приложението е отворено“, което спира монитора, когато напуснете приложението.</string>
-    <string name="general_fix_it_action">Поправи го</string>
     <string name="device_settings_experimental_title">Експериментална функция</string>
     <string name="device_settings_experimental_description">Тази функция все още не е тествана на всички устройства. Ако нещо не работи правилно, моля отворете проблем с дневник за отстраняване на грешки.</string>
     <string name="device_settings_experimental_action">Отвори проследявач на проблеми</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Необходимо е следното разрешение:</string>
     <string name="permission_system_alert_window_label">Системен изскачащ прозорец</string>
     <string name="permission_system_alert_window_description">Позволете на CAPod да рисува върху други приложения, за да направи функцията \"Покажи изскачащ прозорец\" възможна.</string>
-    <string name="settings_monitor_mode_manual_label">Когато приложението е отворено</string>
-    <string name="settings_monitor_mode_automatic_label">Когато устройството е свързано</string>
-    <string name="settings_monitor_mode_always_label">Винаги</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Когато е видяно</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Калъфът е отворен</string>
     <string name="settings_reaction_autoconnect_inear_label">В ухото</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Къхъленожълт</string>
     <string name="ui_theme_color_disabled_materialyou">Използва цветовете на тапета</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Мониторинг</string>
     <string name="settings_category_appearance_label">Изглед</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Незапазени промени</string>

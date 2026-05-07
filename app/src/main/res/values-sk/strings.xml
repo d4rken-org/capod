@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ak ste nedávno nakúpili, môže chvíľu trvať, kým Google Play synchronizuje.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Skúste to znova o niekoľko minút, ak sa váš nákup nezobrazí.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Uistite sa, že ste prihlásení rovnakým účtom Google, ktorý ste použili pri nákupe.</string>
-    <string name="settings_monitor_mode_label">Režim monitorovania</string>
-    <string name="settings_monitor_mode_description">Za akých okolností táto aplikácia monitoruje údaje Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Dodatočné oznámenie</string>
     <string name="settings_monitor_connected_notification_description">Zobrazí dodatočné oznámenie keď je zariadenie pripojené. To umožňuje skryť trvalé oznámenie \"Žiadne zariadenia\" vypnutím kanálu \"Stav zariadenia\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Ponechať oznámenie po odpojení</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Zobraziť vyskakovacie okno pri pripojení</string>
     <string name="settings_popup_connected_description">Pri prvom pripojení zariadenia zobraziť vyskakovacie okno.</string>
     <string name="settings_popup_info_not_in_app">Vyskakovacie okná sa zobrazujú iba keď nie ste v aplikácii.</string>
-    <string name="settings_popup_warning_manual_mode">Vyskakovacie okná vyžadujú, aby monitor bol spustený. Váš režim monitora je nastavený na Keď je aplikácia otvorená, čo zastaví monitor po opustení aplikácie.</string>
-    <string name="general_fix_it_action">Opraviť</string>
     <string name="device_settings_experimental_title">Experimentálna funkcia</string>
     <string name="device_settings_experimental_description">Táto funkcia ešte nebola otestovaná na všetkých zariadeniach. Ak niečo nefunguje správne, otvorte prosím chybové hlásenie s protokolom ladenia.</string>
     <string name="device_settings_experimental_action">Otvoriť sledovač problémov</string>
@@ -224,9 +220,6 @@
     <string name="permission_required_title">Je vyžadované nasledujúce povolenie:</string>
     <string name="permission_system_alert_window_label">Systémové výstražné okno</string>
     <string name="permission_system_alert_window_description">Povoľte CAPodu kresliť cez iné aplikácie, aby bola možná funkcia \"Zobraziť vyskakovacie okno\".</string>
-    <string name="settings_monitor_mode_manual_label">Keď je aplikácia otvorená</string>
-    <string name="settings_monitor_mode_automatic_label">Keď je zariadenie pripojené</string>
-    <string name="settings_monitor_mode_always_label">Vždy</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Keď je videné</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Puzdro je otvorené</string>
     <string name="settings_reaction_autoconnect_inear_label">V uchu</string>
@@ -326,7 +319,6 @@
     <string name="ui_theme_color_amber_label">Jantárová</string>
     <string name="ui_theme_color_disabled_materialyou">Používa farby tapety</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorovanie</string>
     <string name="settings_category_appearance_label">Vzhľad</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Neuložené zmeny</string>

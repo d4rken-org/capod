@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ef þú keyptir nýlega gæti það tekið smá tíma fyrir Google Play að samstilla.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Reyndu aftur eftir nokkrar mínútur ef kaupin þín birtast ekki.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Gakktu úr skugga um að þú sért skráður inn með sama Google-reikninginn sem notaður var við kaupin.</string>
-    <string name="settings_monitor_mode_label">Vöktunarstilling</string>
-    <string name="settings_monitor_mode_description">Undir hvaða kringumstæðum þetta forrit fylgist með Bluetooth gögnum.</string>
     <string name="settings_monitor_connected_notification_label">Auka tilkynning</string>
     <string name="settings_monitor_connected_notification_description">Sýnir auka tilkynningu þegar tæki er tengt. Þetta gerir þér kleift að fela varanlega \"Engin tæki\" tilkynninguna með því að slökkva á \"Staða tækis\" rásinni.</string>
     <string name="settings_keep_notification_after_disconnect_label">Halda tilkynningu eftir aftengi</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Sýna upplýsingaglugga tengingar</string>
     <string name="settings_popup_connected_description">Sýna upplýsingaglugga þegar tækið tengist í fyrsta skipti.</string>
     <string name="settings_popup_info_not_in_app">Sprettigluggar eru aðeins sýndir þegar þú ert ekki í forritinu.</string>
-    <string name="settings_popup_warning_manual_mode">Sprettigluggar krefjast þess að vaktarinn sé í gangi. Vaktagreiningin þín er stillt á \"Þegar forrit er opið\", sem stöðvar vaktarann þegar þú yfirgefur forritið.</string>
-    <string name="general_fix_it_action">Laga það</string>
     <string name="device_settings_experimental_title">Tilraunaeiginleiki</string>
     <string name="device_settings_experimental_description">Þessi eiginleiki hefur ekki verið prófaður á öllum tækjum enn. Ef eitthvað virkar ekki rétt skaltu opna málskrá með kembikladda.</string>
     <string name="device_settings_experimental_action">Opna málaskráreftirlit</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Eftirfarandi heimild er nauðsynleg:</string>
     <string name="permission_system_alert_window_label">Kerfisviðvörunargluggi</string>
     <string name="permission_system_alert_window_description">Leyfðu CAPod að teikna yfir önnur forrit til að gera eiginleikann \"Sýna upplýsingaglugga\" mögulegan.</string>
-    <string name="settings_monitor_mode_manual_label">Þegar forrit er opið</string>
-    <string name="settings_monitor_mode_automatic_label">Þegar tæki er tengt</string>
-    <string name="settings_monitor_mode_always_label">Alltaf</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Þegar séð</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Hulstur opið</string>
     <string name="settings_reaction_autoconnect_inear_label">Í eyra</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Gulrauður</string>
     <string name="ui_theme_color_disabled_materialyou">Notar liti bakgrunnsmyndar</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Eftirlit</string>
     <string name="settings_category_appearance_label">Utsýni</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Óvistaðar breytingar</string>

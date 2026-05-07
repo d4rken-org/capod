@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ನೀವು ಇತ್ತೀಚೆಗೆ ಖರೀದಿಸಿದ್ದರೆ, Google Play ಸಿಂಕ್ ಆಗಲು ಸ್ವಲ್ಪ ಸಮಯ ತೆಗೆದುಕೊಳ್ಳಬಹುದು.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ನಿಮ್ಮ ಖರೀದಿ ಕಾಣಿಸದಿದ್ದರೆ ಕೆಲವು ನಿಮಿಷಗಳ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ಖರೀದಿಗೆ ಬಳಸಿದ ಅದೇ Google ಖಾತೆಯಿಂದ ಸೈನ್ ಇನ್ ಮಾಡಿರುವಿರಿ ಎಂದು ಖಚಿತಪಡಿಸಿ.</string>
-    <string name="settings_monitor_mode_label">ಮಾನಿಟರ್ ಮೋಡ್</string>
-    <string name="settings_monitor_mode_description">ಯಾವ ಸಂದರ್ಭಗಳಲ್ಲಿ ಈ ಅಪ್ಲಿಕೇಶನ್ ಬ್ಲೂಟೂತ್ ಡೇಟಾವನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡುತ್ತದೆ.</string>
     <string name="settings_monitor_connected_notification_label">ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆ</string>
     <string name="settings_monitor_connected_notification_description">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ ಹೆಚ್ಚುವರಿ ಅಧಿಸೂಚನೆಯನ್ನು ತೋರಿಸುತ್ತದೆ. ಇದು \"ಸಾಧನ ಸ್ಥಿತಿ\" ಚಾನಲ್ ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸುವ ಮೂಲಕ ಶಾಶ್ವತ \"ಯಾವುದೇ ಸಾಧನಗಳಿಲ್ಲ\" ಅಧಿಸೂಚನೆಯನ್ನು ಮರೆಮಾಡಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.</string>
     <string name="settings_keep_notification_after_disconnect_label">ಸಂಪರ್ಕ ಕಡಿತದ ನಂತರ ಅಧಿಸೂಚನೆ ಇರಿಸಿ</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">ಸಂಪರ್ಕ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ</string>
     <string name="settings_popup_connected_description">ಸಾಧನವು ಮೊದಲ ಬಾರಿಗೆ ಸಂಪರ್ಕಗೊಂಡಾಗ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ.</string>
     <string name="settings_popup_info_not_in_app">ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಇಲ್ಲದಿರುವಾಗ ಮಾತ್ರ ಪಾಪ್‌ಅಪ್‌ಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತದೆ.</string>
-    <string name="settings_popup_warning_manual_mode">ಪಾಪ್‌ಅಪ್‌ಗಳಿಗೆ ಮಾನಿಟರ್ ಚಾಲನೆಯಲ್ಲಿರಬೇಕು. ನಿಮ್ಮ ಮಾನಿಟರ್ ಮೋಡ್ \"ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದಿರುವಾಗ\" ಎಂದು ಹೊಂದಿಸಲಾಗಿದೆ, ಇದು ನೀವು ಅಪ್ಲಿಕೇಶನ್ ಬಿಟ್ಟು ಹೋದಾಗ ಮಾನಿಟರ್ ಅನ್ನು ನಿಲ್ಲಿಸುತ್ತದೆ.</string>
-    <string name="general_fix_it_action">ಸರಿಪಡಿಸಿ</string>
     <string name="device_settings_experimental_title">ಪ್ರಯೋಗಾತ್ಮಕ ವೈಶಿಷ್ಟ್ಯ</string>
     <string name="device_settings_experimental_description">ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಇನ್ನೂ ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ಪರೀಕ್ಷಿಸಲಾಗಿಲ್ಲ. ಏನಾದರೂ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಡಿಬಗ್ ಲಾಗ್‌ನೊಂದಿಗೆ ಸಮಸ್ಯೆ ತೆರೆಯಿರಿ.</string>
     <string name="device_settings_experimental_action">ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್ ತೆರೆಯಿರಿ</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">ಕೆಳಗಿನ ಅನುಮತಿ ಅಗತ್ಯವಿದೆ:</string>
     <string name="permission_system_alert_window_label">ಸಿಸ್ಟಮ್ ಅಲರ್ಟ್ ವಿಂಡೋ</string>
     <string name="permission_system_alert_window_description">\"ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ\" ವೈಶಿಷ್ಟ್ಯವನ್ನು ಸಾಧ್ಯವಾಗಿಸಲು CAPod ಇತರ ಅಪ್ಲಿಕೇಶನ್‌ಗಳ ಮೇಲೆ ಚಿತ್ರಿಸಲು ಅನುಮತಿಸಿ.</string>
-    <string name="settings_monitor_mode_manual_label">ಅಪ್ಲಿಕೇಶನ್ ತೆರೆದಿರುವಾಗ</string>
-    <string name="settings_monitor_mode_automatic_label">ಸಾಧನ ಸಂಪರ್ಕಗೊಂಡಾಗ</string>
-    <string name="settings_monitor_mode_always_label">ಯಾವಾಗಲೂ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ಕಂಡಾಗ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ಕೇಸ್ ತೆರೆದಿದೆ</string>
     <string name="settings_reaction_autoconnect_inear_label">ಕಿವಿಯಲ್ಲಿ</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">ಆಂಬರ್</string>
     <string name="ui_theme_color_disabled_materialyou">ವೊಯಲ್ಪೇಪರ್ ಬಣ್ಣಗಳನ್ನು ಬಳಸುತ್ತದೆ</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">ಮೇಲ್ವಳಿಕೆ</string>
     <string name="settings_category_appearance_label">ನೋಟರೂಪ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ಉಳಿಸದ ಬದಲಾವಣೆಗಳು</string>

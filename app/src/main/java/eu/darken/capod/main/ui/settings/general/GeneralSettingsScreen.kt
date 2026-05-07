@@ -1,44 +1,32 @@
 package eu.darken.capod.main.ui.settings.general
 
 import android.os.Build
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.selection.selectable
-import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AccountTree
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Contrast
 import androidx.compose.material.icons.twotone.DarkMode
-import androidx.compose.material.icons.twotone.DisabledVisible
 import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Notifications
 import androidx.compose.material.icons.twotone.Palette
 import androidx.compose.material.icons.automirrored.twotone.ViewList
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.capod.R
@@ -55,7 +43,6 @@ import eu.darken.capod.common.theming.ThemeColor
 import eu.darken.capod.common.theming.ThemeMode
 import eu.darken.capod.common.theming.ThemeState
 import eu.darken.capod.common.theming.ThemeStyle
-import eu.darken.capod.main.core.MonitorMode
 
 @Composable
 fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
@@ -67,7 +54,6 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
         GeneralSettingsScreen(
             state = it,
             onNavigateUp = { vm.navUp() },
-            onMonitorModeSelected = { mode -> vm.setMonitorMode(mode) },
             onShowConnectedNotificationChanged = { enabled -> vm.setShowConnectedNotification(enabled) },
             onKeepNotificationAfterDisconnectChanged = { enabled -> vm.setKeepNotificationAfterDisconnect(enabled) },
             onDebugSettings = { vm.goToDebugSettings() },
@@ -86,7 +72,6 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
 fun GeneralSettingsScreen(
     state: GeneralSettingsViewModel.State,
     onNavigateUp: () -> Unit,
-    onMonitorModeSelected: (MonitorMode) -> Unit,
     onShowConnectedNotificationChanged: (Boolean) -> Unit,
     onKeepNotificationAfterDisconnectChanged: (Boolean) -> Unit,
     onDebugSettings: () -> Unit,
@@ -99,7 +84,6 @@ fun GeneralSettingsScreen(
     onUpgrade: () -> Unit = {},
     modifier: Modifier = Modifier,
 ) {
-    var showMonitorModeDialog by remember { mutableStateOf(false) }
     var showColorDialog by remember { mutableStateOf(false) }
 
     val isMaterialYouActive = state.themeState.style == ThemeStyle.MATERIAL_YOU &&
@@ -122,17 +106,6 @@ fun GeneralSettingsScreen(
         },
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
-            item {
-                SettingsCategoryHeader(text = stringResource(R.string.settings_category_monitoring_label))
-            }
-            item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_monitor_mode_label),
-                    subtitle = stringResource(state.monitorMode.labelRes),
-                    icon = Icons.TwoTone.DisabledVisible,
-                    onClick = { showMonitorModeDialog = true },
-                )
-            }
             item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_appearance_label))
             }
@@ -286,20 +259,6 @@ fun GeneralSettingsScreen(
         }
     }
 
-    if (showMonitorModeDialog) {
-        ListPreferenceDialog(
-            title = stringResource(R.string.settings_monitor_mode_label),
-            entries = MonitorMode.entries,
-            selectedEntry = state.monitorMode,
-            onEntrySelected = {
-                onMonitorModeSelected(it)
-                showMonitorModeDialog = false
-            },
-            entryLabel = { stringResource(it.labelRes) },
-            onDismiss = { showMonitorModeDialog = false },
-        )
-    }
-
     if (showColorDialog) {
         ThemeColorSelectorDialog(
             selectedColor = state.themeState.color,
@@ -314,7 +273,6 @@ fun GeneralSettingsScreen(
 
 private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State(
     isPro = isPro,
-    monitorMode = MonitorMode.AUTOMATIC,
     showConnectedNotification = true,
     keepNotificationAfterDisconnect = false,
     isOffloadedFilteringDisabled = false,
@@ -329,7 +287,6 @@ private fun GeneralSettingsScreenProPreview() = PreviewWrapper {
     GeneralSettingsScreen(
         state = previewGeneralState(isPro = true),
         onNavigateUp = {},
-        onMonitorModeSelected = {},
         onShowConnectedNotificationChanged = {},
         onKeepNotificationAfterDisconnectChanged = {},
         onDebugSettings = {},
@@ -345,60 +302,11 @@ private fun GeneralSettingsScreenNonProPreview() = PreviewWrapper {
     GeneralSettingsScreen(
         state = previewGeneralState(isPro = false),
         onNavigateUp = {},
-        onMonitorModeSelected = {},
         onShowConnectedNotificationChanged = {},
         onKeepNotificationAfterDisconnectChanged = {},
         onDebugSettings = {},
         onOffloadedFilteringDisabledChanged = {},
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},
-    )
-}
-
-@Composable
-private fun <T> ListPreferenceDialog(
-    title: String,
-    entries: List<T>,
-    selectedEntry: T,
-    onEntrySelected: (T) -> Unit,
-    entryLabel: @Composable (T) -> String,
-    onDismiss: () -> Unit,
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(text = title) },
-        text = {
-            Column(Modifier.selectableGroup()) {
-                entries.forEach { entry ->
-                    val isSelected = entry == selectedEntry
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .selectable(
-                                selected = isSelected,
-                                onClick = { onEntrySelected(entry) },
-                                role = Role.RadioButton,
-                            )
-                            .padding(vertical = 12.dp, horizontal = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        RadioButton(
-                            selected = isSelected,
-                            onClick = null,
-                        )
-                        Text(
-                            text = entryLabel(entry),
-                            style = MaterialTheme.typography.bodyLarge,
-                            modifier = Modifier.padding(start = 16.dp),
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text(text = stringResource(android.R.string.cancel))
-            }
-        },
     )
 }

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Jei neseniai įsigįjote, gali užtrukti kol „Google Play“ sinchronizuosis.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Pabandykite dar kartą po kelių minučių, jei jūsų pirkimas neatsiranda.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Patikrinkite, ar esate prisijungę ta pačia „Google“ paskyra, kuri buvo naudota pirkiniui.</string>
-    <string name="settings_monitor_mode_label">Stebėjimo režimas</string>
-    <string name="settings_monitor_mode_description">Kokiomis aplinkybėmis ši programa stebi „Bluetooth\" duomenis.</string>
     <string name="settings_monitor_connected_notification_label">Papildomas pranešimas</string>
     <string name="settings_monitor_connected_notification_description">Rodo papildomą pranešimą, kai prijungiamas įrenginys. Tai leidžia paslėpti nuolatinį pranešimą \"Nėra įrenginių\" išjungiant kanalą \"Įrenginio būsena\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Palikti pranešimą atjungus</string>
@@ -80,7 +78,6 @@
     <string name="settings_popup_connected_label">Rodyti prisijungimo iškylantįjį langą</string>
     <string name="settings_popup_connected_description">Rodyti iškylantįjį langą, kai įrenginys prisijungia pirmą kartą.</string>
     <string name="settings_popup_info_not_in_app">Iskylantieji langai rodomi tik tada, kai nesate programoje.</string>
-    <string name="general_fix_it_action">Sutaisyti</string>
     <string name="device_settings_experimental_title">Eksperimentinė funkcija</string>
     <string name="device_settings_experimental_description">Ši funkcija dar neišbandyta visuose įrenginiuose. Jei kažkas neveikia tinkamai, atidarykite problemų sąrašą su derinimo žurnalu.</string>
     <string name="device_settings_experimental_action">Atidaryti problemų sąrašą</string>
@@ -223,9 +220,6 @@
     <string name="permission_required_title">Reikalingas šis leidimas:</string>
     <string name="permission_system_alert_window_label">Sistemos perspėjimo langas</string>
     <string name="permission_system_alert_window_description">Leiskite CAPod piešti virš kitų programų, kad būtų galima naudoti funkciją „Rodyti iškylantįjį langą\".</string>
-    <string name="settings_monitor_mode_manual_label">Kai programa atidaryta</string>
-    <string name="settings_monitor_mode_automatic_label">Kai įrenginys prijungtas</string>
-    <string name="settings_monitor_mode_always_label">Visada</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kai pastebėtas</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Dėklas atidarytas</string>
     <string name="settings_reaction_autoconnect_inear_label">Ausyje</string>
@@ -325,7 +319,6 @@
     <string name="ui_theme_color_amber_label">Gintarinė</string>
     <string name="ui_theme_color_disabled_materialyou">Naudoja fono paveikslėlio spalvas</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Stebėjimas</string>
     <string name="settings_category_appearance_label">Išvaizda</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Neišsaugoti pakeitimai</string>

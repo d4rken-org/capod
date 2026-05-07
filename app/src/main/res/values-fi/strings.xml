@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Jos olet hiljattain ostanut, Google Playn synkronointi saattaa kestää hetken.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Yritä uudelleen muutaman minuutin kuluttua, jos ostoksesi ei näy.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Varmista, että olet kirjautunut sisään samalla Google-tilillä, jolla teit ostoksen.</string>
-    <string name="settings_monitor_mode_label">Valvontatila</string>
-    <string name="settings_monitor_mode_description">Missä olosuhteissa tämä sovellus valvoo Bluetooth-tietoja.</string>
     <string name="settings_monitor_connected_notification_label">Lisäilmoitus</string>
     <string name="settings_monitor_connected_notification_description">Näyttää lisäilmoituksen, kun laite on yhdistetty. Tämä antaa sinun piilottaa pysyvän \"Ei laitteita\" -ilmoituksen poistamalla \"Laitteen tila\" -kanavan käytöstä.</string>
     <string name="settings_keep_notification_after_disconnect_label">Säilytä ilmoitus yhteyden katkaisun jälkeen</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Näytä yhteyden ponnahdusikkuna</string>
     <string name="settings_popup_connected_description">Näytä ponnahdusikkuna, kun laite yhdistetään ensimmäisen kerran.</string>
     <string name="settings_popup_info_not_in_app">Ponnahdusikkunat näytetään vain, kun et ole sovelluksessa.</string>
-    <string name="settings_popup_warning_manual_mode">Ponnahdusikkunat vaativat monitorin toimiakseen. Monitorintilaksesi on asetettu \"Kun sovellus on auki\", joka pysäyttää monitorin, kun poistut sovelluksesta.</string>
-    <string name="general_fix_it_action">Korjaa se</string>
     <string name="device_settings_experimental_title">Kokeellinen ominaisuus</string>
     <string name="device_settings_experimental_description">Tätä ominaisuutta ei ole vielä testattu kaikilla laitteilla. Jos jokin ei toimi oikein, avaa ongelmaraportti virheenkorjauslokilla.</string>
     <string name="device_settings_experimental_action">Avaa ongelmaseuranta</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Seuraava lupa vaaditaan:</string>
     <string name="permission_system_alert_window_label">Järjestelmän hälytysikkuna</string>
     <string name="permission_system_alert_window_description">Salli CAPod-sovelluksen piirtää muiden sovellusten päälle mahdollistaakseen \"Näytä ponnahdusikkuna\" -ominaisuuden.</string>
-    <string name="settings_monitor_mode_manual_label">Kun sovellus on auki</string>
-    <string name="settings_monitor_mode_automatic_label">Kun laite on yhdistetty</string>
-    <string name="settings_monitor_mode_always_label">Aina</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kun havaitaan</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kotelo on auki</string>
     <string name="settings_reaction_autoconnect_inear_label">Korvassa</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Ambra</string>
     <string name="ui_theme_color_disabled_materialyou">Käyttää taustakuvan värejä</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Valvonta</string>
     <string name="settings_category_appearance_label">Ulkoasu</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Tallentamattomat muutokset</string>

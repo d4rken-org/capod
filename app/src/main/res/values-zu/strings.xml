@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Uma uthenga kamuva nje, kungathatha isikhashana i-Google Play ukuvumelanisa.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Zama futhi emaminithini ambalwa uma ukuthenga kwakho kungabonakali.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Qiniseka ukuthi ungene nge-akhawunti efanayo ye-Google esetshenzisiwe ekuthengeni.</string>
-    <string name="settings_monitor_mode_label">Imodi yokuqapha</string>
-    <string name="settings_monitor_mode_description">Ngaphansi kwaziphi izimo lolu hlelo lokusebenza luqapha idatha ye-Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Isaziso esengeziwe</string>
     <string name="settings_monitor_connected_notification_description">Ibonisa isaziso esengeziwe lapho idivayisi ixhunyiwe. Lokhu kukuvumela ukuthi ufihle isaziso esihlala njalo esithi \"Awekho amadivayisi\" ngokukhubaza isiteshi \"Isimo sedivayisi\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Gcina isaziso ngemva kokunqamuka</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Bonisa isigelekeqe sokuxhuma</string>
     <string name="settings_popup_connected_description">Bonisa isigelekeqe lapho idivayisi ixhuma okokuqala.</string>
     <string name="settings_popup_info_not_in_app">Amapopup abonakala kuphela lapho ungekho kuhlelo lokusebenza.</string>
-    <string name="settings_popup_warning_manual_mode">Amapopup adinga ukuba ukulandelela kusebenze. Indlela yakho yokulalela isetwe ku-\"Uma uhlelo lusevulekile\", ekhanda ukulalelwa lapho uphuma kuhlelo lokusebenza.</string>
-    <string name="general_fix_it_action">Lungisa</string>
     <string name="device_settings_experimental_title">Isici sokuzama</string>
     <string name="device_settings_experimental_description">Lesi sici asikavivinywa kuzo zonke izidivayisi. Uma into ingasebenzi kahle, sicela uvule inkinga ngelogisi yokususa amaphutha.</string>
     <string name="device_settings_experimental_action">Vula Umlaleli Wezinkinga</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Imvume elandelayo iyadingeka:</string>
     <string name="permission_system_alert_window_label">Iwindi Lesexwayiso Sohlelo</string>
     <string name="permission_system_alert_window_description">Vumela i-CAPod ukuthi idwebe phezu kwezinye izinhlelo zokusebenza ukwenza isici \"Bonisa isigelekeqe\" sikwazi ukusebenza.</string>
-    <string name="settings_monitor_mode_manual_label">Uma uhlelo lokusebenza luvuliwe</string>
-    <string name="settings_monitor_mode_automatic_label">Uma idivayisi ixhunyiwe</string>
-    <string name="settings_monitor_mode_always_label">Njalo</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Uma ibonwe</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Ikesi livuliwe</string>
     <string name="settings_reaction_autoconnect_inear_label">Endlebeni</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Isebenzisa imibala yesithombe semuva</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Ukulandelela</string>
     <string name="settings_category_appearance_label">Ukubonakala</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Izinguquko Ezingalondoloziwe</string>

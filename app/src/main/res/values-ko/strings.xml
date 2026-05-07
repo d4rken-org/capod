@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">최근에 구매하셨다면 Google Play가 동기화하는 데 잠시 시간이 걸릴 수 있습니다.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">구매 내역이 표시되지 않으면 몇 분 후 다시 시도해 주세요.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">구매에 사용한 Google 계정으로 로그인되어 있는지 확인해 주세요.</string>
-    <string name="settings_monitor_mode_label">모니터링 모드</string>
-    <string name="settings_monitor_mode_description">이 앱이 Bluetooth 데이터를 모니터링하는 상황입니다.</string>
     <string name="settings_monitor_connected_notification_label">추가 알림</string>
     <string name="settings_monitor_connected_notification_description">기기가 연결되면 추가 알림을 표시합니다. 이렇게 하면 \"기기 상태\" 채널을 비활성화하여 영구적인 \"기기 없음\" 알림을 숨길 수 있습니다.</string>
     <string name="settings_keep_notification_after_disconnect_label">연결 해제 후에도 알림 유지하기</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">연결 팝업 표시</string>
     <string name="settings_popup_connected_description">기기가 처음 연결될 때 팝업을 표시합니다.</string>
     <string name="settings_popup_info_not_in_app">팝업은 앱 내에 있지 않을 때만 표시됩니다.</string>
-    <string name="settings_popup_warning_manual_mode">팝업을 사용하려면 모니터가 실행 중이어야 합니다. 현재 모니터 모드가 \"앱을 열었을 때\"로 설정되어 있어 앱을 벗어나면 모니터가 중지됩니다.</string>
-    <string name="general_fix_it_action">수정하기</string>
     <string name="device_settings_experimental_title">실험적 기능</string>
     <string name="device_settings_experimental_description">이 기능은 아직 모든 기기에서 테스트되지 않았습니다. 제대로 작동하지 않는 경우 디버그 로그와 함께 이슈를 열어주세요.</string>
     <string name="device_settings_experimental_action">이슈 트래커 열기</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">다음과 같은 권한이 필요합니다:</string>
     <string name="permission_system_alert_window_label">시스템 알림창</string>
     <string name="permission_system_alert_window_description">\"팝업 표시\" 기능을 사용하려면 다른 앱 위에 그리기를 허용해야 합니다.</string>
-    <string name="settings_monitor_mode_manual_label">앱이 열려있을때</string>
-    <string name="settings_monitor_mode_automatic_label">장치가 연결되었을때</string>
-    <string name="settings_monitor_mode_always_label">항상</string>
     <string name="settings_reaction_autoconnect_whenseen_label">앱이 장치를 찾았을때</string>
     <string name="settings_reaction_autoconnect_caseopen_label">케이스가 열렸을때</string>
     <string name="settings_reaction_autoconnect_inear_label">귀에 착용했을 때</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">호박색</string>
     <string name="ui_theme_color_disabled_materialyou">바탕화면 색상 사용</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">모니터링</string>
     <string name="settings_category_appearance_label">외관</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">저장되지 않은 변경 사항</string>

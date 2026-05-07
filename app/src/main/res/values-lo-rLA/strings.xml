@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ຖ້າທ່ານຊື້ຜ່ານມາບໍ່ດົນ, ອາດໃຊ້ເວລາໜ້ອຍໜຶ່ງສຳລັບ Google Play ໃນການຊິ້ງຂໍ້ມູນ.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ລອງໃໝ່ຫຼັງຈາກສອງສາມນາທີ ຖ້າການຊື້ຂອງທ່ານຍັງບໍ່ສະແດງ.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ໃຫ້ແນ່ໃຈວ່າທ່ານໄດ້ລ໋ອກອິນດ້ວຍບັນຊີ Google ດຽວກັນກັບທີ່ໃຊ້ຊື້.</string>
-    <string name="settings_monitor_mode_label">ໂໝດຕິດຕາມ</string>
-    <string name="settings_monitor_mode_description">ແອັບນີ້ຕິດຕາມຂໍ້ມູນ Bluetooth ພາຍໃຕ້ສະຖານະການໃດ.</string>
     <string name="settings_monitor_connected_notification_label">ການແຈ້ງເຕືອນເພີ່ມເຕີມ</string>
     <string name="settings_monitor_connected_notification_description">ສະແດງການແຈ້ງເຕືອນເພີ່ມເຕີມເມື່ອອຸປະກອນເຊື່ອມຕໍ່ແລ້ວ. ນີ້ຊ່ວຍໃຫ້ທ່ານສາມາດເຊື່ອງການແຈ້ງເຕືອນຖາວອນ \"ບໍ່ມີອຸປະກອນ\" ໂດຍການປິດຊ່ອງ \"ສະຖານະອຸປະກອນ\" .</string>
     <string name="settings_keep_notification_after_disconnect_label">ຮັກສາການແຈ້ງເຕືອນຫຼັງຈາກຕັດການເຊື່ອມຕໍ່</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">ສະແດງປັອບອັບການເຊື່ອມຕໍ່</string>
     <string name="settings_popup_connected_description">ສະແດງປັອບອັບເມື່ອອຸປະກອນເຊື່ອມຕໍ່ຄັ້ງທຳອິດ.</string>
     <string name="settings_popup_info_not_in_app">ປ໋ອບອັບຈະສະແດງໃຫ້ເຫັນສະເພາະເມື່ອທ່ານບໍ່ຢູ່ໃນແອັບ.</string>
-    <string name="settings_popup_warning_manual_mode">ປ໋ອບອັບຕ້ອງການໃຫ້ຕົວຕິດຕາມເຮັດວຽກຢູ່. ໂໝດຕິດຕາມຂອງທ່ານຖືກຕັ້ງເປັນ \"ເມື່ອແອັບເປີດ\" ເຊິ່ງຈະຢຸດຕົວຕິດຕາມເມື່ອທ່ານອອກຈາກແອັບ.</string>
-    <string name="general_fix_it_action">ແກ້ໄຂ</string>
     <string name="device_settings_experimental_title">ຟີເຈີທົດລອງ</string>
     <string name="device_settings_experimental_description">ຟີເຈີນີ້ຍັງບໍ່ໄດ້ຮັບການທົດສອບໃນທຸກອຸປະກອນ. ຖ້າມີບາງຢ່າງທີ່ບໍ່ເຮັດວຽກຢ່າງຖືກຕ້ອງ, ກະລຸນາເປີດ issue ພ້ອມ debug log.</string>
     <string name="device_settings_experimental_action">ເປີດ Issue Tracker</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">ຕ້ອງການການອະນຸຍາດຕໍ່ໄປນີ້:</string>
     <string name="permission_system_alert_window_label">ໜ້າຕ່າງການແຈ້ງເຕືອນລະບົບ</string>
     <string name="permission_system_alert_window_description">ອະນຸຍາດໃຫ້ CAPod ແຕ້ມທັບແອັບອື່ນເພື່ອໃຫ້ຄຸນສົມບັດ \"ສະແດງປັອບອັບ\" ເປັນໄປໄດ້.</string>
-    <string name="settings_monitor_mode_manual_label">ເມື່ອແອັບເປີດ</string>
-    <string name="settings_monitor_mode_automatic_label">ເມື່ອອຸປະກອນເຊື່ອມຕໍ່</string>
-    <string name="settings_monitor_mode_always_label">ສະເໝີ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">ເມື່ອເຫັນ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ເຄສເປີດ</string>
     <string name="settings_reaction_autoconnect_inear_label">ໃນຫູ</string>
@@ -319,7 +312,6 @@
     <string name="ui_theme_color_amber_label">ສີເຫຼືອງອຳ</string>
     <string name="ui_theme_color_disabled_materialyou">ໃຊ້ສີຮູບພາບພື້ນຫຼັງ</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">ການຕິດຕາມ</string>
     <string name="settings_category_appearance_label">ຮູບລັກສະນະ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">ການປ່ຽນແປງທີ່ບໍ່ໄດ້ບັນທຶກ</string>

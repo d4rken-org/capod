@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Sche vus avais cumprà dacurt, po dar ina muntada avantgut che Google Play sincronisescha.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Empruva anc ina giada suenter intgins minutas sche la cumpra n\'appara betg.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Controllai che vus seis connectà cun il medem conto Google duvrà per la cumpra.</string>
-    <string name="settings_monitor_mode_label">Modus da surveglianza</string>
-    <string name="settings_monitor_mode_description">Sut tge circumstanzas surveglia questa app datas da Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificaziun supplementara</string>
     <string name="settings_monitor_connected_notification_description">Mussa ina notificaziun supplementara cura ch\'in apparat è connectà. Quai permetta da zoppar la notificaziun permanenta \"Nagins apparats\" cun deactivar il chanal \"Stadi da l\'apparat\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantegnair la notificaziun suenter la deconnexiun</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Mussar il popup da connexiun</string>
     <string name="settings_popup_connected_description">Mussar in popup cura che l\'apparat sa connecta per l\'emprima giada.</string>
     <string name="settings_popup_info_not_in_app">Fenestras da popup vegnan mo mussadas cura ch\'i na sei betg en l\'app.</string>
-    <string name="settings_popup_warning_manual_mode">Fenestras da popup dovran il monitor activ. Voss modus da monitor è fixà sin \"Cura ch\'il app è avert\", che stoppa il monitor cura ch\'i lascha l\'app.</string>
-    <string name="general_fix_it_action">Correger</string>
     <string name="device_settings_experimental_title">Funcziun experimentala</string>
     <string name="device_settings_experimental_description">Questa funcziun n\'è anc betg vegnida testada sin tuts apparats. Sch\'insatge na funcziuna betg correctamain, vegnì plais avrir ina dumonda cun in protocol da debug.</string>
     <string name="device_settings_experimental_action">Avrir il tractur da dumondas</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">La suandanta permissiun è necessaria:</string>
     <string name="permission_system_alert_window_label">Fanestra d\'avis dal sistem</string>
     <string name="permission_system_alert_window_description">Permetter a CAPod da dessegnar sur autras apps per render pussaivla la funcziun \"Mussar PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Cura che l\'app è averta</string>
-    <string name="settings_monitor_mode_automatic_label">Cura che l\'apparat è connectà</string>
-    <string name="settings_monitor_mode_always_label">Adina</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Cura che vis</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Scatla averta</string>
     <string name="settings_reaction_autoconnect_inear_label">En l\'ureglia</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Ambra</string>
     <string name="ui_theme_color_disabled_materialyou">Utilisescha ils colurs dal fund da visur</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Surveglianza</string>
     <string name="settings_category_appearance_label">Apparenza</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Midadas betg memorisadas</string>

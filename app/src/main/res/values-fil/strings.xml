@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Kung nabili mo kamakailan, maaaring tumagal ng ilang sandali para ma-sync ng Google Play.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Subukang muli pagkatapos ng ilang minuto kung hindi lumabas ang iyong pagbili.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Tiyaking naka-sign in ka sa parehong Google account na ginamit sa pagbili.</string>
-    <string name="settings_monitor_mode_label">Mode ng monitor</string>
-    <string name="settings_monitor_mode_description">Sa ilalim ng anong mga pangyayari mino-monitor ng app na ito ang data ng Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Karagdagang notipikasyon</string>
     <string name="settings_monitor_connected_notification_description">Nagpapakita ng karagdagang notipikasyon kapag konektado ang isang device. Pinapayagan ka nitong itago ang permanenteng \"Walang mga device\" na notipikasyon sa pamamagitan ng pag-disable sa \"Katayuan ng device\" na channel.</string>
     <string name="settings_keep_notification_after_disconnect_label">Panatilihin ang notipikasyon pagkatapos mag-disconnect</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Ipakita ang connection popup</string>
     <string name="settings_popup_connected_description">Magpakita ng popup kapag unang kumonekta ang device.</string>
     <string name="settings_popup_info_not_in_app">Ang mga popup ay ipinapakita lamang kapag wala ka sa app.</string>
-    <string name="settings_popup_warning_manual_mode">Ang mga popup ay nangangailangan ng monitor na tumatakbo. Ang iyong monitor mode ay nakatakda sa \"When app is open\", na nagpapatigil ng monitor kapag umalis ka sa app.</string>
-    <string name="general_fix_it_action">Ayusin ito</string>
     <string name="device_settings_experimental_title">Pang-eksperimentong tampok</string>
     <string name="device_settings_experimental_description">Ang tampok na ito ay hindi pa nasubok sa lahat ng device. Kung may hindi gumagana nang tama, mangyaring magbukas ng isyu na may debug log.</string>
     <string name="device_settings_experimental_action">Buksan ang Issue Tracker</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Kailangan ang sumusunod na pahintulot:</string>
     <string name="permission_system_alert_window_label">System Alert Window</string>
     <string name="permission_system_alert_window_description">Payagan ang CAPod na mag-draw sa ibabaw ng ibang mga app para maging posible ang feature na \"Ipakita ang PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Kapag bukas ang app</string>
-    <string name="settings_monitor_mode_automatic_label">Kapag konektado ang device</string>
-    <string name="settings_monitor_mode_always_label">Palagi</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kapag nakita</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Bukas ang case</string>
     <string name="settings_reaction_autoconnect_inear_label">Nasa tainga</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Gumagamit ng mga kulay ng wallpaper</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Pagmo-monitor</string>
     <string name="settings_category_appearance_label">Hitsura</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Mga Hindi Na-save na Pagbabago</string>
