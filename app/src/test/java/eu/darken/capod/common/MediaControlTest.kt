@@ -43,10 +43,10 @@ class MediaControlTest : BaseTest() {
     }
 
     @Test
-    fun `sendPlay ignores stale active state after cap pause`() = runTest {
+    fun `sendPlay ignores stale active state after auto-pause`() = runTest {
         every { audioManager.isMusicActive } returns true
 
-        mediaControl.sendPause()
+        mediaControl.sendPause(rememberForResume = true)
         assertTrue(mediaControl.wasRecentlyPausedByCap)
         clearMocks(audioManager, answers = false, recordedCalls = true)
 
@@ -57,10 +57,10 @@ class MediaControlTest : BaseTest() {
     }
 
     @Test
-    fun `sendPlayPause resumes after cap pause even when audio manager still reports active`() = runTest {
+    fun `sendPlayPause resumes after auto-pause even when audio manager still reports active`() = runTest {
         every { audioManager.isMusicActive } returns true
 
-        mediaControl.sendPause()
+        mediaControl.sendPause(rememberForResume = true)
         assertTrue(mediaControl.wasRecentlyPausedByCap)
         clearMocks(audioManager, answers = false, recordedCalls = true)
 
@@ -71,14 +71,43 @@ class MediaControlTest : BaseTest() {
     }
 
     @Test
-    fun `sendPause returns true and dispatches when music is active`() = runTest {
+    fun `default sendPause dispatches but does NOT arm auto-resume`() = runTest {
         every { audioManager.isMusicActive } returns true
 
         val dispatched = mediaControl.sendPause()
 
         assertTrue(dispatched)
+        // Critical: a user-initiated pause (stem, sleep, etc.) must not arm the auto-resume
+        // flag. Only `rememberForResume = true` (auto-pause from ear removal) does that.
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
+        verify(exactly = 2) { audioManager.dispatchMediaKeyEvent(any()) }
+    }
+
+    @Test
+    fun `sendPause with rememberForResume dispatches and arms auto-resume`() = runTest {
+        every { audioManager.isMusicActive } returns true
+
+        val dispatched = mediaControl.sendPause(rememberForResume = true)
+
+        assertTrue(dispatched)
         assertTrue(mediaControl.wasRecentlyPausedByCap)
         verify(exactly = 2) { audioManager.dispatchMediaKeyEvent(any()) }
+    }
+
+    @Test
+    fun `default sendPause clears any prior auto-resume flag when actually dispatching`() = runTest {
+        // Prime: ear-removal auto-pause armed the flag.
+        every { audioManager.isMusicActive } returns true
+        mediaControl.sendPause(rememberForResume = true)
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+
+        // Music is somehow playing again (manual resume). Then a stem-press or sleep-pause
+        // fires while music is active — explicit user pause must SUPERSEDE the prior
+        // auto-pause memory.
+        every { audioManager.isMusicActive } returns true
+        mediaControl.sendPause()
+
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
     }
 
     @Test
@@ -88,17 +117,59 @@ class MediaControlTest : BaseTest() {
         val dispatched = mediaControl.sendPause()
 
         assertFalse(dispatched)
-        // Critical: the cap-pause flag must NOT be set for a no-op pause, otherwise an
-        // unrelated sendPlay would treat it as "we just paused, resume from it".
         assertFalse(mediaControl.wasRecentlyPausedByCap)
         verify(exactly = 0) { audioManager.dispatchMediaKeyEvent(any()) }
+    }
+
+    @Test
+    fun `no-op sendPause does NOT clear an existing auto-resume flag`() = runTest {
+        // Prime: auto-pause armed the flag and music is now inactive.
+        every { audioManager.isMusicActive } returns true
+        mediaControl.sendPause(rememberForResume = true)
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+
+        // Music has gone inactive (the auto-pause took effect). A sleep reaction now fires
+        // while music is already paused — sendPause is a no-op (returns false) and must NOT
+        // wipe the pending auto-resume intent from the prior ear-removal pause.
+        every { audioManager.isMusicActive } returns false
+        val dispatched = mediaControl.sendPause()
+
+        assertFalse(dispatched)
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+    }
+
+    @Test
+    fun `sendPause with rememberForResume returns false and does not arm the flag when no music is active`() = runTest {
+        every { audioManager.isMusicActive } returns false
+
+        val dispatched = mediaControl.sendPause(rememberForResume = true)
+
+        assertFalse(dispatched)
+        // Critical: arming the flag for a no-op pause would later make sendPlay treat it as
+        // "we just paused" and force a resume.
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
+        verify(exactly = 0) { audioManager.dispatchMediaKeyEvent(any()) }
+    }
+
+    @Test
+    fun `sendStop dispatches MEDIA_STOP and clears auto-resume`() = runTest {
+        // Prime auto-resume.
+        every { audioManager.isMusicActive } returns true
+        mediaControl.sendPause(rememberForResume = true)
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+        clearMocks(audioManager, answers = false, recordedCalls = true)
+
+        mediaControl.sendStop()
+
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
+        verify(exactly = 2) { audioManager.dispatchMediaKeyEvent(any()) }
     }
 
     @Test
     fun `wasRecentlyPausedByCap is sticky and does not expire on its own`() = runTest {
         every { audioManager.isMusicActive } returns true
 
-        mediaControl.sendPause()
+        mediaControl.sendPause(rememberForResume = true)
         assertTrue(mediaControl.wasRecentlyPausedByCap)
 
         // Wait an arbitrarily long time. With the previous timer-based design this would have
@@ -111,11 +182,9 @@ class MediaControlTest : BaseTest() {
     @Test
     fun `wasRecentlyPausedByCap clears when music transitions inactive to active from any source`() = runTest {
         every { audioManager.isMusicActive } returns true
+        fireCallback() // seed lastKnownMusicActive=true
 
-        // First the seed transition active→active so lastKnownMusicActive is true.
-        fireCallback()
-
-        mediaControl.sendPause()
+        mediaControl.sendPause(rememberForResume = true)
         assertTrue(mediaControl.wasRecentlyPausedByCap)
 
         // Music goes inactive (CAP's pause took effect).
@@ -131,7 +200,7 @@ class MediaControlTest : BaseTest() {
     }
 
     @Test
-    fun `sendPause sets capPaused before dispatching so a racing inactive-active callback cannot leave a stale true`() = runTest {
+    fun `auto-pause sets capPaused before dispatching so a racing inactive-active callback cannot leave a stale true`() = runTest {
         // Repro for a race where the playback config callback fires during sendKey()'s
         // suspension. If capPaused were set after dispatch, an interleaved inactive→active
         // callback would clear it, then sendPause's post-dispatch line would put it back to
@@ -151,7 +220,7 @@ class MediaControlTest : BaseTest() {
             fireCallback()
         }
 
-        mediaControl.sendPause()
+        mediaControl.sendPause(rememberForResume = true)
 
         // After the suspended dispatch returns, capPaused should be in a coherent state with
         // the live callback observations. Music is currently active (per the racing callback)

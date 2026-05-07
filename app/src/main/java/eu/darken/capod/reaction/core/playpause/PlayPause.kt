@@ -265,7 +265,7 @@ class PlayPause @Inject constructor(
                     }
 
                     decision.shouldPause && reactions.autoPause -> {
-                        val pauseSent = mediaControl.sendPause()
+                        val pauseSent = mediaControl.sendPause(rememberForResume = true)
                         log(TAG, INFO) {
                             "autoPause triggered: source=$source, " +
                                 "wasWorn=${prevState.bothInEar}, isWorn=${currState.bothInEar}, " +

@@ -1755,7 +1755,7 @@ class PlayPauseLogicTest : BaseTest() {
             val mediaControl: MediaControl = mockk(relaxed = true) {
                 every { isPlaying } returns true
                 every { wasRecentlyPausedByCap } returns false
-                coEvery { sendPause() } returns true
+                coEvery { sendPause(rememberForResume = true) } returns true
             }
             val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
 
@@ -1777,7 +1777,7 @@ class PlayPauseLogicTest : BaseTest() {
             deviceFlow.value = listOf(buildDevice(now.plusMillis(3000), leftWorn = false, rightWorn = false))
             advanceUntilIdle()
 
-            coVerify(exactly = 1) { mediaControl.sendPause() }
+            coVerify(exactly = 1) { mediaControl.sendPause(rememberForResume = true) }
 
             job.cancel()
         }
@@ -1794,7 +1794,7 @@ class PlayPauseLogicTest : BaseTest() {
             val mediaControl: MediaControl = mockk(relaxed = true) {
                 every { isPlaying } returns true
                 every { wasRecentlyPausedByCap } returns false
-                coEvery { sendPause() } returns true
+                coEvery { sendPause(rememberForResume = true) } returns true
             }
             val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
 
@@ -1823,13 +1823,13 @@ class PlayPauseLogicTest : BaseTest() {
             deviceFlow.value = listOf(buildDevice(now.plusMillis(5000), leftWorn = false, rightWorn = false))
             advanceUntilIdle()
 
-            coVerify(exactly = 0) { mediaControl.sendPause() }
+            coVerify(exactly = 0) { mediaControl.sendPause(rememberForResume = true) }
 
             // T6: the new removal sequence reaches three consecutive not-worn samples.
             deviceFlow.value = listOf(buildDevice(now.plusMillis(6000), leftWorn = false, rightWorn = false))
             advanceUntilIdle()
 
-            coVerify(exactly = 1) { mediaControl.sendPause() }
+            coVerify(exactly = 1) { mediaControl.sendPause(rememberForResume = true) }
 
             job.cancel()
         }
@@ -1978,7 +1978,7 @@ class PlayPauseLogicTest : BaseTest() {
             val mediaControl: MediaControl = mockk(relaxed = true) {
                 every { isPlaying } returns true
                 every { wasRecentlyPausedByCap } returns false
-                coEvery { sendPause() } returns true
+                coEvery { sendPause(rememberForResume = true) } returns true
             }
             val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
 
@@ -1998,7 +1998,7 @@ class PlayPauseLogicTest : BaseTest() {
             deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true))
             advanceUntilIdle()
 
-            coVerify(exactly = 0) { mediaControl.sendPause() }
+            coVerify(exactly = 0) { mediaControl.sendPause(rememberForResume = true) }
             coVerify(exactly = 0) { mediaControl.sendPlay() }
 
             job.cancel()
@@ -2120,7 +2120,7 @@ class PlayPauseLogicTest : BaseTest() {
             )
             advanceUntilIdle()
 
-            coVerify(exactly = 0) { mediaControl.sendPause() }
+            coVerify(exactly = 0) { mediaControl.sendPause(rememberForResume = true) }
 
             // T2: pod reinserted. Auto-play must NOT fire — the user paused, not CAP, and the
             // user hasn't opted into cold-wear.
