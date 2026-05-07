@@ -48,6 +48,7 @@ internal fun ReactionsCard(
     monitorMode: MonitorMode,
     onAutoPlayChange: (Boolean) -> Unit = {},
     onAutoPauseChange: (Boolean) -> Unit = {},
+    onStartMusicOnWearChange: (Boolean) -> Unit = {},
     onOnePodModeChange: (Boolean) -> Unit = {},
     onConversationalAwarenessChange: (Boolean) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
@@ -73,6 +74,16 @@ internal fun ReactionsCard(
                 onCheckedChange = onAutoPlayChange,
                 requiresUpgrade = !isPro,
             )
+            if (reactions.autoPlay) {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.PlayCircle,
+                    title = stringResource(R.string.settings_start_music_on_wear_label),
+                    subtitle = stringResource(R.string.settings_start_music_on_wear_description),
+                    checked = reactions.startMusicOnWear,
+                    onCheckedChange = onStartMusicOnWearChange,
+                    requiresUpgrade = !isPro,
+                )
+            }
             SettingsSwitchItem(
                 icon = Icons.TwoTone.PauseCircle,
                 title = stringResource(R.string.settings_autopause_label),

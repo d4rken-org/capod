@@ -5,6 +5,7 @@ import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 data class ReactionConfig(
     val autoPause: Boolean = false,
     val autoPlay: Boolean = false,
+    val startMusicOnWear: Boolean = false,
     val onePodMode: Boolean = false,
     val autoConnect: Boolean = false,
     val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,

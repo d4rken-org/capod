@@ -79,7 +79,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `one in to both in - should play if not playing`() {
+        fun `one in to both in - should play if not playing (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromDualPod(left = true, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -87,7 +87,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = false,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decision.shouldPlay shouldBe true
@@ -145,7 +146,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `none in to both in - should play if not playing`() {
+        fun `none in to both in - should play if not playing (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromDualPod(left = false, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -153,7 +154,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = false,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decision.shouldPlay shouldBe true
@@ -225,10 +227,9 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `one in to both in - user paused externally, do not auto-play`() {
+        fun `one in to both in - default suppresses autoplay when not we-paused`() {
             // Bug repro: user manually paused, then took one pod out and put it back.
-            // Music isn't playing and we didn't pause it — but it was stopped recently
-            // by something external (user). Suppress autoplay.
+            // We didn't pause and the user hasn't opted into cold-wear; suppress autoplay.
             val previous = EarDetectionState.fromDualPod(left = true, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -238,7 +239,7 @@ class PlayPauseLogicTest : BaseTest() {
                 onePodMode = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
-                wasMusicExternallyStoppedRecently = true,
+                startMusicOnWear = false,
             )
 
             decision.shouldPlay shouldBe false
@@ -246,45 +247,59 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `one in to both in - cap-paused wins over external-stop suppression`() {
-            // Even if `wasMusicExternallyStoppedRecently` is also true (e.g. CAP attribution
-            // window expired and another non-CAP stop happened), `wasRecentlyPausedByUs`
-            // must still take precedence and resume.
+        fun `one in to both in - we-paused resumes regardless of startMusicOnWear`() {
+            // wasRecentlyPausedByUs=true must take precedence over the cold-wear setting:
+            // resume our pause whether or not the user opted into cold-wear.
             val previous = EarDetectionState.fromDualPod(left = true, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
-            val decision = playPause.evaluatePlayPauseAction(
+            val decisionWearOff = playPause.evaluatePlayPauseAction(
                 previous = previous,
                 current = current,
                 onePodMode = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = true,
-                wasMusicExternallyStoppedRecently = true,
+                startMusicOnWear = false,
             )
+            decisionWearOff.shouldPlay shouldBe true
 
-            decision.shouldPlay shouldBe true
-            decision.shouldPause shouldBe false
+            val decisionWearOn = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = true,
+                startMusicOnWear = true,
+            )
+            decisionWearOn.shouldPlay shouldBe true
         }
 
         @Test
-        fun `none in to both in - cold start with no history fires play`() {
-            // No external stop recorded, music not playing, we didn't pause — pure
-            // cold start. Auto-play should still fire so the existing "put pods on
-            // to wake the media app" behavior is preserved.
+        fun `none in to both in - cold start fires play only when startMusicOnWear is opted in`() {
+            // Default OFF: putting pods on with no music history does nothing.
+            // Opted in: same transition fires the cold-wear play key.
             val previous = EarDetectionState.fromDualPod(left = false, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
-            val decision = playPause.evaluatePlayPauseAction(
+            val decisionDefault = playPause.evaluatePlayPauseAction(
                 previous = previous,
                 current = current,
                 onePodMode = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
-                wasMusicExternallyStoppedRecently = false,
+                startMusicOnWear = false,
             )
+            decisionDefault.shouldPlay shouldBe false
 
-            decision.shouldPlay shouldBe true
-            decision.shouldPause shouldBe false
+            val decisionOptedIn = playPause.evaluatePlayPauseAction(
+                previous = previous,
+                current = current,
+                onePodMode = false,
+                isCurrentlyPlaying = false,
+                wasRecentlyPausedByUs = false,
+                startMusicOnWear = true,
+            )
+            decisionOptedIn.shouldPlay shouldBe true
         }
     }
 
@@ -324,7 +339,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `none in to one in - should play if not playing`() {
+        fun `none in to one in - should play if not playing (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromDualPod(left = false, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = false)
 
@@ -332,7 +347,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = true,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decision.shouldPlay shouldBe true
@@ -356,7 +372,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `one in to both in - should play if paused`() {
+        fun `one in to both in - should play if paused (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromDualPod(left = true, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -364,7 +380,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = true,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             // NEW BEHAVIOR: In one-pod mode, inserting a pod triggers play
@@ -478,7 +495,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `none in to both in - should play if not playing`() {
+        fun `none in to both in - should play if not playing (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromDualPod(left = false, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -486,7 +503,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = true,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decision.shouldPlay shouldBe true
@@ -515,14 +533,18 @@ class PlayPauseLogicTest : BaseTest() {
             decision1to2.shouldPlay shouldBe false
             decision1to2.shouldPause shouldBe true
 
-            // Step 2→3: Right reinserted (should play)
+            // Step 2→3: Right reinserted (should play). The original pause came from CAP in
+            // step 1→2, so wasRecentlyPausedByUs would be true in real flow — pass that here
+            // to keep the test focused on the one-pod-mode transition logic without depending
+            // on the cold-wear setting.
             val step3 = EarDetectionState.fromDualPod(left = true, right = true)
 
             val decision2to3 = playPause.evaluatePlayPauseAction(
                 previous = step2,
                 current = step3,
                 onePodMode = true,
-                isCurrentlyPlaying = false  // Music is now paused from step 2
+                isCurrentlyPlaying = false, // Music is now paused from step 2
+                wasRecentlyPausedByUs = true,
             )
 
             // Expected: should play when a pod is reinserted
@@ -531,7 +553,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `rapid transitions - none to one to none - should play then pause`() {
+        fun `rapid transitions - none to one to none - should play then pause (cold-wear opt-in)`() {
             // Step 1: None → One in (should play)
             val step1 = EarDetectionState.fromDualPod(left = false, right = false)
             val step2 = EarDetectionState.fromDualPod(left = true, right = false)
@@ -540,7 +562,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = step1,
                 current = step2,
                 onePodMode = true,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decision1to2.shouldPlay shouldBe true
@@ -561,8 +584,9 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `one-pod mode pod insertion - external stop suppresses autoplay`() {
+        fun `one-pod mode pod insertion - default suppresses autoplay`() {
             // Bug repro in one-pod mode: user manually paused, removed one pod, put it back.
+            // Default startMusicOnWear=false means cold-wear path is gated; suppress.
             val previous = EarDetectionState.fromDualPod(left = true, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -572,7 +596,7 @@ class PlayPauseLogicTest : BaseTest() {
                 onePodMode = true,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
-                wasMusicExternallyStoppedRecently = true,
+                startMusicOnWear = false,
             )
 
             decision.shouldPlay shouldBe false
@@ -580,7 +604,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `one-pod mode pod insertion - cap-paused still resumes despite external stop flag`() {
+        fun `one-pod mode pod insertion - cap-paused still resumes regardless of startMusicOnWear`() {
             val previous = EarDetectionState.fromDualPod(left = true, right = false)
             val current = EarDetectionState.fromDualPod(left = true, right = true)
 
@@ -590,7 +614,7 @@ class PlayPauseLogicTest : BaseTest() {
                 onePodMode = true,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = true,
-                wasMusicExternallyStoppedRecently = true,
+                startMusicOnWear = false,
             )
 
             decision.shouldPlay shouldBe true
@@ -602,12 +626,13 @@ class PlayPauseLogicTest : BaseTest() {
     inner class BleConfirmationTests {
 
         @Test
-        fun `ble-only normal mode autoplay waits for confirmation`() {
+        fun `ble-only normal mode autoplay waits for confirmation (cold-wear opt-in)`() {
             val rawDecision = playPause.evaluatePlayPauseAction(
                 previous = EarDetectionState.fromDualPod(left = true, right = false),
                 current = EarDetectionState.fromDualPod(left = true, right = true),
                 onePodMode = false,
                 isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             val result = playPause.applyBleOnlyPlayConfirmation(
@@ -620,6 +645,7 @@ class PlayPauseLogicTest : BaseTest() {
                 shouldStageBleOnlyPlay = true,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
+                startMusicOnWear = true,
             )
 
             result.decision.shouldPlay shouldBe false
@@ -635,7 +661,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `ble-only normal mode autoplay confirms on stable follow-up state`() {
+        fun `ble-only normal mode autoplay confirms on stable follow-up state (cold-wear opt-in)`() {
             val pending = PlayPause.PendingPlayConfirmation(
                 profileId = "profile",
                 onePodMode = false,
@@ -648,6 +674,7 @@ class PlayPauseLogicTest : BaseTest() {
                 current = EarDetectionState.fromDualPod(left = true, right = true),
                 onePodMode = false,
                 isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             val result = playPause.applyBleOnlyPlayConfirmation(
@@ -660,6 +687,7 @@ class PlayPauseLogicTest : BaseTest() {
                 shouldStageBleOnlyPlay = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
+                startMusicOnWear = true,
             )
 
             result.decision.shouldPlay shouldBe true
@@ -670,12 +698,13 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `aap-backed autoplay bypasses confirmation`() {
+        fun `aap-backed autoplay bypasses confirmation (cold-wear opt-in)`() {
             val rawDecision = playPause.evaluatePlayPauseAction(
                 previous = EarDetectionState.fromDualPod(left = true, right = false),
                 current = EarDetectionState.fromDualPod(left = true, right = true),
                 onePodMode = false,
                 isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             val result = playPause.applyBleOnlyPlayConfirmation(
@@ -688,6 +717,7 @@ class PlayPauseLogicTest : BaseTest() {
                 shouldStageBleOnlyPlay = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
+                startMusicOnWear = true,
             )
 
             result.decision.shouldPlay shouldBe true
@@ -731,9 +761,9 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `ble-only confirmation suppressed when music was externally stopped recently`() {
-            // A staged BLE-only autoplay must not confirm if an external stop happened in
-            // the meantime — even if the second worn sample matches.
+        fun `ble-only confirmation suppressed by default when not we-paused`() {
+            // A staged BLE-only autoplay must not confirm under default settings (cold-wear
+            // gated) when CAP didn't pause — even if the second worn sample matches.
             val pending = PlayPause.PendingPlayConfirmation(
                 profileId = "profile",
                 onePodMode = false,
@@ -747,7 +777,7 @@ class PlayPauseLogicTest : BaseTest() {
                 onePodMode = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
-                wasMusicExternallyStoppedRecently = true,
+                startMusicOnWear = false,
             )
 
             val result = playPause.applyBleOnlyPlayConfirmation(
@@ -760,7 +790,7 @@ class PlayPauseLogicTest : BaseTest() {
                 shouldStageBleOnlyPlay = false,
                 isCurrentlyPlaying = false,
                 wasRecentlyPausedByUs = false,
-                wasMusicExternallyStoppedRecently = true,
+                startMusicOnWear = false,
             )
 
             result.decision.shouldPlay shouldBe false
@@ -808,13 +838,14 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `aggregate normal mode - none to both - should play`() {
+        fun `aggregate normal mode - none to both - should play (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
             val current = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
 
             val decision = playPause.evaluatePlayPauseAction(
                 previous = previous, current = current,
                 onePodMode = false, isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
             decision.shouldPlay shouldBe true
         }
@@ -832,13 +863,14 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `aggregate one-pod mode - none to one - should play`() {
+        fun `aggregate one-pod mode - none to one - should play (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = false)
             val current = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
 
             val decision = playPause.evaluatePlayPauseAction(
                 previous = previous, current = current,
                 onePodMode = true, isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
             decision.shouldPlay shouldBe true
         }
@@ -856,13 +888,14 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `aggregate one-pod mode - one to both - should play`() {
+        fun `aggregate one-pod mode - one to both - should play (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromAapAggregate(isBeingWorn = false, isEitherPodInEar = true)
             val current = EarDetectionState.fromAapAggregate(isBeingWorn = true, isEitherPodInEar = true)
 
             val decision = playPause.evaluatePlayPauseAction(
                 previous = previous, current = current,
                 onePodMode = true, isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
             decision.shouldPlay shouldBe true
         }
@@ -959,7 +992,7 @@ class PlayPauseLogicTest : BaseTest() {
     inner class SinglePodDeviceTests {
 
         @Test
-        fun `single pod - not worn to worn - should play if not playing`() {
+        fun `single pod - not worn to worn - should play if not playing (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromSinglePod(worn = false)
             val current = EarDetectionState.fromSinglePod(worn = true)
 
@@ -967,7 +1000,8 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = false, // Irrelevant for single pods
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decision.shouldPlay shouldBe true
@@ -1055,7 +1089,7 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `single pod - one-pod mode enabled - play behaves same as normal mode`() {
+        fun `single pod - one-pod mode enabled - play behaves same as normal mode (cold-wear opt-in)`() {
             val previous = EarDetectionState.fromSinglePod(worn = false)
             val current = EarDetectionState.fromSinglePod(worn = true)
 
@@ -1063,14 +1097,16 @@ class PlayPauseLogicTest : BaseTest() {
                 previous = previous,
                 current = current,
                 onePodMode = false,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             val decisionOnePod = playPause.evaluatePlayPauseAction(
                 previous = previous,
                 current = current,
                 onePodMode = true,
-                isCurrentlyPlaying = false
+                isCurrentlyPlaying = false,
+                startMusicOnWear = true,
             )
 
             decisionNormal.shouldPlay shouldBe true
@@ -1687,14 +1723,25 @@ class PlayPauseLogicTest : BaseTest() {
                 every { model } returns PodModel.AIRPODS_PRO3
             }
 
-        private fun buildDevice(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
-            PodDevice(
-                profileId = "test-profile",
-                ble = buildBle(seenAt, leftWorn, rightWorn),
-                aap = null,
-                profileModel = PodModel.AIRPODS_PRO3,
-                reactions = ReactionConfig(autoPlay = true, autoPause = true),
-            )
+        // Default `startMusicOnWear = true` preserves the cold-wear semantics most existing
+        // flow tests describe (autoplay fires on pod-in even without a CAP-pause history).
+        // The bug-repro test that asserts the new default behavior overrides with `false`.
+        private fun buildDevice(
+            seenAt: Instant,
+            leftWorn: Boolean,
+            rightWorn: Boolean,
+            startMusicOnWear: Boolean = true,
+        ) = PodDevice(
+            profileId = "test-profile",
+            ble = buildBle(seenAt, leftWorn, rightWorn),
+            aap = null,
+            profileModel = PodModel.AIRPODS_PRO3,
+            reactions = ReactionConfig(
+                autoPlay = true,
+                autoPause = true,
+                startMusicOnWear = startMusicOnWear,
+            ),
+        )
 
         @Test
         fun `flow - 3 consecutive not-worn unauthenticated samples fire pause exactly once`() = runTest {
@@ -1802,22 +1849,34 @@ class PlayPauseLogicTest : BaseTest() {
                 every { model } returns PodModel.AIRPODS_PRO3
             }
 
-        private fun buildIrkMatchedDevice(seenAt: Instant, leftWorn: Boolean, rightWorn: Boolean) =
-            PodDevice(
-                profileId = "test-profile",
-                ble = buildIrkMatchedBle(seenAt, leftWorn, rightWorn),
-                aap = null,
-                profileModel = PodModel.AIRPODS_PRO3,
-                reactions = ReactionConfig(autoPlay = true, autoPause = true),
-            )
+        private fun buildIrkMatchedDevice(
+            seenAt: Instant,
+            leftWorn: Boolean,
+            rightWorn: Boolean,
+            startMusicOnWear: Boolean = true,
+        ) = PodDevice(
+            profileId = "test-profile",
+            ble = buildIrkMatchedBle(seenAt, leftWorn, rightWorn),
+            aap = null,
+            profileModel = PodModel.AIRPODS_PRO3,
+            reactions = ReactionConfig(
+                autoPlay = true,
+                autoPause = true,
+                startMusicOnWear = startMusicOnWear,
+            ),
+        )
 
-        private fun buildNoLiveBleDevice() =
+        private fun buildNoLiveBleDevice(startMusicOnWear: Boolean = true) =
             PodDevice(
                 profileId = "test-profile",
                 ble = null,
                 aap = null,
                 profileModel = PodModel.AIRPODS_PRO3,
-                reactions = ReactionConfig(autoPlay = true, autoPause = true),
+                reactions = ReactionConfig(
+                    autoPlay = true,
+                    autoPause = true,
+                    startMusicOnWear = startMusicOnWear,
+                ),
             )
 
         @Test
@@ -2026,10 +2085,11 @@ class PlayPauseLogicTest : BaseTest() {
         }
 
         @Test
-        fun `flow - user-paused before pod cycle does not auto-resume`() = runTest {
+        fun `flow - default suppresses autoplay when CAP did not pause`() = runTest {
             // Bug repro: while wearing pods, user manually pauses music via the phone, then
             // takes one pod out and puts it back. Auto-play must NOT fire because the user
-            // (not CAP) is the one who stopped playback. Uses the IRK-matched source so the
+            // (not CAP) is the one who stopped playback. Uses default ReactionConfig with
+            // startMusicOnWear=false (the new default) and the IRK-matched source so the
             // BLE-only autoplay confirmation step is bypassed and the decision lands on
             // a single transition.
             val deviceFlow = MutableStateFlow<List<PodDevice>>(emptyList())
@@ -2042,7 +2102,6 @@ class PlayPauseLogicTest : BaseTest() {
             val mediaControl: MediaControl = mockk(relaxed = true) {
                 every { isPlaying } returns false
                 every { wasRecentlyPausedByCap } returns false
-                every { wasMusicExternallyStoppedRecently } returns true
             }
             val flowPlayPause = PlayPause(deviceMonitor, bluetoothManager, mediaControl)
 
@@ -2050,17 +2109,24 @@ class PlayPauseLogicTest : BaseTest() {
             val job = launch { flowPlayPause.monitor().collect {} }
 
             // T0: worn baseline.
-            deviceFlow.value = listOf(buildIrkMatchedDevice(now, leftWorn = true, rightWorn = true))
+            deviceFlow.value = listOf(
+                buildIrkMatchedDevice(now, leftWorn = true, rightWorn = true, startMusicOnWear = false),
+            )
             advanceUntilIdle()
 
             // T1: one pod removed. Music is already paused, so no autoPause fires.
-            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(1000), leftWorn = true, rightWorn = false))
+            deviceFlow.value = listOf(
+                buildIrkMatchedDevice(now.plusMillis(1000), leftWorn = true, rightWorn = false, startMusicOnWear = false),
+            )
             advanceUntilIdle()
 
             coVerify(exactly = 0) { mediaControl.sendPause() }
 
-            // T2: pod reinserted. Auto-play must NOT fire — the user paused, not CAP.
-            deviceFlow.value = listOf(buildIrkMatchedDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true))
+            // T2: pod reinserted. Auto-play must NOT fire — the user paused, not CAP, and the
+            // user hasn't opted into cold-wear.
+            deviceFlow.value = listOf(
+                buildIrkMatchedDevice(now.plusMillis(2000), leftWorn = true, rightWorn = true, startMusicOnWear = false),
+            )
             advanceUntilIdle()
 
             coVerify(exactly = 0) { mediaControl.sendPlay() }

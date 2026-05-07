@@ -25,6 +25,7 @@ data class AppleDeviceProfile(
     @SerialName("address") override val address: String? = null,
     @SerialName("reactionAutoPause") val autoPause: Boolean = false,
     @SerialName("reactionAutoPlay") val autoPlay: Boolean = false,
+    @SerialName("reactionStartMusicOnWear") val startMusicOnWear: Boolean = false,
     @SerialName("reactionOnePodMode") val onePodMode: Boolean = false,
     @SerialName("reactionAutoConnect") val autoConnect: Boolean = false,
     @SerialName("reactionAutoConnectCondition") val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
@@ -49,6 +50,7 @@ data class AppleDeviceProfile(
         get() = ReactionConfig(
             autoPause = autoPause,
             autoPlay = autoPlay,
+            startMusicOnWear = startMusicOnWear,
             onePodMode = onePodMode,
             autoConnect = autoConnect,
             autoConnectCondition = autoConnectCondition,
@@ -62,6 +64,7 @@ data class AppleDeviceProfile(
         "identityKey=${if (identityKey == null) "null" else "<redacted>"}, " +
         "encryptionKey=${if (encryptionKey == null) "null" else "<redacted>"}, " +
         "address=$address, autoPause=$autoPause, autoPlay=$autoPlay, " +
+        "startMusicOnWear=$startMusicOnWear, " +
         "onePodMode=$onePodMode, autoConnect=$autoConnect, " +
         "autoConnectCondition=$autoConnectCondition, " +
         "showPopUpOnCaseOpen=$showPopUpOnCaseOpen, " +
