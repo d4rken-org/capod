@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Avtomatik oxutma</string>
     <string name="settings_autoplay_description">Cihaz taxıldıqda səs oxutmasını başladın.</string>
     <string name="settings_eardetection_info_label">Qulaq aşkarlama qeydi</string>
-    <string name="settings_eardetection_info_description">Qulaq aşkarlama yalnız bir qulaqlıq üçün işləyirsə, bu Apple məhdudiyyətidir. Yalnız \"əsas qulaqlıq\" (mikrofon üçün istifadə olunan) aşkarlanır. Apple cihazlarında tənzimləyin: Parametrlər → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Saxta məlumat</string>
-    <string name="settings_fake_data_description">Saxta məlumat göstər, yəni mövcud olmayan cihazları simulyasiya et.</string>
-    <string name="settings_debug_label">Sazlama parametrləri</string>
-    <string name="settings_debug_description">Tətbiqlə bağlı problemlərin aradan qaldırılmasına kömək edən əlavə parametrlər.</string>
-    <string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
+    <string name="settings_eardetection_info_description">Qulaq aşkarlama yalnız bir qulaqlıq üçün işləyirsə, bu Apple məhdudiyyətidir. Yalnız \"əsas qulaqlıq\" (mikrofon üçün istifadə olunan) aşkarlanır. Apple cihazlarında tənzimləyin: Parametrlər → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
     <string name="settings_signal_minimum_description">Bir cihazın sizə aid hesab edilməsi üçün malik olmalı olduğu minimum siqnal keyfiyyəti.</string>
     <string name="settings_autoconnect_label">Avtomatik qoşulma</string>
     <string name="settings_autoconnect_description">Əgər Android avtomatik qoşulmursa, biz də ondan xahiş edə bilərik. Bu, izləmə rejimi parametrini \"Həmişə\" olaraq təyin edəcək.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="settings_debug_autoreports_label">Avtomatik səhv hesabatları</string>
-    <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string>
-    <string name="settings_debug_mode_label">Sazlama rejimi</string>
-    <string name="settings_debug_mode_description">Problemlərin aradan qaldırılması üçün əlavə məlumat göstərin.</string>
-    <string name="settings_blescanner_unfiltered_label">Filtrlənməmiş BLE məlumatları</string>
-    <string name="settings_blescanner_unfiltered_description">Bütün yayımlanan BLE məlumatlarını göstərmək üçün BLE skanerindən hər hansı bir filtri çıxarın. Yeni qulaqlıq növləri üçün dəstək əlavə etmək üçün faydalıdır.</string>
-    <string name="settings_compatibility_mode_label">Uyğunluq rejimi</string>
+    <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string><string name="settings_compatibility_mode_label">Uyğunluq rejimi</string>
     <string name="settings_compatibility_mode_description">Uyğunluğu yaxşılaşdırmaq üçün optimallaşdırmaları deaktiv edin. Heç bir məlumat görmürsünüzsə, bunu sınayın.</string>
     <string name="help_translate_label">Tərcümə</string>
     <string name="help_translate_description">Bu tətbiqi sevdiyiniz dilə tərcümə etməyə kömək edin.</string>

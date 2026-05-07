@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Avtomatik ijro etish</string>
     <string name="settings_autoplay_description">Qurilma taqilganda audio ijro etishni boshlang.</string>
     <string name="settings_eardetection_info_label">Quloq aniqlash eslatmasi</string>
-    <string name="settings_eardetection_info_description">Agar quloq aniqlash faqat bitta pod uchun ishlasa, bu Apple cheklovi. Faqat \"asosiy pod\" (mikrofon uchun ishlatiladigan) aniqlanadi. Apple qurilmalarida sozlang: Sozlamalar → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Soxta ma\'lumotlar</string>
-    <string name="settings_fake_data_description">Soxta ma\'lumotlarni ko\'rsating, ya\'ni mavjud bo\'lmagan qurilmalarni taqlid qiling.</string>
-    <string name="settings_debug_label">Nosozliklarni tuzatish sozlamalari</string>
-    <string name="settings_debug_description">Ilova bilan bog\'liq muammolarni bartaraf etishga yordam beradigan qo\'shimcha sozlamalar.</string>
-    <string name="settings_signal_minimum_label">Minimal signal sifati</string>
+    <string name="settings_eardetection_info_description">Agar quloq aniqlash faqat bitta pod uchun ishlasa, bu Apple cheklovi. Faqat \"asosiy pod\" (mikrofon uchun ishlatiladigan) aniqlanadi. Apple qurilmalarida sozlang: Sozlamalar → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimal signal sifati</string>
     <string name="settings_signal_minimum_description">Qurilma sizniki deb hisoblanishi uchun kerak bo\'lgan minimal signal sifati.</string>
     <string name="settings_autoconnect_label">Avtomatik ulanish</string>
     <string name="settings_autoconnect_description">Agar Android avtomatik ravishda ulanmasa, biz ham so\'rashimiz mumkin. Bu monitoring rejimi sozlamasini \"Har doim\" ga o\'rnatadi.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Butun ilovaga ta\'sir qiluvchi umumiy sozlamalar.</string>
     <string name="settings_acknowledgements_label">Minnatdorchiliklar</string>
     <string name="settings_debug_autoreports_label">Avtomatik xato hisobotlari</string>
-    <string name="settings_debug_autoreports_description">Muammolarni avtomatik ravishda xabar qiladi, masalan, ilova ishdan chiqishi haqidagi tafsilotlar, shunda men uni qanday tuzatishni aniqlay olaman.</string>
-    <string name="settings_debug_mode_label">Nosozliklarni tuzatish rejimi</string>
-    <string name="settings_debug_mode_description">Muammolarni bartaraf etish uchun qo\'shimcha ma\'lumotlarni ko\'rsatish.</string>
-    <string name="settings_blescanner_unfiltered_label">Filtrlanmagan BLE ma\'lumotlari</string>
-    <string name="settings_blescanner_unfiltered_description">Barcha uzatiladigan BLE ma\'lumotlarini ko\'rsatish uchun BLE skaneridan har qanday filtrlarni olib tashlang. Yangi naushnik turlarini qo\'llab-quvvatlash uchun foydali.</string>
-    <string name="settings_compatibility_mode_label">Moslik rejimi</string>
+    <string name="settings_debug_autoreports_description">Muammolarni avtomatik ravishda xabar qiladi, masalan, ilova ishdan chiqishi haqidagi tafsilotlar, shunda men uni qanday tuzatishni aniqlay olaman.</string><string name="settings_compatibility_mode_label">Moslik rejimi</string>
     <string name="settings_compatibility_mode_description">Moslikni yaxshilash uchun optimallashtirishlarni o\'chirib qo\'ying. Agar hech qanday ma\'lumot ko\'rmayotgan bo\'lsangiz, buni sinab ko\'ring.</string>
     <string name="help_translate_label">Tarjima</string>
     <string name="help_translate_description">Ushbu ilovani sevimli tilingizga tarjima qilishga yordam bering.</string>

@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Sjálfvirk spilun</string>
     <string name="settings_autoplay_description">Hefja hljóðspilun þegar tækið er notað.</string>
     <string name="settings_eardetection_info_label">Athugasemd um eyraskynjun</string>
-    <string name="settings_eardetection_info_description">Ef eyraskynjun virkar aðeins fyrir annað heyrnartólið er þetta takmörkun frá Apple. Aðeins \"aðalheyrnartólið\" (notað fyrir hljóðnema) er skynjað. Stilla á Apple tækjum: Stillingar → Bluetooth → AirPods → Hljóðnemi.</string>
-    <string name="settings_fake_data_label">Fölsuð gögn</string>
-    <string name="settings_fake_data_description">Sýna fölsuð gögn, þ.e.a.s. herma eftir tækjum sem eru ekki til.</string>
-    <string name="settings_debug_label">Villuleitarstillingar</string>
-    <string name="settings_debug_description">Viðbótarstillingar til að hjálpa til við að leysa vandamál með forritið.</string>
-    <string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
+    <string name="settings_eardetection_info_description">Ef eyraskynjun virkar aðeins fyrir annað heyrnartólið er þetta takmörkun frá Apple. Aðeins \"aðalheyrnartólið\" (notað fyrir hljóðnema) er skynjað. Stilla á Apple tækjum: Stillingar → Bluetooth → AirPods → Hljóðnemi.</string><string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
     <string name="settings_signal_minimum_description">Lágmarksgæði merkis sem tæki þarf að hafa til að teljast þitt.</string>
     <string name="settings_autoconnect_label">Sjálfvirk tenging</string>
     <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við líka beðið um það. Þetta mun stilla vöktunarstillinguna á \"Alltaf\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
     <string name="settings_debug_autoreports_label">Sjálfvirkar villuskýrslur</string>
-    <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string>
-    <string name="settings_debug_mode_label">Villuleitarstilling</string>
-    <string name="settings_debug_mode_description">Sýna viðbótarupplýsingar til að leysa vandamál.</string>
-    <string name="settings_blescanner_unfiltered_label">Ósíað BLE gögn</string>
-    <string name="settings_blescanner_unfiltered_description">Fjarlægðu allar síur úr BLE skannanum til að sýna öll send BLE gögn. Gagnlegt til að bæta við stuðningi fyrir nýjar gerðir heyrnartóla.</string>
-    <string name="settings_compatibility_mode_label">Samhæfisstilling</string>
+    <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string><string name="settings_compatibility_mode_label">Samhæfisstilling</string>
     <string name="settings_compatibility_mode_description">Slökkva á hagræðingum til að bæta samhæfni. Prófaðu þetta ef þú sérð engin gögn.</string>
     <string name="help_translate_label">Þýðing</string>
     <string name="help_translate_description">Hjálpaðu til við að þýða þetta forrit á þitt uppáhalds tungumál.</string>

@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Dlala ngokuzenzakalela</string>
     <string name="settings_autoplay_description">Qala ukudlala umsindo lapho idivayisi igqokiwe.</string>
     <string name="settings_eardetection_info_label">Inothi lokutholwa kwendlebe</string>
-    <string name="settings_eardetection_info_description">Uma ukutholwa kwendlebe kusebenza kuphela nge-pod eyodwa, lokhu kuwumkhawulo we-Apple. Kuphela \"i-pod eyinhloko\" (esetshenziswa yemakrofoni) etholakala. Lungiselela kumadivayisi e-Apple: Izilungiselelo → Bluetooth → AirPods → Imakrofoni.</string>
-    <string name="settings_fake_data_label">Idatha mbumbulu</string>
-    <string name="settings_fake_data_description">Bonisa idatha mbumbulu, okungukuthi, lingisa amadivayisi angekho.</string>
-    <string name="settings_debug_label">Izilungiselelo zokulungisa amaphutha</string>
-    <string name="settings_debug_description">Izilungiselelo ezengeziwe zokusiza ukuxazulula izinkinga ngohlelo lokusebenza.</string>
-    <string name="settings_signal_minimum_label">Izinga elincane lesignali</string>
+    <string name="settings_eardetection_info_description">Uma ukutholwa kwendlebe kusebenza kuphela nge-pod eyodwa, lokhu kuwumkhawulo we-Apple. Kuphela \"i-pod eyinhloko\" (esetshenziswa yemakrofoni) etholakala. Lungiselela kumadivayisi e-Apple: Izilungiselelo → Bluetooth → AirPods → Imakrofoni.</string><string name="settings_signal_minimum_label">Izinga elincane lesignali</string>
     <string name="settings_signal_minimum_description">Izinga elincane lesignali okufanele idivayisi ibe nalo ukuze ibhekwe njengeyakho.</string>
     <string name="settings_autoconnect_label">Xhuma ngokuzenzakalela</string>
     <string name="settings_autoconnect_description">Uma i-Android ingaxhumeki ngokuzenzakalela, singayicela nayo. Lokhu kuzosetha isethingi yemodi yokuqapha ibe \'Njalo\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Ukulungiswa okujwayelekile okuthinta lonke uhlelo lokusebenza.</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
     <string name="settings_debug_autoreports_label">Imibiko yeziphazamisi ezenzakalelayo</string>
-    <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string>
-    <string name="settings_debug_mode_label">Imodi yokulungisa amaphutha</string>
-    <string name="settings_debug_mode_description">Bonisa ulwazi olwengeziwe ukuxazulula izinkinga.</string>
-    <string name="settings_blescanner_unfiltered_label">Idatha ye-BLE engahlungiwe</string>
-    <string name="settings_blescanner_unfiltered_description">Susa noma yiziphi izihlungi kusithwebuli se-BLE ukuze ubonise yonke idatha ye-BLE esakazwayo. Iwusizo ukwengeza ukusekelwa kwezinhlobo ezintsha zamahedfoni.</string>
-    <string name="settings_compatibility_mode_label">Imodi yokuhambisana</string>
+    <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string><string name="settings_compatibility_mode_label">Imodi yokuhambisana</string>
     <string name="settings_compatibility_mode_description">Khubaza ukuthuthukiswa ukuze uthuthukise ukuhambisana. Zama lokhu uma ungaboni noma iyiphi idatha.</string>
     <string name="help_translate_label">Ukuhumusha</string>
     <string name="help_translate_description">Siza ukuhumusha lolu hlelo lokusebenza olimini lwakho oluthandayo.</string>

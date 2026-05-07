@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Аўтаматычнае прайграванне</string>
     <string name="settings_autoplay_description">Пачынаць прайграванне аўдыя пры надзяванні прылады.</string>
     <string name="settings_eardetection_info_label">Заўвага пра вызначэнне вуха</string>
-    <string name="settings_eardetection_info_description">Калі вызначэнне вуха працуе толькі для аднаго навушніка, гэта абмежаванне Apple. Вызначаецца толькі \"асноўны навушнік\" (выкарыстоўваецца для мікрафона). Наладзьце на прыладах Apple: Налады → Bluetooth → AirPods → Мікрафон.</string>
-    <string name="settings_fake_data_label">Падробленыя даныя</string>
-    <string name="settings_fake_data_description">Паказваць падробленыя даныя, г.зн. імітаваць неіснуючыя прылады.</string>
-    <string name="settings_debug_label">Налады адладкі</string>
-    <string name="settings_debug_description">Дадатковыя налады для ліквідацыі непаладак з праграмай.</string>
-    <string name="settings_signal_minimum_label">Мінімальная якасць сігналу</string>
+    <string name="settings_eardetection_info_description">Калі вызначэнне вуха працуе толькі для аднаго навушніка, гэта абмежаванне Apple. Вызначаецца толькі \"асноўны навушнік\" (выкарыстоўваецца для мікрафона). Наладзьце на прыладах Apple: Налады → Bluetooth → AirPods → Мікрафон.</string><string name="settings_signal_minimum_label">Мінімальная якасць сігналу</string>
     <string name="settings_signal_minimum_description">Мінімальная якасць сігналу, якую павінна мець прылада, каб лічыцца вашай.</string>
     <string name="settings_autoconnect_label">Аўтаматычнае падключэнне</string>
     <string name="settings_autoconnect_description">Калі Android не падключаецца аўтаматычна, мы таксама можам запытаць гэта. Гэта ўсталюе для налады рэжыму маніторынгу значэнне \"Заўсёды\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_acknowledgements_label">Падзякі</string>
     <string name="settings_debug_autoreports_label">Аўтаматычныя справаздачы пра памылкі</string>
-    <string name="settings_debug_autoreports_description">Аўтаматычна паведамляе пра праблемы, напрыклад, звесткі пра збой праграмы, каб я мог зразумець, як гэта выправіць.</string>
-    <string name="settings_debug_mode_label">Рэжым адладкі</string>
-    <string name="settings_debug_mode_description">Паказваць дадатковую інфармацыю для ліквідацыі непаладак.</string>
-    <string name="settings_blescanner_unfiltered_label">Нефільтраваныя даныя BLE</string>
-    <string name="settings_blescanner_unfiltered_description">Выдаліце ўсе фільтры са сканера BLE, каб паказаць усе трансляваныя даныя BLE. Карысна для дадання падтрымкі новых тыпаў навушнікаў.</string>
-    <string name="settings_compatibility_mode_label">Рэжым сумяшчальнасці</string>
+    <string name="settings_debug_autoreports_description">Аўтаматычна паведамляе пра праблемы, напрыклад, звесткі пра збой праграмы, каб я мог зразумець, як гэта выправіць.</string><string name="settings_compatibility_mode_label">Рэжым сумяшчальнасці</string>
     <string name="settings_compatibility_mode_description">Адключыце аптымізацыі для паляпшэння сумяшчальнасці. Паспрабуйце гэта, калі вы не бачыце ніякіх даных.</string>
     <string name="help_translate_label">Пераклад</string>
     <string name="help_translate_description">Дапамажыце перакласці гэту праграму на вашу любімую мову.</string>

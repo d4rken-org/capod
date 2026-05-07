@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">自動播放</string>
     <string name="settings_autoplay_description">佩戴到耳上時自動播放。</string>
     <string name="settings_eardetection_info_label">入耳偵測提示</string>
-    <string name="settings_eardetection_info_description">如果入耳偵測只對其中一隻耳機有效，這是 Apple 的限制。只有「主耳機」(用作麥克風) 會被偵測。可在 Apple 裝置中設定：設定 → 藍牙 → AirPods → 麥克風。</string>
-    <string name="settings_fake_data_label">假資料</string>
-    <string name="settings_fake_data_description">顯示假資料，模擬不存在的裝置。</string>
-    <string name="settings_debug_label">偵錯設定</string>
-    <string name="settings_debug_description">一個能協助這個應用程式疑難排解的附加設定。</string>
-    <string name="settings_signal_minimum_label">最低訊號品質</string>
+    <string name="settings_eardetection_info_description">如果入耳偵測只對其中一隻耳機有效，這是 Apple 的限制。只有「主耳機」(用作麥克風) 會被偵測。可在 Apple 裝置中設定：設定 → 藍牙 → AirPods → 麥克風。</string><string name="settings_signal_minimum_label">最低訊號品質</string>
     <string name="settings_signal_minimum_description">可以被認為是您的裝置的最低訊號品質。</string>
     <string name="settings_autoconnect_label">自動連線</string>
     <string name="settings_autoconnect_description">如果 Android 不會自動連線，我們也可以要求它。這將把監視模式設定為「一律」。</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">影響整個應用程式的一般調校。</string>
     <string name="settings_acknowledgements_label">致謝</string>
     <string name="settings_debug_autoreports_label">自動回報錯誤</string>
-    <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string>
-    <string name="settings_debug_mode_label">偵錯模式</string>
-    <string name="settings_debug_mode_description">顯示附加資訊以疑難排解問題。</string>
-    <string name="settings_blescanner_unfiltered_label">未過濾的低功耗藍牙資料</string>
-    <string name="settings_blescanner_unfiltered_description">移除低功耗藍牙掃描器的任何過濾器，以顯示所有廣播的低功耗藍牙資料。對增加新耳機類型的支援很有用。</string>
-    <string name="settings_compatibility_mode_label">相容性模式</string>
+    <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string><string name="settings_compatibility_mode_label">相容性模式</string>
     <string name="settings_compatibility_mode_description">停用電池效能最佳化以提高相容性，請在未看到任何資料時開啟。</string>
     <string name="help_translate_label">翻譯</string>
     <string name="help_translate_description">協助翻譯為您的最愛語言。</string>

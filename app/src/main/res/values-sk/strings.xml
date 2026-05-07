@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automatické prehrávanie</string>
     <string name="settings_autoplay_description">Spustite prehrávanie zvuku, keď je zariadenie nosené.</string>
     <string name="settings_eardetection_info_label">Poznámka k detekcii ucha</string>
-    <string name="settings_eardetection_info_description">Ak detekcia ucha funguje iba pre jedno slúchadlo, je to obmedzenie Apple. Detegované je iba \"primárne slúchadlo\" (používané pre mikrofón). Konfigurujte na zariadeniach Apple: Nastavenia → Bluetooth → AirPods → Mikrofón.</string>
-    <string name="settings_fake_data_label">Falošné údaje</string>
-    <string name="settings_fake_data_description">Zobrazovať falošné údaje, t. j. simulovať neexistujúce zariadenia.</string>
-    <string name="settings_debug_label">Nastavenia ladenia</string>
-    <string name="settings_debug_description">Ďalšie nastavenia na pomoc pri riešení problémov s aplikáciou.</string>
-    <string name="settings_signal_minimum_label">Minimálna kvalita signálu</string>
+    <string name="settings_eardetection_info_description">Ak detekcia ucha funguje iba pre jedno slúchadlo, je to obmedzenie Apple. Detegované je iba \"primárne slúchadlo\" (používané pre mikrofón). Konfigurujte na zariadeniach Apple: Nastavenia → Bluetooth → AirPods → Mikrofón.</string><string name="settings_signal_minimum_label">Minimálna kvalita signálu</string>
     <string name="settings_signal_minimum_description">Minimálna kvalita signálu, ktorú zariadenie musí mať, aby sa považovalo za vaše.</string>
     <string name="settings_autoconnect_label">Automatické pripojenie</string>
     <string name="settings_autoconnect_description">Ak sa Android nepripojí automaticky, môžeme ho o to požiadať. Toto nastaví režim monitora na „Vždy“.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Všeobecné vylepšenia, ktoré ovplyvňujú celú aplikáciu.</string>
     <string name="settings_acknowledgements_label">Poďakovania</string>
     <string name="settings_debug_autoreports_label">Automatické hlásenia chýb</string>
-    <string name="settings_debug_autoreports_description">Automaticky hlási problémy, napr. podrobnosti o zlyhaní aplikácie, aby som mohol zistiť, ako to opraviť.</string>
-    <string name="settings_debug_mode_label">Režim ladenia</string>
-    <string name="settings_debug_mode_description">Zobrazte ďalšie informácie na riešenie problémov.</string>
-    <string name="settings_blescanner_unfiltered_label">Nefiltrované údaje BLE</string>
-    <string name="settings_blescanner_unfiltered_description">Odstráňte všetky filtre zo skenera BLE, aby sa zobrazili všetky vysielané údaje BLE. Užitočné na pridanie podpory pre nové typy slúchadiel.</string>
-    <string name="settings_compatibility_mode_label">Režim kompatibility</string>
+    <string name="settings_debug_autoreports_description">Automaticky hlási problémy, napr. podrobnosti o zlyhaní aplikácie, aby som mohol zistiť, ako to opraviť.</string><string name="settings_compatibility_mode_label">Režim kompatibility</string>
     <string name="settings_compatibility_mode_description">Zakázať optimalizáciu na zlepšenie kompatibility. Skúste to, ak nevidíte žiadne údaje.</string>
     <string name="help_translate_label">Preklad</string>
     <string name="help_translate_description">Pomôžte preložiť túto aplikáciu do svojho obľúbeného jazyka.</string>

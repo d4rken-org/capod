@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Main automatik</string>
     <string name="settings_autoplay_description">Mulakan main balik audio apabila peranti dipakai.</string>
     <string name="settings_eardetection_info_label">Nota pengesanan telinga</string>
-    <string name="settings_eardetection_info_description">Jika pengesanan telinga hanya berfungsi untuk satu pod, ini adalah had Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang dikesan. Konfigurasikan pada peranti Apple: Tetapan → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Data palsu</string>
-    <string name="settings_fake_data_description">Tunjukkan data palsu, iaitu, simulasi peranti yang tidak wujud.</string>
-    <string name="settings_debug_label">Tetapan nyahpepijat</string>
-    <string name="settings_debug_description">Tetapan tambahan untuk membantu menyelesaikan masalah dengan apl.</string>
-    <string name="settings_signal_minimum_label">Kualiti isyarat minimum</string>
+    <string name="settings_eardetection_info_description">Jika pengesanan telinga hanya berfungsi untuk satu pod, ini adalah had Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang dikesan. Konfigurasikan pada peranti Apple: Tetapan → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Kualiti isyarat minimum</string>
     <string name="settings_signal_minimum_description">Kualiti isyarat minimum yang peranti perlukan untuk dianggap sebagai milik anda.</string>
     <string name="settings_autoconnect_label">Sambung automatik</string>
     <string name="settings_autoconnect_description">Jika Android tidak bersambung secara automatik, kami juga boleh memintanya. Ini akan menetapkan tetapan mod monitor kepada \"Sentiasa\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Penyesuaian umum yang mempengaruhi keseluruhan apl.</string>
     <string name="settings_acknowledgements_label">Penghargaan</string>
     <string name="settings_debug_autoreports_label">Laporan pepijat automatik</string>
-    <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string>
-    <string name="settings_debug_mode_label">Mod nyahpepijat</string>
-    <string name="settings_debug_mode_description">Tunjukkan maklumat tambahan untuk menyelesaikan masalah.</string>
-    <string name="settings_blescanner_unfiltered_label">Data BLE tidak ditapis</string>
-    <string name="settings_blescanner_unfiltered_description">Alih keluar sebarang penapis daripada pengimbas BLE untuk menunjukkan semua data BLE yang disiarkan. Berguna untuk menambah sokongan bagi jenis fon kepala baharu.</string>
-    <string name="settings_compatibility_mode_label">Mod keserasian</string>
+    <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string><string name="settings_compatibility_mode_label">Mod keserasian</string>
     <string name="settings_compatibility_mode_description">Nyahdayakan pengoptimuman untuk meningkatkan keserasian. Cuba ini jika anda tidak melihat sebarang data.</string>
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan apl ini ke dalam bahasa kegemaran anda.</string>

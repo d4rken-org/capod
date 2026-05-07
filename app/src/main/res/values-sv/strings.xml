@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automatisk uppspelning</string>
     <string name="settings_autoplay_description">Starta ljuduppspelning när enheten bärs.</string>
     <string name="settings_eardetection_info_label">Örondetektionsnotering</string>
-    <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Falska data</string>
-    <string name="settings_fake_data_description">Visa falska data, dvs. simulera enheter som inte finns.</string>
-    <string name="settings_debug_label">Felsökningsinställningar</string>
-    <string name="settings_debug_description">Ytterligare inställningar för att hjälpa till att felsöka problem med appen.</string>
-    <string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
+    <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
     <string name="settings_signal_minimum_description">Den minsta signalkvalitet som en enhet måste ha för att betraktas som din.</string>
     <string name="settings_autoconnect_label">Anslut automatiskt</string>
     <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi också be den. Detta ställer in övervakningsläget på \"Alltid\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Allmänna justeringar som påverkar hela appen.</string>
     <string name="settings_acknowledgements_label">Tack till</string>
     <string name="settings_debug_autoreports_label">Automatiska felrapporter</string>
-    <string name="settings_debug_autoreports_description">Rapporterar automatiskt problem, t.ex. detaljer om en appkrasch så att jag kan ta reda på hur jag åtgärdar det.</string>
-    <string name="settings_debug_mode_label">Felsökningsläge</string>
-    <string name="settings_debug_mode_description">Visa ytterligare information för att felsöka problem.</string>
-    <string name="settings_blescanner_unfiltered_label">Ofiltrerad BLE-data</string>
-    <string name="settings_blescanner_unfiltered_description">Ta bort alla filter från BLE-skannern för att visa all sänd BLE-data. Användbart för att lägga till stöd för nya hörlurstyper.</string>
-    <string name="settings_compatibility_mode_label">Kompatibilitetsläge</string>
+    <string name="settings_debug_autoreports_description">Rapporterar automatiskt problem, t.ex. detaljer om en appkrasch så att jag kan ta reda på hur jag åtgärdar det.</string><string name="settings_compatibility_mode_label">Kompatibilitetsläge</string>
     <string name="settings_compatibility_mode_description">Inaktivera optimeringar för att förbättra kompatibiliteten. Prova detta om du inte ser någon data.</string>
     <string name="help_translate_label">Översättning</string>
     <string name="help_translate_description">Hjälp till att översätta den här appen till ditt favoritspråk.</string>

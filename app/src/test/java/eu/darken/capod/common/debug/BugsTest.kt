@@ -14,7 +14,21 @@ class BugsTest : BaseTest() {
     @AfterEach
     fun cleanup() {
         Bugs.reporter = null
+        Bugs.isDebug.value = false
         Logging.clearAll()
+    }
+
+    @Test
+    fun `isDebug defaults to false`() {
+        Bugs.isDebug.value shouldBe false
+    }
+
+    @Test
+    fun `isDebug can be toggled`() {
+        Bugs.isDebug.value = true
+        Bugs.isDebug.value shouldBe true
+        Bugs.isDebug.value = false
+        Bugs.isDebug.value shouldBe false
     }
 
     @Test

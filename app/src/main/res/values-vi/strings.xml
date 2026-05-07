@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Tự động phát</string>
     <string name="settings_autoplay_description">Bắt đầu phát lại âm thanh khi thiết bị được đeo.</string>
     <string name="settings_eardetection_info_label">Ghi chú nhận diện tai</string>
-    <string name="settings_eardetection_info_description">Nếu tính năng nhận diện tai chỉ hoạt động cho một bên, đây là giới hạn của Apple. Chỉ \"pod chính\" (dùng cho micrô) được nhận diện. Cấu hình trên thiết bị Apple: Cài đặt → Bluetooth → AirPods → Micrô.</string>
-    <string name="settings_fake_data_label">Dữ liệu giả</string>
-    <string name="settings_fake_data_description">Hiển thị dữ liệu giả, tức là mô phỏng các thiết bị không tồn tại.</string>
-    <string name="settings_debug_label">Cài đặt gỡ lỗi</string>
-    <string name="settings_debug_description">Cài đặt bổ sung để giúp khắc phục sự cố với ứng dụng.</string>
-    <string name="settings_signal_minimum_label">Chất lượng tín hiệu tối thiểu</string>
+    <string name="settings_eardetection_info_description">Nếu tính năng nhận diện tai chỉ hoạt động cho một bên, đây là giới hạn của Apple. Chỉ \"pod chính\" (dùng cho micrô) được nhận diện. Cấu hình trên thiết bị Apple: Cài đặt → Bluetooth → AirPods → Micrô.</string><string name="settings_signal_minimum_label">Chất lượng tín hiệu tối thiểu</string>
     <string name="settings_signal_minimum_description">Chất lượng tín hiệu tối thiểu mà một thiết bị cần phải được coi là của bạn.</string>
     <string name="settings_autoconnect_label">Tự động kết nối</string>
     <string name="settings_autoconnect_description">Nếu Android không tự động kết nối, chúng ta cũng có thể hỏi nó. Thao tác này sẽ đặt cài đặt chế độ màn hình thành \'Luôn luôn\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_acknowledgements_label">Đóng góp và cảm ơn</string>
     <string name="settings_debug_autoreports_label">Báo cáo lỗi tự động</string>
-    <string name="settings_debug_autoreports_description">Tự động báo cáo các vấn đề, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể tìm ra cách khắc phục.</string>
-    <string name="settings_debug_mode_label">Chế độ kiểm tra sửa lỗi</string>
-    <string name="settings_debug_mode_description">Hiển thị thông tin bổ sung để khắc phục sự cố.</string>
-    <string name="settings_blescanner_unfiltered_label">Dữ liệu BLE chưa được lọc</string>
-    <string name="settings_blescanner_unfiltered_description">Xóa mọi bộ lọc khỏi máy quét BLE để hiển thị tất cả dữ liệu BLE đã phát. Hữu ích để thêm hỗ trợ cho các loại tai nghe mới.</string>
-    <string name="settings_compatibility_mode_label">Chế độ tương thích</string>
+    <string name="settings_debug_autoreports_description">Tự động báo cáo các vấn đề, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể tìm ra cách khắc phục.</string><string name="settings_compatibility_mode_label">Chế độ tương thích</string>
     <string name="settings_compatibility_mode_description">Tắt tối ưu hóa để cải thiện khả năng tương thích. Hãy thử điều này nếu bạn không thấy bất kỳ dữ liệu nào.</string>
     <string name="help_translate_label">Dịch</string>
     <string name="help_translate_description">Giúp dịch ứng dụng này sang ngôn ngữ yêu thích của bạn.</string>

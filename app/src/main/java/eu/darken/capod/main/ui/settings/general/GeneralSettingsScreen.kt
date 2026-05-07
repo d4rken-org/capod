@@ -6,7 +6,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.AccountTree
-import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.Contrast
 import androidx.compose.material.icons.twotone.DarkMode
 import androidx.compose.material.icons.twotone.FilterList
@@ -56,7 +55,6 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             onNavigateUp = { vm.navUp() },
             onShowConnectedNotificationChanged = { enabled -> vm.setShowConnectedNotification(enabled) },
             onKeepNotificationAfterDisconnectChanged = { enabled -> vm.setKeepNotificationAfterDisconnect(enabled) },
-            onDebugSettings = { vm.goToDebugSettings() },
             onOffloadedFilteringDisabledChanged = { disabled -> vm.setOffloadedFilteringDisabled(disabled) },
             onOffloadedBatchingDisabledChanged = { disabled -> vm.setOffloadedBatchingDisabled(disabled) },
             onUseIndirectScanResultCallbackChanged = { enabled -> vm.setUseIndirectScanResultCallback(enabled) },
@@ -74,7 +72,6 @@ fun GeneralSettingsScreen(
     onNavigateUp: () -> Unit,
     onShowConnectedNotificationChanged: (Boolean) -> Unit,
     onKeepNotificationAfterDisconnectChanged: (Boolean) -> Unit,
-    onDebugSettings: () -> Unit,
     onOffloadedFilteringDisabledChanged: (Boolean) -> Unit,
     onOffloadedBatchingDisabledChanged: (Boolean) -> Unit,
     onUseIndirectScanResultCallbackChanged: (Boolean) -> Unit,
@@ -201,14 +198,6 @@ fun GeneralSettingsScreen(
                 )
             }
             item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_debug_label),
-                    subtitle = stringResource(R.string.settings_debug_description),
-                    icon = Icons.TwoTone.BugReport,
-                    onClick = onDebugSettings,
-                )
-            }
-            item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_compatibility_options_title))
             }
             item {
@@ -289,7 +278,6 @@ private fun GeneralSettingsScreenProPreview() = PreviewWrapper {
         onNavigateUp = {},
         onShowConnectedNotificationChanged = {},
         onKeepNotificationAfterDisconnectChanged = {},
-        onDebugSettings = {},
         onOffloadedFilteringDisabledChanged = {},
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},
@@ -304,7 +292,6 @@ private fun GeneralSettingsScreenNonProPreview() = PreviewWrapper {
         onNavigateUp = {},
         onShowConnectedNotificationChanged = {},
         onKeepNotificationAfterDisconnectChanged = {},
-        onDebugSettings = {},
         onOffloadedFilteringDisabledChanged = {},
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},

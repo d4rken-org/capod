@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automatinis grojimas</string>
     <string name="settings_autoplay_description">Pradėti garso atkūrimą, kai įrenginys nešiojamas.</string>
     <string name="settings_eardetection_info_label">Ausies aptikimo pastaba</string>
-    <string name="settings_eardetection_info_description">Jei ausies aptikimas veikia tik vienam „pod\", tai yra „Apple\" apribojimas. Aptinkamas tik „pagrindinis pod\" (naudojamas mikrofonui). Konfigūruokite „Apple\" įrenginiuose: Nustatymai → „Bluetooth\" → „AirPods\" → Mikrofonas.</string>
-    <string name="settings_fake_data_label">Netikri duomenys</string>
-    <string name="settings_fake_data_description">Rodyti netikrus duomenis, t. y. imituoti neegzistuojančius įrenginius.</string>
-    <string name="settings_debug_label">Derinimo nustatymai</string>
-    <string name="settings_debug_description">Papildomi nustatymai, padedantys spręsti programos problemas.</string>
-    <string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
+    <string name="settings_eardetection_info_description">Jei ausies aptikimas veikia tik vienam „pod\", tai yra „Apple\" apribojimas. Aptinkamas tik „pagrindinis pod\" (naudojamas mikrofonui). Konfigūruokite „Apple\" įrenginiuose: Nustatymai → „Bluetooth\" → „AirPods\" → Mikrofonas.</string><string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
     <string name="settings_signal_minimum_description">Minimali signalo kokybė, kurią turi turėti įrenginys, kad būtų laikomas jūsų.</string>
     <string name="settings_autoconnect_label">Automatinis prisijungimas</string>
     <string name="settings_autoconnect_description">Jei „Android“ neprisijungia automatiškai, mes taip pat galime to paprašyti. Tai nustatys stebėjimo režimo nustatymą į \"Visada\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
     <string name="settings_acknowledgements_label">Padėkos</string>
     <string name="settings_debug_autoreports_label">Automatinės klaidų ataskaitos</string>
-    <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string>
-    <string name="settings_debug_mode_label">Derinimo režimas</string>
-    <string name="settings_debug_mode_description">Rodyti papildomą informaciją problemoms spręsti.</string>
-    <string name="settings_blescanner_unfiltered_label">Nefiltruoti BLE duomenys</string>
-    <string name="settings_blescanner_unfiltered_description">Pašalinkite visus filtrus iš BLE skaitytuvo, kad būtų rodomi visi transliuojami BLE duomenys. Naudinga pridedant palaikymą naujiems ausinių tipams.</string>
-    <string name="settings_compatibility_mode_label">Suderinamumo režimas</string>
+    <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string><string name="settings_compatibility_mode_label">Suderinamumo režimas</string>
     <string name="settings_compatibility_mode_description">Išjunkite optimizavimą, kad pagerintumėte suderinamumą. Išbandykite tai, jei nematote jokių duomenų.</string>
     <string name="help_translate_label">Vertimas</string>
     <string name="help_translate_description">Padėkite išversti šią programą į savo mėgstamą kalbą.</string>

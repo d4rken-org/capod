@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Outo-speel</string>
     <string name="settings_autoplay_description">Begin oudio-terugspeel wanneer toestel gedra word.</string>
     <string name="settings_eardetection_info_label">Nota oor oorbespeuring</string>
-    <string name="settings_eardetection_info_description">As oorbespeuring net vir een pod werk, is dit \'n Apple-beperking. Slegs die primêre pod (wat vir die mikrofoon gebruik word) word bespeur. Stel op Apple-toestelle op: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">Vals data</string>
-    <string name="settings_fake_data_description">Wys vals data, d.w.s. simuleer toestelle wat nie bestaan nie.</string>
-    <string name="settings_debug_label">Ontfoutinstellings</string>
-    <string name="settings_debug_description">Addisionele instellings om probleme met die toepassing te help oplos.</string>
-    <string name="settings_signal_minimum_label">Minimum seingehalte</string>
+    <string name="settings_eardetection_info_description">As oorbespeuring net vir een pod werk, is dit \'n Apple-beperking. Slegs die primêre pod (wat vir die mikrofoon gebruik word) word bespeur. Stel op Apple-toestelle op: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">Minimum seingehalte</string>
     <string name="settings_signal_minimum_description">Die minimum seingehalte wat \'n toestel moet hê om as joune beskou te word.</string>
     <string name="settings_autoconnect_label">Outo-koppel</string>
     <string name="settings_autoconnect_description">As Android nie outomaties koppel nie, kan ons dit ook vra. Dit sal die monitormodus-instelling na \'Altyd\' stel.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Algemene aanpassings wat die hele toepassing beïnvloed.</string>
     <string name="settings_acknowledgements_label">Erkennings</string>
     <string name="settings_debug_autoreports_label">Outomatiese foutverslae</string>
-    <string name="settings_debug_autoreports_description">Rapporteer probleme outomaties, bv. besonderhede oor \'n toepassingstorting sodat ek kan uitvind hoe om dit reg te stel.</string>
-    <string name="settings_debug_mode_label">Ontfoutmodus</string>
-    <string name="settings_debug_mode_description">Wys addisionele inligting om probleme op te los.</string>
-    <string name="settings_blescanner_unfiltered_label">Ongefiltreerde BLE-data</string>
-    <string name="settings_blescanner_unfiltered_description">Verwyder enige filters van die BLE-skandeerder om alle uitgesaaide BLE-data te wys. Nuttig om ondersteuning vir nuwe koptelefoontipes by te voeg.</string>
-    <string name="settings_compatibility_mode_label">Verenigbaarheidsmodus</string>
+    <string name="settings_debug_autoreports_description">Rapporteer probleme outomaties, bv. besonderhede oor \'n toepassingstorting sodat ek kan uitvind hoe om dit reg te stel.</string><string name="settings_compatibility_mode_label">Verenigbaarheidsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktiveer optimalisasies om verenigbaarheid te verbeter. Probeer dit as jy geen data sien nie.</string>
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help om hierdie toepassing in jou gunstelingtaal te vertaal.</string>

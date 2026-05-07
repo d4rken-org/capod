@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Авто ойнотуу</string>
     <string name="settings_autoplay_description">Түзмөк тагылганда аудио ойнотууну баштаңыз.</string>
     <string name="settings_eardetection_info_label">Кулак аныктоо эскертмеси</string>
-    <string name="settings_eardetection_info_description">Кулак аныктоо бир эле кулакчын үчүн иштесе, бул Apple чектөөсү. Микрофон үчүн колдонулган \"негизги кулакчын\" гана аныкталат. Apple түзмөктөрүндө тууралаңыз: Жөндөөлөр → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_fake_data_label">Жасалма маалыматтар</string>
-    <string name="settings_fake_data_description">Жасалма маалыматтарды көрсөтүңүз, б.а., жок түзмөктөрдү симуляциялаңыз.</string>
-    <string name="settings_debug_label">Мүчүлүштүктөрдү оңдоо орнотуулары</string>
-    <string name="settings_debug_description">Колдонмодогу көйгөйлөрдү чечүүгө жардам берүүчү кошумча орнотуулар.</string>
-    <string name="settings_signal_minimum_label">Минималдуу сигнал сапаты</string>
+    <string name="settings_eardetection_info_description">Кулак аныктоо бир эле кулакчын үчүн иштесе, бул Apple чектөөсү. Микрофон үчүн колдонулган \"негизги кулакчын\" гана аныкталат. Apple түзмөктөрүндө тууралаңыз: Жөндөөлөр → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Минималдуу сигнал сапаты</string>
     <string name="settings_signal_minimum_description">Түзмөктүн сиздики деп эсептелиши үчүн талап кылынган минималдуу сигнал сапаты.</string>
     <string name="settings_autoconnect_label">Авто туташуу</string>
     <string name="settings_autoconnect_description">Эгер Android автоматтык түрдө туташпаса, биз дагы сурасак болот. Бул мониторинг режиминин жөндөөсүн \'Ар дайым\' кылып коёт.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
     <string name="settings_acknowledgements_label">Ыраазычылыктар</string>
     <string name="settings_debug_autoreports_label">Автоматтык ката отчеттору</string>
-    <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string>
-    <string name="settings_debug_mode_label">Мүчүлүштүктөрдү оңдоо режими</string>
-    <string name="settings_debug_mode_description">Маселелерди чечүү үчүн кошумча маалыматты көрсөтүңүз.</string>
-    <string name="settings_blescanner_unfiltered_label">Чыпкаланбаган BLE маалыматтары</string>
-    <string name="settings_blescanner_unfiltered_description">Бардык уктурулган BLE маалыматтарын көрсөтүү үчүн BLE сканеринен бардык чыпкаларды алып салыңыз. Жаңы гарнитура түрлөрүнө колдоо кошуу үчүн пайдалуу.</string>
-    <string name="settings_compatibility_mode_label">Шайкештик режими</string>
+    <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string><string name="settings_compatibility_mode_label">Шайкештик режими</string>
     <string name="settings_compatibility_mode_description">Шайкештикти жакшыртуу үчүн оптималдаштырууларды өчүрүңүз. Эгер эч кандай маалымат көрбөсөңүз, муну байкап көрүңүз.</string>
     <string name="help_translate_label">Котормо</string>
     <string name="help_translate_description">Бул колдонмону сүйүктүү тилиңизге которууга жардам бериңиз.</string>

@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Otomatik oynat</string>
     <string name="settings_autoplay_description">Aygıt takıldığında sesi oynatmaya başlar.</string>
     <string name="settings_eardetection_info_label">Kulak algılama notu</string>
-    <string name="settings_eardetection_info_description">Kulak algılama yalnızca bir kulaklık için çalışıyorsa bu bir Apple sınırlamasıdır. Yalnızca \"birincil kulaklık\" (mikrofon için kullanılan) algılanır. Apple cihazlarında yapılandırın: Ayarlar → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Sahte veri</string>
-    <string name="settings_fake_data_description">Sahte veri gösterir ve örnek olarak var olmayan aygıtları taklit eder.</string>
-    <string name="settings_debug_label">Hata ayıklama ayarları</string>
-    <string name="settings_debug_description">Uygulamayla ilgili sorunları gidermeye yardımcı olacak ek ayarlar.</string>
-    <string name="settings_signal_minimum_label">Minimum sinyal kalitesi</string>
+    <string name="settings_eardetection_info_description">Kulak algılama yalnızca bir kulaklık için çalışıyorsa bu bir Apple sınırlamasıdır. Yalnızca \"birincil kulaklık\" (mikrofon için kullanılan) algılanır. Apple cihazlarında yapılandırın: Ayarlar → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimum sinyal kalitesi</string>
     <string name="settings_signal_minimum_description">Bir aygıtın size ait olduğunun anlaşılması için sahip olması gereken minimum sinyal kalitesi.</string>
     <string name="settings_autoconnect_label">Otomatik bağlan</string>
     <string name="settings_autoconnect_description">Android otomatik olarak bağlanmazsa, bizde sorabiliriz. Monitör modu ayarı \'Her Zaman\' olarak ayarlanacaktır.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Uygulamayı etkileyen genel ince ayarlar.</string>
     <string name="settings_acknowledgements_label">Teşekkürler</string>
     <string name="settings_debug_autoreports_label">Otomatik hata raporları</string>
-    <string name="settings_debug_autoreports_description">Sorunları otomatik olarak bildirir, ör. uygulama çökmesiyle ilgili ayrıntılı bilgiler. Böylece nasıl düzelteceğimi bulabilirim.</string>
-    <string name="settings_debug_mode_label">Hata ayıklama modu</string>
-    <string name="settings_debug_mode_description">Sorunları gidermek için ek bilgileri gösterir.</string>
-    <string name="settings_blescanner_unfiltered_label">Filtrelenmemiş BLE verileri</string>
-    <string name="settings_blescanner_unfiltered_description">Yayınlanan tüm BLE verilerini göstermek için BLE tarayıcısından tüm filtreleri kaldırır. Yeni kulaklık türlerini desteklemek için kullanışlıdır.</string>
-    <string name="settings_compatibility_mode_label">Uyumluluk modu</string>
+    <string name="settings_debug_autoreports_description">Sorunları otomatik olarak bildirir, ör. uygulama çökmesiyle ilgili ayrıntılı bilgiler. Böylece nasıl düzelteceğimi bulabilirim.</string><string name="settings_compatibility_mode_label">Uyumluluk modu</string>
     <string name="settings_compatibility_mode_description">Uyumluluğu iyileştirmek için optimizasyonları devre dışı bırakın. Herhangi bir veri görmüyorsanız bunu deneyin.</string>
     <string name="help_translate_label">Çeviri</string>
     <string name="help_translate_description">Uygulamayı favori dilinize tercüme etmeye yardımcı olun.</string>

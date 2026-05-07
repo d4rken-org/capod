@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">യാന്ത്രികമായി പ്ലേ ചെയ്യുക</string>
     <string name="settings_autoplay_description">ഉപകരണം ധരിക്കുമ്പോൾ ഓഡിയോ പ്ലേബാക്ക് ആരംഭിക്കുക.</string>
     <string name="settings_eardetection_info_label">ഇയർ ഡിറ്റക്ഷൻ കുറിപ്പ്</string>
-    <string name="settings_eardetection_info_description">ഇയർ ഡിറ്റക്ഷൻ ഒരു പോഡിന് മാത്രമേ പ്രവർത്തിക്കുകയുള്ളൂവെങ്കിൽ, ഇത് Apple-ന്റെ പരിമിതിയാണ്. \"പ്രൈമറി പോഡ്\" (മൈക്രോഫോണിനായി ഉപയോഗിക്കുന്നത്) മാത്രമേ കണ്ടെത്തുകയുള്ളൂ. Apple ഉപകരണങ്ങളിൽ ക്രമീകരിക്കുക: ക്രമീകരണങ്ങൾ → Bluetooth → AirPods → മൈക്രോഫോൺ.</string>
-    <string name="settings_fake_data_label">വ്യാജ ഡാറ്റ</string>
-    <string name="settings_fake_data_description">വ്യാജ ഡാറ്റ കാണിക്കുക, അതായത് നിലവിലില്ലാത്ത ഉപകരണങ്ങളെ അനുകരിക്കുക.</string>
-    <string name="settings_debug_label">ഡീബഗ് ക്രമീകരണങ്ങൾ</string>
-    <string name="settings_debug_description">ആപ്പിലെ പ്രശ്‌നങ്ങൾ പരിഹരിക്കാൻ സഹായിക്കുന്ന അധിക ക്രമീകരണങ്ങൾ.</string>
-    <string name="settings_signal_minimum_label">കുറഞ്ഞ സിഗ്നൽ നിലവാരം</string>
+    <string name="settings_eardetection_info_description">ഇയർ ഡിറ്റക്ഷൻ ഒരു പോഡിന് മാത്രമേ പ്രവർത്തിക്കുകയുള്ളൂവെങ്കിൽ, ഇത് Apple-ന്റെ പരിമിതിയാണ്. \"പ്രൈമറി പോഡ്\" (മൈക്രോഫോണിനായി ഉപയോഗിക്കുന്നത്) മാത്രമേ കണ്ടെത്തുകയുള്ളൂ. Apple ഉപകരണങ്ങളിൽ ക്രമീകരിക്കുക: ക്രമീകരണങ്ങൾ → Bluetooth → AirPods → മൈക്രോഫോൺ.</string><string name="settings_signal_minimum_label">കുറഞ്ഞ സിഗ്നൽ നിലവാരം</string>
     <string name="settings_signal_minimum_description">ഒരു ഉപകരണം നിങ്ങളുടേതാണെന്ന് കണക്കാക്കാൻ ആവശ്യമായ ഏറ്റവും കുറഞ്ഞ സിഗ്നൽ നിലവാരം.</string>
     <string name="settings_autoconnect_label">യാന്ത്രികമായി കണക്റ്റുചെയ്യുക</string>
     <string name="settings_autoconnect_description">Android യാന്ത്രികമായി കണക്റ്റുചെയ്യുന്നില്ലെങ്കിൽ, ഞങ്ങൾക്കും അത് അഭ്യർത്ഥിക്കാം. ഇത് മോണിറ്റർ മോഡ് ക്രമീകരണം \"എപ്പോഴും\" എന്നതിലേക്ക് സജ്ജമാക്കും.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
     <string name="settings_debug_autoreports_label">യാന്ത്രിക ബഗ് റിപ്പോർട്ടുകൾ</string>
-    <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string>
-    <string name="settings_debug_mode_label">ഡീബഗ് മോഡ്</string>
-    <string name="settings_debug_mode_description">പ്രശ്നങ്ങൾ പരിഹരിക്കാൻ അധിക വിവരങ്ങൾ കാണിക്കുക.</string>
-    <string name="settings_blescanner_unfiltered_label">ഫിൽട്ടർ ചെയ്യാത്ത BLE ഡാറ്റ</string>
-    <string name="settings_blescanner_unfiltered_description">എല്ലാ പ്രക്ഷേപണം ചെയ്ത BLE ഡാറ്റയും കാണിക്കാൻ BLE സ്കാനറിൽ നിന്ന് ഏതെങ്കിലും ഫിൽട്ടറുകൾ നീക്കം ചെയ്യുക. പുതിയ ഹെഡ്‌ഫോൺ തരങ്ങൾക്കുള്ള പിന്തുണ ചേർക്കാൻ ഇത് ഉപയോഗപ്രദമാണ്.</string>
-    <string name="settings_compatibility_mode_label">അനുയോജ്യത മോഡ്</string>
+    <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string><string name="settings_compatibility_mode_label">അനുയോജ്യത മോഡ്</string>
     <string name="settings_compatibility_mode_description">അനുയോജ്യത മെച്ചപ്പെടുത്താൻ ഒപ്റ്റിമൈസേഷനുകൾ പ്രവർത്തനരഹിതമാക്കുക. നിങ്ങൾക്ക് ഡാറ്റയൊന്നും കാണുന്നില്ലെങ്കിൽ ഇത് പരീക്ഷിക്കുക.</string>
     <string name="help_translate_label">പരിഭാഷ</string>
     <string name="help_translate_description">ഈ ആപ്പ് നിങ്ങളുടെ പ്രിയപ്പെട്ട ഭാഷയിലേക്ക് വിവർത്തനം ചെയ്യാൻ സഹായിക്കുക.</string>

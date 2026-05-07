@@ -8,9 +8,19 @@ import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.asLogSummary
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
+import kotlinx.coroutines.flow.MutableStateFlow
 
 object Bugs {
     var reporter: AutomaticBugReporter? = null
+
+    /**
+     * True while the debug log recorder is actively recording. Surfaces extra
+     * diagnostic UI (e.g. raw BLE payload hex on device cards) so users helping
+     * to add support for new headphones can capture useful data without a
+     * permanent debug toggle.
+     */
+    val isDebug = MutableStateFlow(false)
+
     fun report(
         tag: String,
         message: String,

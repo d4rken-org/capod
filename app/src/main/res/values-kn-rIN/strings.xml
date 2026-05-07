@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">ಸ್ವಯಂ-ಪ್ಲೇ</string>
     <string name="settings_autoplay_description">ಸಾಧನವನ್ನು ಧರಿಸಿದಾಗ ಆಡಿಯೊ ಪ್ಲೇಬ್ಯಾಕ್ ಪ್ರಾರಂಭಿಸಿ.</string>
     <string name="settings_eardetection_info_label">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಟಿಪ್ಪಣಿ</string>
-    <string name="settings_eardetection_info_description">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಒಂದು ಪಾಡ್‌ಗೆ ಮಾತ್ರ ಕೆಲಸ ಮಾಡಿದರೆ, ಇದು Apple ಮಿತಿಯಾಗಿದೆ. \"ಪ್ರಾಥಮಿಕ ಪಾಡ್\" (ಮೈಕ್ರೋಫೋನ್‌ಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ) ಮಾತ್ರ ಗುರುತಿಸಲಾಗುತ್ತದೆ. Apple ಸಾಧನಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಿ: ಸೆಟ್ಟಿಂಗ್‌ಗಳು → Bluetooth → AirPods → ಮೈಕ್ರೋಫೋನ್.</string>
-    <string name="settings_fake_data_label">ನಕಲಿ ಡೇಟಾ</string>
-    <string name="settings_fake_data_description">ನಕಲಿ ಡೇಟಾವನ್ನು ತೋರಿಸಿ, ಅಂದರೆ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲದ ಸಾಧನಗಳನ್ನು ಅನುಕರಿಸಿ.</string>
-    <string name="settings_debug_label">ಡೀಬಗ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
-    <string name="settings_debug_description">ಅಪ್ಲಿಕೇಶನ್‌ನೊಂದಿಗಿನ ಸಮಸ್ಯೆಗಳನ್ನು ನಿವಾರಿಸಲು ಸಹಾಯ ಮಾಡುವ ಹೆಚ್ಚುವರಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳು.</string>
-    <string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
+    <string name="settings_eardetection_info_description">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಒಂದು ಪಾಡ್‌ಗೆ ಮಾತ್ರ ಕೆಲಸ ಮಾಡಿದರೆ, ಇದು Apple ಮಿತಿಯಾಗಿದೆ. \"ಪ್ರಾಥಮಿಕ ಪಾಡ್\" (ಮೈಕ್ರೋಫೋನ್‌ಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ) ಮಾತ್ರ ಗುರುತಿಸಲಾಗುತ್ತದೆ. Apple ಸಾಧನಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಿ: ಸೆಟ್ಟಿಂಗ್‌ಗಳು → Bluetooth → AirPods → ಮೈಕ್ರೋಫೋನ್.</string><string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
     <string name="settings_signal_minimum_description">ನಿಮ್ಮದೆಂದು ಪರಿಗಣಿಸಲು ಸಾಧನವು ಹೊಂದಿರಬೇಕಾದ ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ.</string>
     <string name="settings_autoconnect_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ</string>
     <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಗೊಳ್ಳದಿದ್ದರೆ, ನಾವು ಕೂಡ ಅದನ್ನು ವಿನಂತಿಸಬಹುದು. ಇದು ಮಾನಿಟರ್ ಮೋಡ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು \"ಯಾವಾಗಲೂ\" ಗೆ ಹೊಂದಿಸುತ್ತದೆ.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
     <string name="settings_debug_autoreports_label">ಸ್ವಯಂಚಾಲಿತ ಬಗ್ ವರದಿಗಳು</string>
-    <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string>
-    <string name="settings_debug_mode_label">ಡೀಬಗ್ ಮೋಡ್</string>
-    <string name="settings_debug_mode_description">ಸಮಸ್ಯೆಗಳನ್ನು ನಿವಾರಿಸಲು ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸಿ.</string>
-    <string name="settings_blescanner_unfiltered_label">ಫಿಲ್ಟರ್ ಮಾಡದ BLE ಡೇಟಾ</string>
-    <string name="settings_blescanner_unfiltered_description">ಎಲ್ಲಾ ಪ್ರಸಾರವಾದ BLE ಡೇಟಾವನ್ನು ತೋರಿಸಲು BLE ಸ್ಕ್ಯಾನರ್‌ನಿಂದ ಯಾವುದೇ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕಿ. ಹೊಸ ಹೆಡ್‌ಫೋನ್ ಪ್ರಕಾರಗಳಿಗೆ ಬೆಂಬಲವನ್ನು ಸೇರಿಸಲು ಉಪಯುಕ್ತವಾಗಿದೆ.</string>
-    <string name="settings_compatibility_mode_label">ಹೊಂದಾಣಿಕೆ ಮೋಡ್</string>
+    <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string><string name="settings_compatibility_mode_label">ಹೊಂದಾಣಿಕೆ ಮೋಡ್</string>
     <string name="settings_compatibility_mode_description">ಹೊಂದಾಣಿಕೆಯನ್ನು ಸುಧಾರಿಸಲು ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ನೀವು ಯಾವುದೇ ಡೇಟಾವನ್ನು ನೋಡದಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="help_translate_label">ಅನುವಾದ</string>
     <string name="help_translate_description">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ನೆಚ್ಚಿನ ಭಾಷೆಗೆ ಅನುವಾದಿಸಲು ಸಹಾಯ ಮಾಡಿ.</string>

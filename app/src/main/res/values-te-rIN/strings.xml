@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">ఆటో ప్లే</string>
     <string name="settings_autoplay_description">పరికరం ధరించినప్పుడు ఆడియో ప్లేబ్యాక్ ప్రారంభించండి.</string>
     <string name="settings_eardetection_info_label">చెవి గుర్తింపు గమనిక</string>
-    <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string>
-    <string name="settings_fake_data_label">నకిలీ డేటా</string>
-    <string name="settings_fake_data_description">నకిలీ డేటాను చూపించు, అనగా, ఉనికిలో లేని పరికరాలను అనుకరించండి.</string>
-    <string name="settings_debug_label">డీబగ్ సెట్టింగ్‌లు</string>
-    <string name="settings_debug_description">యాప్‌తో సమస్యలను పరిష్కరించడంలో సహాయపడటానికి అదనపు సెట్టింగ్‌లు.</string>
-    <string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
+    <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string><string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
     <string name="settings_signal_minimum_description">ఒక పరికరం మీదిగా పరిగణించబడటానికి అవసరమైన కనీస సిగ్నల్ నాణ్యత.</string>
     <string name="settings_autoconnect_label">ఆటో కనెక్ట్</string>
     <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మేము కూడా అడగవచ్చు. ఇది మానిటర్ మోడ్ సెట్టింగ్‌ను \'ఎల్లప్పుడూ\'కి సెట్ చేస్తుంది.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
     <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
-    <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
-    <string name="settings_debug_mode_label">డీబగ్ మోడ్</string>
-    <string name="settings_debug_mode_description">సమస్యలను పరిష్కరించడానికి అదనపు సమాచారాన్ని చూపించు.</string>
-    <string name="settings_blescanner_unfiltered_label">ఫిల్టర్ చేయని BLE డేటా</string>
-    <string name="settings_blescanner_unfiltered_description">అన్ని ప్రసారం చేయబడిన BLE డేటాను చూపించడానికి BLE స్కానర్ నుండి ఏదైనా ఫిల్టర్‌లను తీసివేయండి. కొత్త హెడ్‌ఫోన్ రకాలకు మద్దతు జోడించడానికి ఉపయోగపడుతుంది.</string>
-    <string name="settings_compatibility_mode_label">అనుకూలత మోడ్</string>
+    <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string><string name="settings_compatibility_mode_label">అనుకూలత మోడ్</string>
     <string name="settings_compatibility_mode_description">అనుకూలతను మెరుగుపరచడానికి ఆప్టిమైజేషన్‌లను నిలిపివేయండి. మీరు ఏ డేటాను చూడకపోతే దీన్ని ప్రయత్నించండి.</string>
     <string name="help_translate_label">అనువాదం</string>
     <string name="help_translate_description">ఈ యాప్‌ను మీ ఇష్టమైన భాషలోకి అనువదించడంలో సహాయపడండి.</string>

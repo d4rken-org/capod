@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Auto play</string>
     <string name="settings_autoplay_description">Simulan ang pag-playback ng audio kapag suot ang device.</string>
     <string name="settings_eardetection_info_label">Paalala sa ear detection</string>
-    <string name="settings_eardetection_info_description">Kung ang ear detection ay gumagana lang para sa isang pod, ito ay limitasyon ng Apple. Tanging ang \"pangunahing pod\" (ginagamit para sa mikropono) lang ang nadedetect. I-configure sa mga Apple device: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">Pekeng data</string>
-    <string name="settings_fake_data_description">Magpakita ng pekeng data, ibig sabihin, gayahin ang mga device na wala.</string>
-    <string name="settings_debug_label">Mga setting ng debug</string>
-    <string name="settings_debug_description">Mga karagdagang setting para makatulong sa pag-troubleshoot ng mga isyu sa app.</string>
-    <string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
+    <string name="settings_eardetection_info_description">Kung ang ear detection ay gumagana lang para sa isang pod, ito ay limitasyon ng Apple. Tanging ang \"pangunahing pod\" (ginagamit para sa mikropono) lang ang nadedetect. I-configure sa mga Apple device: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
     <string name="settings_signal_minimum_description">Ang minimum na kalidad ng signal na kailangan ng isang device para maituring na sa iyo.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
     <string name="settings_autoconnect_description">Kung hindi awtomatikong kumonekta ang Android, maaari rin natin itong hilingin. Itatakda nito ang setting ng monitor mode sa \'Palagi\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
     <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
-    <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
-    <string name="settings_debug_mode_label">Debug mode</string>
-    <string name="settings_debug_mode_description">Magpakita ng karagdagang impormasyon para sa pag-troubleshoot ng mga isyu.</string>
-    <string name="settings_blescanner_unfiltered_label">Hindi na-filter na BLE data</string>
-    <string name="settings_blescanner_unfiltered_description">Alisin ang anumang mga filter mula sa BLE scanner para ipakita ang lahat ng na-broadcast na BLE data. Kapaki-pakinabang para magdagdag ng suporta para sa mga bagong uri ng headphone.</string>
-    <string name="settings_compatibility_mode_label">Compatibility mode</string>
+    <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string><string name="settings_compatibility_mode_label">Compatibility mode</string>
     <string name="settings_compatibility_mode_description">I-disable ang mga optimization para mapabuti ang compatibility. Subukan ito kung wala kang nakikitang data.</string>
     <string name="help_translate_label">Pagsasalin</string>
     <string name="help_translate_description">Tumulong sa pagsasalin ng app na ito sa iyong paboritong wika.</string>

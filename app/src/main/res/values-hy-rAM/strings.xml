@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Ինքնանվագարկում</string>
     <string name="settings_autoplay_description">Սկսեք ձայնի նվագարկումը, երբ սարքը կրում եք։</string>
     <string name="settings_eardetection_info_label">Ականջում հայտնաբերման նշում</string>
-    <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string>
-    <string name="settings_fake_data_label">Կեղծ տվյալներ</string>
-    <string name="settings_fake_data_description">Ցուցադրել կեղծ տվյալներ, այսինքն՝ գոյություն չունեցող սարքերի նմանակում։</string>
-    <string name="settings_debug_label">Կարգաբերման կարգավորումներ</string>
-    <string name="settings_debug_description">Լրացուցիչ կարգավորումներ՝ հավելվածի հետ կապված խնդիրների լուծմանն օգնելու համար։</string>
-    <string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
+    <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string><string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
     <string name="settings_signal_minimum_description">Ազդանշանի նվազագույն որակը, որը պետք է ունենա սարքը՝ ձերը համարվելու համար։</string>
     <string name="settings_autoconnect_label">Ինքնամիացում</string>
     <string name="settings_autoconnect_description">Եթե Android-ն ինքնաբերաբար չի միանում, մենք նույնպես կարող ենք դա պահանջել։ Սա մոնիթորինգի ռեժիմի կարգավորումը կդնի \"Միշտ\" վիճակում։</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
     <string name="settings_debug_autoreports_label">Սխալների ավտոմատ հաշվետվություններ</string>
-    <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string>
-    <string name="settings_debug_mode_label">Կարգաբերման ռեժիմ</string>
-    <string name="settings_debug_mode_description">Ցուցադրել լրացուցիչ տեղեկատվություն՝ խնդիրները լուծելու համար։</string>
-    <string name="settings_blescanner_unfiltered_label">Չզտված BLE տվյալներ</string>
-    <string name="settings_blescanner_unfiltered_description">Հեռացրեք ցանկացած զտիչ BLE սկաներից՝ ցուցադրելու բոլոր հեռարձակվող BLE տվյալները։ Օգտակար է նոր տեսակի ականջակալների աջակցություն ավելացնելու համար։</string>
-    <string name="settings_compatibility_mode_label">Համատեղելիության ռեժիմ</string>
+    <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string><string name="settings_compatibility_mode_label">Համատեղելիության ռեժիմ</string>
     <string name="settings_compatibility_mode_description">Անջատեք օպտիմիզացումները՝ համատեղելիությունը բարելավելու համար։ Փորձեք սա, եթե տվյալներ չեք տեսնում։</string>
     <string name="help_translate_label">Թարգմանություն</string>
     <string name="help_translate_description">Օգնեք թարգմանել այս հավելվածը ձեր սիրելի լեզվով։</string>

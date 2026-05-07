@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Redare automată</string>
     <string name="settings_autoplay_description">Porniți redarea audio când dispozitivul este purtat.</string>
     <string name="settings_eardetection_info_label">Notă despre detectarea urechii</string>
-    <string name="settings_eardetection_info_description">Dacă detectarea urechii funcționează doar pentru o cască, aceasta este o limitare Apple. Doar \"căștile principale\" (folosite pentru microfon) sunt detectate. Configurați pe dispozitivele Apple: Setări → Bluetooth → AirPods → Microfon.</string>
-    <string name="settings_fake_data_label">Date false</string>
-    <string name="settings_fake_data_description">Afișați date false, ex: simulați dispozitive care nu există.</string>
-    <string name="settings_debug_label">Setări de depanare</string>
-    <string name="settings_debug_description">Setări suplimentare pentru a ajuta la depanarea problemelor cu aplicația.</string>
-    <string name="settings_signal_minimum_label">Calitatea minimă a semnalului</string>
+    <string name="settings_eardetection_info_description">Dacă detectarea urechii funcționează doar pentru o cască, aceasta este o limitare Apple. Doar \"căștile principale\" (folosite pentru microfon) sunt detectate. Configurați pe dispozitivele Apple: Setări → Bluetooth → AirPods → Microfon.</string><string name="settings_signal_minimum_label">Calitatea minimă a semnalului</string>
     <string name="settings_signal_minimum_description">Calitatea minimă a semnalului pe care trebuie să o aibă un dispozitiv trebuie să fie considerată a dvs.</string>
     <string name="settings_autoconnect_label">Conectare automată</string>
     <string name="settings_autoconnect_description">Dacă Android nu se conectează automat, îl putem întreba și noi. Aceasta va seta setarea modului monitorizare la „Întotdeauna”.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Ajustări generale care afectează întreaga aplicație.</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
     <string name="settings_debug_autoreports_label">Rapoarte automate de erori</string>
-    <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string>
-    <string name="settings_debug_mode_label">Modul de depanare</string>
-    <string name="settings_debug_mode_description">Afișați informații suplimentare pentru a remedia problemele.</string>
-    <string name="settings_blescanner_unfiltered_label">Date BLE nefiltrate</string>
-    <string name="settings_blescanner_unfiltered_description">Eliminați toate filtrele din scanerul BLE pentru a afișa toate datele BLE difuzate. Util pentru a adăuga suport pentru noile tipuri de căști.</string>
-    <string name="settings_compatibility_mode_label">Mod de compatibilitate</string>
+    <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string><string name="settings_compatibility_mode_label">Mod de compatibilitate</string>
     <string name="settings_compatibility_mode_description">Dezactivați optimizările pentru a îmbunătăți compatibilitatea. Încercați acest lucru dacă nu vedeți nicio dată.</string>
     <string name="help_translate_label">Traducere</string>
     <string name="help_translate_description">Ajută la traducerea acestei aplicații în limba ta preferată.</string>

@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Luaj automatikisht</string>
     <string name="settings_autoplay_description">Nis riprodhimin e audios kur pajisja vihet në përdorim.</string>
     <string name="settings_eardetection_info_label">Shënim mbi zbulimin e veshit</string>
-    <string name="settings_eardetection_info_description">Nëse zbulimi i veshit funksionon vetëm për një kufje, kjo është një kufizim i Apple. Vetëm \"kufjja kryesore\" (e përdorur për mikrofonin) zbulohet. Konfiguroni në pajisjet Apple: Cilësimet → Bluetooth → AirPods → Mikrofoni.</string>
-    <string name="settings_fake_data_label">Të dhëna false</string>
-    <string name="settings_fake_data_description">Shfaq të dhëna false, d.m.th., simulo pajisje që nuk ekzistojnë.</string>
-    <string name="settings_debug_label">Cilësimet e korrigjimit</string>
-    <string name="settings_debug_description">Cilësime shtesë për të ndihmuar në zgjidhjen e problemeve me aplikacionin.</string>
-    <string name="settings_signal_minimum_label">Cilësia minimale e sinjalit</string>
+    <string name="settings_eardetection_info_description">Nëse zbulimi i veshit funksionon vetëm për një kufje, kjo është një kufizim i Apple. Vetëm \"kufjja kryesore\" (e përdorur për mikrofonin) zbulohet. Konfiguroni në pajisjet Apple: Cilësimet → Bluetooth → AirPods → Mikrofoni.</string><string name="settings_signal_minimum_label">Cilësia minimale e sinjalit</string>
     <string name="settings_signal_minimum_description">Cilësia minimale e sinjalit që një pajisje duhet të ketë për t\'u konsideruar e juaja.</string>
     <string name="settings_autoconnect_label">Lidhu automatikisht</string>
     <string name="settings_autoconnect_description">Nëse Android nuk lidhet automatikisht, ne mund t\'i kërkojmë gjithashtu. Kjo do të vendosë cilësimin e modalitetit të monitorimit në \'Gjithmonë\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
     <string name="settings_debug_autoreports_label">Raporte automatike të gabimeve</string>
-    <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string>
-    <string name="settings_debug_mode_label">Modaliteti i korrigjimit</string>
-    <string name="settings_debug_mode_description">Shfaq informacion shtesë për të zgjidhur problemet.</string>
-    <string name="settings_blescanner_unfiltered_label">Të dhëna BLE të pafiltruara</string>
-    <string name="settings_blescanner_unfiltered_description">Hiq çdo filtër nga skaneri BLE për të shfaqur të gjitha të dhënat e transmetuara BLE. E dobishme për të shtuar mbështetje për lloje të reja kufjesh.</string>
-    <string name="settings_compatibility_mode_label">Modaliteti i përputhshmërisë</string>
+    <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string><string name="settings_compatibility_mode_label">Modaliteti i përputhshmërisë</string>
     <string name="settings_compatibility_mode_description">Çaktivizo optimizimet për të përmirësuar përputhshmërinë. Provojeni këtë nëse nuk po shihni asnjë të dhënë.</string>
     <string name="help_translate_label">Përkthimi</string>
     <string name="help_translate_description">Ndihmoni në përkthimin e këtij aplikacioni në gjuhën tuaj të preferuar.</string>

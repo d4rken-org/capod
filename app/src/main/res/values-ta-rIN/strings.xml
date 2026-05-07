@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">தானியங்கு இயக்கம்</string>
     <string name="settings_autoplay_description">சாதனம் அணியும்போது ஆடியோ இயக்கத்தைத் தொடங்கு.</string>
     <string name="settings_eardetection_info_label">காது கண்டறிதல் குறிப்பு</string>
-    <string name="settings_eardetection_info_description">காது கண்டறிதல் ஒரு பாட்க்கு மட்டுமே வேலை செய்தால், இது Apple வரம்பு. \"முதன்மை பாட்\" (ஒலிபெருக்கிக்கு பயன்படுத்தப்படும்) மட்டுமே கண்டறியப்படும். Apple சாதனங்களில் அமைக்கவும்: அமைப்புகள் → புளூடூத் → AirPods → ஒலிபெருக்கி.</string>
-    <string name="settings_fake_data_label">போலித் தரவு</string>
-    <string name="settings_fake_data_description">போலித் தரவைக் காட்டு, அதாவது இல்லாத சாதனங்களைப் போலியாக உருவாக்கு.</string>
-    <string name="settings_debug_label">பிழைத்திருத்த அமைப்புகள்</string>
-    <string name="settings_debug_description">ஆப்ஸில் உள்ள சிக்கல்களைச் சரிசெய்ய உதவும் கூடுதல் அமைப்புகள்.</string>
-    <string name="settings_signal_minimum_label">குறைந்தபட்ச சிக்னல் தரம்</string>
+    <string name="settings_eardetection_info_description">காது கண்டறிதல் ஒரு பாட்க்கு மட்டுமே வேலை செய்தால், இது Apple வரம்பு. \"முதன்மை பாட்\" (ஒலிபெருக்கிக்கு பயன்படுத்தப்படும்) மட்டுமே கண்டறியப்படும். Apple சாதனங்களில் அமைக்கவும்: அமைப்புகள் → புளூடூத் → AirPods → ஒலிபெருக்கி.</string><string name="settings_signal_minimum_label">குறைந்தபட்ச சிக்னல் தரம்</string>
     <string name="settings_signal_minimum_description">ஒரு சாதனம் உங்களுடையதாகக் கருதப்படுவதற்குத் தேவையான குறைந்தபட்ச சிக்னல் தரம்.</string>
     <string name="settings_autoconnect_label">தானியங்கு இணைப்பு</string>
     <string name="settings_autoconnect_description">ஆண்ட்ராய்டு தானாக இணைக்கவில்லை என்றால், நாமும் அதைக் கேட்கலாம். இது கண்காணிப்பு முறை அமைப்பை \'எப்போதும்\' என அமைக்கும்.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
     <string name="settings_debug_autoreports_label">தானியங்கி பிழை அறிக்கைகள்</string>
-    <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string>
-    <string name="settings_debug_mode_label">பிழைத்திருத்த முறை</string>
-    <string name="settings_debug_mode_description">சிக்கல்களைச் சரிசெய்ய கூடுதல் தகவலைக் காட்டு.</string>
-    <string name="settings_blescanner_unfiltered_label">வடிகட்டப்படாத BLE தரவு</string>
-    <string name="settings_blescanner_unfiltered_description">ஒளிபரப்பப்பட்ட எல்லா BLE தரவையும் காட்ட BLE ஸ்கேனரிலிருந்து எந்த வடிப்பான்களையும் அகற்று. புதிய ஹெட்ஃபோன் வகைகளுக்கான ஆதரவைச் சேர்க்க இது பயனுள்ளதாக இருக்கும்.</string>
-    <string name="settings_compatibility_mode_label">இணக்கத்தன்மை முறை</string>
+    <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string><string name="settings_compatibility_mode_label">இணக்கத்தன்மை முறை</string>
     <string name="settings_compatibility_mode_description">இணக்கத்தன்மையை மேம்படுத்த மேம்படுத்தல்களை முடக்கு. நீங்கள் எந்தத் தரவையும் பார்க்கவில்லை என்றால் இதை முயற்சிக்கவும்.</string>
     <string name="help_translate_label">மொழிபெயர்ப்பு</string>
     <string name="help_translate_description">இந்த ஆப்ஸை உங்களுக்குப் பிடித்த மொழியில் மொழிபெயர்க்க உதவுங்கள்.</string>

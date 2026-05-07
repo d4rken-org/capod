@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automatisch afspelen</string>
     <string name="settings_autoplay_description">Start audioweergave wanneer het apparaat wordt gedragen.</string>
     <string name="settings_eardetection_info_label">Oordetectienotitie</string>
-    <string name="settings_eardetection_info_description">Als oordetectie slechts voor één pod werkt, is dit een beperking van Apple. Alleen de \"primaire pod\" (gebruikt voor de microfoon) wordt gedetecteerd. Configureer op Apple-apparaten: Instellingen → Bluetooth → AirPods → Microfoon.</string>
-    <string name="settings_fake_data_label">Nep gegevens</string>
-    <string name="settings_fake_data_description">Toon nepgegevens, d.w.z. simuleer apparaten die niet bestaan.</string>
-    <string name="settings_debug_label">Foutopsporingsinstellingen</string>
-    <string name="settings_debug_description">Aanvullende instellingen voor het oplossen van problemen met de app.</string>
-    <string name="settings_signal_minimum_label">Minimale signaalkwaliteit</string>
+    <string name="settings_eardetection_info_description">Als oordetectie slechts voor één pod werkt, is dit een beperking van Apple. Alleen de \"primaire pod\" (gebruikt voor de microfoon) wordt gedetecteerd. Configureer op Apple-apparaten: Instellingen → Bluetooth → AirPods → Microfoon.</string><string name="settings_signal_minimum_label">Minimale signaalkwaliteit</string>
     <string name="settings_signal_minimum_description">De minimale signaalkwaliteit die een apparaat nodig heeft om als je apparaat te worden beschouwd.</string>
     <string name="settings_autoconnect_label">Automatisch verbinden</string>
     <string name="settings_autoconnect_description">Als Android niet automatisch verbinding maakt, kunnen we dat ook vragen. Hierdoor wordt de instelling van de monitormodus ingesteld op \'Altijd\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Algemene aanpassingen die de hele app beïnvloeden.</string>
     <string name="settings_acknowledgements_label">Dankbetuigingen</string>
     <string name="settings_debug_autoreports_label">Automatische bugrapporten</string>
-    <string name="settings_debug_autoreports_description">Rapporteert automatisch problemen, b.v. details over een app-crash, zodat ik kan uitzoeken hoe ik dit kan oplossen.</string>
-    <string name="settings_debug_mode_label">Foutopsporingsmodus</string>
-    <string name="settings_debug_mode_description">Toon aanvullende informatie om problemen op te lossen.</string>
-    <string name="settings_blescanner_unfiltered_label">Ongefilterde BLE-gegevens</string>
-    <string name="settings_blescanner_unfiltered_description">Verwijder alle filters van de BLE-scanner om alle uitgezonden BLE-gegevens weer te geven. Handig om ondersteuning voor nieuwe hoofdtelefoontypes toe te voegen.</string>
-    <string name="settings_compatibility_mode_label">Compatibiliteitsmodus</string>
+    <string name="settings_debug_autoreports_description">Rapporteert automatisch problemen, b.v. details over een app-crash, zodat ik kan uitzoeken hoe ik dit kan oplossen.</string><string name="settings_compatibility_mode_label">Compatibiliteitsmodus</string>
     <string name="settings_compatibility_mode_description">Schakel optimalisaties uit om de compatibiliteit te verbeteren. Probeer dit als je geen gegevens ziet.</string>
     <string name="help_translate_label">Vertaling</string>
     <string name="help_translate_description">Help deze app te vertalen in je favoriete taal.</string>

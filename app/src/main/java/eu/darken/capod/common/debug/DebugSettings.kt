@@ -28,10 +28,4 @@ class DebugSettings @Inject constructor(
         // Reporting is opt-out for gplay, and opt-in for github builds
         defaultValue = BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.GPLAY
     )
-    val isDebugModeEnabled = dataStore.createValue("debug.mode.enabled", false)
-
-    val showFakeData = dataStore.createValue("debug.fakedata.enabled", false)
-
-    val showUnfiltered = dataStore.createValue("debug.blescanner.unfiltered.enabled", false)
-
 }

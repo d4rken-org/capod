@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Putar otomatis</string>
     <string name="settings_autoplay_description">Mulai pemutaran audio saat perangkat dipakai.</string>
     <string name="settings_eardetection_info_label">Catatan deteksi telinga</string>
-    <string name="settings_eardetection_info_description">Jika deteksi telinga hanya berfungsi untuk satu pod, ini adalah batasan Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang terdeteksi. Konfigurasikan di perangkat Apple: Pengaturan → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Data palsu</string>
-    <string name="settings_fake_data_description">Tampilkan data palsu, yaitu, simulasikan perangkat yang tidak ada.</string>
-    <string name="settings_debug_label">Pengaturan debug</string>
-    <string name="settings_debug_description">Pengaturan tambahan untuk membantu memecahkan masalah dengan aplikasi.</string>
-    <string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
+    <string name="settings_eardetection_info_description">Jika deteksi telinga hanya berfungsi untuk satu pod, ini adalah batasan Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang terdeteksi. Konfigurasikan di perangkat Apple: Pengaturan → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Kualitas sinyal minimum</string>
     <string name="settings_signal_minimum_description">Kualitas sinyal minimum yang harus dimiliki perangkat agar dianggap milik Anda.</string>
     <string name="settings_autoconnect_label">Sambungkan otomatis</string>
     <string name="settings_autoconnect_description">Jika Android tidak terhubung secara otomatis, kami juga dapat memintanya. Ini akan mengatur pengaturan mode monitor ke \"Selalu\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
     <string name="settings_acknowledgements_label">Ucapan Terima Kasih</string>
     <string name="settings_debug_autoreports_label">Laporan bug otomatis</string>
-    <string name="settings_debug_autoreports_description">Melaporkan masalah secara otomatis, mis. detail tentang kerusakan aplikasi sehingga saya dapat mencari tahu cara memperbaikinya.</string>
-    <string name="settings_debug_mode_label">Mode debug</string>
-    <string name="settings_debug_mode_description">Tampilkan informasi tambahan untuk memecahkan masalah.</string>
-    <string name="settings_blescanner_unfiltered_label">Data BLE yang tidak difilter</string>
-    <string name="settings_blescanner_unfiltered_description">Hapus semua filter dari pemindai BLE untuk menampilkan semua data BLE yang disiarkan. Berguna untuk menambahkan dukungan untuk jenis headphone baru.</string>
-    <string name="settings_compatibility_mode_label">Mode kompatibilitas</string>
+    <string name="settings_debug_autoreports_description">Melaporkan masalah secara otomatis, mis. detail tentang kerusakan aplikasi sehingga saya dapat mencari tahu cara memperbaikinya.</string><string name="settings_compatibility_mode_label">Mode kompatibilitas</string>
     <string name="settings_compatibility_mode_description">Nonaktifkan pengoptimalan untuk meningkatkan kompatibilitas. Coba ini jika Anda tidak melihat data apa pun.</string>
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan aplikasi ini ke bahasa favorit Anda.</string>

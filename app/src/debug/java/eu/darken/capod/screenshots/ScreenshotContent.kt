@@ -57,7 +57,7 @@ internal fun DashboardContent(showAap: Boolean = false) = PreviewWrapper {
             now = MOCK_NOW,
             permissions = emptySet(),
             devices = devices,
-            isDebugMode = false,
+            isDebug = false,
             isBluetoothEnabled = true,
             profiles = listOf(
                 MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),

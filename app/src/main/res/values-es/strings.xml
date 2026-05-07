@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Reproducción automática</string>
     <string name="settings_autoplay_description">Iniciar la reproducción de audio cuando se lleva puesto el dispositivo.</string>
     <string name="settings_eardetection_info_label">Nota sobre la detección de oídos</string>
-    <string name="settings_eardetection_info_description">Si la detección de auriculares solo funciona para un pod, se trata de una limitación de Apple. Solo se detecta el «pod principal» (utilizado para el micrófono). Configuración en dispositivos Apple: Ajustes → Bluetooth → AirPods → Micrófono.</string>
-    <string name="settings_fake_data_label">Datos falsos</string>
-    <string name="settings_fake_data_description">Mostrar datos falsos, es decir, simular dispositivos que no existen.</string>
-    <string name="settings_debug_label">Ajustes de depuración</string>
-    <string name="settings_debug_description">Ajustes adicionales para ayudar a solucionar problemas con la aplicación.</string>
-    <string name="settings_signal_minimum_label">Calidad mínima de la señal</string>
+    <string name="settings_eardetection_info_description">Si la detección de auriculares solo funciona para un pod, se trata de una limitación de Apple. Solo se detecta el «pod principal» (utilizado para el micrófono). Configuración en dispositivos Apple: Ajustes → Bluetooth → AirPods → Micrófono.</string><string name="settings_signal_minimum_label">Calidad mínima de la señal</string>
     <string name="settings_signal_minimum_description">La calidad mínima de la señal que debe tener un dispositivo para que se considere tuyo.</string>
     <string name="settings_autoconnect_label">Conexión automática</string>
     <string name="settings_autoconnect_description">Si Android no se conecta automáticamente, también podemos solicitarlo. Esto establecerá la configuración del modo de monitorización en \"Siempre\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Ajustes generales que afectan a toda la aplicación.</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
     <string name="settings_debug_autoreports_label">Informes de error automáticos</string>
-    <string name="settings_debug_autoreports_description">Informa automáticamente de los problemas, p. ej., detalles sobre un fallo de la aplicación para que pueda averiguar cómo solucionarlo.</string>
-    <string name="settings_debug_mode_label">Modo de depuración</string>
-    <string name="settings_debug_mode_description">Mostrar información adicional para solucionar problemas.</string>
-    <string name="settings_blescanner_unfiltered_label">Datos BLE sin filtrar</string>
-    <string name="settings_blescanner_unfiltered_description">Elimina cualquier filtro del escáner BLE para mostrar todos los datos BLE transmitidos. Útil para añadir compatibilidad con nuevos tipos de auriculares.</string>
-    <string name="settings_compatibility_mode_label">Modo de compatibilidad</string>
+    <string name="settings_debug_autoreports_description">Informa automáticamente de los problemas, p. ej., detalles sobre un fallo de la aplicación para que pueda averiguar cómo solucionarlo.</string><string name="settings_compatibility_mode_label">Modo de compatibilidad</string>
     <string name="settings_compatibility_mode_description">Desactiva las optimizaciones para mejorar la compatibilidad. Prueba esto si no ves ningún dato.</string>
     <string name="help_translate_label">Traducción</string>
     <string name="help_translate_description">Ayuda a traducir esta aplicación a tu idioma favorito.</string>

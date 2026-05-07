@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">پخش خودکار</string>
     <string name="settings_autoplay_description">هنگام استفاده از دستگاه، پخش صدا را شروع کنید.</string>
     <string name="settings_eardetection_info_label">توجه درباره تشخیص گوش</string>
-    <string name="settings_eardetection_info_description">اگر تشخیص گوش فقط برای یک پاد کار می‌کند، این محدودیت Apple است. فقط \"پاد اصلی\" (که برای میکروفون استفاده می‌شود) تشخیص داده می‌شود. در دستگاه‌های Apple تنظیم کنید: تنظیمات → بلوتوث → AirPods → میکروفون.</string>
-    <string name="settings_fake_data_label">داده‌های جعلی</string>
-    <string name="settings_fake_data_description">داده‌های جعلی را نشان دهید، یعنی دستگاه‌هایی را که وجود ندارند شبیه‌سازی کنید.</string>
-    <string name="settings_debug_label">تنظیمات اشکال‌زدایی</string>
-    <string name="settings_debug_description">تنظیمات اضافی برای کمک به عیب‌یابی مشکلات برنامه.</string>
-    <string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
+    <string name="settings_eardetection_info_description">اگر تشخیص گوش فقط برای یک پاد کار می‌کند، این محدودیت Apple است. فقط \"پاد اصلی\" (که برای میکروفون استفاده می‌شود) تشخیص داده می‌شود. در دستگاه‌های Apple تنظیم کنید: تنظیمات → بلوتوث → AirPods → میکروفون.</string><string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
     <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا متعلق به شما در نظر گرفته شود.</string>
     <string name="settings_autoconnect_label">اتصال خودکار</string>
     <string name="settings_autoconnect_description">اگر Android به‌طور خودکار متصل نشود، ما نیز می‌توانیم آن را درخواست کنیم. این کار تنظیم حالت نظارت را روی \"همیشه\" قرار می‌دهد.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">تنظیمات کلی که بر کل برنامه تأثیر می‌گذارند.</string>
     <string name="settings_acknowledgements_label">قدردانی‌ها</string>
     <string name="settings_debug_autoreports_label">گزارش‌های خطای خودکار</string>
-    <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string>
-    <string name="settings_debug_mode_label">حالت اشکال‌زدایی</string>
-    <string name="settings_debug_mode_description">نمایش اطلاعات اضافی برای عیب‌یابی مشکلات.</string>
-    <string name="settings_blescanner_unfiltered_label">داده‌های BLE فیلترنشده</string>
-    <string name="settings_blescanner_unfiltered_description">هرگونه فیلتر را از اسکنر BLE حذف کنید تا تمام داده‌های BLE پخش‌شده نمایش داده شود. برای افزودن پشتیبانی از انواع جدید هدفون مفید است.</string>
-    <string name="settings_compatibility_mode_label">حالت سازگاری</string>
+    <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string><string name="settings_compatibility_mode_label">حالت سازگاری</string>
     <string name="settings_compatibility_mode_description">بهینه‌سازی‌ها را برای بهبود سازگاری غیرفعال کنید. اگر هیچ داده‌ای نمی‌بینید، این را امتحان کنید.</string>
     <string name="help_translate_label">ترجمه</string>
     <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>

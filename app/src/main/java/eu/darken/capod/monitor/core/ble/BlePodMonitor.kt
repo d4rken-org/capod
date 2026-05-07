@@ -8,7 +8,6 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.bluetooth.onlyNewAndUnique
 import eu.darken.capod.common.coroutine.AppScope
-import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging
 import eu.darken.capod.common.debug.logging.asLog
 import eu.darken.capod.common.debug.logging.log
@@ -30,6 +29,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
@@ -52,13 +52,23 @@ class BlePodMonitor @Inject constructor(
     private val timeSource: TimeSource,
     private val generalSettings: GeneralSettings,
     bluetoothManager: BluetoothManager2,
-    private val debugSettings: DebugSettings,
     private val permissionTool: PermissionTool,
     private val profilesRepo: DeviceProfilesRepo,
 ) {
 
     private val deviceCache = mutableMapOf<BlePodSnapshot.Id, BlePodSnapshot>()
     private val cacheLock = Mutex()
+
+    /**
+     * Ephemeral override that disables the proximity-pairing scan filter so
+     * the troubleshooter can collect raw BLE broadcasts. Resets to false on
+     * every process start; the troubleshooter is the only writer.
+     */
+    private val unfilteredOverride = MutableStateFlow(false)
+
+    fun setUnfilteredOverride(enabled: Boolean) {
+        unfilteredOverride.value = enabled
+    }
 
     val devices: Flow<List<BlePodSnapshot>> = combine(
         permissionTool.missingScanPermissions,
@@ -134,7 +144,7 @@ class BlePodMonitor @Inject constructor(
 
     private fun createBleScanner() = combine(
         bleScanModeController.scannerMode,
-        debugSettings.showUnfiltered.flow,
+        unfilteredOverride,
         generalSettings.isOffloadedBatchingDisabled.flow,
         generalSettings.isOffloadedFilteringDisabled.flow,
         generalSettings.useIndirectScanResultCallback.flow,

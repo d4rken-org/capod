@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Spill av automatisk</string>
     <string name="settings_autoplay_description">Spill av lyd når enheten er i bruk.</string>
     <string name="settings_eardetection_info_label">Merknad om øredeteksjon</string>
-    <string name="settings_eardetection_info_description">Hvis øredeteksjon bare fungerer for den ene poden, er dette en Apple-begrensning. Bare den \"primære poden\" (brukt til mikrofon) oppdages. Konfigurer på Apple-enheter: Innstillinger → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Falsk data</string>
-    <string name="settings_fake_data_description">Vis falsk data, dvs. simuler enheter som ikke eksisterer.</string>
-    <string name="settings_debug_label">Feilsøkingsinnstillinger</string>
-    <string name="settings_debug_description">Ytterligere innstillinger til å hjelpe med feilsøking av problemer i appen.</string>
-    <string name="settings_signal_minimum_label">Minimum signalkvalitet</string>
+    <string name="settings_eardetection_info_description">Hvis øredeteksjon bare fungerer for den ene poden, er dette en Apple-begrensning. Bare den \"primære poden\" (brukt til mikrofon) oppdages. Konfigurer på Apple-enheter: Innstillinger → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimum signalkvalitet</string>
     <string name="settings_signal_minimum_description">Minimumssignalkvaliteten som en enhet må ha for å anses som din.</string>
     <string name="settings_autoconnect_label">Autotilkobling</string>
     <string name="settings_autoconnect_description">Hvis Android ikke kobler til automatisk, kan vi spørre den om å gjøre det. Dette vil sette overvåkingsmodus-innstillingen til \"Alltid\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Generelle justeringer som påvirker hele appen.</string>
     <string name="settings_acknowledgements_label">Anerkjennelser</string>
     <string name="settings_debug_autoreports_label">Automatiske feilrapporter</string>
-    <string name="settings_debug_autoreports_description">Rapporterer problemer automatisk, f.eks. detaljer om en appkrasj slik at jeg kan finne ut hvordan jeg kan fikse det.</string>
-    <string name="settings_debug_mode_label">Feilsøkingsmodus</string>
-    <string name="settings_debug_mode_description">Vis tilleggsinformasjon for å feilsøke problemer.</string>
-    <string name="settings_blescanner_unfiltered_label">Ufiltrert BLE-data</string>
-    <string name="settings_blescanner_unfiltered_description">Fjern eventuelle filtre fra BLE-skanneren for å vise alle kringkastede BLE-data. Nyttig for å kunne støtte nye hodetelefontyper.</string>
-    <string name="settings_compatibility_mode_label">Kompatibilitetsmodus</string>
+    <string name="settings_debug_autoreports_description">Rapporterer problemer automatisk, f.eks. detaljer om en appkrasj slik at jeg kan finne ut hvordan jeg kan fikse det.</string><string name="settings_compatibility_mode_label">Kompatibilitetsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktiver optimaliseringer for å forbedre kompatibiliteten. Prøv dette hvis du ikke ser noen data.</string>
     <string name="help_translate_label">Oversettelse</string>
     <string name="help_translate_description">Hjelp til med å oversette denne appen til ditt favorittspråk.</string>

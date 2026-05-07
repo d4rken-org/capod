@@ -327,7 +327,7 @@ fun OverviewScreen(
                     PodDeviceCard(
                         device = device,
                         isPro = state.upgradeInfo.isPro,
-                        showDebug = state.isDebugMode,
+                        showDebug = state.isDebug,
                         now = state.now,
                         isCollapsed = isCollapsed,
                         onToggleCollapse = if (isToggleable) {
@@ -376,7 +376,7 @@ fun OverviewScreen(
                             PodDeviceCard(
                                 device = device,
                                 isPro = state.upgradeInfo.isPro,
-                                showDebug = state.isDebugMode,
+                                showDebug = state.isDebug,
                                 now = state.now,
                                 onAncModeChange = { mode -> onAncModeChange(device, mode) },
                                 onUpgrade = onUpgrade,
@@ -438,7 +438,7 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
                 MockPodDataProvider.singlePodMonitored(),
                 MockPodDataProvider.unknownMonitored(),
             ),
-            isDebugMode = false,
+            isDebug = false,
             isBluetoothEnabled = true,
             profiles = listOf(
                 MockPodDataProvider.profile("My AirPods Pro", PodModel.AIRPODS_PRO2),
@@ -465,7 +465,7 @@ private fun OverviewScreenEmptyPreview() = PreviewWrapper {
             now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = emptyList(),
-            isDebugMode = false,
+            isDebug = false,
             isBluetoothEnabled = true,
             profiles = listOf(MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2)),
             upgradeInfo = MockPodDataProvider.fossInfo(),
@@ -488,7 +488,7 @@ private fun OverviewScreenNoProfilesPreview() = PreviewWrapper {
             now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = emptyList(),
-            isDebugMode = false,
+            isDebug = false,
             isBluetoothEnabled = true,
             profiles = emptyList(),
             upgradeInfo = MockPodDataProvider.gplayInfo(),
@@ -511,7 +511,7 @@ private fun OverviewScreenBluetoothOffPreview() = PreviewWrapper {
             now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = emptyList(),
-            isDebugMode = false,
+            isDebug = false,
             isBluetoothEnabled = false,
             profiles = listOf(MockPodDataProvider.profile("My AirPods", PodModel.AIRPODS_PRO2)),
             upgradeInfo = MockPodDataProvider.fossInfo(isPro = true),

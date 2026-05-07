@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Play automatic</string>
     <string name="settings_autoplay_description">Cumenzar la reproducziun audio cura che l\'apparat vegn purtà.</string>
     <string name="settings_eardetection_info_label">Remartga davart la recugnoschientscha da l\'ureglia</string>
-    <string name="settings_eardetection_info_description">Sche la recugnoschientscha da l\'ureglia funcziuna be per in singul pod, è quai ina restricziun dad Apple. Be il \"pod principal\" (duvrà per il microfon) vegn recugnuschì. Configurar sin apparats Apple: Configuraziun → Bluetooth → AirPods → Microfon.</string>
-    <string name="settings_fake_data_label">Datas fictivas</string>
-    <string name="settings_fake_data_description">Mussar datas fictivas, pia simular apparats che n\'existan betg.</string>
-    <string name="settings_debug_label">Configuraziuns da debugging</string>
-    <string name="settings_debug_description">Configuraziuns supplementaras per gidar a schliar problems cun l\'app.</string>
-    <string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
+    <string name="settings_eardetection_info_description">Sche la recugnoschientscha da l\'ureglia funcziuna be per in singul pod, è quai ina restricziun dad Apple. Be il \"pod principal\" (duvrà per il microfon) vegn recugnuschì. Configurar sin apparats Apple: Configuraziun → Bluetooth → AirPods → Microfon.</string><string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
     <string name="settings_signal_minimum_description">La qualitad minimala dal signal che in apparat sto avair per vegnir considerà sco Voss.</string>
     <string name="settings_autoconnect_label">Connectar automaticamain</string>
     <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \"Adina\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Adattaziuns generalas che concernan l\'entira app.</string>
     <string name="settings_acknowledgements_label">Remerciaments</string>
     <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
-    <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
-    <string name="settings_debug_mode_label">Modus da debugging</string>
-    <string name="settings_debug_mode_description">Mussar infurmaziuns supplementaras per schliar problems.</string>
-    <string name="settings_blescanner_unfiltered_label">Datas BLE betg filtradas</string>
-    <string name="settings_blescanner_unfiltered_description">Allontanar tut ils filters dal scanner BLE per mussar tut las datas BLE emessas. Utila per agiuntar support per novs tips da cularins.</string>
-    <string name="settings_compatibility_mode_label">Modus da cumpatibilitad</string>
+    <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string><string name="settings_compatibility_mode_label">Modus da cumpatibilitad</string>
     <string name="settings_compatibility_mode_description">Deactivar optimaziuns per meglierar la cumpatibilitad. Empruvai quai sche Vus na visais naginas datas.</string>
     <string name="help_translate_label">Translaziun</string>
     <string name="help_translate_description">Gidar a translatar questa app en Vossa lingua preferida.</string>

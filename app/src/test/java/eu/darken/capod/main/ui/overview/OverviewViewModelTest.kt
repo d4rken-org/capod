@@ -3,7 +3,7 @@ package eu.darken.capod.main.ui.overview
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
-import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.core.GeneralSettings
@@ -49,7 +49,6 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var deviceMonitor: DeviceMonitor
     private lateinit var permissionTool: PermissionTool
     private lateinit var generalSettings: GeneralSettings
-    private lateinit var debugSettings: DebugSettings
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
@@ -64,7 +63,6 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var hadLegacyReactionDataFlow: MutableStateFlow<Boolean>
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
     private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
-    private lateinit var fakeDebugMode: FakeDataStoreValue<Boolean>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
 
     @BeforeEach
@@ -79,8 +77,8 @@ class OverviewViewModelTest : BaseTest() {
         hadLegacyReactionDataFlow = MutableStateFlow(false)
         upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true))
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
-        fakeDebugMode = FakeDataStoreValue(false)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
+        Bugs.isDebug.value = false
 
         monitorControl = mockk(relaxed = true)
 
@@ -103,10 +101,6 @@ class OverviewViewModelTest : BaseTest() {
             every { it.effectiveMode } returns effectiveModeFlow
         }
 
-        debugSettings = mockk<DebugSettings>().also {
-            every { it.isDebugModeEnabled } returns fakeDebugMode.mock
-        }
-
         upgradeRepo = mockk<UpgradeRepo>().also {
             every { it.upgradeInfo } returns upgradeInfoFlow
         }
@@ -125,6 +119,7 @@ class OverviewViewModelTest : BaseTest() {
     @AfterEach
     fun teardown() {
         Dispatchers.resetMain()
+        Bugs.isDebug.value = false
     }
 
     private fun createViewModel() = OverviewViewModel(
@@ -133,7 +128,6 @@ class OverviewViewModelTest : BaseTest() {
         deviceMonitor = deviceMonitor,
         permissionTool = permissionTool,
         generalSettings = generalSettings,
-        debugSettings = debugSettings,
         upgradeRepo = upgradeRepo,
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
@@ -152,7 +146,7 @@ class OverviewViewModelTest : BaseTest() {
 
             state.permissions shouldBe emptySet()
             state.devices shouldBe emptyList()
-            state.isDebugMode shouldBe false
+            state.isDebug shouldBe false
             state.isBluetoothEnabled shouldBe true
             state.showUnmatchedDevices shouldBe false
         }
@@ -195,7 +189,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = listOf(profiled, unmatched),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = mockk(relaxed = true),
@@ -222,7 +216,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = listOf(profiled, unmatched),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = mockk(relaxed = true),
@@ -242,7 +236,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = emptyList(),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
@@ -264,7 +258,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = listOf(profiled),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
@@ -288,7 +282,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = listOf(device1, device2, device3),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
@@ -312,7 +306,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = listOf(device1, device2, device3),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
@@ -336,7 +330,7 @@ class OverviewViewModelTest : BaseTest() {
                 now = java.time.Instant.now(),
                 permissions = emptySet(),
                 devices = listOf(profiled1, profiled2, unmatched),
-                isDebugMode = false,
+                isDebug = false,
                 isBluetoothEnabled = true,
                 profiles = emptyList(),
                 upgradeInfo = upgradeInfo,
