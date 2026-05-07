@@ -382,6 +382,15 @@ class DeviceSettingsViewModel @Inject constructor(
         syncEarDetection(autoPause = enabled)
     }
 
+    fun setStartMusicOnWear(enabled: Boolean) = launch {
+        log(TAG, INFO) { "setStartMusicOnWear($enabled)" }
+        if (enabled && !upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        updateProfileNow { it.copy(startMusicOnWear = enabled) }
+    }
+
     /**
      * Keeps the device-side Automatic Ear Detection setting in sync with the
      * auto-play / auto-pause reaction toggles.  When either reaction is active

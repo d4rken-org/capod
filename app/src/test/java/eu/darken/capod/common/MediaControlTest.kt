@@ -16,7 +16,6 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.TestTimeSource
-import java.time.Duration
 
 class MediaControlTest : BaseTest() {
 
@@ -89,199 +88,75 @@ class MediaControlTest : BaseTest() {
         val dispatched = mediaControl.sendPause()
 
         assertFalse(dispatched)
-        // Critical: the 15-second cap-pause window must NOT open for a no-op pause, otherwise
-        // an unrelated sendPlay would treat it as "we just paused, resume from it".
+        // Critical: the cap-pause flag must NOT be set for a no-op pause, otherwise an
+        // unrelated sendPlay would treat it as "we just paused, resume from it".
         assertFalse(mediaControl.wasRecentlyPausedByCap)
         verify(exactly = 0) { audioManager.dispatchMediaKeyEvent(any()) }
     }
 
     @Test
-    fun `wasMusicExternallyStoppedRecently is false on cold start`() {
-        // No music ever observed.
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `wasMusicExternallyStoppedRecently is false while music is currently active`() {
+    fun `wasRecentlyPausedByCap is sticky and does not expire on its own`() = runTest {
         every { audioManager.isMusicActive } returns true
 
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
+        mediaControl.sendPause()
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+
+        // Wait an arbitrarily long time. With the previous timer-based design this would have
+        // expired after 15 seconds; the sticky flag must remain true until cleared by an event.
+        timeSource.advanceBy(java.time.Duration.ofMinutes(30))
+
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
     }
 
     @Test
-    fun `external stop is recorded when music goes inactive without a preceding sendPause`() {
+    fun `wasRecentlyPausedByCap clears when music transitions inactive to active from any source`() = runTest {
         every { audioManager.isMusicActive } returns true
-        fireCallback() // seeds lastKnownMusicActive=true
 
-        every { audioManager.isMusicActive } returns false
-        fireCallback() // active->inactive transition with no recent CAP pause
-
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `cap stop is NOT classified as external`() = runTest {
-        every { audioManager.isMusicActive } returns true
-        fireCallback() // seeds lastKnownMusicActive=true
-
-        mediaControl.sendPause() // sets lastCapPauseDispatchAt synchronously
-
-        every { audioManager.isMusicActive } returns false
-        fireCallback() // active->inactive immediately after our pause
-
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `external-stop window expires after 60 seconds`() {
-        every { audioManager.isMusicActive } returns true
-        fireCallback()
-        every { audioManager.isMusicActive } returns false
-        fireCallback()
-
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
-
-        timeSource.advanceBy(Duration.ofSeconds(61))
-
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `external-stop window boundary - 59s in, 60s out`() {
-        every { audioManager.isMusicActive } returns true
-        fireCallback()
-        every { audioManager.isMusicActive } returns false
-        fireCallback()
-
-        timeSource.advanceBy(Duration.ofMillis(59_999))
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
-
-        timeSource.advanceBy(Duration.ofMillis(1)) // now exactly 60_000ms after stop
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `init seeds lastKnownMusicActive from current state`() {
-        // Construct a fresh MediaControl with isMusicActive=true at construction. The first
-        // active->inactive callback must fire the transition logic — without the seed it
-        // would incorrectly believe the previous state was inactive and miss the stop.
-        val freshAudioManager: AudioManager = mockk(relaxed = true)
-        every { freshAudioManager.dispatchMediaKeyEvent(any()) } just Runs
-        every { freshAudioManager.isMusicActive } returns true
-        val freshSlot = slot<AudioManager.AudioPlaybackCallback>()
-        every { freshAudioManager.registerAudioPlaybackCallback(capture(freshSlot), any()) } just Runs
-
-        val freshControl = MediaControl(freshAudioManager, timeSource)
-
-        // Music goes off (e.g. user pause) — this is the first transition we observe.
-        every { freshAudioManager.isMusicActive } returns false
-        freshSlot.captured.onPlaybackConfigChanged(emptyList())
-
-        assertTrue(freshControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `getter self-heals when callback was missed`() {
-        // Seed: callback fired with active=true. Then the active->inactive transition happens
-        // but the callback never fires (race / missed event). The getter should detect the
-        // mismatch on read and record the stop itself.
-        every { audioManager.isMusicActive } returns true
-        fireCallback()
-
-        every { audioManager.isMusicActive } returns false
-        // No fireCallback() — simulate missed event.
-
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `delayed cap callback within TTL is still attributed to cap`() = runTest {
-        every { audioManager.isMusicActive } returns true
+        // First the seed transition active→active so lastKnownMusicActive is true.
         fireCallback()
 
         mediaControl.sendPause()
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
+
+        // Music goes inactive (CAP's pause took effect).
         every { audioManager.isMusicActive } returns false
-        timeSource.advanceBy(Duration.ofSeconds(10)) // realistic-but-late callback
-
         fireCallback()
+        assertTrue(mediaControl.wasRecentlyPausedByCap)
 
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
+        // Music starts again (e.g. user manually resumed via phone). Sticky flag must clear so
+        // a later pod-in doesn't fire a stray play key on top of already-playing music.
+        every { audioManager.isMusicActive } returns true
+        fireCallback()
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
     }
 
     @Test
-    fun `cap stop self-heals via getter when callback was missed past the old short window`() = runTest {
-        // Codex review scenario: CAP pauses, the playback callback never fires, the user
-        // reinserts a pod some seconds later. The getter must still attribute the stop to
-        // CAP — not regress to recreating the 16-60s "dead zone" that the original fix had.
+    fun `sendPause sets capPaused before dispatching so a racing inactive-active callback cannot leave a stale true`() = runTest {
+        // Repro for a race where the playback config callback fires during sendKey()'s
+        // suspension. If capPaused were set after dispatch, an interleaved inactive→active
+        // callback would clear it, then sendPause's post-dispatch line would put it back to
+        // true while music is genuinely playing again — wrongly arming a future pod-in resume.
         every { audioManager.isMusicActive } returns true
-        fireCallback()
+        fireCallback() // seed lastKnownMusicActive=true
+
+        // sendKey is implemented with an internal delay(100). Drive a callback during that
+        // window by sending a single coalesced inactive→active sequence right after kicking
+        // off sendPause; with the fix in place the sequence's effect on capPaused is the
+        // intended one (cleared on inactive→active, but only AFTER capPaused was set).
+        every { audioManager.dispatchMediaKeyEvent(any()) } answers {
+            // First DOWN dispatch: pretend music briefly went inactive then active mid-pause.
+            every { audioManager.isMusicActive } returns false
+            fireCallback()
+            every { audioManager.isMusicActive } returns true
+            fireCallback()
+        }
 
         mediaControl.sendPause()
-        every { audioManager.isMusicActive } returns false
-        timeSource.advanceBy(Duration.ofSeconds(16))
 
-        // No fireCallback() — the callback was missed.
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `pending cap dispatch is dropped after TTL so an unrelated later stop is external`() = runTest {
-        // Pause was dispatched but ignored (music kept playing). After TTL, the next genuine
-        // active→inactive transition must NOT be misattributed to CAP.
-        every { audioManager.isMusicActive } returns true
-        fireCallback()
-
-        mediaControl.sendPause()
-        // Music ignored the key — still active. Time passes.
-        timeSource.advanceBy(Duration.ofSeconds(31)) // > CAP_PAUSE_ATTRIBUTION_TTL_MS
-
-        every { audioManager.isMusicActive } returns false
-        fireCallback() // unrelated stop
-
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `prior external stop is cleared when music resumes so it does not suppress a later cap pause cycle`() = runTest {
-        // T=0: external stop.
-        every { audioManager.isMusicActive } returns true
-        fireCallback()
-        every { audioManager.isMusicActive } returns false
-        fireCallback()
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
-
-        // Music resumes (e.g. user starts a new song manually) — must clear externalStopAt.
-        timeSource.advanceBy(Duration.ofSeconds(5))
-        every { audioManager.isMusicActive } returns true
-        fireCallback()
-
-        // CAP pauses fresh. The earlier external stop must not bleed through.
-        timeSource.advanceBy(Duration.ofSeconds(5))
-        mediaControl.sendPause()
-        every { audioManager.isMusicActive } returns false
-        fireCallback()
-
-        assertFalse(mediaControl.wasMusicExternallyStoppedRecently)
-    }
-
-    @Test
-    fun `pending cap dispatch is dropped when music transitions to active before being consumed`() = runTest {
-        // sendPause was dispatched but the pause was effectively ignored — observable as a
-        // sustained inactive→active transition without ever going inactive. The next external
-        // stop must still be classified as external.
-        every { audioManager.isMusicActive } returns false
-        fireCallback() // seed lastKnownMusicActive=false
-
-        every { audioManager.isMusicActive } returns true
-        mediaControl.sendPause()
-        // sendPause sets pending; but isMusicActive is now true (not actually paused).
-        fireCallback() // observe inactive→active; clears pending
-
-        // Some time later, a genuine external stop happens.
-        timeSource.advanceBy(Duration.ofSeconds(2))
-        every { audioManager.isMusicActive } returns false
-        fireCallback()
-
-        assertTrue(mediaControl.wasMusicExternallyStoppedRecently)
+        // After the suspended dispatch returns, capPaused should be in a coherent state with
+        // the live callback observations. Music is currently active (per the racing callback)
+        // so the inactive→active reset clears the sticky flag — that's the correct outcome:
+        // we don't want to claim our pause "stuck" when audio is playing.
+        assertFalse(mediaControl.wasRecentlyPausedByCap)
     }
 }

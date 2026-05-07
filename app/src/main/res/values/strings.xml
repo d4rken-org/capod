@@ -53,7 +53,9 @@
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">Pause audio when removing the device from your ear.</string>
     <string name="settings_autopplay_label">Auto play</string>
-    <string name="settings_autoplay_description">Start audio playback when device is worn.</string>
+    <string name="settings_autoplay_description">Resume music when wearing your pods again, if Auto pause stopped it. Music you paused yourself stays paused.</string>
+    <string name="settings_start_music_on_wear_label">Start music on wear</string>
+    <string name="settings_start_music_on_wear_description">Always tries to play music when wearing your pods. May also restart music you paused yourself.</string>
     <string name="settings_eardetection_info_label">Ear detection note</string>
     <string name="settings_eardetection_info_description">If ear detection only works for one pod, this is an Apple limitation. Only the \"primary pod\" (used for microphone) is detected. Configure on Apple devices: Settings → Bluetooth → AirPods → Microphone.</string>
     <string name="settings_fake_data_label">Fake data</string>
