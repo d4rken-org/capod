@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">यदि आपने हाल ही में खरीदारी की है, तो Google Play को सिंक करने में कुछ समय लग सकता है।</string>
     <string name="upgrade_screen_restore_sync_patience_hint">यदि आपकी खरीद दिखाई नहीं दे रही है, तो कुछ मिनट बाद पुनः प्रयास करें।</string>
     <string name="upgrade_screen_restore_multiaccount_hint">सुनिश्चित करें कि आप उसी Google खाते से साइन इन हैं जिससे खरीदारी की गई थी।</string>
-    <string name="settings_monitor_mode_label">मॉनिटर मोड</string>
-    <string name="settings_monitor_mode_description">यह ऐप किन परिस्थितियों में ब्लूटूथ डेटा की निगरानी करता है।</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
     <string name="settings_monitor_connected_notification_description">जब कोई डिवाइस कनेक्ट होता है तो एक अतिरिक्त सूचना दिखाता है। यह आपको \"डिवाइस स्थिति\" चैनल को अक्षम करके स्थायी \"कोई डिवाइस नहीं\" सूचना को छिपाने की अनुमति देता है।</string>
     <string name="settings_keep_notification_after_disconnect_label">डिस्कनेक्ट होने के बाद सूचना बनाए रखें</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">कनेक्शन पॉपअप दिखाएं</string>
     <string name="settings_popup_connected_description">डिवाइस पहली बार कनेक्ट होने पर एक पॉपअप दिखाएं।</string>
     <string name="settings_popup_info_not_in_app">पॉपअप केवल तब दिखाए जाते हैं जब आप ऐप में नहीं होते।</string>
-    <string name="settings_popup_warning_manual_mode">पॉपअप के लिए मॉनिटर का चलना आवश्यक है। आपका मॉनिटर मोड \"जब ऐप खुला हो\" पर सेट है, जो ऐप छोड़ने पर मॉनिटर बंद कर देता है।</string>
-    <string name="general_fix_it_action">इसे ठीक करें</string>
     <string name="device_settings_experimental_title">प्रयोगात्मक फ़ीचर</string>
     <string name="device_settings_experimental_description">इस फ़ीचर को अभी सभी डिवाइस पर नहीं परखा गया है। यदि कुछ सही तरह से काम नहीं कर रहा, तो कृपया डीबग लॉग के साथ एक समस्या खोलें।</string>
     <string name="device_settings_experimental_action">इश्यू ट्रैकर खोलें</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">निम्नलिखित अनुमति आवश्यक है:</string>
     <string name="permission_system_alert_window_label">सिस्टम अलर्ट विंडो</string>
     <string name="permission_system_alert_window_description">CAPod को अन्य ऐप्स के ऊपर ड्रॉ करने की अनुमति दें ताकि \"पॉपअप दिखाएं\" सुविधा संभव हो सके।</string>
-    <string name="settings_monitor_mode_manual_label">जब ऐप खुला हो</string>
-    <string name="settings_monitor_mode_automatic_label">जब डिवाइस कनेक्ट हो</string>
-    <string name="settings_monitor_mode_always_label">हमेशा</string>
     <string name="settings_reaction_autoconnect_whenseen_label">जब देखा जाए</string>
     <string name="settings_reaction_autoconnect_caseopen_label">केस खुला है</string>
     <string name="settings_reaction_autoconnect_inear_label">कान में</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">एम्बर</string>
     <string name="ui_theme_color_disabled_materialyou">वॉलपेपर रंगों का उपयोग करता है</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">मॉनिटरिंग</string>
     <string name="settings_category_appearance_label">दिखावट</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">असहेजे परिवर्तन</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">إذا اشتريت مؤخراً، قد يستغرق Google Play لحظة للمزامنة.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">حاول مرة أخرى بعد بضع دقائق إذا لم يظهر شراؤك.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">تأكد من تسجيل دخولك بنفس حساب Google المستخدم للشراء.</string>
-    <string name="settings_monitor_mode_label">وضع المراقبة</string>
-    <string name="settings_monitor_mode_description">تحت أي ظروف يراقب هذا التطبيق بيانات البلوتوث.</string>
     <string name="settings_monitor_connected_notification_label">إشعار إضافي</string>
     <string name="settings_monitor_connected_notification_description">يعرض إشعارًا إضافيًا عند توصيل جهاز. يتيح لك هذا إخفاء الإشعار الدائم \"لا توجد أجهزة\" عن طريق تعطيل قناة \"حالة الجهاز\".</string>
     <string name="settings_keep_notification_after_disconnect_label">الاحتفاظ بالإشعار بعد قطع الاتصال</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">إظهار نافذة منبثقة للاتصال</string>
     <string name="settings_popup_connected_description">إظهار نافذة منبثقة عند اتصال الجهاز لأول مرة.</string>
     <string name="settings_popup_info_not_in_app">تظهر النوافذ المنبثقة فقط عندما لا تكون داخل التطبيق.</string>
-    <string name="settings_popup_warning_manual_mode">تتطلب النوافذ المنبثقة تشغيل المراقب. وضع المراقبة الخاص بك مضبوط على \"عند فتح التطبيق\"، مما يوقف المراقب عند مغادرة التطبيق.</string>
-    <string name="general_fix_it_action">إصلاحه</string>
     <string name="device_settings_experimental_title">ميزة تجريبية</string>
     <string name="device_settings_experimental_description">لم يتم اختبار هذه الميزة على جميع الأجهزة بعد. إذا كان هناك شيء لا يعمل بشكل صحيح، يرجى فتح تقرير مشكلة مع سجل تصحيح.</string>
     <string name="device_settings_experimental_action">فتح متتبع المشكلات</string>
@@ -228,9 +224,6 @@
     <string name="permission_required_title">الإذن التالي مطلوب:</string>
     <string name="permission_system_alert_window_label">نافذة تنبيه النظام</string>
     <string name="permission_system_alert_window_description">السماح لـ CAPod بالرسم فوق التطبيقات الأخرى لتمكين ميزة \"إظهار النافذة المنبثقة\".</string>
-    <string name="settings_monitor_mode_manual_label">عند فتح التطبيق</string>
-    <string name="settings_monitor_mode_automatic_label">عند اتصال الجهاز</string>
-    <string name="settings_monitor_mode_always_label">دائمًا</string>
     <string name="settings_reaction_autoconnect_whenseen_label">عند الرؤية</string>
     <string name="settings_reaction_autoconnect_caseopen_label">العلبة مفتوحة</string>
     <string name="settings_reaction_autoconnect_inear_label">في الأذن</string>
@@ -330,7 +323,6 @@
     <string name="ui_theme_color_amber_label">كهرماني</string>
     <string name="ui_theme_color_disabled_materialyou">يستخدم ألوان الخلفية</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">المراقبة</string>
     <string name="settings_category_appearance_label">المظهر</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">تغييرات غير محفوظة</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">မကြာသေးမီက ဝယ်ယူခဲ့လျှင် Google Play တွင် ချိန်ကိုက်ရန် အချိန်အနည်းငယ် ကြာနိုင်သည်။</string>
     <string name="upgrade_screen_restore_sync_patience_hint">သင်၏ ဝယ်ယူမှု မပေါ်လာပါက မိနစ်အနည်းငယ်အကြာ တဖန်ကြိုးစားပါ။</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ဝယ်ယူမှုအတွက် အသုံးပြုခဲ့သော Google အကောင့်တူညီသည်ဖြင့် ဝင်ရောက်ထားကြောင်း သေချာပါစေ။</string>
-    <string name="settings_monitor_mode_label">စောင့်ကြည့်မုဒ်</string>
-    <string name="settings_monitor_mode_description">ဤအက်ပ်က Bluetooth ဒေတာကို မည်သည့်အခြေအနေတွင် စောင့်ကြည့်သနည်း။</string>
     <string name="settings_monitor_connected_notification_label">အပိုအသိပေးချက်</string>
     <string name="settings_monitor_connected_notification_description">စက်ပစ္စည်းတစ်ခုချိတ်ဆက်သောအခါ အပိုအသိပေးချက်တစ်ခုပြသသည်။ ၎င်းသည် \"စက်ပစ္စည်းအခြေအနေ\" ချန်နယ်ကို ပိတ်ခြင်းဖြင့် အမြဲတမ်း \"စက်ပစ္စည်းမရှိပါ\" အသိပေးချက်ကို ဝှက်ထားနိုင်စေသည်။</string>
     <string name="settings_keep_notification_after_disconnect_label">ချိတ်ဆက်မှုပြတ်ပြီးနောက် အသိပေးချက်ကိုထားရှိပါ</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">ချိတ်ဆက်မှုပြတင်းပေါက်ပြသရန်</string>
     <string name="settings_popup_connected_description">စက်ပစ္စည်းပထမဆုံးချိတ်ဆက်သည့်အခါ ပြတင်းပေါက်တစ်ခုပြသပါ။</string>
     <string name="settings_popup_info_not_in_app">သင် အပ်ငယ်ထဲ မရှိသောအခါတွင်သာ ပေါ့အပ်ဝင်းများ ပြသသည်။</string>
-    <string name="settings_popup_warning_manual_mode">ပေါ့အပ်ဝင်းများအတွက် မော်နီတာ လည်ပတ်နေရန် လိုအပ်သည်။ သင်၏ မော်နီတာမုဒ်ကို \"အပ်ငယ်ဖွင့်ထားစဉ်\" ဟု သတ်မှတ်ထားပြီး အပ်ငယ်မှ ထွက်သောအခါ မော်နီတာကို ရပ်တန့်သည်။</string>
-    <string name="general_fix_it_action">ပြင်ဆင်ရန်</string>
     <string name="device_settings_experimental_title">စမ်းသပ်ဆဲ လုပ်ဆောင်ချက်</string>
     <string name="device_settings_experimental_description">ဤလုပ်ဆောင်ချက်ကို ကိရိယာအားလုံးတွင် မစစ်ဆေးရသေးပါ။ မှားယွင်းနေသည့် အရာတစ်ခုခုရှိပါက debug log ပါသော ပြဿနာတစ်ခု ဖွင့်ပေးပါ။</string>
     <string name="device_settings_experimental_action">ပြဿနာ ခြေရာခံမှုကို ဖွင့်ရန်</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">အောက်ပါခွင့်ပြုချက်လိုအပ်သည်:</string>
     <string name="permission_system_alert_window_label">စနစ်သတိပေးချက်ပြတင်းပေါက်</string>
     <string name="permission_system_alert_window_description">\"ပြတင်းပေါက်ပြသခြင်း\" အင်္ဂါရပ်ကိုဖြစ်နိုင်စေရန် CAPod အား အခြားအက်ပ်များပေါ်တွင် ပုံဆွဲခွင့်ပြုပါ။</string>
-    <string name="settings_monitor_mode_manual_label">အက်ပ်ဖွင့်ထားသောအခါ</string>
-    <string name="settings_monitor_mode_automatic_label">စက်ပစ္စည်းချိတ်ဆက်ထားသောအခါ</string>
-    <string name="settings_monitor_mode_always_label">အမြဲတမ်း</string>
     <string name="settings_reaction_autoconnect_whenseen_label">တွေ့မြင်သောအခါ</string>
     <string name="settings_reaction_autoconnect_caseopen_label">အိတ်ဖွင့်ထားသောအခါ</string>
     <string name="settings_reaction_autoconnect_inear_label">နားထဲတွင်</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">အဝါ</string>
     <string name="ui_theme_color_disabled_materialyou">နောခံပုံ အရောင်များ သုံးသည်</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">စောင့်ကြည့်မှု</string>
     <string name="settings_category_appearance_label">ပုံစံ</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">မသိမ်းဆည်းရသေးသော ပြောင်းလဲမှုများ</string>

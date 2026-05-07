@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Эгер жакында сатып алган болсоңуз, Google Play синхрондоо үчүн бир аз убакыт кетиши мүмкүн.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Сатып алуу чагылдырылбаса, бир нече мүнөттөн кийин кайра аракет кылыңыз.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Сатып алуу үчүн колдонулган Google аккаунтуна кирип турганыңызды текшериңиз.</string>
-    <string name="settings_monitor_mode_label">Мониторинг режими</string>
-    <string name="settings_monitor_mode_description">Бул колдонмо Bluetooth маалыматтарын кайсы шарттарда көзөмөлдөйт.</string>
     <string name="settings_monitor_connected_notification_label">Кошумча билдирүү</string>
     <string name="settings_monitor_connected_notification_description">Түзмөк туташканда кошумча билдирүү көрсөтүлөт. Бул \"Түзмөктүн абалы\" каналын өчүрүү менен туруктуу \"Түзмөктөр жок\" билдирүүсүн жашырууга мүмкүндүк берет.</string>
     <string name="settings_keep_notification_after_disconnect_label">Ажыратылгандан кийин билдирүүнү сактоо</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Туташуу калкыма терезесин көрсөтүү</string>
     <string name="settings_popup_connected_description">Түзмөк биринчи жолу туташканда калкыма терезени көрсөтүү.</string>
     <string name="settings_popup_info_not_in_app">Калкыма терезелер колдонмодо болбогондо гана көрсөтүлөт.</string>
-    <string name="settings_popup_warning_manual_mode">Калкыма терезелер мониторду иштетүүнү талап кылат. Монитор режими \"Колдонмо ачык болгондо\" деп коюлган, бул колдонмодон чыкканда мониторду токтотот.</string>
-    <string name="general_fix_it_action">Оңдоо</string>
     <string name="device_settings_experimental_title">Эксперименталдык функция</string>
     <string name="device_settings_experimental_description">Бул функция азырынча бардык түзмөктөрдө сыналган жок. Эгер бир нерсе туура иштебесе, отладка журналы менен маселе ачыңыз.</string>
     <string name="device_settings_experimental_action">Маселе трекерин ачуу</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Төмөнкү уруксат талап кылынат:</string>
     <string name="permission_system_alert_window_label">Тутум эскертүү терезеси</string>
     <string name="permission_system_alert_window_description">\"Калкыма терезе көрсөтүү\" функциясын мүмкүн кылуу үчүн CAPod\'го башка колдонмолордун үстүнөн тартууга уруксат бериңиз.</string>
-    <string name="settings_monitor_mode_manual_label">Колдонмо ачык болгондо</string>
-    <string name="settings_monitor_mode_automatic_label">Түзмөк туташканда</string>
-    <string name="settings_monitor_mode_always_label">Ар дайым</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Көрүнгөндө</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Кап ачык</string>
     <string name="settings_reaction_autoconnect_inear_label">Кулакта</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Сары</string>
     <string name="ui_theme_color_disabled_materialyou">Түсказгын түсүн пайдаланат</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Мониторинг</string>
     <string name="settings_category_appearance_label">Көрүнүш</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Сакталбаган өзгөртүүлөр</string>

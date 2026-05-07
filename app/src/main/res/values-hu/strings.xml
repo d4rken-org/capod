@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ha nemrég vásároltál, a Google Play-nek egy pillanatra szüksége lehet a szinkronizáláshoz.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Próbálkozz újra néhány perc múlva, ha a vásárlás nem jelenik meg.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Győződj meg róla, hogy ugyanazzal a Google-fiókkal vagy bejelentkezve, amellyel a vásárlást végezted.</string>
-    <string name="settings_monitor_mode_label">Monitor mód</string>
-    <string name="settings_monitor_mode_description">Milyen körülmények között figyelje az alkalmazás a Bluetooth-adatokat.</string>
     <string name="settings_monitor_connected_notification_label">Extra értesítés</string>
     <string name="settings_monitor_connected_notification_description">Extra értesítést jelenít meg, amikor egy eszköz csatlakozik. Ez lehetővé teszi az állandó \"Nincs eszköz\" értesítés elrejtését az \"Eszköz állapota\" csatorna letiltásával.</string>
     <string name="settings_keep_notification_after_disconnect_label">Értesítés megőrzése lecsatlakozás után</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Előugró ablak csatlakozáskor</string>
     <string name="settings_popup_connected_description">Előugró ablak megjelenítése, amikor az eszköz először csatlakozik.</string>
     <string name="settings_popup_info_not_in_app">Az előugró ablakok csak akkor jelennek meg, ha nem tartózkodik az alkalmazásban.</string>
-    <string name="settings_popup_warning_manual_mode">Az előugró ablakokhoz futnia kell a monitornak. A monitor módja „Amikor az alkalmazás nyitva van”, ami leállítja a monitort, amikor elhagyja az alkalmazást.</string>
-    <string name="general_fix_it_action">Javítás</string>
     <string name="device_settings_experimental_title">Kísérleti funkció</string>
     <string name="device_settings_experimental_description">Ezt a funkciót még nem tesztelték minden eszközön. Ha valami nem működik megfelelően, kérjük, nyiss egy hibajegyet hibakeresési naplóval.</string>
     <string name="device_settings_experimental_action">Hibajegykövetős megnyitása</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">A következő engedély szükséges:</string>
     <string name="permission_system_alert_window_label">Rendszer figyelmeztető ablak</string>
     <string name="permission_system_alert_window_description">Engedélyezze a CAPod-nak, hogy más alkalmazások fölé rajzoljon az \"Előugró ablak megjelenítése\" funkció lehetővé tételéhez.</string>
-    <string name="settings_monitor_mode_manual_label">Amikor az alkalmazás nyitva van</string>
-    <string name="settings_monitor_mode_automatic_label">Amikor az eszköz csatlakozik</string>
-    <string name="settings_monitor_mode_always_label">Mindig</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Amikor észlelhető</string>
     <string name="settings_reaction_autoconnect_caseopen_label">A tok nyitva van</string>
     <string name="settings_reaction_autoconnect_inear_label">Fülben</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Borostyán</string>
     <string name="ui_theme_color_disabled_materialyou">Háttérkép színeit használja</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Figyelés</string>
     <string name="settings_category_appearance_label">Megjelenés</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nem mentett változtatások</string>

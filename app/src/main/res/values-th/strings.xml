@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">หากคุณเพิ่งซื้อไป อาจใช้เวลาสักครู่ให้ Google Play ซิงค์ข้อมูล</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ลองอีกครั้งในอีกไม่กี่นาทีหากการซื้อของคุณยังไม่ปรากฏ</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ตรวจสอบให้แน่ใจว่าคุณลงชื่อเข้าใช้ด้วยบัญชี Google เดียวกับที่ใช้ซื้อ</string>
-    <string name="settings_monitor_mode_label">โหมดติดตาม</string>
-    <string name="settings_monitor_mode_description">ภายใต้สถานการณ์ใดที่แอปนี้จะติดตามข้อมูลบลูทูธ</string>
     <string name="settings_monitor_connected_notification_label">การแจ้งเตือนเพิ่มเติม</string>
     <string name="settings_monitor_connected_notification_description">แสดงการแจ้งเตือนเพิ่มเติมเมื่ออุปกรณ์เชื่อมต่อ ซึ่งช่วยให้คุณสามารถซ่อนการแจ้งเตือนถาวร \"ไม่มีอุปกรณ์\" โดยการปิดใช้งานช่อง \"สถานะอุปกรณ์\"</string>
     <string name="settings_keep_notification_after_disconnect_label">คงการแจ้งเตือนหลังตัดการเชื่อมต่อ</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">แสดงป๊อปอัปการเชื่อมต่อ</string>
     <string name="settings_popup_connected_description">แสดงป๊อปอัปเมื่ออุปกรณ์เชื่อมต่อเป็นครั้งแรก</string>
     <string name="settings_popup_info_not_in_app">ป๊อปอัปจะแสดงเฉพาะเมื่อคุณไม่ได้อยู่ในแอปเท่านั้น</string>
-    <string name="settings_popup_warning_manual_mode">ป๊อปอัปต้องใช้งานการมอนิเตอร์ที่กำลังทำงานอยู่ โหมดมอนิเตอร์ของคุณถูกตั้งค่าเป็น \"เมื่อเปิดแอป\" ซึ่งจะหยุดการมอนิเตอร์เมื่อคุณออกจากแอป</string>
-    <string name="general_fix_it_action">แก้ไข</string>
     <string name="device_settings_experimental_title">ฟีเจอร์ทดลอง</string>
     <string name="device_settings_experimental_description">ฟีเจอร์นี้ยังไม่ได้ทดสอบบนทุกอุปกรณ์ หากมีบางอย่างทำงานไม่ถูกต้อง โปรดเปิด issue พร้อมบันทึกการดีบัก</string>
     <string name="device_settings_experimental_action">เปิดตัวติดตาม Issue</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">ต้องการสิทธิ์ต่อไปนี้:</string>
     <string name="permission_system_alert_window_label">หน้าต่างแจ้งเตือนระบบ</string>
     <string name="permission_system_alert_window_description">อนุญาตให้ CAPod วาดทับแอปอื่นเพื่อให้คุณสมบัติ \"แสดงป๊อปอัป\" ทำงานได้</string>
-    <string name="settings_monitor_mode_manual_label">เมื่อเปิดแอป</string>
-    <string name="settings_monitor_mode_automatic_label">เมื่ออุปกรณ์เชื่อมต่อ</string>
-    <string name="settings_monitor_mode_always_label">เสมอ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">เมื่อพบเห็น</string>
     <string name="settings_reaction_autoconnect_caseopen_label">เคสเปิดอยู่</string>
     <string name="settings_reaction_autoconnect_inear_label">อยู่ในหู</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">สีอำพัน</string>
     <string name="ui_theme_color_disabled_materialyou">ใช้สีสายตา</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">การตรวจสอบ</string>
     <string name="settings_category_appearance_label">รูปลักษณ์</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">การเปลี่ยนแปลงที่ไม่ได้บันทึก</string>

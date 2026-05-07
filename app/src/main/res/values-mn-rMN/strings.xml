@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Хэрэв та саяхан худалдан авсан бол Google Play синхрончлоход хэдэн мөч зарцуулж магадгүй.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Худалдан авалт таны дансанд харагдахгүй байвал хэдэн минутын дараа дахин оролдоно уу.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Худалдан авалтад ашигласан Google аккаунтаараа нэвтэрсэн эсэхийг шалгаарай.</string>
-    <string name="settings_monitor_mode_label">Хяналтын горим</string>
-    <string name="settings_monitor_mode_description">Энэ апп Bluetooth-н өгөгдлийг ямар нөхцөлд хянадаг.</string>
     <string name="settings_monitor_connected_notification_label">Нэмэлт мэдэгдэл</string>
     <string name="settings_monitor_connected_notification_description">Төхөөрөмж холбогдсон үед нэмэлт мэдэгдэл харуулна. Энэ нь \"Төхөөрөмжийн төлөв\" сувгийг идэвхгүй болгосноор \"Төхөөрөмж алга\" гэсэн байнгын мэдэгдлийг нуух боломжийг олгоно.</string>
     <string name="settings_keep_notification_after_disconnect_label">Салсны дараа мэдэгдлийг хадгалах</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Холболтын попап цонхыг харуулах</string>
     <string name="settings_popup_connected_description">Төхөөрөмж анх удаа холбогдоход попап цонхыг харуулна.</string>
     <string name="settings_popup_info_not_in_app">Попап нь зөвхөн та аппликейшнд байхгүй үед харагдана.</string>
-    <string name="settings_popup_warning_manual_mode">Попап нь монитор ажиллаж байхыг шаарддаг. Таны монитор горим \"Апп нээлттэй үед\" гэж тохируулагдсан бөгөөд энэ нь аппликейшнаас гарахад мониторыг зогсооно.</string>
-    <string name="general_fix_it_action">Засах</string>
     <string name="device_settings_experimental_title">Туршилтын онцлог</string>
     <string name="device_settings_experimental_description">Энэ функцийг бүх төхөөрөмж дээр туршиж үзээгүй байна. Хэрэв ямар нэг зүйл буруу ажиллаж байвал debug лог хавсаргаж асуудал нээнэ үү.</string>
     <string name="device_settings_experimental_action">Асуудлын жагсаалт нээх</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Дараах зөвшөөрөл шаардлагатай:</string>
     <string name="permission_system_alert_window_label">Системийн анхааруулгын цонх</string>
     <string name="permission_system_alert_window_description">CAPod-д \"Попап харуулах\" боломжийг ажиллуулахын тулд бусад апп-уудын дээр зурах зөвшөөрөл олгоно уу.</string>
-    <string name="settings_monitor_mode_manual_label">Апп нээлттэй үед</string>
-    <string name="settings_monitor_mode_automatic_label">Төхөөрөмж холбогдсон үед</string>
-    <string name="settings_monitor_mode_always_label">Үргэлж</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Харагдах үед</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Кейс нээлттэй</string>
     <string name="settings_reaction_autoconnect_inear_label">Чихэнд</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Хув</string>
     <string name="ui_theme_color_disabled_materialyou">Ханын цаасны өнгийг ашиглана</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Хяналт</string>
     <string name="settings_category_appearance_label">Гадаад төрх</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Хадгалаагүй өөрчлөлтүүд</string>

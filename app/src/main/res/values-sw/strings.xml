@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ikiwa umenunua hivi karibuni, inaweza kuchukua muda kwa Google Play kusawazisha.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Jaribu tena baada ya dakika chache ikiwa ununuzi wako hauonekani.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Hakikisha umeingia kwa akaunti sawa ya Google iliyotumiwa kwa ununuzi.</string>
-    <string name="settings_monitor_mode_label">Hali ya ufuatiliaji</string>
-    <string name="settings_monitor_mode_description">Chini ya mazingira gani programu hii inafuatilia data ya Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Arifa ya ziada</string>
     <string name="settings_monitor_connected_notification_description">Inaonyesha arifa ya ziada wakati kifaa kimeunganishwa. Hii inakuwezesha kuficha arifa ya kudumu ya \"Hakuna vifaa\" kwa kuzima kituo cha \"Hali ya kifaa\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Weka arifa baada ya kukata muunganisho</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Onyesha kidirisha cha muunganisho</string>
     <string name="settings_popup_connected_description">Onyesha kidirisha kifaa kinapounganishwa kwa mara ya kwanza.</string>
     <string name="settings_popup_info_not_in_app">Madirisha ya arifa yanaonyeshwa tu unapokuwa nje ya programu.</string>
-    <string name="settings_popup_warning_manual_mode">Madirisha ya arifa yanahitaji kichunguzi kifanye kazi. Hali yako ya kichunguzi imewekwa kuwa \"Programu inapofunguliwa\", ambayo husimamisha kichunguzi unapotoka programuni.</string>
-    <string name="general_fix_it_action">Rekebisha</string>
     <string name="device_settings_experimental_title">Kipengele cha majaribio</string>
     <string name="device_settings_experimental_description">Kipengele hiki bado hakijajaribiwa kwenye vifaa vyote. Ikiwa kitu hakifanyi kazi vizuri, tafadhali fungua suala na kumbukumbu ya utatuzi.</string>
     <string name="device_settings_experimental_action">Fungua Kifuatilio cha Masuala</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Ruhusa ifuatayo inahitajika:</string>
     <string name="permission_system_alert_window_label">Dirisha la Arifa ya Mfumo</string>
     <string name="permission_system_alert_window_description">Ruhusu CAPod kuchora juu ya programu nyingine ili kuwezesha kipengele cha \"Onyesha Kidirisha\".</string>
-    <string name="settings_monitor_mode_manual_label">Programu inapofunguliwa</string>
-    <string name="settings_monitor_mode_automatic_label">Kifaa kinapounganishwa</string>
-    <string name="settings_monitor_mode_always_label">Kila mara</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kinapopatikana</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kipochi kimefunguliwa</string>
     <string name="settings_reaction_autoconnect_inear_label">Ndani ya sikio</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Amberini</string>
     <string name="ui_theme_color_disabled_materialyou">Inatumia rangi za ukuta wa skrini</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Ufuatiliaji</string>
     <string name="settings_category_appearance_label">Muonekano</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Mabadiliko Yasiyohifadhiwa</string>

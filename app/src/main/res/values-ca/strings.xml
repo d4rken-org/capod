@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Si heu comprat alguna cosa recentment, és possible que el Google Play trigui una estona a sincronitzar-se.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Torneu-ho a provar en uns minuts si la vostra compra no apareix.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Assegureu-vos d\'haver iniciat la sessió amb el mateix compte de Google que heu utilitzat per a la compra.</string>
-    <string name="settings_monitor_mode_label">Mode monitor</string>
-    <string name="settings_monitor_mode_description">En quines circumstàncies aquesta aplicació supervisa les dades Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificació addicional</string>
     <string name="settings_monitor_connected_notification_description">Mostra una notificació addicional quan hi ha un dispositiu connectat. Això permet ocultar la notificació permanent «Sense dispositius» desactivant el canal «Estat del dispositiu».</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantén les notificacions després de la desconnexió</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Mostra la finestra emergent de connexió</string>
     <string name="settings_popup_connected_description">Mostra una finestra emergent quan el dispositiu es connecti per primera vegada.</string>
     <string name="settings_popup_info_not_in_app">Les finestres emergents només es mostren quan no esteu a l\'aplicació.</string>
-    <string name="settings_popup_warning_manual_mode">Les finestres emergents requereixen que el monitor estigui en execució. El mode del monitor està configurat com a «quan l\'aplicació és oberta», que atura el monitor quan sortiu de l\'aplicació.</string>
-    <string name="general_fix_it_action">Corregeix-ho</string>
     <string name="device_settings_experimental_title">Funció experimental</string>
     <string name="device_settings_experimental_description">Aquesta funció encara no s\'ha provat a tots els dispositius. Si alguna cosa no funciona correctament, obriu una incidència amb un registre de depuració.</string>
     <string name="device_settings_experimental_action">Obre el seguidor d\'incidències</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Cal el permís següent:</string>
     <string name="permission_system_alert_window_label">Finestra d\'alerta del sistema</string>
     <string name="permission_system_alert_window_description">Permet que el CAPod dibuixi sobre altres aplicacions per fer possible la característica «Mostra emergent».</string>
-    <string name="settings_monitor_mode_manual_label">Quan l\'aplicació està oberta</string>
-    <string name="settings_monitor_mode_automatic_label">Quan el dispositiu està connectat</string>
-    <string name="settings_monitor_mode_always_label">Sempre</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Quan es veu</string>
     <string name="settings_reaction_autoconnect_caseopen_label">La funda està oberta</string>
     <string name="settings_reaction_autoconnect_inear_label">A l\'orella</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Ambre</string>
     <string name="ui_theme_color_disabled_materialyou">Utilitza els colors del fons de pantalla</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitoratge</string>
     <string name="settings_category_appearance_label">Aparença</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Canvis no desats</string>

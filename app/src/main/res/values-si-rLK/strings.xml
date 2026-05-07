@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">ඔබ මෑතකදී මිලදී ගත්නේ නම්, Google Play සමමුහුර්ත කිරීමට මොහොතක් ගත විය හැක.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ඔබේ මිලදී ගැනීම දිස් නොවේ නම් මිනිත්තු කිහිපයකින් නැවත උත්සාහ කරන්න.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">මිලදී ගැනීම සඳහා භාවිතා කළ එකම Google ගිණුමෙන් ඔබ පුරනය වී ඇති බවට සහතික වන්න.</string>
-    <string name="settings_monitor_mode_label">නිරීක්ෂණ ප්‍රකාරය</string>
-    <string name="settings_monitor_mode_description">මෙම යෙදුම කුමන තත්වයන් යටතේ Bluetooth දත්ත නිරීක්ෂණය කරයිද යන්න.</string>
     <string name="settings_monitor_connected_notification_label">අමතර දැනුම්දීම</string>
     <string name="settings_monitor_connected_notification_description">උපාංගයක් සම්බන්ධ වූ විට අමතර දැනුම්දීමක් පෙන්වයි. \"උපාංග තත්ත්වය\" නාලිකාව අක්‍රීය කිරීමෙන් \"උපාංග නොමැත\" ස්ථිර දැනුම්දීම සැඟවීමට මෙය ඔබට ඉඩ සලසයි.</string>
     <string name="settings_keep_notification_after_disconnect_label">විසන්ධි වූ පසු දැනුම්දීම තබන්න</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">සම්බන්ධතා පොප්-අප් පෙන්වන්න</string>
     <string name="settings_popup_connected_description">උපාංගය පළමු වරට සම්බන්ධ වූ විට පොප්-අප් එකක් පෙන්වන්න.</string>
     <string name="settings_popup_info_not_in_app">ඔබ යෙදුම තුළ නොසිටින විට පමණක් පොප්අප් දර්ශනය වේ.</string>
-    <string name="settings_popup_warning_manual_mode">පොප්අප් සඳහා නිරීක්ෂකය ක්‍රියාත්මක විය යුතුය. ඔබේ නිරීක්ෂක ප්‍රකාරය \"යෙදුම විවෘතව ඇති විට\" ලෙස සකසා ඇති අතර, ඔබ යෙදුම හැර ගිය විට නිරීක්ෂකය නවතා ලයි.</string>
-    <string name="general_fix_it_action">නිවැරදි කරන්න</string>
     <string name="device_settings_experimental_title">අත්හදා බැලීමේ ලක්ෂණය</string>
     <string name="device_settings_experimental_description">මෙම ලක්ෂණය තවම සියලු උපකරණවල පරීක්ෂා කර නොමැත. යමක් නිවැරදිව ක්‍රියා නොකරන්නේ නම්, කරුණාකර debug log එකක් සමඟ ගැටළුවක් විවෘත කරන්න.</string>
     <string name="device_settings_experimental_action">Issue Tracker විවෘත කරන්න</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">පහත අවසරය අවශ්‍ය වේ:</string>
     <string name="permission_system_alert_window_label">පද්ධති ඇඟවුම් කවුළුව</string>
     <string name="permission_system_alert_window_description">\"පොප්-අප් පෙන්වන්න\" විශේෂාංගය හැකි කිරීමට CAPod හට වෙනත් යෙදුම් මත අඳින්නට ඉඩ දෙන්න.</string>
-    <string name="settings_monitor_mode_manual_label">යෙදුම විවෘතව ඇති විට</string>
-    <string name="settings_monitor_mode_automatic_label">උපාංගය සම්බන්ධ වූ විට</string>
-    <string name="settings_monitor_mode_always_label">සෑමවිටම</string>
     <string name="settings_reaction_autoconnect_whenseen_label">දුටු විට</string>
     <string name="settings_reaction_autoconnect_caseopen_label">කවරය විවෘතයි</string>
     <string name="settings_reaction_autoconnect_inear_label">කනේ</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">ඇම්බර්</string>
     <string name="ui_theme_color_disabled_materialyou">වලාකුළිත් වර්ණ භාවිත කරයි</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">පරිශීලනය</string>
     <string name="settings_category_appearance_label">පෙනුම</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">සුරැකීමට අවශ්‍ය වෙනස්කම්</string>

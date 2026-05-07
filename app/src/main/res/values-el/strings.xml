@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Εάν έχετε αγοράσει πρόσφατα, ενδέχεται να χρειαστεί λίγος χρόνος για συγχρονισμό με το Google Play.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Δοκιμάστε ξανά σε λίγα λεπτά αν η αγορά σας δεν εμφανιστεί.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Βεβαιωθείτε ότι έχετε συνδεθεί με τον ίδιο λογαριασμό Google που χρησιμοποιήσατε για την αγορά.</string>
-    <string name="settings_monitor_mode_label">Λειτουργία παρακολούθησης</string>
-    <string name="settings_monitor_mode_description">Υπό ποιες συνθήκες αυτή η εφαρμογή παρακολουθεί δεδομένα Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Επιπλέον ειδοποίηση</string>
     <string name="settings_monitor_connected_notification_description">Εμφανίζει μια επιπλέον ειδοποίηση όταν μια συσκευή είναι συνδεδεμένη. Αυτό σας επιτρέπει να αποκρύψετε τη μόνιμη ειδοποίηση \"Δεν υπάρχουν συσκευές\" απενεργοποιώντας το κανάλι \"Κατάσταση συσκευής\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Διατήρηση ειδοποίησης μετά την αποσύνδεση</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Εμφάνιση αναδυόμενου παραθύρου σύνδεσης</string>
     <string name="settings_popup_connected_description">Εμφάνιση αναδυόμενου παραθύρου όταν η συσκευή συνδέεται για πρώτη φορά.</string>
     <string name="settings_popup_info_not_in_app">Τα αναδυόμενα παράθυρα εμφανίζονται μόνο όταν δεν βρίσκεστε στην εφαρμογή.</string>
-    <string name="settings_popup_warning_manual_mode">Τα αναδυόμενα παράθυρα απαιτούν η παρακολούθηση να εκτελείται. Η λειτουργία παρακολούθησης έχει οριστεί σε «Όταν η εφαρμογή είναι ανοιχτή», η οποία διακόπτει την παρακολούθηση όταν φεύγετε από την εφαρμογή.</string>
-    <string name="general_fix_it_action">Διόρθωση</string>
     <string name="device_settings_experimental_title">Πειραματική λειτουργία</string>
     <string name="device_settings_experimental_description">Αυτή η λειτουργία δεν έχει δοκιμαστεί ακόμα σε όλες τις συσκευές. Αν κάτι δεν λειτουργεί σωστά, παρακαλώ ανοίξτε ένα ζήτημα με ένα αρχείο καταγραφής εντοπισμού σφαλμάτων.</string>
     <string name="device_settings_experimental_action">Άνοιγμα Παρακολούθησης Ζητημάτων</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Απαιτείται η ακόλουθη άδεια:</string>
     <string name="permission_system_alert_window_label">Παράθυρο ειδοποίησης συστήματος</string>
     <string name="permission_system_alert_window_description">Επιτρέψτε στο CAPod να σχεδιάζει πάνω από άλλες εφαρμογές για να καταστεί δυνατή η λειτουργία \"Εμφάνιση αναδυόμενου\".</string>
-    <string name="settings_monitor_mode_manual_label">Όταν η εφαρμογή είναι ανοιχτή</string>
-    <string name="settings_monitor_mode_automatic_label">Όταν η συσκευή είναι συνδεδεμένη</string>
-    <string name="settings_monitor_mode_always_label">Πάντα</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Όταν εντοπιστεί</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Η θήκη είναι ανοιχτή</string>
     <string name="settings_reaction_autoconnect_inear_label">Στο αυτί</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Κεχριμπάρι</string>
     <string name="ui_theme_color_disabled_materialyou">Χρησιμοποιεί χρώματα ταπετσαρίας</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Παρακολούθηση</string>
     <string name="settings_category_appearance_label">Εμφάνιση</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Μη αποθηκευμένες αλλαγές</string>

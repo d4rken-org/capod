@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Dacă ați cumpărat recent, poate dura câteva momente până când Google Play sincronizează.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Înercați din nou în câteva minute dacă achiziția nu apare.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Asigurați-vă că sunteți conectat cu același cont Google utilizat pentru achiziție.</string>
-    <string name="settings_monitor_mode_label">Modul monitorizare</string>
-    <string name="settings_monitor_mode_description">În ce circumstanțe această aplicație monitorizează datele Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificare suplimentară</string>
     <string name="settings_monitor_connected_notification_description">Afișează o notificare suplimentară atunci când un dispozitiv este conectat. Acest lucru vă permite să ascundeți notificarea permanentă \"Niciun dispozitiv\" prin dezactivarea canalului \"Stare dispozitiv\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Păstrează notificarea după deconectare</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Afișați pop-upul conexiunii</string>
     <string name="settings_popup_connected_description">Afișați un pop-up când dispozitivul se conectează pentru prima dată.</string>
     <string name="settings_popup_info_not_in_app">Ferestrele pop-up sunt afișate doar când nu ești în aplicație.</string>
-    <string name="settings_popup_warning_manual_mode">Ferestrele pop-up necesită ca monitorul să ruleze. Modul de monitor este setat la „Când aplicația este deschisă”, ceea ce oprește monitorul când ieși din aplicație.</string>
-    <string name="general_fix_it_action">Remediază</string>
     <string name="device_settings_experimental_title">Funcție experimentală</string>
     <string name="device_settings_experimental_description">Această funcție nu a fost testată pe toate dispozitivele. Dacă ceva nu funcționează corect, te rugăm să deschizi un raport cu un jurnal de depanare.</string>
     <string name="device_settings_experimental_action">Deschide Issue Tracker</string>
@@ -222,9 +218,6 @@
     <string name="permission_required_title">Următoarea permisiune este necesară:</string>
     <string name="permission_system_alert_window_label">Fereastră alertă sistem</string>
     <string name="permission_system_alert_window_description">Permiteți CAPod să deseneze peste alte aplicații pentru a face posibilă funcția \"Afișare PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Când aplicația este deschisă</string>
-    <string name="settings_monitor_mode_automatic_label">Când dispozitivul este conectat</string>
-    <string name="settings_monitor_mode_always_label">Întotdeauna</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Când este detectat</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Carcasa este deschisă</string>
     <string name="settings_reaction_autoconnect_inear_label">În ureche</string>
@@ -324,7 +317,6 @@
     <string name="ui_theme_color_amber_label">Chihlimbar</string>
     <string name="ui_theme_color_disabled_materialyou">Folosește culorile fundalului</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorizare</string>
     <string name="settings_category_appearance_label">Aspect</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Modificări Nesalvate</string>

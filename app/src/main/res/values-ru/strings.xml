@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Если Вы недавно совершили покупку, Google Play может потребоваться некоторое время для синхронизации.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Попробуйте снова через несколько минут, если Ваша покупка не отображается.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Убедитесь, что Вы вошли в ту же учётную запись Google, которая использовалась при покупке.</string>
-    <string name="settings_monitor_mode_label">Режим мониторинга</string>
-    <string name="settings_monitor_mode_description">При каких условиях приложение отслеживает данные Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Дополнительное уведомление</string>
     <string name="settings_monitor_connected_notification_description">Показывать дополнительное уведомление, когда устройство подключено. Это позволяет скрыть постоянное уведомление «Нет устройств», отключая канал «Статус устройства».</string>
     <string name="settings_keep_notification_after_disconnect_label">Оставить уведомление после отключения</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Показать соединение</string>
     <string name="settings_popup_connected_description">Показывать окно при первом подключении.</string>
     <string name="settings_popup_info_not_in_app">Всплывающие окна отображаются только когда Вы не находитесь в приложении.</string>
-    <string name="settings_popup_warning_manual_mode">Для всплывающих окон необходимо, чтобы монитор был запущен. Режим монитора установлен на «Когда приложение открыто», что останавливает монитор при выходе из приложения.</string>
-    <string name="general_fix_it_action">Исправить</string>
     <string name="device_settings_experimental_title">Экспериментальная функция</string>
     <string name="device_settings_experimental_description">Эта функция ещё не протестирована на всех устройствах. Если что-то работает неправильно, пожалуйста, создайте обращение с журналом отладки.</string>
     <string name="device_settings_experimental_action">Открыть трекер проблем</string>
@@ -225,9 +221,6 @@ AL_Cool_T</string>
     <string name="permission_required_title">Требуется следующее разрешение:</string>
     <string name="permission_system_alert_window_label">Окно системных предупреждений</string>
     <string name="permission_system_alert_window_description">Позволить CAPod наложение поверх других приложений для работы функции \"Всплывающие сообщения\".</string>
-    <string name="settings_monitor_mode_manual_label">Когда приложение открыто</string>
-    <string name="settings_monitor_mode_automatic_label">Когда устройство подключено</string>
-    <string name="settings_monitor_mode_always_label">Всегда</string>
     <string name="settings_reaction_autoconnect_whenseen_label">При обнаружении</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Футляр открыт</string>
     <string name="settings_reaction_autoconnect_inear_label">В ухе</string>
@@ -327,7 +320,6 @@ AL_Cool_T</string>
     <string name="ui_theme_color_amber_label">Янтарный</string>
     <string name="ui_theme_color_disabled_materialyou">Использовать цвета обоев</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Мониторинг</string>
     <string name="settings_category_appearance_label">Внешний вид</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Несохранённые изменения</string>

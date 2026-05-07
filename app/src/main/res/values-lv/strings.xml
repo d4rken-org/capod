@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Ja esat nesen iegādājies, Google Play var aizņemt brīdi, lai sinhronizētu.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Mēģiniet vēlreiz pēc dažām minūtēm, ja jūsu pirkums neparādās.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Pārliecinieties, ka esat pieteicies ar to pašu Google kontu, kas izmantots pirkumam.</string>
-    <string name="settings_monitor_mode_label">Monitorēšanas režīms</string>
-    <string name="settings_monitor_mode_description">Kādos apstākļos šī lietotne monitorē Bluetooth datus.</string>
     <string name="settings_monitor_connected_notification_label">Papildu paziņojums</string>
     <string name="settings_monitor_connected_notification_description">Rāda papildu paziņojumu, kad ierīce ir pievienota. Tas ļauj paslēpt pastāvīgo paziņojumu \"Nav ierīču\", atspējojot kanālu \"Ierīces statuss\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Saglabāt paziņojumu pēc atvienošanas</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Rādīt savienojuma uznirstošo logu</string>
     <string name="settings_popup_connected_description">Rādīt uznirstošo logu, kad ierīce pirmo reizi izveido savienojumu.</string>
     <string name="settings_popup_info_not_in_app">Uznirstošie logi tiek rādīti tikai tad, kad neatrodaties lietotnē.</string>
-    <string name="settings_popup_warning_manual_mode">Uznirstošajiem logiem nepieciešams, lai monitors darbotos. Monitora režīms ir iestatīts uz \"Kad lietotne ir atvērta\", kas aptur monitoru, kad izejat no lietotnes.</string>
-    <string name="general_fix_it_action">Labot</string>
     <string name="device_settings_experimental_title">Eksperimentāla funkcija</string>
     <string name="device_settings_experimental_description">Šī funkcija vēl nav pārbaudīta visās ierīcēs. Ja kaut kas nedarbojas pareizi, lūdzu atveriet problēmziņojumu ar atkļūdošanas žurnālu.</string>
     <string name="device_settings_experimental_action">Atvērt problēmu izsekotāju</string>
@@ -222,9 +218,6 @@
     <string name="permission_required_title">Nepieciešama šāda atļauja:</string>
     <string name="permission_system_alert_window_label">Sistēmas brīdinājuma logs</string>
     <string name="permission_system_alert_window_description">Atļaujiet CAPod zīmēt virs citām lietotnēm, lai iespējotu funkciju \"Rādīt uznirstošo logu\".</string>
-    <string name="settings_monitor_mode_manual_label">Kad lietotne ir atvērta</string>
-    <string name="settings_monitor_mode_automatic_label">Kad ierīce ir savienota</string>
-    <string name="settings_monitor_mode_always_label">Vienmēr</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kad redzēta</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Korpuss ir atvērts</string>
     <string name="settings_reaction_autoconnect_inear_label">Ausī</string>
@@ -324,7 +317,6 @@
     <string name="ui_theme_color_amber_label">Dzintara</string>
     <string name="ui_theme_color_disabled_materialyou">Izmanto tapetes krāsas</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Uzraudzība</string>
     <string name="settings_category_appearance_label">Izskats</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nesaglabātas izmaiņas</string>

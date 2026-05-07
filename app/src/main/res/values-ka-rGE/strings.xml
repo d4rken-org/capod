@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">თუ ახლახანს შეიძინეთ, Google Play-ს სინქრონიზაციას შეიძლება გარკვეული დრო დასჭირდეს.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">რამდენიმე წუთში სცადეთ თავიდან, თუ თქვენი შეძენა არ ჩანს.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">დარწმუნდით, რომ შესულა ხართ იმავე Google ანგარიშით, რომელიც გამოიყენეთ შეძენისას.</string>
-    <string name="settings_monitor_mode_label">მონიტორინგის რეჟიმი</string>
-    <string name="settings_monitor_mode_description">რა გარემოებებში აკონტროლებს ეს აპლიკაცია Bluetooth-ის მონაცემებს.</string>
     <string name="settings_monitor_connected_notification_label">დამატებითი შეტყობინება</string>
     <string name="settings_monitor_connected_notification_description">აჩვენებს დამატებით შეტყობინებას, როდესაც მოწყობილობა დაკავშირებულია. ეს საშუალებას გაძლევთ დამალოთ მუდმივი \"მოწყობილობები არ არის\" შეტყობინება \"მოწყობილობის სტატუსის\" არხის გამორთვით.</string>
     <string name="settings_keep_notification_after_disconnect_label">შეტყობინების შენარჩუნება გათიშვის შემდეგ</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">დაკავშირების ამომხტარი ფანჯრის ჩვენება</string>
     <string name="settings_popup_connected_description">აჩვენეთ ამომხტარი ფანჯარა მოწყობილობის პირველად დაკავშირებისას.</string>
     <string name="settings_popup_info_not_in_app">პოპ-აპები მხოლოდ მაშინ ჩანს, როცა არ ხართ აპლიკაციაში.</string>
-    <string name="settings_popup_warning_manual_mode">პოპ-აპებისთვის საჭიროა მონიტორის გაშვება. თქვენი მონიტორის რეჟიმი დაყენებულია \"აპლიკაცია ღიაა\"-ზე, რაც მონიტორს აჩერებს, როცა აპლიკაციას ტოვებთ.</string>
-    <string name="general_fix_it_action">გამოსწორება</string>
     <string name="device_settings_experimental_title">ექსპერიმენტული ფუნქცია</string>
     <string name="device_settings_experimental_description">ეს ფუნქცია ჯერ ყველა მოწყობილობაზე გამოცდილი არ არის. თუ რამე სწორად არ მუშაობს, გთხოვთ გახსნათ ხარვეზი debug ლოგთან ერთად.</string>
     <string name="device_settings_experimental_action">ხარვეზების ტრეკერის გახსნა</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">საჭიროა შემდეგი ნებართვა:</string>
     <string name="permission_system_alert_window_label">სისტემური გამაფრთხილებელი ფანჯარა</string>
     <string name="permission_system_alert_window_description">დაუშვით, რომ CAPod სხვა აპებზე ზემოდან გამოჩნდეს, რათა \"Show PopUp\" ფუნქცია შესაძლებელი გახდეს.</string>
-    <string name="settings_monitor_mode_manual_label">როცა აპი ღიაა</string>
-    <string name="settings_monitor_mode_automatic_label">როცა მოწყობილობა დაკავშირებულია</string>
-    <string name="settings_monitor_mode_always_label">ყოველთვის</string>
     <string name="settings_reaction_autoconnect_whenseen_label">როცა გამოჩნდება</string>
     <string name="settings_reaction_autoconnect_caseopen_label">ქეისი ღიაა</string>
     <string name="settings_reaction_autoconnect_inear_label">ყურშია</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">ყვითელი</string>
     <string name="ui_theme_color_disabled_materialyou">იყენებს ფონის ფერებს</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">მონიტორინგი</string>
     <string name="settings_category_appearance_label">გარეგნობა</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">შეუნახავი ცვლილებები</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Wenn du kürzlich gekauft hast, kann es einen Moment dauern, bis Google Play synchronisiert.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Versuche es in wenigen Minuten erneut, falls dein Kauf nicht erscheint.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Stelle sicher, dass du mit demselben Google-Konto angemeldet bist, das für den Kauf verwendet wurde.</string>
-    <string name="settings_monitor_mode_label">Überwachungsmodus</string>
-    <string name="settings_monitor_mode_description">Unter welchen Umständen überwacht diese App Bluetooth-Daten.</string>
     <string name="settings_monitor_connected_notification_label">Zusätzliche Benachrichtigung</string>
     <string name="settings_monitor_connected_notification_description">Zeigt eine zusätzliche Benachrichtigung an, wenn ein Gerät verbunden ist. Dadurch kannst du die permanente Benachrichtigung „Keine Geräte“ ausblenden, indem du den Kanal „Gerätestatus“ deaktivierst.</string>
     <string name="settings_keep_notification_after_disconnect_label">Benachrichtigung nach Trennung beibehalten</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Verbindungs-Popup anzeigen</string>
     <string name="settings_popup_connected_description">Zeigt ein Popup an, wenn das Gerät zum ersten Mal eine Verbindung herstellt.</string>
     <string name="settings_popup_info_not_in_app">Popups werden nur angezeigt, wenn du nicht in der App bist.</string>
-    <string name="settings_popup_warning_manual_mode">Popups erfordern, dass der Monitor läuft. Dein Monitor-Modus ist auf \"Wenn App geöffnet\" eingestellt, was den Monitor stoppt, wenn du die App verlässt.</string>
-    <string name="general_fix_it_action">Beheben</string>
     <string name="device_settings_experimental_title">Experimentelle Funktion</string>
     <string name="device_settings_experimental_description">Diese Funktion wurde noch nicht auf allen Geräten getestet. Wenn etwas nicht korrekt funktioniert, öffne bitte ein Issue mit einem Debug-Log.</string>
     <string name="device_settings_experimental_action">Issue-Tracker öffnen</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Die folgende Genehmigung ist erforderlich:</string>
     <string name="permission_system_alert_window_label">Systemwarnungsfenster</string>
     <string name="permission_system_alert_window_description">Erlaube CAPod, PopUp Benachrichtigungen über anderen Apps anzuzeigen.</string>
-    <string name="settings_monitor_mode_manual_label">Wenn die App geöffnet ist</string>
-    <string name="settings_monitor_mode_automatic_label">Wenn das Gerät verbunden ist</string>
-    <string name="settings_monitor_mode_always_label">Immer</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Wann gesehen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Ladecase ist offen</string>
     <string name="settings_reaction_autoconnect_inear_label">Im Ohr</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Bernstein</string>
     <string name="ui_theme_color_disabled_materialyou">Verwendet Hintergrundbildfarben</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Überwachung</string>
     <string name="settings_category_appearance_label">Erscheinungsbild</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Nicht gespeicherte Änderungen</string>

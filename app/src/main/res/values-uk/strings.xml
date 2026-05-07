@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Якщо ви нещодавно придбали, Google Play може потребувати деякого часу для синхронізації.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Спробуйте знову через кілька хвилин, якщо ваша покупка не з\'являється.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Переконайтеся, що ви ввійшли в той самий обліковий запис Google, який використовувався для покупки.</string>
-    <string name="settings_monitor_mode_label">Режим відстеження</string>
-    <string name="settings_monitor_mode_description">За яких умов ця програма відстежує дані Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Додаткове сповіщення</string>
     <string name="settings_monitor_connected_notification_description">Показує додаткове сповіщення, коли пристрій підключено. Це дозволяє приховати постійне сповіщення \"Немає пристроїв\", вимкнувши канал \"Стан пристрою\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Залишати сповіщення після відключення</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Показувати спливаюче вікно при приєднанні</string>
     <string name="settings_popup_connected_description">Показувати спливаюче вікно коли пристрій підключається вперше.</string>
     <string name="settings_popup_info_not_in_app">Спливаючі вікна відображаються лише тоді, коли ви не в застосунку.</string>
-    <string name="settings_popup_warning_manual_mode">Спливаючі вікна вимагають роботи монітора. Режим монітора встановлено на «Коли застосунок відкрито», що зупиняє монітор, коли ви виходите з застосунку.</string>
-    <string name="general_fix_it_action">Виправити</string>
     <string name="device_settings_experimental_title">Експериментальна функція</string>
     <string name="device_settings_experimental_description">Ця функція ще не протестована на всіх пристроях. Якщо щось не працює правильно, будь ласка, відкрийте задачу з журналом налагодження.</string>
     <string name="device_settings_experimental_action">Відкрити трекер задач</string>
@@ -224,9 +220,6 @@
     <string name="permission_required_title">Потрібен наступний дозвіл:</string>
     <string name="permission_system_alert_window_label">Відображення поверх інших програм</string>
     <string name="permission_system_alert_window_description">Дозвольте CAPod відображатися поверх інших програм, щоб уможливити функцію \"Показувати спливаюче вікно\".</string>
-    <string name="settings_monitor_mode_manual_label">Коли програму відкрито</string>
-    <string name="settings_monitor_mode_automatic_label">Коли пристрій підключено</string>
-    <string name="settings_monitor_mode_always_label">Завжди</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Коли виявлено</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Футляр відкрито</string>
     <string name="settings_reaction_autoconnect_inear_label">У вусі</string>
@@ -326,7 +319,6 @@
     <string name="ui_theme_color_amber_label">Бурштиновий</string>
     <string name="ui_theme_color_disabled_materialyou">Використовує кольори шпалер</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Моніторинг</string>
     <string name="settings_category_appearance_label">Зовнішній вигляд</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Незбережені зміни</string>

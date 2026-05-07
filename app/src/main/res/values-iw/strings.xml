@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">אם רכשת לאחרונה, ייתכן שיידרש זמן מה כדי ש-Google Play יסתנכרן.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">נסה שוב בעוד כמה דקות אם הרכישה שלך לא מופיעה.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">ודא שאתה מחובר עם אותו חשבון Google שבו השתמשת לרכישה.</string>
-    <string name="settings_monitor_mode_label">מצב מוניטור</string>
-    <string name="settings_monitor_mode_description">באילו נסיבות אפליקציה זו עוקבת אחר נתוני Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">התראה נוספת</string>
     <string name="settings_monitor_connected_notification_description">מציג התראה נוספת כאשר מכשיר מחובר. זה מאפשר לך להסתיר את ההתראה הקבועה \"אין מכשירים\" על ידי השבתת הערוץ \"סטטוס מכשיר\".</string>
     <string name="settings_keep_notification_after_disconnect_label">שמור התראה לאחר ניתוק</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">הצג חלון קופץ של חיבור</string>
     <string name="settings_popup_connected_description">הצג חלון קופץ כאשר המכשיר מתחבר בפעם הראשונה.</string>
     <string name="settings_popup_info_not_in_app">חלונות קופצים מוצגים רק כשאינך בתוך האפליקציה.</string>
-    <string name="settings_popup_warning_manual_mode">חלונות קופצים דורשים שהמנטור יפעל. מצב המנטור שלך מוגדר ל-\"כשהאפליקציה פתוחה\", מה שעוצר את המנטור כשאתה עוזב את האפליקציה.</string>
-    <string name="general_fix_it_action">תקן זאת</string>
     <string name="device_settings_experimental_title">תכונה ניסיונית</string>
     <string name="device_settings_experimental_description">תכונה זו טרם נבדקה על כל המכשירים. אם משהו אינו פועל כראוי, אנא פתח בקשת תמיכה עם יומן ניפוי שגיאות.</string>
     <string name="device_settings_experimental_action">פתח מעקב בעיות</string>
@@ -224,9 +220,6 @@
     <string name="permission_required_title">ההרשאה הבאה נדרשת:</string>
     <string name="permission_system_alert_window_label">חלון התראת מערכת</string>
     <string name="permission_system_alert_window_description">אפשר ל-CAPod לצייר מעל אפליקציות אחרות כדי לאפשר את תכונת \"הצג חלון קופץ\".</string>
-    <string name="settings_monitor_mode_manual_label">כשהאפליקציה פתוחה</string>
-    <string name="settings_monitor_mode_automatic_label">כשמכשיר מחובר</string>
-    <string name="settings_monitor_mode_always_label">תמיד</string>
     <string name="settings_reaction_autoconnect_whenseen_label">כשנראה</string>
     <string name="settings_reaction_autoconnect_caseopen_label">מארז פתוח</string>
     <string name="settings_reaction_autoconnect_inear_label">באוזן</string>
@@ -326,7 +319,6 @@
     <string name="ui_theme_color_amber_label">ענבר</string>
     <string name="ui_theme_color_disabled_materialyou">משתמש בצבעי טפט השולחן</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">ניטור</string>
     <string name="settings_category_appearance_label">מראה</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">שינויים שלא נשמרו</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Hvis du nylig har kjøpt, kan det ta et øyeblikk før Google Play synkroniserer.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Prøv igjen om noen minutter hvis kjøpet ditt ikke vises.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Sørg for at du er logget inn med den samme Google-kontoen som ble brukt til kjøpet.</string>
-    <string name="settings_monitor_mode_label">Overvåkingsmodus</string>
-    <string name="settings_monitor_mode_description">Under hvilke omstendigheter denne appen skal overvåke Bluetooth-data.</string>
     <string name="settings_monitor_connected_notification_label">Ekstra varsling</string>
     <string name="settings_monitor_connected_notification_description">Viser en ekstra varsling når en enhet er tilkoblet. Dette lar deg skjule det permanente varselet \"Ingen enheter\" ved å deaktivere kanalen \"Enhetsstatus\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Behold varsling etter frakobling</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Vis tilkoblings-popup</string>
     <string name="settings_popup_connected_description">Vis en popup første gang enheten kobles til.</string>
     <string name="settings_popup_info_not_in_app">Popup-vinduer vises bare når du ikke er i appen.</string>
-    <string name="settings_popup_warning_manual_mode">Popup-vinduer krever at monitoren kjører. Monitormodusen din er satt til «Når appen er åpen», som stopper monitoren når du forlater appen.</string>
-    <string name="general_fix_it_action">Fiks det</string>
     <string name="device_settings_experimental_title">Eksperimentell funksjon</string>
     <string name="device_settings_experimental_description">Denne funksjonen er ikke testet på alle enheter ennå. Hvis noe ikke fungerer som det skal, kan du åpne en sak med en feilsøkingslogg.</string>
     <string name="device_settings_experimental_action">Åpne sporing av saker</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Følgende tillatelse er påkrevd:</string>
     <string name="permission_system_alert_window_label">Systemvarslingsvindu</string>
     <string name="permission_system_alert_window_description">Tillat CAPod å tegne over andre apper for å gjøre funksjonen \"Vis popup\" mulig.</string>
-    <string name="settings_monitor_mode_manual_label">Når appen er åpen</string>
-    <string name="settings_monitor_mode_automatic_label">Når enheten er tilkoblet</string>
-    <string name="settings_monitor_mode_always_label">Alltid</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Når sett</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Etuiet er åpent</string>
     <string name="settings_reaction_autoconnect_inear_label">I øret</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Rav</string>
     <string name="ui_theme_color_disabled_materialyou">Bruker bakgrunnsfarger</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Overvåkning</string>
     <string name="settings_category_appearance_label">Utseende</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ulagrede endringer</string>

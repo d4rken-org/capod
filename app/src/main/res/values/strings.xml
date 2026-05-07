@@ -44,8 +44,6 @@
     <string name="upgrade_screen_restore_sync_patience_hint">Try again in a few minutes if your purchase doesn\'t appear.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Make sure you\'re signed in with the same Google account used for the purchase.</string>
 
-    <string name="settings_monitor_mode_label">Monitor mode</string>
-    <string name="settings_monitor_mode_description">Under which circumstances this app monitors Bluetooth data.</string>
     <string name="settings_monitor_connected_notification_label">Extra notification</string>
     <string name="settings_monitor_connected_notification_description">Shows an extra notification when a device is connected. This lets you hide the permanent \"No devices\" notification by disabling the \"Device status\" channel.</string>
     <string name="settings_keep_notification_after_disconnect_label">Keep notification after disconnect</string>
@@ -88,8 +86,6 @@
     <string name="settings_popup_connected_label">Show connection popup</string>
     <string name="settings_popup_connected_description">Show a popup when the device connects for the first time.</string>
     <string name="settings_popup_info_not_in_app">Popups are only shown when you are not in the app.</string>
-    <string name="settings_popup_warning_manual_mode">Popups require the monitor to be running. Your monitor mode is set to \"When app is open\", which stops the monitor when you leave the app.</string>
-    <string name="general_fix_it_action">Fix it</string>
 
     <string name="device_settings_experimental_title">Experimental feature</string>
     <string name="device_settings_experimental_description">This feature hasn\'t been tested on all devices yet. If something isn\'t working correctly, please open an issue with a debug log.</string>
@@ -258,9 +254,6 @@
     <string name="permission_system_alert_window_label">System Alert Window</string>
     <string name="permission_system_alert_window_description">Allow CAPod to draw over other apps to make the feature \"Show PopUp\" possible.</string>
 
-    <string name="settings_monitor_mode_manual_label">When app is open</string>
-    <string name="settings_monitor_mode_automatic_label">When device is connected</string>
-    <string name="settings_monitor_mode_always_label">Always</string>
 
     <string name="settings_reaction_autoconnect_whenseen_label">When seen</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Case is open</string>
@@ -368,7 +361,6 @@
     <string name="ui_theme_color_disabled_materialyou">Uses wallpaper colors</string>
 
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitoring</string>
     <string name="settings_category_appearance_label">Appearance</string>
 
     <!-- Unsaved changes dialog -->

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">اگر آپ نے حال ہی میں خریداری کی ہے، تو Google Play کو ہم آہنگ ہونے میں کچھ وقت لگ سکتا ہے۔</string>
     <string name="upgrade_screen_restore_sync_patience_hint">اگر آپ کی خریداری ظاہر نہ ہو تو چند منٹ بعد دوبارہ کوشش کریں۔</string>
     <string name="upgrade_screen_restore_multiaccount_hint">یقینی بنائیں کہ آپ خریداری کے لیے استعمال کیے گئے اسی Google اکاؤنٹ سے سائن ان ہیں۔</string>
-    <string name="settings_monitor_mode_label">مانیٹر موڈ</string>
-    <string name="settings_monitor_mode_description">کن حالات میں یہ ایپ بلوٹوتھ ڈیٹا کی نگرانی کرتی ہے۔</string>
     <string name="settings_monitor_connected_notification_label">اضافی اطلاع</string>
     <string name="settings_monitor_connected_notification_description">جب کوئی آلہ منسلک ہوتا ہے تو ایک اضافی اطلاع دکھاتا ہے۔ اس سے آپ \"آلہ کی حیثیت\" چینل کو غیر فعال کر کے مستقل \"کوئی آلہ نہیں\" اطلاع کو چھپا سکتے ہیں۔</string>
     <string name="settings_keep_notification_after_disconnect_label">منقطع ہونے کے بعد اطلاع رکھیں</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">کنکشن پاپ اپ دکھائیں</string>
     <string name="settings_popup_connected_description">آلہ پہلی بار منسلک ہونے پر ایک پاپ اپ دکھائیں۔</string>
     <string name="settings_popup_info_not_in_app">پاپ اپس صرف اس وقت دکھائے جاتے ہیں جب آپ ایپ میں نہ ہوں۔</string>
-    <string name="settings_popup_warning_manual_mode">پاپ اپس کے لیے مانیٹر کا چلنا ضروری ہے۔ آپ کا مانیٹر موڈ \"جب ایپ کھلی ہو\" پر سیٹ ہے، جو ایپ چھوڑنے پر مانیٹر بند کر دیتا ہے۔</string>
-    <string name="general_fix_it_action">ٹھیک کریں</string>
     <string name="device_settings_experimental_title">تجرباتی خصوصیت</string>
     <string name="device_settings_experimental_description">اس فیچر کو ابھی تک تمام ڈیوائسز پر آزمایا نہیں گیا ہے۔ اگر کچھ صحیح طریقے سے کام نہیں کر رہا، تو براہ کرم ڈیبگ لاگ کے ساتھ ایک مسئلہ کھولیں۔</string>
     <string name="device_settings_experimental_action">ایشو ٹریکر کھولیں</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">درج ذیل اجازت درکار ہے:</string>
     <string name="permission_system_alert_window_label">سسٹم الرٹ ونڈو</string>
     <string name="permission_system_alert_window_description">\"پاپ اپ دکھائیں\" خصوصیت ممکن بنانے کے لئے CAPod کو دوسری ایپس کے اوپر ڈرا کرنے کی اجازت دیں۔</string>
-    <string name="settings_monitor_mode_manual_label">جب ایپ کھلی ہو</string>
-    <string name="settings_monitor_mode_automatic_label">جب آلہ منسلک ہو</string>
-    <string name="settings_monitor_mode_always_label">ہمیشہ</string>
     <string name="settings_reaction_autoconnect_whenseen_label">نظر آنے پر</string>
     <string name="settings_reaction_autoconnect_caseopen_label">کیس کھلا ہو</string>
     <string name="settings_reaction_autoconnect_inear_label">کان میں</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">زرد</string>
     <string name="ui_theme_color_disabled_materialyou">وال پیپر کے رنگ استعمال کرتا ہے</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">نگرانی</string>
     <string name="settings_category_appearance_label">ظاہری شکل</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">غیر محفوظ تبدیلیاں</string>

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Калі вы нядаўна зрабілі пакупку, Google Play можа спатрэбіцца некаторы час для сінхранізацыі.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Паспрабуйце яшчэ раз праз некалькі хвілін, калі ваша пакупка не з\'яўляецца.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Пераканайцеся, што вы ўвайшлі ў той самы акаўнт Google, які быў выкарыстаны для пакупкі.</string>
-    <string name="settings_monitor_mode_label">Рэжым маніторынгу</string>
-    <string name="settings_monitor_mode_description">Пры якіх абставінах гэта праграма сочыць за данымі Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Дадатковае апавяшчэнне</string>
     <string name="settings_monitor_connected_notification_description">Паказвае дадатковае апавяшчэнне пры падключэнні прылады. Гэта дазваляе схаваць пастаяннае апавяшчэнне \"Няма прылад\" шляхам адключэння канала \"Стан прылады\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Захаваць апавяшчэнне пасля адключэння</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Паказаць усплывальнае акно падключэння</string>
     <string name="settings_popup_connected_description">Паказваць усплывальнае акно пры першым падключэнні прылады.</string>
     <string name="settings_popup_info_not_in_app">Усплывальныя вокны паказваюцца толькі тады, калі вы не знаходзіцеся ў прыкладанні.</string>
-    <string name="settings_popup_warning_manual_mode">Усплывальныя вокны патрабуюць працы манітора. Рэжым манітора ўсталяваны на «Калі прыкладанне адкрыта», які спыняе маніторынг пры выхадзе з прыкладання.</string>
-    <string name="general_fix_it_action">Выправіць</string>
     <string name="device_settings_experimental_title">Эксперыментальная функцыя</string>
     <string name="device_settings_experimental_description">Гэта функцыя яшчэ не была праверана на ўсіх прыладах. Калі нешта не працуе правільна, калі ласка, стварыце запыт з журналам адладкі.</string>
     <string name="device_settings_experimental_action">Адкрыць трэкер задач</string>
@@ -224,9 +220,6 @@
     <string name="permission_required_title">Патрабуецца наступны дазвол:</string>
     <string name="permission_system_alert_window_label">Сістэмнае акно папярэджання</string>
     <string name="permission_system_alert_window_description">Дазвольце CAPod маляваць паверх іншых праграм, каб зрабіць магчымай функцыю \"Паказаць усплывальнае акно\".</string>
-    <string name="settings_monitor_mode_manual_label">Калі праграма адкрыта</string>
-    <string name="settings_monitor_mode_automatic_label">Калі прылада падключана</string>
-    <string name="settings_monitor_mode_always_label">Заўсёды</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Калі бачна</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Корпус адкрыты</string>
     <string name="settings_reaction_autoconnect_inear_label">У вуху</string>
@@ -326,7 +319,6 @@
     <string name="ui_theme_color_amber_label">Бурштынавы</string>
     <string name="ui_theme_color_disabled_materialyou">Выкарыстоўвае колеры шпалеры</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Маніторынг</string>
     <string name="settings_category_appearance_label">Знешні выгляд</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Незахаваныя змены</string>

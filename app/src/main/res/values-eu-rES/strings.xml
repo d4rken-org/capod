@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Duela gutxi erosi baduzu, baliteke Google Play-k sinkronizatzeko une bat behar izatea.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Saiatu berriro minutu batzuen buruan zure erosketa agertzen ez bada.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Ziurtatu erosketan erabilitako Google kontu berarekin saioa hasita daudela.</string>
-    <string name="settings_monitor_mode_label">Monitorizazio modua</string>
-    <string name="settings_monitor_mode_description">Zein egoeratan monitorizatzen ditu aplikazio honek Bluetooth datuak.</string>
     <string name="settings_monitor_connected_notification_label">Jakinarazpen gehigarria</string>
     <string name="settings_monitor_connected_notification_description">Gailu bat konektatuta dagoenean jakinarazpen gehigarri bat erakusten du. Honek \"Gailurik ez\" jakinarazpen iraunkorra ezkutatzeko aukera ematen dizu \"Gailuaren egoera\" kanala desgaituz.</string>
     <string name="settings_keep_notification_after_disconnect_label">Mantendu jakinarazpena deskonektatu ondoren</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Erakutsi konexioaren pop-up-a</string>
     <string name="settings_popup_connected_description">Erakutsi pop-up bat gailua lehen aldiz konektatzen denean.</string>
     <string name="settings_popup_info_not_in_app">Leiho gainerakorrak soilik erakusten dira aplikazioan ez zaudenerako.</string>
-    <string name="settings_popup_warning_manual_mode">Leiho gainerakorrek monitorea martxan egotea behar dute. Zure monitor modua \"Aplikazioa irekita dagoenean\" ezarrita dago, eta horrek monitorea gelditzen du aplikaziotik irteten zarenean.</string>
-    <string name="general_fix_it_action">Konpondu</string>
     <string name="device_settings_experimental_title">Funtzio esperimentala</string>
     <string name="device_settings_experimental_description">Funtzio hau oraindik ez da gailu guztietan probatu. Zerbait ondo funtzionatzen ez badu, mesedez ireki arazo bat arazketa-erregistroarekin.</string>
     <string name="device_settings_experimental_action">Ireki arazo-jarraipena</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Hurrengo baimena beharrezkoa da:</string>
     <string name="permission_system_alert_window_label">Sistemaren alerta-leihoa</string>
     <string name="permission_system_alert_window_description">Baimendu CAPod-i beste aplikazioen gainean marraztea \"Erakutsi pop-up-a\" ezaugarria posible egiteko.</string>
-    <string name="settings_monitor_mode_manual_label">Aplikazioa irekita dagoenean</string>
-    <string name="settings_monitor_mode_automatic_label">Gailua konektatuta dagoenean</string>
-    <string name="settings_monitor_mode_always_label">Beti</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Ikusten denean</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kaxa irekita dago</string>
     <string name="settings_reaction_autoconnect_inear_label">Belarrian</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Anbarra</string>
     <string name="ui_theme_color_disabled_materialyou">Horma-papereko koloreak erabiltzen ditu</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorizazioa</string>
     <string name="settings_category_appearance_label">Itxura</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Gorde gabeko aldaketak</string>

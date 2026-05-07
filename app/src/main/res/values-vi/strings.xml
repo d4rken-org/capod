@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Nếu bạn đã mua gần đây, Google Play có thể mất một chút thời gian để đồng bộ.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Vui lòng thử lại sau vài phút nếu giao dịch mua của bạn chưa hiển thị.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Hãy đảm bảo bạn đã đăng nhập bằng cùng tài khoản Google đã dùng để mua.</string>
-    <string name="settings_monitor_mode_label">Chế độ giám sát</string>
-    <string name="settings_monitor_mode_description">Trong trường hợp nào ứng dụng này giám sát dữ liệu Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Thông báo bổ sung</string>
     <string name="settings_monitor_connected_notification_description">Hiển thị thông báo bổ sung khi một thiết bị được kết nối. Điều này cho phép bạn ẩn thông báo cố định \"Không có thiết bị\" bằng cách tắt kênh \"Trạng thái thiết bị\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Giữ thông báo sau khi ngắt kết nối</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Hiển thị popup kết nối</string>
     <string name="settings_popup_connected_description">Hiển thị cửa sổ bật lên khi thiết bị kết nối lần đầu tiên.</string>
     <string name="settings_popup_info_not_in_app">Cửa sổ bật lên chỉ hiển thị khi bạn không ở trong ứng dụng.</string>
-    <string name="settings_popup_warning_manual_mode">Cửa sổ bật lên yêu cầu màn hình giám sát phải đang chạy. Chế độ giám sát của bạn được đặt thành \"Khi ứng dụng đang mở\", điều này dừng màn hình giám sát khi bạn rời khỏi ứng dụng.</string>
-    <string name="general_fix_it_action">Sửa ngay</string>
     <string name="device_settings_experimental_title">Tính năng thử nghiệm</string>
     <string name="device_settings_experimental_description">Tính năng này chưa được kiểm tra trên tất cả thiết bị. Nếu có gì đó không hoạt động đúng, vui lòng mở một vấn đề với nhật ký gỡ lỗi.</string>
     <string name="device_settings_experimental_action">Mở Trình theo dõi vấn đề</string>
@@ -218,9 +214,6 @@
     <string name="permission_required_title">Cần quyền sau:</string>
     <string name="permission_system_alert_window_label">Cửa sổ cảnh báo hệ thống</string>
     <string name="permission_system_alert_window_description">Cho phép CAPod hiển thị đè lên các ứng dụng khác để tính năng Show PopUp hoạt động.</string>
-    <string name="settings_monitor_mode_manual_label">Khi ứng dụng đang mở</string>
-    <string name="settings_monitor_mode_automatic_label">Khi thiết bị được kết nối</string>
-    <string name="settings_monitor_mode_always_label">Luôn luôn</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Khi phát hiện</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Khi hộp mở</string>
     <string name="settings_reaction_autoconnect_inear_label">Trong tai</string>
@@ -320,7 +313,6 @@
     <string name="ui_theme_color_amber_label">Vàng hổ phách</string>
     <string name="ui_theme_color_disabled_materialyou">Sử dụng màu hình nền</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Giám sát</string>
     <string name="settings_category_appearance_label">Giao diện</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Thay đổi chưa lưu</string>

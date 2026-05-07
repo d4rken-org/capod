@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Nëse keni blerë së fundmi, mund të duhet pak kohë që Google Play të sinkronizohet.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Provo sërish pas disa minutash nëse blerja juaj nuk shfaqet.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Sigurohuni që jeni identifikuar me të njëjtin llogari Google të përdorur për blerjen.</string>
-    <string name="settings_monitor_mode_label">Modaliteti i monitorimit</string>
-    <string name="settings_monitor_mode_description">Në çfarë rrethanash ky aplikacion monitoron të dhënat Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Njoftim shtesë</string>
     <string name="settings_monitor_connected_notification_description">Shfaq një njoftim shtesë kur një pajisje lidhet. Kjo ju lejon të fshihni njoftimin e përhershëm \"Asnjë pajisje\" duke çaktivizuar kanalin \"Statusi i pajisjes\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Mbaj njoftimin pas shkëputjes</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Shfaq popup-in e lidhjes</string>
     <string name="settings_popup_connected_description">Shfaq një popup kur pajisja lidhet për herë të parë.</string>
     <string name="settings_popup_info_not_in_app">Dritaret kërcyese shfaqen vetëm kur nuk jeni në aplikacion.</string>
-    <string name="settings_popup_warning_manual_mode">Dritaret kërcyese kërkojnë që monitorizuesi të jetë në punë. Modaliteti i monitorit është vendosur në \"Kur aplikacioni është i hapur\", i cili ndalon monitorin kur largoheni nga aplikacioni.</string>
-    <string name="general_fix_it_action">Rregulloje</string>
     <string name="device_settings_experimental_title">Funksion eksperimental</string>
     <string name="device_settings_experimental_description">Ky funksion nuk është testuar ende në të gjitha pajisjet. Nëse diçka nuk funksionon siç duhet, ju lutemi hapni një problem me një regjistër korrigjimi.</string>
     <string name="device_settings_experimental_action">Hap Gjurmuesin e Problemeve</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Leja e mëposhtme kërkohet:</string>
     <string name="permission_system_alert_window_label">Dritare Alarmi Sistemi</string>
     <string name="permission_system_alert_window_description">Lejoni CAPod të vizatojë mbi aplikacionet e tjera për të mundësuar veçorinë \"Shfaq PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Kur aplikacioni është i hapur</string>
-    <string name="settings_monitor_mode_automatic_label">Kur pajisja është e lidhur</string>
-    <string name="settings_monitor_mode_always_label">Gjithmonë</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Kur shihet</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kutia është e hapur</string>
     <string name="settings_reaction_autoconnect_inear_label">Në vesh</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Amber</string>
     <string name="ui_theme_color_disabled_materialyou">Përdor ngjyrat e sfondit</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorimi</string>
     <string name="settings_category_appearance_label">Pamja</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Ndryshime të paruajtura</string>

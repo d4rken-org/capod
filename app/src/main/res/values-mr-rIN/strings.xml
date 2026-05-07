@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">जर तुम्ही नुकतीच खरेदी केली असेल, तर Google Play ला समक्रमित होण्यास थोडा वेळ लागू शकतो.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">जर तुमची खरेदी दिसत नसेल, तर काही मिनिटांनी पुन्हा प्रयत्न करा.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">खरेदीसाठी वापरलेल्या त्याच Google खात्याने साइन इन असल्याची खात्री करा.</string>
-    <string name="settings_monitor_mode_label">मॉनिटर मोड</string>
-    <string name="settings_monitor_mode_description">हे अॅप कोणत्या परिस्थितीत ब्लूटूथ डेटाचे निरीक्षण करते.</string>
     <string name="settings_monitor_connected_notification_label">अतिरिक्त सूचना</string>
     <string name="settings_monitor_connected_notification_description">जेव्हा एखादे डिव्हाइस कनेक्ट केलेले असते तेव्हा अतिरिक्त सूचना दर्शविते. हे आपल्याला \"डिव्हाइस स्थिती\" चॅनेल अक्षम करून कायमस्वरूपी \"कोणतेही डिव्हाइस नाही\" सूचना लपविण्यास अनुमती देते.</string>
     <string name="settings_keep_notification_after_disconnect_label">डिस्कनेक्ट झाल्यानंतर सूचना ठेवा</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">कनेक्शन पॉपअप दर्शवा</string>
     <string name="settings_popup_connected_description">डिव्हाइस पहिल्यांदा कनेक्ट झाल्यावर पॉपअप दर्शवा.</string>
     <string name="settings_popup_info_not_in_app">पॉपअप केवळ तेव्हा दाखवले जातात जेव्हा तुम्ही अॅपमध्ये नसता.</string>
-    <string name="settings_popup_warning_manual_mode">पॉपअपसाठी मॉनिटर चालू असणे आवश्यक आहे. तुमचा मॉनिटर मोड \"अॅप उघडे असताना\" असा सेट केला आहे, जो तुम्ही अॅप सोडल्यावर मॉनिटर बंद करतो.</string>
-    <string name="general_fix_it_action">दुरुस्त करा</string>
     <string name="device_settings_experimental_title">प्रयोगात्मक वैशिष्ट्य</string>
     <string name="device_settings_experimental_description">हे वैशिष्ट्य अद्याप सर्व डिव्हाइसवर तपासले गेले नाही. जर काही योग्यरित्या काम करत नसेल, तर कृपया डीबग लॉगसह एक समस्या उघडा.</string>
     <string name="device_settings_experimental_action">समस्या ट्रॅकर उघडा</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">खालील परवानगी आवश्यक आहे:</string>
     <string name="permission_system_alert_window_label">सिस्टम अलर्ट विंडो</string>
     <string name="permission_system_alert_window_description">\"पॉपअप दर्शवा\" वैशिष्ट्य शक्य करण्यासाठी CAPod ला इतर अॅप्सवर चित्रे काढण्याची अनुमती द्या.</string>
-    <string name="settings_monitor_mode_manual_label">अॅप उघडे असताना</string>
-    <string name="settings_monitor_mode_automatic_label">डिव्हाइस कनेक्ट असताना</string>
-    <string name="settings_monitor_mode_always_label">नेहमी</string>
     <string name="settings_reaction_autoconnect_whenseen_label">दिसल्यावर</string>
     <string name="settings_reaction_autoconnect_caseopen_label">केस उघडे</string>
     <string name="settings_reaction_autoconnect_inear_label">कानात</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">अंबर</string>
     <string name="ui_theme_color_disabled_materialyou">वॉलपेपर रंग वापरतो</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">मॉनिटरिंग</string>
     <string name="settings_category_appearance_label">स्वरूप</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">सेव्ह न केलेले बदल</string>

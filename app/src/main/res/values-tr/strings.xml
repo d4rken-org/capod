@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Eğer yakın zamanda satın aldıysanız, Google Play\'in senkronize etmesi biraz zaman alabilir.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Satın alma işlemi görünmüyorsa birkaç dakika sonra tekrar deneyin.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Satın alma için kullanılan Google hesabıyla oturum açtığından emin ol.</string>
-    <string name="settings_monitor_mode_label">İzleme modu</string>
-    <string name="settings_monitor_mode_description">Uygulamanın hangi şartlar altında Bluetooth verilerini izleyeceğine dair seçenekler.</string>
     <string name="settings_monitor_connected_notification_label">Ek bildirim</string>
     <string name="settings_monitor_connected_notification_description">Bir cihaz bağlandığında ek bir bildirim gösterir. Bu, \"Cihaz durumu\" kanalını devre dışı bırakarak kalıcı \"Cihaz yok\" bildirimini gizlemenizi sağlar.</string>
     <string name="settings_keep_notification_after_disconnect_label">Bağlantı kesildikten sonra bildirimi koru</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Bağlandığında açılır pencere göster</string>
     <string name="settings_popup_connected_description">Cihaz ilk kez bağlantı kurduğunda, açılır bir pencere gösterir.</string>
     <string name="settings_popup_info_not_in_app">Açılır pencereler yalnızca uygulamada olmadığınızda gösterilir.</string>
-    <string name="settings_popup_warning_manual_mode">Açılır pencereler için izleyicinin çalışıyor olması gerekir. İzleyici modunuz \"Uygulama açıkken\" olarak ayarlanmış, bu da uygulamadan çıktığınızda izleyiciyi durdurur.</string>
-    <string name="general_fix_it_action">Düzelt</string>
     <string name="device_settings_experimental_title">Deneysel Özellik</string>
     <string name="device_settings_experimental_description">Bu özellik henüz tüm cihazlarda test edilmedi. Eğer birşey doğru çalışmıyorsa, lütfen hata ayıklama kaydıyla bir sorun açın.</string>
     <string name="device_settings_experimental_action">Sorun Takipçisini Aç</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">Aşağıdaki izin gereklidir:</string>
     <string name="permission_system_alert_window_label">Sistem Uyarı Penceresi</string>
     <string name="permission_system_alert_window_description">\"Açılır Pencere Göster\" özelliğini mümkün kılmak için CAPod\'un diğer uygulamaların üzerine çizmesine izin verin.</string>
-    <string name="settings_monitor_mode_manual_label">Uygulama açıkken</string>
-    <string name="settings_monitor_mode_automatic_label">Cihaz bağlıyken</string>
-    <string name="settings_monitor_mode_always_label">Her zaman</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Görüldüğünde</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Kutu açık</string>
     <string name="settings_reaction_autoconnect_inear_label">Kulakta</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Kehribar</string>
     <string name="ui_theme_color_disabled_materialyou">Duvar kağıdı renklerini kullanır</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">İzleme</string>
     <string name="settings_category_appearance_label">Görünüm</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Kaydedilmemiş Değişiklikler</string>

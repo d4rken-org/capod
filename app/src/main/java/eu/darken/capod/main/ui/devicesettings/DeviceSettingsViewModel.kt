@@ -5,8 +5,10 @@ import eu.darken.capod.common.SystemTimeSource
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.WebpageTool
 import eu.darken.capod.common.bluetooth.BluetoothManager2
+import eu.darken.capod.common.bluetooth.NudgeAttemptResult
+import eu.darken.capod.common.bluetooth.NudgeAvailability
+import eu.darken.capod.common.bluetooth.NudgeCapabilityStore
 import eu.darken.capod.common.coroutine.DispatcherProvider
-import eu.darken.capod.common.datastore.value
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -16,9 +18,9 @@ import eu.darken.capod.common.navigation.Nav
 import eu.darken.capod.common.uix.ViewModel4
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
-import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.resolvedAncCycleMask
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -51,7 +53,8 @@ class DeviceSettingsViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
-    private val generalSettings: GeneralSettings,
+    private val monitorModeResolver: MonitorModeResolver,
+    private val nudgeCapabilityStore: NudgeCapabilityStore,
     private val timeSource: TimeSource,
     private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider) {
@@ -114,7 +117,7 @@ class DeviceSettingsViewModel @Inject constructor(
             // The Bluetooth HEADSET profile lookup can be slow to produce its first value.
             // Seed this branch so the screen can render immediately after navigation.
             bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
-            generalSettings.monitorMode.flow,
+            monitorModeResolver.effectiveMode,
             profilesRepo.profiles,
         ) { args ->
             val device = args[1] as PodDevice?
@@ -142,7 +145,7 @@ class DeviceSettingsViewModel @Inject constructor(
                 device = device,
                 now = timeSource.now(),
                 isPro = upgrade.isPro,
-                isNudgeAvailable = bluetoothManager.isNudgeAvailable,
+                isNudgeAvailable = nudgeCapabilityStore.availability.value != NudgeAvailability.BROKEN,
                 isForceConnecting = forcing,
                 isClassicallyConnected = device?.address?.let { it in connectedAddresses } == true,
                 monitorMode = monitorMode,
@@ -206,18 +209,19 @@ class DeviceSettingsViewModel @Inject constructor(
                 events.tryEmit(Event.OpenBluetoothSettings)
                 return@launch
             }
-            if (!bluetoothManager.isNudgeAvailable) {
+            if (nudgeCapabilityStore.availability.value == NudgeAvailability.BROKEN) {
                 events.tryEmit(Event.OpenBluetoothSettings)
                 return@launch
             }
-            val accepted = try {
+            val result = try {
                 bluetoothManager.nudgeConnection(bonded)
             } catch (e: Exception) {
                 log(TAG, WARN) { "nudgeConnection threw: ${e.message}" }
-                false
+                NudgeAttemptResult.Rejected
             }
-            log(TAG, INFO) { "nudgeConnection($bonded) accepted=$accepted" }
-            if (!accepted) {
+            log(TAG, INFO) { "nudgeConnection($bonded) result=$result" }
+            nudgeCapabilityStore.record(result)
+            if (result != NudgeAttemptResult.Accepted) {
                 events.tryEmit(Event.OpenBluetoothSettings)
             }
         } finally {
@@ -414,15 +418,6 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setAutoConnect(enabled: Boolean) = launch {
         log(TAG, INFO) { "setAutoConnect($enabled)" }
         updateProfileNow { it.copy(autoConnect = enabled) }
-        if (enabled) {
-            // Auto-connect requires ALWAYS mode to react to BLE/case/ear events when
-            // nothing is connected. We intentionally do NOT revert on disable — the user
-            // may have set ALWAYS manually, or another profile may still need it.
-            if (generalSettings.monitorMode.value() != MonitorMode.ALWAYS) {
-                log(TAG, INFO) { "Forcing monitorMode to ALWAYS because autoConnect was enabled" }
-                generalSettings.monitorMode.value(MonitorMode.ALWAYS)
-            }
-        }
     }
 
     fun setAutoConnectCondition(condition: AutoConnectCondition) = launch {
@@ -440,10 +435,6 @@ class DeviceSettingsViewModel @Inject constructor(
         proGatedReaction(enabled) { it.copy(showPopUpOnConnection = enabled) }
     }
 
-    fun setMonitorModeAutomatic() = launch {
-        log(TAG, INFO) { "setMonitorModeAutomatic()" }
-        generalSettings.monitorMode.value(MonitorMode.AUTOMATIC)
-    }
 
     fun navToPressControls() = launch {
         log(TAG, INFO) { "navToPressControls()" }

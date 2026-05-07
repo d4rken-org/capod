@@ -172,7 +172,6 @@ fun DeviceSettingsScreenHost(
         onAutoConnectConditionChange = { vm.setAutoConnectCondition(it) },
         onShowPopUpOnCaseOpenChange = { vm.setShowPopUpOnCaseOpen(it) },
         onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
-        onFixMonitorMode = { vm.setMonitorModeAutomatic() },
         onOpenIssueTracker = { vm.openIssueTracker() },
         onOpenAapTracker = { vm.openAapCompatibilityTracker() },
     )
@@ -211,7 +210,6 @@ fun DeviceSettingsScreen(
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
-    onFixMonitorMode: () -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
     onOpenAapTracker: () -> Unit = {},
 ) {
@@ -341,7 +339,6 @@ fun DeviceSettingsScreen(
                         device = device,
                         features = features,
                         isPro = isPro,
-                        monitorMode = state.monitorMode,
                         onAutoPlayChange = onAutoPlayChange,
                         onAutoPauseChange = onAutoPauseChange,
                         onStartMusicOnWearChange = onStartMusicOnWearChange,
@@ -352,7 +349,6 @@ fun DeviceSettingsScreen(
                         onAutoConnectConditionChange = onAutoConnectConditionChange,
                         onShowPopUpOnCaseOpenChange = onShowPopUpOnCaseOpenChange,
                         onShowPopUpOnConnectionChange = onShowPopUpOnConnectionChange,
-                        onFixMonitorMode = onFixMonitorMode,
                         onOpenIssueTracker = onOpenIssueTracker,
                     )
                 }

@@ -40,8 +40,6 @@
     <string name="upgrade_screen_restore_troubleshooting_msg">Se comprou recentemente, pode demorar um momento até o Google Play sincronizar.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Tente novamente em alguns minutos se a sua compra não aparecer.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Certifique-se de que está com sessão iniciada na mesma conta Google usada para a compra.</string>
-    <string name="settings_monitor_mode_label">Modo de monitorização</string>
-    <string name="settings_monitor_mode_description">Em que circunstâncias esta aplicação monitoriza os dados Bluetooth.</string>
     <string name="settings_monitor_connected_notification_label">Notificação extra</string>
     <string name="settings_monitor_connected_notification_description">Mostra uma notificação extra quando um dispositivo está ligado. Isto permite-lhe ocultar a notificação permanente \"Sem dispositivos\" desativando o canal \"Estado do dispositivo\".</string>
     <string name="settings_keep_notification_after_disconnect_label">Manter notificação após desligar</string>
@@ -80,8 +78,6 @@
     <string name="settings_popup_connected_label">Mostrar pop-up de ligação</string>
     <string name="settings_popup_connected_description">Mostrar um pop-up quando o dispositivo se liga pela primeira vez.</string>
     <string name="settings_popup_info_not_in_app">Os popups só são mostrados quando não está na aplicação.</string>
-    <string name="settings_popup_warning_manual_mode">Os popups requerem que o monitor esteja em execução. O seu modo de monitor está definido como \"Quando a aplicação está aberta\", o que para o monitor quando sai da aplicação.</string>
-    <string name="general_fix_it_action">Corrigir</string>
     <string name="device_settings_experimental_title">Funcionalidade experimental</string>
     <string name="device_settings_experimental_description">Esta funcionalidade ainda não foi testada em todos os dispositivos. Se algo não estiver a funcionar corretamente, por favor abra um problema com um registo de depuração.</string>
     <string name="device_settings_experimental_action">Abrir Rastreador de Problemas</string>
@@ -220,9 +216,6 @@
     <string name="permission_required_title">A seguinte permissão é necessária:</string>
     <string name="permission_system_alert_window_label">Janela de alerta do sistema</string>
     <string name="permission_system_alert_window_description">Permitir que o CAPod desenhe sobre outras aplicações para tornar possível a funcionalidade \"Mostrar PopUp\".</string>
-    <string name="settings_monitor_mode_manual_label">Quando a aplicação está aberta</string>
-    <string name="settings_monitor_mode_automatic_label">Quando o dispositivo está ligado</string>
-    <string name="settings_monitor_mode_always_label">Sempre</string>
     <string name="settings_reaction_autoconnect_whenseen_label">Quando visto</string>
     <string name="settings_reaction_autoconnect_caseopen_label">Caixa aberta</string>
     <string name="settings_reaction_autoconnect_inear_label">No ouvido</string>
@@ -322,7 +315,6 @@
     <string name="ui_theme_color_amber_label">Âmbar</string>
     <string name="ui_theme_color_disabled_materialyou">Usa as cores do fundo de ecrã</string>
     <!-- Settings categories -->
-    <string name="settings_category_monitoring_label">Monitorização</string>
     <string name="settings_category_appearance_label">Aparência</string>
     <!-- Unsaved changes dialog -->
     <string name="general_unsaved_changes_title">Alterações Não Guardadas</string>
