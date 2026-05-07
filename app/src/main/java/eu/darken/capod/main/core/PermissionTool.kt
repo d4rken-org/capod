@@ -46,9 +46,7 @@ class PermissionTool @Inject constructor(
         anyPopupEnabled,
     ) { _, monitorMode, showPopUp ->
         Permission.entries
-            .filter { it != Permission.IGNORE_BATTERY_OPTIMIZATION || monitorMode == MonitorMode.ALWAYS }
-            .filter { it != Permission.ACCESS_BACKGROUND_LOCATION || monitorMode == MonitorMode.ALWAYS }
-            .filter { it != Permission.SYSTEM_ALERT_WINDOW || showPopUp }
+            .filter { isApplicable(it, monitorMode, showPopUp) }
             .filter { it.isRequired(context) }
             .toSet()
     }
@@ -62,5 +60,24 @@ class PermissionTool @Inject constructor(
 
     companion object {
         private val TAG = logTag("PermissionTool")
+
+        /**
+         * Whether [permission] is applicable for the user's current configuration.
+         * Three permissions are conditional on monitor mode or popup usage:
+         *  - [Permission.IGNORE_BATTERY_OPTIMIZATION] only when always-on scanning is needed
+         *  - [Permission.ACCESS_BACKGROUND_LOCATION] same
+         *  - [Permission.SYSTEM_ALERT_WINDOW] only when at least one popup reaction is enabled
+         * Everything else is unconditionally applicable.
+         */
+        internal fun isApplicable(
+            permission: Permission,
+            monitorMode: MonitorMode,
+            anyPopupEnabled: Boolean,
+        ): Boolean = when (permission) {
+            Permission.IGNORE_BATTERY_OPTIMIZATION,
+            Permission.ACCESS_BACKGROUND_LOCATION -> monitorMode == MonitorMode.ALWAYS
+            Permission.SYSTEM_ALERT_WINDOW -> anyPopupEnabled
+            else -> true
+        }
     }
 }
