@@ -8,7 +8,6 @@ import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.valueBlocking
-import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -43,7 +42,6 @@ class TroubleShooterViewModel @Inject constructor(
     private val blePodMonitor: BlePodMonitor,
     private val bleScanModeController: BleScanModeController,
     private val deviceMonitor: DeviceMonitor,
-    private val debugSettings: DebugSettings,
     private val timeSource: TimeSource,
 ) : ViewModel4(dispatcherProvider) {
 
@@ -87,6 +85,7 @@ class TroubleShooterViewModel @Inject constructor(
         log(TAG, INFO) { "troubleShootBle()" }
 
         bleScanModeController.withTemporaryOverride(ScannerMode.LOW_LATENCY) override@{
+            try {
             run {
                 progress("Checking for headphones...")
                 val mainDevice = withTimeoutOrNull(STEP_TIME) {
@@ -114,7 +113,7 @@ class TroubleShooterViewModel @Inject constructor(
                     generalSettings.isOffloadedFilteringDisabled.valueBlocking = hardwareFilteringDisabled
                     generalSettings.isOffloadedBatchingDisabled.valueBlocking = hardwareBatchingDisabled
                     generalSettings.useIndirectScanResultCallback.valueBlocking = indirectCallback
-                    debugSettings.showUnfiltered.valueBlocking = unfiltered
+                    blePodMonitor.setUnfilteredOverride(unfiltered)
 
                     val start = timeSource.elapsedRealtime()
                     val devices = withTimeoutOrNull(STEP_TIME) {
@@ -151,7 +150,6 @@ class TroubleShooterViewModel @Inject constructor(
                 generalSettings.isOffloadedFilteringDisabled.valueBlocking = false
                 generalSettings.isOffloadedBatchingDisabled.valueBlocking = false
                 generalSettings.useIndirectScanResultCallback.valueBlocking = false
-                debugSettings.showUnfiltered.valueBlocking = false
 
                 return@override
             }
@@ -240,6 +238,9 @@ class TroubleShooterViewModel @Inject constructor(
                 } else {
                     failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
                 }
+            }
+            } finally {
+                blePodMonitor.setUnfilteredOverride(false)
             }
         }
     }

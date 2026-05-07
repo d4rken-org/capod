@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">ራስ-ሰር አጫውት</string>
     <string name="settings_autoplay_description">መሳሪያው ሲለበስ የድምጽ መልሶ ማጫወት ይጀምሩ።</string>
     <string name="settings_eardetection_info_label">የጆሮ ማወቂያ ማስታወሻ</string>
-    <string name="settings_eardetection_info_description">የጆሮ ማወቂያ ለአንድ ፖድ ብቻ የሚሰራ ከሆነ ይህ የApple ገደብ ነው። \"ዋና ፖድ\" (ለማይክሮፎን የሚጠቅም) ብቻ ይታወቃል። በApple መሳሪያዎች ላይ ያዋቅሩ: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">የውሸት መረጃ</string>
-    <string name="settings_fake_data_description">የውሸት መረጃ ያሳዩ፣ ማለትም የሌሉ መሳሪያዎችን አስመስለው ያሳዩ።</string>
-    <string name="settings_debug_label">የማረሚያ ቅንብሮች</string>
-    <string name="settings_debug_description">በመተግበሪያው ላይ ያሉ ችግሮችን ለመፍታት የሚረዱ ተጨማሪ ቅንብሮች።</string>
-    <string name="settings_signal_minimum_label">ዝቅተኛ የሲግናል ጥራት</string>
+    <string name="settings_eardetection_info_description">የጆሮ ማወቂያ ለአንድ ፖድ ብቻ የሚሰራ ከሆነ ይህ የApple ገደብ ነው። \"ዋና ፖድ\" (ለማይክሮፎን የሚጠቅም) ብቻ ይታወቃል። በApple መሳሪያዎች ላይ ያዋቅሩ: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">ዝቅተኛ የሲግናል ጥራት</string>
     <string name="settings_signal_minimum_description">አንድ መሣሪያ የእርስዎ ተደርጎ እንዲቆጠር ሊኖረው የሚገባው ዝቅተኛው የሲግናል ጥራት።</string>
     <string name="settings_autoconnect_label">ራስ-ሰር ግንኙነት</string>
     <string name="settings_autoconnect_description">አንድሮይድ በራስ-ሰር ካልተገናኘ፣ እኛም ልንጠይቀው እንችላለን። ይህ የክትትል ሁነታ ቅንብሩን ወደ \"ሁልጊዜ\" ያደርገዋል።</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
     <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
-    <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
-    <string name="settings_debug_mode_label">የማረሚያ ሁነታ</string>
-    <string name="settings_debug_mode_description">ችግሮችን ለመፍታት ተጨማሪ መረጃ ያሳዩ።</string>
-    <string name="settings_blescanner_unfiltered_label">ያልተጣራ የBLE መረጃ</string>
-    <string name="settings_blescanner_unfiltered_description">ሁሉንም የተላለፉ የBLE መረጃዎችን ለማሳየት ማንኛውንም ማጣሪያ ከBLE ቃኚው ያስወግዱ። ለአዲስ የጆሮ ማዳመጫ አይነቶች ድጋፍ ለመጨመር ጠቃሚ ነው።</string>
-    <string name="settings_compatibility_mode_label">የተኳኋኝነት ሁነታ</string>
+    <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string><string name="settings_compatibility_mode_label">የተኳኋኝነት ሁነታ</string>
     <string name="settings_compatibility_mode_description">ተኳኋኝነትን ለማሻሻል ማመቻቸቶችን አሰናክል። ምንም መረጃ ካላዩ ይህንን ይሞክሩ።</string>
     <string name="help_translate_label">ትርጉም</string>
     <string name="help_translate_description">ይህንን መተግበሪያ ወደ እርስዎ ተወዳጅ ቋንቋ ለመተርጎም ያግዙ።</string>

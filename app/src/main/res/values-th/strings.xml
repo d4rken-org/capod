@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">เล่นอัตโนมัติ</string>
     <string name="settings_autoplay_description">เริ่มเล่นเสียงเมื่อสวมใส่อุปกรณ์</string>
     <string name="settings_eardetection_info_label">หมายเหตุการตรวจจับหู</string>
-    <string name="settings_eardetection_info_description">หากการตรวจจับหูทำงานเพียงข้างเดียว นี่เป็นข้อจำกัดของ Apple เฉพาะ \"พ็อดหลัก\" (ที่ใช้สำหรับไมโครโฟน) เท่านั้นที่จะถูกตรวจจับ ตั้งค่าบนอุปกรณ์ Apple: การตั้งค่า → Bluetooth → AirPods → ไมโครโฟน</string>
-    <string name="settings_fake_data_label">ข้อมูลปลอม</string>
-    <string name="settings_fake_data_description">แสดงข้อมูลปลอม เช่น จำลองอุปกรณ์ที่ไม่มีอยู่จริง</string>
-    <string name="settings_debug_label">การตั้งค่าดีบัก</string>
-    <string name="settings_debug_description">การตั้งค่าเพิ่มเติมเพื่อช่วยแก้ไขปัญหาเกี่ยวกับแอป</string>
-    <string name="settings_signal_minimum_label">คุณภาพสัญญาณขั้นต่ำ</string>
+    <string name="settings_eardetection_info_description">หากการตรวจจับหูทำงานเพียงข้างเดียว นี่เป็นข้อจำกัดของ Apple เฉพาะ \"พ็อดหลัก\" (ที่ใช้สำหรับไมโครโฟน) เท่านั้นที่จะถูกตรวจจับ ตั้งค่าบนอุปกรณ์ Apple: การตั้งค่า → Bluetooth → AirPods → ไมโครโฟน</string><string name="settings_signal_minimum_label">คุณภาพสัญญาณขั้นต่ำ</string>
     <string name="settings_signal_minimum_description">คุณภาพสัญญาณขั้นต่ำที่อุปกรณ์ต้องมีเพื่อให้ถือว่าเป็นของคุณ</string>
     <string name="settings_autoconnect_label">เชื่อมต่ออัตโนมัติ</string>
     <string name="settings_autoconnect_description">หาก Android ไม่เชื่อมต่อโดยอัตโนมัติ เราสามารถขอให้เชื่อมต่อได้เช่นกัน ซึ่งจะตั้งค่าโหมดติดตามเป็น \'เสมอ\'</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">การปรับแต่งทั่วไปที่ส่งผลต่อทั้งแอป</string>
     <string name="settings_acknowledgements_label">กิตติกรรมประกาศ</string>
     <string name="settings_debug_autoreports_label">รายงานข้อบกพร่องอัตโนมัติ</string>
-    <string name="settings_debug_autoreports_description">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับข้อขัดข้องของแอป เพื่อให้ฉันสามารถหาวิธีแก้ไขได้</string>
-    <string name="settings_debug_mode_label">โหมดดีบัก</string>
-    <string name="settings_debug_mode_description">แสดงข้อมูลเพิ่มเติมเพื่อแก้ไขปัญหา</string>
-    <string name="settings_blescanner_unfiltered_label">ข้อมูล BLE ที่ไม่ได้กรอง</string>
-    <string name="settings_blescanner_unfiltered_description">ลบตัวกรองใดๆ ออกจากเครื่องสแกน BLE เพื่อแสดงข้อมูล BLE ที่ออกอากาศทั้งหมด มีประโยชน์ในการเพิ่มการรองรับหูฟังประเภทใหม่ๆ</string>
-    <string name="settings_compatibility_mode_label">โหมดความเข้ากันได้</string>
+    <string name="settings_debug_autoreports_description">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับข้อขัดข้องของแอป เพื่อให้ฉันสามารถหาวิธีแก้ไขได้</string><string name="settings_compatibility_mode_label">โหมดความเข้ากันได้</string>
     <string name="settings_compatibility_mode_description">ปิดใช้งานการเพิ่มประสิทธิภาพเพื่อปรับปรุงความเข้ากันได้ ลองใช้วิธีนี้หากคุณไม่เห็นข้อมูลใดๆ</string>
     <string name="help_translate_label">การแปล</string>
     <string name="help_translate_description">ช่วยแปลแอปนี้เป็นภาษาที่คุณชื่นชอบ</string>

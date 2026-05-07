@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Cheza kiotomatiki</string>
     <string name="settings_autoplay_description">Anzisha uchezaji wa sauti kifaa kinapovaliwa.</string>
     <string name="settings_eardetection_info_label">Maelezo ya utambuzi wa sikio</string>
-    <string name="settings_eardetection_info_description">Ikiwa utambuzi wa sikio unafanya kazi kwa ganda moja tu, hii ni kizuizi cha Apple. Ganda \"kuu\" pekee (linalotumiwa kwa kipaza sauti) linatambuliwa. Sanidi kwenye vifaa vya Apple: Mipangilio → Bluetooth → AirPods → Kipaza sauti.</string>
-    <string name="settings_fake_data_label">Data bandia</string>
-    <string name="settings_fake_data_description">Onyesha data bandia, yaani, iga vifaa ambavyo havipo.</string>
-    <string name="settings_debug_label">Mipangilio ya utatuzi</string>
-    <string name="settings_debug_description">Mipangilio ya ziada kusaidia kutatua matatizo na programu.</string>
-    <string name="settings_signal_minimum_label">Ubora wa chini wa mawimbi</string>
+    <string name="settings_eardetection_info_description">Ikiwa utambuzi wa sikio unafanya kazi kwa ganda moja tu, hii ni kizuizi cha Apple. Ganda \"kuu\" pekee (linalotumiwa kwa kipaza sauti) linatambuliwa. Sanidi kwenye vifaa vya Apple: Mipangilio → Bluetooth → AirPods → Kipaza sauti.</string><string name="settings_signal_minimum_label">Ubora wa chini wa mawimbi</string>
     <string name="settings_signal_minimum_description">Ubora wa chini wa mawimbi ambao kifaa kinahitaji kuwa nao ili kuzingatiwa kuwa chako.</string>
     <string name="settings_autoconnect_label">Unganisha kiotomatiki</string>
     <string name="settings_autoconnect_description">Ikiwa Android haiunganishi kiotomatiki, tunaweza kuiuliza pia. Hii itaweka mpangilio wa hali ya ufuatiliaji kuwa \'Kila mara\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Marekebisho ya jumla yanayoathiri programu nzima.</string>
     <string name="settings_acknowledgements_label">Shukrani</string>
     <string name="settings_debug_autoreports_label">Ripoti za hitilafu za kiotomatiki</string>
-    <string name="settings_debug_autoreports_description">Huripoti matatizo kiotomatiki, k.m. maelezo kuhusu kuacha kufanya kazi kwa programu ili niweze kujua jinsi ya kuyarekebisha.</string>
-    <string name="settings_debug_mode_label">Hali ya utatuzi</string>
-    <string name="settings_debug_mode_description">Onyesha maelezo ya ziada kutatua matatizo.</string>
-    <string name="settings_blescanner_unfiltered_label">Data ya BLE isiyochujwa</string>
-    <string name="settings_blescanner_unfiltered_description">Ondoa vichujio vyovyote kutoka kwa skana ya BLE ili kuonyesha data yote ya BLE iliyotangazwa. Inafaa kuongeza usaidizi kwa aina mpya za vipokea sauti.</string>
-    <string name="settings_compatibility_mode_label">Hali ya uoanifu</string>
+    <string name="settings_debug_autoreports_description">Huripoti matatizo kiotomatiki, k.m. maelezo kuhusu kuacha kufanya kazi kwa programu ili niweze kujua jinsi ya kuyarekebisha.</string><string name="settings_compatibility_mode_label">Hali ya uoanifu</string>
     <string name="settings_compatibility_mode_description">Zima uboreshaji ili kuboresha uoanifu. Jaribu hii ikiwa huoni data yoyote.</string>
     <string name="help_translate_label">Tafsiri</string>
     <string name="help_translate_description">Saidia kutafsiri programu hii katika lugha yako uipendayo.</string>

@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">تشغيل تلقائي</string>
     <string name="settings_autoplay_description">بدء تشغيل الصوت عند ارتداء الجهاز.</string>
     <string name="settings_eardetection_info_label">ملاحظة اكتشاف الأذن</string>
-    <string name="settings_eardetection_info_description">إذا كان اكتشاف الأذن يعمل لسماعة واحدة فقط، فهذا قيد من Apple. يتم اكتشاف \"السماعة الأساسية\" فقط (المستخدمة للميكروفون). قم بالتكوين على أجهزة Apple: الإعدادات → Bluetooth → AirPods → الميكروفون.</string>
-    <string name="settings_fake_data_label">بيانات وهمية</string>
-    <string name="settings_fake_data_description">عرض بيانات وهمية، أي محاكاة الأجهزة غير الموجودة.</string>
-    <string name="settings_debug_label">إعدادات التصحيح</string>
-    <string name="settings_debug_description">إعدادات إضافية للمساعدة في استكشاف المشكلات المتعلقة بالتطبيق وإصلاحها.</string>
-    <string name="settings_signal_minimum_label">الحد الأدنى لجودة الإشارة</string>
+    <string name="settings_eardetection_info_description">إذا كان اكتشاف الأذن يعمل لسماعة واحدة فقط، فهذا قيد من Apple. يتم اكتشاف \"السماعة الأساسية\" فقط (المستخدمة للميكروفون). قم بالتكوين على أجهزة Apple: الإعدادات → Bluetooth → AirPods → الميكروفون.</string><string name="settings_signal_minimum_label">الحد الأدنى لجودة الإشارة</string>
     <string name="settings_signal_minimum_description">الحد الأدنى لجودة الإشارة التي يجب أن يتمتع بها الجهاز حتى يعتبر ملكك.</string>
     <string name="settings_autoconnect_label">اتصال تلقائي</string>
     <string name="settings_autoconnect_description">إذا لم يتصل Android تلقائيًا، فيمكننا أن نطلب منه ذلك أيضًا. سيؤدي هذا إلى ضبط إعداد وضع الشاشة على \"دائمًا\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">تعديلات عامة تؤثر على التطبيق بأكمله.</string>
     <string name="settings_acknowledgements_label">شكر وتقدير</string>
     <string name="settings_debug_autoreports_label">تقارير الأخطاء التلقائية</string>
-    <string name="settings_debug_autoreports_description">الإبلاغ تلقائيًا عن المشكلات، على سبيل المثال تفاصيل حول تعطل التطبيق حتى أتمكن من معرفة كيفية إصلاحه.</string>
-    <string name="settings_debug_mode_label">وضع التصحيح</string>
-    <string name="settings_debug_mode_description">عرض معلومات إضافية لاستكشاف المشكلات وإصلاحها.</string>
-    <string name="settings_blescanner_unfiltered_label">بيانات BLE غير المصفاة</string>
-    <string name="settings_blescanner_unfiltered_description">إزالة أي عوامل تصفية من ماسح BLE لعرض جميع بيانات BLE المذاعة. مفيد لإضافة دعم لأنواع سماعات الرأس الجديدة.</string>
-    <string name="settings_compatibility_mode_label">وضع التوافق</string>
+    <string name="settings_debug_autoreports_description">الإبلاغ تلقائيًا عن المشكلات، على سبيل المثال تفاصيل حول تعطل التطبيق حتى أتمكن من معرفة كيفية إصلاحه.</string><string name="settings_compatibility_mode_label">وضع التوافق</string>
     <string name="settings_compatibility_mode_description">تعطيل التحسينات لتحسين التوافق. جرب هذا إذا كنت لا ترى أي بيانات.</string>
     <string name="help_translate_label">الترجمة</string>
     <string name="help_translate_description">ساعد في ترجمة هذا التطبيق إلى لغتك المفضلة.</string>

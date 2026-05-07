@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">ස්වයංක්‍රීයව වාදනය කරන්න</string>
     <string name="settings_autoplay_description">උපාංගය පැළඳ සිටින විට ශ්‍රව්‍ය නැවත වාදනය ආරම්භ කරන්න.</string>
     <string name="settings_eardetection_info_label">කන් හඳුනාගැනීමේ සටහන</string>
-    <string name="settings_eardetection_info_description">කන් හඳුනාගැනීම එක් පොඩ් එකක් සඳහා පමණක් ක්‍රියා කරන්නේ නම්, මෙය Apple සීමාවකි. \"ප්‍රාථමික පොඩ්\" (මයික්‍රෆෝනය සඳහා භාවිතා වන) පමණක් හඳුනාගනී. Apple උපාංගවල සකසන්න: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">ව්‍යාජ දත්ත</string>
-    <string name="settings_fake_data_description">ව්‍යාජ දත්ත පෙන්වන්න, එනම් නොපවතින උපාංග අනුකරණය කරන්න.</string>
-    <string name="settings_debug_label">දෝෂහරණ සැකසුම්</string>
-    <string name="settings_debug_description">යෙදුමේ ගැටළු නිරාකරණයට උදව් කිරීමට අමතර සැකසුම්.</string>
-    <string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
+    <string name="settings_eardetection_info_description">කන් හඳුනාගැනීම එක් පොඩ් එකක් සඳහා පමණක් ක්‍රියා කරන්නේ නම්, මෙය Apple සීමාවකි. \"ප්‍රාථමික පොඩ්\" (මයික්‍රෆෝනය සඳහා භාවිතා වන) පමණක් හඳුනාගනී. Apple උපාංගවල සකසන්න: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
     <string name="settings_signal_minimum_description">උපාංගයක් ඔබේ යැයි සැලකීමට තිබිය යුතු අවම සංඥා ගුණත්වය.</string>
     <string name="settings_autoconnect_label">ස්වයංක්‍රීයව සම්බන්ධ වන්න</string>
     <string name="settings_autoconnect_description">Android ස්වයංක්‍රීයව සම්බන්ධ නොවන්නේ නම්, අපටද එය ඉල්ලා සිටිය හැක. මෙය නිරීක්ෂණ ප්‍රකාර සැකසුම \'සෑමවිටම\' ලෙස සකසනු ඇත.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
     <string name="settings_debug_autoreports_label">ස්වයංක්‍රීය දෝෂ වාර්තා</string>
-    <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string>
-    <string name="settings_debug_mode_label">දෝෂහරණ ප්‍රකාරය</string>
-    <string name="settings_debug_mode_description">ගැටළු නිරාකරණයට අමතර තොරතුරු පෙන්වන්න.</string>
-    <string name="settings_blescanner_unfiltered_label">පෙරහන් නොකළ BLE දත්ත</string>
-    <string name="settings_blescanner_unfiltered_description">සියලුම විකාශනය වූ BLE දත්ත පෙන්වීමට BLE ස්කෑනරයෙන් ඕනෑම පෙරහනක් ඉවත් කරන්න. නව හෙඩ්ෆෝන් වර්ග සඳහා සහාය එක් කිරීමට ප්‍රයෝජනවත් වේ.</string>
-    <string name="settings_compatibility_mode_label">ගැළපුම් ප්‍රකාරය</string>
+    <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string><string name="settings_compatibility_mode_label">ගැළපුම් ප්‍රකාරය</string>
     <string name="settings_compatibility_mode_description">ගැළපුම වැඩි දියුණු කිරීම සඳහා ප්‍රශස්තකරණයන් අක්‍රීය කරන්න. ඔබ කිසිදු දත්තයක් නොදකිනුයේ නම් මෙය උත්සාහ කරන්න.</string>
     <string name="help_translate_label">පරිවර්තනය</string>
     <string name="help_translate_description">මෙම යෙදුම ඔබගේ ප්‍රියතම භාෂාවට පරිවර්තනය කිරීමට උදව් වන්න.</string>

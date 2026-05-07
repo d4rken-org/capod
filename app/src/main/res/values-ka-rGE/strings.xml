@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">ავტომატური დაკვრა</string>
     <string name="settings_autoplay_description">აუდიო დაკვრის დაწყება მოწყობილობის ტარებისას.</string>
     <string name="settings_eardetection_info_label">ყურში აღმოჩენის შენიშვნა</string>
-    <string name="settings_eardetection_info_description">თუ ყურში აღმოჩენა მხოლოდ ერთი ყურსასმენისთვის მუშაობს, ეს Apple-ის შეზღუდვაა. აღმოჩენილია მხოლოდ \"primary pod\" (მიკროფონისთვის გამოყენებული). კონფიგურაცია Apple მოწყობილობებზე: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">ყალბი მონაცემები</string>
-    <string name="settings_fake_data_description">აჩვენეთ ყალბი მონაცემები, ე.ი. არარსებული მოწყობილობების სიმულაცია.</string>
-    <string name="settings_debug_label">გამართვის პარამეტრები</string>
-    <string name="settings_debug_description">დამატებითი პარამეტრები აპლიკაციასთან დაკავშირებული პრობლემების აღმოსაფხვრელად.</string>
-    <string name="settings_signal_minimum_label">სიგნალის მინიმალური ხარისხი</string>
+    <string name="settings_eardetection_info_description">თუ ყურში აღმოჩენა მხოლოდ ერთი ყურსასმენისთვის მუშაობს, ეს Apple-ის შეზღუდვაა. აღმოჩენილია მხოლოდ \"primary pod\" (მიკროფონისთვის გამოყენებული). კონფიგურაცია Apple მოწყობილობებზე: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">სიგნალის მინიმალური ხარისხი</string>
     <string name="settings_signal_minimum_description">სიგნალის მინიმალური ხარისხი, რომელიც მოწყობილობას უნდა ჰქონდეს, რომ თქვენად ჩაითვალოს.</string>
     <string name="settings_autoconnect_label">ავტომატური დაკავშირება</string>
     <string name="settings_autoconnect_description">თუ Android ავტომატურად არ უკავშირდება, ჩვენც შეგვიძლია მოვითხოვოთ. ეს მონიტორინგის რეჟიმის პარამეტრს \"ყოველთვის\"-ზე დააყენებს.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
     <string name="settings_acknowledgements_label">მადლობები</string>
     <string name="settings_debug_autoreports_label">შეცდომების ავტომატური ანგარიშები</string>
-    <string name="settings_debug_autoreports_description">ავტომატურად აცნობებს პრობლემების შესახებ, მაგ. აპლიკაციის ავარიის დეტალებს, რათა გავარკვიო, როგორ გამოვასწორო.</string>
-    <string name="settings_debug_mode_label">გამართვის რეჟიმი</string>
-    <string name="settings_debug_mode_description">აჩვენეთ დამატებითი ინფორმაცია პრობლემების აღმოსაფხვრელად.</string>
-    <string name="settings_blescanner_unfiltered_label">გაუფილტრავი BLE მონაცემები</string>
-    <string name="settings_blescanner_unfiltered_description">ამოიღეთ ნებისმიერი ფილტრი BLE სკანერიდან, რათა აჩვენოთ ყველა გადაცემული BLE მონაცემი. სასარგებლოა ახალი ტიპის ყურსასმენების მხარდაჭერის დასამატებლად.</string>
-    <string name="settings_compatibility_mode_label">თავსებადობის რეჟიმი</string>
+    <string name="settings_debug_autoreports_description">ავტომატურად აცნობებს პრობლემების შესახებ, მაგ. აპლიკაციის ავარიის დეტალებს, რათა გავარკვიო, როგორ გამოვასწორო.</string><string name="settings_compatibility_mode_label">თავსებადობის რეჟიმი</string>
     <string name="settings_compatibility_mode_description">გამორთეთ ოპტიმიზაციები თავსებადობის გასაუმჯობესებლად. სცადეთ ეს, თუ მონაცემებს ვერ ხედავთ.</string>
     <string name="help_translate_label">თარგმანი</string>
     <string name="help_translate_description">დაეხმარეთ ამ აპლიკაციის თქვენს საყვარელ ენაზე თარგმნაში.</string>

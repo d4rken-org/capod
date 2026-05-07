@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
     <string name="settings_autoplay_description">Hanglejátszás elindítása, ha az eszköz viselve van.</string>
     <string name="settings_eardetection_info_label">Fülészlelési megjegyzés</string>
-    <string name="settings_eardetection_info_description">Ha a fülészlelés csak az egyik fülhallgatóval működik, ez egy Apple korlátozás. Csak az \"elsődleges fülhallgató\" (mikrofonhoz használt) érzékelhető. Beállítás Apple eszközökön: Beállítások → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Hamis adat</string>
-    <string name="settings_fake_data_description">Hamis adatok megjelenítése, azaz olyan eszköz szimulálása, amely nem létezik.</string>
-    <string name="settings_debug_label">Hibakeresési beállítások</string>
-    <string name="settings_debug_description">További beállítások az alkalmazással kapcsolatos problémák megoldásához.</string>
-    <string name="settings_signal_minimum_label">Minimális jelerősség</string>
+    <string name="settings_eardetection_info_description">Ha a fülészlelés csak az egyik fülhallgatóval működik, ez egy Apple korlátozás. Csak az \"elsődleges fülhallgató\" (mikrofonhoz használt) érzékelhető. Beállítás Apple eszközökön: Beállítások → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimális jelerősség</string>
     <string name="settings_signal_minimum_description">Vegye figyelembe a minimális jelerősséget, amelyre egy eszköznek szüksége van.</string>
     <string name="settings_autoconnect_label">Automatikus csatlakozás</string>
     <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan. A monitor mód beállítása „Mindig” lesz.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
     <string name="settings_debug_autoreports_label">Automatikus hibajelentések</string>
-    <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string>
-    <string name="settings_debug_mode_label">Hibakeresési mód</string>
-    <string name="settings_debug_mode_description">További információk megjelenítése a problémák hibaelhárításához.</string>
-    <string name="settings_blescanner_unfiltered_label">Nem szűrt BLE adatok</string>
-    <string name="settings_blescanner_unfiltered_description">Minden szűrő eltávolítása a BLE szkennerből, hogy az összes adat megjelenjen. Hasznos új fejhallgató típusok támogatásához.</string>
-    <string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
+    <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string><string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
     <string name="settings_compatibility_mode_description">A kompatibilitás javítása érdekében letiltja az optimalizálást. Próbálja ki ezt, ha nem lát semmilyen adatot.</string>
     <string name="help_translate_label">Fordítás</string>
     <string name="help_translate_description">Segítsen nekünk hogy az alkalmazás le legyen fordítva az Ön nyelvére.</string>

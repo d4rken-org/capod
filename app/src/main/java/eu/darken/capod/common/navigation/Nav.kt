@@ -37,9 +37,6 @@ object Nav {
         data object General : Settings
 
         @Serializable
-        data object Debug : Settings
-
-        @Serializable
         data object Support : Settings
 
         @Serializable

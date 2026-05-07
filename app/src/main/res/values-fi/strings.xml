@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automaattinen toisto</string>
     <string name="settings_autoplay_description">Aloita äänentoisto, kun laitetta käytetään.</string>
     <string name="settings_eardetection_info_label">Huomautus korvan tunnistuksesta</string>
-    <string name="settings_eardetection_info_description">Jos korvan tunnistus toimii vain yhdelle kuulokkeelle, tämä on Applen rajoitus. Vain \"ensisijainen kuuloke\" (jota käytetään mikrofonina) tunnistetaan. Määritä Apple-laitteissa: Asetukset → Bluetooth → AirPods → Mikrofoni.</string>
-    <string name="settings_fake_data_label">Valetiedot</string>
-    <string name="settings_fake_data_description">Näytä valetietoja, eli simuloi laitteita, joita ei ole olemassa.</string>
-    <string name="settings_debug_label">Virheenkorjausasetukset</string>
-    <string name="settings_debug_description">Lisäasetukset sovelluksen ongelmien vianmääritykseen.</string>
-    <string name="settings_signal_minimum_label">Signaalin vähimmäislaatu</string>
+    <string name="settings_eardetection_info_description">Jos korvan tunnistus toimii vain yhdelle kuulokkeelle, tämä on Applen rajoitus. Vain \"ensisijainen kuuloke\" (jota käytetään mikrofonina) tunnistetaan. Määritä Apple-laitteissa: Asetukset → Bluetooth → AirPods → Mikrofoni.</string><string name="settings_signal_minimum_label">Signaalin vähimmäislaatu</string>
     <string name="settings_signal_minimum_description">Signaalin vähimmäislaatu, joka laitteella on oltava, jotta se katsotaan omaksesi.</string>
     <string name="settings_autoconnect_label">Automaattinen yhdistäminen</string>
     <string name="settings_autoconnect_description">Jos Android ei yhdistä automaattisesti, voimme myös pyytää sitä. Tämä asettaa valvontatilan asetukseksi \'Aina\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
     <string name="settings_debug_autoreports_label">Automaattiset virheraportit</string>
-    <string name="settings_debug_autoreports_description">Raportoi ongelmat automaattisesti, esim. tiedot sovelluksen kaatumisesta, jotta voin selvittää, miten se korjataan.</string>
-    <string name="settings_debug_mode_label">Virheenkorjaustila</string>
-    <string name="settings_debug_mode_description">Näytä lisätietoja ongelmien vianmääritykseen.</string>
-    <string name="settings_blescanner_unfiltered_label">Suodattamattomat BLE-tiedot</string>
-    <string name="settings_blescanner_unfiltered_description">Poista kaikki suodattimet BLE-skannerista näyttääksesi kaikki lähetetyt BLE-tiedot. Hyödyllinen uusien kuuloketyyppien tuen lisäämiseen.</string>
-    <string name="settings_compatibility_mode_label">Yhteensopivuustila</string>
+    <string name="settings_debug_autoreports_description">Raportoi ongelmat automaattisesti, esim. tiedot sovelluksen kaatumisesta, jotta voin selvittää, miten se korjataan.</string><string name="settings_compatibility_mode_label">Yhteensopivuustila</string>
     <string name="settings_compatibility_mode_description">Poista optimoinnit käytöstä yhteensopivuuden parantamiseksi. Kokeile tätä, jos et näe mitään tietoja.</string>
     <string name="help_translate_label">Käännös</string>
     <string name="help_translate_description">Auta kääntämään tämä sovellus suosikkikielellesi.</string>

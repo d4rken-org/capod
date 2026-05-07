@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Автоматско репродуцирање</string>
     <string name="settings_autoplay_description">Започнете со репродукција на аудио кога уредот се носи.</string>
     <string name="settings_eardetection_info_label">Белешка за детекција на уво</string>
-    <string name="settings_eardetection_info_description">Ако детекцијата на увото работи само за еден pod, ова е ограничување на Apple. Се детектира само \"примарниот pod\" (користен за микрофон). Конфигурирајте на Apple уреди: Поставки → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_fake_data_label">Лажни податоци</string>
-    <string name="settings_fake_data_description">Прикажете лажни податоци, т.е. симулирајте уреди што не постојат.</string>
-    <string name="settings_debug_label">Поставки за дебагирање</string>
-    <string name="settings_debug_description">Дополнителни поставки за помош при решавање проблеми со апликацијата.</string>
-    <string name="settings_signal_minimum_label">Минимален квалитет на сигналот</string>
+    <string name="settings_eardetection_info_description">Ако детекцијата на увото работи само за еден pod, ова е ограничување на Apple. Се детектира само \"примарниот pod\" (користен за микрофон). Конфигурирајте на Apple уреди: Поставки → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Минимален квалитет на сигналот</string>
     <string name="settings_signal_minimum_description">Минималниот квалитет на сигналот што уредот мора да го има за да се смета за ваш.</string>
     <string name="settings_autoconnect_label">Автоматско поврзување</string>
     <string name="settings_autoconnect_description">Ако Android не се поврзе автоматски, можеме и ние да го побараме тоа. Ова ќе ја постави поставката за режимот на мониторинг на \"Секогаш\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Општи прилагодувања што влијаат на целата апликација.</string>
     <string name="settings_acknowledgements_label">Благодарници</string>
     <string name="settings_debug_autoreports_label">Автоматски извештаи за грешки</string>
-    <string name="settings_debug_autoreports_description">Автоматски пријавува проблеми, на пр. детали за пад на апликацијата за да можам да откријам како да го поправам.</string>
-    <string name="settings_debug_mode_label">Режим на дебагирање</string>
-    <string name="settings_debug_mode_description">Прикажи дополнителни информации за решавање проблеми.</string>
-    <string name="settings_blescanner_unfiltered_label">Нефилтрирани BLE податоци</string>
-    <string name="settings_blescanner_unfiltered_description">Отстранете ги сите филтри од BLE скенерот за да ги прикажете сите емитувани BLE податоци. Корисно за додавање поддршка за нови типови слушалки.</string>
-    <string name="settings_compatibility_mode_label">Режим на компатибилност</string>
+    <string name="settings_debug_autoreports_description">Автоматски пријавува проблеми, на пр. детали за пад на апликацијата за да можам да откријам како да го поправам.</string><string name="settings_compatibility_mode_label">Режим на компатибилност</string>
     <string name="settings_compatibility_mode_description">Оневозможете ги оптимизациите за да ја подобрите компатибилноста. Обидете се со ова ако не гледате никакви податоци.</string>
     <string name="help_translate_label">Превод</string>
     <string name="help_translate_description">Помогнете да ја преведете оваа апликација на вашиот омилен јазик.</string>

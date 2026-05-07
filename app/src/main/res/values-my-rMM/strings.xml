@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">အလိုအလြှောက်ဖွင့်ခြင်း</string>
     <string name="settings_autoplay_description">စက်ပစ္စည်းတပ်ဆင်သည့်အခါ အသံဖွင့်ခြင်းကို စတင်ပါ။</string>
     <string name="settings_eardetection_info_label">နားအာရုံခံမှုမှတ်ချက်</string>
-    <string name="settings_eardetection_info_description">နားအာရုံခံမှုသည် pod တစ်ခုအတွက်သာအလုပ်လုပ်ပါက ၎င်းသည် Apple ကန့်သတ်ချက်ဖြစ်သည်။ \"အဓိက pod\" (မိုက်ခရိုဖုန်းအတွက်အသုံးပြုသော) ကိုသာ ရှာဖွေတွေ့ရှိနိုင်သည်။ Apple စက်ပစ္စည်းများတွင် ပြင်ဆင်ပါ: ဆက်တင်များ → Bluetooth → AirPods → မိုက်ခရိုဖုန်း။</string>
-    <string name="settings_fake_data_label">အချက်အလက်အတု</string>
-    <string name="settings_fake_data_description">အချက်အလက်အတုကိုပြသပါ၊ ဆိုလိုသည်မှာ မရှိသောစက်ပစ္စည်းများကို အနုကရဏလုပ်ပါ။</string>
-    <string name="settings_debug_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းဆက်တင်များ</string>
-    <string name="settings_debug_description">အက်ပ်နှင့်ပတ်သက်သော ပြဿနာများကိုဖြေရှင်းရာတွင် အထောက်အကူပြုမည့် နောက်ထပ်ဆက်တင်များ။</string>
-    <string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
+    <string name="settings_eardetection_info_description">နားအာရုံခံမှုသည် pod တစ်ခုအတွက်သာအလုပ်လုပ်ပါက ၎င်းသည် Apple ကန့်သတ်ချက်ဖြစ်သည်။ \"အဓိက pod\" (မိုက်ခရိုဖုန်းအတွက်အသုံးပြုသော) ကိုသာ ရှာဖွေတွေ့ရှိနိုင်သည်။ Apple စက်ပစ္စည်းများတွင် ပြင်ဆင်ပါ: ဆက်တင်များ → Bluetooth → AirPods → မိုက်ခရိုဖုန်း။</string><string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
     <string name="settings_signal_minimum_description">သင့်စက်ပစ္စည်းဟု မှတ်ယူရန် စက်ပစ္စည်းတစ်ခုတွင်ရှိရမည့် အနိမ့်ဆုံးအချက်ပြအရည်အသွေး။</string>
     <string name="settings_autoconnect_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်း</string>
     <string name="settings_autoconnect_description">Android က အလိုအလြှောက်မချိတ်ဆက်ပါက ကျွန်ုပ်တို့လည်း တောင်းဆိုနိုင်သည်။ ၎င်းသည် စောင့်ကြည့်မုဒ်ဆက်တင်ကို \"အမြဲတမ်း\" ဟု သတ်မှတ်ပေးမည်ဖြစ်သည်။</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
     <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
-    <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
-    <string name="settings_debug_mode_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမုဒ်</string>
-    <string name="settings_debug_mode_description">ပြဿနာများကိုဖြေရှင်းရန် နောက်ထပ်အချက်အလက်များပြသပါ။</string>
-    <string name="settings_blescanner_unfiltered_label">စစ်ထုတ်မထားသော BLE ဒေတာ</string>
-    <string name="settings_blescanner_unfiltered_description">ထုတ်လွှင့်လိုက်သော BLE ဒေတာအားလုံးကိုပြသရန် BLE စကင်နာမှ စစ်ထုတ်မှုအားလုံးကိုဖယ်ရှားပါ။ နားကြပ်အမျိုးအစားအသစ်များအတွက် အထောက်အပံ့ထည့်သွင်းရာတွင် အသုံးဝင်သည်။</string>
-    <string name="settings_compatibility_mode_label">လိုက်ဖက်ညီမှုမုဒ်</string>
+    <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string><string name="settings_compatibility_mode_label">လိုက်ဖက်ညီမှုမုဒ်</string>
     <string name="settings_compatibility_mode_description">လိုက်ဖက်ညီမှုကိုတိုးတက်စေရန် အကောင်းဆုံးလုပ်ဆောင်မှုများကို ပိတ်ပါ။ သင်ဒေတာတစ်စုံတစ်ရာမတွေ့ပါက ဤအရာကိုစမ်းကြည့်ပါ။</string>
     <string name="help_translate_label">ဘာသာပြန်ဆိုခြင်း</string>
     <string name="help_translate_description">ဤအက်ပ်ကို သင်အကြိုက်ဆုံးဘာသာစကားသို့ ဘာသာပြန်ဆိုရာတွင် ကူညီပါ။</string>

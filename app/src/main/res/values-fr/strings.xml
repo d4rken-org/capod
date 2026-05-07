@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Lecture automatique</string>
     <string name="settings_autoplay_description">Démarrer la lecture du son quand l’appareil est porté.</string>
     <string name="settings_eardetection_info_label">Note de détection de l’oreille</string>
-    <string name="settings_eardetection_info_description">Si la détection de l’oreille ne fonctionne que pour un seul AirPod, cela est causé par une limitation d’Apple. Seul « l’AirPod principal » (utilisé pour le microphone) est détecté. Configurez dans les appareils Apple : Paramètres → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">Fausses données</string>
-    <string name="settings_fake_data_description">Afficher les fausses données, c.-à-d. simuler les appareils qui n’existent pas.</string>
-    <string name="settings_debug_label">Paramètres de débogage</string>
-    <string name="settings_debug_description">Autres paramètres pour aider à diagnostiquer les problèmes de l’appli.</string>
-    <string name="settings_signal_minimum_label">Qualité minimale du signal</string>
+    <string name="settings_eardetection_info_description">Si la détection de l’oreille ne fonctionne que pour un seul AirPod, cela est causé par une limitation d’Apple. Seul « l’AirPod principal » (utilisé pour le microphone) est détecté. Configurez dans les appareils Apple : Paramètres → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">Qualité minimale du signal</string>
     <string name="settings_signal_minimum_description">Qualité minimale du signal qu’un appareil doit émettre pour être considéré le vôtre.</string>
     <string name="settings_autoconnect_label">Connexion automatique</string>
     <string name="settings_autoconnect_description">Si Android ne se connecte pas automatiquement, nous pouvons lui demander de le faire. Le paramètre du mode surveillance sera « Toujours ».</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Réglage généraux qui affectent l\'appli entière.</string>
     <string name="settings_acknowledgements_label">Remerciements</string>
     <string name="settings_debug_autoreports_label">Relevés de bogue automatiques</string>
-    <string name="settings_debug_autoreports_description">Signale automatiquement les problèmes, p. ex., les détails d’un plantage de l’appli, afin que je puisse essayer de les corriger.</string>
-    <string name="settings_debug_mode_label">Mode de débogage</string>
-    <string name="settings_debug_mode_description">Afficher des renseignements supplémentaires pour dépanner les problèmes.</string>
-    <string name="settings_blescanner_unfiltered_label">Données BÉB non filtrées</string>
-    <string name="settings_blescanner_unfiltered_description">Supprimer tous les filtres de l’analyseur BÉB pour afficher toutes les données BÉB diffusées. Utile pour prendre en charge les nouveaux types de casques-micros.</string>
-    <string name="settings_compatibility_mode_label">Mode de compatibilité</string>
+    <string name="settings_debug_autoreports_description">Signale automatiquement les problèmes, p. ex., les détails d’un plantage de l’appli, afin que je puisse essayer de les corriger.</string><string name="settings_compatibility_mode_label">Mode de compatibilité</string>
     <string name="settings_compatibility_mode_description">Désactiver les optimisations pour améliorer la compatibilité. À essayer si vous ne voyez aucune donnée.</string>
     <string name="help_translate_label">Traduction</string>
     <string name="help_translate_description">Aidez à traduire cette appli dans votre langue préférée.</string>

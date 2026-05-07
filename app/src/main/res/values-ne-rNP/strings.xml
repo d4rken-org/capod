@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">स्वत: प्ले</string>
     <string name="settings_autoplay_description">उपकरण लगाउँदा अडियो प्लेब्याक सुरु गर्नुहोस्।</string>
     <string name="settings_eardetection_info_label">कान पत्ता लगाउने नोट</string>
-    <string name="settings_eardetection_info_description">यदि कान पत्ता लगाउने सुविधा एक पोडको लागि मात्र काम गर्छ भने, यो Apple सीमितता हो। माइक्रोफोनको लागि प्रयोग हुने \"प्राथमिक पोड\" मात्र पत्ता लगाइन्छ। Apple उपकरणहरूमा कन्फिगर गर्नुहोस्: सेटिङ → Bluetooth → AirPods → माइक्रोफोन।</string>
-    <string name="settings_fake_data_label">नक्कली डाटा</string>
-    <string name="settings_fake_data_description">नक्कली डाटा देखाउनुहोस्, अर्थात् अस्तित्वमा नभएका उपकरणहरूको नक्कल गर्नुहोस्।</string>
-    <string name="settings_debug_label">डिबग सेटिङहरू</string>
-    <string name="settings_debug_description">एपसँग सम्बन्धित समस्याहरू समाधान गर्न मद्दत गर्न अतिरिक्त सेटिङहरू।</string>
-    <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
+    <string name="settings_eardetection_info_description">यदि कान पत्ता लगाउने सुविधा एक पोडको लागि मात्र काम गर्छ भने, यो Apple सीमितता हो। माइक्रोफोनको लागि प्रयोग हुने \"प्राथमिक पोड\" मात्र पत्ता लगाइन्छ। Apple उपकरणहरूमा कन्फिगर गर्नुहोस्: सेटिङ → Bluetooth → AirPods → माइक्रोफोन।</string><string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
     <string name="settings_signal_minimum_description">उपकरणलाई तपाइँको मान्नको लागि आवश्यक पर्ने न्यूनतम सिग्नल गुणस्तर।</string>
     <string name="settings_autoconnect_label">स्वत: जडान</string>
     <string name="settings_autoconnect_description">यदि एन्ड्रोइडले स्वचालित रूपमा जडान गर्दैन भने, हामी पनि अनुरोध गर्न सक्छौं। यसले मोनिटर मोड सेटिङलाई \"सधैं\" मा सेट गर्नेछ।</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
     <string name="settings_debug_autoreports_label">स्वचालित बग रिपोर्टहरू</string>
-    <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string>
-    <string name="settings_debug_mode_label">डिबग मोड</string>
-    <string name="settings_debug_mode_description">समस्याहरू समाधान गर्न अतिरिक्त जानकारी देखाउनुहोस्।</string>
-    <string name="settings_blescanner_unfiltered_label">फिल्टर नगरिएको BLE डाटा</string>
-    <string name="settings_blescanner_unfiltered_description">सबै प्रसारित BLE डाटा देखाउन BLE स्क्यानरबाट कुनै पनि फिल्टरहरू हटाउनुहोस्। नयाँ हेडफोन प्रकारहरूको लागि समर्थन थप्न उपयोगी।</string>
-    <string name="settings_compatibility_mode_label">अनुकूलता मोड</string>
+    <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string><string name="settings_compatibility_mode_label">अनुकूलता मोड</string>
     <string name="settings_compatibility_mode_description">अनुकूलता सुधार गर्न अप्टिमाइजेसनहरू असक्षम गर्नुहोस्। यदि तपाईंले कुनै डाटा देख्नुभएन भने यो प्रयास गर्नुहोस्।</string>
     <string name="help_translate_label">अनुवाद</string>
     <string name="help_translate_description">यो एपलाई आफ्नो मनपर्ने भाषामा अनुवाद गर्न मद्दत गर्नुहोस्।</string>

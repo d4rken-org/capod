@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automatisches abspielen</string>
     <string name="settings_autoplay_description">Audiowiedergabe starten, wenn das Gerät getragen wird.</string>
     <string name="settings_eardetection_info_label">Hinweis zur Ohr-Erkennung</string>
-    <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string>
-    <string name="settings_fake_data_label">Gefälschte Daten</string>
-    <string name="settings_fake_data_description">Gefälschte Test-Daten anzeigen, d.h. nicht existierende Geräte simulieren.</string>
-    <string name="settings_debug_label">Debug-Einstellungen</string>
-    <string name="settings_debug_description">Zusätzliche Einstellungen zur Behebung von Problemen mit der App.</string>
-    <string name="settings_signal_minimum_label">Minimale Signalqualität</string>
+    <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimale Signalqualität</string>
     <string name="settings_signal_minimum_description">Die minimale Signalqualität, die ein Gerät haben muss, damit als Deins erkannt wird.</string>
     <string name="settings_autoconnect_label">Automatisch verbinden</string>
     <string name="settings_autoconnect_description">Wenn Android keine automatische Verbindung herstellt, können wir es auch darum bitten. Durch diese Option wird die Monitormodus-Einstellung auf „Immer“ gesetzt.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
-    <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
-    <string name="settings_debug_mode_label">Debug-Modus</string>
-    <string name="settings_debug_mode_description">Zeige zusätzliche Informationen an, um Probleme zu beheben.</string>
-    <string name="settings_blescanner_unfiltered_label">Ungefilterte BLE-Daten</string>
-    <string name="settings_blescanner_unfiltered_description">Entfernt alle Filter aus dem BLE-Scanner, um alle übertragenen BLE-Daten anzuzeigen. Nützlich, um Unterstützung für neue Kopfhörertypen hinzuzufügen.</string>
-    <string name="settings_compatibility_mode_label">Kompatibilitätsmodus</string>
+    <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string><string name="settings_compatibility_mode_label">Kompatibilitätsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktiviere Optimierungen, um die Kompatibilität zu verbessern. Probier diese Option, wenn gar keine Daten angezeigt werden.</string>
     <string name="help_translate_label">Übersetzung</string>
     <string name="help_translate_description">Hilf mit die App in deine Lieblingssprache zu übersetzen.</string>

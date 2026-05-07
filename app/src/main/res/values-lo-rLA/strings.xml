@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">ຫຼິ້ນອັດຕະໂນມັດ</string>
     <string name="settings_autoplay_description">ເລີ່ມການຫຼິ້ນສຽງເມື່ອໃສ่อຸປະກອນ.</string>
     <string name="settings_eardetection_info_label">ໝາຍເຫດການກວດຈັບຫູ</string>
-    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string>
-    <string name="settings_fake_data_label">ຂໍ້ມູນປອມ</string>
-    <string name="settings_fake_data_description">ສະແດງຂໍ້ມູນປອມ, ເຊັ່ນ: ຈຳລອງອຸປະກອນທີ່ບໍ່ມີຢູ່.</string>
-    <string name="settings_debug_label">ການຕັ້ງຄ່າດີບັກ</string>
-    <string name="settings_debug_description">ການຕັ້ງຄ່າເພີ່ມເຕີມເພື່ອຊ່ວຍແກ້ໄຂບັນຫາກັບແອັບ.</string>
-    <string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
+    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string><string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
     <string name="settings_signal_minimum_description">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າທີ່ອຸປະກອນຕ້ອງມີເພື່ອຖືວ່າເປັນຂອງທ່ານ.</string>
     <string name="settings_autoconnect_label">ເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
     <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ, ພວກເຮົາກໍສາມາດຮ້ອງຂໍໄດ້. ນີ້ຈະຕັ້ງຄ່າໂໝດຕິດຕາມເປັນ \"ສະເໝີ\" .</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
     <string name="settings_debug_autoreports_label">ລາຍງານຂໍ້ບົກພ່ອງອັດຕະໂນມັດ</string>
-    <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string>
-    <string name="settings_debug_mode_label">ໂໝດດີບັກ</string>
-    <string name="settings_debug_mode_description">ສະແດງຂໍ້ມູນເພີ່ມເຕີມເພື່ອແກ້ໄຂບັນຫາ.</string>
-    <string name="settings_blescanner_unfiltered_label">ຂໍ້ມູນ BLE ທີ່ບໍ່ໄດ້ກັ່ນຕອງ</string>
-    <string name="settings_blescanner_unfiltered_description">ລຶບຕົວກັ່ນຕອງໃດໆອອກຈາກເຄື່ອງສະແກນ BLE ເພື່ອສະແດງຂໍ້ມູນ BLE ທີ່ອອກອາກາດທັງໝົດ. ມີປະໂຫຍດສຳລັບການເພີ່ມການຮອງຮັບປະເພດຫູຟັງໃໝ່.</string>
-    <string name="settings_compatibility_mode_label">ໂໝດຄວາມເຂົ້າກັນໄດ້</string>
+    <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string><string name="settings_compatibility_mode_label">ໂໝດຄວາມເຂົ້າກັນໄດ້</string>
     <string name="settings_compatibility_mode_description">ປິດການປັບແຕ່ງໃຫ້ເໝາະສົມເພື່ອປັບປຸງຄວາມເຂົ້າກັນໄດ້. ລອງໃຊ້ອັນນີ້ຖ້າທ່ານບໍ່ເຫັນຂໍ້ມູນໃດໆ.</string>
     <string name="help_translate_label">ການແປພາສາ</string>
     <string name="help_translate_description">ຊ່ວຍແປແອັບນີ້ເປັນພາສາທີ່ທ່ານມັກ.</string>

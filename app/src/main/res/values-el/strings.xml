@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Αυτόματη αναπαραγωγή</string>
     <string name="settings_autoplay_description">Έναρξη αναπαραγωγής ήχου όταν φοριέται η συσκευή.</string>
     <string name="settings_eardetection_info_label">Σημείωση ανίχνευσης αυτιού</string>
-    <string name="settings_eardetection_info_description">Εάν η ανίχνευση αυτιού λειτουργεί μόνο για ένα pod, αυτός είναι περιορισμός της Apple. Ανιχνεύεται μόνο το \"κύριο pod\" (που χρησιμοποιείται για μικρόφωνο). Ρυθμίστε σε συσκευές Apple: Ρυθμίσεις → Bluetooth → AirPods → Μικρόφωνο.</string>
-    <string name="settings_fake_data_label">Ψευδή δεδομένα</string>
-    <string name="settings_fake_data_description">Εμφάνιση ψευδών δεδομένων, π.χ., προσομοίωση συσκευών που δεν υπάρχουν.</string>
-    <string name="settings_debug_label">Ρυθμίσεις εντοπισμού σφαλμάτων</string>
-    <string name="settings_debug_description">Πρόσθετες ρυθμίσεις για την αντιμετώπιση προβλημάτων με την εφαρμογή.</string>
-    <string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
+    <string name="settings_eardetection_info_description">Εάν η ανίχνευση αυτιού λειτουργεί μόνο για ένα pod, αυτός είναι περιορισμός της Apple. Ανιχνεύεται μόνο το \"κύριο pod\" (που χρησιμοποιείται για μικρόφωνο). Ρυθμίστε σε συσκευές Apple: Ρυθμίσεις → Bluetooth → AirPods → Μικρόφωνο.</string><string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
     <string name="settings_signal_minimum_description">Η ελάχιστη ποιότητα σήματος που πρέπει να έχει μια συσκευή για να θεωρηθεί δική σας.</string>
     <string name="settings_autoconnect_label">Αυτόματη σύνδεση</string>
     <string name="settings_autoconnect_description">Εάν το Android δε συνδεθεί αυτόματα, μπορούμε να το ζητήσουμε εμείς. Αυτό θα ορίσει τη ρύθμιση της λειτουργίας παρακολούθησης σε \"Πάντα\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
     <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
-    <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
-    <string name="settings_debug_mode_label">Λειτουργία εντοπισμού σφαλμάτων</string>
-    <string name="settings_debug_mode_description">Εμφάνιση πρόσθετων πληροφοριών για την αντιμετώπιση προβλημάτων.</string>
-    <string name="settings_blescanner_unfiltered_label">Αφιλτράριστα δεδομένα BLE</string>
-    <string name="settings_blescanner_unfiltered_description">Αφαιρέστε τυχόν φίλτρα από τον σαρωτή BLE για να εμφανιστούν όλα τα μεταδιδόμενα δεδομένα BLE. Χρήσιμο για την προσθήκη υποστήριξης για νέους τύπους ακουστικών.</string>
-    <string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
+    <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string><string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
     <string name="settings_compatibility_mode_description">Απενεργοποιήστε τις βελτιστοποιήσεις για να βελτιώσετε τη συμβατότητα. Δοκιμάστε το εάν δεν βλέπετε δεδομένα.</string>
     <string name="help_translate_label">Μετάφραση</string>
     <string name="help_translate_description">Βοηθήστε να μεταφράσετε αυτήν την εφαρμογή στην αγαπημένη σας γλώσσα.</string>

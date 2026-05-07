@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">自动播放</string>
     <string name="settings_autoplay_description">戴在耳上时自动开始音频播放</string>
     <string name="settings_eardetection_info_label">耳机探测通知</string>
-    <string name="settings_eardetection_info_description">如果耳朵检测只能用于一个耳机，这是苹果限制。只检测到“主耳机”(用于麦克风)。 在苹果设备上配置：设置 → 蓝牙 → AirPoods → 麦克风。</string>
-    <string name="settings_fake_data_label">假数据</string>
-    <string name="settings_fake_data_description">显示伪造的数据，即模拟不存在的设备</string>
-    <string name="settings_debug_label">调试设置</string>
-    <string name="settings_debug_description">帮助解决应用程序问题的其他设置</string>
-    <string name="settings_signal_minimum_label">最低信号质量</string>
+    <string name="settings_eardetection_info_description">如果耳朵检测只能用于一个耳机，这是苹果限制。只检测到“主耳机”(用于麦克风)。 在苹果设备上配置：设置 → 蓝牙 → AirPoods → 麦克风。</string><string name="settings_signal_minimum_label">最低信号质量</string>
     <string name="settings_signal_minimum_description">判断可能是您的设备的最低信号质量。</string>
     <string name="settings_autoconnect_label">自动连接</string>
     <string name="settings_autoconnect_description">如果安卓未自动连接，应用会自动询问。这会将监控模式设为“始终”</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">影响整个应用的一般性设置。</string>
     <string name="settings_acknowledgements_label">鸣谢</string>
     <string name="settings_debug_autoreports_label">自动反馈错误</string>
-    <string name="settings_debug_autoreports_description">自动报告问题，例如应用崩溃的详细信息，方便我进行修复</string>
-    <string name="settings_debug_mode_label">调试模式</string>
-    <string name="settings_debug_mode_description">显示额外信息以帮助调试故障。</string>
-    <string name="settings_blescanner_unfiltered_label">未经过滤的 BLE 数据</string>
-    <string name="settings_blescanner_unfiltered_description">完全解除蓝牙低功耗（BLE）扫描器上的过滤器，以显示被广播的全部 BLE 数据。可用于了解和新增更多耳机型号的支持。</string>
-    <string name="settings_compatibility_mode_label">兼容模式</string>
+    <string name="settings_debug_autoreports_description">自动报告问题，例如应用崩溃的详细信息，方便我进行修复</string><string name="settings_compatibility_mode_label">兼容模式</string>
     <string name="settings_compatibility_mode_description">禁用优化以提高兼容性，请在未看到任何数据时尝试此操作</string>
     <string name="help_translate_label">翻译</string>
     <string name="help_translate_description">帮助翻译本应用</string>

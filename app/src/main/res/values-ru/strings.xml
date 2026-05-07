@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Автовоспроизведение</string>
     <string name="settings_autoplay_description">Включение воспроизведения аудио при начале использования устройства.</string>
     <string name="settings_eardetection_info_label">Уведомление об обнаружении уха</string>
-    <string name="settings_eardetection_info_description">Если обнаружение уха работает только для одного наушника, это ограничение Apple. Обнаруживается только \"основной наушник\" (используемый для микрофона). Настроить на устройствах Apple: Настройки → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_fake_data_label">Пустые данные</string>
-    <string name="settings_fake_data_description">Показывать пустые данные, например, симулировать устройства, которые не существуют.</string>
-    <string name="settings_debug_label">Настройки отладки</string>
-    <string name="settings_debug_description">Дополнительные настройки для решения проблем с помощью приложения.</string>
-    <string name="settings_signal_minimum_label">Минимальное качество сигнала</string>
+    <string name="settings_eardetection_info_description">Если обнаружение уха работает только для одного наушника, это ограничение Apple. Обнаруживается только \"основной наушник\" (используемый для микрофона). Настроить на устройствах Apple: Настройки → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Минимальное качество сигнала</string>
     <string name="settings_signal_minimum_description">Минимальное качество сигнала, необходимое устройству, чтобы оно опознавалось как Ваше.</string>
     <string name="settings_autoconnect_label">Автоподключение</string>
     <string name="settings_autoconnect_description">Если Android не подключается автоматически, мы можем послать ему запрос. Это установит режим мониторинга на \'Всегда\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Общие настройки, влияющие на всё приложение.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматические отчёты об ошибках</string>
-    <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
-    <string name="settings_debug_mode_label">Режим отладки</string>
-    <string name="settings_debug_mode_description">Показать дополнительную информацию для проблемных вопросов.</string>
-    <string name="settings_blescanner_unfiltered_label">Нефильтрованные данные BLE</string>
-    <string name="settings_blescanner_unfiltered_description">Удалите все фильтры из сканера BLE, чтобы показать все переданные данные BLE. Может помочь при добавлении поддержки новых типов наушников.</string>
-    <string name="settings_compatibility_mode_label">Режим совместимости</string>
+    <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string><string name="settings_compatibility_mode_label">Режим совместимости</string>
     <string name="settings_compatibility_mode_description">Отключите оптимизацию для улучшения совместимости. Попробуйте это, если не видите данных.</string>
     <string name="help_translate_label">Перевод</string>
     <string name="help_translate_description">Помогите перевести приложение на Ваш язык.</string>

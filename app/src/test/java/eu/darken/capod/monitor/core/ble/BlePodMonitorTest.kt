@@ -5,7 +5,6 @@ import eu.darken.capod.common.bluetooth.BleScanResult
 import eu.darken.capod.common.bluetooth.BleScanner
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.bluetooth.ScannerMode
-import eu.darken.capod.common.debug.DebugSettings
 import eu.darken.capod.common.permissions.Permission
 import eu.darken.capod.main.core.GeneralSettings
 import eu.darken.capod.main.core.PermissionTool
@@ -107,9 +106,6 @@ class BlePodMonitorTest : BaseTest() {
             every { isOffloadedFilteringDisabled } returns FakeDataStoreValue(false).mock
             every { useIndirectScanResultCallback } returns FakeDataStoreValue(false).mock
         }
-        val debugSettings = mockk<DebugSettings>().apply {
-            every { showUnfiltered } returns FakeDataStoreValue(false).mock
-        }
         val permissionTool = mockk<PermissionTool>().apply {
             every { missingScanPermissions } returns MutableStateFlow<Set<Permission>>(emptySet())
             every { recheck() } just Runs
@@ -131,7 +127,6 @@ class BlePodMonitorTest : BaseTest() {
                 timeSource = timeSource,
                 generalSettings = generalSettings,
                 bluetoothManager = bluetoothManager,
-                debugSettings = debugSettings,
                 permissionTool = permissionTool,
                 profilesRepo = profilesRepo,
             ),

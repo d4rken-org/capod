@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">자동 재생</string>
     <string name="settings_autoplay_description">기기를 착용하면 오디오 재생을 시작합니다.</string>
     <string name="settings_eardetection_info_label">착용 감지 알림</string>
-    <string name="settings_eardetection_info_description">Apple의 제한으로 착용 감지가 마이크를 이용하는 데 사용되는 한쪽 유닛만 작동할 수 있습니다. Apple 기기에서 다음에 따라 설정할 수 있습니다. 설정 → 블루투스 → Airpods → 마이크</string>
-    <string name="settings_fake_data_label">가짜 데이터</string>
-    <string name="settings_fake_data_description">가짜 데이터를 표시합니다. 즉, 존재하지 않는 기기를 시뮬레이션합니다.</string>
-    <string name="settings_debug_label">디버그 설정</string>
-    <string name="settings_debug_description">앱 관련 문제 해결에 도움이 되는 추가 설정입니다.</string>
-    <string name="settings_signal_minimum_label">최소 신호 품질</string>
+    <string name="settings_eardetection_info_description">Apple의 제한으로 착용 감지가 마이크를 이용하는 데 사용되는 한쪽 유닛만 작동할 수 있습니다. Apple 기기에서 다음에 따라 설정할 수 있습니다. 설정 → 블루투스 → Airpods → 마이크</string><string name="settings_signal_minimum_label">최소 신호 품질</string>
     <string name="settings_signal_minimum_description">기기가 사용자의 것으로 간주되기 위해 필요한 최소 신호 품질입니다.</string>
     <string name="settings_autoconnect_label">자동 연결</string>
     <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터링 모드 설정이 \"항상\"으로 설정됩니다.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
     <string name="settings_debug_autoreports_label">자동 버그 보고서</string>
-    <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string>
-    <string name="settings_debug_mode_label">디버그 모드</string>
-    <string name="settings_debug_mode_description">문제 해결을 위한 추가 정보를 표시합니다.</string>
-    <string name="settings_blescanner_unfiltered_label">필터링되지 않은 BLE 데이터</string>
-    <string name="settings_blescanner_unfiltered_description">모든 브로드캐스트된 BLE 데이터를 표시하려면 BLE 스캐너에서 모든 필터를 제거합니다. 새로운 유형의 헤드폰에 대한 지원을 추가하는 데 유용합니다.</string>
-    <string name="settings_compatibility_mode_label">호환성 모드</string>
+    <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string><string name="settings_compatibility_mode_label">호환성 모드</string>
     <string name="settings_compatibility_mode_description">호환성을 향상시키려면 최적화를 비활성화합니다. 데이터가 표시되지 않으면 이 옵션을 사용해 보십시오.</string>
     <string name="help_translate_label">번역</string>
     <string name="help_translate_description">이 앱을 즐겨 사용하는 언어로 번역하는 데 도움을 주세요.</string>

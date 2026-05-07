@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Erreprodukzio automatikoa</string>
     <string name="settings_autoplay_description">Hasi audio erreprodukzioa gailua jantzita dagoenean.</string>
     <string name="settings_eardetection_info_label">Belarri-detekzioaren oharra</string>
-    <string name="settings_eardetection_info_description">Belarri-detekzioak pod batentzat soilik funtzionatzen badu, Apple-ren muga bat da. \"Pod nagusia\" (mikrofonorako erabiltzen dena) soilik detektatzen da. Konfiguratu Apple gailuetan: Ezarpenak → Bluetooth → AirPods → Mikrofonoa.</string>
-    <string name="settings_fake_data_label">Datu faltsuak</string>
-    <string name="settings_fake_data_description">Erakutsi datu faltsuak, hau da, existitzen ez diren gailuak simulatu.</string>
-    <string name="settings_debug_label">Arazketa ezarpenak</string>
-    <string name="settings_debug_description">Aplikazioarekin arazoak konpontzen laguntzeko ezarpen gehigarriak.</string>
-    <string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
+    <string name="settings_eardetection_info_description">Belarri-detekzioak pod batentzat soilik funtzionatzen badu, Apple-ren muga bat da. \"Pod nagusia\" (mikrofonorako erabiltzen dena) soilik detektatzen da. Konfiguratu Apple gailuetan: Ezarpenak → Bluetooth → AirPods → Mikrofonoa.</string><string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
     <string name="settings_signal_minimum_description">Gailu batek zurea dela kontsideratzeko izan behar duen seinalearen gutxieneko kalitatea.</string>
     <string name="settings_autoconnect_label">Automatikoki konektatu</string>
     <string name="settings_autoconnect_description">Android automatikoki konektatzen ez bada, guk ere eska diezaiokegu. Honek monitorizazio moduaren ezarpena \"Beti\" moduan jarriko du.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
     <string name="settings_acknowledgements_label">Eskertzak</string>
     <string name="settings_debug_autoreports_label">Erroreen txosten automatikoak</string>
-    <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string>
-    <string name="settings_debug_mode_label">Arazketa modua</string>
-    <string name="settings_debug_mode_description">Erakutsi informazio gehigarria arazoak konpontzeko.</string>
-    <string name="settings_blescanner_unfiltered_label">Iragazi gabeko BLE datuak</string>
-    <string name="settings_blescanner_unfiltered_description">Kendu BLE eskanerreko iragazki guztiak igorritako BLE datu guztiak erakusteko. Entzungailu mota berrietarako euskarria gehitzeko erabilgarria.</string>
-    <string name="settings_compatibility_mode_label">Bateragarritasun modua</string>
+    <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string><string name="settings_compatibility_mode_label">Bateragarritasun modua</string>
     <string name="settings_compatibility_mode_description">Desgaitu optimizazioak bateragarritasuna hobetzeko. Saiatu hau daturik ikusten ez baduzu.</string>
     <string name="help_translate_label">Itzulpena</string>
     <string name="help_translate_description">Lagundu aplikazio hau zure hizkuntza gogokoenera itzultzen.</string>

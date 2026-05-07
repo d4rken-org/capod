@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automātiska atskaņošana</string>
     <string name="settings_autoplay_description">Sākt audio atskaņošanu, kad ierīce tiek nēsāta.</string>
     <string name="settings_eardetection_info_label">Piezīme par auss noteikšanu</string>
-    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">Viltus dati</string>
-    <string name="settings_fake_data_description">Rādīt viltus datus, t.i., simulēt neesošas ierīces.</string>
-    <string name="settings_debug_label">Atkļūdošanas iestatījumi</string>
-    <string name="settings_debug_description">Papildu iestatījumi, lai palīdzētu novērst problēmas ar lietotni.</string>
-    <string name="settings_signal_minimum_label">Minimālā signāla kvalitāte</string>
+    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">Minimālā signāla kvalitāte</string>
     <string name="settings_signal_minimum_description">Minimālā signāla kvalitāte, kādai jābūt ierīcei, lai tā tiktu uzskatīta par jūsu.</string>
     <string name="settings_autoconnect_label">Automātiska savienošana</string>
     <string name="settings_autoconnect_description">Ja Android automātiski nesavienojas, mēs arī varam to pieprasīt. Tas iestatīs monitorēšanas režīma iestatījumu uz \"Vienmēr\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
     <string name="settings_acknowledgements_label">Pateicības</string>
     <string name="settings_debug_autoreports_label">Automātiski kļūdu ziņojumi</string>
-    <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string>
-    <string name="settings_debug_mode_label">Atkļūdošanas režīms</string>
-    <string name="settings_debug_mode_description">Rādīt papildu informāciju problēmu novēršanai.</string>
-    <string name="settings_blescanner_unfiltered_label">Nefiltrēti BLE dati</string>
-    <string name="settings_blescanner_unfiltered_description">Noņemiet visus filtrus no BLE skenera, lai parādītu visus pārraidītos BLE datus. Noderīgi, lai pievienotu atbalstu jauniem austiņu veidiem.</string>
-    <string name="settings_compatibility_mode_label">Saderības režīms</string>
+    <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string><string name="settings_compatibility_mode_label">Saderības režīms</string>
     <string name="settings_compatibility_mode_description">Atspējojiet optimizācijas, lai uzlabotu saderību. Izmēģiniet šo, ja neredzat nekādus datus.</string>
     <string name="help_translate_label">Tulkošana</string>
     <string name="help_translate_description">Palīdziet tulkot šo lietotni savā iecienītajā valodā.</string>

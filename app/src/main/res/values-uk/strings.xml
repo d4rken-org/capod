@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Автовідтворення</string>
     <string name="settings_autoplay_description">Почати відтворення коли ви одягли навушники.</string>
     <string name="settings_eardetection_info_label">Примітка про виявлення вуха</string>
-    <string name="settings_eardetection_info_description">Якщо виявлення вуха працює лише для одного навушника, це обмеження Apple. Виявляється лише \"головний навушник\" (який використовується для мікрофона). Налаштуйте на пристроях Apple: Параметри → Bluetooth → AirPods → Мікрофон.</string>
-    <string name="settings_fake_data_label">Підроблені дані</string>
-    <string name="settings_fake_data_description">Показувати підроблені дані, коли, наприклад, імітуються пристрої яких не існує.</string>
-    <string name="settings_debug_label">Налаштування налагодження</string>
-    <string name="settings_debug_description">Додаткові налаштування для допомоги у розвʼязанні проблем з додатком.</string>
-    <string name="settings_signal_minimum_label">Мінімальна якість сигналу</string>
+    <string name="settings_eardetection_info_description">Якщо виявлення вуха працює лише для одного навушника, це обмеження Apple. Виявляється лише \"головний навушник\" (який використовується для мікрофона). Налаштуйте на пристроях Apple: Параметри → Bluetooth → AirPods → Мікрофон.</string><string name="settings_signal_minimum_label">Мінімальна якість сигналу</string>
     <string name="settings_signal_minimum_description">Мінімальний рівень сигналу, щоб вважалося що пристрій ваш.</string>
     <string name="settings_autoconnect_label">Автопід\'єднання</string>
     <string name="settings_autoconnect_description">Якщо Android не підʼєднує навушники автоматично, додаток може попросити зробити це. Ця опція встановить \"Режим відстеження\" в стан \"Завжди\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Загальні функції, що впливають на всю програму.</string>
     <string name="settings_acknowledgements_label">Подяки</string>
     <string name="settings_debug_autoreports_label">Автоматичні звіти про помилки</string>
-    <string name="settings_debug_autoreports_description">Автоматично повідомляти про проблеми, наприклад, деталі про збій програми, щоб я міг зрозуміти, як це виправити.</string>
-    <string name="settings_debug_mode_label">Режим налагодження</string>
-    <string name="settings_debug_mode_description">Відображення додаткової інформації щодо помилок.</string>
-    <string name="settings_blescanner_unfiltered_label">Нефільтровані дані BLE</string>
-    <string name="settings_blescanner_unfiltered_description">Видалити всі фільтри зі сканера BLE, щоб показувати всі передані дані BLE. Корисно для додавання підтримки нових типів навушників.</string>
-    <string name="settings_compatibility_mode_label">Режим сумісності</string>
+    <string name="settings_debug_autoreports_description">Автоматично повідомляти про проблеми, наприклад, деталі про збій програми, щоб я міг зрозуміти, як це виправити.</string><string name="settings_compatibility_mode_label">Режим сумісності</string>
     <string name="settings_compatibility_mode_description">Вимкнути оптимізацію для покращення сумісності. Спробуйте це, якщо ви не бачите жодних даних.</string>
     <string name="help_translate_label">Переклад</string>
     <string name="help_translate_description">Допоможи перекласти цей додаток вашою улюбленою мовою.</string>

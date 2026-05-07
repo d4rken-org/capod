@@ -5,7 +5,7 @@ import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.value
-import eu.darken.capod.common.debug.DebugSettings
+import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
@@ -51,7 +51,6 @@ class OverviewViewModel @Inject constructor(
     private val deviceMonitor: DeviceMonitor,
     private val permissionTool: PermissionTool,
     private val generalSettings: GeneralSettings,
-    debugSettings: DebugSettings,
     private val upgradeRepo: UpgradeRepo,
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
@@ -129,7 +128,7 @@ class OverviewViewModel @Inject constructor(
         updateTicker,
         permissionTool.missingPermissions,
         pods,
-        debugSettings.isDebugModeEnabled.flow,
+        Bugs.isDebug,
         bluetoothManager.isBluetoothEnabled,
         profilesRepo.profiles,
         upgradeRepo.upgradeInfo,
@@ -137,7 +136,7 @@ class OverviewViewModel @Inject constructor(
         userExpansionOverrides,
         generalSettings.reactionsHintDismissed.flow,
         profilesRepo.hadLegacyReactionData,
-    ) { _, permissions, devices, isDebugMode, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds, reactionsHintDismissed, hadLegacyReactionData ->
+    ) { _, permissions, devices, isDebug, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds, reactionsHintDismissed, hadLegacyReactionData ->
         // Prune stale overrides (profiles that no longer exist)
         val currentProfileIds = profiles.map { it.id }.toSet()
         val prunedExpandedIds = expandedIds.filter { it in currentProfileIds }.toSet()
@@ -146,7 +145,7 @@ class OverviewViewModel @Inject constructor(
             now = timeSource.now(),
             permissions = permissions,
             devices = devices,
-            isDebugMode = isDebugMode,
+            isDebug = isDebug,
             isBluetoothEnabled = isBluetoothEnabled,
             profiles = profiles,
             upgradeInfo = upgradeInfo,
@@ -162,7 +161,7 @@ class OverviewViewModel @Inject constructor(
         val now: Instant,
         val permissions: Set<Permission>,
         val devices: List<PodDevice>,
-        val isDebugMode: Boolean,
+        val isDebug: Boolean,
         val isBluetoothEnabled: Boolean,
         val profiles: List<DeviceProfile>,
         val upgradeInfo: UpgradeRepo.Info,

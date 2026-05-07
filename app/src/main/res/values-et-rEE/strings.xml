@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Automaatne esitamine</string>
     <string name="settings_autoplay_description">Automaatne esitamine, kui seade pannakse kõrva.</string>
     <string name="settings_eardetection_info_label">Kõrva tuvastamisest</string>
-    <string name="settings_eardetection_info_description">Kui tuvastatakse vaid üks klapp, siis seda põhjustab Apple\'i piirang. Tuvastatakse vaid peamine klapp (kasutatakse mikrofonina). Seadista Apple\'i seadmetes: Seaded (Settings) → Bluetooth → AirPods (AirPodid) → Mikrofon (Microphone).</string>
-    <string name="settings_fake_data_label">Valeandmed</string>
-    <string name="settings_fake_data_description">Näita valeandmeid, nt samad seadmed, mida pole olemas.</string>
-    <string name="settings_debug_label">Vealogide seaded</string>
-    <string name="settings_debug_description">Täiendavad seadmed rakenduse probleemide lahendamise aitamiseks.</string>
-    <string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
+    <string name="settings_eardetection_info_description">Kui tuvastatakse vaid üks klapp, siis seda põhjustab Apple\'i piirang. Tuvastatakse vaid peamine klapp (kasutatakse mikrofonina). Seadista Apple\'i seadmetes: Seaded (Settings) → Bluetooth → AirPods (AirPodid) → Mikrofon (Microphone).</string><string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
     <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
     <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda taotleda. See lülitab jälgimisrežiimi sisse alatiseks.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Kogu rakendust mõjutavad üldseaded.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
     <string name="settings_debug_autoreports_label">Automaatsed veateated</string>
-    <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string>
-    <string name="settings_debug_mode_label">Veaotsing</string>
-    <string name="settings_debug_mode_description">Näita vigade lahendamiseks täiendavat teavet.</string>
-    <string name="settings_blescanner_unfiltered_label">Filtreerimata Bluetooth madalama energiatarbimisega andmed</string>
-    <string name="settings_blescanner_unfiltered_description">Eemalda kõik Bluetooth madalama energiatarbimisega skanneri filtrid, et näha kõiki edastatud Bluetooth madalama energiatarbimisega andmeid. Kasulik uute kõrvaklappide ühildamiseks.</string>
-    <string name="settings_compatibility_mode_label">Ühilduvusrežiim</string>
+    <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string><string name="settings_compatibility_mode_label">Ühilduvusrežiim</string>
     <string name="settings_compatibility_mode_description">Ühilduvuse parandamiseks keelake optimeeringud. Proovige seda, kui te ei näe mingeid andmeid.</string>
     <string name="help_translate_label">Tõlge</string>
     <string name="help_translate_description">Aita tõlkida seda rakendust oma emakeelde.</string>

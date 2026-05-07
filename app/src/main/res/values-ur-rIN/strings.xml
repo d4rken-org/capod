@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">خودکار پلے</string>
     <string name="settings_autoplay_description">آلہ پہنا ہونے پر آڈیو پلے بیک شروع کریں۔</string>
     <string name="settings_eardetection_info_label">کان کی شناخت کا نوٹ</string>
-    <string name="settings_eardetection_info_description">اگر کان کی شناخت صرف ایک پوڈ کے لئے کام کرتی ہے تو یہ Apple کی حد ہے۔ صرف \"بنیادی پوڈ\" (مائیکروفون کے لئے استعمال ہونے والا) کا پتہ چلتا ہے۔ Apple آلات پر ترتیب دیں: سیٹنگز → بلوٹوتھ → AirPods → مائیکروفون۔</string>
-    <string name="settings_fake_data_label">جعلی ڈیٹا</string>
-    <string name="settings_fake_data_description">جعلی ڈیٹا دکھائیں، یعنی ایسے آلات کی تقلید کریں جو موجود نہیں ہیں۔</string>
-    <string name="settings_debug_label">ڈیبگ سیٹنگز</string>
-    <string name="settings_debug_description">ایپ کے مسائل کو حل کرنے میں مدد کے لئے اضافی سیٹنگز۔</string>
-    <string name="settings_signal_minimum_label">کم از کم سگنل کا معیار</string>
+    <string name="settings_eardetection_info_description">اگر کان کی شناخت صرف ایک پوڈ کے لئے کام کرتی ہے تو یہ Apple کی حد ہے۔ صرف \"بنیادی پوڈ\" (مائیکروفون کے لئے استعمال ہونے والا) کا پتہ چلتا ہے۔ Apple آلات پر ترتیب دیں: سیٹنگز → بلوٹوتھ → AirPods → مائیکروفون۔</string><string name="settings_signal_minimum_label">کم از کم سگنل کا معیار</string>
     <string name="settings_signal_minimum_description">کم از کم سگنل کا معیار جو کسی آلہ کو آپ کا سمجھا جانے کے لئے درکار ہے۔</string>
     <string name="settings_autoconnect_label">خودکار کنیکٹ</string>
     <string name="settings_autoconnect_description">اگر اینڈرائیڈ خود بخود منسلک نہیں ہوتا ہے، تو ہم بھی اس سے پوچھ سکتے ہیں۔ یہ مانیٹر موڈ سیٹنگ کو \'ہمیشہ\' پر سیٹ کر دے گا۔</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">عام تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
     <string name="settings_acknowledgements_label">اعترافات</string>
     <string name="settings_debug_autoreports_label">خودکار بگ رپورٹس</string>
-    <string name="settings_debug_autoreports_description">مسائل کی خود بخود اطلاع دیتا ہے، مثلاً ایپ کریش کی تفصیلات تاکہ میں اسے ٹھیک کرنے کا طریقہ معلوم کر سکوں۔</string>
-    <string name="settings_debug_mode_label">ڈیبگ موڈ</string>
-    <string name="settings_debug_mode_description">مسائل کو حل کرنے کے لئے اضافی معلومات دکھائیں۔</string>
-    <string name="settings_blescanner_unfiltered_label">غیر فلٹر شدہ BLE ڈیٹا</string>
-    <string name="settings_blescanner_unfiltered_description">تمام نشر شدہ BLE ڈیٹا کو دکھانے کے لئے BLE اسکینر سے کوئی بھی فلٹر ہٹا دیں۔ نئے ہیڈ فون کی اقسام کے لئے مدد شامل کرنے کے لئے مفید ہے۔</string>
-    <string name="settings_compatibility_mode_label">مطابقت موڈ</string>
+    <string name="settings_debug_autoreports_description">مسائل کی خود بخود اطلاع دیتا ہے، مثلاً ایپ کریش کی تفصیلات تاکہ میں اسے ٹھیک کرنے کا طریقہ معلوم کر سکوں۔</string><string name="settings_compatibility_mode_label">مطابقت موڈ</string>
     <string name="settings_compatibility_mode_description">مطابقت کو بہتر بنانے کے لئے اصلاحات کو غیر فعال کریں۔ اگر آپ کو کوئی ڈیٹا نظر نہیں آرہا ہے تو اسے آزمائیں۔</string>
     <string name="help_translate_label">ترجمہ</string>
     <string name="help_translate_description">اس ایپ کو اپنی پسندیدہ زبان میں ترجمہ کرنے میں مدد کریں۔</string>

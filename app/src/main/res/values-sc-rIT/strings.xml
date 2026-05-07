@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Riprodutzione automàtica</string>
     <string name="settings_autoplay_description">Aviatzia sa riprodutzione de s\'àudio cando su dispositivu est indossadu.</string>
     <string name="settings_eardetection_info_label">Nota subra su riconoschimentu de s\'origra</string>
-    <string name="settings_eardetection_info_description">Si su riconoschimentu de s\'origra funtzionat isceti pro una corfita, custa est una limitatzione de Apple. Isceti sa \"corfita printzipale\" (impreada pro su micròfonu) est riconnota. Cunfigura in dispositivos Apple: Impostatziones → Bluetooth → AirPods → Micròfonu.</string>
-    <string name="settings_fake_data_label">Datos farsos</string>
-    <string name="settings_fake_data_description">Mustra datos farsos, est a nàrrere, simula dispositivos chi non esistint.</string>
-    <string name="settings_debug_label">Cunfiguratziones de debug</string>
-    <string name="settings_debug_description">Cunfiguratziones agiuntivas pro agiudare a risòlvere problemas cun s\'app.</string>
-    <string name="settings_signal_minimum_label">Calidade mìnima de su signale</string>
+    <string name="settings_eardetection_info_description">Si su riconoschimentu de s\'origra funtzionat isceti pro una corfita, custa est una limitatzione de Apple. Isceti sa \"corfita printzipale\" (impreada pro su micròfonu) est riconnota. Cunfigura in dispositivos Apple: Impostatziones → Bluetooth → AirPods → Micròfonu.</string><string name="settings_signal_minimum_label">Calidade mìnima de su signale</string>
     <string name="settings_signal_minimum_description">Sa calidade mìnima de su signale chi unu dispositivu depet àere pro èssere cunsideradu tuo.</string>
     <string name="settings_autoconnect_label">Cullegamentu automàticu</string>
     <string name="settings_autoconnect_description">Si Android non si cullegat in automàticu, ddu podimus pregontare nois etotu. Custu at a impostare sa cunfiguratzione de sa modalidade de monitoràgiu a \'Sèmper\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
     <string name="settings_debug_autoreports_label">Reportes de errores automàticos</string>
-    <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string>
-    <string name="settings_debug_mode_label">Modalidade debug</string>
-    <string name="settings_debug_mode_description">Mustra informatziones agiuntivas pro risòlvere problemas.</string>
-    <string name="settings_blescanner_unfiltered_label">Datos BLE no filtrados</string>
-    <string name="settings_blescanner_unfiltered_description">Boga cale si siat filtru dae s\'iscaner BLE pro mustrare totu is datos BLE trasmìtidos. Ùtile pro agiùnghere suportu pro tipos de corfitas noos.</string>
-    <string name="settings_compatibility_mode_label">Modalidade de cumpatibilidade</string>
+    <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string><string name="settings_compatibility_mode_label">Modalidade de cumpatibilidade</string>
     <string name="settings_compatibility_mode_description">Disativa otimizatziones pro megiorare sa cumpatibilidade. Proa custu si non ses bidende perunu datu.</string>
     <string name="help_translate_label">Tradutzione</string>
     <string name="help_translate_description">Agiuda a traduire custa app in sa limba tua preferida.</string>

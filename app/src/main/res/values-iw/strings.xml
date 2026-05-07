@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
     <string name="settings_autoplay_description">התחלת ניגון אודיו בלבישת המכשיר.</string>
     <string name="settings_eardetection_info_label">הערה לגבי זיהוי אוזן</string>
-    <string name="settings_eardetection_info_description">אם זיהוי אוזן עובד רק עבור אוזניה אחת, זוהי מגבלה של Apple. רק \"האוזניה הראשית\" (המשמשת למיקרופון) מזוהה. הגדר במכשירי Apple: הגדרות → Bluetooth → AirPods → מיקרופון.</string>
-    <string name="settings_fake_data_label">נתונים מזויפים</string>
-    <string name="settings_fake_data_description">הצגת נתונים מזויפים, לרבות, הדמיית מכשירים שאינם קיימים.</string>
-    <string name="settings_debug_label">הגדרות ניפוי באגים</string>
-    <string name="settings_debug_description">הגדרות נוספות שיסייעו בפתרון בעיות באפליקציה.</string>
-    <string name="settings_signal_minimum_label">איכות אות מינימלית</string>
+    <string name="settings_eardetection_info_description">אם זיהוי אוזן עובד רק עבור אוזניה אחת, זוהי מגבלה של Apple. רק \"האוזניה הראשית\" (המשמשת למיקרופון) מזוהה. הגדר במכשירי Apple: הגדרות → Bluetooth → AirPods → מיקרופון.</string><string name="settings_signal_minimum_label">איכות אות מינימלית</string>
     <string name="settings_signal_minimum_description">איכות האות המינימלית שמכשיר צריך להתחשב עבורך.</string>
     <string name="settings_autoconnect_label">חיבור אוטומטי</string>
     <string name="settings_autoconnect_description">אם אנדרואיד לא מתחבר אוטומטית, אנחנו גם יכולים לבקש זאת. פעולה זו תגדיר את הגדרת מצב ניתור ל\'תמיד\'.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
     <string name="settings_acknowledgements_label">תודות</string>
     <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
-    <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
-    <string name="settings_debug_mode_label">מצב ניפוי באגים</string>
-    <string name="settings_debug_mode_description">הצג מידע נוסף לפתרון בעיות.</string>
-    <string name="settings_blescanner_unfiltered_label">נתוני BLE לא מפולטרים</string>
-    <string name="settings_blescanner_unfiltered_description">הסר מסננים מסורק BLE כדי להציג את כל נתוני BLE ששודרו. שימושי להוספת תמיכה בסוגי אוזניות חדשים.</string>
-    <string name="settings_compatibility_mode_label">מצב תאימות</string>
+    <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string><string name="settings_compatibility_mode_label">מצב תאימות</string>
     <string name="settings_compatibility_mode_description">נטרול אופטימיזציה לשיפור התאימות. נסו את זה אם לא מוצגים נתונים כלל.</string>
     <string name="help_translate_label">תרגום</string>
     <string name="help_translate_description">עזרו בתרגום אפליקציה זו לשפה המועדפת עליכם.</string>

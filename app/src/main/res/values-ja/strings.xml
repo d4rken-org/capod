@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">自動再生</string>
     <string name="settings_autoplay_description">デバイスを装着するとオーディオ再生を開始します。</string>
     <string name="settings_eardetection_info_label">耳検出に関する注意</string>
-    <string name="settings_eardetection_info_description">耳検出が片方のpodでしか動作しない場合、これはAppleの制限です。検出されるのは「primary pod」（マイクに使われる側）だけです。Appleデバイスで設定してください: 設定 → Bluetooth → AirPods → マイク。</string>
-    <string name="settings_fake_data_label">偽のデータ</string>
-    <string name="settings_fake_data_description">偽のデータを表示します。つまり、存在しないデバイスをシミュレートします。</string>
-    <string name="settings_debug_label">デバッグ設定</string>
-    <string name="settings_debug_description">アプリの問題のトラブルシューティングに役立つ追加設定。</string>
-    <string name="settings_signal_minimum_label">最小信号品質</string>
+    <string name="settings_eardetection_info_description">耳検出が片方のpodでしか動作しない場合、これはAppleの制限です。検出されるのは「primary pod」（マイクに使われる側）だけです。Appleデバイスで設定してください: 設定 → Bluetooth → AirPods → マイク。</string><string name="settings_signal_minimum_label">最小信号品質</string>
     <string name="settings_signal_minimum_description">デバイスがあなたのものと見なされるために必要な最小信号品質。</string>
     <string name="settings_autoconnect_label">自動接続</string>
     <string name="settings_autoconnect_description">Androidが自動的に接続しない場合、私たちもそれを要求できます。これにより、モニターモードの設定が「常に」に設定されます。</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">アプリ全体に影響する一般的な調整。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
     <string name="settings_debug_autoreports_label">自動バグレポート</string>
-    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
-    <string name="settings_debug_mode_label">デバッグモード</string>
-    <string name="settings_debug_mode_description">問題のトラブルシューティングのために追加情報を表示します。</string>
-    <string name="settings_blescanner_unfiltered_label">未フィルタリングBLEデータ</string>
-    <string name="settings_blescanner_unfiltered_description">BLEスキャナーからすべてのフィルターを削除して、ブロードキャストされたすべてのBLEデータを表示します。新しいタイプのヘッドフォンのサポートを追加するのに役立ちます。</string>
-    <string name="settings_compatibility_mode_label">互換モード</string>
+    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string><string name="settings_compatibility_mode_label">互換モード</string>
     <string name="settings_compatibility_mode_description">互換性を向上させるために最適化を無効にします。データが表示されない場合は、これを試してください。</string>
     <string name="help_translate_label">翻訳</string>
     <string name="help_translate_description">このアプリをあなたの好きな言語に翻訳するのを手伝ってください。</string>

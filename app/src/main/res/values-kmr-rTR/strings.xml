@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Lîstina otomatîk</string>
     <string name="settings_autoplay_description">Dema ku amûr li xwe kirî ye, lîstina deng dest pê bike.</string>
     <string name="settings_eardetection_info_label">Nîşeya tespîtkirina guhê</string>
-    <string name="settings_eardetection_info_description">Heke tespîtkirina guhê tenê ji bo yek podê dixebite, ev sînordariya Apple ye. Tenê \"poda sereke\" (ji bo mîkrofonê tê bikaranîn) tê tespîtkirin. Li ser amûrên Apple saz bikin: Mîheng → Bluetooth → AirPods → Mîkrofon.</string>
-    <string name="settings_fake_data_label">Daneyên sexte</string>
-    <string name="settings_fake_data_description">Daneyên sexte nîşan bide, ango amûrên ku tune ne simul bike.</string>
-    <string name="settings_debug_label">Mîhengên çareserkirinê</string>
-    <string name="settings_debug_description">Mîhengên zêde ji bo alîkariya çareserkirina pirsgirêkên bi sepanê re.</string>
-    <string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
+    <string name="settings_eardetection_info_description">Heke tespîtkirina guhê tenê ji bo yek podê dixebite, ev sînordariya Apple ye. Tenê \"poda sereke\" (ji bo mîkrofonê tê bikaranîn) tê tespîtkirin. Li ser amûrên Apple saz bikin: Mîheng → Bluetooth → AirPods → Mîkrofon.</string><string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
     <string name="settings_signal_minimum_description">Qalîteya sînyala herî kêm a ku divê amûrek hebe da ku ya we were hesibandin.</string>
     <string name="settings_autoconnect_label">Girêdana otomatîk</string>
     <string name="settings_autoconnect_description">Heke Android bixweber girê nede, em jî dikarin jê bixwazin. Ev ê mîhenga moda çavdêriyê bike \"Herdem\".</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
     <string name="settings_acknowledgements_label">Spasdarî</string>
     <string name="settings_debug_autoreports_label">Raporên xeletiyan ên otomatîk</string>
-    <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string>
-    <string name="settings_debug_mode_label">Moda çareserkirinê</string>
-    <string name="settings_debug_mode_description">Ji bo çareserkirina pirsgirêkan agahdariya zêde nîşan bide.</string>
-    <string name="settings_blescanner_unfiltered_label">Daneyên BLE yên neparzandî</string>
-    <string name="settings_blescanner_unfiltered_description">Hemî parzûnan ji skanera BLE rakin da ku hemî daneyên BLE yên weşandî nîşan bidin. Ji bo lêzêdekirina piştgiriyê ji bo cûreyên nû yên guhêran bikêr e.</string>
-    <string name="settings_compatibility_mode_label">Moda lihevhatinê</string>
+    <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string><string name="settings_compatibility_mode_label">Moda lihevhatinê</string>
     <string name="settings_compatibility_mode_description">Ji bo baştirkirina lihevhatinê xweşbîniyan neçalak bikin. Heke hûn tu daneyan nabînin vê biceribînin.</string>
     <string name="help_translate_label">Werger</string>
     <string name="help_translate_description">Alîkariya wergerandina vê sepanê li zimanê xwe yê bijare bikin.</string>

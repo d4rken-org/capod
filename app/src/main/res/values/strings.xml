@@ -56,10 +56,6 @@
     <string name="settings_start_music_on_wear_description">Always tries to play music when you put your pods on, even after a manual pause.</string>
     <string name="settings_eardetection_info_label">Ear detection note</string>
     <string name="settings_eardetection_info_description">If ear detection only works for one pod, this is an Apple limitation. Only the \"primary pod\" (used for microphone) is detected. Configure on Apple devices: Settings → Bluetooth → AirPods → Microphone.</string>
-    <string name="settings_fake_data_label">Fake data</string>
-    <string name="settings_fake_data_description">Show fake data, i.e., simulate devices that don\’t exist.</string>
-    <string name="settings_debug_label">Debug settings</string>
-    <string name="settings_debug_description">Additional settings to help troubleshoot issues with the app.</string>
     <string name="settings_signal_minimum_label">Minimum signal quality</string>
     <string name="settings_signal_minimum_description">The minimum signal quality that a device needs to have to be considered yours.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
@@ -135,11 +131,6 @@
 
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>
     <string name="settings_debug_autoreports_description">Automatically reports issues, e.g. details on an app crash so I can figure out how to fix it.</string>
-    <string name="settings_debug_mode_label">Debug mode</string>
-    <string name="settings_debug_mode_description">Show additional information to troubleshoot issues.</string>
-
-    <string name="settings_blescanner_unfiltered_label">Unfiltered BLE data</string>
-    <string name="settings_blescanner_unfiltered_description">Remove any filters from the BLE scanner to show all broadcasted BLE data. Useful to add support for new headphone types.</string>
 
     <string name="settings_compatibility_mode_label">Compatibility mode</string>
     <string name="settings_compatibility_mode_description">Disable optimizations to improve compatibility. Try this if you are not seeing any data.</string>

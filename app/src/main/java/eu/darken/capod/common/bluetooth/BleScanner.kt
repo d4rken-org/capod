@@ -33,7 +33,6 @@ import javax.inject.Singleton
 class BleScanner @Inject constructor(
     @ApplicationContext private val context: Context,
     private val bluetoothManager: BluetoothManager2,
-    private val fakeBleData: FakeBleData,
     private val scanResultForwarder: BleScanResultForwarder,
     private val timeSource: TimeSource,
 ) {
@@ -206,7 +205,6 @@ class BleScanner @Inject constructor(
             log(TAG) { "BleScanner stopped" }
         }
     }
-        .map { fakeBleData.maybeAddfakeData(it) }
 
     private val receiverIntent by lazy {
         Intent(context, BleScanResultReceiver::class.java).apply {

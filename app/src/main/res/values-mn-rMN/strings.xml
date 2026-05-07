@@ -49,12 +49,7 @@
     <string name="settings_autopplay_label">Автомат тоглуулах</string>
     <string name="settings_autoplay_description">Төхөөрөмжийг зүүсэн үед дуу тоглуулалтыг эхлүүлнэ.</string>
     <string name="settings_eardetection_info_label">Чих илрүүлэлтийн тэмдэглэл</string>
-    <string name="settings_eardetection_info_description">Хэрэв чих илрүүлэлт зөвхөн нэг чихэвчинд ажиллаж байвал энэ нь Apple-ийн хязгаарлалт юм. Зөвхөн \"үндсэн чихэвч\" (микрофонд ашигладаг) илрүүлэгдэнэ. Apple төхөөрөмжүүд дээр тохируулах: Тохиргоо → Bluetooth → AirPods → Микрофон.</string>
-    <string name="settings_fake_data_label">Хуурамч өгөгдөл</string>
-    <string name="settings_fake_data_description">Хуурамч өгөгдлийг харуулна, өөрөөр хэлбэл байхгүй төхөөрөмжүүдийг дуурайлган харуулна.</string>
-    <string name="settings_debug_label">Дибаг тохиргоо</string>
-    <string name="settings_debug_description">Апп-тай холбоотой асуудлыг шийдвэрлэхэд туслах нэмэлт тохиргоонууд.</string>
-    <string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
+    <string name="settings_eardetection_info_description">Хэрэв чих илрүүлэлт зөвхөн нэг чихэвчинд ажиллаж байвал энэ нь Apple-ийн хязгаарлалт юм. Зөвхөн \"үндсэн чихэвч\" (микрофонд ашигладаг) илрүүлэгдэнэ. Apple төхөөрөмжүүд дээр тохируулах: Тохиргоо → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
     <string name="settings_signal_minimum_description">Төхөөрөмж таных гэж тооцогдохын тулд байх ёстой дохионы хамгийн бага чанар.</string>
     <string name="settings_autoconnect_label">Автомат холболт</string>
     <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид ч бас хүсэлт гаргаж болно. Энэ нь хяналтын горимын тохиргоог \"Үргэлж\" болгож тохируулна.</string>
@@ -117,12 +112,7 @@
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
-    <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
-    <string name="settings_debug_mode_label">Дибаг горим</string>
-    <string name="settings_debug_mode_description">Асуудлыг шийдвэрлэхэд зориулж нэмэлт мэдээлэл харуулна.</string>
-    <string name="settings_blescanner_unfiltered_label">Шүүлтүүргүй BLE өгөгдөл</string>
-    <string name="settings_blescanner_unfiltered_description">Бүх цацагдсан BLE өгөгдлийг харуулахын тулд BLE сканнерээс бүх шүүлтүүрийг арилгана. Шинэ төрлийн чихэвчний дэмжлэгийг нэмэхэд хэрэгтэй.</string>
-    <string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
+    <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string><string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
     <string name="settings_compatibility_mode_description">Тохиромжтой байдлыг сайжруулахын тулд оновчлолыг идэвхгүй болгоно. Хэрэв та ямар ч өгөгдөл харахгүй байвал үүнийг туршиж үзнэ үү.</string>
     <string name="help_translate_label">Орчуулга</string>
     <string name="help_translate_description">Энэ апп-г дуртай хэл рүүгээ орчуулахад тусална уу.</string>

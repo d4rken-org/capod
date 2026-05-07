@@ -126,11 +126,6 @@ class GeneralSettingsViewModel @Inject constructor(
         navTo(Nav.Main.Upgrade)
     }
 
-    fun goToDebugSettings() {
-        log(TAG, INFO) { "goToDebugSettings()" }
-        navTo(Nav.Settings.Debug)
-    }
-
     companion object {
         private val TAG = logTag("Settings", "General", "VM")
     }
