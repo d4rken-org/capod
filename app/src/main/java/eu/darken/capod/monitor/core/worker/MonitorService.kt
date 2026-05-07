@@ -15,7 +15,6 @@ import eu.darken.capod.common.bluetooth.BluetoothAddress
 import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.coroutine.DispatcherProvider
-import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
@@ -89,6 +88,10 @@ class MonitorService : Service() {
     @Volatile private var monitorGeneration = 0
     private var foregroundStartFailed = false
     private var injectionComplete = false
+
+    @Volatile
+    private var latestNotificationSettings: NotificationSettings =
+        NotificationSettings(useExtraNotification = false, keepAfterDisconnect = false)
 
     @SuppressLint("InlinedApi")
     private fun promoteToForeground(notification: Notification): Boolean {
@@ -190,27 +193,53 @@ class MonitorService : Service() {
     }
 
     private suspend fun doMonitor() {
+        // Seed snapshot eagerly so onDestroy() has correct values even if we abort below.
+        latestNotificationSettings = NotificationSettings(
+            useExtraNotification = generalSettings.useExtraMonitorNotification.flow.first(),
+            keepAfterDisconnect = generalSettings.keepConnectedNotificationAfterDisconnect.flow.first(),
+        )
+
         val permissionsMissingOnStart = permissionTool.missingScanPermissions.first()
         if (permissionsMissingOnStart.isNotEmpty()) {
             log(TAG, WARN) { "Aborting, missing scan permissions: $permissionsMissingOnStart" }
             return
         }
 
-        val monitorJob = deviceMonitor.primaryDevice()
+        val deviceFlow = deviceMonitor.primaryDevice()
             .setupCommonEventHandlers(TAG) { "BlePodMonitor" }
             .distinctUntilChangedBy { it?.toNotificationKey() }
             .throttleLatest(1000)
-            .onEach { currentDevice ->
-                val useExtraNotification = generalSettings.useExtraMonitorNotification.valueBlocking
+
+        val notificationSettingsFlow = combine(
+            generalSettings.useExtraMonitorNotification.flow,
+            generalSettings.keepConnectedNotificationAfterDisconnect.flow,
+        ) { useExtra, keepAfter ->
+            NotificationSettings(useExtraNotification = useExtra, keepAfterDisconnect = keepAfter)
+        }
+
+        val monitorJob = combine(deviceFlow, notificationSettingsFlow) { currentDevice, settings ->
+            currentDevice to settings
+        }
+            .onEach { (currentDevice, settings) ->
+                latestNotificationSettings = settings
+
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,
-                    notifications.getNotification(currentDevice, showHint = useExtraNotification),
+                    notifications.getNotification(
+                        currentDevice,
+                        showHint = settings.useExtraNotification,
+                    ),
                 )
-                if (generalSettings.useExtraMonitorNotification.valueBlocking && currentDevice != null) {
-                    notificationManager.notify(
+
+                when (val action = decideExtraNotificationAction(currentDevice, settings)) {
+                    is ExtraNotificationAction.Post -> notificationManager.notify(
                         MonitorNotifications.NOTIFICATION_ID_CONNECTED,
-                        notifications.getNotificationConnected(currentDevice),
+                        notifications.getNotificationConnected(action.device),
                     )
+                    ExtraNotificationAction.Cancel -> notificationManager.cancel(
+                        MonitorNotifications.NOTIFICATION_ID_CONNECTED
+                    )
+                    ExtraNotificationAction.KeepExisting -> Unit
                 }
             }
             .catch {
@@ -312,7 +341,8 @@ class MonitorService : Service() {
         monitorScope.cancel("Service destroyed")
 
         if (injectionComplete) {
-            if (generalSettings.useExtraMonitorNotification.valueBlocking && !generalSettings.keepConnectedNotificationAfterDisconnect.valueBlocking) {
+            val snapshot = latestNotificationSettings
+            if (snapshot.useExtraNotification && !snapshot.keepAfterDisconnect) {
                 try {
                     notificationManager.cancel(MonitorNotifications.NOTIFICATION_ID_CONNECTED)
                 } catch (e: Exception) {
@@ -365,6 +395,7 @@ private data class NotificationDeviceKey(
     val profileId: String?,
     val label: String?,
     val model: PodModel,
+    val isLive: Boolean,
     val hasDualPods: Boolean,
     val hasCase: Boolean,
     val hasEarDetection: Boolean,
@@ -389,6 +420,7 @@ private fun PodDevice.toNotificationKey(): NotificationDeviceKey = NotificationD
     profileId = profileId,
     label = label,
     model = model,
+    isLive = isLive,
     hasDualPods = hasDualPods,
     hasCase = hasCase,
     hasEarDetection = hasEarDetection,
@@ -408,3 +440,24 @@ private fun PodDevice.toNotificationKey(): NotificationDeviceKey = NotificationD
     rightPodIcon = rightPodIcon,
     caseIcon = caseIcon,
 )
+
+internal data class NotificationSettings(
+    val useExtraNotification: Boolean,
+    val keepAfterDisconnect: Boolean,
+)
+
+internal sealed interface ExtraNotificationAction {
+    object Cancel : ExtraNotificationAction
+    data class Post(val device: PodDevice) : ExtraNotificationAction
+    object KeepExisting : ExtraNotificationAction
+}
+
+internal fun decideExtraNotificationAction(
+    device: PodDevice?,
+    settings: NotificationSettings,
+): ExtraNotificationAction = when {
+    !settings.useExtraNotification -> ExtraNotificationAction.Cancel
+    device != null && device.isLive -> ExtraNotificationAction.Post(device)
+    settings.keepAfterDisconnect -> ExtraNotificationAction.KeepExisting
+    else -> ExtraNotificationAction.Cancel
+}
