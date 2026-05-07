@@ -66,15 +66,24 @@ class MediaControl @Inject constructor(
     /**
      * Dispatches a MEDIA_PAUSE key event if music is currently playing.
      *
-     * Returns `true` when a key event was actually dispatched (and the [wasRecentlyPausedByCap]
-     * flag was set), `false` when the call was a no-op because nothing was playing. Callers that
-     * need to distinguish "we actually paused" from "there was nothing to pause" — e.g. the sleep
-     * reaction, which gates its notification and cooldown on a real pause — should branch on the
-     * return value rather than checking [isPlaying] themselves to avoid a check-then-act race
-     * with the audio system.
+     * @param rememberForResume When `true`, arms [wasRecentlyPausedByCap] so a subsequent
+     * pod-in transition can auto-resume — set this only from the auto-pause / ear-detection
+     * flow. When `false` (default), the dispatched pause clears any pending auto-resume —
+     * this is the path for stem-press play/pause, sleep detection, and anywhere else CAPod
+     * is relaying an explicit user choice to stop playback. Matches Apple's iOS/macOS
+     * behavior where only ear-removal auto-pauses are eligible for auto-resume.
+     *
+     * Returns `true` when a key event was actually dispatched, `false` when the call was a
+     * no-op because nothing was playing. A no-op leaves the existing flag state untouched
+     * (so a sleep-reaction firing while music is already paused doesn't accidentally cancel
+     * a pending auto-resume from a recent ear-removal pause). Callers that need to
+     * distinguish "we actually paused" from "there was nothing to pause" — e.g. the sleep
+     * reaction, which gates its notification and cooldown on a real pause — should branch
+     * on the return value rather than checking [isPlaying] themselves to avoid a
+     * check-then-act race with the audio system.
      */
-    suspend fun sendPause(): Boolean {
-        log(TAG, INFO) { "sendPause()" }
+    suspend fun sendPause(rememberForResume: Boolean = false): Boolean {
+        log(TAG, INFO) { "sendPause(rememberForResume=$rememberForResume)" }
         if (!audioManager.isMusicActive) {
             log(TAG, INFO) { "Music is not playing, not sending pause" }
             return false
@@ -82,11 +91,22 @@ class MediaControl @Inject constructor(
         // Set BEFORE the suspending sendKey() call. If we set after, an inactive→active
         // playback callback that fires during the dispatch (e.g. a fast user resume on the
         // phone, or another app grabbing audio focus and immediately starting) could clear
-        // capPaused, and then we'd overwrite it back to true on a stale pause — leaving the
-        // sticky flag set while music is genuinely playing.
-        capPaused = true
+        // capPaused mid-dispatch and we'd then overwrite it back to true on a stale pause.
+        // This single explicit assignment also covers the contract that an explicit user
+        // pause cancels a pending auto-resume.
+        capPaused = rememberForResume
         sendKey(KeyEvent.KEYCODE_MEDIA_PAUSE)
         return true
+    }
+
+    /**
+     * Dispatches MEDIA_STOP and clears any pending auto-resume — Stop is an explicit user
+     * "stay stopped" action, so a later pod-in must not auto-resume from a prior auto-pause.
+     */
+    suspend fun sendStop() {
+        log(TAG, INFO) { "sendStop()" }
+        capPaused = false
+        sendKey(KeyEvent.KEYCODE_MEDIA_STOP)
     }
 
     suspend fun sendPlayPause() {

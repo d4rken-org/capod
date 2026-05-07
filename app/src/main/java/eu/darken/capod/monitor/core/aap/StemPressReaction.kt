@@ -66,7 +66,7 @@ class StemPressReaction @Inject constructor(
             is StemAction.PreviousTrack -> mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_PREVIOUS)
             is StemAction.VolumeUp -> mediaControl.adjustVolumeUp()
             is StemAction.VolumeDown -> mediaControl.adjustVolumeDown()
-            is StemAction.Stop -> mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_STOP)
+            is StemAction.Stop -> mediaControl.sendStop()
             is StemAction.FastForward -> mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD)
             is StemAction.Rewind -> mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_REWIND)
             is StemAction.MuteToggle -> mediaControl.toggleMuteMusic()

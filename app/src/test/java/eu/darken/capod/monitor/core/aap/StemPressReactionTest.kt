@@ -156,7 +156,9 @@ class StemPressReactionTest : BaseTest() {
         events.emit(addressA to StemPressEvent(StemPressEvent.PressType.LONG, StemPressEvent.Bud.LEFT))
         advanceUntilIdle()
 
-        coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_STOP) }
+        // Stop now goes through `sendStop()` (which clears auto-resume + dispatches MEDIA_STOP)
+        // instead of dispatching the raw key — explicit user "stay stopped" intent.
+        coVerify(exactly = 1) { mediaControl.sendStop() }
         coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_FAST_FORWARD) }
         coVerify(exactly = 1) { mediaControl.sendKey(KeyEvent.KEYCODE_MEDIA_REWIND) }
         coVerify(exactly = 1) { mediaControl.toggleMuteMusic() }
