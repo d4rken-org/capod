@@ -11,6 +11,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
@@ -23,9 +24,10 @@ class DataStoreValue<T>(
 ) {
     val keyName: String get() = key.name
 
-    val flow: Flow<T> = dataStore.data.map { prefs ->
-        reader(prefs[key])
-    }
+    val flow: Flow<T> = dataStore.data
+        .map { prefs -> prefs[key] }
+        .distinctUntilChanged()
+        .map { raw -> reader(raw) }
 
     data class Updated<T>(val old: T, val new: T)
 
