@@ -33,7 +33,8 @@ class MonitorModeResolver @Inject constructor(
         .onEach { log(TAG, VERBOSE) { "effectiveMode = $it" } }
 
     private fun DeviceProfile.requiredMode(nudge: NudgeAvailability): MonitorMode = when {
-        address == null -> MonitorMode.MANUAL
+        // Match AutoConnect.kt's isNullOrEmpty check — a blank/legacy "" address is no address.
+        address.isNullOrBlank() -> MonitorMode.MANUAL
         toReactionConfig().autoConnect && nudge != NudgeAvailability.BROKEN -> MonitorMode.ALWAYS
         else -> MonitorMode.AUTOMATIC
     }

@@ -86,6 +86,20 @@ class MonitorModeResolverTest : BaseTest() {
     }
 
     @Test
+    fun `case 4 variant - profile with blank address is treated as unpaired`() = runTest {
+        profilesFlow.value = listOf(profile(address = "", autoConnect = true))
+
+        resolver.effectiveMode.first() shouldBe MonitorMode.MANUAL
+    }
+
+    @Test
+    fun `case 4 variant - profile with whitespace address is treated as unpaired`() = runTest {
+        profilesFlow.value = listOf(profile(address = "   ", autoConnect = true))
+
+        resolver.effectiveMode.first() shouldBe MonitorMode.MANUAL
+    }
+
+    @Test
     fun `multi-profile primary-only - primary case 2 + secondary case 3 - AUTOMATIC`() = runTest {
         profilesFlow.value = listOf(
             profile(id = "primary", autoConnect = false),

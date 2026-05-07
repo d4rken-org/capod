@@ -4,6 +4,7 @@ import eu.darken.capod.common.coroutine.AppScope
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.DataStoreValue
 import eu.darken.capod.common.datastore.value
+import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
@@ -23,11 +24,15 @@ class NudgeCapabilityStore @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
+    // Resolve the persisted value synchronously at construction so consumers that read
+    // `availability.value` (resolver, AutoConnect precondition, UI state) never see the
+    // synthetic UNKNOWN seed before the first DataStore emission arrives. On a known-broken
+    // device this prevents one bonus ALWAYS-mode + nudge-attempt cycle per cold start.
     val availability: StateFlow<NudgeAvailability> = persistedValue.flow
         .stateIn(
             scope = appScope + dispatcherProvider.IO,
             started = SharingStarted.Eagerly,
-            initialValue = NudgeAvailability.UNKNOWN,
+            initialValue = persistedValue.valueBlocking,
         )
 
     fun record(result: NudgeAttemptResult) {
