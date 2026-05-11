@@ -81,8 +81,7 @@ Currently supported models:
 
 ## Screenshots
 
-<img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/1.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/2.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/3.png" width="200"><img src="https://github.com/d4rken-org/capod/raw/main/.assets/screenshots/4.png" width="200">
-<img src="https://raw.githubusercontent.com/d4rken-org/capod/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="200">
+<img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1_dashboard_light.png" width="100"><img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2_dashboard_dark.png" width="100"><img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/3_case_popup.png" width="100"><img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/4_widget_configuration.png" width="100"><img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5_device_profiles.png" width="100"><img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/6_add_profile.png" width="100"><img src="https://github.com/d4rken-org/capod/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/7_device_settings_reactions.png" width="100">
 
 ## Thanks to
 
