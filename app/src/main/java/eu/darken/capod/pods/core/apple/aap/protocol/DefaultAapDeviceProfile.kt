@@ -183,12 +183,24 @@ class DefaultAapDeviceProfile(
             return AapSetting.PmeConfig::class to AapSetting.PmeConfig(sets)
         }
 
-        // Conversation Awareness State is a separate command type (push-only)
+        // Conversation Awareness State is a separate command type (push-only). Two payload shapes
+        // are seen: a legacy single byte, and the 4-byte `02 00 01 <status>` form on Pro 3 fw 81.x.
+        // The status (speaking marker) is the last byte in both — but we validate the shape rather
+        // than blindly taking payload.last(), so a truncated/garbled frame can't be misread as a
+        // speaking transition. Unrecognised shapes return null → logged as an unhandled message.
         if (message.commandType == AapMessageType.CONVERSATIONAL_AWARENESS.value) {
-            if (message.payload.isEmpty()) return null
-            val value = message.payload[0].toInt() and 0xFF
-            val speaking = value == 0x01
-            return AapSetting.ConversationalAwarenessState::class to AapSetting.ConversationalAwarenessState(speaking)
+            val p = message.payload
+            val status = when {
+                p.size == 1 -> p[0].toInt() and 0xFF
+                p.size == 4 &&
+                    p[0] == 0x02.toByte() && p[1] == 0x00.toByte() && p[2] == 0x01.toByte() ->
+                    p[3].toInt() and 0xFF
+                else -> return null
+            }
+            // speaking = the "started/active speaking" statuses (1,2); see ConversationAwarenessEvent.
+            val speaking = status in ConversationAwarenessEvent.SPEAKING_STATUSES
+            return AapSetting.ConversationalAwarenessState::class to
+                AapSetting.ConversationalAwarenessState(speaking, rawValue = status)
         }
 
         if (message.commandType != AapMessageType.CONTROL.value) return null

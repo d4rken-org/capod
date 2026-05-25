@@ -2,8 +2,10 @@ package eu.darken.capod.common
 
 import android.media.AudioManager
 import android.media.AudioPlaybackConfiguration
+import android.os.Build
 import android.view.KeyEvent
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import kotlinx.coroutines.delay
@@ -156,6 +158,70 @@ class MediaControl @Inject constructor(
             AudioManager.FLAG_SHOW_UI,
         )
     }
+
+    /** Current STREAM_MUSIC volume index. Used to detect user-initiated volume changes after a duck. */
+    fun currentMusicVolume(): Int = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+    /**
+     * Lowers STREAM_MUSIC volume by [reductionPercent] (relative to the current level) and returns
+     * the prior + the volume actually applied, so the caller can later restore it and detect whether
+     * the user changed the volume in the meantime.
+     *
+     * Returns `null` (no-op) when nothing is playing, the device has fixed volume, or the computed
+     * target wouldn't actually lower the volume. No [AudioManager.FLAG_SHOW_UI] — this fires on a
+     * frequent push event and the volume panel flashing would be noisy. The applied target is read
+     * back from the system because Bluetooth absolute-volume routes can quantize the requested value.
+     */
+    fun duckMusicVolume(reductionPercent: Int): VolumeDuck? {
+        if (!audioManager.isMusicActive) {
+            log(TAG, INFO) { "duckMusicVolume: nothing playing, skipping" }
+            return null
+        }
+        if (audioManager.isVolumeFixed) {
+            log(TAG, INFO) { "duckMusicVolume: device has fixed volume, skipping" }
+            return null
+        }
+        val percent = reductionPercent.coerceIn(0, 100)
+        val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val min = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            audioManager.getStreamMinVolume(AudioManager.STREAM_MUSIC)
+        } else {
+            0
+        }
+        val prior = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+        val target = (prior * (100 - percent) / 100).coerceIn(min, max)
+        if (target >= prior) {
+            log(TAG, INFO) { "duckMusicVolume: target $target >= current $prior, skipping" }
+            return null
+        }
+        return try {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, target, 0)
+            val applied = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+            log(TAG, INFO) { "duckMusicVolume($percent%): $prior -> $applied (requested $target)" }
+            VolumeDuck(priorVolume = prior, appliedVolume = applied)
+        } catch (e: SecurityException) {
+            // setStreamVolume throws under Do-Not-Disturb without notification policy access.
+            log(TAG, WARN) { "duckMusicVolume: setStreamVolume denied: ${e.message}" }
+            null
+        }
+    }
+
+    /** Restores STREAM_MUSIC to [priorVolume]. No-op on fixed-volume devices; denials are logged. */
+    fun restoreMusicVolume(priorVolume: Int) {
+        if (audioManager.isVolumeFixed) return
+        try {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, priorVolume, 0)
+            log(TAG, INFO) { "restoreMusicVolume($priorVolume)" }
+        } catch (e: SecurityException) {
+            log(TAG, WARN) { "restoreMusicVolume: setStreamVolume denied: ${e.message}" }
+        }
+    }
+
+    /** Snapshot of a volume duck so the caller can restore the prior level and detect user changes. */
+    data class VolumeDuck(
+        val priorVolume: Int,
+        val appliedVolume: Int,
+    )
 
     companion object {
         private val TAG = logTag("MediaControl")

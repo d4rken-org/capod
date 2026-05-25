@@ -5,6 +5,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.conversation.ConversationAction
 import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
@@ -31,6 +32,8 @@ data class AppleDeviceProfile(
     @SerialName("reactionAutoConnectCondition") val autoConnectCondition: AutoConnectCondition = AutoConnectCondition.WHEN_SEEN,
     @SerialName("reactionShowPopUpOnCaseOpen") val showPopUpOnCaseOpen: Boolean = false,
     @SerialName("reactionShowPopUpOnConnection") val showPopUpOnConnection: Boolean = false,
+    @SerialName("reactionConversationAction") val conversationAction: ConversationAction = ConversationAction.NOTHING,
+    @SerialName("reactionConversationVolumeReduction") val conversationVolumeReduction: Int = ReactionConfig.DEFAULT_CONVERSATION_VOLUME_REDUCTION,
     /**
      * Last-known device-side AllowOffOption (AAP setting 0x34). Persisted so the UI can honor
      * the learned value across sessions — AAP state is dropped on disconnect, but whether OFF
@@ -56,6 +59,8 @@ data class AppleDeviceProfile(
             autoConnectCondition = autoConnectCondition,
             showPopUpOnCaseOpen = showPopUpOnCaseOpen,
             showPopUpOnConnection = showPopUpOnConnection,
+            conversationAction = conversationAction,
+            conversationVolumeReduction = conversationVolumeReduction,
         )
 
     override fun toString(): String = "AppleDeviceProfile(" +
@@ -69,6 +74,8 @@ data class AppleDeviceProfile(
         "autoConnectCondition=$autoConnectCondition, " +
         "showPopUpOnCaseOpen=$showPopUpOnCaseOpen, " +
         "showPopUpOnConnection=$showPopUpOnConnection, " +
+        "conversationAction=$conversationAction, " +
+        "conversationVolumeReduction=$conversationVolumeReduction, " +
         "learnedAllowOffEnabled=$learnedAllowOffEnabled, " +
         "lastRequestedListeningModeCycleMask=$lastRequestedListeningModeCycleMask, " +
         "stemActions=$stemActions" +

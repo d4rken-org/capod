@@ -42,6 +42,7 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction
+import eu.darken.capod.reaction.core.conversation.ConversationReaction
 import eu.darken.capod.reaction.core.sleep.SleepReaction
 import eu.darken.capod.reaction.ui.popup.PopUpWindow
 import kotlinx.coroutines.CancellationException
@@ -78,6 +79,7 @@ class MonitorService : Service() {
     @Inject lateinit var autoConnect: AutoConnect
     @Inject lateinit var popUpReaction: PopUpReaction
     @Inject lateinit var sleepReaction: SleepReaction
+    @Inject lateinit var conversationReaction: ConversationReaction
     @Inject lateinit var popUpWindow: PopUpWindow
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject lateinit var aapConnectionManager: AapConnectionManager
@@ -329,6 +331,11 @@ class MonitorService : Service() {
         sleepReaction.monitor()
             .setupCommonEventHandlers(TAG) { "sleepReaction" }
             .catch { log(TAG, WARN) { "sleepReaction failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
+        conversationReaction.monitor()
+            .setupCommonEventHandlers(TAG) { "conversationReaction" }
+            .catch { log(TAG, WARN) { "conversationReaction failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
         log(TAG, VERBOSE) { "Monitor job is active" }
