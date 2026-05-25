@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automatinė pauzė</string>
     <string name="settings_autopause_description">Pristabdyti garsą išėmus įrenginį iš ausies.</string>
     <string name="settings_autopplay_label">Automatinis grojimas</string>
-    <string name="settings_autoplay_description">Pradėti garso atkūrimą, kai įrenginys nešiojamas.</string>
+    <string name="settings_autoplay_description">Tęsti muziką vėl užsidėjus ausines, bet tik jei ją sustabdė automatinis pristabdymas. Pristabdymai, kuriuos inicijavote patys (telefonas, AirPods koteliai, miegas), lieka pristabdyti.</string>
+    <string name="settings_start_music_on_wear_label">Pradėti muziką užsidėjus</string>
+    <string name="settings_start_music_on_wear_description">Visada bando paleisti muziką, kai užsidedatе ausines, net po rankinio pristabdymo.</string>
     <string name="settings_eardetection_info_label">Ausies aptikimo pastaba</string>
-    <string name="settings_eardetection_info_description">Jei ausies aptikimas veikia tik vienam „pod\", tai yra „Apple\" apribojimas. Aptinkamas tik „pagrindinis pod\" (naudojamas mikrofonui). Konfigūruokite „Apple\" įrenginiuose: Nustatymai → „Bluetooth\" → „AirPods\" → Mikrofonas.</string><string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
+    <string name="settings_eardetection_info_description">Jei ausies aptikimas veikia tik vienam „pod\", tai yra „Apple\" apribojimas. Aptinkamas tik „pagrindinis pod\" (naudojamas mikrofonui). Konfigūruokite „Apple\" įrenginiuose: Nustatymai → „Bluetooth\" → „AirPods\" → Mikrofonas.</string>
+    <string name="settings_signal_minimum_label">Minimali signalo kokybė</string>
     <string name="settings_signal_minimum_description">Minimali signalo kokybė, kurią turi turėti įrenginys, kad būtų laikomas jūsų.</string>
     <string name="settings_autoconnect_label">Automatinis prisijungimas</string>
     <string name="settings_autoconnect_description">Jei „Android“ neprisijungia automatiškai, mes taip pat galime to paprašyti. Tai nustatys stebėjimo režimo nustatymą į \"Visada\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
     <string name="settings_acknowledgements_label">Padėkos</string>
     <string name="settings_debug_autoreports_label">Automatinės klaidų ataskaitos</string>
-    <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string><string name="settings_compatibility_mode_label">Suderinamumo režimas</string>
+    <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string>
+    <string name="settings_compatibility_mode_label">Suderinamumo režimas</string>
     <string name="settings_compatibility_mode_description">Išjunkite optimizavimą, kad pagerintumėte suderinamumą. Išbandykite tai, jei nematote jokių duomenų.</string>
     <string name="help_translate_label">Vertimas</string>
     <string name="help_translate_description">Padėkite išversti šią programą į savo mėgstamą kalbą.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Šiam valdikliui reikalingas tiesioginis ryšys (AAP) su jūsų įrenginiu. Prieš naudodami šį valdiklį, įsitikinkite, kad įrenginys yra susietas ir prijungtas programoje.</string>
     <string name="anc_widget_no_anc_support_label">Šis įrenginys nepalaiko triukšmo valdymo</string>
     <string name="anc_widget_aap_not_connected_label">Neprijungta</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Šalia, bet neprijungta</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nešalia</string>
     <string name="anc_widget_aap_connecting_label">Jungiamasi…</string>
+    <string name="tile_anc_label">Triukšmo valdymas</string>
+    <string name="tile_anc_subtitle_permission_required">Reikalingas leidimas</string>
+    <string name="tile_anc_subtitle_no_device">Nėra įrenginio</string>
+    <string name="tile_anc_subtitle_no_anc_support">Nėra triukšmo valdymo</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth išjungtas</string>
     <string name="widget_config_screen_title">Valdiklio konfigūracija</string>
     <string name="widget_configuration_title">Pasirinkite įrenginį</string>
     <string name="widget_configuration_description">Pasirinkite, kurio įrenginio profilį šis valdiklis turėtų rodyti.</string>
@@ -241,6 +252,11 @@
     <string name="anc_mode_transparency">Skaidrumas</string>
     <string name="anc_mode_adaptive">Adaptyvus</string>
     <string name="conversation_awareness_label">Pokalbių atpažinimas</string>
+    <string name="settings_conversation_action_label">Kai pradedate kalbėti</string>
+    <string name="settings_conversation_action_nothing_label">Nieko nedaryti</string>
+    <string name="settings_conversation_action_lower_volume_label">Sumažinti garsų</string>
+    <string name="settings_conversation_action_pause_label">Pristabdyti mediją</string>
+    <string name="settings_conversation_volume_reduction_label">Garsumo mažinimas</string>
     <string name="signal_badge_ble_cd">BLE nuskaitymas aktyvus</string>
     <string name="signal_badge_key_irk_cd">Tapatybė patvirtinta</string>
     <string name="signal_badge_key_encrypted_cd">Šifruotas ryšys</string>
@@ -390,7 +406,7 @@
     <string name="support_contact_sent_title">El. laiškas išsiųstas?</string>
     <string name="support_contact_sent_message">Ar el. laiškas buvo sėkmingai išsiųstas? Pridėtas derinimo žurnalas bus ištrintas.</string>
     <!-- Device Settings -->
-    <string name="device_settings_title">Ĭrenginio nustatymai</string>
+    <string name="device_settings_title">Įrenginio nustatymai</string>
     <string name="device_settings_subtitle_profile_prefix">Profilis: %s</string>
     <string name="device_settings_info_name_label">Pavadinimas</string>
     <string name="device_settings_info_bt_name_label">Bluetooth įrenginio žnyma</string>
@@ -462,7 +478,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Bendrieji</string>
     <string name="device_settings_microphone_mode_label">Mikrofonas</string>
-    <string name="device_settings_microphone_mode_description">Kuris AirPod naudojamas kaip mikrofonas</string>
+    <string name="device_settings_microphone_mode_description">Kuris ausinis naudojamas kaip mikrofonas</string>
     <string name="device_settings_microphone_mode_auto">Automatinis</string>
     <string name="device_settings_microphone_mode_right">Dešinė</string>
     <string name="device_settings_microphone_mode_left">Kairė</string>
@@ -485,7 +501,7 @@
     <string name="reaction_sleep_notification_title">Pristabdyta miego aptikimo</string>
     <string name="reaction_sleep_notification_text">%1$s pranešė, kad užmigote, todėl jūsų muzika buvo pristabdyta. Tai galite išjungti įrenginio nustatymuose.</string>
     <string name="device_settings_rename_label">Pervadinti</string>
-    <string name="device_settings_rename_hint">Ĭrenginio pavadinimas</string>
+    <string name="device_settings_rename_hint">Įrenginio pavadinimas</string>
     <string name="device_settings_rename_confirm">Pervadinti</string>
     <string name="device_settings_rename_invalid_ascii">Palaikomi tik ASCII simboliai</string>
     <string name="device_settings_rename_system_unavailable_title">Pervadinimas nebaigtas</string>
@@ -499,7 +515,7 @@
     <string name="device_settings_charge_cap_rejected_message">Optimizuoto įkrovimo limito nepavyko pakeisti. Tai eksperimentinė funkcija – praneškite, jei ji toliau neveikia.</string>
     <string name="device_settings_category_connections_label">Prijungti įrenginiai</string>
     <string name="device_settings_connected_devices_description">Kiti šiuo metu prijungti prie šių AirPods įrenginiai</string>
-    <string name="device_settings_connected_device_label">Ĭrenginys %d</string>
+    <string name="device_settings_connected_device_label">Įrenginys %d</string>
     <string name="device_settings_connected_device_call">Skambučio metu</string>
     <string name="device_settings_connected_device_media">Groja medija</string>
     <string name="device_settings_noise_control_label">Triukšmo valdymas</string>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="foss_upgrade_donate_label">تبرُّع</string>
-    <string name="foss_upgrade_alreadydonated_label">أنا متبرع بالفعل</string>
-    <string name="foss_upgrade_no_money_label">أُنفق كل أموالي على AirPods</string>
-    <string name="upgrade_foss_preamble">CAPod FOSS مجاني ومفتوح المصدر. إذا وجدته مفيداً، فكر في دعم التطوير للمساعدة في استمرار المشروع.</string>
-    <string name="upgrade_foss_sponsor_action">ادعم التطوير</string>
-    <string name="upgrade_foss_sponsor_subtitle">لا إعلانات. لا تتبع. لا قيود على Google Play.</string>
-    <string name="upgrade_foss_sponsor_returned_early">عدت بسرعة؟ دعمك يبقي CAPod حياً.</string>
+    <string name="foss_upgrade_donate_label">تبرع</string>
+    <string name="foss_upgrade_alreadydonated_label">أنا متبرّع فعلًا</string>
+    <string name="foss_upgrade_no_money_label">أنفق كل أموالي على AirPods</string>
+    <string name="upgrade_foss_preamble">CAPod FOSS مجاني ومفتوح المصدر. إذا وجدته مفيدًا، ففكّر في دعم تطويره للمساعدة في استمرار المشروع.</string>
+    <string name="upgrade_foss_sponsor_action">دعم المشروع</string>
+    <string name="upgrade_foss_sponsor_subtitle">لا إعلانات. لا تتبع. لا قيود من Google Play.</string>
+    <string name="upgrade_foss_sponsor_returned_early">هل عدتم فعلًا؟ دعمكم يُبقي CAPod حيًا.</string>
     <string name="upgrade_badge_label">البرمجيات الحرة (FOSS)</string>
 </resources>

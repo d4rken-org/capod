@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Αυτόματη παύση</string>
     <string name="settings_autopause_description">Παύση ήχου κατά την αφαίρεση της συσκευής από το αυτί σας.</string>
     <string name="settings_autopplay_label">Αυτόματη αναπαραγωγή</string>
-    <string name="settings_autoplay_description">Έναρξη αναπαραγωγής ήχου όταν φοριέται η συσκευή.</string>
+    <string name="settings_autoplay_description">Συνέχισε τη μουσική όταν ξαναφοράς τα pods, αλλά μόνο αν την σταμάτησε η Αυτόματη παύση. Οι παύσεις που έκανες εσύ (τηλέφωνο, στέλεχος AirPods, ύπνος) παραμένουν σε παύση.</string>
+    <string name="settings_start_music_on_wear_label">Εκκίνηση μουσικής κατά τη χρήση</string>
+    <string name="settings_start_music_on_wear_description">Προσπαθεί πάντα να αναπαράγει μουσική όταν φοράς τα pods, ακόμα και μετά από μη αυτόματη παύση.</string>
     <string name="settings_eardetection_info_label">Σημείωση ανίχνευσης αυτιού</string>
-    <string name="settings_eardetection_info_description">Εάν η ανίχνευση αυτιού λειτουργεί μόνο για ένα pod, αυτός είναι περιορισμός της Apple. Ανιχνεύεται μόνο το \"κύριο pod\" (που χρησιμοποιείται για μικρόφωνο). Ρυθμίστε σε συσκευές Apple: Ρυθμίσεις → Bluetooth → AirPods → Μικρόφωνο.</string><string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
+    <string name="settings_eardetection_info_description">Εάν η ανίχνευση αυτιού λειτουργεί μόνο για ένα pod, αυτός είναι περιορισμός της Apple. Ανιχνεύεται μόνο το \"κύριο pod\" (που χρησιμοποιείται για μικρόφωνο). Ρυθμίστε σε συσκευές Apple: Ρυθμίσεις → Bluetooth → AirPods → Μικρόφωνο.</string>
+    <string name="settings_signal_minimum_label">Ελάχιστη ποιότητα σήματος</string>
     <string name="settings_signal_minimum_description">Η ελάχιστη ποιότητα σήματος που πρέπει να έχει μια συσκευή για να θεωρηθεί δική σας.</string>
     <string name="settings_autoconnect_label">Αυτόματη σύνδεση</string>
     <string name="settings_autoconnect_description">Εάν το Android δε συνδεθεί αυτόματα, μπορούμε να το ζητήσουμε εμείς. Αυτό θα ορίσει τη ρύθμιση της λειτουργίας παρακολούθησης σε \"Πάντα\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
     <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
-    <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string><string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
+    <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
+    <string name="settings_compatibility_mode_label">Λειτουργία συμβατότητας</string>
     <string name="settings_compatibility_mode_description">Απενεργοποιήστε τις βελτιστοποιήσεις για να βελτιώσετε τη συμβατότητα. Δοκιμάστε το εάν δεν βλέπετε δεδομένα.</string>
     <string name="help_translate_label">Μετάφραση</string>
     <string name="help_translate_description">Βοηθήστε να μεταφράσετε αυτήν την εφαρμογή στην αγαπημένη σας γλώσσα.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Αυτό το widget απαιτεί άμεση σύνδεση (AAP) με τη συσκευή σας. Βεβαιωθείτε ότι η συσκευή σας είναι συζευγμένη και συνδεδεμένη στην εφαρμογή πριν χρησιμοποιήσετε αυτό το widget.</string>
     <string name="anc_widget_no_anc_support_label">Αυτή η συσκευή δεν υποστηρίζει έλεγχο θορύβου</string>
     <string name="anc_widget_aap_not_connected_label">Μη συνδεδεμένο</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Κοντά αλλά δεν είναι συνδεδεμένο</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Μη κοντά</string>
     <string name="anc_widget_aap_connecting_label">Σύνδεση…</string>
+    <string name="tile_anc_label">Έλεγχος θορύβου</string>
+    <string name="tile_anc_subtitle_permission_required">Απαιτείται άδεια</string>
+    <string name="tile_anc_subtitle_no_device">Καμία συσκευή</string>
+    <string name="tile_anc_subtitle_no_anc_support">Χωρίς έλεγχο θορύβου</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth απενεργοποιημένο</string>
     <string name="widget_config_screen_title">Διαμόρφωση γραφικού στοιχείου</string>
     <string name="widget_configuration_title">Επιλογή Συσκευής</string>
     <string name="widget_configuration_description">Επιλέξτε ποιο προφίλ συσκευής θα εμφανίζει αυτό το widget.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Διαφάνεια</string>
     <string name="anc_mode_adaptive">Προσαρμοστικό</string>
     <string name="conversation_awareness_label">Ενημερότητα Συνομιλίας</string>
+    <string name="settings_conversation_action_label">Όταν αρχίζεις να μιλάς</string>
+    <string name="settings_conversation_action_nothing_label">Να μην γίνει τίποτα</string>
+    <string name="settings_conversation_action_lower_volume_label">Μείωση έντασης</string>
+    <string name="settings_conversation_action_pause_label">Παύση μέσων</string>
+    <string name="settings_conversation_volume_reduction_label">Μείωση έντασης</string>
     <string name="signal_badge_ble_cd">Σάρωση BLE ενεργή</string>
     <string name="signal_badge_key_irk_cd">Η ταυτότητα επαληθεύτηκε</string>
     <string name="signal_badge_key_encrypted_cd">Κρυπτογραφημένη σύνδεση</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Γενικά</string>
     <string name="device_settings_microphone_mode_label">Μικρόφωνο</string>
-    <string name="device_settings_microphone_mode_description">Ποιο AirPod χρησιμοποιείται ως μικρόφωνο</string>
+    <string name="device_settings_microphone_mode_description">Ποιο ακουστικό χρησιμοποιείται ως μικρόφωνο</string>
     <string name="device_settings_microphone_mode_auto">Αυτόματο</string>
     <string name="device_settings_microphone_mode_right">Δεξί</string>
     <string name="device_settings_microphone_mode_left">Αριστερό</string>

@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automatisk paus</string>
     <string name="settings_autopause_description">Pausa ljudet när du tar bort enheten från örat.</string>
     <string name="settings_autopplay_label">Automatisk uppspelning</string>
-    <string name="settings_autoplay_description">Starta ljuduppspelning när enheten bärs.</string>
+    <string name="settings_autoplay_description">Återuppta musik när du tar på dig lurarna igen, men bara om Auto-paus stoppade den. Pauser du utlöste själv (telefon, AirPods-stam, sömn) förblir pausade.</string>
+    <string name="settings_start_music_on_wear_label">Starta musik vid påtagning</string>
+    <string name="settings_start_music_on_wear_description">Försöker alltid spela musik när du tar på dig lurarna, även efter en manuell paus.</string>
     <string name="settings_eardetection_info_label">Örondetektionsnotering</string>
-    <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
+    <string name="settings_eardetection_info_description">Om örondetektering bara fungerar för en snäcka, är detta en Apple-begränsning. Bara den \"primära snäckan\" (som används för mikrofonen) detekteras. Konfigurera på Apple-enheter: Inställningar → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minsta signalkvalitet</string>
     <string name="settings_signal_minimum_description">Den minsta signalkvalitet som en enhet måste ha för att betraktas som din.</string>
     <string name="settings_autoconnect_label">Anslut automatiskt</string>
     <string name="settings_autoconnect_description">Om Android inte ansluter automatiskt kan vi också be den. Detta ställer in övervakningsläget på \"Alltid\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Allmänna justeringar som påverkar hela appen.</string>
     <string name="settings_acknowledgements_label">Tack till</string>
     <string name="settings_debug_autoreports_label">Automatiska felrapporter</string>
-    <string name="settings_debug_autoreports_description">Rapporterar automatiskt problem, t.ex. detaljer om en appkrasch så att jag kan ta reda på hur jag åtgärdar det.</string><string name="settings_compatibility_mode_label">Kompatibilitetsläge</string>
+    <string name="settings_debug_autoreports_description">Rapporterar automatiskt problem, t.ex. detaljer om en appkrasch så att jag kan ta reda på hur jag åtgärdar det.</string>
+    <string name="settings_compatibility_mode_label">Kompatibilitetsläge</string>
     <string name="settings_compatibility_mode_description">Inaktivera optimeringar för att förbättra kompatibiliteten. Prova detta om du inte ser någon data.</string>
     <string name="help_translate_label">Översättning</string>
     <string name="help_translate_description">Hjälp till att översätta den här appen till ditt favoritspråk.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Den här widgeten kräver en direktanslutning (AAP) till din enhet. Se till att din enhet är parkopplad och ansluten i appen innan du använder den här widgeten.</string>
     <string name="anc_widget_no_anc_support_label">Den här enheten stöder inte brusreglering</string>
     <string name="anc_widget_aap_not_connected_label">Inte ansluten</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">I närheten men ej ansluten</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Inte i närheten</string>
     <string name="anc_widget_aap_connecting_label">Ansluter…</string>
+    <string name="tile_anc_label">Brusreglering</string>
+    <string name="tile_anc_subtitle_permission_required">Tillstånd krävs</string>
+    <string name="tile_anc_subtitle_no_device">Ingen enhet</string>
+    <string name="tile_anc_subtitle_no_anc_support">Ingen brusreglering</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth av</string>
     <string name="widget_config_screen_title">Widgetkonfiguration</string>
     <string name="widget_configuration_title">Välj enhet</string>
     <string name="widget_configuration_description">Välj vilken enhetsprofil denna widget ska visa.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparens</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Samtalskännedom</string>
+    <string name="settings_conversation_action_label">När du börjar prata</string>
+    <string name="settings_conversation_action_nothing_label">Gör ingenting</string>
+    <string name="settings_conversation_action_lower_volume_label">Sänk volymen</string>
+    <string name="settings_conversation_action_pause_label">Pausa media</string>
+    <string name="settings_conversation_volume_reduction_label">Volymreducering</string>
     <string name="signal_badge_ble_cd">BLE-skanning aktiv</string>
     <string name="signal_badge_key_irk_cd">Identitet verifierad</string>
     <string name="signal_badge_key_encrypted_cd">Krypterad anslutning</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allmänt</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Vilken AirPod som används som mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Vilket öronsnäcka som används som mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Höger</string>
     <string name="device_settings_microphone_mode_left">Vänster</string>

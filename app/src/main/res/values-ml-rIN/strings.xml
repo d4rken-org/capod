@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">യാന്ത്രികമായി താൽക്കാലികമായി നിർത്തുക</string>
     <string name="settings_autopause_description">നിങ്ങളുടെ ചെവിയിൽ നിന്ന് ഉപകരണം നീക്കം ചെയ്യുമ്പോൾ ഓഡിയോ താൽക്കാലികമായി നിർത്തുക.</string>
     <string name="settings_autopplay_label">യാന്ത്രികമായി പ്ലേ ചെയ്യുക</string>
-    <string name="settings_autoplay_description">ഉപകരണം ധരിക്കുമ്പോൾ ഓഡിയോ പ്ലേബാക്ക് ആരംഭിക്കുക.</string>
+    <string name="settings_autoplay_description">പോഡ്‌സ് വീണ്ടും ധരിക്കുമ്പോൾ സംഗീതം പുനരാരംഭിക്കും, എന്നാൽ ഓട്ടോ പോസ് നിർത്തിയ ഘട്ടത്തിൽ മാത്രം. നിങ്ങൾ സ്വയം ചെയ്ത പോസുകൾ (ഫോൺ, AirPods സ്റ്റെം, ഉറക്കം) പോസ് ആയി തുടരും.</string>
+    <string name="settings_start_music_on_wear_label">ധരിക്കുമ്പോൾ സംഗീതം ആരംഭിക്കുക</string>
+    <string name="settings_start_music_on_wear_description">പോഡ്‌സ് ഇടുമ്പോൾ സംഗീതം പ്ലേ ചെയ്യാൻ എപ്പോഴും ശ്രമിക്കും, ഒരു മാനുവൽ പോസിന് ശേഷം പോലും.</string>
     <string name="settings_eardetection_info_label">ഇയർ ഡിറ്റക്ഷൻ കുറിപ്പ്</string>
-    <string name="settings_eardetection_info_description">ഇയർ ഡിറ്റക്ഷൻ ഒരു പോഡിന് മാത്രമേ പ്രവർത്തിക്കുകയുള്ളൂവെങ്കിൽ, ഇത് Apple-ന്റെ പരിമിതിയാണ്. \"പ്രൈമറി പോഡ്\" (മൈക്രോഫോണിനായി ഉപയോഗിക്കുന്നത്) മാത്രമേ കണ്ടെത്തുകയുള്ളൂ. Apple ഉപകരണങ്ങളിൽ ക്രമീകരിക്കുക: ക്രമീകരണങ്ങൾ → Bluetooth → AirPods → മൈക്രോഫോൺ.</string><string name="settings_signal_minimum_label">കുറഞ്ഞ സിഗ്നൽ നിലവാരം</string>
+    <string name="settings_eardetection_info_description">ഇയർ ഡിറ്റക്ഷൻ ഒരു പോഡിന് മാത്രമേ പ്രവർത്തിക്കുകയുള്ളൂവെങ്കിൽ, ഇത് Apple-ന്റെ പരിമിതിയാണ്. \"പ്രൈമറി പോഡ്\" (മൈക്രോഫോണിനായി ഉപയോഗിക്കുന്നത്) മാത്രമേ കണ്ടെത്തുകയുള്ളൂ. Apple ഉപകരണങ്ങളിൽ ക്രമീകരിക്കുക: ക്രമീകരണങ്ങൾ → Bluetooth → AirPods → മൈക്രോഫോൺ.</string>
+    <string name="settings_signal_minimum_label">കുറഞ്ഞ സിഗ്നൽ നിലവാരം</string>
     <string name="settings_signal_minimum_description">ഒരു ഉപകരണം നിങ്ങളുടേതാണെന്ന് കണക്കാക്കാൻ ആവശ്യമായ ഏറ്റവും കുറഞ്ഞ സിഗ്നൽ നിലവാരം.</string>
     <string name="settings_autoconnect_label">യാന്ത്രികമായി കണക്റ്റുചെയ്യുക</string>
     <string name="settings_autoconnect_description">Android യാന്ത്രികമായി കണക്റ്റുചെയ്യുന്നില്ലെങ്കിൽ, ഞങ്ങൾക്കും അത് അഭ്യർത്ഥിക്കാം. ഇത് മോണിറ്റർ മോഡ് ക്രമീകരണം \"എപ്പോഴും\" എന്നതിലേക്ക് സജ്ജമാക്കും.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
     <string name="settings_debug_autoreports_label">യാന്ത്രിക ബഗ് റിപ്പോർട്ടുകൾ</string>
-    <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string><string name="settings_compatibility_mode_label">അനുയോജ്യത മോഡ്</string>
+    <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string>
+    <string name="settings_compatibility_mode_label">അനുയോജ്യത മോഡ്</string>
     <string name="settings_compatibility_mode_description">അനുയോജ്യത മെച്ചപ്പെടുത്താൻ ഒപ്റ്റിമൈസേഷനുകൾ പ്രവർത്തനരഹിതമാക്കുക. നിങ്ങൾക്ക് ഡാറ്റയൊന്നും കാണുന്നില്ലെങ്കിൽ ഇത് പരീക്ഷിക്കുക.</string>
     <string name="help_translate_label">പരിഭാഷ</string>
     <string name="help_translate_description">ഈ ആപ്പ് നിങ്ങളുടെ പ്രിയപ്പെട്ട ഭാഷയിലേക്ക് വിവർത്തനം ചെയ്യാൻ സഹായിക്കുക.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ഈ വിജറ്റ് നിങ്ങളുടെ ഡിവൈസിലേക്ക് ഒരു നേരിട്ടുള്ള കണക്ഷൻ (AAP) ആവശ്യപ്പെടുന്നു. ഈ വിജറ്റ് ഉപയോഗിക്കുന്നതിന് മുമ്പ് നിങ്ങളുടെ ഡിവൈസ് ആപ്പിൽ ജോടിയാക്കി കണക്ട് ചെയ്തിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.</string>
     <string name="anc_widget_no_anc_support_label">ഈ ഡിവൈസ് ശബ്ദ നിയന്ത്രണം പിന്തുണയ്ക്കുന്നില്ല</string>
     <string name="anc_widget_aap_not_connected_label">കണക്ട് ചെയ്തിട്ടില്ല</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">അടുത്തുണ്ട്, പക്ഷേ കണക്റ്റ് ചെയ്തിട്ടില്ല</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">അടുത്തില്ല</string>
     <string name="anc_widget_aap_connecting_label">കണക്ട് ചെയ്യുന്നു…</string>
+    <string name="tile_anc_label">നോയ്‌സ് കൺട്രോൾ</string>
+    <string name="tile_anc_subtitle_permission_required">അനുമതി ആവശ്യമാണ്</string>
+    <string name="tile_anc_subtitle_no_device">ഉപകരണമില്ല</string>
+    <string name="tile_anc_subtitle_no_anc_support">നോയ്‌സ് കൺട്രോൾ ഇല്ല</string>
+    <string name="tile_anc_subtitle_bluetooth_off">ബ്ലൂടൂത്ത് ഓഫ്</string>
     <string name="widget_config_screen_title">വിജറ്റ് കോൺഫിഗറേഷൻ</string>
     <string name="widget_configuration_title">ഉപകരണം തിരഞ്ഞെടുക്കുക</string>
     <string name="widget_configuration_description">ഈ വിഡ്ജറ്റ് ഏത് ഉപകരണ പ്രൊഫൈൽ പ്രദർശിപ്പിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">ട്രാൻസ്പേരൻസി</string>
     <string name="anc_mode_adaptive">അഡാപ്റ്റീവ്</string>
     <string name="conversation_awareness_label">സംഭാഷണ അവബോധം</string>
+    <string name="settings_conversation_action_label">നിങ്ങൾ സംസാരിക്കാൻ തുടങ്ങുമ്പോൾ</string>
+    <string name="settings_conversation_action_nothing_label">ഒന്നും ചെയ്യേണ്ട</string>
+    <string name="settings_conversation_action_lower_volume_label">വോളിയം കുറയ്ക്കുക</string>
+    <string name="settings_conversation_action_pause_label">മീഡിയ പോസ് ചെയ്യുക</string>
+    <string name="settings_conversation_volume_reduction_label">വോളിയം കുറയ്ക്കൽ</string>
     <string name="signal_badge_ble_cd">BLE സ്കാൻ സജീവം</string>
     <string name="signal_badge_key_irk_cd">ഐഡന്റിറ്റി സ്ഥിരീകരിച്ചു</string>
     <string name="signal_badge_key_encrypted_cd">എൻക്രിപ്റ്റഡ് കണക്ഷൻ</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">പൊതുവായ</string>
     <string name="device_settings_microphone_mode_label">മൈക്രോഫോൺ</string>
-    <string name="device_settings_microphone_mode_description">ഏത് ചെവിയിൽ മൈക്രോഫോണായി AirPod ഉപയോഗിക്കുന്നു</string>
+    <string name="device_settings_microphone_mode_description">ഏത് ഇയർബഡ് മൈക്രോഫോണായി ഉപയോഗിക്കുന്നു</string>
     <string name="device_settings_microphone_mode_auto">ഓട്ടോ</string>
     <string name="device_settings_microphone_mode_right">വലത്</string>
     <string name="device_settings_microphone_mode_left">ഇടത്</string>

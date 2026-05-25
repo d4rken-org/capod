@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pausa automata</string>
     <string name="settings_autopause_description">Interrumper l\'audio cura che l\'apparat vegn allontanà da l\'ureglia.</string>
     <string name="settings_autopplay_label">Play automatic</string>
-    <string name="settings_autoplay_description">Cumenzar la reproducziun audio cura che l\'apparat vegn purtà.</string>
+    <string name="settings_autoplay_description">Reprend la musica cur che ti mets danovamain ils tuts, ma mo sche la pausa automatica l\'ha stoppada. Pausas che ti hast fatg (telefon, tulpa AirPods, sonns) restan en pausa.</string>
+    <string name="settings_start_music_on_wear_label">Cumenza musica cur che ti mets ils tuts</string>
+    <string name="settings_start_music_on_wear_description">Emprova adina da reprudar la musica cur che ti mets ils tuts, era suenter ina pausa manuala.</string>
     <string name="settings_eardetection_info_label">Remartga davart la recugnoschientscha da l\'ureglia</string>
-    <string name="settings_eardetection_info_description">Sche la recugnoschientscha da l\'ureglia funcziuna be per in singul pod, è quai ina restricziun dad Apple. Be il \"pod principal\" (duvrà per il microfon) vegn recugnuschì. Configurar sin apparats Apple: Configuraziun → Bluetooth → AirPods → Microfon.</string><string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
+    <string name="settings_eardetection_info_description">Sche la recugnoschientscha da l\'ureglia funcziuna be per in singul pod, è quai ina restricziun dad Apple. Be il \"pod principal\" (duvrà per il microfon) vegn recugnuschì. Configurar sin apparats Apple: Configuraziun → Bluetooth → AirPods → Microfon.</string>
+    <string name="settings_signal_minimum_label">Qualitad minimala dal signal</string>
     <string name="settings_signal_minimum_description">La qualitad minimala dal signal che in apparat sto avair per vegnir considerà sco Voss.</string>
     <string name="settings_autoconnect_label">Connectar automaticamain</string>
     <string name="settings_autoconnect_description">Sche Android na connecta betg automaticamain, pudain nus dumandar era. Quai metta la configuraziun dal modus da surveglianza sin \"Adina\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Adattaziuns generalas che concernan l\'entira app.</string>
     <string name="settings_acknowledgements_label">Remerciaments</string>
     <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
-    <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string><string name="settings_compatibility_mode_label">Modus da cumpatibilitad</string>
+    <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
+    <string name="settings_compatibility_mode_label">Modus da cumpatibilitad</string>
     <string name="settings_compatibility_mode_description">Deactivar optimaziuns per meglierar la cumpatibilitad. Empruvai quai sche Vus na visais naginas datas.</string>
     <string name="help_translate_label">Translaziun</string>
     <string name="help_translate_description">Gidar a translatar questa app en Vossa lingua preferida.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Quest widget pretenda ina connexiun directa (AAP) cun voss apparat. Garantescha che voss apparat saja apparià e connectà en l\'app avant d\'utilisar quest widget.</string>
     <string name="anc_widget_no_anc_support_label">Quest apparat na supporta betg il controlla dal rumur</string>
     <string name="anc_widget_aap_not_connected_label">Betg connectà</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Nas, ma betg connectà</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Betg nas</string>
     <string name="anc_widget_aap_connecting_label">S\'annoda…</string>
+    <string name="tile_anc_label">Controlla da rumur</string>
+    <string name="tile_anc_subtitle_permission_required">Permissiun necessar ia</string>
+    <string name="tile_anc_subtitle_no_device">Nagin apparat</string>
+    <string name="tile_anc_subtitle_no_anc_support">Nagin controlla da rumur</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth deactivà</string>
     <string name="widget_config_screen_title">Configuraziun dal widget</string>
     <string name="widget_configuration_title">Tscherner l\'apparat</string>
     <string name="widget_configuration_description">Tscherner tge profil d\'apparat quest widget duai mussar.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparenza</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Conscientscha da conversaziun</string>
+    <string name="settings_conversation_action_label">Cur che ti cumenzas a discurrer</string>
+    <string name="settings_conversation_action_nothing_label">Na fa nagut</string>
+    <string name="settings_conversation_action_lower_volume_label">Baissar il volumen</string>
+    <string name="settings_conversation_action_pause_label">Metter en pausa media</string>
+    <string name="settings_conversation_volume_reduction_label">Reducziun dal volumen</string>
     <string name="signal_badge_ble_cd">Scanniada BLE activa</string>
     <string name="signal_badge_key_irk_cd">Identitad verificada</string>
     <string name="signal_badge_key_encrypted_cd">Connexiun criptada</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
-    <string name="device_settings_microphone_mode_description">Tge AirPod vegn utilisà sco microfon</string>
+    <string name="device_settings_microphone_mode_description">Tge tschappin è utilisà sco microfon</string>
     <string name="device_settings_microphone_mode_auto">Automatic</string>
     <string name="device_settings_microphone_mode_right">Dretg</string>
     <string name="device_settings_microphone_mode_left">Sanester</string>

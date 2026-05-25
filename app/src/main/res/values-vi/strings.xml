@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Tự động tạm dừng</string>
     <string name="settings_autopause_description">Tạm dừng âm thanh khi tháo thiết bị khỏi tai bạn.</string>
     <string name="settings_autopplay_label">Tự động phát</string>
-    <string name="settings_autoplay_description">Bắt đầu phát lại âm thanh khi thiết bị được đeo.</string>
+    <string name="settings_autoplay_description">Tiếp tục phát nhạc khi bạn đeo lại pods, nhưng chỉ khi tính năng Tự động tạm dừng đã dừng nhạc. Những lần tạm dừng do bạn tự thực hiện (điện thoại, thanh điều khiển AirPods, ngủ) vẫn sẽ ở trạng thái tạm dừng.</string>
+    <string name="settings_start_music_on_wear_label">Bắt đầu phát nhạc khi đeo</string>
+    <string name="settings_start_music_on_wear_description">Luôn cố gắng phát nhạc khi bạn đeo pods, ngay cả sau khi tạm dừng thủ công.</string>
     <string name="settings_eardetection_info_label">Ghi chú nhận diện tai</string>
-    <string name="settings_eardetection_info_description">Nếu tính năng nhận diện tai chỉ hoạt động cho một bên, đây là giới hạn của Apple. Chỉ \"pod chính\" (dùng cho micrô) được nhận diện. Cấu hình trên thiết bị Apple: Cài đặt → Bluetooth → AirPods → Micrô.</string><string name="settings_signal_minimum_label">Chất lượng tín hiệu tối thiểu</string>
+    <string name="settings_eardetection_info_description">Nếu tính năng nhận diện tai chỉ hoạt động cho một bên, đây là giới hạn của Apple. Chỉ \"pod chính\" (dùng cho micrô) được nhận diện. Cấu hình trên thiết bị Apple: Cài đặt → Bluetooth → AirPods → Micrô.</string>
+    <string name="settings_signal_minimum_label">Chất lượng tín hiệu tối thiểu</string>
     <string name="settings_signal_minimum_description">Chất lượng tín hiệu tối thiểu mà một thiết bị cần phải được coi là của bạn.</string>
     <string name="settings_autoconnect_label">Tự động kết nối</string>
     <string name="settings_autoconnect_description">Nếu Android không tự động kết nối, chúng ta cũng có thể hỏi nó. Thao tác này sẽ đặt cài đặt chế độ màn hình thành \'Luôn luôn\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_acknowledgements_label">Đóng góp và cảm ơn</string>
     <string name="settings_debug_autoreports_label">Báo cáo lỗi tự động</string>
-    <string name="settings_debug_autoreports_description">Tự động báo cáo các vấn đề, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể tìm ra cách khắc phục.</string><string name="settings_compatibility_mode_label">Chế độ tương thích</string>
+    <string name="settings_debug_autoreports_description">Tự động báo cáo các vấn đề, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể tìm ra cách khắc phục.</string>
+    <string name="settings_compatibility_mode_label">Chế độ tương thích</string>
     <string name="settings_compatibility_mode_description">Tắt tối ưu hóa để cải thiện khả năng tương thích. Hãy thử điều này nếu bạn không thấy bất kỳ dữ liệu nào.</string>
     <string name="help_translate_label">Dịch</string>
     <string name="help_translate_description">Giúp dịch ứng dụng này sang ngôn ngữ yêu thích của bạn.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Widget này yêu cầu kết nối trực tiếp (AAP) với thiết bị của bạn. Đảm bảo thiết bị đã được ghép đôi và kết nối trong ứng dụng trước khi sử dụng widget này.</string>
     <string name="anc_widget_no_anc_support_label">Thiết bị này không hỗ trợ kiểm soát tiếng ồn</string>
     <string name="anc_widget_aap_not_connected_label">Chưa kết nối</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Ở gần nhưng chưa kết nối</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Không ở gần</string>
     <string name="anc_widget_aap_connecting_label">Đang kết nối…</string>
+    <string name="tile_anc_label">Kiểm soát tiếng ồn</string>
+    <string name="tile_anc_subtitle_permission_required">Yêu cầu quyền</string>
+    <string name="tile_anc_subtitle_no_device">Không có thiết bị</string>
+    <string name="tile_anc_subtitle_no_anc_support">Không có kiểm soát tiếng ồn</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth tắt</string>
     <string name="widget_config_screen_title">Cấu hình Widget</string>
     <string name="widget_configuration_title">Chọn thiết bị</string>
     <string name="widget_configuration_description">Chọn hồ sơ thiết bị mà tiện ích này sẽ hiển thị.</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">Trong suốt</string>
     <string name="anc_mode_adaptive">Thích nghi</string>
     <string name="conversation_awareness_label">Nhận thức cuộc trò chuyện</string>
+    <string name="settings_conversation_action_label">Khi bạn bắt đầu nói chuyện</string>
+    <string name="settings_conversation_action_nothing_label">Không làm gì</string>
+    <string name="settings_conversation_action_lower_volume_label">Giảm âm lượng</string>
+    <string name="settings_conversation_action_pause_label">Tạm dừng phương tiện</string>
+    <string name="settings_conversation_volume_reduction_label">Mức giảm âm lượng</string>
     <string name="signal_badge_ble_cd">Quét BLE đang hoạt động</string>
     <string name="signal_badge_key_irk_cd">Danh tính đã được xác minh</string>
     <string name="signal_badge_key_encrypted_cd">Kết nối được mã hóa</string>
@@ -447,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Chung</string>
     <string name="device_settings_microphone_mode_label">Microphone</string>
-    <string name="device_settings_microphone_mode_description">AirPod nào được dùng làm micro</string>
+    <string name="device_settings_microphone_mode_description">Tai nghe nào được dùng làm microphone</string>
     <string name="device_settings_microphone_mode_auto">Tự động</string>
     <string name="device_settings_microphone_mode_right">Phải</string>
     <string name="device_settings_microphone_mode_left">Trái</string>

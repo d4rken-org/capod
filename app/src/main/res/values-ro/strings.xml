@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pauză automată</string>
     <string name="settings_autopause_description">Întrerupeți sunetul când scoateți dispozitivul din ureche.</string>
     <string name="settings_autopplay_label">Redare automată</string>
-    <string name="settings_autoplay_description">Porniți redarea audio când dispozitivul este purtat.</string>
+    <string name="settings_autoplay_description">Reia muzica când porți din nou căștile, dar numai dacă Auto pauză a oprit-o. Pauzele pe care le-ai declanșat tu (telefon, tijă AirPods, somn) rămân în pauză.</string>
+    <string name="settings_start_music_on_wear_label">Pornește muzica la purtare</string>
+    <string name="settings_start_music_on_wear_description">Încearcă întotdeauna să redea muzica când îți pui căștile, chiar și după o pauză manuală.</string>
     <string name="settings_eardetection_info_label">Notă despre detectarea urechii</string>
-    <string name="settings_eardetection_info_description">Dacă detectarea urechii funcționează doar pentru o cască, aceasta este o limitare Apple. Doar \"căștile principale\" (folosite pentru microfon) sunt detectate. Configurați pe dispozitivele Apple: Setări → Bluetooth → AirPods → Microfon.</string><string name="settings_signal_minimum_label">Calitatea minimă a semnalului</string>
+    <string name="settings_eardetection_info_description">Dacă detectarea urechii funcționează doar pentru o cască, aceasta este o limitare Apple. Doar \"căștile principale\" (folosite pentru microfon) sunt detectate. Configurați pe dispozitivele Apple: Setări → Bluetooth → AirPods → Microfon.</string>
+    <string name="settings_signal_minimum_label">Calitatea minimă a semnalului</string>
     <string name="settings_signal_minimum_description">Calitatea minimă a semnalului pe care trebuie să o aibă un dispozitiv trebuie să fie considerată a dvs.</string>
     <string name="settings_autoconnect_label">Conectare automată</string>
     <string name="settings_autoconnect_description">Dacă Android nu se conectează automat, îl putem întreba și noi. Aceasta va seta setarea modului monitorizare la „Întotdeauna”.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Ajustări generale care afectează întreaga aplicație.</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
     <string name="settings_debug_autoreports_label">Rapoarte automate de erori</string>
-    <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string><string name="settings_compatibility_mode_label">Mod de compatibilitate</string>
+    <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string>
+    <string name="settings_compatibility_mode_label">Mod de compatibilitate</string>
     <string name="settings_compatibility_mode_description">Dezactivați optimizările pentru a îmbunătăți compatibilitatea. Încercați acest lucru dacă nu vedeți nicio dată.</string>
     <string name="help_translate_label">Traducere</string>
     <string name="help_translate_description">Ajută la traducerea acestei aplicații în limba ta preferată.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Acest widget necesită o conexiune directă (AAP) la dispozitivul tău. Asigură-te că dispozitivul este asociat și conectat în aplicație înainte de a folosi acest widget.</string>
     <string name="anc_widget_no_anc_support_label">Acest dispozitiv nu suportă controlul zgomotului</string>
     <string name="anc_widget_aap_not_connected_label">Neconectat</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Aproape, dar neconectat</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nu e în apropiere</string>
     <string name="anc_widget_aap_connecting_label">Se conectează…</string>
+    <string name="tile_anc_label">Control zgomot</string>
+    <string name="tile_anc_subtitle_permission_required">Permisiune necesară</string>
+    <string name="tile_anc_subtitle_no_device">Niciun dispozitiv</string>
+    <string name="tile_anc_subtitle_no_anc_support">Fără control zgomot</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth oprit</string>
     <string name="widget_config_screen_title">Configurare widget</string>
     <string name="widget_configuration_title">Selectare Dispozitiv</string>
     <string name="widget_configuration_description">Alegeți ce profil de dispozitiv ar trebui să afișeze acest widget.</string>
@@ -239,6 +250,11 @@
     <string name="anc_mode_transparency">Transparență</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Conștientizare conversațională</string>
+    <string name="settings_conversation_action_label">Când începi să vorbești</string>
+    <string name="settings_conversation_action_nothing_label">Nu face nimic</string>
+    <string name="settings_conversation_action_lower_volume_label">Reduceți volumul</string>
+    <string name="settings_conversation_action_pause_label">Puneți pe pauză media</string>
+    <string name="settings_conversation_volume_reduction_label">Reducere volum</string>
     <string name="signal_badge_ble_cd">Scanare BLE activă</string>
     <string name="signal_badge_key_irk_cd">Identitate verificată</string>
     <string name="signal_badge_key_encrypted_cd">Conexiune criptată</string>
@@ -457,7 +473,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
-    <string name="device_settings_microphone_mode_description">Care AirPod este folosit ca microfon</string>
+    <string name="device_settings_microphone_mode_description">Care cășcă este folosită ca microfon</string>
     <string name="device_settings_microphone_mode_auto">Automat</string>
     <string name="device_settings_microphone_mode_right">Dreapta</string>
     <string name="device_settings_microphone_mode_left">Stânga</string>

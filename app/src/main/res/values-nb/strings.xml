@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Sett på pause automatisk</string>
     <string name="settings_autopause_description">Sett lyden på pause når du fjerner enheten fra øret.</string>
     <string name="settings_autopplay_label">Spill av automatisk</string>
-    <string name="settings_autoplay_description">Spill av lyd når enheten er i bruk.</string>
+    <string name="settings_autoplay_description">Fortsett musikken når du tar på deg podene igjen, men bare hvis Auto-pause stoppet den. Pauser du utløste selv (telefon, AirPods-stilk, søvn) forblir pauset.</string>
+    <string name="settings_start_music_on_wear_label">Start musikk ved påsetting</string>
+    <string name="settings_start_music_on_wear_description">Prøver alltid å spille musikk når du setter på podene, selv etter en manuell pause.</string>
     <string name="settings_eardetection_info_label">Merknad om øredeteksjon</string>
-    <string name="settings_eardetection_info_description">Hvis øredeteksjon bare fungerer for den ene poden, er dette en Apple-begrensning. Bare den \"primære poden\" (brukt til mikrofon) oppdages. Konfigurer på Apple-enheter: Innstillinger → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimum signalkvalitet</string>
+    <string name="settings_eardetection_info_description">Hvis øredeteksjon bare fungerer for den ene poden, er dette en Apple-begrensning. Bare den \"primære poden\" (brukt til mikrofon) oppdages. Konfigurer på Apple-enheter: Innstillinger → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimum signalkvalitet</string>
     <string name="settings_signal_minimum_description">Minimumssignalkvaliteten som en enhet må ha for å anses som din.</string>
     <string name="settings_autoconnect_label">Autotilkobling</string>
     <string name="settings_autoconnect_description">Hvis Android ikke kobler til automatisk, kan vi spørre den om å gjøre det. Dette vil sette overvåkingsmodus-innstillingen til \"Alltid\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Generelle justeringer som påvirker hele appen.</string>
     <string name="settings_acknowledgements_label">Anerkjennelser</string>
     <string name="settings_debug_autoreports_label">Automatiske feilrapporter</string>
-    <string name="settings_debug_autoreports_description">Rapporterer problemer automatisk, f.eks. detaljer om en appkrasj slik at jeg kan finne ut hvordan jeg kan fikse det.</string><string name="settings_compatibility_mode_label">Kompatibilitetsmodus</string>
+    <string name="settings_debug_autoreports_description">Rapporterer problemer automatisk, f.eks. detaljer om en appkrasj slik at jeg kan finne ut hvordan jeg kan fikse det.</string>
+    <string name="settings_compatibility_mode_label">Kompatibilitetsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktiver optimaliseringer for å forbedre kompatibiliteten. Prøv dette hvis du ikke ser noen data.</string>
     <string name="help_translate_label">Oversettelse</string>
     <string name="help_translate_description">Hjelp til med å oversette denne appen til ditt favorittspråk.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Denne widgeten krever en direkte tilkobling (AAP) til enheten din. Sørg for at enheten er paret og tilkoblet i appen før du bruker denne widgeten.</string>
     <string name="anc_widget_no_anc_support_label">Denne enheten støtter ikke støykontroll</string>
     <string name="anc_widget_aap_not_connected_label">Ikke tilkoblet</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">I nærheten, men ikke tilkoblet</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Ikke i nærheten</string>
     <string name="anc_widget_aap_connecting_label">Kobler til…</string>
+    <string name="tile_anc_label">Støykontroll</string>
+    <string name="tile_anc_subtitle_permission_required">Tillatelse kreves</string>
+    <string name="tile_anc_subtitle_no_device">Ingen enhet</string>
+    <string name="tile_anc_subtitle_no_anc_support">Ingen støykontroll</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth av</string>
     <string name="widget_config_screen_title">Widget-konfigurasjon</string>
     <string name="widget_configuration_title">Velg enhet</string>
     <string name="widget_configuration_description">Velg hvilken enhetsprofil denne widgeten skal vise.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparens</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Samtalebevissthet</string>
+    <string name="settings_conversation_action_label">Når du begynner å snakke</string>
+    <string name="settings_conversation_action_nothing_label">Ikke gjør noe</string>
+    <string name="settings_conversation_action_lower_volume_label">Senk volumet</string>
+    <string name="settings_conversation_action_pause_label">Pause media</string>
+    <string name="settings_conversation_volume_reduction_label">Volumreduksjon</string>
     <string name="signal_badge_ble_cd">BLE-skanning aktiv</string>
     <string name="signal_badge_key_irk_cd">Identitet bekreftet</string>
     <string name="signal_badge_key_encrypted_cd">Kryptert tilkobling</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generelt</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Hvilken AirPod som brukes som mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Hvilken ørepropp som brukes som mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Høyre</string>
     <string name="device_settings_microphone_mode_left">Venstre</string>

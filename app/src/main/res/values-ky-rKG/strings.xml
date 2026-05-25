@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Авто тыным</string>
     <string name="settings_autopause_description">Түзмөктү кулагыңыздан чыгарганда аудиону тындырыңыз.</string>
     <string name="settings_autopplay_label">Авто ойнотуу</string>
-    <string name="settings_autoplay_description">Түзмөк тагылганда аудио ойнотууну баштаңыз.</string>
+    <string name="settings_autoplay_description">Подкасттарыңызды кайра кийгенде музыканы улантат, бирок Auto pause токтоткон учурда гана. Өзүңүз токтоткон үзүлүүлөр (телефон, AirPods сабы, уйку) токтоп калат.</string>
+    <string name="settings_start_music_on_wear_label">Кийгенде музыканы баштоо</string>
+    <string name="settings_start_music_on_wear_description">Подкасттарыңызды кийгенде музыканы ойнотууга аракет кылат, кол менен токтотулгандан кийин да.</string>
     <string name="settings_eardetection_info_label">Кулак аныктоо эскертмеси</string>
-    <string name="settings_eardetection_info_description">Кулак аныктоо бир эле кулакчын үчүн иштесе, бул Apple чектөөсү. Микрофон үчүн колдонулган \"негизги кулакчын\" гана аныкталат. Apple түзмөктөрүндө тууралаңыз: Жөндөөлөр → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Минималдуу сигнал сапаты</string>
+    <string name="settings_eardetection_info_description">Кулак аныктоо бир эле кулакчын үчүн иштесе, бул Apple чектөөсү. Микрофон үчүн колдонулган \"негизги кулакчын\" гана аныкталат. Apple түзмөктөрүндө тууралаңыз: Жөндөөлөр → Bluetooth → AirPods → Микрофон.</string>
+    <string name="settings_signal_minimum_label">Минималдуу сигнал сапаты</string>
     <string name="settings_signal_minimum_description">Түзмөктүн сиздики деп эсептелиши үчүн талап кылынган минималдуу сигнал сапаты.</string>
     <string name="settings_autoconnect_label">Авто туташуу</string>
     <string name="settings_autoconnect_description">Эгер Android автоматтык түрдө туташпаса, биз дагы сурасак болот. Бул мониторинг режиминин жөндөөсүн \'Ар дайым\' кылып коёт.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
     <string name="settings_acknowledgements_label">Ыраазычылыктар</string>
     <string name="settings_debug_autoreports_label">Автоматтык ката отчеттору</string>
-    <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string><string name="settings_compatibility_mode_label">Шайкештик режими</string>
+    <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string>
+    <string name="settings_compatibility_mode_label">Шайкештик режими</string>
     <string name="settings_compatibility_mode_description">Шайкештикти жакшыртуу үчүн оптималдаштырууларды өчүрүңүз. Эгер эч кандай маалымат көрбөсөңүз, муну байкап көрүңүз.</string>
     <string name="help_translate_label">Котормо</string>
     <string name="help_translate_description">Бул колдонмону сүйүктүү тилиңизге которууга жардам бериңиз.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Бул виджет түзмөгүңүзгө түздөн-түз туташуу (AAP) талап кылат. Бул виджетти колдонуудан мурун колдонмодо түзмөгүңүз жупталган жана туташкан болушун камсыздаңыз.</string>
     <string name="anc_widget_no_anc_support_label">Бул түзмөк шуум башкаруусун колдобойт</string>
     <string name="anc_widget_aap_not_connected_label">Туташкан жок</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Жакын жерде, бирок туташпаган</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Жакын жерде эмес</string>
     <string name="anc_widget_aap_connecting_label">Туташуу…</string>
+    <string name="tile_anc_label">Ызы-чуу башкаруу</string>
+    <string name="tile_anc_subtitle_permission_required">Уруксат талап кылынат</string>
+    <string name="tile_anc_subtitle_no_device">Түзмөк жок</string>
+    <string name="tile_anc_subtitle_no_anc_support">Ызы-чуу башкаруу жок</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth өчүк</string>
     <string name="widget_config_screen_title">Виджетти конфигурациялоо</string>
     <string name="widget_configuration_title">Түзмөк тандоо</string>
     <string name="widget_configuration_description">Бул виджетте кайсы түзмөк профили көрсөтүлүшү керектигин тандаңыз.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Ачыктык</string>
     <string name="anc_mode_adaptive">Адаптивдүү</string>
     <string name="conversation_awareness_label">Суроо-талапты таануу</string>
+    <string name="settings_conversation_action_label">Сүйлөй баштаганыңызда</string>
+    <string name="settings_conversation_action_nothing_label">Эч нерсе кылба</string>
+    <string name="settings_conversation_action_lower_volume_label">Үнүн азайтуу</string>
+    <string name="settings_conversation_action_pause_label">Медианы токтотуу</string>
+    <string name="settings_conversation_volume_reduction_label">Үн деңгээлин азайтуу</string>
     <string name="signal_badge_ble_cd">BLE скан активдүү</string>
     <string name="signal_badge_key_irk_cd">Инсандык тастыкталды</string>
     <string name="signal_badge_key_encrypted_cd">Шифрленген байланыш</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Жалпы</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
-    <string name="device_settings_microphone_mode_description">Кайсы AirPod микрофон катары колдонулат</string>
+    <string name="device_settings_microphone_mode_description">Кайсы кулакчын микрофон катары колдонулат</string>
     <string name="device_settings_microphone_mode_auto">Авто</string>
     <string name="device_settings_microphone_mode_right">Оң</string>
     <string name="device_settings_microphone_mode_left">Сол</string>

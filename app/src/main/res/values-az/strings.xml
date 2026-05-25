@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Avtomatik fasilə</string>
     <string name="settings_autopause_description">Cihazı qulağınızdan çıxardıqda səsi dayandırın.</string>
     <string name="settings_autopplay_label">Avtomatik oxutma</string>
-    <string name="settings_autoplay_description">Cihaz taxıldıqda səs oxutmasını başladın.</string>
+    <string name="settings_autoplay_description">Podlarınızı yenidən taxdıqda musiqini davam etdirin, lakin yalnız Avtomatik Fasilə onu dayandırdıqda. Özünüz dayandırdığınız fasilələr (telefon, AirPods sapı, yuxu) fasilə vəziyyətində qalır.</string>
+    <string name="settings_start_music_on_wear_label">Taxdıqda musiqini başlat</string>
+    <string name="settings_start_music_on_wear_description">Podlarınızı taxdıqda həmişə musiqi çalmağa çalışır, hətta əl ilə fasilə verdikdən sonra belə.</string>
     <string name="settings_eardetection_info_label">Qulaq aşkarlama qeydi</string>
-    <string name="settings_eardetection_info_description">Qulaq aşkarlama yalnız bir qulaqlıq üçün işləyirsə, bu Apple məhdudiyyətidir. Yalnız \"əsas qulaqlıq\" (mikrofon üçün istifadə olunan) aşkarlanır. Apple cihazlarında tənzimləyin: Parametrlər → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
+    <string name="settings_eardetection_info_description">Qulaq aşkarlama yalnız bir qulaqlıq üçün işləyirsə, bu Apple məhdudiyyətidir. Yalnız \"əsas qulaqlıq\" (mikrofon üçün istifadə olunan) aşkarlanır. Apple cihazlarında tənzimləyin: Parametrlər → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimum siqnal keyfiyyəti</string>
     <string name="settings_signal_minimum_description">Bir cihazın sizə aid hesab edilməsi üçün malik olmalı olduğu minimum siqnal keyfiyyəti.</string>
     <string name="settings_autoconnect_label">Avtomatik qoşulma</string>
     <string name="settings_autoconnect_description">Əgər Android avtomatik qoşulmursa, biz də ondan xahiş edə bilərik. Bu, izləmə rejimi parametrini \"Həmişə\" olaraq təyin edəcək.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="settings_debug_autoreports_label">Avtomatik səhv hesabatları</string>
-    <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string><string name="settings_compatibility_mode_label">Uyğunluq rejimi</string>
+    <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string>
+    <string name="settings_compatibility_mode_label">Uyğunluq rejimi</string>
     <string name="settings_compatibility_mode_description">Uyğunluğu yaxşılaşdırmaq üçün optimallaşdırmaları deaktiv edin. Heç bir məlumat görmürsünüzsə, bunu sınayın.</string>
     <string name="help_translate_label">Tərcümə</string>
     <string name="help_translate_description">Bu tətbiqi sevdiyiniz dilə tərcümə etməyə kömək edin.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Bu vidcet cihazınızla birbaşa bağlantı (AAP) tələb edir. Bu vidceti istifadə etməzdən əvvəl cihazınızın tətbiqdə cütləşdirilmiş və qoşulu olduğuna əmin olun.</string>
     <string name="anc_widget_no_anc_support_label">Bu cihaz səs-küy idarəetməsini dəstəkləmir</string>
     <string name="anc_widget_aap_not_connected_label">Qoşulmayıb</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Yaxındadır, lakin qoşulmayıb</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Yaxında deyil</string>
     <string name="anc_widget_aap_connecting_label">Qoşulur…</string>
+    <string name="tile_anc_label">Səs-küy Nəzarəti</string>
+    <string name="tile_anc_subtitle_permission_required">İcazə tələb olunur</string>
+    <string name="tile_anc_subtitle_no_device">Cihaz yoxdur</string>
+    <string name="tile_anc_subtitle_no_anc_support">Səs-küy nəzarəti yoxdur</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth söndürülüb</string>
     <string name="widget_config_screen_title">Vidcet Konfiqurasiyası</string>
     <string name="widget_configuration_title">Cihaz seçin</string>
     <string name="widget_configuration_description">Bu vidcetin hansı cihaz profilini göstərəcəyini seçin.</string>
@@ -212,7 +223,7 @@
     <string name="pods_dual_left_label">Sol qulaqlıq</string>
     <string name="pods_dual_right_label">Sağ qulaqlıq</string>
     <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">SĚ</string>
+    <string name="pods_dual_right_short_label">Sğ</string>
     <string name="pods_case_label">Qutu</string>
     <string name="battery_unavailable_label">Batareya məlumatı yoxdur</string>
     <string name="pods_case_status_open_label">Açıq</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Şəffaflıq</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Söhbət Məlumatlılığı</string>
+    <string name="settings_conversation_action_label">Danışmağa başladıqda</string>
+    <string name="settings_conversation_action_nothing_label">Heç nə etmə</string>
+    <string name="settings_conversation_action_lower_volume_label">Səsi azalt</string>
+    <string name="settings_conversation_action_pause_label">Medianı dayandır</string>
+    <string name="settings_conversation_volume_reduction_label">Səs azaldılması</string>
     <string name="signal_badge_ble_cd">BLE skanı aktiv</string>
     <string name="signal_badge_key_irk_cd">Kimlik təsdiqləndi</string>
     <string name="signal_badge_key_encrypted_cd">Şifrəli bağlantı</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ümumi</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Mikrofonun hansı AirPod tərəfindən istifadə edildiyini</string>
+    <string name="device_settings_microphone_mode_description">Mikrofon kimi hansı qulaqlıq istifadə olunur</string>
     <string name="device_settings_microphone_mode_auto">Avtomatik</string>
     <string name="device_settings_microphone_mode_right">Sağ</string>
     <string name="device_settings_microphone_mode_left">Sol</string>

@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ራስ-ሰር ለአፍታ ማቆም</string>
     <string name="settings_autopause_description">መሳሪያውን ከጆሮዎ ሲያወጡ ድምጽን ለአፍታ ያቁሙ።</string>
     <string name="settings_autopplay_label">ራስ-ሰር አጫውት</string>
-    <string name="settings_autoplay_description">መሳሪያው ሲለበስ የድምጽ መልሶ ማጫወት ይጀምሩ።</string>
+    <string name="settings_autoplay_description">ፖዶቹን እንደገና ሲያጠቁ ሙዚቃን ቀጥል፣ ግን ራስ-አቆም ካቆመው ብቻ። ራስዎ ያቆሙት (ስልክ፣ የ AirPods ቀጭኑ፣ ወይም እንቅልፍ) ቆሞ ይቆያል።</string>
+    <string name="settings_start_music_on_wear_label">ሲያጠቁ ሙዚቃ ጀምር</string>
+    <string name="settings_start_music_on_wear_description">ፖዶቹን ሲያጠቁ ሁልጊዜ ሙዚቃ ለማጫወት ይሞክራል፣ እጅ ሲቆም ካቆሙ በኋላ እንኳን።</string>
     <string name="settings_eardetection_info_label">የጆሮ ማወቂያ ማስታወሻ</string>
-    <string name="settings_eardetection_info_description">የጆሮ ማወቂያ ለአንድ ፖድ ብቻ የሚሰራ ከሆነ ይህ የApple ገደብ ነው። \"ዋና ፖድ\" (ለማይክሮፎን የሚጠቅም) ብቻ ይታወቃል። በApple መሳሪያዎች ላይ ያዋቅሩ: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">ዝቅተኛ የሲግናል ጥራት</string>
+    <string name="settings_eardetection_info_description">የጆሮ ማወቂያ ለአንድ ፖድ ብቻ የሚሰራ ከሆነ ይህ የApple ገደብ ነው። \"ዋና ፖድ\" (ለማይክሮፎን የሚጠቅም) ብቻ ይታወቃል። በApple መሳሪያዎች ላይ ያዋቅሩ: Settings → Bluetooth → AirPods → Microphone.</string>
+    <string name="settings_signal_minimum_label">ዝቅተኛ የሲግናል ጥራት</string>
     <string name="settings_signal_minimum_description">አንድ መሣሪያ የእርስዎ ተደርጎ እንዲቆጠር ሊኖረው የሚገባው ዝቅተኛው የሲግናል ጥራት።</string>
     <string name="settings_autoconnect_label">ራስ-ሰር ግንኙነት</string>
     <string name="settings_autoconnect_description">አንድሮይድ በራስ-ሰር ካልተገናኘ፣ እኛም ልንጠይቀው እንችላለን። ይህ የክትትል ሁነታ ቅንብሩን ወደ \"ሁልጊዜ\" ያደርገዋል።</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
     <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
-    <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string><string name="settings_compatibility_mode_label">የተኳኋኝነት ሁነታ</string>
+    <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
+    <string name="settings_compatibility_mode_label">የተኳኋኝነት ሁነታ</string>
     <string name="settings_compatibility_mode_description">ተኳኋኝነትን ለማሻሻል ማመቻቸቶችን አሰናክል። ምንም መረጃ ካላዩ ይህንን ይሞክሩ።</string>
     <string name="help_translate_label">ትርጉም</string>
     <string name="help_translate_description">ይህንን መተግበሪያ ወደ እርስዎ ተወዳጅ ቋንቋ ለመተርጎም ያግዙ።</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ይህ ዊጄት ወደ መሳሪያዎ ቀጥታ ግንኙነት (AAP) ይፈልጋል። ይህን ዊጄት ከመጠቀምዎ በፊት መሳሪያዎ ጥምር ሆኖ በአፕ ውስጥ መገናኘቱን ያረጋግጡ።</string>
     <string name="anc_widget_no_anc_support_label">ይህ መሳሪያ የጫጫታ ቁጥጥርን አይደግፍም</string>
     <string name="anc_widget_aap_not_connected_label">አልተገናኘም</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">አቅራቢያ ነው ግን አልተገናኘም</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">አቅራቢያ የለም</string>
     <string name="anc_widget_aap_connecting_label">በመገናኘት ላይ…</string>
+    <string name="tile_anc_label">ጫጫታ ቁጥጥር</string>
+    <string name="tile_anc_subtitle_permission_required">ፈቃድ ያስፈልጋል</string>
+    <string name="tile_anc_subtitle_no_device">መሣሪያ የለም</string>
+    <string name="tile_anc_subtitle_no_anc_support">ጫጫታ ቁጥጥር የለም</string>
+    <string name="tile_anc_subtitle_bluetooth_off">ብሉቱዝ ጠፍቷል</string>
     <string name="widget_config_screen_title">ዊጀት ውቅር</string>
     <string name="widget_configuration_title">መሣሪያ ይምረጡ</string>
     <string name="widget_configuration_description">ይህ መግብር የትኛውን የመሣሪያ መገለጫ ማሳየት እንዳለበት ይምረጡ።</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">ግልጽነት</string>
     <string name="anc_mode_adaptive">መላሚ</string>
     <string name="conversation_awareness_label">የውይይት ግንዛቤ</string>
+    <string name="settings_conversation_action_label">መናገር ሲጀምሩ</string>
+    <string name="settings_conversation_action_nothing_label">ምንም አታድርግ</string>
+    <string name="settings_conversation_action_lower_volume_label">ድምፅ ዝቅ አድርግ</string>
+    <string name="settings_conversation_action_pause_label">ሚዲያ አቆም</string>
+    <string name="settings_conversation_volume_reduction_label">የድምፅ ቅናሽ</string>
     <string name="signal_badge_ble_cd">BLE ቅኝት ንቁ ነው</string>
     <string name="signal_badge_key_irk_cd">ማንነት ተረጋግጧል</string>
     <string name="signal_badge_key_encrypted_cd">ምስጢራዊ ግንኙነት</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">አጠቃላይ</string>
     <string name="device_settings_microphone_mode_label">ማይክሮፎን</string>
-    <string name="device_settings_microphone_mode_description">የትኛው AirPod እንደ ማይክሮፎን ንእ ላይ ይወላል</string>
+    <string name="device_settings_microphone_mode_description">የትኛው ኢርባድ እንደ ማይክሮፎን ጥቅም ላይ እንደሚውል</string>
     <string name="device_settings_microphone_mode_auto">ራስ-ሰር</string>
     <string name="device_settings_microphone_mode_right">ቀኝ</string>
     <string name="device_settings_microphone_mode_left">ግራ</string>

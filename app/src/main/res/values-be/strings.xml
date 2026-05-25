@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Аўтаматычная паўза</string>
     <string name="settings_autopause_description">Прыпыняць аўдыя пры выманні прылады з вуха.</string>
     <string name="settings_autopplay_label">Аўтаматычнае прайграванне</string>
-    <string name="settings_autoplay_description">Пачынаць прайграванне аўдыя пры надзяванні прылады.</string>
+    <string name="settings_autoplay_description">Аднавіць музыку пры паўторным надзяванні навушнікаў, але толькі калі яе спыніла аўтапаўза. Паўзы, якія вы самі ўключылі (тэлефон, ножка AirPods, сон), застаюцца.</string>
+    <string name="settings_start_music_on_wear_label">Пачынаць музыку пры надзяванні</string>
+    <string name="settings_start_music_on_wear_description">Заўсёды спрабуе прайграць музыку, калі вы надзяваеце навушнікі, нават пасля ручной паўзы.</string>
     <string name="settings_eardetection_info_label">Заўвага пра вызначэнне вуха</string>
-    <string name="settings_eardetection_info_description">Калі вызначэнне вуха працуе толькі для аднаго навушніка, гэта абмежаванне Apple. Вызначаецца толькі \"асноўны навушнік\" (выкарыстоўваецца для мікрафона). Наладзьце на прыладах Apple: Налады → Bluetooth → AirPods → Мікрафон.</string><string name="settings_signal_minimum_label">Мінімальная якасць сігналу</string>
+    <string name="settings_eardetection_info_description">Калі вызначэнне вуха працуе толькі для аднаго навушніка, гэта абмежаванне Apple. Вызначаецца толькі \"асноўны навушнік\" (выкарыстоўваецца для мікрафона). Наладзьце на прыладах Apple: Налады → Bluetooth → AirPods → Мікрафон.</string>
+    <string name="settings_signal_minimum_label">Мінімальная якасць сігналу</string>
     <string name="settings_signal_minimum_description">Мінімальная якасць сігналу, якую павінна мець прылада, каб лічыцца вашай.</string>
     <string name="settings_autoconnect_label">Аўтаматычнае падключэнне</string>
     <string name="settings_autoconnect_description">Калі Android не падключаецца аўтаматычна, мы таксама можам запытаць гэта. Гэта ўсталюе для налады рэжыму маніторынгу значэнне \"Заўсёды\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_acknowledgements_label">Падзякі</string>
     <string name="settings_debug_autoreports_label">Аўтаматычныя справаздачы пра памылкі</string>
-    <string name="settings_debug_autoreports_description">Аўтаматычна паведамляе пра праблемы, напрыклад, звесткі пра збой праграмы, каб я мог зразумець, як гэта выправіць.</string><string name="settings_compatibility_mode_label">Рэжым сумяшчальнасці</string>
+    <string name="settings_debug_autoreports_description">Аўтаматычна паведамляе пра праблемы, напрыклад, звесткі пра збой праграмы, каб я мог зразумець, як гэта выправіць.</string>
+    <string name="settings_compatibility_mode_label">Рэжым сумяшчальнасці</string>
     <string name="settings_compatibility_mode_description">Адключыце аптымізацыі для паляпшэння сумяшчальнасці. Паспрабуйце гэта, калі вы не бачыце ніякіх даных.</string>
     <string name="help_translate_label">Пераклад</string>
     <string name="help_translate_description">Дапамажыце перакласці гэту праграму на вашу любімую мову.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Гэты віджэт патрабуе прамога злучэння (AAP) з вашай прыладай. Пераканайцеся, што ваша прылада спалучана і падключана ў праграме перад выкарыстаннем гэтага віджэта.</string>
     <string name="anc_widget_no_anc_support_label">Гэта прылада не падтрымлівае кіраванне шумам</string>
     <string name="anc_widget_aap_not_connected_label">Не падключана</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Побач, але не падключана</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Не побач</string>
     <string name="anc_widget_aap_connecting_label">Падключэнне…</string>
+    <string name="tile_anc_label">Кіраванне шумам</string>
+    <string name="tile_anc_subtitle_permission_required">Патрабуецца дазвол</string>
+    <string name="tile_anc_subtitle_no_device">Няма прылады</string>
+    <string name="tile_anc_subtitle_no_anc_support">Няма кіравання шумам</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth выключаны</string>
     <string name="widget_config_screen_title">Канфігурацыя віджэта</string>
     <string name="widget_configuration_title">Выбраць прыладу</string>
     <string name="widget_configuration_description">Выберыце, які профіль прылады павінен адлюстроўваць гэты віджэт.</string>
@@ -241,6 +252,11 @@
     <string name="anc_mode_transparency">Празрыстасць</string>
     <string name="anc_mode_adaptive">Адаптыўны</string>
     <string name="conversation_awareness_label">Усведамленне размовы</string>
+    <string name="settings_conversation_action_label">Калі вы пачынаеце гаварыць</string>
+    <string name="settings_conversation_action_nothing_label">Нічога не рабіць</string>
+    <string name="settings_conversation_action_lower_volume_label">Зменшыць гучнасць</string>
+    <string name="settings_conversation_action_pause_label">Паставіць медыя на паўзу</string>
+    <string name="settings_conversation_volume_reduction_label">Зніжэнне гучнасці</string>
     <string name="signal_badge_ble_cd">BLE-сканаванне актыўнае</string>
     <string name="signal_badge_key_irk_cd">Асоба пацверджана</string>
     <string name="signal_badge_key_encrypted_cd">Зашыфраванае злучэнне</string>
@@ -462,7 +478,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Агульныя</string>
     <string name="device_settings_microphone_mode_label">Мікрафон</string>
-    <string name="device_settings_microphone_mode_description">Які AirPod выкарыстоўваецца як мікрафон</string>
+    <string name="device_settings_microphone_mode_description">Які навушнік выкарыстоўваецца як мікрафон</string>
     <string name="device_settings_microphone_mode_auto">Аўта</string>
     <string name="device_settings_microphone_mode_right">Правы</string>
     <string name="device_settings_microphone_mode_left">Левы</string>

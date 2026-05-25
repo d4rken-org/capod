@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ავტომატური პაუზა</string>
     <string name="settings_autopause_description">აუდიოს დაპაუზება მოწყობილობის ყურიდან ამოღებისას.</string>
     <string name="settings_autopplay_label">ავტომატური დაკვრა</string>
-    <string name="settings_autoplay_description">აუდიო დაკვრის დაწყება მოწყობილობის ტარებისას.</string>
+    <string name="settings_autoplay_description">მუსიკის განახლება ყურსასმენების ხელახლა ჩადებისას, მხოლოდ იმ შემთხვევაში, თუ ავტო-პაუზამ შეაჩერა. პაუზები, რომლებიც თქვენ თვითონ გააკეთეთ (ტელეფონი, AirPods ღერო, ძილი), პაუზირებულია.</string>
+    <string name="settings_start_music_on_wear_label">მუსიკის დაწყება ჩადებისას</string>
+    <string name="settings_start_music_on_wear_description">ყოველთვის ცდილობს მუსიკის დაკვრას ყურსასმენების ჩადებისას, მანუალური პაუზის შემდეგაც კი.</string>
     <string name="settings_eardetection_info_label">ყურში აღმოჩენის შენიშვნა</string>
-    <string name="settings_eardetection_info_description">თუ ყურში აღმოჩენა მხოლოდ ერთი ყურსასმენისთვის მუშაობს, ეს Apple-ის შეზღუდვაა. აღმოჩენილია მხოლოდ \"primary pod\" (მიკროფონისთვის გამოყენებული). კონფიგურაცია Apple მოწყობილობებზე: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">სიგნალის მინიმალური ხარისხი</string>
+    <string name="settings_eardetection_info_description">თუ ყურში აღმოჩენა მხოლოდ ერთი ყურსასმენისთვის მუშაობს, ეს Apple-ის შეზღუდვაა. აღმოჩენილია მხოლოდ \"primary pod\" (მიკროფონისთვის გამოყენებული). კონფიგურაცია Apple მოწყობილობებზე: Settings → Bluetooth → AirPods → Microphone.</string>
+    <string name="settings_signal_minimum_label">სიგნალის მინიმალური ხარისხი</string>
     <string name="settings_signal_minimum_description">სიგნალის მინიმალური ხარისხი, რომელიც მოწყობილობას უნდა ჰქონდეს, რომ თქვენად ჩაითვალოს.</string>
     <string name="settings_autoconnect_label">ავტომატური დაკავშირება</string>
     <string name="settings_autoconnect_description">თუ Android ავტომატურად არ უკავშირდება, ჩვენც შეგვიძლია მოვითხოვოთ. ეს მონიტორინგის რეჟიმის პარამეტრს \"ყოველთვის\"-ზე დააყენებს.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
     <string name="settings_acknowledgements_label">მადლობები</string>
     <string name="settings_debug_autoreports_label">შეცდომების ავტომატური ანგარიშები</string>
-    <string name="settings_debug_autoreports_description">ავტომატურად აცნობებს პრობლემების შესახებ, მაგ. აპლიკაციის ავარიის დეტალებს, რათა გავარკვიო, როგორ გამოვასწორო.</string><string name="settings_compatibility_mode_label">თავსებადობის რეჟიმი</string>
+    <string name="settings_debug_autoreports_description">ავტომატურად აცნობებს პრობლემების შესახებ, მაგ. აპლიკაციის ავარიის დეტალებს, რათა გავარკვიო, როგორ გამოვასწორო.</string>
+    <string name="settings_compatibility_mode_label">თავსებადობის რეჟიმი</string>
     <string name="settings_compatibility_mode_description">გამორთეთ ოპტიმიზაციები თავსებადობის გასაუმჯობესებლად. სცადეთ ეს, თუ მონაცემებს ვერ ხედავთ.</string>
     <string name="help_translate_label">თარგმანი</string>
     <string name="help_translate_description">დაეხმარეთ ამ აპლიკაციის თქვენს საყვარელ ენაზე თარგმნაში.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ეს ვიჯეტი საჭიროებს პირდაპირ კავშირს (AAP) თქვენს მოწყობილობასთან. დარწმუნდით, რომ მოწყობილობა აპარატში დაწყვილებული და დაკავშირებულია ამ ვიჯეტის გამოყენებამდე.</string>
     <string name="anc_widget_no_anc_support_label">ეს მოწყობილობა არ უჭერს მხარს ხმაურის კონტროლს</string>
     <string name="anc_widget_aap_not_connected_label">არ არის დაკავშირებული</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">ახლოს, მაგრამ დაუკავშირებელი</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">არ არის ახლოს</string>
     <string name="anc_widget_aap_connecting_label">მიმდინარეობს კავშირი…</string>
+    <string name="tile_anc_label">ხმაურის კონტროლი</string>
+    <string name="tile_anc_subtitle_permission_required">საჭიროა ნებართვა</string>
+    <string name="tile_anc_subtitle_no_device">მოწყობილობა არ არის</string>
+    <string name="tile_anc_subtitle_no_anc_support">ხმაურის კონტროლი არ არის</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth გამორთულია</string>
     <string name="widget_config_screen_title">ვიჯეტის კონფიგურაცია</string>
     <string name="widget_configuration_title">მოწყობილობის არჩევა</string>
     <string name="widget_configuration_description">აირჩიეთ, რომელი მოწყობილობის პროფილი უნდა აჩვენოს ამ ვიჯეტმა.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">გამჭვირვალობა</string>
     <string name="anc_mode_adaptive">ადაპტური</string>
     <string name="conversation_awareness_label">საუბრის ცნობიერება</string>
+    <string name="settings_conversation_action_label">როდესაც ლაპარაკს იწყებ</string>
+    <string name="settings_conversation_action_nothing_label">არაფრის გაკეთება</string>
+    <string name="settings_conversation_action_lower_volume_label">ხმის დაწევა</string>
+    <string name="settings_conversation_action_pause_label">მედიის პაუზა</string>
+    <string name="settings_conversation_volume_reduction_label">ხმის შემცირება</string>
     <string name="signal_badge_ble_cd">BLE სკანირება აქტიურია</string>
     <string name="signal_badge_key_irk_cd">პირაობა დადასტურებულია</string>
     <string name="signal_badge_key_encrypted_cd">დაშიფრული კავშირი</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ზოგადი</string>
     <string name="device_settings_microphone_mode_label">მიკროფონი</string>
-    <string name="device_settings_microphone_mode_description">რომელი AirPod გამოიყენება მიკროფონად</string>
+    <string name="device_settings_microphone_mode_description">რომელი ყურსასმენი გამოიყენება მიკროფონად</string>
     <string name="device_settings_microphone_mode_auto">ავტო</string>
     <string name="device_settings_microphone_mode_right">მარჯვენა</string>
     <string name="device_settings_microphone_mode_left">მარცხენა</string>

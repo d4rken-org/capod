@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pàusa automàtica</string>
     <string name="settings_autopause_description">Pone in pàusa s\'àudio cando bogas su dispositivu dae s\'origra.</string>
     <string name="settings_autopplay_label">Riprodutzione automàtica</string>
-    <string name="settings_autoplay_description">Aviatzia sa riprodutzione de s\'àudio cando su dispositivu est indossadu.</string>
+    <string name="settings_autoplay_description">Torrat a sonat sa mùsica cando torras a pònnere sos pods, ma petzi si sa pausa automàtica l\'at interrùmpida. Sas pausas chi as fatu tue etotu (telèfonu, mànicu AirPods, repòsu) restant in pausa.</string>
+    <string name="settings_start_music_on_wear_label">Ativia sa mùsica cando los pones</string>
+    <string name="settings_start_music_on_wear_description">Proat semper a sonat sa mùsica cando pones sos pods, fintzas a pustis de una pausa manuale.</string>
     <string name="settings_eardetection_info_label">Nota subra su riconoschimentu de s\'origra</string>
-    <string name="settings_eardetection_info_description">Si su riconoschimentu de s\'origra funtzionat isceti pro una corfita, custa est una limitatzione de Apple. Isceti sa \"corfita printzipale\" (impreada pro su micròfonu) est riconnota. Cunfigura in dispositivos Apple: Impostatziones → Bluetooth → AirPods → Micròfonu.</string><string name="settings_signal_minimum_label">Calidade mìnima de su signale</string>
+    <string name="settings_eardetection_info_description">Si su riconoschimentu de s\'origra funtzionat isceti pro una corfita, custa est una limitatzione de Apple. Isceti sa \"corfita printzipale\" (impreada pro su micròfonu) est riconnota. Cunfigura in dispositivos Apple: Impostatziones → Bluetooth → AirPods → Micròfonu.</string>
+    <string name="settings_signal_minimum_label">Calidade mìnima de su signale</string>
     <string name="settings_signal_minimum_description">Sa calidade mìnima de su signale chi unu dispositivu depet àere pro èssere cunsideradu tuo.</string>
     <string name="settings_autoconnect_label">Cullegamentu automàticu</string>
     <string name="settings_autoconnect_description">Si Android non si cullegat in automàticu, ddu podimus pregontare nois etotu. Custu at a impostare sa cunfiguratzione de sa modalidade de monitoràgiu a \'Sèmper\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
     <string name="settings_debug_autoreports_label">Reportes de errores automàticos</string>
-    <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string><string name="settings_compatibility_mode_label">Modalidade de cumpatibilidade</string>
+    <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string>
+    <string name="settings_compatibility_mode_label">Modalidade de cumpatibilidade</string>
     <string name="settings_compatibility_mode_description">Disativa otimizatziones pro megiorare sa cumpatibilidade. Proa custu si non ses bidende perunu datu.</string>
     <string name="help_translate_label">Tradutzione</string>
     <string name="help_translate_description">Agiuda a traduire custa app in sa limba tua preferida.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Custu widget recheret una connessione diretta (AAP) a su dispositivu tuo. Assegura-te chi su dispositivu siat associadu e connetu in s\'app prima de impreare custu widget.</string>
     <string name="anc_widget_no_anc_support_label">Custu dispositivu non supportat su controllo de su rumore</string>
     <string name="anc_widget_aap_not_connected_label">Non connetu</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Vitzinu ma non connètidu</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Non est vitzinu</string>
     <string name="anc_widget_aap_connecting_label">Connessione in cursu…</string>
+    <string name="tile_anc_label">Controllu rumoreu</string>
+    <string name="tile_anc_subtitle_permission_required">Permissu netzessàriu</string>
+    <string name="tile_anc_subtitle_no_device">Nagin apparat</string>
+    <string name="tile_anc_subtitle_no_anc_support">Nudda controllu rumoreu</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth disiactivadu</string>
     <string name="widget_config_screen_title">Cunfiguratzione widget</string>
     <string name="widget_configuration_title">Seletziona dispositivu</string>
     <string name="widget_configuration_description">Sceglide cale profilu de dispositivu custu widget depet mustrare.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparèntzia</string>
     <string name="anc_mode_adaptive">Adativu</string>
     <string name="conversation_awareness_label">Consapevolèntzia de sa conversatzione</string>
+    <string name="settings_conversation_action_label">Cando cumencias a faeddare</string>
+    <string name="settings_conversation_action_nothing_label">Non fagher nudda</string>
+    <string name="settings_conversation_action_lower_volume_label">Abassare su volume</string>
+    <string name="settings_conversation_action_pause_label">Pausa media</string>
+    <string name="settings_conversation_volume_reduction_label">Ridutzione de su volume</string>
     <string name="signal_badge_ble_cd">Scansione BLE ativa</string>
     <string name="signal_badge_key_irk_cd">Identidade verificada</string>
     <string name="signal_badge_key_encrypted_cd">Culleghiamentu tzifradadu</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Generale</string>
     <string name="device_settings_microphone_mode_label">Microfon</string>
-    <string name="device_settings_microphone_mode_description">Cale AirPod est impreadu comente micròfonu</string>
+    <string name="device_settings_microphone_mode_description">Cale auricolari est usadu comente micròfonu</string>
     <string name="device_settings_microphone_mode_auto">Automàticu</string>
     <string name="device_settings_microphone_mode_right">Dèxtera</string>
     <string name="device_settings_microphone_mode_left">Manca</string>

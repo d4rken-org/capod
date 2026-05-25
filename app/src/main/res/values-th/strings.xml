@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">หยุดชั่วคราวอัตโนมัติ</string>
     <string name="settings_autopause_description">หยุดเสียงชั่วคราวเมื่อถอดอุปกรณ์ออกจากหู</string>
     <string name="settings_autopplay_label">เล่นอัตโนมัติ</string>
-    <string name="settings_autoplay_description">เริ่มเล่นเสียงเมื่อสวมใส่อุปกรณ์</string>
+    <string name="settings_autoplay_description">เล่นเพลงต่อเมื่อคุณใส่หูฟังอีกครั้ง แต่เฉพาะเมื่อการหยุดอัตโนมัติเป็นผู้หยุดไว้เท่านั้น การหยุดที่คุณทำเอง (โทรศัพท์, ก้านหูฟัง AirPods, สลีป) จะยังคงหยุดอยู่</string>
+    <string name="settings_start_music_on_wear_label">เริ่มเพลงเมื่อสวมใส่</string>
+    <string name="settings_start_music_on_wear_description">พยายามเล่นเพลงเสมอเมื่อคุณสวมหูฟัง แม้หลังจากหยุดด้วยตนเอง</string>
     <string name="settings_eardetection_info_label">หมายเหตุการตรวจจับหู</string>
-    <string name="settings_eardetection_info_description">หากการตรวจจับหูทำงานเพียงข้างเดียว นี่เป็นข้อจำกัดของ Apple เฉพาะ \"พ็อดหลัก\" (ที่ใช้สำหรับไมโครโฟน) เท่านั้นที่จะถูกตรวจจับ ตั้งค่าบนอุปกรณ์ Apple: การตั้งค่า → Bluetooth → AirPods → ไมโครโฟน</string><string name="settings_signal_minimum_label">คุณภาพสัญญาณขั้นต่ำ</string>
+    <string name="settings_eardetection_info_description">หากการตรวจจับหูทำงานเพียงข้างเดียว นี่เป็นข้อจำกัดของ Apple เฉพาะ \"พ็อดหลัก\" (ที่ใช้สำหรับไมโครโฟน) เท่านั้นที่จะถูกตรวจจับ ตั้งค่าบนอุปกรณ์ Apple: การตั้งค่า → Bluetooth → AirPods → ไมโครโฟน</string>
+    <string name="settings_signal_minimum_label">คุณภาพสัญญาณขั้นต่ำ</string>
     <string name="settings_signal_minimum_description">คุณภาพสัญญาณขั้นต่ำที่อุปกรณ์ต้องมีเพื่อให้ถือว่าเป็นของคุณ</string>
     <string name="settings_autoconnect_label">เชื่อมต่ออัตโนมัติ</string>
     <string name="settings_autoconnect_description">หาก Android ไม่เชื่อมต่อโดยอัตโนมัติ เราสามารถขอให้เชื่อมต่อได้เช่นกัน ซึ่งจะตั้งค่าโหมดติดตามเป็น \'เสมอ\'</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">การปรับแต่งทั่วไปที่ส่งผลต่อทั้งแอป</string>
     <string name="settings_acknowledgements_label">กิตติกรรมประกาศ</string>
     <string name="settings_debug_autoreports_label">รายงานข้อบกพร่องอัตโนมัติ</string>
-    <string name="settings_debug_autoreports_description">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับข้อขัดข้องของแอป เพื่อให้ฉันสามารถหาวิธีแก้ไขได้</string><string name="settings_compatibility_mode_label">โหมดความเข้ากันได้</string>
+    <string name="settings_debug_autoreports_description">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับข้อขัดข้องของแอป เพื่อให้ฉันสามารถหาวิธีแก้ไขได้</string>
+    <string name="settings_compatibility_mode_label">โหมดความเข้ากันได้</string>
     <string name="settings_compatibility_mode_description">ปิดใช้งานการเพิ่มประสิทธิภาพเพื่อปรับปรุงความเข้ากันได้ ลองใช้วิธีนี้หากคุณไม่เห็นข้อมูลใดๆ</string>
     <string name="help_translate_label">การแปล</string>
     <string name="help_translate_description">ช่วยแปลแอปนี้เป็นภาษาที่คุณชื่นชอบ</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">วิดเจ็ตนี้ต้องการการเชื่อมต่อโดยตรง (AAP) กับอุปกรณ์ของคุณ ตรวจสอบให้แน่ใจว่าอุปกรณ์ของคุณจับคู่และเชื่อมต่อในแอปก่อนใช้วิดเจ็ตนี้</string>
     <string name="anc_widget_no_anc_support_label">อุปกรณ์นี้ไม่รองรับการควบคุมเสียงรบกวน</string>
     <string name="anc_widget_aap_not_connected_label">ไม่ได้เชื่อมต่อ</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">อยู่ใกล้เคียงแต่ยังไม่ได้เชื่อมต่อ</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">ไม่อยู่ใกล้เคียง</string>
     <string name="anc_widget_aap_connecting_label">กำลังเชื่อมต่อ…</string>
+    <string name="tile_anc_label">ควบคุมเสียงรบกวน</string>
+    <string name="tile_anc_subtitle_permission_required">ต้องการสิทธิ์</string>
+    <string name="tile_anc_subtitle_no_device">ไม่มีอุปกรณ์</string>
+    <string name="tile_anc_subtitle_no_anc_support">ไม่มีการควบคุมเสียงรบกวน</string>
+    <string name="tile_anc_subtitle_bluetooth_off">บลูทูธปิดอยู่</string>
     <string name="widget_config_screen_title">การตั้งค่าวิดเจ็ต</string>
     <string name="widget_configuration_title">เลือกอุปกรณ์</string>
     <string name="widget_configuration_description">เลือกโปรไฟล์อุปกรณ์ที่วิดเจ็ตนี้ควรแสดง</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">โปร่งใส</string>
     <string name="anc_mode_adaptive">ปรับตัว</string>
     <string name="conversation_awareness_label">การรับรู้บทสนทนา</string>
+    <string name="settings_conversation_action_label">เมื่อคุณเริ่มพูด</string>
+    <string name="settings_conversation_action_nothing_label">ไม่ทำอะไร</string>
+    <string name="settings_conversation_action_lower_volume_label">ลดระดับเสียง</string>
+    <string name="settings_conversation_action_pause_label">หยุดสื่อ</string>
+    <string name="settings_conversation_volume_reduction_label">การลดระดับเสียง</string>
     <string name="signal_badge_ble_cd">BLE สแกนทำงานอยู่</string>
     <string name="signal_badge_key_irk_cd">ยืนยันตัวตนแล้ว</string>
     <string name="signal_badge_key_encrypted_cd">การเชื่อมต่อที่เข้ารหัส</string>
@@ -447,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ทั่วไป</string>
     <string name="device_settings_microphone_mode_label">ไมโครโฟน</string>
-    <string name="device_settings_microphone_mode_description">AirPod ตัวใดใช้เป็นไมโครโฟน</string>
+    <string name="device_settings_microphone_mode_description">หูฟังข้างใดที่ใช้เป็นไมโครโฟน</string>
     <string name="device_settings_microphone_mode_auto">อัตโนมัติ</string>
     <string name="device_settings_microphone_mode_right">ขวา</string>
     <string name="device_settings_microphone_mode_left">ซ้าย</string>

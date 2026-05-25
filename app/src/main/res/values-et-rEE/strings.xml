@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automaatne peatamine</string>
     <string name="settings_autopause_description">Seadme kõrvast eemaldamisel peata esitamine.</string>
     <string name="settings_autopplay_label">Automaatne esitamine</string>
-    <string name="settings_autoplay_description">Automaatne esitamine, kui seade pannakse kõrva.</string>
+    <string name="settings_autoplay_description">Jätka muusika esitust, kui kõrvaklapid jälle seljas, kuid ainult siis, kui Auto-paus selle peatas. Pausid, mille tegid ise (telefon, AirPodsi vars, uni), jäävad pausi peale.</string>
+    <string name="settings_start_music_on_wear_label">Käivita muusika kandmisel</string>
+    <string name="settings_start_music_on_wear_description">Proovib alati mängida muusikat, kui paned kõrvaklapid pähe, isegi pärast käsitsi pausi.</string>
     <string name="settings_eardetection_info_label">Kõrva tuvastamisest</string>
-    <string name="settings_eardetection_info_description">Kui tuvastatakse vaid üks klapp, siis seda põhjustab Apple\'i piirang. Tuvastatakse vaid peamine klapp (kasutatakse mikrofonina). Seadista Apple\'i seadmetes: Seaded (Settings) → Bluetooth → AirPods (AirPodid) → Mikrofon (Microphone).</string><string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
+    <string name="settings_eardetection_info_description">Kui tuvastatakse vaid üks klapp, siis seda põhjustab Apple\'i piirang. Tuvastatakse vaid peamine klapp (kasutatakse mikrofonina). Seadista Apple\'i seadmetes: Seaded (Settings) → Bluetooth → AirPods (AirPodid) → Mikrofon (Microphone).</string>
+    <string name="settings_signal_minimum_label">Väikseim signaali kvaliteet</string>
     <string name="settings_signal_minimum_description">Väikseim signaali kvaliteet, mis seade peab omama, et seda peetaks teie omaks.</string>
     <string name="settings_autoconnect_label">Automaatne ühendamine</string>
     <string name="settings_autoconnect_description">Kui Android ei ühendu ise, saame seda taotleda. See lülitab jälgimisrežiimi sisse alatiseks.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Kogu rakendust mõjutavad üldseaded.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
     <string name="settings_debug_autoreports_label">Automaatsed veateated</string>
-    <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string><string name="settings_compatibility_mode_label">Ühilduvusrežiim</string>
+    <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string>
+    <string name="settings_compatibility_mode_label">Ühilduvusrežiim</string>
     <string name="settings_compatibility_mode_description">Ühilduvuse parandamiseks keelake optimeeringud. Proovige seda, kui te ei näe mingeid andmeid.</string>
     <string name="help_translate_label">Tõlge</string>
     <string name="help_translate_description">Aita tõlkida seda rakendust oma emakeelde.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">See vidin nõuab otsest ühendust (AAP) teie seadmega. Enne selle vidina kasutamist veenduge, et teie seade on rakenduses seotud ja ühendatud.</string>
     <string name="anc_widget_no_anc_support_label">See seade ei toeta mürakontrolli</string>
     <string name="anc_widget_aap_not_connected_label">Ühendus puudub</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Lähedal, kuid ei ole ühendatud</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Pole lähedal</string>
     <string name="anc_widget_aap_connecting_label">Ühendamine…</string>
+    <string name="tile_anc_label">Mürakontroll</string>
+    <string name="tile_anc_subtitle_permission_required">Luba nõutud</string>
+    <string name="tile_anc_subtitle_no_device">Puudub seade</string>
+    <string name="tile_anc_subtitle_no_anc_support">Mürakontroll puudub</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth väljas</string>
     <string name="widget_config_screen_title">Vidina seadistus</string>
     <string name="widget_configuration_title">Vali seade</string>
     <string name="widget_configuration_description">Valige, millist seadmeprofiili see vidin võiks kuvada.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Läbipaistvus</string>
     <string name="anc_mode_adaptive">Kohanduv</string>
     <string name="conversation_awareness_label">Vestluse tuvastamine</string>
+    <string name="settings_conversation_action_label">Kui alustad rääkimist</string>
+    <string name="settings_conversation_action_nothing_label">Ära tee midagi</string>
+    <string name="settings_conversation_action_lower_volume_label">Alanda helitugevust</string>
+    <string name="settings_conversation_action_pause_label">Peata meedia</string>
+    <string name="settings_conversation_volume_reduction_label">Helitugevuse vähendamine</string>
     <string name="signal_badge_ble_cd">BLE skannimine aktiivne</string>
     <string name="signal_badge_key_irk_cd">Identiteet kinnitatud</string>
     <string name="signal_badge_key_encrypted_cd">Krüpteeritud ühendus</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Üldine</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Millist AirPodi kasutatakse mikrofonina</string>
+    <string name="device_settings_microphone_mode_description">Millist kõrvaklappi kasutatakse mikrofonina</string>
     <string name="device_settings_microphone_mode_auto">Automaatne</string>
     <string name="device_settings_microphone_mode_right">Parem</string>
     <string name="device_settings_microphone_mode_left">Vasak</string>

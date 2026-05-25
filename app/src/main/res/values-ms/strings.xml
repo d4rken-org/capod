@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Jeda automatik</string>
     <string name="settings_autopause_description">Jeda audio apabila peranti dikeluarkan dari telinga anda.</string>
     <string name="settings_autopplay_label">Main automatik</string>
-    <string name="settings_autoplay_description">Mulakan main balik audio apabila peranti dipakai.</string>
+    <string name="settings_autoplay_description">Sambung semula muzik apabila memakai pod anda semula, tetapi hanya jika Jeda Automatik yang menghentikannya. Jeda yang anda picu sendiri (telefon, batang AirPods, tidur) kekal dijeda.</string>
+    <string name="settings_start_music_on_wear_label">Mulakan muzik semasa memakai</string>
+    <string name="settings_start_music_on_wear_description">Sentiasa cuba memainkan muzik apabila anda memakai pod, walaupun selepas jeda manual.</string>
     <string name="settings_eardetection_info_label">Nota pengesanan telinga</string>
-    <string name="settings_eardetection_info_description">Jika pengesanan telinga hanya berfungsi untuk satu pod, ini adalah had Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang dikesan. Konfigurasikan pada peranti Apple: Tetapan → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Kualiti isyarat minimum</string>
+    <string name="settings_eardetection_info_description">Jika pengesanan telinga hanya berfungsi untuk satu pod, ini adalah had Apple. Hanya \"pod utama\" (digunakan untuk mikrofon) yang dikesan. Konfigurasikan pada peranti Apple: Tetapan → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Kualiti isyarat minimum</string>
     <string name="settings_signal_minimum_description">Kualiti isyarat minimum yang peranti perlukan untuk dianggap sebagai milik anda.</string>
     <string name="settings_autoconnect_label">Sambung automatik</string>
     <string name="settings_autoconnect_description">Jika Android tidak bersambung secara automatik, kami juga boleh memintanya. Ini akan menetapkan tetapan mod monitor kepada \"Sentiasa\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Penyesuaian umum yang mempengaruhi keseluruhan apl.</string>
     <string name="settings_acknowledgements_label">Penghargaan</string>
     <string name="settings_debug_autoreports_label">Laporan pepijat automatik</string>
-    <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string><string name="settings_compatibility_mode_label">Mod keserasian</string>
+    <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string>
+    <string name="settings_compatibility_mode_label">Mod keserasian</string>
     <string name="settings_compatibility_mode_description">Nyahdayakan pengoptimuman untuk meningkatkan keserasian. Cuba ini jika anda tidak melihat sebarang data.</string>
     <string name="help_translate_label">Terjemahan</string>
     <string name="help_translate_description">Bantu terjemahkan apl ini ke dalam bahasa kegemaran anda.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Widget ini memerlukan sambungan langsung (AAP) ke peranti anda. Pastikan peranti anda dipasang dan disambungkan dalam apl sebelum menggunakan widget ini.</string>
     <string name="anc_widget_no_anc_support_label">Peranti ini tidak menyokong kawalan hingar</string>
     <string name="anc_widget_aap_not_connected_label">Tidak disambungkan</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Berdekatan tetapi tidak disambungkan</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Tidak berdekatan</string>
     <string name="anc_widget_aap_connecting_label">Menyambung…</string>
+    <string name="tile_anc_label">Kawalan Hingar</string>
+    <string name="tile_anc_subtitle_permission_required">Kebenaran diperlukan</string>
+    <string name="tile_anc_subtitle_no_device">Tiada peranti</string>
+    <string name="tile_anc_subtitle_no_anc_support">Tiada kawalan hingar</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth dimatikan</string>
     <string name="widget_config_screen_title">Konfigurasi Widget</string>
     <string name="widget_configuration_title">Pilih Peranti</string>
     <string name="widget_configuration_description">Pilih profil peranti yang perlu dipaparkan oleh widget ini.</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">Ketelusan</string>
     <string name="anc_mode_adaptive">Adaptif</string>
     <string name="conversation_awareness_label">Kesedaran Perbualan</string>
+    <string name="settings_conversation_action_label">Apabila anda mula bercakap</string>
+    <string name="settings_conversation_action_nothing_label">Jangan buat apa-apa</string>
+    <string name="settings_conversation_action_lower_volume_label">Kurangkan kelantangan</string>
+    <string name="settings_conversation_action_pause_label">Jeda media</string>
+    <string name="settings_conversation_volume_reduction_label">Pengurangan kelantangan</string>
     <string name="signal_badge_ble_cd">Imbasan BLE aktif</string>
     <string name="signal_badge_key_irk_cd">Identiti disahkan</string>
     <string name="signal_badge_key_encrypted_cd">Sambungan disulitkan</string>
@@ -447,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umum</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">AirPod mana yang digunakan sebagai mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Earbud mana yang digunakan sebagai mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Kanan</string>
     <string name="device_settings_microphone_mode_left">Kiri</string>

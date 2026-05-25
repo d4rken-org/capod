@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automātiska pauze</string>
     <string name="settings_autopause_description">Pauzēt audio, noņemot ierīci no auss.</string>
     <string name="settings_autopplay_label">Automātiska atskaņošana</string>
-    <string name="settings_autoplay_description">Sākt audio atskaņošanu, kad ierīce tiek nēsāta.</string>
+    <string name="settings_autoplay_description">Atsāk mūziku, kad valkājat savus austiņas atkal, bet tikai tad, ja to apturēja automātiskā pauze. Pauzes, ko aktivizējāt pats (tālrunis, AirPods kāts, miegs), paliek pauzētas.</string>
+    <string name="settings_start_music_on_wear_label">Sākt mūziku uzvelkot</string>
+    <string name="settings_start_music_on_wear_description">Vienmēr mēģina atskaņot mūziku, kad uzliekat austiņas, pat pēc manuālas pauzes.</string>
     <string name="settings_eardetection_info_label">Piezīme par auss noteikšanu</string>
-    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">Minimālā signāla kvalitāte</string>
+    <string name="settings_eardetection_info_description">Ja auss noteikšana darbojas tikai vienai austiņai, tas ir Apple ierobežojums. Tiek noteikta tikai \"galvenā austiņa\" (ko izmanto mikrofonam). Konfigurējiet Apple ierīcēs: Settings → Bluetooth → AirPods → Microphone.</string>
+    <string name="settings_signal_minimum_label">Minimālā signāla kvalitāte</string>
     <string name="settings_signal_minimum_description">Minimālā signāla kvalitāte, kādai jābūt ierīcei, lai tā tiktu uzskatīta par jūsu.</string>
     <string name="settings_autoconnect_label">Automātiska savienošana</string>
     <string name="settings_autoconnect_description">Ja Android automātiski nesavienojas, mēs arī varam to pieprasīt. Tas iestatīs monitorēšanas režīma iestatījumu uz \"Vienmēr\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
     <string name="settings_acknowledgements_label">Pateicības</string>
     <string name="settings_debug_autoreports_label">Automātiski kļūdu ziņojumi</string>
-    <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string><string name="settings_compatibility_mode_label">Saderības režīms</string>
+    <string name="settings_debug_autoreports_description">Automātiski ziņo par problēmām, piem., informāciju par lietotnes avāriju, lai es varētu izdomāt, kā to labot.</string>
+    <string name="settings_compatibility_mode_label">Saderības režīms</string>
     <string name="settings_compatibility_mode_description">Atspējojiet optimizācijas, lai uzlabotu saderību. Izmēģiniet šo, ja neredzat nekādus datus.</string>
     <string name="help_translate_label">Tulkošana</string>
     <string name="help_translate_description">Palīdziet tulkot šo lietotni savā iecienītajā valodā.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Šim logrīkam ir nepieciešams tiešs savienojums (AAP) ar jūsu ierīci. Pirms lietot šo logrīku, pārliecinieties, ka ierīce ir savienota pārī un pievienota lietotnē.</string>
     <string name="anc_widget_no_anc_support_label">Šī ierīce neatbalsta trokšņu kontroli</string>
     <string name="anc_widget_aap_not_connected_label">Nav savienots</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Tuvumā, bet nav savienots</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nav tuvumā</string>
     <string name="anc_widget_aap_connecting_label">Savienojas…</string>
+    <string name="tile_anc_label">Trokšņa kontrole</string>
+    <string name="tile_anc_subtitle_permission_required">Nepieciešama atļauja</string>
+    <string name="tile_anc_subtitle_no_device">Nav ierīces</string>
+    <string name="tile_anc_subtitle_no_anc_support">Nav trokšņa kontroles</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth izslēgts</string>
     <string name="widget_config_screen_title">Logrīka konfigurācija</string>
     <string name="widget_configuration_title">Izvēlieties ierīci</string>
     <string name="widget_configuration_description">Izvēlieties, kuru ierīces profilu šim logrīkam vajadzētu rādīt.</string>
@@ -239,6 +250,11 @@
     <string name="anc_mode_transparency">Caurspīdīgums</string>
     <string name="anc_mode_adaptive">Adaptīvs</string>
     <string name="conversation_awareness_label">Sarunu apzināšanās</string>
+    <string name="settings_conversation_action_label">Kad sākat runāt</string>
+    <string name="settings_conversation_action_nothing_label">Nedārīt neko</string>
+    <string name="settings_conversation_action_lower_volume_label">Samazināt skaļumu</string>
+    <string name="settings_conversation_action_pause_label">Pauzēt multividi</string>
+    <string name="settings_conversation_volume_reduction_label">Skaļuma samazinājums</string>
     <string name="signal_badge_ble_cd">BLE skenēšana aktīva</string>
     <string name="signal_badge_key_irk_cd">Identitāte pārbaudīta</string>
     <string name="signal_badge_key_encrypted_cd">Šifrēts savienojums</string>
@@ -417,14 +433,14 @@
     <string name="device_settings_category_sound_label">Skaņa</string>
     <string name="device_settings_category_controls_label">Vadīklēšana</string>
     <string name="device_settings_nc_one_airpod_label">ANC ar vienu austiņu</string>
-    <string name="device_settings_nc_one_airpod_description">Saglabāt troksnisņemšanu aktomiskā ar tikai vienu AirPod</string>
+    <string name="device_settings_nc_one_airpod_description">Saglabāt trokšņu slāpēšanu aktīvu ar tikai vienu AirPod</string>
     <string name="device_settings_personalized_volume_label">Personālizots skaļumā</string>
-    <string name="device_settings_personalized_volume_description">Pielago vides multivides skaļumu atbilstoši apkārtējai vid</string>
+    <string name="device_settings_personalized_volume_description">Pielāgo multivides skaļumu atbilstoši apkārtējai videi</string>
     <string name="device_settings_conversation_awareness_description">Samazināt multivides skaļumu un troksni, kad kāds runā ar jums</string>
     <string name="device_settings_tone_volume_label">Dziľľu skaļums</string>
     <string name="device_settings_tone_volume_description">Apstiprinājuma skaņu un zvanāmāsignalājumu skaļums</string>
     <string name="device_settings_adaptive_noise_label">Adaptīvais audīo troksnis</string>
-    <string name="device_settings_adaptive_noise_description">Cik daudz apkārtējās vides trokšņa tiek caurl aists</string>
+    <string name="device_settings_adaptive_noise_description">Cik daudz apkārtējās vides trokšņa tiek caurlaistu</string>
     <string name="device_settings_adaptive_noise_requires_adaptive">Nepieciešama adaptīvā trokšņu kontrole</string>
     <string name="device_settings_pending_info">Izmaiņas stājas spēkā, kad AirPods ir ausīs</string>
     <string name="device_settings_press_speed_label">Nospiēšanas ātrums</string>
@@ -443,7 +459,7 @@
     <string name="device_settings_volume_swipe_length_description">Lai novērstu nejaušas skaļuma izmaiņas, izvēlieties, cik ilgi gaidīt starp vilkšanas žestiem.</string>
     <string name="device_settings_volume_swipe_length_default">Noklusējuma</string>
     <string name="device_settings_volume_swipe_length_longer">Garāks</string>
-    <string name="device_settings_volume_swipe_length_longest">Visg arāks</string>
+    <string name="device_settings_volume_swipe_length_longest">Visgarāks</string>
     <string name="device_settings_end_call_mute_mic_label">Zvanāmā vadība</string>
     <string name="device_settings_end_call_mute_mic_description">Izvēlieties, kas notiek, nospiežot kātienu zvanāšanas laikā</string>
     <string name="device_settings_end_call_mute_mic_option_a_title">Vienu reizi nospiežot, beidz zvanu</string>
@@ -457,7 +473,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Vispārīgi</string>
     <string name="device_settings_microphone_mode_label">Mikrofons</string>
-    <string name="device_settings_microphone_mode_description">Kurš AirPod tiek izmantots kā mikrofons</string>
+    <string name="device_settings_microphone_mode_description">Kura austiņa tiek izmantota kā mikrofons</string>
     <string name="device_settings_microphone_mode_auto">Automātiski</string>
     <string name="device_settings_microphone_mode_right">Labais</string>
     <string name="device_settings_microphone_mode_left">Kreisais</string>

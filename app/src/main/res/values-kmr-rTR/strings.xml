@@ -26,7 +26,7 @@
     <string name="upgrade_benefit_popups">Popup dema vekirina qutiyê &amp; girêdanê</string>
     <string name="upgrade_benefit_widgets">Widgetên ekrana malê</string>
     <string name="upgrade_benefit_device_settings">Mîhengen pêşkertî yên cîhazê</string>
-    <string name="upgrade_benefit_device_controls">Kontrolên cîhazê &#8212; deng, stûn &amp; zêdetir</string>
+    <string name="upgrade_benefit_device_controls">Kontrolên cîhazê — deng, stûn &amp; zêdetir</string>
     <string name="upgrade_benefit_support">Pêşdebir piştgirî bike</string>
     <string name="upgrade_benefit_disclaimer">Hebûna taybet mendêyê bi kulaklîkên we û amûrê ve girêdayî ye.</string>
     <string name="upgrade_screen_options_description">Heman taybetmendî, bihayên cûda. Abonê ceribandineke belaş vedihewîne û her dem dikare were betal kirin.</string>
@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Rawestandina otomatîk</string>
     <string name="settings_autopause_description">Dema ku amûrê ji guhê xwe derdixin, deng rawestînin.</string>
     <string name="settings_autopplay_label">Lîstina otomatîk</string>
-    <string name="settings_autoplay_description">Dema ku amûr li xwe kirî ye, lîstina deng dest pê bike.</string>
+    <string name="settings_autoplay_description">Gava ku ji nû ve podên xwe li xwe dikî muzîkê berdewam bike, lê tenê heke Auto pause ew rawestandibe. Rawestandinên ku xwe kirine (têlefon, AirPods stem, xew) rawestayî dimînin.</string>
+    <string name="settings_start_music_on_wear_label">Muzîkê li ser li xwe kirinê dest pê bike</string>
+    <string name="settings_start_music_on_wear_description">Her hewl dide ku muzîkê lêbixe gava tu podên xwe li xwe dikî, tewra piştî rawestandinek destan.</string>
     <string name="settings_eardetection_info_label">Nîşeya tespîtkirina guhê</string>
-    <string name="settings_eardetection_info_description">Heke tespîtkirina guhê tenê ji bo yek podê dixebite, ev sînordariya Apple ye. Tenê \"poda sereke\" (ji bo mîkrofonê tê bikaranîn) tê tespîtkirin. Li ser amûrên Apple saz bikin: Mîheng → Bluetooth → AirPods → Mîkrofon.</string><string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
+    <string name="settings_eardetection_info_description">Heke tespîtkirina guhê tenê ji bo yek podê dixebite, ev sînordariya Apple ye. Tenê \"poda sereke\" (ji bo mîkrofonê tê bikaranîn) tê tespîtkirin. Li ser amûrên Apple saz bikin: Mîheng → Bluetooth → AirPods → Mîkrofon.</string>
+    <string name="settings_signal_minimum_label">Qalîteya sînyala herî kêm</string>
     <string name="settings_signal_minimum_description">Qalîteya sînyala herî kêm a ku divê amûrek hebe da ku ya we were hesibandin.</string>
     <string name="settings_autoconnect_label">Girêdana otomatîk</string>
     <string name="settings_autoconnect_description">Heke Android bixweber girê nede, em jî dikarin jê bixwazin. Ev ê mîhenga moda çavdêriyê bike \"Herdem\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
     <string name="settings_acknowledgements_label">Spasdarî</string>
     <string name="settings_debug_autoreports_label">Raporên xeletiyan ên otomatîk</string>
-    <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string><string name="settings_compatibility_mode_label">Moda lihevhatinê</string>
+    <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string>
+    <string name="settings_compatibility_mode_label">Moda lihevhatinê</string>
     <string name="settings_compatibility_mode_description">Ji bo baştirkirina lihevhatinê xweşbîniyan neçalak bikin. Heke hûn tu daneyan nabînin vê biceribînin.</string>
     <string name="help_translate_label">Werger</string>
     <string name="help_translate_description">Alîkariya wergerandina vê sepanê li zimanê xwe yê bijare bikin.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Ev widget girêdanek rasterast (AAP) bi amûra we re hewce dike. Berî ku vê widgetê bikar bînin, pê ewle bin ku amûra we di sepanê de hatiye cotkirinê û girêdanê.</string>
     <string name="anc_widget_no_anc_support_label">Ev amûr piştgiriya kontrola dengê nagire</string>
     <string name="anc_widget_aap_not_connected_label">Negrêdayî</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Nêzîk lê ne girêdayî</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Ne nêzîk</string>
     <string name="anc_widget_aap_connecting_label">Girêdan…</string>
+    <string name="tile_anc_label">Kontrola Dengê</string>
+    <string name="tile_anc_subtitle_permission_required">Destûr hewce ye</string>
+    <string name="tile_anc_subtitle_no_device">Cîhaz tune</string>
+    <string name="tile_anc_subtitle_no_anc_support">Kontrola dengê tune</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth veşartî</string>
     <string name="widget_config_screen_title">Mîhengkirina Widgetê</string>
     <string name="widget_configuration_title">Amûr Hilbijêre</string>
     <string name="widget_configuration_description">Hilbijêrin ka kîjan profîla amûrê divê ev widget nîşan bide.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Zelalbûn</string>
     <string name="anc_mode_adaptive">Adaptîf</string>
     <string name="conversation_awareness_label">Hişyariya Sohbetê</string>
+    <string name="settings_conversation_action_label">Gava tu dest bi axaftinê dikî</string>
+    <string name="settings_conversation_action_nothing_label">Tiştek meke</string>
+    <string name="settings_conversation_action_lower_volume_label">Dengê kêm bike</string>
+    <string name="settings_conversation_action_pause_label">Medyayê raweste</string>
+    <string name="settings_conversation_volume_reduction_label">Kêmkirina dengê</string>
     <string name="signal_badge_ble_cd">Lêgerîna BLE çalak e</string>
     <string name="signal_badge_key_irk_cd">Nasnameya piştrast kir</string>
     <string name="signal_badge_key_encrypted_cd">Girêdana şîfrekirî</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Giştî</string>
     <string name="device_settings_microphone_mode_label">Mîkrofon</string>
-    <string name="device_settings_microphone_mode_description">Kîjan AirPod wekî mîkrofon tê bikaranîn</string>
+    <string name="device_settings_microphone_mode_description">Kîjan guhêrk wekî mîkrofon tê bikaranîn</string>
     <string name="device_settings_microphone_mode_auto">Xweber</string>
     <string name="device_settings_microphone_mode_right">Rastê</string>
     <string name="device_settings_microphone_mode_left">Çepê</string>

@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ස්වයංක්‍රීයව විරාම කරන්න</string>
     <string name="settings_autopause_description">ඔබේ කනෙන් උපාංගය ඉවත් කරන විට ශ්‍රව්‍ය විරාම කරන්න.</string>
     <string name="settings_autopplay_label">ස්වයංක්‍රීයව වාදනය කරන්න</string>
-    <string name="settings_autoplay_description">උපාංගය පැළඳ සිටින විට ශ්‍රව්‍ය නැවත වාදනය ආරම්භ කරන්න.</string>
+    <string name="settings_autoplay_description">ඔබ නැවත ඔබේ pods පැළඳීමේදී සංගීතය නැවත ආරම්භ කරයි, නමුත් Auto pause එය නිවා ඇත්නම් පමණි. ඔබ ම ක්‍රියාත්මක කළ විරාමයන් (දුරකථනය, AirPods stem, නිදාගැනීම) විරාමයේ පවතී.</string>
+    <string name="settings_start_music_on_wear_label">පැළඳීමේදී සංගීතය ආරම්භ කරන්න</string>
+    <string name="settings_start_music_on_wear_description">ඔබ ඔබේ pods පැළඳූ විට, අතින් කළ විරාම ක්‍රියාවෙන් පසුවද, සංගීතය වාදනය කිරීමට සෑම විටම උත්සාහ කරයි.</string>
     <string name="settings_eardetection_info_label">කන් හඳුනාගැනීමේ සටහන</string>
-    <string name="settings_eardetection_info_description">කන් හඳුනාගැනීම එක් පොඩ් එකක් සඳහා පමණක් ක්‍රියා කරන්නේ නම්, මෙය Apple සීමාවකි. \"ප්‍රාථමික පොඩ්\" (මයික්‍රෆෝනය සඳහා භාවිතා වන) පමණක් හඳුනාගනී. Apple උපාංගවල සකසන්න: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
+    <string name="settings_eardetection_info_description">කන් හඳුනාගැනීම එක් පොඩ් එකක් සඳහා පමණක් ක්‍රියා කරන්නේ නම්, මෙය Apple සීමාවකි. \"ප්‍රාථමික පොඩ්\" (මයික්‍රෆෝනය සඳහා භාවිතා වන) පමණක් හඳුනාගනී. Apple උපාංගවල සකසන්න: Settings → Bluetooth → AirPods → Microphone.</string>
+    <string name="settings_signal_minimum_label">අවම සංඥා ගුණත්වය</string>
     <string name="settings_signal_minimum_description">උපාංගයක් ඔබේ යැයි සැලකීමට තිබිය යුතු අවම සංඥා ගුණත්වය.</string>
     <string name="settings_autoconnect_label">ස්වයංක්‍රීයව සම්බන්ධ වන්න</string>
     <string name="settings_autoconnect_description">Android ස්වයංක්‍රීයව සම්බන්ධ නොවන්නේ නම්, අපටද එය ඉල්ලා සිටිය හැක. මෙය නිරීක්ෂණ ප්‍රකාර සැකසුම \'සෑමවිටම\' ලෙස සකසනු ඇත.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
     <string name="settings_debug_autoreports_label">ස්වයංක්‍රීය දෝෂ වාර්තා</string>
-    <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string><string name="settings_compatibility_mode_label">ගැළපුම් ප්‍රකාරය</string>
+    <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string>
+    <string name="settings_compatibility_mode_label">ගැළපුම් ප්‍රකාරය</string>
     <string name="settings_compatibility_mode_description">ගැළපුම වැඩි දියුණු කිරීම සඳහා ප්‍රශස්තකරණයන් අක්‍රීය කරන්න. ඔබ කිසිදු දත්තයක් නොදකිනුයේ නම් මෙය උත්සාහ කරන්න.</string>
     <string name="help_translate_label">පරිවර්තනය</string>
     <string name="help_translate_description">මෙම යෙදුම ඔබගේ ප්‍රියතම භාෂාවට පරිවර්තනය කිරීමට උදව් වන්න.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">මෙම widget ඔබේ උපකරණයට සෘජු සම්බන්ධතාවක් (AAP) අවශ්‍ය කරයි. මෙම widget භාවිතා කිරීමට පෙර ඔබේ උපකරණය app එකේ සම්බන්ධිත කර ඇති බව සහතික කරන්න.</string>
     <string name="anc_widget_no_anc_support_label">මෙම උපකරණය ශබ්ද පාලනය සඳහා සහාය නොදක්වයි</string>
     <string name="anc_widget_aap_not_connected_label">සම්බන්ධ නැත</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">ළඟ ඇත නමුත් සම්බන්ධ නොවේ</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">ළඟ නොමැත</string>
     <string name="anc_widget_aap_connecting_label">සම්බන්ධ වෙමින්…</string>
+    <string name="tile_anc_label">ශබ්ද පාලනය</string>
+    <string name="tile_anc_subtitle_permission_required">අවසරය අවශ්‍යය</string>
+    <string name="tile_anc_subtitle_no_device">උපාංග</string>
+    <string name="tile_anc_subtitle_no_anc_support">ශබ්ද පාලනයක් නොමැත</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth අක්‍රියයි</string>
     <string name="widget_config_screen_title">විජට් වින්යාසය</string>
     <string name="widget_configuration_title">උපාංගය තෝරන්න</string>
     <string name="widget_configuration_description">මෙම විජට් එක කුමන උපාංග පැතිකඩ පෙන්විය යුතුද යන්න තෝරන්න.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">පාරදර්ශිතාව</string>
     <string name="anc_mode_adaptive">අනුවර්තී</string>
     <string name="conversation_awareness_label">සංවාද දැනුවත්භාවය</string>
+    <string name="settings_conversation_action_label">ඔබ කතා කිරීම ආරම්භ කළ විට</string>
+    <string name="settings_conversation_action_nothing_label">කිසිවක් නොකරන්න</string>
+    <string name="settings_conversation_action_lower_volume_label">හඟ අඩු කරන්න</string>
+    <string name="settings_conversation_action_pause_label">මාධ්‍ය විරාම කරන්න</string>
+    <string name="settings_conversation_volume_reduction_label">හඟ අඩු කිරීම</string>
     <string name="signal_badge_ble_cd">BLE ස්කෑන් සක්‍රීයයි</string>
     <string name="signal_badge_key_irk_cd">අනන්‍යතාව තහවුරු කරන ලදී</string>
     <string name="signal_badge_key_encrypted_cd">සංකේතාංකිත සම්බන්ධතාව</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">සාමාන්‍ය</string>
     <string name="device_settings_microphone_mode_label">ශබ්දවාහිනිය</string>
-    <string name="device_settings_microphone_mode_description">මයික්‍රොෆෝනය ලෙස කුමන AirPod භාවිතා කේරේද</string>
+    <string name="device_settings_microphone_mode_description">මයිකෝපොනය ලේස බාවිතා කරන්නේ earbud කුමක්ද</string>
     <string name="device_settings_microphone_mode_auto">ස්වයංක්‍රීය</string>
     <string name="device_settings_microphone_mode_right">දකුණ</string>
     <string name="device_settings_microphone_mode_left">වම</string>

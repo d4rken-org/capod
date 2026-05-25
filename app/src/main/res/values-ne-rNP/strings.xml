@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">स्वत: पज</string>
     <string name="settings_autopause_description">आफ्नो कानबाट उपकरण हटाउँदा अडियो पज गर्नुहोस्।</string>
     <string name="settings_autopplay_label">स्वत: प्ले</string>
-    <string name="settings_autoplay_description">उपकरण लगाउँदा अडियो प्लेब्याक सुरु गर्नुहोस्।</string>
+    <string name="settings_autoplay_description">तपाईंले आफ्नो पड्स फेरि लगाउँदा सङ्गीत फेरि सुरु गर्नुहोस्, तर केवल यदि अटो पज ले रोकेको थियो भने। तपाईंले आफैं रोकेका पज (फोन, AirPods स्टेम, निद्रा) रोकिएकै रहन्छन्।</string>
+    <string name="settings_start_music_on_wear_label">लगाउँदा सङ्गीत सुरु गर्नुहोस्</string>
+    <string name="settings_start_music_on_wear_description">तपाईंले आफ्नो पड्स लगाउँदा सधैं सङ्गीत बजाउने कोशिश गर्छ, म्यानुअल पज पछि पनि।</string>
     <string name="settings_eardetection_info_label">कान पत्ता लगाउने नोट</string>
-    <string name="settings_eardetection_info_description">यदि कान पत्ता लगाउने सुविधा एक पोडको लागि मात्र काम गर्छ भने, यो Apple सीमितता हो। माइक्रोफोनको लागि प्रयोग हुने \"प्राथमिक पोड\" मात्र पत्ता लगाइन्छ। Apple उपकरणहरूमा कन्फिगर गर्नुहोस्: सेटिङ → Bluetooth → AirPods → माइक्रोफोन।</string><string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
+    <string name="settings_eardetection_info_description">यदि कान पत्ता लगाउने सुविधा एक पोडको लागि मात्र काम गर्छ भने, यो Apple सीमितता हो। माइक्रोफोनको लागि प्रयोग हुने \"प्राथमिक पोड\" मात्र पत्ता लगाइन्छ। Apple उपकरणहरूमा कन्फिगर गर्नुहोस्: सेटिङ → Bluetooth → AirPods → माइक्रोफोन।</string>
+    <string name="settings_signal_minimum_label">न्यूनतम सिग्नल गुणस्तर</string>
     <string name="settings_signal_minimum_description">उपकरणलाई तपाइँको मान्नको लागि आवश्यक पर्ने न्यूनतम सिग्नल गुणस्तर।</string>
     <string name="settings_autoconnect_label">स्वत: जडान</string>
     <string name="settings_autoconnect_description">यदि एन्ड्रोइडले स्वचालित रूपमा जडान गर्दैन भने, हामी पनि अनुरोध गर्न सक्छौं। यसले मोनिटर मोड सेटिङलाई \"सधैं\" मा सेट गर्नेछ।</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
     <string name="settings_debug_autoreports_label">स्वचालित बग रिपोर्टहरू</string>
-    <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string><string name="settings_compatibility_mode_label">अनुकूलता मोड</string>
+    <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string>
+    <string name="settings_compatibility_mode_label">अनुकूलता मोड</string>
     <string name="settings_compatibility_mode_description">अनुकूलता सुधार गर्न अप्टिमाइजेसनहरू असक्षम गर्नुहोस्। यदि तपाईंले कुनै डाटा देख्नुभएन भने यो प्रयास गर्नुहोस्।</string>
     <string name="help_translate_label">अनुवाद</string>
     <string name="help_translate_description">यो एपलाई आफ्नो मनपर्ने भाषामा अनुवाद गर्न मद्दत गर्नुहोस्।</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">यो विजेटलाई तपाईंको उपकरणमा प्रत्यक्ष जडान (AAP) आवश्यक छ। यो विजेट प्रयोग गर्नुअघि आफ्नो उपकरण अपमा जोडिएको र जडान भएको सुनिश्चित गर्नुहोस्।</string>
     <string name="anc_widget_no_anc_support_label">यो उपकरणले ध्वनि नियन्त्रण समर्थन गर्दैन</string>
     <string name="anc_widget_aap_not_connected_label">जडान भएको छैन</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">नजिकै छ तर जडान छैन</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">नजिकै छैन</string>
     <string name="anc_widget_aap_connecting_label">जडान हुँदैछ…</string>
+    <string name="tile_anc_label">आवाज नियन्त्रण</string>
+    <string name="tile_anc_subtitle_permission_required">अनुमति आवश्यक छ</string>
+    <string name="tile_anc_subtitle_no_device">कुनै उपकरण छैन</string>
+    <string name="tile_anc_subtitle_no_anc_support">कुनै आवाज नियन्त्रण छैन</string>
+    <string name="tile_anc_subtitle_bluetooth_off">ब्लुटुथ बन्द</string>
     <string name="widget_config_screen_title">विजेट कन्फिगरेसन</string>
     <string name="widget_configuration_title">उपकरण छान्नुहोस्</string>
     <string name="widget_configuration_description">यो विजेटले कुन उपकरण प्रोफाइल देखाउनुपर्छ भनेर छान्नुहोस्।</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">पारदर्शिता</string>
     <string name="anc_mode_adaptive">अनुकूलक</string>
     <string name="conversation_awareness_label">कुराकानी जागरूकता</string>
+    <string name="settings_conversation_action_label">जब तपाईं बोल्न सुरु गर्नुहुन्छ</string>
+    <string name="settings_conversation_action_nothing_label">केही नगर्नुहोस्</string>
+    <string name="settings_conversation_action_lower_volume_label">भोल्युम घटाउनुहोस्</string>
+    <string name="settings_conversation_action_pause_label">मिडिया रोक्नुहोस्</string>
+    <string name="settings_conversation_volume_reduction_label">भोल्युम कटौती</string>
     <string name="signal_badge_ble_cd">BLE स्क्यान सक्रिय</string>
     <string name="signal_badge_key_irk_cd">पहिचान प्रमाणित</string>
     <string name="signal_badge_key_encrypted_cd">एन्क्रिप्टेड जडान</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">माइक्रोफोन</string>
-    <string name="device_settings_microphone_mode_description">कुन AirPod माइक्रोफोनको रूपमा प्रयोग हुन्छ</string>
+    <string name="device_settings_microphone_mode_description">कुन इयरबड माइक्रोफोनको रूपमा प्रयोग गरिन्छ</string>
     <string name="device_settings_microphone_mode_auto">स्वतः</string>
     <string name="device_settings_microphone_mode_right">दायाँ</string>
     <string name="device_settings_microphone_mode_left">बायाँ</string>
