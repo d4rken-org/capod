@@ -278,6 +278,11 @@
     <string name="anc_mode_transparency">Transparency</string>
     <string name="anc_mode_adaptive">Adaptive</string>
     <string name="conversation_awareness_label">Conversation Awareness</string>
+    <string name="settings_conversation_action_label">When you start speaking</string>
+    <string name="settings_conversation_action_nothing_label">Do nothing</string>
+    <string name="settings_conversation_action_lower_volume_label">Lower volume</string>
+    <string name="settings_conversation_action_pause_label">Pause media</string>
+    <string name="settings_conversation_volume_reduction_label">Volume reduction</string>
     <string name="signal_badge_ble_cd">BLE scan active</string>
     <string name="signal_badge_key_irk_cd">Identity verified</string>
     <string name="signal_badge_key_encrypted_cd">Encrypted connection</string>

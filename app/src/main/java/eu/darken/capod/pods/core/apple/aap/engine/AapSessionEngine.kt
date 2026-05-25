@@ -14,6 +14,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapMessageType
 import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSleepEvent
+import eu.darken.capod.pods.core.apple.aap.protocol.ConversationAwarenessEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import kotlinx.coroutines.CoroutineScope
@@ -53,6 +54,11 @@ internal class AapSessionEngine(
     private val _sleepEvents =
         MutableSharedFlow<AapSleepEvent>(extraBufferCapacity = 4, onBufferOverflow = BufferOverflow.DROP_OLDEST)
     val sleepEvents: SharedFlow<AapSleepEvent> = _sleepEvents.asSharedFlow()
+
+    private val _conversationalAwarenessEvents =
+        MutableSharedFlow<ConversationAwarenessEvent>(extraBufferCapacity = 8, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    val conversationalAwarenessEvents: SharedFlow<ConversationAwarenessEvent> =
+        _conversationalAwarenessEvents.asSharedFlow()
 
     private val _offRejected =
         MutableSharedFlow<Unit>(extraBufferCapacity = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
@@ -300,6 +306,13 @@ internal class AapSessionEngine(
                     outboundController.onEarDetectionInEar(_state.value, runtimeState.outbound),
                 )
             }
+        }
+
+        // Re-emit every (well-formed) Conversational Awareness frame as a classified event for the
+        // conversation reaction: START / STOP / HOLD (keep-alive). The decoder already dropped
+        // malformed frames (rawValue stays null only in that case). The raw payload remains logged.
+        if (value is AapSetting.ConversationalAwarenessState) {
+            value.rawValue?.let { _conversationalAwarenessEvents.tryEmit(ConversationAwarenessEvent.fromStatus(it)) }
         }
     }
 

@@ -31,6 +31,7 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ProfileId
 import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.conversation.ConversationAction
 import eu.darken.capod.reaction.core.stem.StemAction
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -435,6 +436,22 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setShowPopUpOnConnection(enabled: Boolean) {
         log(TAG, INFO) { "setShowPopUpOnConnection($enabled)" }
         proGatedReaction(enabled) { it.copy(showPopUpOnConnection = enabled) }
+    }
+
+    fun setConversationAction(action: ConversationAction) = launch {
+        log(TAG, INFO) { "setConversationAction($action)" }
+        // The action picker is only shown while Conversation Awareness is already enabled (the pod
+        // emits no speaking frames otherwise), so no need to auto-enable it here.
+        if (action != ConversationAction.NOTHING && !upgradeRepo.isPro()) {
+            navTo(Nav.Main.Upgrade)
+            return@launch
+        }
+        updateProfileNow { it.copy(conversationAction = action) }
+    }
+
+    fun setConversationVolumeReduction(percent: Int) = launch {
+        log(TAG, INFO) { "setConversationVolumeReduction($percent)" }
+        updateProfileNow { it.copy(conversationVolumeReduction = percent) }
     }
 
 

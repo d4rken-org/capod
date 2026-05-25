@@ -64,6 +64,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.conversation.ConversationAction
 import java.time.Duration
 import java.time.Instant
 import java.time.ZoneId
@@ -148,6 +149,8 @@ fun DeviceSettingsScreenHost(
         onNavigateUp = { vm.navUp() },
         onAncModeChange = { vm.setAncMode(it) },
         onConversationalAwarenessChange = { vm.setConversationalAwareness(it) },
+        onConversationActionChange = { vm.setConversationAction(it) },
+        onConversationVolumeReductionChange = { vm.setConversationVolumeReduction(it) },
         onNcWithOneAirPodChange = { vm.setNcWithOneAirPod(it) },
         onPersonalizedVolumeChange = { vm.setPersonalizedVolume(it) },
         onToneVolumeChange = { vm.setToneVolume(it) },
@@ -186,6 +189,8 @@ fun DeviceSettingsScreen(
     onNavigateUp: () -> Unit,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit = {},
     onConversationalAwarenessChange: (Boolean) -> Unit = {},
+    onConversationActionChange: (ConversationAction) -> Unit = {},
+    onConversationVolumeReductionChange: (Int) -> Unit = {},
     onNcWithOneAirPodChange: (Boolean) -> Unit = {},
     onPersonalizedVolumeChange: (Boolean) -> Unit = {},
     onToneVolumeChange: (Int) -> Unit = {},
@@ -344,6 +349,8 @@ fun DeviceSettingsScreen(
                         onStartMusicOnWearChange = onStartMusicOnWearChange,
                         onOnePodModeChange = onOnePodModeChange,
                         onConversationalAwarenessChange = onConversationalAwarenessChange,
+                        onConversationActionChange = onConversationActionChange,
+                        onConversationVolumeReductionChange = onConversationVolumeReductionChange,
                         onSleepDetectionChange = onSleepDetectionChange,
                         onAutoConnectChange = onAutoConnectChange,
                         onAutoConnectConditionChange = onAutoConnectConditionChange,

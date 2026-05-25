@@ -8,6 +8,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapMessage
 import eu.darken.capod.pods.core.apple.aap.protocol.AapPacket
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSleepEvent
+import eu.darken.capod.pods.core.apple.aap.protocol.ConversationAwarenessEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull
@@ -494,6 +495,50 @@ class AapSessionEngineTest : BaseTest() {
 
             emitted.shouldNotBeNull()
             emitted!!.rawPayload shouldBe payload
+        }
+    }
+
+    // ── Conversational Awareness ─────────────────────────────
+
+    @Nested
+    inner class ConversationalAwarenessTests {
+
+        private fun caProfile(status: Int) = mockProfile {
+            every { decodeSetting(any()) } returns settingPair(
+                AapSetting.ConversationalAwarenessState(
+                    speaking = status in ConversationAwarenessEvent.SPEAKING_STATUSES,
+                    rawValue = status,
+                ),
+            )
+        }
+
+        private suspend fun TestScope.firstEventFor(status: Int): ConversationAwarenessEvent {
+            val engine = AapSessionEngine(caProfile(status), timeSource)
+            engine.start(this)
+            var emitted: ConversationAwarenessEvent? = null
+            val job = launch { emitted = engine.conversationalAwarenessEvents.first() }
+            engine.processMessage(dummyMessage(commandType = 0x004B))
+            job.join()
+            return emitted!!
+        }
+
+        @Test
+        fun `status 1 and 2 emit START`() = runTest(UnconfinedTestDispatcher()) {
+            firstEventFor(1) shouldBe ConversationAwarenessEvent.START
+            firstEventFor(2) shouldBe ConversationAwarenessEvent.START
+        }
+
+        @Test
+        fun `status 6, 8, 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
+            firstEventFor(6) shouldBe ConversationAwarenessEvent.STOP
+            firstEventFor(8) shouldBe ConversationAwarenessEvent.STOP
+            firstEventFor(9) shouldBe ConversationAwarenessEvent.STOP
+        }
+
+        @Test
+        fun `intermediate status emits HOLD (keep-alive)`() = runTest(UnconfinedTestDispatcher()) {
+            firstEventFor(3) shouldBe ConversationAwarenessEvent.HOLD
+            firstEventFor(0x0B) shouldBe ConversationAwarenessEvent.HOLD
         }
     }
 

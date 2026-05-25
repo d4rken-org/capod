@@ -11,6 +11,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.engine.AapConnection
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceProfile
+import eu.darken.capod.pods.core.apple.aap.protocol.ConversationAwarenessEvent
 import eu.darken.capod.pods.core.apple.aap.protocol.KeyExchangeResult
 import eu.darken.capod.pods.core.apple.aap.protocol.StemPressEvent
 import kotlinx.coroutines.CoroutineScope
@@ -72,6 +73,17 @@ class AapConnectionManager @Inject constructor(
      */
     private val _sleepEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
     val sleepEvents: SharedFlow<BluetoothAddress> = _sleepEvents.asSharedFlow()
+
+    /**
+     * Emits when a connected device reports a Conversational Awareness speaking transition
+     * (START/STOP, AAP command 0x4B). Paired with the origin address so the conversation
+     * reaction can gate on the primary device. Only the known 0x01/0x04 markers reach here —
+     * the engine drops unknown raw values (see [AapSessionEngine]).
+     */
+    private val _conversationalAwarenessEvents =
+        MutableSharedFlow<Pair<BluetoothAddress, ConversationAwarenessEvent>>(extraBufferCapacity = 16)
+    val conversationalAwarenessEvents: SharedFlow<Pair<BluetoothAddress, ConversationAwarenessEvent>> =
+        _conversationalAwarenessEvents.asSharedFlow()
 
     /** Emits when a SetAncMode(OFF) command was rejected by the device (inferred by the engine). */
     private val _offRejectedEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
@@ -137,6 +149,13 @@ class AapConnectionManager @Inject constructor(
             launch {
                 connection.sleepEvents.collect {
                     _sleepEvents.tryEmit(address)
+                }
+            }
+
+            // Forward conversational-awareness speaking transitions from this connection (child coroutine).
+            launch {
+                connection.conversationalAwarenessEvents.collect { event ->
+                    _conversationalAwarenessEvents.tryEmit(address to event)
                 }
             }
 

@@ -148,6 +148,48 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
         @Test fun `decode unknown value returns null`() { profile.decodeSetting(settingsMessage(0x28, 0x00)).shouldBeNull() }
     }
 
+    // ── Conversational Awareness State (push-only 0x4B) ──────
+
+    @Nested
+    inner class ConversationalAwarenessStateTests {
+        @Test fun `4-byte frame status 1 is speaking`() {
+            decodeSetting<AapSetting.ConversationalAwarenessState>("04 00 04 00 4B 00 02 00 01 01").let {
+                it.speaking shouldBe true
+                it.rawValue shouldBe 1
+            }
+        }
+
+        @Test fun `4-byte frame status 2 is speaking`() {
+            decodeSetting<AapSetting.ConversationalAwarenessState>("04 00 04 00 4B 00 02 00 01 02").speaking shouldBe true
+        }
+
+        @Test fun `4-byte frame stop status 9 is not speaking`() {
+            decodeSetting<AapSetting.ConversationalAwarenessState>("04 00 04 00 4B 00 02 00 01 09").let {
+                it.speaking shouldBe false
+                it.rawValue shouldBe 9
+            }
+        }
+
+        @Test fun `4-byte frame intermediate status 4 is not speaking`() {
+            decodeSetting<AapSetting.ConversationalAwarenessState>("04 00 04 00 4B 00 02 00 01 04").speaking shouldBe false
+        }
+
+        @Test fun `legacy single-byte frame status 0 is not speaking`() {
+            decodeSetting<AapSetting.ConversationalAwarenessState>("04 00 04 00 4B 00 00").let {
+                it.speaking shouldBe false
+                it.rawValue shouldBe 0
+            }
+        }
+
+        @Test fun `truncated 3-byte payload returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 4B 00 02 00 01")).shouldBeNull()
+        }
+
+        @Test fun `invalid 4-byte prefix returns null`() {
+            profile.decodeSetting(aapMessage("04 00 04 00 4B 00 02 00 02 01")).shouldBeNull()
+        }
+    }
+
     // ── Press Speed ──────────────────────────────────────────
 
     @Nested

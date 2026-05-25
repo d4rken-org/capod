@@ -4,12 +4,14 @@ import android.os.Build
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.Message
+import androidx.compose.material.icons.automirrored.twotone.VolumeDown
 import androidx.compose.material.icons.twotone.BluetoothConnected
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.LooksOne
 import androidx.compose.material.icons.twotone.Nightlight
 import androidx.compose.material.icons.twotone.PauseCircle
 import androidx.compose.material.icons.twotone.PlayCircle
+import androidx.compose.material.icons.twotone.RecordVoiceOver
 import androidx.compose.material.icons.twotone.Workspaces
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
@@ -29,15 +31,20 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.settings.InfoBoxType
 import eu.darken.capod.common.settings.SettingsBaseItem
+import eu.darken.capod.common.settings.SettingsCategoryHeader
 import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
+import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.devicesettings.dialogs.AutoConnectConditionDialog
+import eu.darken.capod.main.ui.devicesettings.dialogs.ConversationActionDialog
 import eu.darken.capod.main.ui.devicesettings.previewFullState
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
+import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.conversation.ConversationAction
 
 @Composable
 internal fun ReactionsCard(
@@ -49,6 +56,8 @@ internal fun ReactionsCard(
     onStartMusicOnWearChange: (Boolean) -> Unit = {},
     onOnePodModeChange: (Boolean) -> Unit = {},
     onConversationalAwarenessChange: (Boolean) -> Unit = {},
+    onConversationActionChange: (ConversationAction) -> Unit = {},
+    onConversationVolumeReductionChange: (Int) -> Unit = {},
     onSleepDetectionChange: (Boolean) -> Unit = {},
     onAutoConnectChange: (Boolean) -> Unit = {},
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
@@ -60,6 +69,7 @@ internal fun ReactionsCard(
     val enabled = device.isAapReady
 
     var showAutoConnectConditionDialog by remember { mutableStateOf(false) }
+    var showConversationActionDialog by remember { mutableStateOf(false) }
 
     SettingsSection(title = stringResource(R.string.settings_reaction_label)) {
         if (features.hasEarDetection) {
@@ -125,20 +135,45 @@ internal fun ReactionsCard(
         }
         if (device.isAapConnected) {
             val convAwareness = device.conversationalAwareness
-            val hasAnyAapReaction =
-                (features.hasConversationAwareness && convAwareness != null) ||
-                    features.hasSleepDetection
-            if (features.hasConversationAwareness && convAwareness != null) {
+            val showConversationAwareness = features.hasConversationAwareness && convAwareness != null
+            val hasAnyAapReaction = showConversationAwareness || features.hasSleepDetection
+            if (showConversationAwareness) {
+                SettingsCategoryHeader(text = stringResource(R.string.conversation_awareness_label))
                 SettingsSwitchItem(
                     icon = Icons.TwoTone.Hearing,
                     title = stringResource(R.string.conversation_awareness_label),
                     subtitle = stringResource(R.string.device_settings_conversation_awareness_description),
-                    checked = convAwareness.enabled,
+                    checked = convAwareness?.enabled == true,
                     onCheckedChange = onConversationalAwarenessChange,
                     enabled = enabled,
                 )
+                // The "when you start speaking" reaction only fires while CA is on (the pod emits no
+                // speaking frames otherwise), so only surface it once CA is actually enabled.
+                if (convAwareness?.enabled == true) {
+                    SettingsBaseItem(
+                        icon = Icons.TwoTone.RecordVoiceOver,
+                        title = stringResource(R.string.settings_conversation_action_label),
+                        subtitle = stringResource(reactions.conversationAction.labelRes),
+                        onClick = { showConversationActionDialog = true },
+                        enabled = enabled,
+                        requiresUpgrade = !isPro,
+                    )
+                    if (reactions.conversationAction == ConversationAction.LOWER_VOLUME) {
+                        SettingsSliderItem(
+                            icon = Icons.AutoMirrored.TwoTone.VolumeDown,
+                            title = stringResource(R.string.settings_conversation_volume_reduction_label),
+                            value = reactions.conversationVolumeReduction.toFloat(),
+                            onValueChange = { onConversationVolumeReductionChange(it.toInt()) },
+                            valueRange = ReactionConfig.MIN_CONVERSATION_VOLUME_REDUCTION.toFloat()..
+                                ReactionConfig.MAX_CONVERSATION_VOLUME_REDUCTION.toFloat(),
+                            enabled = enabled,
+                            valueLabel = { "${it.toInt()}%" },
+                        )
+                    }
+                }
             }
             if (features.hasSleepDetection) {
+                if (showConversationAwareness) ReactionsDivider()
                 val sleepDet = device.sleepDetection
                     ?: AapSetting.SleepDetection(enabled = true)
                 SettingsSwitchItem(
@@ -211,6 +246,17 @@ internal fun ReactionsCard(
                 text = stringResource(R.string.settings_popup_info_not_in_app),
             )
         }
+    }
+
+    if (showConversationActionDialog) {
+        ConversationActionDialog(
+            current = reactions.conversationAction,
+            onSelect = {
+                onConversationActionChange(it)
+                showConversationActionDialog = false
+            },
+            onDismiss = { showConversationActionDialog = false },
+        )
     }
 
     if (showAutoConnectConditionDialog) {
