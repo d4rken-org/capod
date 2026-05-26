@@ -48,8 +48,8 @@
     <string name="settings_autopause_description">Wstrzymaj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
     <string name="settings_autopplay_label">Automatyczne odtwarzanie</string>
     <string name="settings_autoplay_description">Wznów odtwarzanie muzyki po ponownym założeniu słuchawek, ale tylko wtedy, gdy funkcja automatycznej pauzy ją wyłączyła. Pauzy, które sam uruchomiłeś (telefon, słuchawka AirPods, sen), pozostają wstrzymane.</string>
-    <string name="settings_start_music_on_wear_label">Odtwarzaj muzykę po założeniu</string>
-    <string name="settings_start_music_on_wear_description">Zawsze próbuje odtwarzać muzykę po założeniu słuchawek, nawet po ręcznym wstrzymaniu.</string>
+    <string name="settings_start_music_on_wear_label">Włącz muzykę po założeniu</string>
+    <string name="settings_start_music_on_wear_description">Zawsze próbuj odtwarzać muzykę po włożeniu słuchawek, nawet po ręcznym wstrzymaniu.</string>
     <string name="settings_eardetection_info_label">Informacja o wykryciu ucha</string>
     <string name="settings_eardetection_info_description">Jeśli wykrywanie w uchu działa tylko dla jednej słuchawki, jest to ograniczenie Apple. Wykrywana jest tylko „główna słuchawka” (używana do mikrofonu). Skonfiguruj na urządzeniach Apple: Ustawienia → Bluetooth → AirPods → Mikrofon.</string>
     <string name="settings_signal_minimum_label">Minimalna jakość sygnału</string>
@@ -257,7 +257,7 @@ K4r0lSz;</string>
     <string name="settings_conversation_action_label">Kiedy zaczniesz mówić</string>
     <string name="settings_conversation_action_nothing_label">Nic nie rób</string>
     <string name="settings_conversation_action_lower_volume_label">Zmniejsz głośność</string>
-    <string name="settings_conversation_action_pause_label">Wstrzymaj odtwarzanie</string>
+    <string name="settings_conversation_action_pause_label">Wstrzymaj multimedia</string>
     <string name="settings_conversation_volume_reduction_label">Redukcja głośności</string>
     <string name="signal_badge_ble_cd">Skanowanie BLE aktywne</string>
     <string name="signal_badge_key_irk_cd">Tożsamość zweryfikowana</string>
