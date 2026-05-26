@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">خودکار توقف</string>
     <string name="settings_autopause_description">آلہ کو کان سے ہٹاتے وقت آڈیو کو روکیں۔</string>
     <string name="settings_autopplay_label">خودکار پلے</string>
-    <string name="settings_autoplay_description">آلہ پہنا ہونے پر آڈیو پلے بیک شروع کریں۔</string>
+    <string name="settings_autoplay_description">جب آپ دوبارہ پوڈز پہنیں تو موسیقی دوبارہ شروع کریں، لیکن صرف اس صورت میں جب آٹو پاز نے اسے روکا ہو۔ آپ کے اپنے ہاتھ سے لگائے گئے پاز (فون، AirPods اسٹیم، نیند) وقفے میں رہتے ہیں۔</string>
+    <string name="settings_start_music_on_wear_label">پہننے پر موسیقی شروع کریں</string>
+    <string name="settings_start_music_on_wear_description">جب آپ پوڈز پہنیں تو ہمیشہ موسیقی چلانے کی کوشش کرتا ہے، چاہے آپ نے خود وقفہ کیا ہو۔</string>
     <string name="settings_eardetection_info_label">کان کی شناخت کا نوٹ</string>
-    <string name="settings_eardetection_info_description">اگر کان کی شناخت صرف ایک پوڈ کے لئے کام کرتی ہے تو یہ Apple کی حد ہے۔ صرف \"بنیادی پوڈ\" (مائیکروفون کے لئے استعمال ہونے والا) کا پتہ چلتا ہے۔ Apple آلات پر ترتیب دیں: سیٹنگز → بلوٹوتھ → AirPods → مائیکروفون۔</string><string name="settings_signal_minimum_label">کم از کم سگنل کا معیار</string>
+    <string name="settings_eardetection_info_description">اگر کان کی شناخت صرف ایک پوڈ کے لئے کام کرتی ہے تو یہ Apple کی حد ہے۔ صرف \"بنیادی پوڈ\" (مائیکروفون کے لئے استعمال ہونے والا) کا پتہ چلتا ہے۔ Apple آلات پر ترتیب دیں: سیٹنگز → بلوٹوتھ → AirPods → مائیکروفون۔</string>
+    <string name="settings_signal_minimum_label">کم از کم سگنل کا معیار</string>
     <string name="settings_signal_minimum_description">کم از کم سگنل کا معیار جو کسی آلہ کو آپ کا سمجھا جانے کے لئے درکار ہے۔</string>
     <string name="settings_autoconnect_label">خودکار کنیکٹ</string>
     <string name="settings_autoconnect_description">اگر اینڈرائیڈ خود بخود منسلک نہیں ہوتا ہے، تو ہم بھی اس سے پوچھ سکتے ہیں۔ یہ مانیٹر موڈ سیٹنگ کو \'ہمیشہ\' پر سیٹ کر دے گا۔</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">عام تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
     <string name="settings_acknowledgements_label">اعترافات</string>
     <string name="settings_debug_autoreports_label">خودکار بگ رپورٹس</string>
-    <string name="settings_debug_autoreports_description">مسائل کی خود بخود اطلاع دیتا ہے، مثلاً ایپ کریش کی تفصیلات تاکہ میں اسے ٹھیک کرنے کا طریقہ معلوم کر سکوں۔</string><string name="settings_compatibility_mode_label">مطابقت موڈ</string>
+    <string name="settings_debug_autoreports_description">مسائل کی خود بخود اطلاع دیتا ہے، مثلاً ایپ کریش کی تفصیلات تاکہ میں اسے ٹھیک کرنے کا طریقہ معلوم کر سکوں۔</string>
+    <string name="settings_compatibility_mode_label">مطابقت موڈ</string>
     <string name="settings_compatibility_mode_description">مطابقت کو بہتر بنانے کے لئے اصلاحات کو غیر فعال کریں۔ اگر آپ کو کوئی ڈیٹا نظر نہیں آرہا ہے تو اسے آزمائیں۔</string>
     <string name="help_translate_label">ترجمہ</string>
     <string name="help_translate_description">اس ایپ کو اپنی پسندیدہ زبان میں ترجمہ کرنے میں مدد کریں۔</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">اس ویجٹ کو آپ کے ڈیوائس سے براہ راست کنیکشن (AAP) کی ضرورت ہے۔ اس ویجٹ کو استعمال کرنے سے پہلے یقینی بنائیں کہ آپ کا ڈیوائس ایپ میں پیئر اور کنیکٹ ہوا ہو۔</string>
     <string name="anc_widget_no_anc_support_label">یہ ڈیوائس شور کنٹرول کو سپورٹ نہیں کرتا</string>
     <string name="anc_widget_aap_not_connected_label">کنیکٹ نہیں ہے</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">قریب ہے لیکن منسلک نہیں</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">قریب نہیں</string>
     <string name="anc_widget_aap_connecting_label">کنیکٹ ہو رہا ہے…</string>
+    <string name="tile_anc_label">شور کنٹرول</string>
+    <string name="tile_anc_subtitle_permission_required">اجازت درکار ہے</string>
+    <string name="tile_anc_subtitle_no_device">کوئی ڈیوائس نہیں</string>
+    <string name="tile_anc_subtitle_no_anc_support">شور کنٹرول نہیں</string>
+    <string name="tile_anc_subtitle_bluetooth_off">بلوٹوتھ بند ہے</string>
     <string name="widget_config_screen_title">ویجٹ کی ترتیب</string>
     <string name="widget_configuration_title">آلہ منتخب کریں</string>
     <string name="widget_configuration_description">منتخب کریں کہ یہ ویجیٹ کون سا آلہ پروفائل دکھائے۔</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">شفافیت</string>
     <string name="anc_mode_adaptive">موافق</string>
     <string name="conversation_awareness_label">گفتگو کی آگاہی</string>
+    <string name="settings_conversation_action_label">جب آپ بولنا شروع کریں</string>
+    <string name="settings_conversation_action_nothing_label">کچھ نہ کریں</string>
+    <string name="settings_conversation_action_lower_volume_label">آواز کم کریں</string>
+    <string name="settings_conversation_action_pause_label">میڈیا روکیں</string>
+    <string name="settings_conversation_volume_reduction_label">آواز میں کمی</string>
     <string name="signal_badge_ble_cd">BLE اسکین فعال ہے</string>
     <string name="signal_badge_key_irk_cd">شناخت تصدیق شدہ</string>
     <string name="signal_badge_key_encrypted_cd">خفیہ کاری شدہ کنکشن</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">مائیکروفون</string>
-    <string name="device_settings_microphone_mode_description">کون سا AirPod مائیکروفون کے طور پر استعمال ہوتا ہے</string>
+    <string name="device_settings_microphone_mode_description">کون سا ایئربڈ مائیکروفون کے طور پر استعمال ہوتا ہے</string>
     <string name="device_settings_microphone_mode_auto">خودکار</string>
     <string name="device_settings_microphone_mode_right">دائیں</string>
     <string name="device_settings_microphone_mode_left">بائیں</string>

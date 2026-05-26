@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Автоматска пауза</string>
     <string name="settings_autopause_description">Паузирајте го аудиото кога го отстранувате уредот од увото.</string>
     <string name="settings_autopplay_label">Автоматско репродуцирање</string>
-    <string name="settings_autoplay_description">Започнете со репродукција на аудио кога уредот се носи.</string>
+    <string name="settings_autoplay_description">Продолжи со музика кога повторно ги носиш слушалките, но само ако Авто-пауза ја запрела. Паузите кои ги активирал самиот (телефон, стебло на AirPods, спиење) остануваат паузирани.</string>
+    <string name="settings_start_music_on_wear_label">Пушти музика при ставање</string>
+    <string name="settings_start_music_on_wear_description">Секогаш се обидува да пушти музика кога ги ставаш слушалките, дури и по рачна пауза.</string>
     <string name="settings_eardetection_info_label">Белешка за детекција на уво</string>
-    <string name="settings_eardetection_info_description">Ако детекцијата на увото работи само за еден pod, ова е ограничување на Apple. Се детектира само \"примарниот pod\" (користен за микрофон). Конфигурирајте на Apple уреди: Поставки → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Минимален квалитет на сигналот</string>
+    <string name="settings_eardetection_info_description">Ако детекцијата на увото работи само за еден pod, ова е ограничување на Apple. Се детектира само \"примарниот pod\" (користен за микрофон). Конфигурирајте на Apple уреди: Поставки → Bluetooth → AirPods → Микрофон.</string>
+    <string name="settings_signal_minimum_label">Минимален квалитет на сигналот</string>
     <string name="settings_signal_minimum_description">Минималниот квалитет на сигналот што уредот мора да го има за да се смета за ваш.</string>
     <string name="settings_autoconnect_label">Автоматско поврзување</string>
     <string name="settings_autoconnect_description">Ако Android не се поврзе автоматски, можеме и ние да го побараме тоа. Ова ќе ја постави поставката за режимот на мониторинг на \"Секогаш\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Општи прилагодувања што влијаат на целата апликација.</string>
     <string name="settings_acknowledgements_label">Благодарници</string>
     <string name="settings_debug_autoreports_label">Автоматски извештаи за грешки</string>
-    <string name="settings_debug_autoreports_description">Автоматски пријавува проблеми, на пр. детали за пад на апликацијата за да можам да откријам како да го поправам.</string><string name="settings_compatibility_mode_label">Режим на компатибилност</string>
+    <string name="settings_debug_autoreports_description">Автоматски пријавува проблеми, на пр. детали за пад на апликацијата за да можам да откријам како да го поправам.</string>
+    <string name="settings_compatibility_mode_label">Режим на компатибилност</string>
     <string name="settings_compatibility_mode_description">Оневозможете ги оптимизациите за да ја подобрите компатибилноста. Обидете се со ова ако не гледате никакви податоци.</string>
     <string name="help_translate_label">Превод</string>
     <string name="help_translate_description">Помогнете да ја преведете оваа апликација на вашиот омилен јазик.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Овој виџет бара директна врска (AAP) со вашиот уред. Осигурете се дека вашиот уред е спарен и поврзан во апликацијата пред да го користите овој виџет.</string>
     <string name="anc_widget_no_anc_support_label">Овој уред не поддржува контрола на бучава</string>
     <string name="anc_widget_aap_not_connected_label">Не е поврзан</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Во близина, но не поврзан</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Не е во близина</string>
     <string name="anc_widget_aap_connecting_label">Поврзување…</string>
+    <string name="tile_anc_label">Контрола на бучава</string>
+    <string name="tile_anc_subtitle_permission_required">Потребна е дозвола</string>
+    <string name="tile_anc_subtitle_no_device">Нема уред</string>
+    <string name="tile_anc_subtitle_no_anc_support">Нема контрола на бучава</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth исклучен</string>
     <string name="widget_config_screen_title">Конфигурација на виџетот</string>
     <string name="widget_configuration_title">Изберете уред</string>
     <string name="widget_configuration_description">Изберете кој профил на уред треба да го прикажува овој виџет.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Транспарентност</string>
     <string name="anc_mode_adaptive">Адаптивно</string>
     <string name="conversation_awareness_label">Свесност за разговор</string>
+    <string name="settings_conversation_action_label">Кога почнуваш да зборуваш</string>
+    <string name="settings_conversation_action_nothing_label">Не прави ништо</string>
+    <string name="settings_conversation_action_lower_volume_label">Намали јачина</string>
+    <string name="settings_conversation_action_pause_label">Паузирај медиуми</string>
+    <string name="settings_conversation_volume_reduction_label">Намалување на јачината</string>
     <string name="signal_badge_ble_cd">BLE скенирање активно</string>
     <string name="signal_badge_key_irk_cd">Идентитетот е потврден</string>
     <string name="signal_badge_key_encrypted_cd">Шифрирана врска</string>
@@ -327,7 +343,7 @@
         <item quantity="one">%1$d датотека готова (%2$s)</item>
         <item quantity="other">%1$d датотеки готови (%2$s)</item>
     </plurals>
-    <string name="debug_debuglog_screen_discard_action">Избирши</string>
+    <string name="debug_debuglog_screen_discard_action">Избриши</string>
     <string name="debug_debuglog_screen_keep_action">Задржи</string>
     <!-- Log management -->
     <plurals name="support_debuglog_folder_summary">
@@ -343,10 +359,10 @@
     <string name="support_debuglog_session_delete_title">Да се избрише сесијата?</string>
     <string name="support_debuglog_session_delete_message">Оваа дијагностичка сесија ќе биде трајно избришана.</string>
     <string name="support_debuglog_clear_all_message">Сите дијагностички сесии ќе бидат трајно избришани.</string>
-    <string name="support_debuglog_failed_empty_log">Неуспеано: датотеката со дневник е празна</string>
-    <string name="support_debuglog_failed_missing_log">Неуспеано: датотеката со дневник недостасува</string>
-    <string name="support_debuglog_failed_corrupt_zip">Неуспеано: zip датотеката е оштетена</string>
-    <string name="support_debuglog_failed_zip_failed">Неуспеано: компресијата не успеа</string>
+    <string name="support_debuglog_failed_empty_log">Неуспешно: датотеката со дневник е празна</string>
+    <string name="support_debuglog_failed_missing_log">Неуспешно: датотеката со дневник недостасува</string>
+    <string name="support_debuglog_failed_corrupt_zip">Неуспешно: zip датотеката е оштетена</string>
+    <string name="support_debuglog_failed_zip_failed">Неуспешно: компресијата не успеа</string>
     <!-- Contact form -->
     <string name="support_contact_label">Контактирајте го развивачот</string>
     <string name="support_contact_desc">Пополнете формулар за да му пратите е-пошта на развивачот.</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Генерално</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
-    <string name="device_settings_microphone_mode_description">Кој AirPod се користи како микрофон</string>
+    <string name="device_settings_microphone_mode_description">Кој слушалец се користи како микрофон</string>
     <string name="device_settings_microphone_mode_auto">Автоматски</string>
     <string name="device_settings_microphone_mode_right">Десно</string>
     <string name="device_settings_microphone_mode_left">Лево</string>
@@ -468,6 +484,7 @@
     <string name="device_settings_listening_mode_cycle_transparency">Транспарентност</string>
     <string name="device_settings_listening_mode_cycle_adaptive">Адаптивно</string>
     <string name="device_settings_allow_off_label">Дозволете режим Исклучено</string>
+    <string name="device_settings_allow_off_description">Дозволи Исклучено како избирачки режим за контрола на бучава. Кога е оневозможено, стеблата прескокнуваат Исклучено при циклирање.</string>
     <string name="device_settings_sleep_detection_label">Откривање сон</string>
     <string name="device_settings_sleep_detection_description">Автоматски паузирање на звукот кога заспиете</string>
     <string name="reaction_sleep_channel_label">Детекција на спиење</string>

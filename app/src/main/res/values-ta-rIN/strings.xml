@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">தானியங்கு இடைநிறுத்தம்</string>
     <string name="settings_autopause_description">உங்கள் காதில் இருந்து சாதனத்தை அகற்றும்போது ஆடியோவை இடைநிறுத்தவும்.</string>
     <string name="settings_autopplay_label">தானியங்கு இயக்கம்</string>
-    <string name="settings_autoplay_description">சாதனம் அணியும்போது ஆடியோ இயக்கத்தைத் தொடங்கு.</string>
+    <string name="settings_autoplay_description">உங்கள் போட்களை மீண்டும் அணிந்தால் இசையை தொடரும், ஆனால் Auto pause மட்டுமே நிறுத்தியிருந்தால். நீங்களே நிறுத்திய இடைநிறுத்தங்கள் (தொலைபேசி, AirPods stem, தூக்கம்) நிறுத்தப்பட்டே இருக்கும்.</string>
+    <string name="settings_start_music_on_wear_label">அணியும்போது இசையை தொடங்கு</string>
+    <string name="settings_start_music_on_wear_description">நீங்கள் போட்களை அணிந்தால் எப்போதும் இசையை இயக்க முயற்சிக்கும், கைமுறை இடைநிறுத்தத்திற்கு பிறகும் கூட.</string>
     <string name="settings_eardetection_info_label">காது கண்டறிதல் குறிப்பு</string>
-    <string name="settings_eardetection_info_description">காது கண்டறிதல் ஒரு பாட்க்கு மட்டுமே வேலை செய்தால், இது Apple வரம்பு. \"முதன்மை பாட்\" (ஒலிபெருக்கிக்கு பயன்படுத்தப்படும்) மட்டுமே கண்டறியப்படும். Apple சாதனங்களில் அமைக்கவும்: அமைப்புகள் → புளூடூத் → AirPods → ஒலிபெருக்கி.</string><string name="settings_signal_minimum_label">குறைந்தபட்ச சிக்னல் தரம்</string>
+    <string name="settings_eardetection_info_description">காது கண்டறிதல் ஒரு பாட்க்கு மட்டுமே வேலை செய்தால், இது Apple வரம்பு. \"முதன்மை பாட்\" (ஒலிபெருக்கிக்கு பயன்படுத்தப்படும்) மட்டுமே கண்டறியப்படும். Apple சாதனங்களில் அமைக்கவும்: அமைப்புகள் → புளூடூத் → AirPods → ஒலிபெருக்கி.</string>
+    <string name="settings_signal_minimum_label">குறைந்தபட்ச சிக்னல் தரம்</string>
     <string name="settings_signal_minimum_description">ஒரு சாதனம் உங்களுடையதாகக் கருதப்படுவதற்குத் தேவையான குறைந்தபட்ச சிக்னல் தரம்.</string>
     <string name="settings_autoconnect_label">தானியங்கு இணைப்பு</string>
     <string name="settings_autoconnect_description">ஆண்ட்ராய்டு தானாக இணைக்கவில்லை என்றால், நாமும் அதைக் கேட்கலாம். இது கண்காணிப்பு முறை அமைப்பை \'எப்போதும்\' என அமைக்கும்.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
     <string name="settings_debug_autoreports_label">தானியங்கி பிழை அறிக்கைகள்</string>
-    <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string><string name="settings_compatibility_mode_label">இணக்கத்தன்மை முறை</string>
+    <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string>
+    <string name="settings_compatibility_mode_label">இணக்கத்தன்மை முறை</string>
     <string name="settings_compatibility_mode_description">இணக்கத்தன்மையை மேம்படுத்த மேம்படுத்தல்களை முடக்கு. நீங்கள் எந்தத் தரவையும் பார்க்கவில்லை என்றால் இதை முயற்சிக்கவும்.</string>
     <string name="help_translate_label">மொழிபெயர்ப்பு</string>
     <string name="help_translate_description">இந்த ஆப்ஸை உங்களுக்குப் பிடித்த மொழியில் மொழிபெயர்க்க உதவுங்கள்.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">இந்த விட்ஜெட்டுக்கு உங்கள் சாதனத்துடன் நேரடி இணைப்பு (AAP) தேவை. இந்த விட்ஜெட்டைப் பயன்படுத்துவதற்கு முன் உங்கள் சாதனம் பேர் செய்யப்பட்டு பயன்பாட்டில் இணைக்கப்பட்டிருப்பதை உறுதிசெய்யவும்.</string>
     <string name="anc_widget_no_anc_support_label">இந்த சாதனம் சத்தக் கட்டுப்பாட்டை ஆதரிக்கவில்லை</string>
     <string name="anc_widget_aap_not_connected_label">இணைக்கப்படவில்லை</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">அருகில் உள்ளது ஆனால் இணைக்கப்படவில்லை</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">அருகில் இல்லை</string>
     <string name="anc_widget_aap_connecting_label">இணைக்கிறது…</string>
+    <string name="tile_anc_label">சத்த கட்டுப்பாடு</string>
+    <string name="tile_anc_subtitle_permission_required">அனுமதி தேவை</string>
+    <string name="tile_anc_subtitle_no_device">சாதனம் இல்லை</string>
+    <string name="tile_anc_subtitle_no_anc_support">சத்த கட்டுப்பாடு இல்லை</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth அணைந்துள்ளது</string>
     <string name="widget_config_screen_title">விட்ஜெட் அமைப்பு</string>
     <string name="widget_configuration_title">சாதனத்தைத் தேர்ந்தெடு</string>
     <string name="widget_configuration_description">இந்த விட்ஜெட் எந்த சாதன சுயவிவரத்தைக் காட்ட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">வெளிப்படைத்தன்மை</string>
     <string name="anc_mode_adaptive">தகவமைவு</string>
     <string name="conversation_awareness_label">உரையாடல் விழிப்புணர்வு</string>
+    <string name="settings_conversation_action_label">நீங்கள் பேசத் தொடங்கும்போது</string>
+    <string name="settings_conversation_action_nothing_label">எதுவும் செய்யாதே</string>
+    <string name="settings_conversation_action_lower_volume_label">ஒலியளவைக் குறை</string>
+    <string name="settings_conversation_action_pause_label">மீடியாவை இடைநிறுத்து</string>
+    <string name="settings_conversation_volume_reduction_label">ஒலியளவு குறைப்பு</string>
     <string name="signal_badge_ble_cd">BLE ஸ்கேன் செயலில் உள்ளது</string>
     <string name="signal_badge_key_irk_cd">அடையாளம் சரிபார்க்கப்பட்டது</string>
     <string name="signal_badge_key_encrypted_cd">மறையாக்கப்பட்ட இணைப்பு</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">பொது</string>
     <string name="device_settings_microphone_mode_label">மைக்ரோஃபோன்</string>
-    <string name="device_settings_microphone_mode_description">எந்த AirPod மைக்ரோஃபோனாக பயன்படுத்தப்படுகிறது</string>
+    <string name="device_settings_microphone_mode_description">எந்த ஈர்பட் மைக்ரோஃபோனாக பயன்படுத்தப்படுகிறது</string>
     <string name="device_settings_microphone_mode_auto">தானியங்கி</string>
     <string name="device_settings_microphone_mode_right">வலது</string>
     <string name="device_settings_microphone_mode_left">இடது</string>

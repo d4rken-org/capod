@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">স্বয়ংক্রিয় বিরতি</string>
     <string name="settings_autopause_description">আপনার কান থেকে ডিভাইসটি সরানোর সময় অডিওতে বিরতি দিন।</string>
     <string name="settings_autopplay_label">স্বয়ংক্রিয় প্লে</string>
-    <string name="settings_autoplay_description">ডিভাইস পরিধান করার সময় অডিও প্লেব্যাক শুরু করুন।</string>
+    <string name="settings_autoplay_description">আপনার পড পুনরায় পরলে সংগীত চালু করুন, তবে শুধুমাত্র যদি অটো পজ এটি থামিয়ে দিয়ে থাকে। আপনি নিজে যে পজ করেছেন (ফোন, AirPods স্টেম, স্লিপ) সেগুলো পজ থাকবে।</string>
+    <string name="settings_start_music_on_wear_label">পরলে সংগীত শুরু করুন</string>
+    <string name="settings_start_music_on_wear_description">আপনি পড পরলে সবসময় সংগীত চালানোর চেষ্টা করে, এমনকি ম্যানুয়াল পজের পরেও।</string>
     <string name="settings_eardetection_info_label">কান সনাক্তকরণ নোট</string>
-    <string name="settings_eardetection_info_description">যদি কান সনাক্তকরণ শুধুমাত্র একটি পডের জন্য কাজ করে, এটি একটি Apple সীমাবদ্ধতা। শুধুমাত্র \"প্রাথমিক পড\" (মাইক্রোফোনের জন্য ব্যবহৃত) সনাক্ত করা হয়। Apple ডিভাইসে কনফিগার করুন: সেটিংস → Bluetooth → AirPods → মাইক্রোফোন।</string><string name="settings_signal_minimum_label">ন্যূনতম সংকেত গুণমান</string>
+    <string name="settings_eardetection_info_description">যদি কান সনাক্তকরণ শুধুমাত্র একটি পডের জন্য কাজ করে, এটি একটি Apple সীমাবদ্ধতা। শুধুমাত্র \"প্রাথমিক পড\" (মাইক্রোফোনের জন্য ব্যবহৃত) সনাক্ত করা হয়। Apple ডিভাইসে কনফিগার করুন: সেটিংস → Bluetooth → AirPods → মাইক্রোফোন।</string>
+    <string name="settings_signal_minimum_label">ন্যূনতম সংকেত গুণমান</string>
     <string name="settings_signal_minimum_description">একটি ডিভাইসকে আপনার হিসাবে বিবেচনা করার জন্য ন্যূনতম সংকেত গুণমান থাকতে হবে।</string>
     <string name="settings_autoconnect_label">স্বয়ংক্রিয় সংযোগ</string>
     <string name="settings_autoconnect_description">যদি অ্যান্ড্রয়েড স্বয়ংক্রিয়ভাবে সংযোগ না করে, আমরাও এটি জিজ্ঞাসা করতে পারি। এটি মনিটর মোড সেটিংকে \"সর্বদা\" তে সেট করবে।</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">পুরো অ্যাপকে প্রভাবিত করে এমন সাধারণ পরিবর্তন।</string>
     <string name="settings_acknowledgements_label">স্বীকৃতি</string>
     <string name="settings_debug_autoreports_label">স্বয়ংক্রিয় বাগ রিপোর্ট</string>
-    <string name="settings_debug_autoreports_description">স্বয়ংক্রিয়ভাবে সমস্যাগুলি রিপোর্ট করে, যেমন অ্যাপ ক্র্যাশের বিবরণ যাতে আমি এটি কীভাবে ঠিক করতে পারি তা বের করতে পারি।</string><string name="settings_compatibility_mode_label">সামঞ্জস্যতা মোড</string>
+    <string name="settings_debug_autoreports_description">স্বয়ংক্রিয়ভাবে সমস্যাগুলি রিপোর্ট করে, যেমন অ্যাপ ক্র্যাশের বিবরণ যাতে আমি এটি কীভাবে ঠিক করতে পারি তা বের করতে পারি।</string>
+    <string name="settings_compatibility_mode_label">সামঞ্জস্যতা মোড</string>
     <string name="settings_compatibility_mode_description">সামঞ্জস্যতা উন্নত করতে অপ্টিমাইজেশান নিষ্ক্রিয় করুন। যদি আপনি কোনো ডেটা দেখতে না পান তবে এটি চেষ্টা করুন।</string>
     <string name="help_translate_label">অনুবাদ</string>
     <string name="help_translate_description">এই অ্যাপটি আপনার প্রিয় ভাষায় অনুবাদ করতে সাহায্য করুন।</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">এই উইজেটটি আপনার ডিভাইসে একটি সরাসরি সংযোগ (AAP) প্রয়োজন। এই উইজেটটি ব্যবহার করার আগে নিশ্চিত করুন যে আপনার ডিভাইসটি অ্যাপে পেয়ার এবং সংযুক্ত আছে।</string>
     <string name="anc_widget_no_anc_support_label">এই ডিভাইসটি নয়েজ কন্ট্রোল সমর্থন করে না</string>
     <string name="anc_widget_aap_not_connected_label">সংযুক্ত নয়</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">কাছাকাছি কিন্তু সংযুক্ত নয়</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">কাছাকাছি নয়</string>
     <string name="anc_widget_aap_connecting_label">সংযুক্ত হচ্ছে…</string>
+    <string name="tile_anc_label">নয়েজ কন্ট্রোল</string>
+    <string name="tile_anc_subtitle_permission_required">অনুমতি প্রয়োজন</string>
+    <string name="tile_anc_subtitle_no_device">কোনও ডিভাইস নেই</string>
+    <string name="tile_anc_subtitle_no_anc_support">নয়েজ কন্ট্রোল নেই</string>
+    <string name="tile_anc_subtitle_bluetooth_off">ব্লুটুথ বন্ধ</string>
     <string name="widget_config_screen_title">উইজেট কনফিগারেশন</string>
     <string name="widget_configuration_title">ডিভাইস নির্বাচন করুন</string>
     <string name="widget_configuration_description">এই উইজেটটি কোন ডিভাইস প্রোফাইল প্রদর্শন করবে তা চয়ন করুন।</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">ট্রান্সপারেন্সি</string>
     <string name="anc_mode_adaptive">অ্যাডাপটিভ</string>
     <string name="conversation_awareness_label">কথোপকথন সচেতনতা</string>
+    <string name="settings_conversation_action_label">যখন আপনি কথা বলতে শুরু করেন</string>
+    <string name="settings_conversation_action_nothing_label">কিছু করবেন না</string>
+    <string name="settings_conversation_action_lower_volume_label">ভলিউম কমান</string>
+    <string name="settings_conversation_action_pause_label">মিডিয়া পজ করুন</string>
+    <string name="settings_conversation_volume_reduction_label">ভলিউম হ্রাস</string>
     <string name="signal_badge_ble_cd">BLE স্ক্যান সক্রিয়</string>
     <string name="signal_badge_key_irk_cd">পরিচয় যাচাই করা হয়েছে</string>
     <string name="signal_badge_key_encrypted_cd">এনক্রিপ্টেড সংযোগ</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">সাধারণ</string>
     <string name="device_settings_microphone_mode_label">মাইক্রোফোন</string>
-    <string name="device_settings_microphone_mode_description">কোন AirPod মাইক্রোফোন হিসেবে ব্যবহৃত হয়</string>
+    <string name="device_settings_microphone_mode_description">কোন ইয়ারবাড মাইক্রোফোন হিসেবে ব্যবহার করা হয়</string>
     <string name="device_settings_microphone_mode_auto">স্বয়ংক্রিয়</string>
     <string name="device_settings_microphone_mode_right">ডান</string>
     <string name="device_settings_microphone_mode_left">বাঁ</string>

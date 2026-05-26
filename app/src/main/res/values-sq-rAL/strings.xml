@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pauzë automatike</string>
     <string name="settings_autopause_description">Vendos në pauzë audion kur hiqni pajisjen nga veshi.</string>
     <string name="settings_autopplay_label">Luaj automatikisht</string>
-    <string name="settings_autoplay_description">Nis riprodhimin e audios kur pajisja vihet në përdorim.</string>
+    <string name="settings_autoplay_description">Riprend muzikën kur vesh sërish kufjet, por vetëm nëse pauzimi automatik e ndaloi. Pauzat që ke bërë vetë (telefon, tige AirPods, gjumë) mbeten të pauzuara.</string>
+    <string name="settings_start_music_on_wear_label">Fillo muzikën kur vesh kufjet</string>
+    <string name="settings_start_music_on_wear_description">Gjithmonë përpiqet të luajë muzikë kur vesh kufjet, madje edhe pas një pauze manuale.</string>
     <string name="settings_eardetection_info_label">Shënim mbi zbulimin e veshit</string>
-    <string name="settings_eardetection_info_description">Nëse zbulimi i veshit funksionon vetëm për një kufje, kjo është një kufizim i Apple. Vetëm \"kufjja kryesore\" (e përdorur për mikrofonin) zbulohet. Konfiguroni në pajisjet Apple: Cilësimet → Bluetooth → AirPods → Mikrofoni.</string><string name="settings_signal_minimum_label">Cilësia minimale e sinjalit</string>
+    <string name="settings_eardetection_info_description">Nëse zbulimi i veshit funksionon vetëm për një kufje, kjo është një kufizim i Apple. Vetëm \"kufjja kryesore\" (e përdorur për mikrofonin) zbulohet. Konfiguroni në pajisjet Apple: Cilësimet → Bluetooth → AirPods → Mikrofoni.</string>
+    <string name="settings_signal_minimum_label">Cilësia minimale e sinjalit</string>
     <string name="settings_signal_minimum_description">Cilësia minimale e sinjalit që një pajisje duhet të ketë për t\'u konsideruar e juaja.</string>
     <string name="settings_autoconnect_label">Lidhu automatikisht</string>
     <string name="settings_autoconnect_description">Nëse Android nuk lidhet automatikisht, ne mund t\'i kërkojmë gjithashtu. Kjo do të vendosë cilësimin e modalitetit të monitorimit në \'Gjithmonë\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
     <string name="settings_debug_autoreports_label">Raporte automatike të gabimeve</string>
-    <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string><string name="settings_compatibility_mode_label">Modaliteti i përputhshmërisë</string>
+    <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string>
+    <string name="settings_compatibility_mode_label">Modaliteti i përputhshmërisë</string>
     <string name="settings_compatibility_mode_description">Çaktivizo optimizimet për të përmirësuar përputhshmërinë. Provojeni këtë nëse nuk po shihni asnjë të dhënë.</string>
     <string name="help_translate_label">Përkthimi</string>
     <string name="help_translate_description">Ndihmoni në përkthimin e këtij aplikacioni në gjuhën tuaj të preferuar.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Ky widget kërkon një lidhje direkte (AAP) me pajisjen tuaj. Sigurohuni që pajisja juaj është çiftuar dhe lidhur në aplikacion përpara se të përdorni këtë widget.</string>
     <string name="anc_widget_no_anc_support_label">Kjo pajisje nuk mbështet kontrollin e zhurmës</string>
     <string name="anc_widget_aap_not_connected_label">Nuk është i lidhur</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Afër por jo i lidhur</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Jo afër</string>
     <string name="anc_widget_aap_connecting_label">Po lidhet…</string>
+    <string name="tile_anc_label">Kontrolli i zhurmës</string>
+    <string name="tile_anc_subtitle_permission_required">Kërkohet leje</string>
+    <string name="tile_anc_subtitle_no_device">Asnjë pajisje</string>
+    <string name="tile_anc_subtitle_no_anc_support">Pa kontroll zhurmash</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth joaktiv</string>
     <string name="widget_config_screen_title">Konfigurimi i miniaplikacionit</string>
     <string name="widget_configuration_title">Zgjidh pajisjen</string>
     <string name="widget_configuration_description">Zgjidhni cilin profil pajisje duhet të shfaqë ky widget.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparencë</string>
     <string name="anc_mode_adaptive">Adaptive</string>
     <string name="conversation_awareness_label">Ndërgjegjja e Bisedës</string>
+    <string name="settings_conversation_action_label">Kur fillon të flasësh</string>
+    <string name="settings_conversation_action_nothing_label">Mos bëj asgjë</string>
+    <string name="settings_conversation_action_lower_volume_label">Ul volumin</string>
+    <string name="settings_conversation_action_pause_label">Pauzo median</string>
+    <string name="settings_conversation_volume_reduction_label">Ulja e volumit</string>
     <string name="signal_badge_ble_cd">Skanimi BLE aktiv</string>
     <string name="signal_badge_key_irk_cd">Identiteti i verifikuar</string>
     <string name="signal_badge_key_encrypted_cd">Lidhje e enkriptuar</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Gjenerik</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>
-    <string name="device_settings_microphone_mode_description">Cili AirPod përdoret si mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Cili kufjezë përdoret si mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Automatik</string>
     <string name="device_settings_microphone_mode_right">Djathtas</string>
     <string name="device_settings_microphone_mode_left">Majtas</string>

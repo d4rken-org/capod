@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pausatze automatikoa</string>
     <string name="settings_autopause_description">Pausatu audioa gailua belarritik kentzean.</string>
     <string name="settings_autopplay_label">Erreprodukzio automatikoa</string>
-    <string name="settings_autoplay_description">Hasi audio erreprodukzioa gailua jantzita dagoenean.</string>
+    <string name="settings_autoplay_description">Berriro jantzita musika errepikatzen du, baina soilik Eten automatikoak gelditu bazuen. Zuk eragindako etenak (telefonoa, AirPods beso, loa) etenda geratzen dira.</string>
+    <string name="settings_start_music_on_wear_label">Hasi musika jantzitakoan</string>
+    <string name="settings_start_music_on_wear_description">Beti saiatzen da musika erreproduzitzen aurrikulariak jartzen dituzunean, eskuzko eten baten ondoren ere.</string>
     <string name="settings_eardetection_info_label">Belarri-detekzioaren oharra</string>
-    <string name="settings_eardetection_info_description">Belarri-detekzioak pod batentzat soilik funtzionatzen badu, Apple-ren muga bat da. \"Pod nagusia\" (mikrofonorako erabiltzen dena) soilik detektatzen da. Konfiguratu Apple gailuetan: Ezarpenak → Bluetooth → AirPods → Mikrofonoa.</string><string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
+    <string name="settings_eardetection_info_description">Belarri-detekzioak pod batentzat soilik funtzionatzen badu, Apple-ren muga bat da. \"Pod nagusia\" (mikrofonorako erabiltzen dena) soilik detektatzen da. Konfiguratu Apple gailuetan: Ezarpenak → Bluetooth → AirPods → Mikrofonoa.</string>
+    <string name="settings_signal_minimum_label">Seinalearen gutxieneko kalitatea</string>
     <string name="settings_signal_minimum_description">Gailu batek zurea dela kontsideratzeko izan behar duen seinalearen gutxieneko kalitatea.</string>
     <string name="settings_autoconnect_label">Automatikoki konektatu</string>
     <string name="settings_autoconnect_description">Android automatikoki konektatzen ez bada, guk ere eska diezaiokegu. Honek monitorizazio moduaren ezarpena \"Beti\" moduan jarriko du.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
     <string name="settings_acknowledgements_label">Eskertzak</string>
     <string name="settings_debug_autoreports_label">Erroreen txosten automatikoak</string>
-    <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string><string name="settings_compatibility_mode_label">Bateragarritasun modua</string>
+    <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string>
+    <string name="settings_compatibility_mode_label">Bateragarritasun modua</string>
     <string name="settings_compatibility_mode_description">Desgaitu optimizazioak bateragarritasuna hobetzeko. Saiatu hau daturik ikusten ez baduzu.</string>
     <string name="help_translate_label">Itzulpena</string>
     <string name="help_translate_description">Lagundu aplikazio hau zure hizkuntza gogokoenera itzultzen.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Widget honek zure gailuarekin konexio zuzen bat (AAP) behar du. Ziurtatu zure gailua parekatuta eta konektatuta dagoela aplikazioan widget hau erabili aurretik.</string>
     <string name="anc_widget_no_anc_support_label">Gailu honek ez ditu onartzen zarata-kontrolaren funtzioak</string>
     <string name="anc_widget_aap_not_connected_label">Konektatu gabe</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Gertu baina konektatu gabe</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Ez dago gertu</string>
     <string name="anc_widget_aap_connecting_label">Konektatzen…</string>
+    <string name="tile_anc_label">Zarata kontrola</string>
+    <string name="tile_anc_subtitle_permission_required">Baimena beharrezkoa da</string>
+    <string name="tile_anc_subtitle_no_device">Gailurik ez</string>
+    <string name="tile_anc_subtitle_no_anc_support">Ez dago zarata kontrolik</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth itzalita</string>
     <string name="widget_config_screen_title">Widget konfigurazioa</string>
     <string name="widget_configuration_title">Hautatu Gailua</string>
     <string name="widget_configuration_description">Aukeratu trepeta honek zein gailu-profil erakutsi behar duen.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Gardentasuna</string>
     <string name="anc_mode_adaptive">Egokigarria</string>
     <string name="conversation_awareness_label">Elkarrizketa-kontzientzia</string>
+    <string name="settings_conversation_action_label">Hitz egiten hasten zarenean</string>
+    <string name="settings_conversation_action_nothing_label">Ez egin ezer</string>
+    <string name="settings_conversation_action_lower_volume_label">Jaitsi bolumena</string>
+    <string name="settings_conversation_action_pause_label">Pausatu multimedia</string>
+    <string name="settings_conversation_volume_reduction_label">Bolumen murrizketa</string>
     <string name="signal_badge_ble_cd">BLE eskaneatzea aktibo</string>
     <string name="signal_badge_key_irk_cd">Identitatea egiaztatuta</string>
     <string name="signal_badge_key_encrypted_cd">Enkriptatutako konexioa</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Orokorra</string>
     <string name="device_settings_microphone_mode_label">Mikrofonoa</string>
-    <string name="device_settings_microphone_mode_description">Zein AirPod erabiltzen den mikrofono gisa</string>
+    <string name="device_settings_microphone_mode_description">Zein entzungailu erabiltzen den mikrofono gisa</string>
     <string name="device_settings_microphone_mode_auto">Automatikoa</string>
     <string name="device_settings_microphone_mode_right">Eskuinekoa</string>
     <string name="device_settings_microphone_mode_left">Ezkerrekoa</string>

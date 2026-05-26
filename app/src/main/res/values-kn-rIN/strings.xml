@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ಸ್ವಯಂ-ವಿರಾಮ</string>
     <string name="settings_autopause_description">ನಿಮ್ಮ ಕಿವಿಯಿಂದ ಸಾಧನವನ್ನು ತೆಗೆದುಹಾಕಿದಾಗ ಆಡಿಯೊವನ್ನು ವಿರಾಮಗೊಳಿಸಿ.</string>
     <string name="settings_autopplay_label">ಸ್ವಯಂ-ಪ್ಲೇ</string>
-    <string name="settings_autoplay_description">ಸಾಧನವನ್ನು ಧರಿಸಿದಾಗ ಆಡಿಯೊ ಪ್ಲೇಬ್ಯಾಕ್ ಪ್ರಾರಂಭಿಸಿ.</string>
+    <string name="settings_autoplay_description">ನಿಮ್ಮ ಪಾಡ್‌ಗಳನ್ನು ಮತ್ತೆ ಧರಿಸಿದಾಗ ಸಂಗೀತವನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ, ಆದರೆ ಆಟೋ ಪಾಸ್ ನಿಲ್ಲಿಸಿದ್ದರೆ ಮಾತ್ರ. ನೀವೇ ಪ್ರಚೋದಿಸಿದ ವಿರಾಮಗಳು (ಫೋನ್, AirPods ಸ್ಟೆಮ್, ನಿದ್ರೆ) ವಿರಾಮದಲ್ಲಿ ಉಳಿಯುತ್ತವೆ.</string>
+    <string name="settings_start_music_on_wear_label">ಧರಿಸಿದಾಗ ಸಂಗೀತ ಪ್ರಾರಂಭಿಸಿ</string>
+    <string name="settings_start_music_on_wear_description">ನಿಮ್ಮ ಪಾಡ್‌ಗಳನ್ನು ಹಾಕಿಕೊಂಡಾಗ ಯಾವಾಗಲೂ ಸಂಗೀತ ಪ್ಲೇ ಮಾಡಲು ಪ್ರಯತ್ನಿಸುತ್ತದೆ, ಮ್ಯಾನ್ಯುವಲ್ ವಿರಾಮದ ನಂತರವೂ ಸಹ.</string>
     <string name="settings_eardetection_info_label">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಟಿಪ್ಪಣಿ</string>
-    <string name="settings_eardetection_info_description">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಒಂದು ಪಾಡ್‌ಗೆ ಮಾತ್ರ ಕೆಲಸ ಮಾಡಿದರೆ, ಇದು Apple ಮಿತಿಯಾಗಿದೆ. \"ಪ್ರಾಥಮಿಕ ಪಾಡ್\" (ಮೈಕ್ರೋಫೋನ್‌ಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ) ಮಾತ್ರ ಗುರುತಿಸಲಾಗುತ್ತದೆ. Apple ಸಾಧನಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಿ: ಸೆಟ್ಟಿಂಗ್‌ಗಳು → Bluetooth → AirPods → ಮೈಕ್ರೋಫೋನ್.</string><string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
+    <string name="settings_eardetection_info_description">ಕಿವಿ ಗುರುತಿಸುವಿಕೆ ಒಂದು ಪಾಡ್‌ಗೆ ಮಾತ್ರ ಕೆಲಸ ಮಾಡಿದರೆ, ಇದು Apple ಮಿತಿಯಾಗಿದೆ. \"ಪ್ರಾಥಮಿಕ ಪಾಡ್\" (ಮೈಕ್ರೋಫೋನ್‌ಗಾಗಿ ಬಳಸಲಾಗುತ್ತದೆ) ಮಾತ್ರ ಗುರುತಿಸಲಾಗುತ್ತದೆ. Apple ಸಾಧನಗಳಲ್ಲಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಿ: ಸೆಟ್ಟಿಂಗ್‌ಗಳು → Bluetooth → AirPods → ಮೈಕ್ರೋಫೋನ್.</string>
+    <string name="settings_signal_minimum_label">ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ</string>
     <string name="settings_signal_minimum_description">ನಿಮ್ಮದೆಂದು ಪರಿಗಣಿಸಲು ಸಾಧನವು ಹೊಂದಿರಬೇಕಾದ ಕನಿಷ್ಠ ಸಿಗ್ನಲ್ ಗುಣಮಟ್ಟ.</string>
     <string name="settings_autoconnect_label">ಸ್ವಯಂ-ಸಂಪರ್ಕ</string>
     <string name="settings_autoconnect_description">Android ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಂಪರ್ಕಗೊಳ್ಳದಿದ್ದರೆ, ನಾವು ಕೂಡ ಅದನ್ನು ವಿನಂತಿಸಬಹುದು. ಇದು ಮಾನಿಟರ್ ಮೋಡ್ ಸೆಟ್ಟಿಂಗ್ ಅನ್ನು \"ಯಾವಾಗಲೂ\" ಗೆ ಹೊಂದಿಸುತ್ತದೆ.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
     <string name="settings_debug_autoreports_label">ಸ್ವಯಂಚಾಲಿತ ಬಗ್ ವರದಿಗಳು</string>
-    <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string><string name="settings_compatibility_mode_label">ಹೊಂದಾಣಿಕೆ ಮೋಡ್</string>
+    <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string>
+    <string name="settings_compatibility_mode_label">ಹೊಂದಾಣಿಕೆ ಮೋಡ್</string>
     <string name="settings_compatibility_mode_description">ಹೊಂದಾಣಿಕೆಯನ್ನು ಸುಧಾರಿಸಲು ಆಪ್ಟಿಮೈಸೇಶನ್‌ಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ. ನೀವು ಯಾವುದೇ ಡೇಟಾವನ್ನು ನೋಡದಿದ್ದರೆ ಇದನ್ನು ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="help_translate_label">ಅನುವಾದ</string>
     <string name="help_translate_description">ಈ ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ನಿಮ್ಮ ನೆಚ್ಚಿನ ಭಾಷೆಗೆ ಅನುವಾದಿಸಲು ಸಹಾಯ ಮಾಡಿ.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ಈ ವಿಜೆಟ್‌ಗೆ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ನೇರ ಸಂಪರ್ಕ (AAP) ಅಗತ್ಯವಿದೆ. ಈ ವಿಜೆಟ್ ಬಳಸುವ ಮೊದಲು ನಿಮ್ಮ ಸಾಧನ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಜೋಡಿಸಲಾಗಿದೆ ಮತ್ತು ಸಂಪರ್ಕಿಸಲಾಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</string>
     <string name="anc_widget_no_anc_support_label">ಈ ಸಾಧನ ಶಬ್ದ ನಿಯಂತ್ರಣವನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ</string>
     <string name="anc_widget_aap_not_connected_label">ಸಂಪರ್ಕಿಸಲಾಗಿಲ್ಲ</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">ಸಮೀಪದಲ್ಲಿದೆ ಆದರೆ ಸಂಪರ್ಕಿತವಾಗಿಲ್ಲ</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">ಸಮೀಪದಲ್ಲಿಲ್ಲ</string>
     <string name="anc_widget_aap_connecting_label">ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="tile_anc_label">ಶಬ್ದ ನಿಯಂತ್ರಣ</string>
+    <string name="tile_anc_subtitle_permission_required">ಅನುಮತಿ ಅಗತ್ಯವಿದೆ</string>
+    <string name="tile_anc_subtitle_no_device">ಯಾವುದೇ ಸಾಧನವಿಲ್ಲ</string>
+    <string name="tile_anc_subtitle_no_anc_support">ಯಾವುದೇ ಶಬ್ದ ನಿಯಂತ್ರಣವಿಲ್ಲ</string>
+    <string name="tile_anc_subtitle_bluetooth_off">ಬ್ಲೂಟೂತ್ ಆಫ್</string>
     <string name="widget_config_screen_title">ವಿಜೆಟ್ ಕಾನ್ಫಿಗರೇಶನ್</string>
     <string name="widget_configuration_title">ಸಾಧನ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="widget_configuration_description">ಈ ವಿಜೆಟ್ ಯಾವ ಸಾಧನ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಬೇಕು ಎಂಬುದನ್ನು ಆಯ್ಕೆಮಾಡಿ.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">ಪಾರದರ್ಶಕತೆ</string>
     <string name="anc_mode_adaptive">ಅಡಾಪ್ಟಿವ್</string>
     <string name="conversation_awareness_label">ಸಂವಾದ ಜಾಗೃತಿ</string>
+    <string name="settings_conversation_action_label">ನೀವು ಮಾತನಾಡಲು ಪ್ರಾರಂಭಿಸಿದಾಗ</string>
+    <string name="settings_conversation_action_nothing_label">ಏನೂ ಮಾಡಬೇಡಿ</string>
+    <string name="settings_conversation_action_lower_volume_label">ವಾಲ್ಯೂಮ್ ಕಡಿಮೆ ಮಾಡಿ</string>
+    <string name="settings_conversation_action_pause_label">ಮೀಡಿಯಾ ವಿರಾಮ ಮಾಡಿ</string>
+    <string name="settings_conversation_volume_reduction_label">ವಾಲ್ಯೂಮ್ ಕಡಿತ</string>
     <string name="signal_badge_ble_cd">BLE ಸ್ಕ್ಯಾನ್ ಸಕ್ರಿಯವಾಗಿದೆ</string>
     <string name="signal_badge_key_irk_cd">ಗುರುತು ಪರಿಶೀಲಿಸಲಾಗಿದೆ</string>
     <string name="signal_badge_key_encrypted_cd">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಸಂಪರ್ಕ</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ಸಾಮಾನ್ಯ</string>
     <string name="device_settings_microphone_mode_label">ಮೈಕ್ರೊಫೋನ್</string>
-    <string name="device_settings_microphone_mode_description">ಯಾವ AirPod ಮೈಕ್ರೋಫೋನ್ ಆಗಿ ಬಳಸಲಾಗುತ್ತದೆ</string>
+    <string name="device_settings_microphone_mode_description">ಮೈಕ್ರೊಫೋನ್ ಆಗಿ ಯಾವ ಇಯರ್‌ಬಡ್ ಬಳಸಲಾಗುತ್ತದೆ</string>
     <string name="device_settings_microphone_mode_auto">ಆಟೋ</string>
     <string name="device_settings_microphone_mode_right">ಬಲಗಡೆ</string>
     <string name="device_settings_microphone_mode_left">ೆಡಗಡೆ</string>

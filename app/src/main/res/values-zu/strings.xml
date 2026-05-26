@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Misa kancane ngokuzenzakalela</string>
     <string name="settings_autopause_description">Misa kancane umsindo lapho ukhipha idivayisi endlebeni yakho.</string>
     <string name="settings_autopplay_label">Dlala ngokuzenzakalela</string>
-    <string name="settings_autoplay_description">Qala ukudlala umsindo lapho idivayisi igqokiwe.</string>
+    <string name="settings_autoplay_description">Qalisa umculo lapho uphinde ugqoke amaphodi akho, kodwa kuphela uma i-Auto pause iwamisa. Ukumisa okwenziwe nguwe (ucingo, i-AirPods stem, ukulala) kuhlala kumisiwe.</string>
+    <string name="settings_start_music_on_wear_label">Qalisa umculo lapho ugqoka</string>
+    <string name="settings_start_music_on_wear_description">Ihlale izama ukudlala umculo lapho ubeka amaphodi akho, ngisho nangokumiswa ngesandla.</string>
     <string name="settings_eardetection_info_label">Inothi lokutholwa kwendlebe</string>
-    <string name="settings_eardetection_info_description">Uma ukutholwa kwendlebe kusebenza kuphela nge-pod eyodwa, lokhu kuwumkhawulo we-Apple. Kuphela \"i-pod eyinhloko\" (esetshenziswa yemakrofoni) etholakala. Lungiselela kumadivayisi e-Apple: Izilungiselelo → Bluetooth → AirPods → Imakrofoni.</string><string name="settings_signal_minimum_label">Izinga elincane lesignali</string>
+    <string name="settings_eardetection_info_description">Uma ukutholwa kwendlebe kusebenza kuphela nge-pod eyodwa, lokhu kuwumkhawulo we-Apple. Kuphela \"i-pod eyinhloko\" (esetshenziswa yemakrofoni) etholakala. Lungiselela kumadivayisi e-Apple: Izilungiselelo → Bluetooth → AirPods → Imakrofoni.</string>
+    <string name="settings_signal_minimum_label">Izinga elincane lesignali</string>
     <string name="settings_signal_minimum_description">Izinga elincane lesignali okufanele idivayisi ibe nalo ukuze ibhekwe njengeyakho.</string>
     <string name="settings_autoconnect_label">Xhuma ngokuzenzakalela</string>
     <string name="settings_autoconnect_description">Uma i-Android ingaxhumeki ngokuzenzakalela, singayicela nayo. Lokhu kuzosetha isethingi yemodi yokuqapha ibe \'Njalo\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Ukulungiswa okujwayelekile okuthinta lonke uhlelo lokusebenza.</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
     <string name="settings_debug_autoreports_label">Imibiko yeziphazamisi ezenzakalelayo</string>
-    <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string><string name="settings_compatibility_mode_label">Imodi yokuhambisana</string>
+    <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string>
+    <string name="settings_compatibility_mode_label">Imodi yokuhambisana</string>
     <string name="settings_compatibility_mode_description">Khubaza ukuthuthukiswa ukuze uthuthukise ukuhambisana. Zama lokhu uma ungaboni noma iyiphi idatha.</string>
     <string name="help_translate_label">Ukuhumusha</string>
     <string name="help_translate_description">Siza ukuhumusha lolu hlelo lokusebenza olimini lwakho oluthandayo.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Le widget idinga ukuxhuma ngqo (AAP) kudivayisi yakho. Qiniseka ukuthi idivayisi yakho ihlanganisiwe futhi ixhunyelwe kusoftware ngaphambi kokusetshenziswa kwe-widget.</string>
     <string name="anc_widget_no_anc_support_label">Le divayisi ayixhasi ukulawula umsindo</string>
     <string name="anc_widget_aap_not_connected_label">Akuxhunyiwe</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Eduze kodwa akuxhunyiwe</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Akuseduze</string>
     <string name="anc_widget_aap_connecting_label">Iyaxhuma…</string>
+    <string name="tile_anc_label">Ukulawula umsindo</string>
+    <string name="tile_anc_subtitle_permission_required">Kudingeka imvume</string>
+    <string name="tile_anc_subtitle_no_device">Ayikho idivayisi</string>
+    <string name="tile_anc_subtitle_no_anc_support">Alukho ukulawula umsindo</string>
+    <string name="tile_anc_subtitle_bluetooth_off">I-Bluetooth ivaliwe</string>
     <string name="widget_config_screen_title">Ukuhlela Iwijethi</string>
     <string name="widget_configuration_title">Khetha Idivayisi</string>
     <string name="widget_configuration_description">Khetha ukuthi iyiphi iphrofayili yedivayisi leli wiji okufanele liyibonise.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Ukucacisa</string>
     <string name="anc_mode_adaptive">Okuguqukayo</string>
     <string name="conversation_awareness_label">Ukuqwashisa Ngokuxoxa</string>
+    <string name="settings_conversation_action_label">Lapho uqala ukukhuluma</string>
+    <string name="settings_conversation_action_nothing_label">Ungenza lutho</string>
+    <string name="settings_conversation_action_lower_volume_label">Wehlisa ivoliyumu</string>
+    <string name="settings_conversation_action_pause_label">Misa imidiya</string>
+    <string name="settings_conversation_volume_reduction_label">Ukwehliswa kwefoliyumu</string>
     <string name="signal_badge_ble_cd">Ukuskena kwe-BLE kuyasebenza</string>
     <string name="signal_badge_key_irk_cd">Isazisi siqinisekisiwe</string>
     <string name="signal_badge_key_encrypted_cd">Ukuxhumana okubekiwe</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Okujwayelekile</string>
     <string name="device_settings_microphone_mode_label">Imakrofoni</string>
-    <string name="device_settings_microphone_mode_description">I-AirPod eyisetshenziselwa umsindo wekhadi</string>
+    <string name="device_settings_microphone_mode_description">Ikhiye yezindlebe elisetshenziselwa i-microphone</string>
     <string name="device_settings_microphone_mode_auto">Ngokuzenzakalela</string>
     <string name="device_settings_microphone_mode_right">Kwesokudla</string>
     <string name="device_settings_microphone_mode_left">Kwesobunxele</string>

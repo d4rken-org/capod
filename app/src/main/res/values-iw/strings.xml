@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">השהייה אוטומטית</string>
     <string name="settings_autopause_description">עצירת אודיו בהסרת המכשיר מהאוזן.</string>
     <string name="settings_autopplay_label">הפעלה אוטומטית</string>
-    <string name="settings_autoplay_description">התחלת ניגון אודיו בלבישת המכשיר.</string>
+    <string name="settings_autoplay_description">ממשיך מוזיקה כשאתה חוזר לענוד את האוזניות, אך רק אם הפסקה אוטומטית עצרה אותה. הפסקות שהפעלת בעצמך (טלפון, גבעול AirPods, שינה) נשארות מושהות.</string>
+    <string name="settings_start_music_on_wear_label">הפעל מוזיקה בלבישה</string>
+    <string name="settings_start_music_on_wear_description">תמיד מנסה להשמיע מוזיקה כשאתה מניח את האוזניות, גם לאחר הפסקה ידנית.</string>
     <string name="settings_eardetection_info_label">הערה לגבי זיהוי אוזן</string>
-    <string name="settings_eardetection_info_description">אם זיהוי אוזן עובד רק עבור אוזניה אחת, זוהי מגבלה של Apple. רק \"האוזניה הראשית\" (המשמשת למיקרופון) מזוהה. הגדר במכשירי Apple: הגדרות → Bluetooth → AirPods → מיקרופון.</string><string name="settings_signal_minimum_label">איכות אות מינימלית</string>
+    <string name="settings_eardetection_info_description">אם זיהוי אוזן עובד רק עבור אוזניה אחת, זוהי מגבלה של Apple. רק \"האוזניה הראשית\" (המשמשת למיקרופון) מזוהה. הגדר במכשירי Apple: הגדרות → Bluetooth → AirPods → מיקרופון.</string>
+    <string name="settings_signal_minimum_label">איכות אות מינימלית</string>
     <string name="settings_signal_minimum_description">איכות האות המינימלית שמכשיר צריך להתחשב עבורך.</string>
     <string name="settings_autoconnect_label">חיבור אוטומטי</string>
     <string name="settings_autoconnect_description">אם אנדרואיד לא מתחבר אוטומטית, אנחנו גם יכולים לבקש זאת. פעולה זו תגדיר את הגדרת מצב ניתור ל\'תמיד\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
     <string name="settings_acknowledgements_label">תודות</string>
     <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
-    <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string><string name="settings_compatibility_mode_label">מצב תאימות</string>
+    <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
+    <string name="settings_compatibility_mode_label">מצב תאימות</string>
     <string name="settings_compatibility_mode_description">נטרול אופטימיזציה לשיפור התאימות. נסו את זה אם לא מוצגים נתונים כלל.</string>
     <string name="help_translate_label">תרגום</string>
     <string name="help_translate_description">עזרו בתרגום אפליקציה זו לשפה המועדפת עליכם.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">וידג\'ט זה דורש חיבור ישיר (AAP) למכשיר שלך. ודא שהמכשיר שלך מקושר ומחובר באפליקציה לפני שימוש בוידג\'ט זה.</string>
     <string name="anc_widget_no_anc_support_label">מכשיר זה אינו תומך בבקרת רעש</string>
     <string name="anc_widget_aap_not_connected_label">לא מחובר</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">בקרבת מקום אך לא מחובר</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">לא בקרבת מקום</string>
     <string name="anc_widget_aap_connecting_label">מתחבר…</string>
+    <string name="tile_anc_label">בקרת רעש</string>
+    <string name="tile_anc_subtitle_permission_required">דרושה הרשאה</string>
+    <string name="tile_anc_subtitle_no_device">מכשיר לא קיים</string>
+    <string name="tile_anc_subtitle_no_anc_support">אין בקרת רעש</string>
+    <string name="tile_anc_subtitle_bluetooth_off">בלוטות\' כבוי</string>
     <string name="widget_config_screen_title">תצורת הווידג\'ט</string>
     <string name="widget_configuration_title">בחירת מכשיר</string>
     <string name="widget_configuration_description">בחר איזה פרופיל מכשיר הווידג\'ט צריך להציג.</string>
@@ -241,6 +252,11 @@
     <string name="anc_mode_transparency">שקיפות</string>
     <string name="anc_mode_adaptive">אדפטיבי</string>
     <string name="conversation_awareness_label">מודעות לשיחה</string>
+    <string name="settings_conversation_action_label">כשאתה מתחיל לדבר</string>
+    <string name="settings_conversation_action_nothing_label">אל תעשה כלום</string>
+    <string name="settings_conversation_action_lower_volume_label">הורד עוצמת שמע</string>
+    <string name="settings_conversation_action_pause_label">השהה מדיה</string>
+    <string name="settings_conversation_volume_reduction_label">הפחתת עוצמת שמע</string>
     <string name="signal_badge_ble_cd">סריקת BLE פעילה</string>
     <string name="signal_badge_key_irk_cd">זהות אומתה</string>
     <string name="signal_badge_key_encrypted_cd">חיבור מוצפן</string>
@@ -462,7 +478,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">כללי</string>
     <string name="device_settings_microphone_mode_label">מיקרופון</string>
-    <string name="device_settings_microphone_mode_description">איזה AirPod משמש כמיקרופון</string>
+    <string name="device_settings_microphone_mode_description">איזה אוזנייה משמשת כמיקרופון</string>
     <string name="device_settings_microphone_mode_auto">אוטומטי</string>
     <string name="device_settings_microphone_mode_right">ימין</string>
     <string name="device_settings_microphone_mode_left">שמאל</string>

@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Ինքնադադար</string>
     <string name="settings_autopause_description">Դադարեցրեք ձայնը, երբ սարքը հանում եք ականջից։</string>
     <string name="settings_autopplay_label">Ինքնանվագարկում</string>
-    <string name="settings_autoplay_description">Սկսեք ձայնի նվագարկումը, երբ սարքը կրում եք։</string>
+    <string name="settings_autoplay_description">Վերսկսել երաժշտությունը, երբ կրկին կրում եք ականջակալները, բայց միայն եթե Ավտոդադարը դադարեցրել է այն: Ձեր ձեռքով կատարած դադարները (հեռախոս, AirPods ոտք, քուն) մնում են դադարած:</string>
+    <string name="settings_start_music_on_wear_label">Երաժշտություն սկսել կրելիս</string>
+    <string name="settings_start_music_on_wear_description">Միշտ փորձում է նվագել երաժշտություն, երբ կկրեք ականջակալները, նույնիսկ ձեռքով դադարից հետո:</string>
     <string name="settings_eardetection_info_label">Ականջում հայտնաբերման նշում</string>
-    <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string><string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
+    <string name="settings_eardetection_info_description">Եթե ականջում հայտնաբերումը աշխատում է միայն մեկ ականջակալի համար, սա Apple-ի սահմանափակում է։ Միայն \"հիմնական ականջակալը\" (որն օգտագործվում է բարձրախոսի համար) է հայտնաբերվում։ Կարգավորեք Apple սարքերում՝ Կարգավորումներ → Bluetooth → AirPods → Բարձրախոս։</string>
+    <string name="settings_signal_minimum_label">Ազդանշանի նվազագույն որակ</string>
     <string name="settings_signal_minimum_description">Ազդանշանի նվազագույն որակը, որը պետք է ունենա սարքը՝ ձերը համարվելու համար։</string>
     <string name="settings_autoconnect_label">Ինքնամիացում</string>
     <string name="settings_autoconnect_description">Եթե Android-ն ինքնաբերաբար չի միանում, մենք նույնպես կարող ենք դա պահանջել։ Սա մոնիթորինգի ռեժիմի կարգավորումը կդնի \"Միշտ\" վիճակում։</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
     <string name="settings_debug_autoreports_label">Սխալների ավտոմատ հաշվետվություններ</string>
-    <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string><string name="settings_compatibility_mode_label">Համատեղելիության ռեժիմ</string>
+    <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string>
+    <string name="settings_compatibility_mode_label">Համատեղելիության ռեժիմ</string>
     <string name="settings_compatibility_mode_description">Անջատեք օպտիմիզացումները՝ համատեղելիությունը բարելավելու համար։ Փորձեք սա, եթե տվյալներ չեք տեսնում։</string>
     <string name="help_translate_label">Թարգմանություն</string>
     <string name="help_translate_description">Օգնեք թարգմանել այս հավելվածը ձեր սիրելի լեզվով։</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Այս վիջեթը պահանջում է ուղղակի կապ (AAP) ձեր սարքի հետ: Համոզվեք, որ ձեր սարքը զուգակցված և կապակցված է հավելվածում, նախքան այս վիջեթն օգտագործելը:</string>
     <string name="anc_widget_no_anc_support_label">Այս սարքը չի աջակցում աղմուկի վերահսկմանը</string>
     <string name="anc_widget_aap_not_connected_label">Կապ չկա</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Մոտակայքում է, բայց կապված չէ</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Մոտակայքում չէ</string>
     <string name="anc_widget_aap_connecting_label">Կապակցվում է…</string>
+    <string name="tile_anc_label">Աղմուկի կառավարում</string>
+    <string name="tile_anc_subtitle_permission_required">Թույլտվություն պահանջվում է</string>
+    <string name="tile_anc_subtitle_no_device">Սարք չկա</string>
+    <string name="tile_anc_subtitle_no_anc_support">Աղմուկի կառավարում չկա</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth-ն անջատված է</string>
     <string name="widget_config_screen_title">Վիջեթի կարգավորում</string>
     <string name="widget_configuration_title">Ընտրել սարք</string>
     <string name="widget_configuration_description">Ընտրեք, թե որ սարքի պրոֆիլը պետք է ցուցադրի այս վիջեթը։</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Թափանցիկություն</string>
     <string name="anc_mode_adaptive">Հարմարվող</string>
     <string name="conversation_awareness_label">Խոսակցության ճանաչում</string>
+    <string name="settings_conversation_action_label">Երբ սկսել եք խոսել</string>
+    <string name="settings_conversation_action_nothing_label">Ոչինչ չանել</string>
+    <string name="settings_conversation_action_lower_volume_label">Ձայնն իջեցնել</string>
+    <string name="settings_conversation_action_pause_label">Դադարեցնել մեդիան</string>
+    <string name="settings_conversation_volume_reduction_label">Ձայնի կրճատում</string>
     <string name="signal_badge_ble_cd">BLE սկանն ակտիվ է</string>
     <string name="signal_badge_key_irk_cd">Ինքնությունը հաստատված է</string>
     <string name="signal_badge_key_encrypted_cd">Կոդավորված կապ</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ընդհանուր</string>
     <string name="device_settings_microphone_mode_label">Խոսափող</string>
-    <string name="device_settings_microphone_mode_description">Որ AirPod-ն ոգտագործվում ե որպես խոսափոն</string>
+    <string name="device_settings_microphone_mode_description">Որ ականջակալն օգտագործվում է որպես խոսափող</string>
     <string name="device_settings_microphone_mode_auto">Ավտոմատ</string>
     <string name="device_settings_microphone_mode_right">Աջ</string>
     <string name="device_settings_microphone_mode_left">Ձախ</string>
@@ -497,16 +513,29 @@
     <!-- Press Controls -->
     <string name="press_controls_title">Սեղմումների կառավարում</string>
     <string name="press_controls_nav_description">Կարգավորել սեղմումների վարքը և կապել սեղմումները գործողություններին</string>
+    <string name="press_controls_description">Կարգավորեք ինչպես են հայտնաբերվում սեղմումները, ընտրեք զանգի կոճակի վարքը և կարգավորեք սեղմումները գործողությունների։ Կարգավորված գործողությունները վերաբերում են միայն այս սարքին և թույլ են տալիս հավելվածին ընդհատել սեղմումը՝ AirPods-ի փոխարեն:</string>
     <string name="press_controls_single_press">Մեկ սեղմում</string>
     <string name="press_controls_double_press">Կրկնակի սեղմում</string>
     <string name="press_controls_triple_press">Եռակի սեղմում</string>
     <string name="press_controls_long_press">Երկար սեղմում</string>
+    <string name="press_controls_long_press_anc_cycle_info">Երկար սեղմման գործողություն նշանակելը նաև անջատում է Noise Control ռեժիմների (օրինակ՝ Noise Cancellation, Transparency) ցիկլային փոփոխությունը AirPods-ի վրա սեղմելով և պահելով:</string>
     <string name="press_controls_mappings_section_title">Սեղմումների կապակցություն</string>
     <string name="press_controls_left">Ձախ</string>
     <string name="press_controls_right">Աջ</string>
+    <string name="press_action_none">Լռելյայն</string>
     <string name="press_action_no_action">Գործություն չկա</string>
     <string name="press_action_play_pause">Նվագարկել/դադարել</string>
+    <string name="press_action_next_track">Հաջորդ երգ</string>
+    <string name="press_action_previous_track">Նախորդ երգ</string>
+    <string name="press_action_volume_up">Ձայն բարձրացնել</string>
+    <string name="press_action_volume_down">Ձայն իջեցնել</string>
+    <string name="press_action_mute_toggle">Անձայնացնել երաժշտությունը</string>
     <string name="press_action_stop">Կանգնել</string>
+    <string name="press_action_fast_forward">Արագ առաջ</string>
+    <string name="press_action_rewind">Հետ փռոձ</string>
     <string name="press_action_cycle_anc">Աղմուկի կառավարումի շրջան</string>
+    <string name="press_action_toggle_anc_transparency">Փոխանջատել թափանցիկությունը</string>
+    <string name="press_controls_reset_label">Վերականգնել կանխադրվածները</string>
+    <string name="press_controls_reset_confirm_message">Վերականգնե՞լ բոլոր սեղմումների կարգավորումները կանխադրվածների:</string>
     <string name="device_settings_noise_control_open_press_controls_action">Բացել Սեղմումների կառավարումը</string>
 </resources>

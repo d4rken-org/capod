@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">自動一時停止</string>
     <string name="settings_autopause_description">デバイスを耳から外すとオーディオを一時停止します。</string>
     <string name="settings_autopplay_label">自動再生</string>
-    <string name="settings_autoplay_description">デバイスを装着するとオーディオ再生を開始します。</string>
+    <string name="settings_autoplay_description">自動一時停止で停止した場合のみ、ポッドを再装着したときに音楽を再開します。自分で一時停止した場合（電話、AirPodsステム、スリープ）は一時停止のままになります。</string>
+    <string name="settings_start_music_on_wear_label">装着時に音楽を開始</string>
+    <string name="settings_start_music_on_wear_description">手動で一時停止した後でも、ポッドを装着したときに常に音楽の再生を試みます。</string>
     <string name="settings_eardetection_info_label">耳検出に関する注意</string>
-    <string name="settings_eardetection_info_description">耳検出が片方のpodでしか動作しない場合、これはAppleの制限です。検出されるのは「primary pod」（マイクに使われる側）だけです。Appleデバイスで設定してください: 設定 → Bluetooth → AirPods → マイク。</string><string name="settings_signal_minimum_label">最小信号品質</string>
+    <string name="settings_eardetection_info_description">耳検出が片方のpodでしか動作しない場合、これはAppleの制限です。検出されるのは「primary pod」（マイクに使われる側）だけです。Appleデバイスで設定してください: 設定 → Bluetooth → AirPods → マイク。</string>
+    <string name="settings_signal_minimum_label">最小信号品質</string>
     <string name="settings_signal_minimum_description">デバイスがあなたのものと見なされるために必要な最小信号品質。</string>
     <string name="settings_autoconnect_label">自動接続</string>
     <string name="settings_autoconnect_description">Androidが自動的に接続しない場合、私たちもそれを要求できます。これにより、モニターモードの設定が「常に」に設定されます。</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">アプリ全体に影響する一般的な調整。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
     <string name="settings_debug_autoreports_label">自動バグレポート</string>
-    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string><string name="settings_compatibility_mode_label">互換モード</string>
+    <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
+    <string name="settings_compatibility_mode_label">互換モード</string>
     <string name="settings_compatibility_mode_description">互換性を向上させるために最適化を無効にします。データが表示されない場合は、これを試してください。</string>
     <string name="help_translate_label">翻訳</string>
     <string name="help_translate_description">このアプリをあなたの好きな言語に翻訳するのを手伝ってください。</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">このウィジェットはデバイスへの直接接続（AAP）が必要です。このウィジェットを使用する前に、アプリでデバイスがペアリングおよび接続されていることを確認してください。</string>
     <string name="anc_widget_no_anc_support_label">このデバイスはノイズコントロールに対応していません</string>
     <string name="anc_widget_aap_not_connected_label">未接続</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">近くにいるが未接続</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">近くにいない</string>
     <string name="anc_widget_aap_connecting_label">接続中…</string>
+    <string name="tile_anc_label">ノイズコントロール</string>
+    <string name="tile_anc_subtitle_permission_required">権限の許可が必要です</string>
+    <string name="tile_anc_subtitle_no_device">デバイスなし</string>
+    <string name="tile_anc_subtitle_no_anc_support">ノイズコントロールなし</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetoothオフ</string>
     <string name="widget_config_screen_title">ウィジェット設定</string>
     <string name="widget_configuration_title">デバイスを選択</string>
     <string name="widget_configuration_description">このウィジェットに表示するデバイスプロファイルを選択してください。</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">外音取り込み</string>
     <string name="anc_mode_adaptive">アダプティブ</string>
     <string name="conversation_awareness_label">会話感知</string>
+    <string name="settings_conversation_action_label">話し始めたとき</string>
+    <string name="settings_conversation_action_nothing_label">何もしない</string>
+    <string name="settings_conversation_action_lower_volume_label">音量を下げる</string>
+    <string name="settings_conversation_action_pause_label">メディアを一時停止</string>
+    <string name="settings_conversation_volume_reduction_label">音量低下</string>
     <string name="signal_badge_ble_cd">BLEスキャン中</string>
     <string name="signal_badge_key_irk_cd">本人確認済み</string>
     <string name="signal_badge_key_encrypted_cd">暗号化接続</string>
@@ -447,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">マイク</string>
-    <string name="device_settings_microphone_mode_description">マイクとして使用するAirPod</string>
+    <string name="device_settings_microphone_mode_description">マイクとして使用するイヤーバッド</string>
     <string name="device_settings_microphone_mode_auto">自動</string>
     <string name="device_settings_microphone_mode_right">右</string>
     <string name="device_settings_microphone_mode_left">左</string>

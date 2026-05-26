@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automaattinen tauko</string>
     <string name="settings_autopause_description">Keskeytä ääni, kun poistat laitteen korvastasi.</string>
     <string name="settings_autopplay_label">Automaattinen toisto</string>
-    <string name="settings_autoplay_description">Aloita äänentoisto, kun laitetta käytetään.</string>
+    <string name="settings_autoplay_description">Jatkaa musiikin toistoa, kun puet nappikuulokkeet uudelleen korviin – mutta vain jos Automaattinen tauko pysäytti sen. Itse käynnistämäsi tauot (puhelin, AirPods-varsi, uni) pysyvät tauolla.</string>
+    <string name="settings_start_music_on_wear_label">Käynnistä musiikki pukiessa</string>
+    <string name="settings_start_music_on_wear_description">Yrittää aina toistaa musiikkia, kun puet kuulokkeet korviin – myös manuaalisen tauon jälkeen.</string>
     <string name="settings_eardetection_info_label">Huomautus korvan tunnistuksesta</string>
-    <string name="settings_eardetection_info_description">Jos korvan tunnistus toimii vain yhdelle kuulokkeelle, tämä on Applen rajoitus. Vain \"ensisijainen kuuloke\" (jota käytetään mikrofonina) tunnistetaan. Määritä Apple-laitteissa: Asetukset → Bluetooth → AirPods → Mikrofoni.</string><string name="settings_signal_minimum_label">Signaalin vähimmäislaatu</string>
+    <string name="settings_eardetection_info_description">Jos korvan tunnistus toimii vain yhdelle kuulokkeelle, tämä on Applen rajoitus. Vain \"ensisijainen kuuloke\" (jota käytetään mikrofonina) tunnistetaan. Määritä Apple-laitteissa: Asetukset → Bluetooth → AirPods → Mikrofoni.</string>
+    <string name="settings_signal_minimum_label">Signaalin vähimmäislaatu</string>
     <string name="settings_signal_minimum_description">Signaalin vähimmäislaatu, joka laitteella on oltava, jotta se katsotaan omaksesi.</string>
     <string name="settings_autoconnect_label">Automaattinen yhdistäminen</string>
     <string name="settings_autoconnect_description">Jos Android ei yhdistä automaattisesti, voimme myös pyytää sitä. Tämä asettaa valvontatilan asetukseksi \'Aina\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
     <string name="settings_debug_autoreports_label">Automaattiset virheraportit</string>
-    <string name="settings_debug_autoreports_description">Raportoi ongelmat automaattisesti, esim. tiedot sovelluksen kaatumisesta, jotta voin selvittää, miten se korjataan.</string><string name="settings_compatibility_mode_label">Yhteensopivuustila</string>
+    <string name="settings_debug_autoreports_description">Raportoi ongelmat automaattisesti, esim. tiedot sovelluksen kaatumisesta, jotta voin selvittää, miten se korjataan.</string>
+    <string name="settings_compatibility_mode_label">Yhteensopivuustila</string>
     <string name="settings_compatibility_mode_description">Poista optimoinnit käytöstä yhteensopivuuden parantamiseksi. Kokeile tätä, jos et näe mitään tietoja.</string>
     <string name="help_translate_label">Käännös</string>
     <string name="help_translate_description">Auta kääntämään tämä sovellus suosikkikielellesi.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Tämä widget vaatii suoran yhteyden (AAP) laitteeseesi. Varmista, että laitteesi on pariliitetty ja yhdistetty sovelluksessa ennen tämän widgetin käyttöä.</string>
     <string name="anc_widget_no_anc_support_label">Tämä laite ei tue melunhallintaa</string>
     <string name="anc_widget_aap_not_connected_label">Ei yhdistetty</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Lähellä, mutta ei yhdistetty</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Ei lähellä</string>
     <string name="anc_widget_aap_connecting_label">Yhdistetään…</string>
+    <string name="tile_anc_label">Melunhallinta</string>
+    <string name="tile_anc_subtitle_permission_required">Lupa vaaditaan</string>
+    <string name="tile_anc_subtitle_no_device">Ei laitetta</string>
+    <string name="tile_anc_subtitle_no_anc_support">Ei melunhallintaa</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth pois</string>
     <string name="widget_config_screen_title">Widgetin määritys</string>
     <string name="widget_configuration_title">Valitse laite</string>
     <string name="widget_configuration_description">Valitse, minkä laiteprofiilin tämä widget näyttää.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Läpikuuluvuus</string>
     <string name="anc_mode_adaptive">Mukautuva</string>
     <string name="conversation_awareness_label">Keskustelutietoisuus</string>
+    <string name="settings_conversation_action_label">Kun aloitat puhumisen</string>
+    <string name="settings_conversation_action_nothing_label">Älä tee mitään</string>
+    <string name="settings_conversation_action_lower_volume_label">Laske äänenvoimakkuutta</string>
+    <string name="settings_conversation_action_pause_label">Keskeytä media</string>
+    <string name="settings_conversation_volume_reduction_label">Äänenvoimakkuuden vähennys</string>
     <string name="signal_badge_ble_cd">BLE-skannaus aktiivinen</string>
     <string name="signal_badge_key_irk_cd">Henkilöllisyys vahvistettu</string>
     <string name="signal_badge_key_encrypted_cd">Salattu yhteys</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Yleiset</string>
     <string name="device_settings_microphone_mode_label">Mikrofoni</string>
-    <string name="device_settings_microphone_mode_description">Kumpi AirPod toimii mikrofonina</string>
+    <string name="device_settings_microphone_mode_description">Mikä kuuloke toimii mikrofonina</string>
     <string name="device_settings_microphone_mode_auto">Automaattinen</string>
     <string name="device_settings_microphone_mode_right">Oikea</string>
     <string name="device_settings_microphone_mode_left">Vasen</string>

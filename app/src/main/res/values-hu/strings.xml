@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automatikus szünet</string>
     <string name="settings_autopause_description">Zene leállítása, amikor kiveszi a füléből az eszközt.</string>
     <string name="settings_autopplay_label">Automatikus lejátszás</string>
-    <string name="settings_autoplay_description">Hanglejátszás elindítása, ha az eszköz viselve van.</string>
+    <string name="settings_autoplay_description">Folytatja a zenét, ha újra felveszed a fülhallgatót, de csak akkor, ha az Auto szünet állította le. A te magad által kiváltott szünetek (telefon, AirPods szár, alvás) szüneteltetett állapotban maradnak.</string>
+    <string name="settings_start_music_on_wear_label">Zene indítása felvételkor</string>
+    <string name="settings_start_music_on_wear_description">Mindig megpróbál zenét lejátszani, ha felveszed a fülhallgatót, még kézi szünet után is.</string>
     <string name="settings_eardetection_info_label">Fülészlelési megjegyzés</string>
-    <string name="settings_eardetection_info_description">Ha a fülészlelés csak az egyik fülhallgatóval működik, ez egy Apple korlátozás. Csak az \"elsődleges fülhallgató\" (mikrofonhoz használt) érzékelhető. Beállítás Apple eszközökön: Beállítások → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimális jelerősség</string>
+    <string name="settings_eardetection_info_description">Ha a fülészlelés csak az egyik fülhallgatóval működik, ez egy Apple korlátozás. Csak az \"elsődleges fülhallgató\" (mikrofonhoz használt) érzékelhető. Beállítás Apple eszközökön: Beállítások → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimális jelerősség</string>
     <string name="settings_signal_minimum_description">Vegye figyelembe a minimális jelerősséget, amelyre egy eszköznek szüksége van.</string>
     <string name="settings_autoconnect_label">Automatikus csatlakozás</string>
     <string name="settings_autoconnect_description">Ha az Android nem csatlakozik automatikusan. A monitor mód beállítása „Mindig” lesz.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
     <string name="settings_debug_autoreports_label">Automatikus hibajelentések</string>
-    <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string><string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
+    <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string>
+    <string name="settings_compatibility_mode_label">Kompatibilitási mód</string>
     <string name="settings_compatibility_mode_description">A kompatibilitás javítása érdekében letiltja az optimalizálást. Próbálja ki ezt, ha nem lát semmilyen adatot.</string>
     <string name="help_translate_label">Fordítás</string>
     <string name="help_translate_description">Segítsen nekünk hogy az alkalmazás le legyen fordítva az Ön nyelvére.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Ez a widget közvetlen kapcsolatot (AAP) igényel az eszközödhöz. Győződj meg róla, hogy az eszköz párosítva és csatlakoztatva van az alkalmazásban a widget használata előtt.</string>
     <string name="anc_widget_no_anc_support_label">Ez az eszköz nem támogatja a zajvezérlést</string>
     <string name="anc_widget_aap_not_connected_label">Nincs csatlakoztatva</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">A közelben van, de nincs csatlakoztatva</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nincs a közelben</string>
     <string name="anc_widget_aap_connecting_label">Csatlakozás…</string>
+    <string name="tile_anc_label">Zajszabályozás</string>
+    <string name="tile_anc_subtitle_permission_required">Engedély szükséges</string>
+    <string name="tile_anc_subtitle_no_device">Nincs eszköz</string>
+    <string name="tile_anc_subtitle_no_anc_support">Nincs zajszabályozás</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth kikapcsolva</string>
     <string name="widget_config_screen_title">Widget konfiguráció</string>
     <string name="widget_configuration_title">Eszköz kiválasztása</string>
     <string name="widget_configuration_description">Válassza ki, melyik eszközprofilt jelenítse meg ez a widget.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Átlátszóság</string>
     <string name="anc_mode_adaptive">Adaptív</string>
     <string name="conversation_awareness_label">Társalgásérzékelés</string>
+    <string name="settings_conversation_action_label">Amikor elkezdesz beszélni</string>
+    <string name="settings_conversation_action_nothing_label">Ne csinálj semmit</string>
+    <string name="settings_conversation_action_lower_volume_label">Hangerő csökkentése</string>
+    <string name="settings_conversation_action_pause_label">Média szüneteltetése</string>
+    <string name="settings_conversation_volume_reduction_label">Hangerő-csökkentés</string>
     <string name="signal_badge_ble_cd">BLE szkennelés aktív</string>
     <string name="signal_badge_key_irk_cd">Azonosság ellenőrizve</string>
     <string name="signal_badge_key_encrypted_cd">Titkosított kapcsolat</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Általános</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Melyik AirPod-ot használja mikrofenként</string>
+    <string name="device_settings_microphone_mode_description">Melyik fülhallgató van mikrofonként használva</string>
     <string name="device_settings_microphone_mode_auto">Automatikus</string>
     <string name="device_settings_microphone_mode_right">Jobb</string>
     <string name="device_settings_microphone_mode_left">Bal</string>

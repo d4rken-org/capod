@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Автомат түр зогсоох</string>
     <string name="settings_autopause_description">Төхөөрөмжийг чихнээсээ салгахад дууг түр зогсооно.</string>
     <string name="settings_autopplay_label">Автомат тоглуулах</string>
-    <string name="settings_autoplay_description">Төхөөрөмжийг зүүсэн үед дуу тоглуулалтыг эхлүүлнэ.</string>
+    <string name="settings_autoplay_description">Pods-аа дахин зүүх үед хөгжмийг үргэлжлүүлнэ, гэхдээ зөвхөн Автомат түр зогсоолт зогсоосон тохиолдолд. Өөрөө идэвхжүүлсэн түр зогсоолтууд (утас, AirPods иш, унтах горим) түр зогсоолтоор үлдэнэ.</string>
+    <string name="settings_start_music_on_wear_label">Зүүх үед хөгжим эхлүүлэх</string>
+    <string name="settings_start_music_on_wear_description">Pods-аа зүүх үед хөгжмийг тоглуулахыг үргэлж оролдоно, гар аргаар түр зогсоосны дараа ч гэсэн.</string>
     <string name="settings_eardetection_info_label">Чих илрүүлэлтийн тэмдэглэл</string>
-    <string name="settings_eardetection_info_description">Хэрэв чих илрүүлэлт зөвхөн нэг чихэвчинд ажиллаж байвал энэ нь Apple-ийн хязгаарлалт юм. Зөвхөн \"үндсэн чихэвч\" (микрофонд ашигладаг) илрүүлэгдэнэ. Apple төхөөрөмжүүд дээр тохируулах: Тохиргоо → Bluetooth → AirPods → Микрофон.</string><string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
+    <string name="settings_eardetection_info_description">Хэрэв чих илрүүлэлт зөвхөн нэг чихэвчинд ажиллаж байвал энэ нь Apple-ийн хязгаарлалт юм. Зөвхөн \"үндсэн чихэвч\" (микрофонд ашигладаг) илрүүлэгдэнэ. Apple төхөөрөмжүүд дээр тохируулах: Тохиргоо → Bluetooth → AirPods → Микрофон.</string>
+    <string name="settings_signal_minimum_label">Дохионы хамгийн бага чанар</string>
     <string name="settings_signal_minimum_description">Төхөөрөмж таных гэж тооцогдохын тулд байх ёстой дохионы хамгийн бага чанар.</string>
     <string name="settings_autoconnect_label">Автомат холболт</string>
     <string name="settings_autoconnect_description">Хэрэв Android автоматаар холбогдохгүй бол бид ч бас хүсэлт гаргаж болно. Энэ нь хяналтын горимын тохиргоог \"Үргэлж\" болгож тохируулна.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
-    <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string><string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
+    <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
+    <string name="settings_compatibility_mode_label">Тохиромжтой байдлын горим</string>
     <string name="settings_compatibility_mode_description">Тохиромжтой байдлыг сайжруулахын тулд оновчлолыг идэвхгүй болгоно. Хэрэв та ямар ч өгөгдөл харахгүй байвал үүнийг туршиж үзнэ үү.</string>
     <string name="help_translate_label">Орчуулга</string>
     <string name="help_translate_description">Энэ апп-г дуртай хэл рүүгээ орчуулахад тусална уу.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Энэ виджет таны төхөөрөмжтэй шууд холболт (AAP) шаарддаг. Энэ виджетийг ашиглахаасаа өмнө апп дотор таны төхөөрөмж хосолсон болон холбогдсон эсэхийг шалгаарай.</string>
     <string name="anc_widget_no_anc_support_label">Энэ төхөөрөмж шуугианы хяналтыг дэмждэггүй</string>
     <string name="anc_widget_aap_not_connected_label">Холбогдоогүй</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Ойролцоо байгаа боловч холбогдоогүй</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Ойролцоо биш</string>
     <string name="anc_widget_aap_connecting_label">Холбогдож байна…</string>
+    <string name="tile_anc_label">Дуу чимээний хяналт</string>
+    <string name="tile_anc_subtitle_permission_required">Зөвшөөрөл шаардлагатай</string>
+    <string name="tile_anc_subtitle_no_device">Төхөөрөмж байхгүй</string>
+    <string name="tile_anc_subtitle_no_anc_support">Дуу чимээний хяналтгүй</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth унтраалттай</string>
     <string name="widget_config_screen_title">Виджет тохиргоо</string>
     <string name="widget_configuration_title">Төхөөрөмж сонгох</string>
     <string name="widget_configuration_description">Энэ виджет аль төхөөрөмжийн профайлыг харуулахыг сонгоно уу.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Тунгалаг горим</string>
     <string name="anc_mode_adaptive">Дасан зохицох</string>
     <string name="conversation_awareness_label">Яриа таних</string>
+    <string name="settings_conversation_action_label">Ярих үед</string>
+    <string name="settings_conversation_action_nothing_label">Юу ч хийхгүй</string>
+    <string name="settings_conversation_action_lower_volume_label">Дууны хэмжээг бууруулах</string>
+    <string name="settings_conversation_action_pause_label">Медиа түр зогсоох</string>
+    <string name="settings_conversation_volume_reduction_label">Дууны хэмжээний бууралт</string>
     <string name="signal_badge_ble_cd">BLE скан идэвхтэй</string>
     <string name="signal_badge_key_irk_cd">Хэрэглэгч баталгаажсан</string>
     <string name="signal_badge_key_encrypted_cd">Шифрлэгдсэн холболт</string>
@@ -407,6 +423,7 @@
     <string name="device_settings_not_nearby_label">Төхөөрөмж ойролцоо байхгүй</string>
     <string name="device_settings_not_nearby_description">Тохиргоо нь энэ төхөөрөмж ойролцоо байж, таны утастай холбогдсон үед л боломжтой.</string>
     <string name="device_settings_aap_unavailable_label">Нарийвчилсан тохиргоо боломжгүй</string>
+    <string name="device_settings_aap_unavailable_description">Нарийвчилсан AirPods тохиргоонд энэ утсанд байхгүй Bluetooth функц шаардлагатай. Энэ асуудлыг төхөөрөмжийн үйлдвэрлэгчийн ирээдүйн Android шинэчлэлтээр шийдэж болзошгүй.</string>
     <string name="device_settings_aap_unavailable_action">Нийцтэй байдлын хянагчийг үзэх</string>
     <string name="device_settings_category_sound_label">Дуу</string>
     <string name="device_settings_category_controls_label">Удирдлага</string>
@@ -451,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ерөнхий</string>
     <string name="device_settings_microphone_mode_label">Микрофон</string>
-    <string name="device_settings_microphone_mode_description">Аль AirPod микрофон болгон ашиглагдаж байна</string>
+    <string name="device_settings_microphone_mode_description">Микрофон болгон ашиглах чихэвч</string>
     <string name="device_settings_microphone_mode_auto">Автомат</string>
     <string name="device_settings_microphone_mode_right">Баруун</string>
     <string name="device_settings_microphone_mode_left">Зүүн</string>
@@ -461,6 +478,7 @@
     <string name="device_settings_listening_mode_cycle_dialog_title">Урт даруулах мөчлөгийг тохиргоолах</string>
     <string name="device_settings_listening_mode_cycle_summary_helper">Иш даруулах болон быстран шилжих цэснэг ашиглахад ашиглагдагдана</string>
     <string name="device_settings_listening_mode_cycle_summary_helper_override">Быстран шилжих цэснэг ашиглахад ашиглагдагдана. Төхөөрөмжийн ишийн AirPods цикл эелэхийг орлана.</string>
+    <string name="device_settings_listening_mode_cycle_minimum">Наименш 2 горим идэвхтэй байх ёстой.</string>
     <string name="device_settings_listening_mode_cycle_off">Унтраалттай</string>
     <string name="device_settings_listening_mode_cycle_anc">Чимээ хаах</string>
     <string name="device_settings_listening_mode_cycle_transparency">Тунгалаг горим</string>

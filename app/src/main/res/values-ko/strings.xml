@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">자동 일시 중지</string>
     <string name="settings_autopause_description">기기를 귀에서 빼면 오디오를 일시 중지합니다.</string>
     <string name="settings_autopplay_label">자동 재생</string>
-    <string name="settings_autoplay_description">기기를 착용하면 오디오 재생을 시작합니다.</string>
+    <string name="settings_autoplay_description">자동 일시 정지로 멈춘 경우에만 이어팟을 다시 착용하면 음악이 재개됩니다. 직접 일시 정지한 경우(전화, AirPods 스템, 절전)는 그대로 유지됩니다.</string>
+    <string name="settings_start_music_on_wear_label">착용 시 음악 시작</string>
+    <string name="settings_start_music_on_wear_description">수동으로 일시 정지한 후에도 이어팟을 착용하면 항상 음악 재생을 시도합니다.</string>
     <string name="settings_eardetection_info_label">착용 감지 알림</string>
-    <string name="settings_eardetection_info_description">Apple의 제한으로 착용 감지가 마이크를 이용하는 데 사용되는 한쪽 유닛만 작동할 수 있습니다. Apple 기기에서 다음에 따라 설정할 수 있습니다. 설정 → 블루투스 → Airpods → 마이크</string><string name="settings_signal_minimum_label">최소 신호 품질</string>
+    <string name="settings_eardetection_info_description">Apple의 제한으로 착용 감지가 마이크를 이용하는 데 사용되는 한쪽 유닛만 작동할 수 있습니다. Apple 기기에서 다음에 따라 설정할 수 있습니다. 설정 → 블루투스 → Airpods → 마이크</string>
+    <string name="settings_signal_minimum_label">최소 신호 품질</string>
     <string name="settings_signal_minimum_description">기기가 사용자의 것으로 간주되기 위해 필요한 최소 신호 품질입니다.</string>
     <string name="settings_autoconnect_label">자동 연결</string>
     <string name="settings_autoconnect_description">Android가 자동으로 연결되지 않으면 저희도 요청할 수 있습니다. 이렇게 하면 모니터링 모드 설정이 \"항상\"으로 설정됩니다.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">앱 전체에 영향을 미치는 일반적인 조정.</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
     <string name="settings_debug_autoreports_label">자동 버그 보고서</string>
-    <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string><string name="settings_compatibility_mode_label">호환성 모드</string>
+    <string name="settings_debug_autoreports_description">앱 충돌에 대한 세부 정보와 같이 문제를 자동으로 보고하여 해결 방법을 파악할 수 있도록 합니다.</string>
+    <string name="settings_compatibility_mode_label">호환성 모드</string>
     <string name="settings_compatibility_mode_description">호환성을 향상시키려면 최적화를 비활성화합니다. 데이터가 표시되지 않으면 이 옵션을 사용해 보십시오.</string>
     <string name="help_translate_label">번역</string>
     <string name="help_translate_description">이 앱을 즐겨 사용하는 언어로 번역하는 데 도움을 주세요.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">이 위젯은 기기에 직접 연결(AAP)이 필요합니다. 이 위젯을 사용하기 전에 앱에서 기기가 페어링되고 연결되어 있는지 확인하세요.</string>
     <string name="anc_widget_no_anc_support_label">이 기기는 소음 제어를 지원하지 않습니다</string>
     <string name="anc_widget_aap_not_connected_label">연결되지 않음</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">근처에 있지만 연결되지 않음</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">근처에 없음</string>
     <string name="anc_widget_aap_connecting_label">연결 중…</string>
+    <string name="tile_anc_label">소음 제어</string>
+    <string name="tile_anc_subtitle_permission_required">권한 필요</string>
+    <string name="tile_anc_subtitle_no_device">기기 없음</string>
+    <string name="tile_anc_subtitle_no_anc_support">소음 제어 없음</string>
+    <string name="tile_anc_subtitle_bluetooth_off">블루투스 꺼짐</string>
     <string name="widget_config_screen_title">위젯 구성</string>
     <string name="widget_configuration_title">기기 선택</string>
     <string name="widget_configuration_description">이 위젯에 표시할 기기 프로필을 선택해 주세요.</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">투명도</string>
     <string name="anc_mode_adaptive">적응형</string>
     <string name="conversation_awareness_label">대화 인식</string>
+    <string name="settings_conversation_action_label">말하기 시작할 때</string>
+    <string name="settings_conversation_action_nothing_label">아무것도 하지 않음</string>
+    <string name="settings_conversation_action_lower_volume_label">볼륨 낮추기</string>
+    <string name="settings_conversation_action_pause_label">미디어 일시 정지</string>
+    <string name="settings_conversation_volume_reduction_label">볼륨 감소</string>
     <string name="signal_badge_ble_cd">BLE 스캔 활성</string>
     <string name="signal_badge_key_irk_cd">신원 확인됨</string>
     <string name="signal_badge_key_encrypted_cd">암호화된 연결</string>
@@ -449,7 +465,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">일반</string>
     <string name="device_settings_microphone_mode_label">마이크</string>
-    <string name="device_settings_microphone_mode_description">어느 AirPod이 마이크로 사용되는지</string>
+    <string name="device_settings_microphone_mode_description">마이크로 사용할 이어버드</string>
     <string name="device_settings_microphone_mode_auto">자동</string>
     <string name="device_settings_microphone_mode_right">오른쪽</string>
     <string name="device_settings_microphone_mode_left">왼쪽</string>

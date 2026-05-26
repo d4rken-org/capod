@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Sjálfvirk hlé</string>
     <string name="settings_autopause_description">Gera hlé á hljóði þegar tækið er tekið úr eyranu.</string>
     <string name="settings_autopplay_label">Sjálfvirk spilun</string>
-    <string name="settings_autoplay_description">Hefja hljóðspilun þegar tækið er notað.</string>
+    <string name="settings_autoplay_description">Halda áfram tónlist þegar þú setur hlustunartækið á aftur, en aðeins ef Sjálfvirk hlé stöðvaði hana. Hlé sem þú settir sjálfur/sjálf (sími, AirPods stingill, svefn) haldast í bið.</string>
+    <string name="settings_start_music_on_wear_label">Byrja tónlist þegar þú setur á</string>
+    <string name="settings_start_music_on_wear_description">Reynir alltaf að spila tónlist þegar þú setur hlustunartækið á, jafnvel eftir handvirkt hlé.</string>
     <string name="settings_eardetection_info_label">Athugasemd um eyraskynjun</string>
-    <string name="settings_eardetection_info_description">Ef eyraskynjun virkar aðeins fyrir annað heyrnartólið er þetta takmörkun frá Apple. Aðeins \"aðalheyrnartólið\" (notað fyrir hljóðnema) er skynjað. Stilla á Apple tækjum: Stillingar → Bluetooth → AirPods → Hljóðnemi.</string><string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
+    <string name="settings_eardetection_info_description">Ef eyraskynjun virkar aðeins fyrir annað heyrnartólið er þetta takmörkun frá Apple. Aðeins \"aðalheyrnartólið\" (notað fyrir hljóðnema) er skynjað. Stilla á Apple tækjum: Stillingar → Bluetooth → AirPods → Hljóðnemi.</string>
+    <string name="settings_signal_minimum_label">Lágmarksgæði merkis</string>
     <string name="settings_signal_minimum_description">Lágmarksgæði merkis sem tæki þarf að hafa til að teljast þitt.</string>
     <string name="settings_autoconnect_label">Sjálfvirk tenging</string>
     <string name="settings_autoconnect_description">Ef Android tengist ekki sjálfkrafa getum við líka beðið um það. Þetta mun stilla vöktunarstillinguna á \"Alltaf\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
     <string name="settings_debug_autoreports_label">Sjálfvirkar villuskýrslur</string>
-    <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string><string name="settings_compatibility_mode_label">Samhæfisstilling</string>
+    <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string>
+    <string name="settings_compatibility_mode_label">Samhæfisstilling</string>
     <string name="settings_compatibility_mode_description">Slökkva á hagræðingum til að bæta samhæfni. Prófaðu þetta ef þú sérð engin gögn.</string>
     <string name="help_translate_label">Þýðing</string>
     <string name="help_translate_description">Hjálpaðu til við að þýða þetta forrit á þitt uppáhalds tungumál.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Þetta græja krefst beinnar tengingar (AAP) við tækið þitt. Gakktu úr skugga um að tækið þitt sé parað og tengt í forritinu áður en þú notar þetta græja.</string>
     <string name="anc_widget_no_anc_support_label">Þetta tæki styður ekki hljóðstýringu</string>
     <string name="anc_widget_aap_not_connected_label">Ekki tengt</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Í nánd en ekki tengt</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Ekki í nánd</string>
     <string name="anc_widget_aap_connecting_label">Tengist…</string>
+    <string name="tile_anc_label">Hljóðstýring</string>
+    <string name="tile_anc_subtitle_permission_required">Heimild nauðsynleg</string>
+    <string name="tile_anc_subtitle_no_device">Ekkert tæki</string>
+    <string name="tile_anc_subtitle_no_anc_support">Engin hljóðstýring</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth slökkt</string>
     <string name="widget_config_screen_title">Skilgreining viðbætar</string>
     <string name="widget_configuration_title">Velja tæki</string>
     <string name="widget_configuration_description">Veldu hvaða tækjasnið þessi græja á að sýna.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Gegnsæi</string>
     <string name="anc_mode_adaptive">Aðlægt</string>
     <string name="conversation_awareness_label">Samtalsvitund</string>
+    <string name="settings_conversation_action_label">Þegar þú byrjar að tala</string>
+    <string name="settings_conversation_action_nothing_label">Gera ekki neitt</string>
+    <string name="settings_conversation_action_lower_volume_label">Lækka hljóðstyrk</string>
+    <string name="settings_conversation_action_pause_label">Gera hlé á efni</string>
+    <string name="settings_conversation_volume_reduction_label">Hljóðstyrksmækkun</string>
     <string name="signal_badge_ble_cd">BLE skönnun virk</string>
     <string name="signal_badge_key_irk_cd">Auðkenni staðfest</string>
     <string name="signal_badge_key_encrypted_cd">Dulkóðuð tenging</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Álmennt</string>
     <string name="device_settings_microphone_mode_label">Hljóðnemi</string>
-    <string name="device_settings_microphone_mode_description">Hvaðan AirPod er notast sem hátalari</string>
+    <string name="device_settings_microphone_mode_description">Hvaða hlustunartæki er notað sem hljóðnemi</string>
     <string name="device_settings_microphone_mode_auto">Sjálfvirkt</string>
     <string name="device_settings_microphone_mode_right">Hægri</string>
     <string name="device_settings_microphone_mode_left">Vinstri</string>

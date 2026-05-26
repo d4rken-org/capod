@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ఆటో పాజ్</string>
     <string name="settings_autopause_description">మీ చెవి నుండి పరికరాన్ని తీసివేసినప్పుడు ఆడియోను పాజ్ చేయండి.</string>
     <string name="settings_autopplay_label">ఆటో ప్లే</string>
-    <string name="settings_autoplay_description">పరికరం ధరించినప్పుడు ఆడియో ప్లేబ్యాక్ ప్రారంభించండి.</string>
+    <string name="settings_autoplay_description">మీరు మళ్ళీ పాడ్స్ ధరించినప్పుడు సంగీతాన్ని కొనసాగించు, కానీ ఆటో పాజ్ ఆపినప్పుడు మాత్రమే. మీరు స్వయంగా చేసిన పాజ్‌లు (ఫోన్, AirPods స్టెమ్, స్లీప్) పాజ్‌లో ఉంటాయి.</string>
+    <string name="settings_start_music_on_wear_label">ధరించినప్పుడు సంగీతం ప్రారంభించు</string>
+    <string name="settings_start_music_on_wear_description">మీరు పాడ్స్ పెట్టుకున్నప్పుడు మాన్యువల్ పాజ్ తర్వాత కూడా సంగీతం వినిపించడానికి ఎల్లప్పుడూ ప్రయత్నిస్తుంది.</string>
     <string name="settings_eardetection_info_label">చెవి గుర్తింపు గమనిక</string>
-    <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string><string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
+    <string name="settings_eardetection_info_description">చెవి గుర్తింపు ఒక పాడ్‌కు మాత్రమే పని చేస్తే, ఇది Apple పరిమితి. \"ప్రాథమిక పాడ్\" (మైక్రోఫోన్ కోసం ఉపయోగించబడేది) మాత్రమే గుర్తించబడుతుంది. Apple పరికరాలలో కాన్ఫిగర్ చేయండి: సెట్టింగ్‌లు → బ్లూటూత్ → AirPods → మైక్రోఫోన్.</string>
+    <string name="settings_signal_minimum_label">కనీస సిగ్నల్ నాణ్యత</string>
     <string name="settings_signal_minimum_description">ఒక పరికరం మీదిగా పరిగణించబడటానికి అవసరమైన కనీస సిగ్నల్ నాణ్యత.</string>
     <string name="settings_autoconnect_label">ఆటో కనెక్ట్</string>
     <string name="settings_autoconnect_description">Android స్వయంచాలకంగా కనెక్ట్ కాకపోతే, మేము కూడా అడగవచ్చు. ఇది మానిటర్ మోడ్ సెట్టింగ్‌ను \'ఎల్లప్పుడూ\'కి సెట్ చేస్తుంది.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
     <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
-    <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string><string name="settings_compatibility_mode_label">అనుకూలత మోడ్</string>
+    <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
+    <string name="settings_compatibility_mode_label">అనుకూలత మోడ్</string>
     <string name="settings_compatibility_mode_description">అనుకూలతను మెరుగుపరచడానికి ఆప్టిమైజేషన్‌లను నిలిపివేయండి. మీరు ఏ డేటాను చూడకపోతే దీన్ని ప్రయత్నించండి.</string>
     <string name="help_translate_label">అనువాదం</string>
     <string name="help_translate_description">ఈ యాప్‌ను మీ ఇష్టమైన భాషలోకి అనువదించడంలో సహాయపడండి.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ఈ విజెట్‌కు మీ పరికరానికి నేరుగా కనెక్షన్ (AAP) అవసరం. ఈ విజెట్‌ను ఉపయోగించే ముందు మీ పరికరం యాప్‌లో జత చేయబడి కనెక్ట్ అయిందని నిర్ధారించుకోండి.</string>
     <string name="anc_widget_no_anc_support_label">ఈ పరికరం నాయిస్ కంట్రోల్‌కు మద్దతు ఇవ్వదు</string>
     <string name="anc_widget_aap_not_connected_label">కనెక్ట్ కాలేదు</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">దగ్గరలో ఉంది కానీ కనెక్ట్ కాలేదు</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">దగ్గరలో లేదు</string>
     <string name="anc_widget_aap_connecting_label">కనెక్ట్ అవుతోంది…</string>
+    <string name="tile_anc_label">శబ్ద నియంత్రణ</string>
+    <string name="tile_anc_subtitle_permission_required">అనుమతి అవసరం</string>
+    <string name="tile_anc_subtitle_no_device">పరికరము లేదు</string>
+    <string name="tile_anc_subtitle_no_anc_support">శబ్ద నియంత్రణ లేదు</string>
+    <string name="tile_anc_subtitle_bluetooth_off">బ్లూటూత్ ఆఫ్</string>
     <string name="widget_config_screen_title">విడ్జెట్ కాన్ఫిగరేషన్</string>
     <string name="widget_configuration_title">పరికరాన్ని ఎంచుకోండి</string>
     <string name="widget_configuration_description">ఈ విడ్జెట్ ఏ పరికర ప్రొఫైల్‌ను ప్రదర్శించాలో ఎంచుకోండి.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">పారదర్శకత</string>
     <string name="anc_mode_adaptive">అడాప్టివ్</string>
     <string name="conversation_awareness_label">సంభాషణ అవగాహన</string>
+    <string name="settings_conversation_action_label">మీరు మాట్లాడడం ప్రారంభించినప్పుడు</string>
+    <string name="settings_conversation_action_nothing_label">ఏమీ చేయవద్దు</string>
+    <string name="settings_conversation_action_lower_volume_label">వాల్యూమ్ తగ్గించు</string>
+    <string name="settings_conversation_action_pause_label">మీడియా పాజ్ చేయి</string>
+    <string name="settings_conversation_volume_reduction_label">వాల్యూమ్ తగ్గింపు</string>
     <string name="signal_badge_ble_cd">BLE స్కాన్ చురుకుగా ఉంది</string>
     <string name="signal_badge_key_irk_cd">గుర్తింపు ధృవీకరించబడింది</string>
     <string name="signal_badge_key_encrypted_cd">గుప్తీకరించిన కనెక్షన్</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">సాధారణ</string>
     <string name="device_settings_microphone_mode_label">మైక్రోఫోన్</string>
-    <string name="device_settings_microphone_mode_description">మైక్రోఫోన్‌గా ఏ AirPod ఉపయోగించబడుతుందో</string>
+    <string name="device_settings_microphone_mode_description">మైక్రోఫోన్‌గా ఏ ఇయర్‌బడ్ ఉపయోగించబడుతుందో</string>
     <string name="device_settings_microphone_mode_auto">ఆటో</string>
     <string name="device_settings_microphone_mode_right">కుడి</string>
     <string name="device_settings_microphone_mode_left">ఎడమ</string>

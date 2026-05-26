@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automatyczne wstrzymywanie</string>
     <string name="settings_autopause_description">Wstrzymaj odtwarzanie, gdy urządzenia jest wyciągane z ucha.</string>
     <string name="settings_autopplay_label">Automatyczne odtwarzanie</string>
-    <string name="settings_autoplay_description">Rozpocznij odtwarzanie, gdy urządzenie jest założone.</string>
+    <string name="settings_autoplay_description">Wznów odtwarzanie muzyki po ponownym założeniu słuchawek, ale tylko wtedy, gdy funkcja automatycznej pauzy ją wyłączyła. Pauzy, które sam uruchomiłeś (telefon, słuchawka AirPods, sen), pozostają wstrzymane.</string>
+    <string name="settings_start_music_on_wear_label">Włącz muzykę po założeniu</string>
+    <string name="settings_start_music_on_wear_description">Zawsze próbuj odtwarzać muzykę po włożeniu słuchawek, nawet po ręcznym wstrzymaniu.</string>
     <string name="settings_eardetection_info_label">Informacja o wykryciu ucha</string>
-    <string name="settings_eardetection_info_description">Jeśli wykrywanie w uchu działa tylko dla jednej słuchawki, jest to ograniczenie Apple. Wykrywana jest tylko „główna słuchawka” (używana do mikrofonu). Skonfiguruj na urządzeniach Apple: Ustawienia → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimalna jakość sygnału</string>
+    <string name="settings_eardetection_info_description">Jeśli wykrywanie w uchu działa tylko dla jednej słuchawki, jest to ograniczenie Apple. Wykrywana jest tylko „główna słuchawka” (używana do mikrofonu). Skonfiguruj na urządzeniach Apple: Ustawienia → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimalna jakość sygnału</string>
     <string name="settings_signal_minimum_description">Minimalna jakość sygnału, wymagana od urządzenia, aby zostało uznanym za twoje.</string>
     <string name="settings_autoconnect_label">Automatyczne połączenie</string>
     <string name="settings_autoconnect_description">Jeśli Android nie połączy się automatycznie z urządzeniem, możemy go o to poprosić. Ustawi to tryb monitorowania na \"zawsze\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Ogólne opcje, które mają wpływ na całą aplikację.</string>
     <string name="settings_acknowledgements_label">Podziękowania</string>
     <string name="settings_debug_autoreports_label">Automatyczne raportowanie błędów</string>
-    <string name="settings_debug_autoreports_description">Automatyczne raportowanie problemów, na przykład w przypadku awarii aplikacji, tak aby można było łatwo ją naprawić.</string><string name="settings_compatibility_mode_label">Tryb kompatybilności</string>
+    <string name="settings_debug_autoreports_description">Automatyczne raportowanie problemów, na przykład w przypadku awarii aplikacji, tak aby można było łatwo ją naprawić.</string>
+    <string name="settings_compatibility_mode_label">Tryb kompatybilności</string>
     <string name="settings_compatibility_mode_description">Wyłącza optymalizacje, aby poprawić kompatybilność. Wypróbuj, jeśli nie widzisz żadnych danych.</string>
     <string name="help_translate_label">Tłumaczenie</string>
     <string name="help_translate_description">Pomóż przetłumaczyć aplikację na twój ulubiony język.</string>
@@ -125,7 +129,14 @@ K4r0lSz;</string>
     <string name="anc_widget_config_aap_required_hint">Ten widżet wymaga bezpośredniego połączenia (AAP) z twoim urządzeniem. Upewnij się, że urządzenie jest sparowane i połączone w aplikacji przed użyciem tego widżetu.</string>
     <string name="anc_widget_no_anc_support_label">To urządzenie nie obsługuje kontroli hałasu</string>
     <string name="anc_widget_aap_not_connected_label">Nie połączono</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">W pobliżu, ale niepodłączone</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nie w pobliżu</string>
     <string name="anc_widget_aap_connecting_label">Łączenie…</string>
+    <string name="tile_anc_label">Sterowanie hałasem</string>
+    <string name="tile_anc_subtitle_permission_required">Wymagane uprawnienie</string>
+    <string name="tile_anc_subtitle_no_device">Brak urządzenia</string>
+    <string name="tile_anc_subtitle_no_anc_support">Brak sterowania hałasem</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth wyłączony</string>
     <string name="widget_config_screen_title">Konfiguracja widżetu</string>
     <string name="widget_configuration_title">Wybierz urządzenie</string>
     <string name="widget_configuration_description">Wybierz profil urządzenia, które ma być wyświetlane przez widżet.</string>
@@ -243,6 +254,11 @@ K4r0lSz;</string>
     <string name="anc_mode_transparency">Przezroczystość</string>
     <string name="anc_mode_adaptive">Adaptacyjny</string>
     <string name="conversation_awareness_label">Świadomość rozmowy</string>
+    <string name="settings_conversation_action_label">Kiedy zaczniesz mówić</string>
+    <string name="settings_conversation_action_nothing_label">Nic nie rób</string>
+    <string name="settings_conversation_action_lower_volume_label">Zmniejsz głośność</string>
+    <string name="settings_conversation_action_pause_label">Wstrzymaj multimedia</string>
+    <string name="settings_conversation_volume_reduction_label">Redukcja głośności</string>
     <string name="signal_badge_ble_cd">Skanowanie BLE aktywne</string>
     <string name="signal_badge_key_irk_cd">Tożsamość zweryfikowana</string>
     <string name="signal_badge_key_encrypted_cd">Połączenie szyfrowane</string>
@@ -464,7 +480,7 @@ K4r0lSz;</string>
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Ogólne</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Który AirPod jest używany jako mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Która słuchawka jest używana jako mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Prawy</string>
     <string name="device_settings_microphone_mode_left">Lewy</string>

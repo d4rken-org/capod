@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pausa automática</string>
     <string name="settings_autopause_description">Pausar o son ao quitar o dispositivo da orella.</string>
     <string name="settings_autopplay_label">Reprodución automática</string>
-    <string name="settings_autoplay_description">Iniciar a reprodución de son cando se leva posto o dispositivo.</string>
+    <string name="settings_autoplay_description">Retoma a música ao poñer os auriculares de novo, pero só se a pausa automática a detivo. As pausas que activaches ti mesmo (teléfono, botón dos AirPods, suspensión) permanecen en pausa.</string>
+    <string name="settings_start_music_on_wear_label">Iniciar música ao poñer</string>
+    <string name="settings_start_music_on_wear_description">Sempre intenta reproducir música cando pon os auriculares, incluso despois dunha pausa manual.</string>
     <string name="settings_eardetection_info_label">Nota sobre detección no oído</string>
-    <string name="settings_eardetection_info_description">Se a detección no oído só funciona para un auricular, esta é unha limitación de Apple. Só se detecta o \"auricular principal\" (usado para o micrófono). Configúrao en dispositivos Apple: Axustes → Bluetooth → AirPods → Micrófono.</string><string name="settings_signal_minimum_label">Calidade mínima do sinal</string>
+    <string name="settings_eardetection_info_description">Se a detección no oído só funciona para un auricular, esta é unha limitación de Apple. Só se detecta o \"auricular principal\" (usado para o micrófono). Configúrao en dispositivos Apple: Axustes → Bluetooth → AirPods → Micrófono.</string>
+    <string name="settings_signal_minimum_label">Calidade mínima do sinal</string>
     <string name="settings_signal_minimum_description">A calidade mínima do sinal que un dispositivo necesita ter para ser considerado teu.</string>
     <string name="settings_autoconnect_label">Conexión automática</string>
     <string name="settings_autoconnect_description">Se Android non se conecta automaticamente, tamén podemos solicitalo. Isto establecerá a configuración do modo de supervisión en \"Sempre\".</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Axustes xerais que afectan a toda a aplicación.</string>
     <string name="settings_acknowledgements_label">Agradecementos</string>
     <string name="settings_debug_autoreports_label">Informes de erros automáticos</string>
-    <string name="settings_debug_autoreports_description">Informa automaticamente de problemas, p. ex., detalles sobre un fallo da aplicación para que poida descubrir como solucionalo.</string><string name="settings_compatibility_mode_label">Modo de compatibilidade</string>
+    <string name="settings_debug_autoreports_description">Informa automaticamente de problemas, p. ex., detalles sobre un fallo da aplicación para que poida descubrir como solucionalo.</string>
+    <string name="settings_compatibility_mode_label">Modo de compatibilidade</string>
     <string name="settings_compatibility_mode_description">Desactivar as optimizacións para mellorar a compatibilidade. Proba isto se non ves ningún dato.</string>
     <string name="help_translate_label">Tradución</string>
     <string name="help_translate_description">Axuda a traducir esta aplicación ao teu idioma favorito.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Este widget require unha conexión directa (AAP) ao teu dispositivo. Asegúrate de que o dispositivo está emparellado e conectado na aplicación antes de usar este widget.</string>
     <string name="anc_widget_no_anc_support_label">Este dispositivo non admite o control de ruído</string>
     <string name="anc_widget_aap_not_connected_label">Non conectado</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Preto pero non conectado</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Non preto</string>
     <string name="anc_widget_aap_connecting_label">Conectando…</string>
+    <string name="tile_anc_label">Control de ruído</string>
+    <string name="tile_anc_subtitle_permission_required">Permiso necesario</string>
+    <string name="tile_anc_subtitle_no_device">Sen dispositivo</string>
+    <string name="tile_anc_subtitle_no_anc_support">Sen control de ruído</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth desactivado</string>
     <string name="widget_config_screen_title">Configuración do widget</string>
     <string name="widget_configuration_title">Seleccionar dispositivo</string>
     <string name="widget_configuration_description">Escolle que perfil de dispositivo debe mostrar este widget.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparencia</string>
     <string name="anc_mode_adaptive">Adaptativo</string>
     <string name="conversation_awareness_label">Consciencia da conversa</string>
+    <string name="settings_conversation_action_label">Cando comezas a falar</string>
+    <string name="settings_conversation_action_nothing_label">Non facer nada</string>
+    <string name="settings_conversation_action_lower_volume_label">Baixar volume</string>
+    <string name="settings_conversation_action_pause_label">Pausar multimedia</string>
+    <string name="settings_conversation_volume_reduction_label">Redución de volume</string>
     <string name="signal_badge_ble_cd">Exploración BLE activa</string>
     <string name="signal_badge_key_irk_cd">Identidade verificada</string>
     <string name="signal_badge_key_encrypted_cd">Conexión cifrada</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Xeral</string>
     <string name="device_settings_microphone_mode_label">Micrófono</string>
-    <string name="device_settings_microphone_mode_description">Que AirPod se usa como micrófono</string>
+    <string name="device_settings_microphone_mode_description">Cal auricular se usa como micrófono</string>
     <string name="device_settings_microphone_mode_auto">Automático</string>
     <string name="device_settings_microphone_mode_right">Dereito</string>
     <string name="device_settings_microphone_mode_left">Esquerdo</string>

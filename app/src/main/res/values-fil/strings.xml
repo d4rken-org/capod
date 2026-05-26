@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Auto pause</string>
     <string name="settings_autopause_description">I-pause ang audio kapag inaalis ang device sa iyong tainga.</string>
     <string name="settings_autopplay_label">Auto play</string>
-    <string name="settings_autoplay_description">Simulan ang pag-playback ng audio kapag suot ang device.</string>
+    <string name="settings_autoplay_description">I-resume ang musika kapag suot mo ulit ang iyong pods, pero tanging kung ang Auto pause ang huminto nito. Ang mga pause na ikaw mismo ang nag-trigger (telepono, AirPods stem, tulog) ay nananatiling naka-pause.</string>
+    <string name="settings_start_music_on_wear_label">Simulan ang musika kapag suot</string>
+    <string name="settings_start_music_on_wear_description">Palaging sinusubukang i-play ang musika kapag nilagay mo ang iyong pods, kahit pagkatapos ng manu-manong pause.</string>
     <string name="settings_eardetection_info_label">Paalala sa ear detection</string>
-    <string name="settings_eardetection_info_description">Kung ang ear detection ay gumagana lang para sa isang pod, ito ay limitasyon ng Apple. Tanging ang \"pangunahing pod\" (ginagamit para sa mikropono) lang ang nadedetect. I-configure sa mga Apple device: Settings → Bluetooth → AirPods → Microphone.</string><string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
+    <string name="settings_eardetection_info_description">Kung ang ear detection ay gumagana lang para sa isang pod, ito ay limitasyon ng Apple. Tanging ang \"pangunahing pod\" (ginagamit para sa mikropono) lang ang nadedetect. I-configure sa mga Apple device: Settings → Bluetooth → AirPods → Microphone.</string>
+    <string name="settings_signal_minimum_label">Minimum na kalidad ng signal</string>
     <string name="settings_signal_minimum_description">Ang minimum na kalidad ng signal na kailangan ng isang device para maituring na sa iyo.</string>
     <string name="settings_autoconnect_label">Auto connect</string>
     <string name="settings_autoconnect_description">Kung hindi awtomatikong kumonekta ang Android, maaari rin natin itong hilingin. Itatakda nito ang setting ng monitor mode sa \'Palagi\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
     <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
-    <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string><string name="settings_compatibility_mode_label">Compatibility mode</string>
+    <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
+    <string name="settings_compatibility_mode_label">Compatibility mode</string>
     <string name="settings_compatibility_mode_description">I-disable ang mga optimization para mapabuti ang compatibility. Subukan ito kung wala kang nakikitang data.</string>
     <string name="help_translate_label">Pagsasalin</string>
     <string name="help_translate_description">Tumulong sa pagsasalin ng app na ito sa iyong paboritong wika.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Ang widget na ito ay nangangailangan ng direktang koneksyon (AAP) sa iyong device. Siguraduhing ang iyong device ay naka-pair at nakakonekta sa app bago gamitin ang widget na ito.</string>
     <string name="anc_widget_no_anc_support_label">Hindi sinusuportahan ng device na ito ang noise control</string>
     <string name="anc_widget_aap_not_connected_label">Hindi nakakonekta</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Malapit ngunit hindi nakakonekta</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Hindi malapit</string>
     <string name="anc_widget_aap_connecting_label">Kumukonekta…</string>
+    <string name="tile_anc_label">Kontrol ng Ingay</string>
+    <string name="tile_anc_subtitle_permission_required">Kailangan ng pahintulot</string>
+    <string name="tile_anc_subtitle_no_device">Walang device</string>
+    <string name="tile_anc_subtitle_no_anc_support">Walang kontrol ng ingay</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth ay naka-off</string>
     <string name="widget_config_screen_title">Pagsasaayos ng Widget</string>
     <string name="widget_configuration_title">Pumili ng Device</string>
     <string name="widget_configuration_description">Piliin kung aling device profile ang ipapakita ng widget na ito.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparency</string>
     <string name="anc_mode_adaptive">Adaptive</string>
     <string name="conversation_awareness_label">Conversation Awareness</string>
+    <string name="settings_conversation_action_label">Kapag nagsimula kang magsalita</string>
+    <string name="settings_conversation_action_nothing_label">Huwag gumawa ng anuman</string>
+    <string name="settings_conversation_action_lower_volume_label">Ibaba ang volume</string>
+    <string name="settings_conversation_action_pause_label">I-pause ang media</string>
+    <string name="settings_conversation_volume_reduction_label">Pagbabawas ng volume</string>
     <string name="signal_badge_ble_cd">Aktibo ang BLE scan</string>
     <string name="signal_badge_key_irk_cd">Na-verify ang pagkakakilanlan</string>
     <string name="signal_badge_key_encrypted_cd">Naka-encrypt na koneksyon</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Pangkalahatan</string>
     <string name="device_settings_microphone_mode_label">Mikropono</string>
-    <string name="device_settings_microphone_mode_description">Aling AirPod ang ginagamit bilang mikropono</string>
+    <string name="device_settings_microphone_mode_description">Kung aling earbud ang ginagamit bilang mikropono</string>
     <string name="device_settings_microphone_mode_auto">Auto</string>
     <string name="device_settings_microphone_mode_right">Kanan</string>
     <string name="device_settings_microphone_mode_left">Kaliwa</string>

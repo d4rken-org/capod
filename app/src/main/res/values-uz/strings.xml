@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Avtomatik pauza</string>
     <string name="settings_autopause_description">Qurilmani qulog\'ingizdan olib tashlaganingizda audioni pauza qiling.</string>
     <string name="settings_autopplay_label">Avtomatik ijro etish</string>
-    <string name="settings_autoplay_description">Qurilma taqilganda audio ijro etishni boshlang.</string>
+    <string name="settings_autoplay_description">Pods-ni qayta kiyganda musiqani davom ettiradi, lekin faqat Auto toʼxtatish tomonidan toʼxtatilgan boʼlsa. Oʼzingiz toʼxtatgan (telefon, AirPods tyagi, uxlash) pausalar toʼxtatilgan holda qoladi.</string>
+    <string name="settings_start_music_on_wear_label">Kiyganda musiqani boshlash</string>
+    <string name="settings_start_music_on_wear_description">Pods-ni kiyganda musiqani oʼynashga har doim harakat qiladi, hatto qoʼlda toʼxtatilgandan keyin ham.</string>
     <string name="settings_eardetection_info_label">Quloq aniqlash eslatmasi</string>
-    <string name="settings_eardetection_info_description">Agar quloq aniqlash faqat bitta pod uchun ishlasa, bu Apple cheklovi. Faqat \"asosiy pod\" (mikrofon uchun ishlatiladigan) aniqlanadi. Apple qurilmalarida sozlang: Sozlamalar → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimal signal sifati</string>
+    <string name="settings_eardetection_info_description">Agar quloq aniqlash faqat bitta pod uchun ishlasa, bu Apple cheklovi. Faqat \"asosiy pod\" (mikrofon uchun ishlatiladigan) aniqlanadi. Apple qurilmalarida sozlang: Sozlamalar → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimal signal sifati</string>
     <string name="settings_signal_minimum_description">Qurilma sizniki deb hisoblanishi uchun kerak bo\'lgan minimal signal sifati.</string>
     <string name="settings_autoconnect_label">Avtomatik ulanish</string>
     <string name="settings_autoconnect_description">Agar Android avtomatik ravishda ulanmasa, biz ham so\'rashimiz mumkin. Bu monitoring rejimi sozlamasini \"Har doim\" ga o\'rnatadi.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Butun ilovaga ta\'sir qiluvchi umumiy sozlamalar.</string>
     <string name="settings_acknowledgements_label">Minnatdorchiliklar</string>
     <string name="settings_debug_autoreports_label">Avtomatik xato hisobotlari</string>
-    <string name="settings_debug_autoreports_description">Muammolarni avtomatik ravishda xabar qiladi, masalan, ilova ishdan chiqishi haqidagi tafsilotlar, shunda men uni qanday tuzatishni aniqlay olaman.</string><string name="settings_compatibility_mode_label">Moslik rejimi</string>
+    <string name="settings_debug_autoreports_description">Muammolarni avtomatik ravishda xabar qiladi, masalan, ilova ishdan chiqishi haqidagi tafsilotlar, shunda men uni qanday tuzatishni aniqlay olaman.</string>
+    <string name="settings_compatibility_mode_label">Moslik rejimi</string>
     <string name="settings_compatibility_mode_description">Moslikni yaxshilash uchun optimallashtirishlarni o\'chirib qo\'ying. Agar hech qanday ma\'lumot ko\'rmayotgan bo\'lsangiz, buni sinab ko\'ring.</string>
     <string name="help_translate_label">Tarjima</string>
     <string name="help_translate_description">Ushbu ilovani sevimli tilingizga tarjima qilishga yordam bering.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Bu vidjet qurilmangiz bilan to\'g\'ridan-to\'g\'ri ulanishni (AAP) talab qiladi. Bu vidjetni ishlatishdan oldin qurilmangiz ilovada juftlashtirilgan va ulanganligiga ishonch hosil qiling.</string>
     <string name="anc_widget_no_anc_support_label">Bu qurilma shovqin boshqaruvini qo\'llab-quvvatlamaydi</string>
     <string name="anc_widget_aap_not_connected_label">Ulanmagan</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">Yaqinida, lekin ulanmagan</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Yaqin emas</string>
     <string name="anc_widget_aap_connecting_label">Ulanmoqda…</string>
+    <string name="tile_anc_label">Shovqinni boshqarish</string>
+    <string name="tile_anc_subtitle_permission_required">Ruxsat talab qilinadi</string>
+    <string name="tile_anc_subtitle_no_device">Qurilma yo\'q</string>
+    <string name="tile_anc_subtitle_no_anc_support">Shovqinni boshqarish yoʼq</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth oʼchiq</string>
     <string name="widget_config_screen_title">Vidjet sozlamalari</string>
     <string name="widget_configuration_title">Qurilmani tanlang</string>
     <string name="widget_configuration_description">Ushbu vidjet qaysi qurilma profilini ko\'rsatishi kerakligini tanlang.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Shaffoflik</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Suhbat anglash</string>
+    <string name="settings_conversation_action_label">Gapira boshlaganingizda</string>
+    <string name="settings_conversation_action_nothing_label">Hech narsa qilmaslik</string>
+    <string name="settings_conversation_action_lower_volume_label">Ovozni pasaytirish</string>
+    <string name="settings_conversation_action_pause_label">Mediani toʼxtatish</string>
+    <string name="settings_conversation_volume_reduction_label">Ovoz pasaytirish</string>
     <string name="signal_badge_ble_cd">BLE skanerlash faol</string>
     <string name="signal_badge_key_irk_cd">Shaxs tasdiqlangan</string>
     <string name="signal_badge_key_encrypted_cd">Shifrlangan ulanish</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Umumiy</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Qaysi AirPod mikrofon sifatida ishlatiladi</string>
+    <string name="device_settings_microphone_mode_description">Qaysi quloqlik mikrofon sifatida ishlatiladi</string>
     <string name="device_settings_microphone_mode_auto">Avtomatik</string>
     <string name="device_settings_microphone_mode_right">O\'ng</string>
     <string name="device_settings_microphone_mode_left">Chap</string>

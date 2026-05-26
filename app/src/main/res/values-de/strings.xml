@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automatische Pause</string>
     <string name="settings_autopause_description">Musik pausieren, wenn der Kopfhörer vom Ohr entfernt wird.</string>
     <string name="settings_autopplay_label">Automatisches abspielen</string>
-    <string name="settings_autoplay_description">Audiowiedergabe starten, wenn das Gerät getragen wird.</string>
+    <string name="settings_autoplay_description">Musik fortsetzen, wenn du deine Pods wieder trägst – aber nur, wenn Auto-Pause sie gestoppt hat. Pausen, die du selbst ausgelöst hast (Telefon, AirPods-Stiel, Schlaf), bleiben aktiv.</string>
+    <string name="settings_start_music_on_wear_label">Musik beim Anlegen starten</string>
+    <string name="settings_start_music_on_wear_description">Versucht immer, Musik abzuspielen, wenn du deine Pods aufsetzt – auch nach einer manuellen Pause.</string>
     <string name="settings_eardetection_info_label">Hinweis zur Ohr-Erkennung</string>
-    <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimale Signalqualität</string>
+    <string name="settings_eardetection_info_description">Wenn die Ohr-Erkennung nur für einen Pod funktioniert, ist das leider Apple-Einschränkung. Es wird dann nur der \"primäre Pod\" (Mikrofon) erkannt. Weitere Konfiguration auf Apple-Geräten: Einstellungen → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimale Signalqualität</string>
     <string name="settings_signal_minimum_description">Die minimale Signalqualität, die ein Gerät haben muss, damit als Deins erkannt wird.</string>
     <string name="settings_autoconnect_label">Automatisch verbinden</string>
     <string name="settings_autoconnect_description">Wenn Android keine automatische Verbindung herstellt, können wir es auch darum bitten. Durch diese Option wird die Monitormodus-Einstellung auf „Immer“ gesetzt.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
-    <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string><string name="settings_compatibility_mode_label">Kompatibilitätsmodus</string>
+    <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
+    <string name="settings_compatibility_mode_label">Kompatibilitätsmodus</string>
     <string name="settings_compatibility_mode_description">Deaktiviere Optimierungen, um die Kompatibilität zu verbessern. Probier diese Option, wenn gar keine Daten angezeigt werden.</string>
     <string name="help_translate_label">Übersetzung</string>
     <string name="help_translate_description">Hilf mit die App in deine Lieblingssprache zu übersetzen.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Dieses Widget erfordert eine direkte Verbindung (AAP) zu deinem Gerät. Stelle sicher, dass dein Gerät in der App gekoppelt und verbunden ist, bevor du dieses Widget verwendest.</string>
     <string name="anc_widget_no_anc_support_label">Dieses Gerät unterstützt keine Geräuschsteuerung</string>
     <string name="anc_widget_aap_not_connected_label">Nicht verbunden</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">In der Nähe, aber nicht verbunden</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nicht in der Nähe</string>
     <string name="anc_widget_aap_connecting_label">Verbinde…</string>
+    <string name="tile_anc_label">Geräuschkontrolle</string>
+    <string name="tile_anc_subtitle_permission_required">Berechtigung erforderlich</string>
+    <string name="tile_anc_subtitle_no_device">Kein Gerät</string>
+    <string name="tile_anc_subtitle_no_anc_support">Keine Geräuschkontrolle</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth aus</string>
     <string name="widget_config_screen_title">Widget-Konfiguration</string>
     <string name="widget_configuration_title">Gerät auswählen</string>
     <string name="widget_configuration_description">Wähle aus, welches Geräteprofil dieses Widget anzeigen soll.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparenz</string>
     <string name="anc_mode_adaptive">Adaptiv</string>
     <string name="conversation_awareness_label">Gesprächserkennung</string>
+    <string name="settings_conversation_action_label">Wenn du anfängst zu sprechen</string>
+    <string name="settings_conversation_action_nothing_label">Nichts tun</string>
+    <string name="settings_conversation_action_lower_volume_label">Lautstärke verringern</string>
+    <string name="settings_conversation_action_pause_label">Medien pausieren</string>
+    <string name="settings_conversation_volume_reduction_label">Lautstärkereduzierung</string>
     <string name="signal_badge_ble_cd">BLE-Scan aktiv</string>
     <string name="signal_badge_key_irk_cd">Identität verifiziert</string>
     <string name="signal_badge_key_encrypted_cd">Verschlüsselte Verbindung</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allgemein</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Welcher AirPod als Mikrofon verwendet wird</string>
+    <string name="device_settings_microphone_mode_description">Welches Ohrstöpsel als Mikrofon verwendet wird</string>
     <string name="device_settings_microphone_mode_auto">Automatisch</string>
     <string name="device_settings_microphone_mode_right">Rechts</string>
     <string name="device_settings_microphone_mode_left">Links</string>

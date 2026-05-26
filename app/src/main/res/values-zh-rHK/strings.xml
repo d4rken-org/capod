@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">自動暫停</string>
     <string name="settings_autopause_description">從耳中摘下時自動暫停。</string>
     <string name="settings_autopplay_label">自動播放</string>
-    <string name="settings_autoplay_description">佩戴到耳上時自動播放。</string>
+    <string name="settings_autoplay_description">重新戴上耳機時繼續播放音樂，但前提是由「自動暫停」停止的。您自行觸發的暫停（手機、AirPods 桿、睡眠）將保持暫停狀態。</string>
+    <string name="settings_start_music_on_wear_label">戴上時播放音樂</string>
+    <string name="settings_start_music_on_wear_description">戴上耳機時始終嘗試播放音樂，即使手動暫停後亦然。</string>
     <string name="settings_eardetection_info_label">入耳偵測提示</string>
-    <string name="settings_eardetection_info_description">如果入耳偵測只對其中一隻耳機有效，這是 Apple 的限制。只有「主耳機」(用作麥克風) 會被偵測。可在 Apple 裝置中設定：設定 → 藍牙 → AirPods → 麥克風。</string><string name="settings_signal_minimum_label">最低訊號品質</string>
+    <string name="settings_eardetection_info_description">如果入耳偵測只對其中一隻耳機有效，這是 Apple 的限制。只有「主耳機」(用作麥克風) 會被偵測。可在 Apple 裝置中設定：設定 → 藍牙 → AirPods → 麥克風。</string>
+    <string name="settings_signal_minimum_label">最低訊號品質</string>
     <string name="settings_signal_minimum_description">可以被認為是您的裝置的最低訊號品質。</string>
     <string name="settings_autoconnect_label">自動連線</string>
     <string name="settings_autoconnect_description">如果 Android 不會自動連線，我們也可以要求它。這將把監視模式設定為「一律」。</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">影響整個應用程式的一般調校。</string>
     <string name="settings_acknowledgements_label">致謝</string>
     <string name="settings_debug_autoreports_label">自動回報錯誤</string>
-    <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string><string name="settings_compatibility_mode_label">相容性模式</string>
+    <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string>
+    <string name="settings_compatibility_mode_label">相容性模式</string>
     <string name="settings_compatibility_mode_description">停用電池效能最佳化以提高相容性，請在未看到任何資料時開啟。</string>
     <string name="help_translate_label">翻譯</string>
     <string name="help_translate_description">協助翻譯為您的最愛語言。</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">此小工具需要與您的裝置建立直接連接（AAP）。使用前，請確保您的裝置已在應用程式中配對並連接。</string>
     <string name="anc_widget_no_anc_support_label">此裝置不支援噪音控制</string>
     <string name="anc_widget_aap_not_connected_label">未連接</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">在附近但未連接</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">不在附近</string>
     <string name="anc_widget_aap_connecting_label">連接中…</string>
+    <string name="tile_anc_label">降噪控制</string>
+    <string name="tile_anc_subtitle_permission_required">需要權限</string>
+    <string name="tile_anc_subtitle_no_device">無裝置</string>
+    <string name="tile_anc_subtitle_no_anc_support">無降噪控制</string>
+    <string name="tile_anc_subtitle_bluetooth_off">藍牙已關閉</string>
     <string name="widget_config_screen_title">小工具設定</string>
     <string name="widget_configuration_title">選擇裝置</string>
     <string name="widget_configuration_description">選擇此小工具要顯示的裝置設定檔。</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">通透模式</string>
     <string name="anc_mode_adaptive">自適應</string>
     <string name="conversation_awareness_label">對話感知</string>
+    <string name="settings_conversation_action_label">當您開始說話時</string>
+    <string name="settings_conversation_action_nothing_label">不執行任何操作</string>
+    <string name="settings_conversation_action_lower_volume_label">降低音量</string>
+    <string name="settings_conversation_action_pause_label">暫停媒體</string>
+    <string name="settings_conversation_volume_reduction_label">音量降低幅度</string>
     <string name="signal_badge_ble_cd">BLE 掃描進行中</string>
     <string name="signal_badge_key_irk_cd">身份已驗證</string>
     <string name="signal_badge_key_encrypted_cd">已加密連線</string>
@@ -447,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">一般</string>
     <string name="device_settings_microphone_mode_label">麥克風</string>
-    <string name="device_settings_microphone_mode_description">哪隻 AirPod 用作麥克風</string>
+    <string name="device_settings_microphone_mode_description">用作麥克風的耳塞</string>
     <string name="device_settings_microphone_mode_auto">自動</string>
     <string name="device_settings_microphone_mode_right">右</string>
     <string name="device_settings_microphone_mode_left">左</string>

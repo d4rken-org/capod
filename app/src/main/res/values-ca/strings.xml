@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Pausa automàtica</string>
     <string name="settings_autopause_description">Pausa l\'àudio quan ús tragueu el dispositiu de l\'orella.</string>
     <string name="settings_autopplay_label">Reproducció automàtica</string>
-    <string name="settings_autoplay_description">Inicia la reproducció d\'àudio en utilitzar el dispositiu.</string>
+    <string name="settings_autoplay_description">Repren la música quan tornes a posar-te els auriculars, però només si la pausa automàtica l\'havia aturat. Les pauses que has activat tu mateix (telèfon, pal dels AirPods, son) romanen en pausa.</string>
+    <string name="settings_start_music_on_wear_label">Inicia la música en posar-se els auriculars</string>
+    <string name="settings_start_music_on_wear_description">Sempre intenta reproduir música quan et poses els auriculars, fins i tot després d\'una pausa manual.</string>
     <string name="settings_eardetection_info_label">Nota de detecció de l\'oïda</string>
-    <string name="settings_eardetection_info_description">Si la detecció de l\'oïda només funciona per a un auricular, això és degut a una limitació d\'Apple. Només es detecta «l\'auricular principal» (utilitzat per al micròfon). Configureu-ho en dispositius Apple: Configuració → Bluetooth → AirPods → Micròfon.</string><string name="settings_signal_minimum_label">Qualitat de senyal mínima</string>
+    <string name="settings_eardetection_info_description">Si la detecció de l\'oïda només funciona per a un auricular, això és degut a una limitació d\'Apple. Només es detecta «l\'auricular principal» (utilitzat per al micròfon). Configureu-ho en dispositius Apple: Configuració → Bluetooth → AirPods → Micròfon.</string>
+    <string name="settings_signal_minimum_label">Qualitat de senyal mínima</string>
     <string name="settings_signal_minimum_description">La qualitat de senyal mínima que ha de tenir un dispositiu per considerar-se vostre.</string>
     <string name="settings_autoconnect_label">Connexió automàtica</string>
     <string name="settings_autoconnect_description">Si l\'Android no es connecta automàticament, també ho podem demanar. Això establirà la configuració del mode de monitor a «Sempre».</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Configuracions generals que afecten a tota l\'aplicació.</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
     <string name="settings_debug_autoreports_label">Informes automàtics d\'errors</string>
-    <string name="settings_debug_autoreports_description">Informa automàticament de problemes. Per exemple: detalls sobre un bloqueig de l\'aplicació perquè pugui esbrinar com solucionar-ho.</string><string name="settings_compatibility_mode_label">Mode de compatibilitat</string>
+    <string name="settings_debug_autoreports_description">Informa automàticament de problemes. Per exemple: detalls sobre un bloqueig de l\'aplicació perquè pugui esbrinar com solucionar-ho.</string>
+    <string name="settings_compatibility_mode_label">Mode de compatibilitat</string>
     <string name="settings_compatibility_mode_description">Desactiva les optimitzacions per millorar la compatibilitat. Proveu això si no veieu cap dada.</string>
     <string name="help_translate_label">Traducció</string>
     <string name="help_translate_description">Ajudeu a traduir aquesta aplicació al vostre idioma preferit.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Aquest giny requereix una connexió directa (AAP) al dispositiu. Assegureu-vos que el dispositiu estigui emparellat i connectat a l\'aplicació abans d\'utilitzar aquest giny.</string>
     <string name="anc_widget_no_anc_support_label">Aquest dispositiu no admet el control de soroll</string>
     <string name="anc_widget_aap_not_connected_label">No connectat</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">A prop però no connectat</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">No és a prop</string>
     <string name="anc_widget_aap_connecting_label">S\'està connectant…</string>
+    <string name="tile_anc_label">Control de soroll</string>
+    <string name="tile_anc_subtitle_permission_required">Permís requerit</string>
+    <string name="tile_anc_subtitle_no_device">Cap dispositiu</string>
+    <string name="tile_anc_subtitle_no_anc_support">Sense control de soroll</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth desactivat</string>
     <string name="widget_config_screen_title">Configuració del giny</string>
     <string name="widget_configuration_title">Seleccioneu un dispositiu</string>
     <string name="widget_configuration_description">Trieu quin perfil de dispositiu ha de mostrar aquest giny.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">Transparència</string>
     <string name="anc_mode_adaptive">Adaptatiu</string>
     <string name="conversation_awareness_label">Consciència de conversa</string>
+    <string name="settings_conversation_action_label">Quan comences a parlar</string>
+    <string name="settings_conversation_action_nothing_label">No facis res</string>
+    <string name="settings_conversation_action_lower_volume_label">Baixa el volum</string>
+    <string name="settings_conversation_action_pause_label">Posa en pausa el reproductor</string>
+    <string name="settings_conversation_volume_reduction_label">Reducció del volum</string>
     <string name="signal_badge_ble_cd">Escaneig BLE actiu</string>
     <string name="signal_badge_key_irk_cd">Identitat verificada</string>
     <string name="signal_badge_key_encrypted_cd">Connexió xifrada</string>
@@ -373,7 +389,7 @@
     <string name="support_contact_send_action">Obre l\'aplicació de correu</string>
     <string name="support_contact_no_email_app">No s\'ha trobat cap aplicació de correu en aquest dispositiu.</string>
     <string name="support_contact_debuglog_delete_title">Voleu suprimir el registre de depuració?</string>
-    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimirà permanentment.</string>
+    <string name="support_contact_debuglog_delete_message">Aquest registre de depuració se suprimrirà permanentment.</string>
     <!-- Post-share confirmation -->
     <string name="support_debuglog_sent_title">S\'ha enviat el registre?</string>
     <string name="support_debuglog_sent_message">El registre de depuració s\'ha enviat correctament? El registre s\'eliminarà.</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">General</string>
     <string name="device_settings_microphone_mode_label">Micròfon</string>
-    <string name="device_settings_microphone_mode_description">Quin AirPod s\'utilitza com a micròfon</string>
+    <string name="device_settings_microphone_mode_description">Quin auricular s\'utilitza com a micròfon</string>
     <string name="device_settings_microphone_mode_auto">Automàtic</string>
     <string name="device_settings_microphone_mode_right">Dreta</string>
     <string name="device_settings_microphone_mode_left">Esquerre</string>

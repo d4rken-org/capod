@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">مکث خودکار</string>
     <string name="settings_autopause_description">هنگام برداشتن دستگاه از گوش، صدا را متوقف کنید.</string>
     <string name="settings_autopplay_label">پخش خودکار</string>
-    <string name="settings_autoplay_description">هنگام استفاده از دستگاه، پخش صدا را شروع کنید.</string>
+    <string name="settings_autoplay_description">موسیقی را هنگام پوشیدن مجدد پادها از سر می‌گیرد، اما تنها اگر توقف خودکار آن را متوقف کرده باشد. توقف‌هایی که خودتان ایجاد کردید (تلفن، دکمه AirPods، خواب) همچنان متوقف می‌مانند.</string>
+    <string name="settings_start_music_on_wear_label">شروع موسیقی هنگام پوشیدن</string>
+    <string name="settings_start_music_on_wear_description">همیشه سعی می‌کند هنگام گذاشتن پادها موسیقی پخش کند، حتی پس از توقف دستی.</string>
     <string name="settings_eardetection_info_label">توجه درباره تشخیص گوش</string>
-    <string name="settings_eardetection_info_description">اگر تشخیص گوش فقط برای یک پاد کار می‌کند، این محدودیت Apple است. فقط \"پاد اصلی\" (که برای میکروفون استفاده می‌شود) تشخیص داده می‌شود. در دستگاه‌های Apple تنظیم کنید: تنظیمات → بلوتوث → AirPods → میکروفون.</string><string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
+    <string name="settings_eardetection_info_description">اگر تشخیص گوش فقط برای یک پاد کار می‌کند، این محدودیت Apple است. فقط \"پاد اصلی\" (که برای میکروفون استفاده می‌شود) تشخیص داده می‌شود. در دستگاه‌های Apple تنظیم کنید: تنظیمات → بلوتوث → AirPods → میکروفون.</string>
+    <string name="settings_signal_minimum_label">حداقل کیفیت سیگنال</string>
     <string name="settings_signal_minimum_description">حداقل کیفیت سیگنالی که یک دستگاه باید داشته باشد تا متعلق به شما در نظر گرفته شود.</string>
     <string name="settings_autoconnect_label">اتصال خودکار</string>
     <string name="settings_autoconnect_description">اگر Android به‌طور خودکار متصل نشود، ما نیز می‌توانیم آن را درخواست کنیم. این کار تنظیم حالت نظارت را روی \"همیشه\" قرار می‌دهد.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">تنظیمات کلی که بر کل برنامه تأثیر می‌گذارند.</string>
     <string name="settings_acknowledgements_label">قدردانی‌ها</string>
     <string name="settings_debug_autoreports_label">گزارش‌های خطای خودکار</string>
-    <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string><string name="settings_compatibility_mode_label">حالت سازگاری</string>
+    <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string>
+    <string name="settings_compatibility_mode_label">حالت سازگاری</string>
     <string name="settings_compatibility_mode_description">بهینه‌سازی‌ها را برای بهبود سازگاری غیرفعال کنید. اگر هیچ داده‌ای نمی‌بینید، این را امتحان کنید.</string>
     <string name="help_translate_label">ترجمه</string>
     <string name="help_translate_description">به ترجمه این برنامه به زبان موردعلاقه خود کمک کنید.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">این ویجت نیاز به اتصال مستقیم (AAP) به دستگاه شما دارد. قبل از استفاده از این ویجت، مطمئن شوید دستگاه شما در برنامه جفت‌شده و متصل است.</string>
     <string name="anc_widget_no_anc_support_label">این دستگاه از کنترل نویز پشتیبانی نمی‌کند</string>
     <string name="anc_widget_aap_not_connected_label">متصل نشده</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">در مجاورت اما متصل نیست</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">در مجاورت نیست</string>
     <string name="anc_widget_aap_connecting_label">در حال اتصال…</string>
+    <string name="tile_anc_label">کنترل نویز</string>
+    <string name="tile_anc_subtitle_permission_required">مجوز لازم است</string>
+    <string name="tile_anc_subtitle_no_device">بدون دستگاه</string>
+    <string name="tile_anc_subtitle_no_anc_support">بدون کنترل نویز</string>
+    <string name="tile_anc_subtitle_bluetooth_off">بلوتوث خاموش است</string>
     <string name="widget_config_screen_title">پیکربندی ابزارک</string>
     <string name="widget_configuration_title">انتخاب دستگاه</string>
     <string name="widget_configuration_description">انتخاب کنید این ویجت کدام پروفایل دستگاه را نمایش دهد.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">شفافیت</string>
     <string name="anc_mode_adaptive">تطبیقی</string>
     <string name="conversation_awareness_label">آگاهی مکالمه</string>
+    <string name="settings_conversation_action_label">وقتی شروع به صحبت می‌کنید</string>
+    <string name="settings_conversation_action_nothing_label">هیچ کاری نکن</string>
+    <string name="settings_conversation_action_lower_volume_label">کاهش صدا</string>
+    <string name="settings_conversation_action_pause_label">توقف رسانه</string>
+    <string name="settings_conversation_volume_reduction_label">میزان کاهش صدا</string>
     <string name="signal_badge_ble_cd">اسکن BLE فعال است</string>
     <string name="signal_badge_key_irk_cd">هویت تأیید شد</string>
     <string name="signal_badge_key_encrypted_cd">اتصال رمزگذاری‌شده</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">عمومی</string>
     <string name="device_settings_microphone_mode_label">میکروفون</string>
-    <string name="device_settings_microphone_mode_description">کدام AirPod به عنوان میکروفون استفاده می‌شود</string>
+    <string name="device_settings_microphone_mode_description">کدام ایرباد به عنوان میکروفون استفاده می‌شود</string>
     <string name="device_settings_microphone_mode_auto">خودکار</string>
     <string name="device_settings_microphone_mode_right">راست</string>
     <string name="device_settings_microphone_mode_left">چپ</string>

@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ऑटो-पॉज</string>
     <string name="settings_autopause_description">आपल्या कानातून डिव्हाइस काढताना ऑडिओ थांबवा.</string>
     <string name="settings_autopplay_label">ऑटो-प्ले</string>
-    <string name="settings_autoplay_description">डिव्हाइस घातल्यावर ऑडिओ प्लेबॅक सुरू करा.</string>
+    <string name="settings_autoplay_description">तुम्ही पुन्हा पॉड्स घातल्यावर संगीत पुन्हा सुरू करा, परंतु केवळ तेव्हाच जेव्हा Auto pause ने ते थांबवले असेल. तुम्ही स्वतः थांबवलेले (फोन, AirPods stem, झोप) थांबलेलेच राहतात.</string>
+    <string name="settings_start_music_on_wear_label">घातल्यावर संगीत सुरू करा</string>
+    <string name="settings_start_music_on_wear_description">तुम्ही पॉड्स घातल्यावर नेहमी संगीत वाजवण्याचा प्रयत्न करतो, अगदी मॅन्युअल पॉजनंतरही.</string>
     <string name="settings_eardetection_info_label">कान ओळख टीप</string>
-    <string name="settings_eardetection_info_description">कान ओळख फक्त एका पॉडसाठी काम करत असल्यास, ही Apple ची मर्यादा आहे. फक्त \"प्राथमिक पॉड\" (मायक्रोफोनसाठी वापरला जातो) ओळखला जातो. Apple डिव्हाइसवर कॉन्फिगर करा: सेटिंग्ज → ब्लूटूथ → AirPods → मायक्रोफोन.</string><string name="settings_signal_minimum_label">किमान सिग्नल गुणवत्ता</string>
+    <string name="settings_eardetection_info_description">कान ओळख फक्त एका पॉडसाठी काम करत असल्यास, ही Apple ची मर्यादा आहे. फक्त \"प्राथमिक पॉड\" (मायक्रोफोनसाठी वापरला जातो) ओळखला जातो. Apple डिव्हाइसवर कॉन्फिगर करा: सेटिंग्ज → ब्लूटूथ → AirPods → मायक्रोफोन.</string>
+    <string name="settings_signal_minimum_label">किमान सिग्नल गुणवत्ता</string>
     <string name="settings_signal_minimum_description">डिव्हाइसला आपले मानण्यासाठी आवश्यक असलेली किमान सिग्नल गुणवत्ता.</string>
     <string name="settings_autoconnect_label">ऑटो-कनेक्ट</string>
     <string name="settings_autoconnect_description">Android आपोआप कनेक्ट होत नसल्यास, आम्ही देखील विनंती करू शकतो. हे मॉनिटर मोड सेटिंग \"नेहमी\" वर सेट करेल.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">संपूर्ण अॅपवर परिणाम करणारे सामान्य बदल.</string>
     <string name="settings_acknowledgements_label">पोचपावती</string>
     <string name="settings_debug_autoreports_label">स्वयंचलित बग अहवाल</string>
-    <string name="settings_debug_autoreports_description">समस्या स्वयंचलितपणे नोंदवते, उदा. अॅप क्रॅशबद्दल तपशील जेणेकरून मी ते कसे दुरुस्त करायचे हे शोधू शकेन.</string><string name="settings_compatibility_mode_label">सुसंगतता मोड</string>
+    <string name="settings_debug_autoreports_description">समस्या स्वयंचलितपणे नोंदवते, उदा. अॅप क्रॅशबद्दल तपशील जेणेकरून मी ते कसे दुरुस्त करायचे हे शोधू शकेन.</string>
+    <string name="settings_compatibility_mode_label">सुसंगतता मोड</string>
     <string name="settings_compatibility_mode_description">सुसंगतता सुधारण्यासाठी ऑप्टिमायझेशन अक्षम करा. तुम्हाला कोणताही डेटा दिसत नसल्यास हे वापरून पहा.</string>
     <string name="help_translate_label">भाषांतर</string>
     <string name="help_translate_description">हे अॅप तुमच्या आवडत्या भाषेत भाषांतरित करण्यात मदत करा.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">या विजेटसाठी तुमच्या डिव्हाइसशी थेट कनेक्शन (AAP) आवश्यक आहे. हे विजेट वापरण्यापूर्वी तुमचे डिव्हाइस अॅपमध्ये पेअर आणि कनेक्ट केलेले असल्याची खात्री करा.</string>
     <string name="anc_widget_no_anc_support_label">हे डिव्हाइस आवाज नियंत्रणास समर्थन देत नाही</string>
     <string name="anc_widget_aap_not_connected_label">कनेक्ट केलेले नाही</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">जवळ आहे पण कनेक्ट नाही</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">जवळ नाही</string>
     <string name="anc_widget_aap_connecting_label">कनेक्ट होत आहे…</string>
+    <string name="tile_anc_label">आवाज नियंत्रण</string>
+    <string name="tile_anc_subtitle_permission_required">परवानगी आवश्यक आहे</string>
+    <string name="tile_anc_subtitle_no_device">डिव्हाइस नाही</string>
+    <string name="tile_anc_subtitle_no_anc_support">आवाज नियंत्रण नाही</string>
+    <string name="tile_anc_subtitle_bluetooth_off">ब्लूटूथ बंद आहे</string>
     <string name="widget_config_screen_title">विजेट कॉन्फिगरेशन</string>
     <string name="widget_configuration_title">डिव्हाइस निवडा</string>
     <string name="widget_configuration_description">या विजेटने कोणत्या डिव्हाइस प्रोफाइलचे प्रदर्शन करावे ते निवडा.</string>
@@ -237,6 +248,11 @@
     <string name="anc_mode_transparency">पारदर्शकता</string>
     <string name="anc_mode_adaptive">अनुकूली</string>
     <string name="conversation_awareness_label">संभाषण जागरूकता</string>
+    <string name="settings_conversation_action_label">जेव्हा तुम्ही बोलण्यास सुरुवात करता</string>
+    <string name="settings_conversation_action_nothing_label">काहीही करू नका</string>
+    <string name="settings_conversation_action_lower_volume_label">आवाज कमी करा</string>
+    <string name="settings_conversation_action_pause_label">मीडिया थांबवा</string>
+    <string name="settings_conversation_volume_reduction_label">आवाज कपात</string>
     <string name="signal_badge_ble_cd">BLE स्कॅन सक्रिय</string>
     <string name="signal_badge_key_irk_cd">ओळख सत्यापित</string>
     <string name="signal_badge_key_encrypted_cd">एनक्रिप्टेड कनेक्शन</string>
@@ -452,7 +468,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">सामान्य</string>
     <string name="device_settings_microphone_mode_label">मायक्रोफोन</string>
-    <string name="device_settings_microphone_mode_description">कोणता AirPod मायक्रोफोन म्हणून वापरला जातो</string>
+    <string name="device_settings_microphone_mode_description">कोणता इअरबड मायक्रोफोन म्हणून वापरला जातो</string>
     <string name="device_settings_microphone_mode_auto">स्वयंचलित</string>
     <string name="device_settings_microphone_mode_right">उजवा</string>
     <string name="device_settings_microphone_mode_left">डावा</string>

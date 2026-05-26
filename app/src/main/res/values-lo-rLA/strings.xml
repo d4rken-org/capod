@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">ຢຸດອັດຕະໂນມັດ</string>
     <string name="settings_autopause_description">ຢຸດສຽງຊົ່ວຄາວເມື່ອຖອດອຸປະກອນອອກຈາກຫູຂອງທ່ານ.</string>
     <string name="settings_autopplay_label">ຫຼິ້ນອັດຕະໂນມັດ</string>
-    <string name="settings_autoplay_description">ເລີ່ມການຫຼິ້ນສຽງເມື່ອໃສ่อຸປະກອນ.</string>
+    <string name="settings_autoplay_description">ຫຼິ້ນດົນຕີຕໍ່ເມື່ອໃສ່ pods ອີກຄັ້ງ, ແຕ່ເທົ່ານັ້ນຖ້າ Auto pause ຢຸດມັນ. ການຢຸດທີ່ທ່ານເຮັດດ້ວຍຕົວເອງ (ໂທລະສັບ, ກ້ານ AirPods, ນອນ) ຍັງຄົງຢຸດຢູ່.</string>
+    <string name="settings_start_music_on_wear_label">ເລີ່ມດົນຕີເມື່ອໃສ່</string>
+    <string name="settings_start_music_on_wear_description">ພະຍາຍາມຫຼິ້ນດົນຕີທຸກຄັ້ງທີ່ທ່ານໃສ່ pods, ແມ່ນແຕ່ຫຼັງຈາກຢຸດດ້ວຍຕົນເອງ.</string>
     <string name="settings_eardetection_info_label">ໝາຍເຫດການກວດຈັບຫູ</string>
-    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string><string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
+    <string name="settings_eardetection_info_description">ຖ້າການກວດຈັບຫູເຮັດວຽກສຳລັບພອດດຽວເທົ່ານັ້ນ, ນີ້ແມ່ນຂໍ້ຈຳກັດຂອງ Apple. ສະເພາະ \"ພອດຫຼັກ\" (ໃຊ້ສຳລັບໄມໂຄຣໂຟນ) ເທົ່ານັ້ນທີ່ຖືກກວດຈັບ. ຕັ້ງຄ່າໃນອຸປະກອນ Apple: ການຕັ້ງຄ່າ → Bluetooth → AirPods → ໄມໂຄຣໂຟນ.</string>
+    <string name="settings_signal_minimum_label">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າ</string>
     <string name="settings_signal_minimum_description">ຄຸນນະພາບສັນຍານຂັ້ນຕໍ່າທີ່ອຸປະກອນຕ້ອງມີເພື່ອຖືວ່າເປັນຂອງທ່ານ.</string>
     <string name="settings_autoconnect_label">ເຊື່ອມຕໍ່ອັດຕະໂນມັດ</string>
     <string name="settings_autoconnect_description">ຖ້າ Android ບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ, ພວກເຮົາກໍສາມາດຮ້ອງຂໍໄດ້. ນີ້ຈະຕັ້ງຄ່າໂໝດຕິດຕາມເປັນ \"ສະເໝີ\" .</string>
@@ -88,8 +91,8 @@
     <string name="debug_debuglog_recording_progress">ກໍາລັງບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
-    <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
-    <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ละเอียดອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ຕົວຢ່າງ: ຜູ້ພັດທະນາທີ່ກຳລັງແກ້ໄຂບັນຫາ).</string>
+    <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
+    <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ຕົວຢ່າງ: ຜູ້ພັດທະນາທີ່ກຳລັງແກ້ໄຂບັນຫາ).</string>
     <string name="settings_support_installid_label">ID ການຕິດຕັ້ງ</string>
     <string name="settings_support_installid_desc">ບົດລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດແມ່ນບໍ່ເປີດເຜີຍຊື່. ແບ່ງປັນ ID ຕິດຕັ້ງຂອງທ່ານຖ້າຜູ້ພັດທະນາຕ້ອງການຊອກຫາບົດລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
     <string name="settings_support_label">ການຊ່ວຍເຫຼືອ</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
     <string name="settings_debug_autoreports_label">ລາຍງານຂໍ້ບົກພ່ອງອັດຕະໂນມັດ</string>
-    <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string><string name="settings_compatibility_mode_label">ໂໝດຄວາມເຂົ້າກັນໄດ້</string>
+    <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string>
+    <string name="settings_compatibility_mode_label">ໂໝດຄວາມເຂົ້າກັນໄດ້</string>
     <string name="settings_compatibility_mode_description">ປິດການປັບແຕ່ງໃຫ້ເໝາະສົມເພື່ອປັບປຸງຄວາມເຂົ້າກັນໄດ້. ລອງໃຊ້ອັນນີ້ຖ້າທ່ານບໍ່ເຫັນຂໍ້ມູນໃດໆ.</string>
     <string name="help_translate_label">ການແປພາສາ</string>
     <string name="help_translate_description">ຊ່ວຍແປແອັບນີ້ເປັນພາສາທີ່ທ່ານມັກ.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ວິດເຈັດນີ້ຕ້ອງການການເຊື່ອມຕໍ່ໂດຍກົງ (AAP) ກັບອຸປະກອນຂອງທ່ານ. ກວດໃຫ້ແນ່ໃຈວ່າອຸປະກອນຂອງທ່ານໄດ້ຈັບຄູ່ ແລະ ເຊື່ອມຕໍ່ໃນແອັບກ່ອນທີ່ຈະໃຊ້ວິດເຈັດນີ້.</string>
     <string name="anc_widget_no_anc_support_label">ອຸປະກອນນີ້ບໍ່ຮອງຮັບການຄວບຄຸມສຽງລົບກວນ</string>
     <string name="anc_widget_aap_not_connected_label">ບໍ່ໄດ້ເຊື່ອມຕໍ່</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">ຢູ່ໃກ້ແຕ່ບໍ່ໄດ້ເຊື່ອມຕໍ່</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">ບໍ່ຢູ່ໃກ້</string>
     <string name="anc_widget_aap_connecting_label">ກຳລັງເຊື່ອມຕໍ່…</string>
+    <string name="tile_anc_label">ຄວບຄຸມສຽງລົບກວນ</string>
+    <string name="tile_anc_subtitle_permission_required">ຕ້ອງການສິດທິ</string>
+    <string name="tile_anc_subtitle_no_device">ບໍ່ມີອຸປະກອນ</string>
+    <string name="tile_anc_subtitle_no_anc_support">ບໍ່ມີການຄວບຄຸມສຽງລົບກວນ</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth ປິດຢູ່</string>
     <string name="widget_config_screen_title">ການຕັ້ງຄ່າວິດເຈັດ</string>
     <string name="widget_configuration_title">ເລືອກອຸປະກອນ</string>
     <string name="widget_configuration_description">ເລືອກໂປຣໄຟລ໌ອຸປະກອນທີ່ວິດເຈັດນີ້ຄວນສະແດງ.</string>
@@ -149,7 +160,7 @@
     <string name="troubleshooter_title">ຕົວແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_summary">ກວດຫາ ແລະ ແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">ການອອກອາກາດ Bluetooth Low Energy</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂปัญหานี้ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ้ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂບັນຫານີ້ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ້ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
     <string name="troubleshooter_ble_intro_start_action">ເລີ່ມການແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_process_title">ກຳລັງແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_process_subtile">ແຕ່ລະຂັ້ນຕອນໃຊ້ເວລາ 5-10 ວິນາທີ</string>
@@ -235,6 +246,12 @@
     <string name="anc_mode_transparency">ການໂປ່ງໃສ</string>
     <string name="anc_mode_adaptive">ການປັບຕົວ</string>
     <string name="conversation_awareness_label">ການຮັບຮູ້ການສົນທະນາ</string>
+    <string name="settings_conversation_action_label">ເມື່ອທ່ານເລີ່ມເວົ້າ</string>
+    <string name="settings_conversation_action_nothing_label">ບໍ່ເຮັດຫຍັງ</string>
+    <string name="settings_conversation_action_lower_volume_label">ຫຼຸດລະດັບສຽງ</string>
+    <string name="settings_conversation_action_pause_label">ຢຸດສື່ກາງ</string>
+    <string name="settings_conversation_volume_reduction_label">ການຫຼຸດລະດັບສຽງ</string>
+    <string name="signal_badge_ble_cd">ການສະແກນ BLE ໃຊ້ງານຢູ່</string>
     <string name="signal_badge_key_irk_cd">ຢືນຢັນຕົວຕົນແລ້ວ</string>
     <string name="signal_badge_key_encrypted_cd">ການເຊື່ອມຕໍ່ທີ່ເຂົ້າລະຫັດ</string>
     <string name="signal_badge_aap_cd">ການເຊື່ອມຕໍ່ໂດຍກົງທີ່ເຄື່ອນໄຫວ</string>
@@ -446,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ທົ່ວໄປ</string>
     <string name="device_settings_microphone_mode_label">ໄມໂຄຣໂຟນ</string>
-    <string name="device_settings_microphone_mode_description">AirPod ໝິ່ວໃດຖືກໃຊ້ເປັນໄມຂອບພາກ</string>
+    <string name="device_settings_microphone_mode_description">ຫູຟັງຂ້າງໃດທີ່ໃຊ້ເປັນໄມໂຄໂຟນ</string>
     <string name="device_settings_microphone_mode_auto">ອັດຕະໂນມັດ</string>
     <string name="device_settings_microphone_mode_right">ຂວາ</string>
     <string name="device_settings_microphone_mode_left">຋້າຍ</string>

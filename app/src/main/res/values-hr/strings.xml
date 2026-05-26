@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">Automatska pauza</string>
     <string name="settings_autopause_description">Pauzirajte zvuk kada uklonite uređaj iz uha.</string>
     <string name="settings_autopplay_label">Automatska reprodukcija</string>
-    <string name="settings_autoplay_description">Pokrenite reprodukciju zvuka kada se uređaj nosi.</string>
+    <string name="settings_autoplay_description">Nastavi glazbu kad opet staviš slušalice, ali samo ako ju je zaustavio Auto pauza. Pauze koje si sam pokrenuo (telefon, AirPods drška, spavanje) ostaju pauzirane.</string>
+    <string name="settings_start_music_on_wear_label">Pokreni glazbu pri nošenju</string>
+    <string name="settings_start_music_on_wear_description">Uvijek pokušava reproducirati glazbu kad staviš slušalice, čak i nakon ručne pauze.</string>
     <string name="settings_eardetection_info_label">Napomena o detekciji uha</string>
-    <string name="settings_eardetection_info_description">Ako detekcija uha radi samo za jednu slušalicu, to je ograničenje Applea. Samo \"primarna slušalica\" (korištena za mikrofon) se detektira. Konfigurirajte na Apple uređajima: Postavke → Bluetooth → AirPods → Mikrofon.</string><string name="settings_signal_minimum_label">Minimalna kvaliteta signala</string>
+    <string name="settings_eardetection_info_description">Ako detekcija uha radi samo za jednu slušalicu, to je ograničenje Applea. Samo \"primarna slušalica\" (korištena za mikrofon) se detektira. Konfigurirajte na Apple uređajima: Postavke → Bluetooth → AirPods → Mikrofon.</string>
+    <string name="settings_signal_minimum_label">Minimalna kvaliteta signala</string>
     <string name="settings_signal_minimum_description">Minimalna kvaliteta signala koju uređaj mora imati da bi se smatrao vašim.</string>
     <string name="settings_autoconnect_label">Automatsko povezivanje</string>
     <string name="settings_autoconnect_description">Ako se Android ne poveže automatski, možemo ga i mi zatražiti. Ovo će postaviti način praćenja na \'Uvijek\'.</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">Opće prilagodbe koje utječu na cijelu aplikaciju.</string>
     <string name="settings_acknowledgements_label">Zahvale</string>
     <string name="settings_debug_autoreports_label">Automatska izvješća o pogreškama</string>
-    <string name="settings_debug_autoreports_description">Automatski prijavljuje probleme, npr. detalje o rušenju aplikacije kako bih mogao shvatiti kako to popraviti.</string><string name="settings_compatibility_mode_label">Način kompatibilnosti</string>
+    <string name="settings_debug_autoreports_description">Automatski prijavljuje probleme, npr. detalje o rušenju aplikacije kako bih mogao shvatiti kako to popraviti.</string>
+    <string name="settings_compatibility_mode_label">Način kompatibilnosti</string>
     <string name="settings_compatibility_mode_description">Onemogućite optimizacije kako biste poboljšali kompatibilnost. Pokušajte ovo ako ne vidite nikakve podatke.</string>
     <string name="help_translate_label">Prijevod</string>
     <string name="help_translate_description">Pomozite prevesti ovu aplikaciju na svoj omiljeni jezik.</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">Ovaj widget zahtijeva izravnu vezu (AAP) s vašim uređajem. Provjerite je li vaš uređaj uparen i povezan u aplikaciji prije korištenja ovog widgeta.</string>
     <string name="anc_widget_no_anc_support_label">Ovaj uređaj ne podržava kontrolu buke</string>
     <string name="anc_widget_aap_not_connected_label">Nije povezano</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">U blizini, ali nije povezano</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">Nije u blizini</string>
     <string name="anc_widget_aap_connecting_label">Povezivanje…</string>
+    <string name="tile_anc_label">Kontrola buke</string>
+    <string name="tile_anc_subtitle_permission_required">Potrebna dozvola</string>
+    <string name="tile_anc_subtitle_no_device">Nema uređaja</string>
+    <string name="tile_anc_subtitle_no_anc_support">Nema kontrole buke</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth isključen</string>
     <string name="widget_config_screen_title">Konfiguracija widgeta</string>
     <string name="widget_configuration_title">Odaberi uređaj</string>
     <string name="widget_configuration_description">Odaberite koji profil uređaja ovaj widget treba prikazivati.</string>
@@ -239,6 +250,11 @@
     <string name="anc_mode_transparency">Transparentnost</string>
     <string name="anc_mode_adaptive">Prilagodljivo</string>
     <string name="conversation_awareness_label">Svjesnost razgovora</string>
+    <string name="settings_conversation_action_label">Kad počneš govoriti</string>
+    <string name="settings_conversation_action_nothing_label">Ne radi ništa</string>
+    <string name="settings_conversation_action_lower_volume_label">Smanji glasnoću</string>
+    <string name="settings_conversation_action_pause_label">Pauziraj medij</string>
+    <string name="settings_conversation_volume_reduction_label">Smanjenje glasnoće</string>
     <string name="signal_badge_ble_cd">BLE skeniranje aktivno</string>
     <string name="signal_badge_key_irk_cd">Identitet potvrđen</string>
     <string name="signal_badge_key_encrypted_cd">Šifrirana veza</string>
@@ -457,7 +473,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Općenito</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Koji se AirPod koristi kao mikrofon</string>
+    <string name="device_settings_microphone_mode_description">Koja slušalica se koristi kao mikrofon</string>
     <string name="device_settings_microphone_mode_auto">Automatski</string>
     <string name="device_settings_microphone_mode_right">Desni</string>
     <string name="device_settings_microphone_mode_left">Lijevi</string>

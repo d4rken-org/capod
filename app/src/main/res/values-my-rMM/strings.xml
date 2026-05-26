@@ -47,9 +47,12 @@
     <string name="settings_autopause_label">အလိုအလြှောက်ရပ်တန့်ခြင်း</string>
     <string name="settings_autopause_description">သင့်နားကြပ်ကို နားမှဖယ်ရှားသည့်အခါ အသံကိုခေတ္တရပ်ပါ။</string>
     <string name="settings_autopplay_label">အလိုအလြှောက်ဖွင့်ခြင်း</string>
-    <string name="settings_autoplay_description">စက်ပစ္စည်းတပ်ဆင်သည့်အခါ အသံဖွင့်ခြင်းကို စတင်ပါ။</string>
+    <string name="settings_autoplay_description">သင့် pods များကို ပြန်တပ်ဆင်သောအခါ သီချင်းကို ဆက်ဖွင့်သည်၊ သို့သော် Auto pause က ရပ်ထားမှသာ။ သင်ကိုယ်တိုင် ရပ်ထားသော ရပ်ချိန်များ (ဖုန်း၊ AirPods stem၊ အိပ်ချိန်) ကျန်ရှိနေဦးမည်။</string>
+    <string name="settings_start_music_on_wear_label">တပ်ဆင်သောအခါ သီချင်းစတင်ဖွင့်မည်</string>
+    <string name="settings_start_music_on_wear_description">pods တပ်သောအခါ manual pause ပြီးနောက်ပင် သီချင်းကို ဖွင့်ရန် အမြဲကြိုးစားသည်။</string>
     <string name="settings_eardetection_info_label">နားအာရုံခံမှုမှတ်ချက်</string>
-    <string name="settings_eardetection_info_description">နားအာရုံခံမှုသည် pod တစ်ခုအတွက်သာအလုပ်လုပ်ပါက ၎င်းသည် Apple ကန့်သတ်ချက်ဖြစ်သည်။ \"အဓိက pod\" (မိုက်ခရိုဖုန်းအတွက်အသုံးပြုသော) ကိုသာ ရှာဖွေတွေ့ရှိနိုင်သည်။ Apple စက်ပစ္စည်းများတွင် ပြင်ဆင်ပါ: ဆက်တင်များ → Bluetooth → AirPods → မိုက်ခရိုဖုန်း။</string><string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
+    <string name="settings_eardetection_info_description">နားအာရုံခံမှုသည် pod တစ်ခုအတွက်သာအလုပ်လုပ်ပါက ၎င်းသည် Apple ကန့်သတ်ချက်ဖြစ်သည်။ \"အဓိက pod\" (မိုက်ခရိုဖုန်းအတွက်အသုံးပြုသော) ကိုသာ ရှာဖွေတွေ့ရှိနိုင်သည်။ Apple စက်ပစ္စည်းများတွင် ပြင်ဆင်ပါ: ဆက်တင်များ → Bluetooth → AirPods → မိုက်ခရိုဖုန်း။</string>
+    <string name="settings_signal_minimum_label">အနိမ့်ဆုံးအချက်ပြအရည်အသွေး</string>
     <string name="settings_signal_minimum_description">သင့်စက်ပစ္စည်းဟု မှတ်ယူရန် စက်ပစ္စည်းတစ်ခုတွင်ရှိရမည့် အနိမ့်ဆုံးအချက်ပြအရည်အသွေး။</string>
     <string name="settings_autoconnect_label">အလိုအလြှောက်ချိတ်ဆက်ခြင်း</string>
     <string name="settings_autoconnect_description">Android က အလိုအလြှောက်မချိတ်ဆက်ပါက ကျွန်ုပ်တို့လည်း တောင်းဆိုနိုင်သည်။ ၎င်းသည် စောင့်ကြည့်မုဒ်ဆက်တင်ကို \"အမြဲတမ်း\" ဟု သတ်မှတ်ပေးမည်ဖြစ်သည်။</string>
@@ -112,7 +115,8 @@
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
     <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
-    <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string><string name="settings_compatibility_mode_label">လိုက်ဖက်ညီမှုမုဒ်</string>
+    <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
+    <string name="settings_compatibility_mode_label">လိုက်ဖက်ညီမှုမုဒ်</string>
     <string name="settings_compatibility_mode_description">လိုက်ဖက်ညီမှုကိုတိုးတက်စေရန် အကောင်းဆုံးလုပ်ဆောင်မှုများကို ပိတ်ပါ။ သင်ဒေတာတစ်စုံတစ်ရာမတွေ့ပါက ဤအရာကိုစမ်းကြည့်ပါ။</string>
     <string name="help_translate_label">ဘာသာပြန်ဆိုခြင်း</string>
     <string name="help_translate_description">ဤအက်ပ်ကို သင်အကြိုက်ဆုံးဘာသာစကားသို့ ဘာသာပြန်ဆိုရာတွင် ကူညီပါ။</string>
@@ -123,7 +127,14 @@
     <string name="anc_widget_config_aap_required_hint">ဤ widget သည် သင့်ကိရိယာနှင့် တိုက်ရိုက်ချိတ်ဆက်မှု (AAP) လိုအပ်သည်။ ဤ widget ကို အသုံးမပြုမီ app တွင် သင့်ကိရိယာကို တွဲချိတ်ပြီး ချိတ်ဆက်ထားကြောင်း သေချာပါစေ။</string>
     <string name="anc_widget_no_anc_support_label">ဤကိရိယာသည် ဆူညံသံ ထိန်းချုပ်မှုကို မထောက်ပံ့ပါ</string>
     <string name="anc_widget_aap_not_connected_label">ချိတ်ဆက်မထားပါ</string>
+    <string name="anc_widget_aap_not_connected_nearby_description">အနီးတွင်ရှိသော်လည်း ချိတ်ဆက်မထားပါ</string>
+    <string name="anc_widget_aap_not_connected_not_nearby_description">အနီးမရှိပါ</string>
     <string name="anc_widget_aap_connecting_label">ချိတ်ဆက်နေသည်…</string>
+    <string name="tile_anc_label">ဆူညံသံထိန်းချုပ်မှု</string>
+    <string name="tile_anc_subtitle_permission_required">ခွင့်ပြုချက် လိုအပ်သည်</string>
+    <string name="tile_anc_subtitle_no_device">စက်ပစ္စည်းမရှိပါ</string>
+    <string name="tile_anc_subtitle_no_anc_support">ဆူညံသံထိန်းချုပ်မှု မရှိပါ</string>
+    <string name="tile_anc_subtitle_bluetooth_off">Bluetooth ပိတ်ထားသည်</string>
     <string name="widget_config_screen_title">Widget စိမ်ချက်</string>
     <string name="widget_configuration_title">စက်ပစ္စည်းရွေးချယ်ပါ</string>
     <string name="widget_configuration_description">ဤဝစ်ဂျက်တွင် မည်သည့်စက်ပစ္စည်းပရိုဖိုင်ကို ပြသမည်ကို ရွေးချယ်ပါ။</string>
@@ -235,6 +246,11 @@
     <string name="anc_mode_transparency">သဘာဝသံ</string>
     <string name="anc_mode_adaptive">လိုက်လျောညီထွေ</string>
     <string name="conversation_awareness_label">စကားပြော သတိပြုချက်</string>
+    <string name="settings_conversation_action_label">သင် စကားပြောစတင်သောအခါ</string>
+    <string name="settings_conversation_action_nothing_label">ဘာမှ မလုပ်ပါ</string>
+    <string name="settings_conversation_action_lower_volume_label">အသံကျဆင်းအောင်လုပ်မည်</string>
+    <string name="settings_conversation_action_pause_label">မီဒီယာ ရပ်ထားမည်</string>
+    <string name="settings_conversation_volume_reduction_label">အသံလျှော့ချမှု</string>
     <string name="signal_badge_ble_cd">BLE စကင်လုပ်နေသည်</string>
     <string name="signal_badge_key_irk_cd">အထောက်အထား အတည်ပြုပြီး</string>
     <string name="signal_badge_key_encrypted_cd">ကုဒ်ဝှက်ချိတ်ဆက်မှု</string>
@@ -447,7 +463,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">ယေဘူယျ</string>
     <string name="device_settings_microphone_mode_label">မိုက်ခရိုဖုန်း</string>
-    <string name="device_settings_microphone_mode_description">မိုက်အဖြစ် မည်သည့် AirPod ကို အသုံးပြုသည်</string>
+    <string name="device_settings_microphone_mode_description">မည်သည့် earbud ကို မိုက်ခရိုဖုန်းအဖြစ် အသုံးပြုသနည်း</string>
     <string name="device_settings_microphone_mode_auto">အလိုအလျောက်</string>
     <string name="device_settings_microphone_mode_right">ညာ</string>
     <string name="device_settings_microphone_mode_left">ဘယ်</string>
