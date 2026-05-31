@@ -127,6 +127,9 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Settings</string>
     <string name="settings_general_description">General tweaks that affect the whole app.</string>
+
+    <string name="settings_overview_hide_unmatched_label">Hide unmatched devices</string>
+    <string name="settings_overview_hide_unmatched_description">Don\'t show nearby devices that don\'t match any of your profiles in the overview, e.g. other people\'s AirPods.</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
 
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>

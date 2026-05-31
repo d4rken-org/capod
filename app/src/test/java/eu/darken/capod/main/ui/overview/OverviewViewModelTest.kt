@@ -64,6 +64,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var upgradeInfoFlow: MutableStateFlow<UpgradeRepo.Info>
     private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
+    private lateinit var fakeHideUnmatchedDevices: FakeDataStoreValue<Boolean>
 
     @BeforeEach
     fun setup() {
@@ -78,6 +79,7 @@ class OverviewViewModelTest : BaseTest() {
         upgradeInfoFlow = MutableStateFlow(mockk<UpgradeRepo.Info>(relaxed = true))
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
+        fakeHideUnmatchedDevices = FakeDataStoreValue(false)
         Bugs.isDebug.value = false
 
         monitorControl = mockk(relaxed = true)
@@ -95,6 +97,7 @@ class OverviewViewModelTest : BaseTest() {
 
         generalSettings = mockk<GeneralSettings>().also {
             every { it.reactionsHintDismissed } returns fakeReactionsHintDismissed.mock
+            every { it.hideUnmatchedDevices } returns fakeHideUnmatchedDevices.mock
         }
 
         monitorModeResolver = mockk<MonitorModeResolver>().also {
@@ -340,6 +343,68 @@ class OverviewViewModelTest : BaseTest() {
             state.unmatchedDevices shouldBe listOf(unmatched)
             state.visibleProfiledDevices shouldBe listOf(profiled1)
             state.hiddenProfiledDeviceCount shouldBe 1
+        }
+
+        @Test
+        fun `hideUnmatchedDevices defaults to false`() = runTest(testDispatcher) {
+            val vm = createViewModel()
+            val state = vm.state.first()
+
+            state.hideUnmatchedDevices shouldBe false
+        }
+
+        @Test
+        fun `enabling hideUnmatchedDevices setting propagates to state`() = runTest(testDispatcher) {
+            fakeHideUnmatchedDevices.value = true
+
+            val vm = createViewModel()
+            val state = vm.state.first()
+
+            state.hideUnmatchedDevices shouldBe true
+        }
+
+        @Test
+        fun `hideUnmatchedDevices true hides the unmatched section`() {
+            val unmatched = PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null)
+            val shown = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(unmatched),
+                isDebug = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = mockk(relaxed = true),
+                showUnmatchedDevices = false,
+                hideUnmatchedDevices = false,
+            )
+            shown.visibleUnmatchedDevices shouldBe listOf(unmatched)
+            shown.shouldShowUnmatchedSection shouldBe true
+
+            val hidden = shown.copy(hideUnmatchedDevices = true)
+            hidden.visibleUnmatchedDevices shouldBe emptyList()
+            hidden.shouldShowUnmatchedSection shouldBe false
+        }
+
+        @Test
+        fun `only hidden unmatched devices present - no visible content`() {
+            // Guards the dashboard blank-state: when only hidden unmatched devices are nearby there
+            // are no profiled devices AND no visible unmatched section, so the screen shows the
+            // "monitoring active" card instead of an empty list.
+            val unmatched = PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null)
+            val state = OverviewViewModel.State(
+                now = java.time.Instant.now(),
+                permissions = emptySet(),
+                devices = listOf(unmatched),
+                isDebug = false,
+                isBluetoothEnabled = true,
+                profiles = emptyList(),
+                upgradeInfo = mockk(relaxed = true),
+                showUnmatchedDevices = false,
+                hideUnmatchedDevices = true,
+            )
+
+            state.profiledDevices shouldBe emptyList()
+            state.shouldShowUnmatchedSection shouldBe false
         }
     }
 

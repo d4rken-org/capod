@@ -352,17 +352,17 @@ fun OverviewScreen(
                 }
 
                 // 5. Monitoring active card
-                if (state.profiles.isNotEmpty() && state.devices.isEmpty()) {
+                if (state.profiles.isNotEmpty() && state.profiledDevices.isEmpty() && !state.shouldShowUnmatchedSection) {
                     item(key = "monitoring_active") {
                         MonitoringActiveCard()
                     }
                 }
 
                 // 6. Unmatched devices section
-                if (state.unmatchedDevices.isNotEmpty()) {
+                if (state.shouldShowUnmatchedSection) {
                     item(key = "unmatched_header") {
                         UnmatchedDevicesCard(
-                            count = state.unmatchedDevices.size,
+                            count = state.visibleUnmatchedDevices.size,
                             isExpanded = state.showUnmatchedDevices,
                             onToggle = onToggleUnmatched,
                         )
@@ -370,7 +370,7 @@ fun OverviewScreen(
 
                     if (state.showUnmatchedDevices) {
                         itemsIndexed(
-                            items = state.unmatchedDevices,
+                            items = state.visibleUnmatchedDevices,
                             key = { index, device -> unmatchedDeviceKey(device, index) },
                         ) { _, device ->
                             PodDeviceCard(

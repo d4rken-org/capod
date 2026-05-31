@@ -34,7 +34,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.combine as combineFlows
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.flowOf
@@ -77,6 +79,26 @@ class OverviewViewModel @Inject constructor(
 
     private val showUnmatchedDevices = MutableStateFlow(false)
     private val userExpansionOverrides = MutableStateFlow<Set<String>>(emptySet())
+
+    private data class OverviewUiSettings(
+        val reactionsHintDismissed: Boolean,
+        val hideUnmatchedDevices: Boolean,
+    )
+
+    private val overviewUiSettings = combineFlows(
+        generalSettings.reactionsHintDismissed.flow,
+        generalSettings.hideUnmatchedDevices.flow,
+    ) { reactionsHintDismissed, hideUnmatched -> OverviewUiSettings(reactionsHintDismissed, hideUnmatched) }
+
+    init {
+        // When the persistent "hide unmatched" setting is enabled, reset the in-session expand
+        // toggle so the section reappears collapsed if the user later disables the setting.
+        launch {
+            generalSettings.hideUnmatchedDevices.flow
+                .filter { it }
+                .collect { showUnmatchedDevices.value = false }
+        }
+    }
 
     val workerAutolaunch = combine(
         permissionTool.missingScanPermissions,
@@ -134,9 +156,9 @@ class OverviewViewModel @Inject constructor(
         upgradeRepo.upgradeInfo,
         showUnmatchedDevices,
         userExpansionOverrides,
-        generalSettings.reactionsHintDismissed.flow,
+        overviewUiSettings,
         profilesRepo.hadLegacyReactionData,
-    ) { _, permissions, devices, isDebug, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds, reactionsHintDismissed, hadLegacyReactionData ->
+    ) { _, permissions, devices, isDebug, isBluetoothEnabled, profiles, upgradeInfo, showUnmatched, expandedIds, uiSettings, hadLegacyReactionData ->
         // Prune stale overrides (profiles that no longer exist)
         val currentProfileIds = profiles.map { it.id }.toSet()
         val prunedExpandedIds = expandedIds.filter { it in currentProfileIds }.toSet()
@@ -151,7 +173,8 @@ class OverviewViewModel @Inject constructor(
             upgradeInfo = upgradeInfo,
             showUnmatchedDevices = showUnmatched,
             userExpandedIds = prunedExpandedIds,
-            showReactionsHint = hadLegacyReactionData && !reactionsHintDismissed,
+            showReactionsHint = hadLegacyReactionData && !uiSettings.reactionsHintDismissed,
+            hideUnmatchedDevices = uiSettings.hideUnmatchedDevices,
         )
     }.asLiveState()
 
@@ -168,6 +191,7 @@ class OverviewViewModel @Inject constructor(
         val showUnmatchedDevices: Boolean,
         val userExpandedIds: Set<String> = emptySet(),
         val showReactionsHint: Boolean = false,
+        val hideUnmatchedDevices: Boolean = false,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
 
@@ -187,6 +211,11 @@ class OverviewViewModel @Inject constructor(
             get() = if (upgradeInfo.isPro) profiledDevices else profiledDevices.take(FREE_DEVICE_LIMIT)
         val hiddenProfiledDeviceCount: Int get() = profiledDevices.size - visibleProfiledDevices.size
         val unmatchedDevices: List<PodDevice> get() = devices.filter { it.profileId == null }
+
+        /** Unmatched devices actually shown on the dashboard (empty when the hide setting is on). */
+        val visibleUnmatchedDevices: List<PodDevice>
+            get() = if (hideUnmatchedDevices) emptyList() else unmatchedDevices
+        val shouldShowUnmatchedSection: Boolean get() = visibleUnmatchedDevices.isNotEmpty()
 
         val bluetoothIconState: BluetoothIconState
             get() = when {
