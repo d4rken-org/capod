@@ -30,17 +30,22 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.minutes
 
 /**
  * Reacts to Conversational Awareness speaking transitions (AAP `0x4B`) by either lowering media
  * volume or pausing, per the primary device's [ReactionConfig.conversationAction], and reverts when
  * speaking stops. On Android the pod firmware does not duck audio itself, so CAPod performs it.
  *
- * The pod streams classified frames while you talk ([ConversationAwarenessEvent.START] at onset,
- * then [ConversationAwarenessEvent.HOLD] keep-alives) and an explicit [ConversationAwarenessEvent.STOP]
- * when you finish; no frames at all during silence. Disengage happens on STOP, or — if a STOP is
- * dropped — via a stale timeout that fires once frames stop arriving. Each frame (START or HOLD)
- * resets that timer, so a long conversation stays engaged.
+ * Disengage is driven by the pod's explicit end-of-speech frame ([ConversationAwarenessEvent.STOP]).
+ * The pod does NOT reliably stream keep-alive frames while you talk — on some firmware it sends an
+ * onset ([ConversationAwarenessEvent.START]) then nothing for many seconds while speech continues
+ * (observed: CA held engaged 21s with zero `0x4B` frames). So frame-silence must NOT be read as
+ * "speaking ended". [STALE_TIMEOUT] is only a long backstop for the rare case where every terminal
+ * frame is lost while the link stays up; a link drop is handled by the owner-disconnect revert.
+ * [ConversationAwarenessEvent.HOLD] frames (transitional/unknown statuses) keep the reaction engaged
+ * and refresh the backstop.
  *
  * State is a single global slot (media volume / playback is system-wide, not per-device) guarded by
  * a [Mutex] — events, AAP-state-removal, the stale timer, and monitor completion all mutate it.
@@ -182,7 +187,7 @@ class ConversationReaction @Inject constructor(
                 // surprising behaviour. The remaining guards are about real device/playback state.
                 val age = timeSource.elapsedRealtime() - record.at
                 when {
-                    age > PAUSE_RESUME_WINDOW_MS ->
+                    age.milliseconds > PAUSE_RESUME_WINDOW ->
                         log(TAG) { "$reason — resume skipped (stale, ${age}ms)" }
                     primary?.address != record.owner ->
                         log(TAG) { "$reason — resume skipped (primary switched)" }
@@ -242,15 +247,15 @@ class ConversationReaction @Inject constructor(
     }
 
     /**
-     * Must be called under [mutex]. (Re)starts the stale timer for [record]. Reset on every frame
-     * (START/HOLD); if no frame arrives for [STALE_TIMEOUT_MS] the speaking session is treated as
-     * ended (recovers from a dropped STOP). Identity-checked so a late timer can't disengage a newer
-     * session.
+     * Must be called under [mutex]. (Re)starts the backstop timer for [record], reset on every frame
+     * (START/HOLD). If no frame arrives for [STALE_TIMEOUT] the session is force-ended — a last
+     * resort for a fully-dropped terminal frame, not the normal disengage. Identity-checked so a
+     * late timer can't disengage a newer session.
      */
     private fun restartStaleTimer(record: Active) {
         staleJob?.cancel()
         staleJob = appScope.launch {
-            delay(STALE_TIMEOUT_MS)
+            delay(STALE_TIMEOUT)
             val primary = deviceMonitor.primaryDevice().first()
             mutex.withLock {
                 if (active?.id == record.id) {
@@ -268,14 +273,17 @@ class ConversationReaction @Inject constructor(
         private val TAG = logTag("Reaction", "Conversation")
 
         /**
-         * Disengage if no `0x4B` frame arrives for this long while engaged. The pod streams frames
-         * (~1/s) throughout active speech and none during silence, so this both recovers a dropped
-         * STOP and bounds how long a duck can linger. Long enough not to disengage mid-conversation
-         * between frames.
+         * Pure backstop: disengage if no `0x4B` frame arrives for this long while engaged. This is
+         * NOT the normal disengage path — the pod does not stream keep-alives during speech, so a
+         * short timeout would fire mid-conversation (the original 12s value did exactly that).
+         * Normal disengage is the explicit terminal [ConversationAwarenessEvent.STOP] frame; this
+         * only recovers a fully-dropped terminal frame while the link stays up. Kept longer than
+         * [PAUSE_RESUME_WINDOW] so a back-stopped pause is never auto-resumed (only a duck is
+         * restored on stale — a stranded low volume is the worse failure).
          */
-        private const val STALE_TIMEOUT_MS = 12L * 1000L
+        private val STALE_TIMEOUT = 5.minutes
 
-        /** A disengage older than this no longer auto-resumes a pause — unexpected late playback is worse. */
-        private const val PAUSE_RESUME_WINDOW_MS = 2L * 60L * 1000L
+        /** A pause older than this no longer auto-resumes — unexpected late playback is worse. */
+        private val PAUSE_RESUME_WINDOW = 2.minutes
     }
 }
