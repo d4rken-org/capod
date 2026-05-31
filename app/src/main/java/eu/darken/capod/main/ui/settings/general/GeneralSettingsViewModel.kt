@@ -34,6 +34,7 @@ class GeneralSettingsViewModel @Inject constructor(
         val isOffloadedFilteringDisabled: Boolean,
         val isOffloadedBatchingDisabled: Boolean,
         val useIndirectScanResultCallback: Boolean,
+        val hideUnmatchedDevices: Boolean,
         val themeState: ThemeState,
     )
 
@@ -57,7 +58,8 @@ class GeneralSettingsViewModel @Inject constructor(
         },
         generalSettings.themeState,
         isPro,
-    ) { general, compat, themeState, isPro ->
+        generalSettings.hideUnmatchedDevices.flow,
+    ) { general, compat, themeState, isPro, hideUnmatched ->
         State(
             isPro = isPro,
             showConnectedNotification = general[0] as Boolean,
@@ -65,6 +67,7 @@ class GeneralSettingsViewModel @Inject constructor(
             isOffloadedFilteringDisabled = compat[0] as Boolean,
             isOffloadedBatchingDisabled = compat[1] as Boolean,
             useIndirectScanResultCallback = compat[2] as Boolean,
+            hideUnmatchedDevices = hideUnmatched,
             themeState = themeState,
         )
     }.asLiveState()
@@ -92,6 +95,11 @@ class GeneralSettingsViewModel @Inject constructor(
     fun setUseIndirectScanResultCallback(enabled: Boolean) {
         log(TAG, INFO) { "setUseIndirectScanResultCallback($enabled)" }
         generalSettings.useIndirectScanResultCallback.valueBlocking = enabled
+    }
+
+    fun setHideUnmatchedDevices(enabled: Boolean) {
+        log(TAG, INFO) { "setHideUnmatchedDevices($enabled)" }
+        generalSettings.hideUnmatchedDevices.valueBlocking = enabled
     }
 
     fun setThemeMode(mode: ThemeMode) = launch {

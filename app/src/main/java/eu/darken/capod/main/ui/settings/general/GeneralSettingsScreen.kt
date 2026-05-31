@@ -12,6 +12,7 @@ import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Notifications
 import androidx.compose.material.icons.twotone.Palette
+import androidx.compose.material.icons.twotone.VisibilityOff
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -58,6 +59,7 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             onOffloadedFilteringDisabledChanged = { disabled -> vm.setOffloadedFilteringDisabled(disabled) },
             onOffloadedBatchingDisabledChanged = { disabled -> vm.setOffloadedBatchingDisabled(disabled) },
             onUseIndirectScanResultCallbackChanged = { enabled -> vm.setUseIndirectScanResultCallback(enabled) },
+            onHideUnmatchedDevicesChanged = { enabled -> vm.setHideUnmatchedDevices(enabled) },
             onThemeModeSelected = { mode -> vm.setThemeMode(mode) },
             onThemeStyleSelected = { style -> vm.setThemeStyle(style) },
             onThemeColorSelected = { color -> vm.setThemeColor(color) },
@@ -75,6 +77,7 @@ fun GeneralSettingsScreen(
     onOffloadedFilteringDisabledChanged: (Boolean) -> Unit,
     onOffloadedBatchingDisabledChanged: (Boolean) -> Unit,
     onUseIndirectScanResultCallbackChanged: (Boolean) -> Unit,
+    onHideUnmatchedDevicesChanged: (Boolean) -> Unit,
     onThemeModeSelected: (ThemeMode) -> Unit = {},
     onThemeStyleSelected: (ThemeStyle) -> Unit = {},
     onThemeColorSelected: (ThemeColor) -> Unit = {},
@@ -198,6 +201,21 @@ fun GeneralSettingsScreen(
                 )
             }
             item {
+                SettingsBaseItem(
+                    title = stringResource(R.string.settings_overview_hide_unmatched_label),
+                    subtitle = stringResource(R.string.settings_overview_hide_unmatched_description),
+                    icon = Icons.TwoTone.VisibilityOff,
+                    onClick = { onHideUnmatchedDevicesChanged(!state.hideUnmatchedDevices) },
+                    trailingContent = {
+                        Switch(
+                            checked = state.hideUnmatchedDevices,
+                            onCheckedChange = onHideUnmatchedDevicesChanged,
+                            modifier = Modifier.padding(start = 16.dp),
+                        )
+                    },
+                )
+            }
+            item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_compatibility_options_title))
             }
             item {
@@ -267,6 +285,7 @@ private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State
     isOffloadedFilteringDisabled = false,
     isOffloadedBatchingDisabled = false,
     useIndirectScanResultCallback = false,
+    hideUnmatchedDevices = false,
     themeState = ThemeState(),
 )
 
@@ -281,6 +300,7 @@ private fun GeneralSettingsScreenProPreview() = PreviewWrapper {
         onOffloadedFilteringDisabledChanged = {},
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},
+        onHideUnmatchedDevicesChanged = {},
     )
 }
 
@@ -295,5 +315,6 @@ private fun GeneralSettingsScreenNonProPreview() = PreviewWrapper {
         onOffloadedFilteringDisabledChanged = {},
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},
+        onHideUnmatchedDevicesChanged = {},
     )
 }

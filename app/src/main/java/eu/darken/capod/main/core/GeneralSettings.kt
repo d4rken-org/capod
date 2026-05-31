@@ -83,6 +83,8 @@ class GeneralSettings @Inject constructor(
 
     val reactionsHintDismissed = dataStore.createValue("ui.hint.reactions_per_device.dismissed", false)
 
+    val hideUnmatchedDevices = dataStore.createValue("ui.overview.unmatched.hidden", false)
+
     val themeMode = dataStore.createValue(
         "core.ui.theme.mode", ThemeMode.SYSTEM, json,
         onErrorFallbackToDefault = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.DEV,
