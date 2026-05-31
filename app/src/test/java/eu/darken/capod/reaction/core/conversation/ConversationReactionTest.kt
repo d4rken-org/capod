@@ -31,8 +31,9 @@ class ConversationReactionTest : BaseTest() {
     private val primaryAddress: BluetoothAddress = "AA:BB:CC:DD:EE:FF"
     private val otherAddress: BluetoothAddress = "11:22:33:44:55:66"
 
-    // Mirror of ConversationReaction.STALE_TIMEOUT_MS (private there).
-    private val staleTimeoutMs = 12_000L
+    // Mirror of ConversationReaction.STALE_TIMEOUT (private there) — a long backstop, not the
+    // normal disengage path (which is the explicit STOP frame).
+    private val staleTimeoutMs = 5L * 60 * 1000
 
     private lateinit var eventsFlow: MutableSharedFlow<Pair<BluetoothAddress, ConversationAwarenessEvent>>
     private lateinit var statesFlow: MutableStateFlow<Map<BluetoothAddress, AapPodState>>
@@ -148,18 +149,18 @@ class ConversationReactionTest : BaseTest() {
     }
 
     @Test
-    fun `HOLD keep-alive resets the stale timer`() = runTest(UnconfinedTestDispatcher()) {
+    fun `HOLD keep-alive resets the stale backstop`() = runTest(UnconfinedTestDispatcher()) {
         val job = launchReaction()
 
         emit(primaryAddress, ConversationAwarenessEvent.START)
-        advanceTimeBy(8_000)
+        advanceTimeBy(staleTimeoutMs * 7 / 10)
         runCurrent()
-        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // resets the timer
-        advanceTimeBy(8_000) // 8s since the HOLD — still within the window
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // resets the backstop
+        advanceTimeBy(staleTimeoutMs * 7 / 10) // <1 backstop since the HOLD — still engaged
         runCurrent()
         verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
 
-        advanceTimeBy(5_000) // now >12s since the last frame
+        advanceTimeBy(staleTimeoutMs / 2) // now >1 backstop since the last frame
         runCurrent()
         verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
         job.cancel()
@@ -270,6 +271,75 @@ class ConversationReactionTest : BaseTest() {
         emit(primaryAddress, ConversationAwarenessEvent.START) // status 1 then 2 both classify as START
 
         verify(exactly = 1) { mediaControl.duckMusicVolume(any()) }
+        job.cancel()
+    }
+
+    @Test
+    fun `PAUSE stays paused through frame silence, resumes only on explicit STOP, then re-engages`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Regression for the fw …6861 bug: the pod sends an onset, then NO frames for ~20s while
+            // the wearer keeps talking, then a terminal STOP. The old 12s stale timeout resumed media
+            // mid-speech; the backstop must not, and a fresh talk must re-arm.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.START) // status 1 then 2
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            advanceTimeBy(20_000) // 20s of silence — well under the backstop
+            runCurrent()
+            coVerify(exactly = 0) { mediaControl.sendPlay() } // NOT resumed mid-speech
+
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // wearer stopped → pod's terminal frame
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+
+            emit(primaryAddress, ConversationAwarenessEvent.START) // a fresh talk re-arms
+            coVerify(exactly = 2) { mediaControl.sendPause(false) }
+            job.cancel()
+        }
+
+    @Test
+    fun `HOLD frames keep media paused, only terminal STOP resumes`() = runTest(UnconfinedTestDispatcher()) {
+        // fw …6503-style wind-down 1,2,3,0xB,4,8,9: transitional frames must not resume.
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 3
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 0x0B
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 4
+        coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // 8
+        coVerify(exactly = 1) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `STOP from a non-owner does not disengage the active owner`() = runTest(UnconfinedTestDispatcher()) {
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        emit(otherAddress, ConversationAwarenessEvent.STOP) // a different device's STOP
+
+        coVerify(exactly = 0) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `explicit STOP then stale backstop does not double-resume`() = runTest(UnconfinedTestDispatcher()) {
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        coVerify(exactly = 1) { mediaControl.sendPlay() }
+
+        advanceTimeBy(staleTimeoutMs + 500) // backstop would fire if STOP hadn't cancelled it
+        runCurrent()
+        coVerify(exactly = 1) { mediaControl.sendPlay() } // still only once
         job.cancel()
     }
 }

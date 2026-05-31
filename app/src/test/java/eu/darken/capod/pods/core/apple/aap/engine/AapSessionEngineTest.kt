@@ -529,16 +529,21 @@ class AapSessionEngineTest : BaseTest() {
         }
 
         @Test
-        fun `status 6, 8, 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
+        fun `terminal statuses 5, 6, 8, 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
+            // 5 is the terminal wind-down value on fw …6861 (never reaches 6/8/9); 6/8/9 on fw …6503.
+            firstEventFor(5) shouldBe ConversationAwarenessEvent.STOP
             firstEventFor(6) shouldBe ConversationAwarenessEvent.STOP
             firstEventFor(8) shouldBe ConversationAwarenessEvent.STOP
             firstEventFor(9) shouldBe ConversationAwarenessEvent.STOP
         }
 
         @Test
-        fun `intermediate status emits HOLD (keep-alive)`() = runTest(UnconfinedTestDispatcher()) {
+        fun `transitional and unknown statuses emit HOLD (stay engaged)`() = runTest(UnconfinedTestDispatcher()) {
+            // Must never disengage on these — only an explicit terminal STOP does.
             firstEventFor(3) shouldBe ConversationAwarenessEvent.HOLD
+            firstEventFor(4) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(0x0B) shouldBe ConversationAwarenessEvent.HOLD
+            firstEventFor(7) shouldBe ConversationAwarenessEvent.HOLD
         }
     }
 
