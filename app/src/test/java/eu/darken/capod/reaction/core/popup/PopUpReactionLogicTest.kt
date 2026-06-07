@@ -33,10 +33,11 @@ class PopUpReactionLogicTest : BaseTest() {
         private fun evaluate(
             currentLidState: DualApplePods.LidState?,
             lastShownTime: Instant? = null,
+            at: Instant = now,
         ) = popUpReaction.evaluateCasePopUp(
             currentLidState = currentLidState,
             lastShownTime = lastShownTime,
-            now = now,
+            now = at,
             cooldownDuration = cooldown,
         )
 
@@ -78,11 +79,39 @@ class PopUpReactionLogicTest : BaseTest() {
         }
 
         @Test
-        fun `lid CLOSED - should NOT show, should hide, should reset cooldown`() {
+        fun `lid CLOSED - should NOT show, should hide, should NOT reset cooldown`() {
             val decision = evaluate(currentLidState = DualApplePods.LidState.CLOSED)
             decision.shouldShow shouldBe false
             decision.shouldHide shouldBe true
-            decision.shouldResetCooldown shouldBe true
+            decision.shouldResetCooldown shouldBe false
+        }
+
+        @Test
+        fun `lid CLOSED followed by residual OPEN within cooldown - should NOT show`() {
+            val closeDecision = evaluate(currentLidState = DualApplePods.LidState.CLOSED)
+            closeDecision.shouldHide shouldBe true
+            closeDecision.shouldResetCooldown shouldBe false
+
+            val residualOpenDecision = evaluate(
+                currentLidState = DualApplePods.LidState.OPEN,
+                lastShownTime = now,
+                at = now.plusMillis(500),
+            )
+            residualOpenDecision.shouldShow shouldBe false
+        }
+
+        @Test
+        fun `lid CLOSED then OPEN after cooldown elapsed - should show`() {
+            val closeDecision = evaluate(currentLidState = DualApplePods.LidState.CLOSED)
+            closeDecision.shouldHide shouldBe true
+            closeDecision.shouldResetCooldown shouldBe false
+
+            val reopenDecision = evaluate(
+                currentLidState = DualApplePods.LidState.OPEN,
+                lastShownTime = now,
+                at = now.plus(cooldown),
+            )
+            reopenDecision.shouldShow shouldBe true
         }
 
         @Test
