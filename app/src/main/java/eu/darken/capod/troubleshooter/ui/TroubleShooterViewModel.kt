@@ -9,6 +9,7 @@ import eu.darken.capod.common.bluetooth.ScannerMode
 import eu.darken.capod.common.coroutine.DispatcherProvider
 import eu.darken.capod.common.datastore.valueBlocking
 import eu.darken.capod.common.debug.logging.Logging.Priority.INFO
+import eu.darken.capod.common.debug.logging.Logging.Priority.WARN
 import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.uix.ViewModel4
@@ -22,14 +23,13 @@ import eu.darken.capod.pods.core.unknown.UnknownSnapshotBle
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.takeWhile
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 
@@ -46,6 +46,9 @@ class TroubleShooterViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider) {
 
     private val _bleState = MutableStateFlow<BleState>(BleState.Intro())
+
+    /** Guards against re-entrant runs (e.g. a double tap on "Try again"). */
+    private val runLock = Mutex()
 
     data class State(val bleState: BleState)
 
@@ -82,167 +85,182 @@ class TroubleShooterViewModel @Inject constructor(
     }
 
     fun troubleShootBle() = launch(context = dispatcherProvider.IO) {
+        if (!runLock.tryLock()) {
+            log(TAG, WARN) { "troubleShootBle() ignored, a run is already in progress" }
+            return@launch
+        }
         log(TAG, INFO) { "troubleShootBle()" }
 
-        bleScanModeController.withTemporaryOverride(ScannerMode.LOW_LATENCY) override@{
-            try {
-            run {
-                progress("Checking for headphones...")
-                val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                    deviceMonitor.primaryDevice().filterNotNull().firstOrNull()
-                }
-                if (mainDevice != null) {
-                    success("Headphones found, nothing to troubleshoot.")
-                    return@override
-                } else {
-                    progress("Headphones not detected.\n")
-                }
-            }
+        try {
+            bleScanModeController.withTemporaryOverride(ScannerMode.LOW_LATENCY) override@{
+                // The combo under which supported headphones were detected (set in sweep 2).
+                var supportedCombo: BlePodMonitor.CompatOverride? = null
+                // Set only when the run reaches a terminal success. Persisted on exit; staying null
+                // (any failure, or cancellation) means we just clear the override, which restores the
+                // user's original — never-touched — settings.
+                var comboToPersist: BlePodMonitor.CompatOverride? = null
+                try {
+                    run {
+                        progress("Checking for headphones...")
+                        if (findLiveBleHeadphones()) {
+                            success("Headphones found, nothing to troubleshoot.")
+                            return@override
+                        } else {
+                            progress("Headphones not detected.\n")
+                        }
+                    }
 
-            val doScan: suspend (Boolean, Boolean, Boolean, Boolean) -> Collection<BlePodSnapshot> =
-                { hardwareFilteringDisabled,
-                  hardwareBatchingDisabled,
-                  indirectCallback,
-                  unfiltered ->
-                    val sb = StringBuilder("SCAN - Settings: ")
-                    sb.append("hardwareFilteringDisabled=$hardwareFilteringDisabled, ")
-                    sb.append("hardwareBatchingDisabled=$hardwareBatchingDisabled, ")
-                    sb.append("indirectCallback=$indirectCallback, ")
-                    sb.append("unfiltered=$unfiltered")
-                    progress(sb.toString())
-                    generalSettings.isOffloadedFilteringDisabled.valueBlocking = hardwareFilteringDisabled
-                    generalSettings.isOffloadedBatchingDisabled.valueBlocking = hardwareBatchingDisabled
-                    generalSettings.useIndirectScanResultCallback.valueBlocking = indirectCallback
-                    blePodMonitor.setUnfilteredOverride(unfiltered)
+                    val doScan: suspend (BlePodMonitor.CompatOverride, Boolean) -> Collection<BlePodSnapshot> =
+                        { combo, unfiltered ->
+                            progress(
+                                "SCAN - Settings: filteringDisabled=${combo.offloadedFilteringDisabled}, " +
+                                    "batchingDisabled=${combo.offloadedBatchingDisabled}, " +
+                                    "indirectCallback=${combo.indirectCallback}, unfiltered=$unfiltered"
+                            )
+                            blePodMonitor.setCompatOverride(combo)
+                            blePodMonitor.setUnfilteredOverride(unfiltered)
+                            val devices = collectFreshDevices()
+                            log(TAG) { "SCAN: Fresh BLE devices: $devices" }
+                            if (devices.isNotEmpty()) {
+                                progress("SCAN: Received data from ${devices.size} BLE devices")
+                            } else {
+                                progress("SCAN: No data received")
+                            }
+                            devices
+                        }
 
-                    val start = timeSource.elapsedRealtime()
-                    val devices = withTimeoutOrNull(STEP_TIME) {
-                        blePodMonitor.devices
-                            .take(10)
-                            .takeWhile { timeSource.elapsedRealtime() - start < STEP_TIME - 1000 }
-                            .toList()
-                            .flatten()
-                            .distinctBy { it.address }
-                    } ?: emptyList()
-                    log(TAG) { "SCAN: BLE Devices: $devices" }
-                    if (devices.isNotEmpty()) {
-                        progress("SCAN: Received data from ${devices.size} BLE devices")
-                        devices
-                    } else {
-                        progress("SCAN: No data received")
-                        devices
+                    run {
+                        progress("Checking if we can receive BLE data at all.")
+                        val gotData = COMPAT_COMBOS.any { combo -> doScan(combo, true).isNotEmpty() }
+                        if (!gotData) {
+                            failure("Phone is not receiving BLE data.", BleState.Result.Failure.Type.PHONE)
+                            return@override
+                        }
+                    }
+
+                    progress("We received at least some BLE data.\n")
+
+                    run {
+                        progress("Checking for supported headphones.")
+                        supportedCombo = COMPAT_COMBOS.firstOrNull { combo ->
+                            doScan(combo, false).any { it !is UnknownSnapshotBle }
+                        }
+                        if (supportedCombo == null) {
+                            failure("No compatible headphones found", BleState.Result.Failure.Type.HEADPHONES)
+                            return@override
+                        }
+                    }
+
+                    progress("Found some headphones that are supported by CAPod.\n")
+
+                    run {
+                        progress("Checking for your headphones with new BLE settings...")
+                        if (findLiveBleHeadphones()) {
+                            comboToPersist = supportedCombo
+                            success("Found your headphones, new BLE settings worked :)!")
+                            return@override
+                        }
+                    }
+
+                    progress("Still no headphones detected that count as yours.\n")
+
+                    run {
+                        progress("Checking all closeby headphones.")
+
+                        val otherDevices = collectFreshDevices()
+                        otherDevices.forEachIndexed { index, dev -> log(TAG) { "Device #$index: $dev" } }
+
+                        val candidate = otherDevices
+                            .filter { it !is UnknownSnapshotBle }
+                            .maxByOrNull { it.signalQuality }
+
+                        if (candidate == null) {
+                            failure(
+                                "No supported headphones found near your device.",
+                                BleState.Result.Failure.Type.HEADPHONES,
+                            )
+                            return@override
+                        }
+
+                        progress("Headphones found nearby, but not detected as yours.\n")
+                        progress("Creating profile for closest headphones.")
+                        log(TAG, INFO) { "Candidate is $candidate" }
+
+                        profilesRepo.addProfile(
+                            profile = AppleDeviceProfile(
+                                label = context.getString(R.string.troubleshooter_title),
+                                model = candidate.model,
+                            ),
+                            addFirst = true,
+                        )
+
+                        if (findLiveBleHeadphones()) {
+                            comboToPersist = supportedCombo
+                            success("Success! Detected your headphones.")
+                        } else {
+                            failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
+                        }
+                    }
+                } finally {
+                    blePodMonitor.setUnfilteredOverride(false)
+                    try {
+                        // Persist the winning combo before dropping the override so the effective scan
+                        // settings stay equal with no restart flicker. Done in its own try so the
+                        // override is still cleared (restoring originals) even if a write throws.
+                        comboToPersist?.let { persistCompat(it) }
+                    } finally {
+                        blePodMonitor.setCompatOverride(null)
                     }
                 }
-
-            run {
-                progress("Checking if we can receive BLE data at all.")
-                if (doScan(false, false, false, true).isNotEmpty()) return@run
-                if (doScan(false, false, true, true).isNotEmpty()) return@run
-                if (doScan(true, true, true, true).isNotEmpty()) return@run
-                if (doScan(true, true, false, true).isNotEmpty()) return@run
-                if (doScan(true, false, true, true).isNotEmpty()) return@run
-                if (doScan(true, false, false, true).isNotEmpty()) return@run
-                if (doScan(false, true, true, true).isNotEmpty()) return@run
-                if (doScan(false, true, false, true).isNotEmpty()) return@run
-
-                failure("Phone is not receiving BLE data.", BleState.Result.Failure.Type.PHONE)
-
-                generalSettings.isOffloadedFilteringDisabled.valueBlocking = false
-                generalSettings.isOffloadedBatchingDisabled.valueBlocking = false
-                generalSettings.useIndirectScanResultCallback.valueBlocking = false
-
-                return@override
             }
-
-            progress("We received at least some BLE data.\n")
-
-            run {
-                progress("Checking for supported headphones.")
-
-                if (doScan(false, false, false, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(false, false, true, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(true, true, true, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(true, true, false, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(true, false, true, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(true, false, false, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(false, true, true, false).any { it !is UnknownSnapshotBle }) return@run
-                if (doScan(false, true, false, false).any { it !is UnknownSnapshotBle }) return@run
-
-                failure("No compatible headphones found", BleState.Result.Failure.Type.HEADPHONES)
-
-                generalSettings.isOffloadedFilteringDisabled.valueBlocking = false
-                generalSettings.isOffloadedBatchingDisabled.valueBlocking = false
-                generalSettings.useIndirectScanResultCallback.valueBlocking = false
-
-                return@override
-            }
-
-            progress("Found some headphones that are supported by CAPod.\n")
-
-            run {
-                progress("Checking for your headphones with new BLE settings...")
-                val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                    deviceMonitor.primaryDevice().filterNotNull().firstOrNull()
-                }
-                if (mainDevice != null) {
-                    success("Found your headphones, new BLE settings worked :)!")
-                    return@override
-                }
-            }
-
-            progress("Still no headphones detected that count as yours.\n")
-
-            run {
-                progress("Checking all closeby headphones.")
-
-                val otherDevices = withTimeoutOrNull(STEP_TIME) {
-                    val start = timeSource.elapsedRealtime()
-                    blePodMonitor.devices
-                        .take(10)
-                        .takeWhile { timeSource.elapsedRealtime() - start < STEP_TIME - 1000 }
-                        .toList()
-                        .flatten()
-                        .distinctBy { it.address }
-                } ?: emptyList()
-
-                otherDevices.forEachIndexed { index, dev -> log(TAG) { "Device #$index: $dev" } }
-
-                if (otherDevices.isEmpty()) {
-                    failure("No supported headphones found near your device.", BleState.Result.Failure.Type.HEADPHONES)
-                    return@override
-                }
-
-                progress("Headphones found nearby, but not detected as yours.\n")
-                progress("Creating profile for closest headphones.")
-
-                val candidate = otherDevices
-                    .filter { it !is UnknownSnapshotBle }
-                    .maxBy { it.signalQuality }
-
-                log(TAG, INFO) { "Candidate is $candidate" }
-
-                profilesRepo.addProfile(
-                    profile = AppleDeviceProfile(
-                        label = context.getString(R.string.troubleshooter_title),
-                        model = candidate.model,
-                    ),
-                    addFirst = true,
-                )
-
-                val mainDevice = withTimeoutOrNull(STEP_TIME) {
-                    deviceMonitor.primaryDevice().filterNotNull().firstOrNull()
-                }
-
-                if (mainDevice != null) {
-                    success("Success! Detected your headphones.")
-                } else {
-                    failure("No headphones detected near your device.", BleState.Result.Failure.Type.HEADPHONES)
-                }
-            }
-            } finally {
-                blePodMonitor.setUnfilteredOverride(false)
-            }
+        } finally {
+            runLock.unlock()
         }
+    }
+
+    /**
+     * Waits up to [STEP_TIME] for the primary profile to be backed by a *fresh, live BLE*
+     * observation. A cached-only / AAP-only primary does not count — the troubleshooter is about
+     * whether BLE advertisements are actually reaching us. The freshness cutoff (snapshot seen at or
+     * after this call) means it reflects the currently-active scan settings and doesn't rely on the
+     * device cache having been cleared beforehand.
+     */
+    private suspend fun findLiveBleHeadphones(): Boolean {
+        val threshold = timeSource.now()
+        return withTimeoutOrNull(STEP_TIME) {
+            deviceMonitor.primaryDevice().firstOrNull { device ->
+                device?.ble != null && (device.seenLastAt?.let { it >= threshold } == true)
+            } != null
+        } ?: false
+    }
+
+    /**
+     * Collects BLE devices observed *after the current scan settings take effect*. Option changes
+     * restart the scan after a throttle, and [BlePodMonitor] keeps a 20s device cache, so without a
+     * freshness cutoff a stale observation from a previous combo could be mistaken for a "win".
+     */
+    private suspend fun collectFreshDevices(): List<BlePodSnapshot> {
+        // Drop anything cached under a previous combo so it can't satisfy this attempt.
+        blePodMonitor.clearDeviceCache()
+        val freshThreshold = timeSource.now().plusMillis(SCAN_SETTLE_MS)
+        val start = timeSource.elapsedRealtime()
+        val collected = mutableListOf<BlePodSnapshot>()
+        // Accumulate as we go: a timeout must not discard what we already observed. toList() only
+        // returns once the flow completes, which a quiet channel may never do within the window.
+        withTimeoutOrNull(STEP_TIME) {
+            blePodMonitor.devices
+                .takeWhile { timeSource.elapsedRealtime() - start < STEP_TIME - 1000 }
+                .collect { snapshots -> collected.addAll(snapshots) }
+        }
+        return collected
+            .filter { it.seenLastAt >= freshThreshold }
+            .distinctBy { it.address }
+    }
+
+    private fun persistCompat(combo: BlePodMonitor.CompatOverride) {
+        generalSettings.isOffloadedFilteringDisabled.valueBlocking = combo.offloadedFilteringDisabled
+        generalSettings.isOffloadedBatchingDisabled.valueBlocking = combo.offloadedBatchingDisabled
+        generalSettings.useIndirectScanResultCallback.valueBlocking = combo.indirectCallback
     }
 
     sealed class BleState {
@@ -294,6 +312,29 @@ class TroubleShooterViewModel @Inject constructor(
 
     companion object {
         const val STEP_TIME = 10 * 1000L
+
+        /**
+         * Grace period after switching compat settings before an observation counts as "fresh".
+         * Covers [BlePodMonitor]'s ~1s scan-option throttle plus the scanner restart.
+         */
+        const val SCAN_SETTLE_MS = 1500L
+
+        /**
+         * Compatibility combinations to probe, ordered fewest-disables-first so the first one that
+         * works (and gets persisted) is the *minimal* set of overrides — e.g. a phone that only
+         * needs batching disabled won't also get filtering disabled. Triple semantics:
+         * (offloadedFilteringDisabled, offloadedBatchingDisabled, indirectCallback).
+         */
+        val COMPAT_COMBOS: List<BlePodMonitor.CompatOverride> = listOf(
+            BlePodMonitor.CompatOverride(false, false, false), // baseline (no overrides)
+            BlePodMonitor.CompatOverride(false, true, false),  // batching only
+            BlePodMonitor.CompatOverride(true, false, false),  // filtering only
+            BlePodMonitor.CompatOverride(false, false, true),  // indirect callback only
+            BlePodMonitor.CompatOverride(false, true, true),   // batching + indirect
+            BlePodMonitor.CompatOverride(true, false, true),   // filtering + indirect
+            BlePodMonitor.CompatOverride(true, true, false),   // filtering + batching
+            BlePodMonitor.CompatOverride(true, true, true),    // everything
+        )
 
         val TAG = logTag("TroubleShooter", "VM")
     }
