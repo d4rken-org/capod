@@ -60,6 +60,17 @@ class BlePodMonitor @Inject constructor(
     private val cacheLock = Mutex()
 
     /**
+     * Drops all cached observations. The troubleshooter calls this between probe attempts so a
+     * previous compat combo's cached devices (kept up to [STALE_DEVICE_TIMEOUT]) can't leak into
+     * the next attempt and falsely satisfy it — including via [preferCaseContextPod], which would
+     * otherwise hand back a stale snapshot whose timestamp predates the fresh scan.
+     */
+    suspend fun clearDeviceCache() = cacheLock.withLock {
+        log(TAG) { "clearDeviceCache()" }
+        deviceCache.clear()
+    }
+
+    /**
      * Ephemeral override that disables the proximity-pairing scan filter so
      * the troubleshooter can collect raw BLE broadcasts. Resets to false on
      * every process start; the troubleshooter is the only writer.
@@ -68,6 +79,40 @@ class BlePodMonitor @Inject constructor(
 
     fun setUnfilteredOverride(enabled: Boolean) {
         unfilteredOverride.value = enabled
+    }
+
+    /**
+     * Ephemeral override for the three BLE compatibility options. The troubleshooter uses this to
+     * probe combinations without writing the user's persisted settings: while set, it fully replaces
+     * the persisted compat values for the active scan. Resets to null on every process start; the
+     * troubleshooter is the only writer and always clears it when finished, so clearing it restores
+     * the user's original settings for free.
+     */
+    private val compatOverride = MutableStateFlow<CompatOverride?>(null)
+
+    fun setCompatOverride(override: CompatOverride?) {
+        log(TAG) { "setCompatOverride($override)" }
+        compatOverride.value = override
+    }
+
+    data class CompatOverride(
+        val offloadedFilteringDisabled: Boolean,
+        val offloadedBatchingDisabled: Boolean,
+        val indirectCallback: Boolean,
+    )
+
+    /** Persisted compat settings, transparently replaced by [compatOverride] while it is set. */
+    private val effectiveCompat: Flow<CompatOverride> = combine(
+        compatOverride,
+        generalSettings.isOffloadedFilteringDisabled.flow,
+        generalSettings.isOffloadedBatchingDisabled.flow,
+        generalSettings.useIndirectScanResultCallback.flow,
+    ) { override, filteringDisabled, batchingDisabled, indirectCallback ->
+        override ?: CompatOverride(
+            offloadedFilteringDisabled = filteringDisabled,
+            offloadedBatchingDisabled = batchingDisabled,
+            indirectCallback = indirectCallback,
+        )
     }
 
     val devices: Flow<List<BlePodSnapshot>> = combine(
@@ -145,22 +190,14 @@ class BlePodMonitor @Inject constructor(
     private fun createBleScanner() = combine(
         bleScanModeController.scannerMode,
         unfilteredOverride,
-        generalSettings.isOffloadedBatchingDisabled.flow,
-        generalSettings.isOffloadedFilteringDisabled.flow,
-        generalSettings.useIndirectScanResultCallback.flow,
-    ) {
-            scannermode,
-            showUnfiltered,
-            isOffloadedBatchingDisabled,
-            isOffloadedFilteringDisabled,
-            useIndirectScanResultCallback,
-        ->
+        effectiveCompat,
+    ) { scannermode, showUnfiltered, compat ->
         ScannerOptions(
             scannerMode = scannermode,
             showUnfiltered = showUnfiltered,
-            offloadedFilteringDisabled = isOffloadedFilteringDisabled,
-            offloadedBatchingDisabled = isOffloadedBatchingDisabled,
-            disableDirectCallback = useIndirectScanResultCallback,
+            offloadedFilteringDisabled = compat.offloadedFilteringDisabled,
+            offloadedBatchingDisabled = compat.offloadedBatchingDisabled,
+            disableDirectCallback = compat.indirectCallback,
         )
     }
         .throttleLatest(1000)
