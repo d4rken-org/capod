@@ -47,9 +47,9 @@
     <string name="settings_autopause_label">Автопауза</string>
     <string name="settings_autopause_description">Приостановка аудио при удалении устройства из уха.</string>
     <string name="settings_autopplay_label">Автовоспроизведение</string>
-    <string name="settings_autoplay_description">Возобновляет музыку, когда вы снова надеваете наушники, но только если воспроизведение остановила функция «Авто-пауза». Паузы, которые вы поставили вручную (с телефона, кнопки AirPods или по таймеру сна), сохраняются.</string>
+    <string name="settings_autoplay_description">Возобновите музыку, когда снова надеваете наушники, но только если воспроизведение было остановлено функцией «Автопауза». Паузы, которые Вы поставили вручную (с телефона, AirPods или по таймеру сна), сохраняются.</string>
     <string name="settings_start_music_on_wear_label">Запускать музыку при надевании</string>
-    <string name="settings_start_music_on_wear_description">Всегда пытается воспроизвести музыку, когда вы надеваете наушники, даже после ручной паузы.</string>
+    <string name="settings_start_music_on_wear_description">Всегда пытается воспроизвести музыку, когда Вы надеваете наушники, даже после ручной паузы.</string>
     <string name="settings_eardetection_info_label">Уведомление об обнаружении уха</string>
     <string name="settings_eardetection_info_description">Если обнаружение уха работает только для одного наушника, это ограничение Apple. Обнаруживается только \"основной наушник\" (используемый для микрофона). Настроить на устройствах Apple: Настройки → Bluetooth → AirPods → Микрофон.</string>
     <string name="settings_signal_minimum_label">Минимальное качество сигнала</string>
@@ -253,10 +253,10 @@ AL_Cool_T</string>
     <string name="anc_mode_transparency">Прозрачность</string>
     <string name="anc_mode_adaptive">Адаптивный</string>
     <string name="conversation_awareness_label">Распознавание голоса в разговоре</string>
-    <string name="settings_conversation_action_label">Когда вы начинаете говорить</string>
+    <string name="settings_conversation_action_label">Когда Вы начинаете говорить</string>
     <string name="settings_conversation_action_nothing_label">Ничего не делать</string>
     <string name="settings_conversation_action_lower_volume_label">Уменьшить громкость</string>
-    <string name="settings_conversation_action_pause_label">Пауза медиа</string>
+    <string name="settings_conversation_action_pause_label">Приостановить медиа</string>
     <string name="settings_conversation_volume_reduction_label">Снижение громкости</string>
     <string name="signal_badge_ble_cd">BLE сканирование активно</string>
     <string name="signal_badge_key_irk_cd">Личность подтверждена</string>

@@ -6,6 +6,6 @@
     <string name="upgrade_foss_preamble">CAPod FOSS مجاني ومفتوح المصدر. إذا وجدته مفيدًا، ففكّر في دعم تطويره للمساعدة في استمرار المشروع.</string>
     <string name="upgrade_foss_sponsor_action">دعم المشروع</string>
     <string name="upgrade_foss_sponsor_subtitle">لا إعلانات. لا تتبع. لا قيود من Google Play.</string>
-    <string name="upgrade_foss_sponsor_returned_early">هل عدتم فعلًا؟ دعمكم يُبقي CAPod حيًا.</string>
+    <string name="upgrade_foss_sponsor_returned_early">هل عدت فعلًا؟ دعمكم يُبقي CAPod حيًا.</string>
     <string name="upgrade_badge_label">البرمجيات الحرة (FOSS)</string>
 </resources>

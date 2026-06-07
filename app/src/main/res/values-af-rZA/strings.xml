@@ -506,7 +506,7 @@
     <string name="device_settings_category_connections_label">Gekoppelde toestelle</string>
     <string name="device_settings_connected_devices_description">Ander toestelle wat tans aan hierdie AirPods gekoppel is</string>
     <string name="device_settings_connected_device_label">Toestel %d</string>
-    <string name="device_settings_connected_device_call">In \’n oproep</string>
+    <string name="device_settings_connected_device_call">In ’n oproep</string>
     <string name="device_settings_connected_device_media">Speel media</string>
     <string name="device_settings_noise_control_label">Geraasbeheer</string>
     <string name="device_settings_eq_label">Egaliseerder</string>
