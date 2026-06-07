@@ -13,6 +13,8 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.worker.MonitorControl
+import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import io.kotest.matchers.shouldBe
@@ -25,6 +27,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -552,6 +555,88 @@ class OverviewViewModelTest : BaseTest() {
 
             val event = vm.requestPermissionEvent.first()
             event shouldBe Permission.BLUETOOTH
+        }
+    }
+
+    @Nested
+    inner class TroubleshootSuggestionTests {
+
+        private val connectedAddress = "AA:BB:CC:DD:EE:FF"
+
+        private fun connectedProfile(): DeviceProfile = AppleDeviceProfile(
+            label = "Test",
+            model = PodModel.AIRPODS_PRO2,
+            address = connectedAddress,
+        )
+
+        private fun connectedBtDevice() = mockk<BluetoothDevice2>(relaxed = true) {
+            every { address } returns connectedAddress
+        }
+
+        private fun setConnectedButNoLiveData() {
+            profilesFlow.value = listOf(connectedProfile())
+            connectedDevicesFlow.value = listOf(connectedBtDevice())
+            devicesFlow.value = emptyList()
+        }
+
+        @Test
+        fun `appears only after the debounce delay`() = runTest(testDispatcher) {
+            setConnectedButNoLiveData()
+            val vm = createViewModel()
+            var latest: OverviewViewModel.State? = null
+            backgroundScope.launch { vm.state.collect { latest = it } }
+
+            advanceTimeBy(14_000)
+            latest!!.showTroubleshootSuggestion shouldBe false
+
+            advanceTimeBy(2_000)
+            latest!!.showTroubleshootSuggestion shouldBe true
+        }
+
+        @Test
+        fun `suppressed while any pod is live even after the delay`() = runTest(testDispatcher) {
+            // #603 duplicate state: broadcasts ARE arriving (a live pod exists), so the card must
+            // not claim "no data" even though a profiled card may momentarily read as non-live.
+            profilesFlow.value = listOf(connectedProfile())
+            connectedDevicesFlow.value = listOf(connectedBtDevice())
+            devicesFlow.value = listOf(PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null))
+
+            val vm = createViewModel()
+            var latest: OverviewViewModel.State? = null
+            backgroundScope.launch { vm.state.collect { latest = it } }
+
+            advanceTimeBy(20_000)
+            latest!!.showTroubleshootSuggestion shouldBe false
+        }
+
+        @Test
+        fun `not shown when no profile is system-connected`() = runTest(testDispatcher) {
+            profilesFlow.value = listOf(connectedProfile())
+            connectedDevicesFlow.value = emptyList()
+            devicesFlow.value = emptyList()
+
+            val vm = createViewModel()
+            var latest: OverviewViewModel.State? = null
+            backgroundScope.launch { vm.state.collect { latest = it } }
+
+            advanceTimeBy(20_000)
+            latest!!.showTroubleshootSuggestion shouldBe false
+        }
+
+        @Test
+        fun `hides immediately when live data returns before the delay`() = runTest(testDispatcher) {
+            setConnectedButNoLiveData()
+            val vm = createViewModel()
+            var latest: OverviewViewModel.State? = null
+            backgroundScope.launch { vm.state.collect { latest = it } }
+
+            advanceTimeBy(10_000)
+            latest!!.showTroubleshootSuggestion shouldBe false
+
+            // A broadcast arrives before the 15s window elapses — the pending suggestion is cancelled.
+            devicesFlow.value = listOf(PodDevice(profileId = null, ble = mockk(relaxed = true), aap = null))
+            advanceTimeBy(10_000)
+            latest!!.showTroubleshootSuggestion shouldBe false
         }
     }
 }

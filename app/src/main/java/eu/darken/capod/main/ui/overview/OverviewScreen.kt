@@ -61,6 +61,7 @@ import eu.darken.capod.main.ui.overview.cards.NoProfilesCard
 import eu.darken.capod.main.ui.overview.cards.PermissionCard
 import eu.darken.capod.main.ui.overview.cards.ReactionsMovedHintCard
 import eu.darken.capod.main.ui.overview.cards.SinglePodsCard
+import eu.darken.capod.main.ui.overview.cards.TroubleshootSuggestionCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
 import eu.darken.capod.monitor.core.PodDevice
@@ -172,6 +173,7 @@ fun OverviewScreenHost(vm: OverviewViewModel = hiltViewModel()) {
         },
         onManageDevices = { vm.goToDeviceManager() },
         onSettings = { vm.goToSettings() },
+        onTroubleShooter = { vm.goToTroubleShooter() },
         onUpgrade = { vm.onUpgrade() },
         onToggleUnmatched = { vm.toggleUnmatchedDevices() },
         onAncModeChange = { device, mode -> vm.setAncMode(device, mode) },
@@ -194,6 +196,7 @@ fun OverviewScreen(
     onBluetoothSettings: () -> Unit,
     onManageDevices: () -> Unit,
     onSettings: () -> Unit,
+    onTroubleShooter: () -> Unit = {},
     onUpgrade: () -> Unit,
     onToggleUnmatched: () -> Unit,
     onAncModeChange: (PodDevice, AapSetting.AncMode.Value) -> Unit = { _, _ -> },
@@ -348,6 +351,13 @@ fun OverviewScreen(
                             upgradeType = state.upgradeInfo.type,
                             onUpgrade = onUpgrade,
                         )
+                    }
+                }
+
+                // 4c. Troubleshooter suggestion — connected via audio but no live data is reaching us
+                if (state.showTroubleshootSuggestion) {
+                    item(key = "troubleshoot_suggestion") {
+                        TroubleshootSuggestionCard(onTroubleShooter = onTroubleShooter)
                     }
                 }
 

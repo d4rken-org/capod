@@ -39,6 +39,7 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
@@ -83,12 +84,45 @@ class OverviewViewModel @Inject constructor(
     private data class OverviewUiSettings(
         val reactionsHintDismissed: Boolean,
         val hideUnmatchedDevices: Boolean,
+        val showTroubleshootSuggestion: Boolean,
     )
+
+    /**
+     * True when a profile is connected to the system (audio) but CAPod has *no* live data for any
+     * device — the classic "broadcasts are being dropped by the ROM" symptom (e.g. some HyperOS
+     * phones, see #603). Surfaced as a hint pointing at the Troubleshooter, which can probe and
+     * persist a working compatibility combo. Debounced so it doesn't flash during the brief window
+     * between an audio connection and the first BLE broadcast. Suppressed whenever any pod is live,
+     * so it never claims "no data" while data is visibly arriving (incl. the #603 duplicate state).
+     */
+    private val troubleshootSuggestion = combineFlows(
+        profilesRepo.profiles,
+        bluetoothManager.connectedDevices.onStart { emit(emptyList()) },
+        deviceMonitor.devices,
+        permissionTool.missingScanPermissions,
+    ) { profiles, connectedDevices, devices, missingScanPermissions ->
+        val connectedAddresses = connectedDevices.mapTo(mutableSetOf()) { it.address }
+        val anyProfileConnected = profiles.any { it.address != null && it.address in connectedAddresses }
+        val anyLivePod = devices.any { it.isLive }
+        missingScanPermissions.isEmpty() && anyProfileConnected && !anyLivePod
+    }
+        .distinctUntilChanged()
+        .flatMapLatest { conditionMet ->
+            if (conditionMet) flow {
+                delay(TROUBLESHOOT_SUGGESTION_DELAY_MS)
+                emit(true)
+            } else flowOf(false)
+        }
+        .onStart { emit(false) }
+        .distinctUntilChanged()
 
     private val overviewUiSettings = combineFlows(
         generalSettings.reactionsHintDismissed.flow,
         generalSettings.hideUnmatchedDevices.flow,
-    ) { reactionsHintDismissed, hideUnmatched -> OverviewUiSettings(reactionsHintDismissed, hideUnmatched) }
+        troubleshootSuggestion,
+    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion ->
+        OverviewUiSettings(reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion)
+    }
 
     init {
         // When the persistent "hide unmatched" setting is enabled, reset the in-session expand
@@ -175,6 +209,7 @@ class OverviewViewModel @Inject constructor(
             userExpandedIds = prunedExpandedIds,
             showReactionsHint = hadLegacyReactionData && !uiSettings.reactionsHintDismissed,
             hideUnmatchedDevices = uiSettings.hideUnmatchedDevices,
+            showTroubleshootSuggestion = uiSettings.showTroubleshootSuggestion,
         )
     }.asLiveState()
 
@@ -192,6 +227,7 @@ class OverviewViewModel @Inject constructor(
         val userExpandedIds: Set<String> = emptySet(),
         val showReactionsHint: Boolean = false,
         val hideUnmatchedDevices: Boolean = false,
+        val showTroubleshootSuggestion: Boolean = false,
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
 
@@ -255,6 +291,11 @@ class OverviewViewModel @Inject constructor(
         navTo(Nav.Settings.Index)
     }
 
+    fun goToTroubleShooter() {
+        log(TAG, INFO) { "goToTroubleShooter()" }
+        navTo(Nav.Main.TroubleShooter)
+    }
+
     fun goToDeviceManager() {
         log(TAG, INFO) { "goToDeviceManager()" }
         navTo(Nav.Main.DeviceManager)
@@ -315,6 +356,14 @@ class OverviewViewModel @Inject constructor(
 
     companion object {
         private const val FREE_DEVICE_LIMIT = 1
+
+        /**
+         * How long the "connected but no live data" condition must hold before the troubleshooter
+         * hint appears, so it doesn't flash during the gap between an audio connection and the first
+         * BLE broadcast.
+         */
+        private const val TROUBLESHOOT_SUGGESTION_DELAY_MS = 15_000L
+
         private val TAG = logTag("Overview", "VM")
     }
 }
