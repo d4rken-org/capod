@@ -13,9 +13,12 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.distinctUntilChangedBy
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.merge
 import java.time.Duration
@@ -34,8 +37,12 @@ class PopUpReaction @Inject constructor(
 
     private fun monitorCase(): Flow<Event> = deviceMonitor.primaryDevice()
         .distinctUntilChangedBy {
-            // Re-emit on profile changes (eligibility) AND on raw BLE state changes (lid).
-            Triple(it?.profileId, it?.reactions?.showPopUpOnCaseOpen, it?.rawDataHex)
+            // Re-emit on profile changes (eligibility), raw BLE changes (content), AND the derived
+            // lid state. The latter is essential: caseLidState is recovered from history, so it can
+            // flip OPEN<->CLOSED while the *selected* frame's raw bytes stay identical (e.g. a steady
+            // out-of-case frame while a sibling in-case frame updates). Keying on rawDataHex alone
+            // would swallow that transition and the popup would miss its show/hide.
+            listOf(it?.profileId, it?.reactions?.showPopUpOnCaseOpen, it?.rawDataHex, it?.caseLidState)
         }
         .withPrevious()
         .setupCommonEventHandlers(TAG) { "popUpCase" }
@@ -71,7 +78,7 @@ class PopUpReaction @Inject constructor(
             throttleCasePopUps(current)
         }
 
-    private fun throttleCasePopUps(current: PodDevice): Event? {
+    internal fun throttleCasePopUps(current: PodDevice): Event? {
         val cooldownKey = current.profileId ?: current.identifier?.toString() ?: return null
         val now = timeSource.now()
         val lastShown = caseCoolDowns[cooldownKey]
@@ -95,9 +102,9 @@ class PopUpReaction @Inject constructor(
             }
 
             decision.shouldHide -> {
-                if (!decision.shouldResetCooldown) {
-                    caseCoolDowns[cooldownKey] = now
-                }
+                // Don't stamp the cooldown on a non-CLOSED hide (UNKNOWN/NOT_IN_CASE). Refreshing it
+                // here would let a transient UNKNOWN (e.g. a brief out-of-case frame) suppress a
+                // genuine OPEN for the whole cooldown window. CLOSED still resets it above.
                 Event.PopupHide(now)
             }
 
@@ -192,7 +199,48 @@ class PopUpReaction @Inject constructor(
         }
         .setupCommonEventHandlers(TAG) { "popUpConnection" }
 
-    fun monitor(): Flow<Event> = merge(monitorCase(), monitorConnection())
+    /**
+     * Backstop for case-open popups that never receive a CLOSED frame because the device left BLE
+     * range while the lid was open — otherwise the overlay lingers until manually dismissed (one of
+     * the symptoms in #598). A ticker re-checks the primary device's freshness; once a previously
+     * fresh OPEN broadcast goes stale past [CASE_OPEN_STALE_TIMEOUT] (no newer advertisement, or the
+     * device dropped to cache-only), a single Hide is emitted. The lid-driven [monitorCase] still
+     * handles the normal close; a redundant Hide here is harmless ([PopUpWindow.close] is idempotent).
+     */
+    private fun monitorCaseStaleClose(): Flow<Event> = combine(
+        deviceMonitor.primaryDevice(),
+        staleCheckTicker(),
+    ) { device, _ -> isCaseOpenBroadcastFresh(device) }
+        .distinctUntilChanged()
+        .withPrevious()
+        .mapNotNull { (wasFresh, isFresh) ->
+            if (wasFresh == true && !isFresh) {
+                log(TAG) { "Case-open broadcast went stale, emitting Hide" }
+                Event.PopupHide(timeSource.now())
+            } else {
+                null
+            }
+        }
+        .setupCommonEventHandlers(TAG) { "popUpCaseStale" }
+
+    /** True while the primary device is eligible and currently advertising a fresh OPEN lid. */
+    internal fun isCaseOpenBroadcastFresh(device: PodDevice?): Boolean {
+        if (device?.reactions?.showPopUpOnCaseOpen != true) return false
+        if (device.caseLidState != DualApplePods.LidState.OPEN) return false
+        // Track BLE freshness specifically, not PodDevice.seenLastAt (which also counts AAP/cache):
+        // the lid is a BLE-only signal, so a live AAP socket must not keep a stale OPEN on screen.
+        val bleSeenLastAt = device.ble?.seenLastAt ?: return false
+        return Duration.between(bleSeenLastAt, timeSource.now()) <= CASE_OPEN_STALE_TIMEOUT
+    }
+
+    private fun staleCheckTicker(): Flow<Unit> = flow {
+        while (true) {
+            emit(Unit)
+            delay(STALE_CHECK_INTERVAL.toMillis())
+        }
+    }
+
+    fun monitor(): Flow<Event> = merge(monitorCase(), monitorConnection(), monitorCaseStaleClose())
 
     sealed class Event {
         data class PopupShow(
@@ -296,5 +344,11 @@ class PopUpReaction @Inject constructor(
 
     companion object {
         private val TAG = logTag("Reaction", "PopUp")
+
+        /** A case-open popup is force-dismissed once its OPEN broadcast hasn't refreshed for this long. */
+        private val CASE_OPEN_STALE_TIMEOUT: Duration = Duration.ofSeconds(4)
+
+        /** How often the stale-close backstop re-evaluates freshness. */
+        private val STALE_CHECK_INTERVAL: Duration = Duration.ofSeconds(2)
     }
 }

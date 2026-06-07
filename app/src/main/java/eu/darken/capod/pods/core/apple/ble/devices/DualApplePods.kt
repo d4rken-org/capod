@@ -148,7 +148,14 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
         get() = isThisPodInThecase || isOnePodInCase || areBothPodsInCase
 
     val caseLidState: LidState
-        get() = LidState.fromRaw(pubCaseLidState, hasCaseContext)
+        get() = LidState.fromRaw(
+            raw = pubCaseLidState,
+            hasCaseContext = hasCaseContext,
+            // The lid bit is only trustworthy from a pod broadcasting inside the case (bit 6), or
+            // while both pods are in the case (bit 2). A bit4-only frame comes from the out-of-case
+            // pod and carries a stale lid byte (see LidState.fromRaw).
+            lidReadingReliable = isThisPodInThecase || areBothPodsInCase,
+        )
 
     /**
      * TODO this is glitchy
@@ -165,8 +172,20 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
         UNKNOWN;
 
         companion object {
-            fun fromRaw(raw: UByte, hasCaseContext: Boolean): LidState {
+            /**
+             * Derives the lid state from the raw lid byte.
+             *
+             * The open/closed bit is only meaningful when broadcast by a pod that is itself inside
+             * the case ([isThisPodInThecase]) or while both pods are in the case ([areBothPodsInCase]).
+             * When only one pod is in the case and the *other*, out-of-case pod is the one
+             * broadcasting (bit4-only), its lid byte is stale and decodes to a phantom OPEN even while
+             * the case is physically shut (verified on AirPods Pro 1 & Pro 3). Such frames must report
+             * [UNKNOWN] so they don't drive case-open reactions; consumers recover the real state from
+             * an in-case-pod broadcast instead.
+             */
+            fun fromRaw(raw: UByte, hasCaseContext: Boolean, lidReadingReliable: Boolean): LidState {
                 if (!hasCaseContext) return NOT_IN_CASE
+                if (!lidReadingReliable) return UNKNOWN
 
                 return when ((raw.toInt() shr 3) and 0x01) {
                     0 -> OPEN
