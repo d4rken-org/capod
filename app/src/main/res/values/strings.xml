@@ -222,6 +222,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth is disabled, enable it ;)</string>
     <string name="overview_monitoring_active_label">Monitoring for devices</string>
     <string name="overview_monitoring_active_description">Make sure your device is nearby and active.</string>
+    <string name="overview_troubleshoot_suggestion_label">Connected, but no data</string>
+    <string name="overview_troubleshoot_suggestion_description">Your device is connected, but CAPod isn\'t receiving any live data from it. Your phone may need a compatibility option — the troubleshooter can try to find one automatically.</string>
+    <string name="overview_troubleshoot_suggestion_action">Run troubleshooter</string>
     <string name="overview_unmatched_devices_label">Unmatched devices</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d device without matching profile</item>
