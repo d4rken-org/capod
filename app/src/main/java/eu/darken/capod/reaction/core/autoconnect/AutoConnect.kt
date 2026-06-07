@@ -39,7 +39,9 @@ class AutoConnect @Inject constructor(
                 combine(
                     bluetoothManager.connectedDevices,
                     deviceMonitor.primaryDevice().filterNotNull().distinctUntilChangedBy {
-                        Triple(it.rawDataHex, it.reactions.autoConnectCondition, it.reactions.onePodMode)
+                        // Include caseLidState: for the CASE_OPEN condition it is derived from history
+                        // and can flip to OPEN while the selected frame's raw bytes are unchanged.
+                        listOf(it.rawDataHex, it.reactions.autoConnectCondition, it.reactions.onePodMode, it.caseLidState)
                     },
                 ) { connectedDevices, mainDevice ->
                     connectedDevices to mainDevice

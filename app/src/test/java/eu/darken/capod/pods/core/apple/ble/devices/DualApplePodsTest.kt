@@ -7,6 +7,7 @@ import eu.darken.capod.pods.core.apple.ble.devices.airpods.HasStateDetectionAirP
 import eu.darken.capod.pods.core.apple.ble.history.KnownDevice
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityPayload
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import java.time.Instant
@@ -250,11 +251,32 @@ class DualApplePodsTest : BaseBlePodsTest() {
 
     @Test
     fun `test AirPodDevice - case lid uses status derived case context`() {
-        directAirPodsPro(status = 0x10, rawCaseLidState = 0x51).caseLidState shouldBe DualApplePods.LidState.OPEN
+        // bit4 only = one pod in case, broadcast by the OUT-of-case pod. Its lid byte is stale and
+        // decodes to a phantom OPEN even when the case is shut, so it must report UNKNOWN (#598).
+        directAirPodsPro(status = 0x10, rawCaseLidState = 0x51).caseLidState shouldBe DualApplePods.LidState.UNKNOWN
+        // bit2 = both pods in case → lid byte is trustworthy.
         directAirPodsPro(status = 0x04, rawCaseLidState = 0x5A).caseLidState shouldBe DualApplePods.LidState.CLOSED
+        // bit6 = this (broadcasting) pod is in the case → lid byte is trustworthy.
         directAirPodsPro(status = 0x40, rawCaseLidState = 0x51).caseLidState shouldBe DualApplePods.LidState.OPEN
+        // No case context at all → NOT_IN_CASE.
         directAirPodsPro(status = 0x2B, rawCaseLidState = 0x11).caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
         directAirPodsPro(status = 0x20, rawCaseLidState = 0x5A).caseLidState shouldBe DualApplePods.LidState.NOT_IN_CASE
+    }
+
+    @Test
+    fun `case lid - out-of-case pod frame reports UNKNOWN, not a phantom OPEN (issue 598)`() {
+        // Real captures while the case is physically shut with one pod removed. The in-case pod
+        // reports CLOSED; the out-of-case (bit4-only) pod carries a stale lid byte that the old
+        // decoder turned into a phantom OPEN. It must now be UNKNOWN.
+        // AirPods Pro 3:
+        directAirPodsPro(status = 0x73, rawCaseLidState = 0x39).caseLidState shouldBe DualApplePods.LidState.CLOSED
+        directAirPodsPro(status = 0x13, rawCaseLidState = 0x11).caseLidState shouldBe DualApplePods.LidState.UNKNOWN
+        // AirPods Pro 1:
+        directAirPodsPro(status = 0x53, rawCaseLidState = 0x39).caseLidState shouldBe DualApplePods.LidState.CLOSED
+        directAirPodsPro(status = 0x33, rawCaseLidState = 0x02).caseLidState shouldBe DualApplePods.LidState.UNKNOWN
+        // Both pods in the case (bit2) stays trustworthy even without bit6 (Pro 3 0x15, Pro 1 0x04).
+        directAirPodsPro(status = 0x15, rawCaseLidState = 0x31).caseLidState shouldBe DualApplePods.LidState.OPEN
+        directAirPodsPro(status = 0x04, rawCaseLidState = 0x31).caseLidState shouldBe DualApplePods.LidState.OPEN
     }
 
     private fun knownDeviceOf(vararg pods: AirPodsPro): KnownDevice {
@@ -313,6 +335,47 @@ class DualApplePodsTest : BaseBlePodsTest() {
         val result = with(testFactory) { known.getLatestCaseLidState(deskPod2) }
 
         result shouldBe DualApplePods.LidState.NOT_IN_CASE
+    }
+
+    @Test
+    fun `getLatestCaseLidState - phantom out-of-case frame recovers CLOSED from in-case history (issue 598)`() {
+        val sharedId = BlePodSnapshot.Id()
+        // In-case pod reports the real, shut lid; out-of-case pod's bit4-only frame is UNKNOWN.
+        val inCaseClosed = directAirPodsPro(status = 0x73, rawCaseLidState = 0x39).copy(identifier = sharedId)
+        val outOfCasePhantom = directAirPodsPro(status = 0x13, rawCaseLidState = 0x11).copy(identifier = sharedId)
+
+        val known = knownDeviceOf(inCaseClosed, outOfCasePhantom)
+        val result = with(testFactory) { known.getLatestCaseLidState(outOfCasePhantom) }
+
+        // Must recover CLOSED from the in-case broadcast, not surface the phantom OPEN.
+        result shouldBe DualApplePods.LidState.CLOSED
+    }
+
+    @Test
+    fun `getLatestCaseLidState - only out-of-case frames never report a phantom OPEN (issue 598)`() {
+        val sharedId = BlePodSnapshot.Id()
+        val phantom1 = directAirPodsPro(status = 0x13, rawCaseLidState = 0x11).copy(identifier = sharedId)
+        val phantom2 = directAirPodsPro(status = 0x13, rawCaseLidState = 0x11).copy(identifier = sharedId)
+
+        val known = knownDeviceOf(phantom1, phantom2)
+        val result = with(testFactory) { known.getLatestCaseLidState(phantom2) }
+
+        // No authoritative reading anywhere → fall back to a coarse signal, never a guessed OPEN.
+        result shouldBe DualApplePods.LidState.NOT_IN_CASE
+    }
+
+    @Test
+    fun `case lid - first-seen out-of-case frame does not leak a phantom OPEN through the factory (issue 598)`() = runTest {
+        // Going through the real factory, a bit4-only out-of-case frame must never surface a phantom
+        // OPEN. The exact non-OPEN value depends on whether the device already has history
+        // (UNKNOWN when first-seen, NOT_IN_CASE once a single phantom frame is in history) — both are
+        // acceptable; what matters is that it is never OPEN.
+        create<DualApplePods>(
+            hex = "07 19 01 0E 20 13 AA B5 11 00 00 E0 0C A7 8A 60 4B D3 7D F4 60 4F 2C 73 E9 A7 F4",
+            address = "AA:BB:CC:DD:EE:01",
+        ) {
+            caseLidState shouldNotBe DualApplePods.LidState.OPEN
+        }
     }
 
     @Test
