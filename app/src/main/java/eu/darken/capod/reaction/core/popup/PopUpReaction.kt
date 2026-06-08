@@ -290,8 +290,8 @@ class PopUpReaction @Inject constructor(
             DualApplePods.LidState.CLOSED -> CasePopUpDecision(
                 shouldShow = false,
                 shouldHide = true,
-                shouldResetCooldown = false,
-                reason = "Lid CLOSED, refreshing cooldown",
+                shouldResetCooldown = true,
+                reason = "Lid CLOSED, resetting cooldown",
             )
 
             else -> CasePopUpDecision(
