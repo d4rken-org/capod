@@ -3,19 +3,23 @@ package eu.darken.capod.pods.core.apple.aap.protocol
 /**
  * Classified Conversational Awareness signal derived from the status byte of a `0x4B` frame.
  *
- * Status-byte mapping (from live AirPods Pro 3 captures + the librepods project):
+ * Status-byte mapping (from live AirPods Pro 3 + Pro 2 USB-C captures — both models share one
+ * firmware train and a byte-identical protocol — plus the librepods project):
  * - `1`, `2` → [START] (wearer started / is speaking → engage the reaction)
- * - `5`, `6`, `8`, `9` → [STOP] (wearer stopped → disengage). `5` is the terminal value on fw `…6861`,
- *   which winds down `3`→`5` and never reaches `6/8/9`; `6/8/9` are the terminal values on fw `…6503`.
- * - any other value (`0`, `3`, `4`, `0x0B`, … and anything unrecognised) → [HOLD]: a transitional or
- *   unknown frame. It must NOT disengage the reaction — only an explicit terminal [STOP] does that.
+ * - `5`, `6`, `8`, `9` → [STOP] (wearer stopped → disengage). All four confirmed live on Pro 2
+ *   USB-C fw `…6814`; which one terminates a given flurry varies with how speech ended.
+ * - any other value (`0`, `3`, `4`, `7`, `0x0B`, … and anything unrecognised) → [HOLD]: a
+ *   transitional wind-down frame (`7` was only discovered on fw `…6814` — the set is open-ended,
+ *   so unknown values are deliberately classified as HOLD rather than guessed at).
  *
- * Frame cadence is firmware-dependent and the pod does NOT reliably stream keep-alives while you
- * talk: fw `…6861` sent only an onset (`1`,`2`) then NO `0x4B` frames for 21s of continuous speech
- * (proven still-speaking — it held its own CA/ANC-transparency engaged the whole time), then the
- * wind-down `3`,`5`. So frame-silence must NOT be read as "speaking ended"; disengage is driven by
- * the explicit terminal [STOP] frame. [ConversationReaction]'s stale timeout is only a long backstop
- * for a fully-dropped terminal frame, not the normal disengage path.
+ * The pod sends NO frames during active speech — it stays engaged (and silent) for as long as it
+ * hears nearby voices, 20-30s+ observed. So frame-silence must NOT be read as "speaking ended".
+ * Conversely, any non-START frame means the wind-down has begun: a short flurry of transitional
+ * and terminal frames (e.g. `3,0xB,4,8,9` or `3,5,7,8,9`). With only ONE pod worn (other in
+ * case/disconnected) the terminal is deterministically dropped — the flurry ends on a transitional
+ * `4` (#608; reproduced on Pro 3 and Pro 2 alike) — so [ConversationReaction] treats a HOLD as
+ * "terminal imminent" and arms a short fuse, with a long stale backstop for a fully-dropped flurry.
+ * A flurry's trailing frames may arrive after its terminal; they are ignored once disengaged.
  */
 enum class ConversationAwarenessEvent {
     START,
