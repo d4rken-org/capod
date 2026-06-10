@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Wyświetl okienko połączenia</string>
     <string name="settings_popup_connected_description">Wyświetla okienko, gdy urządzenie łączy się po raz pierwszy.</string>
     <string name="settings_popup_info_not_in_app">Wyskakujące okienka są wyświetlane tylko wtedy, gdy nie jesteś w aplikacji.</string>
+    <string name="settings_charged_notification_label">Powiadomienie o naładowaniu</string>
+    <string name="settings_charged_notification_description">Wyślij powiadomienie, gdy wszystko, co jest ładowane, osiągnie docelowy poziom naładowania.</string>
+    <string name="settings_charged_threshold_label">Docelowy poziom naładowania</string>
+    <string name="settings_charged_scope_label">Monitorowane baterie</string>
+    <string name="settings_charged_scope_pods_label">Tylko słuchawki</string>
+    <string name="settings_charged_scope_case_label">Tylko etui</string>
+    <string name="settings_charged_scope_both_label">Słuchawki i etui</string>
     <string name="device_settings_experimental_title">Funkcja eksperymentalna</string>
     <string name="device_settings_experimental_description">Ta funkcja nie została jeszcze przetestowana na wszystkich urządzeniach. Jeśli coś nie działa poprawnie, otwórz zgłoszenie z dziennikiem debugowania.</string>
     <string name="device_settings_experimental_action">Otwórz śledzenie problemów</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debuguj</string>
     <string name="settings_general_label">Ustawienia</string>
     <string name="settings_general_description">Ogólne opcje, które mają wpływ na całą aplikację.</string>
+    <string name="settings_overview_hide_unmatched_label">Ukryj niedopasowane urządzenia</string>
+    <string name="settings_overview_hide_unmatched_description">Nie pokazuj w przeglądzie pobliskich urządzeń, które nie pasują do żadnego z twoich profili, np. AirPods innych osób.</string>
     <string name="settings_acknowledgements_label">Podziękowania</string>
     <string name="settings_debug_autoreports_label">Automatyczne raportowanie błędów</string>
     <string name="settings_debug_autoreports_description">Automatyczne raportowanie problemów, na przykład w przypadku awarii aplikacji, tak aby można było łatwo ją naprawić.</string>
@@ -195,6 +204,9 @@ K4r0lSz;</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth jest wyłączony, włącz go ;)</string>
     <string name="overview_monitoring_active_label">Monitorowanie urządzeń</string>
     <string name="overview_monitoring_active_description">Upewnij się, że urządzenie znajduje się w pobliżu i jest aktywne.</string>
+    <string name="overview_troubleshoot_suggestion_label">Połączono, ale brak danych</string>
+    <string name="overview_troubleshoot_suggestion_description">Twoje urządzenie jest połączone, ale CAPod nie odbiera żadnych danych na żywo. Twój telefon może potrzebować opcji zgodności — narzędzie do rozwiązywania problemów może spróbować znaleźć ją automatycznie.</string>
+    <string name="overview_troubleshoot_suggestion_action">Uruchom narzędzie do rozwiązywania problemów</string>
     <string name="overview_unmatched_devices_label">Niedopasowane urządzenia</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d urządzenie bez pasującego profilu</item>
@@ -502,6 +514,10 @@ K4r0lSz;</string>
     <string name="reaction_sleep_channel_label">Wykrywanie snu</string>
     <string name="reaction_sleep_notification_title">Wstrzymano przez wykrywanie snu</string>
     <string name="reaction_sleep_notification_text">%1$s wykrył, że zasnąłeś, więc muzyka została wstrzymana. Możesz to wyłączyć w ustawieniach urządzenia.</string>
+    <string name="reaction_charged_channel_label">Powiadomienie o naładowaniu</string>
+    <string name="reaction_charged_notification_title">Ładowanie zakończone</string>
+    <string name="reaction_charged_notification_text_full">%1$s jest w pełni naładowany.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s został naładowany do %2$d%%.</string>
     <string name="device_settings_rename_label">Zmień nazwę</string>
     <string name="device_settings_rename_hint">Nazwa urządzenia</string>
     <string name="device_settings_rename_confirm">Zmień nazwę</string>

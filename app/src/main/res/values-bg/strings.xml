@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Показване на изскачащ прозорец за връзка</string>
     <string name="settings_popup_connected_description">Показване на изскачащ прозорец, когато устройството се свърже за първи път.</string>
     <string name="settings_popup_info_not_in_app">Изскачащите прозорци се показват само когато не сте в приложението.</string>
+    <string name="settings_charged_notification_label">Известие за зареждане</string>
+    <string name="settings_charged_notification_description">Показва известие, когато всичко, което се зарежда, достигне желаното ниво на заряд.</string>
+    <string name="settings_charged_threshold_label">Целево ниво на заряд</string>
+    <string name="settings_charged_scope_label">Наблюдавани батерии</string>
+    <string name="settings_charged_scope_pods_label">Само слушалки</string>
+    <string name="settings_charged_scope_case_label">Само калъф</string>
+    <string name="settings_charged_scope_both_label">Слушалки и калъф</string>
     <string name="device_settings_experimental_title">Експериментална функция</string>
     <string name="device_settings_experimental_description">Тази функция все още не е тествана на всички устройства. Ако нещо не работи правилно, моля отворете проблем с дневник за отстраняване на грешки.</string>
     <string name="device_settings_experimental_action">Отвори проследявач на проблеми</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Отстраняване на грешки</string>
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общи настройки, които засягат цялото приложение.</string>
+    <string name="settings_overview_hide_unmatched_label">Скриване на несъответстващи устройства</string>
+    <string name="settings_overview_hide_unmatched_description">Не показвай намиращи се наблизо устройства, които не съответстват на нито един от профилите ти в прегледа, напр. AirPods на други хора.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматични доклади за грешки</string>
     <string name="settings_debug_autoreports_description">Автоматично докладва проблеми, напр. подробности за срив на приложението, за да мога да разбера как да го поправя.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth е деактивиран, активирайте го ;)</string>
     <string name="overview_monitoring_active_label">Наблюдение на устройства</string>
     <string name="overview_monitoring_active_description">Уверете се, че устройството ви е наблизо и активно.</string>
+    <string name="overview_troubleshoot_suggestion_label">Свързан, но без данни</string>
+    <string name="overview_troubleshoot_suggestion_description">Устройството ти е свързано, но CAPod не получава данни от него в реално време. Телефонът ти може да се нуждае от опция за съвместимост — инструментът за отстраняване на неизправности може да се опита да намери такава автоматично.</string>
+    <string name="overview_troubleshoot_suggestion_action">Стартирай отстраняване на неизправности</string>
     <string name="overview_unmatched_devices_label">Несъвпадащи устройства</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d устройство без съвпадащ профил</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Откриване на сън</string>
     <string name="reaction_sleep_notification_title">Поставено на пауза от Откриване на сън</string>
     <string name="reaction_sleep_notification_text">%1$s откри, че сте заспали, затова музиката ви беше поставена на пауза. Можете да деактивирате това в настройките на устройството.</string>
+    <string name="reaction_charged_channel_label">Известие за зареждане</string>
+    <string name="reaction_charged_notification_title">Зареждането е завършено</string>
+    <string name="reaction_charged_notification_text_full">%1$s е напълно зареден.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s е зареден до %2$d%%.</string>
     <string name="device_settings_rename_label">Преименуване</string>
     <string name="device_settings_rename_hint">Наименование на устройството</string>
     <string name="device_settings_rename_confirm">Преименуване</string>

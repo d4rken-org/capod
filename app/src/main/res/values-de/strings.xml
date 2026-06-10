@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Verbindungs-Popup anzeigen</string>
     <string name="settings_popup_connected_description">Zeigt ein Popup an, wenn das Gerät zum ersten Mal eine Verbindung herstellt.</string>
     <string name="settings_popup_info_not_in_app">Popups werden nur angezeigt, wenn du nicht in der App bist.</string>
+    <string name="settings_charged_notification_label">Aufgeladen-Benachrichtigung</string>
+    <string name="settings_charged_notification_description">Zeigt eine Benachrichtigung an, sobald alles, was geladen wird, den Ziel-Ladestand erreicht.</string>
+    <string name="settings_charged_threshold_label">Ziel-Ladestand</string>
+    <string name="settings_charged_scope_label">Überwachte Akkus</string>
+    <string name="settings_charged_scope_pods_label">Nur Pods</string>
+    <string name="settings_charged_scope_case_label">Nur Case</string>
+    <string name="settings_charged_scope_both_label">Pods und Case</string>
     <string name="device_settings_experimental_title">Experimentelle Funktion</string>
     <string name="device_settings_experimental_description">Diese Funktion wurde noch nicht auf allen Geräten getestet. Wenn etwas nicht korrekt funktioniert, öffne bitte ein Issue mit einem Debug-Log.</string>
     <string name="device_settings_experimental_action">Issue-Tracker öffnen</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Einstellungen</string>
     <string name="settings_general_description">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
+    <string name="settings_overview_hide_unmatched_label">Nicht zugeordnete Geräte ausblenden</string>
+    <string name="settings_overview_hide_unmatched_description">Geräte in der Nähe, die keinem deiner Profile entsprechen, werden in der Übersicht nicht angezeigt, z. B. AirPods anderer Personen.</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_debug_autoreports_label">Automatische Fehlerberichte</string>
     <string name="settings_debug_autoreports_description">Meldet Probleme automatisch, z.B. Details zu einem App-Absturz, damit ich herausfinden kann, wie ich ihn beheben kann.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ist deaktiviert, aktiviere es ;)</string>
     <string name="overview_monitoring_active_label">Überwachung für Geräte</string>
     <string name="overview_monitoring_active_description">Stelle sicher, dass dein Gerät in der Nähe ist und aktiv ist.</string>
+    <string name="overview_troubleshoot_suggestion_label">Verbunden, aber keine Daten</string>
+    <string name="overview_troubleshoot_suggestion_description">Dein Gerät ist verbunden, aber CAPod empfängt keine Live-Daten davon. Dein Telefon benötigt möglicherweise eine Kompatibilitätsoption – die Fehlerbehebung kann versuchen, automatisch eine zu finden.</string>
+    <string name="overview_troubleshoot_suggestion_action">Fehlerbehebung starten</string>
     <string name="overview_unmatched_devices_label">Nicht zugeordnete Geräte</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d Gerät ohne passendes Profil</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Schlaferkennung</string>
     <string name="reaction_sleep_notification_title">Pausiert durch Schlafmodus-Erkennung</string>
     <string name="reaction_sleep_notification_text">%1$s hat erkannt, dass du eingeschlafen bist, daher wurde deine Musik pausiert. Du kannst dies in den Geräteeinstellungen deaktivieren.</string>
+    <string name="reaction_charged_channel_label">Aufgeladen-Benachrichtigung</string>
+    <string name="reaction_charged_notification_title">Laden abgeschlossen</string>
+    <string name="reaction_charged_notification_text_full">%1$s ist vollständig geladen.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s wurde auf %2$d%% geladen.</string>
     <string name="device_settings_rename_label">Umbenennen</string>
     <string name="device_settings_rename_hint">Gerätename</string>
     <string name="device_settings_rename_confirm">Umbenennen</string>

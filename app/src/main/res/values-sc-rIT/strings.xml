@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Mustra popup de cullegamentu</string>
     <string name="settings_popup_connected_description">Mustra unu popup cando su dispositivu si cullegat sa prima borta.</string>
     <string name="settings_popup_info_not_in_app">Sos popup si morant solu cando non ses in s\'app.</string>
+    <string name="settings_charged_notification_label">Notìfica de càrriga cumplida</string>
+    <string name="settings_charged_notification_description">Mòstra una notìfica cando totu su chi est in càrriga arribbat a su livellu de càrriga obietivu.</string>
+    <string name="settings_charged_threshold_label">Livellu de càrriga obietivu</string>
+    <string name="settings_charged_scope_label">Batarìas monitorizadas</string>
+    <string name="settings_charged_scope_pods_label">Pods solu</string>
+    <string name="settings_charged_scope_case_label">Càscia solu</string>
+    <string name="settings_charged_scope_both_label">Pods e càscia</string>
     <string name="device_settings_experimental_title">Funzionalidade esperimentale</string>
     <string name="device_settings_experimental_description">Custa funzionalidade non est ancora istada testada in totu sos dispositivos. Si calicosa non funtzionat bene, abre un\'issue cun unu log de debug.</string>
     <string name="device_settings_experimental_action">Abri su Segugi de Issues</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cunfiguratziones</string>
     <string name="settings_general_description">Modìficas generales chi influentzias totu s\'app.</string>
+    <string name="settings_overview_hide_unmatched_label">Cuntzela dispositivos non corrispondentes</string>
+    <string name="settings_overview_hide_unmatched_description">Non mòstres dispositivos in bidda chi non cumbenit cun nissunu de sos tuos perfìles in sa visuale generale, p.e. sos AirPods de àtera gente.</string>
     <string name="settings_acknowledgements_label">Rengratziamentos</string>
     <string name="settings_debug_autoreports_label">Reportes de errores automàticos</string>
     <string name="settings_debug_autoreports_description">Reportat problemas in automàticu, es. detàllios de un\'arrestu anòmalu de s\'app, aici potzo cumprèndere comente ddu risòlvere.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth est disativadu, ativa·ddu ;)</string>
     <string name="overview_monitoring_active_label">Chirchende dispositivos</string>
     <string name="overview_monitoring_active_description">Assigura·ti chi su dispositivu tuo siat acanta e ativu.</string>
+    <string name="overview_troubleshoot_suggestion_label">Connètidu, ma non b\'at datos</string>
+    <string name="overview_troubleshoot_suggestion_description">Su tuo dispositivu est connètidu, ma CAPod non est retzende datos in diretta dae isse. Su tuo telèfonu podet avere bisòngiu de una opzione de compatibilidade — su risolvidore de problemas podet probare a nd\'agatare una autòmaticamente.</string>
+    <string name="overview_troubleshoot_suggestion_action">Esèghit su risolvidore de problemas</string>
     <string name="overview_unmatched_devices_label">Dispositivos sena currispondèntzia</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d dispositivu sena profilu currispondente</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Detecada de su Sonnu</string>
     <string name="reaction_sleep_notification_title">Pausada dae sa Detecada de su Sonnu</string>
     <string name="reaction_sleep_notification_text">%1$s at reportadu ca t\'as dormidu, gasi sa musica tua est istada pausada. Podes disabilitare custu in sas impostatziones de su dispositivu.</string>
+    <string name="reaction_charged_channel_label">Notìfica de càrriga cumplida</string>
+    <string name="reaction_charged_notification_title">Càrriga cumplida</string>
+    <string name="reaction_charged_notification_text_full">%1$s est completamente càrriga/càrrigu.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s est istadu càrrigadu a su %2$d%%.</string>
     <string name="device_settings_rename_label">Torrare a numenare</string>
     <string name="device_settings_rename_hint">Nùmene de su dispositivo</string>
     <string name="device_settings_rename_confirm">Torrare a numenare</string>

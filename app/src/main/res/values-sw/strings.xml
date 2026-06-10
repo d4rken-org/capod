@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Onyesha kidirisha cha muunganisho</string>
     <string name="settings_popup_connected_description">Onyesha kidirisha kifaa kinapounganishwa kwa mara ya kwanza.</string>
     <string name="settings_popup_info_not_in_app">Madirisha ya arifa yanaonyeshwa tu unapokuwa nje ya programu.</string>
+    <string name="settings_charged_notification_label">Arifa ya kuchajishwa</string>
+    <string name="settings_charged_notification_description">Onyesha arifa mara tu kila kinachochajishwa kinafikia kiwango cha kuchaji kilicholengwa.</string>
+    <string name="settings_charged_threshold_label">Kiwango cha kuchaji kinachokusudiowa</string>
+    <string name="settings_charged_scope_label">Betri zinazofuatiliwa</string>
+    <string name="settings_charged_scope_pods_label">Pods tu</string>
+    <string name="settings_charged_scope_case_label">Kesi tu</string>
+    <string name="settings_charged_scope_both_label">Pods na kesi</string>
     <string name="device_settings_experimental_title">Kipengele cha majaribio</string>
     <string name="device_settings_experimental_description">Kipengele hiki bado hakijajaribiwa kwenye vifaa vyote. Ikiwa kitu hakifanyi kazi vizuri, tafadhali fungua suala na kumbukumbu ya utatuzi.</string>
     <string name="device_settings_experimental_action">Fungua Kifuatilio cha Masuala</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Utatuzi</string>
     <string name="settings_general_label">Mipangilio</string>
     <string name="settings_general_description">Marekebisho ya jumla yanayoathiri programu nzima.</string>
+    <string name="settings_overview_hide_unmatched_label">Ficha vifaa visivyolingana</string>
+    <string name="settings_overview_hide_unmatched_description">Usionyeshe vifaa vilivyo karibu ambavyo havilingani na mojawapo ya maelezo yako kwenye muhtasari, k.m. AirPods za watu wengine.</string>
     <string name="settings_acknowledgements_label">Shukrani</string>
     <string name="settings_debug_autoreports_label">Ripoti za hitilafu za kiotomatiki</string>
     <string name="settings_debug_autoreports_description">Huripoti matatizo kiotomatiki, k.m. maelezo kuhusu kuacha kufanya kazi kwa programu ili niweze kujua jinsi ya kuyarekebisha.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth imezimwa, iwashe ;)</string>
     <string name="overview_monitoring_active_label">Inafuatilia vifaa</string>
     <string name="overview_monitoring_active_description">Hakikisha kifaa chako kiko karibu na kinatumika.</string>
+    <string name="overview_troubleshoot_suggestion_label">Imeunganishwa, lakini hakuna data</string>
+    <string name="overview_troubleshoot_suggestion_description">Kifaa chako kimeunganishwa, lakini CAPod haipokei data yoyote ya moja kwa moja kutoka kwake. Simu yako inaweza kuhitaji chaguo la uoanifu — kitatuzi cha matatizo kinaweza kujaribu kupata moja kiotomatiki.</string>
+    <string name="overview_troubleshoot_suggestion_action">Endesha kitatuzi cha matatizo</string>
     <string name="overview_unmatched_devices_label">Vifaa visivyolingana</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Kifaa %d bila wasifu unaolingana</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Ugunduzi wa Usingizi</string>
     <string name="reaction_sleep_notification_title">Imesimamishwa na Ugunduzi wa Usingizi</string>
     <string name="reaction_sleep_notification_text">%1$s iliripoti kuwa umelala, hivyo muziki wako ulisimamishwa. Unaweza kuzima hili katika mipangilio ya kifaa.</string>
+    <string name="reaction_charged_channel_label">Arifa ya Kuchajishwa</string>
+    <string name="reaction_charged_notification_title">Kuchaji kumekamilika</string>
+    <string name="reaction_charged_notification_text_full">%1$s imechajishwa kikamilifu.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s imechajishwa hadi %2$d%%.</string>
     <string name="device_settings_rename_label">Badilisha Jina</string>
     <string name="device_settings_rename_hint">Jina la kifaa</string>
     <string name="device_settings_rename_confirm">Badilisha Jina</string>

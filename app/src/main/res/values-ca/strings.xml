@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Mostra la finestra emergent de connexió</string>
     <string name="settings_popup_connected_description">Mostra una finestra emergent quan el dispositiu es connecti per primera vegada.</string>
     <string name="settings_popup_info_not_in_app">Les finestres emergents només es mostren quan no esteu a l\'aplicació.</string>
+    <string name="settings_charged_notification_label">Notificació de càrrega completa</string>
+    <string name="settings_charged_notification_description">Mostra una notificació quan tots els dispositius que s\'estiguin carregant arribin al nivell de càrrega desitjat.</string>
+    <string name="settings_charged_threshold_label">Nivell de càrrega objectiu</string>
+    <string name="settings_charged_scope_label">Bateries monitoritzades</string>
+    <string name="settings_charged_scope_pods_label">Només els auriculars</string>
+    <string name="settings_charged_scope_case_label">Només la funda</string>
+    <string name="settings_charged_scope_both_label">Auriculars i funda</string>
     <string name="device_settings_experimental_title">Funció experimental</string>
     <string name="device_settings_experimental_description">Aquesta funció encara no s\'ha provat a tots els dispositius. Si alguna cosa no funciona correctament, obriu una incidència amb un registre de depuració.</string>
     <string name="device_settings_experimental_action">Obre el seguidor d\'incidències</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Depuració</string>
     <string name="settings_general_label">Configuració</string>
     <string name="settings_general_description">Configuracions generals que afecten a tota l\'aplicació.</string>
+    <string name="settings_overview_hide_unmatched_label">Amaga els dispositius no coincidents</string>
+    <string name="settings_overview_hide_unmatched_description">No mostris els dispositius propers que no coincideixen amb cap dels perfils a la vista general. P. ex. els AirPods d’altres persones.</string>
     <string name="settings_acknowledgements_label">Agraïments</string>
     <string name="settings_debug_autoreports_label">Informes automàtics d\'errors</string>
     <string name="settings_debug_autoreports_description">Informa automàticament de problemes. Per exemple: detalls sobre un bloqueig de l\'aplicació perquè pugui esbrinar com solucionar-ho.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">El Bluetooth està desactivat, activeu-lo ;)</string>
     <string name="overview_monitoring_active_label">Monitorització de dispositius</string>
     <string name="overview_monitoring_active_description">Assegureu-vos que el dispositiu estigui a prop i actiu.</string>
+    <string name="overview_troubleshoot_suggestion_label">Connectat, però sense dades</string>
+    <string name="overview_troubleshoot_suggestion_description">El dispositiu està connectat, però el CAPod no rep dades en directe. El telèfon pot necessitar una opció de compatibilitat: el solucionador de problemes pot intentar trobar-ne una automàticament.</string>
+    <string name="overview_troubleshoot_suggestion_action">Executa el solucionador de problemes</string>
     <string name="overview_unmatched_devices_label">Dispositius no coincidents</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d dispositiu sense perfil coincident</item>
@@ -288,7 +300,7 @@
     <string name="profiles_delete_action">Elimina</string>
     <string name="profiles_basic_info_title">Informació del dispositiu</string>
     <string name="profiles_basic_info_description">Configureu el nom del dispositiu, el model i l\'emparellament Bluetooth opcional.</string>
-    <string name="profiles_signal_quality_title">Qualitat de senyal mínima</string>
+    <string name="profiles_signal_quality_title">Qualitat mínima del senyal</string>
     <string name="profiles_signal_quality_description">Només es detecten dispositius amb una intensitat de senyal superior a aquest llindar. Els valors més baixos augmenten el rang de detecció, però poden causar falsos positius. No configureu aquest valor massa alt: la recepció Bluetooth generalment és deficient i varia segons la distància i els obstacles.</string>
     <string name="profiles_identitykey_label">Clau d\'identitat</string>
     <string name="profilessettings_maindevice_identitykey_description">La clau de resolució d\'identitat (IRK) del dispositiu ajuda al CAPod a identificar-lo entre els dispositius propers.</string>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Detecció del son</string>
     <string name="reaction_sleep_notification_title">Pausat per la detecció del son</string>
     <string name="reaction_sleep_notification_text">%1$s ha informat que us heu adormit, de manera que la vostra música s\'ha posat en pausa. Podeu desactivar-ho a la configuració del dispositiu.</string>
+    <string name="reaction_charged_channel_label">Notificació de càrrega completa</string>
+    <string name="reaction_charged_notification_title">Càrrega completada</string>
+    <string name="reaction_charged_notification_text_full">%1$s està totalment carregat.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s s\'ha carregat fins al %2$d%%.</string>
     <string name="device_settings_rename_label">Canvia el nom</string>
     <string name="device_settings_rename_hint">Nom del dispositiu</string>
     <string name="device_settings_rename_confirm">Canvia el nom</string>

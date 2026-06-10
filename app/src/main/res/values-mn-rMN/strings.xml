@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Холболтын попап цонхыг харуулах</string>
     <string name="settings_popup_connected_description">Төхөөрөмж анх удаа холбогдоход попап цонхыг харуулна.</string>
     <string name="settings_popup_info_not_in_app">Попап нь зөвхөн та аппликейшнд байхгүй үед харагдана.</string>
+    <string name="settings_charged_notification_label">Цэнэглэгдсэн мэдэгдэл</string>
+    <string name="settings_charged_notification_description">Цэнэглэгдэж байгаа бүх зүйл зорилтот цэнэглэлтийн түвшинд хүрмэгц мэдэгдэл илгээнэ.</string>
+    <string name="settings_charged_threshold_label">Зорилтот цэнэглэлтийн түвшин</string>
+    <string name="settings_charged_scope_label">Хяналттай батарейнууд</string>
+    <string name="settings_charged_scope_pods_label">Зөвхөн pods</string>
+    <string name="settings_charged_scope_case_label">Зөвхөн кейс</string>
+    <string name="settings_charged_scope_both_label">Pods болон кейс</string>
     <string name="device_settings_experimental_title">Туршилтын онцлог</string>
     <string name="device_settings_experimental_description">Энэ функцийг бүх төхөөрөмж дээр туршиж үзээгүй байна. Хэрэв ямар нэг зүйл буруу ажиллаж байвал debug лог хавсаргаж асуудал нээнэ үү.</string>
     <string name="device_settings_experimental_action">Асуудлын жагсаалт нээх</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Дебаг</string>
     <string name="settings_general_label">Тохиргоо</string>
     <string name="settings_general_description">Апп-н бүх хэсэгт нөлөөлөх ерөнхий тохируулгууд.</string>
+    <string name="settings_overview_hide_unmatched_label">Тохирохгүй төхөөрөмжүүдийг нуух</string>
+    <string name="settings_overview_hide_unmatched_description">Таны профайлтай тохирохгүй ойрхон байгаа төхөөрөмжүүдийг, тухайлбал бусад хүмүүсийн AirPods-ийг тоймд харуулахгүй.</string>
     <string name="settings_acknowledgements_label">Талархал</string>
     <string name="settings_debug_autoreports_label">Автомат алдааны тайлан</string>
     <string name="settings_debug_autoreports_description">Апп-н ослын дэлгэрэнгүй мэдээлэл гэх мэт асуудлуудыг автоматаар мэдээлдэг бөгөөд ингэснээр би түүнийг хэрхэн засахаа олж мэдэх боломжтой.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth идэвхгүй байна, идэвхжүүлнэ үү ;)</string>
     <string name="overview_monitoring_active_label">Төхөөрөмжүүдийг хайж байна</string>
     <string name="overview_monitoring_active_description">Таны төхөөрөмж ойролцоо, идэвхтэй байгаа эсэхийг шалгана уу.</string>
+    <string name="overview_troubleshoot_suggestion_label">Холбогдсон, гэхдээ өгөгдөл алга</string>
+    <string name="overview_troubleshoot_suggestion_description">Таны төхөөрөмж холбогдсон боловч CAPod түүнээс шууд өгөгдөл хүлээж авахгүй байна. Утас таны нийцтэй байдлын тохиргоо шаардаж болзошгүй — асуудал шийдвэрлэгч автоматаар нэгийг хайж олохыг оролдож чадна.</string>
+    <string name="overview_troubleshoot_suggestion_action">Асуудал шийдвэрлэгчийг ажиллуулах</string>
     <string name="overview_unmatched_devices_label">Тохирохгүй төхөөрөмжүүд</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Тохирох профайлгүй %d төхөөрөмж</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Нойрны мэдрэгч</string>
     <string name="reaction_sleep_notification_title">Нойрны мэдрэгчээр түр зогссон</string>
     <string name="reaction_sleep_notification_text">%1$s таныг унтаж байна гэж мэдээллэсэн тул хөгжим нь түр зогссон. Үүнийг төхөөрөмжийн тохиргооноос идэвхгүй болгож болно.</string>
+    <string name="reaction_charged_channel_label">Цэнэглэгдсэн мэдэгдэл</string>
+    <string name="reaction_charged_notification_title">Цэнэглэлт дууссан</string>
+    <string name="reaction_charged_notification_text_full">%1$s бүрэн цэнэглэгдсэн.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% хүртэл цэнэглэгдсэн.</string>
     <string name="device_settings_rename_label">Нэр өөрчлөх</string>
     <string name="device_settings_rename_hint">Төхөөрөмжийн нэр</string>
     <string name="device_settings_rename_confirm">Нэр өөрчлөх</string>

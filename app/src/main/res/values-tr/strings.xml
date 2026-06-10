@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Bağlandığında açılır pencere göster</string>
     <string name="settings_popup_connected_description">Cihaz ilk kez bağlantı kurduğunda, açılır bir pencere gösterir.</string>
     <string name="settings_popup_info_not_in_app">Açılır pencereler yalnızca uygulamada olmadığınızda gösterilir.</string>
+    <string name="settings_charged_notification_label">Şarj bildirimi</string>
+    <string name="settings_charged_notification_description">Şarj olan her şey hedef şarj düzeyine ulaştığında bir bildirim göster.</string>
+    <string name="settings_charged_threshold_label">Hedef şarj düzeyi</string>
+    <string name="settings_charged_scope_label">İzlenen piller</string>
+    <string name="settings_charged_scope_pods_label">Yalnızca Pod\'lar</string>
+    <string name="settings_charged_scope_case_label">Yalnızca kutu</string>
+    <string name="settings_charged_scope_both_label">Pod\'lar ve kutu</string>
     <string name="device_settings_experimental_title">Deneysel Özellik</string>
     <string name="device_settings_experimental_description">Bu özellik henüz tüm cihazlarda test edilmedi. Eğer birşey doğru çalışmıyorsa, lütfen hata ayıklama kaydıyla bir sorun açın.</string>
     <string name="device_settings_experimental_action">Sorun Takipçisini Aç</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Hata ayıklama</string>
     <string name="settings_general_label">Ayarlar</string>
     <string name="settings_general_description">Uygulamayı etkileyen genel ince ayarlar.</string>
+    <string name="settings_overview_hide_unmatched_label">Eşleşmeyen cihazları gizle</string>
+    <string name="settings_overview_hide_unmatched_description">Genel bakışta profillerinizden herhangi biriyle eşleşmeyen yakındaki cihazları gösterme, örn. başkalarının AirPods\'ları.</string>
     <string name="settings_acknowledgements_label">Teşekkürler</string>
     <string name="settings_debug_autoreports_label">Otomatik hata raporları</string>
     <string name="settings_debug_autoreports_description">Sorunları otomatik olarak bildirir, ör. uygulama çökmesiyle ilgili ayrıntılı bilgiler. Böylece nasıl düzelteceğimi bulabilirim.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth devre dışı, etkinleştirin ;)</string>
     <string name="overview_monitoring_active_label">Cihazlar izleniyor</string>
     <string name="overview_monitoring_active_description">Cihazınızın yakınında ve etkin olduğundan emin olun.</string>
+    <string name="overview_troubleshoot_suggestion_label">Bağlı, ancak veri yok</string>
+    <string name="overview_troubleshoot_suggestion_description">Cihazınız bağlı, ancak CAPod ondan canlı veri almıyor. Telefonunuzun bir uyumluluk seçeneğine ihtiyacı olabilir — sorun giderici otomatik olarak bir tane bulmaya çalışabilir.</string>
+    <string name="overview_troubleshoot_suggestion_action">Sorun gidericiyi çalıştır</string>
     <string name="overview_unmatched_devices_label">Eşleşmeyen cihazlar</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d cihaz eşleşen profil olmadan</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Uyku Algılama</string>
     <string name="reaction_sleep_notification_title">Uyku Algılama ile Duraklatıldı</string>
     <string name="reaction_sleep_notification_text">%1$s uyuduğunuzu bildirdi, bu nedenle müziğiniz duraklatıldı. Bunu cihaz ayarlarından devre dışı bırakabilirsiniz.</string>
+    <string name="reaction_charged_channel_label">Şarj Bildirimi</string>
+    <string name="reaction_charged_notification_title">Şarj tamamlandı</string>
+    <string name="reaction_charged_notification_text_full">%1$s tam olarak şarz oldu.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s, %%%2$d oranında şarj edildi.</string>
     <string name="device_settings_rename_label">Yeniden Adlandır</string>
     <string name="device_settings_rename_hint">Cihaz adı</string>
     <string name="device_settings_rename_confirm">Yeniden Adlandır</string>

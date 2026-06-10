@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Qoşulma pop-up-ını göstər</string>
     <string name="settings_popup_connected_description">Cihaz ilk dəfə qoşulduqda pop-up göstər.</string>
     <string name="settings_popup_info_not_in_app">Açılan pəncərələr yalnız tətbiqdə olmadığınız zaman göstərilir.</string>
+    <string name="settings_charged_notification_label">Şarj bildirişi</string>
+    <string name="settings_charged_notification_description">Şarj olunan hər şey hədəf şarj səviyyəsinə çatdıqda bildiriş göndərin.</string>
+    <string name="settings_charged_threshold_label">Hədəf şarj səviyyəsi</string>
+    <string name="settings_charged_scope_label">İzlənilən akkumulyatorlar</string>
+    <string name="settings_charged_scope_pods_label">Yalnız qulaqcıqlar</string>
+    <string name="settings_charged_scope_case_label">Yalnız qutu</string>
+    <string name="settings_charged_scope_both_label">Qulaqcıqlar və qutu</string>
     <string name="device_settings_experimental_title">Eksperimental funksiya</string>
     <string name="device_settings_experimental_description">Bu funksiya hələ bütün cihazlarda sınaqdan keçirilməyib. Bir şey düzgün işləmirsə, debug loqu ilə problem bildirin.</string>
     <string name="device_settings_experimental_action">Problem İzləyicisini Aç</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Sazlama</string>
     <string name="settings_general_label">Parametrlər</string>
     <string name="settings_general_description">Bütün tətbiqə təsir edən ümumi düzəlişlər.</string>
+    <string name="settings_overview_hide_unmatched_label">Uyğun olmayan cihazları gizlət</string>
+    <string name="settings_overview_hide_unmatched_description">İcmalda profillərinizə uyğun gəlməyən yaxın cihazları göstərməyin, məs. başqalarının AirPods-ları.</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="settings_debug_autoreports_label">Avtomatik səhv hesabatları</string>
     <string name="settings_debug_autoreports_description">Problemləri avtomatik olaraq bildirir, məsələn, tətbiqin çökməsi ilə bağlı təfərrüatları, beləliklə onu necə düzəldəcəyimi anlaya bilim.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth deaktivdir, onu aktivləşdirin ;)</string>
     <string name="overview_monitoring_active_label">Cihazlar axtarılır</string>
     <string name="overview_monitoring_active_description">Cihazınızın yaxında və aktiv olduğundan əmin olun.</string>
+    <string name="overview_troubleshoot_suggestion_label">Qoşuldu, lakin məlumat yoxdur</string>
+    <string name="overview_troubleshoot_suggestion_description">Cihazınız qoşulub, lakin CAPod ondan canlı məlumat almır. Telefonunuz uyğunluq seçiminə ehtiyac duya bilər — problem aradan qaldırıcı birini avtomatik tapmağa çalışa bilər.</string>
+    <string name="overview_troubleshoot_suggestion_action">Problem aradan qaldırıcını işə sal</string>
     <string name="overview_unmatched_devices_label">Uyğunlaşdırılmamış cihazlar</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Uyğun profili olmayan %d cihaz</item>
@@ -223,7 +235,7 @@
     <string name="pods_dual_left_label">Sol qulaqlıq</string>
     <string name="pods_dual_right_label">Sağ qulaqlıq</string>
     <string name="pods_dual_left_short_label">S</string>
-    <string name="pods_dual_right_short_label">Sğ</string>
+    <string name="pods_dual_right_short_label">S</string>
     <string name="pods_case_label">Qutu</string>
     <string name="battery_unavailable_label">Batareya məlumatı yoxdur</string>
     <string name="pods_case_status_open_label">Açıq</string>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Yuxu Aşkarlaması</string>
     <string name="reaction_sleep_notification_title">Yuxu Aşkarlaması ilə dayandırıldı</string>
     <string name="reaction_sleep_notification_text">%1$s sizin yuxuya getdiyinizi bildirdi, buna görə musiqiniz dayandırıldı. Bunu cihaz parametrlərindən söndürə bilərsiniz.</string>
+    <string name="reaction_charged_channel_label">Şarj Bildirişi</string>
+    <string name="reaction_charged_notification_title">Şarj tamamlandı</string>
+    <string name="reaction_charged_notification_text_full">%1$s tam şarj olundu.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% şarj olundu.</string>
     <string name="device_settings_rename_label">Adı dəyişdirin</string>
     <string name="device_settings_rename_hint">Cihaz adı</string>
     <string name="device_settings_rename_confirm">Adı dəyişdirin</string>

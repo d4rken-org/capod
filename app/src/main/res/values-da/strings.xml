@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Vis forbindelses-pop op</string>
     <string name="settings_popup_connected_description">Vis en pop op, når enheden tilsluttes for første gang.</string>
     <string name="settings_popup_info_not_in_app">Pop-ups vises kun, når du ikke er i appen.</string>
+    <string name="settings_charged_notification_label">Opladt notifikation</string>
+    <string name="settings_charged_notification_description">Vis en notifikation, når alt der oplades når det ønskede opladningsniveau.</string>
+    <string name="settings_charged_threshold_label">Målopladningsniveau</string>
+    <string name="settings_charged_scope_label">Overvågede batterier</string>
+    <string name="settings_charged_scope_pods_label">Kun pods</string>
+    <string name="settings_charged_scope_case_label">Kun etui</string>
+    <string name="settings_charged_scope_both_label">Pods og etui</string>
     <string name="device_settings_experimental_title">Eksperimentel funktion</string>
     <string name="device_settings_experimental_description">Denne funktion er endnu ikke testet på alle enheder. Hvis noget ikke fungerer korrekt, bedes du åbne en sag med en fejlretningslog.</string>
     <string name="device_settings_experimental_action">Åbn fejlsporer</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Fejlfinding</string>
     <string name="settings_general_label">Indstillinger</string>
     <string name="settings_general_description">Generelle justeringer, der påvirker hele appen.</string>
+    <string name="settings_overview_hide_unmatched_label">Skjul ikke-matchende enheder</string>
+    <string name="settings_overview_hide_unmatched_description">Vis ikke nærliggende enheder, der ikke matcher nogen af dine profiler i overblikkket, f.eks. andres AirPods.</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
     <string name="settings_debug_autoreports_label">Automatiske fejlrapporter</string>
     <string name="settings_debug_autoreports_description">Rapporterer automatisk problemer, f.eks. detaljer om et app-nedbrud, så jeg kan finde ud af, hvordan jeg løser det.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth er deaktiveret, aktivér det ;)</string>
     <string name="overview_monitoring_active_label">Overvåger for enheder</string>
     <string name="overview_monitoring_active_description">Sørg for, at din enhed er i nærheden og aktiv.</string>
+    <string name="overview_troubleshoot_suggestion_label">Forbundet, men ingen data</string>
+    <string name="overview_troubleshoot_suggestion_description">Din enhed er forbundet, men CAPod modtager ikke live data fra den. Din telefon har måske brug for en kompatibilitetsindstilling — fejlfinderen kan prøve at finde en automatisk.</string>
+    <string name="overview_troubleshoot_suggestion_action">Kør fejlfinder</string>
     <string name="overview_unmatched_devices_label">Uparrede enheder</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d enhed uden matchende profil</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Søvnregistrering</string>
     <string name="reaction_sleep_notification_title">Sat på pause af søvnregistrering</string>
     <string name="reaction_sleep_notification_text">%1$s registrerede, at du faldt i søvn, så din musik blev sat på pause. Du kan deaktivere dette i enhedsindstillingerne.</string>
+    <string name="reaction_charged_channel_label">Opladt notifikation</string>
+    <string name="reaction_charged_notification_title">Opladning færdig</string>
+    <string name="reaction_charged_notification_text_full">%1$s er fuldt opladet.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s er blevet opladet til %2$d%%.</string>
     <string name="device_settings_rename_label">Omdøb</string>
     <string name="device_settings_rename_hint">Enhedsnavn</string>
     <string name="device_settings_rename_confirm">Omdøb</string>

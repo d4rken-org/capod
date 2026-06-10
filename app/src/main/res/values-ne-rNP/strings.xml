@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">कनेक्सन पपअप देखाउनुहोस्</string>
     <string name="settings_popup_connected_description">उपकरण पहिलो पटक जडान हुँदा पपअप देखाउनुहोस्।</string>
     <string name="settings_popup_info_not_in_app">पप-अपहरू केवल तब देखाइन्छन् जब तपाईं एप्लिकेसनमा हुनुहुन्न।</string>
+    <string name="settings_charged_notification_label">चार्ज सूचना</string>
+    <string name="settings_charged_notification_description">चार्ज हुने सबै कुरा लक्षित चार्ज स्तरमा पुगेपछि सूचना देखाउनुस्।</string>
+    <string name="settings_charged_threshold_label">लक्षित चार्ज स्तर</string>
+    <string name="settings_charged_scope_label">निगरानी गरिएका ब्याट्रीहरू</string>
+    <string name="settings_charged_scope_pods_label">पड्स मात्र</string>
+    <string name="settings_charged_scope_case_label">केस मात्र</string>
+    <string name="settings_charged_scope_both_label">पड्स र केस</string>
     <string name="device_settings_experimental_title">प्रयोगात्मक सुविधा</string>
     <string name="device_settings_experimental_description">यो सुविधा अझै सबै उपकरणहरूमा परीक्षण गरिएको छैन। यदि केही सही काम गरिरहेको छैन भने, कृपया डिबग लगसहित एउटा समस्या खोल्नुहोस्।</string>
     <string name="device_settings_experimental_action">समस्या ट्र्याकर खोल्नुहोस्</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">डिबग</string>
     <string name="settings_general_label">सेटिङहरू</string>
     <string name="settings_general_description">सम्पूर्ण एपलाई असर गर्ने सामान्य ट्वीकहरू।</string>
+    <string name="settings_overview_hide_unmatched_label">नमिलेका यन्त्रहरू लुकाउनुस्</string>
+    <string name="settings_overview_hide_unmatched_description">अवलोकनमा तपाईंको कुनै पनि प्रोफाइलसँग नमिल्ने नजिकका यन्त्रहरू नदेखाउनुस्, जस्तै अरू मान्छेका AirPods।</string>
     <string name="settings_acknowledgements_label">स्वीकृतिहरू</string>
     <string name="settings_debug_autoreports_label">स्वचालित बग रिपोर्टहरू</string>
     <string name="settings_debug_autoreports_description">समस्याहरू स्वचालित रूपमा रिपोर्ट गर्दछ, उदाहरणका लागि एप क्र्यास बारे विवरणहरू ताकि म यसलाई कसरी समाधान गर्ने भनेर पत्ता लगाउन सकूँ।</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth असक्षम छ, यसलाई सक्षम गर्नुहोस् ;)</string>
     <string name="overview_monitoring_active_label">उपकरणहरू खोज्दै</string>
     <string name="overview_monitoring_active_description">तपाईंको उपकरण नजिकै र सक्रिय छ भनी सुनिश्चित गर्नुहोस्।</string>
+    <string name="overview_troubleshoot_suggestion_label">जोडिएको छ, तर डेटा छैन</string>
+    <string name="overview_troubleshoot_suggestion_description">तपाईंको यन्त्र जोडिएको छ, तर CAPod ले यसबाट कुनै लाइभ डेटा प्राप्त गरिरहेको छैन। तपाईंको फोनलाई अनुकूलता विकल्पको आवश्यकता पर्न सक्छ — समस्या निवारकले स्वतः एउटा खोज्ने प्रयास गर्न सक्छ।</string>
+    <string name="overview_troubleshoot_suggestion_action">समस्या निवारक चलाउनुस्</string>
     <string name="overview_unmatched_devices_label">मेल नखाएका उपकरणहरू</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">मेल खाने प्रोफाइल नभएको %d उपकरण</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">निद्रा पत्ता लगाउने</string>
     <string name="reaction_sleep_notification_title">निद्रा पत्ता लगाउनेद्वारा रोकिएको</string>
     <string name="reaction_sleep_notification_text">%1$s ले रिपोर्ट गर्यो कि तपाईं सुत्नुभयो, त्यसैले तपाईंको संगीत रोकिएको थियो। तपाईं यसलाई यन्त्र सेटिङहरूमा अक्षम गर्न सक्नुहुन्छ।</string>
+    <string name="reaction_charged_channel_label">चार्ज सूचना</string>
+    <string name="reaction_charged_notification_title">चार्ज पूरा भयो</string>
+    <string name="reaction_charged_notification_text_full">%1$s पूर्ण रूपमा चार्ज भएको छ।</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% सम्म चार्ज भएको छ।</string>
     <string name="device_settings_rename_label">नाम बदल्नुहोस्</string>
     <string name="device_settings_rename_hint">उपकरणको नाम</string>
     <string name="device_settings_rename_confirm">नाम बदल्नुहोस्</string>

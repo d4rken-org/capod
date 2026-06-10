@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Mussar il popup da connexiun</string>
     <string name="settings_popup_connected_description">Mussar in popup cura che l\'apparat sa connecta per l\'emprima giada.</string>
     <string name="settings_popup_info_not_in_app">Fenestras da popup vegnan mo mussadas cura ch\'i na sei betg en l\'app.</string>
+    <string name="settings_charged_notification_label">Notificaziun da chargià</string>
+    <string name="settings_charged_notification_description">Mussa ina notificaziun cur che tut quai che vegn chargià ha cuntanschì il nivel da chargiader fixà.</string>
+    <string name="settings_charged_threshold_label">Nivel da chargiader da mira</string>
+    <string name="settings_charged_scope_label">Batteries surveglidas</string>
+    <string name="settings_charged_scope_pods_label">Sulettamain Pods</string>
+    <string name="settings_charged_scope_case_label">Sulettamain l\'etui</string>
+    <string name="settings_charged_scope_both_label">Pods ed etui</string>
     <string name="device_settings_experimental_title">Funcziun experimentala</string>
     <string name="device_settings_experimental_description">Questa funcziun n\'è anc betg vegnida testada sin tuts apparats. Sch\'insatge na funcziuna betg correctamain, vegnì plais avrir ina dumonda cun in protocol da debug.</string>
     <string name="device_settings_experimental_action">Avrir il tractur da dumondas</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Configuraziuns</string>
     <string name="settings_general_description">Adattaziuns generalas che concernan l\'entira app.</string>
+    <string name="settings_overview_hide_unmatched_label">Zuppentar apparats betg concordants</string>
+    <string name="settings_overview_hide_unmatched_description">Na mussa betg ils apparats visadaifer che na correspundan a nagin da tis profils en la survista, p.ex. ils AirPods d\'autras persunas.</string>
     <string name="settings_acknowledgements_label">Remerciaments</string>
     <string name="settings_debug_autoreports_label">Raports da bugs automatics</string>
     <string name="settings_debug_autoreports_description">Raporta automaticamain problems, p.ex. detagls davart in crash da l\'app, uschia che jau poss chapir co reparar quai.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth è deactivà, activai el ;)</string>
     <string name="overview_monitoring_active_label">Surveglianza dad apparats</string>
     <string name="overview_monitoring_active_description">Assicurai che Voss apparat è datiers ed activ.</string>
+    <string name="overview_troubleshoot_suggestion_label">Connectà, ma nagins datas</string>
+    <string name="overview_troubleshoot_suggestion_description">Tieu apparat è connectà, ma CAPod na retschaiva naginas datas en diretta. Tiu telefon sto eventualmain ina opziun da cumpatibilitad — il schliader da problems po emprovar da chattar ina automaticamain.</string>
+    <string name="overview_troubleshoot_suggestion_action">Aviar il schliader da problems</string>
     <string name="overview_unmatched_devices_label">Apparats senza correspondenza</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d apparat senza profil correspundent</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Detecziun dal Somen</string>
     <string name="reaction_sleep_notification_title">Stoppà da la Detecziun dal Somen</string>
     <string name="reaction_sleep_notification_text">%1$s ha rapportà ch\'Vus avais endormì, uschia è Vossa musica vegnida stoppada. Vus pudais deactivar quai en las configurazions dal apparat.</string>
+    <string name="reaction_charged_channel_label">Notificaziun da chargiader</string>
+    <string name="reaction_charged_notification_title">Chargiader terminà</string>
+    <string name="reaction_charged_notification_text_full">%1$s è cumplettamain chargiada.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s è vegnida chargiada fin %2$d%%.</string>
     <string name="device_settings_rename_label">Renumerar</string>
     <string name="device_settings_rename_hint">Num da l\'apparat</string>
     <string name="device_settings_rename_confirm">Renumerar</string>

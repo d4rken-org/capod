@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Előugró ablak csatlakozáskor</string>
     <string name="settings_popup_connected_description">Előugró ablak megjelenítése, amikor az eszköz először csatlakozik.</string>
     <string name="settings_popup_info_not_in_app">Az előugró ablakok csak akkor jelennek meg, ha nem tartózkodik az alkalmazásban.</string>
+    <string name="settings_charged_notification_label">Feltöltési értesítés</string>
+    <string name="settings_charged_notification_description">Értesítés küldése, ha minden töltés alatt lévő eszköz eléri a céltöltési szintet.</string>
+    <string name="settings_charged_threshold_label">Céltöltési szint</string>
+    <string name="settings_charged_scope_label">Figyelt akkumulátorok</string>
+    <string name="settings_charged_scope_pods_label">Csak fülhallgatók</string>
+    <string name="settings_charged_scope_case_label">Csak tok</string>
+    <string name="settings_charged_scope_both_label">Fülhallgatók és tok</string>
     <string name="device_settings_experimental_title">Kísérleti funkció</string>
     <string name="device_settings_experimental_description">Ezt a funkciót még nem tesztelték minden eszközön. Ha valami nem működik megfelelően, kérjük, nyiss egy hibajegyet hibakeresési naplóval.</string>
     <string name="device_settings_experimental_action">Hibajegykövetős megnyitása</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Hibakeresés</string>
     <string name="settings_general_label">Beállítások</string>
     <string name="settings_general_description">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
+    <string name="settings_overview_hide_unmatched_label">Párosítatlan eszközök elrejtése</string>
+    <string name="settings_overview_hide_unmatched_description">Ne jelenjenek meg az áttekintőben azok a közeli eszközök, amelyek nem egyeznek egy profilodhoz sem, pl. mások AirPodjai.</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
     <string name="settings_debug_autoreports_label">Automatikus hibajelentések</string>
     <string name="settings_debug_autoreports_description">Automatikusan jelenti a problémákat, például részleteket az alkalmazás összeomlásáról, hogy kitaláljam, hogyan javíthatom ki.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">A Bluetooth le van tiltva, engedélyezze ;)</string>
     <string name="overview_monitoring_active_label">Eszközök figyelése</string>
     <string name="overview_monitoring_active_description">Győződjön meg róla, hogy az eszköze a közelben van és aktív.</string>
+    <string name="overview_troubleshoot_suggestion_label">Csatlakoztatva, de nincs adat</string>
+    <string name="overview_troubleshoot_suggestion_description">Az eszköz csatlakoztatva van, de a CAPod nem kap élő adatot tőle. Előfordulhat, hogy a telefonodnak kompatibilitási beállításra van szüksége – a hibaelőárító automatikusan megpróbálhat egyet találni.</string>
+    <string name="overview_troubleshoot_suggestion_action">Hibaelőárító futtatása</string>
     <string name="overview_unmatched_devices_label">Nem párosított eszközök</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d eszköz párosított profil nélkül</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Alvásérzékelés</string>
     <string name="reaction_sleep_notification_title">Az alvásérzékelés által szüneteltetve</string>
     <string name="reaction_sleep_notification_text">%1$s jelezte, hogy elaludtál, ezért a zene szünetelt. Ezt a készülék beállításaiban kapcsolhatod ki.</string>
+    <string name="reaction_charged_channel_label">Feltöltési értesítés</string>
+    <string name="reaction_charged_notification_title">Töltés kész</string>
+    <string name="reaction_charged_notification_text_full">%1$s teljesen feltöltődött.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s feltöltődött %2$d%%-ra.</string>
     <string name="device_settings_rename_label">Átnevézés</string>
     <string name="device_settings_rename_hint">Eszköz neve</string>
     <string name="device_settings_rename_confirm">Átnevézés</string>

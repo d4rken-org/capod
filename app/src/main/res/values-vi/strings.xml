@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Hiển thị popup kết nối</string>
     <string name="settings_popup_connected_description">Hiển thị cửa sổ bật lên khi thiết bị kết nối lần đầu tiên.</string>
     <string name="settings_popup_info_not_in_app">Cửa sổ bật lên chỉ hiển thị khi bạn không ở trong ứng dụng.</string>
+    <string name="settings_charged_notification_label">Thông báo sạc đầy</string>
+    <string name="settings_charged_notification_description">Hiển thị thông báo khi mọi thứ đang sạc đạt đến mức sạc mục tiêu.</string>
+    <string name="settings_charged_threshold_label">Mức sạc mục tiêu</string>
+    <string name="settings_charged_scope_label">Pin được theo dõi</string>
+    <string name="settings_charged_scope_pods_label">Chỉ tai nghe</string>
+    <string name="settings_charged_scope_case_label">Chỉ hộp sạc</string>
+    <string name="settings_charged_scope_both_label">Tai nghe và hộp sạc</string>
     <string name="device_settings_experimental_title">Tính năng thử nghiệm</string>
     <string name="device_settings_experimental_description">Tính năng này chưa được kiểm tra trên tất cả thiết bị. Nếu có gì đó không hoạt động đúng, vui lòng mở một vấn đề với nhật ký gỡ lỗi.</string>
     <string name="device_settings_experimental_action">Mở Trình theo dõi vấn đề</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Gỡ lỗi</string>
     <string name="settings_general_label">Cài đặt</string>
     <string name="settings_general_description">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
+    <string name="settings_overview_hide_unmatched_label">Ẩn thiết bị không khớp</string>
+    <string name="settings_overview_hide_unmatched_description">Không hiển thị các thiết bị lân cận không khớp với bất kỳ hồ sơ nào của bạn trong tổng quan, ví dụ: AirPods của người khác.</string>
     <string name="settings_acknowledgements_label">Đóng góp và cảm ơn</string>
     <string name="settings_debug_autoreports_label">Báo cáo lỗi tự động</string>
     <string name="settings_debug_autoreports_description">Tự động báo cáo các vấn đề, ví dụ: thông tin chi tiết về sự cố ứng dụng để tôi có thể tìm ra cách khắc phục.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth đang tắt, hãy bật lên ;)</string>
     <string name="overview_monitoring_active_label">Đang giám sát thiết bị</string>
     <string name="overview_monitoring_active_description">Đảm bảo thiết bị của bạn ở gần và đang hoạt động.</string>
+    <string name="overview_troubleshoot_suggestion_label">Đã kết nối, nhưng không có dữ liệu</string>
+    <string name="overview_troubleshoot_suggestion_description">Thiết bị của bạn đã kết nối, nhưng CAPod không nhận được dữ liệu trực tiếp từ nó. Điện thoại của bạn có thể cần tùy chọn tương thích — trình khắc phục sự cố có thể tự động tìm một tùy chọn.</string>
+    <string name="overview_troubleshoot_suggestion_action">Chạy trình khắc phục sự cố</string>
     <string name="overview_unmatched_devices_label">Thiết bị chưa khớp</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d thiết bị không có hồ sơ khớp</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">Phát hiện ngủ</string>
     <string name="reaction_sleep_notification_title">Đã tạm dừng bởi Phát hiện ngủ</string>
     <string name="reaction_sleep_notification_text">%1$s phát hiện bạn đã ngủ quên, vì vậy nhạc của bạn đã được tạm dừng. Bạn có thể tắt tính năng này trong cài đặt thiết bị.</string>
+    <string name="reaction_charged_channel_label">Thông báo sạc đầy</string>
+    <string name="reaction_charged_notification_title">Sạc xong</string>
+    <string name="reaction_charged_notification_text_full">%1$s đã sạc đầy.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s đã được sạc đến %2$d%%.</string>
     <string name="device_settings_rename_label">Đổi tên</string>
     <string name="device_settings_rename_hint">Tên thiết bị</string>
     <string name="device_settings_rename_confirm">Đổi tên</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">显示连接弹窗</string>
     <string name="settings_popup_connected_description">当设备初次连接时显示弹窗</string>
     <string name="settings_popup_info_not_in_app">弹窗仅在您不在应用内时显示。</string>
+    <string name="settings_charged_notification_label">充电完成通知</string>
+    <string name="settings_charged_notification_description">当所有正在充电的设备达到目标电量时发送通知。</string>
+    <string name="settings_charged_threshold_label">目标电量</string>
+    <string name="settings_charged_scope_label">监测的电池</string>
+    <string name="settings_charged_scope_pods_label">仅耳机</string>
+    <string name="settings_charged_scope_case_label">仅充电盒</string>
+    <string name="settings_charged_scope_both_label">耳机和充电盒</string>
     <string name="device_settings_experimental_title">实验性功能</string>
     <string name="device_settings_experimental_description">此功能尚未在所有设备上进行测试。如果有问题，请附上调试日志提交一个问题报告。</string>
     <string name="device_settings_experimental_action">打开问题跟踪器</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">调试</string>
     <string name="settings_general_label">设置</string>
     <string name="settings_general_description">影响整个应用的一般性设置。</string>
+    <string name="settings_overview_hide_unmatched_label">隐藏不匹配的设备</string>
+    <string name="settings_overview_hide_unmatched_description">不在概览中显示附近与任何配置文件不匹配的设备，例如他人的 AirPods。</string>
     <string name="settings_acknowledgements_label">鸣谢</string>
     <string name="settings_debug_autoreports_label">自动反馈错误</string>
     <string name="settings_debug_autoreports_description">自动报告问题，例如应用崩溃的详细信息，方便我进行修复</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">蓝牙已关闭，请开启 ;)</string>
     <string name="overview_monitoring_active_label">设备监测</string>
     <string name="overview_monitoring_active_description">请确保您的设备附近并处于活动状态。</string>
+    <string name="overview_troubleshoot_suggestion_label">已连接，但无数据</string>
+    <string name="overview_troubleshoot_suggestion_description">设备已连接，但 CAPod 未收到任何实时数据。你的手机可能需要一个兼容选项——故障排除程序可以尝试自动找到一个。</string>
+    <string name="overview_troubleshoot_suggestion_action">运行故障排除程序</string>
     <string name="overview_unmatched_devices_label">不匹配的设备</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">没有匹配的 %d 设备信息</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">睡眠检测</string>
     <string name="reaction_sleep_notification_title">已被睡眠检测暂停</string>
     <string name="reaction_sleep_notification_text">%1$s 检测到您已入睡，音乐已暂停。您可以在设备设置中关闭此功能。</string>
+    <string name="reaction_charged_channel_label">充电完成通知</string>
+    <string name="reaction_charged_notification_title">充电完成</string>
+    <string name="reaction_charged_notification_text_full">%1$s 已充满电。</string>
+    <string name="reaction_charged_notification_text_partial">%1$s 已充电至 %2$d%%。</string>
     <string name="device_settings_rename_label">重命名</string>
     <string name="device_settings_rename_hint">设备名称</string>
     <string name="device_settings_rename_confirm">重命名</string>

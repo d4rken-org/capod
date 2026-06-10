@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">සම්බන්ධතා පොප්-අප් පෙන්වන්න</string>
     <string name="settings_popup_connected_description">උපාංගය පළමු වරට සම්බන්ධ වූ විට පොප්-අප් එකක් පෙන්වන්න.</string>
     <string name="settings_popup_info_not_in_app">ඔබ යෙදුම තුළ නොසිටින විට පමණක් පොප්අප් දර්ශනය වේ.</string>
+    <string name="settings_charged_notification_label">චාර්ජ් දැනුම්දීම</string>
+    <string name="settings_charged_notification_description">චාර්ජ් වන සියල්ල ඉලක්ක චාර්ජ් මට්ටමට ළඟා වූ පසු දැනුම්දීමක් පෙන්වන්න.</string>
+    <string name="settings_charged_threshold_label">ඉලක්ක චාර්ජ් මට්ටම</string>
+    <string name="settings_charged_scope_label">නිරීක්ෂණය කෙරෙන බැටරි</string>
+    <string name="settings_charged_scope_pods_label">Pods පමණි</string>
+    <string name="settings_charged_scope_case_label">Case පමණි</string>
+    <string name="settings_charged_scope_both_label">Pods සහ case</string>
     <string name="device_settings_experimental_title">අත්හදා බැලීමේ ලක්ෂණය</string>
     <string name="device_settings_experimental_description">මෙම ලක්ෂණය තවම සියලු උපකරණවල පරීක්ෂා කර නොමැත. යමක් නිවැරදිව ක්‍රියා නොකරන්නේ නම්, කරුණාකර debug log එකක් සමඟ ගැටළුවක් විවෘත කරන්න.</string>
     <string name="device_settings_experimental_action">Issue Tracker විවෘත කරන්න</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">වැදගන්න පරීක්‍ෂණය</string>
     <string name="settings_general_label">සැකසුම්</string>
     <string name="settings_general_description">සමස්ත යෙදුමට බලපාන සාමාන්‍ය වෙනස් කිරීම්.</string>
+    <string name="settings_overview_hide_unmatched_label">නොගැලපෙන උපාංග සඟවන්න</string>
+    <string name="settings_overview_hide_unmatched_description">ඔබේ profile වල නොගැලපෙන ආසන්නයේ ඇති උපාංග දළ ළිස්ලේෂණයේ නොපෙන්වන්න, උදා. අනේකුත් පුද්ගලයන්ගේ AirPods.</string>
     <string name="settings_acknowledgements_label">ස්තූතිය</string>
     <string name="settings_debug_autoreports_label">ස්වයංක්‍රීය දෝෂ වාර්තා</string>
     <string name="settings_debug_autoreports_description">ගැටළු ස්වයංක්‍රීයව වාර්තා කරයි, උදා: යෙදුම් බිඳවැටීමක් පිළිබඳ විස්තර, එවිට මට එය නිවැරදි කරන්නේ කෙසේදැයි සොයාගත හැකිය.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth අක්‍රීයයි, එය සක්‍රීය කරන්න ;)</string>
     <string name="overview_monitoring_active_label">උපාංග සඳහා නිරීක්ෂණය කරමින්</string>
     <string name="overview_monitoring_active_description">ඔබගේ උපාංගය ළඟ සහ ක්‍රියාකාරී බව සහතික කරන්න.</string>
+    <string name="overview_troubleshoot_suggestion_label">සම්බන්ද වී ඇත, නමුත් දත් නොමැත</string>
+    <string name="overview_troubleshoot_suggestion_description">ඔබේ උපාංගය සම්බන්ද වී ඇත, නමුත් CAPod එයින් ජීවිත දත් ලබා ගනිමින් නොමැත. ඔබේ දුරකතනයට අනුකූලතා ළිකල්පයක් අවශ්‍ය ළිය හැක — දෝෂ නිරාකරණකය ස්වයංක්‍රීයව එකක් සොයා ගැනීමට උත්සාහ කළ හැක.</string>
+    <string name="overview_troubleshoot_suggestion_action">දෝෂ නිරාකරණකය ධාවනය කරන්න</string>
     <string name="overview_unmatched_devices_label">නොගැලපෙන උපාංග</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">ගැලපෙන පැතිකඩක් නොමැති උපාංග %d ක්</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">නිදිමත හඳුනාගැනීම</string>
     <string name="reaction_sleep_notification_title">නිදිමත හඳුනාගැනීම මගින් විරාම කළා</string>
     <string name="reaction_sleep_notification_text">%1$s ඔබ නිදා ගැනීම වාර්තා කළා, එබැවින් ඔබේ සංගීතය විරාම කළා. ඔබට උපාංග සැකසුම් තුළ මෙය අක්‍රිය කළ හැකිය.</string>
+    <string name="reaction_charged_channel_label">චාර්ජ් දැනුම්දීම</string>
+    <string name="reaction_charged_notification_title">චාර්ජ් කිරීම සම්පූරණ්යි</string>
+    <string name="reaction_charged_notification_text_full">%1$s සම්පූරණ්යේන් චාර්ජ් වී ඇත.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% දක්වා චාර්ජ් වී ඇත.</string>
     <string name="device_settings_rename_label">නැවත් නම් කරන්න</string>
     <string name="device_settings_rename_hint">උපාංගයේ නම</string>
     <string name="device_settings_rename_confirm">නැවත් නම් කරන්න</string>

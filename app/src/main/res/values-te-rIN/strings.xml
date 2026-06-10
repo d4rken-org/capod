@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">కనెక్షన్ పాపప్ చూపించు</string>
     <string name="settings_popup_connected_description">పరికరం మొదటిసారి కనెక్ట్ అయినప్పుడు పాపప్ చూపించు.</string>
     <string name="settings_popup_info_not_in_app">మీరు యాప్‌లో లేనప్పుడు మాత్రమే పాప్‌అప్‌లు చూపబడతాయి.</string>
+    <string name="settings_charged_notification_label">చార్జ్ అయింది నోటిఫికేషన్</string>
+    <string name="settings_charged_notification_description">చార్జ్ అవుతున్న అన్నీ లక్ష్య చార్జ్ స్థాయికి చేరుకున్నప్పుడు నోటిఫికేషన్ చూపించు.</string>
+    <string name="settings_charged_threshold_label">లక్ష్య చార్జ్ స్థాయి</string>
+    <string name="settings_charged_scope_label">పర్యవేక్షించిన బ్యాటరీలు</string>
+    <string name="settings_charged_scope_pods_label">పాడ్స్ మాత్రమే</string>
+    <string name="settings_charged_scope_case_label">కేస్ మాత్రమే</string>
+    <string name="settings_charged_scope_both_label">పాడ్స్ మరియు కేస్</string>
     <string name="device_settings_experimental_title">ప్రయోగాత్మక ఫీచర్</string>
     <string name="device_settings_experimental_description">ఈ ఫీచర్ ఇంకా అన్ని పరికరాలలో పరీక్షించబడలేదు. ఏదైనా సరిగా పని చేయకపోతే, దయచేసి డీబగ్ లాగ్‌తో ఒక సమస్యను తెరవండి.</string>
     <string name="device_settings_experimental_action">సమస్య ట్రాకర్ తెరవండి</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">డీబగ్</string>
     <string name="settings_general_label">సెట్టింగ్‌లు</string>
     <string name="settings_general_description">మొత్తం యాప్‌ను ప్రభావితం చేసే సాధారణ సర్దుబాట్లు.</string>
+    <string name="settings_overview_hide_unmatched_label">సరిపోలని పరికరాలను దాచు</string>
+    <string name="settings_overview_hide_unmatched_description">మీ ప్రొఫైల్‌లలో ఏదీ సరిపోలని దగ్గరి పరికరాలను అవలోకనంలో చూపించవద్దు, ఉదా. ఇతరుల AirPods.</string>
     <string name="settings_acknowledgements_label">కృతజ్ఞతలు</string>
     <string name="settings_debug_autoreports_label">స్వయంచాలక బగ్ నివేదికలు</string>
     <string name="settings_debug_autoreports_description">సమస్యలను స్వయంచాలకంగా నివేదిస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు తద్వారా దాన్ని ఎలా పరిష్కరించాలో నేను గుర్తించగలను.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">బ్లూటూత్ నిలిపివేయబడింది, దాన్ని ఎనేబుల్ చేయండి ;)</string>
     <string name="overview_monitoring_active_label">పరికరాలను మానిటర్ చేస్తోంది</string>
     <string name="overview_monitoring_active_description">మీ పరికరం సమీపంలో మరియు యాక్టివ్‌గా ఉందని నిర్ధారించుకోండి.</string>
+    <string name="overview_troubleshoot_suggestion_label">కనెక్ట్ అయింది, కానీ డేటా లేదు</string>
+    <string name="overview_troubleshoot_suggestion_description">మీ పరికరం కనెక్ట్ అయింది, కానీ CAPod దాని నుండి ఏ లైవ్ డేటాను అందుకోవడం లేదు. మీ ఫోన్‌కు ఒక అనుకూలత ఎంపిక అవసరం కావచ్చు — ట్రబుల్షూటర్ స్వయంచాలకంగా ఒకటి కనుగొనడానికి ప్రయత్నించగలదు.</string>
+    <string name="overview_troubleshoot_suggestion_action">ట్రబుల్షూటర్ అమలు చేయి</string>
     <string name="overview_unmatched_devices_label">సరిపోలని పరికరాలు</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">సరిపోలే ప్రొఫైల్ లేని %d పరికరం</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">నిద్ర గుర్తింపు</string>
     <string name="reaction_sleep_notification_title">నిద్ర గుర్తింపు ద్వారా నిలిపివేయబడింది</string>
     <string name="reaction_sleep_notification_text">%1$s మీరు నిద్రపోయారని నివేదించింది, కాబట్టి మీ సంగీతం నిలిపివేయబడింది. మీరు దీన్ని పరికర సెట్టింగ్‌లలో నిలిపివేయవచ్చు.</string>
+    <string name="reaction_charged_channel_label">చార్జ్ అయింది నోటిఫికేషన్</string>
+    <string name="reaction_charged_notification_title">చార్జింగ్ పూర్తయింది</string>
+    <string name="reaction_charged_notification_text_full">%1$s పూర్తిగా చార్జ్ అయింది.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% కి చార్జ్ అయింది.</string>
     <string name="device_settings_rename_label">పేరు మార్చండి</string>
     <string name="device_settings_rename_hint">పరికర పేరు</string>
     <string name="device_settings_rename_confirm">పేరు మార్చండి</string>

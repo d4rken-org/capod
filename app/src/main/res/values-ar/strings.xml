@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">إظهار نافذة منبثقة للاتصال</string>
     <string name="settings_popup_connected_description">إظهار نافذة منبثقة عند اتصال الجهاز لأول مرة.</string>
     <string name="settings_popup_info_not_in_app">تظهر النوافذ المنبثقة فقط عندما لا تكون داخل التطبيق.</string>
+    <string name="settings_charged_notification_label">إشعار الشحن الكامل</string>
+    <string name="settings_charged_notification_description">اعرض إشعارًا بمجرد وصول جميع الأجهزة التي يتم شحنها إلى مستوى الشحن المستهدف.</string>
+    <string name="settings_charged_threshold_label">مستوى الشحن المستهدف</string>
+    <string name="settings_charged_scope_label">البطاريات المُراقبة</string>
+    <string name="settings_charged_scope_pods_label">السمّاعات فقط</string>
+    <string name="settings_charged_scope_case_label">الحافظة فقط</string>
+    <string name="settings_charged_scope_both_label">السماعات والحافظة</string>
     <string name="device_settings_experimental_title">ميزة تجريبية</string>
     <string name="device_settings_experimental_description">لم يتم اختبار هذه الميزة على جميع الأجهزة بعد. إذا كان هناك شيء لا يعمل بشكل صحيح، يرجى فتح تقرير مشكلة مع سجل تصحيح.</string>
     <string name="device_settings_experimental_action">فتح متتبع المشكلات</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">تصحيح الأخطاء</string>
     <string name="settings_general_label">الإعدادات</string>
     <string name="settings_general_description">تعديلات عامة تؤثر على التطبيق بأكمله.</string>
+    <string name="settings_overview_hide_unmatched_label">إخفاء الأجهزة غير المتطابقة</string>
+    <string name="settings_overview_hide_unmatched_description">لا تعرض الأجهزة القريبة التي لا تتطابق مع أي من ملفات تعريفك في النظرة العامة، على سبيل المثال سمّاعات AirPods الخاصة بالآخرين.</string>
     <string name="settings_acknowledgements_label">شكر وتقدير</string>
     <string name="settings_debug_autoreports_label">تقارير الأخطاء التلقائية</string>
     <string name="settings_debug_autoreports_description">الإبلاغ تلقائيًا عن المشكلات، على سبيل المثال تفاصيل حول تعطل التطبيق حتى أتمكن من معرفة كيفية إصلاحه.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">البلوتوث معطل، قم بتمكينه ;)</string>
     <string name="overview_monitoring_active_label">جارٍ مراقبة الأجهزة</string>
     <string name="overview_monitoring_active_description">تأكد من أن جهازك قريب ونشط.</string>
+    <string name="overview_troubleshoot_suggestion_label">متصل، ولكن لا توجد بيانات</string>
+    <string name="overview_troubleshoot_suggestion_description">جهازك متصل، لكن تطبيق CAPod لا يستقبل أي بيانات مباشرة منه. قد يحتاج هاتفك إلى خيار توافق - يمكن لمُستكشف الأخطاء ومُصلحها محاولة إيجاد واحد تلقائيًّا.</string>
+    <string name="overview_troubleshoot_suggestion_action">تشغيل مُستكشف الأخطاء ومُصلحها</string>
     <string name="overview_unmatched_devices_label">أجهزة غير متطابقة</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="zero">%d أجهزة بدون ملف تعريف مطابق</item>
@@ -510,6 +522,10 @@
     <string name="reaction_sleep_channel_label">اكتشاف النوم</string>
     <string name="reaction_sleep_notification_title">تم الإيقاف المؤقت بواسطة اكتشاف النوم</string>
     <string name="reaction_sleep_notification_text">%1$s أفاد بأنك نمت، لذا تم إيقاف موسيقاك مؤقتًا. يمكنك تعطيل هذا في إعدادات الجهاز.</string>
+    <string name="reaction_charged_channel_label">إشعار الشحن الكامل</string>
+    <string name="reaction_charged_notification_title">اكتمل الشحن</string>
+    <string name="reaction_charged_notification_text_full">%1$s مشحون بالكامل.</string>
+    <string name="reaction_charged_notification_text_partial">تم شحن %1$s إلى %2$d%%.</string>
     <string name="device_settings_rename_label">إعادة تسمية</string>
     <string name="device_settings_rename_hint">اسم الجهاز</string>
     <string name="device_settings_rename_confirm">إعادة تسمية</string>

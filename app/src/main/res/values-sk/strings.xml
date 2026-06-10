@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Zobraziť vyskakovacie okno pri pripojení</string>
     <string name="settings_popup_connected_description">Pri prvom pripojení zariadenia zobraziť vyskakovacie okno.</string>
     <string name="settings_popup_info_not_in_app">Vyskakovacie okná sa zobrazujú iba keď nie ste v aplikácii.</string>
+    <string name="settings_charged_notification_label">Oznámenie o nabití</string>
+    <string name="settings_charged_notification_description">Zobraziť oznámenie, keď všetko, čo sa nabíja, dosiahne cieľovú úroveň nabitia.</string>
+    <string name="settings_charged_threshold_label">Cieľová úroveň nabitia</string>
+    <string name="settings_charged_scope_label">Sledované batérie</string>
+    <string name="settings_charged_scope_pods_label">Len slúchadlá</string>
+    <string name="settings_charged_scope_case_label">Len puzdro</string>
+    <string name="settings_charged_scope_both_label">Slúchadlá a puzdro</string>
     <string name="device_settings_experimental_title">Experimentálna funkcia</string>
     <string name="device_settings_experimental_description">Táto funkcia ešte nebola otestovaná na všetkých zariadeniach. Ak niečo nefunguje správne, otvorte prosím chybové hlásenie s protokolom ladenia.</string>
     <string name="device_settings_experimental_action">Otvoriť sledovač problémov</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Ladiť</string>
     <string name="settings_general_label">Nastavenia</string>
     <string name="settings_general_description">Všeobecné vylepšenia, ktoré ovplyvňujú celú aplikáciu.</string>
+    <string name="settings_overview_hide_unmatched_label">Skryť nezhodné zariadenia</string>
+    <string name="settings_overview_hide_unmatched_description">V prehľade nezobrazovať blízke zariadenia, ktoré nezodpovedajú žiadnemu z vašich profilov, napr. AirPods iných ľudí.</string>
     <string name="settings_acknowledgements_label">Poďakovania</string>
     <string name="settings_debug_autoreports_label">Automatické hlásenia chýb</string>
     <string name="settings_debug_autoreports_description">Automaticky hlási problémy, napr. podrobnosti o zlyhaní aplikácie, aby som mohol zistiť, ako to opraviť.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth je vypnutý, zapnite ho ;)</string>
     <string name="overview_monitoring_active_label">Monitorovanie zariadení</string>
     <string name="overview_monitoring_active_description">Uistite sa, že vaše zariadenie je v blízkosti a je aktívne.</string>
+    <string name="overview_troubleshoot_suggestion_label">Pripojené, ale žiadne dáta</string>
+    <string name="overview_troubleshoot_suggestion_description">Tvoje zariadenie je pripojené, ale CAPod z neho neprijíma žiadne živé dáta. Tvoj telefón môže potrebovať možnosť kompatibility — nástroj na riešenie problémov sa ju môže pokúsiť nájsť automaticky.</string>
+    <string name="overview_troubleshoot_suggestion_action">Spustiť riešenie problémov</string>
     <string name="overview_unmatched_devices_label">Nezhodujúce sa zariadenia</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d zariadenie bez zodpovedajúceho profilu</item>
@@ -500,6 +512,10 @@
     <string name="reaction_sleep_channel_label">Detekcia spánku</string>
     <string name="reaction_sleep_notification_title">Pozastavené detekciou spánku</string>
     <string name="reaction_sleep_notification_text">%1$s zistilo, že ste zaspali, preto bola vaša hudba pozastavená. Toto môžete vypnúť v nastaveniach zariadenia.</string>
+    <string name="reaction_charged_channel_label">Oznámenie o nabití</string>
+    <string name="reaction_charged_notification_title">Nabíjanie dokončené</string>
+    <string name="reaction_charged_notification_text_full">%1$s je plne nabitý.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s bol nabitý na %2$d%%.</string>
     <string name="device_settings_rename_label">Premenovať</string>
     <string name="device_settings_rename_hint">Názov zariadenia</string>
     <string name="device_settings_rename_confirm">Premenovať</string>

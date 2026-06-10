@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Показать соединение</string>
     <string name="settings_popup_connected_description">Показывать окно при первом подключении.</string>
     <string name="settings_popup_info_not_in_app">Всплывающие окна отображаются только когда Вы не находитесь в приложении.</string>
+    <string name="settings_charged_notification_label">Уведомление о зарядке</string>
+    <string name="settings_charged_notification_description">Показывать уведомление, когда зарядка достигнет целевого уровня заряда.</string>
+    <string name="settings_charged_threshold_label">Целевой уровень заряда</string>
+    <string name="settings_charged_scope_label">Отслеживаемые батареи</string>
+    <string name="settings_charged_scope_pods_label">Только наушники</string>
+    <string name="settings_charged_scope_case_label">Только кейс</string>
+    <string name="settings_charged_scope_both_label">Наушники и кейс</string>
     <string name="device_settings_experimental_title">Экспериментальная функция</string>
     <string name="device_settings_experimental_description">Эта функция ещё не протестирована на всех устройствах. Если что-то работает неправильно, пожалуйста, создайте обращение с журналом отладки.</string>
     <string name="device_settings_experimental_action">Открыть трекер проблем</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Отладка</string>
     <string name="settings_general_label">Настройки</string>
     <string name="settings_general_description">Общие настройки, влияющие на всё приложение.</string>
+    <string name="settings_overview_hide_unmatched_label">Скрывать несопряжённые устройства</string>
+    <string name="settings_overview_hide_unmatched_description">Не показывать ближайшие устройства, не соответствующие ни одному из твоих профилей, в обзоре, например AirPods других людей.</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_debug_autoreports_label">Автоматические отчёты об ошибках</string>
     <string name="settings_debug_autoreports_description">Автоматические отчёты об ошибках, например, детали сбоя приложения, которые могут помочь решению проблемы.</string>
@@ -194,6 +203,9 @@ AL_Cool_T</string>
     <string name="overview_bluetooth_disabled_description">Bluetooth отключен, включите его ;)</string>
     <string name="overview_monitoring_active_label">Мониторинг устройств</string>
     <string name="overview_monitoring_active_description">Убедитесь, что Ваше устройство находится поблизости и активно.</string>
+    <string name="overview_troubleshoot_suggestion_label">Подключено, но данных нет</string>
+    <string name="overview_troubleshoot_suggestion_description">Устройство подключено, но CAPod не получает от него данных в режиме реального времени. Возможно, твоему телефону нужна опция совместимости — помощник может попытаться найти её автоматически.</string>
+    <string name="overview_troubleshoot_suggestion_action">Запустить помощник</string>
     <string name="overview_unmatched_devices_label">Несопряжённые устройства</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d устройство без соответствующего профиля</item>
@@ -501,6 +513,10 @@ AL_Cool_T</string>
     <string name="reaction_sleep_channel_label">Определение сна</string>
     <string name="reaction_sleep_notification_title">Приостановлено функцией обнаружения сна</string>
     <string name="reaction_sleep_notification_text">%1$s сообщает, что Вы уснули, поэтому музыка была приостановлена. Вы можете отключить это в настройках устройства.</string>
+    <string name="reaction_charged_channel_label">Уведомление о зарядке</string>
+    <string name="reaction_charged_notification_title">Зарядка завершена</string>
+    <string name="reaction_charged_notification_text_full">%1$s полностью заряжен.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s заряжен до %2$d%%.</string>
     <string name="device_settings_rename_label">Переименовать</string>
     <string name="device_settings_rename_hint">Имя устройства</string>
     <string name="device_settings_rename_confirm">Переименовать</string>

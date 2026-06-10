@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Shfaq popup-in e lidhjes</string>
     <string name="settings_popup_connected_description">Shfaq një popup kur pajisja lidhet për herë të parë.</string>
     <string name="settings_popup_info_not_in_app">Dritaret kërcyese shfaqen vetëm kur nuk jeni në aplikacion.</string>
+    <string name="settings_charged_notification_label">Njoftim i karikimit të plotë</string>
+    <string name="settings_charged_notification_description">Shfaq një njoftim kur gjithçka që është duke u karikuar arrin nivelin e synuar të karikimit.</string>
+    <string name="settings_charged_threshold_label">Niveli i synuar i karikimit</string>
+    <string name="settings_charged_scope_label">Bateritë e monitoruara</string>
+    <string name="settings_charged_scope_pods_label">Vetëm Pods</string>
+    <string name="settings_charged_scope_case_label">Vetëm kuti</string>
+    <string name="settings_charged_scope_both_label">Pods dhe kuti</string>
     <string name="device_settings_experimental_title">Funksion eksperimental</string>
     <string name="device_settings_experimental_description">Ky funksion nuk është testuar ende në të gjitha pajisjet. Nëse diçka nuk funksionon siç duhet, ju lutemi hapni një problem me një regjistër korrigjimi.</string>
     <string name="device_settings_experimental_action">Hap Gjurmuesin e Problemeve</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Cilësimet</string>
     <string name="settings_general_description">Rregullime të përgjithshme që ndikojnë në të gjithë aplikacionin.</string>
+    <string name="settings_overview_hide_unmatched_label">Fshih pajisjet e papërputhura</string>
+    <string name="settings_overview_hide_unmatched_description">Mos shfaq pajisjet afërsisht që nuk përputhen me asnjë nga profilet tuaja në pamje të përgjithshme, p.sh. AirPods-et e njerëzve të tjerë.</string>
     <string name="settings_acknowledgements_label">Mirënjohje</string>
     <string name="settings_debug_autoreports_label">Raporte automatike të gabimeve</string>
     <string name="settings_debug_autoreports_description">Raporton automatikisht problemet, p.sh. detaje mbi një ndërprerje të aplikacionit në mënyrë që të mund të kuptoj se si ta rregulloj.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth është i çaktivizuar, aktivizojeni ;)</string>
     <string name="overview_monitoring_active_label">Po monitorohen pajisjet</string>
     <string name="overview_monitoring_active_description">Sigurohuni që pajisja juaj është pranë dhe aktive.</string>
+    <string name="overview_troubleshoot_suggestion_label">I lidhur, por pa të dhëna</string>
+    <string name="overview_troubleshoot_suggestion_description">Pajisja juaj është e lidhur, por CAPod nuk po merr të dhëna live prej saj. Telefoni juaj mund të ketë nevojë për një opsion përputhshmërie — zgjidhësi i problemeve mund të përpiqet të gjejë një automatikisht.</string>
+    <string name="overview_troubleshoot_suggestion_action">Ekzekuto zgjidhësin e problemeve</string>
     <string name="overview_unmatched_devices_label">Pajisje të papërputhura</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d pajisje pa profil përputhës</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Zbulimi i gjumit</string>
     <string name="reaction_sleep_notification_title">Pauzuar nga Zbulimi i gjumit</string>
     <string name="reaction_sleep_notification_text">%1$s raportoi se keni rënë në gjumë, kështu që muzika juaj u pauzua. Mund ta çaktivizoni këtë në cilësimet e pajisjes.</string>
+    <string name="reaction_charged_channel_label">Njoftim Karikimi i Plotë</string>
+    <string name="reaction_charged_notification_title">Karikimi i plotë</string>
+    <string name="reaction_charged_notification_text_full">%1$s është karikuar plotësisht.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s është karikuar deri në %2$d%%.</string>
     <string name="device_settings_rename_label">Riemrëro</string>
     <string name="device_settings_rename_hint">Emri i pajisjes</string>
     <string name="device_settings_rename_confirm">Riemrëro</string>

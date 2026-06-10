@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Afficher une fenêtre de connection</string>
     <string name="settings_popup_connected_description">Afficher une fenêtre contextuelle quand l’appareil se connecte pour la première fois.</string>
     <string name="settings_popup_info_not_in_app">Les popups ne sont affichées que lorsque vous n\'êtes pas dans l\'application.</string>
+    <string name="settings_charged_notification_label">Notification de charge complète</string>
+    <string name="settings_charged_notification_description">Afficher une notification une fois que tout ce qui est en charge atteint le niveau de charge cible.</string>
+    <string name="settings_charged_threshold_label">Niveau de charge cible</string>
+    <string name="settings_charged_scope_label">Batteries surveillées</string>
+    <string name="settings_charged_scope_pods_label">Écouteurs uniquement</string>
+    <string name="settings_charged_scope_case_label">Boîtier uniquement</string>
+    <string name="settings_charged_scope_both_label">Écouteurs et boîtier</string>
     <string name="device_settings_experimental_title">Fonctionnalité expérimentale</string>
     <string name="device_settings_experimental_description">Cette fonctionnalité n\'a pas encore été testée sur tous les appareils. Si quelque chose ne fonctionne pas correctement, veuillez ouvrir un ticket avec un journal de débogage.</string>
     <string name="device_settings_experimental_action">Ouvrir le suivi des problèmes</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Débogage</string>
     <string name="settings_general_label">Paramètres</string>
     <string name="settings_general_description">Réglage généraux qui affectent l\'appli entière.</string>
+    <string name="settings_overview_hide_unmatched_label">Masquer les appareils sans correspondance</string>
+    <string name="settings_overview_hide_unmatched_description">Ne pas afficher dans l’aperçu les appareils à proximité qui ne correspondent à aucun de vos profils, p. ex. les AirPods d’autres personnes.</string>
     <string name="settings_acknowledgements_label">Remerciements</string>
     <string name="settings_debug_autoreports_label">Relevés de bogue automatiques</string>
     <string name="settings_debug_autoreports_description">Signale automatiquement les problèmes, p. ex., les détails d’un plantage de l’appli, afin que je puisse essayer de les corriger.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth est désactivé, activez-le ;)</string>
     <string name="overview_monitoring_active_label">Surveillance des appareils</string>
     <string name="overview_monitoring_active_description">Assurez-vous que votre appareil est proche et actif.</string>
+    <string name="overview_troubleshoot_suggestion_label">Connecté, mais aucune donnée</string>
+    <string name="overview_troubleshoot_suggestion_description">Votre appareil est connecté, mais CAPod ne reçoit aucune donnée en direct de sa part. Votre téléphone a peut-être besoin d’une option de compatibilité — le dépannage peut essayer d’en trouver une automatiquement.</string>
+    <string name="overview_troubleshoot_suggestion_action">Lancer le dépannage</string>
     <string name="overview_unmatched_devices_label">Appareils sans correspondance</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d appareil sans profil correspondant</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Détection du sommeil</string>
     <string name="reaction_sleep_notification_title">Mis en pause par la détection du sommeil</string>
     <string name="reaction_sleep_notification_text">%1$s a détecté que vous vous êtes endormi, votre musique a donc été mise en pause. Vous pouvez désactiver cela dans les paramètres de l\'appareil.</string>
+    <string name="reaction_charged_channel_label">Notification de charge</string>
+    <string name="reaction_charged_notification_title">Charge terminée</string>
+    <string name="reaction_charged_notification_text_full">%1$s est complètement chargé.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s a été chargé à %2$d%%.</string>
     <string name="device_settings_rename_label">Renommer</string>
     <string name="device_settings_rename_hint">Nom de l’appareil</string>
     <string name="device_settings_rename_confirm">Renommer</string>

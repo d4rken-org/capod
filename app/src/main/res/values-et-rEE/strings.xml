@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Näita ühenduse hüpikakent</string>
     <string name="settings_popup_connected_description">Näita seadme esmaühendumisel hüpikakent.</string>
     <string name="settings_popup_info_not_in_app">Hüpikaknad kuvatakse ainult siis, kui sa pole rakenduses.</string>
+    <string name="settings_charged_notification_label">Laetud teatis</string>
+    <string name="settings_charged_notification_description">Kuva teatis, kui kõik laadimise all olevad seadmed jõuavad sihitud laetuse tasemele.</string>
+    <string name="settings_charged_threshold_label">Sihitud laetuse tase</string>
+    <string name="settings_charged_scope_label">Jälgitavad akud</string>
+    <string name="settings_charged_scope_pods_label">Ainult kõrvaklapid</string>
+    <string name="settings_charged_scope_case_label">Ainult ümbris</string>
+    <string name="settings_charged_scope_both_label">Kõrvaklapid ja ümbris</string>
     <string name="device_settings_experimental_title">Katsetamisel</string>
     <string name="device_settings_experimental_description">Seda pole kõigil seadmetel veel katsetatud. Kui midagi ei toimi õigesti, avage probleem koos silumislogi failiga.</string>
     <string name="device_settings_experimental_action">Ava probleemide jälgija</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Silumine</string>
     <string name="settings_general_label">Seaded</string>
     <string name="settings_general_description">Kogu rakendust mõjutavad üldseaded.</string>
+    <string name="settings_overview_hide_unmatched_label">Peida mittevastavad seadmed</string>
+    <string name="settings_overview_hide_unmatched_description">Ära näita ülevaates lähedalasuvaid seadmeid, mis ei vasta ühelegi sinu profiilile, nt teiste inimeste AirPods.</string>
     <string name="settings_acknowledgements_label">Tunnustused</string>
     <string name="settings_debug_autoreports_label">Automaatsed veateated</string>
     <string name="settings_debug_autoreports_description">Teavitab vigadest ise, nt andmed rakenduse hangumise kohta, et saaksin mõista, kuidas olukorda lahendada.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth on keelatud, lubage see ;)</string>
     <string name="overview_monitoring_active_label">Seadmete jälgimine</string>
     <string name="overview_monitoring_active_description">Veenduge, et seade oleks läheduses ja kasutusel.</string>
+    <string name="overview_troubleshoot_suggestion_label">Ühendatud, kuid andmeid pole</string>
+    <string name="overview_troubleshoot_suggestion_description">Seade on ühendatud, kuid CAPod ei saa sellelt otseandmeid. Telefon vajab tõenäoliselt ühilduvuse valikut — trikijär kontrollib, kas suudab selle automaatselt leida.</string>
+    <string name="overview_troubleshoot_suggestion_action">Käivita trikijär</string>
     <string name="overview_unmatched_devices_label">Omavahel sobimatud seadmed</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d seade ei kattu profiiliga</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Une tuvastamine</string>
     <string name="reaction_sleep_notification_title">Uinumise tõttu peatatud</string>
     <string name="reaction_sleep_notification_text">%1$s teatas, et uinusite, seega muusika vaikis. Saate selle seadme seadetes keelata.</string>
+    <string name="reaction_charged_channel_label">Laetud teatis</string>
+    <string name="reaction_charged_notification_title">Laadimine lõpetatud</string>
+    <string name="reaction_charged_notification_text_full">%1$s on täielikult laetud.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s on laetud %2$d%%-ni.</string>
     <string name="device_settings_rename_label">Nimeta ümber</string>
     <string name="device_settings_rename_hint">Seadme nimi</string>
     <string name="device_settings_rename_confirm">Nimeta ümber</string>

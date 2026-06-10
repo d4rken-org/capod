@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">დაკავშირების ამომხტარი ფანჯრის ჩვენება</string>
     <string name="settings_popup_connected_description">აჩვენეთ ამომხტარი ფანჯარა მოწყობილობის პირველად დაკავშირებისას.</string>
     <string name="settings_popup_info_not_in_app">პოპ-აპები მხოლოდ მაშინ ჩანს, როცა არ ხართ აპლიკაციაში.</string>
+    <string name="settings_charged_notification_label">დატენვის შეტყობინება</string>
+    <string name="settings_charged_notification_description">გამოჩნდება შეტყობინება, როგორც კი დამტენი მოწყობილობა მიაღწევს სამიზნე დატენვის დონეს.</string>
+    <string name="settings_charged_threshold_label">სამიზნე დატენვის დონე</string>
+    <string name="settings_charged_scope_label">მონიტორინგს დაქვემდებარებული ელემენტები</string>
+    <string name="settings_charged_scope_pods_label">მხოლოდ ყურსასმენები</string>
+    <string name="settings_charged_scope_case_label">მხოლოდ კეისი</string>
+    <string name="settings_charged_scope_both_label">ყურსასმენები და კეისი</string>
     <string name="device_settings_experimental_title">ექსპერიმენტული ფუნქცია</string>
     <string name="device_settings_experimental_description">ეს ფუნქცია ჯერ ყველა მოწყობილობაზე გამოცდილი არ არის. თუ რამე სწორად არ მუშაობს, გთხოვთ გახსნათ ხარვეზი debug ლოგთან ერთად.</string>
     <string name="device_settings_experimental_action">ხარვეზების ტრეკერის გახსნა</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">გამართვა</string>
     <string name="settings_general_label">პარამეტრები</string>
     <string name="settings_general_description">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
+    <string name="settings_overview_hide_unmatched_label">შეუსაბამო მოწყობილობების დამალვა</string>
+    <string name="settings_overview_hide_unmatched_description">არ აჩვენო მახლობლად მყოფი მოწყობილობები, რომლებიც არ ემთხვევა თქვენს პროფილებს მიმოხილვაში, მაგ. სხვა ადამიანების AirPods.</string>
     <string name="settings_acknowledgements_label">მადლობები</string>
     <string name="settings_debug_autoreports_label">შეცდომების ავტომატური ანგარიშები</string>
     <string name="settings_debug_autoreports_description">ავტომატურად აცნობებს პრობლემების შესახებ, მაგ. აპლიკაციის ავარიის დეტალებს, რათა გავარკვიო, როგორ გამოვასწორო.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth გამორთულია, ჩართეთ ;)</string>
     <string name="overview_monitoring_active_label">მოწყობილობების მონიტორინგი</string>
     <string name="overview_monitoring_active_description">დარწმუნდით, რომ თქვენი მოწყობილობა ახლოსაა და აქტიურია.</string>
+    <string name="overview_troubleshoot_suggestion_label">დაკავშირებულია, მაგრამ მონაცემები არ არის</string>
+    <string name="overview_troubleshoot_suggestion_description">თქვენი მოწყობილობა დაკავშირებულია, მაგრამ CAPod არ იღებს მისგან ცოცხალ მონაცემებს. თქვენს ტელეფონს შეიძლება სჭირდებოდეს თავსებადობის პარამეტრი — პრობლემების გადამჭრელი შეძლებს ავტომატურად მოძებნოს.</string>
+    <string name="overview_troubleshoot_suggestion_action">პრობლემების გადამჭრელის გაშვება</string>
     <string name="overview_unmatched_devices_label">შეუთავსებელი მოწყობილობები</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d მოწყობილობა შესაბამისი პროფილის გარეშეა</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">ძილის გამოვლენა</string>
     <string name="reaction_sleep_notification_title">შეჩერებულია ძილის გამოვლენის მიერ</string>
     <string name="reaction_sleep_notification_text">%1$s-მ დააფიქსირა, რომ ჩაეძინათ, ამიტომ მუსიკა შეჩერდა. ამის გათიშვა შეგიძლიათ მოწყობილობის პარამეტრებში.</string>
+    <string name="reaction_charged_channel_label">დატენვის შეტყობინება</string>
+    <string name="reaction_charged_notification_title">დატენვა დასრულდა</string>
+    <string name="reaction_charged_notification_text_full">%1$s სრულად დატენილია.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s დაიტენა %2$d%%-მდე.</string>
     <string name="device_settings_rename_label">გადარქმევა</string>
     <string name="device_settings_rename_hint">მოწყობილობის სახელი</string>
     <string name="device_settings_rename_confirm">გადარქმევა</string>

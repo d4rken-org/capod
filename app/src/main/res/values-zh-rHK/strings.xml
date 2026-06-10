@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">顯示連線彈出式視窗</string>
     <string name="settings_popup_connected_description">在裝置首次連線時顯示彈出式視窗。</string>
     <string name="settings_popup_info_not_in_app">彈出視窗僅在您不在應用程式時顯示。</string>
+    <string name="settings_charged_notification_label">充電完成通知</string>
+    <string name="settings_charged_notification_description">當所有正在充電的裝置達到目標充電量時顯示通知。</string>
+    <string name="settings_charged_threshold_label">目標充電量</string>
+    <string name="settings_charged_scope_label">監控電池</string>
+    <string name="settings_charged_scope_pods_label">僅耳機</string>
+    <string name="settings_charged_scope_case_label">僅充電盒</string>
+    <string name="settings_charged_scope_both_label">耳機與充電盒</string>
     <string name="device_settings_experimental_title">實驗性功能</string>
     <string name="device_settings_experimental_description">此功能尚未在所有裝置上測試。如有問題，請提交問題並附上除錯日誌。</string>
     <string name="device_settings_experimental_action">開啟問題追蹤器</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">除錯</string>
     <string name="settings_general_label">設定</string>
     <string name="settings_general_description">影響整個應用程式的一般調校。</string>
+    <string name="settings_overview_hide_unmatched_label">隱藏不符合的裝置</string>
+    <string name="settings_overview_hide_unmatched_description">在總覽中不顯示附近與您的設定檔不符的裝置，例如他人的 AirPods。</string>
     <string name="settings_acknowledgements_label">致謝</string>
     <string name="settings_debug_autoreports_label">自動回報錯誤</string>
     <string name="settings_debug_autoreports_description">自動報告問題，例如應用程式當機細節，我也可以指出如何修復。</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">藍牙已停用，請啟用 ;)</string>
     <string name="overview_monitoring_active_label">正在監測裝置</string>
     <string name="overview_monitoring_active_description">請確保您的裝置在附近並處於啟用狀態。</string>
+    <string name="overview_troubleshoot_suggestion_label">已連接，但無資料</string>
+    <string name="overview_troubleshoot_suggestion_description">您的裝置已連接，但 CAPod 未從中接收任何即時資料。您的手機可能需要相容性選項——疑難排解員可嘗試自動找到一個。</string>
+    <string name="overview_troubleshoot_suggestion_action">執行疑難排解員</string>
     <string name="overview_unmatched_devices_label">不相符的裝置</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d 個裝置沒有相符的設定檔</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">睡眠偵測</string>
     <string name="reaction_sleep_notification_title">已被睡眠偵測暫停</string>
     <string name="reaction_sleep_notification_text">%1$s 偵測到您已入睡，因此音樂已暫停。您可在裝置設定中停用此功能。</string>
+    <string name="reaction_charged_channel_label">充電完成通知</string>
+    <string name="reaction_charged_notification_title">充電完成</string>
+    <string name="reaction_charged_notification_text_full">%1$s 已完全充電。</string>
+    <string name="reaction_charged_notification_text_partial">%1$s 已充電至 %2$d%%。</string>
     <string name="device_settings_rename_label">重新命名</string>
     <string name="device_settings_rename_hint">裝置名稱</string>
     <string name="device_settings_rename_confirm">重新命名</string>

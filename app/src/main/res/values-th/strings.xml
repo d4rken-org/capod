@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">แสดงป๊อปอัปการเชื่อมต่อ</string>
     <string name="settings_popup_connected_description">แสดงป๊อปอัปเมื่ออุปกรณ์เชื่อมต่อเป็นครั้งแรก</string>
     <string name="settings_popup_info_not_in_app">ป๊อปอัปจะแสดงเฉพาะเมื่อคุณไม่ได้อยู่ในแอปเท่านั้น</string>
+    <string name="settings_charged_notification_label">การแจ้งเตือนการชาร์จเต็ม</string>
+    <string name="settings_charged_notification_description">แสดงการแจ้งเตือนเมื่อทุกอย่างที่กำลังชาร์จถึงระดับการชาร์จเป้าหมาย</string>
+    <string name="settings_charged_threshold_label">ระดับการชาร์จเป้าหมาย</string>
+    <string name="settings_charged_scope_label">แบตเตอรี่ที่ตรวจสอบ</string>
+    <string name="settings_charged_scope_pods_label">เฉพาะ Pods</string>
+    <string name="settings_charged_scope_case_label">เฉพาะเคส</string>
+    <string name="settings_charged_scope_both_label">Pods และเคส</string>
     <string name="device_settings_experimental_title">ฟีเจอร์ทดลอง</string>
     <string name="device_settings_experimental_description">ฟีเจอร์นี้ยังไม่ได้ทดสอบบนทุกอุปกรณ์ หากมีบางอย่างทำงานไม่ถูกต้อง โปรดเปิด issue พร้อมบันทึกการดีบัก</string>
     <string name="device_settings_experimental_action">เปิดตัวติดตาม Issue</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">ดีบัก</string>
     <string name="settings_general_label">การตั้งค่า</string>
     <string name="settings_general_description">การปรับแต่งทั่วไปที่ส่งผลต่อทั้งแอป</string>
+    <string name="settings_overview_hide_unmatched_label">ซ่อนอุปกรณ์ที่ไม่ตรงกัน</string>
+    <string name="settings_overview_hide_unmatched_description">ไม่แสดงอุปกรณ์ใกล้เคียงที่ไม่ตรงกับโปรไฟล์ของคุณในภาพรวม เช่น AirPods ของคนอื่น</string>
     <string name="settings_acknowledgements_label">กิตติกรรมประกาศ</string>
     <string name="settings_debug_autoreports_label">รายงานข้อบกพร่องอัตโนมัติ</string>
     <string name="settings_debug_autoreports_description">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับข้อขัดข้องของแอป เพื่อให้ฉันสามารถหาวิธีแก้ไขได้</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ถูกปิดใช้งาน เปิดใช้งานเลย ;)</string>
     <string name="overview_monitoring_active_label">กำลังติดตามอุปกรณ์</string>
     <string name="overview_monitoring_active_description">ตรวจสอบให้แน่ใจว่าอุปกรณ์ของคุณอยู่ใกล้และเปิดใช้งานอยู่</string>
+    <string name="overview_troubleshoot_suggestion_label">เชื่อมต่อแล้ว แต่ไม่มีข้อมูล</string>
+    <string name="overview_troubleshoot_suggestion_description">อุปกรณ์ของคุณเชื่อมต่อแล้ว แต่ CAPod ไม่ได้รับข้อมูลสดจากอุปกรณ์นั้น โทรศัพท์ของคุณอาจต้องการตัวเลือกความเข้ากันได้ — เครื่องมือแก้ปัญหาสามารถลองค้นหาตัวเลือกนั้นโดยอัตโนมัติ</string>
+    <string name="overview_troubleshoot_suggestion_action">เรียกใช้เครื่องมือแก้ปัญหา</string>
     <string name="overview_unmatched_devices_label">อุปกรณ์ที่ไม่ตรงกัน</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d อุปกรณ์ที่ไม่มีโปรไฟล์ที่ตรงกัน</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">การตรวจจับการนอนหลับ</string>
     <string name="reaction_sleep_notification_title">หยุดชั่วคราวโดยการตรวจจับการนอนหลับ</string>
     <string name="reaction_sleep_notification_text">%1$s รายงานว่าคุณหลับไป ดังนั้นเพลงของคุณจึงถูกหยุดชั่วคราว คุณสามารถปิดใช้งานได้ในการตั้งค่าอุปกรณ์</string>
+    <string name="reaction_charged_channel_label">การแจ้งเตือนการชาร์จเต็ม</string>
+    <string name="reaction_charged_notification_title">ชาร์จเสร็จสมบูรณ์</string>
+    <string name="reaction_charged_notification_text_full">%1$s ชาร์จเต็มแล้ว</string>
+    <string name="reaction_charged_notification_text_partial">%1$s ชาร์จถึง %2$d%% แล้ว</string>
     <string name="device_settings_rename_label">เปลี่ยนชื่อ</string>
     <string name="device_settings_rename_hint">ชื่ออุปกรณ์</string>
     <string name="device_settings_rename_confirm">เปลี่ยนชื่อ</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">نمایش پاپ‌آپ اتصال</string>
     <string name="settings_popup_connected_description">هنگام اتصال دستگاه برای اولین بار، یک پاپ‌آپ نشان داده شود.</string>
     <string name="settings_popup_info_not_in_app">پنجره‌های بازشو فقط زمانی نشان داده می‌شوند که در برنامه نباشید.</string>
+    <string name="settings_charged_notification_label">اعلان شارژ کامل</string>
+    <string name="settings_charged_notification_description">پس از اینکه همه چیزهایی که در حال شارژ هستند به سطح شارژ هدف رسیدند، یک اعلان نمایش داده می‌شود.</string>
+    <string name="settings_charged_threshold_label">سطح شارژ هدف</string>
+    <string name="settings_charged_scope_label">باتری‌های تحت نظارت</string>
+    <string name="settings_charged_scope_pods_label">فقط پادها</string>
+    <string name="settings_charged_scope_case_label">فقط کیس</string>
+    <string name="settings_charged_scope_both_label">پادها و کیس</string>
     <string name="device_settings_experimental_title">ویژگی آزمایشی</string>
     <string name="device_settings_experimental_description">این ویژگی هنوز روی همه دستگاه‌ها آزمایش نشده است. اگر چیزی درست کار نمی‌کند، لطفاً یک گزارش خطا با لاگ دیباگ باز کنید.</string>
     <string name="device_settings_experimental_action">باز کردن ردیاب مشکلات</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">اشکال‌زدایی</string>
     <string name="settings_general_label">تنظیمات</string>
     <string name="settings_general_description">تنظیمات کلی که بر کل برنامه تأثیر می‌گذارند.</string>
+    <string name="settings_overview_hide_unmatched_label">پنهان کردن دستگاه‌های نامتناسب</string>
+    <string name="settings_overview_hide_unmatched_description">دستگاه‌های نزدیکی که با هیچ‌کدام از پروفایل‌های شما تطابق ندارند در نمای کلی نمایش داده نمی‌شوند، مثلاً AirPods دیگران.</string>
     <string name="settings_acknowledgements_label">قدردانی‌ها</string>
     <string name="settings_debug_autoreports_label">گزارش‌های خطای خودکار</string>
     <string name="settings_debug_autoreports_description">مشکلات را به‌طور خودکار گزارش می‌دهد، مثلاً جزئیات مربوط به خرابی برنامه تا بتوانم نحوه رفع آن را بفهمم.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">بلوتوث غیرفعال است، آن را فعال کنید ;)</string>
     <string name="overview_monitoring_active_label">نظارت بر دستگاه‌ها</string>
     <string name="overview_monitoring_active_description">مطمئن شوید دستگاه شما نزدیک و فعال است.</string>
+    <string name="overview_troubleshoot_suggestion_label">متصل است، اما داده‌ای وجود ندارد</string>
+    <string name="overview_troubleshoot_suggestion_description">دستگاه شما متصل است، اما CAPod هیچ داده زنده‌ای از آن دریافت نمی‌کند. ممکن است تلفن شما به یک گزینه سازگاری نیاز داشته باشد — عیب‌یاب می‌تواند به‌طور خودکار تلاش کند آن را پیدا کند.</string>
+    <string name="overview_troubleshoot_suggestion_action">اجرای عیب‌یاب</string>
     <string name="overview_unmatched_devices_label">دستگاه‌های بدون تطابق</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d دستگاه بدون پروفایل منطبق</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">تشخیص خواب</string>
     <string name="reaction_sleep_notification_title">توسط تشخیص خواب متوقف شد</string>
     <string name="reaction_sleep_notification_text">%1$s گزارش داد که به خواب رفتید، بنابراین موسیقی شما متوقف شد. می‌توانید این را در تنظیمات دستگاه غیرفعال کنید.</string>
+    <string name="reaction_charged_channel_label">اعلان شارژ کامل</string>
+    <string name="reaction_charged_notification_title">شارژ کامل شد</string>
+    <string name="reaction_charged_notification_text_full">%1$s کاملاً شارژ شده است.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s تا %2$d%% شارژ شده است.</string>
     <string name="device_settings_rename_label">تغییر نام</string>
     <string name="device_settings_rename_hint">نام دستگاه</string>
     <string name="device_settings_rename_confirm">تغییر نام</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Прикажи искачући прозор везе</string>
     <string name="settings_popup_connected_description">Прикажи искачући прозор када се уређај први пут повеже.</string>
     <string name="settings_popup_info_not_in_app">Искачући прозори се приказују само када нисте у апликацији.</string>
+    <string name="settings_charged_notification_label">Обавештење о напуњености</string>
+    <string name="settings_charged_notification_description">Прикажи обавештење када све што се пуни достигне циљни ниво напуњености.</string>
+    <string name="settings_charged_threshold_label">Циљни ниво напуњености</string>
+    <string name="settings_charged_scope_label">Праћене батерије</string>
+    <string name="settings_charged_scope_pods_label">Само слушалице</string>
+    <string name="settings_charged_scope_case_label">Само кућиште</string>
+    <string name="settings_charged_scope_both_label">Слушалице и кућиште</string>
     <string name="device_settings_experimental_title">Експериментална функција</string>
     <string name="device_settings_experimental_description">Ова функција још увек није тестирана на свим уређајима. Ако нешто не ради исправно, молимо отворите пријаву са дневником отклањања грешака.</string>
     <string name="device_settings_experimental_action">Отвори праћач проблема</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Отклањањање грешака</string>
     <string name="settings_general_label">Подешавања</string>
     <string name="settings_general_description">Општа подешавања која утичу на целу апликацију.</string>
+    <string name="settings_overview_hide_unmatched_label">Сакриј уређаје без профила</string>
+    <string name="settings_overview_hide_unmatched_description">Не приказуј оближње уређаје који не одговарају ниједном профилу у прегледу, нпр. AirPods других људи.</string>
     <string name="settings_acknowledgements_label">Захвалнице</string>
     <string name="settings_debug_autoreports_label">Аутоматски извештаји о грешкама</string>
     <string name="settings_debug_autoreports_description">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како бих могао да схватим како да то поправим.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth је онемогућен, омогућите га ;)</string>
     <string name="overview_monitoring_active_label">Надгледање уређаја</string>
     <string name="overview_monitoring_active_description">Уверите се да је ваш уређај у близини и активан.</string>
+    <string name="overview_troubleshoot_suggestion_label">Повезан, али нема података</string>
+    <string name="overview_troubleshoot_suggestion_description">Твој уређај је повезан, али CAPod не прима живе податке с њега. Можда ти треба опција компатибилности — решавање проблема може покушати да је пронађе аутоматски.</string>
+    <string name="overview_troubleshoot_suggestion_action">Покрени решавање проблема</string>
     <string name="overview_unmatched_devices_label">Неупарени уређаји</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d уређај без одговарајућег профила</item>
@@ -495,6 +507,10 @@
     <string name="reaction_sleep_channel_label">Детекција спавања</string>
     <string name="reaction_sleep_notification_title">Паузирано детекцијом спавања</string>
     <string name="reaction_sleep_notification_text">%1$s је пријавио да сте заспали, па је ваша музика паузирана. Ово можете онемогућити у подешавањима уређаја.</string>
+    <string name="reaction_charged_channel_label">Обавештење о напуњености</string>
+    <string name="reaction_charged_notification_title">Пуњење завршено</string>
+    <string name="reaction_charged_notification_text_full">%1$s је потпуно напуњен.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s је напуњен на %2$d%%.</string>
     <string name="device_settings_rename_label">Преименуј</string>
     <string name="device_settings_rename_hint">Назив уређаја</string>
     <string name="device_settings_rename_confirm">Преименуј</string>

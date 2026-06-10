@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">കണക്ഷൻ പോപ്പ്അപ്പ് കാണിക്കുക</string>
     <string name="settings_popup_connected_description">ഉപകരണം ആദ്യമായി കണക്റ്റുചെയ്യുമ്പോൾ ഒരു പോപ്പ്അപ്പ് കാണിക്കുക.</string>
     <string name="settings_popup_info_not_in_app">നിങ്ങൾ ആപ്പിൽ ഇല്ലാത്തപ്പോൾ മാത്രം പോപ്പപ്പുകൾ കാണിക്കും.</string>
+    <string name="settings_charged_notification_label">ചാർജ്ജ് അറിയിപ്പ്</string>
+    <string name="settings_charged_notification_description">ചാർജ്ജ് ചെയ്യുന്ന എല്ലാം ലക്ഷ്യ ചാർജ്ജ് നിലയിലെത്തുമ്പോൾ ഒരു അറിയിപ്പ് കാണിക്കുക.</string>
+    <string name="settings_charged_threshold_label">ലക്ഷ്യ ചാർജ്ജ് നില</string>
+    <string name="settings_charged_scope_label">നിരീക്ഷിക്കുന്ന ബാറ്ററികൾ</string>
+    <string name="settings_charged_scope_pods_label">പോഡുകൾ മാത്രം</string>
+    <string name="settings_charged_scope_case_label">കേസ് മാത്രം</string>
+    <string name="settings_charged_scope_both_label">പോഡുകളും കേസും</string>
     <string name="device_settings_experimental_title">പരീക്ഷണ സവിശേഷത</string>
     <string name="device_settings_experimental_description">ഈ സവിശേഷത ഇതുവരെ എല്ലാ ഡിവൈസുകളിലും പരീക്ഷിച്ചിട്ടില്ല. എന്തെങ്കിലും ശരിയായി പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, ദയവായി ഒരു ഡീബഗ് ലോഗ് സഹിതം ഒരു ഇഷ്യൂ തുറക്കുക.</string>
     <string name="device_settings_experimental_action">ഇഷ്യൂ ട്രാക്കർ തുറക്കുക</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">ഡീബഗ്</string>
     <string name="settings_general_label">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_general_description">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ മാറ്റങ്ങൾ.</string>
+    <string name="settings_overview_hide_unmatched_label">പൊരുത്തപ്പെടാത്ത ഉപകരണങ്ങൾ മറയ്ക്കുക</string>
+    <string name="settings_overview_hide_unmatched_description">നിങ്ങളുടെ ഒരു പ്രൊഫൈലുമായും പൊരുത്തപ്പെടാത്ത അടുത്തുള്ള ഉപകരണങ്ങൾ അവലോകനത്തിൽ കാണിക്കരുത്, ഉദാ. മറ്റുള്ളവരുടെ AirPods.</string>
     <string name="settings_acknowledgements_label">അംഗീകാരങ്ങൾ</string>
     <string name="settings_debug_autoreports_label">യാന്ത്രിക ബഗ് റിപ്പോർട്ടുകൾ</string>
     <string name="settings_debug_autoreports_description">പ്രശ്നങ്ങൾ യാന്ത്രികമായി റിപ്പോർട്ട് ചെയ്യുന്നു, ഉദാ. ആപ്പ് ക്രാഷിനെക്കുറിച്ചുള്ള വിശദാംശങ്ങൾ, അതുവഴി എനിക്കത് എങ്ങനെ പരിഹരിക്കാമെന്ന് കണ്ടെത്താനാകും.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">ബ്ലൂടൂത്ത് പ്രവർത്തനരഹിതമാണ്, അത് പ്രവർത്തനക്ഷമമാക്കുക ;)</string>
     <string name="overview_monitoring_active_label">ഉപകരണങ്ങൾ നിരീക്ഷിക്കുന്നു</string>
     <string name="overview_monitoring_active_description">നിങ്ങളുടെ ഉപകരണം സമീപത്തും സജീവവുമാണെന്ന് ഉറപ്പാക്കുക.</string>
+    <string name="overview_troubleshoot_suggestion_label">കണക്‌റ്റ് ചെയ്‌തു, എന്നാൽ ഡേറ്റ ഇല്ല</string>
+    <string name="overview_troubleshoot_suggestion_description">നിങ്ങളുടെ ഉപകരണം കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു, എന്നാൽ CAPod അതിൽ നിന്ന് തത്സമയ ഡേറ്റ സ്വീകരിക്കുന്നില്ല. നിങ്ങളുടെ ഫോണിന് ഒരു അനുയോജ്യതാ ഓപ്‌ഷൻ ആവശ്യമായി വന്നേക്കാം — ട്രബിൾഷൂട്ടറിന് ഒന്ന് സ്വയംചാലകമായി കണ്ടെത്താൻ ശ്രമിക്കാനാകും.</string>
+    <string name="overview_troubleshoot_suggestion_action">ട്രബിൾഷൂട്ടർ പ്രവർത്തിപ്പിക്കുക</string>
     <string name="overview_unmatched_devices_label">പൊരുത്തമില്ലാത്ത ഉപകരണങ്ങൾ</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">പൊരുത്തമുള്ള പ്രൊഫൈൽ ഇല്ലാത്ത %d ഉപകരണം</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">ഉറക്ക കണ്ടെത്തൽ</string>
     <string name="reaction_sleep_notification_title">ഉറക്ക കണ്ടെത്തൽ മൂലം താൽക്കാലികമായി നിർത്തി</string>
     <string name="reaction_sleep_notification_text">%1$s നിങ്ങൾ ഉറങ്ങിപ്പോയതായി റിപ്പോർട്ട് ചെയ്തതിനാൽ സംഗീതം താൽക്കാലികമായി നിർത്തി. ഉപകരണ ക്രമീകരണങ്ങളിൽ ഇത് പ്രവർത്തനരഹിതമാക്കാം.</string>
+    <string name="reaction_charged_channel_label">ചാർജ്ജ് അറിയിപ്പ്</string>
+    <string name="reaction_charged_notification_title">ചാർജ്ജിംഗ് പൂർണ്ണമായി</string>
+    <string name="reaction_charged_notification_text_full">%1$s പൂർണ്ണമായും ചാർജ്ജ് ആയി.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% ആയി ചാർജ്ജ് ചെയ്‌തു.</string>
     <string name="device_settings_rename_label">പുനർനാമകരണം ചെയ്യുക</string>
     <string name="device_settings_rename_hint">ഉപകരണ നാമം</string>
     <string name="device_settings_rename_confirm">പുനർനാമകരണം ചെയ്യുക</string>
