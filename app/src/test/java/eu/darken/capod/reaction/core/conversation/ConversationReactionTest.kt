@@ -31,9 +31,11 @@ class ConversationReactionTest : BaseTest() {
     private val primaryAddress: BluetoothAddress = "AA:BB:CC:DD:EE:FF"
     private val otherAddress: BluetoothAddress = "11:22:33:44:55:66"
 
-    // Mirror of ConversationReaction.STALE_TIMEOUT (private there) — a long backstop, not the
-    // normal disengage path (which is the explicit STOP frame).
+    // Mirrors of ConversationReaction's private timing constants. STALE_TIMEOUT: long backstop
+    // while only START frames were seen. WIND_DOWN_TIMEOUT: short fuse armed by a HOLD frame
+    // (wind-down begun, terminal imminent — but sometimes dropped, #608).
     private val staleTimeoutMs = 5L * 60 * 1000
+    private val windDownTimeoutMs = 6_000L
 
     private lateinit var eventsFlow: MutableSharedFlow<Pair<BluetoothAddress, ConversationAwarenessEvent>>
     private lateinit var statesFlow: MutableStateFlow<Map<BluetoothAddress, AapPodState>>
@@ -149,20 +151,79 @@ class ConversationReactionTest : BaseTest() {
     }
 
     @Test
-    fun `HOLD keep-alive resets the stale backstop`() = runTest(UnconfinedTestDispatcher()) {
+    fun `dropped terminal frame restores via the wind-down fuse`() = runTest(UnconfinedTestDispatcher()) {
+        // Regression for #608 (fw …6589): the wind-down flurry 1,2,3,0xB,4 arrives but the terminal
+        // 8/9 is dropped entirely. The HOLD frames prove the wind-down began, so the short fuse must
+        // restore the volume — not strand it low until the 5-minute backstop.
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START) // 1
+        emit(primaryAddress, ConversationAwarenessEvent.START) // 2
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 3
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 0x0B
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 4 — last frame ever, no terminal
+        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+
+        advanceTimeBy(windDownTimeoutMs + 500)
+        runCurrent()
+        verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
+        job.cancel()
+    }
+
+    @Test
+    fun `HOLD frames re-arm the wind-down fuse so intra-flurry gaps do not fire it`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Gaps of up to 2.8s were observed between consecutive wind-down frames — each HOLD
+            // must re-arm the short fuse rather than letting a mid-flurry gap disengage early.
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)
+            advanceTimeBy(windDownTimeoutMs * 2 / 3)
+            runCurrent()
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD) // re-arms
+            advanceTimeBy(windDownTimeoutMs * 2 / 3) // <1 fuse since the last HOLD
+            runCurrent()
+            verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+
+            advanceTimeBy(windDownTimeoutMs) // now >1 fuse since the last frame
+            runCurrent()
+            verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
+            job.cancel()
+        }
+
+    @Test
+    fun `fresh START during a wind-down cancels the short fuse`() = runTest(UnconfinedTestDispatcher()) {
+        // Wearer resumes speaking while the wind-down fuse is burning: the START must switch back
+        // to the long backstop — otherwise media resumes ~6s into the renewed conversation.
         val job = launchReaction()
 
         emit(primaryAddress, ConversationAwarenessEvent.START)
-        advanceTimeBy(staleTimeoutMs * 7 / 10)
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // wind-down begins, short fuse armed
+        emit(primaryAddress, ConversationAwarenessEvent.START) // speaking again
+        advanceTimeBy(windDownTimeoutMs * 3)
         runCurrent()
-        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // resets the backstop
-        advanceTimeBy(staleTimeoutMs * 7 / 10) // <1 backstop since the HOLD — still engaged
-        runCurrent()
-        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
 
-        advanceTimeBy(staleTimeoutMs / 2) // now >1 backstop since the last frame
+        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+        job.cancel()
+    }
+
+    @Test
+    fun `PAUSE with dropped terminal frame resumes via the wind-down fuse`() = runTest(UnconfinedTestDispatcher()) {
+        // Same #608 single-pod scenario but with the PAUSE action: the fuse-driven disengage goes
+        // through the resume guards (age window, worn, already-playing) — at ~6s the pause is well
+        // inside PAUSE_RESUME_WINDOW, so media must resume rather than stay paused indefinitely.
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        coVerify(exactly = 1) { mediaControl.sendPause(false) }
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD) // wind-down begins, terminal dropped
+        coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+        advanceTimeBy(windDownTimeoutMs + 500)
         runCurrent()
-        verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
+        coVerify(exactly = 1) { mediaControl.sendPlay() }
         job.cancel()
     }
 
