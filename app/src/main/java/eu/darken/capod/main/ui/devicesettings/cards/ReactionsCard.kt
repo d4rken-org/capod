@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -159,11 +160,15 @@ internal fun ReactionsCard(
                         requiresUpgrade = !isPro,
                     )
                     if (reactions.conversationAction == ConversationAction.LOWER_VOLUME) {
+                        var sliderValue by remember(reactions.conversationVolumeReduction) {
+                            mutableIntStateOf(reactions.conversationVolumeReduction)
+                        }
                         SettingsSliderItem(
                             icon = Icons.AutoMirrored.TwoTone.VolumeDown,
                             title = stringResource(R.string.settings_conversation_volume_reduction_label),
-                            value = reactions.conversationVolumeReduction.toFloat(),
-                            onValueChange = { onConversationVolumeReductionChange(it.toInt()) },
+                            value = sliderValue.toFloat(),
+                            onValueChange = { sliderValue = it.toInt() },
+                            onValueChangeFinished = { onConversationVolumeReductionChange(sliderValue) },
                             valueRange = ReactionConfig.MIN_CONVERSATION_VOLUME_REDUCTION.toFloat()..
                                 ReactionConfig.MAX_CONVERSATION_VOLUME_REDUCTION.toFloat(),
                             enabled = enabled,
