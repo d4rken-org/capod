@@ -2,7 +2,9 @@ package eu.darken.capod.pods.core.apple.ble.protocol
 
 import android.bluetooth.le.ScanFilter
 import dagger.Reusable
+import eu.darken.capod.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.capod.common.debug.logging.log
+import eu.darken.capod.common.debug.logging.logTag
 import javax.inject.Inject
 
 
@@ -13,6 +15,17 @@ object ProximityPairing {
         fun decode(message: ContinuityProtocol.Message): ProximityMessage? {
             if (message.type != CONTINUITY_PROTOCOL_MESSAGE_TYPE_PROXIMITY_PAIRING) {
                 log { "Not a proximity pairing message: $this" }
+                return null
+            }
+
+            // Pods also emit type 0x07 frames whose payload does not use the plaintext status
+            // format, e.g. prefix 0x07 from the identity address on connect (#603). Their bytes
+            // are garbage at the standard offsets and would create a ghost device.
+            if (message.data.firstOrNull() != PAIRING_MESSAGE_PREFIX) {
+                log(TAG, DEBUG) {
+                    val hex = message.data.joinToString(" ") { "%02X".format(it.toInt()) }
+                    "Dropping proximity pairing message with unsupported prefix: [$hex]"
+                }
                 return null
             }
 
@@ -49,4 +62,9 @@ object ProximityPairing {
 
     // This is the default message length among official Apple devices, clones may have different length
     internal const val PAIRING_MESSAGE_LENGTH = 25
+
+    // First payload byte of every known plaintext status broadcast, including pairing mode
+    internal val PAIRING_MESSAGE_PREFIX = 0x01.toUByte()
+
+    private val TAG = logTag("Pod", "Apple", "ProximityPairing")
 }
