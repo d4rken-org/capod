@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">ಸಂಪರ್ಕ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ</string>
     <string name="settings_popup_connected_description">ಸಾಧನವು ಮೊದಲ ಬಾರಿಗೆ ಸಂಪರ್ಕಗೊಂಡಾಗ ಪಾಪ್‌ಅಪ್ ತೋರಿಸಿ.</string>
     <string name="settings_popup_info_not_in_app">ನೀವು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಇಲ್ಲದಿರುವಾಗ ಮಾತ್ರ ಪಾಪ್‌ಅಪ್‌ಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತದೆ.</string>
+    <string name="settings_charged_notification_label">ಚಾರ್ಜ್ ಅಧಿಸೂಚನೆ</string>
+    <string name="settings_charged_notification_description">ಚಾರ್ಜ್ ಆಗುತ್ತಿರುವ ಎಲ್ಲವೂ ಗುರಿ ಚಾರ್ಜ್ ಮಟ್ಟವನ್ನು ತಲುಪಿದ ನಂತರ ಅಧಿಸೂಚನೆ ತೋರಿಸಿ.</string>
+    <string name="settings_charged_threshold_label">ಗುರಿ ಚಾರ್ಜ್ ಮಟ್ಟ</string>
+    <string name="settings_charged_scope_label">ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲಾದ ಬ್ಯಾಟರಿಗಳು</string>
+    <string name="settings_charged_scope_pods_label">ಪಾಡ್‌ಗಳು ಮಾತ್ರ</string>
+    <string name="settings_charged_scope_case_label">ಕೇಸ್ ಮಾತ್ರ</string>
+    <string name="settings_charged_scope_both_label">ಪಾಡ್‌ಗಳು ಮತ್ತು ಕೇಸ್</string>
     <string name="device_settings_experimental_title">ಪ್ರಯೋಗಾತ್ಮಕ ವೈಶಿಷ್ಟ್ಯ</string>
     <string name="device_settings_experimental_description">ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಇನ್ನೂ ಎಲ್ಲಾ ಸಾಧನಗಳಲ್ಲಿ ಪರೀಕ್ಷಿಸಲಾಗಿಲ್ಲ. ಏನಾದರೂ ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಡಿಬಗ್ ಲಾಗ್‌ನೊಂದಿಗೆ ಸಮಸ್ಯೆ ತೆರೆಯಿರಿ.</string>
     <string name="device_settings_experimental_action">ಸಮಸ್ಯೆ ಟ್ರ್ಯಾಕರ್ ತೆರೆಯಿರಿ</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">ಡೀಬಗ್</string>
     <string name="settings_general_label">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_general_description">ಇಡೀ ಅಪ್ಲಿಕೇಶನ್‌ನ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವ ಸಾಮಾನ್ಯ ಹೊಂದಾಣಿಕೆಗಳು.</string>
+    <string name="settings_overview_hide_unmatched_label">ಹೊಂದಿಕೆಯಾಗದ ಸಾಧನಗಳನ್ನು ಮರೆಮಾಡಿ</string>
+    <string name="settings_overview_hide_unmatched_description">ನಿಮ್ಮ ಯಾವುದೇ ಪ್ರೊಫೈಲ್‌ಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗದ ಹತ್ತಿರದ ಸಾಧನಗಳನ್ನು ಅವಲೋಕನದಲ್ಲಿ ತೋರಿಸಬೇಡಿ, ಉದಾ. ಇತರ ಜನರ AirPods.</string>
     <string name="settings_acknowledgements_label">ಕೃತಜ್ಞತೆಗಳು</string>
     <string name="settings_debug_autoreports_label">ಸ್ವಯಂಚಾಲಿತ ಬಗ್ ವರದಿಗಳು</string>
     <string name="settings_debug_autoreports_description">ಸಮಸ್ಯೆಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ವರದಿ ಮಾಡುತ್ತದೆ, ಉದಾ. ಅಪ್ಲಿಕೇಶನ್ ಕ್ರ್ಯಾಶ್ ಕುರಿತು ವಿವರಗಳು ಇದರಿಂದ ಅದನ್ನು ಹೇಗೆ ಸರಿಪಡಿಸುವುದು ಎಂದು ನಾನು ಕಂಡುಹಿಡಿಯಬಹುದು.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ, ಅದನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ ;)</string>
     <string name="overview_monitoring_active_label">ಸಾಧನಗಳಿಗಾಗಿ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="overview_monitoring_active_description">ನಿಮ್ಮ ಸಾಧನವು ಹತ್ತಿರದಲ್ಲಿದೆ ಮತ್ತು ಸಕ್ರಿಯವಾಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.</string>
+    <string name="overview_troubleshoot_suggestion_label">ಸಂಪರ್ಕಿಸಲಾಗಿದೆ, ಆದರೆ ಡೇಟಾ ಇಲ್ಲ</string>
+    <string name="overview_troubleshoot_suggestion_description">ನಿಮ್ಮ ಸಾಧನ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ, ಆದರೆ CAPod ಅದರಿಂದ ಯಾವುದೇ ಲೈವ್ ಡೇಟಾ ಸ್ವೀಕರಿಸುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಫೋನ್‌ಗೆ ಹೊಂದಾಣಿಕೆ ಆಯ್ಕೆಯ ಅಗತ್ಯವಿರಬಹುದು — ಸಮಸ್ಯೆ ನಿವಾರಕ ಒಂದನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹುಡುಕಲು ಪ್ರಯತ್ನಿಸಬಹುದು.</string>
+    <string name="overview_troubleshoot_suggestion_action">ಸಮಸ್ಯೆ ನಿವಾರಕ ರನ್ ಮಾಡಿ</string>
     <string name="overview_unmatched_devices_label">ಹೊಂದಿಕೆಯಾಗದ ಸಾಧನಗಳು</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">ಹೊಂದಿಕೆಯಾಗುವ ಪ್ರೊಫೈಲ್ ಇಲ್ಲದ %d ಸಾಧನ</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">ನಿದ್ರೆ ಪತ್ತೆ</string>
     <string name="reaction_sleep_notification_title">ನಿದ್ರೆ ಪತ್ತೆಯಿಂದ ವಿರಾಮಗೊಂಡಿದೆ</string>
     <string name="reaction_sleep_notification_text">%1$s ನೀವು ನಿದ್ರಿಸಿದಿರಿ ಎಂದು ತಿಳಿಸಿದೆ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ಸಂಗೀತವನ್ನು ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ. ಸಾಧನ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಇದನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಬಹುದು.</string>
+    <string name="reaction_charged_channel_label">ಚಾರ್ಜ್ ಅಧಿಸೂಚನೆ</string>
+    <string name="reaction_charged_notification_title">ಚಾರ್ಜಿಂಗ್ ಪೂರ್ಣಗೊಂಡಿದೆ</string>
+    <string name="reaction_charged_notification_text_full">%1$s ಸಂಪೂರ್ಣವಾಗಿ ಚಾರ್ಜ್ ಆಗಿದೆ.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s ಅನ್ನು %2$d%% ವರೆಗೆ ಚಾರ್ಜ್ ಮಾಡಲಾಗಿದೆ.</string>
     <string name="device_settings_rename_label">ಮರುಹೆಸರಿಸಿ</string>
     <string name="device_settings_rename_hint">ಸಾಧನ ಹೆಸರು</string>
     <string name="device_settings_rename_confirm">ಮರುಹೆಸರಿಸಿ</string>

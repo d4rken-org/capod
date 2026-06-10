@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Wys verbindingsopspringer</string>
     <string name="settings_popup_connected_description">Wys \'n opspringer wanneer die toestel vir die eerste keer koppel.</string>
     <string name="settings_popup_info_not_in_app">Opspringvensters word slegs gewys as jy nie in die program is nie.</string>
+    <string name="settings_charged_notification_label">Gelaaide kennisgewing</string>
+    <string name="settings_charged_notification_description">Wys \'n kennisgewing sodra alles wat laai die teikenlaai vlak bereik.</string>
+    <string name="settings_charged_threshold_label">Teikenlaai vlak</string>
+    <string name="settings_charged_scope_label">Gemonitorde batterye</string>
+    <string name="settings_charged_scope_pods_label">Slegs pods</string>
+    <string name="settings_charged_scope_case_label">Slegs kis</string>
+    <string name="settings_charged_scope_both_label">Pods en kis</string>
     <string name="device_settings_experimental_title">Eksperimentele kenmerk</string>
     <string name="device_settings_experimental_description">Hierdie kenmerk is nog nie op alle toestelle getoets nie. As iets nie korrek werk nie, open asseblief \'n kwessie met \'n foutopsporingsloglêer.</string>
     <string name="device_settings_experimental_action">Open Kwessiespoorder</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Ontfout</string>
     <string name="settings_general_label">Algemene instellings</string>
     <string name="settings_general_description">Algemene aanpassings wat die hele toepassing beïnvloed.</string>
+    <string name="settings_overview_hide_unmatched_label">Versteek onooreenstemmende toestelle</string>
+    <string name="settings_overview_hide_unmatched_description">Moenie naby toestelle wys wat nie ooreenstem met enige van jou profiele in die oorsig nie, bv. ander mense se AirPods.</string>
     <string name="settings_acknowledgements_label">Erkennings</string>
     <string name="settings_debug_autoreports_label">Outomatiese foutverslae</string>
     <string name="settings_debug_autoreports_description">Rapporteer probleme outomaties, bv. besonderhede oor \'n toepassingstorting sodat ek kan uitvind hoe om dit reg te stel.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth is gedeaktiveer, aktiveer dit ;)</string>
     <string name="overview_monitoring_active_label">Moniteer vir toestelle</string>
     <string name="overview_monitoring_active_description">Maak seker jou toestel is naby en aktief.</string>
+    <string name="overview_troubleshoot_suggestion_label">Verbind, maar geen data nie</string>
+    <string name="overview_troubleshoot_suggestion_description">Jou toestel is verbind, maar CAPod ontvang geen lewende data daarvan nie. Jou foon het dalk \'n versoenbaarheidsopsie nodig — die probleemoplosser kan probeer om een outomaties te vind.</string>
+    <string name="overview_troubleshoot_suggestion_action">Voer probleemoplosser uit</string>
     <string name="overview_unmatched_devices_label">Ongepasde toestelle</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d toestel sonder ooreenstemmende profiel</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Slaapopsporing</string>
     <string name="reaction_sleep_notification_title">Gepauseer deur Slaapopsporing</string>
     <string name="reaction_sleep_notification_text">%1$s het aangemeld dat jy aan die slaap geraak het, so jou musiek is gepauseer. Jy kan dit in die toestelinstellings deaktiveer.</string>
+    <string name="reaction_charged_channel_label">Gelaaide kennisgewing</string>
+    <string name="reaction_charged_notification_title">Laai voltooi</string>
+    <string name="reaction_charged_notification_text_full">%1$s is volledig gelaai.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s is na %2$d%% gelaai.</string>
     <string name="device_settings_rename_label">Hernoem</string>
     <string name="device_settings_rename_hint">Toestelnaam</string>
     <string name="device_settings_rename_confirm">Hernoem</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Прикажи скокачки прозорец за поврзување</string>
     <string name="settings_popup_connected_description">Прикажи скокачки прозорец кога уредот се поврзува за прв пат.</string>
     <string name="settings_popup_info_not_in_app">Скокачките прозорци се прикажуваат само кога не сте во апликацијата.</string>
+    <string name="settings_charged_notification_label">Известување за наполнетост</string>
+    <string name="settings_charged_notification_description">Прикажи известување откако сè што се полни ќе го достигне целното ниво на полнење.</string>
+    <string name="settings_charged_threshold_label">Целно ниво на полнење</string>
+    <string name="settings_charged_scope_label">Следени батерии</string>
+    <string name="settings_charged_scope_pods_label">Само слушалки</string>
+    <string name="settings_charged_scope_case_label">Само куќиште</string>
+    <string name="settings_charged_scope_both_label">Слушалки и куќиште</string>
     <string name="device_settings_experimental_title">Експериментална функција</string>
     <string name="device_settings_experimental_description">Оваа функција сè уште не е тестирана на сите уреди. Ако нешто не работи правилно, ве молиме отворете проблем со дневник за дебагирање.</string>
     <string name="device_settings_experimental_action">Отвори следач на проблеми</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Дијагностика</string>
     <string name="settings_general_label">Поставки</string>
     <string name="settings_general_description">Општи прилагодувања што влијаат на целата апликација.</string>
+    <string name="settings_overview_hide_unmatched_label">Скриј неподударни уреди</string>
+    <string name="settings_overview_hide_unmatched_description">Не прикажувај блиски уреди кои не се поклопуваат со ниеден профил во прегледот, на пр. AirPods на други луѓе.</string>
     <string name="settings_acknowledgements_label">Благодарници</string>
     <string name="settings_debug_autoreports_label">Автоматски извештаи за грешки</string>
     <string name="settings_debug_autoreports_description">Автоматски пријавува проблеми, на пр. детали за пад на апликацијата за да можам да откријам како да го поправам.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth е оневозможен, овозможете го ;)</string>
     <string name="overview_monitoring_active_label">Следење на уреди</string>
     <string name="overview_monitoring_active_description">Уверете се дека вашиот уред е во близина и активен.</string>
+    <string name="overview_troubleshoot_suggestion_label">Поврзан, но нема податоци</string>
+    <string name="overview_troubleshoot_suggestion_description">Уредот е поврзан, но CAPod не прима живи податоци од него. Можеби на телефонот му треба опција за компатибилност — решавањето проблеми може автоматски да пронајде такава.</string>
+    <string name="overview_troubleshoot_suggestion_action">Стартувај решавање проблеми</string>
     <string name="overview_unmatched_devices_label">Несовпаднати уреди</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d уред без совпаѓачки профил</item>
@@ -362,7 +374,7 @@
     <string name="support_debuglog_failed_empty_log">Неуспешно: датотеката со дневник е празна</string>
     <string name="support_debuglog_failed_missing_log">Неуспешно: датотеката со дневник недостасува</string>
     <string name="support_debuglog_failed_corrupt_zip">Неуспешно: zip датотеката е оштетена</string>
-    <string name="support_debuglog_failed_zip_failed">Неуспешно: компресијата не успеа</string>
+    <string name="support_debuglog_failed_zip_failed">Неуспешно: компресирањето не успеа</string>
     <!-- Contact form -->
     <string name="support_contact_label">Контактирајте го развивачот</string>
     <string name="support_contact_desc">Пополнете формулар за да му пратите е-пошта на развивачот.</string>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Детекција на спиење</string>
     <string name="reaction_sleep_notification_title">Паузирано од Детекција на спиење</string>
     <string name="reaction_sleep_notification_text">%1$s пријави дека заспавте, па вашата музика беше паузирана. Ова можете да го оневозможите во поставките за уредот.</string>
+    <string name="reaction_charged_channel_label">Известување за наполнетост</string>
+    <string name="reaction_charged_notification_title">Полнењето е завршено</string>
+    <string name="reaction_charged_notification_text_full">%1$s е целосно наполнет.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s е наполнет до %2$d%%.</string>
     <string name="device_settings_rename_label">Преименување</string>
     <string name="device_settings_rename_hint">Име на уредот</string>
     <string name="device_settings_rename_confirm">Преименување</string>

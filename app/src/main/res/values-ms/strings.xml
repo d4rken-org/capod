@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Tunjukkan pop timbul sambungan</string>
     <string name="settings_popup_connected_description">Tunjukkan pop timbul apabila peranti disambungkan buat kali pertama.</string>
     <string name="settings_popup_info_not_in_app">Pop timbul hanya ditunjukkan apabila anda tidak berada dalam aplikasi.</string>
+    <string name="settings_charged_notification_label">Pemberitahuan cas penuh</string>
+    <string name="settings_charged_notification_description">Tunjukkan pemberitahuan setelah semua yang sedang dicas mencapai tahap cas sasaran.</string>
+    <string name="settings_charged_threshold_label">Tahap cas sasaran</string>
+    <string name="settings_charged_scope_label">Bateri yang dipantau</string>
+    <string name="settings_charged_scope_pods_label">Pod sahaja</string>
+    <string name="settings_charged_scope_case_label">Kes sahaja</string>
+    <string name="settings_charged_scope_both_label">Pod dan kes</string>
     <string name="device_settings_experimental_title">Ciri eksperimental</string>
     <string name="device_settings_experimental_description">Ciri ini belum diuji pada semua peranti lagi. Jika sesuatu tidak berfungsi dengan betul, sila buka isu dengan log nyahpepijat.</string>
     <string name="device_settings_experimental_action">Buka Penjejak Isu</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Tetapan</string>
     <string name="settings_general_description">Penyesuaian umum yang mempengaruhi keseluruhan apl.</string>
+    <string name="settings_overview_hide_unmatched_label">Sembunyikan peranti yang tidak sepadan</string>
+    <string name="settings_overview_hide_unmatched_description">Jangan tunjukkan peranti berdekatan yang tidak sepadan dengan mana-mana profil anda dalam gambaran keseluruhan, cth. AirPods orang lain.</string>
     <string name="settings_acknowledgements_label">Penghargaan</string>
     <string name="settings_debug_autoreports_label">Laporan pepijat automatik</string>
     <string name="settings_debug_autoreports_description">Melaporkan isu secara automatik, cth. butiran mengenai ranap apl supaya saya boleh memikirkan cara untuk membetulkannya.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth dilumpuhkan, dayakannya ;)</string>
     <string name="overview_monitoring_active_label">Memantau peranti</string>
     <string name="overview_monitoring_active_description">Pastikan peranti anda berdekatan dan aktif.</string>
+    <string name="overview_troubleshoot_suggestion_label">Disambungkan, tetapi tiada data</string>
+    <string name="overview_troubleshoot_suggestion_description">Peranti anda disambungkan, tetapi CAPod tidak menerima sebarang data langsung daripadanya. Telefon anda mungkin memerlukan pilihan keserasian — penyelesai masalah boleh cuba mencari satu secara automatik.</string>
+    <string name="overview_troubleshoot_suggestion_action">Jalankan penyelesai masalah</string>
     <string name="overview_unmatched_devices_label">Peranti tidak sepadan</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d peranti tanpa profil yang sepadan</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">Pengesanan Tidur</string>
     <string name="reaction_sleep_notification_title">Dijeda oleh Pengesanan Tidur</string>
     <string name="reaction_sleep_notification_text">%1$s melaporkan anda tertidur, jadi muzik anda telah dijeda. Anda boleh melumpuhkan ini dalam tetapan peranti.</string>
+    <string name="reaction_charged_channel_label">Pemberitahuan Cas Penuh</string>
+    <string name="reaction_charged_notification_title">Pengecasan selesai</string>
+    <string name="reaction_charged_notification_text_full">%1$s telah dicas sepenuhnya.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s telah dicas kepada %2$d%%.</string>
     <string name="device_settings_rename_label">Namakan Semula</string>
     <string name="device_settings_rename_hint">Nama peranti</string>
     <string name="device_settings_rename_confirm">Namakan Semula</string>

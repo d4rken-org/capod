@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Εμφάνιση αναδυόμενου παραθύρου σύνδεσης</string>
     <string name="settings_popup_connected_description">Εμφάνιση αναδυόμενου παραθύρου όταν η συσκευή συνδέεται για πρώτη φορά.</string>
     <string name="settings_popup_info_not_in_app">Τα αναδυόμενα παράθυρα εμφανίζονται μόνο όταν δεν βρίσκεστε στην εφαρμογή.</string>
+    <string name="settings_charged_notification_label">Ειδοποίηση φόρτισης</string>
+    <string name="settings_charged_notification_description">Εμφάνιση ειδοποίησης μόλις όλα τα στοιχεία που φορτίζουν φτάσουν στο επιθυμητό επίπεδο φόρτισης.</string>
+    <string name="settings_charged_threshold_label">Επιθυμητό επίπεδο φόρτισης</string>
+    <string name="settings_charged_scope_label">Παρακολουθούμενες μπαταρίες</string>
+    <string name="settings_charged_scope_pods_label">Μόνο ακουστικά</string>
+    <string name="settings_charged_scope_case_label">Μόνο θήκη</string>
+    <string name="settings_charged_scope_both_label">Ακουστικά και θήκη</string>
     <string name="device_settings_experimental_title">Πειραματική λειτουργία</string>
     <string name="device_settings_experimental_description">Αυτή η λειτουργία δεν έχει δοκιμαστεί ακόμα σε όλες τις συσκευές. Αν κάτι δεν λειτουργεί σωστά, παρακαλώ ανοίξτε ένα ζήτημα με ένα αρχείο καταγραφής εντοπισμού σφαλμάτων.</string>
     <string name="device_settings_experimental_action">Άνοιγμα Παρακολούθησης Ζητημάτων</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Αποσφαλμάτωση</string>
     <string name="settings_general_label">Ρυθμίσεις</string>
     <string name="settings_general_description">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
+    <string name="settings_overview_hide_unmatched_label">Απόκρυψη μη αντιστοιχισμένων συσκευών</string>
+    <string name="settings_overview_hide_unmatched_description">Να μην εμφανίζονται κοντινές συσκευές που δεν αντιστοιχούν σε κανένα από τα προφίλ σου στην επισκόπηση, π.χ. τα AirPods άλλων ανθρώπων.</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
     <string name="settings_debug_autoreports_label">Αυτόματες αναφορές σφαλμάτων</string>
     <string name="settings_debug_autoreports_description">Αναφέρει αυτόματα προβλήματα, π.χ. λεπτομέρειες σχετικά με μια κατάρρευση της εφαρμογής, ώστε να μπορώ να καταλάβω πώς να το διορθώσω.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Το Bluetooth είναι απενεργοποιημένο, ενεργοποιήστε το ;)</string>
     <string name="overview_monitoring_active_label">Παρακολούθηση συσκευών</string>
     <string name="overview_monitoring_active_description">Βεβαιωθείτε ότι η συσκευή σας είναι κοντά και ενεργή.</string>
+    <string name="overview_troubleshoot_suggestion_label">Συνδέθηκε, αλλά χωρίς δεδομένα</string>
+    <string name="overview_troubleshoot_suggestion_description">Η συσκευή σου είναι συνδεδεμένη, αλλά το CAPod δεν λαμβάνει ζωντανά δεδομένα από αυτήν. Το τηλέφωνό σου μπορεί να χρειαστεί μια επιλογή συμβατότητας — ο εντοπισμός προβλημάτων μπορεί να προσπαθήσει να βρει μία αυτόματα.</string>
+    <string name="overview_troubleshoot_suggestion_action">Εκτέλεση εντοπισμού προβλημάτων</string>
     <string name="overview_unmatched_devices_label">Μη αντιστοιχισμένες συσκευές</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d συσκευή χωρίς αντίστοιχο προφίλ</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Ανίχνευση Ύπνου</string>
     <string name="reaction_sleep_notification_title">Σε παύση από την Ανίχνευση Ύπνου</string>
     <string name="reaction_sleep_notification_text">%1$s ανέφερε ότι αποκοιμηθήκατε, οπότε η μουσική σας τέθηκε σε παύση. Μπορείτε να το απενεργοποιήσετε στις ρυθμίσεις συσκευής.</string>
+    <string name="reaction_charged_channel_label">Ειδοποίηση φόρτισης</string>
+    <string name="reaction_charged_notification_title">Η φόρτιση ολοκληρώθηκε</string>
+    <string name="reaction_charged_notification_text_full">Το %1$s έχει φορτιστεί πλήρως.</string>
+    <string name="reaction_charged_notification_text_partial">Το %1$s έχει φορτιστεί στο %2$d%%.</string>
     <string name="device_settings_rename_label">Μετονομασία</string>
     <string name="device_settings_rename_hint">Όνομα συσκευής</string>
     <string name="device_settings_rename_confirm">Μετονομασία</string>

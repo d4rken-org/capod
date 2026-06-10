@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">הצג חלון קופץ של חיבור</string>
     <string name="settings_popup_connected_description">הצג חלון קופץ כאשר המכשיר מתחבר בפעם הראשונה.</string>
     <string name="settings_popup_info_not_in_app">חלונות קופצים מוצגים רק כשאינך בתוך האפליקציה.</string>
+    <string name="settings_charged_notification_label">התראת טעינה מלאה</string>
+    <string name="settings_charged_notification_description">הצג התראה כאשר כל מה שנטען מגיע לרמת הטעינה הרצויה.</string>
+    <string name="settings_charged_threshold_label">רמת טעינה יעד</string>
+    <string name="settings_charged_scope_label">סוללות מנוטרות</string>
+    <string name="settings_charged_scope_pods_label">אוזניות בלבד</string>
+    <string name="settings_charged_scope_case_label">נרתיק בלבד</string>
+    <string name="settings_charged_scope_both_label">אוזניות ונרתיק</string>
     <string name="device_settings_experimental_title">תכונה ניסיונית</string>
     <string name="device_settings_experimental_description">תכונה זו טרם נבדקה על כל המכשירים. אם משהו אינו פועל כראוי, אנא פתח בקשת תמיכה עם יומן ניפוי שגיאות.</string>
     <string name="device_settings_experimental_action">פתח מעקב בעיות</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">איתור באגים</string>
     <string name="settings_general_label">הגדרות</string>
     <string name="settings_general_description">שינויים כלליים שמשפיעים על האפליקציה כולה.</string>
+    <string name="settings_overview_hide_unmatched_label">הסתר מכשירים שאינם תואמים</string>
+    <string name="settings_overview_hide_unmatched_description">אל תציג מכשירים קרובים שאינם תואמים אף אחד מהפרופילים שלך בתצוגה הכללית, למשל AirPods של אנשים אחרים.</string>
     <string name="settings_acknowledgements_label">תודות</string>
     <string name="settings_debug_autoreports_label">דוחות באגים אוטומטיים</string>
     <string name="settings_debug_autoreports_description">מדווח אוטומטית על בעיות, למשל, פרטים על קריסת אפליקציה כדי שאוכל להבין איך לתקן את זה.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth מושבת, הפעל אותו ;)</string>
     <string name="overview_monitoring_active_label">מחפש מכשירים</string>
     <string name="overview_monitoring_active_description">ודא שהמכשיר שלך בקרבת מקום ופעיל.</string>
+    <string name="overview_troubleshoot_suggestion_label">מחובר, אך אין נתונים</string>
+    <string name="overview_troubleshoot_suggestion_description">המכשיר שלך מחובר, אך CAPod אינו מקבל ממנו נתונים חיים. הטלפון שלך עשוי להזדקק לאפשרות תאימות — פותר הבעיות יכול לנסות למצוא אחת אוטומטית.</string>
+    <string name="overview_troubleshoot_suggestion_action">הפעל פותר בעיות</string>
     <string name="overview_unmatched_devices_label">מכשירים ללא התאמה</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">מכשיר %d ללא פרופיל תואם</item>
@@ -500,6 +512,10 @@
     <string name="reaction_sleep_channel_label">זיהוי שינה</string>
     <string name="reaction_sleep_notification_title">הושהה על ידי זיהוי שינה</string>
     <string name="reaction_sleep_notification_text">%1$s דיווח שנרדמת, לכן המוזיקה הושהתה. ניתן להשבית זאת בהגדרות המכשיר.</string>
+    <string name="reaction_charged_channel_label">התראת טעינה מלאה</string>
+    <string name="reaction_charged_notification_title">הטעינה הושלמה</string>
+    <string name="reaction_charged_notification_text_full">%1$s טעון במלואו.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s נטען עד %2$d%%.</string>
     <string name="device_settings_rename_label">שנה שם</string>
     <string name="device_settings_rename_hint">שם המכשיר</string>
     <string name="device_settings_rename_confirm">שנה שם</string>

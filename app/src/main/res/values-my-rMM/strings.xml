@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">ချိတ်ဆက်မှုပြတင်းပေါက်ပြသရန်</string>
     <string name="settings_popup_connected_description">စက်ပစ္စည်းပထမဆုံးချိတ်ဆက်သည့်အခါ ပြတင်းပေါက်တစ်ခုပြသပါ။</string>
     <string name="settings_popup_info_not_in_app">သင် အပ်ငယ်ထဲ မရှိသောအခါတွင်သာ ပေါ့အပ်ဝင်းများ ပြသသည်။</string>
+    <string name="settings_charged_notification_label">အားသွင်းပြည့်သည့် အသိပေးချက်</string>
+    <string name="settings_charged_notification_description">အားသွင်းနေသည့် အရာများ သတ်မှတ်ထားသော အားသွင်းအဆင့်သို့ ရောက်သည်နှင့် အသိပေးချက်တစ်ခု ပြသပါမည်။</string>
+    <string name="settings_charged_threshold_label">သတ်မှတ်ထားသော အားသွင်းအဆင့်</string>
+    <string name="settings_charged_scope_label">စောင့်ကြည့်သော ဘက်ထရီများ</string>
+    <string name="settings_charged_scope_pods_label">Pods များသာ</string>
+    <string name="settings_charged_scope_case_label">အိတ်သာ</string>
+    <string name="settings_charged_scope_both_label">Pods နှင့် အိတ်</string>
     <string name="device_settings_experimental_title">စမ်းသပ်ဆဲ လုပ်ဆောင်ချက်</string>
     <string name="device_settings_experimental_description">ဤလုပ်ဆောင်ချက်ကို ကိရိယာအားလုံးတွင် မစစ်ဆေးရသေးပါ။ မှားယွင်းနေသည့် အရာတစ်ခုခုရှိပါက debug log ပါသော ပြဿနာတစ်ခု ဖွင့်ပေးပါ။</string>
     <string name="device_settings_experimental_action">ပြဿနာ ခြေရာခံမှုကို ဖွင့်ရန်</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">ဆက်တင်များ</string>
     <string name="settings_general_description">အက်ပ်တစ်ခုလုံးကို သက်ရောက်မှုရှိသော ယေဘုယျပြင်ဆင်မှုများ။</string>
+    <string name="settings_overview_hide_unmatched_label">မကိုက်ညီသော ကိရိယာများ ဝှက်ရန်</string>
+    <string name="settings_overview_hide_unmatched_description">သင့်ပရိုဖိုင်များနှင့် မကိုက်ညီသော အနီးနားရှိ ကိရိယာများကို မည်သည့်အကြောင်းကြောင့်မဆို ခြုံငုံသုံးသပ်ချက်တွင် မပြပါနှင့်၊ ဥပမာ အခြားသူများ၏ AirPods။</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်လွှာ</string>
     <string name="settings_debug_autoreports_label">အလိုအလြှောက်ချွတ်ယွင်းချက်အစီရင်ခံစာများ</string>
     <string name="settings_debug_autoreports_description">ပြဿနာများကို အလိုအလြှောက်အစီရင်ခံပါသည်၊ ဥပမာ အက်ပ်ပျက်ကျမှုအကြောင်းအသေးစိတ်များ၊ သို့မှသာ ၎င်းကိုမည်သို့ဖြေရှင်းရမည်ကို ကျွန်ုပ်သိရှိနိုင်မည်ဖြစ်သည်။</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ပိတ်ထားသည်၊ ဖွင့်ပါ ;)</string>
     <string name="overview_monitoring_active_label">စက်ပစ္စည်းများကို စောင့်ကြည့်နေသည်</string>
     <string name="overview_monitoring_active_description">သင့်စက်ပစ္စည်းသည် အနီးအနားတွင်ရှိပြီး အသုံးပြုနေကြောင်း သေချာပါစေ။</string>
+    <string name="overview_troubleshoot_suggestion_label">ချိတ်ဆက်ထားသည်၊ သို့သော် ဒေတာမရှိ</string>
+    <string name="overview_troubleshoot_suggestion_description">သင့်ကိရိယာ ချိတ်ဆက်ထားသော်လည်း CAPod မှ ၎င်းထံမှ တိုက်ရိုက်ဒေတာ မရရှိပါ။ သင့်ဖုန်းသည် တွဲဖက်သုံးနိုင်မှု ရွေးချယ်မှုတစ်ခု လိုအပ်နိုင်သည် — ပြဿနာဖြေရှင်းသူက အလိုအလျောက် ရှာဖွေကြည့်နိုင်သည်။</string>
+    <string name="overview_troubleshoot_suggestion_action">ပြဿနာဖြေရှင်းသူ စတင်ရန်</string>
     <string name="overview_unmatched_devices_label">တိုက်ဆိုင်မှုမရှိသော စက်ပစ္စည်းများ</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">ကိုက်ညီသောပရိုဖိုင်မရှိသော စက်ပစ္စည်း %d ခု</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">အိပ်ငိုက်ခြင်း ထောက်လှမ်းခြင်း</string>
     <string name="reaction_sleep_notification_title">အိပ်ငိုက်ခြင်း ထောက်လှမ်းခြင်းဖြင့် ခေတ္တရပ်ထားသည်</string>
     <string name="reaction_sleep_notification_text">%1$s က သင်အိပ်ငိုက်သွားသည်ဟု သတင်းပို့သောကြောင့် သင့်သီချင်းကို ခေတ္တရပ်ထားသည်။ ဤဆက်တင်ကို စက်ပစ္စည်းဆက်တင်များတွင် ပိတ်နိုင်သည်။</string>
+    <string name="reaction_charged_channel_label">အားသွင်းပြည့်သည့် အသိပေးချက်</string>
+    <string name="reaction_charged_notification_title">အားသွင်းခြင်း ပြည့်စုံပြီ</string>
+    <string name="reaction_charged_notification_text_full">%1$s အားသွင်းပြည့်သွားပြီ။</string>
+    <string name="reaction_charged_notification_text_partial">%1$s ကို %2$d%% အထိ အားသွင်းပြီးပါပြီ။</string>
     <string name="device_settings_rename_label">အမည်ပြောင်းပါ</string>
     <string name="device_settings_rename_hint">ကိရိယာ အမည်</string>
     <string name="device_settings_rename_confirm">အမည်ပြောင်းပါ</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Rodyti prisijungimo iškylantįjį langą</string>
     <string name="settings_popup_connected_description">Rodyti iškylantįjį langą, kai įrenginys prisijungia pirmą kartą.</string>
     <string name="settings_popup_info_not_in_app">Iskylantieji langai rodomi tik tada, kai nesate programoje.</string>
+    <string name="settings_charged_notification_label">Įkrovimo pranešimas</string>
+    <string name="settings_charged_notification_description">Rodyti pranešimą, kai viskas, kas įkraunama, pasiekia tikslinį įkrovimo lygį.</string>
+    <string name="settings_charged_threshold_label">Tikslingas įkrovimo lygis</string>
+    <string name="settings_charged_scope_label">Stebimos baterijos</string>
+    <string name="settings_charged_scope_pods_label">Tik ausinukai</string>
+    <string name="settings_charged_scope_case_label">Tik dėklas</string>
+    <string name="settings_charged_scope_both_label">Ausinukai ir dėklas</string>
     <string name="device_settings_experimental_title">Eksperimentinė funkcija</string>
     <string name="device_settings_experimental_description">Ši funkcija dar neišbandyta visuose įrenginiuose. Jei kažkas neveikia tinkamai, atidarykite problemų sąrašą su derinimo žurnalu.</string>
     <string name="device_settings_experimental_action">Atidaryti problemų sąrašą</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Derinimas</string>
     <string name="settings_general_label">Nustatymai</string>
     <string name="settings_general_description">Bendrieji pakeitimai, turintys įtakos visai programai.</string>
+    <string name="settings_overview_hide_unmatched_label">Slėpti neatitinkančius įrenginius</string>
+    <string name="settings_overview_hide_unmatched_description">Nerodykite netoliese esančių įrenginius, kurie neatitinka nė vieno jūsų profilio apžvalgoje, pvz. kitų žmonų AirPods.</string>
     <string name="settings_acknowledgements_label">Padėkos</string>
     <string name="settings_debug_autoreports_label">Automatinės klaidų ataskaitos</string>
     <string name="settings_debug_autoreports_description">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos strigtį, kad galėčiau išsiaiškinti, kaip ją ištaisyti.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">„Bluetooth\" išjungtas, įjunkite jį ;)</string>
     <string name="overview_monitoring_active_label">Stebimi įrenginiai</string>
     <string name="overview_monitoring_active_description">Įsitikinkite, kad jūsų įrenginys yra netoliese ir aktyvus.</string>
+    <string name="overview_troubleshoot_suggestion_label">Prisijungta, bet nėra duomenų</string>
+    <string name="overview_troubleshoot_suggestion_description">Jūsų įrenginys yra prisijungęs, tačiau CAPod negauna jokių tiesioginių duomenų iš jo. Jūsų telefonui gali reikėti suderinamumo parinkties — problemų sprendiklis gali bandyti ją rasti automatiškai.</string>
+    <string name="overview_troubleshoot_suggestion_action">Paleisti problemų sprendiklį</string>
     <string name="overview_unmatched_devices_label">Nesutapę įrenginiai</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d įrenginys be atitinkamo profilio</item>
@@ -500,6 +512,10 @@
     <string name="reaction_sleep_channel_label">Miego aptikimas</string>
     <string name="reaction_sleep_notification_title">Pristabdyta miego aptikimo</string>
     <string name="reaction_sleep_notification_text">%1$s pranešė, kad užmigote, todėl jūsų muzika buvo pristabdyta. Tai galite išjungti įrenginio nustatymuose.</string>
+    <string name="reaction_charged_channel_label">Įkrovimo pranešimas</string>
+    <string name="reaction_charged_notification_title">Įkrovimas baigtas</string>
+    <string name="reaction_charged_notification_text_full">%1$s viškai įkrautas.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s įkrautas iki %2$d%%.</string>
     <string name="device_settings_rename_label">Pervadinti</string>
     <string name="device_settings_rename_hint">Įrenginio pavadinimas</string>
     <string name="device_settings_rename_confirm">Pervadinti</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">இணைப்பு பாப்அப்பைக் காட்டு</string>
     <string name="settings_popup_connected_description">சாதனம் முதல் முறையாக இணைக்கப்படும்போது ஒரு பாப்அப்பைக் காட்டு.</string>
     <string name="settings_popup_info_not_in_app">நீங்கள் செயலியில் இல்லாதபோது மட்டுமே பாப்அப்கள் காட்டப்படும்.</string>
+    <string name="settings_charged_notification_label">சார்ஜ் அறிவிப்பு</string>
+    <string name="settings_charged_notification_description">சார்ஜ் ஆகும் அனைத்தும் இலக்கு சார்ஜ் நிலையை அடையும்போது ஒரு அறிவிப்பு காட்டு.</string>
+    <string name="settings_charged_threshold_label">இலக்கு சார்ஜ் நிலை</string>
+    <string name="settings_charged_scope_label">கண்காணிக்கப்படும் பேட்டரிகள்</string>
+    <string name="settings_charged_scope_pods_label">பாட்கள் மட்டும்</string>
+    <string name="settings_charged_scope_case_label">கேஸ் மட்டும்</string>
+    <string name="settings_charged_scope_both_label">பாட்கள் மற்றும் கேஸ்</string>
     <string name="device_settings_experimental_title">சோதனை அம்சம்</string>
     <string name="device_settings_experimental_description">இந்த அம்சம் இன்னும் அனைத்து சாதனங்களிலும் சோதிக்கப்படவில்லை. ஏதாவது சரியாக வேலை செய்யாவிட்டால், debug log உடன் ஒரு பிரச்சினையை தாக்கல் செய்யவும்.</string>
     <string name="device_settings_experimental_action">பிரச்சினை ட்ராக்கரை திறக்கவும்</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">பிழைதிருத்தல்</string>
     <string name="settings_general_label">அமைப்புகள்</string>
     <string name="settings_general_description">முழு ஆப்ஸையும் பாதிக்கும் பொதுவான மாற்றங்கள்.</string>
+    <string name="settings_overview_hide_unmatched_label">பொருந்தாத சாதனங்களை மறை</string>
+    <string name="settings_overview_hide_unmatched_description">உங்கள் சுயவிவரங்களில் எதுவும் பொருந்தாத அருகில் உள்ள சாதனங்களை மேலோட்டத்தில் காட்டாதே, எ.கா. மற்றவர்களின் AirPods.</string>
     <string name="settings_acknowledgements_label">நன்றிகள்</string>
     <string name="settings_debug_autoreports_label">தானியங்கி பிழை அறிக்கைகள்</string>
     <string name="settings_debug_autoreports_description">சிக்கல்களைத் தானாகவே புகாரளிக்கிறது, எ.கா. ஆப்ஸ் செயலிழப்பு குறித்த விவரங்கள், அதனால் அதை எவ்வாறு சரிசெய்வது என்பதைக் கண்டுபிடிக்க முடியும்.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">புளூடூத் முடக்கப்பட்டுள்ளது, இயக்கவும் ;)</string>
     <string name="overview_monitoring_active_label">சாதனங்களைக் கண்காணிக்கிறது</string>
     <string name="overview_monitoring_active_description">உங்கள் சாதனம் அருகில் மற்றும் செயலில் இருப்பதை உறுதிசெய்யவும்.</string>
+    <string name="overview_troubleshoot_suggestion_label">இணைக்கப்பட்டது, ஆனால் தரவு இல்லை</string>
+    <string name="overview_troubleshoot_suggestion_description">உங்கள் சாதனம் இணைக்கப்பட்டுள்ளது, ஆனால் CAPod அதிலிருந்து நேரடி தரவு எதுவும் பெறவில்லை. உங்கள் தொலைபேசிக்கு இணக்கத்தன்மை விருப்பம் தேவைப்படலாம் — சிக்கல் தீர்ப்பான் தானாக ஒன்றை கண்டுபிடிக்க முயற்சிக்கும்.</string>
+    <string name="overview_troubleshoot_suggestion_action">சிக்கல் தீர்ப்பானை இயக்கு</string>
     <string name="overview_unmatched_devices_label">பொருந்தாத சாதனங்கள்</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">பொருந்தும் சுயவிவரம் இல்லாத %d சாதனம்</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">தூக்க கண்டறிதல்</string>
     <string name="reaction_sleep_notification_title">தூக்க கண்டறிதலால் இடைநிறுத்தப்பட்டது</string>
     <string name="reaction_sleep_notification_text">%1$s நீங்கள் தூங்கிவிட்டீர்கள் என்று தெரிவித்தது, எனவே உங்கள் இசை இடைநிறுத்தப்பட்டது. சாதன அமைப்புகளில் இதை முடக்கலாம்.</string>
+    <string name="reaction_charged_channel_label">சார்ஜ் அறிவிப்பு</string>
+    <string name="reaction_charged_notification_title">சார்ஜ் முடிந்தது</string>
+    <string name="reaction_charged_notification_text_full">%1$s முழுமையாக சார்ஜ் ஆகிவிட்டது.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% வரை சார்ஜ் ஆகிவிட்டது.</string>
     <string name="device_settings_rename_label">மறுபெயரிடு</string>
     <string name="device_settings_rename_hint">சாதன பெயர்</string>
     <string name="device_settings_rename_confirm">மறுபெயரிடு</string>

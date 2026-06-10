@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Показувати спливаюче вікно при приєднанні</string>
     <string name="settings_popup_connected_description">Показувати спливаюче вікно коли пристрій підключається вперше.</string>
     <string name="settings_popup_info_not_in_app">Спливаючі вікна відображаються лише тоді, коли ви не в застосунку.</string>
+    <string name="settings_charged_notification_label">Сповіщення про зарядку</string>
+    <string name="settings_charged_notification_description">Показувати сповіщення, коли все, що заряджається, досягне цільового рівня заряду.</string>
+    <string name="settings_charged_threshold_label">Цільовий рівень заряду</string>
+    <string name="settings_charged_scope_label">Відстежувані батареї</string>
+    <string name="settings_charged_scope_pods_label">Лише навушники</string>
+    <string name="settings_charged_scope_case_label">Лише чохол</string>
+    <string name="settings_charged_scope_both_label">Навушники та чохол</string>
     <string name="device_settings_experimental_title">Експериментальна функція</string>
     <string name="device_settings_experimental_description">Ця функція ще не протестована на всіх пристроях. Якщо щось не працює правильно, будь ласка, відкрийте задачу з журналом налагодження.</string>
     <string name="device_settings_experimental_action">Відкрити трекер задач</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Налагодження</string>
     <string name="settings_general_label">Налаштування</string>
     <string name="settings_general_description">Загальні функції, що впливають на всю програму.</string>
+    <string name="settings_overview_hide_unmatched_label">Приховати нерозпізнані пристрої</string>
+    <string name="settings_overview_hide_unmatched_description">Не показувати в огляді пристрої поблизу, які не відповідають жодному з ваших профілів, наприклад AirPods інших людей.</string>
     <string name="settings_acknowledgements_label">Подяки</string>
     <string name="settings_debug_autoreports_label">Автоматичні звіти про помилки</string>
     <string name="settings_debug_autoreports_description">Автоматично повідомляти про проблеми, наприклад, деталі про збій програми, щоб я міг зрозуміти, як це виправити.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth вимкнено, увімкніть його ;)</string>
     <string name="overview_monitoring_active_label">Пошук пристроїв</string>
     <string name="overview_monitoring_active_description">Переконайтеся, що ваш пристрій поблизу та активний.</string>
+    <string name="overview_troubleshoot_suggestion_label">Підключено, але немає даних</string>
+    <string name="overview_troubleshoot_suggestion_description">Пристрій підключено, але CAPod не отримує від нього жодних актуальних даних. Вашому телефону може знадобитися параметр сумісності — засіб усунення несправностей спробує знайти його автоматично.</string>
+    <string name="overview_troubleshoot_suggestion_action">Запустити засіб усунення несправностей</string>
     <string name="overview_unmatched_devices_label">Нерозпізнані пристрої</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d пристрій без відповідного профілю</item>
@@ -500,6 +512,10 @@
     <string name="reaction_sleep_channel_label">Виявлення сну</string>
     <string name="reaction_sleep_notification_title">Призупинено виявленням сну</string>
     <string name="reaction_sleep_notification_text">%1$s визначив, що ви заснули, тому музику було призупинено. Ви можете вимкнути це в налаштуваннях пристрою.</string>
+    <string name="reaction_charged_channel_label">Сповіщення про зарядку</string>
+    <string name="reaction_charged_notification_title">Зарядку завершено</string>
+    <string name="reaction_charged_notification_text_full">%1$s повністю заряджено.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s заряджено до %2$d%%.</string>
     <string name="device_settings_rename_label">Перейменувати</string>
     <string name="device_settings_rename_hint">Назва пристрою</string>
     <string name="device_settings_rename_confirm">Перейменувати</string>

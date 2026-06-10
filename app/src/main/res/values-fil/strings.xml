@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Ipakita ang connection popup</string>
     <string name="settings_popup_connected_description">Magpakita ng popup kapag unang kumonekta ang device.</string>
     <string name="settings_popup_info_not_in_app">Ang mga popup ay ipinapakita lamang kapag wala ka sa app.</string>
+    <string name="settings_charged_notification_label">Notipikasyon ng pagkakarga</string>
+    <string name="settings_charged_notification_description">Magpakita ng notipikasyon kapag ang lahat ng nagcha-charge ay umabot na sa target na antas ng karga.</string>
+    <string name="settings_charged_threshold_label">Target na antas ng karga</string>
+    <string name="settings_charged_scope_label">Mga sinusubaybaygang baterya</string>
+    <string name="settings_charged_scope_pods_label">Mga pod lamang</string>
+    <string name="settings_charged_scope_case_label">Case lamang</string>
+    <string name="settings_charged_scope_both_label">Mga pod at case</string>
     <string name="device_settings_experimental_title">Pang-eksperimentong tampok</string>
     <string name="device_settings_experimental_description">Ang tampok na ito ay hindi pa nasubok sa lahat ng device. Kung may hindi gumagana nang tama, mangyaring magbukas ng isyu na may debug log.</string>
     <string name="device_settings_experimental_action">Buksan ang Issue Tracker</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mga Setting</string>
     <string name="settings_general_description">Mga pangkalahatang pag-aayos na nakakaapekto sa buong app.</string>
+    <string name="settings_overview_hide_unmatched_label">Itago ang mga hindi tugmang device</string>
+    <string name="settings_overview_hide_unmatched_description">Huwag ipakita ang mga kalapit na device na hindi tugma sa alinman sa iyong mga profile sa pangkalahatang-tanaw, hal. ang mga AirPods ng ibang tao.</string>
     <string name="settings_acknowledgements_label">Mga Pasasalamat</string>
     <string name="settings_debug_autoreports_label">Mga awtomatikong ulat ng bug</string>
     <string name="settings_debug_autoreports_description">Awtomatikong nag-uulat ng mga isyu, hal. mga detalye sa isang pag-crash ng app para malaman ko kung paano ito ayusin.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Naka-disable ang Bluetooth, i-enable ito ;)</string>
     <string name="overview_monitoring_active_label">Nagmo-monitor ng mga device</string>
     <string name="overview_monitoring_active_description">Siguraduhing malapit at aktibo ang iyong device.</string>
+    <string name="overview_troubleshoot_suggestion_label">Nakakonekta, ngunit walang data</string>
+    <string name="overview_troubleshoot_suggestion_description">Nakakonekta ang iyong device, ngunit hindi nakakatanggap ng live data ang CAPod mula rito. Maaaring kailanganin ng iyong telepono ng opsyon sa compatibility — maaaring subukang hanapin ito nang awtomatiko ng troubleshooter.</string>
+    <string name="overview_troubleshoot_suggestion_action">Patakbuhin ang troubleshooter</string>
     <string name="overview_unmatched_devices_label">Mga hindi nakatugmang device</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d device na walang katugmang profile</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Pagtuklas ng Pagtulog</string>
     <string name="reaction_sleep_notification_title">Naka-pause ng Pagtuklas ng Pagtulog</string>
     <string name="reaction_sleep_notification_text">Naiulat ng %1$s na nakatulog ka, kaya na-pause ang iyong musika. Maaari mong i-disable ito sa mga setting ng device.</string>
+    <string name="reaction_charged_channel_label">Notipikasyon ng Pagkakarga</string>
+    <string name="reaction_charged_notification_title">Kumpleto na ang pag-charge</string>
+    <string name="reaction_charged_notification_text_full">Ganap na na-charge ang %1$s.</string>
+    <string name="reaction_charged_notification_text_partial">Na-charge na ang %1$s sa %2$d%%.</string>
     <string name="device_settings_rename_label">Palitan ang Pangalan</string>
     <string name="device_settings_rename_hint">Pangalan ng device</string>
     <string name="device_settings_rename_confirm">Palitan ang Pangalan</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">የግንኙነት ብቅ-ባይ አሳይ</string>
     <string name="settings_popup_connected_description">መሳሪያው ለመጀመሪያ ጊዜ ሲገናኝ ብቅ-ባይ አሳይ።</string>
     <string name="settings_popup_info_not_in_app">ፖፕ-አፕ መልዕክቶች በፕሮግራሙ ውስጥ ሳታሉ ብቻ ይታያሉ።</string>
+    <string name="settings_charged_notification_label">የተሞላ ማሳወቂያ</string>
+    <string name="settings_charged_notification_description">ሁሉም ነገር ወደ ታለመው የኃይል ደረጃ ሲደርስ ማሳወቂያ አሳይ።</string>
+    <string name="settings_charged_threshold_label">ታለመው የኃይል ደረጃ</string>
+    <string name="settings_charged_scope_label">የሚታዩ ባትሪዎች</string>
+    <string name="settings_charged_scope_pods_label">ፖድስ ብቻ</string>
+    <string name="settings_charged_scope_case_label">ኬዝ ብቻ</string>
+    <string name="settings_charged_scope_both_label">ፖድስ እና ኬዝ</string>
     <string name="device_settings_experimental_title">ሙከራዊ ባህሪ</string>
     <string name="device_settings_experimental_description">ይህ ባህሪ በሁሉም መሳሪያዎች ላይ ገና አልተሞከረም። ሆኖም ካልሰራ፣ እባክዎ የዲበግ ምዝግብ ማስታወሻ ጨምረው ጉዳዩን ይክፈቱ።</string>
     <string name="device_settings_experimental_action">የጉዳይ መከታተያ ክፈት</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">ዲባግ</string>
     <string name="settings_general_label">ቅንብሮች</string>
     <string name="settings_general_description">ሙሉውን መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
+    <string name="settings_overview_hide_unmatched_label">ያልተዛመዱ መሳሪያዎችን ደብቅ</string>
+    <string name="settings_overview_hide_unmatched_description">ከፕሮፋይሎቻቸው ጋር የማይዛመዱ አቅራቢያ ያሉ መሳሪያዎችን በዝርዝሩ ውስጥ አታሳይ፣ ለምሳሌ የሌሎች ሰዎች AirPods።</string>
     <string name="settings_acknowledgements_label">ምስጋናዎች</string>
     <string name="settings_debug_autoreports_label">ራስ-ሰር የሳንካ ሪፖርቶች</string>
     <string name="settings_debug_autoreports_description">ችግሮችን በራስ-ሰር ሪፖርት ያደርጋል፣ ለምሳሌ የመተግበሪያ ብልሽት ዝርዝሮችን እንዴት ማስተካከል እንዳለብኝ እንድገነዘብ።</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ተሰናክሏል፣ ያንቁት ;)</string>
     <string name="overview_monitoring_active_label">መሣሪያዎችን በመከታተል ላይ</string>
     <string name="overview_monitoring_active_description">መሣሪያዎ ቅርብ እና ንቁ መሆኑን ያረጋግጡ።</string>
+    <string name="overview_troubleshoot_suggestion_label">ተገናኝቷል፣ ግን ምንም ዳታ የለም</string>
+    <string name="overview_troubleshoot_suggestion_description">መሳሪያህ ተገናኝቷል፣ ግን CAPod ከእሱ ምንም ቀጥታ ዳታ አይቀበልም። ስልክህ የተኳሃኝነት አማራጭ ሊፈልግ ይችላል — ችግር ፈቺው በራስ-ሰር ለማግኘት ሊሞክር ይችላል።</string>
+    <string name="overview_troubleshoot_suggestion_action">ችግር ፈቺን አስጀምር</string>
     <string name="overview_unmatched_devices_label">ያልተዛመዱ መሣሪያዎች</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">ተዛማጅ መገለጫ የሌለው %d መሣሪያ</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">የእንቅልፍ ማወቂያ</string>
     <string name="reaction_sleep_notification_title">በእንቅልፍ ማወቂያ ምክንያት ታግዷል</string>
     <string name="reaction_sleep_notification_text">%1$s እርስዎ ተኝተዋል ብሎ ዘገበ፣ ስለዚህ ሙዚቃዎ ተቋርጧል። ይህን በመሣሪያ ቅንብሮች ውስጥ ማሰናከል ይችላሉ።</string>
+    <string name="reaction_charged_channel_label">የተሞላ ማሳወቂያ</string>
+    <string name="reaction_charged_notification_title">ኃይል መሙላት ተጠናቋል</string>
+    <string name="reaction_charged_notification_text_full">%1$s ሙሉ በሙሉ ተሞልቷል።</string>
+    <string name="reaction_charged_notification_text_partial">%1$s ወደ %2$d%% ተሞልቷል።</string>
     <string name="device_settings_rename_label">ስም ቀይር</string>
     <string name="device_settings_rename_hint">የመሣሪያ ስም</string>
     <string name="device_settings_rename_confirm">ስም ቀይር</string>

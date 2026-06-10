@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Afișați pop-upul conexiunii</string>
     <string name="settings_popup_connected_description">Afișați un pop-up când dispozitivul se conectează pentru prima dată.</string>
     <string name="settings_popup_info_not_in_app">Ferestrele pop-up sunt afișate doar când nu ești în aplicație.</string>
+    <string name="settings_charged_notification_label">Notificare la încărcare completă</string>
+    <string name="settings_charged_notification_description">Afișează o notificare odată ce tot ce se încarcă atinge nivelul țintă de încărcare.</string>
+    <string name="settings_charged_threshold_label">Nivel țintă de încărcare</string>
+    <string name="settings_charged_scope_label">Baterii monitorizate</string>
+    <string name="settings_charged_scope_pods_label">Numai pods</string>
+    <string name="settings_charged_scope_case_label">Numai carcasă</string>
+    <string name="settings_charged_scope_both_label">Pods și carcasă</string>
     <string name="device_settings_experimental_title">Funcție experimentală</string>
     <string name="device_settings_experimental_description">Această funcție nu a fost testată pe toate dispozitivele. Dacă ceva nu funcționează corect, te rugăm să deschizi un raport cu un jurnal de depanare.</string>
     <string name="device_settings_experimental_action">Deschide Issue Tracker</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Depanare</string>
     <string name="settings_general_label">Setări</string>
     <string name="settings_general_description">Ajustări generale care afectează întreaga aplicație.</string>
+    <string name="settings_overview_hide_unmatched_label">Ascunde dispozitivele nepotrivite</string>
+    <string name="settings_overview_hide_unmatched_description">Nu afișa dispozitivele din apropiere care nu corespund niciunui profil al tău în prezentare generală, de ex. AirPods-urile altor persoane.</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
     <string name="settings_debug_autoreports_label">Rapoarte automate de erori</string>
     <string name="settings_debug_autoreports_description">Raportează automat probleme, ex: detalii despre o blocare a aplicației, astfel încât să îmi dau seama cum să o rezolv.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth este dezactivat, activați-l ;)</string>
     <string name="overview_monitoring_active_label">Monitorizare dispozitive</string>
     <string name="overview_monitoring_active_description">Asigurați-vă că dispozitivul este în apropiere și activ.</string>
+    <string name="overview_troubleshoot_suggestion_label">Conectat, dar fără date</string>
+    <string name="overview_troubleshoot_suggestion_description">Dispozitivul tău este conectat, dar CAPod nu primește date în timp real de la acesta. Este posibil ca telefonul tău să aibă nevoie de o opțiune de compatibilitate — depuratorul poate încerca să găsească una automat.</string>
+    <string name="overview_troubleshoot_suggestion_action">Rulează depuratorul</string>
     <string name="overview_unmatched_devices_label">Dispozitive fără corespondență</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d dispozitiv fără profil corespunzător</item>
@@ -495,6 +507,10 @@
     <string name="reaction_sleep_channel_label">Detectare somn</string>
     <string name="reaction_sleep_notification_title">Pauză prin Detectare somn</string>
     <string name="reaction_sleep_notification_text">%1$s a detectat că ai adormit, astfel că muzica a fost oprită. Poți dezactiva aceasta din setările dispozitivului.</string>
+    <string name="reaction_charged_channel_label">Notificare încărcare completă</string>
+    <string name="reaction_charged_notification_title">Încărcare completă</string>
+    <string name="reaction_charged_notification_text_full">%1$s este complet încărcat.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s a fost încărcat la %2$d%%.</string>
     <string name="device_settings_rename_label">Redenumește</string>
     <string name="device_settings_rename_hint">Numele dispozitivului</string>
     <string name="device_settings_rename_confirm">Redenumește</string>

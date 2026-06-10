@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">ສະແດງປັອບອັບການເຊື່ອມຕໍ່</string>
     <string name="settings_popup_connected_description">ສະແດງປັອບອັບເມື່ອອຸປະກອນເຊື່ອມຕໍ່ຄັ້ງທຳອິດ.</string>
     <string name="settings_popup_info_not_in_app">ປ໋ອບອັບຈະສະແດງໃຫ້ເຫັນສະເພາະເມື່ອທ່ານບໍ່ຢູ່ໃນແອັບ.</string>
+    <string name="settings_charged_notification_label">ການແຈ້ງເຕືອນຊາດໄຟ</string>
+    <string name="settings_charged_notification_description">ສະແດງການແຈ້ງເຕືອນເມື່ອທຸກສິ່ງທີ່ກໍາລັງສາກໄຟຮອດລະດັບທີ່ກໍານົດ.</string>
+    <string name="settings_charged_threshold_label">ລະດັບການສາກໄຟເປົ້າໝາຍ</string>
+    <string name="settings_charged_scope_label">ແບັດເຕີລີທີ່ຕິດຕາມ</string>
+    <string name="settings_charged_scope_pods_label">ສະເພາະ Pods</string>
+    <string name="settings_charged_scope_case_label">ສະເພາະກ່ອງ</string>
+    <string name="settings_charged_scope_both_label">Pods ແລະກ່ອງ</string>
     <string name="device_settings_experimental_title">ຟີເຈີທົດລອງ</string>
     <string name="device_settings_experimental_description">ຟີເຈີນີ້ຍັງບໍ່ໄດ້ຮັບການທົດສອບໃນທຸກອຸປະກອນ. ຖ້າມີບາງຢ່າງທີ່ບໍ່ເຮັດວຽກຢ່າງຖືກຕ້ອງ, ກະລຸນາເປີດ issue ພ້ອມ debug log.</string>
     <string name="device_settings_experimental_action">ເປີດ Issue Tracker</string>
@@ -91,8 +98,8 @@
     <string name="debug_debuglog_recording_progress">ກໍາລັງບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
-    <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
-    <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກຢ່າງທີ່ແອັບກຳລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ຕົວຢ່າງ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນມັນກັບຝ່າຍທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ຕົວຢ່າງ: ຜູ້ພັດທະນາທີ່ກຳລັງແກ້ໄຂບັນຫາ).</string>
+    <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນໃຫ້ສະເພາະຜູ້ທີ່ໄວ້ໃຈໄດ້ເທົ່ານັ້ນ.</string>
+    <string name="settings_debuglog_explanation">ຟີເຈີນີ້ບັນທຶກທຸກສິ່ງທີ່ແອັບກໍາລັງເຮັດໃສ່ໃນໄຟລ໌ທີ່ແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ລາຍລະອຽດອຸປະກອນ Bluetooth). ແບ່ງປັນໃຫ້ສະເພາະຜູ້ທີ່ໄວ້ໃຈໄດ້ (ເຊັ່ນ: ນັກພັດທະນາທີ່ກໍາລັງແກ້ໄຂບັນຫາ) ເທົ່ານັ້ນ.</string>
     <string name="settings_support_installid_label">ID ການຕິດຕັ້ງ</string>
     <string name="settings_support_installid_desc">ບົດລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດແມ່ນບໍ່ເປີດເຜີຍຊື່. ແບ່ງປັນ ID ຕິດຕັ້ງຂອງທ່ານຖ້າຜູ້ພັດທະນາຕ້ອງການຊອກຫາບົດລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
     <string name="settings_support_label">ການຊ່ວຍເຫຼືອ</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">ດີບັກ</string>
     <string name="settings_general_label">ການຕັ້ງຄ່າ</string>
     <string name="settings_general_description">ການປັບແຕ່ງທົ່ວໄປທີ່ສົ່ງຜົນກະທົບຕໍ່ແອັບທັງໝົດ.</string>
+    <string name="settings_overview_hide_unmatched_label">຋່ອນອຸປະກອນທີ່ໄມ່ຕໍງກັນ</string>
+    <string name="settings_overview_hide_unmatched_description">ບໍ່ສະແດງອຸປະກອນໃກ້ທີ່ໄມ່ຕໍງກັບໂປຣໄຟລ໌ຂອງທ່ານໃນບັນທຶກປະກອບການ, ເຊັ່ນ: AirPods ຂອງຄນອື່ນ.</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
     <string name="settings_debug_autoreports_label">ລາຍງານຂໍ້ບົກພ່ອງອັດຕະໂນມັດ</string>
     <string name="settings_debug_autoreports_description">ລາຍງານບັນຫາໂດຍອັດຕະໂນມັດ, ຕົວຢ່າງ: ລາຍລະອຽດກ່ຽວກັບການຂັດຂ້ອງຂອງແອັບ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາວິທີແກ້ໄຂໄດ້.</string>
@@ -160,7 +169,7 @@
     <string name="troubleshooter_title">ຕົວແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_summary">ກວດຫາ ແລະ ແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ Bluetooth.</string>
     <string name="troubleshooter_ble_intro_title">ການອອກອາກາດ Bluetooth Low Energy</string>
-    <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\" . ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂບັນຫານີ້ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ້ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
+    <string name="troubleshooter_ble_intro_body1">AirPods (ແລະຫູຟັງທີ່ຄ້າຍຄືກັນ) ອອກອາກາດຂໍ້ມູນສະຖານະໂດຍໃຊ້ເທັກໂນໂລຢີ BLE ທີ່ເອີ້ນວ່າ \"ການໂຄສະນາ\". ໂທລະສັບບາງລຸ້ນບໍ່ໄດ້ປະຕິບັດເທັກໂນໂລຢີນີ້ຢ່າງຖືກຕ້ອງ. CAPod ສາມາດພະຍາຍາມແກ້ໄຂບັນຫານີ້ໂດຍການລອງຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ຕ່າງໆຈົນກວ່າຈະໄດ້ຮັບຂໍ້ມູນ. ເລີ່ມການຫຼິ້ນເພງໃນຫູຟັງຂອງທ່ານ ແລະວາງໄວ້ໃກ້ກັບໂທລະສັບຂອງທ່ານ, ຈາກນັ້ນເລີ່ມຂະບວນການ.</string>
     <string name="troubleshooter_ble_intro_start_action">ເລີ່ມການແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_process_title">ກຳລັງແກ້ໄຂບັນຫາ</string>
     <string name="troubleshooter_ble_process_subtile">ແຕ່ລະຂັ້ນຕອນໃຊ້ເວລາ 5-10 ວິນາທີ</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth ຖືກປິດ, ເປີດມັນ ;)</string>
     <string name="overview_monitoring_active_label">ກຳລັງຕິດຕາມອຸປະກອນ</string>
     <string name="overview_monitoring_active_description">ໃຫ້ແນ່ໃຈວ່າອຸປະກອນຂອງທ່ານຢູ່ໃກ້ ແລະ ເຮັດວຽກຢູ່.</string>
+    <string name="overview_troubleshoot_suggestion_label">ເຊື່ອມຕໍ່ແລ້ວ, ຜູ້ໃດ້ຂໍ້ມູນ</string>
+    <string name="overview_troubleshoot_suggestion_description">ອຸປະກອນຂອງທ່ານເຊື່ອມຕໍ່ແລ້ວ, ຜູ້ໃດ້ CAPod ບໍ່ໄດ້ຮັບຂໍ້ມູນລິວໃດ້ຈາກມັນ. ໂທລະສັບຂອງທ່ານອາດຕ້ອງການຕົວເລືອກຄວາມເຂົ້າກັນໄດ້ — ຕົວແກ້ໄຂບັນຫາສາມາດພະຍາຍາມຫາຕົວເລືອກທີ່ເຫມາະສະຫມໂດຍອັດຕະໂນມັດ.</string>
+    <string name="overview_troubleshoot_suggestion_action">ແລ່ນຕົວແກ້ໄຂບັນຫາ</string>
     <string name="overview_unmatched_devices_label">ອຸປະກອນທີ່ບໍ່ກົງກັນ</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d ອຸປະກອນທີ່ບໍ່ມີໂປຣໄຟລ໌ກົງກັນ</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">ການກວດຈັບການນອນ</string>
     <string name="reaction_sleep_notification_title">ຢຸດຊົ່ວຄາວໂດຍການກວດຈັບການນອນ</string>
     <string name="reaction_sleep_notification_text">%1$s ລາຍງານວ່າທ່ານຫຼັບໄປ, ດັ່ງນັ້ນດົນຕີຂອງທ່ານໄດ້ຖືກຢຸດຊົ່ວຄາວ. ທ່ານສາມາດປິດການໃຊ້ງານນີ້ໄດ້ໃນການຕັ້ງຄ່າອຸປະກອນ.</string>
+    <string name="reaction_charged_channel_label">ການແຈ້ງເຕືອນຊາດໄຟ</string>
+    <string name="reaction_charged_notification_title">ສາກໄຟສຳເນັດແລ້ວ</string>
+    <string name="reaction_charged_notification_text_full">%1$s ສາກໄຟເຕັມແລ້ວ.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s ສາກໄຟໄດ້ຖຶງ %2$d%% ແລ້ວ.</string>
     <string name="device_settings_rename_label">ເປລີ່ຊື່</string>
     <string name="device_settings_rename_hint">ຊື່ອຸປະກອນ</string>
     <string name="device_settings_rename_confirm">ເປລີ່ຊື່</string>

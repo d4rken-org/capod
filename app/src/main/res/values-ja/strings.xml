@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">接続ポップアップを表示</string>
     <string name="settings_popup_connected_description">デバイスが初めて接続されたときにポップアップを表示します。</string>
     <string name="settings_popup_info_not_in_app">ポップアップはアプリを使用していない時のみ表示されます。</string>
+    <string name="settings_charged_notification_label">充電完了通知</string>
+    <string name="settings_charged_notification_description">充電中のすべてのデバイスが目標充電レベルに達したら通知を表示します。</string>
+    <string name="settings_charged_threshold_label">目標充電レベル</string>
+    <string name="settings_charged_scope_label">監視対象バッテリー</string>
+    <string name="settings_charged_scope_pods_label">ポッドのみ</string>
+    <string name="settings_charged_scope_case_label">ケースのみ</string>
+    <string name="settings_charged_scope_both_label">ポッドとケース</string>
     <string name="device_settings_experimental_title">実験的機能</string>
     <string name="device_settings_experimental_description">この機能はまだすべてのデバイスでテストされていません。正しく動作しない場合は、デバッグログを添えてイシューを開いてください。</string>
     <string name="device_settings_experimental_action">イシュートラッカーを開く</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">デバッグ</string>
     <string name="settings_general_label">設定</string>
     <string name="settings_general_description">アプリ全体に影響する一般的な調整。</string>
+    <string name="settings_overview_hide_unmatched_label">一致しないデバイスを非表示</string>
+    <string name="settings_overview_hide_unmatched_description">プロフィールに一致しない近くのデバイス（他の人のAirPodsなど）を概要に表示しません。</string>
     <string name="settings_acknowledgements_label">謝辞</string>
     <string name="settings_debug_autoreports_label">自動バグレポート</string>
     <string name="settings_debug_autoreports_description">アプリのクラッシュに関する詳細など、問題を自動的に報告して、修正方法を把握できるようにします。</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetoothが無効です。有効にしてください ;)</string>
     <string name="overview_monitoring_active_label">デバイスを監視中</string>
     <string name="overview_monitoring_active_description">デバイスが近くにあり、アクティブであることを確認してください。</string>
+    <string name="overview_troubleshoot_suggestion_label">接続済み、データなし</string>
+    <string name="overview_troubleshoot_suggestion_description">デバイスは接続されていますが、CAPodはライブデータを受信していません。互換性オプションが必要な場合があります—トラブルシューターが自動的に検索を試みます。</string>
+    <string name="overview_troubleshoot_suggestion_action">トラブルシューターを実行</string>
     <string name="overview_unmatched_devices_label">一致しないデバイス</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">一致するプロファイルがないデバイス %d 台</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">睡眠検出</string>
     <string name="reaction_sleep_notification_title">睡眠検出によって一時停止されました</string>
     <string name="reaction_sleep_notification_text">%1$s が眠りについたことを検出したため、音楽が一時停止されました。デバイス設定で無効にできます。</string>
+    <string name="reaction_charged_channel_label">充電完了通知</string>
+    <string name="reaction_charged_notification_title">充電完了</string>
+    <string name="reaction_charged_notification_text_full">%1$sは満充電になりました。</string>
+    <string name="reaction_charged_notification_text_partial">%1$sが%2$d%%まで充電されました。</string>
     <string name="device_settings_rename_label">名前を変更</string>
     <string name="device_settings_rename_hint">デバイス名</string>
     <string name="device_settings_rename_confirm">名前を変更</string>

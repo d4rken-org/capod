@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Sýna upplýsingaglugga tengingar</string>
     <string name="settings_popup_connected_description">Sýna upplýsingaglugga þegar tækið tengist í fyrsta skipti.</string>
     <string name="settings_popup_info_not_in_app">Sprettigluggar eru aðeins sýndir þegar þú ert ekki í forritinu.</string>
+    <string name="settings_charged_notification_label">Hlaðin tilkynning</string>
+    <string name="settings_charged_notification_description">Sýna tilkynningu þegar allt sem er að hlaðast nær markhlutfall hleðslu.</string>
+    <string name="settings_charged_threshold_label">Markhlutfall hleðslu</string>
+    <string name="settings_charged_scope_label">Fylgst með rafhlöðum</string>
+    <string name="settings_charged_scope_pods_label">Aðeins heyrnartæki</string>
+    <string name="settings_charged_scope_case_label">Aðeins hulstur</string>
+    <string name="settings_charged_scope_both_label">Heyrnartæki og hulstur</string>
     <string name="device_settings_experimental_title">Tilraunaeiginleiki</string>
     <string name="device_settings_experimental_description">Þessi eiginleiki hefur ekki verið prófaður á öllum tækjum enn. Ef eitthvað virkar ekki rétt skaltu opna málskrá með kembikladda.</string>
     <string name="device_settings_experimental_action">Opna málaskráreftirlit</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Kembing</string>
     <string name="settings_general_label">Stillingar</string>
     <string name="settings_general_description">Almennar stillingar sem hafa áhrif á allt forritið.</string>
+    <string name="settings_overview_hide_unmatched_label">Fela ópassandi tæki</string>
+    <string name="settings_overview_hide_unmatched_description">Sýnir ekki nálæg tæki sem passa ekki við neitt af sniðunum þínum í yfirlitinu, t.d. AirPods annarra.</string>
     <string name="settings_acknowledgements_label">Þakkir</string>
     <string name="settings_debug_autoreports_label">Sjálfvirkar villuskýrslur</string>
     <string name="settings_debug_autoreports_description">Tilkynnir sjálfkrafa um vandamál, t.d. upplýsingar um hrun forrits svo ég geti fundið út hvernig á að laga það.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth er óvirkt, virkjaðu það ;)</string>
     <string name="overview_monitoring_active_label">Leitar að tækjum</string>
     <string name="overview_monitoring_active_description">Gakktu úr skugga um að tækið þitt sé nálægt og virkt.</string>
+    <string name="overview_troubleshoot_suggestion_label">Tengt, en engar gögn</string>
+    <string name="overview_troubleshoot_suggestion_description">Tækið þitt er tengt, en CAPod er ekki að taka við lifandi gögnum frá því. Síminn þinn þarf kannski samhæfnismöguleika — villuleitin getur reynt að finna hann sjálfkrafa.</string>
+    <string name="overview_troubleshoot_suggestion_action">Keyra villuleit</string>
     <string name="overview_unmatched_devices_label">Ópöruð tæki</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d tæki án samsvarandi sniðs</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Svefngreining</string>
     <string name="reaction_sleep_notification_title">Gert hlé af svefngreiningu</string>
     <string name="reaction_sleep_notification_text">%1$s greindi að þú sefur, þannig var tónlistin sett í hlé. Þú getur slökkt á þessu í tækjastillingum.</string>
+    <string name="reaction_charged_channel_label">Hlaðin tilkynning</string>
+    <string name="reaction_charged_notification_title">Hleðslu lokið</string>
+    <string name="reaction_charged_notification_text_full">%1$s er fullhlaðið.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s hefur verið hlaðið í %2$d%%.</string>
     <string name="device_settings_rename_label">Endurskíra</string>
     <string name="device_settings_rename_hint">Nafn tækis</string>
     <string name="device_settings_rename_confirm">Endurskíra</string>

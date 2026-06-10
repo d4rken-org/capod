@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Zobrazit vyskakovací okno při připojení</string>
     <string name="settings_popup_connected_description">Zobrazit vyskakovací okno při prvním připojení zařízení.</string>
     <string name="settings_popup_info_not_in_app">Vyskakovací okna jsou zobrazována pouze tehdy, když nejste v aplikaci.</string>
+    <string name="settings_charged_notification_label">Oznámení o nabití</string>
+    <string name="settings_charged_notification_description">Zobrazit oznámení, jakmile vše, co se nabíjí, dosáhne cílové úrovně nabití.</string>
+    <string name="settings_charged_threshold_label">Cílová úroveň nabití</string>
+    <string name="settings_charged_scope_label">Sledované baterie</string>
+    <string name="settings_charged_scope_pods_label">Pouze sluchátka</string>
+    <string name="settings_charged_scope_case_label">Pouze pouzdro</string>
+    <string name="settings_charged_scope_both_label">Sluchátka a pouzdro</string>
     <string name="device_settings_experimental_title">Experimentální funkce</string>
     <string name="device_settings_experimental_description">Tato funkce ještě nebyla testována na všech zařízeních. Pokud něco nefunguje správně, nahlaste problém s logem ladění.</string>
     <string name="device_settings_experimental_action">Otevřít sledovač problémů</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Ladění</string>
     <string name="settings_general_label">Nastavení</string>
     <string name="settings_general_description">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
+    <string name="settings_overview_hide_unmatched_label">Skrýt nepřiřazená zařízení</string>
+    <string name="settings_overview_hide_unmatched_description">V přehledu nezobrazovat blízká zařízení, která neodpovídají žádnému z vašich profilů, např. AirPods jiných lidí.</string>
     <string name="settings_acknowledgements_label">Poděkování</string>
     <string name="settings_debug_autoreports_label">Automatické hlášení chyb</string>
     <string name="settings_debug_autoreports_description">Automatické hlášení chyb např. podrobnosti o pádech aplikace.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth je vypnuto, zapněte jej ;)</string>
     <string name="overview_monitoring_active_label">Monitorování zařízení</string>
     <string name="overview_monitoring_active_description">Ujistěte se, že je vaše zařízení v dosahu a aktivní.</string>
+    <string name="overview_troubleshoot_suggestion_label">Připojeno, ale žádná data</string>
+    <string name="overview_troubleshoot_suggestion_description">Zařízení je připojeno, ale CAPod od něj nepřijímá žádná živá data. Váš telefon může potřebovat možnost kompatibility — řešení problémů ji může zkusit najít automaticky.</string>
+    <string name="overview_troubleshoot_suggestion_action">Spustit řešení problémů</string>
     <string name="overview_unmatched_devices_label">Nepřiřazená zařízení</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d zařízení bez odpovídajícího profilu</item>
@@ -500,6 +512,10 @@
     <string name="reaction_sleep_channel_label">Detekce spánku</string>
     <string name="reaction_sleep_notification_title">Pozastaveno detekcí spánku</string>
     <string name="reaction_sleep_notification_text">%1$s oznámil, že jste usnuli, takže vaše hudba byla pozastavena. Toto můžete vypnout v nastavení zařízení.</string>
+    <string name="reaction_charged_channel_label">Oznámení o nabití</string>
+    <string name="reaction_charged_notification_title">Nabíjení dokončeno</string>
+    <string name="reaction_charged_notification_text_full">%1$s je plně nabitý.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s byl nabit na %2$d%%.</string>
     <string name="device_settings_rename_label">Přejmenovat</string>
     <string name="device_settings_rename_hint">Název zařízení</string>
     <string name="device_settings_rename_confirm">Přejmenovat</string>

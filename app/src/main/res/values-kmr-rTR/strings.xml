@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Pop-upa girêdanê nîşan bide</string>
     <string name="settings_popup_connected_description">Dema ku amûr cara yekem girêdide pop-upek nîşan bide.</string>
     <string name="settings_popup_info_not_in_app">Pencereyên daqurtandinê tenê dema tu di serîlêdanê de nî nîn in tên nîşandan.</string>
+    <string name="settings_charged_notification_label">Agahdariya şarjbûnê</string>
+    <string name="settings_charged_notification_description">Gava ku her tiştê ku tê şarjkirin bigihîje asta şarjê ya armancê, agahdariyekê nîşan bide.</string>
+    <string name="settings_charged_threshold_label">Asta şarjê ya armancê</string>
+    <string name="settings_charged_scope_label">Bataryayên çavdêrîkirî</string>
+    <string name="settings_charged_scope_pods_label">Tenê pods</string>
+    <string name="settings_charged_scope_case_label">Tenê qutiyek</string>
+    <string name="settings_charged_scope_both_label">Pods û qutî</string>
     <string name="device_settings_experimental_title">Taybetmendiya ezmûnî</string>
     <string name="device_settings_experimental_description">Ev taybetmendî hê li ser hemî amûran nehatiye ceribandin. Eger tiştek rast nexebite, ji kerema xwe pirsgirêkek bi têkelbûnek debug vekin.</string>
     <string name="device_settings_experimental_action">Şopînerê Pirsgirêkê Veke</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Mîheng</string>
     <string name="settings_general_description">Guhertinên giştî yên ku bandorê li tevahiya sepanê dikin.</string>
+    <string name="settings_overview_hide_unmatched_label">Amûrên neçêkirî veşêre</string>
+    <string name="settings_overview_hide_unmatched_description">Amûrên nêzîk ên ku bi ti profilên te re li hev nakin di nêrîna giştî de nîşan nede, mînak AirPods-ên kesên din.</string>
     <string name="settings_acknowledgements_label">Spasdarî</string>
     <string name="settings_debug_autoreports_label">Raporên xeletiyan ên otomatîk</string>
     <string name="settings_debug_autoreports_description">Pirsgirêkan bixweber rapor dike, mînak hûrguliyên li ser têkçûna sepanê da ku ez bikaribim fêhm bikim ka meriv çawa wê sererast bike.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth neçalak e, wê çalak bikin ;)</string>
     <string name="overview_monitoring_active_label">Amûr tên şopandin</string>
     <string name="overview_monitoring_active_description">Bawer bin ku amûra we nêzîk û çalak e.</string>
+    <string name="overview_troubleshoot_suggestion_label">Girêdayî, lê daneya tune</string>
+    <string name="overview_troubleshoot_suggestion_description">Amûra te girêdayî ye, lê CAPod daneya zindî ji wê nagire. Dibe ku telefona te vebijarkek lihevhatinê hewce bike — çareserkerê pirsgirîkan dikare bixweber yek bibîne.</string>
+    <string name="overview_troubleshoot_suggestion_action">Çareserkerê pirsgirîkan bixebitîne</string>
     <string name="overview_unmatched_devices_label">Amûrên nehevgirtî</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d amûr bê profîla hevgirtî</item>
@@ -250,9 +262,9 @@
     <string name="conversation_awareness_label">Hişyariya Sohbetê</string>
     <string name="settings_conversation_action_label">Gava tu dest bi axaftinê dikî</string>
     <string name="settings_conversation_action_nothing_label">Tiştek meke</string>
-    <string name="settings_conversation_action_lower_volume_label">Dengê kêm bike</string>
+    <string name="settings_conversation_action_lower_volume_label">Dengê xwarin</string>
     <string name="settings_conversation_action_pause_label">Medyayê raweste</string>
-    <string name="settings_conversation_volume_reduction_label">Kêmkirina dengê</string>
+    <string name="settings_conversation_volume_reduction_label">Kêmkirina dengî</string>
     <string name="signal_badge_ble_cd">Lêgerîna BLE çalak e</string>
     <string name="signal_badge_key_irk_cd">Nasnameya piştrast kir</string>
     <string name="signal_badge_key_encrypted_cd">Girêdana şîfrekirî</string>
@@ -468,7 +480,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Giştî</string>
     <string name="device_settings_microphone_mode_label">Mîkrofon</string>
-    <string name="device_settings_microphone_mode_description">Kîjan guhêrk wekî mîkrofon tê bikaranîn</string>
+    <string name="device_settings_microphone_mode_description">Kîjan guhêrk wek mîkrofon tê bikar anîn</string>
     <string name="device_settings_microphone_mode_auto">Xweber</string>
     <string name="device_settings_microphone_mode_right">Rastê</string>
     <string name="device_settings_microphone_mode_left">Çepê</string>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Tespîtkirina Xewê</string>
     <string name="reaction_sleep_notification_title">Ji hêla Tespîtkirina Xewê ve hate rawestandin</string>
     <string name="reaction_sleep_notification_text">%1$s ragihand ku hûn xew çûn, ji ber vê yekê muzîka we hate rawestandin. Hûn dikarin vê di mîhengên amûrê de neçalak bikin.</string>
+    <string name="reaction_charged_channel_label">Agahdariya şarjbûnê</string>
+    <string name="reaction_charged_notification_title">Şarjkirin temam bû</string>
+    <string name="reaction_charged_notification_text_full">%1$s bi tevahî şarj bûye.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s heya %2$d%% şarj bûye.</string>
     <string name="device_settings_rename_label">Navnivisîn</string>
     <string name="device_settings_rename_hint">Navê cîhazê</string>
     <string name="device_settings_rename_confirm">Navnivisîn</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Tampilkan pop-up koneksi</string>
     <string name="settings_popup_connected_description">Tampilkan pop-up saat perangkat pertama kali terhubung.</string>
     <string name="settings_popup_info_not_in_app">Popup hanya ditampilkan saat Anda tidak berada di aplikasi.</string>
+    <string name="settings_charged_notification_label">Pemberitahuan terisi</string>
+    <string name="settings_charged_notification_description">Tampilkan pemberitahuan setelah semua yang sedang diisi daya mencapai level pengisian target.</string>
+    <string name="settings_charged_threshold_label">Level pengisian target</string>
+    <string name="settings_charged_scope_label">Baterai yang dipantau</string>
+    <string name="settings_charged_scope_pods_label">Pod saja</string>
+    <string name="settings_charged_scope_case_label">Casing saja</string>
+    <string name="settings_charged_scope_both_label">Pod dan casing</string>
     <string name="device_settings_experimental_title">Fitur eksperimental</string>
     <string name="device_settings_experimental_description">Fitur ini belum diuji di semua perangkat. Jika ada yang tidak berfungsi dengan benar, silakan buka laporan masalah beserta log debug.</string>
     <string name="device_settings_experimental_action">Buka Pelacak Masalah</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Pengaturan</string>
     <string name="settings_general_description">Penyesuaian umum yang memengaruhi seluruh aplikasi.</string>
+    <string name="settings_overview_hide_unmatched_label">Sembunyikan perangkat yang tidak cocok</string>
+    <string name="settings_overview_hide_unmatched_description">Jangan tampilkan perangkat terdekat yang tidak cocok dengan profil mana pun di ringkasan, misalnya AirPods milik orang lain.</string>
     <string name="settings_acknowledgements_label">Ucapan Terima Kasih</string>
     <string name="settings_debug_autoreports_label">Laporan bug otomatis</string>
     <string name="settings_debug_autoreports_description">Melaporkan masalah secara otomatis, mis. detail tentang kerusakan aplikasi sehingga saya dapat mencari tahu cara memperbaikinya.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth dinonaktifkan, aktifkan ;)</string>
     <string name="overview_monitoring_active_label">Memantau perangkat</string>
     <string name="overview_monitoring_active_description">Pastikan perangkat Anda berada di dekat dan aktif.</string>
+    <string name="overview_troubleshoot_suggestion_label">Terhubung, tetapi tidak ada data</string>
+    <string name="overview_troubleshoot_suggestion_description">Perangkat terhubung, tetapi CAPod tidak menerima data langsung darinya. Ponsel mungkin memerlukan opsi kompatibilitas — pemecah masalah dapat mencoba menemukannya secara otomatis.</string>
+    <string name="overview_troubleshoot_suggestion_action">Jalankan pemecah masalah</string>
     <string name="overview_unmatched_devices_label">Perangkat tidak cocok</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="other">%d perangkat tanpa profil yang cocok</item>
@@ -485,6 +497,10 @@
     <string name="reaction_sleep_channel_label">Deteksi Tidur</string>
     <string name="reaction_sleep_notification_title">Dijeda oleh Deteksi Tidur</string>
     <string name="reaction_sleep_notification_text">%1$s mendeteksi Anda tertidur, sehingga musik Anda dijeda. Anda dapat menonaktifkan ini di pengaturan perangkat.</string>
+    <string name="reaction_charged_channel_label">Pemberitahuan Terisi</string>
+    <string name="reaction_charged_notification_title">Pengisian selesai</string>
+    <string name="reaction_charged_notification_text_full">%1$s sudah terisi penuh.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s telah diisi daya hingga %2$d%%.</string>
     <string name="device_settings_rename_label">Ganti Nama</string>
     <string name="device_settings_rename_hint">Nama perangkat</string>
     <string name="device_settings_rename_confirm">Ganti Nama</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Ցուցադրել միացման բացվող պատուհանը</string>
     <string name="settings_popup_connected_description">Ցուցադրել բացվող պատուհան, երբ սարքն առաջին անգամ է միանում։</string>
     <string name="settings_popup_info_not_in_app">Ելնող պատուհանները ցուցադրվում են միայն այն ժամանակ, երբ դուք հավելվածում չեք:</string>
+    <string name="settings_charged_notification_label">Լիցքավորման ծանուցում</string>
+    <string name="settings_charged_notification_description">Ծանուցում ցուցադրել, երբ լիցքավորվող բոլոր սարքերը հասնեն թիրախային լիցքի մակարդակին:</string>
+    <string name="settings_charged_threshold_label">Թիրախային լիցքի մակարդակ</string>
+    <string name="settings_charged_scope_label">Վերահսկվող մարտկոցներ</string>
+    <string name="settings_charged_scope_pods_label">Միայն pods-երը</string>
+    <string name="settings_charged_scope_case_label">Միայն պատյանը</string>
+    <string name="settings_charged_scope_both_label">Pods-երն ու պատյանը</string>
     <string name="device_settings_experimental_title">Փորձնական հատկություն</string>
     <string name="device_settings_experimental_description">Այս հատկությունը դեռ չի փորձարկվել բոլոր սարքերում: Եթե ինչ-որ բան ճիշտ չի աշխատում, խնդրում ենք բացել հարց՝ կազմաբերման մատյանով:</string>
     <string name="device_settings_experimental_action">Բացել հարցերի հետևիչը</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Կարգաբանություն</string>
     <string name="settings_general_label">Կարգավորումներ</string>
     <string name="settings_general_description">Ընդհանուր կարգավորումներ, որոնք ազդում են ամբողջ հավելվածի վրա։</string>
+    <string name="settings_overview_hide_unmatched_label">Թաքցնել անհամապատասխան սարքերը</string>
+    <string name="settings_overview_hide_unmatched_description">Չցուցադրել մոտակա սարքերը, որոնք չեն համընկնում ձեր պրոֆիլներից որևէ մեկի հետ, օրինակ՝ ուրիշի AirPods-ները:</string>
     <string name="settings_acknowledgements_label">Շնորհակալագրեր</string>
     <string name="settings_debug_autoreports_label">Սխալների ավտոմատ հաշվետվություններ</string>
     <string name="settings_debug_autoreports_description">Ավտոմատ կերպով հաղորդում է խնդիրների մասին, օրինակ՝ հավելվածի խափանման մանրամասները, որպեսզի կարողանամ պարզել, թե ինչպես այն շտկել։</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth-ը անջատված է, միացրեք այն ;)</string>
     <string name="overview_monitoring_active_label">Սարքերի մոնիթորինգ</string>
     <string name="overview_monitoring_active_description">Համոզվեք, որ ձեր սարքը մոտակայքում է և ակտիվ է։</string>
+    <string name="overview_troubleshoot_suggestion_label">Միացված է, բայց տվյալներ չկան</string>
+    <string name="overview_troubleshoot_suggestion_description">Ձեր սարքը միացված է, սակայն CAPod-ը կենդանի տվյալներ չի ստանում դրանից: Ձեր հեռախոսը կարող է կոմպատիբիլության տարբերակի կարիք ունենալ — խնդիրների լուծիչը կարող է ավտոմատ կերպով գտնել համապատասխանը:</string>
+    <string name="overview_troubleshoot_suggestion_action">Գործարկել խնդիրների լուծիչը</string>
     <string name="overview_unmatched_devices_label">Չհամապատասխանող սարքեր</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d սարք՝ առանց համապատասխան պրոֆիլի</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Քնի հայտնաբերում</string>
     <string name="reaction_sleep_notification_title">Դադարեցված Քնի հայտնաբերման կողմից</string>
     <string name="reaction_sleep_notification_text">%1$s-ը հայտնել է, որ դուք քնեցիք, ուստի ձեր երաժշտությունը դադարեցվեց։ Դուք կարող եք անջատել սա սարքի կարգավորումներում։</string>
+    <string name="reaction_charged_channel_label">Լիցքավորման ծանուցում</string>
+    <string name="reaction_charged_notification_title">Լիցքավորումն ավարտված է</string>
+    <string name="reaction_charged_notification_text_full">%1$s-ն ամբողջությամբ լիցքավորված է:</string>
+    <string name="reaction_charged_notification_text_partial">%1$s-ն լիցքավորվել է %2$d%%-ի:</string>
     <string name="device_settings_rename_label">Փոխել անունը</string>
     <string name="device_settings_rename_hint">Սառքի անուն</string>
     <string name="device_settings_rename_confirm">Փոխել անունը</string>

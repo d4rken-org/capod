@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Туташуу калкыма терезесин көрсөтүү</string>
     <string name="settings_popup_connected_description">Түзмөк биринчи жолу туташканда калкыма терезени көрсөтүү.</string>
     <string name="settings_popup_info_not_in_app">Калкыма терезелер колдонмодо болбогондо гана көрсөтүлөт.</string>
+    <string name="settings_charged_notification_label">Заряддалды деген билдирүү</string>
+    <string name="settings_charged_notification_description">Заряддалып жаткандын баары белгиленген заряд деңгээлине жеткенде билдирүү жөнөтүлөт.</string>
+    <string name="settings_charged_threshold_label">Максаттуу заряд деңгээли</string>
+    <string name="settings_charged_scope_label">Көзөмөлдөнүүчү батареялар</string>
+    <string name="settings_charged_scope_pods_label">Гарнитурлар гана</string>
+    <string name="settings_charged_scope_case_label">Кап гана</string>
+    <string name="settings_charged_scope_both_label">Гарнитурлар жана кап</string>
     <string name="device_settings_experimental_title">Эксперименталдык функция</string>
     <string name="device_settings_experimental_description">Бул функция азырынча бардык түзмөктөрдө сыналган жок. Эгер бир нерсе туура иштебесе, отладка журналы менен маселе ачыңыз.</string>
     <string name="device_settings_experimental_action">Маселе трекерин ачуу</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Мүчүлүштүктөрдү оңдоо</string>
     <string name="settings_general_label">Орнотуулар</string>
     <string name="settings_general_description">Бүткүл колдонмого таасир этүүчү жалпы оңдоолор.</string>
+    <string name="settings_overview_hide_unmatched_label">Дал келбеген түзмөктөрдү жашыруу</string>
+    <string name="settings_overview_hide_unmatched_description">Профилдериңиздин эч бирине дал келбеген жакын жердеги түзмөктөрдү, мисалы башка адамдардын AirPods\'ун, чолпондо көрсөтпөө.</string>
     <string name="settings_acknowledgements_label">Ыраазычылыктар</string>
     <string name="settings_debug_autoreports_label">Автоматтык ката отчеттору</string>
     <string name="settings_debug_autoreports_description">Маселелерди автоматтык түрдө кабарлайт, мис., колдонмонун бузулушу жөнүндө маалымат, ошентип мен аны кантип оңдоону аныктай алам.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth өчүрүлгөн, аны күйгүзүңүз ;)</string>
     <string name="overview_monitoring_active_label">Түзмөктөрдү издөөдө</string>
     <string name="overview_monitoring_active_description">Түзмөгүңүз жакын жана активдүү экенин текшериңиз.</string>
+    <string name="overview_troubleshoot_suggestion_label">Туташтырылган, бирок маалымат жок</string>
+    <string name="overview_troubleshoot_suggestion_description">Түзмөгүңүз туташтырылган, бирок CAPod андан жандуу маалымат алып жаткан жок. Телефонуңузга шайкештик параметри керек болушу мүмкүн — кыйынчылыктарды аныктагыч аны автоматтык түрдө тапкыла кыла алат.</string>
+    <string name="overview_troubleshoot_suggestion_action">Кыйынчылыктарды аныктагычты иштетүү</string>
     <string name="overview_unmatched_devices_label">Дал келбеген түзмөктөр</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d түзмөк профилсиз</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Уйку аныктоо</string>
     <string name="reaction_sleep_notification_title">Уйку аныктоо аркылуу токтотулду</string>
     <string name="reaction_sleep_notification_text">%1$s сиздин уктап калганыңызды аныктады, ошондуктан музыкаңыз токтотулду. Муну түзмөк жөндөөлөрүнөн өчүрсөңүз болот.</string>
+    <string name="reaction_charged_channel_label">Заряддалды деген билдирүү</string>
+    <string name="reaction_charged_notification_title">Заряддоо аяктады</string>
+    <string name="reaction_charged_notification_text_full">%1$s толук заряддалды.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% заряддалды.</string>
     <string name="device_settings_rename_label">Ат өзгөртүү</string>
     <string name="device_settings_rename_hint">Түзмөк аты</string>
     <string name="device_settings_rename_confirm">Ат өзгөртүү</string>

@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Erakutsi konexioaren pop-up-a</string>
     <string name="settings_popup_connected_description">Erakutsi pop-up bat gailua lehen aldiz konektatzen denean.</string>
     <string name="settings_popup_info_not_in_app">Leiho gainerakorrak soilik erakusten dira aplikazioan ez zaudenerako.</string>
+    <string name="settings_charged_notification_label">Kargatutako jakinarazpena</string>
+    <string name="settings_charged_notification_description">Erakutsi jakinarazpen bat kargatzen ari den guztia helburuko karga-maila lortzen duenean.</string>
+    <string name="settings_charged_threshold_label">Helburuko karga-maila</string>
+    <string name="settings_charged_scope_label">Monitorizatutako bateriak</string>
+    <string name="settings_charged_scope_pods_label">Podak soilik</string>
+    <string name="settings_charged_scope_case_label">Kaxa soilik</string>
+    <string name="settings_charged_scope_both_label">Podak eta kaxa</string>
     <string name="device_settings_experimental_title">Funtzio esperimentala</string>
     <string name="device_settings_experimental_description">Funtzio hau oraindik ez da gailu guztietan probatu. Zerbait ondo funtzionatzen ez badu, mesedez ireki arazo bat arazketa-erregistroarekin.</string>
     <string name="device_settings_experimental_action">Ireki arazo-jarraipena</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Arazketa</string>
     <string name="settings_general_label">Ezarpenak</string>
     <string name="settings_general_description">Aplikazio osoari eragiten dioten doikuntza orokorrak.</string>
+    <string name="settings_overview_hide_unmatched_label">Ezkutatu bat ez datozen gailuak</string>
+    <string name="settings_overview_hide_unmatched_description">Ez erakutsi ikuspegiaren inguruan dauden eta zure profilekin bat ez datozen gailuak, esaterako, beste pertsonen AirPods-ak.</string>
     <string name="settings_acknowledgements_label">Eskertzak</string>
     <string name="settings_debug_autoreports_label">Erroreen txosten automatikoak</string>
     <string name="settings_debug_autoreports_description">Automatikoki arazoak salatzen ditu, adib. aplikazioaren kraskaduraren xehetasunak, konpontzen jakin dezadan.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth-a desgaituta dago, gaitu ezazu ;)</string>
     <string name="overview_monitoring_active_label">Gailuen jarraipena</string>
     <string name="overview_monitoring_active_description">Ziurtatu zure gailua gertuan eta aktibo dagoela.</string>
+    <string name="overview_troubleshoot_suggestion_label">Konektatuta, baina daturik ez</string>
+    <string name="overview_troubleshoot_suggestion_description">Zure gailua konektatuta dago, baina CAPod-ek ez du zuzeneko daturik jasotzen. Baliteke zure telefonoak bateragarritasun-aukera bat behar izatea — arazo-konpontzaileak automatikoki bila dezake.</string>
+    <string name="overview_troubleshoot_suggestion_action">Exekutatu arazo-konpontzailea</string>
     <string name="overview_unmatched_devices_label">Bat ez datozen gailuak</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d gailu bat datorren profilik gabe</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Lo Detekzioa</string>
     <string name="reaction_sleep_notification_title">Lo Detekzioak Pausatuta</string>
     <string name="reaction_sleep_notification_text">%1$s-ek jakinarazi du lo geratu zarela, eta musikak pausatu egin zen. Gailu-ezarpenetan desgaitu dezakezu.</string>
+    <string name="reaction_charged_channel_label">Kargatutako jakinarazpena</string>
+    <string name="reaction_charged_notification_title">Karga osatu da</string>
+    <string name="reaction_charged_notification_text_full">%1$s guztiz kargatuta dago.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%%-era kargatu da.</string>
     <string name="device_settings_rename_label">Berrizendatu</string>
     <string name="device_settings_rename_hint">Gailuaren izena</string>
     <string name="device_settings_rename_confirm">Berrizendatu</string>

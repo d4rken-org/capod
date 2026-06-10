@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Näytä yhteyden ponnahdusikkuna</string>
     <string name="settings_popup_connected_description">Näytä ponnahdusikkuna, kun laite yhdistetään ensimmäisen kerran.</string>
     <string name="settings_popup_info_not_in_app">Ponnahdusikkunat näytetään vain, kun et ole sovelluksessa.</string>
+    <string name="settings_charged_notification_label">Latausilmoitus</string>
+    <string name="settings_charged_notification_description">Näytä ilmoitus, kun kaikki ladattavat laitteet saavuttavat tavoitelataustason.</string>
+    <string name="settings_charged_threshold_label">Tavoitelataustaso</string>
+    <string name="settings_charged_scope_label">Seurattavat akut</string>
+    <string name="settings_charged_scope_pods_label">Vain nappikuulokkeet</string>
+    <string name="settings_charged_scope_case_label">Vain kotelo</string>
+    <string name="settings_charged_scope_both_label">Nappikuulokkeet ja kotelo</string>
     <string name="device_settings_experimental_title">Kokeellinen ominaisuus</string>
     <string name="device_settings_experimental_description">Tätä ominaisuutta ei ole vielä testattu kaikilla laitteilla. Jos jokin ei toimi oikein, avaa ongelmaraportti virheenkorjauslokilla.</string>
     <string name="device_settings_experimental_action">Avaa ongelmaseuranta</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Virheenjäljitys</string>
     <string name="settings_general_label">Asetukset</string>
     <string name="settings_general_description">Yleiset säädöt, jotka vaikuttavat koko sovellukseen.</string>
+    <string name="settings_overview_hide_unmatched_label">Piilota yhteensopimattomat laitteet</string>
+    <string name="settings_overview_hide_unmatched_description">Älä näytä lähistöllä olevia laitteita, jotka eivät vastaa mitään profiileistasi yleiskatsauksessa, esim. muiden ihmisten AirPodseja.</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
     <string name="settings_debug_autoreports_label">Automaattiset virheraportit</string>
     <string name="settings_debug_autoreports_description">Raportoi ongelmat automaattisesti, esim. tiedot sovelluksen kaatumisesta, jotta voin selvittää, miten se korjataan.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth on pois käytöstä, ota se käyttöön ;)</string>
     <string name="overview_monitoring_active_label">Etsitään laitteita</string>
     <string name="overview_monitoring_active_description">Varmista, että laitteesi on lähellä ja aktiivinen.</string>
+    <string name="overview_troubleshoot_suggestion_label">Yhdistetty, mutta ei dataa</string>
+    <string name="overview_troubleshoot_suggestion_description">Laitteesi on yhdistetty, mutta CAPod ei vastaanota siitä reaaliaikaista dataa. Puhelimesi saattaa tarvita yhteensopivuusasetuksen — vianmääritys voi yrittää löytää sellaisen automaattisesti.</string>
+    <string name="overview_troubleshoot_suggestion_action">Käynnistä vianmääritys</string>
     <string name="overview_unmatched_devices_label">Vastaavuudetta olevat laitteet</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d laite ilman vastaavaa profiilia</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Unitunnistus</string>
     <string name="reaction_sleep_notification_title">Unitunnistus keskeytti toiston</string>
     <string name="reaction_sleep_notification_text">%1$s havaitsi sinun nukahtaneen, joten musiikkisi keskeytettiin. Voit poistaa tämän käytöstä laiteasetuksista.</string>
+    <string name="reaction_charged_channel_label">Latausilmoitus</string>
+    <string name="reaction_charged_notification_title">Lataus valmis</string>
+    <string name="reaction_charged_notification_text_full">%1$s on täyteen ladattu.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s on ladattu %2$d%%:iin.</string>
     <string name="device_settings_rename_label">Nimeä uudelleen</string>
     <string name="device_settings_rename_hint">Laitteen nimi</string>
     <string name="device_settings_rename_confirm">Nimeä uudelleen</string>

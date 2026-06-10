@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Bonisa isigelekeqe sokuxhuma</string>
     <string name="settings_popup_connected_description">Bonisa isigelekeqe lapho idivayisi ixhuma okokuqala.</string>
     <string name="settings_popup_info_not_in_app">Amapopup abonakala kuphela lapho ungekho kuhlelo lokusebenza.</string>
+    <string name="settings_charged_notification_label">Isaziso sokushaja</string>
+    <string name="settings_charged_notification_description">Thumela isaziso uma konke okushajwa kufika ezingeni elijoliselwe ukushaja.</string>
+    <string name="settings_charged_threshold_label">Izinga elijoliselwe ukushaja</string>
+    <string name="settings_charged_scope_label">Amabhethri aqashiwe</string>
+    <string name="settings_charged_scope_pods_label">Amaphodi kuphela</string>
+    <string name="settings_charged_scope_case_label">Ikhesi kuphela</string>
+    <string name="settings_charged_scope_both_label">Amaphodi nekhesi</string>
     <string name="device_settings_experimental_title">Isici sokuzama</string>
     <string name="device_settings_experimental_description">Lesi sici asikavivinywa kuzo zonke izidivayisi. Uma into ingasebenzi kahle, sicela uvule inkinga ngelogisi yokususa amaphutha.</string>
     <string name="device_settings_experimental_action">Vula Umlaleli Wezinkinga</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Ukulungiswa</string>
     <string name="settings_general_label">Izilungiselelo</string>
     <string name="settings_general_description">Ukulungiswa okujwayelekile okuthinta lonke uhlelo lokusebenza.</string>
+    <string name="settings_overview_hide_unmatched_label">Fihla amadivayisi angafanele</string>
+    <string name="settings_overview_hide_unmatched_description">Ungabonisi amadivayisi aseduzane angafanele namaprofile akho embonweni jikelele, isib. ama-AirPods abantu abanye.</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
     <string name="settings_debug_autoreports_label">Imibiko yeziphazamisi ezenzakalelayo</string>
     <string name="settings_debug_autoreports_description">Ibika ngokuzenzakalela izinkinga, isb. imininingwane ngokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi ngingakulungisa kanjani.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">I-Bluetooth ikhutshaziwe, yenze isebenze ;)</string>
     <string name="overview_monitoring_active_label">Kuqashwe amadivayisi</string>
     <string name="overview_monitoring_active_description">Qinisekisa ukuthi idivayisi yakho iseduze futhi iyasebenza.</string>
+    <string name="overview_troubleshoot_suggestion_label">Kuxhunyiwe, kodwa awekho idatha</string>
+    <string name="overview_troubleshoot_suggestion_description">Idivayisi yakho ixhunyiwe, kodwa i-CAPod ayamukeli idatha ephilayo evela kuyona. Ifoni yakho ingadinga inketho yokufanelana — isixazululi sezinkinga singazama ukuthola enye ngokuzenzakalela.</string>
+    <string name="overview_troubleshoot_suggestion_action">Qalisa isixazululi sezinkinga</string>
     <string name="overview_unmatched_devices_label">Amadivayisi angahambisani</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Idivayisi engu-%d engenayo iphrofayili ehambisanayo</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Ukuhlola Ukulala</string>
     <string name="reaction_sleep_notification_title">Imisiwe yi-Sleep Detection</string>
     <string name="reaction_sleep_notification_text">%1$s wabika ukuthi ulele, ngakho umculo wakho wamiswa. Ungakuvula lokhu ezilungiselelo zedivayisi.</string>
+    <string name="reaction_charged_channel_label">Isaziso Sokushaja</string>
+    <string name="reaction_charged_notification_title">Ukushaja kuphelile</string>
+    <string name="reaction_charged_notification_text_full">%1$s ishajwe ngokugcwele.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s ishajwe kuze kufike ku-%2$d%%.</string>
     <string name="device_settings_rename_label">Qamba kabusha</string>
     <string name="device_settings_rename_hint">Igama ledivayisi</string>
     <string name="device_settings_rename_confirm">Qamba kabusha</string>

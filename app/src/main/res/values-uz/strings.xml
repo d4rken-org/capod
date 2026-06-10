@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Ulanishda qalqib chiquvchi oynani ko\'rsatish</string>
     <string name="settings_popup_connected_description">Qurilma birinchi marta ulanganda qalqib chiquvchi oynani ko\'rsatish.</string>
     <string name="settings_popup_info_not_in_app">Qalqib chiquvchi oynalar faqat ilovada bo\'lmaganingizda ko\'rsatiladi.</string>
+    <string name="settings_charged_notification_label">Zaryad bildirishnomasi</string>
+    <string name="settings_charged_notification_description">Zaryad qilinayotgan barcha qurilmalar maqsadli zaryad darajasiga yetganda bildirishnoma yuboradi.</string>
+    <string name="settings_charged_threshold_label">Maqsadli zaryad darajasi</string>
+    <string name="settings_charged_scope_label">Kuzatiladigan batareyalar</string>
+    <string name="settings_charged_scope_pods_label">Faqat podlar</string>
+    <string name="settings_charged_scope_case_label">Faqat quti</string>
+    <string name="settings_charged_scope_both_label">Podlar va quti</string>
     <string name="device_settings_experimental_title">Eksperimental xususiyat</string>
     <string name="device_settings_experimental_description">Bu xususiyat hali barcha qurilmalarda sinovdan o\'tkazilmagan. Agar nimadir to\'g\'ri ishlamayotgan bo\'lsa, iltimos debug logi bilan muammo oching.</string>
     <string name="device_settings_experimental_action">Muammo kuzatuvchisini ochish</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Debug</string>
     <string name="settings_general_label">Sozlamalar</string>
     <string name="settings_general_description">Butun ilovaga ta\'sir qiluvchi umumiy sozlamalar.</string>
+    <string name="settings_overview_hide_unmatched_label">Mos kelmaydigan qurilmalarni yashirish</string>
+    <string name="settings_overview_hide_unmatched_description">Umumiy ko\'rinishda profillaringizdan biriga mos kelmaydigan yaqin qurilmalarni ko\'rsatmaslik, masalan, boshqa odamlarning AirPods qurilmalari.</string>
     <string name="settings_acknowledgements_label">Minnatdorchiliklar</string>
     <string name="settings_debug_autoreports_label">Avtomatik xato hisobotlari</string>
     <string name="settings_debug_autoreports_description">Muammolarni avtomatik ravishda xabar qiladi, masalan, ilova ishdan chiqishi haqidagi tafsilotlar, shunda men uni qanday tuzatishni aniqlay olaman.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth o\'chirilgan, uni yoqing ;)</string>
     <string name="overview_monitoring_active_label">Qurilmalar kuzatilmoqda</string>
     <string name="overview_monitoring_active_description">Qurilmangiz yaqinda va faol ekanligiga ishonch hosil qiling.</string>
+    <string name="overview_troubleshoot_suggestion_label">Ulangan, lekin ma\'lumot yo\'q</string>
+    <string name="overview_troubleshoot_suggestion_description">Qurilmangiz ulangan, ammo CAPod undan jonli ma\'lumot olmayapti. Telefoningizga moslik opsiyasi kerak bo\'lishi mumkin — nosozliklarni bartaraf etish vositasi uni avtomatik topishga urinib ko\'radi.</string>
+    <string name="overview_troubleshoot_suggestion_action">Nosozliklarni bartaraf etish vositasini ishga tushirish</string>
     <string name="overview_unmatched_devices_label">Mos kelmaydigan qurilmalar</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">Mos profili yo\'q %d ta qurilma</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">Uyqu Aniqlash</string>
     <string name="reaction_sleep_notification_title">Uyqu Aniqlash tomonidan to\'xtatildi</string>
     <string name="reaction_sleep_notification_text">%1$s siz uxlab qolganingizni aniqladi, shuning uchun musiqangiz to\'xtatildi. Buni qurilma sozlamalarida o\'chirib qo\'yishingiz mumkin.</string>
+    <string name="reaction_charged_channel_label">Zaryad Bildirishnomasi</string>
+    <string name="reaction_charged_notification_title">Zaryad tugadi</string>
+    <string name="reaction_charged_notification_text_full">%1$s to\'liq zaryadlandi.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% gacha zaryadlandi.</string>
     <string name="device_settings_rename_label">Qayta nomlash</string>
     <string name="device_settings_rename_hint">Qurilma nomi</string>
     <string name="device_settings_rename_confirm">Qayta nomlash</string>

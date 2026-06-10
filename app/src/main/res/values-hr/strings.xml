@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">Prikaži skočni prozor veze</string>
     <string name="settings_popup_connected_description">Prikaži skočni prozor kada se uređaj prvi put poveže.</string>
     <string name="settings_popup_info_not_in_app">Skočni prozori prikazuju se samo kada niste u aplikaciji.</string>
+    <string name="settings_charged_notification_label">Obavijest o napunjenosti</string>
+    <string name="settings_charged_notification_description">Prikaži obavijest kada sve što se puni dostigne ciljanu razinu napunjenosti.</string>
+    <string name="settings_charged_threshold_label">Ciljana razina napunjenosti</string>
+    <string name="settings_charged_scope_label">Praćene baterije</string>
+    <string name="settings_charged_scope_pods_label">Samo slušalice</string>
+    <string name="settings_charged_scope_case_label">Samo kutija</string>
+    <string name="settings_charged_scope_both_label">Slušalice i kutija</string>
     <string name="device_settings_experimental_title">Eksperimentalna značajka</string>
     <string name="device_settings_experimental_description">Ova značajka još nije testirana na svim uređajima. Ako nešto ne radi ispravno, molimo otvorite prijavu s debug zapisnikom.</string>
     <string name="device_settings_experimental_action">Otvori praćenje problema</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">Ispravljanje pogrešaka</string>
     <string name="settings_general_label">Postavke</string>
     <string name="settings_general_description">Opće prilagodbe koje utječu na cijelu aplikaciju.</string>
+    <string name="settings_overview_hide_unmatched_label">Sakrij neprepoznate uređaje</string>
+    <string name="settings_overview_hide_unmatched_description">Ne prikazuj obližnje uređaje koji ne odgovaraju nijednom od tvojih profila u pregledu, npr. AirPods-e drugih osoba.</string>
     <string name="settings_acknowledgements_label">Zahvale</string>
     <string name="settings_debug_autoreports_label">Automatska izvješća o pogreškama</string>
     <string name="settings_debug_autoreports_description">Automatski prijavljuje probleme, npr. detalje o rušenju aplikacije kako bih mogao shvatiti kako to popraviti.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">Bluetooth je onemogućen, omogućite ga ;)</string>
     <string name="overview_monitoring_active_label">Praćenje uređaja</string>
     <string name="overview_monitoring_active_description">Provjerite je li vaš uređaj u blizini i aktivan.</string>
+    <string name="overview_troubleshoot_suggestion_label">Spojeno, ali nema podataka</string>
+    <string name="overview_troubleshoot_suggestion_description">Tvoj uređaj je spojen, ali CAPod ne prima žive podatke od njega. Tvoj telefon možda treba opciju kompatibilnosti — alat za rješavanje problema može pokušati pronaći jednu automatski.</string>
+    <string name="overview_troubleshoot_suggestion_action">Pokreni rješavanje problema</string>
     <string name="overview_unmatched_devices_label">Nepodudarni uređaji</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">%d uređaj bez odgovarajućeg profila</item>
@@ -495,6 +507,10 @@
     <string name="reaction_sleep_channel_label">Otkrivanje spavanja</string>
     <string name="reaction_sleep_notification_title">Pauzirano otkrivanjem spavanja</string>
     <string name="reaction_sleep_notification_text">%1$s je prijavio da ste zaspali, pa je vaša glazba pauzirana. Možete to onemogućiti u postavkama uređaja.</string>
+    <string name="reaction_charged_channel_label">Obavijest o napunjenosti</string>
+    <string name="reaction_charged_notification_title">Punjenje završeno</string>
+    <string name="reaction_charged_notification_text_full">%1$s je potpuno napunjen.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s je napunjen na %2$d%%.</string>
     <string name="device_settings_rename_label">Preimenuj</string>
     <string name="device_settings_rename_hint">Naziv uređaja</string>
     <string name="device_settings_rename_confirm">Preimenuj</string>

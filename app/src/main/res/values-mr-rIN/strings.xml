@@ -76,6 +76,13 @@
     <string name="settings_popup_connected_label">कनेक्शन पॉपअप दर्शवा</string>
     <string name="settings_popup_connected_description">डिव्हाइस पहिल्यांदा कनेक्ट झाल्यावर पॉपअप दर्शवा.</string>
     <string name="settings_popup_info_not_in_app">पॉपअप केवळ तेव्हा दाखवले जातात जेव्हा तुम्ही अॅपमध्ये नसता.</string>
+    <string name="settings_charged_notification_label">चार्ज झाल्याची सूचना</string>
+    <string name="settings_charged_notification_description">चार्ज होणारी प्रत्येक गोष्ट लक्ष्य चार्ज पातळीवर पोहोचल्यावर एक सूचना दाखवा.</string>
+    <string name="settings_charged_threshold_label">लक्ष्य चार्ज पातळी</string>
+    <string name="settings_charged_scope_label">निरीक्षण केलेल्या बॅटऱ्या</string>
+    <string name="settings_charged_scope_pods_label">केवळ पॉड्स</string>
+    <string name="settings_charged_scope_case_label">केवळ केस</string>
+    <string name="settings_charged_scope_both_label">पॉड्स आणि केस</string>
     <string name="device_settings_experimental_title">प्रयोगात्मक वैशिष्ट्य</string>
     <string name="device_settings_experimental_description">हे वैशिष्ट्य अद्याप सर्व डिव्हाइसवर तपासले गेले नाही. जर काही योग्यरित्या काम करत नसेल, तर कृपया डीबग लॉगसह एक समस्या उघडा.</string>
     <string name="device_settings_experimental_action">समस्या ट्रॅकर उघडा</string>
@@ -113,6 +120,8 @@
     <string name="settings_category_debug_label">डीबग</string>
     <string name="settings_general_label">सेटिंग्ज</string>
     <string name="settings_general_description">संपूर्ण अॅपवर परिणाम करणारे सामान्य बदल.</string>
+    <string name="settings_overview_hide_unmatched_label">न जुळणारी उपकरणे लपवा</string>
+    <string name="settings_overview_hide_unmatched_description">आढावा विभागात तुमच्या कोणत्याही प्रोफाइलशी न जुळणारी जवळची उपकरणे दाखवू नका, उदा. इतर लोकांचे AirPods.</string>
     <string name="settings_acknowledgements_label">पोचपावती</string>
     <string name="settings_debug_autoreports_label">स्वयंचलित बग अहवाल</string>
     <string name="settings_debug_autoreports_description">समस्या स्वयंचलितपणे नोंदवते, उदा. अॅप क्रॅशबद्दल तपशील जेणेकरून मी ते कसे दुरुस्त करायचे हे शोधू शकेन.</string>
@@ -193,6 +202,9 @@
     <string name="overview_bluetooth_disabled_description">ब्लूटूथ अक्षम आहे, ते सक्षम करा ;)</string>
     <string name="overview_monitoring_active_label">डिव्हाइसचे निरीक्षण सुरू आहे</string>
     <string name="overview_monitoring_active_description">तुमचे डिव्हाइस जवळ आणि सक्रिय असल्याची खात्री करा.</string>
+    <string name="overview_troubleshoot_suggestion_label">जोडलेले, पण डेटा नाही</string>
+    <string name="overview_troubleshoot_suggestion_description">तुमचे उपकरण जोडलेले आहे, पण CAPod त्याच्याकडून कोणताही थेट डेटा प्राप्त करत नाही. तुमच्या फोनला एका सुसंगतता पर्यायाची आवश्यकता असू शकते — समस्या निवारक आपोआप एक शोधण्याचा प्रयत्न करू शकतो.</string>
+    <string name="overview_troubleshoot_suggestion_action">समस्या निवारक चालवा</string>
     <string name="overview_unmatched_devices_label">न जुळणारे डिव्हाइस</string>
     <plurals name="overview_unmatched_devices_count">
         <item quantity="one">जुळणारे प्रोफाइल नसलेले %d डिव्हाइस</item>
@@ -490,6 +502,10 @@
     <string name="reaction_sleep_channel_label">झोप शोध</string>
     <string name="reaction_sleep_notification_title">झोप शोधाने थांबवले</string>
     <string name="reaction_sleep_notification_text">%1$s ने नोंदवले की तुम्ही झोपी गेलात, त्यामुळे तुमचे संगीत थांबवले गेले. तुम्ही डिव्हाइस सेटिंग्जमध्ये हे अक्षम करू शकता.</string>
+    <string name="reaction_charged_channel_label">चार्ज झाल्याची सूचना</string>
+    <string name="reaction_charged_notification_title">चार्जिंग पूर्ण</string>
+    <string name="reaction_charged_notification_text_full">%1$s पूर्णपणे चार्ज झाले आहे.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s %2$d%% पर्यंत चार्ज झाले आहे.</string>
     <string name="device_settings_rename_label">नाव बदला</string>
     <string name="device_settings_rename_hint">डिव्हाइसचे नाव</string>
     <string name="device_settings_rename_confirm">नाव बदला</string>
