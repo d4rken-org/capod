@@ -31,6 +31,7 @@ import eu.darken.capod.profiles.core.DeviceProfilesRepo
 import eu.darken.capod.profiles.core.ProfileId
 import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.charged.ChargedSlotScope
 import eu.darken.capod.reaction.core.conversation.ConversationAction
 import eu.darken.capod.reaction.core.stem.StemAction
 import kotlinx.coroutines.delay
@@ -436,6 +437,24 @@ class DeviceSettingsViewModel @Inject constructor(
     fun setShowPopUpOnConnection(enabled: Boolean) {
         log(TAG, INFO) { "setShowPopUpOnConnection($enabled)" }
         proGatedReaction(enabled) { it.copy(showPopUpOnConnection = enabled) }
+    }
+
+    fun setNotifyWhenCharged(enabled: Boolean) {
+        log(TAG, INFO) { "setNotifyWhenCharged($enabled)" }
+        proGatedReaction(enabled) { it.copy(notifyWhenCharged = enabled) }
+    }
+
+    fun setChargedSlotScope(scope: ChargedSlotScope) = launch {
+        log(TAG, INFO) { "setChargedSlotScope($scope)" }
+        updateProfileNow { it.copy(chargedSlotScope = scope) }
+    }
+
+    fun setChargedThreshold(percent: Int) = launch {
+        log(TAG, INFO) { "setChargedThreshold($percent)" }
+        val snapped = (percent.toFloat() / ReactionConfig.CHARGED_THRESHOLD_STEP)
+            .let { Math.round(it) * ReactionConfig.CHARGED_THRESHOLD_STEP }
+            .coerceIn(ReactionConfig.MIN_CHARGED_THRESHOLD, ReactionConfig.MAX_CHARGED_THRESHOLD)
+        updateProfileNow { it.copy(chargedThreshold = snapped) }
     }
 
     fun setConversationAction(action: ConversationAction) = launch {

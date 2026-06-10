@@ -43,6 +43,8 @@ import eu.darken.capod.reaction.core.autoconnect.AutoConnect
 import eu.darken.capod.reaction.core.playpause.PlayPause
 import eu.darken.capod.reaction.core.popup.PopUpReaction
 import eu.darken.capod.reaction.core.conversation.ConversationReaction
+import eu.darken.capod.reaction.core.charged.ChargedReaction
+import eu.darken.capod.reaction.core.charged.ChargedReactionNotifications
 import eu.darken.capod.reaction.core.sleep.SleepReaction
 import eu.darken.capod.reaction.ui.popup.PopUpWindow
 import kotlinx.coroutines.CancellationException
@@ -79,6 +81,8 @@ class MonitorService : Service() {
     @Inject lateinit var autoConnect: AutoConnect
     @Inject lateinit var popUpReaction: PopUpReaction
     @Inject lateinit var sleepReaction: SleepReaction
+    @Inject lateinit var chargedReaction: ChargedReaction
+    @Inject lateinit var chargedReactionNotifications: ChargedReactionNotifications
     @Inject lateinit var conversationReaction: ConversationReaction
     @Inject lateinit var popUpWindow: PopUpWindow
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
@@ -333,6 +337,23 @@ class MonitorService : Service() {
             .catch { log(TAG, WARN) { "sleepReaction failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
+        chargedReaction.monitor()
+            .onEach { event ->
+                when (event) {
+                    is ChargedReaction.Event.ShowNotification -> chargedReactionNotifications.show(
+                        profileId = event.profileId,
+                        deviceLabel = event.deviceLabel,
+                        thresholdPercent = event.thresholdPercent,
+                    )
+
+                    is ChargedReaction.Event.CancelNotification ->
+                        chargedReactionNotifications.cancel(event.profileId)
+                }
+            }
+            .setupCommonEventHandlers(TAG) { "chargedReaction" }
+            .catch { log(TAG, WARN) { "chargedReaction failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
         conversationReaction.monitor()
             .setupCommonEventHandlers(TAG) { "conversationReaction" }
             .catch { log(TAG, WARN) { "conversationReaction failed:\n${it.asLog()}" } }
@@ -348,6 +369,11 @@ class MonitorService : Service() {
         monitorScope.cancel("Service destroyed")
 
         if (injectionComplete) {
+            try {
+                chargedReactionNotifications.cancelAll()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to cancel charged notifications: ${e.message}" }
+            }
             val snapshot = latestNotificationSettings
             if (snapshot.useExtraNotification && !snapshot.keepAfterDisconnect) {
                 try {

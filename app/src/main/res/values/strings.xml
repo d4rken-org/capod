@@ -82,6 +82,13 @@
     <string name="settings_popup_connected_label">Show connection popup</string>
     <string name="settings_popup_connected_description">Show a popup when the device connects for the first time.</string>
     <string name="settings_popup_info_not_in_app">Popups are only shown when you are not in the app.</string>
+    <string name="settings_charged_notification_label">Charged notification</string>
+    <string name="settings_charged_notification_description">Show a notification once everything that is charging reaches the target charge level.</string>
+    <string name="settings_charged_threshold_label">Target charge level</string>
+    <string name="settings_charged_scope_label">Monitored batteries</string>
+    <string name="settings_charged_scope_pods_label">Pods only</string>
+    <string name="settings_charged_scope_case_label">Case only</string>
+    <string name="settings_charged_scope_both_label">Pods and case</string>
 
     <string name="device_settings_experimental_title">Experimental feature</string>
     <string name="device_settings_experimental_description">This feature hasn\'t been tested on all devices yet. If something isn\'t working correctly, please open an issue with a debug log.</string>
@@ -540,6 +547,10 @@
     <string name="reaction_sleep_channel_label">Sleep Detection</string>
     <string name="reaction_sleep_notification_title">Paused by Sleep Detection</string>
     <string name="reaction_sleep_notification_text">%1$s reported you fell asleep, so your music was paused. You can disable this in the device settings.</string>
+    <string name="reaction_charged_channel_label">Charged Notification</string>
+    <string name="reaction_charged_notification_title">Charging complete</string>
+    <string name="reaction_charged_notification_text_full">%1$s is fully charged.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s has been charged to %2$d%%.</string>
     <string name="device_settings_rename_label">Rename</string>
     <string name="device_settings_rename_hint">Device name</string>
     <string name="device_settings_rename_confirm">Rename</string>

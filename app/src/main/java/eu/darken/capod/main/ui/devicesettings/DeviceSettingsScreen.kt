@@ -64,6 +64,7 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.HasStateDetection
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.charged.ChargedSlotScope
 import eu.darken.capod.reaction.core.conversation.ConversationAction
 import java.time.Duration
 import java.time.Instant
@@ -175,6 +176,9 @@ fun DeviceSettingsScreenHost(
         onAutoConnectConditionChange = { vm.setAutoConnectCondition(it) },
         onShowPopUpOnCaseOpenChange = { vm.setShowPopUpOnCaseOpen(it) },
         onShowPopUpOnConnectionChange = { vm.setShowPopUpOnConnection(it) },
+        onNotifyWhenChargedChange = { vm.setNotifyWhenCharged(it) },
+        onChargedThresholdChange = { vm.setChargedThreshold(it) },
+        onChargedSlotScopeChange = { vm.setChargedSlotScope(it) },
         onOpenIssueTracker = { vm.openIssueTracker() },
         onOpenAapTracker = { vm.openAapCompatibilityTracker() },
     )
@@ -215,6 +219,9 @@ fun DeviceSettingsScreen(
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
+    onNotifyWhenChargedChange: (Boolean) -> Unit = {},
+    onChargedThresholdChange: (Int) -> Unit = {},
+    onChargedSlotScopeChange: (ChargedSlotScope) -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
     onOpenAapTracker: () -> Unit = {},
 ) {
@@ -356,6 +363,9 @@ fun DeviceSettingsScreen(
                         onAutoConnectConditionChange = onAutoConnectConditionChange,
                         onShowPopUpOnCaseOpenChange = onShowPopUpOnCaseOpenChange,
                         onShowPopUpOnConnectionChange = onShowPopUpOnConnectionChange,
+                        onNotifyWhenChargedChange = onNotifyWhenChargedChange,
+                        onChargedThresholdChange = onChargedThresholdChange,
+                        onChargedSlotScopeChange = onChargedSlotScopeChange,
                         onOpenIssueTracker = onOpenIssueTracker,
                     )
                 }
