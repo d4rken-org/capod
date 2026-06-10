@@ -1,6 +1,7 @@
 package eu.darken.capod.pods.core.apple.ble.devices.airpods
 
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.BaseBlePodsTest
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.HasAppleColor
@@ -41,6 +42,16 @@ class AirPodsGen4Test : BaseBlePodsTest() {
             podStyle.identifier shouldBe HasAppleColor.DeviceColor.WHITE.name
 
             model shouldBe PodModel.AIRPODS_GEN4
+        }
+    }
+
+    @Test
+    fun `frame with unsupported payload prefix is rejected - #603`() = runTest {
+        // Captured from AirPods Gen4 on connect: sent from the identity address, payload prefix
+        // 0x07 instead of 0x01, model bytes match but battery/color bytes are not plaintext.
+        // Decoding it as a status frame created a duplicate device card.
+        create<BlePodSnapshot?>("07 19 07 19 20 35 DF DE 46 76 CE 66 5C F4 6E BA B6 AC 1B 69 4C A7 D8 09 BF 9A 04") {
+            this shouldBe null
         }
     }
 }
