@@ -267,6 +267,14 @@ data class PodDevice(
     val isEitherPodInEar: Boolean?
         get() = aap?.isEitherPodInEar ?: (ble as? HasEarDetectionDual)?.isEitherPodInEar
 
+    /**
+     * True when ear detection comes from a live AAP reading. The BLE ear-detection bits are
+     * unreliable for pods resting in the case (they report phantom "in ear" and disagree
+     * between the two pods' advertisements), so consumers that must not act on a false "worn"
+     * gate on this.
+     */
+    val hasAapEarDetection: Boolean get() = aap?.aapEarDetection != null
+
     val caseLidState: DualApplePods.LidState?
         get() = (ble as? DualApplePods)?.caseLidState
 

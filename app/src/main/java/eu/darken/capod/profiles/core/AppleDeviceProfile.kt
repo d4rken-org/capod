@@ -5,6 +5,7 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.protocol.IdentityResolvingKey
 import eu.darken.capod.pods.core.apple.ble.protocol.ProximityEncryptionKey
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
+import eu.darken.capod.reaction.core.charged.ChargedSlotScope
 import eu.darken.capod.reaction.core.conversation.ConversationAction
 import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import kotlinx.parcelize.Parcelize
@@ -34,6 +35,9 @@ data class AppleDeviceProfile(
     @SerialName("reactionShowPopUpOnConnection") val showPopUpOnConnection: Boolean = false,
     @SerialName("reactionConversationAction") val conversationAction: ConversationAction = ConversationAction.NOTHING,
     @SerialName("reactionConversationVolumeReduction") val conversationVolumeReduction: Int = ReactionConfig.DEFAULT_CONVERSATION_VOLUME_REDUCTION,
+    @SerialName("reactionNotifyWhenCharged") val notifyWhenCharged: Boolean = false,
+    @SerialName("reactionChargedThreshold") val chargedThreshold: Int = ReactionConfig.DEFAULT_CHARGED_THRESHOLD,
+    @SerialName("reactionChargedSlotScope") val chargedSlotScope: ChargedSlotScope = ChargedSlotScope.PODS_AND_CASE,
     /**
      * Last-known device-side AllowOffOption (AAP setting 0x34). Persisted so the UI can honor
      * the learned value across sessions — AAP state is dropped on disconnect, but whether OFF
@@ -61,6 +65,9 @@ data class AppleDeviceProfile(
             showPopUpOnConnection = showPopUpOnConnection,
             conversationAction = conversationAction,
             conversationVolumeReduction = conversationVolumeReduction,
+            notifyWhenCharged = notifyWhenCharged,
+            chargedThreshold = chargedThreshold,
+            chargedSlotScope = chargedSlotScope,
         )
 
     override fun toString(): String = "AppleDeviceProfile(" +
@@ -76,6 +83,9 @@ data class AppleDeviceProfile(
         "showPopUpOnConnection=$showPopUpOnConnection, " +
         "conversationAction=$conversationAction, " +
         "conversationVolumeReduction=$conversationVolumeReduction, " +
+        "notifyWhenCharged=$notifyWhenCharged, " +
+        "chargedThreshold=$chargedThreshold, " +
+        "chargedSlotScope=$chargedSlotScope, " +
         "learnedAllowOffEnabled=$learnedAllowOffEnabled, " +
         "lastRequestedListeningModeCycleMask=$lastRequestedListeningModeCycleMask, " +
         "stemActions=$stemActions" +
