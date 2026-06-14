@@ -23,12 +23,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import java.io.IOException
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.time.Duration
@@ -46,9 +48,13 @@ internal class AapConnection(
     private val socketFactory: L2capSocketFactory,
     timeSource: TimeSource,
     private val connectTimeout: Duration = DEFAULT_CONNECT_TIMEOUT,
+    private val handshakeTimeout: Duration = DEFAULT_HANDSHAKE_TIMEOUT,
 ) {
 
     private val engine = AapSessionEngine(profile, timeSource)
+
+    /** True once this connection's session reached READY at least once. Survives the engine reset. */
+    val wasEverReady: Boolean get() = engine.wasEverReady
 
     val state: StateFlow<AapPodState> get() = engine.state
     val keysReceived: SharedFlow<KeyExchangeResult> get() = engine.keysReceived
@@ -60,6 +66,7 @@ internal class AapConnection(
 
     private var socket: BluetoothSocket? = null
     private var readerJob: Job? = null
+    private val disconnected = AtomicBoolean(false)
     private val writeMutex = Mutex()
     private val framer = AapFramer()
 
@@ -109,6 +116,27 @@ internal class AapConnection(
 
             // Launch read loop in the provided scope — connect() returns immediately
             readerJob = scope.launch(Dispatchers.IO) { readLoop(sock) }
+
+            // Handshake watchdog: the socket can connect and the handshake be sent, but if the peer
+            // never replies the engine sits in HANDSHAKING forever (blocking read, no deadline).
+            // Bound it: if neither READY nor DISCONNECTED is reached in time, tear the socket down so
+            // the reconnect path can recover. READY / an earlier DISCONNECTED end the wait with no action.
+            scope.launch {
+                val settled = withTimeoutOrNull(handshakeTimeout) {
+                    state.first {
+                        it.connectionState == AapPodState.ConnectionState.READY ||
+                                it.connectionState == AapPodState.ConnectionState.DISCONNECTED
+                    }
+                }
+                // Re-check after the timeout: READY may have landed in the boundary race between
+                // withTimeoutOrNull cancelling and us getting here — don't tear down a live session.
+                if (settled == null && state.value.connectionState != AapPodState.ConnectionState.READY) {
+                    log(TAG, Logging.Priority.WARN) {
+                        "Handshake timed out after $handshakeTimeout for ${device.address} — disconnecting"
+                    }
+                    disconnect()
+                }
+            }
         } catch (e: Exception) {
             log(TAG, Logging.Priority.ERROR) { "Connection failed: $e" }
             cleanupSocket()
@@ -118,6 +146,9 @@ internal class AapConnection(
     }
 
     suspend fun disconnect() = withContext(Dispatchers.IO) {
+        // Idempotent: the handshake watchdog and the manager's DISCONNECTED observer can both reach
+        // here for the same dying session. Run the teardown exactly once.
+        if (!disconnected.compareAndSet(false, true)) return@withContext
         log(TAG, Logging.Priority.INFO) { "Disconnecting" }
         readerJob?.cancel()
         readerJob = null
@@ -261,6 +292,13 @@ internal class AapConnection(
     companion object {
         private const val PSM = 0x1001
         internal val DEFAULT_CONNECT_TIMEOUT = 5.seconds
+
+        /**
+         * Upper bound on the post-handshake wait for the first sign of life (READY). Normal
+         * handshakes complete in well under 2s; 10s tolerates a congested 2.4 GHz band before
+         * giving up so the reconnect path can recover instead of wedging in HANDSHAKING forever.
+         */
+        internal val DEFAULT_HANDSHAKE_TIMEOUT = 10.seconds
         private val TAG = logTag("AAP", "Connection")
     }
 }

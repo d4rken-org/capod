@@ -12,7 +12,9 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.maps.shouldBeEmpty
 import io.kotest.matchers.shouldBe
+import io.mockk.Runs
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.TimeoutCancellationException
@@ -27,6 +29,7 @@ import testhelpers.TestTimeSource
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.IOException
+import java.io.InputStream
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
@@ -133,6 +136,53 @@ class AapConnectionManagerTest : BaseTest() {
 
             connection.connect(testScope)
             advanceUntilIdle()
+        }
+
+        @Test
+        fun `handshake timeout disconnects a silent session`() = testScope.runTest {
+            // Socket connects and the handshake is sent, but the peer never replies: read() blocks
+            // forever. The handshake watchdog must time out and tear the session down.
+            val readBlocked = CountDownLatch(1)
+            val closeCalls = AtomicInteger(0)
+            val blockingInput = object : InputStream() {
+                override fun read(): Int {
+                    readBlocked.await(2, TimeUnit.SECONDS)
+                    return -1
+                }
+
+                override fun read(b: ByteArray): Int {
+                    readBlocked.await(2, TimeUnit.SECONDS)
+                    return -1
+                }
+            }
+            val silentSocket = mockk<BluetoothSocket>(relaxed = true) {
+                every { connect() } just Runs
+                every { outputStream } returns ByteArrayOutputStream()
+                every { inputStream } returns blockingInput
+                every { close() } answers {
+                    closeCalls.incrementAndGet()
+                    readBlocked.countDown()
+                }
+            }
+            every { socketFactory.createSocket(any(), any()) } returns silentSocket
+            val connection = AapConnection(
+                device = testDevice,
+                profile = AapDeviceProfile.forModel(PodModel.AIRPODS_PRO3),
+                socketFactory = socketFactory,
+                timeSource = timeSource,
+                connectTimeout = 50.milliseconds,
+                handshakeTimeout = 100.milliseconds,
+            )
+
+            connection.connect(testScope)
+            // Fire the 100ms handshake watchdog.
+            advanceUntilIdle()
+
+            // disconnect() runs engine.reset() before closing the socket, so awaiting the close latch
+            // guarantees the state has already flipped to DISCONNECTED.
+            readBlocked.await(2, TimeUnit.SECONDS) shouldBe true
+            connection.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
+            closeCalls.get() shouldBe 1
         }
 
         @Test

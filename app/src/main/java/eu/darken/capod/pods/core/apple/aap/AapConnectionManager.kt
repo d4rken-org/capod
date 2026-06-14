@@ -54,8 +54,8 @@ class AapConnectionManager @Inject constructor(
     private val _allStates = MutableStateFlow<Map<BluetoothAddress, AapPodState>>(emptyMap())
     val allStates: StateFlow<Map<BluetoothAddress, AapPodState>> = _allStates.asStateFlow()
 
-    private val _disconnectEvents = MutableSharedFlow<BluetoothAddress>(extraBufferCapacity = 16)
-    val disconnectEvents: SharedFlow<BluetoothAddress> = _disconnectEvents.asSharedFlow()
+    private val _disconnectEvents = MutableSharedFlow<AapDisconnectEvent>(extraBufferCapacity = 16)
+    val disconnectEvents: SharedFlow<AapDisconnectEvent> = _disconnectEvents.asSharedFlow()
 
     /** Emits when a connection receives private keys (IRK/ENC) from the device. */
     private val _keysReceived = MutableSharedFlow<Pair<BluetoothAddress, KeyExchangeResult>>(extraBufferCapacity = 16)
@@ -188,7 +188,7 @@ class AapConnectionManager @Inject constructor(
                     }
 
                     if (!wasIntentional) {
-                        _disconnectEvents.tryEmit(address)
+                        _disconnectEvents.tryEmit(AapDisconnectEvent(address, connection.wasEverReady))
                     }
 
                     // End this collector coroutine (also cancels child key-forwarding coroutine)
@@ -217,3 +217,13 @@ class AapConnectionManager @Inject constructor(
         connection.send(command)
     }
 }
+
+/**
+ * Emitted on an unintentional AAP disconnect. [wasEverReady] tells the reconnect layer whether this
+ * session ever completed the handshake (reached READY) — a never-ready disconnect is a failed
+ * handshake/short session and feeds the escalating reconnect backoff; a was-ready drop reconnects promptly.
+ */
+data class AapDisconnectEvent(
+    val address: BluetoothAddress,
+    val wasEverReady: Boolean,
+)

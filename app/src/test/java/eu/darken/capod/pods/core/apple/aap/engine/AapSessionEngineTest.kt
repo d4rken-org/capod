@@ -115,6 +115,38 @@ class AapSessionEngineTest : BaseTest() {
         }
 
         @Test
+        fun `wasEverReady is false until READY then true`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+
+            engine.start(scope)
+            engine.wasEverReady shouldBe false
+            engine.onHandshakeSent()
+            engine.wasEverReady shouldBe false
+
+            // First non-CONTROL message during HANDSHAKING → READY
+            engine.processMessage(dummyMessage(commandType = 0x0002))
+            engine.wasEverReady shouldBe true
+        }
+
+        @Test
+        fun `wasEverReady survives reset`() {
+            val engine = createEngine()
+            val scope = TestScope(UnconfinedTestDispatcher())
+
+            engine.start(scope)
+            engine.onHandshakeSent()
+            engine.processMessage(dummyMessage(commandType = 0x0002))
+            engine.wasEverReady shouldBe true
+
+            engine.reset()
+
+            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
+            // Consumers read this at disconnect time — reset must not clear it.
+            engine.wasEverReady shouldBe true
+        }
+
+        @Test
         fun `reset is idempotent`() {
             val engine = createEngine()
 
@@ -220,12 +252,13 @@ class AapSessionEngineTest : BaseTest() {
         }
 
         @Test
-        fun `Connect Response with non-zero status does not store features`() {
+        fun `Connect Response with non-zero status tears down the session`() {
             val engine = createEngine()
             val scope = TestScope(UnconfinedTestDispatcher())
 
             engine.start(scope)
             engine.onHandshakeSent()
+            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.HANDSHAKING
 
             val packet = AapPacket.ConnectResponse(
                 raw = ByteArray(18),
@@ -237,9 +270,9 @@ class AapSessionEngineTest : BaseTest() {
             )
             engine.processConnectResponse(packet)
 
-            engine.state.value.connectResponseStatus shouldBe 0x0001
+            // Hard protocol rejection: fast-fail to DISCONNECTED instead of waiting out the watchdog.
+            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
             engine.state.value.negotiatedFeatures.shouldBeNull()
-            engine.state.value.connectionState shouldBe AapPodState.ConnectionState.HANDSHAKING
         }
     }
 

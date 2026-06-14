@@ -5,6 +5,7 @@ import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapDisconnectEvent
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapDeviceInfo
 import eu.darken.capod.pods.core.apple.ble.BlePodSnapshot
@@ -22,7 +23,9 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -40,7 +43,7 @@ class AapAutoConnectTest : BaseTest() {
 
     private lateinit var profilesFlow: MutableStateFlow<List<DeviceProfile>>
     private lateinit var connectedDevicesFlow: MutableStateFlow<List<BluetoothDevice2>>
-    private lateinit var disconnectEventsFlow: MutableSharedFlow<String>
+    private lateinit var disconnectEventsFlow: MutableSharedFlow<AapDisconnectEvent>
     private lateinit var allStatesFlow: MutableStateFlow<Map<String, AapPodState>>
 
     private val testAddress = "AA:BB:CC:DD:EE:FF"
@@ -351,7 +354,7 @@ class AapAutoConnectTest : BaseTest() {
             // Clear profiles, then disconnect
             profilesFlow.value = emptyList()
             allStatesFlow.value = emptyMap()
-            disconnectEventsFlow.tryEmit(testAddress)
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = true))
             advanceUntilIdle()
 
             // The reconnect loop should not call connect since profile is gone
@@ -369,7 +372,7 @@ class AapAutoConnectTest : BaseTest() {
             // Remove bonded device, then disconnect
             every { bluetoothManager.bondedDevices() } returns flowOf(emptySet())
             allStatesFlow.value = emptyMap()
-            disconnectEventsFlow.tryEmit(testAddress)
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = true))
             advanceUntilIdle()
 
             // Reconnect should not call connect since not bonded
@@ -387,7 +390,7 @@ class AapAutoConnectTest : BaseTest() {
             // Remove classic BT connection, then disconnect
             connectedDevicesFlow.value = emptyList()
             allStatesFlow.value = emptyMap()
-            disconnectEventsFlow.tryEmit(testAddress)
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = true))
             advanceUntilIdle()
 
             // Reconnect should not call connect since not classically connected
@@ -405,7 +408,7 @@ class AapAutoConnectTest : BaseTest() {
             // Remove from BLE scans, then disconnect
             every { blePodMonitor.devices } returns flowOf(emptyList())
             allStatesFlow.value = emptyMap()
-            disconnectEventsFlow.tryEmit(testAddress)
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = true))
             advanceUntilIdle()
 
             // Reconnect should not call connect since not visible in BLE
@@ -422,11 +425,49 @@ class AapAutoConnectTest : BaseTest() {
 
             // Keep as READY, emit disconnect event
             // allStatesFlow still shows READY → reconnect should skip
-            disconnectEventsFlow.tryEmit(testAddress)
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = true))
             advanceUntilIdle()
 
             // Should not attempt connect — already connected
             coVerify(exactly = 0) { aapManager.connect(testAddress, any(), any()) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `was-ready disconnect reconnects without extra cooldown`() = runTest(testDispatcher) {
+            val autoConnect = createAutoConnect()
+            val job = setupForReconnect(autoConnect)
+            advanceUntilIdle()
+            allStatesFlow.value = emptyMap()
+
+            // A session that reached READY drops: only the normal first retry delay (3s), no backoff cooldown.
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = true))
+            advanceTimeBy(3_100)
+            runCurrent()
+
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), any()) }
+
+            job.cancel()
+        }
+
+        @Test
+        fun `never-ready disconnect backs off before reconnecting`() = runTest(testDispatcher) {
+            val autoConnect = createAutoConnect()
+            val job = setupForReconnect(autoConnect)
+            advanceUntilIdle()
+            allStatesFlow.value = emptyMap()
+
+            // A session that never reached READY (failed handshake): first failure adds a 5s cooldown
+            // on top of the 3s retry delay, so nothing should connect within the 3.1s a was-ready drop would.
+            disconnectEventsFlow.tryEmit(AapDisconnectEvent(testAddress, wasEverReady = false))
+            advanceTimeBy(3_100)
+            runCurrent()
+            coVerify(exactly = 0) { aapManager.connect(testAddress, any(), any()) }
+
+            // After the 5s cooldown + 3s retry delay elapse, the reconnect fires.
+            advanceUntilIdle()
+            coVerify(exactly = 1) { aapManager.connect(testAddress, any(), any()) }
 
             job.cancel()
         }
