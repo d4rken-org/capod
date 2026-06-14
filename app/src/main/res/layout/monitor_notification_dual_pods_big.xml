@@ -24,6 +24,8 @@
                 android:id="@+id/pod_left_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/device_airpods_gen1_left" />
 
             <ProgressBar
@@ -86,6 +88,8 @@
                 android:id="@+id/pod_case_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/device_airpods_gen1_case" />
 
             <ProgressBar
@@ -138,6 +142,8 @@
                 android:id="@+id/pod_right_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/device_airpods_gen1_right" />
 
             <ProgressBar
