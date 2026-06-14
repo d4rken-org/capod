@@ -86,6 +86,15 @@ internal class AapSessionEngine(
     private var activeSendRaw: (suspend (AapCommand) -> Unit)? = null
     private var runtimeState = EngineRuntimeState()
 
+    /**
+     * True once this session has reached [AapPodState.ConnectionState.READY] at least once.
+     * Deliberately NOT cleared by [reset] — consumers read it at disconnect time to tell a
+     * working session that dropped apart from one that never completed the handshake (drives
+     * the reconnect backoff). Cleared only when a fresh session starts.
+     */
+    private var _wasEverReady: Boolean = false
+    val wasEverReady: Boolean get() = _wasEverReady
+
     fun start(scope: CoroutineScope) {
         dispatch(AapEngineEvent.SessionStarted(scope))
     }
@@ -130,6 +139,7 @@ internal class AapSessionEngine(
         when (event) {
             is AapEngineEvent.SessionStarted -> {
                 scope = event.scope
+                _wasEverReady = false
                 runtimeState = runtimeState.copy(handshakeResponseReceived = false)
                 _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.CONNECTING)
             }
@@ -159,11 +169,14 @@ internal class AapSessionEngine(
     private fun handleConnectResponse(packet: AapPacket.ConnectResponse) {
         if (packet.status != 0) {
             log(TAG, ERROR) {
-                "ConnectResponse failed: status=0x${"%04X".format(packet.status)} " +
+                "ConnectResponse rejected (status=0x${"%04X".format(packet.status)}) — tearing down: " +
                         "major=${packet.major} minor=${packet.minor} " +
                         "features=0x${"%016X".format(packet.features.toLong())}"
             }
-            _state.value = _state.value.copy(connectResponseStatus = packet.status)
+            // Hard protocol rejection: don't wait out the handshake watchdog — disconnect now so
+            // the reconnect path can recover (or back off). Nested dispatch mirrors the existing
+            // inbound-update re-dispatch pattern.
+            dispatch(AapEngineEvent.ResetRequested)
             return
         }
 
@@ -192,6 +205,7 @@ internal class AapSessionEngine(
             _state.value.connectionState == AapPodState.ConnectionState.HANDSHAKING
         ) {
             runtimeState = runtimeState.copy(handshakeResponseReceived = true)
+            _wasEverReady = true
             _state.value = _state.value.copy(connectionState = AapPodState.ConnectionState.READY)
             log(TAG) { "Connection READY" }
         }
