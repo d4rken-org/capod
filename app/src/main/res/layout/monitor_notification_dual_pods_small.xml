@@ -38,6 +38,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_power_24" />
 
             <ImageView
@@ -46,6 +48,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_hearing_24" />
         </LinearLayout>
 
@@ -76,6 +80,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_power_24" />
         </LinearLayout>
 
@@ -105,6 +111,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_power_24" />
 
             <ImageView
@@ -113,6 +121,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_hearing_24" />
         </LinearLayout>
 

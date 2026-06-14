@@ -60,4 +60,6 @@
     <color name="brand_primary">#3f7aff</color>
     <color name="brand_secondary">#ffd83c</color>
     <color name="brand_tertiary">#41eb8e</color>
+
+    <color name="notification_icon_tint">#757575</color>
 </resources>

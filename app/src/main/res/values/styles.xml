@@ -13,15 +13,11 @@
 
     <style name="Notification.Container">
         <!--        <item name="android:background">?android:attr/colorBackground</item>-->
-        <item name="android:theme">@style/Theme.Material3.DynamicColors.DayNight</item>
     </style>
 
     <style name="PodInfoItemIcon.Notification" parent="TextAppearance.Compat.Notification.Title">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
-        <item name="android:tintMode">multiply</item>
-        <item name="android:tint">?android:attr/colorAccent</item>
-        <item name="tint">?android:attr/colorAccent</item>
     </style>
 
     <style name="PodInfoItemIcon.Notification.Large" parent="PodInfoItemIcon.Notification">
@@ -32,7 +28,6 @@
     <style name="PodInfoItemText.Notification" parent="TextAppearance.Compat.Notification.Title">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="PodInfoItemIcon" parent="TextAppearance.Material3.BodyMedium">
