@@ -18,6 +18,8 @@
     <style name="PodInfoItemIcon.Notification" parent="TextAppearance.Compat.Notification.Title">
         <item name="android:layout_height">20dp</item>
         <item name="android:layout_width">20dp</item>
+        <item name="android:tintMode">src_in</item>
+        <item name="android:tint">@color/notification_icon_tint</item>
     </style>
 
     <style name="PodInfoItemIcon.Notification.Large" parent="PodInfoItemIcon.Notification">
