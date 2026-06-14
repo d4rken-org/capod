@@ -76,7 +76,8 @@ class PodHistoryRepo @Inject constructor(
         val caseIgnored = if (current is DualApplePods) {
             val target = current.getCaseMatchMarkings()
             knownDevices.values.filter { known ->
-                known.history.filterIsInstance<DualApplePods>().any { it.getCaseMatchMarkings() == target }
+                known.history.filterIsInstance<DualApplePods>().any { it.getCaseMatchMarkings() == target } &&
+                    known.isIrkConsistentWith(current)
             }
         } else {
             emptySet()
@@ -143,7 +144,7 @@ class PodHistoryRepo @Inject constructor(
         if (recognizedDevice == null) {
             val currentMarkers = payload.getFuzzyIdentifier()
             recognizedDevice = knownDevices.values
-                .firstOrNull { it.lastPayload.getFuzzyIdentifier() == currentMarkers }
+                .firstOrNull { it.lastPayload.getFuzzyIdentifier() == currentMarkers && it.isIrkConsistentWith(current) }
                 ?.also { log(TAG, DEBUG) { "search1: Similarity match for device=${current.model}" } }
         }
 
@@ -154,6 +155,24 @@ class PodHistoryRepo @Inject constructor(
         return recognizedDevice
     }
 
+    /**
+     * The weak history paths (fuzzy markers, case-ignored markings) match on low-entropy broadcast
+     * data — model + battery nibbles + colour — which a stranger's same-model AirPods at a similar
+     * battery satisfies. Those paths must not let a foreign frame inherit the identity of one of OUR
+     * keyed (IRK-backed) devices, or the foreign snapshot poisons that device's cache slot and the
+     * dashboard card glitches (Symptom B).
+     *
+     * A [KnownDevice] is "IRK-backed" if it has ever resolved against a profile's IRK
+     * ([KnownDevice.boundProfileId], latched durably so history trimming can't erode it). Such a
+     * device may only be claimed via the strong address/IRK paths, or by a current frame that
+     * resolved to the SAME profile. Keyless devices (never IRK-backed) are unaffected — fuzzy
+     * recovery still works for them exactly as before.
+     */
+    private fun KnownDevice.isIrkConsistentWith(current: ApplePods): Boolean {
+        val bound = boundProfileId ?: return true // not IRK-backed -> keyless, weak match allowed
+        return current.meta.profile?.id == bound
+    }
+
     fun updateHistory(device: ApplePods) {
         val existing = knownDevices[device.identifier]
 
@@ -162,12 +181,16 @@ class PodHistoryRepo @Inject constructor(
             .mapNotNull { it.batteryCasePercent }
             .lastOrNull()
 
+        // Latch the IRK-resolved profile id (never cleared by an unbound frame), so it survives history trimming.
+        val boundProfileId = device.meta.profile?.id?.takeIf { device.meta.isIRKMatch }
+
         knownDevices[device.identifier] = if (existing != null) {
             val history = existing.history.plus(device)
             existing.copy(
                 seenCounter = existing.seenCounter + 1,
                 history = history,
-                lastCaseBattery = history.determineLatestCaseBattery() ?: existing.lastCaseBattery
+                lastCaseBattery = history.determineLatestCaseBattery() ?: existing.lastCaseBattery,
+                boundProfileId = boundProfileId ?: existing.boundProfileId,
             )
         } else {
             log(TAG, DEBUG) { "Creating new history for ${device.logSummary()}" }
@@ -177,7 +200,8 @@ class PodHistoryRepo @Inject constructor(
                 seenFirstAt = device.seenFirstAt,
                 seenCounter = 1,
                 history = history,
-                lastCaseBattery = history.determineLatestCaseBattery()
+                lastCaseBattery = history.determineLatestCaseBattery(),
+                boundProfileId = boundProfileId,
             )
         }
     }
