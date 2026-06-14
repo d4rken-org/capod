@@ -16,6 +16,12 @@ data class KnownDevice(
     val seenCounter: Int,
     val history: List<ApplePods>,
     val lastCaseBattery: Float?,
+    /**
+     * Profile id this device has ever IRK-resolved to, or null if it has only ever been seen as a
+     * keyless device. Durable — kept even when [history] is trimmed — so the weak history-recovery
+     * paths can reliably refuse to hand an IRK-backed identity to a foreign same-model frame.
+     */
+    val boundProfileId: String? = null,
 ) {
     val lastPayload: ProximityPayload
         get() = history.last().payload
