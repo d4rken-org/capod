@@ -24,8 +24,6 @@
                 android:id="@+id/headphones_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:tintMode="multiply"
-                android:tint="?android:attr/colorAccent"
                 android:src="@drawable/twotone_headphones_24" />
 
             <TextView
@@ -71,8 +69,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
-                android:tintMode="multiply"
-                android:tint="?android:attr/colorAccent"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_power_24" />
 
             <ImageView
@@ -80,8 +78,8 @@
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:layout_marginStart="2dp"
-                android:tintMode="multiply"
-                android:tint="?android:attr/colorAccent"
+                android:tint="@color/notification_icon_tint"
+                android:tintMode="src_in"
                 android:src="@drawable/ic_baseline_hearing_24" />
 
         </LinearLayout>
