@@ -16,6 +16,11 @@ import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -34,6 +39,7 @@ import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 
 class AapConnectionManagerTest : BaseTest() {
 
@@ -139,19 +145,23 @@ class AapConnectionManagerTest : BaseTest() {
         }
 
         @Test
-        fun `handshake timeout disconnects a silent session`() = testScope.runTest {
+        fun `handshake timeout disconnects a silent session`() = runBlocking {
             // Socket connects and the handshake is sent, but the peer never replies: read() blocks
-            // forever. The handshake watchdog must time out and tear the session down.
+            // until the socket is closed. The handshake watchdog must time out and tear the session
+            // down. This exercises real dispatchers + a real socket close, so it runs on REAL time
+            // with generous bounds — mixing runTest's virtual time with Dispatchers.IO made it flaky.
             val readBlocked = CountDownLatch(1)
             val closeCalls = AtomicInteger(0)
             val blockingInput = object : InputStream() {
+                // Block well past the test's own wait so the watchdog (not a read self-timeout) is
+                // always what ends the read.
                 override fun read(): Int {
-                    readBlocked.await(5, TimeUnit.SECONDS)
+                    readBlocked.await(30, TimeUnit.SECONDS)
                     return -1
                 }
 
                 override fun read(b: ByteArray): Int {
-                    readBlocked.await(5, TimeUnit.SECONDS)
+                    readBlocked.await(30, TimeUnit.SECONDS)
                     return -1
                 }
             }
@@ -170,22 +180,27 @@ class AapConnectionManagerTest : BaseTest() {
                 profile = AapDeviceProfile.forModel(PodModel.AIRPODS_PRO3),
                 socketFactory = socketFactory,
                 timeSource = timeSource,
-                connectTimeout = 50.milliseconds,
-                handshakeTimeout = 100.milliseconds,
+                connectTimeout = 1.seconds,
+                handshakeTimeout = 200.milliseconds,
             )
 
-            connection.connect(testScope)
-            // Fire the 100ms handshake watchdog.
-            advanceUntilIdle()
+            val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+            try {
+                connection.connect(scope)
 
-            // disconnect() runs engine.reset() before closing the socket, so awaiting the close latch
-            // guarantees the state has already flipped to DISCONNECTED.
-            readBlocked.await(5, TimeUnit.SECONDS) shouldBe true
-            connection.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
-            // The socket must be closed (this unblocks the wedged read). It may be closed more than
-            // once — the watchdog's disconnect() and the read loop's finally both run cleanupSocket()
-            // and can race — so assert "at least once" rather than an exact, timing-dependent count.
-            (closeCalls.get() >= 1) shouldBe true
+                // The 200ms watchdog tears the silent session down: disconnect() resets the engine to
+                // DISCONNECTED and THEN closes the socket (the close mock increments before counting
+                // the latch down). Awaiting that latch is the unambiguous "watchdog fired" signal and
+                // sidesteps any reset-vs-close ordering race. Generous real-time bound for loaded CI.
+                readBlocked.await(15, TimeUnit.SECONDS) shouldBe true
+                connection.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
+                // close() may run once (watchdog) or twice (watchdog + read-loop finally race on
+                // cleanupSocket before socket is nulled) — both are correct, so assert "at least once".
+                (closeCalls.get() >= 1) shouldBe true
+            } finally {
+                readBlocked.countDown()
+                scope.cancel()
+            }
         }
 
         @Test
