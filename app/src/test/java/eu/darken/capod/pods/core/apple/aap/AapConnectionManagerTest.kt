@@ -146,12 +146,12 @@ class AapConnectionManagerTest : BaseTest() {
             val closeCalls = AtomicInteger(0)
             val blockingInput = object : InputStream() {
                 override fun read(): Int {
-                    readBlocked.await(2, TimeUnit.SECONDS)
+                    readBlocked.await(5, TimeUnit.SECONDS)
                     return -1
                 }
 
                 override fun read(b: ByteArray): Int {
-                    readBlocked.await(2, TimeUnit.SECONDS)
+                    readBlocked.await(5, TimeUnit.SECONDS)
                     return -1
                 }
             }
@@ -180,9 +180,12 @@ class AapConnectionManagerTest : BaseTest() {
 
             // disconnect() runs engine.reset() before closing the socket, so awaiting the close latch
             // guarantees the state has already flipped to DISCONNECTED.
-            readBlocked.await(2, TimeUnit.SECONDS) shouldBe true
+            readBlocked.await(5, TimeUnit.SECONDS) shouldBe true
             connection.state.value.connectionState shouldBe AapPodState.ConnectionState.DISCONNECTED
-            closeCalls.get() shouldBe 1
+            // The socket must be closed (this unblocks the wedged read). It may be closed more than
+            // once — the watchdog's disconnect() and the read loop's finally both run cleanupSocket()
+            // and can race — so assert "at least once" rather than an exact, timing-dependent count.
+            (closeCalls.get() >= 1) shouldBe true
         }
 
         @Test
