@@ -6,6 +6,7 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.ConversationAwarenessEvent
 import eu.darken.capod.profiles.core.ReactionConfig
 import io.mockk.coEvery
@@ -30,6 +31,9 @@ class ConversationReactionTest : BaseTest() {
 
     private val primaryAddress: BluetoothAddress = "AA:BB:CC:DD:EE:FF"
     private val otherAddress: BluetoothAddress = "11:22:33:44:55:66"
+
+    private val inEar = AapSetting.EarDetection.PodPlacement.IN_EAR
+    private val outOfEar = AapSetting.EarDetection.PodPlacement.NOT_IN_EAR
 
     // Mirrors of ConversationReaction's private timing constants. STALE_TIMEOUT: long backstop
     // while only START frames were seen. WIND_DOWN_TIMEOUT: short fuse armed by a HOLD frame
@@ -92,6 +96,16 @@ class ConversationReactionTest : BaseTest() {
 
     private suspend fun TestScope.emit(address: BluetoothAddress, event: ConversationAwarenessEvent) {
         eventsFlow.emit(address to event)
+        runCurrent()
+    }
+
+    /** Simulates an AAP ear-detection transition (pod removed/inserted) for the primary device. */
+    private fun TestScope.changeEarDetection(primary: AapSetting.EarDetection.PodPlacement, secondary: AapSetting.EarDetection.PodPlacement) {
+        statesFlow.value = mapOf(
+            primaryAddress to mockk(relaxed = true) {
+                every { aapEarDetection } returns AapSetting.EarDetection(primary, secondary)
+            },
+        )
         runCurrent()
     }
 
@@ -539,6 +553,74 @@ class ConversationReactionTest : BaseTest() {
         verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
         job.cancel()
     }
+
+    @Test
+    fun `PAUSE pod removal mid-conversation does not strand media paused`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Pulling a pod re-keys CA (terminal then fresh onset) while the conversation continues.
+            // The terminal lands right after the ear-detection change → defer to the fuse, the re-onset
+            // cancels it, media stays paused and the session alive. The real end later resumes.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            changeEarDetection(inEar, outOfEar)                       // pod pulled
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)     // re-key terminal
+            emit(primaryAddress, ConversationAwarenessEvent.START)    // re-onset, still talking
+            advanceTimeBy(windDownTimeoutMs * 2)                      // fuse would have fired — but was cancelled
+            runCurrent()
+            coVerify(exactly = 0) { mediaControl.sendPlay() }         // still paused, not stranded-resumed early
+
+            timeSource.advanceBy(java.time.Duration.ofSeconds(3))     // past EAR_TRANSITION_WINDOW
+            advanceTimeBy(3_000)
+            runCurrent()
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)     // genuine end, no recent ear change
+            coVerify(exactly = 1) { mediaControl.sendPlay() }         // resumes
+            job.cancel()
+        }
+
+    @Test
+    fun `LOWER_VOLUME pod removal mid-conversation does not blip the volume`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // The re-key terminal must not restore (which the immediate re-onset would then re-duck —
+            // an audible 5→10→5 jump). Defer to the fuse; the re-onset keeps it ducked.
+            val job = launchReaction() // default LOWER_VOLUME
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 1) { mediaControl.duckMusicVolume(any()) }
+
+            changeEarDetection(inEar, outOfEar)                       // pod pulled
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)     // re-key terminal
+            verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) } // no restore → no blip
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)    // re-onset
+            verify(exactly = 1) { mediaControl.duckMusicVolume(any()) } // not re-ducked (keep-alive only)
+            verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+            job.cancel()
+        }
+
+    @Test
+    fun `terminal during ear transition still disengages via the fuse if no re-onset follows`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Removed a pod AND the conversation actually ended (no re-onset): the deferred terminal's
+            // fuse must still disengage within seconds rather than waiting for the long backstop.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            changeEarDetection(inEar, outOfEar)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)     // deferred to fuse
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            advanceTimeBy(windDownTimeoutMs + 500)
+            runCurrent()
+            coVerify(exactly = 1) { mediaControl.sendPlay() }         // fuse disengaged
+            job.cancel()
+        }
 
     @Test
     fun `STOP from a non-owner does not disengage the active owner`() = runTest(UnconfinedTestDispatcher()) {
