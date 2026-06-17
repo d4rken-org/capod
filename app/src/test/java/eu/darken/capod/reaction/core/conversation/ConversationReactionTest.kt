@@ -449,6 +449,32 @@ class ConversationReactionTest : BaseTest() {
         }
 
     @Test
+    fun `PAUSE resumes on the terminal even after a conversation longer than the resume window`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Each keep-alive frame refreshes the activity timestamp, so PAUSE_RESUME_WINDOW is
+            // measured from the last frame — not from engage. Without that refresh a 3-minute
+            // conversation would fail the age guard and strand media paused on its real terminal.
+            // Advance BOTH clocks so the window is genuinely exercised (the TestTimeSource drives age).
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            repeat(3) {
+                timeSource.advanceBy(java.time.Duration.ofSeconds(60))
+                advanceTimeBy(60_000) // < STALE_TIMEOUT, so the backstop never fires
+                runCurrent()
+                emit(primaryAddress, ConversationAwarenessEvent.RESUME) // keep-alive, refreshes `at`
+            }
+            coVerify(exactly = 0) { mediaControl.sendPlay() } // 3 min in, still paused
+
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // terminal right after last activity
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+            job.cancel()
+        }
+
+    @Test
     fun `RESUME without a prior start is a no-op`() = runTest(UnconfinedTestDispatcher()) {
         devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
         val job = launchReaction()
