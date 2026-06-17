@@ -323,8 +323,8 @@ internal class AapSessionEngine(
         }
 
         // Re-emit every (well-formed) Conversational Awareness frame as a classified event for the
-        // conversation reaction: START / STOP / HOLD (keep-alive). The decoder already dropped
-        // malformed frames (rawValue stays null only in that case). The raw payload remains logged.
+        // conversation reaction: START / RESUME / HOLD / STOP. The decoder already dropped malformed
+        // frames (rawValue stays null only in that case). The raw payload remains logged.
         if (value is AapSetting.ConversationalAwarenessState) {
             value.rawValue?.let { _conversationalAwarenessEvents.tryEmit(ConversationAwarenessEvent.fromStatus(it)) }
         }

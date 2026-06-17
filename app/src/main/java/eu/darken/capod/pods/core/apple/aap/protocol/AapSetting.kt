@@ -105,7 +105,7 @@ sealed class AapSetting {
      * [rawValue] is the status byte: the last byte of the 4-byte `02 00 01 XX` form (or the single
      * byte of the legacy form), preserved so consumers can classify it. [speaking] is `true` only
      * for the speaking-onset statuses (`1`, `2`); every other value (`0`, `3`, `4`, `5`, `0x0B`, …)
-     * is `false`. START/STOP/HOLD classification for the reaction lives in [ConversationAwarenessEvent].
+     * is `false`. START/RESUME/HOLD/STOP classification for the reaction lives in [ConversationAwarenessEvent].
      */
     data class ConversationalAwarenessState(
         val speaking: Boolean,

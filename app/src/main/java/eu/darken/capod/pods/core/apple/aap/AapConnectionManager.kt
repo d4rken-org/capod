@@ -75,10 +75,10 @@ class AapConnectionManager @Inject constructor(
     val sleepEvents: SharedFlow<BluetoothAddress> = _sleepEvents.asSharedFlow()
 
     /**
-     * Emits when a connected device reports a Conversational Awareness speaking transition
-     * (START/STOP, AAP command 0x4B). Paired with the origin address so the conversation
-     * reaction can gate on the primary device. Only the known 0x01/0x04 markers reach here —
-     * the engine drops unknown raw values (see [AapSessionEngine]).
+     * Emits when a connected device reports a Conversational Awareness transition (START / RESUME /
+     * HOLD / STOP, AAP command 0x4B). Paired with the origin address so the conversation reaction
+     * can gate on the primary device. Every well-formed frame is classified and emitted (unknown
+     * status bytes map to HOLD); only structurally malformed frames are dropped (see [AapSessionEngine]).
      */
     private val _conversationalAwarenessEvents =
         MutableSharedFlow<Pair<BluetoothAddress, ConversationAwarenessEvent>>(extraBufferCapacity = 16)
