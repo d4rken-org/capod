@@ -37,9 +37,11 @@ class ConversationReactionTest : BaseTest() {
 
     // Mirrors of ConversationReaction's private timing constants. STALE_TIMEOUT: long backstop
     // while only START frames were seen. WIND_DOWN_TIMEOUT: short fuse armed by a HOLD frame
-    // (wind-down begun, terminal imminent — but sometimes dropped, #608).
+    // (wind-down begun, terminal imminent — but sometimes dropped, #608). STOP_SETTLE_DELAY: brief
+    // wait on an uncorroborated cold terminal (no preceding HOLD) before treating it as a real end.
     private val staleTimeoutMs = 5L * 60 * 1000
     private val windDownTimeoutMs = 6_000L
+    private val stopSettleMs = 250L
 
     private lateinit var eventsFlow: MutableSharedFlow<Pair<BluetoothAddress, ConversationAwarenessEvent>>
     private lateinit var statesFlow: MutableStateFlow<Map<BluetoothAddress, AapPodState>>
@@ -117,7 +119,9 @@ class ConversationReactionTest : BaseTest() {
         verify(exactly = 1) { mediaControl.duckMusicVolume(50) }
         verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
 
-        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
         verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
         job.cancel()
     }
@@ -130,7 +134,9 @@ class ConversationReactionTest : BaseTest() {
         val job = launchReaction()
 
         emit(primaryAddress, ConversationAwarenessEvent.START)
-        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
 
         verify(exactly = 1) { mediaControl.restoreMusicVolume(10) }
         job.cancel()
@@ -259,7 +265,9 @@ class ConversationReactionTest : BaseTest() {
         emit(primaryAddress, ConversationAwarenessEvent.START)
         coVerify(exactly = 1) { mediaControl.sendPause(false) }
 
-        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
         coVerify(exactly = 1) { mediaControl.sendPlay() }
         job.cancel()
     }
@@ -271,6 +279,8 @@ class ConversationReactionTest : BaseTest() {
 
         emit(primaryAddress, ConversationAwarenessEvent.START)
         emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
 
         coVerify(exactly = 0) { mediaControl.sendPlay() }
         job.cancel()
@@ -284,6 +294,8 @@ class ConversationReactionTest : BaseTest() {
         emit(primaryAddress, ConversationAwarenessEvent.START)
         every { mediaControl.isPlaying } returns true // user/app restarted playback during the talk
         emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
 
         coVerify(exactly = 0) { mediaControl.sendPlay() }
         job.cancel()
@@ -299,7 +311,9 @@ class ConversationReactionTest : BaseTest() {
 
         // User changes the action mid-conversation; we must still undo the pause WE caused.
         devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.LOWER_VOLUME))
-        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
 
         coVerify(exactly = 1) { mediaControl.sendPlay() }
         job.cancel()
@@ -366,7 +380,9 @@ class ConversationReactionTest : BaseTest() {
             runCurrent()
             coVerify(exactly = 0) { mediaControl.sendPlay() } // NOT resumed mid-speech
 
-            emit(primaryAddress, ConversationAwarenessEvent.STOP) // wearer stopped → pod's terminal frame
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+            advanceTimeBy(stopSettleMs + 50)
+            runCurrent()
             coVerify(exactly = 1) { mediaControl.sendPlay() }
 
             emit(primaryAddress, ConversationAwarenessEvent.START) // a fresh talk re-arms
@@ -483,7 +499,9 @@ class ConversationReactionTest : BaseTest() {
             }
             coVerify(exactly = 0) { mediaControl.sendPlay() } // 3 min in, still paused
 
-            emit(primaryAddress, ConversationAwarenessEvent.STOP) // explicit terminal
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+            advanceTimeBy(stopSettleMs + 50)
+            runCurrent()
             coVerify(exactly = 1) { mediaControl.sendPlay() }
             job.cancel()
         }
@@ -505,7 +523,9 @@ class ConversationReactionTest : BaseTest() {
         runCurrent()
         coVerify(exactly = 0) { mediaControl.sendPlay() } // still paused, no frames yet
 
-        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
         coVerify(exactly = 1) { mediaControl.sendPlay() }
         job.cancel()
     }
@@ -577,7 +597,35 @@ class ConversationReactionTest : BaseTest() {
             advanceTimeBy(3_000)
             runCurrent()
             emit(primaryAddress, ConversationAwarenessEvent.STOP)     // genuine end, no recent ear change
+            advanceTimeBy(stopSettleMs + 50)                          // cold terminal → settles briefly
+            runCurrent()
             coVerify(exactly = 1) { mediaControl.sendPlay() }         // resumes
+            job.cancel()
+        }
+
+    @Test
+    fun `PAUSE primary-pod removal where the terminal precedes the ear change is caught by the settle`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // On primary-pod removal the firmware sends the terminal a few ms BEFORE the 0x06 ear
+            // frame, so the backward-looking check misses it. The settle catches it: the ear change
+            // lands during the settle window, so on expiry the cold terminal is treated as a re-key
+            // artifact (deferred to the fuse), not a resume.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal — ear frame not here yet
+            changeEarDetection(outOfEar, inEar)                   // ear change arrives ~ms later, during settle
+            advanceTimeBy(stopSettleMs + 50)                      // settle expires
+            runCurrent()
+            coVerify(exactly = 0) { mediaControl.sendPlay() }     // deferred to fuse, NOT resumed
+
+            emit(primaryAddress, ConversationAwarenessEvent.START) // re-onset on remaining pod
+            advanceTimeBy(windDownTimeoutMs * 2)                   // fuse cancelled by the re-onset
+            runCurrent()
+            coVerify(exactly = 0) { mediaControl.sendPlay() }      // still paused, session alive
             job.cancel()
         }
 
@@ -640,7 +688,9 @@ class ConversationReactionTest : BaseTest() {
         val job = launchReaction()
 
         emit(primaryAddress, ConversationAwarenessEvent.START)
-        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal → settles briefly
+        advanceTimeBy(stopSettleMs + 50)
+        runCurrent()
         coVerify(exactly = 1) { mediaControl.sendPlay() }
 
         advanceTimeBy(staleTimeoutMs + 500) // backstop would fire if STOP hadn't cancelled it
