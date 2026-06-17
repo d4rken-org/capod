@@ -570,9 +570,10 @@ class AapSessionEngineTest : BaseTest() {
         }
 
         @Test
-        fun `terminal statuses 8 and 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
-            // The conversation terminal is always the 8→9 pair (both pods); also emitted by pod
-            // removal / case-close. 6 is never observed as a terminal, so it falls through to HOLD.
+        fun `terminal statuses 6, 8 and 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
+            // The usual terminal is the 8→9 pair (both pods; also emitted by pod removal / case-close).
+            // 6 is a standalone terminal seen live on Pro 2 USB-C fw …6814.
+            firstEventFor(6) shouldBe ConversationAwarenessEvent.STOP
             firstEventFor(8) shouldBe ConversationAwarenessEvent.STOP
             firstEventFor(9) shouldBe ConversationAwarenessEvent.STOP
         }
@@ -580,12 +581,11 @@ class AapSessionEngineTest : BaseTest() {
         @Test
         fun `transitional and unknown statuses emit HOLD (stay engaged)`() = runTest(UnconfinedTestDispatcher()) {
             // Must never resume immediately on these — they arm the short wind-down fuse instead.
-            // 3 = pause, 0x0B/4 = wind-down, 7 = abort; 6 and any unknown value default to HOLD.
+            // 3 = pause, 0x0B/4 = wind-down, 7 = abort; any unknown value defaults to HOLD.
             firstEventFor(3) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(4) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(0x0B) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(7) shouldBe ConversationAwarenessEvent.HOLD
-            firstEventFor(6) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(0) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(0xFF) shouldBe ConversationAwarenessEvent.HOLD
         }
