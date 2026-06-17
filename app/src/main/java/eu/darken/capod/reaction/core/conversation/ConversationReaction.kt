@@ -121,7 +121,7 @@ class ConversationReaction @Inject constructor(
             if (current != null && current.owner == address) {
                 // Duplicate START for the same speaker — don't re-act, just keep the session alive.
                 // A START also cancels a pending wind-down fuse: the wearer is speaking again.
-                keepAlive(current, STALE_TIMEOUT)
+                armDisengageTimer(current, STALE_TIMEOUT)
                 log(TAG) { "START from $address — already active ($action), keep-alive" }
                 return
             }
@@ -180,7 +180,7 @@ class ConversationReaction @Inject constructor(
     private suspend fun onSpeakingResume(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
         if (current.owner != address) return
-        keepAlive(current, STALE_TIMEOUT)
+        armDisengageTimer(current, STALE_TIMEOUT)
         log(TAG) { "RESUME from $address — speech resumed, keep-alive" }
     }
 
@@ -193,7 +193,7 @@ class ConversationReaction @Inject constructor(
     private suspend fun onSpeakingHold(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
         if (current.owner != address) return
-        keepAlive(current, WIND_DOWN_TIMEOUT)
+        armDisengageTimer(current, WIND_DOWN_TIMEOUT)
     }
 
     private suspend fun onSpeakingStop(address: BluetoothAddress) {
@@ -205,12 +205,19 @@ class ConversationReaction @Inject constructor(
                 return
             }
             clearActive()
-            disengage(current, primary, "STOP on $address")
+            // An explicit terminal frame is positive evidence CA ended now → resume regardless of how
+            // long ago we engaged. The age guard is only for inferred (stale-backstop) ends.
+            disengage(current, primary, "STOP on $address", applyAgeGuard = false)
         }
     }
 
-    /** Graceful disengage (STOP event or stale timeout). Must be called under [mutex]. */
-    private suspend fun disengage(record: Active, primary: PodDevice?, reason: String) {
+    /**
+     * Graceful disengage (STOP event or timer expiry). Must be called under [mutex]. [applyAgeGuard]
+     * gates resume on [PAUSE_RESUME_WINDOW]: `true` only for the inferred stale-backstop end (we lost
+     * track and timed out — surprise-resuming long after is worse than a stranded pause); `false` for
+     * an explicit terminal or the wind-down fuse, where a recent/real end signal makes resume correct.
+     */
+    private suspend fun disengage(record: Active, primary: PodDevice?, reason: String, applyAgeGuard: Boolean) {
         when (val kind = record.kind) {
             is Kind.Paused -> {
                 // Resume the pause WE caused, regardless of the current action setting. Gating on
@@ -219,7 +226,7 @@ class ConversationReaction @Inject constructor(
                 // surprising behaviour. The remaining guards are about real device/playback state.
                 val age = timeSource.elapsedRealtime() - record.at
                 when {
-                    age.milliseconds > PAUSE_RESUME_WINDOW ->
+                    applyAgeGuard && age.milliseconds > PAUSE_RESUME_WINDOW ->
                         log(TAG) { "$reason — resume skipped (stale, ${age}ms)" }
                     primary?.address != record.owner ->
                         log(TAG) { "$reason — resume skipped (primary switched)" }
@@ -279,27 +286,16 @@ class ConversationReaction @Inject constructor(
     }
 
     /**
-     * Must be called under [mutex]. Keep-alive for the ongoing session [current]: refresh its
-     * activity timestamp and (re)arm the disengage timer. The timestamp refresh makes
-     * [PAUSE_RESUME_WINDOW] measure "time since the last frame" rather than "since engage" — without
-     * it a conversation longer than the window would fail the resume guard and strand media paused
-     * when its terminal finally arrives. A genuinely back-stopped session (no frames for the whole
-     * [STALE_TIMEOUT]) is unaffected: its timestamp is never refreshed, so it still won't auto-resume.
-     */
-    private fun keepAlive(current: Active, timeout: Duration) {
-        val refreshed = current.copy(at = timeSource.elapsedRealtime())
-        active = refreshed
-        armDisengageTimer(refreshed, timeout)
-    }
-
-    /**
      * Must be called under [mutex]. (Re)arms the disengage timer for [record] — every frame picks
      * the fuse matching its meaning: START / RESUME → [STALE_TIMEOUT] (active speech, frames cease
      * for its whole duration), HOLD → [WIND_DOWN_TIMEOUT] (wind-down begun, terminal imminent). On
      * expiry the session is force-ended. Identity-checked so a late timer can't disengage a newer
-     * session.
+     * session. The age guard ([PAUSE_RESUME_WINDOW]) is applied only when the long [STALE_TIMEOUT]
+     * fires — that is the purely-inferred "we lost track" end; the short wind-down fuse is driven by a
+     * recent HOLD and should resume even after a long conversation (dropped-terminal #608 recovery).
      */
     private fun armDisengageTimer(record: Active, timeout: Duration) {
+        val applyAgeGuard = timeout == STALE_TIMEOUT
         staleJob?.cancel()
         staleJob = appScope.launch {
             delay(timeout)
@@ -308,7 +304,7 @@ class ConversationReaction @Inject constructor(
                 if (active?.id == record.id) {
                     val current = active!!
                     clearActive()
-                    disengage(current, primary, "no terminal frame within $timeout")
+                    disengage(current, primary, "no terminal frame within $timeout", applyAgeGuard = applyAgeGuard)
                 }
             }
         }
@@ -340,7 +336,12 @@ class ConversationReaction @Inject constructor(
          */
         private val WIND_DOWN_TIMEOUT = 6.seconds
 
-        /** A pause older than this no longer auto-resumes — unexpected late playback is worse. */
+        /**
+         * For an *inferred* end only (the [STALE_TIMEOUT] backstop fired — we lost track of the
+         * conversation), a pause older than this no longer auto-resumes: surprise playback long after
+         * is worse than a stranded pause. An explicit terminal frame, or the short wind-down fuse,
+         * resumes regardless of age — those carry real/recent evidence the conversation just ended.
+         */
         private val PAUSE_RESUME_WINDOW = 2.minutes
     }
 }

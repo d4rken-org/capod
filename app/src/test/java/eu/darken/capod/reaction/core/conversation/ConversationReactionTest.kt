@@ -451,10 +451,10 @@ class ConversationReactionTest : BaseTest() {
     @Test
     fun `PAUSE resumes on the terminal even after a conversation longer than the resume window`() =
         runTest(UnconfinedTestDispatcher()) {
-            // Each keep-alive frame refreshes the activity timestamp, so PAUSE_RESUME_WINDOW is
-            // measured from the last frame — not from engage. Without that refresh a 3-minute
-            // conversation would fail the age guard and strand media paused on its real terminal.
-            // Advance BOTH clocks so the window is genuinely exercised (the TestTimeSource drives age).
+            // A bursty conversation that runs past PAUSE_RESUME_WINDOW: the explicit STOP must still
+            // resume. The age guard applies only to the inferred stale backstop, not to a real
+            // terminal. Advance BOTH clocks so the window is genuinely exercised (TestTimeSource
+            // drives `age`).
             devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
             val job = launchReaction()
 
@@ -465,12 +465,53 @@ class ConversationReactionTest : BaseTest() {
                 timeSource.advanceBy(java.time.Duration.ofSeconds(60))
                 advanceTimeBy(60_000) // < STALE_TIMEOUT, so the backstop never fires
                 runCurrent()
-                emit(primaryAddress, ConversationAwarenessEvent.RESUME) // keep-alive, refreshes `at`
+                emit(primaryAddress, ConversationAwarenessEvent.RESUME)
             }
             coVerify(exactly = 0) { mediaControl.sendPlay() } // 3 min in, still paused
 
-            emit(primaryAddress, ConversationAwarenessEvent.STOP) // terminal right after last activity
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // explicit terminal
             coVerify(exactly = 1) { mediaControl.sendPlay() }
+            job.cancel()
+        }
+
+    @Test
+    fun `PAUSE resumes on a direct STOP after long frame silence`() = runTest(UnconfinedTestDispatcher()) {
+        // Continuous speech sends no frames; then a direct terminal (no preceding wind-down) arrives
+        // past PAUSE_RESUME_WINDOW but before STALE_TIMEOUT. An explicit STOP is positive evidence CA
+        // ended now, so it must resume regardless of engage-age. (Fails if the age guard is applied to
+        // explicit terminals.)
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+        timeSource.advanceBy(java.time.Duration.ofSeconds(150)) // > 2-min window, < 5-min backstop
+        advanceTimeBy(150_000)
+        runCurrent()
+        coVerify(exactly = 0) { mediaControl.sendPlay() } // still paused, no frames yet
+
+        emit(primaryAddress, ConversationAwarenessEvent.STOP)
+        coVerify(exactly = 1) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `PAUSE does not resume when the stale backstop fires past the resume window`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // The inferred end (5-min backstop, no terminal ever) keeps the age guard: a long-stale
+            // pause must NOT surprise-resume.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            timeSource.advanceBy(java.time.Duration.ofMinutes(5))
+            advanceTimeBy(5L * 60 * 1000 + 500) // STALE_TIMEOUT fires
+            runCurrent()
+
+            coVerify(exactly = 0) { mediaControl.sendPlay() } // inferred stale end → not resumed
             job.cancel()
         }
 
