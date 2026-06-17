@@ -32,7 +32,6 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
-import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
@@ -92,9 +91,25 @@ class ConversationReaction @Inject constructor(
         val at: Long,
     )
 
+    /** What the single pending [disengageJob] is currently waiting for. */
+    private enum class TimerPhase {
+        /** Long backstop while only START/RESUME seen — inferred end if it fires. */
+        STALE_BACKSTOP,
+
+        /** Short fuse armed by a wind-down HOLD — terminal imminent (or dropped, #608). */
+        WIND_DOWN_FUSE,
+
+        /** Brief wait on an uncorroborated cold terminal to see if a pod-removal ear change follows. */
+        STOP_SETTLE,
+    }
+
     private val mutex = Mutex()
     private var active: Active? = null
-    private var staleJob: Job? = null
+    private var disengageJob: Job? = null
+    private var timerPhase: TimerPhase? = null
+    // Bumped on every (re)arm. A timer job captures its generation and only acts if still current —
+    // guards against a stale job that already passed its delay being re-armed to the SAME phase.
+    private var timerGeneration = 0L
     private var idCounter = 0L
 
     // Per-owner AAP ear-detection tracking, so a CA terminal that lands right after a pod
@@ -134,13 +149,17 @@ class ConversationReaction @Inject constructor(
             val current = active
             if (current != null && current.owner == address) {
                 // Duplicate START for the same speaker — don't re-act, just keep the session alive.
-                // A START also cancels a pending wind-down fuse: the wearer is speaking again.
-                armDisengageTimer(current, STALE_TIMEOUT)
+                // A START also cancels a pending wind-down fuse / settle: the wearer is speaking again.
+                armTimer(current, TimerPhase.STALE_BACKSTOP)
                 log(TAG) { "START from $address — already active ($action), keep-alive" }
                 return
             }
-            // A different device started speaking while we were active — undo the old one first.
-            if (current != null) revert(current, "superseded by $address")
+            // A different device started speaking while we were active — undo the old one first and
+            // cancel its pending timer (the no-op engage paths below would otherwise leak it).
+            if (current != null) {
+                revert(current, "superseded by $address")
+                clearActive()
+            }
 
             when (action) {
                 ConversationAction.PAUSE -> {
@@ -148,7 +167,7 @@ class ConversationReaction @Inject constructor(
                     if (paused) {
                         val record = Active(nextId(), address, Kind.Paused, timeSource.elapsedRealtime())
                         active = record
-                        armDisengageTimer(record, STALE_TIMEOUT)
+                        armTimer(record, TimerPhase.STALE_BACKSTOP)
                         log(TAG, INFO) { "START on $address → paused media" }
                     } else {
                         active = null
@@ -171,7 +190,7 @@ class ConversationReaction @Inject constructor(
                             timeSource.elapsedRealtime(),
                         )
                         active = record
-                        armDisengageTimer(record, STALE_TIMEOUT)
+                        armTimer(record, TimerPhase.STALE_BACKSTOP)
                         log(TAG, INFO) { "START on $address → ducked volume ${duck.priorVolume}→${duck.appliedVolume}" }
                     } else {
                         active = null
@@ -194,7 +213,7 @@ class ConversationReaction @Inject constructor(
     private suspend fun onSpeakingResume(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
         if (current.owner != address) return
-        armDisengageTimer(current, STALE_TIMEOUT)
+        armTimer(current, TimerPhase.STALE_BACKSTOP)
         log(TAG) { "RESUME from $address — speech resumed, keep-alive" }
     }
 
@@ -207,7 +226,7 @@ class ConversationReaction @Inject constructor(
     private suspend fun onSpeakingHold(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
         if (current.owner != address) return
-        armDisengageTimer(current, WIND_DOWN_TIMEOUT)
+        armTimer(current, TimerPhase.WIND_DOWN_FUSE)
     }
 
     private suspend fun onSpeakingStop(address: BluetoothAddress) {
@@ -218,21 +237,31 @@ class ConversationReaction @Inject constructor(
                 log(TAG) { "STOP from $address ignored — owner is ${current.owner}" }
                 return
             }
-            // Pulling/inserting a pod makes the firmware tear down and re-key CA — it emits a terminal
-            // (8,9) then a fresh onset (1,2) around the physical change, even though the conversation
-            // is still going. So a terminal that lands right after an ear-detection transition is not
-            // a real end: defer to the short wind-down fuse instead of disengaging. A genuine re-onset
-            // cancels it (no resume/restore churn — fixes the PAUSE strand and the LOWER_VOLUME blip on
-            // removal); if the conversation really ended, the fuse disengages within seconds.
-            if (isRecentEarTransition(address)) {
-                armDisengageTimer(current, WIND_DOWN_TIMEOUT)
-                log(TAG) { "STOP from $address during ear transition — deferring to fuse, not disengaging" }
-                return@withLock
+            // The 0x06 ear-detection frame may have arrived but not yet been processed by the
+            // allStates collector — fold the latest snapshot in before deciding (in-app ordering race).
+            refreshEarTransition(address)
+
+            // Pulling/inserting a pod makes the firmware re-key CA — a terminal (8,9) then a fresh
+            // onset (1,2) around the physical change, even though the conversation continues.
+            when {
+                // Ear change already seen → re-key artifact. Defer to the fuse; a re-onset cancels it.
+                isRecentEarTransition(address) -> {
+                    armTimer(current, TimerPhase.WIND_DOWN_FUSE)
+                    log(TAG) { "STOP from $address during ear transition — deferring to fuse" }
+                }
+                // Corroborated by a preceding wind-down (3,0xB,4 / abort 7): a real end → resume now.
+                timerPhase == TimerPhase.WIND_DOWN_FUSE -> {
+                    clearActive()
+                    disengage(current, primary, "STOP on $address", applyAgeGuard = false)
+                }
+                // Cold terminal with no wind-down and no ear change yet. On primary-pod removal the
+                // firmware sends the terminal a few ms BEFORE the ear-detection frame, so wait a short
+                // settle to see if an ear change lands before treating it as a real end.
+                else -> {
+                    armTimer(current, TimerPhase.STOP_SETTLE)
+                    log(TAG) { "STOP from $address — uncorroborated, settling" }
+                }
             }
-            clearActive()
-            // An explicit terminal frame is positive evidence CA ended now → resume regardless of how
-            // long ago we engaged. The age guard is only for inferred (stale-backstop) ends.
-            disengage(current, primary, "STOP on $address", applyAgeGuard = false)
         }
     }
 
@@ -272,15 +301,7 @@ class ConversationReaction @Inject constructor(
 
     private suspend fun onStatesUpdated(states: Map<BluetoothAddress, AapPodState>) = mutex.withLock {
         // Record when each device's AAP ear-detection last changed (pod removed/inserted/cased).
-        // The very first observation of a device only seeds the baseline — it is not a transition.
-        val now = timeSource.elapsedRealtime()
-        for ((address, state) in states) {
-            val ear = state.aapEarDetection
-            if (lastEarDetection.containsKey(address) && lastEarDetection[address] != ear) {
-                earTransitionAt[address] = now
-            }
-            lastEarDetection[address] = ear
-        }
+        for ((address, state) in states) recordEarIfChanged(address, state.aapEarDetection)
         lastEarDetection.keys.retainAll(states.keys)
         earTransitionAt.keys.retainAll(states.keys)
 
@@ -289,6 +310,22 @@ class ConversationReaction @Inject constructor(
             clearActive()
             revert(current, "owner ${current.owner} gone")
         }
+    }
+
+    /**
+     * Must be called under [mutex]. Notes an AAP ear-detection transition for [address]. The very
+     * first observation of a device only seeds the baseline — it is not counted as a transition.
+     */
+    private fun recordEarIfChanged(address: BluetoothAddress, ear: AapSetting.EarDetection?) {
+        if (lastEarDetection.containsKey(address) && lastEarDetection[address] != ear) {
+            earTransitionAt[address] = timeSource.elapsedRealtime()
+        }
+        lastEarDetection[address] = ear
+    }
+
+    /** Must be called under [mutex]. Folds the latest allStates snapshot in for [address]. */
+    private fun refreshEarTransition(address: BluetoothAddress) {
+        recordEarIfChanged(address, aapManager.allStates.value[address]?.aapEarDetection)
     }
 
     private suspend fun onMonitorCompleted() = mutex.withLock {
@@ -316,36 +353,60 @@ class ConversationReaction @Inject constructor(
         mediaControl.restoreMusicVolume(kind.priorVolume)
     }
 
-    /** Must be called under [mutex]. Clears the active slot and cancels its stale timer. */
+    /** Must be called under [mutex]. Clears the active slot and cancels its pending timer. */
     private fun clearActive() {
-        staleJob?.cancel()
-        staleJob = null
+        disengageJob?.cancel()
+        disengageJob = null
+        timerPhase = null
         active = null
     }
 
     /**
-     * Must be called under [mutex]. (Re)arms the disengage timer for [record] — every frame picks
-     * the fuse matching its meaning: START / RESUME → [STALE_TIMEOUT] (active speech, frames cease
-     * for its whole duration), HOLD → [WIND_DOWN_TIMEOUT] (wind-down begun, terminal imminent). On
-     * expiry the session is force-ended. Identity-checked so a late timer can't disengage a newer
-     * session. The age guard ([PAUSE_RESUME_WINDOW]) is applied only when the long [STALE_TIMEOUT]
-     * fires — that is the purely-inferred "we lost track" end; the short wind-down fuse is driven by a
-     * recent HOLD and should resume even after a long conversation (dropped-terminal #608 recovery).
+     * Must be called under [mutex]. (Re)arms the single disengage timer for [record] in [phase],
+     * replacing whatever was pending. On expiry [onTimerExpired] decides per phase. Guarded on both
+     * [Active.id] and [phase] so a late timer can't act on a newer session or a re-armed phase.
      */
-    private fun armDisengageTimer(record: Active, timeout: Duration) {
-        val applyAgeGuard = timeout == STALE_TIMEOUT
-        staleJob?.cancel()
-        staleJob = appScope.launch {
+    private fun armTimer(record: Active, phase: TimerPhase) {
+        disengageJob?.cancel()
+        timerPhase = phase
+        val generation = ++timerGeneration
+        val timeout = when (phase) {
+            TimerPhase.STALE_BACKSTOP -> STALE_TIMEOUT
+            TimerPhase.WIND_DOWN_FUSE -> WIND_DOWN_TIMEOUT
+            TimerPhase.STOP_SETTLE -> STOP_SETTLE_DELAY
+        }
+        disengageJob = appScope.launch {
             delay(timeout)
             val primary = deviceMonitor.primaryDevice().first()
             mutex.withLock {
-                if (active?.id == record.id) {
-                    val current = active!!
-                    clearActive()
-                    disengage(current, primary, "no terminal frame within $timeout", applyAgeGuard = applyAgeGuard)
-                }
+                // generation guards against a stale job re-armed to the same phase for the same record.
+                if (active?.id == record.id && timerGeneration == generation) onTimerExpired(record, phase, primary)
             }
         }
+    }
+
+    /**
+     * Must be called under [mutex] from inside the firing timer job. Detaches the slot WITHOUT
+     * cancelling (we ARE that job — self-cancel could abort a following suspension), then acts:
+     * - STOP_SETTLE + an ear change appeared meanwhile → re-key artifact, hand off to the fuse.
+     * - otherwise force-end the session. The age guard applies only to the inferred STALE backstop;
+     *   the wind-down fuse and a settled cold terminal carry real/recent end evidence → resume regardless.
+     */
+    private suspend fun onTimerExpired(record: Active, phase: TimerPhase, primary: PodDevice?) {
+        disengageJob = null
+        timerPhase = null
+        if (phase == TimerPhase.STOP_SETTLE && isRecentEarTransition(record.owner)) {
+            armTimer(record, TimerPhase.WIND_DOWN_FUSE)
+            log(TAG) { "STOP settle elapsed for ${record.owner} — ear transition appeared, deferring to fuse" }
+            return
+        }
+        active = null
+        val reason = when (phase) {
+            TimerPhase.STALE_BACKSTOP -> "no terminal within backstop"
+            TimerPhase.WIND_DOWN_FUSE -> "no terminal within wind-down fuse"
+            TimerPhase.STOP_SETTLE -> "cold terminal settled"
+        }
+        disengage(record, primary, reason, applyAgeGuard = phase == TimerPhase.STALE_BACKSTOP)
     }
 
     /** Must be called under [mutex]. True if [address] had an AAP ear-detection change very recently. */
@@ -395,5 +456,15 @@ class ConversationReaction @Inject constructor(
          * seconds away. Kept well under that gap so genuine terminals aren't deferred to the fuse.
          */
         private val EAR_TRANSITION_WINDOW = 2.seconds
+
+        /**
+         * How long to wait on an *uncorroborated cold* terminal (no preceding wind-down HOLD, no ear
+         * change yet) before treating it as a real end. Covers the reverse frame-ordering on
+         * primary-pod removal, where the firmware sends the terminal a few ms BEFORE the ear-detection
+         * frame — too early for the backward-looking check. Only cold terminals settle; a normal end
+         * (`…3,0xB,4,8`) and an abort (`7,8`) are already corroborated by the fuse and resume instantly,
+         * so this adds no latency to genuine conversation ends.
+         */
+        private val STOP_SETTLE_DELAY = 250.milliseconds
     }
 }
