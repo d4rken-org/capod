@@ -12,9 +12,10 @@ package eu.darken.capod.pods.core.apple.aap.protocol
  * - `5` → [RESUME] (speech resumed after a pause; the wind-down was aborted, CA stays engaged). In
  *   bursty speech the pod cycles `3,5,3,5,…`; `5` is NEVER a terminal. Misreading `5` as a stop was
  *   the root cause of the premature-resume bug — see [ConversationReaction].
- * - `8`, `9` → [STOP] (conversation ended → disengage). The terminal is always the `8`→`9` pair.
- *   Pod removal / case-close also emit `8`,`9` (sometimes with no prior `1`,`2`).
- * - any other value (`3` pause, `4` / `0x0B` wind-down, `7` abort, `6`, and anything unrecognised)
+ * - `6`, `8`, `9` → [STOP] (conversation ended → disengage). The usual terminal is the `8`→`9`
+ *   pair; `6` is a standalone terminal seen live on Pro 2 USB-C fw `…6814`. Pod removal / case-close
+ *   also emit `8`,`9` (sometimes with no prior `1`,`2`).
+ * - any other value (`3` pause, `4` / `0x0B` wind-down, `7` abort, and anything unrecognised)
  *   → [HOLD]: a transitional "possible/real wind-down" frame. The real wind-down runs `3→0x0B→4`
  *   then the `8,9` terminal; `7` precedes an aborted terminal. Unknown values are deliberately
  *   classified as HOLD (arm the safety fuse, never resume immediately) rather than guessed at.
@@ -37,7 +38,7 @@ enum class ConversationAwarenessEvent {
     companion object {
         val SPEAKING_STATUSES = setOf(1, 2)
         val RESUME_STATUSES = setOf(5)
-        val STOPPED_STATUSES = setOf(8, 9)
+        val STOPPED_STATUSES = setOf(6, 8, 9)
 
         fun fromStatus(status: Int): ConversationAwarenessEvent = when (status) {
             in SPEAKING_STATUSES -> START
