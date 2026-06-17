@@ -412,6 +412,8 @@ class DefaultAapDeviceProfileTest : BaseAapSessionTest() {
     @Nested
     inner class ConversationAwarenessStateTests {
         @Test fun `speaking start`() { decodeSetting<AapSetting.ConversationalAwarenessState>(aapMessage("04 00 04 00 4B 00 01")).speaking shouldBe true }
+        @Test fun `speaking resume`() { decodeSetting<AapSetting.ConversationalAwarenessState>(aapMessage("04 00 04 00 4B 00 05")).speaking shouldBe true }
+        @Test fun `speaking pause`() { decodeSetting<AapSetting.ConversationalAwarenessState>(aapMessage("04 00 04 00 4B 00 03")).speaking shouldBe false }
         @Test fun `speaking stop`() { decodeSetting<AapSetting.ConversationalAwarenessState>(aapMessage("04 00 04 00 4B 00 04")).speaking shouldBe false }
         @Test fun `empty payload returns null`() { profile.decodeSetting(aapMessage("04 00 04 00 4B 00")).shouldBeNull() }
     }
