@@ -338,9 +338,9 @@ class ConversationReactionTest : BaseTest() {
     @Test
     fun `PAUSE stays paused through frame silence, resumes only on explicit STOP, then re-engages`() =
         runTest(UnconfinedTestDispatcher()) {
-            // Regression for the fw …6861 bug: the pod sends an onset, then NO frames for ~20s while
-            // the wearer keeps talking, then a terminal STOP. The old 12s stale timeout resumed media
-            // mid-speech; the backstop must not, and a fresh talk must re-arm.
+            // The pod sends NO frames during continuous speech (29s silent gaps observed), then a
+            // terminal STOP. The old 12s stale timeout resumed media mid-speech; the long backstop
+            // must not, and a fresh talk must re-arm.
             devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
             val job = launchReaction()
 
@@ -374,6 +374,102 @@ class ConversationReactionTest : BaseTest() {
 
         emit(primaryAddress, ConversationAwarenessEvent.STOP) // 8
         coVerify(exactly = 1) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `RESUME keeps media paused through a bursty conversation, resumes only at the real terminal`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Regression for the fw …6861 status-5 bug. Bursty talking emits 1,2 then 3,5 (pause,
+            // resume) pairs while CA stays engaged, ending with the real wind-down 3,0xB,4,8,9.
+            // Status 5 was misclassified as a terminal STOP, so media resumed on the first burst
+            // pause and — with no fresh 1/2 onset mid-conversation — never paused again. RESUME must
+            // keep media paused until the genuine terminal.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START) // 1
+            emit(primaryAddress, ConversationAwarenessEvent.START) // 2
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3 pause
+            emit(primaryAddress, ConversationAwarenessEvent.RESUME) // 5 resume
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3 pause
+            emit(primaryAddress, ConversationAwarenessEvent.RESUME) // 5 resume
+            coVerify(exactly = 0) { mediaControl.sendPlay() }       // stayed paused through the bursts
+
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 0x0B
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 4
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)   // 8 terminal
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+            job.cancel()
+        }
+
+    @Test
+    fun `RESUME cancels the wind-down fuse`() = runTest(UnconfinedTestDispatcher()) {
+        // A pause (3) arms the short fuse; a resume (5) must cancel it and switch back to the long
+        // backstop — otherwise media resumes ~6s into renewed speech.
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3 — wind-down fuse armed
+        advanceTimeBy(windDownTimeoutMs * 2 / 3)
+        runCurrent()
+        emit(primaryAddress, ConversationAwarenessEvent.RESUME) // 5 — speech resumed, cancel fuse
+        advanceTimeBy(windDownTimeoutMs * 2)                    // well past the original fuse
+        runCurrent()
+
+        coVerify(exactly = 0) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `wind-down after a RESUME still disengages via the fuse (dropped terminal)`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // After a resume re-arms the long backstop, a later genuine wind-down (0xB,4 with the
+            // 8,9 terminal dropped — single-pod) must still disengage via the short fuse. Proves the
+            // RESUME keep-alive doesn't permanently disable #608 recovery.
+            devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3 pause
+            emit(primaryAddress, ConversationAwarenessEvent.RESUME) // 5 resume → long backstop
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3 pause again
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 0x0B wind-down
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 4 — terminal dropped
+            coVerify(exactly = 0) { mediaControl.sendPlay() }
+
+            advanceTimeBy(windDownTimeoutMs + 500)
+            runCurrent()
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+            job.cancel()
+        }
+
+    @Test
+    fun `RESUME without a prior start is a no-op`() = runTest(UnconfinedTestDispatcher()) {
+        devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.RESUME) // stray 5, nothing engaged
+
+        coVerify(exactly = 0) { mediaControl.sendPause(any()) }
+        coVerify(exactly = 0) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `LOWER_VOLUME RESUME keeps the volume ducked`() = runTest(UnconfinedTestDispatcher()) {
+        // Same status-5 bug seen on the default action: it restored volume on the first 3→5 pause.
+        val job = launchReaction() // devicesFlow default = LOWER_VOLUME
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        verify(exactly = 1) { mediaControl.duckMusicVolume(any()) }
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD)   // 3
+        emit(primaryAddress, ConversationAwarenessEvent.RESUME) // 5
+        verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
         job.cancel()
     }
 

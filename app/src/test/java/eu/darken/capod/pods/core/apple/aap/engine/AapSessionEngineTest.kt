@@ -562,21 +562,32 @@ class AapSessionEngineTest : BaseTest() {
         }
 
         @Test
-        fun `terminal statuses 5, 6, 8, 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
-            // 5 is the terminal wind-down value on fw …6861 (never reaches 6/8/9); 6/8/9 on fw …6503.
-            firstEventFor(5) shouldBe ConversationAwarenessEvent.STOP
-            firstEventFor(6) shouldBe ConversationAwarenessEvent.STOP
+        fun `status 5 emits RESUME`() = runTest(UnconfinedTestDispatcher()) {
+            // 5 = speech resumed after a pause (bursty talking cycles 3,5,3,5,…); NOT a terminal.
+            // Labelled captures across Pro 3 + Pro 2 USB-C show 5 only ever inside an active
+            // conversation, never ending one. Misreading it as STOP was the premature-resume bug.
+            firstEventFor(5) shouldBe ConversationAwarenessEvent.RESUME
+        }
+
+        @Test
+        fun `terminal statuses 8 and 9 emit STOP`() = runTest(UnconfinedTestDispatcher()) {
+            // The conversation terminal is always the 8→9 pair (both pods); also emitted by pod
+            // removal / case-close. 6 is never observed as a terminal, so it falls through to HOLD.
             firstEventFor(8) shouldBe ConversationAwarenessEvent.STOP
             firstEventFor(9) shouldBe ConversationAwarenessEvent.STOP
         }
 
         @Test
         fun `transitional and unknown statuses emit HOLD (stay engaged)`() = runTest(UnconfinedTestDispatcher()) {
-            // Must never disengage on these — only an explicit terminal STOP does.
+            // Must never resume immediately on these — they arm the short wind-down fuse instead.
+            // 3 = pause, 0x0B/4 = wind-down, 7 = abort; 6 and any unknown value default to HOLD.
             firstEventFor(3) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(4) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(0x0B) shouldBe ConversationAwarenessEvent.HOLD
             firstEventFor(7) shouldBe ConversationAwarenessEvent.HOLD
+            firstEventFor(6) shouldBe ConversationAwarenessEvent.HOLD
+            firstEventFor(0) shouldBe ConversationAwarenessEvent.HOLD
+            firstEventFor(0xFF) shouldBe ConversationAwarenessEvent.HOLD
         }
     }
 

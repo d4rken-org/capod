@@ -40,17 +40,23 @@ import kotlin.time.Duration.Companion.seconds
  * volume or pausing, per the primary device's [ReactionConfig.conversationAction], and reverts when
  * speaking stops. On Android the pod firmware does not duck audio itself, so CAPod performs it.
  *
- * Disengage is driven by the pod's explicit end-of-speech frame ([ConversationAwarenessEvent.STOP]).
- * The pod sends NO frames during active speech — it stays engaged for as long as it hears nearby
- * voices (observed: CA held engaged 21-32s with zero `0x4B` frames, indefinitely against ambient
- * noise). So frame-silence must NOT be read as "speaking ended"; after a START only the long
- * [STALE_TIMEOUT] backstop applies, and a link drop is handled by the owner-disconnect revert.
+ * Disengage is driven by the pod's explicit end-of-speech frame ([ConversationAwarenessEvent.STOP],
+ * status `8,9`). The pod sends NO frames during active speech — it stays engaged for as long as it
+ * hears nearby voices (observed: CA held engaged 21-32s with zero `0x4B` frames, indefinitely
+ * against ambient noise). So frame-silence must NOT be read as "speaking ended"; after a START only
+ * the long [STALE_TIMEOUT] backstop applies, and a link drop is handled by the owner-disconnect revert.
  *
- * Because the pod is silent while engaged, any non-START frame is evidence the wind-down has begun.
- * The wind-down is a short flurry of transitional ([ConversationAwarenessEvent.HOLD]) and terminal
- * frames — but the terminal is sometimes dropped entirely (fw `…6589` emitted `3,0xB,4` then nothing,
- * stranding the volume low — #608). So a HOLD frame re-arms the timer with the short
- * [WIND_DOWN_TIMEOUT] fuse: if no terminal follows, speech is treated as ended anyway.
+ * A [ConversationAwarenessEvent.HOLD] frame (`3` pause, `0x0B`/`4` wind-down, `7` abort) is evidence
+ * the wind-down may have begun. The real wind-down is a short flurry `3→0x0B→4` then the `8,9`
+ * terminal — but the terminal is sometimes dropped entirely (single-pod wear: fw `…6589`/`…6861`
+ * emitted `3,0xB,4` then nothing, stranding the volume low — #608). So a HOLD frame re-arms the
+ * timer with the short [WIND_DOWN_TIMEOUT] fuse: if no terminal (or resume) follows, speech is
+ * treated as ended anyway.
+ *
+ * A [ConversationAwarenessEvent.RESUME] frame (`5`) means speech resumed after a pause — in bursty
+ * talking the pod cycles `3,5,3,5,…` while CA stays engaged. It is NOT a terminal: it cancels any
+ * armed wind-down fuse and re-arms the long backstop, so media stays paused/ducked through the whole
+ * conversation. (Treating `5` as a stop was the premature-resume + stuck bug.)
  *
  * State is a single global slot (media volume / playback is system-wide, not per-device) guarded by
  * a [Mutex] — events, AAP-state-removal, the stale timer, and monitor completion all mutate it.
@@ -96,6 +102,7 @@ class ConversationReaction @Inject constructor(
 
     private suspend fun onEvent(address: BluetoothAddress, event: ConversationAwarenessEvent) = when (event) {
         ConversationAwarenessEvent.START -> onSpeakingStart(address)
+        ConversationAwarenessEvent.RESUME -> onSpeakingResume(address)
         ConversationAwarenessEvent.HOLD -> onSpeakingHold(address)
         ConversationAwarenessEvent.STOP -> onSpeakingStop(address)
     }
@@ -164,9 +171,24 @@ class ConversationReaction @Inject constructor(
     }
 
     /**
-     * Transitional wind-down frame. The pod is silent during active speech, so this frame means the
-     * wind-down has begun and a terminal frame is imminent — but firmware sometimes drops it (#608).
-     * Arm the short fuse: if no terminal (or fresh START) follows, disengage anyway.
+     * Speech resumed (status `5`) after a pause — the wind-down was aborted, the wearer is talking
+     * again. Cancel any armed wind-down fuse and re-arm the long [STALE_TIMEOUT] backstop, exactly
+     * like a duplicate-START keep-alive, so media stays paused/ducked through the conversation. Does
+     * NOT engage from scratch: a RESUME with no active session is ignored (a conversation always
+     * opens with a START, and a stray `5` should never start a pause/duck on its own).
+     */
+    private suspend fun onSpeakingResume(address: BluetoothAddress) = mutex.withLock {
+        val current = active ?: return
+        if (current.owner != address) return
+        armDisengageTimer(current, STALE_TIMEOUT)
+        log(TAG) { "RESUME from $address — speech resumed, keep-alive" }
+    }
+
+    /**
+     * Transitional wind-down frame (`3` pause, `0x0B`/`4` wind-down, `7` abort). The pod is silent
+     * during active speech, so this frame means the wind-down may have begun and a terminal frame is
+     * imminent — but firmware sometimes drops it (#608, single-pod wear). Arm the short fuse: if no
+     * terminal (or a fresh START / RESUME) follows, disengage anyway.
      */
     private suspend fun onSpeakingHold(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
@@ -258,9 +280,10 @@ class ConversationReaction @Inject constructor(
 
     /**
      * Must be called under [mutex]. (Re)arms the disengage timer for [record] — every frame picks
-     * the fuse matching its meaning: START → [STALE_TIMEOUT] (active speech, frames cease for its
-     * whole duration), HOLD → [WIND_DOWN_TIMEOUT] (wind-down begun, terminal imminent). On expiry
-     * the session is force-ended. Identity-checked so a late timer can't disengage a newer session.
+     * the fuse matching its meaning: START / RESUME → [STALE_TIMEOUT] (active speech, frames cease
+     * for its whole duration), HOLD → [WIND_DOWN_TIMEOUT] (wind-down begun, terminal imminent). On
+     * expiry the session is force-ended. Identity-checked so a late timer can't disengage a newer
+     * session.
      */
     private fun armDisengageTimer(record: Active, timeout: Duration) {
         staleJob?.cancel()
@@ -283,7 +306,7 @@ class ConversationReaction @Inject constructor(
         private val TAG = logTag("Reaction", "Conversation")
 
         /**
-         * Backstop fuse while engaged with no wind-down evidence yet (only START frames seen).
+         * Backstop fuse while engaged with no wind-down evidence yet (START/RESUME frames seen).
          * Must stay LONG: the pod sends zero frames during active speech and stays engaged against
          * ambient noise, so a short timeout here resumes media mid-conversation (the original 12s
          * value did exactly that). Only recovers a session whose entire wind-down flurry was lost
@@ -299,7 +322,7 @@ class ConversationReaction @Inject constructor(
          * pod deterministically drops the terminal (#608, reproduced on Pro 3 and Pro 2) — this
          * fuse disengages instead of stranding the volume low for [STALE_TIMEOUT]. Must be ≥ ~5s:
          * gaps up to 2.8s were observed between consecutive wind-down frames, and each HOLD re-arms
-         * this fuse. A fresh START re-arms the long fuse (speaking resumed).
+         * this fuse. A fresh START or RESUME (`5`, speech resumed) re-arms the long fuse instead.
          */
         private val WIND_DOWN_TIMEOUT = 6.seconds
 
