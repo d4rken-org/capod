@@ -121,7 +121,7 @@ class ConversationReaction @Inject constructor(
             if (current != null && current.owner == address) {
                 // Duplicate START for the same speaker — don't re-act, just keep the session alive.
                 // A START also cancels a pending wind-down fuse: the wearer is speaking again.
-                armDisengageTimer(current, STALE_TIMEOUT)
+                keepAlive(current, STALE_TIMEOUT)
                 log(TAG) { "START from $address — already active ($action), keep-alive" }
                 return
             }
@@ -180,7 +180,7 @@ class ConversationReaction @Inject constructor(
     private suspend fun onSpeakingResume(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
         if (current.owner != address) return
-        armDisengageTimer(current, STALE_TIMEOUT)
+        keepAlive(current, STALE_TIMEOUT)
         log(TAG) { "RESUME from $address — speech resumed, keep-alive" }
     }
 
@@ -193,7 +193,7 @@ class ConversationReaction @Inject constructor(
     private suspend fun onSpeakingHold(address: BluetoothAddress) = mutex.withLock {
         val current = active ?: return
         if (current.owner != address) return
-        armDisengageTimer(current, WIND_DOWN_TIMEOUT)
+        keepAlive(current, WIND_DOWN_TIMEOUT)
     }
 
     private suspend fun onSpeakingStop(address: BluetoothAddress) {
@@ -276,6 +276,20 @@ class ConversationReaction @Inject constructor(
         staleJob?.cancel()
         staleJob = null
         active = null
+    }
+
+    /**
+     * Must be called under [mutex]. Keep-alive for the ongoing session [current]: refresh its
+     * activity timestamp and (re)arm the disengage timer. The timestamp refresh makes
+     * [PAUSE_RESUME_WINDOW] measure "time since the last frame" rather than "since engage" — without
+     * it a conversation longer than the window would fail the resume guard and strand media paused
+     * when its terminal finally arrives. A genuinely back-stopped session (no frames for the whole
+     * [STALE_TIMEOUT]) is unaffected: its timestamp is never refreshed, so it still won't auto-resume.
+     */
+    private fun keepAlive(current: Active, timeout: Duration) {
+        val refreshed = current.copy(at = timeSource.elapsedRealtime())
+        active = refreshed
+        armDisengageTimer(refreshed, timeout)
     }
 
     /**
