@@ -12,6 +12,8 @@ import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
+import eu.darken.capod.pods.core.apple.aap.AapPodState
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.protocol.ConversationAwarenessEvent
 import eu.darken.capod.profiles.core.ReactionConfig
 import kotlinx.coroutines.CoroutineScope
@@ -58,6 +60,12 @@ import kotlin.time.Duration.Companion.seconds
  * armed wind-down fuse and re-arms the long backstop, so media stays paused/ducked through the whole
  * conversation. (Treating `5` as a stop was the premature-resume + stuck bug.)
  *
+ * Removing/inserting a pod makes the firmware re-key CA — it emits a terminal then a fresh onset
+ * around the physical change even though the conversation continues. A terminal arriving within
+ * [EAR_TRANSITION_WINDOW] of an AAP ear-detection change is therefore treated as a re-key artifact:
+ * it defers to the wind-down fuse instead of disengaging, so a brief pod removal mid-conversation
+ * neither strands a pause nor causes a duck→restore→re-duck volume blip.
+ *
  * State is a single global slot (media volume / playback is system-wide, not per-device) guarded by
  * a [Mutex] — events, AAP-state-removal, the stale timer, and monitor completion all mutate it.
  * Volume ducks are additionally reverted on owner-disconnect and monitor completion so a dropped
@@ -89,11 +97,17 @@ class ConversationReaction @Inject constructor(
     private var staleJob: Job? = null
     private var idCounter = 0L
 
+    // Per-owner AAP ear-detection tracking, so a CA terminal that lands right after a pod
+    // removal/insertion can be recognised as a re-key artifact rather than a real conversation end.
+    private val lastEarDetection = mutableMapOf<BluetoothAddress, AapSetting.EarDetection?>()
+    private val earTransitionAt = mutableMapOf<BluetoothAddress, Long>()
+
     fun monitor(): Flow<Unit> = merge(
         aapManager.conversationalAwarenessEvents.onEach { (address, event) -> onEvent(address, event) },
-        // Reverts a stranded duck when the owning device leaves the AAP state map for any reason
-        // (intentional or not) — disconnectEvents only fires for unintentional drops.
-        aapManager.allStates.onEach { states -> onActiveDevicesChanged(states.keys) },
+        // Tracks ear-detection transitions (for terminal-artifact suppression) and reverts a stranded
+        // duck when the owning device leaves the AAP state map for any reason (intentional or not) —
+        // disconnectEvents only fires for unintentional drops.
+        aapManager.allStates.onEach { states -> onStatesUpdated(states) },
     )
         .map { }
         // Service stop / scope cancellation: undo any active duck so we don't leave volume lowered.
@@ -204,6 +218,17 @@ class ConversationReaction @Inject constructor(
                 log(TAG) { "STOP from $address ignored — owner is ${current.owner}" }
                 return
             }
+            // Pulling/inserting a pod makes the firmware tear down and re-key CA — it emits a terminal
+            // (8,9) then a fresh onset (1,2) around the physical change, even though the conversation
+            // is still going. So a terminal that lands right after an ear-detection transition is not
+            // a real end: defer to the short wind-down fuse instead of disengaging. A genuine re-onset
+            // cancels it (no resume/restore churn — fixes the PAUSE strand and the LOWER_VOLUME blip on
+            // removal); if the conversation really ended, the fuse disengages within seconds.
+            if (isRecentEarTransition(address)) {
+                armDisengageTimer(current, WIND_DOWN_TIMEOUT)
+                log(TAG) { "STOP from $address during ear transition — deferring to fuse, not disengaging" }
+                return@withLock
+            }
             clearActive()
             // An explicit terminal frame is positive evidence CA ended now → resume regardless of how
             // long ago we engaged. The age guard is only for inferred (stale-backstop) ends.
@@ -245,9 +270,22 @@ class ConversationReaction @Inject constructor(
         }
     }
 
-    private suspend fun onActiveDevicesChanged(addresses: Set<BluetoothAddress>) = mutex.withLock {
+    private suspend fun onStatesUpdated(states: Map<BluetoothAddress, AapPodState>) = mutex.withLock {
+        // Record when each device's AAP ear-detection last changed (pod removed/inserted/cased).
+        // The very first observation of a device only seeds the baseline — it is not a transition.
+        val now = timeSource.elapsedRealtime()
+        for ((address, state) in states) {
+            val ear = state.aapEarDetection
+            if (lastEarDetection.containsKey(address) && lastEarDetection[address] != ear) {
+                earTransitionAt[address] = now
+            }
+            lastEarDetection[address] = ear
+        }
+        lastEarDetection.keys.retainAll(states.keys)
+        earTransitionAt.keys.retainAll(states.keys)
+
         val current = active ?: return
-        if (current.owner !in addresses) {
+        if (current.owner !in states.keys) {
             clearActive()
             revert(current, "owner ${current.owner} gone")
         }
@@ -310,6 +348,12 @@ class ConversationReaction @Inject constructor(
         }
     }
 
+    /** Must be called under [mutex]. True if [address] had an AAP ear-detection change very recently. */
+    private fun isRecentEarTransition(address: BluetoothAddress): Boolean {
+        val at = earTransitionAt[address] ?: return false
+        return (timeSource.elapsedRealtime() - at).milliseconds <= EAR_TRANSITION_WINDOW
+    }
+
     private fun nextId(): Long = ++idCounter
 
     companion object {
@@ -343,5 +387,13 @@ class ConversationReaction @Inject constructor(
          * resumes regardless of age — those carry real/recent evidence the conversation just ended.
          */
         private val PAUSE_RESUME_WINDOW = 2.minutes
+
+        /**
+         * A CA terminal landing within this window of an AAP ear-detection change is treated as a pod
+         * removal/insertion re-key artifact (firmware emits 8,9 then 1,2 around the physical change),
+         * not a real end. The artifact terminal arrives ~40ms after the ear change; a real end is
+         * seconds away. Kept well under that gap so genuine terminals aren't deferred to the fuse.
+         */
+        private val EAR_TRANSITION_WINDOW = 2.seconds
     }
 }
