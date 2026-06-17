@@ -197,8 +197,11 @@ class DefaultAapDeviceProfile(
                     p[3].toInt() and 0xFF
                 else -> return null
             }
-            // speaking = the "started/active speaking" statuses (1,2); see ConversationAwarenessEvent.
-            val speaking = status in ConversationAwarenessEvent.SPEAKING_STATUSES
+            // speaking = the wearer is currently speaking: onset (1,2) or resumed after a pause (5).
+            // See ConversationAwarenessEvent. (Consumers read rawValue for full classification; this
+            // bool just exposes "is talking now", so a resume must count as speaking too.)
+            val speaking = status in ConversationAwarenessEvent.SPEAKING_STATUSES ||
+                status in ConversationAwarenessEvent.RESUME_STATUSES
             return AapSetting.ConversationalAwarenessState::class to
                 AapSetting.ConversationalAwarenessState(speaking, rawValue = status)
         }

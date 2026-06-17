@@ -103,9 +103,10 @@ sealed class AapSetting {
      * Push-only from device — reports speaking detection state (command 0x4B).
      *
      * [rawValue] is the status byte: the last byte of the 4-byte `02 00 01 XX` form (or the single
-     * byte of the legacy form), preserved so consumers can classify it. [speaking] is `true` only
-     * for the speaking-onset statuses (`1`, `2`); every other value (`0`, `3`, `4`, `5`, `0x0B`, …)
-     * is `false`. START/RESUME/HOLD/STOP classification for the reaction lives in [ConversationAwarenessEvent].
+     * byte of the legacy form), preserved so consumers can classify it. [speaking] is `true` while
+     * the wearer is talking — onset (`1`, `2`) or resumed after a pause (`5`); every other value
+     * (`0`, `3`, `4`, `0x0B`, …) is `false`. START/RESUME/HOLD/STOP classification for the reaction
+     * lives in [ConversationAwarenessEvent].
      */
     data class ConversationalAwarenessState(
         val speaking: Boolean,
