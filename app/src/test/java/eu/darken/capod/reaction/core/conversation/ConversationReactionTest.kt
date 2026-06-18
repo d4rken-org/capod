@@ -105,13 +105,35 @@ class ConversationReactionTest : BaseTest() {
         runCurrent()
     }
 
-    /** Simulates an AAP ear-detection transition (pod removed/inserted) for the primary device. */
-    private fun TestScope.changeEarDetection(primary: AapSetting.EarDetection.PodPlacement, secondary: AapSetting.EarDetection.PodPlacement) {
+    /**
+     * Seeds the AAP ear-detection snapshot WITHOUT draining the collector. Call before [launchReaction]
+     * to establish a realistic worn baseline so the first pull registers as a real in→out transition
+     * (the very first observation only seeds the baseline, it is not counted as a transition).
+     */
+    private fun setEarDetectionSnapshot(primary: AapSetting.EarDetection.PodPlacement, secondary: AapSetting.EarDetection.PodPlacement) {
         statesFlow.value = mapOf(
             primaryAddress to mockk(relaxed = true) {
                 every { aapEarDetection } returns AapSetting.EarDetection(primary, secondary)
             },
         )
+    }
+
+    /** Simulates an AAP ear-detection transition (pod removed/inserted) for the primary device. */
+    private fun TestScope.changeEarDetection(primary: AapSetting.EarDetection.PodPlacement, secondary: AapSetting.EarDetection.PodPlacement) {
+        setEarDetectionSnapshot(primary, secondary)
+        runCurrent()
+    }
+
+    /**
+     * Advances BOTH the coroutine scheduler (drives the delay-based timers: STOP_SETTLE, the wind-down
+     * fuse, the stale backstop) AND the [TestTimeSource] that backs `isRecentEarTransition`'s
+     * `elapsedRealtime()` reads. Advancing only the coroutine clock leaves the recorded ear-transition
+     * age frozen at 0, which makes settle / EAR_TRANSITION_WINDOW assertions pass regardless of the real
+     * durations. The wall clock is advanced first so a timer firing mid-advance sees the full elapsed age.
+     */
+    private fun TestScope.advanceBoth(ms: Long) {
+        timeSource.advanceBy(java.time.Duration.ofMillis(ms))
+        advanceTimeBy(ms)
         runCurrent()
     }
 
@@ -685,26 +707,40 @@ class ConversationReactionTest : BaseTest() {
     @Test
     fun `PAUSE primary-pod removal where the terminal precedes the ear change is caught by the settle`() =
         runTest(UnconfinedTestDispatcher()) {
-            // On primary-pod removal the firmware sends the terminal a few ms BEFORE the 0x06 ear
-            // frame, so the backward-looking check misses it. The settle catches it: the ear change
-            // lands during the settle window, so on expiry the cold terminal is treated as a re-key
-            // artifact (deferred to the fuse), not a resume.
+            // Ground truth (on-device, AirPods Pro 3, primary/left pod): the doubled re-key terminal
+            // (8,9) arrives ~30ms BEFORE the 0x06 ear frame, so the backward-looking check misses it and
+            // onSpeakingStop takes the cold "settling" branch. The ear change then lands DURING the
+            // 250ms settle, and at settle expiry the transition is recent → deferred to the fuse, not a
+            // resume. advanceBoth is required: isRecentEarTransition reads TestTimeSource, so advancing
+            // only coroutine time would freeze the transition age at 0 and pass regardless of durations.
+            setEarDetectionSnapshot(inEar, inEar) // both pods worn baseline
             devicesFlow.value = listOf(mockPodDevice(primaryAddress, ConversationAction.PAUSE))
             val job = launchReaction()
 
             emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.START)
             coVerify(exactly = 1) { mediaControl.sendPause(false) }
 
-            emit(primaryAddress, ConversationAwarenessEvent.STOP) // cold terminal — ear frame not here yet
-            changeEarDetection(outOfEar, inEar)                   // ear change arrives ~ms later, during settle
-            advanceTimeBy(stopSettleMs + 50)                      // settle expires
-            runCurrent()
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // terminal first → cold, settling
+            advanceBoth(30)
+            changeEarDetection(outOfEar, inEar)                   // ear change lands during the settle
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // second terminal frame
+            advanceBoth(stopSettleMs)                             // settle expires; transition is recent
             coVerify(exactly = 0) { mediaControl.sendPlay() }     // deferred to fuse, NOT resumed
 
             emit(primaryAddress, ConversationAwarenessEvent.START) // re-onset on remaining pod
-            advanceTimeBy(windDownTimeoutMs * 2)                   // fuse cancelled by the re-onset
-            runCurrent()
-            coVerify(exactly = 0) { mediaControl.sendPlay() }      // still paused, session alive
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            advanceBoth(windDownTimeoutMs * 2)                    // fuse would fire — re-onset cancelled it
+            coVerify(exactly = 0) { mediaControl.sendPlay() }     // still paused, session alive
+
+            // Genuine end, past EAR_TRANSITION_WINDOW so the terminal is fuse-corroborated (immediate).
+            advanceBoth(2_100)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            coVerify(exactly = 1) { mediaControl.sendPlay() }     // resumes exactly once, only here
             job.cancel()
         }
 
@@ -777,4 +813,50 @@ class ConversationReactionTest : BaseTest() {
         coVerify(exactly = 1) { mediaControl.sendPlay() } // still only once
         job.cancel()
     }
+
+    @Test
+    fun `LOWER_VOLUME secondary-pod removal and reinsert holds the duck, restores only at the real end`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // Ground truth (on-device, AirPods Pro 3, secondary/right pod): the 0x06 ear change lands
+            // ~30ms BEFORE the doubled re-key terminal (8,9), so the backward isRecentEarTransition
+            // check defers each terminal to the fuse; the doubled re-onset (1,2) keeps the session
+            // alive. The duck must be restored only at the genuine wind-down end — never during the
+            // pull or the reinsert (otherwise the immediate re-onset re-ducks → an audible 5→10→5 jump).
+            setEarDetectionSnapshot(inEar, inEar) // both pods worn baseline
+            val job = launchReaction() // default LOWER_VOLUME
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 1) { mediaControl.duckMusicVolume(any()) }
+
+            // Pull: ear-out first, then the doubled terminal, then the doubled re-onset.
+            changeEarDetection(inEar, outOfEar)
+            advanceBoth(30)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+
+            // Reinsert ~1.5s later: same ear-before-terminal ordering.
+            advanceBoth(1_500)
+            changeEarDetection(inEar, inEar)
+            advanceBoth(30)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            verify(exactly = 0) { mediaControl.restoreMusicVolume(any()) }
+
+            // Genuine end, past EAR_TRANSITION_WINDOW so the terminal is fuse-corroborated (immediate).
+            advanceBoth(2_100)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 3
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 0x0B
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD) // 4
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // 8
+            emit(primaryAddress, ConversationAwarenessEvent.STOP) // 9
+            verify(exactly = 1) { mediaControl.restoreMusicVolume(any()) } // restored exactly once, here
+            verify(exactly = 1) { mediaControl.duckMusicVolume(any()) }    // engaged exactly once total
+            job.cancel()
+        }
 }

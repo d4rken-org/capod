@@ -108,7 +108,11 @@ class ConversationReaction @Inject constructor(
     private var disengageJob: Job? = null
     private var timerPhase: TimerPhase? = null
     // Bumped on every (re)arm. A timer job captures its generation and only acts if still current —
-    // guards against a stale job that already passed its delay being re-armed to the SAME phase.
+    // guards against a stale job that already passed its delay (so cancel() no longer stops it) being
+    // re-armed to the SAME phase while it blocks on the mutex. This is a runtime concurrency guard: the
+    // single-threaded virtual-time test harness serializes the timer callback and event handlers, so a
+    // re-arm there always cancels the prior job before it runs — the race is not reproducible in a unit
+    // test (a test would exercise cancel(), not this check). Left deliberately uncovered, not an oversight.
     private var timerGeneration = 0L
     private var idCounter = 0L
 
@@ -255,8 +259,9 @@ class ConversationReaction @Inject constructor(
                     disengage(current, primary, "STOP on $address", applyAgeGuard = false)
                 }
                 // Cold terminal with no wind-down and no ear change yet. On primary-pod removal the
-                // firmware sends the terminal a few ms BEFORE the ear-detection frame, so wait a short
-                // settle to see if an ear change lands before treating it as a real end.
+                // firmware sends the terminal tens of ms BEFORE the ear-detection frame (measured ~30ms
+                // on Pro 3), so wait a short settle to see if an ear change lands before treating it as
+                // a real end.
                 else -> {
                     armTimer(current, TimerPhase.STOP_SETTLE)
                     log(TAG) { "STOP from $address — uncorroborated, settling" }
@@ -463,16 +468,20 @@ class ConversationReaction @Inject constructor(
         /**
          * A CA terminal landing within this window of an AAP ear-detection change is treated as a pod
          * removal/insertion re-key artifact (firmware emits 8,9 then 1,2 around the physical change),
-         * not a real end. The artifact terminal arrives ~40ms after the ear change; a real end is
-         * seconds away. Kept well under that gap so genuine terminals aren't deferred to the fuse.
+         * not a real end. The artifact terminal and the ear change land within tens of ms of each other
+         * (measured ~30ms on Pro 3, either side depending on which pod); a real end is seconds away.
+         * Kept well under that gap so genuine terminals aren't deferred to the fuse. (The ear-detection
+         * 0x06 frames are emitted on removal even when the EarDetectionEnabled setting is off, so this
+         * suppression does not depend on that setting being enabled.)
          */
         private val EAR_TRANSITION_WINDOW = 2.seconds
 
         /**
          * How long to wait on an *uncorroborated cold* terminal (no preceding wind-down HOLD, no ear
          * change yet) before treating it as a real end. Covers the reverse frame-ordering on
-         * primary-pod removal, where the firmware sends the terminal a few ms BEFORE the ear-detection
-         * frame — too early for the backward-looking check. Only cold terminals settle; a normal end
+         * primary-pod removal, where the firmware sends the terminal tens of ms BEFORE the ear-detection
+         * frame (measured ~30ms on Pro 3) — too early for the backward-looking check. Only cold
+         * terminals settle; a normal end
          * (`…3,0xB,4,8`) and an abort (`7,8`) are already corroborated by the fuse and resume instantly,
          * so this adds no latency to genuine conversation ends.
          */
