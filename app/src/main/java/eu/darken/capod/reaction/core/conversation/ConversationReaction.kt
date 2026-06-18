@@ -284,7 +284,7 @@ class ConversationReaction @Inject constructor(
                         log(TAG) { "$reason — resume skipped (stale, ${age}ms)" }
                     primary?.address != record.owner ->
                         log(TAG) { "$reason — resume skipped (primary switched)" }
-                    primary.isBeingWorn == false ->
+                    wornForResume(primary) == false ->
                         log(TAG) { "$reason — resume skipped (not worn)" }
                     mediaControl.isPlaying ->
                         log(TAG) { "$reason — resume skipped (already playing)" }
@@ -408,6 +408,17 @@ class ConversationReaction @Inject constructor(
         }
         disengage(record, primary, reason, applyAgeGuard = phase == TimerPhase.STALE_BACKSTOP)
     }
+
+    /**
+     * Whether the pod is worn enough to resume into, honoring One-Pod Mode (mirrors
+     * [eu.darken.capod.reaction.core.autoconnect.AutoConnect]): with One-Pod Mode on, a single pod
+     * in ear counts as worn, falling back to the both-pods reading only when the single-pod signal is
+     * unknown. Returns `null` when ear state is genuinely unknown — the caller treats only an explicit
+     * `false` as not-worn, so an unknown stays lenient (resumes).
+     */
+    private fun wornForResume(device: PodDevice): Boolean? =
+        if (device.reactions.onePodMode) device.isEitherPodInEar ?: device.isBeingWorn
+        else device.isBeingWorn
 
     /** Must be called under [mutex]. True if [address] had an AAP ear-detection change very recently. */
     private fun isRecentEarTransition(address: BluetoothAddress): Boolean {

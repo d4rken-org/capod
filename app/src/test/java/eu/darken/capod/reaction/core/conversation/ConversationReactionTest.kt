@@ -56,14 +56,18 @@ class ConversationReactionTest : BaseTest() {
         action: ConversationAction,
         reduction: Int = 50,
         worn: Boolean = true,
+        onePodMode: Boolean = false,
+        eitherInEar: Boolean? = worn,
     ): PodDevice = mockk(relaxed = true) {
         every { profileId } returns address
         every { this@mockk.address } returns address
         every { reactions } returns ReactionConfig(
             conversationAction = action,
             conversationVolumeReduction = reduction,
+            onePodMode = onePodMode,
         )
         every { isBeingWorn } returns worn
+        every { isEitherPodInEar } returns eitherInEar
     }
 
     @BeforeEach
@@ -285,6 +289,81 @@ class ConversationReactionTest : BaseTest() {
         coVerify(exactly = 0) { mediaControl.sendPlay() }
         job.cancel()
     }
+
+    @Test
+    fun `PAUSE one-pod mode resumes via wind-down fuse when the single worn pod drops the terminal`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // #608 single-pod wear: both-pods isBeingWorn is false, but One-Pod Mode means the single
+            // in-ear pod counts as worn, so the fuse-driven resume must fire. Was skipped as "not worn"
+            // because the guard read isBeingWorn (both pods) instead of honoring One-Pod Mode.
+            devicesFlow.value = listOf(
+                mockPodDevice(
+                    primaryAddress,
+                    ConversationAction.PAUSE,
+                    worn = false,
+                    onePodMode = true,
+                    eitherInEar = true,
+                ),
+            )
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            coVerify(exactly = 1) { mediaControl.sendPause(false) }
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD) // wind-down begins, terminal dropped
+
+            advanceTimeBy(windDownTimeoutMs + 500)
+            runCurrent()
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+            job.cancel()
+        }
+
+    @Test
+    fun `PAUSE one-pod mode stays paused via fuse when no pod is worn`() = runTest(UnconfinedTestDispatcher()) {
+        // One-Pod Mode on, but neither pod in ear (both isBeingWorn and isEitherPodInEar false) — the
+        // single-pod leniency must NOT resume into pods that are out.
+        devicesFlow.value = listOf(
+            mockPodDevice(
+                primaryAddress,
+                ConversationAction.PAUSE,
+                worn = false,
+                onePodMode = true,
+                eitherInEar = false,
+            ),
+        )
+        val job = launchReaction()
+
+        emit(primaryAddress, ConversationAwarenessEvent.START)
+        emit(primaryAddress, ConversationAwarenessEvent.HOLD)
+        advanceTimeBy(windDownTimeoutMs + 500)
+        runCurrent()
+
+        coVerify(exactly = 0) { mediaControl.sendPlay() }
+        job.cancel()
+    }
+
+    @Test
+    fun `PAUSE one-pod mode resumes on terminal after wind-down with a single worn pod`() =
+        runTest(UnconfinedTestDispatcher()) {
+            // The timerPhase==WIND_DOWN_FUSE branch disengages immediately on the explicit terminal
+            // (no STOP_SETTLE). Verify the One-Pod Mode worn check applies on that shared path too.
+            devicesFlow.value = listOf(
+                mockPodDevice(
+                    primaryAddress,
+                    ConversationAction.PAUSE,
+                    worn = false,
+                    onePodMode = true,
+                    eitherInEar = true,
+                ),
+            )
+            val job = launchReaction()
+
+            emit(primaryAddress, ConversationAwarenessEvent.START)
+            emit(primaryAddress, ConversationAwarenessEvent.HOLD) // wind-down → fuse armed
+            emit(primaryAddress, ConversationAwarenessEvent.STOP)  // real terminal → immediate disengage
+            runCurrent()
+            coVerify(exactly = 1) { mediaControl.sendPlay() }
+            job.cancel()
+        }
 
     @Test
     fun `PAUSE stop does not resume when something is already playing`() = runTest(UnconfinedTestDispatcher()) {
