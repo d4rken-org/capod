@@ -26,8 +26,14 @@ class MonitorModeResolver @Inject constructor(
         profilesRepo.profiles,
         nudgeCapabilityStore.availability,
     ) { profiles, nudge ->
-        val primary = profiles.firstOrNull() ?: return@combine MonitorMode.MANUAL
-        primary.requiredMode(nudge)
+        // The mode is driven by the first *addressed* profile, not just the first profile. An
+        // address-less profile can neither host an AAP session (AapAutoConnect requires an address)
+        // nor auto-connect, so it can only ever resolve to MANUAL. Letting such a profile sit at the
+        // top of the list and force MANUAL would silently stop the foreground service that keeps the
+        // process — and thus background AAP/stem controls — alive for an addressed profile below it.
+        // No addressed profile at all => genuinely nothing to monitor => MANUAL.
+        profiles.firstOrNull { !it.address.isNullOrBlank() }?.requiredMode(nudge)
+            ?: MonitorMode.MANUAL
     }
         .distinctUntilChanged()
         .onEach { log(TAG, VERBOSE) { "effectiveMode = $it" } }
