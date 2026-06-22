@@ -100,7 +100,7 @@ class MonitorModeResolverTest : BaseTest() {
     }
 
     @Test
-    fun `multi-profile primary-only - primary case 2 + secondary case 3 - AUTOMATIC`() = runTest {
+    fun `first addressed profile controls mode - addressed primary case 2 + addressed secondary case 3 - AUTOMATIC`() = runTest {
         profilesFlow.value = listOf(
             profile(id = "primary", autoConnect = false),
             profile(id = "secondary", autoConnect = true),
@@ -111,25 +111,59 @@ class MonitorModeResolverTest : BaseTest() {
     }
 
     @Test
-    fun `multi-profile primary-only - primary case 4 + secondary case 2 - MANUAL`() = runTest {
+    fun `unpaired primary is skipped when an addressed secondary exists - AUTOMATIC`() = runTest {
         profilesFlow.value = listOf(
             profile(id = "primary", address = null),
             profile(id = "secondary", address = "AA:BB:CC:DD:EE:FF"),
         )
 
+        resolver.effectiveMode.first() shouldBe MonitorMode.AUTOMATIC
+    }
+
+    @Test
+    fun `unpaired primary is skipped - addressed autoConnect secondary drives ALWAYS`() = runTest {
+        profilesFlow.value = listOf(
+            profile(id = "primary", address = null),
+            profile(id = "secondary", address = "AA:BB:CC:DD:EE:FF", autoConnect = true),
+        )
+        nudgeFlow.value = NudgeAvailability.AVAILABLE
+
+        resolver.effectiveMode.first() shouldBe MonitorMode.ALWAYS
+    }
+
+    @Test
+    fun `blank-address primary is skipped when an addressed secondary exists`() = runTest {
+        profilesFlow.value = listOf(
+            profile(id = "primary", address = "   "),
+            profile(id = "secondary", address = "AA:BB:CC:DD:EE:FF", autoConnect = true),
+        )
+        nudgeFlow.value = NudgeAvailability.AVAILABLE
+
+        resolver.effectiveMode.first() shouldBe MonitorMode.ALWAYS
+    }
+
+    @Test
+    fun `all profiles unpaired - MANUAL`() = runTest {
+        profilesFlow.value = listOf(
+            profile(id = "a", address = null, autoConnect = true),
+            profile(id = "b", address = "", autoConnect = true),
+        )
+        nudgeFlow.value = NudgeAvailability.AVAILABLE
+
         resolver.effectiveMode.first() shouldBe MonitorMode.MANUAL
     }
 
     @Test
-    fun `list reorder makes the secondary primary - mode flips`() = runTest {
-        val a = profile(id = "a", autoConnect = true)
-        val b = profile(id = "b", autoConnect = false)
+    fun `reorder among addressed profiles still flips the mode, unpaired stays ignored`() = runTest {
+        val unpaired = profile(id = "unpaired", address = null)
+        val addressedAuto = profile(id = "addressedAuto", autoConnect = true)
+        val addressedManual = profile(id = "addressedManual", autoConnect = false)
         nudgeFlow.value = NudgeAvailability.AVAILABLE
 
-        profilesFlow.value = listOf(a, b)
+        profilesFlow.value = listOf(unpaired, addressedAuto, addressedManual)
         resolver.effectiveMode.first() shouldBe MonitorMode.ALWAYS
 
-        profilesFlow.value = listOf(b, a)
+        profilesFlow.value = listOf(unpaired, addressedManual, addressedAuto)
         resolver.effectiveMode.first() shouldBe MonitorMode.AUTOMATIC
     }
 
