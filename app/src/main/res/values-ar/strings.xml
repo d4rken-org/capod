@@ -6,10 +6,10 @@
     <string name="general_copy_action">نسخ</string>
     <string name="general_thank_you_label">شكرًا لك</string>
     <string name="general_upgrade_action">ترقية</string>
-    <string name="common_feature_requires_pro_msg">رقّي للفتح.</string>
-    <string name="common_upgrade_required_label">يتطلب الترقية</string>
-    <string name="general_donate_action">تبرع</string>
-    <string name="general_check_action">تحقق</string>
+    <string name="common_feature_requires_pro_msg">رقِّ للفتح.</string>
+    <string name="common_upgrade_required_label">يتطلب ترقية</string>
+    <string name="general_donate_action">تبرُّع</string>
+    <string name="general_check_action">فحص</string>
     <string name="general_close_action">إغلاق</string>
     <string name="general_edit_action">تعديل</string>
     <string name="general_save_action">حفظ</string>

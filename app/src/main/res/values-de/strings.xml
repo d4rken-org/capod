@@ -480,7 +480,7 @@
     <!-- New device settings -->
     <string name="device_settings_category_general_label">Allgemein</string>
     <string name="device_settings_microphone_mode_label">Mikrofon</string>
-    <string name="device_settings_microphone_mode_description">Welches Ohrstöpsel als Mikrofon verwendet wird</string>
+    <string name="device_settings_microphone_mode_description">Welcher Ohrstöpsel als Mikrofon verwendet wird</string>
     <string name="device_settings_microphone_mode_auto">Automatisch</string>
     <string name="device_settings_microphone_mode_right">Rechts</string>
     <string name="device_settings_microphone_mode_left">Links</string>
