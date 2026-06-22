@@ -514,8 +514,8 @@
     <string name="reaction_sleep_notification_text">%1$s oznámil, že jste usnuli, takže vaše hudba byla pozastavena. Toto můžete vypnout v nastavení zařízení.</string>
     <string name="reaction_charged_channel_label">Oznámení o nabití</string>
     <string name="reaction_charged_notification_title">Nabíjení dokončeno</string>
-    <string name="reaction_charged_notification_text_full">%1$s je plně nabitý.</string>
-    <string name="reaction_charged_notification_text_partial">%1$s byl nabit na %2$d%%.</string>
+    <string name="reaction_charged_notification_text_full">%1$s je plně nabito.</string>
+    <string name="reaction_charged_notification_text_partial">%1$s nabito na %2$d%%.</string>
     <string name="device_settings_rename_label">Přejmenovat</string>
     <string name="device_settings_rename_hint">Název zařízení</string>
     <string name="device_settings_rename_confirm">Přejmenovat</string>
