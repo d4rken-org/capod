@@ -11,7 +11,6 @@ import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.common.flow.withPrevious
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
-import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
@@ -35,7 +34,7 @@ class PopUpReaction @Inject constructor(
 
     private val caseCoolDowns = java.util.concurrent.ConcurrentHashMap<String, Instant>()
 
-    private fun monitorCase(): Flow<Event> = deviceMonitor.primaryDevice()
+    private fun monitorCase(): Flow<Event> = deviceMonitor.primaryDeviceByTier
         .distinctUntilChangedBy {
             // Re-emit on profile changes (eligibility), raw BLE changes (content), AND the derived
             // lid state. The latter is essential: caseLidState is recovered from history, so it can
@@ -122,7 +121,7 @@ class PopUpReaction @Inject constructor(
 
     private fun monitorConnection(): Flow<Event> = combine(
         bluetoothManager.connectedDevices,
-        deviceMonitor.primaryDevice().distinctUntilChangedBy {
+        deviceMonitor.primaryDeviceByTier.distinctUntilChangedBy {
             Triple(it?.profileId, it?.reactions?.showPopUpOnConnection, it?.rawDataHex)
         },
     ) { devices, broadcast ->
@@ -208,7 +207,7 @@ class PopUpReaction @Inject constructor(
      * handles the normal close; a redundant Hide here is harmless ([PopUpWindow.close] is idempotent).
      */
     private fun monitorCaseStaleClose(): Flow<Event> = combine(
-        deviceMonitor.primaryDevice(),
+        deviceMonitor.primaryDeviceByTier,
         staleCheckTicker(),
     ) { device, _ -> isCaseOpenBroadcastFresh(device) }
         .distinctUntilChanged()

@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core
 
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.bluetooth.BluetoothAddress
+import eu.darken.capod.common.bluetooth.BluetoothDevice2
 import eu.darken.capod.common.bluetooth.BluetoothManager2
 import eu.darken.capod.common.debug.Bugs
 import eu.darken.capod.common.debug.autoreport.AutomaticBugReporter
@@ -139,6 +140,7 @@ class DeviceMonitorTest : BaseTest() {
         aap: Map<BluetoothAddress, AapPodState> = emptyMap(),
         cache: Map<String, CachedDeviceState> = emptyMap(),
         profiles: List<DeviceProfile> = emptyList(),
+        connected: List<BluetoothAddress> = emptyList(),
         scope: CoroutineScope,
     ): DeviceMonitor {
         val blePodMonitor: BlePodMonitor = mockk {
@@ -158,7 +160,9 @@ class DeviceMonitorTest : BaseTest() {
         }
         val aapLifecycleManager: AapLifecycleManager = mockk(relaxed = true)
         val bluetoothManager: BluetoothManager2 = mockk {
-            every { connectedDevices } returns MutableStateFlow(emptyList())
+            every { connectedDevices } returns MutableStateFlow(
+                connected.map { addr -> mockk<BluetoothDevice2>(relaxed = true) { every { address } returns addr } },
+            )
         }
 
         return DeviceMonitor(
@@ -191,6 +195,51 @@ class DeviceMonitorTest : BaseTest() {
         device.isAapConnected shouldBe true
         device.isAapReady shouldBe true
     }
+
+    /**
+     * primaryDeviceByTier must follow the worn/connected pod, not profile-list order. Both profiles
+     * are live (so [DeviceMonitor.devices] lists them in profile order, first-profile-first), but
+     * only the second profile is system-connected. The old order-only selector would pick the first
+     * profile; the tier-ranked selector must pick the system-connected second profile.
+     * Regression for the persistent notification + case popup showing a stale, out-of-range device.
+     */
+    @Test
+    fun `primaryDeviceByTier prefers system-connected device over earlier-listed profile`() =
+        runTest(testDispatcher) {
+            val firstProfile = AppleDeviceProfile(
+                label = "First (out of range)",
+                model = PodModel.AIRPODS_MAX,
+                address = "AA:AA:AA:AA:AA:AA",
+            )
+            val secondProfile = AppleDeviceProfile(
+                label = "Second (worn)",
+                model = PodModel.AIRPODS_PRO2_USBC,
+                address = "BB:BB:BB:BB:BB:BB",
+            )
+            val monitor = createMonitor(
+                ble = listOf(
+                    mockLiveDualBlePodWithProfile(firstProfile),
+                    mockLiveDualBlePodWithProfile(secondProfile),
+                ),
+                profiles = listOf(firstProfile, secondProfile),
+                connected = listOf(secondProfile.address!!),
+                scope = backgroundScope,
+            )
+
+            // Sanity: order-only selection would yield the first profile.
+            monitor.devices.first().first().profileId shouldBe firstProfile.id
+
+            // Collect the settled emission: connectedDevices starts with an onStart empty list, so
+            // the first combined value sees no system-connected device. Read the last value once the
+            // real connected set has propagated.
+            var primary: PodDevice? = null
+            val job = backgroundScope.launch { monitor.primaryDeviceByTier.collect { primary = it } }
+            advanceUntilIdle()
+            job.cancel()
+
+            // Tier-ranked selection follows the system-connected (worn) profile instead.
+            primary?.profileId shouldBe secondProfile.id
+        }
 
     /**
      * Regression test for https://github.com/d4rken-org/capod/issues/483 — settings disappeared
