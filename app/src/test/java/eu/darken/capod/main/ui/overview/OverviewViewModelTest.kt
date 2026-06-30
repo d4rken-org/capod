@@ -12,6 +12,8 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.core.AppleDeviceProfile
@@ -56,6 +58,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
     private lateinit var monitorModeResolver: MonitorModeResolver
+    private lateinit var batteryEstimator: BatteryEstimator
     private val timeSource: TimeSource = TestTimeSource()
 
     private lateinit var missingPermissionsFlow: MutableStateFlow<Set<Permission>>
@@ -68,6 +71,7 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
     private lateinit var fakeHideUnmatchedDevices: FakeDataStoreValue<Boolean>
+    private lateinit var fakeBatteryEstimateEnabled: FakeDataStoreValue<Boolean>
 
     @BeforeEach
     fun setup() {
@@ -83,6 +87,7 @@ class OverviewViewModelTest : BaseTest() {
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
         fakeHideUnmatchedDevices = FakeDataStoreValue(false)
+        fakeBatteryEstimateEnabled = FakeDataStoreValue(true)
         Bugs.isDebug.value = false
 
         monitorControl = mockk(relaxed = true)
@@ -101,6 +106,11 @@ class OverviewViewModelTest : BaseTest() {
         generalSettings = mockk<GeneralSettings>().also {
             every { it.reactionsHintDismissed } returns fakeReactionsHintDismissed.mock
             every { it.hideUnmatchedDevices } returns fakeHideUnmatchedDevices.mock
+            every { it.batteryEstimateEnabled } returns fakeBatteryEstimateEnabled.mock
+        }
+
+        batteryEstimator = mockk<BatteryEstimator>().also {
+            every { it.estimates } returns MutableStateFlow(emptyMap<String, BatteryEstimate>())
         }
 
         monitorModeResolver = mockk<MonitorModeResolver>().also {
@@ -139,6 +149,7 @@ class OverviewViewModelTest : BaseTest() {
         profilesRepo = profilesRepo,
         aapManager = mockk(relaxed = true),
         monitorModeResolver = monitorModeResolver,
+        batteryEstimator = batteryEstimator,
         timeSource = timeSource,
     )
 

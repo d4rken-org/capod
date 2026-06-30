@@ -23,6 +23,8 @@ import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.tierRank
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -59,6 +61,7 @@ class OverviewViewModel @Inject constructor(
     private val profilesRepo: DeviceProfilesRepo,
     private val aapManager: AapConnectionManager,
     private val monitorModeResolver: MonitorModeResolver,
+    private val batteryEstimator: BatteryEstimator,
     private val timeSource: TimeSource,
 ) : ViewModel4(dispatcherProvider) {
 
@@ -85,6 +88,8 @@ class OverviewViewModel @Inject constructor(
         val reactionsHintDismissed: Boolean,
         val hideUnmatchedDevices: Boolean,
         val showTroubleshootSuggestion: Boolean,
+        val batteryEstimateEnabled: Boolean,
+        val batteryEstimates: Map<String, BatteryEstimate>,
     )
 
     /**
@@ -120,8 +125,16 @@ class OverviewViewModel @Inject constructor(
         generalSettings.reactionsHintDismissed.flow,
         generalSettings.hideUnmatchedDevices.flow,
         troubleshootSuggestion,
-    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion ->
-        OverviewUiSettings(reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion)
+        generalSettings.batteryEstimateEnabled.flow,
+        batteryEstimator.estimates,
+    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimateEnabled, batteryEstimates ->
+        OverviewUiSettings(
+            reactionsHintDismissed = reactionsHintDismissed,
+            hideUnmatchedDevices = hideUnmatched,
+            showTroubleshootSuggestion = showTroubleshootSuggestion,
+            batteryEstimateEnabled = batteryEstimateEnabled,
+            batteryEstimates = batteryEstimates,
+        )
     }
 
     init {
@@ -210,6 +223,8 @@ class OverviewViewModel @Inject constructor(
             showReactionsHint = hadLegacyReactionData && !uiSettings.reactionsHintDismissed,
             hideUnmatchedDevices = uiSettings.hideUnmatchedDevices,
             showTroubleshootSuggestion = uiSettings.showTroubleshootSuggestion,
+            batteryEstimateEnabled = uiSettings.batteryEstimateEnabled,
+            batteryEstimates = uiSettings.batteryEstimates,
         )
     }.asLiveState()
 
@@ -228,8 +243,21 @@ class OverviewViewModel @Inject constructor(
         val showReactionsHint: Boolean = false,
         val hideUnmatchedDevices: Boolean = false,
         val showTroubleshootSuggestion: Boolean = false,
+        val batteryEstimateEnabled: Boolean = true,
+        val batteryEstimates: Map<String, BatteryEstimate> = emptyMap(),
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
+
+        /**
+         * Time-remaining estimate to show for [device], or null when the user disabled the feature,
+         * the device isn't live (no estimate for cached/offline cards), or no rate has been learned.
+         */
+        fun estimateFor(device: PodDevice): BatteryEstimate? {
+            if (!batteryEstimateEnabled) return null
+            if (!device.isLive) return null
+            val profileId = device.profileId ?: return null
+            return batteryEstimates[profileId]
+        }
 
         /** Profile list order used as tiebreaker within each connection tier. */
         private val profileOrder: Map<String, Int> by lazy {

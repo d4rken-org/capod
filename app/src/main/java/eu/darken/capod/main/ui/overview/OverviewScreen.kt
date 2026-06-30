@@ -65,6 +65,7 @@ import eu.darken.capod.main.ui.overview.cards.TroubleshootSuggestionCard
 import eu.darken.capod.main.ui.overview.cards.UnknownPodDeviceCard
 import eu.darken.capod.main.ui.overview.cards.UnmatchedDevicesCard
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import java.time.Instant
@@ -333,6 +334,7 @@ fun OverviewScreen(
                         showDebug = state.isDebug,
                         now = state.now,
                         isCollapsed = isCollapsed,
+                        batteryEstimate = state.estimateFor(device),
                         onToggleCollapse = if (isToggleable) {
                             { onToggleDeviceExpansion(device) }
                         } else null,
@@ -407,6 +409,7 @@ private fun PodDeviceCard(
     showDebug: Boolean,
     now: Instant,
     isCollapsed: Boolean = false,
+    batteryEstimate: BatteryEstimate? = null,
     onToggleCollapse: (() -> Unit)? = null,
     onAncModeChange: (AapSetting.AncMode.Value) -> Unit,
     onUpgrade: () -> Unit,
@@ -417,6 +420,7 @@ private fun PodDeviceCard(
         device.hasDualPods -> DualPodsCard(
             device = device, isPro = isPro, showDebug = showDebug, now = now,
             isCollapsed = isCollapsed,
+            batteryEstimate = batteryEstimate,
             onToggleCollapse = onToggleCollapse,
             onAncModeChange = onAncModeChange,
             onUpgrade = onUpgrade,
@@ -426,6 +430,7 @@ private fun PodDeviceCard(
         device.model != PodModel.UNKNOWN -> SinglePodsCard(
             device = device, isPro = isPro, showDebug = showDebug, now = now,
             isCollapsed = isCollapsed,
+            batteryEstimate = batteryEstimate,
             onToggleCollapse = onToggleCollapse,
             onAncModeChange = onAncModeChange,
             onUpgrade = onUpgrade,
@@ -444,7 +449,7 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             now = SystemTimeSource.now(),
             permissions = emptySet(),
             devices = listOf(
-                MockPodDataProvider.dualPodMonitoredMixed(),
+                MockPodDataProvider.dualPodFullyLoaded(),
                 MockPodDataProvider.singlePodMonitored(),
                 MockPodDataProvider.unknownMonitored(),
             ),
@@ -457,6 +462,16 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             upgradeInfo = MockPodDataProvider.fossInfo(),
             showUnmatchedDevices = false,
             showReactionsHint = true,
+            userExpandedIds = setOf("preview-single"),
+            batteryEstimates = mapOf(
+                "preview-dual-full" to BatteryEstimate(
+                    left = BatteryEstimate.Pod(minutesRemaining = 135, fractionPerHour = 0.18f, isLearned = false),
+                    right = BatteryEstimate.Pod(minutesRemaining = 122, fractionPerHour = 0.20f, isLearned = false),
+                ),
+                "preview-single" to BatteryEstimate(
+                    headset = BatteryEstimate.Pod(minutesRemaining = 320, fractionPerHour = 0.09f, isLearned = true),
+                ),
+            ),
         ),
         onRequestPermission = {},
         onBluetoothSettings = {},

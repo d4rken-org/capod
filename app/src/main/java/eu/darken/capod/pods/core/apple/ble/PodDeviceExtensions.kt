@@ -30,6 +30,17 @@ fun formatBatteryPercent(context: Context, percent: Float): String =
     if (isKnownBattery(percent)) "${(percent * 100).roundToInt()}%"
     else context.getString(R.string.general_value_not_available_label)
 
+/** Formats an earbud time-remaining estimate as a compact duration, e.g. "2h 15m" / "5h" / "45m". */
+fun formatBatteryDurationShort(context: Context, minutes: Int): String {
+    val hours = minutes / 60
+    val mins = minutes % 60
+    return when {
+        hours > 0 && mins > 0 -> context.getString(R.string.battery_time_remaining_format_hm, hours, mins)
+        hours > 0 -> context.getString(R.string.battery_time_remaining_format_h, hours)
+        else -> context.getString(R.string.battery_time_remaining_format_m, mins)
+    }
+}
+
 @DrawableRes
 fun getBatteryDrawable(percent: Float): Int = when {
     !isKnownBattery(percent) -> R.drawable.ic_baseline_battery_unknown_24
