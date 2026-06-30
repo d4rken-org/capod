@@ -60,12 +60,14 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods.LidState
 import eu.darken.capod.pods.core.apple.ble.devices.HasPodStyle
+import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import java.time.Instant
 
@@ -76,6 +78,7 @@ fun DualPodsCard(
     showDebug: Boolean,
     now: Instant,
     isCollapsed: Boolean = false,
+    batteryEstimate: BatteryEstimate? = null,
     onToggleCollapse: (() -> Unit)? = null,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
     onUpgrade: (() -> Unit)? = null,
@@ -192,6 +195,7 @@ fun DualPodsCard(
                     device = device,
                     showDebug = showDebug,
                     now = now,
+                    batteryEstimate = batteryEstimate,
                     onAncModeChange = onAncModeChange,
                 )
             }
@@ -204,8 +208,10 @@ private fun ColumnScope.DualPodsCardExpanded(
     device: PodDevice,
     showDebug: Boolean,
     now: Instant,
+    batteryEstimate: BatteryEstimate?,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)?,
 ) {
+    val context = LocalContext.current
     Spacer(modifier = Modifier.height(16.dp))
 
     // Circular battery gauges side by side
@@ -233,6 +239,7 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isLeftPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
+                    timeRemaining = batteryEstimate?.left?.let { formatBatteryDurationShort(context, it.minutesRemaining) },
                 )
 
                 PodGauge(
@@ -245,6 +252,7 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isRightPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
+                    timeRemaining = batteryEstimate?.right?.let { formatBatteryDurationShort(context, it.minutesRemaining) },
                 )
             }
 
@@ -299,6 +307,7 @@ private fun PodGauge(
     isMicrophone: Boolean,
     showMicrophone: Boolean,
     modifier: Modifier = Modifier,
+    timeRemaining: String? = null,
 ) {
     val context = LocalContext.current
     val clamped = if (batteryPercent >= 0f) batteryPercent.coerceIn(0f, 1f) else -1f
@@ -356,16 +365,27 @@ private fun PodGauge(
 
         Spacer(modifier = Modifier.height(6.dp))
 
-        // Battery percentage
-        Text(
-            text = formatBatteryPercent(context, batteryPercent),
-            style = MaterialTheme.typography.titleMedium,
-            color = if (batteryPercent >= 0f) {
-                MaterialTheme.colorScheme.onSurface
-            } else {
-                MaterialTheme.colorScheme.onSurfaceVariant
-            },
-        )
+        // Battery percentage, with the time-remaining estimate inline next to it
+        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(
+                text = formatBatteryPercent(context, batteryPercent),
+                style = MaterialTheme.typography.titleMedium,
+                color = if (batteryPercent >= 0f) {
+                    MaterialTheme.colorScheme.onSurface
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
+                modifier = Modifier.alignByBaseline(),
+            )
+            if (timeRemaining != null) {
+                Text(
+                    text = "· $timeRemaining",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.alignByBaseline(),
+                )
+            }
+        }
 
         Spacer(modifier = Modifier.height(4.dp))
 
@@ -454,10 +474,32 @@ private fun CaseRow(
 @Composable
 private fun DualPodsCardFullPreview() = PreviewWrapper {
     DualPodsCard(
-        device = MockPodDataProvider.dualPodMonitoredWithAap(),
+        device = MockPodDataProvider.dualPodFullyLoaded(),
         showDebug = false,
         now = SystemTimeSource.now(),
         isPro = false,
+        batteryEstimate = BatteryEstimate(
+            left = BatteryEstimate.Pod(minutesRemaining = 135, fractionPerHour = 0.18f, isLearned = false),
+            right = BatteryEstimate.Pod(minutesRemaining = 122, fractionPerHour = 0.20f, isLearned = false),
+        ),
+        onDeviceSettings = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardEstimateLearnedPreview() = PreviewWrapper {
+    // isLearned = true: rate seeded from persisted history on reconnect, before this session has
+    // gathered enough live samples.
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodFullyLoaded(),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+        isPro = false,
+        batteryEstimate = BatteryEstimate(
+            left = BatteryEstimate.Pod(minutesRemaining = 92, fractionPerHour = 0.27f, isLearned = true),
+            right = BatteryEstimate.Pod(minutesRemaining = 100, fractionPerHour = 0.25f, isLearned = true),
+        ),
         onDeviceSettings = {},
     )
 }

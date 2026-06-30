@@ -29,6 +29,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
@@ -87,6 +88,7 @@ class MonitorService : Service() {
     @Inject lateinit var profilesRepo: DeviceProfilesRepo
     @Inject lateinit var aapConnectionManager: AapConnectionManager
     @Inject lateinit var monitorModeResolver: MonitorModeResolver
+    @Inject lateinit var batteryEstimator: BatteryEstimator
 
     private val monitorScope = MonitorCoroutineScope()
     private var monitoringJob: Job? = null
@@ -356,6 +358,11 @@ class MonitorService : Service() {
         conversationReaction.monitor()
             .setupCommonEventHandlers(TAG) { "conversationReaction" }
             .catch { log(TAG, WARN) { "conversationReaction failed:\n${it.asLog()}" } }
+            .launchIn(monitorScope)
+
+        batteryEstimator.monitor()
+            .setupCommonEventHandlers(TAG) { "batteryEstimator" }
+            .catch { log(TAG, WARN) { "batteryEstimator failed:\n${it.asLog()}" } }
             .launchIn(monitorScope)
 
         log(TAG, VERBOSE) { "Monitor job is active" }

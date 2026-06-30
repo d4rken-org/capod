@@ -212,6 +212,37 @@ object MockPodDataProvider {
         ),
     )
 
+    /**
+     * Dual pods with a fully-populated AAP session: ANC on, both pods in-ear, left pod as the
+     * primary (microphone) pod. Used to preview the card with all status flags AND a battery estimate.
+     */
+    fun dualPodFullyLoaded(): PodDevice = PodDevice(
+        profileId = "preview-dual-full",
+        label = "My AirPods Pro",
+        ble = airPodsProWithKeys(),
+        aap = AapPodState(
+            connectionState = AapPodState.ConnectionState.READY,
+            settings = mapOf(
+                AapSetting.AncMode::class to AapSetting.AncMode(
+                    current = AapSetting.AncMode.Value.ON,
+                    supported = listOf(
+                        AapSetting.AncMode.Value.OFF,
+                        AapSetting.AncMode.Value.ON,
+                        AapSetting.AncMode.Value.TRANSPARENCY,
+                        AapSetting.AncMode.Value.ADAPTIVE,
+                    ),
+                ),
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                ),
+                AapSetting.PrimaryPod::class to AapSetting.PrimaryPod(
+                    pod = AapSetting.PrimaryPod.Pod.LEFT,
+                ),
+            ),
+        ),
+    )
+
     /** Dual pods with a profile that has reaction toggles set — used for the Reactions screenshot. */
     fun dualPodMonitoredWithReactions(): PodDevice = PodDevice(
         profileId = "preview-dual-reactions",
@@ -459,7 +490,6 @@ private class MockSingleBlePodSnapshot(
     override val isBeingWorn: Boolean = _isBeingWorn
 }
 
-@Suppress("PropertyName")
 private class MockSingleAppleBlePodSnapshot(
     private val _model: PodModel,
     private val _label: String,
@@ -498,7 +528,6 @@ private class MockSingleAppleBlePodSnapshot(
     override val isBeingWorn: Boolean = _isBeingWorn
 }
 
-@Suppress("PropertyName")
 private class MockDualAppleBlePodSnapshot(
     private val _model: PodModel,
     private val _label: String,

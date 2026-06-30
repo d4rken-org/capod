@@ -57,10 +57,12 @@ import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.cachedBatteryFormatted
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.batteryProgress
+import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.isKnownBattery
 import java.time.Instant
@@ -73,6 +75,7 @@ fun SinglePodsCard(
     showDebug: Boolean,
     now: Instant,
     isCollapsed: Boolean = false,
+    batteryEstimate: BatteryEstimate? = null,
     onToggleCollapse: (() -> Unit)? = null,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)? = null,
     onUpgrade: (() -> Unit)? = null,
@@ -178,6 +181,7 @@ fun SinglePodsCard(
                     device = device,
                     showDebug = showDebug,
                     now = now,
+                    batteryEstimate = batteryEstimate,
                     onAncModeChange = onAncModeChange,
                 )
             }
@@ -190,6 +194,7 @@ private fun ColumnScope.SinglePodsCardExpanded(
     device: PodDevice,
     showDebug: Boolean,
     now: Instant,
+    batteryEstimate: BatteryEstimate?,
     onAncModeChange: ((AapSetting.AncMode.Value) -> Unit)?,
 ) {
     val context = LocalContext.current
@@ -251,16 +256,28 @@ private fun ColumnScope.SinglePodsCardExpanded(
                     )
                 }
 
-                // Battery text inside ring
-                Text(
-                    text = formatBatteryPercent(context, percent),
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = if (isKnown) {
-                        MaterialTheme.colorScheme.onSurface
-                    } else {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    },
-                )
+                // Battery percentage + time remaining, stacked inside the ring
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = formatBatteryPercent(context, percent),
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = if (isKnown) {
+                            MaterialTheme.colorScheme.onSurface
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                    )
+                    val headsetEstimate = batteryEstimate?.headset
+                    if (headsetEstimate != null) {
+                        Text(
+                            text = formatBatteryDurationShort(context, headsetEstimate.minutesRemaining),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            softWrap = false,
+                        )
+                    }
+                }
             }
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -329,6 +346,21 @@ private fun SinglePodsCardFullPreview() = PreviewWrapper {
         device = MockPodDataProvider.singlePodMonitoredWithAap(),
         showDebug = false,
         now = SystemTimeSource.now(),
+        onDeviceSettings = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun SinglePodsCardEstimatePreview() = PreviewWrapper {
+    // Worn (not charging) so the "in ear" chip shows alongside the estimate.
+    SinglePodsCard(
+        device = MockPodDataProvider.singlePodMonitored(),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+        batteryEstimate = BatteryEstimate(
+            headset = BatteryEstimate.Pod(minutesRemaining = 320, fractionPerHour = 0.09f, isLearned = true),
+        ),
         onDeviceSettings = {},
     )
 }

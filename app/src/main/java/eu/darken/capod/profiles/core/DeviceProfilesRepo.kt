@@ -11,6 +11,7 @@ import eu.darken.capod.common.debug.logging.log
 import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.serialization.SerializationCapod
 import eu.darken.capod.main.core.GeneralSettings
+import eu.darken.capod.monitor.core.battery.BatteryDrainStore
 import eu.darken.capod.monitor.core.cache.DeviceStateCache
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
 import kotlinx.serialization.json.Json
@@ -30,6 +31,7 @@ class DeviceProfilesRepo @Inject constructor(
     private val generalSettings: GeneralSettings,
     private val settings: DeviceProfilesSettings,
     private val deviceStateCache: DeviceStateCache,
+    private val batteryDrainStore: BatteryDrainStore,
     @SerializationCapod private val json: Json,
 ) {
 
@@ -183,6 +185,7 @@ class DeviceProfilesRepo @Inject constructor(
         settings.profiles.valueBlocking = DeviceProfilesContainer(updatedProfiles)
         log(VERBOSE) { "Removed device profile with ID: $profileId" }
         deviceStateCache.delete(profileId)
+        batteryDrainStore.delete(profileId)
     }
 
     suspend fun reorderProfilesById(orderedIds: List<ProfileId>) = mutex.withLock {
@@ -199,6 +202,7 @@ class DeviceProfilesRepo @Inject constructor(
     suspend fun clear() = mutex.withLock {
         settings.profiles.valueBlocking = DeviceProfilesContainer(emptyList())
         deviceStateCache.deleteAll()
+        batteryDrainStore.deleteAll()
     }
 
     private fun checkAddressUniqueness(profile: DeviceProfile, existingProfiles: List<DeviceProfile>) {

@@ -31,6 +31,7 @@ class DeviceProfilesRepoReorderTest : BaseTest() {
             generalSettings = mockk(relaxed = true),
             settings = settings,
             deviceStateCache = mockk(relaxed = true),
+            batteryDrainStore = mockk(relaxed = true),
             json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true },
         )
 
