@@ -32,7 +32,6 @@ import eu.darken.capod.monitor.core.MonitorCoroutineScope
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
-import eu.darken.capod.monitor.core.primaryDevice
 import eu.darken.capod.monitor.ui.MonitorNotifications
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -211,7 +210,7 @@ class MonitorService : Service() {
             return
         }
 
-        val deviceFlow = deviceMonitor.primaryDevice()
+        val deviceFlow = deviceMonitor.primaryDeviceByTier
             .setupCommonEventHandlers(TAG) { "BlePodMonitor" }
             .distinctUntilChangedBy { it?.toNotificationKey() }
             .throttleLatest(1000)

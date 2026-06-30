@@ -5,8 +5,13 @@ package eu.darken.capod.monitor.core
  * lower rank = higher priority. System-connected devices come first, then
  * any live device (BLE or AAP), then profiled-but-offline.
  *
- * Distinct from [DeviceMonitor.primaryDevice] which is intentionally
- * non-tier-ranked for reaction flows that want "any profiled device".
+ * Backs [DeviceMonitor.primaryDeviceByTier], used by display surfaces (ongoing notification,
+ * case popup) that should follow the worn/connected pod.
+ *
+ * Distinct from [DeviceMonitor.primaryDevice], which is intentionally non-tier-ranked: address-
+ * and eligibility-gated reaction flows (auto-connect targets a not-yet-connected device; sleep and
+ * conversation match by the event's source address) must keep "first profiled device" semantics,
+ * which tier ranking would break.
  */
 fun PodDevice.tierRank(): Int = when {
     isSystemConnected -> 0

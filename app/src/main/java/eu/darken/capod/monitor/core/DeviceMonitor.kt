@@ -212,6 +212,21 @@ class DeviceMonitor @Inject constructor(
         dedupedLiveDevices + nonLiveDevices
     }.replayingShare(appScope)
 
+    /**
+     * Connection-aware "primary" device for display surfaces (ongoing notification, case popup):
+     * ranks by [PodDevice.tierRank] (system-connected > live > offline) with the user's
+     * profile-list order as the tiebreaker. Unlike [primaryDevice], this does NOT blindly pick the
+     * first profile, so a worn/connected pod is surfaced even when a different profile sits higher
+     * in the list. Shared so multiple display collectors don't each re-run the combine.
+     */
+    val primaryDeviceByTier: Flow<PodDevice?> = combine(
+        devices,
+        profilesRepo.profiles,
+    ) { devices, profiles ->
+        val profileOrder = profiles.mapIndexed { index, profile -> profile.id to index }.toMap()
+        devices.primaryByTier(profileOrder)
+    }.replayingShare(appScope)
+
     private val reportedPersistFailures = mutableSetOf<String>()
 
     private suspend fun persistLiveDevices(devices: List<PodDevice>) {
