@@ -71,7 +71,6 @@ class OverviewViewModelTest : BaseTest() {
     private lateinit var effectiveModeFlow: MutableStateFlow<MonitorMode>
     private lateinit var fakeReactionsHintDismissed: FakeDataStoreValue<Boolean>
     private lateinit var fakeHideUnmatchedDevices: FakeDataStoreValue<Boolean>
-    private lateinit var fakeBatteryEstimateEnabled: FakeDataStoreValue<Boolean>
 
     @BeforeEach
     fun setup() {
@@ -87,7 +86,6 @@ class OverviewViewModelTest : BaseTest() {
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         fakeReactionsHintDismissed = FakeDataStoreValue(false)
         fakeHideUnmatchedDevices = FakeDataStoreValue(false)
-        fakeBatteryEstimateEnabled = FakeDataStoreValue(true)
         Bugs.isDebug.value = false
 
         monitorControl = mockk(relaxed = true)
@@ -106,7 +104,6 @@ class OverviewViewModelTest : BaseTest() {
         generalSettings = mockk<GeneralSettings>().also {
             every { it.reactionsHintDismissed } returns fakeReactionsHintDismissed.mock
             every { it.hideUnmatchedDevices } returns fakeHideUnmatchedDevices.mock
-            every { it.batteryEstimateEnabled } returns fakeBatteryEstimateEnabled.mock
         }
 
         batteryEstimator = mockk<BatteryEstimator>().also {
@@ -650,4 +647,46 @@ class OverviewViewModelTest : BaseTest() {
             latest!!.showTroubleshootSuggestion shouldBe false
         }
     }
+
+    @Test
+    fun `estimateFor is null when the device has the estimate disabled`() {
+        val device = mockk<PodDevice> {
+            every { batteryEstimateEnabled } returns false
+            every { isLive } returns true
+            every { profileId } returns "p1"
+        }
+        val state = estimateState(device, mapOf("p1" to sampleEstimate()))
+
+        state.estimateFor(device) shouldBe null
+    }
+
+    @Test
+    fun `estimateFor returns the estimate when enabled and live`() {
+        val device = mockk<PodDevice> {
+            every { batteryEstimateEnabled } returns true
+            every { isLive } returns true
+            every { profileId } returns "p1"
+        }
+        val estimate = sampleEstimate()
+        val state = estimateState(device, mapOf("p1" to estimate))
+
+        state.estimateFor(device) shouldBe estimate
+    }
+
+    private fun sampleEstimate() = BatteryEstimate(
+        left = BatteryEstimate.Pod(minutesRemaining = 120, fractionPerHour = 0.2f, source = BatteryEstimate.Source.LIVE),
+    )
+
+    private fun estimateState(device: PodDevice, estimates: Map<String, BatteryEstimate>) =
+        OverviewViewModel.State(
+            now = java.time.Instant.EPOCH,
+            permissions = emptySet(),
+            devices = listOf(device),
+            isDebug = false,
+            isBluetoothEnabled = true,
+            profiles = emptyList(),
+            upgradeInfo = mockk(relaxed = true),
+            showUnmatchedDevices = false,
+            batteryEstimates = estimates,
+        )
 }

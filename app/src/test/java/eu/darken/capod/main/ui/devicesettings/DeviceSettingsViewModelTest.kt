@@ -12,6 +12,7 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimator
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.profiles.core.AppleDeviceProfile
@@ -62,6 +63,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var upgradeRepo: UpgradeRepo
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
+    private lateinit var batteryEstimator: BatteryEstimator
     private lateinit var monitorModeResolver: MonitorModeResolver
     private lateinit var nudgeCapabilityStore: NudgeCapabilityStore
     private lateinit var nudgeAvailabilityFlow: MutableStateFlow<NudgeAvailability>
@@ -116,6 +118,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         profilesRepo = mockk(relaxed = true) {
             every { profiles } returns profilesFlow
         }
+        batteryEstimator = mockk(relaxed = true)
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         monitorModeResolver = mockk<MonitorModeResolver>().also {
             every { it.effectiveMode } returns effectiveModeFlow
@@ -140,6 +143,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         upgradeRepo = upgradeRepo,
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
+        batteryEstimator = batteryEstimator,
         monitorModeResolver = monitorModeResolver,
         nudgeCapabilityStore = nudgeCapabilityStore,
         timeSource = timeSource,
@@ -512,6 +516,45 @@ class DeviceSettingsViewModelTest : BaseTest() {
         vm.setSleepDetection(true)
 
         coVerify(exactly = 0) { aapManager.sendCommand(any(), any<AapCommand.SetSleepDetection>()) }
+    }
+
+    @Test
+    fun `state reflects the profile's batteryEstimateEnabled`() = runVmTest {
+        profilesFlow.value = listOf(
+            AppleDeviceProfile(
+                id = testAddress,
+                label = "Test",
+                address = testAddress,
+                batteryEstimateEnabled = false,
+            )
+        )
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().batteryEstimateEnabled shouldBe false
+    }
+
+    @Test
+    fun `setBatteryEstimateEnabled updates the profile`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.setBatteryEstimateEnabled(false)
+
+        coVerify { profilesRepo.updateAppleProfile(testAddress, any()) }
+    }
+
+    @Test
+    fun `resetBatteryEstimate resets the estimator for the profile`() = runVmTest {
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+        vm.state.first()
+
+        vm.resetBatteryEstimate()
+
+        coVerify { batteryEstimator.reset(testAddress) }
     }
 
     @Test

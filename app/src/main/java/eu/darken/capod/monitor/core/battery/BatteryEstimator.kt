@@ -7,6 +7,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetection
@@ -17,8 +18,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -90,6 +95,26 @@ class BatteryEstimator @Inject constructor(
 
     private val trackers = mutableMapOf<ProfileId, DeviceTracker>()
 
+    // Serialises process() against reset() so an in-flight persist can't resurrect a just-wiped rate.
+    private val mutex = Mutex()
+
+    /**
+     * Wipes ALL learned state for [profileId] — the in-memory tracker, the current estimate, and the
+     * persisted rates — under the same lock as [process], so it's atomic w.r.t. sampling/persisting.
+     * The next live emission re-seeds the device from its model rating. Safe to call when the monitor
+     * isn't running (trackers/estimates are already empty; only the store delete has effect).
+     */
+    suspend fun reset(profileId: ProfileId) = withContext(NonCancellable) {
+        // NonCancellable so a cancelled caller (e.g. the settings screen closing) can't leave the
+        // wipe half-applied — memory cleared but persisted rates surviving to resurrect later.
+        mutex.withLock {
+            log(TAG) { "reset($profileId)" }
+            trackers.remove(profileId)
+            _estimates.value = _estimates.value - profileId
+            drainStore.delete(profileId)
+        }
+    }
+
     fun monitor(): Flow<Unit> = deviceMonitor.devices
         .onEach { devices -> process(devices) }
         .onCompletion {
@@ -101,18 +126,19 @@ class BatteryEstimator @Inject constructor(
         .map { }
         .setupCommonEventHandlers(TAG) { "batteryEstimator" }
 
-    private suspend fun process(devices: List<PodDevice>) {
-        // Only profiles with a single, unambiguous live candidate. DeviceMonitor keeps multiple
-        // same-profile devices when there's no IRK-verified match, and blending two physical
-        // devices' levels would be garbage — skip those.
+    private suspend fun process(devices: List<PodDevice>) = mutex.withLock {
+        // Only profiles with a single, unambiguous live candidate that has the estimate enabled.
+        // DeviceMonitor keeps multiple same-profile devices when there's no IRK-verified match, and
+        // blending two physical devices' levels would be garbage — skip those. A device with the
+        // feature disabled is skipped entirely (not sampled, not persisted).
         val unambiguous = devices
-            .filter { it.profileId != null && it.isLive }
+            .filter { it.profileId != null && it.isLive && it.batteryEstimateEnabled }
             .groupBy { it.profileId!! }
             .filter { (_, group) -> group.size == 1 }
             .mapValues { (_, group) -> group.single() }
 
         val next = _estimates.value.toMutableMap()
-        // Drop estimates for profiles no longer live/unambiguous this emission (offline gating).
+        // Drop estimates for profiles no longer live/unambiguous/enabled this emission (offline gating).
         next.keys.retainAll(unambiguous.keys)
 
         for ((profileId, device) in unambiguous) {
@@ -137,7 +163,7 @@ class BatteryEstimator @Inject constructor(
         // A mode change invalidates the current window — flush what we learned to the OLD bucket,
         // then start fresh so OFF-rate samples never blend into ON-rate.
         if (tracker.modeBucket != bucket) {
-            persistFromWindow(profileId, tracker, tracker.modeBucket, nowMs, force = true)
+            persistFromWindow(profileId, tracker, device, tracker.modeBucket, nowMs, force = true)
             tracker.resetWindow()
             tracker.modeBucket = bucket
         }
@@ -169,7 +195,7 @@ class BatteryEstimator @Inject constructor(
             }
         }
 
-        persistFromWindow(profileId, tracker, bucket, nowMs, force = false)
+        persistFromWindow(profileId, tracker, device, bucket, nowMs, force = false)
         return computeEstimate(profileId, tracker, device, bucket)
     }
 
@@ -195,19 +221,48 @@ class BatteryEstimator @Inject constructor(
         bucket: String,
         slot: Slot,
     ): BatteryEstimate.Pod? {
-        if (device.liveCharging(slot) == true) return null
         val fraction = device.liveFraction(slot) ?: return null
 
-        val liveRate = DrainModel.slopeFractionPerHour(tracker.slots.getValue(slot).toList())
-        val rate = liveRate ?: learnedRate(profileId, bucket, slot) ?: return null
-        val minutes = DrainModel.minutesRemaining(fraction, rate) ?: return null
+        val spec = device.specRate(bucket)
+        // While charging the battery is rising, so there's no live drain to fit — project the runtime
+        // "if used now" from the learned rate or the model rating instead. Live sampling is skipped
+        // here (and updateTracker already clears the window while charging), so a rising level is
+        // never learned as a drain — we only surface a projection so the estimate stays visible in
+        // the case, climbing as the pod charges.
+        val charging = device.liveCharging(slot) == true
+        val live = if (charging) {
+            null
+        } else {
+            DrainModel.slopeFractionPerHour(tracker.slots.getValue(slot).toList())
+                ?.takeIf { plausibleForModel(it, spec) }
+        }
+        val learned = learnedRate(profileId, bucket, slot)
+        val displayRate = live ?: learned ?: spec ?: return null
 
-        val smoothed = DrainModel.blendMinutes(tracker.lastMinutes[slot], minutes)
-        tracker.lastMinutes[slot] = smoothed
+        // Apple's rating is a hard ceiling on remaining life (a floor on the drain rate) for every
+        // source: a degraded battery only ever drains FASTER than new-condition spec, so a measured
+        // rate normally wins — spec only bites when a source implausibly implies MORE life than Apple.
+        val effectiveRate = spec?.let { maxOf(displayRate, it) } ?: displayRate
+
+        val minutes = DrainModel.minutesRemaining(fraction, effectiveRate) ?: return null
+        // Smooth against the last displayed value — but while charging neither read nor write that
+        // state: the in-case projection is shown raw and must not pollute the discharge history, else
+        // the first estimate after undocking would blend against a stale charging projection.
+        var smoothed = DrainModel.blendMinutes(if (charging) null else tracker.lastMinutes[slot], minutes)
+        // Smoothing lags, so just after a drop it can sit above the ceiling — clamp the shown value to
+        // the spec cap too, so we never DISPLAY more life than Apple rates even mid-transition.
+        spec?.let { DrainModel.minutesRemaining(fraction, it) }?.let { smoothed = minOf(smoothed, it) }
+        if (!charging) tracker.lastMinutes[slot] = smoothed
+
+        val source = when {
+            live != null -> BatteryEstimate.Source.LIVE
+            learned != null -> BatteryEstimate.Source.LEARNED
+            else -> BatteryEstimate.Source.SPEC
+        }
         return BatteryEstimate.Pod(
             minutesRemaining = smoothed,
-            fractionPerHour = rate,
-            isLearned = liveRate == null,
+            fractionPerHour = effectiveRate,
+            source = source,
         )
     }
 
@@ -218,17 +273,21 @@ class BatteryEstimator @Inject constructor(
     private suspend fun persistFromWindow(
         profileId: ProfileId,
         tracker: DeviceTracker,
+        device: PodDevice,
         bucket: String,
         nowMs: Long,
         force: Boolean,
     ) {
         val existing = drainStore.profiles.value[profileId] ?: DrainProfile()
+        val spec = device.specRate(bucket)
         var rates = existing.rates
         var changed = false
 
         for (slot in Slot.entries) {
             val history = tracker.slots.getValue(slot)
-            val liveRate = DrainModel.slopeFractionPerHour(history.toList()) ?: continue
+            // Same model-aware plausibility gate as display, so an implausibly fast fit isn't learned.
+            val liveRate = DrainModel.slopeFractionPerHour(history.toList())
+                ?.takeIf { plausibleForModel(it, spec) } ?: continue
 
             val key = rateKey(bucket, slot)
             val lastPersist = tracker.lastPersistAtMs[key]
@@ -262,6 +321,33 @@ class BatteryEstimator @Inject constructor(
 
     private fun PodDevice.modeBucket(): String = ancMode?.current?.name ?: MODE_UNKNOWN
 
+    /**
+     * Apple's rated drain (fraction/hour) for this model in the given ANC bucket, or null when the
+     * model has no published rating (Beats / unknown). Used to seed an estimate before any drain is
+     * observed and as the upper bound on remaining life. When the mode isn't known yet (BLE-only, or
+     * a just-connected AAP session) the shorter of the two ratings is used, so an unknown mode can't
+     * over-promise.
+     */
+    private fun PodDevice.specRate(bucket: String): Float? {
+        val spec = model.batterySpec ?: return null
+        val on = spec.listeningHoursAncOn
+        val off = spec.listeningHoursAncOff
+        val hours = when (bucket) {
+            AapSetting.AncMode.Value.OFF.name -> off ?: on
+            MODE_UNKNOWN -> listOfNotNull(on, off).minOrNull()
+            else -> on ?: off // ON / TRANSPARENCY / ADAPTIVE
+        } ?: return null
+        return if (hours.isFinite() && hours > 0f) 1f / hours else null
+    }
+
+    /**
+     * A measured rate is trusted only when it isn't absurdly faster than the model's rated drain. The
+     * slow side is intentionally NOT bounded: a genuinely gentle drain is real data worth learning,
+     * and the spec ceiling already stops a slow rate from over-reporting on screen.
+     */
+    private fun plausibleForModel(rate: Float, spec: Float?): Boolean =
+        spec == null || rate <= spec * SPEC_BAND_MAX
+
     // RAW LIVE extraction — must NOT use device.batteryLeft/isLeftPodCharging (which fall back to
     // cache); learning from a re-stamped stale reading would poison the rate.
     private fun PodDevice.liveFraction(slot: Slot): Float? {
@@ -270,7 +356,8 @@ class BatteryEstimator @Inject constructor(
             Slot.RIGHT -> aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
             Slot.HEADSET -> aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
         }
-        return value?.takeIf { isKnownBattery(it) }
+        // coerce defends against a malformed >1 reading, which would otherwise beat the full-charge spec.
+        return value?.takeIf { isKnownBattery(it) }?.coerceIn(0f, 1f)
     }
 
     private fun PodDevice.liveCharging(slot: Slot): Boolean? = when (slot) {
@@ -285,6 +372,9 @@ class BatteryEstimator @Inject constructor(
         private const val EPSILON = 0.001f
         private const val MODE_UNKNOWN = "UNKNOWN"
         private const val PERSIST_INTERVAL_MS = 5 * 60_000L
+
+        /** A measured rate above this multiple of the model's rated drain is rejected as implausible. */
+        private const val SPEC_BAND_MAX = 4f
 
         /** A gap longer than this between updates means the device was away — reset its window. */
         private const val STALE_GAP_MS = 15 * 60_000L

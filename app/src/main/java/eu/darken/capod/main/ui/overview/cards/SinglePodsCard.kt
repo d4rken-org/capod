@@ -359,7 +359,7 @@ private fun SinglePodsCardEstimatePreview() = PreviewWrapper {
         showDebug = false,
         now = SystemTimeSource.now(),
         batteryEstimate = BatteryEstimate(
-            headset = BatteryEstimate.Pod(minutesRemaining = 320, fractionPerHour = 0.09f, isLearned = true),
+            headset = BatteryEstimate.Pod(minutesRemaining = 320, fractionPerHour = 0.09f, source = BatteryEstimate.Source.LEARNED),
         ),
         onDeviceSettings = {},
     )

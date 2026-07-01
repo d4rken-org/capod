@@ -47,8 +47,14 @@ object DrainModel {
     /** Estimates above this are implausible and suppressed. */
     const val MAX_MINUTES = 24 * 60
 
-    /** Smoothing for the displayed minutes (higher = more responsive). */
-    const val MINUTES_ALPHA = 0.3f
+    /**
+     * Smoothing for the displayed minutes. Asymmetric on purpose: react quickly when the estimate
+     * DROPS (less time left — e.g. a degraded battery measured draining faster than its rating, or a
+     * first live fit undercutting the spec seed) so we don't keep showing more life than the latest
+     * reading supports, but ease UP slowly to swallow upward noise and stay conservative.
+     */
+    const val MINUTES_ALPHA_DOWN = 0.6f
+    const val MINUTES_ALPHA_UP = 0.25f
 
     /** Smoothing for the persisted per-mode learned rate. */
     const val LEARN_ALPHA = 0.3f
@@ -103,9 +109,16 @@ object DrainModel {
         return minutes.takeIf { it in 1..MAX_MINUTES }
     }
 
-    /** Exponential moving average over the displayed minutes, to avoid a jumpy number. */
-    fun blendMinutes(previous: Int?, next: Int, alpha: Float = MINUTES_ALPHA): Int =
-        if (previous == null) next else (next * alpha + previous * (1f - alpha)).roundToInt()
+    /**
+     * Exponential moving average over the displayed minutes, to avoid a jumpy number. Uses the
+     * asymmetric [MINUTES_ALPHA_DOWN]/[MINUTES_ALPHA_UP] factors by default; pass an explicit [alpha]
+     * to force a symmetric factor (used by tests).
+     */
+    fun blendMinutes(previous: Int?, next: Int, alpha: Float? = null): Int {
+        if (previous == null) return next
+        val a = alpha ?: if (next < previous) MINUTES_ALPHA_DOWN else MINUTES_ALPHA_UP
+        return (next * a + previous * (1f - a)).roundToInt()
+    }
 
     /** Exponential moving average over the persisted learned rate across sessions. */
     fun blendRate(previous: Float?, next: Float, alpha: Float = LEARN_ALPHA): Float =

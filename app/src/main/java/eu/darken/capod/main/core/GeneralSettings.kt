@@ -85,8 +85,6 @@ class GeneralSettings @Inject constructor(
 
     val hideUnmatchedDevices = dataStore.createValue("ui.overview.unmatched.hidden", false)
 
-    val batteryEstimateEnabled = dataStore.createValue("ui.overview.battery_estimate.enabled", true)
-
     val themeMode = dataStore.createValue(
         "core.ui.theme.mode", ThemeMode.SYSTEM, json,
         onErrorFallbackToDefault = BuildConfigWrap.BUILD_TYPE != BuildConfigWrap.BuildType.DEV,

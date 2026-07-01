@@ -479,8 +479,8 @@ private fun DualPodsCardFullPreview() = PreviewWrapper {
         now = SystemTimeSource.now(),
         isPro = false,
         batteryEstimate = BatteryEstimate(
-            left = BatteryEstimate.Pod(minutesRemaining = 135, fractionPerHour = 0.18f, isLearned = false),
-            right = BatteryEstimate.Pod(minutesRemaining = 122, fractionPerHour = 0.20f, isLearned = false),
+            left = BatteryEstimate.Pod(minutesRemaining = 135, fractionPerHour = 0.18f, source = BatteryEstimate.Source.LIVE),
+            right = BatteryEstimate.Pod(minutesRemaining = 122, fractionPerHour = 0.20f, source = BatteryEstimate.Source.LIVE),
         ),
         onDeviceSettings = {},
     )
@@ -489,16 +489,33 @@ private fun DualPodsCardFullPreview() = PreviewWrapper {
 @Preview2
 @Composable
 private fun DualPodsCardEstimateLearnedPreview() = PreviewWrapper {
-    // isLearned = true: rate seeded from persisted history on reconnect, before this session has
-    // gathered enough live samples.
+    // LEARNED: rate seeded from persisted history on reconnect, before this session has gathered
+    // enough live samples.
     DualPodsCard(
         device = MockPodDataProvider.dualPodFullyLoaded(),
         showDebug = false,
         now = SystemTimeSource.now(),
         isPro = false,
         batteryEstimate = BatteryEstimate(
-            left = BatteryEstimate.Pod(minutesRemaining = 92, fractionPerHour = 0.27f, isLearned = true),
-            right = BatteryEstimate.Pod(minutesRemaining = 100, fractionPerHour = 0.25f, isLearned = true),
+            left = BatteryEstimate.Pod(minutesRemaining = 92, fractionPerHour = 0.27f, source = BatteryEstimate.Source.LEARNED),
+            right = BatteryEstimate.Pod(minutesRemaining = 100, fractionPerHour = 0.25f, source = BatteryEstimate.Source.LEARNED),
+        ),
+        onDeviceSettings = {},
+    )
+}
+
+@Preview2
+@Composable
+private fun DualPodsCardEstimateProvisionalPreview() = PreviewWrapper {
+    // SPEC: rated estimate shown immediately on connect, before any drain has been measured.
+    DualPodsCard(
+        device = MockPodDataProvider.dualPodFullyLoaded(),
+        showDebug = false,
+        now = SystemTimeSource.now(),
+        isPro = false,
+        batteryEstimate = BatteryEstimate(
+            left = BatteryEstimate.Pod(minutesRemaining = 360, fractionPerHour = 0.167f, source = BatteryEstimate.Source.SPEC),
+            right = BatteryEstimate.Pod(minutesRemaining = 360, fractionPerHour = 0.167f, source = BatteryEstimate.Source.SPEC),
         ),
         onDeviceSettings = {},
     )
