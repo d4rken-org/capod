@@ -465,11 +465,11 @@ private fun OverviewScreenWithDevicesPreview() = PreviewWrapper {
             userExpandedIds = setOf("preview-single"),
             batteryEstimates = mapOf(
                 "preview-dual-full" to BatteryEstimate(
-                    left = BatteryEstimate.Pod(minutesRemaining = 135, fractionPerHour = 0.18f, isLearned = false),
-                    right = BatteryEstimate.Pod(minutesRemaining = 122, fractionPerHour = 0.20f, isLearned = false),
+                    left = BatteryEstimate.Pod(minutesRemaining = 135, fractionPerHour = 0.18f, source = BatteryEstimate.Source.LIVE),
+                    right = BatteryEstimate.Pod(minutesRemaining = 122, fractionPerHour = 0.20f, source = BatteryEstimate.Source.LIVE),
                 ),
                 "preview-single" to BatteryEstimate(
-                    headset = BatteryEstimate.Pod(minutesRemaining = 320, fractionPerHour = 0.09f, isLearned = true),
+                    headset = BatteryEstimate.Pod(minutesRemaining = 320, fractionPerHour = 0.09f, source = BatteryEstimate.Source.LEARNED),
                 ),
             ),
         ),

@@ -35,7 +35,6 @@ class GeneralSettingsViewModel @Inject constructor(
         val isOffloadedBatchingDisabled: Boolean,
         val useIndirectScanResultCallback: Boolean,
         val hideUnmatchedDevices: Boolean,
-        val batteryEstimateEnabled: Boolean,
         val themeState: ThemeState,
     )
 
@@ -45,10 +44,9 @@ class GeneralSettingsViewModel @Inject constructor(
         combine(
             generalSettings.useExtraMonitorNotification.flow,
             generalSettings.keepConnectedNotificationAfterDisconnect.flow,
-            generalSettings.batteryEstimateEnabled.flow,
-        ) { showNotif, keepNotif, batteryEstimate ->
+        ) { showNotif, keepNotif ->
             @Suppress("USELESS_CAST")
-            arrayOf<Any>(showNotif as Any, keepNotif as Any, batteryEstimate as Any)
+            arrayOf<Any>(showNotif as Any, keepNotif as Any)
         },
         combine(
             generalSettings.isOffloadedFilteringDisabled.flow,
@@ -70,7 +68,6 @@ class GeneralSettingsViewModel @Inject constructor(
             isOffloadedBatchingDisabled = compat[1] as Boolean,
             useIndirectScanResultCallback = compat[2] as Boolean,
             hideUnmatchedDevices = hideUnmatched,
-            batteryEstimateEnabled = general[2] as Boolean,
             themeState = themeState,
         )
     }.asLiveState()
@@ -103,11 +100,6 @@ class GeneralSettingsViewModel @Inject constructor(
     fun setHideUnmatchedDevices(enabled: Boolean) {
         log(TAG, INFO) { "setHideUnmatchedDevices($enabled)" }
         generalSettings.hideUnmatchedDevices.valueBlocking = enabled
-    }
-
-    fun setBatteryEstimateEnabled(enabled: Boolean) {
-        log(TAG, INFO) { "setBatteryEstimateEnabled($enabled)" }
-        generalSettings.batteryEstimateEnabled.valueBlocking = enabled
     }
 
     fun setThemeMode(mode: ThemeMode) = launch {

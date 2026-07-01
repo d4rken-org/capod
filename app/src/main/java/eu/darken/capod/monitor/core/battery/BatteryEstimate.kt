@@ -13,13 +13,30 @@ data class BatteryEstimate(
     /**
      * @property minutesRemaining smoothed estimate of minutes until this pod empties
      * @property fractionPerHour the drain rate it was derived from (fraction/hour)
-     * @property isLearned true when the rate came from persisted history rather than the live session
+     * @property source how the drain was determined (see [Source]) — reflects measurement provenance,
+     *   NOT whether the model rating capped the shown value; a LIVE/LEARNED estimate can still be
+     *   bounded by the model's rated life
      */
     data class Pod(
         val minutesRemaining: Int,
         val fractionPerHour: Float,
-        val isLearned: Boolean,
-    )
+        val source: Source,
+    ) {
+        /** True while the estimate rests on the model's rated spec, before any drain has been measured. */
+        val isProvisional: Boolean get() = source == Source.SPEC
+    }
+
+    /** Where a pod's drain rate was derived from, in order of increasing confidence. */
+    enum class Source {
+        /** Apple's published rating — shown immediately on connect, before any drain is observed. */
+        SPEC,
+
+        /** Persisted rate from earlier sessions with this device. */
+        LEARNED,
+
+        /** Measured from the current session's observed drain. */
+        LIVE,
+    }
 
     val hasAny: Boolean get() = left != null || right != null || headset != null
 }

@@ -181,6 +181,8 @@ fun DeviceSettingsScreenHost(
         onChargedSlotScopeChange = { vm.setChargedSlotScope(it) },
         onOpenIssueTracker = { vm.openIssueTracker() },
         onOpenAapTracker = { vm.openAapCompatibilityTracker() },
+        onBatteryEstimateEnabledChange = { vm.setBatteryEstimateEnabled(it) },
+        onResetBatteryEstimate = { vm.resetBatteryEstimate() },
     )
 }
 
@@ -224,6 +226,8 @@ fun DeviceSettingsScreen(
     onChargedSlotScopeChange: (ChargedSlotScope) -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
     onOpenAapTracker: () -> Unit = {},
+    onBatteryEstimateEnabledChange: (Boolean) -> Unit = {},
+    onResetBatteryEstimate: () -> Unit = {},
 ) {
     val device = state.device
     val features = device?.model?.features
@@ -363,10 +367,26 @@ fun DeviceSettingsScreen(
                         onAutoConnectConditionChange = onAutoConnectConditionChange,
                         onShowPopUpOnCaseOpenChange = onShowPopUpOnCaseOpenChange,
                         onShowPopUpOnConnectionChange = onShowPopUpOnConnectionChange,
+                        onOpenIssueTracker = onOpenIssueTracker,
+                    )
+                }
+            }
+
+            // ── Battery (time-remaining estimate for any live device; charge limit needs AAP) ──
+            if (device != null && features != null && device.isLive) {
+                item("battery_section") {
+                    BatteryCard(
+                        device = device,
+                        features = features,
+                        isPro = isPro,
+                        chargeCapControlEnabled = enabled,
+                        estimateEnabled = state.batteryEstimateEnabled,
+                        onDynamicEndOfChargeChange = onDynamicEndOfChargeChange,
                         onNotifyWhenChargedChange = onNotifyWhenChargedChange,
                         onChargedThresholdChange = onChargedThresholdChange,
                         onChargedSlotScopeChange = onChargedSlotScopeChange,
-                        onOpenIssueTracker = onOpenIssueTracker,
+                        onEstimateEnabledChange = onBatteryEstimateEnabledChange,
+                        onResetEstimate = onResetBatteryEstimate,
                     )
                 }
             }
@@ -435,18 +455,6 @@ fun DeviceSettingsScreen(
                             onPressControlsClick = onPressControlsClick,
                             onVolumeSwipeChange = onVolumeSwipeChange,
                             onVolumeSwipeLengthChange = onVolumeSwipeLengthChange,
-                        )
-                    }
-                }
-
-                // ── Battery ──────────────────────────────────
-                if (features.hasDynamicEndOfCharge && device.dynamicEndOfCharge != null) {
-                    item("battery_section") {
-                        BatteryCard(
-                            device = device,
-                            features = features,
-                            enabled = enabled,
-                            onDynamicEndOfChargeChange = onDynamicEndOfChargeChange,
                         )
                     }
                 }

@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.automirrored.twotone.VolumeDown
-import androidx.compose.material.icons.twotone.BatteryChargingFull
 import androidx.compose.material.icons.twotone.BluetoothConnected
 import androidx.compose.material.icons.twotone.Hearing
 import androidx.compose.material.icons.twotone.LooksOne
@@ -39,7 +38,6 @@ import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
 import eu.darken.capod.main.ui.devicesettings.dialogs.AutoConnectConditionDialog
-import eu.darken.capod.main.ui.devicesettings.dialogs.ChargedSlotScopeDialog
 import eu.darken.capod.main.ui.devicesettings.dialogs.ConversationActionDialog
 import eu.darken.capod.main.ui.devicesettings.previewFullState
 import eu.darken.capod.monitor.core.PodDevice
@@ -47,7 +45,6 @@ import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.autoconnect.AutoConnectCondition
-import eu.darken.capod.reaction.core.charged.ChargedSlotScope
 import eu.darken.capod.reaction.core.conversation.ConversationAction
 
 @Composable
@@ -67,9 +64,6 @@ internal fun ReactionsCard(
     onAutoConnectConditionChange: (AutoConnectCondition) -> Unit = {},
     onShowPopUpOnCaseOpenChange: (Boolean) -> Unit = {},
     onShowPopUpOnConnectionChange: (Boolean) -> Unit = {},
-    onNotifyWhenChargedChange: (Boolean) -> Unit = {},
-    onChargedThresholdChange: (Int) -> Unit = {},
-    onChargedSlotScopeChange: (ChargedSlotScope) -> Unit = {},
     onOpenIssueTracker: () -> Unit = {},
 ) {
     val reactions = device.reactions
@@ -77,7 +71,6 @@ internal fun ReactionsCard(
 
     var showAutoConnectConditionDialog by remember { mutableStateOf(false) }
     var showConversationActionDialog by remember { mutableStateOf(false) }
-    var showChargedScopeDialog by remember { mutableStateOf(false) }
 
     SettingsSection(title = stringResource(R.string.settings_reaction_label)) {
         if (features.hasEarDetection) {
@@ -258,40 +251,6 @@ internal fun ReactionsCard(
                 text = stringResource(R.string.settings_popup_info_not_in_app),
             )
         }
-        ReactionsDivider()
-        SettingsSwitchItem(
-            icon = Icons.TwoTone.BatteryChargingFull,
-            title = stringResource(R.string.settings_charged_notification_label),
-            subtitle = stringResource(R.string.settings_charged_notification_description),
-            checked = reactions.notifyWhenCharged,
-            onCheckedChange = onNotifyWhenChargedChange,
-            requiresUpgrade = !isPro,
-        )
-        if (reactions.notifyWhenCharged) {
-            var thresholdValue by remember(reactions.chargedThreshold) {
-                mutableIntStateOf(reactions.chargedThreshold)
-            }
-            SettingsSliderItem(
-                icon = Icons.TwoTone.BatteryChargingFull,
-                title = stringResource(R.string.settings_charged_threshold_label),
-                value = thresholdValue.toFloat(),
-                onValueChange = { thresholdValue = it.toInt() },
-                onValueChangeFinished = { onChargedThresholdChange(thresholdValue) },
-                valueRange = ReactionConfig.MIN_CHARGED_THRESHOLD.toFloat()..
-                    ReactionConfig.MAX_CHARGED_THRESHOLD.toFloat(),
-                steps = (ReactionConfig.MAX_CHARGED_THRESHOLD - ReactionConfig.MIN_CHARGED_THRESHOLD) /
-                    ReactionConfig.CHARGED_THRESHOLD_STEP - 1,
-                valueLabel = { "${it.toInt()}%" },
-            )
-            if (features.hasCase) {
-                SettingsBaseItem(
-                    icon = Icons.TwoTone.Workspaces,
-                    title = stringResource(R.string.settings_charged_scope_label),
-                    subtitle = stringResource(reactions.chargedSlotScope.labelRes),
-                    onClick = { showChargedScopeDialog = true },
-                )
-            }
-        }
     }
 
     if (showConversationActionDialog) {
@@ -302,17 +261,6 @@ internal fun ReactionsCard(
                 showConversationActionDialog = false
             },
             onDismiss = { showConversationActionDialog = false },
-        )
-    }
-
-    if (showChargedScopeDialog) {
-        ChargedSlotScopeDialog(
-            current = reactions.chargedSlotScope,
-            onSelect = {
-                onChargedSlotScopeChange(it)
-                showChargedScopeDialog = false
-            },
-            onDismiss = { showChargedScopeDialog = false },
         )
     }
 

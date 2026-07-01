@@ -117,6 +117,44 @@ class ModelFeaturesTest : BaseTest() {
             }
     }
 
+    @Test
+    fun `battery specs are populated for exactly the Apple models`() {
+        PodModel.entries.filter { it.batterySpec != null }.toSet() shouldBe batterySpecModels
+    }
+
+    @Test
+    fun `ANC-capable models with a rating publish an ANC-on figure`() {
+        PodModel.entries
+            .filter { it.batterySpec != null && it.features.hasAncControl }
+            .forEach { model ->
+                withClue(model.name) {
+                    (model.batterySpec?.listeningHoursAncOn != null) shouldBe true
+                }
+            }
+    }
+
+    @Test
+    fun `every battery spec has at least one rating`() {
+        PodModel.entries.mapNotNull { it.batterySpec }.forEach { spec ->
+            withClue(spec.toString()) {
+                (spec.listeningHoursAncOn != null || spec.listeningHoursAncOff != null) shouldBe true
+            }
+        }
+    }
+
+    @Test
+    fun `battery ratings are single-charge pod figures within a sane range`() {
+        // Guards against accidentally using Apple's "with charging case" aggregate (e.g. 30h).
+        PodModel.entries.forEach { model ->
+            val spec = model.batterySpec ?: return@forEach
+            listOfNotNull(spec.listeningHoursAncOn, spec.listeningHoursAncOff).forEach { hours ->
+                withClue("${model.name}: $hours") {
+                    (hours in 1f..24f) shouldBe true
+                }
+            }
+        }
+    }
+
     private fun modelsWith(predicate: (PodModel.Features) -> Boolean): Set<PodModel> = PodModel.entries
         .filter { predicate(it.features) }
         .toSet()
@@ -342,6 +380,21 @@ class ModelFeaturesTest : BaseTest() {
         PodModel.AIRPODS_PRO2_USBC,
         PodModel.AIRPODS_PRO3,
         PodModel.POWERBEATS_PRO2,
+    )
+
+    private val batterySpecModels = setOf(
+        PodModel.AIRPODS_GEN1,
+        PodModel.AIRPODS_GEN2,
+        PodModel.AIRPODS_GEN3,
+        PodModel.AIRPODS_GEN4,
+        PodModel.AIRPODS_GEN4_ANC,
+        PodModel.AIRPODS_PRO,
+        PodModel.AIRPODS_PRO2,
+        PodModel.AIRPODS_PRO2_USBC,
+        PodModel.AIRPODS_PRO3,
+        PodModel.AIRPODS_MAX,
+        PodModel.AIRPODS_MAX_USBC,
+        PodModel.AIRPODS_MAX2,
     )
 
     private val featureExpectations = listOf(

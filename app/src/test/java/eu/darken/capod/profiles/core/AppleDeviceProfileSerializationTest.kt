@@ -28,6 +28,29 @@ class AppleDeviceProfileSerializationTest : BaseTest() {
     }
 
     @Test
+    fun `profiles stored before the battery estimate toggle default to enabled`() {
+        val legacyJson = """
+            {
+                "id": "test-id",
+                "label": "My Pods"
+            }
+        """.trimIndent()
+
+        val profile = json.decodeFromString<AppleDeviceProfile>(legacyJson)
+
+        profile.batteryEstimateEnabled shouldBe true
+    }
+
+    @Test
+    fun `battery estimate toggle round-trips`() {
+        val profile = AppleDeviceProfile(label = "My Pods", batteryEstimateEnabled = false)
+
+        val decoded = json.decodeFromString<AppleDeviceProfile>(json.encodeToString(profile))
+
+        decoded.batteryEstimateEnabled shouldBe false
+    }
+
+    @Test
     fun `charged reaction settings round-trip`() {
         val profile = AppleDeviceProfile(
             label = "My Pods",

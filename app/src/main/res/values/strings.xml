@@ -137,8 +137,12 @@
 
     <string name="settings_overview_hide_unmatched_label">Hide unmatched devices</string>
     <string name="settings_overview_hide_unmatched_description">Don\'t show nearby devices that don\'t match any of your profiles in the overview, e.g. other people\'s AirPods.</string>
-    <string name="settings_overview_battery_estimate_label">Estimate time remaining</string>
-    <string name="settings_overview_battery_estimate_description">Show an estimated time until the earbuds run out, learned from how fast their battery drains. Even when enabled, it only appears after the battery has dropped enough to measure the drain — usually several minutes of active use, and not while charging.</string>
+    <string name="device_battery_estimate_toggle_label">Show time remaining</string>
+    <string name="device_battery_estimate_card_desc">Estimate how long until this device needs charging, from its rated battery life and how fast it actually drains. Shown on the dashboard.</string>
+    <string name="device_battery_estimate_reset_action">Reset learned data</string>
+    <string name="device_battery_estimate_reset_desc">Forget the measured drain and start over from the rated battery life.</string>
+    <string name="device_battery_estimate_reset_confirm_title">Reset learned data?</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod will forget what it learned about this device\'s battery drain and estimate from the rated battery life again, re-learning as you use it.</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
 
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>

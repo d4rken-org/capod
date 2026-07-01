@@ -12,7 +12,6 @@ import androidx.compose.material.icons.twotone.FilterList
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Notifications
 import androidx.compose.material.icons.twotone.Palette
-import androidx.compose.material.icons.twotone.Schedule
 import androidx.compose.material.icons.twotone.VisibilityOff
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material3.Icon
@@ -61,7 +60,6 @@ fun GeneralSettingsScreenHost(vm: GeneralSettingsViewModel = hiltViewModel()) {
             onOffloadedBatchingDisabledChanged = { disabled -> vm.setOffloadedBatchingDisabled(disabled) },
             onUseIndirectScanResultCallbackChanged = { enabled -> vm.setUseIndirectScanResultCallback(enabled) },
             onHideUnmatchedDevicesChanged = { enabled -> vm.setHideUnmatchedDevices(enabled) },
-            onBatteryEstimateEnabledChanged = { enabled -> vm.setBatteryEstimateEnabled(enabled) },
             onThemeModeSelected = { mode -> vm.setThemeMode(mode) },
             onThemeStyleSelected = { style -> vm.setThemeStyle(style) },
             onThemeColorSelected = { color -> vm.setThemeColor(color) },
@@ -80,7 +78,6 @@ fun GeneralSettingsScreen(
     onOffloadedBatchingDisabledChanged: (Boolean) -> Unit,
     onUseIndirectScanResultCallbackChanged: (Boolean) -> Unit,
     onHideUnmatchedDevicesChanged: (Boolean) -> Unit,
-    onBatteryEstimateEnabledChanged: (Boolean) -> Unit,
     onThemeModeSelected: (ThemeMode) -> Unit = {},
     onThemeStyleSelected: (ThemeStyle) -> Unit = {},
     onThemeColorSelected: (ThemeColor) -> Unit = {},
@@ -219,21 +216,6 @@ fun GeneralSettingsScreen(
                 )
             }
             item {
-                SettingsBaseItem(
-                    title = stringResource(R.string.settings_overview_battery_estimate_label),
-                    subtitle = stringResource(R.string.settings_overview_battery_estimate_description),
-                    icon = Icons.TwoTone.Schedule,
-                    onClick = { onBatteryEstimateEnabledChanged(!state.batteryEstimateEnabled) },
-                    trailingContent = {
-                        Switch(
-                            checked = state.batteryEstimateEnabled,
-                            onCheckedChange = onBatteryEstimateEnabledChanged,
-                            modifier = Modifier.padding(start = 16.dp),
-                        )
-                    },
-                )
-            }
-            item {
                 SettingsCategoryHeader(text = stringResource(R.string.settings_category_compatibility_options_title))
             }
             item {
@@ -304,7 +286,6 @@ private fun previewGeneralState(isPro: Boolean) = GeneralSettingsViewModel.State
     isOffloadedBatchingDisabled = false,
     useIndirectScanResultCallback = false,
     hideUnmatchedDevices = false,
-    batteryEstimateEnabled = true,
     themeState = ThemeState(),
 )
 
@@ -320,7 +301,6 @@ private fun GeneralSettingsScreenProPreview() = PreviewWrapper {
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},
         onHideUnmatchedDevicesChanged = {},
-        onBatteryEstimateEnabledChanged = {},
     )
 }
 
@@ -336,6 +316,5 @@ private fun GeneralSettingsScreenNonProPreview() = PreviewWrapper {
         onOffloadedBatchingDisabledChanged = {},
         onUseIndirectScanResultCallbackChanged = {},
         onHideUnmatchedDevicesChanged = {},
-        onBatteryEstimateEnabledChanged = {},
     )
 }

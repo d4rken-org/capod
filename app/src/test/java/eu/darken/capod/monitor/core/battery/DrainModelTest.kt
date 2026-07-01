@@ -95,6 +95,14 @@ class DrainModelTest : BaseTest() {
     }
 
     @Test
+    fun `blendMinutes reacts faster to drops than to rises`() {
+        // Drop (less time left): fast factor so we stop over-promising quickly. 0.6*180 + 0.4*360 = 252
+        DrainModel.blendMinutes(previous = 360, next = 180) shouldBe 252
+        // Rise (more time / noise): gentle factor so we don't jump up. 0.25*200 + 0.75*100 = 125
+        DrainModel.blendMinutes(previous = 100, next = 200) shouldBe 125
+    }
+
+    @Test
     fun `blendRate seeds then smooths`() {
         DrainModel.blendRate(previous = null, next = 0.2f) shouldBe 0.2f
         DrainModel.blendRate(previous = 0.1f, next = 0.2f, alpha = 0.3f) shouldBe (0.13f plusOrMinus 0.0001f)

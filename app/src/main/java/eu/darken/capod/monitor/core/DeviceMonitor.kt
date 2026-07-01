@@ -79,6 +79,7 @@ class DeviceMonitor @Inject constructor(
                 profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
                 profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
                 reactions = profile.toReactionConfig(),
+                batteryEstimateEnabled = (profile as? AppleDeviceProfile)?.batteryEstimateEnabled ?: true,
                 isSystemConnected = profile?.address in connectedAddresses,
             )
         }
@@ -115,6 +116,7 @@ class DeviceMonitor @Inject constructor(
                 profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
                 profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
                 reactions = profile.toReactionConfig(),
+                batteryEstimateEnabled = (profile as? AppleDeviceProfile)?.batteryEstimateEnabled ?: true,
                 isSystemConnected = profile.address in state.connectedAddresses,
             )
         }
@@ -181,6 +183,7 @@ class DeviceMonitor @Inject constructor(
                     profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
                     profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
                     reactions = profile.toReactionConfig(),
+                    batteryEstimateEnabled = (profile as? AppleDeviceProfile)?.batteryEstimateEnabled ?: true,
                     isSystemConnected = profile.address in connectedAddresses,
                 )
             }
@@ -288,6 +291,7 @@ class DeviceMonitor @Inject constructor(
             profileLearnedAllowOffEnabled = (profile as? AppleDeviceProfile)?.learnedAllowOffEnabled,
             profileLastRequestedListeningModeCycleMask = (profile as? AppleDeviceProfile)?.lastRequestedListeningModeCycleMask,
             reactions = profile.toReactionConfig(),
+            batteryEstimateEnabled = (profile as? AppleDeviceProfile)?.batteryEstimateEnabled ?: true,
         )
     }
 

@@ -94,7 +94,12 @@ class BatteryDrainStore @Inject constructor(
     suspend fun delete(id: ProfileId) = withContext(dispatcherProvider.IO) {
         lock.withLock {
             log(TAG, Logging.Priority.VERBOSE) { "delete(id=$id)" }
-            id.toFile().delete()
+            val file = id.toFile()
+            if (file.exists() && !file.delete()) {
+                // In-memory is cleared regardless; warn so a failed delete (which would resurrect the
+                // rate on the next loadAll()) is at least visible rather than silently undoing a reset.
+                log(TAG, Logging.Priority.ERROR) { "delete($id): failed to remove $file" }
+            }
             _profiles.value -= id
         }
     }

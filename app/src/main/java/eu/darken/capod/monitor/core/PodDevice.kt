@@ -60,6 +60,8 @@ data class PodDevice(
     internal val profileLastRequestedListeningModeCycleMask: Int? = null,
     /** Reaction toggle snapshot from the profile. Defaults to all-off when no profile is matched. */
     val reactions: ReactionConfig = ReactionConfig(),
+    /** Whether the dashboard battery time-remaining estimate is enabled for this device (per-profile). */
+    val batteryEstimateEnabled: Boolean = true,
     /** True when the profile's BR/EDR address is in the system's connected Bluetooth devices. */
     val isSystemConnected: Boolean = false,
 ) {

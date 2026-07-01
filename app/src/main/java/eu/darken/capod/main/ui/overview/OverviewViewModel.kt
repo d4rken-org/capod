@@ -88,7 +88,6 @@ class OverviewViewModel @Inject constructor(
         val reactionsHintDismissed: Boolean,
         val hideUnmatchedDevices: Boolean,
         val showTroubleshootSuggestion: Boolean,
-        val batteryEstimateEnabled: Boolean,
         val batteryEstimates: Map<String, BatteryEstimate>,
     )
 
@@ -125,14 +124,12 @@ class OverviewViewModel @Inject constructor(
         generalSettings.reactionsHintDismissed.flow,
         generalSettings.hideUnmatchedDevices.flow,
         troubleshootSuggestion,
-        generalSettings.batteryEstimateEnabled.flow,
         batteryEstimator.estimates,
-    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimateEnabled, batteryEstimates ->
+    ) { reactionsHintDismissed, hideUnmatched, showTroubleshootSuggestion, batteryEstimates ->
         OverviewUiSettings(
             reactionsHintDismissed = reactionsHintDismissed,
             hideUnmatchedDevices = hideUnmatched,
             showTroubleshootSuggestion = showTroubleshootSuggestion,
-            batteryEstimateEnabled = batteryEstimateEnabled,
             batteryEstimates = batteryEstimates,
         )
     }
@@ -223,7 +220,6 @@ class OverviewViewModel @Inject constructor(
             showReactionsHint = hadLegacyReactionData && !uiSettings.reactionsHintDismissed,
             hideUnmatchedDevices = uiSettings.hideUnmatchedDevices,
             showTroubleshootSuggestion = uiSettings.showTroubleshootSuggestion,
-            batteryEstimateEnabled = uiSettings.batteryEstimateEnabled,
             batteryEstimates = uiSettings.batteryEstimates,
         )
     }.asLiveState()
@@ -243,17 +239,16 @@ class OverviewViewModel @Inject constructor(
         val showReactionsHint: Boolean = false,
         val hideUnmatchedDevices: Boolean = false,
         val showTroubleshootSuggestion: Boolean = false,
-        val batteryEstimateEnabled: Boolean = true,
         val batteryEstimates: Map<String, BatteryEstimate> = emptyMap(),
     ) {
         val isScanBlocked: Boolean get() = permissions.any { it.isScanBlocking }
 
         /**
-         * Time-remaining estimate to show for [device], or null when the user disabled the feature,
-         * the device isn't live (no estimate for cached/offline cards), or no rate has been learned.
+         * Time-remaining estimate to show for [device], or null when the device has the estimate
+         * disabled, isn't live (no estimate for cached/offline cards), or no rate is available yet.
          */
         fun estimateFor(device: PodDevice): BatteryEstimate? {
-            if (!batteryEstimateEnabled) return null
+            if (!device.batteryEstimateEnabled) return null
             if (!device.isLive) return null
             val profileId = device.profileId ?: return null
             return batteryEstimates[profileId]
