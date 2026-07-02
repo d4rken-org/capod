@@ -1,5 +1,6 @@
 package eu.darken.capod.main.ui.overview.cards
 
+import android.content.Context
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
@@ -239,7 +240,7 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isLeftPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
-                    timeRemaining = batteryEstimate?.left?.let { formatBatteryDurationShort(context, it.minutesRemaining) },
+                    timeRemaining = batteryEstimate?.left?.let { formatEstimateText(context, it) },
                 )
 
                 PodGauge(
@@ -252,7 +253,7 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isRightPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
-                    timeRemaining = batteryEstimate?.right?.let { formatBatteryDurationShort(context, it.minutesRemaining) },
+                    timeRemaining = batteryEstimate?.right?.let { formatEstimateText(context, it) },
                 )
             }
 
@@ -403,6 +404,16 @@ private fun PodGauge(
         )
     }
 }
+
+/**
+ * The gauge's small estimate line: while charging with a usable rate, the time until full
+ * (language-neutral "⚡ 25m"); otherwise the usual time-remaining ("2h 15m"). Shared with
+ * [SinglePodsCard] (same package).
+ */
+internal fun formatEstimateText(context: Context, pod: BatteryEstimate.Pod): String =
+    pod.minutesUntilCharged
+        ?.let { context.getString(R.string.battery_time_until_charged_short, formatBatteryDurationShort(context, it)) }
+        ?: formatBatteryDurationShort(context, pod.minutesRemaining)
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

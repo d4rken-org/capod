@@ -33,10 +33,15 @@ class BatteryEstimatorTest : BaseTest() {
         left: Float?,
         right: Float?,
         charging: Boolean = false,
+        optimized: Boolean = false,
         model: PodModel? = null,
         estimateEnabled: Boolean = true,
     ): PodDevice {
-        val state = if (charging) ChargingState.CHARGING else ChargingState.NOT_CHARGING
+        val state = when {
+            optimized -> ChargingState.CHARGING_OPTIMIZED
+            charging -> ChargingState.CHARGING
+            else -> ChargingState.NOT_CHARGING
+        }
         val batteries = buildMap {
             if (left != null) put(BatteryType.LEFT, Battery(BatteryType.LEFT, left, state))
             if (right != null) put(BatteryType.RIGHT, Battery(BatteryType.RIGHT, right, state))
@@ -249,6 +254,143 @@ class BatteryEstimatorTest : BaseTest() {
             listOf(device("p1", left = level, right = level, estimateEnabled = false))
         }
         collectEstimate(estimator(emissions)) shouldBe emptyMap()
+    }
+
+    @Test
+    fun `a rising charge yields a live time-until-charged`() = runTest(UnconfinedTestDispatcher()) {
+        // 2%/min while docked -> 1.2 fraction/hr -> at 44% that's (1 - 0.44) / 1.2 * 60 == 28 min.
+        val emissions = (0 until 4).map { i ->
+            val level = 0.20f + i * 0.08f
+            listOf(device("p1", left = level, right = level, charging = true, model = PodModel.AIRPODS_PRO2))
+        }
+        val left = collectEstimate(estimator(emissions))["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.minutesUntilCharged shouldBe 28
+    }
+
+    @Test
+    fun `a stored charge rate seeds time-until-charged immediately`() = runTest(UnconfinedTestDispatcher()) {
+        // First charging emission, no live fit possible yet -> the persisted rate answers at once.
+        // 50% missing at 1.2/hr == 25 min.
+        val stored = mapOf(
+            "p1" to DrainProfile(chargeRates = mapOf("LEFT" to learned(1.2f), "RIGHT" to learned(1.2f)))
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 0.50f, right = 0.50f, charging = true, model = PodModel.AIRPODS_PRO2))),
+                stored = stored,
+            )
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesUntilCharged shouldBe 25
+    }
+
+    @Test
+    fun `an optimized-charging hold suppresses time-until-charged`() = runTest(UnconfinedTestDispatcher()) {
+        // CHARGING_OPTIMIZED parks the level below full — an ETA would mislead, but the runtime
+        // projection stays visible.
+        val stored = mapOf(
+            "p1" to DrainProfile(chargeRates = mapOf("LEFT" to learned(1.2f), "RIGHT" to learned(1.2f)))
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(
+                    listOf(device("p1", left = 0.80f, right = 0.80f, charging = true, optimized = true, model = PodModel.AIRPODS_PRO2))
+                ),
+                stored = stored,
+            )
+        )
+        val left = result["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.minutesUntilCharged shouldBe null
+        left.source shouldBe BatteryEstimate.Source.SPEC
+    }
+
+    @Test
+    fun `a stalled charge suppresses time-until-charged`() = runTest(UnconfinedTestDispatcher()) {
+        // Level stops rising while still flagged charging (unreported hold / trickle): once the
+        // silence outlasts the stall threshold the frozen ETA is dropped.
+        val stored = mapOf(
+            "p1" to DrainProfile(chargeRates = mapOf("LEFT" to learned(1.2f), "RIGHT" to learned(1.2f)))
+        )
+        val emissions = listOf(
+            listOf(device("p1", left = 0.50f, right = 0.50f, charging = true, model = PodModel.AIRPODS_PRO2)),
+            listOf(device("p1", left = 0.50f, right = 0.50f, charging = true, model = PodModel.AIRPODS_PRO2)),
+        )
+        val result = collectEstimate(
+            estimator(emissions, stored = stored, clockMs = listOf(0L, 11 * 60_000L)),
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesUntilCharged shouldBe null
+    }
+
+    @Test
+    fun `a discharging pod has no charge estimate`() = runTest(UnconfinedTestDispatcher()) {
+        val stored = mapOf(
+            "p1" to DrainProfile(chargeRates = mapOf("LEFT" to learned(1.2f), "RIGHT" to learned(1.2f)))
+        )
+        val emissions = (0 until 5).map { i ->
+            val level = 0.80f - i * 0.01f
+            listOf(device("p1", left = level, right = level))
+        }
+        val left = collectEstimate(estimator(emissions, stored = stored))["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        left.source shouldBe BatteryEstimate.Source.LIVE
+        left.minutesUntilCharged shouldBe null
+    }
+
+    @Test
+    fun `charge rates are persisted`() = runTest(UnconfinedTestDispatcher()) {
+        val drainStore = mockk<BatteryDrainStore> {
+            every { profiles } returns MutableStateFlow(emptyMap())
+            coEvery { save(any(), any()) } returns Unit
+        }
+        val emissions = (0 until 4).map { i ->
+            val level = 0.20f + i * 0.08f
+            listOf(device("p1", left = level, right = level, charging = true, model = PodModel.AIRPODS_PRO2))
+        }
+        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
+        val timeSource = mockk<TimeSource> {
+            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
+            every { now() } returns now
+        }
+        val estimator = BatteryEstimator(deviceMonitor, drainStore, timeSource)
+
+        estimator.monitor().collect {}
+
+        coVerify {
+            drainStore.save("p1", match { it.chargeRates.containsKey("LEFT") && it.chargeRates.containsKey("RIGHT") })
+        }
+    }
+
+    @Test
+    fun `undocking does not leak charge samples into the drain fit`() = runTest(UnconfinedTestDispatcher()) {
+        // A charge session builds a rising window; the moment the pods leave the case the window
+        // must flip to drain from scratch — a fit across the rising samples would be garbage.
+        val emissions = listOf(
+            listOf(device("p1", left = 0.20f, right = 0.20f, charging = true, model = PodModel.AIRPODS_PRO2)),
+            listOf(device("p1", left = 0.28f, right = 0.28f, charging = true, model = PodModel.AIRPODS_PRO2)),
+            listOf(device("p1", left = 0.36f, right = 0.36f, charging = true, model = PodModel.AIRPODS_PRO2)),
+            listOf(device("p1", left = 0.36f, right = 0.36f, model = PodModel.AIRPODS_PRO2)), // undocked
+        )
+        val left = collectEstimate(estimator(emissions))["p1"].shouldNotBeNull().left.shouldNotBeNull()
+        // One drain sample only -> no live fit, nothing learned -> the rating answers.
+        left.source shouldBe BatteryEstimate.Source.SPEC
+        left.minutesUntilCharged shouldBe null
+    }
+
+    @Test
+    fun `learned rates from different hardware are ignored`() = runTest(UnconfinedTestDispatcher()) {
+        // The profile was re-pointed from an AirPods Pro to a Pro 2 — its old rates don't describe
+        // this device, so the estimate falls back to the current model's rating.
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                model = PodModel.AIRPODS_PRO.name,
+                rates = mapOf("UNKNOWN/LEFT" to learned(0.15f), "UNKNOWN/RIGHT" to learned(0.15f)),
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 1.0f, right = 1.0f, model = PodModel.AIRPODS_PRO2))),
+                stored = stored,
+            )
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().source shouldBe BatteryEstimate.Source.SPEC
     }
 
     @Test

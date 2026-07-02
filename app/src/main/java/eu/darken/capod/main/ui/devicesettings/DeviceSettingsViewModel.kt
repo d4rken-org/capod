@@ -22,7 +22,10 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryDrainStore
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.BatteryHealth
+import eu.darken.capod.monitor.core.battery.DrainProfile
 import eu.darken.capod.monitor.core.resolvedAncCycleMask
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
@@ -57,6 +60,7 @@ class DeviceSettingsViewModel @Inject constructor(
     private val bluetoothManager: BluetoothManager2,
     private val profilesRepo: DeviceProfilesRepo,
     private val batteryEstimator: BatteryEstimator,
+    private val drainStore: BatteryDrainStore,
     private val monitorModeResolver: MonitorModeResolver,
     private val nudgeCapabilityStore: NudgeCapabilityStore,
     private val timeSource: TimeSource,
@@ -124,6 +128,7 @@ class DeviceSettingsViewModel @Inject constructor(
             monitorModeResolver.effectiveMode,
             profilesRepo.profiles,
             nudgeCapabilityStore.availability,
+            drainStore.profiles,
         ) { args ->
             val device = args[1] as PodDevice?
             val upgrade = args[2] as UpgradeRepo.Info
@@ -136,6 +141,9 @@ class DeviceSettingsViewModel @Inject constructor(
             @Suppress("UNCHECKED_CAST")
             val profiles = args[6] as List<eu.darken.capod.profiles.core.DeviceProfile>
             val nudgeAvailability = args[7] as NudgeAvailability
+
+            @Suppress("UNCHECKED_CAST")
+            val drainProfiles = args[8] as Map<ProfileId, DrainProfile>
             val appleProfile = profiles.filterIsInstance<AppleDeviceProfile>()
                 .firstOrNull { it.id == profileId }
             val stemActions = appleProfile?.stemActions
@@ -161,6 +169,11 @@ class DeviceSettingsViewModel @Inject constructor(
                         (it.rightLong !is StemAction.None && it.rightLong !is StemAction.CycleAnc)
                 } == true,
                 batteryEstimateEnabled = appleProfile?.batteryEstimateEnabled ?: true,
+                // Health rides on the same learned data as the estimate — the per-device toggle
+                // governs both.
+                batteryHealthPercent = device
+                    ?.takeIf { appleProfile?.batteryEstimateEnabled ?: true }
+                    ?.let { BatteryHealth.estimatePercent(drainProfiles[profileId], it.model) },
             )
         }
     }.asLiveState()
@@ -187,6 +200,8 @@ class DeviceSettingsViewModel @Inject constructor(
         val systemBluetoothName: String? = null,
         val hasCustomLongPressStemAction: Boolean = false,
         val batteryEstimateEnabled: Boolean = true,
+        /** Derived battery health (1..100), or null when there isn't enough learned data. */
+        val batteryHealthPercent: Int? = null,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
     }

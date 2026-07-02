@@ -20,6 +20,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         rightSerial = "Right Pod Serial",
         leftBonded = "Left Bonded",
         rightBonded = "Right Bonded",
+        batteryHealth = "Battery Health",
     )
 
     private val formatter: (Instant) -> String = { "fmt:${it.epochSecond}" }
@@ -52,7 +53,32 @@ class DeviceInfoDetailItemsTest : BaseTest() {
 
     @Test
     fun `null AapDeviceInfo yields empty list`() {
-        buildDeviceInfoDetailItems(null, labels, formatter) shouldBe emptyList()
+        buildDeviceInfoDetailItems(null, labels, formatDate = formatter) shouldBe emptyList()
+    }
+
+    @Test
+    fun `battery health shows without AapDeviceInfo`() {
+        // BLE-only devices never produce an AAP info response but can still have learned health.
+        val result = buildDeviceInfoDetailItems(null, labels, batteryHealth = "~85%", formatDate = formatter)
+        result shouldContainExactly listOf(
+            DeviceDetailItem.Single("Battery Health", "~85%"),
+        )
+    }
+
+    @Test
+    fun `battery health is appended after the info rows`() {
+        val result = buildDeviceInfoDetailItems(
+            info(manufacturer = "Apple", serialNumber = "ABC123", firmwareVersion = "7A305"),
+            labels,
+            batteryHealth = "~72%",
+            formatDate = formatter,
+        )
+        result shouldContainExactly listOf(
+            DeviceDetailItem.Single("Manufacturer", "Apple"),
+            DeviceDetailItem.Single("Serial Number", "ABC123"),
+            DeviceDetailItem.Single("Firmware", "7A305"),
+            DeviceDetailItem.Single("Battery Health", "~72%"),
+        )
     }
 
     @Test
@@ -60,7 +86,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(manufacturer = "Apple", serialNumber = "ABC123", firmwareVersion = "7A305"),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Manufacturer", "Apple"),
@@ -79,7 +105,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
                 firmwareVersion = "7A305",
             ),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Manufacturer", "Apple"),
@@ -100,7 +126,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
                 marketingVersion = "8454768",
             ),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Manufacturer", "Apple"),
@@ -116,7 +142,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(firmwareVersion = "81.26", marketingVersion = "8454768"),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Firmware", "81.26"),
@@ -129,7 +155,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(firmwareVersion = "81.26", firmwareVersionPending = "   "),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Firmware", "81.26"),
@@ -141,7 +167,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(leftEarbudSerial = "LLL", rightEarbudSerial = "RRR"),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Paired(
@@ -156,7 +182,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(leftEarbudSerial = "LLL"),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Left Pod Serial", "LLL"),
@@ -168,7 +194,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(rightEarbudSerial = "RRR"),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Right Pod Serial", "RRR"),
@@ -181,7 +207,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(leftEarbudFirstPaired = sameSecond, rightEarbudFirstPaired = sameSecond),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Paired(
@@ -198,7 +224,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(leftEarbudFirstPaired = left, rightEarbudFirstPaired = right),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Paired(
@@ -213,7 +239,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(leftEarbudFirstPaired = Instant.ofEpochSecond(1697480211L)),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Left Bonded", "fmt:1697480211"),
@@ -225,7 +251,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         val result = buildDeviceInfoDetailItems(
             info(rightEarbudFirstPaired = Instant.ofEpochSecond(1697480211L)),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result shouldContainExactly listOf(
             DeviceDetailItem.Single("Right Bonded", "fmt:1697480211"),
@@ -241,7 +267,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
                 rightEarbudFirstPaired = null,
             ),
             labels,
-            formatter,
+            formatDate = formatter,
         )
         result.none { it is DeviceDetailItem.Paired } shouldBe true
         result.none {
