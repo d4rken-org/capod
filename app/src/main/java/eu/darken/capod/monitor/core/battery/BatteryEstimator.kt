@@ -348,7 +348,13 @@ class BatteryEstimator @Inject constructor(
         val live = if (history.direction == SlotHistory.Direction.CHARGE) {
             DrainModel.chargeSlopeFractionPerHour(history.toList())
         } else null
-        val rate = live ?: learnedChargeRate(profileId, device, slot) ?: return null
+        // Rate preference mirrors the drain side: measured, then learned, then Apple's published
+        // quick-charge claim ("5 minutes in the case = ~1 hour of listening") — so an ETA exists
+        // even on the very first charge.
+        val rate = live
+            ?: learnedChargeRate(profileId, device, slot)
+            ?: device.model.batterySpec?.chargeFractionPerHour
+            ?: return null
 
         val lastRise = tracker.lastRiseMs[slot] ?: return null
         val step = if (device.liveReading(slot)?.second == DataSource.AAP) STEP_AAP else STEP_BLE
