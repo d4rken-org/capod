@@ -24,8 +24,13 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.common.upgrade.isPro
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.takeFor
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
 class BatteryGlanceWidget : GlanceAppWidget() {
@@ -40,6 +45,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
         fun upgradeRepo(): UpgradeRepo
         fun widgetSettings(): WidgetSettings
         fun deviceProfilesRepo(): DeviceProfilesRepo
+        fun batteryEstimator(): BatteryEstimator
     }
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
@@ -99,6 +105,13 @@ class BatteryGlanceWidget : GlanceAppWidget() {
                     ?.let { pid -> remember(pid) { ep.deviceMonitor().widgetDeviceFlow(pid) } }
                     ?.collectAsState(initial = initialDevice)
                     ?: remember(initialDevice) { androidx.compose.runtime.mutableStateOf(initialDevice) }
+                // Empty while the monitor service isn't running — estimates simply stay hidden.
+                val rawEstimate by config.profileId
+                    ?.let { pid ->
+                        remember(pid) { ep.batteryEstimator().estimates.map { it[pid] }.distinctUntilChanged() }
+                    }
+                    ?.collectAsState(initial = null)
+                    ?: remember { androidx.compose.runtime.mutableStateOf<BatteryEstimate?>(null) }
                 val profileLabel = config.profileId?.let { pid ->
                     runCatching {
                         runBlocking { ep.deviceProfilesRepo().profiles.first().firstOrNull { it.id == pid }?.label }
@@ -117,6 +130,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
                     hasConfiguredProfile = config.profileId != null,
                     profileLabel = profileLabel,
                     layout = layout,
+                    estimate = device?.let { d -> rawEstimate?.takeFor(d) },
                 )
             } else {
                 WidgetRenderState.Message(
@@ -138,7 +152,7 @@ class BatteryGlanceWidget : GlanceAppWidget() {
             bgColor = WidgetRenderStateMapper.resolvedBgColor(context, WidgetTheme.DEFAULT),
             textColor = WidgetRenderStateMapper.resolvedTextColor(context, WidgetTheme.DEFAULT),
             iconColor = WidgetRenderStateMapper.resolvedIconColor(context, WidgetTheme.DEFAULT),
-        )
+        ).withLocalizedPreviewEstimates(context)
 
         provideContent {
             GlanceWidgetContent(state = previewState, context = context)

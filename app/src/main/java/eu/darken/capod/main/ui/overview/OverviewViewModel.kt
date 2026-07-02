@@ -25,6 +25,7 @@ import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.estimateFor
 import eu.darken.capod.monitor.core.tierRank
 import eu.darken.capod.monitor.core.worker.MonitorControl
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -247,12 +248,7 @@ class OverviewViewModel @Inject constructor(
          * Time-remaining estimate to show for [device], or null when the device has the estimate
          * disabled, isn't live (no estimate for cached/offline cards), or no rate is available yet.
          */
-        fun estimateFor(device: PodDevice): BatteryEstimate? {
-            if (!device.batteryEstimateEnabled) return null
-            if (!device.isLive) return null
-            val profileId = device.profileId ?: return null
-            return batteryEstimates[profileId]
-        }
+        fun estimateFor(device: PodDevice): BatteryEstimate? = batteryEstimates.estimateFor(device)
 
         /** Profile list order used as tiebreaker within each connection tier. */
         private val profileOrder: Map<String, Int> by lazy {

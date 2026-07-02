@@ -507,7 +507,7 @@ private fun WidgetConfigPreview(
                             bgColor = WidgetRenderStateMapper.resolvedBgColor(context, theme),
                             textColor = WidgetRenderStateMapper.resolvedTextColor(context, theme),
                             iconColor = WidgetRenderStateMapper.resolvedIconColor(context, theme),
-                        ).copy(deviceLabel = deviceLabel)
+                        ).withLocalizedPreviewEstimates(context).copy(deviceLabel = deviceLabel)
                     }
                     ComposeWidgetPreview(state = batteryState, modifier = innerModifier)
                 }

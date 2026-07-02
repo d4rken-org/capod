@@ -21,11 +21,13 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.main.ui.overview.OverviewScreen
 import eu.darken.capod.main.ui.overview.OverviewViewModel
+import androidx.compose.ui.platform.LocalContext
 import eu.darken.capod.main.ui.widget.ComposeWidgetPreview
 import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
 import eu.darken.capod.main.ui.widget.WidgetConfigurationViewModel
 import eu.darken.capod.main.ui.widget.WidgetRenderState
 import eu.darken.capod.main.ui.widget.WidgetTheme
+import eu.darken.capod.main.ui.widget.withLocalizedPreviewEstimates
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.profiles.ui.DeviceManagerScreen
 import eu.darken.capod.profiles.ui.DeviceManagerViewModel
@@ -229,7 +231,7 @@ internal fun HomescreenWidgetContent() {
                     bgColor = MaterialTheme.colorScheme.surface.toArgb(),
                     textColor = MaterialTheme.colorScheme.onSurface.toArgb(),
                     iconColor = MaterialTheme.colorScheme.onSurface.toArgb(),
-                ),
+                ).withLocalizedPreviewEstimates(LocalContext.current),
             )
         }
     }

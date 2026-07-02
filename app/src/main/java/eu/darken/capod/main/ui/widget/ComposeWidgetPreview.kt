@@ -96,9 +96,9 @@ private fun DualPodPreview(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    PodItemRow(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textColor, iconTint, iconSize = 40, modifier = Modifier.padding(end = 12.dp))
+                    PodItemRow(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textColor, iconTint, iconSize = 40, estimate = state.leftEstimate, estimateBelow = true, modifier = Modifier.padding(end = 12.dp))
                     PodItemRow(state.caseIcon, state.casePercent, state.caseCharging, false, textColor, iconTint, iconSize = 40, modifier = Modifier.padding(end = 12.dp))
-                    PodItemRow(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textColor, iconTint, iconSize = 40)
+                    PodItemRow(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textColor, iconTint, iconSize = 40, estimate = state.rightEstimate, estimateBelow = true)
                 }
                 DeviceLabel(
                     label = state.deviceLabel,
@@ -111,8 +111,8 @@ private fun DualPodPreview(
 
         BatteryLayout.NARROW -> {
             WidgetContainer(bgColor = bgColor, modifier = modifier) {
-                PodItemRow(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textColor, iconTint)
-                PodItemRow(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textColor, iconTint)
+                PodItemRow(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textColor, iconTint, estimate = state.leftEstimate)
+                PodItemRow(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textColor, iconTint, estimate = state.rightEstimate)
                 PodItemRow(state.caseIcon, state.casePercent, state.caseCharging, false, textColor, iconTint)
                 DeviceLabel(
                     label = state.deviceLabel,
@@ -160,9 +160,10 @@ private fun SinglePodPreview(
                         colorFilter = iconTint,
                     )
                     Text(
-                        text = formatPercent(state.percent),
+                        text = formatPercent(state.percent) + estimateSuffix(state.estimate),
                         fontSize = 12.sp,
                         color = textColor,
+                        maxLines = 1,
                         modifier = Modifier.padding(horizontal = 8.dp),
                     )
                     if (state.charging) {
@@ -297,39 +298,54 @@ private fun PodItemRow(
     textColor: Color,
     iconTint: ColorFilter,
     iconSize: Int = 20,
+    estimate: String? = null,
+    estimateBelow: Boolean = false,
     modifier: Modifier = Modifier,
 ) {
-    Row(
+    Column(
         modifier = modifier,
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(
-            painter = painterResource(icon),
-            contentDescription = null,
-            modifier = Modifier.size(iconSize.dp),
-            colorFilter = iconTint,
-        )
-        Text(
-            text = formatPercent(percent),
-            fontSize = 12.sp,
-            color = textColor,
-            modifier = Modifier.padding(horizontal = 4.dp),
-        )
-        if (charging) {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             Image(
-                painter = painterResource(R.drawable.ic_baseline_power_24),
+                painter = painterResource(icon),
                 contentDescription = null,
-                modifier = Modifier.size(20.dp),
+                modifier = Modifier.size(iconSize.dp),
                 colorFilter = iconTint,
             )
+            Text(
+                text = formatPercent(percent) + if (estimateBelow) "" else estimateSuffix(estimate),
+                fontSize = 12.sp,
+                color = textColor,
+                maxLines = 1,
+                modifier = Modifier.padding(horizontal = 4.dp),
+            )
+            if (charging) {
+                Image(
+                    painter = painterResource(R.drawable.ic_baseline_power_24),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    colorFilter = iconTint,
+                )
+            }
+            if (inEar) {
+                Image(
+                    painter = painterResource(R.drawable.ic_baseline_hearing_24),
+                    contentDescription = null,
+                    modifier = Modifier.size(20.dp),
+                    colorFilter = iconTint,
+                )
+            }
         }
-        if (inEar) {
-            Image(
-                painter = painterResource(R.drawable.ic_baseline_hearing_24),
-                contentDescription = null,
-                modifier = Modifier.size(20.dp),
-                colorFilter = iconTint,
+        if (estimateBelow && estimate != null) {
+            Text(
+                text = estimate,
+                fontSize = 12.sp,
+                color = textColor,
+                maxLines = 1,
             )
         }
     }
@@ -384,6 +400,8 @@ private fun DeviceLabel(
 
 private fun formatPercent(percent: Float): String =
     if (isKnownBattery(percent)) "${(percent * 100).roundToInt()}%" else "—"
+
+private fun estimateSuffix(estimate: String?): String = estimate?.let { " · $it" } ?: ""
 
 @Preview2
 @Composable

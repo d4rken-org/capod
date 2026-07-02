@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                tools:text="95%" />
+                tools:text="95% · 5h 40m" />
 
             <LinearLayout
                 android:layout_width="36dp"
@@ -163,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                tools:text="92%" />
+                tools:text="92% · 5h 25m" />
 
             <LinearLayout
                 android:layout_width="36dp"

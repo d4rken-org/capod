@@ -65,9 +65,9 @@ private fun GlanceDualPod(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    GlancePodItem(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textStyle, iconTint, iconSize = 40, modifier = GlanceModifier.padding(end = 12.dp))
+                    GlancePodItem(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textStyle, iconTint, iconSize = 40, estimate = state.leftEstimate, estimateBelow = true, modifier = GlanceModifier.padding(end = 12.dp))
                     GlancePodItem(state.caseIcon, state.casePercent, state.caseCharging, false, textStyle, iconTint, iconSize = 40, modifier = GlanceModifier.padding(end = 12.dp))
-                    GlancePodItem(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textStyle, iconTint, iconSize = 40)
+                    GlancePodItem(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textStyle, iconTint, iconSize = 40, estimate = state.rightEstimate, estimateBelow = true)
                 }
                 GlanceDeviceLabel(state.deviceLabel, state.theme.showDeviceLabel, state.resolvedTextColor)
             }
@@ -76,8 +76,8 @@ private fun GlanceDualPod(
         BatteryLayout.NARROW -> {
             val textStyle = TextStyle(color = fixedColor(state.resolvedTextColor), fontSize = 12.sp)
             GlanceWidgetRoot(state.resolvedBgColor, clickModifier) {
-                GlancePodItem(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textStyle, iconTint)
-                GlancePodItem(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textStyle, iconTint)
+                GlancePodItem(state.leftIcon, state.leftPercent, state.leftCharging, state.leftInEar, textStyle, iconTint, estimate = state.leftEstimate)
+                GlancePodItem(state.rightIcon, state.rightPercent, state.rightCharging, state.rightInEar, textStyle, iconTint, estimate = state.rightEstimate)
                 GlancePodItem(state.caseIcon, state.casePercent, state.caseCharging, false, textStyle, iconTint)
                 GlanceDeviceLabel(state.deviceLabel, state.theme.showDeviceLabel, state.resolvedTextColor)
             }
@@ -122,8 +122,9 @@ private fun GlanceSinglePod(
                         colorFilter = iconTint,
                     )
                     Text(
-                        text = formatGlancePercent(state.percent),
+                        text = formatGlancePercent(state.percent) + estimateSuffix(state.estimate),
                         style = textStyle,
+                        maxLines = 1,
                         modifier = GlanceModifier.padding(horizontal = 8.dp),
                     )
                     if (state.charging) {
@@ -257,37 +258,49 @@ private fun GlancePodItem(
     textStyle: TextStyle,
     iconTint: ColorFilter,
     iconSize: Int = 20,
+    estimate: String? = null,
+    estimateBelow: Boolean = false,
     modifier: GlanceModifier = GlanceModifier,
 ) {
-    Row(
+    Column(
         modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Image(
-            provider = ImageProvider(icon),
-            contentDescription = null,
-            modifier = GlanceModifier.size(iconSize.dp),
-            colorFilter = iconTint,
-        )
-        Text(
-            text = formatGlancePercent(percent),
-            style = textStyle,
-            modifier = GlanceModifier.padding(horizontal = 4.dp),
-        )
-        if (charging) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
-                provider = ImageProvider(R.drawable.ic_baseline_power_24),
+                provider = ImageProvider(icon),
                 contentDescription = null,
-                modifier = GlanceModifier.size(20.dp),
+                modifier = GlanceModifier.size(iconSize.dp),
                 colorFilter = iconTint,
             )
+            Text(
+                text = formatGlancePercent(percent) + if (estimateBelow) "" else estimateSuffix(estimate),
+                style = textStyle,
+                maxLines = 1,
+                modifier = GlanceModifier.padding(horizontal = 4.dp),
+            )
+            if (charging) {
+                Image(
+                    provider = ImageProvider(R.drawable.ic_baseline_power_24),
+                    contentDescription = null,
+                    modifier = GlanceModifier.size(20.dp),
+                    colorFilter = iconTint,
+                )
+            }
+            if (inEar) {
+                Image(
+                    provider = ImageProvider(R.drawable.ic_baseline_hearing_24),
+                    contentDescription = null,
+                    modifier = GlanceModifier.size(20.dp),
+                    colorFilter = iconTint,
+                )
+            }
         }
-        if (inEar) {
-            Image(
-                provider = ImageProvider(R.drawable.ic_baseline_hearing_24),
-                contentDescription = null,
-                modifier = GlanceModifier.size(20.dp),
-                colorFilter = iconTint,
+        if (estimateBelow && estimate != null) {
+            Text(
+                text = estimate,
+                style = textStyle,
+                maxLines = 1,
             )
         }
     }
@@ -343,3 +356,5 @@ private fun fixedColor(argb: Int): ColorProvider = ColorProvider(Color(argb))
 
 private fun formatGlancePercent(percent: Float): String =
     if (isKnownBattery(percent)) "${(percent * 100).roundToInt()}%" else "—"
+
+private fun estimateSuffix(estimate: String?): String = estimate?.let { " · $it" } ?: ""

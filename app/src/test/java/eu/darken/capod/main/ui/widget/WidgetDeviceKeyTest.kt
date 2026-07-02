@@ -74,6 +74,14 @@ class WidgetDeviceKeyTest : BaseTest() {
     }
 
     @Test
+    fun `battery estimate toggle alters key`() {
+        val enabled = dualDevice().toWidgetKey()
+        val disabled = dualDevice(batteryEstimateEnabled = false).toWidgetKey()
+
+        disabled shouldNotBe enabled
+    }
+
+    @Test
     fun `labels and wear state alter key`() {
         val dualBase = dualDevice().toWidgetKey()
 
@@ -126,6 +134,7 @@ class WidgetDeviceKeyTest : BaseTest() {
         label: String? = dualProfile.label,
         ble: BlePodSnapshot? = FakeDualBlePod(profile = dualProfile),
         aap: AapPodState? = null,
+        batteryEstimateEnabled: Boolean = true,
     ) = PodDevice(
         profileId = dualProfile.id,
         label = label,
@@ -133,6 +142,7 @@ class WidgetDeviceKeyTest : BaseTest() {
         aap = aap,
         profileAddress = dualProfile.address,
         profileModel = dualProfile.model,
+        batteryEstimateEnabled = batteryEstimateEnabled,
     )
 
     private fun singleDevice(

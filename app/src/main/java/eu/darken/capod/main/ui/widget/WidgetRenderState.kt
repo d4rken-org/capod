@@ -1,8 +1,10 @@
 package eu.darken.capod.main.ui.widget
 
+import android.content.Context
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import eu.darken.capod.R
+import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 
 enum class BatteryLayout {
     TINY_COLUMN,
@@ -36,10 +38,12 @@ sealed class WidgetRenderState {
         val leftPercent: Float,
         val leftCharging: Boolean,
         val leftInEar: Boolean,
+        val leftEstimate: String?,
         @DrawableRes val rightIcon: Int,
         val rightPercent: Float,
         val rightCharging: Boolean,
         val rightInEar: Boolean,
+        val rightEstimate: String?,
         @DrawableRes val caseIcon: Int,
         val casePercent: Float,
         val caseCharging: Boolean,
@@ -57,6 +61,7 @@ sealed class WidgetRenderState {
         @DrawableRes val batteryIcon: Int,
         val charging: Boolean,
         val worn: Boolean,
+        val estimate: String?,
     ) : WidgetRenderState()
 
     data class Message(
@@ -95,10 +100,12 @@ sealed class WidgetRenderState {
             leftPercent = 0.85f,
             leftCharging = false,
             leftInEar = true,
+            leftEstimate = "4h 55m",
             rightIcon = R.drawable.device_airpods_pro2_right,
             rightPercent = 0.92f,
             rightCharging = true,
             rightInEar = false,
+            rightEstimate = "25m",
             caseIcon = R.drawable.device_airpods_pro2_case,
             casePercent = 1.0f,
             caseCharging = false,
@@ -122,6 +129,16 @@ sealed class WidgetRenderState {
             batteryIcon = R.drawable.ic_baseline_battery_3_bar_24,
             charging = false,
             worn = true,
+            estimate = "14h 30m",
         )
     }
 }
+
+/**
+ * Replaces the preview factory's hardcoded sample estimates with properly localized ones for
+ * user-facing preview surfaces (widget picker, configuration screen, store screenshots).
+ */
+fun WidgetRenderState.DualPod.withLocalizedPreviewEstimates(context: Context): WidgetRenderState.DualPod = copy(
+    leftEstimate = formatBatteryDurationShort(context, 295),
+    rightEstimate = formatBatteryDurationShort(context, 25),
+)

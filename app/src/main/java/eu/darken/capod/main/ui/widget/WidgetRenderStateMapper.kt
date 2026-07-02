@@ -5,7 +5,10 @@ import androidx.annotation.ColorInt
 import androidx.appcompat.view.ContextThemeWrapper
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.displayMinutes
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
 
 object WidgetRenderStateMapper {
@@ -18,6 +21,7 @@ object WidgetRenderStateMapper {
         hasConfiguredProfile: Boolean,
         profileLabel: String?,
         layout: BatteryLayout = BatteryLayout.NARROW,
+        estimate: BatteryEstimate? = null,
     ): WidgetRenderState {
         val bgColor = resolvedBgColor(context, theme)
         val textColor = resolvedTextColor(context, theme)
@@ -45,10 +49,12 @@ object WidgetRenderStateMapper {
                 leftPercent = device.batteryLeft,
                 leftCharging = device.isLeftPodCharging == true,
                 leftInEar = device.isLeftInEar == true,
+                leftEstimate = estimate?.left.estimateText(context, device.isLeftPodCharging == true),
                 rightIcon = device.rightPodIcon,
                 rightPercent = device.batteryRight,
                 rightCharging = device.isRightPodCharging == true,
                 rightInEar = device.isRightInEar == true,
+                rightEstimate = estimate?.right.estimateText(context, device.isRightPodCharging == true),
                 caseIcon = device.caseIcon,
                 casePercent = device.batteryCase,
                 caseCharging = device.isCaseCharging == true,
@@ -66,6 +72,7 @@ object WidgetRenderStateMapper {
                 batteryIcon = getBatteryDrawable(device.batteryHeadset),
                 charging = device.isHeadsetBeingCharged == true,
                 worn = device.isBeingWorn == true,
+                estimate = estimate?.headset.estimateText(context, device.isHeadsetBeingCharged == true),
             )
 
             device != null -> WidgetRenderState.Message(
@@ -94,6 +101,9 @@ object WidgetRenderStateMapper {
             }
         }
     }
+
+    private fun BatteryEstimate.Pod?.estimateText(context: Context, charging: Boolean): String? =
+        this?.displayMinutes(charging)?.let { formatBatteryDurationShort(context, it) }
 
     @ColorInt
     fun resolvedBgColor(context: Context, theme: WidgetTheme): Int {
