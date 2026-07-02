@@ -24,7 +24,9 @@ import androidx.compose.ui.unit.dp
 import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
+import eu.darken.capod.common.settings.InfoBoxType
 import eu.darken.capod.common.settings.SettingsBaseItem
+import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
@@ -88,6 +90,13 @@ internal fun BatteryCard(
                 subtitle = stringResource(R.string.device_battery_estimate_reset_desc),
                 onClick = { showResetConfirm = true },
             )
+            if (features.hasCase) {
+                SettingsInfoBox(
+                    title = stringResource(R.string.device_settings_experimental_title),
+                    text = stringResource(R.string.device_battery_case_experimental_note),
+                    type = InfoBoxType.INFO,
+                )
+            }
             // Same divider style the sibling device-settings cards use (see ReactionsCard).
             HorizontalDivider(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),

@@ -21,6 +21,7 @@ internal fun rememberDeviceInfoDetailLabels() = DeviceInfoDetailLabels(
     batteryHealth = stringResource(R.string.device_settings_info_battery_health_label),
     leftBatteryHealth = stringResource(R.string.device_settings_info_battery_health_left_label),
     rightBatteryHealth = stringResource(R.string.device_settings_info_battery_health_right_label),
+    caseBatteryHealth = stringResource(R.string.device_settings_info_battery_health_case_label),
 )
 
 internal data class DeviceInfoDetailLabels(
@@ -37,6 +38,7 @@ internal data class DeviceInfoDetailLabels(
     val batteryHealth: String,
     val leftBatteryHealth: String,
     val rightBatteryHealth: String,
+    val caseBatteryHealth: String,
 )
 
 /**
@@ -48,6 +50,7 @@ internal data class BatteryHealthTexts(
     val left: String? = null,
     val right: String? = null,
     val headset: String? = null,
+    val case: String? = null,
     val pending: String? = null,
 )
 
@@ -65,6 +68,7 @@ private fun healthItems(health: BatteryHealthTexts?, labels: DeviceInfoDetailLab
             health.right != null -> add(DeviceDetailItem.Single(labels.rightBatteryHealth, health.right))
         }
         health.headset?.let { add(DeviceDetailItem.Single(labels.batteryHealth, it)) }
+        health.case?.let { add(DeviceDetailItem.Single(labels.caseBatteryHealth, it)) }
         if (isEmpty() && health.pending != null) {
             add(DeviceDetailItem.Single(labels.batteryHealth, health.pending))
         }

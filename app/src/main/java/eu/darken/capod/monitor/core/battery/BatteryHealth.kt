@@ -26,8 +26,10 @@ object BatteryHealth {
         val left: Int? = null,
         val right: Int? = null,
         val headset: Int? = null,
+        /** Derived from observed case-to-pod transfer efficiency, not from a drain rate. */
+        val case: Int? = null,
     ) {
-        val hasAny: Boolean get() = left != null || right != null || headset != null
+        val hasAny: Boolean get() = left != null || right != null || headset != null || case != null
     }
 
     fun estimate(profile: DrainProfile?, model: PodModel): PerPod? {
@@ -39,7 +41,24 @@ object BatteryHealth {
             left = slotPercent(profile, spec, "LEFT"),
             right = slotPercent(profile, spec, "RIGHT"),
             headset = slotPercent(profile, spec, "HEADSET"),
+            case = casePercent(profile, spec),
         ).takeIf { it.hasAny }
+    }
+
+    /**
+     * Case health = observed transfer efficiency vs the nominal ratio Apple's figures pin: a full
+     * case nominally delivers `(withCase - single) / single` full recharges of BOTH pods, i.e. a
+     * summed pod-fraction gain of twice that per case fraction. A worn case delivers fewer.
+     */
+    private fun casePercent(profile: DrainProfile, spec: PodModel.BatterySpec): Int? {
+        val transfer = profile.caseTransfer ?: return null
+        if (transfer.updateCount < MIN_UPDATE_COUNT) return null
+        if (!transfer.ratio.isFinite() || transfer.ratio <= 0f) return null
+        val hours = spec.listeningHoursAncOn ?: spec.listeningHoursAncOff ?: return null
+        val withCase = spec.listeningHoursWithCase ?: return null
+        val nominal = (withCase - hours) / hours * 2f
+        if (nominal <= 0f || !nominal.isFinite()) return null
+        return (transfer.ratio / nominal * 100f).roundToInt().coerceIn(1, 100)
     }
 
     private fun slotPercent(profile: DrainProfile, spec: PodModel.BatterySpec, slot: String): Int? {

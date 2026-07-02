@@ -14,6 +14,13 @@ data class AapPodState(
     val deviceInfo: AapDeviceInfo? = null,
     val settings: Map<KClass<out AapSetting>, AapSetting> = emptyMap(),
     val batteries: Map<BatteryType, Battery> = emptyMap(),
+    /**
+     * Whether the LATEST battery message carried a genuine CASE reading. The case only reports
+     * while a pod is docked; out-of-case messages flag it DISCONNECTED (with a garbage percent)
+     * and the merged [batteries] map keeps the last good entry — so [batteryCase] silently goes
+     * stale. Consumers that must not act on frozen data (the battery estimator) gate on this.
+     */
+    val caseIsLive: Boolean = false,
     val lastMessageAt: Instant? = null,
     val pendingAncMode: AapSetting.AncMode.Value? = null,
     val pendingSettingsCount: Int = 0,

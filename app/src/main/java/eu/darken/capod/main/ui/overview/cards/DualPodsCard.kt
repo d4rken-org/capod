@@ -265,7 +265,11 @@ private fun ColumnScope.DualPodsCardExpanded(
                     color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
                 )
 
-                CaseRow(device = device)
+                CaseRow(
+                    device = device,
+                    untilCharged = batteryEstimate?.caseMinutesUntilCharged
+                        ?.let { formatBatteryDurationShort(context, it) },
+                )
             }
         }
     }
@@ -412,6 +416,7 @@ private fun PodGauge(
 @Composable
 private fun CaseRow(
     device: PodDevice,
+    untilCharged: String? = null,
 ) {
     val context = LocalContext.current
 
@@ -454,7 +459,10 @@ private fun CaseRow(
                 )
                 AapPodState.ChargingState.CHARGING -> StatusChip(
                     icon = Icons.TwoTone.BatteryChargingFull,
-                    label = stringResource(R.string.pods_charging_label),
+                    // Same chip-borne ETA pattern as the pod gauges.
+                    label = untilCharged
+                        ?.let { "${stringResource(R.string.pods_charging_label)} · $it" }
+                        ?: stringResource(R.string.pods_charging_label),
                 )
                 else -> Unit
             }
