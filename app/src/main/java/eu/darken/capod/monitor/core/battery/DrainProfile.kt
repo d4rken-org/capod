@@ -36,13 +36,6 @@ data class DrainProfile(
      * (which include idle wear) keep powering the time-remaining estimate.
      */
     @SerialName("listeningRates") val listeningRates: Map<String, LearnedRate> = emptyMap(),
-    /**
-     * Learned case transfer efficiency: summed pod battery-fraction gained per case fraction spent
-     * while docked and unplugged, corrected for current pod health (degraded pods gain % faster).
-     * Compared against the nominal ratio from Apple's "with charging case" totals to derive the
-     * case battery health.
-     */
-    @SerialName("caseTransfer") val caseTransfer: TransferRatio? = null,
 ) {
     @Serializable
     data class LearnedRate(
@@ -54,16 +47,6 @@ data class DrainProfile(
          * size at the LAST save, so this is the actual accumulated-evidence signal (used e.g. to
          * gate the derived battery-health figure).
          */
-        @SerialName("updateCount") val updateCount: Int = 1,
-        @Serializable(with = InstantEpochMillisSerializer::class)
-        @SerialName("updatedAt") val updatedAt: Instant,
-    )
-
-    @Serializable
-    data class TransferRatio(
-        /** Summed pod fraction gained per case fraction spent (health-corrected). */
-        @SerialName("ratio") val ratio: Float,
-        /** How many observed docked-discharge sessions have blended into this ratio. */
         @SerialName("updateCount") val updateCount: Int = 1,
         @Serializable(with = InstantEpochMillisSerializer::class)
         @SerialName("updatedAt") val updatedAt: Instant,
