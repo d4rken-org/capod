@@ -117,34 +117,6 @@ class BatteryHealthTest : BaseTest() {
     }
 
     @Test
-    fun `case health is the observed transfer ratio vs the nominal`() {
-        // Pro 2: nominal = (30 - 6) / 6 * 2 = 8.0 summed pod-fraction per case fraction.
-        // An observed 4.0 means the case delivers half its rated recharges -> 50%.
-        val profile = DrainProfile(
-            caseTransfer = DrainProfile.TransferRatio(ratio = 4f, updateCount = 3, updatedAt = Instant.EPOCH),
-        )
-        val health = BatteryHealth.estimate(profile, PodModel.AIRPODS_PRO2).shouldNotBeNull()
-        health.case shouldBe 50
-        health.left shouldBe null
-    }
-
-    @Test
-    fun `case health needs enough observed sessions`() {
-        val profile = DrainProfile(
-            caseTransfer = DrainProfile.TransferRatio(ratio = 4f, updateCount = 2, updatedAt = Instant.EPOCH),
-        )
-        BatteryHealth.estimate(profile, PodModel.AIRPODS_PRO2).shouldBeNull()
-    }
-
-    @Test
-    fun `case health is capped at 100`() {
-        val profile = DrainProfile(
-            caseTransfer = DrainProfile.TransferRatio(ratio = 12f, updateCount = 3, updatedAt = Instant.EPOCH),
-        )
-        BatteryHealth.estimate(profile, PodModel.AIRPODS_PRO2).shouldNotBeNull().case shouldBe 100
-    }
-
-    @Test
     fun `headset slot yields a headset figure`() {
         // AirPods Max rated 20h; managing only 10h -> 50%.
         val profile = DrainProfile(listeningRates = mapOf("ON/HEADSET" to rate(0.1f)))

@@ -12,7 +12,6 @@ import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
-import eu.darken.capod.pods.core.apple.ble.devices.DualApplePods
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetection
 import eu.darken.capod.pods.core.apple.ble.devices.HasChargeDetectionDual
 import eu.darken.capod.pods.core.apple.ble.isKnownBattery
@@ -106,16 +105,6 @@ class BatteryEstimator @Inject constructor(
         /** Fit + sample count of a just-closed listening segment, persisted on the next pass. */
         val pendingListeningFits: MutableMap<Slot, Pair<Float, Int>> = mutableMapOf()
 
-        /** CASE charge window — kept out of the pod slot maps (different gating, no drain side). */
-        val caseHistory: SlotHistory = SlotHistory()
-        var caseLastRiseMs: Long? = null
-
-        /** Open docked-discharge window for the case transfer observation. */
-        var transferWindow: TransferWindow? = null
-
-        /** A closed window's health-corrected transfer ratio, persisted on the next pass. */
-        var pendingTransferRatio: Float? = null
-
         /** Smoothed displayed minutes, per pod. */
         val lastMinutes: MutableMap<Slot, Int> = mutableMapOf()
         var lastUpdateMs: Long? = null
@@ -141,25 +130,12 @@ class BatteryEstimator @Inject constructor(
             clearSlots()
             listeningSlots.values.forEach { it.clear() }
             pendingListeningFits.clear()
-            caseHistory.clear()
-            caseLastRiseMs = null
-            transferWindow = null
-            pendingTransferRatio = null
             lastMinutes.clear()
             lastRiseMs.clear()
             sessionBaseline.clear()
             sessionBaselineCounts.clear()
         }
     }
-
-    /** Snapshot state for one open case transfer window (docked pods drawing from the case). */
-    private class TransferWindow(
-        val caseStart: Float,
-        var lastCase: Float,
-        /** Fraction gained per pod — kept per slot so each pod's own health can correct its share. */
-        val slotGains: MutableMap<Slot, Float> = mutableMapOf(),
-        val lastPodFractions: MutableMap<Slot, Float>,
-    )
 
     private val trackers = mutableMapOf<ProfileId, DeviceTracker>()
 
@@ -329,8 +305,6 @@ class BatteryEstimator @Inject constructor(
             }
         }
 
-        updateCaseTracker(profileId, tracker, device, nowMs)
-
         persistFromWindow(profileId, tracker, device, bucket, nowMs, force = false)
         return computeEstimate(profileId, tracker, device, bucket, nowMs)
     }
@@ -347,7 +321,6 @@ class BatteryEstimator @Inject constructor(
             left = slotEstimate(profileId, tracker, device, bucket, Slot.LEFT, nowMs),
             right = slotEstimate(profileId, tracker, device, bucket, Slot.RIGHT, nowMs),
             headset = slotEstimate(profileId, tracker, device, bucket, Slot.HEADSET, nowMs),
-            caseMinutesUntilCharged = caseChargeEstimate(profileId, tracker, device, nowMs),
         )
         return estimate.takeIf { it.hasAny }
     }
@@ -423,7 +396,7 @@ class BatteryEstimator @Inject constructor(
         val history = tracker.slots.getValue(slot)
         val ring = if (history.direction == SlotHistory.Direction.CHARGE) history.toList() else emptyList()
         val liveScalar = if (ring.isNotEmpty()) DrainModel.chargeSlopeFractionPerHour(ring) else null
-        val learnedScalar = learnedChargeRate(profileId, device, slot.name)
+        val learnedScalar = learnedChargeRate(profileId, device, slot)
         val specRate = device.model.batterySpec?.chargeFractionPerHour
 
         // Per band: this session's in-band fit, then the learned band rate, then the scalar
@@ -431,7 +404,7 @@ class BatteryEstimator @Inject constructor(
         // measures the bulk phase; scalars already average what was actually observed).
         fun rateFor(band: DrainModel.ChargeBand): Float? =
             (if (ring.isNotEmpty()) DrainModel.chargeBandSlopeFractionPerHour(ring, band) else null)
-                ?: learnedChargeBand(profileId, device, slot.name, band)
+                ?: learnedChargeBand(profileId, device, slot, band)
                 ?: liveScalar
                 ?: learnedScalar
                 ?: specRate?.let { it * band.specMultiplier }
@@ -449,177 +422,9 @@ class BatteryEstimator @Inject constructor(
     private fun learnedChargeBand(
         profileId: ProfileId,
         device: PodDevice,
-        slotName: String,
+        slot: Slot,
         band: DrainModel.ChargeBand,
-    ): Float? = storedProfileFor(profileId, device)?.chargeBands[slotName]?.get(band.name)?.fractionPerHour
-
-    // ---- CASE (experimental) ----
-    // The case only reports genuine data while a pod is docked, and its discharge is idle-then-burst
-    // (recharging pods) — so it gets a charge ETA and a transfer-efficiency health, never an hourly
-    // drain rate.
-
-    private fun updateCaseTracker(profileId: ProfileId, tracker: DeviceTracker, device: PodDevice, nowMs: Long) {
-        val reading = device.caseReading()
-        val charging = device.caseCharging()
-        val history = tracker.caseHistory
-
-        when {
-            reading == null || charging != true -> { // no LIVE data, or not charging → no charge window
-                history.clear()
-                tracker.caseLastRiseMs = null
-            }
-            else -> {
-                val (fraction, source) = reading
-                history.realign(SlotHistory.Direction.CHARGE, source)
-                val last = history.lastFraction
-                when {
-                    last == null -> {
-                        history.record(DrainSample(nowMs, fraction))
-                        tracker.caseLastRiseMs = nowMs
-                    }
-                    fraction > last + EPSILON -> {
-                        history.record(DrainSample(nowMs, fraction))
-                        tracker.caseLastRiseMs = nowMs
-                    }
-                    fraction < last - EPSILON -> { // dropped while charging → restart window
-                        history.clear()
-                        history.record(DrainSample(nowMs, fraction))
-                        tracker.caseLastRiseMs = nowMs
-                    }
-                    else -> Unit
-                }
-            }
-        }
-
-        updateTransferWindow(profileId, tracker, device)
-    }
-
-    /**
-     * Tracks a docked-discharge window: the case (live via AAP only — 1% granularity; BLE's 10%
-     * steps are too coarse for a health-grade ratio) spending its battery into charging pods while
-     * unplugged. On close, the observed transfer ratio (summed pod fraction gained per case
-     * fraction spent) is queued for persistence — the basis of the case battery health.
-     */
-    private fun updateTransferWindow(profileId: ProfileId, tracker: DeviceTracker, device: PodDevice) {
-        val aap = device.aap?.takeIf { it.caseIsLive }
-        val caseFraction = aap?.batteryCase?.takeIf { isKnownBattery(it) }?.coerceIn(0f, 1f)
-        val caseCharging = aap?.caseChargingState == AapPodState.ChargingState.CHARGING
-        // Pod inputs come from the SAME AAP state as the case — never the BLE fallback, whose 10%
-        // steps would inject coarse jumps into a health-grade ratio.
-        fun podFraction(slot: Slot): Float? = when (slot) {
-            Slot.LEFT -> aap?.batteryLeft
-            Slot.RIGHT -> aap?.batteryRight
-            else -> null
-        }?.takeIf { isKnownBattery(it) }?.coerceIn(0f, 1f)
-
-        val chargingPods = listOf(Slot.LEFT, Slot.RIGHT).filter { slot ->
-            when (slot) {
-                Slot.LEFT -> aap?.isLeftCharging == true
-                Slot.RIGHT -> aap?.isRightCharging == true
-                else -> false
-            }
-        }
-
-        if (caseFraction == null || caseCharging || chargingPods.isEmpty()) {
-            closeTransferWindow(profileId, tracker, device)
-            return
-        }
-        val window = tracker.transferWindow
-        if (window == null) {
-            tracker.transferWindow = TransferWindow(
-                caseStart = caseFraction,
-                lastCase = caseFraction,
-                lastPodFractions = chargingPods
-                    .mapNotNull { slot -> podFraction(slot)?.let { slot to it } }
-                    .toMap(mutableMapOf()),
-            )
-            return
-        }
-        if (caseFraction > window.lastCase + EPSILON) { // case rose while "unplugged" → untrustworthy
-            tracker.transferWindow = null
-            return
-        }
-        window.lastCase = caseFraction
-        for (slot in chargingPods) {
-            val fraction = podFraction(slot) ?: continue
-            val previous = window.lastPodFractions[slot]
-            when {
-                previous == null -> Unit // pod joined mid-window; gains count from here on
-                fraction < previous - EPSILON -> { // pod level dropped mid-charge (reseat) → discard
-                    tracker.transferWindow = null
-                    return
-                }
-                fraction > previous + EPSILON ->
-                    window.slotGains[slot] = (window.slotGains[slot] ?: 0f) + (fraction - previous)
-            }
-            window.lastPodFractions[slot] = fraction
-        }
-    }
-
-    private fun closeTransferWindow(profileId: ProfileId, tracker: DeviceTracker, device: PodDevice) {
-        val window = tracker.transferWindow ?: return
-        tracker.transferWindow = null
-        val caseDrop = window.caseStart - window.lastCase
-        val totalGain = window.slotGains.values.sum()
-        if (caseDrop < MIN_TRANSFER_CASE_DROP || totalGain <= 0f) return
-
-        // Degraded pods gain percent FASTER than healthy ones (less capacity behind each percent),
-        // which would flatter the case — scale each pod's own share by ITS health when known.
-        val podHealth = BatteryHealth.estimate(storedProfileFor(profileId, device), device.model)
-        val correctedGain = window.slotGains.entries.sumOf { (slot, gain) ->
-            val health = when (slot) {
-                Slot.LEFT -> podHealth?.left
-                Slot.RIGHT -> podHealth?.right
-                else -> null
-            }
-            (gain * ((health ?: 100) / 100f)).toDouble()
-        }.toFloat()
-
-        val ratio = correctedGain / caseDrop
-        tracker.pendingTransferRatio = ratio
-            .takeIf { it.isFinite() && it in TRANSFER_RATIO_MIN..TRANSFER_RATIO_MAX }
-        log(TAG, VERBOSE) { "Transfer window closed: drop=$caseDrop gain=$totalGain ratio=$ratio" }
-    }
-
-    /** Minutes until the case is full — live/learned rates only; Apple publishes no case charge spec. */
-    private fun caseChargeEstimate(profileId: ProfileId, tracker: DeviceTracker, device: PodDevice, nowMs: Long): Int? {
-        if (device.caseCharging() != true) return null
-        val (fraction, source) = device.caseReading() ?: return null
-        val history = tracker.caseHistory
-        val ring = if (history.direction == SlotHistory.Direction.CHARGE) history.toList() else emptyList()
-        val liveScalar = if (ring.isNotEmpty()) DrainModel.chargeSlopeFractionPerHour(ring) else null
-        val learnedScalar = learnedChargeRate(profileId, device, CASE_KEY)
-
-        fun rateFor(band: DrainModel.ChargeBand): Float? =
-            (if (ring.isNotEmpty()) DrainModel.chargeBandSlopeFractionPerHour(ring, band) else null)
-                ?: learnedChargeBand(profileId, device, CASE_KEY, band)
-                ?: liveScalar
-                ?: learnedScalar
-
-        val currentBand = DrainModel.ChargeBand.entries.firstOrNull { fraction < it.to }
-            ?: DrainModel.ChargeBand.TRICKLE
-        val stallRate = rateFor(currentBand) ?: return null
-        val lastRise = tracker.caseLastRiseMs ?: return null
-        val step = if (source == DataSource.AAP) STEP_AAP else STEP_BLE
-        if (nowMs - lastRise > DrainModel.chargeStallThresholdMs(stallRate, step)) return null
-
-        return DrainModel.minutesUntilFull(fraction, ::rateFor)
-    }
-
-    /** LIVE case reading only — both transports silently freeze the last value once pods undock. */
-    private fun PodDevice.caseReading(): Pair<Float, DataSource>? {
-        val aapValue = aap?.takeIf { it.caseIsLive }?.batteryCase
-        val (value, source) = when {
-            aapValue != null -> aapValue to DataSource.AAP
-            else -> (ble as? DualApplePods)?.batteryCaseLivePercent?.let { it to DataSource.BLE }
-                ?: return null
-        }
-        return value.takeIf { isKnownBattery(it) }?.coerceIn(0f, 1f)?.let { it to source }
-    }
-
-    private fun PodDevice.caseCharging(): Boolean? =
-        aap?.takeIf { it.caseIsLive }?.let { it.caseChargingState == AapPodState.ChargingState.CHARGING }
-            ?: (ble as? DualApplePods)?.isCaseChargingLive
+    ): Float? = storedProfileFor(profileId, device)?.chargeBands[slot.name]?.get(band.name)?.fractionPerHour
 
     /**
      * Closes [slot]'s current listening segment: a valid fit is queued for persistence (the next
@@ -748,43 +553,6 @@ class BatteryEstimator @Inject constructor(
             }
         }
 
-        // CASE: charge fits from the dedicated case window, plus a closed transfer observation.
-        var caseTransfer = existing.caseTransfer
-        if (tracker.caseHistory.direction == SlotHistory.Direction.CHARGE) {
-            DrainModel.chargeSlopeFractionPerHour(tracker.caseHistory.toList())?.let { fit ->
-                val key = "CHARGE/$CASE_KEY"
-                if (cadenceOk(key)) {
-                    chargeRates = chargeRates + (CASE_KEY to blended(key, chargeRates[CASE_KEY], fit, tracker.caseHistory.size))
-                    changed = true
-                    log(TAG, VERBOSE) { "Persisting case charge rate for $profileId: ${"%.3f".format(fit)}/hr" }
-                }
-            }
-            for (band in DrainModel.ChargeBand.entries) {
-                val fit = DrainModel.chargeBandSlopeFractionPerHour(tracker.caseHistory.toList(), band) ?: continue
-                val key = "CHARGE/$CASE_KEY/${band.name}"
-                if (!cadenceOk(key)) continue
-                val stored = chargeBands[CASE_KEY]?.get(band.name)
-                chargeBands = chargeBands +
-                    (CASE_KEY to (chargeBands[CASE_KEY].orEmpty() + (band.name to blended(key, stored, fit, tracker.caseHistory.size))))
-                changed = true
-            }
-        }
-        tracker.pendingTransferRatio?.let { observed ->
-            tracker.pendingTransferRatio = null
-            val key = "TRANSFER"
-            if (!tracker.sessionBaseline.containsKey(key)) {
-                tracker.sessionBaseline[key] = existing.caseTransfer?.ratio
-                tracker.sessionBaselineCounts[key] = existing.caseTransfer?.updateCount ?: 0
-            }
-            caseTransfer = DrainProfile.TransferRatio(
-                ratio = DrainModel.blendRate(tracker.sessionBaseline[key], observed),
-                updateCount = (tracker.sessionBaselineCounts[key] ?: 0) + 1,
-                updatedAt = timeSource.now(),
-            )
-            changed = true
-            log(TAG, VERBOSE) { "Persisting case transfer ratio for $profileId: ${"%.2f".format(observed)}" }
-        }
-
         if (changed) {
             drainStore.save(
                 profileId,
@@ -794,7 +562,6 @@ class BatteryEstimator @Inject constructor(
                     chargeRates = chargeRates,
                     chargeBands = chargeBands,
                     listeningRates = listeningRates,
-                    caseTransfer = caseTransfer,
                 ),
             )
         }
@@ -805,8 +572,8 @@ class BatteryEstimator @Inject constructor(
         return (profile.rates[rateKey(bucket, slot)] ?: profile.rates[rateKey(MODE_UNKNOWN, slot)])?.fractionPerHour
     }
 
-    private fun learnedChargeRate(profileId: ProfileId, device: PodDevice, slotName: String): Float? =
-        storedProfileFor(profileId, device)?.chargeRates[slotName]?.fractionPerHour
+    private fun learnedChargeRate(profileId: ProfileId, device: PodDevice, slot: Slot): Float? =
+        storedProfileFor(profileId, device)?.chargeRates[slot.name]?.fractionPerHour
 
     /** The stored profile, ignored entirely when its rates were learned on different hardware. */
     private fun storedProfileFor(profileId: ProfileId, device: PodDevice): DrainProfile? =
@@ -895,16 +662,6 @@ class BatteryEstimator @Inject constructor(
         /** Visible battery step per transport — feeds the granularity-aware stall threshold. */
         private const val STEP_AAP = 0.01f
         private const val STEP_BLE = 0.10f
-
-        /** Persistence key for the case's charge rates/bands (the pod slots use their enum names). */
-        private const val CASE_KEY = "CASE"
-
-        /** A transfer window must see at least this much case drop before its ratio is trusted. */
-        private const val MIN_TRANSFER_CASE_DROP = 0.05f
-
-        /** Plausibility band for a transfer ratio (nominal is ~4-10 depending on model). */
-        private const val TRANSFER_RATIO_MIN = 0.5f
-        private const val TRANSFER_RATIO_MAX = 20f
 
         /** A measured rate above this multiple of the model's rated drain is rejected as implausible. */
         private const val SPEC_BAND_MAX = 4f

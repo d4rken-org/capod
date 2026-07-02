@@ -307,9 +307,6 @@ fun DeviceSettingsScreen(
                                 headset = state.batteryHealth.headset?.let {
                                     stringResource(R.string.device_settings_info_battery_health_value, it)
                                 },
-                                case = state.batteryHealth.case?.let {
-                                    stringResource(R.string.device_settings_info_battery_health_value, it)
-                                },
                             )
                             state.batteryHealthPending -> BatteryHealthTexts(
                                 pending = stringResource(R.string.device_settings_info_battery_health_pending),

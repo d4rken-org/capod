@@ -30,7 +30,6 @@ class DrainProfileSerializationTest : BaseTest() {
         profile.chargeRates shouldBe emptyMap()
         profile.chargeBands shouldBe emptyMap()
         profile.listeningRates shouldBe emptyMap()
-        profile.caseTransfer shouldBe null
         profile.rates.getValue("UNKNOWN/LEFT").updateCount shouldBe 1
     }
 
@@ -71,11 +70,6 @@ class DrainProfileSerializationTest : BaseTest() {
                     updateCount = 3,
                     updatedAt = Instant.ofEpochMilli(1700000000000L),
                 )
-            ),
-            caseTransfer = DrainProfile.TransferRatio(
-                ratio = 6.5f,
-                updateCount = 4,
-                updatedAt = Instant.ofEpochMilli(1700000000000L),
             ),
         )
 

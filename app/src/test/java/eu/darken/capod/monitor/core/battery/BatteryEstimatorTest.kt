@@ -39,9 +39,6 @@ class BatteryEstimatorTest : BaseTest() {
         estimateEnabled: Boolean = true,
         worn: Boolean = false,
         systemConnected: Boolean = false,
-        case: Float? = null,
-        caseCharging: Boolean = false,
-        caseLive: Boolean = true,
     ): PodDevice {
         val state = when {
             optimized -> ChargingState.CHARGING_OPTIMIZED
@@ -51,10 +48,6 @@ class BatteryEstimatorTest : BaseTest() {
         val batteries = buildMap {
             if (left != null) put(BatteryType.LEFT, Battery(BatteryType.LEFT, left, state))
             if (right != null) put(BatteryType.RIGHT, Battery(BatteryType.RIGHT, right, state))
-            if (case != null) put(
-                BatteryType.CASE,
-                Battery(BatteryType.CASE, case, if (caseCharging) ChargingState.CHARGING else ChargingState.NOT_CHARGING),
-            )
         }
         val settings = if (worn) {
             mapOf<kotlin.reflect.KClass<out AapSetting>, AapSetting>(
@@ -67,7 +60,7 @@ class BatteryEstimatorTest : BaseTest() {
         return PodDevice(
             profileId = profileId,
             ble = null,
-            aap = AapPodState(batteries = batteries, settings = settings, caseIsLive = case != null && caseLive),
+            aap = AapPodState(batteries = batteries, settings = settings),
             profileModel = model,
             batteryEstimateEnabled = estimateEnabled,
             isSystemConnected = systemConnected,
@@ -559,94 +552,6 @@ class BatteryEstimatorTest : BaseTest() {
             )
         )
         result["p1"].shouldNotBeNull().left.shouldNotBeNull().source shouldBe BatteryEstimate.Source.SPEC
-    }
-
-    @Test
-    fun `a rising case charge yields a case ETA`() = runTest(UnconfinedTestDispatcher()) {
-        // 2%/min case rise -> 1.2/hr; at 44% that's (1 - 0.44) / 1.2 * 60 == 28 min. No spec
-        // seed exists for cases, so the live fit is the only source on a first charge.
-        val emissions = (0 until 4).map { i ->
-            listOf(device("p1", left = null, right = null, case = 0.20f + i * 0.08f, caseCharging = true))
-        }
-        val result = collectEstimate(estimator(emissions))
-        result["p1"].shouldNotBeNull().caseMinutesUntilCharged shouldBe 28
-    }
-
-    @Test
-    fun `a frozen case reading is never sampled`() = runTest(UnconfinedTestDispatcher()) {
-        // caseIsLive == false means the merged CASE value is a stale echo (pods undocked).
-        val emissions = (0 until 4).map { i ->
-            listOf(device("p1", left = null, right = null, case = 0.20f + i * 0.08f, caseCharging = true, caseLive = false))
-        }
-        collectEstimate(estimator(emissions)) shouldBe emptyMap()
-    }
-
-    @Test
-    fun `docked charging pods draw down the case into a transfer ratio`() = runTest(UnconfinedTestDispatcher()) {
-        // Unplugged case feeding both docked pods: pods gain 0.64 summed while the case drops
-        // 0.08 -> ratio 8.0. The window closes when the pods stop charging, then persists.
-        val docked = (0 until 5).map { i ->
-            listOf(
-                device(
-                    "p1",
-                    left = 0.20f + i * 0.08f, right = 0.20f + i * 0.08f, charging = true,
-                    case = 0.50f - i * 0.02f, caseCharging = false,
-                )
-            )
-        }
-        val closed = listOf(
-            listOf(device("p1", left = 0.52f, right = 0.52f, case = 0.42f, caseCharging = false))
-        )
-        val emissions = docked + closed
-        val drainStore = mockk<BatteryDrainStore> {
-            every { profiles } returns MutableStateFlow(emptyMap())
-            coEvery { save(any(), any()) } returns Unit
-        }
-        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
-        val timeSource = mockk<TimeSource> {
-            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
-            every { now() } returns now
-        }
-        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns false }
-        BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager).monitor().collect {}
-
-        coVerify {
-            drainStore.save("p1", match { profile ->
-                val transfer = profile.caseTransfer
-                transfer != null && transfer.ratio > 7.9f && transfer.ratio < 8.1f &&
-                    // The case never learns hourly drain rates.
-                    profile.rates.keys.none { it.endsWith("/CASE") }
-            })
-        }
-    }
-
-    @Test
-    fun `a plugged-in case opens no transfer window`() = runTest(UnconfinedTestDispatcher()) {
-        // Case charging from cable while pods also charge — nothing here measures transfer.
-        val emissions = (0 until 5).map { i ->
-            listOf(
-                device(
-                    "p1",
-                    left = 0.20f + i * 0.08f, right = 0.20f + i * 0.08f, charging = true,
-                    case = 0.80f, caseCharging = true,
-                )
-            )
-        }
-        val drainStore = mockk<BatteryDrainStore> {
-            every { profiles } returns MutableStateFlow(emptyMap())
-            coEvery { save(any(), any()) } returns Unit
-        }
-        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
-        val timeSource = mockk<TimeSource> {
-            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
-            every { now() } returns now
-        }
-        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns false }
-        BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager).monitor().collect {}
-
-        coVerify(exactly = 0) {
-            drainStore.save(any(), match { it.caseTransfer != null })
-        }
     }
 
     @Test
