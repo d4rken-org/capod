@@ -28,6 +28,8 @@ class DrainProfileSerializationTest : BaseTest() {
 
         profile.model shouldBe null
         profile.chargeRates shouldBe emptyMap()
+        profile.chargeBands shouldBe emptyMap()
+        profile.listeningRates shouldBe emptyMap()
         profile.rates.getValue("UNKNOWN/LEFT").updateCount shouldBe 1
     }
 
@@ -48,6 +50,24 @@ class DrainProfileSerializationTest : BaseTest() {
                     fractionPerHour = 1.3f,
                     sampleCount = 5,
                     updateCount = 2,
+                    updatedAt = Instant.ofEpochMilli(1700000000000L),
+                )
+            ),
+            chargeBands = mapOf(
+                "LEFT" to mapOf(
+                    "TAPER" to DrainProfile.LearnedRate(
+                        fractionPerHour = 0.9f,
+                        sampleCount = 3,
+                        updateCount = 2,
+                        updatedAt = Instant.ofEpochMilli(1700000000000L),
+                    )
+                )
+            ),
+            listeningRates = mapOf(
+                "ON/LEFT" to DrainProfile.LearnedRate(
+                    fractionPerHour = 0.24f,
+                    sampleCount = 7,
+                    updateCount = 3,
                     updatedAt = Instant.ofEpochMilli(1700000000000L),
                 )
             ),

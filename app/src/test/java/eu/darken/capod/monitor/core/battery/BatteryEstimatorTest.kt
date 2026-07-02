@@ -6,6 +6,7 @@ import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.AapPodState.Battery
+import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.aap.AapPodState.BatteryType
 import eu.darken.capod.pods.core.apple.aap.AapPodState.ChargingState
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -36,6 +37,8 @@ class BatteryEstimatorTest : BaseTest() {
         optimized: Boolean = false,
         model: PodModel? = null,
         estimateEnabled: Boolean = true,
+        worn: Boolean = false,
+        systemConnected: Boolean = false,
     ): PodDevice {
         val state = when {
             optimized -> ChargingState.CHARGING_OPTIMIZED
@@ -46,12 +49,21 @@ class BatteryEstimatorTest : BaseTest() {
             if (left != null) put(BatteryType.LEFT, Battery(BatteryType.LEFT, left, state))
             if (right != null) put(BatteryType.RIGHT, Battery(BatteryType.RIGHT, right, state))
         }
+        val settings = if (worn) {
+            mapOf<kotlin.reflect.KClass<out AapSetting>, AapSetting>(
+                AapSetting.EarDetection::class to AapSetting.EarDetection(
+                    primaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                    secondaryPod = AapSetting.EarDetection.PodPlacement.IN_EAR,
+                )
+            )
+        } else emptyMap()
         return PodDevice(
             profileId = profileId,
             ble = null,
-            aap = AapPodState(batteries = batteries),
+            aap = AapPodState(batteries = batteries, settings = settings),
             profileModel = model,
             batteryEstimateEnabled = estimateEnabled,
+            isSystemConnected = systemConnected,
         )
     }
 
@@ -59,6 +71,7 @@ class BatteryEstimatorTest : BaseTest() {
         emissions: List<List<PodDevice>>,
         stored: Map<String, DrainProfile> = emptyMap(),
         clockMs: List<Long> = List(emissions.size) { it * 4 * 60_000L },
+        musicActive: List<Boolean> = List(emissions.size) { false },
     ): BatteryEstimator {
         val deviceMonitor = mockk<DeviceMonitor> {
             every { devices } returns flowOf(*emissions.toTypedArray())
@@ -71,7 +84,10 @@ class BatteryEstimatorTest : BaseTest() {
             every { elapsedRealtime() } returnsMany clockMs
             every { now() } returns now
         }
-        return BatteryEstimator(deviceMonitor, drainStore, timeSource)
+        val audioManager = mockk<android.media.AudioManager> {
+            every { isMusicActive } returnsMany musicActive
+        }
+        return BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager)
     }
 
     /**
@@ -270,11 +286,36 @@ class BatteryEstimatorTest : BaseTest() {
     @Test
     fun `the quick-charge rating seeds an ETA on the very first charge`() = runTest(UnconfinedTestDispatcher()) {
         // Nothing measured, nothing stored — Apple's "5 minutes = ~1 hour of listening" claim
-        // (2.0/hr for a Pro 2) answers at once: 50% missing at 2.0/hr == 15 min.
+        // (2.0/hr for a Pro 2) seeds the bands with the taper haircut: 30% of bulk at 2.0/hr (9m)
+        // + taper at 1.0/hr (6m) + trickle at 0.6/hr (10m) == 25 min.
         val result = collectEstimate(
             estimator(listOf(listOf(device("p1", left = 0.50f, right = 0.50f, charging = true, model = PodModel.AIRPODS_PRO2))))
         )
-        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesUntilCharged shouldBe 15
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesUntilCharged shouldBe 25
+    }
+
+    @Test
+    fun `learned band rates shape the ETA through the taper`() = runTest(UnconfinedTestDispatcher()) {
+        // At 85% the linear scalar (1.2/hr) would claim 8m; the learned bands know the taper is
+        // slower: 5% of taper at 1.0/hr (3m) + trickle at 0.6/hr (10m) == 13m.
+        val bands = mapOf(
+            "BULK" to learned(2.0f),
+            "TAPER" to learned(1.0f),
+            "TRICKLE" to learned(0.6f),
+        )
+        val stored = mapOf(
+            "p1" to DrainProfile(
+                chargeRates = mapOf("LEFT" to learned(1.2f), "RIGHT" to learned(1.2f)),
+                chargeBands = mapOf("LEFT" to bands, "RIGHT" to bands),
+            )
+        )
+        val result = collectEstimate(
+            estimator(
+                emissions = listOf(listOf(device("p1", left = 0.85f, right = 0.85f, charging = true, model = PodModel.AIRPODS_PRO2))),
+                stored = stored,
+            )
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesUntilCharged shouldBe 13
     }
 
     @Test
@@ -345,7 +386,7 @@ class BatteryEstimatorTest : BaseTest() {
     }
 
     @Test
-    fun `charge rates are persisted`() = runTest(UnconfinedTestDispatcher()) {
+    fun `charge rates and band rates are persisted`() = runTest(UnconfinedTestDispatcher()) {
         val drainStore = mockk<BatteryDrainStore> {
             every { profiles } returns MutableStateFlow(emptyMap())
             coEvery { save(any(), any()) } returns Unit
@@ -359,12 +400,122 @@ class BatteryEstimatorTest : BaseTest() {
             every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
             every { now() } returns now
         }
-        val estimator = BatteryEstimator(deviceMonitor, drainStore, timeSource)
+        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns false }
+        val estimator = BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager)
 
         estimator.monitor().collect {}
 
         coVerify {
-            drainStore.save("p1", match { it.chargeRates.containsKey("LEFT") && it.chargeRates.containsKey("RIGHT") })
+            drainStore.save("p1", match {
+                it.chargeRates.containsKey("LEFT") && it.chargeRates.containsKey("RIGHT") &&
+                    it.chargeBands["LEFT"]?.containsKey("BULK") == true
+            })
+        }
+    }
+
+    @Test
+    fun `worn playing segments feed the listening rates`() = runTest(UnconfinedTestDispatcher()) {
+        // Steady discharge while worn, playing, and system-connected: learned into BOTH the
+        // general rates and the health-grade listening rates.
+        val emissions = (0 until 5).map { i ->
+            val level = 0.80f - i * 0.01f
+            listOf(device("p1", left = level, right = level, worn = true, systemConnected = true))
+        }
+        val drainStore = mockk<BatteryDrainStore> {
+            every { profiles } returns MutableStateFlow(emptyMap())
+            coEvery { save(any(), any()) } returns Unit
+        }
+        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
+        val timeSource = mockk<TimeSource> {
+            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
+            every { now() } returns now
+        }
+        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns true }
+        BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager).monitor().collect {}
+
+        coVerify {
+            drainStore.save("p1", match {
+                it.listeningRates.containsKey("UNKNOWN/LEFT") && it.rates.containsKey("UNKNOWN/LEFT")
+            })
+        }
+    }
+
+    @Test
+    fun `idle wear does not feed the listening rates`() = runTest(UnconfinedTestDispatcher()) {
+        // Worn and connected but nothing playing: general rates learn, listening rates stay empty.
+        val emissions = (0 until 5).map { i ->
+            val level = 0.80f - i * 0.01f
+            listOf(device("p1", left = level, right = level, worn = true, systemConnected = true))
+        }
+        val drainStore = mockk<BatteryDrainStore> {
+            every { profiles } returns MutableStateFlow(emptyMap())
+            coEvery { save(any(), any()) } returns Unit
+        }
+        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
+        val timeSource = mockk<TimeSource> {
+            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
+            every { now() } returns now
+        }
+        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns false }
+        BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager).monitor().collect {}
+
+        coVerify {
+            drainStore.save("p1", match { it.rates.containsKey("UNKNOWN/LEFT") && it.listeningRates.isEmpty() })
+        }
+    }
+
+    @Test
+    fun `playback on another sink does not feed the listening rates`() = runTest(UnconfinedTestDispatcher()) {
+        // Music is playing but this device is NOT the system's audio sink (phone speaker, car):
+        // treating it as pod listening would poison health.
+        val emissions = (0 until 5).map { i ->
+            val level = 0.80f - i * 0.01f
+            listOf(device("p1", left = level, right = level, worn = true, systemConnected = false))
+        }
+        val drainStore = mockk<BatteryDrainStore> {
+            every { profiles } returns MutableStateFlow(emptyMap())
+            coEvery { save(any(), any()) } returns Unit
+        }
+        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
+        val timeSource = mockk<TimeSource> {
+            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 4 * 60_000L }
+            every { now() } returns now
+        }
+        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns true }
+        BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager).monitor().collect {}
+
+        coVerify {
+            drainStore.save("p1", match { it.rates.containsKey("UNKNOWN/LEFT") && it.listeningRates.isEmpty() })
+        }
+    }
+
+    @Test
+    fun `a listening segment is flushed when playback stops`() = runTest(UnconfinedTestDispatcher()) {
+        // 1-minute cadence: fit persists at the 4th sample (t=3), further drops are inside the
+        // persistence cooldown — then playback stops. The closed segment must be flushed and
+        // persisted anyway, not silently discarded with the cleared window.
+        val worn = (0 until 5).map { i ->
+            listOf(device("p1", left = 0.80f - i * 0.01f, right = 0.80f - i * 0.01f, worn = true, systemConnected = true))
+        }
+        val after = listOf(listOf(device("p1", left = 0.75f, right = 0.75f, worn = true, systemConnected = true)))
+        val emissions = worn + after
+        val drainStore = mockk<BatteryDrainStore> {
+            every { profiles } returns MutableStateFlow(emptyMap())
+            coEvery { save(any(), any()) } returns Unit
+        }
+        val deviceMonitor = mockk<DeviceMonitor> { every { devices } returns flowOf(*emissions.toTypedArray()) }
+        val timeSource = mockk<TimeSource> {
+            every { elapsedRealtime() } returnsMany emissions.indices.map { it * 60_000L }
+            every { now() } returns now
+        }
+        val audioManager = mockk<android.media.AudioManager> {
+            every { isMusicActive } returnsMany listOf(true, true, true, true, true, false)
+        }
+        BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager).monitor().collect {}
+
+        // Two listening persists: the cadence one mid-segment, and the forced flush at gate-off.
+        coVerify(atLeast = 2) {
+            drainStore.save("p1", match { it.listeningRates.containsKey("UNKNOWN/LEFT") })
         }
     }
 
@@ -417,7 +568,8 @@ class BatteryEstimatorTest : BaseTest() {
             every { elapsedRealtime() } returns 0L
             every { now() } returns now
         }
-        val estimator = BatteryEstimator(deviceMonitor, drainStore, timeSource)
+        val audioManager = mockk<android.media.AudioManager> { every { isMusicActive } returns false }
+        val estimator = BatteryEstimator(deviceMonitor, drainStore, timeSource, audioManager)
 
         estimator.reset("p1")
 

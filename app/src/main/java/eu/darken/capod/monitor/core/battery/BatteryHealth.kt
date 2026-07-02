@@ -10,12 +10,12 @@ import kotlin.math.roundToInt
  * proxy: a pod that only lasts 4.5h of a rated 6h reads as ~75%.
  *
  * Health is computed PER POD — single-pod listening habits or a replaced earbud make the two sides
- * genuinely diverge, and a combined figure would mask a failing pod. Within a pod, the MEDIAN of its
- * qualifying learned rates is used rather than the best or worst: sessions where the pod idled
- * (in-ear, nothing playing) drain slower than the listening rating and would pull a "best" pick to a
- * meaningless 100%, while call-heavy or cold sessions drain faster and would drag a "worst" pick
- * into false doom. The median lands between both confounds. It remains an estimate — label it as
- * such in the UI.
+ * genuinely diverge, and a combined figure would mask a failing pod. Only [DrainProfile.listeningRates]
+ * feed it (segments where the pod was worn AND audio was playing on this device), because Apple's
+ * ratings are listening figures — general rates include idle wear and would flatter health. Within a
+ * pod, the MEDIAN of its qualifying rates is used rather than the best or worst, damping remaining
+ * confounds (volume, calls, cold) in either direction. It remains an estimate — label it as such in
+ * the UI.
  */
 object BatteryHealth {
 
@@ -43,7 +43,7 @@ object BatteryHealth {
     }
 
     private fun slotPercent(profile: DrainProfile, spec: PodModel.BatterySpec, slot: String): Int? {
-        val ratios = profile.rates.mapNotNull { (key, rate) ->
+        val ratios = profile.listeningRates.mapNotNull { (key, rate) ->
             // Keys must be exactly "<bucket>/<slot>" — anything else is corrupted or
             // future-format data and must not feed a health figure.
             val parts = key.split('/')

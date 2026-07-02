@@ -558,7 +558,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         drainProfilesFlow.value = mapOf(
             testAddress to DrainProfile(
                 model = PodModel.AIRPODS_PRO2.name,
-                rates = mapOf(
+                listeningRates = mapOf(
                     "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
                         fractionPerHour = 1f / 3f,
                         sampleCount = 10,
@@ -585,7 +585,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         drainProfilesFlow.value = mapOf(
             testAddress to DrainProfile(
                 model = PodModel.AIRPODS_PRO2.name,
-                rates = mapOf(
+                listeningRates = mapOf(
                     "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
                         fractionPerHour = 1f / 3f,
                         sampleCount = 10,
