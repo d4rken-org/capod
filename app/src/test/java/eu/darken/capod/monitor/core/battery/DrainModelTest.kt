@@ -165,18 +165,74 @@ class DrainModelTest : BaseTest() {
 
     @Test
     fun `minutesUntilFull divides the missing fraction by the rate`() {
-        // 40% missing at 1.2/hr -> 0.4 / 1.2 * 60 = 20 minutes. A fraction, never a percent.
-        DrainModel.minutesUntilFull(0.60f, 1.2f) shouldBe 20
+        // Uniform 1.2/hr across all bands: 40% missing -> 0.4 / 1.2 * 60 = 20 minutes.
+        // A fraction, never a percent.
+        DrainModel.minutesUntilFull(0.60f) { 1.2f } shouldBe 20
     }
 
     @Test
-    fun `minutesUntilFull suppresses the trickle zone`() {
-        DrainModel.minutesUntilFull(0.98f, 1.2f).shouldBeNull()
+    fun `minutesUntilFull walks the remaining bands at their own rates`() {
+        // At 85%: 5% of taper at 1.0/hr (3m) + 10% of trickle at 0.6/hr (10m) = 13m. The bulk
+        // band is already behind and must not contribute.
+        val rates = mapOf(
+            DrainModel.ChargeBand.BULK to 2.0f,
+            DrainModel.ChargeBand.TAPER to 1.0f,
+            DrainModel.ChargeBand.TRICKLE to 0.6f,
+        )
+        DrainModel.minutesUntilFull(0.85f) { rates[it] } shouldBe 13
+    }
+
+    @Test
+    fun `minutesUntilFull needs a rate for every remaining band`() {
+        // Bulk known but the taper band has no basis -> no honest ETA.
+        DrainModel.minutesUntilFull(0.50f) { band ->
+            if (band == DrainModel.ChargeBand.BULK) 2.0f else null
+        }.shouldBeNull()
+    }
+
+    @Test
+    fun `minutesUntilFull suppresses the near-full sliver`() {
+        DrainModel.minutesUntilFull(0.995f) { 1.2f }.shouldBeNull()
     }
 
     @Test
     fun `minutesUntilFull rejects a non-positive rate`() {
-        DrainModel.minutesUntilFull(0.60f, 0f).shouldBeNull()
+        DrainModel.minutesUntilFull(0.60f) { 0f }.shouldBeNull()
+    }
+
+    @Test
+    fun `band fits only use samples inside the band`() {
+        // Bulk samples rise fast (2.4/hr), then the taper crawls: two in-band taper points
+        // 24 minutes apart -> 0.25/hr... below the taper floor? floor = 0.25 * 0.5 = 0.125, ok.
+        val samples = listOf(
+            DrainSample(0L, 0.60f),
+            DrainSample(5 * 60_000L, 0.70f),
+            DrainSample(10 * 60_000L, 0.80f),
+            DrainSample(34 * 60_000L, 0.90f),
+        )
+        val taper = DrainModel.chargeBandSlopeFractionPerHour(samples, DrainModel.ChargeBand.TAPER)
+        taper.shouldNotBeNull()
+        taper shouldBe (0.25f plusOrMinus 0.01f)
+        // The bulk fit must not be dragged down by the slow taper points beyond its range.
+        val bulk = DrainModel.chargeBandSlopeFractionPerHour(samples, DrainModel.ChargeBand.BULK)
+        bulk.shouldNotBeNull()
+        (bulk > 1.0f) shouldBe true
+    }
+
+    @Test
+    fun `a narrow band accepts a two-point fit but the bulk band does not`() {
+        val twoTaperPoints = listOf(
+            DrainSample(0L, 0.80f),
+            DrainSample(12 * 60_000L, 0.90f), // 0.5/hr
+        )
+        DrainModel.chargeBandSlopeFractionPerHour(twoTaperPoints, DrainModel.ChargeBand.TAPER)
+            .shouldNotBeNull()
+        val twoBulkPoints = listOf(
+            DrainSample(0L, 0.40f),
+            DrainSample(12 * 60_000L, 0.50f),
+        )
+        DrainModel.chargeBandSlopeFractionPerHour(twoBulkPoints, DrainModel.ChargeBand.BULK)
+            .shouldBeNull()
     }
 
     @Test

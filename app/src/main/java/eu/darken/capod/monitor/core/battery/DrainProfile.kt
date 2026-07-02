@@ -23,6 +23,19 @@ data class DrainProfile(
     @SerialName("model") val model: String? = null,
     @SerialName("rates") val rates: Map<String, LearnedRate> = emptyMap(),
     @SerialName("chargeRates") val chargeRates: Map<String, LearnedRate> = emptyMap(),
+    /**
+     * Per-band charge rates, `"<slot>" -> "<band>" -> rate` with band names from
+     * [DrainModel.ChargeBand]. Charging is nonlinear (fast bulk, slow taper/trickle), so each
+     * regime learns its own rate; [chargeRates] stays as the whole-session scalar fallback.
+     */
+    @SerialName("chargeBands") val chargeBands: Map<String, Map<String, LearnedRate>> = emptyMap(),
+    /**
+     * Drain rates learned ONLY while the pod was worn and audio was actually playing on this
+     * device — same `"<bucket>/<slot>"` keys as [rates]. Apple's battery ratings are listening
+     * figures, so the battery-health estimate compares against these; the general [rates]
+     * (which include idle wear) keep powering the time-remaining estimate.
+     */
+    @SerialName("listeningRates") val listeningRates: Map<String, LearnedRate> = emptyMap(),
 ) {
     @Serializable
     data class LearnedRate(

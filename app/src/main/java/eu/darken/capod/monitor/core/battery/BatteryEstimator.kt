@@ -1,5 +1,6 @@
 package eu.darken.capod.monitor.core.battery
 
+import android.media.AudioManager
 import eu.darken.capod.common.TimeSource
 import eu.darken.capod.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.capod.common.debug.logging.log
@@ -45,6 +46,7 @@ class BatteryEstimator @Inject constructor(
     private val deviceMonitor: DeviceMonitor,
     private val drainStore: BatteryDrainStore,
     private val timeSource: TimeSource,
+    private val audioManager: AudioManager,
 ) {
 
     private val _estimates = MutableStateFlow<Map<ProfileId, BatteryEstimate>>(emptyMap())
@@ -71,8 +73,11 @@ class BatteryEstimator @Inject constructor(
          * (drain <-> charge) obviously invalidates it, and so does an AAP <-> BLE source change —
          * the granularity jump (1% vs 10%) between transports would read as a fake level step.
          */
+        fun matches(direction: Direction, source: DataSource): Boolean =
+            this.direction == direction && this.source == source
+
         fun realign(direction: Direction, source: DataSource) {
-            if (this.direction != direction || this.source != source) samples.clear()
+            if (!matches(direction, source)) samples.clear()
             this.direction = direction
             this.source = source
         }
@@ -90,6 +95,15 @@ class BatteryEstimator @Inject constructor(
     private class DeviceTracker {
         var modeBucket: String = MODE_UNKNOWN
         val slots: Map<Slot, SlotHistory> = Slot.entries.associateWith { SlotHistory() }
+
+        /**
+         * Parallel drain windows fed ONLY while the pod is worn, audio is playing, and this device
+         * is the system's audio sink — pure listening segments, the basis for battery health.
+         */
+        val listeningSlots: Map<Slot, SlotHistory> = Slot.entries.associateWith { SlotHistory() }
+
+        /** Fit + sample count of a just-closed listening segment, persisted on the next pass. */
+        val pendingListeningFits: MutableMap<Slot, Pair<Float, Int>> = mutableMapOf()
 
         /** Smoothed displayed minutes, per pod. */
         val lastMinutes: MutableMap<Slot, Int> = mutableMapOf()
@@ -114,6 +128,8 @@ class BatteryEstimator @Inject constructor(
 
         fun resetWindow() {
             clearSlots()
+            listeningSlots.values.forEach { it.clear() }
+            pendingListeningFits.clear()
             lastMinutes.clear()
             lastRiseMs.clear()
             sessionBaseline.clear()
@@ -169,15 +185,18 @@ class BatteryEstimator @Inject constructor(
         // Drop estimates for profiles no longer live/unambiguous/enabled this emission (offline gating).
         next.keys.retainAll(unambiguous.keys)
 
+        // Sampled once per emission — the gate for health-grade "listening" segments.
+        val musicActive = audioManager.isMusicActive
+
         for ((profileId, device) in unambiguous) {
-            val estimate = updateTracker(profileId, device)
+            val estimate = updateTracker(profileId, device, musicActive)
             if (estimate != null) next[profileId] = estimate else next.remove(profileId)
         }
 
         _estimates.value = next
     }
 
-    private suspend fun updateTracker(profileId: ProfileId, device: PodDevice): BatteryEstimate? {
+    private suspend fun updateTracker(profileId: ProfileId, device: PodDevice, musicActive: Boolean): BatteryEstimate? {
         val tracker = trackers.getOrPut(profileId) { DeviceTracker() }
         val nowMs = timeSource.elapsedRealtime()
         val bucket = device.modeBucket()
@@ -253,6 +272,36 @@ class BatteryEstimator @Inject constructor(
                         else -> Unit // ~unchanged, no new information
                     }
                 }
+            }
+
+            // Health-grade listening window: only pure segments count — the pod worn, audio playing,
+            // and this device the audio sink (isMusicActive alone would count phone-speaker
+            // playback). The moment the gate breaks, the finished segment's fit is captured for
+            // persistence and the window cleared; mixed idle/listening samples would flatten the
+            // slope and re-dilute health.
+            val listening = charging != true && reading != null &&
+                musicActive && device.isSystemConnected && device.wornForSlot(slot)
+            val listeningHistory = tracker.listeningSlots.getValue(slot)
+            if (listening) {
+                val (fraction, source) = reading!!
+                // An AAP<->BLE flip mid-listening still ends a PURE segment — flush it rather
+                // than letting realign silently discard it.
+                if (!listeningHistory.matches(SlotHistory.Direction.DRAIN, source)) {
+                    captureListeningSegment(tracker, slot)
+                }
+                listeningHistory.realign(SlotHistory.Direction.DRAIN, source)
+                val last = listeningHistory.lastFraction
+                when {
+                    last == null -> listeningHistory.record(DrainSample(nowMs, fraction))
+                    fraction > last + EPSILON -> { // reseat mid-listening → fresh segment
+                        listeningHistory.clear()
+                        listeningHistory.record(DrainSample(nowMs, fraction))
+                    }
+                    fraction < last - EPSILON -> listeningHistory.record(DrainSample(nowMs, fraction))
+                    else -> Unit
+                }
+            } else {
+                captureListeningSegment(tracker, slot)
             }
         }
 
@@ -345,23 +394,57 @@ class BatteryEstimator @Inject constructor(
     ): Int? {
         if (device.liveChargingOptimized(slot)) return null // held below full — an ETA would mislead
         val history = tracker.slots.getValue(slot)
-        val live = if (history.direction == SlotHistory.Direction.CHARGE) {
-            DrainModel.chargeSlopeFractionPerHour(history.toList())
-        } else null
-        // Rate preference mirrors the drain side: measured, then learned, then Apple's published
-        // quick-charge claim ("5 minutes in the case = ~1 hour of listening") — so an ETA exists
-        // even on the very first charge.
-        val rate = live
-            ?: learnedChargeRate(profileId, device, slot)
-            ?: device.model.batterySpec?.chargeFractionPerHour
-            ?: return null
+        val ring = if (history.direction == SlotHistory.Direction.CHARGE) history.toList() else emptyList()
+        val liveScalar = if (ring.isNotEmpty()) DrainModel.chargeSlopeFractionPerHour(ring) else null
+        val learnedScalar = learnedChargeRate(profileId, device, slot)
+        val specRate = device.model.batterySpec?.chargeFractionPerHour
 
+        // Per band: this session's in-band fit, then the learned band rate, then the scalar
+        // fallbacks, then Apple's quick-charge claim with the band's taper haircut (the claim
+        // measures the bulk phase; scalars already average what was actually observed).
+        fun rateFor(band: DrainModel.ChargeBand): Float? =
+            (if (ring.isNotEmpty()) DrainModel.chargeBandSlopeFractionPerHour(ring, band) else null)
+                ?: learnedChargeBand(profileId, device, slot, band)
+                ?: liveScalar
+                ?: learnedScalar
+                ?: specRate?.let { it * band.specMultiplier }
+
+        val currentBand = DrainModel.ChargeBand.entries.firstOrNull { fraction < it.to }
+            ?: DrainModel.ChargeBand.TRICKLE
+        val stallRate = rateFor(currentBand) ?: return null
         val lastRise = tracker.lastRiseMs[slot] ?: return null
         val step = if (device.liveReading(slot)?.second == DataSource.AAP) STEP_AAP else STEP_BLE
-        if (nowMs - lastRise > DrainModel.chargeStallThresholdMs(rate, step)) return null
+        if (nowMs - lastRise > DrainModel.chargeStallThresholdMs(stallRate, step)) return null
 
-        return DrainModel.minutesUntilFull(fraction, rate)
+        return DrainModel.minutesUntilFull(fraction, ::rateFor)
     }
+
+    private fun learnedChargeBand(
+        profileId: ProfileId,
+        device: PodDevice,
+        slot: Slot,
+        band: DrainModel.ChargeBand,
+    ): Float? = storedProfileFor(profileId, device)?.chargeBands[slot.name]?.get(band.name)?.fractionPerHour
+
+    /**
+     * Closes [slot]'s current listening segment: a valid fit is queued for persistence (the next
+     * persist pass writes it, bypassing cadence) and the window cleared either way.
+     */
+    private fun captureListeningSegment(tracker: DeviceTracker, slot: Slot) {
+        val history = tracker.listeningSlots.getValue(slot)
+        if (history.size == 0) return
+        DrainModel.slopeFractionPerHour(history.toList())?.let {
+            tracker.pendingListeningFits[slot] = it to history.size
+        }
+        history.clear()
+    }
+
+    /** Whether the pod in [slot] is being worn — per-pod for buds, whole-device for headsets. */
+    private fun PodDevice.wornForSlot(slot: Slot): Boolean = when (slot) {
+        Slot.LEFT -> isLeftInEar
+        Slot.RIGHT -> isRightInEar
+        Slot.HEADSET -> isBeingWorn
+    } == true
 
     /**
      * Persists each pod's live drain or charge rate (whichever direction its window currently
@@ -386,44 +469,100 @@ class BatteryEstimator @Inject constructor(
         var chargeRates = existing.chargeRates
         var changed = false
 
-        for (slot in Slot.entries) {
-            val history = tracker.slots.getValue(slot)
-            val isCharge = history.direction == SlotHistory.Direction.CHARGE
-            // Same model-aware plausibility gate as display, so an implausibly fast fit isn't learned.
-            val liveRate = if (isCharge) {
-                DrainModel.chargeSlopeFractionPerHour(history.toList())
-            } else {
-                DrainModel.slopeFractionPerHour(history.toList())?.takeIf { plausibleForModel(it, spec) }
-            } ?: continue
+        var chargeBands = existing.chargeBands
+        var listeningRates = existing.listeningRates
 
-            val key = if (isCharge) chargeRateKey(slot) else rateKey(bucket, slot)
-            val lastPersist = tracker.lastPersistAtMs[key]
-            if (!force && lastPersist != null && nowMs - lastPersist < PERSIST_INTERVAL_MS) continue
-            tracker.lastPersistAtMs[key] = nowMs
-
-            // Blend against the rate stored when this session began, captured once, so a single long
-            // session's repeated writes can't dominate prior history by re-blending their own output.
-            // The captured updateCount keeps a whole session counting as ONE accumulated update.
-            val stored = if (isCharge) chargeRates[slot.name] else rates[key]
-            if (!tracker.sessionBaseline.containsKey(key)) {
-                tracker.sessionBaseline[key] = stored?.fractionPerHour
-                tracker.sessionBaselineCounts[key] = stored?.updateCount ?: 0
+        // Blend against the rate stored when this session began, captured once per key, so a single
+        // long session's repeated writes can't dominate prior history by re-blending their own
+        // output. The captured updateCount keeps a whole session counting as ONE accumulated update.
+        fun blended(cadenceKey: String, stored: DrainProfile.LearnedRate?, fit: Float, samples: Int): DrainProfile.LearnedRate {
+            if (!tracker.sessionBaseline.containsKey(cadenceKey)) {
+                tracker.sessionBaseline[cadenceKey] = stored?.fractionPerHour
+                tracker.sessionBaselineCounts[cadenceKey] = stored?.updateCount ?: 0
             }
-            val learned = DrainProfile.LearnedRate(
-                fractionPerHour = DrainModel.blendRate(tracker.sessionBaseline[key], liveRate),
-                sampleCount = history.size,
-                updateCount = (tracker.sessionBaselineCounts[key] ?: 0) + 1,
+            return DrainProfile.LearnedRate(
+                fractionPerHour = DrainModel.blendRate(tracker.sessionBaseline[cadenceKey], fit),
+                sampleCount = samples,
+                updateCount = (tracker.sessionBaselineCounts[cadenceKey] ?: 0) + 1,
                 updatedAt = timeSource.now(),
             )
-            if (isCharge) chargeRates = chargeRates + (slot.name to learned) else rates = rates + (key to learned)
-            changed = true
-            log(TAG, VERBOSE) { "Persisting learned rate for $profileId [$key]: ${"%.3f".format(learned.fractionPerHour)}/hr" }
+        }
+
+        // True at most once per PERSIST_INTERVAL_MS per key (bypassed on [force] or [always]).
+        fun cadenceOk(cadenceKey: String, always: Boolean = false): Boolean {
+            val last = tracker.lastPersistAtMs[cadenceKey]
+            if (!always && !force && last != null && nowMs - last < PERSIST_INTERVAL_MS) return false
+            tracker.lastPersistAtMs[cadenceKey] = nowMs
+            return true
+        }
+
+        for (slot in Slot.entries) {
+            val history = tracker.slots.getValue(slot)
+
+            if (history.direction == SlotHistory.Direction.CHARGE) {
+                // Whole-session scalar — the fallback basis and the stall-threshold reference.
+                DrainModel.chargeSlopeFractionPerHour(history.toList())?.let { fit ->
+                    val key = chargeRateKey(slot)
+                    if (cadenceOk(key)) {
+                        chargeRates = chargeRates + (slot.name to blended(key, chargeRates[slot.name], fit, history.size))
+                        changed = true
+                        log(TAG, VERBOSE) { "Persisting charge rate for $profileId [$key]: ${"%.3f".format(fit)}/hr" }
+                    }
+                }
+                // Per-band rates — charging is CC/CV, each regime learns its own speed.
+                for (band in DrainModel.ChargeBand.entries) {
+                    val fit = DrainModel.chargeBandSlopeFractionPerHour(history.toList(), band) ?: continue
+                    val key = "${chargeRateKey(slot)}/${band.name}"
+                    if (!cadenceOk(key)) continue
+                    val stored = chargeBands[slot.name]?.get(band.name)
+                    val slotBands = chargeBands[slot.name].orEmpty() + (band.name to blended(key, stored, fit, history.size))
+                    chargeBands = chargeBands + (slot.name to slotBands)
+                    changed = true
+                    log(TAG, VERBOSE) { "Persisting charge band for $profileId [$key]: ${"%.3f".format(fit)}/hr" }
+                }
+            } else {
+                // Same model-aware plausibility gate as display, so an implausibly fast fit isn't learned.
+                DrainModel.slopeFractionPerHour(history.toList())
+                    ?.takeIf { plausibleForModel(it, spec) }
+                    ?.let { fit ->
+                        val key = rateKey(bucket, slot)
+                        if (cadenceOk(key)) {
+                            rates = rates + (key to blended(key, rates[key], fit, history.size))
+                            changed = true
+                            log(TAG, VERBOSE) { "Persisting learned rate for $profileId [$key]: ${"%.3f".format(fit)}/hr" }
+                        }
+                    }
+            }
+
+            // Listening rates (health basis): a just-closed segment persists immediately — it would
+            // be lost otherwise, the window is already cleared. An ongoing window follows cadence.
+            val pending = tracker.pendingListeningFits.remove(slot)
+            val (fit, samples) = when {
+                pending != null -> pending
+                else -> DrainModel.slopeFractionPerHour(tracker.listeningSlots.getValue(slot).toList())
+                    ?.let { it to tracker.listeningSlots.getValue(slot).size } ?: (null to 0)
+            }
+            if (fit != null && plausibleForModel(fit, spec)) {
+                val key = rateKey(bucket, slot)
+                val cadenceKey = "LISTEN/$key"
+                if (cadenceOk(cadenceKey, always = pending != null)) {
+                    listeningRates = listeningRates + (key to blended(cadenceKey, listeningRates[key], fit, samples))
+                    changed = true
+                    log(TAG, VERBOSE) { "Persisting listening rate for $profileId [$key]: ${"%.3f".format(fit)}/hr" }
+                }
+            }
         }
 
         if (changed) {
             drainStore.save(
                 profileId,
-                existing.copy(model = device.model.name, rates = rates, chargeRates = chargeRates),
+                existing.copy(
+                    model = device.model.name,
+                    rates = rates,
+                    chargeRates = chargeRates,
+                    chargeBands = chargeBands,
+                    listeningRates = listeningRates,
+                ),
             )
         }
     }

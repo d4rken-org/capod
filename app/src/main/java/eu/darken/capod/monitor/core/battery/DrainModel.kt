@@ -59,11 +59,17 @@ object DrainModel {
     const val CHARGE_RATE_MAX = 4.0f
 
     /**
-     * Above this level the "until charged" estimate is suppressed: the final trickle phase is far
-     * slower than the linear bulk of the curve, so a linear fit would show a perpetually-imminent
-     * finish. The firmware flips the charging flag off at 100% anyway.
+     * Above this level the "until charged" estimate is suppressed. The trickle band models the slow
+     * tail, so suppression only covers the last sliver where the firmware is about to flip the
+     * charging flag off at 100% anyway.
      */
-    const val NEAR_FULL_SUPPRESS = 0.97f
+    const val NEAR_FULL_SUPPRESS = 0.99f
+
+    /** Narrow bands (10% wide) accept a two-point fit — a full BLE band is exactly two ticks. */
+    const val MIN_SAMPLES_CHARGE_NARROW = 2
+
+    /** Minimum rise WITHIN a band before its fit is trusted (half a narrow band). */
+    const val MIN_BAND_RISE = 0.05f
 
     /** [chargeStallThresholdMs] never goes below this, however fast the rate claims to be. */
     const val CHARGE_STALL_FLOOR_MS = 10 * 60_000L
@@ -112,15 +118,62 @@ object DrainModel {
     }
 
     /**
-     * Minutes until [levelFraction] reaches full at [chargeFractionPerHour], or null when the rate
-     * is non-positive, the level is already in the trickle zone ([NEAR_FULL_SUPPRESS]), or the
-     * result is implausible.
+     * The three regimes of a lithium charge. Constant-current bulk is fast and roughly linear;
+     * above ~80% the charger switches to constant-voltage and the intake tapers, ending in a slow
+     * trickle. One linear rate over-promises badly above 80%, so each band learns its own rate.
+     *
+     * [specMultiplier] scales the spec-derived seed for the band: Apple's quick-charge claims
+     * ("5 minutes = ~1 hour of listening") measure the bulk phase, so seeding the taper/trickle
+     * bands from them needs a haircut. Applied ONLY to the spec seed — measured or learned rates
+     * already reflect where they were observed.
      */
-    fun minutesUntilFull(levelFraction: Float, chargeFractionPerHour: Float): Int? {
-        if (chargeFractionPerHour <= 0f || !levelFraction.isFinite() || levelFraction < 0f) return null
+    enum class ChargeBand(val from: Float, val to: Float, val specMultiplier: Float) {
+        BULK(0.0f, 0.8f, 1.0f),
+        TAPER(0.8f, 0.9f, 0.5f),
+        TRICKLE(0.9f, 1.0f, 0.3f),
+    }
+
+    /**
+     * Least-squares charge rate fitted ONLY to the recent samples inside [band], or null when the
+     * band lacks coverage. Narrow bands accept two points (a full BLE band is exactly two ticks);
+     * the wide bulk band keeps the regular sample requirement.
+     */
+    fun chargeBandSlopeFractionPerHour(samples: List<DrainSample>, band: ChargeBand): Float? {
+        val newestMs = samples.lastOrNull()?.atElapsedMs ?: return null
+        val recent = samples.filter {
+            newestMs - it.atElapsedMs <= MAX_SAMPLE_AGE_MS && it.fraction in band.from..band.to
+        }
+        val minSamples = if (band == ChargeBand.BULK) MIN_SAMPLES_CHARGE else MIN_SAMPLES_CHARGE_NARROW
+        if (recent.size < minSamples) return null
+        if (recent.last().atElapsedMs - recent.first().atElapsedMs < MIN_SPAN_MS) return null
+        if (recent.last().fraction - recent.first().fraction < MIN_BAND_RISE) return null
+
+        val rate = regressionSlopePerHour(recent) ?: return null
+        // The taper/trickle bands are legitimately slower than any plausible bulk rate.
+        val floor = CHARGE_RATE_MIN * band.specMultiplier
+        return rate.takeIf { it.isFinite() && it >= floor && it <= CHARGE_RATE_MAX }
+    }
+
+    /**
+     * Minutes until [levelFraction] reaches full, walking the remaining [ChargeBand]s at
+     * [rateForBand]'s per-band rates (partial current band + all bands above it). Null when the
+     * level is already in the suppression sliver ([NEAR_FULL_SUPPRESS]), any needed band has no
+     * usable rate, or the result is implausible.
+     */
+    fun minutesUntilFull(levelFraction: Float, rateForBand: (ChargeBand) -> Float?): Int? {
+        if (!levelFraction.isFinite() || levelFraction < 0f) return null
         if (levelFraction >= NEAR_FULL_SUPPRESS) return null
-        val minutes = ((1f - levelFraction) / chargeFractionPerHour * 60.0).roundToInt()
-        return minutes.takeIf { it in 1..MAX_MINUTES }
+
+        var totalMinutes = 0.0
+        for (band in ChargeBand.entries) {
+            val start = maxOf(levelFraction, band.from)
+            val missing = band.to - start
+            if (missing <= 0f) continue
+            val rate = rateForBand(band) ?: return null
+            if (rate <= 0f) return null
+            totalMinutes += missing / rate * 60.0
+        }
+        return totalMinutes.roundToInt().takeIf { it in 1..MAX_MINUTES }
     }
 
     /**
