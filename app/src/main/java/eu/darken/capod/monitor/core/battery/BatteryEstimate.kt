@@ -18,7 +18,8 @@ data class BatteryEstimate(
      *   bounded by the model's rated life
      * @property minutesUntilCharged minutes until this pod is full — non-null only while it is
      *   actively charging with a usable charge rate (not during an Optimized Battery Charging hold
-     *   or the final trickle phase). When set, the UI shows this instead of [minutesRemaining].
+     *   or the final trickle phase). Shown inside the charging chip; [minutesRemaining] stays on
+     *   the gauge line as the runtime projection.
      */
     data class Pod(
         val minutesRemaining: Int,

@@ -1,6 +1,5 @@
 package eu.darken.capod.main.ui.overview.cards
 
-import android.content.Context
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
@@ -240,9 +239,8 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isLeftPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
-                    timeRemaining = batteryEstimate?.left?.let {
-                        formatEstimateText(context, it, isCharging = device.isLeftPodCharging == true)
-                    },
+                    timeRemaining = batteryEstimate?.left?.let { formatBatteryDurationShort(context, it.minutesRemaining) },
+                    untilCharged = batteryEstimate?.left?.minutesUntilCharged?.let { formatBatteryDurationShort(context, it) },
                 )
 
                 PodGauge(
@@ -255,9 +253,8 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isRightPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
-                    timeRemaining = batteryEstimate?.right?.let {
-                        formatEstimateText(context, it, isCharging = device.isRightPodCharging == true)
-                    },
+                    timeRemaining = batteryEstimate?.right?.let { formatBatteryDurationShort(context, it.minutesRemaining) },
+                    untilCharged = batteryEstimate?.right?.minutesUntilCharged?.let { formatBatteryDurationShort(context, it) },
                 )
             }
 
@@ -313,6 +310,7 @@ private fun PodGauge(
     showMicrophone: Boolean,
     modifier: Modifier = Modifier,
     timeRemaining: String? = null,
+    untilCharged: String? = null,
 ) {
     val context = LocalContext.current
     val clamped = if (batteryPercent >= 0f) batteryPercent.coerceIn(0f, 1f) else -1f
@@ -405,21 +403,9 @@ private fun PodGauge(
             chargingOptimizedLabel = stringResource(R.string.pods_charging_optimized_label),
             inEarLabel = stringResource(R.string.pods_inear_label),
             microphoneLabel = stringResource(R.string.pods_microphone_label),
+            chargingDetail = untilCharged,
         )
     }
-}
-
-/**
- * The gauge's small estimate line: while charging, the time until full (language-neutral "⚡ 25m")
- * or NOTHING — a bare runtime number next to a charging chip ("1% · 4m") inevitably reads as a
- * four-minute charge. The runtime estimate only shows while not charging. Shared with
- * [SinglePodsCard] (same package).
- */
-internal fun formatEstimateText(context: Context, pod: BatteryEstimate.Pod, isCharging: Boolean): String? = when {
-    pod.minutesUntilCharged != null ->
-        context.getString(R.string.battery_time_until_charged_short, formatBatteryDurationShort(context, pod.minutesUntilCharged))
-    isCharging -> null
-    else -> formatBatteryDurationShort(context, pod.minutesRemaining)
 }
 
 @OptIn(ExperimentalLayoutApi::class)

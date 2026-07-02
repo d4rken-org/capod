@@ -43,6 +43,7 @@ import eu.darken.capod.common.settings.SettingsInfoBox
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.main.ui.devicesettings.cards.AapUnavailableCard
 import eu.darken.capod.main.ui.devicesettings.cards.BatteryCard
+import eu.darken.capod.main.ui.devicesettings.cards.BatteryHealthTexts
 import eu.darken.capod.main.ui.devicesettings.cards.ControlsCard
 import eu.darken.capod.main.ui.devicesettings.cards.DeviceInfoCard
 import eu.darken.capod.main.ui.devicesettings.cards.NoiseControlCard
@@ -295,8 +296,18 @@ fun DeviceSettingsScreen(
                         info = info,
                         labels = rememberDeviceInfoDetailLabels(),
                         formatDate = { instant -> dateFormatter.format(instant) },
-                        batteryHealth = state.batteryHealthPercent?.let {
-                            stringResource(R.string.device_settings_info_battery_health_value, it)
+                        batteryHealth = state.batteryHealth?.let { health ->
+                            BatteryHealthTexts(
+                                left = health.left?.let {
+                                    stringResource(R.string.device_settings_info_battery_health_value, it)
+                                },
+                                right = health.right?.let {
+                                    stringResource(R.string.device_settings_info_battery_health_value, it)
+                                },
+                                headset = health.headset?.let {
+                                    stringResource(R.string.device_settings_info_battery_health_value, it)
+                                },
+                            )
                         },
                     )
                     DeviceInfoCard(
