@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                tools:text="95%" />
+                tools:text="95% · 14h 30m" />
 
             <ImageView
                 android:id="@+id/headphones_charging"

@@ -6,7 +6,10 @@ import android.widget.RemoteViews
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.capod.R
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
+import eu.darken.capod.monitor.core.battery.displayMinutes
 import eu.darken.capod.pods.core.apple.PodModel
+import eu.darken.capod.pods.core.apple.ble.formatBatteryDurationShort
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import eu.darken.capod.pods.core.apple.ble.getBatteryDrawable
 import eu.darken.capod.pods.core.apple.ble.isKnownBattery
@@ -83,13 +86,13 @@ class MonitorNotificationViewFactory @Inject constructor(
         setTextViewText(R.id.device, device.getLabel(context))
     }
 
-    fun createBigContentView(device: PodDevice): RemoteViews = when {
-        device.hasDualPods -> createDualPodsBig(device)
-        device.model != PodModel.UNKNOWN -> createSinglePodBig(device)
+    fun createBigContentView(device: PodDevice, estimate: BatteryEstimate? = null): RemoteViews = when {
+        device.hasDualPods -> createDualPodsBig(device, estimate)
+        device.model != PodModel.UNKNOWN -> createSinglePodBig(device, estimate)
         else -> createUnknownDeviceBig(device)
     }
 
-    private fun createDualPodsBig(device: PodDevice): RemoteViews = RemoteViews(
+    private fun createDualPodsBig(device: PodDevice, estimate: BatteryEstimate?): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_dual_pods_big
     ).apply {
@@ -97,7 +100,11 @@ class MonitorNotificationViewFactory @Inject constructor(
         val leftPercent = device.batteryLeft
         setImageViewResource(R.id.pod_left_icon, device.leftPodIcon)
         setProgressBar(R.id.pod_left_progress, 100, percentToInt(leftPercent), false)
-        setTextViewText(R.id.pod_left_label, formatBatteryPercent(context, leftPercent))
+        setTextViewText(
+            R.id.pod_left_label,
+            formatBatteryPercent(context, leftPercent) +
+                estimateSuffix(estimate?.left, device.isLeftPodCharging == true)
+        )
         val isLeftPodCharging = device.isLeftPodCharging ?: false
         setViewVisibility(R.id.pod_left_charging, if (isLeftPodCharging) View.VISIBLE else View.GONE)
         val isLeftPodInEar = device.isLeftInEar ?: false
@@ -117,14 +124,18 @@ class MonitorNotificationViewFactory @Inject constructor(
         val rightPercent = device.batteryRight
         setImageViewResource(R.id.pod_right_icon, device.rightPodIcon)
         setProgressBar(R.id.pod_right_progress, 100, percentToInt(rightPercent), false)
-        setTextViewText(R.id.pod_right_label, formatBatteryPercent(context, rightPercent))
+        setTextViewText(
+            R.id.pod_right_label,
+            formatBatteryPercent(context, rightPercent) +
+                estimateSuffix(estimate?.right, device.isRightPodCharging == true)
+        )
         val isRightPodCharging = device.isRightPodCharging ?: false
         setViewVisibility(R.id.pod_right_charging, if (isRightPodCharging) View.VISIBLE else View.GONE)
         val isRightPodInEar = device.isRightInEar ?: false
         setViewVisibility(R.id.pod_right_ear, if (isRightPodInEar) View.VISIBLE else View.GONE)
     }
 
-    private fun createSinglePodBig(device: PodDevice): RemoteViews = RemoteViews(
+    private fun createSinglePodBig(device: PodDevice, estimate: BatteryEstimate?): RemoteViews = RemoteViews(
         context.packageName,
         R.layout.monitor_notification_single_pods_big
     ).apply {
@@ -132,7 +143,11 @@ class MonitorNotificationViewFactory @Inject constructor(
         setTextViewText(R.id.headphones_label, device.getLabel(context))
         setImageViewResource(R.id.headphones_icon, device.iconRes)
         setProgressBar(R.id.headphones_battery_progress, 100, percentToInt(headsetPercent), false)
-        setTextViewText(R.id.headphones_battery_label, formatBatteryPercent(context, headsetPercent))
+        setTextViewText(
+            R.id.headphones_battery_label,
+            formatBatteryPercent(context, headsetPercent) +
+                estimateSuffix(estimate?.headset, device.isHeadsetBeingCharged == true)
+        )
         if (device.hasEarDetection) {
             setViewVisibility(R.id.headphones_worn, if (device.isBeingWorn == true) View.VISIBLE else View.GONE)
         }
@@ -153,5 +168,8 @@ class MonitorNotificationViewFactory @Inject constructor(
 
     private fun percentToInt(percent: Float): Int =
         if (isKnownBattery(percent)) (percent * 100).roundToInt().coerceIn(0, 100) else 0
+
+    private fun estimateSuffix(pod: BatteryEstimate.Pod?, charging: Boolean): String =
+        pod?.displayMinutes(charging)?.let { " · ${formatBatteryDurationShort(context, it)}" } ?: ""
 
 }

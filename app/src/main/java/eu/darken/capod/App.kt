@@ -15,12 +15,16 @@ import eu.darken.capod.common.upgrade.UpgradeRepo
 import eu.darken.capod.main.ui.widget.WidgetManager
 import eu.darken.capod.main.ui.widget.toWidgetKey
 import eu.darken.capod.monitor.core.DeviceMonitor
+import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.displayKey
+import eu.darken.capod.monitor.core.battery.estimateFor
 
 import eu.darken.capod.monitor.core.devicesWithProfiles
 
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -36,6 +40,7 @@ open class App : Application() {
     @Inject lateinit var deviceMonitor: DeviceMonitor
     @Inject lateinit var widgetManager: WidgetManager
     @Inject lateinit var upgradeRepo: UpgradeRepo
+    @Inject lateinit var batteryEstimator: BatteryEstimator
     @Inject @AppScope lateinit var appScope: CoroutineScope
 
     override fun onCreate() {
@@ -62,8 +67,15 @@ open class App : Application() {
 
         appScope.launch { widgetManager.refreshWidgets() }
 
-        deviceMonitor.devicesWithProfiles()
-            .distinctUntilChangedBy { devices -> devices.map { it.toWidgetKey() } }
+        combine(
+            deviceMonitor.devicesWithProfiles(),
+            batteryEstimator.estimates,
+        ) { devices, estimates -> devices to estimates }
+            // Estimate display values can change while the device key is stable (e.g. a charge
+            // ETA gets suppressed after a stall) — refresh on those too, but only on visible ones.
+            .distinctUntilChangedBy { (devices, estimates) ->
+                devices.map { device -> device.toWidgetKey() to estimates.estimateFor(device)?.displayKey(device) }
+            }
             .throttleLatest(1000)
             .onEach {
                 log(TAG, VERBOSE) { "Devices changed, refreshing widgets." }

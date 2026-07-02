@@ -29,7 +29,10 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.main.core.PermissionTool
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorCoroutineScope
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.displayKey
+import eu.darken.capod.monitor.core.battery.estimateFor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.ble.BlePodMonitor
@@ -224,16 +227,34 @@ class MonitorService : Service() {
             NotificationSettings(useExtraNotification = useExtra, keepAfterDisconnect = keepAfter)
         }
 
-        val monitorJob = combine(deviceFlow, notificationSettingsFlow) { currentDevice, settings ->
-            currentDevice to settings
+        val monitorJob = combine(
+            deviceFlow,
+            notificationSettingsFlow,
+            batteryEstimator.estimates,
+        ) { currentDevice, settings, estimates ->
+            NotificationInput(
+                device = currentDevice,
+                settings = settings,
+                estimate = currentDevice?.let { estimates.estimateFor(it) },
+            )
         }
-            .onEach { (currentDevice, settings) ->
+            // The estimates map churns on fields the notification doesn't display (and for other
+            // profiles' devices) — only re-notify when something visible changed.
+            .distinctUntilChangedBy { input ->
+                Triple(
+                    input.device?.toNotificationKey(),
+                    input.settings,
+                    input.device?.let { input.estimate?.displayKey(it) },
+                )
+            }
+            .onEach { (currentDevice, settings, estimate) ->
                 latestNotificationSettings = settings
 
                 notificationManager.notify(
                     MonitorNotifications.NOTIFICATION_ID,
                     notifications.getNotification(
                         currentDevice,
+                        estimate = estimate,
                         showHint = settings.useExtraNotification,
                     ),
                 )
@@ -241,7 +262,7 @@ class MonitorService : Service() {
                 when (val action = decideExtraNotificationAction(currentDevice, settings)) {
                     is ExtraNotificationAction.Post -> notificationManager.notify(
                         MonitorNotifications.NOTIFICATION_ID_CONNECTED,
-                        notifications.getNotificationConnected(action.device),
+                        notifications.getNotificationConnected(action.device, estimate),
                     )
                     ExtraNotificationAction.Cancel -> notificationManager.cancel(
                         MonitorNotifications.NOTIFICATION_ID_CONNECTED
@@ -430,6 +451,12 @@ internal fun buildMonitorModeState(
     hasAapSession = aapStates.isNotEmpty(),
 )
 
+internal data class NotificationInput(
+    val device: PodDevice?,
+    val settings: NotificationSettings,
+    val estimate: BatteryEstimate?,
+)
+
 private data class NotificationDeviceKey(
     val profileId: String?,
     val label: String?,
@@ -449,6 +476,7 @@ private data class NotificationDeviceKey(
     val isLeftInEar: Boolean?,
     val isRightInEar: Boolean?,
     val isBeingWorn: Boolean?,
+    val batteryEstimateEnabled: Boolean,
     val iconRes: Int,
     val leftPodIcon: Int,
     val rightPodIcon: Int,
@@ -474,6 +502,7 @@ private fun PodDevice.toNotificationKey(): NotificationDeviceKey = NotificationD
     isLeftInEar = isLeftInEar,
     isRightInEar = isRightInEar,
     isBeingWorn = isBeingWorn,
+    batteryEstimateEnabled = batteryEstimateEnabled,
     iconRes = iconRes,
     leftPodIcon = leftPodIcon,
     rightPodIcon = rightPodIcon,

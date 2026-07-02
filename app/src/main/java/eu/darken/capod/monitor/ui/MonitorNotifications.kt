@@ -16,6 +16,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.notifications.PendingIntentCompat
 import eu.darken.capod.main.ui.MainActivity
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.ble.formatBatteryPercent
 import javax.inject.Inject
@@ -56,7 +57,8 @@ class MonitorNotifications @Inject constructor(
     private fun getBuilder(
         device: PodDevice?,
         channelId: String,
-        showHint: Boolean = false
+        estimate: BatteryEstimate? = null,
+        showHint: Boolean = false,
     ): NotificationCompat.Builder {
         if (device == null) {
             return baseBuilder(channelId).apply {
@@ -119,18 +121,21 @@ class MonitorNotifications @Inject constructor(
 
             setStyle(NotificationCompat.DecoratedCustomViewStyle())
             setCustomContentView(notificationViewFactory.createContentView(device))
-            setCustomBigContentView(notificationViewFactory.createBigContentView(device))
+            setCustomBigContentView(notificationViewFactory.createBigContentView(device, estimate))
             setContentTitle("$batteryText ~ $stateText")
             setSubText(null)
             log(TAG, VERBOSE) { "updatingNotification(): $device" }
         }
     }
 
-    fun getNotification(podDevice: PodDevice?, showHint: Boolean = false): Notification =
-        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID, showHint).build()
+    fun getNotification(
+        podDevice: PodDevice?,
+        estimate: BatteryEstimate? = null,
+        showHint: Boolean = false,
+    ): Notification = getBuilder(podDevice, NOTIFICATION_CHANNEL_ID, estimate, showHint).build()
 
-    fun getNotificationConnected(podDevice: PodDevice?): Notification =
-        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID_CONNECTED).build()
+    fun getNotificationConnected(podDevice: PodDevice?, estimate: BatteryEstimate? = null): Notification =
+        getBuilder(podDevice, NOTIFICATION_CHANNEL_ID_CONNECTED, estimate).build()
 
     fun getStartupNotification(): Notification =
         getBuilder(null, NOTIFICATION_CHANNEL_ID).build()
