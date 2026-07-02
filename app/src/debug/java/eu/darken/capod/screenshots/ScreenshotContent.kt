@@ -21,6 +21,7 @@ import eu.darken.capod.common.compose.preview.MockPodDataProvider
 import eu.darken.capod.common.theming.CapodTheme
 import eu.darken.capod.main.ui.overview.OverviewScreen
 import eu.darken.capod.main.ui.overview.OverviewViewModel
+import eu.darken.capod.monitor.core.battery.BatteryEstimate
 import androidx.compose.ui.platform.LocalContext
 import eu.darken.capod.main.ui.widget.ComposeWidgetPreview
 import eu.darken.capod.main.ui.widget.WidgetConfigurationScreen
@@ -54,6 +55,29 @@ internal fun DashboardContent(showAap: Boolean = false) = PreviewWrapper {
             MockPodDataProvider.unknownMonitored(),
         )
     }
+    // Plausible estimates for the mock battery levels: runtime under each gauge, charge ETA in
+    // the charging chip of whichever mock pod is charging.
+    val estimates = if (showAap) {
+        mapOf(
+            "preview-dual-aap" to BatteryEstimate(
+                left = BatteryEstimate.Pod(285, 0.17f, BatteryEstimate.Source.LIVE),
+                right = BatteryEstimate.Pod(160, 0.17f, BatteryEstimate.Source.LIVE),
+            ),
+            "preview-single-aap" to BatteryEstimate(
+                headset = BatteryEstimate.Pod(480, 0.05f, BatteryEstimate.Source.LIVE, minutesUntilCharged = 45),
+            ),
+        )
+    } else {
+        mapOf(
+            "preview-dual-mixed" to BatteryEstimate(
+                left = BatteryEstimate.Pod(285, 0.17f, BatteryEstimate.Source.LIVE, minutesUntilCharged = 20),
+                right = BatteryEstimate.Pod(160, 0.17f, BatteryEstimate.Source.LIVE),
+            ),
+            "preview-single" to BatteryEstimate(
+                headset = BatteryEstimate.Pod(1020, 0.05f, BatteryEstimate.Source.LIVE),
+            ),
+        )
+    }
     OverviewScreen(
         state = OverviewViewModel.State(
             now = MOCK_NOW,
@@ -67,6 +91,7 @@ internal fun DashboardContent(showAap: Boolean = false) = PreviewWrapper {
             ),
             upgradeInfo = MockPodDataProvider.gplayInfo(isPro = true),
             showUnmatchedDevices = false,
+            batteryEstimates = estimates,
         ),
         onRequestPermission = {},
         onBluetoothSettings = {},
