@@ -480,7 +480,7 @@
     <string name="device_settings_info_battery_health_left_label">Left Battery Health (est.)</string>
     <string name="device_settings_info_battery_health_right_label">Right Battery Health (est.)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
-    <string name="device_settings_info_battery_health_pending">Still determining — check back after a few listening sessions</string>
+    <string name="device_settings_info_battery_health_pending">Still determining, check back later</string>
     <string name="device_settings_info_details_label">Device Details</string>
     <string name="device_settings_info_details_action">Show device details</string>
     <string name="device_settings_info_status_label">Status</string>
