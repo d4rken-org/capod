@@ -5,33 +5,49 @@ import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import kotlin.math.roundToInt
 
 /**
- * Derives a rough battery-health percentage from learned drain rates vs the model's rated battery
- * life. Nothing on the wire exposes Apple's real health/cycle data, so this is a usage-based proxy:
- * a battery that only lasts 4.5h of a rated 6h reads as ~75%.
+ * Derives a rough per-pod battery-health percentage from learned drain rates vs the model's rated
+ * battery life. Nothing on the wire exposes Apple's real health/cycle data, so this is a usage-based
+ * proxy: a pod that only lasts 4.5h of a rated 6h reads as ~75%.
  *
- * The MEDIAN of the qualifying learned rates is used rather than the best or worst: sessions where
- * the pods idled (in-ear, nothing playing) drain slower than the listening rating and would pull a
- * "best" pick to a meaningless 100%, while call-heavy or cold sessions drain faster and would drag
- * a "worst" pick into false doom. The median lands between both confounds. It remains an estimate —
- * label it as such in the UI.
+ * Health is computed PER POD — single-pod listening habits or a replaced earbud make the two sides
+ * genuinely diverge, and a combined figure would mask a failing pod. Within a pod, the MEDIAN of its
+ * qualifying learned rates is used rather than the best or worst: sessions where the pod idled
+ * (in-ear, nothing playing) drain slower than the listening rating and would pull a "best" pick to a
+ * meaningless 100%, while call-heavy or cold sessions drain faster and would drag a "worst" pick
+ * into false doom. The median lands between both confounds. It remains an estimate — label it as
+ * such in the UI.
  */
 object BatteryHealth {
 
     /** A learned rate must have accumulated this many separate sessions before it counts. */
     const val MIN_UPDATE_COUNT = 3
 
-    private val VALID_SLOTS = setOf("LEFT", "RIGHT", "HEADSET")
+    data class PerPod(
+        val left: Int? = null,
+        val right: Int? = null,
+        val headset: Int? = null,
+    ) {
+        val hasAny: Boolean get() = left != null || right != null || headset != null
+    }
 
-    fun estimatePercent(profile: DrainProfile?, model: PodModel): Int? {
+    fun estimate(profile: DrainProfile?, model: PodModel): PerPod? {
         if (profile == null) return null
         val spec = model.batterySpec ?: return null
         if (!profile.matchesModel(model)) return null
 
+        return PerPod(
+            left = slotPercent(profile, spec, "LEFT"),
+            right = slotPercent(profile, spec, "RIGHT"),
+            headset = slotPercent(profile, spec, "HEADSET"),
+        ).takeIf { it.hasAny }
+    }
+
+    private fun slotPercent(profile: DrainProfile, spec: PodModel.BatterySpec, slot: String): Int? {
         val ratios = profile.rates.mapNotNull { (key, rate) ->
-            // Keys must be exactly "<bucket>/<slot>" with a known slot — anything else is corrupted
-            // or future-format data and must not feed a health figure.
+            // Keys must be exactly "<bucket>/<slot>" — anything else is corrupted or
+            // future-format data and must not feed a health figure.
             val parts = key.split('/')
-            if (parts.size != 2 || parts[1] !in VALID_SLOTS) return@mapNotNull null
+            if (parts.size != 2 || parts[1] != slot) return@mapNotNull null
             val specHours = specHoursFor(spec, parts[0]) ?: return@mapNotNull null
             if (rate.updateCount < MIN_UPDATE_COUNT) return@mapNotNull null
             if (!rate.fractionPerHour.isFinite() || rate.fractionPerHour <= 0f) return@mapNotNull null

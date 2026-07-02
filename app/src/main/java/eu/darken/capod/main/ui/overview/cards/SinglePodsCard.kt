@@ -267,12 +267,10 @@ private fun ColumnScope.SinglePodsCardExpanded(
                             MaterialTheme.colorScheme.onSurfaceVariant
                         },
                     )
-                    val headsetEstimate = batteryEstimate?.headset?.let {
-                        formatEstimateText(context, it, isCharging = device.isHeadsetBeingCharged == true)
-                    }
+                    val headsetEstimate = batteryEstimate?.headset
                     if (headsetEstimate != null) {
                         Text(
-                            text = headsetEstimate,
+                            text = formatBatteryDurationShort(context, headsetEstimate.minutesRemaining),
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             maxLines = 1,
@@ -296,10 +294,18 @@ private fun ColumnScope.SinglePodsCardExpanded(
                         icon = Icons.TwoTone.BatteryChargingFull,
                         label = stringResource(R.string.pods_charging_optimized_label),
                     )
-                    AapPodState.ChargingState.CHARGING -> StatusChip(
-                        icon = Icons.TwoTone.BatteryChargingFull,
-                        label = stringResource(R.string.pods_charging_label),
-                    )
+                    AapPodState.ChargingState.CHARGING -> {
+                        // Time-until-charged lives in the charging chip; the in-ring estimate
+                        // always means runtime, so the two can't be confused.
+                        val untilCharged = batteryEstimate?.headset?.minutesUntilCharged
+                            ?.let { formatBatteryDurationShort(context, it) }
+                        StatusChip(
+                            icon = Icons.TwoTone.BatteryChargingFull,
+                            label = untilCharged
+                                ?.let { "${stringResource(R.string.pods_charging_label)} · $it" }
+                                ?: stringResource(R.string.pods_charging_label),
+                        )
+                    }
                     else -> Unit
                 }
                 if (device.isBeingWorn == true) {

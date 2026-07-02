@@ -14,6 +14,7 @@ import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
 import eu.darken.capod.monitor.core.battery.BatteryDrainStore
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.BatteryHealth
 import eu.darken.capod.monitor.core.battery.DrainProfile
 import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
@@ -571,7 +572,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val vm = createViewModel()
         vm.initialize(testAddress)
 
-        vm.state.first().batteryHealthPercent shouldBe 50
+        vm.state.first().batteryHealth shouldBe BatteryHealth.PerPod(left = 50)
     }
 
     @Test
@@ -606,7 +607,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val vm = createViewModel()
         vm.initialize(testAddress)
 
-        vm.state.first().batteryHealthPercent shouldBe null
+        vm.state.first().batteryHealth shouldBe null
     }
 
     @Test

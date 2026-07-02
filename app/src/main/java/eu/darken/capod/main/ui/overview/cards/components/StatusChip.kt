@@ -71,6 +71,7 @@ fun StatusChipRow(
     inEarLabel: String,
     microphoneLabel: String,
     modifier: Modifier = Modifier,
+    chargingDetail: String? = null,
 ) {
     FlowRow(
         modifier = modifier.animateContentSize(),
@@ -82,9 +83,11 @@ fun StatusChipRow(
                 icon = Icons.TwoTone.BatteryChargingFull,
                 label = chargingOptimizedLabel,
             )
+            // The time-until-charged lives INSIDE the charging chip ("Charging · 25m") — the
+            // estimate line under the percentage always means runtime, so the two can't be confused.
             AapPodState.ChargingState.CHARGING -> StatusChip(
                 icon = Icons.TwoTone.BatteryChargingFull,
-                label = chargingLabel,
+                label = chargingDetail?.let { "$chargingLabel · $it" } ?: chargingLabel,
             )
             else -> Unit
         }
@@ -122,6 +125,7 @@ private fun StatusChipRowAllPreview() = PreviewWrapper {
         chargingOptimizedLabel = "Optimized",
         inEarLabel = "In Ear",
         microphoneLabel = "Mic",
+        chargingDetail = "25m",
     )
 }
 

@@ -319,7 +319,6 @@
     <string name="battery_time_remaining_format_hm">%1$dh %2$dm</string>
     <string name="battery_time_remaining_format_h">%1$dh</string>
     <string name="battery_time_remaining_format_m">%1$dm</string>
-    <string name="battery_time_until_charged_short">⚡ %1$s</string>
     <string name="permission_post_notifications_label">Show notifications</string>
     <string name="permission_post_notifications_description">"Allow CAPod to show notifications about your AirPods, e.g. their current status while connected."</string>
 
@@ -477,7 +476,9 @@
     <string name="device_settings_info_right_serial_label">Right Pod Serial</string>
     <string name="device_settings_info_left_bonded_label">Left Bonded</string>
     <string name="device_settings_info_right_bonded_label">Right Bonded</string>
-    <string name="device_settings_info_battery_health_label">Battery health (estimated)</string>
+    <string name="device_settings_info_battery_health_label">Battery Health (estimated)</string>
+    <string name="device_settings_info_battery_health_left_label">Left Battery Health (est.)</string>
+    <string name="device_settings_info_battery_health_right_label">Right Battery Health (est.)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
     <string name="device_settings_info_details_label">Device Details</string>
     <string name="device_settings_info_details_action">Show device details</string>

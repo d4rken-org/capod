@@ -171,9 +171,9 @@ class DeviceSettingsViewModel @Inject constructor(
                 batteryEstimateEnabled = appleProfile?.batteryEstimateEnabled ?: true,
                 // Health rides on the same learned data as the estimate — the per-device toggle
                 // governs both.
-                batteryHealthPercent = device
+                batteryHealth = device
                     ?.takeIf { appleProfile?.batteryEstimateEnabled ?: true }
-                    ?.let { BatteryHealth.estimatePercent(drainProfiles[profileId], it.model) },
+                    ?.let { BatteryHealth.estimate(drainProfiles[profileId], it.model) },
             )
         }
     }.asLiveState()
@@ -200,8 +200,8 @@ class DeviceSettingsViewModel @Inject constructor(
         val systemBluetoothName: String? = null,
         val hasCustomLongPressStemAction: Boolean = false,
         val batteryEstimateEnabled: Boolean = true,
-        /** Derived battery health (1..100), or null when there isn't enough learned data. */
-        val batteryHealthPercent: Int? = null,
+        /** Derived per-pod battery health (1..100 each), or null when there isn't enough learned data. */
+        val batteryHealth: BatteryHealth.PerPod? = null,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
     }
