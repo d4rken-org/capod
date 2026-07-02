@@ -108,6 +108,33 @@ class DeviceInfoDetailItemsTest : BaseTest() {
     }
 
     @Test
+    fun `pending placeholder shows while no health value exists`() {
+        // The feature stays discoverable before enough listening data has accumulated.
+        val result = buildDeviceInfoDetailItems(
+            null,
+            labels,
+            batteryHealth = BatteryHealthTexts(pending = "Still determining"),
+            formatDate = formatter,
+        )
+        result shouldContainExactly listOf(
+            DeviceDetailItem.Single("Battery Health", "Still determining"),
+        )
+    }
+
+    @Test
+    fun `pending placeholder is ignored once a health value exists`() {
+        val result = buildDeviceInfoDetailItems(
+            null,
+            labels,
+            batteryHealth = BatteryHealthTexts(left = "~85%", pending = "Still determining"),
+            formatDate = formatter,
+        )
+        result shouldContainExactly listOf(
+            DeviceDetailItem.Single("Left Battery Health", "~85%"),
+        )
+    }
+
+    @Test
     fun `headset battery health yields a Single row with the generic label`() {
         val result = buildDeviceInfoDetailItems(
             null,

@@ -20,6 +20,7 @@ import eu.darken.capod.R
 import eu.darken.capod.common.compose.Preview2
 import eu.darken.capod.common.compose.PreviewWrapper
 import eu.darken.capod.common.settings.SettingsBaseItem
+import eu.darken.capod.common.settings.SettingsDivider
 import eu.darken.capod.common.settings.SettingsSection
 import eu.darken.capod.common.settings.SettingsSliderItem
 import eu.darken.capod.common.settings.SettingsSwitchItem
@@ -31,14 +32,15 @@ import eu.darken.capod.profiles.core.ReactionConfig
 import eu.darken.capod.reaction.core.charged.ChargedSlotScope
 
 /**
- * The device's "Battery" settings, grouping everything charge/battery-related:
+ * The device's "Battery" settings, grouping everything charge/battery-related. Time remaining &
+ * battery health lead, then a divider, then the charging-side settings:
+ *  - The time-remaining/health estimate: a per-device toggle (disabling pauses/hides without
+ *    discarding learned data) and a reset that wipes the learned drain, charge and health data so
+ *    it starts over from the model's rated battery life.
  *  - Apple's "Optimized Charge Limit" (AAP setting 0x3B) — only for models that advertise
  *    [PodModel.Features.hasDynamicEndOfCharge] over an active AAP session.
  *  - "Notify when charged" (a per-device reaction) — fires purely off observed charging state, so it
  *    works for any live device (BLE or AAP), not just when the phone is the audio source.
- *  - The dashboard time-remaining estimate: a per-device toggle (disabling pauses/hides without
- *    discarding learned data) and a reset that wipes the learned drain so it starts over from the
- *    model's rated battery life.
  *
  * Each row is gated independently; the whole card hides when nothing applies.
  */
@@ -66,6 +68,24 @@ internal fun BatteryCard(
     var showChargedScopeDialog by remember { mutableStateOf(false) }
 
     SettingsSection(title = stringResource(R.string.device_settings_category_battery_label)) {
+        // Time remaining & battery health lead — the headline feature. Charging-side settings
+        // (Apple's charge limit, the charged notification) follow below the divider.
+        if (showLiveControls) {
+            SettingsSwitchItem(
+                icon = Icons.TwoTone.Schedule,
+                title = stringResource(R.string.device_battery_estimate_toggle_label),
+                subtitle = stringResource(R.string.device_battery_estimate_card_desc),
+                checked = estimateEnabled,
+                onCheckedChange = onEstimateEnabledChange,
+            )
+            SettingsBaseItem(
+                icon = Icons.TwoTone.RestartAlt,
+                title = stringResource(R.string.device_battery_estimate_reset_action),
+                subtitle = stringResource(R.string.device_battery_estimate_reset_desc),
+                onClick = { showResetConfirm = true },
+            )
+            SettingsDivider()
+        }
         if (chargeCap != null) {
             SettingsSwitchItem(
                 icon = Icons.TwoTone.BatteryChargingFull,
@@ -110,19 +130,6 @@ internal fun BatteryCard(
                     )
                 }
             }
-            SettingsSwitchItem(
-                icon = Icons.TwoTone.Schedule,
-                title = stringResource(R.string.device_battery_estimate_toggle_label),
-                subtitle = stringResource(R.string.device_battery_estimate_card_desc),
-                checked = estimateEnabled,
-                onCheckedChange = onEstimateEnabledChange,
-            )
-            SettingsBaseItem(
-                icon = Icons.TwoTone.RestartAlt,
-                title = stringResource(R.string.device_battery_estimate_reset_action),
-                subtitle = stringResource(R.string.device_battery_estimate_reset_desc),
-                onClick = { showResetConfirm = true },
-            )
         }
     }
 

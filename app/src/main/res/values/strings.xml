@@ -138,11 +138,11 @@
     <string name="settings_overview_hide_unmatched_label">Hide unmatched devices</string>
     <string name="settings_overview_hide_unmatched_description">Don\'t show nearby devices that don\'t match any of your profiles in the overview, e.g. other people\'s AirPods.</string>
     <string name="device_battery_estimate_toggle_label">Show time remaining</string>
-    <string name="device_battery_estimate_card_desc">Estimate how long until this device needs charging, from its rated battery life and how fast it actually drains. Shown on the dashboard.</string>
+    <string name="device_battery_estimate_card_desc">Estimate how long until this device needs charging and how healthy its batteries are, from the rated battery life and how it actually charges and drains. Shown on the dashboard and in the device info.</string>
     <string name="device_battery_estimate_reset_action">Reset learned data</string>
-    <string name="device_battery_estimate_reset_desc">Forget the measured drain and start over from the rated battery life.</string>
+    <string name="device_battery_estimate_reset_desc">Forget the measured drain, charging speed and battery health, and start over from the rated battery life.</string>
     <string name="device_battery_estimate_reset_confirm_title">Reset learned data?</string>
-    <string name="device_battery_estimate_reset_confirm_message">CAPod will forget what it learned about this device\'s battery drain and estimate from the rated battery life again, re-learning as you use it.</string>
+    <string name="device_battery_estimate_reset_confirm_message">CAPod will forget what it learned about this device\'s battery drain, charging speed and battery health, and estimate from the rated battery life again, re-learning as you use it.</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
 
     <string name="settings_debug_autoreports_label">Automatic bug reports</string>
@@ -480,6 +480,7 @@
     <string name="device_settings_info_battery_health_left_label">Left Battery Health (est.)</string>
     <string name="device_settings_info_battery_health_right_label">Right Battery Health (est.)</string>
     <string name="device_settings_info_battery_health_value">~%1$d%%</string>
+    <string name="device_settings_info_battery_health_pending">Still determining — check back after a few more listening sessions</string>
     <string name="device_settings_info_details_label">Device Details</string>
     <string name="device_settings_info_details_action">Show device details</string>
     <string name="device_settings_info_status_label">Status</string>

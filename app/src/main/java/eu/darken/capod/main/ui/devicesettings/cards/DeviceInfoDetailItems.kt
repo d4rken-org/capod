@@ -39,11 +39,16 @@ internal data class DeviceInfoDetailLabels(
     val rightBatteryHealth: String,
 )
 
-/** Pre-formatted per-pod health values ("~85%") for the info sheet; null slots are omitted. */
+/**
+ * Pre-formatted per-pod health values ("~85%") for the info sheet; null slots are omitted.
+ * [pending] is a placeholder shown under the health label while NO value exists yet — the feature
+ * stays discoverable while the estimator is still accumulating listening sessions.
+ */
 internal data class BatteryHealthTexts(
     val left: String? = null,
     val right: String? = null,
     val headset: String? = null,
+    val pending: String? = null,
 )
 
 private fun healthItems(health: BatteryHealthTexts?, labels: DeviceInfoDetailLabels): List<DeviceDetailItem> {
@@ -60,6 +65,9 @@ private fun healthItems(health: BatteryHealthTexts?, labels: DeviceInfoDetailLab
             health.right != null -> add(DeviceDetailItem.Single(labels.rightBatteryHealth, health.right))
         }
         health.headset?.let { add(DeviceDetailItem.Single(labels.batteryHealth, it)) }
+        if (isEmpty() && health.pending != null) {
+            add(DeviceDetailItem.Single(labels.batteryHealth, health.pending))
+        }
     }
 }
 

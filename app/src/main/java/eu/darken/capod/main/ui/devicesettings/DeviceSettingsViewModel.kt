@@ -174,6 +174,13 @@ class DeviceSettingsViewModel @Inject constructor(
                 batteryHealth = device
                     ?.takeIf { appleProfile?.batteryEstimateEnabled ?: true }
                     ?.let { BatteryHealth.estimate(drainProfiles[profileId], it.model) },
+                // A model with a rating WILL eventually produce a health figure — surface the
+                // feature as "still determining" until the listening sessions accumulate. Without
+                // a paired device the listening gate can never open, so no promise is made.
+                batteryHealthPending = device != null &&
+                    (appleProfile?.batteryEstimateEnabled ?: true) &&
+                    device.model.batterySpec != null &&
+                    device.hasSelectedPairedDevice,
             )
         }
     }.asLiveState()
@@ -202,6 +209,9 @@ class DeviceSettingsViewModel @Inject constructor(
         val batteryEstimateEnabled: Boolean = true,
         /** Derived per-pod battery health (1..100 each), or null when there isn't enough learned data. */
         val batteryHealth: BatteryHealth.PerPod? = null,
+        /** True when health CAN be derived for this device (rated model, feature on) — shows the
+         * "still determining" placeholder while [batteryHealth] is null. */
+        val batteryHealthPending: Boolean = false,
     ) {
         val reactions: ReactionConfig get() = device?.reactions ?: ReactionConfig()
     }
