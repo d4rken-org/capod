@@ -268,6 +268,16 @@ class BatteryEstimatorTest : BaseTest() {
     }
 
     @Test
+    fun `the quick-charge rating seeds an ETA on the very first charge`() = runTest(UnconfinedTestDispatcher()) {
+        // Nothing measured, nothing stored — Apple's "5 minutes = ~1 hour of listening" claim
+        // (2.0/hr for a Pro 2) answers at once: 50% missing at 2.0/hr == 15 min.
+        val result = collectEstimate(
+            estimator(listOf(listOf(device("p1", left = 0.50f, right = 0.50f, charging = true, model = PodModel.AIRPODS_PRO2))))
+        )
+        result["p1"].shouldNotBeNull().left.shouldNotBeNull().minutesUntilCharged shouldBe 15
+    }
+
+    @Test
     fun `a stored charge rate seeds time-until-charged immediately`() = runTest(UnconfinedTestDispatcher()) {
         // First charging emission, no live fit possible yet -> the persisted rate answers at once.
         // 50% missing at 1.2/hr == 25 min.

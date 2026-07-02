@@ -240,7 +240,9 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isLeftPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
-                    timeRemaining = batteryEstimate?.left?.let { formatEstimateText(context, it) },
+                    timeRemaining = batteryEstimate?.left?.let {
+                        formatEstimateText(context, it, isCharging = device.isLeftPodCharging == true)
+                    },
                 )
 
                 PodGauge(
@@ -253,7 +255,9 @@ private fun ColumnScope.DualPodsCardExpanded(
                     isMicrophone = device.isRightPodMicrophone ?: false,
                     showMicrophone = device.hasDualMicrophone,
                     modifier = Modifier.weight(1f),
-                    timeRemaining = batteryEstimate?.right?.let { formatEstimateText(context, it) },
+                    timeRemaining = batteryEstimate?.right?.let {
+                        formatEstimateText(context, it, isCharging = device.isRightPodCharging == true)
+                    },
                 )
             }
 
@@ -406,14 +410,17 @@ private fun PodGauge(
 }
 
 /**
- * The gauge's small estimate line: while charging with a usable rate, the time until full
- * (language-neutral "⚡ 25m"); otherwise the usual time-remaining ("2h 15m"). Shared with
+ * The gauge's small estimate line: while charging, the time until full (language-neutral "⚡ 25m")
+ * or NOTHING — a bare runtime number next to a charging chip ("1% · 4m") inevitably reads as a
+ * four-minute charge. The runtime estimate only shows while not charging. Shared with
  * [SinglePodsCard] (same package).
  */
-internal fun formatEstimateText(context: Context, pod: BatteryEstimate.Pod): String =
-    pod.minutesUntilCharged
-        ?.let { context.getString(R.string.battery_time_until_charged_short, formatBatteryDurationShort(context, it)) }
-        ?: formatBatteryDurationShort(context, pod.minutesRemaining)
+internal fun formatEstimateText(context: Context, pod: BatteryEstimate.Pod, isCharging: Boolean): String? = when {
+    pod.minutesUntilCharged != null ->
+        context.getString(R.string.battery_time_until_charged_short, formatBatteryDurationShort(context, pod.minutesUntilCharged))
+    isCharging -> null
+    else -> formatBatteryDurationShort(context, pod.minutesRemaining)
+}
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

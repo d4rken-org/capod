@@ -267,10 +267,12 @@ private fun ColumnScope.SinglePodsCardExpanded(
                             MaterialTheme.colorScheme.onSurfaceVariant
                         },
                     )
-                    val headsetEstimate = batteryEstimate?.headset
+                    val headsetEstimate = batteryEstimate?.headset?.let {
+                        formatEstimateText(context, it, isCharging = device.isHeadsetBeingCharged == true)
+                    }
                     if (headsetEstimate != null) {
                         Text(
-                            text = formatEstimateText(context, headsetEstimate),
+                            text = headsetEstimate,
                             style = MaterialTheme.typography.labelMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             maxLines = 1,

@@ -155,6 +155,19 @@ class ModelFeaturesTest : BaseTest() {
         }
     }
 
+    @Test
+    fun `every battery spec carries a plausible quick-charge rate`() {
+        // Derived from Apple's published quick-charge claims; must sit inside the band the live
+        // fit is validated against, or the seed could never be corrected by a measurement.
+        PodModel.entries.forEach { model ->
+            val spec = model.batterySpec ?: return@forEach
+            withClue(model.name) {
+                val rate = spec.chargeFractionPerHour
+                (rate != null && rate in 0.25f..4.0f) shouldBe true
+            }
+        }
+    }
+
     private fun modelsWith(predicate: (PodModel.Features) -> Boolean): Set<PodModel> = PodModel.entries
         .filter { predicate(it.features) }
         .toSet()

@@ -27,7 +27,7 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 5f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
         modelNumbers = setOf("A1523", "A1722"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
@@ -45,7 +45,7 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 5f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
         modelNumbers = setOf("A2031", "A2032"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
@@ -67,7 +67,7 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 6f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 6f, chargeFractionPerHour = 2.0f),
         modelNumbers = setOf("A2564", "A2565"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
@@ -90,7 +90,7 @@ enum class PodModel(
             hasEarDetectionToggle = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 5f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
         modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
@@ -122,7 +122,7 @@ enum class PodModel(
             hasStemConfig = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 5f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
         modelNumbers = setOf("A3055", "A3056", "A3057"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen4anc_left,
         rightPodIconRes = R.drawable.device_airpods_gen4anc_right,
@@ -148,7 +148,7 @@ enum class PodModel(
             hasListeningModeCycle = true,
             hasAllowOffOption = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 4.5f, listeningHoursAncOff = 5f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 4.5f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
         modelNumbers = setOf("A2083", "A2084"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -182,7 +182,7 @@ enum class PodModel(
             hasStemConfig = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 6f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f),
         modelNumbers = setOf("A2698", "A2699", "A2931"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -216,7 +216,7 @@ enum class PodModel(
             hasStemConfig = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 6f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f),
         modelNumbers = setOf("A3047", "A3048", "A3049"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -251,7 +251,7 @@ enum class PodModel(
             hasSleepDetection = true,
             hasDynamicEndOfCharge = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 8f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 8f, chargeFractionPerHour = 1.5f),
         modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -272,7 +272,7 @@ enum class PodModel(
             hasListeningModeCycle = true,
             hasAllowOffOption = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 20f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 20f, chargeFractionPerHour = 0.9f),
         modelNumbers = setOf("A2096"), // headphones
     ),
 
@@ -290,7 +290,7 @@ enum class PodModel(
             hasListeningModeCycle = true,
             hasAllowOffOption = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 20f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 20f, chargeFractionPerHour = 0.9f),
         modelNumbers = setOf("A3184"), // headphones
     ),
 
@@ -312,7 +312,7 @@ enum class PodModel(
             hasListeningModeCycle = true,
             hasAllowOffOption = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 20f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 20f, chargeFractionPerHour = 0.9f),
         modelNumbers = setOf("A3454"), // headphones
     ),
 
@@ -606,5 +606,14 @@ enum class PodModel(
         val listeningHoursAncOn: Float? = null,
         /** Listening hours with noise control off, when Apple publishes a distinct figure; else null. */
         val listeningHoursAncOff: Float? = null,
+        /**
+         * Nominal charge rate (battery fraction gained per hour of charging), derived from Apple's
+         * published quick-charge claim: e.g. "5 minutes in the case provides around 1 hour of
+         * listening time" against a 6 h rating is (1/6) / (5/60) = 2.0/hr. Where the model has two
+         * listening ratings it's normalized against the LONGER one, so the seeded "until charged"
+         * never under-promises. Seeds the charge ETA on the very first charge, before any charge
+         * rate has been measured; a live fit takes over within minutes.
+         */
+        val chargeFractionPerHour: Float? = null,
     )
 }
