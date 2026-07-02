@@ -576,6 +576,39 @@ class DeviceSettingsViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `battery health pending flag is set for rated models without data`() = runVmTest {
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+            every { it.hasSelectedPairedDevice } returns true
+        }
+        devicesFlow.value = listOf(device)
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        val state = vm.state.first()
+        state.batteryHealth shouldBe null
+        state.batteryHealthPending shouldBe true
+    }
+
+    @Test
+    fun `battery health pending flag stays off without a paired device`() = runVmTest {
+        // No paired address -> the listening gate can never open -> "check back later" would lie.
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+            every { it.hasSelectedPairedDevice } returns false
+        }
+        devicesFlow.value = listOf(device)
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().batteryHealthPending shouldBe false
+    }
+
+    @Test
     fun `battery health hides when the estimate is disabled for the device`() = runVmTest {
         val device = mockk<PodDevice>(relaxed = true).also {
             every { it.profileId } returns testAddress
@@ -607,7 +640,9 @@ class DeviceSettingsViewModelTest : BaseTest() {
         val vm = createViewModel()
         vm.initialize(testAddress)
 
-        vm.state.first().batteryHealth shouldBe null
+        val state = vm.state.first()
+        state.batteryHealth shouldBe null
+        state.batteryHealthPending shouldBe false
     }
 
     @Test

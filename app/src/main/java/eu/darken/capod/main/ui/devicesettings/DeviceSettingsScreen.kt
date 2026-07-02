@@ -296,18 +296,22 @@ fun DeviceSettingsScreen(
                         info = info,
                         labels = rememberDeviceInfoDetailLabels(),
                         formatDate = { instant -> dateFormatter.format(instant) },
-                        batteryHealth = state.batteryHealth?.let { health ->
-                            BatteryHealthTexts(
-                                left = health.left?.let {
+                        batteryHealth = when {
+                            state.batteryHealth != null -> BatteryHealthTexts(
+                                left = state.batteryHealth.left?.let {
                                     stringResource(R.string.device_settings_info_battery_health_value, it)
                                 },
-                                right = health.right?.let {
+                                right = state.batteryHealth.right?.let {
                                     stringResource(R.string.device_settings_info_battery_health_value, it)
                                 },
-                                headset = health.headset?.let {
+                                headset = state.batteryHealth.headset?.let {
                                     stringResource(R.string.device_settings_info_battery_health_value, it)
                                 },
                             )
+                            state.batteryHealthPending -> BatteryHealthTexts(
+                                pending = stringResource(R.string.device_settings_info_battery_health_pending),
+                            )
+                            else -> null
                         },
                     )
                     DeviceInfoCard(

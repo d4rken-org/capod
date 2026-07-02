@@ -118,14 +118,27 @@ object DrainModel {
     }
 
     /**
-     * The three regimes of a lithium charge. Constant-current bulk is fast and roughly linear;
-     * above ~80% the charger switches to constant-voltage and the intake tapers, ending in a slow
-     * trickle. One linear rate over-promises badly above 80%, so each band learns its own rate.
+     * The regimes of a lithium CC/CV charge. Constant-current bulk is fast and roughly linear;
+     * once the cell hits its voltage ceiling the charger switches to constant-voltage and the
+     * current decays, ending in a slow trickle. One linear rate over-promises badly above ~80%,
+     * so each band learns its own rate.
+     *
+     * Band boundaries and seeds are grounded rather than guessed:
+     *  - The 80% bulk boundary is Apple's own documented behavior for their devices ("uses fast
+     *    charging to quickly reach 80% ... then switches to slower trickle charging",
+     *    apple.com/batteries/why-lithium-ion, mirrored in the iPhone user guide).
+     *  - Battery-charging literature places the CC->CV transition at ~75-85% SoC (lower at high
+     *    charge currents) and describes the CV current as decaying until cutoff, with the
+     *    saturation stage taking a large share of total charge time (Battery University BU-409,
+     *    "Charging Lithium-ion").
+     *  - Two CV bands, not more: the CV current decays continuously, so finer bands would model
+     *    noise while multiplying the state to learn. With the 0.5/0.3 seeds below, the last 20%
+     *    takes ~40% of the seeded total charge time — inside BU-409's reported envelope.
      *
      * [specMultiplier] scales the spec-derived seed for the band: Apple's quick-charge claims
      * ("5 minutes = ~1 hour of listening") measure the bulk phase, so seeding the taper/trickle
-     * bands from them needs a haircut. Applied ONLY to the spec seed — measured or learned rates
-     * already reflect where they were observed.
+     * bands from them needs the CV haircut. Applied ONLY to the spec seed — measured or learned
+     * rates already reflect where they were observed.
      */
     enum class ChargeBand(val from: Float, val to: Float, val specMultiplier: Float) {
         BULK(0.0f, 0.8f, 1.0f),
