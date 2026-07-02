@@ -7,6 +7,7 @@ import eu.darken.capod.common.debug.logging.logTag
 import eu.darken.capod.common.flow.setupCommonEventHandlers
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.pods.core.apple.aap.AapPodState
 import eu.darken.capod.pods.core.apple.aap.protocol.AapSetting
 import eu.darken.capod.pods.core.apple.ble.DualBlePodSnapshot
 import eu.darken.capod.pods.core.apple.ble.SingleBlePodSnapshot
@@ -51,11 +52,30 @@ class BatteryEstimator @Inject constructor(
 
     private enum class Slot { LEFT, RIGHT, HEADSET }
 
+    /** Which transport a battery reading came from — AAP is 1% granularity, BLE 10%. */
+    private enum class DataSource { AAP, BLE }
+
     private class SlotHistory {
+        enum class Direction { DRAIN, CHARGE }
+
+        var direction: Direction = Direction.DRAIN
+            private set
+        private var source: DataSource? = null
         private val samples = ArrayDeque<DrainSample>()
 
         val lastFraction: Float? get() = samples.lastOrNull()?.fraction
         val size: Int get() = samples.size
+
+        /**
+         * Keeps the window only while it still describes the same thing: a direction flip
+         * (drain <-> charge) obviously invalidates it, and so does an AAP <-> BLE source change —
+         * the granularity jump (1% vs 10%) between transports would read as a fake level step.
+         */
+        fun realign(direction: Direction, source: DataSource) {
+            if (this.direction != direction || this.source != source) samples.clear()
+            this.direction = direction
+            this.source = source
+        }
 
         fun record(sample: DrainSample) {
             samples.addLast(sample)
@@ -75,21 +95,29 @@ class BatteryEstimator @Inject constructor(
         val lastMinutes: MutableMap<Slot, Int> = mutableMapOf()
         var lastUpdateMs: Long? = null
 
-        // Keyed by "<bucket>/<slot>".
+        /** When each slot's level last visibly ROSE while charging — drives stall suppression. */
+        val lastRiseMs: MutableMap<Slot, Long> = mutableMapOf()
+
+        // Keyed by "<bucket>/<slot>" for drain rates, "CHARGE/<slot>" for charge rates.
         val lastPersistAtMs: MutableMap<String, Long> = mutableMapOf()
 
         /**
          * Pre-session stored rate captured once per (bucket, slot), so repeated periodic persists
          * during a single session blend against a fixed baseline instead of runaway-converging.
+         * [sessionBaselineCounts] captures the matching pre-session updateCount, so repeated persists
+         * within one session count as ONE update, not many.
          */
         val sessionBaseline: MutableMap<String, Float?> = mutableMapOf()
+        val sessionBaselineCounts: MutableMap<String, Int> = mutableMapOf()
 
         fun clearSlots() = slots.values.forEach { it.clear() }
 
         fun resetWindow() {
             clearSlots()
             lastMinutes.clear()
+            lastRiseMs.clear()
             sessionBaseline.clear()
+            sessionBaselineCounts.clear()
         }
     }
 
@@ -171,15 +199,48 @@ class BatteryEstimator @Inject constructor(
         for (slot in Slot.entries) {
             val history = tracker.slots.getValue(slot)
             val charging = device.liveCharging(slot)
-            val fraction = device.liveFraction(slot)
+            val reading = device.liveReading(slot)
 
             when {
-                charging == true -> { // charging → battery is rising, not draining
+                reading == null -> { // unavailable reading → just drop this slot's window
                     history.clear()
-                    tracker.lastMinutes.remove(slot) // jump breaks continuity → drop this pod's smoothing
+                    tracker.lastRiseMs.remove(slot)
+                    // A charging jump breaks discharge continuity even when the level is unreadable.
+                    if (charging == true) tracker.lastMinutes.remove(slot)
                 }
-                fraction == null -> history.clear() // unavailable reading → just drop this slot's window
-                else -> {
+                charging == true -> { // battery rising → sample the CHARGE, never a drain
+                    val (fraction, source) = reading
+                    tracker.lastMinutes.remove(slot) // jump breaks continuity → drop discharge smoothing
+                    if (device.liveChargingOptimized(slot)) {
+                        // Optimized Battery Charging parks the level below full for hours while
+                        // still flagged charging — fitting that plateau would learn garbage.
+                        history.clear()
+                        tracker.lastRiseMs.remove(slot)
+                    } else {
+                        history.realign(SlotHistory.Direction.CHARGE, source)
+                        val last = history.lastFraction
+                        when {
+                            last == null -> { // charge session starts (or resumes) for this slot
+                                history.record(DrainSample(nowMs, fraction))
+                                tracker.lastRiseMs[slot] = nowMs
+                            }
+                            fraction > last + EPSILON -> {
+                                history.record(DrainSample(nowMs, fraction))
+                                tracker.lastRiseMs[slot] = nowMs
+                            }
+                            fraction < last - EPSILON -> { // level DROPPED while charging → reseat/swap
+                                history.clear()
+                                history.record(DrainSample(nowMs, fraction))
+                                tracker.lastRiseMs[slot] = nowMs
+                            }
+                            else -> Unit // ~unchanged; stall detection judges the silence
+                        }
+                    }
+                }
+                else -> { // draining (or unknown charging state — treated as draining, as before)
+                    val (fraction, source) = reading
+                    tracker.lastRiseMs.remove(slot)
+                    history.realign(SlotHistory.Direction.DRAIN, source)
                     val last = history.lastFraction
                     when {
                         last == null -> history.record(DrainSample(nowMs, fraction))
@@ -196,7 +257,7 @@ class BatteryEstimator @Inject constructor(
         }
 
         persistFromWindow(profileId, tracker, device, bucket, nowMs, force = false)
-        return computeEstimate(profileId, tracker, device, bucket)
+        return computeEstimate(profileId, tracker, device, bucket, nowMs)
     }
 
     /** Computes an independent estimate for each pod (left / right / headset). */
@@ -205,11 +266,12 @@ class BatteryEstimator @Inject constructor(
         tracker: DeviceTracker,
         device: PodDevice,
         bucket: String,
+        nowMs: Long,
     ): BatteryEstimate? {
         val estimate = BatteryEstimate(
-            left = slotEstimate(profileId, tracker, device, bucket, Slot.LEFT),
-            right = slotEstimate(profileId, tracker, device, bucket, Slot.RIGHT),
-            headset = slotEstimate(profileId, tracker, device, bucket, Slot.HEADSET),
+            left = slotEstimate(profileId, tracker, device, bucket, Slot.LEFT, nowMs),
+            right = slotEstimate(profileId, tracker, device, bucket, Slot.RIGHT, nowMs),
+            headset = slotEstimate(profileId, tracker, device, bucket, Slot.HEADSET, nowMs),
         )
         return estimate.takeIf { it.hasAny }
     }
@@ -220,6 +282,7 @@ class BatteryEstimator @Inject constructor(
         device: PodDevice,
         bucket: String,
         slot: Slot,
+        nowMs: Long,
     ): BatteryEstimate.Pod? {
         val fraction = device.liveFraction(slot) ?: return null
 
@@ -236,7 +299,7 @@ class BatteryEstimator @Inject constructor(
             DrainModel.slopeFractionPerHour(tracker.slots.getValue(slot).toList())
                 ?.takeIf { plausibleForModel(it, spec) }
         }
-        val learned = learnedRate(profileId, bucket, slot)
+        val learned = learnedRate(profileId, device, bucket, slot)
         val displayRate = live ?: learned ?: spec ?: return null
 
         // Apple's rating is a hard ceiling on remaining life (a floor on the drain rate) for every
@@ -263,12 +326,42 @@ class BatteryEstimator @Inject constructor(
             minutesRemaining = smoothed,
             fractionPerHour = effectiveRate,
             source = source,
+            minutesUntilCharged = if (charging) chargeEstimate(profileId, tracker, device, slot, fraction, nowMs) else null,
         )
     }
 
     /**
-     * Persists each pod's live drain rate under its (bucket, slot) key, at most once per
-     * [PERSIST_INTERVAL_MS] (mirrors the cache's periodic-save cadence) unless [force]d (mode change).
+     * Minutes until [slot] is full, or null when no usable charge rate exists, the pod is in an
+     * Optimized Battery Charging hold, or the level has sat still longer than one visible step
+     * should take (stall — trickle phase or an unreported hold; a linear ETA would just freeze).
+     */
+    private fun chargeEstimate(
+        profileId: ProfileId,
+        tracker: DeviceTracker,
+        device: PodDevice,
+        slot: Slot,
+        fraction: Float,
+        nowMs: Long,
+    ): Int? {
+        if (device.liveChargingOptimized(slot)) return null // held below full — an ETA would mislead
+        val history = tracker.slots.getValue(slot)
+        val live = if (history.direction == SlotHistory.Direction.CHARGE) {
+            DrainModel.chargeSlopeFractionPerHour(history.toList())
+        } else null
+        val rate = live ?: learnedChargeRate(profileId, device, slot) ?: return null
+
+        val lastRise = tracker.lastRiseMs[slot] ?: return null
+        val step = if (device.liveReading(slot)?.second == DataSource.AAP) STEP_AAP else STEP_BLE
+        if (nowMs - lastRise > DrainModel.chargeStallThresholdMs(rate, step)) return null
+
+        return DrainModel.minutesUntilFull(fraction, rate)
+    }
+
+    /**
+     * Persists each pod's live drain or charge rate (whichever direction its window currently
+     * tracks), at most once per [PERSIST_INTERVAL_MS] (mirrors the cache's periodic-save cadence)
+     * unless [force]d (mode change). Drain rates are keyed per (bucket, slot); charge rates per slot
+     * only — the ANC mode doesn't apply inside the case.
      */
     private suspend fun persistFromWindow(
         profileId: ProfileId,
@@ -278,46 +371,73 @@ class BatteryEstimator @Inject constructor(
         nowMs: Long,
         force: Boolean,
     ) {
-        val existing = drainStore.profiles.value[profileId] ?: DrainProfile()
+        // A profile tagged with DIFFERENT hardware means the user re-pointed it — its rates don't
+        // describe this device, so learning starts over instead of blending into foreign history.
+        val existing = drainStore.profiles.value[profileId]?.takeIf { it.matchesModel(device.model) }
+            ?: DrainProfile()
         val spec = device.specRate(bucket)
         var rates = existing.rates
+        var chargeRates = existing.chargeRates
         var changed = false
 
         for (slot in Slot.entries) {
             val history = tracker.slots.getValue(slot)
+            val isCharge = history.direction == SlotHistory.Direction.CHARGE
             // Same model-aware plausibility gate as display, so an implausibly fast fit isn't learned.
-            val liveRate = DrainModel.slopeFractionPerHour(history.toList())
-                ?.takeIf { plausibleForModel(it, spec) } ?: continue
+            val liveRate = if (isCharge) {
+                DrainModel.chargeSlopeFractionPerHour(history.toList())
+            } else {
+                DrainModel.slopeFractionPerHour(history.toList())?.takeIf { plausibleForModel(it, spec) }
+            } ?: continue
 
-            val key = rateKey(bucket, slot)
+            val key = if (isCharge) chargeRateKey(slot) else rateKey(bucket, slot)
             val lastPersist = tracker.lastPersistAtMs[key]
             if (!force && lastPersist != null && nowMs - lastPersist < PERSIST_INTERVAL_MS) continue
             tracker.lastPersistAtMs[key] = nowMs
 
             // Blend against the rate stored when this session began, captured once, so a single long
             // session's repeated writes can't dominate prior history by re-blending their own output.
+            // The captured updateCount keeps a whole session counting as ONE accumulated update.
+            val stored = if (isCharge) chargeRates[slot.name] else rates[key]
             if (!tracker.sessionBaseline.containsKey(key)) {
-                tracker.sessionBaseline[key] = rates[key]?.fractionPerHour
+                tracker.sessionBaseline[key] = stored?.fractionPerHour
+                tracker.sessionBaselineCounts[key] = stored?.updateCount ?: 0
             }
-            val blended = DrainModel.blendRate(tracker.sessionBaseline[key], liveRate)
-            rates = rates + (key to DrainProfile.LearnedRate(
-                fractionPerHour = blended,
+            val learned = DrainProfile.LearnedRate(
+                fractionPerHour = DrainModel.blendRate(tracker.sessionBaseline[key], liveRate),
                 sampleCount = history.size,
+                updateCount = (tracker.sessionBaselineCounts[key] ?: 0) + 1,
                 updatedAt = timeSource.now(),
-            ))
+            )
+            if (isCharge) chargeRates = chargeRates + (slot.name to learned) else rates = rates + (key to learned)
             changed = true
-            log(TAG, VERBOSE) { "Persisting learned rate for $profileId [$key]: ${"%.3f".format(blended)}/hr" }
+            log(TAG, VERBOSE) { "Persisting learned rate for $profileId [$key]: ${"%.3f".format(learned.fractionPerHour)}/hr" }
         }
 
-        if (changed) drainStore.save(profileId, existing.copy(rates = rates))
+        if (changed) {
+            drainStore.save(
+                profileId,
+                existing.copy(model = device.model.name, rates = rates, chargeRates = chargeRates),
+            )
+        }
     }
 
-    private fun learnedRate(profileId: ProfileId, bucket: String, slot: Slot): Float? {
-        val profile = drainStore.profiles.value[profileId] ?: return null
+    private fun learnedRate(profileId: ProfileId, device: PodDevice, bucket: String, slot: Slot): Float? {
+        val profile = storedProfileFor(profileId, device) ?: return null
         return (profile.rates[rateKey(bucket, slot)] ?: profile.rates[rateKey(MODE_UNKNOWN, slot)])?.fractionPerHour
     }
 
+    private fun learnedChargeRate(profileId: ProfileId, device: PodDevice, slot: Slot): Float? =
+        storedProfileFor(profileId, device)?.chargeRates[slot.name]?.fractionPerHour
+
+    /** The stored profile, ignored entirely when its rates were learned on different hardware. */
+    private fun storedProfileFor(profileId: ProfileId, device: PodDevice): DrainProfile? =
+        drainStore.profiles.value[profileId]?.takeIf { it.matchesModel(device.model) }
+
     private fun rateKey(bucket: String, slot: Slot): String = "$bucket/${slot.name}"
+
+    /** Session-state key for charge windows — namespaced so it can't collide with an ANC bucket. */
+    private fun chargeRateKey(slot: Slot): String = "CHARGE/${slot.name}"
 
     private fun PodDevice.modeBucket(): String = ancMode?.current?.name ?: MODE_UNKNOWN
 
@@ -350,14 +470,28 @@ class BatteryEstimator @Inject constructor(
 
     // RAW LIVE extraction — must NOT use device.batteryLeft/isLeftPodCharging (which fall back to
     // cache); learning from a re-stamped stale reading would poison the rate.
-    private fun PodDevice.liveFraction(slot: Slot): Float? {
-        val value = when (slot) {
-            Slot.LEFT -> aap?.batteryLeft ?: (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
-            Slot.RIGHT -> aap?.batteryRight ?: (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
-            Slot.HEADSET -> aap?.batteryHeadset ?: (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
+    private fun PodDevice.liveFraction(slot: Slot): Float? = liveReading(slot)?.first
+
+    /**
+     * The slot's live battery fraction plus which transport reported it. The source matters because
+     * the two granularities (AAP 1%, BLE 10%) can't share a fit window — see [SlotHistory.realign].
+     */
+    private fun PodDevice.liveReading(slot: Slot): Pair<Float, DataSource>? {
+        val aapValue = when (slot) {
+            Slot.LEFT -> aap?.batteryLeft
+            Slot.RIGHT -> aap?.batteryRight
+            Slot.HEADSET -> aap?.batteryHeadset
+        }
+        val (value, source) = when {
+            aapValue != null -> aapValue to DataSource.AAP
+            else -> when (slot) {
+                Slot.LEFT -> (ble as? DualBlePodSnapshot)?.batteryLeftPodPercent
+                Slot.RIGHT -> (ble as? DualBlePodSnapshot)?.batteryRightPodPercent
+                Slot.HEADSET -> (ble as? SingleBlePodSnapshot)?.batteryHeadsetPercent
+            }?.let { it to DataSource.BLE } ?: return null
         }
         // coerce defends against a malformed >1 reading, which would otherwise beat the full-charge spec.
-        return value?.takeIf { isKnownBattery(it) }?.coerceIn(0f, 1f)
+        return value.takeIf { isKnownBattery(it) }?.coerceIn(0f, 1f)?.let { it to source }
     }
 
     private fun PodDevice.liveCharging(slot: Slot): Boolean? = when (slot) {
@@ -366,12 +500,23 @@ class BatteryEstimator @Inject constructor(
         Slot.HEADSET -> aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged
     }
 
+    /** Only AAP reports the Optimized Battery Charging hold; BLE can't distinguish it. */
+    private fun PodDevice.liveChargingOptimized(slot: Slot): Boolean = when (slot) {
+        Slot.LEFT -> aap?.leftChargingState
+        Slot.RIGHT -> aap?.rightChargingState
+        Slot.HEADSET -> aap?.headsetChargingState
+    } == AapPodState.ChargingState.CHARGING_OPTIMIZED
+
     companion object {
         private val TAG = logTag("Monitor", "BatteryEstimator")
         private const val RING_SIZE = 32
         private const val EPSILON = 0.001f
-        private const val MODE_UNKNOWN = "UNKNOWN"
+        private const val MODE_UNKNOWN = DrainProfile.BUCKET_UNKNOWN
         private const val PERSIST_INTERVAL_MS = 5 * 60_000L
+
+        /** Visible battery step per transport — feeds the granularity-aware stall threshold. */
+        private const val STEP_AAP = 0.01f
+        private const val STEP_BLE = 0.10f
 
         /** A measured rate above this multiple of the model's rated drain is rejected as implausible. */
         private const val SPEC_BAND_MAX = 4f

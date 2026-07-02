@@ -295,6 +295,9 @@ fun DeviceSettingsScreen(
                         info = info,
                         labels = rememberDeviceInfoDetailLabels(),
                         formatDate = { instant -> dateFormatter.format(instant) },
+                        batteryHealth = state.batteryHealthPercent?.let {
+                            stringResource(R.string.device_settings_info_battery_health_value, it)
+                        },
                     )
                     DeviceInfoCard(
                         deviceInfo = device.deviceInfo,

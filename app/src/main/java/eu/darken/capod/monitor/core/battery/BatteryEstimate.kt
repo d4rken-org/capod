@@ -16,11 +16,15 @@ data class BatteryEstimate(
      * @property source how the drain was determined (see [Source]) — reflects measurement provenance,
      *   NOT whether the model rating capped the shown value; a LIVE/LEARNED estimate can still be
      *   bounded by the model's rated life
+     * @property minutesUntilCharged minutes until this pod is full — non-null only while it is
+     *   actively charging with a usable charge rate (not during an Optimized Battery Charging hold
+     *   or the final trickle phase). When set, the UI shows this instead of [minutesRemaining].
      */
     data class Pod(
         val minutesRemaining: Int,
         val fractionPerHour: Float,
         val source: Source,
+        val minutesUntilCharged: Int? = null,
     ) {
         /** True while the estimate rests on the model's rated spec, before any drain has been measured. */
         val isProvisional: Boolean get() = source == Source.SPEC

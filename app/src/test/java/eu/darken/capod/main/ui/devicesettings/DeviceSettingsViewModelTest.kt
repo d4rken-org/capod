@@ -12,12 +12,16 @@ import eu.darken.capod.main.core.MonitorMode
 import eu.darken.capod.monitor.core.DeviceMonitor
 import eu.darken.capod.monitor.core.MonitorModeResolver
 import eu.darken.capod.monitor.core.PodDevice
+import eu.darken.capod.monitor.core.battery.BatteryDrainStore
 import eu.darken.capod.monitor.core.battery.BatteryEstimator
+import eu.darken.capod.monitor.core.battery.DrainProfile
+import eu.darken.capod.pods.core.apple.PodModel
 import eu.darken.capod.pods.core.apple.aap.AapConnectionManager
 import eu.darken.capod.pods.core.apple.aap.protocol.AapCommand
 import eu.darken.capod.profiles.core.AppleDeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfile
 import eu.darken.capod.profiles.core.DeviceProfilesRepo
+import eu.darken.capod.profiles.core.ProfileId
 import eu.darken.capod.reaction.core.stem.StemAction
 import eu.darken.capod.reaction.core.stem.StemActionsConfig
 import io.kotest.matchers.shouldBe
@@ -64,6 +68,8 @@ class DeviceSettingsViewModelTest : BaseTest() {
     private lateinit var bluetoothManager: BluetoothManager2
     private lateinit var profilesRepo: DeviceProfilesRepo
     private lateinit var batteryEstimator: BatteryEstimator
+    private lateinit var drainStore: BatteryDrainStore
+    private lateinit var drainProfilesFlow: MutableStateFlow<Map<ProfileId, DrainProfile>>
     private lateinit var monitorModeResolver: MonitorModeResolver
     private lateinit var nudgeCapabilityStore: NudgeCapabilityStore
     private lateinit var nudgeAvailabilityFlow: MutableStateFlow<NudgeAvailability>
@@ -119,6 +125,10 @@ class DeviceSettingsViewModelTest : BaseTest() {
             every { profiles } returns profilesFlow
         }
         batteryEstimator = mockk(relaxed = true)
+        drainProfilesFlow = MutableStateFlow(emptyMap())
+        drainStore = mockk<BatteryDrainStore>().also {
+            every { it.profiles } returns drainProfilesFlow
+        }
         effectiveModeFlow = MutableStateFlow(MonitorMode.AUTOMATIC)
         monitorModeResolver = mockk<MonitorModeResolver>().also {
             every { it.effectiveMode } returns effectiveModeFlow
@@ -144,6 +154,7 @@ class DeviceSettingsViewModelTest : BaseTest() {
         bluetoothManager = bluetoothManager,
         profilesRepo = profilesRepo,
         batteryEstimator = batteryEstimator,
+        drainStore = drainStore,
         monitorModeResolver = monitorModeResolver,
         nudgeCapabilityStore = nudgeCapabilityStore,
         timeSource = timeSource,
@@ -533,6 +544,69 @@ class DeviceSettingsViewModelTest : BaseTest() {
         vm.initialize(testAddress)
 
         vm.state.first().batteryEstimateEnabled shouldBe false
+    }
+
+    @Test
+    fun `state derives battery health from learned rates`() = runVmTest {
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+        }
+        devicesFlow.value = listOf(device)
+        // Rated 6h, learned 3h of runtime (0.333/hr) -> ~50% health.
+        drainProfilesFlow.value = mapOf(
+            testAddress to DrainProfile(
+                model = PodModel.AIRPODS_PRO2.name,
+                rates = mapOf(
+                    "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
+                        fractionPerHour = 1f / 3f,
+                        sampleCount = 10,
+                        updateCount = 3,
+                        updatedAt = java.time.Instant.EPOCH,
+                    )
+                ),
+            )
+        )
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().batteryHealthPercent shouldBe 50
+    }
+
+    @Test
+    fun `battery health hides when the estimate is disabled for the device`() = runVmTest {
+        val device = mockk<PodDevice>(relaxed = true).also {
+            every { it.profileId } returns testAddress
+            every { it.model } returns PodModel.AIRPODS_PRO2
+        }
+        devicesFlow.value = listOf(device)
+        drainProfilesFlow.value = mapOf(
+            testAddress to DrainProfile(
+                model = PodModel.AIRPODS_PRO2.name,
+                rates = mapOf(
+                    "UNKNOWN/LEFT" to DrainProfile.LearnedRate(
+                        fractionPerHour = 1f / 3f,
+                        sampleCount = 10,
+                        updateCount = 3,
+                        updatedAt = java.time.Instant.EPOCH,
+                    )
+                ),
+            )
+        )
+        profilesFlow.value = listOf(
+            AppleDeviceProfile(
+                id = testAddress,
+                label = "Test",
+                address = testAddress,
+                batteryEstimateEnabled = false,
+            )
+        )
+
+        val vm = createViewModel()
+        vm.initialize(testAddress)
+
+        vm.state.first().batteryHealthPercent shouldBe null
     }
 
     @Test

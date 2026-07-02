@@ -2,6 +2,7 @@ package eu.darken.capod.monitor.core.battery
 
 import kotlin.math.abs
 import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 
 /**
  * A single battery observation for one slot (left / right / headset).
@@ -44,6 +45,29 @@ object DrainModel {
     const val RATE_MIN = 0.02f
     const val RATE_MAX = 0.80f
 
+    /**
+     * Charge fits get by with fewer samples than drain fits: a charge session is short (well under
+     * an hour) and BLE's 10% steps would otherwise need most of the session before a fit exists.
+     */
+    const val MIN_SAMPLES_CHARGE = 3
+
+    /** Minimum total rise across the charge window — rejects jitter that isn't a real charge. */
+    const val MIN_TOTAL_RISE = 0.05f
+
+    /** Plausible charge-rate band (fraction/hour): a full charge in 15 minutes .. 4 hours. */
+    const val CHARGE_RATE_MIN = 0.25f
+    const val CHARGE_RATE_MAX = 4.0f
+
+    /**
+     * Above this level the "until charged" estimate is suppressed: the final trickle phase is far
+     * slower than the linear bulk of the curve, so a linear fit would show a perpetually-imminent
+     * finish. The firmware flips the charging flag off at 100% anyway.
+     */
+    const val NEAR_FULL_SUPPRESS = 0.97f
+
+    /** [chargeStallThresholdMs] never goes below this, however fast the rate claims to be. */
+    const val CHARGE_STALL_FLOOR_MS = 10 * 60_000L
+
     /** Estimates above this are implausible and suppressed. */
     const val MAX_MINUTES = 24 * 60
 
@@ -65,18 +89,68 @@ object DrainModel {
      * battery isn't actually draining, or the result is outside [RATE_MIN]..[RATE_MAX].
      */
     fun slopeFractionPerHour(samples: List<DrainSample>): Float? {
-        if (samples.size < MIN_SAMPLES) return null
+        val recent = recentWindow(samples, MIN_SAMPLES) ?: return null
+        if (recent.first().fraction - recent.last().fraction < MIN_TOTAL_DROP) return null
+
+        // Negative slope == draining; flip to a positive drain rate.
+        val rate = regressionSlopePerHour(recent)?.let { -it } ?: return null
+        if (!rate.isFinite() || rate < RATE_MIN || rate > RATE_MAX) return null
+        return rate
+    }
+
+    /**
+     * Least-squares slope of RISING [samples] (a charging pod) as a positive charge rate in
+     * fraction/hour, with the same window guards as the drain fit but charge-tuned thresholds.
+     */
+    fun chargeSlopeFractionPerHour(samples: List<DrainSample>): Float? {
+        val recent = recentWindow(samples, MIN_SAMPLES_CHARGE) ?: return null
+        if (recent.last().fraction - recent.first().fraction < MIN_TOTAL_RISE) return null
+
+        val rate = regressionSlopePerHour(recent) ?: return null
+        if (!rate.isFinite() || rate < CHARGE_RATE_MIN || rate > CHARGE_RATE_MAX) return null
+        return rate
+    }
+
+    /**
+     * Minutes until [levelFraction] reaches full at [chargeFractionPerHour], or null when the rate
+     * is non-positive, the level is already in the trickle zone ([NEAR_FULL_SUPPRESS]), or the
+     * result is implausible.
+     */
+    fun minutesUntilFull(levelFraction: Float, chargeFractionPerHour: Float): Int? {
+        if (chargeFractionPerHour <= 0f || !levelFraction.isFinite() || levelFraction < 0f) return null
+        if (levelFraction >= NEAR_FULL_SUPPRESS) return null
+        val minutes = ((1f - levelFraction) / chargeFractionPerHour * 60.0).roundToInt()
+        return minutes.takeIf { it in 1..MAX_MINUTES }
+    }
+
+    /**
+     * How long the level may sit unchanged while charging before the "until charged" estimate is
+     * considered stalled (Optimized Battery Charging hold, trickle phase, or a dead reading) and
+     * suppressed. Granularity-aware: at [chargeFractionPerHour] a single visible step of
+     * [stepFraction] (1% on AAP, 10% on BLE) takes `step/rate` hours — a slow BLE charge legitimately
+     * shows no change for ~20 minutes, so a fixed timeout would falsely suppress it.
+     */
+    fun chargeStallThresholdMs(chargeFractionPerHour: Float, stepFraction: Float): Long {
+        if (chargeFractionPerHour <= 0f) return CHARGE_STALL_FLOOR_MS
+        val stepMs = (stepFraction.toDouble() / chargeFractionPerHour * 3_600_000).roundToLong()
+        return maxOf(CHARGE_STALL_FLOOR_MS, stepMs * 3 / 2)
+    }
+
+    /** Samples within [MAX_SAMPLE_AGE_MS] of the newest, or null when count/span guards fail. */
+    private fun recentWindow(samples: List<DrainSample>, minSamples: Int): List<DrainSample>? {
+        if (samples.size < minSamples) return null
 
         // Restrict to the recent window so a gap before the newest sample can't span the fit.
         val newestMs = samples.last().atElapsedMs
         val recent = samples.filter { newestMs - it.atElapsedMs <= MAX_SAMPLE_AGE_MS }
-        if (recent.size < MIN_SAMPLES) return null
+        if (recent.size < minSamples) return null
+        if (recent.last().atElapsedMs - recent.first().atElapsedMs < MIN_SPAN_MS) return null
+        return recent
+    }
 
+    /** Signed least-squares slope (fraction per hour) over [recent]; negative when draining. */
+    private fun regressionSlopePerHour(recent: List<DrainSample>): Float? {
         val first = recent.first()
-        val last = recent.last()
-        if (last.atElapsedMs - first.atElapsedMs < MIN_SPAN_MS) return null
-        if (first.fraction - last.fraction < MIN_TOTAL_DROP) return null
-
         val n = recent.size.toDouble()
         var sumX = 0.0
         var sumY = 0.0
@@ -92,11 +166,7 @@ object DrainModel {
         }
         val denominator = n * sumXX - sumX * sumX
         if (abs(denominator) < 1e-9) return null
-
-        // Negative slope == draining; flip to a positive drain rate.
-        val rate = (-((n * sumXY - sumX * sumY) / denominator)).toFloat()
-        if (!rate.isFinite() || rate < RATE_MIN || rate > RATE_MAX) return null
-        return rate
+        return ((n * sumXY - sumX * sumY) / denominator).toFloat()
     }
 
     /**

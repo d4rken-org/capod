@@ -18,6 +18,7 @@ internal fun rememberDeviceInfoDetailLabels() = DeviceInfoDetailLabels(
     rightSerial = stringResource(R.string.device_settings_info_right_serial_label),
     leftBonded = stringResource(R.string.device_settings_info_left_bonded_label),
     rightBonded = stringResource(R.string.device_settings_info_right_bonded_label),
+    batteryHealth = stringResource(R.string.device_settings_info_battery_health_label),
 )
 
 internal data class DeviceInfoDetailLabels(
@@ -31,14 +32,20 @@ internal data class DeviceInfoDetailLabels(
     val rightSerial: String,
     val leftBonded: String,
     val rightBonded: String,
+    val batteryHealth: String,
 )
 
 internal fun buildDeviceInfoDetailItems(
     info: AapDeviceInfo?,
     labels: DeviceInfoDetailLabels,
+    batteryHealth: String? = null,
     formatDate: (Instant) -> String,
 ): List<DeviceDetailItem> {
-    if (info == null) return emptyList()
+    // Battery health is derived locally, so it's available (and shows the info button) even for
+    // BLE-only devices that never produce an AAP device-info response.
+    if (info == null) {
+        return batteryHealth?.let { listOf(DeviceDetailItem.Single(labels.batteryHealth, it)) } ?: emptyList()
+    }
     return buildList {
         info.manufacturer.takeIf { it.isNotBlank() }?.let {
             add(DeviceDetailItem.Single(labels.manufacturer, it))
@@ -82,5 +89,6 @@ internal fun buildDeviceInfoDetailItems(
             leftBonded != null -> add(DeviceDetailItem.Single(labels.leftBonded, leftBonded))
             rightBonded != null -> add(DeviceDetailItem.Single(labels.rightBonded, rightBonded))
         }
+        batteryHealth?.let { add(DeviceDetailItem.Single(labels.batteryHealth, it)) }
     }
 }
