@@ -156,6 +156,22 @@ class ModelFeaturesTest : BaseTest() {
     }
 
     @Test
+    fun `with-case totals exist for cased models and exceed the single-charge rating`() {
+        PodModel.entries.forEach { model ->
+            val spec = model.batterySpec ?: return@forEach
+            withClue(model.name) {
+                if (model.features.hasCase) {
+                    val withCase = spec.listeningHoursWithCase
+                    val single = spec.listeningHoursAncOn ?: spec.listeningHoursAncOff
+                    (withCase != null && single != null && withCase > single) shouldBe true
+                } else {
+                    spec.listeningHoursWithCase shouldBe null
+                }
+            }
+        }
+    }
+
+    @Test
     fun `every battery spec carries a plausible quick-charge rate`() {
         // Derived from Apple's published quick-charge claims; must sit inside the band the live
         // fit is validated against, or the seed could never be corrected by a measurement.

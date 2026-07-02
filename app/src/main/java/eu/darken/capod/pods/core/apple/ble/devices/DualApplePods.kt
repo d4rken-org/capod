@@ -147,6 +147,26 @@ interface DualApplePods : ApplePods, HasChargeDetectionDual, DualBlePodSnapshot,
     val hasCaseContext: Boolean
         get() = isThisPodInThecase || isOnePodInCase || areBothPodsInCase
 
+    /**
+     * The case battery ONLY when this very frame carries authoritative case data (the broadcasting
+     * pod itself is in the case) — never the latched last-known fallback the display accessors use.
+     * bit4-only frames (other pod docked, this one out) are excluded: their case bytes can be stale
+     * phantoms, exactly like the lid byte (see [caseLidState]). Battery-estimator input.
+     */
+    val batteryCaseLivePercent: Float?
+        get() {
+            if (!isThisPodInThecase && !areBothPodsInCase) return null
+            payload.private?.asBatteryState(3)?.let { return it.level }
+            return when (val value = pubCaseBattery.toInt()) {
+                15 -> null
+                else -> if (value > 10) 1.0f else value / 10f
+            }
+        }
+
+    /** Case charging, trusted only under the same strict case context as [batteryCaseLivePercent]. */
+    val isCaseChargingLive: Boolean?
+        get() = if (isThisPodInThecase || areBothPodsInCase) isCaseCharging else null
+
     val caseLidState: LidState
         get() = LidState.fromRaw(
             raw = pubCaseLidState,

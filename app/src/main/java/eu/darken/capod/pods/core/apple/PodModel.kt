@@ -27,7 +27,7 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f, listeningHoursWithCase = 24f),
         modelNumbers = setOf("A1523", "A1722"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
@@ -45,7 +45,7 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f, listeningHoursWithCase = 24f),
         modelNumbers = setOf("A2031", "A2032"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen1_left,
         rightPodIconRes = R.drawable.device_airpods_gen1_right,
@@ -67,7 +67,7 @@ enum class PodModel(
             hasMicrophoneMode = true,
             hasEarDetectionToggle = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 6f, chargeFractionPerHour = 2.0f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 6f, chargeFractionPerHour = 2.0f, listeningHoursWithCase = 30f),
         modelNumbers = setOf("A2564", "A2565"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
@@ -90,7 +90,7 @@ enum class PodModel(
             hasEarDetectionToggle = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        batterySpec = BatterySpec(listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f, listeningHoursWithCase = 30f),
         modelNumbers = setOf("A3050", "A3053", "A3054"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen3_left,
         rightPodIconRes = R.drawable.device_airpods_gen3_right,
@@ -122,7 +122,7 @@ enum class PodModel(
             hasStemConfig = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 4f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f, listeningHoursWithCase = 20f),
         modelNumbers = setOf("A3055", "A3056", "A3057"), // earphones
         leftPodIconRes = R.drawable.device_airpods_gen4anc_left,
         rightPodIconRes = R.drawable.device_airpods_gen4anc_right,
@@ -148,7 +148,7 @@ enum class PodModel(
             hasListeningModeCycle = true,
             hasAllowOffOption = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 4.5f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 4.5f, listeningHoursAncOff = 5f, chargeFractionPerHour = 2.4f, listeningHoursWithCase = 24f),
         modelNumbers = setOf("A2083", "A2084"), // L/R earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -182,7 +182,7 @@ enum class PodModel(
             hasStemConfig = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f, listeningHoursWithCase = 30f),
         modelNumbers = setOf("A2698", "A2699", "A2931"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -216,7 +216,7 @@ enum class PodModel(
             hasStemConfig = true,
             hasSleepDetection = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 6f, chargeFractionPerHour = 2.0f, listeningHoursWithCase = 30f),
         modelNumbers = setOf("A3047", "A3048", "A3049"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -251,7 +251,7 @@ enum class PodModel(
             hasSleepDetection = true,
             hasDynamicEndOfCharge = true,
         ),
-        batterySpec = BatterySpec(listeningHoursAncOn = 8f, chargeFractionPerHour = 1.5f),
+        batterySpec = BatterySpec(listeningHoursAncOn = 8f, chargeFractionPerHour = 1.5f, listeningHoursWithCase = 24f),
         modelNumbers = setOf("A3063", "A3064", "A3065"), // earphones
         leftPodIconRes = R.drawable.device_airpods_pro2_left,
         rightPodIconRes = R.drawable.device_airpods_pro2_right,
@@ -615,5 +615,12 @@ enum class PodModel(
          * rate has been measured; a live fit takes over within minutes.
          */
         val chargeFractionPerHour: Float? = null,
+        /**
+         * Apple's published TOTAL listening hours "with the charging case", in the SAME noise-mode
+         * condition as the headline single-charge rating. Together with the single-charge hours it
+         * pins the case's nominal capacity in pod recharges — the baseline for the derived case
+         * battery health (transfer efficiency).
+         */
+        val listeningHoursWithCase: Float? = null,
     )
 }

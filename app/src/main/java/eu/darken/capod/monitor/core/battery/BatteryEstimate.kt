@@ -9,6 +9,12 @@ data class BatteryEstimate(
     val left: Pod? = null,
     val right: Pod? = null,
     val headset: Pod? = null,
+    /**
+     * Minutes until the CASE is full — non-null only while it is actively charging with a usable
+     * learned/measured rate. The case gets no runtime estimate: its idle-then-burst drain has no
+     * meaningful hourly rate.
+     */
+    val caseMinutesUntilCharged: Int? = null,
 ) {
     /**
      * @property minutesRemaining smoothed estimate of minutes until this pod empties
@@ -43,5 +49,5 @@ data class BatteryEstimate(
         LIVE,
     }
 
-    val hasAny: Boolean get() = left != null || right != null || headset != null
+    val hasAny: Boolean get() = left != null || right != null || headset != null || caseMinutesUntilCharged != null
 }

@@ -23,6 +23,7 @@ class DeviceInfoDetailItemsTest : BaseTest() {
         batteryHealth = "Battery Health",
         leftBatteryHealth = "Left Battery Health",
         rightBatteryHealth = "Right Battery Health",
+        caseBatteryHealth = "Case Battery Health",
     )
 
     private val formatter: (Instant) -> String = { "fmt:${it.epochSecond}" }

@@ -241,6 +241,10 @@ internal class AapSessionEngine(
                 }
                 _state.value = _state.value.copy(
                     batteries = _state.value.batteries + valid,
+                    // Strictly per-update: a DISCONNECTED or ABSENT case entry means the merged
+                    // map's CASE value is (about to be) frozen — never carry a stale "live" over.
+                    caseIsLive = update.batteries[AapPodState.BatteryType.CASE]
+                        ?.let { it.charging != AapPodState.ChargingState.DISCONNECTED } == true,
                     lastMessageAt = timeSource.now(),
                 )
                 log(TAG) {
