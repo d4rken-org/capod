@@ -183,18 +183,23 @@ data class PodDevice(
             ).minOrNull()
         }
 
-    // Charging — AAP preferred, BLE fallback, then cached
+    // Charging — AAP preferred, BLE fallback, then cached. The cached fallback only applies while
+    // the device is live (connected): charging is a real-time claim ("power is flowing now") that
+    // we can't stand behind once the device is out of range, so we suppress it after full
+    // disconnect rather than showing a frozen charging state on the dimmed "cached N ago" card.
+    // The raw charging bits are still persisted in `cached` for callers that want the last-known
+    // value directly (device.cached?.is…Charging).
     val isLeftPodCharging: Boolean?
-        get() = aap?.isLeftCharging ?: (ble as? HasChargeDetectionDual)?.isLeftPodCharging ?: cached?.isLeftCharging
+        get() = aap?.isLeftCharging ?: (ble as? HasChargeDetectionDual)?.isLeftPodCharging ?: cached?.isLeftCharging?.takeIf { isLive }
 
     val isRightPodCharging: Boolean?
-        get() = aap?.isRightCharging ?: (ble as? HasChargeDetectionDual)?.isRightPodCharging ?: cached?.isRightCharging
+        get() = aap?.isRightCharging ?: (ble as? HasChargeDetectionDual)?.isRightPodCharging ?: cached?.isRightCharging?.takeIf { isLive }
 
     val isCaseCharging: Boolean?
-        get() = aap?.isCaseCharging ?: (ble as? HasCase)?.isCaseCharging ?: cached?.isCaseCharging
+        get() = aap?.isCaseCharging ?: (ble as? HasCase)?.isCaseCharging ?: cached?.isCaseCharging?.takeIf { isLive }
 
     val isHeadsetBeingCharged: Boolean?
-        get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged ?: cached?.isHeadsetCharging
+        get() = aap?.isHeadsetCharging ?: (ble as? HasChargeDetection)?.isHeadsetBeingCharged ?: cached?.isHeadsetCharging?.takeIf { isLive }
 
     // Full per-slot charging state — AAP only (BLE + cache don't carry CHARGING_OPTIMIZED).
     // Null means "no live AAP reading", which lets callers avoid showing a stale Optimized chip

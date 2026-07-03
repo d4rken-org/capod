@@ -91,10 +91,37 @@ class PodDeviceCacheTest : BaseTest() {
         }
 
         @Test
-        fun `charging falls back to cache`() {
-            val device = PodDevice(profileId = "test-profile", ble = null, aap = null, cached = cachedState)
-            device.isLeftPodCharging shouldBe false
-            device.isCaseCharging shouldBe true
+        fun `charging is suppressed when not live even if cached`() {
+            // Charging is a real-time claim we can't stand behind once the device is out of range.
+            // A cached-only (non-live) device must report null for every charging slot, so the
+            // dimmed "cached N ago" card shows no charging chip. Uses a cache with all four slots
+            // populated to prove each getter suppresses independently.
+            val fullChargingCache = cachedState.copy(
+                isLeftCharging = true,
+                isRightCharging = true,
+                isCaseCharging = true,
+                isHeadsetCharging = true,
+            )
+            val device = PodDevice(profileId = "test-profile", ble = null, aap = null, cached = fullChargingCache)
+            device.isLive shouldBe false
+            device.isLeftPodCharging.shouldBeNull()
+            device.isRightPodCharging.shouldBeNull()
+            device.isCaseCharging.shouldBeNull()
+            device.isHeadsetBeingCharged.shouldBeNull()
+        }
+
+        @Test
+        fun `charging still uses cache fallback while live`() {
+            // While a device is connected (here: an AAP session that is READY but hasn't sent a
+            // per-slot charging reading yet) the cached charging value is still shown, since the
+            // device is present and a fresh reading will correct it momentarily.
+            val aap = AapPodState(
+                connectionState = AapPodState.ConnectionState.READY,
+                lastMessageAt = fiveMinAgo,
+            )
+            val device = PodDevice(profileId = "test-profile", ble = null, aap = aap, cached = cachedState)
+            device.isLive shouldBe true
+            device.isCaseCharging shouldBe true // AAP has no case charging -> cache fallback (live)
         }
 
         @Test
